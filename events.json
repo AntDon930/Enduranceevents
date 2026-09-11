@@ -154,5 +154,18 @@
     "datum_ende": "2026-05-01",
     "laenge_km": 187,
     "veranstalter_url": "https://www.rund-um-frankfurt.de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Basel Marathon",
+    "standort": "Basel",
+    "lat": 47.5596,
+    "lon": 7.5886,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-09",
+    "datum_ende": "2027-05-09",
+    "laenge_km": 42.2,
+    "veranstalter_url": "https://www.basel-marathon.ch"
   }
 ]

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Ausdauersport-Events D/A/CH</title>
 <style>
   :root {
@@ -37,6 +38,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
+    text-decoration: none;
   }
   h1 {
     font-size: 1.4rem;
@@ -56,7 +58,13 @@
     gap: 8px;
     margin-bottom: 10px;
   }
-  .result-count { font-size: 0.85rem; color: var(--text-muted); }
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
     padding: 6px 12px;
     border-radius: 6px;
@@ -81,6 +89,7 @@
     border-radius: 999px;
     padding: 3px 10px;
     font-size: 0.75rem;
+    text-decoration: none;
   }
   .chip button {
     border: none;
@@ -124,6 +133,7 @@
     border-bottom: 1px solid var(--border);
     text-align: left;
     padding: 0;
+    font-weight: 600;
   }
   .th-inner {
     padding: 8px 10px;
@@ -132,29 +142,19 @@
     gap: 6px;
     white-space: nowrap;
   }
-  th.sortable .th-inner { cursor: pointer; }
-  th.sortable .th-inner:hover { background: var(--row-hover); }
-  .sort-arrow { color: var(--text-muted); font-size: 0.7rem; }
 
   tbody td {
     padding: 8px 10px;
     border-bottom: 1px solid var(--border);
     vertical-align: top;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: normal;
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
   tbody tr:hover { background: var(--row-hover); }
   tbody tr.active { background: var(--accent-bg); }
-  .badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 1px 7px;
-    border-radius: 999px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    margin-right: 3px;
-    white-space: nowrap;
-  }
   .empty-row td {
     text-align: center;
     padding: 24px;
@@ -190,8 +190,8 @@
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     padding: 10px;
-    min-width: 200px;
-    max-width: 260px;
+    min-width: 210px;
+    max-width: 270px;
     font-weight: normal;
     white-space: normal;
   }
@@ -225,25 +225,28 @@
     font-size: 0.78rem;
     color: var(--text-muted);
   }
-  .filter-panel .date-row {
+  .filter-panel .range-row {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .filter-panel .date-row label {
+  .filter-panel .range-row label {
     display: flex;
     flex-direction: column;
     gap: 2px;
     font-size: 0.75rem;
     color: var(--text-muted);
   }
-  .filter-panel input[type="date"] {
+  .filter-panel input[type="date"],
+  .filter-panel input[type="number"],
+  .filter-panel input[type="text"] {
     padding: 5px 6px;
     border-radius: 6px;
     border: 1px solid var(--border);
     background: var(--bg);
     color: var(--text);
     font-size: 0.82rem;
+    width: 100%;
   }
   .radius-section {
     margin-top: 10px;
@@ -294,6 +297,42 @@
     margin-bottom: 6px;
   }
 
+  /* Datum-Baum (Jahr > Monat > Tag) */
+  .date-tree {
+    max-height: 240px;
+    overflow-y: auto;
+  }
+  .tree-node { margin-bottom: 2px; }
+  .tree-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .tree-toggle {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.7rem;
+    width: 14px;
+    flex-shrink: 0;
+    padding: 0;
+  }
+  .tree-spacer {
+    width: 14px;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  .tree-row label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .tree-children { margin-left: 18px; }
+
   .detail-panel {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -318,7 +357,7 @@
     font-size: 0.88rem;
   }
   .detail-grid dt { color: var(--text-muted); font-weight: 500; }
-  .detail-grid dd { margin: 0; }
+  .detail-grid dd { margin: 0; font-weight: normal; }
   .detail-link {
     display: inline-block;
     margin-top: 20px;
@@ -338,8 +377,10 @@
 <p class="subtitle">Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.</p>
 
 <div class="toolbar">
-  <div class="result-count" id="result-count"></div>
-  <div class="active-chips" id="active-chips"></div>
+  <div class="toolbar-left">
+    <div class="result-count" id="result-count"></div>
+    <div class="active-chips" id="active-chips"></div>
+  </div>
   <button class="reset-btn" id="reset-btn">Alle Filter zurücksetzen</button>
 </div>
 
@@ -359,7 +400,7 @@
 
 <script>
 (async function () {
-  // Platzhalter-Zuordnung Art I -> erlaubte Art II Werte.
+  // Platzhalter-Zuordnung Sportart -> erlaubte Kategorie-Werte.
   // Bitte anpassen, sobald die genaue Aufteilung feststeht.
   const ART2_BY_ART1 = {
     'Laufen': ['Straße', 'Trail', 'Bahn'],
@@ -375,14 +416,16 @@
     { key: '50+', label: '50+ km' }
   ];
 
+  const MONTH_NAMES = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+
   const COLUMNS = [
     { key: 'land', label: 'Land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
-    { key: 'name', label: 'Name', type: 'none' },
+    { key: 'name', label: 'Name', type: 'text' },
     { key: 'standort', label: 'Standort', type: 'standort' },
-    { key: 'art1', label: 'Art I', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
-    { key: 'art2', label: 'Art II', type: 'checkbox', options: () => availableArt2Options() },
-    { key: 'zeitraum', label: 'Zeitraum', type: 'date' },
-    { key: 'laenge_km', label: 'Länge (km)', type: 'none' }
+    { key: 'art1', label: 'Sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
+    { key: 'art2', label: 'Kategorie', type: 'checkbox', options: () => availableArt2Options() },
+    { key: 'datum', label: 'Datum', type: 'date-tree' },
+    { key: 'laenge_km', label: 'Länge (km)', type: 'number-range' }
   ];
 
   let events = [];
@@ -394,10 +437,13 @@
     art1: new Set(),
     art2: new Set(),
     standort: new Set(),
-    von: '',
-    bis: '',
-    origin: null,       // { lat, lon, label }
-    radius: ''          // '' | '0-5' | '5-20' | '20-50' | '50+'
+    nameQuery: '',
+    selectedDays: new Set(),   // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
+    treeExpanded: new Set(),   // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
+    laengeMin: '',
+    laengeMax: '',
+    origin: null,              // { lat, lon, label }
+    radius: ''                 // '' | '0-5' | '5-20' | '20-50' | '50+'
   };
 
   const bodyEl = document.getElementById('event-body');
@@ -473,13 +519,44 @@
     return presentArt2.filter(a2 => allowed.has(a2));
   }
 
+  function buildDateTreeNodes() {
+    const byYear = {};
+    events.forEach(e => {
+      const [y, m] = e.datum_start.split('-');
+      byYear[y] = byYear[y] || {};
+      byYear[y][m] = byYear[y][m] || new Set();
+      byYear[y][m].add(e.datum_start);
+    });
+    return Object.keys(byYear).sort().map(year => {
+      const months = byYear[year];
+      const yearDays = Object.values(months).flatMap(s => Array.from(s));
+      return {
+        key: year,
+        label: year,
+        days: yearDays,
+        children: Object.keys(months).sort().map(month => {
+          const monthDays = Array.from(months[month]).sort();
+          return {
+            key: `${year}-${month}`,
+            label: `${MONTH_NAMES[parseInt(month, 10) - 1]} ${year}`,
+            days: monthDays,
+            children: monthDays.map(day => ({
+              key: day,
+              label: formatDate(day),
+              days: [day],
+              children: null
+            }))
+          };
+        })
+      };
+    });
+  }
+
   // ---------- header / filter UI ----------
 
   function buildHeader() {
-    const columns = COLUMNS;
-
     headerRowEl.innerHTML = '';
-    columns.forEach(col => {
+    COLUMNS.forEach(col => {
       const th = document.createElement('th');
       const inner = document.createElement('div');
       inner.className = 'th-inner';
@@ -487,29 +564,26 @@
       labelSpan.textContent = col.label;
       inner.appendChild(labelSpan);
 
-      if (col.type !== 'none') {
-        const details = document.createElement('details');
-        details.className = 'col-filter';
-        details.dataset.col = col.key;
-        const summary = document.createElement('summary');
-        summary.textContent = '▾';
-        details.appendChild(summary);
+      const details = document.createElement('details');
+      details.className = 'col-filter';
+      details.dataset.col = col.key;
+      const summary = document.createElement('summary');
+      summary.textContent = '▾';
+      details.appendChild(summary);
 
-        const panel = document.createElement('div');
-        panel.className = 'filter-panel';
-        panel.id = `panel-${col.key}`;
-        details.appendChild(panel);
+      const panel = document.createElement('div');
+      panel.className = 'filter-panel';
+      panel.id = `panel-${col.key}`;
+      details.appendChild(panel);
 
-        details.addEventListener('toggle', () => {
-          if (details.open) {
-            closeOtherPanels(details);
-            renderFilterPanel(col, panel);
-          }
-        });
+      details.addEventListener('toggle', () => {
+        if (details.open) {
+          closeOtherPanels(details);
+          renderFilterPanel(col, panel);
+        }
+      });
 
-        inner.appendChild(details);
-      }
-
+      inner.appendChild(details);
       th.appendChild(inner);
       headerRowEl.appendChild(th);
     });
@@ -528,19 +602,17 @@
   }
 
   function renderFilterPanel(col, panel) {
-    if (col.type === 'checkbox') {
-      renderCheckboxPanel(col, panel);
-    } else if (col.type === 'standort') {
-      renderStandortPanel(panel);
-    } else if (col.type === 'date') {
-      renderDatePanel(panel);
-    }
+    if (col.type === 'checkbox') renderCheckboxPanel(col, panel);
+    else if (col.type === 'standort') renderStandortPanel(panel);
+    else if (col.type === 'date-tree') renderDateTreePanel(panel);
+    else if (col.type === 'text') renderTextPanel(panel);
+    else if (col.type === 'number-range') renderNumberRangePanel(panel);
   }
 
   function renderCheckboxPanel(col, panel) {
     const options = col.options();
     const selectedSet = state[col.key];
-    // prune invalid selections (relevant mainly for art2 after art1 changes)
+    // prune invalid selections (relevant mainly für Kategorie nach Sportart-Wechsel)
     Array.from(selectedSet).forEach(v => { if (!options.includes(v)) selectedSet.delete(v); });
 
     panel.innerHTML = '';
@@ -566,7 +638,7 @@
         cb.addEventListener('change', () => {
           if (cb.checked) selectedSet.add(opt); else selectedSet.delete(opt);
           if (col.key === 'art1') {
-            // Art II Optionen hängen von Art I ab -> ungültige Auswahl bereinigen
+            // Kategorie-Optionen hängen von der Sportart ab -> ungültige Auswahl bereinigen
             const valid = new Set(availableArt2Options());
             Array.from(state.art2).forEach(v => { if (!valid.has(v)) state.art2.delete(v); });
           }
@@ -588,13 +660,11 @@
       }
       selectedIndex = null;
       render();
-      renderCheckboxPanel(col, panel);
     });
     actions.querySelector('[data-act="none"]').addEventListener('click', () => {
       selectedSet.clear();
       selectedIndex = null;
       render();
-      renderCheckboxPanel(col, panel);
     });
   }
 
@@ -630,13 +700,11 @@
       allCities.forEach(c => state.standort.add(c));
       selectedIndex = null;
       render();
-      renderStandortPanel(panel);
     });
     actions.querySelector('[data-act="none"]').addEventListener('click', () => {
       state.standort.clear();
       selectedIndex = null;
       render();
-      renderStandortPanel(panel);
     });
 
     // Umkreissuche
@@ -674,7 +742,6 @@
       }
       selectedIndex = null;
       render();
-      renderStandortPanel(panel);
     });
     radiusSection.appendChild(citySelect);
 
@@ -694,7 +761,6 @@
           state.origin = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: 'Aktueller Standort' };
           selectedIndex = null;
           render();
-          renderStandortPanel(panel);
         },
         err => {
           statusEl.textContent = 'Standort nicht verfügbar: ' + err.message;
@@ -741,21 +807,129 @@
     panel.appendChild(radiusSection);
   }
 
-  function renderDatePanel(panel) {
+  function renderDateTreePanel(panel) {
+    panel.innerHTML = '';
+    const actions = document.createElement('div');
+    actions.className = 'fp-actions';
+    actions.innerHTML = `<a data-act="all">Alle</a><a data-act="none">Keine</a>`;
+    panel.appendChild(actions);
+
+    const nodes = buildDateTreeNodes();
+    const allDays = uniqueSorted(events.map(e => e.datum_start));
+
+    if (nodes.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'fp-empty';
+      empty.textContent = 'Keine Termine vorhanden.';
+      panel.appendChild(empty);
+    } else {
+      const treeWrap = document.createElement('div');
+      treeWrap.className = 'date-tree';
+      nodes.forEach(n => treeWrap.appendChild(buildTreeNode(n)));
+      panel.appendChild(treeWrap);
+    }
+
+    actions.querySelector('[data-act="all"]').addEventListener('click', () => {
+      allDays.forEach(d => state.selectedDays.add(d));
+      selectedIndex = null;
+      render();
+    });
+    actions.querySelector('[data-act="none"]').addEventListener('click', () => {
+      state.selectedDays.clear();
+      selectedIndex = null;
+      render();
+    });
+  }
+
+  function buildTreeCheckboxLabel(node) {
+    const label = document.createElement('label');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    const allSelected = node.days.every(d => state.selectedDays.has(d));
+    const noneSelected = node.days.every(d => !state.selectedDays.has(d));
+    cb.checked = allSelected;
+    cb.indeterminate = !allSelected && !noneSelected;
+    cb.addEventListener('change', () => {
+      if (cb.checked) node.days.forEach(d => state.selectedDays.add(d));
+      else node.days.forEach(d => state.selectedDays.delete(d));
+      selectedIndex = null;
+      render();
+    });
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(node.label));
+    return label;
+  }
+
+  function buildTreeNode(node) {
+    const wrap = document.createElement('div');
+    wrap.className = 'tree-node';
+    const row = document.createElement('div');
+    row.className = 'tree-row';
+    const hasChildren = Array.isArray(node.children) && node.children.length > 0;
+
+    if (hasChildren) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'tree-toggle';
+      const expanded = state.treeExpanded.has(node.key);
+      toggleBtn.textContent = expanded ? '▾' : '▸';
+      row.appendChild(toggleBtn);
+      row.appendChild(buildTreeCheckboxLabel(node));
+      wrap.appendChild(row);
+
+      const childrenWrap = document.createElement('div');
+      childrenWrap.className = 'tree-children';
+      childrenWrap.hidden = !expanded;
+      node.children.forEach(child => childrenWrap.appendChild(buildTreeNode(child)));
+      wrap.appendChild(childrenWrap);
+
+      toggleBtn.addEventListener('click', () => {
+        if (state.treeExpanded.has(node.key)) state.treeExpanded.delete(node.key);
+        else state.treeExpanded.add(node.key);
+        const nowExpanded = state.treeExpanded.has(node.key);
+        childrenWrap.hidden = !nowExpanded;
+        toggleBtn.textContent = nowExpanded ? '▾' : '▸';
+      });
+    } else {
+      const spacer = document.createElement('span');
+      spacer.className = 'tree-spacer';
+      row.appendChild(spacer);
+      row.appendChild(buildTreeCheckboxLabel(node));
+      wrap.appendChild(row);
+    }
+
+    return wrap;
+  }
+
+  function renderTextPanel(panel) {
+    panel.innerHTML = '';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Name suchen…';
+    input.value = state.nameQuery;
+    input.addEventListener('input', () => {
+      state.nameQuery = input.value;
+      selectedIndex = null;
+      render();
+    });
+    panel.appendChild(input);
+  }
+
+  function renderNumberRangePanel(panel) {
     panel.innerHTML = '';
     const wrap = document.createElement('div');
-    wrap.className = 'date-row';
+    wrap.className = 'range-row';
     wrap.innerHTML = `
-      <label>Von<input type="date" id="date-von"></label>
-      <label>Bis<input type="date" id="date-bis"></label>
+      <label>Von (km)<input type="number" min="0" step="0.1" id="laenge-min"></label>
+      <label>Bis (km)<input type="number" min="0" step="0.1" id="laenge-max"></label>
     `;
     panel.appendChild(wrap);
-    const vonInput = wrap.querySelector('#date-von');
-    const bisInput = wrap.querySelector('#date-bis');
-    vonInput.value = state.von;
-    bisInput.value = state.bis;
-    vonInput.addEventListener('change', () => { state.von = vonInput.value; selectedIndex = null; render(); });
-    bisInput.addEventListener('change', () => { state.bis = bisInput.value; selectedIndex = null; render(); });
+    const minInput = wrap.querySelector('#laenge-min');
+    const maxInput = wrap.querySelector('#laenge-max');
+    minInput.value = state.laengeMin;
+    maxInput.value = state.laengeMax;
+    minInput.addEventListener('input', () => { state.laengeMin = minInput.value; selectedIndex = null; render(); });
+    maxInput.addEventListener('input', () => { state.laengeMax = maxInput.value; selectedIndex = null; render(); });
   }
 
   // ---------- filtering / rendering ----------
@@ -768,8 +942,10 @@
         if (state.art1.size && !state.art1.has(e.art1)) return false;
         if (state.art2.size && !state.art2.has(e.art2)) return false;
         if (state.standort.size && !state.standort.has(e.standort)) return false;
-        if (state.von && e.datum_ende < state.von) return false;
-        if (state.bis && e.datum_start > state.bis) return false;
+        if (state.nameQuery.trim() && !e.name.toLowerCase().includes(state.nameQuery.trim().toLowerCase())) return false;
+        if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
+        if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
+        if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
         if (state.radius && state.origin) {
           if (e.lat == null || e.lon == null) return false;
           const dist = haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
@@ -782,8 +958,10 @@
 
   function refreshOpenPanels() {
     document.querySelectorAll('details.col-filter[open]').forEach(d => {
-      const col = COLUMNS.find(c => c.key === d.dataset.col);
       const panel = d.querySelector('.filter-panel');
+      // Panel mit gerade fokussiertem Eingabefeld nicht neu aufbauen (sonst springt der Cursor beim Tippen)
+      if (panel && panel.contains(document.activeElement)) return;
+      const col = COLUMNS.find(c => c.key === d.dataset.col);
       if (col && panel) renderFilterPanel(col, panel);
     });
   }
@@ -806,8 +984,8 @@
           <td>${escapeHtml(e.land)}</td>
           <td>${escapeHtml(e.name)}</td>
           <td>${escapeHtml(e.standort)}</td>
-          <td><span class="badge">${escapeHtml(e.art1)}</span></td>
-          <td>${e.art2 ? `<span class="badge">${escapeHtml(e.art2)}</span>` : '–'}</td>
+          <td>${escapeHtml(e.art1)}</td>
+          <td>${e.art2 ? escapeHtml(e.art2) : '–'}</td>
           <td>${formatRange(e.datum_start, e.datum_ende)}</td>
           <td>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</td>
         `;
@@ -829,9 +1007,9 @@
       <h2>${escapeHtml(e.name)}</h2>
       <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(e.land)}</div>
       <dl class="detail-grid">
-        <dt>Art I</dt><dd>${escapeHtml(e.art1)}</dd>
-        <dt>Art II</dt><dd>${escapeHtml(e.art2 || '–')}</dd>
-        <dt>Zeitraum</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
+        <dt>Sportart</dt><dd>${escapeHtml(e.art1)}</dd>
+        <dt>Kategorie</dt><dd>${escapeHtml(e.art2 || '–')}</dd>
+        <dt>Datum</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
         <dt>Länge</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
         <dt>Land</dt><dd>${escapeHtml(e.land)}</dd>
         <dt>Standort</dt><dd>${escapeHtml(e.standort)}</dd>
@@ -845,10 +1023,12 @@
       const col = d.dataset.col;
       let active = false;
       if (col === 'land') active = state.land.size > 0;
+      else if (col === 'name') active = !!state.nameQuery.trim();
       else if (col === 'art1') active = state.art1.size > 0;
       else if (col === 'art2') active = state.art2.size > 0;
-      else if (col === 'standort') active = state.standort.size > 0 || (state.origin && state.radius);
-      else if (col === 'zeitraum') active = !!(state.von || state.bis);
+      else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
+      else if (col === 'datum') active = state.selectedDays.size > 0;
+      else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '';
       d.classList.toggle('has-filter', active);
     });
   }
@@ -856,11 +1036,16 @@
   function renderChips() {
     const chips = [];
     state.land.forEach(v => chips.push({ label: `Land: ${v}`, clear: () => state.land.delete(v) }));
-    state.art1.forEach(v => chips.push({ label: `Art I: ${v}`, clear: () => state.art1.delete(v) }));
-    state.art2.forEach(v => chips.push({ label: `Art II: ${v}`, clear: () => state.art2.delete(v) }));
+    if (state.nameQuery.trim()) chips.push({ label: `Name: „${state.nameQuery.trim()}"`, clear: () => { state.nameQuery = ''; } });
+    state.art1.forEach(v => chips.push({ label: `Sportart: ${v}`, clear: () => state.art1.delete(v) }));
+    state.art2.forEach(v => chips.push({ label: `Kategorie: ${v}`, clear: () => state.art2.delete(v) }));
     state.standort.forEach(v => chips.push({ label: `Standort: ${v}`, clear: () => state.standort.delete(v) }));
-    if (state.von) chips.push({ label: `ab ${formatDate(state.von)}`, clear: () => { state.von = ''; } });
-    if (state.bis) chips.push({ label: `bis ${formatDate(state.bis)}`, clear: () => { state.bis = ''; } });
+    if (state.selectedDays.size > 0) {
+      const n = state.selectedDays.size;
+      chips.push({ label: `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`, clear: () => state.selectedDays.clear() });
+    }
+    if (state.laengeMin !== '') chips.push({ label: `Länge ab ${state.laengeMin} km`, clear: () => { state.laengeMin = ''; } });
+    if (state.laengeMax !== '') chips.push({ label: `Länge bis ${state.laengeMax} km`, clear: () => { state.laengeMax = ''; } });
     if (state.origin && state.radius) {
       const bucket = RADIUS_BUCKETS.find(b => b.key === state.radius);
       chips.push({ label: `Umkreis ${bucket ? bucket.label : ''} von ${state.origin.label}`, clear: () => { state.radius = ''; } });
@@ -885,8 +1070,10 @@
     state.art1.clear();
     state.art2.clear();
     state.standort.clear();
-    state.von = '';
-    state.bis = '';
+    state.nameQuery = '';
+    state.selectedDays.clear();
+    state.laengeMin = '';
+    state.laengeMax = '';
     state.origin = null;
     state.radius = '';
     selectedIndex = null;

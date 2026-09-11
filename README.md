@@ -26,21 +26,25 @@ Schweiz.
   `events.json` per `fetch` ein. Excel-ähnliche Tabelle: jede Spalte hat einen
   eigenen Filter im Spaltenkopf (▾-Symbol):
   - **Land** – Checkbox-Liste
+  - **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
   - **Standort** – Checkbox-Liste mit *allen* Städten (unabhängig von anderen
     Filtern) plus Umkreissuche: „Aktuellen Standort verwenden" (Browser-
     Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann Radius
     0–5 / 5–20 / 20–50 / 50+ km wählen
-  - **Art I** – Checkbox-Liste (Laufen/Schwimmen/Rennrad/Triathlon)
-  - **Art II** – Checkbox-Liste, deren Optionen von der Art-I-Auswahl abhängen
-    (z. B. bei Schwimmen nur Freiwasser/Schwimmbad, keine Trail-Option).
-    Die genaue Zuordnung steht als `ART2_BY_ART1` oben im `<script>`-Block in
-    `index.html` und ist als **Platzhalter** markiert – bitte anpassen, sobald
-    die endgültige Aufteilung feststeht.
-  - **Zeitraum** – Datumsfilter von/bis
+  - **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Rennrad/Triathlon)
+  - **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
+    abhängen (z. B. bei Schwimmen nur Freiwasser/Schwimmbad, keine
+    Trail-Option). Die genaue Zuordnung steht als `ART2_BY_ART1` oben im
+    `<script>`-Block in `index.html` und ist als **Platzhalter** markiert –
+    bitte anpassen, sobald die endgültige Aufteilung feststeht.
+  - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
+    Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
+    alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
+  - **Länge (km)** – Zahlenbereich von/bis
 
-  Aktive Filter erscheinen als Chips über der Tabelle (einzeln entfernbar),
-  „Alle Filter zurücksetzen" löscht alles auf einmal. Klick auf eine Zeile
-  zeigt rechts die Detailansicht.
+  Aktive Filter erscheinen als Chips direkt neben der Ergebnisanzahl links
+  oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
+  einmal. Klick auf eine Zeile zeigt rechts die Detailansicht.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
 
