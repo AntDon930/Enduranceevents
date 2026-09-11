@@ -1,0 +1,134 @@
+[
+  {
+    "land": "Deutschland",
+    "name": "Berlin Marathon",
+    "standort": "Berlin",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 42.2,
+    "veranstalter_url": "https://www.bmw-berlin-marathon.com"
+  },
+  {
+    "land": "Österreich",
+    "name": "Vienna City Marathon",
+    "standort": "Wien",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-04-19",
+    "datum_ende": "2026-04-19",
+    "laenge_km": 42.2,
+    "veranstalter_url": "https://www.vienna-marathon.com"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Zurich Marathon",
+    "standort": "Zürich",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-04-12",
+    "datum_ende": "2026-04-12",
+    "laenge_km": 42.2,
+    "veranstalter_url": "https://www.zurichmarathon.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "IRONMAN Switzerland",
+    "standort": "Thun",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2026-07-12",
+    "datum_ende": "2026-07-12",
+    "laenge_km": 226,
+    "veranstalter_url": "https://www.ironman.com/de/im-switzerland"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Zugspitz Ultratrail",
+    "standort": "Garmisch-Partenkirchen",
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-06-19",
+    "datum_ende": "2026-06-20",
+    "laenge_km": 101,
+    "veranstalter_url": "https://www.zugspitz-ultratrail.de"
+  },
+  {
+    "land": "Österreich",
+    "name": "Ötztaler Radmarathon",
+    "standort": "Sölden",
+    "art1": "Rennrad",
+    "art2": "Straße",
+    "datum_start": "2026-08-30",
+    "datum_ende": "2026-08-30",
+    "laenge_km": 227,
+    "veranstalter_url": "https://www.oetztaler-radmarathon.com"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bodensee-Schwimmen",
+    "standort": "Konstanz",
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2026-07-04",
+    "datum_ende": "2026-07-04",
+    "laenge_km": 3.5,
+    "veranstalter_url": "https://www.bodensee-schwimmen.de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Engadin Skimarathon Sommer-Bike",
+    "standort": "St. Moritz",
+    "art1": "Rennrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-08-15",
+    "datum_ende": "2026-08-15",
+    "laenge_km": 65,
+    "veranstalter_url": "https://www.engadin-bike.ch"
+  },
+  {
+    "land": "Österreich",
+    "name": "Wörthersee Triathlon",
+    "standort": "Klagenfurt",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2026-06-28",
+    "datum_ende": "2026-06-28",
+    "laenge_km": 70.3,
+    "veranstalter_url": "https://www.woerthersee-triathlon.at"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hamburg Triathlon",
+    "standort": "Hamburg",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2026-07-19",
+    "datum_ende": "2026-07-19",
+    "laenge_km": 51.5,
+    "veranstalter_url": "https://www.hamburg-triathlon.org"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Swiss Athletics Bahnmeeting",
+    "standort": "Bern",
+    "art1": "Laufen",
+    "art2": "Bahn",
+    "datum_start": "2026-05-16",
+    "datum_ende": "2026-05-16",
+    "laenge_km": 10,
+    "veranstalter_url": "https://www.swiss-athletics.ch"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rund um den Finanzplatz Eschborn-Frankfurt",
+    "standort": "Frankfurt am Main",
+    "art1": "Rennrad",
+    "art2": "Straße",
+    "datum_start": "2026-05-01",
+    "datum_ende": "2026-05-01",
+    "laenge_km": 187,
+    "veranstalter_url": "https://www.rund-um-frankfurt.de"
+  }
+]

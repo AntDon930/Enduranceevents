@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ausdauersport-Events D/A/CH</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e0e3e8;
+    --text: #1c1f24;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-bg: #eaf1ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2025;
+      --border: #2c3038;
+      --text: #e7e9ec;
+      --text-muted: #9aa1ac;
+      --accent: #5b9dff;
+      --accent-bg: #1e2a40;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0 0 16px;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .filter-field select,
+  .filter-field input {
+    font-size: 0.9rem;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+  .filter-field.dates {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .reset-btn {
+    align-self: flex-end;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .reset-btn:hover { background: var(--accent-bg); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.4fr);
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .list-panel, .detail-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    min-height: 300px;
+  }
+  .list-panel { padding: 6px; max-height: 75vh; overflow-y: auto; }
+  .list-count {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .event-item {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-bottom: 4px;
+  }
+  .event-item:hover { background: var(--accent-bg); }
+  .event-item.active {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+  }
+  .event-item .name { font-weight: 600; font-size: 0.95rem; }
+  .event-item .meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    margin-right: 4px;
+  }
+
+  .detail-panel { padding: 24px; }
+  .detail-empty {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 260px;
+    text-align: center;
+    padding: 24px;
+  }
+  .detail-panel h2 { margin: 0 0 4px; font-size: 1.3rem; }
+  .detail-panel .sub { color: var(--text-muted); margin-bottom: 18px; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 10px;
+    column-gap: 16px;
+    font-size: 0.92rem;
+  }
+  .detail-grid dt {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .detail-grid dd { margin: 0; }
+  .detail-link {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 9px 16px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .detail-link:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<h1>🏁 Ausdauersport-Events – Deutschland / Österreich / Schweiz</h1>
+
+<div class="filters" id="filters">
+  <div class="filter-field">
+    <label for="f-art1">Art I</label>
+    <select id="f-art1"><option value="">Alle</option></select>
+  </div>
+  <div class="filter-field">
+    <label for="f-art2">Art II</label>
+    <select id="f-art2"><option value="">Alle</option></select>
+  </div>
+  <div class="filter-field">
+    <label for="f-standort">Standort / Land</label>
+    <select id="f-standort"><option value="">Alle</option></select>
+  </div>
+  <div class="filter-field dates">
+    <div>
+      <label for="f-von">Zeitraum von</label><br>
+      <input type="date" id="f-von">
+    </div>
+    <div>
+      <label for="f-bis">bis</label><br>
+      <input type="date" id="f-bis">
+    </div>
+  </div>
+  <button class="reset-btn" id="reset-btn">Filter zurücksetzen</button>
+</div>
+
+<div class="layout">
+  <div class="list-panel">
+    <div class="list-count" id="list-count"></div>
+    <div id="event-list"></div>
+  </div>
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-empty">Wähle links ein Event aus, um Details zu sehen.</div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  let events = [];
+  let selectedIndex = null;
+
+  const listEl = document.getElementById('event-list');
+  const countEl = document.getElementById('list-count');
+  const detailEl = document.getElementById('detail-panel');
+
+  const art1Select = document.getElementById('f-art1');
+  const art2Select = document.getElementById('f-art2');
+  const standortSelect = document.getElementById('f-standort');
+  const vonInput = document.getElementById('f-von');
+  const bisInput = document.getElementById('f-bis');
+  document.getElementById('reset-btn').addEventListener('click', resetFilters);
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    events = await res.json();
+  } catch (err) {
+    listEl.innerHTML = '<div style="padding:12px;color:#b91c1c;">Konnte events.json nicht laden: ' + err.message + '</div>';
+    return;
+  }
+
+  populateFilterOptions();
+  attachFilterListeners();
+  render();
+
+  function uniqueSorted(values) {
+    return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b, 'de'));
+  }
+
+  function populateFilterOptions() {
+    uniqueSorted(events.map(e => e.art1)).forEach(v => addOption(art1Select, v));
+    uniqueSorted(events.map(e => e.art2)).forEach(v => addOption(art2Select, v));
+    // Standort-Filter: Land + Standort kombiniert, nach Land gruppiert der Einfachheit halber als flache Liste
+    const standorte = uniqueSorted(events.map(e => e.standort));
+    standorte.forEach(v => addOption(standortSelect, v));
+  }
+
+  function addOption(selectEl, value) {
+    const opt = document.createElement('option');
+    opt.value = value;
+    opt.textContent = value;
+    selectEl.appendChild(opt);
+  }
+
+  function attachFilterListeners() {
+    [art1Select, art2Select, standortSelect, vonInput, bisInput].forEach(el => {
+      el.addEventListener('change', () => { selectedIndex = null; render(); });
+    });
+  }
+
+  function resetFilters() {
+    art1Select.value = '';
+    art2Select.value = '';
+    standortSelect.value = '';
+    vonInput.value = '';
+    bisInput.value = '';
+    selectedIndex = null;
+    render();
+  }
+
+  function getFiltered() {
+    const art1 = art1Select.value;
+    const art2 = art2Select.value;
+    const standort = standortSelect.value;
+    const von = vonInput.value;
+    const bis = bisInput.value;
+
+    return events
+      .map((e, idx) => ({ e, idx }))
+      .filter(({ e }) => {
+        if (art1 && e.art1 !== art1) return false;
+        if (art2 && e.art2 !== art2) return false;
+        if (standort && e.standort !== standort) return false;
+        if (von && e.datum_ende < von) return false;
+        if (bis && e.datum_start > bis) return false;
+        return true;
+      });
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    return `${d}.${m}.${y}`;
+  }
+
+  function formatRange(start, end) {
+    if (start === end) return formatDate(start);
+    return `${formatDate(start)} – ${formatDate(end)}`;
+  }
+
+  function render() {
+    const filtered = getFiltered();
+    countEl.textContent = `${filtered.length} von ${events.length} Events`;
+
+    if (filtered.length === 0) {
+      listEl.innerHTML = '<div style="padding:12px;color:var(--text-muted);">Keine Events gefunden.</div>';
+    } else {
+      listEl.innerHTML = '';
+      filtered.forEach(({ e, idx }) => {
+        const item = document.createElement('div');
+        item.className = 'event-item' + (idx === selectedIndex ? ' active' : '');
+        item.innerHTML = `
+          <div class="name">${escapeHtml(e.name)}</div>
+          <div class="meta">
+            <span class="badge">${escapeHtml(e.art1)}</span>${e.art2 ? `<span class="badge">${escapeHtml(e.art2)}</span>` : ''}
+            ${escapeHtml(e.standort)}, ${escapeHtml(e.land)} · ${formatRange(e.datum_start, e.datum_ende)}
+          </div>`;
+        item.addEventListener('click', () => { selectedIndex = idx; render(); });
+        listEl.appendChild(item);
+      });
+    }
+
+    renderDetail();
+  }
+
+  function renderDetail() {
+    if (selectedIndex === null || !events[selectedIndex]) {
+      detailEl.innerHTML = '<div class="detail-empty">Wähle links ein Event aus, um Details zu sehen.</div>';
+      return;
+    }
+    const e = events[selectedIndex];
+    detailEl.innerHTML = `
+      <h2>${escapeHtml(e.name)}</h2>
+      <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(e.land)}</div>
+      <dl class="detail-grid">
+        <dt>Art I</dt><dd>${escapeHtml(e.art1)}</dd>
+        <dt>Art II</dt><dd>${escapeHtml(e.art2 || '–')}</dd>
+        <dt>Zeitraum</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
+        <dt>Länge</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
+        <dt>Land</dt><dd>${escapeHtml(e.land)}</dd>
+        <dt>Standort</dt><dd>${escapeHtml(e.standort)}</dd>
+      </dl>
+      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeAttr(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">Zur Veranstalter-Website ↗</a>` : ''}
+    `;
+  }
+
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  function escapeAttr(str) {
+    return escapeHtml(str);
+  }
+})();
+</script>
+</body>
+</html>
