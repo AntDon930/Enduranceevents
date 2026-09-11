@@ -52,20 +52,14 @@
 
   .toolbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .toolbar-left {
-    display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 10px;
   }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
+    align-self: flex-end;
     padding: 6px 12px;
     border-radius: 6px;
     border: 1px solid var(--border);
@@ -73,6 +67,7 @@
     color: var(--text);
     cursor: pointer;
     font-size: 0.85rem;
+    white-space: nowrap;
   }
   .reset-btn:hover { background: var(--accent-bg); }
   .active-chips {
@@ -103,13 +98,23 @@
 
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
     gap: 16px;
     align-items: start;
   }
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
   }
+
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    position: sticky;
+    top: 16px;
+  }
+  .side-panel .detail-panel { width: 100%; }
 
   .table-wrap {
     background: var(--panel);
@@ -122,9 +127,11 @@
   table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 780px;
+    min-width: 700px;
+    table-layout: fixed;
     font-size: 0.86rem;
   }
+  th, td { width: 14.2857%; }
   thead th {
     position: sticky;
     top: 0;
@@ -140,16 +147,30 @@
     display: flex;
     align-items: center;
     gap: 6px;
+  }
+  .th-inner span {
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   tbody td {
     padding: 8px 10px;
     border-bottom: 1px solid var(--border);
-    vertical-align: top;
+    vertical-align: middle;
+    text-align: left;
     color: var(--text);
     text-decoration: none;
     font-weight: normal;
+  }
+  .cell-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
@@ -161,9 +182,8 @@
     color: var(--text-muted);
   }
 
-  /* Excel-style column filter popover */
-  .col-filter { position: relative; }
-  .col-filter > summary {
+  /* Excel-style column filter button + floating panel */
+  .col-filter-btn {
     list-style: none;
     cursor: pointer;
     color: var(--text-muted);
@@ -171,30 +191,31 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 1px 5px;
+    background: transparent;
     user-select: none;
+    flex-shrink: 0;
   }
-  .col-filter[open] > summary,
-  .col-filter.has-filter > summary {
+  .col-filter-btn.open,
+  .col-filter-btn.has-filter {
     color: var(--accent);
     border-color: var(--accent);
     background: var(--accent-bg);
   }
-  .col-filter > summary::-webkit-details-marker { display: none; }
   .filter-panel {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    z-index: 10;
+    position: fixed;
+    z-index: 100;
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     padding: 10px;
     min-width: 210px;
     max-width: 270px;
     font-weight: normal;
     white-space: normal;
+    font-size: 0.86rem;
   }
+  .filter-panel[hidden] { display: none; }
   .filter-panel .fp-actions {
     display: flex;
     justify-content: space-between;
@@ -338,8 +359,6 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 22px;
-    position: sticky;
-    top: 16px;
   }
   .detail-empty {
     color: var(--text-muted);
@@ -377,11 +396,8 @@
 <p class="subtitle">Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.</p>
 
 <div class="toolbar">
-  <div class="toolbar-left">
-    <div class="result-count" id="result-count"></div>
-    <div class="active-chips" id="active-chips"></div>
-  </div>
-  <button class="reset-btn" id="reset-btn">Alle Filter zurücksetzen</button>
+  <div class="result-count" id="result-count"></div>
+  <div class="active-chips" id="active-chips"></div>
 </div>
 
 <div class="layout">
@@ -393,8 +409,11 @@
       <tbody id="event-body"></tbody>
     </table>
   </div>
-  <div class="detail-panel" id="detail-panel">
-    <div class="detail-empty">Wähle eine Zeile aus, um Details zu sehen.</div>
+  <div class="side-panel">
+    <button class="reset-btn" id="reset-btn">Alle Filter zurücksetzen</button>
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-empty">Wähle eine Zeile aus, um Details zu sehen.</div>
+    </div>
   </div>
 </div>
 
@@ -418,13 +437,14 @@
 
   const MONTH_NAMES = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
 
+  // Reihenfolge der Spalten: Datum, Name, Sportart, Standort, Land, Kategorie, Länge
   const COLUMNS = [
-    { key: 'land', label: 'Land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
-    { key: 'name', label: 'Name', type: 'text' },
-    { key: 'standort', label: 'Standort', type: 'standort' },
-    { key: 'art1', label: 'Sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
-    { key: 'art2', label: 'Kategorie', type: 'checkbox', options: () => availableArt2Options() },
     { key: 'datum', label: 'Datum', type: 'date-tree' },
+    { key: 'name', label: 'Name', type: 'text' },
+    { key: 'art1', label: 'Sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
+    { key: 'standort', label: 'Standort', type: 'standort' },
+    { key: 'land', label: 'Land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
+    { key: 'art2', label: 'Kategorie', type: 'checkbox', options: () => availableArt2Options() },
     { key: 'laenge_km', label: 'Länge (km)', type: 'number-range' }
   ];
 
@@ -445,6 +465,15 @@
     origin: null,              // { lat, lon, label }
     radius: ''                 // '' | '0-5' | '5-20' | '20-50' | '50+'
   };
+
+  // Ein einziges, an <body> gehängtes Filter-Panel (fixed positioniert), damit es nie
+  // vom scrollenden Tabellen-Container abgeschnitten wird (der ursprüngliche Bug).
+  let openColKey = null;
+  let openTriggerEl = null;
+  const floatingPanel = document.createElement('div');
+  floatingPanel.className = 'filter-panel';
+  floatingPanel.hidden = true;
+  document.body.appendChild(floatingPanel);
 
   const bodyEl = document.getElementById('event-body');
   const headerRowEl = document.getElementById('header-row');
@@ -552,7 +581,7 @@
     });
   }
 
-  // ---------- header / filter UI ----------
+  // ---------- header / floating filter panel ----------
 
   function buildHeader() {
     headerRowEl.innerHTML = '';
@@ -564,41 +593,67 @@
       labelSpan.textContent = col.label;
       inner.appendChild(labelSpan);
 
-      const details = document.createElement('details');
-      details.className = 'col-filter';
-      details.dataset.col = col.key;
-      const summary = document.createElement('summary');
-      summary.textContent = '▾';
-      details.appendChild(summary);
-
-      const panel = document.createElement('div');
-      panel.className = 'filter-panel';
-      panel.id = `panel-${col.key}`;
-      details.appendChild(panel);
-
-      details.addEventListener('toggle', () => {
-        if (details.open) {
-          closeOtherPanels(details);
-          renderFilterPanel(col, panel);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'col-filter-btn';
+      btn.dataset.col = col.key;
+      btn.textContent = '▾';
+      btn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        if (openColKey === col.key) {
+          closeFloatingPanel();
+        } else {
+          openFloatingPanel(col, btn);
         }
       });
 
-      inner.appendChild(details);
+      inner.appendChild(btn);
       th.appendChild(inner);
       headerRowEl.appendChild(th);
     });
 
     document.addEventListener('click', (ev) => {
-      document.querySelectorAll('details.col-filter[open]').forEach(d => {
-        if (!d.contains(ev.target)) d.removeAttribute('open');
-      });
+      if (openColKey !== null && !floatingPanel.contains(ev.target)) {
+        closeFloatingPanel();
+      }
     });
+    // Bei Scroll (z. B. horizontales Scrollen der Tabelle) Panel schließen,
+    // statt es an einer falschen Position hängen zu lassen. capture:true fängt
+    // auch das interne Scrollen von .table-wrap ab.
+    window.addEventListener('scroll', () => { if (openColKey !== null) closeFloatingPanel(); }, true);
+    window.addEventListener('resize', () => { if (openColKey !== null) closeFloatingPanel(); });
   }
 
-  function closeOtherPanels(except) {
-    document.querySelectorAll('details.col-filter[open]').forEach(d => {
-      if (d !== except) d.removeAttribute('open');
-    });
+  function openFloatingPanel(col, triggerEl) {
+    openColKey = col.key;
+    openTriggerEl = triggerEl;
+    floatingPanel.hidden = false;
+    renderFilterPanel(col, floatingPanel);
+    positionFloatingPanel(triggerEl);
+    updateFilterIndicators();
+  }
+
+  function closeFloatingPanel() {
+    openColKey = null;
+    openTriggerEl = null;
+    floatingPanel.hidden = true;
+    floatingPanel.innerHTML = '';
+    updateFilterIndicators();
+  }
+
+  function positionFloatingPanel(triggerEl) {
+    const rect = triggerEl.getBoundingClientRect();
+    const panelWidth = floatingPanel.offsetWidth || 260;
+    const panelHeight = floatingPanel.offsetHeight || 200;
+    let left = rect.right - panelWidth;
+    left = Math.max(8, Math.min(left, window.innerWidth - panelWidth - 8));
+    let top = rect.bottom + 6;
+    if (top + panelHeight > window.innerHeight - 8) {
+      // Nicht genug Platz unten -> oberhalb des Buttons öffnen
+      top = Math.max(8, rect.top - panelHeight - 6);
+    }
+    floatingPanel.style.left = left + 'px';
+    floatingPanel.style.top = top + 'px';
   }
 
   function renderFilterPanel(col, panel) {
@@ -889,6 +944,7 @@
         const nowExpanded = state.treeExpanded.has(node.key);
         childrenWrap.hidden = !nowExpanded;
         toggleBtn.textContent = nowExpanded ? '▾' : '▸';
+        if (openTriggerEl) positionFloatingPanel(openTriggerEl);
       });
     } else {
       const spacer = document.createElement('span');
@@ -956,20 +1012,21 @@
       .sort((a, b) => a.e.datum_start.localeCompare(b.e.datum_start));
   }
 
-  function refreshOpenPanels() {
-    document.querySelectorAll('details.col-filter[open]').forEach(d => {
-      const panel = d.querySelector('.filter-panel');
-      // Panel mit gerade fokussiertem Eingabefeld nicht neu aufbauen (sonst springt der Cursor beim Tippen)
-      if (panel && panel.contains(document.activeElement)) return;
-      const col = COLUMNS.find(c => c.key === d.dataset.col);
-      if (col && panel) renderFilterPanel(col, panel);
-    });
+  function refreshOpenPanel() {
+    if (openColKey === null) return;
+    // Panel mit gerade fokussiertem Eingabefeld nicht neu aufbauen (sonst springt der Cursor beim Tippen)
+    if (floatingPanel.contains(document.activeElement)) return;
+    const col = COLUMNS.find(c => c.key === openColKey);
+    if (col) {
+      renderFilterPanel(col, floatingPanel);
+      if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+    }
   }
 
   function render() {
     updateFilterIndicators();
     renderChips();
-    refreshOpenPanels();
+    refreshOpenPanel();
     const filtered = getFiltered();
     countEl.textContent = `${filtered.length} von ${events.length} Events`;
 
@@ -981,13 +1038,13 @@
         const tr = document.createElement('tr');
         if (idx === selectedIndex) tr.classList.add('active');
         tr.innerHTML = `
-          <td>${escapeHtml(e.land)}</td>
-          <td>${escapeHtml(e.name)}</td>
-          <td>${escapeHtml(e.standort)}</td>
-          <td>${escapeHtml(e.art1)}</td>
-          <td>${e.art2 ? escapeHtml(e.art2) : '–'}</td>
-          <td>${formatRange(e.datum_start, e.datum_ende)}</td>
-          <td>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</td>
+          <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
+          <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(e.art1)}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(e.land)}</div></td>
+          <td><div class="cell-clamp">${e.art2 ? escapeHtml(e.art2) : '–'}</div></td>
+          <td><div class="cell-clamp">${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</div></td>
         `;
         tr.addEventListener('click', () => { selectedIndex = idx; render(); });
         bodyEl.appendChild(tr);
@@ -1007,20 +1064,20 @@
       <h2>${escapeHtml(e.name)}</h2>
       <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(e.land)}</div>
       <dl class="detail-grid">
+        <dt>Datum</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
         <dt>Sportart</dt><dd>${escapeHtml(e.art1)}</dd>
         <dt>Kategorie</dt><dd>${escapeHtml(e.art2 || '–')}</dd>
-        <dt>Datum</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
-        <dt>Länge</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
-        <dt>Land</dt><dd>${escapeHtml(e.land)}</dd>
         <dt>Standort</dt><dd>${escapeHtml(e.standort)}</dd>
+        <dt>Land</dt><dd>${escapeHtml(e.land)}</dd>
+        <dt>Länge</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">Zur Veranstalter-Website ↗</a>` : ''}
     `;
   }
 
   function updateFilterIndicators() {
-    document.querySelectorAll('details.col-filter').forEach(d => {
-      const col = d.dataset.col;
+    document.querySelectorAll('.col-filter-btn').forEach(btn => {
+      const col = btn.dataset.col;
       let active = false;
       if (col === 'land') active = state.land.size > 0;
       else if (col === 'name') active = !!state.nameQuery.trim();
@@ -1029,21 +1086,22 @@
       else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
       else if (col === 'datum') active = state.selectedDays.size > 0;
       else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '';
-      d.classList.toggle('has-filter', active);
+      btn.classList.toggle('has-filter', active);
+      btn.classList.toggle('open', openColKey === col);
     });
   }
 
   function renderChips() {
     const chips = [];
-    state.land.forEach(v => chips.push({ label: `Land: ${v}`, clear: () => state.land.delete(v) }));
-    if (state.nameQuery.trim()) chips.push({ label: `Name: „${state.nameQuery.trim()}"`, clear: () => { state.nameQuery = ''; } });
-    state.art1.forEach(v => chips.push({ label: `Sportart: ${v}`, clear: () => state.art1.delete(v) }));
-    state.art2.forEach(v => chips.push({ label: `Kategorie: ${v}`, clear: () => state.art2.delete(v) }));
-    state.standort.forEach(v => chips.push({ label: `Standort: ${v}`, clear: () => state.standort.delete(v) }));
     if (state.selectedDays.size > 0) {
       const n = state.selectedDays.size;
       chips.push({ label: `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`, clear: () => state.selectedDays.clear() });
     }
+    if (state.nameQuery.trim()) chips.push({ label: `Name: „${state.nameQuery.trim()}"`, clear: () => { state.nameQuery = ''; } });
+    state.art1.forEach(v => chips.push({ label: `Sportart: ${v}`, clear: () => state.art1.delete(v) }));
+    state.standort.forEach(v => chips.push({ label: `Standort: ${v}`, clear: () => state.standort.delete(v) }));
+    state.land.forEach(v => chips.push({ label: `Land: ${v}`, clear: () => state.land.delete(v) }));
+    state.art2.forEach(v => chips.push({ label: `Kategorie: ${v}`, clear: () => state.art2.delete(v) }));
     if (state.laengeMin !== '') chips.push({ label: `Länge ab ${state.laengeMin} km`, clear: () => { state.laengeMin = ''; } });
     if (state.laengeMax !== '') chips.push({ label: `Länge bis ${state.laengeMax} km`, clear: () => { state.laengeMax = ''; } });
     if (state.origin && state.radius) {
@@ -1077,6 +1135,7 @@
     state.origin = null;
     state.radius = '';
     selectedIndex = null;
+    closeFloatingPanel();
     render();
   }
 })();
