@@ -40,11 +40,37 @@ Schweiz.
   - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
     Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
     alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
-  - **Länge (km)** – Zahlenbereich von/bis
+  - **Länge (km)** – Sportart-Tabs (Laufen/Rennrad/Schwimmen/Triathlon) mit
+    sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
+    Zahlenbereich von/bis (siehe unten)
 
   Aktive Filter erscheinen als Chips direkt neben der Ergebnisanzahl links
   oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
   einmal. Klick auf eine Zeile zeigt rechts die Detailansicht.
+
+  **Zweisprachig (DE/EN)**: Umschalter oben rechts. Übersetzt werden alle
+  UI-Texte sowie die Werte für Land/Sportart/Kategorie (z. B. „Laufen" ↔
+  „Running"); Event-Namen, Städte und Veranstalter-Links bleiben unverändert.
+  Die Übersetzungstabellen (`I18N`, `VALUE_TRANSLATIONS`) stehen oben im
+  `<script>`-Block in `index.html` – dort auch anpassbar/erweiterbar.
+
+  **Distanz-Schnellauswahl bei „Länge"**: Je nach gewählter Sportart-Tab
+  (im Filter-Panel der Spalte „Länge") stehen andere Kategorien zur Auswahl:
+  - *Laufen*: 5 km, 10 km, Halbmarathon, Marathon, Ultramarathon. 5 km und
+    10 km sind „Aufrunde-Kategorien" (ein 4-km-Lauf erscheint unter 5 km),
+    Halbmarathon/Marathon sind nur die offiziellen Distanzen (21,0975 km /
+    42,195 km, ±0,5 km Toleranz für Rundungsunterschiede in den Daten),
+    Ultramarathon ist alles darüber.
+  - *Rennrad*: bis 50 km, 50–100 km, 100–150 km, 150–200 km, 200+ km.
+  - *Schwimmen*: 1/2/3/5 km, 10+ km (Marathonschwimmen).
+  - *Triathlon*: Sprintdistanz, Olympische Distanz (51,5 km), Mitteldistanz /
+    70.3 (113 km), Langdistanz / Ironman (226 km) – jeweils mit Toleranz für
+    die offiziellen Distanzen.
+
+  Diese Kategorien sind zusätzlich zum allgemeinen Von/Bis-Zahlenbereich
+  wählbar (beide Filter werden kombiniert, UND-verknüpft) und stehen als
+  `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` oben in `index.html` –
+  dort anpassbar, falls andere Schwellenwerte gewünscht sind.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
 

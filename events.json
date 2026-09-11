@@ -167,5 +167,31 @@
     "datum_ende": "2027-05-09",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.basel-marathon.ch"
+  },
+  {
+    "land": "Deutschland",
+    "name": "München Halbmarathon",
+    "standort": "München",
+    "lat": 48.1351,
+    "lon": 11.5820,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 21.1,
+    "veranstalter_url": "https://www.muenchenmarathon.de"
+  },
+  {
+    "land": "Österreich",
+    "name": "Silvesterlauf Salzburg",
+    "standort": "Salzburg",
+    "lat": 47.8095,
+    "lon": 13.0550,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 5,
+    "veranstalter_url": "https://www.silvesterlauf-salzburg.at"
   }
 ]
