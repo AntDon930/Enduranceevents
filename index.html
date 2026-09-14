@@ -691,7 +691,7 @@
     { key: '50+', label: '50+ km' }
   ];
 
-  // Reihenfolge der Spalten: Datum, Anmeldung, Name, Sportart, Standort, Land, Kategorie, Länge
+  // Reihenfolge der Spalten: Datum, Anmeldung, Name, Sportart, Land, Standort, Kategorie, Länge
   // Der Anmeldeschluss (konkretes Datum) steht nur in der Detailansicht; in der
   // Tabelle gibt es stattdessen nur den Status "Offen"/"Geschlossen" als Filter.
   const COLUMNS = [
@@ -699,8 +699,8 @@
     { key: 'anmeldestatus', labelKey: 'col_anmeldung', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.anmeldestatus)) },
     { key: 'name', labelKey: 'col_name', type: 'text' },
     { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
-    { key: 'standort', labelKey: 'col_standort', type: 'standort' },
     { key: 'land', labelKey: 'col_land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
+    { key: 'standort', labelKey: 'col_standort', type: 'standort' },
     { key: 'art2', labelKey: 'col_kategorie', type: 'checkbox', options: () => availableArt2Options() },
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
   ];
@@ -1432,8 +1432,8 @@
           <td><div class="cell-clamp">${e.anmeldestatus ? escapeHtml(tv('anmeldestatus', e.anmeldestatus)) : '–'}</div></td>
           <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
-          <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
           <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
           <td><div class="cell-clamp">${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</div></td>
         `;
@@ -1459,8 +1459,8 @@
         <dt>${escapeHtml(t('detail_anmeldeschluss'))}</dt><dd>${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
         <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
-        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
+        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
         <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
@@ -1493,8 +1493,8 @@
     if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     state.anmeldestatus.forEach(v => chips.push({ label: t('chip_anmeldung', tv('anmeldestatus', v)), clear: () => state.anmeldestatus.delete(v) }));
     state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
-    state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
     state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
+    state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
     state.art2.forEach(v => chips.push({ label: t('chip_kategorie', tv('art2', v)), clear: () => state.art2.delete(v) }));
     if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', state.laengeMin), clear: () => { state.laengeMin = ''; } });
     if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', state.laengeMax), clear: () => { state.laengeMax = ''; } });
