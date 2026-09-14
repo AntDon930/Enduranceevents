@@ -33,9 +33,11 @@
     }
   }
   * { box-sizing: border-box; }
+  html { height: 100%; }
   body {
     margin: 0;
     padding: 16px;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
@@ -190,7 +192,17 @@
     table-layout: fixed;
     font-size: 0.86rem;
   }
-  th, td { width: 12.5%; }
+  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Anmeldung, 4 Land, 5 Standort,
+     6 Sportart, 7 Kategorie, 8 Länge. Name breiter, Länge schmaler (die
+     Einheit "km" steht ohnehin schon in jeder Zelle). */
+  th:nth-child(1), td:nth-child(1) { width: 19%; }
+  th:nth-child(2), td:nth-child(2) { width: 12%; }
+  th:nth-child(3), td:nth-child(3) { width: 11%; }
+  th:nth-child(4), td:nth-child(4) { width: 11%; }
+  th:nth-child(5), td:nth-child(5) { width: 13%; }
+  th:nth-child(6), td:nth-child(6) { width: 11%; }
+  th:nth-child(7), td:nth-child(7) { width: 15%; }
+  th:nth-child(8), td:nth-child(8) { width: 8%; }
   thead th {
     position: sticky;
     top: 0;
@@ -525,7 +537,7 @@
       home: 'Startseite',
       result_count: (n, total) => `${n} von ${total} Events`,
       col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
-      col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge (km)',
+      col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
       range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
@@ -567,7 +579,7 @@
       home: 'Home',
       result_count: (n, total) => `${n} of ${total} events`,
       col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
-      col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length (km)',
+      col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
       range_von_km: 'From (km)', range_bis_km: 'To (km)',

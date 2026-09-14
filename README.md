@@ -69,9 +69,17 @@ Schweiz.
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
      - *Triathlon* hat keine Kategorie-Unterteilung.
-  8. **Länge (km)** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
+  8. **Länge** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
      sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
-     Zahlenbereich von/bis (siehe unten)
+     Zahlenbereich von/bis (siehe unten); die Einheit „km" steht bereits in
+     jeder Zelle, daher nur „Länge" als Spaltenname
+
+  Die Spaltenbreiten sind fix zugeteilt (Name breiter, Länge schmaler) statt
+  gleich verteilt, über `nth-child`-Selektoren im `<style>`-Block von
+  `events.html`, dort bei Bedarf anpassbar. `body` hat `min-height: 100vh`,
+  damit der Seitenhintergrund immer bis zum unteren Bildschirmrand reicht,
+  auch wenn die Tabelle (z. B. bei wenigen Events oder auf sehr hohen
+  Bildschirmen) nicht die volle Höhe ausfüllt.
 
   Aktive Filter erscheinen als Chips direkt neben der Ergebnisanzahl links
   oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
