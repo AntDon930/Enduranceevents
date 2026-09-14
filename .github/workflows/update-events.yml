@@ -1,0 +1,90 @@
+name: Events automatisch aktualisieren
+
+on:
+  schedule:
+    # GitHub Actions führt Cron-Zeitpläne IMMER in UTC aus, keine deutsche
+    # Zeitzone möglich. 06:00 deutscher Zeit entspricht 05:00 UTC (CET,
+    # Winterzeit) bzw. 04:00 UTC (CEST, Sommerzeit). "05:00 UTC" hier ist
+    # ein Mittelwert: das ergibt real ca. 06:00 Uhr CET / 07:00 Uhr CEST.
+    # Für ganzjährig exakt 06:00 Uhr Ortszeit müsste man zwei Cron-Einträge
+    # (04:00 und 05:00 UTC) mit einer Zeitzonen-Prüfung im ersten Schritt
+    # kombinieren, die den "falschen" der beiden Läufe überspringt.
+    - cron: '0 5 * * *'
+  # Manuelles Auslösen zum Testen (Tab "Actions" -> "Events automatisch
+  # aktualisieren" -> "Run workflow").
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-events
+  cancel-in-progress: false
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: claude/endurance-events-website-v1wruf
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      # Nominatim (Geocoding) erlaubt max. 1 Request/Sekunde und die
+      # Scraper-Skripte cachen Ergebnisse lokal in scripts/.geocode_cache.json
+      # (per .gitignore nicht Teil des Repos). Der Cache wird hier über
+      # GitHub Actions Cache zwischen den täglichen Läufen wiederverwendet,
+      # damit bereits bekannte Städte nicht jeden Tag erneut angefragt
+      # werden müssen.
+      - name: Restore geocoding cache
+        uses: actions/cache@v4
+        with:
+          path: scripts/.geocode_cache.json
+          key: geocode-cache-${{ github.run_id }}
+          restore-keys: |
+            geocode-cache-
+
+      - name: Anzahl Events vor dem Update zählen
+        id: before
+        run: echo "count=$(python3 -c 'import json; print(len(json.load(open("events.json"))))')" >> "$GITHUB_OUTPUT"
+
+      # Führt alle scripts/*_scraper.py nacheinander aus und führt ihre
+      # Ergebnisse in events.json zusammen (siehe scripts/update_events.py).
+      # Ein einzelnes fehlschlagendes Scraper-Skript (z. B. weil eine
+      # Quelle gerade nicht erreichbar ist oder ihre robots.txt den
+      # Zugriff verbietet) lässt diesen Schritt NICHT fehlschlagen - nur
+      # wenn ALLE Skripte fehlschlagen, bricht der Job hier ab.
+      - name: Scraper ausführen und events.json aktualisieren
+        run: python3 scripts/update_events.py
+
+      - name: events.json committen und pushen, falls geändert
+        run: |
+          if git diff --quiet -- events.json; then
+            echo "Keine Änderungen an events.json – kein Commit nötig."
+            exit 0
+          fi
+
+          AFTER=$(python3 -c 'import json; print(len(json.load(open("events.json"))))')
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events.json
+          git commit -m "Automatisches Events-Update: ${{ steps.before.outputs.count }} -> ${AFTER} Events" \
+                     -m "Ausgeführt vom täglichen update-events-Workflow (scripts/update_events.py)."
+
+          for i in 1 2 3 4; do
+            if git push origin HEAD:claude/endurance-events-website-v1wruf; then
+              break
+            fi
+            echo "Push fehlgeschlagen (Versuch $i/4) – hole Änderungen und versuche erneut..."
+            git fetch origin claude/endurance-events-website-v1wruf
+            git rebase origin/claude/endurance-events-website-v1wruf
+            sleep $((2 ** i))
+          done

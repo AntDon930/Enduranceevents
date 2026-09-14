@@ -180,6 +180,45 @@ per Playwright/Chromium inkl. JavaScript-Ausführung, erfordert
 `pip install playwright` + `playwright install chromium`). Details und
 weitere Optionen im Docstring am Kopf der Datei.
 
+### Alle Scraper gemeinsam ausführen: `update_events.py`
+
+`scripts/update_events.py` ist das Hauptskript: Es findet automatisch alle
+Scraper-Skripte in `scripts/` (Namensmuster `*_scraper.py` – aktuell
+`laufkalender_scraper.py` und `ironman_scraper.py`, neue Scraper werden ohne
+Codeänderung automatisch mit erkannt) und führt sie nacheinander aus. Da
+jeder Scraper sein Ergebnis bereits selbst dedupliziert (Name + Startdatum)
+direkt in `events.json` schreibt, ergibt sich die Zusammenführung einfach
+daraus, dass jeder nachfolgende Scraper schon die Ergebnisse der vorherigen
+sieht und dagegen dedupliziert. Ein einzelner fehlschlagender Scraper (z. B.
+weil eine Quelle gerade nicht erreichbar ist) bricht den Gesamtlauf nicht ab
+– nur wenn *alle* Scraper fehlschlagen, endet das Skript mit Exit-Code 1.
+
+```bash
+pip install -r scripts/requirements.txt
+python3 scripts/update_events.py --list        # gefundene Scraper anzeigen
+python3 scripts/update_events.py --dry-run      # Testlauf, nichts verändern
+python3 scripts/update_events.py                # echter Lauf, aktualisiert events.json
+python3 scripts/update_events.py --only ironman_scraper.py   # nur ein Skript
+```
+
+Die Kernlogik (Auto-Discovery, Verkettung/Merge über mehrere Skripte hinweg,
+Umgang mit teilweise fehlschlagenden Scrapern) ist mit simulierten
+Mock-Scraper-Skripten end-to-end getestet.
+
+### Tägliche automatische Aktualisierung (GitHub Action)
+
+`.github/workflows/update-events.yml` führt `update_events.py` jeden Tag
+automatisch aus (Cron `0 5 * * *` UTC, entspricht ca. 06:00 Uhr deutscher
+Zeit – GitHub-Cron kennt keine Zeitzonen, siehe Kommentar in der
+Workflow-Datei für Details zur CET/CEST-Abweichung) und zusätzlich manuell
+über den "Run workflow"-Button im Actions-Tab. Ändert sich `events.json`
+dabei, wird sie automatisch committet und auf `claude/endurance-events-website-v1wruf`
+gepusht – das stößt wiederum automatisch den bestehenden Pages-Deploy-Workflow
+an, die Seite aktualisiert sich also von selbst. Der Geocoding-Cache
+(`scripts/.geocode_cache.json`) wird dabei über GitHub Actions Cache
+zwischen den Läufen wiederverwendet, um wiederholte Nominatim-Anfragen für
+bereits bekannte Städte zu vermeiden.
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert
