@@ -121,13 +121,18 @@ LAND_KEYWORDS = {
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur im Projekt
 # verwendeten Taxonomie für Laufen: Straße, Trail, Bahn, Berg, Cross, Hindernis.
+# Reihenfolge ist bewusst NICHT alphabetisch, sondern von spezifisch nach
+# generisch: "Straße" (inkl. Marathon/Stadtlauf) steht bewusst ZULETZT,
+# siehe ausführlichen Kommentar zu ART2_KEYWORDS_LAUFEN in scraper_lib.py
+# (derselbe Bug/Fix, hier dupliziert weil dieses Skript scraper_lib.py
+# bewusst nicht nutzt).
 ART2_KEYWORDS = [
-    (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
-    (re.compile(r"trail|geländelauf|ultratrail|mountainrun(?!.*berg)", re.I), "Trail"),
-    (re.compile(r"berglauf|bergrennen|mountain run|gipfel", re.I), "Berg"),
-    (re.compile(r"crosslauf|\bcross\b", re.I), "Cross"),
-    (re.compile(r"hindernislauf|obstacle|ocr|spartan|tough mudder", re.I), "Hindernis"),
+    (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
+    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
+    (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Berg"),
+    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Cross"),
     (re.compile(r"bahn(meeting)?|leichtathletik.?meeting", re.I), "Bahn"),
+    (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
 ]
 DEFAULT_ART2 = "Straße"  # häufigster Fall (Stadt-/Straßenläufe), falls nichts erkannt wird
 
@@ -515,6 +520,51 @@ def load_existing_events(path: Path) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# Events unter dieser Distanz werden nicht aufgenommen (siehe Chat/README):
+# viele Firmen-/Kinder-/Bambini-/Hobbyläufe sind für dieses Projekt nicht
+# relevant. Events OHNE bekannte Distanz sind davon NICHT betroffen.
+MIN_DISTANCE_KM = 5.0
+
+MANUAL_OVERRIDES_PATH = REPO_ROOT / "scripts" / "manual_overrides.json"
+
+
+def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
+    """Siehe scraper_lib.apply_manual_overrides() (identische Logik, hier
+    dupliziert, da dieses Skript scraper_lib.py bewusst nicht nutzt).
+    Wendet scripts/manual_overrides.json an (v. a. für Events, die
+    zusätzlich auch über eine andere, datenärmere Quelle wie blv-sport.de
+    unter demselben Namen+Datum gefunden werden)."""
+    if not MANUAL_OVERRIDES_PATH.exists():
+        return events, 0
+    overrides = json.loads(MANUAL_OVERRIDES_PATH.read_text(encoding="utf-8"))
+    if not overrides:
+        return events, 0
+
+    result: list[Event] = []
+    excluded = 0
+    for event in events:
+        key = f"{(event.name or '').strip()}|{event.datum_start}"
+        override = next(
+            (v for k, v in overrides.items() if k != "_readme" and k.casefold() == key.casefold()),
+            None,
+        )
+        if override:
+            if override.get("exclude"):
+                excluded += 1
+                continue
+            for field in ("laenge_km", "art2", "art1", "land", "standort", "veranstalter_url"):
+                if field in override:
+                    setattr(event, field, override[field])
+        result.append(event)
+    return result, excluded
+
+
+def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) -> tuple[list[Event], int]:
+    kept = [e for e in events if e.laenge_km is None or e.laenge_km >= min_km]
+    skipped = len(events) - len(kept)
+    return kept, skipped
+
+
 def dedupe_key(
     name: str | None, datum_start: str | None, laenge_km: float | None = None
 ) -> tuple[str, str, float | None] | None:
@@ -593,6 +643,17 @@ def main():
 
     raw_events = fetch_all_events(session, delay, args.max_pages)
     print(f"\nInsgesamt {len(raw_events)} rohe Event-Einträge gefunden.\n")
+
+    events_to_use, overrides_excluded = apply_manual_overrides(raw_events)
+    if overrides_excluded:
+        print(f"  ({overrides_excluded} Event(s) laut scripts/manual_overrides.json "
+              f"ausgeschlossen, z. B. verifizierte Duplikate unter anderem Namen.)")
+
+    events_to_use, too_short_skipped = filter_min_distance(events_to_use)
+    if too_short_skipped:
+        print(f"  ({too_short_skipped} Event(s) unter {MIN_DISTANCE_KM:g} km übersprungen.)")
+
+    raw_events = events_to_use
 
     if not args.no_geocoding:
         geocoder = Geocoder(GEOCODE_CACHE_PATH)

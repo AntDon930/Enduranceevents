@@ -1,0 +1,164 @@
+{
+  "_readme": "Manuelle Korrekturen/Ergänzungen für Events, deren Quelle (fast immer blv-sport.de, das weder Distanz noch Veranstalter-Link liefert) keine ausreichende Datenbasis für laenge_km/art2/veranstalter_url hergibt. Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, nicht case-sensitiv beim Abgleich). Jede Recherche wurde einzeln per Websuche gegen die offizielle Ausschreibung/den Veranstalter geprüft (Stand: 2026-09-14) - Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden. 'exclude': true entfernt das Event komplett (z. B. echte Duplikate oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Angewendet von scraper_lib.apply_manual_override() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen.",
+  "47. Gaißacher Berglauf|2026-09-05": {
+    "laenge_km": 4.5,
+    "art2": "Berg",
+    "_note": "Hauptstrecke laut mehreren Quellen 4,5 km / 480 Hm (optionale Verlängerung zum Rechelkopf +1,6 km). Liegt unter der 5-km-Schwelle und wird dadurch automatisch herausgefiltert, obwohl es ein ernsthafter Berglauf ist - Grenzfall, siehe Chat-Hinweis."
+  },
+  "9. Gremsdorfer Kerwalauf 2026|2026-09-05": {
+    "laenge_km": 7.5,
+    "veranstalter_url": "https://sc-gremsdorf.de/2026/07/19/9-gremsdorfer-kerwalauf-am-05-09-2026/"
+  },
+  "48. Hochgratlauf|2026-09-06": {
+    "laenge_km": 12.8,
+    "art2": "Berg",
+    "veranstalter_url": "https://www.tsv-oberstaufen.de/hochgratlauf",
+    "_note": "Offizielle Ausschreibung 2026 (tsv-oberstaufen.de): Hauptstrecke 12,8 km, 714 Hm, Gipfel auf 1834 m."
+  },
+  "27. Ipsheimer Weinberglauf|2026-09-11": {
+    "laenge_km": 5.8,
+    "veranstalter_url": "https://www.tsv-ipsheim.de/cms2/index.php?option=com_content&view=article&id=789&Itemid=115",
+    "_note": "Hauptlauf ca. 5800 m laut offizieller Ausschreibung TSV Ipsheim. Zusätzlich Hobbylauf (~2,4 km) und Schülerlauf (~1,2 km) - beide unter 5 km, daher nicht separat aufgenommen."
+  },
+  "23. Schwarzenbacher Ausdauertag 2026|2026-09-12": {
+    "laenge_km": 21.1,
+    "veranstalter_url": "https://www.schwarzenbacher-ausdauertage.de/ausschreibung.html"
+  },
+  "Freisinger Volksfestlauf 2026|2026-09-12": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://freising.run/volksfest-lauf/"
+  },
+  "Run of Hope|2026-09-12": {
+    "laenge_km": 21.0,
+    "veranstalter_url": "https://www.ggkev.de/",
+    "_note": "Halbmarathon ist die längste Distanz (weitere: 1/4/10,5 km)."
+  },
+  "20. Lauf in den Herbst|2026-09-12": {
+    "laenge_km": 10.7,
+    "veranstalter_url": "https://putzbrunner-herbstlauf.de/"
+  },
+  "Run for life|2026-09-13": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://www.muenchner-aidshilfe.de/aktuelle-themen-newsreader/run-for-life-anmeldungen-gestartet-3.html"
+  },
+  "7. Wemdinger Stadtlauf|2026-09-13": {
+    "laenge_km": 6.0,
+    "veranstalter_url": "https://www.tsv-wemding1892.de/eventbeitrag/stadtlauf-wemding"
+  },
+  "5. Sindiso-Spendenlauf|2026-09-13": {
+    "laenge_km": 25.0,
+    "veranstalter_url": "https://www.sindiso-benefizlauf.de/",
+    "_note": "Für 2026 (5. Auflage) erstmals 25-km-Distanz zusätzlich zu 5/10 km laut Recherche."
+  },
+  "Women Journey|2026-09-13": {
+    "laenge_km": 5.0,
+    "veranstalter_url": "https://women-journey.com/"
+  },
+  "Miltenberger Landkreis Lauftag|2026-09-13": {
+    "laenge_km": 21.0,
+    "veranstalter_url": "https://lauftag.landkreis-miltenberg.de/"
+  },
+  "13. Fichtelgebirgstrailrun|2026-09-19": {
+    "laenge_km": 21.0,
+    "veranstalter_url": "https://www.fnwm.de/trail-running/",
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail)."
+  },
+  "45. Hörnle Berglauf Bad Kohlgrub|2026-09-19": {
+    "laenge_km": 7.0,
+    "art2": "Berg",
+    "veranstalter_url": "https://www.runnersworld.de/laufkalender/bad-kohlgruber-hoernle-berglauf/",
+    "_note": "7 km, 640 Hm laut mehreren Quellen; art2 ergibt sich zusätzlich bereits automatisch aus dem Namen (Berg)."
+  },
+  "39.Lauf in die Mönau|2026-09-19": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/lauf-in-die-moenau/veranstaltung/ausschreibung/"
+  },
+  "31. Seelauf TSV-Obernzenn|2026-09-19": {
+    "laenge_km": 10.7,
+    "veranstalter_url": "https://www.tsvobernzenn.de/"
+  },
+  "17. Wehringer Wertachlauf mit schwäbischen Meisterschaften|2026-09-19": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://www.leichtathletik.de/wettkaempfe/termine/wettkampf-kalender/termin-detail/detail/16-Wehringer-Wertachlauf-mit-schwaebischen-Meisterschaften-25B02000737250500"
+  },
+  "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
+    "laenge_km": 22.0,
+    "art2": "Trail",
+    "veranstalter_url": "https://laurentiuslauf.de/",
+    "_note": "Offizielle Seite bewirbt die Strecke ausdrücklich als Trails durch Augsburgs westliche Wälder. Distanzangaben zwischen Quellen leicht widersprüchlich (5/10/22 km je nach Jahr) - 22 km als längste konsistent genannte Distanz übernommen."
+  },
+  "47. Karlsfelder Seelauf|2026-09-20": {
+    "laenge_km": 21.1,
+    "veranstalter_url": "https://www.tsvek.de/sportangebot/leichtathletik/wettkampfangebot-la/seelauf-la.html"
+  },
+  "27. Memminger Altstadtlauf|2026-09-20": {
+    "laenge_km": 5.82,
+    "veranstalter_url": "https://www.mm-altstadtlauf.de/ausschreibung/einzelstarter"
+  },
+  "23. Stadtlauf Erding 2026|2026-09-20": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://trisport-erding.de/category/stadtlauf/"
+  },
+  "16. Kemmerner Kuckuckslauf|2026-09-20": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://kemmerner-kuckuckslauf.de/infos/laufstrecken"
+  },
+  "2.Fischhoflauf|2026-09-25": {
+    "laenge_km": 5.58
+  },
+  "20. Wiesentheider Kirchweihlauf|2026-09-26": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://kirchweihlauf.tsv-djk-wiesentheid.de/"
+  },
+  "10. Emmertinger Herbstfestlauf|2026-09-26": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://djk-emmerting.de/"
+  },
+  "Crosslauf Winhöring|2026-09-26": {
+    "laenge_km": 7.5,
+    "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/",
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Cross)."
+  },
+  "10. Möhrendorfer Karpfenweiherlauf|2026-09-26": {
+    "laenge_km": 21.1,
+    "veranstalter_url": "https://tria-fit.de/wp-content/uploads/2026/01/Ausschreibung_Weiherlauf_2026.pdf"
+  },
+  "Zweistädtelauf|2026-09-26": {
+    "laenge_km": 21.2,
+    "veranstalter_url": "https://www.merkendorf.de/Tourismus-Freizeit/Stadtlauf.html"
+  },
+  "König Ludwig Lauf - Sommeredition|2026-09-26": {
+    "laenge_km": 21.0,
+    "art2": "Trail",
+    "veranstalter_url": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf",
+    "_note": "U. a. auf trailrunning.de gelistet; Panorama-Strecke durch die Ammergauer Alpen."
+  },
+  "Reisberglauf Gaimersheim|2026-09-27": {
+    "exclude": true,
+    "_note": "Echtes Duplikat von '29. SPORT IN Reisberglauf' (selbes Datum, selbe Strecke am Reisberg zwischen Gaimersheim und Lippertshofen, nur unter anderem Namen/Ortsangabe erneut gelistet) - per Websuche verifiziert. Name-basiertes Dedupe konnte das nicht erkennen, da die Namen nicht übereinstimmen."
+  },
+  "29. SPORT IN Reisberglauf|2026-09-27": {
+    "laenge_km": 13.8,
+    "art2": "Berg",
+    "veranstalter_url": "https://www.mtv-in-la.de/reisberglauf-2025/",
+    "_note": "Bergrennen mit Hauptstrecke 'Reisbergrunde' (Wald-/Forstwege, Steigungen/Abfahrten), 13,8 km."
+  },
+  "25. Altstadtfestlauf in Lauf|2026-09-27": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://www.altstadtfest-lauf.de/",
+    "_note": "Ursprünglich für Juni 2026 angesetzt, dann abgesagt und auf den 27.09.2026 verschoben (per Websuche verifiziert) - das von blv-sport.de genannte Septemberdatum ist korrekt."
+  },
+  "52. Internationaler Hochfelln-Berglauf|2026-09-27": {
+    "laenge_km": 8.9,
+    "veranstalter_url": "https://www.hochfellnberglauf.de/",
+    "_note": "8,9 km, 1074 Hm. art2 ergibt sich bereits automatisch aus dem Namen (Berg)."
+  },
+  "30. Ruhstorfer Geländelauf|2026-09-27": {
+    "laenge_km": 7.5,
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail, via 'Geländelauf')."
+  },
+  "1. Bernauer Kurpark-Kinder-Crosslauf|2026-09-27": {
+    "laenge_km": 1.5,
+    "_note": "Reiner Kinderlauf (500-1500 m je Jahrgang, kein Erwachsenen-Hauptlauf) - liegt unter der 5-km-Schwelle und wird dadurch automatisch herausgefiltert."
+  }
+}

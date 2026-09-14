@@ -156,6 +156,47 @@ Schweiz.
 Einfach `events.json` um weitere Objekte im gleichen Format ergänzen und
 committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
+## Datenqualität
+
+Drei Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Events in `events.json` landen:
+
+- **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
+  gleichnamige Funktion in `laufkalender_scraper.py`): Events mit
+  **bekannter** Distanz unter 5 km (Bambini-/Kinder-/Firmen-Kurzläufe)
+  werden nicht aufgenommen. Events **ohne** bekannte Distanz sind davon
+  bewusst NICHT betroffen - das Kriterium lässt sich sonst nicht anwenden,
+  und ein pauschaler Ausschluss würde auch echte, längere Events
+  verwerfen, deren Distanz die Quelle nur nicht nennt. Schwellenwert:
+  `MIN_DISTANCE_KM` in `scraper_lib.py`.
+- **Kategorie-Erkennung (art2) nach Priorität, nicht nach erstem
+  Treffer** (`ART2_KEYWORDS_LAUFEN` in `scraper_lib.py`, dieselbe Liste
+  dupliziert in `laufkalender_scraper.py`): Ein Name wie "5. Beck
+  HochRhön Bergtrail 42k Trail-Marathon" enthält das Wort "Marathon" -
+  ohne eine bewusste Reihenfolge (Hindernis → Trail → Berg
+  [inkl. "Höhenmeter" im Text] → Cross → Bahn → erst zuletzt Straße/
+  Marathon/Stadtlauf) hätte die generische Straße-Regel zuerst zugetroffen
+  und das Event fälschlich als Straßenlauf statt als Trail eingestuft
+  (echter, mit realen Daten verifizierter Bug).
+- **Manuelle Korrekturen** (`scripts/manual_overrides.json`): blv-sport.de
+  liefert weder Distanz noch einen Veranstalter-Link (siehe Tabelle
+  unten) - für alle zum Zeitpunkt der Erstellung von blv-sport.de
+  gefundenen Events wurde die offizielle Ausschreibung einzeln per
+  Websuche recherchiert und dort als Override (Distanz, ggf. Kategorie,
+  Link) hinterlegt; ein Fall davon war sogar ein echtes Duplikat unter
+  anderem Namen (`exclude: true`). Wird von `apply_manual_overrides()`
+  vor der 5-km-Filterung angewendet (Schlüssel: `"<Name>|<Datum>"`).
+  **Wichtiger Vorbehalt**: Diese Recherche ist eine Momentaufnahme
+  (Stand siehe `_readme` in der JSON-Datei) - Distanzen/Termine können
+  sich von Jahr zu Jahr ändern, und die Datei deckt nur die zum
+  Recherchezeitpunkt bei blv-sport.de gelisteten Events ab. Neue
+  blv-sport.de-Events ohne Eintrag in dieser Datei bleiben ohne Distanz/
+  Link (werden aber nicht durch die 5-km-Regel ausgeschlossen, da ihre
+  Distanz ja unbekannt ist - siehe oben). Diese Datei müsste also
+  regelmäßig von Hand nachgepflegt werden, um dauerhaft dieselbe
+  Datenqualität zu halten wie die anderen vier Quellen, die Distanz und
+  Link selbst mitliefern.
+
 ### Acht Quellen geprüft, fünf davon aktiv genutzt
 
 Für dieses Projekt wurden acht Lauf-/Event-Kalender auf automatisiertes
@@ -224,7 +265,10 @@ Docstring am Kopf jedes Skripts.
 - **blv-sport.de**: Hat gar keine robots.txt (HTTP 404) – nach
   robots.txt-Konvention (RFC 9309) bedeutet das „keine Einschränkungen
   angegeben", nicht „Zugriff verboten". Einfache HTML-Tabelle ohne
-  Distanz-/Link-Spalte.
+  Distanz-/Link-Spalte - Distanz/Kategorie/Link kommen für diese Quelle
+  daher ausschließlich aus `scripts/manual_overrides.json` (siehe
+  Abschnitt „Datenqualität" oben), Events ohne Eintrag dort bleiben ohne
+  Distanz/Link.
 - **planet-marathon.de**: Alte, klassenlose HTML-Tabelle (nur
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).
