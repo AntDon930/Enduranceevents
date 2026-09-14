@@ -27,7 +27,8 @@ Schweiz.
 - `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
   Kennzahlen-Leiste). Rein statisch, keine Datenabhängigkeit. Die
   Hero-Grafik (Verlauf, Konturlinien, gestrichelte Streckenroute mit
-  Ziel-Pin und Lauf-/Rad-/Schwimm-Emoji auf der Route) ist selbst
+  Ziel-Pin und weißen Lauf-/Rad-/Schwimm-Linien-Icons auf der Route,
+  im selben Stil wie die Icons der Sportart-Kacheln) ist selbst
   gebautes Inline-SVG statt eines Fotos – in dieser Umgebung sind
   externe Bild-CDNs (Unsplash, Wikimedia, Pexels, …) netzwerkseitig
   blockiert, daher kein Hotlinking/Download echter Fotos möglich. Die
@@ -38,9 +39,12 @@ Schweiz.
   Sportart-Filter direkt. Zweisprachig (DE/EN) über denselben
   `localStorage`-Schlüssel wie `events.html`, sodass die Sprachwahl beim
   Wechsel zur Liste erhalten bleibt.
-- `events.html` – die eigentliche, filterbare Event-Liste. Oben rechts ein
-  „🏠 Startseite"-Button zurück zu `index.html`. Liest `events.json` per
-  `fetch` ein. Excel-ähnliche Tabelle in dieser Spaltenreihenfolge, jede
+- `events.html` – die eigentliche, filterbare Event-Liste. Kopfbereich im
+  selben Verlauf-Design wie die Willkommensseite (Tabelle, Schriftart und
+  Ausrichtung unverändert – nur die Optik von Kopfbereich und Buttons ist
+  angeglichen); oben rechts ein „Startseite"-Button zurück zu
+  `index.html`. Liest `events.json` per `fetch` ein. Excel-ähnliche
+  Tabelle in dieser Spaltenreihenfolge, jede
   Spalte hat einen eigenen Filter im Spaltenkopf
   (▾-Symbol):
   1. **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
