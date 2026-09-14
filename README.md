@@ -15,6 +15,8 @@ Schweiz.
   - `art1` – Laufen / Schwimmen / Rennrad / Triathlon
   - `art2` – Unterkategorie, z. B. Trail / Straße / Mountainbike / Bahn / Freiwasser
   - `datum_start` / `datum_ende` – Datum im Format `YYYY-MM-DD`
+  - `anmeldeschluss` – Anmeldeschluss-Datum im Format `YYYY-MM-DD` (optional;
+    fehlt es bei einem Event, zeigt die Tabelle dort „–")
   - `laenge_km` – Streckenlänge in Kilometern
   - `veranstalter_url` – Link zur Veranstalter-Website
 
@@ -40,6 +42,7 @@ Schweiz.
   - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
     Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
     alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
+  - **Anmeldeschluss** – Datumsbereich von/bis
   - **Länge (km)** – Sportart-Tabs (Laufen/Rennrad/Schwimmen/Triathlon) mit
     sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
     Zahlenbereich von/bis (siehe unten)

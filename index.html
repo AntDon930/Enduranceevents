@@ -154,11 +154,11 @@
   table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 700px;
+    min-width: 800px;
     table-layout: fixed;
     font-size: 0.86rem;
   }
-  th, td { width: 14.2857%; }
+  th, td { width: 12.5%; }
   thead th {
     position: sticky;
     top: 0;
@@ -488,10 +488,11 @@
       subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
       reset: 'Alle Filter zurücksetzen',
       result_count: (n, total) => `${n} von ${total} Events`,
-      col_datum: 'Datum', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Standort',
+      col_datum: 'Datum', col_anmeldeschluss: 'Anmeldeschluss', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Standort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge (km)',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
+      range_von: 'Von', range_bis: 'Bis',
       range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
       no_values: 'Keine Werte für die aktuelle Auswahl.',
       no_dates: 'Keine Termine vorhanden.',
@@ -506,7 +507,7 @@
       geo_current_label: 'Aktueller Standort',
       radius_none: 'Kein Umkreis-Filter',
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
-      detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
+      detail_datum: 'Datum', detail_anmeldeschluss: 'Anmeldeschluss', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Standort', detail_land: 'Land', detail_laenge: 'Länge',
       detail_link: 'Zur Veranstalter-Website ↗',
       empty_events: 'Keine Events gefunden.',
@@ -519,6 +520,8 @@
       chip_kategorie: (v) => `Kategorie: ${v}`,
       chip_laenge_ab: (v) => `Länge ab ${v} km`,
       chip_laenge_bis: (v) => `Länge bis ${v} km`,
+      chip_anmeldeschluss_ab: (v) => `Anmeldeschluss ab ${v}`,
+      chip_anmeldeschluss_bis: (v) => `Anmeldeschluss bis ${v}`,
       chip_umkreis: (bucket, label) => `Umkreis ${bucket} von ${label}`,
       chip_distanz: (sport, cat) => `Länge: ${cat} (${sport})`
     },
@@ -528,10 +531,11 @@
       subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
       reset: 'Reset all filters',
       result_count: (n, total) => `${n} of ${total} events`,
-      col_datum: 'Date', col_name: 'Name', col_sportart: 'Sport', col_standort: 'Location',
+      col_datum: 'Date', col_anmeldeschluss: 'Registration Deadline', col_name: 'Name', col_sportart: 'Sport', col_standort: 'Location',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length (km)',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
+      range_von: 'From', range_bis: 'To',
       range_von_km: 'From (km)', range_bis_km: 'To (km)',
       no_values: 'No values for the current selection.',
       no_dates: 'No dates available.',
@@ -546,7 +550,7 @@
       geo_current_label: 'Current location',
       radius_none: 'No radius filter',
       detail_empty: 'Select a row to see details.',
-      detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
+      detail_datum: 'Date', detail_anmeldeschluss: 'Registration Deadline', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'Location', detail_land: 'Country', detail_laenge: 'Length',
       detail_link: 'Visit organizer website ↗',
       empty_events: 'No events found.',
@@ -559,6 +563,8 @@
       chip_kategorie: (v) => `Category: ${v}`,
       chip_laenge_ab: (v) => `Length from ${v} km`,
       chip_laenge_bis: (v) => `Length up to ${v} km`,
+      chip_anmeldeschluss_ab: (v) => `Registration deadline from ${v}`,
+      chip_anmeldeschluss_bis: (v) => `Registration deadline up to ${v}`,
       chip_umkreis: (bucket, label) => `Radius ${bucket} from ${label}`,
       chip_distanz: (sport, cat) => `Length: ${cat} (${sport})`
     }
@@ -685,9 +691,10 @@
     { key: '50+', label: '50+ km' }
   ];
 
-  // Reihenfolge der Spalten: Datum, Name, Sportart, Standort, Land, Kategorie, Länge
+  // Reihenfolge der Spalten: Datum, Anmeldeschluss, Name, Sportart, Standort, Land, Kategorie, Länge
   const COLUMNS = [
     { key: 'datum', labelKey: 'col_datum', type: 'date-tree' },
+    { key: 'anmeldeschluss', labelKey: 'col_anmeldeschluss', type: 'date-range' },
     { key: 'name', labelKey: 'col_name', type: 'text' },
     { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
     { key: 'standort', labelKey: 'col_standort', type: 'standort' },
@@ -717,6 +724,8 @@
     nameQuery: '',
     selectedDays: new Set(),      // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
     treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
+    anmeldeschlussVon: '',
+    anmeldeschlussBis: '',
     laengeMin: '',
     laengeMax: '',
     distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
@@ -753,7 +762,7 @@
     events = await res.json();
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });
-    bodyEl.innerHTML = `<tr><td colspan="7" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
+    bodyEl.innerHTML = `<tr><td colspan="8" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
     return;
   }
 
@@ -877,6 +886,7 @@
       inner.className = 'th-inner';
       const labelSpan = document.createElement('span');
       labelSpan.textContent = t(col.labelKey);
+      labelSpan.title = t(col.labelKey);
       inner.appendChild(labelSpan);
 
       const btn = document.createElement('button');
@@ -953,6 +963,7 @@
     else if (col.type === 'date-tree') renderDateTreePanel(panel);
     else if (col.type === 'text') renderTextPanel(panel);
     else if (col.type === 'number-range') renderNumberRangePanel(panel);
+    else if (col.type === 'date-range') renderDateRangePanel(panel);
   }
 
   function renderCheckboxPanel(col, panel) {
@@ -1277,6 +1288,30 @@
     panel.appendChild(input);
   }
 
+  function renderDateRangePanel(panel) {
+    panel.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.className = 'range-row';
+    const vonLabel = document.createElement('label');
+    vonLabel.textContent = t('range_von');
+    const vonInput = document.createElement('input');
+    vonInput.type = 'date';
+    vonLabel.appendChild(vonInput);
+    const bisLabel = document.createElement('label');
+    bisLabel.textContent = t('range_bis');
+    const bisInput = document.createElement('input');
+    bisInput.type = 'date';
+    bisLabel.appendChild(bisInput);
+    wrap.appendChild(vonLabel);
+    wrap.appendChild(bisLabel);
+    panel.appendChild(wrap);
+
+    vonInput.value = state.anmeldeschlussVon;
+    bisInput.value = state.anmeldeschlussBis;
+    vonInput.addEventListener('change', () => { state.anmeldeschlussVon = vonInput.value; selectedIndex = null; render(); });
+    bisInput.addEventListener('change', () => { state.anmeldeschlussBis = bisInput.value; selectedIndex = null; render(); });
+  }
+
   function renderNumberRangePanel(panel) {
     panel.innerHTML = '';
 
@@ -1369,6 +1404,8 @@
         if (state.standort.size && !state.standort.has(e.standort)) return false;
         if (state.nameQuery.trim() && !e.name.toLowerCase().includes(state.nameQuery.trim().toLowerCase())) return false;
         if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
+        if (state.anmeldeschlussVon && e.anmeldeschluss && e.anmeldeschluss < state.anmeldeschlussVon) return false;
+        if (state.anmeldeschlussBis && e.anmeldeschluss && e.anmeldeschluss > state.anmeldeschlussBis) return false;
         if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
         if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
         if (!matchesDistanceCategory(e)) return false;
@@ -1400,7 +1437,7 @@
     countEl.textContent = t('result_count', filtered.length, events.length);
 
     if (filtered.length === 0) {
-      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="7">${escapeHtml(t('empty_events'))}</td></tr>`;
+      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="8">${escapeHtml(t('empty_events'))}</td></tr>`;
     } else {
       bodyEl.innerHTML = '';
       filtered.forEach(({ e, idx }) => {
@@ -1408,6 +1445,7 @@
         if (idx === selectedIndex) tr.classList.add('active');
         tr.innerHTML = `
           <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
+          <td><div class="cell-clamp">${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</div></td>
           <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
           <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
@@ -1434,6 +1472,7 @@
       <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
       <dl class="detail-grid">
         <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
+        <dt>${escapeHtml(t('detail_anmeldeschluss'))}</dt><dd>${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
         <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
         <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
@@ -1454,6 +1493,7 @@
       else if (col === 'art2') active = state.art2.size > 0;
       else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
       else if (col === 'datum') active = state.selectedDays.size > 0;
+      else if (col === 'anmeldeschluss') active = !!state.anmeldeschlussVon || !!state.anmeldeschlussBis;
       else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '' || state.distanceCategories.size > 0;
       btn.classList.toggle('has-filter', active);
       btn.classList.toggle('open', openColKey === col);
@@ -1467,6 +1507,8 @@
       chips.push({ label: t('chip_datum', n), clear: () => state.selectedDays.clear() });
     }
     if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
+    if (state.anmeldeschlussVon) chips.push({ label: t('chip_anmeldeschluss_ab', formatDate(state.anmeldeschlussVon)), clear: () => { state.anmeldeschlussVon = ''; } });
+    if (state.anmeldeschlussBis) chips.push({ label: t('chip_anmeldeschluss_bis', formatDate(state.anmeldeschlussBis)), clear: () => { state.anmeldeschlussBis = ''; } });
     state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
     state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
     state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
@@ -1506,6 +1548,8 @@
     state.standort.clear();
     state.nameQuery = '';
     state.selectedDays.clear();
+    state.anmeldeschlussVon = '';
+    state.anmeldeschlussBis = '';
     state.laengeMin = '';
     state.laengeMax = '';
     state.distanceCategories.clear();

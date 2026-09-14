@@ -9,6 +9,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
+    "anmeldeschluss": "2026-08-15",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.bmw-berlin-marathon.com"
   },
@@ -22,6 +23,7 @@
     "art2": "Straße",
     "datum_start": "2026-04-19",
     "datum_ende": "2026-04-19",
+    "anmeldeschluss": "2026-03-15",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.vienna-marathon.com"
   },
@@ -35,6 +37,7 @@
     "art2": "Straße",
     "datum_start": "2026-04-12",
     "datum_ende": "2026-04-12",
+    "anmeldeschluss": "2026-03-08",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.zurichmarathon.ch"
   },
@@ -48,6 +51,7 @@
     "art2": "Straße",
     "datum_start": "2026-07-12",
     "datum_ende": "2026-07-12",
+    "anmeldeschluss": "2026-05-15",
     "laenge_km": 226,
     "veranstalter_url": "https://www.ironman.com/de/im-switzerland"
   },
@@ -61,6 +65,7 @@
     "art2": "Trail",
     "datum_start": "2026-06-19",
     "datum_ende": "2026-06-20",
+    "anmeldeschluss": "2026-05-01",
     "laenge_km": 101,
     "veranstalter_url": "https://www.zugspitz-ultratrail.de"
   },
@@ -74,6 +79,7 @@
     "art2": "Straße",
     "datum_start": "2026-08-30",
     "datum_ende": "2026-08-30",
+    "anmeldeschluss": "2026-06-30",
     "laenge_km": 227,
     "veranstalter_url": "https://www.oetztaler-radmarathon.com"
   },
@@ -87,6 +93,7 @@
     "art2": "Freiwasser",
     "datum_start": "2026-07-04",
     "datum_ende": "2026-07-04",
+    "anmeldeschluss": "2026-06-20",
     "laenge_km": 3.5,
     "veranstalter_url": "https://www.bodensee-schwimmen.de"
   },
@@ -100,6 +107,7 @@
     "art2": "Mountainbike",
     "datum_start": "2026-08-15",
     "datum_ende": "2026-08-15",
+    "anmeldeschluss": "2026-07-15",
     "laenge_km": 65,
     "veranstalter_url": "https://www.engadin-bike.ch"
   },
@@ -113,6 +121,7 @@
     "art2": "Straße",
     "datum_start": "2026-06-28",
     "datum_ende": "2026-06-28",
+    "anmeldeschluss": "2026-05-25",
     "laenge_km": 70.3,
     "veranstalter_url": "https://www.woerthersee-triathlon.at"
   },
@@ -126,6 +135,7 @@
     "art2": "Straße",
     "datum_start": "2026-07-19",
     "datum_ende": "2026-07-19",
+    "anmeldeschluss": "2026-06-15",
     "laenge_km": 51.5,
     "veranstalter_url": "https://www.hamburg-triathlon.org"
   },
@@ -139,6 +149,7 @@
     "art2": "Bahn",
     "datum_start": "2026-05-16",
     "datum_ende": "2026-05-16",
+    "anmeldeschluss": "2026-05-01",
     "laenge_km": 10,
     "veranstalter_url": "https://www.swiss-athletics.ch"
   },
@@ -152,6 +163,7 @@
     "art2": "Straße",
     "datum_start": "2026-05-01",
     "datum_ende": "2026-05-01",
+    "anmeldeschluss": "2026-04-15",
     "laenge_km": 187,
     "veranstalter_url": "https://www.rund-um-frankfurt.de"
   },
@@ -165,6 +177,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
+    "anmeldeschluss": "2027-04-05",
     "laenge_km": 42.2,
     "veranstalter_url": "https://www.basel-marathon.ch"
   },
@@ -173,11 +186,12 @@
     "name": "München Halbmarathon",
     "standort": "München",
     "lat": 48.1351,
-    "lon": 11.5820,
+    "lon": 11.582,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
+    "anmeldeschluss": "2026-09-15",
     "laenge_km": 21.1,
     "veranstalter_url": "https://www.muenchenmarathon.de"
   },
@@ -186,11 +200,12 @@
     "name": "Silvesterlauf Salzburg",
     "standort": "Salzburg",
     "lat": 47.8095,
-    "lon": 13.0550,
+    "lon": 13.055,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
+    "anmeldeschluss": "2026-12-20",
     "laenge_km": 5,
     "veranstalter_url": "https://www.silvesterlauf-salzburg.at"
   }
