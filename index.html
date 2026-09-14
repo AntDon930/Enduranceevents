@@ -48,6 +48,7 @@
     align-items: center;
     padding: 18px 24px;
   }
+  .top-actions-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .lang-switch {
     display: flex;
     gap: 4px;
@@ -145,6 +146,22 @@
   }
   .cta-btn .arrow { font-size: 1.15rem; transition: transform 0.15s ease; }
   .cta-btn:hover .arrow { transform: translateX(3px); }
+  .hero-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+  }
+  .map-link:hover { background: rgba(255,255,255,0.2); }
 
   .scroll-hint {
     position: absolute;
@@ -297,9 +314,12 @@
   </svg>
 
   <div class="top-bar">
-    <div class="lang-switch" id="lang-switch">
-      <button type="button" class="lang-btn" data-lang="de">DE</button>
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <div class="top-actions-row">
+      <div id="auth-mount"></div>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </div>
 
@@ -307,9 +327,14 @@
     <span class="hero-eyebrow" data-i="eyebrow">Ausdauer Events in DACH</span>
     <h1 data-i="headline">Wo Ausdauer beginnt.</h1>
     <p class="lead" data-i="lead">Entdecke Lauf-, Schwimm-, Rad- und Triathlon-Events in Deutschland, Österreich und der Schweiz – gefiltert nach Datum, Ort, Distanz und mehr.</p>
-    <a class="cta-btn" href="events.html">
-      <span data-i="cta">Events entdecken</span><span class="arrow">→</span>
-    </a>
+    <div class="hero-cta-row">
+      <a class="cta-btn" href="events.html">
+        <span data-i="cta">Events entdecken</span><span class="arrow">→</span>
+      </a>
+      <a class="map-link" href="karte.html">
+        <span>🗺️</span><span data-i="ctaMap">Auf der Karte ansehen</span>
+      </a>
+    </div>
   </div>
 
   <div class="scroll-hint">
@@ -375,6 +400,15 @@
 
 <footer data-i="footer">Ausdauersport-Events D/A/CH · Beispielprojekt</footer>
 
+<!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
+     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
+     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+
 <script>
 (function () {
   const I18N = {
@@ -383,6 +417,7 @@
       headline: 'Wo Ausdauer beginnt.',
       lead: 'Entdecke Lauf-, Schwimm-, Rad- und Triathlon-Events in Deutschland, Österreich und der Schweiz – gefiltert nach Datum, Ort, Distanz und mehr.',
       cta: 'Events entdecken',
+      ctaMap: 'Auf der Karte ansehen',
       ctaFinal: 'Zur vollständigen Event-Liste',
       scroll: 'Mehr erfahren',
       stat1n: '4 Sportarten', stat1l: 'Laufen, Schwimmen, Rad, Triathlon',
@@ -398,6 +433,7 @@
       headline: 'Where endurance begins.',
       lead: 'Discover running, swimming, cycling and triathlon events across Germany, Austria and Switzerland.',
       cta: 'Explore events',
+      ctaMap: 'View on the map',
       ctaFinal: 'See the full event list',
       scroll: 'Learn more',
       stat1n: '4 sports', stat1l: 'Running, swimming, cycling, triathlon',

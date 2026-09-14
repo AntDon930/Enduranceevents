@@ -15,14 +15,29 @@ Schweiz.
   - `art1` – Laufen / Schwimmen / Fahrrad / Triathlon
   - `art2` – Unterkategorie, abhängig von `art1` (siehe `ART2_BY_ART1` unten)
   - `datum_start` / `datum_ende` – Datum im Format `YYYY-MM-DD`
-  - `anmeldeschluss` – Anmeldeschluss-Datum im Format `YYYY-MM-DD` (optional;
-    fehlt es bei einem Event, zeigt die Tabelle dort „–")
+  - `anmeldeschluss` – Anmeldeschluss-Datum im Format `YYYY-MM-DD` (optional,
+    wird von keinem Scraper befüllt und in der UI nicht mehr angezeigt/
+    gefiltert - die Daten dazu sind bei den meisten Quellen nicht
+    zuverlässig auffindbar, siehe "Entfernte Anmeldung-Spalte" unten;
+    das Feld bleibt im Schema für eigene, manuell gepflegte Events)
   - `laenge_km` – Streckenlänge in Kilometern
   - `veranstalter_url` – Link zur Veranstalter-Website
 
   **Neues Event ergänzen**: Ort per Kartendienst (z. B. Google Maps – Rechtsklick
   auf den Punkt zeigt die Koordinaten) nachschlagen und als `lat`/`lon` eintragen,
   sonst funktioniert die Umkreissuche für dieses Event nicht.
+
+  **Duplikat-Prüfung**: Ein Event gilt als Duplikat, wenn Name + Startdatum
+  + (gerundete) Distanz übereinstimmen (siehe `scraper_lib.dedupe_key()`
+  bzw. die gleichnamige Funktion in `laufkalender_scraper.py`). Die
+  Distanz ist bewusst Teil des Schlüssels: dieselbe Veranstaltung bietet
+  am selben Tag oft mehrere Distanzen an (z. B. 10 km, Halbmarathon UND
+  Marathon) - das sind unterschiedliche Einträge und erscheinen absichtlich
+  einzeln in der Liste statt als ein zusammengefasster/verworfener
+  Eintrag. Jeder Scraper prüft das selbst beim Schreiben in `events.json`;
+  `update_events.py` meldet zusätzlich, welche Events dabei neu
+  hinzukamen (für die optionale "Benachrichtige mich"-Anbindung, siehe
+  unten).
 
 - `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
   Kennzahlen-Leiste). Rein statisch, keine Datenabhängigkeit. Die
@@ -43,36 +58,46 @@ Schweiz.
   selben Verlauf-Design wie die Willkommensseite (Tabelle, Schriftart und
   Ausrichtung unverändert – nur die Optik von Kopfbereich und Buttons ist
   angeglichen); oben rechts ein „Startseite"-Button zurück zu
-  `index.html`. Liest `events.json` per `fetch` ein. Excel-ähnliche
-  Tabelle in dieser Spaltenreihenfolge, jede
-  Spalte hat einen eigenen Filter im Spaltenkopf
+  `index.html`, ein „Karte"-Button zu `karte.html` (siehe unten) sowie
+  der Login-Button (siehe „Login/Anmeldung einrichten"). Liest
+  `events.json` per `fetch` ein. Excel-ähnliche Tabelle in dieser
+  Spaltenreihenfolge, jede Spalte hat einen eigenen Filter im Spaltenkopf
   (▾-Symbol):
   1. **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
   2. **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
      Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert
      automatisch alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
-  3. **Anmeldung** – Checkbox-Filter „Offen" / „Geschlossen": wird aus
-     `anmeldeschluss` und dem heutigen Datum berechnet (Anmeldeschluss in
-     der Zukunft = Offen, in der Vergangenheit = Geschlossen). Das konkrete
-     Anmeldeschluss-Datum selbst wird nicht in der Tabelle angezeigt,
-     sondern nur in der Detailansicht beim Klick auf ein Event.
-  4. **Land** – Checkbox-Liste
-  5. **Stadt/Ort** – Checkbox-Liste mit *allen* Städten (unabhängig von
+  3. **Land** – Checkbox-Liste
+  4. **Stadt/Ort** – Checkbox-Liste mit *allen* Städten (unabhängig von
      anderen Filtern) plus Umkreissuche: „Aktuellen Standort verwenden"
      (Browser-Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann
-     Radius 0–5 / 5–20 / 20–50 / 50+ km wählen
-  6. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
-  7. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
+     Radius 0–5 / 5–20 / 20–50 / 50+ km wählen. Wird die Seite mit
+     `?standort=<Stadt>` aufgerufen (Deep-Link von `karte.html`), ist
+     dieser Filter beim Laden schon gesetzt.
+  5. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
+  6. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
      `events.html`, dort anpassbar):
      - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
      - *Triathlon* hat keine Kategorie-Unterteilung.
-  8. **Länge** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
+  7. **Länge** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
      sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
      Zahlenbereich von/bis (siehe unten); die Einheit „km" steht bereits in
      jeder Zelle, daher nur „Länge" als Spaltenname
+
+  **Entfernte Anmeldung-Spalte**: Es gab früher eine achte Spalte
+  „Anmeldung" (Offen/Geschlossen, aus `anmeldeschluss` berechnet). Sie
+  wurde entfernt, weil der Anmeldeschluss bei so gut wie keiner der
+  gescrapten Quellen zuverlässig im HTML steht - keine belastbare
+  Datenbasis für einen Filter.
+
+  **Sortierung**: Die Liste ist immer nach Datum sortiert, das
+  nächstliegende/aktuellste (bevorstehende) Datum zuerst. Bereits
+  vergangene Events (Startdatum vor heute) werden dabei ans Ende
+  sortiert statt - wie ein reiner Textvergleich es tun würde - vor alle
+  künftigen Events zu rutschen.
 
   Die Spaltenbreiten sind fix zugeteilt (Name breiter, Länge schmaler) statt
   gleich verteilt, über `nth-child`-Selektoren im `<style>`-Block von
@@ -115,6 +140,14 @@ Schweiz.
   wählbar (beide Filter werden kombiniert, UND-verknüpft) und stehen als
   `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` oben in `events.html` –
   dort anpassbar, falls andere Schwellenwerte gewünscht sind.
+- `karte.html` – Kartenansicht (Leaflet + OpenStreetMap-Kacheln, keine
+  API-Keys nötig) mit einem Marker pro **Standort** (nicht pro Event):
+  ein Ort mit z. B. 10 Events zeigt einen einzelnen Marker mit der Zahl
+  "10" statt zehn übereinanderliegenden Punkten. Klick auf einen Marker
+  öffnet ein Popup mit Ortsname, Länderangabe und einem Link „N Events
+  in der Liste anzeigen", der zu `events.html?standort=<Ort>` führt und
+  dort automatisch den Standort-Filter auf genau diesen Ort setzt. Erreichbar
+  über den „Karte"-Button in `events.html`/`index.html`.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
 
@@ -236,6 +269,90 @@ an, die Seite aktualisiert sich also von selbst. Der Geocoding-Cache
 (`scripts/.geocode_cache.json`) wird dabei über GitHub Actions Cache
 zwischen den Läufen wiederverwendet, um wiederholte Nominatim-Anfragen für
 bereits bekannte Städte zu vermeiden.
+
+## Login/Anmeldung einrichten
+
+`index.html`, `events.html` und `karte.html` haben rechts neben dem
+Home-Button einen „Anmelden"-Button (siehe `auth.js`). Er nutzt
+**Firebase Authentication** (Google + E-Mail/Passwort mit Bestätigungs-
+E-Mail; „Mit Apple anmelden" ist im Modal sichtbar, aber bewusst
+**deaktiviert** - Apple Sign-In erfordert ein kostenpflichtiges
+Apple-Developer-Konto, das für dieses Projekt noch nicht existiert;
+sobald eines vorhanden ist, in `auth.js` das `disabled`-Attribut der
+beiden `#ee-apple-btn`-Buttons entfernen und die Apple-Provider-Logik
+ergänzen).
+
+**Ohne Konfiguration ist der Button bereits jetzt sichtbar und öffnet
+das fertige Modal**, zeigt darin aber einen Hinweis „Login ist in dieser
+Vorschau noch nicht eingerichtet" statt kaputter Funktionalität - die
+Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
+
+### Einmaliges Setup
+
+1. Firebase-Projekt anlegen: <https://console.firebase.google.com/> ->
+   "Projekt hinzufügen" (kostenlos, kein Kreditkarte nötig für die
+   folgenden Schritte).
+2. **Build → Authentication → Sign-in method**: "Google" und
+   "E-Mail/Passwort" aktivieren.
+3. **Authentication → Settings → Autorisierte Domains**:
+   `antdon930.github.io` eintragen (sonst funktioniert der Login live auf
+   GitHub Pages nicht, auch wenn er lokal geht).
+4. **Build → Firestore Database → Datenbank erstellen** (Produktionsmodus).
+   Danach unter **Rules** den Inhalt von `firestore.rules` (in diesem
+   Repo) einfügen und veröffentlichen.
+5. **Projekteinstellungen (Zahnrad oben links) → "Meine Apps" → Web-App
+   hinzufügen**. Das dort angezeigte Config-Objekt in `firebase-config.js`
+   einfügen (ersetzt die `REPLACE_ME`-Platzhalter).
+6. Committen und pushen - der Login funktioniert danach auf allen drei
+   Seiten (dasselbe `firebase-config.js`/`auth.js` wird überall geladen).
+
+### „Benachrichtige mich" (0 Treffer in der Liste)
+
+Setzt jemand in `events.html` Filter, für die aktuell **kein** Event
+existiert, erscheint statt der leeren Tabelle ein Hinweis mit einem
+Button „Benachrichtigen, sobald verfügbar" (nicht angemeldet: „Anmelden,
+um benachrichtigt zu werden", öffnet das Login-Modal). Ein Klick
+speichert die aktuell aktiven Filter - **ohne den Datumsfilter** (das
+gesuchte Event liegt ja per Annahme in der Zukunft und ist deshalb noch
+nicht in `events.json`) - als Dokument in der Firestore-Collection
+`filterSubscriptions` (siehe `auth.js: saveFilterSubscription()`).
+
+Das Speichern des Abos funktioniert bereits mit den obigen 6 Schritten.
+Damit bei einem passenden neuen Event auch tatsächlich eine E-Mail
+rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
+`functions/index.js` für die vollständige Anleitung im Datei-Kopf):
+
+1. Firebase-Projekt auf den **Blaze-Tarif** upgraden (nötig, damit Cloud
+   Functions ausgehende HTTPS-Aufrufe von `update_events.py` entgegennehmen
+   dürfen - im Rahmen dieses Projekts fallen dabei praktisch keine Kosten
+   an) und die Function deployen:
+   ```bash
+   npm install -g firebase-tools
+   firebase login
+   firebase init functions   # bestehendes Projekt wählen, functions/ nutzen
+   cd functions && npm install && cd ..
+   firebase deploy --only functions
+   ```
+   Die ausgegebene Function-URL als GitHub-Actions-Secret
+   `NOTIFY_WEBHOOK_URL` hinterlegen (Repo → Settings → Secrets and
+   variables → Actions) sowie optional ein selbst gewähltes
+   `NOTIFY_WEBHOOK_SECRET` (schützt die Function vor fremden Aufrufen -
+   denselben Wert dann auch als Umgebungsvariable beim Function-Deployment
+   setzen). `update_events.py` ruft die URL danach automatisch nach jedem
+   Lauf auf, in dem sich `events.json` geändert hat.
+2. In der Firebase-Konsole unter **Extensions** die offizielle Extension
+   **"Trigger Email from Firestore"** installieren und dort SMTP-
+   Zugangsdaten (z. B. von SendGrid, Mailgun oder einem eigenen Postfach)
+   hinterlegen - sie übernimmt den eigentlichen Versand für die
+   `mail`-Dokumente, die `functions/index.js` anlegt.
+
+**Bekannte Einschränkung**: Der Matching-Code in `functions/index.js`
+prüft Land/Sportart/Kategorie/Standort/Länge/Umkreis, aber (noch) nicht
+die feingranularen Distanz-Kategorien (Marathon/Halbmarathon/...) aus
+`events.html` (`DISTANCE_CATEGORIES`) - diese Tabelle müsste dafür
+zwischen `events.html` und der Cloud Function geteilt werden. Ein Abo
+mit einer solchen Kategorie wird aktuell nur über die einfachen
+Länge-von/bis-Werte geprüft, falls zusätzlich gesetzt.
 
 ## Lokal testen
 

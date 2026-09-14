@@ -1,0 +1,24 @@
+rules_version = '2';
+
+// Firestore Security Rules für die "Benachrichtige mich"-Filterabos
+// (siehe auth.js: EndauranceAuth.saveFilterSubscription). In der Firebase-
+// Konsole unter Build -> Firestore Database -> Rules einfügen.
+//
+// Prinzip: Jede/r Nutzer/in darf NUR eigene Abos anlegen/lesen/löschen
+// (erkannt an request.auth.uid). Die Cloud Function, die neue Events
+// gegen alle Abos prüft (siehe functions/index.js), läuft mit dem
+// Admin-SDK und ist von diesen Regeln ohnehin nicht betroffen.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /filterSubscriptions/{subscriptionId} {
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.email == request.auth.token.email;
+      allow read, delete: if request.auth != null && request.auth.uid == resource.data.uid;
+      // Kein Update durch Nutzer/innen nötig - Abos werden neu angelegt statt
+      // bearbeitet; "notified" wird ausschließlich von der Cloud Function
+      // (Admin-SDK, umgeht diese Regeln) gesetzt.
+      allow update: if false;
+    }
+  }
+}

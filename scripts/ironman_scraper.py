@@ -369,9 +369,14 @@ def guess_land(text: str) -> str | None:
 def guess_distance_km(text: str) -> float | None:
     if not text:
         return None
-    m = re.search(r"(\d{1,3}(?:[.,]\d{1,2})?)\s*km\b", text, re.I)
-    if m:
-        return float(m.group(1).replace(",", "."))
+    # Nachkommateil bewusst UNBEGRENZT (\d+, nicht \d{1,2}/\d{1,3}): sonst
+    # matcht z. B. "42,195 km" (volle Triathlon-/Marathondistanz) oder
+    # "21,0975 km" (Halbmarathon) nicht ab der Zahl vor dem Komma, sondern
+    # versehentlich nur den Nachkommateil als eigene km-Angabe (echter Bug,
+    # verifiziert in scraper_lib.py/laufkalender_scraper.py).
+    matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*km\b", text, re.I)
+    if matches:
+        return max(float(m.replace(",", ".")) for m in matches)
     for pattern, km in RACE_TYPE_DISTANCE_KM:
         if pattern.search(text):
             return km

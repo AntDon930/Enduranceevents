@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karte – Ausdauersport-Events D/A/CH</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e0e3e8;
+    --text: #1c1f24;
+    --text-muted: #6b7280;
+    --accent: #14509a;
+    --accent-bg: #eaf1ff;
+    --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2025;
+      --border: #2c3038;
+      --text: #e7e9ec;
+      --text-muted: #9aa1ac;
+      --accent: #5b9dff;
+      --accent-bg: #1e2a40;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+  }
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--hero-gradient);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; color: #fff; }
+  .subtitle { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin: 0; }
+  .top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-top: 2px; }
+  .home-btn, .list-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .home-btn:hover, .list-btn:hover { background: rgba(255,255,255,0.26); }
+  .lang-switch { display: flex; gap: 4px; flex-shrink: 0; }
+  .lang-btn {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .lang-btn.active { background: #fff; color: #14315e; border-color: #fff; }
+
+  .map-wrap {
+    flex: 1;
+    min-height: 60vh;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  #map { position: absolute; inset: 0; }
+  .map-hint {
+    position: absolute;
+    z-index: 500;
+    top: 10px;
+    left: 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+  .marker-badge {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.72rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    border: 2px solid #fff;
+  }
+  .popup-title { font-weight: 700; margin-bottom: 2px; }
+  .popup-sub { color: var(--text-muted, #6b7280); font-size: 0.82rem; margin-bottom: 8px; }
+  .popup-link {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .leaflet-popup-content { margin: 10px 12px; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>
+    <h1 id="page-title">Karte</h1>
+    <p class="subtitle" id="subtitle">Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.</p>
+  </div>
+  <div class="top-actions">
+    <a class="home-btn" href="index.html" id="home-btn-label">Startseite</a>
+    <a class="list-btn" href="events.html" id="list-btn-label">Liste</a>
+    <div id="auth-mount"></div>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<div class="map-wrap">
+  <div id="map"></div>
+  <div class="map-hint" id="map-hint">Lade Events…</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
+     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
+     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+
+<script>
+(async function () {
+  const I18N = {
+    de: {
+      title: 'Karte',
+      subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
+      home: 'Startseite',
+      list: 'Liste',
+      hint: (n, cities) => `${n} Events an ${cities} Orten`,
+      load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
+      popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
+      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`
+    },
+    en: {
+      title: 'Map',
+      subtitle: 'Click a marker to see the events at that location in the list.',
+      home: 'Home',
+      list: 'List',
+      hint: (n, cities) => `${n} events across ${cities} locations`,
+      load_error: (msg) => `Could not load events.json: ${msg}`,
+      popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
+      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`
+    }
+  };
+  let currentLang = 'de';
+  try {
+    const saved = localStorage.getItem('endurance-lang');
+    if (saved === 'de' || saved === 'en') currentLang = saved;
+  } catch (e) { /* localStorage evtl. nicht verfügbar (privater Modus) */ }
+
+  const t = (key, ...args) => {
+    const entry = I18N[currentLang][key];
+    return typeof entry === 'function' ? entry(...args) : entry;
+  };
+
+  const titleEl = document.getElementById('page-title');
+  const subtitleEl = document.getElementById('subtitle');
+  const homeLabelEl = document.getElementById('home-btn-label');
+  const listLabelEl = document.getElementById('list-btn-label');
+  const hintEl = document.getElementById('map-hint');
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.title = t('title') + ' – Ausdauersport-Events D/A/CH';
+    titleEl.textContent = t('title');
+    subtitleEl.textContent = t('subtitle');
+    homeLabelEl.textContent = t('home');
+    listLabelEl.textContent = t('list');
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+  setLanguage(currentLang);
+
+  // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
+  const map = L.map('map').setView([48.5, 10.5], 6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
+  }).addTo(map);
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function badgeIcon(count) {
+    const size = count >= 20 ? 34 : count >= 5 ? 28 : 22;
+    return L.divIcon({
+      className: '',
+      html: `<div class="marker-badge" style="width:${size}px;height:${size}px;">${count}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
+    });
+  }
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const events = await res.json();
+
+    // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
+    // so zeigt z. B. Frankfurt EINEN Marker mit der Zahl "10" statt zehn
+    // übereinanderliegender Punkte. Koordinaten des ersten Events mit
+    // gültigem lat/lon je Standort werden übernommen (alle Events am
+    // selben Ort teilen sich ohnehin dieselbe Geocoding-Koordinate).
+    const byStandort = new Map();
+    let withCoords = 0;
+    events.forEach(e => {
+      if (e.lat == null || e.lon == null || !e.standort) return;
+      withCoords++;
+      const key = e.standort;
+      if (!byStandort.has(key)) {
+        byStandort.set(key, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0 });
+      }
+      byStandort.get(key).count++;
+    });
+
+    hintEl.textContent = t('hint', withCoords, byStandort.size);
+
+    const markers = [];
+    byStandort.forEach(loc => {
+      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count) }).addTo(map);
+      const listUrl = 'events.html?standort=' + encodeURIComponent(loc.standort);
+      marker.bindPopup(
+        `<div class="popup-title">${escapeHtml(loc.standort)}</div>` +
+        `<div class="popup-sub">${escapeHtml(loc.land || '')} · ${t('popup_count', loc.count)}</div>` +
+        `<a class="popup-link" href="${listUrl}">${escapeHtml(t('popup_link', loc.count))}</a>`
+      );
+      markers.push(marker);
+    });
+
+    if (markers.length) {
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.15));
+    }
+  } catch (err) {
+    hintEl.textContent = t('load_error', err.message);
+  }
+})();
+</script>
+</body>
+</html>

@@ -86,7 +86,22 @@
     font-weight: 600;
     text-decoration: none;
   }
-  .home-btn:hover { background: rgba(255,255,255,0.26); }
+  .home-btn:hover, .map-btn:hover { background: rgba(255,255,255,0.26); }
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
   .lang-switch {
     display: flex;
     gap: 4px;
@@ -157,6 +172,34 @@
     padding: 0;
   }
 
+  .notify-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.86rem;
+  }
+  .notify-box[hidden] { display: none; }
+  .notify-box p { margin: 0; flex: 1; min-width: 200px; color: var(--text); }
+  .notify-box button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .notify-box button:hover { opacity: 0.9; }
+  .notify-box .notify-status { font-size: 0.8rem; color: var(--text-muted); }
+
   .layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
@@ -192,17 +235,19 @@
     table-layout: fixed;
     font-size: 0.86rem;
   }
-  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Anmeldung, 4 Land, 5 Standort,
-     6 Sportart, 7 Kategorie, 8 Länge. Name breiter, Länge schmaler (die
-     Einheit "km" steht ohnehin schon in jeder Zelle). */
-  th:nth-child(1), td:nth-child(1) { width: 19%; }
-  th:nth-child(2), td:nth-child(2) { width: 12%; }
-  th:nth-child(3), td:nth-child(3) { width: 11%; }
-  th:nth-child(4), td:nth-child(4) { width: 11%; }
-  th:nth-child(5), td:nth-child(5) { width: 13%; }
-  th:nth-child(6), td:nth-child(6) { width: 11%; }
-  th:nth-child(7), td:nth-child(7) { width: 15%; }
-  th:nth-child(8), td:nth-child(8) { width: 8%; }
+  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Land, 4 Standort, 5 Sportart,
+     6 Kategorie, 7 Länge. Name breiter, Länge schmaler (die Einheit "km"
+     steht ohnehin schon in jeder Zelle). Die Anmeldung-Spalte (Offen/
+     Geschlossen) wurde entfernt: der Anmeldeschluss lässt sich bei den
+     meisten Quellen nicht zuverlässig auslesen und fehlt daher fast
+     überall - keine gute Datenbasis für einen Filter/eine Spalte. */
+  th:nth-child(1), td:nth-child(1) { width: 22%; }
+  th:nth-child(2), td:nth-child(2) { width: 13%; }
+  th:nth-child(3), td:nth-child(3) { width: 12%; }
+  th:nth-child(4), td:nth-child(4) { width: 15%; }
+  th:nth-child(5), td:nth-child(5) { width: 12%; }
+  th:nth-child(6), td:nth-child(6) { width: 17%; }
+  th:nth-child(7), td:nth-child(7) { width: 9%; }
   thead th {
     position: sticky;
     top: 0;
@@ -497,6 +542,8 @@
   </div>
   <div class="top-actions">
     <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
+    <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
+    <div id="auth-mount"></div>
     <div class="lang-switch" id="lang-switch">
       <button type="button" class="lang-btn" data-lang="de">DE</button>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -508,6 +555,8 @@
   <div class="result-count" id="result-count"></div>
   <div class="active-chips" id="active-chips"></div>
 </div>
+
+<div class="notify-box" id="notify-box" hidden></div>
 
 <div class="layout">
   <div class="table-wrap">
@@ -524,6 +573,15 @@
   </div>
 </div>
 
+<!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
+     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
+     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+
 <script>
 (async function () {
   // ---------- Übersetzungen / i18n ----------
@@ -535,8 +593,9 @@
       subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
       reset: 'Alle Filter zurücksetzen',
       home: 'Startseite',
+      map: 'Karte',
       result_count: (n, total) => `${n} von ${total} Events`,
-      col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
+      col_datum: 'Datum', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
@@ -554,10 +613,15 @@
       geo_current_label: 'Aktueller Standort',
       radius_none: 'Kein Umkreis-Filter',
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
-      detail_datum: 'Datum', detail_anmeldeschluss: 'Anmeldeschluss', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
+      detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
       detail_link: 'Zur Veranstalter-Website ↗',
       empty_events: 'Keine Events gefunden.',
+      notify_text: 'Kein Event entspricht diesen Filtern? Lass dich per E-Mail benachrichtigen, sobald eines hinzugefügt wird (Datum wird dabei nicht berücksichtigt).',
+      notify_btn: 'Benachrichtigen, sobald verfügbar',
+      notify_login_btn: 'Anmelden, um benachrichtigt zu werden',
+      notify_saved: '✓ Gespeichert – wir melden uns per E-Mail.',
+      notify_error: 'Fehler beim Speichern – bitte später erneut versuchen.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
       chip_name: (q) => `Name: „${q}"`,
@@ -567,7 +631,6 @@
       chip_kategorie: (v) => `Kategorie: ${v}`,
       chip_laenge_ab: (v) => `Länge ab ${v} km`,
       chip_laenge_bis: (v) => `Länge bis ${v} km`,
-      chip_anmeldung: (v) => `Anmeldung: ${v}`,
       chip_umkreis: (bucket, label) => `Umkreis ${bucket} von ${label}`,
       chip_distanz: (sport, cat) => `Länge: ${cat} (${sport})`
     },
@@ -577,8 +640,9 @@
       subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
       reset: 'Reset all filters',
       home: 'Home',
+      map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
-      col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
+      col_datum: 'Date', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
@@ -596,10 +660,15 @@
       geo_current_label: 'Current location',
       radius_none: 'No radius filter',
       detail_empty: 'Select a row to see details.',
-      detail_datum: 'Date', detail_anmeldeschluss: 'Registration Deadline', detail_sportart: 'Sport', detail_kategorie: 'Category',
+      detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
       detail_link: 'Visit organizer website ↗',
       empty_events: 'No events found.',
+      notify_text: "No event matches these filters? Get notified by email once one is added (the date filter is ignored for this).",
+      notify_btn: 'Notify me when available',
+      notify_login_btn: 'Sign in to get notified',
+      notify_saved: '✓ Saved – we’ll email you.',
+      notify_error: 'Could not save – please try again later.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
       chip_name: (q) => `Name: "${q}"`,
@@ -609,7 +678,6 @@
       chip_kategorie: (v) => `Category: ${v}`,
       chip_laenge_ab: (v) => `Length from ${v} km`,
       chip_laenge_bis: (v) => `Length up to ${v} km`,
-      chip_anmeldung: (v) => `Registration: ${v}`,
       chip_umkreis: (bucket, label) => `Radius ${bucket} from ${label}`,
       chip_distanz: (sport, cat) => `Length: ${cat} (${sport})`
     }
@@ -643,10 +711,6 @@
       'Mountainbike': { de: 'Mountainbike', en: 'Mountain Bike' },
       'Gravel': { de: 'Gravel', en: 'Gravel' },
       'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' }
-    },
-    anmeldestatus: {
-      'Offen': { de: 'Offen', en: 'Open' },
-      'Geschlossen': { de: 'Geschlossen', en: 'Closed' }
     }
   };
 
@@ -746,13 +810,13 @@
     { key: '50+', label: '50+ km' }
   ];
 
-  // Reihenfolge der Spalten: Name, Datum, Anmeldung, Land, Standort, Sportart, Kategorie, Länge
-  // Der Anmeldeschluss (konkretes Datum) steht nur in der Detailansicht; in der
-  // Tabelle gibt es stattdessen nur den Status "Offen"/"Geschlossen" als Filter.
+  // Reihenfolge der Spalten: Name, Datum, Land, Standort, Sportart, Kategorie, Länge
+  // Keine Anmeldung-Spalte/-Filter mehr: der Anmeldeschluss lässt sich bei
+  // den meisten gescrapten Quellen nicht zuverlässig auslesen (fehlt fast
+  // überall) - keine gute Datenbasis, siehe Docstrings der Scraper-Skripte.
   const COLUMNS = [
     { key: 'name', labelKey: 'col_name', type: 'text' },
     { key: 'datum', labelKey: 'col_datum', type: 'date-tree' },
-    { key: 'anmeldestatus', labelKey: 'col_anmeldung', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.anmeldestatus)) },
     { key: 'land', labelKey: 'col_land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
     { key: 'standort', labelKey: 'col_standort', type: 'standort' },
     { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
@@ -779,7 +843,6 @@
     nameQuery: '',
     selectedDays: new Set(),      // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
     treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
-    anmeldestatus: new Set(),     // 'Offen' | 'Geschlossen'
     laengeMin: '',
     laengeMax: '',
     distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
@@ -806,31 +869,44 @@
   const resetBtnEl = document.getElementById('reset-btn');
   resetBtnEl.addEventListener('click', resetFilters);
   const homeBtnLabelEl = document.getElementById('home-btn-label');
+  const mapBtnLabelEl = document.getElementById('map-btn-label');
+  const notifyBoxEl = document.getElementById('notify-box');
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
   });
 
+  // "Benachrichtige mich"-Box neu rendern, sobald sich der Login-Status
+  // ändert (z. B. nachdem sich der Nutzer im Modal erfolgreich angemeldet
+  // hat, während die Box wegen 0 Treffern sichtbar war).
+  if (window.EndauranceAuth) {
+    window.EndauranceAuth.onAuthChange(() => render());
+  }
+
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error('HTTP ' + res.status);
     events = await res.json();
-    const today = todayIso();
-    events.forEach(e => {
-      e.anmeldestatus = e.anmeldeschluss ? (e.anmeldeschluss >= today ? 'Offen' : 'Geschlossen') : null;
-    });
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });
-    bodyEl.innerHTML = `<tr><td colspan="8" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
+    bodyEl.innerHTML = `<tr><td colspan="7" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
     return;
   }
 
   // Deep-Link von der Willkommensseite: ?sportart=Fahrrad selektiert den
-  // Sportart-Filter direkt beim Laden.
+  // Sportart-Filter direkt beim Laden. Deep-Link von der Karte (karte.html):
+  // ?standort=Frankfurt selektiert den Standort-Filter auf genau diesen Ort,
+  // damit z. B. ein Klick auf den Frankfurt-Marker direkt die gefilterte
+  // Liste der Events dort zeigt.
   try {
-    const sportartParam = new URLSearchParams(window.location.search).get('sportart');
+    const params = new URLSearchParams(window.location.search);
+    const sportartParam = params.get('sportart');
     if (sportartParam && Object.prototype.hasOwnProperty.call(DISTANCE_CATEGORIES, sportartParam)) {
       state.art1.add(sportartParam);
+    }
+    const standortParam = params.get('standort');
+    if (standortParam && events.some(e => e.standort === standortParam)) {
+      state.standort.add(standortParam);
     }
   } catch (e) { /* ignorieren */ }
 
@@ -943,6 +1019,7 @@
     subtitleEl.textContent = t('subtitle');
     resetBtnEl.textContent = t('reset');
     homeBtnLabelEl.textContent = t('home');
+    mapBtnLabelEl.textContent = t('map');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     closeFloatingPanel();
     if (opts && opts.skipRender) return;
@@ -1453,7 +1530,6 @@
         if (state.standort.size && !state.standort.has(e.standort)) return false;
         if (state.nameQuery.trim() && !e.name.toLowerCase().includes(state.nameQuery.trim().toLowerCase())) return false;
         if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
-        if (state.anmeldestatus.size && !state.anmeldestatus.has(e.anmeldestatus)) return false;
         if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
         if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
         if (!matchesDistanceCategory(e)) return false;
@@ -1464,7 +1540,17 @@
         }
         return true;
       })
-      .sort((a, b) => a.e.datum_start.localeCompare(b.e.datum_start));
+      // Nach Datum sortiert, das aktuellste (= nächste bevorstehende) Datum
+      // zuerst: bereits vergangene Events (datum_start < heute) werden ans
+      // Ende sortiert statt an den Anfang, da ein Datumsstring-Vergleich
+      // sie sonst fälschlich vor alle künftigen Events stellen würde.
+      .sort((a, b) => {
+        const today = todayIso();
+        const aPast = a.e.datum_start < today ? 1 : 0;
+        const bPast = b.e.datum_start < today ? 1 : 0;
+        if (aPast !== bPast) return aPast - bPast;
+        return a.e.datum_start.localeCompare(b.e.datum_start);
+      });
   }
 
   function refreshOpenPanel() {
@@ -1485,7 +1571,8 @@
     countEl.textContent = t('result_count', filtered.length, events.length);
 
     if (filtered.length === 0) {
-      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="8">${escapeHtml(t('empty_events'))}</td></tr>`;
+      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="7">${escapeHtml(t('empty_events'))}</td></tr>`;
+      renderNotifyPrompt();
     } else {
       bodyEl.innerHTML = '';
       filtered.forEach(({ e, idx }) => {
@@ -1494,7 +1581,6 @@
         tr.innerHTML = `
           <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
           <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
-          <td><div class="cell-clamp">${e.anmeldestatus ? escapeHtml(tv('anmeldestatus', e.anmeldestatus)) : '–'}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
           <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
@@ -1504,9 +1590,63 @@
         tr.addEventListener('click', () => { selectedIndex = idx; render(); });
         bodyEl.appendChild(tr);
       });
+      removeNotifyPrompt();
     }
 
     renderDetail();
+  }
+
+  // ---------- "Benachrichtige mich"-Box (0 Treffer) ----------
+
+  // Die aktuell aktiven Filter als einfaches, JSON-serialisierbares Objekt
+  // (Sets -> Arrays) für die Firestore-Ablage. Bewusst OHNE Datumsfilter
+  // (state.selectedDays): das gesuchte Event liegt annahmegemäß in der
+  // Zukunft und ist deshalb noch nicht in events.json - ein Datumsfilter
+  // würde eine spätere Benachrichtigung dafür also nie zulassen.
+  function serializeFiltersForNotify() {
+    return {
+      land: Array.from(state.land),
+      art1: Array.from(state.art1),
+      art2: Array.from(state.art2),
+      standort: Array.from(state.standort),
+      laengeMin: state.laengeMin || null,
+      laengeMax: state.laengeMax || null,
+      distanceCategories: Array.from(state.distanceCategories),
+      radius: state.radius || null,
+      origin: state.origin ? { lat: state.origin.lat, lon: state.origin.lon, label: state.origin.label } : null
+    };
+  }
+
+  function renderNotifyPrompt() {
+    if (!window.EndauranceAuth) { notifyBoxEl.hidden = true; return; }
+    notifyBoxEl.hidden = false;
+    const user = window.EndauranceAuth.getUser();
+    if (user) {
+      notifyBoxEl.innerHTML = `
+        <p>${escapeHtml(t('notify_text'))}</p>
+        <button type="button" id="notify-save-btn">${escapeHtml(t('notify_btn'))}</button>
+        <span class="notify-status" id="notify-status"></span>
+      `;
+      notifyBoxEl.querySelector('#notify-save-btn').addEventListener('click', () => {
+        const statusEl = notifyBoxEl.querySelector('#notify-status');
+        statusEl.textContent = '';
+        window.EndauranceAuth.saveFilterSubscription(serializeFiltersForNotify())
+          .then(() => { statusEl.textContent = t('notify_saved'); })
+          .catch(() => { statusEl.textContent = t('notify_error'); });
+      });
+    } else {
+      notifyBoxEl.innerHTML = `
+        <p>${escapeHtml(t('notify_text'))}</p>
+        <button type="button" id="notify-login-btn">${escapeHtml(t('notify_login_btn'))}</button>
+      `;
+      notifyBoxEl.querySelector('#notify-login-btn').addEventListener('click', () => {
+        window.EndauranceAuth.openModal('login');
+      });
+    }
+  }
+
+  function removeNotifyPrompt() {
+    notifyBoxEl.hidden = true;
   }
 
   function renderDetail() {
@@ -1520,7 +1660,6 @@
       <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
       <dl class="detail-grid">
         <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
-        <dt>${escapeHtml(t('detail_anmeldeschluss'))}</dt><dd>${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
         <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
@@ -1541,7 +1680,6 @@
       else if (col === 'art2') active = state.art2.size > 0;
       else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
       else if (col === 'datum') active = state.selectedDays.size > 0;
-      else if (col === 'anmeldestatus') active = state.anmeldestatus.size > 0;
       else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '' || state.distanceCategories.size > 0;
       btn.classList.toggle('has-filter', active);
       btn.classList.toggle('open', openColKey === col);
@@ -1555,7 +1693,6 @@
       const n = state.selectedDays.size;
       chips.push({ label: t('chip_datum', n), clear: () => state.selectedDays.clear() });
     }
-    state.anmeldestatus.forEach(v => chips.push({ label: t('chip_anmeldung', tv('anmeldestatus', v)), clear: () => state.anmeldestatus.delete(v) }));
     state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
     state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
     state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
@@ -1595,7 +1732,6 @@
     state.standort.clear();
     state.nameQuery = '';
     state.selectedDays.clear();
-    state.anmeldestatus.clear();
     state.laengeMin = '';
     state.laengeMax = '';
     state.distanceCategories.clear();

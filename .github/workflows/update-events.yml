@@ -63,6 +63,13 @@ jobs:
       # Zugriff verbietet) lässt diesen Schritt NICHT fehlschlagen - nur
       # wenn ALLE Skripte fehlschlagen, bricht der Job hier ab.
       - name: Scraper ausführen und events.json aktualisieren
+        env:
+          # Optional: nur gesetzt, wenn "Benachrichtige mich" per E-Mail
+          # eingerichtet wurde (siehe README.md, Abschnitt "Login/
+          # Anmeldung einrichten" -> "Benachrichtige mich"). Ohne diese
+          # Secrets ruft update_events.py schlicht keinen Webhook auf.
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
         run: python3 scripts/update_events.py
 
       - name: events.json committen und pushen, falls geändert

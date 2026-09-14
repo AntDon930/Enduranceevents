@@ -12,7 +12,10 @@ nacheinander aus und führt ihre Ergebnisse in einer gemeinsamen
 Wie die Zusammenführung funktioniert
 --------------------------------------
 Jedes Scraper-Skript dedupliziert sein Ergebnis bereits selbst (Abgleich
-über Name + Startdatum) und schreibt direkt in `events.json`. Die
+über Name + Startdatum + Distanz - bewusst MIT Distanz: viele Events
+bieten unter demselben Namen am selben Tag mehrere Distanzen an, z. B.
+10 km, Halbmarathon UND Marathon, das sind unterschiedliche Einträge und
+sollen alle erhalten bleiben) und schreibt direkt in `events.json`. Die
 "Zusammenführung" hier entsteht einfach dadurch, dass die Skripte
 nacheinander dieselbe Datei lesen und aktualisieren: Skript 2 sieht damit
 automatisch die von Skript 1 hinzugefügten Events und dedupliziert
@@ -22,6 +25,20 @@ ist oder ihre robots.txt den Zugriff verbietet) bricht den Gesamtlauf
 NICHT ab – die übrigen Skripte laufen trotzdem, und die Ergebnisse der
 erfolgreichen Skripte werden übernommen. Am Ende steht eine Zusammen-
 fassung, welche Skripte erfolgreich waren.
+
+Optionale "Benachrichtige mich"-Anbindung (NOTIFY_WEBHOOK_URL)
+------------------------------------------------------------------
+Ist die Umgebungsvariable `NOTIFY_WEBHOOK_URL` gesetzt (z. B. als
+GitHub-Actions-Secret, siehe `.github/workflows/update-events.yml`),
+werden nach einem echten (nicht `--dry-run`) Lauf alle NEU hinzugekommenen
+Events (Vorher-/Nachher-Vergleich über dieselbe Name+Datum+Distanz-
+Identität wie beim Dedupe) per HTTPS-POST an diese URL gemeldet - gedacht
+für die Cloud Function in `functions/index.js`, die sie gegen gespeicherte
+Filterabos (siehe `auth.js`/events.html "Benachrichtige mich") prüft und
+bei einem Treffer eine E-Mail auslöst. Optional zusätzlich
+`NOTIFY_WEBHOOK_SECRET` (wird als Header `X-Notify-Secret` mitgeschickt).
+Ohne gesetztes `NOTIFY_WEBHOOK_URL` passiert hier schlicht nichts - kein
+Fehler, kein Effekt auf den restlichen Lauf.
 
 Neue Scraper hinzufügen
 ------------------------
@@ -45,8 +62,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
@@ -82,6 +102,51 @@ def count_events(path: Path) -> int:
         return len(json.loads(path.read_text(encoding="utf-8")))
     except (json.JSONDecodeError, OSError):
         return 0
+
+
+def load_events(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def event_identity(event: dict) -> tuple:
+    """Identisch zu scraper_lib.dedupe_key(), aber ohne Import (dieses
+    Skript startet die Scraper als eigene Subprozesse statt sie zu
+    importieren) - Name + Startdatum + gerundete Distanz."""
+    laenge_km = event.get("laenge_km")
+    rounded_km = round(laenge_km, 1) if isinstance(laenge_km, (int, float)) else None
+    return (str(event.get("name", "")).strip().casefold(), event.get("datum_start"), rounded_km)
+
+
+def notify_webhook_of_new_events(new_events: list[dict]) -> None:
+    """Meldet neu hinzugekommene Events (best-effort, siehe
+    functions/index.js) an eine optionale Cloud Function, die sie gegen
+    gespeicherte "Benachrichtige mich"-Filterabos prüft und passende
+    E-Mails auslöst. Ohne gesetztes NOTIFY_WEBHOOK_URL passiert nichts;
+    ein Fehler hier lässt den Gesamtlauf NICHT fehlschlagen - das
+    Scrapen/Aktualisieren von events.json ist die Kernaufgabe, die
+    Benachrichtigung ein optionales Extra."""
+    webhook_url = os.environ.get("NOTIFY_WEBHOOK_URL")
+    if not webhook_url or not new_events:
+        return
+
+    print(f"\n→ Melde {len(new_events)} neue(s) Event(s) an {webhook_url} ...")
+    headers = {"Content-Type": "application/json"}
+    secret = os.environ.get("NOTIFY_WEBHOOK_SECRET")
+    if secret:
+        headers["X-Notify-Secret"] = secret
+
+    body = json.dumps({"events": new_events}, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(webhook_url, data=body, headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            print(f"  ✓ Webhook antwortete mit HTTP {resp.status}.")
+    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+        print(f"  ⚠ Webhook-Aufruf fehlgeschlagen (ignoriert, events.json bleibt trotzdem gültig): {exc}")
 
 
 def run_script(script: Path, events_json: Path, dry_run: bool, extra_args: list[str]) -> bool:
@@ -139,7 +204,8 @@ def main():
         print(f"⚠ Keine Scraper-Skripte ({SCRIPTS_DIR}/*_scraper.py) gefunden. Nichts zu tun.")
         return
 
-    before = count_events(args.events_json)
+    before_events = load_events(args.events_json)
+    before = len(before_events)
     print(f"events.json vor dem Update: {before} Events.")
     print(
         f"Werde {len(scripts)} Scraper-Skript(e) nacheinander ausführen: "
@@ -151,7 +217,13 @@ def main():
         extra_args = SCRIPT_EXTRA_ARGS.get(script.name, [])
         results[script.name] = run_script(script, args.events_json, args.dry_run, extra_args)
 
-    after = count_events(args.events_json)
+    after_events = load_events(args.events_json)
+    after = len(after_events)
+
+    if not args.dry_run:
+        before_identities = {event_identity(e) for e in before_events}
+        new_events = [e for e in after_events if event_identity(e) not in before_identities]
+        notify_webhook_of_new_events(new_events)
 
     print(f"\n{'=' * 70}\nZusammenfassung\n{'=' * 70}")
     for name, ok in results.items():

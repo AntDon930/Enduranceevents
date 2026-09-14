@@ -344,9 +344,18 @@ def guess_art2(text: str, config: SiteConfig) -> str | None:
 def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     if not text:
         return None
-    m = re.search(r"(\d{1,3}(?:[.,]\d{1,2})?)\s*km\b", text, re.I)
-    if m:
-        return float(m.group(1).replace(",", "."))
+    # Nachkommateil bewusst UNBEGRENZT (\d+, nicht \d{1,2}/\d{1,3}): die
+    # offiziellen Distanzen "42,195 km" (Marathon) und "21,0975 km"
+    # (Halbmarathon) haben 3 bzw. 4 Nachkommastellen - mit einer festen
+    # Obergrenze matcht der Regex nicht ab der Zahl vor dem Komma, sondern
+    # (Bug, echt aufgetreten und mit realen Daten verifiziert) versehentlich
+    # nur den Nachkommateil als vermeintlich eigenständige km-Angabe
+    # (z. B. "975" aus "21,0975"). Bei mehreren Treffern (z. B. "5 km,
+    # 10 km, 42,195 km") wird die größte Distanz übernommen (das
+    # "Hauptrennen").
+    matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*km\b", text, re.I)
+    if matches:
+        return max(float(m.replace(",", ".")) for m in matches)
     lowered = text.lower()
     for keyword, km in config.known_distances_km.items():
         if keyword in lowered:
@@ -727,10 +736,23 @@ def load_existing_events(path: Path) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def dedupe_key(name: str | None, datum_start: str | None) -> tuple[str, str] | None:
+def dedupe_key(
+    name: str | None, datum_start: str | None, laenge_km: float | None = None
+) -> tuple[str, str, float | None] | None:
+    """Eindeutiger Schlüssel für ein Event: Name + Startdatum + (gerundete)
+    Distanz. Die Distanz ist bewusst Teil des Schlüssels: viele Veranstalter
+    bieten unter demselben Namen am selben Tag mehrere Distanzen an (z. B.
+    10-km-Lauf, Halbmarathon UND Marathon) - das sind unterschiedliche
+    Events und sollen alle in der Liste erscheinen, nicht als "Duplikat"
+    des ersten gefundenen Eintrags verworfen werden. Auf eine Nachkomma-
+    stelle gerundet, damit winzige Formatierungsunterschiede zwischen
+    Quellen (z. B. 42.2 vs. 42.195) nicht als unterschiedliche Distanzen
+    gezählt werden.
+    """
     if not name or not datum_start:
         return None
-    return (name.strip().casefold(), datum_start)
+    rounded_km = round(laenge_km, 1) if isinstance(laenge_km, (int, float)) else None
+    return (name.strip().casefold(), datum_start, rounded_km)
 
 
 def filter_dach(events: list[Event], include_all: bool) -> tuple[list[Event], int]:
@@ -742,7 +764,9 @@ def filter_dach(events: list[Event], include_all: bool) -> tuple[list[Event], in
 
 
 def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[list[dict], int, int]:
-    existing_keys = {dedupe_key(e.get("name"), e.get("datum_start")) for e in existing}
+    existing_keys = {
+        dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km")) for e in existing
+    }
     existing_keys.discard(None)
 
     merged = list(existing)
@@ -753,7 +777,7 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
         if not event.is_valid():
             skipped += 1
             continue
-        key = dedupe_key(event.name, event.datum_start)
+        key = dedupe_key(event.name, event.datum_start, event.laenge_km)
         if key is None or key in existing_keys:
             skipped += 1
             continue
