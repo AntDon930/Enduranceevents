@@ -371,8 +371,20 @@ class Geocoder:
 
     def _ensure_geolocator(self):
         if self._geolocator is None:
+            from geopy.extra.rate_limiter import RateLimiter
             from geopy.geocoders import Nominatim
-            self._geolocator = Nominatim(user_agent=USER_AGENT)
+            geolocator = Nominatim(user_agent=USER_AGENT)
+            # Nominatim erlaubt laut Nutzungsbedingungen max. 1 Request/
+            # Sekunde - in der Praxis (verifiziert) drosselt es teils
+            # strenger (HTTP 429), z. B. bei geteilter Ausgangs-IP. Der
+            # RateLimiter hält den Mindestabstand ein UND wiederholt bei
+            # HTTP 429/5xx (GeocoderServiceError-Familie) automatisch mit
+            # Wartezeit, statt beim ersten 429 sofort aufzugeben.
+            self._geolocator = RateLimiter(
+                geolocator.geocode, min_delay_seconds=1.5,
+                max_retries=4, error_wait_seconds=5.0,
+                swallow_exceptions=False,
+            )
 
     def geocode(self, standort: str, land: str | None) -> tuple[float, float] | None:
         query = f"{standort}, {land}" if land else standort
@@ -382,12 +394,10 @@ class Geocoder:
 
         try:
             self._ensure_geolocator()
-            location = self._geolocator.geocode(query, timeout=10)
+            location = self._geolocator(query, timeout=10)
         except Exception as exc:
             print(f"  ⚠ Geocoding fehlgeschlagen für '{query}': {exc}")
             location = None
-        finally:
-            time.sleep(1.0)  # Nominatim-Nutzungsbedingungen: max. 1 req/s
 
         result = (location.latitude, location.longitude) if location else None
         self.cache[query] = list(result) if result else None
