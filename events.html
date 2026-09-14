@@ -55,11 +55,32 @@
     font-size: 0.85rem;
     margin: 0 0 16px;
   }
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .home-btn:hover { background: var(--accent-bg); }
   .lang-switch {
     display: flex;
     gap: 4px;
     flex-shrink: 0;
-    margin-top: 2px;
   }
   .lang-btn {
     padding: 4px 10px;
@@ -451,9 +472,12 @@
     <h1 id="page-title"></h1>
     <p class="subtitle" id="subtitle"></p>
   </div>
-  <div class="lang-switch" id="lang-switch">
-    <button type="button" class="lang-btn" data-lang="de">DE</button>
-    <button type="button" class="lang-btn" data-lang="en">EN</button>
+  <div class="top-actions">
+    <a class="home-btn" href="index.html" id="home-btn">🏠 <span id="home-btn-label"></span></a>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
   </div>
 </div>
 
@@ -484,9 +508,10 @@
   const I18N = {
     de: {
       tab_title: 'Ausdauersport-Events D/A/CH',
-      title: '🏁 Ausdauersport-Events – Deutschland / Österreich / Schweiz',
+      title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
       subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
       reset: 'Alle Filter zurücksetzen',
+      home: 'Startseite',
       result_count: (n, total) => `${n} von ${total} Events`,
       col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge (km)',
@@ -525,9 +550,10 @@
     },
     en: {
       tab_title: 'Endurance Events D/A/CH',
-      title: '🏁 Endurance Events – Germany / Austria / Switzerland',
+      title: 'Endurance Events – Germany / Austria / Switzerland',
       subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
       reset: 'Reset all filters',
+      home: 'Home',
       result_count: (n, total) => `${n} of ${total} events`,
       col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length (km)',
@@ -756,6 +782,7 @@
   const subtitleEl = document.getElementById('subtitle');
   const resetBtnEl = document.getElementById('reset-btn');
   resetBtnEl.addEventListener('click', resetFilters);
+  const homeBtnLabelEl = document.getElementById('home-btn-label');
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
@@ -892,6 +919,7 @@
     titleEl.textContent = t('title');
     subtitleEl.textContent = t('subtitle');
     resetBtnEl.textContent = t('reset');
+    homeBtnLabelEl.textContent = t('home');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     closeFloatingPanel();
     if (opts && opts.skipRender) return;

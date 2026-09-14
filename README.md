@@ -27,19 +27,21 @@ Schweiz.
 - `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
   Kennzahlen-Leiste). Rein statisch, keine Datenabhängigkeit. Die
   Hero-Grafik (Verlauf, Konturlinien, gestrichelte Streckenroute mit
-  Ziel-Pin) ist selbst gebautes Inline-SVG statt eines Fotos – in dieser
-  Umgebung sind externe Bild-CDNs (Unsplash, Wikimedia, Pexels, …)
-  netzwerkseitig blockiert, daher kein Hotlinking/Download echter Fotos
-  möglich. Die „Events entdecken"-Buttons verlinken auf `events.html`
+  Ziel-Pin und Lauf-/Rad-/Schwimm-Emoji auf der Route) ist selbst
+  gebautes Inline-SVG statt eines Fotos – in dieser Umgebung sind
+  externe Bild-CDNs (Unsplash, Wikimedia, Pexels, …) netzwerkseitig
+  blockiert, daher kein Hotlinking/Download echter Fotos möglich. Die
+  „Events entdecken"-Buttons verlinken auf `events.html`
   ohne Filter; jede Sportart-Kachel verlinkt mit
   `events.html?sportart=<Sportart>` (z. B. `?sportart=Fahrrad`) – die
   Liste liest diesen Parameter beim Laden aus und selektiert den
   Sportart-Filter direkt. Zweisprachig (DE/EN) über denselben
   `localStorage`-Schlüssel wie `events.html`, sodass die Sprachwahl beim
   Wechsel zur Liste erhalten bleibt.
-- `events.html` – die eigentliche, filterbare Event-Liste. Liest
-  `events.json` per `fetch` ein. Excel-ähnliche Tabelle in dieser
-  Spaltenreihenfolge, jede Spalte hat einen eigenen Filter im Spaltenkopf
+- `events.html` – die eigentliche, filterbare Event-Liste. Oben rechts ein
+  „🏠 Startseite"-Button zurück zu `index.html`. Liest `events.json` per
+  `fetch` ein. Excel-ähnliche Tabelle in dieser Spaltenreihenfolge, jede
+  Spalte hat einen eigenen Filter im Spaltenkopf
   (▾-Symbol):
   1. **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
   2. **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
