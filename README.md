@@ -24,7 +24,17 @@ Schweiz.
   auf den Punkt zeigt die Koordinaten) nachschlagen und als `lat`/`lon` eintragen,
   sonst funktioniert die Umkreissuche für dieses Event nicht.
 
-- `index.html` – Statische Seite (HTML/CSS/JS, keine Build-Schritte), liest
+- `index.html` – Willkommensseite (Hero mit Slogan, Sportart-Kacheln,
+  Kennzahlen-Leiste). Rein statisch, keine Datenabhängigkeit. Die
+  Hero-Grafik (Verlauf, Konturlinien, gestrichelte Streckenroute mit
+  Ziel-Pin) ist selbst gebautes Inline-SVG statt eines Fotos – in dieser
+  Umgebung sind externe Bild-CDNs (Unsplash, Wikimedia, Pexels, …)
+  netzwerkseitig blockiert, daher kein Hotlinking/Download echter Fotos
+  möglich. Jede Sportart-Kachel und beide „Events entdecken"-Buttons
+  verlinken auf `events.html`. Zweisprachig (DE/EN) über denselben
+  `localStorage`-Schlüssel wie `events.html`, sodass die Sprachwahl beim
+  Wechsel zur Liste erhalten bleibt.
+- `events.html` – die eigentliche, filterbare Event-Liste. Liest
   `events.json` per `fetch` ein. Excel-ähnliche Tabelle in dieser
   Spaltenreihenfolge, jede Spalte hat einen eigenen Filter im Spaltenkopf
   (▾-Symbol):
@@ -45,7 +55,7 @@ Schweiz.
   6. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
   7. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
-     `index.html`, dort anpassbar):
+     `events.html`, dort anpassbar):
      - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
@@ -58,11 +68,13 @@ Schweiz.
   oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
   einmal. Klick auf eine Zeile zeigt rechts die Detailansicht.
 
-  **Zweisprachig (DE/EN)**: Umschalter oben rechts. Übersetzt werden alle
-  UI-Texte sowie die Werte für Land/Sportart/Kategorie (z. B. „Laufen" ↔
-  „Running"); Event-Namen, Städte und Veranstalter-Links bleiben unverändert.
-  Die Übersetzungstabellen (`I18N`, `VALUE_TRANSLATIONS`) stehen oben im
-  `<script>`-Block in `index.html` – dort auch anpassbar/erweiterbar.
+  **Zweisprachig (DE/EN)**: Umschalter oben rechts, geteilt mit
+  `index.html` über denselben `localStorage`-Schlüssel. Übersetzt werden
+  alle UI-Texte sowie die Werte für Land/Sportart/Kategorie (z. B.
+  „Laufen" ↔ „Running"); Event-Namen, Städte und Veranstalter-Links
+  bleiben unverändert. Die Übersetzungstabellen (`I18N`,
+  `VALUE_TRANSLATIONS`) stehen oben im `<script>`-Block in `events.html`
+  – dort auch anpassbar/erweiterbar.
 
   **Distanz-Schnellauswahl bei „Länge"**: Die Sportart-Tabs im Länge-Filter
   folgen dem Sportart-Filter: ist dort z. B. nur „Laufen" ausgewählt, zeigt
@@ -84,7 +96,7 @@ Schweiz.
 
   Diese Kategorien sind zusätzlich zum allgemeinen Von/Bis-Zahlenbereich
   wählbar (beide Filter werden kombiniert, UND-verknüpft) und stehen als
-  `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` oben in `index.html` –
+  `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` oben in `events.html` –
   dort anpassbar, falls andere Schwellenwerte gewünscht sind.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
@@ -96,8 +108,8 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Lokal testen
 
-Da die Seite `events.json` per `fetch` lädt, funktioniert das direkte
-Öffnen der `index.html` per Doppelklick in manchen Browsern nicht
+Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert
+das direkte Öffnen per Doppelklick in manchen Browsern nicht
 (CORS-Einschränkung bei `file://`). Stattdessen lokal einen einfachen
 Webserver starten, z. B.:
 
