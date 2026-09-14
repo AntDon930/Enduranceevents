@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<title>Ausdauersport-Events D/A/CH</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e0e3e8;
+    --text: #1c1f24;
+    --text-muted: #6b7280;
+    --accent: #14509a;
+    --accent-bg: #eaf1ff;
+    --row-alt: #f8fafc;
+    --row-hover: #eef4ff;
+    --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2025;
+      --border: #2c3038;
+      --text: #e7e9ec;
+      --text-muted: #9aa1ac;
+      --accent: #5b9dff;
+      --accent-bg: #1e2a40;
+      --row-alt: #202329;
+      --row-hover: #22314a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { height: 100%; }
+  body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--hero-gradient);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0 0 4px;
+    color: #fff;
+  }
+  .subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .home-btn:hover { background: rgba(255,255,255,0.26); }
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .lang-btn.active {
+    background: #fff;
+    color: #14315e;
+    border-color: #fff;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+  .reset-btn {
+    align-self: flex-end;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(20,80,154,0.25);
+  }
+  .reset-btn:hover { opacity: 0.9; }
+  .active-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  .chip button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    position: sticky;
+    top: 16px;
+  }
+  .side-panel .detail-panel { width: 100%; }
+
+  .table-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow-x: auto;
+    max-height: 78vh;
+    overflow-y: auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 800px;
+    table-layout: fixed;
+    font-size: 0.86rem;
+  }
+  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Anmeldung, 4 Land, 5 Standort,
+     6 Sportart, 7 Kategorie, 8 Länge. Name breiter, Länge schmaler (die
+     Einheit "km" steht ohnehin schon in jeder Zelle). */
+  th:nth-child(1), td:nth-child(1) { width: 19%; }
+  th:nth-child(2), td:nth-child(2) { width: 12%; }
+  th:nth-child(3), td:nth-child(3) { width: 11%; }
+  th:nth-child(4), td:nth-child(4) { width: 11%; }
+  th:nth-child(5), td:nth-child(5) { width: 13%; }
+  th:nth-child(6), td:nth-child(6) { width: 11%; }
+  th:nth-child(7), td:nth-child(7) { width: 15%; }
+  th:nth-child(8), td:nth-child(8) { width: 8%; }
+  thead th {
+    position: sticky;
+    top: 0;
+    background: var(--panel);
+    z-index: 2;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    padding: 0;
+    font-weight: 600;
+  }
+  .th-inner {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .th-inner span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    text-align: left;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cell-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  tbody tr { cursor: pointer; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: var(--row-hover); }
+  tbody tr.active { background: var(--accent-bg); }
+  .empty-row td {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+  }
+
+  /* Excel-style column filter button + floating panel */
+  .col-filter-btn {
+    list-style: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    background: transparent;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .col-filter-btn.open,
+  .col-filter-btn.has-filter {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-bg);
+  }
+  .filter-panel {
+    position: fixed;
+    z-index: 100;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    padding: 10px;
+    min-width: 220px;
+    max-width: 280px;
+    font-weight: normal;
+    white-space: normal;
+    font-size: 0.86rem;
+  }
+  .filter-panel[hidden] { display: none; }
+  .filter-panel .fp-actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    margin-bottom: 6px;
+  }
+  .filter-panel .fp-actions a {
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .filter-list {
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .filter-list label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .filter-panel .fp-empty {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .filter-panel .range-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .filter-panel .range-row label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .filter-panel input[type="date"],
+  .filter-panel input[type="number"],
+  .filter-panel input[type="text"] {
+    padding: 5px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.82rem;
+    width: 100%;
+  }
+  .radius-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .radius-section .radius-title {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .geo-btn {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.78rem;
+    margin-bottom: 6px;
+  }
+  .geo-btn:hover { background: var(--accent-bg); }
+  .radius-status {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    min-height: 1.1em;
+  }
+  .radius-options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 2px 0;
+  }
+  .radius-options select,
+  .filter-panel select {
+    width: 100%;
+    padding: 5px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.82rem;
+    margin-bottom: 6px;
+  }
+
+  /* Länge-Filter: Sportart-Tabs + Distanzkategorien */
+  .distance-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .distance-tab {
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+  .distance-tab.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .distance-categories {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Datum-Baum (Jahr > Monat > Tag) */
+  .date-tree {
+    max-height: 240px;
+    overflow-y: auto;
+  }
+  .tree-node { margin-bottom: 2px; }
+  .tree-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .tree-toggle {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.7rem;
+    width: 14px;
+    flex-shrink: 0;
+    padding: 0;
+  }
+  .tree-spacer {
+    width: 14px;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  .tree-row label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .tree-children { margin-left: 18px; }
+
+  .detail-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .detail-empty {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 24px 8px;
+    font-size: 0.9rem;
+  }
+  .detail-panel h2 { margin: 0 0 4px; font-size: 1.2rem; }
+  .detail-panel .sub { color: var(--text-muted); margin-bottom: 16px; font-size: 0.88rem; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 9px;
+    column-gap: 14px;
+    font-size: 0.88rem;
+  }
+  .detail-grid dt { color: var(--text-muted); font-weight: 500; }
+  .detail-grid dd { margin: 0; font-weight: normal; }
+  .detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 9px 16px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
+  .detail-link:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>
+    <h1 id="page-title"></h1>
+    <p class="subtitle" id="subtitle"></p>
+  </div>
+  <div class="top-actions">
+    <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="result-count" id="result-count"></div>
+  <div class="active-chips" id="active-chips"></div>
+</div>
+
+<div class="layout">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr id="header-row"></tr>
+      </thead>
+      <tbody id="event-body"></tbody>
+    </table>
+  </div>
+  <div class="side-panel">
+    <button class="reset-btn" id="reset-btn"></button>
+    <div class="detail-panel" id="detail-panel"></div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  // ---------- Übersetzungen / i18n ----------
+
+  const I18N = {
+    de: {
+      tab_title: 'Ausdauersport-Events D/A/CH',
+      title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
+      subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
+      reset: 'Alle Filter zurücksetzen',
+      home: 'Startseite',
+      result_count: (n, total) => `${n} von ${total} Events`,
+      col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
+      col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
+      select_all: 'Alle', select_none: 'Keine',
+      name_search_placeholder: 'Name suchen…',
+      range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
+      no_values: 'Keine Werte für die aktuelle Auswahl.',
+      no_dates: 'Keine Termine vorhanden.',
+      radius_title: 'Umkreissuche',
+      geo_btn: '📍 Aktuellen Standort verwenden',
+      geo_placeholder: 'oder Stadt als Ausgangspunkt wählen…',
+      geo_origin_set: (label) => `Ausgangspunkt: ${label}`,
+      geo_no_origin: 'Kein Ausgangspunkt gewählt.',
+      geo_locating: 'Standort wird ermittelt…',
+      geo_unsupported: 'Geolocation wird von diesem Browser nicht unterstützt.',
+      geo_unavailable: (msg) => `Standort nicht verfügbar: ${msg}`,
+      geo_current_label: 'Aktueller Standort',
+      radius_none: 'Kein Umkreis-Filter',
+      detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
+      detail_datum: 'Datum', detail_anmeldeschluss: 'Anmeldeschluss', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
+      detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
+      detail_link: 'Zur Veranstalter-Website ↗',
+      empty_events: 'Keine Events gefunden.',
+      load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
+      chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
+      chip_name: (q) => `Name: „${q}"`,
+      chip_sportart: (v) => `Sportart: ${v}`,
+      chip_standort: (v) => `Stadt/Ort: ${v}`,
+      chip_land: (v) => `Land: ${v}`,
+      chip_kategorie: (v) => `Kategorie: ${v}`,
+      chip_laenge_ab: (v) => `Länge ab ${v} km`,
+      chip_laenge_bis: (v) => `Länge bis ${v} km`,
+      chip_anmeldung: (v) => `Anmeldung: ${v}`,
+      chip_umkreis: (bucket, label) => `Umkreis ${bucket} von ${label}`,
+      chip_distanz: (sport, cat) => `Länge: ${cat} (${sport})`
+    },
+    en: {
+      tab_title: 'Endurance Events D/A/CH',
+      title: 'Endurance Events – Germany / Austria / Switzerland',
+      subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
+      reset: 'Reset all filters',
+      home: 'Home',
+      result_count: (n, total) => `${n} of ${total} events`,
+      col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
+      col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
+      select_all: 'All', select_none: 'None',
+      name_search_placeholder: 'Search name…',
+      range_von_km: 'From (km)', range_bis_km: 'To (km)',
+      no_values: 'No values for the current selection.',
+      no_dates: 'No dates available.',
+      radius_title: 'Radius search',
+      geo_btn: '📍 Use current location',
+      geo_placeholder: 'or choose a city as starting point…',
+      geo_origin_set: (label) => `Starting point: ${label}`,
+      geo_no_origin: 'No starting point selected.',
+      geo_locating: 'Getting location…',
+      geo_unsupported: 'Geolocation is not supported by this browser.',
+      geo_unavailable: (msg) => `Location unavailable: ${msg}`,
+      geo_current_label: 'Current location',
+      radius_none: 'No radius filter',
+      detail_empty: 'Select a row to see details.',
+      detail_datum: 'Date', detail_anmeldeschluss: 'Registration Deadline', detail_sportart: 'Sport', detail_kategorie: 'Category',
+      detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
+      detail_link: 'Visit organizer website ↗',
+      empty_events: 'No events found.',
+      load_error: (msg) => `Could not load events.json: ${msg}`,
+      chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
+      chip_name: (q) => `Name: "${q}"`,
+      chip_sportart: (v) => `Sport: ${v}`,
+      chip_standort: (v) => `City: ${v}`,
+      chip_land: (v) => `Country: ${v}`,
+      chip_kategorie: (v) => `Category: ${v}`,
+      chip_laenge_ab: (v) => `Length from ${v} km`,
+      chip_laenge_bis: (v) => `Length up to ${v} km`,
+      chip_anmeldung: (v) => `Registration: ${v}`,
+      chip_umkreis: (bucket, label) => `Radius ${bucket} from ${label}`,
+      chip_distanz: (sport, cat) => `Length: ${cat} (${sport})`
+    }
+  };
+
+  // Übersetzung der Datenwerte (Land/Sportart/Kategorie). Die gespeicherten
+  // Filterwerte bleiben intern immer auf Deutsch (Datenformat) - hier wird
+  // nur die ANZEIGE übersetzt.
+  const VALUE_TRANSLATIONS = {
+    land: {
+      'Deutschland': { de: 'Deutschland', en: 'Germany' },
+      'Österreich': { de: 'Österreich', en: 'Austria' },
+      'Schweiz': { de: 'Schweiz', en: 'Switzerland' }
+    },
+    art1: {
+      'Laufen': { de: 'Laufen', en: 'Running' },
+      'Schwimmen': { de: 'Schwimmen', en: 'Swimming' },
+      'Fahrrad': { de: 'Fahrrad', en: 'Cycling' },
+      'Triathlon': { de: 'Triathlon', en: 'Triathlon' }
+    },
+    art2: {
+      'Straße': { de: 'Straße', en: 'Road' },
+      'Trail': { de: 'Trail', en: 'Trail' },
+      'Bahn': { de: 'Bahn', en: 'Track' },
+      'Berg': { de: 'Berg', en: 'Mountain' },
+      'Cross': { de: 'Cross', en: 'Cross Country' },
+      'Hindernis': { de: 'Hindernis', en: 'Obstacle' },
+      'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
+      'Becken': { de: 'Becken', en: 'Pool' },
+      'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
+      'Mountainbike': { de: 'Mountainbike', en: 'Mountain Bike' },
+      'Gravel': { de: 'Gravel', en: 'Gravel' },
+      'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' }
+    },
+    anmeldestatus: {
+      'Offen': { de: 'Offen', en: 'Open' },
+      'Geschlossen': { de: 'Geschlossen', en: 'Closed' }
+    }
+  };
+
+  const MONTH_NAMES = {
+    de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  };
+
+  let currentLang = 'de';
+  try {
+    const saved = localStorage.getItem('endurance-lang');
+    if (saved === 'de' || saved === 'en') currentLang = saved;
+  } catch (e) { /* localStorage evtl. nicht verfügbar */ }
+
+  function t(key, ...args) {
+    const entry = I18N[currentLang][key];
+    return typeof entry === 'function' ? entry(...args) : entry;
+  }
+
+  function tv(field, value) {
+    if (value == null) return value;
+    const entry = VALUE_TRANSLATIONS[field] && VALUE_TRANSLATIONS[field][value];
+    return entry ? entry[currentLang] : value;
+  }
+
+  // ---------- Distanzkategorien (nach Sportart) ----------
+
+  // "Rundet nach oben": z. B. ein 4-km-Lauf erscheint unter der 5-km-Kategorie.
+  // Halbmarathon/Marathon sind nur die offiziellen Distanzen (mit kleiner Toleranz
+  // für Rundungsunterschiede in den Daten), Ultramarathon ist alles darüber.
+  const DISTANCE_CATEGORIES = {
+    'Laufen': [
+      { key: '5k', test: km => km > 0 && km <= 5 },
+      { key: '10k', test: km => km > 5 && km <= 10 },
+      { key: 'half', test: km => Math.abs(km - 21.0975) <= 0.5 },
+      { key: 'marathon', test: km => Math.abs(km - 42.195) <= 0.5 },
+      { key: 'ultra', test: km => km > 42.195 + 0.5 }
+    ],
+    'Fahrrad': [
+      { key: 'r50', test: km => km > 0 && km <= 50 },
+      { key: 'r100', test: km => km > 50 && km <= 100 },
+      { key: 'r150', test: km => km > 100 && km <= 150 },
+      { key: 'r200', test: km => km > 150 && km <= 200 },
+      { key: 'rultra', test: km => km > 200 }
+    ],
+    'Schwimmen': [
+      { key: 's1', test: km => km > 0 && km <= 1 },
+      { key: 's2', test: km => km > 1 && km <= 2 },
+      { key: 's3', test: km => km > 2 && km <= 3 },
+      { key: 's5', test: km => km > 3 && km <= 5 },
+      { key: 's10', test: km => km > 5 }
+    ],
+    'Triathlon': [
+      { key: 'sprint', test: km => km > 0 && km < 40 },
+      { key: 'olympic', test: km => Math.abs(km - 51.5) <= 3 },
+      { key: 'middle', test: km => Math.abs(km - 113) <= 5 },
+      { key: 'long', test: km => Math.abs(km - 226) <= 8 }
+    ]
+  };
+
+  const DISTANCE_CATEGORY_LABELS = {
+    de: {
+      '5k': '5 km', '10k': '10 km', 'half': 'Halbmarathon', 'marathon': 'Marathon', 'ultra': 'Ultramarathon',
+      'r50': 'bis 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
+      's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (Marathonschwimmen)',
+      'sprint': 'Sprintdistanz', 'olympic': 'Olympische Distanz (51.5 km)',
+      'middle': 'Mitteldistanz / 70.3 (113 km)', 'long': 'Langdistanz / Ironman (226 km)'
+    },
+    en: {
+      '5k': '5 km', '10k': '10 km', 'half': 'Half Marathon', 'marathon': 'Marathon', 'ultra': 'Ultramarathon',
+      'r50': 'up to 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
+      's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (marathon swim)',
+      'sprint': 'Sprint Distance', 'olympic': 'Olympic Distance (51.5 km)',
+      'middle': 'Middle Distance / 70.3 (113 km)', 'long': 'Long Distance / Ironman (226 km)'
+    }
+  };
+
+  let activeDistanceSportTab = 'Laufen';
+
+  function matchesDistanceCategory(e) {
+    if (state.distanceCategories.size === 0) return true;
+    for (const compositeKey of state.distanceCategories) {
+      const sep = compositeKey.indexOf(':');
+      const sport = compositeKey.slice(0, sep);
+      const catKey = compositeKey.slice(sep + 1);
+      if (e.art1 !== sport || e.laenge_km == null) continue;
+      const cat = (DISTANCE_CATEGORIES[sport] || []).find(c => c.key === catKey);
+      if (cat && cat.test(e.laenge_km)) return true;
+    }
+    return false;
+  }
+
+  const RADIUS_BUCKETS = [
+    { key: '0-5', label: '0–5 km' },
+    { key: '5-20', label: '5–20 km' },
+    { key: '20-50', label: '20–50 km' },
+    { key: '50+', label: '50+ km' }
+  ];
+
+  // Reihenfolge der Spalten: Name, Datum, Anmeldung, Land, Standort, Sportart, Kategorie, Länge
+  // Der Anmeldeschluss (konkretes Datum) steht nur in der Detailansicht; in der
+  // Tabelle gibt es stattdessen nur den Status "Offen"/"Geschlossen" als Filter.
+  const COLUMNS = [
+    { key: 'name', labelKey: 'col_name', type: 'text' },
+    { key: 'datum', labelKey: 'col_datum', type: 'date-tree' },
+    { key: 'anmeldestatus', labelKey: 'col_anmeldung', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.anmeldestatus)) },
+    { key: 'land', labelKey: 'col_land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
+    { key: 'standort', labelKey: 'col_standort', type: 'standort' },
+    { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
+    { key: 'art2', labelKey: 'col_kategorie', type: 'checkbox', options: () => availableArt2Options() },
+    { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
+  ];
+
+  // Zuordnung Sportart -> erlaubte Kategorie-Werte.
+  const ART2_BY_ART1 = {
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis'],
+    'Schwimmen': ['Freiwasser', 'Becken'],
+    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
+  };
+
+  let events = [];
+  let selectedIndex = null;
+
+  // Filter state
+  const state = {
+    land: new Set(),
+    art1: new Set(),
+    art2: new Set(),
+    standort: new Set(),
+    nameQuery: '',
+    selectedDays: new Set(),      // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
+    treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
+    anmeldestatus: new Set(),     // 'Offen' | 'Geschlossen'
+    laengeMin: '',
+    laengeMax: '',
+    distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
+    origin: null,                 // { lat, lon, label }
+    radius: ''                    // '' | '0-5' | '5-20' | '20-50' | '50+'
+  };
+
+  // Ein einziges, an <body> gehängtes Filter-Panel (fixed positioniert), damit es nie
+  // vom scrollenden Tabellen-Container abgeschnitten wird.
+  let openColKey = null;
+  let openTriggerEl = null;
+  const floatingPanel = document.createElement('div');
+  floatingPanel.className = 'filter-panel';
+  floatingPanel.hidden = true;
+  document.body.appendChild(floatingPanel);
+
+  const bodyEl = document.getElementById('event-body');
+  const headerRowEl = document.getElementById('header-row');
+  const countEl = document.getElementById('result-count');
+  const chipsEl = document.getElementById('active-chips');
+  const detailEl = document.getElementById('detail-panel');
+  const titleEl = document.getElementById('page-title');
+  const subtitleEl = document.getElementById('subtitle');
+  const resetBtnEl = document.getElementById('reset-btn');
+  resetBtnEl.addEventListener('click', resetFilters);
+  const homeBtnLabelEl = document.getElementById('home-btn-label');
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    events = await res.json();
+    const today = todayIso();
+    events.forEach(e => {
+      e.anmeldestatus = e.anmeldeschluss ? (e.anmeldeschluss >= today ? 'Offen' : 'Geschlossen') : null;
+    });
+  } catch (err) {
+    setLanguage(currentLang, { skipRender: true });
+    bodyEl.innerHTML = `<tr><td colspan="8" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
+    return;
+  }
+
+  // Deep-Link von der Willkommensseite: ?sportart=Fahrrad selektiert den
+  // Sportart-Filter direkt beim Laden.
+  try {
+    const sportartParam = new URLSearchParams(window.location.search).get('sportart');
+    if (sportartParam && Object.prototype.hasOwnProperty.call(DISTANCE_CATEGORIES, sportartParam)) {
+      state.art1.add(sportartParam);
+    }
+  } catch (e) { /* ignorieren */ }
+
+  setLanguage(currentLang);
+
+  // ---------- helpers ----------
+
+  function todayIso() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+
+  function uniqueSorted(values) {
+    return Array.from(new Set(values.filter(v => v !== undefined && v !== null && v !== ''))).sort((a, b) => String(a).localeCompare(String(b), currentLang === 'de' ? 'de' : 'en'));
+  }
+
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const toRad = d => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function inBucket(distKm, bucketKey) {
+    switch (bucketKey) {
+      case '0-5': return distKm <= 5;
+      case '5-20': return distKm > 5 && distKm <= 20;
+      case '20-50': return distKm > 20 && distKm <= 50;
+      case '50+': return distKm > 50;
+      default: return true;
+    }
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    if (currentLang === 'en') {
+      const date = new Date(Date.UTC(y, m - 1, d));
+      return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+    }
+    return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`;
+  }
+
+  function formatRange(start, end) {
+    if (start === end) return formatDate(start);
+    return `${formatDate(start)} – ${formatDate(end)}`;
+  }
+
+  function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function availableArt2Options() {
+    const presentArt2 = uniqueSorted(events.map(e => e.art2));
+    if (state.art1.size === 0) return presentArt2;
+    const allowed = new Set();
+    state.art1.forEach(a1 => (ART2_BY_ART1[a1] || []).forEach(a2 => allowed.add(a2)));
+    return presentArt2.filter(a2 => allowed.has(a2));
+  }
+
+  function buildDateTreeNodes() {
+    const byYear = {};
+    events.forEach(e => {
+      const [y, m] = e.datum_start.split('-');
+      byYear[y] = byYear[y] || {};
+      byYear[y][m] = byYear[y][m] || new Set();
+      byYear[y][m].add(e.datum_start);
+    });
+    return Object.keys(byYear).sort().map(year => {
+      const months = byYear[year];
+      const yearDays = Object.values(months).flatMap(s => Array.from(s));
+      return {
+        key: year,
+        label: year,
+        days: yearDays,
+        children: Object.keys(months).sort().map(month => {
+          const monthDays = Array.from(months[month]).sort();
+          return {
+            key: `${year}-${month}`,
+            label: `${MONTH_NAMES[currentLang][parseInt(month, 10) - 1]} ${year}`,
+            days: monthDays,
+            children: monthDays.map(day => ({
+              key: day,
+              label: formatDate(day),
+              days: [day],
+              children: null
+            }))
+          };
+        })
+      };
+    });
+  }
+
+  // ---------- Sprache ----------
+
+  function setLanguage(lang, opts) {
+    currentLang = lang;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = lang;
+    document.title = t('tab_title');
+    titleEl.textContent = t('title');
+    subtitleEl.textContent = t('subtitle');
+    resetBtnEl.textContent = t('reset');
+    homeBtnLabelEl.textContent = t('home');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    closeFloatingPanel();
+    if (opts && opts.skipRender) return;
+    buildHeader();
+    render();
+  }
+
+  // ---------- header / floating filter panel ----------
+
+  function buildHeader() {
+    headerRowEl.innerHTML = '';
+    COLUMNS.forEach(col => {
+      const th = document.createElement('th');
+      const inner = document.createElement('div');
+      inner.className = 'th-inner';
+      const labelSpan = document.createElement('span');
+      labelSpan.textContent = t(col.labelKey);
+      labelSpan.title = t(col.labelKey);
+      inner.appendChild(labelSpan);
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'col-filter-btn';
+      btn.dataset.col = col.key;
+      btn.textContent = '▾';
+      btn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        if (openColKey === col.key) {
+          closeFloatingPanel();
+        } else {
+          openFloatingPanel(col, btn);
+        }
+      });
+
+      inner.appendChild(btn);
+      th.appendChild(inner);
+      headerRowEl.appendChild(th);
+    });
+
+    if (!buildHeader.listenersAttached) {
+      document.addEventListener('click', (ev) => {
+        if (openColKey === null) return;
+        // composedPath() statt ev.target/.contains(): ein Klick auf ein Element,
+        // das sein eigener Handler synchron neu rendert (z. B. Sportart-Tabs),
+        // hängt das Zielelement aus - .contains() würde das fälschlich als
+        // "Klick außerhalb" werten und das Panel sofort wieder schließen.
+        const path = ev.composedPath ? ev.composedPath() : [ev.target];
+        if (!path.includes(floatingPanel)) {
+          closeFloatingPanel();
+        }
+      });
+      window.addEventListener('scroll', () => { if (openColKey !== null) closeFloatingPanel(); }, true);
+      window.addEventListener('resize', () => { if (openColKey !== null) closeFloatingPanel(); });
+      buildHeader.listenersAttached = true;
+    }
+  }
+
+  function openFloatingPanel(col, triggerEl) {
+    openColKey = col.key;
+    openTriggerEl = triggerEl;
+    floatingPanel.hidden = false;
+    renderFilterPanel(col, floatingPanel);
+    positionFloatingPanel(triggerEl);
+    updateFilterIndicators();
+  }
+
+  function closeFloatingPanel() {
+    openColKey = null;
+    openTriggerEl = null;
+    floatingPanel.hidden = true;
+    floatingPanel.innerHTML = '';
+    updateFilterIndicators();
+  }
+
+  function positionFloatingPanel(triggerEl) {
+    const rect = triggerEl.getBoundingClientRect();
+    const panelWidth = floatingPanel.offsetWidth || 260;
+    const panelHeight = floatingPanel.offsetHeight || 200;
+    let left = rect.right - panelWidth;
+    left = Math.max(8, Math.min(left, window.innerWidth - panelWidth - 8));
+    let top = rect.bottom + 6;
+    if (top + panelHeight > window.innerHeight - 8) {
+      top = Math.max(8, rect.top - panelHeight - 6);
+    }
+    floatingPanel.style.left = left + 'px';
+    floatingPanel.style.top = top + 'px';
+  }
+
+  function renderFilterPanel(col, panel) {
+    if (col.type === 'checkbox') renderCheckboxPanel(col, panel);
+    else if (col.type === 'standort') renderStandortPanel(panel);
+    else if (col.type === 'date-tree') renderDateTreePanel(panel);
+    else if (col.type === 'text') renderTextPanel(panel);
+    else if (col.type === 'number-range') renderNumberRangePanel(panel);
+  }
+
+  function renderCheckboxPanel(col, panel) {
+    const options = col.options();
+    const selectedSet = state[col.key];
+    Array.from(selectedSet).forEach(v => { if (!options.includes(v)) selectedSet.delete(v); });
+
+    panel.innerHTML = '';
+    const actions = document.createElement('div');
+    actions.className = 'fp-actions';
+    actions.innerHTML = `<a data-act="all">${escapeHtml(t('select_all'))}</a><a data-act="none">${escapeHtml(t('select_none'))}</a>`;
+    panel.appendChild(actions);
+
+    if (options.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'fp-empty';
+      empty.textContent = t('no_values');
+      panel.appendChild(empty);
+    } else {
+      const list = document.createElement('div');
+      list.className = 'filter-list';
+      options.forEach(opt => {
+        const label = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = opt;
+        cb.checked = selectedSet.has(opt);
+        cb.addEventListener('change', () => {
+          if (cb.checked) selectedSet.add(opt); else selectedSet.delete(opt);
+          if (col.key === 'art1') {
+            const valid = new Set(availableArt2Options());
+            Array.from(state.art2).forEach(v => { if (!valid.has(v)) state.art2.delete(v); });
+            pruneDistanceCategoriesForArt1();
+          }
+          selectedIndex = null;
+          render();
+        });
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(tv(col.key, opt)));
+        list.appendChild(label);
+      });
+      panel.appendChild(list);
+    }
+
+    actions.querySelector('[data-act="all"]').addEventListener('click', () => {
+      options.forEach(o => selectedSet.add(o));
+      if (col.key === 'art1') {
+        const valid = new Set(availableArt2Options());
+        Array.from(state.art2).forEach(v => { if (!valid.has(v)) state.art2.delete(v); });
+        pruneDistanceCategoriesForArt1();
+      }
+      selectedIndex = null;
+      render();
+    });
+    actions.querySelector('[data-act="none"]').addEventListener('click', () => {
+      selectedSet.clear();
+      if (col.key === 'art1') pruneDistanceCategoriesForArt1();
+      selectedIndex = null;
+      render();
+    });
+  }
+
+  // Entfernt Distanzkategorie-Auswahlen für Sportarten, die nach einer
+  // Sportart-Filteränderung nicht mehr ausgewählt sind (sonst würde die
+  // Länge-Auswahl "ins Leere laufen", weil kein Event mehr passt).
+  function pruneDistanceCategoriesForArt1() {
+    if (state.art1.size === 0) return;
+    Array.from(state.distanceCategories).forEach(compositeKey => {
+      const sport = compositeKey.slice(0, compositeKey.indexOf(':'));
+      if (!state.art1.has(sport)) state.distanceCategories.delete(compositeKey);
+    });
+  }
+
+  function renderStandortPanel(panel) {
+    const allCities = uniqueSorted(events.map(e => e.standort));
+    panel.innerHTML = '';
+
+    const actions = document.createElement('div');
+    actions.className = 'fp-actions';
+    actions.innerHTML = `<a data-act="all">${escapeHtml(t('select_all'))}</a><a data-act="none">${escapeHtml(t('select_none'))}</a>`;
+    panel.appendChild(actions);
+
+    const list = document.createElement('div');
+    list.className = 'filter-list';
+    allCities.forEach(city => {
+      const label = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = city;
+      cb.checked = state.standort.has(city);
+      cb.addEventListener('change', () => {
+        if (cb.checked) state.standort.add(city); else state.standort.delete(city);
+        selectedIndex = null;
+        render();
+      });
+      label.appendChild(cb);
+      label.appendChild(document.createTextNode(city));
+      list.appendChild(label);
+    });
+    panel.appendChild(list);
+
+    actions.querySelector('[data-act="all"]').addEventListener('click', () => {
+      allCities.forEach(c => state.standort.add(c));
+      selectedIndex = null;
+      render();
+    });
+    actions.querySelector('[data-act="none"]').addEventListener('click', () => {
+      state.standort.clear();
+      selectedIndex = null;
+      render();
+    });
+
+    // Umkreissuche
+    const radiusSection = document.createElement('div');
+    radiusSection.className = 'radius-section';
+    const radiusTitle = document.createElement('div');
+    radiusTitle.className = 'radius-title';
+    radiusTitle.textContent = t('radius_title');
+    radiusSection.appendChild(radiusTitle);
+
+    const geoBtn = document.createElement('button');
+    geoBtn.type = 'button';
+    geoBtn.className = 'geo-btn';
+    geoBtn.textContent = t('geo_btn');
+    radiusSection.appendChild(geoBtn);
+
+    const citySelect = document.createElement('select');
+    const cityPlaceholder = document.createElement('option');
+    cityPlaceholder.value = '';
+    cityPlaceholder.textContent = t('geo_placeholder');
+    citySelect.appendChild(cityPlaceholder);
+    events
+      .filter(e => e.lat != null && e.lon != null)
+      .reduce((acc, e) => (acc.some(x => x.standort === e.standort) ? acc : acc.concat(e)), [])
+      .sort((a, b) => a.standort.localeCompare(b.standort, currentLang === 'de' ? 'de' : 'en'))
+      .forEach(e => {
+        const opt = document.createElement('option');
+        opt.value = e.standort;
+        opt.textContent = e.standort;
+        if (state.origin && state.origin.label === e.standort) opt.selected = true;
+        citySelect.appendChild(opt);
+      });
+    citySelect.addEventListener('change', () => {
+      if (!citySelect.value) { state.origin = null; }
+      else {
+        const match = events.find(e => e.standort === citySelect.value);
+        if (match) state.origin = { lat: match.lat, lon: match.lon, label: match.standort };
+      }
+      selectedIndex = null;
+      render();
+    });
+    radiusSection.appendChild(citySelect);
+
+    const statusEl = document.createElement('div');
+    statusEl.className = 'radius-status';
+    statusEl.textContent = state.origin ? t('geo_origin_set', state.origin.label) : t('geo_no_origin');
+    radiusSection.appendChild(statusEl);
+
+    geoBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        statusEl.textContent = t('geo_unsupported');
+        return;
+      }
+      statusEl.textContent = t('geo_locating');
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          state.origin = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: t('geo_current_label') };
+          selectedIndex = null;
+          render();
+        },
+        err => {
+          statusEl.textContent = t('geo_unavailable', err.message);
+        },
+        { enableHighAccuracy: false, timeout: 10000 }
+      );
+    });
+
+    const radiusOptions = document.createElement('div');
+    radiusOptions.className = 'radius-options';
+    RADIUS_BUCKETS.forEach(b => {
+      const label = document.createElement('label');
+      const radio = document.createElement('input');
+      radio.type = 'radio';
+      radio.name = 'radius-bucket';
+      radio.value = b.key;
+      radio.checked = state.radius === b.key;
+      radio.disabled = !state.origin;
+      radio.addEventListener('change', () => {
+        state.radius = radio.checked ? b.key : '';
+        selectedIndex = null;
+        render();
+      });
+      label.appendChild(radio);
+      label.appendChild(document.createTextNode(b.label));
+      radiusOptions.appendChild(label);
+    });
+    const clearLabel = document.createElement('label');
+    const clearRadio = document.createElement('input');
+    clearRadio.type = 'radio';
+    clearRadio.name = 'radius-bucket';
+    clearRadio.checked = state.radius === '';
+    clearRadio.disabled = !state.origin;
+    clearRadio.addEventListener('change', () => {
+      state.radius = '';
+      selectedIndex = null;
+      render();
+    });
+    clearLabel.appendChild(clearRadio);
+    clearLabel.appendChild(document.createTextNode(t('radius_none')));
+    radiusOptions.appendChild(clearLabel);
+
+    radiusSection.appendChild(radiusOptions);
+    panel.appendChild(radiusSection);
+  }
+
+  function renderDateTreePanel(panel) {
+    panel.innerHTML = '';
+    const actions = document.createElement('div');
+    actions.className = 'fp-actions';
+    actions.innerHTML = `<a data-act="all">${escapeHtml(t('select_all'))}</a><a data-act="none">${escapeHtml(t('select_none'))}</a>`;
+    panel.appendChild(actions);
+
+    const nodes = buildDateTreeNodes();
+    const allDays = uniqueSorted(events.map(e => e.datum_start));
+
+    if (nodes.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'fp-empty';
+      empty.textContent = t('no_dates');
+      panel.appendChild(empty);
+    } else {
+      const treeWrap = document.createElement('div');
+      treeWrap.className = 'date-tree';
+      nodes.forEach(n => treeWrap.appendChild(buildTreeNode(n)));
+      panel.appendChild(treeWrap);
+    }
+
+    actions.querySelector('[data-act="all"]').addEventListener('click', () => {
+      allDays.forEach(d => state.selectedDays.add(d));
+      selectedIndex = null;
+      render();
+    });
+    actions.querySelector('[data-act="none"]').addEventListener('click', () => {
+      state.selectedDays.clear();
+      selectedIndex = null;
+      render();
+    });
+  }
+
+  function buildTreeCheckboxLabel(node) {
+    const label = document.createElement('label');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    const allSelected = node.days.every(d => state.selectedDays.has(d));
+    const noneSelected = node.days.every(d => !state.selectedDays.has(d));
+    cb.checked = allSelected;
+    cb.indeterminate = !allSelected && !noneSelected;
+    cb.addEventListener('change', () => {
+      if (cb.checked) node.days.forEach(d => state.selectedDays.add(d));
+      else node.days.forEach(d => state.selectedDays.delete(d));
+      selectedIndex = null;
+      render();
+    });
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(node.label));
+    return label;
+  }
+
+  function buildTreeNode(node) {
+    const wrap = document.createElement('div');
+    wrap.className = 'tree-node';
+    const row = document.createElement('div');
+    row.className = 'tree-row';
+    const hasChildren = Array.isArray(node.children) && node.children.length > 0;
+
+    if (hasChildren) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'tree-toggle';
+      const expanded = state.treeExpanded.has(node.key);
+      toggleBtn.textContent = expanded ? '▾' : '▸';
+      row.appendChild(toggleBtn);
+      row.appendChild(buildTreeCheckboxLabel(node));
+      wrap.appendChild(row);
+
+      const childrenWrap = document.createElement('div');
+      childrenWrap.className = 'tree-children';
+      childrenWrap.hidden = !expanded;
+      node.children.forEach(child => childrenWrap.appendChild(buildTreeNode(child)));
+      wrap.appendChild(childrenWrap);
+
+      toggleBtn.addEventListener('click', () => {
+        if (state.treeExpanded.has(node.key)) state.treeExpanded.delete(node.key);
+        else state.treeExpanded.add(node.key);
+        const nowExpanded = state.treeExpanded.has(node.key);
+        childrenWrap.hidden = !nowExpanded;
+        toggleBtn.textContent = nowExpanded ? '▾' : '▸';
+        if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+      });
+    } else {
+      const spacer = document.createElement('span');
+      spacer.className = 'tree-spacer';
+      row.appendChild(spacer);
+      row.appendChild(buildTreeCheckboxLabel(node));
+      wrap.appendChild(row);
+    }
+
+    return wrap;
+  }
+
+  function renderTextPanel(panel) {
+    panel.innerHTML = '';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = t('name_search_placeholder');
+    input.value = state.nameQuery;
+    input.addEventListener('input', () => {
+      state.nameQuery = input.value;
+      selectedIndex = null;
+      render();
+    });
+    panel.appendChild(input);
+  }
+
+  function renderNumberRangePanel(panel) {
+    panel.innerHTML = '';
+
+    // Sportart-Tabs für die Distanzkategorien: nur Sportarten anzeigen, die
+    // auch im Sportart-Filter ausgewählt sind (ist dort nichts gewählt,
+    // stehen alle zur Wahl). Ist nur eine Sportart relevant, brauchen wir
+    // keine Tabs - dann direkt deren Kategorien zeigen.
+    const allSports = Object.keys(DISTANCE_CATEGORIES);
+    const visibleSports = state.art1.size > 0
+      ? allSports.filter(s => state.art1.has(s))
+      : allSports;
+    if (visibleSports.length === 0) visibleSports.push(...allSports);
+    if (!visibleSports.includes(activeDistanceSportTab)) {
+      activeDistanceSportTab = visibleSports[0];
+    }
+
+    if (visibleSports.length > 1) {
+      const tabsWrap = document.createElement('div');
+      tabsWrap.className = 'distance-tabs';
+      visibleSports.forEach(sport => {
+        const tabBtn = document.createElement('button');
+        tabBtn.type = 'button';
+        tabBtn.className = 'distance-tab' + (activeDistanceSportTab === sport ? ' active' : '');
+        tabBtn.textContent = tv('art1', sport);
+        tabBtn.addEventListener('click', () => {
+          activeDistanceSportTab = sport;
+          renderNumberRangePanel(panel);
+          if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+        });
+        tabsWrap.appendChild(tabBtn);
+      });
+      panel.appendChild(tabsWrap);
+    }
+
+    const catList = document.createElement('div');
+    catList.className = 'filter-list distance-categories';
+    (DISTANCE_CATEGORIES[activeDistanceSportTab] || []).forEach(cat => {
+      const compositeKey = `${activeDistanceSportTab}:${cat.key}`;
+      const label = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = state.distanceCategories.has(compositeKey);
+      cb.addEventListener('change', () => {
+        if (cb.checked) state.distanceCategories.add(compositeKey);
+        else state.distanceCategories.delete(compositeKey);
+        selectedIndex = null;
+        render();
+      });
+      label.appendChild(cb);
+      label.appendChild(document.createTextNode(DISTANCE_CATEGORY_LABELS[currentLang][cat.key]));
+      catList.appendChild(label);
+    });
+    panel.appendChild(catList);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'range-row';
+    const minLabel = document.createElement('label');
+    minLabel.textContent = t('range_von_km');
+    const minInput = document.createElement('input');
+    minInput.type = 'number';
+    minInput.min = '0';
+    minInput.step = '0.1';
+    minLabel.appendChild(minInput);
+    const maxLabel = document.createElement('label');
+    maxLabel.textContent = t('range_bis_km');
+    const maxInput = document.createElement('input');
+    maxInput.type = 'number';
+    maxInput.min = '0';
+    maxInput.step = '0.1';
+    maxLabel.appendChild(maxInput);
+    wrap.appendChild(minLabel);
+    wrap.appendChild(maxLabel);
+    panel.appendChild(wrap);
+
+    minInput.value = state.laengeMin;
+    maxInput.value = state.laengeMax;
+    minInput.addEventListener('input', () => { state.laengeMin = minInput.value; selectedIndex = null; render(); });
+    maxInput.addEventListener('input', () => { state.laengeMax = maxInput.value; selectedIndex = null; render(); });
+  }
+
+  // ---------- filtering / rendering ----------
+
+  function getFiltered() {
+    return events
+      .map((e, idx) => ({ e, idx }))
+      .filter(({ e }) => {
+        if (state.land.size && !state.land.has(e.land)) return false;
+        if (state.art1.size && !state.art1.has(e.art1)) return false;
+        if (state.art2.size && !state.art2.has(e.art2)) return false;
+        if (state.standort.size && !state.standort.has(e.standort)) return false;
+        if (state.nameQuery.trim() && !e.name.toLowerCase().includes(state.nameQuery.trim().toLowerCase())) return false;
+        if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
+        if (state.anmeldestatus.size && !state.anmeldestatus.has(e.anmeldestatus)) return false;
+        if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
+        if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
+        if (!matchesDistanceCategory(e)) return false;
+        if (state.radius && state.origin) {
+          if (e.lat == null || e.lon == null) return false;
+          const dist = haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
+          if (!inBucket(dist, state.radius)) return false;
+        }
+        return true;
+      })
+      .sort((a, b) => a.e.datum_start.localeCompare(b.e.datum_start));
+  }
+
+  function refreshOpenPanel() {
+    if (openColKey === null) return;
+    if (floatingPanel.contains(document.activeElement)) return;
+    const col = COLUMNS.find(c => c.key === openColKey);
+    if (col) {
+      renderFilterPanel(col, floatingPanel);
+      if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+    }
+  }
+
+  function render() {
+    updateFilterIndicators();
+    renderChips();
+    refreshOpenPanel();
+    const filtered = getFiltered();
+    countEl.textContent = t('result_count', filtered.length, events.length);
+
+    if (filtered.length === 0) {
+      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="8">${escapeHtml(t('empty_events'))}</td></tr>`;
+    } else {
+      bodyEl.innerHTML = '';
+      filtered.forEach(({ e, idx }) => {
+        const tr = document.createElement('tr');
+        if (idx === selectedIndex) tr.classList.add('active');
+        tr.innerHTML = `
+          <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
+          <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
+          <td><div class="cell-clamp">${e.anmeldestatus ? escapeHtml(tv('anmeldestatus', e.anmeldestatus)) : '–'}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
+          <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
+          <td><div class="cell-clamp">${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</div></td>
+        `;
+        tr.addEventListener('click', () => { selectedIndex = idx; render(); });
+        bodyEl.appendChild(tr);
+      });
+    }
+
+    renderDetail();
+  }
+
+  function renderDetail() {
+    if (selectedIndex === null || !events[selectedIndex]) {
+      detailEl.innerHTML = `<div class="detail-empty">${escapeHtml(t('detail_empty'))}</div>`;
+      return;
+    }
+    const e = events[selectedIndex];
+    detailEl.innerHTML = `
+      <h2>${escapeHtml(e.name)}</h2>
+      <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
+      <dl class="detail-grid">
+        <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
+        <dt>${escapeHtml(t('detail_anmeldeschluss'))}</dt><dd>${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</dd>
+        <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
+        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
+        <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
+        <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
+        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
+      </dl>
+      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
+    `;
+  }
+
+  function updateFilterIndicators() {
+    document.querySelectorAll('.col-filter-btn').forEach(btn => {
+      const col = btn.dataset.col;
+      let active = false;
+      if (col === 'land') active = state.land.size > 0;
+      else if (col === 'name') active = !!state.nameQuery.trim();
+      else if (col === 'art1') active = state.art1.size > 0;
+      else if (col === 'art2') active = state.art2.size > 0;
+      else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
+      else if (col === 'datum') active = state.selectedDays.size > 0;
+      else if (col === 'anmeldestatus') active = state.anmeldestatus.size > 0;
+      else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '' || state.distanceCategories.size > 0;
+      btn.classList.toggle('has-filter', active);
+      btn.classList.toggle('open', openColKey === col);
+    });
+  }
+
+  function renderChips() {
+    const chips = [];
+    if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
+    if (state.selectedDays.size > 0) {
+      const n = state.selectedDays.size;
+      chips.push({ label: t('chip_datum', n), clear: () => state.selectedDays.clear() });
+    }
+    state.anmeldestatus.forEach(v => chips.push({ label: t('chip_anmeldung', tv('anmeldestatus', v)), clear: () => state.anmeldestatus.delete(v) }));
+    state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
+    state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
+    state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
+    state.art2.forEach(v => chips.push({ label: t('chip_kategorie', tv('art2', v)), clear: () => state.art2.delete(v) }));
+    if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', state.laengeMin), clear: () => { state.laengeMin = ''; } });
+    if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', state.laengeMax), clear: () => { state.laengeMax = ''; } });
+    state.distanceCategories.forEach(compositeKey => {
+      const sep = compositeKey.indexOf(':');
+      const sport = compositeKey.slice(0, sep);
+      const catKey = compositeKey.slice(sep + 1);
+      const label = DISTANCE_CATEGORY_LABELS[currentLang][catKey] || catKey;
+      chips.push({ label: t('chip_distanz', tv('art1', sport), label), clear: () => state.distanceCategories.delete(compositeKey) });
+    });
+    if (state.origin && state.radius) {
+      const bucket = RADIUS_BUCKETS.find(b => b.key === state.radius);
+      chips.push({ label: t('chip_umkreis', bucket ? bucket.label : '', state.origin.label), clear: () => { state.radius = ''; } });
+    }
+
+    chipsEl.innerHTML = '';
+    chips.forEach(c => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${escapeHtml(c.label)} <button aria-label="✕">✕</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        c.clear();
+        selectedIndex = null;
+        render();
+      });
+      chipsEl.appendChild(chip);
+    });
+  }
+
+  function resetFilters() {
+    state.land.clear();
+    state.art1.clear();
+    state.art2.clear();
+    state.standort.clear();
+    state.nameQuery = '';
+    state.selectedDays.clear();
+    state.anmeldestatus.clear();
+    state.laengeMin = '';
+    state.laengeMax = '';
+    state.distanceCategories.clear();
+    state.origin = null;
+    state.radius = '';
+    selectedIndex = null;
+    closeFloatingPanel();
+    render();
+  }
+})();
+</script>
+</body>
+</html>
