@@ -197,6 +197,23 @@ def check_robots(session: requests.Session, base_url: str, target_url: str) -> f
     try:
         resp = session.get(robots_url, timeout=15)
         resp.raise_for_status()
+    except requests.exceptions.HTTPError as exc:
+        if exc.response is not None and exc.response.status_code == 404:
+            # Per robots.txt-Konvention (RFC 9309 §2.3.1.3, ebenso Googles
+            # robots.txt-Spezifikation): fehlt robots.txt (404), gelten
+            # KEINE Einschränkungen - Crawlen ist dann uneingeschränkt
+            # erlaubt. Kein Abbruch, nur ein Hinweis.
+            print(
+                f"ℹ robots.txt liefert 404 (nicht vorhanden) unter {robots_url}. "
+                "Laut robots.txt-Konvention bedeutet das: keine Einschränkungen "
+                "angegeben, Zugriff ist erlaubt. Fahre fort."
+            )
+            return DEFAULT_REQUEST_DELAY_SECONDS
+        print(
+            f"\n❌ robots.txt konnte nicht geladen werden: {exc}\n"
+            "   Breche ab, ohne events.json zu verändern."
+        )
+        sys.exit(1)
     except requests.exceptions.RequestException as exc:
         print(
             f"\n❌ robots.txt konnte nicht geladen werden: {exc}\n"

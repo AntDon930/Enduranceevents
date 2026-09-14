@@ -221,6 +221,24 @@ nach einem Blick in den jeweils echten Seitenquelltext kalibriert
 werden – Details und seitenspezifische Hinweise (z. B. Verdacht auf
 JavaScript-Rendering) stehen im Docstring jedes einzelnen Skripts.
 
+**Echter Testlauf & dabei gefundener Bugfix**: Über einen manuell
+ausgelösten Lauf des `update-events`-Workflows (mit echtem Internetzugriff,
+anders als die Entwicklungsumgebung) wurden alle 8 Scraper einmal live
+getestet. Ergebnis: robots.txt wird bei allen 8 Seiten korrekt geladen und
+ausgewertet; ironman.com und ahotu.com blocken den eigentlichen Seitenabruf
+trotz erlaubter robots.txt mit HTTP 403 (vermutlich Cloudflare-Bot-Schutz,
+`--render-js` oder ein API-Endpunkt wären hier vermutlich nötig);
+running.life liefert echte `?page=N`-Pagination-Links, aber (noch) 0 Events
+pro Seite (JSON-LD/HTML-Fallback ohne Treffer); die übrigen Seiten laden
+erfolgreich, liefern aber ebenfalls 0 Events, weil die Platzhalter-Selektoren
+nicht zur jeweils echten Seitenstruktur passen. Dabei fiel auf: `blv-sport.de`
+hat schlicht **keine** robots.txt (HTTP 404) – das wurde ursprünglich fälschlich
+als Abbruchgrund behandelt. Nach robots.txt-Konvention (RFC 9309) bedeutet ein
+404 aber „keine Einschränkungen angegeben", nicht „Zugriff verboten"; das ist
+jetzt in `scraper_lib.py` sowie `laufkalender_scraper.py` und
+`ironman_scraper.py` korrigiert (ein fehlendes robots.txt bricht nicht mehr
+ab, sondern wird als uneingeschränkt erlaubt behandelt).
+
 ### Alle Scraper gemeinsam ausführen: `update_events.py`
 
 `scripts/update_events.py` ist das Hauptskript: Es findet automatisch alle
