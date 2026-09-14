@@ -152,6 +152,34 @@ ist aber mit simulierten Daten getestet. Die HTML-Fallback-Selektoren
 Blick in den echten Seitenquelltext kalibriert werden, falls die Seite kein
 JSON-LD liefert.
 
+### Automatisch von ironman.com (Europa) importieren
+
+`scripts/ironman_scraper.py` liest Triathlon-Events von der
+[IRONMAN-Renn-Übersicht für Europa](https://www.ironman.com/races?facet%5B0%5D=region%3AEurope)
+aus und ergänzt sie in `events.json` (als `art1: "Triathlon"`, keine
+`art2`-Kategorie – passend zur Projekt-Taxonomie). Standardmäßig werden nur
+Events in Deutschland, Österreich und der Schweiz übernommen (`--include-all-europe`
+für alle europäischen IRONMAN-Rennen). Distanzen werden aus dem Renntyp
+abgeleitet (70.3 → 113 km, 5150 → 51,5 km, volle Distanz → 226 km).
+
+```bash
+pip install -r scripts/requirements.txt
+python3 scripts/ironman_scraper.py --dry-run --max-pages 1
+python3 scripts/ironman_scraper.py
+```
+
+Auch hier: live `robots.txt`-Check vor jedem Zugriff, in der
+Entwicklungsumgebung nicht gegen die echte Seite testbar (Netzwerkzugriff auf
+ironman.com ebenfalls blockiert), Kernlogik mit simulierten Daten getestet.
+Eine Besonderheit dieser Seite: Die Renn-Übersicht filtert per URL-Facette
+und lädt die Ergebnisse vermutlich per JavaScript aus einer API nach – ein
+einfacher HTML-Abruf findet dann evtl. keine Events. Für diesen Fall bietet
+das Skript zwei Auswege: `--api-url <JSON-Endpunkt>` (per Browser-
+Entwicklertools/Netzwerk-Tab finden) oder `--render-js` (rendert die Seite
+per Playwright/Chromium inkl. JavaScript-Ausführung, erfordert
+`pip install playwright` + `playwright install chromium`). Details und
+weitere Optionen im Docstring am Kopf der Datei.
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert
