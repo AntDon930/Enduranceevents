@@ -488,7 +488,7 @@
       subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
       reset: 'Alle Filter zurücksetzen',
       result_count: (n, total) => `${n} von ${total} Events`,
-      col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Standort',
+      col_datum: 'Datum', col_anmeldung: 'Anmeldung', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge (km)',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
@@ -507,14 +507,14 @@
       radius_none: 'Kein Umkreis-Filter',
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
       detail_datum: 'Datum', detail_anmeldeschluss: 'Anmeldeschluss', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
-      detail_standort: 'Standort', detail_land: 'Land', detail_laenge: 'Länge',
+      detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
       detail_link: 'Zur Veranstalter-Website ↗',
       empty_events: 'Keine Events gefunden.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
       chip_name: (q) => `Name: „${q}"`,
       chip_sportart: (v) => `Sportart: ${v}`,
-      chip_standort: (v) => `Standort: ${v}`,
+      chip_standort: (v) => `Stadt/Ort: ${v}`,
       chip_land: (v) => `Land: ${v}`,
       chip_kategorie: (v) => `Kategorie: ${v}`,
       chip_laenge_ab: (v) => `Länge ab ${v} km`,
@@ -529,7 +529,7 @@
       subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
       reset: 'Reset all filters',
       result_count: (n, total) => `${n} of ${total} events`,
-      col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'Location',
+      col_datum: 'Date', col_anmeldung: 'Registration', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length (km)',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
@@ -548,14 +548,14 @@
       radius_none: 'No radius filter',
       detail_empty: 'Select a row to see details.',
       detail_datum: 'Date', detail_anmeldeschluss: 'Registration Deadline', detail_sportart: 'Sport', detail_kategorie: 'Category',
-      detail_standort: 'Location', detail_land: 'Country', detail_laenge: 'Length',
+      detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
       detail_link: 'Visit organizer website ↗',
       empty_events: 'No events found.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
       chip_name: (q) => `Name: "${q}"`,
       chip_sportart: (v) => `Sport: ${v}`,
-      chip_standort: (v) => `Location: ${v}`,
+      chip_standort: (v) => `City: ${v}`,
       chip_land: (v) => `Country: ${v}`,
       chip_kategorie: (v) => `Category: ${v}`,
       chip_laenge_ab: (v) => `Length from ${v} km`,
@@ -697,16 +697,16 @@
     { key: '50+', label: '50+ km' }
   ];
 
-  // Reihenfolge der Spalten: Datum, Anmeldung, Name, Sportart, Land, Standort, Kategorie, Länge
+  // Reihenfolge der Spalten: Name, Datum, Anmeldung, Land, Standort, Sportart, Kategorie, Länge
   // Der Anmeldeschluss (konkretes Datum) steht nur in der Detailansicht; in der
   // Tabelle gibt es stattdessen nur den Status "Offen"/"Geschlossen" als Filter.
   const COLUMNS = [
+    { key: 'name', labelKey: 'col_name', type: 'text' },
     { key: 'datum', labelKey: 'col_datum', type: 'date-tree' },
     { key: 'anmeldestatus', labelKey: 'col_anmeldung', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.anmeldestatus)) },
-    { key: 'name', labelKey: 'col_name', type: 'text' },
-    { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
     { key: 'land', labelKey: 'col_land', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.land)) },
     { key: 'standort', labelKey: 'col_standort', type: 'standort' },
+    { key: 'art1', labelKey: 'col_sportart', type: 'checkbox', options: () => uniqueSorted(events.map(e => e.art1)) },
     { key: 'art2', labelKey: 'col_kategorie', type: 'checkbox', options: () => availableArt2Options() },
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
   ];
@@ -1432,12 +1432,12 @@
         const tr = document.createElement('tr');
         if (idx === selectedIndex) tr.classList.add('active');
         tr.innerHTML = `
+          <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
           <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
           <td><div class="cell-clamp">${e.anmeldestatus ? escapeHtml(tv('anmeldestatus', e.anmeldestatus)) : '–'}</div></td>
-          <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
-          <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
           <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
+          <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
           <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
           <td><div class="cell-clamp">${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</div></td>
         `;
@@ -1461,10 +1461,10 @@
       <dl class="detail-grid">
         <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
         <dt>${escapeHtml(t('detail_anmeldeschluss'))}</dt><dd>${e.anmeldeschluss ? formatDate(e.anmeldeschluss) : '–'}</dd>
-        <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
-        <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
         <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
+        <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
+        <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
         <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
@@ -1490,15 +1490,15 @@
 
   function renderChips() {
     const chips = [];
+    if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     if (state.selectedDays.size > 0) {
       const n = state.selectedDays.size;
       chips.push({ label: t('chip_datum', n), clear: () => state.selectedDays.clear() });
     }
-    if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     state.anmeldestatus.forEach(v => chips.push({ label: t('chip_anmeldung', tv('anmeldestatus', v)), clear: () => state.anmeldestatus.delete(v) }));
-    state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
     state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
     state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
+    state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
     state.art2.forEach(v => chips.push({ label: t('chip_kategorie', tv('art2', v)), clear: () => state.art2.delete(v) }));
     if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', state.laengeMin), clear: () => { state.laengeMin = ''; } });
     if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', state.laengeMax), clear: () => { state.laengeMax = ''; } });

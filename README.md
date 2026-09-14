@@ -25,33 +25,34 @@ Schweiz.
   sonst funktioniert die Umkreissuche für dieses Event nicht.
 
 - `index.html` – Statische Seite (HTML/CSS/JS, keine Build-Schritte), liest
-  `events.json` per `fetch` ein. Excel-ähnliche Tabelle: jede Spalte hat einen
-  eigenen Filter im Spaltenkopf (▾-Symbol):
-  - **Land** – Checkbox-Liste
-  - **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
-  - **Standort** – Checkbox-Liste mit *allen* Städten (unabhängig von anderen
-    Filtern) plus Umkreissuche: „Aktuellen Standort verwenden" (Browser-
-    Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann Radius
-    0–5 / 5–20 / 20–50 / 50+ km wählen
-  - **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
-  - **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
-    abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
-    `index.html`, dort anpassbar):
-    - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
-    - *Schwimmen*: Freiwasser, Becken
-    - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
-    - *Triathlon* hat keine Kategorie-Unterteilung.
-  - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
-    Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
-    alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
-  - **Anmeldung** – Checkbox-Filter „Offen" / „Geschlossen": wird aus
-    `anmeldeschluss` und dem heutigen Datum berechnet (Anmeldeschluss in der
-    Zukunft = Offen, in der Vergangenheit = Geschlossen). Das konkrete
-    Anmeldeschluss-Datum selbst wird nicht in der Tabelle angezeigt, sondern
-    nur in der Detailansicht beim Klick auf ein Event.
-  - **Länge (km)** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
-    sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
-    Zahlenbereich von/bis (siehe unten)
+  `events.json` per `fetch` ein. Excel-ähnliche Tabelle in dieser
+  Spaltenreihenfolge, jede Spalte hat einen eigenen Filter im Spaltenkopf
+  (▾-Symbol):
+  1. **Name** – Textsuche (Eingabefeld, filtert live während des Tippens)
+  2. **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
+     Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert
+     automatisch alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
+  3. **Anmeldung** – Checkbox-Filter „Offen" / „Geschlossen": wird aus
+     `anmeldeschluss` und dem heutigen Datum berechnet (Anmeldeschluss in
+     der Zukunft = Offen, in der Vergangenheit = Geschlossen). Das konkrete
+     Anmeldeschluss-Datum selbst wird nicht in der Tabelle angezeigt,
+     sondern nur in der Detailansicht beim Klick auf ein Event.
+  4. **Land** – Checkbox-Liste
+  5. **Stadt/Ort** – Checkbox-Liste mit *allen* Städten (unabhängig von
+     anderen Filtern) plus Umkreissuche: „Aktuellen Standort verwenden"
+     (Browser-Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann
+     Radius 0–5 / 5–20 / 20–50 / 50+ km wählen
+  6. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
+  7. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
+     abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
+     `index.html`, dort anpassbar):
+     - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
+     - *Schwimmen*: Freiwasser, Becken
+     - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
+     - *Triathlon* hat keine Kategorie-Unterteilung.
+  8. **Länge (km)** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
+     sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
+     Zahlenbereich von/bis (siehe unten)
 
   Aktive Filter erscheinen als Chips direkt neben der Ergebnisanzahl links
   oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
