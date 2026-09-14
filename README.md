@@ -180,6 +180,47 @@ per Playwright/Chromium inkl. JavaScript-Ausführung, erfordert
 `pip install playwright` + `playwright install chromium`). Details und
 weitere Optionen im Docstring am Kopf der Datei.
 
+### Sechs weitere Lauf-Kalender: `scraper_lib.py` + dünne Site-Skripte
+
+Für sechs weitere deutsche Lauf-Kalender gibt es je ein eigenes,
+schlankes Scraper-Skript (`--events-json`, `--dry-run`, `--render-js`,
+`--api-url`, `--include-all-europe` – alles wie gehabt):
+
+| Skript | Quelle |
+|---|---|
+| `runnersworld_scraper.py` | runnersworld.de/laufkalender |
+| `runninglife_scraper.py` | running.life/laufkalender/deutschland |
+| `runningcompany_scraper.py` | runningcompany.de/runners-high/laufkalender |
+| `blvsport_scraper.py` | blv-sport.de/laufsport/laufkalender (vermutlich regional auf Bayern begrenzt) |
+| `ahotu_scraper.py` | ahotu.com/de/kalender/laufen/deutschland (vermutlich JS-gerendert wie ironman.com) |
+| `planetmarathon_scraper.py` | planet-marathon.de/marathon_d.html (vermutlich alte, klassenlose HTML-Tabellenseite – generische Selektoren greifen hier mit hoher Wahrscheinlichkeit nicht, siehe Docstring im Skript) |
+
+Diese sechs (sowie künftige weitere Lauf-Kalender-Scraper) teilen sich die
+gemeinsame Logik in `scraper_lib.py` (robots.txt-Prüfung, Datum-/Land-/
+Kategorie-/Distanz-Erkennung, JSON-LD- und HTML-Fallback-Parsing,
+Geocoding-Cache, Dedupe/Merge) statt sie zu duplizieren – ein einzelnes
+Skript besteht dadurch nur noch aus einer `SiteConfig` (Basis-URL,
+Kalender-URL, ggf. abweichende Selektoren) und einem Aufruf von
+`run_scraper_cli(CONFIG)`. `scraper_lib.py` selbst endet nicht auf
+`_scraper.py` und wird von `update_events.py`s Auto-Discovery daher
+korrekt nicht als eigener Scraper ausgeführt. Die bereits gegen echte
+Infrastruktur verifizierten `laufkalender_scraper.py` und
+`ironman_scraper.py` nutzen `scraper_lib.py` bewusst nicht, um ihr
+getestetes Verhalten nicht anzufassen.
+
+Wie bei den ersten beiden Skripten: In der Entwicklungsumgebung war der
+Netzwerkzugriff auf alle sechs Domains blockiert, die Skripte konnten
+daher nicht gegen die echten Seiten getestet werden – nur die
+Kernlogik in `scraper_lib.py` (Datum-/Land-/Distanz-Erkennung, JSON-LD-
+und generisches API-JSON-Parsing, HTML-Fallback inkl. eines gefundenen
+und behobenen Bugs mit zu breiten CSS-Selektoren, DACH-Filter,
+Dedupe/Merge) ist mit simulierten Daten getestet, ebenso ein
+End-to-End-Test des `--api-url`-Pfads gegen einen lokalen Mock-Server.
+Die HTML-Fallback-Selektoren jedes Skripts sind Platzhalter und müssen
+nach einem Blick in den jeweils echten Seitenquelltext kalibriert
+werden – Details und seitenspezifische Hinweise (z. B. Verdacht auf
+JavaScript-Rendering) stehen im Docstring jedes einzelnen Skripts.
+
 ### Alle Scraper gemeinsam ausführen: `update_events.py`
 
 `scripts/update_events.py` ist das Hauptskript: Es findet automatisch alle
