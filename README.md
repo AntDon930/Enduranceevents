@@ -42,7 +42,11 @@ Schweiz.
   - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
     Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
     alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
-  - **Anmeldeschluss** – Datumsbereich von/bis
+  - **Anmeldung** – Checkbox-Filter „Offen" / „Geschlossen": wird aus
+    `anmeldeschluss` und dem heutigen Datum berechnet (Anmeldeschluss in der
+    Zukunft = Offen, in der Vergangenheit = Geschlossen). Das konkrete
+    Anmeldeschluss-Datum selbst wird nicht in der Tabelle angezeigt, sondern
+    nur in der Detailansicht beim Klick auf ein Event.
   - **Länge (km)** – Sportart-Tabs (Laufen/Rennrad/Schwimmen/Triathlon) mit
     sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
     Zahlenbereich von/bis (siehe unten)
