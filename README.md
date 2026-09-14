@@ -1,7 +1,7 @@
 # Enduranceevents
 
 Öffentliche Webseite mit einer gefilterten Liste von Ausdauersport-Events
-(Laufen, Schwimmen, Rennrad, Triathlon) in Deutschland, Österreich und der
+(Laufen, Schwimmen, Fahrrad, Triathlon) in Deutschland, Österreich und der
 Schweiz.
 
 ## Struktur
@@ -12,8 +12,8 @@ Schweiz.
   - `standort` – Ort des Events
   - `lat` / `lon` – Koordinaten des Standorts (Dezimalgrad), werden für die
     Umkreissuche benötigt
-  - `art1` – Laufen / Schwimmen / Rennrad / Triathlon
-  - `art2` – Unterkategorie, z. B. Trail / Straße / Mountainbike / Bahn / Freiwasser
+  - `art1` – Laufen / Schwimmen / Fahrrad / Triathlon
+  - `art2` – Unterkategorie, abhängig von `art1` (siehe `ART2_BY_ART1` unten)
   - `datum_start` / `datum_ende` – Datum im Format `YYYY-MM-DD`
   - `anmeldeschluss` – Anmeldeschluss-Datum im Format `YYYY-MM-DD` (optional;
     fehlt es bei einem Event, zeigt die Tabelle dort „–")
@@ -33,12 +33,14 @@ Schweiz.
     Filtern) plus Umkreissuche: „Aktuellen Standort verwenden" (Browser-
     Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann Radius
     0–5 / 5–20 / 20–50 / 50+ km wählen
-  - **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Rennrad/Triathlon)
+  - **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
   - **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
-    abhängen (z. B. bei Schwimmen nur Freiwasser/Schwimmbad, keine
-    Trail-Option). Die genaue Zuordnung steht als `ART2_BY_ART1` oben im
-    `<script>`-Block in `index.html` und ist als **Platzhalter** markiert –
-    bitte anpassen, sobald die endgültige Aufteilung feststeht.
+    abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
+    `index.html`, dort anpassbar):
+    - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
+    - *Schwimmen*: Freiwasser, Becken
+    - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
+    - *Triathlon* hat keine Kategorie-Unterteilung.
   - **Datum** – aufklappbarer Baum Jahr → Monat → Tag (wie Excels
     Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert automatisch
     alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
@@ -47,7 +49,7 @@ Schweiz.
     Zukunft = Offen, in der Vergangenheit = Geschlossen). Das konkrete
     Anmeldeschluss-Datum selbst wird nicht in der Tabelle angezeigt, sondern
     nur in der Detailansicht beim Klick auf ein Event.
-  - **Länge (km)** – Sportart-Tabs (Laufen/Rennrad/Schwimmen/Triathlon) mit
+  - **Länge (km)** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
     sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
     Zahlenbereich von/bis (siehe unten)
 
@@ -73,7 +75,7 @@ Schweiz.
     Halbmarathon/Marathon sind nur die offiziellen Distanzen (21,0975 km /
     42,195 km, ±0,5 km Toleranz für Rundungsunterschiede in den Daten),
     Ultramarathon ist alles darüber.
-  - *Rennrad*: bis 50 km, 50–100 km, 100–150 km, 150–200 km, 200+ km.
+  - *Fahrrad*: bis 50 km, 50–100 km, 100–150 km, 150–200 km, 200+ km.
   - *Schwimmen*: 1/2/3/5 km, 10+ km (Marathonschwimmen).
   - *Triathlon*: Sprintdistanz, Olympische Distanz (51,5 km), Mitteldistanz /
     70.3 (113 km), Langdistanz / Ironman (226 km) – jeweils mit Toleranz für

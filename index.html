@@ -578,16 +578,22 @@
     art1: {
       'Laufen': { de: 'Laufen', en: 'Running' },
       'Schwimmen': { de: 'Schwimmen', en: 'Swimming' },
-      'Rennrad': { de: 'Rennrad', en: 'Road Cycling' },
+      'Fahrrad': { de: 'Fahrrad', en: 'Cycling' },
       'Triathlon': { de: 'Triathlon', en: 'Triathlon' }
     },
     art2: {
       'Straße': { de: 'Straße', en: 'Road' },
       'Trail': { de: 'Trail', en: 'Trail' },
-      'Mountainbike': { de: 'Mountainbike', en: 'Mountain Bike' },
       'Bahn': { de: 'Bahn', en: 'Track' },
+      'Berg': { de: 'Berg', en: 'Mountain' },
+      'Cross': { de: 'Cross', en: 'Cross Country' },
+      'Hindernis': { de: 'Hindernis', en: 'Obstacle' },
       'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
-      'Schwimmbad': { de: 'Schwimmbad', en: 'Pool' }
+      'Becken': { de: 'Becken', en: 'Pool' },
+      'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
+      'Mountainbike': { de: 'Mountainbike', en: 'Mountain Bike' },
+      'Gravel': { de: 'Gravel', en: 'Gravel' },
+      'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' }
     },
     anmeldestatus: {
       'Offen': { de: 'Offen', en: 'Open' },
@@ -630,7 +636,7 @@
       { key: 'marathon', test: km => Math.abs(km - 42.195) <= 0.5 },
       { key: 'ultra', test: km => km > 42.195 + 0.5 }
     ],
-    'Rennrad': [
+    'Fahrrad': [
       { key: 'r50', test: km => km > 0 && km <= 50 },
       { key: 'r100', test: km => km > 50 && km <= 100 },
       { key: 'r150', test: km => km > 100 && km <= 150 },
@@ -705,13 +711,11 @@
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
   ];
 
-  // Platzhalter-Zuordnung Sportart -> erlaubte Kategorie-Werte.
-  // Bitte anpassen, sobald die genaue Aufteilung feststeht.
+  // Zuordnung Sportart -> erlaubte Kategorie-Werte.
   const ART2_BY_ART1 = {
-    'Laufen': ['Straße', 'Trail', 'Bahn'],
-    'Schwimmen': ['Freiwasser', 'Schwimmbad'],
-    'Rennrad': ['Straße', 'Mountainbike', 'Bahn'],
-    'Triathlon': ['Straße']
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis'],
+    'Schwimmen': ['Freiwasser', 'Becken'],
+    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
   };
 
   let events = [];
