@@ -985,6 +985,7 @@
           if (col.key === 'art1') {
             const valid = new Set(availableArt2Options());
             Array.from(state.art2).forEach(v => { if (!valid.has(v)) state.art2.delete(v); });
+            pruneDistanceCategoriesForArt1();
           }
           selectedIndex = null;
           render();
@@ -1001,14 +1002,27 @@
       if (col.key === 'art1') {
         const valid = new Set(availableArt2Options());
         Array.from(state.art2).forEach(v => { if (!valid.has(v)) state.art2.delete(v); });
+        pruneDistanceCategoriesForArt1();
       }
       selectedIndex = null;
       render();
     });
     actions.querySelector('[data-act="none"]').addEventListener('click', () => {
       selectedSet.clear();
+      if (col.key === 'art1') pruneDistanceCategoriesForArt1();
       selectedIndex = null;
       render();
+    });
+  }
+
+  // Entfernt Distanzkategorie-Auswahlen für Sportarten, die nach einer
+  // Sportart-Filteränderung nicht mehr ausgewählt sind (sonst würde die
+  // Länge-Auswahl "ins Leere laufen", weil kein Event mehr passt).
+  function pruneDistanceCategoriesForArt1() {
+    if (state.art1.size === 0) return;
+    Array.from(state.distanceCategories).forEach(compositeKey => {
+      const sport = compositeKey.slice(0, compositeKey.indexOf(':'));
+      if (!state.art1.has(sport)) state.distanceCategories.delete(compositeKey);
     });
   }
 
@@ -1266,22 +1280,36 @@
   function renderNumberRangePanel(panel) {
     panel.innerHTML = '';
 
-    // Sportart-Tabs für die Distanzkategorien
-    const tabsWrap = document.createElement('div');
-    tabsWrap.className = 'distance-tabs';
-    Object.keys(DISTANCE_CATEGORIES).forEach(sport => {
-      const tabBtn = document.createElement('button');
-      tabBtn.type = 'button';
-      tabBtn.className = 'distance-tab' + (activeDistanceSportTab === sport ? ' active' : '');
-      tabBtn.textContent = tv('art1', sport);
-      tabBtn.addEventListener('click', () => {
-        activeDistanceSportTab = sport;
-        renderNumberRangePanel(panel);
-        if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+    // Sportart-Tabs für die Distanzkategorien: nur Sportarten anzeigen, die
+    // auch im Sportart-Filter ausgewählt sind (ist dort nichts gewählt,
+    // stehen alle zur Wahl). Ist nur eine Sportart relevant, brauchen wir
+    // keine Tabs - dann direkt deren Kategorien zeigen.
+    const allSports = Object.keys(DISTANCE_CATEGORIES);
+    const visibleSports = state.art1.size > 0
+      ? allSports.filter(s => state.art1.has(s))
+      : allSports;
+    if (visibleSports.length === 0) visibleSports.push(...allSports);
+    if (!visibleSports.includes(activeDistanceSportTab)) {
+      activeDistanceSportTab = visibleSports[0];
+    }
+
+    if (visibleSports.length > 1) {
+      const tabsWrap = document.createElement('div');
+      tabsWrap.className = 'distance-tabs';
+      visibleSports.forEach(sport => {
+        const tabBtn = document.createElement('button');
+        tabBtn.type = 'button';
+        tabBtn.className = 'distance-tab' + (activeDistanceSportTab === sport ? ' active' : '');
+        tabBtn.textContent = tv('art1', sport);
+        tabBtn.addEventListener('click', () => {
+          activeDistanceSportTab = sport;
+          renderNumberRangePanel(panel);
+          if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+        });
+        tabsWrap.appendChild(tabBtn);
       });
-      tabsWrap.appendChild(tabBtn);
-    });
-    panel.appendChild(tabsWrap);
+      panel.appendChild(tabsWrap);
+    }
 
     const catList = document.createElement('div');
     catList.className = 'filter-list distance-categories';

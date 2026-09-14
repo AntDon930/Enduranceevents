@@ -54,8 +54,13 @@ Schweiz.
   Die Übersetzungstabellen (`I18N`, `VALUE_TRANSLATIONS`) stehen oben im
   `<script>`-Block in `index.html` – dort auch anpassbar/erweiterbar.
 
-  **Distanz-Schnellauswahl bei „Länge"**: Je nach gewählter Sportart-Tab
-  (im Filter-Panel der Spalte „Länge") stehen andere Kategorien zur Auswahl:
+  **Distanz-Schnellauswahl bei „Länge"**: Die Sportart-Tabs im Länge-Filter
+  folgen dem Sportart-Filter: ist dort z. B. nur „Laufen" ausgewählt, zeigt
+  „Länge" direkt (ohne Tabs) nur die Laufen-Kategorien; bei mehreren gewählten
+  Sportarten stehen nur deren Tabs zur Wahl; ist keine Sportart gefiltert,
+  stehen alle vier Tabs zur Verfügung. Wird die Sportart-Auswahl später
+  eingeschränkt, werden nicht mehr passende Distanz-Auswahlen automatisch
+  entfernt (sonst würde die Länge-Auswahl „ins Leere laufen"). Kategorien:
   - *Laufen*: 5 km, 10 km, Halbmarathon, Marathon, Ultramarathon. 5 km und
     10 km sind „Aufrunde-Kategorien" (ein 4-km-Lauf erscheint unter 5 km),
     Halbmarathon/Marathon sind nur die offiziellen Distanzen (21,0975 km /
