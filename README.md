@@ -123,6 +123,35 @@ Schweiz.
 Einfach `events.json` um weitere Objekte im gleichen Format ergänzen und
 committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
+### Automatisch von laufen.de/laufkalender importieren
+
+`scripts/laufkalender_scraper.py` liest Lauf-Events vom Laufkalender auf
+[laufen.de](https://laufen.de/laufkalender) aus und ergänzt sie in
+`events.json` – im selben Format, ohne Duplikate (Abgleich über Name +
+Startdatum). Details, Funktionsweise und wichtige Hinweise stehen im
+Docstring am Kopf der Datei. Kurzfassung:
+
+```bash
+pip install -r scripts/requirements.txt
+
+# Erst zur Kontrolle, ohne events.json zu verändern:
+python3 scripts/laufkalender_scraper.py --dry-run --max-pages 1
+
+# Danach der echte Lauf:
+python3 scripts/laufkalender_scraper.py
+```
+
+Das Skript prüft bei jedem Lauf automatisch live die `robots.txt` von
+laufen.de und bricht ab, falls der Kalender-Pfad dort gesperrt ist (inkl.
+Beachtung eines eventuellen Crawl-Delays). Es wurde in der Entwicklungs­umgebung
+selbst nicht gegen die echte Seite getestet, da dort der Netzwerkzugriff auf
+laufen.de von einer Firewall-/Proxy-Richtlinie blockiert war – die Kernlogik
+(Datum-Parsing, Land-/Kategorie-Erkennung, Dedupe/Merge, JSON-LD-Normalisierung)
+ist aber mit simulierten Daten getestet. Die HTML-Fallback-Selektoren
+(`HTML_FALLBACK_SELECTORS` im Skript) sind Platzhalter und sollten nach einem
+Blick in den echten Seitenquelltext kalibriert werden, falls die Seite kein
+JSON-LD liefert.
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert
