@@ -8,14 +8,10 @@ Liest Lauf-Events vom Laufkalender auf https://laufen.de/laufkalender aus
 und ergänzt sie in `events.json` – im selben Format wie die bestehenden
 Events, ohne Duplikate zu erzeugen (Abgleich über Name + Startdatum).
 
-WICHTIG – bitte vor dem ersten produktiven Lauf lesen
--------------------------------------------------------
-Dieses Skript wurde NICHT gegen die echte Seite getestet: In der Umgebung,
-in der es geschrieben wurde, ist der Netzwerkzugriff auf laufen.de durch
-eine Firewall-/Proxy-Richtlinie blockiert (bestätigt: robots.txt und die
-Kalenderseite selbst waren nicht erreichbar). Führe es deshalb zunächst
-mit `--dry-run --max-pages 1` aus und wirf einen Blick auf die Ausgabe,
-bevor du events.json wirklich überschreiben lässt.
+Echt getestet (Stand: verifiziert gegen die Live-Seite)
+--------------------------------------------------------
+robots.txt erlaubt den Zugriff (nur `/contao/` und `/_contao/` sind
+gesperrt, `/laufkalender` selbst nicht betroffen).
 
 robots.txt-Prüfung
 -------------------
@@ -27,18 +23,28 @@ robots.txt angegebenen Crawl-Delay respektiert es automatisch.
 
 Parsing-Strategie
 -------------------
-1. Zuerst wird nach eingebetteten `<script type="application/ld+json">`
-   Blöcken mit schema.org-`Event`/`SportsEvent`-Daten gesucht. Viele
-   Kalenderseiten liefern darüber strukturierte, stabile Daten – falls
-   laufen.de das tut, sollte das Skript "out of the box" funktionieren.
-2. Findet sich kein JSON-LD, greift ein HTML-Fallback (`parse_html_fallback`)
-   mit CSS-Selektoren. Diese sind als Platzhalter markiert (`# TODO:
-   ANPASSEN`) und müssen anhand des echten Seitenquelltexts kalibriert
-   werden (Browser: Rechtsklick -> "Seitenquelltext anzeigen", oder besser:
-   Tab "Netzwerk" der Entwicklertools öffnen und prüfen, ob die Events per
-   JSON von einer API-Route nachgeladen werden – das wäre deutlich
-   zuverlässiger zu parsen als HTML und sollte bevorzugt werden, falls
-   vorhanden).
+Die Kalenderseite selbst (`/laufkalender`) enthält kein JSON-LD und im
+initial ausgelieferten HTML auch keine Event-Karten – sie lädt die
+Ergebnisliste per JavaScript aus einem AJAX-Endpunkt nach (gefunden im
+eingebetteten `<script>`-Block der Seite):
+
+    POST https://laufen.de/laufkalender/ajax/search
+    Content-Type: application/x-www-form-urlencoded
+    Body: search=&radius=&start=&end=&distance_start=&distance_end=
+          &distances=[]&page=<N>
+
+Antwort ist JSON mit u. a. `pages` (Gesamtseitenzahl), `events` und
+`topevents` (jeweils ein HTML-Fragment mit `<a class="teaser event">`-
+Kacheln, die dieses Skript mit BeautifulSoup parst statt die komplette
+Kalenderseite zu rendern - kein `--render-js`/Playwright nötig). Jede
+Kachel enthält Datum (`.date`, Format "D.M.YYYY", ohne Jahr-Mehrdeutigkeit),
+Name (`.headline`), PLZ+Ort (`.location`, wird per Regex getrennt: 5-stellig
+= Deutschland, 4-stellig = Österreich/Schweiz, aber anhand der PLZ allein
+nicht sicher unterscheidbar - `land` bleibt dann leer statt zu raten) und
+Distanz(en) (`.strecken .wettbewerbe`, Format "Strecke(n): X [bis Y]
+Kilometer" - bei einer Spanne wird die größere Zahl übernommen).
+`topevents` enthält dieselbe Kachel-Struktur (zusätzlich mit Bild/Badge)
+für beworbene Veranstaltungen und wird identisch mitgeparst.
 
 Nutzung
 -------
@@ -61,7 +67,7 @@ import re
 import sys
 import time
 from dataclasses import dataclass, field, fields
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urljoin
@@ -77,6 +83,9 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://laufen.de"
 CALENDAR_PATH = "/laufkalender"
 CALENDAR_URL = urljoin(BASE_URL, CALENDAR_PATH)
+# Per <script>-Block auf der Kalenderseite gefundener AJAX-Endpunkt, über
+# den die Ergebnisliste tatsächlich geladen wird (siehe Docstring).
+AJAX_SEARCH_URL = urljoin(BASE_URL, "/laufkalender/ajax/search")
 
 # Höflicher, ehrlicher User-Agent (kein Fake-Browser-UA) – erleichtert es
 # dem Seitenbetreiber, uns bei Bedarf zu blockieren oder zu kontaktieren.
@@ -93,30 +102,15 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 EVENTS_JSON_PATH = REPO_ROOT / "events.json"
 GEOCODE_CACHE_PATH = REPO_ROOT / "scripts" / ".geocode_cache.json"
 
-# TODO: ANPASSEN, falls die Pagination anders aufgebaut ist (z. B. über
-# einen Query-Parameter wie ?page=2 statt eines "Weiter"-Links). Das
-# Skript folgt zunächst <a rel="next"> und versucht danach ein paar
-# gängige Klassennamen als Fallback.
-NEXT_PAGE_SELECTORS = [
-    'a[rel="next"]',
-    "a.pagination-next",
-    "a.next",
-    'a[aria-label="Nächste Seite"]',
-    'a[aria-label="Weiter"]',
-]
-
-# TODO: ANPASSEN an die echte Seitenstruktur, falls kein JSON-LD gefunden
-# wird. `event_card` ist der Selektor für eine einzelne Veranstaltung in
-# der Liste; die übrigen Selektoren sind relativ dazu (BeautifulSoup
-# `.select_one(...)` innerhalb der Karte).
-HTML_FALLBACK_SELECTORS = {
-    "event_card": "article.event-card, li.event-item, div.event-teaser",
-    "name": "h2, h3, .event-title",
-    "date": "time, .event-date",
-    "location": ".event-location, .event-city",
-    "link": "a",
-    "category": ".event-category, .event-type",
-    "distance": ".event-distance",
+# Selektoren für eine einzelne Veranstaltungskachel innerhalb der von
+# AJAX_SEARCH_URL gelieferten "events"/"topevents"-HTML-Fragmente (siehe
+# Docstring). Kalibriert am echten Seiteninhalt.
+TEASER_SELECTORS = {
+    "event_card": "a.teaser.event",
+    "date": ".tcontainer > .date",
+    "name": ".headline",
+    "location": ".location",
+    "distance": ".strecken .wettbewerbe",
 }
 
 LAND_KEYWORDS = {
@@ -124,9 +118,6 @@ LAND_KEYWORDS = {
     "österreich": "Österreich", "austria": "Österreich", "at": "Österreich",
     "schweiz": "Schweiz", "switzerland": "Schweiz", "ch": "Schweiz",
 }
-
-# Bekannte PLZ-Präfixe/Länder-Codes, falls das Land nicht im Text steht.
-COUNTRY_CODE_MAP = {"DE": "Deutschland", "AT": "Österreich", "CH": "Schweiz"}
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur im Projekt
 # verwendeten Taxonomie für Laufen: Straße, Trail, Bahn, Berg, Cross, Hindernis.
@@ -329,15 +320,28 @@ def guess_art2(text: str) -> str:
 def guess_distance_km(text: str) -> float | None:
     if not text:
         return None
-    # explizite Kilometerangabe, z. B. "21,1 km" oder "10 km"
-    m = re.search(r"(\d{1,3}(?:[.,]\d{1,2})?)\s*km\b", text, re.I)
-    if m:
-        return float(m.group(1).replace(",", "."))
+    # explizite Kilometerangabe, z. B. "21,1 km", "10 km" oder (laufen.de-
+    # Format) "Strecken: 5 bis 7 Kilometer" - bei mehreren/einer Spanne
+    # (z. B. "0,4 bis 21,1 Kilometer") wird die größte Zahl übernommen.
+    matches = re.findall(r"(\d{1,3}(?:[.,]\d{1,2})?)\s*(?:km\b|Kilometer)", text, re.I)
+    if matches:
+        return max(float(m.replace(",", ".")) for m in matches)
     lowered = text.lower()
     for keyword, km in KNOWN_DISTANCES_KM.items():
         if keyword in lowered:
             return km
     return None
+
+
+def parse_location(text: str) -> str | None:
+    """Trennt eine PLZ+Ort-Angabe wie '74821           Mosbach        ' in
+    den reinen Ortsnamen auf (die PLZ selbst fließt bereits über
+    `guess_land()` auf dem unveränderten Text in die Ländererkennung ein)."""
+    if not text:
+        return None
+    normalized = re.sub(r"\s+", " ", text).strip()
+    m = re.match(r"^(\d{4,5})\s*(.+)$", normalized)
+    return m.group(2).strip() if m else (normalized or None)
 
 
 # --------------------------------------------------------------------------
@@ -392,184 +396,93 @@ class Geocoder:
 
 
 # --------------------------------------------------------------------------
-# Parsing: JSON-LD (bevorzugt)
+# Parsing: Event-Kacheln aus der AJAX-Antwort (siehe Docstring)
 # --------------------------------------------------------------------------
 
-def parse_jsonld_events(soup: BeautifulSoup, page_url: str) -> list[dict]:
-    """Sucht nach schema.org Event/SportsEvent-Daten in <script
-    type="application/ld+json">-Blöcken. Liefert rohe Dicts (noch nicht
-    auf unser events.json-Schema normalisiert)."""
-    raw_events: list[dict] = []
-    for script in soup.find_all("script", type="application/ld+json"):
-        try:
-            data = json.loads(script.string or "")
-        except (json.JSONDecodeError, TypeError):
-            continue
-
-        candidates = data if isinstance(data, list) else [data]
-        for item in candidates:
-            if not isinstance(item, dict):
-                continue
-            # @graph-Wrapper auflösen (häufig bei größeren JSON-LD-Blöcken)
-            graph = item.get("@graph")
-            sub_candidates = graph if isinstance(graph, list) else [item]
-            for sub in sub_candidates:
-                if not isinstance(sub, dict):
-                    continue
-                types = sub.get("@type")
-                types = types if isinstance(types, list) else [types]
-                if any(t in ("Event", "SportsEvent") for t in types if t):
-                    raw_events.append({"_source": "jsonld", "_page_url": page_url, **sub})
-    return raw_events
-
-
-def normalize_jsonld_event(raw: dict) -> Event:
-    name = raw.get("name")
-
-    location = raw.get("location") or {}
-    if isinstance(location, list):
-        location = location[0] if location else {}
-    address = location.get("address") if isinstance(location, dict) else None
-    if isinstance(address, dict):
-        standort = address.get("addressLocality") or location.get("name")
-        land_raw = address.get("addressCountry")
-        if isinstance(land_raw, dict):
-            land_raw = land_raw.get("name") or land_raw.get("id")
-        land = COUNTRY_CODE_MAP.get(str(land_raw).upper(), None) or guess_land(str(land_raw or ""))
-    else:
-        standort = location.get("name") if isinstance(location, dict) else None
-        land = None
-
-    if not land:
-        land = guess_land(f"{standort or ''} {name or ''}")
-
-    lat = lon = None
-    geo = location.get("geo") if isinstance(location, dict) else None
-    if isinstance(geo, dict):
-        try:
-            lat = float(geo.get("latitude"))
-            lon = float(geo.get("longitude"))
-        except (TypeError, ValueError):
-            lat = lon = None
-
-    datum_start = parse_german_date(str(raw.get("startDate") or ""))
-    datum_ende = parse_german_date(str(raw.get("endDate") or "")) or datum_start
-
-    description = " ".join(
-        str(raw.get(k) or "") for k in ("description", "name")
-    )
-    art2 = guess_art2(description)
-    laenge_km = guess_distance_km(description)
-
-    veranstalter_url = raw.get("url") or raw.get("_page_url")
-
-    return Event(
-        land=land,
-        name=name.strip() if name else None,
-        standort=standort.strip() if standort else None,
-        lat=lat,
-        lon=lon,
-        art2=art2,
-        datum_start=datum_start,
-        datum_ende=datum_ende,
-        laenge_km=laenge_km,
-        veranstalter_url=veranstalter_url,
-    )
-
-
-# --------------------------------------------------------------------------
-# Parsing: HTML-Fallback (Platzhalter-Selektoren, siehe Kopf-Kommentar)
-# --------------------------------------------------------------------------
-
-def parse_html_fallback(soup: BeautifulSoup, page_url: str) -> list[Event]:
+def parse_teaser_html(html_fragment: str) -> list[Event]:
+    """Parst ein `events`- oder `topevents`-HTML-Fragment aus der
+    AJAX-Antwort in Event-Objekte."""
+    if not html_fragment:
+        return []
+    soup = BeautifulSoup(html_fragment, "html.parser")
     events: list[Event] = []
-    cards = soup.select(HTML_FALLBACK_SELECTORS["event_card"])
-    if not cards:
-        return events
 
-    for card in cards:
-        name_el = card.select_one(HTML_FALLBACK_SELECTORS["name"])
-        date_el = card.select_one(HTML_FALLBACK_SELECTORS["date"])
-        loc_el = card.select_one(HTML_FALLBACK_SELECTORS["location"])
-        link_el = card.select_one(HTML_FALLBACK_SELECTORS["link"])
-        cat_el = card.select_one(HTML_FALLBACK_SELECTORS["category"])
-        dist_el = card.select_one(HTML_FALLBACK_SELECTORS["distance"])
+    for card in soup.select(TEASER_SELECTORS["event_card"]):
+        date_el = card.select_one(TEASER_SELECTORS["date"])
+        name_el = card.select_one(TEASER_SELECTORS["name"])
+        loc_el = card.select_one(TEASER_SELECTORS["location"])
+        dist_el = card.select_one(TEASER_SELECTORS["distance"])
 
         name = name_el.get_text(strip=True) if name_el else None
-        date_text = (
-            date_el.get("datetime") if date_el and date_el.has_attr("datetime") else None
-        ) or (date_el.get_text(strip=True) if date_el else None)
-        standort = loc_el.get_text(strip=True) if loc_el else None
-        href = link_el.get("href") if link_el else None
-        category_text = cat_el.get_text(strip=True) if cat_el else ""
+        date_text = date_el.get_text(strip=True) if date_el else ""
+        location_text = loc_el.get_text(" ", strip=True) if loc_el else ""
         distance_text = dist_el.get_text(strip=True) if dist_el else ""
+        href = card.get("href")
 
-        datum_start = parse_german_date(date_text or "")
-        combined_text = " ".join([name or "", category_text, distance_text])
+        datum_start = parse_german_date(date_text)
+        if not name and not datum_start:
+            continue  # kein echter Treffer (z. B. ein zu breit gefasster Sub-Match)
 
         events.append(
             Event(
-                land=guess_land(f"{standort or ''} {combined_text}"),
+                land=guess_land(location_text),
                 name=name,
-                standort=standort,
-                art2=guess_art2(combined_text),
+                standort=parse_location(location_text),
+                art2=guess_art2(f"{name or ''} {distance_text}"),
                 datum_start=datum_start,
                 datum_ende=datum_start,
-                laenge_km=guess_distance_km(combined_text),
-                veranstalter_url=urljoin(page_url, href) if href else None,
+                laenge_km=guess_distance_km(distance_text),
+                # href ist site-relativ ("laufkalender/details/ID", ohne
+                # führenden Slash) und dadurch nur korrekt auflösbar relativ
+                # zur eigentlichen Kalenderseite (CALENDAR_URL), NICHT
+                # relativ zu AJAX_SEARCH_URL.
+                veranstalter_url=urljoin(CALENDAR_URL, href) if href else None,
             )
         )
     return events
 
 
 # --------------------------------------------------------------------------
-# Seiten abrufen (mit Pagination)
+# Seiten abrufen (AJAX-Pagination über den "page"-Parameter)
 # --------------------------------------------------------------------------
-
-def find_next_page_url(soup: BeautifulSoup, current_url: str) -> str | None:
-    for selector in NEXT_PAGE_SELECTORS:
-        link = soup.select_one(selector)
-        if link and link.get("href"):
-            return urljoin(current_url, link["href"])
-    return None
-
 
 def fetch_all_events(
     session: requests.Session, delay: float, max_pages: int
 ) -> list[Event]:
     all_events: list[Event] = []
-    url = CALENDAR_URL
-    seen_urls: set[str] = set()
+    total_pages = 1
 
     for page_num in range(1, max_pages + 1):
-        if not url or url in seen_urls:
+        if page_num > total_pages:
             break
-        seen_urls.add(url)
 
-        print(f"→ Lade Seite {page_num}: {url}")
+        print(f"→ Lade Seite {page_num} von {AJAX_SEARCH_URL} ...")
         try:
-            resp = session.get(url, timeout=20)
+            resp = session.post(
+                AJAX_SEARCH_URL,
+                headers={"X-Requested-With": "XMLHttpRequest"},
+                data={
+                    "search": "", "radius": "", "start": "", "end": "",
+                    "distance_start": "", "distance_end": "",
+                    "distances": "[]", "page": page_num,
+                },
+                timeout=20,
+            )
             resp.raise_for_status()
+            data = resp.json()
         except requests.exceptions.RequestException as exc:
-            print(f"  ❌ Abbruch: {url} konnte nicht geladen werden ({exc}).")
+            print(f"  ❌ Abbruch: AJAX-Suche konnte nicht geladen werden ({exc}).")
             break
-        soup = BeautifulSoup(resp.text, "html.parser")
+        except ValueError as exc:
+            print(f"  ❌ Abbruch: Antwort war kein gültiges JSON ({exc}).")
+            break
 
-        raw_jsonld = parse_jsonld_events(soup, url)
-        if raw_jsonld:
-            print(f"  ✓ {len(raw_jsonld)} Event(s) über JSON-LD gefunden.")
-            page_events = [normalize_jsonld_event(r) for r in raw_jsonld]
-        else:
-            print("  ⚠ Kein JSON-LD gefunden – versuche HTML-Fallback "
-                  "(Selektoren ggf. anpassen, siehe TODOs im Skript).")
-            page_events = parse_html_fallback(soup, url)
-            print(f"  ✓ {len(page_events)} Event(s) über HTML-Fallback gefunden.")
-
+        total_pages = int(data.get("pages") or 1)
+        page_events = parse_teaser_html(data.get("topevents") or "") + parse_teaser_html(data.get("events") or "")
+        print(f"  ✓ {len(page_events)} Event(s) gefunden (Seite {page_num} von {total_pages}).")
         all_events.extend(page_events)
 
-        next_url = find_next_page_url(soup, url)
-        url = next_url
-        if url:
+        if page_num < total_pages:
             time.sleep(delay)
 
     return all_events

@@ -12,6 +12,33 @@ Duplikate (Abgleich über Name + Startdatum). Nur Events in Deutschland,
 `--include-all-europe`, falls du auch die übrigen europäischen IRONMAN-Rennen
 willst).
 
+⚠ ABSICHTLICH NICHT AKTIV GENUTZT (robots.txt sperrt Claude/KI-Crawler)
+--------------------------------------------------------------------------
+Die robots.txt von ironman.com (verifiziert, echter Abruf) erlaubt Bots
+mit generischem User-Agent zwar `Allow: /` unter `User-agent: *`, enthält
+aber zusätzlich eigene, explizite Regeln für einzelne Bots, u. a.:
+
+    User-agent: ClaudeBot
+    Disallow: /
+
+    User-agent: GPTBot
+    Disallow: /
+    (ebenso für u. a. Google-Extended, CCBot, Bytespider, Amazonbot, ...)
+
+Das ist eine gezielte Sperre für Anthropics eigenen Crawler (ClaudeBot).
+Ein Betrieb dieses Skripts unter einem *anderen*, nicht als Claude/AI-Bot
+erkennbaren User-Agent, um diese ausdrückliche Sperre zu umgehen, wäre
+Identitätsverschleierung gegenüber genau der robots.txt-Regel, die uns
+persönlich betrifft - das macht dieses Projekt daher bewusst nicht.
+`ironman.com` wird deshalb aktuell NICHT von `update_events.py` mit
+produktiven Daten befüllt; das Skript bleibt als dokumentierte Vorlage
+im Repo, falls IRONMAN diese Regel künftig lockert oder ein menschlicher
+Betreiber es in eigener Verantwortung unter einer anderen Kennung
+betreiben möchte. Zusätzlich blockt Cloudflare den eigentlichen
+Seitenabruf ohnehin mit HTTP 403 (siehe Abschnitt unten) - selbst mit
+erlaubtem User-Agent käme man ohne JS-Rendering/Bot-Challenge-Umgehung
+nicht an die Daten.
+
 WICHTIG – bitte vor dem ersten produktiven Lauf lesen
 -------------------------------------------------------
 Dieses Skript wurde NICHT gegen die echte Seite getestet: In der Umgebung,
@@ -790,6 +817,14 @@ def main():
              "(Standard: nur DACH, passend zum Fokus dieses Projekts).",
     )
     args = parser.parse_args()
+
+    print(
+        "⏭  ironman_scraper.py: bewusst übersprungen, OHNE robots.txt oder die "
+        "Seite abzurufen. ironman.com sperrt in seiner robots.txt den ClaudeBot "
+        "(sowie u. a. GPTBot, Google-Extended, CCBot) ausdrücklich per "
+        "'Disallow: /' - siehe Docstring oben. events.json bleibt unverändert."
+    )
+    sys.exit(0)
 
     session = requests.Session()
     session.headers["User-Agent"] = USER_AGENT

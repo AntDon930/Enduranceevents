@@ -8,34 +8,36 @@ Liest Marathon-Events von http://www.planet-marathon.de/marathon_d.html
 aus und ergänzt sie in `events.json` (siehe `scraper_lib.py` für die
 gemeinsame Logik).
 
-WICHTIG: Netzwerkzugriff auf planet-marathon.de war in der
-Entwicklungsumgebung blockiert – nicht gegen die echte Seite getestet.
+Echt getestet (Stand: verifiziert gegen die Live-Seite)
+--------------------------------------------------------
+robots.txt (http://www.planet-marathon.de/robots.txt) erlaubt den Zugriff
+(nur /bilder/, /temp/ und /beispiel.html sind gesperrt).
 
-Besonderheiten dieser Seite:
-- Nur **http://**, kein https – `requests` kommt damit problemlos klar,
-  aber falls die Seite serverseitig auf https umleitet, folgt `requests`
-  dem automatisch (Redirects sind standardmäßig aktiv).
-- Der Dateiname (`marathon_d.html`, kein CMS-Pfad wie bei den anderen
-  Seiten) deutet stark auf eine ältere, statische HTML-Seite hin (der
-  Stil vieler Marathon-/Laufsport-Linklisten aus den 2000er-Jahren).
-  Solche Seiten nutzen oft schlichte `<table>`-Layouts OHNE CSS-Klassen
-  oder gar `<font>`-Tags statt moderner Selektoren wie `.event-card` –
-  die generischen `HTML_FALLBACK_SELECTORS` aus `scraper_lib.py` greifen
-  bei so einer Seite mit hoher Wahrscheinlichkeit ins Leere (0 Treffer).
-  **TODO**: Falls JSON-LD und der generische HTML-Fallback beide 0
-  Events liefern, lohnt sich hier eher ein bewusst bespoke Parser statt
-  CSS-Selektoren – z. B. mit `soup.find_all("table")` und
-  `table.find_all("tr")`, wobei jede Zeile positionell (per
-  `row.find_all("td")[N].get_text()`) statt über Klassennamen
-  ausgelesen wird. Da unbekannt ist, wie viele Spalten es gibt und in
-  welcher Reihenfolge (Datum/Name/Ort/Land?), ist das ohne Blick auf die
-  echte Seite nicht seriös vorwegzunehmen – bitte den Seitenquelltext
-  einmal ansehen und `HTML_FALLBACK_SELECTORS`/diesen Kommentar
-  entsprechend ersetzen.
-- Vermutlich ausschließlich Marathons (art2 daher meist "Straße",
-  laenge_km meist 42.2 km) – CONFIG nutzt trotzdem die volle
-  Distanz-/Kategorie-Erkennung aus `scraper_lib.py`, falls die Seite
-  auch andere Distanzen (Halbmarathon o. ä.) auflistet.
+Wie im ursprünglichen TODO vermutet: eine einzelne, alte, klassenlose
+HTML-Tabelle (`marathon_d.html` listet ausschließlich Deutschland, siehe
+Seitentitel "Marathontermine in Deutschland" - Europa/Welt liegen unter
+separaten URLs). Kein JSON-LD. Struktur pro Datenzeile:
+
+    <tr>
+        <td>05.09.2026</td>
+        <td><a href="...">46. Usedom Marathon</a></td>
+        <td>17431</td>
+        <td>Wolgast</td>
+    </tr>
+
+Dazwischen liegen reine Kopf-/Trenn-/Monatsüberschriftzeilen (z. B. nur
+"&nbsp;"-Zellen oder eine Zeile mit dem Monatsnamen statt eines Datums in
+Spalte 1) - die werden automatisch übersprungen, weil sich aus ihnen kein
+Datum extrahieren lässt (`Event.is_valid()` verlangt Name + Datum +
+Standort). Die Seite lädt alle Events auf einmal (kein "nächste Seite"
+-Link), Pagination ist daher nicht nötig.
+
+Die Seite selbst weist ausdrücklich darauf hin: "Eingetragen werden
+grundsätzlich nur Marathonveranstaltungen mit offizieller
+Marathondistanz von 42,195 km." - `known_distances_km={"": 42.2}` nutzt
+das aus (der leere String ist Teilstring jedes Namens, daher greift die
+42,2-km-Annahme immer, außer eine explizite "NN km"-Angabe im Namen
+überschreibt sie).
 
 Nutzung: `python3 scripts/planetmarathon_scraper.py --help`.
 """
@@ -50,10 +52,28 @@ CONFIG = SiteConfig(
     base_url="http://www.planet-marathon.de",
     calendar_url="http://www.planet-marathon.de/marathon_d.html",
     default_art1="Laufen",
-    note="planetmarathon_scraper.py: nicht gegen die echte Seite getestet. "
-         "Vermutlich alte, klassenlose HTML-Tabellenseite - generische "
-         "CSS-Selektoren finden dort mit hoher Wahrscheinlichkeit nichts, "
-         "ein bespoke Tabellen-Parser wäre dann nötig. Siehe Docstring.",
+    default_land="Deutschland",
+    known_distances_km={"": 42.2},
+    html_fallback_selectors={
+        # Bewusst "tr" statt eines spezifischeren Selektors: die Tabelle hat
+        # keine CSS-Klassen, und Kopf-/Trennzeilen werden ohnehin verworfen,
+        # weil sich aus ihnen weder Name noch Datum extrahieren lässt.
+        "event_card": "table tr",
+        # Name = der Linktext in Spalte 2 (nicht die ganze Zelle, die bei
+        # manchen Events noch einen "*(...)"-Zusatztext nach dem Link hat).
+        "name": "td:nth-child(2) a, th:nth-child(2) a",
+        "date": "td:nth-child(1), th:nth-child(1)",
+        # Spalte 3 ist die PLZ, Spalte 4 der Ortsname (teils selbst mit
+        # verlinktem Facebook-Auftritt) - für "standort" reicht Spalte 4,
+        # get_text() zieht den Text auch aus einem verschachtelten <a>.
+        "location": "td:nth-child(4), th:nth-child(4)",
+        "link": "a",
+        "category": "",
+        "distance": "",
+    },
+    note="planetmarathon_scraper.py: robots.txt erlaubt den Zugriff. "
+         "Klassenlose HTML-Tabelle wie vermutet, generischer tr-Selektor "
+         "mit Positions-Selektoren (nth-child) statt CSS-Klassen.",
 )
 
 if __name__ == "__main__":

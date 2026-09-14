@@ -123,128 +123,87 @@ Schweiz.
 Einfach `events.json` um weitere Objekte im gleichen Format ergänzen und
 committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
-### Automatisch von laufen.de/laufkalender importieren
+### Acht Quellen geprüft, fünf davon aktiv genutzt
 
-`scripts/laufkalender_scraper.py` liest Lauf-Events vom Laufkalender auf
-[laufen.de](https://laufen.de/laufkalender) aus und ergänzt sie in
-`events.json` – im selben Format, ohne Duplikate (Abgleich über Name +
-Startdatum). Details, Funktionsweise und wichtige Hinweise stehen im
-Docstring am Kopf der Datei. Kurzfassung:
+Für dieses Projekt wurden acht Lauf-/Event-Kalender auf automatisiertes
+Auslesen geprüft (robots.txt live abgerufen und ausgewertet, dazu
+stichprobenartig Nutzungsbedingungen/Impressum auf ein explizites
+Scraping-Verbot durchsucht). Fünf erlauben es und werden aktiv
+gescraped, drei werden bewusst übersprungen:
 
-```bash
-pip install -r scripts/requirements.txt
+| Quelle | Status | Skript |
+|---|---|---|
+| [laufen.de](https://laufen.de/laufkalender) | ✅ aktiv | `laufkalender_scraper.py` |
+| [runningcompany.de](https://www.runningcompany.de/runners-high/laufkalender/) | ✅ aktiv | `runningcompany_scraper.py` |
+| [running.life](https://running.life/laufkalender/deutschland) | ✅ aktiv | `runninglife_scraper.py` |
+| [blv-sport.de](https://blv-sport.de/laufsport/laufkalender) | ✅ aktiv | `blvsport_scraper.py` |
+| [planet-marathon.de](http://www.planet-marathon.de/marathon_d.html) | ✅ aktiv | `planetmarathon_scraper.py` |
+| [ironman.com](https://www.ironman.com/races) | ⏭ übersprungen | `ironman_scraper.py` |
+| [runnersworld.de](https://www.runnersworld.de/laufkalender/) | ⏭ übersprungen | `runnersworld_scraper.py` |
+| [ahotu.com](https://www.ahotu.com/de/kalender/laufen/deutschland) | ⏭ übersprungen | `ahotu_scraper.py` |
 
-# Erst zur Kontrolle, ohne events.json zu verändern:
-python3 scripts/laufkalender_scraper.py --dry-run --max-pages 1
+Alle acht Skripte akzeptieren dieselben CLI-Optionen
+(`--events-json`, `--dry-run`, `--max-pages`, `--no-geocoding`,
+`--render-js`, `--api-url`, `--include-all-europe`) und schreiben
+direkt (dedupliziert über Name + Startdatum) in `events.json`.
 
-# Danach der echte Lauf:
-python3 scripts/laufkalender_scraper.py
-```
+#### Die drei übersprungenen Quellen
 
-Das Skript prüft bei jedem Lauf automatisch live die `robots.txt` von
-laufen.de und bricht ab, falls der Kalender-Pfad dort gesperrt ist (inkl.
-Beachtung eines eventuellen Crawl-Delays). Es wurde in der Entwicklungs­umgebung
-selbst nicht gegen die echte Seite getestet, da dort der Netzwerkzugriff auf
-laufen.de von einer Firewall-/Proxy-Richtlinie blockiert war – die Kernlogik
-(Datum-Parsing, Land-/Kategorie-Erkennung, Dedupe/Merge, JSON-LD-Normalisierung)
-ist aber mit simulierten Daten getestet. Die HTML-Fallback-Selektoren
-(`HTML_FALLBACK_SELECTORS` im Skript) sind Platzhalter und sollten nach einem
-Blick in den echten Seitenquelltext kalibriert werden, falls die Seite kein
-JSON-LD liefert.
+- **ironman.com**: robots.txt erlaubt zwar `User-agent: *` generell
+  (`Allow: /`), sperrt aber ausdrücklich einzelne KI-Crawler namentlich
+  per `Disallow: /` – darunter **ClaudeBot** (Anthropics eigener
+  Crawler) sowie u. a. GPTBot, Google-Extended und CCBot. Da diese
+  Aufgabe von einem Claude-Agenten ausgeführt wird, wird diese
+  namentliche Sperre respektiert, statt sie über einen anderen
+  User-Agent zu umgehen. (Zusätzlich blockt Cloudflare den eigentlichen
+  Seitenabruf ohnehin mit HTTP 403.)
+- **runnersworld.de**: robots.txt enthält neben den technischen
+  `Disallow`-Regeln einen expliziten rechtlichen Hinweis: *"The use of
+  robots or other automated means to access [...] or collect or mine
+  data without the express permission of [...] is strictly
+  prohibited."* – ein ausdrückliches Verbot, das unabhängig von den
+  einzelnen gesperrten Pfaden gilt.
+- **ahotu.com**: Schon `robots.txt` selbst liefert HTTP 403 mit einer
+  aktiven Cloudflare-Bot-Challenge ("Just a moment...") statt Klartext
+  – die Domain lässt sich ohne Umgehung dieser Challenge gar nicht
+  automatisiert erreichen.
 
-### Automatisch von ironman.com (Europa) importieren
+Alle drei Skripte brechen deshalb selbst sofort ab (Exit-Code 0, klare
+Meldung, kein Netzwerkzugriff), bevor `update_events.py` sie überhaupt
+aufruft – sie bleiben als dokumentierte Vorlage im Repo, falls sich die
+jeweilige Situation künftig ändert. Details je Quelle stehen im
+Docstring am Kopf jedes Skripts.
 
-`scripts/ironman_scraper.py` liest Triathlon-Events von der
-[IRONMAN-Renn-Übersicht für Europa](https://www.ironman.com/races?facet%5B0%5D=region%3AEurope)
-aus und ergänzt sie in `events.json` (als `art1: "Triathlon"`, keine
-`art2`-Kategorie – passend zur Projekt-Taxonomie). Standardmäßig werden nur
-Events in Deutschland, Österreich und der Schweiz übernommen (`--include-all-europe`
-für alle europäischen IRONMAN-Rennen). Distanzen werden aus dem Renntyp
-abgeleitet (70.3 → 113 km, 5150 → 51,5 km, volle Distanz → 226 km).
+#### Besonderheiten der fünf aktiven Quellen
 
-```bash
-pip install -r scripts/requirements.txt
-python3 scripts/ironman_scraper.py --dry-run --max-pages 1
-python3 scripts/ironman_scraper.py
-```
-
-Auch hier: live `robots.txt`-Check vor jedem Zugriff, in der
-Entwicklungsumgebung nicht gegen die echte Seite testbar (Netzwerkzugriff auf
-ironman.com ebenfalls blockiert), Kernlogik mit simulierten Daten getestet.
-Eine Besonderheit dieser Seite: Die Renn-Übersicht filtert per URL-Facette
-und lädt die Ergebnisse vermutlich per JavaScript aus einer API nach – ein
-einfacher HTML-Abruf findet dann evtl. keine Events. Für diesen Fall bietet
-das Skript zwei Auswege: `--api-url <JSON-Endpunkt>` (per Browser-
-Entwicklertools/Netzwerk-Tab finden) oder `--render-js` (rendert die Seite
-per Playwright/Chromium inkl. JavaScript-Ausführung, erfordert
-`pip install playwright` + `playwright install chromium`). Details und
-weitere Optionen im Docstring am Kopf der Datei.
-
-### Sechs weitere Lauf-Kalender: `scraper_lib.py` + dünne Site-Skripte
-
-Für sechs weitere deutsche Lauf-Kalender gibt es je ein eigenes,
-schlankes Scraper-Skript (`--events-json`, `--dry-run`, `--render-js`,
-`--api-url`, `--include-all-europe` – alles wie gehabt):
-
-| Skript | Quelle |
-|---|---|
-| `runnersworld_scraper.py` | runnersworld.de/laufkalender |
-| `runninglife_scraper.py` | running.life/laufkalender/deutschland |
-| `runningcompany_scraper.py` | runningcompany.de/runners-high/laufkalender |
-| `blvsport_scraper.py` | blv-sport.de/laufsport/laufkalender (vermutlich regional auf Bayern begrenzt) |
-| `ahotu_scraper.py` | ahotu.com/de/kalender/laufen/deutschland (vermutlich JS-gerendert wie ironman.com) |
-| `planetmarathon_scraper.py` | planet-marathon.de/marathon_d.html (vermutlich alte, klassenlose HTML-Tabellenseite – generische Selektoren greifen hier mit hoher Wahrscheinlichkeit nicht, siehe Docstring im Skript) |
-
-Diese sechs (sowie künftige weitere Lauf-Kalender-Scraper) teilen sich die
-gemeinsame Logik in `scraper_lib.py` (robots.txt-Prüfung, Datum-/Land-/
-Kategorie-/Distanz-Erkennung, JSON-LD- und HTML-Fallback-Parsing,
-Geocoding-Cache, Dedupe/Merge) statt sie zu duplizieren – ein einzelnes
-Skript besteht dadurch nur noch aus einer `SiteConfig` (Basis-URL,
-Kalender-URL, ggf. abweichende Selektoren) und einem Aufruf von
-`run_scraper_cli(CONFIG)`. `scraper_lib.py` selbst endet nicht auf
-`_scraper.py` und wird von `update_events.py`s Auto-Discovery daher
-korrekt nicht als eigener Scraper ausgeführt. Die bereits gegen echte
-Infrastruktur verifizierten `laufkalender_scraper.py` und
-`ironman_scraper.py` nutzen `scraper_lib.py` bewusst nicht, um ihr
-getestetes Verhalten nicht anzufassen.
-
-Wie bei den ersten beiden Skripten: In der Entwicklungsumgebung war der
-Netzwerkzugriff auf alle sechs Domains blockiert, die Skripte konnten
-daher nicht gegen die echten Seiten getestet werden – nur die
-Kernlogik in `scraper_lib.py` (Datum-/Land-/Distanz-Erkennung, JSON-LD-
-und generisches API-JSON-Parsing, HTML-Fallback inkl. eines gefundenen
-und behobenen Bugs mit zu breiten CSS-Selektoren, DACH-Filter,
-Dedupe/Merge) ist mit simulierten Daten getestet, ebenso ein
-End-to-End-Test des `--api-url`-Pfads gegen einen lokalen Mock-Server.
-Die HTML-Fallback-Selektoren jedes Skripts sind Platzhalter und müssen
-nach einem Blick in den jeweils echten Seitenquelltext kalibriert
-werden – Details und seitenspezifische Hinweise (z. B. Verdacht auf
-JavaScript-Rendering) stehen im Docstring jedes einzelnen Skripts.
-
-**Echter Testlauf & dabei gefundener Bugfix**: Über einen manuell
-ausgelösten Lauf des `update-events`-Workflows (mit echtem Internetzugriff,
-anders als die Entwicklungsumgebung) wurden alle 8 Scraper einmal live
-getestet. Ergebnis: robots.txt wird bei allen 8 Seiten korrekt geladen und
-ausgewertet; ironman.com und ahotu.com blocken den eigentlichen Seitenabruf
-trotz erlaubter robots.txt mit HTTP 403 (vermutlich Cloudflare-Bot-Schutz,
-`--render-js` oder ein API-Endpunkt wären hier vermutlich nötig);
-running.life liefert echte `?page=N`-Pagination-Links, aber (noch) 0 Events
-pro Seite (JSON-LD/HTML-Fallback ohne Treffer); die übrigen Seiten laden
-erfolgreich, liefern aber ebenfalls 0 Events, weil die Platzhalter-Selektoren
-nicht zur jeweils echten Seitenstruktur passen. Dabei fiel auf: `blv-sport.de`
-hat schlicht **keine** robots.txt (HTTP 404) – das wurde ursprünglich fälschlich
-als Abbruchgrund behandelt. Nach robots.txt-Konvention (RFC 9309) bedeutet ein
-404 aber „keine Einschränkungen angegeben", nicht „Zugriff verboten"; das ist
-jetzt in `scraper_lib.py` sowie `laufkalender_scraper.py` und
-`ironman_scraper.py` korrigiert (ein fehlendes robots.txt bricht nicht mehr
-ab, sondern wird als uneingeschränkt erlaubt behandelt).
+- **laufen.de**: Die Kalenderseite selbst liefert kein JSON-LD und im
+  initialen HTML keine Event-Liste – sie lädt die Ergebnisse per
+  JavaScript aus einem AJAX-Endpunkt (`POST /laufkalender/ajax/search`)
+  nach, den das Skript direkt anspricht (kein `--render-js` nötig).
+- **runningcompany.de**: Ein Akkordeon aus zwölf Monatstabellen ohne
+  Jahresangabe im Datum (Jahr wird aus dem Seitentext gelesen). Eigene
+  Laufreise-/Laufcamp-/Trainingsangebote (an ihrem internen Link
+  erkennbar) werden von echten Renn-Events unterschieden und
+  aussortiert.
+- **running.life**: Liefert Events server-seitig als schema.org
+  **ItemList** mit eingebetteten `SportsEvent`-Objekten – wird von
+  `scraper_lib.py` automatisch erkannt und normalisiert.
+- **blv-sport.de**: Hat gar keine robots.txt (HTTP 404) – nach
+  robots.txt-Konvention (RFC 9309) bedeutet das „keine Einschränkungen
+  angegeben", nicht „Zugriff verboten". Einfache HTML-Tabelle ohne
+  Distanz-/Link-Spalte.
+- **planet-marathon.de**: Alte, klassenlose HTML-Tabelle (nur
+  Deutschland, ausschließlich Marathons mit offizieller Distanz von
+  42,195 km laut Seitenhinweis).
 
 ### Alle Scraper gemeinsam ausführen: `update_events.py`
 
 `scripts/update_events.py` ist das Hauptskript: Es findet automatisch alle
-Scraper-Skripte in `scripts/` (Namensmuster `*_scraper.py` – aktuell
-`laufkalender_scraper.py` und `ironman_scraper.py`, neue Scraper werden ohne
-Codeänderung automatisch mit erkannt) und führt sie nacheinander aus. Da
+Scraper-Skripte in `scripts/` (Namensmuster `*_scraper.py` – aktuell alle
+acht oben genannten, neue Scraper werden ohne Codeänderung automatisch mit
+erkannt) und führt sie nacheinander aus. Die drei bewusst übersprungenen
+Skripte (siehe oben) melden dabei einen Erfolg (Exit-Code 0) ohne
+Änderung an `events.json`. Da
 jeder Scraper sein Ergebnis bereits selbst dedupliziert (Name + Startdatum)
 direkt in `events.json` schreibt, ergibt sich die Zusammenführung einfach
 daraus, dass jeder nachfolgende Scraper schon die Ergebnisse der vorherigen

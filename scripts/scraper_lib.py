@@ -52,7 +52,7 @@ import time
 from dataclasses import dataclass, field, fields
 from datetime import date
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 from urllib.parse import urljoin
 from urllib.robotparser import RobotFileParser
 
@@ -153,8 +153,23 @@ class SiteConfig:
     known_distances_km: dict = field(default_factory=lambda: dict(KNOWN_DISTANCES_KM_LAUFEN))
     art2_keywords: list = field(default_factory=lambda: list(ART2_KEYWORDS_LAUFEN))
     default_art2: str | None = DEFAULT_ART2_LAUFEN
+    # Land, das verwendet wird, wenn weder JSON-LD/HTML-Text noch PLZ ein Land
+    # erkennen lassen - sinnvoll für Seiten mit bekanntem, festem regionalen
+    # Fokus (z. B. blv-sport.de: Bayern, planet-marathon.de: nur Deutschland).
+    default_land: str | None = None
     dach_only: bool = True
     note: str = ""  # optionaler Hinweis, wird beim Start ausgegeben (z. B. Verdacht auf JS-Rendering)
+    # Optionaler Ersatz für fetch_all_events() bei Seiten, deren Struktur
+    # (z. B. eine AJAX-Suche, ein Akkordeon aus HTML-Tabellen ohne CSS-Klassen
+    # o. Ä.) sich nicht über die generischen HTML-Fallback-Selektoren
+    # abbilden lässt. Signatur identisch zu fetch_all_events (ohne config,
+    # da die Funktion sich meist ohnehin nur für eine Seite eignet):
+    # (session, config, delay, max_pages, render_js) -> list[Event].
+    # Wird gesetzt, übernimmt run_scraper_cli() den kompletten Fetch/Parse-
+    # Schritt von dieser Funktion statt fetch_all_events(); robots.txt-Prüfung,
+    # Geocoding, Dedupe/Merge und das Schreiben von events.json bleiben
+    # unverändert gemeinsame Logik.
+    custom_fetch: Callable[..., list] | None = None
 
 
 # --------------------------------------------------------------------------
@@ -410,6 +425,22 @@ def parse_jsonld_events(soup: BeautifulSoup, page_url: str) -> list[dict]:
                 types = types if isinstance(types, list) else [types]
                 if any(t in ("Event", "SportsEvent") for t in types if t):
                     raw_events.append({"_source": "jsonld", "_page_url": page_url, **sub})
+                    continue
+                # Manche Kalenderseiten (z. B. running.life) veröffentlichen
+                # ihre Events nicht direkt, sondern verpackt als
+                # schema.org-ItemList: {"@type":"ItemList","itemListElement":
+                # [{"@type":"ListItem","item":{"@type":"SportsEvent",...}}]}.
+                if "ItemList" in types:
+                    for list_item in sub.get("itemListElement") or []:
+                        if not isinstance(list_item, dict):
+                            continue
+                        event_item = list_item.get("item")
+                        if not isinstance(event_item, dict):
+                            continue
+                        item_types = event_item.get("@type")
+                        item_types = item_types if isinstance(item_types, list) else [item_types]
+                        if any(t in ("Event", "SportsEvent") for t in item_types if t):
+                            raw_events.append({"_source": "jsonld", "_page_url": page_url, **event_item})
     return raw_events
 
 
@@ -431,7 +462,7 @@ def normalize_jsonld_event(raw: dict, config: SiteConfig) -> Event:
         land = None
 
     if not land:
-        land = guess_land(f"{standort or ''} {name or ''}")
+        land = guess_land(f"{standort or ''} {name or ''}") or config.default_land
 
     lat = lon = None
     geo = location.get("geo") if isinstance(location, dict) else None
@@ -497,7 +528,7 @@ def parse_html_fallback(soup: BeautifulSoup, page_url: str, config: SiteConfig) 
 
         events.append(
             Event(
-                land=guess_land(f"{standort or ''} {combined_text}"),
+                land=guess_land(f"{standort or ''} {combined_text}") or config.default_land,
                 name=name, standort=standort, art1=config.default_art1,
                 art2=guess_art2(combined_text, config),
                 datum_start=datum_start, datum_ende=datum_start,
@@ -769,7 +800,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
         raw_events = fetch_events_from_api(session, args.api_url, config)
     else:
         delay = check_robots(session, config.base_url, config.calendar_url)
-        raw_events = fetch_all_events(session, config, delay, args.max_pages, args.render_js)
+        if config.custom_fetch:
+            raw_events = config.custom_fetch(session, config, delay, args.max_pages, args.render_js)
+        else:
+            raw_events = fetch_all_events(session, config, delay, args.max_pages, args.render_js)
 
     print(f"\nInsgesamt {len(raw_events)} rohe Event-Einträge gefunden.")
 

@@ -8,8 +8,22 @@ Liest Lauf-Events vom Kalender auf
 https://www.ahotu.com/de/kalender/laufen/deutschland aus und ergänzt sie
 in `events.json` (siehe `scraper_lib.py` für die gemeinsame Logik).
 
-WICHTIG: Netzwerkzugriff auf ahotu.com war in der Entwicklungsumgebung
-blockiert – nicht gegen die echte Seite getestet.
+⚠ ABSICHTLICH NICHT AKTIV GENUTZT (Cloudflare-Bot-Challenge)
+----------------------------------------------------------------
+Verifiziert per echtem Abruf: Schon `https://www.ahotu.com/robots.txt`
+liefert HTTP 403 mit einer Cloudflare-"Just a moment..."-JavaScript-
+Challenge-Seite statt Klartext - die Domain ist komplett hinter einem
+aktiven Bot-Erkennungsmechanismus, der automatisierte Anfragen ohne
+Browser-JS-Ausführung pauschal aussperrt, noch bevor überhaupt geprüft
+werden kann, was robots.txt erlauben würde. Diese Challenge gezielt zu
+umgehen (z. B. durch Nachbau des Browser-Verhaltens oder Lösen des
+Challenge-Tokens) wäre eine Umgehung einer ausdrücklichen technischen
+Zugriffssperre und damit keine legitime Auslegung von "automatisiertes
+Auslesen ist nicht explizit verboten" - das macht dieses Projekt bewusst
+nicht. `ahotu.com` wird deshalb aktuell NICHT von `update_events.py` mit
+produktiven Daten befüllt; das Skript bleibt als dokumentierte Vorlage
+im Repo, falls sich das künftig ändert (z. B. über einen offiziellen
+API-Zugang).
 
 ahotu.com ist eine internationale, mehrsprachige Eventplattform für viele
 Sportarten und Länder (dieselbe Seite, die als gestalterische Inspiration
@@ -44,4 +58,10 @@ CONFIG = SiteConfig(
 )
 
 if __name__ == "__main__":
-    run_scraper_cli(CONFIG)
+    print(
+        "⏭  ahotu_scraper.py: bewusst übersprungen, OHNE die Seite abzurufen. "
+        "Schon ahotu.com/robots.txt liefert HTTP 403 mit einer aktiven "
+        "Cloudflare-Bot-Challenge statt Klartext - siehe Docstring oben. "
+        "events.json bleibt unverändert."
+    )
+    sys.exit(0)

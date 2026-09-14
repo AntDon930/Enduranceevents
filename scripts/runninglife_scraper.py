@@ -8,16 +8,19 @@ Liest Lauf-Events vom Laufkalender auf
 https://running.life/laufkalender/deutschland aus und ergänzt sie in
 `events.json` (siehe `scraper_lib.py` für die gemeinsame Logik).
 
-WICHTIG: Netzwerkzugriff auf running.life war in der Entwicklungsumgebung
-blockiert – nicht gegen die echte Seite getestet. Der moderne Domainname
-und die Pfadstruktur (`/laufkalender/deutschland`, vermutlich auch
-`/laufkalender/oesterreich`, `/laufkalender/schweiz` – ggf. als eigene
-`--calendar-url`-Läufe ergänzen, indem man `CONFIG.calendar_url` unten
-anpasst oder das Skript kopiert) deuten auf eine moderne
-React/Next.js-Seite hin, die ihre Events evtl. per JavaScript aus einer
-API nachlädt – falls JSON-LD und HTML-Fallback beide 0 Events finden,
-zuerst `--render-js` probieren, dann den echten API-Endpunkt per
-Browser-Entwicklertools suchen und mit `--api-url` nutzen.
+Echt getestet (Stand: verifiziert gegen die Live-Seite)
+--------------------------------------------------------
+robots.txt erlaubt `/laufkalender/deutschland` (gesperrt sind nur
+`/xx/map/`-Pfade und `/demo-*`). Die Seite liefert die Events server-
+seitig gerendert als schema.org-**ItemList** mit `itemListElement[].item`
+= `SportsEvent` (kein React/Next.js-Nachladen nötig, kein `--render-js`
+erforderlich) - `scraper_lib.parse_jsonld_events()` entpackt dieses
+ItemList-Muster automatisch. Jede Seite enthält 20 Events, `<a rel="next">`
+verlinkt zur nächsten Seite (`?page=2`, `?page=3`, ...) - Pagination
+funktioniert daher bereits mit den `DEFAULT_NEXT_PAGE_SELECTORS` aus
+`scraper_lib.py`. Für Österreich/Schweiz analog `/laufkalender/oesterreich` bzw.
+`/laufkalender/schweiz` in einer Kopie dieses Skripts als
+`CONFIG.calendar_url` eintragen.
 
 Nutzung: `python3 scripts/runninglife_scraper.py --help`.
 """
@@ -32,9 +35,8 @@ CONFIG = SiteConfig(
     base_url="https://running.life",
     calendar_url="https://running.life/laufkalender/deutschland",
     default_art1="Laufen",
-    note="runninglife_scraper.py: nicht gegen die echte Seite getestet. "
-         "Vermutlich moderne JS-Seite - bei 0 gefundenen Events zuerst "
-         "--render-js probieren, siehe Docstring.",
+    note="runninglife_scraper.py: robots.txt erlaubt den Zugriff. Events "
+         "kommen server-seitig als JSON-LD-ItemList, kein --render-js nötig.",
 )
 
 if __name__ == "__main__":
