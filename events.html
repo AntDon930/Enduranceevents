@@ -288,6 +288,16 @@
     text-overflow: ellipsis;
     word-break: break-word;
   }
+  /* Bezeichnung des konkreten Wettbewerbs unter dem Veranstaltungsnamen.
+     Eine Veranstaltung mit mehreren Strecken steht mit je einer Zeile pro
+     Strecke in der Liste - ohne diese Zeile wären die Zeilen bis auf die
+     Längenangabe identisch. */
+  .wettbewerb {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
   tbody tr:hover { background: var(--row-hover); }
@@ -615,9 +625,10 @@
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
       detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
+      detail_wettbewerb: 'Wettbewerb',
       detail_link: 'Zur Veranstalter-Website ↗',
       empty_events: 'Keine Events gefunden.',
-      notify_text: 'Kein Event entspricht diesen Filtern? Lass dich per E-Mail benachrichtigen, sobald eines hinzugefügt wird (Datum wird dabei nicht berücksichtigt).',
+      notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       notify_btn: 'Benachrichtigen, sobald verfügbar',
       notify_login_btn: 'Anmelden, um benachrichtigt zu werden',
       notify_saved: '✓ Gespeichert – wir melden uns per E-Mail.',
@@ -662,9 +673,10 @@
       detail_empty: 'Select a row to see details.',
       detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
+      detail_wettbewerb: 'Race',
       detail_link: 'Visit organizer website ↗',
       empty_events: 'No events found.',
-      notify_text: "No event matches these filters? Get notified by email once one is added (the date filter is ignored for this).",
+      notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
       notify_btn: 'Notify me when available',
       notify_login_btn: 'Sign in to get notified',
       notify_saved: '✓ Saved – we’ll email you.',
@@ -956,6 +968,16 @@
   function formatRange(start, end) {
     if (start === end) return formatDate(start);
     return `${formatDate(start)} – ${formatDate(end)}`;
+  }
+
+  // Längenangaben immer auf EINE Dezimalstelle: die Quellen geben dieselbe
+  // Strecke unterschiedlich genau an (Marathon als "42,195 km"), angezeigt
+  // wird einheitlich "42.2 km". Runde Distanzen bleiben ohne Nachkomma-
+  // stelle ("10 km" statt "10.0 km").
+  function formatKm(km) {
+    if (km == null || Number.isNaN(Number(km))) return '–';
+    const rounded = Math.round(Number(km) * 10) / 10;
+    return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)} km`;
   }
 
   function escapeHtml(str) {
@@ -1528,7 +1550,14 @@
         if (state.art1.size && !state.art1.has(e.art1)) return false;
         if (state.art2.size && !state.art2.has(e.art2)) return false;
         if (state.standort.size && !state.standort.has(e.standort)) return false;
-        if (state.nameQuery.trim() && !e.name.toLowerCase().includes(state.nameQuery.trim().toLowerCase())) return false;
+        // Die Suche greift auch auf die Wettbewerbsbezeichnung zu, damit
+        // z. B. "Halbmarathon" die Halbmarathon-Strecke einer Veranstaltung
+        // findet, die diesen Begriff nicht im Namen trägt.
+        if (state.nameQuery.trim()) {
+          const needle = state.nameQuery.trim().toLowerCase();
+          const haystack = `${e.name || ''} ${e.wettbewerb || ''}`.toLowerCase();
+          if (!haystack.includes(needle)) return false;
+        }
         if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
         if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
         if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
@@ -1579,13 +1608,13 @@
         const tr = document.createElement('tr');
         if (idx === selectedIndex) tr.classList.add('active');
         tr.innerHTML = `
-          <td><div class="cell-clamp" title="${escapeHtml(e.name)}">${escapeHtml(e.name)}</div></td>
+          <td><div class="cell-clamp" title="${escapeHtml(e.wettbewerb ? e.name + ' – ' + e.wettbewerb : e.name)}">${escapeHtml(e.name)}${e.wettbewerb ? `<span class="wettbewerb">${escapeHtml(e.wettbewerb)}</span>` : ''}</div></td>
           <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
           <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
           <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
-          <td><div class="cell-clamp">${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</div></td>
+          <td><div class="cell-clamp">${formatKm(e.laenge_km)}</div></td>
         `;
         tr.addEventListener('click', () => { selectedIndex = idx; render(); });
         bodyEl.appendChild(tr);
@@ -1664,7 +1693,8 @@
         <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
         <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
-        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${e.laenge_km != null ? e.laenge_km + ' km' : '–'}</dd>
+        ${e.wettbewerb ? `<dt>${escapeHtml(t('detail_wettbewerb'))}</dt><dd>${escapeHtml(e.wettbewerb)}</dd>` : ''}
+        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatKm(e.laenge_km)}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
     `;

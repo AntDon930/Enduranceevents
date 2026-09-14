@@ -38,13 +38,39 @@ Antwort ist JSON mit u. a. `pages` (Gesamtseitenzahl), `events` und
 Kacheln, die dieses Skript mit BeautifulSoup parst statt die komplette
 Kalenderseite zu rendern - kein `--render-js`/Playwright nötig). Jede
 Kachel enthält Datum (`.date`, Format "D.M.YYYY", ohne Jahr-Mehrdeutigkeit),
-Name (`.headline`), PLZ+Ort (`.location`, wird per Regex getrennt: 5-stellig
-= Deutschland, 4-stellig = Österreich/Schweiz, aber anhand der PLZ allein
-nicht sicher unterscheidbar - `land` bleibt dann leer statt zu raten) und
-Distanz(en) (`.strecken .wettbewerbe`, Format "Strecke(n): X [bis Y]
-Kilometer" - bei einer Spanne wird die größere Zahl übernommen).
+Name (`.headline`), PLZ+Ort (`.location`) und eine Distanz-SPANNE
+(`.strecken .wettbewerbe`, Format "Strecke(n): X [bis Y] Kilometer").
 `topevents` enthält dieselbe Kachel-Struktur (zusätzlich mit Bild/Badge)
 für beworbene Veranstaltungen und wird identisch mitgeparst.
+
+Detailseiten (wichtig für die Datenqualität)
+---------------------------------------------
+Die Ergebnisliste allein reicht nicht: sie nennt weder das Land noch die
+einzelnen Wettbewerbe. Beim "10. Schnebelhorn Panoramatrail" etwa stand
+dort nur "9607 Mosnang" (ohne "Schweiz") und "Strecken: 0,4 bis 21,1
+Kilometer" - in events.json landete dadurch nur der Halbmarathon, der
+ebenfalls angebotene "Moslig 8000" über 8,5 km fehlte komplett, und
+`land` blieb leer.
+
+`enrich_from_details()` ruft daher zusätzlich die Detailseite jedes
+Events ab (`--no-details` schaltet das ab, `--max-details N` begrenzt es
+für Testläufe) und liest dort:
+
+* **Land**: `.teaser.event .location` nennt es hinter dem Ort, mal
+  ausgeschrieben ("(Schweiz)"), mal als Kürzel ("(AUT)") - beides deckt
+  `scraper_lib.guess_land()` ab.
+* **Alle Wettbewerbe**, in zwei auf der Seite vorkommenden Layouts:
+  `ul.all > li` ("Moslig 8000 (229 hm) | 8,5 km") und das ausführlichere
+  `ul.races` mit `li.title` ("TST 86K | 86 km | + 3500 hm") plus
+  `li.course` ("Trailrun"). Jede Strecke wird zu einem eigenen Eintrag,
+  die Kategorie (art2) pro Strecke bestimmt.
+* **Den echten Veranstalter-Link** ("Mehr Infos und Anmeldung", z. B.
+  https://panoramatrail.ch/) statt des laufen.de-Portallinks.
+
+Bereits gespeicherte Events werden dabei nachträglich vervollständigt
+(siehe `update_existing()`), nicht nur übersprungen - sonst behielten die
+aus früheren Läufen stammenden Einträge ihr fehlendes `land` und den
+Portallink.
 
 Nutzung
 -------
@@ -86,6 +112,9 @@ CALENDAR_URL = urljoin(BASE_URL, CALENDAR_PATH)
 # Per <script>-Block auf der Kalenderseite gefundener AJAX-Endpunkt, über
 # den die Ergebnisliste tatsächlich geladen wird (siehe Docstring).
 AJAX_SEARCH_URL = urljoin(BASE_URL, "/laufkalender/ajax/search")
+# Pfad-Präfix einer Event-Detailseite, z. B.
+# /laufkalender/details/26I00000000000036 (siehe detail_url_from_href()).
+DETAIL_PATH_PREFIX = "/laufkalender/details/"
 
 # Höflicher, ehrlicher User-Agent (kein Fake-Browser-UA) – erleichtert es
 # dem Seitenbetreiber, uns bei Bedarf zu blockieren oder zu kontaktieren.
@@ -96,7 +125,12 @@ USER_AGENT = (
 )
 
 DEFAULT_REQUEST_DELAY_SECONDS = 2.0  # Fallback, falls robots.txt keinen Crawl-Delay nennt
-DEFAULT_MAX_PAGES = 20
+# Der Kalender liefert derzeit 25 Ergebnisseiten (die AJAX-Antwort nennt die
+# Gesamtzahl in `pages`, die Schleife stoppt von selbst danach). Der frühere
+# Wert 20 war KLEINER als das und hat die letzten fünf Seiten - also rund
+# 150 Events - stillschweigend nie abgerufen. Bewusst mit Luft nach oben
+# gesetzt; der Wert ist nur eine Endlosschleifen-Bremse, keine Zielgröße.
+DEFAULT_MAX_PAGES = 40
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 EVENTS_JSON_PATH = REPO_ROOT / "events.json"
@@ -113,10 +147,35 @@ TEASER_SELECTORS = {
     "distance": ".strecken .wettbewerbe",
 }
 
+# Selektoren auf der DETAILSEITE eines Events (siehe Docstring, Abschnitt
+# "Detailseiten"). Am echten Seiteninhalt kalibriert.
+DETAIL_SELECTORS = {
+    # Ortsangabe MIT Land: "9607 Mosnang (Schweiz)" - in der Ergebnisliste
+    # steht nur "9607 Mosnang", das Land fehlt dort komplett.
+    "location": ".teaser.event .location",
+    # Wettbewerbsliste, Variante A (schlichte Liste): je <li>
+    # "<Bezeichnung> | <X> km".
+    "competitions": ".mod_laufkalender_lauf_detail.strecken ul.all > li",
+    # Variante B (ausführliche Darstellung): ein <ul class="races"> pro
+    # Wettbewerb mit <li class="title"> ("TST 86K | 86 km | + 3500 hm")
+    # und <li class="course"> ("Trailrun"). Kommt bei Veranstaltungen mit
+    # detailliert gepflegten Strecken vor - ohne diese Variante fanden wir
+    # dort KEINE Wettbewerbe und behielten nur die längste Strecke aus der
+    # Ergebnisliste.
+    "competitions_detailed": ".mod_laufkalender_lauf_detail.strecken ul.races",
+    "competition_title": "li.title",
+    "competition_course": "li.course",
+    # "Mehr Infos und Anmeldung" / "Mehr Infos zum Event" -> echte
+    # Veranstalter-Domain statt des laufen.de-Portallinks.
+    "organizer_link": ".mod_laufkalender_lauf_detail .info.buttons a[href]",
+}
+
+# Bewusst nur ausgeschriebene Ländernamen, keine zweibuchstabigen Codes
+# ("de"/"at"/"ch") - die schlagen in deutschem Fließtext falsch an.
 LAND_KEYWORDS = {
-    "deutschland": "Deutschland", "germany": "Deutschland", "de": "Deutschland",
-    "österreich": "Österreich", "austria": "Österreich", "at": "Österreich",
-    "schweiz": "Schweiz", "switzerland": "Schweiz", "ch": "Schweiz",
+    "deutschland": "Deutschland", "germany": "Deutschland",
+    "österreich": "Österreich", "austria": "Österreich",
+    "schweiz": "Schweiz", "switzerland": "Schweiz", "suisse": "Schweiz",
 }
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur im Projekt
@@ -170,7 +229,13 @@ class Event:
     datum_ende: str | None = None   # YYYY-MM-DD
     anmeldeschluss: str | None = None
     laenge_km: float | None = None
+    wettbewerb: str | None = None
     veranstalter_url: str | None = None
+    # Interner Zwischenspeicher, KEIN Ausgabefeld: die laufen.de-Detailseite
+    # zu diesem Event (siehe fetch_detail()). Wird von to_dict() bewusst
+    # nicht mitgeschrieben - der gespeicherte veranstalter_url soll nach dem
+    # Detail-Abruf auf die Veranstalter-Seite zeigen, nicht auf das Portal.
+    detail_url: str | None = None
 
     def is_valid(self) -> bool:
         """Minimalanforderung, damit ein Event überhaupt brauchbar ist."""
@@ -178,6 +243,9 @@ class Event:
 
     def to_dict(self) -> dict:
         d = {f.name: getattr(self, f.name) for f in fields(self)}
+        d.pop("detail_url", None)  # rein intern, siehe Feldkommentar
+        if d.get("laenge_km") is not None:
+            d["laenge_km"] = round(float(d["laenge_km"]), 1)
         # Optionale Felder, die fehlen, nicht mit "null" in die JSON
         # schreiben, sondern ganz weglassen (wie im bisherigen events.json
         # üblich, siehe README: "fehlt es bei einem Event, zeigt die
@@ -302,17 +370,21 @@ def parse_german_date(text: str) -> str | None:
 
 
 def guess_land(text: str) -> str | None:
-    if not text:
-        return None
-    lowered = text.lower()
-    for keyword, land in LAND_KEYWORDS.items():
-        if re.search(rf"\b{re.escape(keyword)}\b", lowered):
-            return land
-    # Schweizer PLZ (4-stellig) sind mehrdeutig, daher hier nicht geraten.
-    # Deutsche PLZ (5-stellig) als schwaches Signal:
-    if re.search(r"\b\d{5}\b", text):
-        return "Deutschland"
-    return None
+    """Land aus einer Ortsangabe.
+
+    Die Detailseite nennt es hinter dem Ort, mal ausgeschrieben
+    ("9607 Mosnang (Schweiz)"), mal als Kürzel ("6020 Innsbruck (AUT)");
+    in der Ergebnisliste steht nur die PLZ, und eine vierstellige PLZ
+    unterscheidet Österreich und Schweiz nicht - dann bleibt `land` leer
+    und wird später per Reverse-Geocoding aus den Koordinaten ergänzt.
+
+    Die Logik dafür steht in scraper_lib und wird hier bewusst NICHT
+    erneut implementiert: sie ist reine Textauswertung ohne Abruf-/
+    Parsing-Bezug, und zwei Kopien davon sind schon einmal
+    auseinandergelaufen.
+    """
+    from scraper_lib import guess_land as shared_guess_land
+    return shared_guess_land(text)
 
 
 def guess_art2(text: str) -> str:
@@ -337,7 +409,9 @@ def guess_distance_km(text: str) -> float | None:
     # (z. B. "975" statt 21,0975 oder "195" statt 42,195).
     matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
-        return max(float(m.replace(",", ".")) for m in matches)
+        # Einheitlich eine Nachkommastelle: "42,195 km" -> 42.2
+        # (siehe scraper_lib.round_km()).
+        return round(max(float(m.replace(",", ".")) for m in matches), 1)
     # Fallback über bekannte Renn-Bezeichnungen, bewusst nach Stichwort-
     # LÄNGE absteigend geprüft (nicht in Dict-Reihenfolge): "halbmarathon"
     # enthält die Teilkette "marathon" - siehe Kommentar in
@@ -350,12 +424,19 @@ def guess_distance_km(text: str) -> float | None:
 
 
 def parse_location(text: str) -> str | None:
-    """Trennt eine PLZ+Ort-Angabe wie '74821           Mosbach        ' in
-    den reinen Ortsnamen auf (die PLZ selbst fließt bereits über
-    `guess_land()` auf dem unveränderten Text in die Ländererkennung ein)."""
+    """Trennt eine Ortsangabe in den reinen Ortsnamen auf.
+
+    Ergebnisliste: '74821           Mosbach'
+    Detailseite:   '9607 Mosnang (Schweiz)'
+
+    PLZ und Landesangabe in Klammern werden entfernt - beide fließen
+    bereits über `guess_land()` auf dem unveränderten Text in die
+    Ländererkennung ein und gehören nicht in den Ortsnamen.
+    """
     if not text:
         return None
     normalized = re.sub(r"\s+", " ", text).strip()
+    normalized = re.sub(r"\s*\((?:[^)]*)\)\s*$", "", normalized).strip()
     m = re.match(r"^(\d{4,5})\s*(.+)$", normalized)
     return m.group(2).strip() if m else (normalized or None)
 
@@ -463,9 +544,167 @@ def parse_teaser_html(html_fragment: str) -> list[Event]:
                 # zur eigentlichen Kalenderseite (CALENDAR_URL), NICHT
                 # relativ zu AJAX_SEARCH_URL.
                 veranstalter_url=urljoin(CALENDAR_URL, href) if href else None,
+                # Nur ECHTE Detailseiten auf laufen.de merken: einzelne
+                # Kacheln verlinken direkt auf die Veranstalter-Seite
+                # (z. B. www.lh-lauf.de). Die als Detailseite abzurufen
+                # geht schief (404/SSL-Fehler beim Veranstalter, real
+                # aufgetreten) und liefert ohnehin keine laufen.de-Struktur.
+                # Als veranstalter_url ist so ein Link dagegen perfekt - er
+                # steht oben schon drin.
+                detail_url=detail_url_from_href(href),
             )
         )
     return events
+
+
+def detail_url_from_href(href: str | None) -> str | None:
+    """Gibt die absolute laufen.de-Detailseiten-URL zurück - oder None,
+    wenn der Link woanders hinzeigt (siehe Kommentar oben)."""
+    if not href:
+        return None
+    absolute = urljoin(CALENDAR_URL, href)
+    return absolute if f"{BASE_URL}{DETAIL_PATH_PREFIX}" in absolute else None
+
+
+# --------------------------------------------------------------------------
+# Detailseiten: Land, alle Wettbewerbe, echter Veranstalter-Link
+# --------------------------------------------------------------------------
+
+def parse_detail_page(html: str, page_url: str) -> dict:
+    """Liest die für uns relevanten Felder aus einer Event-Detailseite.
+
+    Gibt ein Dict mit `location_text`, `competitions` (Rohtexte der
+    <li>-Einträge) und `organizer_url` zurück; fehlende Teile fehlen
+    einfach im Dict statt einen Fehler zu werfen - die Detailseiten sind
+    nicht alle gleich vollständig.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    result: dict = {}
+
+    loc_el = soup.select_one(DETAIL_SELECTORS["location"])
+    if loc_el:
+        result["location_text"] = loc_el.get_text(" ", strip=True)
+
+    # Variante B zuerst: sie ist die ausführlichere Darstellung und nennt
+    # zusätzlich die Art der Strecke ("Trailrun").
+    competitions: list[tuple[str, str]] = []
+    for block in soup.select(DETAIL_SELECTORS["competitions_detailed"]):
+        title_el = block.select_one(DETAIL_SELECTORS["competition_title"])
+        course_el = block.select_one(DETAIL_SELECTORS["competition_course"])
+        if not title_el:
+            continue
+        competitions.append((
+            title_el.get_text(" ", strip=True),
+            course_el.get_text(" ", strip=True) if course_el else "",
+        ))
+
+    if not competitions:
+        competitions = [
+            (li.get_text(" ", strip=True), "")
+            for li in soup.select(DETAIL_SELECTORS["competitions"])
+        ]
+
+    if competitions:
+        result["competitions"] = competitions
+
+    for link in soup.select(DETAIL_SELECTORS["organizer_link"]):
+        href = (link.get("href") or "").strip()
+        # Nur externe Links (die internen Buttons "Zurück zu den
+        # Suchergebnissen"/"Neue Suche" zeigen wieder auf laufen.de) und
+        # keine Shop-/Checkout-Links des Portals.
+        if href.startswith("http") and "laufen.de" not in href:
+            result["organizer_url"] = href
+            break
+
+    return result
+
+
+def enrich_from_details(
+    session: requests.Session,
+    events: list[Event],
+    delay: float,
+    max_details: int,
+) -> list[Event]:
+    """Ruft für jedes Event die Detailseite ab und macht daraus je einen
+    Eintrag pro Wettbewerb.
+
+    Warum überhaupt: Die Ergebnisliste (AJAX) nennt weder das Land noch die
+    einzelnen Wettbewerbe - sie zeigt nur eine Spanne ("Strecken: 0,4 bis
+    21,1 Kilometer") und eine PLZ ohne Land. Dadurch landete vom
+    "10. Schnebelhorn Panoramatrail" nur der Halbmarathon in events.json,
+    der ebenfalls angebotene "Moslig 8000" über 8,5 km fehlte, und das Land
+    (Schweiz) blieb leer. Beides steht auf der Detailseite.
+
+    Events, deren Detailseite nicht geladen werden kann, bleiben unverändert
+    erhalten (Stand aus der Ergebnisliste) statt verloren zu gehen.
+    """
+    from scraper_lib import SiteConfig, expand_competitions, parse_competitions
+
+    # Für parse_competitions()/expand_competitions() wird eine SiteConfig
+    # nur als Träger der Stichwortlisten gebraucht; Abruf/Parsing macht
+    # dieses Skript selbst (siehe Docstring).
+    helper_config = SiteConfig(base_url=BASE_URL, calendar_url=CALENDAR_URL)
+
+    todo = [e for e in events if e.detail_url]
+    if max_details and len(todo) > max_details:
+        print(f"ℹ Detail-Abruf auf die ersten {max_details} von {len(todo)} "
+              f"Events begrenzt (--max-details).")
+        todo = todo[:max_details]
+    todo_ids = {id(e) for e in todo}
+
+    print(f"\n→ Rufe {len(todo)} Detailseite(n) ab (je {delay:.1f}s Pause, "
+          f"also ca. {len(todo) * delay / 60:.0f} Minuten) ...")
+
+    result: list[Event] = []
+    fetched = failed = expanded = 0
+
+    for event in events:
+        if id(event) not in todo_ids:
+            result.append(event)
+            continue
+
+        # Zwischenstand, damit ein langer Lauf nicht minutenlang stumm ist.
+        if (fetched + failed) % 50 == 0 and (fetched + failed) > 0:
+            print(f"  … {fetched + failed}/{len(todo)} Detailseiten verarbeitet.")
+
+        try:
+            resp = session.get(event.detail_url, timeout=20)
+            resp.raise_for_status()
+            detail = parse_detail_page(resp.text, event.detail_url)
+            fetched += 1
+        except requests.exceptions.RequestException as exc:
+            print(f"  ⚠ Detailseite nicht ladbar ({event.name}): {exc}")
+            failed += 1
+            result.append(event)
+            time.sleep(delay)
+            continue
+
+        location_text = detail.get("location_text")
+        if location_text:
+            land = guess_land(location_text)
+            if land:
+                event.land = land
+            ort = parse_location(location_text)
+            if ort:
+                event.standort = ort
+
+        # Der Portallink bleibt als Fallback, wenn die Detailseite keinen
+        # externen Link anbietet.
+        if detail.get("organizer_url"):
+            event.veranstalter_url = detail["organizer_url"]
+
+        competitions = parse_competitions(detail.get("competitions") or [], helper_config)
+        variants = expand_competitions(event, competitions, helper_config)
+        if len(variants) > 1:
+            expanded += 1
+        result.extend(variants)
+
+        time.sleep(delay)
+
+    print(f"\n→ Detailseiten: {fetched} geladen, {failed} fehlgeschlagen; "
+          f"{expanded} Veranstaltung(en) in mehrere Wettbewerbe aufgeteilt "
+          f"({len(events)} -> {len(result)} Einträge).")
+    return result
 
 
 # --------------------------------------------------------------------------
@@ -601,14 +840,15 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
     dieses Skript nutzt scraper_lib bewusst nicht für das Abrufen/Parsen,
     reine Vergleichslogik aber sehr wohl - sonst müsste sie doppelt
     gepflegt werden)."""
-    from scraper_lib import ENRICHABLE_FIELDS, is_same_event  # lokaler Import, s. o.
-
-    existing_keys = {
-        dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km")) for e in existing
-    }
-    existing_keys.discard(None)
+    from scraper_lib import is_same_event  # lokaler Import, s. o.
 
     merged = list(existing)
+    by_key: dict[tuple, dict] = {}
+    for e in merged:
+        key = dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km"))
+        if key is not None:
+            by_key.setdefault(key, e)
+
     by_date: dict[str | None, list[dict]] = {}
     for e in merged:
         by_date.setdefault(e.get("datum_start"), []).append(e)
@@ -622,27 +862,53 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
             continue
         candidate = event.to_dict()
         key = dedupe_key(event.name, event.datum_start, event.laenge_km)
-        if key is None or key in existing_keys:
+        if key is None:
             skipped += 1
             continue
 
-        twin = next(
-            (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
-            None,
-        )
+        twin = by_key.get(key)
+        if twin is None:
+            twin = next(
+                (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
+                None,
+            )
+
         if twin is not None:
-            for field in ENRICHABLE_FIELDS:
-                if twin.get(field) is None and candidate.get(field) is not None:
-                    twin[field] = candidate[field]
+            # Bewusst NICHT nur überspringen: ein bereits gespeicherter
+            # Eintrag kann aus einem früheren Lauf stammen, dem noch
+            # Felder fehlen (z. B. `land`, weil es nur auf der Detailseite
+            # steht). Die jetzt vollständigeren Daten werden ergänzt.
+            update_existing(twin, candidate)
             skipped += 1
             continue
 
         merged.append(candidate)
+        by_key[key] = candidate
         by_date.setdefault(event.datum_start, []).append(candidate)
-        existing_keys.add(key)
         added += 1
 
     return merged, added, skipped
+
+
+def update_existing(target: dict, source: dict) -> None:
+    """Ergänzt fehlende Felder eines gespeicherten Events und ersetzt einen
+    Portal-Link durch den echten Veranstalter-Link.
+
+    Der Link ist der einzige Fall, in dem ein vorhandener Wert ÜBERSCHRIEBEN
+    wird: früher wurde als `veranstalter_url` der laufen.de-Detaillink
+    gespeichert, weil der Veranstalter-Link nur auf der Detailseite steht.
+    Sobald wir den echten Link kennen, ist er die bessere Angabe.
+    """
+    from scraper_lib import ENRICHABLE_FIELDS  # lokaler Import, s. merge_events
+
+    for field in ENRICHABLE_FIELDS:
+        if target.get(field) is None and source.get(field) is not None:
+            target[field] = source[field]
+
+    new_url = source.get("veranstalter_url")
+    old_url = target.get("veranstalter_url")
+    if new_url and old_url and "laufen.de" in old_url and "laufen.de" not in new_url:
+        target["veranstalter_url"] = new_url
 
 
 # --------------------------------------------------------------------------
@@ -667,6 +933,15 @@ def main():
         help="Nur anzeigen, was hinzugefügt würde – events.json NICHT verändern.",
     )
     parser.add_argument(
+        "--no-details", action="store_true",
+        help="Detailseiten der Events NICHT abrufen. Schneller, liefert aber "
+             "kein Land und nur die längste Strecke statt aller Wettbewerbe.",
+    )
+    parser.add_argument(
+        "--max-details", type=int, default=0,
+        help="Höchstens so viele Detailseiten abrufen (0 = alle). Nützlich für Testläufe.",
+    )
+    parser.add_argument(
         "--no-geocoding", action="store_true",
         help="Kein Nominatim-Geocoding durchführen (lat/lon bleiben leer, falls nicht in JSON-LD enthalten).",
     )
@@ -679,6 +954,13 @@ def main():
 
     raw_events = fetch_all_events(session, delay, args.max_pages)
     print(f"\nInsgesamt {len(raw_events)} rohe Event-Einträge gefunden.\n")
+
+    # Detailseiten liefern Land, alle Wettbewerbe und den echten
+    # Veranstalter-Link (siehe enrich_from_details()). Das ist der teure
+    # Teil (ein Request pro Event, mit robots.txt-Pause), deshalb
+    # abschaltbar.
+    if not args.no_details:
+        raw_events = enrich_from_details(session, raw_events, delay, args.max_details)
 
     events_to_use, overrides_excluded = apply_manual_overrides(raw_events)
     if overrides_excluded:

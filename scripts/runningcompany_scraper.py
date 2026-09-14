@@ -52,8 +52,12 @@ Besonderheiten, die `fetch_runningcompany_events()` unten behandelt:
    das erspart auch das Zusammenführen der gesplitteten Start-/End-Zeile,
    da ausschließlich diese eigenen Angebote dieses Zwei-Zeilen-Muster
    nutzen.
-3. **Mehrere Distanzen pro Zeile** (z. B. "10 km, 20 km"): `laenge_km`
-   wird auf die größte gefundene Distanz gesetzt (nicht die erste).
+3. **Mehrere Distanzen pro Zeile** (z. B. "10 km, 20 km"): Die Zelle wird
+   an Komma/Schrägstrich/"und" in die einzelnen Wettbewerbe zerlegt, und
+   jede Strecke wird zu einem EIGENEN Eintrag in events.json (das
+   Dezimalkomma in "21,1 km" gilt dabei nicht als Trenner). Früher wurde
+   nur die längste Distanz übernommen - alle kürzeren Strecken derselben
+   Veranstaltung fehlten dadurch.
 
 Die Seite deckt nur die Region München/Bayern ab, daher
 `default_land="Deutschland"` als Fallback.
@@ -72,13 +76,21 @@ import sys
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from scraper_lib import Event, SiteConfig, guess_art2, guess_land, run_scraper_cli  # noqa: E402
+from scraper_lib import (  # noqa: E402
+    Event,
+    SiteConfig,
+    expand_competitions,
+    guess_art2,
+    guess_distance_km,
+    guess_land,
+    parse_competitions,
+    run_scraper_cli,
+)
 
 YEAR_HINT_PATTERN = re.compile(
     r"wo und wann du\s*(\d{4})\s*bei einem", re.I
 )
 DATE_CELL_PATTERN = re.compile(r"(\d{1,2})\.(\d{1,2})\.")
-KM_PATTERN = re.compile(r"(\d+(?:[.,]\d+)?)\s*km\b", re.I)
 
 
 def _extract_year(soup: BeautifulSoup) -> int:
@@ -99,12 +111,21 @@ def _parse_date_cell(text: str, year: int) -> str | None:
         return None
 
 
-def _max_distance_km(text: str, config: SiteConfig) -> float | None:
-    matches = KM_PATTERN.findall(text or "")
-    if matches:
-        return max(float(m.replace(",", ".")) for m in matches)
-    from scraper_lib import guess_distance_km  # lazy, um Zirkularimport zu vermeiden
-    return guess_distance_km(text, config)
+def _split_distance_cell(text: str) -> list[str]:
+    """Zerlegt die Distanz-Spalte in die einzelnen Wettbewerbe.
+
+    Die Spalte listet mehrere angebotene Strecken in einer Zelle, getrennt
+    durch Komma, Schrägstrich oder "und" - z. B. "10 km, 20 km" oder
+    "21,1 km / 42,2 km". Früher wurde daraus nur die LÄNGSTE Distanz
+    übernommen, alle kürzeren Strecken der Veranstaltung fehlten dadurch in
+    events.json. Das Dezimalkomma innerhalb einer Zahl ("21,1 km") darf
+    dabei natürlich nicht als Trenner gelten, daher wird nur an Kommata
+    getrennt, auf die keine Ziffer folgt.
+    """
+    if not text:
+        return []
+    parts = re.split(r"\s*(?:,(?!\d)|/|;|\bund\b|\+)\s*", text)
+    return [p.strip() for p in parts if p and p.strip()]
 
 
 def _is_internal_link(href: str | None, base_url: str) -> bool:
@@ -127,6 +148,7 @@ def fetch_runningcompany_events(session, config: SiteConfig, delay: float, max_p
 
     events: list[Event] = []
     skipped_internal = 0
+    expanded = 0
 
     for row in soup.select("table tr"):
         cells = row.find_all("td")
@@ -148,22 +170,31 @@ def fetch_runningcompany_events(session, config: SiteConfig, delay: float, max_p
             continue
 
         combined_text = " ".join([name, distance_text])
-        events.append(
-            Event(
-                land=guess_land(f"{location} {combined_text}") or config.default_land,
-                name=name,
-                standort=location,
-                art1=config.default_art1,
-                art2=guess_art2(combined_text, config),
-                datum_start=iso_date,
-                datum_ende=iso_date,
-                laenge_km=_max_distance_km(distance_text, config),
-                veranstalter_url=urljoin(config.calendar_url, href),
-            )
+        base = Event(
+            # Land bewusst NUR aus der Ortsspalte, nicht aus dem Event-Namen:
+            # ein Name wie "Fränkische-Schweiz-Marathon" enthält das Wort
+            # "Schweiz", liegt aber in Bayern (echter Bug, in events.json
+            # als land="Schweiz" für Ebermannstadt aufgetreten).
+            land=guess_land(location) or config.default_land,
+            name=name,
+            standort=location,
+            art1=config.default_art1,
+            art2=guess_art2(combined_text, config),
+            datum_start=iso_date,
+            datum_ende=iso_date,
+            laenge_km=guess_distance_km(distance_text, config),
+            veranstalter_url=urljoin(config.calendar_url, href),
         )
+        # Je angebotene Strecke ein eigener Eintrag (siehe Docstring Punkt 3).
+        competitions = parse_competitions(_split_distance_cell(distance_text), config)
+        variants = expand_competitions(base, competitions, config)
+        if len(variants) > 1:
+            expanded += 1
+        events.extend(variants)
 
-    print(f"  ✓ {len(events)} Event(s) gefunden ({skipped_internal} eigene "
-          f"Laufreise-/Laufcamp-/Trainingsangebote übersprungen).")
+    print(f"  ✓ {len(events)} Eintrag/Einträge gefunden ({skipped_internal} eigene "
+          f"Laufreise-/Laufcamp-/Trainingsangebote übersprungen, "
+          f"{expanded} Veranstaltung(en) in mehrere Wettbewerbe aufgeteilt).")
     return events
 
 

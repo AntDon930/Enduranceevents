@@ -793,7 +793,7 @@
     "veranstalter_url": "http://www.bremerhaven-marathon.de"
   },
   {
-    "land": "Schweiz",
+    "land": "Deutschland",
     "name": "25. Fränkische-Schweiz-Marathon",
     "standort": "Ebermannstadt",
     "lat": 49.7749251,
@@ -1374,7 +1374,8 @@
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000036"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000036",
+    "land": "Schweiz"
   },
   {
     "land": "Deutschland",
@@ -1687,7 +1688,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900005660002"
   },
   {
@@ -1959,7 +1960,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "http://www.bodensee-marathon.de"
   },
   {
@@ -2302,7 +2303,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-20",
-    "laenge_km": 6.66,
+    "laenge_km": 6.7,
     "veranstalter_url": "https://running.life/de/termine/devils-loop-langenberg-backyard-ultramarathon"
   },
   {
@@ -2773,7 +2774,8 @@
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
     "laenge_km": 6.7,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000029"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000029",
+    "land": "Österreich"
   },
   {
     "land": "Deutschland",
@@ -3050,7 +3052,8 @@
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
     "laenge_km": 86.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/silberpfadtrophy2026"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/silberpfadtrophy2026",
+    "land": "Österreich"
   },
   {
     "land": "Deutschland",
@@ -3331,7 +3334,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "http://www.kassel-marathon.de"
   },
   {
@@ -3461,7 +3464,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 5.82,
+    "laenge_km": 5.8,
     "veranstalter_url": "https://www.mm-altstadtlauf.de/ausschreibung/einzelstarter"
   },
   {
@@ -3474,7 +3477,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150160002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150160002",
+    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -3512,7 +3516,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000090760001"
   },
   {
@@ -3538,7 +3542,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900005560000"
   },
   {
@@ -3551,7 +3555,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10003008260002"
   },
   {
@@ -3616,7 +3620,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000211660000"
   },
   {
@@ -3655,7 +3659,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26L07900005460001"
   },
   {
@@ -3797,7 +3801,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 9.999,
+    "laenge_km": 10.0,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000006660000"
   },
   {
@@ -3926,7 +3930,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 21.0975,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://running.life/de/termine/halbmarathon-hamburg"
   },
   {
@@ -4258,7 +4262,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000514360000"
   },
   {
@@ -4396,7 +4400,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-25",
     "datum_ende": "2026-09-25",
-    "laenge_km": 5.58
+    "laenge_km": 5.6
   },
   {
     "land": "Deutschland",
@@ -4408,7 +4412,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-25",
     "datum_ende": "2026-09-25",
-    "laenge_km": 11.263,
+    "laenge_km": 11.3,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002018660001"
   },
   {
@@ -4499,7 +4503,8 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 22.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000029460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000029460000",
+    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -4951,7 +4956,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000029860501"
   },
   {
@@ -5003,7 +5008,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000270160003"
   },
   {
@@ -5016,7 +5021,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 13.26,
+    "laenge_km": 13.3,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000270160000"
   },
   {
@@ -5169,7 +5174,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000125160000"
   },
   {
@@ -5247,7 +5252,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 14.065,
+    "laenge_km": 14.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002007860001"
   },
   {
@@ -5416,7 +5421,7 @@
     "art2": "Trail",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 11.265,
+    "laenge_km": 11.3,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V11000023560001"
   },
   {
@@ -5623,7 +5628,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 8.045,
+    "laenge_km": 8.0,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000059560002"
   },
   {
@@ -5764,7 +5769,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 11.111,
+    "laenge_km": 11.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000551060000"
   },
   {
@@ -5777,7 +5782,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000350560000"
   },
   {
@@ -6113,7 +6118,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001004060001"
   },
   {
@@ -6282,7 +6287,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000410160000"
   },
   {
@@ -6321,7 +6326,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150960000"
   },
   {
@@ -6334,7 +6339,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26L10009910860001"
   },
   {
@@ -6386,7 +6391,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 21.097,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005208160000"
   },
   {
@@ -6412,7 +6417,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000612651000"
   },
   {
@@ -6722,7 +6727,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/schwarzwaldmarathon"
   },
   {
@@ -6735,7 +6740,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "laenge_km": 7.25,
+    "laenge_km": 7.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002016960002"
   },
   {
@@ -6917,7 +6922,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000009060002"
   },
   {
@@ -6930,7 +6935,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000059560003"
   },
   {
@@ -7032,7 +7037,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004003360002"
   },
   {
@@ -7110,7 +7115,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/halbmarathonhannover"
   },
   {
@@ -7136,7 +7141,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900029360000"
   },
   {
@@ -7241,7 +7246,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000221160002"
   },
   {
@@ -7396,7 +7401,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10003012060006"
   },
   {
@@ -7539,7 +7544,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
-    "laenge_km": 8.25,
+    "laenge_km": 8.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000733760000"
   },
   {
@@ -7734,7 +7739,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000024960000"
   },
   {
@@ -7786,7 +7791,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004004160001"
   },
   {
@@ -7799,7 +7804,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000302360001"
   },
   {
@@ -7864,7 +7869,8 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 50.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/kaerntenmarathon"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/kaerntenmarathon",
+    "land": "Österreich"
   },
   {
     "name": "Lauf um den Mittelpunkt von Sachsen",
@@ -7876,7 +7882,8 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 8.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000001060000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000001060000",
+    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -7888,7 +7895,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000034164000"
   },
   {
@@ -7927,7 +7934,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000341160001"
   },
   {
@@ -8070,7 +8077,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000019560000"
   },
   {
@@ -8096,7 +8103,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26L07900005765001"
   },
   {
@@ -8330,7 +8337,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-30",
     "datum_ende": "2026-10-30",
-    "laenge_km": 16.666,
+    "laenge_km": 16.7,
     "veranstalter_url": "https://laufen.de/laufkalender/details/halloweenrunrotenburg"
   },
   {
@@ -8408,7 +8415,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
-    "laenge_km": 7.25,
+    "laenge_km": 7.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
   },
   {
@@ -8497,7 +8504,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
-    "laenge_km": 8.75,
+    "laenge_km": 8.8,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000814060000"
   },
   {
@@ -8575,7 +8582,7 @@
     "art2": "Cross",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 7.92,
+    "laenge_km": 7.9,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000056560001"
   },
   {
@@ -8601,7 +8608,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 8.87,
+    "laenge_km": 8.9,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000771860000"
   },
   {
@@ -8911,7 +8918,8 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150160003"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150160003",
+    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -8923,7 +8931,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 52.125,
+    "laenge_km": 52.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004007660001"
   },
   {
@@ -8936,7 +8944,7 @@
     "art2": "Cross",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 8.33,
+    "laenge_km": 8.3,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000041860001"
   },
   {
@@ -9142,7 +9150,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V06000111860003"
   },
   {
@@ -9298,7 +9306,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-11",
     "datum_ende": "2026-11-11",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26L10009900360001"
   },
   {
@@ -9647,7 +9655,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "laenge_km": 21.097,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000851260001"
   },
   {
@@ -9865,7 +9873,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002004860004"
   },
   {
@@ -10123,7 +10131,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860003"
   },
   {
@@ -10225,7 +10233,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 42.195,
+    "laenge_km": 42.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000270160004"
   },
   {
@@ -10353,7 +10361,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 9.15,
+    "laenge_km": 9.2,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000831760000"
   },
   {
@@ -10444,7 +10452,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "laenge_km": 5.303,
+    "laenge_km": 5.3,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V03900001660001"
   },
   {
@@ -10613,7 +10621,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
-    "laenge_km": 7.91,
+    "laenge_km": 7.9,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000544960000"
   },
   {
@@ -10831,7 +10839,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
-    "laenge_km": 21.098,
+    "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000851260002"
   },
   {

@@ -10,7 +10,7 @@ vorhandene Einträge nie verändern (sie fügen nur neue an) - Regeln, die
 später dazukommen oder Bugfixes an der Distanz-/Kategorie-Erkennung
 wirken deshalb nicht rückwirkend. Genau dafür ist dieses Skript da.
 
-Vier Schritte, in dieser Reihenfolge:
+Sechs Schritte, in dieser Reihenfolge:
 
 1. **Manuelle Korrekturen** aus `scripts/manual_overrides.json` anwenden
    (Distanz/Kategorie/Link überschreiben, `exclude: true` entfernt das
@@ -21,10 +21,18 @@ Vier Schritte, in dieser Reihenfolge:
    Trail-/Bergläufen als "Straße" rückwirkend auf (ein Name wie
    "... Bergtrail 42k Trail-Marathon" traf zuerst auf die generische
    Marathon-Regel). Ein per Override gesetztes art2 bleibt unangetastet.
-3. **5-km-Mindestdistanz**: Events mit BEKANNTER Distanz unter
+3. **Längenangaben auf eine Dezimalstelle runden**: Quellen geben
+   dieselbe Strecke unterschiedlich genau an ("42,195 km" vs. "42,2 km"),
+   gespeichert wird einheitlich 42.2.
+4. **Land ergänzen/korrigieren** über Reverse-Geocoding der Koordinaten.
+   Eine vierstellige Postleitzahl unterscheidet Österreich nicht von der
+   Schweiz - Events wie Mosnang (CH) oder Innsbruck (AT) blieben deshalb
+   ohne Land; umgekehrt stand beim "Fränkische-Schweiz-Marathon" in Bayern
+   fälschlich "Schweiz".
+5. **5-km-Mindestdistanz**: Events mit BEKANNTER Distanz unter
    `scraper_lib.MIN_DISTANCE_KM` entfernen (Events ohne Distanzangabe
    bleiben, siehe README "Datenqualität").
-4. **Duplikate zusammenführen** über `scraper_lib.is_same_event()`
+6. **Duplikate zusammenführen** über `scraper_lib.is_same_event()`
    (gleiches Datum + ähnlicher Name + gleicher Ort + kompatible Distanz).
    Dieselbe Veranstaltung steht oft in mehreren Kalendern unter
    abweichendem Namen ("52. Int. Bodensee-Marathon" / "Bodensee
@@ -56,12 +64,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scraper_lib import (  # noqa: E402
     ENRICHABLE_FIELDS,
     EVENTS_JSON_PATH,
+    GEOCODE_CACHE_PATH,
     MIN_DISTANCE_ART1,
     MIN_DISTANCE_KM,
+    Geocoder,
     SiteConfig,
     guess_art2,
+    guess_land,
     is_same_event,
     load_manual_overrides,
+    round_km,
 )
 
 # Kalender-/Portal-Domains: nützlich als Fallback, aber ein direkter Link
@@ -152,6 +164,89 @@ def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
     return changed
 
 
+def round_distances(events: list[dict]) -> list[str]:
+    """Rundet alle Längenangaben auf eine Nachkommastelle.
+
+    Die Quellen geben dieselbe Strecke unterschiedlich genau an: Marathon
+    mal als "42,195 km", mal als "42,2 km", Halbmarathon als "21,0975 km".
+    In der Liste soll einheitlich 42.2 bzw. 21.1 stehen (Wunsch aus dem
+    Chat). Die Scraper runden inzwischen selbst (siehe
+    scraper_lib.round_km()), die bereits gespeicherten Werte zieht dieses
+    Skript nach.
+    """
+    changed: list[str] = []
+    for event in events:
+        km = event.get("laenge_km")
+        rounded = round_km(km)
+        if rounded is not None and rounded != km:
+            changed.append(f"{event.get('name')}: laenge_km {km} -> {rounded}")
+            event["laenge_km"] = rounded
+    return changed
+
+
+def needs_land_check(event: dict) -> bool:
+    """Entscheidet, ob für dieses Event eine Reverse-Geocoding-Anfrage
+    lohnt. Bewusst nicht für alle Events: Nominatim erlaubt etwa eine
+    Anfrage pro Sekunde, ein Komplettdurchlauf über alle Events dauert
+    über eine Stunde - und wäre zum größten Teil verschwendet, weil eine
+    FÜNFSTELLIGE Postleitzahl eindeutig Deutschland bedeutet und die
+    daraus abgeleiteten Länder damit bereits belastbar sind.
+
+    Geprüft werden daher genau die beiden Fälle, in denen der gespeicherte
+    Wert nachweislich falsch sein kann:
+
+    1. `land` fehlt ganz - fast immer eine vierstellige PLZ, die
+       Österreich und Schweiz nicht unterscheidet (Mosnang, Innsbruck,
+       Schwaz).
+    2. `land` ist NICHT Deutschland, oder der Event-NAME enthält ein
+       Länder-Stichwort. Nicht-deutsche Länder sind die Minderheit und
+       genau die, die aus unsicheren Signalen entstanden sind; und ein
+       Länderwort im Namen ist die bekannte Fehlerquelle („25.
+       Fränkische-Schweiz-Marathon" in Bayern stand als `land: "Schweiz"`
+       in events.json, weil ein Scraper das Land aus dem Namen geraten
+       hat).
+    """
+    land = event.get("land")
+    if not land:
+        return True
+    if land != "Deutschland":
+        return True
+    return bool(guess_land(event.get("name") or ""))
+
+
+def fix_land(events: list[dict], geocoder: Geocoder | None) -> list[str]:
+    """Ergänzt fehlendes und korrigiert falsches `land`.
+
+    Maßgeblich sind die Koordinaten (Reverse-Geocoding) - die einzige
+    Quelle, die Österreich und Schweiz zuverlässig unterscheidet. Welche
+    Events überhaupt geprüft werden, entscheidet `needs_land_check()`.
+    Ergebnisse landen im gemeinsamen Geocode-Cache, ein zweiter Lauf
+    fragt also nichts erneut ab. Ohne `geocoder` (--no-geocoding) bleibt
+    nur der Ortsname als schwaches Signal für Events ohne `land`.
+    """
+    changed: list[str] = []
+    for event in events:
+        if not needs_land_check(event):
+            continue
+
+        lat, lon = event.get("lat"), event.get("lon")
+        current = event.get("land")
+
+        land = None
+        if geocoder and lat is not None and lon is not None:
+            land = geocoder.reverse_land(lat, lon)
+        if not land and not current:
+            land = guess_land(event.get("standort") or "")
+
+        if land and land != current:
+            changed.append(
+                f"{event.get('name')} ({event.get('standort')}): "
+                f"land {current!r} -> {land!r}"
+            )
+            event["land"] = land
+    return changed
+
+
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     """Entfernt zu kurze LAUF-Events. Andere Sportarten sind bewusst
     ausgenommen: 3,5 km Freiwasserschwimmen sind eine ernsthafte Distanz,
@@ -225,14 +320,21 @@ def main() -> None:
                         help="Nur Bericht ausgeben, events.json NICHT verändern.")
     parser.add_argument("--quiet", action="store_true",
                         help="Nur die Zusammenfassung, keine Einzelmeldungen.")
+    parser.add_argument("--no-geocoding", action="store_true",
+                        help="Kein Reverse-Geocoding für fehlende/falsche Länder "
+                             "(dann wird `land` nur aus dem Ortsnamen abgeleitet).")
     args = parser.parse_args()
 
     events = json.loads(args.events_json.read_text(encoding="utf-8"))
     before = len(events)
 
+    geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
+
     events, excluded, override_changes = apply_overrides(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
+    rounding_fixes = round_distances(events)
+    land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
     events, dup_report = merge_duplicates(events)
 
@@ -248,6 +350,8 @@ def main() -> None:
     section("Per Override ausgeschlossen", excluded)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
+    section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
+    section("Land ergänzt/korrigiert", land_fixes)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
 

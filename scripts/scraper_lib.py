@@ -52,7 +52,7 @@ import re
 import sys
 import time
 import unicodedata
-from dataclasses import dataclass, field, fields
+from dataclasses import dataclass, field, fields, replace
 from datetime import date
 from pathlib import Path
 from typing import Callable, Iterable
@@ -101,13 +101,52 @@ DEFAULT_HTML_FALLBACK_SELECTORS = {
     "distance": ".event-distance, .race-distance, td.distance",
 }
 
+# Stichwörter für die Ländererkennung in FREIEM TEXT (Ortsangaben wie
+# "9607 Mosnang (Schweiz)"). Bewusst nur ausgeschriebene Ländernamen:
+# die zweibuchstabigen Codes ("de", "at", "ch") stehen hier NICHT, weil
+# sie in deutschem Fließtext als eigenständige Wörter vorkommen und
+# falsch anschlagen. Für explizite Code-Felder (z. B. JSON-LD
+# `addressCountry: "DE"`) ist COUNTRY_CODE_MAP zuständig.
 LAND_KEYWORDS = {
-    "deutschland": "Deutschland", "germany": "Deutschland", "de": "Deutschland",
-    "österreich": "Österreich", "austria": "Österreich", "at": "Österreich",
-    "schweiz": "Schweiz", "switzerland": "Schweiz", "ch": "Schweiz",
+    "deutschland": "Deutschland", "germany": "Deutschland",
+    "österreich": "Österreich", "austria": "Österreich",
+    "schweiz": "Schweiz", "switzerland": "Schweiz", "suisse": "Schweiz",
 }
 COUNTRY_CODE_MAP = {"DE": "Deutschland", "AT": "Österreich", "CH": "Schweiz"}
 DACH_LAENDER = {"Deutschland", "Österreich", "Schweiz"}
+
+# Länderkürzel, wie Kalender sie in KLAMMERN hinter den Ort schreiben -
+# laufen.de mischt ausgeschriebene Namen und Kürzel: "9607 Mosnang
+# (Schweiz)" neben "6020 Innsbruck (AUT)". Ohne diese Tabelle blieb `land`
+# bei allen so ausgezeichneten Events leer (echter Bug, an den
+# Österreich-Events aufgefallen). Nur in einem Klammerzusatz ausgewertet,
+# nie in freiem Text - "A" oder "D" mitten im Satz sagt nichts über das Land.
+LAND_ABBREVIATIONS = {
+    "D": "Deutschland", "GER": "Deutschland", "DEU": "Deutschland",
+    "A": "Österreich", "AUT": "Österreich",
+    "CH": "Schweiz", "SUI": "Schweiz", "CHE": "Schweiz",
+}
+# Klammerzusatz am Ende einer Ortsangabe: "... (Schweiz)" / "... (AUT)".
+_LAND_PARENTHETICAL = re.compile(r"\(\s*([A-Za-zÄÖÜäöüß.]{1,20})\s*\)\s*$")
+
+# Deutsche Landschaftsnamen, die das Wort "Schweiz" enthalten, aber
+# mitten in Deutschland liegen. Ohne diesen Filter stufte die
+# Stichwortsuche z. B. den "25. Fränkische-Schweiz-Marathon" in
+# Ebermannstadt (Bayern) als Schweizer Event ein - echter Bug, in
+# events.json aufgetreten.
+FALSE_LAND_PATTERNS = re.compile(
+    r"(fränkische|holsteinische|sächsische|märkische|mecklenburgische|"
+    r"schwäbische|thüringer)[ -]schweiz",
+    re.I,
+)
+
+# Land aus der Postleitzahl: In der DACH-Region sind deutsche PLZ
+# fünfstellig, österreichische und schweizerische vierstellig. Vier
+# Stellen allein unterscheiden AT und CH also NICHT - in dem Fall
+# bleibt `land` leer, statt zu raten (und wird später über die
+# Koordinaten per Reverse-Geocoding nachgetragen, siehe
+# Geocoder.reverse_land()).
+PLZ_DE_PATTERN = re.compile(r"\b\d{5}\b")
 
 GERMAN_MONTHS = {
     "januar": 1, "februar": 2, "märz": 3, "april": 4, "mai": 5, "juni": 6,
@@ -201,6 +240,11 @@ class Event:
     datum_ende: str | None = None
     anmeldeschluss: str | None = None
     laenge_km: float | None = None
+    # Name des konkreten Wettbewerbs innerhalb der Veranstaltung, falls die
+    # Quelle mehrere Strecken einzeln ausweist (z. B. "Moslig 8000" und
+    # "Halbmarathon" beim Schnebelhorn Panoramatrail). Jede Strecke wird zu
+    # einem eigenen Eintrag; dieses Feld sagt, welche gemeint ist.
+    wettbewerb: str | None = None
     veranstalter_url: str | None = None
 
     def is_valid(self) -> bool:
@@ -208,6 +252,10 @@ class Event:
 
     def to_dict(self) -> dict:
         d = {f.name: getattr(self, f.name) for f in fields(self)}
+        # Einheitlich eine Nachkommastelle, egal woher der Wert kommt
+        # (Regex, JSON-LD, manuelles Override) - siehe round_km().
+        if d.get("laenge_km") is not None:
+            d["laenge_km"] = round_km(d["laenge_km"])
         return {k: v for k, v in d.items() if v is not None}
 
 
@@ -335,15 +383,49 @@ def parse_flexible_date(text: str) -> str | None:
 
 
 def guess_land(text: str) -> str | None:
+    """Erkennt das Land aus einer Ortsangabe wie '9607 Mosnang (Schweiz)'.
+
+    Bewusst nur auf ORTSANGABEN anwenden, nicht auf Event-Namen: ein Name
+    wie "25. Fränkische-Schweiz-Marathon" enthält das Wort "Schweiz",
+    liegt aber in Bayern (siehe FALSE_LAND_PATTERNS, der diesen Fall
+    zusätzlich abfängt).
+    """
     if not text:
         return None
-    lowered = text.lower()
+    cleaned = FALSE_LAND_PATTERNS.sub(" ", text)
+
+    # Zuerst der Klammerzusatz: die verlässlichste Angabe, wenn vorhanden
+    # (deckt "(Schweiz)" ebenso wie "(AUT)" ab, siehe LAND_ABBREVIATIONS).
+    paren = _LAND_PARENTHETICAL.search(re.sub(r"\s+", " ", cleaned).strip())
+    if paren:
+        token = paren.group(1).strip(".")
+        by_abbrev = LAND_ABBREVIATIONS.get(token.upper())
+        if by_abbrev:
+            return by_abbrev
+        by_name = LAND_KEYWORDS.get(token.casefold())
+        if by_name:
+            return by_name
+
+    lowered = cleaned.lower()
     for keyword, land in LAND_KEYWORDS.items():
         if re.search(rf"\b{re.escape(keyword)}\b", lowered):
             return land
-    if re.search(r"\b\d{5}\b", text):  # deutsche PLZ als schwaches Signal
+    if PLZ_DE_PATTERN.search(cleaned):  # fünfstellige PLZ -> Deutschland
         return "Deutschland"
     return None
+
+
+def round_km(value: float | int | None) -> float | None:
+    """Rundet eine Distanz auf EINE Nachkommastelle.
+
+    Quellen geben dieselbe Strecke unterschiedlich genau an - Marathon als
+    "42,195 km", Halbmarathon als "21,0975 km". In der Liste soll einheitlich
+    42.2 bzw. 21.1 stehen (Wunsch aus dem Chat), und die Duplikat-Erkennung
+    vergleicht Distanzen ohnehin nur auf eine Nachkommastelle.
+    """
+    if not isinstance(value, (int, float)) or isinstance(value, bool):
+        return None
+    return round(float(value), 1)
 
 
 def guess_art2(text: str, config: SiteConfig) -> str | None:
@@ -369,7 +451,8 @@ def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     # laufen.") werden erkannt.
     matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
-        return max(float(m.replace(",", ".")) for m in matches)
+        # Auf eine Nachkommastelle runden: "42,195 km" -> 42.2 (siehe round_km).
+        return round_km(max(float(m.replace(",", ".")) for m in matches))
     # Fallback über bekannte Renn-Bezeichnungen. Bewusst nach Stichwort-
     # LÄNGE absteigend geprüft, nicht in Dict-Reihenfolge: "halbmarathon"
     # enthält die Teilkette "marathon", ein Name wie "35. Halbmarathon
@@ -389,6 +472,120 @@ def guess_distance_km(text: str, config: SiteConfig) -> float | None:
 
 
 # --------------------------------------------------------------------------
+# Wettbewerbe: mehrere Strecken einer Veranstaltung -> mehrere Einträge
+# --------------------------------------------------------------------------
+#
+# Fast jede Laufveranstaltung bietet mehrere Strecken an. Früher hat jeder
+# Scraper daraus nur EINE Zahl gemacht (die längste) und alle anderen
+# Strecken verworfen - beim "10. Schnebelhorn Panoramatrail" etwa stand nur
+# der Halbmarathon in der Liste, der ebenfalls angebotene "Moslig 8000"
+# über 8,5 km fehlte komplett, obwohl die Quelle ihn ausweist. Die
+# folgenden Helfer lesen die Wettbewerbsliste aus und machen daraus je
+# einen eigenen Eintrag (gewünschtes Verhalten laut Chat).
+
+# Klammerzusätze wie "(229 hm)" oder "(989 hm)" gehören zur Strecken-
+# beschreibung, nicht zum Namen des Wettbewerbs.
+_HM_SUFFIX_PATTERN = re.compile(r"\s*\(\s*[\d.,]+\s*(?:hm|höhenmeter|m\b)[^)]*\)", re.I)
+# Alles ab dem Trenner "|" ist bei laufen.de die Distanzangabe.
+_COMPETITION_SPLIT = re.compile(r"\s*\|\s*")
+
+
+def clean_competition_label(text: str) -> str | None:
+    """Macht aus 'Moslig 8000 (229 hm)  | 8,5 km' das Label 'Moslig 8000'."""
+    if not text:
+        return None
+    label = _COMPETITION_SPLIT.split(re.sub(r"\s+", " ", text).strip())[0]
+    label = _HM_SUFFIX_PATTERN.sub("", label).strip(" -–·,;")
+    return label or None
+
+
+@dataclass
+class Competition:
+    """Ein einzelner Wettbewerb (eine Strecke) innerhalb einer Veranstaltung."""
+    label: str | None = None
+    laenge_km: float | None = None
+    # Zusätzlicher Text, der die Art der Strecke beschreibt und in die
+    # Kategorie (art2) einfließt - z. B. das Feld "Trailrun" aus der
+    # laufen.de-Wettbewerbsliste oder "(989 hm)" als Berg-Indiz.
+    hint: str = ""
+
+
+def parse_competitions(
+    items: Iterable[str | tuple[str, str]], config: SiteConfig
+) -> list[Competition]:
+    """Parst eine Wettbewerbsliste in `Competition`-Objekte.
+
+    Akzeptiert je Eintrag entweder einen String in der Form, in der
+    Kalender Wettbewerbe typischerweise ausgeben ("<Bezeichnung> | <X> km",
+    nur eine Bezeichnung wie "Halbmarathon" oder nur eine Distanz
+    "10 km"), oder ein Tupel `(text, hint)`, wenn die Quelle die Art der
+    Strecke separat ausweist.
+
+    Einträge ohne erkennbare Distanz UND ohne Label werden verworfen.
+    Gleiche Distanzen werden zusammengefasst: manche Veranstalter listen
+    dieselbe Strecke mehrfach (Einzel/Staffel/Nordic Walking) - das sind
+    keine eigenen Einträge für unsere Liste.
+    """
+    result: list[Competition] = []
+    seen: set[float | None] = set()
+    for raw in items:
+        if isinstance(raw, tuple):
+            raw_text, hint = raw
+        else:
+            raw_text, hint = raw, ""
+        text = re.sub(r"\s+", " ", raw_text or "").strip()
+        if not text:
+            continue
+        km = guess_distance_km(text, config)
+        label = clean_competition_label(text)
+        if km is None and not label:
+            continue
+        if km in seen:
+            continue
+        seen.add(km)
+        result.append(Competition(label=label, laenge_km=km, hint=(hint or "").strip()))
+    return result
+
+
+def expand_competitions(
+    base: Event,
+    competitions: list[Competition],
+    config: SiteConfig,
+) -> list[Event]:
+    """Vervielfacht ein Event zu je einem Eintrag pro Wettbewerb.
+
+    Die Kategorie (art2) wird pro Wettbewerb neu bestimmt: bei einer
+    Veranstaltung mit "Halbmarathon" und "Trailrun" ist die eine Strecke
+    Straße, die andere Trail. Der Veranstaltungsname bleibt bewusst
+    unverändert - er ist Teil des Duplikat-Schlüssels, und ein pro
+    Strecke abgewandelter Name würde bereits gespeicherte Einträge nicht
+    mehr als dasselbe Event erkennen. Welche Strecke gemeint ist, steht
+    im Feld `wettbewerb`.
+
+    Ohne erkannte Wettbewerbe wird das Basis-Event unverändert
+    zurückgegeben (ein Eintrag), damit Aufrufer nie leer ausgehen.
+    """
+    usable = [c for c in competitions if c.laenge_km is not None]
+    if not usable:
+        return [base]
+
+    events: list[Event] = []
+    for comp in usable:
+        clone = replace(base)
+        clone.laenge_km = round_km(comp.laenge_km)
+        clone.wettbewerb = comp.label
+        # art2 aus Veranstaltungsname UND Streckenangaben ableiten: bei
+        # einer Veranstaltung mit "Halbmarathon" und "Trailrun" ist die
+        # eine Strecke Straße, die andere Trail. Der `hint` trägt dabei
+        # das, was die Quelle separat über die Strecke sagt.
+        clone.art2 = guess_art2(
+            f"{base.name or ''} {comp.label or ''} {comp.hint}", config
+        )
+        events.append(clone)
+    return events
+
+
+# --------------------------------------------------------------------------
 # Geocoding (Stadt -> lat/lon), mit lokalem Cache (geteilt über alle Scraper)
 # --------------------------------------------------------------------------
 
@@ -402,6 +599,7 @@ class Geocoder:
             except json.JSONDecodeError:
                 self.cache = {}
         self._geolocator = None
+        self._reverse = None
 
     def _ensure_geolocator(self):
         if self._geolocator is None:
@@ -437,6 +635,53 @@ class Geocoder:
         self.cache[query] = list(result) if result else None
         self._save()
         return result
+
+    def _ensure_reverse(self):
+        if self._reverse is None:
+            from geopy.extra.rate_limiter import RateLimiter
+            from geopy.geocoders import Nominatim
+            geolocator = Nominatim(user_agent=USER_AGENT)
+            self._reverse = RateLimiter(
+                geolocator.reverse, min_delay_seconds=1.5,
+                max_retries=4, error_wait_seconds=5.0,
+                swallow_exceptions=False,
+            )
+
+    def reverse_land(self, lat: float, lon: float) -> str | None:
+        """Bestimmt das Land aus Koordinaten (Reverse-Geocoding).
+
+        Die zuverlässigste Quelle für `land`, wenn die Seite es nicht
+        selbst nennt: Aus einer vierstelligen PLZ lassen sich Österreich
+        und Schweiz nicht unterscheiden, und Ortsnamen sind mehrdeutig.
+        Die Koordinaten haben wir für fast alle Events ohnehin schon.
+
+        Der Cache-Schlüssel ist bewusst auf drei Dezimalstellen (~100 m)
+        gerundet: nah beieinander liegende Events teilen denselben
+        Eintrag, und die Datei bleibt klein.
+        """
+        if lat is None or lon is None:
+            return None
+        key = f"land@{round(lat, 3)},{round(lon, 3)}"
+        if key in self.cache:
+            cached = self.cache[key]
+            return cached if isinstance(cached, str) else None
+
+        land = None
+        try:
+            self._ensure_reverse()
+            location = self._reverse((lat, lon), language="de", zoom=5, timeout=10)
+        except Exception as exc:
+            print(f"  ⚠ Reverse-Geocoding fehlgeschlagen für {lat},{lon}: {exc}")
+            location = None
+
+        if location is not None:
+            raw = (location.raw or {}).get("address", {})
+            code = (raw.get("country_code") or "").upper()
+            land = COUNTRY_CODE_MAP.get(code) or guess_land(raw.get("country") or "")
+
+        self.cache[key] = land
+        self._save()
+        return land
 
     def _save(self):
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
@@ -621,6 +866,24 @@ def find_next_page_url(soup: BeautifulSoup, current_url: str, config: SiteConfig
     return None
 
 
+def fetch_page(session: requests.Session, url: str, render_js: bool) -> str | None:
+    """Lädt eine Seite (optional JS-gerendert) und gibt das HTML zurück.
+
+    Bei einem Netzwerk-/HTTP-Fehler wird None zurückgegeben statt eine
+    Exception zu werfen: die Aufrufer brechen die Pagination dann ab und
+    verarbeiten die bereits gefundenen Events weiter.
+    """
+    try:
+        if render_js:
+            return fetch_rendered_html(url)
+        resp = session.get(url, timeout=20)
+        resp.raise_for_status()
+        return resp.text
+    except requests.exceptions.RequestException as exc:
+        print(f"  ❌ Abbruch: {url} konnte nicht geladen werden ({exc}).")
+        return None
+
+
 def fetch_all_events(
     session: requests.Session, config: SiteConfig, delay: float, max_pages: int, render_js: bool
 ) -> list[Event]:
@@ -634,15 +897,8 @@ def fetch_all_events(
         seen_urls.add(url)
 
         print(f"→ Lade Seite {page_num}: {url}")
-        try:
-            if render_js:
-                html = fetch_rendered_html(url)
-            else:
-                resp = session.get(url, timeout=20)
-                resp.raise_for_status()
-                html = resp.text
-        except requests.exceptions.RequestException as exc:
-            print(f"  ❌ Abbruch: {url} konnte nicht geladen werden ({exc}).")
+        html = fetch_page(session, url, render_js)
+        if html is None:
             break
 
         soup = BeautifulSoup(html, "html.parser")
@@ -1000,7 +1256,7 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
 # falls sie im behaltenen Eintrag fehlen.
 ENRICHABLE_FIELDS = (
     "laenge_km", "art2", "land", "standort", "lat", "lon",
-    "datum_ende", "anmeldeschluss", "veranstalter_url",
+    "datum_ende", "anmeldeschluss", "wettbewerb", "veranstalter_url",
 )
 
 

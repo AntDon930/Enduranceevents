@@ -20,12 +20,50 @@ Schweiz.
     gefiltert - die Daten dazu sind bei den meisten Quellen nicht
     zuverlässig auffindbar, siehe "Entfernte Anmeldung-Spalte" unten;
     das Feld bleibt im Schema für eigene, manuell gepflegte Events)
-  - `laenge_km` – Streckenlänge in Kilometern
+  - `laenge_km` – Streckenlänge in Kilometern, **immer auf eine
+    Dezimalstelle gerundet**. Die Quellen geben dieselbe Strecke
+    unterschiedlich genau an (Marathon mal als „42,195 km", mal als
+    „42,2 km"; Halbmarathon als „21,0975 km"); gespeichert und angezeigt
+    wird einheitlich `42.2` bzw. `21.1` (siehe `scraper_lib.round_km()`).
+  - `wettbewerb` – Bezeichnung der konkreten Strecke innerhalb der
+    Veranstaltung (optional, z. B. `"Moslig 8000"` oder `"Halbmarathon"`).
+    Veranstaltungen bieten fast immer mehrere Strecken an; jede wird zu
+    einem eigenen Eintrag, und dieses Feld sagt, welche gemeint ist (siehe
+    „Mehrere Strecken pro Veranstaltung" unten). In der Liste steht es als
+    kleine Zeile unter dem Veranstaltungsnamen.
   - `veranstalter_url` – Link zur Veranstalter-Website
 
   **Neues Event ergänzen**: Ort per Kartendienst (z. B. Google Maps – Rechtsklick
   auf den Punkt zeigt die Koordinaten) nachschlagen und als `lat`/`lon` eintragen,
-  sonst funktioniert die Umkreissuche für dieses Event nicht.
+  sonst funktioniert die Umkreissuche für dieses Event nicht. `land` wird aus
+  den Koordinaten abgeleitet und muss nicht per Hand gepflegt werden (siehe
+  „Land" unten).
+
+  **Mehrere Strecken pro Veranstaltung**: Eine Laufveranstaltung bietet
+  fast immer mehrere Wettbewerbe an. Jeder Wettbewerb wird zu einem
+  EIGENEN Eintrag mit eigener `laenge_km` und eigenem `wettbewerb`-Label;
+  Name, Ort und Datum bleiben identisch. Beispiel „10. Schnebelhorn
+  Panoramatrail" (Mosnang, CH): die Quelle listet sieben Wettbewerbe, nach
+  der 5-km-Regel bleiben zwei Einträge übrig – „Moslig 8000" (8,5 km) und
+  „Halbmarathon" (21,1 km). Die Kategorie (`art2`) wird pro Strecke
+  bestimmt, damit bei einer Veranstaltung mit Halbmarathon UND Trailrun
+  nicht beide Zeilen dieselbe Kategorie bekommen.
+
+  Umgesetzt in `scraper_lib.parse_competitions()` /
+  `expand_competitions()`; wo die Wettbewerbsliste steht, ist je Quelle
+  unterschiedlich (laufen.de: auf der Detailseite, running.life: als
+  Chips auf der Kalenderseite, runningcompany.de: in der Distanz-Spalte
+  der Monatstabelle) – siehe Docstring des jeweiligen Scrapers.
+
+  **Land**: Kalender nennen oft nur eine Postleitzahl, und eine
+  vierstellige PLZ unterscheidet Österreich nicht von der Schweiz.
+  `land` wird daher vorrangig aus der Landesangabe der Quelle gelesen
+  (`(Schweiz)` ebenso wie Kürzel wie `(AUT)`, siehe
+  `scraper_lib.LAND_ABBREVIATIONS`) und sonst per Reverse-Geocoding aus
+  den Koordinaten bestimmt (`Geocoder.reverse_land()`, Ergebnisse
+  gecacht). Bewusst NICHT aus dem Event-Namen geraten: der „25.
+  Fränkische-Schweiz-Marathon" liegt in Bayern, nicht in der Schweiz
+  (dieser Fehler stand real in `events.json`).
 
   **Duplikat-Prüfung**: Ein Event gilt als Duplikat, wenn Name + Startdatum
   + (gerundete) Distanz übereinstimmen (siehe `scraper_lib.dedupe_key()`
@@ -147,7 +185,8 @@ Schweiz.
   öffnet ein Popup mit Ortsname, Länderangabe und einem Link „N Events
   in der Liste anzeigen", der zu `events.html?standort=<Ort>` führt und
   dort automatisch den Standort-Filter auf genau diesen Ort setzt. Erreichbar
-  über den „Karte"-Button in `events.html`/`index.html`.
+  über den „Karte"-Button in `events.html` (auf der Startseite gibt es
+  bewusst keinen Kartenlink).
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
 
@@ -158,7 +197,7 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Fünf Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Sechs Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
 
 - **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
@@ -198,6 +237,18 @@ und eindeutige Events in `events.json` landen:
   direkter Veranstalter-Link einem Kalender-Portal-Link vorgezogen – der
   Datensatz gewinnt durch jede zusätzliche Quelle, statt doppelte Zeilen
   zu erzeugen.
+- **Alle Strecken auslesen, nicht nur die längste**
+  (`scraper_lib.parse_competitions()` / `expand_competitions()`): Früher
+  hat jeder Scraper aus der Wettbewerbsliste einer Veranstaltung nur EINE
+  Zahl gemacht (die längste) und alle anderen Strecken verworfen. Beim
+  „10. Schnebelhorn Panoramatrail" stand dadurch nur der Halbmarathon in
+  der Liste, der ebenfalls angebotene „Moslig 8000" über 8,5 km fehlte –
+  obwohl die Quelle ihn ausweist. Jetzt wird jede Strecke ein eigener
+  Eintrag mit eigenem `wettbewerb`-Label und eigener Kategorie (siehe
+  „Mehrere Strecken pro Veranstaltung" oben). Für laufen.de heißt das,
+  dass zusätzlich die **Detailseite** jedes Events abgerufen wird – nur
+  dort stehen die einzelnen Wettbewerbe, das Land und der echte
+  Veranstalter-Link.
 - **Nur Quellen, die Distanz UND Veranstalter-Link mitliefern**: Genau
   daran ist `blv-sport.de` gescheitert und wurde deshalb aus dem
   automatischen Scraping genommen (siehe Tabelle unten). Ohne Distanz
@@ -225,6 +276,8 @@ es `scripts/clean_events.py`: es wendet die manuellen Korrekturen an,
 bestimmt die Kategorie aus dem Namen neu, zieht eine einmalige
 Distanz-Korrektur nach (behobener Bug: „Halbmarathon" wurde mit 42,2 km
 statt 21,1 km eingetragen, weil das Stichwort „marathon" zuerst prüfte),
+rundet alle Längenangaben auf eine Dezimalstelle, ergänzt bzw. korrigiert
+`land` per Reverse-Geocoding der Koordinaten,
 entfernt zu kurze Laufevents und führt Duplikate zusammen. Zum Schluss
 wird nach Datum sortiert (kleine Git-Diffs). Das Skript ist idempotent –
 ein zweiter Lauf ändert nichts mehr.
@@ -233,6 +286,22 @@ ein zweiter Lauf ändert nichts mehr.
 python3 scripts/clean_events.py --dry-run   # nur Bericht, nichts ändern
 python3 scripts/clean_events.py             # events.json aufräumen
 ```
+
+### Regressionstests: `test_scraper_lib.py`
+
+```bash
+python3 scripts/test_scraper_lib.py
+```
+
+Prüft die Textauswertung der Scraper (Distanz, Kategorie, Land,
+Wettbewerbsliste, Duplikat-Erkennung) ohne Netzwerkzugriff und ohne
+zusätzliche Test-Bibliothek; Exit-Code 0/1, also direkt CI-fähig. Fast
+alle Fehler in diesem Projekt saßen in genau dieser Ecke und sind erst
+beim Nachschlagen einzelner Events in der fertigen Liste aufgefallen
+(„42,195 km" als 195 km gelesen, „Halbmarathon" mit 42,2 km, ein
+Trail-Marathon als Straßenlauf, „Fränkische Schweiz" als Land Schweiz).
+Jeder dieser echten Fehler steht dort als Testfall mit Kommentar – **neue
+Parsing-Regeln bitte mit einem Testfall dort ergänzen.**
 
 `update_events.py` ruft es nach jedem echten Lauf automatisch auf (nach
 allen Scrapern, da Duplikate erst im Zusammenspiel mehrerer Quellen
@@ -411,6 +480,12 @@ speichert die aktuell aktiven Filter - **ohne den Datumsfilter** (das
 gesuchte Event liegt ja per Annahme in der Zukunft und ist deshalb noch
 nicht in `events.json`) - als Dokument in der Firestore-Collection
 `filterSubscriptions` (siehe `auth.js: saveFilterSubscription()`).
+
+Dass der Datumsfilter ignoriert wird, steht bewusst **nicht** im
+Hinweistext (der Text ist auf „Kein Event entspricht deinen Filtern?
+Lass dich per E-Mail benachrichtigen, sobald ein passendes Event
+hinzugefügt wird." gekürzt) - technischer Hintergrund, der die
+Aufforderung nur verwässert hätte.
 
 Das Speichern des Abos funktioniert bereits mit den obigen 6 Schritten.
 Damit bei einem passenden neuen Event auch tatsächlich eine E-Mail
