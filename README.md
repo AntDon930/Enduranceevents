@@ -30,8 +30,11 @@ Schweiz.
   Ziel-Pin) ist selbst gebautes Inline-SVG statt eines Fotos – in dieser
   Umgebung sind externe Bild-CDNs (Unsplash, Wikimedia, Pexels, …)
   netzwerkseitig blockiert, daher kein Hotlinking/Download echter Fotos
-  möglich. Jede Sportart-Kachel und beide „Events entdecken"-Buttons
-  verlinken auf `events.html`. Zweisprachig (DE/EN) über denselben
+  möglich. Die „Events entdecken"-Buttons verlinken auf `events.html`
+  ohne Filter; jede Sportart-Kachel verlinkt mit
+  `events.html?sportart=<Sportart>` (z. B. `?sportart=Fahrrad`) – die
+  Liste liest diesen Parameter beim Laden aus und selektiert den
+  Sportart-Filter direkt. Zweisprachig (DE/EN) über denselben
   `localStorage`-Schlüssel wie `events.html`, sodass die Sprachwahl beim
   Wechsel zur Liste erhalten bleibt.
 - `events.html` – die eigentliche, filterbare Event-Liste. Liest

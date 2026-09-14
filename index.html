@@ -44,19 +44,9 @@
     right: 0;
     z-index: 5;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 18px 24px;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 800;
-    font-size: 1.05rem;
-    color: #fff;
-    letter-spacing: 0.02em;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
   }
   .lang-switch {
     display: flex;
@@ -301,7 +291,6 @@
   </svg>
 
   <div class="top-bar">
-    <div class="brand">🏁 <span data-i="brand">Ausdauersport-Events</span></div>
     <div class="lang-switch" id="lang-switch">
       <button type="button" class="lang-btn" data-lang="de">DE</button>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -309,7 +298,7 @@
   </div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow" data-i="eyebrow">Laufen · Schwimmen · Rad · Triathlon</span>
+    <span class="hero-eyebrow" data-i="eyebrow">Ausdauer Events in DACH</span>
     <h1 data-i="headline">Wo Ausdauer beginnt.</h1>
     <p class="lead" data-i="lead">Entdecke Lauf-, Schwimm-, Rad- und Triathlon-Events in Deutschland, Österreich und der Schweiz – gefiltert nach Datum, Ort, Distanz und mehr.</p>
     <a class="cta-btn" href="events.html">
@@ -351,21 +340,21 @@
 
 <div class="sports">
   <h2 data-i="sportsTitle">Finde deine Disziplin</h2>
-  <p class="sub" data-i="sportsSub">Klicke auf eine Sportart oder stöbere direkt durch die komplette, filterbare Liste.</p>
+  <p class="sub" data-i="sportsSub">Klicke auf eine Sportart und stöbere dich direkt durch die Liste.</p>
   <div class="sport-grid">
-    <a class="sport-card" href="events.html">
+    <a class="sport-card" href="events.html?sportart=Laufen">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="5.5" r="2"/><path d="M9 20l3-5 2 2 3-1M6 20l3.5-6.5L7 11l2-4 4 1 1 3 3 1"/></svg>
       <div class="name" data-i="sportRun">Laufen</div>
     </a>
-    <a class="sport-card" href="events.html">
+    <a class="sport-card" href="events.html?sportart=Fahrrad">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h3l4 9M10 8h3M13 8l2 3.5"/></svg>
       <div class="name" data-i="sportBike">Fahrrad</div>
     </a>
-    <a class="sport-card" href="events.html">
+    <a class="sport-card" href="events.html?sportart=Schwimmen">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="1.6"/><path d="M4 12l3-2 3 2 3-2 2 1.5"/><path d="M2 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M8 12l1-4 4-1 2 3"/></svg>
       <div class="name" data-i="sportSwim">Schwimmen</div>
     </a>
-    <a class="sport-card" href="events.html">
+    <a class="sport-card" href="events.html?sportart=Triathlon">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.7"/><path d="M12 6.5v5l-3 3v6M12 11.5l3 3v6M6 12l3-1.5M18 12l-3-1.5"/></svg>
       <div class="name" data-i="sportTri">Triathlon</div>
     </a>
@@ -384,8 +373,7 @@
 (function () {
   const I18N = {
     de: {
-      brand: 'Ausdauersport-Events',
-      eyebrow: 'Laufen · Schwimmen · Rad · Triathlon',
+      eyebrow: 'Ausdauer Events in DACH',
       headline: 'Wo Ausdauer beginnt.',
       lead: 'Entdecke Lauf-, Schwimm-, Rad- und Triathlon-Events in Deutschland, Österreich und der Schweiz – gefiltert nach Datum, Ort, Distanz und mehr.',
       cta: 'Events entdecken',
@@ -395,15 +383,14 @@
       stat2n: 'Laufend aktualisiert', stat2l: 'Neue Rennen & Termine im Kalender',
       stat3n: '3 Länder', stat3l: 'Deutschland, Österreich, Schweiz',
       sportsTitle: 'Finde deine Disziplin',
-      sportsSub: 'Klicke auf eine Sportart oder stöbere direkt durch die komplette, filterbare Liste.',
+      sportsSub: 'Klicke auf eine Sportart und stöbere dich direkt durch die Liste.',
       sportRun: 'Laufen', sportBike: 'Fahrrad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
       footer: 'Ausdauersport-Events D/A/CH · Beispielprojekt'
     },
     en: {
-      brand: 'Endurance Events',
-      eyebrow: 'Running · Swimming · Cycling · Triathlon',
+      eyebrow: 'Endurance Events in DACH',
       headline: 'Where endurance begins.',
-      lead: 'Discover running, swimming, cycling and triathlon events across Germany, Austria and Switzerland – filterable by date, location, distance and more.',
+      lead: 'Discover running, swimming, cycling and triathlon events across Germany, Austria and Switzerland.',
       cta: 'Explore events',
       ctaFinal: 'See the full event list',
       scroll: 'Learn more',
@@ -411,7 +398,7 @@
       stat2n: 'Always up to date', stat2l: 'New races & dates in the calendar',
       stat3n: '3 countries', stat3l: 'Germany, Austria, Switzerland',
       sportsTitle: 'Find your discipline',
-      sportsSub: 'Click a sport or jump straight into the full, filterable list.',
+      sportsSub: 'Click a sport and browse straight through the list.',
       sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
       footer: 'Endurance Events D/A/CH · Sample project'
     }

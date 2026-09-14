@@ -775,6 +775,15 @@
     return;
   }
 
+  // Deep-Link von der Willkommensseite: ?sportart=Fahrrad selektiert den
+  // Sportart-Filter direkt beim Laden.
+  try {
+    const sportartParam = new URLSearchParams(window.location.search).get('sportart');
+    if (sportartParam && Object.prototype.hasOwnProperty.call(DISTANCE_CATEGORIES, sportartParam)) {
+      state.art1.add(sportartParam);
+    }
+  } catch (e) { /* ignorieren */ }
+
   setLanguage(currentLang);
 
   // ---------- helpers ----------
