@@ -45,10 +45,13 @@ jeweiligen Seite kalibriert werden, falls dort kein JSON-LD vorhanden ist
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
+import math
 import re
 import sys
 import time
+import unicodedata
 from dataclasses import dataclass, field, fields
 from datetime import date
 from pathlib import Path
@@ -367,10 +370,21 @@ def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
         return max(float(m.replace(",", ".")) for m in matches)
+    # Fallback über bekannte Renn-Bezeichnungen. Bewusst nach Stichwort-
+    # LÄNGE absteigend geprüft, nicht in Dict-Reihenfolge: "halbmarathon"
+    # enthält die Teilkette "marathon", ein Name wie "35. Halbmarathon
+    # Altötting" wurde dadurch mit 42,2 km statt 21,1 km eingetragen
+    # (echter, mit realen Daten verifizierter Bug). Das längste passende
+    # Stichwort ist immer das spezifischste.
     lowered = text.lower()
-    for keyword, km in config.known_distances_km.items():
-        if keyword in lowered:
-            return km
+    for keyword in sorted(config.known_distances_km, key=len, reverse=True):
+        if keyword and keyword in lowered:
+            return config.known_distances_km[keyword]
+    # Leeres Stichwort "" als bewusster Catch-all (z. B. planet-marathon.de:
+    # dort ist laut Seitenhinweis jedes Event ein Marathon) - erst ganz am
+    # Ende, damit es echte Stichwort-Treffer nie verdeckt.
+    if "" in config.known_distances_km:
+        return config.known_distances_km[""]
     return None
 
 
@@ -747,6 +761,88 @@ def load_existing_events(path: Path) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# --------------------------------------------------------------------------
+# Duplikaterkennung über Quellgrenzen hinweg
+# --------------------------------------------------------------------------
+
+# Füllwörter, die beim Namensvergleich ignoriert werden: verschiedene
+# Quellen schreiben dasselbe Event unterschiedlich ("52. Int.
+# Bodensee-Marathon" vs. "Bodensee Marathon").
+_NAME_STOPWORDS = {
+    "int", "internationaler", "internationale", "internationales",
+    "lauf", "laufen", "run", "der", "die", "das", "am", "im", "in",
+    "und", "mit", "von", "zum", "zur", "e", "v",
+}
+
+
+def normalize_event_name(name: str | None) -> str:
+    """Normalisiert einen Event-Namen für den Duplikat-Vergleich: Kleinschreibung,
+    Umlaute/ß aufgelöst, führende Auflagen-Nummer ("52. ") entfernt, Satzzeichen
+    weg, Füllwörter und reine Zahlen entfernt."""
+    if not name:
+        return ""
+    s = unicodedata.normalize("NFKD", name.lower()).replace("ß", "ss")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"^\s*\d+\s*\.?\s*", "", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    return " ".join(t for t in s.split() if t and t not in _NAME_STOPWORDS and not t.isdigit())
+
+
+def _haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    r = 6371.0
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dp = math.radians(lat2 - lat1)
+    dl = math.radians(lon2 - lon1)
+    a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * r * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+def _same_place(a: dict, b: dict) -> bool:
+    sa, sb = normalize_event_name(a.get("standort")), normalize_event_name(b.get("standort"))
+    if sa and sb and (sa == sb or sa in sb or sb in sa):
+        return True
+    coords = (a.get("lat"), a.get("lon"), b.get("lat"), b.get("lon"))
+    if all(isinstance(c, (int, float)) for c in coords):
+        # 30 km Toleranz: Quellen nennen oft Nachbarorte/Ortsteile desselben
+        # Events (z. B. "Hiddestorf" vs. "Hemmingen", "Humfeld" vs. "Dörentrup").
+        return _haversine_km(*coords) <= 30
+    return False
+
+
+def _compatible_distance(a: dict, b: dict) -> bool:
+    ka, kb = a.get("laenge_km"), b.get("laenge_km")
+    if ka is None or kb is None:
+        return True  # unbekannte Distanz schließt ein Duplikat nicht aus
+    # Toleranz gegen Quellen-Ungenauigkeiten (42,195 vs. 42,2; 21,0 vs. 21,1),
+    # aber weit genug unter echten Distanzunterschieden (5 km vs. 10 km),
+    # damit mehrere Distanzen desselben Events erhalten bleiben.
+    return abs(ka - kb) <= max(0.5, 0.05 * max(ka, kb))
+
+
+def is_same_event(a: dict, b: dict) -> bool:
+    """True, wenn zwei Event-Dicts dasselbe real existierende Event beschreiben.
+    Nötig, weil dieselbe Veranstaltung von mehreren Quellen unter abweichenden
+    Namen geliefert wird ("BMW BERLIN-MARATHON" / "52. BMW Berlin-Marathon" /
+    "Berlin Marathon"). Bedingungen: identisches Startdatum UND ähnlicher Name
+    UND derselbe Ort (Name oder Koordinaten ≤ 30 km) UND kompatible Distanz.
+    Die Orts-Bedingung verhindert Fehltreffer bei generischen Namen
+    ("Silvesterlauf" in Salzburg vs. München)."""
+    if a.get("datum_start") != b.get("datum_start"):
+        return False
+    na, nb = normalize_event_name(a.get("name")), normalize_event_name(b.get("name"))
+    if not na or not nb:
+        return False
+    if na == nb:
+        name_match = True
+    elif len(na) >= 8 and len(nb) >= 8 and (na in nb or nb in na):
+        name_match = True
+    else:
+        name_match = difflib.SequenceMatcher(None, na, nb).ratio() >= 0.88
+    if not name_match:
+        return False
+    return _same_place(a, b) and _compatible_distance(a, b)
+
+
 def dedupe_key(
     name: str | None, datum_start: str | None, laenge_km: float | None = None
 ) -> tuple[str, str, float | None] | None:
@@ -779,12 +875,17 @@ def filter_dach(events: list[Event], include_all: bool) -> tuple[list[Event], in
 # --------------------------------------------------------------------------
 
 MANUAL_OVERRIDES_PATH = REPO_ROOT / "scripts" / "manual_overrides.json"
-# Events unter dieser Distanz werden nicht aufgenommen (siehe Chat/README):
+# LAUF-Events unter dieser Distanz werden nicht aufgenommen (siehe README):
 # viele Firmen-/Kinder-/Bambini-/Hobbyläufe sind für dieses Projekt nicht
-# relevant. Events OHNE bekannte Distanz sind davon NICHT betroffen -
-# ohne verlässliche Distanz lässt sich das Kriterium nicht anwenden, und
-# ein pauschaler Ausschluss würde auch echte, längere Events verwerfen.
+# relevant. Zwei bewusste Einschränkungen:
+#   - Events OHNE bekannte Distanz sind NICHT betroffen - ohne verlässliche
+#     Distanz lässt sich das Kriterium nicht anwenden, und ein pauschaler
+#     Ausschluss würde auch echte, längere Events verwerfen.
+#   - Die Regel gilt nur für art1 == "Laufen". Bei anderen Sportarten sagt
+#     die Kilometerzahl etwas völlig anderes aus: 3,5 km Freiwasser-
+#     schwimmen sind eine ernsthafte Distanz, ein 3,5-km-Lauf nicht.
 MIN_DISTANCE_KM = 5.0
+MIN_DISTANCE_ART1 = "Laufen"
 
 _manual_overrides_cache: dict | None = None
 
@@ -830,18 +931,41 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
 
 
 def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) -> tuple[list[Event], int]:
-    kept = [e for e in events if e.laenge_km is None or e.laenge_km >= min_km]
+    kept = [
+        e for e in events
+        if e.laenge_km is None
+        or e.art1 != MIN_DISTANCE_ART1
+        or e.laenge_km >= min_km
+    ]
     skipped = len(events) - len(kept)
     return kept, skipped
 
 
 def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[list[dict], int, int]:
+    """Fügt neue Events an und überspringt Duplikate. Zwei Stufen:
+
+    1. Schneller exakter Abgleich über `dedupe_key()` (Name + Datum + Distanz).
+    2. Zusätzlich `is_same_event()` gegen alle Events desselben Datums - das
+       erkennt dasselbe Event auch dann, wenn eine andere Quelle es unter
+       abweichendem Namen liefert ("52. Int. Bodensee-Marathon" vs.
+       "Bodensee Marathon"). Ohne Stufe 2 landete jede Veranstaltung, die in
+       mehreren Kalendern steht, mehrfach in der Liste.
+
+    Fehlende Felder eines bereits vorhandenen Eintrags werden dabei aus dem
+    Duplikat ergänzt (z. B. Distanz oder Veranstalter-Link, die nur die eine
+    Quelle kennt) - so gewinnt der Datensatz durch jede zusätzliche Quelle,
+    ohne doppelte Zeilen zu erzeugen.
+    """
     existing_keys = {
         dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km")) for e in existing
     }
     existing_keys.discard(None)
 
     merged = list(existing)
+    by_date: dict[str | None, list[dict]] = {}
+    for e in merged:
+        by_date.setdefault(e.get("datum_start"), []).append(e)
+
     added = 0
     skipped = 0
 
@@ -849,15 +973,41 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
         if not event.is_valid():
             skipped += 1
             continue
+        candidate = event.to_dict()
         key = dedupe_key(event.name, event.datum_start, event.laenge_km)
         if key is None or key in existing_keys:
             skipped += 1
             continue
-        merged.append(event.to_dict())
+
+        twin = next(
+            (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
+            None,
+        )
+        if twin is not None:
+            _enrich_missing_fields(twin, candidate)
+            skipped += 1
+            continue
+
+        merged.append(candidate)
+        by_date.setdefault(event.datum_start, []).append(candidate)
         existing_keys.add(key)
         added += 1
 
     return merged, added, skipped
+
+
+# Felder, die bei einem erkannten Duplikat aus dem "Zwilling" ergänzt werden,
+# falls sie im behaltenen Eintrag fehlen.
+ENRICHABLE_FIELDS = (
+    "laenge_km", "art2", "land", "standort", "lat", "lon",
+    "datum_ende", "anmeldeschluss", "veranstalter_url",
+)
+
+
+def _enrich_missing_fields(target: dict, source: dict) -> None:
+    for field in ENRICHABLE_FIELDS:
+        if target.get(field) is None and source.get(field) is not None:
+            target[field] = source[field]
 
 
 # --------------------------------------------------------------------------

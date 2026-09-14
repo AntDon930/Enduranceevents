@@ -158,8 +158,8 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Drei Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
-Events in `events.json` landen:
+Fünf Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+und eindeutige Events in `events.json` landen:
 
 - **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
   gleichnamige Funktion in `laufkalender_scraper.py`): Events mit
@@ -178,51 +178,108 @@ Events in `events.json` landen:
   Marathon/Stadtlauf) hätte die generische Straße-Regel zuerst zugetroffen
   und das Event fälschlich als Straßenlauf statt als Trail eingestuft
   (echter, mit realen Daten verifizierter Bug).
-- **Manuelle Korrekturen** (`scripts/manual_overrides.json`): blv-sport.de
-  liefert weder Distanz noch einen Veranstalter-Link (siehe Tabelle
-  unten) - für alle zum Zeitpunkt der Erstellung von blv-sport.de
-  gefundenen Events wurde die offizielle Ausschreibung einzeln per
-  Websuche recherchiert und dort als Override (Distanz, ggf. Kategorie,
-  Link) hinterlegt; ein Fall davon war sogar ein echtes Duplikat unter
-  anderem Namen (`exclude: true`). Wird von `apply_manual_overrides()`
-  vor der 5-km-Filterung angewendet (Schlüssel: `"<Name>|<Datum>"`).
-  **Wichtiger Vorbehalt**: Diese Recherche ist eine Momentaufnahme
-  (Stand siehe `_readme` in der JSON-Datei) - Distanzen/Termine können
-  sich von Jahr zu Jahr ändern, und die Datei deckt nur die zum
-  Recherchezeitpunkt bei blv-sport.de gelisteten Events ab. Neue
-  blv-sport.de-Events ohne Eintrag in dieser Datei bleiben ohne Distanz/
-  Link (werden aber nicht durch die 5-km-Regel ausgeschlossen, da ihre
-  Distanz ja unbekannt ist - siehe oben). Diese Datei müsste also
-  regelmäßig von Hand nachgepflegt werden, um dauerhaft dieselbe
-  Datenqualität zu halten wie die anderen vier Quellen, die Distanz und
-  Link selbst mitliefern.
+- **Duplikaterkennung über Quellgrenzen hinweg**
+  (`scraper_lib.is_same_event()`): Dieselbe Veranstaltung steht meist in
+  mehreren Kalendern – unter abweichendem Namen und mit leicht
+  abweichender Distanz („52. Int. Bodensee-Marathon" / „52.
+  Bodensee-Marathon" / „Bodensee Marathon", 42,195 vs. 42,2 km). Ein
+  Abgleich über den exakten Namen erkennt das nicht; beim ersten
+  vollständigen Lauf steckten dadurch **65 Duplikat-Gruppen** in
+  `events.json`. Zwei Events gelten jetzt als identisch, wenn *alle* vier
+  Bedingungen zutreffen: gleiches Startdatum, ähnlicher Name (normalisiert
+  ohne Auflagen-Nummer, Satzzeichen, Umlaute und Füllwörter; sonst
+  Ähnlichkeit ≥ 0,88), derselbe Ort (Ortsname oder Koordinaten ≤ 30 km)
+  und kompatible Distanz (Toleranz ±0,5 km bzw. 5 %). Die Orts-Bedingung
+  verhindert Fehltreffer bei generischen Namen („Silvesterlauf" in
+  Salzburg vs. München), die Distanz-Toleranz ist klein genug, dass echte
+  Distanz-Varianten desselben Events (5 km / 10 km / Halbmarathon)
+  erhalten bleiben. Beim Zusammenführen wird der vollständigste Eintrag
+  behalten, fehlende Felder werden aus den Duplikaten ergänzt und ein
+  direkter Veranstalter-Link einem Kalender-Portal-Link vorgezogen – der
+  Datensatz gewinnt durch jede zusätzliche Quelle, statt doppelte Zeilen
+  zu erzeugen.
+- **Nur Quellen, die Distanz UND Veranstalter-Link mitliefern**: Genau
+  daran ist `blv-sport.de` gescheitert und wurde deshalb aus dem
+  automatischen Scraping genommen (siehe Tabelle unten). Ohne Distanz
+  greift die 5-km-Regel nicht, ohne Link ist nichts überprüfbar – und
+  beides pro Event manuell zu recherchieren skaliert nicht. Neue Quellen
+  sollten an diesem Maßstab gemessen werden.
+- **Manuelle Korrekturen** (`scripts/manual_overrides.json`): Generischer
+  Mechanismus, um einzelne Events zu korrigieren (Distanz, Kategorie,
+  Link) oder ganz auszuschließen (`exclude: true`, z. B. ein verifiziertes
+  Duplikat, das unter abweichendem Namen ein zweites Mal gelistet war).
+  Wird von `apply_manual_overrides()` vor der 5-km-Filterung angewendet
+  (Schlüssel: `"<Name>|<Datum>"`, Abgleich nicht case-sensitiv). Aktuell
+  enthält die Datei die Recherche-Ergebnisse zu den 40 Events, die
+  blv-sport.de vor der Deaktivierung geliefert hatte – diese Events
+  bleiben damit vollständig in `events.json` erhalten (mit Distanz,
+  Kategorie und Link aus der jeweils offiziellen Ausschreibung). Die
+  Einträge bleiben wirksam, falls dieselben Events künftig über eine
+  andere Quelle mit identischem Namen + Datum hereinkommen.
 
-### Acht Quellen geprüft, fünf davon aktiv genutzt
+### Bestehende Daten nachträglich aufräumen: `clean_events.py`
+
+Die Scraper verändern vorhandene Einträge nie (sie fügen nur neue an) –
+neue Regeln oder Bugfixes wirken daher nicht rückwirkend. Genau dafür gibt
+es `scripts/clean_events.py`: es wendet die manuellen Korrekturen an,
+bestimmt die Kategorie aus dem Namen neu, zieht eine einmalige
+Distanz-Korrektur nach (behobener Bug: „Halbmarathon" wurde mit 42,2 km
+statt 21,1 km eingetragen, weil das Stichwort „marathon" zuerst prüfte),
+entfernt zu kurze Laufevents und führt Duplikate zusammen. Zum Schluss
+wird nach Datum sortiert (kleine Git-Diffs). Das Skript ist idempotent –
+ein zweiter Lauf ändert nichts mehr.
+
+```bash
+python3 scripts/clean_events.py --dry-run   # nur Bericht, nichts ändern
+python3 scripts/clean_events.py             # events.json aufräumen
+```
+
+`update_events.py` ruft es nach jedem echten Lauf automatisch auf (nach
+allen Scrapern, da Duplikate erst im Zusammenspiel mehrerer Quellen
+entstehen, und vor der „Benachrichtige mich"-Meldung, damit keine Events
+gemeldet werden, die gleich wieder zusammengeführt werden). Ein Fehler
+beim Aufräumen bricht den Gesamtlauf nicht ab.
+
+### Acht Quellen geprüft, vier davon aktiv genutzt
 
 Für dieses Projekt wurden acht Lauf-/Event-Kalender auf automatisiertes
 Auslesen geprüft (robots.txt live abgerufen und ausgewertet, dazu
 stichprobenartig Nutzungsbedingungen/Impressum auf ein explizites
-Scraping-Verbot durchsucht). Fünf erlauben es und werden aktiv
-gescraped, drei werden bewusst übersprungen:
+Scraping-Verbot durchsucht). Vier werden aktiv gescraped, vier werden
+bewusst übersprungen – drei aus rechtlichen/technischen Gründen, eine
+(blv-sport.de) wegen mangelnder Datenqualität:
 
 | Quelle | Status | Skript |
 |---|---|---|
 | [laufen.de](https://laufen.de/laufkalender) | ✅ aktiv | `laufkalender_scraper.py` |
 | [runningcompany.de](https://www.runningcompany.de/runners-high/laufkalender/) | ✅ aktiv | `runningcompany_scraper.py` |
 | [running.life](https://running.life/laufkalender/deutschland) | ✅ aktiv | `runninglife_scraper.py` |
-| [blv-sport.de](https://blv-sport.de/laufsport/laufkalender) | ✅ aktiv | `blvsport_scraper.py` |
 | [planet-marathon.de](http://www.planet-marathon.de/marathon_d.html) | ✅ aktiv | `planetmarathon_scraper.py` |
-| [ironman.com](https://www.ironman.com/races) | ⏭ übersprungen | `ironman_scraper.py` |
-| [runnersworld.de](https://www.runnersworld.de/laufkalender/) | ⏭ übersprungen | `runnersworld_scraper.py` |
-| [ahotu.com](https://www.ahotu.com/de/kalender/laufen/deutschland) | ⏭ übersprungen | `ahotu_scraper.py` |
+| [blv-sport.de](https://blv-sport.de/laufsport/laufkalender) | ⏭ übersprungen (Datenqualität) | `blvsport_scraper.py` |
+| [ironman.com](https://www.ironman.com/races) | ⏭ übersprungen (robots.txt) | `ironman_scraper.py` |
+| [runnersworld.de](https://www.runnersworld.de/laufkalender/) | ⏭ übersprungen (robots.txt) | `runnersworld_scraper.py` |
+| [ahotu.com](https://www.ahotu.com/de/kalender/laufen/deutschland) | ⏭ übersprungen (Bot-Sperre) | `ahotu_scraper.py` |
 
 Alle acht Skripte akzeptieren dieselben CLI-Optionen
 (`--events-json`, `--dry-run`, `--max-pages`, `--no-geocoding`,
 `--render-js`, `--api-url`, `--include-all-europe`) und schreiben
-direkt (dedupliziert über Name + Startdatum) in `events.json`.
+direkt (dedupliziert über Name + Startdatum + Distanz) in `events.json`.
 
-#### Die drei übersprungenen Quellen
+#### Die vier übersprungenen Quellen
 
+- **blv-sport.de** (Datenqualität, nicht robots.txt): Der Zugriff wäre
+  einwandfrei erlaubt (keine robots.txt = keine Einschränkungen), aber
+  die Tabelle liefert nur Datum, Bezeichnung und Ort – **keine Distanz
+  und keinen Veranstalter-Link**. Damit fehlen genau die zwei Angaben,
+  von denen die Datenqualität abhängt: ohne Distanz greift die
+  5-km-Mindestdistanz-Regel nicht (reine Kinderläufe landen unbemerkt in
+  der Liste), ohne Link ist nichts überprüfbar. Beide Lücken lassen sich
+  nur durch manuelle Recherche pro Event schließen (siehe
+  `scripts/manual_overrides.json`), was bei jedem neuen Event erneut
+  anfallen würde. Da ein Großteil der bayerischen Läufe ohnehin über
+  laufen.de **mit** Distanz und Link erfasst wird, ist diese Quelle
+  deaktiviert. Die bereits recherchierten Events bleiben in `events.json`
+  erhalten.
 - **ironman.com**: robots.txt erlaubt zwar `User-agent: *` generell
   (`Allow: /`), sperrt aber ausdrücklich einzelne KI-Crawler namentlich
   per `Disallow: /` – darunter **ClaudeBot** (Anthropics eigener
@@ -242,13 +299,14 @@ direkt (dedupliziert über Name + Startdatum) in `events.json`.
   – die Domain lässt sich ohne Umgehung dieser Challenge gar nicht
   automatisiert erreichen.
 
-Alle drei Skripte brechen deshalb selbst sofort ab (Exit-Code 0, klare
+Alle vier Skripte brechen deshalb selbst sofort ab (Exit-Code 0, klare
 Meldung, kein Netzwerkzugriff), bevor `update_events.py` sie überhaupt
 aufruft – sie bleiben als dokumentierte Vorlage im Repo, falls sich die
-jeweilige Situation künftig ändert. Details je Quelle stehen im
+jeweilige Situation künftig ändert (bei blv-sport.de genügt dann das
+Entfernen des `sys.exit(0)`-Blocks). Details je Quelle stehen im
 Docstring am Kopf jedes Skripts.
 
-#### Besonderheiten der fünf aktiven Quellen
+#### Besonderheiten der vier aktiven Quellen
 
 - **laufen.de**: Die Kalenderseite selbst liefert kein JSON-LD und im
   initialen HTML keine Event-Liste – sie lädt die Ergebnisse per
@@ -262,13 +320,6 @@ Docstring am Kopf jedes Skripts.
 - **running.life**: Liefert Events server-seitig als schema.org
   **ItemList** mit eingebetteten `SportsEvent`-Objekten – wird von
   `scraper_lib.py` automatisch erkannt und normalisiert.
-- **blv-sport.de**: Hat gar keine robots.txt (HTTP 404) – nach
-  robots.txt-Konvention (RFC 9309) bedeutet das „keine Einschränkungen
-  angegeben", nicht „Zugriff verboten". Einfache HTML-Tabelle ohne
-  Distanz-/Link-Spalte - Distanz/Kategorie/Link kommen für diese Quelle
-  daher ausschließlich aus `scripts/manual_overrides.json` (siehe
-  Abschnitt „Datenqualität" oben), Events ohne Eintrag dort bleiben ohne
-  Distanz/Link.
 - **planet-marathon.de**: Alte, klassenlose HTML-Tabelle (nur
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).

@@ -122,6 +122,26 @@ def event_identity(event: dict) -> tuple:
     return (str(event.get("name", "")).strip().casefold(), event.get("datum_start"), rounded_km)
 
 
+def run_cleanup(events_json: Path) -> bool:
+    """Führt scripts/clean_events.py aus: wendet manuelle Korrekturen an,
+    entfernt zu kurze Laufevents und führt Duplikate zusammen, die
+    verschiedene Quellen unter abweichenden Namen geliefert haben. Läuft
+    NACH allen Scrapern, weil Duplikate erst durch das Zusammenspiel
+    mehrerer Quellen entstehen. Ein Fehler hier bricht den Gesamtlauf
+    nicht ab - events.json ist dann nur unbereinigt."""
+    script = SCRIPTS_DIR / "clean_events.py"
+    if not script.exists():
+        return True
+    cmd = [sys.executable, str(script), "--events-json", str(events_json), "--quiet"]
+    print(f"\n{'=' * 70}\n→ Aufräumen: {script.name}\n{'=' * 70}")
+    result = subprocess.run(cmd, cwd=REPO_ROOT)
+    if result.returncode != 0:
+        print(f"⚠ {script.name} fehlgeschlagen (exit code {result.returncode}) – "
+              "events.json bleibt unbereinigt, der Lauf gilt trotzdem als erfolgreich.")
+        return False
+    return True
+
+
 def notify_webhook_of_new_events(new_events: list[dict]) -> None:
     """Meldet neu hinzugekommene Events (best-effort, siehe
     functions/index.js) an eine optionale Cloud Function, die sie gegen
@@ -216,6 +236,11 @@ def main():
     for script in scripts:
         extra_args = SCRIPT_EXTRA_ARGS.get(script.name, [])
         results[script.name] = run_script(script, args.events_json, args.dry_run, extra_args)
+
+    if not args.dry_run:
+        # Aufräumen VOR dem Vorher-/Nachher-Vergleich: sonst würden Events
+        # gemeldet, die die Duplikat-Zusammenführung gleich wieder entfernt.
+        run_cleanup(args.events_json)
 
     after_events = load_events(args.events_json)
     after = len(after_events)

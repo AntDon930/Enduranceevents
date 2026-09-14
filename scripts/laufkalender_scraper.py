@@ -338,10 +338,14 @@ def guess_distance_km(text: str) -> float | None:
     matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
         return max(float(m.replace(",", ".")) for m in matches)
+    # Fallback über bekannte Renn-Bezeichnungen, bewusst nach Stichwort-
+    # LÄNGE absteigend geprüft (nicht in Dict-Reihenfolge): "halbmarathon"
+    # enthält die Teilkette "marathon" - siehe Kommentar in
+    # scraper_lib.guess_distance_km() zu diesem echten Bug.
     lowered = text.lower()
-    for keyword, km in KNOWN_DISTANCES_KM.items():
-        if keyword in lowered:
-            return km
+    for keyword in sorted(KNOWN_DISTANCES_KM, key=len, reverse=True):
+        if keyword and keyword in lowered:
+            return KNOWN_DISTANCES_KM[keyword]
     return None
 
 
@@ -560,7 +564,12 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
 
 
 def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) -> tuple[list[Event], int]:
-    kept = [e for e in events if e.laenge_km is None or e.laenge_km >= min_km]
+    # Nur für Laufen und nur bei bekannter Distanz, siehe Kommentar zu
+    # MIN_DISTANCE_KM in scraper_lib.py.
+    kept = [
+        e for e in events
+        if e.laenge_km is None or e.art1 != "Laufen" or e.laenge_km >= min_km
+    ]
     skipped = len(events) - len(kept)
     return kept, skipped
 
@@ -582,15 +591,28 @@ def dedupe_key(
 
 
 def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[list[dict], int, int]:
-    """Fügt neue Events an, überspringt Duplikate (Abgleich über Name +
-    Startdatum + Distanz). Gibt (gemergte Liste, Anzahl neu hinzugefügt,
-    Anzahl übersprungen) zurück."""
+    """Fügt neue Events an, überspringt Duplikate. Zwei Stufen wie in
+    `scraper_lib.merge_events()`: exakter Abgleich über `dedupe_key()`
+    (Name + Startdatum + Distanz) und zusätzlich `is_same_event()` gegen
+    alle Events desselben Datums - damit dasselbe Event nicht doppelt
+    erscheint, wenn eine andere Quelle es unter abweichendem Namen liefert.
+    Die dafür nötige Namens-/Orts-/Distanz-Logik wird aus `scraper_lib`
+    importiert statt hier erneut implementiert (siehe Docstring oben:
+    dieses Skript nutzt scraper_lib bewusst nicht für das Abrufen/Parsen,
+    reine Vergleichslogik aber sehr wohl - sonst müsste sie doppelt
+    gepflegt werden)."""
+    from scraper_lib import ENRICHABLE_FIELDS, is_same_event  # lokaler Import, s. o.
+
     existing_keys = {
         dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km")) for e in existing
     }
     existing_keys.discard(None)
 
     merged = list(existing)
+    by_date: dict[str | None, list[dict]] = {}
+    for e in merged:
+        by_date.setdefault(e.get("datum_start"), []).append(e)
+
     added = 0
     skipped = 0
 
@@ -598,11 +620,25 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
         if not event.is_valid():
             skipped += 1
             continue
+        candidate = event.to_dict()
         key = dedupe_key(event.name, event.datum_start, event.laenge_km)
         if key is None or key in existing_keys:
             skipped += 1
             continue
-        merged.append(event.to_dict())
+
+        twin = next(
+            (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
+            None,
+        )
+        if twin is not None:
+            for field in ENRICHABLE_FIELDS:
+                if twin.get(field) is None and candidate.get(field) is not None:
+                    twin[field] = candidate[field]
+            skipped += 1
+            continue
+
+        merged.append(candidate)
+        by_date.setdefault(event.datum_start, []).append(candidate)
         existing_keys.add(key)
         added += 1
 

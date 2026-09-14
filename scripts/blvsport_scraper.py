@@ -8,6 +8,34 @@ Liest Lauf-Events vom Laufkalender auf
 https://blv-sport.de/laufsport/laufkalender aus und ergänzt sie in
 `events.json` (siehe `scraper_lib.py` für die gemeinsame Logik).
 
+⚠ ABSICHTLICH NICHT AKTIV GENUTZT (Datenqualität, nicht robots.txt)
+----------------------------------------------------------------------
+Anders als bei den drei anderen übersprungenen Quellen (ironman.com,
+runnersworld.de, ahotu.com) ist der Zugriff hier technisch und rechtlich
+einwandfrei erlaubt - diese Quelle ist bewusst wegen ihrer DATENQUALITÄT
+deaktiviert:
+
+Die Tabelle liefert ausschließlich Datum, Bezeichnung und Ort - KEINE
+Distanz und KEINEN Veranstalter-Link. Damit fehlen genau die zwei
+Angaben, von denen die Qualität dieses Projekts abhängt: ohne Distanz
+greift die 5-km-Mindestdistanz-Regel nicht (reine Kinder-/Bambiniläufe
+landen unbemerkt in der Liste), und ohne Link kann niemand die Angaben
+gegenprüfen. Beide Lücken lassen sich nur durch manuelle Recherche pro
+Event schließen (das ist die Aufgabe von `scripts/manual_overrides.json`,
+dort sind die 40 zum Recherchezeitpunkt gelisteten Events einzeln gegen
+die offizielle Ausschreibung geprüft) - und diese Handarbeit müsste bei
+jedem neuen Event erneut geleistet werden, sonst sinkt die Qualität mit
+jedem Lauf des Scrapers wieder. Dieser Aufwand steht in keinem
+Verhältnis zum Mehrwert, zumal ein Großteil der bayerischen Läufe
+ohnehin über laufen.de mit Distanz UND Link erfasst wird.
+
+Das Skript bricht deshalb sofort mit Exit-Code 0 ab (kein
+Netzwerkzugriff) und bleibt nur als dokumentierte, funktionsfähige
+Vorlage im Repo - falls blv-sport.de seine Tabelle künftig um Distanz-
+und Link-Spalten erweitert, genügt es, den `sys.exit(0)`-Block unten zu
+entfernen. Die bereits recherchierten Events sind in `events.json`
+erhalten geblieben.
+
 Echt getestet (Stand: verifiziert gegen die Live-Seite)
 --------------------------------------------------------
 robots.txt liefert 404 (keine robots.txt vorhanden) -> laut Konvention
@@ -73,4 +101,11 @@ CONFIG = SiteConfig(
 )
 
 if __name__ == "__main__":
-    run_scraper_cli(CONFIG)
+    print(
+        "⏭  blvsport_scraper.py: bewusst übersprungen, OHNE die Seite abzurufen. "
+        "Der Zugriff wäre erlaubt, aber die Tabelle liefert weder Distanz noch "
+        "Veranstalter-Link - ohne beides greift die 5-km-Mindestdistanz-Regel "
+        "nicht und die Angaben sind nicht überprüfbar (Datenqualität), siehe "
+        "Docstring oben. events.json bleibt unverändert."
+    )
+    sys.exit(0)

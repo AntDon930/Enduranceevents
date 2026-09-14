@@ -1,5 +1,5 @@
 {
-  "_readme": "Manuelle Korrekturen/Ergänzungen für Events, deren Quelle (fast immer blv-sport.de, das weder Distanz noch Veranstalter-Link liefert) keine ausreichende Datenbasis für laenge_km/art2/veranstalter_url hergibt. Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, nicht case-sensitiv beim Abgleich). Jede Recherche wurde einzeln per Websuche gegen die offizielle Ausschreibung/den Veranstalter geprüft (Stand: 2026-09-14) - Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden. 'exclude': true entfernt das Event komplett (z. B. echte Duplikate oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Angewendet von scraper_lib.apply_manual_override() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen.",
+  "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert; 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden.",
   "47. Gaißacher Berglauf|2026-09-05": {
     "laenge_km": 4.5,
     "art2": "Berg",
@@ -37,6 +37,13 @@
     "laenge_km": 10.7,
     "veranstalter_url": "https://putzbrunner-herbstlauf.de/"
   },
+  "Sri Chinmoy Peace-Mile 6-Stunden-Lauf|2026-09-12": {
+    "_note": "BEWUSST KEINE laenge_km: 6-Stunden-Lauf auf einem 1,58-km-Rundkurs - die zurückgelegte Distanz hängt vom Läufer ab (typisch weit über 5 km), eine feste Streckenlänge gibt es nicht. Bleibt ohne Distanz in der Liste und wird von der 5-km-Regel nicht erfasst (nur bekannte Distanzen werden gefiltert)."
+  },
+  "Lutzi-Lauf und XL-Run|2026-09-13": {
+    "laenge_km": 3.0,
+    "_note": "Premierenveranstaltung des TSV Pfaffenhausen; laut offizieller Ankündigung ist die einzige echte LAUF-Distanz für Erwachsene 3.000 m (die 7,5 km sind eine Walking-Strecke, kein Lauf). Liegt damit unter der 5-km-Schwelle und wird herausgefiltert."
+  },
   "Run for life|2026-09-13": {
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.muenchner-aidshilfe.de/aktuelle-themen-newsreader/run-for-life-anmeldungen-gestartet-3.html"
@@ -57,6 +64,12 @@
   "Miltenberger Landkreis Lauftag|2026-09-13": {
     "laenge_km": 21.0,
     "veranstalter_url": "https://lauftag.landkreis-miltenberg.de/"
+  },
+  "Kapuziner-Kessellauf|2026-09-19": {
+    "laenge_km": 14.3,
+    "art2": "Trail",
+    "veranstalter_url": "https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.html",
+    "_note": "Hauptlauf 14,3 km mit ca. 300 Hm, überwiegend auf Wald- und Forstwegen (daher Trail statt Straße); weitere Strecken 6 km Hobbylauf/Nordic-Walking sowie Schüler-/Bambiniläufe."
   },
   "13. Fichtelgebirgstrailrun|2026-09-19": {
     "laenge_km": 21.0,
@@ -118,6 +131,9 @@
     "laenge_km": 7.5,
     "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/",
     "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Cross)."
+  },
+  "3. Aindlinger Kleeblattmarsch|2026-09-26": {
+    "_note": "BEWUSST KEINE laenge_km: 24-Stunden-Format mit bis zu vier Runden à 25 km (25/50/75/100 km je nach Teilnehmer), ohne Streckenmarkierung/Straßensperrung - eine einzelne feste Distanz gibt es nicht. Liegt in jedem Fall deutlich über 5 km, bleibt ohne Distanz in der Liste."
   },
   "10. Möhrendorfer Karpfenweiherlauf|2026-09-26": {
     "laenge_km": 21.1,
