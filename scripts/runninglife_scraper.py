@@ -71,16 +71,20 @@ Seite (`?page=2`, `?page=3`, ...). Für Österreich/Schweiz analog
 `/laufkalender/oesterreich` bzw. `/laufkalender/schweiz` als
 `CONFIG.calendar_url` in einer Kopie dieses Skripts eintragen.
 
-Offen: Kalendertiefe
----------------------
-Die Paginierung reicht aktuell bis Seite ~101, der Kalender enthält für
-Deutschland also grob 2000 Events. Abgerufen werden aber nur
-`scraper_lib.DEFAULT_MAX_PAGES` (= 10) Seiten, also rund 200. Das ist
-bewusst noch nicht erhöht: es würde `events.json` etwa verzehnfachen,
-und diese Entscheidung gehört nicht in einen Bugfix. Zum Erhöhen genügt
-`--max-pages 110` bzw. ein Eintrag in `SCRIPT_EXTRA_ARGS` in
-`scripts/update_events.py`. Reine Kalenderseiten, keine Detailseiten -
-110 Seiten kosten bei 2 s Pause nur wenige Minuten.
+Kalendertiefe
+--------------
+Die Paginierung reicht bis Seite ~101, der Kalender enthält für
+Deutschland also grob 2000 Events. Der tägliche Lauf schöpft das aus:
+`SCRIPT_EXTRA_ARGS` in `scripts/update_events.py` übergibt
+`--max-pages 110` (Puffer über den ~101 Seiten; die Schleife stoppt von
+selbst, sobald keine nächste Seite mehr verlinkt ist). Ohne das griffe
+`scraper_lib.DEFAULT_MAX_PAGES` (= 10), also nur ~200 Events - und für
+alle übrigen fehlte damit auch die offizielle Veranstalter-Seite, die
+running.life pro Event kennt.
+
+Kostenpunkt ist nicht die Paginierung (~101 Seiten = ~3,5 Minuten),
+sondern der Detailseiten-Abruf: ~2020 Seiten mal 2 s Pause ≈ 67 Minuten.
+Für einen schnellen Testlauf daher `--max-pages 2 --no-details`.
 
 Nutzung: `python3 scripts/runninglife_scraper.py --help`.
 """

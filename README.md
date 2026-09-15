@@ -428,10 +428,32 @@ Docstring am Kopf jedes Skripts.
   aussortiert.
 - **running.life**: Liefert Events server-seitig als schema.org
   **ItemList** mit eingebetteten `SportsEvent`-Objekten – wird von
-  `scraper_lib.py` automatisch erkannt und normalisiert.
+  `scraper_lib.py` automatisch erkannt und normalisiert. Die Distanzen
+  stehen dort nicht drin, daher zusätzlich die Strecken-Chips der
+  Kalenderseite und die genaue Aufzählung im Beschreibungstext der
+  Detailseite (siehe oben). Der Kalender wird in voller Tiefe abgerufen:
+  `SCRIPT_EXTRA_ARGS` in `update_events.py` übergibt `--max-pages 110`,
+  das deckt die ~101 Seiten (rund 2000 deutsche Events) ab. Mit dem
+  Standardwert von 10 Seiten kämen nur ~200 Events herein – und für alle
+  übrigen fehlte auch die offizielle Veranstalter-Seite.
 - **planet-marathon.de**: Alte, klassenlose HTML-Tabelle (nur
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).
+
+### Laufzeit
+
+Ein **vollständiger Lauf dauert rund zwei Stunden**: laufen.de und
+running.life rufen die Detailseite jedes Events ab (nur dort stehen die
+einzelnen Wettbewerbe, das Land und die offizielle Veranstalter-Seite),
+und die Pause zwischen den Requests kommt aus der jeweiligen robots.txt.
+Grobe Verteilung: running.life ~71 Minuten (~2020 Detailseiten),
+laufen.de ~26 Minuten (~750), Rest wenige Minuten, plus Geocoding neuer
+Orte beim ersten Lauf.
+
+Das ist der Grund, warum der Workflow `timeout-minutes: 300` setzt – und
+warum man einen Datenlauf besser über „Actions → Run workflow" auslöst
+als ihn lokal abzuwarten. Für schnelle Tests eines Scrapers:
+`--max-pages 2 --no-details`.
 
 ### Alle Scraper gemeinsam ausführen: `update_events.py`
 

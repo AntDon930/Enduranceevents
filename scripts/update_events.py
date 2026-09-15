@@ -94,9 +94,13 @@ SCRIPT_EXTRA_ARGS: dict[str, list[str]] = {
     # ["--no-details"] ließe sich das abschalten, dann fehlen aber genau
     # diese Angaben (siehe README, "Datenqualität").
     #
-    # running.life hat für Deutschland rund 2000 Events (ca. 101
-    # Kalenderseiten), abgerufen werden aber nur die ersten 10 Seiten.
-    # Zum Ausschöpfen: "runninglife_scraper.py": ["--max-pages", "110"].
+    # running.life: Kalendertiefe ausgeschöpft. Die Paginierung endet bei
+    # Seite ~101 (rund 2000 deutsche Events); 110 ist der Puffer darüber,
+    # die Schleife stoppt von selbst, sobald es keine nächste Seite mehr
+    # gibt. Vorher standen hier nur die 10 Standardseiten, also ~200
+    # Events - und für die restlichen fehlte damit auch die offizielle
+    # Veranstalter-Seite, die running.life pro Event kennt.
+    "runninglife_scraper.py": ["--max-pages", "110"],
 }
 
 

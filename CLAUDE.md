@@ -106,8 +106,14 @@ umdrehen:
 
 laufen.de und running.life rufen **zusätzlich die Detailseite jedes Events**
 ab – nur dort stehen die einzelnen Wettbewerbe, das Land und die offizielle
-Seite. Das dauert ~30 Minuten für einen vollen Lauf. `--no-details`
-schaltet es ab, `--max-details N` begrenzt es für Testläufe.
+Seite. `--no-details` schaltet es ab, `--max-details N` begrenzt es für
+Testläufe.
+
+**Ein vollständiger Lauf dauert ~2 Stunden** (running.life schöpft mit
+`--max-pages 110` den ganzen Kalender aus, ~2020 Detailseiten mit 2 s
+Pause; dazu laufen.de mit ~750). Deshalb niemals im Chat abwarten – den
+Workflow auslösen und später nachsehen. Für Tests immer
+`--max-pages 2 --no-details` o. Ä.
 
 ## Automatik
 
@@ -118,12 +124,6 @@ also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
 
 ## Offene Punkte
 
-- **running.life-Kalendertiefe**: ~2000 deutsche Events verfügbar (≈101
-  Seiten), abgerufen werden 10 Seiten ≈ 200. Erhöhen über
-  `SCRIPT_EXTRA_ARGS` in `update_events.py` (`--max-pages 110`). Würde
-  `events.json` stark vergrößern und viele der restlichen
-  laufen.de-Portallinks (gut 40 % der Einträge) durch offizielle ersetzen. **Wartet auf Entscheidung
-  des Nutzers.**
 - **Firebase**: Login-Button ist da, aber inaktiv, bis der Nutzer ein
   Firebase-Projekt anlegt und `firebase-config.js` füllt. Apple-Login bleibt
   deaktivierter Platzhalter (kein Apple Developer Account).

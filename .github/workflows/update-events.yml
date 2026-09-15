@@ -24,15 +24,22 @@ concurrency:
 jobs:
   update-events:
     runs-on: ubuntu-latest
-    # Der Lauf dauert inzwischen deutlich länger als früher: laufen.de
-    # liefert die einzelnen Wettbewerbe, das Land und den echten
-    # Veranstalter-Link nur auf der Detailseite jedes Events, die daher
-    # zusätzlich abgerufen wird (rund 750 Seiten mit der aus robots.txt
-    # abgeleiteten Pause). Realistisch sind 30-45 Minuten. Das Limit ist
-    # großzügig darüber gesetzt, damit eine hängende Quelle den Job
-    # beendet statt stundenlang Minuten zu verbrauchen (GitHub-Standard
-    # wären 6 Stunden).
-    timeout-minutes: 120
+    # Laufzeit-Abschätzung (2 s Pause pro Request, aus robots.txt):
+    #
+    #   laufen.de        25 Kalenderseiten +  ~750 Detailseiten  ~26 min
+    #   running.life   ~101 Kalenderseiten + ~2020 Detailseiten  ~71 min
+    #   übrige Quellen                                            ~5 min
+    #   Geocoding neuer Orte (nur beim ersten Lauf nach dem
+    #   Ausweiten, danach aus dem Actions-Cache)               ~15-25 min
+    #                                                       = ~120-130 min
+    #
+    # Die Detailseiten sind nicht optional: nur dort stehen die einzelnen
+    # Wettbewerbe, das Land und die offizielle Veranstalter-Seite.
+    # Das Limit liegt deutlich darüber, damit ein einzelner langsamer Tag
+    # den Lauf nicht kurz vor dem Commit abschneidet - eine hängende
+    # Quelle soll ihn aber weiterhin beenden, statt stundenlang Minuten zu
+    # verbrauchen (GitHub-Standard wären 6 Stunden).
+    timeout-minutes: 300
     steps:
       - name: Checkout
         uses: actions/checkout@v4
