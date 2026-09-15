@@ -2,7 +2,14 @@ rules_version = '2';
 
 // Firestore Security Rules für die "Benachrichtige mich"-Filterabos
 // (siehe auth.js: EndauranceAuth.saveFilterSubscription). In der Firebase-
-// Konsole unter Build -> Firestore Database -> Rules einfügen.
+// Konsole einfügen unter: Datenbanken und Speicher -> Firestore Database
+// -> Reiter "Regeln" (ältere Anleitungen sagen noch "Build -> Firestore
+// Database", die Konsole hat die linke Spalte umgestellt).
+//
+// WICHTIG: Die Datenbank muss die STANDARD-Datenbank sein (Datenbank-ID
+// "(default)"). Firestore unterstützt inzwischen mehrere Datenbanken pro
+// Projekt, aber auth.js nutzt firebase.firestore() ohne Namen und
+// spricht damit immer "(default)" an.
 //
 // Prinzip: Jede/r Nutzer/in darf NUR eigene Abos anlegen/lesen/löschen
 // (erkannt an request.auth.uid). Die Cloud Function, die neue Events
