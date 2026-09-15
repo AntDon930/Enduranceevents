@@ -146,7 +146,17 @@
   }
   .cta-btn .arrow { font-size: 1.15rem; transition: transform 0.15s ease; }
   .cta-btn:hover .arrow { transform: translateX(3px); }
-  .hero-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  /* justify-content: center, damit der Button unter der zentrierten
+     Überschrift steht. Ohne das richtet der Flex-Container ihn links
+     aus - das text-align: center von .hero-content greift auf
+     Flex-Items nicht. */
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
 
   .scroll-hint {
     position: absolute;

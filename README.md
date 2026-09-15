@@ -501,12 +501,15 @@ bereits bekannte Städte zu vermeiden.
 `index.html`, `events.html` und `karte.html` haben rechts neben dem
 Home-Button einen „Anmelden"-Button (siehe `auth.js`). Er nutzt
 **Firebase Authentication** (Google + E-Mail/Passwort mit Bestätigungs-
-E-Mail; „Mit Apple anmelden" ist im Modal sichtbar, aber bewusst
-**deaktiviert** - Apple Sign-In erfordert ein kostenpflichtiges
-Apple-Developer-Konto, das für dieses Projekt noch nicht existiert;
-sobald eines vorhanden ist, in `auth.js` das `disabled`-Attribut der
-beiden `#ee-apple-btn`-Buttons entfernen und die Apple-Provider-Logik
-ergänzen).
+E-Mail).
+
+„Mit Apple anmelden" ist **ausgeblendet**: Apple Sign-In erfordert ein
+kostenpflichtiges Apple-Developer-Konto, das für dieses Projekt nicht
+existiert – ein dauerhaft ausgegrauter Button war nur Ballast im Dialog.
+Der Code dafür ist aber vorbereitet: in `auth.js`
+`SHOW_APPLE_SIGNIN = true` setzen und in der Firebase-Konsole den
+Apple-Anbieter einrichten (Service ID, Key, Team ID), dann ist er wieder
+da.
 
 **Ohne Konfiguration ist der Button bereits jetzt sichtbar und öffnet
 das fertige Modal**, zeigt darin aber einen Hinweis „Login ist in dieser

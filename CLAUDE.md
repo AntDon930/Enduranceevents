@@ -125,8 +125,9 @@ also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
 ## Offene Punkte
 
 - **Firebase**: Login-Button ist da, aber inaktiv, bis der Nutzer ein
-  Firebase-Projekt anlegt und `firebase-config.js` füllt. Apple-Login bleibt
-  deaktivierter Platzhalter (kein Apple Developer Account).
+  Firebase-Projekt anlegt und `firebase-config.js` füllt (Code ist fertig,
+  es fehlt nur die Config). Apple-Login ist per `SHOW_APPLE_SIGNIN = false`
+  in `auth.js` ausgeblendet – kein Apple-Developer-Konto.
 - **5 Seed-Links** unklar/evtl. eingestellt (Bodensee-Schwimmen, Engadin
   Bike Giro, Basel Marathon, Silvesterlauf Salzburg, Swiss Athletics
   Bahnmeeting) – absichtlich nicht geraten.
