@@ -44,13 +44,68 @@ const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 initializeApp();
 const db = getFirestore();
 
-// Portierte (bewusst vereinfachte) Version der Filterlogik aus
-// events.html getFiltered() - ohne Datumsfilter, ohne die feingranularen
-// Distanz-Kategorien (Marathon/Halbmarathon/...): diese sind nur in
-// events.html definiert (DISTANCE_CATEGORIES) und würden hier dupliziert
-// werden müssen. Ein Abo mit einer solchen Kategorie wird daher aktuell
-// nur über die einfachen laengeMin/laengeMax-Werte geprüft, falls
-// vorhanden - siehe README.md, Abschnitt "Bekannte Einschränkung".
+// Distanz-Kategorien, identisch zu DISTANCE_CATEGORIES in events.html.
+//
+// Diese Liste MUSS mit events.html übereinstimmen. Sie stand früher nur
+// dort, und die Cloud Function ignorierte den Kategorie-Filter komplett -
+// mit zwei Folgen, die beide real aufgetreten sind:
+//
+//   * Ein Abo mit NUR einer Kategorie ("Marathon", ohne Von/Bis-Werte)
+//     traf auf JEDES Event - es gab dann eine E-Mail pro neuem Event.
+//   * Das erste echte Abo (Schwimmen 10+ km, zusätzlich 400-500 km)
+//     traf auf 42 Events, obwohl die Webseite dafür 0 Treffer anzeigt:
+//     Die Von/Bis-Prüfung überspringt Events OHNE Distanzangabe, der
+//     Kategorie-Filter der Webseite verlangt dagegen eine bekannte
+//     Distanz. Genau diese 42 Events ohne Distanz rutschten durch.
+//
+// Beim Ändern der Kategorien also immer BEIDE Stellen anpassen.
+const DISTANCE_CATEGORIES = {
+  Laufen: {
+    "5k": (km) => km > 0 && km <= 5,
+    "10k": (km) => km > 5 && km <= 10,
+    half: (km) => Math.abs(km - 21.0975) <= 0.5,
+    marathon: (km) => Math.abs(km - 42.195) <= 0.5,
+    ultra: (km) => km > 42.195 + 0.5,
+  },
+  Fahrrad: {
+    r50: (km) => km > 0 && km <= 50,
+    r100: (km) => km > 50 && km <= 100,
+    r150: (km) => km > 100 && km <= 150,
+    r200: (km) => km > 150 && km <= 200,
+    rultra: (km) => km > 200,
+  },
+  Schwimmen: {
+    s1: (km) => km > 0 && km <= 1,
+    s2: (km) => km > 1 && km <= 2,
+    s3: (km) => km > 2 && km <= 3,
+    s5: (km) => km > 3 && km <= 5,
+    s10: (km) => km > 5,
+  },
+  Triathlon: {
+    sprint: (km) => km > 0 && km < 40,
+    olympic: (km) => Math.abs(km - 51.5) <= 3,
+    middle: (km) => Math.abs(km - 113) <= 5,
+    long: (km) => Math.abs(km - 226) <= 8,
+  },
+};
+
+// Prüft ein Event gegen die gewählten Kategorien. Der Schlüssel ist
+// "<Sportart>:<Kategorie>" (z. B. "Schwimmen:s10"), so speichert es
+// events.html. Ein Event passt, wenn MINDESTENS eine gewählte Kategorie
+// zutrifft (ODER-Verknüpfung, wie in der Liste).
+function matchesDistanceCategories(event, keys) {
+  if (event.laenge_km == null) return false;  // wie in der Liste: ohne Distanz kein Treffer
+  return keys.some((key) => {
+    const [sport, category] = String(key).split(":");
+    if (event.art1 !== sport) return false;
+    const test = (DISTANCE_CATEGORIES[sport] || {})[category];
+    return typeof test === "function" && test(event.laenge_km);
+  });
+}
+
+// Portierte Version der Filterlogik aus events.html getFiltered() - ohne
+// den Datumsfilter (das gesuchte Event liegt annahmegemäß in der Zukunft,
+// siehe README).
 function eventMatchesFilters(event, filters) {
   if (filters.land && filters.land.length && !filters.land.includes(event.land)) return false;
   if (filters.art1 && filters.art1.length && !filters.art1.includes(event.art1)) return false;
@@ -58,6 +113,8 @@ function eventMatchesFilters(event, filters) {
   if (filters.standort && filters.standort.length && !filters.standort.includes(event.standort)) return false;
   if (filters.laengeMin && event.laenge_km != null && event.laenge_km < parseFloat(filters.laengeMin)) return false;
   if (filters.laengeMax && event.laenge_km != null && event.laenge_km > parseFloat(filters.laengeMax)) return false;
+  if (filters.distanceCategories && filters.distanceCategories.length
+      && !matchesDistanceCategories(event, filters.distanceCategories)) return false;
   if (filters.radius && filters.origin && filters.origin.lat != null) {
     if (event.lat == null || event.lon == null) return false;
     const distKm = haversineKm(filters.origin.lat, filters.origin.lon, event.lat, event.lon);

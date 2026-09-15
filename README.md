@@ -606,13 +606,29 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    hinterlegen - sie übernimmt den eigentlichen Versand für die
    `mail`-Dokumente, die `functions/index.js` anlegt.
 
-**Bekannte Einschränkung**: Der Matching-Code in `functions/index.js`
-prüft Land/Sportart/Kategorie/Standort/Länge/Umkreis, aber (noch) nicht
-die feingranularen Distanz-Kategorien (Marathon/Halbmarathon/...) aus
-`events.html` (`DISTANCE_CATEGORIES`) - diese Tabelle müsste dafür
-zwischen `events.html` und der Cloud Function geteilt werden. Ein Abo
-mit einer solchen Kategorie wird aktuell nur über die einfachen
-Länge-von/bis-Werte geprüft, falls zusätzlich gesetzt.
+**Die Distanz-Kategorien sind doppelt gepflegt**: `DISTANCE_CATEGORIES`
+steht sowohl in `events.html` als auch in `functions/index.js` und
+**muss an beiden Stellen übereinstimmen**. Beim Ändern einer Kategorie
+also immer beide anpassen.
+
+Die Function ignorierte diesen Filter früher ganz, mit zwei Folgen, die
+beide real auftraten:
+
+- Ein Abo mit **nur** einer Kategorie („Marathon", ohne Von/Bis-Werte)
+  traf auf **jedes** Event – es hätte eine E-Mail pro neuem Event gegeben
+  (gegen den echten Datenstand geprüft: 1372 von 1372 Treffern statt der
+  korrekten 155).
+- Das erste echte Abo (Schwimmen 10+ km, zusätzlich 400–500 km) traf auf
+  42 Events, obwohl die Webseite dafür 0 Treffer anzeigt. Ursache: Die
+  Von/Bis-Prüfung überspringt Events **ohne** Distanzangabe, der
+  Kategorie-Filter der Webseite verlangt dagegen eine bekannte Distanz –
+  genau diese 42 Events ohne Distanz rutschten durch.
+
+Beides ist behoben; die Function liefert jetzt dieselben Treffer wie die
+Liste. Falls die Tabelle irgendwann wirklich geteilt statt kopiert werden
+soll, wäre eine gemeinsame `distance-categories.js` der Weg – dafür
+müsste `functions/` aber auf ES-Module oder einen Build-Schritt umgestellt
+werden, was für eine Tabelle mit vier Sportarten unverhältnismäßig ist.
 
 ## Lokal testen
 
