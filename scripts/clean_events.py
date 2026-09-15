@@ -71,23 +71,15 @@ from scraper_lib import (  # noqa: E402
     SiteConfig,
     guess_art2,
     guess_land,
+    is_portal_link,
     is_same_event,
     load_manual_overrides,
     round_km,
 )
 
-# Kalender-/Portal-Domains: nützlich als Fallback, aber ein direkter Link
-# auf die Veranstalter-Seite ist für Nutzer/innen wertvoller und wird beim
-# Zusammenführen von Duplikaten bevorzugt.
-PORTAL_DOMAINS = ("laufen.de", "running.life", "runnersworld.de", "leichtathletik.de")
-
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
 # Laufen genutzt (siehe ART2_KEYWORDS_LAUFEN in scraper_lib.py).
 ART2_CONFIG = SiteConfig(base_url="", calendar_url="")
-
-
-def is_portal_link(url: str | None) -> bool:
-    return bool(url) and any(domain in url for domain in PORTAL_DOMAINS)
 
 
 def completeness(event: dict) -> int:

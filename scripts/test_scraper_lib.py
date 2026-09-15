@@ -29,14 +29,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scraper_lib import (  # noqa: E402
     Event,
     SiteConfig,
+    art2_from_elevation,
     clean_competition_label,
     expand_competitions,
     guess_art2,
     guess_distance_km,
     guess_land,
+    is_portal_link,
     is_same_event,
     parse_competitions,
+    parse_elevation_m,
     round_km,
+    update_existing_event,
 )
 
 CONFIG = SiteConfig(base_url="", calendar_url="")
@@ -116,6 +120,13 @@ def test_wettbewerbe() -> None:
           clean_competition_label("Moslig 8000 (229 hm) | 8,5 km"), "Moslig 8000")
     check("races-Layout",
           clean_competition_label("TST 86K | 86 km | + 3500 hm"), "TST 86K")
+    # running.life schreibt die Strecken als Satz; alles ab dem Doppelpunkt
+    # ist Beschreibung und gehört nicht ins Label.
+    check("Satz mit Doppelpunkt",
+          clean_competition_label(
+              "VR Bank – BraunenBerg-Lauf: 14,6 km , ca. 400 Hm, Strecke endet in Oberalfingen."),
+          "VR Bank – BraunenBerg-Lauf")
+    check("Label ohne Doppelpunkt bleibt", clean_competition_label("Halbmarathon"), "Halbmarathon")
 
     # Der vom Nutzer genannte Fall: die Seite listet sieben Wettbewerbe,
     # vorher landete nur der längste in events.json.
@@ -154,6 +165,52 @@ def test_wettbewerbe() -> None:
           len(expand_competitions(base, [], CONFIG)), 1)
 
 
+def test_hoehenprofil() -> None:
+    print("\nHöhenprofil (art2_from_elevation):")
+    check("Hm lesen", parse_elevation_m("ca. 1100 Hm, Start im Bergwerk"), 1100.0)
+    check("Hm mit Tausenderpunkt", parse_elevation_m("+ 3.500 hm"), 3500.0)
+    check("Höhenmeter ausgeschrieben", parse_elevation_m("229 Höhenmeter"), 229.0)
+    check("keine Angabe", parse_elevation_m("8,2 km"), None)
+
+    # Der vom Nutzer beanstandete Fall: 400 Hm auf 14,6 km ist kein
+    # Straßenlauf (27 m/km).
+    check("400 hm / 14,6 km -> Berg",
+          art2_from_elevation("VR Bank – BraunenBerg-Lauf: 14,6 km, ca. 400 Hm", 14.6, "Straße"),
+          "Berg")
+    check("248 hm / 8,2 km -> Berg",
+          art2_from_elevation("BergBau-Lauf: 8,2 km, ca. 248 Hm", 8.2, "Straße"), "Berg")
+    # Flacher Stadtmarathon mit ein paar Brücken bleibt Straße (2,4 m/km).
+    check("100 hm / 42,2 km bleibt Straße",
+          art2_from_elevation("Stadtmarathon, 100 hm", 42.2, "Straße"), "Straße")
+    # Eine spezifischere Kategorie aus dem Namen wird nie überschrieben.
+    check("Trail bleibt Trail",
+          art2_from_elevation("BraunenBerg-Trail: 32 km, ca. 1100 Hm", 32.0, "Trail"), "Trail")
+    check("ohne Distanz keine Aussage",
+          art2_from_elevation("ca. 400 Hm", None, "Straße"), "Straße")
+
+
+def test_offizieller_link() -> None:
+    print("\nPortal- vs. offizieller Link (update_existing_event):")
+    check("running.life ist Portal", is_portal_link("https://running.life/de/termine/x"), True)
+    check("laufen.de ist Portal", is_portal_link("https://laufen.de/laufkalender/details/1"), True)
+    check("Veranstalter ist kein Portal", is_portal_link("https://www.braunenberg-lauf.de/"), False)
+
+    # Kernfall: Ein gespeicherter Portallink wird durch die offizielle Seite
+    # ersetzt - ohne das behalten Altbestände den Portallink für immer.
+    target = {"name": "BraunenBerg-Lauf",
+              "veranstalter_url": "https://running.life/de/termine/braunenberg-lauf"}
+    update_existing_event(target, {"veranstalter_url": "https://www.braunenberg-lauf.de/",
+                                   "land": "Deutschland"})
+    check("Portallink ersetzt", target["veranstalter_url"], "https://www.braunenberg-lauf.de/")
+    check("fehlendes Feld ergänzt", target["land"], "Deutschland")
+
+    # Umgekehrt NICHT: ein bereits direkter Link wird nie durch ein Portal
+    # überschrieben.
+    target2 = {"veranstalter_url": "https://www.braunenberg-lauf.de/"}
+    update_existing_event(target2, {"veranstalter_url": "https://running.life/de/termine/x"})
+    check("direkter Link bleibt", target2["veranstalter_url"], "https://www.braunenberg-lauf.de/")
+
+
 def test_duplikate() -> None:
     print("\nDuplikat-Erkennung (is_same_event):")
     a = {"name": "52. Int. Bodensee-Marathon", "datum_start": "2026-09-20",
@@ -177,7 +234,8 @@ def test_duplikate() -> None:
 
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
-                 test_wettbewerbe, test_duplikate):
+                 test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
+                 test_duplikate):
         test()
 
     print()

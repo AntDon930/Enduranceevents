@@ -892,23 +892,11 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
 
 def update_existing(target: dict, source: dict) -> None:
     """Ergänzt fehlende Felder eines gespeicherten Events und ersetzt einen
-    Portal-Link durch den echten Veranstalter-Link.
+    Portal-Link durch den echten Veranstalter-Link. Gemeinsame Logik, siehe
+    `scraper_lib.update_existing_event()`."""
+    from scraper_lib import update_existing_event  # lokaler Import, s. merge_events
 
-    Der Link ist der einzige Fall, in dem ein vorhandener Wert ÜBERSCHRIEBEN
-    wird: früher wurde als `veranstalter_url` der laufen.de-Detaillink
-    gespeichert, weil der Veranstalter-Link nur auf der Detailseite steht.
-    Sobald wir den echten Link kennen, ist er die bessere Angabe.
-    """
-    from scraper_lib import ENRICHABLE_FIELDS  # lokaler Import, s. merge_events
-
-    for field in ENRICHABLE_FIELDS:
-        if target.get(field) is None and source.get(field) is not None:
-            target[field] = source[field]
-
-    new_url = source.get("veranstalter_url")
-    old_url = target.get("veranstalter_url")
-    if new_url and old_url and "laufen.de" in old_url and "laufen.de" not in new_url:
-        target["veranstalter_url"] = new_url
+    update_existing_event(target, source)
 
 
 # --------------------------------------------------------------------------

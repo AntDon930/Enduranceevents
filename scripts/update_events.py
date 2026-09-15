@@ -85,6 +85,18 @@ SCRIPT_ORDER = [
 # Standardmäßig leer (nutzt die Skript-eigenen Defaults).
 SCRIPT_EXTRA_ARGS: dict[str, list[str]] = {
     # "ironman_scraper.py": ["--include-all-europe"],
+    #
+    # Hinweis zur Laufzeit: laufkalender_scraper.py und
+    # runninglife_scraper.py rufen zusätzlich die Detailseite jedes Events
+    # ab - nur dort stehen die einzelnen Wettbewerbe, das Land und die
+    # offizielle Veranstalter-Seite. Das sind rund 800 Requests mit der aus
+    # robots.txt abgeleiteten Pause, also grob 30 Minuten. Mit
+    # ["--no-details"] ließe sich das abschalten, dann fehlen aber genau
+    # diese Angaben (siehe README, "Datenqualität").
+    #
+    # running.life hat für Deutschland rund 2000 Events (ca. 101
+    # Kalenderseiten), abgerufen werden aber nur die ersten 10 Seiten.
+    # Zum Ausschöpfen: "runninglife_scraper.py": ["--max-pages", "110"].
 }
 
 

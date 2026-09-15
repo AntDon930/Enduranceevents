@@ -31,7 +31,19 @@ Schweiz.
     einem eigenen Eintrag, und dieses Feld sagt, welche gemeint ist (siehe
     „Mehrere Strecken pro Veranstaltung" unten). In der Liste steht es als
     kleine Zeile unter dem Veranstaltungsnamen.
-  - `veranstalter_url` – Link zur Veranstalter-Website
+  - `veranstalter_url` – Link zur **offiziellen Webseite des Laufs**, nicht
+    zum Kalenderportal, über das wir ihn gefunden haben. Die Portale nennen
+    die offizielle Seite auf ihrer Detailseite (running.life als Button
+    „Webseite", laufen.de als „Mehr Infos und Anmeldung"), also gibt es
+    keinen Grund, auf das Portal zu verlinken. Ein bereits gespeicherter
+    Portallink wird ersetzt, sobald die offizielle Seite bekannt ist – auch
+    über Quellgrenzen hinweg: laufen.de nennt für viele Events keine
+    offizielle Seite, running.life aber schon, und über die
+    Duplikat-Erkennung landet sie dann trotzdem im Eintrag (siehe
+    `scraper_lib.update_existing_event()` und `PORTAL_DOMAINS`). Nur wenn
+    keine Quelle eine offizielle Seite kennt, bleibt der Portallink als
+    Notlösung stehen – geraten wird nie (die laufen.de-Detailseiten
+    verlinken z. B. Dutzende Sponsoren, darunter irgendwo die echte Seite).
 
   **Neues Event ergänzen**: Ort per Kartendienst (z. B. Google Maps – Rechtsklick
   auf den Punkt zeigt die Koordinaten) nachschlagen und als `lat`/`lon` eintragen,
@@ -51,9 +63,27 @@ Schweiz.
 
   Umgesetzt in `scraper_lib.parse_competitions()` /
   `expand_competitions()`; wo die Wettbewerbsliste steht, ist je Quelle
-  unterschiedlich (laufen.de: auf der Detailseite, running.life: als
-  Chips auf der Kalenderseite, runningcompany.de: in der Distanz-Spalte
-  der Monatstabelle) – siehe Docstring des jeweiligen Scrapers.
+  unterschiedlich – siehe Docstring des jeweiligen Scrapers:
+
+  | Quelle | Wo die Strecken stehen |
+  |---|---|
+  | laufen.de | Detailseite, zwei Layouts (`ul.all` und `ul.races` mit Streckenart) |
+  | running.life | Aufzählung im Beschreibungstext der Detailseite (genau: „14,6 km"), sonst die Chips der Kalenderseite |
+  | runningcompany.de | Distanz-Spalte der Monatstabelle, an Komma/Schrägstrich getrennt |
+
+  Bei running.life ist die Aufzählung im Text die genauere Quelle: die
+  Zusammenfassungs-Karten derselben Seite runden 14,6 km auf „15 km".
+  Beim BraunenBerg-Lauf ergibt das die drei Strecken 32 km, 14,6 km und
+  8,2 km.
+
+  **Höhenprofil als Kategorie-Signal**: Nennt die Quelle Höhenmeter pro
+  Strecke und sagt der Name nichts Spezifischeres, entscheidet der Anstieg
+  pro Kilometer: ab 20 m/km gilt die Strecke als Berglauf
+  (`scraper_lib.art2_from_elevation()`). Der „VR Bank – BraunenBerg-Lauf"
+  über 14,6 km mit ca. 400 Hm (27 m/km) galt vorher als Straßenlauf. Ein
+  flacher Stadtmarathon liegt bei unter 5 m/km und bleibt unberührt; eine
+  aus dem Namen erkannte Kategorie (Trail, Cross, …) wird nie
+  überschrieben.
 
   **Land**: Kalender nennen oft nur eine Postleitzahl, und eine
   vierstellige PLZ unterscheidet Österreich nicht von der Schweiz.
@@ -197,7 +227,7 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Sechs Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Sieben Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
 
 - **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
@@ -249,6 +279,16 @@ und eindeutige Events in `events.json` landen:
   dass zusätzlich die **Detailseite** jedes Events abgerufen wird – nur
   dort stehen die einzelnen Wettbewerbe, das Land und der echte
   Veranstalter-Link.
+- **Immer auf die offizielle Seite des Laufs verlinken**
+  (`scraper_lib.update_existing_event()`, `PORTAL_DOMAINS`): Ein Link auf
+  das Kalenderportal, über das wir ein Event gefunden haben, ist für
+  Nutzer/innen ein Umweg – und unnötig, weil die Portale die offizielle
+  Seite selbst nennen (running.life als Button „Webseite", laufen.de als
+  „Mehr Infos und Anmeldung"). Ein gespeicherter Portallink wird ersetzt,
+  sobald die offizielle Seite bekannt ist, auch wenn sie aus einer anderen
+  Quelle kommt: laufen.de kennt für viele Events keine offizielle Seite,
+  running.life aber schon. Geraten wird nie – die laufen.de-Detailseiten
+  verlinken Dutzende Sponsoren, darunter irgendwo die echte Seite.
 - **Nur Quellen, die Distanz UND Veranstalter-Link mitliefern**: Genau
   daran ist `blv-sport.de` gescheitert und wurde deshalb aus dem
   automatischen Scraping genommen (siehe Tabelle unten). Ohne Distanz

@@ -1374,8 +1374,9 @@
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000036",
-    "land": "Schweiz"
+    "veranstalter_url": "https://panoramatrail.ch/",
+    "land": "Schweiz",
+    "wettbewerb": "Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -1499,7 +1500,8 @@
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
     "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900009860000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900009860000",
+    "wettbewerb": "7 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -1637,7 +1639,8 @@
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900000360001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900000360001",
+    "wettbewerb": "10 km RUN"
   },
   {
     "land": "Deutschland",
@@ -1844,7 +1847,8 @@
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L17000000060003"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26L17000000060003",
+    "wettbewerb": "10km"
   },
   {
     "land": "Deutschland",
@@ -2774,8 +2778,9 @@
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
     "laenge_km": 6.7,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26I00000000000029",
-    "land": "Österreich"
+    "veranstalter_url": "https://www.nordkette-vertical-run.at/",
+    "land": "Österreich",
+    "wettbewerb": "Nordkette Vertical Run"
   },
   {
     "land": "Deutschland",
@@ -3052,8 +3057,9 @@
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
     "laenge_km": 86.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/silberpfadtrophy2026",
-    "land": "Österreich"
+    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy",
+    "land": "Österreich",
+    "wettbewerb": "TST 86K"
   },
   {
     "land": "Deutschland",
@@ -3361,7 +3367,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000184860000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000184860000",
+    "wettbewerb": "9km Lauf"
   },
   {
     "land": "Deutschland",
@@ -3387,7 +3394,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860002",
+    "wettbewerb": "10 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -3569,7 +3577,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000421460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000421460000",
+    "wettbewerb": "10 km Crosslauf"
   },
   {
     "land": "Deutschland",
@@ -3647,7 +3656,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://www.tsvek.de/sportangebot/leichtathletik/wettkampfangebot-la/seelauf-la.html"
+    "veranstalter_url": "https://www.tsvek.de/sportangebot/leichtathletik/wettkampfangebot-la/seelauf-la.html",
+    "wettbewerb": "Kinderlauf"
   },
   {
     "land": "Deutschland",
@@ -4439,7 +4449,8 @@
     "datum_start": "2026-09-25",
     "datum_ende": "2026-09-25",
     "laenge_km": 73.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/mountainmanreitimwinkl2026"
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/",
+    "wettbewerb": "XXL-Ultratrail"
   },
   {
     "land": "Deutschland",
@@ -4866,7 +4877,8 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 7.5,
-    "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/"
+    "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/",
+    "wettbewerb": "0,7 km"
   },
   {
     "land": "Deutschland",
@@ -4892,7 +4904,8 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 20.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/hotfootrunwarstein"
+    "veranstalter_url": "https://hotfootrun.de/runs/warstein-2026",
+    "wettbewerb": "Hot-20 (40 Hindernisse)"
   },
   {
     "land": "Deutschland",
@@ -5087,7 +5100,8 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 10.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160001",
+    "wettbewerb": "10,5 km Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -5162,7 +5176,8 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 10.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000002860000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000002860000",
+    "wettbewerb": "10,1km Lauf"
   },
   {
     "land": "Deutschland",
@@ -5527,7 +5542,8 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 25.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000",
+    "wettbewerb": "2,5km Kreismeisterschaft"
   },
   {
     "land": "Deutschland",
@@ -5770,7 +5786,8 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 11.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000551060000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000551060000",
+    "wettbewerb": "11,111 km"
   },
   {
     "land": "Deutschland",
@@ -6210,7 +6227,8 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000441260000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000441260000",
+    "wettbewerb": "10 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -6288,7 +6306,8 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000410160000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000410160000",
+    "wettbewerb": "Staffelmarathon über 42,195 Kilometer (32 Runden)"
   },
   {
     "land": "Deutschland",
@@ -6301,7 +6320,8 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001005660001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001005660001",
+    "wettbewerb": "Ausdauer Lauf/10 km"
   },
   {
     "land": "Deutschland",
@@ -6327,7 +6347,8 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16000150960000"
+    "veranstalter_url": "https://www.mitteldeutscher-marathon.de/",
+    "wettbewerb": "Marathon"
   },
   {
     "land": "Deutschland",
@@ -6481,7 +6502,8 @@
     "datum_start": "2026-10-07",
     "datum_ende": "2026-10-07",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000711460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000711460000",
+    "wettbewerb": "10 km Waldlauf"
   },
   {
     "land": "Deutschland",
@@ -6533,7 +6555,8 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160002",
+    "wettbewerb": "10 km Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -6728,7 +6751,8 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/schwarzwaldmarathon"
+    "veranstalter_url": "https://www.schwarzwaldmarathon.de/",
+    "wettbewerb": "Staffelmarathon (4er-Staffel)"
   },
   {
     "land": "Deutschland",
@@ -6897,7 +6921,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/rotenburgercitylauf"
+    "veranstalter_url": "https://rotenburger-city-lauf.com/",
+    "wettbewerb": "10 km Sparkassenlauf - offiziell vermessen"
   },
   {
     "land": "Deutschland",
@@ -7051,7 +7076,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900031760000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900031760000",
+    "wettbewerb": "10km Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -7077,7 +7103,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://westenergie-marathon.de"
+    "veranstalter_url": "https://westenergie-marathon.de",
+    "wettbewerb": "AllbauTeamStaffel (4 Personen)"
   },
   {
     "land": "Deutschland",
@@ -7116,7 +7143,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/halbmarathonhannover"
+    "veranstalter_url": "https://www.halbmarathon-hannover.de/",
+    "wettbewerb": "H/21 for Two (Staffel)"
   },
   {
     "land": "Deutschland",
@@ -7129,7 +7157,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 26.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/hotfootrunbadhoenningen"
+    "veranstalter_url": "https://hotfootrun.de/runs/bad-hoenningen-2026",
+    "wettbewerb": "Hot-26 (40 Hindernisse)"
   },
   {
     "land": "Deutschland",
@@ -7701,7 +7730,8 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000251360000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000251360000",
+    "wettbewerb": "Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -7869,8 +7899,9 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 50.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/kaerntenmarathon",
-    "land": "Österreich"
+    "veranstalter_url": "https://my.raceresult.com/392278/",
+    "land": "Österreich",
+    "wettbewerb": "Dominik Pacher Super Marathon"
   },
   {
     "name": "Lauf um den Mittelpunkt von Sachsen",
@@ -7883,7 +7914,8 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 8.4,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000001060000",
-    "land": "Deutschland"
+    "land": "Deutschland",
+    "wettbewerb": "8,4 km Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -8338,7 +8370,8 @@
     "datum_start": "2026-10-30",
     "datum_ende": "2026-10-30",
     "laenge_km": 16.7,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/halloweenrunrotenburg"
+    "veranstalter_url": "https://halloween-run-rotenburg.de/",
+    "wettbewerb": "Evilthon 16,666 K"
   },
   {
     "land": "Deutschland",
@@ -8364,7 +8397,8 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000132060000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000132060000",
+    "wettbewerb": "10 km Hauptlauf"
   },
   {
     "land": "Deutschland",
@@ -8377,7 +8411,8 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 7.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000053160001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000053160001",
+    "wettbewerb": "7200m"
   },
   {
     "land": "Deutschland",
@@ -8416,7 +8451,8 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 7.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001",
+    "wettbewerb": "Crosslauf"
   },
   {
     "land": "Deutschland",
@@ -8442,7 +8478,8 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 12.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000002460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000002460000",
+    "wettbewerb": "12 km"
   },
   {
     "land": "Deutschland",
@@ -8466,7 +8503,8 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 30.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/legendofcross2026"
+    "veranstalter_url": "https://www.legendofcross.de/",
+    "wettbewerb": "Berserker (mind. 30 Hindernisse)"
   },
   {
     "land": "Deutschland",
@@ -8609,7 +8647,8 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 8.9,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000771860000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000771860000",
+    "wettbewerb": "Langstrecke 8,8km"
   },
   {
     "land": "Deutschland",
@@ -8672,7 +8711,8 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 12.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16900000760000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16900000760000",
+    "wettbewerb": "12 km"
   },
   {
     "land": "Deutschland",
@@ -9099,7 +9139,9 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960000",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -9333,7 +9375,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060021"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060021",
+    "wettbewerb": "6 Sunden"
   },
   {
     "land": "Deutschland",
@@ -9359,7 +9402,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 5.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005402760000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005402760000",
+    "wettbewerb": "Cross"
   },
   {
     "land": "Deutschland",
@@ -9515,7 +9559,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04009004660000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04009004660000",
+    "wettbewerb": "Langstrecke Männer"
   },
   {
     "land": "Deutschland",
@@ -9528,7 +9573,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 9.8,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L19000000051004"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26L19000000051004",
+    "wettbewerb": "Crosslauf Langstrecke - L9"
   },
   {
     "land": "Deutschland",
@@ -9541,7 +9587,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 7.9,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000116860000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000116860000",
+    "wettbewerb": "5 Cross Lang"
   },
   {
     "land": "Deutschland",
@@ -9580,7 +9627,8 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 6.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000334550000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000334550000",
+    "wettbewerb": "Cross-Langstrecke 6,4km"
   },
   {
     "land": "Deutschland",
@@ -9630,7 +9678,9 @@
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960001",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -10017,7 +10067,8 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 7.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000078850000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000078850000",
+    "wettbewerb": "Crosslauf"
   },
   {
     "land": "Deutschland",
@@ -10069,7 +10120,8 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260001",
+    "wettbewerb": "5 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -10093,7 +10145,9 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960002",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -10106,7 +10160,8 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 7.6,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000038860002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000038860002",
+    "wettbewerb": "7,6 km"
   },
   {
     "land": "Deutschland",
@@ -10132,7 +10187,8 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860003"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860003",
+    "wettbewerb": "42,195 km Marathon"
   },
   {
     "land": "Deutschland",
@@ -10156,7 +10212,8 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "laenge_km": 6.6,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000233860500"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000233860500",
+    "wettbewerb": "Langstrecke"
   },
   {
     "land": "Deutschland",
@@ -10286,7 +10343,8 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 26.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060022"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060022",
+    "wettbewerb": "26km"
   },
   {
     "land": "Deutschland",
@@ -10299,7 +10357,8 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 7.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V11000028960002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V11000028960002",
+    "wettbewerb": "Ausdauer Lauf"
   },
   {
     "land": "Deutschland",
@@ -10323,7 +10382,9 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960003"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960003",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -10609,7 +10670,8 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 5.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002017660001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002017660001",
+    "wettbewerb": "Lauf"
   },
   {
     "land": "Deutschland",
@@ -10700,7 +10762,8 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260003"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260003",
+    "wettbewerb": "5 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -10750,7 +10813,9 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960004"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960004",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -11009,7 +11074,8 @@
     "datum_start": "2026-12-12",
     "datum_ende": "2026-12-12",
     "laenge_km": 7.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860004"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860004",
+    "wettbewerb": "7,5 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -11087,7 +11153,8 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 10.8,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000097860002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000097860002",
+    "wettbewerb": "Lauf"
   },
   {
     "land": "Deutschland",
@@ -11124,7 +11191,9 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960005"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000611960005",
+    "lat": 50.0063466,
+    "lon": 9.1745197
   },
   {
     "land": "Deutschland",
@@ -11189,7 +11258,8 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000424060000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000424060000",
+    "wettbewerb": "Langstrecke 9km"
   },
   {
     "land": "Deutschland",
@@ -11241,7 +11311,8 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V03000101960003"
+    "veranstalter_url": "https://www.berliner-silvesterlauf.de/",
+    "wettbewerb": "10 km"
   },
   {
     "land": "Deutschland",
@@ -11280,7 +11351,8 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V05900000960008"
+    "veranstalter_url": "https://silvesterlauf-bremen.de/",
+    "wettbewerb": "10 km Walking/Nordic Walking"
   },
   {
     "land": "Österreich",
@@ -11385,7 +11457,8 @@
     "datum_start": "2027-02-26",
     "datum_ende": "2027-02-26",
     "laenge_km": 50.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/hawei50"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50",
+    "wettbewerb": "50 km Ultralauf (27.2.) - offiziell vermessen"
   },
   {
     "land": "Deutschland",
@@ -11894,5 +11967,1051 @@
     "datum_ende": "2028-04-02",
     "laenge_km": 42.2,
     "veranstalter_url": "http://www.marathon-deutsche-weinstrasse.de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "10. Schnebelhorn Panoramatrail",
+    "standort": "Mosnang",
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-18",
+    "datum_ende": "2026-09-18",
+    "laenge_km": 8.5,
+    "wettbewerb": "Moslig 8000",
+    "veranstalter_url": "https://panoramatrail.ch/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Tiroler Silberpfad Trophy",
+    "standort": "Schwaz",
+    "lat": 47.3449529,
+    "lon": 11.7084253,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 42.0,
+    "wettbewerb": "TST 42K",
+    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
+  },
+  {
+    "land": "Österreich",
+    "name": "Tiroler Silberpfad Trophy",
+    "standort": "Schwaz",
+    "lat": 47.3449529,
+    "lon": 11.7084253,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 23.0,
+    "wettbewerb": "TST 23K",
+    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
+  },
+  {
+    "land": "Österreich",
+    "name": "Tiroler Silberpfad Trophy",
+    "standort": "Schwaz",
+    "lat": 47.3449529,
+    "lon": 11.7084253,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 11.0,
+    "wettbewerb": "TST 11K",
+    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6672406,
+    "lon": 12.5256511,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-25",
+    "datum_ende": "2026-09-25",
+    "laenge_km": 43.0,
+    "wettbewerb": "L-Trail",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6672406,
+    "lon": 12.5256511,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-25",
+    "datum_ende": "2026-09-25",
+    "laenge_km": 52.0,
+    "wettbewerb": "XL-Trail",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6672406,
+    "lon": 12.5256511,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-25",
+    "datum_ende": "2026-09-25",
+    "laenge_km": 26.0,
+    "wettbewerb": "M-Trail",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6672406,
+    "lon": 12.5256511,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-09-25",
+    "datum_ende": "2026-09-25",
+    "laenge_km": 11.0,
+    "wettbewerb": "S-Trail",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Warstein",
+    "standort": "Warstein",
+    "lat": 51.4458105,
+    "lon": 8.3536824,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "laenge_km": 5.0,
+    "wettbewerb": "Hot-5 Family Edition (8 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/warstein-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Warstein",
+    "standort": "Warstein",
+    "lat": 51.4458105,
+    "lon": 8.3536824,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "laenge_km": 6.0,
+    "wettbewerb": "Hot-6 (10 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/warstein-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Warstein",
+    "standort": "Warstein",
+    "lat": 51.4458105,
+    "lon": 8.3536824,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "laenge_km": 10.0,
+    "wettbewerb": "Hot-10 (20 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/warstein-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "BMW BERLIN-MARATHON",
+    "standort": "Berlin",
+    "lat": 52.5173885,
+    "lon": 13.3951309,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 5.0,
+    "wettbewerb": "Generali 5K (Samstag, 26.9.)",
+    "veranstalter_url": "https://www.bmw-berlin-marathon.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "23. Mitteldeutscher Marathon",
+    "standort": "Halle",
+    "lat": 51.4824354,
+    "lon": 11.9712985,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Walking",
+    "veranstalter_url": "https://www.mitteldeutscher-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "23. Mitteldeutscher Marathon",
+    "standort": "Halle",
+    "lat": 51.4824354,
+    "lon": 11.9712985,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
+    "veranstalter_url": "https://www.mitteldeutscher-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "58. Int. Schwarzwald-Marathon",
+    "standort": "Bräunlingen",
+    "lat": 47.9300645,
+    "lon": 8.448329,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 5.0,
+    "wettbewerb": "5-km-Lauf",
+    "veranstalter_url": "https://www.schwarzwaldmarathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "58. Int. Schwarzwald-Marathon",
+    "standort": "Bräunlingen",
+    "lat": 47.9300645,
+    "lon": 8.448329,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Nordic Walking/Walking",
+    "veranstalter_url": "https://www.schwarzwaldmarathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "64. Westenergie Marathon",
+    "standort": "Essen",
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 5.0,
+    "wettbewerb": "FunRun",
+    "veranstalter_url": "https://westenergie-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "64. Westenergie Marathon",
+    "standort": "Essen",
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 7.5,
+    "wettbewerb": "Walking Kleine Schleife",
+    "veranstalter_url": "https://westenergie-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "64. Westenergie Marathon",
+    "standort": "Essen",
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 10.5,
+    "wettbewerb": "Walking Große Schleife",
+    "veranstalter_url": "https://westenergie-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "64. Westenergie Marathon",
+    "standort": "Essen",
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 18.6,
+    "wettbewerb": "Westenergie Seerunde",
+    "veranstalter_url": "https://westenergie-marathon.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Sparkasse 3-Länder-Marathon",
+    "standort": "Bregenz",
+    "lat": 47.5025779,
+    "lon": 9.7472924,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 5.0,
+    "wettbewerb": "spark7 youth run",
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Sparkasse 3-Länder-Marathon",
+    "standort": "Bregenz",
+    "lat": 47.5025779,
+    "lon": 9.7472924,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 10.9,
+    "wettbewerb": "vkw Viertelmarathon",
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "3. Rotenburger City Lauf",
+    "standort": "Rotenburg",
+    "lat": 53.1108906,
+    "lon": 9.4049292,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf - offiziell vermessen",
+    "veranstalter_url": "https://rotenburger-city-lauf.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Bad Hönningen",
+    "standort": "Bad Hönningen",
+    "lat": 50.5157382,
+    "lon": 7.3065922,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 7.0,
+    "wettbewerb": "Hot-7 Family Edition (8 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/bad-hoenningen-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Bad Hönningen",
+    "standort": "Bad Hönningen",
+    "lat": 50.5157382,
+    "lon": 7.3065922,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 9.0,
+    "wettbewerb": "Hot-9 (10 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/bad-hoenningen-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hotfoot Run Bad Hönningen",
+    "standort": "Bad Hönningen",
+    "lat": 50.5157382,
+    "lon": 7.3065922,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 13.0,
+    "wettbewerb": "Hot-13 (20 Hindernisse)",
+    "veranstalter_url": "https://hotfootrun.de/runs/bad-hoenningen-2026"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 15.5,
+    "wettbewerb": "Kombilauf (City Run & Viertelmarathon)",
+    "veranstalter_url": "https://my.raceresult.com/392278/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 5.0,
+    "wettbewerb": "Sparkasse City Run",
+    "veranstalter_url": "https://my.raceresult.com/392278/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 42.2,
+    "wettbewerb": "Ossiacher See Marathon",
+    "veranstalter_url": "https://my.raceresult.com/392278/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 10.5,
+    "wettbewerb": "Viertelmarathon",
+    "veranstalter_url": "https://my.raceresult.com/392278/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 21.1,
+    "wettbewerb": "Intersport Pilz Halbmarathon",
+    "veranstalter_url": "https://my.raceresult.com/392278/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "1. Halloween-Run-Rotenburg",
+    "standort": "Rotenburg",
+    "lat": 53.1108906,
+    "lon": 9.4049292,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-30",
+    "datum_ende": "2026-10-30",
+    "laenge_km": 6.7,
+    "wettbewerb": "Teufelslauf 6,666 K",
+    "veranstalter_url": "https://halloween-run-rotenburg.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "1. Halloween-Run-Rotenburg",
+    "standort": "Rotenburg",
+    "lat": 53.1108906,
+    "lon": 9.4049292,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-30",
+    "datum_ende": "2026-10-30",
+    "laenge_km": 10.0,
+    "wettbewerb": "Horror-Zehn 10 K",
+    "veranstalter_url": "https://halloween-run-rotenburg.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "1. Halloween-Run-Rotenburg",
+    "standort": "Rotenburg",
+    "lat": 53.1108906,
+    "lon": 9.4049292,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-30",
+    "datum_ende": "2026-10-30",
+    "laenge_km": 13.3,
+    "wettbewerb": "Kürbislauf 13,333 K",
+    "veranstalter_url": "https://halloween-run-rotenburg.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Halloween-Run-Bremen",
+    "standort": "Bremen",
+    "lat": 53.0758196,
+    "lon": 8.8071646,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 8.3,
+    "wettbewerb": "Halbevilthon",
+    "veranstalter_url": "https://halloween-run-bremen.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Halloween-Run-Bremen",
+    "standort": "Bremen",
+    "lat": 53.0758196,
+    "lon": 8.8071646,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 16.7,
+    "wettbewerb": "Evilthon",
+    "veranstalter_url": "https://halloween-run-bremen.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Halloween-Run-Bremen",
+    "standort": "Bremen",
+    "lat": 53.0758196,
+    "lon": 8.8071646,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 25.0,
+    "wettbewerb": "Monsterthon Walking",
+    "veranstalter_url": "https://halloween-run-bremen.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "TEAG – Legend of Cross",
+    "standort": "Mühlberg",
+    "lat": 50.8681704,
+    "lon": 10.8245247,
+    "art1": "Laufen",
+    "art2": "Hindernis",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 17.0,
+    "wettbewerb": "Expert (mind. 20 Hindernisse)",
+    "veranstalter_url": "https://www.legendofcross.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "TEAG – Legend of Cross",
+    "standort": "Mühlberg",
+    "lat": 50.8681704,
+    "lon": 10.8245247,
+    "art1": "Laufen",
+    "art2": "Hindernis",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 10.0,
+    "wettbewerb": "Sprint (mind. 15 Hindernisse)",
+    "veranstalter_url": "https://www.legendofcross.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Berliner Silvesterlauf",
+    "standort": "Berlin-Charlottenburg",
+    "lat": 52.5043157,
+    "lon": 13.3026447,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 6.3,
+    "wettbewerb": "6 km",
+    "veranstalter_url": "https://www.berliner-silvesterlauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Silvesterlauf Bremen",
+    "standort": "Bremen",
+    "lat": 53.0758196,
+    "lon": 8.8071646,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Walking/Nordic Walking",
+    "veranstalter_url": "https://silvesterlauf-bremen.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "6. HaWei50",
+    "standort": "Ubstadt-Weiher",
+    "lat": 49.1717722,
+    "lon": 8.640534,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-26",
+    "datum_ende": "2027-02-26",
+    "laenge_km": 5.0,
+    "wettbewerb": "HaWei by night - 5 km (26.2.)",
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
+  },
+  {
+    "land": "Deutschland",
+    "name": "6. HaWei50",
+    "standort": "Ubstadt-Weiher",
+    "lat": 49.1717722,
+    "lon": 8.640534,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-26",
+    "datum_ende": "2027-02-26",
+    "laenge_km": 10.0,
+    "wettbewerb": "HaWei by night (26.2.)",
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Future Run - Ausbildung in Bewegung",
+    "standort": "Buxtehude-Hedendorf",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-18",
+    "datum_ende": "2026-09-18",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900009860000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "SportScheck RUN Hannover",
+    "standort": "Hannover",
+    "lat": 52.3744779,
+    "lon": 9.7385532,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-18",
+    "datum_ende": "2026-09-18",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km RUN",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900000360001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "34. Wilstermarsch Lauf",
+    "standort": "Wilster",
+    "lat": 53.9233519,
+    "lon": 9.3741366,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26L17000000060003"
+  },
+  {
+    "land": "Deutschland",
+    "name": "37. Jesteburger Volkslauf",
+    "standort": "Jesteburg",
+    "lat": 53.3084976,
+    "lon": 9.9579929,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Nordic Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000421460000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "21. Lohelauf",
+    "standort": "Wentorf bei Hamburg",
+    "lat": 53.5,
+    "lon": 10.25,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000184860000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "21. Lohelauf",
+    "standort": "Wentorf bei Hamburg",
+    "lat": 53.5,
+    "lon": 10.25,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 6.0,
+    "wettbewerb": "6km Lauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000184860000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)",
+    "standort": "Diez",
+    "lat": 50.3694175,
+    "lon": 8.0174521,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Walking, Nordic-Walking und Gehen für Jedermann",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000496150000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "25. Marner Kohltagelauf",
+    "standort": "Marne",
+    "lat": 53.9521162,
+    "lon": 9.0107437,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Lauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000002860000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "19. Nordahl Grieg Gedenklauf",
+    "standort": "Kleinmachnow",
+    "lat": 52.4064167,
+    "lon": 13.2236601,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 7.0,
+    "wettbewerb": "7 km Hauptlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Crosslauf Friedrichsruh mit Kreismeisterschaft",
+    "standort": "Geestland",
+    "lat": 53.6096722,
+    "lon": 8.5943804,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Kreismeisterschaft",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Crosslauf Friedrichsruh mit Kreismeisterschaft",
+    "standort": "Geestland",
+    "lat": 53.6096722,
+    "lon": 8.5943804,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 7.5,
+    "wettbewerb": "Rahmenwettkampf 7,5km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Crosslauf Friedrichsruh mit Kreismeisterschaft",
+    "standort": "Geestland",
+    "lat": 53.6096722,
+    "lon": 8.5943804,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 10.0,
+    "wettbewerb": "Rahmenwettkampf 10km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NRZ Klosterlauf",
+    "standort": "Kamp-Lintfort",
+    "lat": 51.5017981,
+    "lon": 6.547923,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 5.0,
+    "wettbewerb": "Jugendlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001004060001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NRZ Klosterlauf",
+    "standort": "Kamp-Lintfort",
+    "lat": 51.5017981,
+    "lon": 6.547923,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 7.0,
+    "wettbewerb": "Walking/Nordic Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001004060001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NRZ Klosterlauf",
+    "standort": "Kamp-Lintfort",
+    "lat": 51.5017981,
+    "lon": 6.547923,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km Straßenlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001004060001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "26. Krautsander Insellauf",
+    "standort": "Drochtersen",
+    "lat": 53.7229511,
+    "lon": 9.3681013,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 5.6,
+    "wettbewerb": "5,555 km (Nordic-)Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000551060000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "2. Luftschifflauf",
+    "standort": "Mülheim an der Ruhr",
+    "lat": 51.4272925,
+    "lon": 6.8829192,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 5.0,
+    "wettbewerb": "Ausdauer Lauf/5 km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001005660001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "1. Oktoberlauf Embsen",
+    "standort": "Embsen",
+    "lat": 53.1771495,
+    "lon": 10.3484577,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000441260000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Biberacher Herbstwaldlauf 2026",
+    "standort": "Biberach/Riß",
+    "lat": 48.101927,
+    "lon": 9.7931144,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-07",
+    "datum_ende": "2026-10-07",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Waldlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000711460000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "19. Parforceheide  Crosslauf",
+    "standort": "Stahnsdorf",
+    "lat": 52.3869675,
+    "lon": 13.2077118,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Hauptlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006906160002"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Klosterlauf Aurachtal",
+    "standort": "Aurachtal",
+    "lat": 49.5842851,
+    "lon": 10.8070277,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Walking/Nordic Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02900031760000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Kreis-Crossmeisterschaften",
+    "standort": "Kreuztal",
+    "lat": 50.9598627,
+    "lon": 7.9896202,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 400.0,
+    "wettbewerb": "Crosslauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Kreis-Crossmeisterschaften",
+    "standort": "Kreuztal",
+    "lat": 50.9598627,
+    "lon": 7.9896202,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 600.0,
+    "wettbewerb": "Crosslauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Kreis-Crossmeisterschaften",
+    "standort": "Kreuztal",
+    "lat": 50.9598627,
+    "lon": 7.9896202,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 5.0,
+    "wettbewerb": "Crosslauf - Langstrecke",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Köstritzer Parklauf",
+    "standort": "Bad Köstritz",
+    "lat": 50.9301118,
+    "lon": 12.0113701,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 6.0,
+    "wettbewerb": "6 km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000002460000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "34. Mündener Altstadtlauf",
+    "standort": "Hann. Münden",
+    "lat": 51.4570402,
+    "lon": 9.6671219,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Hauptlauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000132060000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "32. Pokallauf",
+    "standort": "Roßbach",
+    "lat": 50.6031662,
+    "lon": 7.680464,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
+    "laenge_km": 6.5,
+    "wettbewerb": "6,5 km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V16900000760000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "FLVW Crossmeisterschaften",
+    "standort": "Paderborn-Schloß Neuhaus",
+    "lat": 51.749349,
+    "lon": 8.7208431,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 8.0,
+    "wettbewerb": "Crosslauf Langstrecke - L10",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26L19000000051004"
+  },
+  {
+    "land": "Deutschland",
+    "name": "25. Steverlauf",
+    "standort": "Senden",
+    "lat": 48.3251884,
+    "lon": 10.0471189,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 7.0,
+    "wettbewerb": "Walking",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000014260001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Deutsche Polizeimeisterschaften Crosslauf",
+    "standort": "Potsdam",
+    "lat": 52.4009309,
+    "lon": 13.0591397,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 7.2,
+    "wettbewerb": "Langstrecke Frauen",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04009004660000"
+  },
+  {
+    "land": "Deutschland",
+    "name": "36. Ratzeburger Adventslauf",
+    "standort": "Ratzeburg",
+    "lat": 53.7011061,
+    "lon": 10.774288,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "laenge_km": 7.3,
+    "wettbewerb": "7,3km",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060022"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Sparkassen Advents-Cross der LG Nordheide",
+    "standort": "Winsen",
+    "lat": 53.3636474,
+    "lon": 10.2059206,
+    "art1": "Laufen",
+    "art2": "Cross",
+    "datum_start": "2026-12-13",
+    "datum_ende": "2026-12-13",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Mittelstrecke (männlich)",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000424060000"
   }
 ]

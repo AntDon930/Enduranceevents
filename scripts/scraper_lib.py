@@ -221,6 +221,13 @@ class SiteConfig:
     # Geocoding, Dedupe/Merge und das Schreiben von events.json bleiben
     # unverändert gemeinsame Logik.
     custom_fetch: Callable[..., list] | None = None
+    # Von run_scraper_cli() aus den CLI-Optionen --no-details/--max-details
+    # gesetzt und von `custom_fetch`-Funktionen ausgelesen, die zusätzlich
+    # die Detailseite jedes Events abrufen (nur dort stehen bei einigen
+    # Quellen die offizielle Veranstalter-Seite und die einzelnen
+    # Wettbewerbe). `max_details = 0` bedeutet "alle".
+    fetch_details: bool = True
+    max_details: int = 0
 
 
 # --------------------------------------------------------------------------
@@ -488,15 +495,84 @@ def guess_distance_km(text: str, config: SiteConfig) -> float | None:
 _HM_SUFFIX_PATTERN = re.compile(r"\s*\(\s*[\d.,]+\s*(?:hm|höhenmeter|m\b)[^)]*\)", re.I)
 # Alles ab dem Trenner "|" ist bei laufen.de die Distanzangabe.
 _COMPETITION_SPLIT = re.compile(r"\s*\|\s*")
+# running.life schreibt die Strecken als Satz: "VR Bank - BraunenBerg-Lauf:
+# 14,6 km, ca. 400 Hm, Strecke endet in Oberalfingen." Alles ab dem
+# Doppelpunkt ist Beschreibung, sofern danach eine Zahl folgt (sonst wäre
+# ein Name, der auf einen Doppelpunkt endet, fälschlich abgeschnitten).
+_LABEL_COLON_SPLIT = re.compile(r"^([^:]{2,80}?):\s*(?=.*\d)")
+# Sicherheitsnetz: ein Label ist ein Name, kein Satz.
+_MAX_LABEL_LENGTH = 60
 
 
 def clean_competition_label(text: str) -> str | None:
-    """Macht aus 'Moslig 8000 (229 hm)  | 8,5 km' das Label 'Moslig 8000'."""
+    """Reduziert einen Wettbewerbs-Eintrag auf seinen Namen.
+
+    'Moslig 8000 (229 hm) | 8,5 km'                    -> 'Moslig 8000'
+    'TST 86K | 86 km | + 3500 hm'                      -> 'TST 86K'
+    'VR Bank - BraunenBerg-Lauf: 14,6 km, ca. 400 Hm'  -> 'VR Bank - BraunenBerg-Lauf'
+    """
     if not text:
         return None
-    label = _COMPETITION_SPLIT.split(re.sub(r"\s+", " ", text).strip())[0]
+    normalized = re.sub(r"\s+", " ", text).strip()
+    label = _COMPETITION_SPLIT.split(normalized)[0]
+    colon = _LABEL_COLON_SPLIT.match(label)
+    if colon:
+        label = colon.group(1)
     label = _HM_SUFFIX_PATTERN.sub("", label).strip(" -–·,;")
+    if len(label) > _MAX_LABEL_LENGTH:
+        return None  # offensichtlich ein Satz, kein Wettbewerbsname
     return label or None
+
+
+# Höhenmeter-Angabe einer Strecke: "ca. 1100 Hm", "+ 3500 hm", "(989 hm)",
+# "229 Höhenmeter". Der Tausenderpunkt ("1.100 hm") wird mitgelesen.
+_ELEVATION_PATTERN = re.compile(r"(\d{1,2}(?:[.\s]\d{3})+|\d{2,5})\s*(?:hm\b|höhenmeter)", re.I)
+
+# Ab diesem Anstieg pro Kilometer gilt eine Strecke als Berglauf, wenn der
+# Name nichts Spezifischeres sagt. Hintergrund: Ein flacher Stadt- oder
+# Straßenmarathon liegt bei unter 5 m/km, ein Berg-/Traillauf klar darüber
+# (BraunenBerg-Lauf: 400 hm auf 14,6 km = 27 m/km; BergBau-Lauf: 248 hm auf
+# 8,2 km = 30 m/km; Nordkette Vertical Run: 1332 hm auf 6,7 km = 199 m/km).
+# 20 m/km liegt bewusst deutlich über dem Profil eines Straßenlaufs, damit
+# ein Stadtlauf mit ein paar Brücken nicht fälschlich zum Berglauf wird.
+ELEVATION_BERG_M_PER_KM = 20.0
+
+
+def parse_elevation_m(text: str) -> float | None:
+    """Liest die Höhenmeter aus einer Streckenbeschreibung."""
+    if not text:
+        return None
+    match = _ELEVATION_PATTERN.search(text)
+    if not match:
+        return None
+    try:
+        return float(re.sub(r"[.\s]", "", match.group(1)))
+    except ValueError:
+        return None
+
+
+def art2_from_elevation(text: str, laenge_km: float | None, current: str | None) -> str | None:
+    """Stuft eine Strecke anhand ihres Höhenprofils als "Berg" ein.
+
+    Nur dann, wenn die Stichwortsuche nichts Spezifischeres gefunden hat
+    (also `None` oder das generische "Straße"): ein Name wie
+    "... Trail ..." oder "Crosslauf" ist die bessere Auskunft und bleibt
+    unangetastet.
+
+    Grund für diese Regel: Die Quellen nennen die Höhenmeter pro Strecke,
+    der Name aber oft nicht. Der "VR Bank - BraunenBerg-Lauf" über 14,6 km
+    mit ca. 400 Hm galt dadurch als Straßenlauf, obwohl das Profil eindeutig
+    ein Berglauf ist - genau die Art Fehler, die im Chat beanstandet wurde
+    ("Bei den Höhenmetern muss es ein Traillauf sein oder Berglauf eben").
+    """
+    if current not in (None, "Straße"):
+        return current
+    if not laenge_km or laenge_km <= 0:
+        return current
+    elevation = parse_elevation_m(text)
+    if elevation is None:
+        return current
+    return "Berg" if elevation / laenge_km >= ELEVATION_BERG_M_PER_KM else current
 
 
 @dataclass
@@ -506,8 +582,12 @@ class Competition:
     laenge_km: float | None = None
     # Zusätzlicher Text, der die Art der Strecke beschreibt und in die
     # Kategorie (art2) einfließt - z. B. das Feld "Trailrun" aus der
-    # laufen.de-Wettbewerbsliste oder "(989 hm)" als Berg-Indiz.
+    # laufen.de-Wettbewerbsliste.
     hint: str = ""
+    # Der unveränderte Quelltext des Eintrags. Nötig für die Auswertung des
+    # Höhenprofils: die Höhenmeter stehen gerade in dem Teil, den
+    # clean_competition_label() als Beschreibung wegschneidet.
+    raw: str = ""
 
 
 def parse_competitions(
@@ -543,7 +623,8 @@ def parse_competitions(
         if km in seen:
             continue
         seen.add(km)
-        result.append(Competition(label=label, laenge_km=km, hint=(hint or "").strip()))
+        result.append(Competition(label=label, laenge_km=km,
+                                  hint=(hint or "").strip(), raw=text))
     return result
 
 
@@ -580,6 +661,13 @@ def expand_competitions(
         # das, was die Quelle separat über die Strecke sagt.
         clone.art2 = guess_art2(
             f"{base.name or ''} {comp.label or ''} {comp.hint}", config
+        )
+        # Höhenprofil als zusätzliches Signal, wenn der Name nichts
+        # Spezifischeres sagt (siehe art2_from_elevation()). Bewusst auf dem
+        # ROHTEXT der Strecke, nicht dem gekürzten Label: die Höhenmeter
+        # stehen gerade in dem Teil, den clean_competition_label() entfernt.
+        clone.art2 = art2_from_elevation(
+            f"{comp.raw} {comp.hint}", clone.laenge_km, clone.art2
         )
         events.append(clone)
     return events
@@ -1212,12 +1300,13 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
     Quelle kennt) - so gewinnt der Datensatz durch jede zusätzliche Quelle,
     ohne doppelte Zeilen zu erzeugen.
     """
-    existing_keys = {
-        dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km")) for e in existing
-    }
-    existing_keys.discard(None)
-
     merged = list(existing)
+    by_key: dict[tuple, dict] = {}
+    for e in merged:
+        key = dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km"))
+        if key is not None:
+            by_key.setdefault(key, e)
+
     by_date: dict[str | None, list[dict]] = {}
     for e in merged:
         by_date.setdefault(e.get("datum_start"), []).append(e)
@@ -1231,39 +1320,96 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
             continue
         candidate = event.to_dict()
         key = dedupe_key(event.name, event.datum_start, event.laenge_km)
-        if key is None or key in existing_keys:
+        if key is None:
             skipped += 1
             continue
 
-        twin = next(
-            (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
-            None,
-        )
+        twin = by_key.get(key)
+        if twin is None:
+            twin = next(
+                (e for e in by_date.get(event.datum_start, []) if is_same_event(e, candidate)),
+                None,
+            )
+
         if twin is not None:
-            _enrich_missing_fields(twin, candidate)
+            # Bewusst nicht nur überspringen, sondern den gespeicherten
+            # Eintrag aktualisieren - sonst behalten Altbestände für immer
+            # ihren Portallink und fehlende Felder (siehe
+            # update_existing_event()).
+            update_existing_event(twin, candidate)
             skipped += 1
             continue
 
         merged.append(candidate)
+        by_key[key] = candidate
         by_date.setdefault(event.datum_start, []).append(candidate)
-        existing_keys.add(key)
         added += 1
 
     return merged, added, skipped
 
 
-# Felder, die bei einem erkannten Duplikat aus dem "Zwilling" ergänzt werden,
-# falls sie im behaltenen Eintrag fehlen.
+# Felder, die bei einem erkannten Duplikat aus dem "Zwilling" ergänzt
+# werden, falls sie im behaltenen Eintrag fehlen.
 ENRICHABLE_FIELDS = (
     "laenge_km", "art2", "land", "standort", "lat", "lon",
     "datum_ende", "anmeldeschluss", "wettbewerb", "veranstalter_url",
 )
 
+# Kalender-/Anmelde-Portale. Ein Link dorthin ist als Notlösung brauchbar,
+# aber `veranstalter_url` soll auf die OFFIZIELLE Seite des Laufs zeigen
+# (ausdrücklicher Wunsch aus dem Chat): running.life und laufen.de nennen
+# die offizielle Seite auf ihrer Detailseite, also gibt es keinen Grund,
+# auf das Portal zu verlinken. Wird ein Event erneut gefunden und ist der
+# neue Link ein direkter, ersetzt er einen gespeicherten Portallink
+# (siehe update_existing_event()).
+PORTAL_DOMAINS = (
+    "laufen.de", "running.life", "runnersworld.de", "leichtathletik.de",
+    "ahotu.com", "blv-sport.de", "planet-marathon.de", "runningcompany.de",
+)
 
-def _enrich_missing_fields(target: dict, source: dict) -> None:
-    for field in ENRICHABLE_FIELDS:
-        if target.get(field) is None and source.get(field) is not None:
-            target[field] = source[field]
+
+def is_portal_link(url: str | None) -> bool:
+    return bool(url) and any(domain in url for domain in PORTAL_DOMAINS)
+
+
+def update_existing_event(target: dict, source: dict) -> None:
+    """Bringt einen bereits gespeicherten Eintrag auf den neuen Stand.
+
+    Drei Dinge, und bewusst nur diese drei:
+
+    1. Fehlende Felder aus `source` ergänzen (siehe ENRICHABLE_FIELDS) -
+       ein Eintrag aus einem früheren Lauf kann Felder noch nicht haben,
+       die wir inzwischen auslesen (z. B. `land`, `wettbewerb`).
+    2. Einen PORTALLINK durch einen direkten Veranstalter-Link ersetzen.
+       Früher wurde als `veranstalter_url` der Kalenderlink gespeichert,
+       weil die offizielle Seite nur auf der Detailseite der Quelle steht.
+       Sobald wir sie kennen, ist sie die bessere Angabe. Das gilt auch
+       über Quellgrenzen: laufen.de nennt für viele Events gar keine
+       offizielle Seite, running.life aber schon - über die
+       Duplikat-Erkennung landet sie dann trotzdem im Eintrag.
+    3. Das generische "Straße" durch eine SPEZIFISCHERE Kategorie
+       ersetzen. Die Quelle sagt oft pro Strecke, um was für einen Lauf es
+       sich handelt ("Trailrun"), der Veranstaltungsname dagegen nicht.
+       Ohne diesen Schritt blieb z. B. die 86-km-Strecke der Tiroler
+       Silberpfad Trophy als "Straße" stehen, während ihre drei kürzeren
+       Strecken - dieselbe Veranstaltung! - korrekt als "Trail" gespeichert
+       wurden.
+
+    Ohne diesen Schritt bleiben Altbestände für immer unvollständig bzw.
+    falsch: die Scraper hängen sonst nur neue Events an und lassen
+    vorhandene unberührt.
+    """
+    for field_name in ENRICHABLE_FIELDS:
+        if target.get(field_name) is None and source.get(field_name) is not None:
+            target[field_name] = source[field_name]
+
+    new_url, old_url = source.get("veranstalter_url"), target.get("veranstalter_url")
+    if new_url and not is_portal_link(new_url) and is_portal_link(old_url):
+        target["veranstalter_url"] = new_url
+
+    new_art2 = source.get("art2")
+    if new_art2 and new_art2 != "Straße" and target.get("art2") in (None, "Straße"):
+        target["art2"] = new_art2
 
 
 # --------------------------------------------------------------------------
@@ -1289,10 +1435,23 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
                          help="Seite per Playwright/Chromium mit JavaScript-Ausführung laden.")
     parser.add_argument("--api-url", type=str, default=None,
                          help="Optional: direkte JSON-API-URL statt die HTML-Seite zu parsen.")
+    parser.add_argument("--no-details", action="store_true",
+                         help="Detailseiten der Events NICHT abrufen. Schneller, liefert "
+                              "dann aber nur die Angaben der Kalenderseite (bei manchen "
+                              "Quellen also keine offizielle Veranstalter-Seite und nicht "
+                              "alle Strecken).")
+    parser.add_argument("--max-details", type=int, default=0,
+                         help="Höchstens so viele Detailseiten abrufen (0 = alle). "
+                              "Nützlich für Testläufe.")
     if config.dach_only:
         parser.add_argument("--include-all-europe", action="store_true",
                              help="Auch Events außerhalb Deutschland/Österreich/Schweiz übernehmen.")
     args = parser.parse_args()
+
+    # An die Config durchreichen, damit `custom_fetch`-Funktionen sie sehen
+    # (siehe SiteConfig.fetch_details).
+    config.fetch_details = not args.no_details
+    config.max_details = args.max_details
 
     if config.note:
         print(f"ℹ {config.note}\n")
