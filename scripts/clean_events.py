@@ -10,7 +10,7 @@ vorhandene Einträge nie verändern (sie fügen nur neue an) - Regeln, die
 später dazukommen oder Bugfixes an der Distanz-/Kategorie-Erkennung
 wirken deshalb nicht rückwirkend. Genau dafür ist dieses Skript da.
 
-Sechs Schritte, in dieser Reihenfolge:
+Sieben Schritte, in dieser Reihenfolge:
 
 1. **Manuelle Korrekturen** aus `scripts/manual_overrides.json` anwenden
    (Distanz/Kategorie/Link überschreiben, `exclude: true` entfernt das
@@ -32,7 +32,12 @@ Sechs Schritte, in dieser Reihenfolge:
 5. **5-km-Mindestdistanz**: Events mit BEKANNTER Distanz unter
    `scraper_lib.MIN_DISTANCE_KM` entfernen (Events ohne Distanzangabe
    bleiben, siehe README "Datenqualität").
-6. **Duplikate zusammenführen** über `scraper_lib.is_same_event()`
+6. **Verdächtige Distanzen melden** (nur Hinweis, es wird nichts
+   gelöscht): Widerspricht eine Einzelangabe der Streckenaufzählung einer
+   anderen Quelle für dieselbe Veranstaltung, wird sie zur Prüfung
+   ausgegeben - siehe `report_suspicious_distances()` samt Begründung,
+   warum hier bewusst NICHT automatisch gelöscht wird.
+7. **Duplikate zusammenführen** über `scraper_lib.is_same_event()`
    (gleiches Datum + ähnlicher Name + gleicher Ort + kompatible Distanz).
    Dieselbe Veranstaltung steht oft in mehreren Kalendern unter
    abweichendem Namen ("52. Int. Bodensee-Marathon" / "Bodensee
@@ -73,6 +78,8 @@ from scraper_lib import (  # noqa: E402
     guess_land,
     is_portal_link,
     is_same_event,
+    is_same_race,
+    find_override,
     load_manual_overrides,
     round_km,
 )
@@ -87,24 +94,35 @@ def completeness(event: dict) -> int:
 
 
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
-    overrides = {k: v for k, v in load_manual_overrides().items() if k != "_readme"}
-    lookup = {k.casefold(): v for k, v in overrides.items()}
+    overrides = load_manual_overrides()
     kept: list[dict] = []
     excluded: list[str] = []
     changed: list[str] = []
     for event in events:
-        key = f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold()
-        override = lookup.get(key)
+        override = find_override(overrides, event.get("name"), event.get("datum_start"),
+                                 event.get("laenge_km"))
         if override:
             if override.get("exclude"):
-                excluded.append(f"{event.get('name')} ({event.get('datum_start')})")
+                excluded.append(
+                    f"{event.get('name')} ({event.get('datum_start')}"
+                    + (f", {event['laenge_km']:g} km" if isinstance(event.get('laenge_km'), (int, float)) else "")
+                    + ")"
+                )
                 continue
             for field in ("laenge_km", "art2", "art1", "land", "standort", "veranstalter_url"):
-                if field in override and event.get(field) != override[field]:
-                    changed.append(
-                        f"{event.get('name')}: {field} {event.get(field)!r} -> {override[field]!r}"
-                    )
-                    event[field] = override[field]
+                if field not in override or event.get(field) == override[field]:
+                    continue
+                # Ein Override darf einen direkten Veranstalter-Link NIE durch
+                # einen Portallink ersetzen (siehe scraper_lib).
+                if (field == "veranstalter_url"
+                        and is_portal_link(override[field])
+                        and event.get("veranstalter_url")
+                        and not is_portal_link(event["veranstalter_url"])):
+                    continue
+                changed.append(
+                    f"{event.get('name')}: {field} {event.get(field)!r} -> {override[field]!r}"
+                )
+                event[field] = override[field]
         kept.append(event)
     return kept, excluded, changed
 
@@ -113,12 +131,12 @@ def refresh_art2(events: list[dict]) -> list[str]:
     """Bestimmt art2 aus dem Event-Namen neu, wenn dabei eine spezifischere
     Kategorie als die gespeicherte herauskommt (Trail/Berg/Cross/Hindernis/
     Bahn statt des generischen "Straße")."""
-    overrides = {k.casefold() for k, v in load_manual_overrides().items()
-                 if k != "_readme" and "art2" in v}
+    overrides = load_manual_overrides()
     changed: list[str] = []
     for event in events:
-        key = f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold()
-        if key in overrides:
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"))
+        if own and "art2" in own:
             continue  # manuell gesetzte Kategorie nicht überschreiben
         if event.get("art1") != "Laufen":
             continue  # Stichwortliste gilt nur für Laufen
@@ -258,6 +276,111 @@ def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     return kept, dropped
 
 
+# Distanzen, die ein Veranstaltungsname selbst ankündigt. Steht das Wort im
+# Namen, ist die Distanz belegt - egal, was die Aufzählung einer anderen
+# Quelle enthält.
+NAME_DISTANCE_CLAIMS: list[tuple[re.Pattern, float]] = [
+    (re.compile(r"(?<!halb)marathon", re.I), 42.2),
+    (re.compile(r"halbmarathon|half ?marathon", re.I), 21.1),
+    (re.compile(r"ultra|100 ?km|24 ?(?:h|stunden)|backyard", re.I), 100.0),
+]
+
+
+def name_announces_distance(name: str | None, km: float) -> bool:
+    """True, wenn der Veranstaltungsname die Distanz `km` selbst nennt.
+
+    "Marathon" im Namen belegt eine 42,2-km-Strecke, "Ultra"/"24h" eine
+    beliebig lange. Schützt echte Distanzen davor, wegen einer
+    unvollständigen Streckenliste einer anderen Quelle gelöscht zu werden.
+    """
+    if not name:
+        return False
+    # "Halbmarathon" enthält "marathon" - der Negative-Lookbehind im ersten
+    # Muster verhindert, dass ein Halbmarathon-Name 42,2 km belegt.
+    for pattern, claimed in NAME_DISTANCE_CLAIMS:
+        if pattern.search(name) and km >= claimed - max(0.5, claimed * 0.05):
+            return True
+    return False
+
+
+def report_suspicious_distances(events: list[dict]) -> list[str]:
+    """MELDET (löscht nicht!) Distanzen, die der Streckenaufzählung einer
+    anderen Quelle für dieselbe Veranstaltung widersprechen.
+
+    Konkreter Fall aus den Daten: Der BraunenBerg-Lauf in Aalen steht bei
+    running.life mit seinen drei Strecken (32 km, 14,6 km, 8,2 km, jeweils
+    mit Streckennamen) - und bei laufen.de zusätzlich als eine einzige
+    Zeile "5. BraunenBerg-Lauf, 35 km" ohne Streckenangabe. Die 35 km sind
+    keine vierte Strecke, sondern die ungenaue Obergrenze aus der
+    Ergebnisliste. `merge_events()` kann das nicht erkennen, weil es
+    Distanzen vergleicht und 35 zu keiner der drei passt - genau die
+    Toleranz, die echte Distanz-Varianten absichtlich getrennt hält.
+
+    Die Regel greift bewusst eng:
+
+    * Nur innerhalb derselben Veranstaltung (`is_same_race()`: gleiches
+      Datum, ähnlicher Name, derselbe Ort).
+    * Nur, wenn dort MEHRERE Einträge mit Streckennamen (`wettbewerb`)
+      stehen - ein einzelner wäre kein Beweis für eine vollständige
+      Aufzählung.
+    * Nur Einträge OHNE `wettbewerb`, deren Distanz LÄNGER ist als die
+      längste aufgezählte Strecke - sie behaupten ein Rennen, das es laut
+      der anderen Quelle nicht gibt.
+    * Nur, wenn der NAME die Distanz nicht selbst ankündigt (ein
+      "3-Länder-Marathon" hat einen Marathon, egal was eine
+      unvollständige Aufzählung sagt).
+
+    WARUM NUR MELDEN, NICHT LÖSCHEN: Diese Funktion hat als automatische
+    Löschregel begonnen. Von ihren sieben Treffern waren nach
+    Einzelrecherche ZWEI echte Rennen - der Halbmarathon des NRZ
+    Klosterlaufs und die 42-km-Strecke der Mud Masters Airport Weeze; in
+    beiden Fällen war die Aufzählung der anderen Quelle unvollständig.
+    Eine Regel, die jedes siebte Mal echte Daten wegwirft, ist für diesen
+    Datensatz nicht gut genug - und "zu viel gelöscht" ist schlimmer als
+    "eine Zahl zu großzügig", weil es unsichtbar ist.
+
+    Die Meldung ist trotzdem wertvoll: sie zeigt genau die Handvoll
+    Einträge, die eine Websuche wert sind. Bestätigte Fehler kommen dann
+    mit `"exclude": true` in `scripts/manual_overrides.json` - mit dem
+    dreiteiligen Schlüssel "<Name>|<Datum>|<km>", damit nur die eine
+    falsche Strecke entfernt wird und nicht die ganze Veranstaltung.
+    """
+    clusters: list[list[dict]] = []
+    for event in events:
+        for cluster in clusters:
+            if any(is_same_race(member, event) for member in cluster):
+                cluster.append(event)
+                break
+        else:
+            clusters.append([event])
+
+    report: list[str] = []
+    for cluster in clusters:
+        listed = [e for e in cluster if e.get("wettbewerb")]
+        unlisted = [e for e in cluster if not e.get("wettbewerb")]
+        if len(listed) < 2 or not unlisted:
+            continue
+        known = [e["laenge_km"] for e in listed if isinstance(e.get("laenge_km"), (int, float))]
+        if not known:
+            continue
+        longest = max(known)
+        for event in unlisted:
+            km = event.get("laenge_km")
+            if not isinstance(km, (int, float)):
+                continue
+            if km <= longest + max(0.5, longest * 0.05):
+                continue  # passt zur Aufzählung oder ist plausibel kürzer
+            if name_announces_distance(event.get("name"), km):
+                continue  # der Name nennt diese Distanz selbst
+            report.append(
+                f"{event.get('name')} ({event.get('datum_start')}, {km:g} km): "
+                f"länger als die längste aufgezählte Strecke "
+                f"({', '.join(f'{k:g}' for k in sorted(known))} km) - bitte prüfen"
+            )
+
+    return report
+
+
 def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     by_date: dict[str | None, list[dict]] = {}
     for event in events:
@@ -328,6 +451,7 @@ def main() -> None:
     rounding_fixes = round_distances(events)
     land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
+    suspicious = report_suspicious_distances(events)
     events, dup_report = merge_duplicates(events)
 
     events.sort(key=lambda e: (e.get("datum_start") or "", (e.get("name") or "").casefold()))
@@ -345,6 +469,7 @@ def main() -> None:
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
+    section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
 
     print(f"\nevents.json: {before} -> {len(events)} Events "

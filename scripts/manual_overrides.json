@@ -79,8 +79,7 @@
   "45. Hörnle Berglauf Bad Kohlgrub|2026-09-19": {
     "laenge_km": 7.0,
     "art2": "Berg",
-    "veranstalter_url": "https://www.runnersworld.de/laufkalender/bad-kohlgruber-hoernle-berglauf/",
-    "_note": "7 km, 640 Hm laut mehreren Quellen; art2 ergibt sich zusätzlich bereits automatisch aus dem Namen (Berg)."
+    "_note": "7 km, 640 Hm laut mehreren Quellen; art2 ergibt sich zusätzlich bereits automatisch aus dem Namen (Berg). veranstalter_url hier bewusst NICHT gesetzt: der Scraper findet inzwischen die direkte Veranstalter-Seite (skiclub-bad-kohlgrub.de), die dem früher hier eingetragenen Portallink vorzuziehen ist."
   },
   "39.Lauf in die Mönau|2026-09-19": {
     "laenge_km": 10.0,
@@ -92,7 +91,7 @@
   },
   "17. Wehringer Wertachlauf mit schwäbischen Meisterschaften|2026-09-19": {
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.leichtathletik.de/wettkaempfe/termine/wettkampf-kalender/termin-detail/detail/16-Wehringer-Wertachlauf-mit-schwaebischen-Meisterschaften-25B02000737250500"
+    "_note": "Hauptlauf 10 km. veranstalter_url hier bewusst NICHT gesetzt: der Scraper findet inzwischen die direkte Veranstalter-Seite (lg-wehringen.de), die dem früher hier eingetragenen Portallink vorzuziehen ist."
   },
   "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
     "laenge_km": 22.0,
@@ -105,7 +104,7 @@
     "veranstalter_url": "https://www.tsvek.de/sportangebot/leichtathletik/wettkampfangebot-la/seelauf-la.html"
   },
   "27. Memminger Altstadtlauf|2026-09-20": {
-    "laenge_km": 5.82,
+    "laenge_km": 5.8,
     "veranstalter_url": "https://www.mm-altstadtlauf.de/ausschreibung/einzelstarter"
   },
   "23. Stadtlauf Erding 2026|2026-09-20": {
@@ -117,7 +116,7 @@
     "veranstalter_url": "https://kemmerner-kuckuckslauf.de/infos/laufstrecken"
   },
   "2.Fischhoflauf|2026-09-25": {
-    "laenge_km": 5.58
+    "laenge_km": 5.6
   },
   "20. Wiesentheider Kirchweihlauf|2026-09-26": {
     "laenge_km": 10.0,
@@ -176,5 +175,29 @@
   "1. Bernauer Kurpark-Kinder-Crosslauf|2026-09-27": {
     "laenge_km": 1.5,
     "_note": "Reiner Kinderlauf (500-1500 m je Jahrgang, kein Erwachsenen-Hauptlauf) - liegt unter der 5-km-Schwelle und wird dadurch automatisch herausgefiltert."
+  },
+  "5. BraunenBerg-Lauf|2026-09-19": {
+    "exclude": true,
+    "_note": "Falsche Distanz (35 km) aus der laufen.de-Ergebnisliste. Der Veranstalter (braunenberg-lauf.de) bietet 32 km (BraunenBerg-Trail), 14,6 km und 8,2 km an - alle drei stehen als eigene Einträge unter dem Namen 'BraunenBerg-Lauf' in der Liste. 35 km ist keine vierte Strecke. Vom Nutzer gemeldet und gegen die offizielle Seite geprüft."
+  },
+  "Rhön-Grabfeld-Cup – Hollstadt|2026-09-19|42.2": {
+    "exclude": true,
+    "_note": "Kein Marathon. Hauptlauf ist der Halbmarathon (21,1 km), dazu 10 km, 5,6 km und Schülerläufe ab 400 m (Auto-Köhler-Lauf Hollstadt, RGC-Serie). Die 42,2 km stammen aus einer Stichwort-Schätzung. Per Websuche geprüft."
+  },
+  "Stadtlauf Tribsees|2026-09-19|42.2": {
+    "exclude": true,
+    "_note": "Kein Marathon. Der Tribseeser Stadtlauf reicht von 400 m bis zum Halbmarathon (21,1 km), dazu 5 km Walking. Die 42,2 km stammen aus einer Stichwort-Schätzung. Per Websuche geprüft."
+  },
+  "Lauf Durch das Thüringer Schiefergebirge|2026-09-20|42.2": {
+    "exclude": true,
+    "_note": "Kein Marathon. Der Schiefergebirgslauf (schiefergebirgslauf.de) bietet 22 km, 9,0 km, 4,2 km und 2,0 km an; längste Strecke ist der 'Halbmarathon' über 22 km. Die 42,2 km stammen aus einer Stichwort-Schätzung. Per Websuche geprüft."
+  },
+  "Altstadtlauf Salzwedel|2026-09-20|42.2": {
+    "exclude": true,
+    "_note": "Kein Marathon. Angeboten werden 5 km (eine Runde), 10 km (zwei Runden) und Halbmarathon (drei Runden durch die Altstadt). Die 42,2 km stammen aus einer Stichwort-Schätzung. Per Websuche geprüft."
+  },
+  "9. Airport-Weeze Mud Masters Marathon|2026-09-19": {
+    "exclude": true,
+    "_note": "Verifiziertes Duplikat: dieselbe 42-km-Strecke steht als 'Mud Masters - Airport Weeze' (42,0 km) in der Liste, zusammen mit den übrigen Distanzen des Hindernislaufs. Behalten wird der Eintrag mit 42,0 km - die Mud-Masters-Strecke ist ein 42-km-Hindernislauf, nicht die Marathon-Normdistanz 42,195 km. Per Websuche geprüft (mudmasters.com: 6/12/18/42 km)."
   }
 }

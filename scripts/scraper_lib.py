@@ -1187,6 +1187,36 @@ def is_same_event(a: dict, b: dict) -> bool:
     return _same_place(a, b) and _compatible_distance(a, b)
 
 
+def is_same_race(a: dict, b: dict) -> bool:
+    """Wie `is_same_event()`, aber OHNE die Distanz zu vergleichen: True,
+    wenn beide Einträge zur selben VERANSTALTUNG gehören - egal, welche
+    Strecke sie beschreiben.
+
+    Gebraucht wird das dort, wo die Distanz gerade die fragliche Angabe ist:
+    Nennt eine Quelle die Wettbewerbe einzeln (32 km, 14,6 km, 8,2 km) und
+    eine andere für dieselbe Veranstaltung nur eine einzige, davon
+    abweichende Zahl (35 km), dann ist diese Zahl kein weiterer Wettbewerb,
+    sondern eine ungenaue Angabe - siehe
+    `clean_events.drop_unspecific_duplicates()`.
+
+    Für die normale Duplikat-Prüfung ist diese Funktion NICHT geeignet:
+    dort müssen unterschiedliche Distanzen derselben Veranstaltung
+    getrennte Einträge bleiben.
+    """
+    if a.get("datum_start") != b.get("datum_start"):
+        return False
+    na, nb = normalize_event_name(a.get("name")), normalize_event_name(b.get("name"))
+    if not na or not nb:
+        return False
+    if na == nb:
+        name_match = True
+    elif len(na) >= 8 and len(nb) >= 8 and (na in nb or nb in na):
+        name_match = True
+    else:
+        name_match = difflib.SequenceMatcher(None, na, nb).ratio() >= 0.88
+    return name_match and _same_place(a, b)
+
+
 def dedupe_key(
     name: str | None, datum_start: str | None, laenge_km: float | None = None
 ) -> tuple[str, str, float | None] | None:
@@ -1244,13 +1274,43 @@ def load_manual_overrides() -> dict:
     return _manual_overrides_cache
 
 
+def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:
+    """Die Schlüssel, unter denen ein Event in manual_overrides.json stehen
+    kann - vom spezifischsten zum allgemeinsten:
+
+        "<Name>|<Datum>|<km>"   nur diese eine Strecke
+        "<Name>|<Datum>"        alle Strecken dieser Veranstaltung
+
+    Die Variante mit Distanz ist nötig, seit jede Strecke einer
+    Veranstaltung ein eigener Eintrag ist: "Stadtlauf Tribsees|2026-09-19"
+    würde sonst ALLE vier Strecken treffen, obwohl nur die (falsche)
+    42,2-km-Zeile gemeint ist.
+    """
+    base = f"{(name or '').strip()}|{datum_start}"
+    if isinstance(laenge_km, (int, float)):
+        return [f"{base}|{round(float(laenge_km), 1):g}", base]
+    return [base]
+
+
+def find_override(overrides: dict, name: str | None, datum_start: str | None,
+                  laenge_km=None) -> dict | None:
+    """Sucht den passendsten Override-Eintrag (siehe override_keys())."""
+    lookup = {k.casefold(): v for k, v in overrides.items() if k != "_readme"}
+    for key in override_keys(name, datum_start, laenge_km):
+        hit = lookup.get(key.casefold())
+        if hit is not None:
+            return hit
+    return None
+
+
 def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
     """Wendet scripts/manual_overrides.json an: Quellen ohne verlässliche
     Distanz-/Link-Angabe (v. a. blv-sport.de) werden dort einzeln, per
     Websuche gegen die offizielle Ausschreibung recherchiert, nachgepflegt
     (siehe Docstring/'_readme' in der JSON-Datei). Events mit
-    'exclude': true (z. B. verifizierte Duplikate unter anderem Namen)
-    werden entfernt. Gibt (Events, Anzahl ausgeschlossen) zurück."""
+    'exclude': true (z. B. verifizierte Duplikate unter anderem Namen oder
+    eine per Websuche widerlegte Distanz) werden entfernt. Gibt (Events,
+    Anzahl ausgeschlossen) zurück."""
     overrides = load_manual_overrides()
     if not overrides:
         return events, 0
@@ -1258,18 +1318,25 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
     result: list[Event] = []
     excluded = 0
     for event in events:
-        key = f"{(event.name or '').strip()}|{event.datum_start}"
-        override = next(
-            (v for k, v in overrides.items() if k != "_readme" and k.casefold() == key.casefold()),
-            None,
-        )
+        override = find_override(overrides, event.name, event.datum_start, event.laenge_km)
         if override:
             if override.get("exclude"):
                 excluded += 1
                 continue
             for field in ("laenge_km", "art2", "art1", "land", "standort", "veranstalter_url"):
-                if field in override:
-                    setattr(event, field, override[field])
+                if field not in override:
+                    continue
+                # Ein Override darf einen direkten Veranstalter-Link NIE
+                # durch einen Portallink ersetzen: die älteren Einträge
+                # stammen aus der Zeit vor der Regel "immer die offizielle
+                # Seite" und enthalten teils einen Portal-Fallback, den die
+                # Scraper inzwischen übertreffen.
+                if (field == "veranstalter_url"
+                        and is_portal_link(override[field])
+                        and event.veranstalter_url
+                        and not is_portal_link(event.veranstalter_url)):
+                    continue
+                setattr(event, field, override[field])
         result.append(event)
     return result, excluded
 
