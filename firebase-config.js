@@ -5,16 +5,30 @@
 // EINMALIGES SETUP (siehe README.md, Abschnitt "Login/Anmeldung
 // einrichten" für die ausführliche Anleitung):
 //   1. Firebase-Projekt anlegen: https://console.firebase.google.com/
-//   2. Build -> Authentication -> Sign-in method: "Google" UND
-//      "E-Mail/Passwort" aktivieren.
-//   3. Authentication -> Settings -> Autorisierte Domains:
+//      Der kostenlose "Spark"-Tarif genügt für Login UND Firestore.
+//      (Nur die optionale E-Mail-Benachrichtigung per Cloud Function
+//      braucht "Blaze", siehe README.)
+//   2. Linke Spalte -> "Sicherheit" -> Authentication -> Jetzt starten
+//      -> Reiter "Sign-in method"/"Anbieter": "Google" UND
+//      "E-Mail/Passwort" aktivieren. Bei Google wird eine Support-
+//      E-Mail verlangt - die eigene Adresse genügt.
+//   3. Authentication -> Einstellungen -> Autorisierte Domains:
 //      antdon930.github.io eintragen (sonst schlägt der Login auf der
-//      live GitHub-Pages-Seite fehl, auch wenn er lokal funktioniert).
-//   4. Build -> Firestore Database -> Datenbank erstellen (Produktionsmodus;
-//      die Security Rules aus README.md/firestore.rules übernehmen).
-//   5. Projekteinstellungen (Zahnrad oben links) -> "Meine Apps" ->
-//      Web-App hinzufügen -> das dort angezeigte Config-Objekt HIERHER
-//      kopieren (ersetzt die "REPLACE_ME"-Platzhalter unten).
+//      live GitHub-Pages-Seite mit "auth/unauthorized-domain" fehl,
+//      auch wenn er lokal funktioniert).
+//   4. Linke Spalte -> "Datenbanken und Speicher" -> Firestore Database
+//      -> Datenbank erstellen (Produktionsmodus; die Security Rules aus
+//      firestore.rules übernehmen). Nur für "Benachrichtige mich"
+//      nötig, nicht für den Login selbst.
+//   5. Projektübersicht -> "App hinzufügen" -> Web (</>) -> Namen
+//      vergeben -> das dort angezeigte Config-Objekt HIERHER kopieren
+//      (ersetzt die "REPLACE_ME"-Platzhalter unten). Firebase Hosting
+//      dabei NICHT einrichten - die Seite läuft auf GitHub Pages.
+//
+// Hinweis zur Navigation: Die Firebase-Konsole hat die linke Spalte
+// umgestellt. Ältere Anleitungen (auch von Google) sprechen noch von
+// "Build -> Authentication"; heute liegt Authentication unter
+// "Sicherheit" und Firestore unter "Datenbanken und Speicher".
 //
 // Diese Werte (apiKey etc.) sind für Firebase-WEB-Apps kein Geheimnis -
 // sie dürfen bedenkenlos hier im öffentlichen Repo/auf GitHub Pages

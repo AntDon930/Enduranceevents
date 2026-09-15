@@ -518,21 +518,35 @@ Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
 
 ### Einmaliges Setup
 
-1. Firebase-Projekt anlegen: <https://console.firebase.google.com/> ->
-   "Projekt hinzufügen" (kostenlos, kein Kreditkarte nötig für die
-   folgenden Schritte).
-2. **Build → Authentication → Sign-in method**: "Google" und
-   "E-Mail/Passwort" aktivieren.
-3. **Authentication → Settings → Autorisierte Domains**:
-   `antdon930.github.io` eintragen (sonst funktioniert der Login live auf
-   GitHub Pages nicht, auch wenn er lokal geht).
-4. **Build → Firestore Database → Datenbank erstellen** (Produktionsmodus).
-   Danach unter **Rules** den Inhalt von `firestore.rules` (in diesem
-   Repo) einfügen und veröffentlichen.
-5. **Projekteinstellungen (Zahnrad oben links) → "Meine Apps" → Web-App
-   hinzufügen**. Das dort angezeigte Config-Objekt in `firebase-config.js`
-   einfügen (ersetzt die `REPLACE_ME`-Platzhalter).
-6. Committen und pushen - der Login funktioniert danach auf allen drei
+> **Navigation**: Die Firebase-Konsole hat die linke Spalte umgestellt.
+> Ältere Anleitungen (auch von Google selbst) sprechen noch von
+> „Build → Authentication"; heute liegt **Authentication unter
+> „Sicherheit"** und **Firestore unter „Datenbanken und Speicher"**.
+
+1. Firebase-Projekt anlegen: <https://console.firebase.google.com/> →
+   „Projekt hinzufügen". Der kostenlose **Spark-Tarif genügt** für Login
+   und Firestore, keine Kreditkarte nötig. (Nur die optionale
+   E-Mail-Benachrichtigung per Cloud Function braucht „Blaze", siehe
+   unten.)
+2. **Sicherheit → Authentication → Jetzt starten**, dann im Reiter
+   „Sign-in method" bzw. „Anbieter" **Google** und **E-Mail/Passwort**
+   aktivieren. Bei Google verlangt Firebase eine *Support-E-Mail* – die
+   eigene Adresse genügt; sie erscheint im Google-Anmeldedialog.
+3. **Authentication → Einstellungen → Autorisierte Domains**:
+   `antdon930.github.io` eintragen. **Dieser Schritt wird gern
+   vergessen** – ohne ihn funktioniert der Login lokal, aber live auf
+   GitHub Pages bricht er mit `auth/unauthorized-domain` ab.
+4. **Datenbanken und Speicher → Firestore Database → Datenbank
+   erstellen** (Produktionsmodus). Danach unter **Rules** den Inhalt von
+   `firestore.rules` (in diesem Repo) einfügen und veröffentlichen. Nur
+   für „Benachrichtige mich" nötig, nicht für den Login selbst – dieser
+   Schritt lässt sich also nachholen.
+5. **Projektübersicht → „App hinzufügen" → Web (`</>`)**, Namen vergeben,
+   registrieren. Das dort angezeigte Config-Objekt in
+   `firebase-config.js` einfügen (ersetzt die `REPLACE_ME`-Platzhalter).
+   **Firebase Hosting dabei nicht einrichten** – die Seite läuft auf
+   GitHub Pages.
+6. Committen und pushen – der Login funktioniert danach auf allen drei
    Seiten (dasselbe `firebase-config.js`/`auth.js` wird überall geladen).
 
 ### „Benachrichtige mich" (0 Treffer in der Liste)
