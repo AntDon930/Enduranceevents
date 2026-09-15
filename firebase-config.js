@@ -36,15 +36,20 @@
 // Rules (Firestore) bzw. die Autorisierten Domains (Auth), nicht über
 // Geheimhaltung dieser Werte.
 window.FIREBASE_CONFIG = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  apiKey: "AIzaSyCJjK6cgO9vi3ltltyKDg8DZ2U3ygds3_4",
+  authDomain: "endurance-5177a.firebaseapp.com",
+  projectId: "endurance-5177a",
+  storageBucket: "endurance-5177a.firebasestorage.app",
+  messagingSenderId: "939878897826",
+  appId: "1:939878897826:web:dd7a42cee49b2ed32adffb",
+  // Nur für Google Analytics. Wird derzeit NICHT genutzt (die Seiten laden
+  // firebase-analytics-compat.js nicht); bleibt hier, damit das Objekt dem
+  // entspricht, was die Firebase-Konsole ausgibt.
+  measurementId: "G-JK0W981Y6D"
 };
 
 // Wird automatisch ausgewertet: Solange apiKey noch "REPLACE_ME" ist,
 // zeigt auth.js einen freundlichen "Login ist noch nicht eingerichtet"-
-// Hinweis statt kaputter Buttons oder Konsolenfehlern.
+// Hinweis statt kaputter Buttons oder Konsolenfehlern. Seit die echte
+// Config eingetragen ist, ist das true - der Login ist scharf.
 window.FIREBASE_CONFIGURED = window.FIREBASE_CONFIG.apiKey !== "REPLACE_ME";
