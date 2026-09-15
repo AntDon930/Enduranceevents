@@ -17,9 +17,12 @@
 //      live GitHub-Pages-Seite mit "auth/unauthorized-domain" fehl,
 //      auch wenn er lokal funktioniert).
 //   4. Linke Spalte -> "Datenbanken und Speicher" -> Firestore Database
-//      -> Datenbank erstellen (Produktionsmodus; die Security Rules aus
-//      firestore.rules übernehmen). Nur für "Benachrichtige mich"
-//      nötig, nicht für den Login selbst.
+//      -> Datenbank erstellen. Dabei: Version "Standardversion" (nicht
+//      Enterprise), Datenbank-ID "(default)" lassen, Speicherort z. B.
+//      europe-west3 (nicht mehr änderbar), und "Produktionsmodus" statt
+//      Testmodus. Danach die Security Rules aus firestore.rules
+//      übernehmen. Nur für "Benachrichtige mich" nötig, nicht für den
+//      Login selbst.
 //   5. Projektübersicht -> "App hinzufügen" -> Web (</>) -> Namen
 //      vergeben -> das dort angezeigte Config-Objekt HIERHER kopieren
 //      (ersetzt die "REPLACE_ME"-Platzhalter unten). Firebase Hosting

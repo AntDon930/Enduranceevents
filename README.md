@@ -537,10 +537,21 @@ Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
    vergessen** – ohne ihn funktioniert der Login lokal, aber live auf
    GitHub Pages bricht er mit `auth/unauthorized-domain` ab.
 4. **Datenbanken und Speicher → Firestore Database → Datenbank
-   erstellen** (Produktionsmodus). Danach unter **Rules** den Inhalt von
-   `firestore.rules` (in diesem Repo) einfügen und veröffentlichen. Nur
-   für „Benachrichtige mich" nötig, nicht für den Login selbst – dieser
-   Schritt lässt sich also nachholen.
+   erstellen**. Der Assistent fragt drei Dinge:
+   - *Version*: **Standardversion** (automatische Indexierung). Die
+     Enterprise-Version ist für MongoDB-kompatible Workloads mit
+     selbstverwalteter Indexierung – hier unnötig und teurer.
+   - *Datenbank-ID und Speicherort*: ID **`(default)`** lassen (siehe
+     Hinweis in `firestore.rules`: `auth.js` spricht immer die
+     Standard-Datenbank an). Speicherort z. B. `europe-west3`
+     (Frankfurt) – **nicht mehr änderbar**.
+   - *Konfigurieren*: **Produktionsmodus**, nicht Testmodus – der wäre
+     30 Tage lang weltweit lesbar UND beschreibbar.
+
+   Danach unter **Regeln** den Inhalt von `firestore.rules` (in diesem
+   Repo) einfügen und veröffentlichen. Nur für „Benachrichtige mich"
+   nötig, nicht für den Login selbst – dieser Schritt lässt sich also
+   nachholen.
 5. **Projektübersicht → „App hinzufügen" → Web (`</>`)**, Namen vergeben,
    registrieren. Das dort angezeigte Config-Objekt in
    `firebase-config.js` einfügen (ersetzt die `REPLACE_ME`-Platzhalter).
