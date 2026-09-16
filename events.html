@@ -217,15 +217,15 @@
      Längen stehen als kleine Marken nebeneinander. */
   .group-row { cursor: pointer; font-weight: 600; }
   .group-row:hover { background: var(--row-hover); }
-  .group-name { display: flex; align-items: center; gap: 8px; }
+  .group-name { display: flex; align-items: center; gap: 6px; }
   .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   /* Rundes Feld mit Pfeil, dreht sich beim Aufklappen um 90°. */
   .chevron {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     flex-shrink: 0;
     border-radius: 50%;
     border: 1px solid var(--border);
@@ -239,18 +239,16 @@
     .chevron { transition: none; }
   }
   /* Anzahl der zusammengefassten Strecken. Auch die 1 wird angezeigt -
-     sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus. */
+     sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus.
+     Bewusst ohne Kapsel/Rahmen: als Kapsel war die Zahl breiter als die
+     ganze Spalte jetzt ist. */
   .count-pill {
     display: inline-block;
-    min-width: 22px;
-    padding: 1px 6px;
-    border-radius: 999px;
-    background: var(--row-alt);
-    border: 1px solid var(--border);
     font-size: 0.76rem;
     font-weight: 600;
+    font-variant-numeric: tabular-nums;
     color: var(--text-muted);
-    text-align: center;
+    text-align: left;
   }
   .group-row:hover .count-pill { color: var(--text); }
   .badges { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -265,7 +263,7 @@
   }
   .badges { row-gap: 3px; }
   tbody tr.sub-row { font-size: 0.82rem; }
-  tbody tr.sub-row .col-name { padding-left: 26px; }
+  tbody tr.sub-row .col-name { padding-left: 22px; }
   tbody tr.sub-row .col-anzahl { color: var(--text-muted); }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
@@ -381,7 +379,14 @@
      nur beim Zusammenfassen), und mit nth-child bräuchte jede Kombination
      ihren eigenen Satz Regeln. Die Summe muss nicht genau 100 % sein -
      table-layout: fixed verteilt proportional. */
-  .col-anzahl { width: 8%; text-align: center; }
+  /* Die Zusammenfassung soll so wenig Platz wie möglich kosten: die
+     Anzahl steht als kleine Zahl ganz links am Tabellenrand, gleich
+     danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
+     ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
+     immer zu breit. */
+  .col-anzahl { width: 28px; text-align: left; }
+  thead th.col-anzahl .th-inner { padding-left: 8px; padding-right: 0; }
+  tbody td.col-anzahl { padding-left: 8px; padding-right: 0; }
   .col-name { width: 22%; }
   .col-datum { width: 13%; }
   .col-land { width: 11%; }
@@ -1390,7 +1395,7 @@
   // Veranstaltung besteht - eine einzelne Strecke zeigt "1". Die Spalte
   // ist nicht sortierbar (SORT_KEYS kennt sie nicht): sortiert werden
   // einzelne Strecken, die Gruppen entstehen erst danach.
-  const COUNT_COLUMN = { key: 'anzahl', labelKey: 'col_anzahl', type: 'none' };
+  const COUNT_COLUMN = { key: 'anzahl', labelKey: 'col_anzahl', short: '#', type: 'none' };
 
   function activeColumns() {
     const cols = COLUMNS.slice();
@@ -1427,7 +1432,7 @@
   // Schriftzeichen - in jeder Schrift anders groß, nicht mittig und ohne
   // Bewegung. Steht hier oben, weil der erste render() (siehe
   // urlZustandGelesen) es bei aktiver Gruppierung sofort braucht.
-  const CHEVRON_SVG = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" '
+  const CHEVRON_SVG = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" '
     + 'stroke="currentColor" stroke-width="2.5" stroke-linecap="round" '
     + 'stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 
@@ -1554,6 +1559,12 @@
     try { localStorage.setItem('endurance-gruppiert', state.gruppiert ? '1' : '0'); } catch (e) { /* ignorieren */ }
     state.offeneGruppen.clear();
     selectedIndex = null;
+    // buildHeader() muss mit: das Zusammenfassen schaltet die Spalte
+    // "Anzahl" zu bzw. ab (activeColumns). Ohne den Aufruf bekam der
+    // Tabellenkörper eine Zelle mehr als die Kopfzeile Spalten hatte -
+    // alle Überschriften standen um eine Spalte verschoben, bis die
+    // Seite neu geladen wurde.
+    buildHeader();
     render();
   });
 
@@ -1814,7 +1825,9 @@
         inner.appendChild(sortBtn);
       } else {
         const label = document.createElement('span');
-        label.textContent = t(col.labelKey);
+        // In die schmale Anzahl-Spalte passt kein Wort - dort steht "#",
+        // der volle Name bleibt als Tooltip erhalten.
+        label.textContent = col.short || t(col.labelKey);
         label.title = t(col.labelKey);
         inner.appendChild(label);
       }
