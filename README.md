@@ -272,7 +272,14 @@ Schweiz.
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
      `events.html`, dort anpassbar):
      - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis,
-       Backcountry Ultra
+       Backcountry Ultra. Letztere trifft „backcountry" (abseits
+       ausgebauter Wege, oft unverpflegt) sowie „backyard" bzw.
+       „last man standing" (gleiche Runde zur gleichen Stunde, bis nur
+       noch eine Person weiterläuft). Die beiden Stichwörter stehen
+       **an verschiedenen Stellen** der Prioritätsliste: „backcountry"
+       vor „Trail" (ein „Backcountry Ultra Trail" bleibt Backcountry
+       Ultra), „backyard" dahinter – ein „Backyard Ultra **Trail**" ist
+       ein Trailrun, der das Wort nur im Namen trägt.
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
      - *Triathlon* hat keine Kategorie-Unterteilung.

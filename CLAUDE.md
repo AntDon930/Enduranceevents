@@ -88,12 +88,17 @@ laden Leaflet und Firebase.
    Einträgen ohne Distanz (`clean_events.fill_duration()`).
    Filter: Kategorie „Zeitrennen" im Länge-Panel, gespiegelt in
    `functions/index.js` (`ZEIT_CATEGORY_KEY`).
-9. **`art2` „Backcountry Ultra"** (nur Laufen) steht in
-   `ART2_KEYWORDS_LAUFEN` VOR „Trail", sonst wird ein „Backcountry Ultra
-   Trail" zum gewöhnlichen Trail. Stichwort ist ausschließlich
-   „backcountry" – ein **Backyard Ultra** (Rundenformat nach Big's
-   Backyard) ist ein anderes Format und landet absichtlich NICHT
-   automatisch hier. Ohne Rückfrage nicht erweitern.
+9. **`art2` „Backcountry Ultra"** (nur Laufen). Zwei Stichwörter mit
+   **unterschiedlicher Position** in `ART2_KEYWORDS_LAUFEN` – das ist
+   Absicht, nicht Zufall:
+   - „backcountry" steht **VOR** „Trail": ein „Backcountry Ultra Trail"
+     ist ein Backcountry Ultra.
+   - „backyard" (und „last man/person standing") steht **NACH** „Trail":
+     ein reiner „Backyard Ultra" ist Last-Man-Standing und damit
+     Backcountry Ultra, ein „Backyard Ultra **Trail**" dagegen ein
+     Trailrun, der das Wort nur im Namen trägt.
+
+   So ausdrücklich vom Nutzer entschieden. Reihenfolge nicht „aufräumen".
 10. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
    `datum_start`); der heutige Tag bleibt, ein mehrtägiges Rennen bleibt bis
    zu seinem letzten Tag, ein Event mit unlesbarem Datum wird nicht

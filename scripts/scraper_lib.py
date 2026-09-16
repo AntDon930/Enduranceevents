@@ -178,6 +178,15 @@ ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     # Format und wird nicht automatisch hierher einsortiert.
     (re.compile(r"backcountry", re.I), "Backcountry Ultra"),
     (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
+    # "backyard" steht NACH "Trail" - und das ist der ganze Trick: Ein
+    # reiner "Backyard Ultra" (Last-Man-Standing: gleiche Runde zur
+    # gleichen Stunde, bis nur noch eine Person weiterläuft) landet hier
+    # bei Backcountry Ultra. Heißt das Event dagegen "Backyard Ultra
+    # Trail", greift die Trail-Regel eine Zeile höher zuerst - dann ist es
+    # ein Trailrun, der das Wort nur im Namen trägt, und genau so soll es
+    # sein (ausdrückliche Vorgabe des Nutzers).
+    (re.compile(r"backyard|last ?man ?standing|last ?person ?standing", re.I),
+     "Backcountry Ultra"),
     # "Höhenmeter" im Text ist ein starkes Indiz für einen Berg-/Gelände-
     # lauf statt eines flachen Straßenlaufs, unabhängig vom Namen.
     (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Berg"),

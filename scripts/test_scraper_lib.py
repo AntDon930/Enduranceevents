@@ -371,10 +371,19 @@ def test_zeitrennen() -> None:
           guess_art2("Alpiner Backcountry Ultra", CONFIG), "Backcountry Ultra")
     check("Backcountry gewinnt gegen Trail",
           guess_art2("Backcountry Ultra Trail 80 km", CONFIG), "Backcountry Ultra")
-    # Ein Backyard Ultra ist ein anderes Format (Rundenlauf nach Big's
-    # Backyard) und wird NICHT automatisch als Backcountry Ultra eingestuft.
-    check("Backyard bleibt unberührt",
-          guess_art2("Backyard Ultra Berlin", CONFIG) != "Backcountry Ultra", True)
+    # Ein Backyard Ultra (Last-Man-Standing) zählt ebenfalls als
+    # Backcountry Ultra - so von Nutzerseite entschieden.
+    check("Backyard Ultra", guess_art2("Backyard Ultra Berlin", CONFIG),
+          "Backcountry Ultra")
+    check("Schreibweise egal", guess_art2("Murr BackYard 12h", CONFIG),
+          "Backcountry Ultra")
+    check("Last Man Standing", guess_art2("Last Man Standing Hamburg", CONFIG),
+          "Backcountry Ultra")
+    # ABER: Steht "Trail" im Namen, ist es ein Trailrun, der das Wort nur
+    # mitträgt. Deshalb steht das backyard-Stichwort NACH der Trail-Regel -
+    # umgekehrt zu "backcountry", das die Trail-Regel schlägt.
+    check("Backyard Ultra Trail ist ein Trail",
+          guess_art2("Backyard Ultra Trail Harz", CONFIG), "Trail")
 
 
 def test_vergangene_events() -> None:
