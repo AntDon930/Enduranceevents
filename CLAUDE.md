@@ -70,11 +70,13 @@ lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 30 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 42 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
-Ausgangspunkt ungebündelt, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+Ausgangspunkt ungebündelt, Tastaturbedienung (ein Tab-Stopp, Pfeile,
+Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
+Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -336,6 +338,33 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 - **`.group-name` ist ein Flex-Element ohne `.cell-clamp`**: dessen
   `display: -webkit-box` widerspricht dem Flex, der Name rutschte sonst
   unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
+- **Ein Tippen auf eine Zeile scrollt zu den Angaben** – aber nur auf
+  dem Handy und nur beim Auswählen. Unter 900 px hat die Seite eine
+  Spalte, der Detailbereich steht also unter der 78vh hohen Tabelle; ein
+  Tippen wirkte vorher folgenlos (vom Nutzer gemeldet).
+  `zeigeDetailbereich()` prüft erst, ob der Bereich wirklich außerhalb
+  des Bildes liegt – am Rechner steht er daneben und darf sich nicht
+  bewegen –, achtet auf `prefers-reduced-motion` und wird **nicht**
+  gerufen, wenn der Klick eine Veranstaltung auf- oder zugeklappt hat
+  (dann will man die Strecken an dieser Stelle sehen) und nicht bei der
+  Pfeiltasten-Navigation (sonst schiebt sich die Tabelle weg, in der man
+  gerade navigiert).
+- **Tastaturbedienung der Tabelle: „roving tabindex".** Jede Zeile trägt
+  `tabindex="-1"`, aber nur **eine** ist per Tab erreichbar
+  (`setzeTabStop()`, `tabStopZeile` steht oben bei `state` – als `let`
+  weiter unten warf sie beim ersten `render()` einen
+  Temporal-Dead-Zone-Fehler und brach `render()` mitten ab). 4.155
+  Tab-Stopps wären eine Falle. Bewegt wird mit ↑/↓, Home/End, →/←
+  (Veranstaltung auf/zu), Leertaste klappt um, Enter springt in den
+  Detailbereich (`tabindex="-1"` am `#detail-panel`). Alles über **einen**
+  `keydown`-Listener am `<tbody>` – kein Listener je Zeile, das
+  Ein-String-Zeichnen bleibt.
+- **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
+  `aria-modal="true"` verspricht genau das) und wird von `events.html`
+  für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**
+  eingehängt, weil `auth.js` `defer` trägt und beim Inline-Skript noch
+  nicht existiert (dieselbe Reihenfolge wie bei `EE_AUTH_QUEUE`). Nicht
+  kopieren, sonst laufen zwei Fesseln auseinander.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)
@@ -442,6 +471,12 @@ Sortierung mit.
   `Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de)` in das `I18N` der
   Seite gemischt, damit `t()` unverändert bleibt. Ein Text, den beide
   Seiten brauchen, gehört ins Modul – nicht in beide `I18N`-Objekte.
+- **Das Panel per Tastatur**: Escape schließt es und gibt den Fokus an
+  seinen Knopf zurück (`closePanel(true)`), Pfeil nach unten am Knopf
+  öffnet es und geht hinein, ein `focusout` mit echtem `relatedTarget`
+  schließt es (bei `null` **nicht** – dann hat sich das Panel nur selbst
+  neu gezeichnet). Die Knöpfe tragen `aria-haspopup`/`aria-expanded`
+  (gesetzt in `updateIndicators()`).
 - Das Panel liegt bei `z-index: 1000`: über den Leaflet-Bedienelementen
   (800), unter Anmelde-Fenster (2000) und Kurzmeldung (3000). Mit den
   früheren 100 verschwand es auf der Karte hinter Zoom-Knöpfen und

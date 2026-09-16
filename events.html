@@ -538,6 +538,21 @@
   tbody tr:nth-child(even) { background: var(--row-alt); }
   tbody tr:hover { background: var(--row-hover); }
   tbody tr.active { background: var(--accent-bg); }
+  /* Tastaturbedienung: die Zeile, auf der der Fokus steht, muss zu sehen
+     sein. `:focus-visible` statt `:focus`, damit ein Mausklick (der die
+     Zeile ebenfalls fokussiert) keinen Rahmen hinterlässt. `-2px` legt
+     ihn nach innen - außen würde ihn der scrollende Tabellen-Container
+     abschneiden. */
+  tbody tr:focus { outline: none; }
+  tbody tr:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: var(--accent-bg);
+  }
+  /* Enter auf einer Zeile springt in die Angaben - dort muss sichtbar
+     sein, dass der Fokus jetzt hier steht. */
+  .detail-panel:focus { outline: none; }
+  .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .empty-row td {
     text-align: center;
     padding: 24px;
@@ -750,7 +765,9 @@
     </table>
   </div>
   <div class="side-panel">
-    <div class="detail-panel" id="detail-panel"></div>
+    <!-- tabindex="-1": Enter auf einer Zeile springt hierher (siehe
+         Tastaturbedienung), ein eigener Tab-Stopp ist es aber nicht. -->
+    <div class="detail-panel" id="detail-panel" tabindex="-1"></div>
   </div>
 </div>
 
@@ -782,7 +799,7 @@
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
 <script src="filters.js?v=12187957"></script>
-<script src="filter-ui.js?v=158d0aeb"></script>
+<script src="filter-ui.js?v=c7e82e5e"></script>
 
 <script>
 (async function () {
@@ -816,7 +833,7 @@
     de: {
       tab_title: 'Ausdauersport-Events D/A/CH',
       title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
-      subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details.',
+      subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details – mit der Tastatur: ↑ ↓ und Enter.',
       reset: 'Alle Filter zurücksetzen',
       home: 'Startseite',
       map: 'Karte',
@@ -878,7 +895,7 @@
     en: {
       tab_title: 'Endurance Events D/A/CH',
       title: 'Endurance Events – Germany / Austria / Switzerland',
-      subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details.',
+      subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details – by keyboard: ↑ ↓ and Enter.',
       reset: 'Reset all filters',
       home: 'Home',
       map: 'Map',
@@ -1143,6 +1160,12 @@
   // ruft es auf, bevor die Tabelle überhaupt zum ersten Mal entsteht.
   let gruppenAktuell = [];         // Gruppen der aktuellen Anzeige
   const idxZuGruppe = new Map();   // Event-Index -> Nummer seiner Gruppe
+  // Die eine Zeile, die per Tab erreichbar ist (Tastaturbedienung der
+  // Tabelle, siehe setzeTabStop). Aus demselben Grund hier oben: render()
+  // setzt sie am Ende, und render() läuft lange vor ihrer Textstelle -
+  // dort deklariert warf sie "Cannot access 'tabStopZeile' before
+  // initialization" und brach render() nach dem Detailbereich ab.
+  let tabStopZeile = null;
 
   // Vor dem ersten readUrlState() darf writeUrlState() NICHTS schreiben,
   // sonst löscht der erste render() die Parameter eines geteilten Links
@@ -1638,7 +1661,7 @@
   // Veranstaltungszeile selbst (groupRowHtml).
   function subRowsHtml(g, cols) {
     return g.rows.slice(1).map(({ e, idx }) =>
-      `<tr class="sub-row${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}">`
+      `<tr class="sub-row${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
       + cols.map(col => cellHtml(col, e)).join('')
       + '</tr>'
     ).join('');
@@ -1679,7 +1702,7 @@
         // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
         // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
         teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
-          + ` data-g="${nr}" data-idx="${g.rows[0].idx}"`
+          + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
           + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
           + `>${groupRowHtml(g, cols)}</tr>`);
         if (offen) teile.push(subRowsHtml(g, cols));
@@ -1688,7 +1711,7 @@
       removeNotifyPrompt();
     } else {
       bodyEl.innerHTML = filtered.map(({ e, idx }) =>
-        `<tr data-idx="${idx}"${idx === selectedIndex ? ' class="active"' : ''}>`
+        `<tr data-idx="${idx}" tabindex="-1"${idx === selectedIndex ? ' class="active"' : ''}>`
         + cols.map(col => cellHtml(col, e)).join('')
         + '</tr>'
       ).join('');
@@ -1696,6 +1719,8 @@
     }
 
     renderDetail();
+    // Eine Zeile bleibt per Tab erreichbar (siehe setzeTabStop).
+    setzeTabStop(bodyEl.querySelector('tr.active[data-idx]') || bodyEl.querySelector('tr[data-idx]'));
     writeUrlState();
     updateMapLink();
     // Zum Schluss, nicht früher: Die Spaltenbreiten stehen erst jetzt fest
@@ -1711,11 +1736,114 @@
   bodyEl.addEventListener('click', (ev) => {
     const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
     if (!tr || !bodyEl.contains(tr)) return;
+    setzeTabStop(tr);
+    let geklappt = false;
     if (tr.dataset.klapp) {
       const g = gruppenAktuell[Number(tr.dataset.g)];
-      if (g) klappeGruppe(tr, g);
+      if (g) { klappeGruppe(tr, g); geklappt = true; }
     }
-    waehleZeile(Number(tr.dataset.idx));
+    // Zum Detailbereich scrollen (auf dem Handy steht er weit unten) -
+    // aber NICHT, wenn der Klick eine Veranstaltung auf- oder zugeklappt
+    // hat: dann will man die Strecken sehen, die gerade an dieser Stelle
+    // erscheinen.
+    waehleZeile(Number(tr.dataset.idx), { zeigeDetail: !geklappt });
+  });
+
+  // ---------- Tastaturbedienung der Tabelle ----------
+  //
+  // Die Zeilen sind <tr> mit einem Listener am <tbody> - ohne
+  // Zutun also weder fokussierbar noch auslösbar, die Liste war mit
+  // der Tastatur nicht zu bedienen. Nachgerüstet ohne das schnelle
+  // Ein-String-Zeichnen aufzugeben:
+  //
+  // - Jede Zeile trägt `tabindex="-1"` (steht in den Vorlagen, kostet
+  //   nichts), erreichbar per Tab ist aber nur EINE ("roving tabindex",
+  //   das übliche Muster für lange Listen). 4.155 Tab-Stopps wären eine
+  //   Falle: man käme aus der Tabelle nicht mehr heraus.
+  // - Bewegt wird mit den Pfeiltasten, weiterhin über EINEN Listener am
+  //   <tbody> - kein Listener je Zeile.
+  //
+  // Tasten: ↑/↓ Zeile, Home/End erste/letzte, →/← Veranstaltung auf-/
+  // zuklappen, Leertaste klappt um, Enter springt in die Angaben (von
+  // dort erreicht Tab die Links: Veranstalter, Kalender, Fehler melden).
+  //
+  // `tabStopZeile` steht oben bei `state` (Temporal Dead Zone).
+  function setzeTabStop(zeile) {
+    if (tabStopZeile && tabStopZeile !== zeile && tabStopZeile.isConnected) {
+      tabStopZeile.tabIndex = -1;
+    }
+    tabStopZeile = zeile || null;
+    if (tabStopZeile) tabStopZeile.tabIndex = 0;
+  }
+
+  // Eine Zeile mit der Tastatur ansteuern heißt auch: sie auswählen. Der
+  // Detailbereich zeigt sofort, wo man ist (kein zusätzliches Enter).
+  // Gescrollt wird dabei NICHT zu den Angaben - das würde die Tabelle,
+  // in der man gerade navigiert, aus dem Bild schieben.
+  function fokussiereZeile(zeile) {
+    if (!zeile) return;
+    setzeTabStop(zeile);
+    zeile.focus();
+    waehleZeile(Number(zeile.dataset.idx));
+  }
+
+  function nachbarZeile(tr, vorwaerts) {
+    let n = vorwaerts ? tr.nextElementSibling : tr.previousElementSibling;
+    while (n && !(n.dataset && n.dataset.idx != null)) {
+      n = vorwaerts ? n.nextElementSibling : n.previousElementSibling;
+    }
+    return n;
+  }
+
+  bodyEl.addEventListener('keydown', (ev) => {
+    if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
+    if (!tr || !bodyEl.contains(tr)) return;
+    const k = ev.key;
+    if (k === 'ArrowDown' || k === 'ArrowUp') {
+      const ziel = nachbarZeile(tr, k === 'ArrowDown');
+      if (!ziel) return;
+      ev.preventDefault();
+      fokussiereZeile(ziel);
+      return;
+    }
+    if (k === 'Home' || k === 'End') {
+      const zeilen = bodyEl.querySelectorAll('tr[data-idx]');
+      if (!zeilen.length) return;
+      ev.preventDefault();
+      fokussiereZeile(k === 'Home' ? zeilen[0] : zeilen[zeilen.length - 1]);
+      return;
+    }
+    if (k === 'ArrowRight' || k === 'ArrowLeft') {
+      if (!tr.dataset.klapp) return;
+      const offen = tr.getAttribute('aria-expanded') === 'true';
+      // Schon im gewünschten Zustand: nichts tun (nicht umklappen).
+      if ((k === 'ArrowRight') === offen) return;
+      const g = gruppenAktuell[Number(tr.dataset.g)];
+      if (!g) return;
+      ev.preventDefault();
+      klappeGruppe(tr, g);
+      // klappeGruppe baut den Inhalt der Zeile neu; der Fokus bleibt an
+      // der Zeile selbst, sie wird nicht ersetzt.
+      return;
+    }
+    if (k === 'Enter' || k === ' ' || k === 'Spacebar') {
+      // Die Leertaste würde sonst die Seite weiterblättern.
+      ev.preventDefault();
+      if (tr.dataset.klapp) {
+        const g = gruppenAktuell[Number(tr.dataset.g)];
+        if (g) klappeGruppe(tr, g);
+        waehleZeile(Number(tr.dataset.idx));
+        return;
+      }
+      waehleZeile(Number(tr.dataset.idx));
+      if (k === 'Enter') {
+        zeigeDetailbereich();
+        // tabindex="-1" am Detailbereich (siehe HTML): ansteuerbar, aber
+        // kein zusätzlicher Tab-Stopp.
+        if (detailEl) detailEl.focus();
+      }
+    }
   });
 
   // Auf- und Zuklappen rührt nur die Zeilen dieser einen Veranstaltung an.
@@ -1743,6 +1871,10 @@
     tr.innerHTML = groupRowHtml(g, cols);
     tr.setAttribute('aria-expanded', warOffen ? 'false' : 'true');
     if (!warOffen) tr.insertAdjacentHTML('afterend', subRowsHtml(g, cols));
+    // Zuklappen kann die Zeile entfernt haben, die den Tab-Stopp trug -
+    // dann übernimmt ihn die Veranstaltungszeile, sonst wäre die Tabelle
+    // per Tab nicht mehr erreichbar.
+    if (!tabStopZeile || !tabStopZeile.isConnected) setzeTabStop(tr);
   }
 
   // Eine Zeile auswählen heißt: Detailbereich füllen und die Markierung
@@ -1750,10 +1882,36 @@
   // sortieren, alle Zeilen neu bauen, nur damit eine Zeile eine Klasse
   // bekommt. `selectedIndex` steht in keinem Link (siehe currentParams),
   // also ist auch writeUrlState() hier nichts zu tun.
-  function waehleZeile(idx) {
+  function waehleZeile(idx, opts) {
     selectedIndex = idx;
     markiereAuswahl();
     renderDetail();
+    if (opts && opts.zeigeDetail) zeigeDetailbereich();
+  }
+
+  // Auf dem Handy wirkte ein Tippen auf eine Zeile folgenlos: unter 900 px
+  // hat die Seite nur EINE Spalte, der Detailbereich steht also unter der
+  // Tabelle - und die ist 78vh hoch. Die Angaben erschienen damit rund
+  // einen Bildschirm weiter unten, ohne dass irgendetwas darauf hinwies.
+  //
+  // Gescrollt wird nur, wenn der Bereich wirklich außerhalb des Bildes
+  // liegt: am Rechner steht er neben der Tabelle, dort darf sich nichts
+  // bewegen. `prefers-reduced-motion` schaltet das sanfte Scrollen ab -
+  // dieselbe Rücksicht wie bei den Übergängen im Stylesheet.
+  function zeigeDetailbereich() {
+    if (!detailEl) return;
+    const box = detailEl.getBoundingClientRect();
+    const sichtbar = box.top < window.innerHeight - 80 && box.bottom > 80;
+    if (sichtbar) return;
+    let sanft = true;
+    try {
+      sanft = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) { /* ältere Browser: dann sanft */ }
+    try {
+      detailEl.scrollIntoView({ behavior: sanft ? 'smooth' : 'auto', block: 'start' });
+    } catch (e) {
+      detailEl.scrollIntoView();
+    }
   }
 
   // Bei Gruppierung sind zwei Zeilen zu markieren: die Unterzeile selbst
@@ -2104,10 +2262,33 @@
   document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape' && !reportOverlay.hidden) closeReportModal();
   });
+  // Escape und die Fokusfessel kommen aus auth.js (dialogTasten) - der
+  // Anmelde-Dialog dort braucht genau dasselbe, und zwei Kopien laufen
+  // auseinander.
+  //
+  // Erst beim ersten Öffnen eingehängt, nicht hier: auth.js trägt
+  // `defer`, dieses Inline-Skript läuft davor - window.EndauranceAuth
+  // gibt es an dieser Stelle noch nicht (dieselbe Reihenfolge wie bei
+  // EE_AUTH_QUEUE). Ohne auth.js bleibt es beim Escape-Listener oben.
+  let reportFesselGesetzt = false;
+
+  function setzeReportFessel() {
+    if (reportFesselGesetzt) return;
+    if (!window.EndauranceAuth || !window.EndauranceAuth.dialogTasten) return;
+    window.EndauranceAuth.dialogTasten(reportOverlay, closeReportModal);
+    reportFesselGesetzt = true;
+  }
+
+  // Wohin der Fokus zurückgeht: auf "Fehler zu diesem Event melden".
+  let reportFokusVorher = null;
 
   function closeReportModal() {
     reportOverlay.hidden = true;
     reportBodyEl.innerHTML = '';
+    if (reportFokusVorher && reportFokusVorher.isConnected) {
+      try { reportFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    reportFokusVorher = null;
   }
 
   function openReportModal(e) {
@@ -2117,6 +2298,8 @@
     if (window.EndauranceAuth && window.EndauranceAuth.prepareFirestore) {
       window.EndauranceAuth.prepareFirestore();
     }
+    setzeReportFessel();
+    reportFokusVorher = document.activeElement;
     const kmText = formatLength(e);
     const wb = displayWettbewerb(e);
     reportBodyEl.innerHTML = `

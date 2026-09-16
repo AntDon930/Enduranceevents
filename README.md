@@ -1485,6 +1485,82 @@ Drei Details, die in der Praxis zählen:
 Repository ausgenommen. In `manual_overrides.json` landet nur die
 fachliche Begründung, nie die Person.
 
+## Bedienung ohne Maus, und das Tippen auf dem Handy
+
+Zwei Lücken, die beim Durchsehen der Seite aufgefallen sind und die
+zusammengehören: Beide betreffen nicht das Aussehen, sondern ob man die
+Liste überhaupt benutzen kann.
+
+### Tippen auf eine Zeile zeigte nichts
+
+Unter 900 px hat die Seite **eine** Spalte – der Detailbereich steht
+also unter der Tabelle, und die ist 78vh hoch. Ein Tippen auf eine Zeile
+füllte die Angaben rund einen Bildschirm weiter unten, ohne dass etwas
+darauf hinwies: auf dem Handy wirkte es folgenlos.
+
+`zeigeDetailbereich()` in `events.html` scrollt jetzt hin – aber nur,
+wenn nötig:
+
+- Es scrollt **nur, wenn der Bereich außerhalb des Bildes liegt**. Am
+  Rechner steht er neben der Tabelle; dort darf sich nichts bewegen.
+- Es scrollt **nicht beim Auf- und Zuklappen** einer zusammengefassten
+  Veranstaltung: dann will man die Strecken sehen, die gerade an dieser
+  Stelle erscheinen.
+- Es scrollt **nicht bei der Pfeiltasten-Navigation** – sonst schöbe
+  sich die Tabelle weg, in der man gerade navigiert.
+- `prefers-reduced-motion` schaltet das sanfte Scrollen ab.
+
+### Tastaturbedienung
+
+Die Tabellenzeilen sind `<tr>` mit einem Listener am `<tbody>` (so
+bleibt das Zeichnen schnell, siehe „Tempo der Seite") – von sich aus
+sind sie damit weder fokussierbar noch auslösbar. Die Liste war ohne
+Maus nicht zu bedienen.
+
+Nachgerüstet ist das Muster, das Browser für lange Listen kennen
+(**roving tabindex**): Jede Zeile trägt `tabindex="-1"`, aber nur
+**eine** ist per Tab erreichbar (`setzeTabStop()`). 4.155 Tab-Stopps
+wären eine Falle – man käme aus der Tabelle nicht mehr heraus. Innerhalb
+der Tabelle bewegt man sich mit den Pfeiltasten, über **einen**
+`keydown`-Listener am `<tbody>`:
+
+| Taste | Wirkung |
+|---|---|
+| ↑ / ↓ | eine Zeile weiter; die Zeile wird dabei ausgewählt, die Angaben stehen sofort daneben |
+| Home / End | erste / letzte Zeile |
+| → / ← | zusammengefasste Veranstaltung auf- / zuklappen (nur bei mehreren Strecken) |
+| Leertaste | klappt um (und blättert nicht die Seite weiter) |
+| Enter | springt in die Angaben; von dort erreicht Tab die Links (Veranstalter, Kalender, Fehler melden) |
+
+Am **Filter-Panel** (`filter-ui.js`, gilt für Liste *und* Karte):
+Enter/Leertaste am Spaltenknopf öffnet es, Pfeil nach unten geht hinein,
+**Escape** schließt es und gibt den Fokus an den Knopf zurück. Verlässt
+der Fokus das Panel per Tab, schließt es sich – ein Panel, das man
+verlassen hat, schwebte sonst weiter über der Seite. Wichtig dabei: ein
+`focusout` **ohne** `relatedTarget` ist *kein* Verlassen (das Panel hat
+sich nur selbst neu gezeichnet und das fokussierte Element ersetzt) und
+darf nicht schließen. Die Knöpfe tragen `aria-haspopup="dialog"` und
+`aria-expanded`.
+
+**Dialoge** (Anmelden, „Fehler zu diesem Event melden") versprechen mit
+`aria-modal="true"`, dass der Fokus darin bleibt – jetzt tut er das
+auch: `dialogTasten(box, schliessen)` in `auth.js` fesselt Tab im Dialog
+und schließt bei Escape, `openModal()`/`openReportModal()` merken sich,
+woher der Fokus kam, und geben ihn beim Schließen zurück. Die Funktion
+steht **einmal** in `auth.js` und wird von `events.html` mitbenutzt;
+eingehängt wird sie dort erst beim ersten Öffnen, weil `auth.js` `defer`
+trägt und beim Inline-Skript noch nicht existiert (dieselbe Reihenfolge
+wie bei `EE_AUTH_QUEUE`).
+
+Sichtbar ist der Fokus über `:focus-visible` (Zeile und Detailbereich
+bekommen einen Rahmen in der Akzentfarbe) – `:focus-visible` statt
+`:focus`, damit ein Mausklick, der die Zeile ebenfalls fokussiert,
+keinen Rahmen hinterlässt.
+
+Der Rauchtest prüft die ganze Kette: ein Tab-Stopp, Pfeiltaste bewegt
+und wählt, End springt ans Ende, Enter landet im Detailbereich, Escape
+schließt Panel und Dialog und gibt den Fokus zurück.
+
 ## Seitensymbol und Vorschau beim Teilen
 
 `favicon.svg` (498 Byte) ist das Symbol für Tab und Lesezeichen,
@@ -1613,7 +1689,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 30 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 42 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -1629,7 +1705,10 @@ zusammengefassten Veranstaltungen (N Strecken = N Zeilen, Marken nur im
 zugeklappten Zustand), die Bündelung der Marker auf der Karte (Summe der
 Bündel-Zahlen = Event-Zahl der Kopfzeile, Klick klappt ein Bündel auf,
 Ausgangspunkt und Umkreis bleiben ungebündelt und verschwinden mit ihrem
-Chip) sowie die Filter über den Weg Liste → Karte → Liste.
+Chip), die Tastaturbedienung der Liste (genau ein Tab-Stopp,
+Pfeiltasten, End, Enter in die Angaben, Escape am Filter-Panel, Fessel
+und Fokusrückgabe im Melde-Dialog) sowie die Filter über den Weg
+Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt

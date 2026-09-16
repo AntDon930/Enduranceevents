@@ -19,6 +19,7 @@
 //   window.EndauranceAuth.getUser()                 -> firebase.User | null
 //   window.EndauranceAuth.onAuthChange(cb)           -> cb(user) bei jeder Änderung
 //   window.EndauranceAuth.openModal('login'|'register')
+//   window.EndauranceAuth.dialogTasten(box, schliessen) -> Escape + Fokusfessel
 //   window.EndauranceAuth.reportEventError({event, kategorie, beschreibung})
 //                                                    -> Promise<void>
 //     (meldet einen Datenfehler; meldet bei Bedarf anonym an)
@@ -293,7 +294,7 @@
   overlay.className = 'ee-modal-overlay';
   overlay.hidden = true;
   overlay.innerHTML = `
-    <div class="ee-modal" role="dialog" aria-modal="true">
+    <div class="ee-modal" role="dialog" aria-modal="true" tabindex="-1">
       <button type="button" class="ee-modal-close" aria-label="${escapeHtml(t('close'))}">✕</button>
       <div id="ee-modal-body"></div>
     </div>
@@ -302,7 +303,51 @@
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
   overlay.querySelector('.ee-modal-close').addEventListener('click', closeModal);
 
-  function closeModal() { overlay.hidden = true; }
+  // Wohin der Fokus zurückgeht, wenn der Dialog zugeht: dorthin, wo er
+  // herkam ("Anmelden"-Knopf). Ohne das begann die nächste Tab-Taste
+  // wieder oben auf der Seite.
+  let fokusVorher = null;
+
+  function closeModal() {
+    overlay.hidden = true;
+    if (fokusVorher && fokusVorher.isConnected) {
+      try { fokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    fokusVorher = null;
+  }
+
+  // Tastaturbedienung eines Dialogs: Escape schließt, Tab bleibt drin.
+  // `aria-modal="true"` verspricht genau das - ohne Fessel wanderte der
+  // Fokus hinter die Abdeckung, wo man Knöpfe bedient hätte, die niemand
+  // sieht. Steht hier und nicht in events.html, weil der Melde-Dialog
+  // dort dieselbe Bedienung braucht: zwei Kopien laufen auseinander.
+  const FOKUSSIERBAR = 'button:not([disabled]), [href], input:not([disabled]):not([type=hidden]),'
+    + ' select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function dialogTasten(box, schliessen) {
+    box.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' || ev.key === 'Esc') {
+        ev.stopPropagation();
+        schliessen();
+        return;
+      }
+      if (ev.key !== 'Tab') return;
+      const ziele = Array.from(box.querySelectorAll(FOKUSSIERBAR))
+        .filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+      if (!ziele.length) return;
+      const erstes = ziele[0];
+      const letztes = ziele[ziele.length - 1];
+      const dialog = box.querySelector('.ee-modal') || box;
+      if (!ev.shiftKey && document.activeElement === letztes) {
+        ev.preventDefault();
+        erstes.focus();
+      } else if (ev.shiftKey && (document.activeElement === erstes || document.activeElement === dialog)) {
+        ev.preventDefault();
+        letztes.focus();
+      }
+    });
+  }
+  dialogTasten(overlay, closeModal);
 
   // "Mit Apple anmelden" ist ausgeblendet. Apple Sign-In setzt ein
   // Apple-Developer-Konto für 99 $ im Jahr voraus; das Projekt soll
@@ -501,8 +546,14 @@
   }
 
   function openModal(mode) {
+    fokusVorher = document.activeElement;
     overlay.hidden = false;
     if (mode === 'register') renderRegisterBody(); else renderLoginBody();
+    // Den Dialog selbst fokussieren, nicht das erste Feld: der Fokus
+    // liegt damit im Dialog (Escape und Tab wirken), ohne dass eine
+    // Eingabe schon die Tastatur des Handys hochschiebt.
+    const dlg = overlay.querySelector('.ee-modal');
+    if (dlg) { try { dlg.focus({ preventScroll: true }); } catch (e) { dlg.focus(); } }
   }
 
   // ---------------------------------------------------------------------
@@ -568,6 +619,9 @@
       if (auth) realOnly(auth.currentUser);
     },
     openModal,
+    // Escape + Fokusfessel für einen eigenen Dialog (events.html nutzt
+    // es für "Fehler zu diesem Event melden").
+    dialogTasten,
     // Speichert ein "Benachrichtige mich"-Filterabo in Firestore. `filters`
     // ist ein einfaches, JSON-serialisierbares Objekt (Arrays statt Sets)
     // OHNE Datumsfilter - siehe events.html renderNotifyPrompt().

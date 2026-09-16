@@ -124,7 +124,16 @@ def pruefe_liste(ctx, basis):
 
     # Detailbereich und Kalenderdatei
     seite.locator("tbody tr").first.click()
-    seite.wait_for_timeout(300)
+    # Das sanfte Scrollen braucht einen Moment.
+    seite.wait_for_timeout(900)
+    # Auf Handybreite steht der Detailbereich unter der 78vh hohen Tabelle:
+    # ohne Scrollen wirkte das Tippen folgenlos.
+    lage = seite.evaluate("""() => { const b = document.getElementById('detail-panel')
+        .getBoundingClientRect();
+        return {top: b.top, unten: b.bottom, vh: innerHeight, y: scrollY}; }""")
+    pruefe(lage["y"] > 0 and lage["top"] < lage["vh"] and lage["unten"] > 0,
+           "Tippen auf eine Zeile holt den Detailbereich ins Bild (scrollY %d, oben %d von %d)"
+           % (lage["y"], lage["top"], lage["vh"]))
     ics = seite.evaluate("""() => { const a = [...document.querySelectorAll('#detail-panel a')]
         .find(a => /kalender\\//.test(a.getAttribute('href') || ''));
         return a ? {href: a.getAttribute('href'), download: a.hasAttribute('download')} : null; }""")
@@ -188,6 +197,98 @@ def pruefe_gruppierung(ctx, basis):
         return {unter, marken: r.querySelectorAll('.badge').length}; }""")
     pruefe(wieder["unter"] == 0 and wieder["marken"] == zu["marken"],
            "wieder zugeklappt: Unterzeilen weg, Marken zurück")
+    seite.close()
+
+
+def pruefe_tastatur(ctx, basis):
+    """Die Liste ist ohne Maus bedienbar.
+
+    Die Tabellenzeilen sind `<tr>` mit einem Listener am `<tbody>` - ohne
+    Zutun also weder fokussierbar noch auslösbar. Geprüft wird das Muster
+    dahinter: genau EIN Tab-Stopp (nicht 4.155), Pfeiltasten bewegen und
+    wählen aus, Enter springt in die Angaben, Escape schließt Panel und
+    Dialog und gibt den Fokus zurück.
+    """
+    print("\nTastaturbedienung")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    stopps = seite.evaluate("() => document.querySelectorAll('tbody tr[tabindex=\"0\"]').length")
+    pruefe(stopps == 1, "genau eine Zeile ist per Tab erreichbar (%d)" % stopps)
+
+    seite.evaluate("() => document.querySelector('tbody tr[tabindex=\"0\"]').focus()")
+    vorher = seite.evaluate("() => document.activeElement.dataset.idx")
+    seite.keyboard.press("ArrowDown")
+    seite.wait_for_timeout(250)
+    nachher = seite.evaluate("""() => ({
+        idx: document.activeElement.dataset.idx,
+        zeile: document.activeElement.tagName,
+        aktiv: document.activeElement.classList.contains('active'),
+        titel: (document.querySelector('#detail-panel h2') || {}).textContent || ''
+    })""")
+    pruefe(nachher["zeile"] == "TR" and nachher["idx"] != vorher and nachher["aktiv"]
+           and bool(nachher["titel"]),
+           "Pfeiltaste bewegt den Fokus und wählt aus (%s → %s, %s)"
+           % (vorher, nachher["idx"], nachher["titel"][:30]))
+    seite.keyboard.press("End")
+    seite.wait_for_timeout(250)
+    letzte = seite.evaluate("""() => document.activeElement ===
+        document.querySelectorAll('tbody tr[data-idx]')[document.querySelectorAll('tbody tr[data-idx]').length - 1]""")
+    pruefe(letzte, "End springt zur letzten Zeile")
+
+    seite.keyboard.press("Enter")
+    seite.wait_for_timeout(900)
+    im_detail = seite.evaluate("() => document.activeElement.id === 'detail-panel'")
+    pruefe(im_detail, "Enter springt in die Angaben")
+    seite.keyboard.press("Tab")
+    seite.wait_for_timeout(200)
+    pruefe(seite.evaluate("() => !!document.activeElement.closest('#detail-panel')"),
+           "von dort erreicht Tab die Links im Detailbereich")
+
+    # Filter-Panel: Enter öffnet, Escape schließt und gibt den Fokus zurück
+    knopf = seite.locator('.col-filter-btn[data-col="land"]')
+    if knopf.count():
+        knopf.evaluate("el => el.focus()")
+        seite.keyboard.press("Enter")
+        seite.wait_for_timeout(400)
+        offen = seite.evaluate("""() => { const p = document.querySelector('.filter-panel');
+            const b = document.querySelector('.col-filter-btn[data-col=land]');
+            return !!p && !p.hidden && b.getAttribute('aria-expanded') === 'true'; }""")
+        pruefe(offen, "Enter auf dem Filterknopf öffnet das Panel (aria-expanded)")
+        seite.keyboard.press("ArrowDown")
+        seite.wait_for_timeout(300)
+        pruefe(seite.evaluate("() => document.querySelector('.filter-panel').contains(document.activeElement)"),
+               "Pfeil nach unten geht in das Panel hinein")
+        seite.keyboard.press("Escape")
+        seite.wait_for_timeout(300)
+        zurueck = seite.evaluate("""() => document.querySelector('.filter-panel').hidden
+            && document.activeElement === document.querySelector('.col-filter-btn[data-col=land]')""")
+        pruefe(zurueck, "Escape schließt das Panel und gibt den Fokus zurück")
+    else:
+        ueberspringe("Filterknopf Land nicht gefunden")
+
+    # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück
+    seite.locator("tbody tr").first.click()
+    seite.wait_for_timeout(900)
+    melden = seite.locator("#report-open-btn")
+    if melden.count():
+        melden.click()
+        seite.wait_for_timeout(600)
+        drin = seite.evaluate("""() => { const o = document.getElementById('report-overlay');
+            return !o.hidden && o.contains(document.activeElement); }""")
+        for _ in range(15):
+            if not drin:
+                break
+            seite.keyboard.press("Tab")
+            drin = seite.evaluate("""() => document.getElementById('report-overlay')
+                .contains(document.activeElement)""")
+        pruefe(drin, "im Melde-Dialog bleibt der Fokus im Dialog (Fessel)")
+        seite.keyboard.press("Escape")
+        seite.wait_for_timeout(400)
+        pruefe(seite.evaluate("""() => document.getElementById('report-overlay').hidden
+                   && document.activeElement.id === 'report-open-btn'"""),
+               "Escape schließt den Dialog und gibt den Fokus zurück")
+    else:
+        ueberspringe("Melde-Knopf nicht gefunden")
     seite.close()
 
 
@@ -319,6 +420,7 @@ def main() -> int:
             try:
                 pruefe_liste(ctx, basis)
                 pruefe_gruppierung(ctx, basis)
+                pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
             finally:
                 browser.close()

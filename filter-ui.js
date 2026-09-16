@@ -268,13 +268,45 @@
       updateIndicators();
     }
 
-    function closePanel() {
+    // closePanel(zurueckZumKnopf): Beim Schließen per Tastatur (Escape)
+    // muss der Fokus zurück an den Knopf - sonst steht er an einem
+    // Element, das es nicht mehr gibt, und die nächste Tab-Taste beginnt
+    // wieder oben auf der Seite. Beim Klick außerhalb wird der Fokus
+    // NICHT verschoben: dort hat der Klick schon sein eigenes Ziel.
+    function closePanel(zurueckZumKnopf) {
+      const knopf = openTriggerEl;
+      const hatteFokus = floatingPanel.contains(document.activeElement);
       openColKey = null;
       openTriggerEl = null;
       floatingPanel.hidden = true;
       floatingPanel.innerHTML = '';
       updateIndicators();
+      if (zurueckZumKnopf && hatteFokus && knopf && knopf.isConnected) {
+        try { knopf.focus(); } catch (e) { /* ignorieren */ }
+      }
     }
+
+    // Tastaturbedienung des Panels. Escape schließt es (und gibt den
+    // Fokus zurück), Tab aus dem Panel heraus schließt es ebenfalls -
+    // ein Panel, das man verlassen hat, schwebt sonst weiter über der
+    // Seite. Die Häkchen, Regler und Felder darin sind von sich aus mit
+    // der Tastatur bedienbar, dafür braucht es nichts.
+    floatingPanel.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' || ev.key === 'Esc') {
+        ev.stopPropagation();
+        closePanel(true);
+      }
+    });
+    floatingPanel.addEventListener('focusout', (ev) => {
+      // relatedTarget ist null, wenn das Panel sich gerade selbst neu
+      // gezeichnet hat (das fokussierte Element ist dann weg) - das ist
+      // KEIN Verlassen und darf nicht schließen.
+      const ziel = ev.relatedTarget;
+      if (!ziel) return;
+      if (floatingPanel.contains(ziel)) return;
+      if (openTriggerEl && (ziel === openTriggerEl || openTriggerEl.contains(ziel))) return;
+      closePanel();
+    });
 
     // Ist der Spaltenknopf noch zu sehen? Geprüft wird gegen das Fenster
     // UND gegen den scrollenden Tabellen-Container: Waagerecht aus der
@@ -969,6 +1001,10 @@
         const col = btn.dataset.col;
         btn.classList.toggle('has-filter', columnHasFilter(col));
         btn.classList.toggle('open', openColKey === col);
+        // Für Tastatur und Screenreader: der Knopf öffnet ein Panel, und
+        // ob es offen ist, steht nicht nur in der Farbe.
+        btn.setAttribute('aria-haspopup', 'dialog');
+        btn.setAttribute('aria-expanded', openColKey === col ? 'true' : 'false');
       });
     }
 
@@ -995,6 +1031,24 @@
         ev.stopPropagation();
         if (openColKey === col.key) closePanel();
         else openPanel(col, btn);
+      });
+      // Escape, während der Fokus noch am Knopf steht (das Panel öffnet
+      // sich ohne den Fokus mitzunehmen - eine Maus-Bedienung soll nicht
+      // plötzlich im Panel landen).
+      btn.addEventListener('keydown', (ev) => {
+        if ((ev.key === 'Escape' || ev.key === 'Esc') && openColKey === col.key) {
+          ev.stopPropagation();
+          closePanel(true);
+        }
+        // Pfeil nach unten öffnet das Panel und geht hinein - dasselbe
+        // Muster wie bei einer Auswahlliste.
+        if (ev.key === 'ArrowDown') {
+          ev.preventDefault();
+          if (openColKey !== col.key) openPanel(col, btn);
+          const erstes = floatingPanel.querySelector(
+            'input:not([disabled]), button:not([disabled]), select, a[href]');
+          if (erstes) erstes.focus();
+        }
       });
     }
 
