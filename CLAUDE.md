@@ -226,22 +226,28 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
   die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die
   Distanzen als Marken und vorn die Spalte „Anzahl" (auch „1").
-- **Der Rahmen der Tabelle sitzt auf `.table-frame`, nicht auf
-  `.table-wrap`.** `.table-wrap` scrollt (und beschneidet daher), also
-  braucht die Anzahl-Kapsel, die halb über die linke Rahmenlinie
-  hinausragt, den Innenabstand von `.table-wrap` als Platz. Der Frame ist
-  `display: inline-block; min-width: 100%` – `width: max-content` geht
-  NICHT (bemisst sich gegenseitig mit `width: 100%` der Tabelle, die
-  Tabelle rutscht aus dem Bild). Weil der Frame nicht beschneiden darf,
-  runden `thead th:first-child`/`:last-child` ihre Ecken selbst.
+- **Die Anzahl-Zahl steht schlicht in der Tabelle.** Eine Variante, in
+  der sie als Kapsel halb über der linken Rahmenlinie lag, war gebaut und
+  vom Nutzer wieder verworfen („wie ein aufgeklebtes Etikett"). Der
+  Rahmen sitzt daher wieder auf `.table-wrap`, das Zwischen-`div`
+  `.table-frame` ist weg. Falls das noch einmal aufkommt: `.table-wrap`
+  scrollt und beschneidet, der Überhang braucht also einen inneren Frame
+  plus Innenabstand – und `width: max-content` am Frame geht NICHT
+  (bemisst sich gegenseitig mit `width: 100%` der Tabelle, die Tabelle
+  rutscht aus dem Bild).
 - **Kalender-Einträge sind immer ganztägig** (`buildIcs()`,
   `setupCalendarBox()`): Startzeiten stehen in keiner Quelle verlässlich.
   `DTEND` bzw. `dates=`/`enddt=` ist **exklusiv**, also Enddatum + 1 Tag –
   ohne das +1 fehlt der letzte Tag. Google und Outlook über Links, Apple
-  und alles andere über eine `.ics`-Datei als data-URI (kein Blob: nichts
-  aufzuräumen, und iOS öffnet sie direkt im Kalender). Text in `.ics`
-  muss maskiert (`icsEscape`) und ab 75 Zeichen gefaltet werden
-  (`icsFold`).
+  und alles andere über eine `.ics`-Datei.
+  **Der .ics-Weg geht je Gerät anders** (`istAppleGeraet()`): Auf Apple
+  wird ein **Blob** mit Typ `text/calendar` per `window.open` GEÖFFNET –
+  ein Download blieb dort nur in den Dateien liegen und landete nie im
+  Kalender (vom Nutzer gemeldet); ein data-URI taugt nicht, iOS
+  verweigert die Navigation dorthin. Überall sonst wird die Datei
+  heruntergeladen. Der Hinweistext unter dem Menü sagt jeweils, was
+  passiert. Text in `.ics` muss maskiert (`icsEscape`) und ab 75 Zeichen
+  gefaltet werden (`icsFold`), Zeilenenden sind CRLF.
 - **Spaltenbreiten über Klassen** (`.col-name`, `.col-anzahl`, …), nicht
   `nth-child`: Entfernung und Anzahl kommen und gehen, jede Kombination
   bräuchte sonst eigene Regeln. `CHEVRON_SVG` steht oben bei `state` -

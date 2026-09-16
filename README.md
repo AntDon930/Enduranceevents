@@ -343,11 +343,6 @@ Schweiz.
   die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
   es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
 
-  Die Kapsel mit der Zahl liegt **halb über der linken Rahmenlinie** der
-  Tabelle. Dafür sitzt der Rahmen auf einem inneren `.table-frame`: der
-  äußere `.table-wrap` scrollt waagerecht und würde den überstehenden
-  Teil sonst abschneiden, sein Innenabstand ist jetzt der Platz dafür.
-
   Die Spaltenbreiten stehen als **Klassen** (`.col-name`, `.col-anzahl`,
   …) statt über `nth-child`: die Spalten wechseln je nach Zustand
   (Entfernung nur mit Ausgangspunkt, Anzahl nur beim Zusammenfassen), und
@@ -360,12 +355,20 @@ Schweiz.
   **Zum Kalender hinzufügen**: Im Detailbereich steht zwischen dem
   Veranstalter-Link und „Fehler melden" ein Knopf, der drei Wege anbietet
   – **Google Kalender / Gmail** und **Outlook** als Links, **Apple
-  Kalender und alles andere** als `.ics`-Datei (data-URI, damit nichts
-  aufzuräumen ist und iOS sie direkt im Kalender öffnet). Der Eintrag ist
+  Kalender und alles andere** als `.ics`-Datei. Der Eintrag ist
   immer ein **ganztägiger Termin**: eine verlässliche Startzeit liefert
   keine Quelle, und ein ganztägiger Eintrag behauptet keine Uhrzeit, die
   wir nicht kennen. Mehrtägige Veranstaltungen übernehmen ihren ganzen
   Zeitraum.
+
+  **Der .ics-Weg unterscheidet sich je nach Gerät**, und das ist der
+  Unterschied zwischen „funktioniert" und „liegt in den Downloads": Auf
+  iPhone, iPad und Mac wird die Datei als Blob mit dem Typ
+  `text/calendar` **geöffnet**, damit Safari sie an den Kalender
+  weitergibt, der den Termin zur Bestätigung anzeigt. Überall sonst wird
+  sie **heruntergeladen** – Outlook als Programm, Thunderbird und Co.
+  importieren sie per Doppelklick. Der Hinweis unter dem Menü sagt
+  jeweils, was passiert.
 
   Ein Detail, an dem solche Links oft scheitern: `DTEND` im
   iCalendar-Format (RFC 5545) und ebenso `dates=` bei Google und `enddt=`

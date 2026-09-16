@@ -242,33 +242,19 @@
      sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus.
      Bewusst ohne Kapsel/Rahmen: als Kapsel war die Zahl breiter als die
      ganze Spalte jetzt ist. */
-  /* Die Zahl der zusammengefassten Strecken sitzt als runde Kapsel auf
-     der linken Rahmenlinie - halb innerhalb, halb außerhalb der Tabelle.
-     Deshalb absolut positioniert (translateX(-50%) bezogen auf den
-     linken Rand der Zelle) und mit deckendem Hintergrund, damit die
-     Linie sichtbar durchbrochen wird. */
-  tbody td.col-anzahl { position: relative; }
+  /* Die Zahl der zusammengefassten Strecken steht schlicht in der
+     Tabelle, am linken Rand der ersten Spalte. Eine Variante, in der sie
+     als Kapsel halb über der Rahmenlinie lag, war ausprobiert und wieder
+     verworfen - sie wirkte wie ein aufgeklebtes Etikett. */
   .count-pill {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 22px;
-    height: 20px;
-    padding: 0 5px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    font-size: 0.74rem;
-    font-weight: 700;
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
     color: var(--text-muted);
-    z-index: 1;
+    text-align: left;
   }
-  .group-row:hover .count-pill { color: var(--accent); border-color: var(--accent); }
+  .group-row:hover .count-pill { color: var(--text); }
   .badges { display: flex; flex-wrap: wrap; gap: 4px; }
   .badge {
     background: var(--bg);
@@ -372,26 +358,12 @@
   .side-panel .detail-panel { width: 100%; }
 
   .table-wrap {
-    /* Kein Rahmen und kein Hintergrund mehr - beides sitzt auf
-       .table-frame. Der Innenabstand links ist der Platz, in den die
-       Anzahl-Zahl hinausragt (halbe Kapselbreite + 2 px Luft). */
-    padding-left: 14px;
-    overflow-x: auto;
-    max-height: 78vh;
-    overflow-y: auto;
-  }
-  .table-frame {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 10px;
-    /* inline-block schmiegt sich an die Tabellenbreite (die ihr
-       min-width: 800px mitbringt), min-width: 100% füllt den Platz, wenn
-       das Fenster breiter ist. width: max-content ging NICHT: zusammen
-       mit width: 100% an der Tabelle bemisst sich beides gegenseitig,
-       und die Tabelle rutschte aus dem Bild. */
-    display: inline-block;
-    min-width: 100%;
-    vertical-align: top;
+    overflow-x: auto;
+    max-height: 78vh;
+    overflow-y: auto;
   }
   table {
     border-collapse: collapse;
@@ -416,7 +388,7 @@
      danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
      ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
      immer zu breit. */
-  .col-anzahl { width: 16px; text-align: left; }
+  .col-anzahl { width: 28px; text-align: left; }
   thead th.col-anzahl .th-inner { padding-left: 8px; padding-right: 0; }
   tbody td.col-anzahl { padding-left: 8px; padding-right: 0; }
   .col-name { width: 22%; }
@@ -438,12 +410,6 @@
     padding: 0;
     font-weight: 600;
   }
-  /* .table-frame darf nicht beschneiden (sonst wäre die überstehende
-     Anzahl-Kapsel abgeschnitten), also runden die äußeren Kopfzellen
-     selbst ihre Ecken - sonst legt sich ihr Hintergrund eckig über die
-     abgerundete Rahmenecke. */
-  thead th:first-child { border-top-left-radius: 9px; }
-  thead th:last-child { border-top-right-radius: 9px; }
   .th-inner {
     padding: 8px 10px;
     display: flex;
@@ -865,15 +831,23 @@
     overflow: hidden;
   }
   .cal-menu[hidden] { display: none; }
-  .cal-menu a {
+  .cal-menu a,
+  .cal-menu button {
     display: block;
+    width: 100%;
+    text-align: left;
     padding: 9px 12px;
+    font-family: inherit;
     font-size: 0.85rem;
     color: var(--text);
     text-decoration: none;
+    background: none;
+    border: none;
     border-bottom: 1px solid var(--border);
+    cursor: pointer;
   }
-  .cal-menu a:hover { background: var(--row-hover); color: var(--accent); }
+  .cal-menu a:hover,
+  .cal-menu button:hover { background: var(--row-hover); color: var(--accent); }
   .cal-note {
     padding: 8px 12px;
     font-size: 0.76rem;
@@ -980,18 +954,12 @@
 
 <div class="layout">
   <div class="table-wrap">
-    <!-- Der Rahmen sitzt auf .table-frame, nicht auf .table-wrap: nur so
-         kann die Anzahl-Zahl halb über die Rahmenlinie hinausragen. Sie
-         liegt dann im Innenabstand von .table-wrap - immer noch innerhalb
-         des scrollenden Bereichs, der sie sonst abschneiden würde. -->
-    <div class="table-frame">
-      <table id="event-table">
-        <thead>
-          <tr id="header-row"></tr>
-        </thead>
-        <tbody id="event-body"></tbody>
-      </table>
-    </div>
+    <table id="event-table">
+      <thead>
+        <tr id="header-row"></tr>
+      </thead>
+      <tbody id="event-body"></tbody>
+    </table>
   </div>
   <div class="side-panel">
     <div class="detail-panel" id="detail-panel"></div>
@@ -1110,7 +1078,8 @@
       cal_google: 'Google Kalender / Gmail',
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Kalender & andere (.ics)',
-      cal_note: 'Wird als ganztägiger Termin eingetragen.',
+      cal_note: 'Ganztägiger Termin. Die .ics-Datei wird geladen – zum Eintragen öffnen.',
+      cal_note_apple: 'Ganztägiger Termin. Öffnet sich im Kalender – dort noch auf „Hinzufügen" tippen.',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       notify_btn: 'Benachrichtigen, sobald verfügbar',
@@ -1225,7 +1194,8 @@
       cal_google: 'Google Calendar / Gmail',
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Calendar & others (.ics)',
-      cal_note: 'Added as an all-day event.',
+      cal_note: 'All-day event. The .ics file is downloaded – open it to add the event.',
+      cal_note_apple: 'All-day event. Opens in Calendar – tap “Add” there to save it.',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
       notify_btn: 'Notify me when available',
@@ -1572,6 +1542,21 @@
         return [isoOf(heute), `${heute.getFullYear()}-12-31`];
       } }
   ];
+
+  // iPadOS meldet sich in Safari als "Macintosh"; der Touch-Zähler
+  // verrät trotzdem, dass ein iPad davorsteht. Gebraucht an zwei Stellen:
+  // für den richtigen Einstellungs-Pfad in der Standort-Hilfe und für den
+  // Kalender-Eintrag (siehe openIcs).
+  function istIosGeraet() {
+    const ua = navigator.userAgent || '';
+    return /iPhone|iPad|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
+  }
+
+  // Mac ohne Touch = Schreibtisch-macOS. Dort ist der Kalender die
+  // Standard-App für .ics, das Öffnen lohnt also genauso.
+  function istAppleGeraet() {
+    return istIosGeraet() || /Mac/.test(navigator.userAgent || '');
+  }
 
   function isoOf(d) {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -2390,16 +2375,8 @@
       loadPlaces().then(renderResults);
     }
 
-    // iPadOS meldet sich in Safari als "Macintosh"; der Touch-Zähler
-    // verrät trotzdem, dass ein iPad davorsteht - und damit, welcher
-    // Einstellungs-Pfad der richtige ist.
-    function istAppleGeraet() {
-      const ua = navigator.userAgent || '';
-      return /iPhone|iPad|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
-    }
-
     function zeigeGeoHilfe() {
-      const schritte = t(istAppleGeraet() ? 'geo_help_ios' : 'geo_help_other');
+      const schritte = t(istIosGeraet() ? 'geo_help_ios' : 'geo_help_other');
       geoHelp.innerHTML = '<ol>' + schritte.map(zeile => `<li>${escapeHtml(zeile)}</li>`).join('') +
         `</ol><span class="geo-help-fallback">${escapeHtml(t('geo_help_fallback'))}</span>`;
       geoHelp.hidden = false;
@@ -3112,8 +3089,8 @@
         <div class="cal-menu" id="cal-menu" hidden>
           <a id="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
           <a id="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
-          <a id="cal-ics" download>${escapeHtml(t('cal_ics'))}</a>
-          <div class="cal-note">${escapeHtml(t('cal_note'))}</div>
+          <button type="button" id="cal-ics">${escapeHtml(t('cal_ics'))}</button>
+          <div class="cal-note" id="cal-note"></div>
         </div>
       </div>
       <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
@@ -3243,11 +3220,38 @@
       + `&body=${encodeURIComponent(f.beschreibung)}`
       + `&location=${encodeURIComponent(f.ort)}`;
 
-    // .ics als data-URI statt Blob: kein Aufräumen nötig, und iOS öffnet
-    // es direkt im Kalender statt in einer Download-Liste.
+    // Der .ics-Weg unterscheidet sich je nach Gerät - vorher lud er
+    // überall nur eine Datei herunter, die auf iPhone und Mac in den
+    // Downloads liegen blieb, ohne im Kalender zu landen (vom Nutzer
+    // gemeldet):
+    //
+    //   Apple  -> Blob mit Typ text/calendar ÖFFNEN. Safari und iOS geben
+    //             die Datei damit an den Kalender weiter, der den Termin
+    //             zur Bestätigung anzeigt. Ein data-URI taugt dafür nicht,
+    //             iOS verweigert die Navigation dorthin.
+    //   sonst  -> als Datei herunterladen (Outlook-Programm, Thunderbird
+    //             und Co. importieren sie per Doppelklick).
+    //
+    // Der Blob entsteht erst beim Klick und wird danach wieder
+    // freigegeben; ein Blob pro angezeigtem Event wäre sonst ein Leck.
     const icsEl = detailEl.querySelector('#cal-ics');
-    icsEl.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(buildIcs(e));
-    icsEl.setAttribute('download', calFileName(f.titel) + '.ics');
+    const noteEl = detailEl.querySelector('#cal-note');
+    if (noteEl) noteEl.textContent = t(istAppleGeraet() ? 'cal_note_apple' : 'cal_note');
+    icsEl.addEventListener('click', () => {
+      const blob = new Blob([buildIcs(e)], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      if (istAppleGeraet()) {
+        window.open(url, '_blank');
+      } else {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = calFileName(f.titel) + '.ics';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      window.setTimeout(() => URL.revokeObjectURL(url), 30000);
+    });
 
     btn.addEventListener('click', (ev) => {
       ev.stopPropagation();
