@@ -189,8 +189,26 @@ Schweiz.
   Bildschirmen) nicht die volle Höhe ausfüllt.
 
   Aktive Filter erscheinen als Chips direkt neben der Ergebnisanzahl links
-  oben (einzeln entfernbar), „Alle Filter zurücksetzen" löscht alles auf
-  einmal. Klick auf eine Zeile zeigt rechts die Detailansicht.
+  oben (einzeln entfernbar), „Alle Filter zurücksetzen" rechts daneben -
+  direkt über der Tabelle - löscht alles auf einmal. Klick auf eine Zeile
+  zeigt rechts die Detailansicht.
+
+  **Chips werden zusammengefasst, nicht aufgezählt.** Ein Klick auf
+  „Alle" im Stadt/Ort-Filter wählte ~2000 Orte aus und schob die Tabelle
+  mit „Stadt/Ort: Aachen ×"-Chips aus dem Bild. Für die Mengen-Filter
+  (Land, Stadt/Ort, Sportart, Kategorie) gilt deshalb:
+
+  | Auswahl | Chip |
+  |---|---|
+  | alle vorhandenen Werte | `Stadt/Ort: Alle` |
+  | mehr als `MAX_VALUE_CHIPS` (5) | `Stadt/Ort: 12 ausgewählt` |
+  | bis zu 5 Werte | ein Chip pro Wert, wie gehabt |
+
+  Das ✕ eines Sammel-Chips löscht den ganzen Filter. Dasselbe gilt für
+  das Datum (`Datum: Alle` statt „812 Tage ausgewählt", wenn alle Termine
+  gewählt sind) und für die Distanz-Kategorien (`Länge: 8 ausgewählt`).
+  Schwellenwert: `MAX_VALUE_CHIPS` oben im `<script>`-Block von
+  `events.html`.
 
   **Zweisprachig (DE/EN)**: Umschalter oben rechts, geteilt mit
   `index.html` über denselben `localStorage`-Schlüssel. Übersetzt werden

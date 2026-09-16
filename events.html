@@ -732,6 +732,10 @@
       notify_error: 'Fehler beim Speichern – bitte später erneut versuchen.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
+      chip_value_all: 'Alle',
+      chip_value_count: (n) => `${n} ausgewählt`,
+      chip_datum_all: 'Datum: Alle',
+      chip_distanz_count: (n) => `Länge: ${n} ausgewählt`,
       chip_name: (q) => `Name: „${q}"`,
       chip_sportart: (v) => `Sportart: ${v}`,
       chip_standort: (v) => `Stadt/Ort: ${v}`,
@@ -804,6 +808,10 @@
       notify_error: 'Could not save – please try again later.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
+      chip_value_all: 'All',
+      chip_value_count: (n) => `${n} selected`,
+      chip_datum_all: 'Date: All',
+      chip_distanz_count: (n) => `Length: ${n} selected`,
       chip_name: (q) => `Name: "${q}"`,
       chip_sportart: (v) => `Sport: ${v}`,
       chip_standort: (v) => `City: ${v}`,
@@ -1006,6 +1014,11 @@
     'Schwimmen': ['Freiwasser', 'Becken'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
   };
+
+  // Ab wie vielen ausgewählten Werten ein Mengen-Filter zu EINEM Chip
+  // zusammengefasst wird (siehe pushSetChips in renderChips). Fünf Chips
+  // sind noch lesbar, fünfzig nicht mehr.
+  const MAX_VALUE_CHIPS = 5;
 
   let events = [];
   let selectedIndex = null;
@@ -2021,16 +2034,57 @@
     const chips = [];
     if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     if (state.selectedDays.size > 0) {
-      const n = state.selectedDays.size;
-      chips.push({ label: t('chip_datum', n), clear: () => state.selectedDays.clear() });
+      // Sind alle vorhandenen Termine ausgewählt, ist "Datum: Alle"
+      // aussagekräftiger als "Datum: 812 Tage ausgewählt" - gleiche
+      // Logik wie bei den Mengen-Filtern unten.
+      const alleTage = uniqueSorted(events.map(e => e.datum_start)).length;
+      const label = state.selectedDays.size >= alleTage
+        ? t('chip_datum_all')
+        : t('chip_datum', state.selectedDays.size);
+      chips.push({ label, clear: () => state.selectedDays.clear() });
     }
-    state.land.forEach(v => chips.push({ label: t('chip_land', tv('land', v)), clear: () => state.land.delete(v) }));
-    state.standort.forEach(v => chips.push({ label: t('chip_standort', v), clear: () => state.standort.delete(v) }));
-    state.art1.forEach(v => chips.push({ label: t('chip_sportart', tv('art1', v)), clear: () => state.art1.delete(v) }));
-    state.art2.forEach(v => chips.push({ label: t('chip_kategorie', tv('art2', v)), clear: () => state.art2.delete(v) }));
+    // Mengen-Filter (Land, Stadt/Ort, Sportart, Kategorie): NICHT jeden
+    // ausgewählten Wert als eigenen Chip. "Alle" im Stadt/Ort-Filter
+    // wählte sonst ~2000 Orte aus und schob die ganze Liste mit
+    // "Stadt/Ort: Aachen ×"-Chips aus dem Bild. Stattdessen:
+    //   alles ausgewählt      -> ein Chip "Stadt/Ort: Alle"
+    //   mehr als MAX_VALUE_CHIPS -> ein Chip "Stadt/Ort: 12 ausgewählt"
+    //   wenige Werte          -> wie gehabt ein Chip pro Wert
+    // Das ✕ eines Sammel-Chips löscht den ganzen Filter - genau wie beim
+    // Datums-Chip, der schon immer so gezählt hat.
+    pushSetChips('land', 'chip_land', v => tv('land', v));
+    pushSetChips('standort', 'chip_standort', v => v);
+    pushSetChips('art1', 'chip_sportart', v => tv('art1', v));
+    pushSetChips('art2', 'chip_kategorie', v => tv('art2', v));
+
+    function pushSetChips(stateKey, chipKey, format) {
+      const selected = state[stateKey];
+      if (selected.size === 0) return;
+      const column = COLUMNS.find(c => c.key === stateKey);
+      const optionCount = column && column.options
+        ? column.options().length
+        : uniqueSorted(events.map(e => e[stateKey])).length;
+      if (optionCount > 0 && selected.size >= optionCount) {
+        chips.push({ label: t(chipKey, t('chip_value_all')), clear: () => selected.clear() });
+        return;
+      }
+      if (selected.size > MAX_VALUE_CHIPS) {
+        chips.push({
+          label: t(chipKey, t('chip_value_count', selected.size)),
+          clear: () => selected.clear()
+        });
+        return;
+      }
+      selected.forEach(v => chips.push({ label: t(chipKey, format(v)), clear: () => selected.delete(v) }));
+    }
     if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', state.laengeMin), clear: () => { state.laengeMin = ''; } });
     if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', state.laengeMax), clear: () => { state.laengeMax = ''; } });
-    state.distanceCategories.forEach(compositeKey => {
+    if (state.distanceCategories.size > MAX_VALUE_CHIPS) {
+      chips.push({
+        label: t('chip_distanz_count', state.distanceCategories.size),
+        clear: () => state.distanceCategories.clear()
+      });
+    } else state.distanceCategories.forEach(compositeKey => {
       const sep = compositeKey.indexOf(':');
       const sport = compositeKey.slice(0, sep);
       const catKey = compositeKey.slice(sep + 1);
