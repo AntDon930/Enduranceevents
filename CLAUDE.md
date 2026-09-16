@@ -224,6 +224,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`activeColumns()`), Breiten dafür unter `table.with-distance`. Zellen
   werden aus `activeColumns()` gebaut, nicht fest untereinander – sonst
   müsste die Spaltenreihenfolge an zwei Stellen gepflegt werden.
+- **Der Schalter „Veranstaltungen zusammenfassen" steht direkt hinter der
+  Trefferzahl**, nicht bei den Knöpfen rechts: er verändert, wie diese
+  Zahl zu lesen ist („810 Veranstaltungen (1413 Strecken)").
+  `.toolbar-actions` behält dafür `margin-left: auto`, damit „Alle Filter
+  zurücksetzen" am rechten Rand bleibt. Die Chips dazwischen NICHT
+  `flex: 1` geben – dann rutscht der Knopf beim Umbruch nach links.
 - **Zusammenfassen ist reine Anzeige** (`state.gruppiert`,
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
   die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die

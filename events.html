@@ -198,6 +198,11 @@
   }
   /* Schiebt den Button an das rechte Ende der Tabellenspalte. */
   .toolbar-actions {
+    /* margin-left: auto hält "Alle Filter zurücksetzen" am rechten Rand -
+       auch dann, wenn Trefferzahl, Schalter und Chips so breit werden,
+       dass der Knopf in eine eigene Zeile rutscht. Versuch, die Chips
+       stattdessen wachsen zu lassen (flex: 1): dann rutschte der Knopf
+       beim Umbruch nach LINKS. */
     margin-left: auto;
     display: flex;
     align-items: center;
@@ -212,7 +217,11 @@
     color: var(--text-muted);
     cursor: pointer;
     white-space: nowrap;
+    /* Etwas Abstand zur Trefferzahl links davon, damit Zahl und Schalter
+       nicht ineinanderlaufen. */
+    margin-left: 4px;
   }
+  .group-toggle:hover { color: var(--text); }
   /* Zusammengefasste Zeile: der Name trägt einen Aufklapp-Pfeil, die
      Längen stehen als kleine Marken nebeneinander. */
   .group-row { cursor: pointer; font-weight: 600; }
@@ -942,9 +951,13 @@
 <div class="toolbar">
   <div class="toolbar-main">
     <div class="result-count" id="result-count"></div>
+    <!-- Der Schalter steht direkt hinter der Trefferzahl: Er verändert,
+         WIE diese Zahl zu lesen ist ("810 Veranstaltungen (1413
+         Strecken)"), gehört also dorthin und nicht zu den Knöpfen
+         rechts. -->
+    <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
     <div class="active-chips" id="active-chips"></div>
     <div class="toolbar-actions">
-      <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
       <button class="reset-btn" id="reset-btn"></button>
     </div>
   </div>

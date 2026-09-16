@@ -330,7 +330,8 @@ Schweiz.
   Spalte und Sortierung wieder. Die Spaltenbreiten für diesen Fall stehen
   unter `table.with-distance` (`table-layout` ist fix).
 
-  **Veranstaltungen zusammenfassen** (Schalter in der Kopfzeile, wird in
+  **Veranstaltungen zusammenfassen** (Schalter direkt hinter der
+  Trefferzahl – er verändert, wie diese Zahl zu lesen ist –, wird in
   `localStorage` gemerkt): Eine Veranstaltung mit sechs Strecken füllt
   sonst sechs Zeilen. Der Schalter bündelt sie nach Name + Datum + Ort zu
   einer Zeile und zeigt die Distanzen als kleine Marken („42 km", „22 km",
