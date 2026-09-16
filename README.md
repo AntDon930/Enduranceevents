@@ -362,13 +362,27 @@ Schweiz.
   Zeitraum.
 
   **Der .ics-Weg unterscheidet sich je nach Gerät**, und das ist der
-  Unterschied zwischen „funktioniert" und „liegt in den Downloads": Auf
-  iPhone, iPad und Mac wird die Datei als Blob mit dem Typ
-  `text/calendar` **geöffnet**, damit Safari sie an den Kalender
-  weitergibt, der den Termin zur Bestätigung anzeigt. Überall sonst wird
-  sie **heruntergeladen** – Outlook als Programm, Thunderbird und Co.
-  importieren sie per Doppelklick. Der Hinweis unter dem Menü sagt
-  jeweils, was passiert.
+  Unterschied zwischen „funktioniert" und „liegt in den Downloads":
+
+  - **iPhone, iPad, Mac**: Die Seite navigiert auf
+    `kalender/<Name>.ics?d=<base64>`. Diesen Ordner gibt es nicht – die
+    Antwort erfindet der **Service Worker** (`sw.js`) und setzt dabei
+    `Content-Type: text/calendar` und `Content-Disposition: inline`.
+    Genau diese Kopfzeilen fehlen einem Blob oder data-URI aus dem
+    Browser, und ohne sie behandelt Safari die Datei als Download: sie
+    landet als „Unknown.ics" in den Dateien, und die Teilen-Liste bietet
+    keinen Kalender an. Der Service Worker macht daraus für Safari eine
+    normale Server-Antwort. Er fasst sonst **nichts** an: kein
+    Zwischenspeichern (bei einer wöchentlich wachsenden `events.json`
+    wäre das nur eine Quelle für veraltete Anzeigen), alle anderen
+    Adressen gehen unverändert ins Netz.
+  - **Alle anderen**: Download der Datei mit ordentlichem Namen –
+    Outlook als Programm, Thunderbird und Co. importieren sie per
+    Doppelklick. Der Service-Worker-Weg wäre hier schlechter: Chrome,
+    Edge und Firefox kennen keinen Kalender als Handler und laden die
+    Antwort ebenfalls herunter, nur mit einem leeren Tab dahinter.
+
+  Der Hinweis unter dem Menü sagt jeweils, was passiert.
 
   Ein Detail, an dem solche Links oft scheitern: `DTEND` im
   iCalendar-Format (RFC 5545) und ebenso `dates=` bei Google und `enddt=`

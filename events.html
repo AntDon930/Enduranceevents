@@ -1079,7 +1079,7 @@
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Kalender & andere (.ics)',
       cal_note: 'Ganztägiger Termin. Die .ics-Datei wird geladen – zum Eintragen öffnen.',
-      cal_note_apple: 'Ganztägiger Termin. Öffnet sich im Kalender – dort noch auf „Hinzufügen" tippen.',
+      cal_note_apple: 'Ganztägiger Termin. Öffnet sich im Kalender – dort auf „Hinzufügen" tippen. Lädt Safari stattdessen eine Datei, diese in „Dateien" antippen.',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       notify_btn: 'Benachrichtigen, sobald verfügbar',
@@ -1195,7 +1195,7 @@
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Calendar & others (.ics)',
       cal_note: 'All-day event. The .ics file is downloaded – open it to add the event.',
-      cal_note_apple: 'All-day event. Opens in Calendar – tap “Add” there to save it.',
+      cal_note_apple: 'All-day event. Opens in Calendar – tap “Add” there. If Safari downloads a file instead, tap it in the Files app.',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
       notify_btn: 'Notify me when available',
@@ -1654,6 +1654,15 @@
     buildHeader();
     render();
   });
+
+  // Service Worker anmelden. Er hat genau einen Zweck: eine .ics-Datei
+  // mit dem Inhaltstyp text/calendar ausliefern, damit iOS und macOS den
+  // Termin dem Kalender anbieten (siehe sw.js und openIcs()). Schlägt die
+  // Anmeldung fehl - privates Fenster, In-App-Browser, alte Version -,
+  // bleibt der Herunterladen-Weg.
+  if ('serviceWorker' in navigator && window.isSecureContext !== false) {
+    navigator.serviceWorker.register('sw.js').catch(() => { /* dann eben ohne */ });
+  }
 
   const shareBtnEl = document.getElementById('share-btn');
   const shareBtnLabelEl = document.getElementById('share-btn-label');
@@ -3220,38 +3229,10 @@
       + `&body=${encodeURIComponent(f.beschreibung)}`
       + `&location=${encodeURIComponent(f.ort)}`;
 
-    // Der .ics-Weg unterscheidet sich je nach Gerät - vorher lud er
-    // überall nur eine Datei herunter, die auf iPhone und Mac in den
-    // Downloads liegen blieb, ohne im Kalender zu landen (vom Nutzer
-    // gemeldet):
-    //
-    //   Apple  -> Blob mit Typ text/calendar ÖFFNEN. Safari und iOS geben
-    //             die Datei damit an den Kalender weiter, der den Termin
-    //             zur Bestätigung anzeigt. Ein data-URI taugt dafür nicht,
-    //             iOS verweigert die Navigation dorthin.
-    //   sonst  -> als Datei herunterladen (Outlook-Programm, Thunderbird
-    //             und Co. importieren sie per Doppelklick).
-    //
-    // Der Blob entsteht erst beim Klick und wird danach wieder
-    // freigegeben; ein Blob pro angezeigtem Event wäre sonst ein Leck.
     const icsEl = detailEl.querySelector('#cal-ics');
     const noteEl = detailEl.querySelector('#cal-note');
     if (noteEl) noteEl.textContent = t(istAppleGeraet() ? 'cal_note_apple' : 'cal_note');
-    icsEl.addEventListener('click', () => {
-      const blob = new Blob([buildIcs(e)], { type: 'text/calendar;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      if (istAppleGeraet()) {
-        window.open(url, '_blank');
-      } else {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = calFileName(f.titel) + '.ics';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }
-      window.setTimeout(() => URL.revokeObjectURL(url), 30000);
-    });
+    icsEl.addEventListener('click', () => openIcs(e, f));
 
     btn.addEventListener('click', (ev) => {
       ev.stopPropagation();
@@ -3284,6 +3265,60 @@
         detailEl.querySelector('#cal-open-btn').setAttribute('aria-expanded', 'false');
       });
     }
+  }
+
+  // Zwei Wege zur .ics-Datei, und welcher genommen wird, entscheidet
+  // NICHT das Gerät, sondern was möglich ist:
+  //
+  //   1. Apple-Gerät und Service Worker zuständig -> Adresse
+  //      "kalender/<Name>.ics?d=<base64>" öffnen. sw.js antwortet darauf
+  //      mit Inhaltstyp text/calendar,
+  //      und erst dieser Typ bringt iOS und macOS dazu, den Termin dem
+  //      Kalender anzubieten. Vorher lieferte die Seite einen Blob: der
+  //      trug denselben Typ, Safari machte daraus aber einen Download
+  //      ("Unknown.ics") und die Teilen-Liste hatte keinen Kalender -
+  //      genau das hat der Nutzer auf dem iPad gesehen.
+  //   2. Sonst als Datei herunterladen (Outlook-Programm, Thunderbird und
+  //      Co. importieren sie per Doppelklick).
+  //
+  // Der Blob entsteht erst beim Klick und wird danach freigegeben; einer
+  // pro angezeigtem Event wäre ein Leck.
+  function openIcs(e, f) {
+    const ics = buildIcs(e);
+    // Nur auf Apple-Geräten über den Service Worker: Chrome, Edge und
+    // Firefox kennen keinen Kalender als Handler und laden so eine
+    // Antwort ebenfalls herunter - nur eben mit einem leeren Tab
+    // dahinter. Der direkte Download ist dort das bessere Verhalten.
+    if (istAppleGeraet() && navigator.serviceWorker && navigator.serviceWorker.controller) {
+      // base64url: die Daten hängen in der Adresse, "+" und "/" hätten
+      // dort eine andere Bedeutung. btoa() arbeitet byteweise, deshalb
+      // der Umweg über encodeURIComponent für Umlaute.
+      const b64 = btoa(unescape(encodeURIComponent(ics)))
+        .replace(/\+/g, '-').replace(/\//g, '_');
+      // Der Dateiname steht im Pfad: sw.js gibt ihn als
+      // Content-Disposition zurück, damit der Termin im Kalender bzw. in
+      // der Dateiliste erkennbar ist. Den Ordner /kalender/ gibt es
+      // nicht - die Antwort kommt vollständig aus dem Worker.
+      //
+      // NAVIGATION IM SELBEN TAB, kein window.open: Ein geöffnetes
+      // Fenster blieb auf "about:blank" stehen, sobald Safari die Antwort
+      // als Download behandelt - genau das Bild aus dem Screenshot des
+      // Nutzers. Bei der Navigation zeigt Safari den Termin an (oder im
+      // schlechtesten Fall die Download-Leiste über der Liste), und die
+      // Filter stehen ohnehin in der Adresse, die Liste ist also mit
+      // "Zurück" unverändert wieder da.
+      window.location.href = `kalender/${calFileName(f.titel)}.ics?d=${b64}`;
+      return;
+    }
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = calFileName(f.titel) + '.ics';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 30000);
   }
 
   function calFileName(titel) {

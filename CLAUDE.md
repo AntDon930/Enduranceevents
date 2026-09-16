@@ -25,6 +25,7 @@ Nicht auf einen anderen Branch pushen.
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort |
+| `sw.js` | Service Worker mit EINEM Zweck: `.ics` mit Inhaltstyp `text/calendar` ausliefern (Kalender-Eintrag auf Apple-Geräten). Kein Zwischenspeichern. |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle |
@@ -240,14 +241,26 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `DTEND` bzw. `dates=`/`enddt=` ist **exklusiv**, also Enddatum + 1 Tag –
   ohne das +1 fehlt der letzte Tag. Google und Outlook über Links, Apple
   und alles andere über eine `.ics`-Datei.
-  **Der .ics-Weg geht je Gerät anders** (`istAppleGeraet()`): Auf Apple
-  wird ein **Blob** mit Typ `text/calendar` per `window.open` GEÖFFNET –
-  ein Download blieb dort nur in den Dateien liegen und landete nie im
-  Kalender (vom Nutzer gemeldet); ein data-URI taugt nicht, iOS
-  verweigert die Navigation dorthin. Überall sonst wird die Datei
-  heruntergeladen. Der Hinweistext unter dem Menü sagt jeweils, was
-  passiert. Text in `.ics` muss maskiert (`icsEscape`) und ab 75 Zeichen
-  gefaltet werden (`icsFold`), Zeilenenden sind CRLF.
+  **Der .ics-Weg geht je Gerät anders** (`openIcs()`):
+  - **Apple + Service Worker**: Navigation im selben Tab auf
+    `kalender/<Name>.ics?d=<base64>`. Diesen Ordner gibt es nicht,
+    `sw.js` erfindet die Antwort – mit `Content-Type: text/calendar` und
+    `Content-Disposition: inline`. Erst diese Kopfzeilen bringen Safari
+    dazu, den Termin dem Kalender zu geben; ein Blob oder data-URI hat
+    sie nicht und wird zum Download („Unknown.ics" in einem
+    `about:blank`-Tab – genau das Bild aus dem Screenshot des Nutzers).
+    `window.open` ist hier falsch: bleibt Safari beim Download, hätte man
+    einen leeren Tab. **Auf echtem iOS nicht verifizierbar** – in der
+    Sandbox gibt es nur Chromium, das text/calendar immer herunterlädt.
+    Bleibt es dort beim Download, ist der nächste Schritt eine fest
+    gehostete `.ics` je Event plus `webcal://`-Link (nur der öffnet den
+    Kalender garantiert), also ein Schritt im Workflow.
+  - **Alle anderen**: Blob-Download mit ordentlichem Dateinamen. Der
+    Service-Worker-Weg wäre hier schlechter – Chrome und Firefox laden
+    die Antwort ebenfalls herunter, nur mit leerem Tab dahinter.
+
+  Text in `.ics` muss maskiert (`icsEscape`) und ab 75 Zeichen gefaltet
+  werden (`icsFold`), Zeilenenden sind CRLF.
 - **Spaltenbreiten über Klassen** (`.col-name`, `.col-anzahl`, …), nicht
   `nth-child`: Entfernung und Anzahl kommen und gehen, jede Kombination
   bräuchte sonst eigene Regeln. `CHEVRON_SVG` steht oben bei `state` -
