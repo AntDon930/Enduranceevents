@@ -334,9 +334,12 @@ Schweiz.
   `localStorage` gemerkt): Eine Veranstaltung mit sechs Strecken füllt
   sonst sechs Zeilen. Der Schalter bündelt sie nach Name + Datum + Ort zu
   einer Zeile und zeigt die Distanzen als kleine Marken („42 km", „22 km",
-  „10 km"). Ganz vorn steht dann eine Spalte **„Anzahl"** mit der Zahl der
+  „10 km"). Ganz vorn steht dann eine schmale Spalte (28 px, Überschrift
+  **„#"**, voller Name „Anzahl" als Tooltip) mit der Zahl der
   zusammengefassten Strecken - auch bei einer einzigen („1"), sonst sähe
-  die Zelle nach einem fehlenden Wert aus. Ein Klick auf die Zeile klappt
+  die Zelle nach einem fehlenden Wert aus. Die Zahl steht linksbündig
+  direkt vor dem Namen: mittig und 8 % breit klaffte dazwischen eine
+  Lücke. Ein Klick auf die Zeile klappt
   die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
   es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
 
