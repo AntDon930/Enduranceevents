@@ -650,7 +650,7 @@
      der Firestore-Collection "errorReports" (anonyme Anmeldung, damit
      die Security Rules request.auth verlangen koennen). -->
 <div class="ee-modal-overlay" id="report-overlay" hidden>
-  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="report-heading">
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="report-heading" tabindex="-1">
     <button type="button" class="ee-modal-close" id="report-close" aria-label="Schliessen">&#10005;</button>
     <div id="report-body"></div>
   </div>
@@ -1879,6 +1879,7 @@
   const REPORT_DESC_MIN = 10;
 
   const reportOverlay = document.getElementById('report-overlay');
+  const reportDialogEl = reportOverlay.querySelector('.ee-modal');
   const reportBodyEl = document.getElementById('report-body');
 
   document.getElementById('report-close').addEventListener('click', closeReportModal);
@@ -1908,8 +1909,11 @@
       <form id="report-form">
         <div class="ee-field">
           <label for="report-kategorie">${escapeHtml(t('report_field_label'))}</label>
-          <select id="report-kategorie">
-            <option value="">${escapeHtml(t('report_field_placeholder'))}</option>
+          <select id="report-kategorie" autocomplete="off">
+            <!-- Leere Vorauswahl: es soll bewusst nichts vorbelegt sein,
+                 sonst wandert eine unbeabsichtigte Kategorie in die
+                 Meldung. Die Pflicht-Pruefung sitzt im submit-Handler. -->
+            <option value="" selected>${escapeHtml(t('report_field_placeholder'))}</option>
             ${REPORT_CATEGORIES.map(k => `<option value="${k}">${escapeHtml(t('report_cat_' + k))}</option>`).join('')}
           </select>
         </div>
@@ -1936,7 +1940,12 @@
     descEl.addEventListener('input', () => {
       counterEl.textContent = `${descEl.value.length} / ${REPORT_DESC_MAX}`;
     });
-    selectEl.focus();
+    // Bewusst KEIN focus() auf das Drop-down: ein fokussiertes <select>
+    // klappt in mehreren Browsern sofort auf, und der Dialog begruesst
+    // einen dann mit einer offenen Liste. Stattdessen den Dialog selbst
+    // fokussieren - damit liegt der Tastaturfokus im Dialog, die Auswahl
+    // bleibt aber leer und zu, bis jemand sie anfasst.
+    reportDialogEl.focus({ preventScroll: true });
 
     function setMsg(text, kind) {
       msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${escapeHtml(text)}</div>` : '';
@@ -1946,7 +1955,7 @@
       evt.preventDefault();
       const kategorie = selectEl.value;
       const beschreibung = descEl.value.trim();
-      if (!kategorie) { setMsg(t('report_err_field'), 'error'); selectEl.focus(); return; }
+      if (!kategorie) { setMsg(t('report_err_field'), 'error'); return; }
       if (beschreibung.length < REPORT_DESC_MIN) { setMsg(t('report_err_desc'), 'error'); descEl.focus(); return; }
       setMsg(null);
       submitEl.disabled = true;
