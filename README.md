@@ -994,6 +994,34 @@ umbenannt – die Schlüssel dort beginnen mit dem Namen, ein Umbenennen
 würde den Override unwirksam machen. Das betrifft aktuell 12 von 4291
 Einträgen, die dadurch zwei Schreibweisen behalten.
 
+### Tests bei jedem Push (GitHub Actions)
+
+`.github/workflows/ci.yml` prüft bei jedem Push und jedem Pull Request
+genau das, was vor einem Commit ohnehin laufen soll. Vorher lief beim
+Push nur der Pages-Deploy – eine kaputte `events.html` wäre unbemerkt
+live gegangen.
+
+Zwei Jobs, damit auf einen Blick zu sehen ist, *was* kaputt ist:
+
+- **Regressionstests** (Sekunden, kein Netz, kein Browser):
+  `test_scraper_lib.py` (Datenregeln, Dedupe, Zeitrennen,
+  Kalender-Dateinamen gegen den echten JS-Code, `node --check` über alle
+  Inline-Skripte, die `?v=`-Stempel), dazu zwei Fragen, die nur im
+  Zusammenspiel auffallen: **ändert `clean_events.py` noch etwas**
+  (Aufräumen muss idempotent sein, sonst wächst der wöchentliche Commit)
+  und **passt `kalender/` zu `events.json`** (die `.ics`-Dateien liegen
+  fertig im Repo, siehe „Zum Kalender hinzufügen"). Genau diese zweite
+  Prüfung hat beim Einbauen 490 veraltete Dateien gefunden – der
+  Trail/Cross-Umbau war in `events.json`, aber nicht in den
+  Kalenderdateien.
+- **Rauchtest im Browser**: `smoke_test_frontend.py` mit Playwright und
+  Chromium (~1 Minute Einrichtung, deshalb getrennt).
+
+**Keine Scraper-Läufe in der CI**: Die Quellen sollen nicht bei jedem
+Push abgerufen werden (Höflichkeit und robots.txt); Daten aktualisiert
+allein `update-events.yml`. Das Repository ist öffentlich,
+Actions-Minuten sind dafür kostenlos.
+
 ### Regressionstests: `test_scraper_lib.py`
 
 ```bash

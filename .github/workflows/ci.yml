@@ -1,0 +1,107 @@
+name: Tests
+
+# Prüft bei jedem Push und jedem Pull Request das, was vor einem Commit
+# ohnehin laufen soll (siehe CLAUDE.md "Vor jedem Commit"). Vorher lief
+# beim Push nur der Pages-Deploy: eine kaputte events.html wäre
+# unbemerkt live gegangen.
+#
+# Zwei Jobs, damit man auf einen Blick sieht, WAS kaputt ist:
+#
+#   tests  - Regressionstests + node --check + ?v=-Stempel. Wenige
+#            Sekunden, kein Netz, kein Browser.
+#   rauchtest - die drei Seiten in Chromium auf Handybreite. Braucht
+#            Playwright samt Chromium (~1 Minute Einrichtung), läuft
+#            deshalb getrennt.
+#
+# Das Repository ist öffentlich, Actions-Minuten sind dafür kostenlos.
+# Kein Scraper-Lauf in der CI: die Quellen sollen nicht bei jedem Push
+# abgerufen werden (Höflichkeit und robots.txt), Daten aktualisiert
+# allein update-events.yml.
+
+on:
+  push:
+    branches:
+      - claude/endurance-events-website-v1wruf
+      - main
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Ein neuer Push auf denselben Branch bricht den laufenden Durchgang ab -
+# das Ergebnis des alten Stands interessiert dann nicht mehr.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Regressionstests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # node braucht test_scraper_lib.py zweimal: für die Gegenprobe der
+      # Kalender-Dateinamen (es läuft der echte JS-Code aus events.html)
+      # und für `node --check` über die Inline-Skripte.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Dieselben Prüfungen wie vor jedem Commit: Datenregeln, Dedupe,
+      # Zeitrennen, Kalender-Dateinamen, JS-Syntax und die ?v=-Stempel an
+      # den geteilten Dateien (filters.js, filter-ui.js, filter-ui.css).
+      # Ein vergessener Stempel hat die Seite schon einmal leer gemacht.
+      - name: Regressionstests
+        run: python3 scripts/test_scraper_lib.py
+
+      # Aufräumen muss idempotent sein: ein zweiter Lauf über dieselbe
+      # Datei darf nichts mehr ändern. Sonst wächst der wöchentliche
+      # Commit ins Unendliche.
+      - name: clean_events.py ändert nichts mehr (Idempotenz)
+        run: |
+          cp events.json /tmp/vorher.json
+          python3 scripts/clean_events.py
+          if ! diff -q /tmp/vorher.json events.json; then
+            echo "::error::clean_events.py ändert events.json - der Bestand ist nicht aufgeräumt."
+            exit 1
+          fi
+
+      # Die .ics-Dateien liegen fertig im Repo (Safari übergibt einen
+      # Termin nur an den Kalender, wenn der Server text/calendar
+      # schickt). Sie müssen also zu events.json passen.
+      - name: kalender/ passt zu events.json
+        run: |
+          python3 scripts/build_ics.py
+          if [ -n "$(git status --porcelain kalender)" ]; then
+            echo "::error::kalender/ ist nicht aktuell - python3 scripts/build_ics.py ausführen und mit committen."
+            git status --porcelain kalender | head -20
+            exit 1
+          fi
+
+  rauchtest:
+    name: Rauchtest im Browser
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Playwright und Chromium
+        run: |
+          python3 -m pip install --quiet playwright
+          python3 -m playwright install --with-deps chromium
+
+      # Das Skript startet selbst einen Server auf einem freien Port und
+      # prüft die drei Seiten auf Handybreite (390 px). Ohne Playwright
+      # bricht es mit Hinweis und Rückgabewert 0 ab - hier ist es
+      # installiert, ein Fehlschlag ist also echt.
+      - name: Rauchtest
+        run: python3 scripts/smoke_test_frontend.py

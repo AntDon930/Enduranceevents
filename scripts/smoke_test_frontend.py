@@ -85,8 +85,12 @@ def seite_oeffnen(ctx, url, warten=".top-bar"):
     seite = ctx.new_page()
     probleme: list[str] = []
     seite.on("pageerror", lambda e: probleme.append("Skriptfehler: %s" % e))
+    # Nur die eigenen Dateien zählen: geprüft wird diese Seite, nicht
+    # fremde Dienste. In der CI gibt es echtes Netz, und eine 4xx-Antwort
+    # von Firebase oder einem CDN hätte den Rauchtest sonst rot gemacht,
+    # ohne dass an der Seite etwas kaputt ist.
     seite.on("response", lambda r: probleme.append("HTTP %s %s" % (r.status, r.url))
-             if r.status >= 400 else None)
+             if r.status >= 400 and "127.0.0.1" in r.url else None)
     seite.goto(url, wait_until="domcontentloaded")
     seite.wait_for_selector(warten, timeout=30000)
     return seite, probleme

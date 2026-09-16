@@ -62,9 +62,10 @@ Wurde `filters.js`, `filter-ui.js` oder `filter-ui.css` angefasst,
 python3 scripts/stamp_assets.py
 ```
 
-Bei Änderungen an `events.html`/`index.html`/`karte.html` zusätzlich die
-Inline-Skripte syntaktisch prüfen (`node --check`) und den Rauchtest laufen
-lassen:
+`node --check` über die Inline-Skripte und die geteilten JS-Dateien
+steckt **im Test** (`test_js_syntax`) – von Hand nötig ist es nicht mehr.
+Bei Änderungen an `events.html`/`index.html`/`karte.html` zusätzlich den
+Rauchtest laufen lassen:
 
 ```bash
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
@@ -536,6 +537,13 @@ Workflow auslösen und später nachsehen. Für Tests immer
 `--max-pages 2 --no-details` o. Ä.
 
 ## Automatik
+
+`.github/workflows/ci.yml` läuft bei **jedem Push und jedem Pull Request**
+(zwei Jobs): `test_scraper_lib.py` samt `node --check` und Stempel-Prüfung,
+dazu die Idempotenz von `clean_events.py` und die Frage, ob `kalender/`
+zu `events.json` passt – und getrennt davon `smoke_test_frontend.py` in
+Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
+**Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
 
 `.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
 (vorher täglich – solange die Seite nicht live ist, bringt ein täglicher

@@ -693,6 +693,70 @@ def test_ortsverzeichnis() -> None:
     check("Neustadt bleibt doppelt", ("neustadt", "SN") in gruppen, True)
 
 
+def test_js_syntax() -> None:
+    """`node --check` über die Inline-Skripte und die geteilten Dateien.
+
+    Die drei Seiten tragen ihr Skript im HTML - ein Tippfehler darin fällt
+    weder Python noch einem Linter auf, die Seite bleibt einfach leer
+    (genau das ist beim Umbau mehrfach passiert). Bisher stand
+    "node --check nicht vergessen" nur in CLAUDE.md; jetzt prüft es der
+    Test - und damit auch die CI.
+
+    Ohne node wird übersprungen (wie die JS-Gegenprobe oben): Wer nur die
+    Daten anfasst, soll nicht an einem fehlenden node hängen.
+    """
+    import shutil
+    import subprocess
+
+    def fehlerzeile(erg) -> str:
+        """Die eine Zeile, die den Fehler benennt.
+
+        node schreibt Datei, Codezeile, Pfeil, SyntaxError und zuletzt
+        seine eigene Version - `splitlines()[-1]` wäre also "Node.js
+        v22" und damit nutzlos.
+        """
+        if erg.returncode == 0:
+            return ""
+        zeilen = [z.strip() for z in erg.stderr.splitlines() if z.strip()]
+        for z in zeilen:
+            if "Error" in z:
+                return z
+        return zeilen[0] if zeilen else "node --check fehlgeschlagen"
+
+    print("\nJavaScript-Syntax (node --check):")
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    wurzel = Path(__file__).resolve().parent.parent
+    import re as _re
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmp:
+        for name in ("index.html", "events.html", "karte.html"):
+            quelle = (wurzel / name).read_text(encoding="utf-8")
+            # Nur Skripte OHNE src: die geladenen Dateien werden unten
+            # einzeln geprüft.
+            bloecke = _re.findall(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>",
+                                  quelle, _re.S)
+            check(f"{name}: Inline-Skript vorhanden", len(bloecke) >= 1, True)
+            for nr, block in enumerate(bloecke):
+                datei = Path(tmp) / f"{name}.{nr}.js"
+                datei.write_text(block, encoding="utf-8")
+                erg = subprocess.run([node, "--check", str(datei)],
+                                     capture_output=True, text=True)
+                check(f"{name}: Inline-Skript {nr} ist gültiges JS",
+                      fehlerzeile(erg), "")
+        for name in ("filters.js", "filter-ui.js", "auth.js", "firebase-config.js",
+                     "functions/index.js"):
+            pfad = wurzel / name
+            if not pfad.exists():
+                continue
+            erg = subprocess.run([node, "--check", str(pfad)],
+                                 capture_output=True, text=True)
+            check(f"{name} ist gültiges JS", fehlerzeile(erg), "")
+
+
 def test_asset_stempel() -> None:
     """Die ?v=-Stempel an den geteilten Skripten (stamp_assets.py).
 
@@ -720,7 +784,7 @@ def main() -> int:
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
-                 test_ortsverzeichnis, test_asset_stempel):
+                 test_ortsverzeichnis, test_js_syntax, test_asset_stempel):
         test()
 
     print()
