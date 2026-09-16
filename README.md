@@ -318,7 +318,8 @@ Distanz-Korrektur nach (behobener Bug: „Halbmarathon" wurde mit 42,2 km
 statt 21,1 km eingetragen, weil das Stichwort „marathon" zuerst prüfte),
 rundet alle Längenangaben auf eine Dezimalstelle, ergänzt bzw. korrigiert
 `land` per Reverse-Geocoding der Koordinaten,
-entfernt zu kurze Laufevents und führt Duplikate zusammen. Zum Schluss
+entfernt zu kurze Laufevents, führt Duplikate zusammen und
+**vereinheitlicht die Namen innerhalb einer Veranstaltung**. Zum Schluss
 wird nach Datum sortiert (kleine Git-Diffs). Das Skript ist idempotent –
 ein zweiter Lauf ändert nichts mehr.
 
@@ -326,6 +327,57 @@ ein zweiter Lauf ändert nichts mehr.
 python3 scripts/clean_events.py --dry-run   # nur Bericht, nichts ändern
 python3 scripts/clean_events.py             # events.json aufräumen
 ```
+
+#### Namen innerhalb einer Veranstaltung
+
+Eine Veranstaltung steht mit je einem Eintrag pro Strecke in der Liste.
+Kommen diese Einträge aus verschiedenen Quellen, tragen sie
+unterschiedliche Schreibweisen desselben Namens – beim Münchner Marathon
+etwa „MARATHON MÜNCHEN" (42,2 km) neben „Marathon München by Brooks"
+(21,1 und 10 km). In der Liste sah das nach drei Veranstaltungen aus.
+
+`unify_event_names()` gibt allen Einträgen einer Veranstaltung denselben
+Namen. Die Auswahl in der Reihenfolge ihrer Priorität:
+
+1. **Nicht durchgehend GROSSGESCHRIEBEN** – eine Mehrheit darf das nicht
+   durchsetzen.
+2. **Häufigkeit in der Gruppe** – die Quellenmehrheit entscheidet den
+   häufigsten Streitfall, nämlich Auflagen-Nummer vorhanden oder nicht
+   („20. Lauf in den Herbst" gegen „Lauf in den Herbst"). Es wird bewusst
+   *nicht* versucht, die Nummer generell zu entfernen oder zu ergänzen –
+   das wäre eine inhaltliche Änderung, keine Vereinheitlichung.
+3. **Sinnvolle Länge, dann länger** – ein 108 Zeichen langer „Name", der
+   die ganze Ausschreibung wiedergibt, verliert gegen „Wiesent
+   Challenge"; darunter trägt der längere Name meist mehr Information.
+4. **Alphabetisch** als letzter Anker, damit das Ergebnis reproduzierbar
+   und der Lauf idempotent ist.
+
+Zwei Dinge sind ausdrücklich *keine* Auswahlkriterien, sondern
+**Reparaturen** am Gewinner:
+
+- **Formatierung** (`tidy_name()`, auf alle Namen angewendet): mehrfache
+  Leerzeichen, Rand, fehlendes Leerzeichen nach der Nummer
+  („37.Bessunger Merck-Lauf" → „37. Bessunger Merck-Lauf").
+- **Umlaute/ß** (`repair_umlaut_spelling()`): „Bädleslauf" ist richtig und
+  „Baedleslauf" falsch, unabhängig von der Häufigkeit. Ersetzt wird nur
+  der Text *nach* der Auflagen-Nummer, und nur wenn er sich vom Gewinner
+  ausschließlich in der Umschrift unterscheidet. Zwei einfachere Ansätze
+  sind vorher gescheitert: „enthält Umlaut" als allgemeines
+  Qualitätsmerkmal ließ „Wiesent Challenge" gegen den 108-Zeichen-Namen
+  verlieren, nur weil darin „Straßenlauf" vorkam; und ein Zusammenführen
+  über die gefaltete Form griff nicht, sobald sich die Varianten
+  zusätzlich in der Nummer unterschieden.
+
+**Zusammenführen und Vereinheitlichen bedingen sich gegenseitig** und
+laufen daher in einer Schleife bis zum Fixpunkt (`MAX_MERGE_PASSES`): Nach
+dem Zusammenführen ändern sich die Mehrheiten, und umgekehrt lässt ein
+vereinheitlichter Name zwei Einträge erst als Duplikat erkennbar werden.
+Ein einzelner Durchlauf war nicht idempotent.
+
+Events mit einem Eintrag in `manual_overrides.json` werden **nicht**
+umbenannt – die Schlüssel dort beginnen mit dem Namen, ein Umbenennen
+würde den Override unwirksam machen. Das betrifft aktuell 12 von 4291
+Einträgen, die dadurch zwei Schreibweisen behalten.
 
 ### Regressionstests: `test_scraper_lib.py`
 

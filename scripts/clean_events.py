@@ -10,7 +10,7 @@ vorhandene Einträge nie verändern (sie fügen nur neue an) - Regeln, die
 später dazukommen oder Bugfixes an der Distanz-/Kategorie-Erkennung
 wirken deshalb nicht rückwirkend. Genau dafür ist dieses Skript da.
 
-Acht Schritte, in dieser Reihenfolge:
+Neun Schritte, in dieser Reihenfolge:
 
 1. **Manuelle Korrekturen** aus `scripts/manual_overrides.json` anwenden
    (Distanz/Kategorie/Link überschreiben, `exclude: true` entfernt das
@@ -63,6 +63,7 @@ import argparse
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -346,6 +347,202 @@ def name_announces_distance(name: str | None, km: float) -> bool:
     return False
 
 
+# Erkennt eine schlecht formatierte Auflagen-Nummer ohne Leerzeichen
+# dahinter ("37.Bessunger Merck-Lauf").
+_ORDINAL_NO_SPACE = re.compile(r"^\d+\.\S")
+
+
+def tidy_name(name: str) -> str:
+    """Repariert reine Formatierungsmängel eines Namens: mehrfache
+    Leerzeichen zusammenziehen, Rand trimmen, fehlendes Leerzeichen nach
+    der Auflagen-Nummer ergänzen.
+
+    Das ist eine reine Schreibweisen-Korrektur ("17.  Preungesheimer
+    Dorflauf" -> "17. Preungesheimer Dorflauf", "37.Bessunger Merck-Lauf"
+    -> "37. Bessunger Merck-Lauf") und macht Kandidaten vergleichbar, die
+    sich NUR in der Formatierung unterscheiden.
+    """
+    cleaned = re.sub(r"\s+", " ", (name or "")).strip()
+    return re.sub(r"^(\d+\.)(?=\S)", r"\1 ", cleaned)
+
+
+_UMLAUT_FOLD = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
+
+
+def fold_umlauts(name: str) -> str:
+    """Schlüssel, unter dem Umschrift und echte Schreibweise zusammenfallen:
+    "Baedleslauf" und "Bädleslauf" ergeben beide "baedleslauf"."""
+    return name.casefold().translate(_UMLAUT_FOLD)
+
+
+_LEADING_ORDINAL = re.compile(r"^(\d+\.\s*)")
+
+
+def has_umlauts(name: str) -> bool:
+    return any(c in name for c in "äöüÄÖÜß")
+
+
+def repair_umlaut_spelling(winner: str, candidates: list[str]) -> str:
+    """Setzt im Gewinner-Namen die korrekte deutsche Schreibweise, wenn ein
+    anderer Kandidat sie liefert.
+
+    Die Umlaut-Frage ist keine Auswahl-, sondern eine Reparaturfrage:
+    "Bädleslauf" ist objektiv richtig und "Baedleslauf" objektiv falsch,
+    unabhängig davon, welche Variante häufiger vorkommt oder ob eine
+    Auflagen-Nummer davorsteht. Zwei Versuche vorher gingen daneben:
+
+    * "enthält Umlaut" als allgemeines Qualitätsmerkmal - dadurch verlor
+      "Wiesent Challenge" gegen einen 108 Zeichen langen Namen, nur weil
+      darin das Wort "Straßenlauf" vorkam.
+    * Zusammenführen anhand der gefalteten Form - das griff nicht, sobald
+      sich die Varianten ZUSÄTZLICH in der Auflagen-Nummer unterschieden
+      ("22. Baedleslauf" gegen "Bädleslauf").
+
+    Deshalb wird hier nur der TEXT NACH der Auflagen-Nummer ersetzt, und
+    nur wenn er sich vom Gewinner ausschließlich in der Umschrift
+    unterscheidet. Die Nummer selbst bleibt, wie die Mehrheit sie
+    entschieden hat.
+    """
+    if has_umlauts(winner):
+        return winner
+    prefix_match = _LEADING_ORDINAL.match(winner)
+    prefix = prefix_match.group(1) if prefix_match else ""
+    body = winner[len(prefix):]
+    for candidate in candidates:
+        other_body = _LEADING_ORDINAL.sub("", candidate)
+        if has_umlauts(other_body) and fold_umlauts(other_body) == fold_umlauts(body):
+            return prefix + other_body
+    return winner
+
+
+def name_quality_hard(name: str) -> tuple:
+    """Schreibweisen-Mangel, den die Mehrheit NICHT durchsetzen darf:
+    durchgehende GROSSSCHREIBUNG ("MARATHON MÜNCHEN" gegen "Marathon
+    München by Brooks"). Die Umlaut-Frage klärt vorher
+    `prefer_umlaut_spelling()`."""
+    letters = [c for c in name if c.isalpha()]
+    return (not (len(letters) >= 4 and name == name.upper()),)
+
+
+# Ab dieser Länge ist ein "Name" in Wahrheit eine Beschreibung und taugt
+# nicht für die Namensspalte der Liste. Echter Fall: "5. Wiesent-Challenge
+# 10 km Straßenlauf und 12 km Panoramatrail mit Oberfränkischen
+# Meisterschaften im Trail-Lauf" (108 Zeichen) hätte über die Regel
+# "länger ist besser" gegen "Wiesent Challenge" gewonnen.
+MAX_SENSIBLE_NAME_LENGTH = 60
+
+# Obergrenze für die Iteration aus Zusammenführen und
+# Namen-Vereinheitlichen (siehe main()). In der Praxis ist nach zwei
+# bis drei Durchläufen Ruhe.
+MAX_MERGE_PASSES = 8
+
+
+def name_quality_soft(name: str) -> tuple:
+    """Nachrangige Kriterien, erst wenn Schreibweise UND Häufigkeit
+    gleichstehen.
+
+    Längere Namen tragen meist mehr Information ("Wehringer Wertachlauf
+    mit schwäbischen Meisterschaften") - aber nur bis zu einer sinnvollen
+    Grenze, jenseits derer der "Name" die komplette Ausschreibung
+    wiedergibt. Alphabetisch als letzter Anker, damit das Ergebnis
+    reproduzierbar ist und der Lauf idempotent bleibt."""
+    return (
+        len(name) <= MAX_SENSIBLE_NAME_LENGTH,
+        len(name),
+        tuple(-ord(c) for c in name.casefold()),
+    )
+
+
+def tidy_all_names(events: list[dict]) -> list[str]:
+    """Repariert Formatierungsmängel in JEDEM Event-Namen.
+
+    `unify_event_names()` ruft `tidy_name()` nur für Veranstaltungen auf,
+    die mehr als einen Namen tragen. Ein Einzel-Event mit doppeltem
+    Leerzeichen ("19. Parforceheide  Crosslauf") oder fehlendem
+    Leerzeichen nach der Nummer ("41.  Memmelsdorfer Schlosslauf") bliebe
+    dadurch unangetastet, obwohl der Mangel derselbe ist.
+
+    Nur Leerraum und das Leerzeichen nach der Auflagen-Nummer - die
+    Groß-/Kleinschreibung bleibt unberührt, weil sich Namen wie "REWE",
+    "DJK" oder "AOK" nicht zuverlässig umschreiben lassen.
+    """
+    changed: list[str] = []
+    for event in events:
+        name = event.get("name")
+        if not name:
+            continue
+        tidied = tidy_name(name)
+        if tidied != name:
+            changed.append(f"{name!r} -> {tidied!r}")
+            event["name"] = tidied
+    return changed
+
+
+def unify_event_names(events: list[dict]) -> list[str]:
+    """Gibt allen Einträgen derselben Veranstaltung denselben Namen.
+
+    Eine Veranstaltung steht mit je einem Eintrag pro Strecke in der Liste.
+    Kommen diese Einträge aus verschiedenen Quellen, tragen sie
+    unterschiedliche Schreibweisen desselben Namens - beim Münchner
+    Marathon etwa "MARATHON MÜNCHEN" (42,2 km) neben "Marathon München by
+    Brooks" (21,1 und 10 km). In der Liste sieht das nach drei
+    verschiedenen Veranstaltungen aus.
+
+    Auswahl in drei Stufen: erst `name_quality_hard()` (Schreibweisen-
+    Mängel, die eine Mehrheit nicht durchsetzen darf), dann die
+    Häufigkeit in der Gruppe, dann `name_quality_soft()`. Vorher
+    repariert `tidy_name()` reine Formatierungsmängel.
+
+    Beim häufigsten Einzelfall - Auflagen-Nummer vorhanden oder nicht -
+    entscheidet damit die Quellenmehrheit. Es wird bewusst NICHT
+    versucht, die Nummer generell zu entfernen oder zu ergänzen: das wäre
+    eine inhaltliche Änderung, keine Vereinheitlichung.
+
+    Events mit einem Eintrag in `manual_overrides.json` werden
+    ÜBERSPRUNGEN: die Schlüssel dort beginnen mit dem Namen, ein
+    Umbenennen würde den Override unwirksam machen.
+    """
+    overrides = load_manual_overrides()
+    by_date: dict[str | None, list[dict]] = {}
+    for event in events:
+        by_date.setdefault(event.get("datum_start"), []).append(event)
+
+    changed: list[str] = []
+    for group in by_date.values():
+        clusters: list[list[dict]] = []
+        for event in group:
+            for cluster in clusters:
+                if any(is_same_race(member, event) for member in cluster):
+                    cluster.append(event)
+                    break
+            else:
+                clusters.append([event])
+
+        for cluster in clusters:
+            names = [e.get("name") for e in cluster if e.get("name")]
+            if len(set(names)) < 2:
+                continue
+            if any(find_override(overrides, e.get("name"), e.get("datum_start"),
+                                 e.get("laenge_km")) for e in cluster):
+                continue  # Override-Schlüssel nicht zerstören
+            # Zuerst Formatierung reparieren - dadurch fallen Kandidaten
+            # zusammen, die sich nur darin unterschieden.
+            tidied = [tidy_name(n) for n in names]
+            counts = Counter(tidied)
+            canonical = max(
+                counts,
+                key=lambda n: (name_quality_hard(n), counts[n], name_quality_soft(n)),
+            )
+            canonical = repair_umlaut_spelling(canonical, tidied)
+            for event in cluster:
+                if event.get("name") != canonical:
+                    changed.append(
+                        f"{event.get('datum_start')} {event.get('name')!r} -> {canonical!r}"
+                    )
+                    event["name"] = canonical
+    return changed
+
+
 def report_suspicious_distances(events: list[dict]) -> list[str]:
     """MELDET (löscht nicht!) Distanzen, die der Streckenaufzählung einer
     anderen Quelle für dieselbe Veranstaltung widersprechen.
@@ -496,7 +693,28 @@ def main() -> None:
     land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
     suspicious = report_suspicious_distances(events)
-    events, dup_report = merge_duplicates(events)
+    # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
+    # Nach dem Zusammenführen ändern sich die Mehrheiten innerhalb einer
+    # Veranstaltung, und umgekehrt lässt ein vereinheitlichter Name zwei
+    # Einträge erst als Duplikat erkennbar werden (der Namensvergleich ist
+    # Teil von is_same_event). Ein einzelner Durchlauf ist deshalb NICHT
+    # idempotent - ein zweiter Aufruf des Skripts fand sonst erneut
+    # Änderungen. Also bis zum Fixpunkt iterieren, mit Obergrenze gegen
+    # ein Hin- und Herpendeln.
+    tidy_fixes = tidy_all_names(events)
+
+    dup_report: list[str] = []
+    name_fixes: list[str] = []
+    for _ in range(MAX_MERGE_PASSES):
+        events, pass_dups = merge_duplicates(events)
+        pass_names = unify_event_names(events)
+        dup_report += pass_dups
+        name_fixes += pass_names
+        if not pass_dups and not pass_names:
+            break
+    else:
+        print(f"\n⚠ Zusammenführen/Vereinheitlichen war nach "
+              f"{MAX_MERGE_PASSES} Durchläufen noch nicht stabil.")
 
     events.sort(key=lambda e: (e.get("datum_start") or "", (e.get("name") or "").casefold()))
 
@@ -516,6 +734,8 @@ def main() -> None:
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
+    section("Namens-Formatierung bereinigt", tidy_fixes)
+    section("Namen innerhalb einer Veranstaltung vereinheitlicht", name_fixes)
 
     print(f"\nevents.json: {before} -> {len(events)} Events "
           f"({len(events) - before:+d}).")

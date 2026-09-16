@@ -269,10 +269,52 @@ def test_duplikate() -> None:
     check("gleicher Name, andere Stadt", is_same_event(s1, s2), False)
 
 
+def test_namensvereinheitlichung() -> None:
+    """Die Namens-Vereinheitlichung lebt in clean_events.py, die Regeln
+    lassen sich aber ohne Netzwerk und ohne events.json prüfen."""
+    print("\nNamen vereinheitlichen (clean_events):")
+    from clean_events import (  # lokaler Import, nur für diesen Test
+        name_quality_hard, name_quality_soft, repair_umlaut_spelling, tidy_name,
+    )
+
+    check("doppeltes Leerzeichen", tidy_name("17.  Preungesheimer Dorflauf"),
+          "17. Preungesheimer Dorflauf")
+    check("fehlendes Leerzeichen nach Nummer", tidy_name("37.Bessunger Merck-Lauf"),
+          "37. Bessunger Merck-Lauf")
+
+    # GROSSSCHREIBUNG darf die Mehrheit nicht durchsetzen.
+    check("GROSSGESCHRIEBEN verliert",
+          name_quality_hard("MARATHON MÜNCHEN") < name_quality_hard("Marathon München by Brooks"),
+          True)
+
+    # Umlaute sind eine Reparatur, keine Auswahl: die Auflagen-Nummer der
+    # Mehrheit bleibt, die Schreibweise wird korrigiert.
+    check("Umschrift wird repariert",
+          repair_umlaut_spelling("22. Baedleslauf", ["22. Baedleslauf", "Bädleslauf"]),
+          "22. Bädleslauf")
+    check("ß wird repariert",
+          repair_umlaut_spelling("Int. Pronsfelder Volks- und Strassenlauf",
+                                 ["Int. Pronsfelder Volks- und Strassenlauf",
+                                  "39. Int. Pronsfelder Volks- und Straßenlauf"]),
+          "Int. Pronsfelder Volks- und Straßenlauf")
+    # Kein Umlaut-Transfer zwischen verschiedenen Namen - daran ist ein
+    # früherer Versuch gescheitert ("Wiesent Challenge" verlor gegen einen
+    # 108 Zeichen langen Namen, nur weil darin "Straßenlauf" vorkam).
+    check("kein Transfer zwischen verschiedenen Namen",
+          repair_umlaut_spelling("Wiesent Challenge",
+                                 ["Wiesent Challenge", "5. Wiesent-Challenge 10 km Straßenlauf"]),
+          "Wiesent Challenge")
+
+    # Ein 108-Zeichen-"Name" ist eine Beschreibung und verliert.
+    lang = "5. Wiesent-Challenge 10 km Straßenlauf und 12 km Panoramatrail mit Oberfränkischen Meisterschaften im Trail-Lauf"
+    check("überlanger Name verliert",
+          name_quality_soft(lang) < name_quality_soft("Wiesent Challenge"), True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
-                 test_duplikate):
+                 test_duplikate, test_namensvereinheitlichung):
         test()
 
     print()
