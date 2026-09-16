@@ -34171,6 +34171,20 @@
     "veranstalter_url": "https://my.raceresult.com/407796/"
   },
   {
+    "land": "Österreich",
+    "name": "Leimüller Silvesterlauf",
+    "standort": "Seekirchen am Wallersee",
+    "lat": 47.8942481,
+    "lon": 13.1260778,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 5.4,
+    "veranstalter_url": "https://www.leimueller-silvesterlauf.at/",
+    "wettbewerb": "Silvesterlauf"
+  },
+  {
     "land": "Deutschland",
     "name": "Möllner Silvesterlauf",
     "standort": "Mölln",
@@ -45247,20 +45261,6 @@
     "veranstalter_url": "https://my.raceresult.com/405643/"
   },
   {
-    "land": "Schweiz",
-    "name": "Basel Marathon",
-    "standort": "Basel",
-    "lat": 47.5596,
-    "lon": 7.5886,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-09",
-    "datum_ende": "2027-05-09",
-    "anmeldeschluss": "2027-04-05",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://www.basel-marathon.ch"
-  },
-  {
     "land": "Deutschland",
     "name": "Dortmunder Frühlingslauf",
     "standort": "Dortmund",
@@ -51321,6 +51321,34 @@
   },
   {
     "land": "Deutschland",
+    "name": "Bodensee Openwater Konstanz",
+    "standort": "Konstanz",
+    "lat": 47.659216,
+    "lon": 9.1750718,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 5.0,
+    "veranstalter_url": "https://www.bodensee-openwater.com/",
+    "wettbewerb": "Q5"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bodensee Openwater Konstanz",
+    "standort": "Konstanz",
+    "lat": 47.659216,
+    "lon": 9.1750718,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://www.bodensee-openwater.com/",
+    "wettbewerb": "Q10"
+  },
+  {
+    "land": "Deutschland",
     "name": "City Marathon Wiesbaden",
     "standort": "Wiesbaden",
     "lat": 50.0782184,
@@ -54070,6 +54098,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Bodensee Openwater Friedrichshafen",
+    "standort": "Friedrichshafen",
+    "lat": 47.6500279,
+    "lon": 9.4800858,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-07-31",
+    "datum_ende": "2027-07-31",
+    "laenge_km": 11.0,
+    "veranstalter_url": "https://www.bodensee-openwater.com/",
+    "wettbewerb": "Q11"
+  },
+  {
+    "land": "Deutschland",
     "name": "Haasower Waldlauf",
     "standort": "Neuhausen/Spree",
     "lat": 51.679675,
@@ -55252,6 +55294,34 @@
     "datum_start": "2027-08-28",
     "datum_ende": "2027-08-28",
     "veranstalter_url": "https://athxgames.com/events/01krwydvc664nvf2am0tdtkscp"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bodensee Openwater Wallhausen",
+    "standort": "Wallhausen",
+    "lat": 47.7471874,
+    "lon": 9.1306019,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "laenge_km": 2.5,
+    "veranstalter_url": "https://www.bodensee-openwater.com/",
+    "wettbewerb": "Q2,5"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bodensee Openwater Wallhausen",
+    "standort": "Wallhausen",
+    "lat": 47.7471874,
+    "lon": 9.1306019,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "laenge_km": 5.0,
+    "veranstalter_url": "https://www.bodensee-openwater.com/",
+    "wettbewerb": "Q5"
   },
   {
     "land": "Deutschland",

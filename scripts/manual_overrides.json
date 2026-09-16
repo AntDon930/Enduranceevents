@@ -215,5 +215,15 @@
   "Kreis-Crossmeisterschaften|2026-10-31|600": {
     "exclude": true,
     "_note": "In Wahrheit 600 METER, nicht 600 km - ein Schülerlauf der Kreismeisterschaft. laufen.de gibt in seiner Wettbewerbsliste Meter an, labelt sie aber als 'km' (dort stehen '400 km', '600 km', '1.200 km', '4.950 km' für 400 m, 600 m, 1200 m, 4950 m). Bei den Werten MIT Tausenderpunkt liest unser Parser zufällig das Richtige, bei denen ohne nicht. Korrekt geparst wären beide unter der 5-km-Grenze und fielen ohnehin heraus."
+  },
+  "Basel Marathon|2027-05-09|42.2": {
+    "exclude": true,
+    "_note": "Der IWB Basel Marathon wurde 2018 nach acht Ausgaben eingestellt (wirtschaftliche Gruende; der Kanton strich 80.000 CHF Swisslos-Foerderung). Die hier hinterlegte veranstalter_url basel-marathon.ch loest nicht mehr auf - ueber denselben Proxy antworten baslerstadtlauf.ch und 3laenderlauf.org normal, es lag also nicht an der Verbindung. Woher der Termin 09.05.2027 stammt, ist unklar; er koennte zum 3Laenderlauf gehoeren (Marathon ab Marktplatz Basel, Mitte Mai), das waere aber geraten. Vom Nutzer am 16.09.2026 zum Entfernen bestaetigt."
+  },
+  "Leimüller Silvesterlauf|2026-12-31|5.4": {
+    "laenge_km": 5.4,
+    "art2": "Straße",
+    "veranstalter_url": "https://www.leimueller-silvesterlauf.at/",
+    "_note": "Hauptlauf 5,4 km (zwei Runden) laut offizieller Ausschreibung, Start Bahnhofstrasse/Post, Ziel Schulplatz. Nordic Walking (2,7 km) und Junior-Race (2,7 km, 8-12 Jahre) bewusst NICHT aufgenommen: Walking ist kein Lauf, das Junior-Race ein reiner Kinderlauf. running.life fuehrt die Veranstaltung ebenfalls - der Eintrag haelt Distanz und offizielle Seite fest, falls sie kuenftig ueber diese Quelle hereinkommt. Recherchiert am 16.09.2026; die Veranstaltung findet seit 2005 jaehrlich am 31.12. statt."
   }
 }

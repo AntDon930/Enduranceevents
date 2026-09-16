@@ -224,35 +224,35 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   veröffentlichen – seit `firebase.json` im Repo liegt, geht das ohne
   Copy-Paste per `firebase deploy --only firestore:rules`, auch im
   Spark-Tarif.
-- **5 Seed-Links** – recherchiert (Stand 09/2026), warten auf die
-  Entscheidung des Nutzers, nichts davon ist eingetragen:
-  1. *Bodensee-Schwimmen*: findet statt, aber der Name ist mehrdeutig.
-     „Bodensee Openwater" (bodensee-openwater.com) hat 2027 drei Termine
-     (Konstanz 26.06., 5/10 km; Friedrichshafen 31.07., 11 km;
-     Wallhausen 28.08., 2,5/5 km); daneben gibt es die eigenständige
-     „Bodenseequerung" (bodenseequerung.de). Welche gemeint war, ist
-     offen.
-  2. *Engadin Bike Giro*: **eingestellt**. Letzte (8.) Austragung 2023,
-     abgesagt bei nur ~200 Teilnehmenden. Eine „mögliche Wiederbelebung
-     2025" wurde angekündigt, aber nie umgesetzt; die offizielle Seite
-     antwortet nur noch mit HTTP 503.
-  3. *Basel Marathon*: **eingestellt seit 2018** (IWB Basel Marathon,
-     wirtschaftliche Gründe, der Kanton strich 80.000 CHF Swisslos-
-     Förderung). **Achtung**: In `events.json` steht trotzdem ein
-     Eintrag „Basel Marathon | 2027-05-09 | 42,2 km" mit
-     `veranstalter_url` `basel-marathon.ch` – die Domain löst nicht mehr
-     auf. Kandidat für `"exclude": true`, aber erst nach Bestätigung.
-     In Basel gibt es stattdessen den 3Länderlauf (Marathon/HM/10 km,
-     Mai, Start Marktplatz) und den Basler Stadtlauf (5,5 km, November).
-  4. *Silvesterlauf Salzburg*: Der Salzburger Silvesterlauf in der Stadt
-     (1998–2000, 2002–2004) ist **eingestellt**. Im Bundesland gibt es
-     den Leimüller Silvesterlauf in Seekirchen am Wallersee, jährlich am
-     31.12. (leimueller-silvesterlauf.at), Distanzen nicht erhoben.
-  5. *Swiss Athletics Bahnmeeting*: kein einzelnes Event, sondern der
-     Wettkampfkalender von Swiss Athletics. Bahnmeetings sind
-     Leichtathletik-Stadionwettkämpfe inklusive Sprint, Wurf und Sprung
-     – das passt nur teilweise zum Ausdauersport-Zuschnitt der Seite.
-     Grundsatzentscheidung, keine Recherchefrage.
+- ~~5 Seed-Links~~ **erledigt** (16.09.2026 recherchiert, vom Nutzer
+  entschieden):
+  1. *Bodensee-Schwimmen* → als „Bodensee Openwater" aufgenommen:
+     Konstanz 26.06.2027 (5/10 km), Friedrichshafen 31.07.2027 (11 km),
+     Wallhausen 28.08.2027 (2,5/5 km) – fünf Einträge, je Strecke einer.
+     **Das sind die ersten Schwimm-Events überhaupt** (`art1`
+     „Schwimmen", `art2` „Freiwasser“); vorher bestand `events.json` zu
+     100 % aus Laufveranstaltungen. Die 2,5-km-Strecke überlebt die
+     Mindestdistanz korrekt, weil Regel 5 nur für `art1 == "Laufen"`
+     gilt. Die eigenständige „Bodenseequerung" wurde nicht verfolgt.
+  2. *Engadin Bike Giro* → **eingestellt**, nicht aufgenommen. Letzte
+     (8.) Austragung 2023, abgesagt bei nur ~200 Teilnehmenden; die
+     angekündigte „Wiederbelebung 2025" kam nie, die offizielle Seite
+     antwortet mit HTTP 503.
+  3. *Basel Marathon* → **entfernt**. Der IWB Basel Marathon wurde 2018
+     eingestellt (der Kanton strich 80.000 CHF Swisslos-Förderung), die
+     hinterlegte `basel-marathon.ch` löst nicht mehr auf. Der Eintrag
+     vom 09.05.2027 stand trotzdem in `events.json` und steht jetzt mit
+     `"exclude": true` in `manual_overrides.json`. Woher sein Termin
+     stammt, blieb offen – er passt zum 3Länderlauf (Marathon ab
+     Marktplatz Basel, Mitte Mai), das wäre aber geraten gewesen.
+  4. *Silvesterlauf Salzburg* → Der Lauf in der Stadt (1998–2004) ist
+     eingestellt; stattdessen der **Leimüller Silvesterlauf** in
+     Seekirchen am Wallersee aufgenommen (31.12.2026, 5,4 km). Nordic
+     Walking und Junior-Race bewusst weggelassen.
+  5. *Swiss Athletics Bahnmeeting* → **nicht aufgenommen**. Kein
+     einzelnes Event, sondern ein Wettkampfkalender, und Bahnmeetings
+     umfassen Sprint, Wurf und Sprung – das passt nicht zum
+     Ausdauersport-Zuschnitt der Seite.
 
 ## Sprache
 
