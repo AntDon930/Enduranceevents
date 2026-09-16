@@ -584,6 +584,30 @@ Schweiz.
   Das Panel liegt bei `z-index: 1000`: über den Leaflet-Bedienelementen
   der Karte (800), unter dem Anmelde-Fenster (2000) und der Kurzmeldung
   (3000).
+- `scripts/stamp_assets.py` – hängt an `filters.js`, `filter-ui.js` und
+  `filter-ui.css` in allen HTML-Dateien einen Inhalts-Stempel
+  (`?v=<8 Hex des SHA-256>`).
+
+  **Warum das nötig ist** (einmal teuer gelernt): GitHub Pages liefert
+  jede Datei mit `Cache-Control: max-age=600`. Ein Browser kann deshalb
+  die *neue* `events.html` mit einer bis zu zehn Minuten *alten*
+  `filters.js` kombinieren. Nach dem Auslagern der Filterlogik fehlte in
+  der alten Datei `EF.uniqueSorted`; das Inline-Skript brach in seiner
+  ersten Zeile ab (`readUrlState()`), und die Seite blieb **leer** – nur
+  der blaue Kopfbereich stand da. Mit dem Stempel ändert sich die Adresse
+  der Datei, sobald sich ihr Inhalt ändert, und der Browser muss sie neu
+  holen.
+
+  Nach jeder Änderung an einer der drei Dateien also
+  `python3 scripts/stamp_assets.py` – `scripts/test_scraper_lib.py`
+  prüft die Stempel mit (`--check` macht dasselbe einzeln) und nennt den
+  Befehl, wenn etwas nicht passt.
+
+  Dazu gibt es in beiden Seiten eine **Notbremse**: Fehlen `EF`, `EFU`
+  oder eine erwartete Funktion daraus, steht im Kopfbereich „Bitte neu
+  laden" mit dem Hinweis, dass der Browser eine veraltete Datei
+  gespeichert hat (auf iPhone/iPad: Tab schließen und neu öffnen) –
+  statt einer leeren Seite ohne jede Erklärung.
 - `places.json` – Ortsverzeichnis für die Umkreissuche: alle Orte und
   Postleitzahlen aus Deutschland, Österreich und der Schweiz, auch die
   ohne Event. Wird von `scripts/build_places.py` aus GeoNames-Daten

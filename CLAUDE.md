@@ -27,6 +27,7 @@ Nicht auf einen anderen Branch pushen.
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel – beide Seiten bedienen dieselben |
+| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den geteilten Dateien (**nach jeder Änderung daran laufen lassen**) |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
@@ -50,6 +51,13 @@ python3 -c "import json; ev=json.load(open('events.json')); print(len(ev))"
 
 ```bash
 python3 scripts/test_scraper_lib.py     # muss grün sein
+```
+
+Wurde `filters.js`, `filter-ui.js` oder `filter-ui.css` angefasst,
+**vorher** stempeln (der Test schlägt sonst fehl und sagt es auch):
+
+```bash
+python3 scripts/stamp_assets.py
 ```
 
 Bei Änderungen an `events.html`/`index.html`/`karte.html` zusätzlich die
@@ -340,6 +348,29 @@ Sortierung mit.
 - Auf der Karte bleibt die Knopfreihe immer stehen, nur die Chip-Zeile
   ist ohne Filter leer (`.active-chips:empty { display: none }`) -
   ausgeblendet wäre die Karte nicht mehr filterbar.
+
+### Die Stempel an den geteilten Dateien (bitter gelernt)
+
+GitHub Pages liefert **jede** Datei mit `Cache-Control: max-age=600`. Ein
+Browser kann deshalb die neue `events.html` mit einer bis zu zehn Minuten
+alten `filters.js` kombinieren. Genau das ist passiert: Die alte Datei
+kannte `EF.uniqueSorted` noch nicht, das Inline-Skript brach in seiner
+ersten Zeile ab (`readUrlState()`) - und die Seite war **leer**, nur
+blauer Kopf. Kein Tippfehler, keine Safari-Eigenheit: ein halber
+Cache-Stand.
+
+Zwei Vorkehrungen, beide nicht wegnehmen:
+
+1. **`?v=<Stempel>`** an `filters.js`, `filter-ui.js` und
+   `filter-ui.css` in allen HTML-Dateien - der Stempel ist die ersten
+   acht Hex-Stellen des SHA-256 über den Dateiinhalt. Ändert sich der
+   Inhalt, ändert sich die Adresse, und der Browser MUSS neu laden.
+   Gesetzt von `scripts/stamp_assets.py`, geprüft von
+   `test_scraper_lib.py` (`test_asset_stempel`) - vergessen kann man es
+   also nicht, aber laufen lassen muss man es.
+2. Die **Notbremse** oben im Inline-Skript beider Seiten: fehlen `EF`,
+   `EFU` oder eine erwartete Funktion, steht im Kopf „Bitte neu laden"
+   samt Hinweis (DE/EN), statt dass die Seite leer bleibt.
 
 ## Quellen
 

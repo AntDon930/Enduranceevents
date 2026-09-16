@@ -658,13 +658,34 @@ def test_ortsverzeichnis() -> None:
     check("Neustadt bleibt doppelt", ("neustadt", "SN") in gruppen, True)
 
 
+def test_asset_stempel() -> None:
+    """Die ?v=-Stempel an den geteilten Skripten (stamp_assets.py).
+
+    GitHub Pages liefert jede Datei mit max-age=600. Ohne Stempel kann ein
+    Browser die neue events.html mit einer zehn Minuten alten filters.js
+    kombinieren - dann fehlt eine Funktion, das Inline-Skript bricht in
+    seiner ersten Zeile ab und die Seite bleibt LEER. Genau das ist
+    einmal passiert. Der Stempel folgt dem Inhalt, dieser Test merkt
+    also, wenn ein Modul geändert und der Stempel vergessen wurde.
+    """
+    from stamp_assets import ASSETS, pruefe, stempel_aller_assets
+
+    print("\nStempel der geteilten Dateien (stamp_assets.py):")
+    werte = stempel_aller_assets()
+    check("alle geteilten Dateien vorhanden", sorted(werte), sorted(ASSETS))
+    probleme = pruefe()
+    check("Stempel passen zum Inhalt der Dateien", probleme, [])
+    if probleme:
+        print("  -> python3 scripts/stamp_assets.py ausführen")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
-                 test_ortsverzeichnis):
+                 test_ortsverzeichnis, test_asset_stempel):
         test()
 
     print()

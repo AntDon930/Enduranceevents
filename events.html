@@ -6,7 +6,7 @@
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Ausdauersport-Events D/A/CH</title>
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
-<link rel="stylesheet" href="filter-ui.css">
+<link rel="stylesheet" href="filter-ui.css?v=452fb354">
 <style>
   :root {
     color-scheme: light dark;
@@ -727,8 +727,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js"></script>
-<script src="filter-ui.js"></script>
+<script src="filters.js?v=37768189"></script>
+<script src="filter-ui.js?v=6bd3e95b"></script>
 
 <script>
 (async function () {
@@ -737,6 +737,24 @@
   // (Spalten, Sortierung, Zusammenfassen, Filter-Panels).
   const EF = window.EnduranceFilters;
   const EFU = window.EnduranceFilterUI;
+
+  // Sicherung gegen eine halb alte Seite: GitHub Pages liefert jede Datei
+  // mit max-age=600, ein Browser kann also diese Seite mit einer zehn
+  // Minuten alten filters.js kombinieren. Fehlt darin eine Funktion,
+  // bricht das Skript in seiner ersten Zeile ab - die Seite blieb dann
+  // LEER (blauer Kopf, sonst nichts; genau das ist passiert). Die
+  // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
+  // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
+  if (!EF || !EFU || !EF.uniqueSorted || !EFU.create) {
+    let spracheDe = true;
+    try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
+    document.getElementById('page-title').textContent =
+      spracheDe ? 'Bitte neu laden' : 'Please reload';
+    document.getElementById('subtitle').textContent = spracheDe
+      ? 'Der Browser hat eine veraltete Programmdatei gespeichert. Einmal neu laden genügt (auf dem iPhone/iPad: Seite schließen und wieder öffnen).'
+      : 'Your browser kept an outdated script file. Just reload the page (on iPhone/iPad: close the tab and open it again).';
+    return;
+  }
 
   // ---------- Übersetzungen / i18n ----------
 
