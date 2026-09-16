@@ -199,5 +199,21 @@
   "9. Airport-Weeze Mud Masters Marathon|2026-09-19": {
     "exclude": true,
     "_note": "Verifiziertes Duplikat: dieselbe 42-km-Strecke steht als 'Mud Masters - Airport Weeze' (42,0 km) in der Liste, zusammen mit den übrigen Distanzen des Hindernislaufs. Behalten wird der Eintrag mit 42,0 km - die Mud-Masters-Strecke ist ein 42-km-Hindernislauf, nicht die Marathon-Normdistanz 42,195 km. Per Websuche geprüft (mudmasters.com: 6/12/18/42 km)."
+  },
+  "Transeuropalauf|2028-08-03|67": {
+    "laenge_km": 2067.0,
+    "_note": "Gesamtdistanz laut Veranstalter (neckarlauf.com): zirka 2067 km über 37 Etappen vom 03.08. bis 08.09.2028, Flensburg bis Gardasee. Die gespeicherten 67 km entstanden aus einem Regex-Fehler: der Vorkommateil war auf drei Stellen begrenzt, aus '2067' matchte nur '067'. Der Regex ist gefixt, dieser Wert wird hier nachgezogen. Per Websuche geprüft."
+  },
+  "Transeuropalauf|2028-08-03|56": {
+    "exclude": true,
+    "_note": "Kein eigenes Rennen, sondern der Tagesschnitt der 37 Etappen (ca. 56 km/Tag laut Veranstalter). Die Veranstaltung steht mit ihrer Gesamtdistanz von 2067 km in der Liste. Per Websuche geprüft."
+  },
+  "Kreis-Crossmeisterschaften|2026-10-31|400": {
+    "exclude": true,
+    "_note": "In Wahrheit 400 METER, nicht 400 km - ein Schülerlauf der Kreismeisterschaft. laufen.de gibt in seiner Wettbewerbsliste Meter an, labelt sie aber als 'km' (dort stehen '400 km', '600 km', '1.200 km', '4.950 km' für 400 m, 600 m, 1200 m, 4950 m). Bei den Werten MIT Tausenderpunkt liest unser Parser zufällig das Richtige, bei denen ohne nicht. Korrekt geparst wären beide unter der 5-km-Grenze und fielen ohnehin heraus."
+  },
+  "Kreis-Crossmeisterschaften|2026-10-31|600": {
+    "exclude": true,
+    "_note": "In Wahrheit 600 METER, nicht 600 km - ein Schülerlauf der Kreismeisterschaft. laufen.de gibt in seiner Wettbewerbsliste Meter an, labelt sie aber als 'km' (dort stehen '400 km', '600 km', '1.200 km', '4.950 km' für 400 m, 600 m, 1200 m, 4950 m). Bei den Werten MIT Tausenderpunkt liest unser Parser zufällig das Richtige, bei denen ohne nicht. Korrekt geparst wären beide unter der 5-km-Grenze und fielen ohnehin heraus."
   }
 }

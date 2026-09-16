@@ -445,6 +445,12 @@ def guess_art2(text: str, config: SiteConfig) -> str | None:
 def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     if not text:
         return None
+    # Der VORKOMMATEIL erlaubt bis zu fünf Stellen, und (?<!\d) verhindert,
+    # dass der Regex mitten in einer Zahl anfängt. Ohne beides wurde eine
+    # vierstellige Distanz auf ihre letzten drei Stellen verkürzt - der
+    # "Transeuropalauf" über 2067 km stand mit 67 km in events.json
+    # (aus "2067" matchte nur "067"). Gleiche Fehlerklasse wie beim
+    # Nachkommateil unten.
     # Nachkommateil bewusst UNBEGRENZT (\d+, nicht \d{1,2}/\d{1,3}): die
     # offiziellen Distanzen "42,195 km" (Marathon) und "21,0975 km"
     # (Halbmarathon) haben 3 bzw. 4 Nachkommastellen - mit einer festen
@@ -456,7 +462,7 @@ def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     # "Hauptrennen"). Sowohl "km" als auch ausgeschriebenes "Kilometer"
     # (z. B. running.life-Beschreibungstexte: "Du kannst 5 Kilometer
     # laufen.") werden erkannt.
-    matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
+    matches = re.findall(r"(?<!\d)(\d{1,5}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
         # Auf eine Nachkommastelle runden: "42,195 km" -> 42.2 (siehe round_km).
         return round_km(max(float(m.replace(",", ".")) for m in matches))

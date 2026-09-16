@@ -64,6 +64,7 @@ import json
 import re
 import sys
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -192,6 +193,64 @@ def round_distances(events: list[dict]) -> list[str]:
         if rounded is not None and rounded != km:
             changed.append(f"{event.get('name')}: laenge_km {km} -> {rounded}")
             event["laenge_km"] = rounded
+    return changed
+
+
+# Ein Wettbewerbs-Label, das mit einem deutschen Datum BEGINNT. Zwei in
+# den Daten vorkommende Formen: nur das Datum ("07.02.2027") und Datum
+# plus Streckenbeschreibung ("14.11.2026 - 10 km Hauptlauf"). Der Rest
+# hinter dem Trennzeichen bleibt als Label erhalten, falls er etwas sagt.
+_DATE_LABEL = re.compile(
+    r"^(\d{1,2})\.(\d{1,2})\.(\d{4})\s*(?:[-–—|,:]\s*(?P<rest>.*))?$"
+)
+
+
+def fix_series_dates(events: list[dict]) -> list[str]:
+    """Korrigiert Laufserien, bei denen die Quelle als "Wettbewerbe" die
+    TERMINE der einzelnen Läufe auflistet.
+
+    Beispiel Winterlaufserie Drelsdorf: Die Serie besteht aus drei Läufen
+    in 14-tägigem Abstand, und jeder Termin hat seine eigene Hauptdistanz
+    (laut Veranstalter 10.01. = 10 km, 24.01. = 15 km, 07.02. = 21,1 km).
+    Die Streckenliste der Quelle nennt aber die Datumsangaben, nicht
+    Streckennamen. `expand_competitions()` hat daraus je Termin ALLE drei
+    Distanzen gemacht - neun Einträge statt drei, sechs davon frei
+    erfunden.
+
+    Ein Label, das nur ein Datum ist, benennt also den Termin, zu dem
+    diese Strecke gehört. Deshalb wird das Datum des Eintrags darauf
+    gesetzt und das Label geleert. Die dadurch entstehenden echten
+    Duplikate führt der nachfolgende Merge-Schritt zusammen - daher läuft
+    diese Korrektur VOR ihm.
+
+    Bewusst kein Löschen: bei der "Alten-Busecker Winterlaufserie" lagen
+    alle drei Einträge auf dem ersten Termin. Hätte man die
+    nicht-passenden verworfen, wären zwei reale Läufe verloren gegangen -
+    so bekommen sie ihr richtiges Datum.
+    """
+    changed: list[str] = []
+    for event in events:
+        label = (event.get("wettbewerb") or "").strip()
+        match = _DATE_LABEL.match(label)
+        if not match:
+            continue
+        day, month, year = int(match.group(1)), int(match.group(2)), int(match.group(3))
+        try:
+            real_date = date(year, month, day).isoformat()
+        except ValueError:
+            continue  # unmögliches Datum - Label lieber unangetastet lassen
+        if real_date != event.get("datum_start"):
+            changed.append(
+                f"{event.get('name')} ({event.get('laenge_km')} km): "
+                f"Datum {event.get('datum_start')} -> {real_date} (laut Label {label!r})"
+            )
+            event["datum_start"] = real_date
+            event["datum_ende"] = real_date
+        rest = (match.group("rest") or "").strip(" -–—|,:")
+        if rest:
+            event["wettbewerb"] = rest
+        else:
+            event.pop("wettbewerb", None)
     return changed
 
 
@@ -621,6 +680,52 @@ def report_suspicious_distances(events: list[dict]) -> list[str]:
     return report
 
 
+# Ab dieser Distanz ist ein Laufevent an EINEM Tag unplausibel. Der
+# längste Einzeltag-Lauf der Welt liegt bei rund 300 km; alles darüber ist
+# ein Etappenrennen (dann läuft datum_ende später) oder ein Parse-Fehler.
+IMPLAUSIBLE_RUN_KM = 300.0
+
+
+def report_implausible_distances(events: list[dict]) -> list[str]:
+    """MELDET (löscht nicht) Laufdistanzen, die an einem Tag nicht laufbar
+    sind.
+
+    Zwei echte Fehlerquellen, die so sichtbar werden:
+
+    * Ein Regex-Fehler - der "Transeuropalauf" über 2067 km stand mit
+      67 km in events.json, weil der Vorkommateil des Distanz-Regex auf
+      drei Stellen begrenzt war. Inzwischen gefixt.
+    * Eine Einheiten-Eigenheit von laufen.de: Dort stehen in der
+      Wettbewerbsliste METER, sind aber als "km" ausgezeichnet, mit Punkt
+      als Tausendertrennzeichen ("400 km", "600 km", "1.200 km" für
+      400 m, 600 m und 1200 m). Bei den Werten MIT Trennzeichen liest
+      unser Parser zufällig das Richtige, bei denen ohne wird aus 400 m
+      eine 400-km-Strecke.
+
+    Etappenrennen sind ausgenommen: wenn `datum_ende` nach `datum_start`
+    liegt, ist eine Gesamtdistanz über 300 km normal (Transeuropalauf:
+    2067 km über 37 Tage).
+
+    Bewusst nur melden - welcher der beiden Fälle vorliegt, entscheidet
+    ein Blick in die Quelle, und automatisch zu korrigieren hieße raten.
+    Bestätigte Fälle kommen nach `manual_overrides.json`.
+    """
+    report: list[str] = []
+    for event in events:
+        km = event.get("laenge_km")
+        if event.get("art1") != "Laufen" or not isinstance(km, (int, float)):
+            continue
+        if km <= IMPLAUSIBLE_RUN_KM:
+            continue
+        if event.get("datum_ende") and event["datum_ende"] > (event.get("datum_start") or ""):
+            continue  # Etappenrennen über mehrere Tage
+        report.append(
+            f"{event.get('name')} ({event.get('datum_start')}): {km:g} km an einem Tag "
+            f"- Meter als km? Label {event.get('wettbewerb')!r} - bitte prüfen"
+        )
+    return report
+
+
 def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     by_date: dict[str | None, list[dict]] = {}
     for event in events:
@@ -693,6 +798,7 @@ def main() -> None:
     land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
     suspicious = report_suspicious_distances(events)
+    implausible = report_implausible_distances(events)
     # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
     # Nach dem Zusammenführen ändern sich die Mehrheiten innerhalb einer
     # Veranstaltung, und umgekehrt lässt ein vereinheitlichter Name zwei
@@ -701,6 +807,7 @@ def main() -> None:
     # idempotent - ein zweiter Aufruf des Skripts fand sonst erneut
     # Änderungen. Also bis zum Fixpunkt iterieren, mit Obergrenze gegen
     # ein Hin- und Herpendeln.
+    series_fixes = fix_series_dates(events)
     tidy_fixes = tidy_all_names(events)
 
     dup_report: list[str] = []
@@ -733,7 +840,9 @@ def main() -> None:
     section("Land ergänzt/korrigiert", land_fixes)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
+    section("⚠ Unplausible Laufdistanz an einem Tag (nur Hinweis)", implausible)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
+    section("Laufserie: Datum aus dem Termin-Label übernommen", series_fixes)
     section("Namens-Formatierung bereinigt", tidy_fixes)
     section("Namen innerhalb einer Veranstaltung vereinheitlicht", name_fixes)
 

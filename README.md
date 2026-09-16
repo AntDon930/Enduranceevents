@@ -29,8 +29,22 @@ Schweiz.
     Veranstaltung (optional, z. B. `"Moslig 8000"` oder `"Halbmarathon"`).
     Veranstaltungen bieten fast immer mehrere Strecken an; jede wird zu
     einem eigenen Eintrag, und dieses Feld sagt, welche gemeint ist (siehe
-    „Mehrere Strecken pro Veranstaltung" unten). In der Liste steht es als
-    kleine Zeile unter dem Veranstaltungsnamen.
+    „Mehrere Strecken pro Veranstaltung" unten).
+
+    **In der Anzeige nur, wenn es etwas sagt**: Die Quellen benennen einen
+    Wettbewerb oft schlicht mit seiner Distanz („50 km") oder deren
+    kanonischem Namen („Halbmarathon"). Das steht schon in der
+    Längen-Spalte – im Detailbereich erschien es dadurch zweimal („Race
+    50 km" über „Length 50 km"), und bei gerundeten Quellenangaben sah es
+    nach einem Widerspruch aus (Unterzeile „6 km" über der Spalte
+    „5.5 km"). `displayWettbewerb()` in `events.html` blendet solche
+    Labels aus; „Laufen", „Wandern", „Moslig 8000" oder „5×5 km Staffel"
+    bleiben sichtbar. Von 3417 Labels sind damit 1273 sichtbar.
+
+    Das Feld bleibt dabei **in `events.json` erhalten** – die
+    Duplikat-Erkennung braucht es: Über das Label „Halbmarathon" wurde der
+    doppelte München-Halbmarathon überhaupt erst gefunden (siehe
+    `_name_tokens()`).
   - `veranstalter_url` – Link zur **offiziellen Webseite des Laufs**, nicht
     zum Kalenderportal, über das wir ihn gefunden haben. Die Portale nennen
     die offizielle Seite auf ihrer Detailseite (running.life als Button

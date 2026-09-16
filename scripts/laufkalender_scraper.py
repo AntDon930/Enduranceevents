@@ -400,6 +400,12 @@ def guess_distance_km(text: str) -> float | None:
     # explizite Kilometerangabe, z. B. "21,1 km", "10 km" oder (laufen.de-
     # Format) "Strecken: 5 bis 7 Kilometer" - bei mehreren/einer Spanne
     # (z. B. "0,4 bis 21,1 Kilometer") wird die größte Zahl übernommen.
+    # Der VORKOMMATEIL erlaubt bis zu fünf Stellen, und (?<!\d) verhindert,
+    # dass der Regex mitten in einer Zahl anfängt. Ohne beides wurde eine
+    # vierstellige Distanz auf ihre letzten drei Stellen verkürzt - der
+    # "Transeuropalauf" über 2067 km stand mit 67 km in events.json
+    # (aus "2067" matchte nur "067"). Gleiche Fehlerklasse wie beim
+    # Nachkommateil unten.
     # Nachkommateil bewusst UNBEGRENZT (\d+, nicht \d{1,2}/\d{1,3}): die
     # offiziellen Distanzen "42,195 Kilometer" (Marathon) und "21,0975 km"
     # (Halbmarathon) haben 3 bzw. 4 Nachkommastellen - mit einer festen
@@ -407,7 +413,7 @@ def guess_distance_km(text: str) -> float | None:
     # (Bug, echt aufgetreten und mit realen Daten verifiziert) versehentlich
     # nur den Nachkommateil als vermeintlich eigenständige km-Angabe
     # (z. B. "975" statt 21,0975 oder "195" statt 42,195).
-    matches = re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
+    matches = re.findall(r"(?<!\d)(\d{1,5}(?:[.,]\d+)?)\s*(?:km\b|Kilometer)", text, re.I)
     if matches:
         # Einheitlich eine Nachkommastelle: "42,195 km" -> 42.2
         # (siehe scraper_lib.round_km()).

@@ -72,6 +72,14 @@ def test_distanz() -> None:
     check("Marathon-Stichwort",
           guess_distance_km("20. Kassel Marathon", CONFIG), 42.2)
     check("ohne Angabe", guess_distance_km("Volkslauf", CONFIG), None)
+    # Echter Bug, derselbe Fehlertyp wie oben, nur vor dem Komma: Der
+    # Vorkommateil war auf drei Stellen begrenzt, dadurch matchte aus
+    # "2067 km" nur "067" - der Transeuropalauf (2067 km) stand mit 67 km
+    # in events.json. "1000 km" ergab sogar 0.
+    check("2067 km", guess_distance_km("2067 km", CONFIG), 2067.0)
+    check("1000 km", guess_distance_km("1000 km", CONFIG), 1000.0)
+    check("kein Start mitten in der Zahl",
+          guess_distance_km("Etappe 12345 km", CONFIG), 12345.0)
 
 
 def test_rundung() -> None:
