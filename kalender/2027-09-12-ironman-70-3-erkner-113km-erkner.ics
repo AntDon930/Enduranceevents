@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-ironman-70-3-erkner-113km-erkner@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Ironman 70.3 Erkner
+LOCATION:Erkner\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 113 km\nhttps://www.ironman.
+ com/races/im703-erkner
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im703-erkner
+END:VEVENT
+END:VCALENDAR

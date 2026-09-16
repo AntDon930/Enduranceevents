@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-schweicher-fahrturmlauf-5km-schweich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Schweicher Fährturmlauf
+LOCATION:Schweich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lauftreff-schw
+ eich.de/infos-faehrturmlauf/
+TRANSP:TRANSPARENT
+URL:https://lauftreff-schweich.de/infos-faehrturmlauf/
+END:VEVENT
+END:VCALENDAR

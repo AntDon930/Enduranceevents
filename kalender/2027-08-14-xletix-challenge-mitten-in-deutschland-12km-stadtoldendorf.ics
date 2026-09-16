@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-xletix-challenge-mitten-in-deutschland-12km-stadtoldendorf@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Xletix Challenge - Mitten in Deutschland – Adventure Distanz
+LOCATION:Stadtoldendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.xletix.co
+ m/events/mitten-in-deutschland-2026/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/mitten-in-deutschland-2026/
+END:VEVENT
+END:VCALENDAR

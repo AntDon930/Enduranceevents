@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-firmenstaffellauf-meissen-x-meissen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Firmenstaffellauf Meißen
+LOCATION:Meißen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://baer-service.de/v
+ eranstaltung/MFL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/MFL/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-rulzheimer-crosslauf-8-4km-rulzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Rülzheimer Crosslauf
+LOCATION:Rülzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 8.4 km\nhttps://laufen.de/lau
+ fkalender/details/26V11000003960003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V11000003960003
+END:VEVENT
+END:VCALENDAR

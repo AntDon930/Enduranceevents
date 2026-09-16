@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-09-dorstener-24-stunden-lauf-24h-dorsten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270711
+SUMMARY:Dorstener 24-Stunden-Lauf
+LOCATION:Dorsten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://my.raceresult.
+ com/418089/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/418089/
+END:VEVENT
+END:VCALENDAR

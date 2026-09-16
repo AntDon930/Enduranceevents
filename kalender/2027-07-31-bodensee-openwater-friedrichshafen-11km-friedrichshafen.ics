@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-bodensee-openwater-friedrichshafen-11km-friedrichshafen@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Bodensee Openwater Friedrichshafen – Q11
+LOCATION:Friedrichshafen\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 11 km\nhttps://www.bo
+ densee-openwater.com/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-openwater.com/
+END:VEVENT
+END:VCALENDAR

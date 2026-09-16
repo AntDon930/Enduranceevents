@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-eversburger-gewasser-ultramarathon-30km-osnabruck@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Eversburger Gewässer Ultramarathon – 30 km (zwei Runden)
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://my.raceresult
+ .com/412651/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412651/
+END:VEVENT
+END:VCALENDAR

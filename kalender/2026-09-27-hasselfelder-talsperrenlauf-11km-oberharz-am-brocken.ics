@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-hasselfelder-talsperrenlauf-11km-oberharz-am-brocken@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Hasselfelder Talsperrenlauf – AK ab 18
+LOCATION:Oberharz am Brocken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.skiverein
+ -hasselfelde.de/WETTKAeMPFE/Talsperrenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.skiverein-hasselfelde.de/WETTKAeMPFE/Talsperrenlauf/
+END:VEVENT
+END:VCALENDAR

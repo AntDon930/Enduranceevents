@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-runterra-race-14km-zirndorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Runterra Race
+LOCATION:Zirndorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.runterra.
+ de/
+TRANSP:TRANSPARENT
+URL:https://www.runterra.de/
+END:VEVENT
+END:VCALENDAR

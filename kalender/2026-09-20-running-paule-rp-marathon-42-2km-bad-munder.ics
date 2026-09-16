@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-running-paule-rp-marathon-42-2km-bad-munder@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Running Paule RP-Marathon
+LOCATION:Bad Münder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://running-pau
+ le.de/wp-content/uploads/2026/03/69.-RP-Marathon-Ausschreibung-20.09.26.p
+ df
+TRANSP:TRANSPARENT
+URL:https://running-paule.de/wp-content/uploads/2026/03/69.-RP-Marathon-Au
+ sschreibung-20.09.26.pdf
+END:VEVENT
+END:VCALENDAR

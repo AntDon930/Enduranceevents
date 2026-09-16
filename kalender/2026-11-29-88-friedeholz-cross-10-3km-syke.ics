@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-88-friedeholz-cross-10-3km-syke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:88. Friedeholz Cross – 10\,3 km Langstrecke\, Jahrgänge ab 2008
+LOCATION:Syke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 10.3 km\nhttps://sv-weyhe.de/
+ sportangebote/leichtathletik-ausdauer/syke-weyher-crosslauf
+TRANSP:TRANSPARENT
+URL:https://sv-weyhe.de/sportangebote/leichtathletik-ausdauer/syke-weyher-
+ crosslauf
+END:VEVENT
+END:VCALENDAR

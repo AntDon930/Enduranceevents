@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-allgau-panorama-marathon-69km-sonthofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Allgäu Panorama Marathon – Ultra - 69 km
+LOCATION:Sonthofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 69 km\nhttps://www.allgaeu-pan
+ orama-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-panorama-marathon.de/
+END:VEVENT
+END:VCALENDAR

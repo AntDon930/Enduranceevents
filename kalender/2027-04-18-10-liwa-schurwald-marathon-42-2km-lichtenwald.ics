@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-10-liwa-schurwald-marathon-42-2km-lichtenwald@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:10. LiWa Schurwald-Marathon
+LOCATION:Lichtenwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.liwalauf
+ .tsv-lichtenwald.de
+TRANSP:TRANSPARENT
+URL:http://www.liwalauf.tsv-lichtenwald.de
+END:VEVENT
+END:VCALENDAR

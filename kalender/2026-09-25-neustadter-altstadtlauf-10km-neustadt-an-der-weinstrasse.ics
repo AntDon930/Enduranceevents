@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-neustadter-altstadtlauf-10km-neustadt-an-der-weinstrasse@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Neustadter Altstadtlauf – 10 km Hauptlauf\, fünf Runden à 2 km
+LOCATION:Neustadt an der Weinstraße\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
+ s/10021/3180
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3180
+END:VEVENT
+END:VCALENDAR

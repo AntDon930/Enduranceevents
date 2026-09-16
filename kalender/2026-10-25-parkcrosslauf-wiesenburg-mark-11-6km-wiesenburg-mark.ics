@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-parkcrosslauf-wiesenburg-mark-11-6km-wiesenburg-mark@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Parkcrosslauf - Wiesenburg/Mark – 11\,6 km für U16 und älter
+LOCATION:Wiesenburg/Mark\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 11.6 km\nhttps://www.strassen
+ lauf.org/va_details.php?id=958
+TRANSP:TRANSPARENT
+URL:https://www.strassenlauf.org/va_details.php?id=958
+END:VEVENT
+END:VCALENDAR

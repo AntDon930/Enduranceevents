@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-energiesudwest-cup-5km-landau-in-der-pfalz@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:EnergieSüdwest Cup – 5 km Volkslauf
+LOCATION:Landau in der Pfalz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://runtix.com/sts
+ /10021/3132
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3132
+END:VEVENT
+END:VCALENDAR

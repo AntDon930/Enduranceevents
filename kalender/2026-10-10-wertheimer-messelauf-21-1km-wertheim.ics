@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-wertheimer-messelauf-21-1km-wertheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Wertheimer Messelauf – 21\,1 km Pink Halbmarathon
+LOCATION:Wertheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.messela
+ uf-svn.de/
+TRANSP:TRANSPARENT
+URL:https://www.messelauf-svn.de/
+END:VEVENT
+END:VCALENDAR

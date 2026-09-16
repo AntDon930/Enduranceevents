@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-14-bahrs-kartoffellauf-10km-jembke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:14. Bahrs-Kartoffellauf – 10 km Hauptlauf für Läufer
+LOCATION:Jembke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://svjembke.de/p
+ ost/64
+TRANSP:TRANSPARENT
+URL:https://svjembke.de/post/64
+END:VEVENT
+END:VCALENDAR

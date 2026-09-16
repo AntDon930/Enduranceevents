@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-wilden-weiden-lauf-6km-grosshansdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Wilden Weiden-Lauf
+LOCATION:Großhansdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.wearecyclo
+ cross.com/hela-cross-lauf-serie-26-27/wilden-weiden-lauf-26.09.26/
+TRANSP:TRANSPARENT
+URL:https://www.wearecyclocross.com/hela-cross-lauf-serie-26-27/wilden-wei
+ den-lauf-26.09.26/
+END:VEVENT
+END:VCALENDAR

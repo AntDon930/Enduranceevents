@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-14-dorstener-sparkassen-crosslauf-7-3km-dorsten@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:14. Dorstener Sparkassen Crosslauf
+LOCATION:Dorsten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 7.3 km\nhttps://my.raceresult
+ .com/383025/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/383025/
+END:VEVENT
+END:VCALENDAR

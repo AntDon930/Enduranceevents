@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-volkslauf-altwarmbuchen-11km-isernhagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Volkslauf Altwarmbüchen
+LOCATION:Isernhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://anmeldung.lau
+ fauswertung.com/Anmeldung/index.php?VID=F334C25E22
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=F334C25E2
+ 2
+END:VEVENT
+END:VCALENDAR

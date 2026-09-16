@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-fichtelgebirgsmarathon-10km-bad-alexandersbad@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Fichtelgebirgsmarathon
+LOCATION:Bad Alexandersbad\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10 km\nhttps://fichtelgebirgsm
+ arathon.de/
+TRANSP:TRANSPARENT
+URL:https://fichtelgebirgsmarathon.de/
+END:VEVENT
+END:VCALENDAR

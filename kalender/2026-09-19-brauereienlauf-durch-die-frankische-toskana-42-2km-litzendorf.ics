@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-brauereienlauf-durch-die-frankische-toskana-42-2km-litzendo
+ rf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Brauereienlauf durch die Fränkische Toskana – Marathon – 42 km\, T
+ eilnahme ab 18 Jahren\, Startgebühr 99€
+LOCATION:Litzendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://brauereienl
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://brauereienlauf.de/
+END:VEVENT
+END:VCALENDAR

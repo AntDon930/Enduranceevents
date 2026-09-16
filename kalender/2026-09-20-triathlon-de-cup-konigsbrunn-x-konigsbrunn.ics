@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-triathlon-de-cup-konigsbrunn-x-konigsbrunn@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:triathlon.de CUP Königsbrunn
+LOCATION:Königsbrunn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://triathlon.de/page
+ s/triathlon-de-cup-koenigsbrunn
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-koenigsbrunn
+END:VEVENT
+END:VCALENDAR

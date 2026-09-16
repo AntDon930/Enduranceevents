@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-18-zhs-crosslaufserie-6-4km-olympiapark@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:ZHS Crosslaufserie
+LOCATION:Olympiapark\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6.4 km\nhttps://www.zhs-muenc
+ hen.de/
+TRANSP:TRANSPARENT
+URL:https://www.zhs-muenchen.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-29-schloss-tatenhausen-ultramarathon-46km-halle-westfalen@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:Schloss Tatenhausen Ultramarathon
+LOCATION:Halle (Westfalen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
+ .com/414345/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414345/
+END:VEVENT
+END:VCALENDAR

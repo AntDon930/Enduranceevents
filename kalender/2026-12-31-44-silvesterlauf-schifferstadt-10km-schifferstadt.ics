@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-silvesterlauf-schifferstadt-10km-schifferstadt@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Silvesterlauf Schifferstadt
+LOCATION:Schifferstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V11000004460003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V11000004460003
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-34-asse-volkslauf-und-nordic-walking-10-6km-wittmar@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:34. Asse-Volkslauf und Nordic Walking
+LOCATION:Wittmar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://www.asse-vo
+ lkslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.asse-volkslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-westbahnlauf-10km-ratingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Westbahnlauf
+LOCATION:Ratingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 10 km\nhttps://westbahnlauf-20
+ 26.racepedia.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://westbahnlauf-2026.racepedia.de/anmeldung
+END:VEVENT
+END:VCALENDAR

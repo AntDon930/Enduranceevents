@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-rodewalder-eulenlauf-6km-rodewald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Rodewalder Eulenlauf – 6 km Lauf\, Jahrgänge 2020 und älter\, Star
+ tgeld 7\,00 EUR
+LOCATION:Rodewald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
+ com/417316/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/417316/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-karpiner-herbstcross-6-3km-karpin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Karpiner Herbstcross
+LOCATION:Karpin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.3 km\nhttp://uer-laufcup.d
+ e/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf
+TRANSP:TRANSPARENT
+URL:http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpi
+ ner-Herbstcross.pdf
+END:VEVENT
+END:VCALENDAR

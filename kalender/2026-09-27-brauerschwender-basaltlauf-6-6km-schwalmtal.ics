@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-brauerschwender-basaltlauf-6-6km-schwalmtal@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Brauerschwender Basaltlauf – 6\,6 km Walking / Nordic Walking
+LOCATION:Schwalmtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttps://tv-brauersch
+ wend.de/brauerschwender-basaltlauf/
+TRANSP:TRANSPARENT
+URL:https://tv-brauerschwend.de/brauerschwender-basaltlauf/
+END:VEVENT
+END:VCALENDAR

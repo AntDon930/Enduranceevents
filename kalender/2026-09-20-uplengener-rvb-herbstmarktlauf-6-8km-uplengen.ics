@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-uplengener-rvb-herbstmarktlauf-6-8km-uplengen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Uplengener RVB Herbstmarktlauf – 6\,8 km Straßenlauf
+LOCATION:Uplengen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.8 km\nhttps://ladv.de/auss
+ chreibung/detail/48187/22.-Uplengener-RVB-Herbstmarktlauf-Uplengen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48187/22.-Uplengener-RVB-Herbstma
+ rktlauf-Uplengen.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-bocksbeutel-lauf-thungersheim-10km-thungersheim@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Bocksbeutel-Lauf Thüngersheim – 10 km als listenfähige Hauptstreck
+ e
+LOCATION:Thüngersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/390310/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/390310/
+END:VEVENT
+END:VCALENDAR

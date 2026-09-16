@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-28-bonnigheimer-stromberglauf-10km-bonnigheim@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:28. Bönnigheimer Stromberglauf
+LOCATION:Bönnigheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10 km\nhttps://lgne-running.de
+ /Stromberglauf
+TRANSP:TRANSPARENT
+URL:https://lgne-running.de/Stromberglauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-wilscher-geburtstags-etappen-marathon-42-2km-gifhorn@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Wilscher Geburtstags-Etappen-Marathon – 42\,195 km Marathon
+LOCATION:Gifhorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
+ aufkalender/details/26V09000129860003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V09000129860003
+END:VEVENT
+END:VCALENDAR

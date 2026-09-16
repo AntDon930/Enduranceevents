@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-stadion-crosslauf-6-4km-barsinghausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Stadion-Crosslauf – Cross-Langstrecke 6\,4km
+LOCATION:Barsinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6.4 km\nhttps://ladv.de/aussc
+ hreibung/detail/46485/Stadion-Crosslauf-Barsinghausen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/46485/Stadion-Crosslauf-Barsingha
+ usen.htm
+END:VEVENT
+END:VCALENDAR

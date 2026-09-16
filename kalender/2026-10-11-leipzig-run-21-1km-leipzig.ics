@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-leipzig-run-21-1km-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Leipzig Run – 21\,1 km (Halbmarathon)
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.dataspo
+ rt.de/anmeldeservice/leipzigrun2026
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/leipzigrun2026
+END:VEVENT
+END:VCALENDAR

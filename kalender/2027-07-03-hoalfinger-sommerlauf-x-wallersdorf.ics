@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-hoalfinger-sommerlauf-x-wallersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:Hoalfinger Sommerlauf
+LOCATION:Wallersdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.svh1931.de/
+TRANSP:TRANSPARENT
+URL:https://www.svh1931.de/
+END:VEVENT
+END:VCALENDAR

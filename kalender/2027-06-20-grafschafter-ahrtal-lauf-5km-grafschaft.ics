@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-grafschafter-ahrtal-lauf-5km-grafschaft@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Grafschafter Ahrtal-Lauf – 5 km Lauf
+LOCATION:Grafschaft\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://grafschafter-s
+ v.de/grafschafter-ahrtal-lauf/
+TRANSP:TRANSPARENT
+URL:https://grafschafter-sv.de/grafschafter-ahrtal-lauf/
+END:VEVENT
+END:VCALENDAR

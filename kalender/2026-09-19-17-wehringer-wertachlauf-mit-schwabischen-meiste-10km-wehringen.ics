@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-17-wehringer-wertachlauf-mit-schwabischen-meiste-10km-wehri
+ ngen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:17. Wehringer Wertachlauf mit schwäbischen Meisterschaften – Haupt
+ lauf\, 10 km\, amtlich vermessen
+LOCATION:Wehringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lg-wehrin
+ gen.de/Wettkampfe/Wertachlauf/2026/2026.html
+TRANSP:TRANSPARENT
+URL:https://www.lg-wehringen.de/Wettkampfe/Wertachlauf/2026/2026.html
+END:VEVENT
+END:VCALENDAR

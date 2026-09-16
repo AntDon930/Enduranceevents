@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-drei-talsperren-marathon-42-2km-eibenstock@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Drei Talsperren Marathon – Marathon
+LOCATION:Eibenstock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.drei-tal
+ sperren-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.drei-talsperren-marathon.de
+END:VEVENT
+END:VCALENDAR

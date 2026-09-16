@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-burgkirchner-raiffeisen-crosslauf-6-6km-burgkirchen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Burgkirchner Raiffeisen-Crosslauf
+LOCATION:Burgkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6.6 km\nhttps://laufen.de/lau
+ fkalender/details/26V02000160460000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000160460000
+END:VEVENT
+END:VCALENDAR

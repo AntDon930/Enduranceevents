@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-benkhauser-schlosslauf-x-espelkamp@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Benkhauser Schlosslauf
+LOCATION:Espelkamp\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.benkhauser-sc
+ hlosslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.benkhauser-schlosslauf.de/
+END:VEVENT
+END:VCALENDAR

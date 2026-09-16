@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-33-energie-cross-neukirchen-5-1km-grevenbroich@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:33. Energie Cross Neukirchen
+LOCATION:Grevenbroich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5.1 km\nhttps://laufen.de/lau
+ fkalender/details/27V10002011960001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V10002011960001
+END:VEVENT
+END:VCALENDAR

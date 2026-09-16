@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-7-meilen-trail-kaiserslautern-6-4km-kaiserslautern@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:7-Meilen-Trail - Kaiserslautern – 4 Meilen (6\,437 km) \, 185 HM
+LOCATION:Kaiserslautern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttps://7meilentrail.
+ github.io
+TRANSP:TRANSPARENT
+URL:https://7meilentrail.github.io
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-5-artenschutzlauf-7-6km-karlsruhe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:5. Artenschutzlauf
+LOCATION:Karlsruhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttps://laufen.de/la
+ ufkalender/details/26V01000038860002
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V01000038860002
+END:VEVENT
+END:VCALENDAR

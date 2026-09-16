@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-2-braunschweiger-speed5-5km-braunschweig@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:2. Braunschweiger Speed5 – 5 km offiziell vermessene Strecke
+LOCATION:Braunschweig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.braunschwe
+ iger-laufclub.com/speed5
+TRANSP:TRANSPARENT
+URL:https://www.braunschweiger-laufclub.com/speed5
+END:VEVENT
+END:VCALENDAR

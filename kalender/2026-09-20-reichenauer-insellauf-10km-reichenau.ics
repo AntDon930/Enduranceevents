@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-reichenauer-insellauf-10km-reichenau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Reichenauer Insellauf – 10 km Lauf
+LOCATION:Reichenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.svreichen
+ au.de/leichtathletik/reichenauer-insellauf/
+TRANSP:TRANSPARENT
+URL:https://www.svreichenau.de/leichtathletik/reichenauer-insellauf/
+END:VEVENT
+END:VCALENDAR

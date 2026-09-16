@@ -361,28 +361,32 @@ Schweiz.
   wir nicht kennen. Mehrtägige Veranstaltungen übernehmen ihren ganzen
   Zeitraum.
 
-  **Der .ics-Weg unterscheidet sich je nach Gerät**, und das ist der
-  Unterschied zwischen „funktioniert" und „liegt in den Downloads":
+  **Die `.ics`-Dateien liegen fertig im Repo**, eine je Event unter
+  `kalender/` (~4.150 Stück, je ~500 Byte), erzeugt von
+  `scripts/build_ics.py` – der Link im Detailbereich zeigt einfach
+  dorthin. Das ist der einzige Weg, der auf dem iPhone funktioniert:
+  Safari übergibt einen Termin nur an den Kalender, wenn die Datei
+  **vom Server** mit `Content-Type: text/calendar` kommt. Drei Versuche,
+  das im Browser zu erzeugen, sind am Gerät gescheitert – ein data-URI,
+  ein Blob und sogar eine von einem Service Worker erfundene Antwort
+  landeten als Download („Unknown.ics", Teilen-Liste ohne Kalender) bzw.
+  auf der 404-Seite von GitHub Pages. Der Link trägt deshalb auch
+  **kein `download`-Attribut**: das würde das Übergeben an den Kalender
+  wieder verbieten.
 
-  - **iPhone, iPad, Mac**: Die Seite navigiert auf
-    `kalender/<Name>.ics?d=<base64>`. Diesen Ordner gibt es nicht – die
-    Antwort erfindet der **Service Worker** (`sw.js`) und setzt dabei
-    `Content-Type: text/calendar` und `Content-Disposition: inline`.
-    Genau diese Kopfzeilen fehlen einem Blob oder data-URI aus dem
-    Browser, und ohne sie behandelt Safari die Datei als Download: sie
-    landet als „Unknown.ics" in den Dateien, und die Teilen-Liste bietet
-    keinen Kalender an. Der Service Worker macht daraus für Safari eine
-    normale Server-Antwort. Er fasst sonst **nichts** an: kein
-    Zwischenspeichern (bei einer wöchentlich wachsenden `events.json`
-    wäre das nur eine Quelle für veraltete Anzeigen), alle anderen
-    Adressen gehen unverändert ins Netz.
-  - **Alle anderen**: Download der Datei mit ordentlichem Namen –
-    Outlook als Programm, Thunderbird und Co. importieren sie per
-    Doppelklick. Der Service-Worker-Weg wäre hier schlechter: Chrome,
-    Edge und Firefox kennen keinen Kalender als Handler und laden die
-    Antwort ebenfalls herunter, nur mit einem leeren Tab dahinter.
+  Der Dateiname ist `<datum>-<name>-<distanz>-<ort>.ics`. Er wird an
+  **zwei** Stellen berechnet – in `build_ics.py` (erzeugt die Dateien)
+  und in `events.html` (verlinkt sie); `test_scraper_lib.py` prüft beide
+  gegeneinander und lässt dafür den echten JS-Code in `node` laufen. Der
+  Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sind: Der
+  „Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten (für
+  Bensberg und für Bergisch Gladbach – dasselbe Rennen aus zwei Quellen).
 
-  Der Hinweis unter dem Menü sagt jeweils, was passiert.
+  `DTSTAMP` ist absichtlich ein **fester** Zeitstempel und nicht „jetzt":
+  sonst änderte jeder Wochenlauf alle 4.150 Dateien, und der Commit wäre
+  ein Riesen-Diff ohne inhaltliche Änderung. `build_ics.py` schreibt
+  ohnehin nur, was sich unterscheidet, und löscht Dateien, deren Event
+  weggefallen ist.
 
   Ein Detail, an dem solche Links oft scheitern: `DTEND` im
   iCalendar-Format (RFC 5545) und ebenso `dates=` bei Google und `enddt=`

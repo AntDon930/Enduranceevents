@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-25-herbstlauf-10km-schutterwald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:25. Herbstlauf
+LOCATION:Schutterwald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lfv-schut
+ terwald.de/herbstlauf.html
+TRANSP:TRANSPARENT
+URL:https://www.lfv-schutterwald.de/herbstlauf.html
+END:VEVENT
+END:VCALENDAR

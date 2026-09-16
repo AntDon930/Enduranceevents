@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-hammer-winterlaufserie-15km-hamm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270301
+SUMMARY:Hammer Winterlaufserie – 15\,0 km (am 14.02.2027 für M/W ab 18 bis
+  M/W85)
+LOCATION:Hamm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.lg-hamm.d
+ e/index.php/leichtathletik/veranstaltungen/winterlaufserie
+TRANSP:TRANSPARENT
+URL:https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winter
+ laufserie
+END:VEVENT
+END:VCALENDAR

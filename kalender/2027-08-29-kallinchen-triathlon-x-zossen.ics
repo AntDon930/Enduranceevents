@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-kallinchen-triathlon-x-zossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Kallinchen Triathlon
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.berlin-timing
+ .de/Kallinchen-Triathlon
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/Kallinchen-Triathlon
+END:VEVENT
+END:VCALENDAR

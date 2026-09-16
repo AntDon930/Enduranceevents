@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-16-heuberglauf-5km-nussdorf-am-inn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:Heuberglauf
+LOCATION:Nußdorf am Inn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 5 km\nhttps://www.heuberglauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://www.heuberglauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-2-ditzinger-keltenlauf-12km-ditzingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:2. Ditzinger Keltenlauf
+LOCATION:Ditzingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://laufen.de/lau
+ fkalender/details/26V20000511360000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V20000511360000
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-velten-lauft-8km-velten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Velten Läuft
+LOCATION:Velten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://run.teamwork-s
+ portevents.de/laufveranstaltungen/velten-laeuft-city/
+TRANSP:TRANSPARENT
+URL:https://run.teamwork-sportevents.de/laufveranstaltungen/velten-laeuft-
+ city/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-climaid-plant-a-tree-run-24km-haan@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:ClimAid Plant a Tree Run
+LOCATION:Haan\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 km\nhttps://my.raceresult
+ .com/375637/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/375637/
+END:VEVENT
+END:VCALENDAR

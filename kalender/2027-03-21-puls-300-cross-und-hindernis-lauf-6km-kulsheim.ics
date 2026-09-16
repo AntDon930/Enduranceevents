@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-puls-300-cross-und-hindernis-lauf-6km-kulsheim@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Puls 300 Cross- und Hindernis-Lauf
+LOCATION:Külsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6 km\nhttps://www.puls-300.de
+ /
+TRANSP:TRANSPARENT
+URL:https://www.puls-300.de/
+END:VEVENT
+END:VCALENDAR

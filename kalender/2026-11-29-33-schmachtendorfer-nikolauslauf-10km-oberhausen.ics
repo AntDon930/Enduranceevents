@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-33-schmachtendorfer-nikolauslauf-10km-oberhausen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:33. Schmachtendorfer Nikolauslauf
+LOCATION:Oberhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/380320/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/380320/
+END:VEVENT
+END:VCALENDAR

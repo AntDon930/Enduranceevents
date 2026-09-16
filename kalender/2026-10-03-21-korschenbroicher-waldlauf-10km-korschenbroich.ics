@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-21-korschenbroicher-waldlauf-10km-korschenbroich@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:21. Korschenbroicher Waldlauf
+LOCATION:Korschenbroich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.korschenb
+ roicherlc.de/veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://www.korschenbroicherlc.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-ultratrail-pfalzer-weinsteig-173km-bockenheim-an-der-weinst
+ rasse@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261011
+SUMMARY:Ultratrail Pfälzer Weinsteig – 173 km mit 6000 Höhenmetern nonstop
+LOCATION:Bockenheim an der Weinstraße\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 173 km\nhttps://my.raceresult
+ .com/368240/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/368240/
+END:VEVENT
+END:VCALENDAR

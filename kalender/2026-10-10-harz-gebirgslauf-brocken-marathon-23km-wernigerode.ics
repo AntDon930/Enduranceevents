@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-harz-gebirgslauf-brocken-marathon-23km-wernigerode@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Harz-Gebirgslauf (Brocken-Marathon)
+LOCATION:Wernigerode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 23 km\nhttps://harz-gebirgslau
+ f.de/event/48-harz-gebirgslauf.html
+TRANSP:TRANSPARENT
+URL:https://harz-gebirgslauf.de/event/48-harz-gebirgslauf.html
+END:VEVENT
+END:VCALENDAR

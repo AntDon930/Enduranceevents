@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-22-flutlicht-crosslauf-7-9km-luchtringen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:22. Flutlicht-Crosslauf
+LOCATION:Lüchtringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 7.9 km\nhttps://laufen.de/lau
+ fkalender/details/26V19000161660001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V19000161660001
+END:VEVENT
+END:VCALENDAR

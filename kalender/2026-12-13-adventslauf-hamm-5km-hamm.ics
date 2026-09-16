@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-adventslauf-hamm-5km-hamm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Adventslauf Hamm – 5\,0 km für Altersklassen M/W 12 bis M/W 85
+LOCATION:Hamm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lg-hamm.de
+ /index.php/leichtathletik/veranstaltungen/adventslauf
+TRANSP:TRANSPARENT
+URL:https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/advent
+ slauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-intersport-urban-trail-run-dresden-10km-dresden@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:INTERSPORT Urban Trail Run Dresden – 10 km zwei Runden der 5 km St
+ recke
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.intersport
+ .de/d/content/events/urban-trail-run-dresden
+TRANSP:TRANSPARENT
+URL:https://www.intersport.de/d/content/events/urban-trail-run-dresden
+END:VEVENT
+END:VCALENDAR

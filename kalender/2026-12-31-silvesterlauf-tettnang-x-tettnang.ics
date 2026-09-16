@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-tettnang-x-tettnang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Tettnang
+LOCATION:Tettnang\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tsv-tettnang.
+ de/fileadmin/abteilung/freizeitsport/Jahresprogramm_Abt._Freizeitsport/Ja
+ hresprogramm_2026.pdf
+TRANSP:TRANSPARENT
+URL:https://www.tsv-tettnang.de/fileadmin/abteilung/freizeitsport/Jahrespr
+ ogramm_Abt._Freizeitsport/Jahresprogramm_2026.pdf
+END:VEVENT
+END:VCALENDAR

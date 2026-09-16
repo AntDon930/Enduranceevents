@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-37-kappelelauf-2026-8-8km-reudern-nurtingen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:37. Käppelelauf 2026
+LOCATION:Reudern (Nürtingen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://laufen.de/la
+ ufkalender/details/26V20000814060000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V20000814060000
+END:VEVENT
+END:VCALENDAR

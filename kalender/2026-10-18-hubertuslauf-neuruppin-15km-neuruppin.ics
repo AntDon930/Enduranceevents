@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-hubertuslauf-neuruppin-15km-neuruppin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Hubertuslauf Neuruppin – 15 km Lauf (ab Altersklasse u16)
+LOCATION:Neuruppin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.strassenl
+ auf.org/va_details.php?id=979
+TRANSP:TRANSPARENT
+URL:https://www.strassenlauf.org/va_details.php?id=979
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-haferberg-hasenmuhle-ultratrail-45km-witzenhausen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Haferberg - Hasenmühle UltraTrail
+LOCATION:Witzenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 45 km\nhttps://my.raceresult.
+ com/405937/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/405937/
+END:VEVENT
+END:VCALENDAR

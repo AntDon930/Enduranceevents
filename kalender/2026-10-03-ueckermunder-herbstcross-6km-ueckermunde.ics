@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-ueckermunder-herbstcross-6km-ueckermunde@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Ueckermünder Herbstcross
+LOCATION:Ueckermünde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://uer-laufcup.de/
+ wp-content/uploads/2025/09/Ausschreibungen-Ueckermuender-Herbstcross.pdf
+TRANSP:TRANSPARENT
+URL:http://uer-laufcup.de/wp-content/uploads/2025/09/Ausschreibungen-Uecke
+ rmuender-Herbstcross.pdf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-35-halbmarathon-altotting-6km-altotting@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:35. Halbmarathon Altötting – 6 km Raiba Lauf/Walk
+LOCATION:Altötting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.halbmaratho
+ n.de/
+TRANSP:TRANSPARENT
+URL:http://www.halbmarathon.de/
+END:VEVENT
+END:VCALENDAR

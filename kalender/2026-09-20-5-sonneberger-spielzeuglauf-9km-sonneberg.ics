@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-5-sonneberger-spielzeuglauf-9km-sonneberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:5. Sonneberger Spielzeuglauf
+LOCATION:Sonneberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
+ kalender/details/26V18000021160001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V18000021160001
+END:VEVENT
+END:VCALENDAR

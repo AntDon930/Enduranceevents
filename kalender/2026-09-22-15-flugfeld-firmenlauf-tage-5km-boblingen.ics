@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-22-15-flugfeld-firmenlauf-tage-5km-boblingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+SUMMARY:15. Flugfeld Firmenlauf Tage
+LOCATION:Böblingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.eventservi
+ ce-stahl.de/veranstaltungen/flugfeld-firmenlauf-tage/
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/flugfeld-firmenlauf-
+ tage/
+END:VEVENT
+END:VCALENDAR

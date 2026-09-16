@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-40-weezer-staffellauf-5km-weeze@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:40. Weezer Staffellauf
+LOCATION:Weeze\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/26V10001010760003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10001010760003
+END:VEVENT
+END:VCALENDAR

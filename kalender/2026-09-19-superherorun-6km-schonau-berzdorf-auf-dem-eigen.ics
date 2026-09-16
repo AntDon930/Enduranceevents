@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-superherorun-6km-schonau-berzdorf-auf-dem-eigen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Superherorun – 6 km Mini Hero Run
+LOCATION:Schönau-Berzdorf auf dem Eigen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://baer-service.d
+ e/veranstaltung/SHR/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/SHR/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-35-langenberger-volkslauf-mit-walking-5km-langenberg@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:35. Langenberger Volkslauf mit Walking
+LOCATION:Langenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tve-langen
+ berg.de/volkslauf
+TRANSP:TRANSPARENT
+URL:https://www.tve-langenberg.de/volkslauf
+END:VEVENT
+END:VCALENDAR

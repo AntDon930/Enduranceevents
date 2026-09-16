@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-toging-x-toging-am-inn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Töging
+LOCATION:Töging am Inn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wingsforlifew
+ orldrun.com/en/locations/toging
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/toging
+END:VEVENT
+END:VCALENDAR

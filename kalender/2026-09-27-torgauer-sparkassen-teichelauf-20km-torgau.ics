@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-torgauer-sparkassen-teichelauf-20km-torgau@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Torgauer Sparkassen Teichelauf – 20 km Lauf
+LOCATION:Torgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://ssv1952-torga
+ u.de/index.php/initiativen/sparkassen-teichelauf
+TRANSP:TRANSPARENT
+URL:https://ssv1952-torgau.de/index.php/initiativen/sparkassen-teichelauf
+END:VEVENT
+END:VCALENDAR

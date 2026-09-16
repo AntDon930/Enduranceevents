@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-spreewald-triathlon-x-vetschau-spreewald@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Spreewald Triathlon
+LOCATION:Vetschau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://spreewald-triathl
+ on.de/
+TRANSP:TRANSPARENT
+URL:https://spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

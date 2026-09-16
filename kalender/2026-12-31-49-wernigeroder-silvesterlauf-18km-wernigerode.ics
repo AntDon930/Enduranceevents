@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-49-wernigeroder-silvesterlauf-18km-wernigerode@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:49. Wernigeröder Silvesterlauf
+LOCATION:Wernigerode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 18 km\nhttps://ladv.de/ausschr
+ eibung/detail/49082/49.-Werniger%C3%B6der-Silvesterlauf-Wernigerode.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49082/49.-Werniger%C3%B6der-Silve
+ sterlauf-Wernigerode.htm
+END:VEVENT
+END:VCALENDAR

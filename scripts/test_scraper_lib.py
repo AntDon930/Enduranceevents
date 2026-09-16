@@ -463,6 +463,90 @@ def test_vergangene_events() -> None:
           ["heute", "mehrtägig läuft", "kaputtes Datum", "zukunft"])
 
 
+def test_kalenderdateien() -> None:
+    """Die Dateinamen der .ics-Dateien werden ZWEIMAL berechnet: in
+    scripts/build_ics.py (erzeugt die Dateien) und in events.html
+    (verlinkt sie). Weichen die beiden ab, zeigt der Kalender-Knopf ins
+    Leere - deshalb prüft dieser Test die JS-Umsetzung gegen die
+    Python-Umsetzung, indem er node mit den gleichen Fällen aufruft."""
+    import json as _json
+    import re as _re
+    import shutil
+    import subprocess
+
+    from build_ics import build_ics, ics_dateiname, slugify
+
+    print("\nKalenderdateien (build_ics + events.html):")
+    check("Umlaute werden zerlegt", slugify("Königsforst-Marathon"), "konigsforst-marathon")
+    check("ß wird ss", slugify("Straßenlauf Groß-Gerau"), "strassenlauf-gross-gerau")
+    check("Sonderzeichen werden Bindestrich",
+          slugify("B2Run: Berlin (Firmenlauf!)"), "b2run-berlin-firmenlauf")
+
+    faelle = [
+        {"name": "Hofer Backyard Ultra", "datum_start": "2027-06-26",
+         "datum_ende": "2027-06-28", "standort": "Hof", "land": "Deutschland",
+         "art1": "Laufen", "art2": "Backcountry Ultra", "dauer_h": None,
+         "laenge_km": None, "wettbewerb": None, "veranstalter_url": None},
+        {"name": "Königsforst-Marathon", "datum_start": "2027-03-14",
+         "standort": "Bergisch Gladbach", "land": "Deutschland", "art1": "Laufen",
+         "art2": "Trail", "laenge_km": 42.2, "wettbewerb": "Marathon 42.2 km",
+         "veranstalter_url": "https://example.org/lauf"},
+        {"name": "24h Mad Chicken Run", "datum_start": "2026-09-19",
+         "datum_ende": "2026-09-20", "standort": "Kolkwitz", "land": "Deutschland",
+         "art1": "Laufen", "art2": "Straße", "dauer_h": 24.0, "laenge_km": None,
+         "wettbewerb": "24h Solo", "veranstalter_url": None},
+        {"name": "Bodensee Openwater", "datum_start": "2027-08-28",
+         "standort": "Wallhausen", "land": "Deutschland", "art1": "Schwimmen",
+         "art2": "Freiwasser", "laenge_km": 2.5, "wettbewerb": "2,5 km",
+         "veranstalter_url": None},
+    ]
+
+    check("Dateiname mit Dauer statt Distanz",
+          ics_dateiname(faelle[2]),
+          "2026-09-19-24h-mad-chicken-run-24h-kolkwitz.ics")
+    check("Dateiname ohne beides",
+          ics_dateiname(faelle[0]),
+          "2027-06-26-hofer-backyard-ultra-x-hof.ics")
+
+    # Mehrtägig: DTEND ist exklusiv, also der Tag NACH dem letzten.
+    ics = build_ics(faelle[0], "20260101T000000Z")
+    check("DTSTART", "DTSTART;VALUE=DATE:20270626" in ics, True)
+    check("DTEND ist Enddatum + 1", "DTEND;VALUE=DATE:20270629" in ics, True)
+    check("CRLF-Zeilenenden", ics.count("\r\n") >= 15, True)
+    # Ein Label, das nur die Distanz wiederholt, gehört nicht in den Titel.
+    ics2 = build_ics(faelle[3], "20260101T000000Z")
+    check("Masszahl-Label nicht im Titel",
+          "SUMMARY:Bodensee Openwater\r\n" in ics2, True)
+    check("Komma maskiert (RFC 5545)",
+          "LOCATION:Wallhausen\\, Deutschland" in ics2, True)
+
+    # --- Gegenprobe in JavaScript ---
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - JS-Gegenprobe übersprungen)")
+        return
+    quelle = (Path(__file__).resolve().parent.parent / "events.html").read_text(encoding="utf-8")
+    # Die drei Funktionen aus events.html herausschneiden und in node laufen
+    # lassen. Kein Nachbau: es läuft genau der Code, den die Seite nutzt.
+    stuecke = []
+    for name in ("function icsSlug(", "function icsMasszahl(", "function icsFileName("):
+        i = quelle.index(name)
+        j = quelle.index("\n  }\n", i) + len("\n  }\n")
+        stuecke.append(quelle[i:j])
+    skript = "\n".join(stuecke) + (
+        "\nconst faelle = " + _json.dumps(faelle, ensure_ascii=False) + ";"
+        "\nconsole.log(JSON.stringify(faelle.map(icsFileName)));"
+    )
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("JS-Gegenprobe lief", ergebnis.stderr.strip()[:200], "")
+        return
+    js_namen = _json.loads(ergebnis.stdout)
+    py_namen = [ics_dateiname(f) for f in faelle]
+    check("events.html und build_ics.py erzeugen dieselben Dateinamen",
+          js_namen, py_namen)
+
+
 def test_meldungen() -> None:
     """Nutzer-Fehlermeldungen (scripts/review_reports.py): bündeln pro
     Strecke, nicht pro Veranstaltung. Der Bündel-Schlüssel ist genau der
@@ -578,7 +662,8 @@ def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
-                 test_vergangene_events, test_zeitrennen, test_meldungen,
+                 test_vergangene_events, test_zeitrennen, test_kalenderdateien,
+                 test_meldungen,
                  test_ortsverzeichnis):
         test()
 

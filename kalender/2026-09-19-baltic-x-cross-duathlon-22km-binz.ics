@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-baltic-x-cross-duathlon-22km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Baltic X Cross Duathlon – Langdistanz
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 22 km\nhttps://www.sportstimi
+ ng.dk/event/17162
+TRANSP:TRANSPARENT
+URL:https://www.sportstiming.dk/event/17162
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-51-nationaler-sparkassen-marathon-s-meisterschaf-42-2km-mar
+ burg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:51. Nationaler Sparkassen-Marathon (S-Meisterschaft)
+LOCATION:Marburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.sparkas
+ senmarathon-marburg.de
+TRANSP:TRANSPARENT
+URL:https://www.sparkassenmarathon-marburg.de
+END:VEVENT
+END:VCALENDAR

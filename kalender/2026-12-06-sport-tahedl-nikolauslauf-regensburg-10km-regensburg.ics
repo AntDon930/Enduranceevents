@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-sport-tahedl-nikolauslauf-regensburg-10km-regensburg@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Sport-Tahedl-Nikolauslauf - Regensburg
+LOCATION:Regensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zeitgemae
+ ss.info/event.php?ACCESSCODE=202612061
+TRANSP:TRANSPARENT
+URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202612061
+END:VEVENT
+END:VCALENDAR

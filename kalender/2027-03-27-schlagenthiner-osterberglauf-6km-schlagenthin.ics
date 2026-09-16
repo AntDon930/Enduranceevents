@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-27-schlagenthiner-osterberglauf-6km-schlagenthin@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270328
+SUMMARY:Schlagenthiner Osterberglauf – 6 km Hauptlauf
+LOCATION:Schlagenthin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 6 km\nhttps://www.laufundtriat
+ hlonvereingenthin.de/schlagenthiner_osterberglauf.html
+TRANSP:TRANSPARENT
+URL:https://www.laufundtriathlonvereingenthin.de/schlagenthiner_osterbergl
+ auf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-11-bernauer-stundenlauf-x-bernau-bei-berlin@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:Bernauer Stundenlauf
+LOCATION:Bernau bei Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://bernauer-lauffreu
+ nde.de/
+TRANSP:TRANSPARENT
+URL:https://bernauer-lauffreunde.de/
+END:VEVENT
+END:VCALENDAR

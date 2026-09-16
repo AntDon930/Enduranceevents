@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-crosslauf-landkreiscup-amberg-sulzbach-5km-hirschau@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Crosslauf - Landkreiscup Amberg Sulzbach – Herren\, 5 km
+LOCATION:Hirschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://rennmeldung.de/
+ cgi-bin/bewerb.cgi?bewerb=04273
+TRANSP:TRANSPARENT
+URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04273
+END:VEVENT
+END:VCALENDAR

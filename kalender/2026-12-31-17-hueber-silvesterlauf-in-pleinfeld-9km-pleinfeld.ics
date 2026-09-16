@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-17-hueber-silvesterlauf-in-pleinfeld-9km-pleinfeld@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:17. Hueber-Silvesterlauf in Pleinfeld
+LOCATION:Pleinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
+ kalender/details/26V02000513160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000513160000
+END:VEVENT
+END:VCALENDAR

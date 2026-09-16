@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2030-03-10-13-alstatter-sandhasenlauf-10km-ahaus-alstatte@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20300310
+DTEND;VALUE=DATE:20300311
+SUMMARY:13. Alstätter Sandhasenlauf
+LOCATION:Ahaus-Alstätte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/30L19000394360001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/30L19000394360001
+END:VEVENT
+END:VCALENDAR

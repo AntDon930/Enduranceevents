@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-50-limes-winterlaufserie-1-lauf-uber-10-km-10km-pohlheim-wa
+ tzenborn-steinberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:50. Limes- Winterlaufserie - 1. Lauf über 10 km
+LOCATION:Pohlheim\, Watzenborn- Steinberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V07000032460003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V07000032460003
+END:VEVENT
+END:VCALENDAR

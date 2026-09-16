@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-hartsfeld-panoramalauf-6km-neresheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Härtsfeld Panoramalauf – AOK Ostwürttemberg 6 km Lauf\, Jahrgang 2
+ 010 und älter
+LOCATION:Neresheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
+ com/375592/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/375592/
+END:VEVENT
+END:VCALENDAR

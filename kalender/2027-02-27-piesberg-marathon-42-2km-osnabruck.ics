@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-piesberg-marathon-42-2km-osnabruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:Piesberg Marathon – Marathon
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://lg-lottehal
+ en.jimdofree.com/piesberg-marathon-27-2/
+TRANSP:TRANSPARENT
+URL:https://lg-lottehalen.jimdofree.com/piesberg-marathon-27-2/
+END:VEVENT
+END:VCALENDAR

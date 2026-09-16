@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-tk-elevator-towerrun-x-rottweil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:TK Elevator Towerrun
+LOCATION:Rottweil\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: -\nhttps://towerrun.tkelevator
+ .com/
+TRANSP:TRANSPARENT
+URL:https://towerrun.tkelevator.com/
+END:VEVENT
+END:VCALENDAR

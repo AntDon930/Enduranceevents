@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-29-cloppenburger-citylauf-6km-cloppenburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:29. Cloppenburger Citylauf – 6 Kilometer (Hobbylauf)
+LOCATION:Cloppenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.cloppenbur
+ g.de/portal/seiten/citylauf-900000016-31040.html
+TRANSP:TRANSPARENT
+URL:https://www.cloppenburg.de/portal/seiten/citylauf-900000016-31040.html
+END:VEVENT
+END:VCALENDAR

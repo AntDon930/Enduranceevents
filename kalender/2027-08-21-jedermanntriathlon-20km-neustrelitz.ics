@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-jedermanntriathlon-20km-neustrelitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Jedermanntriathlon
+LOCATION:Neustrelitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://jedermann-tri
+ athlon.de/
+TRANSP:TRANSPARENT
+URL:https://jedermann-triathlon.de/
+END:VEVENT
+END:VCALENDAR

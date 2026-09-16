@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-dragonrun-schnaittach-13km-schnaittach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:DragonRun Schnaittach
+LOCATION:Schnaittach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.fc-schnai
+ ttach.de/dragonrun/
+TRANSP:TRANSPARENT
+URL:https://www.fc-schnaittach.de/dragonrun/
+END:VEVENT
+END:VCALENDAR

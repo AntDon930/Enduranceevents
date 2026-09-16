@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-17-9-aok-firmenlauf-feuerbach-5km-stuttgart-feuerbach@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+SUMMARY:9. AOK Firmenlauf Feuerbach
+LOCATION:Stuttgart-Feuerbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://feuerbach.bw-r
+ unning.de/home
+TRANSP:TRANSPARENT
+URL:https://feuerbach.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-ainringer-crosslauf-5km-ainring@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Ainringer Crosslauf
+LOCATION:Ainring\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://laufen.de/laufk
+ alender/details/26V02000150060000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000150060000
+END:VEVENT
+END:VCALENDAR

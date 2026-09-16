@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-grafschafter-kreissparkassen-crossduathlon-17km-grafschaft@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Grafschafter Kreissparkassen Crossduathlon
+LOCATION:Grafschaft\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://www.tus-ahrwe
+ iler-triathlon.de/crossduathlon
+TRANSP:TRANSPARENT
+URL:https://www.tus-ahrweiler-triathlon.de/crossduathlon
+END:VEVENT
+END:VCALENDAR

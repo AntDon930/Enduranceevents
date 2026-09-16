@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-stadtfestlauf-ludinghausen-10km-ludinghausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:Stadtfestlauf Lüdinghausen
+LOCATION:Lüdinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
+ hreibung/detail/45622/23.-Stadtfestlauf-L%C3%BCdinghausen-L%C3%BCdinghaus
+ en.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/45622/23.-Stadtfestlauf-L%C3%BCdi
+ nghausen-L%C3%BCdinghausen.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-dusseldorfer-sudparkmarathon-42-2km-dusseldorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Düsseldorfer Südparkmarathon
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://triathlonst
+ eckelcologne.de/veranstaltungen
+TRANSP:TRANSPARENT
+URL:https://triathlonsteckelcologne.de/veranstaltungen
+END:VEVENT
+END:VCALENDAR

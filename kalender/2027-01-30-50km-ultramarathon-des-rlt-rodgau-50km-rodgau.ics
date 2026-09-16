@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-50km-ultramarathon-des-rlt-rodgau-50km-rodgau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:50km Ultramarathon des RLT Rodgau
+LOCATION:Rodgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://ultra.rlt-rod
+ gau.de/
+TRANSP:TRANSPARENT
+URL:https://ultra.rlt-rodgau.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-hegau-bodensee-crosslaufserie-konstanz-x-konstanz@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Hegau-Bodensee Crosslaufserie - Konstanz
+LOCATION:Konstanz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://hegau-bodensee-cro
+ ss.de/serie/konstanz/
+TRANSP:TRANSPARENT
+URL:https://hegau-bodensee-cross.de/serie/konstanz/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-zonser-nachtlauf-5km-dormagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Zonser Nachtlauf
+LOCATION:Dormagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sg-zons.de
+ /7-meilen-lauf.html
+TRANSP:TRANSPARENT
+URL:https://www.sg-zons.de/7-meilen-lauf.html
+END:VEVENT
+END:VCALENDAR

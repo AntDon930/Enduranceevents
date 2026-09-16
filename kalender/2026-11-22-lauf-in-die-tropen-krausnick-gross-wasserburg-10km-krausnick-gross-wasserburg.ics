@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-lauf-in-die-tropen-krausnick-gross-wasserburg-10km-krausnic
+ k-gross-wasserburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Lauf in die Tropen - Krausnick-Groß Wasserburg – 10 km ab U14
+LOCATION:Krausnick-Groß Wasserburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lauf-in-die-t
+ ropen.de/infos-zum-lauf/
+TRANSP:TRANSPARENT
+URL:https://lauf-in-die-tropen.de/infos-zum-lauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-16-laufend-gegen-krebs-in-leipzig-x-leipzig@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:Laufend gegen Krebs in Leipzig
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://baer-service.de/v
+ eranstaltung/LKL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/LKL/
+END:VEVENT
+END:VCALENDAR

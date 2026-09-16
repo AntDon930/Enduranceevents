@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-edith-lucke-frauenlauf-in-trier-5km-trier@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Edith Lücke - Frauenlauf in Trier
+LOCATION:Trier\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://silvesterlauf.
+ de/event/frauenlauf/
+TRANSP:TRANSPARENT
+URL:https://silvesterlauf.de/event/frauenlauf/
+END:VEVENT
+END:VCALENDAR

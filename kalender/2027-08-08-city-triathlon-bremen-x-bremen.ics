@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-city-triathlon-bremen-x-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:City Triathlon Bremen
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://citytriathlonbrem
+ en.de/start/
+TRANSP:TRANSPARENT
+URL:https://citytriathlonbremen.de/start/
+END:VEVENT
+END:VCALENDAR

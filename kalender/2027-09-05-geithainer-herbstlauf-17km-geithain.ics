@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-geithainer-herbstlauf-17km-geithain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Geithainer Herbstlauf
+LOCATION:Geithain\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttp://laufen-in-geit
+ hain.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:http://laufen-in-geithain.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

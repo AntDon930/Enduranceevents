@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-x-mas-stairrun-oberhof-x-oberhof@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:X-Mas StairRun Oberhof
+LOCATION:Oberhof\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /394956/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/394956/
+END:VEVENT
+END:VCALENDAR

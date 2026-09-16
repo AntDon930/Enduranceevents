@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-sudpfalz-cross-rulzheim-8km-rulzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Südpfalz Cross Rülzheim
+LOCATION:Rülzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 8 km\nhttps://runtix.com/sts/
+ 10021/3220
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3220
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-offene-landesmeisterschaften-cross-x-bobritzsch-hilbersdorf
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Offene Landesmeisterschaften Cross
+LOCATION:Bobritzsch-Hilbersdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49194/35.-offene-Landesmeisterschaften-Cross-Freital.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49194/35.-offene-Landesmeistersch
+ aften-Cross-Freital.htm
+END:VEVENT
+END:VCALENDAR

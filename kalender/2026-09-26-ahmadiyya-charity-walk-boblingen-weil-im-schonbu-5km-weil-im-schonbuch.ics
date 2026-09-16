@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-ahmadiyya-charity-walk-boblingen-weil-im-schonbu-5km-weil-i
+ m-schonbuch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Ahmadiyya Charity Walk Böblingen / Weil im Schönbuch
+LOCATION:Weil im Schönbuch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://charitywalk.de
+ /events/2-ahmadiyya-charity-walk-bblingen-weil-im-schnbuch
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/2-ahmadiyya-charity-walk-bblingen-weil-i
+ m-schnbuch
+END:VEVENT
+END:VCALENDAR

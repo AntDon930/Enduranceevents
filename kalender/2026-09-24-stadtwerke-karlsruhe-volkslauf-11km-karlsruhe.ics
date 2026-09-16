@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-stadtwerke-karlsruhe-volkslauf-11km-karlsruhe@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:Stadtwerke Karlsruhe Volkslauf
+LOCATION:Karlsruhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.stadtwerk
+ e-karlsruhe.de/de/veranstaltungen/termine/dauerveranstaltungen/volkslauf.
+ php
+TRANSP:TRANSPARENT
+URL:https://www.stadtwerke-karlsruhe.de/de/veranstaltungen/termine/dauerve
+ ranstaltungen/volkslauf.php
+END:VEVENT
+END:VCALENDAR

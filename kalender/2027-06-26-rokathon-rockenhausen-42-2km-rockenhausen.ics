@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-rokathon-rockenhausen-42-2km-rockenhausen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:Rokathon Rockenhausen – Marathon
+LOCATION:Rockenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.rokatho
+ n.de/
+TRANSP:TRANSPARENT
+URL:https://www.rokathon.de/
+END:VEVENT
+END:VCALENDAR

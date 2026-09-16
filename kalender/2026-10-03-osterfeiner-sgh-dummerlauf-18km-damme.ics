@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-osterfeiner-sgh-dummerlauf-18km-damme@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Osterfeiner SgH-Dümmerlauf – 18 km Lauf\, Startgebühr 10\,00 €
+LOCATION:Damme\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.laufen-os
+ .de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-20
+ 26
+END:VEVENT
+END:VCALENDAR

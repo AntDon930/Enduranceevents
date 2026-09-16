@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-schonower-herbstcross-6km-schwedt-oder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Schönower Herbstcross
+LOCATION:Schwedt/Oder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://anmeldung.lauf
+ auswertung.com/Anmeldung/index.php?VID=1F25E8A497
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1F25E8A49
+ 7
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-solvay-lauf-x-bernburg-saale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Solvay-Lauf
+LOCATION:Bernburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://lauf.psv-bernburg
+ .de/solvay-lauf
+TRANSP:TRANSPARENT
+URL:https://lauf.psv-bernburg.de/solvay-lauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-autohaus-prinz-schildberglauf-5km-lossatal@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Autohaus Prinz - Schildberglauf – 5 km Lauf (Jhg. 1926–2016)\, 6\,
+ 00 €\; zzgl. 2\,00 € ab 19.09.
+LOCATION:Lossatal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 5 km\nhttps://myracepartner.co
+ m/veranstaltung/?event-id=532946
+TRANSP:TRANSPARENT
+URL:https://myracepartner.com/veranstaltung/?event-id=532946
+END:VEVENT
+END:VCALENDAR

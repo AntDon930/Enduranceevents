@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-crosslauf-juchen-5km-juchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:Crosslauf Jüchen
+LOCATION:Jüchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://www.crosslauf-j
+ uechen.de/
+TRANSP:TRANSPARENT
+URL:https://www.crosslauf-juechen.de/
+END:VEVENT
+END:VCALENDAR

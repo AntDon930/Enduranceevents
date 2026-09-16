@@ -1546,7 +1546,7 @@
   // iPadOS meldet sich in Safari als "Macintosh"; der Touch-Zähler
   // verrät trotzdem, dass ein iPad davorsteht. Gebraucht an zwei Stellen:
   // für den richtigen Einstellungs-Pfad in der Standort-Hilfe und für den
-  // Kalender-Eintrag (siehe openIcs).
+  // Kalender-Eintrag (siehe setupCalendarBox).
   function istIosGeraet() {
     const ua = navigator.userAgent || '';
     return /iPhone|iPad|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
@@ -1654,15 +1654,6 @@
     buildHeader();
     render();
   });
-
-  // Service Worker anmelden. Er hat genau einen Zweck: eine .ics-Datei
-  // mit dem Inhaltstyp text/calendar ausliefern, damit iOS und macOS den
-  // Termin dem Kalender anbieten (siehe sw.js und openIcs()). Schlägt die
-  // Anmeldung fehl - privates Fenster, In-App-Browser, alte Version -,
-  // bleibt der Herunterladen-Weg.
-  if ('serviceWorker' in navigator && window.isSecureContext !== false) {
-    navigator.serviceWorker.register('sw.js').catch(() => { /* dann eben ohne */ });
-  }
 
   const shareBtnEl = document.getElementById('share-btn');
   const shareBtnLabelEl = document.getElementById('share-btn-label');
@@ -3098,7 +3089,7 @@
         <div class="cal-menu" id="cal-menu" hidden>
           <a id="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
           <a id="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
-          <button type="button" id="cal-ics">${escapeHtml(t('cal_ics'))}</button>
+          <a id="cal-ics">${escapeHtml(t('cal_ics'))}</a>
           <div class="cal-note" id="cal-note"></div>
         </div>
       </div>
@@ -3144,66 +3135,6 @@
     };
   }
 
-  // Text für eine iCalendar-Zeile: Backslash, Semikolon, Komma und
-  // Zeilenumbrüche müssen maskiert werden (RFC 5545, 3.3.11).
-  function icsEscape(text) {
-    return String(text || '')
-      .replace(/\\/g, '\\\\')
-      .replace(/;/g, '\;')
-      .replace(/,/g, '\\,')
-      .replace(/\r?\n/g, '\\n');
-  }
-
-  // Zeilen über 75 Oktette faltet das Format mit einem Leerzeichen am
-  // Anfang der Folgezeile ("line folding"). Manche Kalender stolpern über
-  // zu lange Zeilen, deshalb hier gleich richtig.
-  function icsFold(zeile) {
-    if (zeile.length <= 74) return zeile;
-    const teile = [zeile.slice(0, 74)];
-    let rest = zeile.slice(74);
-    while (rest.length > 73) {
-      teile.push(' ' + rest.slice(0, 73));
-      rest = rest.slice(73);
-    }
-    if (rest) teile.push(' ' + rest);
-    return teile.join('\r\n');
-  }
-
-  function buildIcs(e) {
-    const f = calFields(e);
-    const stempel = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    const uid = `${f.start.replace(/-/g, '')}-${Math.abs(hashString(f.titel + f.ort))}@antdon930.github.io`;
-    const zeilen = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Ausdauersport-Events//events.html//DE',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      `UID:${uid}`,
-      `DTSTAMP:${stempel}`,
-      `DTSTART;VALUE=DATE:${f.start.replace(/-/g, '')}`,
-      `DTEND;VALUE=DATE:${f.endeExklusiv.replace(/-/g, '')}`,
-      `SUMMARY:${icsEscape(f.titel)}`,
-      `LOCATION:${icsEscape(f.ort)}`,
-      `DESCRIPTION:${icsEscape(f.beschreibung)}`,
-      'TRANSP:TRANSPARENT'
-    ];
-    if (f.url) zeilen.push(`URL:${icsEscape(f.url)}`);
-    zeilen.push('END:VEVENT', 'END:VCALENDAR');
-    return zeilen.map(icsFold).join('\r\n') + '\r\n';
-  }
-
-  // Kurzer, stabiler Zahlenwert aus einem Text - nur für die UID des
-  // Kalendereintrags, damit derselbe Lauf nicht als neuer Termin gilt.
-  function hashString(text) {
-    let h = 0;
-    for (let i = 0; i < text.length; i++) {
-      h = (h * 31 + text.charCodeAt(i)) | 0;
-    }
-    return h;
-  }
-
   function setupCalendarBox(e) {
     const btn = detailEl.querySelector('#cal-open-btn');
     const menu = detailEl.querySelector('#cal-menu');
@@ -3229,10 +3160,19 @@
       + `&body=${encodeURIComponent(f.beschreibung)}`
       + `&location=${encodeURIComponent(f.ort)}`;
 
+    // Die .ics-Datei liegt fertig im Ordner kalender/ (erzeugt von
+    // scripts/build_ics.py, eine je Event). Ein einfacher Link genügt -
+    // und nur so kommt die Datei mit dem Inhaltstyp text/calendar vom
+    // Server, den iOS braucht, um den Termin dem Kalender anzubieten.
+    // Alles, was die Seite selbst erzeugte (Blob, data-URI, sogar eine
+    // vom Service Worker erfundene Antwort), war für Safari ein Download.
+    //
+    // Bewusst OHNE download-Attribut: das würde Safari das Übergeben an
+    // den Kalender wieder verbieten.
     const icsEl = detailEl.querySelector('#cal-ics');
+    icsEl.href = `kalender/${icsFileName(e)}`;
     const noteEl = detailEl.querySelector('#cal-note');
     if (noteEl) noteEl.textContent = t(istAppleGeraet() ? 'cal_note_apple' : 'cal_note');
-    icsEl.addEventListener('click', () => openIcs(e, f));
 
     btn.addEventListener('click', (ev) => {
       ev.stopPropagation();
@@ -3267,75 +3207,42 @@
     }
   }
 
-  // Zwei Wege zur .ics-Datei:
+  // Dateiname der fertigen .ics-Datei. **Muss mit ics_dateiname() in
+  // scripts/build_ics.py übereinstimmen** - sonst zeigt der Knopf auf
+  // eine Datei, die es nicht gibt. scripts/test_scraper_lib.py prüft
+  // beide Umsetzungen gegeneinander (ruft dafür node auf), also beim
+  // Ändern immer beide anfassen.
   //
-  //   1. Apple-Gerät UND der Service Worker antwortet wirklich ->
-  //      Navigation im selben Tab auf "kalender/<Name>.ics?d=<base64>".
-  //      sw.js erfindet dort eine Antwort mit Inhaltstyp text/calendar
-  //      und Content-Disposition: inline - erst diese Kopfzeilen bringen
-  //      Safari dazu, den Termin dem Kalender anzubieten. Ein Blob oder
-  //      data-URI hat sie nicht und wird zum Download ("Unknown.ics" in
-  //      einem about:blank-Tab, wie vom Nutzer gemeldet).
-  //   2. Sonst Download der Datei (Outlook-Programm, Thunderbird und Co.
-  //      importieren sie per Doppelklick).
-  //
-  // WICHTIG: Vor der Navigation wird die Adresse einmal per fetch()
-  // GEPRÜFT. Ein vorhandener `controller` heißt auf iOS nämlich nicht,
-  // dass der Worker die nächste Navigation auch bedient - wurde die Seite
-  // geladen, bevor er die Kontrolle übernahm, geht die Anfrage ins Netz,
-  // und dort gibt es den Ordner /kalender/ nicht: Der Nutzer landete auf
-  // der 404-Seite von GitHub Pages. Antwortet die Probe nicht mit
-  // text/calendar, wird heruntergeladen.
-  async function openIcs(e, f) {
-    const ics = buildIcs(e);
-    const name = calFileName(f.titel) + '.ics';
-
-    if (istAppleGeraet() && navigator.serviceWorker && navigator.serviceWorker.controller) {
-      // base64url: die Daten hängen in der Adresse, "+" und "/" hätten
-      // dort eine andere Bedeutung. btoa() arbeitet byteweise, deshalb
-      // der Umweg über encodeURIComponent für Umlaute.
-      const b64 = btoa(unescape(encodeURIComponent(ics)))
-        .replace(/\+/g, '-').replace(/\//g, '_');
-      const url = `kalender/${name}?d=${b64}`;
-      try {
-        const probe = await fetch(url, { cache: 'no-store' });
-        const typ = probe.headers.get('content-type') || '';
-        if (probe.ok && typ.includes('text/calendar')) {
-          // Navigation im selben Tab, kein window.open: bleibt Safari doch
-          // beim Download, wäre ein geöffnetes Fenster ein leerer
-          // about:blank-Tab. Die Filter stehen in der Adresse, die Liste
-          // ist mit "Zurück" unverändert wieder da.
-          window.location.href = url;
-          return;
-        }
-      } catch (err) {
-        /* Netzfehler o. Ä. - dann eben herunterladen */
-      }
-    }
-
-    downloadIcs(ics, name);
-  }
-
-  // Blob-Download. Der Blob entsteht erst beim Klick und wird danach
-  // freigegeben; einer pro angezeigtem Event wäre ein Leck.
-  function downloadIcs(ics, name) {
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = name;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.setTimeout(() => URL.revokeObjectURL(url), 30000);
-  }
-
-  function calFileName(titel) {
-    return (titel || 'event')
-      .normalize('NFD').replace(/[̀-ͯ]/g, '')
-      .replace(/[^a-zA-Z0-9]+/g, '-')
+  // Aufbau: <datum>-<name>-<distanz>-<ort>.ics. Der Ort gehört dazu, weil
+  // Name + Datum + Distanz nicht eindeutig sind (der
+  // "Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten, für
+  // Bensberg und für Bergisch Gladbach).
+  function icsSlug(text) {
+    return (text || '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/ß/g, 'ss')
+      .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
-      .slice(0, 60) || 'event';
+      .slice(0, 48)
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function icsMasszahl(e) {
+    if (e.laenge_km != null) {
+      return `${(Math.round(Number(e.laenge_km) * 10) / 10)}km`.replace('.', '-');
+    }
+    if (e.dauer_h != null) {
+      return `${(Math.round(Number(e.dauer_h) * 10) / 10)}h`.replace('.', '-');
+    }
+    return 'x';
+  }
+
+  function icsFileName(e) {
+    const teile = [e.datum_start || 'ohne-datum', icsSlug(e.name), icsMasszahl(e)];
+    const ort = icsSlug(e.standort);
+    if (ort) teile.push(ort);
+    return teile.join('-') + '.ics';
   }
 
   // ---------- Fehler melden ----------

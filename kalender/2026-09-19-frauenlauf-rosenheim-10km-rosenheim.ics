@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-frauenlauf-rosenheim-10km-rosenheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Frauenlauf Rosenheim – 10 km Lauf
+LOCATION:Rosenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://time2win.at/e
+ vent/1018
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1018
+END:VEVENT
+END:VCALENDAR

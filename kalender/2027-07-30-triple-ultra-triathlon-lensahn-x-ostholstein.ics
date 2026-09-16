@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-triple-ultra-triathlon-lensahn-x-ostholstein@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:Triple Ultra Triathlon Lensahn
+LOCATION:Ostholstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://portal.run-timing
+ .de/1027/registration
+TRANSP:TRANSPARENT
+URL:https://portal.run-timing.de/1027/registration
+END:VEVENT
+END:VCALENDAR

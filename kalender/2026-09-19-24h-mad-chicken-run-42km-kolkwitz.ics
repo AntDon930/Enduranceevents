@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-24h-mad-chicken-run-42km-kolkwitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260921
+SUMMARY:24h Mad Chicken Run – Marathon\, 21 flache Runden\, 42 km
+LOCATION:Kolkwitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://runtix.com/st
+ s/10021/3210
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3210
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-22-spreewald-marathon-5km-burg-spreewald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270426
+SUMMARY:Spreewald-Marathon – 5 km Lübbenauer Nachtwalken
+LOCATION:Burg (Spreewald)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://spreewaldmarat
+ hon.de/wpswm/
+TRANSP:TRANSPARENT
+URL:https://spreewaldmarathon.de/wpswm/
+END:VEVENT
+END:VCALENDAR

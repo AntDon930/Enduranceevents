@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-09-sparkassen-uni-triathlon-x-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270610
+SUMMARY:Sparkassen Uni-Triathlon
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.berlin-timing
+ .de/UNI-Triathlon
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/UNI-Triathlon
+END:VEVENT
+END:VCALENDAR

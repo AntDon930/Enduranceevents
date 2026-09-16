@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-challenge-roth-226km-roth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Challenge Roth
+LOCATION:Roth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 226 km\nhttps://www.challeng
+ e-roth.com/en/
+TRANSP:TRANSPARENT
+URL:https://www.challenge-roth.com/en/
+END:VEVENT
+END:VCALENDAR

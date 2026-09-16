@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-most-insane-psyland-backyard-ultra-x-tengen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270713
+SUMMARY:Most Insane Psyland Backyard Ultra
+LOCATION:Tengen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backcountry Ultra\nLänge: -\nhttps://my.rac
+ eresult.com/390792/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/390792/
+END:VEVENT
+END:VCALENDAR

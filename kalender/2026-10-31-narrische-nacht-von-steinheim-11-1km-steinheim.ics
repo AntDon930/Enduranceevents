@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-narrische-nacht-von-steinheim-11-1km-steinheim@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Närrische Nacht von Steinheim – 11\,11 km Lauf (zwei Runden)
+LOCATION:Steinheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.1 km\nhttps://mtr.stkg.de
+ /n%C3%A4rrische-nacht/
+TRANSP:TRANSPARENT
+URL:https://mtr.stkg.de/n%C3%A4rrische-nacht/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-lions-dietzenbacher-stadtlauf-2026-10km-dietzenbach@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Lions - Dietzenbacher Stadtlauf 2026 – 10 km Hauptlauf
+LOCATION:Dietzenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lions-die
+ tzenbach.de/lions-dietzenbacher-stadtlauf-sport-und-spass-fuer-die-ganze-
+ familie/
+TRANSP:TRANSPARENT
+URL:https://www.lions-dietzenbach.de/lions-dietzenbacher-stadtlauf-sport-u
+ nd-spass-fuer-die-ganze-familie/
+END:VEVENT
+END:VCALENDAR

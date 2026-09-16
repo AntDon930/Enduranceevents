@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-45-silvesterlauf-kirchheim-teck-18km-kirchheim-unter-teck@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:45. Silvesterlauf Kirchheim/Teck
+LOCATION:Kirchheim unter Teck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://laufen.de/lau
+ fkalender/details/26V20000813160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V20000813160000
+END:VEVENT
+END:VCALENDAR

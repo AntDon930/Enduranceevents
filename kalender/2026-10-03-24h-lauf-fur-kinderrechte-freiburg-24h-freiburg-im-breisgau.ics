@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-24h-lauf-fur-kinderrechte-freiburg-24h-freiburg-im-breisgau
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261005
+SUMMARY:24h-Lauf für Kinderrechte - Freiburg
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 24 h\nhttps://www.24hlauf-frei
+ burg.de
+TRANSP:TRANSPARENT
+URL:https://www.24hlauf-freiburg.de
+END:VEVENT
+END:VCALENDAR

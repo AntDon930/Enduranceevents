@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-wald-und-heidelauf-kremperheide-6km-kremperheide@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Wald- und Heidelauf Kremperheide – 6 km Lauf\, ab 6 Jahren\, Start
+ geld 8\,00 Euro.
+LOCATION:Kremperheide\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
+ com/409748/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/409748/
+END:VEVENT
+END:VCALENDAR

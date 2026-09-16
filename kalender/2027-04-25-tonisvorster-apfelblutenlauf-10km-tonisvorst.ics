@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-tonisvorster-apfelblutenlauf-10km-tonisvorst@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Tönisvorster Apfelblütenlauf
+LOCATION:Tönisvorst\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://apfel-blueten
+ -lauf.de/
+TRANSP:TRANSPARENT
+URL:https://apfel-blueten-lauf.de/
+END:VEVENT
+END:VCALENDAR

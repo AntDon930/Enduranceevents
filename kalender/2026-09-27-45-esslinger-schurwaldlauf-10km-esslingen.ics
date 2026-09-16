@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-45-esslinger-schurwaldlauf-10km-esslingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:45. Esslinger Schurwaldlauf – 10 km Waldlauf
+LOCATION:Esslingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.datasport
+ .de/anmeldeservice/schurwaldlauf2026
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/schurwaldlauf2026
+END:VEVENT
+END:VCALENDAR

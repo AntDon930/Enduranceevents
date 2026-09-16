@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-6-salacher-lowenlauf-10km-salach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:6. Salacher Löwenlauf
+LOCATION:Salach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://salacher-loew
+ enlauf-2026.racepedia.de/ergebnisse
+TRANSP:TRANSPARENT
+URL:https://salacher-loewenlauf-2026.racepedia.de/ergebnisse
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-scharfenberger-mini-ultra-x-coswig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Scharfenberger Mini Ultra
+LOCATION:Coswig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://triathlon-service
+ .de/veranstaltungen/anmeldung.php?veranstaltung=37
+TRANSP:TRANSPARENT
+URL:https://triathlon-service.de/veranstaltungen/anmeldung.php?veranstaltu
+ ng=37
+END:VEVENT
+END:VCALENDAR

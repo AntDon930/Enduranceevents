@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolaus-duathlon-x-frankfurt-am-main@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolaus Duathlon
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://triathlon.eintrac
+ ht.de/wettkaempfe/nikolaus-duathlon/
+TRANSP:TRANSPARENT
+URL:https://triathlon.eintracht.de/wettkaempfe/nikolaus-duathlon/
+END:VEVENT
+END:VCALENDAR

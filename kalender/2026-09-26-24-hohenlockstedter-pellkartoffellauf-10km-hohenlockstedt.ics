@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-24-hohenlockstedter-pellkartoffellauf-10km-hohenlockstedt@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:24. Hohenlockstedter Pellkartoffellauf – 10\,0 km Lauf\, zugelasse
+ n ab Jahrgang 2014
+LOCATION:Hohenlockstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.pellkarto
+ ffellauf.de
+TRANSP:TRANSPARENT
+URL:https://www.pellkartoffellauf.de
+END:VEVENT
+END:VCALENDAR

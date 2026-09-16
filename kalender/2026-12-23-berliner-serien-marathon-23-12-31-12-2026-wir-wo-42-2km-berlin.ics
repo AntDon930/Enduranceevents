@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-23-berliner-serien-marathon-23-12-31-12-2026-wir-wo-42-2km-ber
+ lin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261223
+DTEND;VALUE=DATE:20261224
+SUMMARY:Berliner Serien-Marathon 23.12.-31.12.2026 (Wir wollen doch nur la
+ ufen)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/groups/4025
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/groups/4025
+END:VEVENT
+END:VCALENDAR

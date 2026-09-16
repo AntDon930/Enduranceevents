@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-35-ismaninger-winterlaufserie-13km-ismaning@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:35. Ismaninger Winterlaufserie
+LOCATION:Ismaning\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://winterlaufser
+ ie.net/
+TRANSP:TRANSPARENT
+URL:https://winterlaufserie.net/
+END:VEVENT
+END:VCALENDAR

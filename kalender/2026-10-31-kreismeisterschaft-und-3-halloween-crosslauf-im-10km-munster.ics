@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-kreismeisterschaft-und-3-halloween-crosslauf-im-10km-munste
+ r@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Kreismeisterschaft und 3. Halloween-Crosslauf im Örtzetal zu Munst
+ er
+LOCATION:Munster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 10 km\nhttps://laufen.de/lauf
+ kalender/details/26K09000452950000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26K09000452950000
+END:VEVENT
+END:VCALENDAR

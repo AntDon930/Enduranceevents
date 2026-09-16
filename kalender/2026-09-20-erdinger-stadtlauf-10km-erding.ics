@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-erdinger-stadtlauf-10km-erding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Erdinger Stadtlauf
+LOCATION:Erding\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://trisport-erdi
+ ng.de/category/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://trisport-erding.de/category/stadtlauf/
+END:VEVENT
+END:VCALENDAR

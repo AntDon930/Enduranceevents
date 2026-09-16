@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-ostringer-fitnesslauf-10km-ostringen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Östringer Fitnesslauf – 10 km Hauptlauf
+LOCATION:Östringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.fcoestrin
+ gen.de/fitnesslauf/informationen-fitnesslauf/
+TRANSP:TRANSPARENT
+URL:https://www.fcoestringen.de/fitnesslauf/informationen-fitnesslauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-sieben-quellen-crosslauf-8-8km-straelen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Sieben-Quellen-Crosslauf
+LOCATION:Straelen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 8.8 km\nhttps://laufen.de/lau
+ fkalender/details/27V10001009460001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V10001009460001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-3-wmf-bkk-ast-sussen-herbstlauf-11-4km-sussen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:3. WMF BKK AST Süßen Herbstlauf
+LOCATION:Süßen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://laufen.de/l
+ aufkalender/details/26V20000313960000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V20000313960000
+END:VEVENT
+END:VCALENDAR

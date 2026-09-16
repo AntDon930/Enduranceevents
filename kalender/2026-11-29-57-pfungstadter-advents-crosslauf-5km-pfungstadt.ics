@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-57-pfungstadter-advents-crosslauf-5km-pfungstadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:57. Pfungstädter Advents-Crosslauf
+LOCATION:Pfungstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://laufen.de/laufk
+ alender/details/26V07000067860001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V07000067860001
+END:VEVENT
+END:VCALENDAR

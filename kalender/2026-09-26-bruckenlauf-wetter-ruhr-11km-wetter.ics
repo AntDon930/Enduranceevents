@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bruckenlauf-wetter-ruhr-11km-wetter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Brückenlauf Wetter-Ruhr – 11 km Walking\, Jahrgang 2012 und älter
+LOCATION:Wetter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://time-and-voic
+ e.com/de/running/brueckenlauf-wetter-2026
+TRANSP:TRANSPARENT
+URL:https://time-and-voice.com/de/running/brueckenlauf-wetter-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-20-stuttgarter-lebenslauf-10km-stuttgart@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:20. Stuttgarter Lebenslauf – ca. 9\,5 Kilometer
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.abseitz.d
+ e/lebenslauf/lebenslauf.html
+TRANSP:TRANSPARENT
+URL:https://www.abseitz.de/lebenslauf/lebenslauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-hutzellauf-19km-grosser-woog@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Hutzellauf
+LOCATION:Großer Woog\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 19 km\nhttps://www.darmstaed
+ ter-lauftreff.de/hutzellauf-geschichte/hutzellauf-bilder/
+TRANSP:TRANSPARENT
+URL:https://www.darmstaedter-lauftreff.de/hutzellauf-geschichte/hutzellauf
+ -bilder/
+END:VEVENT
+END:VCALENDAR

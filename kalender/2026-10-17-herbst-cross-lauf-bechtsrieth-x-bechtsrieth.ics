@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-herbst-cross-lauf-bechtsrieth-x-bechtsrieth@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Herbst Cross Lauf - Bechtsrieth
+LOCATION:Bechtsrieth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.sportprogramme
+ .org/cakespg/events/menue/5046
+TRANSP:TRANSPARENT
+URL:https://www.sportprogramme.org/cakespg/events/menue/5046
+END:VEVENT
+END:VCALENDAR

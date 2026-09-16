@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-brandenburger-beetzseelauf-21-1km-brandenburg-an-der-havel@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Brandenburger Beetzseelauf – Halbmarathon
+LOCATION:Brandenburg an der Havel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://vfl-branden
+ burg.de/beetzseelauf/
+TRANSP:TRANSPARENT
+URL:https://vfl-brandenburg.de/beetzseelauf/
+END:VEVENT
+END:VCALENDAR

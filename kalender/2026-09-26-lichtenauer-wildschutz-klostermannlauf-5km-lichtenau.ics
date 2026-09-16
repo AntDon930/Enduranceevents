@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-lichtenauer-wildschutz-klostermannlauf-5km-lichtenau@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Lichtenauer Wildschütz Klostermannlauf – 5 km Lauf
+LOCATION:Lichtenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.vfl-lichte
+ nau.de/klostermannlauf/
+TRANSP:TRANSPARENT
+URL:https://www.vfl-lichtenau.de/klostermannlauf/
+END:VEVENT
+END:VCALENDAR

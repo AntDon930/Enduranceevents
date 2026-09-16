@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-hammer-lauf-hamburg-10km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Hammer Lauf Hamburg – 10 km Lauf (Jahrgänge ab 2013)
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hammer-la
+ uf-hamburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.hammer-lauf-hamburg.de/
+END:VEVENT
+END:VCALENDAR

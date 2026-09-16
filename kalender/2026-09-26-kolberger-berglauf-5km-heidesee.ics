@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-kolberger-berglauf-5km-heidesee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Kolberger Berglauf – 5\,0 km Einsteigerberglauf\, ab Altersklasse 
+ U12
+LOCATION:Heidesee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 5 km\nhttps://www.berlin-timin
+ g.de/Kolberger-Berglauf
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/Kolberger-Berglauf
+END:VEVENT
+END:VCALENDAR

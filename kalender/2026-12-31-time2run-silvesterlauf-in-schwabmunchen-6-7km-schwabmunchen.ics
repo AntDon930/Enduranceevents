@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-time2run-silvesterlauf-in-schwabmunchen-6-7km-schwabmunchen
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:TIME2RUN Silvesterlauf in Schwabmünchen – 6\,7 km Strecke\, kein W
+ asserhindernis
+LOCATION:Schwabmünchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.7 km\nhttps://www.time2run
+ .org/events/14-time2run-silvesterlauf-in-schwabmuenchen/
+TRANSP:TRANSPARENT
+URL:https://www.time2run.org/events/14-time2run-silvesterlauf-in-schwabmue
+ nchen/
+END:VEVENT
+END:VCALENDAR

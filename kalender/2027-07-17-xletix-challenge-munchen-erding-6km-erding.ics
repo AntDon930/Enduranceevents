@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-xletix-challenge-munchen-erding-6km-erding@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Xletix Challenge - München Erding
+LOCATION:Erding\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.xletix.com
+ /events/muenchen-erding-2026/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/muenchen-erding-2026/
+END:VEVENT
+END:VCALENDAR

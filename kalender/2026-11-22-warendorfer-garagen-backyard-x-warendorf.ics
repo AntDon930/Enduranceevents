@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-warendorfer-garagen-backyard-x-warendorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Warendorfer Garagen-Backyard
+LOCATION:Warendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backcountry Ultra\nLänge: -\nhttps://my.rac
+ eresult.com/414210/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414210/
+END:VEVENT
+END:VCALENDAR

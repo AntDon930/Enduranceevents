@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-13-fichtelgebirgstrailrun-21km-gefrees@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:13. Fichtelgebirgstrailrun
+LOCATION:Gefrees\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://www.fnwm.de/tr
+ ail-running/
+TRANSP:TRANSPARENT
+URL:https://www.fnwm.de/trail-running/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-39-geislinger-volkslauf-10km-geislingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:39. Geislinger Volkslauf
+LOCATION:Geislingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V20000651360001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V20000651360001
+END:VEVENT
+END:VCALENDAR

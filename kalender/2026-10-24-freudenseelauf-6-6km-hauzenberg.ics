@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-freudenseelauf-6-6km-hauzenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Freudenseelauf
+LOCATION:Hauzenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6.6 km\nhttps://ladv.de/aussc
+ hreibung/detail/49130/42.-Freudenseelauf-2026-Hauzenberg.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49130/42.-Freudenseelauf-2026-Hau
+ zenberg.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-herbstlauf-niederrhein-10km-kerken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Herbstlauf Niederrhein
+LOCATION:Kerken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.herbstlau
+ f-niederrhein.de
+TRANSP:TRANSPARENT
+URL:https://www.herbstlauf-niederrhein.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-1-lauf-der-17-oie-nahe-crosslaufserie-7-9km-idar-oberstein@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:1. Lauf der 17. OIE-Nahe-Crosslaufserie
+LOCATION:Idar-Oberstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 7.9 km\nhttps://laufen.de/lau
+ fkalender/details/26V13000056560001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000056560001
+END:VEVENT
+END:VCALENDAR

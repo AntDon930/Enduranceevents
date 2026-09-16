@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-sparkassen-advents-cross-der-lg-nordheide-5km-winsen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Sparkassen Advents-Cross der LG Nordheide – 5 km Mittelstrecke (mä
+ nnlich)
+LOCATION:Winsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://laufen.de/laufk
+ alender/details/26V09000424060000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V09000424060000
+END:VEVENT
+END:VCALENDAR

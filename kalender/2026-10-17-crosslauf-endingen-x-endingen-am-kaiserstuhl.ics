@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-crosslauf-endingen-x-endingen-am-kaiserstuhl@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Crosslauf Endingen
+LOCATION:Endingen am Kaiserstuhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://www.turnverein-end
+ ingen.com/crosslaufseite/
+TRANSP:TRANSPARENT
+URL:https://www.turnverein-endingen.com/crosslaufseite/
+END:VEVENT
+END:VCALENDAR

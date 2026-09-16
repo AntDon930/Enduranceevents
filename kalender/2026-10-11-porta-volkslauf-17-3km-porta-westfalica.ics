@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-porta-volkslauf-17-3km-porta-westfalica@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Porta-Volkslauf – 17\,0 km Langstrecke Erwachsene
+LOCATION:Porta Westfalica\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.3 km\nhttps://www.scnamme
+ n.de/index.php/veranstaltungen/volkslauf-porta
+TRANSP:TRANSPARENT
+URL:https://www.scnammen.de/index.php/veranstaltungen/volkslauf-porta
+END:VEVENT
+END:VCALENDAR

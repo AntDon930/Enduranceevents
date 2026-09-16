@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-lorsbacher-cross-duathlon-28km-hofheim-am-taunus@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Lorsbacher Cross-Duathlon
+LOCATION:Hofheim am Taunus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 28 km\nhttps://tvlorsbach.de/
+ lorsbacher-cross-duathlon/
+TRANSP:TRANSPARENT
+URL:https://tvlorsbach.de/lorsbacher-cross-duathlon/
+END:VEVENT
+END:VCALENDAR

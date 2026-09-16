@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-niederrhein-triathlon-n3t-10-5km-kalkar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Niederrhein Triathlon N3T – Sparkasse Rhein-Maas Schnupperdistanz
+LOCATION:Kalkar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.niederr
+ hein-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.niederrhein-triathlon.de/
+END:VEVENT
+END:VCALENDAR

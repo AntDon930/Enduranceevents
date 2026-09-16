@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-rennsteig-herbstlauf-20km-oberhof@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Rennsteig-Herbstlauf – 20 km Crosslauf auf Teilen der Rennsteiglau
+ f-Marathonstrecke
+LOCATION:Oberhof\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 20 km\nhttps://www.rennsteig-
+ herbstlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.rennsteig-herbstlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-offenbacher-mainuferlauf-10km-offenbach-am-main@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Offenbacher Mainuferlauf
+LOCATION:Offenbach am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.maxx-timi
+ ng.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://www.maxx-timing.de/anmeldung
+END:VEVENT
+END:VCALENDAR

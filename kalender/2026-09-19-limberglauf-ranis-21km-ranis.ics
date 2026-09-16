@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-limberglauf-ranis-21km-ranis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Limberglauf Ranis – 15 km / 21 km Crosslauf (ab Jahrgang 2008)
+LOCATION:Ranis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 21 km\nhttp://www.tsv1860ranis
+ .de/seite/700360/laufsport.html
+TRANSP:TRANSPARENT
+URL:http://www.tsv1860ranis.de/seite/700360/laufsport.html
+END:VEVENT
+END:VCALENDAR

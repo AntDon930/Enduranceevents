@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-39-vr-bank-bonn-rhein-sieg-eg-silvesterlauf-9km-euskirchen-
+ kirchheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:39. VR-Bank Bonn Rhein-Sieg eG Silvesterlauf
+LOCATION:Euskirchen Kirchheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
+ kalender/details/26V10004002960001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10004002960001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-kreischaer-berglauf-7km-oschatz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Kreischaer Berglauf
+LOCATION:Oschatz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 7 km\nhttps://mittelsaechsisch
+ e-lauftour.com/wettkaempfe/kreischaer-berglauf.html
+TRANSP:TRANSPARENT
+URL:https://mittelsaechsische-lauftour.com/wettkaempfe/kreischaer-berglauf
+ .html
+END:VEVENT
+END:VCALENDAR

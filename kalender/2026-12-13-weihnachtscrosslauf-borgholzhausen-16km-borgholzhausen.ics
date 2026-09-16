@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-weihnachtscrosslauf-borgholzhausen-16km-borgholzhausen@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Weihnachtscrosslauf Borgholzhausen – 16 km - zwei Runden über den 
+ Barenberg
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 16 km\nhttps://rsv-borgholzha
+ usen.de/weihnachtscross
+TRANSP:TRANSPARENT
+URL:https://rsv-borgholzhausen.de/weihnachtscross
+END:VEVENT
+END:VCALENDAR

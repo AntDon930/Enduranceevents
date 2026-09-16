@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-44-zerbster-rolandlauf-5km-zerbst-anhalt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:44. Zerbster Rolandlauf
+LOCATION:Zerbst/Anhalt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://zpn-timing.de/
+ uploads/ausschreibungen/2026/Aus_ZRL_2026.pdf
+TRANSP:TRANSPARENT
+URL:https://zpn-timing.de/uploads/ausschreibungen/2026/Aus_ZRL_2026.pdf
+END:VEVENT
+END:VCALENDAR

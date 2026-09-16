@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-uchtspringer-heidelauf-12km-stendal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Uchtspringer Heidelauf
+LOCATION:Stendal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.elbe-ohre
+ -cup.de/veranstaltungen/uchtspringer-heidelauf/
+TRANSP:TRANSPARENT
+URL:https://www.elbe-ohre-cup.de/veranstaltungen/uchtspringer-heidelauf/
+END:VEVENT
+END:VCALENDAR

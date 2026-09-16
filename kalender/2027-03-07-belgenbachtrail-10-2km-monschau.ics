@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-belgenbachtrail-10-2km-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Belgenbachtrail – 10\,2 km Strong Trail - ±330 Hm\, Startgeld 14€
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.2 km\nhttps://belgenbachtr
+ ail.de/belgenbachtrail
+TRANSP:TRANSPARENT
+URL:https://belgenbachtrail.de/belgenbachtrail
+END:VEVENT
+END:VCALENDAR

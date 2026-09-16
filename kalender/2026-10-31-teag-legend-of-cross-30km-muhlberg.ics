@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-teag-legend-of-cross-30km-muhlberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:TEAG – Legend of Cross – Berserker (mind. 30 Hindernisse)
+LOCATION:Mühlberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 30 km\nhttps://www.legendofcr
+ oss.de/
+TRANSP:TRANSPARENT
+URL:https://www.legendofcross.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-gruntenstafette-x-burgberg-im-allgau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Grüntenstafette
+LOCATION:Burgberg im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.808project.de
+ /gruentenstafette
+TRANSP:TRANSPARENT
+URL:https://www.808project.de/gruentenstafette
+END:VEVENT
+END:VCALENDAR

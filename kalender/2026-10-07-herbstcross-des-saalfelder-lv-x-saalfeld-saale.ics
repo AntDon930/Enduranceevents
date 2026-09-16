@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-07-herbstcross-des-saalfelder-lv-x-saalfeld-saale@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:Herbstcross des Saalfelder LV
+LOCATION:Saalfeld/Saale\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://www.saalfelder-lv.
+ de/herbstcross_2025_ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.saalfelder-lv.de/herbstcross_2025_ausschreibung
+END:VEVENT
+END:VCALENDAR

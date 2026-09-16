@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-22-einstein-marathon-7km-ulm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:22. Einstein-Marathon – Pistenbully Walk
+LOCATION:Ulm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.einstein-ma
+ rathon.de
+TRANSP:TRANSPARENT
+URL:http://www.einstein-marathon.de
+END:VEVENT
+END:VCALENDAR

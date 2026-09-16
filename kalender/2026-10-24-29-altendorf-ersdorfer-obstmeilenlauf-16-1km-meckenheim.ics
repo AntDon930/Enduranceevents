@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-29-altendorf-ersdorfer-obstmeilenlauf-16-1km-meckenheim@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:29. Altendorf-Ersdorfer Obstmeilenlauf
+LOCATION:Meckenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.1 km\nhttps://my.raceresu
+ lt.com/414304/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414304/
+END:VEVENT
+END:VCALENDAR

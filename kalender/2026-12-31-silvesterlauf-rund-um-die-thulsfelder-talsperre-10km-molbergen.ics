@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-rund-um-die-thulsfelder-talsperre-10km-molber
+ gen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Rund um die Thülsfelder Talsperre – 10 km Lauf \; Ja
+ hrgang 2014 und älter\; 10\,00 EUR
+LOCATION:Molbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/414238/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414238/
+END:VEVENT
+END:VCALENDAR

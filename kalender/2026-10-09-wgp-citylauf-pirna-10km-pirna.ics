@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-wgp-citylauf-pirna-10km-pirna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:WGP-Citylauf Pirna
+LOCATION:Pirna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.wg-pirna.
+ de/Events/WGP-Citylauf/Informationen/4116/
+TRANSP:TRANSPARENT
+URL:https://www.wg-pirna.de/Events/WGP-Citylauf/Informationen/4116/
+END:VEVENT
+END:VCALENDAR

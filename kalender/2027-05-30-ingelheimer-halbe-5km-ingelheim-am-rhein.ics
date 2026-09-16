@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-ingelheimer-halbe-5km-ingelheim-am-rhein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Ingelheimer Halbe – 5 km Lauf und Walking
+LOCATION:Ingelheim am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.der-ingelh
+ eimer-halbe.de
+TRANSP:TRANSPARENT
+URL:https://www.der-ingelheimer-halbe.de
+END:VEVENT
+END:VCALENDAR

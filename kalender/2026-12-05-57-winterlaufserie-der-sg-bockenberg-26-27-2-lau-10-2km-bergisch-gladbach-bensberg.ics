@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-57-winterlaufserie-der-sg-bockenberg-26-27-2-lau-10-2km-ber
+ gisch-gladbach-bensberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:57. Winterlaufserie der SG Bockenberg 26/27\, 2. Lauf
+LOCATION:Bergisch Gladbach-Bensberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://laufen.de/l
+ aufkalender/details/26V10003001560003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10003001560003
+END:VEVENT
+END:VCALENDAR

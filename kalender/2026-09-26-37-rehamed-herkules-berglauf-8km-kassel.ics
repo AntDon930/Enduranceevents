@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-37-rehamed-herkules-berglauf-8km-kassel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:37. REHAmed Herkules-Berglauf
+LOCATION:Kassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 8 km\nhttps://leichtathletik.p
+ sv-kassel.de/herkules-berglauf/ausschreibung-des-rehamed-herkules-berglau
+ fs-2026/
+TRANSP:TRANSPARENT
+URL:https://leichtathletik.psv-kassel.de/herkules-berglauf/ausschreibung-d
+ es-rehamed-herkules-berglaufs-2026/
+END:VEVENT
+END:VCALENDAR

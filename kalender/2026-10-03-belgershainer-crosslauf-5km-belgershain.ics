@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-belgershainer-crosslauf-5km-belgershain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Belgershainer Crosslauf
+LOCATION:Belgershain\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://my.raceresult.c
+ om/415685/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/415685/
+END:VEVENT
+END:VCALENDAR

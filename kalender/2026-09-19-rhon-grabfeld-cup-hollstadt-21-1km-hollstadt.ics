@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-rhon-grabfeld-cup-hollstadt-21-1km-hollstadt@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Rhön-Grabfeld-Cup – Hollstadt – 21\,1 km Halbmarathon
+LOCATION:Hollstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://rhoengrabfe
+ ldcup.de/event/hollstadt-2/
+TRANSP:TRANSPARENT
+URL:https://rhoengrabfeldcup.de/event/hollstadt-2/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-kraichgauman-crossduathlon-28-5km-ostringen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Kraichgauman Crossduathlon – Hauptwettkampf
+LOCATION:Östringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28.5 km\nhttps://www.kraichg
+ auman.de/
+TRANSP:TRANSPARENT
+URL:https://www.kraichgauman.de/
+END:VEVENT
+END:VCALENDAR

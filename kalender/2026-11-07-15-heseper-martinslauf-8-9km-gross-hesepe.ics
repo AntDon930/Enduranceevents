@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-15-heseper-martinslauf-8-9km-gross-hesepe@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:15. Heseper Martinslauf – Langstrecke 8\,8km
+LOCATION:Groß-Hesepe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.9 km\nhttps://ladv.de/auss
+ chreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro
+ %C3%9F-Hesepe.htm
+END:VEVENT
+END:VCALENDAR

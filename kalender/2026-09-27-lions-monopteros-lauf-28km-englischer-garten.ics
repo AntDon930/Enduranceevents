@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-lions-monopteros-lauf-28km-englischer-garten@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Lions-Monopteros-Lauf
+LOCATION:Englischer Garten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28 km\nhttps://www.monoptero
+ slauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.monopteroslauf.de/
+END:VEVENT
+END:VCALENDAR

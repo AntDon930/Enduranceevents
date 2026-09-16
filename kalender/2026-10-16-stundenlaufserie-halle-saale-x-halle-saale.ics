@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-16-stundenlaufserie-halle-saale-x-halle-saale@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:Stundenlaufserie - Halle (Saale)
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.stundenlaufse
+ rie.de/
+TRANSP:TRANSPARENT
+URL:https://www.stundenlaufserie.de/
+END:VEVENT
+END:VCALENDAR

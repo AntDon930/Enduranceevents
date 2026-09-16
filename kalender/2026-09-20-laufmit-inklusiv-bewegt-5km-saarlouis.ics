@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-laufmit-inklusiv-bewegt-5km-saarlouis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Laufmit – inklusiv bewegt
+LOCATION:Saarlouis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lebenshilfe-sa
+ arlouis.de/inklusiv-bewegt/
+TRANSP:TRANSPARENT
+URL:https://lebenshilfe-saarlouis.de/inklusiv-bewegt/
+END:VEVENT
+END:VCALENDAR

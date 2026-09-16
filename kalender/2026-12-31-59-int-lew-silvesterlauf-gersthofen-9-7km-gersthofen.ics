@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-59-int-lew-silvesterlauf-gersthofen-9-7km-gersthofen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:59. Int. LEW Silvesterlauf Gersthofen
+LOCATION:Gersthofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://laufen.de/la
+ ufkalender/details/26V02000732560000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000732560000
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-24-burscheider-stadtlauf-10km-burscheid@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:24. Burscheider Stadtlauf
+LOCATION:Burscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://stadtsportver
+ band-burscheid.de/index.php/stadtlauf-2026
+TRANSP:TRANSPARENT
+URL:https://stadtsportverband-burscheid.de/index.php/stadtlauf-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-triathlon-de-cup-munchen-10km-oberschleissheim@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270628
+SUMMARY:triathlon.de CUP München
+LOCATION:Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://triathlon.de/
+ pages/triathlon-de-cup-muenchen-2026
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-muenchen-2026
+END:VEVENT
+END:VCALENDAR

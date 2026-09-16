@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-hkk-winterlaufserie-5km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270308
+SUMMARY:HKK-Winterlaufserie
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://bremer-winterl
+ aufserie.com/
+TRANSP:TRANSPARENT
+URL:https://bremer-winterlaufserie.com/
+END:VEVENT
+END:VCALENDAR

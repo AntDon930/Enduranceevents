@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-vennlauf-monschau-x-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Vennlauf Monschau
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tv-muetzenich
+ .de/vennlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tv-muetzenich.de/vennlauf/
+END:VEVENT
+END:VCALENDAR

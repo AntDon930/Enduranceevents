@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-bfutr-extreme-18km-kirchzarten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:BFUTR EXTREME
+LOCATION:Kirchzarten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://laufen.de/lau
+ fkalender/details/26V01900003361000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V01900003361000
+END:VEVENT
+END:VCALENDAR

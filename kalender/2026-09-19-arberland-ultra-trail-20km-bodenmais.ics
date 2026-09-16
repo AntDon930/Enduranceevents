@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-arberland-ultra-trail-20km-bodenmais@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Arberland Ultra Trail – Arbersee Trail
+LOCATION:Bodenmais\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://www.woidlaeufe
+ r.de/
+TRANSP:TRANSPARENT
+URL:https://www.woidlaeufer.de/
+END:VEVENT
+END:VCALENDAR

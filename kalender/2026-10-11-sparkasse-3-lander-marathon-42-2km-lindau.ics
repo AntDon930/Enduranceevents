@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-sparkasse-3-lander-marathon-42-2km-lindau@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Sparkasse 3-Länder-Marathon
+LOCATION:Lindau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.sparkass
+ e-marathon.at
+TRANSP:TRANSPARENT
+URL:http://www.sparkasse-marathon.at
+END:VEVENT
+END:VCALENDAR

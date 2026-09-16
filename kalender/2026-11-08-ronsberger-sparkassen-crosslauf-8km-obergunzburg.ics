@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-ronsberger-sparkassen-crosslauf-8km-obergunzburg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Ronsberger Sparkassen-Crosslauf
+LOCATION:Obergünzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 8 km\nhttps://www.anmeldungs-
+ service.de/ronsbergercrosslauf2026/
+TRANSP:TRANSPARENT
+URL:https://www.anmeldungs-service.de/ronsbergercrosslauf2026/
+END:VEVENT
+END:VCALENDAR

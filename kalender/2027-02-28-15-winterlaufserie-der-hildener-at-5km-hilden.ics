@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-15-winterlaufserie-der-hildener-at-5km-hilden@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:15. Winterlaufserie der Hildener AT
+LOCATION:Hilden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/27V10002007360003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V10002007360003
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-12-werdener-crosslauf-5-1km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:12. Werdener Crosslauf – Lauf
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5.1 km\nhttps://laufen.de/lau
+ fkalender/details/26V10002017660001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10002017660001
+END:VEVENT
+END:VCALENDAR

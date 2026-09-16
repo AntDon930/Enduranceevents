@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-schwebebahn-lauf-21-1km-wuppertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Schwebebahn-Lauf – Halbmarathon
+LOCATION:Wuppertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 21.1 km\nhttps://schwebebahn-l
+ auf.de/schwebebahn-lauf/
+TRANSP:TRANSPARENT
+URL:https://schwebebahn-lauf.de/schwebebahn-lauf/
+END:VEVENT
+END:VCALENDAR

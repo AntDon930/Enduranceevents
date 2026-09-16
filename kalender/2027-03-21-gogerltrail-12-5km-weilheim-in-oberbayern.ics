@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-gogerltrail-12-5km-weilheim-in-oberbayern@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Gögerltrail – 12\,5 km GögerlTrail und Oberbayerische Trail-Meiste
+ rschaft
+LOCATION:Weilheim in Oberbayern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.5 km\nhttps://www.sportpro
+ gramme.org/cakespg/events/menue/5047
+TRANSP:TRANSPARENT
+URL:https://www.sportprogramme.org/cakespg/events/menue/5047
+END:VEVENT
+END:VCALENDAR

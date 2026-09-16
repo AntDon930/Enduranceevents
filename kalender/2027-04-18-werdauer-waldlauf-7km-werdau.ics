@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-werdauer-waldlauf-7km-werdau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Werdauer Waldlauf – 7 km (Einzelwertung und Teamwertung)
+LOCATION:Werdau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://anmeldung.lauf
+ auswertung.com/Anmeldung/index.php?VID=1692F017B5
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1692F017B
+ 5
+END:VEVENT
+END:VCALENDAR

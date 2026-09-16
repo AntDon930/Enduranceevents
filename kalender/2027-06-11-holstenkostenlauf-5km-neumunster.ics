@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-holstenkostenlauf-5km-neumunster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Holstenköstenlauf – 5 km Holsten-Galerie-Lauf (Jahrgänge ab 2017)
+LOCATION:Neumünster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.holstenkoe
+ stenlauf.com/infos/
+TRANSP:TRANSPARENT
+URL:https://www.holstenkoestenlauf.com/infos/
+END:VEVENT
+END:VCALENDAR

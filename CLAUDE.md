@@ -25,7 +25,8 @@ Nicht auf einen anderen Branch pushen.
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort |
-| `sw.js` | Service Worker mit EINEM Zweck: `.ics` mit Inhaltstyp `text/calendar` ausliefern (Kalender-Eintrag auf Apple-Geräten). Kein Zwischenspeichern. |
+| `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
+| `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle |
@@ -236,40 +237,31 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   plus Innenabstand – und `width: max-content` am Frame geht NICHT
   (bemisst sich gegenseitig mit `width: 100%` der Tabelle, die Tabelle
   rutscht aus dem Bild).
-- **Kalender-Einträge sind immer ganztägig** (`buildIcs()`,
-  `setupCalendarBox()`): Startzeiten stehen in keiner Quelle verlässlich.
-  `DTEND` bzw. `dates=`/`enddt=` ist **exklusiv**, also Enddatum + 1 Tag –
-  ohne das +1 fehlt der letzte Tag. Google und Outlook über Links, Apple
-  und alles andere über eine `.ics`-Datei.
-  **Der .ics-Weg geht je Gerät anders** (`openIcs()`):
-  - **Apple + Service Worker**: Navigation im selben Tab auf
-    `kalender/<Name>.ics?d=<base64>`. Diesen Ordner gibt es nicht,
-    `sw.js` erfindet die Antwort – mit `Content-Type: text/calendar` und
-    `Content-Disposition: inline`. Erst diese Kopfzeilen bringen Safari
-    dazu, den Termin dem Kalender zu geben; ein Blob oder data-URI hat
-    sie nicht und wird zum Download („Unknown.ics" in einem
-    `about:blank`-Tab). `window.open` ist hier falsch: bleibt Safari beim
-    Download, hätte man einen leeren Tab.
-
-    **Vor der Navigation prüft `openIcs()` die Adresse per `fetch()`.**
-    Ein vorhandener `controller` heißt auf iOS NICHT, dass der Worker die
-    nächste Navigation bedient – wurde die Seite geladen, bevor er die
-    Kontrolle übernahm, geht die Anfrage ins Netz, und dort gibt es
-    /kalender/ nicht: Der Nutzer landete auf der **404-Seite von GitHub
-    Pages**. Antwortet die Probe nicht mit `text/calendar`, wird
-    heruntergeladen. Diese Prüfung nicht entfernen.
-
-    **Stand auf dem Gerät des Nutzers (16.09.2026): funktioniert nicht.**
-    Erst kam der Download, dann (mit Worker) die 404. Der nächste Schritt
-    wäre eine fest gehostete `.ics` je Event plus `webcal://`-Link – nur
-    der öffnet den Kalender garantiert –, oder EIN Abo-Kalender mit allen
-    Events. Beides ist ein Schritt im Workflow und liegt beim Nutzer.
-  - **Alle anderen**: Blob-Download mit ordentlichem Dateinamen. Der
-    Service-Worker-Weg wäre hier schlechter – Chrome und Firefox laden
-    die Antwort ebenfalls herunter, nur mit leerem Tab dahinter.
-
-  Text in `.ics` muss maskiert (`icsEscape`) und ab 75 Zeichen gefaltet
-  werden (`icsFold`), Zeilenenden sind CRLF.
+- **Kalender-Einträge sind immer ganztägig**: Startzeiten stehen in
+  keiner Quelle verlässlich. `DTEND` bzw. `dates=`/`enddt=` ist
+  **exklusiv**, also Enddatum + 1 Tag – ohne das +1 fehlt der letzte Tag.
+- **Die `.ics`-Dateien liegen fertig im Repo** (`kalender/`, erzeugt von
+  `scripts/build_ics.py`, aufgerufen von `update_events.py` nach dem
+  Aufräumen). Grund: Auf iPhone/iPad übergibt Safari einen Termin nur an
+  den Kalender, wenn die Datei **vom Server** mit
+  `Content-Type: text/calendar` kommt. Drei Versuche, das im Browser zu
+  lösen, sind am Gerät gescheitert – data-URI, Blob und eine vom Service
+  Worker erfundene Antwort landeten alle als Download („Unknown.ics",
+  Teilen-Liste ohne Kalender) bzw. auf der 404-Seite von GitHub Pages.
+  Der Service Worker (`sw.js`) ist deshalb wieder **entfernt**, ebenso
+  die ICS-Erzeugung in `events.html`: **einzige Quelle ist jetzt Python.**
+  Der Link im Detailbereich trägt bewusst **kein `download`-Attribut** –
+  das würde Safari das Übergeben an den Kalender wieder verbieten.
+- **Der Dateiname wird zweimal berechnet**: `ics_dateiname()` in
+  `build_ics.py` und `icsFileName()` in `events.html`
+  (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
+  ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
+  dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
+  Namen, weil Name + Datum + Distanz nicht eindeutig sind
+  („Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten).
+- **`DTSTAMP` ist fest** (`20260101T000000Z`), nicht „jetzt": sonst
+  änderte jeder Lauf alle 4.150 Dateien und der wöchentliche Commit wäre
+  ein Riesen-Diff ohne inhaltliche Änderung.
 - **Spaltenbreiten über Klassen** (`.col-name`, `.col-anzahl`, …), nicht
   `nth-child`: Entfernung und Anzahl kommen und gehen, jede Kombination
   bräuchte sonst eigene Regeln. `CHEVRON_SVG` steht oben bei `state` -

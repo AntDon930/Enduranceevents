@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-col-d-allrath-5km-grevenbroich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Col d'Allrath
+LOCATION:Grevenbroich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://col-de-allrath
+ .de/
+TRANSP:TRANSPARENT
+URL:https://col-de-allrath.de/
+END:VEVENT
+END:VCALENDAR

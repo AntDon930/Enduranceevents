@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-10-hyrox-frankfurt-x-frankfurt-am-main@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261214
+SUMMARY:HYROX Frankfurt
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://hyrox.com/event/f
+ itness-first-hyrox-frankfurt/
+TRANSP:TRANSPARENT
+URL:https://hyrox.com/event/fitness-first-hyrox-frankfurt/
+END:VEVENT
+END:VCALENDAR

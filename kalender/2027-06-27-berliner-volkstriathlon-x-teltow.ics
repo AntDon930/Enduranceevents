@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-berliner-volkstriathlon-x-teltow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Berliner Volkstriathlon
+LOCATION:Teltow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.berlin-timing
+ .de/Berliner-Volkstriathlon
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/Berliner-Volkstriathlon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-rottaler-volksmarathon-42-2km-bad-griesbach-im-rottal@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Rottaler Volksmarathon – Marathon
+LOCATION:Bad Griesbach im Rottal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.bad-gri
+ esbach.de/rottaler-volksmarathon
+TRANSP:TRANSPARENT
+URL:https://www.bad-griesbach.de/rottaler-volksmarathon
+END:VEVENT
+END:VCALENDAR

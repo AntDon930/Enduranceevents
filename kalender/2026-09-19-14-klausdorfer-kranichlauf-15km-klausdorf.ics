@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-14-klausdorfer-kranichlauf-15km-klausdorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:14. Klausdorfer Kranichlauf
+LOCATION:Klausdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.klausdorf
+ er-sc.de/kranichlauf/
+TRANSP:TRANSPARENT
+URL:https://www.klausdorfer-sc.de/kranichlauf/
+END:VEVENT
+END:VCALENDAR

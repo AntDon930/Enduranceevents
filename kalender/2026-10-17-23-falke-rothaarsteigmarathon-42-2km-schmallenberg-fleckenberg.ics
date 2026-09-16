@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-23-falke-rothaarsteigmarathon-42-2km-schmallenberg-fleckenb
+ erg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:23. Falke-Rothaarsteigmarathon
+LOCATION:Schmallenberg-Fleckenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
+ aufkalender/details/26V19000221160002
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V19000221160002
+END:VEVENT
+END:VCALENDAR

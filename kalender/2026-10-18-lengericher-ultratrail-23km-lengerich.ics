@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-lengericher-ultratrail-23km-lengerich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Lengericher UltraTrail
+LOCATION:Lengerich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 23 km\nhttps://my.raceresult.
+ com/377610/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/377610/
+END:VEVENT
+END:VCALENDAR

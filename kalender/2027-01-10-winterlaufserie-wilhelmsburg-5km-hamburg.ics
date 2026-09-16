@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-winterlaufserie-wilhelmsburg-5km-hamburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270308
+SUMMARY:Winterlaufserie Wilhelmsburg – 1 Runde - ca. 5 km
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.winterlauf
+ serie-wilhelmsburg.de
+TRANSP:TRANSPARENT
+URL:https://www.winterlaufserie-wilhelmsburg.de
+END:VEVENT
+END:VCALENDAR

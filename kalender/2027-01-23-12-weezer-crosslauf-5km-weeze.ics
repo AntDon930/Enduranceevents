@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-12-weezer-crosslauf-5km-weeze@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:12. Weezer Crosslauf
+LOCATION:Weeze\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://laufen.de/laufk
+ alender/details/27V10001010760001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V10001010760001
+END:VEVENT
+END:VCALENDAR

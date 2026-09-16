@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-15-spannrit-volks-und-strassenlauf-tsg-kleinosth-10km-klein
+ ostheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:15. Spannrit Volks- und Straßenlauf TSG Kleinostheim
+LOCATION:Kleinostheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/416185/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/416185/
+END:VEVENT
+END:VCALENDAR

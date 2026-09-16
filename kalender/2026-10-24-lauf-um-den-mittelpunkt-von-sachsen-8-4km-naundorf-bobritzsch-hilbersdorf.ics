@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-lauf-um-den-mittelpunkt-von-sachsen-8-4km-naundorf-bobritzs
+ ch-hilbersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Lauf um den Mittelpunkt von Sachsen – 8\,4 km Hauptlauf
+LOCATION:Naundorf (Bobritzsch-Hilbersdorf)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://ladv.de/auss
+ chreibung/detail/47354/Lauf-um-den-Mittelpunkt-von-Sachsen-Naundorf-%28Bo
+ britzsch-Hilbersdorf%29.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/47354/Lauf-um-den-Mittelpunkt-von
+ -Sachsen-Naundorf-%28Bobritzsch-Hilbersdorf%29.htm
+END:VEVENT
+END:VCALENDAR

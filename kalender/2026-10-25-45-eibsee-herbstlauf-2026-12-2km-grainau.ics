@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-45-eibsee-herbstlauf-2026-12-2km-grainau@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:45. Eibsee-Herbstlauf 2026
+LOCATION:Grainau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.2 km\nhttps://rennmeldung
+ .de/cgi-bin/bewerb.cgi?bewerb=04240
+TRANSP:TRANSPARENT
+URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04240
+END:VEVENT
+END:VCALENDAR

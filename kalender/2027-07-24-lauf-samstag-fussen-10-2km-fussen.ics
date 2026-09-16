@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-lauf-samstag-fussen-10-2km-fussen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Lauf-Samstag Füssen – Viertelmarathon
+LOCATION:Füssen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://www.davengo
+ .com/event/overview/lauf-samstag-fuessen-2027
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027
+END:VEVENT
+END:VCALENDAR

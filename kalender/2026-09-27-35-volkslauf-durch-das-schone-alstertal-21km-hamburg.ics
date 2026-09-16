@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-35-volkslauf-durch-das-schone-alstertal-21km-hamburg@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:35. Volkslauf durch das schöne Alstertal – Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.lauftreff
+ -alstertal.de/volkslauf
+TRANSP:TRANSPARENT
+URL:https://www.lauftreff-alstertal.de/volkslauf
+END:VEVENT
+END:VCALENDAR

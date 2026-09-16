@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-34-salzerlauf-2027-10km-salzkotten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:34. Sälzerlauf 2027
+LOCATION:Salzkotten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/27V19000081760501
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V19000081760501
+END:VEVENT
+END:VCALENDAR

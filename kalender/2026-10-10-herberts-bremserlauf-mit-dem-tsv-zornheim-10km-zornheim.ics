@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-herberts-bremserlauf-mit-dem-tsv-zornheim-10km-zornheim@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Herberts Bremserlauf mit dem TSV Zornheim
+LOCATION:Zornheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
+ s/10021/3216
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3216
+END:VEVENT
+END:VCALENDAR

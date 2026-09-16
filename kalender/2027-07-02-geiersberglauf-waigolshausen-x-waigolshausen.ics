@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-geiersberglauf-waigolshausen-x-waigolshausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270703
+SUMMARY:Geiersberglauf Waigolshausen
+LOCATION:Waigolshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: -\nhttps://www.tsv-waigolshaus
+ en.de/seite/504344/laufsport--geiersberglauf.html
+TRANSP:TRANSPARENT
+URL:https://www.tsv-waigolshausen.de/seite/504344/laufsport--geiersberglau
+ f.html
+END:VEVENT
+END:VCALENDAR

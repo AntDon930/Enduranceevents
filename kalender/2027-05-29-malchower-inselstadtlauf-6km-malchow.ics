@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-malchower-inselstadtlauf-6km-malchow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Malchower Inselstadtlauf
+LOCATION:Malchow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.visit-malc
+ how.de/themen/veranstaltungsh%C3%B6hepunkte/inselstadtlauf
+TRANSP:TRANSPARENT
+URL:https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inse
+ lstadtlauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-12-erfurter-campuslauf-10km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270512
+DTEND;VALUE=DATE:20270513
+SUMMARY:Erfurter Campuslauf
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.uni-erfur
+ t.de/universitaet/aktuelles/veranstaltungsreihen/campuslauf
+TRANSP:TRANSPARENT
+URL:https://www.uni-erfurt.de/universitaet/aktuelles/veranstaltungsreihen/
+ campuslauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-maudacher-kerwelauf-10-3km-ludwigshafen-am-rhein@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Maudacher Kerwelauf – 10\,3 km Hauptlauf
+LOCATION:Ludwigshafen am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.3 km\nhttps://runtix.com/
+ sts/10021/3218
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3218
+END:VEVENT
+END:VCALENDAR

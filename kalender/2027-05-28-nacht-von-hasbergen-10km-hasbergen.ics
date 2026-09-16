@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-nacht-von-hasbergen-10km-hasbergen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:Nacht Von Hasbergen
+LOCATION:Hasbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufen-os
+ .de/wettkaempfe/46-nacht-von-hasbergen-28-mai-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/46-nacht-von-hasbergen-28-mai-202
+ 7
+END:VEVENT
+END:VCALENDAR

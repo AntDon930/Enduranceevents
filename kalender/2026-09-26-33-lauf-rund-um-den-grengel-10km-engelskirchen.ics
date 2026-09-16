@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-33-lauf-rund-um-den-grengel-10km-engelskirchen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:33. Lauf Rund um den Grengel
+LOCATION:Engelskirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V10003004160001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10003004160001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-heinerman-triathlon-20km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Heinerman Triathlon – Sprint
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttp://www.heinerman.
+ de/
+TRANSP:TRANSPARENT
+URL:http://www.heinerman.de/
+END:VEVENT
+END:VCALENDAR

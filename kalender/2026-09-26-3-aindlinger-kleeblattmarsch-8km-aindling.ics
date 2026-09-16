@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-3-aindlinger-kleeblattmarsch-8km-aindling@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:3. Aindlinger Kleeblattmarsch
+LOCATION:Aindling\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://laufen.de/lauf
+ kalender/details/26V02000738860001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000738860001
+END:VEVENT
+END:VCALENDAR

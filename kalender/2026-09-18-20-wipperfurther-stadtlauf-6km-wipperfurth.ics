@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-20-wipperfurther-stadtlauf-6km-wipperfurth@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:20. Wipperfürther Stadtlauf
+LOCATION:Wipperfürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.stadtlauf-
+ wipperfuerth.de
+TRANSP:TRANSPARENT
+URL:https://www.stadtlauf-wipperfuerth.de
+END:VEVENT
+END:VCALENDAR

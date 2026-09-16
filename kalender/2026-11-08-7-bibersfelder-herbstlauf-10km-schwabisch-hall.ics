@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-7-bibersfelder-herbstlauf-10km-schwabisch-hall@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:7. Bibersfelder Herbstlauf
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://stadtwerke-ha
+ ll.de/ueber-uns/wir-fuer-die-region/laufevents/bibersfeld
+TRANSP:TRANSPARENT
+URL:https://stadtwerke-hall.de/ueber-uns/wir-fuer-die-region/laufevents/bi
+ bersfeld
+END:VEVENT
+END:VCALENDAR

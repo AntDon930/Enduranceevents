@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-rats-run-hintersteinenberg-11km-alfdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Rats-Run - Hintersteinenberg
+LOCATION:Alfdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://v2.rats-runne
+ rs.de/hintersteinenberg/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/hintersteinenberg/
+END:VEVENT
+END:VCALENDAR

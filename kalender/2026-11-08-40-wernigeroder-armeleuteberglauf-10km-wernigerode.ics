@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-40-wernigeroder-armeleuteberglauf-10km-wernigerode@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:40. Wernigeröder Armeleuteberglauf
+LOCATION:Wernigerode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10 km\nhttps://harz-gebirgslau
+ f.de/event/40-wernigeroeder-armeleuteberglauf.html
+TRANSP:TRANSPARENT
+URL:https://harz-gebirgslauf.de/event/40-wernigeroeder-armeleuteberglauf.h
+ tml
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-49-augsburger-aok-winterlaufserie-sudring-9km-augsburg@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:49. Augsburger AOK-Winterlaufserie Südring
+LOCATION:Augsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
+ kalender/details/26V02000736460005
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000736460005
+END:VEVENT
+END:VCALENDAR

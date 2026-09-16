@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-weidatalcross-8km-weissendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Weidatalcross
+LOCATION:Weißendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://runtix.com/sts
+ /10021/3222
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3222
+END:VEVENT
+END:VCALENDAR

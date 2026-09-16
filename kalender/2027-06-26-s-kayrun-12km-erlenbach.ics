@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-s-kayrun-12km-erlenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:S'KayRun – 12 km Hindernislauf mit 250 Hm und 20 Hindernissen
+LOCATION:Erlenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.datasp
+ ort.de/anmeldeservice/skayrun2027
+TRANSP:TRANSPARENT
+URL:https://www.datasport.de/anmeldeservice/skayrun2027
+END:VEVENT
+END:VCALENDAR

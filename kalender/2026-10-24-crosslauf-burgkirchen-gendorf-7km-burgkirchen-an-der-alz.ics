@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-crosslauf-burgkirchen-gendorf-7km-burgkirchen-an-der-alz@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Crosslauf - Burgkirchen/Gendorf
+LOCATION:Burgkirchen an der Alz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 7 km\nhttps://www.crosslauf-i
+ s.de/pages/archiv/ausschreibungen/2026/CRL05.php
+TRANSP:TRANSPARENT
+URL:https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.ph
+ p
+END:VEVENT
+END:VCALENDAR

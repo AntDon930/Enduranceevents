@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-32-rurbruckenlauf-12-5km-linnich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:32. Rurbrückenlauf
+LOCATION:Linnich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://laufen.de/l
+ aufkalender/details/26V10004005660001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10004005660001
+END:VEVENT
+END:VCALENDAR

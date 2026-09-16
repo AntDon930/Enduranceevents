@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-sollingquerung-x-dassel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Sollingquerung
+LOCATION:Dassel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sollingquerung.de
+ /
+TRANSP:TRANSPARENT
+URL:https://sollingquerung.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-neu-schmellwitzer-herbstlauf-10km-schmellwitz@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Neu-Schmellwitzer Herbstlauf
+LOCATION:Schmellwitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.bv-schmel
+ lwitz.de/herbstlauf/
+TRANSP:TRANSPARENT
+URL:https://www.bv-schmellwitz.de/herbstlauf/
+END:VEVENT
+END:VCALENDAR

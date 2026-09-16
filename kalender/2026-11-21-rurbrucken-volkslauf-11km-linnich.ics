@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-rurbrucken-volkslauf-11km-linnich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Rurbrücken - Volkslauf
+LOCATION:Linnich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://my.raceresult
+ .com/419683/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/419683/
+END:VEVENT
+END:VCALENDAR

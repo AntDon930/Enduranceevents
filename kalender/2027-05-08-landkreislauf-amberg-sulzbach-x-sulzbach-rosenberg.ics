@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-landkreislauf-amberg-sulzbach-x-sulzbach-rosenberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Landkreislauf Amberg-Sulzbach
+LOCATION:Sulzbach-Rosenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.kreis-as.de/R
+ egion-Sport/Landkreislauf
+TRANSP:TRANSPARENT
+URL:https://www.kreis-as.de/Region-Sport/Landkreislauf
+END:VEVENT
+END:VCALENDAR

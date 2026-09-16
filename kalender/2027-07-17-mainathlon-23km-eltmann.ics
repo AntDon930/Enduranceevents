@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-mainathlon-23km-eltmann@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Mainathlon – 23 km MTB / Cross\, 550 Hm
+LOCATION:Eltmann\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 23 km\nhttps://mainathlon.de/
+ home/
+TRANSP:TRANSPARENT
+URL:https://mainathlon.de/home/
+END:VEVENT
+END:VCALENDAR

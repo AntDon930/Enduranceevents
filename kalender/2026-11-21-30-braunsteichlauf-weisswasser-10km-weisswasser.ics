@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-30-braunsteichlauf-weisswasser-10km-weisswasser@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:30. Braunsteichlauf Weißwasser
+LOCATION:Weißwasser\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V15900001860003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V15900001860003
+END:VEVENT
+END:VCALENDAR

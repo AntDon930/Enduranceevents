@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-04-34-wiedenbrucker-christkindllauf-10km-rheda-wiedenbruck@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:34. Wiedenbrücker Christkindllauf
+LOCATION:Rheda-Wiedenbrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lgburg.de
+ /
+TRANSP:TRANSPARENT
+URL:https://www.lgburg.de/
+END:VEVENT
+END:VCALENDAR

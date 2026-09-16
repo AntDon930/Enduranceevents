@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-52-int-silvester-strassenlauf-kottweiler-schwand-10km-kottw
+ eiler-schwanden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:52. Int. Silvester-Straßenlauf Kottweiler-Schwanden
+LOCATION:Kottweiler-Schwanden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V11000024061001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V11000024061001
+END:VEVENT
+END:VCALENDAR

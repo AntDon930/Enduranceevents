@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-rund-um-den-fuhlinger-see-10km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Rund um den Fühlinger See – 10 km Männer\, Frauen\, Jugend U12 und
+  älter
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.llg80nordp
+ arkkoeln.de/?page_id=225
+TRANSP:TRANSPARENT
+URL:http://www.llg80nordparkkoeln.de/?page_id=225
+END:VEVENT
+END:VCALENDAR

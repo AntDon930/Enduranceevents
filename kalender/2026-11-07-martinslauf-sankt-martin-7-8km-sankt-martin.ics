@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-martinslauf-sankt-martin-7-8km-sankt-martin@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Martinslauf - Sankt Martin – Hauptlauf
+LOCATION:Sankt Martin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://runtix.com/s
+ ts/10021/3223
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3223
+END:VEVENT
+END:VCALENDAR

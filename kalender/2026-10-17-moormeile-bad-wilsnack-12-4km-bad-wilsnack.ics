@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-moormeile-bad-wilsnack-12-4km-bad-wilsnack@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Moormeile Bad Wilsnack – 12\,4 km durch Wilsnacker Wälder auf Asph
+ alt und Waldwegen
+LOCATION:Bad Wilsnack\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.4 km\nhttps://www.moormei
+ le.de/
+TRANSP:TRANSPARENT
+URL:https://www.moormeile.de/
+END:VEVENT
+END:VCALENDAR

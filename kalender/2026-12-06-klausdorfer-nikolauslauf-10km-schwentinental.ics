@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-klausdorfer-nikolauslauf-10km-schwentinental@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Klausdorfer Nikolauslauf
+LOCATION:Schwentinental\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
+ om/event/overview/41-klausdorfer-nikolauslauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-202
+ 6
+END:VEVENT
+END:VCALENDAR

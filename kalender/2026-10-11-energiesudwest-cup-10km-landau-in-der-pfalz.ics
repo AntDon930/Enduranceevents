@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-energiesudwest-cup-10km-landau-in-der-pfalz@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:EnergieSüdwest Cup – 10 km Volkslauf
+LOCATION:Landau in der Pfalz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
+ s/10021/3133
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3133
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-23-silvesterlauf-nurnberg-10km-nurnberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:23. Silvesterlauf Nürnberg – 10 km Lauf\, Teilnehmerlimit nicht an
+ gegeben
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.maxx-timi
+ ng.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://www.maxx-timing.de/anmeldung
+END:VEVENT
+END:VCALENDAR

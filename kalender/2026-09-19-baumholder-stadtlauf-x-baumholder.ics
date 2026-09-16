@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-baumholder-stadtlauf-x-baumholder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Baumholder Stadtlauf
+LOCATION:Baumholder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://baumholder-stadtl
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://baumholder-stadtlauf.de/
+END:VEVENT
+END:VCALENDAR

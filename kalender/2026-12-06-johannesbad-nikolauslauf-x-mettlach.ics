@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-johannesbad-nikolauslauf-x-mettlach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Johannesbad Nikolauslauf
+LOCATION:Mettlach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/48938/2.-Johannesbad-Nikolauslauf-Orscholz.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48938/2.-Johannesbad-Nikolauslauf
+ -Orscholz.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-scharmutzelsee-triathlon-x-bad-saarow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Scharmützelsee Triathlon
+LOCATION:Bad Saarow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.berlin-timing
+ .de/Scharmuetzelsee-Triathlon
+TRANSP:TRANSPARENT
+URL:https://www.berlin-timing.de/Scharmuetzelsee-Triathlon
+END:VEVENT
+END:VCALENDAR

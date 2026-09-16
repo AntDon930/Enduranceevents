@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-22-europa-marathon-gorlitz-42-2km-gorlitz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:22. Europa-Marathon Görlitz
+LOCATION:Görlitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.europama
+ rathon.de
+TRANSP:TRANSPARENT
+URL:http://www.europamarathon.de
+END:VEVENT
+END:VCALENDAR

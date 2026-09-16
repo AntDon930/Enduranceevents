@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-heidelauf-halle-10km-halle-saale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Heidelauf Halle
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://heidelauf-hal
+ le.de
+TRANSP:TRANSPARENT
+URL:https://heidelauf-halle.de
+END:VEVENT
+END:VCALENDAR

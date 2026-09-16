@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-mohnesee-pokal-lauf-30km-mohnesee-gunne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Möhnesee-Pokal-Lauf
+LOCATION:Möhnesee-Günne\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://laufen.de/lau
+ fkalender/details/26V19000291760001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V19000291760001
+END:VEVENT
+END:VCALENDAR

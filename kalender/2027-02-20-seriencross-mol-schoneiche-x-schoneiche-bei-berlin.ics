@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-seriencross-mol-schoneiche-x-schoneiche-bei-berlin@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Seriencross MOL - Schöneiche
+LOCATION:Schöneiche bei Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://my.raceresult.com/
+ 408346/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/408346/
+END:VEVENT
+END:VCALENDAR

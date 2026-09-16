@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-kustenmarathon-otterndorf-7-5km-osterbruch@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Küstenmarathon Otterndorf – 7\,5 km Walking : Offen für alle Alter
+ sklassen.
+LOCATION:Osterbruch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.davengo.
+ com/event/overview/26-sparkassen-kuestenmarathon-2026
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/26-sparkassen-kuestenmarathon-2
+ 026
+END:VEVENT
+END:VCALENDAR

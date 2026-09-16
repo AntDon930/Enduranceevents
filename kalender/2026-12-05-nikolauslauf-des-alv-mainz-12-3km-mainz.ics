@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolauslauf-des-alv-mainz-12-3km-mainz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolauslauf des ALV Mainz
+LOCATION:Mainz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.3 km\nhttps://runtix.com/
+ sts/10021/3171
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3171
+END:VEVENT
+END:VCALENDAR

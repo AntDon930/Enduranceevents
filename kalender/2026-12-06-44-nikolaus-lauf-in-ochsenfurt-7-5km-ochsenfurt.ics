@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-44-nikolaus-lauf-in-ochsenfurt-7-5km-ochsenfurt@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:44. Nikolaus-Lauf in Ochsenfurt
+LOCATION:Ochsenfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://laufen.de/la
+ ufkalender/details/26V02000642160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000642160000
+END:VEVENT
+END:VCALENDAR

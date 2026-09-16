@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-17-kolner-tsc-marathons-42-2km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+SUMMARY:Kölner TSC Marathons
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://triathlonst
+ eckelcologne.de/veranstaltungen
+TRANSP:TRANSPARENT
+URL:https://triathlonsteckelcologne.de/veranstaltungen
+END:VEVENT
+END:VCALENDAR

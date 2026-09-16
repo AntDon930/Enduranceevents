@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-15-bokeler-6-stundenlauf-10km-bokel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:15. Bokeler 6 Stundenlauf – 6 Sunden
+LOCATION:Bokel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26K17000000060021
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26K17000000060021
+END:VEVENT
+END:VCALENDAR

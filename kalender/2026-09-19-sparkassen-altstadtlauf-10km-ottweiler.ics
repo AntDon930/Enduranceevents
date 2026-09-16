@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-sparkassen-altstadtlauf-10km-ottweiler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Sparkassen-Altstadtlauf
+LOCATION:Ottweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V14000007960001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V14000007960001
+END:VEVENT
+END:VCALENDAR

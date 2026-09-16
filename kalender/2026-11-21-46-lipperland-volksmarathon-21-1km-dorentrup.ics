@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-46-lipperland-volksmarathon-21-1km-dorentrup@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:46. Lipperland Volksmarathon – Halbmarathon
+LOCATION:Dörentrup\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lipperl
+ and-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.lipperland-marathon.de/
+END:VEVENT
+END:VCALENDAR

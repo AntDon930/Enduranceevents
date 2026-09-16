@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-bietlauf-fur-einen-wohltatigen-zweck-5km-tiefenbronn@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Bietlauf für einen Wohltätigen Zweck – 5 km Crosslauf (Freizeitlau
+ f)
+LOCATION:Tiefenbronn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://ladv.de/ausschr
+ eibung/detail/49110/25.-Bietlauf-f%C3%BCr-einen-Wohlt%C3%A4tigen-Zweck-Ti
+ efenbronn-M%C3%BChlhausen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49110/25.-Bietlauf-f%C3%BCr-einen
+ -Wohlt%C3%A4tigen-Zweck-Tiefenbronn-M%C3%BChlhausen.htm
+END:VEVENT
+END:VCALENDAR

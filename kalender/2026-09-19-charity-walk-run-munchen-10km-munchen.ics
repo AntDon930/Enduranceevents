@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-charity-walk-run-munchen-10km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Charity Walk & Run - München
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://charity-walk.
+ de/veranstaltungsorte/muenchen/
+TRANSP:TRANSPARENT
+URL:https://charity-walk.de/veranstaltungsorte/muenchen/
+END:VEVENT
+END:VCALENDAR

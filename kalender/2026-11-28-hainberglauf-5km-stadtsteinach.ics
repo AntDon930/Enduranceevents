@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-hainberglauf-5km-stadtsteinach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Hainberglauf
+LOCATION:Stadtsteinach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 5 km\nhttps://my.raceresult.co
+ m/399160/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/399160/
+END:VEVENT
+END:VCALENDAR

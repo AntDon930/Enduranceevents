@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-frau-holle-marchenland-ultra-57km-hessisch-lichtenau@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Frau Holle Märchenland Ultra
+LOCATION:Hessisch Lichtenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 57 km\nhttps://my.raceresult
+ .com/422662/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/422662/
+END:VEVENT
+END:VCALENDAR

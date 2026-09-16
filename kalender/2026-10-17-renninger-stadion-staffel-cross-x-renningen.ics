@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-renninger-stadion-staffel-cross-x-renningen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Renninger Stadion-Staffel-Cross
+LOCATION:Renningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://www.spvgg-renninge
+ n.de/leichtathletik/cross-staffellauf
+TRANSP:TRANSPARENT
+URL:https://www.spvgg-renningen.de/leichtathletik/cross-staffellauf
+END:VEVENT
+END:VCALENDAR

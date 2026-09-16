@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-spitzen-ultra-46km-bramsche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Spitzen Ultra
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://lg-lottehalen
+ .jimdofree.com/spitzen-ultra-24-10/
+TRANSP:TRANSPARENT
+URL:https://lg-lottehalen.jimdofree.com/spitzen-ultra-24-10/
+END:VEVENT
+END:VCALENDAR

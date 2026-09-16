@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-bremer-kuhcross-qx-8km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Bremer Kuhcross QX
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 8 km\nhttps://atsbuntentor.de
+ /veranstaltungen/kuhcross.html
+TRANSP:TRANSPARENT
+URL:https://atsbuntentor.de/veranstaltungen/kuhcross.html
+END:VEVENT
+END:VCALENDAR

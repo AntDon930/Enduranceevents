@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-kornwestheimer-triathlon-5km-kornwestheim@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Kornwestheimer Triathlon
+LOCATION:Kornwestheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.szk-triath
+ lon.de/kornwestheimer-sika-triathlon-2026/
+TRANSP:TRANSPARENT
+URL:https://www.szk-triathlon.de/kornwestheimer-sika-triathlon-2026/
+END:VEVENT
+END:VCALENDAR

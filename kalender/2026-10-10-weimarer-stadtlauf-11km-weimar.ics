@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-weimarer-stadtlauf-11km-weimar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Weimarer Stadtlauf
+LOCATION:Weimar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://hsv-weimar.de
+ /hsv/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://hsv-weimar.de/hsv/stadtlauf/
+END:VEVENT
+END:VCALENDAR

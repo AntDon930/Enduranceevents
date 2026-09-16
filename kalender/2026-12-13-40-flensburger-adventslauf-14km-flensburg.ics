@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-40-flensburger-adventslauf-14km-flensburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:40. Flensburger Adventslauf
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.stgk.de/V
+ eranstaltung_Detail.asp?Code=65
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=65
+END:VEVENT
+END:VCALENDAR

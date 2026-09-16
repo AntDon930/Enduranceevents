@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-30-15-aok-firmenlauf-ludwigsburg-5-7km-ludwigsburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:15. AOK Firmenlauf Ludwigsburg
+LOCATION:Ludwigsburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://ludwigsburg.
+ bw-running.de/home
+TRANSP:TRANSPARENT
+URL:https://ludwigsburg.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

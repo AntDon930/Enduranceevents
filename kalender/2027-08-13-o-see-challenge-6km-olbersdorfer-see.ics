@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-o-see-challenge-6km-olbersdorfer-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270816
+SUMMARY:O-SEE Challenge – Super Sprint Triathlon (O-SEE X'Kids Lang)
+LOCATION:Olbersdorfer See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.xterraplan
+ et.com/event/xterra-germany
+TRANSP:TRANSPARENT
+URL:https://www.xterraplanet.com/event/xterra-germany
+END:VEVENT
+END:VCALENDAR

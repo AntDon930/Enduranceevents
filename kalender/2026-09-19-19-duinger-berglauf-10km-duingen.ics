@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-19-duinger-berglauf-10km-duingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:19. Duinger Berglauf – Lauf 10 km
+LOCATION:Duingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10 km\nhttps://www.sportclub-d
+ uingen.com/berglauf
+TRANSP:TRANSPARENT
+URL:https://www.sportclub-duingen.com/berglauf
+END:VEVENT
+END:VCALENDAR

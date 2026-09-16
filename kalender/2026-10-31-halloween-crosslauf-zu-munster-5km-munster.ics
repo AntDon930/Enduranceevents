@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloween-crosslauf-zu-munster-5km-munster@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloween Crosslauf zu Munster
+LOCATION:Munster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://ladv.de/ausschr
+ eibung/detail/46123/Kreismeisterschaft-und-3.-Halloween-Crosslauf-zu-Muns
+ ter-Munster.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/46123/Kreismeisterschaft-und-3.-H
+ alloween-Crosslauf-zu-Munster-Munster.htm
+END:VEVENT
+END:VCALENDAR

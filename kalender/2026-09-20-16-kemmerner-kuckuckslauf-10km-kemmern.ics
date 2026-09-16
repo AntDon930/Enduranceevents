@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-16-kemmerner-kuckuckslauf-10km-kemmern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:16. Kemmerner Kuckuckslauf
+LOCATION:Kemmern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://kemmerner-kuc
+ kuckslauf.de/infos/laufstrecken
+TRANSP:TRANSPARENT
+URL:https://kemmerner-kuckuckslauf.de/infos/laufstrecken
+END:VEVENT
+END:VCALENDAR

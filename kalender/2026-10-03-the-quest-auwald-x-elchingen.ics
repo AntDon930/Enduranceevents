@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-the-quest-auwald-x-elchingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:The Quest – Auwald
+LOCATION:Elchingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://laufsinn-ulm.de/t
+ he-quest/
+TRANSP:TRANSPARENT
+URL:https://laufsinn-ulm.de/the-quest/
+END:VEVENT
+END:VCALENDAR

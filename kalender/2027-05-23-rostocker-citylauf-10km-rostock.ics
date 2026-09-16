@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rostocker-citylauf-10km-rostock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Rostocker Citylauf
+LOCATION:Rostock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rostocker-cit
+ ylauf.de/
+TRANSP:TRANSPARENT
+URL:https://rostocker-citylauf.de/
+END:VEVENT
+END:VCALENDAR

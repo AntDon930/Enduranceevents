@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-16-furth-firmenlauf-6km-furth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:Fürth Firmenlauf
+LOCATION:Fürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://runningconcept
+ s.de/fuerth-firmenlauf
+TRANSP:TRANSPARENT
+URL:https://runningconcepts.de/fuerth-firmenlauf
+END:VEVENT
+END:VCALENDAR

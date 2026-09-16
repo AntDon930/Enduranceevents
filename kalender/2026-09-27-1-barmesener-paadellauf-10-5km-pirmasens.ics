@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-1-barmesener-paadellauf-10-5km-pirmasens@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:1. Bärmesener Päädellauf
+LOCATION:Pirmasens\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://laufen.de/l
+ aufkalender/details/26V11000026160002
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V11000026160002
+END:VEVENT
+END:VCALENDAR

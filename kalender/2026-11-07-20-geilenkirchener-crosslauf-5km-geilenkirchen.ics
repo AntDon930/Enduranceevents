@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-20-geilenkirchener-crosslauf-5km-geilenkirchen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:20. Geilenkirchener Crosslauf
+LOCATION:Geilenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://www.atvgeilenki
+ rchen.de/index.php/me-cross
+TRANSP:TRANSPARENT
+URL:https://www.atvgeilenkirchen.de/index.php/me-cross
+END:VEVENT
+END:VCALENDAR

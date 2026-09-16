@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-panorama-run-guntersleben-6-5km-guntersleben@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Panorama Run Güntersleben – Hobbylauf 6\,5 km ohne Altersklassenwe
+ rtung
+LOCATION:Güntersleben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://my.raceresul
+ t.com/397286/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/397286/
+END:VEVENT
+END:VCALENDAR

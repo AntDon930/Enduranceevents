@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-rodheimer-volkslauf-5km-rosbach-vor-der-hohe@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Rodheimer Volkslauf – 5 km Fitnesslauf\, auch offen für Walker und
+  Nordic Walker
+LOCATION:Rosbach vor der Höhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sgrodheim.
+ de/leichtathletik/rodheimer-volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/
+END:VEVENT
+END:VCALENDAR

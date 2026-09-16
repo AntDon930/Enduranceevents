@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-waaker-bystopen-attacke-5km-waake@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Waaker Bystopen-Attacke
+LOCATION:Waake\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.bystopen-a
+ ttacke.com
+TRANSP:TRANSPARENT
+URL:https://www.bystopen-attacke.com
+END:VEVENT
+END:VCALENDAR

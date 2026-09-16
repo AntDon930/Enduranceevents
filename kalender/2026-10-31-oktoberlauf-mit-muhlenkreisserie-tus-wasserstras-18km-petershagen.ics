@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-oktoberlauf-mit-muhlenkreisserie-tus-wasserstras-18km-peter
+ shagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße
+LOCATION:Petershagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://tus-wasserstr
+ asse.de/sport/laufen
+TRANSP:TRANSPARENT
+URL:https://tus-wasserstrasse.de/sport/laufen
+END:VEVENT
+END:VCALENDAR

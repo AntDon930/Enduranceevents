@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-ugly-christmas-sweater-run-leverkusen-5km-leverkusen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Ugly Christmas Sweater Run - Leverkusen
+LOCATION:Leverkusen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/409571/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/409571/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-rund-um-den-kellerskopf-10-5km-wiesbaden@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Rund um den Kellerskopf – 10\,5 km Runde um den Kellerskopf
+LOCATION:Wiesbaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://tus-rambach
+ .de/ruk-2026
+TRANSP:TRANSPARENT
+URL:https://tus-rambach.de/ruk-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-16-weddelbrooker-dorflauf-10km-weddelbrook@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:16. Weddelbrooker Dorflauf
+LOCATION:Weddelbrook\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26K17000000060058
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26K17000000060058
+END:VEVENT
+END:VCALENDAR

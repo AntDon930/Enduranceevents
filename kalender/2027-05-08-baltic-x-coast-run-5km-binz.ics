@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-baltic-x-coast-run-5km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Baltic X Coast Run – 5 km (ab 8 Jahre)
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sportstimi
+ ng.dk/event/18495
+TRANSP:TRANSPARENT
+URL:https://www.sportstiming.dk/event/18495
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-nikolauslauf-landsberg-a-lech-10km-landsberg-am-lech@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Nikolauslauf Landsberg a. Lech – 10 km Lauf
+LOCATION:Landsberg am Lech\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rennmeldung.d
+ e/cgi-bin/bewerb.cgi?bewerb=04246
+TRANSP:TRANSPARENT
+URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04246
+END:VEVENT
+END:VCALENDAR

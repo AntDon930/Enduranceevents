@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-gaffenberglauf-10km-heilbronn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Gaffenberglauf
+LOCATION:Heilbronn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10 km\nhttps://absolute-run-ka
+ ufmann.de/gaffenberglauf/
+TRANSP:TRANSPARENT
+URL:https://absolute-run-kaufmann.de/gaffenberglauf/
+END:VEVENT
+END:VCALENDAR

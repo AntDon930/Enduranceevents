@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-54-porzellinerlauf-5-5km-kahla@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:54. Porzellinerlauf – 5\,5 km Einsteigerlauf\, ab 10 Jahre (Jg. 20
+ 16 und älter)
+LOCATION:Kahla\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://my.raceresul
+ t.com/393555/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/393555/
+END:VEVENT
+END:VCALENDAR

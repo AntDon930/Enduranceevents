@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-tiroler-silberpfad-trophy-42km-schwaz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Tiroler Silberpfad Trophy – TST 42K
+LOCATION:Schwaz\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://silberregion-k
+ arwendel.com/de/tiroler-silberpfad-trophy
+TRANSP:TRANSPARENT
+URL:https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy
+END:VEVENT
+END:VCALENDAR

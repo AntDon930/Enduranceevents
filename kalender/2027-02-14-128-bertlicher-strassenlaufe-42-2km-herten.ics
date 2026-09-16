@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-128-bertlicher-strassenlaufe-42-2km-herten@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:128. Bertlicher Straßenläufe
+LOCATION:Herten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
+ aufkalender/details/27V19000270160001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/27V19000270160001
+END:VEVENT
+END:VCALENDAR

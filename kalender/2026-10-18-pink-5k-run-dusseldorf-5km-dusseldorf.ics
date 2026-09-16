@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-pink-5k-run-dusseldorf-5km-dusseldorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Pink 5K Run Düsseldorf
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://pink-5k.de/due
+ sseldorf/
+TRANSP:TRANSPARENT
+URL:https://pink-5k.de/duesseldorf/
+END:VEVENT
+END:VCALENDAR

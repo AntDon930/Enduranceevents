@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-isar-lauf-bad-tolz-lenggries-21km-tolz-lenggries@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Isar-Lauf Bad Tölz – Lenggries
+LOCATION:Tölz – Lenggries\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttp://www.toelzer-is
+ ar-lauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.toelzer-isar-lauf.de/
+END:VEVENT
+END:VCALENDAR

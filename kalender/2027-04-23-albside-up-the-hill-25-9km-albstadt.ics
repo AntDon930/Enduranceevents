@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-albside-up-the-hill-25-9km-albstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270425
+SUMMARY:Albside - Up The Hill – 25\,9 km \, 1.270 hm
+LOCATION:Albstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 25.9 km\nhttps://upthehill.run
+ /
+TRANSP:TRANSPARENT
+URL:https://upthehill.run/
+END:VEVENT
+END:VCALENDAR

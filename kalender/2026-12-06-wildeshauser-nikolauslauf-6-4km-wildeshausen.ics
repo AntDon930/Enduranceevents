@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-wildeshauser-nikolauslauf-6-4km-wildeshausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Wildeshauser Nikolauslauf
+LOCATION:Wildeshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.laufmana
+ ger.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Verans
+ taltung/Jahr2026/Nikolauslauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschre
+ ibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Nikolauslauf/
+END:VEVENT
+END:VCALENDAR

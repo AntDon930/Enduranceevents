@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-46-winterlaufserie-rodgau-jugesheim-2-10km-rodgau-jugesheim
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:46. Winterlaufserie Rodgau Jügesheim (2)
+LOCATION:Rodgau-Jügesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V07010002760004
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V07010002760004
+END:VEVENT
+END:VCALENDAR

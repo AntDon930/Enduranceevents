@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-sudwestzipfel-lauf-5-6km-grenzach-wyhlen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Südwestzipfel Lauf – Jugendlauf\, 5\,6 km \, U14 & U16 (Jg. 2011–2
+ 014)
+LOCATION:Grenzach-Wyhlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://suedwestzipf
+ ellauf.de
+TRANSP:TRANSPARENT
+URL:https://suedwestzipfellauf.de
+END:VEVENT
+END:VCALENDAR

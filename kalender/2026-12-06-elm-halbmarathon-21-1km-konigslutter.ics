@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-elm-halbmarathon-21-1km-konigslutter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Elm-Halbmarathon – Halbmarathon
+LOCATION:Königslutter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://portal.run-
+ timing.de/1024/registration
+TRANSP:TRANSPARENT
+URL:https://portal.run-timing.de/1024/registration
+END:VEVENT
+END:VCALENDAR

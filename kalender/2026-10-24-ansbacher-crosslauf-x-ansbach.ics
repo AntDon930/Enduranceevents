@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-ansbacher-crosslauf-x-ansbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Ansbacher Crosslauf
+LOCATION:Ansbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://tsv1860ansbach.de/
+ leichtathletik/ansbacher-crosslauf/
+TRANSP:TRANSPARENT
+URL:https://tsv1860ansbach.de/leichtathletik/ansbacher-crosslauf/
+END:VEVENT
+END:VCALENDAR

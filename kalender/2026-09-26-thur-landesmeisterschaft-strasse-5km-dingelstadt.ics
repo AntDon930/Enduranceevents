@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-thur-landesmeisterschaft-strasse-5km-dingelstadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Thür. Landesmeisterschaft Straße
+LOCATION:Dingelstädt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/48624/Th%C3%BCr.-Landesmeisterschaft-Stra%C3%9Fe-Dingelst%
+ C3%A4dt.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48624/Th%C3%BCr.-Landesmeistersch
+ aft-Stra%C3%9Fe-Dingelst%C3%A4dt.htm
+END:VEVENT
+END:VCALENDAR

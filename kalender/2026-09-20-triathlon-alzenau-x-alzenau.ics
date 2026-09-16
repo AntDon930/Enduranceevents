@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-triathlon-alzenau-x-alzenau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Triathlon Alzenau
+LOCATION:Alzenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.triathlon-alz
+ enau.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-alzenau.de/
+END:VEVENT
+END:VCALENDAR

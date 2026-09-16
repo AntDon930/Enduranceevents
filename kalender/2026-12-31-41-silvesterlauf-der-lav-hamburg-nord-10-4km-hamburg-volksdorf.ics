@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-41-silvesterlauf-der-lav-hamburg-nord-10-4km-hamburg-volksd
+ orf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:41. Silvesterlauf der LAV Hamburg-Nord
+LOCATION:Hamburg-Volksdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://laufen.de/l
+ aufkalender/details/26V06000100160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V06000100160000
+END:VEVENT
+END:VCALENDAR

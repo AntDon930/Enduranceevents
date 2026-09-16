@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-crosslauf-rund-um-die-kaulsdorfer-seen-5-7km-berlin@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Crosslauf Rund um die Kaulsdorfer Seen – 5\,7 km (eine ganze Runde
+  plus eine halbe)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5.7 km\nhttps://www.kolv.de/i
+ ndex.php?m=4&m2=5
+TRANSP:TRANSPARENT
+URL:https://www.kolv.de/index.php?m=4&m2=5
+END:VEVENT
+END:VCALENDAR

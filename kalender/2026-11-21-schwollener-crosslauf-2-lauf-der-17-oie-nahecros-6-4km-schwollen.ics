@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-schwollener-crosslauf-2-lauf-der-17-oie-nahecros-6-4km-schw
+ ollen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Schwollener Crosslauf - 2. Lauf der 17. OIE Nahecrosslaufserie
+LOCATION:Schwollen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 6.4 km\nhttps://laufen.de/lau
+ fkalender/details/26V13000541960000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000541960000
+END:VEVENT
+END:VCALENDAR

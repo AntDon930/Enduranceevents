@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-run-ums-rantumbecken-10km-sylt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Run Ums Rantumbecken
+LOCATION:Sylt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.insel-syl
+ t.de/veranstaltungshighlights/outdoorveranstaltungen/run-ums-rantumbecken
+ /
+TRANSP:TRANSPARENT
+URL:https://www.insel-sylt.de/veranstaltungshighlights/outdoorveranstaltun
+ gen/run-ums-rantumbecken/
+END:VEVENT
+END:VCALENDAR

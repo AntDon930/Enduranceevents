@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-kostritzer-parklauf-6km-bad-kostritz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Köstritzer Parklauf
+LOCATION:Bad Köstritz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://ladv.de/aussch
+ reibung/detail/45725/K%C3%B6stritzer-Parklauf-Bad-K%C3%B6stritz.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/45725/K%C3%B6stritzer-Parklauf-Ba
+ d-K%C3%B6stritz.htm
+END:VEVENT
+END:VCALENDAR

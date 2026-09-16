@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-muhlhausener-spendenlauf-5km-neustadt-an-der-donau@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Mühlhausener Spendenlauf
+LOCATION:Neustadt an der Donau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.zeitgemaes
+ s.info/event.php?ACCESSCODE=202610311
+TRANSP:TRANSPARENT
+URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202610311
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-bad-freienwalder-flutlichtlauf-x-bad-freienwalde-oder@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:Bad Freienwalder Flutlichtlauf
+LOCATION:Bad Freienwalde (Oder)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://athleticon1997.de
+ /
+TRANSP:TRANSPARENT
+URL:https://athleticon1997.de/
+END:VEVENT
+END:VCALENDAR

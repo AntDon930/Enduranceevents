@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-22-lauf-fur-einen-guten-zweck-rastenberg-x-rastenberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+SUMMARY:Lauf für einen guten Zweck - Rastenberg
+LOCATION:Rastenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://runtix.com/sts/10
+ 021/3221
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3221
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-streutaltrail-11km-bad-neustadt-an-der-saale@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:StreutalTrail
+LOCATION:Bad Neustadt an der Saale\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://streutaltrail.
+ de/
+TRANSP:TRANSPARENT
+URL:https://streutaltrail.de/
+END:VEVENT
+END:VCALENDAR

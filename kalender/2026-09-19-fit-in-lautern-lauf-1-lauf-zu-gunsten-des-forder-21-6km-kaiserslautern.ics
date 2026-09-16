@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-fit-in-lautern-lauf-1-lauf-zu-gunsten-des-forder-21-6km-kai
+ serslautern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühl
+ e e.V.
+LOCATION:Kaiserslautern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.6 km\nhttps://laufen.de/l
+ aufkalender/details/26V11000023360001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V11000023360001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-gebirgstalerlauf-oberstdorf-12km-oberstdorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Gebirgstälerlauf Oberstdorf
+LOCATION:Oberstdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 12 km\nhttps://gebirgstaelerha
+ lbmarathon.ar-events.run/
+TRANSP:TRANSPARENT
+URL:https://gebirgstaelerhalbmarathon.ar-events.run/
+END:VEVENT
+END:VCALENDAR

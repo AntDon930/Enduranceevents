@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-torgelower-crosslauf-10km-torgelow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Torgelower Crosslauf
+LOCATION:Torgelow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 10 km\nhttp://uer-laufcup.de/
+ wp-content/uploads/2025/10/Ausschreibungen-Torgelower-Crosslauf-2024.pdf
+TRANSP:TRANSPARENT
+URL:http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Torge
+ lower-Crosslauf-2024.pdf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-baren-run-6km-floh-seligenthal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Bären Run – 6 km Strongman Bären\, 1 Runde\, etwa 20 Hindernisse
+LOCATION:Floh-Seligenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.baeren-run
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.baeren-run.de/
+END:VEVENT
+END:VCALENDAR

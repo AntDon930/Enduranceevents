@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-19-boitzer-herbstlauf-14km-walsrode@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:19. Boitzer Herbstlauf
+LOCATION:Walsrode\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://my.raceresult
+ .com/382040/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/382040/
+END:VEVENT
+END:VCALENDAR

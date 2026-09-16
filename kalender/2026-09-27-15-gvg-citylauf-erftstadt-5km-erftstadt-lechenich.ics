@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-15-gvg-citylauf-erftstadt-5km-erftstadt-lechenich@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:15. GVG Citylauf Erftstadt – 5 km Familien- und Firmenlauf (zwei R
+ unden à 2.500 m)
+LOCATION:Erftstadt/Lechenich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.citylauf-e
+ rftstadt.de/
+TRANSP:TRANSPARENT
+URL:https://www.citylauf-erftstadt.de/
+END:VEVENT
+END:VCALENDAR

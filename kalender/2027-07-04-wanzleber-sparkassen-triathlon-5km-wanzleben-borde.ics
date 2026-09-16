@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-wanzleber-sparkassen-triathlon-5km-wanzleben-borde@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Wanzleber Sparkassen Triathlon
+LOCATION:Wanzleben-Börde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.triathlon-
+ wanzleben.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-wanzleben.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-emmertinger-herbstfestlauf-5-3km-emmerting@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Emmertinger Herbstfestlauf – 5\,3 km Jugend und Erwachsene auf bef
+ estigten Schotterwegen.
+LOCATION:Emmerting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://djk-emmertin
+ g.de/abteilungen/lauftreff/10-emmertinger-herbstfestlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://djk-emmerting.de/abteilungen/lauftreff/10-emmertinger-herbstfe
+ stlauf-2026/
+END:VEVENT
+END:VCALENDAR

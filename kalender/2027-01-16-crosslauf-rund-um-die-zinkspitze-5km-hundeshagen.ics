@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-crosslauf-rund-um-die-zinkspitze-5km-hundeshagen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Crosslauf "Rund um die Zinkspitze" – 5 km (ab U18)
+LOCATION:Hundeshagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://www.ltv-obereic
+ hsfeld.de/zinkspitzelauf/
+TRANSP:TRANSPARENT
+URL:https://www.ltv-obereichsfeld.de/zinkspitzelauf/
+END:VEVENT
+END:VCALENDAR

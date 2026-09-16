@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-lilien-team-marathon-21-1km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Lilien-Team-Marathon – Halbmarathon
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://wirlilien.s
+ v98.de/lilien-team-marathon-2026
+TRANSP:TRANSPARENT
+URL:https://wirlilien.sv98.de/lilien-team-marathon-2026
+END:VEVENT
+END:VCALENDAR

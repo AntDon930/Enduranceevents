@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-20-halloween-lauf-5-1km-oppen-beckingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:20. Halloween - Lauf
+LOCATION:Oppen (Beckingen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://lg-reimsbach
+ -oppen.de/20-oppener-halloweenlauf/
+TRANSP:TRANSPARENT
+URL:https://lg-reimsbach-oppen.de/20-oppener-halloweenlauf/
+END:VEVENT
+END:VCALENDAR

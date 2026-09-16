@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-abendlauf-stocksee-6km-stocksee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Abendlauf - Stocksee
+LOCATION:Stocksee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tsv-stocks
+ ee.de/veranstaltungen/2913579/2027/05/29/32.-abendlauf-in-stocksee.html
+TRANSP:TRANSPARENT
+URL:https://www.tsv-stocksee.de/veranstaltungen/2913579/2027/05/29/32.-abe
+ ndlauf-in-stocksee.html
+END:VEVENT
+END:VCALENDAR

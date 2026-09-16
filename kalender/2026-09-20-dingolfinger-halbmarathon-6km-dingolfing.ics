@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-dingolfinger-halbmarathon-6km-dingolfing@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Dingolfinger Halbmarathon
+LOCATION:Dingolfing\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tv-dingolf
+ ing.de/sparten/halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.tv-dingolfing.de/sparten/halbmarathon/
+END:VEVENT
+END:VCALENDAR

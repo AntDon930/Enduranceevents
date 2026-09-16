@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-nospa-fischteiche-cross-5km-achtrup@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Nospa Fischteiche Cross
+LOCATION:Achtrup\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5 km\nhttps://my.raceresult.c
+ om/420973/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/420973/
+END:VEVENT
+END:VCALENDAR

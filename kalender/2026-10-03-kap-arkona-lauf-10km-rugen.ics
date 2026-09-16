@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kap-arkona-lauf-10km-rugen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kap Arkona Lauf – 10 km Lauf\, Jahrgang 2012 und älter.
+LOCATION:Rügen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
+ om/event/overview/kap-arkona-lauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/kap-arkona-lauf-2026
+END:VEVENT
+END:VCALENDAR

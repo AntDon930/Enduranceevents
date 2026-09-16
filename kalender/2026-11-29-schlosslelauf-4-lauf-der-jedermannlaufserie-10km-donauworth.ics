@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-schlosslelauf-4-lauf-der-jedermannlaufserie-10km-donauworth
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Schlößlelauf - 4. Lauf der Jedermannlaufserie
+LOCATION:Donauwörth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V02000739360000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000739360000
+END:VEVENT
+END:VCALENDAR

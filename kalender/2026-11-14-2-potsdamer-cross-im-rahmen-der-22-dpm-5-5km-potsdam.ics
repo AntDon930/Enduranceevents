@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-2-potsdamer-cross-im-rahmen-der-22-dpm-5-5km-potsdam@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:2. Potsdamer Cross im Rahmen der 22. DPM – Cross
+LOCATION:Potsdam\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: 5.5 km\nhttps://laufen.de/lau
+ fkalender/details/26V04005402760000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V04005402760000
+END:VEVENT
+END:VCALENDAR

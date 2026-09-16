@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-46-internationaler-halbmarathon-56-international-21-1km-her
+ zogenrath@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:46. Internationaler Halbmarathon\, 56. Internationaler Volkslauf
+LOCATION:Herzogenrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
+ aufkalender/details/26V10004004160001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10004004160001
+END:VEVENT
+END:VCALENDAR

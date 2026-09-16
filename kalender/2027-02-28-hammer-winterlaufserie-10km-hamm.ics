@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-hammer-winterlaufserie-10km-hamm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Hammer Winterlaufserie
+LOCATION:Hamm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-hamm.de/in
+ dex.php/leichtathletik/veranstaltungen/winterlaufserie
+TRANSP:TRANSPARENT
+URL:https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlauf
+ serie
+END:VEVENT
+END:VCALENDAR

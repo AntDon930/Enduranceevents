@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-benediktbeurer-kirta-lauf-x-benediktbeuern@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Benediktbeurer Kirta Lauf
+LOCATION:Benediktbeuern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /407802/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/407802/
+END:VEVENT
+END:VCALENDAR

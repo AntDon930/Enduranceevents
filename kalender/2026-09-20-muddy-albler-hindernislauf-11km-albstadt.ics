@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-muddy-albler-hindernislauf-11km-albstadt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Muddy Älbler Hindernislauf
+LOCATION:Albstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 11 km\nhttp://api.maxx-ti
+ ming.de/showevents/198
+TRANSP:TRANSPARENT
+URL:http://api.maxx-timing.de/showevents/198
+END:VEVENT
+END:VCALENDAR

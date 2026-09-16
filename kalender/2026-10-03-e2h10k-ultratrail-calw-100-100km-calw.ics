@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-e2h10k-ultratrail-calw-100-100km-calw@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:E2H10K Ultratrail Calw 100
+LOCATION:Calw\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 100 km\nhttps://e2h10k.simdif
+ .com/contact.html
+TRANSP:TRANSPARENT
+URL:https://e2h10k.simdif.com/contact.html
+END:VEVENT
+END:VCALENDAR

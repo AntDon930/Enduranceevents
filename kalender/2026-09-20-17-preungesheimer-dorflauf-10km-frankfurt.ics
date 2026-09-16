@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-17-preungesheimer-dorflauf-10km-frankfurt@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:17. Preungesheimer Dorflauf – 10 km Hauptlauf (ab Jg. 2012)
+LOCATION:Frankfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv-preung
+ esheim.de/dorflauf
+TRANSP:TRANSPARENT
+URL:https://www.tv-preungesheim.de/dorflauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-lindensee-laufserie-15km-russelsheim-am-main@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261122
+SUMMARY:Lindensee Laufserie
+LOCATION:Rüsselsheim am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.lc-ruesse
+ lsheim.de/lindensee-laufserie-infos/
+TRANSP:TRANSPARENT
+URL:https://www.lc-ruesselsheim.de/lindensee-laufserie-infos/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-inklusionslauf-solingen-by-max-camp-x-solingen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Inklusionslauf Solingen by max-camp
+LOCATION:Solingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://max-camp.com/even
+ t/inklusions-lauf/
+TRANSP:TRANSPARENT
+URL:https://max-camp.com/event/inklusions-lauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-dinkelsbuhler-staffellauf-12km-dinkelsbuhl@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Dinkelsbühler Staffellauf
+LOCATION:Dinkelsbühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.dinkelsbu
+ ehler-staffellauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.dinkelsbuehler-staffellauf.de/
+END:VEVENT
+END:VCALENDAR

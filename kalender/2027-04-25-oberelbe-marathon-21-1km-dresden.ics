@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-oberelbe-marathon-21-1km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Oberelbe-Marathon – Halbmarathon
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://baer-servic
+ e.de/veranstaltung/ELB/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/ELB/
+END:VEVENT
+END:VCALENDAR

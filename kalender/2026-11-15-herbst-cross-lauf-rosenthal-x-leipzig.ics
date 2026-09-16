@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-herbst-cross-lauf-rosenthal-x-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Herbst-Cross-Lauf Rosenthal
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://www.leipziger-skic
+ lub.de/Veranstaltung/herbst-cross-lauf-rosenthal-15-11-2026/
+TRANSP:TRANSPARENT
+URL:https://www.leipziger-skiclub.de/Veranstaltung/herbst-cross-lauf-rosen
+ thal-15-11-2026/
+END:VEVENT
+END:VCALENDAR

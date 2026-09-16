@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-frankfurt-am-main-x-frankfurt-am-main@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Frankfurt am Main
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wingsforlifew
+ orldrun.com/en/locations/frankfurt-am-main
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/frankfurt-am-main
+END:VEVENT
+END:VCALENDAR

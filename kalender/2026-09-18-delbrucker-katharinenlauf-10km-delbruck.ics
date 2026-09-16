@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-delbrucker-katharinenlauf-10km-delbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260919
+SUMMARY:Delbrücker Katharinenlauf
+LOCATION:Delbrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.rw-bentfe
+ ld.de/katharinenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.rw-bentfeld.de/katharinenlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-crosslauf-rund-um-das-stadion-x-elm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Crosslauf Rund um das Stadion
+LOCATION:Elm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://laufen.de/laufkale
+ nder/details/26V14000002660000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V14000002660000
+END:VEVENT
+END:VCALENDAR

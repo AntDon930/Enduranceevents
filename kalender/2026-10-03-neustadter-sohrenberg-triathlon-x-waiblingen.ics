@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-neustadter-sohrenberg-triathlon-x-waiblingen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Neustädter Söhrenberg-Triathlon
+LOCATION:Waiblingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.triathlon-neu
+ stadt.de
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-neustadt.de
+END:VEVENT
+END:VCALENDAR

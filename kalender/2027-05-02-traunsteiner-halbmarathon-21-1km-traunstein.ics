@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-traunsteiner-halbmarathon-21-1km-traunstein@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Traunsteiner Halbmarathon – Halbmarathon
+LOCATION:Traunstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://sport-praxe
+ nthaler.com/pages/traunsteiner-halbmarathon
+TRANSP:TRANSPARENT
+URL:https://sport-praxenthaler.com/pages/traunsteiner-halbmarathon
+END:VEVENT
+END:VCALENDAR

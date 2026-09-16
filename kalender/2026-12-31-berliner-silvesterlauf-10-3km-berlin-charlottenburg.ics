@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-berliner-silvesterlauf-10-3km-berlin-charlottenburg@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Berliner Silvesterlauf
+LOCATION:Berlin-Charlottenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.3 km\nhttps://www.berline
+ r-silvesterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.berliner-silvesterlauf.de/
+END:VEVENT
+END:VCALENDAR

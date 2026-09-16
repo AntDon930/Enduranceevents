@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-46-volkswaldlauf-des-mtv-borstel-sangenstedt-20-3km-winsen-
+ borstel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:46. Volkswaldlauf des MTV Borstel-Sangenstedt
+LOCATION:Winsen-Borstel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.3 km\nhttps://laufen.de/l
+ aufkalender/details/26V09000420360000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V09000420360000
+END:VEVENT
+END:VCALENDAR

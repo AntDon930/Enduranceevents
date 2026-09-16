@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-bernburger-halbmarathon-21-1km-bernburg-saale@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Bernburger Halbmarathon – Halbmarathon
+LOCATION:Bernburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lauf.psv-be
+ rnburg.de/hm/
+TRANSP:TRANSPARENT
+URL:https://lauf.psv-bernburg.de/hm/
+END:VEVENT
+END:VCALENDAR

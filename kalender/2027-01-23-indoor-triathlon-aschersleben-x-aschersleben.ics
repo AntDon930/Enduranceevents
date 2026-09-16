@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-indoor-triathlon-aschersleben-x-aschersleben@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270125
+SUMMARY:Indoor-Triathlon Aschersleben
+LOCATION:Aschersleben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://triathlon-aschers
+ leben.de/
+TRANSP:TRANSPARENT
+URL:https://triathlon-aschersleben.de/
+END:VEVENT
+END:VCALENDAR

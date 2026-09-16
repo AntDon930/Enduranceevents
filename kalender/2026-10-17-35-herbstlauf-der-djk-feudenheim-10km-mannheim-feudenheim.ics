@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-35-herbstlauf-der-djk-feudenheim-10km-mannheim-feudenheim@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:35. Herbstlauf der DJK Feudenheim – 10 km Hauptlauf
+LOCATION:Mannheim-Feudenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
+ s/10021/3169
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3169
+END:VEVENT
+END:VCALENDAR

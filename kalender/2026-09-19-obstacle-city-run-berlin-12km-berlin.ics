@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-obstacle-city-run-berlin-12km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Obstacle City Run Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.obstac
+ le-city-run.de/obstacle-city-run-berlin
+TRANSP:TRANSPARENT
+URL:https://www.obstacle-city-run.de/obstacle-city-run-berlin
+END:VEVENT
+END:VCALENDAR

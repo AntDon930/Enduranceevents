@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-burger-rolandlauf-10-2km-burg-bei-magdeburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Burger Rolandlauf
+LOCATION:Burg (bei Magdeburg)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://www.elbe-oh
+ re-cup.de/veranstaltungen/burger-rolandlauf/
+TRANSP:TRANSPARENT
+URL:https://www.elbe-ohre-cup.de/veranstaltungen/burger-rolandlauf/
+END:VEVENT
+END:VCALENDAR

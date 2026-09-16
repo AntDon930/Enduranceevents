@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-mb-brandschutz-nachtwachterlauf-10km-ottweiler@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:MB Brandschutz-Nachtwächterlauf
+LOCATION:Ottweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V14000007960000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V14000007960000
+END:VEVENT
+END:VCALENDAR

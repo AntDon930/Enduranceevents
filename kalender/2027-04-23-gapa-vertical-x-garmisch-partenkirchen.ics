@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-gapa-vertical-x-garmisch-partenkirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270424
+SUMMARY:GaPa Vertical
+LOCATION:Garmisch-Partenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: -\nhttps://gapavertical.de/
+TRANSP:TRANSPARENT
+URL:https://gapavertical.de/
+END:VEVENT
+END:VCALENDAR

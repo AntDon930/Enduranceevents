@@ -97,15 +97,20 @@ jobs:
 
       - name: events.json committen und pushen, falls geändert
         run: |
-          if git diff --quiet -- events.json; then
-            echo "Keine Änderungen an events.json – kein Commit nötig."
+          # kalender/ zählt mit: dort liegt je Event eine .ics-Datei
+          # (scripts/build_ics.py). Sie ändern sich, wenn Events dazu-
+          # kommen oder wegfallen - auch wenn events.json selbst gleich
+          # bliebe, dürfen sie nicht liegen bleiben.
+          if git diff --quiet -- events.json kalender && \
+             [ -z "$(git status --porcelain -- kalender)" ]; then
+            echo "Keine Änderungen an events.json oder kalender/ – kein Commit nötig."
             exit 0
           fi
 
           AFTER=$(python3 -c 'import json; print(len(json.load(open("events.json"))))')
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add events.json
+          git add events.json kalender
           git commit -m "Automatisches Events-Update: ${{ steps.before.outputs.count }} -> ${AFTER} Events" \
                      -m "Ausgeführt vom wöchentlichen update-events-Workflow (scripts/update_events.py)."
 

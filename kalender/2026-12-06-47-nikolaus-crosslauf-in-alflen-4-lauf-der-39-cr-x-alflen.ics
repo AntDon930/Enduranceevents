@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-47-nikolaus-crosslauf-in-alflen-4-lauf-der-39-cr-x-alflen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:47. Nikolaus - Crosslauf in Alflen - 4. Lauf der 39. Crosslaufseri
+ e Cochem - Zell
+LOCATION:Alflen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Cross\nLänge: -\nhttps://laufen.de/laufkale
+ nder/details/26V13000158860000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000158860000
+END:VEVENT
+END:VCALENDAR

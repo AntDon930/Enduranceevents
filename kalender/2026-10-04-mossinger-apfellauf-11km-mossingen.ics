@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-mossinger-apfellauf-11km-mossingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Mössinger Apfellauf
+LOCATION:Mössingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.lg-steinl
+ ach-zollern.de/veranstaltungen/apfellauf/apfellauf-aktuelles/moessinger-a
+ pfellauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.lg-steinlach-zollern.de/veranstaltungen/apfellauf/apfellau
+ f-aktuelles/moessinger-apfellauf-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-lowensteiner-berglauf-6km-lowenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Löwensteiner Berglauf
+LOCATION:Löwenstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 6 km\nhttps://tsv-loewenstein.
+ de/loewensteiner-berglauf/
+TRANSP:TRANSPARENT
+URL:https://tsv-loewenstein.de/loewensteiner-berglauf/
+END:VEVENT
+END:VCALENDAR

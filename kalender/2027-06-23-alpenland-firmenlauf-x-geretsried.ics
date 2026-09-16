@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-23-alpenland-firmenlauf-x-geretsried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270623
+DTEND;VALUE=DATE:20270624
+SUMMARY:Alpenland Firmenlauf
+LOCATION:Geretsried\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://alpenland-firmenl
+ auf.com/
+TRANSP:TRANSPARENT
+URL:https://alpenland-firmenlauf.com/
+END:VEVENT
+END:VCALENDAR

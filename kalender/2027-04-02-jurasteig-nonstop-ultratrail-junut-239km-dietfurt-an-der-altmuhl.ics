@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-02-jurasteig-nonstop-ultratrail-junut-239km-dietfurt-an-der-al
+ tmuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270402
+DTEND;VALUE=DATE:20270405
+SUMMARY:Jurasteig Nonstop Ultratrail (JUNUT) – 239 km komplette Jurasteig-
+ Route
+LOCATION:Dietfurt an der Altmühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 239 km\nhttps://my.raceresult
+ .com/400103/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/400103/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-buchdorfer-jedermannslauf-10km-buchdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Buchdorfer Jedermannslauf
+LOCATION:Buchdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V02000739360003
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000739360003
+END:VEVENT
+END:VCALENDAR

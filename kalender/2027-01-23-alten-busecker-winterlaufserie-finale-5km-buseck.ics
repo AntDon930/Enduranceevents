@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-alten-busecker-winterlaufserie-finale-5km-buseck@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:Alten-Busecker Winterlaufserie - Finale – 5 km Jedermannslauf
+LOCATION:Buseck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/382199/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/382199/
+END:VEVENT
+END:VCALENDAR

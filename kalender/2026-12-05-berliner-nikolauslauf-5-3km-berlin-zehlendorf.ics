@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-berliner-nikolauslauf-5-3km-berlin-zehlendorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Berliner Nikolauslauf
+LOCATION:Berlin-Zehlendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://www.berliner
+ -nikolauslauf.com/startseite/
+TRANSP:TRANSPARENT
+URL:https://www.berliner-nikolauslauf.com/startseite/
+END:VEVENT
+END:VCALENDAR

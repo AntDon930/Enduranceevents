@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-21-stimberg-haardlauf-9-4km-oer-erkenschwick@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:21. Stimberg-Haardlauf
+LOCATION:Oer-Erkenschwick\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://ladv.de/auss
+ chreibung/detail/46180/21.-Stimberg-Haard-Lauf-Oer-Erkenschwick.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/46180/21.-Stimberg-Haard-Lauf-Oer
+ -Erkenschwick.htm
+END:VEVENT
+END:VCALENDAR

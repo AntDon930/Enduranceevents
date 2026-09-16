@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-34-wilstermarsch-lauf-10km-wilster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:34. Wilstermarsch Lauf
+LOCATION:Wilster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://mtv-wilster.d
+ e/sparten/wilstermarschlauf/
+TRANSP:TRANSPARENT
+URL:https://mtv-wilster.de/sparten/wilstermarschlauf/
+END:VEVENT
+END:VCALENDAR

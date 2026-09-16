@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-idar-obersteiner-felsenkirche-treppenlauf-42-2km-idar-obers
+ tein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Idar-Obersteiner Felsenkirche Treppenlauf
+LOCATION:Idar-Oberstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/377205/registration
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/377205/registration
+END:VEVENT
+END:VCALENDAR

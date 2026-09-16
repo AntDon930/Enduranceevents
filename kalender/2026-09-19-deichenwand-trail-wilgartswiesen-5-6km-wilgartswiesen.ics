@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-deichenwand-trail-wilgartswiesen-5-6km-wilgartswiesen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Deichenwand-Trail Wilgartswiesen
+LOCATION:Wilgartswiesen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.6 km\nhttps://my.raceresult
+ .com/381869/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/381869/
+END:VEVENT
+END:VCALENDAR

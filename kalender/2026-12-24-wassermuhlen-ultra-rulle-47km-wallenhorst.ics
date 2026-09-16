@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-wassermuhlen-ultra-rulle-47km-wallenhorst@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Wassermühlen-Ultra Rulle
+LOCATION:Wallenhorst\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 47 km\nhttps://my.raceresult
+ .com/412479/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412479/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-graal-muritzer-schneckenlauf-5km-graal-muritz@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Graal-Müritzer Schneckenlauf
+LOCATION:Graal-Müritz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.schneckenla
+ uf.de/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:http://www.schneckenlauf.de/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

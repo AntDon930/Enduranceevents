@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-hunsborn-2-be-wild-x-wenden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Hünsborn 2 be Wild
+LOCATION:Wenden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://h2bw.de/
+TRANSP:TRANSPARENT
+URL:https://h2bw.de/
+END:VEVENT
+END:VCALENDAR

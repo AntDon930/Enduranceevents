@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-nrz-klosterlauf-7km-kamp-lintfort@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:NRZ Klosterlauf – Walking/Nordic Walking
+LOCATION:Kamp-Lintfort\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
+ kalender/details/26V10001004060001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V10001004060001
+END:VEVENT
+END:VCALENDAR

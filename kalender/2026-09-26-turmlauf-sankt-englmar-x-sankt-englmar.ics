@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-turmlauf-sankt-englmar-x-sankt-englmar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Turmlauf Sankt Englmar
+LOCATION:Sankt Englmar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://rennmeldung.de/cg
+ i-bin/bewerb.cgi?bewerb=04277
+TRANSP:TRANSPARENT
+URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04277
+END:VEVENT
+END:VCALENDAR

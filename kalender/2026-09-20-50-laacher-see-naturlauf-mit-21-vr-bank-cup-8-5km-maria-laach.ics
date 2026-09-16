@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-50-laacher-see-naturlauf-mit-21-vr-bank-cup-8-5km-maria-laa
+ ch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:50. Laacher See Naturlauf mit 21. VR Bank Cup
+LOCATION:Maria Laach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.5 km\nhttps://www.laacher-
+ see-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.laacher-see-lauf.de/
+END:VEVENT
+END:VCALENDAR

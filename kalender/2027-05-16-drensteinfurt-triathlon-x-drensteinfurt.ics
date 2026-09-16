@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-drensteinfurt-triathlon-x-drensteinfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Drensteinfurt Triathlon
+LOCATION:Drensteinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://drensteinfurt-tri
+ athlon.de/
+TRANSP:TRANSPARENT
+URL:https://drensteinfurt-triathlon.de/
+END:VEVENT
+END:VCALENDAR

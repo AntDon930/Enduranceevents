@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-hubertuslauf-neuruppin-8km-neuruppin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Hubertuslauf Neuruppin – 8 km Walking (ab Altersklasse u14)
+LOCATION:Neuruppin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.strassenla
+ uf.org/va_details.php?id=979
+TRANSP:TRANSPARENT
+URL:https://www.strassenlauf.org/va_details.php?id=979
+END:VEVENT
+END:VCALENDAR

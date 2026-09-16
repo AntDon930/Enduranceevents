@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-10-01-30-generali-koln-marathon-42-2km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20281001
+DTEND;VALUE=DATE:20281002
+SUMMARY:30. Generali Köln Marathon
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
+ aufkalender/details/28L10009910860001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/28L10009910860001
+END:VEVENT
+END:VCALENDAR

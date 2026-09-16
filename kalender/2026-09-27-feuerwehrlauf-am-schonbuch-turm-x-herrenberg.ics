@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-feuerwehrlauf-am-schonbuch-turm-x-herrenberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Feuerwehrlauf am Schönbuch Turm
+LOCATION:Herrenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /373019/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/373019/
+END:VEVENT
+END:VCALENDAR

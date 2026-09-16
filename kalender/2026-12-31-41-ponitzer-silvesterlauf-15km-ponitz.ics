@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-41-ponitzer-silvesterlauf-15km-ponitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:41. Pönitzer Silvesterlauf
+LOCATION:Pönitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
+ fkalender/details/26K17000000060006
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26K17000000060006
+END:VEVENT
+END:VCALENDAR

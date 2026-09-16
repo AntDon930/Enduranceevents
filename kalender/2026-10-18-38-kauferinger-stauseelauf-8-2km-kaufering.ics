@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-38-kauferinger-stauseelauf-8-2km-kaufering@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:38. Kauferinger Stauseelauf – 8\,25 km Lauf um den Stausee\, ab Al
+ tersklasse U12
+LOCATION:Kaufering\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.2 km\nhttps://my.raceresul
+ t.com/414327/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414327/
+END:VEVENT
+END:VCALENDAR
