@@ -273,6 +273,7 @@
     color: var(--text-muted);
     font-size: 0.8rem;
   }
+  footer a { color: inherit; }
 </style>
 </head>
 <body>
@@ -390,7 +391,15 @@
   </a>
 </div>
 
-<footer data-i="footer">Ausdauersport-Events D/A/CH · Beispielprojekt</footer>
+<!-- Die Quellenangabe zu den Ortsdaten der Umkreissuche (GeoNames,
+     CC BY 4.0) verlangt eine Namensnennung mit Link. Sie steht hier in
+     der Fußzeile statt im Filter-Panel, wo sie beim Suchen nur im Weg
+     war. Der Sprachumschalter setzt textContent je [data-i]-Element -
+     deshalb die inneren <span>, sonst würde der Link überschrieben. -->
+<footer>
+  <span data-i="footer">Ausdauersport-Events D/A/CH · Beispielprojekt</span> ·
+  <a href="https://www.geonames.org" target="_blank" rel="noopener"><span data-i="footer_places">Ortsdaten: GeoNames (CC BY 4.0)</span></a>
+</footer>
 
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
@@ -417,7 +426,8 @@
       sportsTitle: 'Finde deine Disziplin',
       sportsSub: 'Klicke auf eine Sportart und stöbere dich direkt durch die Liste.',
       sportRun: 'Laufen', sportBike: 'Fahrrad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
-      footer: 'Ausdauersport-Events D/A/CH · Beispielprojekt'
+      footer: 'Ausdauersport-Events D/A/CH · Beispielprojekt',
+      footer_places: 'Ortsdaten: GeoNames (CC BY 4.0)'
     },
     en: {
       eyebrow: 'Endurance Events in DACH',
@@ -432,7 +442,8 @@
       sportsTitle: 'Find your discipline',
       sportsSub: 'Click a sport and browse straight through the list.',
       sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
-      footer: 'Endurance Events D/A/CH · Sample project'
+      footer: 'Endurance Events D/A/CH · Sample project',
+      footer_places: 'Place data: GeoNames (CC BY 4.0)'
     }
   };
 

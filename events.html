@@ -469,12 +469,6 @@
     color: var(--text-muted);
     margin-top: 4px;
   }
-  .place-source {
-    font-size: 0.66rem;
-    color: var(--text-muted);
-    margin-top: 8px;
-  }
-  .place-source a { color: inherit; }
   .origin-clear {
     background: none;
     border: none;
@@ -753,8 +747,6 @@
       places_loading: 'Ortsverzeichnis wird geladen…',
       places_error: 'Ortsverzeichnis konnte nicht geladen werden.',
       places_empty: 'Kein Ort gefunden.',
-      places_hint: 'Alle Orte und Postleitzahlen in Deutschland, Österreich und der Schweiz – auch solche ohne Event.',
-      places_source: 'Ortsdaten: GeoNames (CC BY 4.0)',
       geo_locating: 'Standort wird ermittelt…',
       geo_unsupported: 'Geolocation wird von diesem Browser nicht unterstützt.',
       geo_unavailable: (msg) => `Standort nicht verfügbar: ${msg}`,
@@ -840,8 +832,6 @@
       places_loading: 'Loading place directory…',
       places_error: 'Could not load the place directory.',
       places_empty: 'No place found.',
-      places_hint: 'Every town and postcode in Germany, Austria and Switzerland – including those without an event.',
-      places_source: 'Place data: GeoNames (CC BY 4.0)',
       geo_locating: 'Getting location…',
       geo_unsupported: 'Geolocation is not supported by this browser.',
       geo_unavailable: (msg) => `Location unavailable: ${msg}`,
@@ -1670,14 +1660,13 @@
     results.className = 'place-results';
     searchWrap.appendChild(results);
 
+    // Meldezeile für "wird geladen", "nichts gefunden" und Ladefehler.
+    // Ohne Eingabe bleibt sie leer: Das Feld erklärt sich über seinen
+    // Platzhalter, und die Quellenangabe zu den Ortsdaten steht in der
+    // Fußzeile der Startseite, nicht hier im Weg.
     const note = document.createElement('div');
     note.className = 'place-note';
     searchWrap.appendChild(note);
-
-    const source = document.createElement('div');
-    source.className = 'place-source';
-    source.innerHTML = `<a href="https://www.geonames.org" target="_blank" rel="noopener">${escapeHtml(t('places_source'))}</a>`;
-    searchWrap.appendChild(source);
     section.appendChild(searchWrap);
 
     function renderResults() {
@@ -1685,7 +1674,7 @@
       if (placesState === 'loading') { note.textContent = t('places_loading'); return; }
       if (placesState === 'error') { note.textContent = t('places_error'); return; }
       const query = searchInput.value.trim();
-      if (!query) { note.textContent = t('places_hint'); return; }
+      if (!query) { note.textContent = ''; return; }
       const treffer = searchPlaces(query);
       if (treffer.length === 0) { note.textContent = t('places_empty'); return; }
       note.textContent = '';

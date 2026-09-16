@@ -128,7 +128,9 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`RADIUS_DEFAULT_KM`). Der Regler filtert erst bei `change`, nicht bei
   `input` – sonst baut sich die Tabelle bei jeder Fingerbewegung neu auf.
   `normalizePlaceText()` hier und `normalisiere()` in `build_places.py`
-  müssen dasselbe tun.
+  müssen dasselbe tun. Im Panel steht nur, was beim Suchen hilft – die
+  GeoNames-Namensnennung (CC BY 4.0 verlangt sie) steht in der Fußzeile
+  von `index.html`, nicht im Filter.
 
 - **`refreshOpenPanel()` zeichnet das offene Filter-Panel nicht neu,
   solange der Fokus darin liegt** (damit eine Eingabe im Namensfeld nicht

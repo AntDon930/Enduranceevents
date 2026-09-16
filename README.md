@@ -167,6 +167,13 @@ Schweiz.
      läuft. Die frühere Checkbox-Liste mit den ~2000 Orten aus
      `events.json` ist deshalb entfallen.
 
+     Im Panel steht **nur, was beim Suchen hilft**: Meldungen wie „Kein
+     Ort gefunden." oder „Ortsverzeichnis wird geladen…", sonst nichts.
+     Ein erklärender Hinweistext und die Quellenangabe zu den Ortsdaten
+     standen dort anfangs auch – beides war beim Suchen nur im Weg. Die
+     von der Lizenz verlangte Namensnennung (GeoNames, CC BY 4.0) steht
+     jetzt in der **Fußzeile von `index.html`**.
+
      **Was der Regler tut**: Beim Ziehen (`input`) läuft nur die
      Beschriftung mit, gefiltert wird erst beim Loslassen (`change`) –
      sonst baut sich die ganze Tabelle bei jeder Fingerbewegung neu auf.
@@ -313,7 +320,8 @@ nicht beim Seitenaufruf. Wer die Liste nur nach Datum durchsieht, lädt
 sie nie.
 
 Gebaut wird sie von `scripts/build_places.py` aus zwei GeoNames-Dateien
-(CC BY 4.0, Namensnennung steht im Filter-Panel):
+(CC BY 4.0; die Namensnennung mit Link steht in der Fußzeile von
+`index.html` – wer die Datei ersetzt, lässt sie bitte dort stehen):
 
 ```bash
 python3 scripts/build_places.py          # lädt, baut, schreibt places.json
