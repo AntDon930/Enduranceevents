@@ -172,7 +172,9 @@ Schweiz.
      Ein erklärender Hinweistext und die Quellenangabe zu den Ortsdaten
      standen dort anfangs auch – beides war beim Suchen nur im Weg. Die
      von der Lizenz verlangte Namensnennung (GeoNames, CC BY 4.0) steht
-     jetzt in der **Fußzeile von `index.html`**.
+     jetzt in der **Fußzeile von `index.html`** – und soll am Ende ins
+     Impressum umziehen, sobald es eines gibt (siehe To-dos in
+     `CLAUDE.md`): umziehen, nicht löschen.
 
      **Was der Regler tut**: Beim Ziehen (`input`) läuft nur die
      Beschriftung mit, gefiltert wird erst beim Loslassen (`change`) –

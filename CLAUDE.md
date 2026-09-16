@@ -196,6 +196,13 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
 
 ## Offene Punkte / To-dos
 
+- **GeoNames-Namensnennung ins Impressum** – sobald es eines gibt. Die
+  Ortsdaten der Umkreissuche (`places.json`) stehen unter CC BY 4.0, die
+  Lizenz verlangt Namensnennung mit Link. Sie steht deshalb vorerst in
+  der **Fußzeile von `index.html`** (`footer_places` in beiden
+  Sprachen). Der Nutzer will sie am Ende ins Impressum verschieben –
+  dabei nicht ersatzlos löschen, sondern umziehen, sonst nutzen wir die
+  Daten ohne Erlaubnis.
 - **E-Mail-Versand für „Benachrichtige mich" braucht Blaze** – vom Nutzer
   bewusst zurückgestellt. Login und Firestore laufen (Projekt
   `endurance-5177a`, Spark-Tarif), Abos landen korrekt in
