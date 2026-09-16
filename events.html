@@ -444,7 +444,12 @@
   tbody td.col-anzahl { padding-left: 8px; padding-right: 0; }
   .col-name { width: 22%; }
   .col-datum { width: 13%; }
-  .col-land { width: 11%; }
+  /* 13 %, nicht 11 %: Bei 11 % (93 px auf Handybreite) brach
+     "Deutschland" mitten im Wort um ("Deutschl" / "and") - das Wort
+     braucht 76 px, der Inhalt hatte 73 px. Die Spaltenbreiten summieren
+     sich ohnehin nur auf 95 %, die zwei Prozentpunkte kosten also keine
+     andere Spalte. */
+  .col-land { width: 13%; }
   .col-standort { width: 14%; }
   .col-entfernung { width: 11%; }
   .col-art1 { width: 11%; }

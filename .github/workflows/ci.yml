@@ -51,7 +51,13 @@ jobs:
       # und für `node --check` über die Inline-Skripte.
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+
+      # scraper_lib importiert requests und bs4 - ohne die läuft der Test
+      # gar nicht an (genau daran ist der erste CI-Lauf gescheitert).
+      # Dieselbe Liste nutzt update-events.yml.
+      - name: Python-Abhängigkeiten
+        run: pip install --quiet -r scripts/requirements.txt
 
       # Dieselben Prüfungen wie vor jedem Commit: Datenregeln, Dedupe,
       # Zeitrennen, Kalender-Dateinamen, JS-Syntax und die ?v=-Stempel an
@@ -63,10 +69,15 @@ jobs:
       # Aufräumen muss idempotent sein: ein zweiter Lauf über dieselbe
       # Datei darf nichts mehr ändern. Sonst wächst der wöchentliche
       # Commit ins Unendliche.
+      #
+      # `--no-geocoding` ist Absicht: Ohne das fragte jeder Push
+      # Nominatim nach Ländern zu Koordinaten (der Cache liegt nicht im
+      # Repo) - unhöflich gegenüber einem fremden Dienst und langsam.
+      # Geprüft wird damit genau der Teil, der ohne Netz entscheidet.
       - name: clean_events.py ändert nichts mehr (Idempotenz)
         run: |
           cp events.json /tmp/vorher.json
-          python3 scripts/clean_events.py
+          python3 scripts/clean_events.py --no-geocoding
           if ! diff -q /tmp/vorher.json events.json; then
             echo "::error::clean_events.py ändert events.json - der Bestand ist nicht aufgeräumt."
             exit 1
