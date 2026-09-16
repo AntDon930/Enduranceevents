@@ -140,6 +140,15 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   GeoNames-Namensnennung (CC BY 4.0 verlangt sie) steht in der Fußzeile
   von `index.html`, nicht im Filter.
 
+- **Den Standort-Dialog kann die Seite nicht erzwingen.** Der Browser
+  fragt nur beim ersten Mal und merkt sich die Antwort; systemweit
+  abgeschaltete Ortung liefert Fehlercode 1 sofort, ganz ohne Dialog.
+  Deshalb unterscheidet der Fehler-Zweig nach der Dauer: unter 800 ms
+  = nie gefragt → nummerierte Anleitung für die Einstellungen
+  (iOS-Pfade bei Apple-Geräten) einblenden; länger = gerade selbst
+  abgelehnt → „noch einmal tippen". Nicht zu einem einzigen Text
+  zusammenfassen, die beiden Fälle brauchen verschiedene Schritte.
+
 - **`refreshOpenPanel()` zeichnet das offene Filter-Panel nicht neu,
   solange der Fokus darin liegt** (damit eine Eingabe im Namensfeld nicht
   abreißt). Jeder Button *im* Panel, der den Filterzustand ändert, muss

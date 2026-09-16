@@ -496,6 +496,21 @@
     margin-bottom: 6px;
     min-height: 1.1em;
   }
+  .geo-help {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin: 0 0 6px;
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    line-height: 1.35;
+  }
+  .geo-help ol {
+    margin: 0 0 4px;
+    padding-left: 1.1em;
+  }
+  .geo-help li { margin-bottom: 3px; }
+  .geo-help .geo-help-fallback { display: block; margin-top: 4px; }
   .filter-panel select {
     width: 100%;
     padding: 5px 6px;
@@ -750,7 +765,19 @@
       geo_locating: 'Standort wird ermittelt…',
       geo_unsupported: 'Geolocation wird von diesem Browser nicht unterstützt.',
       geo_unavailable: (msg) => `Standort nicht verfügbar: ${msg}`,
-      geo_denied: 'Standortzugriff wurde abgelehnt. Erlaube ihn für diese Seite in den Browser- bzw. Systemeinstellungen (iOS: Einstellungen → Datenschutz → Ortungsdienste → Safari).',
+      geo_denied: 'Standortzugriff wurde abgelehnt. Tippe noch einmal auf den Knopf – dann fragt der Browser erneut.',
+      geo_denied_blocked: 'Der Browser hat gar nicht erst gefragt: Die Erlaubnis für diese Seite ist gespeichert abgelehnt oder systemweit aus. So gibst du sie frei:',
+      geo_retry: '📍 Standort erneut versuchen',
+      geo_help_ios: [
+        'Einstellungen → Apps → Safari → Standort auf „Fragen" stellen (ältere iOS-Versionen: Einstellungen → Safari → Standort).',
+        'Einstellungen → Datenschutz & Sicherheit → Ortungsdienste einschalten, dort „Safari-Websites" auf „Beim Verwenden der App".',
+        'Diese Seite neu laden und noch einmal auf den Knopf tippen.'
+      ],
+      geo_help_other: [
+        'Auf das Schloss- bzw. Info-Symbol links in der Adresszeile tippen und den Standort für diese Seite erlauben.',
+        'Danach die Seite neu laden und noch einmal auf den Knopf tippen.'
+      ],
+      geo_help_fallback: 'Geht auch ohne Standort: unten einfach Ort oder PLZ eintippen – der Umkreis arbeitet genauso.',
       geo_timeout: 'Die Standortabfrage hat zu lange gedauert. Bitte noch einmal versuchen.',
       geo_insecure: 'Standortabfrage geht nur über HTTPS. Lokal getestet? Dann die Seite über https:// oder http://localhost öffnen.',
       geo_current_label: 'Aktueller Standort',
@@ -835,7 +862,19 @@
       geo_locating: 'Getting location…',
       geo_unsupported: 'Geolocation is not supported by this browser.',
       geo_unavailable: (msg) => `Location unavailable: ${msg}`,
-      geo_denied: 'Location access was denied. Allow it for this site in your browser or system settings (iOS: Settings → Privacy → Location Services → Safari).',
+      geo_denied: 'Location access was denied. Tap the button again and the browser will ask once more.',
+      geo_denied_blocked: 'The browser did not even ask: permission for this site is stored as denied, or location is off system-wide. Here is how to allow it:',
+      geo_retry: '📍 Try location again',
+      geo_help_ios: [
+        'Settings → Apps → Safari → Location: set it to “Ask” (older iOS: Settings → Safari → Location).',
+        'Settings → Privacy & Security → Location Services: turn it on and set “Safari Websites” to “While Using the App”.',
+        'Reload this page and tap the button again.'
+      ],
+      geo_help_other: [
+        'Tap the lock or info icon at the left of the address bar and allow location for this site.',
+        'Then reload the page and tap the button again.'
+      ],
+      geo_help_fallback: 'Works without location too: just type a place or postcode below – the radius search behaves the same.',
       geo_timeout: 'Getting your location took too long. Please try again.',
       geo_insecure: 'Location lookup only works over HTTPS. Testing locally? Open the page via https:// or http://localhost.',
       geo_current_label: 'Current location',
@@ -1632,6 +1671,13 @@
     statusEl.textContent = state.origin ? t('geo_origin_set', state.origin.label) : t('geo_no_origin');
     section.appendChild(statusEl);
 
+    // Erscheint erst, wenn der Browser den Zugriff gespeichert verweigert:
+    // dann hilft kein zweiter Klick, sondern nur die Einstellung.
+    const geoHelp = document.createElement('div');
+    geoHelp.className = 'geo-help';
+    geoHelp.hidden = true;
+    section.appendChild(geoHelp);
+
     if (state.origin) {
       const clearBtn = document.createElement('button');
       clearBtn.type = 'button';
@@ -1749,6 +1795,21 @@
       loadPlaces().then(renderResults);
     }
 
+    // iPadOS meldet sich in Safari als "Macintosh"; der Touch-Zähler
+    // verrät trotzdem, dass ein iPad davorsteht - und damit, welcher
+    // Einstellungs-Pfad der richtige ist.
+    function istAppleGeraet() {
+      const ua = navigator.userAgent || '';
+      return /iPhone|iPad|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
+    }
+
+    function zeigeGeoHilfe() {
+      const schritte = t(istAppleGeraet() ? 'geo_help_ios' : 'geo_help_other');
+      geoHelp.innerHTML = '<ol>' + schritte.map(zeile => `<li>${escapeHtml(zeile)}</li>`).join('') +
+        `</ol><span class="geo-help-fallback">${escapeHtml(t('geo_help_fallback'))}</span>`;
+      geoHelp.hidden = false;
+    }
+
     geoBtn.addEventListener('click', () => {
       if (!navigator.geolocation) {
         statusEl.textContent = t('geo_unsupported');
@@ -1761,8 +1822,10 @@
         statusEl.textContent = t('geo_insecure');
         return;
       }
+      geoHelp.hidden = true;
       statusEl.textContent = t('geo_locating');
       geoBtn.disabled = true;
+      const gestartet = Date.now();
       navigator.geolocation.getCurrentPosition(
         pos => {
           setOrigin({ lat: pos.coords.latitude, lon: pos.coords.longitude, label: t('geo_current_label') });
@@ -1778,13 +1841,51 @@
         },
         err => {
           geoBtn.disabled = false;
-          if (err.code === 1) statusEl.textContent = t('geo_denied');
+          if (err.code === 1) {
+            // Fehlercode 1 hat zwei sehr verschiedene Ursachen, und der
+            // Unterschied entscheidet, was der Nutzer tun muss:
+            // Kommt die Absage praktisch sofort, hat der Browser gar nicht
+            // gefragt - die Entscheidung steht schon fest (einmal abgelehnt
+            // und gemerkt) oder die Ortungsdienste sind systemweit aus.
+            // Dann hilft nur die Einstellung, ein zweiter Klick nicht.
+            // Hat der Nutzer dagegen eben selbst "Nicht erlauben" getippt,
+            // vergehen Sekunden - und beim nächsten Klick fragt der Browser
+            // wieder.
+            const sofort = Date.now() - gestartet < 800;
+            statusEl.textContent = sofort ? t('geo_denied_blocked') : t('geo_denied');
+            geoBtn.textContent = t('geo_retry');
+            if (sofort) zeigeGeoHilfe();
+          }
           else if (err.code === 3) statusEl.textContent = t('geo_timeout');
           else statusEl.textContent = t('geo_unavailable', err.message || String(err.code));
         },
-        { enableHighAccuracy: false, timeout: 10000 }
+        // maximumAge: eine Position aus den letzten fünf Minuten darf der
+        // Browser direkt zurückgeben - das spart beim zweiten Öffnen des
+        // Panels die volle Ortung.
+        { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
       );
     });
+
+    // Zusatz, kein Ersatz: Safari unterstützt navigator.permissions für
+    // "geolocation" nicht überall (und wirft dort beim Namen eine
+    // Ausnahme). Wo es geht, sagen wir schon beim Öffnen des Panels, dass
+    // der Zugriff gespeichert abgelehnt ist - sonst tippt der Nutzer auf
+    // einen Knopf, der nie etwas tun kann.
+    if (!state.origin && navigator.permissions && navigator.permissions.query) {
+      try {
+        navigator.permissions.query({ name: 'geolocation' })
+          .then(res => {
+            if (res.state === 'denied' && !state.origin && geoHelp.hidden) {
+              statusEl.textContent = t('geo_denied_blocked');
+              geoBtn.textContent = t('geo_retry');
+              zeigeGeoHilfe();
+            }
+          })
+          .catch(() => {});
+      } catch (e) {
+        /* Browser ohne Unterstützung: dann eben erst nach dem Klick. */
+      }
+    }
 
     panel.appendChild(section);
   }

@@ -186,11 +186,41 @@ Schweiz.
      **Zur Geolocation**: Der Standort-Button braucht einen sicheren
      Kontext – auf GitHub Pages (HTTPS) und über `http://localhost` geht
      er, über eine nackte `http://`-Adresse oder `file://` lehnen die
-     Browser ihn ab; das sagt die Statuszeile dann auch so. Abgelehnter
-     Zugriff (Fehlercode 1) und Zeitüberschreitung (3) bekommen eigene,
-     verständliche Texte statt der rohen Browser-Meldung – auf iOS liegt
-     der Schalter unter Einstellungen → Datenschutz → Ortungsdienste →
-     Safari.
+     Browser ihn ab; das sagt die Statuszeile dann auch so.
+
+     Ob der Browser den Erlaubnis-Dialog überhaupt zeigt, entscheidet
+     allein der Browser – eine Webseite kann ihn nicht erzwingen und
+     nicht selbst einblenden. Gefragt wird nur beim *ersten* Mal pro
+     Seite; danach merkt sich der Browser die Antwort. Ein „Nicht
+     erlauben" wirkt deshalb dauerhaft, und ist die Ortung systemweit
+     aus (iOS: Ortungsdienste, oder Safari steht auf „Ablehnen"),
+     kommt gar kein Dialog: `getCurrentPosition()` antwortet sofort mit
+     Fehlercode 1.
+
+     Genau daran hängt die Unterscheidung im Fehler-Zweig: Kommt
+     Fehlercode 1 in **unter 800 ms**, hat der Browser nicht gefragt –
+     dann hilft nur die Einstellung, und das Panel blendet eine
+     nummerierte Anleitung ein (iOS-Pfade für Apple-Geräte, sonst der
+     Hinweis auf das Schloss-Symbol in der Adresszeile) plus den
+     Hinweis, dass die Ort-/PLZ-Suche darunter ohne Freigabe
+     funktioniert. Dauert die Ablehnung länger, hat der Nutzer den
+     Dialog gerade selbst weggetippt – dann fragt der Browser beim
+     nächsten Klick wieder, und die Statuszeile sagt genau das. Der
+     Knopf wird nach einem Fehlversuch wieder aktiv und heißt dann
+     „Standort erneut versuchen". Zeitüberschreitung (Fehlercode 3)
+     hat weiterhin einen eigenen Text.
+
+     Wo `navigator.permissions.query({name:'geolocation'})` unterstützt
+     wird (Chrome, Firefox – Safari nicht überall, deshalb in
+     `try/catch` **und** mit `.catch()`), steht der Hinweis schon beim
+     Öffnen des Panels da, statt erst nach einem Klick, der nichts
+     bewirken kann. `maximumAge: 300000` erlaubt dem Browser, eine
+     Position aus den letzten fünf Minuten direkt zurückzugeben.
+
+     Die iOS-Einstellungen liegen an zwei Stellen, beide müssen stimmen:
+     Einstellungen → Apps → Safari → Standort (ältere iOS-Versionen:
+     Einstellungen → Safari → Standort) und Einstellungen → Datenschutz
+     & Sicherheit → Ortungsdienste → Safari-Websites.
 
      **Fallstrick, der hier einmal zugeschlagen hat**: Der Erfolgs-
      Callback setzt `state.origin` und ruft `render()`. `render()`
