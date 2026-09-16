@@ -24,6 +24,7 @@ Nicht auf einen anderen Branch pushen.
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
+| `favicon.svg`, `apple-touch-icon.png` | Seitensymbol; das PNG entsteht aus dem SVG (nach Änderung neu erzeugen) |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel – beide Seiten bedienen dieselben |
@@ -503,6 +504,11 @@ denen dann alle Events herausgesucht werden – erwartet werden **über
 ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
 
 ## Offene Punkte / To-dos
+
+- **`og:image` nachtragen, sobald die Domain feststeht** – die
+  Vorschau beim Teilen (`description`/Open Graph, in allen drei
+  Seiten) hat bisher kein Bild, weil `og:image` eine absolute
+  Adresse verlangt.
 
 - **GeoNames-Namensnennung ins Impressum** – sobald es eines gibt. Die
   Ortsdaten der Umkreissuche (`places.json`) stehen unter CC BY 4.0, die

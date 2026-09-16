@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karte – Ausdauersport-Events D/A/CH</title>
+<!-- Seitensymbol. Ohne diese Zeilen fragt jeder Browser von sich aus
+     /favicon.ico an und bekommt von GitHub Pages die 404-Seite - der Tab
+     bleibt leer. Eine SVG-Datei reicht fuer alle Groessen; das PNG
+     braucht nur iOS fuer den Startbildschirm (dort rundet das System die
+     Ecken selbst, deshalb ist es randvoll). -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
+     auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
+     nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
+     absolute Adresse, und die Domain steht noch nicht fest. -->
+<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ausdauersport-Events D/A/CH">
+<meta property="og:title" content="Ausdauersport-Events D/A/CH – die Karte">
+<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <!-- events.json ist das, worauf die Seite wartet - deshalb wird der

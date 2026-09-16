@@ -1461,6 +1461,29 @@ Drei Details, die in der Praxis zählen:
 Repository ausgenommen. In `manual_overrides.json` landet nur die
 fachliche Begründung, nie die Person.
 
+## Seitensymbol und Vorschau beim Teilen
+
+`favicon.svg` (498 Byte) ist das Symbol für Tab und Lesezeichen,
+`apple-touch-icon.png` (180 × 180) das für den Startbildschirm von iPhone
+und iPad. Beide zeigen dasselbe Streckenprofil in der Akzentfarbe
+`#2563eb`; das PNG ist randvoll, weil iOS die Ecken selbst rundet, das SVG
+bringt seine Rundung mit (`rx="14"`). Bewusst nur drei Linien und ein
+Punkt: bei 16 px bleibt von mehr nichts übrig. Das PNG entsteht aus dem
+SVG (Chromium, 180 × 180 abfotografiert) – wird das SVG geändert, muss es
+neu erzeugt werden.
+
+Vorher gab es gar kein Symbol. Jeder Browser fragt von sich aus
+`/favicon.ico` an, und GitHub Pages antwortete darauf mit seiner
+404-Seite: leerer Tab, und auf dem Startbildschirm ein Bildschirmfoto der
+Seite statt eines Symbols.
+
+Dazu im Kopf aller drei Seiten `description` und die Open-Graph-Angaben
+(`og:title`, `og:description`, `og:site_name`, `twitter:card`). „Suche mit
+Freunden teilen" verschickt einen Link auf `events.html`; ohne diese
+Angaben zeigen WhatsApp, iMessage und Co. nur die nackte Adresse. Ein
+`og:image` fehlt **bewusst**: es verlangt eine absolute Adresse, und die
+Domain steht noch nicht fest – nachzutragen, sobald die Seite live ist.
+
 ## Tempo der Seite
 
 Die Seite lud spürbar träge – das Aufrufen der Liste ebenso wie jeder
