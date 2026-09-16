@@ -312,6 +312,28 @@ def test_duplikate() -> None:
           "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf"}
     check("gleiche Domain, andere Veranstaltung", is_same_event(a1, a2), False)
 
+    # Einwortiger Veranstaltungsname, eine Zeile ohne Wettbewerb: so stand
+    # der SAARathon zweimal mit 42,2 km in den Daten (einmal mit
+    # Wettbewerbs-Bezeichnung und offizieller Seite, einmal ohne und mit
+    # Portallink). "SAARathon" ist ein Wort - zu kurz für die
+    # Teilmengen-Regel -, und gegen die lange Bezeichnung reicht die
+    # Ähnlichkeit nicht.
+    SD, SS = "2026-10-11", "Saarbrücken"
+    sa1 = {"name": "SAARathon", "wettbewerb": "42,195 km Weltkulturerbe-Marathon",
+           "datum_start": SD, "standort": SS, "laenge_km": 42.2, "art1": "Laufen",
+           "veranstalter_url": "https://www.westspangenlauf.de"}
+    sa2 = {"name": "SAARathon", "datum_start": SD, "standort": SS, "laenge_km": 42.2,
+           "art1": "Laufen",
+           "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000009060002"}
+    check("gleicher Name, eine Zeile ohne Wettbewerb", is_same_event(sa1, sa2), True)
+    # Nennen BEIDE einen Wettbewerb, ist das Label das Unterscheidende -
+    # ein 10-km-Lauf und ein 10-km-Walking sind zwei Einträge.
+    sa3 = dict(sa2, wettbewerb="42,2 km Nordic Walking")
+    check("beide mit Wettbewerb bleiben getrennt", is_same_event(sa1, sa3), False)
+    # Dieselbe Strecke, andere Sportart: auch kein Duplikat (Datenregel 1).
+    sa4 = dict(sa2, art1="Wandern")
+    check("andere Sportart bleibt getrennt", is_same_event(sa1, sa4), False)
+
     # Generische Namen am selben Tag in verschiedenen Städten.
     s1 = {"name": "Silvesterlauf", "datum_start": "2026-12-31",
           "standort": "Salzburg", "lat": 47.80, "lon": 13.04, "laenge_km": 10.0}

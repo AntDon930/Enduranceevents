@@ -1327,6 +1327,38 @@ def _same_name(a: dict, b: dict) -> bool:
         return False
     if ta == tb:
         return True
+    # Derselbe Veranstaltungsname, und eine der beiden Zeilen trägt gar
+    # kein Wettbewerbs-Label: dann ist der Name schon die ganze Auskunft.
+    #
+    # Ohne diesen Weg blieb der SAARathon am 11.10.2026 zweimal mit
+    # 42,2 km in den Daten stehen - einmal mit "42,195 km
+    # Weltkulturerbe-Marathon" und der offiziellen Seite, einmal ohne
+    # Wettbewerb und mit einem Portallink. Der Name ist mit einem Wort
+    # ("SAARathon") zu kurz für die Teilmengen-Regel (die verlangt
+    # mindestens zwei Wörter, damit nicht schon "marathon" allein
+    # reicht), und gegen die lange Wettbewerbs-Bezeichnung reicht die
+    # Ähnlichkeit nicht.
+    #
+    # Zwei Bedingungen halten die Regel eng, beide sind nötig:
+    #
+    # - **Höchstens eine Seite nennt einen Wettbewerb.** Nennen BEIDE
+    #   einen, ist das Label das Unterscheidende ("10 km Lauf" gegen
+    #   "10 km Nordic Walking") und darf nicht wegfallen.
+    # - **Dieselbe Sportart.** Ein Lauf und ein Wandern-Wettbewerb
+    #   derselben Veranstaltung über dieselbe Strecke sind zwei Einträge
+    #   (Datenregel 1), kein Duplikat.
+    #
+    # Die Distanz prüft is_same_event ohnehin schon - verschiedene
+    # Strecken derselben Veranstaltung bleiben also getrennt. Über den
+    # ganzen Bestand (4.155 Events) trifft diese Regel genau dieses eine
+    # Paar.
+    wb_a = (a.get("wettbewerb") or "").strip()
+    wb_b = (b.get("wettbewerb") or "").strip()
+    bare = _bare_name_tokens(a)
+    if (bare and bare == _bare_name_tokens(b)
+            and not (wb_a and wb_b)
+            and a.get("art1") == b.get("art1")):
+        return True
     shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
     if len(shorter) >= 2 and shorter <= longer:
         return True
@@ -1339,6 +1371,11 @@ def _name_tokens(event: dict) -> frozenset:
     """Wortmenge aus Event-Name UND Wettbewerbs-Bezeichnung."""
     text = f"{event.get('name') or ''} {event.get('wettbewerb') or ''}"
     return frozenset(normalize_event_name(text).split())
+
+
+def _bare_name_tokens(event: dict) -> frozenset:
+    """Wortmenge NUR aus dem Veranstaltungsnamen, ohne den Wettbewerb."""
+    return frozenset(normalize_event_name(event.get("name") or "").split())
 
 
 def is_same_event(a: dict, b: dict) -> bool:

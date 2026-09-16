@@ -119,6 +119,14 @@ laden Leaflet und Firebase (das Skript setzt es schon).
 7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
    Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
    Distanzen bleibt absichtlich getrennt.
+   „Ähnlicher Name" hat fünf Wege (siehe `_same_name()`); der fünfte ist
+   neu: **gleicher Veranstaltungsname ohne Wettbewerb gerechnet, und
+   höchstens eine Seite nennt einen Wettbewerb, bei gleicher `art1`**.
+   Damit fiel der doppelte SAARathon (42,2 km, einmal mit Portallink)
+   weg. Beide Zusatzbedingungen sind nötig: Nennen BEIDE einen
+   Wettbewerb, ist das Label das Unterscheidende („10 km Lauf" vs.
+   „10 km Nordic Walking"), und Lauf vs. Wandern über dieselbe Strecke
+   sind zwei Einträge.
 8. **Zeitrennen haben `dauer_h`, nicht `laenge_km`.** Ein 24-Stunden-Lauf
    hat keine feste Strecke; die Dauer in Stunden steht in `dauer_h` und
    erscheint in derselben Spalte („24 h"). Eine bekannte Distanz hat in der

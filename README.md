@@ -1,5 +1,7 @@
 # Enduranceevents
 
+[![Tests](https://github.com/AntDon930/Enduranceevents/actions/workflows/ci.yml/badge.svg)](https://github.com/AntDon930/Enduranceevents/actions/workflows/ci.yml)
+
 Öffentliche Webseite mit einer gefilterten Liste von Ausdauersport-Events
 (Laufen, Schwimmen, Fahrrad, Triathlon) in Deutschland, Österreich und der
 Schweiz.
@@ -881,6 +883,24 @@ und eindeutige Events in `events.json` landen:
   direkter Veranstalter-Link einem Kalender-Portal-Link vorgezogen – der
   Datensatz gewinnt durch jede zusätzliche Quelle, statt doppelte Zeilen
   zu erzeugen.
+
+  **Ein fünfter Weg zum Namens-Treffer** kam dazu, als die neue
+  CI-Prüfung („passt `kalender/` zu `events.json`") einen Doppeleintrag
+  aufdeckte: Der *SAARathon* stand am 11.10.2026 zweimal mit 42,2 km in
+  den Daten – einmal mit „42,195 km Weltkulturerbe-Marathon" und der
+  offiziellen Seite, einmal ohne Wettbewerb und mit einem Portallink.
+  „SAARathon" ist **ein** Wort, also zu kurz für die Teilmengen-Regel
+  (die verlangt mindestens zwei, damit nicht schon „marathon" allein
+  reicht), und gegen die lange Wettbewerbs-Bezeichnung reichte die
+  Ähnlichkeit nicht. Jetzt gilt zusätzlich: **gleicher
+  Veranstaltungsname** (ohne den Wettbewerb gerechnet) **und höchstens
+  eine Seite nennt einen Wettbewerb und dieselbe Sportart**. Beide
+  Zusatzbedingungen sind nötig – nennen *beide* einen Wettbewerb, ist
+  das Label das Unterscheidende („10 km Lauf" gegen „10 km Nordic
+  Walking"), und ein Lauf- und ein Wander-Wettbewerb über dieselbe
+  Strecke sind zwei Einträge (Datenregel 1), kein Duplikat. Über den
+  ganzen Bestand trifft die Regel genau dieses eine Paar (4.155 → 4.154
+  Events); drei Regressionstests halten sie fest.
 - **Alle Strecken auslesen, nicht nur die längste**
   (`scraper_lib.parse_competitions()` / `expand_competitions()`): Früher
   hat jeder Scraper aus der Wettbewerbsliste einer Veranstaltung nur EINE
