@@ -1062,7 +1062,7 @@
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    events = await res.json();
+    events = dropPastEvents(await res.json());
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });
     bodyEl.innerHTML = `<tr><td colspan="7" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
@@ -1093,6 +1093,22 @@
   function todayIso() {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+
+  // Vergangene Events erscheinen gar nicht. Aufgeräumt wird events.json
+  // zwar auch serverseitig (clean_events.drop_past_events), aber nur
+  // einmal pro Woche - ohne diesen Filter stünden dazwischen bis zu
+  // sieben Tage Vergangenheit in der Liste. Maßgeblich ist das Ende:
+  // ein mehrtägiges Rennen bleibt bis zu seinem letzten Tag; ein Event
+  // ohne verwertbares Datum bleibt drin (nicht auf Unsicherheit hin
+  // ausblenden).
+  function dropPastEvents(list) {
+    const today = todayIso();
+    return list.filter(e => {
+      const ende = e.datum_ende || e.datum_start;
+      if (typeof ende !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(ende)) return true;
+      return ende >= today;
+    });
   }
 
   function uniqueSorted(values) {
@@ -1733,17 +1749,12 @@
         }
         return true;
       })
-      // Nach Datum sortiert, das aktuellste (= nächste bevorstehende) Datum
-      // zuerst: bereits vergangene Events (datum_start < heute) werden ans
-      // Ende sortiert statt an den Anfang, da ein Datumsstring-Vergleich
-      // sie sonst fälschlich vor alle künftigen Events stellen würde.
-      .sort((a, b) => {
-        const today = todayIso();
-        const aPast = a.e.datum_start < today ? 1 : 0;
-        const bPast = b.e.datum_start < today ? 1 : 0;
-        if (aPast !== bPast) return aPast - bPast;
-        return a.e.datum_start.localeCompare(b.e.datum_start);
-      });
+      // Nach Datum sortiert, das nächste bevorstehende zuerst. Der
+      // frühere Sonderfall "vergangene Events ans Ende" ist weg -
+      // vergangene Events kommen gar nicht mehr in die Liste (siehe
+      // dropPastEvents beim Laden), ein einfacher ISO-Textvergleich
+      // genügt daher.
+      .sort((a, b) => a.e.datum_start.localeCompare(b.e.datum_start));
   }
 
   function refreshOpenPanel() {

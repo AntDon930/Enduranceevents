@@ -176,10 +176,10 @@ Schweiz.
   Datenbasis für einen Filter.
 
   **Sortierung**: Die Liste ist immer nach Datum sortiert, das
-  nächstliegende/aktuellste (bevorstehende) Datum zuerst. Bereits
-  vergangene Events (Startdatum vor heute) werden dabei ans Ende
-  sortiert statt - wie ein reiner Textvergleich es tun würde - vor alle
-  künftigen Events zu rutschen.
+  nächstliegende (bevorstehende) Datum zuerst - ein einfacher
+  ISO-Textvergleich genügt, weil vergangene Events gar nicht in der
+  Liste stehen (siehe „Vergangene Events" unten). Der frühere
+  Sonderfall, der sie ans Ende sortierte, ist damit entfallen.
 
   Die Spaltenbreiten sind fix zugeteilt (Name breiter, Länge schmaler) statt
   gleich verteilt, über `nth-child`-Selektoren im `<style>`-Block von
@@ -245,9 +245,27 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Sieben Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Acht Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
 
+- **Vergangene Events werden entfernt** (`scraper_lib.filter_past()` beim
+  Einsammeln, `clean_events.drop_past_events()` rückwirkend für die
+  bestehende Datei). Die Kalender der Quellen führen abgelaufene Termine
+  teils monatelang weiter; ohne diesen Schritt sammelt sich Vergangenheit
+  in der Liste an. Drei Details:
+  - Maßgeblich ist das **Ende** der Veranstaltung (`datum_ende`, sonst
+    `datum_start`) - ein dreitägiges Etappenrennen, das gestern begonnen
+    hat, läuft noch und bleibt bis zu seinem letzten Tag.
+  - Der **heutige Tag bleibt immer drin**.
+  - Ein Event mit fehlendem oder unlesbarem Datum wird **nicht** gelöscht,
+    sondern behalten - dieselbe Linie wie bei den Distanzen weiter unten:
+    nicht auf Unsicherheit hin löschen.
+
+  Zusätzlich filtern `events.html` und `karte.html` beim Laden
+  (`dropPastEvents()`): `events.json` wird nur **einmal pro Woche**
+  aufgeräumt, ohne den Filter stünden dazwischen bis zu sieben Tage
+  Vergangenheit in der Liste. `clean_events.py --today YYYY-MM-DD` setzt
+  den Stichtag für Tests von Hand.
 - **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
   gleichnamige Funktion in `laufkalender_scraper.py`): Events mit
   **bekannter** Distanz unter 5 km (Bambini-/Kinder-/Firmen-Kurzläufe)
@@ -336,7 +354,8 @@ Distanz-Korrektur nach (behobener Bug: „Halbmarathon" wurde mit 42,2 km
 statt 21,1 km eingetragen, weil das Stichwort „marathon" zuerst prüfte),
 rundet alle Längenangaben auf eine Dezimalstelle, ergänzt bzw. korrigiert
 `land` per Reverse-Geocoding der Koordinaten,
-entfernt zu kurze Laufevents, führt Duplikate zusammen und
+entfernt zu kurze Laufevents **und alle Events, die bereits vorbei sind**,
+führt Duplikate zusammen und
 **vereinheitlicht die Namen innerhalb einer Veranstaltung**. Zum Schluss
 wird nach Datum sortiert (kleine Git-Diffs). Das Skript ist idempotent –
 ein zweiter Lauf ändert nichts mehr.
@@ -552,11 +571,11 @@ Die Kernlogik (Auto-Discovery, Verkettung/Merge über mehrere Skripte hinweg,
 Umgang mit teilweise fehlschlagenden Scrapern) ist mit simulierten
 Mock-Scraper-Skripten end-to-end getestet.
 
-### Tägliche automatische Aktualisierung (GitHub Action)
+### Wöchentliche automatische Aktualisierung (GitHub Action)
 
-`.github/workflows/update-events.yml` führt `update_events.py` jeden Tag
-automatisch aus (Cron `0 5 * * *` UTC, entspricht ca. 06:00 Uhr deutscher
-Zeit – GitHub-Cron kennt keine Zeitzonen, siehe Kommentar in der
+`.github/workflows/update-events.yml` führt `update_events.py` **einmal
+pro Woche, montags** automatisch aus (Cron `0 5 * * 1` UTC, entspricht ca.
+06:00 Uhr deutscher Zeit – GitHub-Cron kennt keine Zeitzonen, siehe Kommentar in der
 Workflow-Datei für Details zur CET/CEST-Abweichung) und zusätzlich manuell
 über den "Run workflow"-Button im Actions-Tab. Ändert sich `events.json`
 dabei, wird sie automatisch committet und auf `claude/endurance-events-website-v1wruf`
@@ -565,6 +584,12 @@ an, die Seite aktualisiert sich also von selbst. Der Geocoding-Cache
 (`scripts/.geocode_cache.json`) wird dabei über GitHub Actions Cache
 zwischen den Läufen wiederverwendet, um wiederholte Nominatim-Anfragen für
 bereits bekannte Städte zu vermeiden.
+
+**Vorher lief der Workflow täglich.** Solange die Seite nicht live ist,
+bringt ein täglicher Lauf nichts außer ~2 Stunden Laufzeit und einem
+großen `events.json`-Diff pro Tag; ein Veranstaltungskalender ändert sich
+ohnehin nicht stündlich. Für einen Lauf zwischendurch genügt der
+"Run workflow"-Button. Zurück auf täglich: `- cron: '0 5 * * *'`.
 
 ## Login/Anmeldung einrichten
 

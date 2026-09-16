@@ -1313,6 +1313,11 @@ MANUAL_OVERRIDES_PATH = REPO_ROOT / "scripts" / "manual_overrides.json"
 MIN_DISTANCE_KM = 5.0
 MIN_DISTANCE_ART1 = "Laufen"
 
+# Nur ein sauberes YYYY-MM-DD gilt als vergleichbares Datum (siehe
+# filter_past()); Datumsstrings in ISO-Form lassen sich direkt als Text
+# vergleichen.
+ISO_DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 _manual_overrides_cache: dict | None = None
 
 
@@ -1402,6 +1407,28 @@ def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) ->
     ]
     skipped = len(events) - len(kept)
     return kept, skipped
+
+
+def filter_past(events: list[Event], today: str | None = None) -> tuple[list[Event], int]:
+    """Verwirft Events, die schon vorbei sind. Die Kalender der Quellen
+    führen abgelaufene Termine teils monatelang weiter - ohne diesen
+    Filter wandert bei jedem Lauf wieder Vergangenheit in die Liste.
+
+    Maßgeblich ist das ENDE (sonst der Start): ein mehrtägiges Rennen,
+    das gestern begonnen hat, läuft noch. Der heutige Tag bleibt drin.
+    Ein Event mit unlesbarem Datum wird NICHT verworfen - auf Unsicherheit
+    hin zu löschen ist in diesem Projekt die falsche Richtung (siehe
+    README "Datenqualität"). `clean_events.drop_past_events()` macht
+    dasselbe rückwirkend für die bestehende Datei."""
+    heute = today or date.today().isoformat()
+    kept = []
+    for e in events:
+        ende = e.datum_ende or e.datum_start
+        if not isinstance(ende, str) or not ISO_DATE_PATTERN.match(ende):
+            kept.append(e)
+        elif ende >= heute:
+            kept.append(e)
+    return kept, len(events) - len(kept)
 
 
 def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[list[dict], int, int]:
@@ -1618,6 +1645,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     events_to_use, too_short_skipped = filter_min_distance(events_to_use)
     if too_short_skipped:
         print(f"  ({too_short_skipped} Event(s) unter {MIN_DISTANCE_KM:g} km übersprungen.)")
+
+    events_to_use, past_skipped = filter_past(events_to_use)
+    if past_skipped:
+        print(f"  ({past_skipped} bereits vergangene(s) Event(s) übersprungen.)")
 
     if not args.no_geocoding:
         geocoder = Geocoder(GEOCODE_CACHE_PATH)

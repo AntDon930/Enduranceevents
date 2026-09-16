@@ -19,7 +19,7 @@ Nicht auf einen anderen Branch pushen.
 
 | Datei | Zweck |
 |---|---|
-| `events.json` | die Daten (**~450 KB**, wächst täglich) |
+| `events.json` | die Daten (**~450 KB**, wächst mit jedem Lauf) |
 | `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort |
@@ -76,6 +76,13 @@ laden Leaflet und Firebase.
 7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
    Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
    Distanzen bleibt absichtlich getrennt.
+8. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
+   `datum_start`); der heutige Tag bleibt, ein mehrtägiges Rennen bleibt bis
+   zu seinem letzten Tag, ein Event mit unlesbarem Datum wird nicht
+   gelöscht. An drei Stellen: `scraper_lib.filter_past()` beim Einsammeln,
+   `clean_events.drop_past_events()` rückwirkend, und `dropPastEvents()`
+   beim Laden in `events.html`/`karte.html` (zwischen zwei Läufen liegt
+   eine Woche).
 
 ### Die wichtigste Lektion
 
@@ -139,10 +146,24 @@ Workflow auslösen und später nachsehen. Für Tests immer
 
 ## Automatik
 
-`.github/workflows/update-events.yml` läuft täglich 5:00 UTC: alle Scraper,
-dann `clean_events.py`, dann Commit auf den Branch. Für einen Datenlauf ist
+`.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
+(vorher täglich – solange die Seite nicht live ist, bringt ein täglicher
+Lauf nur Laufzeit und große events.json-Diffs): alle Scraper, dann
+`clean_events.py`, dann Commit auf den Branch. Für einen Datenlauf ist
 also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
 (Actions → „Events automatisch aktualisieren" → Run workflow).
+
+## Wo das Projekt gerade steht
+
+Die Seite ist **noch nicht live**. Gearbeitet wird derzeit an der Webseite
+selbst, nicht an den Daten – also sparsam mit Tokens umgehen: keine
+Scraper-Läufe „zur Kontrolle", `events.json` nicht lesen, für Daten-
+Änderungen den Workflow auslösen statt im Chat zu warten.
+
+**Geplant zum Schluss**: Der Nutzer liefert eine größere Menge Links, aus
+denen dann alle Events herausgesucht werden – erwartet werden **über
+20.000 Events**. Das ist der Moment für einen großen Datenlauf; bis dahin
+ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
 
 ## Offene Punkte / To-dos
 

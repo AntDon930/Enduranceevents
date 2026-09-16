@@ -32,6 +32,11 @@ Neun Schritte, in dieser Reihenfolge:
 5. **5-km-Mindestdistanz**: Events mit BEKANNTER Distanz unter
    `scraper_lib.MIN_DISTANCE_KM` entfernen (Events ohne Distanzangabe
    bleiben, siehe README "Datenqualität").
+5b. **Vergangene Events entfernen**: Maßgeblich ist `datum_ende` (sonst
+   `datum_start`); der heutige Tag bleibt drin, ein mehrtägiges Rennen
+   bleibt bis zu seinem letzten Tag. Die Kalender der Quellen führen
+   abgelaufene Termine teils monatelang weiter - ohne diesen Schritt
+   sammelt sich Vergangenheit in der Liste an.
 6. **Verdächtige Distanzen melden** (nur Hinweis, es wird nichts
    gelöscht): Widerspricht eine Einzelangabe der Streckenaufzählung einer
    anderen Quelle für dieselbe Veranstaltung, wird sie zur Prüfung
@@ -89,6 +94,10 @@ from scraper_lib import (  # noqa: E402
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
 # Laufen genutzt (siehe ART2_KEYWORDS_LAUFEN in scraper_lib.py).
 ART2_CONFIG = SiteConfig(base_url="", calendar_url="")
+
+# Nur ein sauberes YYYY-MM-DD gilt als vergleichbares Datum; alles andere
+# wird beim Aufräumen nicht angefasst (siehe drop_past_events()).
+ISO_DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def completeness(event: dict) -> int:
@@ -358,6 +367,35 @@ def fix_land(events: list[dict], geocoder: Geocoder | None) -> list[str]:
             )
             event["land"] = land
     return changed
+
+
+def drop_past_events(events: list[dict],
+                     today: str | None = None) -> tuple[list[dict], list[str]]:
+    """Entfernt Events, die vorbei sind. Eine Liste, in der ein Lauf vom
+    letzten März steht, ist für niemanden nützlich - und die Scraper
+    holen vergangene Termine aus den Kalendern immer wieder mit herein,
+    solange die Quelle sie dort stehen lässt.
+
+    Maßgeblich ist das ENDE der Veranstaltung: ein dreitägiges Etappen-
+    rennen, das gestern begonnen hat, läuft noch und bleibt. Der heutige
+    Tag selbst bleibt immer drin.
+
+    Ein Event mit unlesbarem oder fehlendem Datum wird NICHT gelöscht,
+    sondern behalten (und im Bericht als Hinweis geführt) - dieselbe
+    Linie wie bei den Distanzen: nicht auf Unsicherheit hin löschen,
+    denn zu viel gelöscht ist unsichtbar."""
+    heute = today or date.today().isoformat()
+    kept, dropped = [], []
+    for event in events:
+        ende = event.get("datum_ende") or event.get("datum_start")
+        if not isinstance(ende, str) or not ISO_DATE_PATTERN.match(ende):
+            kept.append(event)
+            continue
+        if ende < heute:
+            dropped.append(f"{event.get('name')} ({ende})")
+        else:
+            kept.append(event)
+    return kept, dropped
 
 
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
@@ -780,6 +818,9 @@ def main() -> None:
                         help="Nur Bericht ausgeben, events.json NICHT verändern.")
     parser.add_argument("--quiet", action="store_true",
                         help="Nur die Zusammenfassung, keine Einzelmeldungen.")
+    parser.add_argument("--today", metavar="YYYY-MM-DD",
+                        help="Stichtag für das Entfernen vergangener Events "
+                             "(Standard: heute). Nur für Tests/Nachrechnen.")
     parser.add_argument("--no-geocoding", action="store_true",
                         help="Kein Reverse-Geocoding für fehlende/falsche Länder "
                              "(dann wird `land` nur aus dem Ortsnamen abgeleitet).")
@@ -797,6 +838,7 @@ def main() -> None:
     label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
+    events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
     implausible = report_implausible_distances(events)
     # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
@@ -839,6 +881,7 @@ def main() -> None:
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
+    section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
     section("⚠ Unplausible Laufdistanz an einem Tag (nur Hinweis)", implausible)
     section("Duplikat-Gruppen zusammengeführt", dup_report)

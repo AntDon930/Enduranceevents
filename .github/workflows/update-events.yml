@@ -2,6 +2,13 @@ name: Events automatisch aktualisieren
 
 on:
   schedule:
+    # WÖCHENTLICH, montags. Vorher lief der Workflow täglich; solange die
+    # Seite noch nicht live ist, bringt ein täglicher Lauf nichts außer
+    # Laufzeit und täglichen events.json-Commits (die Datei ist ~450 KB,
+    # jeder Lauf erzeugt einen großen Diff). Ein Veranstaltungskalender
+    # ändert sich ohnehin nicht stündlich. Für einen Lauf zwischendurch:
+    # Actions -> "Events automatisch aktualisieren" -> "Run workflow".
+    #
     # GitHub Actions führt Cron-Zeitpläne IMMER in UTC aus, keine deutsche
     # Zeitzone möglich. 06:00 deutscher Zeit entspricht 05:00 UTC (CET,
     # Winterzeit) bzw. 04:00 UTC (CEST, Sommerzeit). "05:00 UTC" hier ist
@@ -9,7 +16,7 @@ on:
     # Für ganzjährig exakt 06:00 Uhr Ortszeit müsste man zwei Cron-Einträge
     # (04:00 und 05:00 UTC) mit einer Zeitzonen-Prüfung im ersten Schritt
     # kombinieren, die den "falschen" der beiden Läufe überspringt.
-    - cron: '0 5 * * *'
+    - cron: '0 5 * * 1'
   # Manuelles Auslösen zum Testen (Tab "Actions" -> "Events automatisch
   # aktualisieren" -> "Run workflow").
   workflow_dispatch: {}
@@ -35,8 +42,8 @@ jobs:
     #
     # Die Detailseiten sind nicht optional: nur dort stehen die einzelnen
     # Wettbewerbe, das Land und die offizielle Veranstalter-Seite.
-    # Das Limit liegt deutlich darüber, damit ein einzelner langsamer Tag
-    # den Lauf nicht kurz vor dem Commit abschneidet - eine hängende
+    # Das Limit liegt deutlich darüber, damit ein einzelner langsamer Lauf
+    # nicht kurz vor dem Commit abgeschnitten wird - eine hängende
     # Quelle soll ihn aber weiterhin beenden, statt stundenlang Minuten zu
     # verbrauchen (GitHub-Standard wären 6 Stunden).
     timeout-minutes: 300
@@ -57,9 +64,9 @@ jobs:
       # Nominatim (Geocoding) erlaubt max. 1 Request/Sekunde und die
       # Scraper-Skripte cachen Ergebnisse lokal in scripts/.geocode_cache.json
       # (per .gitignore nicht Teil des Repos). Der Cache wird hier über
-      # GitHub Actions Cache zwischen den täglichen Läufen wiederverwendet,
-      # damit bereits bekannte Städte nicht jeden Tag erneut angefragt
-      # werden müssen.
+      # GitHub Actions Cache zwischen den wöchentlichen Läufen
+      # wiederverwendet, damit bereits bekannte Städte nicht jede Woche
+      # erneut angefragt werden müssen.
       - name: Restore geocoding cache
         uses: actions/cache@v4
         with:
@@ -100,7 +107,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add events.json
           git commit -m "Automatisches Events-Update: ${{ steps.before.outputs.count }} -> ${AFTER} Events" \
-                     -m "Ausgeführt vom täglichen update-events-Workflow (scripts/update_events.py)."
+                     -m "Ausgeführt vom wöchentlichen update-events-Workflow (scripts/update_events.py)."
 
           for i in 1 2 3 4; do
             if git push origin HEAD:claude/endurance-events-website-v1wruf; then

@@ -319,6 +319,45 @@ def test_namensvereinheitlichung() -> None:
           name_quality_soft(lang) < name_quality_soft("Wiesent Challenge"), True)
 
 
+def test_vergangene_events() -> None:
+    """Vergangene Events gehören nicht in die Liste - weder neu
+    hereingeholt (scraper_lib.filter_past) noch in der bestehenden Datei
+    (clean_events.drop_past_events). Beide Seiten müssen sich gleich
+    verhalten, sonst holt der Scraper heraus, was das Aufräumen entfernt
+    hat, oder umgekehrt."""
+    from clean_events import drop_past_events  # lokaler Import, nur hier
+    from scraper_lib import filter_past
+
+    HEUTE = "2026-09-16"
+    roh = [
+        Event(name="vorbei", datum_start="2026-09-01", standort="X"),
+        Event(name="heute", datum_start=HEUTE, standort="X"),
+        # Etappenrennen, das gestern begonnen hat: läuft noch.
+        Event(name="mehrtägig läuft", datum_start="2026-09-14",
+              datum_ende="2026-09-18", standort="X"),
+        Event(name="mehrtägig vorbei", datum_start="2026-09-01",
+              datum_ende="2026-09-03", standort="X"),
+        # Unlesbares Datum: nicht löschen, nur behalten (dieselbe Linie
+        # wie bei den Distanzen - zu viel gelöscht ist unsichtbar).
+        Event(name="kaputtes Datum", datum_start="irgendwann", standort="X"),
+        Event(name="zukunft", datum_start="2027-01-01", standort="X"),
+    ]
+    kept, skipped = filter_past(roh, HEUTE)
+    check("filter_past verwirft nur Vergangenes", skipped, 2)
+    check("filter_past behält heute, laufend, kaputt, künftig",
+          [e.name for e in kept],
+          ["heute", "mehrtägig läuft", "kaputtes Datum", "zukunft"])
+
+    # Dieselben Fälle als Dicts durch das Aufräumskript.
+    dicts = [{"name": e.name, "datum_start": e.datum_start,
+              "datum_ende": e.datum_ende} for e in roh]
+    kept2, dropped2 = drop_past_events(dicts, HEUTE)
+    check("drop_past_events entfernt dieselben zwei", len(dropped2), 2)
+    check("drop_past_events behält denselben Rest",
+          [e["name"] for e in kept2],
+          ["heute", "mehrtägig läuft", "kaputtes Datum", "zukunft"])
+
+
 def test_meldungen() -> None:
     """Nutzer-Fehlermeldungen (scripts/review_reports.py): bündeln pro
     Strecke, nicht pro Veranstaltung. Der Bündel-Schlüssel ist genau der
@@ -365,7 +404,8 @@ def test_meldungen() -> None:
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
-                 test_duplikate, test_namensvereinheitlichung, test_meldungen):
+                 test_duplikate, test_namensvereinheitlichung,
+                 test_vergangene_events, test_meldungen):
         test()
 
     print()

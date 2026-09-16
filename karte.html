@@ -250,7 +250,19 @@
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const events = await res.json();
+    // Vergangene Events zählen nicht mit: die Marker-Zahl eines Ortes
+    // soll dieselbe sein wie die Trefferzahl in events.html (dort
+    // dieselbe Filterung beim Laden). events.json selbst wird nur
+    // wöchentlich aufgeräumt, dazwischen können bis zu sieben Tage
+    // Vergangenheit drinstehen. Ein Event ohne verwertbares Datum
+    // bleibt drin.
+    const today = new Date();
+    const todayIso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const events = (await res.json()).filter(e => {
+      const ende = e.datum_ende || e.datum_start;
+      if (typeof ende !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(ende)) return true;
+      return ende >= todayIso;
+    });
 
     // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
     // so zeigt z. B. Frankfurt EINEN Marker mit der Zahl "10" statt zehn
