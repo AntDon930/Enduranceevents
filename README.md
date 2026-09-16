@@ -528,7 +528,8 @@ Schweiz.
   dort anpassbar, falls andere Schwellenwerte gewünscht sind (die Karte
   filtert mit denselben Tabellen).
 - `karte.html` – Kartenansicht (Leaflet + OpenStreetMap-Kacheln, keine
-  API-Keys nötig) mit einem Marker pro **Standort** (nicht pro Event):
+  API-Keys nötig) mit gebündelten Markern und einem Marker pro
+  **Standort** (nicht pro Event):
   ein Ort mit z. B. 10 Events zeigt einen einzelnen Marker mit der Zahl
   "10" statt zehn übereinanderliegenden Punkten. Klick auf einen Marker
   öffnet ein Popup mit Ortsname, Länderangabe und einem Link „N Events
@@ -558,6 +559,29 @@ Schweiz.
     Ohne Filter bleibt die Chip-Zeile einfach leer
     (`.active-chips:empty { display: none }`) – die Knöpfe bleiben
     stehen, sonst könnte man nichts mehr auswählen.
+  - **Die Marker werden gebündelt** (Leaflet.markercluster, 34 KB von
+    unpkg): Ohne das lagen bei 1.486 Orten so viele Marker
+    übereinander, dass Deutschland auf dem Handy eine blaue Wolke war –
+    und mit den geplanten >20.000 Events wäre die Karte unbedienbar.
+    Jetzt steht weit draußen ein Bündel je Region, ein Klick klappt es
+    auf (aus 6 Zeichen werden 15, dann die einzelnen Orte), ab
+    Zoomstufe 11 (`disableClusteringAtZoom`) steht jeder Ort für sich.
+    Drei Dinge daran sind bewusst so:
+    - **Die Zahl im Bündel ist die Summe der Events, nicht der Orte.**
+      Jeder Marker trägt seine Event-Zahl in `options.eeCount`,
+      `clusterIcon()` addiert sie. Sonst widerspräche die Karte ihrer
+      eigenen Kopfzeile („4.143 Events an 1.486 Orten") – der Rauchtest
+      prüft die Summe deshalb gegen genau diese Zeile.
+    - **Ausgangspunkt und Umkreis liegen in einer zweiten Ebene**
+      (`overlayLayer`), nicht in der Bündel-Ebene: sonst verschwände der
+      rote Punkt beim Herauszoomen in einem Bündel.
+    - **Fehlt das Plugin** (unpkg nicht erreichbar, Netzsperre), fällt
+      `createMarkerLayer()` auf eine einfache `L.layerGroup` zurück –
+      dann liegen die Marker wieder einzeln da, statt dass die Karte
+      leer bleibt. Vom Plugin wird nur `MarkerCluster.css` geladen
+      (Bewegung beim Auf- und Zuklappen); das Aussehen steht als
+      `.cluster-badge` in `karte.html`, `MarkerCluster.Default.css`
+      braucht es dafür nicht.
   - Ein **Umkreis-Filter wird gezeichnet**: der Ausgangspunkt als roter
     Punkt (`.origin-dot`), der Umkreis als Kreis. Erst damit ist zu
     sehen, *warum* außerhalb keine Marker stehen; der Kartenausschnitt
@@ -1589,7 +1613,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 23 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 30 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -1602,7 +1626,10 @@ waagerechter Überlauf, Detailbereich samt Kalenderdatei (die `.ics` wird
 wirklich abgerufen und muss als `text/calendar` kommen, ohne
 `download`-Attribut), das Filter-Panel auf Handybreite, das Aufklappen der
 zusammengefassten Veranstaltungen (N Strecken = N Zeilen, Marken nur im
-zugeklappten Zustand) sowie die Filter über den Weg Liste → Karte → Liste.
+zugeklappten Zustand), die Bündelung der Marker auf der Karte (Summe der
+Bündel-Zahlen = Event-Zahl der Kopfzeile, Klick klappt ein Bündel auf,
+Ausgangspunkt und Umkreis bleiben ungebündelt und verschwinden mit ihrem
+Chip) sowie die Filter über den Weg Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt

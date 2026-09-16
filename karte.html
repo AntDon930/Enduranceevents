@@ -25,6 +25,12 @@
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Zusammenfassen der Marker (Leaflet.markercluster). Nur MarkerCluster.css,
+     NICHT MarkerCluster.Default.css: das Aussehen der Bündel steht unten bei
+     .cluster-badge, das Stylesheet hier bringt allein die Bewegung beim
+     Auf- und Zuklappen und die Spinnenbeine. -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+      integrity="sha256-YU3qCpj/P06tdPBJGPax0bm6Q1wltfwjsho5TR4+TYc=" crossorigin="" />
 <!-- events.json ist das, worauf die Seite wartet - deshalb wird der
      Download hier angestossen, noch bevor der Browser das Stylesheet und
      die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
@@ -226,6 +232,23 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.35);
     border: 2px solid #fff;
   }
+  /* Ein Buendel mehrerer Orte. Bewusst anders als ein einzelner Ort
+     (.marker-badge): heller Kern, breiter Ring - so ist auf einen Blick zu
+     sehen, dass hier noch etwas zum Aufklappen liegt. Die Zahl ist die
+     Summe der EVENTS darunter, nicht die der Orte: sie soll zur Zahl in
+     der Kopfzeile passen. */
+  .cluster-badge {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 0 0 4px rgba(20,80,154,0.25);
+  }
   /* Ausgangspunkt der Umkreissuche: ein farbiger Punkt, deutlich anders
      als die blauen Event-Marker. */
   .origin-dot {
@@ -287,6 +310,13 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!-- Zusammenfassen der Marker. Ohne `defer` und direkt hinter leaflet.js,
+     weil das Plugin L beim Ausfuehren braucht. Bleibt es aus (Netzsperre,
+     unpkg nicht erreichbar), faellt die Karte unten auf eine einfache
+     Ebene zurueck - dann liegen die Marker wieder einzeln da, statt dass
+     die Seite leer bleibt. -->
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+        integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
 
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
@@ -420,7 +450,56 @@
   }).addTo(map);
   // Alles, was beim Filtern neu gezeichnet wird, liegt in einer eigenen
   // Ebene - so muss nur diese geleert werden, nicht die Kachel-Ebene.
-  const markerLayer = L.layerGroup().addTo(map);
+  // Es sind ZWEI Ebenen, und das ist wichtig: Die Event-Marker werden
+  // gebuendelt (markercluster), der Ausgangspunkt und sein Umkreis dagegen
+  // nicht - sonst verschwaende der rote Punkt in einem Buendel.
+  const markerLayer = createMarkerLayer();
+  markerLayer.addTo(map);
+  const overlayLayer = L.layerGroup().addTo(map);
+
+  // Ohne das Plugin (unpkg nicht erreichbar, Netzsperre) bleibt es bei
+  // einer einfachen Ebene: die Marker liegen dann wieder einzeln da. Eine
+  // Karte ohne Buendel ist unuebersichtlich, eine leere Seite waere
+  // schlimmer.
+  function createMarkerLayer() {
+    if (typeof L.markerClusterGroup !== 'function') return L.layerGroup();
+    return L.markerClusterGroup({
+      // Kein Umriss beim Darueberfahren: auf dem Handy gibt es kein
+      // "darueber", und am Rechner blinkte er bei jedem Schwenk auf.
+      showCoverageOnHover: false,
+      // Liegen mehrere Orte auf derselben Koordinate, faechert ein Klick
+      // sie auf statt endlos weiter hineinzuzoomen.
+      spiderfyOnMaxZoom: true,
+      // Ab dieser Zoomstufe steht jeder Ort fuer sich: wer so weit
+      // hineingezoomt hat, will die einzelnen Orte sehen.
+      disableClusteringAtZoom: 11,
+      // Der Radius in Bildschirmpunkten. Weit draussen (ganz D/A/CH im
+      // Bild) darf er groesser sein, sonst klebt ueber jeder Grossstadt
+      // ein eigenes Buendel; naeher dran wird er kleiner, damit Nachbar-
+      // orte sich trennen.
+      maxClusterRadius: zoom => (zoom <= 6 ? 80 : zoom <= 8 ? 60 : 45),
+      // Baut die Buendel in Haeppchen auf, damit der Aufbau bei vielen
+      // Markern den Bildlauf nicht blockiert (wichtig fuer den geplanten
+      // Datenstand mit >20.000 Events).
+      chunkedLoading: true,
+      iconCreateFunction: clusterIcon
+    });
+  }
+
+  // Die Zahl im Buendel ist die Summe der Events, nicht die der Marker:
+  // ein Marker steht fuer einen Ort und traegt seine Event-Zahl in
+  // options.eeCount.
+  function clusterIcon(cluster) {
+    let events = 0;
+    cluster.getAllChildMarkers().forEach(m => { events += (m.options.eeCount || 1); });
+    const size = events >= 500 ? 56 : events >= 100 ? 48 : events >= 20 ? 40 : 34;
+    return L.divIcon({
+      className: '',
+      html: `<div class="cluster-badge" style="width:${size}px;height:${size}px;">${events}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
+    });
+  }
 
   // Dieselben Filterknöpfe und Panels wie in der Liste (filter-ui.js).
   // Ein Filter, der hier gesetzt wird, gilt beim Wechsel in die Liste
@@ -547,6 +626,7 @@
 
   function renderMarkers(refit) {
     markerLayer.clearLayers();
+    overlayLayer.clearLayers();
     const passend = events.filter(e => EF.matchEvent(state, e));
 
     // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
@@ -574,7 +654,10 @@
 
     const markers = [];
     byStandort.forEach(loc => {
-      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count) }).addTo(markerLayer);
+      // eeCount: die Event-Zahl dieses Ortes. clusterIcon() summiert sie
+      // ueber alle Marker eines Buendels - sonst stuende dort die Zahl der
+      // ORTE und die Karte widersprueche ihrer eigenen Kopfzeile.
+      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count), eeCount: loc.count });
       // Der Popup-Inhalt entsteht erst beim Öffnen: bindPopup nimmt auch
       // eine FUNKTION. Als fertiger String kostete er bei ~2.000 Orten
       // 2.000 Popups samt 2.000 linkTo()-Aufrufen (jeder baut eigene
@@ -593,6 +676,14 @@
       );
       markers.push(marker);
     });
+    // In EINEM Zug einhaengen: markercluster rechnet die Buendel dann
+    // einmal statt nach jedem Marker neu (bei ~1.500 Orten der
+    // Unterschied zwischen ruckelfrei und zaeh).
+    if (typeof markerLayer.addLayers === 'function') {
+      markerLayer.addLayers(markers);
+    } else {
+      markers.forEach(m => markerLayer.addLayer(m));
+    }
 
     // Umkreissuche sichtbar machen: der Ausgangspunkt als Punkt, der
     // Umkreis als Kreis. Erst damit ist zu sehen, WARUM außerhalb keine
@@ -602,7 +693,7 @@
       L.marker([state.origin.lat, state.origin.lon], {
         icon: L.divIcon({ className: '', html: '<div class="origin-dot"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }),
         title: `${t('origin_title')}: ${state.origin.label}`
-      }).addTo(markerLayer);
+      }).addTo(overlayLayer);
       if (state.radiusKm != null) {
         kreis = L.circle([state.origin.lat, state.origin.lon], {
           radius: state.radiusKm * 1000,
@@ -610,7 +701,7 @@
           weight: 1,
           fillColor: '#14509a',
           fillOpacity: 0.06
-        }).addTo(markerLayer);
+        }).addTo(overlayLayer);
       }
     }
 

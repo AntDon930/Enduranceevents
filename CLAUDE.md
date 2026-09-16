@@ -25,7 +25,7 @@ Nicht auf einen anderen Branch pushen.
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `favicon.svg`, `apple-touch-icon.png` | Seitensymbol; das PNG entsteht aus dem SVG (nach Änderung neu erzeugen) |
-| `karte.html` | Leaflet-Karte, ein Marker pro Standort – filtert wie die Liste |
+| `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel – beide Seiten bedienen dieselben |
 | `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den geteilten Dateien (**nach jeder Änderung daran laufen lassen**) |
@@ -70,10 +70,11 @@ lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 23 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 30 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
-Knopf, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
+Ausgangspunkt ungebündelt, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -380,7 +381,13 @@ zurückgedreht werden sollten:
    die Liste nach dem Klick auf „Events" in 814 statt 2.112 ms.
 
 Auf der Karte entstehen die Popups erst beim Öffnen (`bindPopup(fn)`)
-statt ~1.500 Stück im Voraus.
+statt ~1.500 Stück im Voraus. Die Marker werden **gebündelt**
+(Leaflet.markercluster): `createMarkerLayer()` fällt ohne das Plugin auf
+`L.layerGroup()` zurück, die Bündel-Zahl ist die **Summe der Events**
+(`options.eeCount`, addiert in `clusterIcon()`), und Ausgangspunkt +
+Umkreis liegen in einer eigenen, **ungebündelten** Ebene
+(`overlayLayer`) – im Bündel wären sie unsichtbar. Marker werden mit
+`addLayers()` in einem Zug eingehängt, nicht einzeln.
 
 **Beim nächsten großen Datenlauf (>20.000 Events) reicht das nicht
 mehr**: `events.json` wäre bei ~8 MB (800 KB gzip), und die Liste kann

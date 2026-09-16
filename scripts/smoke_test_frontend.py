@@ -191,6 +191,70 @@ def pruefe_gruppierung(ctx, basis):
     seite.close()
 
 
+def pruefe_cluster(seite):
+    """Die Marker werden gebündelt, und die Zahlen darin gehen auf.
+
+    Der eigentliche Prüfstein ist die Summe: Jedes Bündel trägt die Zahl
+    der Events darunter, nicht die der Orte. Addiert man alle Bündel und
+    die einzeln stehenden Orte, muss genau die Event-Zahl aus der
+    Kopfzeile herauskommen - sonst zählt die Karte anders als sie
+    beschriftet ist (der Fehler, der bei `eeCount` naheliegt).
+    """
+    zahlen = seite.evaluate("""() => {
+        const summe = s => Array.from(document.querySelectorAll(s))
+            .reduce((a, el) => a + (parseInt(el.textContent, 10) || 0), 0);
+        return {
+            buendel: document.querySelectorAll('.cluster-badge').length,
+            orte: document.querySelectorAll('.marker-badge').length,
+            events: summe('.cluster-badge') + summe('.marker-badge'),
+            hinweis: (document.getElementById('map-hint') || {}).textContent || ''
+        };
+    }""")
+    if not pruefe(zahlen["buendel"] > 0,
+                  "Marker sind gebündelt (%d Bündel, %d einzelne Orte)"
+                  % (zahlen["buendel"], zahlen["orte"])):
+        return
+    pruefe(zahlen["buendel"] + zahlen["orte"] < 1000,
+           "aus vielen Orten werden wenige Zeichen (%d statt ~1.500)"
+           % (zahlen["buendel"] + zahlen["orte"]))
+    erwartet = int(zahlen["hinweis"].split(" ", 1)[0].replace(".", "") or 0)
+    pruefe(zahlen["events"] == erwartet,
+           "Summe der Bündel-Zahlen = Events der Kopfzeile (%d / %d)"
+           % (zahlen["events"], erwartet))
+    # Ein Klick auf ein Bündel zoomt hinein: danach stehen mehr Zeichen
+    # auf der Karte als vorher.
+    vorher = zahlen["buendel"] + zahlen["orte"]
+    seite.locator(".cluster-badge").first.click()
+    seite.wait_for_timeout(1500)
+    nachher = (seite.locator(".cluster-badge").count()
+               + seite.locator(".marker-badge").count())
+    pruefe(nachher > vorher, "Klick auf ein Bündel klappt es auf (%d → %d)"
+           % (vorher, nachher))
+
+
+def pruefe_ausgangspunkt(ctx, basis):
+    """Ausgangspunkt und Umkreis bleiben ungebündelt.
+
+    Sie liegen in einer eigenen Ebene (`overlayLayer`). Läge der rote Punkt
+    in der Bündel-Ebene, verschwände er beim Herauszoomen in einem Bündel -
+    und mit ihm die Antwort auf die Frage, warum außerhalb nichts steht.
+    """
+    seite, _ = seite_oeffnen(ctx, basis + "/karte.html?ort=48.7758,9.1829,Stuttgart&umkreis=50",
+                             ".filter-bar")
+    seite.wait_for_timeout(2500)
+    pruefe(seite.locator(".origin-dot").count() == 1,
+           "Ausgangspunkt steht einmal und ungebündelt auf der Karte")
+    pruefe(seite.locator("path.leaflet-interactive").count() >= 1,
+           "der Umkreis ist als Kreis zu sehen")
+    # Chip entfernen: beide Ebenen müssen geleert werden, sonst bleibt der
+    # Punkt liegen.
+    seite.locator(".active-chips .chip button").first.click()
+    seite.wait_for_timeout(1500)
+    pruefe(seite.locator(".origin-dot").count() == 0,
+           "Chip entfernt: Ausgangspunkt und Umkreis sind weg")
+    seite.close()
+
+
 def pruefe_karte_und_rundweg(ctx, basis):
     print("\nKarte und Seitenwechsel")
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
@@ -201,9 +265,13 @@ def pruefe_karte_und_rundweg(ctx, basis):
     marker = seite.locator(".leaflet-marker-icon").count()
     if marker:
         pruefe(marker > 0, "Marker auf der Karte (%d)" % marker)
+        pruefe_cluster(seite)
     else:
         ueberspringe("keine Marker - Leaflet kam nicht durch (CDN blockiert?)")
     seite.close()
+
+    if marker:
+        pruefe_ausgangspunkt(ctx, basis)
 
     # Filter über den Seitenwechsel: Liste → Karte → Liste
     seite, _ = seite_oeffnen(ctx, basis + "/events.html?land=Deutschland&gruppiert=1", "tbody tr")
