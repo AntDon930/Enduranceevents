@@ -1685,6 +1685,22 @@ jedes mit eigenem `linkTo()`-Aufruf. `bindPopup()` nimmt auch eine
 Funktion – der Inhalt entsteht jetzt beim Öffnen, und der Link trägt
 dadurch sogar die Filter von genau diesem Moment.
 
+Den größeren Teil bringt aber das **Bündeln der Marker**: Statt 1.486
+Markern liegen bei Blick auf ganz D/A/CH nur noch 6 Zeichen im DOM.
+Gemessen unter Handy-Bedingungen (4× gebremste CPU, 390 px, zwei Läufe
+je Fall):
+
+| | mit Bündeln | ohne |
+|---|---|---|
+| Laden bis zum ersten Marker | 727 / 1.511 ms | 2.000 / 2.437 ms |
+| Umkreis 200 km um Stuttgart setzen | 374 / 429 ms | 809 / 885 ms |
+| Marker im DOM | 7 | 539–1.486 |
+
+Gemessen wurde mit derselben Seite: Der Fall „ohne" entsteht, indem man
+`leaflet.markercluster.js` blockiert – dann greift der Rückfall auf
+`L.layerGroup()`. Bei den geplanten >20.000 Events wächst der Unterschied
+mit.
+
 ### Was als Nächstes greifen müsste
 
 Der Rest ist Netzwerk: `events.json` ist mit 1,6 MB (162 KB gzip) das
