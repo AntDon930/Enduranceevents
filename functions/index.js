@@ -22,9 +22,17 @@
  *
  *   npm install -g firebase-tools
  *   firebase login
- *   firebase init functions   # bestehendes Projekt wählen, dieses Verzeichnis nutzen
- *   cd functions && npm install
+ *   cd functions && npm install && cd ..
+ *   firebase functions:secrets:set NOTIFY_WEBHOOK_SECRET   # Wert frei wählen
  *   firebase deploy --only functions
+ *
+ * `firebase init functions` ist NICHT nötig und sollte auch nicht
+ * ausgeführt werden: firebase.json und .firebaserc liegen fertig im Repo,
+ * und der Assistent würde anbieten, genau diese index.js zu überschreiben.
+ *
+ * Der Secret-Schritt ist Pflicht, nicht Kür - ohne gesetztes
+ * NOTIFY_WEBHOOK_SECRET verweigert die Function den Dienst (siehe unten).
+ * Denselben Wert danach als GitHub-Actions-Secret hinterlegen.
  *
  * Danach die ausgegebene Function-URL als GitHub-Actions-Secret
  * NOTIFY_WEBHOOK_URL hinterlegen (Repo -> Settings -> Secrets and
@@ -35,14 +43,47 @@
  * installieren (Firebase Console -> Extensions) und dort SMTP-Zugangs-
  * daten (z. B. SendGrid) hinterlegen - ohne diese Extension werden zwar
  * "mail"-Dokumente angelegt, aber keine E-Mails tatsächlich verschickt.
+ *
+ * WAS DIE FUNCTION NICHT TUT: Sie prüft ausschließlich die Events, die
+ * update_events.py ihr als NEU meldet. Bestehende Abos werden also nicht
+ * rückwirkend gegen die bereits vorhandenen ~4.100 Events geprüft - ein
+ * Abo schlägt erst an, wenn nach dem Deployment ein passendes Event
+ * dazukommt.
  */
 
 const { onRequest } = require("firebase-functions/v2/https");
+const { defineSecret } = require("firebase-functions/params");
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
+const crypto = require("crypto");
 
 initializeApp();
 const db = getFirestore();
+
+// Das gemeinsame Geheimnis, mit dem sich scripts/update_events.py
+// ausweist. defineSecret() statt process.env: Bei Functions der 2.
+// Generation ist process.env.NOTIFY_WEBHOOK_SECRET nach einem normalen
+// Deployment schlicht leer - der Wert muss im Secret Manager liegen und
+// der Function ausdrücklich zugeteilt werden (secrets: [...] unten).
+// Firebase fragt beim Deploy danach, wenn das Secret noch nicht
+// existiert, und genau das ist erwünscht: ohne Geheimnis kein Betrieb.
+//
+//   firebase functions:secrets:set NOTIFY_WEBHOOK_SECRET
+const NOTIFY_WEBHOOK_SECRET = defineSecret("NOTIFY_WEBHOOK_SECRET");
+
+// Vergleicht zwei Zeichenketten in konstanter Zeit. Ein gewöhnliches
+// !== verrät über die Antwortzeit, wie viele Zeichen am Anfang schon
+// stimmen - über genügend Versuche lässt sich ein Geheimnis so Zeichen
+// für Zeichen erraten.
+function secretsMatch(a, b) {
+  if (typeof a !== "string" || typeof b !== "string") return false;
+  const bufA = Buffer.from(a, "utf8");
+  const bufB = Buffer.from(b, "utf8");
+  // timingSafeEqual verlangt gleiche Länge und wirft sonst. Die Länge
+  // selbst ist kein nennenswertes Geheimnis.
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
 
 // Distanz-Kategorien, identisch zu DISTANCE_CATEGORIES in events.html.
 //
@@ -149,18 +190,31 @@ function eventEmailHtml(event) {
 }
 
 exports.checkNewEvents = onRequest(
-  { region: "europe-west1", cors: false },
+  { region: "europe-west1", cors: false, secrets: [NOTIFY_WEBHOOK_SECRET] },
   async (req, res) => {
     if (req.method !== "POST") {
       res.status(405).send("Method Not Allowed");
       return;
     }
 
-    // Einfacher Shared-Secret-Schutz statt offener, von jedem aufrufbarer
-    // Function: scripts/update_events.py sendet denselben Wert im Header
-    // "X-Notify-Secret" (aus dem GitHub-Actions-Secret NOTIFY_WEBHOOK_SECRET).
-    const expectedSecret = process.env.NOTIFY_WEBHOOK_SECRET;
-    if (expectedSecret && req.get("X-Notify-Secret") !== expectedSecret) {
+    // Shared-Secret-Schutz: scripts/update_events.py sendet denselben Wert
+    // im Header "X-Notify-Secret" (aus dem GitHub-Actions-Secret
+    // NOTIFY_WEBHOOK_SECRET).
+    //
+    // Fehlt das Geheimnis, verweigert die Function den Dienst, statt die
+    // Prüfung zu überspringen. Früher stand hier `if (expectedSecret &&
+    // ...)` - war die Variable nicht gesetzt, war die Function für jeden
+    // offen, der ihre URL kannte: beliebige erfundene "neue Events"
+    // hineinposten, echten Abonnenten eine E-Mail schicken und deren Abo
+    // dabei auf notified: true verbrennen. Eine unabsichtlich offene Tür
+    // ist schlimmer als eine, die klemmt.
+    const expectedSecret = NOTIFY_WEBHOOK_SECRET.value();
+    if (!expectedSecret) {
+      console.error("NOTIFY_WEBHOOK_SECRET ist nicht gesetzt - Aufruf abgelehnt.");
+      res.status(503).send("Service Unavailable: Secret nicht konfiguriert");
+      return;
+    }
+    if (!secretsMatch(req.get("X-Notify-Secret") || "", expectedSecret)) {
       res.status(401).send("Unauthorized");
       return;
     }

@@ -765,22 +765,46 @@ rausgeht, sind zwei weitere, **optionale** Schritte nötig (siehe
    ```bash
    npm install -g firebase-tools
    firebase login
-   firebase init functions   # bestehendes Projekt wählen, functions/ nutzen
    cd functions && npm install && cd ..
+   firebase functions:secrets:set NOTIFY_WEBHOOK_SECRET   # Wert frei wählen
    firebase deploy --only functions
    ```
-   Die ausgegebene Function-URL als GitHub-Actions-Secret
+   **`firebase init functions` ist nicht nötig** – `firebase.json` und
+   `.firebaserc` liegen fertig im Repo (Projekt `endurance-5177a`). Der
+   Assistent würde ohnehin anbieten, die vorhandene `functions/index.js`
+   zu überschreiben.
+
+   Der Secret-Schritt ist **Pflicht, nicht optional**: Ohne gesetztes
+   `NOTIFY_WEBHOOK_SECRET` beantwortet die Function jeden Aufruf mit
+   `503`. Das ist Absicht – früher stand in der Function
+   `if (expectedSecret && …)`, die Prüfung entfiel also stillschweigend,
+   wenn die Variable fehlte. Und genau das war der Normalfall: Bei
+   Functions der 2. Generation ist `process.env` nach einem gewöhnlichen
+   Deployment leer, der Wert muss im Secret Manager liegen. Ergebnis wäre
+   eine Function gewesen, in die jeder mit Kenntnis der URL erfundene
+   „neue Events" posten kann – echte Abonnenten bekommen eine E-Mail, und
+   ihr Abo wird dabei auf `notified: true` verbrannt.
+
+   Danach die ausgegebene Function-URL als GitHub-Actions-Secret
    `NOTIFY_WEBHOOK_URL` hinterlegen (Repo → Settings → Secrets and
-   variables → Actions) sowie optional ein selbst gewähltes
-   `NOTIFY_WEBHOOK_SECRET` (schützt die Function vor fremden Aufrufen -
-   denselben Wert dann auch als Umgebungsvariable beim Function-Deployment
-   setzen). `update_events.py` ruft die URL danach automatisch nach jedem
-   Lauf auf, in dem sich `events.json` geändert hat.
+   variables → Actions) und **denselben** Geheimniswert als
+   `NOTIFY_WEBHOOK_SECRET`. `update_events.py` ruft die URL danach
+   automatisch nach jedem Lauf auf, in dem sich `events.json` geändert
+   hat, und weist sich per Header `X-Notify-Secret` aus.
 2. In der Firebase-Konsole unter **Extensions** die offizielle Extension
    **"Trigger Email from Firestore"** installieren und dort SMTP-
    Zugangsdaten (z. B. von SendGrid, Mailgun oder einem eigenen Postfach)
    hinterlegen - sie übernimmt den eigentlichen Versand für die
    `mail`-Dokumente, die `functions/index.js` anlegt.
+
+**Was die Function nicht tut**: Sie prüft ausschließlich die Events, die
+`update_events.py` ihr als *neu* meldet. Bestehende Abos werden also
+**nicht** rückwirkend gegen die bereits vorhandenen Events geprüft – ein
+gespeichertes Abo schlägt erst an, wenn nach dem Deployment ein passendes
+Event dazukommt. Die Abos bleiben mit `notified: false` gültig und gehen
+nicht verloren, aber wer heute ein Abo anlegt, dessen Event schon in
+`events.json` steht, bekommt dafür keine Mail (er hätte es in der Liste
+ja auch gefunden).
 
 **Die Distanz-Kategorien sind doppelt gepflegt**: `DISTANCE_CATEGORIES`
 steht sowohl in `events.html` als auch in `functions/index.js` und

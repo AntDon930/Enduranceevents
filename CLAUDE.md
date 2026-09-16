@@ -188,8 +188,15 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   `endurance-5177a`, Spark-Tarif), Abos landen korrekt in
   `filterSubscriptions`. Es fehlen nur die zwei Blaze-Schritte: Cloud
   Function `checkNewEvents` deployen und die Extension „Trigger Email"
-  plus SMTP einrichten. Vorhandene Abos haben `notified: false` und werden
-  nach dem Deploy rückwirkend berücksichtigt.
+  plus SMTP einrichten.
+  **Code-seitig ist alles vorbereitet**: `firebase.json` und `.firebaserc`
+  liegen im Repo (`firebase init` also nicht nötig), das Shared Secret
+  läuft über `defineSecret`, und ohne gesetztes `NOTIFY_WEBHOOK_SECRET`
+  antwortet die Function mit 503 statt offen zu stehen. Deploy-Befehle im
+  Kopf von `functions/index.js` und im README.
+  Vorhandene Abos bleiben mit `notified: false` gültig, werden aber
+  **nicht rückwirkend** gegen die schon vorhandenen Events geprüft – die
+  Function sieht nur, was `update_events.py` ihr als neu meldet.
 - **Apple-Login**: per `SHOW_APPLE_SIGNIN = false` in `auth.js`
   ausgeblendet – kein Apple-Developer-Konto. Zum Reaktivieren siehe
   Kommentar dort.
@@ -206,9 +213,35 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   `auth/operation-not-allowed` fehl; das Formular sagt das im Klartext.
   Außerdem die erweiterten `firestore.rules` (Collection `errorReports`)
   in der Konsole veröffentlichen.
-- **5 Seed-Links** unklar/evtl. eingestellt (Bodensee-Schwimmen, Engadin
-  Bike Giro, Basel Marathon, Silvesterlauf Salzburg, Swiss Athletics
-  Bahnmeeting) – absichtlich nicht geraten.
+- **5 Seed-Links** – recherchiert (Stand 09/2026), warten auf die
+  Entscheidung des Nutzers, nichts davon ist eingetragen:
+  1. *Bodensee-Schwimmen*: findet statt, aber der Name ist mehrdeutig.
+     „Bodensee Openwater" (bodensee-openwater.com) hat 2027 drei Termine
+     (Konstanz 26.06., 5/10 km; Friedrichshafen 31.07., 11 km;
+     Wallhausen 28.08., 2,5/5 km); daneben gibt es die eigenständige
+     „Bodenseequerung" (bodenseequerung.de). Welche gemeint war, ist
+     offen.
+  2. *Engadin Bike Giro*: **eingestellt**. Letzte (8.) Austragung 2023,
+     abgesagt bei nur ~200 Teilnehmenden. Eine „mögliche Wiederbelebung
+     2025" wurde angekündigt, aber nie umgesetzt; die offizielle Seite
+     antwortet nur noch mit HTTP 503.
+  3. *Basel Marathon*: **eingestellt seit 2018** (IWB Basel Marathon,
+     wirtschaftliche Gründe, der Kanton strich 80.000 CHF Swisslos-
+     Förderung). **Achtung**: In `events.json` steht trotzdem ein
+     Eintrag „Basel Marathon | 2027-05-09 | 42,2 km" mit
+     `veranstalter_url` `basel-marathon.ch` – die Domain löst nicht mehr
+     auf. Kandidat für `"exclude": true`, aber erst nach Bestätigung.
+     In Basel gibt es stattdessen den 3Länderlauf (Marathon/HM/10 km,
+     Mai, Start Marktplatz) und den Basler Stadtlauf (5,5 km, November).
+  4. *Silvesterlauf Salzburg*: Der Salzburger Silvesterlauf in der Stadt
+     (1998–2000, 2002–2004) ist **eingestellt**. Im Bundesland gibt es
+     den Leimüller Silvesterlauf in Seekirchen am Wallersee, jährlich am
+     31.12. (leimueller-silvesterlauf.at), Distanzen nicht erhoben.
+  5. *Swiss Athletics Bahnmeeting*: kein einzelnes Event, sondern der
+     Wettkampfkalender von Swiss Athletics. Bahnmeetings sind
+     Leichtathletik-Stadionwettkämpfe inklusive Sprint, Wurf und Sprung
+     – das passt nur teilweise zum Ausdauersport-Zuschnitt der Seite.
+     Grundsatzentscheidung, keine Recherchefrage.
 
 ## Sprache
 

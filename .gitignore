@@ -1,3 +1,13 @@
 scripts/__pycache__/
 scripts/.geocode_cache.json
 scripts/reports_inbox.json
+
+# Firebase: Abhängigkeiten der Cloud Function und lokale CLI-Reste.
+# functions/package-lock.json gehört dagegen INS Repo - nur so deployt
+# jeder dieselben Versionen.
+functions/node_modules/
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+functions/.env
+functions/.env.*
