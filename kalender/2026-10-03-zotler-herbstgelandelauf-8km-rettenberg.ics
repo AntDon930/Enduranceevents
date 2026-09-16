@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Zötler-Herbstgeländelauf
 LOCATION:Rettenberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://rennmeldung.de/
- cgi-bin/bewerb.cgi?bewerb=04283
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 8 km\nhttps://rennmeldu
+ ng.de/cgi-bin/bewerb.cgi?bewerb=04283
 TRANSP:TRANSPARENT
 URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04283
 END:VEVENT

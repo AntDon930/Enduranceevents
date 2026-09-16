@@ -231,8 +231,14 @@ def main() -> int:
     weg = sorted(vorhanden - set(geplant))
     geaendert = []
     for name in sorted(set(geplant) & vorhanden):
-        if (args.out_dir / name).read_text(encoding="utf-8") != geplant[name]:
-            geaendert.append(name)
+        # newline="" beim LESEN ist wichtig: Die Dateien tragen CRLF (so
+        # verlangt es RFC 5545). Ohne das übersetzt Python beim Lesen
+        # jedes CRLF zu \n, der Vergleich schlug also IMMER fehl - jeder
+        # Lauf schrieb alle 4.154 Dateien neu und meldete sie als
+        # "geändert", obwohl sich nichts geändert hatte.
+        with open(args.out_dir / name, encoding="utf-8", newline="") as fh:
+            if fh.read() != geplant[name]:
+                geaendert.append(name)
 
     if not args.dry_run:
         for name in neu + geaendert:

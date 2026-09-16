@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:U. Trail Lamer Winkel (U.TLW)
 LOCATION:Lam\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://utlw.de/de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 12 km\nhttps://utlw.de/
+ de/
 TRANSP:TRANSPARENT
 URL:https://utlw.de/de/
 END:VEVENT

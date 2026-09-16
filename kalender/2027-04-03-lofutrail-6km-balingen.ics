@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:LOFUtrail – K6 – 6 km / 270 Hm
 LOCATION:Balingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://lofutrail.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6 km\nhttps://lofutrail
+ .de/
 TRANSP:TRANSPARENT
 URL:https://lofutrail.de/
 END:VEVENT

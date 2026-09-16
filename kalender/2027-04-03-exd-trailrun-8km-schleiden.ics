@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:EXD Trailrun
 LOCATION:Schleiden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.e-xd.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 8 km\nhttps://www.e-xd.
+ de/
 TRANSP:TRANSPARENT
 URL:https://www.e-xd.de/
 END:VEVENT

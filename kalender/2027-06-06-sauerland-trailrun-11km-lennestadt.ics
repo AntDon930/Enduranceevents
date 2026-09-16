@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Sauerland Trailrun
 LOCATION:Lennestadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttp://sauerland-trail
- run.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 11 km\nhttp://sauerland
+ -trailrun.de/
 TRANSP:TRANSPARENT
 URL:http://sauerland-trailrun.de/
 END:VEVENT

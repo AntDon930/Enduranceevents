@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270125
 SUMMARY:Yeti-Trail
 LOCATION:Pleinfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://yeti-trail.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 26 km\nhttps://yeti-tra
+ il.de/
 TRANSP:TRANSPARENT
 URL:https://yeti-trail.de/
 END:VEVENT
