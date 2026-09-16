@@ -261,6 +261,19 @@
   th:nth-child(5), td:nth-child(5) { width: 12%; }
   th:nth-child(6), td:nth-child(6) { width: 17%; }
   th:nth-child(7), td:nth-child(7) { width: 9%; }
+  /* Mit Ausgangspunkt kommt hinter Stadt/Ort die Entfernungs-Spalte dazu
+     (siehe activeColumns()). table-layout ist fix, die Breiten müssen für
+     die achte Spalte also eigens stehen - Land und Kategorie geben dafür
+     etwas ab. */
+  table.with-distance { min-width: 900px; }
+  table.with-distance th:nth-child(1), table.with-distance td:nth-child(1) { width: 20%; }
+  table.with-distance th:nth-child(2), table.with-distance td:nth-child(2) { width: 12%; }
+  table.with-distance th:nth-child(3), table.with-distance td:nth-child(3) { width: 10%; }
+  table.with-distance th:nth-child(4), table.with-distance td:nth-child(4) { width: 14%; }
+  table.with-distance th:nth-child(5), table.with-distance td:nth-child(5) { width: 11%; }
+  table.with-distance th:nth-child(6), table.with-distance td:nth-child(6) { width: 11%; }
+  table.with-distance th:nth-child(7), table.with-distance td:nth-child(7) { width: 14%; }
+  table.with-distance th:nth-child(8), table.with-distance td:nth-child(8) { width: 8%; }
   thead th {
     position: sticky;
     top: 0;
@@ -282,6 +295,26 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  /* Der Spaltenname ist ein Knopf (Sortierung), soll aber wie eine
+     Kopfzeile aussehen - deshalb ohne Rahmen und Hintergrund. */
+  .th-sort {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .th-sort:hover { color: var(--accent); }
+  .th-sort.active { color: var(--accent); }
+  .sort-arrow { font-size: 0.7em; flex-shrink: 0; }
 
   tbody td {
     padding: 8px 10px;
@@ -698,7 +731,7 @@
 
 <div class="layout">
   <div class="table-wrap">
-    <table>
+    <table id="event-table">
       <thead>
         <tr id="header-row"></tr>
       </thead>
@@ -745,6 +778,8 @@
       result_count: (n, total) => `${n} von ${total} Events`,
       col_datum: 'Datum', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
+      col_entfernung: 'Entfernung',
+      sort_hint: 'Klicken zum Sortieren',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
       range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
@@ -842,6 +877,8 @@
       result_count: (n, total) => `${n} of ${total} events`,
       col_datum: 'Date', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
+      col_entfernung: 'Distance',
+      sort_hint: 'Click to sort',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
       range_von_km: 'From (km)', range_bis_km: 'To (km)',
@@ -1141,6 +1178,52 @@
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
   ];
 
+  // Sortierschlüssel pro Spalte. Jede Funktion gibt [Gruppe, Wert] zurück:
+  // die Gruppe sortiert Einträge ohne verwertbare Angabe ans Ende, egal in
+  // welche Richtung sortiert wird (eine Zeile ohne Distanz soll nicht bei
+  // "aufsteigend" ganz oben stehen).
+  const SORT_KEYS = {
+    name: e => [0, `${e.name || ''} ${e.wettbewerb || ''}`.toLowerCase()],
+    datum: e => [0, e.datum_start || ''],
+    land: e => [0, tv('land', e.land).toLowerCase()],
+    standort: e => [0, (e.standort || '').toLowerCase()],
+    art1: e => [0, tv('art1', e.art1).toLowerCase()],
+    art2: e => [0, e.art2 ? tv('art2', e.art2).toLowerCase() : ''],
+    // Drei Stufen: bekannte Distanz, dann Zeitrennen (nach Dauer), dann
+    // Einträge ohne beides. Km und Stunden sind nicht vergleichbar - sie
+    // in eine Zahlenreihe zu mischen würde eine Ordnung behaupten, die es
+    // nicht gibt.
+    laenge_km: e => e.laenge_km != null ? [0, e.laenge_km]
+                  : e.dauer_h != null ? [1, e.dauer_h] : [2, 0],
+    entfernung: e => {
+      const d = distanceFromOrigin(e);
+      return d == null ? [1, 0] : [0, d];
+    }
+  };
+
+  // Die Entfernungs-Spalte gibt es nur mit Ausgangspunkt - ohne einen
+  // wäre sie eine Spalte voller Striche. Sie steht direkt hinter
+  // Stadt/Ort, weil sie dieselbe Frage beantwortet ("wie weit weg?").
+  const DISTANCE_COLUMN = { key: 'entfernung', labelKey: 'col_entfernung', type: 'none' };
+
+  function activeColumns() {
+    if (!state.origin) return COLUMNS;
+    const cols = COLUMNS.slice();
+    cols.splice(4, 0, DISTANCE_COLUMN);
+    return cols;
+  }
+
+  function distanceFromOrigin(e) {
+    if (!state.origin || e.lat == null || e.lon == null) return null;
+    return haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
+  }
+
+  function formatDistance(e) {
+    const d = distanceFromOrigin(e);
+    if (d == null) return '–';
+    return d < 10 ? `${d.toFixed(1)} km` : `${Math.round(d)} km`;
+  }
+
   // Zuordnung Sportart -> erlaubte Kategorie-Werte.
   const ART2_BY_ART1 = {
     'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis', 'Backcountry Ultra'],
@@ -1169,7 +1252,9 @@
     laengeMax: '',
     distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
     origin: null,                 // { lat, lon, label }
-    radiusKm: null                // Umkreis in km (1-200) oder null = kein Umkreis-Filter
+    radiusKm: null,               // Umkreis in km (1-200) oder null = kein Umkreis-Filter
+    sortKey: 'datum',             // Spalte, nach der sortiert wird (siehe SORT_KEYS)
+    sortDir: 'asc'                // 'asc' | 'desc'
   };
 
   // Ein einziges, an <body> gehängtes Filter-Panel (fixed positioniert), damit es nie
@@ -1182,6 +1267,7 @@
   document.body.appendChild(floatingPanel);
 
   const bodyEl = document.getElementById('event-body');
+  const tableEl = document.getElementById('event-table');
   const headerRowEl = document.getElementById('header-row');
   const countEl = document.getElementById('result-count');
   const chipsEl = document.getElementById('active-chips');
@@ -1391,30 +1477,49 @@
 
   function buildHeader() {
     headerRowEl.innerHTML = '';
-    COLUMNS.forEach(col => {
+    activeColumns().forEach(col => {
       const th = document.createElement('th');
       const inner = document.createElement('div');
       inner.className = 'th-inner';
-      const labelSpan = document.createElement('span');
-      labelSpan.textContent = t(col.labelKey);
-      labelSpan.title = t(col.labelKey);
-      inner.appendChild(labelSpan);
 
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'col-filter-btn';
-      btn.dataset.col = col.key;
-      btn.textContent = '▾';
-      btn.addEventListener('click', (ev) => {
+      // Der Spaltenname selbst ist der Sortier-Knopf. Vorher sortierte die
+      // Liste ausschließlich nach Datum - bei 4000 Zeilen (und später
+      // 20.000) war das der größte Mangel.
+      const sortBtn = document.createElement('button');
+      sortBtn.type = 'button';
+      sortBtn.className = 'th-sort' + (state.sortKey === col.key ? ' active' : '');
+      sortBtn.title = `${t(col.labelKey)} – ${t('sort_hint')}`;
+      sortBtn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span>`
+        + (state.sortKey === col.key
+             ? `<span class="sort-arrow">${state.sortDir === 'asc' ? '▲' : '▼'}</span>`
+             : '');
+      sortBtn.addEventListener('click', (ev) => {
         ev.stopPropagation();
-        if (openColKey === col.key) {
-          closeFloatingPanel();
-        } else {
-          openFloatingPanel(col, btn);
-        }
+        toggleSort(col.key);
       });
+      th.setAttribute('aria-sort', state.sortKey === col.key
+        ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
+      inner.appendChild(sortBtn);
 
-      inner.appendChild(btn);
+      // Die Entfernungs-Spalte hat kein eigenes Filter-Panel: gefiltert
+      // wird sie über den Umkreis-Regler im Stadt/Ort-Filter.
+      if (col.type !== 'none') {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'col-filter-btn';
+        btn.dataset.col = col.key;
+        btn.textContent = '▾';
+        btn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          if (openColKey === col.key) {
+            closeFloatingPanel();
+          } else {
+            openFloatingPanel(col, btn);
+          }
+        });
+        inner.appendChild(btn);
+      }
+
       th.appendChild(inner);
       headerRowEl.appendChild(th);
     });
@@ -1677,10 +1782,25 @@
   // Setzt den Ausgangspunkt der Umkreissuche und schaltet den Umkreis
   // ein, falls er noch aus ist (sonst passiert sichtbar nichts).
   function setOrigin(origin) {
+    const hatteOrigin = !!state.origin;
     state.origin = origin;
     if (origin && state.radiusKm == null) state.radiusKm = RADIUS_DEFAULT_KM;
     if (!origin) state.radiusKm = null;
+    // Mit einem Ausgangspunkt ist "was ist am nächsten?" die naheliegende
+    // Frage - also nach Entfernung sortieren, solange noch die
+    // Standard-Sortierung aktiv ist. Eine selbst gewählte Sortierung wird
+    // nicht überschrieben. Fällt der Ausgangspunkt weg, verschwindet die
+    // Spalte und mit ihr die Sortierung.
+    if (origin && !hatteOrigin && state.sortKey === 'datum') {
+      state.sortKey = 'entfernung';
+      state.sortDir = 'asc';
+    }
+    if (!origin && state.sortKey === 'entfernung') {
+      state.sortKey = 'datum';
+      state.sortDir = 'asc';
+    }
     selectedIndex = null;
+    buildHeader();
   }
 
   // Der Stadt/Ort-Filter ist reine Umkreissuche: erst der Ausgangspunkt
@@ -2156,12 +2276,46 @@
         }
         return true;
       })
-      // Nach Datum sortiert, das nächste bevorstehende zuerst. Der
-      // frühere Sonderfall "vergangene Events ans Ende" ist weg -
-      // vergangene Events kommen gar nicht mehr in die Liste (siehe
-      // dropPastEvents beim Laden), ein einfacher ISO-Textvergleich
-      // genügt daher.
-      .sort((a, b) => a.e.datum_start.localeCompare(b.e.datum_start));
+      // Sortiert nach der angeklickten Spalte, Standard ist das Datum
+      // aufsteigend (nächster Termin zuerst). Vergangene Events brauchen
+      // keinen Sonderfall mehr - sie kommen gar nicht in die Liste
+      // (siehe dropPastEvents beim Laden).
+      .sort((a, b) => compareEvents(a.e, b.e));
+  }
+
+  // Erster Klick auf eine Spalte sortiert aufsteigend, der zweite dreht
+  // die Richtung. Datum und Entfernung fangen aufsteigend an (nächster
+  // Termin / nächstgelegener Ort zuerst) - das ist auch bei allen anderen
+  // Spalten die erwartete Leserichtung.
+  function toggleSort(key) {
+    if (!SORT_KEYS[key]) return;
+    if (state.sortKey === key) {
+      state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      state.sortKey = key;
+      state.sortDir = 'asc';
+    }
+    buildHeader();
+    render();
+  }
+
+  function compareEvents(a, b) {
+    const fn = SORT_KEYS[state.sortKey] || SORT_KEYS.datum;
+    const [ga, va] = fn(a);
+    const [gb, vb] = fn(b);
+    // Einträge ohne Angabe stehen immer hinten, unabhängig von der Richtung.
+    if (ga !== gb) return ga - gb;
+    let cmp;
+    if (typeof va === 'number' && typeof vb === 'number') cmp = va - vb;
+    else cmp = String(va).localeCompare(String(vb), currentLang === 'de' ? 'de' : 'en');
+    if (cmp === 0) {
+      // Gleichstand: Datum, dann Name - sonst wechselt die Reihenfolge
+      // gleichwertiger Zeilen bei jedem Neuzeichnen.
+      cmp = (a.datum_start || '').localeCompare(b.datum_start || '')
+         || (a.name || '').localeCompare(b.name || '');
+      return cmp;
+    }
+    return state.sortDir === 'asc' ? cmp : -cmp;
   }
 
   function refreshOpenPanel() {
@@ -2174,6 +2328,28 @@
     }
   }
 
+  // Eine Tabellenzelle. Die Zellen werden aus activeColumns() aufgebaut
+  // statt fest untereinander geschrieben - nur so lässt sich die
+  // Entfernungs-Spalte an der richtigen Stelle einschieben, ohne die
+  // Reihenfolge an zwei Orten pflegen zu müssen.
+  function cellHtml(col, e) {
+    switch (col.key) {
+      case 'name': {
+        const wb = displayWettbewerb(e);
+        return `<td><div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
+             + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div></td>`;
+      }
+      case 'datum': return `<td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>`;
+      case 'land': return `<td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>`;
+      case 'standort': return `<td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>`;
+      case 'entfernung': return `<td><div class="cell-clamp">${escapeHtml(formatDistance(e))}</div></td>`;
+      case 'art1': return `<td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>`;
+      case 'art2': return `<td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>`;
+      case 'laenge_km': return `<td><div class="cell-clamp">${formatLength(e)}</div></td>`;
+      default: return '<td></td>';
+    }
+  }
+
   function render() {
     updateFilterIndicators();
     renderChips();
@@ -2181,24 +2357,18 @@
     const filtered = getFiltered();
     countEl.textContent = t('result_count', filtered.length, events.length);
 
+    const cols = activeColumns();
+    tableEl.classList.toggle('with-distance', !!state.origin);
+
     if (filtered.length === 0) {
-      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="7">${escapeHtml(t('empty_events'))}</td></tr>`;
+      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="${cols.length}">${escapeHtml(t('empty_events'))}</td></tr>`;
       renderNotifyPrompt();
     } else {
       bodyEl.innerHTML = '';
       filtered.forEach(({ e, idx }) => {
         const tr = document.createElement('tr');
         if (idx === selectedIndex) tr.classList.add('active');
-        const wb = displayWettbewerb(e);
-        tr.innerHTML = `
-          <td><div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div></td>
-          <td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>
-          <td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>
-          <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
-          <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
-          <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
-          <td><div class="cell-clamp">${formatLength(e)}</div></td>
-        `;
+        tr.innerHTML = cols.map(col => cellHtml(col, e)).join('');
         tr.addEventListener('click', () => { selectedIndex = idx; render(); });
         bodyEl.appendChild(tr);
       });
@@ -2491,7 +2661,7 @@
       // unsichtbar im Panel.
       chips.push({
         label: t('chip_umkreis', state.radiusKm, state.origin.label),
-        clear: () => { state.radiusKm = null; state.origin = null; }
+        clear: () => { setOrigin(null); }
       });
     }
 
@@ -2521,9 +2691,12 @@
     state.distanceCategories.clear();
     state.origin = null;
     state.radiusKm = null;
+    state.sortKey = 'datum';
+    state.sortDir = 'asc';
     placeQuery = '';
     selectedIndex = null;
     closeFloatingPanel();
+    buildHeader();
     render();
   }
 })();
