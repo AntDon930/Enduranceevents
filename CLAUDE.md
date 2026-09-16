@@ -201,9 +201,31 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 - **Chips nie pro Wert aufzählen.** Mengen-Filter fassen sich zusammen:
   alles ausgewählt → „Stadt/Ort: Alle", mehr als `MAX_VALUE_CHIPS` (5) →
   „Stadt/Ort: 12 ausgewählt". „Alle" bei Stadt/Ort sind ~2000 Orte.
-- **Reihenfolge im Skript beachten**: `const`-Tabellen (z. B.
-  `CANONICAL_RACE_NAMES`) müssen VOR ihrer ersten Verwendung stehen –
-  sonst Temporal-Dead-Zone-Fehler.
+- **Reihenfolge im Skript beachten**: `const`/`let` auf oberster Ebene
+  müssen VOR ihrer ersten Verwendung stehen – sonst
+  Temporal-Dead-Zone-Fehler. Beim Bau der Zeitraum-Knöpfe und des
+  Deep-Links ist das zweimal passiert: `DATE_PRESETS` und
+  `urlZustandGelesen` werden schon beim Laden gebraucht (readUrlState
+  bzw. der erste `render()`), standen aber weiter unten. Beide stehen
+  jetzt oben bei `state`, mit Begründung im Kommentar.
+- **`writeUrlState()` schreibt nur nach `readUrlState()`**
+  (`urlZustandGelesen`). `EndauranceAuth.onAuthChange` ruft `render()`
+  schon auf, während `events.json` noch lädt – ohne die Flagge löschte
+  dieser erste Durchlauf die Parameter eines geteilten Links, bevor sie
+  gelesen waren.
+- **Sortierung**: jede Spaltenüberschrift ist ein Knopf, Schlüssel in
+  `SORT_KEYS` (Rückgabe `[Gruppe, Wert]`, damit Zeilen ohne Angabe immer
+  hinten landen). Bei der Länge gibt es drei Stufen: Distanz, dann
+  Zeitrennen nach Dauer, dann leer – km und Stunden werden NICHT in eine
+  Zahlenreihe gemischt.
+- **Entfernungs-Spalte** erscheint nur mit Ausgangspunkt
+  (`activeColumns()`), Breiten dafür unter `table.with-distance`. Zellen
+  werden aus `activeColumns()` gebaut, nicht fest untereinander – sonst
+  müsste die Spaltenreihenfolge an zwei Stellen gepflegt werden.
+- **Zusammenfassen ist reine Anzeige** (`state.gruppiert`,
+  `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
+  die Tabelle bündelt sie nur nach Name + Datum + Ort und zeigt die
+  Distanzen als Marken.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Quellen

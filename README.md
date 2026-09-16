@@ -312,6 +312,54 @@ Schweiz.
   direkt über der Tabelle - löscht alles auf einmal. Klick auf eine Zeile
   zeigt rechts die Detailansicht.
 
+  **Sortierung**: Jede Spaltenüberschrift ist ein Knopf - erster Klick
+  sortiert aufsteigend, der zweite dreht die Richtung, ein Pfeil zeigt
+  den Zustand (und `aria-sort` sagt es Vorleseprogrammen). Standard ist
+  Datum aufsteigend, also der nächste Termin zuerst. Die Schlüssel stehen
+  in `SORT_KEYS` und geben `[Gruppe, Wert]` zurück: Zeilen ohne
+  verwertbare Angabe landen immer hinten, unabhängig von der Richtung.
+  Bei der Länge gibt es drei Stufen - bekannte Distanz, dann Zeitrennen
+  nach Dauer, dann alles ohne beides; Kilometer und Stunden werden nicht
+  in eine Zahlenreihe gemischt.
+
+  **Entfernungs-Spalte**: Sobald ein Ausgangspunkt gesetzt ist, erscheint
+  hinter Stadt/Ort eine Spalte „Entfernung" (unter 10 km mit einer
+  Dezimalstelle, darüber gerundet), und die Liste sortiert von selbst
+  danach - solange noch die Standard-Sortierung aktiv ist; eine selbst
+  gewählte bleibt unangetastet. Fällt der Ausgangspunkt weg, verschwinden
+  Spalte und Sortierung wieder. Die Spaltenbreiten für diesen Fall stehen
+  unter `table.with-distance` (`table-layout` ist fix).
+
+  **Veranstaltungen zusammenfassen** (Schalter in der Kopfzeile, wird in
+  `localStorage` gemerkt): Eine Veranstaltung mit sechs Strecken füllt
+  sonst sechs Zeilen. Der Schalter bündelt sie nach Name + Datum + Ort zu
+  einer Zeile, zeigt die Distanzen als kleine Marken („42 km · 22 km ·
+  10 km") und die Anzahl der Strecken; ein Klick klappt die einzelnen
+  Zeilen auf, ein Klick darauf zeigt die Details. Das ist **reine
+  Anzeige** - die Daten bleiben eine Zeile pro Strecke (Datenregel 1),
+  damit Filter und Duplikat-Erkennung weiter funktionieren. Die
+  Ergebnisanzeige zählt dann beides: „810 Veranstaltungen (1413
+  Strecken) von 4155 Events".
+
+  **Zeitraum-Schnellfilter**: Über dem Jahr/Monat/Tag-Baum stehen vier
+  Knöpfe - „Dieses Wochenende", „Nächste 30 Tage", „Nächste 3 Monate",
+  „Dieses Jahr". Sie setzen dieselben `selectedDays` wie der Baum (es
+  kommt also kein zweiter Filtermechanismus dazu) und merken sich nur das
+  Etikett für den Chip; wer danach von Hand einzelne Tage anfasst,
+  verliert das Etikett, nicht die Auswahl.
+
+  **Teilbarer Link**: Der vollständige Filterzustand steht in der Adresse
+  (`?sportart=Laufen&art2=Trail&zeitraum=m3&sort=laenge_km:desc&…`) und
+  wird beim Laden wieder übernommen - „Link kopieren" in der Kopfzeile
+  legt ihn in die Zwischenablage. Geschrieben wird mit
+  `history.replaceState`, nicht `pushState`: sonst legte jeder
+  Häkchen-Klick einen Eintrag in der Zurück-Geschichte an. Die beiden
+  alten Deep-Links (`?sportart=` von der Startseite, `?standort=` von der
+  Karte) funktionieren unverändert. Eine **Grenze** gibt es bei den
+  Einzeltagen: mehr als 60 ausgewählte Tage stehen nicht in der Adresse
+  (sie würde unbrauchbar lang) - genau diese großen Bereiche deckt der
+  `zeitraum`-Parameter der vier Knöpfe ab.
+
   **Chips werden zusammengefasst, nicht aufgezählt.** Ein Klick auf
   „Alle" im damaligen Stadt/Ort-Filter wählte ~2000 Orte aus und schob
   die Tabelle mit „Stadt/Ort: Aachen ×"-Chips aus dem Bild. Diese Liste

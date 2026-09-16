@@ -144,7 +144,51 @@
     gap: 10px;
   }
   /* Schiebt den Button an das rechte Ende der Tabellenspalte. */
-  .toolbar-main .reset-btn { margin-left: auto; }
+  .toolbar-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .group-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .link-btn {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .link-btn:hover { background: var(--row-hover); color: var(--text); }
+
+  /* Zusammengefasste Zeile: der Name trägt einen Aufklapp-Pfeil, die
+     Längen stehen als kleine Marken nebeneinander. */
+  .group-row { cursor: pointer; font-weight: 600; }
+  .group-caret { display: inline-block; width: 12px; color: var(--text-muted); }
+  .badges { display: flex; flex-wrap: wrap; gap: 4px; }
+  .badge {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 1px 7px;
+    font-size: 0.74rem;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+  tbody tr.sub-row td:first-child { padding-left: 26px; }
+  tbody tr.sub-row { font-size: 0.82rem; }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
     padding: 8px 16px;
@@ -583,6 +627,26 @@
   }
 
   /* Datum-Baum (Jahr > Monat > Tag) */
+  .date-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .date-preset {
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 0.78rem;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .date-preset:hover { background: var(--row-hover); }
+  .date-preset.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
   .date-tree {
     max-height: 240px;
     overflow-y: auto;
@@ -723,7 +787,11 @@
   <div class="toolbar-main">
     <div class="result-count" id="result-count"></div>
     <div class="active-chips" id="active-chips"></div>
-    <button class="reset-btn" id="reset-btn"></button>
+    <div class="toolbar-actions">
+      <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
+      <button class="link-btn" id="copy-link-btn"></button>
+      <button class="reset-btn" id="reset-btn"></button>
+    </div>
   </div>
 </div>
 
@@ -780,6 +848,11 @@
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
       col_entfernung: 'Entfernung',
       sort_hint: 'Klicken zum Sortieren',
+      group_toggle: 'Veranstaltungen zusammenfassen',
+      result_count_grouped: (g, n, total) => `${g} Veranstaltungen (${n} Strecken) von ${total} Events`,
+      copy_link: 'Link kopieren',
+      copy_link_done: '✓ Link kopiert',
+      copy_link_fail: 'Kopieren nicht möglich – Adresszeile verwenden',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
       range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
@@ -856,6 +929,11 @@
       chip_value_all: 'Alle',
       chip_value_count: (n) => `${n} ausgewählt`,
       chip_datum_all: 'Datum: Alle',
+      chip_datum_preset: (label) => `Datum: ${label}`,
+      preset_weekend: 'Dieses Wochenende',
+      preset_d30: 'Nächste 30 Tage',
+      preset_m3: 'Nächste 3 Monate',
+      preset_year: 'Dieses Jahr',
       chip_distanz_count: (n) => `Länge: ${n} ausgewählt`,
       chip_name: (q) => `Name: „${q}"`,
       chip_sportart: (v) => `Sportart: ${v}`,
@@ -879,6 +957,11 @@
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
+      group_toggle: 'Group by event',
+      result_count_grouped: (g, n, total) => `${g} events (${n} races) of ${total}`,
+      copy_link: 'Copy link',
+      copy_link_done: '✓ Link copied',
+      copy_link_fail: 'Could not copy – use the address bar',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
       range_von_km: 'From (km)', range_bis_km: 'To (km)',
@@ -955,6 +1038,11 @@
       chip_value_all: 'All',
       chip_value_count: (n) => `${n} selected`,
       chip_datum_all: 'Date: All',
+      chip_datum_preset: (label) => `Date: ${label}`,
+      preset_weekend: 'This weekend',
+      preset_d30: 'Next 30 days',
+      preset_m3: 'Next 3 months',
+      preset_year: 'This year',
       chip_distanz_count: (n) => `Length: ${n} selected`,
       chip_name: (q) => `Name: "${q}"`,
       chip_sportart: (v) => `Sport: ${v}`,
@@ -1236,8 +1324,73 @@
   // sind noch lesbar, fünfzig nicht mehr.
   const MAX_VALUE_CHIPS = 5;
 
+  // Zeitraum-Schnellfilter. Der Jahr/Monat/Tag-Baum ist genau, aber für
+  // "dieses Wochenende" oder "die nächsten drei Monate" muss man sich
+  // durchklicken - diese vier Knöpfe kosten eine Zeile Platz und nehmen
+  // den häufigsten Fällen die Arbeit ab. Sie setzen dieselben
+  // state.selectedDays wie der Baum, es kommt also kein zweiter
+  // Filtermechanismus dazu.
+  const DATE_PRESETS = [
+    { key: 'weekend', labelKey: 'preset_weekend', range: () => {
+        // Kommendes Wochenende; ist heute schon Samstag oder Sonntag, ist
+        // dieses Wochenende gemeint.
+        const heute = new Date();
+        const wt = heute.getDay();                 // 0 = So, 6 = Sa
+        if (wt === 0) return [isoOf(heute), isoOf(heute)];
+        const von = new Date(heute);
+        von.setDate(heute.getDate() + (6 - wt));
+        const bis = new Date(von);
+        bis.setDate(von.getDate() + 1);
+        return [isoOf(wt === 6 ? heute : von), isoOf(bis)];
+      } },
+    { key: 'd30', labelKey: 'preset_d30', range: () => {
+        const heute = new Date(); const bis = new Date();
+        bis.setDate(heute.getDate() + 30);
+        return [isoOf(heute), isoOf(bis)];
+      } },
+    { key: 'm3', labelKey: 'preset_m3', range: () => {
+        const heute = new Date(); const bis = new Date();
+        bis.setMonth(heute.getMonth() + 3);
+        return [isoOf(heute), isoOf(bis)];
+      } },
+    { key: 'year', labelKey: 'preset_year', range: () => {
+        const heute = new Date();
+        return [isoOf(heute), `${heute.getFullYear()}-12-31`];
+      } }
+  ];
+
+  function isoOf(d) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+
+  function applyDatePreset(preset) {
+    const [von, bis] = preset.range();
+    state.selectedDays.clear();
+    uniqueSorted(events.map(e => e.datum_start))
+      .filter(d => d >= von && d <= bis)
+      .forEach(d => state.selectedDays.add(d));
+    state.datePreset = preset.key;
+    selectedIndex = null;
+  }
+
+  // ^ DATE_PRESETS steht hier oben, NICHT beim Datums-Panel: readUrlState()
+  // liest den Zeitraum schon beim Laden der Seite, und eine const-Tabelle
+  // weiter unten wäre zu diesem Zeitpunkt noch nicht initialisiert
+  // ("Cannot access 'DATE_PRESETS' before initialization" - genau dieser
+  // Fehler ist beim Bauen passiert).
+
+
   let events = [];
   let selectedIndex = null;
+
+  // Vor dem ersten readUrlState() darf writeUrlState() NICHTS schreiben,
+  // sonst löscht der erste render() die Parameter eines geteilten Links
+  // wieder: window.EndauranceAuth meldet den Anmeldestatus schon, während
+  // events.json noch lädt, und ruft dabei render() auf - mit leerem
+  // Filterzustand. Die Flagge steht hier oben und nicht beim
+  // Deep-Link-Abschnitt, weil genau dieser frühe render() sie sonst noch
+  // nicht sieht ("Cannot access ... before initialization").
+  let urlZustandGelesen = false;
 
   // Filter state
   const state = {
@@ -1248,13 +1401,18 @@
     nameQuery: '',
     selectedDays: new Set(),      // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
     treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
+    datePreset: null,             // 'weekend' | 'd30' | 'm3' | 'year' - nur fürs Etikett
     laengeMin: '',
     laengeMax: '',
     distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
     origin: null,                 // { lat, lon, label }
     radiusKm: null,               // Umkreis in km (1-200) oder null = kein Umkreis-Filter
     sortKey: 'datum',             // Spalte, nach der sortiert wird (siehe SORT_KEYS)
-    sortDir: 'asc'                // 'asc' | 'desc'
+    sortDir: 'asc',               // 'asc' | 'desc'
+    // Zusammenfassen ist reine ANZEIGE: die Daten bleiben eine Zeile pro
+    // Strecke (Datenregel 1), die Tabelle zeigt sie nur gebündelt.
+    gruppiert: false,
+    offeneGruppen: new Set()      // aufgeklappte Gruppen (Schlüssel siehe groupKey)
   };
 
   // Ein einziges, an <body> gehängtes Filter-Panel (fixed positioniert), damit es nie
@@ -1276,6 +1434,40 @@
   const subtitleEl = document.getElementById('subtitle');
   const resetBtnEl = document.getElementById('reset-btn');
   resetBtnEl.addEventListener('click', resetFilters);
+
+  const groupToggleEl = document.getElementById('group-toggle');
+  const groupToggleLabelEl = document.getElementById('group-toggle-label');
+  // Merken, wie der Nutzer die Liste lieber sieht - die Einstellung
+  // gehört zur Ansicht, nicht zum Filter, und überlebt deshalb den
+  // Seitenwechsel (wie die Sprache).
+  try { state.gruppiert = localStorage.getItem('endurance-gruppiert') === '1'; } catch (e) { /* ignorieren */ }
+  groupToggleEl.checked = state.gruppiert;
+  groupToggleEl.addEventListener('change', () => {
+    state.gruppiert = groupToggleEl.checked;
+    try { localStorage.setItem('endurance-gruppiert', state.gruppiert ? '1' : '0'); } catch (e) { /* ignorieren */ }
+    state.offeneGruppen.clear();
+    selectedIndex = null;
+    render();
+  });
+
+  const copyLinkBtnEl = document.getElementById('copy-link-btn');
+  copyLinkBtnEl.addEventListener('click', () => {
+    const url = window.location.href;
+    const melden = (key) => {
+      copyLinkBtnEl.textContent = t(key);
+      window.setTimeout(() => { copyLinkBtnEl.textContent = t('copy_link'); }, 2200);
+    };
+    // navigator.clipboard braucht einen sicheren Kontext; ohne den (oder
+    // bei verweigerter Erlaubnis) bleibt nur der Hinweis auf die
+    // Adresszeile - dort steht die vollständige Adresse ja bereits.
+    if (navigator.clipboard && window.isSecureContext !== false) {
+      navigator.clipboard.writeText(url)
+        .then(() => melden('copy_link_done'))
+        .catch(() => melden('copy_link_fail'));
+    } else {
+      melden('copy_link_fail');
+    }
+  });
   const homeBtnLabelEl = document.getElementById('home-btn-label');
   const mapBtnLabelEl = document.getElementById('map-btn-label');
   const notifyBoxEl = document.getElementById('notify-box');
@@ -1301,22 +1493,13 @@
     return;
   }
 
-  // Deep-Link von der Willkommensseite: ?sportart=Fahrrad selektiert den
-  // Sportart-Filter direkt beim Laden. Deep-Link von der Karte (karte.html):
-  // ?standort=Frankfurt selektiert den Standort-Filter auf genau diesen Ort,
-  // damit z. B. ein Klick auf den Frankfurt-Marker direkt die gefilterte
-  // Liste der Events dort zeigt.
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const sportartParam = params.get('sportart');
-    if (sportartParam && Object.prototype.hasOwnProperty.call(DISTANCE_CATEGORIES, sportartParam)) {
-      state.art1.add(sportartParam);
-    }
-    const standortParam = params.get('standort');
-    if (standortParam && events.some(e => e.standort === standortParam)) {
-      state.standort.add(standortParam);
-    }
-  } catch (e) { /* ignorieren */ }
+  // Filterzustand aus der Adresse übernehmen (siehe readUrlState). Deckt
+  // auch die beiden alten Deep-Links ab, die es vorher schon gab:
+  // ?sportart=Fahrrad von der Willkommensseite und ?standort=Frankfurt
+  // vom Marker in karte.html.
+  readUrlState();
+  urlZustandGelesen = true;
+  groupToggleEl.checked = state.gruppiert;
 
   setLanguage(currentLang);
 
@@ -1464,6 +1647,8 @@
     titleEl.textContent = t('title');
     subtitleEl.textContent = t('subtitle');
     resetBtnEl.textContent = t('reset');
+    groupToggleLabelEl.textContent = t('group_toggle');
+    copyLinkBtnEl.textContent = t('copy_link');
     homeBtnLabelEl.textContent = t('home');
     mapBtnLabelEl.textContent = t('map');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -2059,6 +2244,28 @@
     actions.innerHTML = `<a data-act="all">${escapeHtml(t('select_all'))}</a><a data-act="none">${escapeHtml(t('select_none'))}</a>`;
     panel.appendChild(actions);
 
+    const presetWrap = document.createElement('div');
+    presetWrap.className = 'date-presets';
+    DATE_PRESETS.forEach(preset => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'date-preset' + (state.datePreset === preset.key ? ' active' : '');
+      btn.textContent = t(preset.labelKey);
+      btn.addEventListener('click', () => {
+        if (state.datePreset === preset.key) {
+          state.selectedDays.clear();
+          state.datePreset = null;
+        } else {
+          applyDatePreset(preset);
+        }
+        render();
+        renderDateTreePanel(panel);
+        if (openTriggerEl) positionFloatingPanel(openTriggerEl);
+      });
+      presetWrap.appendChild(btn);
+    });
+    panel.appendChild(presetWrap);
+
     const nodes = buildDateTreeNodes();
     const allDays = uniqueSorted(events.map(e => e.datum_start));
 
@@ -2076,11 +2283,13 @@
 
     actions.querySelector('[data-act="all"]').addEventListener('click', () => {
       allDays.forEach(d => state.selectedDays.add(d));
+      state.datePreset = null;
       selectedIndex = null;
       render();
     });
     actions.querySelector('[data-act="none"]').addEventListener('click', () => {
       state.selectedDays.clear();
+      state.datePreset = null;
       selectedIndex = null;
       render();
     });
@@ -2097,6 +2306,8 @@
     cb.addEventListener('change', () => {
       if (cb.checked) node.days.forEach(d => state.selectedDays.add(d));
       else node.days.forEach(d => state.selectedDays.delete(d));
+      // Von Hand angefasst: das Zeitraum-Etikett stimmt dann nicht mehr.
+      state.datePreset = null;
       selectedIndex = null;
       render();
     });
@@ -2350,6 +2561,61 @@
     }
   }
 
+  // Schlüssel einer Veranstaltung: Name + Datum + Ort. Genau die drei
+  // Felder machen aus mehreren Strecken eine Veranstaltung - die Distanz
+  // ist gerade das, was sie unterscheidet.
+  function groupKey(e) {
+    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+  }
+
+  // Gruppiert die (schon sortierten) Zeilen in der Reihenfolge, in der
+  // sie auftreten - so bleibt die gewählte Sortierung sichtbar.
+  function buildGroups(filtered) {
+    const gruppen = [];
+    const index = new Map();
+    filtered.forEach(row => {
+      const key = groupKey(row.e);
+      let g = index.get(key);
+      if (!g) {
+        g = { key, rows: [] };
+        index.set(key, g);
+        gruppen.push(g);
+      }
+      g.rows.push(row);
+    });
+    return gruppen;
+  }
+
+  function groupRowHtml(g, cols) {
+    const e = g.rows[0].e;
+    const offen = state.offeneGruppen.has(g.key);
+    const laengen = [];
+    const kategorien = [];
+    g.rows.forEach(({ e: r }) => {
+      const l = formatLength(r);
+      if (l !== '–' && !laengen.includes(l)) laengen.push(l);
+      const k = r.art2 ? tv('art2', r.art2) : null;
+      if (k && !kategorien.includes(k)) kategorien.push(k);
+    });
+    return cols.map(col => {
+      switch (col.key) {
+        case 'name':
+          return `<td><div class="cell-clamp" title="${escapeHtml(e.name)}">`
+               + `<span class="group-caret">${offen ? '▾' : '▸'}</span>${escapeHtml(e.name)}`
+               + (g.rows.length > 1 ? ` <span class="badge">${g.rows.length}</span>` : '')
+               + `</div></td>`;
+        case 'art2':
+          return `<td><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
+        case 'laenge_km':
+          return `<td><div class="badges">`
+               + (laengen.length ? laengen.map(l => `<span class="badge">${escapeHtml(l)}</span>`).join('') : '–')
+               + `</div></td>`;
+        default:
+          return cellHtml(col, e);
+      }
+    }).join('');
+  }
+
   function render() {
     updateFilterIndicators();
     renderChips();
@@ -2363,6 +2629,42 @@
     if (filtered.length === 0) {
       bodyEl.innerHTML = `<tr class="empty-row"><td colspan="${cols.length}">${escapeHtml(t('empty_events'))}</td></tr>`;
       renderNotifyPrompt();
+    } else if (state.gruppiert) {
+      // Eine Zeile pro Veranstaltung, Klick klappt die Strecken auf. Die
+      // Daten bleiben unangetastet - Datenregel 1 gilt weiter, das hier
+      // ist nur die Anzeige.
+      const gruppen = buildGroups(filtered);
+      countEl.textContent = t('result_count_grouped', gruppen.length, filtered.length, events.length);
+      bodyEl.innerHTML = '';
+      gruppen.forEach(g => {
+        const tr = document.createElement('tr');
+        tr.className = 'group-row';
+        if (g.rows.some(r => r.idx === selectedIndex)) tr.classList.add('active');
+        tr.innerHTML = groupRowHtml(g, cols);
+        tr.addEventListener('click', () => {
+          if (state.offeneGruppen.has(g.key)) state.offeneGruppen.delete(g.key);
+          else state.offeneGruppen.add(g.key);
+          selectedIndex = g.rows[0].idx;
+          render();
+        });
+        bodyEl.appendChild(tr);
+
+        if (state.offeneGruppen.has(g.key)) {
+          g.rows.forEach(({ e, idx }) => {
+            const sub = document.createElement('tr');
+            sub.className = 'sub-row';
+            if (idx === selectedIndex) sub.classList.add('active');
+            sub.innerHTML = cols.map(col => cellHtml(col, e)).join('');
+            sub.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              selectedIndex = idx;
+              render();
+            });
+            bodyEl.appendChild(sub);
+          });
+        }
+      });
+      removeNotifyPrompt();
     } else {
       bodyEl.innerHTML = '';
       filtered.forEach(({ e, idx }) => {
@@ -2376,6 +2678,101 @@
     }
 
     renderDetail();
+    writeUrlState();
+  }
+
+  // ---------- Filter in der Adresse (teilbarer Link) ----------
+
+  // Die Adresse trägt den vollständigen Filterzustand, damit eine
+  // gefilterte Liste weitergegeben werden kann ("alle Trails im Umkreis
+  // von 50 km um Stuttgart"). history.replaceState statt pushState: jeder
+  // Häkchen-Klick würde sonst einen Eintrag in der Zurück-Geschichte
+  // anlegen, und der Zurück-Knopf wäre nicht mehr zu gebrauchen.
+  const URL_MAX_DAYS = 60;
+
+  function writeUrlState() {
+    if (!urlZustandGelesen) return;
+    if (!window.history || !window.history.replaceState) return;
+    const p = new URLSearchParams();
+    if (state.nameQuery.trim()) p.set('q', state.nameQuery.trim());
+    if (state.land.size) p.set('land', Array.from(state.land).join(','));
+    if (state.art1.size) p.set('sportart', Array.from(state.art1).join(','));
+    if (state.art2.size) p.set('art2', Array.from(state.art2).join(','));
+    if (state.standort.size) p.set('standort', Array.from(state.standort).join(','));
+    if (state.laengeMin !== '') p.set('kmmin', state.laengeMin);
+    if (state.laengeMax !== '') p.set('kmmax', state.laengeMax);
+    if (state.distanceCategories.size) p.set('kat', Array.from(state.distanceCategories).join(','));
+    if (state.datePreset) p.set('zeitraum', state.datePreset);
+    else if (state.selectedDays.size && state.selectedDays.size <= URL_MAX_DAYS) {
+      // Bewusste Grenze: eine Auswahl von Hunderten Tagen würde die
+      // Adresse unbrauchbar lang machen. Die vier Zeitraum-Knöpfe decken
+      // genau diese großen Bereiche ab und stehen als 'zeitraum' drin.
+      p.set('tage', Array.from(state.selectedDays).sort().join(','));
+    }
+    if (state.origin) {
+      p.set('ort', `${state.origin.lat.toFixed(4)},${state.origin.lon.toFixed(4)},${state.origin.label}`);
+      if (state.radiusKm != null) p.set('umkreis', String(state.radiusKm));
+    }
+    if (state.sortKey !== 'datum' || state.sortDir !== 'asc') {
+      p.set('sort', `${state.sortKey}:${state.sortDir}`);
+    }
+    if (state.gruppiert) p.set('gruppiert', '1');
+    const suffix = p.toString();
+    const neu = window.location.pathname + (suffix ? '?' + suffix : '');
+    if (neu !== window.location.pathname + window.location.search) {
+      try { window.history.replaceState(null, '', neu); } catch (e) { /* ignorieren */ }
+    }
+  }
+
+  function readUrlState() {
+    let p;
+    try { p = new URLSearchParams(window.location.search); } catch (e) { return; }
+    const mengen = [
+      // Sportart und Kategorie gegen die bekannten Werte prüfen: ein
+      // Tippfehler in der Adresse soll keine leere Liste erzeugen, die
+      // dann nach einem Fehler der Seite aussieht.
+      ['land', state.land, v => ['Deutschland', 'Österreich', 'Schweiz'].includes(v)],
+      ['sportart', state.art1, v => Object.prototype.hasOwnProperty.call(DISTANCE_CATEGORIES, v)],
+      ['art2', state.art2, null],
+      ['standort', state.standort, v => events.some(e => e.standort === v)],
+      ['kat', state.distanceCategories, null]
+    ];
+    mengen.forEach(([name, ziel, gueltig]) => {
+      const wert = p.get(name);
+      if (!wert) return;
+      wert.split(',').filter(Boolean).forEach(v => { if (!gueltig || gueltig(v)) ziel.add(v); });
+    });
+    const q = p.get('q');
+    if (q) state.nameQuery = q;
+    const kmmin = p.get('kmmin'); if (kmmin) state.laengeMin = kmmin;
+    const kmmax = p.get('kmmax'); if (kmmax) state.laengeMax = kmmax;
+    const zeitraum = p.get('zeitraum');
+    const preset = DATE_PRESETS.find(x => x.key === zeitraum);
+    if (preset) applyDatePreset(preset);
+    else {
+      const tage = p.get('tage');
+      if (tage) tage.split(',').filter(Boolean).forEach(d => state.selectedDays.add(d));
+    }
+    const ort = p.get('ort');
+    if (ort) {
+      const teile = ort.split(',');
+      const lat = parseFloat(teile[0]);
+      const lon = parseFloat(teile[1]);
+      if (Number.isFinite(lat) && Number.isFinite(lon)) {
+        setOrigin({ lat, lon, label: teile.slice(2).join(',') || t('geo_current_label') });
+        const umkreis = parseInt(p.get('umkreis') || '', 10);
+        if (Number.isFinite(umkreis) && umkreis > 0) state.radiusKm = umkreis;
+      }
+    }
+    const sort = p.get('sort');
+    if (sort) {
+      const [key, dir] = sort.split(':');
+      if (SORT_KEYS[key]) {
+        state.sortKey = key;
+        state.sortDir = dir === 'desc' ? 'desc' : 'asc';
+      }
+    }
+    if (p.get('gruppiert') === '1') state.gruppiert = true;
   }
 
   // ---------- "Benachrichtige mich"-Box (0 Treffer) ----------
@@ -2602,10 +2999,13 @@
       // aussagekräftiger als "Datum: 812 Tage ausgewählt" - gleiche
       // Logik wie bei den Mengen-Filtern unten.
       const alleTage = uniqueSorted(events.map(e => e.datum_start)).length;
-      const label = state.selectedDays.size >= alleTage
-        ? t('chip_datum_all')
-        : t('chip_datum', state.selectedDays.size);
-      chips.push({ label, clear: () => state.selectedDays.clear() });
+      const preset = DATE_PRESETS.find(p => p.key === state.datePreset);
+      const label = preset
+        ? t('chip_datum_preset', t(preset.labelKey))
+        : state.selectedDays.size >= alleTage
+          ? t('chip_datum_all')
+          : t('chip_datum', state.selectedDays.size);
+      chips.push({ label, clear: () => { state.selectedDays.clear(); state.datePreset = null; } });
     }
     // Mengen-Filter (Land, Stadt/Ort, Sportart, Kategorie): NICHT jeden
     // ausgewählten Wert als eigenen Chip. "Alle" im Stadt/Ort-Filter
@@ -2686,6 +3086,7 @@
     state.standort.clear();
     state.nameQuery = '';
     state.selectedDays.clear();
+    state.datePreset = null;
     state.laengeMin = '';
     state.laengeMax = '';
     state.distanceCategories.clear();
