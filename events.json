@@ -15517,23 +15517,10 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "laenge_km": 67.0,
-    "wettbewerb": "67 km",
-    "veranstalter_url": "https://my.raceresult.com/413464/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Murr BackYard 12h",
-    "standort": "Murr",
-    "lat": 48.9609405,
-    "lon": 9.2523179,
-    "art1": "Laufen",
-    "art2": "Backcountry Ultra",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 34.0,
-    "wettbewerb": "34 km",
-    "veranstalter_url": "https://my.raceresult.com/413464/"
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://my.raceresult.com/413464/",
+    "dauer_h": 12
   },
   {
     "land": "Deutschland",

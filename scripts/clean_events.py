@@ -121,7 +121,8 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
                     + ")"
                 )
                 continue
-            for field in ("laenge_km", "art2", "art1", "land", "standort", "veranstalter_url"):
+            for field in ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
+                          "land", "standort", "veranstalter_url"):
                 if field not in override or event.get(field) == override[field]:
                     continue
                 # Ein Override darf einen direkten Veranstalter-Link NIE durch

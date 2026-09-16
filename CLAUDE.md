@@ -111,6 +111,11 @@ laden Leaflet und Firebase.
      Einträge betroffen). Größere Angaben (34/67/80 km) bleiben stehen
      und werden nur **gemeldet** – unklar, ob Zielvorgabe, Teamwertung
      oder Runde.
+   - Ein Override darf jetzt auch `dauer_h` und `wettbewerb` setzen, und
+     `null` löscht ein Feld – so wurde „Murr BackYard 12h" auf 12 h ohne
+     Distanz gebracht (die beiden Zeilen mit 67/34 km sind dadurch zu
+     einer verschmolzen). Offen bleibt nur noch „RET-Team Backyard
+     80 km".
    - Nennt ein Wettbewerb eine Dauer, verwirft `parse_competitions()`
      eine km-Angabe daneben („24h Solo auf einer 2km MotoCross-Strecke
      (2km)" → 24 h, keine 2 km). Vorher wurde daraus ein 2-km-Eintrag,

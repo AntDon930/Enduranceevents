@@ -1488,7 +1488,8 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
             if override.get("exclude"):
                 excluded += 1
                 continue
-            for field in ("laenge_km", "art2", "art1", "land", "standort", "veranstalter_url"):
+            for field in ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
+                          "land", "standort", "veranstalter_url"):
                 if field not in override:
                     continue
                 # Ein Override darf einen direkten Veranstalter-Link NIE

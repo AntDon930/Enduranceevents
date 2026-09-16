@@ -1,5 +1,5 @@
 {
-  "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert; 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden.",
+  "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, dauer_h, wettbewerb, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert (null löscht ihn); 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden.",
   "47. Gaißacher Berglauf|2026-09-05": {
     "laenge_km": 4.5,
     "art2": "Berg",
@@ -225,5 +225,17 @@
     "art2": "Straße",
     "veranstalter_url": "https://www.leimueller-silvesterlauf.at/",
     "_note": "Hauptlauf 5,4 km (zwei Runden) laut offizieller Ausschreibung, Start Bahnhofstrasse/Post, Ziel Schulplatz. Nordic Walking (2,7 km) und Junior-Race (2,7 km, 8-12 Jahre) bewusst NICHT aufgenommen: Walking ist kein Lauf, das Junior-Race ein reiner Kinderlauf. running.life fuehrt die Veranstaltung ebenfalls - der Eintrag haelt Distanz und offizielle Seite fest, falls sie kuenftig ueber diese Quelle hereinkommt. Recherchiert am 16.09.2026; die Veranstaltung findet seit 2005 jaehrlich am 31.12. statt."
+  },
+  "Murr BackYard 12h|2026-10-04|67": {
+    "laenge_km": null,
+    "dauer_h": 12,
+    "wettbewerb": null,
+    "_note": "Backyard Ultra mit 12-Stunden-Begrenzung (steht im Namen). Die gespeicherten 67 bzw. 34 km sind keine Wettkampfdistanz, sondern was man in der Zeit zusammenläuft bzw. eine Rundensumme - eine Backyard-Strecke steht nicht vorher fest. Vom Nutzer am 16.09.2026 so entschieden: Dauer 12 h eintragen, Distanz löschen."
+  },
+  "Murr BackYard 12h|2026-10-04|34": {
+    "laenge_km": null,
+    "dauer_h": 12,
+    "wettbewerb": null,
+    "_note": "Backyard Ultra mit 12-Stunden-Begrenzung (steht im Namen). Die gespeicherten 67 bzw. 34 km sind keine Wettkampfdistanz, sondern was man in der Zeit zusammenläuft bzw. eine Rundensumme - eine Backyard-Strecke steht nicht vorher fest. Vom Nutzer am 16.09.2026 so entschieden: Dauer 12 h eintragen, Distanz löschen."
   }
 }

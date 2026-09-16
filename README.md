@@ -531,7 +531,14 @@ und eindeutige Events in `events.json` landen:
   „7 km" bzw. „6,7 km" in der Liste – wer nach „5–10 km" filterte, fand
   Rennen, bei denen man 200 km läuft). Die Länge zeigt dann „–", oder die
   Dauer, wenn das Rennen begrenzt ist. Größere Angaben (34/67/80 km)
-  werden **nur gemeldet**, nicht angetastet. Nachgetragen wird die Dauer
+  werden **nur gemeldet**, nicht angetastet – bis auf „Murr BackYard 12h"
+  (67 und 34 km), der per `manual_overrides.json` auf 12 h ohne Distanz
+  steht; seine beiden Zeilen sind dadurch zu einer verschmolzen. Offen
+  bleibt „RET-Team Backyard 80 km".
+
+  Ein Override darf dafür jetzt auch `dauer_h` und `wettbewerb` setzen,
+  und **`null` löscht ein Feld** (siehe `_readme` in
+  `scripts/manual_overrides.json`). Nachgetragen wird die Dauer
   außerdem nur bei Einträgen **ohne** Distanz (Begründung siehe
   `dauer_h` oben), und ein Zeitrennen fällt nicht der
   5-km-Mindestdistanz zum Opfer: beim 24-Stunden-Lauf auf einer
