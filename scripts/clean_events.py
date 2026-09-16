@@ -87,6 +87,7 @@ from scraper_lib import (  # noqa: E402
     is_same_event,
     is_same_race,
     find_override,
+    parse_duration_h,
     load_manual_overrides,
     round_km,
 )
@@ -398,6 +399,40 @@ def drop_past_events(events: list[dict],
     return kept, dropped
 
 
+def fill_duration(events: list[dict]) -> list[str]:
+    """Trägt `dauer_h` bei zeitlich begrenzten Rennen nach.
+
+    Nötig, weil das Feld erst später dazugekommen ist: Ein
+    "24-Stunden-Lauf" aus einem früheren Lauf hat es noch nicht, und die
+    Scraper ändern bestehende Einträge nie. Quelle ist der
+    Veranstaltungsname plus das Wettbewerbs-Label - dieselbe Erkennung
+    wie beim Einsammeln (`scraper_lib.parse_duration_h()`, inklusive der
+    Absicherung gegen Zielschlusszeiten wie "Zeitlimit 6 Stunden").
+
+    Ein vorhandener Wert wird nicht angetastet, auch nicht, wenn die
+    Erkennung nichts findet - ein per Override gesetztes `dauer_h` ist
+    die bessere Auskunft."""
+    changed: list[str] = []
+    for event in events:
+        if event.get("dauer_h") is not None:
+            continue
+        # Nur Einträge OHNE Distanz. Sonst wird aus dem "24h Mad Chicken
+        # Run | Marathon, 42 km" ein Zeitrennen, obwohl die Zeile eine
+        # feste 42-km-Strecke innerhalb einer 24-Stunden-Veranstaltung
+        # beschreibt: Das "24h" steht im Namen des Festivals, nicht in
+        # dieser Strecke.
+        if event.get("laenge_km") is not None:
+            continue
+        text = f"{event.get('name') or ''} {event.get('wettbewerb') or ''}"
+        dauer = parse_duration_h(text)
+        if dauer is None:
+            continue
+        event["dauer_h"] = dauer
+        changed.append(f"{event.get('name')} ({event.get('wettbewerb') or '-'}): "
+                       f"dauer_h = {dauer:g} h")
+    return changed
+
+
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     """Entfernt zu kurze LAUF-Events. Andere Sportarten sind bewusst
     ausgenommen: 3,5 km Freiwasserschwimmen sind eine ernsthafte Distanz,
@@ -409,6 +444,9 @@ def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
             isinstance(km, (int, float))
             and km < MIN_DISTANCE_KM
             and event.get("art1") == MIN_DISTANCE_ART1
+            # Ein Zeitrennen ist nie "zu kurz": beim 24-Stunden-Lauf auf
+            # einer 1-km-Runde ist die Rundenlänge keine Wettkampfdistanz.
+            and event.get("dauer_h") is None
         )
         if too_short:
             dropped.append(f"{event.get('name')} ({km} km)")
@@ -837,6 +875,7 @@ def main() -> None:
     rounding_fixes = round_distances(events)
     label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
+    duration_fills = fill_duration(events)
     events, too_short = drop_too_short(events)
     events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
@@ -880,6 +919,7 @@ def main() -> None:
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
+    section("Dauer nachgetragen (Zeitrennen)", duration_fills)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)

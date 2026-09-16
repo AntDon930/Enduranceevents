@@ -1042,7 +1042,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-20",
-    "veranstalter_url": "https://25h-lauffestival.de/"
+    "veranstalter_url": "https://25h-lauffestival.de/",
+    "dauer_h": 25.0
   },
   {
     "land": "Deutschland",
@@ -9900,7 +9901,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "veranstalter_url": "https://rickyssporttreff.de/event/6h-kls-2026/"
+    "veranstalter_url": "https://rickyssporttreff.de/event/6h-kls-2026/",
+    "dauer_h": 6.0
   },
   {
     "land": "Deutschland",
@@ -12293,7 +12295,8 @@
     "art2": "Bahn",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-04",
-    "veranstalter_url": "https://www.24hlauf-freiburg.de"
+    "veranstalter_url": "https://www.24hlauf-freiburg.de",
+    "dauer_h": 24.0
   },
   {
     "land": "Deutschland",
@@ -45120,7 +45123,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-08",
     "datum_ende": "2027-05-08",
-    "veranstalter_url": "https://riesenbecker-6stundenlauf.de/"
+    "veranstalter_url": "https://riesenbecker-6stundenlauf.de/",
+    "dauer_h": 6.0
   },
   {
     "land": "Deutschland",
@@ -48968,7 +48972,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-11",
     "datum_ende": "2027-06-13",
-    "veranstalter_url": "https://www.borne-run.de/"
+    "veranstalter_url": "https://www.borne-run.de/",
+    "dauer_h": 48.0
   },
   {
     "land": "Deutschland",
@@ -52695,7 +52700,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-09",
     "datum_ende": "2027-07-10",
-    "veranstalter_url": "https://my.raceresult.com/418089/"
+    "veranstalter_url": "https://my.raceresult.com/418089/",
+    "dauer_h": 24.0
   },
   {
     "land": "Deutschland",
@@ -53186,7 +53192,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-17",
     "datum_ende": "2027-07-18",
-    "veranstalter_url": "https://www.vfl-dettenhausen.de/laufen_und_walken/24h-lauf"
+    "veranstalter_url": "https://www.vfl-dettenhausen.de/laufen_und_walken/24h-lauf",
+    "dauer_h": 24.0
   },
   {
     "land": "Deutschland",

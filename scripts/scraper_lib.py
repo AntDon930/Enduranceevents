@@ -172,6 +172,11 @@ ENGLISH_MONTHS = {
 # eindeutig einen Trail-/Geländelauf beschreibt.
 ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
+    # Vor "Trail": ein "Backcountry Ultra Trail" ist ein Backcountry Ultra,
+    # kein gewöhnlicher Trail. Absichtlich NUR das Wort "backcountry" -
+    # ein Backyard Ultra (Rundenformat nach Big's Backyard) ist ein anderes
+    # Format und wird nicht automatisch hierher einsortiert.
+    (re.compile(r"backcountry", re.I), "Backcountry Ultra"),
     (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
     # "Höhenmeter" im Text ist ein starkes Indiz für einen Berg-/Gelände-
     # lauf statt eines flachen Straßenlaufs, unabhängig vom Namen.
@@ -247,6 +252,13 @@ class Event:
     datum_ende: str | None = None
     anmeldeschluss: str | None = None
     laenge_km: float | None = None
+    # Zeitlich begrenzte Rennen (24-Stunden-Lauf, 6h, 12h) haben keine feste
+    # Streckenlänge - dort steht die Dauer in STUNDEN. In der Liste erscheint
+    # sie in derselben Spalte wie die Distanz ("24 h" statt "42.2 km"), siehe
+    # formatLength() in events.html. Bewusst ein eigenes Feld: eine Dauer in
+    # laenge_km zu schreiben würde Von/Bis-Filter, Sortierung und die
+    # Distanz-Kategorien durcheinanderbringen.
+    dauer_h: float | None = None
     # Name des konkreten Wettbewerbs innerhalb der Veranstaltung, falls die
     # Quelle mehrere Strecken einzeln ausweist (z. B. "Moslig 8000" und
     # "Halbmarathon" beim Schnebelhorn Panoramatrail). Jede Strecke wird zu
@@ -263,6 +275,8 @@ class Event:
         # (Regex, JSON-LD, manuelles Override) - siehe round_km().
         if d.get("laenge_km") is not None:
             d["laenge_km"] = round_km(d["laenge_km"])
+        if d.get("dauer_h") is not None:
+            d["dauer_h"] = round(float(d["dauer_h"]), 1)
         return {k: v for k, v in d.items() if v is not None}
 
 
@@ -557,6 +571,58 @@ def parse_elevation_m(text: str) -> float | None:
         return None
 
 
+# Zeitlich begrenzte Rennen ("24-Stunden-Lauf", "6h Backyard", "12h")
+# haben keine feste Streckenlänge. Erkannt wird die Dauer aus dem Namen
+# bzw. dem Wettbewerbs-Label; das Ergebnis landet in `dauer_h`.
+#
+# Zwei Fehlerquellen, gegen die die Regex absichern muss:
+#
+#   * "229 hm" sind Höhenmeter, keine 229 Stunden. Deshalb steht hinter
+#     dem "h" ein negativer Lookahead auf "m"/"öhenmeter".
+#   * Ein "Zeitlimit: 6 Stunden" oder "Karenzzeit 6 h" ist eine
+#     ZIELSCHLUSSZEIT für einen Lauf mit fester Strecke - das macht aus
+#     einem Marathon kein 6-Stunden-Rennen. Steht eines dieser Wörter
+#     kurz davor, wird der Treffer verworfen.
+#
+# Plausibel sind 1 bis 72 Stunden (typisch 6/12/24/48; Backyard-Rennen
+# laufen theoretisch länger, geben aber keine Dauer an).
+_DURATION_PATTERN = re.compile(
+    r"(?<![\w,.:])(\d{1,3}(?:[.,]5)?)\s*[-‑–]?\s*"
+    r"(?:h(?![a-zäöü])|std\.?|stunden(?:lauf|rennen)?|stunden-?lauf|hours?|hrs?\b)",
+    re.I,
+)
+_DURATION_FALSE_FRIENDS = re.compile(
+    r"(zeit-?limit|limit|karenz|h[öo]chstzeit|zielschluss|cut.?off|"
+    r"maximal|max\.?|mindest|start(zeit)?|beginn|uhrzeit|ab\s*$)",
+    re.I,
+)
+DURATION_MIN_H = 1.0
+DURATION_MAX_H = 72.0
+
+
+def parse_duration_h(text: str) -> float | None:
+    """Liest die Dauer eines zeitlich begrenzten Rennens in Stunden.
+
+    Gibt None zurück, wenn der Text keine Dauer nennt oder der Treffer
+    eine Zielschlusszeit bzw. Höhenmeterangabe ist (siehe
+    _DURATION_FALSE_FRIENDS). Auf Unsicherheit hin wird NICHTS gesetzt -
+    ein falsch als Zeitrennen markierter Marathon verliert seine Distanz
+    in der Anzeige, und das fällt niemandem auf."""
+    if not text:
+        return None
+    for match in _DURATION_PATTERN.finditer(text):
+        vorher = text[max(0, match.start() - 24):match.start()]
+        if _DURATION_FALSE_FRIENDS.search(vorher):
+            continue
+        try:
+            wert = float(match.group(1).replace(",", "."))
+        except ValueError:
+            continue
+        if DURATION_MIN_H <= wert <= DURATION_MAX_H:
+            return round(wert, 1)
+    return None
+
+
 def art2_from_elevation(text: str, laenge_km: float | None, current: str | None) -> str | None:
     """Stuft eine Strecke anhand ihres Höhenprofils als "Berg" ein.
 
@@ -586,6 +652,9 @@ class Competition:
     """Ein einzelner Wettbewerb (eine Strecke) innerhalb einer Veranstaltung."""
     label: str | None = None
     laenge_km: float | None = None
+    # Dauer in Stunden, falls der Wettbewerb zeitlich begrenzt ist
+    # ("24-Stunden-Lauf", "6h") - siehe parse_duration_h().
+    dauer_h: float | None = None
     # Zusätzlicher Text, der die Art der Strecke beschreibt und in die
     # Kategorie (art2) einfließt - z. B. das Feld "Trailrun" aus der
     # laufen.de-Wettbewerbsliste.
@@ -613,7 +682,10 @@ def parse_competitions(
     keine eigenen Einträge für unsere Liste.
     """
     result: list[Competition] = []
-    seen: set[float | None] = set()
+    # Schlüssel ist das PAAR (Distanz, Dauer): Ein "6h" und ein "12h"
+    # derselben Veranstaltung haben beide keine Distanz - über die Distanz
+    # allein wäre der zweite ein Duplikat des ersten und fiele weg.
+    seen: set[tuple[float | None, float | None]] = set()
     for raw in items:
         if isinstance(raw, tuple):
             raw_text, hint = raw
@@ -623,13 +695,14 @@ def parse_competitions(
         if not text:
             continue
         km = guess_distance_km(text, config)
+        dauer = parse_duration_h(text)
         label = clean_competition_label(text)
-        if km is None and not label:
+        if km is None and dauer is None and not label:
             continue
-        if km in seen:
+        if (km, dauer) in seen:
             continue
-        seen.add(km)
-        result.append(Competition(label=label, laenge_km=km,
+        seen.add((km, dauer))
+        result.append(Competition(label=label, laenge_km=km, dauer_h=dauer,
                                   hint=(hint or "").strip(), raw=text))
     return result
 
@@ -652,14 +725,19 @@ def expand_competitions(
     Ohne erkannte Wettbewerbe wird das Basis-Event unverändert
     zurückgegeben (ein Eintrag), damit Aufrufer nie leer ausgehen.
     """
-    usable = [c for c in competitions if c.laenge_km is not None]
+    # Brauchbar ist ein Wettbewerb mit Distanz ODER mit Dauer: ein
+    # 24-Stunden-Lauf hat keine feste Strecke, ist aber ein eigener
+    # Eintrag der Liste.
+    usable = [c for c in competitions
+              if c.laenge_km is not None or c.dauer_h is not None]
     if not usable:
         return [base]
 
     events: list[Event] = []
     for comp in usable:
         clone = replace(base)
-        clone.laenge_km = round_km(comp.laenge_km)
+        clone.laenge_km = round_km(comp.laenge_km) if comp.laenge_km is not None else None
+        clone.dauer_h = comp.dauer_h
         clone.wettbewerb = comp.label
         # art2 aus Veranstaltungsname UND Streckenangaben ableiten: bei
         # einer Veranstaltung mit "Halbmarathon" und "Trailrun" ist die
@@ -862,6 +940,7 @@ def normalize_jsonld_event(raw: dict, config: SiteConfig) -> Event:
     combined_text = " ".join(str(raw.get(k) or "") for k in ("name", "description"))
     art2 = guess_art2(combined_text, config)
     laenge_km = guess_distance_km(combined_text, config)
+    dauer_h = parse_duration_h(combined_text)
 
     veranstalter_url = raw.get("url") or raw.get("_page_url")
 
@@ -870,7 +949,7 @@ def normalize_jsonld_event(raw: dict, config: SiteConfig) -> Event:
         standort=standort.strip() if standort else None,
         lat=lat, lon=lon, art1=config.default_art1, art2=art2,
         datum_start=datum_start, datum_ende=datum_ende,
-        laenge_km=laenge_km, veranstalter_url=veranstalter_url,
+        laenge_km=laenge_km, dauer_h=dauer_h, veranstalter_url=veranstalter_url,
     )
 
 
@@ -916,6 +995,7 @@ def parse_html_fallback(soup: BeautifulSoup, page_url: str, config: SiteConfig) 
                 art2=guess_art2(combined_text, config),
                 datum_start=datum_start, datum_ende=datum_start,
                 laenge_km=guess_distance_km(combined_text, config),
+                dauer_h=parse_duration_h(combined_text),
                 veranstalter_url=urljoin(page_url, href) if href else None,
             )
         )
@@ -1094,6 +1174,7 @@ def fetch_events_from_api(session: requests.Session, api_url: str, config: SiteC
                 art1=config.default_art1, art2=guess_art2(combined_text, config),
                 datum_start=datum_start, datum_ende=datum_start,
                 laenge_km=guess_distance_km(combined_text, config),
+                dauer_h=parse_duration_h(combined_text),
                 veranstalter_url=veranstalter_url,
             )
         )
@@ -1502,7 +1583,7 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
 # z. B. Label "0,7 km" an einem 7,5-km-Eintrag und "2,5km
 # Kreismeisterschaft" an einem mit 25 km.
 ENRICHABLE_FIELDS = (
-    "laenge_km", "art2", "land", "standort", "lat", "lon",
+    "laenge_km", "dauer_h", "art2", "land", "standort", "lat", "lon",
     "datum_ende", "anmeldeschluss", "veranstalter_url",
 )
 

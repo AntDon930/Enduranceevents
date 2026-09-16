@@ -107,6 +107,10 @@ const DISTANCE_CATEGORIES = {
     half: (km) => Math.abs(km - 21.0975) <= 0.5,
     marathon: (km) => Math.abs(km - 42.195) <= 0.5,
     ultra: (km) => km > 42.195 + 0.5,
+    // Zeitrennen (24-Stunden-Lauf, 6h, 12h): keine Distanz, die sich
+    // testen ließe - hier entscheidet dauer_h, siehe ZEIT_CATEGORY_KEY
+    // unten und formatLength() in events.html.
+    zeit: null,
   },
   Fahrrad: {
     r50: (km) => km > 0 && km <= 50,
@@ -114,6 +118,7 @@ const DISTANCE_CATEGORIES = {
     r150: (km) => km > 100 && km <= 150,
     r200: (km) => km > 150 && km <= 200,
     rultra: (km) => km > 200,
+    zeit: null,
   },
   Schwimmen: {
     s1: (km) => km > 0 && km <= 1,
@@ -121,6 +126,7 @@ const DISTANCE_CATEGORIES = {
     s3: (km) => km > 2 && km <= 3,
     s5: (km) => km > 3 && km <= 5,
     s10: (km) => km > 5,
+    zeit: null,
   },
   Triathlon: {
     sprint: (km) => km > 0 && km < 40,
@@ -134,12 +140,20 @@ const DISTANCE_CATEGORIES = {
 // "<Sportart>:<Kategorie>" (z. B. "Schwimmen:s10"), so speichert es
 // events.html. Ein Event passt, wenn MINDESTENS eine gewählte Kategorie
 // zutrifft (ODER-Verknüpfung, wie in der Liste).
+// Kategorie-Schlüssel der Zeitrennen. Sie prüfen dauer_h statt laenge_km;
+// in DISTANCE_CATEGORIES steht dafür null statt einer Testfunktion.
+const ZEIT_CATEGORY_KEY = "zeit";
+
 function matchesDistanceCategories(event, keys) {
-  if (event.laenge_km == null) return false;  // wie in der Liste: ohne Distanz kein Treffer
   return keys.some((key) => {
     const [sport, category] = String(key).split(":");
     if (event.art1 !== sport) return false;
-    const test = (DISTANCE_CATEGORIES[sport] || {})[category];
+    const sportCats = DISTANCE_CATEGORIES[sport] || {};
+    if (!(category in sportCats)) return false;
+    if (category === ZEIT_CATEGORY_KEY) return event.dauer_h != null;
+    // Wie in der Liste: ohne bekannte Distanz kein Treffer.
+    if (event.laenge_km == null) return false;
+    const test = sportCats[category];
     return typeof test === "function" && test(event.laenge_km);
   });
 }

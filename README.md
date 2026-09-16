@@ -25,6 +25,20 @@ Schweiz.
     unterschiedlich genau an (Marathon mal als „42,195 km", mal als
     „42,2 km"; Halbmarathon als „21,0975 km"); gespeichert und angezeigt
     wird einheitlich `42.2` bzw. `21.1` (siehe `scraper_lib.round_km()`).
+  - `dauer_h` – Dauer in **Stunden** bei zeitlich begrenzten Rennen
+    (24-Stunden-Lauf, 6h, 12h). Solche Rennen haben keine feste Strecke:
+    gelaufen wird, so weit man in der Zeit kommt. In der Liste erscheint
+    die Dauer in derselben Spalte wie die Distanz („24 h" statt
+    „42.2 km", siehe `formatLength()` in `events.html`), und im
+    Länge-Filter gibt es dafür die Kategorie „Zeitrennen".
+
+    Bewusst ein **eigenes Feld**: eine Dauer in `laenge_km` zu schreiben
+    würde den Von/Bis-Filter, die Sortierung und die Distanz-Kategorien
+    durcheinanderbringen (was ist „zwischen 10 und 20" bei einem
+    24-Stunden-Lauf?). Ist eine Distanz bekannt, hat sie in der Anzeige
+    **Vorrang**: beim „24h Mad Chicken Run | Marathon, 42 km" ist das
+    „24h" der Name der Veranstaltung, die Zeile selbst aber eine feste
+    42-km-Strecke.
   - `wettbewerb` – Bezeichnung der konkreten Strecke innerhalb der
     Veranstaltung (optional, z. B. `"Moslig 8000"` oder `"Halbmarathon"`).
     Veranstaltungen bieten fast immer mehrere Strecken an; jede wird zu
@@ -257,7 +271,8 @@ Schweiz.
   6. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in
      `events.html`, dort anpassbar):
-     - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis
+     - *Laufen*: Straße, Trail, Bahn, Berg, Cross, Hindernis,
+       Backcountry Ultra
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
      - *Triathlon* hat keine Kategorie-Unterteilung.
@@ -324,6 +339,11 @@ Schweiz.
   stehen alle vier Tabs zur Verfügung. Wird die Sportart-Auswahl später
   eingeschränkt, werden nicht mehr passende Distanz-Auswahlen automatisch
   entfernt (sonst würde die Länge-Auswahl „ins Leere laufen"). Kategorien:
+  - **Zeitrennen** (in jeder Sportart, die solche Events hat): trifft
+    alles mit gesetztem `dauer_h` – 6-, 12-, 24-Stunden-Läufe. Die
+    Kategorie erscheint im Panel nur, wenn die gewählte Sportart
+    überhaupt ein zeitlich begrenztes Event enthält; eine Auswahl mit
+    garantiert 0 Treffern wäre nur Ballast.
   - *Laufen*: 5 km, 10 km, Halbmarathon, Marathon, Ultramarathon. 5 km und
     10 km sind „Aufrunde-Kategorien" (ein 4-km-Lauf erscheint unter 5 km),
     Halbmarathon/Marathon sind nur die offiziellen Distanzen (21,0975 km /
@@ -453,7 +473,7 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Acht Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Neun Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
 
 - **Vergangene Events werden entfernt** (`scraper_lib.filter_past()` beim
@@ -474,6 +494,24 @@ und eindeutige Events in `events.json` landen:
   aufgeräumt, ohne den Filter stünden dazwischen bis zu sieben Tage
   Vergangenheit in der Liste. `clean_events.py --today YYYY-MM-DD` setzt
   den Stichtag für Tests von Hand.
+- **Dauer statt Distanz bei Zeitrennen**
+  (`scraper_lib.parse_duration_h()`, nachgetragen von
+  `clean_events.fill_duration()`). Erkannt werden „24-Stunden-Lauf",
+  „6h", „12 Stunden", „24 hours"; plausibel sind 1–72 Stunden. Zwei
+  Fehlerquellen sichert die Erkennung ausdrücklich ab, beide aus echten
+  Daten:
+  - **„229 hm" sind Höhenmeter**, keine 229 Stunden (negativer Lookahead
+    hinter dem „h").
+  - **„Zeitlimit: 6 Stunden" ist eine Zielschlusszeit** und macht aus
+    einem Marathon kein 6-Stunden-Rennen. Steht „Zeitlimit", „Karenz",
+    „Cut-off", „Startzeit" o. Ä. kurz davor, wird der Treffer verworfen.
+
+  Ein „E2H10K Ultratrail" ergab in einem Probelauf 2 Stunden – seither
+  darf vor der Zahl kein Buchstabe stehen. Nachgetragen wird die Dauer
+  außerdem nur bei Einträgen **ohne** Distanz (Begründung siehe
+  `dauer_h` oben), und ein Zeitrennen fällt nicht der
+  5-km-Mindestdistanz zum Opfer: beim 24-Stunden-Lauf auf einer
+  1-km-Runde ist die Rundenlänge keine Wettkampfdistanz.
 - **5-km-Mindestdistanz** (`scraper_lib.filter_min_distance()`,
   gleichnamige Funktion in `laufkalender_scraper.py`): Events mit
   **bekannter** Distanz unter 5 km (Bambini-/Kinder-/Firmen-Kurzläufe)

@@ -953,6 +953,10 @@
       'Berg': { de: 'Berg', en: 'Mountain' },
       'Cross': { de: 'Cross', en: 'Cross Country' },
       'Hindernis': { de: 'Hindernis', en: 'Obstacle' },
+      // Englischer Fachbegriff, in beiden Sprachen gleich: abseits
+      // ausgebauter Wege, oft ohne Verpflegung und teils zeitlich
+      // begrenzt statt über eine feste Strecke.
+      'Backcountry Ultra': { de: 'Backcountry Ultra', en: 'Backcountry Ultra' },
       'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
       'Becken': { de: 'Becken', en: 'Pool' },
       'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
@@ -999,27 +1003,34 @@
       { key: '10k', test: km => km > 5 && km <= 10 },
       { key: 'half', test: km => Math.abs(km - 21.0975) <= 0.5 },
       { key: 'marathon', test: km => Math.abs(km - 42.195) <= 0.5 },
-      { key: 'ultra', test: km => km > 42.195 + 0.5 }
+      { key: 'ultra', test: km => km > 42.195 + 0.5 },
+      // Zeitlich begrenzte Rennen haben keine Distanz, auf die sich ein
+      // Test anwenden ließe - `zeit: true` trifft jedes Event mit
+      // gesetztem dauer_h (siehe matchesDistanceCategory).
+      { key: 'zeit', zeit: true }
     ],
     'Fahrrad': [
       { key: 'r50', test: km => km > 0 && km <= 50 },
       { key: 'r100', test: km => km > 50 && km <= 100 },
       { key: 'r150', test: km => km > 100 && km <= 150 },
       { key: 'r200', test: km => km > 150 && km <= 200 },
-      { key: 'rultra', test: km => km > 200 }
+      { key: 'rultra', test: km => km > 200 },
+      { key: 'zeit', zeit: true }
     ],
     'Schwimmen': [
       { key: 's1', test: km => km > 0 && km <= 1 },
       { key: 's2', test: km => km > 1 && km <= 2 },
       { key: 's3', test: km => km > 2 && km <= 3 },
       { key: 's5', test: km => km > 3 && km <= 5 },
-      { key: 's10', test: km => km > 5 }
+      { key: 's10', test: km => km > 5 },
+      { key: 'zeit', zeit: true }
     ],
     'Triathlon': [
       { key: 'sprint', test: km => km > 0 && km < 40 },
       { key: 'olympic', test: km => Math.abs(km - 51.5) <= 3 },
       { key: 'middle', test: km => Math.abs(km - 113) <= 5 },
-      { key: 'long', test: km => Math.abs(km - 226) <= 8 }
+      { key: 'long', test: km => Math.abs(km - 226) <= 8 },
+      { key: 'zeit', zeit: true }
     ]
   };
 
@@ -1029,14 +1040,16 @@
       'r50': 'bis 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
       's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (Marathonschwimmen)',
       'sprint': 'Sprintdistanz', 'olympic': 'Olympische Distanz (51.5 km)',
-      'middle': 'Mitteldistanz / 70.3 (113 km)', 'long': 'Langdistanz / Ironman (226 km)'
+      'middle': 'Mitteldistanz / 70.3 (113 km)', 'long': 'Langdistanz / Ironman (226 km)',
+      'zeit': 'Zeitrennen (6 h, 12 h, 24 h …)'
     },
     en: {
       '5k': '5 km', '10k': '10 km', 'half': 'Half Marathon', 'marathon': 'Marathon', 'ultra': 'Ultramarathon',
       'r50': 'up to 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
       's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (marathon swim)',
       'sprint': 'Sprint Distance', 'olympic': 'Olympic Distance (51.5 km)',
-      'middle': 'Middle Distance / 70.3 (113 km)', 'long': 'Long Distance / Ironman (226 km)'
+      'middle': 'Middle Distance / 70.3 (113 km)', 'long': 'Long Distance / Ironman (226 km)',
+      'zeit': 'Timed race (6 h, 12 h, 24 h …)'
     }
   };
 
@@ -1048,9 +1061,16 @@
       const sep = compositeKey.indexOf(':');
       const sport = compositeKey.slice(0, sep);
       const catKey = compositeKey.slice(sep + 1);
-      if (e.art1 !== sport || e.laenge_km == null) continue;
+      if (e.art1 !== sport) continue;
       const cat = (DISTANCE_CATEGORIES[sport] || []).find(c => c.key === catKey);
-      if (cat && cat.test(e.laenge_km)) return true;
+      if (!cat) continue;
+      // Zeitrennen: die Dauer entscheidet, nicht die (fehlende) Distanz.
+      if (cat.zeit) {
+        if (e.dauer_h != null) return true;
+        continue;
+      }
+      if (e.laenge_km == null) continue;
+      if (cat.test(e.laenge_km)) return true;
     }
     return false;
   }
@@ -1123,7 +1143,7 @@
 
   // Zuordnung Sportart -> erlaubte Kategorie-Werte.
   const ART2_BY_ART1 = {
-    'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis'],
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis', 'Backcountry Ultra'],
     'Schwimmen': ['Freiwasser', 'Becken'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
   };
@@ -1274,6 +1294,25 @@
     if (km == null || Number.isNaN(Number(km))) return '–';
     const rounded = Math.round(Number(km) * 10) / 10;
     return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)} km`;
+  }
+
+  // Was in der Spalte "Länge" steht. Nicht jedes Rennen hat eine Strecke:
+  // ein 24-Stunden-Lauf ist über die ZEIT begrenzt, gelaufen wird so weit
+  // man kommt. Solche Einträge tragen `dauer_h` statt `laenge_km` und
+  // zeigen hier "24 h".
+  //
+  // Eine bekannte Distanz hat dabei VORRANG, auch wenn beide Felder
+  // gesetzt sind: Beim "24h Mad Chicken Run | Marathon, 42 km" ist das
+  // "24h" der Name der Veranstaltung, die Zeile selbst aber eine feste
+  // 42-km-Strecke. Sie als "24 h" anzuzeigen würde die Distanz
+  // verschlucken.
+  function formatLength(e) {
+    if (e.laenge_km != null) return formatKm(e.laenge_km);
+    if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) {
+      const h = Math.round(Number(e.dauer_h) * 10) / 10;
+      return `${Number.isInteger(h) ? h : h.toFixed(1)} h`;
+    }
+    return formatKm(null);
   }
 
   function escapeHtml(str) {
@@ -2035,7 +2074,14 @@
 
     const catList = document.createElement('div');
     catList.className = 'filter-list distance-categories';
-    (DISTANCE_CATEGORIES[activeDistanceSportTab] || []).forEach(cat => {
+    // Die Zeitrennen-Kategorie nur anbieten, wenn diese Sportart überhaupt
+    // ein zeitlich begrenztes Event hat - eine Auswahl, die garantiert 0
+    // Treffer liefert, ist nur Ballast im Panel.
+    const hatZeitrennen = events.some(
+      e => e.art1 === activeDistanceSportTab && e.dauer_h != null);
+    (DISTANCE_CATEGORIES[activeDistanceSportTab] || [])
+      .filter(cat => !cat.zeit || hatZeitrennen)
+      .forEach(cat => {
       const compositeKey = `${activeDistanceSportTab}:${cat.key}`;
       const label = document.createElement('label');
       const cb = document.createElement('input');
@@ -2148,7 +2194,7 @@
           <td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>
           <td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>
           <td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>
-          <td><div class="cell-clamp">${formatKm(e.laenge_km)}</div></td>
+          <td><div class="cell-clamp">${formatLength(e)}</div></td>
         `;
         tr.addEventListener('click', () => { selectedIndex = idx; render(); });
         bodyEl.appendChild(tr);
@@ -2228,7 +2274,7 @@
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
         <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
         ${displayWettbewerb(e) ? `<dt>${escapeHtml(t('detail_wettbewerb'))}</dt><dd>${escapeHtml(displayWettbewerb(e))}</dd>` : ''}
-        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatKm(e.laenge_km)}</dd>
+        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatLength(e)}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
       <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
@@ -2265,7 +2311,7 @@
   }
 
   function openReportModal(e) {
-    const kmText = formatKm(e.laenge_km);
+    const kmText = formatLength(e);
     const wb = displayWettbewerb(e);
     reportBodyEl.innerHTML = `
       <h2 id="report-heading">${escapeHtml(t('report_title'))}</h2>

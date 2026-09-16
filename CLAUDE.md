@@ -78,7 +78,23 @@ laden Leaflet und Firebase.
 7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
    Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
    Distanzen bleibt absichtlich getrennt.
-8. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
+8. **Zeitrennen haben `dauer_h`, nicht `laenge_km`.** Ein 24-Stunden-Lauf
+   hat keine feste Strecke; die Dauer in Stunden steht in `dauer_h` und
+   erscheint in derselben Spalte („24 h"). Eine bekannte Distanz hat in der
+   Anzeige Vorrang – „24h Mad Chicken Run | Marathon, 42 km" ist eine
+   42-km-Strecke, das „24h" ist der Veranstaltungsname.
+   `parse_duration_h()` sichert gegen „229 hm" (Höhenmeter) und
+   „Zeitlimit 6 Stunden" (Zielschlusszeit) ab; nachgetragen wird nur bei
+   Einträgen ohne Distanz (`clean_events.fill_duration()`).
+   Filter: Kategorie „Zeitrennen" im Länge-Panel, gespiegelt in
+   `functions/index.js` (`ZEIT_CATEGORY_KEY`).
+9. **`art2` „Backcountry Ultra"** (nur Laufen) steht in
+   `ART2_KEYWORDS_LAUFEN` VOR „Trail", sonst wird ein „Backcountry Ultra
+   Trail" zum gewöhnlichen Trail. Stichwort ist ausschließlich
+   „backcountry" – ein **Backyard Ultra** (Rundenformat nach Big's
+   Backyard) ist ein anderes Format und landet absichtlich NICHT
+   automatisch hier. Ohne Rückfrage nicht erweitern.
+10. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
    `datum_start`); der heutige Tag bleibt, ein mehrtägiges Rennen bleibt bis
    zu seinem letzten Tag, ein Event mit unlesbarem Datum wird nicht
    gelöscht. An drei Stellen: `scraper_lib.filter_past()` beim Einsammeln,

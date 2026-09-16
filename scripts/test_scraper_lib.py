@@ -38,6 +38,7 @@ from scraper_lib import (  # noqa: E402
     is_portal_link,
     is_same_event,
     parse_competitions,
+    parse_duration_h,
     parse_elevation_m,
     round_km,
     update_existing_event,
@@ -326,6 +327,56 @@ def test_namensvereinheitlichung() -> None:
           name_quality_soft(lang) < name_quality_soft("Wiesent Challenge"), True)
 
 
+def test_zeitrennen() -> None:
+    """Zeitlich begrenzte Rennen (24-Stunden-Lauf, 6h, 12h) haben keine
+    Distanz - die Dauer steht in `dauer_h` und erscheint in derselben
+    Spalte wie die Distanz. Die beiden Fehlerquellen der Erkennung stehen
+    hier als Testfall, weil beide in echten Daten vorkommen: "229 hm"
+    sind Höhenmeter, und ein "Zeitlimit: 6 Stunden" ist eine
+    Zielschlusszeit - die macht aus einem Marathon kein 6-Stunden-Rennen."""
+    print("\nZeitrennen (parse_duration_h) und Backcountry Ultra:")
+    check("24-Stunden-Lauf", parse_duration_h("24-Stunden-Lauf Hamburg"), 24.0)
+    check("6h mit Anhang", parse_duration_h("6h Lauf im Stadtpark"), 6.0)
+    check("ausgeschrieben", parse_duration_h("12 Stunden von Aachen"), 12.0)
+    check("englisch", parse_duration_h("24 hours of Zurich"), 24.0)
+    check("Bindestrich-Form", parse_duration_h("6-Stunden-Lauf"), 6.0)
+
+    # Höhenmeter sind keine Stunden.
+    check("229 hm ist keine Dauer", parse_duration_h("Berglauf 8,5 km | 229 hm"), None)
+    # Zielschlusszeiten dürfen nicht zur Renndauer werden.
+    check("Zeitlimit zählt nicht",
+          parse_duration_h("Marathon (Zeitlimit: 6 Stunden)"), None)
+    check("Karenzzeit zählt nicht",
+          parse_duration_h("Halbmarathon, Karenzzeit 3 h"), None)
+    check("Startzeit zählt nicht", parse_duration_h("Start 10 Uhr, 10 km"), None)
+    check("100 Stunden unplausibel", parse_duration_h("100-Stunden-Rennen"), None)
+
+    # Ein Zeitrennen ist ein eigener Eintrag, obwohl es keine Distanz hat -
+    # ohne diese Ausnahme fiel es in expand_competitions() heraus. Und zwei
+    # Zeitrennen derselben Veranstaltung sind zwei Einträge, nicht eines
+    # (der Dedupe-Schlüssel enthält deshalb die Dauer).
+    comps = parse_competitions(
+        ["24-Stunden-Lauf", "6h Lauf", "Halbmarathon | 21,1 km", "12 Stunden"], CONFIG)
+    check("vier Wettbewerbe erkannt", len(comps), 4)
+    check("Dauer am Wettbewerb", [c.dauer_h for c in comps], [24.0, 6.0, None, 12.0])
+    base = Event(name="Zeitlauf Testheim", datum_start="2027-05-01", standort="Testheim")
+    evs = expand_competitions(base, comps, CONFIG)
+    check("vier Einträge", len(evs), 4)
+    check("Zeitrennen ohne Distanz", [e.laenge_km for e in evs], [None, None, 21.1, None])
+    check("Dauer am Eintrag", [e.dauer_h for e in evs], [24.0, 6.0, None, 12.0])
+
+    # Neue Laufen-Kategorie. Sie steht VOR "Trail" in der Stichwortliste,
+    # sonst würde ein "Backcountry Ultra Trail" zum gewöhnlichen Trail.
+    check("Backcountry Ultra erkannt",
+          guess_art2("Alpiner Backcountry Ultra", CONFIG), "Backcountry Ultra")
+    check("Backcountry gewinnt gegen Trail",
+          guess_art2("Backcountry Ultra Trail 80 km", CONFIG), "Backcountry Ultra")
+    # Ein Backyard Ultra ist ein anderes Format (Rundenlauf nach Big's
+    # Backyard) und wird NICHT automatisch als Backcountry Ultra eingestuft.
+    check("Backyard bleibt unberührt",
+          guess_art2("Backyard Ultra Berlin", CONFIG) != "Backcountry Ultra", True)
+
+
 def test_vergangene_events() -> None:
     """Vergangene Events gehören nicht in die Liste - weder neu
     hereingeholt (scraper_lib.filter_past) noch in der bestehenden Datei
@@ -480,7 +531,7 @@ def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
-                 test_vergangene_events, test_meldungen,
+                 test_vergangene_events, test_zeitrennen, test_meldungen,
                  test_ortsverzeichnis):
         test()
 
