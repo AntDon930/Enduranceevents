@@ -43,6 +43,13 @@ from scraper_lib import (  # noqa: E402
     update_existing_event,
 )
 
+from build_places import (  # noqa: E402
+    _hat_ortsbezug,
+    _ist_firma,
+    _verschmelze_nachbarn,
+    normalisiere,
+)
+
 CONFIG = SiteConfig(base_url="", calendar_url="")
 
 _failures: list[str] = []
@@ -401,11 +408,80 @@ def test_meldungen() -> None:
           parse_set(["exclude=true"]), {"exclude": True})
 
 
+def test_ortsverzeichnis() -> None:
+    """Aufbereitung von places.json (scripts/build_places.py).
+
+    Das Ortsverzeichnis füttert die Umkreissuche in events.html. Getestet
+    wird, was dort schiefgehen kann: Großempfänger-Postleitzahlen, die
+    als Ort durchgehen, und Schreibweisen, unter denen ein Ort nicht mehr
+    gefunden wird.
+    """
+    print("\nOrtsverzeichnis (build_places):")
+
+    # Der Suchschlüssel muss zu normalizePlaceText() in events.html
+    # passen - beide Seiten müssen dasselbe aus einer Eingabe machen.
+    check("Umlaute", normalisiere("München"), "muenchen")
+    check("ß", normalisiere("Weißenburg"), "weissenburg")
+    check("Akzent", normalisiere("Genève"), "geneve")
+    # "Sankt Anton am Arlberg" heißt in den Daten "St. Anton am Arlberg" -
+    # ohne Vereinheitlichung findet die Suche den Ort nicht.
+    check("Sankt = St.", normalisiere("Sankt Anton"), normalisiere("St. Anton"))
+    check("Bindestrich", normalisiere("Baden-Württemberg"), "baden wuerttemberg")
+
+    # Großempfänger: In der deutschen PLZ-Datei steht bei diesen
+    # Postleitzahlen ein Firmenname im Ortsfeld.
+    check("Firma erkannt", _ist_firma("Mercedes-Benz Vertrieb NFZ GmbH"), True)
+    check("Verein erkannt", _ist_firma("ADAC e. V."), True)
+    check("echter Ort", _ist_firma("Aachen"), False)
+    # Aalen endet auf "ag"+"en"; die Prüfung darf nur auf ganze Wörter
+    # anschlagen, sonst verschwindet der Ort aus der Auswahl.
+    check("Ort mit AG im Namen", _ist_firma("Aalen"), False)
+    # Eine Rechtsform am Ende zählt nur dort, wo Ortsnamen kein
+    # Kantonskürzel tragen: "Deutz AG" ist eine Firma, "Wohlen AG" die
+    # Aargauer Gemeinde.
+    check("Firma mit Rechtsform am Ende", _ist_firma("Deutz AG", streng=True), True)
+    check("Gemeinde mit Kantonskürzel", _ist_firma("Wohlen AG"), False)
+
+    # Was der Firmenfilter nicht erwischt ("Finanzamt Fürth"), fängt der
+    # Abgleich mit dem Gazetteer: kein Ort dieses Namens in der Nähe.
+    index = {
+        "fuerth": [(49.48, 10.97, 132036, True)],
+        "hamburg": [(53.55, 9.99, 1973896, True)],
+    }
+    check("Ort mit Entsprechung", _hat_ortsbezug(index, "Fürth", 49.48, 10.97), True)
+    check("Finanzamt ohne Ort", _hat_ortsbezug(index, "Finanzamt Fürth", 49.48, 10.97), False)
+    # "Gemeinde Ortsteil": der Ortsteil fehlt oft im Gazetteer, die
+    # Gemeinde davor nicht - der Eintrag muss bleiben.
+    check("Gemeinde + Ortsteil", _hat_ortsbezug(index, "Hamburg Stellingen", 53.57, 10.01), True)
+    # Gleicher Name, aber 600 km entfernt: das ist ein anderer Ort.
+    check("zu weit weg", _hat_ortsbezug(index, "Fürth", 53.55, 9.99), False)
+
+    # Postleitzahlbezirke halten sich nicht an Landesgrenzen: die PLZ
+    # 22113 liegt teils in Hamburg, teils in Schleswig-Holstein. Ohne
+    # Zusammenfassung stand "Hamburg" zweimal in der Trefferliste.
+    gruppen = {
+        ("hamburg", "HH"): {"name": "Hamburg", "land": "DE", "region": "Hamburg",
+                            "lats": [53.57], "lons": [10.01], "plz": {"20095"}},
+        ("hamburg", "SH"): {"name": "Hamburg", "land": "DE", "region": "Schleswig-Holstein",
+                            "lats": [53.53], "lons": [10.12], "plz": {"22113"}},
+        ("neustadt", "BY"): {"name": "Neustadt", "land": "DE", "region": "Bayern",
+                             "lats": [49.73], "lons": [11.13], "plz": {"91413"}},
+        ("neustadt", "SN"): {"name": "Neustadt", "land": "DE", "region": "Sachsen",
+                             "lats": [51.02], "lons": [14.21], "plz": {"01844"}},
+    }
+    _verschmelze_nachbarn(gruppen)
+    check("Hamburg zusammengefasst", sorted(gruppen[("hamburg", "HH")]["plz"]), ["20095", "22113"])
+    check("Hamburg nur noch einmal", ("hamburg", "SH") in gruppen, False)
+    # Zwei echte "Neustadt" 200 km auseinander bleiben getrennt.
+    check("Neustadt bleibt doppelt", ("neustadt", "SN") in gruppen, True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
-                 test_vergangene_events, test_meldungen):
+                 test_vergangene_events, test_meldungen,
+                 test_ortsverzeichnis):
         test()
 
     print()

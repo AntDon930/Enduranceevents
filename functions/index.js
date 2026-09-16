@@ -156,12 +156,19 @@ function eventMatchesFilters(event, filters) {
   if (filters.laengeMax && event.laenge_km != null && event.laenge_km > parseFloat(filters.laengeMax)) return false;
   if (filters.distanceCategories && filters.distanceCategories.length
       && !matchesDistanceCategories(event, filters.distanceCategories)) return false;
-  if (filters.radius && filters.origin && filters.origin.lat != null) {
+  // Umkreis: `radiusKm` ist eine Zahl in Kilometern (Regler in
+  // events.html). `radius` ist das alte Format mit vier festen Stufen -
+  // Abos aus der Zeit davor liegen noch in Firestore und sollen weiter
+  // funktionieren: die alten Stufen waren Ringe ("5-20" = mehr als 5 und
+  // höchstens 20 km), hier zählt nur noch die Obergrenze. Das schließt
+  // höchstens ein paar nähere Events zusätzlich ein - besser, als ein
+  // bestehendes Abo verstummen zu lassen.
+  const radiusKm = filters.radiusKm != null
+    ? Number(filters.radiusKm)
+    : ({ "0-5": 5, "5-20": 20, "20-50": 50, "50+": Infinity })[filters.radius];
+  if (radiusKm != null && !Number.isNaN(radiusKm) && filters.origin && filters.origin.lat != null) {
     if (event.lat == null || event.lon == null) return false;
-    const distKm = haversineKm(filters.origin.lat, filters.origin.lon, event.lat, event.lon);
-    const buckets = { "0-5": [0, 5], "5-20": [5, 20], "20-50": [20, 50], "50+": [50, Infinity] };
-    const [min, max] = buckets[filters.radius] || [0, Infinity];
-    if (!(distKm > min && distKm <= max) && !(min === 0 && distKm <= max)) return false;
+    if (haversineKm(filters.origin.lat, filters.origin.lon, event.lat, event.lon) > radiusKm) return false;
   }
   return true;
 }

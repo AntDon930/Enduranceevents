@@ -22,6 +22,8 @@ Nicht auf einen anderen Branch pushen.
 | `events.json` | die Daten (**~450 KB**, wächst mit jedem Lauf) |
 | `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
+| `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
+| `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
@@ -118,6 +120,15 @@ prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
 selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
+
+- **Stadt/Ort ist eine Umkreissuche, keine Ortsliste mehr.** Reihenfolge
+  im Panel: Standort-Button → Regler 1–200 km → Suchfeld für Ort/PLZ
+  (aus `places.json`, ~32.600 Orte; wird erst beim Öffnen des Panels
+  geladen). Ein Ausgangspunkt schaltet den Umkreis auf 25 km
+  (`RADIUS_DEFAULT_KM`). Der Regler filtert erst bei `change`, nicht bei
+  `input` – sonst baut sich die Tabelle bei jeder Fingerbewegung neu auf.
+  `normalizePlaceText()` hier und `normalisiere()` in `build_places.py`
+  müssen dasselbe tun.
 
 - **`refreshOpenPanel()` zeichnet das offene Filter-Panel nicht neu,
   solange der Fokus darin liegt** (damit eine Eingabe im Namensfeld nicht

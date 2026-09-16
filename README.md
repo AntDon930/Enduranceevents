@@ -150,12 +150,29 @@ Schweiz.
      Datums-AutoFilter); ein Jahr oder Monat auswählen selektiert
      automatisch alle enthaltenen Tage, einzelne Tage sind ebenfalls wählbar
   3. **Land** – Checkbox-Liste
-  4. **Stadt/Ort** – Checkbox-Liste mit *allen* Städten (unabhängig von
-     anderen Filtern) plus Umkreissuche: „Aktuellen Standort verwenden"
-     (Browser-Geolocation) oder eine Stadt als Ausgangspunkt wählen, dann
-     Radius 0–5 / 5–20 / 20–50 / 50+ km wählen. Wird die Seite mit
-     `?standort=<Stadt>` aufgerufen (Deep-Link von `karte.html`), ist
-     dieser Filter beim Laden schon gesetzt.
+  4. **Stadt/Ort** – reine **Umkreissuche**, in dieser Reihenfolge:
+     „Aktuellen Standort verwenden" (Browser-Geolocation), darunter ein
+     Regler für den Umkreis von **1 bis 200 km**, darunter ein Suchfeld
+     für **Ort oder Postleitzahl**. Sobald ein Ausgangspunkt feststeht,
+     schaltet sich der Umkreis mit 25 km ein (`RADIUS_DEFAULT_KM`); der
+     Chip „Umkreis: 40 km um Fürth ×" entfernt beides wieder. Wird die
+     Seite mit `?standort=<Stadt>` aufgerufen (Deep-Link von
+     `karte.html`), ist der Ortsfilter beim Laden gesetzt und lässt sich
+     über seinen Chip entfernen.
+
+     Das Suchfeld kennt **alle** Orte und Postleitzahlen in Deutschland,
+     Österreich und der Schweiz – nicht nur die mit Event (siehe
+     „Ortsverzeichnis (places.json)"). Genau darum ging es: Wer in einem
+     Ort ohne Rennen wohnt, will trotzdem wissen, was in 40 km Umkreis
+     läuft. Die frühere Checkbox-Liste mit den ~2000 Orten aus
+     `events.json` ist deshalb entfallen.
+
+     **Was der Regler tut**: Beim Ziehen (`input`) läuft nur die
+     Beschriftung mit, gefiltert wird erst beim Loslassen (`change`) –
+     sonst baut sich die ganze Tabelle bei jeder Fingerbewegung neu auf.
+     Der Regler behält dabei bewusst den Fokus (Pfeiltasten), das Panel
+     wird also nicht neu gezeichnet; Stellung und Beschriftung stimmen
+     zu dem Zeitpunkt schon.
 
      **Zur Geolocation**: Der Standort-Button braucht einen sicheren
      Kontext – auf GitHub Pages (HTTPS) und über `http://localhost` geht
@@ -172,7 +189,7 @@ Schweiz.
      aber nur, wenn der Fokus *nicht* darin liegt (sonst reißt eine
      Eingabe im Namensfeld ab). Der gerade geklickte Standort-Button liegt
      genau dort: das Panel blieb bei „Standort wird ermittelt…" stehen und
-     die Radius-Auswahl ausgegraut, obwohl der Standort längst gespeichert
+     der Umkreis-Regler ausgegraut, obwohl der Standort längst gespeichert
      war. Deshalb `geoBtn.blur()` vor `render()`. Wer an dieser Stelle
      etwas ändert: Jeder Button *innerhalb* eines Filter-Panels, der den
      Filterzustand ändert, braucht dasselbe.
@@ -214,9 +231,11 @@ Schweiz.
   zeigt rechts die Detailansicht.
 
   **Chips werden zusammengefasst, nicht aufgezählt.** Ein Klick auf
-  „Alle" im Stadt/Ort-Filter wählte ~2000 Orte aus und schob die Tabelle
-  mit „Stadt/Ort: Aachen ×"-Chips aus dem Bild. Für die Mengen-Filter
-  (Land, Stadt/Ort, Sportart, Kategorie) gilt deshalb:
+  „Alle" im damaligen Stadt/Ort-Filter wählte ~2000 Orte aus und schob
+  die Tabelle mit „Stadt/Ort: Aachen ×"-Chips aus dem Bild. Diese Liste
+  gibt es nicht mehr (der Filter ist heute eine Umkreissuche), die Regel
+  gilt aber unverändert für alle Mengen-Filter (Land, Stadt/Ort aus einem
+  Kartenlink, Sportart, Kategorie):
 
   | Auswahl | Chip |
   |---|---|
@@ -269,12 +288,102 @@ Schweiz.
   dort automatisch den Standort-Filter auf genau diesen Ort setzt. Erreichbar
   über den „Karte"-Button in `events.html` (auf der Startseite gibt es
   bewusst keinen Kartenlink).
+- `places.json` – Ortsverzeichnis für die Umkreissuche: alle Orte und
+  Postleitzahlen aus Deutschland, Österreich und der Schweiz, auch die
+  ohne Event. Wird von `scripts/build_places.py` aus GeoNames-Daten
+  gebaut und von `events.html` erst beim Öffnen des Stadt/Ort-Filters
+  nachgeladen (siehe „Ortsverzeichnis (`places.json`)").
+- `scripts/build_places.py` – baut ebendiese Datei.
 - `scripts/review_reports.py` – der Ablauf für die Fehlermeldungen aus
   der Liste (siehe „Fehler melden" unten): bündelt sie pro Strecke,
   legt daraus Vorschläge an und schreibt sie erst **nach Bestätigung**
   in `scripts/manual_overrides.json`.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
+
+## Ortsverzeichnis (`places.json`)
+
+Die Umkreissuche in `events.html` braucht einen Ausgangspunkt, und zwar
+auch für Orte **ohne** Event. `places.json` liefert ihn: ~32.600 Orte mit
+Koordinaten und Postleitzahlen aus Deutschland, Österreich und der
+Schweiz (~1,4 MB, gzip-komprimiert etwa 540 KB).
+
+Die Datei wird **erst geladen, wenn jemand den Stadt/Ort-Filter öffnet** –
+nicht beim Seitenaufruf. Wer die Liste nur nach Datum durchsieht, lädt
+sie nie.
+
+Gebaut wird sie von `scripts/build_places.py` aus zwei GeoNames-Dateien
+(CC BY 4.0, Namensnennung steht im Filter-Panel):
+
+```bash
+python3 scripts/build_places.py          # lädt, baut, schreibt places.json
+```
+
+Ein Lauf dauert ein paar Sekunden plus Download (~11 MB, landet im
+ignorierten `.geonames-cache/`). Das Skript läuft **nicht** im
+Wochen-Workflow mit: Ortsnamen und Postleitzahlen ändern sich praktisch
+nie, ein Lauf pro Jahr genügt.
+
+**Was beim Bauen passiert** (die Fälle, die Arbeit gemacht haben):
+
+- **Ein Eintrag je Ort, nicht je Postleitzahl.** Berlin steht ~190-mal in
+  der PLZ-Datei; zusammengefasst wird auf Name + Bundesland, die
+  Koordinate ist der Mittelpunkt aller Bezirke.
+- **Großempfänger raus.** Die deutsche Post vergibt eigene
+  Postleitzahlen an Behörden und Konzerne; im Ortsfeld steht dann
+  „Finanzamt Fürth" oder „Mercedes-Benz Vertrieb NFZ GmbH". Erkannt wird
+  das über eine Rechtsform im Namen **und** über den Abgleich mit dem
+  GeoNames-Gazetteer: Was dort im Umkreis von 30 km keine Entsprechung
+  hat, ist kein Ort. Geprüft wird dabei auch der *Anfang* des Namens,
+  denn viele Einträge heißen „Gemeinde Ortsteil" („Hamburg Stellingen") –
+  das Ende zu prüfen wäre falsch, sonst holt „Fürth" das Finanzamt
+  wieder herein.
+- **Dieser Abgleich gilt nur für Deutschland** (`ORTSBEZUG_PRUEFEN`).
+  Österreich und die Schweiz führen echte Ortschaften in ihren
+  PLZ-Dateien, und viele kleine Weiler (Kohlergraben, Abländschen,
+  Jungfraujoch) fehlen schlicht im Gazetteer – die Prüfung hätte dort
+  über 1000 richtige Orte gelöscht.
+- **Rechtsform nur als ganzes Wort.** Ein simples „AG" als Zeichenkette
+  traf „Bad **Ag**lasterhausen" und die Schweizer Gemeinden mit
+  Kantonskürzel („Wohlen AG", „Reinach AG"). Die Endungsregel („Deutz
+  AG", „Eppendorf SE") läuft deshalb ebenfalls nur für Deutschland.
+- **Verwaltungseinheiten zählen als Beleg mit.** Sie auszuschließen
+  hätte zwar „Kreis Borken" erwischt, aber auch 663 echte Gemeinden
+  mitgerissen, die im Gazetteer nur als Gemeinde stehen (Crinitzberg,
+  Nuthe-Urstromtal, Ammersbek). Ein Kreisname zu viel in der Auswahl ist
+  harmlos – seine Koordinaten stimmen –, ein fehlender Wohnort nicht.
+- **Einwohnerzahl nur zur Sortierung.** Wer „Mün" tippt, will München
+  sehen und nicht Münchendorf. Zugeordnet wird sie über Namen und Nähe,
+  nicht über Verwaltungscodes: die deutsche PLZ-Datei führt mal „01",
+  mal „BY" als admin1. Indiziert werden auch die fremdsprachigen Namen –
+  München heißt im Gazetteer „Munich", Wien „Vienna". Regierungsbezirke
+  (ADM2) bleiben außen vor, sonst erbt Arnsberg die 3,5 Millionen seines
+  Bezirks und steht über Berlin.
+- **Gleichnamige Nachbarn verschmelzen.** Postleitzahlbezirke halten
+  sich nicht an Landesgrenzen: die PLZ 22113 liegt teils in Hamburg,
+  teils in Schleswig-Holstein – „Hamburg" stand deshalb zweimal in der
+  Liste, 4 km auseinander. Zwei echte „Neustadt" 200 km auseinander
+  bleiben dagegen getrennt.
+
+**Format** (Arrays statt Objekte, das spart rund ein Drittel):
+
+```json
+{"quelle": "GeoNames …", "erstellt": "2026-09-16",
+ "laender": ["DE","AT","CH"], "regionen": ["Bayern", …],
+ "orte": [["München", 0, 0, 48.144, 11.56, 1505005, "80331 80333 …"], …]}
+```
+
+Die Reihenfolge der `orte` ist Teil des Datenformats: absteigend nach
+Einwohnerzahl. `searchPlaces()` in `events.html` sortiert nur nach
+Trefferart (PLZ, Namensanfang, Wortanfang, irgendwo im Namen) und
+verlässt sich innerhalb einer Trefferart auf diese Reihenfolge.
+
+**Suchschlüssel**: `normalisiere()` in `build_places.py` und
+`normalizePlaceText()` in `events.html` müssen dasselbe tun – klein,
+ohne Umlaute („muenchen"), ohne Akzente, und „Sankt" = „St.", sonst
+findet „Sankt Anton am Arlberg" den Ort nicht, der in den Daten
+„St. Anton am Arlberg" heißt. Beide Seiten werden von
+`test_scraper_lib.py` abgedeckt.
 
 ## Eigene Events hinzufügen
 
@@ -765,6 +874,14 @@ speichert die aktuell aktiven Filter - **ohne den Datumsfilter** (das
 gesuchte Event liegt ja per Annahme in der Zukunft und ist deshalb noch
 nicht in `events.json`) - als Dokument in der Firestore-Collection
 `filterSubscriptions` (siehe `auth.js: saveFilterSubscription()`).
+
+Der Umkreis steht im Abo als `radiusKm` (Zahl in Kilometern) neben dem
+`origin`. Ältere Abos tragen noch das Feld `radius` mit einer der vier
+alten Stufen (`"0-5"` … `"50+"`); `eventMatchesFilters()` in
+`functions/index.js` rechnet die weiterhin um - auf die Obergrenze der
+Stufe, aus dem Ring wird also eine Kreisfläche. Das schließt höchstens
+ein paar nähere Events zusätzlich ein und ist allemal besser, als ein
+bestehendes Abo verstummen zu lassen.
 
 Dass der Datumsfilter ignoriert wird, steht bewusst **nicht** im
 Hinweistext (der Text ist auf „Kein Event entspricht deinen Filtern?

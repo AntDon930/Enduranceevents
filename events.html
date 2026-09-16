@@ -408,14 +408,80 @@
     font-size: 0.82rem;
     width: 100%;
   }
-  .radius-section {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
   .radius-section .radius-title {
     font-size: 0.72rem;
     color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  /* Umkreis-Regler: 1-200 km */
+  .radius-slider-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+  .radius-slider-row .radius-value {
+    font-size: 0.78rem;
+    color: var(--text);
+  }
+  .radius-slider-row input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    margin: 0;
+  }
+  .radius-slider-row.disabled .radius-value { color: var(--text-muted); }
+  .radius-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+  /* Ortssuche (places.json): Eingabefeld + Trefferliste */
+  .place-search { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .place-results {
+    max-height: 190px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+  }
+  .place-result {
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+  .place-result:hover,
+  .place-result:focus { background: var(--accent-bg); border-color: var(--accent); }
+  .place-result .place-meta {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .place-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .place-source {
+    font-size: 0.66rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+  .place-source a { color: inherit; }
+  .origin-clear {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.72rem;
+    padding: 0;
     margin-bottom: 6px;
   }
   .geo-btn {
@@ -436,16 +502,6 @@
     margin-bottom: 6px;
     min-height: 1.1em;
   }
-  .radius-options label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.82rem;
-    font-weight: normal;
-    cursor: pointer;
-    padding: 2px 0;
-  }
-  .radius-options select,
   .filter-panel select {
     width: 100%;
     padding: 5px 6px;
@@ -687,9 +743,18 @@
       no_dates: 'Keine Termine vorhanden.',
       radius_title: 'Umkreissuche',
       geo_btn: '📍 Aktuellen Standort verwenden',
-      geo_placeholder: 'oder Stadt als Ausgangspunkt wählen…',
       geo_origin_set: (label) => `Ausgangspunkt: ${label}`,
       geo_no_origin: 'Kein Ausgangspunkt gewählt.',
+      origin_clear: 'Ausgangspunkt entfernen',
+      radius_value: (km) => `Umkreis: ${km} km`,
+      radius_disabled: 'Umkreis (erst Standort oder Ort wählen)',
+      place_search_label: 'Ort oder PLZ als Ausgangspunkt',
+      place_search_placeholder: 'Stadt, Ort oder PLZ eingeben…',
+      places_loading: 'Ortsverzeichnis wird geladen…',
+      places_error: 'Ortsverzeichnis konnte nicht geladen werden.',
+      places_empty: 'Kein Ort gefunden.',
+      places_hint: 'Alle Orte und Postleitzahlen in Deutschland, Österreich und der Schweiz – auch solche ohne Event.',
+      places_source: 'Ortsdaten: GeoNames (CC BY 4.0)',
       geo_locating: 'Standort wird ermittelt…',
       geo_unsupported: 'Geolocation wird von diesem Browser nicht unterstützt.',
       geo_unavailable: (msg) => `Standort nicht verfügbar: ${msg}`,
@@ -697,7 +762,6 @@
       geo_timeout: 'Die Standortabfrage hat zu lange gedauert. Bitte noch einmal versuchen.',
       geo_insecure: 'Standortabfrage geht nur über HTTPS. Lokal getestet? Dann die Seite über https:// oder http://localhost öffnen.',
       geo_current_label: 'Aktueller Standort',
-      radius_none: 'Kein Umkreis-Filter',
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
       detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
@@ -746,7 +810,7 @@
       chip_kategorie: (v) => `Kategorie: ${v}`,
       chip_laenge_ab: (v) => `Länge ab ${v} km`,
       chip_laenge_bis: (v) => `Länge bis ${v} km`,
-      chip_umkreis: (bucket, label) => `Umkreis ${bucket} von ${label}`,
+      chip_umkreis: (km, label) => `Umkreis: ${km} km um ${label}`,
       chip_distanz: (sport, cat) => `Länge: ${cat} (${sport})`
     },
     en: {
@@ -766,9 +830,18 @@
       no_dates: 'No dates available.',
       radius_title: 'Radius search',
       geo_btn: '📍 Use current location',
-      geo_placeholder: 'or choose a city as starting point…',
       geo_origin_set: (label) => `Starting point: ${label}`,
       geo_no_origin: 'No starting point selected.',
+      origin_clear: 'Remove starting point',
+      radius_value: (km) => `Radius: ${km} km`,
+      radius_disabled: 'Radius (pick a location or place first)',
+      place_search_label: 'Place or postcode as starting point',
+      place_search_placeholder: 'Enter a city, town or postcode…',
+      places_loading: 'Loading place directory…',
+      places_error: 'Could not load the place directory.',
+      places_empty: 'No place found.',
+      places_hint: 'Every town and postcode in Germany, Austria and Switzerland – including those without an event.',
+      places_source: 'Place data: GeoNames (CC BY 4.0)',
       geo_locating: 'Getting location…',
       geo_unsupported: 'Geolocation is not supported by this browser.',
       geo_unavailable: (msg) => `Location unavailable: ${msg}`,
@@ -776,7 +849,6 @@
       geo_timeout: 'Getting your location took too long. Please try again.',
       geo_insecure: 'Location lookup only works over HTTPS. Testing locally? Open the page via https:// or http://localhost.',
       geo_current_label: 'Current location',
-      radius_none: 'No radius filter',
       detail_empty: 'Select a row to see details.',
       detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
@@ -825,7 +897,7 @@
       chip_kategorie: (v) => `Category: ${v}`,
       chip_laenge_ab: (v) => `Length from ${v} km`,
       chip_laenge_bis: (v) => `Length up to ${v} km`,
-      chip_umkreis: (bucket, label) => `Radius ${bucket} from ${label}`,
+      chip_umkreis: (km, label) => `Radius: ${km} km around ${label}`,
       chip_distanz: (sport, cat) => `Length: ${cat} (${sport})`
     }
   };
@@ -860,6 +932,10 @@
       'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' }
     }
   };
+
+  // ISO-Ländercode -> der Landname, wie er in events.json steht
+  // (places.json speichert DE/AT/CH, die Anzeige übersetzt tv('land', …)).
+  const LAND_BY_CODE = { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz' };
 
   const MONTH_NAMES = {
     de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
@@ -950,12 +1026,14 @@
     return false;
   }
 
-  const RADIUS_BUCKETS = [
-    { key: '0-5', label: '0–5 km' },
-    { key: '5-20', label: '5–20 km' },
-    { key: '20-50', label: '20–50 km' },
-    { key: '50+', label: '50+ km' }
-  ];
+  // Grenzen des Umkreis-Reglers. Früher gab es vier feste Stufen
+  // (0-5, 5-20, 20-50, 50+ km) - ein Regler trifft genauer, was jemand
+  // sucht ("alles im Umkreis von 40 km"), und braucht weniger Platz.
+  const RADIUS_MIN_KM = 1;
+  const RADIUS_MAX_KM = 200;
+  // Voreinstellung, sobald ein Ausgangspunkt feststeht: ohne Umkreis
+  // hätte der Ausgangspunkt gar keine Wirkung.
+  const RADIUS_DEFAULT_KM = 25;
 
   // Reihenfolge der Spalten: Name, Datum, Land, Standort, Sportart, Kategorie, Länge
   // Keine Anmeldung-Spalte/-Filter mehr: der Anmeldeschluss lässt sich bei
@@ -1042,7 +1120,7 @@
     laengeMax: '',
     distanceCategories: new Set(), // "Sportart:kategorieKey", z. B. "Laufen:marathon"
     origin: null,                 // { lat, lon, label }
-    radius: ''                    // '' | '0-5' | '5-20' | '20-50' | '50+'
+    radiusKm: null                // Umkreis in km (1-200) oder null = kein Umkreis-Filter
   };
 
   // Ein einziges, an <body> gehängtes Filter-Panel (fixed positioniert), damit es nie
@@ -1142,16 +1220,6 @@
     const a = Math.sin(dLat / 2) ** 2 +
       Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  }
-
-  function inBucket(distKm, bucketKey) {
-    switch (bucketKey) {
-      case '0-5': return distKm <= 5;
-      case '5-20': return distKm > 5 && distKm <= 20;
-      case '20-50': return distKm > 20 && distKm <= 50;
-      case '50+': return distKm > 50;
-      default: return true;
-    }
   }
 
   function formatDate(iso) {
@@ -1408,90 +1476,247 @@
     });
   }
 
+  // ---------- Ortsverzeichnis für die Umkreissuche ----------
+
+  // `places.json` enthält alle Orte und Postleitzahlen von Deutschland,
+  // Österreich und der Schweiz (~35.000 Einträge, gebaut von
+  // scripts/build_places.py aus GeoNames-Daten). Die Datei ist rund
+  // 1,6 MB groß und wird deshalb erst geladen, wenn jemand den
+  // Stadt/Ort-Filter öffnet - nicht schon beim Seitenaufruf.
+  let placesIndex = null;
+  let placesState = 'idle';   // 'idle' | 'loading' | 'ready' | 'error'
+  let placesPromise = null;
+  // Die letzte Eingabe im Suchfeld. Liegt außerhalb von `state`, weil sie
+  // kein Filter ist - sie überlebt nur das Neuzeichnen des Panels.
+  let placeQuery = '';
+
+  // Suchschlüssel für Ortsnamen: klein, ohne Umlaute, ohne Sonderzeichen.
+  // Muss zu `normalisiere()` in scripts/build_places.py passen, damit
+  // "muenchen", "München" und "munchen" denselben Ort finden und
+  // "Sankt Anton" den Ort erwischt, der in den Daten "St. Anton" heißt.
+  function normalizePlaceText(text) {
+    return (text || '')
+      .toLowerCase()
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .replace(/\b(sankt|saint|ste)\b/g, 'st');
+  }
+
+  function loadPlaces() {
+    if (placesPromise) return placesPromise;
+    placesState = 'loading';
+    placesPromise = fetch('places.json')
+      .then(res => { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+      .then(data => {
+        const laender = data.laender || [];
+        const regionen = data.regionen || [];
+        // Kompaktes Zeilenformat: [name, landIdx, regionIdx, lat, lon,
+        // einwohner, "plz plz …"] - siehe Kopf von build_places.py.
+        // Die Reihenfolge (größte Orte zuerst) bleibt erhalten und
+        // dient in searchPlaces() als Rangfolge bei Gleichstand.
+        placesIndex = (data.orte || []).map(row => ({
+          name: row[0],
+          land: laender[row[1]] || '',
+          region: regionen[row[2]] || '',
+          lat: row[3],
+          lon: row[4],
+          norm: normalizePlaceText(row[0]),
+          plz: row[6] ? row[6].split(' ') : []
+        }));
+        placesState = 'ready';
+      })
+      .catch(() => { placesState = 'error'; });
+    return placesPromise;
+  }
+
+  // Wie viele Treffer die Vorschlagsliste höchstens zeigt.
+  const MAX_PLACE_RESULTS = 25;
+
+  // Trefferliste zur Eingabe. Gesucht wird in Ortsnamen UND
+  // Postleitzahlen; eine Eingabe aus Ziffern ist eine PLZ-Suche.
+  function searchPlaces(query) {
+    if (!placesIndex) return [];
+    const raw = (query || '').trim();
+    const digits = raw.replace(/[^0-9]/g, '');
+    const norm = normalizePlaceText(raw);
+    if (norm.length < 2 && digits.length < 2) return [];
+
+    const treffer = [];
+    for (const ort of placesIndex) {
+      let rang = -1;
+      if (digits.length >= 2 && ort.plz.some(plz => plz.startsWith(digits))) rang = 0;
+      else if (norm.length >= 2) {
+        if (ort.norm.startsWith(norm)) rang = 1;
+        else if (ort.norm.includes(' ' + norm)) rang = 2;   // "Frankfurt" findet "Bad Frankfurt…"
+        else if (ort.norm.includes(norm)) rang = 3;
+      }
+      if (rang >= 0) treffer.push({ ort, rang });
+    }
+    // Stabile Sortierung: innerhalb eines Rangs bleibt die Reihenfolge
+    // aus der Datei - und die ist nach Einwohnerzahl absteigend. So
+    // steht bei "mün" München vor Münchendorf.
+    treffer.sort((a, b) => a.rang - b.rang);
+    return treffer.slice(0, MAX_PLACE_RESULTS).map(x => x.ort);
+  }
+
+  // Setzt den Ausgangspunkt der Umkreissuche und schaltet den Umkreis
+  // ein, falls er noch aus ist (sonst passiert sichtbar nichts).
+  function setOrigin(origin) {
+    state.origin = origin;
+    if (origin && state.radiusKm == null) state.radiusKm = RADIUS_DEFAULT_KM;
+    if (!origin) state.radiusKm = null;
+    selectedIndex = null;
+  }
+
+  // Der Stadt/Ort-Filter ist reine Umkreissuche: erst der Ausgangspunkt
+  // (aktueller Standort oder eingetippter Ort/PLZ), dann der Regler.
+  //
+  // Die frühere Liste mit Häkchen für jeden Ort aus events.json ist
+  // bewusst weg: das waren ~2000 Einträge, und wer in einem Ort ohne
+  // Event wohnt, fand seinen eigenen dort nie. Ein Ortsfilter aus einem
+  // Kartenlink (?standort=…) wirkt weiter und lässt sich über seinen
+  // Chip entfernen.
   function renderStandortPanel(panel) {
-    const allCities = uniqueSorted(events.map(e => e.standort));
     panel.innerHTML = '';
 
-    const actions = document.createElement('div');
-    actions.className = 'fp-actions';
-    actions.innerHTML = `<a data-act="all">${escapeHtml(t('select_all'))}</a><a data-act="none">${escapeHtml(t('select_none'))}</a>`;
-    panel.appendChild(actions);
-
-    const list = document.createElement('div');
-    list.className = 'filter-list';
-    allCities.forEach(city => {
-      const label = document.createElement('label');
-      const cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.value = city;
-      cb.checked = state.standort.has(city);
-      cb.addEventListener('change', () => {
-        if (cb.checked) state.standort.add(city); else state.standort.delete(city);
-        selectedIndex = null;
-        render();
-      });
-      label.appendChild(cb);
-      label.appendChild(document.createTextNode(city));
-      list.appendChild(label);
-    });
-    panel.appendChild(list);
-
-    actions.querySelector('[data-act="all"]').addEventListener('click', () => {
-      allCities.forEach(c => state.standort.add(c));
-      selectedIndex = null;
-      render();
-    });
-    actions.querySelector('[data-act="none"]').addEventListener('click', () => {
-      state.standort.clear();
-      selectedIndex = null;
-      render();
-    });
-
-    // Umkreissuche
-    const radiusSection = document.createElement('div');
-    radiusSection.className = 'radius-section';
+    const section = document.createElement('div');
+    section.className = 'radius-section';
     const radiusTitle = document.createElement('div');
     radiusTitle.className = 'radius-title';
     radiusTitle.textContent = t('radius_title');
-    radiusSection.appendChild(radiusTitle);
+    section.appendChild(radiusTitle);
 
+    // 1. Aktueller Standort
     const geoBtn = document.createElement('button');
     geoBtn.type = 'button';
     geoBtn.className = 'geo-btn';
     geoBtn.textContent = t('geo_btn');
-    radiusSection.appendChild(geoBtn);
-
-    const citySelect = document.createElement('select');
-    const cityPlaceholder = document.createElement('option');
-    cityPlaceholder.value = '';
-    cityPlaceholder.textContent = t('geo_placeholder');
-    citySelect.appendChild(cityPlaceholder);
-    events
-      .filter(e => e.lat != null && e.lon != null)
-      .reduce((acc, e) => (acc.some(x => x.standort === e.standort) ? acc : acc.concat(e)), [])
-      .sort((a, b) => a.standort.localeCompare(b.standort, currentLang === 'de' ? 'de' : 'en'))
-      .forEach(e => {
-        const opt = document.createElement('option');
-        opt.value = e.standort;
-        opt.textContent = e.standort;
-        if (state.origin && state.origin.label === e.standort) opt.selected = true;
-        citySelect.appendChild(opt);
-      });
-    citySelect.addEventListener('change', () => {
-      if (!citySelect.value) { state.origin = null; }
-      else {
-        const match = events.find(e => e.standort === citySelect.value);
-        if (match) state.origin = { lat: match.lat, lon: match.lon, label: match.standort };
-      }
-      selectedIndex = null;
-      render();
-    });
-    radiusSection.appendChild(citySelect);
+    section.appendChild(geoBtn);
 
     const statusEl = document.createElement('div');
     statusEl.className = 'radius-status';
     statusEl.textContent = state.origin ? t('geo_origin_set', state.origin.label) : t('geo_no_origin');
-    radiusSection.appendChild(statusEl);
+    section.appendChild(statusEl);
+
+    if (state.origin) {
+      const clearBtn = document.createElement('button');
+      clearBtn.type = 'button';
+      clearBtn.className = 'origin-clear';
+      clearBtn.textContent = '✕ ' + t('origin_clear');
+      clearBtn.addEventListener('click', () => {
+        setOrigin(null);
+        clearBtn.blur();   // sonst zeichnet refreshOpenPanel() nicht neu
+        render();
+      });
+      section.appendChild(clearBtn);
+    }
+
+    // 2. Umkreis-Regler (1-200 km)
+    const sliderRow = document.createElement('div');
+    sliderRow.className = 'radius-slider-row' + (state.origin ? '' : ' disabled');
+    const sliderValue = document.createElement('div');
+    sliderValue.className = 'radius-value';
+    const slider = document.createElement('input');
+    slider.type = 'range';
+    slider.min = String(RADIUS_MIN_KM);
+    slider.max = String(RADIUS_MAX_KM);
+    slider.step = '1';
+    slider.value = String(state.radiusKm != null ? state.radiusKm : RADIUS_DEFAULT_KM);
+    slider.disabled = !state.origin;
+    slider.setAttribute('aria-label', t('radius_title'));
+    sliderValue.textContent = state.origin ? t('radius_value', slider.value) : t('radius_disabled');
+    sliderRow.appendChild(sliderValue);
+    sliderRow.appendChild(slider);
+
+    const scale = document.createElement('div');
+    scale.className = 'radius-scale';
+    scale.innerHTML = `<span>${RADIUS_MIN_KM} km</span><span>${RADIUS_MAX_KM} km</span>`;
+    sliderRow.appendChild(scale);
+    section.appendChild(sliderRow);
+
+    // Beim Ziehen nur die Beschriftung mitlaufen lassen; neu gefiltert
+    // wird erst beim Loslassen ('change'). Sonst würde die ganze
+    // Tabelle bei jedem Pixel Fingerbewegung neu aufgebaut.
+    slider.addEventListener('input', () => {
+      sliderValue.textContent = t('radius_value', slider.value);
+    });
+    slider.addEventListener('change', () => {
+      state.radiusKm = Number(slider.value);
+      selectedIndex = null;
+      // Kein blur() hier: der Regler soll für die Pfeiltasten den Fokus
+      // behalten. Dass refreshOpenPanel() deswegen nicht neu zeichnet,
+      // ist richtig - Beschriftung und Reglerstellung stimmen bereits.
+      render();
+    });
+
+    // 3. Ortssuche über places.json
+    const searchWrap = document.createElement('div');
+    searchWrap.className = 'place-search';
+    const searchLabel = document.createElement('div');
+    searchLabel.className = 'radius-title';
+    searchLabel.textContent = t('place_search_label');
+    searchWrap.appendChild(searchLabel);
+
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.autocomplete = 'off';
+    searchInput.placeholder = t('place_search_placeholder');
+    searchInput.value = placeQuery;
+    searchWrap.appendChild(searchInput);
+
+    const results = document.createElement('div');
+    results.className = 'place-results';
+    searchWrap.appendChild(results);
+
+    const note = document.createElement('div');
+    note.className = 'place-note';
+    searchWrap.appendChild(note);
+
+    const source = document.createElement('div');
+    source.className = 'place-source';
+    source.innerHTML = `<a href="https://www.geonames.org" target="_blank" rel="noopener">${escapeHtml(t('places_source'))}</a>`;
+    searchWrap.appendChild(source);
+    section.appendChild(searchWrap);
+
+    function renderResults() {
+      results.innerHTML = '';
+      if (placesState === 'loading') { note.textContent = t('places_loading'); return; }
+      if (placesState === 'error') { note.textContent = t('places_error'); return; }
+      const query = searchInput.value.trim();
+      if (!query) { note.textContent = t('places_hint'); return; }
+      const treffer = searchPlaces(query);
+      if (treffer.length === 0) { note.textContent = t('places_empty'); return; }
+      note.textContent = '';
+      treffer.forEach(ort => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'place-result';
+        const meta = [ort.region, tv('land', LAND_BY_CODE[ort.land] || ort.land)]
+          .filter(Boolean).join(' · ');
+        btn.innerHTML = `${escapeHtml(ort.name)}<span class="place-meta">${escapeHtml(meta)} · ${escapeHtml(ort.plz.slice(0, 3).join(', '))}${ort.plz.length > 3 ? ' …' : ''}</span>`;
+        btn.addEventListener('click', () => {
+          setOrigin({ lat: ort.lat, lon: ort.lon, label: ort.name });
+          placeQuery = searchInput.value;
+          // Fokus abgeben, sonst zeichnet refreshOpenPanel() das Panel
+          // nicht neu und der Regler bliebe ausgegraut.
+          btn.blur();
+          render();
+        });
+        results.appendChild(btn);
+      });
+    }
+
+    searchInput.addEventListener('input', () => {
+      placeQuery = searchInput.value;
+      renderResults();
+    });
+
+    renderResults();
+    if (placesState === 'idle' || placesState === 'loading') {
+      loadPlaces().then(renderResults);
+    }
 
     geoBtn.addEventListener('click', () => {
       if (!navigator.geolocation) {
@@ -1509,14 +1734,13 @@
       geoBtn.disabled = true;
       navigator.geolocation.getCurrentPosition(
         pos => {
-          state.origin = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: t('geo_current_label') };
-          selectedIndex = null;
+          setOrigin({ lat: pos.coords.latitude, lon: pos.coords.longitude, label: t('geo_current_label') });
           // WICHTIG: erst den Fokus vom Button nehmen. refreshOpenPanel()
           // zeichnet das offene Filter-Panel NICHT neu, solange der Fokus
           // darin liegt (damit eine Eingabe im Namensfeld nicht abreißt) -
           // und der geklickte Button liegt genau dort. Ohne das blieb der
           // Standort zwar gespeichert, das Panel zeigte aber weiter
-          // "Standort wird ermittelt…" und die Radius-Auswahl blieb
+          // "Standort wird ermittelt…" und der Umkreis-Regler blieb
           // ausgegraut: die Funktion sah aus wie kaputt.
           geoBtn.blur();
           render();
@@ -1531,42 +1755,7 @@
       );
     });
 
-    const radiusOptions = document.createElement('div');
-    radiusOptions.className = 'radius-options';
-    RADIUS_BUCKETS.forEach(b => {
-      const label = document.createElement('label');
-      const radio = document.createElement('input');
-      radio.type = 'radio';
-      radio.name = 'radius-bucket';
-      radio.value = b.key;
-      radio.checked = state.radius === b.key;
-      radio.disabled = !state.origin;
-      radio.addEventListener('change', () => {
-        state.radius = radio.checked ? b.key : '';
-        selectedIndex = null;
-        render();
-      });
-      label.appendChild(radio);
-      label.appendChild(document.createTextNode(b.label));
-      radiusOptions.appendChild(label);
-    });
-    const clearLabel = document.createElement('label');
-    const clearRadio = document.createElement('input');
-    clearRadio.type = 'radio';
-    clearRadio.name = 'radius-bucket';
-    clearRadio.checked = state.radius === '';
-    clearRadio.disabled = !state.origin;
-    clearRadio.addEventListener('change', () => {
-      state.radius = '';
-      selectedIndex = null;
-      render();
-    });
-    clearLabel.appendChild(clearRadio);
-    clearLabel.appendChild(document.createTextNode(t('radius_none')));
-    radiusOptions.appendChild(clearLabel);
-
-    radiusSection.appendChild(radiusOptions);
-    panel.appendChild(radiusSection);
+    panel.appendChild(section);
   }
 
   function renderDateTreePanel(panel) {
@@ -1780,10 +1969,9 @@
         if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
         if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
         if (!matchesDistanceCategory(e)) return false;
-        if (state.radius && state.origin) {
+        if (state.radiusKm != null && state.origin) {
           if (e.lat == null || e.lon == null) return false;
-          const dist = haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
-          if (!inBucket(dist, state.radius)) return false;
+          if (haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon) > state.radiusKm) return false;
         }
         return true;
       })
@@ -1855,7 +2043,7 @@
       laengeMin: state.laengeMin || null,
       laengeMax: state.laengeMax || null,
       distanceCategories: Array.from(state.distanceCategories),
-      radius: state.radius || null,
+      radiusKm: state.radiusKm,
       origin: state.origin ? { lat: state.origin.lat, lon: state.origin.lon, label: state.origin.label } : null
     };
   }
@@ -2047,7 +2235,7 @@
       else if (col === 'name') active = !!state.nameQuery.trim();
       else if (col === 'art1') active = state.art1.size > 0;
       else if (col === 'art2') active = state.art2.size > 0;
-      else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radius);
+      else if (col === 'standort') active = state.standort.size > 0 || !!(state.origin && state.radiusKm != null);
       else if (col === 'datum') active = state.selectedDays.size > 0;
       else if (col === 'laenge_km') active = state.laengeMin !== '' || state.laengeMax !== '' || state.distanceCategories.size > 0;
       btn.classList.toggle('has-filter', active);
@@ -2116,9 +2304,14 @@
       const label = DISTANCE_CATEGORY_LABELS[currentLang][catKey] || catKey;
       chips.push({ label: t('chip_distanz', tv('art1', sport), label), clear: () => state.distanceCategories.delete(compositeKey) });
     });
-    if (state.origin && state.radius) {
-      const bucket = RADIUS_BUCKETS.find(b => b.key === state.radius);
-      chips.push({ label: t('chip_umkreis', bucket ? bucket.label : '', state.origin.label), clear: () => { state.radius = ''; } });
+    if (state.origin && state.radiusKm != null) {
+      // Das Kreuz am Chip entfernt den Ausgangspunkt gleich mit: ein
+      // Ausgangspunkt ohne Umkreis filtert nichts und stünde nur noch
+      // unsichtbar im Panel.
+      chips.push({
+        label: t('chip_umkreis', state.radiusKm, state.origin.label),
+        clear: () => { state.radiusKm = null; state.origin = null; }
+      });
     }
 
     chipsEl.innerHTML = '';
@@ -2146,7 +2339,8 @@
     state.laengeMax = '';
     state.distanceCategories.clear();
     state.origin = null;
-    state.radius = '';
+    state.radiusKm = null;
+    placeQuery = '';
     selectedIndex = null;
     closeFloatingPanel();
     render();

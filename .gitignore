@@ -2,6 +2,10 @@ scripts/__pycache__/
 scripts/.geocode_cache.json
 scripts/reports_inbox.json
 
+# Rohdaten-Cache von scripts/build_places.py (GeoNames-Downloads, ~11 MB).
+# Das Ergebnis places.json gehört ins Repo, die ZIPs nicht.
+.geonames-cache/
+
 # Firebase: Abhängigkeiten der Cloud Function und lokale CLI-Reste.
 # functions/package-lock.json gehört dagegen INS Repo - nur so deployt
 # jeder dieselben Versionen.
