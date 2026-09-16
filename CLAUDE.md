@@ -198,8 +198,14 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   **nicht rückwirkend** gegen die schon vorhandenen Events geprüft – die
   Function sieht nur, was `update_events.py` ihr als neu meldet.
 - **Apple-Login**: per `SHOW_APPLE_SIGNIN = false` in `auth.js`
-  ausgeblendet – kein Apple-Developer-Konto. Zum Reaktivieren siehe
-  Kommentar dort.
+  ausgeblendet. Vom Nutzer **bewusst zurückgestellt** – Apple verlangt
+  99 $ im Jahr, und das Projekt soll vorerst ohne laufende Kosten
+  auskommen. Nicht ohne Rückfrage angehen.
+  Zu beachten: `true` allein reicht nicht, es gibt nur die Hülle
+  (Button-Markup, fest `disabled`, ohne Klick-Behandlung). Eine
+  `signInWithApple()` existiert **nicht** – der Kommentar dort
+  behauptete das früher. Was tatsächlich nötig wäre, steht jetzt im
+  Kommentar bei `SHOW_APPLE_SIGNIN` und im README.
 - ~~Popup-Fallback für den Google-Login~~ **erledigt**: `signInWithPopup`
   schaltet bei blockiertem Popup auf `signInWithRedirect` um,
   `handleRedirectResult()` wertet die Rückkehr aus. In-App-Browser
