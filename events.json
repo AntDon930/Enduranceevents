@@ -1672,8 +1672,7 @@
     "datum_start": "2026-09-13",
     "datum_ende": "2026-09-13",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.muenchner-aidshilfe.de/aktuelle-themen-newsreader/run-for-life-anmeldungen-gestartet-3.html",
-    "wettbewerb": "5,8 km"
+    "veranstalter_url": "https://www.muenchner-aidshilfe.de/aktuelle-themen-newsreader/run-for-life-anmeldungen-gestartet-3.html"
   },
   {
     "land": "Deutschland",
@@ -2070,30 +2069,6 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.ihk.de/elbeweser/aus-und-weiterbildung/future-run"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Future Run - Ausbildung in Bewegung",
-    "standort": "Buxtehude-Hedendorf",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-18",
-    "datum_ende": "2026-09-18",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900009860000",
-    "wettbewerb": "7 km Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Future Run - Ausbildung in Bewegung",
-    "standort": "Buxtehude-Hedendorf",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-18",
-    "datum_ende": "2026-09-18",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900009860000"
   },
   {
     "land": "Deutschland",
@@ -2923,19 +2898,6 @@
     "laenge_km": 42.2,
     "veranstalter_url": "http://www.bodensee-marathon.de",
     "wettbewerb": "Marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "6. Fränkische Toskana Brauereienlauf (Marathon)",
-    "standort": "Strullendorf",
-    "lat": 49.8439391,
-    "lon": 10.9700482,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.brauereienlauf.de"
   },
   {
     "land": "Deutschland",
@@ -4223,19 +4185,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km kürzeste Strecke",
     "veranstalter_url": "https://www.amrum.de/veranstaltungen/norddorf-auf-amrum/e-insellauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Insellauf Rund um Amrum",
-    "standort": "Norddorf auf Amrum",
-    "lat": 54.6795702,
-    "lon": 8.3340657,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 31.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060032"
   },
   {
     "land": "Deutschland",
@@ -9064,7 +9013,7 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000039960000"
+    "veranstalter_url": "https://www.tsdurlach.de/sportangebot/leichtathletik/turmberglauf.html"
   },
   {
     "land": "Deutschland",
@@ -9568,8 +9517,7 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 7.5,
-    "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/",
-    "wettbewerb": "0,7 km"
+    "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/"
   },
   {
     "land": "Deutschland",
@@ -10206,8 +10154,7 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf",
-    "wettbewerb": "10 km Panoramalauf in der Region Ammergauer Alpen."
+    "veranstalter_url": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf"
   },
   {
     "land": "Deutschland",
@@ -10454,19 +10401,6 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "veranstalter_url": "https://www.poehl-trail.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "R5K Berlin",
-    "standort": "Berlin",
-    "lat": 52.5173885,
-    "lon": 13.3951309,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V03900000260500"
   },
   {
     "land": "Deutschland",
@@ -10753,19 +10687,6 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 21.1,
     "veranstalter_url": "https://tilly-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Turmberglauf Durlach",
-    "standort": "Karlsruhe",
-    "lat": 49.0068901,
-    "lon": 8.4036527,
-    "art1": "Laufen",
-    "art2": "Berg",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tsdurlach.de/sportangebot/leichtathletik/turmberglauf.html"
   },
   {
     "land": "Deutschland",
@@ -11807,19 +11728,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Bertlicher Marathon",
-    "standort": "Herten-Bertlich",
-    "lat": 51.6149787,
-    "lon": 7.0680101,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.bertlicher-strassenlaeufe.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bertlicher Straßenläufe",
     "standort": "Herten",
     "lat": 51.6020534,
@@ -12122,8 +12030,7 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 25.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000",
-    "wettbewerb": "2,5km Kreismeisterschaft"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000512150000"
   },
   {
     "land": "Deutschland",
@@ -19526,19 +19433,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "40. München Marathon by Brooks",
-    "standort": "München",
-    "lat": 48.1371079,
-    "lon": 11.5753822,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://marathonmuenchen.org"
-  },
-  {
-    "land": "Deutschland",
     "name": "43. Berglauf",
     "standort": "Geislingen (Steige)",
     "lat": 48.6230397,
@@ -20324,20 +20218,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Hannover Halbmarathon",
-    "standort": "Hannover",
-    "lat": 52.3758916,
-    "lon": 9.7320104,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.halbmarathon-hannover.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Hohenbuschei-Lauf",
     "standort": "Dortmund",
     "lat": 51.5135872,
@@ -20684,7 +20564,8 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://marathonmuenchen.org/"
+    "veranstalter_url": "https://marathonmuenchen.org/",
+    "anmeldeschluss": "2026-09-15"
   },
   {
     "land": "Deutschland",
@@ -20713,20 +20594,6 @@
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Hauptlauf (Einsteigerlauf)",
     "veranstalter_url": "https://runtix.com/sts/10021/3218"
-  },
-  {
-    "land": "Deutschland",
-    "name": "München Halbmarathon",
-    "standort": "München",
-    "lat": 48.1351,
-    "lon": 11.582,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "anmeldeschluss": "2026-09-15",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://www.muenchenmarathon.de"
   },
   {
     "land": "Deutschland",
@@ -21368,7 +21235,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000097060001"
+    "veranstalter_url": "https://my.raceresult.com/392952/"
   },
   {
     "land": "Deutschland",
@@ -21982,18 +21849,6 @@
     "laenge_km": 10.1,
     "wettbewerb": "10,1 km für ältere Jugend und Erwachsene",
     "veranstalter_url": "https://my.raceresult.com/414318/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Niedensteiner Panoramalauf",
-    "standort": "Niedenstein",
-    "lat": 51.234099,
-    "lon": 9.3136558,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://my.raceresult.com/392952/"
   },
   {
     "land": "Deutschland",
@@ -26703,18 +26558,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Neustädter Nachtlauf",
-    "standort": "Neustadt an der Aisch",
-    "lat": 49.5795445,
-    "lon": 10.6139437,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-01",
-    "datum_ende": "2026-11-01",
-    "veranstalter_url": "https://my.raceresult.com/374608/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Neustädter Sparkassen Nachtlauf",
     "standort": "Neustadt an der Aisch",
     "lat": 49.5800045,
@@ -26724,7 +26567,7 @@
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000540760000"
+    "veranstalter_url": "https://my.raceresult.com/374608/"
   },
   {
     "land": "Deutschland",
@@ -28337,19 +28180,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://my.raceresult.com/419555/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Jahresendlauf Marathon",
-    "standort": "Schwalmtal-Waldniel",
-    "lat": 51.2044648,
-    "lon": 6.2613615,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.athletik-waldniel.de"
   },
   {
     "land": "Deutschland",
@@ -33419,7 +33249,7 @@
     "datum_start": "2026-12-12",
     "datum_ende": "2026-12-12",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000133360000"
+    "veranstalter_url": "https://www.buehlerzell.de/veranstaltungen/winterlauf/"
   },
   {
     "land": "Deutschland",
@@ -33583,18 +33413,6 @@
     "laenge_km": 26.0,
     "wettbewerb": "26 km",
     "veranstalter_url": "https://naswut.prospectum.com/2026_06_raeuberweglauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Winterlauf Bühlerzell",
-    "standort": "Bühlerzell",
-    "lat": 49.0022415,
-    "lon": 9.9184122,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-12",
-    "datum_ende": "2026-12-12",
-    "veranstalter_url": "https://www.buehlerzell.de/veranstaltungen/winterlauf/"
   },
   {
     "land": "Deutschland",
@@ -35043,19 +34861,6 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 42.2,
     "veranstalter_url": "https://my.raceresult.com/410134"
-  },
-  {
-    "land": "Deutschland",
-    "name": "13. Tuttlinger Silvesterlauf",
-    "standort": "Tuttlingen",
-    "lat": 47.9844315,
-    "lon": 8.8186606,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000633160000"
   },
   {
     "land": "Deutschland",
@@ -37540,19 +37345,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "42. Oelder Crosslauf",
-    "standort": "Oelde",
-    "lat": 51.8260678,
-    "lon": 8.1454954,
-    "art1": "Laufen",
-    "art2": "Cross",
-    "datum_start": "2027-01-09",
-    "datum_ende": "2027-01-09",
-    "laenge_km": 8.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000042060001"
-  },
-  {
-    "land": "Deutschland",
     "name": "52. Gillrather Crosslauf",
     "standort": "Geilenkirchen - Gillrath",
     "art1": "Laufen",
@@ -38827,19 +38619,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "28. GVG-Winterstaffel Marathon",
-    "standort": "Pulheim",
-    "lat": 50.9979888,
-    "lon": 6.8025409,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-31",
-    "datum_ende": "2027-01-31",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.winterstaffel.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "32. Johannesbad Thermen-Marathon",
     "standort": "Bad Füssing",
     "lat": 48.3404449,
@@ -38864,6 +38643,20 @@
     "datum_ende": "2027-01-31",
     "laenge_km": 10.0,
     "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000323460001"
+  },
+  {
+    "land": "Deutschland",
+    "name": "GVG-Winterstaffel Pulheim",
+    "standort": "Pulheim",
+    "lat": 50.9995815,
+    "lon": 6.8076853,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-31",
+    "datum_ende": "2027-01-31",
+    "laenge_km": 42.2,
+    "wettbewerb": "Marathon",
+    "veranstalter_url": "https://www.winterstaffel.de/"
   },
   {
     "land": "Deutschland",
@@ -38905,20 +38698,6 @@
     "datum_ende": "2027-01-31",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.winterstaffel.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "GVG-Winterstaffel Pulheim",
-    "standort": "Pulheim",
-    "lat": 50.9995815,
-    "lon": 6.8076853,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-31",
-    "datum_ende": "2027-01-31",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
     "veranstalter_url": "https://www.winterstaffel.de/"
   },
   {
@@ -39390,19 +39169,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Winterlaufserie (15 km)",
-    "standort": "Hamm",
-    "lat": 51.681281,
-    "lon": 7.8191185,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-14",
-    "datum_ende": "2027-02-14",
-    "laenge_km": 15.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000323460002"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bertlicher Marathon",
     "standort": "Herten-Bertlich",
     "lat": 51.6149787,
@@ -39424,8 +39190,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-14",
     "datum_ende": "2027-02-14",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,0 km",
+    "laenge_km": 15.0,
+    "wettbewerb": "15,0 km",
     "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
@@ -39438,8 +39204,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-14",
     "datum_ende": "2027-02-14",
-    "laenge_km": 15.0,
-    "wettbewerb": "15,0 km",
+    "laenge_km": 10.0,
+    "wettbewerb": "10,0 km",
     "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
@@ -39793,34 +39559,6 @@
     "art2": "Straße",
     "datum_start": "2027-02-26",
     "datum_ende": "2027-02-26",
-    "laenge_km": 50.0,
-    "veranstalter_url": "https://www.lsg-weiher.de/hawei50",
-    "wettbewerb": "50 km Ultralauf (27.2.) - offiziell vermessen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "6. HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1717722,
-    "lon": 8.640534,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-26",
-    "laenge_km": 5.0,
-    "wettbewerb": "HaWei by night - 5 km (26.2.)",
-    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
-  },
-  {
-    "land": "Deutschland",
-    "name": "6. HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1717722,
-    "lon": 8.640534,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-26",
     "laenge_km": 10.0,
     "wettbewerb": "HaWei by night (26.2.)",
     "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
@@ -39835,8 +39573,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-26",
     "datum_ende": "2027-02-26",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm"
   },
   {
@@ -39849,8 +39587,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-26",
     "datum_ende": "2027-02-26",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm"
   },
   {
@@ -40102,19 +39840,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Winterlaufserie (Halbmarathon)",
-    "standort": "Hamm",
-    "lat": 51.681281,
-    "lon": 7.8191185,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-28",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000323460003"
-  },
-  {
-    "land": "Deutschland",
     "name": "8. Meißner Marathon Doppeldecker - Tag 2",
     "standort": "Kleinalmerode",
     "lat": 51.3307368,
@@ -40234,6 +39959,20 @@
     "art2": "Straße",
     "datum_start": "2027-02-28",
     "datum_ende": "2027-02-28",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
+    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hammer Winterlaufserie",
+    "standort": "Hamm",
+    "lat": 51.6738583,
+    "lon": 7.8159816,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
     "laenge_km": 10.0,
     "wettbewerb": "10,0 km",
     "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
@@ -40250,20 +39989,6 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 15.0,
     "wettbewerb": "15,0 km",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-28",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
@@ -40953,19 +40678,6 @@
     "datum_ende": "2027-03-14",
     "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/27V10003004560001"
-  },
-  {
-    "land": "Deutschland",
-    "name": "35. Vorhelmer Straßenlauf rund um die Wibbeltkapelle",
-    "standort": "Ahlen-Vorhelm",
-    "lat": 51.8080675,
-    "lon": 7.9446687,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000000160001"
   },
   {
     "land": "Deutschland",
@@ -46192,19 +45904,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "21. Cuxhavener Stadtsparkassen Marathon",
-    "standort": "Cuxhaven",
-    "lat": 53.86878,
-    "lon": 8.698286,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.cuxhaven-marathon.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Badische Meile",
     "standort": "Karlsruhe",
     "lat": 49.0068901,
@@ -46255,6 +45954,20 @@
     "art2": "Straße",
     "datum_start": "2027-05-02",
     "datum_ende": "2027-05-02",
+    "laenge_km": 42.2,
+    "wettbewerb": "Marathon",
+    "veranstalter_url": "https://www.cuxhaven-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Cuxhavener Marathon",
+    "standort": "Cuxhaven",
+    "lat": 53.859336,
+    "lon": 8.6879057,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-02",
+    "datum_ende": "2027-05-02",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://www.cuxhaven-marathon.de/"
@@ -46285,20 +45998,6 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 32.0,
     "wettbewerb": "32 km",
-    "veranstalter_url": "https://www.cuxhaven-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Cuxhavener Marathon",
-    "standort": "Cuxhaven",
-    "lat": 53.859336,
-    "lon": 8.6879057,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
     "veranstalter_url": "https://www.cuxhaven-marathon.de/"
   },
   {
