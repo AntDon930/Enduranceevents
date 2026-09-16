@@ -224,6 +224,43 @@ def test_duplikate() -> None:
     hm = dict(a, laenge_km=21.1)
     check("Marathon vs. Halbmarathon getrennt", is_same_event(a, hm), False)
 
+    # Vom Nutzer gemeldet: Marathon und Halbmarathon München standen je
+    # DOPPELT in der Liste. Ursache war die Wortstellung - als Zeichenfolge
+    # nur 0,69 Ähnlichkeit, als Wortmenge identisch.
+    D, S = "2026-10-11", "München"
+    m1 = {"name": "40. München Marathon by Brooks", "datum_start": D, "standort": S,
+          "laenge_km": 42.2, "veranstalter_url": "https://marathonmuenchen.org"}
+    m2 = {"name": "MARATHON MÜNCHEN", "wettbewerb": "Marathon", "datum_start": D,
+          "standort": S, "laenge_km": 42.2, "veranstalter_url": "https://marathonmuenchen.org/"}
+    check("Wortstellung vertauscht", is_same_event(m1, m2), True)
+
+    # Hier trägt der Wettbewerbs-Name das unterscheidende Wort, und die
+    # kürzere Wortmenge steckt komplett in der längeren.
+    h1 = {"name": "Marathon München by Brooks", "wettbewerb": "Halbmarathon",
+          "datum_start": D, "standort": S, "laenge_km": 21.1}
+    h2 = {"name": "München Halbmarathon", "datum_start": D, "standort": S, "laenge_km": 21.1}
+    check("Teilmenge mit Wettbewerbs-Name", is_same_event(h1, h2), True)
+    check("Marathon bleibt vom Halbmarathon getrennt", is_same_event(m1, h1), False)
+
+    # Ein einzelnes gemeinsames Wort darf NICHT reichen (Teilmengen-Regel
+    # verlangt mindestens zwei Wörter).
+    check("ein Wort ist zu generisch",
+          is_same_event({"name": "Stadtlauf", "datum_start": D, "standort": S, "laenge_km": 10.0},
+                        {"name": "Marathon", "datum_start": D, "standort": S, "laenge_km": 10.0}),
+          False)
+
+    # Ausprobiert und verworfen: gleiche Veranstalter-Domain als Kriterium.
+    # Diese beiden sind verschiedene Veranstaltungen (Alfhausen und
+    # Ibbenbüren, 20 km auseinander), verbunden nur durch das
+    # Regionalportal laufen-os.de.
+    a1 = {"name": "Alfhausener Volkslauf", "datum_start": "2026-09-19", "standort": "Alfhausen",
+          "lat": 52.51, "lon": 7.95, "laenge_km": 10.0,
+          "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-alfhausener-volkslauf"}
+    a2 = {"name": "MBH Benefizlauf", "datum_start": "2026-09-19", "standort": "Ibbenbüren",
+          "lat": 52.28, "lon": 7.72, "laenge_km": 10.0,
+          "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf"}
+    check("gleiche Domain, andere Veranstaltung", is_same_event(a1, a2), False)
+
     # Generische Namen am selben Tag in verschiedenen Städten.
     s1 = {"name": "Silvesterlauf", "datum_start": "2026-12-31",
           "standort": "Salzburg", "lat": 47.80, "lon": 13.04, "laenge_km": 10.0}

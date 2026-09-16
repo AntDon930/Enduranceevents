@@ -122,12 +122,22 @@ dann `clean_events.py`, dann Commit auf den Branch. Für einen Datenlauf ist
 also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
 (Actions → „Events automatisch aktualisieren" → Run workflow).
 
-## Offene Punkte
+## Offene Punkte / To-dos
 
-- **Firebase**: Login-Button ist da, aber inaktiv, bis der Nutzer ein
-  Firebase-Projekt anlegt und `firebase-config.js` füllt (Code ist fertig,
-  es fehlt nur die Config). Apple-Login ist per `SHOW_APPLE_SIGNIN = false`
-  in `auth.js` ausgeblendet – kein Apple-Developer-Konto.
+- **E-Mail-Versand für „Benachrichtige mich" braucht Blaze** – vom Nutzer
+  bewusst zurückgestellt. Login und Firestore laufen (Projekt
+  `endurance-5177a`, Spark-Tarif), Abos landen korrekt in
+  `filterSubscriptions`. Es fehlen nur die zwei Blaze-Schritte: Cloud
+  Function `checkNewEvents` deployen und die Extension „Trigger Email"
+  plus SMTP einrichten. Vorhandene Abos haben `notified: false` und werden
+  nach dem Deploy rückwirkend berücksichtigt.
+- **Apple-Login**: per `SHOW_APPLE_SIGNIN = false` in `auth.js`
+  ausgeblendet – kein Apple-Developer-Konto. Zum Reaktivieren siehe
+  Kommentar dort.
+- **Popup-Fallback für den Google-Login**: `signInWithPopup` ohne
+  `signInWithRedirect`-Fallback. Auf dem iPad (Safari) getestet und
+  funktioniert, daher nicht dringend; In-App-Browser (Instagram etc.)
+  könnten trotzdem Popups blocken.
 - **5 Seed-Links** unklar/evtl. eingestellt (Bodensee-Schwimmen, Engadin
   Bike Giro, Basel Marathon, Silvesterlauf Salzburg, Swiss Athletics
   Bahnmeeting) – absichtlich nicht geraten.

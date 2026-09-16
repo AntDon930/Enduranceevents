@@ -10,7 +10,7 @@ vorhandene Einträge nie verändern (sie fügen nur neue an) - Regeln, die
 später dazukommen oder Bugfixes an der Distanz-/Kategorie-Erkennung
 wirken deshalb nicht rückwirkend. Genau dafür ist dieses Skript da.
 
-Sieben Schritte, in dieser Reihenfolge:
+Acht Schritte, in dieser Reihenfolge:
 
 1. **Manuelle Korrekturen** aus `scripts/manual_overrides.json` anwenden
    (Distanz/Kategorie/Link überschreiben, `exclude: true` entfernt das
@@ -191,6 +191,49 @@ def round_distances(events: list[dict]) -> list[str]:
         if rounded is not None and rounded != km:
             changed.append(f"{event.get('name')}: laenge_km {km} -> {rounded}")
             event["laenge_km"] = rounded
+    return changed
+
+
+def drop_contradicting_wettbewerb(events: list[dict]) -> list[str]:
+    """Entfernt eine Wettbewerbs-Bezeichnung, die ihrer eigenen Distanz
+    widerspricht.
+
+    Die Bezeichnung nennt oft selbst eine Distanz ("0,7 km", "2,5km
+    Kreismeisterschaft"). Steht dort eine ANDERE Zahl als in `laenge_km`,
+    ist das Label an den falschen Eintrag geraten - real vorgekommen, weil
+    `wettbewerb` früher Teil von ENRICHABLE_FIELDS war und damit aus einem
+    fremden Eintrag ergänzt wurde (dort inzwischen entfernt). Betroffen
+    waren z. B. Label "0,7 km" an einem 7,5-km-Eintrag und "2,5km
+    Kreismeisterschaft" an einem mit 25 km.
+
+    Entfernt wird nur das LABEL, nie die Distanz: welche der beiden
+    Angaben stimmt, lässt sich ohne Blick in die Quelle nicht sagen, und
+    die Distanz ist das Feld, auf das die Liste filtert.
+
+    Kleine Abweichungen bleiben unangetastet: Quellen runden ihre Labels
+    ("6 km" für exakt 5,7 km), das ist kein Widerspruch. Ebenso Labels mit
+    MEHREREN Distanzen ("15 km / 21 km"), bei denen die gespeicherte die
+    größte davon ist - das ist das dokumentierte Verhalten von
+    guess_distance_km().
+    """
+    changed: list[str] = []
+    for event in events:
+        label = event.get("wettbewerb")
+        km = event.get("laenge_km")
+        if not label or not isinstance(km, (int, float)):
+            continue
+        found = [round(float(m.replace(",", ".")), 1)
+                 for m in re.findall(r"(\d{1,3}(?:[.,]\d+)?)\s*km", label, re.I)]
+        if not found:
+            continue
+        # Passt eine der genannten Zahlen (mit Rundungstoleranz), ist alles gut.
+        if any(abs(value - km) <= max(0.5, km * 0.05) for value in found):
+            continue
+        changed.append(
+            f"{event.get('name')} ({km:g} km): Label {label!r} nennt "
+            f"{', '.join(f'{v:g}' for v in found)} km - entfernt"
+        )
+        event.pop("wettbewerb", None)
     return changed
 
 
@@ -449,6 +492,7 @@ def main() -> None:
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
     rounding_fixes = round_distances(events)
+    label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
     events, too_short = drop_too_short(events)
     suspicious = report_suspicious_distances(events)
@@ -467,6 +511,7 @@ def main() -> None:
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
+    section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)

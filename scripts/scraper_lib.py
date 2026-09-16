@@ -1163,6 +1163,61 @@ def _compatible_distance(a: dict, b: dict) -> bool:
     return abs(ka - kb) <= max(0.5, 0.05 * max(ka, kb))
 
 
+def _same_name(a: dict, b: dict) -> bool:
+    """Entscheidet, ob zwei Event-Namen dieselbe Veranstaltung bezeichnen.
+
+    Verglichen werden WORTMENGEN, nicht Zeichenfolgen. Grund: Quellen
+    schreiben dieselbe Veranstaltung mit vertauschter Wortstellung -
+    "München Marathon by Brooks" gegen "Marathon München by Brooks". Als
+    Zeichenfolge sind das nur 0,69 Ähnlichkeit (unter der Schwelle von
+    0,88), als Wortmenge sind sie identisch. Genau daran sind der Münchner
+    Marathon und Halbmarathon je doppelt in der Liste gelandet.
+
+    Drei Wege zum Treffer:
+
+    1. **Gleiche Wortmenge** - der Fall oben.
+    2. **Teilmenge** (die kürzere Menge steckt komplett in der längeren,
+       mindestens zwei Wörter): "München Halbmarathon" gegen "Marathon
+       München by Brooks" + Wettbewerb "Halbmarathon". Die zwei Wörter
+       Minimum verhindern, dass ein einzelnes Wort wie "marathon" schon
+       reicht.
+    3. **Ähnlichkeit** der sortierten Wörter >= 0,88 - für Tippfehler und
+       Wortvarianten.
+
+    Der Wettbewerbs-Name geht mit in den Vergleich ein, weil er oft genau
+    das unterscheidende Wort trägt ("Halbmarathon").
+
+    Die gleiche Veranstalter-DOMAIN ist hier bewusst KEIN Kriterium,
+    obwohl sie zunächst naheliegend wirkt. Ausprobiert und verworfen:
+    Veranstalter und Regionalkalender führen mehrere Rennen unter einer
+    Domain, und die Ortsbedingung erlaubt 30 km Abstand. Dadurch wurden
+    "Alfhausener Volkslauf" (Alfhausen) und "MBH Benefizlauf"
+    (Ibbenbüren) als dasselbe Event zusammengeführt - zwei verschiedene
+    Veranstaltungen am selben Tag, verbunden nur durch das Regionalportal
+    laufen-os.de. Ebenso wären ein Trailrun und ein Straßenlauf desselben
+    Veranstalters verschmolzen. Für die Münchner Duplikate braucht es die
+    Regel ohnehin nicht: die greifen über die Teilmengen-Regel.
+    """
+    ta = _name_tokens(a)
+    tb = _name_tokens(b)
+    if not ta or not tb:
+        return False
+    if ta == tb:
+        return True
+    shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
+    if len(shorter) >= 2 and shorter <= longer:
+        return True
+    return difflib.SequenceMatcher(
+        None, " ".join(sorted(ta)), " ".join(sorted(tb))
+    ).ratio() >= 0.88
+
+
+def _name_tokens(event: dict) -> frozenset:
+    """Wortmenge aus Event-Name UND Wettbewerbs-Bezeichnung."""
+    text = f"{event.get('name') or ''} {event.get('wettbewerb') or ''}"
+    return frozenset(normalize_event_name(text).split())
+
+
 def is_same_event(a: dict, b: dict) -> bool:
     """True, wenn zwei Event-Dicts dasselbe real existierende Event beschreiben.
     Nötig, weil dieselbe Veranstaltung von mehreren Quellen unter abweichenden
@@ -1173,18 +1228,9 @@ def is_same_event(a: dict, b: dict) -> bool:
     ("Silvesterlauf" in Salzburg vs. München)."""
     if a.get("datum_start") != b.get("datum_start"):
         return False
-    na, nb = normalize_event_name(a.get("name")), normalize_event_name(b.get("name"))
-    if not na or not nb:
+    if not _same_place(a, b) or not _compatible_distance(a, b):
         return False
-    if na == nb:
-        name_match = True
-    elif len(na) >= 8 and len(nb) >= 8 and (na in nb or nb in na):
-        name_match = True
-    else:
-        name_match = difflib.SequenceMatcher(None, na, nb).ratio() >= 0.88
-    if not name_match:
-        return False
-    return _same_place(a, b) and _compatible_distance(a, b)
+    return _same_name(a, b)
 
 
 def is_same_race(a: dict, b: dict) -> bool:
@@ -1417,9 +1463,14 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
 
 # Felder, die bei einem erkannten Duplikat aus dem "Zwilling" ergänzt
 # werden, falls sie im behaltenen Eintrag fehlen.
+# `wettbewerb` steht hier BEWUSST NICHT: Die Bezeichnung gehört untrennbar
+# zu der Distanz, aus der sie geparst wurde. Sie aus einem anderen Eintrag
+# zu übernehmen erzeugt Widersprüche - real aufgetreten bei drei Events,
+# z. B. Label "0,7 km" an einem 7,5-km-Eintrag und "2,5km
+# Kreismeisterschaft" an einem mit 25 km.
 ENRICHABLE_FIELDS = (
     "laenge_km", "art2", "land", "standort", "lat", "lon",
-    "datum_ende", "anmeldeschluss", "wettbewerb", "veranstalter_url",
+    "datum_ende", "anmeldeschluss", "veranstalter_url",
 )
 
 # Kalender-/Anmelde-Portale. Ein Link dorthin ist als Notlösung brauchbar,
