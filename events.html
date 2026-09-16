@@ -242,15 +242,33 @@
      sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus.
      Bewusst ohne Kapsel/Rahmen: als Kapsel war die Zahl breiter als die
      ganze Spalte jetzt ist. */
+  /* Die Zahl der zusammengefassten Strecken sitzt als runde Kapsel auf
+     der linken Rahmenlinie - halb innerhalb, halb außerhalb der Tabelle.
+     Deshalb absolut positioniert (translateX(-50%) bezogen auf den
+     linken Rand der Zelle) und mit deckendem Hintergrund, damit die
+     Linie sichtbar durchbrochen wird. */
+  tbody td.col-anzahl { position: relative; }
   .count-pill {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 600;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    font-size: 0.74rem;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
     color: var(--text-muted);
-    text-align: left;
+    z-index: 1;
   }
-  .group-row:hover .count-pill { color: var(--text); }
+  .group-row:hover .count-pill { color: var(--accent); border-color: var(--accent); }
   .badges { display: flex; flex-wrap: wrap; gap: 4px; }
   .badge {
     background: var(--bg);
@@ -354,12 +372,26 @@
   .side-panel .detail-panel { width: 100%; }
 
   .table-wrap {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    /* Kein Rahmen und kein Hintergrund mehr - beides sitzt auf
+       .table-frame. Der Innenabstand links ist der Platz, in den die
+       Anzahl-Zahl hinausragt (halbe Kapselbreite + 2 px Luft). */
+    padding-left: 14px;
     overflow-x: auto;
     max-height: 78vh;
     overflow-y: auto;
+  }
+  .table-frame {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    /* inline-block schmiegt sich an die Tabellenbreite (die ihr
+       min-width: 800px mitbringt), min-width: 100% füllt den Platz, wenn
+       das Fenster breiter ist. width: max-content ging NICHT: zusammen
+       mit width: 100% an der Tabelle bemisst sich beides gegenseitig,
+       und die Tabelle rutschte aus dem Bild. */
+    display: inline-block;
+    min-width: 100%;
+    vertical-align: top;
   }
   table {
     border-collapse: collapse;
@@ -384,7 +416,7 @@
      danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
      ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
      immer zu breit. */
-  .col-anzahl { width: 28px; text-align: left; }
+  .col-anzahl { width: 16px; text-align: left; }
   thead th.col-anzahl .th-inner { padding-left: 8px; padding-right: 0; }
   tbody td.col-anzahl { padding-left: 8px; padding-right: 0; }
   .col-name { width: 22%; }
@@ -406,6 +438,12 @@
     padding: 0;
     font-weight: 600;
   }
+  /* .table-frame darf nicht beschneiden (sonst wäre die überstehende
+     Anzahl-Kapsel abgeschnitten), also runden die äußeren Kopfzellen
+     selbst ihre Ecken - sonst legt sich ihr Hintergrund eckig über die
+     abgerundete Rahmenecke. */
+  thead th:first-child { border-top-left-radius: 9px; }
+  thead th:last-child { border-top-right-radius: 9px; }
   .th-inner {
     padding: 8px 10px;
     display: flex;
@@ -795,6 +833,54 @@
   }
   .detail-link:hover { opacity: 0.9; }
 
+  /* "Zum Kalender hinzufügen" steht zwischen dem Veranstalter-Link und
+     dem Melde-Knopf und sieht wie eine dritte, gleichwertige Schaltfläche
+     aus - nur ohne Akzentfarbe, damit der Link zur offiziellen Seite die
+     Hauptaktion bleibt. */
+  .cal-box { position: relative; margin-top: 12px; }
+  .cal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .cal-btn:hover { background: var(--row-hover); border-color: var(--accent); color: var(--accent); }
+  .cal-btn svg { flex-shrink: 0; }
+  .cal-menu {
+    margin-top: 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .cal-menu[hidden] { display: none; }
+  .cal-menu a {
+    display: block;
+    padding: 9px 12px;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .cal-menu a:hover { background: var(--row-hover); color: var(--accent); }
+  .cal-note {
+    padding: 8px 12px;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    background: var(--bg);
+  }
+
   /* "Fehler zu diesem Event melden" - bewusst als unauffaelliger
      Sekundaer-Button unter dem Veranstalter-Link: er soll auffindbar
      sein, aber nicht mit dem Link zur offiziellen Seite konkurrieren. */
@@ -894,12 +980,18 @@
 
 <div class="layout">
   <div class="table-wrap">
-    <table id="event-table">
-      <thead>
-        <tr id="header-row"></tr>
-      </thead>
-      <tbody id="event-body"></tbody>
-    </table>
+    <!-- Der Rahmen sitzt auf .table-frame, nicht auf .table-wrap: nur so
+         kann die Anzahl-Zahl halb über die Rahmenlinie hinausragen. Sie
+         liegt dann im Innenabstand von .table-wrap - immer noch innerhalb
+         des scrollenden Bereichs, der sie sonst abschneiden würde. -->
+    <div class="table-frame">
+      <table id="event-table">
+        <thead>
+          <tr id="header-row"></tr>
+        </thead>
+        <tbody id="event-body"></tbody>
+      </table>
+    </div>
   </div>
   <div class="side-panel">
     <div class="detail-panel" id="detail-panel"></div>
@@ -1014,6 +1106,11 @@
       report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
       report_cat_sonstiges: 'Sonstiges',
       detail_link: 'Zur Veranstalter-Website ↗',
+      cal_btn: 'Zum Kalender hinzufügen',
+      cal_google: 'Google Kalender / Gmail',
+      cal_outlook: 'Outlook',
+      cal_ics: 'Apple Kalender & andere (.ics)',
+      cal_note: 'Wird als ganztägiger Termin eingetragen.',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       notify_btn: 'Benachrichtigen, sobald verfügbar',
@@ -1124,6 +1221,11 @@
       report_cat_abgesagt: 'Event is cancelled / not happening',
       report_cat_sonstiges: 'Something else',
       detail_link: 'Visit organizer website ↗',
+      cal_btn: 'Add to calendar',
+      cal_google: 'Google Calendar / Gmail',
+      cal_outlook: 'Outlook',
+      cal_ics: 'Apple Calendar & others (.ics)',
+      cal_note: 'Added as an all-day event.',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
       notify_btn: 'Notify me when available',
@@ -2999,9 +3101,193 @@
         <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatLength(e)}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
+      <div class="cal-box">
+        <button type="button" class="cal-btn" id="cal-open-btn" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/>
+          </svg>
+          <span>${escapeHtml(t('cal_btn'))}</span>
+        </button>
+        <div class="cal-menu" id="cal-menu" hidden>
+          <a id="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
+          <a id="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
+          <a id="cal-ics" download>${escapeHtml(t('cal_ics'))}</a>
+          <div class="cal-note">${escapeHtml(t('cal_note'))}</div>
+        </div>
+      </div>
       <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
     `;
     detailEl.querySelector('#report-open-btn').addEventListener('click', () => openReportModal(e));
+    setupCalendarBox(e);
+  }
+
+  // ---------- Zum Kalender hinzufügen ----------
+
+  // Alle Termine sind GANZTÄGIG. Startzeiten stehen in keiner Quelle
+  // verlässlich (und wenn, dann pro Wettbewerb verschieden) - ein
+  // ganztägiger Eintrag behauptet keine Uhrzeit, die wir nicht kennen.
+  //
+  // Ganztägige Termine enden im iCalendar-Format (RFC 5545) am FOLGETAG:
+  // DTEND ist exklusiv. Dasselbe gilt für den dates-Parameter von Google
+  // und startdt/enddt von Outlook. Ohne das +1 fehlt der letzte Tag.
+  function calDatePlusDays(iso, tage) {
+    const [j, m, d] = iso.split('-').map(Number);
+    const dt = new Date(Date.UTC(j, m - 1, d));
+    dt.setUTCDate(dt.getUTCDate() + tage);
+    return dt.toISOString().slice(0, 10);
+  }
+
+  function calFields(e) {
+    const start = e.datum_start;
+    const endeInklusiv = e.datum_ende && e.datum_ende > start ? e.datum_ende : start;
+    const wb = displayWettbewerb(e);
+    const titel = wb ? `${e.name} – ${wb}` : e.name;
+    const zeilen = [
+      `${t('detail_sportart')}: ${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''}`,
+      `${t('detail_laenge')}: ${formatLength(e)}`
+    ];
+    if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
+    return {
+      titel,
+      ort: `${e.standort}${e.land ? ', ' + tv('land', e.land) : ''}`,
+      beschreibung: zeilen.join('\n'),
+      start,
+      endeExklusiv: calDatePlusDays(endeInklusiv, 1),
+      url: e.veranstalter_url || ''
+    };
+  }
+
+  // Text für eine iCalendar-Zeile: Backslash, Semikolon, Komma und
+  // Zeilenumbrüche müssen maskiert werden (RFC 5545, 3.3.11).
+  function icsEscape(text) {
+    return String(text || '')
+      .replace(/\\/g, '\\\\')
+      .replace(/;/g, '\;')
+      .replace(/,/g, '\\,')
+      .replace(/\r?\n/g, '\\n');
+  }
+
+  // Zeilen über 75 Oktette faltet das Format mit einem Leerzeichen am
+  // Anfang der Folgezeile ("line folding"). Manche Kalender stolpern über
+  // zu lange Zeilen, deshalb hier gleich richtig.
+  function icsFold(zeile) {
+    if (zeile.length <= 74) return zeile;
+    const teile = [zeile.slice(0, 74)];
+    let rest = zeile.slice(74);
+    while (rest.length > 73) {
+      teile.push(' ' + rest.slice(0, 73));
+      rest = rest.slice(73);
+    }
+    if (rest) teile.push(' ' + rest);
+    return teile.join('\r\n');
+  }
+
+  function buildIcs(e) {
+    const f = calFields(e);
+    const stempel = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const uid = `${f.start.replace(/-/g, '')}-${Math.abs(hashString(f.titel + f.ort))}@antdon930.github.io`;
+    const zeilen = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Ausdauersport-Events//events.html//DE',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      `UID:${uid}`,
+      `DTSTAMP:${stempel}`,
+      `DTSTART;VALUE=DATE:${f.start.replace(/-/g, '')}`,
+      `DTEND;VALUE=DATE:${f.endeExklusiv.replace(/-/g, '')}`,
+      `SUMMARY:${icsEscape(f.titel)}`,
+      `LOCATION:${icsEscape(f.ort)}`,
+      `DESCRIPTION:${icsEscape(f.beschreibung)}`,
+      'TRANSP:TRANSPARENT'
+    ];
+    if (f.url) zeilen.push(`URL:${icsEscape(f.url)}`);
+    zeilen.push('END:VEVENT', 'END:VCALENDAR');
+    return zeilen.map(icsFold).join('\r\n') + '\r\n';
+  }
+
+  // Kurzer, stabiler Zahlenwert aus einem Text - nur für die UID des
+  // Kalendereintrags, damit derselbe Lauf nicht als neuer Termin gilt.
+  function hashString(text) {
+    let h = 0;
+    for (let i = 0; i < text.length; i++) {
+      h = (h * 31 + text.charCodeAt(i)) | 0;
+    }
+    return h;
+  }
+
+  function setupCalendarBox(e) {
+    const btn = detailEl.querySelector('#cal-open-btn');
+    const menu = detailEl.querySelector('#cal-menu');
+    if (!btn || !menu) return;
+    const f = calFields(e);
+    const kompakt = (iso) => iso.replace(/-/g, '');
+
+    detailEl.querySelector('#cal-google').href =
+      'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + `&text=${encodeURIComponent(f.titel)}`
+      + `&dates=${kompakt(f.start)}/${kompakt(f.endeExklusiv)}`
+      + `&details=${encodeURIComponent(f.beschreibung)}`
+      + `&location=${encodeURIComponent(f.ort)}`;
+
+    // Outlook.com deckt private Konten ab; Outlook für Arbeit/Schule
+    // (outlook.office.com) versteht dieselbe Adresse und leitet um.
+    detailEl.querySelector('#cal-outlook').href =
+      'https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent'
+      + '&allday=true'
+      + `&subject=${encodeURIComponent(f.titel)}`
+      + `&startdt=${f.start}`
+      + `&enddt=${f.endeExklusiv}`
+      + `&body=${encodeURIComponent(f.beschreibung)}`
+      + `&location=${encodeURIComponent(f.ort)}`;
+
+    // .ics als data-URI statt Blob: kein Aufräumen nötig, und iOS öffnet
+    // es direkt im Kalender statt in einer Download-Liste.
+    const icsEl = detailEl.querySelector('#cal-ics');
+    icsEl.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(buildIcs(e));
+    icsEl.setAttribute('download', calFileName(f.titel) + '.ics');
+
+    btn.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      const offen = !menu.hidden;
+      menu.hidden = offen;
+      btn.setAttribute('aria-expanded', offen ? 'false' : 'true');
+    });
+    menu.addEventListener('click', () => {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    // Klick daneben oder Escape schließt das Menü. Der Zuhörer wird nur
+    // EINMAL angemeldet (renderDetail baut den Bereich bei jedem Klick
+    // neu, sonst sammelten sich die Zuhörer an).
+    if (!setupCalendarBox.listenersAttached) {
+      setupCalendarBox.listenersAttached = true;
+      document.addEventListener('click', (ev) => {
+        const m = detailEl.querySelector('#cal-menu');
+        if (!m || m.hidden) return;
+        if (m.contains(ev.target) || detailEl.querySelector('#cal-open-btn').contains(ev.target)) return;
+        m.hidden = true;
+        detailEl.querySelector('#cal-open-btn').setAttribute('aria-expanded', 'false');
+      });
+      document.addEventListener('keydown', (ev) => {
+        if (ev.key !== 'Escape') return;
+        const m = detailEl.querySelector('#cal-menu');
+        if (!m || m.hidden) return;
+        m.hidden = true;
+        detailEl.querySelector('#cal-open-btn').setAttribute('aria-expanded', 'false');
+      });
+    }
+  }
+
+  function calFileName(titel) {
+    return (titel || 'event')
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-zA-Z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .slice(0, 60) || 'event';
   }
 
   // ---------- Fehler melden ----------

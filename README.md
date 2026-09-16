@@ -343,6 +343,11 @@ Schweiz.
   die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
   es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
 
+  Die Kapsel mit der Zahl liegt **halb über der linken Rahmenlinie** der
+  Tabelle. Dafür sitzt der Rahmen auf einem inneren `.table-frame`: der
+  äußere `.table-wrap` scrollt waagerecht und würde den überstehenden
+  Teil sonst abschneiden, sein Innenabstand ist jetzt der Platz dafür.
+
   Die Spaltenbreiten stehen als **Klassen** (`.col-name`, `.col-anzahl`,
   …) statt über `nth-child`: die Spalten wechseln je nach Zustand
   (Entfernung nur mit Ausgangspunkt, Anzahl nur beim Zusammenfassen), und
@@ -351,6 +356,23 @@ Schweiz.
   damit Filter und Duplikat-Erkennung weiter funktionieren. Die
   Ergebnisanzeige zählt dann beides: „810 Veranstaltungen (1413
   Strecken) von 4155 Events".
+
+  **Zum Kalender hinzufügen**: Im Detailbereich steht zwischen dem
+  Veranstalter-Link und „Fehler melden" ein Knopf, der drei Wege anbietet
+  – **Google Kalender / Gmail** und **Outlook** als Links, **Apple
+  Kalender und alles andere** als `.ics`-Datei (data-URI, damit nichts
+  aufzuräumen ist und iOS sie direkt im Kalender öffnet). Der Eintrag ist
+  immer ein **ganztägiger Termin**: eine verlässliche Startzeit liefert
+  keine Quelle, und ein ganztägiger Eintrag behauptet keine Uhrzeit, die
+  wir nicht kennen. Mehrtägige Veranstaltungen übernehmen ihren ganzen
+  Zeitraum.
+
+  Ein Detail, an dem solche Links oft scheitern: `DTEND` im
+  iCalendar-Format (RFC 5545) und ebenso `dates=` bei Google und `enddt=`
+  bei Outlook sind **exklusiv** – das Enddatum muss einen Tag später
+  stehen, sonst fehlt der letzte Tag. Der Text in der `.ics`-Datei wird
+  maskiert (`icsEscape`) und ab 75 Zeichen gefaltet (`icsFold`), weil
+  manche Kalender über lange Zeilen stolpern.
 
   **Zeitraum-Schnellfilter**: Über dem Jahr/Monat/Tag-Baum stehen vier
   Knöpfe - „Dieses Wochenende", „Nächste 30 Tage", „Nächste 3 Monate",
