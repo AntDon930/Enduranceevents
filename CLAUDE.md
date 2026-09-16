@@ -121,6 +121,14 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
 
+- **Das Filter-Panel folgt seinem Spaltenknopf beim Scrollen, es schließt
+  sich nicht mehr** (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
+  jedes `scroll`/`resize` das Panel – auf 390 px ließ sich der
+  Stadt/Ort-Filter damit gar nicht öffnen (das Scroll-Ereignis vom
+  waagerechten Wischen kommt erst nach dem Klick an), und die
+  Android-Tastatur (`resize`) hätte jedes Suchfeld sofort wieder
+  geschlossen. Nicht zurückdrehen.
+
 - **Stadt/Ort ist eine Umkreissuche, keine Ortsliste mehr.** Reihenfolge
   im Panel: Standort-Button → Regler 1–200 km → Suchfeld für Ort/PLZ
   (aus `places.json`, ~32.600 Orte; wird erst beim Öffnen des Panels

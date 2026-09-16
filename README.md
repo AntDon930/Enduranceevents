@@ -202,6 +202,27 @@ Schweiz.
      war. Deshalb `geoBtn.blur()` vor `render()`. Wer an dieser Stelle
      etwas ändert: Jeder Button *innerhalb* eines Filter-Panels, der den
      Filterzustand ändert, braucht dasselbe.
+  **Das Panel folgt seinem Spaltenknopf, es schließt sich nicht beim
+  Scrollen.** Früher tat es das (`scroll` und `resize` riefen
+  `closeFloatingPanel()`), und auf schmalen Bildschirmen war der
+  Stadt/Ort-Filter damit **gar nicht zu öffnen**: Die Tabelle ist breiter
+  als ein Telefon, die Spalten ab „Stadt/Ort" erreicht man nur durch
+  waagerechtes Wischen – und das Scroll-Ereignis von kurz vor dem Tippen
+  wird erst *nach* dem Klick zugestellt. Das Panel ging auf und sofort
+  wieder zu. Dasselbe beim Verkleinern: Auf Android schiebt die
+  Bildschirmtastatur das Fenster zusammen und löst `resize` aus – ein
+  Tippen ins Namens- oder Ortssuchfeld hätte das Panel geschlossen,
+  bevor der erste Buchstabe drin war.
+
+  Statt zu schließen positioniert sich das Panel jetzt neu
+  (`folgeDemKnopf`, gedrosselt über `requestAnimationFrame`, weil
+  Scroll-Ereignisse während eines Schwungs dicht an dicht feuern).
+  Geschlossen wird nur, wenn sein Knopf gar nicht mehr zu sehen ist –
+  geprüft gegen das Fenster **und** gegen den scrollenden
+  Tabellen-Container (`isTriggerVisible`), denn ein waagerecht aus der
+  Tabelle geschobener Spaltenkopf liegt zwar noch im Fenster, ist aber
+  vom Container abgeschnitten.
+
   5. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
   6. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in

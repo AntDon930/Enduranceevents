@@ -1350,8 +1350,37 @@
           closeFloatingPanel();
         }
       });
-      window.addEventListener('scroll', () => { if (openColKey !== null) closeFloatingPanel(); }, true);
-      window.addEventListener('resize', () => { if (openColKey !== null) closeFloatingPanel(); });
+      // Das Panel ist `fixed` positioniert und hängt optisch an seinem
+      // Spaltenknopf. Scrollt die Seite oder die Tabelle, wandert es
+      // deshalb mit - statt sich, wie früher, einfach zu schließen.
+      //
+      // Das Schließen ging auf schmalen Bildschirmen schief: Dort ist
+      // die Tabelle breiter als das Fenster, die Spalten ab "Stadt/Ort"
+      // erreicht man nur durch waagerechtes Scrollen. Ein Scroll-Ereignis,
+      // das kurz vor dem Tippen ausgelöst wurde (iOS scrollt nach dem
+      // Wischen noch nach), wird erst NACH dem Klick zugestellt: Das
+      // Panel ging auf und sofort wieder zu. Auf 390 px Breite ließ sich
+      // der Stadt/Ort-Filter so gar nicht öffnen.
+      //
+      // Dasselbe beim Verkleinern: Auf Android schiebt die
+      // Bildschirmtastatur das Fenster zusammen und löst `resize` aus -
+      // ein Tippen ins Namens- oder Ortssuchfeld hätte das Panel
+      // geschlossen, bevor der erste Buchstabe drin war.
+      let folgeFrame = null;
+      const folgeDemKnopf = () => {
+        if (openColKey === null || !openTriggerEl || folgeFrame !== null) return;
+        // requestAnimationFrame: Während eines Schwungs feuern
+        // Scroll-Ereignisse dicht an dicht, neu positioniert werden muss
+        // aber höchstens einmal pro Bild.
+        folgeFrame = requestAnimationFrame(() => {
+          folgeFrame = null;
+          if (openColKey === null || !openTriggerEl) return;
+          if (isTriggerVisible(openTriggerEl)) positionFloatingPanel(openTriggerEl);
+          else closeFloatingPanel();   // ohne sichtbaren Anker schwebt es nur herum
+        });
+      };
+      window.addEventListener('scroll', folgeDemKnopf, true);
+      window.addEventListener('resize', folgeDemKnopf);
       buildHeader.listenersAttached = true;
     }
   }
@@ -1371,6 +1400,19 @@
     floatingPanel.hidden = true;
     floatingPanel.innerHTML = '';
     updateFilterIndicators();
+  }
+
+  // Ist der Spaltenknopf noch zu sehen? Geprüft wird gegen das Fenster
+  // UND gegen den scrollenden Tabellen-Container: Waagerecht aus der
+  // Tabelle geschobene Spaltenköpfe liegen zwar noch im Fenster, sind
+  // aber vom Container abgeschnitten.
+  function isTriggerVisible(triggerEl) {
+    const rect = triggerEl.getBoundingClientRect();
+    const schneidet = (box) => rect.bottom > box.top && rect.top < box.bottom
+      && rect.right > box.left && rect.left < box.right;
+    if (!schneidet({ top: 0, bottom: window.innerHeight, left: 0, right: window.innerWidth })) return false;
+    const wrap = triggerEl.closest('.table-wrap');
+    return !wrap || schneidet(wrap.getBoundingClientRect());
   }
 
   function positionFloatingPanel(triggerEl) {
