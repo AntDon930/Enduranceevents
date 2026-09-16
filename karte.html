@@ -88,7 +88,19 @@
   }
   h1 { font-size: 1.4rem; margin: 0 0 4px; color: #fff; }
   .subtitle { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin: 0; }
-  .top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-top: 2px; }
+  /* Darf umbrechen: auf 390 px stand die Reihe (Startseite, Liste,
+     Anmelden, DE/EN) sonst in einer Zeile und ragte über den blauen
+     Kasten hinaus - "EN" war angeschnitten. In events.html war dieselbe
+     Stelle schon behoben, hier stand noch die alte Fassung. */
+  .top-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    max-width: 100%;
+    margin-top: 2px;
+  }
   .home-btn, .list-btn {
     display: inline-flex;
     align-items: center;
