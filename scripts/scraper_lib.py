@@ -605,6 +605,8 @@ _DURATION_FALSE_FRIENDS = re.compile(
     r"maximal|max\.?|mindest|start(zeit)?|beginn|uhrzeit|ab\s*$)",
     re.I,
 )
+_DURATION_CONVERSION = re.compile(
+    r"\s*(ergeben|ergibt|entspricht|entsprechen|sind|=|macht)\b", re.I)
 DURATION_MIN_H = 1.0
 DURATION_MAX_H = 72.0
 
@@ -622,6 +624,12 @@ def parse_duration_h(text: str) -> float | None:
     for match in _DURATION_PATTERN.finditer(text):
         vorher = text[max(0, match.start() - 24):match.start()]
         if _DURATION_FALSE_FRIENDS.search(vorher):
+            continue
+        # Umrechnungssatz statt Zeitvorgabe: "6,708 km pro Runde; 24 Stunden
+        # ergeben 100 Meilen" beschreibt das Format eines Backyard Ultra,
+        # begrenzt ihn aber nicht - der läuft, bis nur noch eine Person übrig
+        # ist.
+        if _DURATION_CONVERSION.match(text[match.end():]):
             continue
         try:
             wert = float(match.group(1).replace(",", "."))
@@ -705,6 +713,16 @@ def parse_competitions(
             continue
         km = guess_distance_km(text, config)
         dauer = parse_duration_h(text)
+        # Nennt der Wettbewerb eine Dauer, ist eine km-Angabe daneben die
+        # RUNDENLÄNGE, nicht die Renndistanz. Beispiel (Mad Chicken Run):
+        # "24h Solo auf einer 2km MotoCross-Strecke mit je 60HM (2km)" -
+        # gelaufen werden 24 Stunden, die 2 km sind eine Runde davon. Die
+        # 2 km als Distanz zu speichern wäre doppelt falsch: in der Spalte
+        # stünde "2 km", und die 5-km-Mindestdistanz hätte den Eintrag
+        # anschließend ganz verworfen (genau das ist passiert - die vier
+        # 24h-Wettbewerbe dieser Veranstaltung fehlten in der Liste).
+        if dauer is not None:
+            km = None
         label = clean_competition_label(text)
         if km is None and dauer is None and not label:
             continue

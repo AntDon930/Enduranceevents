@@ -514,7 +514,24 @@ und eindeutige Events in `events.json` landen:
     „Cut-off", „Startzeit" o. Ä. kurz davor, wird der Treffer verworfen.
 
   Ein „E2H10K Ultratrail" ergab in einem Probelauf 2 Stunden – seither
-  darf vor der Zahl kein Buchstabe stehen. Nachgetragen wird die Dauer
+  darf vor der Zahl kein Buchstabe stehen. Ein **Umrechnungssatz** wie
+  „6,708 km pro Runde; 24 Stunden ergeben 100 Meilen" ist ebenfalls keine
+  Zeitvorgabe (er beschreibt das Backyard-Format) und wird verworfen.
+
+  **Nennt ein Wettbewerb eine Dauer, ist eine km-Angabe daneben die
+  Rundenlänge** und wird verworfen: „24h Solo auf einer 2km
+  MotoCross-Strecke mit je 60HM (2km)" ergibt 24 h und *keine* 2 km.
+  Vorher entstand daraus ein 2-km-Eintrag, den die 5-km-Mindestdistanz
+  anschließend verwarf – deshalb fehlten die vier 24h-Wettbewerbe des
+  Mad Chicken Run in der Liste, obwohl die Quelle sie ausweist.
+
+  Bei **Backyard Ultras** gilt dasselbe rückwirkend
+  (`clean_events.clear_backyard_lap_km()`): eine Distanz bis 10 km ist
+  auf so einer Zeile die Runde und wird entfernt (18 Einträge standen mit
+  „7 km" bzw. „6,7 km" in der Liste – wer nach „5–10 km" filterte, fand
+  Rennen, bei denen man 200 km läuft). Die Länge zeigt dann „–", oder die
+  Dauer, wenn das Rennen begrenzt ist. Größere Angaben (34/67/80 km)
+  werden **nur gemeldet**, nicht angetastet. Nachgetragen wird die Dauer
   außerdem nur bei Einträgen **ohne** Distanz (Begründung siehe
   `dauer_h` oben), und ein Zeitrennen fällt nicht der
   5-km-Mindestdistanz zum Opfer: beim 24-Stunden-Lauf auf einer

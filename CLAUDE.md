@@ -99,6 +99,23 @@ laden Leaflet und Firebase.
      Trailrun, der das Wort nur im Namen trägt.
 
    So ausdrücklich vom Nutzer entschieden. Reihenfolge nicht „aufräumen".
+
+   **Die Backyard-Runde ist keine Distanz.** Ein Backyard läuft dieselbe
+   Runde (klassisch 4,167 Meilen = 6,706 km, in den Quellen „6,7" oder
+   „7 km") zur gleichen Stunde, bis nur noch eine Person weiterläuft.
+   Deshalb:
+   - Länge-Spalte zeigt **„–"**, wenn das Rennen zeitlich offen ist, und
+     **„24 h"**, wenn es auf 24 Stunden begrenzt ist.
+   - `clean_events.clear_backyard_lap_km()` nimmt bei Backcountry-Ultra-
+     Einträgen eine Distanz **bis 10 km** heraus (das ist die Runde; 18
+     Einträge betroffen). Größere Angaben (34/67/80 km) bleiben stehen
+     und werden nur **gemeldet** – unklar, ob Zielvorgabe, Teamwertung
+     oder Runde.
+   - Nennt ein Wettbewerb eine Dauer, verwirft `parse_competitions()`
+     eine km-Angabe daneben („24h Solo auf einer 2km MotoCross-Strecke
+     (2km)" → 24 h, keine 2 km). Vorher wurde daraus ein 2-km-Eintrag,
+     den die 5-km-Mindestdistanz gleich wieder verwarf – so fehlten die
+     vier 24h-Wettbewerbe des Mad Chicken Run komplett.
 10. **Vergangene Events raus.** Maßgeblich ist `datum_ende` (sonst
    `datum_start`); der heutige Tag bleibt, ein mehrtägiges Rennen bleibt bis
    zu seinem letzten Tag, ein Event mit unlesbarem Datum wird nicht

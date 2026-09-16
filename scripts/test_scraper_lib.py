@@ -365,6 +365,44 @@ def test_zeitrennen() -> None:
     check("Zeitrennen ohne Distanz", [e.laenge_km for e in evs], [None, None, 21.1, None])
     check("Dauer am Eintrag", [e.dauer_h for e in evs], [24.0, 6.0, None, 12.0])
 
+    # Der Mad Chicken Run (vom Nutzer gemeldet): Die Quelle schreibt
+    # "24h Solo auf einer 2km MotoCross-Strecke mit je 60HM (2km)". Die
+    # 2 km sind eine RUNDE, keine Renndistanz - als Distanz gespeichert
+    # hätte die 5-km-Mindestdistanz den Eintrag anschließend verworfen,
+    # und genau deshalb fehlten die vier 24h-Wettbewerbe in der Liste.
+    chicken = parse_competitions([
+        "24h Solo auf einer 2km MotoCross-Strecke mit je 60HM (2km)",
+        "24h Solo auf einer entspannten 2km Runde mit je 15HM (2km)",
+        "24h im 5er Team auf der 2km Cross Runde - Einzelergebnisse (2km)",
+        "Marathon in schönen 21 flachen Runden (42km)",
+        "Halbmarathon in 11 flachen Runden (22km)",
+        "10km Einstiegsdroge in 5 flachen Runden (10km)",
+    ], CONFIG)
+    check("Rundenlänge wird nicht zur Distanz",
+          [(c.laenge_km, c.dauer_h) for c in chicken],
+          [(None, 24.0), (42.0, None), (22.0, None), (10.0, None)])
+
+    # Ein Umrechnungssatz begrenzt nichts: "24 Stunden ergeben 100 Meilen"
+    # beschreibt die Rundenlänge eines Backyard, der läuft aber weiter,
+    # bis nur noch eine Person übrig ist.
+    check("Umrechnungssatz ist keine Zeitvorgabe",
+          parse_duration_h("6,708 km pro Runde beim SWUB; 24 Stunden ergeben 100 Meilen."),
+          None)
+
+    # Rundenlänge aus bestehenden Backyard-Einträgen herausnehmen; große
+    # Angaben bleiben stehen und werden nur gemeldet.
+    from clean_events import clear_backyard_lap_km  # lokaler Import
+    rows = [
+        {"name": "Hofer Backyard Ultra", "art2": "Backcountry Ultra", "laenge_km": 7.0},
+        {"name": "Backyard SWUB", "art2": "Backcountry Ultra", "laenge_km": 6.7},
+        {"name": "RET-Team Backyard", "art2": "Backcountry Ultra", "laenge_km": 80.0},
+        {"name": "Stadtlauf", "art2": "Straße", "laenge_km": 7.0},
+    ]
+    cleared, to_check = clear_backyard_lap_km(rows)
+    check("zwei Runden entfernt", len(cleared), 2)
+    check("Runde ist weg", [r["laenge_km"] for r in rows], [None, None, 80.0, 7.0])
+    check("große Angabe nur gemeldet", len(to_check), 1)
+
     # Neue Laufen-Kategorie. Sie steht VOR "Trail" in der Stichwortliste,
     # sonst würde ein "Backcountry Ultra Trail" zum gewöhnlichen Trail.
     check("Backcountry Ultra erkannt",

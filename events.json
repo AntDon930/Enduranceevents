@@ -258,7 +258,7 @@
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-20",
     "veranstalter_url": "https://my.raceresult.com/410433/",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km"
   },
   {
@@ -1963,7 +1963,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-20",
-    "laenge_km": 6.7,
+    "laenge_km": null,
     "veranstalter_url": "https://devils-loop.de",
     "wettbewerb": "7 km"
   },
@@ -8671,7 +8671,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/390791/"
   },
@@ -8981,7 +8981,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-27",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://tsftut.de/index.php/veranstaltungen/tuttlinger-backyard-ultra"
   },
@@ -13707,7 +13707,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-04",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://milestorun.de/"
   },
@@ -14201,7 +14201,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.schmellbackyard.de/"
   },
@@ -21781,7 +21781,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-25",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.sportstiming.dk/event/17605"
   },
@@ -25753,7 +25753,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://weserberglandbackyardultra.com"
   },
@@ -29273,7 +29273,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/414210/"
   },
@@ -38370,7 +38370,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-06",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://thelastlight.phexora.ai/"
   },
@@ -44819,7 +44819,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-05-07",
     "datum_ende": "2027-05-10",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/397586/"
   },
@@ -44833,7 +44833,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-05-08",
     "datum_ende": "2027-05-08",
-    "laenge_km": 6.7,
+    "laenge_km": null,
     "wettbewerb": "6,708 km pro Runde beim SWUB; 24 Stunden ergeben 100 Meilen.",
     "veranstalter_url": "https://neckarlauf.com/schwarzwaldultra-backyard.html"
   },
@@ -45968,7 +45968,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-05-15",
     "datum_ende": "2027-05-17",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.sg-adelsberg.de/backyard/"
   },
@@ -45996,7 +45996,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-05-15",
     "datum_ende": "2027-05-15",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/409511/"
   },
@@ -51486,7 +51486,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-28",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.hofer-backyard-ultra.de/"
   },
@@ -52781,7 +52781,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-07-10",
     "datum_ende": "2027-07-12",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/390792/"
   },
@@ -52795,7 +52795,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-07-10",
     "datum_ende": "2027-07-13",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://o-see-backyard.de/"
   },
@@ -54855,7 +54855,7 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2027-08-14",
     "datum_ende": "2027-08-14",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://my.raceresult.com/419054/"
   },

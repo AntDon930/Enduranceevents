@@ -818,7 +818,6 @@
       notify_error: 'Fehler beim Speichern – bitte später erneut versuchen.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
-      laenge_offen: 'offen',
       chip_value_all: 'Alle',
       chip_value_count: (n) => `${n} ausgewählt`,
       chip_datum_all: 'Datum: Alle',
@@ -916,7 +915,6 @@
       notify_error: 'Could not save – please try again later.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
-      laenge_offen: 'open end',
       chip_value_all: 'All',
       chip_value_count: (n) => `${n} selected`,
       chip_datum_all: 'Date: All',
@@ -1314,11 +1312,9 @@
       const h = Math.round(Number(e.dauer_h) * 10) / 10;
       return `${Number.isInteger(h) ? h : h.toFixed(1)} h`;
     }
-    // Ein Backyard Ultra ohne Zeitangabe hat kein Ende im Vorhinein: die
-    // gleiche Runde zur gleichen Stunde, bis nur noch eine Person
-    // weiterläuft. "offen" sagt das, ein "–" würde nur nach fehlender
-    // Angabe aussehen.
-    if (e.art2 === 'Backcountry Ultra') return escapeHtml(t('laenge_offen'));
+    // Backyard Ultra ohne Zeitbegrenzung: bewusst "–". Der Lauf endet,
+    // wenn nur noch eine Person weiterläuft - es gibt keine Länge, und
+    // die Rundenlänge ist keine (siehe clear_backyard_lap_km()).
     return formatKm(null);
   }
 

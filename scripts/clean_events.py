@@ -433,6 +433,45 @@ def fill_duration(events: list[dict]) -> list[str]:
     return changed
 
 
+# Die klassische Backyard-Runde ist 4,167 Meilen = 6,706 km lang (so
+# gesetzt, dass 24 Runden 100 Meilen ergeben); die Quellen schreiben
+# 6,7 oder gerundet 7 km. Alles bis zu dieser Grenze ist auf einer
+# Backyard-Zeile die RUNDE, nicht die Renndistanz.
+BACKYARD_LAP_MAX_KM = 10.0
+
+
+def clear_backyard_lap_km(events: list[dict]) -> tuple[list[str], list[str]]:
+    """Nimmt die Rundenlänge aus `laenge_km` von Backyard-Events heraus.
+
+    Ein Backyard Ultra läuft dieselbe Runde zur gleichen Stunde, bis nur
+    noch eine Person weiterläuft - die Runde ist keine Wettkampfdistanz.
+    In den Daten standen 18 solcher Events mit "7 km" bzw. "6,7 km" in
+    der Länge-Spalte; wer nach "5-10 km" filterte, fand dadurch Rennen,
+    bei denen man 200 km läuft. Die Länge zeigt danach "-" (oder die
+    Dauer, falls das Rennen auf z. B. 24 Stunden begrenzt ist).
+
+    Größere Angaben werden NICHT angetastet, sondern nur gemeldet: bei
+    "RET-Team Backyard | 80 km" oder "Murr BackYard 12h | 67 km" ist
+    unklar, ob das eine Zielvorgabe, eine Teamwertung oder doch eine
+    Runde ist - solche Fälle gehören einzeln geprüft (siehe README,
+    "Die wichtigste Lektion"). Gibt (geleert, zu prüfen) zurück."""
+    cleared: list[str] = []
+    to_check: list[str] = []
+    for event in events:
+        if event.get("art2") != "Backcountry Ultra":
+            continue
+        km = event.get("laenge_km")
+        if not isinstance(km, (int, float)):
+            continue
+        if km <= BACKYARD_LAP_MAX_KM:
+            event["laenge_km"] = None
+            cleared.append(f"{event.get('name')}: {km:g} km (Runde) entfernt")
+        else:
+            to_check.append(f"{event.get('name')}: {km:g} km - Runde, "
+                            f"Zielvorgabe oder Teamwertung? bitte prüfen")
+    return cleared, to_check
+
+
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     """Entfernt zu kurze LAUF-Events. Andere Sportarten sind bewusst
     ausgenommen: 3,5 km Freiwasserschwimmen sind eine ernsthafte Distanz,
@@ -875,6 +914,7 @@ def main() -> None:
     rounding_fixes = round_distances(events)
     label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
+    backyard_cleared, backyard_check = clear_backyard_lap_km(events)
     duration_fills = fill_duration(events)
     events, too_short = drop_too_short(events)
     events, past = drop_past_events(events, args.today)
@@ -919,6 +959,8 @@ def main() -> None:
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
+    section("Backyard: Rundenlänge aus der Distanz entfernt", backyard_cleared)
+    section("⚠ Backyard mit großer Distanzangabe (nur Hinweis)", backyard_check)
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("Vergangene Events entfernt", past)
