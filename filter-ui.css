@@ -1,0 +1,317 @@
+/* Die Filter-Bedienelemente von events.html UND karte.html: die
+   Filterknöpfe (.col-filter-btn) und das schwebende Panel mit seinen
+   Inhalten (Häkchenlisten, Umkreis-Regler, Ortssuche, Standort-Hilfe,
+   Distanz-Tabs, Zeitraum-Knöpfe, Datums-Baum).
+
+   Eine eigene Datei, weil die Karte dieselben Knöpfe zeigt - siehe
+   filter-ui.js. Zwei Kopien desselben CSS wären beim nächsten Umbau
+   auseinandergelaufen.
+
+   Gebraucht werden die Farbvariablen der Seite: --panel, --border,
+   --text, --text-muted, --accent, --accent-bg, --bg und --row-hover. */
+
+.col-filter-btn {
+  list-style: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: transparent;
+  user-select: none;
+  flex-shrink: 0;
+}
+.col-filter-btn.open,
+.col-filter-btn.has-filter {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+/* Knopfreihe außerhalb einer Tabelle (Karte): dieselben Knöpfe, aber mit
+   Beschriftung statt nur "▾" - ohne Spaltenkopf daneben wüsste sonst
+   niemand, welcher Knopf welcher Filter ist. */
+.filter-btn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-btn-bar .col-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.filter-btn-bar .col-filter-btn.open,
+.filter-btn-bar .col-filter-btn.has-filter { color: var(--accent); }
+
+.filter-panel {
+  position: fixed;
+  /* Über den Leaflet-Bedienelementen der Karte (die liegen bei 800) und
+     unter dem Anmelde-Fenster (2000) und der Kurzmeldung (3000). Mit den
+     früheren 100 verschwand das Panel auf der Karte hinter den
+     Zoom-Knöpfen und den Markern. */
+  z-index: 1000;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  padding: 10px;
+  min-width: 220px;
+  max-width: 280px;
+  font-weight: normal;
+  white-space: normal;
+  font-size: 0.86rem;
+}
+.filter-panel[hidden] { display: none; }
+.filter-panel .fp-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  margin-bottom: 6px;
+}
+.filter-panel .fp-actions a {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+.filter-list {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.filter-list label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.filter-panel .fp-empty {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.filter-panel .range-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.filter-panel .range-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.filter-panel input[type="date"],
+.filter-panel input[type="number"],
+.filter-panel input[type="text"] {
+  padding: 5px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  width: 100%;
+}
+.radius-section .radius-title {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+/* Umkreis-Regler: 1-200 km */
+.radius-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.radius-slider-row .radius-value {
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.radius-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.radius-slider-row.disabled .radius-value { color: var(--text-muted); }
+.radius-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+/* Ortssuche (places.json): Eingabefeld + Trefferliste */
+.place-search { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.place-results {
+  max-height: 190px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+.place-result {
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+.place-result:hover,
+.place-result:focus { background: var(--accent-bg); border-color: var(--accent); }
+.place-result .place-meta {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.place-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.origin-clear {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.72rem;
+  padding: 0;
+  margin-bottom: 6px;
+}
+.geo-btn {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+.geo-btn:hover { background: var(--accent-bg); }
+.radius-status {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  min-height: 1.1em;
+}
+.geo-help {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  line-height: 1.35;
+}
+.geo-help ol {
+  margin: 0 0 4px;
+  padding-left: 1.1em;
+}
+.geo-help li { margin-bottom: 3px; }
+.geo-help .geo-help-fallback { display: block; margin-top: 4px; }
+.filter-panel select {
+  width: 100%;
+  padding: 5px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+
+/* Länge-Filter: Sportart-Tabs + Distanzkategorien */
+.distance-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.distance-tab {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.distance-tab.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.distance-categories {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Datum-Baum (Jahr > Monat > Tag) */
+.date-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.date-preset {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.date-preset:hover { background: var(--row-hover); }
+.date-preset.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.date-tree {
+  max-height: 240px;
+  overflow-y: auto;
+}
+.tree-node { margin-bottom: 2px; }
+.tree-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tree-toggle {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  width: 14px;
+  flex-shrink: 0;
+  padding: 0;
+}
+.tree-spacer {
+  width: 14px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.tree-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.tree-children { margin-left: 18px; }

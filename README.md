@@ -238,7 +238,7 @@ Schweiz.
 
      **Fallstrick, der hier einmal zugeschlagen hat**: Der Erfolgs-
      Callback setzt `state.origin` und ruft `render()`. `render()`
-     zeichnet über `refreshOpenPanel()` auch das offene Filter-Panel neu –
+     zeichnet über `ui.refresh()` auch das offene Filter-Panel neu –
      aber nur, wenn der Fokus *nicht* darin liegt (sonst reißt eine
      Eingabe im Namensfeld ab). Der gerade geklickte Standort-Button liegt
      genau dort: das Panel blieb bei „Standort wird ermittelt…" stehen und
@@ -257,6 +257,11 @@ Schweiz.
   Bildschirmtastatur das Fenster zusammen und löst `resize` aus – ein
   Tippen ins Namens- oder Ortssuchfeld hätte das Panel geschlossen,
   bevor der erste Buchstabe drin war.
+
+  Diese ganze Mechanik – Knöpfe, Panel, Panel-Inhalte – steht seit dem
+  Umbau in `filter-ui.js`/`filter-ui.css`, weil die Karte dieselben
+  Filter bedienbar macht (siehe dort und bei `karte.html`). Beschrieben
+  ist sie hier, weil man sie in der Liste zuerst sieht.
 
   Statt zu schließen positioniert sich das Panel jetzt neu
   (`folgeDemKnopf`, gedrosselt über `requestAnimationFrame`, weil
@@ -497,21 +502,27 @@ Schweiz.
   über den „Karte"-Button in `events.html` (auf der Startseite gibt es
   bewusst keinen Kartenlink).
 
-  **Die Karte zeigt dieselben Filter wie die Liste.** Der „Karte"-Button
-  in `events.html` hängt den vollständigen Filterzustand an die Adresse
-  (dieselben Parameter wie der Teilen-Link), und `karte.html` liest ihn
-  mit derselben Funktion wieder ein (`filters.js`, siehe unten). Damit
-  stehen auf der Karte nur die Marker der Events, die auch in der Liste
-  stünden – vorher zeigte die Karte immer alle ~4.100.
-  - Über der Karte steht eine **Leiste mit den aktiven Filtern**, Chip
-    für Chip wortgleich mit der Liste („Land: Deutschland ×", „Umkreis:
-    25 km um Fürth ×"). Ohne Filter ist sie ausgeblendet (`hidden`; die
-    Regel `.filter-bar[hidden] { display: none }` ist nötig, weil die
-    Klasse mit `display: flex` das Attribut sonst überstimmt).
-  - Das ✕ eines Chips und „Alle Filter zurücksetzen" wirken **sofort auf
-    der Karte** und schreiben die Adresse mit (`history.replaceState`).
-    Ausgewählt wird weiter in der Liste – auf der Karte lässt sich ein
-    Filter nur ansehen und wegnehmen.
+  **Die Karte hat dieselben Filter wie die Liste – und man kann sie dort
+  auch bedienen.** Über der Karte steht eine Leiste mit denselben sieben
+  Filterknöpfen (Name, Datum, Land, Stadt/Ort, Sportart, Kategorie,
+  Länge), die dieselben Panels öffnen wie die Spaltenköpfe der Liste –
+  es ist derselbe Code (`filter-ui.js`, `filter-ui.css`), nicht ein
+  Nachbau. Darunter stehen die gesetzten Filter als Chips.
+  - **Ein Filter gilt für beide Seiten**: Beide schreiben ihn in
+    dieselbe Adresse (`filters.js`), und die Knöpfe „Karte" und „Liste"
+    nehmen sie mit. Wer auf der Karte „Land: Schweiz" wählt und dann auf
+    „Liste" tippt, sieht dort dieselbe Auswahl – und umgekehrt.
+  - Damit stehen auf der Karte nur die Marker der Events, die auch in
+    der Liste stünden – vorher zeigte die Karte immer alle ~4.100.
+  - Die Knöpfe färben sich blau, sobald ihre Spalte filtert
+    (`.col-filter-btn.has-filter`), genau wie in der Tabelle. Auf der
+    Karte tragen sie zusätzlich ihren Namen: ohne Spaltenkopf daneben
+    wüsste sonst niemand, welcher Knopf welcher Filter ist.
+  - Das ✕ eines Chips und **„Alle Filter zurücksetzen"** wirken sofort
+    auf der Karte und schreiben die Adresse mit (`history.replaceState`).
+    Ohne Filter bleibt die Chip-Zeile einfach leer
+    (`.active-chips:empty { display: none }`) – die Knöpfe bleiben
+    stehen, sonst könnte man nichts mehr auswählen.
   - Ein **Umkreis-Filter wird gezeichnet**: der Ausgangspunkt als roter
     Punkt (`.origin-dot`), der Umkreis als Kreis. Erst damit ist zu
     sehen, *warum* außerhalb keine Marker stehen; der Kartenausschnitt
@@ -522,7 +533,10 @@ Schweiz.
     (das Popup setzt zusätzlich seinen Ort). Die Ansichts-Parameter der
     Liste (`sort`, `gruppiert`) versteht die Karte nicht, sie reicht sie
     aber unverändert weiter – der Weg Liste → Karte → Liste verliert die
-    Ansicht also nicht.
+    Ansicht also nicht. Nur `sort=entfernung` verwirft die Liste, wenn
+    kein Ausgangspunkt (mehr) gesetzt ist: ohne einen gibt es die
+    Entfernungs-Spalte nicht, und die Liste stünde ohne sichtbare
+    Sortierung da.
 - `filters.js` – der **gemeinsame Filterzustand von `events.html` und
   `karte.html`**: Distanzkategorien, Umkreis-Grenzen, die Prüfung
   „trifft dieses Event die Filter?" (`matchEvent`), das Lesen und
@@ -533,17 +547,43 @@ Schweiz.
   `events.html`, und die Karte kannte gar keine Filter; ein zweiter
   Nachbau in `karte.html` wäre mit der Zeit auseinandergelaufen (eine
   Kategorie hier geändert, dort vergessen). Was **nur** die Liste
-  betrifft – Spalten, Sortierung, Zusammenfassen, die Filter-Panels –
-  bleibt in `events.html`.
+  betrifft – Spalten, Sortierung, Zusammenfassen, der Detailbereich –
+  bleibt in `events.html`. Dazu kommen drei kleine Helfer, die überall
+  gebraucht werden: `escapeHtml()`, `uniqueSorted(values, lang)` und
+  `formatDate(iso, lang)` (die Sprache als Parameter – das Modul kennt
+  den Umschalter der Seite nicht).
 
-  Zwei Fallen dabei: Die Seiten mischen die Texte aus `filters.js` mit
-  `Object.assign(I18N.de, EF.I18N.de)` in ihr eigenes `I18N`-Objekt
-  (`t()` bleibt dadurch unverändert), und die Kurzformen in
+  Zwei Fallen dabei: Die Seiten mischen die Texte aus `filters.js` und
+  `filter-ui.js` mit
+  `Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de)` in ihr eigenes
+  `I18N`-Objekt (`t()` bleibt dadurch unverändert), und die Kurzformen in
   `events.html`, die auf `state` zugreifen (`matchesDistanceCategory`,
   `haversineKm`, `dropPastEvents`), sind **Funktions-Deklarationen statt
   `const`** – hochgezogen und damit auch vor ihrer Textstelle aufrufbar
   (die Temporal-Dead-Zone-Falle, die dieses Skript schon zweimal
   erwischt hat).
+- `filter-ui.js` / `filter-ui.css` – die **Filter-Bedienelemente beider
+  Seiten**: die Filterknöpfe und das schwebende Panel mit allem, was
+  darin steckt (Häkchenlisten, Jahr/Monat/Tag-Baum samt
+  Zeitraum-Knöpfen, Umkreissuche mit Standort-Knopf, Regler und
+  Ortssuche über `places.json`, Distanz-Tabs und Kategorien,
+  Von/Bis-Felder). `EnduranceFilterUI.create({ state, getEvents, t, tv,
+  getLang, onChange, setOrigin })` gibt einen Bedienteil zurück:
+  - `attachButton(btn, col)` hängt einen selbst gebauten Knopf an ein
+    Panel – so benutzt die Liste ihre Spaltenköpfe weiter;
+  - `buildButtonBar(container)` baut die beschriftete Knopfreihe der
+    Karte;
+  - `refresh()`, `updateIndicators()`, `close()`, `options(key)` und
+    `resetTransient()` für alles, was die Seiten beim Neuzeichnen und
+    Zurücksetzen brauchen.
+
+  Die beiden Haken sind der ganze Unterschied zwischen den Seiten:
+  `onChange` zeichnet die Seite auf ihre Art neu (Liste: Tabelle, Karte:
+  Marker), `setOrigin` darf mehr tun, als den Ausgangspunkt zu setzen –
+  die Liste schaltet dort die Entfernungs-Spalte und ihre Sortierung mit.
+  Das Panel liegt bei `z-index: 1000`: über den Leaflet-Bedienelementen
+  der Karte (800), unter dem Anmelde-Fenster (2000) und der Kurzmeldung
+  (3000).
 - `places.json` – Ortsverzeichnis für die Umkreissuche: alle Orte und
   Postleitzahlen aus Deutschland, Österreich und der Schweiz, auch die
   ohne Event. Wird von `scripts/build_places.py` aus GeoNames-Daten

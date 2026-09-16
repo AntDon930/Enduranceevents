@@ -26,6 +26,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
+| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel – beide Seiten bedienen dieselben |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
@@ -168,7 +169,7 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 ## Frontend-Fallen (events.html)
 
 - **Das Filter-Panel folgt seinem Spaltenknopf beim Scrollen, es schließt
-  sich nicht mehr** (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
+  sich nicht mehr** (jetzt in `filter-ui.js`) (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
   jedes `scroll`/`resize` das Panel – auf 390 px ließ sich der
   Stadt/Ort-Filter damit gar nicht öffnen (das Scroll-Ereignis vom
   waagerechten Wischen kommt erst nach dem Klick an), und die
@@ -284,33 +285,61 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
-## Liste und Karte teilen die Filter (`filters.js`)
+## Liste und Karte teilen die Filter (`filters.js`, `filter-ui.js`)
 
-Die Filterlogik steht **einmal** in `filters.js`: Distanzkategorien,
-`matchEvent()`, `readParams()`/`toParams()` (Filter in der Adresse),
-`buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`, die
-Zeitraum-Knöpfe, `dropPastEvents()`. Beide Seiten binden die Datei ein
-und nehmen sich mit `const EF = window.EnduranceFilters` daraus, was sie
-brauchen.
+**Ein Filter gilt für beide Seiten, und beide können ihn setzen.**
+Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
+`karte.html` einbinden:
 
-- Der „Karte"-Knopf in `events.html` hängt den Filterzustand an die
-  Adresse (`updateMapLink()`), `karte.html` liest ihn mit `readParams()`
-  und zeigt nur passende Marker. Darüber steht die Chip-Leiste; ✕ und
-  „Alle Filter zurücksetzen" wirken sofort. Ein Umkreis wird als Kreis
-  samt Ausgangspunkt gezeichnet.
+- **`filters.js`** (`window.EnduranceFilters`, in den Seiten `EF`) – der
+  Zustand und die Regeln: `createState()`, `matchEvent()`,
+  Distanzkategorien, `readParams()`/`toParams()` (Filter in der
+  Adresse), `buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`,
+  die Zeitraum-Knöpfe, `dropPastEvents()` und die drei Helfer
+  `escapeHtml()`, `uniqueSorted(values, lang)`, `formatDate(iso, lang)`.
+- **`filter-ui.js`** (`window.EnduranceFilterUI`, in den Seiten `EFU`) +
+  **`filter-ui.css`** – die Bedienung: Filterknöpfe und das schwebende
+  Panel mit allem darin (Häkchenlisten, Datums-Baum, Umkreissuche mit
+  `places.json`, Distanz-Tabs, Von/Bis). `EFU.create({ state,
+  getEvents, t, tv, getLang, onChange, setOrigin })` gibt den
+  Bedienteil: `attachButton()` (Liste: eigene Spaltenköpfe),
+  `buildButtonBar()` (Karte: beschriftete Knopfreihe), `refresh()`,
+  `updateIndicators()`, `close()`, `options()`, `resetTransient()`.
+
+Die beiden Haken sind der ganze Unterschied zwischen den Seiten:
+`onChange` zeichnet neu (Liste: Tabelle, Karte: Marker), `setOrigin`
+darf mehr tun – die Liste schaltet dort die Entfernungs-Spalte und ihre
+Sortierung mit.
+
+- Die Knöpfe „Karte" und „Liste" hängen den Filterzustand an die
+  Adresse (`updateMapLink()` bzw. `linkTo()`), die andere Seite liest
+  ihn mit `readParams()`. Nur so gilt ein Filter über den Seitenwechsel.
 - `sort`/`gruppiert` versteht die Karte nicht, sie reicht sie aber
   weiter – sonst verliert der Weg Liste → Karte → Liste die Ansicht.
-- **Nicht zurück nach `events.html` kopieren.** Zwei Kopien derselben
-  Kategorien laufen auseinander (eine hier geändert, dort vergessen).
-  Nur was allein die Liste betrifft (Spalten, Sortierung,
-  Zusammenfassen, Filter-Panels), bleibt in `events.html`.
+  `sort=entfernung` verwirft die Liste ohne Ausgangspunkt (die Spalte
+  gibt es dann nicht).
+- **Nichts davon zurück in eine Seite kopieren.** Zwei Kopien derselben
+  Kategorien oder desselben Panels laufen auseinander (eine hier
+  geändert, dort vergessen). In `events.html` bleibt nur, was allein die
+  Liste hat: Spalten, Sortierung, Zusammenfassen, Detailbereich,
+  Kalender, Fehlermeldung.
 - Kurzformen in `events.html`, die auf `state` zugreifen
-  (`matchesDistanceCategory`, `haversineKm`, `dropPastEvents`), sind
-  **Funktions-Deklarationen statt `const`**: hochgezogen und damit auch
-  vor ihrer Textstelle aufrufbar (`dropPastEvents()` läuft direkt nach
-  dem `fetch`, weit oberhalb seiner Zeile).
-- Die Chip-/Zeitraum-Texte werden mit `Object.assign(I18N.de, EF.I18N.de)`
-  in das `I18N` der Seite gemischt, damit `t()` unverändert bleibt.
+  (`matchesDistanceCategory`, `haversineKm`, `dropPastEvents`,
+  `setOrigin`), sind **Funktions-Deklarationen statt `const`**:
+  hochgezogen und damit auch vor ihrer Textstelle aufrufbar
+  (`dropPastEvents()` läuft direkt nach dem `fetch`, weit oberhalb
+  seiner Zeile).
+- Die Texte werden mit
+  `Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de)` in das `I18N` der
+  Seite gemischt, damit `t()` unverändert bleibt. Ein Text, den beide
+  Seiten brauchen, gehört ins Modul – nicht in beide `I18N`-Objekte.
+- Das Panel liegt bei `z-index: 1000`: über den Leaflet-Bedienelementen
+  (800), unter Anmelde-Fenster (2000) und Kurzmeldung (3000). Mit den
+  früheren 100 verschwand es auf der Karte hinter Zoom-Knöpfen und
+  Markern.
+- Auf der Karte bleibt die Knopfreihe immer stehen, nur die Chip-Zeile
+  ist ohne Filter leer (`.active-chips:empty { display: none }`) -
+  ausgeblendet wäre die Karte nicht mehr filterbar.
 
 ## Quellen
 

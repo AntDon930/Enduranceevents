@@ -6,6 +6,8 @@
 <title>Karte – Ausdauersport-Events D/A/CH</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
+<link rel="stylesheet" href="filter-ui.css">
 <style>
   :root {
     color-scheme: light dark;
@@ -16,6 +18,8 @@
     --text-muted: #6b7280;
     --accent: #14509a;
     --accent-bg: #eaf1ff;
+    /* filter-ui.css braucht --row-hover (Zeitraum-Knöpfe im Datumsfilter). */
+    --row-hover: #eef4ff;
     --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
   }
   @media (prefers-color-scheme: dark) {
@@ -27,6 +31,7 @@
       --text-muted: #9aa1ac;
       --accent: #5b9dff;
       --accent-bg: #1e2a40;
+      --row-hover: #22314a;
     }
   }
   * { box-sizing: border-box; }
@@ -85,14 +90,13 @@
   }
   .lang-btn.active { background: #fff; color: #14315e; border-color: #fff; }
 
-  /* Filterleiste: dieselben Chips wie in der Liste (events.html). Sie
-     zeigt, mit welchen Filtern die Karte gerade gezeichnet ist - ohne sie
-     sähe eine gefilterte Karte wie eine kaputte aus ("wo sind meine
-     Events?"). Ohne aktive Filter ist die Leiste ausgeblendet. */
+  /* Filterleiste: dieselben Filterknöpfe und Chips wie in der Liste
+     (filter-ui.css, filter-ui.js). Obere Zeile die Knöpfe, darunter die
+     gesetzten Filter als Chips - ohne diese Anzeige sähe eine gefilterte
+     Karte wie eine kaputte aus ("wo sind meine Events?"). */
   .filter-bar {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
     gap: 8px;
     background: var(--panel);
     border: 1px solid var(--border);
@@ -100,9 +104,14 @@
     padding: 10px 14px;
     margin-bottom: 12px;
   }
-  /* display:flex würde das hidden-Attribut überstimmen (Klasse schlägt
-     UA-Stylesheet) - ohne diese Zeile stünde die leere Leiste immer da. */
-  .filter-bar[hidden] { display: none; }
+  .filter-bar-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* Ohne Chips keine leere zweite Zeile (und kein Abstand dafür). */
+  .active-chips:empty { display: none; }
   .filter-bar-label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
   .active-chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip {
@@ -219,12 +228,15 @@
   </div>
 </div>
 
-<!-- Aktive Filter aus der Liste. Wird nur eingeblendet, wenn die Adresse
-     überhaupt Filter mitbringt (siehe renderFilterBar). -->
-<div class="filter-bar" id="filter-bar" hidden>
-  <span class="filter-bar-label" id="filter-bar-label"></span>
+<!-- Dieselben Filter wie in der Liste: die Knöpfe öffnen dieselben Panels
+     (filter-ui.js), die Chips zeigen, was gesetzt ist. -->
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-bar-row">
+    <span class="filter-bar-label" id="filter-bar-label"></span>
+    <div class="filter-btn-bar" id="filter-buttons"></div>
+    <button type="button" class="reset-btn" id="reset-btn"></button>
+  </div>
   <div class="active-chips" id="active-chips"></div>
-  <button type="button" class="reset-btn" id="reset-btn"></button>
 </div>
 
 <div class="map-wrap">
@@ -247,6 +259,7 @@
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js"></script>
+<script src="filter-ui.js"></script>
 
 <script>
 (async function () {
@@ -255,6 +268,7 @@
   // Funktionen. Ein Marker zeigt damit genau die Events, die in der Liste
   // auch zu sehen wären - vorher zeigte die Karte immer alle.
   const EF = window.EnduranceFilters;
+  const EFU = window.EnduranceFilterUI;
 
   const I18N = {
     de: {
@@ -268,9 +282,8 @@
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
       popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`,
-      filter_label: 'Filter aus der Liste:',
+      filter_label: 'Filter:',
       reset: 'Alle Filter zurücksetzen',
-      geo_current_label: 'Aktueller Standort',
       origin_title: 'Ausgangspunkt'
     },
     en: {
@@ -284,16 +297,16 @@
       load_error: (msg) => `Could not load events.json: ${msg}`,
       popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
       popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`,
-      filter_label: 'Filters from the list:',
+      filter_label: 'Filters:',
       reset: 'Reset all filters',
-      geo_current_label: 'Current location',
       origin_title: 'Starting point'
     }
   };
-  // Die Chip- und Zeitraum-Texte stehen in filters.js - die Karte
-  // beschriftet die Filter also wortgleich wie die Liste.
-  Object.assign(I18N.de, EF.I18N.de);
-  Object.assign(I18N.en, EF.I18N.en);
+  // Chip- und Zeitraum-Texte aus filters.js, die Texte der Filter-Panels
+  // und die Spaltennamen aus filter-ui.js - die Karte beschriftet die
+  // Filter damit wortgleich wie die Liste.
+  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en);
 
   let currentLang = 'de';
   try {
@@ -317,14 +330,14 @@
   const homeLabelEl = document.getElementById('home-btn-label');
   const listLabelEl = document.getElementById('list-btn-label');
   const hintEl = document.getElementById('map-hint');
-  const filterBarEl = document.getElementById('filter-bar');
   const filterBarLabelEl = document.getElementById('filter-bar-label');
+  const filterButtonsEl = document.getElementById('filter-buttons');
   const chipsEl = document.getElementById('active-chips');
   const resetBtnEl = document.getElementById('reset-btn');
 
-  // Der Filterzustand selbst (Land, Sportart, Umkreis …). Die Karte
-  // verändert ihn nur über die Chips und "Alle Filter zurücksetzen" -
-  // ausgewählt wird in der Liste.
+  // Der Filterzustand selbst (Land, Sportart, Umkreis …) - dieselbe
+  // Struktur wie in der Liste, gelesen und geschrieben über dieselbe
+  // Adresse. Gesetzt wird er hier mit denselben Knöpfen und Panels.
   const state = EF.createState();
   // Die reinen Ansichts-Parameter der Liste (Sortierung, Zusammenfassen)
   // versteht die Karte nicht, sie trägt sie aber unverändert weiter:
@@ -334,9 +347,7 @@
   let alleStandorte = new Set();
   let alleTage = [];
 
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  }
+  const escapeHtml = EF.escapeHtml;
 
   // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
   const map = L.map('map').setView([48.5, 10.5], 6);
@@ -348,6 +359,18 @@
   // Ebene - so muss nur diese geleert werden, nicht die Kachel-Ebene.
   const markerLayer = L.layerGroup().addTo(map);
 
+  // Dieselben Filterknöpfe und Panels wie in der Liste (filter-ui.js).
+  // Ein Filter, der hier gesetzt wird, gilt beim Wechsel in die Liste
+  // weiter - beide Seiten schreiben ihn in dieselbe Adresse.
+  const ui = EFU.create({
+    state,
+    getEvents: () => events,
+    t,
+    tv,
+    getLang: () => currentLang,
+    onChange: () => render()
+  });
+
   function setLanguage(lang) {
     currentLang = lang;
     try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
@@ -358,6 +381,9 @@
     listLabelEl.textContent = t('list');
     resetBtnEl.textContent = t('reset');
     filterBarLabelEl.textContent = t('filter_label');
+    // Die Filterknöpfe tragen die Spaltennamen - neu bauen, sonst bleibt
+    // "Stadt/Ort" auf Englisch stehen.
+    ui.buildButtonBar(filterButtonsEl);
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
     // Chips und Popups tragen übersetzte Texte, müssen also mit. Ohne
     // neuen Ausschnitt: ein Sprachwechsel ändert nicht, wohin man schaut.
@@ -399,15 +425,16 @@
 
   // ---------- Filterleiste ----------
 
-  function renderFilterBar() {
+  function renderChips() {
     const chips = EF.buildChips(state, {
       t,
       tv,
       lang: currentLang,
       dayCount: alleTage.length,
-      optionCount: stateKey => new Set(events.map(e => e[stateKey]).filter(v => v)).size
+      // Wie viele Werte ein Mengen-Filter hat, weiß dieselbe Stelle, die
+      // auch die Häkchenliste im Panel füllt.
+      optionCount: stateKey => ui.options(stateKey).length
     });
-    filterBarEl.hidden = chips.length === 0;
     chipsEl.innerHTML = '';
     chips.forEach(c => {
       const chip = document.createElement('span');
@@ -421,8 +448,12 @@
     });
   }
 
+  // "Alle Filter zurücksetzen" - wie in der Liste, samt offenem Panel und
+  // der Eingabe im Ortssuchfeld.
   resetBtnEl.addEventListener('click', () => {
     EF.clearFilters(state);
+    ui.resetTransient();
+    ui.close();
     render();
   });
 
@@ -440,7 +471,12 @@
 
   // opts.refit === false lässt den Kartenausschnitt, wie er ist.
   function render(opts) {
-    renderFilterBar();
+    ui.updateIndicators();
+    renderChips();
+    // Das offene Panel zeigt Häkchen und Regler des Filters - nach einer
+    // Änderung muss es mitkommen (es zeichnet sich nicht neu, solange der
+    // Fokus darin liegt, siehe filter-ui.js).
+    ui.refresh();
     listLabelEl.href = linkTo('events.html');
     writeUrlState();
     renderMarkers(!opts || opts.refit !== false);

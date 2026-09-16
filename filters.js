@@ -179,6 +179,31 @@
   // genau diese großen Bereiche ab und stehen als 'zeitraum' drin.
   const URL_MAX_DAYS = 60;
 
+  // Drei kleine Helfer, die Liste, Karte und Filter-Panels alle drei
+  // brauchen. Die Sprache kommt als Parameter: das Modul kennt den
+  // Umschalter der Seite nicht.
+  function escapeHtml(str) {
+    // null/undefined als leerer Text: an vielen Stellen wird ein Feld
+    // eingesetzt, das fehlen darf - "null" im Markup wäre schlimmer.
+    if (str == null) return '';
+    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function uniqueSorted(values, lang) {
+    return Array.from(new Set(values.filter(v => v !== undefined && v !== null && v !== '')))
+      .sort((a, b) => String(a).localeCompare(String(b), lang === 'en' ? 'en' : 'de'));
+  }
+
+  function formatDate(iso, lang) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    if (lang === 'en') {
+      const date = new Date(Date.UTC(y, m - 1, d));
+      return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+    }
+    return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`;
+  }
+
   function isoOf(d) {
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   }
@@ -535,6 +560,9 @@
     RADIUS_DEFAULT_KM,
     MAX_VALUE_CHIPS,
     URL_MAX_DAYS,
+    escapeHtml,
+    uniqueSorted,
+    formatDate,
     isoOf,
     todayIso,
     createState,
