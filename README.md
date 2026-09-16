@@ -698,6 +698,44 @@ Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
 6. Committen und pushen – der Login funktioniert danach auf allen drei
    Seiten (dasselbe `firebase-config.js`/`auth.js` wird überall geladen).
 
+### Google-Login: Popup, Weiterleitung, In-App-Browser
+
+Der Google-Login versucht zuerst ein **Popup**
+(`signInWithPopup`) – das ist der angenehmere Weg, weil die Seite dabei
+nicht verlassen und kein Filterzustand verworfen wird. Öffnet der
+Browser gar kein Popup, schaltet `signInWithGoogle()` in `auth.js`
+automatisch auf **Weiterleitung** um (`signInWithRedirect`) und zeigt
+kurz „Weiterleitung zu Google …".
+
+Umgeschaltet wird nur bei Fehlercodes, die bedeuten „das Popup ging
+nicht auf": `auth/popup-blocked`,
+`auth/operation-not-supported-in-this-environment`,
+`auth/web-storage-unsupported`, `auth/internal-error`. **Nicht** bei
+`auth/popup-closed-by-user` – wer das Fenster selbst zumacht, will sich
+gerade nicht anmelden; eine Weiterleitung wäre übergriffig. Ein zweiter
+Klick während ein Popup noch läuft (`auth/cancelled-popup-request`) wird
+stillschweigend ignoriert.
+
+Nach der Rückkehr wertet `handleRedirectResult()` das Ergebnis aus. Es
+läuft beim Laden **jeder** Seite und ist ohne vorangegangene
+Weiterleitung ein No-op. Dass überhaupt eine lief, merkt sich
+`sessionStorage` unter `endurance-google-redirect`.
+
+**Die Grenze des Fallbacks**: In eingebetteten Browsern (Instagram,
+Facebook, LinkedIn) blockiert der Speicherschutz – auf iOS Safaris ITP –
+den Datenaustausch mit der `*.firebaseapp.com`-Domain. Die Weiterleitung
+kann dort also trotzdem scheitern, und zwar *stumm*: der Nutzer kommt
+zurück und ist einfach nicht angemeldet. Genau diesen Fall fängt
+`handleRedirectResult()` ab (Weiterleitung lief, aber kein `user`) und
+sagt im Klartext, dass die Seite im normalen Browser geöffnet werden
+muss. Lieber ein ehrlicher Hinweis als ein Button, der scheinbar nichts
+tut.
+
+Vollständig lösen ließe sich das nur, indem `authDomain` in
+`firebase-config.js` auf eine eigene Domain zeigt, die per Reverse-Proxy
+auf Firebase weiterleitet – das setzt eine eigene Domain samt Server
+voraus und ist auf GitHub Pages nicht möglich.
+
 ### „Benachrichtige mich" (0 Treffer in der Liste)
 
 Setzt jemand in `events.html` Filter, für die aktuell **kein** Event

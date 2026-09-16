@@ -193,10 +193,13 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
 - **Apple-Login**: per `SHOW_APPLE_SIGNIN = false` in `auth.js`
   ausgeblendet – kein Apple-Developer-Konto. Zum Reaktivieren siehe
   Kommentar dort.
-- **Popup-Fallback für den Google-Login**: `signInWithPopup` ohne
-  `signInWithRedirect`-Fallback. Auf dem iPad (Safari) getestet und
-  funktioniert, daher nicht dringend; In-App-Browser (Instagram etc.)
-  könnten trotzdem Popups blocken.
+- ~~Popup-Fallback für den Google-Login~~ **erledigt**: `signInWithPopup`
+  schaltet bei blockiertem Popup auf `signInWithRedirect` um,
+  `handleRedirectResult()` wertet die Rückkehr aus. In-App-Browser
+  (Instagram etc.) bleiben ein Sonderfall – dort blockt der
+  Speicherschutz auch die Weiterleitung; der Nutzer bekommt dann im
+  Klartext den Hinweis, die Seite im normalen Browser zu öffnen. Details
+  im README („Google-Login: Popup, Weiterleitung, In-App-Browser").
 - **Anbieter „Anonym" in Firebase aktivieren** (Sicherheit →
   Authentication → Sign-in method → Neuer Anbieter → Native Anbieter),
   sonst schlägt das Melden von Datenfehlern mit

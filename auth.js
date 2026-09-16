@@ -67,7 +67,11 @@
       'auth/invalid-credential': 'E-Mail oder Passwort ist falsch.',
       'auth/user-not-found': 'Kein Konto mit dieser E-Mail gefunden.',
       'auth/popup-closed-by-user': 'Anmeldefenster wurde geschlossen.',
-      'auth/network-request-failed': 'Netzwerkfehler – bitte Verbindung prüfen.'
+      'auth/network-request-failed': 'Netzwerkfehler – bitte Verbindung prüfen.',
+      'auth/account-exists-with-different-credential': 'Für diese E-Mail gibt es schon ein Konto mit einer anderen Anmeldeart. Bitte so anmelden wie beim ersten Mal.',
+      'auth/unauthorized-domain': 'Diese Adresse ist in Firebase nicht als erlaubte Domain eingetragen.',
+      redirecting: 'Weiterleitung zu Google …',
+      inAppBrowserHint: 'Die Anmeldung klappt in diesem eingebetteten Browser (z. B. in Instagram oder Facebook) nicht. Bitte öffne die Seite im normalen Browser – über das Menü „…“ oben rechts, „In Safari/Chrome öffnen“.'
     },
     en: {
       login: 'Sign in',
@@ -106,7 +110,11 @@
       'auth/invalid-credential': 'Email or password is incorrect.',
       'auth/user-not-found': 'No account found for this email.',
       'auth/popup-closed-by-user': 'Sign-in window was closed.',
-      'auth/network-request-failed': 'Network error – please check your connection.'
+      'auth/network-request-failed': 'Network error – please check your connection.',
+      'auth/account-exists-with-different-credential': 'An account with this email already exists using a different sign-in method. Please use the one you signed up with.',
+      'auth/unauthorized-domain': 'This address is not listed as an authorised domain in Firebase.',
+      redirecting: 'Redirecting to Google …',
+      inAppBrowserHint: 'Signing in does not work inside this embedded browser (e.g. Instagram or Facebook). Please open the page in your normal browser – via the “…” menu at the top right, “Open in Safari/Chrome”.'
     }
   };
 
@@ -349,13 +357,82 @@
     el.innerHTML = `<div class="ee-form-msg ${type || 'error'}">${escapeHtml(msg)}</div>`;
   }
 
+  // Merkt sich über den Seitenwechsel hinweg, dass wir gerade per
+  // signInWithRedirect unterwegs sind. Nach der Rueckkehr wertet
+  // handleRedirectResult() das aus: kommt der Nutzer ohne Anmeldung
+  // zurück, lag es fast immer am eingebetteten Browser (siehe unten).
+  const REDIRECT_FLAG = 'endurance-google-redirect';
+
+  function setRedirectFlag(on) {
+    try {
+      if (on) sessionStorage.setItem(REDIRECT_FLAG, '1');
+      else sessionStorage.removeItem(REDIRECT_FLAG);
+    } catch (e) { /* sessionStorage evtl. gesperrt – dann eben ohne */ }
+  }
+
+  function hadRedirect() {
+    try { return sessionStorage.getItem(REDIRECT_FLAG) === '1'; }
+    catch (e) { return false; }
+  }
+
+  // Fehlercodes, bei denen das Popup gar nicht erst aufgehen konnte –
+  // typisch für In-App-Browser (Instagram, Facebook, LinkedIn) und fuer
+  // Browser mit strengem Popup-Blocker. Hier lohnt der zweite Versuch per
+  // Weiterleitung. NICHT dabei: 'auth/popup-closed-by-user' – da hat der
+  // Nutzer bewusst abgebrochen, eine Weiterleitung wäre übergriffig.
+  const POPUP_UNAVAILABLE = [
+    'auth/popup-blocked',
+    'auth/operation-not-supported-in-this-environment',
+    'auth/web-storage-unsupported',
+    'auth/internal-error'
+  ];
+
   function signInWithGoogle() {
     if (!configured) return;
     const provider = new firebase.auth.GoogleAuthProvider();
     setFormMsg(null);
     auth.signInWithPopup(provider)
       .then(() => closeModal())
-      .catch(err => setFormMsg(errorMessage(err), 'error'));
+      .catch(err => {
+        const code = err && err.code;
+        // Zwei Klicks kurz hintereinander: Firebase bricht den ersten
+        // Aufruf ab, das zweite Popup läuft noch. Nichts anzeigen.
+        if (code === 'auth/cancelled-popup-request') return;
+        if (POPUP_UNAVAILABLE.indexOf(code) !== -1) {
+          setFormMsg(t('redirecting'), 'success');
+          setRedirectFlag(true);
+          auth.signInWithRedirect(provider).catch(err2 => {
+            setRedirectFlag(false);
+            setFormMsg(errorMessage(err2), 'error');
+          });
+          return;
+        }
+        setFormMsg(errorMessage(err), 'error');
+      });
+  }
+
+  // Wertet die Rückkehr von signInWithRedirect aus. Läuft einmal beim
+  // Laden jeder Seite; ohne vorangegangene Weiterleitung ist das ein
+  // No-op (result.user === null, kein Flag gesetzt).
+  function handleRedirectResult() {
+    if (!auth) return;
+    auth.getRedirectResult()
+      .then(result => {
+        if (result && result.user) { setRedirectFlag(false); return; }
+        if (!hadRedirect()) return;
+        // Weiterleitung gestartet, aber ohne Anmeldung zurück: In
+        // eingebetteten Browsern blockt der Speicherschutz (Safari ITP)
+        // den Austausch mit der Firebase-Domain. Ehrlich sagen, statt
+        // stumm zu scheitern.
+        setRedirectFlag(false);
+        openModal('login');
+        setFormMsg(t('inAppBrowserHint'), 'error');
+      })
+      .catch(err => {
+        setRedirectFlag(false);
+        openModal('login');
+        setFormMsg(errorMessage(err), 'error');
+      });
   }
 
   function openModal(mode) {
@@ -400,6 +477,7 @@
       renderAuthButton(user);
       notifyAuthChange(user);
     });
+    handleRedirectResult();
   } else {
     // Kein Firebase konfiguriert: Button trotzdem anzeigen, öffnet das
     // Modal mit dem "noch nicht eingerichtet"-Hinweis statt nichts zu tun.
