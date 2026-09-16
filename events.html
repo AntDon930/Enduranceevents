@@ -752,8 +752,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=37768189"></script>
-<script src="filter-ui.js?v=6bd3e95b"></script>
+<script src="filters.js?v=12187957"></script>
+<script src="filter-ui.js?v=158d0aeb"></script>
 
 <script>
 (async function () {
@@ -1654,6 +1654,11 @@
     renderDetail();
     writeUrlState();
     updateMapLink();
+    // Zum Schluss, nicht früher: Die Spaltenbreiten stehen erst jetzt fest
+    // (die Klasse `with-distance` schaltet sie um, wenn ein Ausgangspunkt
+    // dazukommt). Ein offenes Filter-Panel hinge sonst an der alten
+    // Position seines Knopfes.
+    ui.reposition();
   }
 
   // Ein Listener für die ganze Tabelle. Der Klick auf eine Unterzeile

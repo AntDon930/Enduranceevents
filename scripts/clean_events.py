@@ -140,10 +140,40 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
     return kept, excluded, changed
 
 
+# Alte Kategorien, die heute eine einzige sind. "Trail" und "Cross"
+# beschreiben beide einen Geländelauf; die Quellen benennen dieselbe
+# Strecke mal so, mal so, und wer sie trennen will, rät. Auf Wunsch des
+# Nutzers zusammengefasst zu "Trail/Cross".
+ART2_MERGED_LAUFEN = {"Trail": "Trail/Cross", "Cross": "Trail/Cross"}
+
+
+def merge_trail_cross(events: list[dict]) -> list[str]:
+    """Zieht bereits gespeicherte "Trail"- und "Cross"-Einträge auf die
+    gemeinsame Kategorie "Trail/Cross" nach.
+
+    Die Stichwortliste (`ART2_KEYWORDS_LAUFEN`) liefert den neuen Wert
+    schon bei jedem Scraper-Lauf; dieser Schritt holt den Bestand nach.
+    Idempotent: Ein zweiter Durchlauf findet nichts mehr, weil
+    "Trail/Cross" in der Zuordnung nicht mehr vorkommt.
+
+    Nur für `art1 == "Laufen"` - beim Fahrrad ist "Cyclecross" eine eigene
+    Kategorie und bleibt unangetastet.
+    """
+    changed: list[str] = []
+    for event in events:
+        if event.get("art1") != "Laufen":
+            continue
+        neu = ART2_MERGED_LAUFEN.get(event.get("art2"))
+        if neu:
+            changed.append(f"{event.get('name')}: art2 {event['art2']!r} -> {neu!r}")
+            event["art2"] = neu
+    return changed
+
+
 def refresh_art2(events: list[dict]) -> list[str]:
     """Bestimmt art2 aus dem Event-Namen neu, wenn dabei eine spezifischere
-    Kategorie als die gespeicherte herauskommt (Trail/Berg/Cross/Hindernis/
-    Bahn statt des generischen "Straße")."""
+    Kategorie als die gespeicherte herauskommt (Trail/Cross, Berg,
+    Hindernis, Bahn statt des generischen "Straße")."""
     overrides = load_manual_overrides()
     changed: list[str] = []
     for event in events:
@@ -910,6 +940,7 @@ def main() -> None:
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
     events, excluded, override_changes = apply_overrides(events)
+    art2_merges = merge_trail_cross(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
     rounding_fixes = round_distances(events)
@@ -955,6 +986,7 @@ def main() -> None:
 
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Per Override ausgeschlossen", excluded)
+    section("Kategorie Trail/Cross zusammengefasst", art2_merges)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)

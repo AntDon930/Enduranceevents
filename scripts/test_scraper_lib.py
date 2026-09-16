@@ -102,12 +102,46 @@ def test_kategorie() -> None:
     # Echter, vom Nutzer gemeldeter Bug: Das Wort "Marathon" im Namen führte
     # zu "Straße", obwohl "Bergtrail"/"Trail-Marathon" einen Trail beschreibt.
     check("Bergtrail Trail-Marathon",
-          guess_art2("5. Beck HochRhön Bergtrail 42k Trail-Marathon", CONFIG), "Trail")
+          guess_art2("5. Beck HochRhön Bergtrail 42k Trail-Marathon", CONFIG), "Trail/Cross")
     check("Höhenmeter -> Berg",
           guess_art2("Panoramalauf (989 Höhenmeter)", CONFIG), "Berg")
-    check("Crosslauf", guess_art2("29. Mausebergecrosslauf", CONFIG), "Cross")
+    # Trail und Cross sind eine Kategorie ("Trail/Cross"): Geländelauf,
+    # von den Quellen mal so, mal so benannt.
+    check("Crosslauf", guess_art2("29. Mausebergecrosslauf", CONFIG), "Trail/Cross")
+    # Die POSITION der beiden Stichwörter bleibt trotzdem verschieden:
+    # "trail" steht VOR der Berg-Regel, "cross" DAHINTER. Ein alpiner
+    # Crosslauf ist damit weiterhin ein Berglauf, ein Bergtrail (oben)
+    # dagegen Trail/Cross.
+    check("Alpiner Crosslauf bleibt Berg",
+          guess_art2("Alpiner Crosslauf Oberstdorf", CONFIG), "Berg")
     check("Stadtlauf -> Straße", guess_art2("40. Wolfenbütteler Stadtlauf", CONFIG), "Straße")
     check("Hindernislauf", guess_art2("Spartan Race Hindernislauf", CONFIG), "Hindernis")
+
+    # Bestehende Daten werden auf die zusammengefasste Kategorie
+    # nachgezogen - und zwar nur beim Laufen: "Cyclecross" ist beim
+    # Fahrrad eine eigene Kategorie und bleibt.
+    from clean_events import merge_trail_cross  # lokaler Import, nur hier
+    rows = [
+        {"name": "Waldtrail", "art1": "Laufen", "art2": "Trail"},
+        {"name": "Mausebergecrosslauf", "art1": "Laufen", "art2": "Cross"},
+        {"name": "Stadtlauf", "art1": "Laufen", "art2": "Straße"},
+        {"name": "Querfeldein-Rennen", "art1": "Fahrrad", "art2": "Cyclecross"},
+    ]
+    check("zwei Einträge zusammengefasst", len(merge_trail_cross(rows)), 2)
+    check("neue Kategorie steht", [r["art2"] for r in rows],
+          ["Trail/Cross", "Trail/Cross", "Straße", "Cyclecross"])
+    check("idempotent", len(merge_trail_cross(rows)), 0)
+
+    # Die Kategorie-Liste der Filter (filter-ui.js) muss dieselben Werte
+    # anbieten, die die Stichwortliste erzeugt - sonst filtert die Seite
+    # einen Wert heraus, den es gibt (genau das wäre beim Umbenennen
+    # passiert, wenn man nur eine der beiden Dateien anfasst).
+    ui_js = (Path(__file__).resolve().parent.parent / "filter-ui.js").read_text(encoding="utf-8")
+    zeile = next(l for l in ui_js.splitlines() if "'Laufen': [" in l)
+    from scraper_lib import ART2_KEYWORDS_LAUFEN, DEFAULT_ART2_LAUFEN
+    erzeugbar = {kat for _, kat in ART2_KEYWORDS_LAUFEN} | {DEFAULT_ART2_LAUFEN}
+    fehlend = sorted(k for k in erzeugbar if f"'{k}'" not in zeile)
+    check("Filter kennt alle Laufen-Kategorien", fehlend, [])
 
 
 def test_land() -> None:
@@ -174,7 +208,7 @@ def test_wettbewerbe() -> None:
     hinted = parse_competitions([("TST 42K | 42 km", "Trailrun")], CONFIG)
     check("art2 aus Streckenart",
           [v.art2 for v in expand_competitions(Event(name="Trophy"), hinted, CONFIG)],
-          ["Trail"])
+          ["Trail/Cross"])
 
     # Ohne erkannte Wettbewerbe darf nichts verloren gehen.
     check("keine Wettbewerbe -> Basis-Event",
@@ -199,8 +233,9 @@ def test_hoehenprofil() -> None:
     check("100 hm / 42,2 km bleibt Straße",
           art2_from_elevation("Stadtmarathon, 100 hm", 42.2, "Straße"), "Straße")
     # Eine spezifischere Kategorie aus dem Namen wird nie überschrieben.
-    check("Trail bleibt Trail",
-          art2_from_elevation("BraunenBerg-Trail: 32 km, ca. 1100 Hm", 32.0, "Trail"), "Trail")
+    check("Trail/Cross bleibt Trail/Cross",
+          art2_from_elevation("BraunenBerg-Trail: 32 km, ca. 1100 Hm", 32.0, "Trail/Cross"),
+          "Trail/Cross")
     check("ohne Distanz keine Aussage",
           art2_from_elevation("ca. 400 Hm", None, "Straße"), "Straße")
 
@@ -421,7 +456,7 @@ def test_zeitrennen() -> None:
     # mitträgt. Deshalb steht das backyard-Stichwort NACH der Trail-Regel -
     # umgekehrt zu "backcountry", das die Trail-Regel schlägt.
     check("Backyard Ultra Trail ist ein Trail",
-          guess_art2("Backyard Ultra Trail Harz", CONFIG), "Trail")
+          guess_art2("Backyard Ultra Trail Harz", CONFIG), "Trail/Cross")
 
 
 def test_vergangene_events() -> None:
@@ -489,7 +524,7 @@ def test_kalenderdateien() -> None:
          "laenge_km": None, "wettbewerb": None, "veranstalter_url": None},
         {"name": "Königsforst-Marathon", "datum_start": "2027-03-14",
          "standort": "Bergisch Gladbach", "land": "Deutschland", "art1": "Laufen",
-         "art2": "Trail", "laenge_km": 42.2, "wettbewerb": "Marathon 42.2 km",
+         "art2": "Trail/Cross", "laenge_km": 42.2, "wettbewerb": "Marathon 42.2 km",
          "veranstalter_url": "https://example.org/lauf"},
         {"name": "24h Mad Chicken Run", "datum_start": "2026-09-19",
          "datum_ende": "2026-09-20", "standort": "Kolkwitz", "land": "Deutschland",

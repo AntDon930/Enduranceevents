@@ -179,7 +179,8 @@ LAND_KEYWORDS = {
 }
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur im Projekt
-# verwendeten Taxonomie für Laufen: Straße, Trail, Bahn, Berg, Cross, Hindernis.
+# verwendeten Taxonomie für Laufen: Straße, Trail/Cross, Bahn, Berg, Hindernis
+# ("Trail" und "Cross" sind eine Kategorie, siehe scraper_lib.py).
 # Reihenfolge ist bewusst NICHT alphabetisch, sondern von spezifisch nach
 # generisch: "Straße" (inkl. Marathon/Stadtlauf) steht bewusst ZULETZT,
 # siehe ausführlichen Kommentar zu ART2_KEYWORDS_LAUFEN in scraper_lib.py
@@ -187,9 +188,9 @@ LAND_KEYWORDS = {
 # bewusst nicht nutzt).
 ART2_KEYWORDS = [
     (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
-    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
+    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail/Cross"),
     (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Berg"),
-    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Cross"),
+    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Trail/Cross"),
     (re.compile(r"bahn(meeting)?|leichtathletik.?meeting", re.I), "Bahn"),
     (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
 ]

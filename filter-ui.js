@@ -131,7 +131,7 @@
   };
   // Zuordnung Sportart -> erlaubte Kategorie-Werte.
   const ART2_BY_ART1 = {
-    'Laufen': ['Straße', 'Trail', 'Bahn', 'Berg', 'Cross', 'Hindernis', 'Backcountry Ultra'],
+    'Laufen': ['Straße', 'Trail/Cross', 'Bahn', 'Berg', 'Hindernis', 'Backcountry Ultra'],
     'Schwimmen': ['Freiwasser', 'Becken'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
   };
@@ -281,6 +281,9 @@
     // Tabelle geschobene Spaltenköpfe liegen zwar noch im Fenster, sind
     // aber vom Container abgeschnitten.
     function isTriggerVisible(triggerEl) {
+      // Ein aus dem Dokument gelöster Knopf (Tabellenkopf neu gebaut, siehe
+      // attachButton) hat gar keine Position mehr.
+      if (!triggerEl.isConnected) return false;
       const rect = triggerEl.getBoundingClientRect();
       const schneidet = (box) => rect.bottom > box.top && rect.top < box.bottom
         && rect.right > box.left && rect.left < box.right;
@@ -290,6 +293,12 @@
     }
 
     function positionFloatingPanel(triggerEl) {
+      // Hängt der Knopf nicht mehr im Dokument, liefert
+      // getBoundingClientRect() lauter Nullen - das Panel spränge in die
+      // linke obere Ecke (genau der vom Nutzer gemeldete Fehler). Dann
+      // lieber stehen lassen, wo es ist; den neuen Knopf derselben Spalte
+      // übernimmt attachButton().
+      if (!triggerEl.isConnected) return;
       const rect = triggerEl.getBoundingClientRect();
       const panelWidth = floatingPanel.offsetWidth || 260;
       const panelHeight = floatingPanel.offsetHeight || 200;
@@ -929,6 +938,18 @@
       maxInput.addEventListener('input', () => { state.laengeMax = maxInput.value; onChange(); });
     }
 
+    // Das offene Panel neu an seinem Knopf ausrichten, ohne seinen Inhalt
+    // anzufassen. Nötig, weil die Liste ihre Spaltenbreiten erst beim
+    // Zeichnen der Tabelle festlegt: Ein Ausgangspunkt schaltet die
+    // Entfernungs-Spalte zu, danach steht der Stadt/Ort-Knopf woanders als
+    // beim buildHeader() kurz davor. Die Liste ruft das am Ende von
+    // render() auf. Anders als beim Scrollen wird hier NICHT geschlossen -
+    // ein Neuzeichnen soll kein offenes Panel wegnehmen.
+    function reposition() {
+      if (openColKey === null || !openTriggerEl) return;
+      if (isTriggerVisible(openTriggerEl)) positionFloatingPanel(openTriggerEl);
+    }
+
     function refresh() {
       if (openColKey === null) return;
       if (floatingPanel.contains(document.activeElement)) return;
@@ -955,6 +976,21 @@
     // hängen.
     function attachButton(btn, col) {
       btn.dataset.col = col.key;
+      // Der Tabellenkopf wird neu gebaut, WÄHREND ein Panel offen ist: Ein
+      // Ausgangspunkt im Stadt/Ort-Filter schaltet die Entfernungs-Spalte
+      // zu, also ruft setOrigin() buildHeader() - und ersetzt dabei jeden
+      // Spaltenknopf durch einen neuen. Der alte Knopf, an dem das Panel
+      // hing, war danach aus dem Dokument gelöst; sein
+      // getBoundingClientRect() lieferte Nullen und das Panel klebte in
+      // der linken oberen Ecke, weit weg von seiner Spalte (vom Nutzer
+      // gemeldet). Der neue Knopf derselben Spalte übernimmt deshalb die
+      // Ankerrolle.
+      //
+      // Positioniert wird hier noch nicht: Der Knopf hängt in diesem
+      // Moment meist noch nicht im Dokument (der Aufrufer fügt ihn erst
+      // danach ein), hätte also selbst keine Position. Das erledigt der
+      // refresh() des folgenden render() bzw. das nächste Scrollen.
+      if (openColKey === col.key) openTriggerEl = btn;
       btn.addEventListener('click', (ev) => {
         ev.stopPropagation();
         if (openColKey === col.key) closePanel();
@@ -1030,6 +1066,7 @@
       open: openPanel,
       close: closePanel,
       refresh,
+      reposition,
       updateIndicators,
       columnHasFilter,
       options: columnOptions,

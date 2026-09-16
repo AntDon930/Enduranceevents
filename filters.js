@@ -77,6 +77,11 @@
     },
     art2: {
       'Straße': { de: 'Straße', en: 'Road' },
+      // Trail und Cross sind EIN Wert: beides Geländelauf, die Quellen
+      // benennen dieselbe Strecke mal so, mal so (Wunsch des Nutzers).
+      // Die beiden alten Werte bleiben übersetzbar - ein geteilter Link
+      // von früher (?art2=Trail) soll keinen rohen Schlüssel anzeigen.
+      'Trail/Cross': { de: 'Trail/Cross', en: 'Trail/Cross' },
       'Trail': { de: 'Trail', en: 'Trail' },
       'Bahn': { de: 'Bahn', en: 'Track' },
       'Berg': { de: 'Berg', en: 'Mountain' },

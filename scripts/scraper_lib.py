@@ -162,7 +162,16 @@ ENGLISH_MONTHS = {
 }
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur Projekt-Taxonomie für
-# Laufen: Straße, Trail, Bahn, Berg, Cross, Hindernis.
+# Laufen: Straße, Trail/Cross, Bahn, Berg, Hindernis.
+#
+# "Trail" und "Cross" sind bewusst EINE Kategorie ("Trail/Cross"): Beides
+# sind Geländeläufe, die Quellen benennen dieselbe Strecke mal so, mal so,
+# und eine verlässliche Trennung gibt es nicht (ausdrückliche Vorgabe des
+# Nutzers). Die beiden Stichwort-Zeilen bleiben trotzdem getrennt und an
+# ihrer Stelle stehen - ihre POSITION ist bedeutungstragend: "trail" steht
+# vor "Berg", "cross" dahinter. Ein "Bergcrosslauf" ist damit weiterhin ein
+# Berglauf, ein "Bergtrail" ein Trail/Cross. Nicht zu einer Zeile
+# zusammenziehen.
 # Reihenfolge ist bewusst NICHT alphabetisch, sondern von spezifisch nach
 # generisch: "Straße" (inkl. Marathon/Stadtlauf) steht bewusst ZULETZT.
 # Ein Name wie "5. Beck HochRhön Bergtrail 42k Trail-Marathon" enthält das
@@ -177,7 +186,7 @@ ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     # ein Backyard Ultra (Rundenformat nach Big's Backyard) ist ein anderes
     # Format und wird nicht automatisch hierher einsortiert.
     (re.compile(r"backcountry", re.I), "Backcountry Ultra"),
-    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
+    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail/Cross"),
     # "backyard" steht NACH "Trail" - und das ist der ganze Trick: Ein
     # reiner "Backyard Ultra" (Last-Man-Standing: gleiche Runde zur
     # gleichen Stunde, bis nur noch eine Person weiterläuft) landet hier
@@ -190,7 +199,7 @@ ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     # "Höhenmeter" im Text ist ein starkes Indiz für einen Berg-/Gelände-
     # lauf statt eines flachen Straßenlaufs, unabhängig vom Namen.
     (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Berg"),
-    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Cross"),
+    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Trail/Cross"),
     (re.compile(r"bahn(meeting)?|leichtathletik.?meeting", re.I), "Bahn"),
     (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
 ]

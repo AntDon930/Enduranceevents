@@ -87,6 +87,19 @@ laden Leaflet und Firebase.
    `ART2_KEYWORDS_LAUFEN` bewusst ZULETZT, sonst wird ein „Bergtrail
    Trail-Marathon" zum Straßenlauf. Zusätzlich: ab 20 Höhenmetern pro km gilt
    eine Strecke als Berglauf (`art2_from_elevation()`).
+
+   **„Trail" und „Cross" sind EINE Kategorie: „Trail/Cross".** Beides ist
+   Geländelauf, die Quellen benennen dieselbe Strecke mal so, mal so, und
+   eine verlässliche Trennung gibt es nicht (so vom Nutzer entschieden).
+   Die beiden Stichwort-Zeilen bleiben trotzdem **getrennt und an ihrer
+   Stelle** – ihre Position ist bedeutungstragend: „trail" steht VOR der
+   Berg-Regel, „cross" DAHINTER. Ein „Bergtrail" ist damit Trail/Cross,
+   ein „Alpiner Crosslauf" bleibt Berglauf. Nicht zu einer Zeile
+   zusammenziehen. Bestehende Daten zieht
+   `clean_events.merge_trail_cross()` nach (idempotent); die Filterliste
+   steht in `filter-ui.js` (`ART2_BY_ART1`), die Übersetzung in
+   `filters.js` – `test_scraper_lib.py` prüft, dass beide dieselben Werte
+   kennen.
 7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
    Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
    Distanzen bleibt absichtlich getrennt.
@@ -183,6 +196,18 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   waagerechten Wischen kommt erst nach dem Klick an), und die
   Android-Tastatur (`resize`) hätte jedes Suchfeld sofort wieder
   geschlossen. Nicht zurückdrehen.
+
+- **Der Panel-Anker überlebt `buildHeader()`.** Ein Ausgangspunkt
+  schaltet die Entfernungs-Spalte zu, `setOrigin()` baut dafür den
+  Tabellenkopf neu – der Knopf, an dem das offene Panel hängt, wird durch
+  einen neuen ersetzt. Der alte liefert dann `getBoundingClientRect()`
+  = lauter Nullen, und das Panel sprang in die linke obere Ecke (vom
+  Nutzer gemeldet). Deshalb in `filter-ui.js`: `attachButton()` übergibt
+  dem neuen Knopf derselben Spalte die Ankerrolle, `isTriggerVisible()`
+  und `positionFloatingPanel()` prüfen `isConnected`, und `reposition()`
+  richtet am **Ende** von `render()` neu aus – das `refresh()` am Anfang
+  ist zu früh, die Spaltenbreiten (`table.with-distance`) stehen dort
+  noch nicht.
 
 - **Stadt/Ort ist eine Umkreissuche, keine Ortsliste mehr.** Reihenfolge
   im Panel: Standort-Button → Regler 1–200 km → Suchfeld für Ort/PLZ

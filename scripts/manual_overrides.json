@@ -67,14 +67,14 @@
   },
   "Kapuziner-Kessellauf|2026-09-19": {
     "laenge_km": 14.3,
-    "art2": "Trail",
+    "art2": "Trail/Cross",
     "veranstalter_url": "https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.html",
     "_note": "Hauptlauf 14,3 km mit ca. 300 Hm, überwiegend auf Wald- und Forstwegen (daher Trail statt Straße); weitere Strecken 6 km Hobbylauf/Nordic-Walking sowie Schüler-/Bambiniläufe."
   },
   "13. Fichtelgebirgstrailrun|2026-09-19": {
     "laenge_km": 21.0,
     "veranstalter_url": "https://www.fnwm.de/trail-running/",
-    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail)."
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross)."
   },
   "45. Hörnle Berglauf Bad Kohlgrub|2026-09-19": {
     "laenge_km": 7.0,
@@ -95,7 +95,7 @@
   },
   "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
     "laenge_km": 22.0,
-    "art2": "Trail",
+    "art2": "Trail/Cross",
     "veranstalter_url": "https://laurentiuslauf.de/",
     "_note": "Offizielle Seite bewirbt die Strecke ausdrücklich als Trails durch Augsburgs westliche Wälder. Distanzangaben zwischen Quellen leicht widersprüchlich (5/10/22 km je nach Jahr) - 22 km als längste konsistent genannte Distanz übernommen."
   },
@@ -129,7 +129,7 @@
   "Crosslauf Winhöring|2026-09-26": {
     "laenge_km": 7.5,
     "veranstalter_url": "https://tsvwinhoering.de/leichtathletik/",
-    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Cross)."
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross)."
   },
   "3. Aindlinger Kleeblattmarsch|2026-09-26": {
     "_note": "BEWUSST KEINE laenge_km: 24-Stunden-Format mit bis zu vier Runden à 25 km (25/50/75/100 km je nach Teilnehmer), ohne Streckenmarkierung/Straßensperrung - eine einzelne feste Distanz gibt es nicht. Liegt in jedem Fall deutlich über 5 km, bleibt ohne Distanz in der Liste."
@@ -144,7 +144,7 @@
   },
   "König Ludwig Lauf - Sommeredition|2026-09-26": {
     "laenge_km": 21.0,
-    "art2": "Trail",
+    "art2": "Trail/Cross",
     "veranstalter_url": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf",
     "_note": "U. a. auf trailrunning.de gelistet; Panorama-Strecke durch die Ammergauer Alpen."
   },
@@ -170,7 +170,7 @@
   },
   "30. Ruhstorfer Geländelauf|2026-09-27": {
     "laenge_km": 7.5,
-    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail, via 'Geländelauf')."
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross, via 'Geländelauf')."
   },
   "1. Bernauer Kurpark-Kinder-Crosslauf|2026-09-27": {
     "laenge_km": 1.5,
