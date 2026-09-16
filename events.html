@@ -66,10 +66,63 @@
   }
   .top-actions {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    /* Darf schrumpfen und umbrechen: auf 390 px ragte die Knopfreihe
+       vorher 10 px über den blauen Kasten hinaus, DE/EN war angeschnitten. */
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 2px;
+  }
+  .top-actions-row {
+    display: flex;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
-    margin-top: 2px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.92);
+    font-family: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .share-btn:hover { background: rgba(255,255,255,0.24); color: #fff; }
+  .share-btn svg { flex-shrink: 0; }
+
+  /* Kurz aufpoppende Rückmeldung, mittig unten. pointer-events: none,
+     damit sie nie einen Klick abfängt. */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translate(-50%, 12px);
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 3000;
+    pointer-events: none;
+  }
+  .toast.visible { opacity: 1; transform: translate(-50%, 0); }
+  .toast[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .toast { transition: none; }
   }
   .home-btn {
     display: inline-flex;
@@ -160,35 +213,60 @@
     cursor: pointer;
     white-space: nowrap;
   }
-  .link-btn {
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    font-family: inherit;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .link-btn:hover { background: var(--row-hover); color: var(--text); }
-
   /* Zusammengefasste Zeile: der Name trägt einen Aufklapp-Pfeil, die
      Längen stehen als kleine Marken nebeneinander. */
   .group-row { cursor: pointer; font-weight: 600; }
-  .group-caret { display: inline-block; width: 12px; color: var(--text-muted); }
+  .group-row:hover { background: var(--row-hover); }
+  .group-name { display: flex; align-items: center; gap: 8px; }
+  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Rundes Feld mit Pfeil, dreht sich beim Aufklappen um 90°. */
+  .chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
+  }
+  .group-row:hover .chevron { color: var(--accent); border-color: var(--accent); }
+  .chevron.open { transform: rotate(90deg); color: var(--accent); border-color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    .chevron { transition: none; }
+  }
+  /* Anzahl der zusammengefassten Strecken. Auch die 1 wird angezeigt -
+     sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus. */
+  .count-pill {
+    display: inline-block;
+    min-width: 22px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: var(--row-alt);
+    border: 1px solid var(--border);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .group-row:hover .count-pill { color: var(--text); }
   .badges { display: flex; flex-wrap: wrap; gap: 4px; }
   .badge {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 999px;
-    padding: 1px 7px;
-    font-size: 0.74rem;
+    padding: 1px 5px;
+    font-size: 0.7rem;
     font-weight: normal;
     white-space: nowrap;
   }
-  tbody tr.sub-row td:first-child { padding-left: 26px; }
+  .badges { row-gap: 3px; }
   tbody tr.sub-row { font-size: 0.82rem; }
+  tbody tr.sub-row .col-name { padding-left: 26px; }
+  tbody tr.sub-row .col-anzahl { color: var(--text-muted); }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
     padding: 8px 16px;
@@ -298,26 +376,21 @@
      Geschlossen) wurde entfernt: der Anmeldeschluss lässt sich bei den
      meisten Quellen nicht zuverlässig auslesen und fehlt daher fast
      überall - keine gute Datenbasis für einen Filter/eine Spalte. */
-  th:nth-child(1), td:nth-child(1) { width: 22%; }
-  th:nth-child(2), td:nth-child(2) { width: 13%; }
-  th:nth-child(3), td:nth-child(3) { width: 12%; }
-  th:nth-child(4), td:nth-child(4) { width: 15%; }
-  th:nth-child(5), td:nth-child(5) { width: 12%; }
-  th:nth-child(6), td:nth-child(6) { width: 17%; }
-  th:nth-child(7), td:nth-child(7) { width: 9%; }
-  /* Mit Ausgangspunkt kommt hinter Stadt/Ort die Entfernungs-Spalte dazu
-     (siehe activeColumns()). table-layout ist fix, die Breiten müssen für
-     die achte Spalte also eigens stehen - Land und Kategorie geben dafür
-     etwas ab. */
+  /* Spaltenbreiten über KLASSEN, nicht über nth-child: die Spalten
+     wechseln je nach Zustand (Entfernung nur mit Ausgangspunkt, Anzahl
+     nur beim Zusammenfassen), und mit nth-child bräuchte jede Kombination
+     ihren eigenen Satz Regeln. Die Summe muss nicht genau 100 % sein -
+     table-layout: fixed verteilt proportional. */
+  .col-anzahl { width: 8%; text-align: center; }
+  .col-name { width: 22%; }
+  .col-datum { width: 13%; }
+  .col-land { width: 11%; }
+  .col-standort { width: 14%; }
+  .col-entfernung { width: 11%; }
+  .col-art1 { width: 11%; }
+  .col-art2 { width: 13%; }
+  .col-laenge_km { width: 11%; }
   table.with-distance { min-width: 900px; }
-  table.with-distance th:nth-child(1), table.with-distance td:nth-child(1) { width: 20%; }
-  table.with-distance th:nth-child(2), table.with-distance td:nth-child(2) { width: 12%; }
-  table.with-distance th:nth-child(3), table.with-distance td:nth-child(3) { width: 10%; }
-  table.with-distance th:nth-child(4), table.with-distance td:nth-child(4) { width: 14%; }
-  table.with-distance th:nth-child(5), table.with-distance td:nth-child(5) { width: 11%; }
-  table.with-distance th:nth-child(6), table.with-distance td:nth-child(6) { width: 11%; }
-  table.with-distance th:nth-child(7), table.with-distance td:nth-child(7) { width: 14%; }
-  table.with-distance th:nth-child(8), table.with-distance td:nth-child(8) { width: 8%; }
   thead th {
     position: sticky;
     top: 0;
@@ -773,15 +846,33 @@
     <p class="subtitle" id="subtitle"></p>
   </div>
   <div class="top-actions">
-    <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
-    <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
-    <div id="auth-mount"></div>
-    <div class="lang-switch" id="lang-switch">
-      <button type="button" class="lang-btn" data-lang="de">DE</button>
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <div class="top-actions-row">
+      <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
+      <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
+      <div id="auth-mount"></div>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
+    <!-- Teilen-Knopf unter DE/EN: Er gehört zur Seite als Ganzem (die
+         aktuelle Suche), nicht zur Tabelle - in der Werkzeugleiste stand
+         er zwischen Filter-Chips und Zurücksetzen und ging dort unter. -->
+    <button type="button" class="share-btn" id="share-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+        <path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>
+      </svg>
+      <span id="share-btn-label"></span>
+    </button>
   </div>
 </div>
+
+<!-- Kurze Rückmeldung nach dem Kopieren. Bewusst ein eigenes, kleines
+     Fenster statt einer Textänderung am Knopf: man sieht es auch, wenn
+     der Blick gerade auf der Liste liegt. -->
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <div class="toolbar">
   <div class="toolbar-main">
@@ -789,7 +880,6 @@
     <div class="active-chips" id="active-chips"></div>
     <div class="toolbar-actions">
       <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
-      <button class="link-btn" id="copy-link-btn"></button>
       <button class="reset-btn" id="reset-btn"></button>
     </div>
   </div>
@@ -847,12 +937,13 @@
       col_datum: 'Datum', col_name: 'Name', col_sportart: 'Sportart', col_standort: 'Stadt/Ort',
       col_land: 'Land', col_kategorie: 'Kategorie', col_laenge: 'Länge',
       col_entfernung: 'Entfernung',
+      col_anzahl: 'Anzahl',
       sort_hint: 'Klicken zum Sortieren',
       group_toggle: 'Veranstaltungen zusammenfassen',
       result_count_grouped: (g, n, total) => `${g} Veranstaltungen (${n} Strecken) von ${total} Events`,
-      copy_link: 'Link kopieren',
-      copy_link_done: '✓ Link kopiert',
-      copy_link_fail: 'Kopieren nicht möglich – Adresszeile verwenden',
+      share_search: 'Suche mit Freunden teilen',
+      share_done: '✓ Link kopiert!',
+      share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
       select_all: 'Alle', select_none: 'Keine',
       name_search_placeholder: 'Name suchen…',
       range_von_km: 'Von (km)', range_bis_km: 'Bis (km)',
@@ -956,12 +1047,13 @@
       col_datum: 'Date', col_name: 'Name', col_sportart: 'Sport', col_standort: 'City',
       col_land: 'Country', col_kategorie: 'Category', col_laenge: 'Length',
       col_entfernung: 'Distance',
+      col_anzahl: 'Count',
       sort_hint: 'Click to sort',
       group_toggle: 'Group by event',
       result_count_grouped: (g, n, total) => `${g} events (${n} races) of ${total}`,
-      copy_link: 'Copy link',
-      copy_link_done: '✓ Link copied',
-      copy_link_fail: 'Could not copy – use the address bar',
+      share_search: 'Share this search',
+      share_done: '✓ Link copied!',
+      share_fail: 'Could not copy – please use the address bar',
       select_all: 'All', select_none: 'None',
       name_search_placeholder: 'Search name…',
       range_von_km: 'From (km)', range_bis_km: 'To (km)',
@@ -1294,10 +1386,16 @@
   // Stadt/Ort, weil sie dieselbe Frage beantwortet ("wie weit weg?").
   const DISTANCE_COLUMN = { key: 'entfernung', labelKey: 'col_entfernung', type: 'none' };
 
+  // Beim Zusammenfassen steht ganz vorn, aus wie vielen Zeilen eine
+  // Veranstaltung besteht - eine einzelne Strecke zeigt "1". Die Spalte
+  // ist nicht sortierbar (SORT_KEYS kennt sie nicht): sortiert werden
+  // einzelne Strecken, die Gruppen entstehen erst danach.
+  const COUNT_COLUMN = { key: 'anzahl', labelKey: 'col_anzahl', type: 'none' };
+
   function activeColumns() {
-    if (!state.origin) return COLUMNS;
     const cols = COLUMNS.slice();
-    cols.splice(4, 0, DISTANCE_COLUMN);
+    if (state.origin) cols.splice(4, 0, DISTANCE_COLUMN);
+    if (state.gruppiert) cols.unshift(COUNT_COLUMN);
     return cols;
   }
 
@@ -1323,6 +1421,15 @@
   // zusammengefasst wird (siehe pushSetChips in renderChips). Fünf Chips
   // sind noch lesbar, fünfzig nicht mehr.
   const MAX_VALUE_CHIPS = 5;
+
+  // Aufklapp-Zeichen der zusammengefassten Zeilen: ein Pfeil in einem
+  // runden Feld, der sich beim Öffnen dreht. Das frühere "▸" war ein
+  // Schriftzeichen - in jeder Schrift anders groß, nicht mittig und ohne
+  // Bewegung. Steht hier oben, weil der erste render() (siehe
+  // urlZustandGelesen) es bei aktiver Gruppierung sofort braucht.
+  const CHEVRON_SVG = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" '
+    + 'stroke="currentColor" stroke-width="2.5" stroke-linecap="round" '
+    + 'stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 
   // Zeitraum-Schnellfilter. Der Jahr/Monat/Tag-Baum ist genau, aber für
   // "dieses Wochenende" oder "die nächsten drei Monate" muss man sich
@@ -1450,22 +1557,38 @@
     render();
   });
 
-  const copyLinkBtnEl = document.getElementById('copy-link-btn');
-  copyLinkBtnEl.addEventListener('click', () => {
+  const shareBtnEl = document.getElementById('share-btn');
+  const shareBtnLabelEl = document.getElementById('share-btn-label');
+  const toastEl = document.getElementById('toast');
+  let toastTimer = null;
+
+  // Kleines Fenster, das knapp zwei Sekunden lang sichtbar ist. Zwei
+  // Zeitgeber: einer für das Ausblenden (Deckkraft), einer fürs
+  // Wegnehmen aus dem Layout danach.
+  function showToast(text) {
+    window.clearTimeout(toastTimer);
+    toastEl.textContent = text;
+    toastEl.hidden = false;
+    // Ein Bildaufbau muss zwischen hidden=false und der Klasse liegen,
+    // sonst gibt es keinen Übergang, sondern einen Sprung.
+    window.requestAnimationFrame(() => toastEl.classList.add('visible'));
+    toastTimer = window.setTimeout(() => {
+      toastEl.classList.remove('visible');
+      toastTimer = window.setTimeout(() => { toastEl.hidden = true; }, 220);
+    }, 1800);
+  }
+
+  shareBtnEl.addEventListener('click', () => {
     const url = window.location.href;
-    const melden = (key) => {
-      copyLinkBtnEl.textContent = t(key);
-      window.setTimeout(() => { copyLinkBtnEl.textContent = t('copy_link'); }, 2200);
-    };
     // navigator.clipboard braucht einen sicheren Kontext; ohne den (oder
     // bei verweigerter Erlaubnis) bleibt nur der Hinweis auf die
     // Adresszeile - dort steht die vollständige Adresse ja bereits.
     if (navigator.clipboard && window.isSecureContext !== false) {
       navigator.clipboard.writeText(url)
-        .then(() => melden('copy_link_done'))
-        .catch(() => melden('copy_link_fail'));
+        .then(() => showToast(t('share_done')))
+        .catch(() => showToast(t('share_fail')));
     } else {
-      melden('copy_link_fail');
+      showToast(t('share_fail'));
     }
   });
   const homeBtnLabelEl = document.getElementById('home-btn-label');
@@ -1648,7 +1771,8 @@
     subtitleEl.textContent = t('subtitle');
     resetBtnEl.textContent = t('reset');
     groupToggleLabelEl.textContent = t('group_toggle');
-    copyLinkBtnEl.textContent = t('copy_link');
+    shareBtnLabelEl.textContent = t('share_search');
+    shareBtnEl.title = t('share_search');
     homeBtnLabelEl.textContent = t('home');
     mapBtnLabelEl.textContent = t('map');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -1664,27 +1788,36 @@
     headerRowEl.innerHTML = '';
     activeColumns().forEach(col => {
       const th = document.createElement('th');
+      th.className = `col-${col.key}`;
       const inner = document.createElement('div');
       inner.className = 'th-inner';
 
       // Der Spaltenname selbst ist der Sortier-Knopf. Vorher sortierte die
       // Liste ausschließlich nach Datum - bei 4000 Zeilen (und später
-      // 20.000) war das der größte Mangel.
-      const sortBtn = document.createElement('button');
-      sortBtn.type = 'button';
-      sortBtn.className = 'th-sort' + (state.sortKey === col.key ? ' active' : '');
-      sortBtn.title = `${t(col.labelKey)} – ${t('sort_hint')}`;
-      sortBtn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span>`
-        + (state.sortKey === col.key
-             ? `<span class="sort-arrow">${state.sortDir === 'asc' ? '▲' : '▼'}</span>`
-             : '');
-      sortBtn.addEventListener('click', (ev) => {
-        ev.stopPropagation();
-        toggleSort(col.key);
-      });
-      th.setAttribute('aria-sort', state.sortKey === col.key
-        ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
-      inner.appendChild(sortBtn);
+      // 20.000) war das der größte Mangel. Spalten ohne Sortierschlüssel
+      // (Anzahl) bekommen nur eine Beschriftung, keinen toten Knopf.
+      if (SORT_KEYS[col.key]) {
+        const sortBtn = document.createElement('button');
+        sortBtn.type = 'button';
+        sortBtn.className = 'th-sort' + (state.sortKey === col.key ? ' active' : '');
+        sortBtn.title = `${t(col.labelKey)} – ${t('sort_hint')}`;
+        sortBtn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span>`
+          + (state.sortKey === col.key
+               ? `<span class="sort-arrow">${state.sortDir === 'asc' ? '▲' : '▼'}</span>`
+               : '');
+        sortBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          toggleSort(col.key);
+        });
+        th.setAttribute('aria-sort', state.sortKey === col.key
+          ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
+        inner.appendChild(sortBtn);
+      } else {
+        const label = document.createElement('span');
+        label.textContent = t(col.labelKey);
+        label.title = t(col.labelKey);
+        inner.appendChild(label);
+      }
 
       // Die Entfernungs-Spalte hat kein eigenes Filter-Panel: gefiltert
       // wird sie über den Umkreis-Regler im Stadt/Ort-Filter.
@@ -2544,22 +2677,26 @@
   // Entfernungs-Spalte an der richtigen Stelle einschieben, ohne die
   // Reihenfolge an zwei Orten pflegen zu müssen.
   function cellHtml(col, e) {
+    const td = (inhalt, extra) =>
+      `<td class="col-${col.key}${extra ? ' ' + extra : ''}">${inhalt}</td>`;
     switch (col.key) {
+      case 'anzahl': return td('');   // nur in Gruppenzeilen gefüllt
       case 'name': {
         const wb = displayWettbewerb(e);
-        return `<td><div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
-             + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div></td>`;
+        return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
+             + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
       }
-      case 'datum': return `<td><div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div></td>`;
-      case 'land': return `<td><div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div></td>`;
-      case 'standort': return `<td><div class="cell-clamp">${escapeHtml(e.standort)}</div></td>`;
-      case 'entfernung': return `<td><div class="cell-clamp">${escapeHtml(formatDistance(e))}</div></td>`;
-      case 'art1': return `<td><div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div></td>`;
-      case 'art2': return `<td><div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div></td>`;
-      case 'laenge_km': return `<td><div class="cell-clamp">${formatLength(e)}</div></td>`;
-      default: return '<td></td>';
+      case 'datum': return td(`<div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div>`);
+      case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
+      case 'standort': return td(`<div class="cell-clamp">${escapeHtml(e.standort)}</div>`);
+      case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
+      case 'art1': return td(`<div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div>`);
+      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
+      case 'laenge_km': return td(`<div class="cell-clamp">${formatLength(e)}</div>`);
+      default: return td('');
     }
   }
+
 
   // Schlüssel einer Veranstaltung: Name + Datum + Ort. Genau die drei
   // Felder machen aus mehreren Strecken eine Veranstaltung - die Distanz
@@ -2599,15 +2736,16 @@
     });
     return cols.map(col => {
       switch (col.key) {
+        case 'anzahl':
+          return `<td class="col-anzahl"><span class="count-pill">${g.rows.length}</span></td>`;
         case 'name':
-          return `<td><div class="cell-clamp" title="${escapeHtml(e.name)}">`
-               + `<span class="group-caret">${offen ? '▾' : '▸'}</span>${escapeHtml(e.name)}`
-               + (g.rows.length > 1 ? ` <span class="badge">${g.rows.length}</span>` : '')
-               + `</div></td>`;
+          return `<td class="col-name"><div class="group-name" title="${escapeHtml(e.name)}">`
+               + `<span class="chevron${offen ? ' open' : ''}">${CHEVRON_SVG}</span>`
+               + `<span class="group-name-text">${escapeHtml(e.name)}</span></div></td>`;
         case 'art2':
-          return `<td><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
+          return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
         case 'laenge_km':
-          return `<td><div class="badges">`
+          return `<td class="col-laenge_km"><div class="badges">`
                + (laengen.length ? laengen.map(l => `<span class="badge">${escapeHtml(l)}</span>`).join('') : '–')
                + `</div></td>`;
         default:
@@ -2639,6 +2777,7 @@
       gruppen.forEach(g => {
         const tr = document.createElement('tr');
         tr.className = 'group-row';
+        tr.setAttribute('aria-expanded', state.offeneGruppen.has(g.key) ? 'true' : 'false');
         if (g.rows.some(r => r.idx === selectedIndex)) tr.classList.add('active');
         tr.innerHTML = groupRowHtml(g, cols);
         tr.addEventListener('click', () => {

@@ -333,9 +333,17 @@ Schweiz.
   **Veranstaltungen zusammenfassen** (Schalter in der Kopfzeile, wird in
   `localStorage` gemerkt): Eine Veranstaltung mit sechs Strecken füllt
   sonst sechs Zeilen. Der Schalter bündelt sie nach Name + Datum + Ort zu
-  einer Zeile, zeigt die Distanzen als kleine Marken („42 km · 22 km ·
-  10 km") und die Anzahl der Strecken; ein Klick klappt die einzelnen
-  Zeilen auf, ein Klick darauf zeigt die Details. Das ist **reine
+  einer Zeile und zeigt die Distanzen als kleine Marken („42 km", „22 km",
+  „10 km"). Ganz vorn steht dann eine Spalte **„Anzahl"** mit der Zahl der
+  zusammengefassten Strecken - auch bei einer einzigen („1"), sonst sähe
+  die Zelle nach einem fehlenden Wert aus. Ein Klick auf die Zeile klappt
+  die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
+  es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
+
+  Die Spaltenbreiten stehen als **Klassen** (`.col-name`, `.col-anzahl`,
+  …) statt über `nth-child`: die Spalten wechseln je nach Zustand
+  (Entfernung nur mit Ausgangspunkt, Anzahl nur beim Zusammenfassen), und
+  mit `nth-child` bräuchte jede Kombination ihren eigenen Satz Regeln. Das ist **reine
   Anzeige** - die Daten bleiben eine Zeile pro Strecke (Datenregel 1),
   damit Filter und Duplikat-Erkennung weiter funktionieren. Die
   Ergebnisanzeige zählt dann beides: „810 Veranstaltungen (1413
@@ -350,8 +358,12 @@ Schweiz.
 
   **Teilbarer Link**: Der vollständige Filterzustand steht in der Adresse
   (`?sportart=Laufen&art2=Trail&zeitraum=m3&sort=laenge_km:desc&…`) und
-  wird beim Laden wieder übernommen - „Link kopieren" in der Kopfzeile
-  legt ihn in die Zwischenablage. Geschrieben wird mit
+  wird beim Laden wieder übernommen - **„Suche mit Freunden teilen"** im
+  blauen Kopfbereich (unter DE/EN) legt ihn in die Zwischenablage und
+  zeigt für knapp zwei Sekunden ein kleines Fenster „✓ Link kopiert!".
+  Der Knopf steht dort und nicht in der Werkzeugleiste, weil er die Seite
+  als Ganzes betrifft; zwischen Filter-Chips und „Zurücksetzen" ging er
+  unter. Geschrieben wird mit
   `history.replaceState`, nicht `pushState`: sonst legte jeder
   Häkchen-Klick einen Eintrag in der Zurück-Geschichte an. Die beiden
   alten Deep-Links (`?sportart=` von der Startseite, `?standort=` von der

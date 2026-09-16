@@ -224,8 +224,15 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   müsste die Spaltenreihenfolge an zwei Stellen gepflegt werden.
 - **Zusammenfassen ist reine Anzeige** (`state.gruppiert`,
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
-  die Tabelle bündelt sie nur nach Name + Datum + Ort und zeigt die
-  Distanzen als Marken.
+  die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die
+  Distanzen als Marken und vorn die Spalte „Anzahl" (auch „1").
+- **Spaltenbreiten über Klassen** (`.col-name`, `.col-anzahl`, …), nicht
+  `nth-child`: Entfernung und Anzahl kommen und gehen, jede Kombination
+  bräuchte sonst eigene Regeln. `CHEVRON_SVG` steht oben bei `state` -
+  der erste `render()` braucht es bei aktiver Gruppierung sofort (TDZ).
+- **`.group-name` ist ein Flex-Element ohne `.cell-clamp`**: dessen
+  `display: -webkit-box` widerspricht dem Flex, der Name rutschte sonst
+  unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Quellen
