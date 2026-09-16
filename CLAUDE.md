@@ -248,13 +248,22 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     `Content-Disposition: inline`. Erst diese Kopfzeilen bringen Safari
     dazu, den Termin dem Kalender zu geben; ein Blob oder data-URI hat
     sie nicht und wird zum Download („Unknown.ics" in einem
-    `about:blank`-Tab – genau das Bild aus dem Screenshot des Nutzers).
-    `window.open` ist hier falsch: bleibt Safari beim Download, hätte man
-    einen leeren Tab. **Auf echtem iOS nicht verifizierbar** – in der
-    Sandbox gibt es nur Chromium, das text/calendar immer herunterlädt.
-    Bleibt es dort beim Download, ist der nächste Schritt eine fest
-    gehostete `.ics` je Event plus `webcal://`-Link (nur der öffnet den
-    Kalender garantiert), also ein Schritt im Workflow.
+    `about:blank`-Tab). `window.open` ist hier falsch: bleibt Safari beim
+    Download, hätte man einen leeren Tab.
+
+    **Vor der Navigation prüft `openIcs()` die Adresse per `fetch()`.**
+    Ein vorhandener `controller` heißt auf iOS NICHT, dass der Worker die
+    nächste Navigation bedient – wurde die Seite geladen, bevor er die
+    Kontrolle übernahm, geht die Anfrage ins Netz, und dort gibt es
+    /kalender/ nicht: Der Nutzer landete auf der **404-Seite von GitHub
+    Pages**. Antwortet die Probe nicht mit `text/calendar`, wird
+    heruntergeladen. Diese Prüfung nicht entfernen.
+
+    **Stand auf dem Gerät des Nutzers (16.09.2026): funktioniert nicht.**
+    Erst kam der Download, dann (mit Worker) die 404. Der nächste Schritt
+    wäre eine fest gehostete `.ics` je Event plus `webcal://`-Link – nur
+    der öffnet den Kalender garantiert –, oder EIN Abo-Kalender mit allen
+    Events. Beides ist ein Schritt im Workflow und liegt beim Nutzer.
   - **Alle anderen**: Blob-Download mit ordentlichem Dateinamen. Der
     Service-Worker-Weg wäre hier schlechter – Chrome und Firefox laden
     die Antwort ebenfalls herunter, nur mit leerem Tab dahinter.

@@ -3267,54 +3267,63 @@
     }
   }
 
-  // Zwei Wege zur .ics-Datei, und welcher genommen wird, entscheidet
-  // NICHT das Gerät, sondern was möglich ist:
+  // Zwei Wege zur .ics-Datei:
   //
-  //   1. Apple-Gerät und Service Worker zuständig -> Adresse
-  //      "kalender/<Name>.ics?d=<base64>" öffnen. sw.js antwortet darauf
-  //      mit Inhaltstyp text/calendar,
-  //      und erst dieser Typ bringt iOS und macOS dazu, den Termin dem
-  //      Kalender anzubieten. Vorher lieferte die Seite einen Blob: der
-  //      trug denselben Typ, Safari machte daraus aber einen Download
-  //      ("Unknown.ics") und die Teilen-Liste hatte keinen Kalender -
-  //      genau das hat der Nutzer auf dem iPad gesehen.
-  //   2. Sonst als Datei herunterladen (Outlook-Programm, Thunderbird und
-  //      Co. importieren sie per Doppelklick).
+  //   1. Apple-Gerät UND der Service Worker antwortet wirklich ->
+  //      Navigation im selben Tab auf "kalender/<Name>.ics?d=<base64>".
+  //      sw.js erfindet dort eine Antwort mit Inhaltstyp text/calendar
+  //      und Content-Disposition: inline - erst diese Kopfzeilen bringen
+  //      Safari dazu, den Termin dem Kalender anzubieten. Ein Blob oder
+  //      data-URI hat sie nicht und wird zum Download ("Unknown.ics" in
+  //      einem about:blank-Tab, wie vom Nutzer gemeldet).
+  //   2. Sonst Download der Datei (Outlook-Programm, Thunderbird und Co.
+  //      importieren sie per Doppelklick).
   //
-  // Der Blob entsteht erst beim Klick und wird danach freigegeben; einer
-  // pro angezeigtem Event wäre ein Leck.
-  function openIcs(e, f) {
+  // WICHTIG: Vor der Navigation wird die Adresse einmal per fetch()
+  // GEPRÜFT. Ein vorhandener `controller` heißt auf iOS nämlich nicht,
+  // dass der Worker die nächste Navigation auch bedient - wurde die Seite
+  // geladen, bevor er die Kontrolle übernahm, geht die Anfrage ins Netz,
+  // und dort gibt es den Ordner /kalender/ nicht: Der Nutzer landete auf
+  // der 404-Seite von GitHub Pages. Antwortet die Probe nicht mit
+  // text/calendar, wird heruntergeladen.
+  async function openIcs(e, f) {
     const ics = buildIcs(e);
-    // Nur auf Apple-Geräten über den Service Worker: Chrome, Edge und
-    // Firefox kennen keinen Kalender als Handler und laden so eine
-    // Antwort ebenfalls herunter - nur eben mit einem leeren Tab
-    // dahinter. Der direkte Download ist dort das bessere Verhalten.
+    const name = calFileName(f.titel) + '.ics';
+
     if (istAppleGeraet() && navigator.serviceWorker && navigator.serviceWorker.controller) {
       // base64url: die Daten hängen in der Adresse, "+" und "/" hätten
       // dort eine andere Bedeutung. btoa() arbeitet byteweise, deshalb
       // der Umweg über encodeURIComponent für Umlaute.
       const b64 = btoa(unescape(encodeURIComponent(ics)))
         .replace(/\+/g, '-').replace(/\//g, '_');
-      // Der Dateiname steht im Pfad: sw.js gibt ihn als
-      // Content-Disposition zurück, damit der Termin im Kalender bzw. in
-      // der Dateiliste erkennbar ist. Den Ordner /kalender/ gibt es
-      // nicht - die Antwort kommt vollständig aus dem Worker.
-      //
-      // NAVIGATION IM SELBEN TAB, kein window.open: Ein geöffnetes
-      // Fenster blieb auf "about:blank" stehen, sobald Safari die Antwort
-      // als Download behandelt - genau das Bild aus dem Screenshot des
-      // Nutzers. Bei der Navigation zeigt Safari den Termin an (oder im
-      // schlechtesten Fall die Download-Leiste über der Liste), und die
-      // Filter stehen ohnehin in der Adresse, die Liste ist also mit
-      // "Zurück" unverändert wieder da.
-      window.location.href = `kalender/${calFileName(f.titel)}.ics?d=${b64}`;
-      return;
+      const url = `kalender/${name}?d=${b64}`;
+      try {
+        const probe = await fetch(url, { cache: 'no-store' });
+        const typ = probe.headers.get('content-type') || '';
+        if (probe.ok && typ.includes('text/calendar')) {
+          // Navigation im selben Tab, kein window.open: bleibt Safari doch
+          // beim Download, wäre ein geöffnetes Fenster ein leerer
+          // about:blank-Tab. Die Filter stehen in der Adresse, die Liste
+          // ist mit "Zurück" unverändert wieder da.
+          window.location.href = url;
+          return;
+        }
+      } catch (err) {
+        /* Netzfehler o. Ä. - dann eben herunterladen */
+      }
     }
+
+    downloadIcs(ics, name);
+  }
+
+  // Blob-Download. Der Blob entsteht erst beim Klick und wird danach
+  // freigegeben; einer pro angezeigtem Event wäre ein Leck.
+  function downloadIcs(ics, name) {
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = calFileName(f.titel) + '.ics';
+    a.download = name;
     document.body.appendChild(a);
     a.click();
     a.remove();
