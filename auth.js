@@ -19,6 +19,9 @@
 //   window.EndauranceAuth.getUser()                 -> firebase.User | null
 //   window.EndauranceAuth.onAuthChange(cb)           -> cb(user) bei jeder Änderung
 //   window.EndauranceAuth.openModal('login'|'register')
+//   window.EndauranceAuth.reportEventError({event, kategorie, beschreibung})
+//                                                    -> Promise<void>
+//     (meldet einen Datenfehler; meldet bei Bedarf anonym an)
 //   window.EndauranceAuth.saveFilterSubscription(filters) -> Promise<void>
 //     (filters: einfaches, serialisierbares Objekt der aktuell aktiven
 //     Filter OHNE das Datum - siehe events.html)
@@ -430,6 +433,62 @@
         notified: false,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
+    },
+
+    // Nimmt eine Fehlermeldung zu einem Event auf (siehe events.html,
+    // "Fehler zu diesem Event melden").
+    //
+    // Melden soll OHNE Anmeldung gehen - eine Hürde würde die meisten
+    // Meldungen verhindern, und genau die sind der Zweck. Trotzdem wird
+    // nicht unangemeldet geschrieben: Ein offener Schreibzugriff wäre bei
+    // öffentlich sichtbarem apiKey eine Einladung, die Datenbank zu
+    // fluten. Stattdessen legt Firebase im Hintergrund eine ANONYME
+    // Kennung an (signInAnonymously). Die Nutzer merken davon nichts, die
+    // Firestore-Regeln können aber weiterhin `request.auth != null`
+    // verlangen und Meldungen einer Kennung zuordnen.
+    //
+    // Voraussetzung: In der Firebase-Konsole muss unter
+    // Sicherheit -> Authentication -> Sign-in method der Anbieter
+    // "Anonym" aktiviert sein. Fehlt er, schlägt der Aufruf mit
+    // auth/operation-not-allowed fehl - die Meldung darüber steht in
+    // events.html.
+    reportEventError: ({ event, kategorie, beschreibung }) => {
+      if (!db || !auth) return Promise.reject(new Error('not-configured'));
+
+      const ensureUser = auth.currentUser
+        ? Promise.resolve(auth.currentUser)
+        : auth.signInAnonymously().then((cred) => cred.user);
+
+      return ensureUser.then((user) =>
+        db.collection('errorReports').add({
+          uid: user.uid,
+          // Bei einer anonymen Kennung ist email null - bewusst
+          // mitgeschrieben, damit man angemeldete Melder unterscheiden kann.
+          email: user.email || null,
+          anonym: !!user.isAnonymous,
+          kategorie: kategorie,
+          // Auf 600 Zeichen begrenzt - dieselbe Grenze prüfen die
+          // Security Rules; ein längerer Text würde dort abgelehnt.
+          beschreibung: String(beschreibung || '').trim().slice(0, 600),
+          // Das Event so festhalten, wie es zum Meldezeitpunkt in der
+          // Liste stand. Ohne diesen Schnappschuss wäre später nicht
+          // nachvollziehbar, worauf sich die Meldung bezog - die Daten
+          // ändern sich täglich.
+          event: {
+            name: event.name || null,
+            datum_start: event.datum_start || null,
+            standort: event.standort || null,
+            land: event.land || null,
+            art1: event.art1 || null,
+            art2: event.art2 || null,
+            laenge_km: event.laenge_km ?? null,
+            wettbewerb: event.wettbewerb || null,
+            veranstalter_url: event.veranstalter_url || null
+          },
+          status: 'neu',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+      );
     }
   };
 })();

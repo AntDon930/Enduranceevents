@@ -11,6 +11,14 @@ rules_version = '2';
 // Projekt, aber auth.js nutzt firebase.firestore() ohne Namen und
 // spricht damit immer "(default)" an.
 //
+// Zweite Collection: "errorReports" - die Fehlermeldungen von Nutzer/innen
+// aus events.html ("Fehler zu diesem Event melden", siehe auth.js:
+// EndauranceAuth.reportEventError). Melden ist ohne Login möglich, dafür
+// meldet auth.js bei Bedarf ANONYM an (Firebase-Konsole -> Authentication
+// -> Sign-in method -> Anbieter "Anonym" aktivieren). Damit bleibt
+// request.auth != null erzwingbar - ein offener, unauthentifizierter
+// Schreib-Endpunkt wäre eine Einladung zum Zuspammen.
+//
 // Prinzip: Jede/r Nutzer/in darf NUR eigene Abos anlegen/lesen/löschen
 // (erkannt an request.auth.uid). Die Cloud Function, die neue Events
 // gegen alle Abos prüft (siehe functions/index.js), läuft mit dem
@@ -26,6 +34,34 @@ service cloud.firestore {
       // bearbeitet; "notified" wird ausschließlich von der Cloud Function
       // (Admin-SDK, umgeht diese Regeln) gesetzt.
       allow update: if false;
+    }
+
+    match /errorReports/{reportId} {
+      // Anlegen: angemeldet (auch anonym), eigene uid, Kategorie aus der
+      // festen Liste (identisch mit REPORT_CATEGORIES in events.html),
+      // Beschreibung 10-600 Zeichen, Status immer "neu" und ein
+      // Server-Zeitstempel. Die Feldliste ist geschlossen, damit niemand
+      // beliebig große Dokumente in die Collection schiebt.
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'anonym', 'kategorie', 'beschreibung',
+                          'event', 'status', 'createdAt'])
+                    && request.resource.data.kategorie in
+                         ['laenge', 'datum', 'ort', 'url', 'sportart', 'name',
+                          'doppelt', 'abgesagt', 'sonstiges']
+                    && request.resource.data.beschreibung is string
+                    && request.resource.data.beschreibung.size() >= 10
+                    && request.resource.data.beschreibung.size() <= 600
+                    && request.resource.data.event is map
+                    && request.resource.data.status == 'neu'
+                    && request.resource.data.createdAt == request.time;
+      // Meldungen sind eine Einbahnstraße: gelesen und abgearbeitet werden
+      // sie ausschließlich über das Admin-SDK bzw. die Konsole
+      // (scripts/review_reports.py). Nutzer/innen bekommen die Meldungen
+      // anderer nie zu sehen und können ihre eigene auch nicht mehr
+      // ändern oder löschen.
+      allow read, update, delete: if false;
     }
   }
 }

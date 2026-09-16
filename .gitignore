@@ -1,2 +1,3 @@
 scripts/__pycache__/
 scripts/.geocode_cache.json
+scripts/reports_inbox.json

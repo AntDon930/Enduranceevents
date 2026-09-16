@@ -319,10 +319,53 @@ def test_namensvereinheitlichung() -> None:
           name_quality_soft(lang) < name_quality_soft("Wiesent Challenge"), True)
 
 
+def test_meldungen() -> None:
+    """Nutzer-Fehlermeldungen (scripts/review_reports.py): bündeln pro
+    Strecke, nicht pro Veranstaltung. Der Bündel-Schlüssel ist genau der
+    distanzgenaue Override-Schlüssel - sonst würde eine Meldung zur
+    10-km-Strecke am Ende die Marathonzeile derselben Veranstaltung
+    korrigieren."""
+    from review_reports import (  # lokaler Import, nur für diesen Test
+        bundle_key, bundle_reports, parse_set,
+    )
+
+    ev = {"name": "48. Hochgratlauf", "datum_start": "2026-09-06", "laenge_km": 12.8}
+    check("Bündel-Schlüssel distanzgenau",
+          bundle_key(ev), "48. Hochgratlauf|2026-09-06|12.8")
+    # 42,195 km und 42.2 km müssen im selben Bündel landen - die Anzeige
+    # rundet auf eine Dezimalstelle, der Schlüssel muss das auch tun.
+    check("Schlüssel rundet auf eine Dezimalstelle",
+          bundle_key({"name": "M", "datum_start": "2026-10-11", "laenge_km": 42.195}),
+          "M|2026-10-11|42.2")
+    check("ohne Distanz kein Distanzteil",
+          bundle_key({"name": "M", "datum_start": "2026-10-11", "laenge_km": None}),
+          "M|2026-10-11")
+
+    reports = [
+        {"id": "a", "kategorie": "laenge", "beschreibung": "zu lang", "event": ev},
+        {"id": "b", "kategorie": "laenge", "beschreibung": "12,4 km", "event": ev},
+        {"id": "c", "kategorie": "url", "beschreibung": "Link tot",
+         "event": {"name": "48. Hochgratlauf", "datum_start": "2026-09-06",
+                   "laenge_km": 21.1}},
+    ]
+    bundles = bundle_reports(reports)["buendel"]
+    check("zwei Strecken = zwei Bündel", len(bundles), 2)
+    # Am häufigsten gemeldetes Bündel zuerst: zwei unabhängige Meldungen
+    # sind ein stärkerer Hinweis als eine.
+    check("häufigstes Bündel zuerst", bundles[0]["anzahl"], 2)
+    check("Kategorien gezählt", bundles[0]["kategorien"], {"laenge": 2})
+
+    # Komma-Distanzen aus dem Melde-Text dürfen nicht als Text landen.
+    check("--set laenge_km=12,4 wird zur Zahl",
+          parse_set(["laenge_km=12,4"]), {"laenge_km": 12.4})
+    check("--set exclude=true wird bool",
+          parse_set(["exclude=true"]), {"exclude": True})
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
-                 test_duplikate, test_namensvereinheitlichung):
+                 test_duplikate, test_namensvereinheitlichung, test_meldungen):
         test()
 
     print()

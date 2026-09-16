@@ -124,16 +124,29 @@
     border-color: #fff;
   }
 
+  /* Dasselbe Raster wie .layout, damit der rechte Rand der ersten Spalte
+     exakt auf dem rechten Tabellenrand liegt. Die zweite Spalte bleibt
+     leer und hält nur die Breite des Detailbereichs frei - so sitzt der
+     Zurücksetzen-Button über der LISTE und nicht über den Details. */
   .toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 900px) {
+    .toolbar { grid-template-columns: 1fr; }
+  }
+  .toolbar-main {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 10px;
   }
+  /* Schiebt den Button an das rechte Ende der Tabellenspalte. */
+  .toolbar-main .reset-btn { margin-left: auto; }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
-    align-self: flex-end;
     padding: 8px 16px;
     border-radius: 999px;
     border: none;
@@ -541,6 +554,53 @@
     font-size: 0.88rem;
   }
   .detail-link:hover { opacity: 0.9; }
+
+  /* "Fehler zu diesem Event melden" - bewusst als unauffaelliger
+     Sekundaer-Button unter dem Veranstalter-Link: er soll auffindbar
+     sein, aber nicht mit dem Link zur offiziellen Seite konkurrieren. */
+  .report-btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .report-btn:hover { background: var(--row-hover); color: var(--text); }
+
+  /* Das Melde-Formular nutzt die Modal-Styles aus auth.js
+     (.ee-modal-overlay, .ee-modal, .ee-field, .ee-submit-btn,
+     .ee-form-msg) - hier nur die Ergaenzungen fuer Select/Textarea
+     und die Event-Zusammenfassung im Dialog. */
+  .report-event-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+  }
+  .report-event-summary strong { display: block; margin-bottom: 2px; }
+  .report-event-summary span { color: var(--text-muted); }
+  .report-intro { margin: 0 0 14px; font-size: 0.86rem; color: var(--text-muted); }
+  .ee-field select,
+  .ee-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.92rem;
+    font-family: inherit;
+  }
+  .ee-field textarea { resize: vertical; min-height: 90px; }
+  .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -562,8 +622,11 @@
 </div>
 
 <div class="toolbar">
-  <div class="result-count" id="result-count"></div>
-  <div class="active-chips" id="active-chips"></div>
+  <div class="toolbar-main">
+    <div class="result-count" id="result-count"></div>
+    <div class="active-chips" id="active-chips"></div>
+    <button class="reset-btn" id="reset-btn"></button>
+  </div>
 </div>
 
 <div class="notify-box" id="notify-box" hidden></div>
@@ -578,8 +641,18 @@
     </table>
   </div>
   <div class="side-panel">
-    <button class="reset-btn" id="reset-btn"></button>
     <div class="detail-panel" id="detail-panel"></div>
+  </div>
+</div>
+
+<!-- Melde-Dialog fuer falsche Event-Daten. Nutzt die Modal-Optik aus
+     auth.js; gespeichert wird via EndauranceAuth.reportEventError() in
+     der Firestore-Collection "errorReports" (anonyme Anmeldung, damit
+     die Security Rules request.auth verlangen koennen). -->
+<div class="ee-modal-overlay" id="report-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="report-heading">
+    <button type="button" class="ee-modal-close" id="report-close" aria-label="Schliessen">&#10005;</button>
+    <div id="report-body"></div>
   </div>
 </div>
 
@@ -626,6 +699,30 @@
       detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
       detail_wettbewerb: 'Wettbewerb',
+      report_btn: 'Fehler zu diesem Event melden',
+      report_title: 'Fehler melden',
+      report_intro: 'Danke, dass du hilfst! Was stimmt bei diesem Event nicht?',
+      report_field_label: 'Wo liegt der Fehler?',
+      report_field_placeholder: 'Bitte auswählen …',
+      report_desc_label: 'Was ist falsch? (kurze Beschreibung)',
+      report_desc_placeholder: 'z. B. "Der Lauf ist 12,4 km lang, nicht 10 km" oder "Die Webseite ist veraltet, neu: …"',
+      report_send: 'Meldung absenden',
+      report_sending: 'Wird gesendet …',
+      report_thanks: '✓ Danke! Die Meldung ist eingegangen und wird geprüft.',
+      report_err_field: 'Bitte wähle aus, wo der Fehler liegt.',
+      report_err_desc: 'Bitte beschreibe den Fehler kurz (mindestens 10 Zeichen).',
+      report_err_save: 'Die Meldung konnte nicht gespeichert werden. Bitte später erneut versuchen.',
+      report_err_anon: 'Anonymes Melden ist in diesem Projekt noch nicht aktiviert (Firebase-Anbieter „Anonym\").',
+      report_err_config: 'Melden ist noch nicht eingerichtet (Firebase-Konfiguration fehlt).',
+      report_cat_laenge: 'Länge / Distanz',
+      report_cat_datum: 'Datum',
+      report_cat_ort: 'Stadt / Ort oder Land',
+      report_cat_url: 'Link zur Veranstalter-Website',
+      report_cat_sportart: 'Sportart oder Kategorie',
+      report_cat_name: 'Name der Veranstaltung',
+      report_cat_doppelt: 'Event ist doppelt in der Liste',
+      report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
+      report_cat_sonstiges: 'Sonstiges',
       detail_link: 'Zur Veranstalter-Website ↗',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
@@ -674,6 +771,30 @@
       detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
       detail_wettbewerb: 'Race',
+      report_btn: 'Report an error in this event',
+      report_title: 'Report an error',
+      report_intro: 'Thanks for helping! What is wrong with this event?',
+      report_field_label: 'Where is the error?',
+      report_field_placeholder: 'Please choose …',
+      report_desc_label: 'What is wrong? (short description)',
+      report_desc_placeholder: 'e.g. "The race is 12.4 km, not 10 km" or "The website is outdated, the new one is …"',
+      report_send: 'Send report',
+      report_sending: 'Sending …',
+      report_thanks: '✓ Thank you! Your report has been received and will be reviewed.',
+      report_err_field: 'Please choose where the error is.',
+      report_err_desc: 'Please describe the error briefly (at least 10 characters).',
+      report_err_save: 'Could not save the report. Please try again later.',
+      report_err_anon: 'Anonymous reporting is not enabled yet for this project (Firebase provider "Anonymous").',
+      report_err_config: 'Reporting is not set up yet (Firebase configuration missing).',
+      report_cat_laenge: 'Length / distance',
+      report_cat_datum: 'Date',
+      report_cat_ort: 'City or country',
+      report_cat_url: 'Link to the organizer website',
+      report_cat_sportart: 'Sport or category',
+      report_cat_name: 'Event name',
+      report_cat_doppelt: 'Event is listed twice',
+      report_cat_abgesagt: 'Event is cancelled / not happening',
+      report_cat_sonstiges: 'Something else',
       detail_link: 'Visit organizer website ↗',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
@@ -1741,7 +1862,123 @@
         <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatKm(e.laenge_km)}</dd>
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
+      <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
     `;
+    detailEl.querySelector('#report-open-btn').addEventListener('click', () => openReportModal(e));
+  }
+
+  // ---------- Fehler melden ----------
+  // Reihenfolge = Reihenfolge im Drop-down. Die Schluessel landen
+  // unveraendert in Firestore (Feld "kategorie") und werden von
+  // scripts/review_reports.py wieder erkannt - also nicht umbenennen,
+  // ohne dort nachzuziehen.
+  const REPORT_CATEGORIES = [
+    'laenge', 'datum', 'ort', 'url', 'sportart', 'name', 'doppelt', 'abgesagt', 'sonstiges'
+  ];
+  const REPORT_DESC_MAX = 600;
+  const REPORT_DESC_MIN = 10;
+
+  const reportOverlay = document.getElementById('report-overlay');
+  const reportBodyEl = document.getElementById('report-body');
+
+  document.getElementById('report-close').addEventListener('click', closeReportModal);
+  reportOverlay.addEventListener('click', (evt) => {
+    if (evt.target === reportOverlay) closeReportModal();
+  });
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape' && !reportOverlay.hidden) closeReportModal();
+  });
+
+  function closeReportModal() {
+    reportOverlay.hidden = true;
+    reportBodyEl.innerHTML = '';
+  }
+
+  function openReportModal(e) {
+    const kmText = formatKm(e.laenge_km);
+    const wb = displayWettbewerb(e);
+    reportBodyEl.innerHTML = `
+      <h2 id="report-heading">${escapeHtml(t('report_title'))}</h2>
+      <div class="report-event-summary">
+        <strong>${escapeHtml(e.name)}</strong>
+        <span>${escapeHtml(formatRange(e.datum_start, e.datum_ende))} &middot; ${escapeHtml(e.standort)} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
+      </div>
+      <p class="report-intro">${escapeHtml(t('report_intro'))}</p>
+      <div id="report-msg"></div>
+      <form id="report-form">
+        <div class="ee-field">
+          <label for="report-kategorie">${escapeHtml(t('report_field_label'))}</label>
+          <select id="report-kategorie">
+            <option value="">${escapeHtml(t('report_field_placeholder'))}</option>
+            ${REPORT_CATEGORIES.map(k => `<option value="${k}">${escapeHtml(t('report_cat_' + k))}</option>`).join('')}
+          </select>
+        </div>
+        <div class="ee-field">
+          <label for="report-desc">${escapeHtml(t('report_desc_label'))}</label>
+          <textarea id="report-desc" maxlength="${REPORT_DESC_MAX}" placeholder="${escapeHtml(t('report_desc_placeholder'))}"></textarea>
+          <div class="report-counter" id="report-counter">0 / ${REPORT_DESC_MAX}</div>
+        </div>
+        <button type="submit" class="ee-submit-btn" id="report-submit">${escapeHtml(t('report_send'))}</button>
+      </form>
+    `;
+    reportOverlay.hidden = false;
+
+    // Bewusst ohne required-Attribute: die Browser-Blase ist nicht
+    // uebersetzt und passt optisch nicht zum Dialog - validiert wird
+    // unten im submit-Handler mit den eigenen i18n-Texten.
+    const form = reportBodyEl.querySelector('#report-form');
+    const selectEl = reportBodyEl.querySelector('#report-kategorie');
+    const descEl = reportBodyEl.querySelector('#report-desc');
+    const counterEl = reportBodyEl.querySelector('#report-counter');
+    const msgEl = reportBodyEl.querySelector('#report-msg');
+    const submitEl = reportBodyEl.querySelector('#report-submit');
+
+    descEl.addEventListener('input', () => {
+      counterEl.textContent = `${descEl.value.length} / ${REPORT_DESC_MAX}`;
+    });
+    selectEl.focus();
+
+    function setMsg(text, kind) {
+      msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${escapeHtml(text)}</div>` : '';
+    }
+
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const kategorie = selectEl.value;
+      const beschreibung = descEl.value.trim();
+      if (!kategorie) { setMsg(t('report_err_field'), 'error'); selectEl.focus(); return; }
+      if (beschreibung.length < REPORT_DESC_MIN) { setMsg(t('report_err_desc'), 'error'); descEl.focus(); return; }
+      setMsg(null);
+      submitEl.disabled = true;
+      submitEl.textContent = t('report_sending');
+      window.EndauranceAuth.reportEventError({ event: e, kategorie, beschreibung })
+        .then(() => {
+          setMsg(t('report_thanks'), 'success');
+          // Formular nach dem Absenden entfernen, damit dieselbe Meldung
+          // nicht versehentlich zweimal abgeschickt wird.
+          form.querySelectorAll('.ee-field').forEach(el => el.remove());
+          submitEl.remove();
+          window.setTimeout(() => { if (!reportOverlay.hidden) closeReportModal(); }, 2500);
+        })
+        .catch((err) => {
+          submitEl.disabled = false;
+          submitEl.textContent = t('report_send');
+          setMsg(reportErrorMessage(err), 'error');
+        });
+    });
+  }
+
+  // Firebase-Fehlercodes in verstaendliche Saetze uebersetzen. Der Fall
+  // "auth/operation-not-allowed" bzw. "auth/admin-restricted-operation"
+  // heisst konkret: der Anbieter "Anonym" ist in der Firebase-Konsole
+  // noch nicht aktiviert (Authentication -> Sign-in method).
+  function reportErrorMessage(err) {
+    const code = (err && (err.code || err.message)) || '';
+    if (code === 'not-configured') return t('report_err_config');
+    if (code === 'auth/operation-not-allowed' || code === 'auth/admin-restricted-operation') {
+      return t('report_err_anon');
+    }
+    return t('report_err_save');
   }
 
   function updateFilterIndicators() {

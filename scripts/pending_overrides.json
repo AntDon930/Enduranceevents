@@ -1,0 +1,4 @@
+{
+  "_readme": "Vorschläge aus Nutzer-Fehlermeldungen, die noch auf die Bestätigung des Betreibers warten. Angelegt von scripts/review_reports.py propose, bestätigt/abgelehnt mit confirm bzw. reject. Erst die Bestätigung schreibt den Eintrag nach manual_overrides.json - nichts hieraus wirkt von sich aus auf events.json.",
+  "vorschlaege": []
+}

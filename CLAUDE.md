@@ -29,6 +29,8 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen |
+| `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung |
+| `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -88,6 +90,26 @@ per Websuche prüfen und bestätigte Fehler mit `"exclude": true` in
 
 Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
 
+### Nutzer-Fehlermeldungen
+
+In `events.html` gibt es pro Event „Fehler zu diesem Event melden"
+(Drop-down + Freitext → Firestore-Collection `errorReports`, anonyme
+Anmeldung). Die Meldungen werden **nie automatisch** übernommen:
+
+```bash
+python3 scripts/review_reports.py fetch --credentials <serviceaccount.json>
+python3 scripts/review_reports.py show          # gebündelt, häufigste zuerst
+python3 scripts/review_reports.py propose --key "<Name>|<Datum>|<km>" \
+        --set laenge_km=12,4 --grund "…" --quelle "…"
+python3 scripts/review_reports.py confirm       # fragt den Nutzer, j/n
+```
+
+Der Vorschlag bleibt bis zur Bestätigung in `pending_overrides.json`;
+erst `confirm` schreibt ihn nach `manual_overrides.json`. Also: Meldungen
+ansehen, jede einzeln per Websuche gegen die offizielle Ausschreibung
+prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
+selbst durchwinken. Details im README („Fehler zu diesem Event melden").
+
 ## Quellen
 
 Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,
@@ -138,6 +160,12 @@ also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
   `signInWithRedirect`-Fallback. Auf dem iPad (Safari) getestet und
   funktioniert, daher nicht dringend; In-App-Browser (Instagram etc.)
   könnten trotzdem Popups blocken.
+- **Anbieter „Anonym" in Firebase aktivieren** (Sicherheit →
+  Authentication → Sign-in method → Neuer Anbieter → Native Anbieter),
+  sonst schlägt das Melden von Datenfehlern mit
+  `auth/operation-not-allowed` fehl; das Formular sagt das im Klartext.
+  Außerdem die erweiterten `firestore.rules` (Collection `errorReports`)
+  in der Konsole veröffentlichen.
 - **5 Seed-Links** unklar/evtl. eingestellt (Bodensee-Schwimmen, Engadin
   Bike Giro, Basel Marathon, Silvesterlauf Salzburg, Swiss Athletics
   Bahnmeeting) – absichtlich nicht geraten.

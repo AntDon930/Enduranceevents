@@ -231,6 +231,10 @@ Schweiz.
   dort automatisch den Standort-Filter auf genau diesen Ort setzt. Erreichbar
   über den „Karte"-Button in `events.html` (auf der Startseite gibt es
   bewusst keinen Kartenlink).
+- `scripts/review_reports.py` – der Ablauf für die Fehlermeldungen aus
+  der Liste (siehe „Fehler melden" unten): bündelt sie pro Strecke,
+  legt daraus Vorschläge an und schreibt sie erst **nach Bestätigung**
+  in `scripts/manual_overrides.json`.
 - `.github/workflows/pages.yml` – Deployt die Seite automatisch auf
   GitHub Pages bei jedem Push auf diesen Branch.
 
@@ -598,6 +602,11 @@ Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
    „Sign-in method" bzw. „Anbieter" **Google** und **E-Mail/Passwort**
    aktivieren. Bei Google verlangt Firebase eine *Support-E-Mail* – die
    eigene Adresse genügt; sie erscheint im Google-Anmeldedialog.
+   Zusätzlich über „Neuer Anbieter → Native Anbieter" den Anbieter
+   **Anonym** aktivieren – den braucht das Melden von Datenfehlern
+   (siehe „Fehler zu diesem Event melden" unten); ohne ihn bleibt der
+   Rest des Logins unberührt, nur das Melde-Formular meldet einen
+   Hinweis.
 3. **Authentication → Einstellungen → Autorisierte Domains**:
    `antdon930.github.io` eintragen. **Dieser Schritt wird gern
    vergessen** – ohne ihn funktioniert der Login lokal, aber live auf
@@ -695,6 +704,94 @@ Liste. Falls die Tabelle irgendwann wirklich geteilt statt kopiert werden
 soll, wäre eine gemeinsame `distance-categories.js` der Weg – dafür
 müsste `functions/` aber auf ES-Module oder einen Build-Schritt umgestellt
 werden, was für eine Tabelle mit vier Sportarten unverhältnismäßig ist.
+
+### „Fehler zu diesem Event melden" (Meldungen der Nutzer/innen)
+
+Wer in `events.html` ein Event anklickt, findet im Detailbereich unter
+dem Link zur Veranstalter-Website den Button **„Fehler zu diesem Event
+melden"**. Er öffnet ein Formular mit einem Drop-down („Wo liegt der
+Fehler?" – Länge, Datum, Ort/Land, Link, Sportart, Name, Doppelt,
+Abgesagt, Sonstiges) und einem Freitextfeld (10–600 Zeichen).
+
+**Warum überhaupt**: Die Liste hat über 4000 Einträge aus vier Quellen.
+Ob bei einem einzelnen Lauf die Distanz stimmt, weiß realistisch nur,
+wer ihn kennt – fast alle bisher gefundenen Datenfehler kamen aus
+solchen Stichproben. Melden ist deshalb absichtlich niederschwellig:
+**ohne Anmeldung**. Technisch meldet `auth.js` dafür bei Bedarf *anonym*
+bei Firebase an (`signInAnonymously`), damit die Security Rules trotzdem
+`request.auth != null` verlangen können – ein offener, völlig
+unauthentifizierter Schreib-Endpunkt wäre eine Einladung zum Zuspammen.
+Dafür muss in der Firebase-Konsole der Anbieter **„Anonym"** aktiv sein
+(Authentication → Sign-in method → Neuer Anbieter → Native Anbieter →
+Anonym). Ist er es nicht, sagt das Formular das im Klartext statt mit
+einem Firebase-Fehlercode.
+
+Gespeichert wird je Meldung ein Dokument in der Firestore-Collection
+`errorReports`: Kategorie, Beschreibung, `uid`/`anonym` (und die E-Mail,
+falls angemeldet), `status: "neu"` und ein **Schnappschuss des Events**
+(Name, Datum, Standort, Land, Sportart, Distanz, Wettbewerb, Link). Der
+Schnappschuss ist wichtig: die Daten ändern sich täglich, ohne ihn wäre
+später nicht nachvollziehbar, worauf sich die Meldung bezog. Lesen kann
+die Meldungen niemand über die Webseite (`firestore.rules`:
+`allow read, update, delete: if false`) – nur das Admin-SDK.
+
+#### Der Ablauf: gebündelt ansehen, einzeln bestätigen
+
+Meldungen werden **nie automatisch** übernommen. Eine Meldung ist ein
+Hinweis, kein Beweis – jemand kann sich irren, das Jahr verwechseln oder
+Unsinn schreiben. Für alles andere gilt dieselbe Lektion wie bei den
+Heuristiken weiter oben: erst prüfen, dann ändern.
+
+```bash
+# 1. Meldungen holen und pro Strecke bündeln
+python3 scripts/review_reports.py fetch --credentials ~/serviceaccount.json
+#    (ohne Zugangsdaten: Export aus der Konsole und
+#     python3 scripts/review_reports.py fetch --from-json export.json)
+
+# 2. ansehen - am häufigsten gemeldete Events zuerst
+python3 scripts/review_reports.py show
+
+# 3. nach Einzelprüfung (Websuche gegen die offizielle Ausschreibung)
+#    einen Vorschlag anlegen - wirkt noch NICHT
+python3 scripts/review_reports.py propose \
+    --key "48. Hochgratlauf|2026-09-06|12.8" \
+    --set laenge_km=12,4 \
+    --grund "Ausschreibung 2026 nennt 12,4 km" \
+    --quelle "https://www.tsv-oberstaufen.de/hochgratlauf" \
+    --report-id <Meldungs-ID>
+
+# 4. bestätigen (fragt jeden Vorschlag einzeln mit j/n ab)
+python3 scripts/review_reports.py confirm
+#    nicht-interaktiv: confirm --key 2026-09-16-01  bzw.  reject --key ...
+
+# 5. Meldungen in Firestore abhaken, damit 'fetch' sie nicht wieder holt
+python3 scripts/review_reports.py mark-done --credentials ~/serviceaccount.json
+```
+
+Erst Schritt 4 schreibt den Eintrag nach `scripts/manual_overrides.json`
+(mit Begründung und Quelle im `_note`); wirksam wird er beim nächsten
+`clean_events.py`-Lauf bzw. der nächtlichen Action. Dazwischen liegen die
+Vorschläge in `scripts/pending_overrides.json` – die Datei ist im
+Repository, der Zwischenstand also im PR sichtbar.
+
+Drei Details, die in der Praxis zählen:
+
+- **Gebündelt wird pro Strecke, nicht pro Veranstaltung.** Der
+  Bündel-Schlüssel ist genau der distanzgenaue Override-Schlüssel
+  `"<Name>|<Datum>|<km>"` (siehe `scraper_lib.override_keys()`). Sonst
+  würde eine Meldung zur 10-km-Strecke am Ende die Marathonzeile
+  derselben Veranstaltung korrigieren.
+- **Der Schlüssel enthält die alte, falsche Distanz** – gewollt: der
+  Override greift, *bevor* er die Distanz ersetzt, und muss das Event
+  daher unter seinem gescrapten Wert finden.
+- **Mehrfachmeldungen zuerst.** `show` sortiert nach Anzahl: drei
+  unabhängige Meldungen zur selben Strecke sind ein deutlich stärkerer
+  Hinweis als eine.
+
+`scripts/reports_inbox.json` (die gebündelten Rohmeldungen) enthält
+`uid` und ggf. E-Mail-Adressen und ist deshalb per `.gitignore` aus dem
+Repository ausgenommen. In `manual_overrides.json` landet nur die
+fachliche Begründung, nie die Person.
 
 ## Lokal testen
 
