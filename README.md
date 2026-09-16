@@ -690,6 +690,17 @@ Seite bleibt also voll benutzbar, auch ohne die folgenden Schritte.
    Repo) einfügen und veröffentlichen. Nur für „Benachrichtige mich"
    nötig, nicht für den Login selbst – dieser Schritt lässt sich also
    nachholen.
+
+   Wer die Firebase-CLI ohnehin installiert hat, spart sich das
+   Kopieren: `firebase.json` verweist auf `firestore.rules`, also genügt
+
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+
+   Das geht auch im **Spark-Tarif** – nur das Deployen von *Functions*
+   verlangt Blaze, Regeln nicht. Vorteil gegenüber der Konsole: Was live
+   ist, entspricht dann garantiert der Datei im Repo.
 5. **Projektübersicht → „App hinzufügen" → Web (`</>`)**, Namen vergeben,
    registrieren. Das dort angezeigte Config-Objekt in
    `firebase-config.js` einfügen (ersetzt die `REPLACE_ME`-Platzhalter).

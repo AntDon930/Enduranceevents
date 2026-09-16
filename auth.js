@@ -163,6 +163,22 @@
     authChangeListeners.forEach(cb => { try { cb(user); } catch (e) { console.error(e); } });
   }
 
+  // "Angemeldet" heißt hier: mit einem echten Konto, nicht mit der
+  // anonymen Kennung, die reportEventError im Hintergrund anlegt.
+  //
+  // Diese Unterscheidung ist nicht kosmetisch. Wer einen Datenfehler
+  // meldet, ist danach aus Firebase-Sicht angemeldet - ohne E-Mail-
+  // Adresse. Ohne die Prüfung bot die Seite demselben Menschen kurz
+  // darauf "Benachrichtigen, sobald verfügbar" an, speicherte ein Abo
+  // mit email: null und meldete "Gespeichert!". Eine E-Mail hätte es
+  // dafür nie geben können: Die Cloud Function hätte to: null in die
+  // mail-Collection geschrieben. Ein stiller Fehlschlag, den niemand
+  // bemerkt - deshalb gilt eine anonyme Kennung überall dort, wo es um
+  // Konto und Benachrichtigung geht, als "nicht angemeldet".
+  function isRealUser(user) {
+    return !!(user && !user.isAnonymous);
+  }
+
   // ---------------------------------------------------------------------
   // UI aufbauen: Button (im Mount-Punkt #auth-mount) + Modal (an <body>)
   // ---------------------------------------------------------------------
@@ -447,7 +463,9 @@
     const mount = document.getElementById('auth-mount');
     if (!mount) return;
     mount.innerHTML = '';
-    if (user) {
+    // Anonyme Kennung: weiterhin "Anmelden" anbieten. Sonst stand dort
+    // nach einer Fehlermeldung ein "Abmelden" neben einem leeren Namen.
+    if (isRealUser(user)) {
       const wrap = document.createElement('div');
       wrap.className = 'ee-auth-user';
       const label = document.createElement('span');
@@ -489,21 +507,33 @@
   // Öffentliche API
   // ---------------------------------------------------------------------
   window.EndauranceAuth = {
-    getUser: () => (auth ? auth.currentUser : null),
+    // Gibt NUR echte Konten zurück, nie die anonyme Kennung aus
+    // reportEventError - siehe isRealUser(). Aufrufer fragen damit das,
+    // was sie eigentlich wissen wollen: "kann diese Person eine E-Mail
+    // bekommen?"
+    getUser: () => (auth && isRealUser(auth.currentUser) ? auth.currentUser : null),
     isConfigured: () => configured,
     onAuthChange: (cb) => {
-      authChangeListeners.push(cb);
-      if (auth) cb(auth.currentUser);
+      const realOnly = (user) => cb(isRealUser(user) ? user : null);
+      authChangeListeners.push(realOnly);
+      if (auth) realOnly(auth.currentUser);
     },
     openModal,
     // Speichert ein "Benachrichtige mich"-Filterabo in Firestore. `filters`
     // ist ein einfaches, JSON-serialisierbares Objekt (Arrays statt Sets)
     // OHNE Datumsfilter - siehe events.html renderNotifyPrompt().
     saveFilterSubscription: (filters) => {
-      if (!db || !auth || !auth.currentUser) {
+      if (!db || !auth || !isRealUser(auth.currentUser)) {
         return Promise.reject(new Error('not-authenticated'));
       }
       const user = auth.currentUser;
+      // Ein Abo ohne Empfänger ist kein Abo. Der Aufrufer kommt hier
+      // normalerweise gar nicht an (siehe getUser()), aber ein Abo, das
+      // nie zugestellt werden kann, darf auch nicht entstehen, wenn doch
+      // jemand direkt hierher findet.
+      if (!user.email) {
+        return Promise.reject(new Error('no-email'));
+      }
       return db.collection('filterSubscriptions').add({
         uid: user.uid,
         email: user.email,

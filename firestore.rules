@@ -26,8 +26,16 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /filterSubscriptions/{subscriptionId} {
+      // `email is string` ist wichtiger, als es aussieht: Eine ANONYME
+      // Kennung (die reportEventError im Hintergrund anlegt) hat kein
+      // email-Token. Ohne diese Zeile verglich die Regel null == null,
+      // ließ das Abo durch - und in der Collection stand ein Abo ohne
+      // Empfänger, an das nie eine E-Mail gehen kann. auth.js verhindert
+      // das inzwischen schon vorher (isRealUser), hier steht die zweite
+      // Sicherung.
       allow create: if request.auth != null
                     && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.email is string
                     && request.resource.data.email == request.auth.token.email;
       allow read, delete: if request.auth != null && request.auth.uid == resource.data.uid;
       // Kein Update durch Nutzer/innen nötig - Abos werden neu angelegt statt

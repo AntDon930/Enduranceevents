@@ -208,11 +208,16 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   Klartext den Hinweis, die Seite im normalen Browser zu öffnen. Details
   im README („Google-Login: Popup, Weiterleitung, In-App-Browser").
 - **Anbieter „Anonym" in Firebase aktivieren** (Sicherheit →
-  Authentication → Sign-in method → Neuer Anbieter → Native Anbieter),
-  sonst schlägt das Melden von Datenfehlern mit
-  `auth/operation-not-allowed` fehl; das Formular sagt das im Klartext.
+  Authentication → Sign-in method → Neuer Anbieter → Native Anbieter).
+  Am 16.09.2026 gegen das echte Projekt geprüft: noch **nicht aktiv**,
+  `signInAnonymously()` antwortet mit `auth/admin-restricted-operation`
+  (nicht `auth/operation-not-allowed`, wie hier früher stand – das
+  Formular fängt beide Codes ab und sagt es im Klartext). Bis dahin
+  funktioniert „Fehler zu diesem Event melden" nicht.
   Außerdem die erweiterten `firestore.rules` (Collection `errorReports`)
-  in der Konsole veröffentlichen.
+  veröffentlichen – seit `firebase.json` im Repo liegt, geht das ohne
+  Copy-Paste per `firebase deploy --only firestore:rules`, auch im
+  Spark-Tarif.
 - **5 Seed-Links** – recherchiert (Stand 09/2026), warten auf die
   Entscheidung des Nutzers, nichts davon ist eingetragen:
   1. *Bodensee-Schwimmen*: findet statt, aber der Name ist mehrdeutig.
