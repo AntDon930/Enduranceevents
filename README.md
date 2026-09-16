@@ -369,6 +369,21 @@ Schweiz.
   die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
   es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
 
+  **Aufgeklappt zeigt die Veranstaltungszeile die erste Strecke selbst.**
+  Zwei Strecken sind dann auch zwei Zeilen. Vorher waren es drei: die
+  Zusammenfassung blieb stehen und wiederholte mit ihren Marken nur, was
+  direkt darunter Zeile für Zeile stand (vom Nutzer gemeldet). Die
+  Veranstaltungszeile wechselt daher ihren Inhalt - zugeklappt alle
+  Längen als Marken und alle Kategorien, aufgeklappt Wettbewerb, Kategorie
+  und Länge der ersten Strecke (`groupRowHtml()` prüft dafür `offen`),
+  während `subRowsHtml()` nur noch `rows.slice(1)` ausgibt. Pfeil und
+  Anzahl bleiben als Kennzeichen der Veranstaltung, die Schrift wird die
+  der Unterzeilen (`tr.group-row.open`), damit die Zeilen einer
+  Veranstaltung wie ein Block wirken. `klappeGruppe()` zeichnet deshalb
+  jetzt auch die Veranstaltungszeile neu, statt nur den Pfeil zu drehen -
+  weiterhin ohne `render()`, es bleibt bei den Zeilen dieser einen
+  Veranstaltung.
+
   **Eine Veranstaltung mit nur einer Strecke lässt sich nicht
   aufklappen**: Die Unterzeile würde Wort für Wort dasselbe zeigen wie die
   Zeile darüber. Solche Zeilen (`tr.group-row.single`, erkannt an

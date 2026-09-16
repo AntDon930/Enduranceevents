@@ -291,6 +291,16 @@
   tbody tr.sub-row { font-size: 0.82rem; }
   tbody tr.sub-row .col-name { padding-left: 22px; }
   tbody tr.sub-row .col-anzahl { color: var(--text-muted); }
+  /* Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
+     (siehe groupRowHtml) - zwei Strecken sind dann auch zwei Zeilen, nicht
+     drei. Damit die Zeilen einer Veranstaltung dabei wie ein Block wirken,
+     bekommt sie dieselbe Schrift wie ihre Unterzeilen; Pfeil und Anzahl
+     bleiben als Kennzeichen der Veranstaltung. */
+  tbody tr.group-row.open { font-size: 0.82rem; font-weight: normal; }
+  /* Mit Wettbewerbs-Zeile unter dem Namen säße der Pfeil sonst mittig
+     zwischen beiden Zeilen. */
+  .group-row.open .group-name { align-items: flex-start; }
+  .group-row.open .group-name-text { white-space: normal; }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
     padding: 8px 16px;
@@ -1538,10 +1548,17 @@
     return g.rows.length === 1;
   }
 
+  // Zugeklappt fasst diese Zeile die ganze Veranstaltung zusammen (alle
+  // Längen als Marken). Aufgeklappt zeigt sie die ERSTE Strecke wie eine
+  // gewöhnliche Zeile - die übrigen folgen als Unterzeilen. Eine
+  // Veranstaltung mit zwei Strecken steht dadurch aufgeklappt in zwei
+  // Zeilen; vorher waren es drei (Zusammenfassung + beide Strecken), und
+  // die Zusammenfassung wiederholte nur, was direkt darunter stand.
   function groupRowHtml(g, cols) {
     const e = g.rows[0].e;
     const einzeln = istEinzelgruppe(g);
     const offen = !einzeln && state.offeneGruppen.has(g.key);
+    const wb = offen ? displayWettbewerb(e) : null;
     const laengen = [];
     const kategorien = [];
     g.rows.forEach(({ e: r }) => {
@@ -1558,14 +1575,20 @@
           // Statt des Pfeils ein gleich breiter Platzhalter: sonst
           // beginnen die Namen einzelner Strecken weiter links als die
           // der aufklappbaren Veranstaltungen.
-          return `<td class="col-name"><div class="group-name" title="${escapeHtml(e.name)}">`
+          return `<td class="col-name"><div class="group-name" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
                + (einzeln
                    ? `<span class="chevron-spacer" aria-hidden="true"></span>`
                    : `<span class="chevron${offen ? ' open' : ''}">${CHEVRON_SVG}</span>`)
-               + `<span class="group-name-text">${escapeHtml(e.name)}</span></div></td>`;
+               + `<span class="group-name-text">${escapeHtml(e.name)}`
+               + (wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : '')
+               + `</span></div></td>`;
         case 'art2':
+          // Aufgeklappt gehört in die Zeile nur die Kategorie der ersten
+          // Strecke - die übrigen stehen in ihren eigenen Zeilen.
+          if (offen) return cellHtml(col, e);
           return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
         case 'laenge_km':
+          if (offen) return cellHtml(col, e);
           return `<td class="col-laenge_km"><div class="badges">`
                + (laengen.length ? laengen.map(l => `<span class="badge">${escapeHtml(l)}</span>`).join('') : '–')
                + `</div></td>`;
@@ -1592,8 +1615,10 @@
   //   - auf-/zuklappen rührt nur die Zeilen dieser Gruppe an
   //     (klappeGruppe).
 
+  // Ohne die erste Strecke: die steht aufgeklappt in der
+  // Veranstaltungszeile selbst (groupRowHtml).
   function subRowsHtml(g, cols) {
-    return g.rows.map(({ e, idx }) =>
+    return g.rows.slice(1).map(({ e, idx }) =>
       `<tr class="sub-row${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}">`
       + cols.map(col => cellHtml(col, e)).join('')
       + '</tr>'
@@ -1634,7 +1659,7 @@
         // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
         // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
         // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
-        teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${aktiv ? ' active' : ''}"`
+        teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
           + ` data-g="${nr}" data-idx="${g.rows[0].idx}"`
           + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
           + `>${groupRowHtml(g, cols)}</tr>`);
@@ -1681,21 +1706,24 @@
   // ohnehin nicht, das Zusammenfassen ist reine Anzeige.
   function klappeGruppe(tr, g) {
     const warOffen = state.offeneGruppen.has(g.key);
-    if (warOffen) {
-      state.offeneGruppen.delete(g.key);
-      let n = tr.nextElementSibling;
-      while (n && n.classList.contains('sub-row')) {
-        const weg = n;
-        n = n.nextElementSibling;
-        weg.remove();
-      }
-    } else {
-      state.offeneGruppen.add(g.key);
-      tr.insertAdjacentHTML('afterend', subRowsHtml(g, activeColumns()));
+    if (warOffen) state.offeneGruppen.delete(g.key);
+    else state.offeneGruppen.add(g.key);
+    // Erst die alten Unterzeilen weg (in beide Richtungen: aufgeklappt
+    // wandert die erste Strecke in die Veranstaltungszeile).
+    let n = tr.nextElementSibling;
+    while (n && n.classList.contains('sub-row')) {
+      const weg = n;
+      n = n.nextElementSibling;
+      weg.remove();
     }
+    const cols = activeColumns();
+    // Die Veranstaltungszeile wechselt ihren Inhalt: zugeklappt die
+    // Zusammenfassung, aufgeklappt die erste Strecke. groupRowHtml liest
+    // den schon umgesetzten Zustand, der Pfeil steckt darin.
+    tr.classList.toggle('open', !warOffen);
+    tr.innerHTML = groupRowHtml(g, cols);
     tr.setAttribute('aria-expanded', warOffen ? 'false' : 'true');
-    const pfeil = tr.querySelector('.chevron');
-    if (pfeil) pfeil.classList.toggle('open', !warOffen);
+    if (!warOffen) tr.insertAdjacentHTML('afterend', subRowsHtml(g, cols));
   }
 
   // Eine Zeile auswählen heißt: Detailbereich füllen und die Markierung

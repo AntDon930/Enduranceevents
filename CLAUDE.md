@@ -269,6 +269,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
   die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die
   Distanzen als Marken und vorn die Spalte „Anzahl" (auch „1").
+- **Aufgeklappt zeigt die Veranstaltungszeile die erste Strecke selbst**
+  (`groupRowHtml()` mit `offen`, `subRowsHtml()` gibt nur `rows.slice(1)`
+  aus): zwei Strecken = zwei Zeilen. Die frühere dritte Zeile war die
+  Zusammenfassung über ihren eigenen Strecken – vom Nutzer als Doppelung
+  gemeldet. Zugeklappt bleiben die Marken mit allen Längen.
+  `klappeGruppe()` zeichnet die Veranstaltungszeile dafür neu (immer noch
+  ohne `render()`).
 - **Eine Veranstaltung mit nur einer Strecke klappt nicht auf**
   (`istEinzelgruppe()`, `tr.group-row.single`): die Unterzeile würde
   dasselbe wiederholen. Kein Pfeil, kein `aria-expanded`, kein
