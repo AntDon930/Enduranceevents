@@ -213,17 +213,30 @@ ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
   Speicherschutz auch die Weiterleitung; der Nutzer bekommt dann im
   Klartext den Hinweis, die Seite im normalen Browser zu öffnen. Details
   im README („Google-Login: Popup, Weiterleitung, In-App-Browser").
-- **Anbieter „Anonym" in Firebase aktivieren** (Sicherheit →
-  Authentication → Sign-in method → Neuer Anbieter → Native Anbieter).
-  Am 16.09.2026 gegen das echte Projekt geprüft: noch **nicht aktiv**,
-  `signInAnonymously()` antwortet mit `auth/admin-restricted-operation`
-  (nicht `auth/operation-not-allowed`, wie hier früher stand – das
-  Formular fängt beide Codes ab und sagt es im Klartext). Bis dahin
-  funktioniert „Fehler zu diesem Event melden" nicht.
-  Außerdem die erweiterten `firestore.rules` (Collection `errorReports`)
-  veröffentlichen – seit `firebase.json` im Repo liegt, geht das ohne
-  Copy-Paste per `firebase deploy --only firestore:rules`, auch im
-  Spark-Tarif.
+- ~~Anbieter „Anonym" + `firestore.rules` veröffentlichen~~
+  **erledigt** (16.09.2026, vom Nutzer in der Konsole). Gegen das echte
+  Projekt `endurance-5177a` nachgeprüft:
+  - anonyme Anmeldung funktioniert (vorher
+    `auth/admin-restricted-operation`),
+  - eine echte Meldung aus `events.html` wird angenommen – „Fehler zu
+    diesem Event melden" läuft damit **end-to-end**,
+  - die Regeln weisen ab: zu kurze Beschreibung, erfundene Kategorie,
+    manipulierter `status`, fremde `uid`, Zusatzfeld, selbst gesetzter
+    Zeitstempel, Lesen der Meldungen, Abo ohne E-Mail.
+
+  In `errorReports` steht eine **Testmeldung vom 16.09.2026** („TEST -
+  bitte verwerfen", Kategorie `sonstiges`, Event „16. AOK Firmenlauf
+  Waiblingen") – beim ersten `review_reports.py`-Durchgang einfach mit
+  `reject` verwerfen.
+
+  Zu wissen fürs nächste Mal: Der **Erfolgsfall lässt sich nicht per
+  REST** testen. Die Regel verlangt `createdAt == request.time`, und
+  einen Server-Zeitstempel kann nur das SDK erzeugen – der Echttest
+  läuft also über den Browser (Playwright gegen `events.html`). Die
+  Negativfälle gehen dagegen gut per REST mit einem anonymen ID-Token.
+  Zum **Lesen** der Meldungen braucht es einen Service-Account-Key
+  (Projekteinstellungen → Dienstkonten) oder den Reiter „Daten" in der
+  Konsole; die Regeln sperren das Lesen für alle Clients.
 - ~~5 Seed-Links~~ **erledigt** (16.09.2026 recherchiert, vom Nutzer
   entschieden):
   1. *Bodensee-Schwimmen* → als „Bodensee Openwater" aufgenommen:
