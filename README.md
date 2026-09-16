@@ -1585,6 +1585,30 @@ python3 -m http.server 8000
 
 und dann `http://localhost:8000` im Browser öffnen.
 
+### Rauchtest der Seite
+
+`scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
+Skript startet selbst einen Server auf einem freien Port, öffnet die drei
+Seiten auf Handybreite (390 px) in Chromium und prüft 23 Punkte:
+
+```bash
+python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
+python3 scripts/smoke_test_frontend.py --sichtbar   # mit Browserfenster
+```
+
+Geprüft werden: Laden ohne Skriptfehler und ohne 404, Symbol- und
+Vorschau-Angaben im Kopf, Knopfreihe innerhalb des blauen Kastens, kein
+waagerechter Überlauf, Detailbereich samt Kalenderdatei (die `.ics` wird
+wirklich abgerufen und muss als `text/calendar` kommen, ohne
+`download`-Attribut), das Filter-Panel auf Handybreite, das Aufklappen der
+zusammengefassten Veranstaltungen (N Strecken = N Zeilen, Marken nur im
+zugeklappten Zustand) sowie die Filter über den Weg Liste → Karte → Liste.
+
+Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
+Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt
+`test_scraper_lib.py` nicht, sondern ergänzt es um das, was sich nur im
+Browser prüfen lässt.
+
 ## GitHub Pages aktivieren (einmalig)
 
 1. Im Repository zu **Settings → Pages** gehen.

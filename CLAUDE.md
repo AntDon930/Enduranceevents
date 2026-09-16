@@ -40,6 +40,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
+| `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
 gezielt abfragen:
@@ -62,11 +63,21 @@ python3 scripts/stamp_assets.py
 ```
 
 Bei Änderungen an `events.html`/`index.html`/`karte.html` zusätzlich die
-Inline-Skripte syntaktisch prüfen (`node --check`) und, wenn sinnvoll, einen
-Playwright-Smoke-Test. Chromium liegt unter
+Inline-Skripte syntaktisch prüfen (`node --check`) und den Rauchtest laufen
+lassen:
+
+```bash
+python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
+```
+
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 23 Punkte:
+Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
+zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
+Knopf, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
-laden Leaflet und Firebase.
+laden Leaflet und Firebase (das Skript setzt es schon).
 
 ## Datenregeln (hart erkämpft – nicht aufweichen)
 
