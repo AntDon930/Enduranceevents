@@ -117,6 +117,22 @@ ansehen, jede einzeln per Websuche gegen die offizielle Ausschreibung
 prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
 selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
+## Frontend-Fallen (events.html)
+
+- **`refreshOpenPanel()` zeichnet das offene Filter-Panel nicht neu,
+  solange der Fokus darin liegt** (damit eine Eingabe im Namensfeld nicht
+  abreißt). Jeder Button *im* Panel, der den Filterzustand ändert, muss
+  daher vor `render()` den Fokus abgeben – siehe `geoBtn.blur()` beim
+  Standort-Button; ohne das sah „Aktuellen Standort verwenden" kaputt aus
+  (Status blieb „wird ermittelt…", Radius-Auswahl ausgegraut).
+- **Chips nie pro Wert aufzählen.** Mengen-Filter fassen sich zusammen:
+  alles ausgewählt → „Stadt/Ort: Alle", mehr als `MAX_VALUE_CHIPS` (5) →
+  „Stadt/Ort: 12 ausgewählt". „Alle" bei Stadt/Ort sind ~2000 Orte.
+- **Reihenfolge im Skript beachten**: `const`-Tabellen (z. B.
+  `CANONICAL_RACE_NAMES`) müssen VOR ihrer ersten Verwendung stehen –
+  sonst Temporal-Dead-Zone-Fehler.
+- **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
+
 ## Quellen
 
 Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,

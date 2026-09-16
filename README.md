@@ -156,6 +156,26 @@ Schweiz.
      Radius 0–5 / 5–20 / 20–50 / 50+ km wählen. Wird die Seite mit
      `?standort=<Stadt>` aufgerufen (Deep-Link von `karte.html`), ist
      dieser Filter beim Laden schon gesetzt.
+
+     **Zur Geolocation**: Der Standort-Button braucht einen sicheren
+     Kontext – auf GitHub Pages (HTTPS) und über `http://localhost` geht
+     er, über eine nackte `http://`-Adresse oder `file://` lehnen die
+     Browser ihn ab; das sagt die Statuszeile dann auch so. Abgelehnter
+     Zugriff (Fehlercode 1) und Zeitüberschreitung (3) bekommen eigene,
+     verständliche Texte statt der rohen Browser-Meldung – auf iOS liegt
+     der Schalter unter Einstellungen → Datenschutz → Ortungsdienste →
+     Safari.
+
+     **Fallstrick, der hier einmal zugeschlagen hat**: Der Erfolgs-
+     Callback setzt `state.origin` und ruft `render()`. `render()`
+     zeichnet über `refreshOpenPanel()` auch das offene Filter-Panel neu –
+     aber nur, wenn der Fokus *nicht* darin liegt (sonst reißt eine
+     Eingabe im Namensfeld ab). Der gerade geklickte Standort-Button liegt
+     genau dort: das Panel blieb bei „Standort wird ermittelt…" stehen und
+     die Radius-Auswahl ausgegraut, obwohl der Standort längst gespeichert
+     war. Deshalb `geoBtn.blur()` vor `render()`. Wer an dieser Stelle
+     etwas ändert: Jeder Button *innerhalb* eines Filter-Panels, der den
+     Filterzustand ändert, braucht dasselbe.
   5. **Sportart** – Checkbox-Liste (Laufen/Schwimmen/Fahrrad/Triathlon)
   6. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` oben im `<script>`-Block in

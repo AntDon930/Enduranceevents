@@ -693,6 +693,9 @@
       geo_locating: 'Standort wird ermittelt…',
       geo_unsupported: 'Geolocation wird von diesem Browser nicht unterstützt.',
       geo_unavailable: (msg) => `Standort nicht verfügbar: ${msg}`,
+      geo_denied: 'Standortzugriff wurde abgelehnt. Erlaube ihn für diese Seite in den Browser- bzw. Systemeinstellungen (iOS: Einstellungen → Datenschutz → Ortungsdienste → Safari).',
+      geo_timeout: 'Die Standortabfrage hat zu lange gedauert. Bitte noch einmal versuchen.',
+      geo_insecure: 'Standortabfrage geht nur über HTTPS. Lokal getestet? Dann die Seite über https:// oder http://localhost öffnen.',
       geo_current_label: 'Aktueller Standort',
       radius_none: 'Kein Umkreis-Filter',
       detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
@@ -769,6 +772,9 @@
       geo_locating: 'Getting location…',
       geo_unsupported: 'Geolocation is not supported by this browser.',
       geo_unavailable: (msg) => `Location unavailable: ${msg}`,
+      geo_denied: 'Location access was denied. Allow it for this site in your browser or system settings (iOS: Settings → Privacy → Location Services → Safari).',
+      geo_timeout: 'Getting your location took too long. Please try again.',
+      geo_insecure: 'Location lookup only works over HTTPS. Testing locally? Open the page via https:// or http://localhost.',
       geo_current_label: 'Current location',
       radius_none: 'No radius filter',
       detail_empty: 'Select a row to see details.',
@@ -1492,15 +1498,34 @@
         statusEl.textContent = t('geo_unsupported');
         return;
       }
+      // Ohne sicheren Kontext (http:// außer localhost) lehnen die Browser
+      // die Abfrage mit einem nichtssagenden "User denied Geolocation" ab -
+      // besser vorher sagen, woran es liegt.
+      if (window.isSecureContext === false) {
+        statusEl.textContent = t('geo_insecure');
+        return;
+      }
       statusEl.textContent = t('geo_locating');
+      geoBtn.disabled = true;
       navigator.geolocation.getCurrentPosition(
         pos => {
           state.origin = { lat: pos.coords.latitude, lon: pos.coords.longitude, label: t('geo_current_label') };
           selectedIndex = null;
+          // WICHTIG: erst den Fokus vom Button nehmen. refreshOpenPanel()
+          // zeichnet das offene Filter-Panel NICHT neu, solange der Fokus
+          // darin liegt (damit eine Eingabe im Namensfeld nicht abreißt) -
+          // und der geklickte Button liegt genau dort. Ohne das blieb der
+          // Standort zwar gespeichert, das Panel zeigte aber weiter
+          // "Standort wird ermittelt…" und die Radius-Auswahl blieb
+          // ausgegraut: die Funktion sah aus wie kaputt.
+          geoBtn.blur();
           render();
         },
         err => {
-          statusEl.textContent = t('geo_unavailable', err.message);
+          geoBtn.disabled = false;
+          if (err.code === 1) statusEl.textContent = t('geo_denied');
+          else if (err.code === 3) statusEl.textContent = t('geo_timeout');
+          else statusEl.textContent = t('geo_unavailable', err.message || String(err.code));
         },
         { enableHighAccuracy: false, timeout: 10000 }
       );
