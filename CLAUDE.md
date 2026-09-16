@@ -24,7 +24,8 @@ Nicht auf einen anderen Branch pushen.
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
-| `karte.html` | Leaflet-Karte, ein Marker pro Standort |
+| `karte.html` | Leaflet-Karte, ein Marker pro Standort – filtert wie die Liste |
+| `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
@@ -234,6 +235,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
   die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die
   Distanzen als Marken und vorn die Spalte „Anzahl" (auch „1").
+- **Eine Veranstaltung mit nur einer Strecke klappt nicht auf**
+  (`istEinzelgruppe()`, `tr.group-row.single`): die Unterzeile würde
+  dasselbe wiederholen. Kein Pfeil, kein `aria-expanded`, kein
+  Aufklappen – der Klick wählt die Strecke nur aus. Statt des Pfeils ein
+  gleich breiter Platzhalter (`.chevron-spacer`), sonst beginnen die
+  Namen einzelner Strecken weiter links als die der aufklappbaren.
 - **Die Anzahl-Zahl steht schlicht in der Tabelle.** Eine Variante, in
   der sie als Kapsel halb über der linken Rahmenlinie lag, war gebaut und
   vom Nutzer wieder verworfen („wie ein aufgeklebtes Etikett"). Der
@@ -276,6 +283,34 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `display: -webkit-box` widerspricht dem Flex, der Name rutschte sonst
   unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
+
+## Liste und Karte teilen die Filter (`filters.js`)
+
+Die Filterlogik steht **einmal** in `filters.js`: Distanzkategorien,
+`matchEvent()`, `readParams()`/`toParams()` (Filter in der Adresse),
+`buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`, die
+Zeitraum-Knöpfe, `dropPastEvents()`. Beide Seiten binden die Datei ein
+und nehmen sich mit `const EF = window.EnduranceFilters` daraus, was sie
+brauchen.
+
+- Der „Karte"-Knopf in `events.html` hängt den Filterzustand an die
+  Adresse (`updateMapLink()`), `karte.html` liest ihn mit `readParams()`
+  und zeigt nur passende Marker. Darüber steht die Chip-Leiste; ✕ und
+  „Alle Filter zurücksetzen" wirken sofort. Ein Umkreis wird als Kreis
+  samt Ausgangspunkt gezeichnet.
+- `sort`/`gruppiert` versteht die Karte nicht, sie reicht sie aber
+  weiter – sonst verliert der Weg Liste → Karte → Liste die Ansicht.
+- **Nicht zurück nach `events.html` kopieren.** Zwei Kopien derselben
+  Kategorien laufen auseinander (eine hier geändert, dort vergessen).
+  Nur was allein die Liste betrifft (Spalten, Sortierung,
+  Zusammenfassen, Filter-Panels), bleibt in `events.html`.
+- Kurzformen in `events.html`, die auf `state` zugreifen
+  (`matchesDistanceCategory`, `haversineKm`, `dropPastEvents`), sind
+  **Funktions-Deklarationen statt `const`**: hochgezogen und damit auch
+  vor ihrer Textstelle aufrufbar (`dropPastEvents()` läuft direkt nach
+  dem `fetch`, weit oberhalb seiner Zeile).
+- Die Chip-/Zeitraum-Texte werden mit `Object.assign(I18N.de, EF.I18N.de)`
+  in das `I18N` der Seite gemischt, damit `t()` unverändert bleibt.
 
 ## Quellen
 

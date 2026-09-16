@@ -344,6 +344,16 @@ Schweiz.
   die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
   es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
 
+  **Eine Veranstaltung mit nur einer Strecke lässt sich nicht
+  aufklappen**: Die Unterzeile würde Wort für Wort dasselbe zeigen wie die
+  Zeile darüber. Solche Zeilen (`tr.group-row.single`, erkannt an
+  `istEinzelgruppe()`) bekommen deshalb keinen Pfeil, kein
+  `aria-expanded` und kein Aufklapp-Verhalten - ein Klick wählt nur die
+  Strecke für den Detailbereich aus. Anstelle des Pfeils steht ein gleich
+  breiter Platzhalter (`.chevron-spacer`, 16 px), damit die Namen aller
+  Zeilen der Spalte auf einer Linie beginnen. Die Zahl „1" in der
+  Anzahl-Spalte bleibt.
+
   Die Spaltenbreiten stehen als **Klassen** (`.col-name`, `.col-anzahl`,
   …) statt über `nth-child`: die Spalten wechseln je nach Zustand
   (Entfernung nur mit Ausgangspunkt, Anzahl nur beim Zusammenfassen), und
@@ -414,7 +424,9 @@ Schweiz.
   `history.replaceState`, nicht `pushState`: sonst legte jeder
   Häkchen-Klick einen Eintrag in der Zurück-Geschichte an. Die beiden
   alten Deep-Links (`?sportart=` von der Startseite, `?standort=` von der
-  Karte) funktionieren unverändert. Eine **Grenze** gibt es bei den
+  Karte) funktionieren unverändert. Denselben Filterteil der Adresse
+  liest und schreibt `karte.html` (`filters.js`), deshalb nimmt der
+  „Karte"-Button die Filter mit. Eine **Grenze** gibt es bei den
   Einzeltagen: mehr als 60 ausgewählte Tage stehen nicht in der Adresse
   (sie würde unbrauchbar lang) - genau diese großen Bereiche deckt der
   `zeitraum`-Parameter der vier Knöpfe ab.
@@ -435,16 +447,17 @@ Schweiz.
   Das ✕ eines Sammel-Chips löscht den ganzen Filter. Dasselbe gilt für
   das Datum (`Datum: Alle` statt „812 Tage ausgewählt", wenn alle Termine
   gewählt sind) und für die Distanz-Kategorien (`Länge: 8 ausgewählt`).
-  Schwellenwert: `MAX_VALUE_CHIPS` oben im `<script>`-Block von
-  `events.html`.
+  Schwellenwert: `MAX_VALUE_CHIPS` in `filters.js`; die Chips selbst baut
+  dort `buildChips()`, damit die Karte sie wortgleich anzeigt.
 
   **Zweisprachig (DE/EN)**: Umschalter oben rechts, geteilt mit
   `index.html` über denselben `localStorage`-Schlüssel. Übersetzt werden
   alle UI-Texte sowie die Werte für Land/Sportart/Kategorie (z. B.
   „Laufen" ↔ „Running"); Event-Namen, Städte und Veranstalter-Links
-  bleiben unverändert. Die Übersetzungstabellen (`I18N`,
-  `VALUE_TRANSLATIONS`) stehen oben im `<script>`-Block in `events.html`
-  – dort auch anpassbar/erweiterbar.
+  bleiben unverändert. Die Übersetzungstabelle `I18N` steht oben im
+  `<script>`-Block in `events.html` – dort auch anpassbar/erweiterbar;
+  die Chip- und Zeitraum-Texte sowie `VALUE_TRANSLATIONS` stehen in
+  `filters.js`, weil die Karte dieselben braucht.
 
   **Distanz-Schnellauswahl bei „Länge"**: Die Sportart-Tabs im Länge-Filter
   folgen dem Sportart-Filter: ist dort z. B. nur „Laufen" ausgewählt, zeigt
@@ -471,8 +484,9 @@ Schweiz.
 
   Diese Kategorien sind zusätzlich zum allgemeinen Von/Bis-Zahlenbereich
   wählbar (beide Filter werden kombiniert, UND-verknüpft) und stehen als
-  `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` oben in `events.html` –
-  dort anpassbar, falls andere Schwellenwerte gewünscht sind.
+  `DISTANCE_CATEGORIES`/`DISTANCE_CATEGORY_LABELS` in `filters.js` –
+  dort anpassbar, falls andere Schwellenwerte gewünscht sind (die Karte
+  filtert mit denselben Tabellen).
 - `karte.html` – Kartenansicht (Leaflet + OpenStreetMap-Kacheln, keine
   API-Keys nötig) mit einem Marker pro **Standort** (nicht pro Event):
   ein Ort mit z. B. 10 Events zeigt einen einzelnen Marker mit der Zahl
@@ -482,6 +496,54 @@ Schweiz.
   dort automatisch den Standort-Filter auf genau diesen Ort setzt. Erreichbar
   über den „Karte"-Button in `events.html` (auf der Startseite gibt es
   bewusst keinen Kartenlink).
+
+  **Die Karte zeigt dieselben Filter wie die Liste.** Der „Karte"-Button
+  in `events.html` hängt den vollständigen Filterzustand an die Adresse
+  (dieselben Parameter wie der Teilen-Link), und `karte.html` liest ihn
+  mit derselben Funktion wieder ein (`filters.js`, siehe unten). Damit
+  stehen auf der Karte nur die Marker der Events, die auch in der Liste
+  stünden – vorher zeigte die Karte immer alle ~4.100.
+  - Über der Karte steht eine **Leiste mit den aktiven Filtern**, Chip
+    für Chip wortgleich mit der Liste („Land: Deutschland ×", „Umkreis:
+    25 km um Fürth ×"). Ohne Filter ist sie ausgeblendet (`hidden`; die
+    Regel `.filter-bar[hidden] { display: none }` ist nötig, weil die
+    Klasse mit `display: flex` das Attribut sonst überstimmt).
+  - Das ✕ eines Chips und „Alle Filter zurücksetzen" wirken **sofort auf
+    der Karte** und schreiben die Adresse mit (`history.replaceState`).
+    Ausgewählt wird weiter in der Liste – auf der Karte lässt sich ein
+    Filter nur ansehen und wegnehmen.
+  - Ein **Umkreis-Filter wird gezeichnet**: der Ausgangspunkt als roter
+    Punkt (`.origin-dot`), der Umkreis als Kreis. Erst damit ist zu
+    sehen, *warum* außerhalb keine Marker stehen; der Kartenausschnitt
+    richtet sich dann nach dem Kreis, sonst nach den Markern.
+  - Die Hinweiszeile oben links zählt mit: „699 von 4155 Events an 324
+    Orten", bzw. „Kein Event entspricht den Filtern."
+  - Der „Liste"-Button und die Popup-Links nehmen die Filter mit zurück
+    (das Popup setzt zusätzlich seinen Ort). Die Ansichts-Parameter der
+    Liste (`sort`, `gruppiert`) versteht die Karte nicht, sie reicht sie
+    aber unverändert weiter – der Weg Liste → Karte → Liste verliert die
+    Ansicht also nicht.
+- `filters.js` – der **gemeinsame Filterzustand von `events.html` und
+  `karte.html`**: Distanzkategorien, Umkreis-Grenzen, die Prüfung
+  „trifft dieses Event die Filter?" (`matchEvent`), das Lesen und
+  Schreiben der Filter-Parameter in der Adresse (`readParams`/`toParams`),
+  die Beschriftung der Filter-Chips (`buildChips`) samt der dafür nötigen
+  Texte und Wertübersetzungen, die Zeitraum-Knöpfe und
+  `dropPastEvents()`. Vorher stand das alles im Inline-Skript von
+  `events.html`, und die Karte kannte gar keine Filter; ein zweiter
+  Nachbau in `karte.html` wäre mit der Zeit auseinandergelaufen (eine
+  Kategorie hier geändert, dort vergessen). Was **nur** die Liste
+  betrifft – Spalten, Sortierung, Zusammenfassen, die Filter-Panels –
+  bleibt in `events.html`.
+
+  Zwei Fallen dabei: Die Seiten mischen die Texte aus `filters.js` mit
+  `Object.assign(I18N.de, EF.I18N.de)` in ihr eigenes `I18N`-Objekt
+  (`t()` bleibt dadurch unverändert), und die Kurzformen in
+  `events.html`, die auf `state` zugreifen (`matchesDistanceCategory`,
+  `haversineKm`, `dropPastEvents`), sind **Funktions-Deklarationen statt
+  `const`** – hochgezogen und damit auch vor ihrer Textstelle aufrufbar
+  (die Temporal-Dead-Zone-Falle, die dieses Skript schon zweimal
+  erwischt hat).
 - `places.json` – Ortsverzeichnis für die Umkreissuche: alle Orte und
   Postleitzahlen aus Deutschland, Österreich und der Schweiz, auch die
   ohne Event. Wird von `scripts/build_places.py` aus GeoNames-Daten

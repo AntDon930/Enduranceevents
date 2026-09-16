@@ -85,6 +85,59 @@
   }
   .lang-btn.active { background: #fff; color: #14315e; border-color: #fff; }
 
+  /* Filterleiste: dieselben Chips wie in der Liste (events.html). Sie
+     zeigt, mit welchen Filtern die Karte gerade gezeichnet ist - ohne sie
+     sähe eine gefilterte Karte wie eine kaputte aus ("wo sind meine
+     Events?"). Ohne aktive Filter ist die Leiste ausgeblendet. */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  /* display:flex würde das hidden-Attribut überstimmen (Klasse schlägt
+     UA-Stylesheet) - ohne diese Zeile stünde die leere Leiste immer da. */
+  .filter-bar[hidden] { display: none; }
+  .filter-bar-label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  .active-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+  }
+  .chip button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0;
+  }
+  .reset-btn {
+    margin-left: auto;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .reset-btn:hover { opacity: 0.9; }
+
   .map-wrap {
     flex: 1;
     min-height: 60vh;
@@ -99,7 +152,10 @@
     position: absolute;
     z-index: 500;
     top: 10px;
-    left: 10px;
+    /* Neben den +/--Knöpfen von Leaflet, nicht darunter: bei 390 px
+       verdeckten sie sonst den Anfang des Textes ("699 von …"). */
+    left: 52px;
+    max-width: calc(100% - 62px);
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -119,6 +175,16 @@
     font-size: 0.72rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.35);
     border: 2px solid #fff;
+  }
+  /* Ausgangspunkt der Umkreissuche: ein farbiger Punkt, deutlich anders
+     als die blauen Event-Marker. */
+  .origin-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d94f4f;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
   }
   .popup-title { font-weight: 700; margin-bottom: 2px; }
   .popup-sub { color: var(--text-muted, #6b7280); font-size: 0.82rem; margin-bottom: 8px; }
@@ -153,6 +219,14 @@
   </div>
 </div>
 
+<!-- Aktive Filter aus der Liste. Wird nur eingeblendet, wenn die Adresse
+     überhaupt Filter mitbringt (siehe renderFilterBar). -->
+<div class="filter-bar" id="filter-bar" hidden>
+  <span class="filter-bar-label" id="filter-bar-label"></span>
+  <div class="active-chips" id="active-chips"></div>
+  <button type="button" class="reset-btn" id="reset-btn"></button>
+</div>
+
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-hint" id="map-hint">Lade Events…</div>
@@ -170,8 +244,18 @@
 <script src="firebase-config.js"></script>
 <script src="auth.js"></script>
 
+<!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
+     Adresse, dieselben Kategorien, dieselben Chips. -->
+<script src="filters.js"></script>
+
 <script>
 (async function () {
+  // Gemeinsamer Filterzustand mit events.html (filters.js): Die Karte
+  // liest die Filter aus derselben Adresse und prüft sie mit denselben
+  // Funktionen. Ein Marker zeigt damit genau die Events, die in der Liste
+  // auch zu sehen wären - vorher zeigte die Karte immer alle.
+  const EF = window.EnduranceFilters;
+
   const I18N = {
     de: {
       title: 'Karte',
@@ -179,9 +263,15 @@
       home: 'Startseite',
       list: 'Liste',
       hint: (n, cities) => `${n} Events an ${cities} Orten`,
+      hint_filtered: (n, total, cities) => `${n} von ${total} Events an ${cities} Orten`,
+      hint_empty: 'Kein Event entspricht den Filtern.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
-      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`
+      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`,
+      filter_label: 'Filter aus der Liste:',
+      reset: 'Alle Filter zurücksetzen',
+      geo_current_label: 'Aktueller Standort',
+      origin_title: 'Ausgangspunkt'
     },
     en: {
       title: 'Map',
@@ -189,11 +279,22 @@
       home: 'Home',
       list: 'List',
       hint: (n, cities) => `${n} events across ${cities} locations`,
+      hint_filtered: (n, total, cities) => `${n} of ${total} events across ${cities} locations`,
+      hint_empty: 'No event matches the filters.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
-      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`
+      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`,
+      filter_label: 'Filters from the list:',
+      reset: 'Reset all filters',
+      geo_current_label: 'Current location',
+      origin_title: 'Starting point'
     }
   };
+  // Die Chip- und Zeitraum-Texte stehen in filters.js - die Karte
+  // beschriftet die Filter also wortgleich wie die Liste.
+  Object.assign(I18N.de, EF.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en);
+
   let currentLang = 'de';
   try {
     const saved = localStorage.getItem('endurance-lang');
@@ -205,11 +306,47 @@
     return typeof entry === 'function' ? entry(...args) : entry;
   };
 
+  const tv = (field, value) => {
+    if (value == null) return value;
+    const entry = EF.VALUE_TRANSLATIONS[field] && EF.VALUE_TRANSLATIONS[field][value];
+    return entry ? entry[currentLang] : value;
+  };
+
   const titleEl = document.getElementById('page-title');
   const subtitleEl = document.getElementById('subtitle');
   const homeLabelEl = document.getElementById('home-btn-label');
   const listLabelEl = document.getElementById('list-btn-label');
   const hintEl = document.getElementById('map-hint');
+  const filterBarEl = document.getElementById('filter-bar');
+  const filterBarLabelEl = document.getElementById('filter-bar-label');
+  const chipsEl = document.getElementById('active-chips');
+  const resetBtnEl = document.getElementById('reset-btn');
+
+  // Der Filterzustand selbst (Land, Sportart, Umkreis …). Die Karte
+  // verändert ihn nur über die Chips und "Alle Filter zurücksetzen" -
+  // ausgewählt wird in der Liste.
+  const state = EF.createState();
+  // Die reinen Ansichts-Parameter der Liste (Sortierung, Zusammenfassen)
+  // versteht die Karte nicht, sie trägt sie aber unverändert weiter:
+  // sonst verlöre der Weg Liste -> Karte -> Liste die Ansicht.
+  const listenAnsicht = {};
+  let events = [];
+  let alleStandorte = new Set();
+  let alleTage = [];
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
+  const map = L.map('map').setView([48.5, 10.5], 6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
+  }).addTo(map);
+  // Alles, was beim Filtern neu gezeichnet wird, liegt in einer eigenen
+  // Ebene - so muss nur diese geleert werden, nicht die Kachel-Ebene.
+  const markerLayer = L.layerGroup().addTo(map);
 
   function setLanguage(lang) {
     currentLang = lang;
@@ -219,23 +356,77 @@
     subtitleEl.textContent = t('subtitle');
     homeLabelEl.textContent = t('home');
     listLabelEl.textContent = t('list');
+    resetBtnEl.textContent = t('reset');
+    filterBarLabelEl.textContent = t('filter_label');
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    // Chips und Popups tragen übersetzte Texte, müssen also mit. Ohne
+    // neuen Ausschnitt: ein Sprachwechsel ändert nicht, wohin man schaut.
+    if (events.length) render({ refit: false });
   }
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
   });
-  setLanguage(currentLang);
 
-  // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
-  const map = L.map('map').setView([48.5, 10.5], 6);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
-  }).addTo(map);
+  // ---------- Filter <-> Adresse ----------
 
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  // Der Filterzustand als Parameter - Filterteil aus filters.js, dazu die
+  // durchgereichten Ansichts-Parameter der Liste.
+  function currentParams() {
+    const p = EF.toParams(state);
+    Object.keys(listenAnsicht).forEach(k => p.set(k, listenAnsicht[k]));
+    return p;
   }
+
+  function linkTo(seite, extra) {
+    const p = currentParams();
+    if (extra) Object.keys(extra).forEach(k => p.set(k, extra[k]));
+    const suffix = p.toString();
+    return seite + (suffix ? '?' + suffix : '');
+  }
+
+  // Die eigene Adresse mitschreiben: entfernt jemand hier einen Chip, soll
+  // der Link auf diese Karte den neuen Stand zeigen (replaceState statt
+  // pushState - wie in events.html, damit der Zurück-Knopf brauchbar
+  // bleibt).
+  function writeUrlState() {
+    if (!window.history || !window.history.replaceState) return;
+    const suffix = currentParams().toString();
+    const neu = window.location.pathname + (suffix ? '?' + suffix : '');
+    if (neu !== window.location.pathname + window.location.search) {
+      try { window.history.replaceState(null, '', neu); } catch (e) { /* ignorieren */ }
+    }
+  }
+
+  // ---------- Filterleiste ----------
+
+  function renderFilterBar() {
+    const chips = EF.buildChips(state, {
+      t,
+      tv,
+      lang: currentLang,
+      dayCount: alleTage.length,
+      optionCount: stateKey => new Set(events.map(e => e[stateKey]).filter(v => v)).size
+    });
+    filterBarEl.hidden = chips.length === 0;
+    chipsEl.innerHTML = '';
+    chips.forEach(c => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${escapeHtml(c.label)} <button aria-label="✕">✕</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        c.clear();
+        render();
+      });
+      chipsEl.appendChild(chip);
+    });
+  }
+
+  resetBtnEl.addEventListener('click', () => {
+    EF.clearFilters(state);
+    render();
+  });
+
+  // ---------- Marker ----------
 
   function badgeIcon(count) {
     const size = count >= 20 ? 34 : count >= 5 ? 28 : 22;
@@ -247,22 +438,17 @@
     });
   }
 
-  try {
-    const res = await fetch('events.json');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    // Vergangene Events zählen nicht mit: die Marker-Zahl eines Ortes
-    // soll dieselbe sein wie die Trefferzahl in events.html (dort
-    // dieselbe Filterung beim Laden). events.json selbst wird nur
-    // wöchentlich aufgeräumt, dazwischen können bis zu sieben Tage
-    // Vergangenheit drinstehen. Ein Event ohne verwertbares Datum
-    // bleibt drin.
-    const today = new Date();
-    const todayIso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-    const events = (await res.json()).filter(e => {
-      const ende = e.datum_ende || e.datum_start;
-      if (typeof ende !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(ende)) return true;
-      return ende >= todayIso;
-    });
+  // opts.refit === false lässt den Kartenausschnitt, wie er ist.
+  function render(opts) {
+    renderFilterBar();
+    listLabelEl.href = linkTo('events.html');
+    writeUrlState();
+    renderMarkers(!opts || opts.refit !== false);
+  }
+
+  function renderMarkers(refit) {
+    markerLayer.clearLayers();
+    const passend = events.filter(e => EF.matchEvent(state, e));
 
     // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
     // so zeigt z. B. Frankfurt EINEN Marker mit der Zahl "10" statt zehn
@@ -271,7 +457,7 @@
     // selben Ort teilen sich ohnehin dieselbe Geocoding-Koordinate).
     const byStandort = new Map();
     let withCoords = 0;
-    events.forEach(e => {
+    passend.forEach(e => {
       if (e.lat == null || e.lon == null || !e.standort) return;
       withCoords++;
       const key = e.standort;
@@ -281,27 +467,91 @@
       byStandort.get(key).count++;
     });
 
-    hintEl.textContent = t('hint', withCoords, byStandort.size);
+    hintEl.textContent = withCoords === 0
+      ? t('hint_empty')
+      : EF.hasFilters(state)
+        ? t('hint_filtered', withCoords, events.length, byStandort.size)
+        : t('hint', withCoords, byStandort.size);
 
     const markers = [];
     byStandort.forEach(loc => {
-      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count) }).addTo(map);
-      const listUrl = 'events.html?standort=' + encodeURIComponent(loc.standort);
+      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count) }).addTo(markerLayer);
+      // Der Link in die Liste nimmt die aktuellen Filter mit und setzt
+      // zusätzlich diesen Ort - sonst führte ein Marker aus einer
+      // gefilterten Karte zurück in eine ungefilterte Liste.
+      const listUrl = linkTo('events.html', { standort: loc.standort });
       marker.bindPopup(
         `<div class="popup-title">${escapeHtml(loc.standort)}</div>` +
-        `<div class="popup-sub">${escapeHtml(loc.land || '')} · ${t('popup_count', loc.count)}</div>` +
+        `<div class="popup-sub">${escapeHtml(tv('land', loc.land) || '')} · ${t('popup_count', loc.count)}</div>` +
         `<a class="popup-link" href="${listUrl}">${escapeHtml(t('popup_link', loc.count))}</a>`
       );
       markers.push(marker);
     });
 
-    if (markers.length) {
-      const group = L.featureGroup(markers);
-      map.fitBounds(group.getBounds().pad(0.15));
+    // Umkreissuche sichtbar machen: der Ausgangspunkt als Punkt, der
+    // Umkreis als Kreis. Erst damit ist zu sehen, WARUM außerhalb keine
+    // Marker stehen.
+    let kreis = null;
+    if (state.origin) {
+      L.marker([state.origin.lat, state.origin.lon], {
+        icon: L.divIcon({ className: '', html: '<div class="origin-dot"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }),
+        title: `${t('origin_title')}: ${state.origin.label}`
+      }).addTo(markerLayer);
+      if (state.radiusKm != null) {
+        kreis = L.circle([state.origin.lat, state.origin.lon], {
+          radius: state.radiusKm * 1000,
+          color: '#14509a',
+          weight: 1,
+          fillColor: '#14509a',
+          fillOpacity: 0.06
+        }).addTo(markerLayer);
+      }
     }
-  } catch (err) {
-    hintEl.textContent = t('load_error', err.message);
+
+    // Ausschnitt: der Umkreis hat Vorrang (er ist die Frage, die gestellt
+    // wurde), sonst alle Marker. Ohne beides bleibt der Blick auf D/A/CH.
+    if (!refit) {
+      return;
+    } else if (kreis) {
+      map.fitBounds(kreis.getBounds().pad(0.1));
+    } else if (markers.length) {
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+    }
   }
+
+  // ---------- Laden ----------
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    // Vergangene Events zählen nicht mit: die Marker-Zahl eines Ortes
+    // soll dieselbe sein wie die Trefferzahl in events.html (dort
+    // dieselbe Filterung beim Laden, siehe EF.dropPastEvents).
+    events = EF.dropPastEvents(await res.json());
+  } catch (err) {
+    setLanguage(currentLang);
+    hintEl.textContent = t('load_error', err.message);
+    return;
+  }
+
+  alleStandorte = new Set(events.map(e => e.standort).filter(v => v));
+  alleTage = Array.from(new Set(events.map(e => e.datum_start).filter(v => v))).sort();
+
+  // Filter aus der Adresse übernehmen - dieselben Parameter, die
+  // events.html schreibt (?land=…&kat=…&ort=…&umkreis=…). Ein Tippfehler
+  // im Ortsnamen wird verworfen statt zu einer leeren Karte zu führen.
+  EF.readParams(state, window.location.search, {
+    knownStandort: v => alleStandorte.has(v),
+    alleTage,
+    geoLabel: t('geo_current_label')
+  });
+  try {
+    const p = new URLSearchParams(window.location.search);
+    ['sort', 'gruppiert'].forEach(k => { if (p.get(k)) listenAnsicht[k] = p.get(k); });
+  } catch (e) { /* ignorieren */ }
+
+  setLanguage(currentLang);
+  render();
 })();
 </script>
 </body>
