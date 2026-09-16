@@ -147,15 +147,52 @@
   // ---------------------------------------------------------------------
   const configured = !!(window.FIREBASE_CONFIGURED && window.firebase);
   let auth = null;
-  let db = null;
   if (configured) {
     try {
       firebase.initializeApp(window.FIREBASE_CONFIG);
       auth = firebase.auth();
-      db = firebase.firestore();
     } catch (e) {
       console.error('Firebase-Initialisierung fehlgeschlagen:', e);
     }
+  }
+
+  // ---------------------------------------------------------------------
+  // Firestore wird NACHGELADEN, nicht mitgeladen
+  // ---------------------------------------------------------------------
+  // firebase-firestore-compat.js ist 344 KB (102 KB gzip) - mehr als das
+  // Doppelte von Auth und App zusammen. Gebraucht wird es an genau zwei
+  // Stellen, und beide sind Nutzerhandlungen: ein Filterabo speichern und
+  // eine Fehlermeldung abschicken. Als <script> im HTML verzoegerte es
+  // dagegen JEDEN Seitenaufruf, weil das Inline-Skript der Liste erst
+  // nach allen vorangehenden Skripten laeuft - events.json wurde also
+  // erst abgerufen, nachdem eine halbe Megabyte Firebase da war.
+  //
+  // Deshalb: hier nachladen, wenn es zum ersten Mal gebraucht wird.
+  // prepareFirestore() startet das vorausschauend (Melde-Dialog geoeffnet,
+  // Abo-Box sichtbar), damit beim Absenden nichts mehr zu warten ist.
+  const FIRESTORE_SDK_URL =
+    'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js';
+  let dbPromise = null;
+
+  function ensureDb() {
+    if (!configured || !auth) return Promise.reject(new Error('not-configured'));
+    if (!dbPromise) {
+      const sdkGeladen = (window.firebase && firebase.firestore)
+        ? Promise.resolve()
+        : new Promise((resolve, reject) => {
+            const tag = document.createElement('script');
+            tag.src = FIRESTORE_SDK_URL;
+            tag.async = true;
+            tag.onload = resolve;
+            tag.onerror = () => reject(new Error('firestore-sdk'));
+            document.head.appendChild(tag);
+          });
+      dbPromise = sdkGeladen.then(() => firebase.firestore());
+      // Einen Fehlschlag nicht einbrennen: beim naechsten Versuch (z. B.
+      // nach kurzem Netzausfall) soll wieder geladen werden duerfen.
+      dbPromise.catch(() => { dbPromise = null; });
+    }
+    return dbPromise;
   }
 
   const authChangeListeners = [];
@@ -535,7 +572,7 @@
     // ist ein einfaches, JSON-serialisierbares Objekt (Arrays statt Sets)
     // OHNE Datumsfilter - siehe events.html renderNotifyPrompt().
     saveFilterSubscription: (filters) => {
-      if (!db || !auth || !isRealUser(auth.currentUser)) {
+      if (!configured || !auth || !isRealUser(auth.currentUser)) {
         return Promise.reject(new Error('not-authenticated'));
       }
       const user = auth.currentUser;
@@ -546,14 +583,20 @@
       if (!user.email) {
         return Promise.reject(new Error('no-email'));
       }
-      return db.collection('filterSubscriptions').add({
+      return ensureDb().then((db) => db.collection('filterSubscriptions').add({
         uid: user.uid,
         email: user.email,
         filters: filters,
         notified: false,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      }));
     },
+
+    // Firestore vorausschauend nachladen, ohne auf das Ergebnis zu warten:
+    // aufgerufen, sobald sich abzeichnet, dass geschrieben wird (Melde-
+    // Dialog auf, Abo-Box sichtbar). Fehler sind hier bewusst egal - der
+    // echte Aufruf versucht es dann noch einmal und meldet sie.
+    prepareFirestore: () => { ensureDb().catch(() => {}); },
 
     // Nimmt eine Fehlermeldung zu einem Event auf (siehe events.html,
     // "Fehler zu diesem Event melden").
@@ -573,13 +616,15 @@
     // auth/operation-not-allowed fehl - die Meldung darüber steht in
     // events.html.
     reportEventError: ({ event, kategorie, beschreibung }) => {
-      if (!db || !auth) return Promise.reject(new Error('not-configured'));
+      if (!configured || !auth) return Promise.reject(new Error('not-configured'));
 
       const ensureUser = auth.currentUser
         ? Promise.resolve(auth.currentUser)
         : auth.signInAnonymously().then((cred) => cred.user);
 
-      return ensureUser.then((user) =>
+      // Beides parallel: das Firestore-SDK laedt, waehrend die anonyme
+      // Anmeldung laeuft.
+      return Promise.all([ensureDb(), ensureUser]).then(([db, user]) =>
         db.collection('errorReports').add({
           uid: user.uid,
           // Bei einer anonymen Kennung ist email null - bewusst
@@ -611,4 +656,24 @@
       );
     }
   };
+
+  // ---------------------------------------------------------------------
+  // Nachzuegler-Warteschlange
+  // ---------------------------------------------------------------------
+  // Die Firebase-Skripte und diese Datei haengen mit `defer` im HTML: sie
+  // laden parallel zum Seitenaufbau, laufen aber erst NACH dem Inline-
+  // Skript der Seite. Fuer die Liste ist das der ganze Sinn der Sache
+  // (events.json wird sofort abgerufen, statt auf 200 KB Firebase zu
+  // warten) - nur kann events.html dann noch kein onAuthChange
+  // registrieren. Wer zu frueh dran ist, legt seinen Listener in
+  // window.EE_AUTH_QUEUE ab und wird hier nachtraeglich angemeldet.
+  const wartende = window.EE_AUTH_QUEUE;
+  window.EE_AUTH_QUEUE = {
+    push: (cb) => { window.EndauranceAuth.onAuthChange(cb); }
+  };
+  if (Array.isArray(wartende)) {
+    wartende.forEach((cb) => {
+      try { window.EndauranceAuth.onAuthChange(cb); } catch (e) { console.error(e); }
+    });
+  }
 })();

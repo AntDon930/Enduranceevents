@@ -1417,6 +1417,94 @@ Drei Details, die in der Praxis zählen:
 Repository ausgenommen. In `manual_overrides.json` landet nur die
 fachliche Begründung, nie die Person.
 
+## Tempo der Seite
+
+Die Seite lud spürbar träge – das Aufrufen der Liste ebenso wie jeder
+Klick darin. Gemessen wurde mit Playwright unter Handy-Bedingungen
+(vierfach gebremste CPU, 1,6 Mbit/s, 150 ms Latenz, Auslieferung mit
+gzip wie bei GitHub Pages):
+
+| Weg | vorher | nachher |
+|---|---|---|
+| `events.html` direkt aufrufen, bis die Liste steht | 3.041 ms | 2.356 ms |
+| Startseite → Klick auf „Events" | 2.112 ms | 814 ms |
+| Klick auf eine Zeile | 605 ms | 14 ms |
+| JavaScript beim Seitenaufruf | + 344 KB Firestore | – |
+
+Fünf Ursachen, fünf Änderungen:
+
+**1. Das Firestore-SDK lud bei jedem Seitenaufruf mit.**
+`firebase-firestore-compat.js` ist 344 KB (102 KB gzip) – mehr als App
+und Auth zusammen. Gebraucht wird es an genau zwei Stellen, beide sind
+Nutzerhandlungen: ein Filterabo speichern und eine Fehlermeldung
+abschicken. `auth.js` lädt es jetzt selbst nach
+(`ensureDb()`), und `prepareFirestore()` stößt das vorausschauend an,
+sobald der Melde-Dialog aufgeht oder die Abo-Box erscheint – beim
+Absenden ist dann nichts mehr zu warten.
+
+**2. Die Firebase-Skripte blockierten den Start der Liste.**
+Sie standen ohne `defer` vor dem Inline-Skript, und ein klassisches
+Skript wartet auf alle davor: `events.json` wurde also erst angefordert,
+nachdem eine halbe Megabyte Firebase da war. Jetzt hängt an allen vier
+Skripten `defer`. Weil `window.EndauranceAuth` damit später da ist als
+das Inline-Skript, gibt es die Warteschlange `window.EE_AUTH_QUEUE`:
+Wer zu früh dran ist, legt seinen `onAuthChange`-Listener dort ab,
+`auth.js` meldet ihn nach.
+
+**3. Jeder Klick zeichnete die ganze Tabelle neu.**
+`render()` baute pro Zeile ein `<tr>`, setzte dessen `innerHTML` (ein
+eigener HTML-Parser-Lauf je Zeile), hängte einen eigenen Click-Listener
+an und fügte es einzeln ein – bei 4.155 Einträgen viertausendmal alles
+davon, und das auch dann, wenn nur eine Zeile ausgewählt wurde. Jetzt
+entstehen alle Zeilen als **ein** HTML-String, die Klicks laufen über
+**einen** Listener am `<tbody>` (Event-Delegation, die Zeile verrät sich
+über `data-idx`/`data-g`). Zwei Folgen davon:
+
+- `waehleZeile()` zeichnet die Tabelle **nicht** neu – eine Auswahl
+  hängt nur die Markierung um und füllt den Detailbereich.
+- `klappeGruppe()` rührt nur die Zeilen der einen Veranstaltung an
+  (`insertAdjacentHTML` bzw. die `.sub-row`-Geschwister entfernen).
+  Die Trefferzahl ändert sich dabei ohnehin nicht.
+
+**4. Der Browser maß über 4.000 Zeilen, von denen zwanzig zu sehen sind.**
+`tbody tr { content-visibility: auto; contain-intrinsic-size: auto 41px; }`
+lässt ihn Layout und Zeichnen für alles überspringen, was gerade nicht
+im Bild ist. Das geht nur, weil die Spaltenbreiten fest sind
+(`table-layout: fixed`) – sonst müsste er doch jede Zeile ausmessen, um
+die Spalten zu verteilen. Ältere Browser ignorieren beide Zeilen.
+
+**5. `events.json` wurde erst am Ende angefordert.**
+In `events.html` und `karte.html` steht jetzt ganz oben im Kopf
+`<link rel="preload" href="events.json" as="fetch" crossorigin="anonymous">`
+– der Download beginnt, bevor der Browser Stylesheet und Skripte
+gesehen hat. (Das `crossorigin` muss sein: ohne es passt der
+vorgeladene Eintrag nicht zum späteren `fetch()`, und die Datei käme ein
+zweites Mal.) Die **Startseite** holt zusätzlich schon einmal
+`events.html` und `events.json` per `rel="prefetch"` in den Cache –
+niedrige Priorität, läuft erst, wenn die Startseite fertig ist. Deshalb
+ist der Klick auf „Events" der Weg, der sich am deutlichsten geändert
+hat.
+
+Dazu auf der Karte: Die Popups der ~1.500 Marker entstanden alle sofort,
+jedes mit eigenem `linkTo()`-Aufruf. `bindPopup()` nimmt auch eine
+Funktion – der Inhalt entsteht jetzt beim Öffnen, und der Link trägt
+dadurch sogar die Filter von genau diesem Moment.
+
+### Was als Nächstes greifen müsste
+
+Der Rest ist Netzwerk: `events.json` ist mit 1,6 MB (162 KB gzip) das
+Schwergewicht, und die Liste kann erst stehen, wenn die Datei da ist.
+Solange es ~4.150 Events sind, trägt das. Bei den geplanten **über
+20.000** wären es rund 8 MB (800 KB gzip) – dann führt kein Weg daran
+vorbei, die Daten aufzuteilen (etwa nach Jahr oder Monat, nachladen beim
+Filtern) oder ein kompakteres Format zu wählen (Spalten-Arrays statt
+eines Objekts je Event spart roh etwa 40 %). Auch die Tabelle sollte
+dann nicht mehr alle Zeilen in den DOM legen; `content-visibility`
+federt das ab, ersetzt aber kein abschnittsweises Nachladen.
+
+Kleinigkeit am Rande: Ein `favicon.ico` gibt es nicht, jeder
+Seitenaufruf holt sich dafür eine 404.
+
 ## Lokal testen
 
 Da `events.html` die Datei `events.json` per `fetch` lädt, funktioniert

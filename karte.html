@@ -6,6 +6,16 @@
 <title>Karte – Ausdauersport-Events D/A/CH</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- events.json ist das, worauf die Seite wartet - deshalb wird der
+     Download hier angestossen, noch bevor der Browser das Stylesheet und
+     die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
+     filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
+<link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+<!-- Verbindungsaufbau (DNS + TLS) zu den mit `defer` geladenen
+     Firebase-Dateien schon jetzt, nicht erst beim Abruf. -->
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<!-- Leaflet kommt von unpkg: Verbindung schon beim Kopf der Seite aufbauen. -->
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=452fb354">
 <style>
@@ -250,11 +260,15 @@
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
      "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
+<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
+     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
+     Firebase, bevor es events.json ueberhaupt anforderte.
+     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
+     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
@@ -530,14 +544,21 @@
     const markers = [];
     byStandort.forEach(loc => {
       const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count) }).addTo(markerLayer);
+      // Der Popup-Inhalt entsteht erst beim Öffnen: bindPopup nimmt auch
+      // eine FUNKTION. Als fertiger String kostete er bei ~2.000 Orten
+      // 2.000 Popups samt 2.000 linkTo()-Aufrufen (jeder baut eigene
+      // URLSearchParams) - für höchstens eines, das jemand ansieht.
+      //
       // Der Link in die Liste nimmt die aktuellen Filter mit und setzt
       // zusätzlich diesen Ort - sonst führte ein Marker aus einer
-      // gefilterten Karte zurück in eine ungefilterte Liste.
-      const listUrl = linkTo('events.html', { standort: loc.standort });
-      marker.bindPopup(
+      // gefilterten Karte zurück in eine ungefilterte Liste. Weil er erst
+      // beim Klick entsteht, trägt er jetzt sogar die Filter von genau
+      // diesem Moment.
+      marker.bindPopup(() =>
         `<div class="popup-title">${escapeHtml(loc.standort)}</div>` +
         `<div class="popup-sub">${escapeHtml(tv('land', loc.land) || '')} · ${t('popup_count', loc.count)}</div>` +
-        `<a class="popup-link" href="${listUrl}">${escapeHtml(t('popup_link', loc.count))}</a>`
+        `<a class="popup-link" href="${linkTo('events.html', { standort: loc.standort })}">`
+        + `${escapeHtml(t('popup_link', loc.count))}</a>`
       );
       markers.push(marker);
     });

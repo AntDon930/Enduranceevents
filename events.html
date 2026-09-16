@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Ausdauersport-Events D/A/CH</title>
+<!-- events.json ist das, worauf die Seite wartet - deshalb wird der
+     Download hier angestossen, noch bevor der Browser das Stylesheet und
+     die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
+     filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
+<link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+<!-- Verbindungsaufbau (DNS + TLS) zu den mit `defer` geladenen
+     Firebase-Dateien schon jetzt, nicht erst beim Abruf. -->
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=452fb354">
 <style>
@@ -414,6 +422,19 @@
   .col-art2 { width: 13%; }
   .col-laenge_km { width: 11%; }
   table.with-distance { min-width: 900px; }
+
+  /* Der Browser ueberspringt Layout und Zeichnen fuer Zeilen, die gerade
+     nicht im Bild sind. Bei ueber 4.000 Zeilen ist das der Unterschied
+     zwischen einer zaeh aufbauenden und einer sofort da stehenden Liste.
+     Moeglich ist es nur, weil die Spaltenbreiten fest sind
+     (table-layout: fixed) - sonst muesste der Browser doch jede Zeile
+     ausmessen, um die Spalten zu verteilen. contain-intrinsic-size nennt
+     die geschaetzte Zeilenhoehe, damit die Bildlaufleiste von Anfang an
+     stimmt. Browser ohne content-visibility ignorieren beide Zeilen. */
+  tbody tr {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 41px;
+  }
   thead th {
     position: sticky;
     top: 0;
@@ -718,11 +739,15 @@
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
      "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
+<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
+     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
+     Firebase, bevor es events.json ueberhaupt anforderte.
+     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
+     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
 
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
@@ -1083,6 +1108,13 @@
   let events = [];
   let selectedIndex = null;
 
+  // Stehen hier oben, NICHT beim Zeichnen der Tabelle: `const`/`let` auf
+  // oberster Ebene sind vor ihrer Textstelle nicht benutzbar (Temporal
+  // Dead Zone), und render() läuft schon viel früher - setLanguage()
+  // ruft es auf, bevor die Tabelle überhaupt zum ersten Mal entsteht.
+  let gruppenAktuell = [];         // Gruppen der aktuellen Anzeige
+  const idxZuGruppe = new Map();   // Event-Index -> Nummer seiner Gruppe
+
   // Vor dem ersten readUrlState() darf writeUrlState() NICHTS schreiben,
   // sonst löscht der erste render() die Parameter eines geteilten Links
   // wieder: window.EndauranceAuth meldet den Anmeldestatus schon, während
@@ -1198,8 +1230,14 @@
   // "Benachrichtige mich"-Box neu rendern, sobald sich der Login-Status
   // ändert (z. B. nachdem sich der Nutzer im Modal erfolgreich angemeldet
   // hat, während die Box wegen 0 Treffern sichtbar war).
+  // auth.js haengt mit `defer` im HTML und ist an dieser Stelle noch nicht
+  // da - das ist Absicht, damit der Abruf von events.json nicht auf
+  // Firebase wartet. Die Warteschlange nimmt den Listener auf, auth.js
+  // meldet ihn nach (siehe EE_AUTH_QUEUE dort).
   if (window.EndauranceAuth) {
     window.EndauranceAuth.onAuthChange(() => render());
+  } else {
+    (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push(() => render());
   }
 
   try {
@@ -1537,6 +1575,31 @@
     }).join('');
   }
 
+  // ---------- Die Tabelle zeichnen ----------
+  //
+  // Alle Zeilen entstehen als EIN HTML-String und werden in einem Zug
+  // gesetzt. Vorher baute render() jede Zeile einzeln: createElement,
+  // tr.innerHTML (ein eigener HTML-Parser-Lauf pro Zeile), ein eigener
+  // Click-Listener, appendChild - bei 4.155 Einträgen also 4.155-mal
+  // alles davon. Ein einzelner Klick auf eine Zeile kostete damit 157 ms
+  // auf dem Entwicklungsrechner, auf einem Handy ein Mehrfaches.
+  //
+  // Die Klicks laufen jetzt über EINEN Listener am <tbody>
+  // (Event-Delegation), die angeklickte Zeile verrät sich über
+  // data-idx (welches Event) und data-g (zu welcher Gruppe sie gehört).
+  // Zwei Folgen davon, beide beabsichtigt:
+  //   - eine Zeile auswählen zeichnet die Tabelle NICHT neu (waehleZeile),
+  //   - auf-/zuklappen rührt nur die Zeilen dieser Gruppe an
+  //     (klappeGruppe).
+
+  function subRowsHtml(g, cols) {
+    return g.rows.map(({ e, idx }) =>
+      `<tr class="sub-row${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}">`
+      + cols.map(col => cellHtml(col, e)).join('')
+      + '</tr>'
+    ).join('');
+  }
+
   function render() {
     ui.updateIndicators();
     renderChips();
@@ -1547,6 +1610,9 @@
     const cols = activeColumns();
     tableEl.classList.toggle('with-distance', !!state.origin);
 
+    gruppenAktuell = [];
+    idxZuGruppe.clear();
+
     if (filtered.length === 0) {
       bodyEl.innerHTML = `<tr class="empty-row"><td colspan="${cols.length}">${escapeHtml(t('empty_events'))}</td></tr>`;
       renderNotifyPrompt();
@@ -1554,62 +1620,104 @@
       // Eine Zeile pro Veranstaltung, Klick klappt die Strecken auf. Die
       // Daten bleiben unangetastet - Datenregel 1 gilt weiter, das hier
       // ist nur die Anzeige.
-      const gruppen = buildGroups(filtered);
-      countEl.textContent = t('result_count_grouped', gruppen.length, filtered.length, events.length);
-      bodyEl.innerHTML = '';
-      gruppen.forEach(g => {
+      gruppenAktuell = buildGroups(filtered);
+      countEl.textContent = t('result_count_grouped', gruppenAktuell.length, filtered.length, events.length);
+      const teile = [];
+      gruppenAktuell.forEach((g, nr) => {
         const einzeln = istEinzelgruppe(g);
-        const tr = document.createElement('tr');
-        tr.className = 'group-row' + (einzeln ? ' single' : '');
-        // aria-expanded nur an Zeilen, die sich wirklich aufklappen -
-        // eine einzelne Strecke wäre sonst dauerhaft "zugeklappt", ohne
-        // dass es etwas zu öffnen gäbe.
-        if (!einzeln) tr.setAttribute('aria-expanded', state.offeneGruppen.has(g.key) ? 'true' : 'false');
-        if (g.rows.some(r => r.idx === selectedIndex)) tr.classList.add('active');
-        tr.innerHTML = groupRowHtml(g, cols);
-        tr.addEventListener('click', () => {
-          // Einzelne Strecke: der Klick wählt sie nur aus (Detailbereich),
-          // aufzuklappen gibt es nichts.
-          if (!einzeln) {
-            if (state.offeneGruppen.has(g.key)) state.offeneGruppen.delete(g.key);
-            else state.offeneGruppen.add(g.key);
-          }
-          selectedIndex = g.rows[0].idx;
-          render();
+        let aktiv = false;
+        g.rows.forEach(({ idx }) => {
+          idxZuGruppe.set(idx, nr);
+          if (idx === selectedIndex) aktiv = true;
         });
-        bodyEl.appendChild(tr);
-
-        if (!einzeln && state.offeneGruppen.has(g.key)) {
-          g.rows.forEach(({ e, idx }) => {
-            const sub = document.createElement('tr');
-            sub.className = 'sub-row';
-            if (idx === selectedIndex) sub.classList.add('active');
-            sub.innerHTML = cols.map(col => cellHtml(col, e)).join('');
-            sub.addEventListener('click', (ev) => {
-              ev.stopPropagation();
-              selectedIndex = idx;
-              render();
-            });
-            bodyEl.appendChild(sub);
-          });
-        }
+        const offen = !einzeln && state.offeneGruppen.has(g.key);
+        // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
+        // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
+        // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
+        teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${aktiv ? ' active' : ''}"`
+          + ` data-g="${nr}" data-idx="${g.rows[0].idx}"`
+          + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
+          + `>${groupRowHtml(g, cols)}</tr>`);
+        if (offen) teile.push(subRowsHtml(g, cols));
       });
+      bodyEl.innerHTML = teile.join('');
       removeNotifyPrompt();
     } else {
-      bodyEl.innerHTML = '';
-      filtered.forEach(({ e, idx }) => {
-        const tr = document.createElement('tr');
-        if (idx === selectedIndex) tr.classList.add('active');
-        tr.innerHTML = cols.map(col => cellHtml(col, e)).join('');
-        tr.addEventListener('click', () => { selectedIndex = idx; render(); });
-        bodyEl.appendChild(tr);
-      });
+      bodyEl.innerHTML = filtered.map(({ e, idx }) =>
+        `<tr data-idx="${idx}"${idx === selectedIndex ? ' class="active"' : ''}>`
+        + cols.map(col => cellHtml(col, e)).join('')
+        + '</tr>'
+      ).join('');
       removeNotifyPrompt();
     }
 
     renderDetail();
     writeUrlState();
     updateMapLink();
+  }
+
+  // Ein Listener für die ganze Tabelle. Der Klick auf eine Unterzeile
+  // braucht kein stopPropagation mehr: sie trägt kein data-klapp, also
+  // wählt sie nur aus, statt die Gruppe darüber zuzuklappen.
+  bodyEl.addEventListener('click', (ev) => {
+    const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
+    if (!tr || !bodyEl.contains(tr)) return;
+    if (tr.dataset.klapp) {
+      const g = gruppenAktuell[Number(tr.dataset.g)];
+      if (g) klappeGruppe(tr, g);
+    }
+    waehleZeile(Number(tr.dataset.idx));
+  });
+
+  // Auf- und Zuklappen rührt nur die Zeilen dieser einen Veranstaltung an.
+  // Die Tabelle dafür komplett neu zu zeichnen (so war es vorher) heißt
+  // bei 4.155 Zeilen: erneut filtern, sortieren und alles neu aufbauen -
+  // für eine Handvoll Unterzeilen. Die Trefferzahl ändert sich dabei
+  // ohnehin nicht, das Zusammenfassen ist reine Anzeige.
+  function klappeGruppe(tr, g) {
+    const warOffen = state.offeneGruppen.has(g.key);
+    if (warOffen) {
+      state.offeneGruppen.delete(g.key);
+      let n = tr.nextElementSibling;
+      while (n && n.classList.contains('sub-row')) {
+        const weg = n;
+        n = n.nextElementSibling;
+        weg.remove();
+      }
+    } else {
+      state.offeneGruppen.add(g.key);
+      tr.insertAdjacentHTML('afterend', subRowsHtml(g, activeColumns()));
+    }
+    tr.setAttribute('aria-expanded', warOffen ? 'false' : 'true');
+    const pfeil = tr.querySelector('.chevron');
+    if (pfeil) pfeil.classList.toggle('open', !warOffen);
+  }
+
+  // Eine Zeile auswählen heißt: Detailbereich füllen und die Markierung
+  // umhängen. Vorher lief dafür das komplette render() - filtern,
+  // sortieren, alle Zeilen neu bauen, nur damit eine Zeile eine Klasse
+  // bekommt. `selectedIndex` steht in keinem Link (siehe currentParams),
+  // also ist auch writeUrlState() hier nichts zu tun.
+  function waehleZeile(idx) {
+    selectedIndex = idx;
+    markiereAuswahl();
+    renderDetail();
+  }
+
+  // Bei Gruppierung sind zwei Zeilen zu markieren: die Unterzeile selbst
+  // und die Veranstaltungszeile darüber (sie kann zugeklappt sein).
+  // Die Gruppenzeile trägt data-g, die Unterzeilen nicht - daher das
+  // :not([data-g]).
+  function markiereAuswahl() {
+    bodyEl.querySelectorAll('tr.active').forEach(tr => tr.classList.remove('active'));
+    if (selectedIndex === null) return;
+    const zeile = bodyEl.querySelector(`tr[data-idx="${selectedIndex}"]:not([data-g])`);
+    if (zeile) zeile.classList.add('active');
+    const nr = idxZuGruppe.get(selectedIndex);
+    if (nr != null) {
+      const gz = bodyEl.querySelector(`tr[data-g="${nr}"]`);
+      if (gz) gz.classList.add('active');
+    }
   }
 
   // Der Kartenknopf nimmt den Filterzustand mit: karte.html liest
@@ -1705,6 +1813,8 @@
   function renderNotifyPrompt() {
     if (!window.EndauranceAuth) { notifyBoxEl.hidden = true; return; }
     notifyBoxEl.hidden = false;
+    // Wie im Melde-Dialog: Firestore schon jetzt nachladen lassen.
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
     const user = window.EndauranceAuth.getUser();
     if (user) {
       notifyBoxEl.innerHTML = `
@@ -1949,6 +2059,12 @@
   }
 
   function openReportModal(e) {
+    // Das Firestore-SDK haengt nicht mehr im HTML (344 KB fuer jeden
+    // Seitenaufruf); auth.js laedt es nach. Hier schon anstossen, damit
+    // beim Abschicken nichts mehr zu warten ist.
+    if (window.EndauranceAuth && window.EndauranceAuth.prepareFirestore) {
+      window.EndauranceAuth.prepareFirestore();
+    }
     const kmText = formatLength(e);
     const wb = displayWettbewerb(e);
     reportBodyEl.innerHTML = `

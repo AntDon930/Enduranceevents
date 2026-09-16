@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Ausdauersport-Events D/A/CH</title>
+<!-- Verbindungsaufbau zu den mit `defer` geladenen Firebase-Dateien. -->
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<!-- Fast jeder Besuch geht von hier in die Liste. Ihre beiden groessten
+     Bestandteile wandern deshalb schon jetzt in den Cache - mit
+     `prefetch`, nicht `preload`: niedrige Prioritaet, laeuft erst, wenn
+     diese Seite fertig ist, und bremst sie deshalb nicht. Der Klick auf
+     "Events ansehen" findet events.json dann schon vor, statt 1,6 MB
+     (rund 160 KB komprimiert) erst dann anzufordern. -->
+<link rel="prefetch" href="events.html" as="document">
+<link rel="prefetch" href="events.json" as="fetch" crossorigin="anonymous">
 <style>
   :root {
     color-scheme: light dark;
@@ -404,11 +414,15 @@
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
      "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
+<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
+     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
+     Firebase, bevor es events.json ueberhaupt anforderte.
+     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
+     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
 
 <script>
 (function () {

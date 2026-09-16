@@ -293,6 +293,56 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   unter das Chevron. Gekürzt wird stattdessen `.group-name-text`.
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
+## Tempo (gemessen, nicht geraten)
+
+Die Seite war zäh; unter Handy-Bedingungen (4× gebremste CPU,
+1,6 Mbit/s, gzip wie GitHub Pages) gemessen und behoben – Details und
+Zahlen im README („Tempo der Seite"). Fünf Punkte, die **nicht**
+zurückgedreht werden sollten:
+
+1. **Die Firebase-Skripte tragen `defer`, und Firestore fehlt im HTML.**
+   `firebase-firestore-compat.js` (344 KB) lädt `auth.js` per
+   `ensureDb()` erst nach, wenn geschrieben wird;
+   `EndauranceAuth.prepareFirestore()` stößt es beim Öffnen des
+   Melde-Dialogs und der Abo-Box vorausschauend an. Ohne `defer` wartete
+   `events.json` auf eine halbe Megabyte Firebase.
+2. **`window.EE_AUTH_QUEUE`** ist die Folge davon: Das Inline-Skript
+   läuft vor `auth.js`, kann also noch kein `onAuthChange` registrieren
+   und legt den Listener dort ab. Nicht durch einen direkten Aufruf
+   ersetzen – der liefe ins Leere.
+3. **Die Tabelle entsteht als EIN HTML-String, die Klicks laufen über
+   EINEN Listener am `<tbody>`** (`data-idx` = welches Event, `data-g` =
+   welche Gruppe, `data-klapp` = aufklappbar). Nie wieder pro Zeile
+   `createElement` + `innerHTML` + `addEventListener`: das kostete 605 ms
+   pro Klick, jetzt sind es 14 ms.
+   - `waehleZeile()` zeichnet **nicht** neu, es hängt nur die Markierung
+     um (`markiereAuswahl()`, zwei Zeilen bei Gruppierung) und füllt den
+     Detailbereich. `selectedIndex` steht in keinem Link, also auch kein
+     `writeUrlState()`.
+   - `klappeGruppe()` fügt nur die Unterzeilen dieser einen
+     Veranstaltung ein bzw. entfernt sie. Die Trefferzahl ändert sich
+     dabei nicht.
+   - `gruppenAktuell`/`idxZuGruppe` stehen oben bei `state`: `render()`
+     läuft über `setLanguage()` lange vor der Tabelle – sonst
+     Temporal-Dead-Zone-Fehler (dieselbe Falle wie bei `DATE_PRESETS`).
+4. **`tbody tr { content-visibility: auto }`** überspringt Layout und
+   Zeichnen für Zeilen außerhalb des Bildes. Erlaubt ist das nur wegen
+   `table-layout: fixed`; fielen die festen Spaltenbreiten weg, müsste
+   die Regel mit.
+5. **`preload`/`prefetch`**: `events.html` und `karte.html` fordern
+   `events.json` im Kopf per `preload` an (mit `crossorigin="anonymous"`,
+   sonst lädt der `fetch()` die Datei ein zweites Mal), `index.html`
+   holt `events.html` + `events.json` per `prefetch` vor. Deshalb steht
+   die Liste nach dem Klick auf „Events" in 814 statt 2.112 ms.
+
+Auf der Karte entstehen die Popups erst beim Öffnen (`bindPopup(fn)`)
+statt ~1.500 Stück im Voraus.
+
+**Beim nächsten großen Datenlauf (>20.000 Events) reicht das nicht
+mehr**: `events.json` wäre bei ~8 MB (800 KB gzip), und die Liste kann
+erst stehen, wenn die Datei da ist. Dann aufteilen (nach Jahr/Monat,
+nachladen beim Filtern) oder ein kompakteres Format wählen.
+
 ## Liste und Karte teilen die Filter (`filters.js`, `filter-ui.js`)
 
 **Ein Filter gilt für beide Seiten, und beide können ihn setzen.**
