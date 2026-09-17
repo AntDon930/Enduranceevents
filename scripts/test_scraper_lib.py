@@ -786,6 +786,51 @@ def test_js_syntax() -> None:
             check(f"{name} ist gültiges JS", fehlerzeile(erg), "")
 
 
+def test_abo_rhythmen() -> None:
+    """Die Abo-Rhythmen stehen an vier Stellen - alle müssen gleich sein.
+
+    `auth.js` legt sie an, `functions/index.js` wertet sie aus,
+    `firestore.rules` lässt nur sie durch, und `events.html` hat je
+    Rhythmus zwei Texte. Läuft eine Stelle weg, entsteht der leise
+    Fehler: Ein Abo wird gespeichert, aber die Function schickt nie eine
+    E-Mail (oder die Regel weist es ab, und niemand weiß warum).
+    """
+    import re as _re
+
+    wurzel = Path(__file__).resolve().parent.parent
+    print("\nAbo-Rhythmen (auth.js / functions / rules / events.html):")
+
+    def liste(pfad: str, muster: str) -> list[str]:
+        text = (wurzel / pfad).read_text(encoding="utf-8")
+        treffer = _re.search(muster, text, _re.S)
+        if not treffer:
+            return []
+        return _re.findall(r"['\"]([a-z]+)['\"]", treffer.group(1))
+
+    aus_auth = liste("auth.js", r"const ABO_RHYTHMEN = \[([^\]]*)\]")
+    aus_function = liste("functions/index.js", r"const ABO_RHYTHMEN = \[([^\]]*)\]")
+    aus_rules = liste("firestore.rules", r"rhythmus in\s*\n?\s*\[([^\]]*)\]")
+    check("auth.js kennt drei Rhythmen", aus_auth, ["sofort", "woechentlich", "monatlich"])
+    check("functions/index.js hat dieselben", aus_function, aus_auth)
+    check("firestore.rules lässt dieselben durch", sorted(aus_rules), sorted(aus_auth))
+
+    # Je Rhythmus ein Titel und eine Erklärung, in DE und EN.
+    seite = (wurzel / "events.html").read_text(encoding="utf-8")
+    fehlend = []
+    for key in aus_auth:
+        for schluessel in (f"abo_r_{key}:", f"abo_r_{key}_note:"):
+            if seite.count(schluessel) != 2:      # einmal DE, einmal EN
+                fehlend.append(f"{schluessel} ({seite.count(schluessel)}x)")
+    check("events.html hat je Rhythmus Titel und Erklärung in DE und EN", fehlend, [])
+
+    # Die Wartezeiten der Function müssen zu den Rhythmen passen.
+    fn = (wurzel / "functions/index.js").read_text(encoding="utf-8")
+    tage = _re.search(r"const RHYTHMUS_TAGE = \{([^}]*)\}", fn, _re.S)
+    check("functions/index.js hat je Rhythmus eine Wartezeit",
+          sorted(_re.findall(r"(\w+):", tage.group(1))) if tage else [],
+          sorted(aus_auth))
+
+
 def test_keine_fremden_dateien() -> None:
     """Keine Skripte und Stylesheets von fremden Servern.
 
@@ -862,7 +907,8 @@ def main() -> int:
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
-                 test_ortsverzeichnis, test_js_syntax, test_keine_fremden_dateien,
+                 test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
+                 test_keine_fremden_dateien,
                  test_asset_stempel):
         test()
 

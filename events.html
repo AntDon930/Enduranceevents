@@ -555,6 +555,88 @@
      sein, dass der Fokus jetzt hier steht. */
   .detail-panel:focus { outline: none; }
   .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* "Neue Events per E-Mail" - sekundär neben "Alle Filter
+     zurücksetzen", damit die Werkzeugleiste nicht zwei laute Knöpfe
+     hat. */
+  .abo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--panel);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .abo-btn:hover { background: var(--accent-bg); }
+
+  /* Inhalt des Abo-Dialogs */
+  .abo-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 0 0 14px;
+    font-size: 0.86rem;
+  }
+  .abo-summary strong { display: block; margin-bottom: 2px; }
+  /* Eigene Zeile: Im ersten Versuch stand der Hinweis direkt hinter der
+     Filter-Zusammenfassung und las sich wie ein Teil von ihr
+     ("… 25 km um München Der Datumsfilter gehört nicht dazu"). */
+  .abo-summary .abo-hint {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+  .abo-rhythm { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
+  .abo-rhythm label {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 11px;
+    cursor: pointer;
+    font-size: 0.88rem;
+  }
+  .abo-rhythm label:hover { background: var(--row-hover); }
+  .abo-rhythm input { margin-top: 3px; }
+  .abo-rhythm .abo-rhythm-note { display: block; color: var(--text-muted); font-size: 0.8rem; }
+  .abo-list { margin: 18px 0 0; border-top: 1px solid var(--border); padding-top: 14px; }
+  .abo-list h3 { margin: 0 0 8px; font-size: 0.92rem; }
+  .abo-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    font-size: 0.84rem;
+  }
+  .abo-item .abo-item-rhythm { color: var(--text-muted); font-size: 0.8rem; }
+  .abo-item button {
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+  .abo-item button:hover { color: #b42318; border-color: #b42318; }
+  .abo-status { font-size: 0.85rem; margin-top: 10px; }
+  .abo-status.ok { color: #1a7f37; }
+  .abo-status.fehler { color: #b42318; }
+
   /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr).
      Die Zelle spannt über alle Spalten, also über die volle
      Tabellenbreite (800 px) - ein mittig gesetzter Knopf lag auf
@@ -815,12 +897,34 @@
     <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
     <div class="active-chips" id="active-chips"></div>
     <div class="toolbar-actions">
+      <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern. Die
+           frühere Box erschien erst, wenn eine Suche leer ausging - wer
+           "alle neuen Schwimm-Events in Thüringen" abonnieren wollte,
+           kam also gar nicht an sie heran. -->
+      <button type="button" class="abo-btn" id="abo-open-btn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+        </svg>
+        <span id="abo-open-label"></span>
+      </button>
       <button class="reset-btn" id="reset-btn"></button>
     </div>
   </div>
 </div>
 
 <div class="notify-box" id="notify-box" hidden></div>
+
+<!-- Abo-Dialog ("Neue Events per E-Mail"). Nutzt die Modal-Stile aus
+     auth.js (.ee-modal-overlay/.ee-modal) und dieselbe Fokusfessel
+     (dialogTasten) wie der Melde-Dialog. -->
+<div class="ee-modal-overlay" id="abo-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="abo-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="abo-close" aria-label="Schliessen">&#10005;</button>
+    <div id="abo-body"></div>
+  </div>
+</div>
 
 <div class="layout">
   <div class="table-wrap">
@@ -910,6 +1014,30 @@
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
       // sortiert wird über alle Events, gezeichnet nur ein Teil.
       mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
+      abo_open: 'Neue Events per E-Mail',
+      abo_titel: 'Neue Events per E-Mail',
+      abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
+      abo_summary_titel: 'Dieses Abo umfasst:',
+      abo_alles: 'Alle neuen Events',
+      abo_ohne_datum: 'Der Datumsfilter gehört nicht dazu – ein Abo schaut in die Zukunft.',
+      abo_umkreis: (km, ort) => `${km} km um ${ort}`,
+      abo_orte_mehr: (orte, rest) => `${orte} und ${rest} weitere Orte`,
+      abo_von_km: (km) => `ab ${km} km`,
+      abo_bis_km: (km) => `bis ${km} km`,
+      abo_r_sofort: 'Sofort',
+      abo_r_sofort_note: 'Sobald ein passendes Event dazukommt (die Daten werden derzeit wöchentlich aktualisiert).',
+      abo_r_woechentlich: 'Wöchentlich',
+      abo_r_woechentlich_note: 'Einmal pro Woche, gesammelt in einer E-Mail.',
+      abo_r_monatlich: 'Monatlich',
+      abo_r_monatlich_note: 'Einmal im Monat, gesammelt in einer E-Mail.',
+      abo_speichern: 'Abo anlegen',
+      abo_an: (mail) => `Die E-Mails gehen an ${mail}.`,
+      abo_login: 'Anmelden',
+      abo_login_grund: 'Für ein Abo brauchen wir eine E-Mail-Adresse – deshalb die Anmeldung.',
+      abo_gespeichert: 'Abo angelegt. Du kannst es jederzeit wieder löschen.',
+      abo_fehler: 'Das hat nicht geklappt. Bitte später noch einmal versuchen.',
+      abo_meine: 'Meine Abos',
+      abo_loeschen: 'Löschen',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       col_entfernung: 'Entfernung',
@@ -977,6 +1105,30 @@
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
+      abo_open: 'New events by e-mail',
+      abo_titel: 'New events by e-mail',
+      abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
+      abo_summary_titel: 'This subscription covers:',
+      abo_alles: 'All new events',
+      abo_ohne_datum: 'The date filter is not part of it – a subscription looks ahead.',
+      abo_umkreis: (km, ort) => `${km} km around ${ort}`,
+      abo_orte_mehr: (orte, rest) => `${orte} and ${rest} more places`,
+      abo_von_km: (km) => `from ${km} km`,
+      abo_bis_km: (km) => `up to ${km} km`,
+      abo_r_sofort: 'Right away',
+      abo_r_sofort_note: 'As soon as a matching event is added (the data is currently refreshed weekly).',
+      abo_r_woechentlich: 'Weekly',
+      abo_r_woechentlich_note: 'Once a week, collected in one e-mail.',
+      abo_r_monatlich: 'Monthly',
+      abo_r_monatlich_note: 'Once a month, collected in one e-mail.',
+      abo_speichern: 'Create subscription',
+      abo_an: (mail) => `E-mails will go to ${mail}.`,
+      abo_login: 'Sign in',
+      abo_login_grund: 'A subscription needs an e-mail address – that is why you sign in.',
+      abo_gespeichert: 'Subscription created. You can delete it at any time.',
+      abo_fehler: 'That did not work. Please try again later.',
+      abo_meine: 'My subscriptions',
+      abo_loeschen: 'Delete',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       col_entfernung: 'Distance',
@@ -1307,6 +1459,16 @@
   const wrapEl = tableEl.closest('.table-wrap');
   const headerRowEl = document.getElementById('header-row');
   const countEl = document.getElementById('result-count');
+  // Abo-Dialog ("Neue Events per E-Mail"). Hier oben und nicht beim
+  // Dialog-Code: `?abos=1` öffnet ihn schon beim Laden, und ein `const`
+  // weiter unten wäre dann noch nicht benutzbar (Temporal Dead Zone).
+  const aboOverlay = document.getElementById('abo-overlay');
+  const aboBodyEl = document.getElementById('abo-body');
+  let aboFesselGesetzt = false;
+  let aboFokusVorher = null;
+  let aboRhythmus = 'woechentlich';
+  // Wurde die Seite mit ?abos=1 aufgerufen? Gesetzt in readUrlState().
+  let aboGewuenscht = false;
   const chipsEl = document.getElementById('active-chips');
   const detailEl = document.getElementById('detail-panel');
   const titleEl = document.getElementById('page-title');
@@ -1411,6 +1573,34 @@
 
   setLanguage(currentLang);
 
+  // ?abos=1 öffnet die Abo-Verwaltung. Darauf zeigt der Abmelde-Link in
+  // den E-Mails, solange die Abmelde-Function keine Adresse hat
+  // (UNSUBSCRIBE_URL in functions/index.js) - dann führt der Weg eben
+  // über die Anmeldung und "Löschen".
+  //
+  // Gelesen wird der Parameter in readUrlState(), NICHT hier: Dazwischen
+  // liegt setLanguage() -> render() -> writeUrlState(), und das schreibt
+  // die Adresse auf die bekannten Filter-Parameter zurück - `abos` war
+  // an dieser Stelle längst weg. Genau dieselbe Falle wie beim geteilten
+  // Event-Link, nur eine Zeile später gemerkt.
+  //
+  // Der Dialog braucht außerdem `window.EndauranceAuth` (Anmeldestatus,
+  // Firestore). `auth.js` trägt `defer`, existiert hier also noch nicht -
+  // deshalb derselbe Weg wie beim render(): über EE_AUTH_QUEUE, sobald
+  // der Anmeldestatus das erste Mal gemeldet wird.
+  if (aboGewuenscht) {
+    if (window.EndauranceAuth) {
+      oeffneAboDialog();
+    } else {
+      let schonOffen = false;
+      (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push(() => {
+        if (schonOffen) return;        // onAuthChange meldet sich mehrmals
+        schonOffen = true;
+        oeffneAboDialog();
+      });
+    }
+  }
+
   // Wer einem geteilten Event-Link folgt, soll das Event sehen und nicht
   // eine Liste. Auf dem Handy steht die Box unter der Tabelle, also
   // hinscrollen (am Rechner steht sie daneben und zeigt es schon - dann
@@ -1494,6 +1684,8 @@
     resetBtnEl.textContent = t('reset');
     groupToggleLabelEl.textContent = t('group_toggle');
     shareBtnLabelEl.textContent = t('share_search');
+    document.getElementById('abo-open-label').textContent = t('abo_open');
+    document.getElementById('abo-open-btn').title = t('abo_titel');
     // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
@@ -2249,6 +2441,10 @@
     // Bewusst OHNE Filter: Wer ein Event teilt, teilt nicht seine Suche.
     // Steht das Event trotz eines Filters nicht in der Tabelle, zeigt die
     // Box es trotzdem - markiereAuswahl() findet dann eben keine Zeile.
+    // Abo-Verwaltung öffnen (Abmelde-Link der E-Mails). Hier gelesen,
+    // weil writeUrlState() die Adresse gleich danach auf die
+    // Filter-Parameter zurückschreibt.
+    if (p.get('abos') === '1') aboGewuenscht = true;
     const gesucht = p.get('event');
     if (gesucht) {
       const treffer = events.findIndex(e => eventSlug(e) === gesucht);
@@ -2268,6 +2464,11 @@
   // würde eine spätere Benachrichtigung dafür also nie zulassen.
   function serializeFiltersForNotify() {
     return {
+      // Der Namensfilter gehört dazu: Wer „marathon" gesucht hat und
+      // dann abonniert, will Marathons - nicht alles. Ohne dieses Feld
+      // wäre das Abo stillschweigend weiter gefasst als die Suche, aus
+      // der es entstand. functions/index.js prüft es mit.
+      nameQuery: state.nameQuery.trim(),
       land: Array.from(state.land),
       art1: Array.from(state.art1),
       art2: Array.from(state.art2),
@@ -2280,34 +2481,183 @@
     };
   }
 
+  // ---------- Abo: "Neue Events per E-Mail" ----------
+  //
+  // Ein Abo ist: DIESE Filter + EIN Rhythmus. Der Knopf steht in der
+  // Werkzeugleiste und ist immer erreichbar - die alte Box erschien nur
+  // bei null Treffern, wer also "alle neuen Schwimm-Events in Thüringen"
+  // wollte, kam nie an sie heran.
+  //
+  // Was NICHT ins Abo geht: der Datumsfilter. Ein Abo blickt in die
+  // Zukunft, ein Datumsfilter in die Vergangenheit dieser Suche - mit
+  // ihm könnte nie ein neues Event passen (siehe
+  // serializeFiltersForNotify).
+  // aboOverlay/aboBodyEl und die drei Zustände stehen oben bei den
+  // übrigen Element-Konstanten (Temporal Dead Zone: der ?abos=1-Zweig
+  // läuft beim Laden, also weit vor dieser Zeile).
+
+  function aboRhythmen() {
+    // Die Liste kommt aus auth.js, damit sie nicht an zwei Stellen steht.
+    const aus = window.EndauranceAuth && window.EndauranceAuth.ABO_RHYTHMEN;
+    return Array.isArray(aus) && aus.length ? aus : ['sofort', 'woechentlich', 'monatlich'];
+  }
+
+  // Was dieses Abo abdeckt, in einem Satz - gebaut aus GENAU den Feldern,
+  // die auch gespeichert werden. Nicht aus den Chips: die zeigen auch den
+  // Datumsfilter, und der gehört nicht dazu.
+  function aboBeschreibung(f) {
+    const teile = [];
+    if (f.nameQuery) teile.push(`„${f.nameQuery}"`);
+    if (f.art1 && f.art1.length) teile.push(f.art1.map(v => tv('art1', v)).join(', '));
+    if (f.art2 && f.art2.length) teile.push(f.art2.map(v => tv('art2', v)).join(', '));
+    if (f.distanceCategories && f.distanceCategories.length) {
+      const labels = EF.DISTANCE_CATEGORY_LABELS[currentLang] || {};
+      teile.push(f.distanceCategories.map(k => labels[k] || k).join(', '));
+    }
+    if (f.laengeMin && f.laengeMax) teile.push(`${f.laengeMin}–${f.laengeMax} km`);
+    else if (f.laengeMin) teile.push(t('abo_von_km', f.laengeMin));
+    else if (f.laengeMax) teile.push(t('abo_bis_km', f.laengeMax));
+    if (f.origin && f.radiusKm != null) {
+      teile.push(t('abo_umkreis', f.radiusKm, f.origin.label));
+    } else if (f.standort && f.standort.length) {
+      const orte = f.standort.slice(0, 3).join(', ');
+      teile.push(f.standort.length > 3 ? t('abo_orte_mehr', orte, f.standort.length - 3) : orte);
+    }
+    if (f.land && f.land.length) teile.push(f.land.map(v => tv('land', v)).join(', '));
+    return teile.length ? teile.join(' · ') : t('abo_alles');
+  }
+
+  function oeffneAboDialog() {
+    if (!window.EndauranceAuth) return;
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
+    if (!aboFesselGesetzt && window.EndauranceAuth.dialogTasten) {
+      window.EndauranceAuth.dialogTasten(aboOverlay, schliesseAboDialog);
+      aboFesselGesetzt = true;
+    }
+    aboFokusVorher = document.activeElement;
+    aboOverlay.hidden = false;
+    zeichneAboDialog();
+    const dlg = aboOverlay.querySelector('.ee-modal');
+    if (dlg) { try { dlg.focus({ preventScroll: true }); } catch (e) { dlg.focus(); } }
+  }
+
+  function schliesseAboDialog() {
+    aboOverlay.hidden = true;
+    aboBodyEl.innerHTML = '';
+    if (aboFokusVorher && aboFokusVorher.isConnected) {
+      try { aboFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    aboFokusVorher = null;
+  }
+
+  function zeichneAboDialog(meldung) {
+    const filter = serializeFiltersForNotify();
+    const user = window.EndauranceAuth.getUser();
+    const rhythmen = aboRhythmen().map(key => `
+      <label>
+        <input type="radio" name="abo-rhythmus" value="${key}"${key === aboRhythmus ? ' checked' : ''}>
+        <span>
+          <strong>${escapeHtml(t('abo_r_' + key))}</strong>
+          <span class="abo-rhythm-note">${escapeHtml(t('abo_r_' + key + '_note'))}</span>
+        </span>
+      </label>`).join('');
+
+    aboBodyEl.innerHTML = `
+      <h2 id="abo-heading">${escapeHtml(t('abo_titel'))}</h2>
+      <p class="report-intro">${escapeHtml(t('abo_intro'))}</p>
+      <div class="abo-summary">
+        <strong>${escapeHtml(t('abo_summary_titel'))}</strong>
+        <span>${escapeHtml(aboBeschreibung(filter))}</span>
+        <span class="abo-hint">${escapeHtml(t('abo_ohne_datum'))}</span>
+      </div>
+      <div class="abo-rhythm">${rhythmen}</div>
+      ${user
+        ? `<button type="button" class="ee-submit-btn" id="abo-save-btn">${escapeHtml(t('abo_speichern'))}</button>
+           <div class="abo-hint" style="margin-top:8px">${escapeHtml(t('abo_an', user.email))}</div>`
+        : `<button type="button" class="ee-submit-btn" id="abo-login-btn">${escapeHtml(t('abo_login'))}</button>
+           <div class="abo-hint" style="margin-top:8px">${escapeHtml(t('abo_login_grund'))}</div>`}
+      <div id="abo-status">${meldung
+        ? `<div class="abo-status ${meldung.art}">${escapeHtml(meldung.text)}</div>` : ''}</div>
+      <div class="abo-list" id="abo-list" hidden></div>
+    `;
+
+    aboBodyEl.querySelectorAll('input[name="abo-rhythmus"]').forEach(el => {
+      el.addEventListener('change', () => { aboRhythmus = el.value; });
+    });
+
+    const loginBtn = aboBodyEl.querySelector('#abo-login-btn');
+    if (loginBtn) loginBtn.addEventListener('click', () => window.EndauranceAuth.openModal('login'));
+
+    const saveBtn = aboBodyEl.querySelector('#abo-save-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        saveBtn.disabled = true;
+        window.EndauranceAuth.saveFilterSubscription(filter, {
+          rhythmus: aboRhythmus,
+          name: aboBeschreibung(filter)
+        })
+          .then(() => { zeichneAboDialog({ art: 'ok', text: t('abo_gespeichert') }); ladeAboListe(); })
+          .catch(() => {
+            saveBtn.disabled = false;
+            const st = aboBodyEl.querySelector('#abo-status');
+            if (st) st.innerHTML = `<div class="abo-status fehler">${escapeHtml(t('abo_fehler'))}</div>`;
+          });
+      });
+    }
+
+    if (user) ladeAboListe();
+  }
+
+  // Die eigenen Abos zeigen - ohne sie käme man nur über den Link in der
+  // E-Mail wieder heraus.
+  function ladeAboListe() {
+    const kasten = aboBodyEl.querySelector('#abo-list');
+    if (!kasten || !window.EndauranceAuth.listFilterSubscriptions) return;
+    window.EndauranceAuth.listFilterSubscriptions().then(abos => {
+      const offen = abos.filter(a => a.aktiv !== false);
+      if (!offen.length) { kasten.hidden = true; return; }
+      kasten.hidden = false;
+      kasten.innerHTML = `<h3>${escapeHtml(t('abo_meine'))}</h3>` + offen.map(a => `
+        <div class="abo-item" data-abo="${escapeHtml(a.id)}">
+          <span>
+            ${escapeHtml(a.name || t('abo_alles'))}
+            <span class="abo-item-rhythm">${escapeHtml(t('abo_r_' + (a.rhythmus || 'sofort')))}</span>
+          </span>
+          <button type="button">${escapeHtml(t('abo_loeschen'))}</button>
+        </div>`).join('');
+      kasten.querySelectorAll('.abo-item button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.closest('.abo-item').dataset.abo;
+          btn.disabled = true;
+          window.EndauranceAuth.deleteFilterSubscription(id)
+            .then(() => ladeAboListe())
+            .catch(() => { btn.disabled = false; });
+        });
+      });
+    }).catch(() => { kasten.hidden = true; });
+  }
+
+  document.getElementById('abo-open-btn').addEventListener('click', oeffneAboDialog);
+  document.getElementById('abo-close').addEventListener('click', schliesseAboDialog);
+  aboOverlay.addEventListener('click', (ev) => {
+    if (ev.target === aboOverlay) schliesseAboDialog();
+  });
+
   function renderNotifyPrompt() {
     if (!window.EndauranceAuth) { notifyBoxEl.hidden = true; return; }
     notifyBoxEl.hidden = false;
     // Wie im Melde-Dialog: Firestore schon jetzt nachladen lassen.
     if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
-    const user = window.EndauranceAuth.getUser();
-    if (user) {
-      notifyBoxEl.innerHTML = `
-        <p>${escapeHtml(t('notify_text'))}</p>
-        <button type="button" id="notify-save-btn">${escapeHtml(t('notify_btn'))}</button>
-        <span class="notify-status" id="notify-status"></span>
-      `;
-      notifyBoxEl.querySelector('#notify-save-btn').addEventListener('click', () => {
-        const statusEl = notifyBoxEl.querySelector('#notify-status');
-        statusEl.textContent = '';
-        window.EndauranceAuth.saveFilterSubscription(serializeFiltersForNotify())
-          .then(() => { statusEl.textContent = t('notify_saved'); })
-          .catch(() => { statusEl.textContent = t('notify_error'); });
-      });
-    } else {
-      notifyBoxEl.innerHTML = `
-        <p>${escapeHtml(t('notify_text'))}</p>
-        <button type="button" id="notify-login-btn">${escapeHtml(t('notify_login_btn'))}</button>
-      `;
-      notifyBoxEl.querySelector('#notify-login-btn').addEventListener('click', () => {
-        window.EndauranceAuth.openModal('login');
-      });
-    }
+    // Ein Weg, nicht zwei: Die Box bei null Treffern führt in denselben
+    // Dialog wie der Knopf in der Werkzeugleiste. Früher hatte sie ihren
+    // eigenen Speichern-Knopf - damit gab es zwei Stellen, an denen ein
+    // Abo entstand, und nur eine davon kannte den Rhythmus.
+    notifyBoxEl.innerHTML = `
+      <p>${escapeHtml(t('notify_text'))}</p>
+      <button type="button" id="notify-open-btn">${escapeHtml(t('abo_open'))}</button>
+    `;
+    notifyBoxEl.querySelector('#notify-open-btn')
+      .addEventListener('click', oeffneAboDialog);
   }
 
   function removeNotifyPrompt() {

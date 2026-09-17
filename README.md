@@ -1694,6 +1694,67 @@ Startseite, dieselbe Spracheinstellung in `localStorage`); die
 deutsche Fassung ist die verbindliche. **Keine Rechtsberatung** – vor
 dem Livegang prüfen (lassen).
 
+## E-Mail-Abos: neue Events, im gewünschten Rhythmus
+
+„Benachrichtige mich" war eine **Einmal-Zusage**: Eine Suche ging leer
+aus, man hinterlegte die Filter, und sobald ein passendes Event auftauchte,
+kam eine E-Mail – genau eine. Der Knopf erschien auch nur bei null
+Treffern. Wer „alle neuen Schwimm-Events in Thüringen" oder „alles neue
+im Umkreis von 25 km um München" wollte, kam gar nicht an ihn heran.
+
+Daraus ist ein **Abo** geworden: dieselben Filter, aber dauerhaft, und
+mit einem Rhythmus.
+
+- **Der Knopf steht in der Werkzeugleiste** („Neue Events per E-Mail")
+  und ist immer erreichbar. Die Box bei null Treffern führt jetzt in
+  denselben Dialog – es gibt genau **einen** Weg, an dem ein Abo
+  entsteht, und der kennt den Rhythmus.
+- **Der Dialog zeigt, was das Abo umfasst** – gebaut aus genau den
+  Feldern, die auch gespeichert werden („Laufen · 25 km um München").
+  Nicht aus den Filter-Chips: Die zeigen auch den Datumsfilter, und der
+  gehört nicht dazu. Ein Abo schaut in die Zukunft; mit einem
+  Datumsfilter könnte nie ein neues Event passen.
+- **Drei Rhythmen**: `sofort`, `woechentlich`, `monatlich`. „Sofort" ist
+  ehrlich beschriftet – die Daten werden wöchentlich erneuert, schneller
+  als der Datenlauf kann kein Abo sein.
+- **Mehrere Abos je Person** sind möglich, und der Dialog listet sie mit
+  einem Löschen-Knopf. Ohne diese Liste käme man nur über die E-Mail
+  wieder heraus.
+- **Jede E-Mail hat einen Abmelde-Link, der ohne Anmeldung
+  funktioniert.** Dafür trägt jedes Abo einen zufälligen `token`
+  (16 Byte aus `crypto.getRandomValues`), und es gibt eine zweite Cloud
+  Function `unsubscribe`, die Kennung und Token zeitkonstant vergleicht
+  und das Abo auf `aktiv: false` setzt. Der Link steht zusätzlich im
+  `List-Unsubscribe`-Kopf, damit Mail-Programme ihren eigenen
+  Abmelde-Knopf zeigen – wer den nutzt, markiert die Nachricht nicht als
+  Spam.
+
+**Wie die Function sammelt und verschickt** (`functions/index.js`): Sie
+wird nach jedem Datenlauf mit den **neu hinzugekommenen** Events
+aufgerufen. Je Abo sammelt sie die Treffer in `wartend` (höchstens 50,
+darüber zählt sie nur noch mit – Firestore-Dokumente dürfen 1 MB groß
+werden) und schickt, sobald der Rhythmus fällig ist: `sofort` immer,
+`woechentlich` nach 6 Tagen, `monatlich` nach 28. Sechs statt sieben Tage
+ist Absicht: Der Lauf startet montags, aber nicht auf die Sekunde – bei
+genau sieben Tagen fiele sonst eine Woche aus.
+
+**Alte Abos behalten ihre Zusage.** Dokumente ohne `rhythmus` sind die
+Einmal-Benachrichtigungen von früher; sie bleiben genau das („einmal,
+dann Ruhe"). Kein Datenumzug nötig, und niemand bekommt plötzlich einen
+Newsletter, den er nie bestellt hat.
+
+**Die E-Mail verlinkt bewusst nicht die Detailseite** eines Events:
+Deren Adresse enthält den `eventSlug`, und diese Regel steht schon
+zweimal im Projekt (`events.html` und `build_ics.py`, gegeneinander
+geprüft). Eine dritte Kopie in der Function würde irgendwann abweichen
+und tote Links verschicken – die E-Mail verlinkt deshalb die
+Veranstalter-Seite und die Liste.
+
+**Was noch fehlt**: der Versand selbst. Er braucht die zwei
+Blaze-Schritte (Cloud Functions deployen, Extension „Trigger Email"
+plus SMTP) – siehe unten. Abos werden also schon gespeichert, aber es
+geht noch keine E-Mail heraus; die Datenschutzerklärung sagt das auch so.
+
 ## Ein einzelnes Event teilen
 
 In der Detail-Box steht oben rechts ein Teilen-Knopf. Geteilt werden die
@@ -1980,7 +2041,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 73 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 83 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar

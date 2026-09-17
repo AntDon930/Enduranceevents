@@ -33,14 +33,36 @@ service cloud.firestore {
       // Empfänger, an das nie eine E-Mail gehen kann. auth.js verhindert
       // das inzwischen schon vorher (isRealUser), hier steht die zweite
       // Sicherung.
+      //
+      // Die Feldliste ist geschlossen, damit niemand beliebig große
+      // Dokumente in die Collection schiebt. `rhythmus` muss einer der
+      // drei erlaubten Werte sein (dieselbe Liste in auth.js
+      // ABO_RHYTHMEN und functions/index.js - test_scraper_lib.py
+      // vergleicht alle drei gegeneinander), `token` ist der Schlüssel
+      // für den Abmelde-Link und darf nicht fehlen: eine E-Mail ohne
+      // funktionierenden Abmelde-Link darf nicht entstehen.
       allow create: if request.auth != null
                     && request.auth.uid == request.resource.data.uid
                     && request.resource.data.email is string
-                    && request.resource.data.email == request.auth.token.email;
+                    && request.resource.data.email == request.auth.token.email
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'filters', 'rhythmus', 'name',
+                          'aktiv', 'token', 'createdAt'])
+                    && request.resource.data.rhythmus in
+                         ['sofort', 'woechentlich', 'monatlich']
+                    && request.resource.data.aktiv == true
+                    && request.resource.data.token is string
+                    && request.resource.data.token.size() >= 16
+                    && request.resource.data.token.size() <= 64
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() <= 120
+                    && request.resource.data.createdAt == request.time;
       allow read, delete: if request.auth != null && request.auth.uid == resource.data.uid;
-      // Kein Update durch Nutzer/innen nötig - Abos werden neu angelegt statt
-      // bearbeitet; "notified" wird ausschließlich von der Cloud Function
-      // (Admin-SDK, umgeht diese Regeln) gesetzt.
+      // Kein Update durch Nutzer/innen: Wer etwas anderes abonnieren will,
+      // legt ein neues Abo an und löscht das alte. `aktiv`,
+      // `zuletztGesendet` und `wartend` setzt ausschließlich die Cloud
+      // Function (Admin-SDK, umgeht diese Regeln) - sonst könnte man
+      // fremde Abos umbiegen, und der Abmelde-Link wäre wertlos.
       allow update: if false;
     }
 

@@ -23,7 +23,9 @@
 //   window.EndauranceAuth.reportEventError({event, kategorie, beschreibung})
 //                                                    -> Promise<void>
 //     (meldet einen Datenfehler; meldet bei Bedarf anonym an)
-//   window.EndauranceAuth.saveFilterSubscription(filters) -> Promise<void>
+//   window.EndauranceAuth.saveFilterSubscription(filters, {rhythmus, name})
+//   window.EndauranceAuth.listFilterSubscriptions()   -> Promise<Abo[]>
+//   window.EndauranceAuth.deleteFilterSubscription(id) -> Promise<void>
 //     (filters: einfaches, serialisierbares Objekt der aktuell aktiven
 //     Filter OHNE das Datum - siehe events.html)
 
@@ -289,6 +291,20 @@
   const styleEl = document.createElement('style');
   styleEl.textContent = STYLE;
   document.head.appendChild(styleEl);
+
+  // Die erlaubten Abo-Rhythmen. Reihenfolge = Reihenfolge im Dialog.
+  // Dieselbe Liste steht in functions/index.js und in firestore.rules -
+  // test_scraper_lib.py vergleicht sie gegeneinander.
+  const ABO_RHYTHMEN = ['sofort', 'woechentlich', 'monatlich'];
+
+  // Schlüssel für den Abmelde-Link. 32 Hex-Stellen aus dem
+  // Zufallsgenerator des Browsers; `Math.random()` wäre hier falsch, der
+  // Wert ist das einzige, was einen fremden Abmelde-Aufruf verhindert.
+  function zufallsToken() {
+    const bytes = new Uint8Array(16);
+    (window.crypto || window.msCrypto).getRandomValues(bytes);
+    return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+  }
 
   const overlay = document.createElement('div');
   overlay.className = 'ee-modal-overlay';
@@ -625,7 +641,19 @@
     // Speichert ein "Benachrichtige mich"-Filterabo in Firestore. `filters`
     // ist ein einfaches, JSON-serialisierbares Objekt (Arrays statt Sets)
     // OHNE Datumsfilter - siehe events.html renderNotifyPrompt().
-    saveFilterSubscription: (filters) => {
+    // Legt ein Abo an: "schick mir neue Events, die zu DIESEN Filtern
+    // passen, in DIESEM Rhythmus".
+    //
+    // `optionen.rhythmus` ist einer von ABO_RHYTHMEN, `optionen.name` ein
+    // lesbarer Titel für die Abo-Liste ("Laufen · 25 km um München").
+    //
+    // `token` ist der Schlüssel für den Abmelde-Link in der E-Mail: Jede
+    // Nachricht muss sich mit einem Klick abbestellen lassen, und zwar
+    // OHNE Anmeldung - wer eine E-Mail nicht mehr will, soll sich dafür
+    // nicht erst einloggen müssen. Der Wert entsteht hier im Browser aus
+    // `crypto.getRandomValues`, wandert unverändert in das Dokument und
+    // steht später im Link (siehe `unsubscribe` in functions/index.js).
+    saveFilterSubscription: (filters, optionen) => {
       if (!configured || !auth || !isRealUser(auth.currentUser)) {
         return Promise.reject(new Error('not-authenticated'));
       }
@@ -637,14 +665,60 @@
       if (!user.email) {
         return Promise.reject(new Error('no-email'));
       }
+      const opt = optionen || {};
+      const rhythmus = ABO_RHYTHMEN.indexOf(opt.rhythmus) >= 0 ? opt.rhythmus : 'sofort';
       return ensureDb().then((db) => db.collection('filterSubscriptions').add({
         uid: user.uid,
         email: user.email,
         filters: filters,
-        notified: false,
+        rhythmus: rhythmus,
+        // Ein lesbarer Titel, damit die Abo-Liste nicht aus rohen Filtern
+        // besteht. Gekürzt, weil die Firestore-Regel die Länge begrenzt.
+        name: String(opt.name || '').slice(0, 120),
+        aktiv: true,
+        token: zufallsToken(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }));
     },
+
+    // Die eigenen Abos - für die Liste im Abo-Dialog. Die
+    // Firestore-Regel erlaubt Lesen nur für die eigene uid.
+    listFilterSubscriptions: () => {
+      if (!configured || !auth || !isRealUser(auth.currentUser)) {
+        return Promise.reject(new Error('not-authenticated'));
+      }
+      const uid = auth.currentUser.uid;
+      return ensureDb()
+        .then((db) => db.collection('filterSubscriptions').where('uid', '==', uid).get())
+        .then((snap) => {
+          const abos = [];
+          snap.forEach((doc) => abos.push(Object.assign({ id: doc.id }, doc.data())));
+          // Neueste zuerst. Sortiert wird hier und nicht per orderBy:
+          // ein zusammengesetzter Index (uid + createdAt) müsste in der
+          // Konsole angelegt werden, und bei einer Handvoll Abos je
+          // Person ist das die Mühe nicht wert.
+          abos.sort((a, b) => {
+            const za = a.createdAt && a.createdAt.seconds || 0;
+            const zb = b.createdAt && b.createdAt.seconds || 0;
+            return zb - za;
+          });
+          return abos;
+        });
+    },
+
+    // Ein Abo wieder löschen (Regel: nur die eigene uid).
+    deleteFilterSubscription: (id) => {
+      if (!configured || !auth || !isRealUser(auth.currentUser)) {
+        return Promise.reject(new Error('not-authenticated'));
+      }
+      return ensureDb().then((db) =>
+        db.collection('filterSubscriptions').doc(String(id)).delete());
+    },
+
+    // Die erlaubten Rhythmen - dieselbe Liste kennt functions/index.js
+    // (ABO_RHYTHMEN) und firestore.rules. test_scraper_lib.py prüft, dass
+    // die drei nicht auseinanderlaufen.
+    ABO_RHYTHMEN: ABO_RHYTHMEN.slice(),
 
     // Firestore vorausschauend nachladen, ohne auf das Ergebnis zu warten:
     // aufgerufen, sobald sich abzeichnet, dass geschrieben wird (Melde-

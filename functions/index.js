@@ -52,7 +52,7 @@
  */
 
 const { onRequest } = require("firebase-functions/v2/https");
-const { defineSecret } = require("firebase-functions/params");
+const { defineSecret, defineString } = require("firebase-functions/params");
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const crypto = require("crypto");
@@ -162,6 +162,15 @@ function matchesDistanceCategories(event, keys) {
 // den Datumsfilter (das gesuchte Event liegt annahmegemäß in der Zukunft,
 // siehe README).
 function eventMatchesFilters(event, filters) {
+  // Namensfilter wie in filters.js matchEvent(): Name UND Wettbewerb
+  // zusammen, damit "Halbmarathon" auch die Halbmarathon-Strecke einer
+  // Veranstaltung findet, die das Wort nicht im Namen trägt. Alte Abos
+  // haben das Feld nicht - dann wird nicht gefiltert.
+  if (filters.nameQuery && String(filters.nameQuery).trim()) {
+    const needle = String(filters.nameQuery).trim().toLowerCase();
+    const haystack = `${event.name || ""} ${event.wettbewerb || ""}`.toLowerCase();
+    if (!haystack.includes(needle)) return false;
+  }
   if (filters.land && filters.land.length && !filters.land.includes(event.land)) return false;
   if (filters.art1 && filters.art1.length && !filters.art1.includes(event.art1)) return false;
   if (filters.art2 && filters.art2.length && !filters.art2.includes(event.art2)) return false;
@@ -198,6 +207,92 @@ function haversineKm(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+// Die erlaubten Rhythmen. Dieselbe Liste steht in auth.js
+// (ABO_RHYTHMEN) und in firestore.rules - test_scraper_lib.py vergleicht
+// alle drei gegeneinander, damit sie nicht auseinanderlaufen.
+const ABO_RHYTHMEN = ["sofort", "woechentlich", "monatlich"];
+
+// Wie viele Tage zwischen zwei E-Mails mindestens liegen müssen.
+//
+// Sechs statt sieben Tage bei "woechentlich" ist Absicht: Der Datenlauf
+// startet montags um 5:00 UTC, aber nicht auf die Sekunde. Bei genau
+// sieben Tagen fiele eine Woche aus, sobald ein Lauf ein paar Minuten
+// früher dran ist als der vorige.
+const RHYTHMUS_TAGE = { sofort: 0, woechentlich: 6, monatlich: 28 };
+
+// Höchstens so viele Events sammelt ein Abo zwischen zwei E-Mails.
+// Firestore-Dokumente dürfen 1 MB groß werden; ein Monatsabo auf "alle
+// Events" könnte sonst über die Grenze wachsen. Was darüber liegt, wird
+// als Zahl genannt ("und 37 weitere").
+const MAX_WARTEND = 50;
+
+// Adresse der Seite - steckt in den Links der E-Mail und im
+// Abmelde-Link. Als Parameter, damit sie beim Domainwechsel nicht im
+// Code gesucht werden muss: `firebase functions:config` ist veraltet,
+// `defineString` liest SITE_URL aus der Umgebung (oder nimmt den
+// Vorgabewert).
+const SITE_URL = defineString("SITE_URL", {
+  default: "https://antdon930.github.io/Enduranceevents",
+});
+
+function tageSeit(zeitstempel) {
+  if (!zeitstempel) return Infinity;
+  const millis = typeof zeitstempel.toMillis === "function"
+    ? zeitstempel.toMillis()
+    : Date.parse(zeitstempel);
+  if (!Number.isFinite(millis)) return Infinity;
+  return (Date.now() - millis) / 86400000;
+}
+
+// Ist für dieses Abo jetzt eine E-Mail fällig?
+function istFaellig(sub) {
+  const grenze = RHYTHMUS_TAGE[sub.rhythmus];
+  if (grenze == null) return true;          // unbekannt -> nicht zurückhalten
+  return tageSeit(sub.zuletztGesendet) >= grenze;
+}
+
+// Ein Event auf das, was in die E-Mail gehört. Bewusst KEIN Link auf die
+// Detailseite (?event=<slug>): Der Slug entsteht aus Datum, Name, Maßzahl
+// und Ort, und diese Regel steht schon zweimal im Projekt (events.html
+// und build_ics.py, gegeneinander geprüft). Eine dritte Kopie hier würde
+// irgendwann abweichen und tote Links verschicken - die E-Mail verlinkt
+// deshalb die Veranstalter-Seite und die Liste.
+function eventKurz(event) {
+  return {
+    name: String(event.name || "").slice(0, 200),
+    datum_start: event.datum_start || null,
+    datum_ende: event.datum_ende || null,
+    standort: String(event.standort || "").slice(0, 120),
+    land: event.land || null,
+    art1: event.art1 || null,
+    art2: event.art2 || null,
+    laenge_km: event.laenge_km != null ? event.laenge_km : null,
+    dauer_h: event.dauer_h != null ? event.dauer_h : null,
+    veranstalter_url: event.veranstalter_url || null,
+  };
+}
+
+// Der Abmelde-Link für die E-Mail. Er zeigt auf die zweite Function
+// (`unsubscribe`) und trägt Abo-Kennung und Token - damit genügt EIN
+// Klick, ohne Anmeldung. Die Adresse der Function steht erst nach dem
+// ersten Deployment fest, deshalb ein Parameter: `firebase deploy` mit
+// gesetztem UNSUBSCRIBE_URL. Fehlt sie, verweist die E-Mail auf die
+// Abo-Verwaltung der Seite - das verlangt eine Anmeldung, ist aber
+// besser als gar kein Weg heraus.
+const UNSUBSCRIBE_URL = defineString("UNSUBSCRIBE_URL", { default: "" });
+
+function seitenBasis() {
+  return SITE_URL.value().replace(/\/+$/, "");
+}
+
+function abmeldeLink(subId, token) {
+  const funktion = UNSUBSCRIBE_URL.value();
+  if (funktion && token) {
+    return `${funktion}?abo=${encodeURIComponent(subId)}&token=${encodeURIComponent(token)}`;
+  }
+  return `${seitenBasis()}/events.html?abos=1`;
+}
+
 function eventEmailHtml(event) {
   const link = event.veranstalter_url
     ? `<p><a href="${event.veranstalter_url}">Zur Veranstalter-Website</a></p>`
@@ -208,6 +303,90 @@ function eventEmailHtml(event) {
     `${event.datum_start || ""}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}</p>` +
     link
   );
+}
+
+// Die eigentliche Nachricht eines Abos: eine Liste der neuen Events,
+// ein Link in die Liste und der Abmelde-Weg. Bewusst schlicht gehalten
+// (keine Bilder, keine Schriften) - so kommt sie überall an und wird
+// nicht als Werbung einsortiert.
+function aboMail(subId, sub, wartend, uebersprungen) {
+  const titel = sub.name ? sub.name : "deinem Abo";
+  const anzahl = wartend.length + (uebersprungen || 0);
+  const betreff = anzahl === 1
+    ? `1 neues Event: ${wartend[0].name}`
+    : `${anzahl} neue Events für ${titel}`;
+  const rest = uebersprungen > 0
+    ? `<p>… und ${uebersprungen} weitere.</p>`
+    : "";
+  const abmelden = abmeldeLink(subId, sub.token);
+  return {
+    subject: betreff,
+    html:
+      `<p>Hallo,</p>` +
+      `<p>diese Events sind neu dazugekommen und passen zu <strong>${titel}</strong>:</p>` +
+      wartend.map(eventEmailHtml).join("") +
+      rest +
+      `<p><a href="${seitenBasis()}/events.html">Alle Events ansehen</a></p>` +
+      `<p style="color:#888;font-size:0.85em;">Du bekommst diese E-Mail, weil du auf der ` +
+      `Ausdauersport-Events-Seite ein Abo für neue Events angelegt hast ` +
+      `(${rhythmusText(sub.rhythmus)}). ` +
+      `<a href="${abmelden}">Abo beenden</a>.</p>`,
+  };
+}
+
+function rhythmusText(rhythmus) {
+  if (rhythmus === "woechentlich") return "wöchentlich";
+  if (rhythmus === "monatlich") return "monatlich";
+  return "sofort bei neuen Events";
+}
+
+// Abmelden mit einem Klick, OHNE Anmeldung: Abo-Kennung und Token stehen
+// im Link der E-Mail. Der Token ist das einzige Geheimnis - deshalb wird
+// er zeitkonstant verglichen (wie das Webhook-Secret), damit sich aus der
+// Antwortzeit nichts ablesen lässt.
+//
+// GET und POST: Ein Klick im Mail-Programm ist ein GET, der
+// "One-Click"-Knopf aus dem List-Unsubscribe-Kopf ein POST.
+exports.unsubscribe = onRequest(
+  { region: "europe-west1", cors: false },
+  async (req, res) => {
+    if (req.method !== "GET" && req.method !== "POST") {
+      res.status(405).send("Method Not Allowed");
+      return;
+    }
+    const id = String((req.query && req.query.abo) || (req.body && req.body.abo) || "");
+    const token = String((req.query && req.query.token) || (req.body && req.body.token) || "");
+    if (!id || !token) {
+      res.status(400).send("Fehlende Angaben.");
+      return;
+    }
+    const ref = db.collection("filterSubscriptions").doc(id);
+    const snap = await ref.get();
+    // Gleiche Antwort für "gibt es nicht" und "Token falsch": Sonst
+    // liesse sich über die Antwort herausfinden, welche Abo-Kennungen
+    // existieren.
+    if (!snap.exists || !secretsMatch(String(snap.data().token || ""), token)) {
+      res.status(404).send(seite("Abo nicht gefunden", "Der Link ist nicht (mehr) gültig."));
+      return;
+    }
+    await ref.update({ aktiv: false, abgemeldetAm: FieldValue.serverTimestamp() });
+    res.status(200).send(seite(
+      "Abo beendet",
+      "Du bekommst zu diesem Abo keine E-Mails mehr. Ein neues Abo kannst du auf der Seite jederzeit anlegen."));
+  }
+);
+
+// Eine winzige Antwortseite - die Function liegt nicht auf der eigenen
+// Domain, ein Weiterleiten dorthin würde den Token in den Verlauf
+// schreiben.
+function seite(titel, text) {
+  return `<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width, initial-scale=1">` +
+    `<title>${titel}</title><style>` +
+    `body{font-family:system-ui,sans-serif;max-width:32rem;margin:10vh auto;padding:0 1rem;` +
+    `color:#1c1f24;line-height:1.6}h1{font-size:1.25rem}a{color:#14509a}` +
+    `</style></head><body><h1>${titel}</h1><p>${text}</p>` +
+    `<p><a href="${seitenBasis()}/events.html">Zur Event-Liste</a></p></body></html>`;
 }
 
 exports.checkNewEvents = onRequest(
@@ -246,39 +425,98 @@ exports.checkNewEvents = onRequest(
       return;
     }
 
-    const subsSnap = await db
-      .collection("filterSubscriptions")
-      .where("notified", "==", false)
-      .get();
+    // ALLE Abos holen, nicht `where("aktiv", "==", true)`: Abos aus der
+    // Zeit vor den Rhythmen haben das Feld gar nicht, und eine
+    // Abfrage auf ein fehlendes Feld findet sie nicht. Die Collection
+    // ist klein (ein Dokument je Abo je Person); gefiltert wird unten
+    // in JavaScript.
+    const subsSnap = await db.collection("filterSubscriptions").get();
 
-    let matchesFound = 0;
+    let gesendet = 0;
+    let gesammelt = 0;
     const batch = db.batch();
 
     subsSnap.forEach((subDoc) => {
       const sub = subDoc.data();
-      const matched = newEvents.find((e) => eventMatchesFilters(e, sub.filters || {}));
-      if (!matched) return;
+      if (sub.aktiv === false) return;          // abgemeldet
 
-      matchesFound++;
-      const mailRef = db.collection("mail").doc();
-      batch.set(mailRef, {
+      const treffer = newEvents.filter((e) => eventMatchesFilters(e, sub.filters || {}));
+
+      // --- Alte Abos: ein einziges Mal benachrichtigen ---
+      //
+      // Vor den Rhythmen war ein Abo eine Einmal-Zusage ("sag mir, wenn
+      // es dieses Event gibt") - angelegt aus der Box bei null Treffern.
+      // Diese Zusage bleibt gültig: kein `rhythmus` im Dokument heißt
+      // weiter "einmal, dann Ruhe". Kein Datenumzug nötig, und niemand
+      // bekommt plötzlich einen Newsletter, den er nie bestellt hat.
+      if (!sub.rhythmus) {
+        if (sub.notified === true || treffer.length === 0) return;
+        gesendet++;
+        batch.set(db.collection("mail").doc(), {
+          to: sub.email,
+          message: {
+            subject: `Neues Event gefunden: ${treffer[0].name}`,
+            html:
+              `<p>Hallo,</p>` +
+              `<p>ein neues Event passend zu deinem gespeicherten Filter wurde gefunden:</p>` +
+              eventEmailHtml(treffer[0]) +
+              `<p style="color:#888;font-size:0.85em;">Du erhältst diese E-Mail, weil du dich auf ` +
+              `der Ausdauersport-Events-Seite für eine Benachrichtigung angemeldet hast.</p>`,
+          },
+          createdAt: FieldValue.serverTimestamp(),
+        });
+        batch.update(subDoc.ref, { notified: true, notifiedAt: FieldValue.serverTimestamp() });
+        return;
+      }
+
+      // --- Abos mit Rhythmus: sammeln, dann fällig werden ---
+      const wartend = Array.isArray(sub.wartend) ? sub.wartend.slice() : [];
+      const uebersprungenVorher = Number(sub.uebersprungen) || 0;
+      let uebersprungen = uebersprungenVorher;
+      treffer.forEach((e) => {
+        if (wartend.length < MAX_WARTEND) wartend.push(eventKurz(e));
+        else uebersprungen++;
+      });
+
+      if (wartend.length === 0) return;         // nichts zu erzählen
+
+      if (!istFaellig(sub)) {
+        // Noch nicht fällig (Monatsabo) - nur merken. Die E-Mail kommt
+        // beim nächsten Lauf, der nach der Frist liegt.
+        if (treffer.length > 0) {
+          gesammelt += treffer.length;
+          batch.update(subDoc.ref, { wartend, uebersprungen });
+        }
+        return;
+      }
+
+      gesendet++;
+      batch.set(db.collection("mail").doc(), {
         to: sub.email,
-        message: {
-          subject: `Neues Event gefunden: ${matched.name}`,
-          html:
-            `<p>Hallo,</p>` +
-            `<p>ein neues Event passend zu deinem gespeicherten Filter wurde gefunden:</p>` +
-            eventEmailHtml(matched) +
-            `<p style="color:#888;font-size:0.85em;">Du erhältst diese E-Mail, weil du dich auf ` +
-            `der Ausdauersport-Events-Seite für eine Benachrichtigung angemeldet hast.</p>`,
+        // Der Abmelde-Link gehört in den Kopf der Nachricht, nicht nur in
+        // den Text: Mail-Programme zeigen daraus einen eigenen
+        // Abmelde-Knopf, und wer den nutzt, markiert die Mail nicht als
+        // Spam. Die Extension "Trigger Email" übernimmt `headers`.
+        headers: {
+          "List-Unsubscribe": `<${abmeldeLink(subDoc.id, sub.token)}>`,
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
         },
+        message: aboMail(subDoc.id, sub, wartend, uebersprungen),
         createdAt: FieldValue.serverTimestamp(),
       });
-      batch.update(subDoc.ref, { notified: true, notifiedAt: FieldValue.serverTimestamp() });
+      batch.update(subDoc.ref, {
+        wartend: [],
+        uebersprungen: 0,
+        zuletztGesendet: FieldValue.serverTimestamp(),
+      });
     });
 
-    if (matchesFound > 0) await batch.commit();
+    if (gesendet > 0 || gesammelt > 0) await batch.commit();
 
-    res.status(200).json({ checkedSubscriptions: subsSnap.size, matchesFound });
+    res.status(200).json({
+      checkedSubscriptions: subsSnap.size,
+      mailsQueued: gesendet,
+      collectedForLater: gesammelt,
+    });
   }
 );

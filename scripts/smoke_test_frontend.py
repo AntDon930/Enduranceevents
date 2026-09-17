@@ -204,6 +204,65 @@ def pruefe_gruppierung(ctx, basis):
     seite.close()
 
 
+def pruefe_abo(ctx, basis):
+    """Der Abo-Dialog: erreichbar, Zusammenfassung, Rhythmus, Escape.
+
+    Was ohne echtes Konto nicht prüfbar ist, ist das Speichern selbst -
+    dafür braucht es eine Anmeldung. Prüfbar (und genau das, was beim
+    Bauen dreimal schiefging) ist der Weg dorthin: der Knopf, die
+    Zusammenfassung aus GENAU den Feldern, die gespeichert werden, die
+    drei Rhythmen, und der Link `?abos=1` aus den E-Mails.
+    """
+    print("\nAbo: neue Events per E-Mail")
+    seite, probleme = seite_oeffnen(
+        ctx, basis + "/events.html?ort=48.1372,11.5755,M%C3%BCnchen&umkreis=25&sportart=Laufen",
+        "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_timeout(1200)
+    knopf = seite.locator("#abo-open-btn")
+    if not pruefe(knopf.count() == 1, "der Abo-Knopf steht in der Werkzeugleiste"):
+        seite.close()
+        return
+    knopf.scroll_into_view_if_needed()
+    knopf.click()
+    seite.wait_for_timeout(700)
+    stand = seite.evaluate("""() => ({
+        offen: !document.getElementById('abo-overlay').hidden,
+        zusammenfassung: (document.querySelector('.abo-summary span') || {}).textContent || '',
+        rhythmen: [...document.querySelectorAll('input[name=abo-rhythmus]')].map(i => i.value),
+        gewaehlt: (document.querySelector('input[name=abo-rhythmus]:checked') || {}).value,
+        fokus: document.getElementById('abo-overlay').contains(document.activeElement)
+    })""")
+    pruefe(stand["offen"], "Klick öffnet den Dialog")
+    pruefe("München" in stand["zusammenfassung"] and "25" in stand["zusammenfassung"],
+           "die Zusammenfassung nennt Filter und Umkreis (%s)" % stand["zusammenfassung"][:50])
+    pruefe(stand["rhythmen"] == ["sofort", "woechentlich", "monatlich"],
+           "drei Rhythmen zur Wahl (%s)" % ", ".join(stand["rhythmen"]))
+    pruefe(bool(stand["gewaehlt"]), "einer ist vorausgewählt (%s)" % stand["gewaehlt"])
+    pruefe(stand["fokus"], "der Fokus liegt im Dialog")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(400)
+    pruefe(seite.evaluate("""() => document.getElementById('abo-overlay').hidden
+               && document.activeElement.id === 'abo-open-btn'"""),
+           "Escape schließt und gibt den Fokus zurück")
+    seite.close()
+
+    # Der Weg aus der E-Mail: ?abos=1 öffnet die Verwaltung.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?abos=1", "tbody tr")
+    seite.wait_for_timeout(1600)
+    pruefe(seite.evaluate("() => !document.getElementById('abo-overlay').hidden"),
+           "?abos=1 öffnet die Abo-Verwaltung (Abmelde-Link der E-Mails)")
+    seite.close()
+
+    # Null Treffer: die Box führt in denselben Dialog.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?q=zzzgibtesnicht", "body")
+    seite.wait_for_timeout(1600)
+    pruefe(seite.evaluate("""() => { const b = document.getElementById('notify-box');
+               return !b.hidden && !!b.querySelector('#notify-open-btn'); }"""),
+           "bei null Treffern führt die Box in denselben Dialog")
+    seite.close()
+
+
 def pruefe_rechtsseiten(ctx, basis):
     """Impressum und Datenschutz: erreichbar, lesbar, zweisprachig.
 
@@ -609,6 +668,7 @@ def main() -> int:
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
+                pruefe_abo(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
             finally:

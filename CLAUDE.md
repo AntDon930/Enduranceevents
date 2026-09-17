@@ -75,7 +75,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 73 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 83 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -83,7 +83,8 @@ Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
 `navigator.share` geht und der Rückweg über den geteilten Link),
 Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
-sichtbar, Sprachumschalter), Tastaturbedienung (ein Tab-Stopp, Pfeile,
+sichtbar, Sprachumschalter), der Abo-Dialog (Knopf, Zusammenfassung,
+drei Rhythmen, `?abos=1`, Null-Treffer-Box), Tastaturbedienung (ein Tab-Stopp, Pfeile,
 Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
 Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
@@ -426,6 +427,40 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - Beim Öffnen eines geteilten Links wird zur Box gescrollt
     (`zeigeDetailbereich()`), sonst sieht der Empfänger auf dem Handy nur
     eine Liste.
+- **Abos sind Filter + Rhythmus** („Neue Events per E-Mail"). Der Knopf
+  steht in der Werkzeugleiste und ist **immer** erreichbar – die alte
+  Box erschien nur bei null Treffern, wer „alle neuen Schwimm-Events in
+  Thüringen" wollte, kam nie an sie heran. Die Box bei null Treffern
+  führt jetzt in denselben Dialog: **ein** Weg, an dem ein Abo
+  entsteht.
+  - Die Zusammenfassung im Dialog entsteht aus **genau den Feldern, die
+    gespeichert werden** (`serializeFiltersForNotify` →
+    `aboBeschreibung`), nicht aus den Chips: Die zeigen auch den
+    Datumsfilter, und der gehört nicht ins Abo (ein Abo schaut in die
+    Zukunft).
+  - **`nameQuery` gehört ins Abo.** Ohne das Feld wäre ein Abo stiller
+    weiter gefasst als die Suche, aus der es entstand – wer „marathon"
+    gesucht hat, bekäme alles. `functions/index.js` prüft es mit.
+  - **Drei Rhythmen** (`sofort`, `woechentlich`, `monatlich`) stehen an
+    **vier** Stellen: `auth.js` (`ABO_RHYTHMEN`), `functions/index.js`
+    (+ `RHYTHMUS_TAGE`), `firestore.rules` und die Texte in
+    `events.html`. `test_abo_rhythmen` vergleicht alle vier – läuft eine
+    weg, wird ein Abo gespeichert, von dem nie eine E-Mail kommt.
+  - „Sofort" ist ehrlich beschriftet: Die Daten werden **wöchentlich**
+    erneuert, schneller als der Datenlauf kann kein Abo sein. Der Text
+    sagt das (`abo_r_sofort_note`).
+  - **`?abos=1` öffnet die Verwaltung** (darauf zeigt der Abmelde-Link
+    der E-Mails, solange `UNSUBSCRIBE_URL` fehlt). Gelesen wird der
+    Parameter in `readUrlState()`, **nicht** im Ladeteil: Dazwischen
+    liegt `writeUrlState()`, und das hatte `abos` längst aus der Adresse
+    geworfen. Geöffnet wird er über `EE_AUTH_QUEUE` – `auth.js` trägt
+    `defer`, beim Laden gibt es `window.EndauranceAuth` noch nicht.
+    Beide Fallen sind hier zugeschlagen, bevor sie auffielen.
+  - **Kein `try/catch` um den Aufruf.** Im ersten Versuch lag er mit im
+    `try` – der Temporal-Dead-Zone-Fehler wurde verschluckt, und
+    `?abos=1` tat einfach nichts, ohne Spur in der Konsole. Ein
+    `try/catch` fängt die eine erwartete Ausnahme, nicht jeden
+    Programmierfehler darin.
 - **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
   `aria-modal="true"` verspricht genau das) und wird von `events.html`
   für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**
