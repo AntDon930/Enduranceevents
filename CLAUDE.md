@@ -602,7 +602,46 @@ Scraper-Läufe „zur Kontrolle", `events.json` nicht lesen, für Daten-
 **Geplant zum Schluss**: Der Nutzer liefert eine größere Menge Links, aus
 denen dann alle Events herausgesucht werden – erwartet werden **über
 20.000 Events**. Das ist der Moment für einen großen Datenlauf; bis dahin
-ist der Datenstand (~4.100) bewusst nur Arbeitsmaterial.
+ist der Datenstand (~4.150) bewusst nur Arbeitsmaterial.
+
+**Was als Nächstes dran ist, steht unten im „Fahrplan".** Die fünf
+Punkte sind mit dem Nutzer besprochen; Punkt 2 (Vorbereitung auf den
+großen Datenstand) ist zur Hälfte gebaut.
+
+## Fahrplan (Stand 17.09.2026)
+
+Die fünf Punkte, die zuletzt mit dem Nutzer besprochen wurden – in
+dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
+
+1. **AT/CH-Quellen suchen** – der größte inhaltliche Mangel: 4.137
+   Events in Deutschland, **15** in Österreich, **2** in der Schweiz,
+   während Titel, Filter und Karte D/A/CH versprechen. Nächster Schritt:
+   Kandidaten (laufkalender.at, running.ch, Swiss-Running, Tri-Verbände)
+   auf robots.txt und Nutzungsbedingungen prüfen und dem Nutzer eine
+   Liste zur Entscheidung vorlegen. **Kein Scraper ohne sein Ja** – die
+   vier übersprungenen Quellen zeigen, warum.
+2. **Vorbereitung auf >20.000 Events** – *erste Hälfte erledigt*: Die
+   Tabelle zeichnet nur ein Fenster von 200 Einträgen (siehe
+   Frontend-Fallen und „Tempo"), gemessen mit `bench_frontend.py`.
+   **Offen ist die Datei selbst**: 5,4 s von 6,3 s gehen für
+   `events.json` weg. Der Weg ist gemessen und im README beschrieben
+   („Vorbereitung auf über 20.000 Events"): `scripts/build_web_data.py`
+   erzeugt eine kompakte Fassung (Spalten-Arrays + Wörterbuch, 300 statt
+   830 KB gzip), erzeugt **im Pages-Workflow statt committet**,
+   Dekodierer in `filters.js`, Loader mit Rückfall auf `events.json`,
+   CI prüft den Rückweg. `events.json` bleibt die lesbare Quelle.
+3. **Restliche Datenfälle**
+   - „RET-Team Backyard 80 km": unklar, ob 80 km Zielvorgabe, Runde oder
+     Teamwertung – per Websuche klären und als Override vorschlagen.
+   - Die **Testmeldung** in `errorReports` („TEST - bitte verwerfen",
+     16.09.2026) beim ersten `review_reports.py`-Durchgang mit `reject`
+     verwerfen. Braucht einen Service-Account-Key oder den Nutzer in der
+     Konsole.
+4. **`og:image` und GeoNames-Namensnennung** – beide unten in den
+   To-dos, beide warten auf Domain bzw. Impressum.
+5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
+   16.09. davor, dass etwas Kaputtes deployt. Entscheidung des Nutzers:
+   jetzt oder erst nach dem großen Datenlauf.
 
 ## Offene Punkte / To-dos
 
