@@ -282,6 +282,18 @@
     font-weight: 600;
   }
   .leaflet-popup-content { margin: 10px 12px; }
+  /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
+     Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
+     Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
+     weil diese Seite ihre eigenen Farbvariablen mitbringt. */
+  .seiten-footer {
+    padding: 18px 16px 28px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+  .seiten-footer a { color: inherit; }
+  .seiten-footer .trenner { opacity: 0.5; padding: 0 6px; }
 </style>
 </head>
 <body>
@@ -385,6 +397,8 @@
       popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`,
       filter_label: 'Filter:',
       reset: 'Alle Filter zurücksetzen',
+      footer_imprint: 'Impressum',
+      footer_privacy: 'Datenschutz',
       origin_title: 'Ausgangspunkt'
     },
     en: {
@@ -400,6 +414,8 @@
       popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`,
       filter_label: 'Filters:',
       reset: 'Reset all filters',
+      footer_imprint: 'Legal notice',
+      footer_privacy: 'Privacy',
       origin_title: 'Starting point'
     }
   };
@@ -531,6 +547,9 @@
     listLabelEl.textContent = t('list');
     resetBtnEl.textContent = t('reset');
     filterBarLabelEl.textContent = t('filter_label');
+    // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
+    document.getElementById('footer-impressum').textContent = t('footer_imprint');
+    document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
     // Die Filterknöpfe tragen die Spaltennamen - neu bauen, sonst bleibt
     // "Stadt/Ort" auf Englisch stehen.
     ui.buildButtonBar(filterButtonsEl);
@@ -759,5 +778,9 @@
   render();
 })();
 </script>
+
+<footer class="seiten-footer">
+  <a href="impressum.html" id="footer-impressum">Impressum</a><span class="trenner">·</span><a href="datenschutz.html" id="footer-datenschutz">Datenschutz</a>
+</footer>
 </body>
 </html>

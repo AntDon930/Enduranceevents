@@ -716,6 +716,12 @@ def test_ortsverzeichnis() -> None:
     check("Neustadt bleibt doppelt", ("neustadt", "SN") in gruppen, True)
 
 
+# Alle HTML-Seiten des Projekts. Zwei Tests laufen darüber (JS-Syntax
+# und "keine fremden Dateien"); eine neue Seite hier eintragen, nicht an
+# zwei Stellen.
+SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html")
+
+
 def test_js_syntax() -> None:
     """`node --check` über die Inline-Skripte und die geteilten Dateien.
 
@@ -756,7 +762,7 @@ def test_js_syntax() -> None:
     import tempfile
 
     with tempfile.TemporaryDirectory() as tmp:
-        for name in ("index.html", "events.html", "karte.html"):
+        for name in SEITEN:
             quelle = (wurzel / name).read_text(encoding="utf-8")
             # Nur Skripte OHNE src: die geladenen Dateien werden unten
             # einzeln geprüft.
@@ -798,7 +804,7 @@ def test_keine_fremden_dateien() -> None:
     wurzel = Path(__file__).resolve().parent.parent
     print("\nKeine fremden Dateien (Selbst-Hosten):")
     erlaubt = ("tile.openstreetmap.org", "www.openstreetmap.org")
-    for name in ("index.html", "events.html", "karte.html"):
+    for name in SEITEN:
         quelle = (wurzel / name).read_text(encoding="utf-8")
         # Kommentare weg, sonst zählt die Begründung als Treffer.
         ohne = _re.sub(r"<!--.*?-->", "", quelle, flags=_re.S)
@@ -820,7 +826,7 @@ def test_keine_fremden_dateien() -> None:
         check(f"{name} lädt kein fremdes Skript nach", treffer, [])
     # Und die Dateien, auf die verwiesen wird, müssen wirklich da sein.
     fehlend = []
-    for name in ("index.html", "events.html", "karte.html"):
+    for name in SEITEN:
         quelle = (wurzel / name).read_text(encoding="utf-8")
         ohne = _re.sub(r"<!--.*?-->", "", quelle, flags=_re.S)
         for pfad in _re.findall(r'(?:src|href)="(vendor/[^"?]+)"', ohne):

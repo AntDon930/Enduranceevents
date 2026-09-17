@@ -204,6 +204,60 @@ def pruefe_gruppierung(ctx, basis):
     seite.close()
 
 
+def pruefe_rechtsseiten(ctx, basis):
+    """Impressum und Datenschutz: erreichbar, lesbar, zweisprachig.
+
+    Beide müssen von JEDER Seite aus unmittelbar erreichbar sein
+    (§ 5 DDG) - geprüft wird deshalb der Link auf allen drei
+    Hauptseiten, nicht nur die Seite selbst. Und die gelb markierten
+    Platzhalter müssen sichtbar sein, damit die Vorlage nicht
+    versehentlich als fertiges Impressum live geht.
+    """
+    print("\nImpressum und Datenschutz")
+    for seite_name, kopf in (("impressum.html", "Impressum"),
+                             ("datenschutz.html", "Datenschutzerklärung")):
+        seite, probleme = seite_oeffnen(ctx, basis + "/" + seite_name, ".karte")
+        pruefe(not probleme, "%s lädt ohne Fehler (%s)"
+               % (seite_name, probleme[0] if probleme else "keine"))
+        stand = seite.evaluate("""() => ({
+            titel: document.querySelector('.top-bar h1').textContent.trim(),
+            platzhalter: document.querySelectorAll('.platzhalter').length,
+            ueberschriften: document.querySelectorAll('.karte h2').length,
+            ueberlauf: document.documentElement.scrollWidth - innerWidth
+        })""")
+        pruefe(stand["titel"] == kopf, "%s trägt den richtigen Kopf (%s)"
+               % (seite_name, stand["titel"]))
+        pruefe(stand["platzhalter"] > 0,
+               "%s: die offenen Angaben sind markiert (%d Platzhalter)"
+               % (seite_name, stand["platzhalter"]))
+        pruefe(stand["ueberschriften"] >= 5, "%s: %d Abschnitte"
+               % (seite_name, stand["ueberschriften"]))
+        pruefe(stand["ueberlauf"] <= 0, "%s: kein waagerechter Überlauf (%+d px)"
+               % (seite_name, stand["ueberlauf"]))
+        # Sprachumschalter
+        seite.click('.lang-btn[data-lang="en"]')
+        seite.wait_for_timeout(300)
+        englisch = seite.evaluate("""() => ({
+            titel: document.querySelector('.top-bar h1').textContent.trim(),
+            lang: document.documentElement.lang })""")
+        pruefe(englisch["lang"] == "en" and englisch["titel"] != kopf,
+               "%s: EN schaltet um (%s)" % (seite_name, englisch["titel"]))
+        seite.click('.lang-btn[data-lang="de"]')
+        seite.wait_for_timeout(200)
+        seite.close()
+
+    # Von jeder Hauptseite aus erreichbar
+    for haupt in ("index.html", "events.html", "karte.html"):
+        seite, _ = seite_oeffnen(ctx, basis + "/" + haupt, "body")
+        seite.wait_for_timeout(500)
+        links = seite.evaluate("""() => ({
+            impressum: !!document.querySelector('a[href="impressum.html"]'),
+            datenschutz: !!document.querySelector('a[href="datenschutz.html"]') })""")
+        pruefe(links["impressum"] and links["datenschutz"],
+               "%s verlinkt Impressum und Datenschutz" % haupt)
+        seite.close()
+
+
 def pruefe_teilen(ctx, basis):
     """Ein einzelnes Event teilen: Knopf, Teilen-Dialog, geteilter Link.
 
@@ -554,6 +608,7 @@ def main() -> int:
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)
+                pruefe_rechtsseiten(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
             finally:

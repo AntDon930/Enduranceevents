@@ -1612,6 +1612,88 @@ Der Rauchtest prüft die ganze Kette: ein Tab-Stopp, Pfeiltaste bewegt
 und wählt, End springt ans Ende, Enter landet im Detailbereich, Escape
 schließt Panel und Dialog und gibt den Fokus zurück.
 
+## Nichts von fremden Servern (`vendor/`)
+
+Leaflet, Leaflet.markercluster und die Firebase-SDKs liegen **im Repo**
+(`vendor/`, 752 KB) statt auf unpkg bzw. gstatic.com. Zwei Gründe:
+
+1. **Datenschutz.** Ein CDN-Abruf überträgt die IP-Adresse jedes
+   Besuchers an Dritte – und zwar bei *jedem* Seitenaufruf, auch wenn
+   sich niemand anmeldet und niemand die Karte öffnet. Was die Seite
+   gar nicht an Dritte schickt, muss die Datenschutzerklärung auch
+   nicht erklären.
+2. **Verlässlichkeit.** Die Version im Ordner ist die Version, die
+   ausgeliefert wird: kein fremder Ausfall, keine stille Änderung, und
+   keine `integrity`-Prüfung nötig (gleiche Herkunft).
+
+Es sind die unveränderten Originale – die SHA-256-Summen stimmen mit
+den SRI-Werten überein, die vorher im HTML standen. Nachgeprüft mit
+**blockiertem Netz** (jede Anfrage außer `127.0.0.1` abgewiesen): Alle
+Seiten laden vollständig, Leaflet und die Bündelung arbeiten, Firebase
+und der Anmelden-Knopf stehen, die Liste zeigt ihr Fenster – kein
+Skriptfehler, kein 404.
+
+**Die einzige fremde Anfrage bleiben die OpenStreetMap-Kacheln**, und
+nur auf der Kartenseite: Eine Karte ohne Kartenbilder gibt es nicht.
+Sie stehen deshalb in der Datenschutzerklärung. Strenger wäre, die
+Kacheln erst nach einem Klick zu laden („Karte anzeigen") – das kostet
+die Karte ihre Unmittelbarkeit und ist deshalb nicht gebaut.
+
+`test_keine_fremden_dateien` hält den Zustand fest: kein `src` und kein
+`<link href>` auf einen fremden Server in den fünf Seiten, kein
+nachgeladenes fremdes Skript in `auth.js`/`filters.js`/`filter-ui.js`,
+und jede `vendor/`-Datei, auf die verwiesen wird, liegt wirklich im
+Repo. Ein `<a href>` auf `geonames.org` zählt bewusst **nicht** mit –
+ein Link überträgt nichts, solange niemand klickt (genau daran ist die
+Prüfung im ersten Versuch gescheitert).
+
+**Aktualisieren**: neue Version in einen neuen Ordner
+(`vendor/leaflet-1.9.4` → `…-1.9.5`) und die Verweise umhängen. Damit
+ist der Pfad die Versionsangabe, und kein Browser-Cache kann einen
+halben Stand mischen.
+
+## Impressum und Datenschutzerklärung
+
+`impressum.html` und `datenschutz.html` sind gebaut und von **jeder**
+Seite aus verlinkt (§ 5 DDG verlangt „unmittelbar erreichbar"). Beide
+sind **noch Vorlagen**: Jede offene Stelle ist gelb markiert
+(`.platzhalter`), und oben steht ein Kasten „Diese Seite ist noch eine
+Vorlage". Der Rauchtest prüft, dass diese Markierungen sichtbar sind –
+so kann die Vorlage nicht unbemerkt als fertiges Impressum live gehen.
+
+**Was noch eingetragen werden muss** (alles im Impressum bzw. im
+Abschnitt „Verantwortlicher" der Datenschutzerklärung): Name bzw.
+Firma, Anschrift, E-Mail-Adresse, optional Telefon, und das Datum
+unter „Stand". Nichts davon kann aus dem Projekt kommen.
+
+Die **Datenschutzerklärung beschreibt den tatsächlichen Stand** der
+Seite, nicht eine Wunschvorstellung:
+
+| Was | Wann | Wohin |
+|---|---|---|
+| Server-Protokolle (IP, Zeit, Datei) | bei jedem Aufruf | GitHub Pages |
+| Kartenbilder | nur auf `karte.html` | OpenStreetMap Foundation |
+| Standort für die Umkreissuche | nach Erlaubnis | **bleibt im Browser** |
+| Anmeldung, Konto | nur beim Anmelden | Firebase Auth (Google Irland) |
+| anonyme Kennung | erst beim Absenden einer Fehlermeldung | Firebase Auth |
+| Fehlermeldung, Abo-Filter | beim Absenden | Cloud Firestore (EU) |
+| `endurance-lang`, `endurance-gruppiert` | immer | lokaler Speicher, bleibt auf dem Gerät |
+
+Kein Tracking, keine Analyse, keine Werbung, keine Profilbildung –
+und das steht so auch in der Erklärung. **Wird an der Seite etwas
+verändert, das Daten betrifft, muss dieser Text mit.**
+
+Die **GeoNames-Namensnennung ist umgezogen**: Sie stand in der Fußzeile
+von `index.html` und steht jetzt im Impressum unter „Datenquellen und
+Lizenzen" – zusammen mit OpenStreetMap (ODbL), Leaflet und dem
+Firebase-SDK. Das Impressum ist von überall verlinkt, damit ist der
+Namensnennung nach CC BY 4.0 Genüge getan.
+
+Beide Seiten sind zweisprachig (dieselbe `data-i`-Mechanik wie die
+Startseite, dieselbe Spracheinstellung in `localStorage`); die
+deutsche Fassung ist die verbindliche. **Keine Rechtsberatung** – vor
+dem Livegang prüfen (lassen).
+
 ## Ein einzelnes Event teilen
 
 In der Detail-Box steht oben rechts ein Teilen-Knopf. Geteilt werden die
@@ -1898,7 +1980,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 58 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 73 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar

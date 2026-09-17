@@ -41,6 +41,9 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
+| `impressum.html`, `datenschutz.html` | Pflichtseiten, **noch Vorlagen** (gelb markierte Platzhalter); von jeder Seite aus verlinkt |
+| `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
+| `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -72,15 +75,17 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 58 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 73 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
 `navigator.share` geht und der Rückweg über den geteilten Link),
-Tastaturbedienung (ein Tab-Stopp, Pfeile, Enter, Escape, Fokusfessel
-der Dialoge), Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
+sichtbar, Sprachumschalter), Tastaturbedienung (ein Tab-Stopp, Pfeile,
+Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
+Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -579,6 +584,60 @@ Zwei Vorkehrungen, beide nicht wegnehmen:
    `EFU` oder eine erwartete Funktion, steht im Kopf „Bitte neu laden"
    samt Hinweis (DE/EN), statt dass die Seite leer bleibt.
 
+## Nichts von fremden Servern (`vendor/`)
+
+Leaflet, Leaflet.markercluster und die Firebase-SDKs liegen **im Repo**
+(`vendor/`, 752 KB), nicht auf unpkg bzw. gstatic.com. Grund: Ein
+CDN-Abruf überträgt die IP-Adresse jedes Besuchers an Dritte, bei JEDEM
+Aufruf – auch wenn sich niemand anmeldet und niemand die Karte öffnet.
+Was die Seite gar nicht an Dritte schickt, muss die
+Datenschutzerklärung auch nicht erklären.
+
+- Es sind die **unveränderten Originale**; ihre SHA-256-Summen stimmen
+  mit den SRI-Werten überein, die vorher im HTML standen.
+- `test_keine_fremden_dateien` hält das fest: kein `src`/`<link href>`
+  auf einen fremden Server, kein nachgeladenes fremdes Skript, und jede
+  `vendor/`-Datei existiert. Ein `<a href>` zählt nicht mit – ein Link
+  überträgt nichts, solange niemand klickt.
+- **Einzige Ausnahme: die OpenStreetMap-Kacheln** auf `karte.html`.
+  Eine Karte ohne Kartenbilder gibt es nicht; sie stehen deshalb in der
+  Datenschutzerklärung. (Wer strenger sein will: Kacheln erst nach
+  einem Klick laden – vom Nutzer nicht gewünscht, weil die Karte dann
+  nicht mehr sofort da ist.)
+- **Aktualisieren**: neue Version in einen neuen Ordner
+  (`vendor/leaflet-1.9.4` → `…-1.9.5`) und die Verweise umhängen. Der
+  Pfad ist die Versionsangabe; ein Browser-Cache kann damit keinen
+  halben Stand mischen.
+- Nachgeprüft mit blockiertem Netz (jede Anfrage außer 127.0.0.1
+  abgewiesen): alle Seiten laden vollständig, Bündelung und
+  Anmelde-Knopf stehen.
+
+## Impressum und Datenschutz (noch Vorlagen)
+
+`impressum.html` und `datenschutz.html` sind gebaut, **aber die Angaben
+zur verantwortlichen Person fehlen** – jede offene Stelle ist gelb
+markiert (`.platzhalter`), und oben steht ein Kasten „Diese Seite ist
+noch eine Vorlage". Der Rauchtest prüft, dass die Platzhalter sichtbar
+sind: So kann die Vorlage nicht unbemerkt als fertiges Impressum
+online gehen.
+
+- **Beide sind von jeder Seite aus verlinkt** (Fußzeile in
+  `index.html`, `events.html`, `karte.html`) – § 5 DDG verlangt
+  „unmittelbar erreichbar".
+- Die **Datenschutzerklärung beschreibt den echten Stand** der Seite:
+  GitHub Pages (Server-Logs), OpenStreetMap nur auf der Kartenseite,
+  Standort bleibt im Browser, Firebase erst bei der Anmeldung, anonyme
+  Kennung erst beim Absenden einer Fehlermeldung, `endurance-lang` und
+  `endurance-gruppiert` im lokalen Speicher, keine Analyse, keine
+  Werbung. Wird an der Seite etwas verändert, das Daten betrifft,
+  **muss dieser Text mit**.
+- Die **GeoNames-Namensnennung ist umgezogen**: Sie stand in der
+  Fußzeile von `index.html` und steht jetzt im Impressum unter
+  „Datenquellen und Lizenzen", zusammen mit OpenStreetMap (ODbL),
+  Leaflet und dem Firebase-SDK. Nicht löschen – CC BY 4.0 verlangt sie.
+- Keine Rechtsberatung: Vor dem Livegang muss der Nutzer die Texte
+  prüfen (lassen).
+
 ## Quellen
 
 Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,
@@ -646,13 +705,20 @@ großen Datenstand) ist zur Hälfte gebaut.
 Die fünf Punkte, die zuletzt mit dem Nutzer besprochen wurden – in
 dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 
-1. **AT/CH-Quellen suchen** – der größte inhaltliche Mangel: 4.137
-   Events in Deutschland, **15** in Österreich, **2** in der Schweiz,
-   während Titel, Filter und Karte D/A/CH versprechen. Nächster Schritt:
-   Kandidaten (laufkalender.at, running.ch, Swiss-Running, Tri-Verbände)
-   auf robots.txt und Nutzungsbedingungen prüfen und dem Nutzer eine
-   Liste zur Entscheidung vorlegen. **Kein Scraper ohne sein Ja** – die
-   vier übersprungenen Quellen zeigen, warum.
+1. **Daten für AT/CH, Schwimmen und Rennrad** – der größte inhaltliche
+   Mangel: 4.137 Events in Deutschland, **15** in Österreich, **2** in
+   der Schweiz, fast alles Laufen. **Der Nutzer liefert dafür Listen
+   von Links** (so am 17.09.2026 entschieden) – also ein Scraper je
+   Quelle, und vorher je Quelle robots.txt und Nutzungsbedingungen
+   prüfen. **Kein Scraper ohne sein Ja**; die vier übersprungenen
+   Quellen zeigen, warum.
+   Was dafür vorher fehlt (und ohne die Links schon gebaut werden
+   kann): **`art2`-Stichwörter für Fahrrad, Schwimmen und Triathlon** –
+   `ART2_KEYWORDS_LAUFEN` ist die einzige Liste, alle anderen Sportarten
+   bekämen also „–" in der Kategorie-Spalte. Und
+   **`ART2_BY_ART1['Triathlon']` fehlt ganz**, das Kategorie-Panel wäre
+   für Triathlon leer. Die Distanzkategorien je Sportart
+   (`DISTANCE_CATEGORIES`) stehen dagegen schon.
 2. **Vorbereitung auf >20.000 Events** – *erste Hälfte erledigt*: Die
    Tabelle zeichnet nur ein Fenster von 200 Einträgen (siehe
    Frontend-Fallen und „Tempo"), gemessen mit `bench_frontend.py`.
@@ -670,11 +736,25 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
      16.09.2026) beim ersten `review_reports.py`-Durchgang mit `reject`
      verwerfen. Braucht einen Service-Account-Key oder den Nutzer in der
      Konsole.
-4. **`og:image` und GeoNames-Namensnennung** – beide unten in den
-   To-dos, beide warten auf Domain bzw. Impressum.
+4. **Design** – der Nutzer findet die Seite „noch nicht
+   professionell". Reihenfolge nach seiner Wahl (17.09.2026):
+   **Impressum + Datenschutz zuerst** (erledigt, siehe oben – es
+   fehlen nur seine Angaben). Danach in dieser Wirkung:
+   - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
+     Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
+     Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
+   - **Marke und einheitliche Kopfzeile**: Startseite und Liste sehen
+     aus wie zwei Projekte; der dicke blaue Kasten mit langem Titel und
+     Hinweissatz wirkt wie ein internes Werkzeug.
+   - **Detail-Box aufwerten**: Datum groß und zuerst, Marken statt
+     Label/Wert-Liste, Knöpfe klar gestuft („Fehler melden" sieht
+     derzeit aus wie deaktiviert).
+   - Kleinteiliger: Sportart-Icons in der Liste, Ladezustand statt
+     „Lade Events…", „Beispielprojekt" und „DACH" aus den Texten,
+     `og:image`.
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
-   16.09. davor, dass etwas Kaputtes deployt. Entscheidung des Nutzers:
-   jetzt oder erst nach dem großen Datenlauf.
+   16.09. davor, dass etwas Kaputtes deployt. Blocker sind jetzt nur
+   noch die eigenen Angaben in Impressum und Datenschutz.
 
 ## Offene Punkte / To-dos
 
@@ -683,13 +763,11 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
   Seiten) hat bisher kein Bild, weil `og:image` eine absolute
   Adresse verlangt.
 
-- **GeoNames-Namensnennung ins Impressum** – sobald es eines gibt. Die
-  Ortsdaten der Umkreissuche (`places.json`) stehen unter CC BY 4.0, die
-  Lizenz verlangt Namensnennung mit Link. Sie steht deshalb vorerst in
-  der **Fußzeile von `index.html`** (`footer_places` in beiden
-  Sprachen). Der Nutzer will sie am Ende ins Impressum verschieben –
-  dabei nicht ersatzlos löschen, sondern umziehen, sonst nutzen wir die
-  Daten ohne Erlaubnis.
+- ~~GeoNames-Namensnennung ins Impressum~~ **erledigt** (17.09.2026):
+  Sie steht jetzt in `impressum.html` unter „Datenquellen und
+  Lizenzen", zusammen mit OpenStreetMap, Leaflet und dem
+  Firebase-SDK; `footer_places` ist aus `index.html` entfernt. Nicht
+  löschen – CC BY 4.0 verlangt die Nennung mit Link.
 - **E-Mail-Versand für „Benachrichtige mich" braucht Blaze** – vom Nutzer
   bewusst zurückgestellt. Login und Firestore laufen (Projekt
   `endurance-5177a`, Spark-Tarif), Abos landen korrekt in

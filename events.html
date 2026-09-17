@@ -755,6 +755,18 @@
   }
   .ee-field textarea { resize: vertical; min-height: 90px; }
   .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
+  /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
+     Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
+     Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
+     weil diese Seite ihre eigenen Farbvariablen mitbringt. */
+  .seiten-footer {
+    padding: 18px 16px 28px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+  .seiten-footer a { color: inherit; }
+  .seiten-footer .trenner { opacity: 0.5; padding: 0 6px; }
 </style>
 </head>
 <body>
@@ -890,6 +902,8 @@
       title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
       subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details – mit der Tastatur: ↑ ↓ und Enter.',
       reset: 'Alle Filter zurücksetzen',
+      footer_imprint: 'Impressum',
+      footer_privacy: 'Datenschutz',
       home: 'Startseite',
       map: 'Karte',
       result_count: (n, total) => `${n} von ${total} Events`,
@@ -957,6 +971,8 @@
       title: 'Endurance Events – Germany / Austria / Switzerland',
       subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details – by keyboard: ↑ ↓ and Enter.',
       reset: 'Reset all filters',
+      footer_imprint: 'Legal notice',
+      footer_privacy: 'Privacy',
       home: 'Home',
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
@@ -1478,6 +1494,9 @@
     resetBtnEl.textContent = t('reset');
     groupToggleLabelEl.textContent = t('group_toggle');
     shareBtnLabelEl.textContent = t('share_search');
+    // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
+    document.getElementById('footer-impressum').textContent = t('footer_imprint');
+    document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
     shareBtnEl.title = t('share_search');
     homeBtnLabelEl.textContent = t('home');
     mapBtnLabelEl.textContent = t('map');
@@ -2787,5 +2806,9 @@
   }
 })();
 </script>
+
+<footer class="seiten-footer">
+  <a href="impressum.html" id="footer-impressum">Impressum</a><span class="trenner">·</span><a href="datenschutz.html" id="footer-datenschutz">Datenschutz</a>
+</footer>
 </body>
 </html>

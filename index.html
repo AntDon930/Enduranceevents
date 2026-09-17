@@ -302,6 +302,7 @@
     font-size: 0.8rem;
   }
   footer a { color: inherit; }
+  footer .trenner { opacity: 0.5; padding: 0 4px; }
 </style>
 </head>
 <body>
@@ -419,14 +420,20 @@
   </a>
 </div>
 
-<!-- Die Quellenangabe zu den Ortsdaten der Umkreissuche (GeoNames,
-     CC BY 4.0) verlangt eine Namensnennung mit Link. Sie steht hier in
-     der Fußzeile statt im Filter-Panel, wo sie beim Suchen nur im Weg
-     war. Der Sprachumschalter setzt textContent je [data-i]-Element -
-     deshalb die inneren <span>, sonst würde der Link überschrieben. -->
+<!-- Impressum und Datenschutz müssen von JEDER Seite aus unmittelbar
+     erreichbar sein (§ 5 DDG) - dieselbe Zeile steht auch in
+     events.html und karte.html.
+
+     Die Namensnennung für die Ortsdaten (GeoNames, CC BY 4.0) stand
+     früher hier; sie steht jetzt im Impressum unter "Datenquellen und
+     Lizenzen", zusammen mit OpenStreetMap, Leaflet und dem
+     Firebase-SDK. Das Impressum ist von überall verlinkt, damit ist der
+     Namensnennung Genüge getan - und die Fußzeile bleibt kurz.
+     Der Sprachumschalter setzt textContent je [data-i]-Element. -->
 <footer>
-  <span data-i="footer">Ausdauersport-Events D/A/CH · Beispielprojekt</span> ·
-  <a href="https://www.geonames.org" target="_blank" rel="noopener"><span data-i="footer_places">Ortsdaten: GeoNames (CC BY 4.0)</span></a>
+  <span data-i="footer">Ausdauersport-Events D/A/CH</span>
+  <span class="trenner">·</span><a href="impressum.html" data-i="footer_imprint">Impressum</a>
+  <span class="trenner">·</span><a href="datenschutz.html" data-i="footer_privacy">Datenschutz</a>
 </footer>
 
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
@@ -458,8 +465,9 @@
       sportsTitle: 'Finde deine Disziplin',
       sportsSub: 'Klicke auf eine Sportart und stöbere dich direkt durch die Liste.',
       sportRun: 'Laufen', sportBike: 'Fahrrad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
-      footer: 'Ausdauersport-Events D/A/CH · Beispielprojekt',
-      footer_places: 'Ortsdaten: GeoNames (CC BY 4.0)'
+      footer: 'Ausdauersport-Events D/A/CH',
+      footer_imprint: 'Impressum',
+      footer_privacy: 'Datenschutz'
     },
     en: {
       eyebrow: 'Endurance Events in DACH',
@@ -474,8 +482,9 @@
       sportsTitle: 'Find your discipline',
       sportsSub: 'Click a sport and browse straight through the list.',
       sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
-      footer: 'Endurance Events D/A/CH · Sample project',
-      footer_places: 'Place data: GeoNames (CC BY 4.0)'
+      footer: 'Endurance events in Germany, Austria and Switzerland',
+      footer_imprint: 'Legal notice',
+      footer_privacy: 'Privacy'
     }
   };
 
