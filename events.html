@@ -558,11 +558,24 @@
      sein, dass der Fokus jetzt hier steht. */
   .detail-panel:focus { outline: none; }
   .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr). */
+  /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr).
+     Die Zelle spannt über alle Spalten, also über die volle
+     Tabellenbreite (800 px) - ein mittig gesetzter Knopf lag auf
+     Handybreite damit außerhalb des Bildes, sobald man waagerecht
+     gescrollt hatte. `position: sticky; left: 0` am inneren Element
+     hält ihn am linken Rand des SICHTBAREN Bereichs, egal wie weit die
+     Tabelle geschoben ist. */
   .mehr-row td {
-    text-align: center;
-    padding: 10px 8px;
+    padding: 0;
     background: var(--panel);
+  }
+  .mehr-row .mehr-inner {
+    position: sticky;
+    left: 0;
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 10px 8px;
   }
   .mehr-row .mehr-btn {
     border: 1px solid var(--border);
@@ -1755,8 +1768,9 @@
     const schritt = Math.min(FENSTER_SCHRITT, rest);
     bodyEl.insertAdjacentHTML('beforeend',
       `<tr class="mehr-row"><td colspan="${fenster.cols.length}">`
+      + `<span class="mehr-inner">`
       + `<button type="button" class="mehr-btn">${escapeHtml(t('mehr_btn', schritt, rest))}</button>`
-      + `</td></tr>`);
+      + `</span></td></tr>`);
   }
 
   function zeigeMehr() {

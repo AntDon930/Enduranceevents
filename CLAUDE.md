@@ -386,6 +386,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Tastatur**: ↓ am Rand des Fensters holt den nächsten Schub
     (`nachbarZeile()`), `End` führt ans Ende des Geladenen – ohne das
     wäre per Tastatur nur die erste Seite erreichbar.
+  Der Knopf steht in einem `position: sticky; left: 0`-Element: Die
+  Zelle spannt über alle Spalten (800 px), ein mittiger Knopf lag auf
+  Handybreite außerhalb des Bildes, sobald man waagerecht gescrollt
+  hatte. Beim Scrollen lädt ohnehin von selbst nach – der Knopf ist für
+  die Tastatur, für Screenreader und als ehrliche Anzeige, wie viel
+  noch fehlt.
   `fenster` und `nachladeFrame` stehen oben bei `state`: `render()` ruft
   `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
   „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
