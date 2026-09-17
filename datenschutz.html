@@ -26,11 +26,12 @@
 
 <main>
   <div class="hinweis">
-    <strong data-i="vorlage_titel">Diese Seite ist noch eine Vorlage.</strong>
+    <strong data-i="vorlage_titel">Es fehlt noch die Kontaktadresse.</strong>
     <span data-i="vorlage_text">Die technischen Angaben stimmen mit dem
-    Stand der Seite überein – gelb markiert sind nur die Angaben zur
-    verantwortlichen Person. Diese Vorlage ist keine Rechtsberatung;
-    bitte vor dem Livegang prüfen (lassen).</span>
+    Stand der Seite überein, Name und Anschrift stehen – gelb markiert
+    ist nur die E-Mail-Adresse, die noch eingerichtet wird. Diese Seite
+    ist keine Rechtsberatung; bitte vor dem Livegang prüfen
+    (lassen).</span>
   </div>
 
   <div class="karte">
@@ -55,9 +56,11 @@
       personenbezogener Daten auf dieser Seite im Sinne der
       Datenschutz-Grundverordnung (DSGVO) ist:</p>
     <address>
-      <span class="platzhalter" data-i="ph_name">[Name bzw. Firma]</span><br>
-      <span class="platzhalter" data-i="ph_adresse">[Anschrift]</span><br>
-      <span class="platzhalter" data-i="ph_mail">[E-Mail-Adresse]</span>
+      <span data-i="a_name">Anton Donauer</span><br>
+      <span data-i="a_strasse">Christophstraße 3</span><br>
+      <span data-i="a_ort">80538 München</span><br>
+      <span data-i="a_land">Deutschland</span><br>
+      <span class="platzhalter" data-i="ph_mail">[E-Mail-Adresse – wird noch eingerichtet]</span>
     </address>
     <p><span data-i="t_impressum_link">Weitere Angaben stehen im</span>
       <a href="impressum.html" data-i="l_impressum">Impressum</a>.</p>
@@ -175,7 +178,7 @@
 
     <p class="stand">
       <span data-i="stand">Stand:</span>
-      <span class="platzhalter" data-i="ph_stand">[Datum eintragen]</span>
+      <span data-i="stand_datum">17. September 2026</span>
     </p>
   </div>
 </main>
@@ -190,8 +193,8 @@
   const I18N = {
     de: {
       titel: 'Datenschutzerklärung', home: 'Startseite', list: 'Events', imprint: 'Impressum',
-      vorlage_titel: 'Diese Seite ist noch eine Vorlage.',
-      vorlage_text: 'Die technischen Angaben stimmen mit dem Stand der Seite überein – gelb markiert sind nur die Angaben zur verantwortlichen Person. Diese Vorlage ist keine Rechtsberatung; bitte vor dem Livegang prüfen (lassen).',
+      vorlage_titel: 'Es fehlt noch die Kontaktadresse.',
+      vorlage_text: 'Die technischen Angaben stimmen mit dem Stand der Seite überein, Name und Anschrift stehen – gelb markiert ist nur die E-Mail-Adresse, die noch eingerichtet wird. Diese Seite ist keine Rechtsberatung; bitte vor dem Livegang prüfen (lassen).',
       h_kurz: 'Das Wichtigste zuerst',
       kurz1: 'Diese Seite setzt keine Cookies zur Analyse oder Werbung und bindet keine Zählpixel, keine Werbenetzwerke und kein Google Analytics ein.',
       kurz2: 'Ohne Anmeldung und ohne Kartenaufruf werden keine Daten an Dritte übertragen: Alle Skripte, Stile und die Event-Daten kommen vom eigenen Server.',
@@ -199,7 +202,9 @@
       kurz4: 'Ein Konto ist freiwillig. Wer sich nicht anmeldet, kann die Liste und die Karte vollständig nutzen.',
       h_verantwortlich: 'Verantwortlicher',
       t_verantwortlich: 'Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Seite im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:',
-      ph_name: '[Name bzw. Firma]', ph_adresse: '[Anschrift]', ph_mail: '[E-Mail-Adresse]',
+      a_name: 'Anton Donauer', a_strasse: 'Christophstraße 3',
+      a_ort: '80538 München', a_land: 'Deutschland',
+      ph_mail: '[E-Mail-Adresse – wird noch eingerichtet]',
       t_impressum_link: 'Weitere Angaben stehen im', l_impressum: 'Impressum',
       h_hosting: 'Hosting und Server-Protokolle',
       t_hosting: 'Die Seite liegt auf GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA – Teil von Microsoft). Beim Aufruf überträgt der Browser technisch notwendige Daten an GitHub, insbesondere IP-Adresse, Datum und Uhrzeit, die angeforderte Datei, Browsertyp und Betriebssystem. GitHub verarbeitet diese Daten zur Bereitstellung und Absicherung des Angebots; ein Zugriff darauf besteht für uns nicht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb der Seite), die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln bzw. des EU-US Data Privacy Framework.',
@@ -222,13 +227,13 @@
       keine2: 'Keine Weitergabe oder Verkauf von Daten an Dritte.',
       keine3: 'Keine Schriftarten, Skripte oder Stile von fremden Servern (nur die Kartenbilder, siehe oben).',
       keine4: 'Keine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO.',
-      stand: 'Stand:', ph_stand: '[Datum eintragen]',
+      stand: 'Stand:', stand_datum: '17. September 2026',
       f_home: 'Startseite', f_imprint: 'Impressum'
     },
     en: {
       titel: 'Privacy policy', home: 'Home', list: 'Events', imprint: 'Legal notice',
-      vorlage_titel: 'This page is still a template.',
-      vorlage_text: 'The technical statements match what the site actually does – only the details of the responsible person are highlighted. This template is not legal advice; please have it reviewed before going live.',
+      vorlage_titel: 'The contact address is still missing.',
+      vorlage_text: 'The technical statements match what the site actually does and the name and address are in place – only the e-mail address, which is still being set up, is highlighted. This page is not legal advice; please have it reviewed before going live.',
       h_kurz: 'The short version',
       kurz1: 'This site sets no analytics or advertising cookies and embeds no tracking pixels, no ad networks and no Google Analytics.',
       kurz2: 'Without signing in and without opening the map, no data is transferred to third parties: all scripts, styles and the event data come from our own server.',
@@ -236,7 +241,9 @@
       kurz4: 'An account is optional. Without one, the list and the map work in full.',
       h_verantwortlich: 'Controller',
       t_verantwortlich: 'The controller for the processing of personal data on this site under the General Data Protection Regulation (GDPR) is:',
-      ph_name: '[name or company]', ph_adresse: '[address]', ph_mail: '[e-mail address]',
+      a_name: 'Anton Donauer', a_strasse: 'Christophstraße 3',
+      a_ort: '80538 Munich', a_land: 'Germany',
+      ph_mail: '[e-mail address – being set up]',
       t_impressum_link: 'Further details are in the', l_impressum: 'legal notice',
       h_hosting: 'Hosting and server logs',
       t_hosting: 'The site is hosted on GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA – part of Microsoft). When you visit, your browser transmits technically necessary data to GitHub, in particular IP address, date and time, the requested file, browser type and operating system. GitHub processes this data to provide and secure the service; we have no access to it. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in operating the site); the transfer to the USA is based on the Standard Contractual Clauses and the EU-US Data Privacy Framework.',
@@ -259,7 +266,7 @@
       keine2: 'No sharing or selling of data to third parties.',
       keine3: 'No fonts, scripts or styles from third-party servers (only the map tiles, see above).',
       keine4: 'No automated decision-making within the meaning of Art. 22 GDPR.',
-      stand: 'Last updated:', ph_stand: '[add date]',
+      stand: 'Last updated:', stand_datum: '17 September 2026',
       f_home: 'Home', f_imprint: 'Legal notice'
     }
   };

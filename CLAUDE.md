@@ -41,7 +41,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
-| `impressum.html`, `datenschutz.html` | Pflichtseiten, **noch Vorlagen** (gelb markierte Platzhalter); von jeder Seite aus verlinkt |
+| `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift steht – **es fehlt nur die E-Mail-Adresse** (gelb markiert); von jeder Seite aus verlinkt |
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
@@ -612,14 +612,32 @@ Datenschutzerklärung auch nicht erklären.
   abgewiesen): alle Seiten laden vollständig, Bündelung und
   Anmelde-Knopf stehen.
 
-## Impressum und Datenschutz (noch Vorlagen)
+## Impressum und Datenschutz (es fehlt nur die E-Mail-Adresse)
 
-`impressum.html` und `datenschutz.html` sind gebaut, **aber die Angaben
-zur verantwortlichen Person fehlen** – jede offene Stelle ist gelb
-markiert (`.platzhalter`), und oben steht ein Kasten „Diese Seite ist
-noch eine Vorlage". Der Rauchtest prüft, dass die Platzhalter sichtbar
-sind: So kann die Vorlage nicht unbemerkt als fertiges Impressum
-online gehen.
+`impressum.html` und `datenschutz.html` sind gebaut. **Name und
+Anschrift stehen seit dem 17.09.2026 drin** (Anton Donauer,
+Christophstraße 3, 80538 München, Deutschland) – offen ist **nur noch
+die E-Mail-Adresse**: Der Nutzer richtet dafür eine eigene Adresse ein
+(seine private soll nicht öffentlich stehen). Sie ist auf beiden Seiten
+gelb markiert (`.platzhalter`), und oben steht ein Kasten „Es fehlt noch
+die Kontaktadresse". Der Rauchtest prüft, dass die Platzhalter sichtbar
+sind: So kann die Seite nicht unbemerkt mit fehlender Kontaktangabe
+online gehen. **Wenn die Adresse eingetragen wird**, müssen beide
+Hinweiskästen weg (HTML + `vorlage_titel`/`vorlage_text` in beiden
+`I18N`-Blöcken) – und der Rauchtest muss sich umdrehen: statt
+„Platzhalter sichtbar" dann „keine Platzhalter mehr, Name und Kontakt
+vorhanden" (`smoke_test_frontend.py`, die Prüfung bei
+`stand["platzhalter"]`).
+
+- **Die Seite ist ein privates Angebot ohne Gewinnerzielungsabsicht**
+  (so vom Nutzer am 17.09.2026 gesagt). Die Überschrift im Impressum
+  nennt deshalb **§ 18 Abs. 1 MStV** statt § 5 DDG: § 5 DDG gilt für
+  geschäftsmäßige Telemedien, § 18 Abs. 1 MStV dagegen für alle, die
+  „nicht ausschließlich persönlichen oder familiären Zwecken dienen" –
+  und verlangt genauso Namen und Anschrift. **Umsatzsteuer-ID,
+  Registereintrag und Telefonnummer entfallen damit**; die
+  Telefon-Zeile ist raus. Wird die Seite später doch gewerblich
+  (Werbung, Affiliate, Provisionen), muss § 5 DDG samt USt-ID zurück.
 
 - **Beide sind von jeder Seite aus verlinkt** (Fußzeile in
   `index.html`, `events.html`, `karte.html`) – § 5 DDG verlangt
@@ -739,7 +757,7 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 4. **Design** – der Nutzer findet die Seite „noch nicht
    professionell". Reihenfolge nach seiner Wahl (17.09.2026):
    **Impressum + Datenschutz zuerst** (erledigt, siehe oben – es
-   fehlen nur seine Angaben). Danach in dieser Wirkung:
+   fehlt nur noch die E-Mail-Adresse). Danach in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
@@ -753,8 +771,9 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
      „Lade Events…", „Beispielprojekt" und „DACH" aus den Texten,
      `og:image`.
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
-   16.09. davor, dass etwas Kaputtes deployt. Blocker sind jetzt nur
-   noch die eigenen Angaben in Impressum und Datenschutz.
+   16.09. davor, dass etwas Kaputtes deployt. Einziger Blocker ist noch
+   die **E-Mail-Adresse** für Impressum und Datenschutz (der Nutzer
+   richtet sie ein) – Name und Anschrift stehen seit dem 17.09.2026.
 
 ## Offene Punkte / To-dos
 

@@ -27,31 +27,34 @@
 </div>
 
 <main>
-  <!-- Dieser Kasten verschwindet, sobald die Angaben eingetragen sind.
-       Er steht hier, damit die Vorlage nicht versehentlich als fertiges
-       Impressum online geht. -->
+  <!-- Dieser Kasten verschwindet, sobald die E-Mail-Adresse eingetragen
+       ist. Er steht hier, damit die Seite nicht mit einer fehlenden
+       Kontaktangabe online geht. -->
   <div class="hinweis" id="vorlage-hinweis">
-    <strong data-i="vorlage_titel">Diese Seite ist noch eine Vorlage.</strong>
-    <span data-i="vorlage_text">Alle gelb markierten Stellen müssen durch
-    die echten Angaben ersetzt werden. Diese Vorlage ist keine
-    Rechtsberatung – bitte vor dem Livegang prüfen (lassen).</span>
+    <strong data-i="vorlage_titel">Es fehlt noch die Kontaktadresse.</strong>
+    <span data-i="vorlage_text">Name und Anschrift stehen; die gelb
+    markierte E-Mail-Adresse wird noch eingerichtet und muss vor dem
+    Livegang eingetragen werden. Diese Seite ist keine Rechtsberatung –
+    bitte vor dem Livegang prüfen (lassen).</span>
   </div>
 
   <div class="karte">
-    <h2 data-i="h_anbieter">Angaben gemäß § 5 DDG</h2>
+    <h2 data-i="h_anbieter">Anbieterkennzeichnung nach § 18 Abs. 1 MStV</h2>
+    <p data-i="t_anbieter">Diese Seite ist ein privates Angebot ohne
+      Gewinnerzielungsabsicht. Sie dient nicht ausschließlich
+      persönlichen oder familiären Zwecken; Name und Anschrift stehen
+      deshalb hier.</p>
     <address>
-      <span class="platzhalter" data-i="ph_name">[Vor- und Nachname bzw. Firma]</span><br>
-      <span class="platzhalter" data-i="ph_strasse">[Straße und Hausnummer]</span><br>
-      <span class="platzhalter" data-i="ph_ort">[PLZ und Ort]</span><br>
-      <span class="platzhalter" data-i="ph_land">[Land]</span>
+      <span data-i="a_name">Anton Donauer</span><br>
+      <span data-i="a_strasse">Christophstraße 3</span><br>
+      <span data-i="a_ort">80538 München</span><br>
+      <span data-i="a_land">Deutschland</span>
     </address>
 
     <h3 data-i="h_kontakt">Kontakt</h3>
     <p>
       <span data-i="l_mail">E-Mail:</span>
-      <span class="platzhalter" data-i="ph_mail">[E-Mail-Adresse]</span><br>
-      <span data-i="l_tel">Telefon:</span>
-      <span class="platzhalter" data-i="ph_tel">[optional, nur falls gewünscht]</span>
+      <span class="platzhalter" data-i="ph_mail">[E-Mail-Adresse – wird noch eingerichtet]</span>
     </p>
 
     <h3 data-i="h_verantwortlich">Verantwortlich für den Inhalt</h3>
@@ -105,7 +108,7 @@
 
     <p class="stand">
       <span data-i="stand">Stand:</span>
-      <span class="platzhalter" data-i="ph_stand">[Datum eintragen]</span>
+      <span data-i="stand_datum">17. September 2026</span>
     </p>
   </div>
 </main>
@@ -123,15 +126,15 @@
   const I18N = {
     de: {
       titel: 'Impressum', home: 'Startseite', list: 'Events', privacy: 'Datenschutz',
-      vorlage_titel: 'Diese Seite ist noch eine Vorlage.',
-      vorlage_text: 'Alle gelb markierten Stellen müssen durch die echten Angaben ersetzt werden. Diese Vorlage ist keine Rechtsberatung – bitte vor dem Livegang prüfen (lassen).',
-      h_anbieter: 'Angaben gemäß § 5 DDG',
-      ph_name: '[Vor- und Nachname bzw. Firma]',
-      ph_strasse: '[Straße und Hausnummer]',
-      ph_ort: '[PLZ und Ort]',
-      ph_land: '[Land]',
-      h_kontakt: 'Kontakt', l_mail: 'E-Mail:', ph_mail: '[E-Mail-Adresse]',
-      l_tel: 'Telefon:', ph_tel: '[optional, nur falls gewünscht]',
+      vorlage_titel: 'Es fehlt noch die Kontaktadresse.',
+      vorlage_text: 'Name und Anschrift stehen; die gelb markierte E-Mail-Adresse wird noch eingerichtet und muss vor dem Livegang eingetragen werden. Diese Seite ist keine Rechtsberatung – bitte vor dem Livegang prüfen (lassen).',
+      h_anbieter: 'Anbieterkennzeichnung nach § 18 Abs. 1 MStV',
+      t_anbieter: 'Diese Seite ist ein privates Angebot ohne Gewinnerzielungsabsicht. Sie dient nicht ausschließlich persönlichen oder familiären Zwecken; Name und Anschrift stehen deshalb hier.',
+      a_name: 'Anton Donauer',
+      a_strasse: 'Christophstraße 3',
+      a_ort: '80538 München',
+      a_land: 'Deutschland',
+      h_kontakt: 'Kontakt', l_mail: 'E-Mail:', ph_mail: '[E-Mail-Adresse – wird noch eingerichtet]',
       h_verantwortlich: 'Verantwortlich für den Inhalt',
       t_verantwortlich: 'Verantwortlich für journalistisch-redaktionelle Inhalte nach § 18 Abs. 2 MStV ist die oben genannte Person.',
       h_haftung: 'Haftung für Inhalte',
@@ -146,20 +149,20 @@
       lic_firebase: 'für Anmeldung und Fehlermeldungen (Apache-Lizenz 2.0).',
       h_urheber: 'Urheberrecht',
       t_urheber: 'Die eigene Gestaltung dieser Seiten und der Programmcode unterliegen dem Urheberrecht. Die Event-Daten selbst stammen aus den oben genannten fremden Quellen und von den Veranstaltern.',
-      stand: 'Stand:', ph_stand: '[Datum eintragen]',
+      stand: 'Stand:', stand_datum: '17. September 2026',
       f_home: 'Startseite', f_privacy: 'Datenschutzerklärung'
     },
     en: {
       titel: 'Legal notice', home: 'Home', list: 'Events', privacy: 'Privacy',
-      vorlage_titel: 'This page is still a template.',
-      vorlage_text: 'Every highlighted field must be replaced with the real details. This template is not legal advice – please have it reviewed before going live.',
-      h_anbieter: 'Provider details (§ 5 DDG, Germany)',
-      ph_name: '[First and last name or company]',
-      ph_strasse: '[Street and number]',
-      ph_ort: '[Postal code and city]',
-      ph_land: '[Country]',
-      h_kontakt: 'Contact', l_mail: 'E-mail:', ph_mail: '[e-mail address]',
-      l_tel: 'Phone:', ph_tel: '[optional]',
+      vorlage_titel: 'The contact address is still missing.',
+      vorlage_text: 'Name and address are in place; the highlighted e-mail address is still being set up and must be filled in before going live. This page is not legal advice – please have it reviewed before going live.',
+      h_anbieter: 'Provider details (§ 18 (1) MStV, Germany)',
+      t_anbieter: 'This is a private site run without any intention to make a profit. It does not serve exclusively personal or family purposes, which is why the name and address are given here.',
+      a_name: 'Anton Donauer',
+      a_strasse: 'Christophstraße 3',
+      a_ort: '80538 Munich',
+      a_land: 'Germany',
+      h_kontakt: 'Contact', l_mail: 'E-mail:', ph_mail: '[e-mail address – being set up]',
       h_verantwortlich: 'Responsible for the content',
       t_verantwortlich: 'Responsible for journalistic and editorial content under § 18 (2) MStV is the person named above.',
       h_haftung: 'Liability for content',
@@ -174,7 +177,7 @@
       lic_firebase: 'for sign-in and error reports (Apache License 2.0).',
       h_urheber: 'Copyright',
       t_urheber: 'The design of these pages and the source code are protected by copyright. The event data itself comes from the third-party sources named above and from the organisers.',
-      stand: 'Last updated:', ph_stand: '[add date]',
+      stand: 'Last updated:', stand_datum: '17 September 2026',
       f_home: 'Home', f_privacy: 'Privacy policy'
     }
   };
