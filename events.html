@@ -29,9 +29,6 @@
      die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
-<!-- Verbindungsaufbau (DNS + TLS) zu den mit `defer` geladenen
-     Firebase-Dateien schon jetzt, nicht erst beim Abruf. -->
-<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=452fb354">
 <style>
@@ -848,8 +845,8 @@
      Firebase, bevor es events.json ueberhaupt anforderte.
      firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
      auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 

@@ -172,7 +172,7 @@
   // prepareFirestore() startet das vorausschauend (Melde-Dialog geoeffnet,
   // Abo-Box sichtbar), damit beim Absenden nichts mehr zu warten ist.
   const FIRESTORE_SDK_URL =
-    'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js';
+    'vendor/firebase-10.14.1/firebase-firestore-compat.js';
   let dbPromise = null;
 
   function ensureDb() {

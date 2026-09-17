@@ -23,24 +23,34 @@
 <meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Leaflet, markercluster und die Firebase-SDKs liegen im Repo
+     (vendor/), nicht auf einem CDN. Zwei Gründe:
+
+     1. Datenschutz: Ein CDN-Abruf überträgt die IP-Adresse jedes
+        Besuchers an unpkg bzw. Google - und zwar bei JEDEM Aufruf, auch
+        wenn niemand sich anmeldet. Was die Seite gar nicht an Dritte
+        schickt, muss die Datenschutzerklärung auch nicht erklären.
+     2. Verlässlichkeit: Die Version im Ordner ist die Version, die
+        ausgeliefert wird. Kein fremder Ausfall, keine stille Änderung,
+        keine Integrity-Prüfung nötig (gleiche Herkunft).
+
+     Die Dateien sind die unveränderten Originale; ihre SHA-256-Summen
+     stimmen mit den SRI-Werten überein, die vorher im HTML standen
+     (geprüft beim Umstellen). Aktualisieren heißt: neue Version in einen
+     neuen Ordner legen (vendor/leaflet-1.9.4 -> …-1.9.5) und die
+     Verweise umhängen - dann ist der Pfad die Versionsangabe und kein
+     Browser-Cache kann einen halben Stand mischen. -->
+<link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
 <!-- Zusammenfassen der Marker (Leaflet.markercluster). Nur MarkerCluster.css,
      NICHT MarkerCluster.Default.css: das Aussehen der Bündel steht unten bei
      .cluster-badge, das Stylesheet hier bringt allein die Bewegung beim
      Auf- und Zuklappen und die Spinnenbeine. -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-      integrity="sha256-YU3qCpj/P06tdPBJGPax0bm6Q1wltfwjsho5TR4+TYc=" crossorigin="" />
+<link rel="stylesheet" href="vendor/leaflet.markercluster-1.5.3/MarkerCluster.css">
 <!-- events.json ist das, worauf die Seite wartet - deshalb wird der
      Download hier angestossen, noch bevor der Browser das Stylesheet und
      die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
-<!-- Verbindungsaufbau (DNS + TLS) zu den mit `defer` geladenen
-     Firebase-Dateien schon jetzt, nicht erst beim Abruf. -->
-<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-<!-- Leaflet kommt von unpkg: Verbindung schon beim Kopf der Seite aufbauen. -->
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=452fb354">
 <style>
@@ -308,15 +318,13 @@
   <div class="map-hint" id="map-hint">Lade Events…</div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="vendor/leaflet-1.9.4/leaflet.js"></script>
 <!-- Zusammenfassen der Marker. Ohne `defer` und direkt hinter leaflet.js,
      weil das Plugin L beim Ausfuehren braucht. Bleibt es aus (Netzsperre,
      unpkg nicht erreichbar), faellt die Karte unten auf eine einfache
      Ebene zurueck - dann liegen die Marker wieder einzeln da, statt dass
      die Seite leer bleibt. -->
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-        integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
+<script src="vendor/leaflet.markercluster-1.5.3/leaflet.markercluster.js"></script>
 
 <!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
      firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
@@ -326,8 +334,8 @@
      Firebase, bevor es events.json ueberhaupt anforderte.
      firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
      auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 

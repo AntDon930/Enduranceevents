@@ -780,6 +780,55 @@ def test_js_syntax() -> None:
             check(f"{name} ist gültiges JS", fehlerzeile(erg), "")
 
 
+def test_keine_fremden_dateien() -> None:
+    """Keine Skripte und Stylesheets von fremden Servern.
+
+    Leaflet, markercluster und die Firebase-SDKs liegen in `vendor/`.
+    Ein CDN-Abruf überträgt die IP-Adresse jedes Besuchers an Dritte -
+    bei JEDEM Aufruf, auch wenn niemand sich anmeldet. Rutscht wieder
+    ein CDN-Verweis in eine Seite, fällt es hier auf, nicht erst in der
+    Datenschutzerklärung.
+
+    Die OpenStreetMap-Kacheln sind die eine bewusste Ausnahme: Eine
+    Karte ohne Kartenbilder gibt es nicht. Sie stehen deshalb in der
+    Datenschutzerklärung (und nur die Kartenseite lädt sie).
+    """
+    import re as _re
+
+    wurzel = Path(__file__).resolve().parent.parent
+    print("\nKeine fremden Dateien (Selbst-Hosten):")
+    erlaubt = ("tile.openstreetmap.org", "www.openstreetmap.org")
+    for name in ("index.html", "events.html", "karte.html"):
+        quelle = (wurzel / name).read_text(encoding="utf-8")
+        # Kommentare weg, sonst zählt die Begründung als Treffer.
+        ohne = _re.sub(r"<!--.*?-->", "", quelle, flags=_re.S)
+        # Nur GELADENE Dateien zählen: src an beliebigen Tags und href
+        # an <link>. Ein <a href> auf geonames.org ist ein Link, den
+        # jemand anklicken KANN - dabei werden keine Daten übertragen,
+        # solange niemand klickt. (Genau daran ist diese Prüfung beim
+        # ersten Versuch gescheitert: die GeoNames-Namensnennung in der
+        # Fußzeile galt als Treffer.)
+        treffer = [u for u in _re.findall(r'\ssrc="(https?://[^"]+)"', ohne)
+                   + _re.findall(r'<link\b[^>]*\shref="(https?://[^"]+)"', ohne)
+                   if not any(ok in u for ok in erlaubt)]
+        check(f"{name} lädt nichts von fremden Servern", treffer, [])
+    for name in ("auth.js", "filters.js", "filter-ui.js"):
+        quelle = (wurzel / name).read_text(encoding="utf-8")
+        ohne = _re.sub(r"//[^\n]*", "", quelle)
+        treffer = [u for u in _re.findall(r"['\"](https?://[^'\"]+\.js)['\"]", ohne)
+                   if not any(ok in u for ok in erlaubt)]
+        check(f"{name} lädt kein fremdes Skript nach", treffer, [])
+    # Und die Dateien, auf die verwiesen wird, müssen wirklich da sein.
+    fehlend = []
+    for name in ("index.html", "events.html", "karte.html"):
+        quelle = (wurzel / name).read_text(encoding="utf-8")
+        ohne = _re.sub(r"<!--.*?-->", "", quelle, flags=_re.S)
+        for pfad in _re.findall(r'(?:src|href)="(vendor/[^"?]+)"', ohne):
+            if not (wurzel / pfad).exists():
+                fehlend.append(f"{name} -> {pfad}")
+    check("alle vendor-Dateien liegen im Repo", fehlend, [])
+
+
 def test_asset_stempel() -> None:
     """Die ?v=-Stempel an den geteilten Skripten (stamp_assets.py).
 
@@ -807,7 +856,8 @@ def main() -> int:
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
-                 test_ortsverzeichnis, test_js_syntax, test_asset_stempel):
+                 test_ortsverzeichnis, test_js_syntax, test_keine_fremden_dateien,
+                 test_asset_stempel):
         test()
 
     print()

@@ -25,7 +25,6 @@
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
 <!-- Verbindungsaufbau zu den mit `defer` geladenen Firebase-Dateien. -->
-<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <!-- Fast jeder Besuch geht von hier in die Liste. Ihre beiden groessten
      Bestandteile wandern deshalb schon jetzt in den Cache - mit
      `prefetch`, nicht `preload`: niedrige Prioritaet, laeuft erst, wenn
@@ -438,8 +437,8 @@
      Firebase, bevor es events.json ueberhaupt anforderte.
      firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
      auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 
