@@ -586,7 +586,8 @@ def test_kalenderdateien() -> None:
     # Die drei Funktionen aus events.html herausschneiden und in node laufen
     # lassen. Kein Nachbau: es läuft genau der Code, den die Seite nutzt.
     stuecke = []
-    for name in ("function icsSlug(", "function icsMasszahl(", "function icsFileName("):
+    for name in ("function icsSlug(", "function icsMasszahl(", "function eventSlug(",
+                 "function icsFileName("):
         i = quelle.index(name)
         j = quelle.index("\n  }\n", i) + len("\n  }\n")
         stuecke.append(quelle[i:j])

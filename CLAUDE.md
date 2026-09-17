@@ -72,14 +72,15 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 48 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 58 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
-DOM, volle Trefferzahl, Knopf hängt nach), Tastaturbedienung (ein
-Tab-Stopp, Pfeile, Enter, Escape, Fokusfessel der Dialoge), Filter über
-den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
+`navigator.share` geht und der Rückweg über den geteilten Link),
+Tastaturbedienung (ein Tab-Stopp, Pfeile, Enter, Escape, Fokusfessel
+der Dialoge), Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -396,6 +397,30 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
   „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
   hat es gemeldet – dieselbe Falle wie bei `DATE_PRESETS`).
+- **Ein Event teilen: Link, kein PDF.** Der Knopf oben rechts in der Box
+  gibt `navigator.share()` Titel, die Angaben aus der Box und einen
+  **absoluten Link auf genau dieses Event** (`?event=<eventSlug>`);
+  ohne Teilen-Dialog (Firefox am Rechner) wird Text + Link kopiert.
+  Begründung im Kommentar bei `teileEvent()`: Ein Link führt zum Event
+  samt Kalender-Knopf und Veranstalter-Seite und veraltet nicht, ein PDF
+  bräuchte eine Bibliothek für ein schlechteres Ergebnis. Ein PDF lohnt
+  erst für die ganze gefilterte Liste (Saisonplan) - und dafür reicht
+  ein Druck-Stylesheet.
+  - **`eventSlug(e)`** ist die Kennung (Datum, Name, Maßzahl, Ort) und
+    steht nur EINMAL da: `icsFileName()` baut darauf auf, und
+    `test_scraper_lib.py` prüft sie gegen `build_ics.ics_dateiname()`
+    (schneidet dafür `eventSlug` mit aus der Seite heraus - beim
+    Umbenennen dort nachziehen). Eine laufende Nummer wäre wertlos: Sie
+    verschiebt sich, sobald ein Event dazukommt oder ein vergangenes
+    wegfällt, und ein geteilter Link zeigte auf ein fremdes Rennen.
+  - `?event=…` wird **gelesen** (readUrlState) und bleibt in der Adresse
+    stehen, solange dieses Event ausgewählt ist (writeUrlState) - aber
+    **nicht** in `currentParams()`: Das speist auch den Kartenknopf, und
+    die Karte kennt kein einzelnes Event. `deepEventSlug` steht oben bei
+    `state` (TDZ).
+  - Beim Öffnen eines geteilten Links wird zur Box gescrollt
+    (`zeigeDetailbereich()`), sonst sieht der Empfänger auf dem Handy nur
+    eine Liste.
 - **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
   `aria-modal="true"` verspricht genau das) und wird von `events.html`
   für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**

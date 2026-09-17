@@ -204,6 +204,80 @@ def pruefe_gruppierung(ctx, basis):
     seite.close()
 
 
+def pruefe_teilen(ctx, basis):
+    """Ein einzelnes Event teilen: Knopf, Teilen-Dialog, geteilter Link.
+
+    Geteilt wird ein Link auf genau dieses Event (`?event=<slug>`) plus
+    die Angaben aus der Box. Der Prüfstein ist der Rückweg: Wer dem Link
+    folgt, muss dasselbe Event sehen - und auf Handybreite muss die Box
+    dabei im Bild landen, sonst sieht der Empfänger nur eine Liste.
+    """
+    print("\nEin Event teilen")
+    seite = ctx.new_page()
+    probleme = []
+    seite.on("pageerror", lambda e: probleme.append("Skriptfehler: %s" % e))
+    # navigator.share gibt es in Chromium unter Linux nicht - hier
+    # vorgetäuscht, damit geprüft werden kann, WAS übergeben wird.
+    seite.add_init_script("""
+        window.__geteilt = [];
+        navigator.share = (daten) => { window.__geteilt.push(daten); return Promise.resolve(); };
+    """)
+    seite.goto(basis + "/events.html", wait_until="domcontentloaded")
+    seite.wait_for_selector("tbody tr[data-idx]", timeout=30000)
+    seite.wait_for_timeout(400)
+    seite.locator("tbody tr[data-idx]").nth(2).click()
+    seite.wait_for_timeout(900)
+    name = seite.evaluate("() => document.querySelector('#detail-panel h2').textContent")
+    if not pruefe(seite.locator("#event-share-btn").count() == 1,
+                  "Teilen-Knopf steht in der Box (%s)" % name):
+        seite.close()
+        return
+    seite.locator("#event-share-btn").click()
+    seite.wait_for_timeout(400)
+    daten = seite.evaluate("() => window.__geteilt[0] || null")
+    if not pruefe(bool(daten), "Klick öffnet den Teilen-Dialog des Geräts"):
+        seite.close()
+        return
+    pruefe(daten["title"] == name and name in daten["text"] and "·" in daten["text"],
+           "geteilt werden die Angaben aus der Box (%s)"
+           % daten["text"].replace("\n", " | ")[:70])
+    pruefe("?event=" in daten["url"] and daten["url"].startswith("http"),
+           "dazu ein absoluter Link auf genau dieses Event")
+    geteilt = daten["url"]
+    seite.close()
+
+    # Der Rückweg: der Link zeigt dasselbe Event, und die Box ist im Bild.
+    seite, probleme = seite_oeffnen(ctx, geteilt, "#detail-panel h2")
+    seite.wait_for_timeout(1500)
+    zurueck = seite.evaluate("""() => { const b = document.getElementById('detail-panel')
+        .getBoundingClientRect();
+        return {name: document.querySelector('#detail-panel h2').textContent,
+                markiert: !!document.querySelector('tbody tr.active'),
+                adresse: location.search,
+                sichtbar: b.top < innerHeight && b.bottom > 0}; }""")
+    pruefe(not probleme, "geteilter Link lädt ohne Fehler (%s)"
+           % (probleme[0] if probleme else "keine"))
+    pruefe(zurueck["name"] == name, "geteilter Link zeigt dasselbe Event (%s)" % zurueck["name"])
+    pruefe(zurueck["markiert"], "die Zeile ist in der Tabelle markiert")
+    pruefe("event=" in zurueck["adresse"], "der Parameter bleibt in der Adresse stehen")
+    pruefe(zurueck["sichtbar"], "die Box steht im Bild (auf Handybreite wird hingescrollt)")
+    seite.close()
+
+    # Ohne navigator.share (Firefox am Rechner): kopieren statt Dialog.
+    seite = ctx.new_page()
+    seite.add_init_script("delete navigator.share;")
+    seite.goto(basis + "/events.html", wait_until="domcontentloaded")
+    seite.wait_for_selector("tbody tr[data-idx]", timeout=30000)
+    seite.wait_for_timeout(400)
+    seite.locator("tbody tr[data-idx]").first.click()
+    seite.wait_for_timeout(700)
+    seite.locator("#event-share-btn").click()
+    seite.wait_for_timeout(700)
+    toast = seite.evaluate("() => document.getElementById('toast').textContent")
+    pruefe(bool(toast.strip()), "ohne Teilen-Dialog wird kopiert (%s)" % toast.strip())
+    seite.close()
+
+
 def pruefe_fenster(ctx, basis):
     """Die Tabelle zeichnet nur ein Fenster, filtert aber über alles.
 
@@ -479,6 +553,7 @@ def main() -> int:
                 pruefe_liste(ctx, basis)
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
+                pruefe_teilen(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
             finally:

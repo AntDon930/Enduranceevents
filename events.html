@@ -611,6 +611,28 @@
     padding: 24px 8px;
     font-size: 0.9rem;
   }
+  /* Kopfzeile der Box: Name + Ort links, Teilen-Knopf oben rechts. */
+  .detail-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .detail-head-text { min-width: 0; flex: 1; }
+  .detail-share {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .detail-share:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
+  .detail-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .detail-panel h2 { margin: 0 0 4px; font-size: 1.2rem; }
   .detail-panel .sub { color: var(--text-muted); margin-bottom: 16px; font-size: 0.88rem; }
   .detail-grid {
@@ -877,6 +899,8 @@
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
       // sortiert wird über alle Events, gezeichnet nur ein Teil.
       mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
+      share_event: 'Dieses Event teilen',
+      share_event_done: 'Event kopiert!',
       col_entfernung: 'Entfernung',
       col_anzahl: 'Anzahl',
       sort_hint: 'Klicken zum Sortieren',
@@ -940,6 +964,8 @@
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
+      share_event: 'Share this event',
+      share_event_done: 'Event copied!',
       col_entfernung: 'Distance',
       col_anzahl: 'Count',
       sort_hint: 'Click to sort',
@@ -1204,6 +1230,10 @@
   // den DOM gehen, und was gerade im Fenster steht. Siehe zeigeMehr().
   // Auch das steht hier oben und nicht beim Zeichnen: render() braucht
   // es sofort (Temporal Dead Zone).
+  // Das per ?event=… geteilte Event. Steht hier oben, weil readUrlState()
+  // es setzt und writeUrlState() es gleich danach wieder braucht (und
+  // beide laufen weit vor dieser Textstelle - Temporal Dead Zone).
+  let deepEventSlug = null;
   const FENSTER_SCHRITT = 200;
   let fenster = null;
   // Die angeforderte Bild-Aktualisierung des Nachladens. Steht hier
@@ -1367,6 +1397,12 @@
   groupToggleEl.checked = state.gruppiert;
 
   setLanguage(currentLang);
+
+  // Wer einem geteilten Event-Link folgt, soll das Event sehen und nicht
+  // eine Liste. Auf dem Handy steht die Box unter der Tabelle, also
+  // hinscrollen (am Rechner steht sie daneben und zeigt es schon - dann
+  // bewegt sich nichts, siehe zeigeDetailbereich).
+  if (deepEventSlug) zeigeDetailbereich();
 
   // ---------- helpers ----------
 
@@ -2142,7 +2178,21 @@
   function writeUrlState() {
     if (!urlZustandGelesen) return;
     if (!window.history || !window.history.replaceState) return;
-    const suffix = currentParams().toString();
+    const p = currentParams();
+    // Ein geteiltes Event bleibt in der Adresse stehen, solange es
+    // ausgewählt ist - damit ein Neuladen oder Weitergeben des Links
+    // dasselbe Event zeigt. NICHT in currentParams(): Das speist auch
+    // den Kartenknopf, und die Karte kennt kein einzelnes Event.
+    //
+    // Eine andere Zeile auszuwählen schreibt die Adresse gar nicht neu
+    // (waehleZeile ruft kein writeUrlState - siehe "Tempo"); der
+    // Parameter verschwindet daher erst beim nächsten Filterwechsel,
+    // und genau dann ist er auch nicht mehr wahr.
+    if (deepEventSlug && selectedIndex !== null && events[selectedIndex]
+        && eventSlug(events[selectedIndex]) === deepEventSlug) {
+      p.set('event', deepEventSlug);
+    }
+    const suffix = p.toString();
     const neu = window.location.pathname + (suffix ? '?' + suffix : '');
     if (neu !== window.location.pathname + window.location.search) {
       try { window.history.replaceState(null, '', neu); } catch (e) { /* ignorieren */ }
@@ -2176,6 +2226,21 @@
       }
     }
     if (p.get('gruppiert') === '1') state.gruppiert = true;
+    // Ein geteiltes Event (?event=…): die Zeile auswählen, damit die Box
+    // sie zeigt. Die Kennung ist der eventSlug - eine laufende Nummer
+    // wäre wertlos, sie verschiebt sich mit jedem neuen Event.
+    //
+    // Bewusst OHNE Filter: Wer ein Event teilt, teilt nicht seine Suche.
+    // Steht das Event trotz eines Filters nicht in der Tabelle, zeigt die
+    // Box es trotzdem - markiereAuswahl() findet dann eben keine Zeile.
+    const gesucht = p.get('event');
+    if (gesucht) {
+      const treffer = events.findIndex(e => eventSlug(e) === gesucht);
+      if (treffer >= 0) {
+        selectedIndex = treffer;
+        deepEventSlug = gesucht;
+      }
+    }
   }
 
   // ---------- "Benachrichtige mich"-Box (0 Treffer) ----------
@@ -2240,8 +2305,20 @@
     }
     const e = events[selectedIndex];
     detailEl.innerHTML = `
-      <h2>${escapeHtml(e.name)}</h2>
-      <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
+      <div class="detail-head">
+        <div class="detail-head-text">
+          <h2>${escapeHtml(e.name)}</h2>
+          <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
+        </div>
+        <button type="button" class="detail-share" id="event-share-btn"
+                title="${escapeHtml(t('share_event'))}" aria-label="${escapeHtml(t('share_event'))}">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+            <path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>
+          </svg>
+        </button>
+      </div>
       <dl class="detail-grid">
         <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
@@ -2270,7 +2347,91 @@
       <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
     `;
     detailEl.querySelector('#report-open-btn').addEventListener('click', () => openReportModal(e));
+    detailEl.querySelector('#event-share-btn').addEventListener('click', () => teileEvent(e));
     setupCalendarBox(e);
+  }
+
+  // ---------- Ein einzelnes Event teilen ----------
+  //
+  // Geteilt wird ein LINK auf genau dieses Event plus die Angaben, die
+  // in der Box stehen - kein PDF und kein Bild. Gründe, der Reihe nach:
+  //
+  //   - Die Box enthält eine Handvoll Fakten und zwei Links. Wer den
+  //     Link antippt, landet genau hier: mit "Zum Kalender hinzufügen",
+  //     der Veranstalter-Seite und der Karte daneben. Ein PDF kann das
+  //     alles nicht, und es veraltet - verlegt der Veranstalter das
+  //     Rennen, ist das PDF für immer falsch.
+  //   - `navigator.share()` öffnet den Teilen-Dialog des Geräts.
+  //     Damit funktionieren WhatsApp, iMessage, Mail, Signal, Notizen
+  //     und AirDrop auf einmal, ohne dass die Seite einen einzigen
+  //     Dienst kennen muss.
+  //   - Ein PDF bräuchte eine Bibliothek (jsPDF o. Ä., ~150-400 KB) für
+  //     ein schlechteres Ergebnis. Wo ein PDF sinnvoll wäre: die ganze
+  //     gefilterte Liste als Saisonplan - das ist eine andere Funktion,
+  //     und dafür reicht später ein Druck-Stylesheet (der Browser
+  //     schreibt daraus selbst ein PDF).
+  //
+  // Ohne `navigator.share` (Firefox am Rechner, Safari am Mac je nach
+  // Version) wird Text + Link in die Ablage kopiert.
+
+  // Der Link auf genau dieses Event. Absolut, damit er in einer
+  // Nachricht anklickbar ist.
+  function eventLink(e) {
+    const basis = window.location.origin + window.location.pathname;
+    return `${basis}?event=${encodeURIComponent(eventSlug(e))}`;
+  }
+
+  // Die Angaben aus der Box, in der Reihenfolge, in der sie dort stehen.
+  function eventShareText(e) {
+    const zeilen = [
+      e.name,
+      `${formatRange(e.datum_start, e.datum_ende)} · ${e.standort}, ${tv('land', e.land)}`,
+      `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e)}`
+    ];
+    const wb = displayWettbewerb(e);
+    if (wb) zeilen.splice(2, 0, wb);
+    return zeilen.join('\n');
+  }
+
+  function teileEvent(e) {
+    const url = eventLink(e);
+    const text = eventShareText(e);
+    if (navigator.share) {
+      // Bricht jemand den Dialog ab, kommt ein AbortError - das ist
+      // keine Panne und darf keine Meldung auslösen.
+      navigator.share({ title: e.name, text, url }).catch((err) => {
+        if (err && (err.name === 'AbortError' || err.name === 'NotAllowedError')) return;
+        kopiereInAblage(text + '\n' + url);
+      });
+      return;
+    }
+    kopiereInAblage(text + '\n' + url);
+  }
+
+  // Kopieren mit Rückfallweg: `navigator.clipboard` braucht einen
+  // sicheren Kontext (https oder localhost). Ohne den hilft ein
+  // unsichtbares Textfeld samt execCommand - alt, aber es funktioniert
+  // überall.
+  function kopiereInAblage(text) {
+    if (navigator.clipboard && window.isSecureContext !== false) {
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(t('share_event_done')))
+        .catch(() => showToast(t('share_fail')));
+      return;
+    }
+    try {
+      const feld = document.createElement('textarea');
+      feld.value = text;
+      feld.setAttribute('readonly', '');
+      feld.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+      document.body.appendChild(feld);
+      feld.select();
+      const ok = document.execCommand('copy');
+      feld.remove();
+      showToast(ok ? t('share_event_done') : t('share_fail'));
+    } catch (err) {
+      showToast(t('share_fail'));
+    }
   }
 
   // ---------- Zum Kalender hinzufügen ----------
@@ -2412,11 +2573,24 @@
     return 'x';
   }
 
-  function icsFileName(e) {
+  // Die dauerhafte Kennung eines Events: Datum, Name, Maßzahl, Ort.
+  // Zwei Dinge hängen daran, deshalb steht sie nur EINMAL hier:
+  //   - der Name der Kalenderdatei (icsFileName, muss zu build_ics.py
+  //     passen - test_scraper_lib.py prüft beide gegeneinander),
+  //   - der Link auf ein einzelnes Event (?event=…, siehe teileEvent).
+  // Eine ID in events.json gibt es nicht, und eine laufende Nummer wäre
+  // wertlos: Sie verschiebt sich, sobald ein Event dazukommt oder ein
+  // vergangenes wegfällt - ein geteilter Link zeigte dann auf ein
+  // fremdes Rennen.
+  function eventSlug(e) {
     const teile = [e.datum_start || 'ohne-datum', icsSlug(e.name), icsMasszahl(e)];
     const ort = icsSlug(e.standort);
     if (ort) teile.push(ort);
-    return teile.join('-') + '.ics';
+    return teile.join('-');
+  }
+
+  function icsFileName(e) {
+    return eventSlug(e) + '.ics';
   }
 
   // ---------- Fehler melden ----------

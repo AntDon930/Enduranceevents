@@ -1612,6 +1612,50 @@ Der Rauchtest prüft die ganze Kette: ein Tab-Stopp, Pfeiltaste bewegt
 und wählt, End springt ans Ende, Enter landet im Detailbereich, Escape
 schließt Panel und Dialog und gibt den Fokus zurück.
 
+## Ein einzelnes Event teilen
+
+In der Detail-Box steht oben rechts ein Teilen-Knopf. Geteilt werden die
+Angaben, die in der Box stehen, **plus ein Link auf genau dieses Event**
+– kein PDF und kein Bild. Die Entscheidung, mit Begründung:
+
+- **Der Link ist für den Empfänger mehr wert als ein Dokument.** Wer ihn
+  antippt, landet genau bei diesem Event – mit „Zum Kalender
+  hinzufügen", der Veranstalter-Seite und der Karte daneben. Ein PDF
+  kann das nicht, und es veraltet: Verlegt der Veranstalter das Rennen,
+  ist das PDF für immer falsch.
+- **`navigator.share()` öffnet den Teilen-Dialog des Geräts.** Damit
+  funktionieren WhatsApp, iMessage, Mail, Signal, Notizen und AirDrop
+  auf einmal, ohne dass die Seite einen einzigen Dienst kennen muss.
+- **Ein PDF bräuchte eine Bibliothek** (jsPDF o. Ä., ~150–400 KB) für
+  ein schlechteres Ergebnis. Wo ein PDF wirklich etwas brächte: die
+  ganze gefilterte Liste als Saisonplan. Das ist eine andere Funktion,
+  und dafür reicht später ein Druck-Stylesheet (`@media print`) – der
+  Browser schreibt daraus selbst ein PDF, ohne eine Zeile Bibliothek.
+- **Ohne Teilen-Dialog** (Firefox am Rechner, ältere Safari-Versionen)
+  wird Text + Link in die Ablage kopiert, mit derselben Kurzmeldung wie
+  „Suche mit Freunden teilen".
+
+Geteilt wird zum Beispiel:
+
+```
+Kölner TSC Marathons
+17.09.2026 · Köln, Deutschland
+Laufen / Straße · 42.2 km
+https://…/events.html?event=2026-09-17-kolner-tsc-marathons-42-2km-koln
+```
+
+**Die Kennung im Link** ist der `eventSlug` – Datum, Name, Maßzahl, Ort,
+dieselbe Zeichenfolge, die auch die `.ics`-Datei benennt (und die
+`test_scraper_lib.py` gegen `build_ics.py` prüft). Eine laufende Nummer
+wäre wertlos: Sie verschiebt sich, sobald ein Event dazukommt oder ein
+vergangenes wegfällt – ein geteilter Link zeigte dann auf ein fremdes
+Rennen.
+
+Beim Öffnen eines geteilten Links wählt die Liste das Event aus, lässt
+die Filter unangetastet (wer ein Event teilt, teilt nicht seine Suche)
+und **scrollt auf Handybreite zur Box** – sonst sähe der Empfänger nur
+eine Liste. Der Rauchtest prüft genau diesen Rückweg.
+
 ## Seitensymbol und Vorschau beim Teilen
 
 `favicon.svg` (498 Byte) ist das Symbol für Tab und Lesezeichen,
@@ -1854,7 +1898,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 48 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 58 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
