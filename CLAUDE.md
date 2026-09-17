@@ -585,9 +585,11 @@ Workflow auslösen und später nachsehen. Für Tests immer
 
 `.github/workflows/ci.yml` läuft bei **jedem Push und jedem Pull Request**
 (zwei Jobs): `test_scraper_lib.py` samt `node --check` und Stempel-Prüfung,
-dazu die Idempotenz von `clean_events.py` (mit `--no-geocoding`, damit
-nicht jeder Push Nominatim befragt) und die Frage, ob `kalender/`
-zu `events.json` passt – und getrennt davon `smoke_test_frontend.py` in
+dazu die Idempotenz von `clean_events.py` (zweimal laufen lassen und die
+zwei Ergebnisse vergleichen – NICHT den committeten Stand gegen den
+ersten Lauf: Aufräumen entfernt vergangene Events, das ändert die Datei
+also jeden Tag zu Recht; mit `--no-geocoding`, damit nicht jeder Push
+Nominatim befragt) und die Frage, ob `kalender/` zu `events.json` passt – und getrennt davon `smoke_test_frontend.py` in
 Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
 **Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
 

@@ -66,22 +66,35 @@ jobs:
       - name: Regressionstests
         run: python3 scripts/test_scraper_lib.py
 
-      # Aufräumen muss idempotent sein: ein zweiter Lauf über dieselbe
+      # Aufräumen muss idempotent sein: der ZWEITE Lauf über dieselbe
       # Datei darf nichts mehr ändern. Sonst wächst der wöchentliche
       # Commit ins Unendliche.
+      #
+      # Verglichen werden bewusst erster und zweiter Lauf, NICHT der
+      # committete Stand mit dem ersten Lauf. Letzteres war der erste
+      # Versuch und schlug schon am nächsten Tag fehl: `clean_events.py`
+      # entfernt vergangene Events (Datenregel 10), also ändert es die
+      # committete Datei, sobald ein Tag vergangen ist. Das ist richtig
+      # so und darf die CI nicht rot machen.
       #
       # `--no-geocoding` ist Absicht: Ohne das fragte jeder Push
       # Nominatim nach Ländern zu Koordinaten (der Cache liegt nicht im
       # Repo) - unhöflich gegenüber einem fremden Dienst und langsam.
       # Geprüft wird damit genau der Teil, der ohne Netz entscheidet.
-      - name: clean_events.py ändert nichts mehr (Idempotenz)
+      - name: clean_events.py ist idempotent
         run: |
-          cp events.json /tmp/vorher.json
-          python3 scripts/clean_events.py --no-geocoding
-          if ! diff -q /tmp/vorher.json events.json; then
-            echo "::error::clean_events.py ändert events.json - der Bestand ist nicht aufgeräumt."
+          python3 scripts/clean_events.py --no-geocoding --quiet
+          cp events.json /tmp/erster-lauf.json
+          python3 scripts/clean_events.py --no-geocoding --quiet
+          if ! diff -q /tmp/erster-lauf.json events.json; then
+            echo "::error::Ein zweiter Lauf von clean_events.py ändert noch etwas - nicht idempotent."
+            diff /tmp/erster-lauf.json events.json | head -40
             exit 1
           fi
+          # Den committeten Stand zurückholen: Der nächste Schritt prüft
+          # kalender/ gegen GENAU diese Datei, nicht gegen eine, die der
+          # Lauf oben gerade um vergangene Events gekürzt hat.
+          git checkout -- events.json
 
       # Die .ics-Dateien liegen fertig im Repo (Safari übergibt einen
       # Termin nur an den Kalender, wenn der Server text/calendar

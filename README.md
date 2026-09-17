@@ -1027,8 +1027,11 @@ Zwei Jobs, damit auf einen Blick zu sehen ist, *was* kaputt ist:
   `test_scraper_lib.py` (Datenregeln, Dedupe, Zeitrennen,
   Kalender-Dateinamen gegen den echten JS-Code, `node --check` über alle
   Inline-Skripte, die `?v=`-Stempel), dazu zwei Fragen, die nur im
-  Zusammenspiel auffallen: **ändert `clean_events.py` noch etwas**
-  (Aufräumen muss idempotent sein, sonst wächst der wöchentliche Commit)
+  Zusammenspiel auffallen: **ist `clean_events.py` idempotent**
+  (verglichen werden erster und zweiter Lauf – nicht der committete
+  Stand mit dem ersten Lauf: das war der erste Versuch und schlug schon
+  am nächsten Tag fehl, weil Aufräumen vergangene Events entfernt und
+  die committete Datei damit zu Recht verändert)
   und **passt `kalender/` zu `events.json`** (die `.ics`-Dateien liegen
   fertig im Repo, siehe „Zum Kalender hinzufügen"). Genau diese zweite
   Prüfung hat beim Einbauen 490 veraltete Dateien gefunden – der
