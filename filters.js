@@ -271,6 +271,31 @@
     };
   }
 
+  // Eine unabhängige Kopie eines Filterzustands. Nötig, weil Sets und
+  // `origin` sonst geteilt wären: Der Abo-Dialog in events.html arbeitet
+  // mit einer Kopie der aktuellen Suche - was dort umgestellt wird, darf
+  // die Liste dahinter NICHT verändern.
+  //
+  // `ohneDatum` lässt die Tagesauswahl weg: Ein Abo schaut in die
+  // Zukunft, ein Datumsfilter aus der Vergangenheit dieser Suche würde
+  // dafür nie passen.
+  function copyState(state, ohneDatum) {
+    const kopie = createState();
+    ['land', 'art1', 'art2', 'standort', 'distanceCategories'].forEach(k => {
+      state[k].forEach(v => kopie[k].add(v));
+    });
+    if (!ohneDatum) {
+      state.selectedDays.forEach(v => kopie.selectedDays.add(v));
+      kopie.datePreset = state.datePreset;
+    }
+    kopie.nameQuery = state.nameQuery;
+    kopie.laengeMin = state.laengeMin;
+    kopie.laengeMax = state.laengeMax;
+    kopie.origin = state.origin ? Object.assign({}, state.origin) : null;
+    kopie.radiusKm = state.radiusKm;
+    return kopie;
+  }
+
   function clearFilters(state) {
     state.land.clear();
     state.art1.clear();
@@ -571,6 +596,7 @@
     isoOf,
     todayIso,
     createState,
+    copyState,
     clearFilters,
     hasFilters,
     haversineKm,

@@ -240,6 +240,73 @@ def pruefe_abo(ctx, basis):
            "drei Rhythmen zur Wahl (%s)" % ", ".join(stand["rhythmen"]))
     pruefe(bool(stand["gewaehlt"]), "einer ist vorausgewählt (%s)" % stand["gewaehlt"])
     pruefe(stand["fokus"], "der Fokus liegt im Dialog")
+
+    # „Welche Events?" - dieselben Filterknöpfe wie in der Liste, aber auf
+    # einem eigenen Zustand. Geprüft wird genau das, was daran schiefgehen
+    # kann: der Dialog muss die laufende Suche vorbelegen, das Panel muss
+    # VOR dem Dialog liegen (an <body> gehängt läge es dahinter) und darf
+    # die Liste dahinter nicht anfassen.
+    leiste = seite.evaluate("""() => ({
+        knoepfe: [...document.querySelectorAll('#abo-filter-bar .col-filter-btn')]
+                   .map(b => b.dataset.col),
+        markiert: [...document.querySelectorAll('#abo-filter-bar .col-filter-btn.has-filter')]
+                   .map(b => b.dataset.col)
+    })""")
+    pruefe(len(leiste["knoepfe"]) > 0 and "datum" not in leiste["knoepfe"],
+           "der Dialog hat eine Filterleiste ohne Datum (%s)" % ", ".join(leiste["knoepfe"]))
+    pruefe(set(leiste["markiert"]) >= {"standort", "art1"},
+           "die Filter der Suche sind vorbelegt (%s)" % ", ".join(leiste["markiert"]))
+    knopf_art1 = seite.locator("#abo-filter-bar .col-filter-btn[data-col=art1]")
+    if knopf_art1.count() == 1:
+        knopf_art1.click()
+        seite.wait_for_timeout(400)
+        panel = seite.evaluate("""() => {
+            const p = document.querySelector('.filter-panel:not([hidden])');
+            if (!p) return null;
+            const r = p.getBoundingClientRect();
+            const oben = document.elementFromPoint(r.left + r.width / 2, r.top + 12);
+            return {
+              imDialog: document.getElementById('abo-overlay').contains(p),
+              davor: !!(oben && oben.closest('.filter-panel')),
+              werte: [...p.querySelectorAll('input[type=checkbox]')].map(i => i.value)
+            };
+        }""")
+        pruefe(bool(panel) and panel["imDialog"] and panel["davor"],
+               "das Panel hängt im Dialog und liegt davor (%s)" % panel)
+        # Ein Abo schaut in die Zukunft: „Fahrrad" muss zur Wahl stehen,
+        # obwohl in events.json noch kein einziges Radrennen steht.
+        pruefe(bool(panel) and "Fahrrad" in panel["werte"],
+               "auch Sportarten ohne heutige Events stehen zur Wahl (%s)"
+               % ", ".join(panel["werte"] if panel else []))
+        treffer_vorher = seite.evaluate("() => document.getElementById('result-count').textContent")
+        seite.evaluate("""() => {
+            const p = document.querySelector('.filter-panel:not([hidden])');
+            const kaesten = [...p.querySelectorAll('input[type=checkbox]')];
+            const rad = kaesten.find(i => i.value === 'Fahrrad');
+            const lauf = kaesten.find(i => i.value === 'Laufen');
+            if (rad && !rad.checked) rad.click();
+            if (lauf && lauf.checked) lauf.click();
+        }""")
+        seite.wait_for_timeout(400)
+        danach = seite.evaluate("""() => ({
+            umfasst: document.getElementById('abo-umfasst').textContent,
+            treffer: document.getElementById('result-count').textContent
+        })""")
+        pruefe("Fahrrad" in danach["umfasst"],
+               "die Zusammenfassung folgt der Auswahl (%s)" % danach["umfasst"][:60])
+        pruefe(danach["treffer"] == treffer_vorher,
+               "die Liste dahinter bleibt unverändert (%s)" % danach["treffer"])
+        # Escape im Panel schließt nur das Panel - der Dialog bleibt offen.
+        seite.evaluate("""() => { const p = document.querySelector('.filter-panel:not([hidden])');
+            const el = p && p.querySelector('input'); if (el) el.focus(); }""")
+        seite.keyboard.press("Escape")
+        seite.wait_for_timeout(300)
+        pruefe(seite.evaluate("""() => !document.querySelector('.filter-panel:not([hidden])')
+                   && !document.getElementById('abo-overlay').hidden"""),
+               "Escape im Panel schließt das Panel, nicht den Dialog")
+    else:
+        pruefe(False, "der Dialog hat einen Knopf für die Sportart")
+
     seite.keyboard.press("Escape")
     seite.wait_for_timeout(400)
     pruefe(seite.evaluate("""() => document.getElementById('abo-overlay').hidden

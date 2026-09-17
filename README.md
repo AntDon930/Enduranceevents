@@ -1709,11 +1709,40 @@ mit einem Rhythmus.
   und ist immer erreichbar. Die Box bei null Treffern führt jetzt in
   denselben Dialog – es gibt genau **einen** Weg, an dem ein Abo
   entsteht, und der kennt den Rhythmus.
+- **„Welche Events?" steht im Dialog.** Die Filter der Liste *sind* die
+  Auswahl – nur sah man das nicht: Wer ohne Filter auf den Knopf tippte,
+  las „Alle neuen Events" und hatte im Dialog keine Möglichkeit, daraus
+  „nur Radrennen im Umkreis von 25 km" zu machen. Der Dialog trägt
+  deshalb dieselbe Knopfreihe wie die Karte (Name, Land, Stadt/Ort,
+  Sportart, Kategorie, Länge), nur ohne „Datum".
+
+  Drei Dinge waren dafür nötig, und alle drei sind dort begründet, wo sie
+  stehen:
+
+  1. **Ein eigener Filterzustand.** Der Dialog arbeitet auf einer Kopie
+     der laufenden Suche (`EF.copyState(state, true)`, ohne Datum): Wer
+     schon gefiltert hat, findet seine Filter vor, und was er im Dialog
+     umstellt, verändert die Liste dahinter nicht. Es ist dieselbe
+     Bedien-Datei (`filter-ui.js`), nur eine zweite Instanz – keine
+     Kopie der Filterlogik.
+  2. **Das Panel gehört in den Dialog.** An `<body>` gehängt lag es
+     hinter dem Dialog (z-index 1000 gegen 2000) und außerhalb seiner
+     Fokusfessel, war also per Tastatur unerreichbar. `EFU.create`
+     nimmt dafür `panelParent`.
+  3. **Auch Werte ohne heutige Events** (`alleWerte: true`). Die Liste
+     bietet nur an, was in den Daten steht – sinnvoll dort, falsch hier:
+     In `events.json` steht bislang kein einziges Radrennen, „Fahrrad"
+     stand also gar nicht zur Wahl. Ein Abo schaut aber in die Zukunft,
+     und genau das war der Wunsch. Angeboten werden deshalb alle
+     Sportarten und Länder, die die Seite kennt.
+
 - **Der Dialog zeigt, was das Abo umfasst** – gebaut aus genau den
   Feldern, die auch gespeichert werden („Laufen · 25 km um München").
   Nicht aus den Filter-Chips: Die zeigen auch den Datumsfilter, und der
   gehört nicht dazu. Ein Abo schaut in die Zukunft; mit einem
-  Datumsfilter könnte nie ein neues Event passen.
+  Datumsfilter könnte nie ein neues Event passen. Eine Änderung in der
+  Filterleiste schreibt **nur diesen Kasten** neu – ein Neuzeichnen des
+  ganzen Dialogs nähme den gewählten Rhythmus und den Fokus mit.
 - **Drei Rhythmen**: `sofort`, `woechentlich`, `monatlich`. „Sofort" ist
   ehrlich beschriftet – die Daten werden wöchentlich erneuert, schneller
   als der Datenlauf kann kein Abo sein.
@@ -2041,7 +2070,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 83 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 90 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -2061,8 +2090,11 @@ Chip), das Fenster der Tabelle (nur ein Schub Zeilen im DOM, volle
 Trefferzahl, der Knopf hängt den nächsten Schub an, Filter greifen über
 alle Events), die Tastaturbedienung der Liste (genau ein Tab-Stopp,
 Pfeiltasten, End, Enter in die Angaben, Escape am Filter-Panel, Fessel
-und Fokusrückgabe im Melde-Dialog) sowie die Filter über den Weg
-Liste → Karte → Liste.
+und Fokusrückgabe im Melde-Dialog), der Abo-Dialog samt seiner
+Filterleiste (vorbelegt aus der laufenden Suche, das Panel liegt im
+Dialog und davor, auch Sportarten ohne heutige Events stehen zur Wahl,
+die Liste dahinter bleibt unberührt, Escape schließt erst das Panel und
+dann den Dialog) sowie die Filter über den Weg Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt

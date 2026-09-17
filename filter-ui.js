@@ -135,6 +135,11 @@
     'Schwimmen': ['Freiwasser', 'Becken'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
   };
+  // Alle Kategorien, die ART2_BY_ART1 kennt - die Gegenstuecke zu
+  // BEKANNTE_WERTE fuer `art2`.
+  const ALLE_ART2 = Object.keys(ART2_BY_ART1)
+    .reduce((alle, a1) => alle.concat(ART2_BY_ART1[a1]), []);
+
   // Die filterbaren Spalten. Dieselbe Liste baut in der Liste die
   // Tabellenköpfe und auf der Karte die Knopfreihe - eine Spalte
   // hinzufügen heißt: hier eintragen, nicht an zwei Stellen.
@@ -147,6 +152,20 @@
     { key: 'art2', labelKey: 'col_kategorie', type: 'checkbox' },
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
   ];
+
+  // Welche Werte die Seite überhaupt kennt - unabhängig davon, ob heute
+  // schon ein Event dazu in den Daten steht. Nur der Abo-Dialog fragt so
+  // (`alleWerte: true`): Ein Abo schaut in die Zukunft, und „jedes neue
+  // Radrennen in der Schweiz" muss man abonnieren können, BEVOR das erste
+  // in events.json steht. Genau daran wäre der Wunsch des Nutzers sonst
+  // gescheitert - es gibt derzeit kein einziges Fahrrad-Event, „Fahrrad"
+  // stand also gar nicht zur Wahl.
+  // In der Liste bleibt es bei den vorhandenen Werten: Ein Filter, der
+  // garantiert null Treffer liefert, ist dort nur Ballast.
+  const BEKANNTE_WERTE = {
+    land: EF.LAENDER,
+    art1: Object.keys(EF.DISTANCE_CATEGORIES)
+  };
 
   const DISTANCE_CATEGORIES = EF.DISTANCE_CATEGORIES;
   const DISTANCE_CATEGORY_LABELS = EF.DISTANCE_CATEGORY_LABELS;
@@ -172,6 +191,9 @@
     const getEvents = opts.getEvents;
     const lang = opts.getLang || (() => 'de');
     const onChange = opts.onChange || (() => {});
+    // Auch Werte anbieten, zu denen es noch kein Event gibt (siehe
+    // BEKANNTE_WERTE). Der Abo-Dialog setzt das, die Liste nicht.
+    const alleWerte = !!opts.alleWerte;
 
     // Ein einziges, an <body> gehängtes Panel (fixed positioniert), damit
     // es nie vom scrollenden Tabellen-Container abgeschnitten wird.
@@ -181,6 +203,19 @@
     floatingPanel.className = 'filter-panel';
     floatingPanel.hidden = true;
     document.body.appendChild(floatingPanel);
+
+    // Wohin das Panel gehört. Voreinstellung ist <body>; der Abo-Dialog
+    // gibt seinen Overlay-Kasten an, und das aus zwei Gründen:
+    //   - Der Dialog liegt bei z-index 2000, das Panel bei 1000 - an
+    //     <body> gehängt verschwände es hinter dem Dialog.
+    //   - Die Fokusfessel des Dialogs (auth.js `dialogTasten`) sucht ihre
+    //     Ziele im Overlay; ein Panel daneben wäre per Tastatur nicht
+    //     erreichbar.
+    // Als Funktion übergeben, weil der Overlay-Kasten beim create() oft
+    // noch nicht geholt ist; umgehängt wird erst beim Öffnen.
+    const panelParent = typeof opts.panelParent === 'function'
+      ? opts.panelParent
+      : () => (opts.panelParent || document.body);
 
     // Knöpfe, die dieses Modul selbst gebaut hat (Karte). Die Liste baut
     // ihre Knöpfe in die Tabellenköpfe und meldet sie über attachButton().
@@ -203,7 +238,11 @@
     // Chips fragen das (für "Land: Alle" statt drei Einzel-Chips).
     function columnOptions(colKey) {
       if (colKey === 'art2') return availableArt2Options();
-      return uniqueSorted(getEvents().map(e => e[colKey]));
+      const vorhanden = getEvents().map(e => e[colKey]);
+      if (alleWerte && BEKANNTE_WERTE[colKey]) {
+        return uniqueSorted(vorhanden.concat(BEKANNTE_WERTE[colKey]));
+      }
+      return uniqueSorted(vorhanden);
     }
 
     // Filtert diese Spalte gerade? Färbt ihren Knopf.
@@ -219,7 +258,8 @@
     }
 
     function availableArt2Options() {
-      const presentArt2 = uniqueSorted(getEvents().map(e => e.art2));
+      const roh = getEvents().map(e => e.art2);
+      const presentArt2 = uniqueSorted(alleWerte ? roh.concat(ALLE_ART2) : roh);
       if (state.art1.size === 0) return presentArt2;
       const allowed = new Set();
       state.art1.forEach(a1 => (ART2_BY_ART1[a1] || []).forEach(a2 => allowed.add(a2)));
@@ -262,6 +302,8 @@
     function openPanel(col, triggerEl) {
       openColKey = col.key;
       openTriggerEl = triggerEl;
+      const eltern = panelParent() || document.body;
+      if (floatingPanel.parentNode !== eltern) eltern.appendChild(floatingPanel);
       floatingPanel.hidden = false;
       renderFilterPanel(col, floatingPanel);
       positionFloatingPanel(triggerEl);
@@ -996,8 +1038,25 @@
     // und als "offen" markiert, solange sein Panel aufliegt. Gilt für die
     // Knöpfe im Tabellenkopf (Liste) genauso wie für die Knopfreihe (Karte)
     // - beide tragen die Klasse .col-filter-btn und ihr data-col.
+    // Färbt die Filterknöpfe DIESER Bedieneinheit: blau, wenn ihre Spalte
+    // filtert, und als "offen" markiert, solange ihr Panel aufliegt.
+    //
+    // Bewusst über `buttons` und NICHT über
+    // `document.querySelectorAll('.col-filter-btn')`: Auf einer Seite
+    // kann es mehrere Bedieneinheiten mit eigenem Zustand geben (die
+    // Liste hat ihre Spaltenköpfe, der Abo-Dialog in events.html seine
+    // eigene Knopfreihe mit einem zweiten Filterzustand). Eine globale
+    // Abfrage hätte die Knöpfe der einen Einheit nach dem Zustand der
+    // anderen gefärbt - je nachdem, welche zuletzt gezeichnet hat.
+    //
+    // Abgehängte Knöpfe fallen dabei heraus: `buildHeader()` in der
+    // Liste baut die Spaltenköpfe bei jedem Ausgangspunkt neu, die alten
+    // bleiben sonst für immer in der Sammlung.
     function updateIndicators() {
-      document.querySelectorAll('.col-filter-btn').forEach(btn => {
+      for (let i = buttons.length - 1; i >= 0; i--) {
+        if (!buttons[i].isConnected) buttons.splice(i, 1);
+      }
+      buttons.forEach(btn => {
         const col = btn.dataset.col;
         btn.classList.toggle('has-filter', columnHasFilter(col));
         btn.classList.toggle('open', openColKey === col);
@@ -1027,6 +1086,9 @@
       // danach ein), hätte also selbst keine Position. Das erledigt der
       // refresh() des folgenden render() bzw. das nächste Scrollen.
       if (openColKey === col.key) openTriggerEl = btn;
+      // In die eigene Sammlung, damit updateIndicators() nur die Knöpfe
+      // DIESER Bedieneinheit färbt (siehe dort).
+      if (buttons.indexOf(btn) < 0) buttons.push(btn);
       btn.addEventListener('click', (ev) => {
         ev.stopPropagation();
         if (openColKey === col.key) closePanel();
@@ -1054,17 +1116,20 @@
 
     // Knopfreihe mit Beschriftung (Karte): "Land ▾". Dieselben Panels wie
     // in der Liste, nur ohne Tabelle drumherum.
-    function buildButtonBar(container) {
+    // `opts.ohne`: Spalten, die hier keinen Knopf bekommen. Der
+    // Abo-Dialog lässt damit „Datum" weg - ein Abo schaut in die
+    // Zukunft, ein Datumsfilter wäre dort sinnlos.
+    function buildButtonBar(container, opts) {
+      const ohne = (opts && opts.ohne) || [];
       container.innerHTML = '';
       buttons.length = 0;
-      COLUMNS.forEach(col => {
+      COLUMNS.filter(col => ohne.indexOf(col.key) < 0).forEach(col => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'col-filter-btn';
         btn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span><span aria-hidden="true">▾</span>`;
-        attachButton(btn, col);
+        attachButton(btn, col);       // meldet den Knopf auch an `buttons`
         container.appendChild(btn);
-        buttons.push(btn);
       });
       updateIndicators();
     }

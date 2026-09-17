@@ -593,6 +593,17 @@
     color: var(--text-muted);
     font-size: 0.82rem;
   }
+  /* Die Filterknöpfe im Dialog: dieselben wie in der Liste
+     (filter-ui.css), hier nur die Reihe darum. */
+  .abo-filter { margin: 0 0 12px; }
+  .abo-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .abo-abschnitt { display: block; margin: 0 0 6px; }
+  .abo-filter > strong { display: block; }
   .abo-rhythm { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
   .abo-rhythm label {
     display: flex;
@@ -969,8 +980,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=12187957"></script>
-<script src="filter-ui.js?v=c7e82e5e"></script>
+<script src="filters.js?v=a42b261c"></script>
+<script src="filter-ui.js?v=50612dad"></script>
 
 <script>
 (async function () {
@@ -1017,6 +1028,8 @@
       abo_open: 'Neue Events per E-Mail',
       abo_titel: 'Neue Events per E-Mail',
       abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
+      abo_welche: 'Welche Events?',
+      abo_wie_oft: 'Wie oft?',
       abo_summary_titel: 'Dieses Abo umfasst:',
       abo_alles: 'Alle neuen Events',
       abo_ohne_datum: 'Der Datumsfilter gehört nicht dazu – ein Abo schaut in die Zukunft.',
@@ -1108,6 +1121,8 @@
       abo_open: 'New events by e-mail',
       abo_titel: 'New events by e-mail',
       abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
+      abo_welche: 'Which events?',
+      abo_wie_oft: 'How often?',
       abo_summary_titel: 'This subscription covers:',
       abo_alles: 'All new events',
       abo_ohne_datum: 'The date filter is not part of it – a subscription looks ahead.',
@@ -1449,6 +1464,45 @@
     getLang: () => currentLang,
     onChange: () => { selectedIndex = null; render(); },
     setOrigin: (origin) => setOrigin(origin)
+  });
+
+  // Der Abo-Dialog bekommt seine EIGENE Bedieneinheit mit eigenem
+  // Filterzustand: Dieselben Knöpfe und Panels wie die Liste (also keine
+  // zweite Kopie der Filterlogik - siehe CLAUDE.md), aber was dort
+  // umgestellt wird, verändert die Liste dahinter NICHT. Sonst hätte ein
+  // Blick in den Abo-Dialog die laufende Suche umgebaut.
+  //
+  // `aboState` wird beim Öffnen aus der aktuellen Suche gefüllt
+  // (EF.copyState, ohne Datum) - wer die Liste schon gefiltert hat,
+  // findet seine Filter also vor.
+  const aboState = EF.createState();
+  const aboUi = EFU.create({
+    state: aboState,
+    getEvents: () => events,
+    t,
+    tv,
+    getLang: () => currentLang,
+    // Nur die Zusammenfassung im Dialog neu schreiben - keine Tabelle,
+    // keine Adresse, nichts an der Liste.
+    onChange: () => zeichneAboZusammenfassung(),
+    // Auch Sportarten, Kategorien und Länder anbieten, zu denen es heute
+    // noch kein Event gibt: Ein Abo schaut in die Zukunft. Ohne das
+    // stünde „Fahrrad" gar nicht zur Wahl (in den Daten steht bislang
+    // kein einziges Radrennen) - und genau das wollte der Nutzer
+    // abonnieren können.
+    alleWerte: true,
+    // Ein Ausgangspunkt im Abo-Dialog ist nur ein Filter dieses Abos;
+    // die Entfernungs-Spalte der Liste hat damit nichts zu tun.
+    setOrigin: (origin) => {
+      aboState.origin = origin;
+      if (origin && aboState.radiusKm == null) aboState.radiusKm = EF.RADIUS_DEFAULT_KM;
+      if (!origin) aboState.radiusKm = null;
+    },
+    // Das Panel gehört IN den Dialog: an <body> gehängt läge es hinter
+    // dem Overlay (z-index 2000 gegen 1000) und außerhalb der
+    // Fokusfessel. Als Funktion, weil `aboOverlay` weiter unten steht -
+    // aufgerufen wird sie erst beim Öffnen eines Panels.
+    panelParent: () => aboOverlay
   });
 
   const bodyEl = document.getElementById('event-body');
@@ -2462,7 +2516,10 @@
   // (state.selectedDays): das gesuchte Event liegt annahmegemäß in der
   // Zukunft und ist deshalb noch nicht in events.json - ein Datumsfilter
   // würde eine spätere Benachrichtigung dafür also nie zulassen.
-  function serializeFiltersForNotify() {
+  // `quelle` ist der Filterzustand, aus dem das Abo entsteht - beim
+  // Abo-Dialog `aboState`, nicht die laufende Suche.
+  function serializeFiltersForNotify(quelle) {
+    const state = quelle || aboState;
     return {
       // Der Namensfilter gehört dazu: Wer „marathon" gesucht hat und
       // dann abonniert, will Marathons - nicht alles. Ohne dieses Feld
@@ -2529,6 +2586,13 @@
 
   function oeffneAboDialog() {
     if (!window.EndauranceAuth) return;
+    // Ein offenes Filter-Panel der Liste stünde sonst hinter dem Dialog
+    // (und sein Knopf bekäme keinen Klick mehr ab).
+    ui.close();
+    // Mit der aktuellen Suche starten (ohne Datum) - wer die Liste schon
+    // gefiltert hat, findet seine Auswahl vor und kann sie hier
+    // nachschärfen.
+    uebernehmeSucheInAbo();
     if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
     if (!aboFesselGesetzt && window.EndauranceAuth.dialogTasten) {
       window.EndauranceAuth.dialogTasten(aboOverlay, schliesseAboDialog);
@@ -2542,12 +2606,33 @@
   }
 
   function schliesseAboDialog() {
+    // Ein offenes Filter-Panel hängt an <body>, nicht am Dialog - ohne
+    // das bliebe es über der Liste stehen.
+    aboUi.close();
     aboOverlay.hidden = true;
     aboBodyEl.innerHTML = '';
     if (aboFokusVorher && aboFokusVorher.isConnected) {
       try { aboFokusVorher.focus(); } catch (e) { /* ignorieren */ }
     }
     aboFokusVorher = null;
+  }
+
+  // Die Suche der Liste in den Abo-Zustand übernehmen. Als Kopie, damit
+  // das Umstellen im Dialog die Liste nicht anfasst.
+  function uebernehmeSucheInAbo() {
+    const kopie = EF.copyState(state, true);   // true = ohne Datumsfilter
+    Object.keys(kopie).forEach(k => { aboState[k] = kopie[k]; });
+    aboUi.resetTransient();
+  }
+
+  // Nur den Kasten „Dieses Abo umfasst" neu schreiben - der Rest des
+  // Dialogs (Rhythmus-Auswahl, Knöpfe) bleibt stehen, sonst verlöre ein
+  // Klick im Filter-Panel den Rhythmus oder den Fokus.
+  function zeichneAboZusammenfassung() {
+    const kasten = aboBodyEl.querySelector('#abo-umfasst');
+    if (!kasten) return;
+    kasten.textContent = aboBeschreibung(serializeFiltersForNotify());
+    aboUi.updateIndicators();
   }
 
   function zeichneAboDialog(meldung) {
@@ -2565,11 +2650,16 @@
     aboBodyEl.innerHTML = `
       <h2 id="abo-heading">${escapeHtml(t('abo_titel'))}</h2>
       <p class="report-intro">${escapeHtml(t('abo_intro'))}</p>
+      <div class="abo-filter">
+        <strong>${escapeHtml(t('abo_welche'))}</strong>
+        <div class="abo-filter-bar" id="abo-filter-bar"></div>
+      </div>
       <div class="abo-summary">
         <strong>${escapeHtml(t('abo_summary_titel'))}</strong>
-        <span>${escapeHtml(aboBeschreibung(filter))}</span>
+        <span id="abo-umfasst">${escapeHtml(aboBeschreibung(filter))}</span>
         <span class="abo-hint">${escapeHtml(t('abo_ohne_datum'))}</span>
       </div>
+      <strong class="abo-abschnitt">${escapeHtml(t('abo_wie_oft'))}</strong>
       <div class="abo-rhythm">${rhythmen}</div>
       ${user
         ? `<button type="button" class="ee-submit-btn" id="abo-save-btn">${escapeHtml(t('abo_speichern'))}</button>
@@ -2580,6 +2670,10 @@
         ? `<div class="abo-status ${meldung.art}">${escapeHtml(meldung.text)}</div>` : ''}</div>
       <div class="abo-list" id="abo-list" hidden></div>
     `;
+
+    // Dieselben Filterknöpfe und Panels wie die Liste - nur ohne „Datum"
+    // (ein Abo schaut in die Zukunft) und auf dem eigenen Zustand.
+    aboUi.buildButtonBar(aboBodyEl.querySelector('#abo-filter-bar'), { ohne: ['datum'] });
 
     aboBodyEl.querySelectorAll('input[name="abo-rhythmus"]').forEach(el => {
       el.addEventListener('change', () => { aboRhythmus = el.value; });

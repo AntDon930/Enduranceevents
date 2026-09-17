@@ -75,7 +75,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 83 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 90 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -84,7 +84,9 @@ DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
 `navigator.share` geht und der Rückweg über den geteilten Link),
 Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
 sichtbar, Sprachumschalter), der Abo-Dialog (Knopf, Zusammenfassung,
-drei Rhythmen, `?abos=1`, Null-Treffer-Box), Tastaturbedienung (ein Tab-Stopp, Pfeile,
+drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
+vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
+Tastaturbedienung (ein Tab-Stopp, Pfeile,
 Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
 Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
@@ -433,11 +435,48 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Thüringen" wollte, kam nie an sie heran. Die Box bei null Treffern
   führt jetzt in denselben Dialog: **ein** Weg, an dem ein Abo
   entsteht.
+  - **„Welche Events?" steht im Dialog selbst.** Die Filter der Liste
+    *sind* die Auswahl, aber das war unsichtbar: Wer ohne Filter auf den
+    Knopf tippte, las nur „Alle neuen Events" und hatte keine
+    Möglichkeit, „nur Radrennen im Umkreis" einzustellen (vom Nutzer
+    gemeldet). Der Dialog trägt deshalb **dieselbe Knopfreihe wie die
+    Karte** (`aboUi.buildButtonBar(…, { ohne: ['datum'] })`) – keine
+    zweite Kopie der Filterlogik, nur eine zweite Bedieneinheit auf
+    einem **eigenen Zustand** (`aboState`). Vier Dinge daran nicht
+    aufweichen:
+    - **Eigener Zustand, beim Öffnen aus der Suche gefüllt**
+      (`uebernehmeSucheInAbo()` → `EF.copyState(state, true)`, ohne
+      Datum). Wer schon gefiltert hat, findet seine Filter vor; was er
+      im Dialog umstellt, verändert die Liste dahinter **nicht**.
+      `EF.copyState` kopiert die Sets, nicht die Verweise – sonst wäre
+      es derselbe Filter.
+    - **Das Panel hängt IM Dialog** (`panelParent: () => aboOverlay` in
+      `EFU.create`). An `<body>` gehängt lag es hinter dem Overlay
+      (z-index 1000 gegen 2000) und außerhalb der Fokusfessel von
+      `dialogTasten()` – per Tastatur nicht erreichbar. Als Funktion
+      übergeben, weil `aboOverlay` weiter unten steht; umgehängt wird
+      erst beim Öffnen.
+    - **`alleWerte: true`.** Die Liste bietet nur Werte an, zu denen es
+      Events gibt; ein Abo schaut in die Zukunft. Ohne diese Flagge
+      stand „Fahrrad" gar nicht zur Wahl – in `events.json` steht
+      bislang kein einziges Radrennen, und genau das wollte der Nutzer
+      abonnieren. Die Liste steht in `filter-ui.js`
+      (`BEKANNTE_WERTE` = `EF.LAENDER` + die Sportarten aus
+      `DISTANCE_CATEGORIES`, dazu `ALLE_ART2` aus `ART2_BY_ART1`).
+      Achtung: `ART2_BY_ART1['Triathlon']` fehlt noch (Fahrplan Punkt 1),
+      die Kategorie-Auswahl bleibt für Triathlon deshalb leer.
+    - **`updateIndicators()` färbt nur die eigenen Knöpfe.** Es läuft
+      über die `buttons`-Sammlung der Bedieneinheit (gelöste Knöpfe
+      fliegen dabei raus), nicht über
+      `document.querySelectorAll('.col-filter-btn')` – sonst malte der
+      Dialog die Spaltenköpfe der Liste an und umgekehrt.
   - Die Zusammenfassung im Dialog entsteht aus **genau den Feldern, die
     gespeichert werden** (`serializeFiltersForNotify` →
     `aboBeschreibung`), nicht aus den Chips: Die zeigen auch den
     Datumsfilter, und der gehört nicht ins Abo (ein Abo schaut in die
-    Zukunft).
+    Zukunft). Neu gezeichnet wird bei jeder Änderung **nur der Kasten**
+    (`zeichneAboZusammenfassung()`, `#abo-umfasst`) – ein `render()` des
+    ganzen Dialogs nähme den gewählten Rhythmus und den Fokus mit.
   - **`nameQuery` gehört ins Abo.** Ohne das Feld wäre ein Abo stiller
     weiter gefasst als die Suche, aus der es entstand – wer „marathon"
     gesucht hat, bekäme alles. `functions/index.js` prüft es mit.
@@ -544,21 +583,29 @@ Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
   Zustand und die Regeln: `createState()`, `matchEvent()`,
   Distanzkategorien, `readParams()`/`toParams()` (Filter in der
   Adresse), `buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`,
-  die Zeitraum-Knöpfe, `dropPastEvents()` und die drei Helfer
-  `escapeHtml()`, `uniqueSorted(values, lang)`, `formatDate(iso, lang)`.
+  die Zeitraum-Knöpfe, `dropPastEvents()`, `copyState(state,
+  ohneDatum)` (Kopie samt Sets – der Abo-Dialog filtert damit ohne die
+  Liste anzufassen) und die drei Helfer `escapeHtml()`,
+  `uniqueSorted(values, lang)`, `formatDate(iso, lang)`.
 - **`filter-ui.js`** (`window.EnduranceFilterUI`, in den Seiten `EFU`) +
   **`filter-ui.css`** – die Bedienung: Filterknöpfe und das schwebende
   Panel mit allem darin (Häkchenlisten, Datums-Baum, Umkreissuche mit
   `places.json`, Distanz-Tabs, Von/Bis). `EFU.create({ state,
-  getEvents, t, tv, getLang, onChange, setOrigin })` gibt den
-  Bedienteil: `attachButton()` (Liste: eigene Spaltenköpfe),
-  `buildButtonBar()` (Karte: beschriftete Knopfreihe), `refresh()`,
+  getEvents, t, tv, getLang, onChange, setOrigin, panelParent,
+  alleWerte })` gibt den Bedienteil: `attachButton()` (Liste: eigene
+  Spaltenköpfe), `buildButtonBar(container, { ohne })` (Karte und
+  Abo-Dialog: beschriftete Knopfreihe), `refresh()`,
   `updateIndicators()`, `close()`, `options()`, `resetTransient()`.
+  **Mehrere Bedieneinheiten je Seite sind erlaubt** (Liste + Abo-Dialog)
+  – jede hält ihre eigenen Knöpfe, ihr eigenes Panel und ihren eigenen
+  Zustand.
 
 Die beiden Haken sind der ganze Unterschied zwischen den Seiten:
 `onChange` zeichnet neu (Liste: Tabelle, Karte: Marker), `setOrigin`
 darf mehr tun – die Liste schaltet dort die Entfernungs-Spalte und ihre
-Sortierung mit.
+Sortierung mit. `panelParent` (wohin das Panel gehängt wird) und
+`alleWerte` (auch Werte ohne heutige Events anbieten) braucht nur der
+Abo-Dialog; Begründung bei den Abos weiter oben.
 
 - Die Knöpfe „Karte" und „Liste" hängen den Filterzustand an die
   Adresse (`updateMapLink()` bzw. `linkTo()`), die andere Seite liest
