@@ -204,6 +204,54 @@ def pruefe_gruppierung(ctx, basis):
     seite.close()
 
 
+def pruefe_fenster(ctx, basis):
+    """Die Tabelle zeichnet nur ein Fenster, filtert aber über alles.
+
+    Mit 20.770 Events (synthetisch gemessen) kostete jede Änderung 4-8
+    Sekunden, weil alle Zeilen neu in den DOM gingen. Geprüft wird
+    deshalb: im DOM steht nur ein Schub, die Trefferzahl nennt trotzdem
+    die volle Zahl, der Knopf sagt wie viel fehlt, und ein Klick hängt
+    den nächsten Schub an.
+    """
+    print("\nFenster (nur ein Schub Zeilen im DOM)")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_timeout(600)
+    stand = seite.evaluate("""() => ({
+        zeilen: document.querySelectorAll('tbody tr[data-idx]').length,
+        treffer: document.querySelector('.result-count').textContent.trim(),
+        knopf: (document.querySelector('.mehr-btn') || {}).textContent || ''
+    })""")
+    gesamt = int(stand["treffer"].split(" ")[0])
+    pruefe(0 < stand["zeilen"] < gesamt,
+           "nur ein Teil der Zeilen im DOM (%d von %d)" % (stand["zeilen"], gesamt))
+    pruefe(str(gesamt - stand["zeilen"]) in stand["knopf"],
+           "der Knopf nennt den Rest (%s)" % stand["knopf"])
+    seite.locator(".mehr-btn").click()
+    seite.wait_for_timeout(600)
+    danach = seite.evaluate("""() => ({
+        zeilen: document.querySelectorAll('tbody tr[data-idx]').length,
+        treffer: document.querySelector('.result-count').textContent.trim()
+    })""")
+    pruefe(danach["zeilen"] > stand["zeilen"],
+           "Klick hängt den nächsten Schub an (%d → %d)" % (stand["zeilen"], danach["zeilen"]))
+    pruefe(danach["treffer"] == stand["treffer"],
+           "die Trefferzahl bleibt die volle Zahl (%s)" % danach["treffer"])
+    seite.close()
+    # Filtern muss über ALLE Events gehen, nicht nur über das Fenster.
+    # Der Namensfilter heißt in der Adresse `q` (siehe filters.js).
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?q=silvester", "tbody tr")
+    seite.wait_for_timeout(600)
+    gefiltert = seite.evaluate("""() => ({
+        treffer: document.querySelector('.result-count').textContent.trim(),
+        zeilen: document.querySelectorAll('tbody tr[data-idx]').length })""")
+    teile = gefiltert["treffer"].split(" ")
+    pruefe(gefiltert["zeilen"] > 0 and teile[0] != "0" and teile[0] != teile[2],
+           "Filter greift über alle Events, nicht nur über das Fenster (%s)"
+           % gefiltert["treffer"])
+    seite.close()
+
+
 def pruefe_tastatur(ctx, basis):
     """Die Liste ist ohne Maus bedienbar.
 
@@ -233,11 +281,17 @@ def pruefe_tastatur(ctx, basis):
            and bool(nachher["titel"]),
            "Pfeiltaste bewegt den Fokus und wählt aus (%s → %s, %s)"
            % (vorher, nachher["idx"], nachher["titel"][:30]))
+    vorher = seite.evaluate("() => document.querySelectorAll('tbody tr[data-idx]').length")
     seite.keyboard.press("End")
-    seite.wait_for_timeout(250)
-    letzte = seite.evaluate("""() => document.activeElement ===
-        document.querySelectorAll('tbody tr[data-idx]')[document.querySelectorAll('tbody tr[data-idx]').length - 1]""")
-    pruefe(letzte, "End springt zur letzten Zeile")
+    seite.wait_for_timeout(400)
+    ende = seite.evaluate("""() => { const z = document.querySelectorAll('tbody tr[data-idx]');
+        return {letzte: document.activeElement === z[z.length - 1], anzahl: z.length,
+                zeile: document.activeElement.tagName}; }""")
+    # Die Tabelle zeichnet nur ein Fenster (siehe zeigeMehr): End führt
+    # ans Ende des Geladenen, und weil das den nächsten Schub anstößt,
+    # kann danach schon wieder eine Zeile dahinter stehen.
+    pruefe(ende["zeile"] == "TR" and (ende["letzte"] or ende["anzahl"] > vorher),
+           "End springt ans Ende des Geladenen (%d → %d Zeilen)" % (vorher, ende["anzahl"]))
 
     seite.keyboard.press("Enter")
     seite.wait_for_timeout(900)
@@ -424,6 +478,7 @@ def main() -> int:
             try:
                 pruefe_liste(ctx, basis)
                 pruefe_gruppierung(ctx, basis)
+                pruefe_fenster(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
             finally:

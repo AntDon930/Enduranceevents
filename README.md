@@ -1721,17 +1721,115 @@ Gemessen wurde mit derselben Seite: Der Fall „ohne" entsteht, indem man
 `L.layerGroup()`. Bei den geplanten >20.000 Events wächst der Unterschied
 mit.
 
-### Was als Nächstes greifen müsste
+## Vorbereitung auf über 20.000 Events
 
-Der Rest ist Netzwerk: `events.json` ist mit 1,6 MB (162 KB gzip) das
-Schwergewicht, und die Liste kann erst stehen, wenn die Datei da ist.
-Solange es ~4.150 Events sind, trägt das. Bei den geplanten **über
-20.000** wären es rund 8 MB (800 KB gzip) – dann führt kein Weg daran
-vorbei, die Daten aufzuteilen (etwa nach Jahr oder Monat, nachladen beim
-Filtern) oder ein kompakteres Format zu wählen (Spalten-Arrays statt
-eines Objekts je Event spart roh etwa 40 %). Auch die Tabelle sollte
-dann nicht mehr alle Zeilen in den DOM legen; `content-visibility`
-federt das ab, ersetzt aber kein abschnittsweises Nachladen.
+Geplant ist ein großer Datenlauf mit **über 20.000 Events**. Ob die Seite
+das trägt, war bisher geschätzt – jetzt ist es gemessen.
+`scripts/bench_frontend.py` baut dafür einen synthetischen Datenstand
+(die echten Events mehrfach, mit verschobenen Jahren, anderen Namen und
+teils anderen Orten) und misst beide Stände unter denselben
+Handy-Bedingungen wie oben: 4× gebremste CPU, 1,6 Mbit/s, gzip.
+
+```bash
+python3 scripts/bench_frontend.py               # heute + 5-facher Stand
+python3 scripts/bench_frontend.py --faktor 10   # ~41.000 Events
+```
+
+Die echte `events.json` fasst das Skript nie an und prüft das am Ende
+auch nach (einmal ist genau das schiefgegangen: der Messordner entstand
+mit *Hardlinks*, und `open(..., "w")` traf dieselbe Inode).
+
+### Gefunden: nicht die Datei war das Problem, sondern der DOM
+
+Mit 20.770 Events lagen **alle** Zeilen im DOM: 317.913 Knoten, 12,2 MB
+HTML. Und weil jede Änderung die Tabelle neu baut, kostete danach
+*jeder* Handgriff Sekunden:
+
+| 20.770 Events, Handy-Bedingungen | alle Zeilen im DOM | nur ein Fenster |
+|---|---|---|
+| bis die Liste steht | 8.559 ms | **6.272 ms** |
+| Zeilen im DOM | 20.762 (317.913 Knoten, 12,2 MB) | **201 (3.195 Knoten, 0,2 MB)** |
+| Zusammenfassen an | 8.203 ms | **237 ms** |
+| Zusammenfassen aus | 5.217 ms | **135 ms** |
+| nach Name sortieren | 4.580 ms | **742 ms** |
+| Filter zurücksetzen | 4.404 ms | **145 ms** |
+| Zeile auswählen | 350 ms | **44 ms** |
+| Stadt/Ort-Panel öffnen | 4.691 ms | **357 ms** |
+
+Auch beim heutigen Stand (4.154) ist der Unterschied deutlich:
+Sortieren 982 → 137 ms, Zusammenfassen 758 → 89 ms, Filter zurücksetzen
+736 → 53 ms.
+
+**Das Fenster** (`FENSTER_SCHRITT = 200`, `zeigeMehr()` in
+`events.html`) zeichnet nur die ersten 200 Einträge und hängt beim
+Scrollen den nächsten Schub an – dieselbe Linie wie `klappeGruppe()`:
+anhängen statt neu zeichnen. Wichtig dabei:
+
+- **Gefiltert und sortiert wird weiter über alle Events.** Nur das
+  Zeichnen ist begrenzt; die Trefferzahl nennt unverändert die volle
+  Zahl („20.762 von 20.762 Events"). Der Rauchtest prüft genau das.
+- Unter der letzten Zeile steht ein **Knopf** („Weitere 200 von 3.946
+  anzeigen"). Beim Scrollen lädt der nächste Schub von selbst nach –
+  der Knopf ist für die Tastatur, für Screenreader und weil die Zahl
+  ehrlich sagt, wie viel noch kommt.
+- **Mit der Tastatur** holt ↓ am unteren Rand des Fensters den nächsten
+  Schub (`nachbarZeile()`), und `End` führt ans Ende des Geladenen. Ohne
+  das wäre per Tastatur nur die erste Seite erreichbar.
+- `idxZuGruppe` wird für **alle** Gruppen gefüllt, nicht nur für die
+  gezeichneten: ausgewählt sein kann auch eine Strecke, die noch nicht
+  im DOM steht.
+- `content-visibility: auto` bleibt – es spart das Zeichnen der Zeilen
+  im Fenster, die gerade nicht im Bild sind.
+
+### Bleibt: die Datei selbst
+
+Nach dem Fenster sind von den 6.272 ms noch **5.405 ms `events.json`**
+(827 KB gzip, davon der größte Teil Download bei 1,6 Mbit/s). Das ist
+der nächste Schritt, und die Varianten sind durchgerechnet (20.770
+Events, gzip-Stufe 6):
+
+| Format | roh | gzip |
+|---|---|---|
+| wie heute (`indent=2`) | 7,5 MB | 834 KB |
+| ohne Einrückung | 6,4 MB | 812 KB |
+| + leere Felder weg, `datum_ende` nur wenn mehrtägig | 5,9 MB | 799 KB |
+| + Koordinaten auf 4 Stellen (11 m) | 5,8 MB | 747 KB |
+| + kurze Schlüssel (`n`, `o`, `d`, …) | 4,5 MB | 714 KB |
+| **Spalten-Arrays** (ein Array je Feld) | 3,9 MB | 516 KB |
+| **Spalten-Arrays + Wörterbuch** für wiederkehrende Werte | 2,0 MB | **300 KB** |
+
+Die Lehre daraus: Kürzere Schlüssel bringen fast nichts – gzip frisst
+Wiederholungen ohnehin. Was wirklich zählt, ist die **Struktur**: ein
+Array je Feld, und für Felder mit wenigen verschiedenen Werten (`land`,
+`art1`, `art2`, `standort`, `veranstalter_url`) ein Wörterbuch plus
+Zahlen-Indizes. 300 statt 827 KB heißt bei 1,6 Mbit/s rund 1,5 s statt
+4,1 s.
+
+**Vorgeschlagener Weg** (noch nicht gebaut, absichtlich):
+
+1. `events.json` bleibt **die Quelle**: lesbar, einzeln diffbar – der
+   wöchentliche Commit muss durchsehbar bleiben. Scraper,
+   `clean_events.py`, `manual_overrides.json`, `build_ics.py` und
+   `review_reports.py` arbeiten weiter darauf.
+2. Ein neues `scripts/build_web_data.py` erzeugt daraus die kompakte
+   Fassung (`events.web.json`) – genau wie `build_ics.py` den Ordner
+   `kalender/` erzeugt.
+3. Die kompakte Datei wird **nicht committet**, sondern im
+   Pages-Workflow vor dem Upload erzeugt. Sonst stünde in jedem
+   wöchentlichen Commit ein 2-MB-Klotz, der sich komplett ändert, sobald
+   ein Event dazukommt.
+4. `filters.js` bekommt den Dekodierer (beide Seiten brauchen ihn), und
+   der Loader versucht zuerst die kompakte Datei und **fällt auf
+   `events.json` zurück**, wenn sie fehlt – damit `python3 -m
+   http.server` lokal unverändert funktioniert.
+5. Die CI prüft den Rückweg: `build_web_data.py` erzeugen, dekodieren,
+   mit `events.json` vergleichen. Ein Format, das beim Dekodieren etwas
+   verliert, fällt sofort auf.
+
+Erst wenn das nicht mehr reicht (deutlich über 40.000 Events), lohnt das
+Aufteilen nach Jahr mit Nachladen beim Filtern – das kostet die
+Filterlisten ihre Vollständigkeit und ist deshalb der schwerere
+Eingriff.
 
 Kleinigkeit am Rande: Ein `favicon.ico` gibt es nicht, jeder
 Seitenaufruf holt sich dafür eine 404.
@@ -1753,7 +1851,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 42 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 48 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -1769,7 +1867,9 @@ zusammengefassten Veranstaltungen (N Strecken = N Zeilen, Marken nur im
 zugeklappten Zustand), die Bündelung der Marker auf der Karte (Summe der
 Bündel-Zahlen = Event-Zahl der Kopfzeile, Klick klappt ein Bündel auf,
 Ausgangspunkt und Umkreis bleiben ungebündelt und verschwinden mit ihrem
-Chip), die Tastaturbedienung der Liste (genau ein Tab-Stopp,
+Chip), das Fenster der Tabelle (nur ein Schub Zeilen im DOM, volle
+Trefferzahl, der Knopf hängt den nächsten Schub an, Filter greifen über
+alle Events), die Tastaturbedienung der Liste (genau ein Tab-Stopp,
 Pfeiltasten, End, Enter in die Angaben, Escape am Filter-Panel, Fessel
 und Fokusrückgabe im Melde-Dialog) sowie die Filter über den Weg
 Liste → Karte → Liste.

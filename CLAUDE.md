@@ -41,6 +41,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
+| `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
 gezielt abfragen:
@@ -71,13 +72,14 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 42 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 48 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
-Ausgangspunkt ungebündelt, Tastaturbedienung (ein Tab-Stopp, Pfeile,
-Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
-Liste → Karte → Liste. Ohne Playwright bricht er
+Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
+DOM, volle Trefferzahl, Knopf hängt nach), Tastaturbedienung (ein
+Tab-Stopp, Pfeile, Enter, Escape, Fokusfessel der Dialoge), Filter über
+den Weg Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -368,6 +370,26 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Detailbereich (`tabindex="-1"` am `#detail-panel`). Alles über **einen**
   `keydown`-Listener am `<tbody>` – kein Listener je Zeile, das
   Ein-String-Zeichnen bleibt.
+- **Die Tabelle zeichnet nur ein FENSTER** (`FENSTER_SCHRITT = 200`,
+  `zeigeMehr()`), gefiltert und sortiert wird aber über **alle** Events.
+  Gemessen mit 20.770 Events (`scripts/bench_frontend.py`): alle Zeilen
+  im DOM waren 317.913 Knoten und 12,2 MB HTML, und jede Änderung baute
+  sie neu – Sortieren 4,6 s, Zusammenfassen 8,2 s, Filter zurücksetzen
+  4,4 s. Mit Fenster: 742 / 237 / 145 ms. Vier Dinge nicht aufweichen:
+  - Die **Trefferzahl bleibt die volle Zahl** – das Fenster ist reine
+    Anzeige, wie `state.gruppiert`.
+  - `idxZuGruppe` wird für **alle** Gruppen gefüllt, nicht nur die
+    gezeichneten (ausgewählt sein kann eine Strecke außerhalb des
+    Fensters).
+  - `data-g` trägt die **absolute** Gruppennummer (`gruppenHtml(…,
+    startNr)`), sonst liest `klappeGruppe()` die falsche Gruppe.
+  - **Tastatur**: ↓ am Rand des Fensters holt den nächsten Schub
+    (`nachbarZeile()`), `End` führt ans Ende des Geladenen – ohne das
+    wäre per Tastatur nur die erste Seite erreichbar.
+  `fenster` und `nachladeFrame` stehen oben bei `state`: `render()` ruft
+  `pruefeNachladen()` am Ende, und weiter unten deklariert gab es
+  „Cannot access 'nachladeFrame' before initialization" (der Rauchtest
+  hat es gemeldet – dieselbe Falle wie bei `DATE_PRESETS`).
 - **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
   `aria-modal="true"` verspricht genau das) und wird von `events.html`
   für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**
@@ -427,10 +449,19 @@ Umkreis liegen in einer eigenen, **ungebündelten** Ebene
 (`overlayLayer`) – im Bündel wären sie unsichtbar. Marker werden mit
 `addLayers()` in einem Zug eingehängt, nicht einzeln.
 
-**Beim nächsten großen Datenlauf (>20.000 Events) reicht das nicht
-mehr**: `events.json` wäre bei ~8 MB (800 KB gzip), und die Liste kann
-erst stehen, wenn die Datei da ist. Dann aufteilen (nach Jahr/Monat,
-nachladen beim Filtern) oder ein kompakteres Format wählen.
+6. **Die Tabelle zeichnet nur ein Fenster von 200 Einträgen**
+   (`zeigeMehr()`, siehe Frontend-Fallen). Das ist der Punkt, der den
+   großen Datenlauf überhaupt tragbar macht.
+
+**Was beim großen Datenlauf (>20.000 Events) noch fehlt**: `events.json`
+ist dann ~7,5 MB (830 KB gzip) und braucht unter Handy-Bedingungen
+**5,4 s** – das ist nach dem Fenster der ganze Rest. Die Varianten sind
+gemessen und der Weg steht im README („Vorbereitung auf über 20.000
+Events"): Spalten-Arrays + Wörterbuch bringen 300 KB statt 830 KB, die
+kompakte Datei wird im Pages-Workflow erzeugt statt committet, der
+Dekodierer gehört in `filters.js`, und der Loader fällt auf
+`events.json` zurück. Kurze Schlüssel allein bringen fast nichts – gzip
+frisst Wiederholungen ohnehin.
 
 ## Liste und Karte teilen die Filter (`filters.js`, `filter-ui.js`)
 

@@ -558,6 +558,24 @@
      sein, dass der Fokus jetzt hier steht. */
   .detail-panel:focus { outline: none; }
   .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr). */
+  .mehr-row td {
+    text-align: center;
+    padding: 10px 8px;
+    background: var(--panel);
+  }
+  .mehr-row .mehr-btn {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .mehr-row .mehr-btn:hover { background: var(--accent-bg); }
   .empty-row td {
     text-align: center;
     padding: 24px;
@@ -843,6 +861,9 @@
       home: 'Startseite',
       map: 'Karte',
       result_count: (n, total) => `${n} von ${total} Events`,
+      // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
+      // sortiert wird über alle Events, gezeichnet nur ein Teil.
+      mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
       col_entfernung: 'Entfernung',
       col_anzahl: 'Anzahl',
       sort_hint: 'Klicken zum Sortieren',
@@ -905,6 +926,7 @@
       home: 'Home',
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
+      mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
       col_entfernung: 'Distance',
       col_anzahl: 'Count',
       sort_hint: 'Click to sort',
@@ -1165,6 +1187,18 @@
   // ruft es auf, bevor die Tabelle überhaupt zum ersten Mal entsteht.
   let gruppenAktuell = [];         // Gruppen der aktuellen Anzeige
   const idxZuGruppe = new Map();   // Event-Index -> Nummer seiner Gruppe
+  // Wie viele Zeilen (bzw. Veranstaltungen) höchstens in einem Schub in
+  // den DOM gehen, und was gerade im Fenster steht. Siehe zeigeMehr().
+  // Auch das steht hier oben und nicht beim Zeichnen: render() braucht
+  // es sofort (Temporal Dead Zone).
+  const FENSTER_SCHRITT = 200;
+  let fenster = null;
+  // Die angeforderte Bild-Aktualisierung des Nachladens. Steht hier
+  // oben, weil pruefeNachladen() schon am Ende des ERSTEN render()
+  // läuft - weiter unten deklariert warf es "Cannot access
+  // 'nachladeFrame' before initialization" (dieselbe Falle wie bei
+  // DATE_PRESETS und tabStopZeile; der Rauchtest hat es gemeldet).
+  let nachladeFrame = null;
   // Die eine Zeile, die per Tab erreichbar ist (Tastaturbedienung der
   // Tabelle, siehe setzeTabStop). Aus demselben Grund hier oben: render()
   // setzt sie am Ende, und render() läuft lange vor ihrer Textstelle -
@@ -1211,6 +1245,10 @@
 
   const bodyEl = document.getElementById('event-body');
   const tableEl = document.getElementById('event-table');
+  // Der scrollende Behälter der Tabelle (bis 78vh hoch). Das Nachladen
+  // des nächsten Zeilen-Schubs hängt an seinem Scrollen, nicht nur am
+  // Fenster.
+  const wrapEl = tableEl.closest('.table-wrap');
   const headerRowEl = document.getElementById('header-row');
   const countEl = document.getElementById('result-count');
   const chipsEl = document.getElementById('active-chips');
@@ -1662,6 +1700,115 @@
   //   - auf-/zuklappen rührt nur die Zeilen dieser Gruppe an
   //     (klappeGruppe).
 
+  // ---------- Das Fenster: nur die ersten N Einträge im DOM ----------
+  //
+  // Gemessen mit 20.770 Events (synthetisch, unter Handy-Bedingungen):
+  // Alle Zeilen in den DOM zu legen kostete 317.913 Knoten und 12,2 MB
+  // HTML, und JEDE Änderung baute sie neu - Sortieren 4,6 s,
+  // Zusammenfassen 8,2 s, Filter zurücksetzen 4,4 s. Mit 4.154 Events
+  // waren es 0,7-1,0 s, deshalb fiel es bisher nicht auf.
+  //
+  // Gefiltert und sortiert wird weiter über ALLE Events - nur das
+  // Zeichnen ist begrenzt. Die Trefferzahl nennt deshalb unverändert
+  // die volle Zahl; im DOM stehen `FENSTER_SCHRITT` Einträge, und beim
+  // Scrollen kommt der nächste Schub dazu (zeigeMehr). Das ist dieselbe
+  // Linie wie bei klappeGruppe(): anhängen statt neu zeichnen.
+  function zeilenHtml(liste, cols) {
+    return liste.map(({ e, idx }) =>
+      `<tr data-idx="${idx}" tabindex="-1"${idx === selectedIndex ? ' class="active"' : ''}>`
+      + cols.map(col => cellHtml(col, e)).join('')
+      + '</tr>'
+    ).join('');
+  }
+
+  // startNr: die Nummer der ersten Gruppe dieses Schubs. `data-g` muss
+  // die ABSOLUTE Nummer tragen - klappeGruppe() liest damit in
+  // gruppenAktuell nach.
+  function gruppenHtml(liste, cols, startNr) {
+    const teile = [];
+    liste.forEach((g, i) => {
+      const nr = startNr + i;
+      const einzeln = istEinzelgruppe(g);
+      const aktiv = g.rows.some(({ idx }) => idx === selectedIndex);
+      const offen = !einzeln && state.offeneGruppen.has(g.key);
+      // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
+      // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
+      // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
+      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
+        + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
+        + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
+        + `>${groupRowHtml(g, cols)}</tr>`);
+      if (offen) teile.push(subRowsHtml(g, cols));
+    });
+    return teile.join('');
+  }
+
+  // Die letzte Zeile der Tabelle, solange noch etwas fehlt: ein Knopf.
+  // Er ist nicht nur Zierde - beim Scrollen lädt der nächste Schub von
+  // selbst nach, aber mit der Tastatur und für Screenreader braucht es
+  // etwas Anfassbares, und die Zahl sagt ehrlich, wie viel noch kommt.
+  function mehrZeileSetzen() {
+    const alt = bodyEl.querySelector('tr.mehr-row');
+    if (alt) alt.remove();
+    if (!fenster || fenster.gezeigt >= fenster.gesamt) return;
+    const rest = fenster.gesamt - fenster.gezeigt;
+    const schritt = Math.min(FENSTER_SCHRITT, rest);
+    bodyEl.insertAdjacentHTML('beforeend',
+      `<tr class="mehr-row"><td colspan="${fenster.cols.length}">`
+      + `<button type="button" class="mehr-btn">${escapeHtml(t('mehr_btn', schritt, rest))}</button>`
+      + `</td></tr>`);
+  }
+
+  function zeigeMehr() {
+    if (!fenster || fenster.gezeigt >= fenster.gesamt) return false;
+    const bis = Math.min(fenster.gezeigt + FENSTER_SCHRITT, fenster.gesamt);
+    const teil = fenster.daten.slice(fenster.gezeigt, bis);
+    const html = fenster.art === 'gruppen'
+      ? gruppenHtml(teil, fenster.cols, fenster.gezeigt)
+      : zeilenHtml(teil, fenster.cols);
+    const mehr = bodyEl.querySelector('tr.mehr-row');
+    if (mehr) mehr.remove();
+    bodyEl.insertAdjacentHTML('beforeend', html);
+    fenster.gezeigt = bis;
+    mehrZeileSetzen();
+    // Der Tab-Stopp kann im vorigen Schub gestanden haben (oder es gab
+    // noch keinen) - dann hier setzen, sonst ist die Tabelle per Tab
+    // nicht erreichbar.
+    if (!tabStopZeile || !tabStopZeile.isConnected) {
+      setzeTabStop(bodyEl.querySelector('tr.active[data-idx]') || bodyEl.querySelector('tr[data-idx]'));
+    }
+    return true;
+  }
+
+  // Ist der "Mehr"-Knopf schon fast im Bild? Dann nachladen, ohne dass
+  // jemand tippen muss. Gemessen wird gegen das Fenster UND gegen den
+  // scrollenden Tabellen-Container (`.table-wrap` ist bis 78vh hoch und
+  // scrollt selbst).
+  function fastImBild() {
+    const mehr = bodyEl.querySelector('tr.mehr-row');
+    if (!mehr) return false;
+    const unten = wrapEl
+      ? Math.min(window.innerHeight, wrapEl.getBoundingClientRect().bottom)
+      : window.innerHeight;
+    return mehr.getBoundingClientRect().top <= unten + 400;
+  }
+
+  // `nachladeFrame` steht oben bei `state` (Temporal Dead Zone).
+  function pruefeNachladen() {
+    if (nachladeFrame !== null) return;
+    nachladeFrame = requestAnimationFrame(() => {
+      nachladeFrame = null;
+      // Schleife, weil ein Schub kürzer sein kann als der sichtbare
+      // Bereich (am Rechner ist die Tabelle 78vh hoch). Die Obergrenze
+      // ist eine Sicherung gegen eine Endlosschleife, falls der Knopf
+      // aus anderen Gründen nie aus dem Bild wandert.
+      let schutz = 0;
+      while (schutz++ < 25 && fastImBild()) {
+        if (!zeigeMehr()) break;
+      }
+    });
+  }
+
   // Ohne die erste Strecke: die steht aufgeklappt in der
   // Veranstaltungszeile selbst (groupRowHtml).
   function subRowsHtml(g, cols) {
@@ -1686,6 +1833,7 @@
     idxZuGruppe.clear();
 
     if (filtered.length === 0) {
+      fenster = null;
       bodyEl.innerHTML = `<tr class="empty-row"><td colspan="${cols.length}">${escapeHtml(t('empty_events'))}</td></tr>`;
       renderNotifyPrompt();
     } else if (state.gruppiert) {
@@ -1694,36 +1842,26 @@
       // ist nur die Anzeige.
       gruppenAktuell = buildGroups(filtered);
       countEl.textContent = t('result_count_grouped', gruppenAktuell.length, filtered.length, events.length);
-      const teile = [];
-      gruppenAktuell.forEach((g, nr) => {
-        const einzeln = istEinzelgruppe(g);
-        let aktiv = false;
-        g.rows.forEach(({ idx }) => {
-          idxZuGruppe.set(idx, nr);
-          if (idx === selectedIndex) aktiv = true;
-        });
-        const offen = !einzeln && state.offeneGruppen.has(g.key);
-        // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
-        // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
-        // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
-        teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
-          + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
-          + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
-          + `>${groupRowHtml(g, cols)}</tr>`);
-        if (offen) teile.push(subRowsHtml(g, cols));
-      });
-      bodyEl.innerHTML = teile.join('');
+      // idxZuGruppe für ALLE Gruppen, nicht nur die gezeichneten:
+      // markiereAuswahl() fragt danach, und ausgewählt sein kann auch
+      // eine Strecke, die noch nicht im DOM steht.
+      gruppenAktuell.forEach((g, nr) => g.rows.forEach(({ idx }) => idxZuGruppe.set(idx, nr)));
+      fenster = { art: 'gruppen', daten: gruppenAktuell, cols, gezeigt: 0, gesamt: gruppenAktuell.length };
+      bodyEl.innerHTML = '';
+      zeigeMehr();
       removeNotifyPrompt();
     } else {
-      bodyEl.innerHTML = filtered.map(({ e, idx }) =>
-        `<tr data-idx="${idx}" tabindex="-1"${idx === selectedIndex ? ' class="active"' : ''}>`
-        + cols.map(col => cellHtml(col, e)).join('')
-        + '</tr>'
-      ).join('');
+      fenster = { art: 'zeilen', daten: filtered, cols, gezeigt: 0, gesamt: filtered.length };
+      bodyEl.innerHTML = '';
+      zeigeMehr();
       removeNotifyPrompt();
     }
 
     renderDetail();
+    // Füllt der erste Schub das Bild nicht (kurze Liste, hoher
+    // Bildschirm), gleich den nächsten anhängen - sonst müsste jemand
+    // auf einen Knopf tippen, obwohl noch Platz ist.
+    pruefeNachladen();
     // Eine Zeile bleibt per Tab erreichbar (siehe setzeTabStop).
     setzeTabStop(bodyEl.querySelector('tr.active[data-idx]') || bodyEl.querySelector('tr[data-idx]'));
     writeUrlState();
@@ -1735,10 +1873,23 @@
     ui.reposition();
   }
 
+  // Beim Scrollen den nächsten Schub anhängen. Zwei Quellen, weil die
+  // Tabelle in einem eigenen Behälter scrollt, die Seite aber auch:
+  // auf dem Handy bewegt man meist die Seite, am Rechner den Behälter.
+  if (wrapEl) wrapEl.addEventListener('scroll', pruefeNachladen, { passive: true });
+  window.addEventListener('scroll', pruefeNachladen, { passive: true });
+  window.addEventListener('resize', pruefeNachladen);
+
   // Ein Listener für die ganze Tabelle. Der Klick auf eine Unterzeile
   // braucht kein stopPropagation mehr: sie trägt kein data-klapp, also
   // wählt sie nur aus, statt die Gruppe darüber zuzuklappen.
   bodyEl.addEventListener('click', (ev) => {
+    // Der "Mehr"-Knopf ist keine Event-Zeile: er trägt kein data-idx und
+    // würde sonst durchfallen.
+    if (ev.target.closest && ev.target.closest('.mehr-row')) {
+      zeigeMehr();
+      return;
+    }
     const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
     if (!tr || !bodyEl.contains(tr)) return;
     setzeTabStop(tr);
@@ -1797,6 +1948,10 @@
     while (n && !(n.dataset && n.dataset.idx != null)) {
       n = vorwaerts ? n.nextElementSibling : n.previousElementSibling;
     }
+    // Am unteren Rand des Fensters den nächsten Schub holen: sonst wäre
+    // mit der Tastatur nur die erste Seite der Liste erreichbar (das
+    // Nachladen beim Scrollen hilft dort nicht).
+    if (!n && vorwaerts && zeigeMehr()) return nachbarZeile(tr, true);
     return n;
   }
 
@@ -1813,9 +1968,14 @@
       return;
     }
     if (k === 'Home' || k === 'End') {
+      ev.preventDefault();
+      // End heißt "ans Ende des Geladenen". Steht der Fokus schon dort,
+      // holt End den nächsten Schub - so kommt man auch mit der Tastatur
+      // durch die ganze Liste, ohne dass ein Tastendruck 20.000 Zeilen
+      // in den DOM legt.
+      if (k === 'End' && !nachbarZeile(tr, true)) zeigeMehr();
       const zeilen = bodyEl.querySelectorAll('tr[data-idx]');
       if (!zeilen.length) return;
-      ev.preventDefault();
       fokussiereZeile(k === 'Home' ? zeilen[0] : zeilen[zeilen.length - 1]);
       return;
     }
