@@ -25909,7 +25909,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 42.2,
+    "laenge_km": null,
     "veranstalter_url": "http://bokelultra.de/",
     "dauer_h": 6.0
   },
@@ -27679,20 +27679,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "15. Bokeler 6 Stundenlauf",
-    "standort": "Bokel",
-    "lat": 54.215784,
-    "lon": 9.7940518,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060021",
-    "wettbewerb": "6 Sunden"
   },
   {
     "land": "Deutschland",
@@ -48028,20 +48014,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "28. Gerolsteiner Helgoland Marathon",
-    "standort": "Helgoland",
-    "lat": 54.1803268,
-    "lon": 7.8889438,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-22",
-    "datum_ende": "2027-05-22",
-    "laenge_km": 5.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.helgoland-marathon.com/"
-  },
-  {
-    "land": "Deutschland",
     "name": "54. GutsMuths Rennsteiglauf Intersport-Marathon",
     "standort": "Schmiedefeld",
     "lat": 50.5333,
@@ -48465,20 +48437,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://gebirgstaelerhalbmarathon.ar-events.run/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ironman 70.3 Kraichgau",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1627831,
-    "lon": 8.6290693,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-23",
-    "datum_ende": "2027-05-23",
-    "veranstalter_url": "https://www.ironman.com/races/im703-kraichgau",
-    "laenge_km": 113.0,
-    "wettbewerb": "113 km"
   },
   {
     "land": "Deutschland",
@@ -49481,6 +49439,20 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf und Walking",
     "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ironman 70.3 Kraichgau",
+    "standort": "Ubstadt-Weiher",
+    "lat": 49.1627831,
+    "lon": 8.6290693,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://www.ironman.com/races/im703-kraichgau",
+    "laenge_km": 113.0,
+    "wettbewerb": "113 km"
   },
   {
     "land": "Deutschland",
@@ -58048,20 +58020,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/420910/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Borsig Halbmarathon",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-09-05",
-    "datum_ende": "2027-09-05",
-    "laenge_km": 5.3,
-    "wettbewerb": "Halbmarathon (4 Runden à ca. 5,27 km)",
-    "veranstalter_url": "https://borsighalbmarathon.de/"
   },
   {
     "land": "Deutschland",

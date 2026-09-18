@@ -390,5 +390,26 @@
   "Schloss-Triathlon Moritzburg|2027-06-12|42.2": {
     "exclude": true,
     "_note": "Teilstrecke: 42,2 km ohne Wettbewerbs-Label bei einem Triathlon ist die Marathon-Teilstrecke der Langdistanz. Die echten Formate stehen bereits einzeln in der Liste - BarockMan Langdistanz (173 km), Halbdistanz (87 km), Olympische Distanz (40 km) und LandMAXX Jedermann (20 km), alle mit Label und von schlosstriathlon.de. Geprüft 2026-09-18."
+  },
+  "Borsig Halbmarathon|2027-09-05|5.3": {
+    "exclude": true,
+    "_note": "Rundenlänge statt Renndistanz: Das Label sagt es selbst - 'Halbmarathon (4 Runden à ca. 5,27 km)', also 4 x 5,27 = 21,1 km. Der Halbmarathon steht bereits mit 21,1 km in der Liste. borsighalbmarathon.de nennt Halbmarathon, 10 km, 5 km, 4x5-km-Staffel und Kinderläufe - einen 5,3-km-Lauf gibt es nicht. Gleiche Fehlerklasse wie die Backyard-Runde (Datenregel 9). Geprüft 2026-09-18."
+  },
+  "28. Gerolsteiner Helgoland Marathon|2027-05-22|5.2": {
+    "exclude": true,
+    "_note": "Rundenlänge statt Renndistanz. Helgoland ist 1,7 km² groß, der Marathon läuft deshalb in Runden: heute 5 x 8,4 km, früher 8 x 5,25 km, anfangs 4 x 10,5 km (Quelle: Wikipedia, marathon.de). Die gespeicherten 5,2 km entsprechen der alten Runde; der Marathon steht bereits mit 42,2 km in der Liste. helgoland-marathon.com antwortet mit 403, geprüft über Dritte. Geprüft 2026-09-18."
+  },
+  "Bokeler 6-Stunden-Lauf|2026-11-07": {
+    "laenge_km": null,
+    "_note": "Ein 6-Stunden-Lauf hat keine feste Strecke (Datenregel 8). Gelaufen werden so viele Runden à 2 km wie in sechs Stunden möglich; der Streckenrekord steht bei 72,7 km. Die gespeicherten 42,2 km sind der Marathon-Rückfall aus dem Namen. Die 6 h sind richtig. Quelle: hdsports.org, trophyrunners.com, vflbokel.de. Geprüft 2026-09-18."
+  },
+  "15. Bokeler 6 Stundenlauf|2026-11-14": {
+    "exclude": true,
+    "_note": "Duplikat des 'Bokeler 6-Stunden-Lauf' mit FALSCHEM DATUM und falscher Distanz: Der Lauf ist am 07.11.2026 (9:00 Uhr), nicht am 14.11., und ist ein Zeitrennen ohne feste Strecke - die gespeicherten 10 km sind weder Runde (2 km) noch Renndistanz. Der richtige Eintrag steht unter 'Bokeler 6-Stunden-Lauf'. Geprüft 2026-09-18."
+  },
+  "Ironman 70.3 Kraichgau|2027-05-23": {
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "_note": "FALSCHES DATUM aus der Quelle: running.life nennt den 23.05.2027, richtig ist der 30.05.2027. Vier unabhängige Kalender nennen den 30.05. (kilometerliebe.de, finishers.com, spoferan.com, racenotify.com), und das Muster passt: Der 70.3 Kraichgau liegt am letzten Sonntag im Mai (26.05.2024, 25.05.2025, 31.05.2026 laut Wikipedia), 2027 also am 30.05. ironman.com selbst ist nicht abrufbar (robots.txt verbietet ClaudeBot). Die Distanz-Korrektur auf 113 km steht unter dem Schlüssel mit der alten Distanz. Geprüft 2026-09-18."
   }
 }

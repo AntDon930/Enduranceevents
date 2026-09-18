@@ -1684,8 +1684,23 @@ def load_manual_overrides() -> dict:
 # 49.07/10.14 gelegt - 168 km daneben, mitten in Franken. Ohne
 # Koordinaten im Override lässt sich so ein Fall nicht reparieren: Ein
 # neuer `standort` allein verschiebt den Kartenpunkt nicht.
+# `datum_start`/`datum_ende` sind dabei, seit die Einzelprüfung zweimal
+# auf ein falsches DATUM gestoßen ist (Ironman 70.3 Kraichgau, Bokeler
+# 6-Stunden-Lauf) - bei einem Terminkalender die schlimmste Sorte
+# Fehler, und ohne Override nicht zu reparieren.
+#
+# Dass das trotz des Datums IM SCHLÜSSEL funktioniert, ist kein Zufall:
+# `find_override()` sucht mit den Werten, die das Event GERADE hat, also
+# mit dem falschen Datum aus der Quelle. Beim nächsten Lauf liefert die
+# Quelle wieder das falsche Datum, der Schlüssel trifft wieder, und die
+# Korrektur greift erneut. Nach der Korrektur trifft er nicht mehr - das
+# ist richtig, denn dann ist nichts mehr zu tun (idempotent).
+#
+# Reihenfolge beachten: `apply_overrides()` läuft VOR `drop_past_events()`
+# und vor `build_ics.py`, beide sehen also das richtige Datum.
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
-                   "land", "standort", "veranstalter_url", "lat", "lon")
+                   "land", "standort", "veranstalter_url", "lat", "lon",
+                   "datum_start", "datum_ende")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:

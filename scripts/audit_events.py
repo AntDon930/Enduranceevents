@@ -54,6 +54,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scraper_lib import EVENTS_JSON_PATH, is_portal_link  # noqa: E402
 
+# Protokoll der Einzelprüfungen. Die Prüfung von 2.369 Veranstaltungen
+# geht über mehrere Sitzungen - ohne dieses Protokoll fängt jede von
+# vorn an. `--offen` blendet aus, was schon geprüft ist.
+GEPRUEFT_PATH = Path(__file__).resolve().parent / "geprueft.json"
+
+
+def lade_geprueft() -> dict:
+    if not GEPRUEFT_PATH.exists():
+        return {}
+    daten = json.loads(GEPRUEFT_PATH.read_text(encoding="utf-8"))
+    return {k.casefold(): v for k, v in daten.items() if k != "_readme"}
+
+
+def ist_geprueft(protokoll: dict, event: dict) -> bool:
+    return f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold() in protokoll
+
 # Anmelde- und Zeitnahme-Portale, die is_portal_link() (noch) nicht
 # kennt. Dort steht keine Ausschreibung, sondern ein Anmeldeformular -
 # als `veranstalter_url` ist das die zweite Wahl (Datenregel 2).
@@ -93,6 +109,15 @@ ZEITRENNEN_IM_NAMEN_RE = re.compile(
     r"stunden(?:lauf|rennen)|\d+\s*h[-\s]?lauf|backyard", re.I)
 
 KM_IM_LABEL_RE = re.compile(r"(?<!\d)(\d{1,3}(?:[.,]\d+)?)\s*km", re.I)
+
+# "4 Runden à ca. 5,27 km", "3 x 7,03 km", "2 x 21,1 km" - die Zahl der
+# Runden und die Länge EINER Runde.
+# Staffel, Team, DUO: Die Einzelstrecke ist das, was man läuft.
+STAFFEL_RE = re.compile(r"staffel|\bteam\b|\bduo\b|\bpaar|relay", re.I)
+
+RUNDEN_MAL_RE = re.compile(
+    r"(\d{1,2})\s*(?:runden?|x|×)\s*(?:à|a|je)?\s*(?:ca\.?\s*)?"
+    r"(\d{1,3}(?:[.,]\d+)?)\s*km", re.I)
 
 # Ein Freitagabend-Stadtlauf ist völlig normal, ein Rennen am Dienstag
 # nicht. Die erste Fassung meldete Mo-FR und produzierte 45 Fehlalarme
@@ -149,7 +174,45 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
 
     # --- Distanz gegen das Label --------------------------------------
     if isinstance(km, (int, float)):
-        if re.search(r"halbmarathon|half marathon", label) and abs(km - 21.1) > 1.5:
+        # Nennt das Label seine eigene Kilometerzahl UND stimmt die mit dem
+        # Feld überein, ist die Zeile in sich schlüssig - dann ist der
+        # Name "Marathon" die Auskunft des Veranstalters und kein Fehler.
+        # Trailveranstalter nennen einen 22,8-km-Rundkurs regelmäßig
+        # "Halbmarathon" ("Dörenther Klippen UltraTrail · Halbmarathon
+        # 22,8 km und ca. 560 Hm"), und der "29. Rursee Marathon" hat
+        # neben dem Marathon einen Ultra über 52 km. Ohne diese Bedingung
+        # meldete die Regel 19 Fälle, von denen 17 richtig waren.
+        selbst_erklaert = any(
+            abs(float(z.replace(",", ".")) - km) <= max(0.3, 0.05 * km)
+            for z in KM_IM_LABEL_RE.findall(wb))
+
+        # Die RUNDENLÄNGE statt der Renndistanz - inzwischen die vierte
+        # Begegnung mit dieser Fehlerklasse (Backyard-Runde, "Running
+        # Paule Marathon" 6,4 km, "Warendorfer Weihnachtslauf" 6 km,
+        # "Borsig Halbmarathon" 5,3 km). Das Label verrät sie selbst:
+        # Nennt es "N Runden à X km" und steht im Feld das X statt N*X,
+        # ist die Runde gespeichert.
+        # Eine STAFFEL ist etwas anderes als Runden derselben Strecke.
+        # Bei "2x5 km Staffel" läuft man wirklich 5 km, und die Staffel
+        # ist ein eigener Wettbewerb - die gespeicherten 5 km sind
+        # richtig. Bei "Halbmarathon (4 Runden à ca. 5,27 km)" läuft
+        # dieselbe Person alle vier Runden, die Renndistanz sind 21,1 km.
+        # Ohne diese Unterscheidung meldete die Regel sechs Staffeln als
+        # Fehler, die keine waren.
+        runden = None if STAFFEL_RE.search(wb) else RUNDEN_MAL_RE.search(wb)
+        if runden:
+            try:
+                n = int(runden.group(1))
+                eine = float(runden.group(2).replace(",", "."))
+            except ValueError:
+                n, eine = 0, 0.0
+            if n > 1 and eine > 0 and abs(km - eine) <= 0.3 and abs(km - n * eine) > 0.5:
+                melde("Rundenlänge statt Renndistanz",
+                      f"{km:g} km gespeichert, {n} x {eine:g} = {n * eine:g} km")
+
+        if selbst_erklaert:
+            pass
+        elif re.search(r"halbmarathon|half marathon", label) and abs(km - 21.1) > 1.5:
             melde("„Halbmarathon“, aber Distanz passt nicht", f"{km:g} km")
         elif (re.search(r"\bmarathon\b", label)
               and not re.search(r"halb|half|viertel|drittel|mini|staffel|team", label)
@@ -262,6 +325,8 @@ def main() -> int:
                         help="Wie viele Events (Standard: alle).")
     parser.add_argument("--quiet", action="store_true",
                         help="Nur die Zahlen, keine Einzelmeldungen.")
+    parser.add_argument("--offen", action="store_true",
+                        help="Nur Events, die noch NICHT in geprueft.json stehen.")
     parser.add_argument("--max-je-gruppe", type=int, default=25,
                         help="Wie viele Beispiele je Kategorie (Standard 25).")
     args = parser.parse_args()
@@ -270,6 +335,12 @@ def main() -> int:
     events.sort(key=lambda e: (e.get("datum_start") or "",
                                (e.get("name") or "").casefold()))
     teil = events[args.ab:args.ab + args.anzahl] if args.anzahl else events[args.ab:]
+    if args.offen:
+        protokoll = lade_geprueft()
+        vorher = len(teil)
+        teil = [e for e in teil if not ist_geprueft(protokoll, e)]
+        print(f"(--offen: {vorher - len(teil)} von {vorher} Zeilen sind bereits "
+              f"geprüft, {len(protokoll)} Veranstaltungen im Protokoll.)")
     if not teil:
         print("Keine Events in diesem Ausschnitt.")
         return 0

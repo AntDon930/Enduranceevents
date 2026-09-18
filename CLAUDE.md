@@ -38,6 +38,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/*_scraper.py` | ein Skript pro Quelle |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
+| `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
@@ -195,6 +196,17 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Steht bei einem Zeitrennen trotzdem eine Distanz („Emder
    Stundenlauf – 10 km"), meldet das `audit_events.py` – `fill_duration()`
    füllt bewusst nur, wo gar nichts steht.
+
+   **Die Rundenlänge ist keine Renndistanz** – inzwischen die vierte
+   Begegnung mit dieser Fehlerklasse (Backyard-Runde, „Running Paule
+   Marathon" 6,4 km, „Warendorfer Weihnachtslauf" 6 km, „Borsig
+   Halbmarathon" 5,3 km, „Helgoland Marathon" 5,2 km). Das Label
+   verrät sie: Nennt es „N Runden à X km" und steht im Feld X statt
+   N·X, ist die Runde gespeichert (`audit_events.RUNDEN_MAL_RE`).
+   **Eine STAFFEL ist etwas anderes** (`STAFFEL_RE`): Bei „2x5 km
+   Staffel" läuft man wirklich 5 km, und die Staffel ist ein eigener
+   Wettbewerb. Ohne diese Unterscheidung meldete die Regel sechs
+   Staffeln als Fehler, die keine waren.
 9. **`art2` „Backcountry Ultra"** (nur Laufen). Zwei Stichwörter mit
    **unterschiedlicher Position** in `ART2_KEYWORDS_LAUFEN` – das ist
    Absicht, nicht Zufall:
@@ -1470,6 +1482,22 @@ den Daten nichts zu tun hatten. Behoben wurde die Folge
 `events.json`, siehe „Vor jedem Commit"). **Die Ursache bleibt, bis die
 Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
 `main`, also die ausdrückliche Erlaubnis des Nutzers.
+
+**Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
+`scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
+Ausschreibung geprüft. Ohne dieses Protokoll fängt jede Sitzung von
+vorn an. Vier Ergebnisse, und der Unterschied ist wichtig:
+
+| `ergebnis` | heißt |
+|---|---|
+| `quelle_ok` | offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig |
+| `korrigiert` | Fehler gefunden, Korrektur in `manual_overrides.json` |
+| `label_ok` | **nur am Wettbewerbs-Label entschieden**, ohne Abruf – schwächer |
+| `entfernt` | gehört nicht in die Liste (`NICHT_AUSDAUER`) |
+
+`label_ok` nicht mit `quelle_ok` verwechseln: „Halbmarathon 22,8 km"
+nennt seine Distanz selbst, das reicht für diese eine Frage – aber die
+Zeile ist damit nicht vollständig geprüft.
 
 **Nach einem großen Datenlauf** gehört die Einzelprüfung dazu:
 

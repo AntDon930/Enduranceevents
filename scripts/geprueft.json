@@ -1,0 +1,249 @@
+{
+  "_readme": "Protokoll der EINZELPRÜFUNGEN. Schlüssel: '<Name>|<datum_start>' (geprüft wird eine VERANSTALTUNG, nicht eine Strecke - anders als in manual_overrides.json, das auch distanzgenaue Schlüssel kennt). Zweck: Die Prüfung von ~2.360 Veranstaltungen geht über mehrere Sitzungen; ohne dieses Protokoll fängt jede von vorn an. `python3 scripts/audit_events.py --offen` blendet aus, was hier steht. ergebnis: 'quelle_ok' = offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig | 'korrigiert' = Fehler gefunden, Korrektur steht in manual_overrides.json | 'label_ok' = am Wettbewerbs-Label selbst entschieden, OHNE die Seite abzurufen (schwächer! z. B. 'Halbmarathon 22,8 km' nennt seine Distanz selbst) | 'entfernt' = gehört nicht in die Liste. Ein Eintrag gilt für den GENANNTEN Termin - eine neue Ausgabe derselben Veranstaltung ist wieder ungeprüft.",
+  "29. Rursee Marathon|2026-11-08": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "rursee-marathon.de",
+    "notiz": "Ultra (52,1 km) UND Marathon (42,2 km) gibt es beide - mein Fehlalarm."
+  },
+  "Borsig Halbmarathon|2027-09-05": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "borsighalbmarathon.de",
+    "notiz": "5,3-km-Zeile war die Rundenlänge des Halbmarathons (4 x 5,27 km)."
+  },
+  "28. Gerolsteiner Helgoland Marathon|2027-05-22": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Wikipedia, marathon.de",
+    "notiz": "5,2-km-Zeile war die Rundenlänge; der Marathon läuft in Runden über die Insel."
+  },
+  "Bokeler 6-Stunden-Lauf|2026-11-07": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "hdsports.org, trophyrunners.com, vflbokel.de",
+    "notiz": "42,2 km entfernt - Zeitrennen auf 2-km-Runde, Rekord 72,7 km. Die 6 h sind richtig."
+  },
+  "15. Bokeler 6 Stundenlauf|2026-11-14": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "dieselben Quellen",
+    "notiz": "Duplikat mit falschem Datum (07.11., nicht 14.11.) und falscher Distanz - ausgeschlossen."
+  },
+  "Ironman 70.3 Kraichgau|2027-05-23": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "kilometerliebe.de, finishers.com, spoferan.com, racenotify.com, Wikipedia",
+    "notiz": "Datum 23.05. -> 30.05.2027 (letzter Sonntag im Mai) und 52 -> 113 km."
+  },
+  "Ironman Hamburg|2027-06-06": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "normierte Ironman-Distanz, ironman.com nicht abrufbar",
+    "notiz": "42,2-km- und 178-km-Zeilen waren Lauf- und Radstrecke; jetzt eine Zeile mit 226 km."
+  },
+  "Ironman 5150 Erkner Berlin-Brandenburg|2027-09-11": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "normierte 5150-Distanz",
+    "notiz": "40-km- und 10-km-Zeilen waren Rad- und Laufstrecke."
+  },
+  "Ironman 70.3 Leipzig|2027-08-08": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "70,3 Meilen = 113 km",
+    "notiz": "Zeile hatte keine Maßzahl."
+  },
+  "Ironman Frankfurt|2027-06-27": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "normierte Ironman-Distanz",
+    "notiz": "226 km stimmen."
+  },
+  "Ironman 70.3 Duisburg|2027-08-29": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "normierte 70.3-Distanz",
+    "notiz": "113 km stimmen."
+  },
+  "Ironman 70.3 Erkner|2027-09-12": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "normierte 70.3-Distanz",
+    "notiz": "113 km stimmen."
+  },
+  "Challenge Roth|2027-07-04": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "normierte Langdistanz",
+    "notiz": "226 km stimmen."
+  },
+  "Triple Ultra Triathlon Lensahn|2027-07-30": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonlensahn.de, Wikipedia",
+    "notiz": "Streckenbasiert (678 km = 3x Ironman), nicht 24 h."
+  },
+  "Indoor-Triathlon Aschersleben|2027-01-23": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "specialolympics.de, aschersleben-ballhaus.de",
+    "notiz": "Kein 24-Stunden-Rennen; 3 Runden a 300 m + 4 km + 1,6 km."
+  },
+  "Mt. Everest Treppenmarathon|2027-04-30": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "treppenmarathon.de",
+    "notiz": "42,2 km entfernt (100 Runden Spitzhaustreppe); die 24-Stunden-Variante gibt es."
+  },
+  "Warendorfer Weihnachtslauf|2026-12-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "runme.de, laufschule-tatje.de",
+    "notiz": "6 km waren die Rundenlänge; Zeitfenster 3 oder 6 Stunden."
+  },
+  "Kulmbach Spartan Trifecta Weekend|2027-06-11": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "spartan.com",
+    "notiz": "'Hurricane Heat' 4 h ist ein echtes Spartan-Format."
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "schlosstriathlon.de",
+    "notiz": "42,2-km-Zeile ohne Label war die Marathon-Teilstrecke."
+  },
+  "Dörenther Klippen UltraTrail|2026-12-28": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Label nennt 22,8 und 45,6 km selbst."
+  },
+  "Dörenther Klippen UltraTrail|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Label nennt seine Distanzen selbst."
+  },
+  "Bremer Bergmarathon|2026-12-05": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Label 'Halbmarathon' bei 23 km - Trail-Rundkurs."
+  },
+  "Bremer Bergmarathon|2027-02-28": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "wie oben."
+  },
+  "Bremer Bergmarathon|2027-12-05": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Label nennt '23 km (Halbmarathon)' selbst."
+  },
+  "Sloopsteener Seenrunden Ultramarathon|2026-12-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Trail-Rundkurs 23 km als 'Halbmarathon'."
+  },
+  "Silvester-Ultramarathon Breuna|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Trail-Rundkurs 22,8 km als 'Halbmarathon'."
+  },
+  "Sengbach-Talsperrenlauf|2027-08-22": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Label '30,9 km 3/4 Marathon (3 Runden)' stimmt in sich."
+  },
+  "9. Trainingslauf Bottwartal-Marathon|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Trainingslauf zum Marathon, 30 km plausibel."
+  },
+  "10. Trainingslauf Bottwartal-Marathon|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Trainingslauf, 10 km plausibel."
+  },
+  "49. Monschau-Marathon warm-up|2027-08-07": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Warm-up-Lauf, 10 km plausibel."
+  },
+  "Lübeck Marathon|2026-10-18": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "'DUO Marathon 2 x 21,1 km' - gespeichert ist die Einzelstrecke."
+  },
+  "Wolfenbütteler Stadtlauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "Halbmarathonstaffel 3 x 7,03 km - Einzelstrecke."
+  },
+  "Reichenauer Insellauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "'3 x 7 km Staffel' - Einzelstrecke."
+  },
+  "Uni-Lauf Bamberg|2026-10-18": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "'2x5 km Staffel' - Einzelstrecke."
+  },
+  "FSV-Lauf|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "'2 x 5 km Staffel-Lauf' - Einzelstrecke."
+  },
+  "Wiesent Challenge|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "",
+    "notiz": "'2x5 km Staffellauf' - Einzelstrecke."
+  },
+  "HYROX Karlsruhe|2026-10-01": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "hyrox.com (Format bekannt)",
+    "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  },
+  "HYROX Hamburg|2026-10-28": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "hyrox.com (Format bekannt)",
+    "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  },
+  "HYROX Düsseldorf|2026-11-11": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "hyrox.com (Format bekannt)",
+    "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  },
+  "HYROX Frankfurt|2026-12-10": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "hyrox.com (Format bekannt)",
+    "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  },
+  "HYROX Cologne|2027-04-08": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "hyrox.com (Format bekannt)",
+    "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  }
+}

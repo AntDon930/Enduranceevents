@@ -1445,6 +1445,35 @@ def test_audit_pruefungen() -> None:
           "Zahl im Label weicht von laenge_km ab"
           in kategorien(wettbewerb="46,5 km, 3 Runden je 15,5 km",
                         laenge_km=46.5), False)
+    # --- Label, das seine Distanz selbst nennt -------------------------
+    check("„Halbmarathon 22,8 km\u201c bei 22,8 km ist KEIN Fall (Trail-Rundkurs)",
+          "„Halbmarathon\u201c, aber Distanz passt nicht"
+          in kategorien(name="Dörenther Klippen UltraTrail",
+                        wettbewerb="Halbmarathon 22,8 km und ca. 560 Hm",
+                        laenge_km=22.8), False)
+    check("„Halbmarathon\u201c ohne km-Angabe bei 23 km wird gemeldet",
+          "„Halbmarathon\u201c, aber Distanz passt nicht"
+          in kategorien(wettbewerb="Halbmarathon", laenge_km=23.0), True)
+
+    # --- Rundenlänge gegen Staffel -------------------------------------
+    # Die vierte Begegnung mit der Rundenlängen-Falle. Der Unterschied
+    # zur Staffel ist der ganze Aufwand: Bei „2x5 km Staffel" läuft man
+    # wirklich 5 km (eigener Wettbewerb), bei „4 Runden à 5,27 km"
+    # läuft dieselbe Person alle vier.
+    check("„4 Runden à ca. 5,27 km\u201c bei 5,3 km wird gemeldet",
+          "Rundenlänge statt Renndistanz"
+          in kategorien(wettbewerb="Halbmarathon (4 Runden à ca. 5,27 km)",
+                        laenge_km=5.3), True)
+    check("eine STAFFEL wird nicht gemeldet („2x5 km Staffel\u201c bei 5 km)",
+          "Rundenlänge statt Renndistanz"
+          in kategorien(wettbewerb="2x5 km Staffel", laenge_km=5.0), False)
+    check("ein DUO wird nicht gemeldet",
+          "Rundenlänge statt Renndistanz"
+          in kategorien(wettbewerb="DUO Marathon 2 x 21,1 km", laenge_km=21.1), False)
+    check("stimmt die Summe, ist es kein Fall („3 Runden je 15,5 km\u201c bei 46,5)",
+          "Rundenlänge statt Renndistanz"
+          in kategorien(wettbewerb="46,5 km, 3 Runden je 15,5 km", laenge_km=46.5), False)
+
     check("eine saubere Zeile meldet gar nichts", kategorien(), set())
 
 
