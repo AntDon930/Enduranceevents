@@ -1139,5 +1139,29 @@
     "ergebnis": "quelle_ok",
     "quelle": "rennsteig-staffellauf.de",
     "notiz": "140 km auf 10 Etappen, Teams zu 10 Personen. Label ergaenzt; die 140 km sind die Team-Gesamtstrecke."
+  },
+  "Deutschlandlauf Flensburg - Lörrach|2027-08-01": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "neckarlauf.com",
+    "notiz": "Sieben Zeilen mit Etappenlaengen (48-75 km), alle auf dem 1. August. Jetzt eine Zeile: 1.284 km ueber 21 Tagesetappen, 01.-21.08.2027, Flensburg nach Loerrach."
+  },
+  "Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühle e.V.|2026-09-19": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "wochenblatt-reporter.de, kaiserslautern.de",
+    "notiz": "6-Stunden-Lauf auf einer 2-km-Runde; die 21,6 km waren keine Renndistanz."
+  },
+  "10k Hamburg|2027-05-30": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com/419629",
+    "notiz": "Die Anmeldeseite nennt selbst den Zeitraum '30.05.2027-15.08.2027' - also 78 Tage fuer einen 10-km-Lauf. Ob das eine Serie mit mehreren Terminen, ein frei einteilbarer Lauf oder schlicht ein offener Anmeldezeitraum ist, sagt sie nicht. Nichts geaendert."
+  },
+  "47. Nikolaus - Crosslauf in Alflen - 4. Lauf der 39. Crosslaufserie Cochem - Zell|2026-12-06": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "notiz": "Kein Datenfehler, nur ein sehr langer Name: Die Quelle schreibt die Einordnung in die Serie mit in den Veranstaltungsnamen. Umbenennen kann ein Override nicht (der Name ist Teil des Schluessels). Die Zeile hat ausserdem keine Distanzangabe - die nennt die Quelle nicht."
   }
 }

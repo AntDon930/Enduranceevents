@@ -632,21 +632,29 @@ durchgegangen – `audit_events.py --offen` und die `⚠`-Meldungen von
 `clean_events.py`. Das ist die ergiebigere Reihenfolge: Dort steht, wo
 etwas nicht stimmen KANN, statt jede Zeile gleich zu behandeln.
 
-Stand danach (4.335 → **4.254 Events**, 275 Overrides, 175 Einzel­prüfungen
-im Protokoll, 45 nachgetragene Strecken):
+Stand danach (4.335 → **4.248 Events**, 279 Overrides, 194 Einzel­prüfungen
+im Protokoll, 46 nachgetragene Strecken):
 
 | Bericht | vorher | nachher |
 |---|---|---|
-| Gleiche Veranstalter-Seite, gleiche Distanz | 32 | 5 |
 | Gleicher Tag, Ort und Distanz, anderer Name | 57 | 7 |
 | Triathlon-Distanz passt zu keinem Format | 40 | 15 |
-| Mehrsport: Zeile sieht nach Teilstrecke aus | 3 | 0 |
+| Gleiche Veranstalter-Seite, gleiche Distanz | 32 | 5 |
 | Verdächtige Distanz | 23 | 18 |
-| audit: auffällige Distanz / keine Koordinaten / >1 Woche / Zahl im Label | 24/12/44/5 | 19/0/7/0 |
+| Mehrsport: Zeile sieht nach Teilstrecke aus | 3 | 0 |
+| `audit`: Veranstaltung >1 Woche | 44 | 0 |
+| `audit`: auffällige Distanz | 24 | 0 |
+| `audit`: keine Koordinaten | 12 | 0 |
+| `audit`: Zahl im Label weicht ab / Berglauf / „Marathon" / Name sehr lang | 5/4/6/5 | 0 |
 
-Die Reste sind **geprüft und keine Fehler** – der Bericht meldet sie nur,
-weil seine Bedingung grob ist (± 0,5 km, oder „passt zu keinem der vier
-Standardformate").
+**Die scharfen Kategorien von `audit_events.py --offen` sind damit leer.**
+Übrig bleiben dort nur 897 Portallinks, 320 Zeilen ohne Distanzangabe und
+120 Termine von Montag bis Donnerstag – alles drei keine Fehler, sondern
+Lücken oder Eigenheiten der Quellen.
+
+Die Reste in den `clean_events.py`-Berichten sind **geprüft und keine
+Fehler** – gemeldet werden sie nur, weil die Bedingung grob ist (± 0,5 km,
+oder „passt zu keinem der vier Standardformate").
 
 Fünf Muster, die dabei herauskamen und beim großen Datenlauf wieder
 auftreten werden:

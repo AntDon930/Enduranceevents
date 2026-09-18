@@ -720,6 +720,22 @@
       "veranstalter_url": "https://time2win.at/event/1082",
       "_quelle": "https://time2win.at/event/1082",
       "_note": "Der Charity Run im Rahmen des OstseeMan Glueckburg: 'Glueck in Sicht Charity Run' - 5,5 km, Start 17:00 Uhr, 15,00 EUR. Unter eigenem Namen, weil er ein Volkslauf ist und kein Triathlon-Wettbewerb - stuende er unter dem Namen 'OstseeMan Triathlon Gluecksburg', setzte fix_multisport_art1() die Sportart wegen des Wortes 'Triathlon' im Namen zurueck auf Triathlon. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "standort": "Flensburg",
+      "lat": 54.7937431,
+      "lon": 9.4469964,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "name": "Deutschlandlauf Flensburg - Lörrach",
+      "datum_start": "2027-08-01",
+      "datum_ende": "2027-08-21",
+      "laenge_km": 1284.0,
+      "wettbewerb": "21 Tagesetappen",
+      "veranstalter_url": "https://neckarlauf.com/deutschlandlauf.html",
+      "_quelle": "https://neckarlauf.com/deutschlandlauf.html",
+      "_note": "neckarlauf.com/deutschlandlauf.html: Der Deutschlandlauf 2027 laeuft vom 1. bis 21. August in 21 Tagesetappen von Flensburg nach Loerrach, Gesamtstrecke '1.284 Kilometer', im Schnitt rund 61 km je Etappe; die laengste ist die 14. mit 75 km, die kuerzeste die 4. mit 48 km. Die gespeicherten sieben Zeilen (48 bis 75 km) waren also ETAPPENLAENGEN, keine eigenen Wettbewerbe - und alle sieben lagen auf dem 1. August. Diese Zeile ersetzt die sieben Etappenzeilen. Geprueft 2026-09-18."
     }
   ]
 }
