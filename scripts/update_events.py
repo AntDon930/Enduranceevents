@@ -168,21 +168,21 @@ def stage_kalender() -> None:
     das Skript nie den Index.
 
     Warum es das überhaupt gibt: **GitHub liest den `schedule`-Trigger nur
-    aus dem Standard-Branch**, und die `update-events.yml` auf `main` ist
-    ein älterer Stand. Sie committet `git add events.json` OHNE
+    aus dem Standard-Branch**, und die `update-events.yml` auf `main` war
+    ein älterer Stand – sie committete `git add events.json` OHNE
     `kalender`. Genau daran ist die CI am 18.09.2026 viermal hintereinander
     rot geworden: Der Datenlauf schrieb eine neue `events.json` und ließ
     die `.ics`-Dateien liegen, und die Prüfung „kalender/ passt zu
     events.json" schlug bei JEDEM folgenden Push fehl – auch bei solchen,
     die mit den Daten nichts zu tun hatten.
 
-    Der eigentliche Fix ist ein Push auf `main`, und der braucht die
-    ausdrückliche Erlaubnis des Nutzers. Bis dahin hilft dieser Umweg:
-    `git commit` committet den INDEX, nicht nur die Pfade hinter
-    `git add` – was hier gestaget ist, geht also mit, ohne dass die
-    Workflow-Datei auf `main` etwas davon wissen muss. Die Fassung auf
-    diesem Branch macht es ohnehin richtig (`git add events.json
-    kalender`), dort ist der Aufruf ein No-op.
+    Die Datei auf `main` ist seit dem 19.09.2026 auf dem aktuellen Stand
+    (vom Nutzer freigegeben), der Aufruf hier also ein No-op. Er bleibt
+    trotzdem stehen, als Gürtel neben den Hosenträgern: `git commit`
+    committet den INDEX, nicht nur die Pfade hinter `git add` – was hier
+    gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
+    `kalender` einmal wieder verliert. Die beiden Fassungen müssen
+    ohnehin zusammenbleiben (siehe CLAUDE.md, „Automatik").
     """
     if not os.environ.get("GITHUB_ACTIONS"):
         return

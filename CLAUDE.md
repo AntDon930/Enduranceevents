@@ -1639,32 +1639,41 @@ Nominatim befragt) und die Frage, ob `kalender/` zu `events.json` passt – und 
 Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
 **Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
 
-**⚠ Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
+**Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
 diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
-Standard-Branch – und die Datei dort ist ein **älterer Stand**: täglich
-statt wöchentlich, `git add events.json` **ohne `kalender`**, ohne
-`timeout-minutes`, ohne die NOTIFY-Secrets. Genau daran ist die CI am
-18.09.2026 viermal hintereinander rot geworden: Der Datenlauf committete
-eine neue `events.json` (4.154 → 4.344 Events) und ließ die
-`.ics`-Dateien liegen; der CI-Schritt „kalender/ passt zu events.json"
-schlug deshalb bei JEDEM folgenden Push fehl, auch bei solchen, die mit
-den Daten nichts zu tun hatten. Behoben wurde die Folge
-(`build_ics.py` laufen lassen und mitcommitten) und die Erkennung
-(`test_kalenderdateien` vergleicht jetzt auch `kalender/` mit
-`events.json`, siehe „Vor jedem Commit"). **Die Ursache bleibt, bis die
-Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
-`main`, also die ausdrückliche Erlaubnis des Nutzers.
+Standard-Branch. `main` enthält deshalb genau zwei Dateien:
+`.github/workflows/update-events.yml` und `README.md`. Die Skripte holt
+der Workflow vom Entwicklungs-Branch, den er ausdrücklich auscheckt
+(`ref: claude/endurance-events-website-v1wruf`).
 
-**Bis dahin steht ein Umweg in `update_events.py`**: `stage_kalender()`
-legt die frisch erzeugten `.ics`-Dateien nach `build_ics.py` in den
-Git-Index – nur in GitHub Actions, lokal nie. `git commit` committet den
-INDEX, nicht nur die Pfade hinter `git add`; was dort gestaget ist, geht
-also mit, ohne dass die Workflow-Datei auf `main` etwas davon wissen
-muss. Auf diesem Branch (`git add events.json kalender`) ist der Aufruf
-ein No-op. `test_kalender_staging` hält vor allem die Gegenprobe fest:
-**lokal darf das Skript den Index NIE anfassen.** Der Umweg ersetzt den
-Fix nicht – er verhindert nur, dass der nächste Datenlauf die CI wieder
-rot färbt, während der Nutzer nicht da ist.
+**Seit dem 19.09.2026 ist die Datei dort auf dem aktuellen Stand**
+(vom Nutzer freigegeben, Commit `c7af0ba` auf `main`). Vorher war sie
+ein älterer Stand, und jeder der vier Unterschiede hatte Folgen – das
+ist der Grund, warum die beiden Fassungen **nicht auseinanderlaufen
+dürfen**:
+
+| war auf `main` | Folge |
+|---|---|
+| `git add events.json` **ohne `kalender`** | Der Datenlauf ließ die `.ics`-Dateien uncommittet liegen. Der CI-Schritt „kalender/ passt zu events.json" schlug danach bei JEDEM Push fehl, auch bei solchen ohne Datenbezug – am 18.09.2026 viermal hintereinander |
+| täglicher Cron statt wöchentlich montags | Laufzeit und tägliche `events.json`-Diffs von ~450 KB, solange die Seite nicht live ist |
+| kein `timeout-minutes` | Ein Lauf dauert ~2 Stunden; ohne Grenze lässt GitHub sechs zu, eine hängende Quelle verbrennt sie |
+| keine NOTIFY-Secrets | `update_events.py` ruft den Webhook für „Benachrichtige mich" gar nicht erst auf |
+
+**Wird die Workflow-Datei hier geändert, muss sie auf `main` mit** –
+sonst ist die Änderung wirkungslos oder, schlimmer, sie wirkt
+halb. Damals behoben wurden auch die Folge (`build_ics.py` laufen lassen
+und mitcommitten) und die Erkennung (`test_kalenderdateien` vergleicht
+`kalender/` mit `events.json`, siehe „Vor jedem Commit").
+
+**`stage_kalender()` in `update_events.py` bleibt als Gürtel neben den
+Hosenträgern**: Es legt die frisch erzeugten `.ics`-Dateien nach
+`build_ics.py` in den Git-Index – nur in GitHub Actions, lokal nie.
+`git commit` committet den INDEX, nicht nur die Pfade hinter `git add`;
+was dort gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
+`kalender` hinter `git add` einmal wieder verliert. Mit der jetzigen
+Fassung (`git add events.json kalender`) ist der Aufruf ein No-op.
+`test_kalender_staging` hält vor allem die Gegenprobe fest: **lokal darf
+das Skript den Index NIE anfassen.**
 
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
