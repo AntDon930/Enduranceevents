@@ -48462,7 +48462,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-30",
     "datum_ende": "2027-05-30",
-    "laenge_km": 21.0,
+    "laenge_km": 26.5,
     "wettbewerb": "Sprinttriathlon",
     "veranstalter_url": "https://my.raceresult.com/404622/"
   },
@@ -48476,8 +48476,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-30",
     "datum_ende": "2027-05-30",
-    "laenge_km": 42.0,
-    "wettbewerb": "Kurztriathlon",
+    "laenge_km": 53.0,
+    "wettbewerb": "Olympische Distanz",
     "veranstalter_url": "https://my.raceresult.com/404622/"
   },
   {
@@ -55293,6 +55293,20 @@
   },
   {
     "land": "Deutschland",
+    "standort": "Glücksburg (Ostsee)",
+    "lat": 54.8349961,
+    "lon": 9.5519087,
+    "datum_start": "2027-07-31",
+    "datum_ende": "2027-07-31",
+    "name": "Glück in Sicht Charity Run",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.5,
+    "wettbewerb": null,
+    "veranstalter_url": "https://time2win.at/event/1082"
+  },
+  {
+    "land": "Deutschland",
     "name": "Haasower Waldlauf",
     "standort": "Neuhausen/Spree",
     "lat": 51.679675,
@@ -55443,20 +55457,6 @@
     "datum_ende": "2027-07-31",
     "laenge_km": 113.0,
     "wettbewerb": "113 km",
-    "veranstalter_url": "https://time2win.at/event/1082"
-  },
-  {
-    "land": "Deutschland",
-    "name": "OstseeMan Triathlon Glücksburg",
-    "standort": "Glücksburg (Ostsee)",
-    "lat": 54.8349961,
-    "lon": 9.5519087,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-07-31",
-    "datum_ende": "2027-07-31",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
     "veranstalter_url": "https://time2win.at/event/1082"
   },
   {
@@ -56324,7 +56324,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-21",
     "datum_ende": "2027-08-21",
-    "laenge_km": 20.0,
+    "laenge_km": 25.1,
     "veranstalter_url": "https://jedermann-triathlon.de/"
   },
   {

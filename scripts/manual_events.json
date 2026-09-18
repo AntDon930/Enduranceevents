@@ -704,6 +704,22 @@
       "_quelle": "https://www.strassenlauf.org/va_details.php?id=973",
       "_note": "Der allgemeine Lauf des 'Crosslauf in den Ravensbergen' fehlte: Neben den Strecken der 22. Deutschen Polizeimeisterschaften (9 km, 7,2 km, 3,6 km) startet um 9:45 Uhr ein Lauf ueber 5,4 km - drei Runden auf dem 1,8 km langen Rundkurs im Potsdamer Waldgebiet Ravensberge. Geprueft 2026-09-18. Als veranstalter_url steht hier strassenlauf.org - der Kalender, der die Ausschreibung wiedergibt; eine eigene Seite hat der Lauf nicht, und geraten wird nicht (Datenregel 2).",
       "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
+    },
+    {
+      "land": "Deutschland",
+      "standort": "Glücksburg (Ostsee)",
+      "lat": 54.8349961,
+      "lon": 9.5519087,
+      "datum_start": "2027-07-31",
+      "datum_ende": "2027-07-31",
+      "name": "Glück in Sicht Charity Run",
+      "art1": "Laufen",
+      "art2": "Straße",
+      "laenge_km": 5.5,
+      "wettbewerb": null,
+      "veranstalter_url": "https://time2win.at/event/1082",
+      "_quelle": "https://time2win.at/event/1082",
+      "_note": "Der Charity Run im Rahmen des OstseeMan Glueckburg: 'Glueck in Sicht Charity Run' - 5,5 km, Start 17:00 Uhr, 15,00 EUR. Unter eigenem Namen, weil er ein Volkslauf ist und kein Triathlon-Wettbewerb - stuende er unter dem Namen 'OstseeMan Triathlon Gluecksburg', setzte fix_multisport_art1() die Sportart wegen des Wortes 'Triathlon' im Namen zurueck auf Triathlon. Geprueft 2026-09-18."
     }
   ]
 }

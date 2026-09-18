@@ -409,6 +409,27 @@ richtig aus und tut nichts. Genau das ist beim Eintragen des
 Fichtel-Duplikats passiert. `test_override_schluessel` prüft jetzt jeden
 Schlüssel gegen `override_keys()`.
 
+**Ein Override, der `laenge_km` ändert, bricht seinen eigenen
+distanzgenauen Schlüssel.** Die Distanz im Schlüssel ist die ALTE; sobald
+der Override gegriffen und die Zahl in `events.json` geändert hat, findet
+`find_override()` ihn über die NEUE Distanz nicht mehr. Zwei Folgen, beide
+real aufgetreten:
+
+- **Innerhalb desselben Laufs**: Schritte, die den Override erneut
+  abfragen, sehen ihn nicht. Beim OstseeMan Glücksburg setzte ein
+  Override den „6 km Triathlon"-Eintrag auf 5,5 km Laufen (es ist der
+  Charity Run der Veranstaltung) – `fix_multisport_art1()` suchte den
+  Override dann mit 5,5 km, fand ihn nicht und setzte `art1` wegen des
+  Wortes „Triathlon" im Veranstaltungsnamen wieder zurück.
+- **Beim nächsten Lauf**: Ein `exclude` unter dem alten Schlüssel trifft
+  nichts mehr.
+
+Deshalb: **`laenge_km` und `art1` nie im selben Override ändern.** Wo
+eine Zeile eigentlich eine andere Veranstaltung ist (ein Volkslauf im
+Rahmen eines Triathlons), gehört sie unter ihren eigenen Namen in
+`manual_events.json` – dann greift `guess_art1()` richtig. Und wo beides
+nötig ist, beide Schlüssel eintragen (alte UND neue Distanz).
+
 Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
 
 ### Fehlende Strecken nachtragen (`scripts/manual_events.json`)

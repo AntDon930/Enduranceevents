@@ -1137,5 +1137,26 @@
     "laenge_km": 51.5,
     "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. otterndorf-triathlon.de (Ausschreibung des TSV Otterndorf) nennt fuer die Olympische Distanz 1,5 km Schwimmen, 40 km Rad, 10 km Laufen = 51,5 km. Geprueft 2026-09-18.",
     "wettbewerb": "Olympische Distanz"
+  },
+  "Büchener Triathlon|2027-05-30|21": {
+    "laenge_km": 26.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke (Datenregel 15). Der Veranstaltungskalender der Deutschen Triathlon Union (triathlondeutschland.de) nennt fuer die Sprintdistanz des Buechener Triathlons 0,50 km Schwimmen, 21,00 km Rad und 5,00 km Laufen = 26,5 km. Geprueft 2026-09-18."
+  },
+  "Büchener Triathlon|2027-05-30|42": {
+    "laenge_km": 53.0,
+    "wettbewerb": "Olympische Distanz",
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke (Datenregel 15). triathlondeutschland.de nennt fuer die olympische Distanz 1,00 km Schwimmen, 42,00 km Rad und 10,00 km Laufen = 53 km. Das Label hiess 'Kurztriathlon'. Geprueft 2026-09-18."
+  },
+  "Jedermanntriathlon|2027-08-21|20": {
+    "laenge_km": 25.1,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke (Datenregel 15). jedermann-triathlon.de nennt fuer den Jedermann-Triathlon in Neustrelitz-Praelank am 21.08.2027 um 16:00 Uhr '600m - 20km - 4,5km' = 25,1 km. Geprueft 2026-09-18."
+  },
+  "OstseeMan Triathlon Glücksburg|2027-07-31|6": {
+    "exclude": true,
+    "_note": "Kein Triathlon-Wettbewerb: Der OstseeMan bietet neben Lang- (226 km) und Mitteldistanz (113 km) einen 'Glueck in Sicht Charity Run' ueber 5,5 km um 17:00 Uhr (15,00 EUR, 371 Plaetze). Gespeichert waren 6 km und die Sportart Triathlon - es ist ein Volkslauf. Er steht jetzt unter seinem eigenen Namen in manual_events.json. WARUM NICHT per Override: Ein Override, der laenge_km aendert, bricht seinen eigenen distanzgenauen Schluessel fuer die SPAETEREN Schritte - fix_multisport_art1() sucht den Override mit der schon korrigierten Distanz, findet ihn nicht mehr und setzt art1 wieder auf Triathlon (der Name der Veranstaltung enthaelt das Wort). Geprueft 2026-09-18."
+  },
+  "OstseeMan Triathlon Glücksburg|2027-07-31|5.5": {
+    "exclude": true,
+    "_note": "Kein Triathlon-Wettbewerb: Der OstseeMan bietet neben Lang- (226 km) und Mitteldistanz (113 km) einen 'Glueck in Sicht Charity Run' ueber 5,5 km um 17:00 Uhr (15,00 EUR, 371 Plaetze). Gespeichert waren 6 km und die Sportart Triathlon - es ist ein Volkslauf. Er steht jetzt unter seinem eigenen Namen in manual_events.json. WARUM NICHT per Override: Ein Override, der laenge_km aendert, bricht seinen eigenen distanzgenauen Schluessel fuer die SPAETEREN Schritte - fix_multisport_art1() sucht den Override mit der schon korrigierten Distanz, findet ihn nicht mehr und setzt art1 wieder auf Triathlon (der Name der Veranstaltung enthaelt das Wort). Geprueft 2026-09-18. Dieser Schluessel mit 5,5 km ist noetig, weil ein frueherer Override die Distanz bereits von 6 auf 5,5 km gesetzt hatte - der Schluessel mit 6 km trifft die Zeile seitdem nicht mehr. Beide stehen hier, damit auch ein neuer Scraper-Lauf (der wieder 6 km liefert) die Zeile ausschliesst."
   }
 }

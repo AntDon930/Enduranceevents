@@ -80,9 +80,9 @@
   },
   "Triple Ultra Triathlon Lensahn|2027-07-30": {
     "am": "2026-09-18",
-    "ergebnis": "korrigiert",
-    "quelle": "triathlonlensahn.de, Wikipedia",
-    "notiz": "Streckenbasiert (678 km = 3x Ironman), nicht 24 h."
+    "ergebnis": "quelle_ok",
+    "quelle": "portal.run-timing.de/1027, triathlonlensahn.de",
+    "notiz": "Die 678 km stimmen: Ein Triple Ultra ist die dreifache Langdistanz - 11,4 km Schwimmen, 540 km Rad, 126,6 km Laufen = 678 km. Termin '30. Juli - 01. August 2027', Veranstalter TSV Lensahn von 1924. Der Bericht meldet die Zahl nur, weil sie zu keinem der vier Standardformate passt."
   },
   "Indoor-Triathlon Aschersleben|2027-01-23": {
     "am": "2026-09-18",
@@ -989,5 +989,35 @@
     "ergebnis": "unklar",
     "quelle": "berlin-triathlon.de/Ausschreibung/Strecken, finishers.com",
     "notiz": "Die echten Formate sind bekannt: Olympische Distanz 1,5 km Schwimmen - 38 km Rad - 10,1 km Laufen = 49,6 km; Sprint 0,75 - 20 - 4,7 = 25,5 km; Mitteldistanz 1,9 - 89 - 21 = 111,9 km; dazu Fitness, Swim und Kids (100 m / 2,5 km / 400 m). OFFEN: Unsere drei Zeilen tragen 5, 9 und 19 km mit den Labels '5 km', '9 km' und '19 km' - keine davon passt zu einer Teilstrecke ODER einer Gesamtstrecke dieser Formate. Welche Zeile welchen Wettbewerb meint, ist nicht zu sagen; geraten wird nicht. Die Strecken-Seite selbst ist nur unter berlin-triathlon.de/Ausschreibung/Strecken/mobile/ erreichbar, die anderen Pfade antworten mit 404."
+  },
+  "Büchener Triathlon|2027-05-30": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlondeutschland.de, shtu.de",
+    "notiz": "Beide Zeilen waren die Radstrecke: 21 -> 26,5; 42 -> 53 km."
+  },
+  "Jedermanntriathlon|2027-08-21": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "jedermann-triathlon.de",
+    "notiz": "20 km (Radstrecke) -> 25,1 km (0,6 + 20 + 4,5)."
+  },
+  "OstseeMan Triathlon Glücksburg|2027-07-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "time2win.at/event/1082",
+    "notiz": "Lang- und Mitteldistanz stimmen (226 und 113 km). Die dritte Zeile war der 'Glueck in Sicht Charity Run' - 5,5 km Laufen, nicht 6 km Triathlon; er steht jetzt unter eigenem Namen."
+  },
+  "Wanzleber Sparkassen Triathlon|2027-07-04": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "triathlon-wanzleben.de",
+    "notiz": "Gespeichert sind 5 km - das ist mit grosser Wahrscheinlichkeit die Laufstrecke, nicht die Gesamtstrecke (Datenregel 15). Die Seite des Veranstalters nennt die Teilstrecken nicht auf der Startseite, sondern nur in einer verlinkten Ausschreibung, und sie fuehrt den '13. Wanzleber Sparkassen Triathlon' fuer den 05.07.2026 - unser Eintrag steht auf dem 04.07.2027. Ohne Ausschreibung nichts geaendert."
+  },
+  "triathlon.de CUP München|2027-06-25": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "triathlon.de/pages/triathlon-de-cup-muenchen-2026",
+    "notiz": "Gespeichert sind 10 und 20 km - das sind mit grosser Wahrscheinlichkeit Rad- oder Laufstrecken, nicht Gesamtstrecken (Datenregel 15). Die Seite nennt 'Volkstriathlon' und 'Grand Prix' als Formate, die Teilstrecken stehen aber nur in der verlinkten Ausschreibung; ausserdem nennt sie 'Triathlon Muenchen - 15./16./17. Mai 2026', unser Eintrag steht auf dem 25.06.2027. Ohne Ausschreibung nichts geaendert."
   }
 }
