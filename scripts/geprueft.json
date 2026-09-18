@@ -467,5 +467,29 @@
     "ergebnis": "korrigiert",
     "quelle": "winterlaufserie.net",
     "notiz": "Drei Termine, je eine Hauptstrecke: 13.12. = 13 km, 17.01. = 17 km, 21.02. = Halbmarathon. Der Halbmarathon lag auf dem Dezember-Termin. FEHLT: der 17-km-Lauf am 17.01.2027."
+  },
+  "Britzinger Silvesterlauf|2026-12-13": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "runme.de, freiburg.run, my.raceresult.com/377493",
+    "notiz": "Datum auf den 31.12.2026 gesetzt; die 10 km stimmen. Der Zeitraum kam daher, dass die Anmeldeseite Silvesterlauf UND Nikolauslauf (13.12.) zusammenfasst. Der Nikolauslauf fehlt - ohne Streckenangabe nicht nachtragbar. Mit dem richtigen Datum verschmolz die Zeile mit dem schon vorhandenen '42. Internationaler Britzinger Silvesterlauf' - ein Duplikat, das das falsche Datum verdeckt hatte."
+  },
+  "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)|2026-09-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "sg-zons.de",
+    "notiz": "7-Meilen-Lauf 11.263 m bestaetigt, offizielle Seite statt Portallink. Der Jedermannlauf (3,1 Meilen = 5 km) fehlte und ist nachgetragen. Der lange Name ist die Bezeichnung der Quelle - umbenennen kann ein Override nicht, der Name ist Teil des Schluessels."
+  },
+  "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km|2026-12-24": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "baerenfelslauf.de, runme.de",
+    "notiz": "Drei Wettbewerbe (Marathon 5 Runden, 10 Meilen = 16,2 km, Hauptlauf 8,5 km), gespeichert war nur der Marathon. Zwei Strecken nachgetragen, offizielle Seite statt Portallink."
+  },
+  "Winterlaufserie Eckernförde|2027-01-10": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com/401813, running.life, runme.de",
+    "notiz": "Die vier Strecken (5, 10, 15, 21,1 km) sind plausibel, der ZEITRAUM nicht: Gespeichert ist 10.01.-07.02.2027 als EIN Event. Die 2. Auflage lief vom 12.01. bis 09.02.2025, es ist also eine Serie mit mehreren Terminen. running.life sagt ausdruecklich, die 2027er Termine seien eine Vorhersage aus dem Vorjahr und die Anmeldung noch nicht offen - der Veranstalter hat sie noch nicht veroeffentlicht. Ohne Ausschreibung nichts geaendert. ALLGEMEIN ZU PRUEFEN: Wie viele unserer Termine in 2027/2028 sind solche Vorhersagen der Quelle und keine angekuendigten Daten?"
   }
 }

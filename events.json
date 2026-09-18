@@ -6772,7 +6772,21 @@
     "datum_start": "2026-09-25",
     "datum_ende": "2026-09-25",
     "laenge_km": 11.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002018660001"
+    "veranstalter_url": "https://sg-zons.de/7-meilen-lauf.html"
+  },
+  {
+    "land": "Deutschland",
+    "name": "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)",
+    "standort": "Dormagen-Zons",
+    "lat": 51.1253951,
+    "lon": 6.8475316,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-25",
+    "datum_ende": "2026-09-25",
+    "laenge_km": 5.0,
+    "wettbewerb": "Jedermannlauf über 3,1 Meilen",
+    "veranstalter_url": "https://sg-zons.de/7-meilen-lauf.html"
   },
   {
     "land": "Deutschland",
@@ -32851,20 +32865,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Britzinger Silvesterlauf",
-    "standort": "Müllheim im Markgräflerland",
-    "lat": 47.8091623,
-    "lon": 7.6180353,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/377493/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Friedenslichtlauf",
     "standort": "Mainaschaff",
     "lat": 49.9817853,
@@ -33647,7 +33647,35 @@
     "datum_start": "2026-12-24",
     "datum_ende": "2026-12-24",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000112660001"
+    "veranstalter_url": "https://www.baerenfelslauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km",
+    "standort": "Neubrücke",
+    "lat": 49.6061935,
+    "lon": 7.1728826,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "datum_start": "2026-12-24",
+    "datum_ende": "2026-12-24",
+    "laenge_km": 16.2,
+    "wettbewerb": "10-Meilen-Lauf",
+    "veranstalter_url": "https://www.baerenfelslauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km",
+    "standort": "Neubrücke",
+    "lat": 49.6061935,
+    "lon": 7.1728826,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "datum_start": "2026-12-24",
+    "datum_ende": "2026-12-24",
+    "laenge_km": 8.5,
+    "wettbewerb": "Hauptlauf",
+    "veranstalter_url": "https://www.baerenfelslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -34472,19 +34500,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "42. Internationaler Britzinger Silvesterlauf",
-    "standort": "Müllheim",
-    "lat": 47.810102,
-    "lon": 7.5995606,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 10.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000073460001"
-  },
-  {
-    "land": "Deutschland",
     "name": "42. Silvesterlauf 2026",
     "standort": "Gütersloh",
     "lat": 51.9166621,
@@ -34882,6 +34897,20 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "veranstalter_url": "https://my.raceresult.com/399181/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Britzinger Silvesterlauf",
+    "standort": "Müllheim im Markgräflerland",
+    "lat": 47.8091623,
+    "lon": 7.6180353,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://silvesterlauf-britzingen.de/"
   },
   {
     "land": "Deutschland",

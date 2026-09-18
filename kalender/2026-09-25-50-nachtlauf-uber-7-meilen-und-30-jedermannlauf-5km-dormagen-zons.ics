@@ -4,16 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-25-50-nachtlauf-uber-7-meilen-und-30-jedermannlauf-11-3km-dorm
- agen-zons@antdon930.github.io
+UID:2026-09-25-50-nachtlauf-uber-7-meilen-und-30-jedermannlauf-5km-dormage
+ n-zons@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3\,1 Meilen
-  (5 km)
+  (5 km) – Jedermannlauf über 3\,1 Meilen
 LOCATION:Dormagen-Zons\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.3 km\nhttps://sg-zons.de/
- 7-meilen-lauf.html
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sg-zons.de/7-m
+ eilen-lauf.html
 TRANSP:TRANSPARENT
 URL:https://sg-zons.de/7-meilen-lauf.html
 END:VEVENT

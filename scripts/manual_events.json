@@ -464,6 +464,54 @@
       "veranstalter_url": "https://www.wis-potsdam.de/projektvielfalt/prowissen-lauf/",
       "_quelle": "https://www.wis-potsdam.de/projektvielfalt/prowissen-lauf/",
       "_note": "wis-potsdam.de nennt '5km' und '10km' als zwei Wettbewerbe (beide Start 11:15 Uhr, je 15,- EUR) plus einen Bambini-Lauf ueber 800 m. Gespeichert war nur die 10-km-Zeile; das Label der Quelle ('3 000 m, 5 km, 10 km (ab 18 Jahre)') faengt _trenne_doppelte_distanzen() nicht, weil es nicht mit 'A km / B km' beginnt. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)",
+      "standort": "Dormagen-Zons",
+      "lat": 51.1253951,
+      "lon": 6.8475316,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-09-25",
+      "datum_ende": "2026-09-25",
+      "laenge_km": 5.0,
+      "wettbewerb": "Jedermannlauf über 3,1 Meilen",
+      "veranstalter_url": "https://sg-zons.de/7-meilen-lauf.html",
+      "_quelle": "https://sg-zons.de/7-meilen-lauf.html",
+      "_note": "sg-zons.de: Neben dem 7-Meilen-Lauf (11.263 m, Start 20:00 Uhr) gibt es den Jedermannlauf ueber 3,1 Meilen, Start 19:00 Uhr im Heidestadion, offen ab 10 Jahren; das Teilnehmerlimit nennt ihn '5 km-Lauf: 750 Laeufer/innen'. Gespeichert war nur der 7-Meilen-Lauf. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km",
+      "standort": "Neubrücke",
+      "lat": 49.6061935,
+      "lon": 7.1728826,
+      "art1": "Laufen",
+      "art2": "Trail/Cross",
+      "datum_start": "2026-12-24",
+      "datum_ende": "2026-12-24",
+      "laenge_km": 16.2,
+      "wettbewerb": "10-Meilen-Lauf",
+      "veranstalter_url": "https://www.baerenfelslauf.de/",
+      "_quelle": "https://www.baerenfelslauf.de/",
+      "_note": "baerenfelslauf.de: '10-Meilen-Lauf (16,2 km) 2 Runden (350 Hoehenmeter)', Start 10:00 Uhr. Gespeichert war nur der Marathon. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km",
+      "standort": "Neubrücke",
+      "lat": 49.6061935,
+      "lon": 7.1728826,
+      "art1": "Laufen",
+      "art2": "Trail/Cross",
+      "datum_start": "2026-12-24",
+      "datum_ende": "2026-12-24",
+      "laenge_km": 8.5,
+      "wettbewerb": "Hauptlauf",
+      "veranstalter_url": "https://www.baerenfelslauf.de/",
+      "_quelle": "https://www.baerenfelslauf.de/",
+      "_note": "baerenfelslauf.de: 'Hauptlauf 8,5 km = 1 Runde (175 Hoehenmeter)', Start 10:00 Uhr. Gespeichert war nur der Marathon. Geprueft 2026-09-18."
     }
   ]
 }
