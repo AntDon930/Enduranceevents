@@ -1767,6 +1767,46 @@ def test_mehrsport_teilstrecken() -> None:
           guess_distance_km("5 km, 10 km, 42,195 km", CONFIG), 42.2)
 
 
+def test_kalender_staging() -> None:
+    """`stage_kalender()` fasst den Git-Index nur in GitHub Actions an.
+
+    Der Umweg gibt es, weil GitHub den `schedule`-Trigger nur aus dem
+    Standard-Branch liest und die `update-events.yml` auf `main` ein
+    älterer Stand ist: Sie committet `git add events.json` OHNE
+    `kalender`. `git commit` committet aber den INDEX - was hier gestaget
+    ist, geht also mit.
+
+    Geprüft wird vor allem die Gegenprobe: **Lokal darf das Skript den
+    Index NIE anfassen.** Ein Werkzeug, das ungefragt `git add` ausführt,
+    wäre eine böse Überraschung.
+    """
+    print("\nKalenderdateien für den Commit vormerken (stage_kalender):")
+    import os
+    import subprocess
+    from update_events import stage_kalender
+
+    skripte = Path(__file__).resolve().parent
+    wurzel = skripte.parent
+
+    alt = os.environ.pop("GITHUB_ACTIONS", None)
+    try:
+        vorher = subprocess.run(["git", "diff", "--cached", "--name-only"],
+                                cwd=wurzel, capture_output=True, text=True).stdout
+        stage_kalender()
+        nachher = subprocess.run(["git", "diff", "--cached", "--name-only"],
+                                 cwd=wurzel, capture_output=True, text=True).stdout
+        check("ohne GITHUB_ACTIONS bleibt der Index unberührt", nachher, vorher)
+    finally:
+        if alt is not None:
+            os.environ["GITHUB_ACTIONS"] = alt
+
+    quelle = (skripte / "update_events.py").read_text(encoding="utf-8")
+    check("der Aufruf steht in run_build_ics()",
+          "    stage_kalender()\n    return True" in quelle, True)
+    check("und ist an GITHUB_ACTIONS gebunden",
+          'os.environ.get("GITHUB_ACTIONS")' in quelle, True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1780,6 +1820,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_serientermin_im_label,
+                 test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,

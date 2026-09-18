@@ -157,7 +157,46 @@ def run_build_ics(events_json: Path) -> bool:
         print(f"⚠ {script.name} fehlgeschlagen (exit code {result.returncode}) – "
               "kalender/ ist dann nicht auf dem neuesten Stand.")
         return False
+    stage_kalender()
     return True
+
+
+def stage_kalender() -> None:
+    """Legt die gerade erzeugten `.ics`-Dateien in den Git-Index.
+
+    Nur in GitHub Actions, und ein Fehlschlag bleibt still – lokal ändert
+    das Skript nie den Index.
+
+    Warum es das überhaupt gibt: **GitHub liest den `schedule`-Trigger nur
+    aus dem Standard-Branch**, und die `update-events.yml` auf `main` ist
+    ein älterer Stand. Sie committet `git add events.json` OHNE
+    `kalender`. Genau daran ist die CI am 18.09.2026 viermal hintereinander
+    rot geworden: Der Datenlauf schrieb eine neue `events.json` und ließ
+    die `.ics`-Dateien liegen, und die Prüfung „kalender/ passt zu
+    events.json" schlug bei JEDEM folgenden Push fehl – auch bei solchen,
+    die mit den Daten nichts zu tun hatten.
+
+    Der eigentliche Fix ist ein Push auf `main`, und der braucht die
+    ausdrückliche Erlaubnis des Nutzers. Bis dahin hilft dieser Umweg:
+    `git commit` committet den INDEX, nicht nur die Pfade hinter
+    `git add` – was hier gestaget ist, geht also mit, ohne dass die
+    Workflow-Datei auf `main` etwas davon wissen muss. Die Fassung auf
+    diesem Branch macht es ohnehin richtig (`git add events.json
+    kalender`), dort ist der Aufruf ein No-op.
+    """
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    kalender = REPO_ROOT / "kalender"
+    if not kalender.exists():
+        return
+    try:
+        subprocess.run(["git", "add", "kalender"], cwd=REPO_ROOT, check=True,
+                       capture_output=True)
+    except (OSError, subprocess.CalledProcessError) as exc:
+        print(f"⚠ 'git add kalender' fehlgeschlagen ({exc}) – die .ics-Dateien "
+              "müssen dann von Hand committet werden.")
+        return
+    print("  (kalender/ für den Commit vorgemerkt – siehe stage_kalender().)")
 
 
 def run_cleanup(events_json: Path) -> bool:

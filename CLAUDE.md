@@ -1647,6 +1647,17 @@ den Daten nichts zu tun hatten. Behoben wurde die Folge
 Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
 `main`, also die ausdrückliche Erlaubnis des Nutzers.
 
+**Bis dahin steht ein Umweg in `update_events.py`**: `stage_kalender()`
+legt die frisch erzeugten `.ics`-Dateien nach `build_ics.py` in den
+Git-Index – nur in GitHub Actions, lokal nie. `git commit` committet den
+INDEX, nicht nur die Pfade hinter `git add`; was dort gestaget ist, geht
+also mit, ohne dass die Workflow-Datei auf `main` etwas davon wissen
+muss. Auf diesem Branch (`git add events.json kalender`) ist der Aufruf
+ein No-op. `test_kalender_staging` hält vor allem die Gegenprobe fest:
+**lokal darf das Skript den Index NIE anfassen.** Der Umweg ersetzt den
+Fix nicht – er verhindert nur, dass der nächste Datenlauf die CI wieder
+rot färbt, während der Nutzer nicht da ist.
+
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
 Ausschreibung geprüft. Ohne dieses Protokoll fängt jede Sitzung von
