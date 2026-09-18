@@ -1421,6 +1421,18 @@ def test_audit_pruefungen() -> None:
           "Koordinaten passen nicht zum Land"
           in kategorien(lat=41.9, lon=12.5), True)
 
+    check("ein Probe-Eintrag des Kalenders wird gemeldet",
+          "Testeintrag der Quelle?"
+          in kategorien(name="TESTVERANSTALTUNG Neujahrslauf"), True)
+    # Der Basisname dieser Prüfungen ist „Testlauf" - und genau der darf
+    # NICHT anschlagen: Ein Lauf kann so heißen. Gemeldet wird nur das
+    # eindeutige „TESTVERANSTALTUNG" (gefunden am 02.01.2030, Dolgesheim).
+    check("ein Lauf namens „Testlauf“ ist KEIN Fall",
+          "Testeintrag der Quelle?" in kategorien(), False)
+    check("und „Härtetest-Lauf“ auch nicht",
+          "Testeintrag der Quelle?"
+          in kategorien(name="12. Härtetest-Lauf Sauerland"), False)
+
     # --- Gegenproben: die drei Fehlalarme der ersten Fassung ----------
     check("ein Jugendlauf über 5,6 km ist KEIN Fall",
           "Kinderlauf-Label mit Erwachsenendistanz"

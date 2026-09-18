@@ -491,5 +491,23 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com/401813, running.life, runme.de",
     "notiz": "Die vier Strecken (5, 10, 15, 21,1 km) sind plausibel, der ZEITRAUM nicht: Gespeichert ist 10.01.-07.02.2027 als EIN Event. Die 2. Auflage lief vom 12.01. bis 09.02.2025, es ist also eine Serie mit mehreren Terminen. running.life sagt ausdruecklich, die 2027er Termine seien eine Vorhersage aus dem Vorjahr und die Anmeldung noch nicht offen - der Veranstalter hat sie noch nicht veroeffentlicht. Ohne Ausschreibung nichts geaendert. ALLGEMEIN ZU PRUEFEN: Wie viele unserer Termine in 2027/2028 sind solche Vorhersagen der Quelle und keine angekuendigten Daten?"
+  },
+  "TESTVERANSTALTUNG Neujahrslauf|2030-01-02": {
+    "am": "2026-09-18",
+    "ergebnis": "entfernt",
+    "quelle": "laufen.de",
+    "notiz": "Probe-Eintrag des Kalenders, keine Veranstaltung."
+  },
+  "Transeuropalauf|2028-08-03": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "neckarlauf.com",
+    "notiz": "Alles bestaetigt: 'Donnerstag 03. 08. 2028 bis 08. September 2028', 'Die Streckenlaenge betraegt zirka 2067 km', Start Flensburg, Ziel Bardolino am Gardasee. Die 37 Tage und die 2067 km sind richtig - ein echter Etappenlauf, kein Datenfehler."
+  },
+  "13. Alstätter Sandhasenlauf|2030-03-10": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com/370919, flvw.de",
+    "notiz": "Der Termin liegt vier Jahre in der Zukunft, ist aber in sich stimmig: Die 9. Auflage war am 01.03.2026, die 13. faellt damit auf 2030. Der Eintrag stammt aus dem FLVW-Laufkalender (Kennung '30L19000394360001', 30 = 2030). Der Veranstalter (alstaetter-sandhasenlauf.de) nennt so weit im Voraus nichts, also nicht zu bestaetigen - es ist vermutlich ein Vorab-Eintrag des Verbands."
   }
 }

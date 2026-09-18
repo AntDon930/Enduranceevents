@@ -59577,19 +59577,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "TESTVERANSTALTUNG Neujahrslauf",
-    "standort": "Dolgesheim",
-    "lat": 49.7944,
-    "lon": 8.25694,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2030-01-02",
-    "datum_ende": "2030-01-02",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/30V12000008760001"
-  },
-  {
-    "land": "Deutschland",
     "name": "13. Alstätter Sandhasenlauf",
     "standort": "Ahaus-Alstätte",
     "lat": 52.1767674,

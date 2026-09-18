@@ -151,6 +151,11 @@ def _label(event: dict) -> str:
     return ((event.get("wettbewerb") or "") or (event.get("name") or "")).lower()
 
 
+# Probe-Einträge der Kalenderportale. Nur dieses eine, eindeutige Wort -
+# "Testlauf" oder "Test-Run" kann ein echter Veranstaltungsname sein.
+TESTEINTRAG_RE = re.compile(r"testveranstaltung|\btest[- ]?event\b", re.I)
+
+
 def pruefe_event(event: dict) -> list[tuple[str, str]]:
     """Alle Prüfungen für EINE Zeile. Gibt (Kategorie, Meldung) zurück."""
     funde: list[tuple[str, str]] = []
@@ -163,6 +168,16 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
     def melde(kategorie: str, zusatz: str = "") -> None:
         funde.append((kategorie, f"{datum} {name!r} [{wb or '-'}]"
                       + (f" -> {zusatz}" if zusatz else "")))
+
+    # --- Testeintrag der Quelle ---------------------------------------
+    # Kalenderportale legen Probe-Einträge an, die im öffentlichen
+    # Kalender stehen bleiben. Gefunden wurde eine "TESTVERANSTALTUNG
+    # Neujahrslauf" am 02.01.2030 in Dolgesheim (laufen.de). Bewusst nur
+    # dieses eine Wort und nur als MELDUNG: "Testlauf" kann ein echter
+    # Veranstaltungsname sein, gelöscht wird nach Einzelprüfung über
+    # manual_overrides.json.
+    if TESTEINTRAG_RE.search(name):
+        melde("Testeintrag der Quelle?")
 
     # --- Name gegen Datum ---------------------------------------------
     # „ONW-Lauf Dannenberg 2025" an einem Termin im Jahr 2026. Ein
