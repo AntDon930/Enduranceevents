@@ -625,6 +625,69 @@ Drei Lektionen:
 Distanzangabe. Beides sind keine falschen Daten - die Quelle nennt sie
 schlicht nicht, und Datenregel 2 verbietet das Raten.
 
+### Dritter Durchgang: die Berichte abgearbeitet (18./19.09.2026)
+
+Statt der nächsten 200 nach Datum wurden diesmal die **Berichte**
+durchgegangen – `audit_events.py --offen` und die `⚠`-Meldungen von
+`clean_events.py`. Das ist die ergiebigere Reihenfolge: Dort steht, wo
+etwas nicht stimmen KANN, statt jede Zeile gleich zu behandeln.
+
+Stand danach (4.335 → **4.254 Events**, 275 Overrides, 175 Einzel­prüfungen
+im Protokoll, 45 nachgetragene Strecken):
+
+| Bericht | vorher | nachher |
+|---|---|---|
+| Gleiche Veranstalter-Seite, gleiche Distanz | 32 | 5 |
+| Gleicher Tag, Ort und Distanz, anderer Name | 57 | 7 |
+| Triathlon-Distanz passt zu keinem Format | 40 | 15 |
+| Mehrsport: Zeile sieht nach Teilstrecke aus | 3 | 0 |
+| Verdächtige Distanz | 23 | 18 |
+| audit: auffällige Distanz / keine Koordinaten / >1 Woche / Zahl im Label | 24/12/44/5 | 19/0/7/0 |
+
+Die Reste sind **geprüft und keine Fehler** – der Bericht meldet sie nur,
+weil seine Bedingung grob ist (± 0,5 km, oder „passt zu keinem der vier
+Standardformate").
+
+Fünf Muster, die dabei herauskamen und beim großen Datenlauf wieder
+auftreten werden:
+
+1. **Dieselbe Veranstaltung unter zwei Namen.** Einmal der förmliche
+   Kalendername von laufen.de (ohne Wettbewerbs-Label, mit Portallink),
+   einmal die Seite des Veranstalters (mit allen Strecken und Labels).
+   `is_same_event()` sieht das nicht – „33. Lauf Rund um den Grengel"
+   und „Grengellauf" haben kein gemeinsames Wort. 29 Fälle.
+2. **Meisterschaften, die IM Rahmen eines Volkslaufs laufen**, stehen
+   ein zweites Mal im Kalender (Bayerische Halbmarathon-Meisterschaften
+   = Aschaffenburger Halbmarathon, Deutsche Polizeimeisterschaften =
+   Crosslauf in den Ravensbergen). Wer starten will, meldet sich beim
+   Volkslauf an. 7 Fälle – das ist eine Entscheidung, die der Nutzer
+   umdrehen kann.
+3. **Laufserien**: `expand_competitions()` hängt jede Distanz an jeden
+   Termin. Bei der Hammer Winterlaufserie waren von neun Zeilen sechs
+   erfunden. Und die Zeilen des ERSTEN Termins spannen oft bis zum Ende
+   der Serie (Bramfelder, Alfter, Bühlauer, Wilhelmsburg, HKK).
+4. **Ein Datenfehler verdeckt ein Duplikat.** Dreimal an einem Tag:
+   Fehlende Koordinaten beim Rodheimer Volkslauf, ein falsches Datum
+   beim Britzinger Silvesterlauf, ein falscher Ort beim Isar-Lauf Bad
+   Tölz – erst nach der Korrektur griff die Duplikat-Erkennung (ihre
+   Ortsbedingung erlaubt 30 km, mehr nicht).
+5. **Die Radstrecke als Länge des Triathlons** – siehe Datenregel 15,
+   der größte systematische Fehler im ganzen Bestand.
+
+Offen geblieben und im Protokoll als `unklar` abgelegt (11 Fälle),
+darunter drei, die eine **Entscheidung des Nutzers** brauchen:
+
+- **Virtuelle Läufe**: „Blaues Land läuft – XMAS-Challenge" ist „Egal wo,
+  egal wann", fünf Wochen lang, ohne Ort und ohne Koordinaten. Gehören
+  solche Events in eine Liste, die auf Karte und Umkreissuche gebaut ist?
+- **Abgesagte Veranstaltungen** erkennt niemand – weder die Scraper noch
+  `clean_events.py`. Beim Marner Kohltagelauf schreibt der Veranstalter
+  „Leider müssen wir den Kohltagelauf 2026 … absagen!", wirbt daneben
+  aber weiter mit „Melde dich jetzt für 2026 an!".
+- **Staffeln**: Beim Celler Staffelmarathon steht die TEAM-Gesamtstrecke
+  in `laenge_km` (42,195 km auf vier Läufer), beim „DUO Marathon
+  2 x 21,1 km" dagegen die Teilstrecke. Das gehört vereinheitlicht.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
