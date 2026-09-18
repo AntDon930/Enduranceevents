@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:8. Nassauer Hospiz-Charity-Run 2026
 LOCATION:Nassau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V13001002460000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hospiz-na
+ ssau.de/hospizlauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13001002460000
+URL:https://www.hospiz-nassau.de/hospizlauf
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-heidi-challenge-63km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261015
+SUMMARY:Heidi-Challenge – Tour City Berlin 63\,0 km
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 63 km\nhttps://heidichalleng
+ e.run
+TRANSP:TRANSPARENT
+URL:https://heidichallenge.run
+END:VEVENT
+END:VCALENDAR

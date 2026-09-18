@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-uckermarkischer-rolandlauf-12km-prenzlau@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Uckermärkischer Rolandlauf
+LOCATION:Prenzlau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.rolandlau
+ f-prenzlau.de/
+TRANSP:TRANSPARENT
+URL:https://www.rolandlauf-prenzlau.de/
+END:VEVENT
+END:VCALENDAR

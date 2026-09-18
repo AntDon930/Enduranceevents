@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-14-seidenraupen-cross-6km-krefeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:14. Seidenraupen Cross
+LOCATION:Krefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6 km\nhttps://seidenrau
+ pen.org/seidenraupencross/
+TRANSP:TRANSPARENT
+URL:https://seidenraupen.org/seidenraupencross/
+END:VEVENT
+END:VCALENDAR

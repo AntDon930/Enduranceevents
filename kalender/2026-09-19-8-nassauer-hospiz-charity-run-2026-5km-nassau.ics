@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-8-nassauer-hospiz-charity-run-2026-5km-nassau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:8. Nassauer Hospiz-Charity-Run 2026
+LOCATION:Nassau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.hospiz-nas
+ sau.de/hospizlauf
+TRANSP:TRANSPARENT
+URL:https://www.hospiz-nassau.de/hospizlauf
+END:VEVENT
+END:VCALENDAR

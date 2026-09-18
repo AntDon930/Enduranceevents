@@ -61,6 +61,13 @@ python3 -c "import json; ev=json.load(open('events.json')); print(len(ev))"
 python3 scripts/test_scraper_lib.py     # muss grün sein
 ```
 
+Der Test prüft auch, ob `kalender/` zu `events.json` passt. Schlägt er
+dort an (typisch nach einem Datenlauf), hilft:
+
+```bash
+python3 scripts/build_ics.py            # und die Dateien mitcommitten
+```
+
 Wurde `filters.js`, `filter-ui.js` oder `filter-ui.css` angefasst,
 **vorher** stempeln (der Test schlägt sonst fehl und sagt es auch):
 
@@ -1001,6 +1008,22 @@ also jeden Tag zu Recht; mit `--no-geocoding`, damit nicht jeder Push
 Nominatim befragt) und die Frage, ob `kalender/` zu `events.json` passt – und getrennt davon `smoke_test_frontend.py` in
 Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
 **Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
+
+**⚠ Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
+diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
+Standard-Branch – und die Datei dort ist ein **älterer Stand**: täglich
+statt wöchentlich, `git add events.json` **ohne `kalender`**, ohne
+`timeout-minutes`, ohne die NOTIFY-Secrets. Genau daran ist die CI am
+18.09.2026 viermal hintereinander rot geworden: Der Datenlauf committete
+eine neue `events.json` (4.154 → 4.344 Events) und ließ die
+`.ics`-Dateien liegen; der CI-Schritt „kalender/ passt zu events.json"
+schlug deshalb bei JEDEM folgenden Push fehl, auch bei solchen, die mit
+den Daten nichts zu tun hatten. Behoben wurde die Folge
+(`build_ics.py` laufen lassen und mitcommitten) und die Erkennung
+(`test_kalenderdateien` vergleicht jetzt auch `kalender/` mit
+`events.json`, siehe „Vor jedem Commit"). **Die Ursache bleibt, bis die
+Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
+`main`, also die ausdrückliche Erlaubnis des Nutzers.
 
 `.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
 (vorher täglich – solange die Seite nicht live ist, bringt ein täglicher

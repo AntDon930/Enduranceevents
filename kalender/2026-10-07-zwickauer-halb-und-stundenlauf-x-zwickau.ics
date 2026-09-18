@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-07-zwickauer-halb-und-stundenlauf-x-zwickau@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:Zwickauer Halb- und Stundenlauf
+LOCATION:Zwickau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sv-vorwaerts-zwic
+ kau.de/
+TRANSP:TRANSPARENT
+URL:https://sv-vorwaerts-zwickau.de/
+END:VEVENT
+END:VCALENDAR

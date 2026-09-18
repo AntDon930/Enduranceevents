@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-herbstfestlauf-niederstetten-10km-niederstetten@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Herbstfestlauf Niederstetten
+LOCATION:Niederstetten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufgemeinsch
+ aft-tauberfranken.de/29-niederstettener-herbstlauf/
+TRANSP:TRANSPARENT
+URL:https://laufgemeinschaft-tauberfranken.de/29-niederstettener-herbstlau
+ f/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-sparkasse-3-lander-marathon-11km-bregenz@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Sparkasse 3-Länder-Marathon – 11 km Nordic Walking
+LOCATION:Bregenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.sparkasse
+ -3-laender-marathon.at/de/home/
+TRANSP:TRANSPARENT
+URL:https://www.sparkasse-3-laender-marathon.at/de/home/
+END:VEVENT
+END:VCALENDAR

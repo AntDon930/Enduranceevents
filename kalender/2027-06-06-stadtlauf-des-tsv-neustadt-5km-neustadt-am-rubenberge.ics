@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-stadtlauf-des-tsv-neustadt-5km-neustadt-am-rubenberge@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Stadtlauf des TSV Neustadt
+LOCATION:Neustadt am Rübenberge\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49165/15.-Neust%C3%A4dter-Stadtlauf-Neustadt-am-R%C3%BCben
+ berge.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49165/15.-Neust%C3%A4dter-Stadtla
+ uf-Neustadt-am-R%C3%BCbenberge.htm
+END:VEVENT
+END:VCALENDAR

@@ -604,6 +604,33 @@ def test_kalenderdateien() -> None:
     check("events.html und build_ics.py erzeugen dieselben Dateinamen",
           js_namen, py_namen)
 
+    # Und: passt der Ordner kalender/ überhaupt zu events.json?
+    #
+    # Das prüft die CI ohnehin (Schritt "kalender/ passt zu events.json",
+    # dort inklusive Dateiinhalt) - aber erst NACH dem Push. Genau daran
+    # ist die CI viermal hintereinander rot geworden: Der wöchentliche
+    # Datenlauf hatte eine neue events.json committet, ohne die .ics-
+    # Dateien mitzunehmen. Lokal fiel das nicht auf, weil kein Test
+    # danach gesehen hat. Hier ist der Vergleich billig (nur die
+    # Dateinamen, keine Inhalte) und schlägt vor dem Commit an.
+    wurzel = Path(__file__).resolve().parent.parent
+    events_json = wurzel / "events.json"
+    kalender = wurzel / "kalender"
+    if events_json.exists() and kalender.is_dir():
+        events = _json.loads(events_json.read_text(encoding="utf-8"))
+        erwartet = set()
+        for e in events:
+            if e.get("datum_start") and e.get("name"):
+                erwartet.add(ics_dateiname(e))
+        vorhanden = {pfad.name for pfad in kalender.glob("*.ics")}
+        fehlend = sorted(erwartet - vorhanden)
+        ueberzaehlig = sorted(vorhanden - erwartet)
+        check("kalender/ hat eine Datei je Event (%d fehlen, %d zu viel)"
+              % (len(fehlend), len(ueberzaehlig)),
+              (fehlend[:3], ueberzaehlig[:3]), ([], []))
+        if fehlend or ueberzaehlig:
+            print("  -> python3 scripts/build_ics.py ausführen und mit committen")
+
 
 def test_meldungen() -> None:
     """Nutzer-Fehlermeldungen (scripts/review_reports.py): bündeln pro

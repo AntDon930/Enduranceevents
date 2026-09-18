@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-17-jetzendorfer-hobby-crosslauf-5-6km-jetzendorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:17. Jetzendorfer Hobby Crosslauf
+LOCATION:Jetzendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5.6 km\nhttps://tsv-jet
+ zendorf.com/leichtathletik/
+TRANSP:TRANSPARENT
+URL:https://tsv-jetzendorf.com/leichtathletik/
+END:VEVENT
+END:VCALENDAR

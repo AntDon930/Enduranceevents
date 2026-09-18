@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-weinstadtcross-6-6km-weinstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Weinstadtcross – Langstrecke
+LOCATION:Weinstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6.6 km\nhttps://weinsta
+ dtcross.de/
+TRANSP:TRANSPARENT
+URL:https://weinstadtcross.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-25-marner-kohltagelauf-10km-marne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:25. Marner Kohltagelauf – 10 km für verschiedene Jahrgänge\, Gebüh
+ ren 8\,00–19\,00 EUR
+LOCATION:Marne\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/396063/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/396063/
+END:VEVENT
+END:VCALENDAR

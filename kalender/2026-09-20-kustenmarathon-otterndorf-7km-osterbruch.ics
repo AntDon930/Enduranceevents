@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-kustenmarathon-otterndorf-7km-osterbruch@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Küstenmarathon Otterndorf – Handbiker/Pedalo 7 km\, offene Altersk
+ lasse
+LOCATION:Osterbruch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.davengo.co
+ m/event/overview/696e5b049486bf4146958a9b
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/696e5b049486bf4146958a9b
+END:VEVENT
+END:VCALENDAR

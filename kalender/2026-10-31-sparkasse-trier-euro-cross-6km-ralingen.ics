@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-sparkasse-trier-euro-cross-6km-ralingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Sparkasse Trier EURO-Cross
+LOCATION:Ralingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6 km\nhttps://ladv.de/a
+ usschreibung/detail/49275/Sparkasse-Trier-Euro-Cross-2026-LVRR-Regiom-Tri
+ er-Crosslauf-Ralingen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49275/Sparkasse-Trier-Euro-Cross-
+ 2026-LVRR-Regiom-Trier-Crosslauf-Ralingen.htm
+END:VEVENT
+END:VCALENDAR

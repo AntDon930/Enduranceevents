@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-unterallgauer-triathlon-x-ottobeuren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Unterallgäuer Triathlon
+LOCATION:Ottobeuren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.triathlon-ott
+ obeuren.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-ottobeuren.de/
+END:VEVENT
+END:VCALENDAR

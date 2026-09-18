@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Herbstlauf des LSV Porz
 LOCATION:Köln-Porz-Eil\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V10003012060006
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://time-and-vo
+ ice.com/de/running/herbstlauf-2026
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10003012060006
+URL:https://time-and-voice.com/de/running/herbstlauf-2026
 END:VEVENT
 END:VCALENDAR
