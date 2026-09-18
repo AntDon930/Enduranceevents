@@ -1343,6 +1343,76 @@ def test_zwei_sportarten_im_namen() -> None:
         check(f"{name!r} bleibt ein Lauf", guess_art1(name, config), "Laufen")
 
 
+def test_audit_pruefungen() -> None:
+    """Die Einzelprüfung meldet echte Fehler - und schweigt bei den
+    Fällen, die sie früher fälschlich gemeldet hat.
+
+    Der zweite Teil ist der wichtigere. Von den vier größten
+    Fundgruppen der ersten Prüfung waren drei Fehler der REGEL und
+    nicht der Daten (siehe CLAUDE.md). Jede dieser Korrekturen steht
+    hier als Gegenprobe, damit sie nicht beim nächsten Umbau
+    zurückrutscht.
+    """
+    print("\nEinzelprüfung (audit_events):")
+    from audit_events import pruefe_event
+
+    def kategorien(**felder):
+        basis = {"name": "Testlauf", "datum_start": "2026-09-19",
+                 "datum_ende": "2026-09-19", "standort": "Musterstadt",
+                 "land": "Deutschland", "lat": 50.0, "lon": 10.0,
+                 "art1": "Laufen", "art2": "Straße", "laenge_km": 10.0,
+                 "wettbewerb": "10 km",
+                 "veranstalter_url": "https://beispiel-lauf.de/"}
+        basis.update(felder)
+        return {k for k, _ in pruefe_event(basis)}
+
+    # --- Fälle, die gemeldet werden MÜSSEN ---------------------------
+    check("Kinderlauf mit 21,1 km wird gemeldet",
+          "Kinderlauf-Label mit Erwachsenendistanz"
+          in kategorien(wettbewerb="Kinderlauf", laenge_km=21.1), True)
+    check("Label '9 km' bei 8,5 km wird gemeldet",
+          "Zahl im Label weicht von laenge_km ab"
+          in kategorien(wettbewerb="9 km", laenge_km=8.5), True)
+    check("Jahreszahl 2025 an einem Termin 2026 wird gemeldet",
+          "Jahreszahl im Namen passt nicht zum Datum"
+          in kategorien(name="ONW-Lauf Dannenberg 2025"), True)
+    check("Name in Großbuchstaben wird gemeldet",
+          "Name komplett in Großbuchstaben"
+          in kategorien(name="BFUTR EXTREME UNTERWEGS"), True)
+    check("Portallink wird gemeldet",
+          "Portallink statt offizieller Seite"
+          in kategorien(veranstalter_url="https://my.raceresult.com/123/"), True)
+    check("Koordinate außerhalb Deutschlands wird gemeldet",
+          "Koordinaten passen nicht zum Land"
+          in kategorien(lat=41.9, lon=12.5), True)
+
+    # --- Gegenproben: die drei Fehlalarme der ersten Fassung ----------
+    check("ein Jugendlauf über 5,6 km ist KEIN Fall",
+          "Kinderlauf-Label mit Erwachsenendistanz"
+          in kategorien(wettbewerb="Jugendlauf, 5,6 km", laenge_km=5.6), False)
+    check("'Bernburger Halbmarathon' mit 12-km-Label ist KEIN Fall",
+          "„Halbmarathon\u201c, aber Distanz passt nicht"
+          in kategorien(name="Bernburger Halbmarathon",
+                        wettbewerb="12 km – ab Altersklasse U16",
+                        laenge_km=12.0), False)
+    check("'Winterlaufserie 2026/2027' ist KEIN Fall",
+          "Jahreszahl im Namen passt nicht zum Datum"
+          in kategorien(name="51. Winterlaufserie 2026/2027, 1. Wertungslauf"), False)
+    check("ein Freitagslauf ist KEIN Fall",
+          "Wochentag Mo-Do" in kategorien(datum_start="2026-09-18",
+                                          datum_ende="2026-09-18"), False)
+    check("'(L)auf zur Venus' ist KEIN unsauberer Name",
+          "Name sieht unsauber aus" in kategorien(name="(L)auf zur Venus"), False)
+    check("ein Hindernislauf mit 'Cross' im Namen ist KEIN Fall",
+          "Trail/Cross im Namen, andere Kategorie"
+          in kategorien(name="Family-CrossDeLuxe Leipzig", art2="Hindernis"), False)
+    check("'3 Runden je 15,5 km' ist kein Label-Widerspruch",
+          "Zahl im Label weicht von laenge_km ab"
+          in kategorien(wettbewerb="46,5 km, 3 Runden je 15,5 km",
+                        laenge_km=46.5), False)
+    check("eine saubere Zeile meldet gar nichts", kategorien(), set())
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1353,7 +1423,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

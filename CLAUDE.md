@@ -37,6 +37,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
+| `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
@@ -479,6 +480,52 @@ Drei Lektionen:
 **Was auch hier bleibt**: 56 Portallinks und 11 Einträge ohne
 Distanzangabe. Beides sind keine falschen Daten - die Quelle nennt sie
 schlicht nicht, und Datenregel 2 verbietet das Raten.
+
+### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
+
+Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
+Fehler passieren. Die 13 gefundenen Fehler, danach sortiert, was beim
+nächsten Lauf wirklich geschieht:
+
+| | Klasse | Wirkung |
+|---|---|---|
+| **3** | Rad-Wettbewerbe, „A km / B km", Swim&Run/Bike+Run | **verhindert** – eine Regel in `scraper_lib.py`/`clean_events.py` greift automatisch |
+| **3** | falsche Koordinaten, Duplikate über dieselbe Seite, Rundenlänge | **gemeldet** – `clean_events.py` findet sie, ein Mensch entscheidet |
+| **5** | BFUTR, Kinderlauf mit 21 km, Tippfehler-Duplikat, Label ≠ Distanz, Jahreszahl im Namen | fand nur ein **Wegwerf-Skript** |
+
+Die letzte Zeile war die eigentliche Lücke: Diese fünf hätte beim
+großen Datenlauf **niemand** gefunden. Deshalb gibt es jetzt
+`scripts/audit_events.py` im Repo - dieselben Prüfungen, dauerhaft,
+mit `test_audit_pruefungen` abgesichert. Der Test hält vor allem die
+**Gegenproben** fest (Jugendlauf über 5,6 km, „Bernburger
+Halbmarathon" mit 12-km-Label, „Winterlaufserie 2026/2027",
+Freitagslauf, „(L)auf zur Venus", Hindernislauf mit „Cross" im Namen):
+Drei der vier größten Fundgruppen waren Fehler der REGEL, nicht der
+Daten - und genau die rutschen beim nächsten Umbau zurück, wenn sie
+nicht festgenagelt sind.
+
+**Was sich damit NICHT löst**, und das ist die ehrliche Grenze:
+
+- **Ein Override gilt für genau einen Termin.** Der Schlüssel ist
+  `<Name>|<Datum>|<km>` - die Ausgabe 2028 derselben Veranstaltung
+  trifft er nicht mehr. Die 76 Einträge sind Einzelfallpflege, keine
+  Regel.
+- **Die Meldungen skalieren mit.** Heute stehen 168 offene Hinweise
+  aus `clean_events.py` bei 4.335 Events; bei 20.000 werden daraus
+  rund 800. Jeder einzelne gehört gegen die offizielle Ausschreibung
+  geprüft - das ist Arbeit für den Nutzer, nicht für eine Regel.
+  `audit_events.py` meldet im bisher ungeprüften Bestand zusätzlich
+  1.536 Fälle, davon aber 944 Portallinks und 312 ohne Distanz (beides
+  keine Fehler). Scharf sind rund 70.
+- **Die Trefferquote bleibt ähnlich.** In beiden geprüften Hundertern
+  waren ~3 % der Zeilen falsch. Was die neuen Regeln abfangen, war
+  etwa ein Drittel davon - bei 20.000 Events also grob 400 statt 600
+  Fehler. Deutlich weniger, aber nicht wenige.
+
+Der wirksamste Hebel für den großen Lauf ist deshalb **nicht** noch
+eine Regel, sondern: nach dem Datenlauf `audit_events.py` laufen
+lassen, die scharfen Kategorien durchgehen (nicht die Portallinks) und
+die bestätigten Fälle als Override eintragen.
 
 ### Nutzer-Fehlermeldungen
 
@@ -1342,6 +1389,19 @@ den Daten nichts zu tun hatten. Behoben wurde die Folge
 `events.json`, siehe „Vor jedem Commit"). **Die Ursache bleibt, bis die
 Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
 `main`, also die ausdrückliche Erlaubnis des Nutzers.
+
+**Nach einem großen Datenlauf** gehört die Einzelprüfung dazu:
+
+```bash
+python3 scripts/audit_events.py --quiet        # welche Kategorien, wie viele
+python3 scripts/audit_events.py --ab 0 --anzahl 200
+```
+
+Sie ändert nichts und ist kein Test (Rückgabewert immer 0) - sie sagt,
+wo man hinsehen sollte. Die scharfen Kategorien zuerst („… aber Distanz
+passt nicht", „Kinderlauf-Label mit Erwachsenendistanz", „Zahl im Label
+weicht ab", „Koordinaten passen nicht zum Land"); Portallinks und
+fehlende Distanzen sind keine Fehler.
 
 `.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
 (vorher täglich – solange die Seite nicht live ist, bringt ein täglicher
