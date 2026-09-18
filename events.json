@@ -14101,7 +14101,8 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 161.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L02000000060000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26L02000000060000",
+    "wettbewerb": "100 Meilen"
   },
   {
     "land": "Deutschland",
@@ -51760,7 +51761,7 @@
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
     "laenge_km": 140.0,
-    "wettbewerb": "140 km",
+    "wettbewerb": "Staffel über 10 Etappen",
     "veranstalter_url": "https://www.rennsteig-staffellauf.de/"
   },
   {

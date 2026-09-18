@@ -1178,5 +1178,13 @@
   "VR-Bank Mitte Herbstlauf|2026-09-26|21.1": {
     "wettbewerb": "Halbmarathon durch den Küllstedter Tunnel",
     "_note": "KEIN Fehler: vr-bankmitte-herbstlauf.de nennt fuer den 26.09.2026 in Dingelstaedt einen 'Halbmarathon durch den Kuellstedter Tunnel' (Start 9:30 Uhr, ueber 3 km im 1.530 m langen Tunnel) sowie 10 km, 5 km, 3 km, 1 km und 400 m Bambini. Die 21,1-km-Zeile ist der Halbmarathon; die zweite Quelle nannte nur 5 und 10 km. Label ergaenzt. Geprueft 2026-09-18."
+  },
+  "Taubertal 100|2026-10-03|161": {
+    "wettbewerb": "100 Meilen",
+    "_note": "KEIN Fehler: taubertal100.de nennt vier Strecken am 03.10.2026 ab Rothenburg ob der Tauber - 50 km (nach Bad Mergentheim), 70 km (Tauberbischofsheim), 100 km (Wertheim) und 100 Meilen = 161 km (Gemuenden), alle DLV-vermessen und mit IAU-Bronze-Label. Die Zeile hatte nur kein Label. Geprueft 2026-09-18."
+  },
+  "Rennsteig-Staffellauf|2027-06-19|140": {
+    "wettbewerb": "Staffel über 10 Etappen",
+    "_note": "KEIN Fehler: rennsteig-staffellauf.de nennt fuer den 27. Rennsteig-Staffellauf am 19.06.2027 rund 140 km mit Start und Ziel in Schmiedefeld, aufgeteilt auf 10 Etappen; die Teams bestehen aus 10 Personen (reine Frauen- oder Maennerstaffeln oder gemischt mit je fuenf). Die 140 km sind die TEAM-Gesamtstrecke - dieselbe Frage wie beim Celler Staffelmarathon. Geprueft 2026-09-18."
   }
 }

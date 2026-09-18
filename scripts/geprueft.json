@@ -1049,5 +1049,95 @@
     "ergebnis": "quelle_ok",
     "quelle": "vr-bankmitte-herbstlauf.de",
     "notiz": "Die gemeldete 21,1-km-Zeile ist der Halbmarathon durch den Kuellstedter Tunnel und richtig."
+  },
+  "Kleeblattultra|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '162 km'; gespeichert 160 km. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-09": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '173 km mit 6000 Hoehenmetern nonstop'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Altmühltal-Panoramaweg-Ultra-Trail|2026-10-16": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '200 km'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Lindwurm - Im Auge des Drachen|2027-03-06": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '161 km' - 100 Meilen. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Jurasteig Nonstop Ultratrail (JUNUT)|2027-04-02": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Labels '239 km komplette Jurasteig-Route' und '170 km Ziel in Kastl'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Bergische 5|2027-05-05": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Labels '275 km' und '176 km'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Heidi 222|2027-05-14": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '222 km von Celle nach Hamburg Fischbek' - die Zahl steht im Namen. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Halden Mohikaner|2027-05-22": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '163 km'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Hochwaldtrailer (Howut)|2027-05-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '100 Meilen (ca. 166 km)'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "BremenSanktPauli – 100 Miles in a Day|2027-05-29": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label 'etwas ueber 100 Meilen (ca. 160,9 km)' - die Distanz steht auch im Namen. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '167 km' - der XTRA des Zugspitz Ultratrails. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "3Kings3Hills Trailrun|2027-07-23": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '168 km'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Mauerweglauf Berlin|2027-08-14": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '161 km' - der 100-Meilen-Lauf rund um Berlin auf dem Mauerweg. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+  },
+  "Taubertal 100|2026-10-03": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "taubertal100.de",
+    "notiz": "Die 161 km sind der 100-Meilen-Lauf nach Gemuenden. Label ergaenzt. Es gibt ausserdem 50, 70 und 100 km."
+  },
+  "Rennsteig-Staffellauf|2027-06-19": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "rennsteig-staffellauf.de",
+    "notiz": "140 km auf 10 Etappen, Teams zu 10 Personen. Label ergaenzt; die 140 km sind die Team-Gesamtstrecke."
   }
 }
