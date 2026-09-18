@@ -87,9 +87,9 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 143 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 148 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
-zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
+zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
@@ -877,6 +877,47 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Aufklappen – der Klick wählt die Strecke nur aus. Statt des Pfeils ein
   gleich breiter Platzhalter (`.chevron-spacer`), sonst beginnen die
   Namen einzelner Strecken weiter links als die der aufklappbaren.
+- **Aufgeklappt bekommt die Veranstaltung einen RAHMEN**: eine Linie oben
+  an der Veranstaltungszeile, eine unten an der letzten Strecke, ein
+  senkrechter Strich links durch alle Zeilen dazwischen – alles in
+  `var(--accent)`. Ohne ihn standen die Strecken einer Veranstaltung
+  mitten in der Liste, ohne dass man ihnen ansah, dass sie
+  zusammengehören; man konnte nicht erkennen, ob eine Veranstaltung drei
+  oder fünf Läufe hat (vom Nutzer gemeldet). Drei Entscheidungen daran:
+  - **`box-shadow: inset` statt `border`.** Ein Rahmen aus Rändern
+    verschöbe die Zeilen: `border-collapse: collapse` teilt sich die
+    Ränder zwischen zwei Zeilen, und eine 2-px-Linie gegen die 1-px-Linie
+    daneben macht die Zeile einen Pixel höher. Alle Zeilen sind aber
+    gleich hoch (52 px), und der Rauchtest prüft das auf den Pixel. Ein
+    Schatten wirkt nie auf das Layout.
+  - **Keine Hintergrundfarbe.** Naheliegend wäre ein zarter Farbton über
+    den ganzen Block gewesen – nur sind `--row-alt`, `--row-hover` und
+    `--accent-bg` in dieser Palette alle blasses Blau: Der Block sähe aus
+    wie eine Markierung oder wie die Zeile unter dem Mauszeiger. Die
+    Linien nutzen einen anderen Kanal, bleiben deshalb auch sichtbar,
+    wenn eine Zeile ausgewählt ist, und rühren die vier
+    `background`-Regeln von `tbody tr` nicht an (Zebra → Block → Hover →
+    Auswahl liefen sich sonst gegenseitig über den Haufen).
+  - **Oben und unten über die ganze Breite.** Der senkrechte Strich
+    allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
+    scrollt auf dem Handy waagerecht – wer nach rechts schiebt, sähe ihn
+    nicht mehr. Die beiden waagerechten Linien laufen über alle Spalten.
+
+  Die letzte Unterzeile trägt dafür die Klasse `letzte` (`subRowsHtml`).
+  Bewusst eine Klasse und **kein** `.sub-row:not(:has(+ .sub-row))`: Der
+  Selektor müsste bei über 4.000 Zeilen für jede davon die Nachbarschaft
+  prüfen, und die Tabelle ist genau an dieser Stelle auf Tempo gebaut.
+  Die Reihenfolge der fünf CSS-Regeln ist bedeutungstragend – die
+  Kombinationen für die Eckzellen (`:first-child` mit zwei Schatten)
+  müssen NACH den allgemeinen stehen: `box-shadow` ist EINE Eigenschaft,
+  die spätere Regel ersetzt die frühere vollständig statt sie zu
+  ergänzen.
+
+  **Eine Zahl („5 Strecken") steht bewusst nicht dabei.** Sie hätte nur
+  in die Namensspalte gepasst, und die ist 22 % breit – auf Handybreite
+  176 px. Dort noch ein Textstück unterzubringen heißt, den Namen
+  abzuschneiden. Der Rahmen zeigt die Zusammengehörigkeit, gezählt sind
+  die Zeilen in einem Blick.
 - **Die Anzahl-Zahl steht schlicht in der Tabelle.** Eine Variante, in
   der sie als Kapsel halb über der linken Rahmenlinie lag, war gebaut und
   vom Nutzer wieder verworfen („wie ein aufgeklebtes Etikett"). Der

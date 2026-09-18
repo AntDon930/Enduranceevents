@@ -313,6 +313,49 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  /* Aufgeklappt bekommt die Veranstaltung einen RAHMEN: eine Linie oben
+     an der Veranstaltungszeile, eine unten an der letzten Strecke und
+     ein senkrechter Strich links durch alle Zeilen dazwischen. Ohne das
+     standen die Strecken einer Veranstaltung mitten in der Liste, ohne
+     dass man ihnen ansah, dass sie zusammengehören - man konnte nicht
+     erkennen, ob eine Veranstaltung drei oder fünf Läufe hat (vom
+     Nutzer gemeldet).
+
+     Drei Entscheidungen dahinter:
+
+     - **`box-shadow: inset` statt `border`.** Ein Rahmen aus Rändern
+       verschöbe die Zeilen: `border-collapse: collapse` teilt sich die
+       Ränder zwischen zwei Zeilen, und eine 2-px-Linie gegen die
+       1-px-Linie daneben macht die Zeile einen Pixel höher. Alle Zeilen
+       sind aber gleich hoch (52 px, siehe `tbody tr`), und der Rauchtest
+       prüft das auf den Pixel. Ein Schatten wirkt nie auf das Layout.
+     - **Keine Hintergrundfarbe.** Naheliegend wäre ein zarter Farbton
+       über den ganzen Block gewesen - nur sind in dieser Palette
+       `--row-alt`, `--row-hover` und `--accent-bg` alle blasses Blau:
+       Der Block sähe aus wie eine Markierung oder wie die Zeile unter
+       dem Mauszeiger. Die Linien nutzen einen anderen Kanal und können
+       damit nicht verwechselt werden - sie bleiben auch sichtbar, wenn
+       eine Zeile ausgewählt ist oder der Mauszeiger darauf steht.
+     - **Oben und unten über die ganze Breite.** Der senkrechte Strich
+       allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
+       scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
+       ihn nicht mehr. Die beiden waagerechten Linien laufen über alle
+       Spalten und bleiben damit in jeder Scroll-Stellung im Bild.
+
+     Reihenfolge der fünf Regeln ist bedeutungstragend: Die Kombinationen
+     für die Eckzellen (`:first-child` mit zwei Schatten) müssen NACH den
+     allgemeinen stehen - `box-shadow` ist EINE Eigenschaft, die spätere
+     Regel ersetzt die frühere vollständig statt sie zu ergänzen. */
+  tbody tr.group-row.open > td:first-child,
+  tbody tr.sub-row > td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  tbody tr.group-row.open > td { box-shadow: inset 0 2px 0 var(--accent); }
+  tbody tr.group-row.open > td:first-child {
+    box-shadow: inset 3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
+  }
+  tbody tr.sub-row.letzte > td { box-shadow: inset 0 -2px 0 var(--accent); }
+  tbody tr.sub-row.letzte > td:first-child {
+    box-shadow: inset 3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
+  }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   /* Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort. Sie
      steht ganz links in der Werkzeugleiste, vor der Trefferzahl - das
@@ -2591,9 +2634,18 @@
 
   // Ohne die erste Strecke: die steht aufgeklappt in der
   // Veranstaltungszeile selbst (groupRowHtml).
+  //
+  // Die LETZTE Unterzeile trägt zusätzlich `letzte` - sie schließt den
+  // Rahmen um die aufgeklappte Veranstaltung nach unten ab (siehe die
+  // box-shadow-Regeln im Stylesheet). Bewusst eine Klasse und kein
+  // CSS-Selektor wie `.sub-row:not(:has(+ .sub-row))`: Der müsste bei
+  // über 4.000 Zeilen für jede davon die Nachbarschaft prüfen, und die
+  // Tabelle ist genau an dieser Stelle auf Tempo gebaut.
   function subRowsHtml(g, cols) {
-    return g.rows.slice(1).map(({ e, idx }) =>
-      `<tr class="sub-row${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
+    const unter = g.rows.slice(1);
+    return unter.map(({ e, idx }, i) =>
+      `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}`
+      + `${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
       + cols.map(col => cellHtml(col, e)).join('')
       + '</tr>'
     ).join('');

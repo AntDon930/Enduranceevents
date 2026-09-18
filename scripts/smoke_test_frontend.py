@@ -453,6 +453,47 @@ def pruefe_gruppierung(ctx, basis):
               "Unterzeile" if auf["unter"] == 1 else "Unterzeilen"))
     pruefe(auf["marken"] == 0, "aufgeklappt: keine Marken (die Strecken stehen einzeln)")
     pruefe(auf["aria"] == "true" and auf["pfeil"], "aufgeklappt: Pfeil und aria-expanded stimmen")
+    # Der Rahmen um die aufgeklappte Veranstaltung: Linie oben an der
+    # Veranstaltungszeile, Linie unten an der letzten Strecke, senkrechter
+    # Strich links durch alle Zeilen dazwischen. Ohne ihn sah man den
+    # Strecken einer Veranstaltung nicht an, dass sie zusammengehören
+    # (vom Nutzer gemeldet). Geprüft wird der berechnete Stil, nicht die
+    # Klasse - eine Klasse ohne passende CSS-Regel wäre unsichtbar.
+    rahmen = seite.evaluate("""() => {
+        const r = document.querySelector('tr.group-row:not(.single)');
+        const schatten = (tr) => getComputedStyle(tr.querySelector('td')).boxShadow || 'none';
+        const zeilen = [r];
+        let n = r.nextElementSibling;
+        while (n && n.classList.contains('sub-row')) { zeilen.push(n); n = n.nextElementSibling; }
+        const letzte = zeilen[zeilen.length - 1];
+        return {
+          zeilen: zeilen.length,
+          mitStrich: zeilen.filter(z => schatten(z).includes('inset')).length,
+          kopfLinie: schatten(r),
+          fussKlasse: letzte.classList.contains('letzte'),
+          fussLinie: schatten(letzte),
+          nurEineLetzte: document.querySelectorAll('tr.sub-row.letzte').length
+        }; }""")
+    pruefe(rahmen["mitStrich"] == rahmen["zeilen"],
+           "aufgeklappt: alle %d Zeilen des Blocks tragen den senkrechten Strich links"
+           % rahmen["zeilen"])
+    pruefe(rahmen["fussKlasse"] and "-2px" in rahmen["fussLinie"].replace(" ", ""),
+           "aufgeklappt: die letzte Strecke schließt den Rahmen unten ab")
+    pruefe(rahmen["nurEineLetzte"] == 1,
+           "genau EINE Zeile trägt „letzte\u201c (%d)" % rahmen["nurEineLetzte"])
+    # Der Rahmen darf die Zeilenhöhe nicht anfassen - deshalb box-shadow
+    # und nicht border (border-collapse teilt sich die Ränder zwischen
+    # zwei Zeilen, eine dickere Linie macht die Zeile höher).
+    hoehen_offen = seite.evaluate("""() => {
+        const r = document.querySelector('tr.group-row:not(.single)');
+        const h = [Math.round(r.getBoundingClientRect().height)];
+        let n = r.nextElementSibling;
+        while (n && n.classList.contains('sub-row')) {
+          h.push(Math.round(n.getBoundingClientRect().height)); n = n.nextElementSibling; }
+        return h; }""")
+    pruefe(len(set(hoehen_offen)) == 1,
+           "der Rahmen ändert die Zeilenhöhe nicht (%s)"
+           % ", ".join("%d px" % h for h in sorted(set(hoehen_offen))))
     seite.locator("tr.group-row:not(.single)").first.click()
     seite.wait_for_timeout(300)
     wieder = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
@@ -461,6 +502,11 @@ def pruefe_gruppierung(ctx, basis):
         return {unter, marken: r.querySelectorAll('.badge').length}; }""")
     pruefe(wieder["unter"] == 0,
            "wieder zugeklappt: Unterzeilen weg")
+    pruefe(seite.evaluate("""() => {
+               const r = document.querySelector('tr.group-row:not(.single)');
+               const s = getComputedStyle(r.querySelector('td')).boxShadow || 'none';
+               return s === 'none' || !s.includes('inset'); }"""),
+           "wieder zugeklappt: der Rahmen ist weg")
 
     # Alle Zeilen gleich hoch, und keine höher als zwei Textzeilen (so vom
     # Nutzer gewünscht). Geprüft wird über die ersten Zeilen im Fenster -
