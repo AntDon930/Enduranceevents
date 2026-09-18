@@ -87,7 +87,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 148 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 153 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -126,6 +126,15 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Ein gespeicherter Portallink wird ersetzt, sobald die offizielle bekannt ist,
    auch quellenübergreifend (`update_existing_event()`, `PORTAL_DOMAINS`).
    Geraten wird nie.
+   **Bei `my.raceresult.com` steht die offizielle Seite auf der
+   KONTAKT-Seite der Anmeldung** (`…/<nr>/contact`, Feld „Organizer-URL"
+   samt Veranstalter-Anschrift) – vom Nutzer am 19.09.2026 am
+   Backyardman Würzburg gezeigt (`410433/contact` → `backyardman.de`).
+   **Das bei raceresult-Links immer prüfen.** Noch offen als Werkzeug:
+   535 Zeilen (314 Veranstaltungen) mit einem `my.raceresult.com`-Link im Bestand; ein Skript, das
+   für jeden die `/contact`-Seite abruft und die Organizer-URL als
+   Override vorschlägt (`pending_overrides.json`, dann `confirm`), fehlt
+   noch – siehe Offene Punkte.
 3. **Distanzen immer auf eine Dezimalstelle** (`round_km()`): 42,195 → 42.2.
 4. **`land` nie aus dem Event-Namen raten.** Der „Fränkische-Schweiz-Marathon"
    liegt in Bayern. Quelle: Landesangabe der Seite (`(Schweiz)`, `(AUT)`) oder
@@ -219,6 +228,19 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      Trailrun, der das Wort nur im Namen trägt.
 
    So ausdrücklich vom Nutzer entschieden. Reihenfolge nicht „aufräumen".
+
+   **Backyard Ultra TRIATHLON gibt es auch** (vom Nutzer am 19.09.2026
+   genannt – „das ist jetzt neu, das gibts"): Der „Backyardman Würzburg"
+   ist laut backyardman.de „die Weltpremiere eines neuen Ultra-Formats:
+   ein Backyard-Ultra, erstmals kombiniert mit dem Triathlon" – je
+   Zwei-Stunden-Runde 500 m Schwimmen, 20 km Rad, 5 km Laufen, bis nur
+   eine Person übrig ist. Dafür gibt es die Kategorie **„Backyard" unter
+   Triathlon** (`ART2_KEYWORDS_TRIATHLON`, ganz vorn – das Format zählt
+   vor dem Gelände; `ART2_BY_ART1['Triathlon']`, Übersetzung in
+   `filters.js` und `functions/index.js`). Die Länge bleibt leer wie bei
+   jedem Backyard. Ein Triathlon mit „Backyard" im Namen wird also nicht
+   zum „Backcountry Ultra" (das ist die Laufkategorie), sondern zum
+   Backyard-Triathlon – `guess_art1()` entscheidet zuerst die Sportart.
 
    **Die Backyard-Runde ist keine Distanz.** Ein Backyard läuft dieselbe
    Runde (klassisch 4,167 Meilen = 6,706 km, in den Quellen „6,7" oder
@@ -845,6 +867,24 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`activeColumns()`), Breiten dafür unter `table.with-distance`. Zellen
   werden aus `activeColumns()` gebaut, nicht fest untereinander – sonst
   müsste die Spaltenreihenfolge an zwei Stellen gepflegt werden.
+- **Zusammenfassen ist die VOREINSTELLUNG** (so vom Nutzer gewünscht,
+  19.09.2026): `state.gruppiert` startet mit `true`. Drei Stellen hängen
+  daran, alle drei müssen zusammenpassen:
+  - `localStorage` (`endurance-gruppiert`) überschreibt die
+    Voreinstellung **nur, wenn ein Eintrag da ist** – also nur eine
+    eigene Entscheidung. Die frühere Zeile `=== '1'` hätte einen
+    fehlenden Eintrag wie „aus" behandelt und die Voreinstellung
+    stillschweigend ausgehebelt.
+  - `currentParams()` schreibt nur die **Abweichung** in die Adresse:
+    `gruppiert=0`, wenn aus. Die Karte reicht den Wert unverändert
+    zurück; ohne ihn käme der Weg Liste (aus) → Karte → Liste
+    zusammengefasst zurück. Alte Links mit `gruppiert=1` bleiben gültig.
+  - `readUrlState()` versteht `1` UND `0`; fehlt der Parameter, bleibt
+    es bei Voreinstellung bzw. gemerkter Wahl.
+  Der Rauchtest prüft den ersten Besuch in einem frischen
+  Browser-Kontext (an, nichts im Speicher, nichts in der Adresse), das
+  Merken nach dem Abschalten und den Rückweg von der Karte mit
+  abgeschalteter Gruppierung.
 - **Der Schalter „Veranstaltungen zusammenfassen" steht direkt hinter der
   Trefferzahl**, nicht bei den Knöpfen rechts: er verändert, wie diese
   Zahl zu lesen ist („810 Veranstaltungen (1413 Strecken)").
@@ -1866,6 +1906,69 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    richtet sie ein) – Name und Anschrift stehen seit dem 17.09.2026.
 
 ## Offene Punkte / To-dos
+
+### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)
+
+Gesammelt aus der Einzelprüfung und dem Design-Durchgang. **Jeder Punkt
+wartet auf ein Ja/Nein des Nutzers** – nichts davon entscheidet Claude
+allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
+
+1. **Virtuelle Läufe – rein oder raus?** „Blaues Land läuft –
+   XMAS-Challenge": „Egal wo, egal wann", fünf Wochen lang, ohne Ort und
+   ohne Koordinaten. Die Liste ist auf Karte und Umkreissuche gebaut.
+   Vorschlag: wie HYROX über eine eigene Regel ausschließen.
+2. **Abgesagte Veranstaltungen.** Niemand erkennt sie – weder Scraper
+   noch `clean_events.py`. Beim Marner Kohltagelauf (27.09.2026) schreibt
+   der Veranstalter „Leider müssen wir den Kohltagelauf 2026 …
+   absagen!", wirbt daneben aber mit „Melde dich jetzt für 2026 an!".
+   Nicht gelöscht. Frage: Soll es dafür eine Meldung geben, und was tun
+   mit dem Kohltagelauf?
+3. **Staffeln: Team-Gesamtstrecke oder Teilstrecke in `laenge_km`?**
+   Celler Staffelmarathon und Rennsteig-Staffellauf stehen mit der
+   TEAM-Strecke (42,195 bzw. 140 km), „DUO Marathon 2 x 21,1 km" mit der
+   Teilstrecke. Das gehört vereinheitlicht.
+4. **Die 5-km-Grenze bei „5 km" mit 4,8 km.** Sedus Firmenlauf („5 km
+   (4,80 km)") und Bramfelder Winterlaufserie (4,66-km-Runde): Korrigiert
+   man die Distanz, fällt die Strecke unter Datenregel 5 und
+   verschwindet beim nächsten Datenlauf. Frage: Soll die Grenze knapp
+   darunter liegende, offiziell als „5 km" beworbene Strecken mitnehmen?
+5. **Meisterschaften im Rahmen eines Volkslaufs** stehen NICHT mehr
+   doppelt (7 Fälle entfernt, z. B. Bayerische Halbmarathon-
+   Meisterschaften = Aschaffenburger Halbmarathon). Umkehrbar, falls
+   die Meisterschaft als eigener Eintrag gewünscht ist.
+6. **Zahl der Strecken am aufgeklappten Block?** Der Rahmen zeigt die
+   Zusammengehörigkeit; eine Zahl („6 Strecken") steht nicht dabei, weil
+   die Namensspalte auf Handybreite nur 176 px hat. Falls gewünscht: am
+   ehesten im runden Pfeil-Feld statt des Pfeils.
+7. **`runninglife_scraper.py` auf alle sechs Kalender ausweiten** (Laufen
+   und Triathlon je DE/AT/CH; heute nur `/laufkalender/deutschland`,
+   daher 15 AT- und 2 CH-Events). Rund 1.100 zusätzliche Events, gleiche
+   Quelle, gleiche robots.txt – trotzdem: kein Scraper-Umbau ohne sein Ja.
+8. **Die Quellenliste für die 20.000+** (Ergebnis der Recherche vom
+   18.09.2026, siehe README „Quellen für den großen Datenlauf") will der
+   Nutzer selbst durchsehen. Blockiert (403/robots.txt, nicht umgangen):
+   radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
+   hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
+   swiss-cycling.ch.
+9. **Backyard Ultra TRIATHLON** – ein neues Format (vom Nutzer am
+   19.09.2026 genannt): Der „Backyardman Würzburg" ist einer und steht
+   jetzt so in der Liste. Dafür gibt es die Kategorie „Backyard" unter
+   Triathlon (siehe Datenregel 9) – gebaut, aber umkehrbar, falls sie
+   lieber unter „Straße" mitlaufen soll.
+10. **raceresult-Kontaktseiten auswerten** (vom Nutzer am 19.09.2026
+   gewünscht: „bitte das bei race results immer checken"). 535 Zeilen
+   (314 Veranstaltungen) tragen einen `my.raceresult.com`-Link; die `/contact`-Seite
+   nennt fast immer die offizielle Seite. Vorschlag: ein Skript
+   `scripts/raceresult_kontakt.py`, das die Seiten mit 2 s Pause abruft
+   und Overrides nach `pending_overrides.json` schreibt – der Nutzer
+   bestätigt mit `review_reports.py confirm`. Vorher robots.txt von
+   my.raceresult.com prüfen. Kein Lauf ohne sein Ja.
+
+Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
+für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für
+den E-Mail-Versand, `og:image` sobald die Domain steht, und die
+Testmeldung in `errorReports` verwerfen.
+
 
 - **`og:image` nachtragen, sobald die Domain feststeht** – die
   Vorschau beim Teilen (`description`/Open Graph, in allen drei

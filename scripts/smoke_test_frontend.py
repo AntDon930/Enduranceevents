@@ -127,8 +127,13 @@ def pruefe_liste(ctx, basis):
     zeilen = seite.locator("tbody tr").count()
     pruefe(zeilen > 0, "Tabelle hat Zeilen (%d)" % zeilen)
 
-    # Detailbereich und Kalenderdatei
-    seite.locator("tbody tr").first.click()
+    # Detailbereich und Kalenderdatei. Zusammenfassen ist die
+    # Voreinstellung, und ein Tippen auf eine aufklappbare Veranstaltung
+    # klappt sie AUF statt sie auszuwählen - dann scrollt absichtlich
+    # nichts (man will die Strecken an dieser Stelle sehen). Getippt wird
+    # deshalb auf die erste Zeile, die sich auswählen lässt: eine einzelne
+    # Strecke (kein data-klapp).
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
     # Das sanfte Scrollen braucht einen Moment.
     seite.wait_for_timeout(900)
     # Auf Handybreite steht der Detailbereich unter der 78vh hohen Tabelle:
@@ -233,15 +238,24 @@ def pruefe_mastersuche(ctx, basis):
 
     seite.fill("#master-search", "münchen")
     seite.wait_for_timeout(700)
+    # Die Mastersuche sucht über Name, Wettbewerb UND Ort (in beiden
+    # Sprachen): Ein „Munich Marathon" in Oberschleißheim ist ein
+    # richtiger Treffer, obwohl sein Ort das Wort nicht trägt. Geprüft
+    # wird deshalb je Zeile, dass Name ODER Ort passt - und dass der Ort
+    # mindestens einmal wirklich München ist.
     ort = seite.evaluate("""() => ({
         treffer: document.getElementById('result-count').textContent,
-        orte: [...document.querySelectorAll('tbody tr td.col-standort')]
-                .slice(0, 8).map(t => t.textContent.trim()),
+        zeilen: [...document.querySelectorAll('tbody tr[data-idx]')].slice(0, 8).map(tr => ({
+            name: (tr.querySelector('td.col-name') || {}).textContent || '',
+            ort: ((tr.querySelector('td.col-standort') || {}).textContent || '').trim()
+        })),
         chip: [...document.querySelectorAll('#active-chips')].map(c => c.textContent).join(' '),
         url: location.search
     })""")
-    pruefe(bool(ort["orte"]) and all("ünchen" in o for o in ort["orte"]),
-           "eine Ortseingabe findet Events an diesem Ort (%s)" % ", ".join(ort["orte"][:3]))
+    passt = lambda z: any(w in (z["name"] + " " + z["ort"]).lower() for w in ("münchen", "munich"))
+    orte = [z["ort"] for z in ort["zeilen"]]
+    pruefe(bool(orte) and all(passt(z) for z in ort["zeilen"]) and any("ünchen" in o for o in orte),
+           "eine Ortseingabe findet Events an diesem Ort (%s)" % ", ".join(orte[:3]))
     pruefe("Suche" in ort["chip"], "es entsteht ein Chip „Suche: …\u201c")
     pruefe("s=" in ort["url"], "die Suche steht in der Adresse (%s)" % ort["url"])
 
@@ -1216,8 +1230,12 @@ def pruefe_karte_und_rundweg(ctx, basis):
                "Popup verlinkt die Liste, ohne Pfeil-Symbol (%s)" % link)
         seite.close()
 
-    # Filter über den Seitenwechsel: Liste → Karte → Liste
-    seite, _ = seite_oeffnen(ctx, basis + "/events.html?land=Deutschland&gruppiert=1", "tbody tr")
+    # Filter über den Seitenwechsel: Liste → Karte → Liste. Zusammenfassen
+    # ist die Voreinstellung; in der Adresse steht nur die ABWEICHUNG
+    # davon ("gruppiert=0"), und genau die muss den Weg über die Karte
+    # überleben - sonst käme man mit einzelnen Strecken hin und mit
+    # zusammengefassten zurück.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?land=Deutschland&gruppiert=0", "tbody tr")
     vorher = seite.evaluate("() => document.querySelector('.result-count').textContent.trim()")
     seite.click('a[href^="karte.html"]')
     seite.wait_for_load_state("domcontentloaded")
@@ -1226,9 +1244,43 @@ def pruefe_karte_und_rundweg(ctx, basis):
     seite.click('a[href^="events.html"]')
     seite.wait_for_selector("tbody tr", timeout=30000)
     nachher = seite.evaluate("() => document.querySelector('.result-count').textContent.trim()")
-    pruefe("land=Deutschland" in mit and "gruppiert=1" in mit,
-           "Karte übernimmt Filter und Gruppierung aus der Adresse")
+    pruefe("land=Deutschland" in mit and "gruppiert=0" in mit,
+           "Karte übernimmt Filter und die abgeschaltete Gruppierung aus der Adresse")
     pruefe(vorher == nachher, "Rückweg zur Liste behält die Trefferzahl (%s)" % nachher)
+    pruefe(not seite.evaluate("() => document.getElementById('group-toggle').checked"),
+           "Rückweg zur Liste behält die Ansicht: Zusammenfassen bleibt aus")
+    seite.close()
+
+    # Erster Besuch: Zusammenfassen ist AN (so vom Nutzer gewünscht), ohne
+    # dass etwas im Speicher liegt oder in der Adresse steht. Nachgestellt
+    # wird das im vorhandenen Kontext: gemerkte Wahl löschen und neu laden
+    # (ein zweiter Browser-Kontext neben dem ersten ließ den
+    # Ein-Thread-Server der Prüfung hängen - Page.goto lief in den
+    # Timeout).
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    seite.evaluate("() => { try { localStorage.removeItem('endurance-gruppiert'); } catch (e) {} }")
+    seite.reload(wait_until="domcontentloaded")
+    seite.wait_for_selector("tbody tr", timeout=30000)
+    erster = seite.evaluate("""() => ({
+        an: document.getElementById('group-toggle').checked,
+        gruppen: document.querySelectorAll('tr.group-row').length,
+        gemerkt: (() => { try { return localStorage.getItem('endurance-gruppiert'); } catch (e) { return 'x'; } })(),
+        adresse: location.search })""")
+    pruefe(erster["an"] and erster["gruppen"] > 0,
+           "erster Besuch: Zusammenfassen ist an (%d Veranstaltungszeilen)" % erster["gruppen"])
+    pruefe(erster["gemerkt"] is None,
+           "erster Besuch: nichts im Speicher - die Voreinstellung gilt, nicht ein gemerkter Wert")
+    pruefe("gruppiert" not in erster["adresse"],
+           "erster Besuch: die Voreinstellung steht nicht in der Adresse (%s)" % (erster["adresse"] or "leer"))
+    # Selbst abschalten: das wird gemerkt und überlebt ein Neuladen.
+    seite.evaluate("() => document.getElementById('group-toggle').click()")
+    seite.wait_for_timeout(400)
+    seite.reload(wait_until="domcontentloaded")
+    seite.wait_for_selector("tbody tr", timeout=30000)
+    pruefe(not seite.evaluate("() => document.getElementById('group-toggle').checked"),
+           "selbst abgeschaltet: bleibt nach dem Neuladen aus")
+    # Aufräumen: die Wahl gilt für den ganzen Browser-Kontext.
+    seite.evaluate("() => { try { localStorage.removeItem('endurance-gruppiert'); } catch (e) {} }")
     seite.close()
 
 

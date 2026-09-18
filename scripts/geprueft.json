@@ -1217,5 +1217,11 @@
     "ergebnis": "label_ok",
     "quelle": "-",
     "notiz": "Fehlalarm: '5,3 km 5 km Lauf und U20' nennt die genaue Laenge und den beworbenen Namen. Gespeichert sind 5,3 km - richtig."
+  },
+  "Backyardman Würzburg|2026-09-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "backyardman.de, my.raceresult.com/410433/contact",
+    "notiz": "Backyard Ultra TRIATHLON (500 m / 20 km / 5 km je Zwei-Stunden-Runde, offenes Ende), stand als Laufen mit '7 km'. Offizielle Seite ueber die raceresult-Kontaktseite gefunden - der Nutzer hat darauf hingewiesen."
   }
 }

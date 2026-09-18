@@ -358,18 +358,21 @@ Schweiz.
   unter `table.with-distance` (`table-layout` ist fix).
 
   **Veranstaltungen zusammenfassen** (Schalter direkt hinter der
-  Trefferzahl – er verändert, wie diese Zahl zu lesen ist –, wird in
-  `localStorage` gemerkt): Eine Veranstaltung mit sechs Strecken füllt
-  sonst sechs Zeilen. Der Schalter bündelt sie nach Name + Datum + Ort zu
-  einer Zeile und zeigt die Distanzen als kleine Marken („42 km", „22 km",
-  „10 km"). Ganz vorn steht dann eine schmale Spalte (28 px, Überschrift
-  **„#"**, voller Name „Anzahl" als Tooltip) mit der Zahl der
-  zusammengefassten Strecken - auch bei einer einzigen („1"), sonst sähe
-  die Zelle nach einem fehlenden Wert aus. Die Zahl steht linksbündig
-  direkt vor dem Namen: mittig und 8 % breit klaffte dazwischen eine
-  Lücke. Ein Klick auf die Zeile klappt
-  die Strecken auf (Pfeil im runden Feld dreht sich, `aria-expanded` sagt
-  es Vorleseprogrammen), ein Klick auf eine Strecke zeigt ihre Details.
+  Trefferzahl – er verändert, wie diese Zahl zu lesen ist): Eine
+  Veranstaltung mit sechs Strecken füllt sonst sechs Zeilen. Der Schalter
+  bündelt sie nach Name + Datum + Ort zu einer Zeile und zeigt in der
+  Länge-Spalte die Spanne („5–42,2 km"). **Voreinstellung: an** – wer die
+  Seite zum ersten Mal öffnet, sieht eine Zeile je Veranstaltung (so vom
+  Nutzer gewünscht). Schaltet jemand um, merkt sich der Browser das in
+  `localStorage` (`endurance-gruppiert`); nur eine solche eigene
+  Entscheidung überschreibt die Voreinstellung, ein fehlender Eintrag
+  nicht. In der Adresse steht deshalb nur die Abweichung (`gruppiert=0`),
+  alte Links mit `gruppiert=1` bleiben gültig. Ein Klick auf die Zeile
+  klappt die Strecken auf (Pfeil im runden Feld dreht sich,
+  `aria-expanded` sagt es Vorleseprogrammen, und der Block bekommt einen
+  Rahmen), ein Klick auf eine Strecke zeigt ihre Details. Die frühere
+  Spalte „#" mit der Zahl der Strecken gibt es nicht mehr – sie wurde als
+  Durchnummerierung gelesen.
 
   **Aufgeklappt zeigt die Veranstaltungszeile die erste Strecke selbst.**
   Zwei Strecken sind dann auch zwei Zeilen. Vorher waren es drei: die

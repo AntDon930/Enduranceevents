@@ -74,13 +74,13 @@
     "standort": "Würzburg",
     "lat": 49.7913044,
     "lon": 9.9533548,
-    "art1": "Laufen",
-    "art2": "Backcountry Ultra",
+    "art1": "Triathlon",
+    "art2": "Backyard",
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-20",
-    "veranstalter_url": "https://my.raceresult.com/410433/",
+    "veranstalter_url": "https://backyardman.de/",
     "laenge_km": null,
-    "wettbewerb": "7 km"
+    "wettbewerb": null
   },
   {
     "land": "Deutschland",

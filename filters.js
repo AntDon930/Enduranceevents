@@ -105,6 +105,7 @@
       'Duathlon': { de: 'Duathlon', en: 'Duathlon' },
       'Aquathlon': { de: 'Aquathlon', en: 'Aquathlon' },
       'Swimrun': { de: 'Swimrun', en: 'Swimrun' },
+      'Backyard': { de: 'Backyard', en: 'Backyard' },
       'Quadrathlon': { de: 'Quadrathlon', en: 'Quadrathlon' },
       'Indoor': { de: 'Indoor', en: 'Indoor' }
     },

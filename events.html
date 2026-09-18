@@ -1220,8 +1220,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=ecff4310"></script>
-<script src="filter-ui.js?v=57593b54"></script>
+<script src="filters.js?v=f921fa30"></script>
+<script src="filter-ui.js?v=fa0b0980"></script>
 
 <script>
 (async function () {
@@ -1755,7 +1755,11 @@
     sortDir: 'asc',               // 'asc' | 'desc'
     // Zusammenfassen ist reine ANZEIGE: die Daten bleiben eine Zeile pro
     // Strecke (Datenregel 1), die Tabelle zeigt sie nur gebündelt.
-    gruppiert: false,
+    // Voreinstellung AN (so vom Nutzer gewünscht): Wer die Seite zum
+    // ersten Mal öffnet, sieht eine Zeile je Veranstaltung. Aus wird es
+    // nur, wenn jemand den Schalter selbst umlegt - das merkt sich der
+    // Browser (siehe unten beim Schalter).
+    gruppiert: true,
     offeneGruppen: new Set()      // aufgeklappte Gruppen (Schlüssel siehe groupKey)
   });
 
@@ -2000,7 +2004,15 @@
   // Merken, wie der Nutzer die Liste lieber sieht - die Einstellung
   // gehört zur Ansicht, nicht zum Filter, und überlebt deshalb den
   // Seitenwechsel (wie die Sprache).
-  try { state.gruppiert = localStorage.getItem('endurance-gruppiert') === '1'; } catch (e) { /* ignorieren */ }
+  // Gemerkt wird nur, was jemand SELBST umgestellt hat. Fehlt der
+  // Eintrag (erster Besuch, gelöschter Speicher), gilt die
+  // Voreinstellung aus `state` - nicht "aus". Ein `=== '1'` hätte hier
+  // beides gleich behandelt und die Voreinstellung stillschweigend
+  // ausgehebelt.
+  try {
+    const gemerkt = localStorage.getItem('endurance-gruppiert');
+    if (gemerkt !== null) state.gruppiert = gemerkt === '1';
+  } catch (e) { /* ignorieren */ }
   groupToggleEl.checked = state.gruppiert;
   groupToggleEl.addEventListener('change', () => {
     state.gruppiert = groupToggleEl.checked;
@@ -2966,7 +2978,12 @@
     if (state.sortKey !== 'datum' || state.sortDir !== 'asc') {
       p.set('sort', `${state.sortKey}:${state.sortDir}`);
     }
-    if (state.gruppiert) p.set('gruppiert', '1');
+    // In der Adresse steht nur die ABWEICHUNG von der Voreinstellung
+    // (an): "gruppiert=0", wenn jemand die Strecken einzeln sehen will.
+    // Die Karte reicht den Wert unverändert zurück, und ohne ihn wäre
+    // der Weg Liste (aus) -> Karte -> Liste wieder zusammengefasst.
+    // Alte Links mit "gruppiert=1" bleiben gültig (readUrlState).
+    if (!state.gruppiert) p.set('gruppiert', '0');
     return p;
   }
 
@@ -3020,7 +3037,10 @@
         state.sortDir = dir === 'desc' ? 'desc' : 'asc';
       }
     }
+    // "1" und "0" sind beide gültig; fehlt der Parameter, bleibt es bei
+    // der Voreinstellung bzw. der gemerkten Wahl des Nutzers.
     if (p.get('gruppiert') === '1') state.gruppiert = true;
+    else if (p.get('gruppiert') === '0') state.gruppiert = false;
     // Ein geteiltes Event (?event=…): die Zeile auswählen, damit die Box
     // sie zeigt. Die Kennung ist der eventSlug - eine laufende Nummer
     // wäre wertlos, sie verschiebt sich mit jedem neuen Event.

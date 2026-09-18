@@ -264,6 +264,12 @@ ART1_KEYWORDS: list[tuple[re.Pattern, str]] = [
 # zufällig im Gelände stattfindet - "Duathlon" ist die Auskunft, die
 # jemand beim Filtern sucht, "Cross" die Nebenangabe.
 ART2_KEYWORDS_TRIATHLON: list[tuple[re.Pattern, str]] = [
+    # Backyard Ultra TRIATHLON - ein neues Format (vom Nutzer am
+    # 19.09.2026 genannt): Jede Stundenrunde ist ein kleiner Triathlon
+    # (Backyardman Würzburg: 500 m Schwimmen, 20 km Rad, 5 km Laufen,
+    # alle zwei Stunden, bis nur eine Person übrig ist). Steht VORN, weil
+    # das Format vor dem Gelände zählt - wie Swimrun/Duathlon vor "Cross".
+    (re.compile(r"backyard|last\s*(?:wo)?man\s*standing", re.I), "Backyard"),
     # Dieselbe Schreibweisen-Falle wie in ART1_KEYWORDS: "Swim&Run"
     # und "Swim + Run" sind dasselbe Format wie "SwimRun".
     (re.compile(r"swim\s*(?:&|\+|and|und|-)?\s*run", re.I), "Swimrun"),

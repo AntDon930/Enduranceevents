@@ -141,7 +141,7 @@
     // ART2_KEYWORDS_TRIATHLON in scraper_lib.py; test_kategorie
     // vergleicht beide Listen.
     'Triathlon': ['Straße', 'Cross', 'Duathlon', 'Aquathlon', 'Swimrun',
-                  'Quadrathlon', 'Indoor']
+                  'Quadrathlon', 'Indoor', 'Backyard']
   };
   // Alle Kategorien, die ART2_BY_ART1 kennt - die Gegenstuecke zu
   // BEKANNTE_WERTE fuer `art2`.

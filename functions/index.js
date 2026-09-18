@@ -193,6 +193,7 @@ const SUCH_UEBERSETZUNGEN = {
     "Duathlon": ["Duathlon", "Duathlon"],
     "Aquathlon": ["Aquathlon", "Aquathlon"],
     "Swimrun": ["Swimrun", "Swimrun"],
+    "Backyard": ["Backyard", "Backyard"],
     "Quadrathlon": ["Quadrathlon", "Quadrathlon"],
     "Indoor": ["Indoor", "Indoor"],
   },

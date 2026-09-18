@@ -1218,5 +1218,13 @@
     "wettbewerb": "Wustweiler Biber-Trail (WuBiT)",
     "art2": "Trail/Cross",
     "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. llgwustweiler.de nennt fuer Samstag, 07. November 2026 den 'Wustweiler Biber-Trail (WuBiT): 21 km Trail - 600 Hoehenmeter' um 13:00 Uhr, dazu ab 15:00 Uhr Laufstrecken ueber 7, 8, 9, 10 und 11 km und Walking ueber 5 und 6 km. Es ist kein Strassen-Halbmarathon, sondern ein Trail - Kategorie entsprechend gesetzt. Geprueft 2026-09-18."
+  },
+  "Backyardman Würzburg|2026-09-18": {
+    "art1": "Triathlon",
+    "art2": "Backyard",
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://backyardman.de/",
+    "_note": "Kein Lauf, sondern ein BACKYARD ULTRA TRIATHLON - laut backyardman.de 'die Weltpremiere eines neuen Ultra-Formats: ein Backyard-Ultra, erstmals kombiniert mit dem Triathlon'. Jede Runde: '500 M Schwimmen', '20 KM Radfahren', '5 KM Laufen'; 'Jeder Loop startet exakt alle zwei Stunden' und 'Wer als Einzige:r uebrig bleibt, gewinnt. Alle anderen gelten als DNF' - also offenes Ende, keine Distanz (Datenregel 9), 18.09.2026 am Freibad Zellingen. Die gespeicherten '7 km' waren die Laufrunde eines gewoehnlichen Backyards. Die offizielle Seite stand auf der KONTAKT-Seite der Anmeldung (my.raceresult.com/410433/contact: 'https://backyardman.de/', Veranstalter J.A. Schweighoefer Veranstaltungs UG) - vom Nutzer am 19.09.2026 gezeigt, siehe Datenregel 2. Geprueft 2026-09-19."
   }
 }
