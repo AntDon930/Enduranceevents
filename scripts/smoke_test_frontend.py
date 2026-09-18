@@ -27,6 +27,7 @@ from __future__ import annotations
 import functools
 import glob
 import http.server
+import re
 import os
 import socket
 import socketserver
@@ -256,6 +257,93 @@ def pruefe_mastersuche(ctx, basis):
     pruefe(seite.evaluate("""() => document.getElementById('master-search').value === ''
                && !location.search.includes('s=')"""),
            "das ✕ leert Suche und Adresse")
+    seite.close()
+
+
+def pruefe_such_vorschlaege(ctx, basis):
+    """„Iron" muss „Ironman" anbieten.
+
+    Entstanden aus der Frage nach einer VERANSTALTER-Spalte: Gemessen an
+    den Daten lohnt die nicht (größte Serie 21 Veranstaltungen, rund elf
+    nennenswerte), und eine Spalte kostete Platz, den die Werkzeugleiste
+    auf dem Laptop nicht hat. Der Vorschlag im Suchfeld kostet keinen.
+
+    Geprüft wird das Versprechen und die Tastatur - ein Auswahlfeld, das
+    nur mit der Maus geht, ist keins.
+    """
+    print("\nVorschläge in der Mastersuche")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    feld = seite.locator("#master-search")
+    liste = seite.locator("#master-search-list")
+
+    # Ein Zeichen ist zu wenig - sonst poppt die Liste bei jedem Tippen auf.
+    feld.click()
+    feld.type("I", delay=40)
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("() => document.getElementById('master-search-list').hidden"),
+           "bei einem Zeichen bleibt die Liste zu")
+
+    feld.type("ron", delay=40)
+    seite.wait_for_timeout(400)
+    stand = seite.evaluate("""() => {
+        const l = document.getElementById('master-search-list');
+        const f = document.getElementById('master-search');
+        return {offen: !l.hidden,
+                texte: [...l.querySelectorAll('.vs-text')].map(e => e.textContent),
+                zahlen: [...l.querySelectorAll('.vs-anzahl')].map(e => e.textContent),
+                rolle: l.getAttribute('role'),
+                expanded: f.getAttribute('aria-expanded')}; }""")
+    pruefe(stand["offen"], "„Iron\u201c öffnet die Vorschlagsliste")
+    pruefe("Ironman" in stand["texte"],
+           "„Ironman\u201c wird vorgeschlagen (%s)" % ", ".join(stand["texte"][:3]))
+    pruefe(stand["rolle"] == "listbox" and stand["expanded"] == "true",
+           "die Liste ist ein listbox mit aria-expanded")
+    pruefe(all(z.strip().isdigit() for z in stand["zahlen"]) and bool(stand["zahlen"]),
+           "je Vorschlag steht die Zahl der Veranstaltungen dabei (%s)"
+           % ", ".join(stand["zahlen"][:3]))
+
+    # Tastatur: Pfeil nach unten hebt hervor, Enter übernimmt.
+    seite.keyboard.press("ArrowDown")
+    seite.wait_for_timeout(200)
+    pruefe(seite.evaluate("""() => {
+               const f = document.getElementById('master-search');
+               const li = document.querySelector('#master-search-list li[aria-selected=true]');
+               return !!li && f.getAttribute('aria-activedescendant') === li.id; }"""),
+           "Pfeil nach unten hebt einen Vorschlag hervor (aria-activedescendant)")
+    seite.keyboard.press("Enter")
+    seite.wait_for_timeout(700)
+    danach = seite.evaluate("""() => ({
+        wert: document.getElementById('master-search').value,
+        zu: document.getElementById('master-search-list').hidden,
+        treffer: document.querySelector('.result-count').textContent.trim(),
+        adresse: location.search})""")
+    pruefe(danach["wert"] == "Ironman", "Enter übernimmt den Vorschlag (%s)" % danach["wert"])
+    pruefe(danach["zu"], "und schließt die Liste")
+    # Die Trefferzeile nennt die gefilterte UND die Gesamtzahl
+    # („7 von 4331 Events"). Nicht mit dem Stand VOR dem Enter
+    # vergleichen: Die 180-ms-Verzögerung hat da schon gezeichnet, die
+    # Zahl ist also längst dieselbe - der erste Versuch dieser Prüfung
+    # schlug genau daran an.
+    zahlen = [int(z) for z in re.findall(r"\d+", danach["treffer"])]
+    pruefe(len(zahlen) >= 1 and 0 < zahlen[0] < 200,
+           "die Liste ist auf die Serie gefiltert (%s)" % danach["treffer"])
+    pruefe("s=Ironman" in danach["adresse"].replace("%20", " "),
+           "die Suche steht in der Adresse (%s)" % danach["adresse"][:40])
+
+    # Escape schließt, ohne die Suche zu ändern.
+    feld.click()
+    feld.fill("")
+    feld.type("Wings", delay=30)
+    seite.wait_for_timeout(400)
+    pruefe(not seite.evaluate("() => document.getElementById('master-search-list').hidden"),
+           "„Wings\u201c öffnet die Liste erneut")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(250)
+    pruefe(seite.evaluate("""() => { const l = document.getElementById('master-search-list');
+               return l.hidden && document.getElementById('master-search')
+                        .getAttribute('aria-expanded') === 'false'; }"""),
+           "Escape schließt die Liste")
     seite.close()
 
 
@@ -1129,6 +1217,7 @@ def main() -> int:
                 pruefe_liste(ctx, basis)
                 pruefe_startseite(ctx, basis)
                 pruefe_mastersuche(ctx, basis)
+                pruefe_such_vorschlaege(ctx, basis)
                 pruefe_datum_zweizeilig(ctx, basis)
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)

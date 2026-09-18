@@ -348,6 +348,194 @@
     };
   }
 
+  // ---------- Vorschläge für die Mastersuche ----------
+  //
+  // Wer "Iron" eintippt, soll "Ironman" angeboten bekommen (so vom
+  // Nutzer gewünscht). Der Anlass war die Frage nach einer
+  // VERANSTALTER-Spalte: Gemessen an den Daten lohnt die nicht - die
+  // größte Serie hat 21 Veranstaltungen, nennenswert sind rund elf
+  // (Wings for Life World Run 21, Ahmadiyya Charity Walk 18, Muddy
+  // Angel Run 13, Rats-Run 9, Ironman 7, XLETIX 6, SportScheck RUN 6,
+  // HYROX 5 …). Eine eigene Spalte kostete Platz, den die Liste auf
+  // dem Laptop nicht hat; ein Vorschlag im Suchfeld kostet keinen.
+  //
+  // Die Vorschläge werden AUS DEN DATEN gerechnet, nicht aus einer
+  // gepflegten Liste. Eine Markenliste im Code würde veralten, sobald
+  // eine Serie dazukommt oder aufhört - und beim großen Datenlauf
+  // kommen 16.000 Events dazu.
+  //
+  // Zwei Sorten Vorschlag, weil die Mastersuche über beides geht:
+  //   SERIE - der Wortanfang eines Veranstaltungsnamens, der mehrere
+  //           Veranstaltungen trägt ("Ironman", "Wings for Life")
+  //   ORT   - ein Standort ("München")
+  const VORSCHLAG_MIN_VERANSTALTUNGEN = 3;   // darunter ist es keine Serie
+  // Drei Wörter reichen für jede Serie in den Daten ("Ahmadiyya
+  // Charity Walk", "Wings for Life"); eine vierte Stufe kostete ein
+  // Viertel mehr Rechenzeit und brachte nur Satzfetzen.
+  const VORSCHLAG_MAX_WORTE = 3;
+  // Wörter, die als Vorschlag nichts bringen: Sie stehen in so vielen
+  // Namen, dass der Vorschlag die Trefferliste nicht verkleinert. Ein
+  // zusammengesetztes Wort wie "Silvesterlauf" oder "Crosslauf" bleibt
+  // drin - danach sucht man wirklich.
+  const VORSCHLAG_STOPP = new Set([
+    'lauf', 'laufen', 'run', 'running', 'int', 'internationaler',
+    'internationale', 'internationales', 'der', 'die', 'das', 'rund',
+    'um', 'am', 'im', 'in', 'und', 'von', 'zum', 'zur', 'grosser',
+    'großer', 'kleiner', 'neuer', 'erster'
+  ]);
+
+  // Die Regex-Literale stehen ABSICHTLICH hier oben und nicht in den
+  // Funktionen. Ein Literal wird bei jeder Auswertung neu gebaut - in
+  // `vorschlagsWorte` und `istZahl` also rund 130.000-mal je
+  // Index-Aufbau. Gemessen: 650 ms mit den Literalen in den Funktionen,
+  // **31 ms** mit ihnen hier. Dieselbe Falle wie bei den
+  // Temporal-Dead-Zone-Fehlern - sieht harmlos aus, kostet den Faktor 20.
+  const VORSCHLAG_AUFLAGE_RE = /^\s*\d+\s*\.?\s*/;
+  const VORSCHLAG_TRENNER_RE = /[\s,;:|/()\[\]]+/;
+  const VORSCHLAG_RAND_RE = /^[^\wÄÖÜäöüß]+|[^\wÄÖÜäöüß]+$/g;
+  const VORSCHLAG_WORT_RE = /[\wÄÖÜäöüß]/;
+  const VORSCHLAG_ZAHL_RE = /^\d+$/;
+
+  function vorschlagsWorte(name) {
+    // Führende Auflagen-Nummer weg ("13. Fichtelgebirgstrailrun"), dann
+    // an allem trennen, was kein Wort ist. Der Bindestrich TRENNT hier
+    // ("Rats-Run - Auhausen" -> "Rats", "Run", "Auhausen") wäre falsch,
+    // deshalb bleibt er im Wort: "Rats-Run" ist die Serie.
+    return String(name || '')
+      .replace(VORSCHLAG_AUFLAGE_RE, '')
+      .split(VORSCHLAG_TRENNER_RE)
+      .map(w => w.replace(VORSCHLAG_RAND_RE, ''))
+      // Reine Satzzeichen sind kein Wort. Ohne diese Zeile stand
+      // "Wings for Life -" als eigener Vorschlag in der Liste (der
+      // Bindestrich aus "Wings for Life - Frankfurt am Main").
+      .filter(w => VORSCHLAG_WORT_RE.test(w));
+  }
+
+  /** Baut den Vorschlags-Index. EINMAL nach dem Laden aufrufen, nicht
+   *  je Tastendruck: über 4.000 Events kostet das ~20 ms, über 20.000
+   *  entsprechend mehr - pro Anschlag wäre das zu viel. */
+  function buildSuggestions(events) {
+    // EIN Eimer je Vorschlag, klein geschrieben als Schlüssel: Sonst
+    // stehen "UltraTrail", "Ultratrail" und "ULTRATRAIL" dreimal da,
+    // und "München" zweimal (einmal als Ort, einmal aus den Namen).
+    // Gezählt wird die VEREINIGUNG der Veranstaltungen - das ist die
+    // Zahl, die der Nutzer nach dem Klick auch bekommt.
+    const eimer = new Map();
+    function merke(text, schluessel, istOrt) {
+      const k = text.toLowerCase();
+      let v = eimer.get(k);
+      // Angezeigt wird die ZUERST gesehene Schreibweise. Die häufigste
+      // zu nehmen wäre schöner, kostete aber eine eigene Map je Eimer
+      // und damit bei 20.000 Events mehrere hundert Millisekunden -
+      // für einen Unterschied, den man nur bei "UltraTrail" gegen
+      // "Ultratrail" überhaupt sieht.
+      if (!v) { v = { text, menge: new Set(), istOrt: false }; eimer.set(k, v); }
+      v.menge.add(schluessel);
+      if (istOrt) v.istOrt = true;
+    }
+    const istZahl = (w) => VORSCHLAG_ZAHL_RE.test(w);
+
+    (events || []).forEach(e => {
+      const schluessel = `${e.name}|${e.datum_start}`;
+      const worte = vorschlagsWorte(e.name);
+      const klein = worte.map(w => w.toLowerCase());
+      // Wortgruppen an JEDER Stelle, nicht nur am Namensanfang. Sonst
+      // fehlt jede Serie, die nicht vornsteht: "Kulmbach Spartan
+      // Trifecta Weekend" beginnt mit dem Ort, und "Spartan" wäre kein
+      // Vorschlag geworden. Gleiches gilt für "… Charity Walk".
+      //
+      // Die Reihenfolge der Abbrüche ist hier Tempo: Ist das ERSTE Wort
+      // ein Füllwort oder eine Zahl, sind alle Gruppen ab dieser Stelle
+      // hinfällig - dann gleich weiter, statt vier Zeichenketten zu
+      // bauen und wieder zu verwerfen.
+      for (let i = 0; i < worte.length; i++) {
+        if (VORSCHLAG_STOPP.has(klein[i]) || istZahl(klein[i])) continue;
+        let text = worte[i];
+        for (let n = 1; n <= VORSCHLAG_MAX_WORTE && i + n <= worte.length; n++) {
+          if (n > 1) text += ' ' + worte[i + n - 1];
+          const letztes = klein[i + n - 1];
+          if (istZahl(letztes) || VORSCHLAG_STOPP.has(letztes)) continue;
+          if (n === 1 && text.length < 4) continue;
+          merke(text, schluessel, false);
+        }
+      }
+      const ort = (e.standort || '').trim();
+      if (ort) merke(ort, schluessel, true);
+    });
+
+    // Ein kürzerer Begriff mit GLEICH vielen Veranstaltungen sagt nichts
+    // Eigenes: "Wings" und "Wings for Life" treffen beide 21, angeboten
+    // wird der längere. Ohne das stünden vier Stufen derselben Serie da.
+    // Ein kürzerer Begriff mit GLEICH vielen Veranstaltungen sagt nichts
+    // Eigenes: "Wings" und "Wings for Life" treffen beide 21, angeboten
+    // wird der längere. Ohne das stünden drei Stufen derselben Serie da.
+    //
+    // Die Richtung ist Tempo. Naheliegend wäre: für jeden Begriff die
+    // Begriffe mit derselben Trefferzahl durchsuchen. Gemessen war das
+    // 533 ms bei 4.335 Events und 1,7 s bei 20.000 - die Gruppe
+    // "1 Treffer" allein hat 6.209 Einträge, und der Test schlägt fast
+    // nie an (88 von 1.500).
+    //
+    // Umgedreht kostet es nichts: Jeder LANGE Begriff kennt seine
+    // eigenen Teilstücke (bei höchstens drei Wörtern sind das fünf) und
+    // markiert sie, wenn sie dieselbe Trefferzahl haben. Aus
+    // "Gruppengröße" wird damit eine Konstante.
+    const verdraengt = new Set();
+    eimer.forEach((v, k) => {
+      if (v.istOrt) return;
+      const worte = k.split(' ');
+      if (worte.length < 2) return;
+      for (let i = 0; i < worte.length; i++) {
+        for (let n = 1; n <= worte.length - i; n++) {
+          if (n === worte.length) continue;          // der Begriff selbst
+          const teil = worte.slice(i, i + n).join(' ');
+          const andere = eimer.get(teil);
+          if (andere && !andere.istOrt && andere.menge.size === v.menge.size) {
+            verdraengt.add(teil);
+          }
+        }
+      }
+    });
+
+    const liste = [];
+    eimer.forEach((v, k) => {
+      if (v.istOrt) {
+        // Ein ORT wird nie verdrängt: "Berlin" ist eine eigene Auskunft,
+        // auch wenn "Berlin Marathon" dieselbe Trefferzahl hätte.
+        liste.push({ text: v.text, anzahl: v.menge.size, art: 'ort' });
+        return;
+      }
+      if (v.menge.size < VORSCHLAG_MIN_VERANSTALTUNGEN) return;
+      if (verdraengt.has(k)) return;
+      liste.push({ text: v.text, anzahl: v.menge.size, art: 'serie' });
+    });
+    liste.sort((a, b) => b.anzahl - a.anzahl || a.text.localeCompare(b.text, 'de'));
+    return liste;
+  }
+
+  /** Die passenden Vorschläge zu einer Eingabe, beste zuerst.
+   *  Ein Treffer am WORTANFANG zählt mehr als einer in der Mitte -
+   *  "Iron" soll "Ironman" bringen und nicht "Eisenbahn-Lauf". */
+  function matchSuggestions(index, eingabe, grenze) {
+    const q = String(eingabe || '').trim().toLowerCase();
+    if (q.length < 2) return [];
+    const treffer = [];
+    (index || []).forEach(v => {
+      const t = v.text.toLowerCase();
+      if (t === q) return;                       // schon eingetippt
+      let rang;
+      if (t.startsWith(q)) rang = 0;
+      else if (new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i').test(v.text)) rang = 1;
+      else if (t.includes(q)) rang = 2;
+      else return;
+      treffer.push({ ...v, rang });
+    });
+    treffer.sort((a, b) => a.rang - b.rang
+      || b.anzahl - a.anzahl
+      || a.text.localeCompare(b.text, 'de'));
+    return treffer.slice(0, grenze || 8);
+  }
+
   // Eine unabhängige Kopie eines Filterzustands. Nötig, weil Sets und
   // `origin` sonst geteilt wären: Der Abo-Dialog in events.html arbeitet
   // mit einer Kopie der aktuellen Suche - was dort umgestellt wird, darf
@@ -713,6 +901,8 @@
     todayIso,
     createState,
     copyState,
+    buildSuggestions,
+    matchSuggestions,
     clearFilters,
     hasFilters,
     haversineKm,

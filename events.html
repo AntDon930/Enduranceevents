@@ -357,6 +357,44 @@
     appearance: none;
     display: none;
   }
+  /* Die Vorschlagsliste hängt am Feld (position: relative am
+     .master-search). z-index 1000 wie das Filter-Panel: über den
+     Tabellenköpfen, unter den Dialogen (2000). */
+  .search-suggest {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    max-height: 46vh;
+    overflow-y: auto;
+  }
+  .search-suggest[hidden] { display: none; }
+  .search-suggest li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .search-suggest li[aria-selected="true"],
+  .search-suggest li:hover { background: var(--row-hover, rgba(0, 0, 0, 0.06)); }
+  .search-suggest .vs-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .search-suggest .vs-anzahl {
+    flex: none;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.78rem;
+  }
   .master-search input:focus {
     outline: none;
     border-color: var(--accent);
@@ -1031,8 +1069,14 @@
            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
       </svg>
-      <input type="search" id="master-search" autocomplete="off" enterkeyhint="search">
+      <input type="search" id="master-search" autocomplete="off" enterkeyhint="search"
+             role="combobox" aria-expanded="false" aria-autocomplete="list"
+             aria-controls="master-search-list">
       <button type="button" id="master-search-clear" hidden aria-label="">&#10005;</button>
+      <!-- Vorschläge: "Iron" soll "Ironman" anbieten (so vom Nutzer
+           gewünscht, statt einer eigenen Veranstalter-SPALTE - die
+           kostete Platz, den die Liste auf dem Laptop nicht hat). -->
+      <ul class="search-suggest" id="master-search-list" role="listbox" hidden></ul>
     </div>
     <div class="result-count" id="result-count"></div>
     <!-- Der Schalter steht direkt hinter der Trefferzahl: Er verändert,
@@ -1133,7 +1177,7 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=d641d194"></script>
+<script src="filters.js?v=ecff4310"></script>
 <script src="filter-ui.js?v=57593b54"></script>
 
 <script>
@@ -1177,6 +1221,9 @@
       subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
       reset: 'Filter löschen',
       suche_platzhalter: 'Event oder Ort suchen',
+      vorschlag_liste: 'Vorschläge',
+      vorschlag_serie: (n) => n === 1 ? '1 Veranstaltung' : n + ' Veranstaltungen',
+      vorschlag_ort: (n) => n === 1 ? '1 Veranstaltung am Ort' : n + ' Veranstaltungen am Ort',
       suche_leeren: 'Suche leeren',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
@@ -1299,6 +1346,9 @@
       subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
       reset: 'Reset filters',
       suche_platzhalter: 'Search event or place',
+      vorschlag_liste: 'Suggestions',
+      vorschlag_serie: (n) => n === 1 ? '1 event' : n + ' events',
+      vorschlag_ort: (n) => n === 1 ? '1 event in this place' : n + ' events in this place',
       suche_leeren: 'Clear search',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
@@ -1754,23 +1804,138 @@
   // Abstand zwischen zwei Tastendrücken, das Tippen ruckelte sonst.
   const masterSearchEl = document.getElementById('master-search');
   const masterClearEl = document.getElementById('master-search-clear');
+  const suggestListEl = document.getElementById('master-search-list');
   let sucheTimer = null;
+
+  // ---------- Vorschläge in der Mastersuche ----------
+  //
+  // Der Anlass war die Frage nach einer VERANSTALTER-Spalte. Gemessen an
+  // den Daten lohnt die nicht: Die größte Serie hat 21 Veranstaltungen,
+  // nennenswert sind rund elf. Eine Spalte kostete Platz, den die Liste
+  // auf dem Laptop nicht hat (siehe „Die Werkzeugleiste muss in EINE
+  // Zeile passen") - ein Vorschlag im Suchfeld kostet keinen.
+  //
+  // Der Index wird ERST BEIM ERSTEN TIPPEN gebaut, nicht beim Laden:
+  // 35 ms bei 4.335 Events, 112 ms bei 20.000 - das gehört nicht in den
+  // ersten Seitenaufbau, für den die ganze Tempo-Arbeit gemacht wurde.
+  let vorschlagIndex = null;
+  let vorschlagTreffer = [];
+  let vorschlagAktiv = -1;      // -1 = nichts hervorgehoben
+
+  function holeVorschlagIndex() {
+    if (vorschlagIndex === null) vorschlagIndex = EF.buildSuggestions(events);
+    return vorschlagIndex;
+  }
+
+  function schliesseVorschlaege() {
+    suggestListEl.hidden = true;
+    suggestListEl.innerHTML = '';
+    vorschlagTreffer = [];
+    vorschlagAktiv = -1;
+    masterSearchEl.setAttribute('aria-expanded', 'false');
+    masterSearchEl.removeAttribute('aria-activedescendant');
+  }
+
+  function hebeVorschlagHervor(i) {
+    vorschlagAktiv = i;
+    [...suggestListEl.children].forEach((li, n) => {
+      li.setAttribute('aria-selected', n === i ? 'true' : 'false');
+    });
+    if (i < 0) { masterSearchEl.removeAttribute('aria-activedescendant'); return; }
+    masterSearchEl.setAttribute('aria-activedescendant', 'ms-opt-' + i);
+    const li = suggestListEl.children[i];
+    if (li && li.scrollIntoView) li.scrollIntoView({ block: 'nearest' });
+  }
+
+  function zeigeVorschlaege() {
+    const q = masterSearchEl.value.trim();
+    vorschlagTreffer = q.length >= 2 ? EF.matchSuggestions(holeVorschlagIndex(), q, 8) : [];
+    if (!vorschlagTreffer.length) { schliesseVorschlaege(); return; }
+    suggestListEl.setAttribute('aria-label', t('vorschlag_liste'));
+    suggestListEl.innerHTML = vorschlagTreffer.map((v, i) => {
+      // t(key, ...args) ruft einen Funktions-Text SELBST auf (siehe
+      // result_count_grouped) - also t(key, wert), nicht t(key)(wert).
+      const hinweis = t(v.art === 'ort' ? 'vorschlag_ort' : 'vorschlag_serie', v.anzahl);
+      return `<li role="option" id="ms-opt-${i}" aria-selected="false" data-i="${i}">`
+        + `<span class="vs-text">${EF.escapeHtml(v.text)}</span>`
+        + `<span class="vs-anzahl" aria-label="${EF.escapeHtml(hinweis)}">${v.anzahl}</span></li>`;
+    }).join('');
+    suggestListEl.hidden = false;
+    masterSearchEl.setAttribute('aria-expanded', 'true');
+    hebeVorschlagHervor(-1);
+  }
+
+  function uebernimmVorschlag(i) {
+    const v = vorschlagTreffer[i];
+    if (!v) return;
+    masterSearchEl.value = v.text;
+    state.suche = v.text;
+    masterClearEl.hidden = false;
+    schliesseVorschlaege();
+    if (sucheTimer !== null) { clearTimeout(sucheTimer); sucheTimer = null; }
+    render();
+  }
+
+  // EIN Listener an der Liste, nicht einer je Zeile - dieselbe Linie wie
+  // beim <tbody> der Tabelle. `mousedown` statt `click`: Ein Klick würde
+  // erst das `focusout` des Feldes auslösen, das die Liste schließt, und
+  // ginge dann ins Leere.
+  suggestListEl.addEventListener('mousedown', (ev) => {
+    const li = ev.target.closest('li[data-i]');
+    if (!li) return;
+    ev.preventDefault();
+    uebernimmVorschlag(Number(li.dataset.i));
+  });
+
   masterSearchEl.addEventListener('input', () => {
     state.suche = masterSearchEl.value;
     masterClearEl.hidden = !masterSearchEl.value;
+    zeigeVorschlaege();
     if (sucheTimer !== null) clearTimeout(sucheTimer);
     sucheTimer = setTimeout(() => { sucheTimer = null; render(); }, 180);
   });
-  // Enter zeichnet sofort, ohne die 180 ms abzuwarten.
   masterSearchEl.addEventListener('keydown', (ev) => {
+    const offen = !suggestListEl.hidden && vorschlagTreffer.length > 0;
+    if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+      if (!offen) { zeigeVorschlaege(); return; }
+      ev.preventDefault();
+      const schritt = ev.key === 'ArrowDown' ? 1 : -1;
+      const anzahl = vorschlagTreffer.length;
+      // Über den Rand hinaus landet man wieder im Feld (-1), nicht am
+      // anderen Ende: Die Eingabe ist der Ausgangspunkt, nicht ein Ring.
+      let neu = vorschlagAktiv + schritt;
+      if (neu >= anzahl) neu = -1;
+      if (neu < -1) neu = anzahl - 1;
+      hebeVorschlagHervor(neu);
+      return;
+    }
+    if (ev.key === 'Escape') {
+      if (offen) { ev.preventDefault(); schliesseVorschlaege(); }
+      return;
+    }
     if (ev.key !== 'Enter') return;
+    // Enter auf einem hervorgehobenen Vorschlag übernimmt ihn, sonst
+    // zeichnet es die Suche sofort (ohne die 180 ms abzuwarten).
+    if (offen && vorschlagAktiv >= 0) {
+      ev.preventDefault();
+      uebernimmVorschlag(vorschlagAktiv);
+      return;
+    }
+    schliesseVorschlaege();
     if (sucheTimer !== null) { clearTimeout(sucheTimer); sucheTimer = null; }
     render();
+  });
+  // Verlässt der Fokus das Feld UND die Liste, ist die Auswahl vorbei.
+  // `relatedTarget === null` heißt nur, dass das Fenster den Fokus
+  // verloren hat - dieselbe Unterscheidung wie beim Filter-Panel.
+  masterSearchEl.addEventListener('focusout', (ev) => {
+    if (ev.relatedTarget && !suggestListEl.contains(ev.relatedTarget)) schliesseVorschlaege();
   });
   masterClearEl.addEventListener('click', () => {
     masterSearchEl.value = '';
     state.suche = '';
     masterClearEl.hidden = true;
+    schliesseVorschlaege();
     masterSearchEl.focus();
     render();
   });
@@ -1782,6 +1947,9 @@
     masterClearEl.hidden = !state.suche;
     if (document.activeElement === masterSearchEl) return;
     if (masterSearchEl.value !== state.suche) masterSearchEl.value = state.suche;
+    // Der Zustand kam von außen (Chip entfernt, „Filter löschen") - dann
+    // gehört auch die Vorschlagsliste zu.
+    if (!suggestListEl.hidden) schliesseVorschlaege();
   }
 
   const groupToggleEl = document.getElementById('group-toggle');

@@ -85,7 +85,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 130 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 143 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -1044,6 +1044,56 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   dazu). Angezeigt wird überall über `tv('standort', …)`: Tabelle,
   Detailbereich, Chips, Karten-Popup, Teilen-Text und Melde-Dialog. Die
   übrigen ~1.500 Orte gibt `tv()` unverändert zurück.
+
+- **Die Mastersuche schlägt Serien und Orte vor** („Iron" → „Ironman").
+  Entstanden aus der Frage nach einer **Veranstalter-Spalte**. Gemessen
+  an den Daten lohnt die nicht: Die größte Serie hat 21
+  Veranstaltungen, nennenswert sind rund elf (Wings for Life World Run
+  21, Ahmadiyya Charity Walk 18, Muddy Angel Run 13, Rats-Run 9,
+  Ironman 7, XLETIX 6, SportScheck RUN 6, HYROX 5, Spartan 3). Eine
+  Spalte kostete Platz, den die Werkzeugleiste auf dem Laptop nicht hat
+  – der Vorschlag im Suchfeld kostet keinen. „Sparkasse" (30) und
+  „Stadtwerke" (6) sind übrigens **Sponsoren**, keine Veranstalter, und
+  „Backyard" (21) ein Format.
+  - **Gerechnet aus den Daten, nicht aus einer Liste im Code**
+    (`EF.buildSuggestions`, `EF.matchSuggestions` in `filters.js`). Eine
+    gepflegte Markenliste würde veralten, sobald eine Serie dazukommt –
+    und beim großen Datenlauf kommen 16.000 Events dazu.
+  - **Wortgruppen an JEDER Stelle des Namens, nicht nur am Anfang.**
+    „Kulmbach Spartan Trifecta Weekend" beginnt mit dem Ort; nur mit
+    Wortanfängen wäre „Spartan" kein Vorschlag geworden. Dasselbe gilt
+    für „… Charity Walk".
+  - **Der längere Begriff verdrängt den kürzeren bei gleicher
+    Trefferzahl**: „Wings" und „Wings for Life" treffen beide 21,
+    angeboten wird der längere. **Die Richtung dieses Vergleichs ist
+    Tempo, nicht Stil**: Naheliegend wäre, für jeden Begriff die
+    Begriffe mit derselben Trefferzahl zu durchsuchen – gemessen 533 ms
+    bei 4.335 Events und 1,7 s bei 20.000, weil allein die Gruppe
+    „1 Treffer" 6.209 Einträge hat. Umgedreht (jeder LANGE Begriff
+    markiert seine höchstens fünf Teilstücke) sind es **35 ms bzw.
+    112 ms**. Nicht zurückdrehen.
+  - **Ein ORT wird nie verdrängt** und unterliegt nicht der
+    Vier-Zeichen-Mindestlänge: „Ulm" muss vorkommen, „Berlin" ist eine
+    eigene Auskunft neben „Berlin Marathon". Der Test hält beides fest.
+  - **Der Index entsteht erst beim ersten Tippen** (`holeVorschlagIndex`),
+    nicht beim Laden: Er gehört nicht in den ersten Seitenaufbau, für
+    den die ganze Tempo-Arbeit gemacht wurde.
+  - Gegenproben, die alle beim Bauen aufgetreten sind und jetzt im Test
+    stehen: kein Vorschlag endet auf einem **Bindestrich** („Wings for
+    Life -"), keine **Jahreszahl** („2026", „Silvesterlauf 2026"),
+    Schreibvarianten sind **ein** Vorschlag („UltraTrail" /
+    „Ultratrail" / „ULTRATRAIL"), und ein Ort steht **einmal** da (vorher
+    zweimal: als Ort und aus den Namen).
+  - Bedienung wie ein Auswahlfeld: `role="combobox"` +
+    `role="listbox"`, ↑/↓ (über den Rand hinaus zurück ins Feld, kein
+    Ring), Enter übernimmt, Escape schließt, `aria-activedescendant`.
+    **`mousedown` statt `click`** an der Liste – ein Klick löste erst
+    das `focusout` des Feldes aus, das die Liste schließt, und ging dann
+    ins Leere.
+  - **`t(key, ...args)` ruft einen Funktions-Text SELBST auf.** Beim
+    ersten Versuch stand hier `t('vorschlag_serie')(v.anzahl)`, und die
+    Seite warf bei jedem Tastendruck „t(...) is not a function" – ohne
+    dass man es sah, weil die Liste einfach zublieb.
 
 - **Die Mastersuche sucht in BEIDEN Sprachen** (`sucheHeuhaufen()` in
   `filters.js`): Wer die Seite auf Deutsch stehen hat, findet mit

@@ -1448,6 +1448,102 @@ def test_audit_pruefungen() -> None:
     check("eine saubere Zeile meldet gar nichts", kategorien(), set())
 
 
+def test_such_vorschlaege() -> None:
+    """„Iron" muss „Ironman" anbieten - und nichts Sinnloses.
+
+    Die Vorschläge entstehen AUS DEN DATEN (`EF.buildSuggestions`), nicht
+    aus einer gepflegten Markenliste: Eine Liste im Code würde veralten,
+    sobald eine Serie dazukommt, und beim großen Datenlauf kommen 16.000
+    Events dazu.
+
+    Die Gegenproben sind hier das Eigentliche. Beim Bauen dieser Funktion
+    standen in der Liste: „Wings for Life -" (ein Bindestrich als Wort),
+    „2026" und „Silvesterlauf 2026" (Jahreszahlen), „München" doppelt
+    (einmal als Ort, einmal aus den Namen) und drei Schreibweisen von
+    „UltraTrail". Jede dieser Schwächen steht unten als Test.
+    """
+    print("\nVorschläge der Mastersuche:")
+    import json, shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    wurzel = Path(__file__).resolve().parent.parent
+    skript = f"""
+      global.window = global;
+      require({str(wurzel / 'filters.js')!r});
+      const EF = global.EnduranceFilters;
+      const mach = (name, ort, tag) => ({{ name, standort: ort, datum_start: tag }});
+      const daten = [
+        mach('Ironman Frankfurt', 'Frankfurt', '2027-06-27'),
+        mach('Ironman Hamburg', 'Hamburg', '2027-06-06'),
+        mach('Ironman 70.3 Erkner', 'Erkner', '2027-09-12'),
+        mach('Ironman 70.3 Leipzig', 'Leipzig', '2027-08-08'),
+        // Serie, die NICHT am Namensanfang steht
+        mach('Kulmbach Spartan Trifecta Weekend', 'Kulmbach', '2027-06-11'),
+        mach('Spartan Berlin', 'Berlin', '2027-05-01'),
+        mach('Spartan Muenchen', 'Muenchen', '2027-05-02'),
+        // Serie mit Bindestrich-Ort dahinter
+        mach('Wings for Life - Frankfurt am Main', 'Frankfurt', '2027-05-09'),
+        mach('Wings for Life - Gangelt', 'Gangelt', '2027-05-09'),
+        mach('Wings for Life - Bamberg', 'Bamberg', '2027-05-09'),
+        // Jahreszahlen im Namen
+        mach('Silvesterlauf 2026 Nord', 'Kiel', '2026-12-31'),
+        mach('Silvesterlauf 2026 Sued', 'Ulm', '2026-12-31'),
+        mach('Silvesterlauf 2026 West', 'Aachen', '2026-12-31'),
+        // Schreibvarianten
+        mach('Grosser UltraTrail', 'Bonn', '2027-07-01'),
+        mach('Kleiner Ultratrail', 'Bonn', '2027-07-02'),
+        mach('Dritter ULTRATRAIL', 'Bonn', '2027-07-03')
+      ];
+      const idx = EF.buildSuggestions(daten);
+      const texte = idx.map(v => v.text);
+      const treffer = (q) => EF.matchSuggestions(idx, q, 8).map(v => v.text + ':' + v.anzahl);
+      console.log(JSON.stringify({{
+        iron: treffer('iron'),
+        sparta: treffer('sparta'),
+        wings: treffer('wings'),
+        silv: treffer('silvest'),
+        ultra: treffer('ultratr'),
+        bonn: treffer('bon'),
+        mitBindestrich: texte.filter(t => t.trim().endsWith('-')),
+        mitJahr: texte.filter(t => /\\b20\\d\\d/.test(t)),
+        // Die Vier-Zeichen-Regel gilt nur für SERIEN. Ein Ort darf
+        // kurz sein - "Ulm" hat drei Buchstaben und muss vorkommen.
+        kurzeSerie: idx.filter(v => v.art === 'serie' && v.text.length < 4).map(v => v.text),
+        kurzerOrt: idx.filter(v => v.art === 'ort' && v.text === 'Ulm').length
+      }}));
+    """
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("node konnte filters.js laden", ergebnis.stderr.strip()[-200:], "")
+        return
+    d = json.loads(ergebnis.stdout)
+
+    check("„iron\u201c schlägt „Ironman\u201c vor (4 Veranstaltungen)",
+          "Ironman:4" in d["iron"], True)
+    # Der Kernfall: eine Serie, die MITTEN im Namen steht.
+    check("„sparta\u201c schlägt „Spartan\u201c vor, auch wenn der Name "
+          "mit dem Ort beginnt", "Spartan:3" in d["sparta"], True)
+    check("„wings\u201c schlägt „Wings for Life\u201c vor (3)",
+          "Wings for Life:3" in d["wings"], True)
+    # Der längere Begriff verdrängt den kürzeren bei gleicher Trefferzahl.
+    check("„Wings\u201c allein steht NICHT daneben",
+          any(x.startswith("Wings:") for x in d["wings"]), False)
+
+    # --- Gegenproben ---------------------------------------------------
+    check("kein Vorschlag endet auf einem Bindestrich", d["mitBindestrich"], [])
+    check("keine Jahreszahl in einem Vorschlag", d["mitJahr"], [])
+    check("keine Serie aus einem Wort unter vier Zeichen", d["kurzeSerie"], [])
+    check("ein kurzer ORTSNAME bleibt trotzdem („Ulm\u201c)", d["kurzerOrt"], 1)
+    check("„silvest\u201c findet die Serie ohne die Jahreszahl",
+          "Silvesterlauf:3" in d["silv"], True)
+    check("Schreibvarianten sind EIN Vorschlag mit drei Treffern",
+          [x for x in d["ultra"] if x.endswith(":3")] != [], True)
+    check("ein Ort steht genau EINMAL in der Liste",
+          len([x for x in d["bonn"] if x.startswith("Bonn:")]), 1)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1459,7 +1555,7 @@ def main() -> int:
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
-                 test_stundenlauf,
+                 test_stundenlauf, test_such_vorschlaege,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

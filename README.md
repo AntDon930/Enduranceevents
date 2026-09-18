@@ -777,6 +777,23 @@ findet „Sankt Anton am Arlberg" den Ort nicht, der in den Daten
 Einfach `events.json` um weitere Objekte im gleichen Format ergänzen und
 committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
+## Veranstalter: kein eigenes Feld, sondern Vorschläge in der Suche
+
+Die Frage war, ob man nach Veranstalter filtern können sollte (Ironman,
+Challenge …). Ausgezählt über die 2.374 Veranstaltungen: Die größte
+Serie hat **21** Einträge, nennenswert sind rund elf – Wings for Life
+World Run 21, Ahmadiyya Charity Walk 18, Muddy Angel Run 13, Rats-Run 9,
+Fun & Erlebnis Marathons 8, Ironman 7, XLETIX Challenge 6, SportScheck
+RUN 6, HYROX 5, Spartan 3, Obstacle City Run 3. „Sparkasse" (30) und
+„Stadtwerke" (6) sind Sponsoren, keine Veranstalter; „Backyard" (21) ist
+ein Format.
+
+Für elf Serien eine achte Spalte einzuführen wäre teuer: Die
+Werkzeugleiste muss auf 1024 px in eine Zeile passen (siehe
+CLAUDE.md). Stattdessen schlägt die Mastersuche vor, was in den Daten
+steht – „Iron" bringt „Ironman (7)". Details und die Tempo-Messung in
+CLAUDE.md unter „Die Mastersuche schlägt Serien und Orte vor".
+
 ## Datenqualität
 
 Elf Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
