@@ -37,7 +37,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen |
-| `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung |
+| `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
@@ -75,7 +75,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 90 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 103 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -87,7 +87,10 @@ sichtbar, Sprachumschalter), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
-Enter, Escape, Fokusfessel der Dialoge), Filter über den Weg
+Enter, Escape, Fokusfessel der Dialoge), „Wir haben dein Event nicht?"
+(Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
+Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
+Dezimaltrennzeichen in DE und EN, Filter über den Weg
 Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
@@ -215,6 +218,17 @@ python3 scripts/review_reports.py propose --key "<Name>|<Datum>|<km>" \
         --set laenge_km=12,4 --grund "…" --quelle "…"
 python3 scripts/review_reports.py confirm       # fragt den Nutzer, j/n
 ```
+
+Fehlt eine Veranstaltung ganz, kommt sie über „Wir haben dein Event
+nicht?" (Collection `eventSuggestions`) – angesehen mit:
+
+```bash
+python3 scripts/review_reports.py suggestions --credentials <serviceaccount.json>
+```
+
+Auch hier gilt: nur ansehen. Was daraus wird (Scraper oder Override),
+entscheidet der Nutzer, nachdem robots.txt und Nutzungsbedingungen der
+Quelle geprüft sind.
 
 Der Vorschlag bleibt bis zur Bestätigung in `pending_overrides.json`;
 erst `confirm` schreibt ihn nach `manual_overrides.json`. Also: Meldungen
@@ -506,6 +520,114 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   eingehängt, weil `auth.js` `defer` trägt und beim Inline-Skript noch
   nicht existiert (dieselbe Reihenfolge wie bei `EE_AUTH_QUEUE`). Nicht
   kopieren, sonst laufen zwei Fesseln auseinander.
+- **Die Kopfzeile: Knöpfe immer rechts, EINE Reihe, keine E-Mail.**
+  Drei Dinge, die zusammengehören (alle am 18.09.2026 vom Nutzer
+  gemeldet):
+  - `.top-actions` trägt **`margin-left: auto`**. Bricht die Knopfreihe
+    unter den Titel um, beginnt ein einzelnes Flex-Element dort am
+    **linken** Rand – genau so standen Startseite/Karte/DE/EN plötzlich
+    links. `justify-content: flex-end` am `.top-bar` hilft dagegen
+    nicht, es gilt nur innerhalb einer Zeile.
+  - **Eine Reihe statt zwei**: Der Teilen-Knopf lag früher unter DE/EN
+    (eigenes `.top-actions-row` in einer Spalte). Jetzt sind alle Knöpfe
+    Geschwister in einer umbrechenden Reihe – der blaue Kasten ist damit
+    flacher. `.top-bar-text` (`flex: 1 1 260px; min-width: 0`) nimmt den
+    Rest.
+  - **Die E-Mail-Adresse steht nicht mehr im Kopf** (`renderAuthButton`
+    in `auth.js`): unnötig, in Screenshots eine Preisgabe ohne
+    Gegenwert – und sie machte die Reihe so breit, dass sie umbrach.
+    „Abmelden" allein sagt, dass jemand angemeldet ist; um welches Konto
+    es geht, steht im Abo-Dialog. `loggedInShort` ist deshalb aus beiden
+    `I18N`-Blöcken von `auth.js` entfernt.
+  Der Untertitel ist **kein Bedienhinweis** mehr („Klicke auf eine
+  Kopfzeile-Filterschaltfläche …" war ein Handbuchsatz für etwas, das man
+  sieht), sondern sagt in einer Zeile, was die Liste ist und dass sie
+  wöchentlich neu eingesammelt wird. Kurz halten – jede Zeile mehr macht
+  den Kasten höher. Der lange **Titel** ist der nächste Hebel dafür, der
+  gehört aber zum Design-Punkt „Marke und einheitliche Kopfzeile"
+  (Fahrplan 4) und nicht in eine Nebenänderung.
+
+- **Ab 901 px ist die SEITE fensterhoch, und nur die Liste scrollt.**
+  Vorher war die Tabelle auf `78vh` begrenzt, die Seite selbst aber
+  höher: Wer die Seite statt der Liste scrollte, sah die Liste enden und
+  darunter eine leere Fläche – und scrollte in zwei verschiedenen Dingen
+  (vom Nutzer gemeldet). Deshalb in der `@media (min-width: 901px)`:
+  `body { height: 100vh; overflow: hidden; display: flex; flex-direction:
+  column }`, `.layout { flex: 1; min-height: 0; align-items: stretch }`,
+  `.table-wrap { height: 100% }`. **`min-height: 0` an beiden Stellen ist
+  nicht Kosmetik** – ohne das wächst das Grid auf seine Inhaltshöhe und
+  schiebt die Fußzeile aus dem Bild, statt selbst zu scrollen.
+  Fußzeile und der Knopf „Event fehlt?" stehen damit immer sichtbar
+  unten. **Auf dem Handy bleibt der Seiten-Scroll** (eine Spalte, der
+  Detailbereich steht UNTER der Tabelle und `zeigeDetailbereich()`
+  scrollt die Seite dorthin) – die Regel darf also nicht unter 901 px
+  gelten. Das Nachladen des nächsten Schubs hängt schon an beidem
+  (`wrapEl` **und** `window`, siehe `pruefeNachladen`), da war nichts zu
+  ändern.
+
+- **Alle Zeilen sind gleich hoch (52 px), und kein Text geht über zwei
+  Zeilen** (so vom Nutzer gewünscht). `tbody tr { height: 52px }` wirkt
+  wie eine Mindesthöhe; dass nichts darüber hinauswächst, sichern drei
+  Dinge: `.cell-clamp` (zwei Zeilen), `.group-row.open .group-name-text`
+  (dort ebenfalls zwei – vorher `white-space: normal` ohne Grenze) und
+  die **Längen-Spanne**:
+  - `laengeSpanne(g)` schreibt bei einer zusammengefassten Veranstaltung
+    nur noch `5–51 km` statt einer Marke je Strecke. Die
+    „Globetrotter Wandertage" mit 15 Wettbewerben hatten vorher 15
+    Marken in einer Zelle und waren vierfach so hoch wie jede andere
+    Zeile. Ohne Leerzeichen um den Gedankenstrich – die Spalte ist
+    schmal.
+  - **Eine bekannte Distanz hat Vorrang** (Datenregel 8): Bietet eine
+    Veranstaltung Strecken UND ein Zeitrennen, nennt die Zeile die
+    Strecken; nur ohne jede Distanz steht dort die Spanne der Dauern.
+  - **Die Marken (`.badge`) sind weg** – sie sahen mit Rahmen und
+    abgesetztem Hintergrund aus, als ließen sie sich anklicken. Nicht
+    wieder einführen: In der Tabelle gilt **eine** Schrift und **ein**
+    Aussehen. Aus demselben Grund sind die kleineren Schriftgrößen von
+    `.sub-row` und `.group-row.open` (0.82rem) gefallen; Veranstaltung
+    und Strecke unterscheiden sich über Pfeil, Anzahl und Einrückung.
+
+- **Dezimaltrennzeichen: DE Komma, EN Punkt.** Alles, was eine Zahl mit
+  Nachkommastelle anzeigt, geht durch `EF.formatNumber(wert, lang,
+  stellen)` bzw. `EF.formatKm`/`EF.formatHours` in `filters.js` – die
+  Liste (`formatKm`, `formatLength`, `formatDistance`, `laengeSpanne`),
+  die Chips (`Länge ab …`, aus einem `<input type="number">` kommt immer
+  ein Punkt) und die deutschen Kategorie-Labels („Olympische Distanz
+  (51,5 km)"; „70.3" bleibt mit Punkt, das ist der Markenname).
+  **Bewusst kein `toLocaleString()`**: Das hängt an der
+  Spracheinstellung des Browsers, nicht am Umschalter DE/EN der Seite –
+  ein Deutscher mit englischem System hätte im deutschen Text Punkte
+  gesehen. **Nicht** durch diese Funktion gehen darf `icsMasszahl()`:
+  Der Dateiname der Kalenderdatei und der `eventSlug` müssen
+  sprachunabhängig sein, sonst zeigt ein geteilter Link ins Leere
+  (`test_scraper_lib.py` prüft sie gegen `build_ics.py`).
+
+- **„Wir haben dein Event nicht?"** – der zweite Fall bei null Treffern.
+  Ein Abo hilft nur, wenn das Event noch nicht existiert; unsere Liste
+  kann aber auch einfach unvollständig sein. Zwei Wege, **ein** Dialog
+  (`openSuggestModal`): die leise Leiste `.fehlt-bar` unter der Liste
+  (immer da) und ein zweiter Knopf in der Null-Treffer-Box.
+  - Gefragt wird **nur nach der Adresse der offiziellen Seite und dem
+    Namen** (plus optionalem Hinweis). Datum, Strecken, Ort und Sportart
+    holen wir uns von genau dieser Seite: Abgetippte Angaben wären eine
+    dritte Datenquelle neben Scraper und `manual_overrides.json`, und
+    Datenregel 2 verlangt die offizielle Seite ohnehin.
+  - `normalisiereUrl()` ergänzt ein fehlendes `https://` (der häufigste
+    Fall beim Eintippen), weist aber alles ohne Punkt im Hostnamen und
+    jedes andere Schema ab. Dieselbe Bedingung steht in
+    `firestore.rules` (`matches('^https?://.+')`).
+  - Gespeichert wird in der neuen Collection **`eventSuggestions`**
+    (anonyme Anmeldung wie bei den Fehlermeldungen, geschlossene
+    Feldliste, `allow read, update, delete: if false`). Angesehen wird
+    sie mit `python3 scripts/review_reports.py suggestions`.
+  - **Übernommen wird nichts automatisch.** Ein Hinweis von außen ist
+    eine Adresse, kein Datensatz: erst robots.txt und
+    Nutzungsbedingungen der Quelle prüfen, dann Scraper oder Override –
+    dieselbe Linie wie bei den Fehlermeldungen.
+  - Die **Datenschutzerklärung** hat dafür einen eigenen Abschnitt
+    (`h_fehlt`/`t_fehlt`, DE und EN). Kommt ein weiteres Feld dazu, muss
+    er mit.
+
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)
@@ -585,8 +707,10 @@ Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
   Adresse), `buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`,
   die Zeitraum-Knöpfe, `dropPastEvents()`, `copyState(state,
   ohneDatum)` (Kopie samt Sets – der Abo-Dialog filtert damit ohne die
-  Liste anzufassen) und die drei Helfer `escapeHtml()`,
-  `uniqueSorted(values, lang)`, `formatDate(iso, lang)`.
+  Liste anzufassen) und die Helfer `escapeHtml()`,
+  `uniqueSorted(values, lang)`, `formatDate(iso, lang)` sowie
+  `formatNumber(wert, lang, stellen)` / `formatKm` / `formatHours`
+  (Dezimaltrennzeichen je Sprache – siehe Frontend-Fallen).
 - **`filter-ui.js`** (`window.EnduranceFilterUI`, in den Seiten `EFU`) +
   **`filter-ui.css`** – die Bedienung: Filterknöpfe und das schwebende
   Panel mit allem darin (Häkchenlisten, Datums-Baum, Umkreissuche mit
@@ -727,7 +851,8 @@ vorhanden" (`smoke_test_frontend.py`, die Prüfung bei
 - Die **Datenschutzerklärung beschreibt den echten Stand** der Seite:
   GitHub Pages (Server-Logs), OpenStreetMap nur auf der Kartenseite,
   Standort bleibt im Browser, Firebase erst bei der Anmeldung, anonyme
-  Kennung erst beim Absenden einer Fehlermeldung, `endurance-lang` und
+  Kennung erst beim Absenden einer Fehlermeldung oder eines Hinweises auf
+  ein fehlendes Event, `endurance-lang` und
   `endurance-gruppiert` im lokalen Speicher, keine Analyse, keine
   Werbung. Wird an der Seite etwas verändert, das Daten betrifft,
   **muss dieser Text mit**.
@@ -839,7 +964,18 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 4. **Design** – der Nutzer findet die Seite „noch nicht
    professionell". Reihenfolge nach seiner Wahl (17.09.2026):
    **Impressum + Datenschutz zuerst** (erledigt, siehe oben – es
-   fehlt nur noch die E-Mail-Adresse). Danach in dieser Wirkung:
+   fehlt nur noch die E-Mail-Adresse).
+
+   Am 18.09.2026 sind daraus die Punkte erledigt, die der Nutzer selbst
+   gemeldet hat (siehe Frontend-Fallen): Knöpfe wieder rechts und in
+   einer Reihe, flacherer blauer Kasten, E-Mail-Adresse raus,
+   Bedienhinweis durch eine kurze Beschreibung ersetzt, Liste über die
+   ganze Seitenhöhe, einheitliche Zeilenhöhe und Schrift in der Tabelle,
+   Längen-Spanne statt Marken, Dezimalkomma im Deutschen. **„Fehler
+   melden" bleibt wie es ist** – der Nutzer findet den Knopf so gut
+   (ausdrücklich am 18.09.2026 gesagt).
+
+   Offen, in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.

@@ -73,16 +73,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
+    gap: 10px 16px;
     background: var(--hero-gradient);
     border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 16px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
   }
+  /* Titel und Untertitel nehmen den Platz, der übrig bleibt (min-width: 0,
+     damit sie schrumpfen dürfen) - so bleibt die Knopfreihe möglichst
+     lange in derselben Zeile und der blaue Kasten flach. */
+  .top-bar-text { flex: 1 1 260px; min-width: 0; }
   h1 {
-    font-size: 1.4rem;
-    margin: 0 0 4px;
+    font-size: 1.25rem;
+    margin: 0 0 2px;
     color: #fff;
   }
   .subtitle {
@@ -90,24 +94,26 @@
     font-size: 0.85rem;
     margin: 0;
   }
+  /* EINE umbrechende Reihe, immer rechts. Vorher lagen die Knöpfe in
+     zwei Reihen (Teilen-Knopf darunter) und die ganze Einheit war eine
+     Spalte: Sobald sie unter den Titel umbrach, saß sie am LINKEN Rand
+     (vom Nutzer gemeldet) - ein einzelnes Flex-Element auf einer neuen
+     Zeile beginnt dort. `margin-left: auto` schiebt sie in beiden Fällen
+     nach rechts, und eine Reihe statt zwei macht den Kasten flacher.
+     Dass die E-Mail-Adresse nicht mehr dabeisteht (siehe auth.js), hält
+     die Reihe zusätzlich schmal. */
   .top-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px 8px;
     /* Darf schrumpfen und umbrechen: auf 390 px ragte die Knopfreihe
        vorher 10 px über den blauen Kasten hinaus, DE/EN war angeschnitten. */
     min-width: 0;
     max-width: 100%;
-    margin-top: 2px;
-  }
-  .top-actions-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    max-width: 100%;
+    margin-left: auto;
   }
   .share-btn {
     display: inline-flex;
@@ -253,7 +259,7 @@
   .group-row { cursor: pointer; font-weight: 600; }
   .group-row:hover { background: var(--row-hover); }
   .group-name { display: flex; align-items: center; gap: 6px; }
-  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   /* Rundes Feld mit Pfeil, dreht sich beim Aufklappen um 90°. */
   .chevron {
     display: inline-flex;
@@ -286,25 +292,23 @@
      verworfen - sie wirkte wie ein aufgeklebtes Etikett. */
   .count-pill {
     display: inline-block;
-    font-size: 0.76rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     color: var(--text-muted);
     text-align: left;
   }
   .group-row:hover .count-pill { color: var(--text); }
-  .badges { display: flex; flex-wrap: wrap; gap: 4px; }
-  .badge {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 1px 5px;
-    font-size: 0.7rem;
-    font-weight: normal;
-    white-space: nowrap;
-  }
-  .badges { row-gap: 3px; }
-  tbody tr.sub-row { font-size: 0.82rem; }
+  /* Die Marken in der Länge-Spalte (eine Kapsel je Distanz) sind weg:
+     Sie sahen mit ihrem Rahmen und dem abgesetzten Hintergrund aus, als
+     ließen sie sich anklicken, und bei einer Veranstaltung mit vielen
+     Wettbewerben füllten sie mehrere Zeilen (beides vom Nutzer
+     gemeldet). Stattdessen steht dort jetzt die Spanne "5–42,2 km"
+     (laengeSpanne) - gleiche Schrift wie der Rest der Tabelle. */
+  /* Unterzeilen tragen dieselbe Schrift wie alle anderen Zeilen - nur
+     eingerückt. Sie waren früher kleiner (0.82rem); zusammen mit den
+     Marken in der Länge-Spalte wirkte die Tabelle dadurch uneinheitlich
+     (vom Nutzer gemeldet). Kenntlich sind Veranstaltung und Strecke jetzt
+     über Pfeil, Anzahl und Einrückung - nicht über die Schriftgröße. */
   tbody tr.sub-row .col-name { padding-left: 22px; }
   tbody tr.sub-row .col-anzahl { color: var(--text-muted); }
   /* Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
@@ -312,11 +316,23 @@
      drei. Damit die Zeilen einer Veranstaltung dabei wie ein Block wirken,
      bekommt sie dieselbe Schrift wie ihre Unterzeilen; Pfeil und Anzahl
      bleiben als Kennzeichen der Veranstaltung. */
-  tbody tr.group-row.open { font-size: 0.82rem; font-weight: normal; }
+  tbody tr.group-row.open { font-weight: normal; }
   /* Mit Wettbewerbs-Zeile unter dem Namen säße der Pfeil sonst mittig
      zwischen beiden Zeilen. */
   .group-row.open .group-name { align-items: flex-start; }
-  .group-row.open .group-name-text { white-space: normal; }
+  /* Aufgeklappt darf der Name umbrechen (darunter steht die Bezeichnung
+     des Wettbewerbs) - aber höchstens auf zwei Zeilen, sonst wäre die
+     Zeile höher als alle anderen. Gekürzt wird .group-name-text, nicht
+     .group-name: Dessen display:-webkit-box widerspricht dem Flex, der
+     Name rutschte damit unter das Chevron. */
+  .group-row.open .group-name-text {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   .reset-btn {
     padding: 8px 16px;
@@ -413,6 +429,33 @@
     max-height: 78vh;
     overflow-y: auto;
   }
+  /* Die Liste soll die ganze Seite nutzen. Vorher war die Tabelle auf
+     78vh begrenzt, die SEITE aber höher: Scrollte man die Seite statt der
+     Liste, hörte die Liste auf und darunter blieb eine leere Fläche -
+     und man scrollte in zwei verschiedenen Dingen (vom Nutzer gemeldet).
+     Ab 901 px (zweispaltig, Detailbereich NEBEN der Tabelle) ist die
+     Seite deshalb genau fensterhoch, und nur die Liste scrollt.
+     Fußzeile und der Knopf "Event fehlt?" stehen damit immer sichtbar
+     am unteren Rand.
+     Auf dem Handy bleibt es beim Seiten-Scroll: Dort steht der
+     Detailbereich UNTER der Tabelle und muss erreichbar sein - genau
+     dafür scrollt zeigeDetailbereich() die Seite. */
+  @media (min-width: 901px) {
+    html { height: 100%; }
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    /* min-height: 0 an beiden Stellen - ohne das wächst ein Grid-/
+       Flex-Element auf seine Inhaltshöhe und schiebt die Fußzeile aus
+       dem Bild, statt selbst zu scrollen. */
+    .layout { flex: 1 1 auto; min-height: 0; align-items: stretch; }
+    .layout > * { min-height: 0; }
+    .table-wrap { max-height: 100%; height: 100%; }
+    .side-panel { max-height: 100%; overflow-y: auto; }
+  }
   table {
     border-collapse: collapse;
     width: 100%;
@@ -462,9 +505,19 @@
      ausmessen, um die Spalten zu verteilen. contain-intrinsic-size nennt
      die geschaetzte Zeilenhoehe, damit die Bildlaufleiste von Anfang an
      stimmt. Browser ohne content-visibility ignorieren beide Zeilen. */
+  /* Jede Zeile ist gleich hoch, und kein Text darf über zwei Zeilen
+     hinausgehen (so vom Nutzer gewünscht). `height` wirkt an einem <tr>
+     wie eine Mindesthöhe: Eine einzeilige Zeile wird auf 52 px gestreckt,
+     eine zweizeilige braucht genau so viel - damit sind alle gleich hoch.
+     Dass nichts darüber hinauswächst, sichern die Kürzungen
+     (.cell-clamp, .group-name-text) und die Längen-SPANNE bei
+     zusammengefassten Veranstaltungen (laengeSpanne) - vorher stand dort
+     je Strecke eine eigene Marke, was eine Veranstaltung mit 15
+     Wettbewerben über vier Zeilen zog. */
   tbody tr {
     content-visibility: auto;
-    contain-intrinsic-size: auto 41px;
+    contain-intrinsic-size: auto 52px;
+    height: 52px;
   }
   thead th {
     position: sticky;
@@ -848,6 +901,39 @@
   }
   .ee-field textarea { resize: vertical; min-height: 90px; }
   .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
+
+  /* "Wir haben dein Event nicht?" - eine schmale, leise Zeile UNTER der
+     Liste. Wer etwas sucht, soll zuerst die Liste sehen; wer nichts
+     gefunden hat, findet hier den nächsten Schritt. Ab 901 px ist die
+     Seite genau fensterhoch, die Zeile steht also immer sichtbar unten.
+     Dieselbe Sache steht zusätzlich in der Box bei null Treffern - dort
+     ist sie der naheliegende nächste Schritt. */
+  .fehlt-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 10px;
+    padding: 10px 16px 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .fehlt-bar span { text-align: center; }
+  .fehlt-btn {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .fehlt-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
+  /* Im Melde-Dialog steht die Adresse der offiziellen Seite - ein langes
+     Feld, das nicht abgeschnitten sein darf. */
+  .ee-field input[type="url"] { font-family: inherit; }
   /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
      Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
      Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
@@ -865,23 +951,22 @@
 <body>
 
 <div class="top-bar">
-  <div>
+  <div class="top-bar-text">
     <h1 id="page-title"></h1>
     <p class="subtitle" id="subtitle"></p>
   </div>
+  <!-- Alle Knöpfe in EINER umbrechenden Reihe, rechts. Der Teilen-Knopf
+       gehört zur Seite als Ganzem (die aktuelle Suche), nicht zur Tabelle -
+       in der Werkzeugleiste stand er zwischen Filter-Chips und
+       Zurücksetzen und ging dort unter. -->
   <div class="top-actions">
-    <div class="top-actions-row">
-      <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
-      <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
-      <div id="auth-mount"></div>
-      <div class="lang-switch" id="lang-switch">
-        <button type="button" class="lang-btn" data-lang="de">DE</button>
-        <button type="button" class="lang-btn" data-lang="en">EN</button>
-      </div>
+    <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
+    <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
+    <div id="auth-mount"></div>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
     </div>
-    <!-- Teilen-Knopf unter DE/EN: Er gehört zur Seite als Ganzem (die
-         aktuelle Suche), nicht zur Tabelle - in der Werkzeugleiste stand
-         er zwischen Filter-Chips und Zurücksetzen und ging dort unter. -->
     <button type="button" class="share-btn" id="share-btn">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -953,6 +1038,25 @@
   </div>
 </div>
 
+<!-- Unter der Liste: der Hinweis, dass die Liste nicht vollständig sein
+     muss. Führt in denselben Dialog wie der Knopf in der
+     Null-Treffer-Box - ein Weg, an dem ein Vorschlag entsteht. -->
+<div class="fehlt-bar">
+  <span id="fehlt-bar-text"></span>
+  <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
+</div>
+
+<!-- "Wir haben dein Event nicht?" - gespeichert wird via
+     EndauranceAuth.suggestEvent() in der Firestore-Collection
+     "eventSuggestions" (anonyme Anmeldung, wie bei den
+     Fehlermeldungen). -->
+<div class="ee-modal-overlay" id="suggest-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="suggest-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="suggest-close" aria-label="Schliessen">&#10005;</button>
+    <div id="suggest-body"></div>
+  </div>
+</div>
+
 <!-- Melde-Dialog fuer falsche Event-Daten. Nutzt die Modal-Optik aus
      auth.js; gespeichert wird via EndauranceAuth.reportEventError() in
      der Firestore-Collection "errorReports" (anonyme Anmeldung, damit
@@ -980,7 +1084,7 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=a42b261c"></script>
+<script src="filters.js?v=1d337a61"></script>
 <script src="filter-ui.js?v=50612dad"></script>
 
 <script>
@@ -1015,7 +1119,13 @@
     de: {
       tab_title: 'Ausdauersport-Events D/A/CH',
       title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
-      subtitle: 'Klicke auf eine Kopfzeile-Filterschaltfläche (▾), um die Liste einzugrenzen. Zeile anklicken für Details – mit der Tastatur: ↑ ↓ und Enter.',
+      // Kein Bedienhinweis mehr ("Klicke auf eine
+      // Kopfzeile-Filterschaltfläche …") - das war ein Handbuchsatz für
+      // etwas, das man sieht, und er machte den blauen Kasten hoch. Hier
+      // steht jetzt, WAS die Liste ist und wie aktuell sie ist.
+      // Kurz halten: Die Länder stehen schon in der Überschrift, und
+      // jede Zeile mehr macht den blauen Kasten höher.
+      subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
       reset: 'Alle Filter zurücksetzen',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
@@ -1098,6 +1208,26 @@
       cal_note_apple: 'Ganztägiger Termin. Öffnet sich im Kalender – dort auf „Hinzufügen" tippen. Lädt Safari stattdessen eine Datei, diese in „Dateien" antippen.',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
+      // "Wir haben dein Event nicht?" - der zweite Weg bei null Treffern.
+      // Ein Abo hilft nur, wenn das Event NOCH NICHT stattfindet; unsere
+      // Liste kann aber auch einfach unvollständig sein. Dann soll man
+      // uns die Veranstaltung nennen können.
+      notify_fehlt: 'Oder fehlt die Veranstaltung bei uns? Dann sag uns Bescheid.',
+      fehlt_bar_text: 'Eine Veranstaltung fehlt in der Liste?',
+      fehlt_open: 'Event melden',
+      fehlt_titel: 'Wir haben dein Event nicht?',
+      fehlt_intro: 'Schick uns die Adresse der offiziellen Seite – alles Weitere (Datum, Strecken, Ort) holen wir uns von dort. Abtippen musst du nichts.',
+      fehlt_url_label: 'Adresse der offiziellen Seite',
+      fehlt_url_placeholder: 'https://…',
+      fehlt_name_label: 'Name der Veranstaltung',
+      fehlt_name_placeholder: 'z. B. Zürich Marathon',
+      fehlt_hinweis_label: 'Hinweis (optional)',
+      fehlt_hinweis_placeholder: 'Was wir wissen sollten – z. B. „nur die Radrennen, nicht das Kinderrennen“.',
+      fehlt_send: 'Absenden',
+      fehlt_sending: 'Wird gesendet …',
+      fehlt_thanks: 'Danke! Wir schauen uns die Seite an und nehmen die Veranstaltung auf.',
+      fehlt_err_url: 'Bitte die Adresse der offiziellen Seite angeben.',
+      fehlt_err_name: 'Bitte den Namen der Veranstaltung angeben.',
       notify_btn: 'Benachrichtigen, sobald verfügbar',
       notify_login_btn: 'Anmelden, um benachrichtigt zu werden',
       notify_saved: '✓ Gespeichert – wir melden uns per E-Mail.',
@@ -1110,7 +1240,7 @@
     en: {
       tab_title: 'Endurance Events D/A/CH',
       title: 'Endurance Events – Germany / Austria / Switzerland',
-      subtitle: 'Click a column filter button (▾) to narrow the list. Click a row for details – by keyboard: ↑ ↓ and Enter.',
+      subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
       reset: 'Reset all filters',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
@@ -1191,6 +1321,22 @@
       cal_note_apple: 'All-day event. Opens in Calendar – tap “Add” there. If Safari downloads a file instead, tap it in the Files app.',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
+      notify_fehlt: 'Or is the event missing from our list? Then let us know.',
+      fehlt_bar_text: 'An event missing from the list?',
+      fehlt_open: 'Report an event',
+      fehlt_titel: 'Is your event missing?',
+      fehlt_intro: 'Send us the address of the official website – we will take everything else (date, distances, location) from there. No need to type it in.',
+      fehlt_url_label: 'Address of the official website',
+      fehlt_url_placeholder: 'https://…',
+      fehlt_name_label: 'Name of the event',
+      fehlt_name_placeholder: 'e.g. Zurich Marathon',
+      fehlt_hinweis_label: 'Note (optional)',
+      fehlt_hinweis_placeholder: 'Anything we should know – e.g. "only the bike races, not the kids\' race".',
+      fehlt_send: 'Send',
+      fehlt_sending: 'Sending …',
+      fehlt_thanks: 'Thank you! We will look at the website and add the event.',
+      fehlt_err_url: 'Please enter the address of the official website.',
+      fehlt_err_name: 'Please enter the name of the event.',
       notify_btn: 'Notify me when available',
       notify_login_btn: 'Sign in to get notified',
       notify_saved: '✓ Saved – we’ll email you.',
@@ -1348,7 +1494,12 @@
   function formatDistance(e) {
     const d = distanceFromOrigin(e);
     if (d == null) return '–';
-    return d < 10 ? `${d.toFixed(1)} km` : `${Math.round(d)} km`;
+    // Unter 10 km mit einer Nachkommastelle (dort macht sie einen
+    // Unterschied), darüber gerundet - und immer mit dem
+    // Trennzeichen der gewählten Sprache.
+    return d < 10
+      ? `${EF.formatNumber(d, currentLang, 1)} km`
+      : `${Math.round(d)} km`;
   }
 
   // Ab wie vielen ausgewählten Werten ein Mengen-Filter zu EINEM Chip
@@ -1694,10 +1845,12 @@
   // Strecke unterschiedlich genau an (Marathon als "42,195 km"), angezeigt
   // wird einheitlich "42.2 km". Runde Distanzen bleiben ohne Nachkomma-
   // stelle ("10 km" statt "10.0 km").
+  // Das Dezimaltrennzeichen richtet sich nach der Sprache der SEITE
+  // (DE: Komma, EN: Punkt) - siehe EF.formatNumber in filters.js. Vorher
+  // stand auch im deutschen Text "42.2 km"; ein Punkt liest sich dort wie
+  // eine Tausendertrennung.
   function formatKm(km) {
-    if (km == null || Number.isNaN(Number(km))) return '–';
-    const rounded = Math.round(Number(km) * 10) / 10;
-    return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)} km`;
+    return EF.formatKm(km, currentLang);
   }
 
   // Was in der Spalte "Länge" steht. Nicht jedes Rennen hat eine Strecke:
@@ -1713,8 +1866,7 @@
   function formatLength(e) {
     if (e.laenge_km != null) return formatKm(e.laenge_km);
     if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) {
-      const h = Math.round(Number(e.dauer_h) * 10) / 10;
-      return `${Number.isInteger(h) ? h : h.toFixed(1)} h`;
+      return EF.formatHours(e.dauer_h, currentLang);
     }
     // Backyard Ultra ohne Zeitbegrenzung: bewusst "–". Der Lauf endet,
     // wenn nur noch eine Person weiterläuft - es gibt keine Länge, und
@@ -1740,6 +1892,10 @@
     shareBtnLabelEl.textContent = t('share_search');
     document.getElementById('abo-open-label').textContent = t('abo_open');
     document.getElementById('abo-open-btn').title = t('abo_titel');
+    document.getElementById('fehlt-bar-text').textContent = t('fehlt_bar_text');
+    const fehltKnopf = document.getElementById('fehlt-open-btn');
+    fehltKnopf.textContent = t('fehlt_open');
+    fehltKnopf.title = t('fehlt_titel');
     // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
@@ -1950,16 +2106,42 @@
   // Veranstaltung mit zwei Strecken steht dadurch aufgeklappt in zwei
   // Zeilen; vorher waren es drei (Zusammenfassung + beide Strecken), und
   // die Zusammenfassung wiederholte nur, was direkt darunter stand.
+  // Was bei einer zusammengefassten Veranstaltung in der Länge-Spalte
+  // steht: die SPANNE über alle ihre Strecken, "5–42,2 km". Eine
+  // Veranstaltung mit 15 Wettbewerben hatte vorher 15 Marken in der
+  // Zelle und war dadurch vielfach höher als jede andere Zeile (so vom
+  // Nutzer gemeldet); die einzelnen Distanzen stehen aufgeklappt
+  // ohnehin in ihren eigenen Zeilen.
+  //
+  // Eine bekannte Distanz hat Vorrang (Datenregel 8): Bietet eine
+  // Veranstaltung Strecken UND ein Zeitrennen, nennt die Zeile die
+  // Strecken. Nur wenn es gar keine Distanz gibt, steht dort die Spanne
+  // der Dauern ("12–24 h").
+  function laengeSpanne(g) {
+    const km = [];
+    const stunden = [];
+    g.rows.forEach(({ e }) => {
+      if (e.laenge_km != null && !Number.isNaN(Number(e.laenge_km))) km.push(Number(e.laenge_km));
+      else if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) stunden.push(Number(e.dauer_h));
+    });
+    const werte = km.length ? km : stunden;
+    if (!werte.length) return '–';
+    const einheit = km.length ? 'km' : 'h';
+    const zahl = (v) => EF.formatNumber(v, currentLang, 1);
+    const von = zahl(Math.min.apply(null, werte));
+    const bis = zahl(Math.max.apply(null, werte));
+    // Ohne Leerzeichen um den Gedankenstrich: Die Spalte ist schmal, und
+    // "5 – 42,2 km" bräuchte dort zwei Zeilen.
+    return von === bis ? `${von} ${einheit}` : `${von}–${bis} ${einheit}`;
+  }
+
   function groupRowHtml(g, cols) {
     const e = g.rows[0].e;
     const einzeln = istEinzelgruppe(g);
     const offen = !einzeln && state.offeneGruppen.has(g.key);
     const wb = offen ? displayWettbewerb(e) : null;
-    const laengen = [];
     const kategorien = [];
     g.rows.forEach(({ e: r }) => {
-      const l = formatLength(r);
-      if (l !== '–' && !laengen.includes(l)) laengen.push(l);
       const k = r.art2 ? tv('art2', r.art2) : null;
       if (k && !kategorien.includes(k)) kategorien.push(k);
     });
@@ -1985,9 +2167,7 @@
           return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
         case 'laenge_km':
           if (offen) return cellHtml(col, e);
-          return `<td class="col-laenge_km"><div class="badges">`
-               + (laengen.length ? laengen.map(l => `<span class="badge">${escapeHtml(l)}</span>`).join('') : '–')
-               + `</div></td>`;
+          return `<td class="col-laenge_km"><div class="cell-clamp">${escapeHtml(laengeSpanne(g))}</div></td>`;
         default:
           return cellHtml(col, e);
       }
@@ -2746,12 +2926,19 @@
     // Dialog wie der Knopf in der Werkzeugleiste. Früher hatte sie ihren
     // eigenen Speichern-Knopf - damit gab es zwei Stellen, an denen ein
     // Abo entstand, und nur eine davon kannte den Rhythmus.
+    // Zwei Wege, weil es zwei Gründe für null Treffer gibt: Das Event
+    // findet noch nicht statt (dann hilft ein Abo) - oder es findet
+    // statt, steht aber nicht in unserer Liste. Der zweite Fall war
+    // vorher gar nicht vorgesehen.
     notifyBoxEl.innerHTML = `
-      <p>${escapeHtml(t('notify_text'))}</p>
+      <p>${escapeHtml(t('notify_text'))}<br><span class="notify-status">${escapeHtml(t('notify_fehlt'))}</span></p>
       <button type="button" id="notify-open-btn">${escapeHtml(t('abo_open'))}</button>
+      <button type="button" class="fehlt-btn" id="notify-fehlt-btn">${escapeHtml(t('fehlt_open'))}</button>
     `;
     notifyBoxEl.querySelector('#notify-open-btn')
       .addEventListener('click', oeffneAboDialog);
+    notifyBoxEl.querySelector('#notify-fehlt-btn')
+      .addEventListener('click', openSuggestModal);
   }
 
   function removeNotifyPrompt() {
@@ -3205,6 +3392,147 @@
       return t('report_err_anon');
     }
     return t('report_err_save');
+  }
+
+  // ---------- "Wir haben dein Event nicht?" ----------
+  //
+  // Zwei Wege führen hierher: die Leiste unter der Liste (immer da) und
+  // die Box bei null Treffern (dort neben dem Abo). Beide öffnen DIESEN
+  // Dialog - dieselbe Linie wie bei den Abos, an denen es auch nur einen
+  // Weg gibt.
+  //
+  // Gefragt wird nur nach der Adresse der offiziellen Seite und dem
+  // Namen. Datum, Strecken, Ort und Sportart holen wir uns von genau
+  // dieser Seite: Abgetippte Angaben wären eine dritte Datenquelle neben
+  // Scraper und manual_overrides.json, und die offizielle Seite brauchen
+  // wir nach Datenregel 2 ohnehin. Übernommen wird ein Vorschlag NIE
+  // automatisch (siehe CLAUDE.md).
+  const SUGGEST_NAME_MAX = 200;
+  const SUGGEST_HINWEIS_MAX = 600;
+  const SUGGEST_URL_MAX = 500;
+
+  const suggestOverlay = document.getElementById('suggest-overlay');
+  const suggestDialogEl = suggestOverlay.querySelector('.ee-modal');
+  const suggestBodyEl = document.getElementById('suggest-body');
+  let suggestFesselGesetzt = false;
+  let suggestFokusVorher = null;
+
+  document.getElementById('suggest-close').addEventListener('click', closeSuggestModal);
+  suggestOverlay.addEventListener('click', (evt) => {
+    if (evt.target === suggestOverlay) closeSuggestModal();
+  });
+  document.getElementById('fehlt-open-btn').addEventListener('click', openSuggestModal);
+
+  function closeSuggestModal() {
+    suggestOverlay.hidden = true;
+    suggestBodyEl.innerHTML = '';
+    if (suggestFokusVorher && suggestFokusVorher.isConnected) {
+      try { suggestFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    suggestFokusVorher = null;
+  }
+
+  function openSuggestModal() {
+    if (!window.EndauranceAuth) return;
+    // Firestore schon jetzt nachladen lassen (344 KB, hängt nicht im
+    // HTML) - dieselbe Vorsorge wie im Melde- und im Abo-Dialog.
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
+    // Escape + Fokusfessel aus auth.js, erst beim ersten Öffnen: auth.js
+    // trägt `defer` und existiert beim Inline-Skript noch nicht.
+    if (!suggestFesselGesetzt && window.EndauranceAuth.dialogTasten) {
+      window.EndauranceAuth.dialogTasten(suggestOverlay, closeSuggestModal);
+      suggestFesselGesetzt = true;
+    }
+    suggestFokusVorher = document.activeElement;
+    suggestBodyEl.innerHTML = `
+      <h2 id="suggest-heading">${escapeHtml(t('fehlt_titel'))}</h2>
+      <p class="report-intro">${escapeHtml(t('fehlt_intro'))}</p>
+      <div id="suggest-msg"></div>
+      <form id="suggest-form">
+        <div class="ee-field">
+          <label for="suggest-url">${escapeHtml(t('fehlt_url_label'))}</label>
+          <input type="url" id="suggest-url" inputmode="url" autocomplete="off"
+                 maxlength="${SUGGEST_URL_MAX}" placeholder="${escapeHtml(t('fehlt_url_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-name">${escapeHtml(t('fehlt_name_label'))}</label>
+          <input type="text" id="suggest-name" autocomplete="off"
+                 maxlength="${SUGGEST_NAME_MAX}" placeholder="${escapeHtml(t('fehlt_name_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-hinweis">${escapeHtml(t('fehlt_hinweis_label'))}</label>
+          <textarea id="suggest-hinweis" maxlength="${SUGGEST_HINWEIS_MAX}"
+                    placeholder="${escapeHtml(t('fehlt_hinweis_placeholder'))}"></textarea>
+          <div class="report-counter" id="suggest-counter">0 / ${SUGGEST_HINWEIS_MAX}</div>
+        </div>
+        <button type="submit" class="ee-submit-btn" id="suggest-submit">${escapeHtml(t('fehlt_send'))}</button>
+      </form>
+    `;
+    suggestOverlay.hidden = false;
+
+    const form = suggestBodyEl.querySelector('#suggest-form');
+    const urlEl = suggestBodyEl.querySelector('#suggest-url');
+    const nameEl = suggestBodyEl.querySelector('#suggest-name');
+    const hinweisEl = suggestBodyEl.querySelector('#suggest-hinweis');
+    const counterEl = suggestBodyEl.querySelector('#suggest-counter');
+    const msgEl = suggestBodyEl.querySelector('#suggest-msg');
+    const submitEl = suggestBodyEl.querySelector('#suggest-submit');
+
+    hinweisEl.addEventListener('input', () => {
+      counterEl.textContent = `${hinweisEl.value.length} / ${SUGGEST_HINWEIS_MAX}`;
+    });
+    urlEl.focus({ preventScroll: true });
+
+    function setMsg(text, kind) {
+      msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${escapeHtml(text)}</div>` : '';
+    }
+
+    // Bewusst ohne die eingebaute Browser-Prüfung (novalidate-Verhalten,
+    // siehe Melde-Dialog): Die Blase ist nicht übersetzt. Geprüft wird
+    // hier, mit den eigenen Texten - und so, wie firestore.rules es
+    // verlangt (http:// oder https://, Name mindestens zwei Zeichen).
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const name = nameEl.value.trim();
+      const hinweis = hinweisEl.value.trim();
+      const url = normalisiereUrl(urlEl.value);
+      if (!url) { setMsg(t('fehlt_err_url'), 'error'); urlEl.focus(); return; }
+      if (name.length < 2) { setMsg(t('fehlt_err_name'), 'error'); nameEl.focus(); return; }
+      setMsg(null);
+      submitEl.disabled = true;
+      submitEl.textContent = t('fehlt_sending');
+      window.EndauranceAuth.suggestEvent({ url, name, hinweis })
+        .then(() => {
+          setMsg(t('fehlt_thanks'), 'success');
+          form.querySelectorAll('.ee-field').forEach(el => el.remove());
+          submitEl.remove();
+          window.setTimeout(() => { if (!suggestOverlay.hidden) closeSuggestModal(); }, 2500);
+        })
+        .catch((err) => {
+          submitEl.disabled = false;
+          submitEl.textContent = t('fehlt_send');
+          // Dieselben Fehlertexte wie beim Melden: "Anonym" nicht
+          // aktiviert, keine Firebase-Konfiguration, sonstiger Fehler.
+          setMsg(reportErrorMessage(err), 'error');
+        });
+    });
+  }
+
+  // "zuerich-marathon.ch" ohne Schema ist der häufigste Fall, wenn
+  // jemand eine Adresse aus dem Kopf eintippt - dann https:// davor
+  // setzen, statt die Eingabe abzulehnen. Ohne einen Punkt im Namen ist
+  // es keine Adresse (dann tippt jemand den Namen ins falsche Feld).
+  function normalisiereUrl(eingabe) {
+    let text = String(eingabe || '').trim();
+    if (!text) return null;
+    if (!/^https?:\/\//i.test(text)) {
+      if (/^[a-z]+:\/\//i.test(text)) return null;   // ftp://, javascript: usw.
+      text = 'https://' + text;
+    }
+    let u;
+    try { u = new URL(text); } catch (e) { return null; }
+    if (!u.hostname.includes('.')) return null;
+    return u.href.slice(0, SUGGEST_URL_MAX);
   }
 
   function renderChips() {

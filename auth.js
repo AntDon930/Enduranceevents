@@ -23,6 +23,9 @@
 //   window.EndauranceAuth.reportEventError({event, kategorie, beschreibung})
 //                                                    -> Promise<void>
 //     (meldet einen Datenfehler; meldet bei Bedarf anonym an)
+//   window.EndauranceAuth.suggestEvent({url, name, hinweis})
+//                                                    -> Promise<void>
+//     (schlägt ein fehlendes Event vor; meldet bei Bedarf anonym an)
 //   window.EndauranceAuth.saveFilterSubscription(filters, {rhythmus, name})
 //   window.EndauranceAuth.listFilterSubscriptions()   -> Promise<Abo[]>
 //   window.EndauranceAuth.deleteFilterSubscription(id) -> Promise<void>
@@ -35,7 +38,6 @@
   const I18N = {
     de: {
       login: 'Anmelden',
-      loggedInShort: (email) => email.length > 22 ? email.slice(0, 20) + '…' : email,
       logout: 'Abmelden',
       modalTitleLogin: 'Anmelden',
       modalTitleRegister: 'Registrieren',
@@ -78,7 +80,6 @@
     },
     en: {
       login: 'Sign in',
-      loggedInShort: (email) => email.length > 22 ? email.slice(0, 20) + '…' : email,
       logout: 'Sign out',
       modalTitleLogin: 'Sign in',
       modalTitleRegister: 'Register',
@@ -582,18 +583,21 @@
     // Anonyme Kennung: weiterhin "Anmelden" anbieten. Sonst stand dort
     // nach einer Fehlermeldung ein "Abmelden" neben einem leeren Namen.
     if (isRealUser(user)) {
+      // Nur "Abmelden", KEINE E-Mail-Adresse. Sie stand vorher im blauen
+      // Kopf jeder Seite - unnötig (wer angemeldet ist, weiß es) und auf
+      // einem geteilten Bildschirm oder in einem Screenshot eine
+      // Preisgabe ohne Gegenwert. Dass der Knopf "Abmelden" heißt, sagt
+      // schon, dass jemand angemeldet ist; um welches Konto es geht,
+      // steht im Abo-Dialog ("Abos für …").
+      // Nebeneffekt, der den Anstoß gab: Die lange Adresse machte die
+      // Knopfreihe so breit, dass sie unter den Titel umbrach und nach
+      // links rutschte.
       const wrap = document.createElement('div');
       wrap.className = 'ee-auth-user';
-      const label = document.createElement('span');
-      label.style.color = '#fff';
-      label.style.fontSize = '0.8rem';
-      label.style.fontWeight = '600';
-      label.textContent = t('loggedInShort', user.email || user.displayName || '');
       const signOutBtn = document.createElement('button');
       signOutBtn.type = 'button';
       signOutBtn.textContent = t('logout');
       signOutBtn.addEventListener('click', () => auth && auth.signOut());
-      wrap.appendChild(label);
       wrap.appendChild(signOutBtn);
       mount.appendChild(wrap);
     } else {
@@ -778,6 +782,43 @@
             wettbewerb: event.wettbewerb || null,
             veranstalter_url: event.veranstalter_url || null
           },
+          status: 'neu',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+      );
+    },
+
+    // "Wir haben dein Event nicht?" - ein Hinweis auf eine Veranstaltung,
+    // die in der Liste fehlt. Gespeichert wird bewusst NUR, was ein
+    // Mensch zuverlässig weiß: die Adresse der offiziellen Seite und der
+    // Name. Alles andere (Datum, Distanzen, Ort, Sportart) holen wir uns
+    // später von genau dieser Seite - abgetippte Angaben wären eine
+    // dritte Datenquelle neben Scraper und Overrides, und Datenregel 2
+    // verlangt ohnehin die offizielle Seite.
+    //
+    // Derselbe Weg wie bei den Fehlermeldungen: anonyme Anmeldung, damit
+    // die Security Rules `request.auth != null` verlangen können, und
+    // eine Collection, die niemand lesen kann.
+    // Übernommen wird ein Vorschlag NIE automatisch - siehe
+    // scripts/review_reports.py und CLAUDE.md ("Keine automatische
+    // Löschregel auf Heuristik-Basis" gilt genauso fürs Hinzufügen).
+    suggestEvent: ({ url, name, hinweis }) => {
+      if (!configured || !auth) return Promise.reject(new Error('not-configured'));
+
+      const ensureUser = auth.currentUser
+        ? Promise.resolve(auth.currentUser)
+        : auth.signInAnonymously().then((cred) => cred.user);
+
+      return Promise.all([ensureDb(), ensureUser]).then(([db, user]) =>
+        db.collection('eventSuggestions').add({
+          uid: user.uid,
+          email: user.email || null,
+          anonym: !!user.isAnonymous,
+          // Die Grenzen sind dieselben wie in firestore.rules - ein
+          // längerer Text würde dort abgelehnt.
+          url: String(url || '').trim().slice(0, 500),
+          name: String(name || '').trim().slice(0, 200),
+          hinweis: String(hinweis || '').trim().slice(0, 600),
           status: 'neu',
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })

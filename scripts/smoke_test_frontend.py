@@ -173,13 +173,21 @@ def pruefe_gruppierung(ctx, basis):
     zu = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
         if (!r) return null;
         return {anzahl: parseInt(r.querySelector('.count-pill').textContent, 10),
+                laenge: (r.querySelector('.col-laenge_km') || {}).textContent || '',
                 marken: r.querySelectorAll('.badge').length,
+                hoehe: Math.round(r.getBoundingClientRect().height),
                 offen: r.classList.contains('open')}; }""")
     if not pruefe(bool(zu), "es gibt eine Veranstaltung mit mehreren Strecken"):
         seite.close()
         return
-    pruefe(not zu["offen"] and zu["marken"] >= 1,
-           "zugeklappt: Längen stehen als Marken (%d)" % zu["marken"])
+    # Zugeklappt steht in der Länge-Spalte die SPANNE ("5–42,2 km"), keine
+    # Marke je Strecke: Eine Veranstaltung mit vielen Wettbewerben machte
+    # die Zeile sonst vielfach höher als alle anderen.
+    pruefe(not zu["offen"] and "–" in zu["laenge"] and zu["marken"] == 0,
+           "zugeklappt: die Länge steht als Spanne, ohne Marken (%s)" % zu["laenge"].strip())
+    # Deutsches Dezimaltrennzeichen: im deutschen Text ein Komma.
+    pruefe("." not in zu["laenge"],
+           "deutsche Fassung schreibt die Distanz mit Komma (%s)" % zu["laenge"].strip())
     seite.locator("tr.group-row:not(.single)").first.click()
     seite.wait_for_timeout(300)
     auf = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
@@ -191,7 +199,7 @@ def pruefe_gruppierung(ctx, basis):
            "aufgeklappt: %d Strecken = %d Zeilen (Veranstaltungszeile + %d %s)"
            % (zu["anzahl"], auf["unter"] + 1, auf["unter"],
               "Unterzeile" if auf["unter"] == 1 else "Unterzeilen"))
-    pruefe(auf["marken"] == 0, "aufgeklappt: keine Marken mehr (die Strecken stehen einzeln)")
+    pruefe(auf["marken"] == 0, "aufgeklappt: keine Marken (die Strecken stehen einzeln)")
     pruefe(auf["aria"] == "true" and auf["pfeil"], "aufgeklappt: Pfeil und aria-expanded stimmen")
     seite.locator("tr.group-row:not(.single)").first.click()
     seite.wait_for_timeout(300)
@@ -199,8 +207,39 @@ def pruefe_gruppierung(ctx, basis):
         let n = r.nextElementSibling, unter = 0;
         while (n && n.classList.contains('sub-row')) { unter++; n = n.nextElementSibling; }
         return {unter, marken: r.querySelectorAll('.badge').length}; }""")
-    pruefe(wieder["unter"] == 0 and wieder["marken"] == zu["marken"],
-           "wieder zugeklappt: Unterzeilen weg, Marken zurück")
+    pruefe(wieder["unter"] == 0,
+           "wieder zugeklappt: Unterzeilen weg")
+
+    # Alle Zeilen gleich hoch, und keine höher als zwei Textzeilen (so vom
+    # Nutzer gewünscht). Geprüft wird über die ersten Zeilen im Fenster -
+    # darunter sind Veranstaltungen mit einer und mit vielen Strecken.
+    hoehen = seite.evaluate("""() => [...document.querySelectorAll('tbody tr')]
+        .filter(r => !r.classList.contains('mehr-row'))
+        .slice(0, 60)
+        .map(r => Math.round(r.getBoundingClientRect().height))""")
+    if hoehen:
+        pruefe(len(set(hoehen)) == 1,
+               "alle Zeilen sind gleich hoch (%s)"
+               % ", ".join("%d px" % h for h in sorted(set(hoehen))[:4]))
+    else:
+        pruefe(False, "Zeilen zum Messen gefunden")
+    seite.close()
+
+    # Englische Fassung: Punkt als Dezimaltrennzeichen.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1&lang=en", "tr.group-row")
+    seite.wait_for_timeout(600)
+    seite.evaluate("() => document.querySelector('.lang-btn[data-lang=en]').click()")
+    seite.wait_for_timeout(500)
+    en_laenge = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
+        return ((r.querySelector('.col-laenge_km') || {}).textContent || '').trim(); }""")
+    pruefe("," not in en_laenge,
+           "englische Fassung schreibt die Distanz mit Punkt (%s)" % en_laenge)
+    # Sprache zurückstellen: Der Umschalter merkt sich die Wahl im
+    # localStorage, und das gilt für ALLE weiteren Prüfungen dieses
+    # Browser-Kontexts (die Prüfung der Rechtsseiten erwartet deutsche
+    # Überschriften).
+    seite.evaluate("() => document.querySelector('.lang-btn[data-lang=de]').click()")
+    seite.wait_for_timeout(300)
     seite.close()
 
 
@@ -327,6 +366,70 @@ def pruefe_abo(ctx, basis):
     pruefe(seite.evaluate("""() => { const b = document.getElementById('notify-box');
                return !b.hidden && !!b.querySelector('#notify-open-btn'); }"""),
            "bei null Treffern führt die Box in denselben Dialog")
+    seite.close()
+
+
+def pruefe_fehlendes_event(ctx, basis):
+    """„Wir haben dein Event nicht?" - der Weg für fehlende Veranstaltungen.
+
+    Zwei Wege führen in denselben Dialog: die Leiste unter der Liste und
+    die Box bei null Treffern. Prüfbar ist alles bis zum Absenden - das
+    Speichern selbst ginge nach Firestore und gehört nicht in einen
+    Rauchtest.
+    """
+    print("\nFehlendes Event melden")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_timeout(1000)
+    knopf = seite.locator("#fehlt-open-btn")
+    if not pruefe(knopf.count() == 1 and bool(knopf.text_content().strip()),
+                  "unter der Liste steht ein Knopf mit Beschriftung"):
+        seite.close()
+        return
+    knopf.scroll_into_view_if_needed()
+    knopf.click()
+    seite.wait_for_timeout(500)
+    stand = seite.evaluate("""() => ({
+        offen: !document.getElementById('suggest-overlay').hidden,
+        felder: [...document.querySelectorAll('#suggest-form input, #suggest-form textarea')]
+                  .map(el => el.id),
+        fokus: document.getElementById('suggest-overlay').contains(document.activeElement)
+    })""")
+    pruefe(stand["offen"], "der Klick öffnet den Dialog")
+    pruefe(stand["felder"] == ["suggest-url", "suggest-name", "suggest-hinweis"],
+           "gefragt wird nach Adresse, Name und Hinweis (%s)" % ", ".join(stand["felder"]))
+    pruefe(stand["fokus"], "der Fokus liegt im Dialog")
+
+    # Leer abschicken: eigene Fehlermeldung, kein Absenden.
+    seite.evaluate("() => document.getElementById('suggest-submit').click()")
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("""() => { const m = document.querySelector('#suggest-msg .ee-form-msg');
+               return !!m && m.classList.contains('error'); }"""),
+           "ohne Adresse kommt eine Fehlermeldung statt eines Absendens")
+    # Adresse ohne http:// wird ergänzt, ein Name ohne Punkt bleibt Fehler.
+    seite.fill("#suggest-url", "zuerichmarathon.ch")
+    seite.evaluate("() => document.getElementById('suggest-submit').click()")
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("""() => { const m = document.querySelector('#suggest-msg .ee-form-msg');
+               return !!m && m.classList.contains('error'); }"""),
+           "ohne Namen kommt ebenfalls eine Fehlermeldung")
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("() => document.getElementById('suggest-overlay').hidden"),
+           "Escape schließt den Dialog")
+    seite.close()
+
+    # Null Treffer: beide Wege stehen in der Box.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?q=zzzgibtesnicht", "body")
+    seite.wait_for_timeout(1600)
+    pruefe(seite.evaluate("""() => { const b = document.getElementById('notify-box');
+               return !b.hidden && !!b.querySelector('#notify-open-btn')
+                      && !!b.querySelector('#notify-fehlt-btn'); }"""),
+           "bei null Treffern führen beide Wege weiter (Abo und fehlendes Event)")
+    seite.evaluate("() => document.getElementById('notify-fehlt-btn').click()")
+    seite.wait_for_timeout(500)
+    pruefe(seite.evaluate("() => !document.getElementById('suggest-overlay').hidden"),
+           "der Knopf in der Box öffnet denselben Dialog")
     seite.close()
 
 
@@ -734,6 +837,7 @@ def main() -> int:
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)
+                pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
                 pruefe_abo(ctx, basis)
                 pruefe_tastatur(ctx, basis)

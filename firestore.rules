@@ -19,6 +19,11 @@ rules_version = '2';
 // request.auth != null erzwingbar - ein offener, unauthentifizierter
 // Schreib-Endpunkt wäre eine Einladung zum Zuspammen.
 //
+// Dritte Collection: "eventSuggestions" - Hinweise auf Veranstaltungen,
+// die in der Liste FEHLEN ("Wir haben dein Event nicht?"). Derselbe Weg
+// wie bei den Fehlermeldungen: anonyme Anmeldung, geschlossene Feldliste,
+// niemand darf lesen.
+//
 // Prinzip: Jede/r Nutzer/in darf NUR eigene Abos anlegen/lesen/löschen
 // (erkannt an request.auth.uid). Die Cloud Function, die neue Events
 // gegen alle Abos prüft (siehe functions/index.js), läuft mit dem
@@ -91,6 +96,39 @@ service cloud.firestore {
       // (scripts/review_reports.py). Nutzer/innen bekommen die Meldungen
       // anderer nie zu sehen und können ihre eigene auch nicht mehr
       // ändern oder löschen.
+      allow read, update, delete: if false;
+    }
+
+    match /eventSuggestions/{suggestionId} {
+      // "Wir haben dein Event nicht?" (events.html, siehe auth.js:
+      // EndauranceAuth.suggestEvent). Gespeichert wird nur die Adresse
+      // der offiziellen Seite, der Name und ein optionaler Hinweis -
+      // alles Weitere holen wir uns von dieser Seite.
+      //
+      // `url` ist Pflicht und muss mit http:// oder https:// beginnen:
+      // Ohne Adresse ist ein Vorschlag nicht nachprüfbar, und genau die
+      // Nachprüfbarkeit ist der Grund, warum nichts automatisch
+      // übernommen wird. Die Feldliste ist geschlossen, damit niemand
+      // beliebig große Dokumente in die Collection schiebt.
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.uid
+                    && request.resource.data.keys().hasOnly(
+                         ['uid', 'email', 'anonym', 'url', 'name',
+                          'hinweis', 'status', 'createdAt'])
+                    && request.resource.data.url is string
+                    && request.resource.data.url.size() >= 8
+                    && request.resource.data.url.size() <= 500
+                    && request.resource.data.url.matches('^https?://.+')
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() >= 2
+                    && request.resource.data.name.size() <= 200
+                    && request.resource.data.hinweis is string
+                    && request.resource.data.hinweis.size() <= 600
+                    && request.resource.data.status == 'neu'
+                    && request.resource.data.createdAt == request.time;
+      // Wie bei den Fehlermeldungen eine Einbahnstraße: gelesen und
+      // abgearbeitet wird ausschließlich über das Admin-SDK bzw. die
+      // Konsole (scripts/review_reports.py).
       allow read, update, delete: if false;
     }
   }

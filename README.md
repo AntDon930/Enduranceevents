@@ -1784,6 +1784,105 @@ Blaze-Schritte (Cloud Functions deployen, Extension „Trigger Email"
 plus SMTP) – siehe unten. Abos werden also schon gespeichert, aber es
 geht noch keine E-Mail heraus; die Datenschutzerklärung sagt das auch so.
 
+## Die Tabelle: eine Schrift, eine Zeilenhöhe, die ganze Seite
+
+Nach dem ersten Blick des Nutzers auf die fertige Seite (18.09.2026) sind
+fünf Dinge an der Liste geändert worden. Alle fünf sind kleine
+Eingriffe mit einer klaren Begründung – und keiner davon sollte
+zurückgedreht werden:
+
+1. **Die Knöpfe stehen wieder rechts.** Sie waren nach links gerutscht,
+   sobald die Reihe unter den Titel umbrach: Ein einzelnes Flex-Element
+   auf einer neuen Zeile beginnt am linken Rand, und
+   `justify-content: flex-end` am Kasten gilt nur innerhalb einer Zeile.
+   `margin-left: auto` an der Knopfreihe löst beides. Dazu liegen alle
+   Knöpfe jetzt in **einer** umbrechenden Reihe (der Teilen-Knopf lag
+   vorher darunter) – der blaue Kasten ist damit rund 50 px flacher.
+
+2. **Die E-Mail-Adresse steht nicht mehr im Kopf.** „Abmelden" allein
+   sagt, dass jemand angemeldet ist; um welches Konto es geht, steht im
+   Abo-Dialog. Nebeneffekt, der den Anstoß gab: Die lange Adresse machte
+   die Knopfreihe so breit, dass sie überhaupt umbrach.
+
+3. **Der Untertitel beschreibt die Liste, statt sie zu erklären.**
+   „Klicke auf eine Kopfzeile-Filterschaltfläche (▾) …" war ein
+   Handbuchsatz für etwas, das man sieht. Jetzt steht dort in einer
+   Zeile, was drin ist und dass die Liste wöchentlich neu eingesammelt
+   wird.
+
+4. **Ab 901 px ist die Seite genau fensterhoch, und nur die Liste
+   scrollt.** Vorher war die Tabelle auf `78vh` begrenzt, die Seite aber
+   höher: Wer die Seite statt der Liste scrollte, sah die Liste enden und
+   darunter eine leere Fläche. Jetzt ist `body` ein Flex-Container über
+   die Fensterhöhe, die Liste nimmt den Rest, und Fußzeile samt
+   „Event melden" stehen immer sichtbar unten. Auf dem Handy bleibt der
+   Seiten-Scroll – dort steht der Detailbereich unter der Tabelle.
+
+5. **Jede Zeile ist 52 px hoch, überall dieselbe Schrift.** Vorher
+   sprangen drei Dinge: Unterzeilen und aufgeklappte Veranstaltungen
+   waren kleiner gesetzt (0.82rem), die Längen standen als dunkel
+   hinterlegte Marken – die aussahen, als könnte man sie anklicken –,
+   und eine Veranstaltung mit 15 Wettbewerben hatte 15 solche Marken in
+   einer Zelle und war vierfach so hoch wie jede andere Zeile.
+   Stattdessen steht dort jetzt die **Spanne**: „5–51 km". Die einzelnen
+   Distanzen sieht man aufgeklappt, eine Zeile je Strecke – Datenregel 1
+   bleibt unberührt, das war schon vorher nur Anzeige.
+
+Dazu das **Dezimaltrennzeichen**: im Deutschen ein Komma („42,2 km"), im
+Englischen ein Punkt. Alles, was eine Zahl mit Nachkommastelle anzeigt,
+geht durch `EF.formatNumber()` in `filters.js` – die Länge-Spalte, die
+Entfernung, die Spanne, die Filter-Chips und die deutschen
+Kategorie-Labels („Olympische Distanz (51,5 km)"; „70.3" bleibt mit
+Punkt, das ist der Markenname). Bewusst **kein** `toLocaleString()`: Das
+richtet sich nach der Spracheinstellung des Browsers, nicht nach dem
+Umschalter DE/EN der Seite. Und bewusst **nicht** im Dateinamen der
+Kalenderdatei bzw. im `eventSlug` – die müssen sprachunabhängig bleiben,
+sonst zeigt ein geteilter Link ins Leere.
+
+## „Wir haben dein Event nicht?"
+
+Die Liste kommt aus vier Quellen und ist deshalb **nicht vollständig** –
+für Österreich, die Schweiz, Schwimmen und Radrennen ist sie es
+ausdrücklich nicht. Ein leerer Filter hat damit zwei mögliche Gründe, und
+bis jetzt kannte die Seite nur einen davon:
+
+1. Das Event findet noch nicht statt → **Abo** („Neue Events per
+   E-Mail"), es kommt eine E-Mail, sobald es auftaucht.
+2. Das Event findet statt, steht aber **nicht in unserer Liste** → dieser
+   Weg hier.
+
+Deshalb gibt es jetzt „Wir haben dein Event nicht?" – eine leise Zeile
+unter der Liste (immer erreichbar) und ein zweiter Knopf in der Box bei
+null Treffern. Beide öffnen denselben Dialog.
+
+**Gefragt wird nur nach der Adresse der offiziellen Seite und dem
+Namen**, dazu ein optionaler Hinweis. Das ist Absicht:
+
+- Datum, Strecken, Ort und Sportart holen wir uns von genau dieser
+  Seite. Abgetippte Angaben wären eine dritte Datenquelle neben den
+  Scrapern und `manual_overrides.json` – und die offizielle Seite
+  brauchen wir nach Datenregel 2 ohnehin.
+- Je weniger Felder, desto eher wird das Formular auch ausgefüllt.
+- Ein fehlendes `https://` ergänzt die Seite selbst; alles ohne Punkt im
+  Hostnamen und jedes andere Schema wird abgewiesen – dieselbe Bedingung
+  steht in den Security Rules.
+
+Gespeichert wird in der Collection `eventSuggestions`: anonyme Anmeldung
+wie bei den Fehlermeldungen (ein offener Schreib-Endpunkt wäre eine
+Einladung zum Zuspammen), geschlossene Feldliste, und **niemand kann die
+Collection lesen** – nur das Admin-SDK:
+
+```bash
+python3 scripts/review_reports.py suggestions --credentials <serviceaccount.json>
+python3 scripts/review_reports.py suggestions --from-json export.json   # ohne Key
+```
+
+**Übernommen wird nichts automatisch.** Ein Hinweis von außen ist eine
+Adresse, kein Datensatz: erst robots.txt und Nutzungsbedingungen der
+Quelle prüfen, dann ein Scraper oder ein Eintrag in
+`manual_overrides.json`. Das ist dieselbe Linie wie bei den
+Fehlermeldungen – und sie hat denselben Grund (siehe „Datenqualität").
+
 ## Ein einzelnes Event teilen
 
 In der Detail-Box steht oben rechts ein Teilen-Knopf. Geteilt werden die
@@ -2070,7 +2169,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 90 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 103 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -2094,7 +2193,12 @@ und Fokusrückgabe im Melde-Dialog), der Abo-Dialog samt seiner
 Filterleiste (vorbelegt aus der laufenden Suche, das Panel liegt im
 Dialog und davor, auch Sportarten ohne heutige Events stehen zur Wahl,
 die Liste dahinter bleibt unberührt, Escape schließt erst das Panel und
-dann den Dialog) sowie die Filter über den Weg Liste → Karte → Liste.
+dann den Dialog), „Wir haben dein Event nicht?" (der Knopf unter der
+Liste, die drei Felder, die eigenen Fehlermeldungen statt der
+Browser-Blase, beide Wege in der Null-Treffer-Box), dass **alle Zeilen
+der Tabelle gleich hoch** sind und dass die Distanz im Deutschen mit
+Komma und im Englischen mit Punkt steht, sowie die Filter über den Weg
+Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt

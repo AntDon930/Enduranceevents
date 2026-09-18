@@ -95,14 +95,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
+    gap: 10px 16px;
     background: var(--hero-gradient);
     border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 16px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
   }
-  h1 { font-size: 1.4rem; margin: 0 0 4px; color: #fff; }
+  /* Nimmt den übrigen Platz und darf schrumpfen - so bleibt die
+     Knopfreihe möglichst lange in derselben Zeile (dieselbe Begründung
+     wie in events.html). */
+  .top-bar-text { flex: 1 1 260px; min-width: 0; }
+  h1 { font-size: 1.25rem; margin: 0 0 2px; color: #fff; }
   .subtitle { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin: 0; }
   /* Darf umbrechen: auf 390 px stand die Reihe (Startseite, Liste,
      Anmelden, DE/EN) sonst in einer Zeile und ragte über den blauen
@@ -113,9 +117,12 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 6px 8px;
     max-width: 100%;
-    margin-top: 2px;
+    /* Bleibt rechts, AUCH wenn die Reihe unter den Titel umbricht: Ein
+       einzelnes Flex-Element auf einer neuen Zeile beginnt sonst am
+       linken Rand (in events.html vom Nutzer gemeldet). */
+    margin-left: auto;
   }
   .home-btn, .list-btn {
     display: inline-flex;
@@ -299,7 +306,7 @@
 <body>
 
 <div class="top-bar">
-  <div>
+  <div class="top-bar-text">
     <h1 id="page-title">Karte</h1>
     <p class="subtitle" id="subtitle">Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.</p>
   </div>
@@ -353,7 +360,7 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=a42b261c"></script>
+<script src="filters.js?v=1d337a61"></script>
 <script src="filter-ui.js?v=50612dad"></script>
 
 <script>

@@ -151,7 +151,9 @@
       '5k': '5 km', '10k': '10 km', 'half': 'Halbmarathon', 'marathon': 'Marathon', 'ultra': 'Ultramarathon',
       'r50': 'bis 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
       's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (Marathonschwimmen)',
-      'sprint': 'Sprintdistanz', 'olympic': 'Olympische Distanz (51.5 km)',
+      // "70.3" ist der Markenname (Ironman 70.3) und bleibt mit Punkt;
+      // die echten Distanzangaben tragen das deutsche Komma.
+      'sprint': 'Sprintdistanz', 'olympic': 'Olympische Distanz (51,5 km)',
       'middle': 'Mitteldistanz / 70.3 (113 km)', 'long': 'Langdistanz / Ironman (226 km)',
       'zeit': 'Zeitrennen (6 h, 12 h, 24 h …)'
     },
@@ -207,6 +209,40 @@
       return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
     }
     return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`;
+  }
+
+  // Dezimaltrennzeichen je Sprache: im Deutschen das Komma, im Englischen
+  // der Punkt. Vorher stand in der Liste auch auf Deutsch "42.2 km" - für
+  // deutsche Augen liest sich das wie eine Tausendertrennung. Alle Stellen,
+  // die eine Zahl mit Nachkommastelle anzeigen, gehen durch diese Funktion;
+  // deshalb steht sie hier und nicht in einer der Seiten.
+  //
+  // Bewusst KEIN toLocaleString(): Das hängt von der Spracheinstellung des
+  // Browsers ab, nicht von der Sprache, die auf der Seite gewählt ist -
+  // ein Deutscher mit englischem System hätte im deutschen Text Punkte
+  // gesehen. Maßgeblich ist der Umschalter DE/EN.
+  function formatNumber(value, lang, stellen) {
+    const zahl = Number(value);
+    if (value == null || Number.isNaN(zahl)) return '';
+    const gerundet = stellen == null
+      ? zahl
+      : Math.round(zahl * Math.pow(10, stellen)) / Math.pow(10, stellen);
+    const text = Number.isInteger(gerundet)
+      ? String(gerundet)
+      : gerundet.toFixed(stellen == null ? 1 : stellen);
+    return lang === 'en' ? text : text.replace('.', ',');
+  }
+
+  // "42,2 km" bzw. "42.2 km". Ganze Zahlen ohne Nachkommastelle ("10 km").
+  function formatKm(km, lang) {
+    if (km == null || Number.isNaN(Number(km))) return '–';
+    return `${formatNumber(km, lang, 1)} km`;
+  }
+
+  // "24 h" bzw. "1,5 h" - Zeitrennen haben keine Distanz (Datenregel 8).
+  function formatHours(h, lang) {
+    if (h == null || Number.isNaN(Number(h))) return '–';
+    return `${formatNumber(h, lang, 1)} h`;
   }
 
   function isoOf(d) {
@@ -552,8 +588,10 @@
     pushSetChips('art1', 'chip_sportart', v => tv('art1', v));
     pushSetChips('art2', 'chip_kategorie', v => tv('art2', v));
 
-    if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', state.laengeMin), clear: () => { state.laengeMin = ''; } });
-    if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', state.laengeMax), clear: () => { state.laengeMax = ''; } });
+    // Die Zahl kommt aus einem <input type="number"> und trägt dort immer
+    // einen Punkt - im deutschen Chip muss ein Komma stehen.
+    if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', formatNumber(state.laengeMin, ctx.lang, 1)), clear: () => { state.laengeMin = ''; } });
+    if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', formatNumber(state.laengeMax, ctx.lang, 1)), clear: () => { state.laengeMax = ''; } });
     if (state.distanceCategories.size > MAX_VALUE_CHIPS) {
       chips.push({
         label: t('chip_distanz_count', state.distanceCategories.size),
@@ -593,6 +631,9 @@
     escapeHtml,
     uniqueSorted,
     formatDate,
+    formatNumber,
+    formatKm,
+    formatHours,
     isoOf,
     todayIso,
     createState,

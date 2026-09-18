@@ -132,6 +132,22 @@
       Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
       Interesse an richtigen Daten).</p>
 
+    <h2 data-i="h_fehlt">Hinweise auf fehlende Veranstaltungen</h2>
+    <p data-i="t_fehlt">Unter der Liste gibt es „Wir haben dein Event
+      nicht?". Gespeichert werden die angegebene <strong>Adresse der
+      offiziellen Veranstaltungsseite</strong>, der Name der
+      Veranstaltung, ein optionaler Hinweistext, ein Zeitstempel und
+      eine technische Kennung. <strong>Eine Anmeldung ist dafür nicht
+      nötig</strong>: Wie bei den Fehlermeldungen vergibt Firebase beim
+      Absenden eine anonyme Kennung. Bitte auch hier keine persönlichen
+      Daten in den Hinweistext schreiben. Gespeichert wird in
+      <strong>Cloud Firestore</strong> (Google Ireland Limited),
+      Serverstandort Europa. Die Hinweise werden ausschließlich genutzt,
+      um die genannte Veranstaltung zu prüfen und in die Liste
+      aufzunehmen, und danach gelöscht. Rechtsgrundlage ist Art. 6
+      Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+      vollständigen Liste).</p>
+
     <h2 data-i="h_abo">E-Mail-Abos für neue Events</h2>
     <p data-i="t_abo">Über „Neue Events per E-Mail" lässt sich ein Abo
       anlegen: Gespeichert werden die E-Mail-Adresse des Kontos, die
@@ -223,6 +239,8 @@
       t_konto: 'Ein Konto ist freiwillig und nur für die Funktion „Benachrichtige mich" nötig. Anmeldung und Konten laufen über Firebase Authentication (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Verarbeitet werden dabei E-Mail-Adresse, ein Anmelde-Zeitstempel und – bei der Anmeldung mit Google – die von Google übermittelten Kontoangaben (Name, E-Mail-Adresse, Profilbild). Die Programmdateien für die Anmeldung liegen auf dem eigenen Server; eine Verbindung zu Google entsteht erst, wenn jemand sich tatsächlich anmeldet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Erfüllung der gewünschten Funktion) bzw. lit. a (Einwilligung durch die Anmeldung). Ein Konto kann jederzeit gelöscht werden – eine E-Mail an die oben genannte Adresse reicht.',
       h_melden: 'Fehlermeldungen zu Events',
       t_melden: 'Zu jedem Event gibt es „Fehler zu diesem Event melden". Gespeichert werden die Angaben zum Event, die gewählte Kategorie, der Freitext, ein Zeitstempel und eine technische Kennung. Eine Anmeldung ist dafür nicht nötig: Beim Absenden vergibt Firebase eine anonyme Kennung, damit Meldungen nicht völlig ungeschützt geschrieben werden können. Ein Rückschluss auf eine Person ist damit nicht möglich, solange die Freitext-Angabe selbst keine enthält – bitte dort keine persönlichen Daten eintragen. Gespeichert wird in Cloud Firestore (Google Ireland Limited), Serverstandort Europa. Die Meldungen werden ausschließlich genutzt, um die Event-Daten zu korrigieren, und nach der Bearbeitung gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an richtigen Daten).',
+      h_fehlt: 'Hinweise auf fehlende Veranstaltungen',
+      t_fehlt: 'Unter der Liste gibt es „Wir haben dein Event nicht?". Gespeichert werden die angegebene Adresse der offiziellen Veranstaltungsseite, der Name der Veranstaltung, ein optionaler Hinweistext, ein Zeitstempel und eine technische Kennung. Eine Anmeldung ist dafür nicht nötig: Wie bei den Fehlermeldungen vergibt Firebase beim Absenden eine anonyme Kennung. Bitte auch hier keine persönlichen Daten in den Hinweistext schreiben. Gespeichert wird in Cloud Firestore (Google Ireland Limited), Serverstandort Europa. Die Hinweise werden ausschließlich genutzt, um die genannte Veranstaltung zu prüfen und in die Liste aufzunehmen, und danach gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer vollständigen Liste).',
       h_abo: 'E-Mail-Abos für neue Events',
       t_abo: 'Über „Neue Events per E-Mail" lässt sich ein Abo anlegen: Gespeichert werden die E-Mail-Adresse des Kontos, die gewählten Filter (Suchbegriff, Land, Sportart, Kategorie, Ort bzw. Umkreis, Distanz), der gewünschte Rhythmus (sofort, wöchentlich oder monatlich), ein lesbarer Titel des Abos und ein zufälliger Schlüssel für den Abmelde-Link. Dazu merkt sich das Abo, welche neuen Events noch zu verschicken sind und wann die letzte E-Mail herausging. Gespeichert wird in Cloud Firestore (Google Ireland Limited), Serverstandort Europa. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Jede E-Mail enthält einen Abmelde-Link, der ohne Anmeldung funktioniert; außerdem lassen sich Abos jederzeit im Dialog „Neue Events per E-Mail" löschen. Ein Widerruf gilt für die Zukunft. Der E-Mail-Versand ist derzeit noch nicht aktiv – Abos werden gespeichert, aber es geht noch keine E-Mail heraus.',
       h_local: 'Speicherung im Browser',
@@ -262,6 +280,8 @@
       t_konto: 'An account is optional and only needed for the “Notify me” feature. Sign-in and accounts run through Firebase Authentication (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). Processed are the e-mail address, a sign-in timestamp and – when signing in with Google – the account details Google provides (name, e-mail address, profile picture). The program files for sign-in are served from our own server; a connection to Google is only made when someone actually signs in. Legal basis: Art. 6 (1) (b) GDPR (performing the requested function) and (a) (consent given by signing in). An account can be deleted at any time – an e-mail to the address above is enough.',
       h_melden: 'Error reports for events',
       t_melden: 'Every event has a “Report an error for this event” button. Stored are the event details, the chosen category, the free-text description, a timestamp and a technical identifier. No account is needed: on submission Firebase issues an anonymous identifier so that reports cannot be written completely unprotected. No conclusions about a person can be drawn from it, as long as the free text itself contains none – please do not enter personal data there. Storage is in Cloud Firestore (Google Ireland Limited), servers located in Europe. Reports are used solely to correct the event data and are deleted once handled. Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in correct data).',
+      h_fehlt: 'Notes about missing events',
+      t_fehlt: 'Below the list there is “Is your event missing?”. Stored are the address of the official event website you provide, the name of the event, an optional note, a timestamp and a technical identifier. No account is needed: as with error reports, Firebase issues an anonymous identifier on submission. Please do not enter personal data in the note either. Storage is in Cloud Firestore (Google Ireland Limited), servers located in Europe. The notes are used solely to check the event named and add it to the list, and are deleted afterwards. Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in a complete list).',
       h_abo: 'E-mail subscriptions for new events',
       t_abo: 'Via “New events by e-mail” you can create a subscription: stored are the account’s e-mail address, the selected filters (search term, country, sport, category, city or radius, distance), the chosen frequency (right away, weekly or monthly), a readable title for the subscription and a random key for the unsubscribe link. The subscription also remembers which new events are still to be sent and when the last e-mail went out. Storage is in Cloud Firestore (Google Ireland Limited), servers located in Europe. Legal basis: Art. 6 (1) (a) GDPR (consent). Every e-mail contains an unsubscribe link that works without signing in; subscriptions can also be deleted at any time in the “New events by e-mail” dialog. A withdrawal applies going forward. E-mail delivery is currently not active yet – subscriptions are stored but no e-mail is sent.',
       h_local: 'Storage in your browser',

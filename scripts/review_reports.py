@@ -44,6 +44,17 @@ Projekt schon einmal echte Rennen erwischt. Eine Meldung ist ein Hinweis,
 kein Beweis - jemand kann sich irren, das Jahr verwechseln oder Unsinn
 schreiben.
 
+Daneben gibt es einen fünften Befehl, der nichts mit den Overrides zu tun
+hat:
+
+    python3 scripts/review_reports.py suggestions
+       Zeigt die Hinweise auf Veranstaltungen, die in der Liste FEHLEN
+       ("Wir haben dein Event nicht?", Collection "eventSuggestions").
+       Nur Anzeigen: Ein Hinweis von außen ist eine Adresse, kein
+       Datensatz - was daraus wird (Scraper oder Override), entscheidet
+       der Betreiber, nachdem robots.txt und Nutzungsbedingungen der
+       Quelle geprüft sind.
+
 Personenbezug: reports_inbox.json enthält uid und (bei angemeldeten
 Melder/innen) die E-Mail-Adresse und ist deshalb per .gitignore aus dem
 Repository ausgenommen. In manual_overrides.json landet nur die fachliche
@@ -65,6 +76,12 @@ PENDING_PATH = SCRIPT_DIR / "pending_overrides.json"
 OVERRIDES_PATH = SCRIPT_DIR / "manual_overrides.json"
 
 COLLECTION = "errorReports"
+# Zweite Collection: Hinweise auf Veranstaltungen, die in der Liste FEHLEN
+# ("Wir haben dein Event nicht?", siehe auth.js: suggestEvent). Sie werden
+# nur ANGEZEIGT - was daraus wird (ein Scraper für die Quelle, ein
+# Override, oder nichts), entscheidet der Betreiber. Automatisch
+# aufgenommen wird nichts; dieselbe Linie wie bei den Fehlermeldungen.
+SUGGESTION_COLLECTION = "eventSuggestions"
 
 # Muss mit REPORT_CATEGORIES in events.html und der Liste in
 # firestore.rules übereinstimmen.
@@ -460,14 +477,82 @@ def cmd_mark_done(args) -> int:
     """Setzt den Status der abgearbeiteten Meldungen in Firestore, damit
     'fetch' sie nicht jedes Mal wieder anschleppt."""
     client = firestore_client(args.credentials)
+    collection = getattr(args, "collection", COLLECTION) or COLLECTION
     ids = args.report_id
     if not ids:
+        if collection != COLLECTION:
+            sys.exit("Für eventSuggestions bitte --report-id angeben "
+                     "(es gibt dafür keine Inbox-Datei).")
         inbox = load_json(INBOX_PATH, None) or {}
         ids = [m["id"] for b in inbox.get("buendel", []) for m in b["meldungen"]
                if m.get("id")]
     for doc_id in ids:
-        client.collection(COLLECTION).document(doc_id).update({"status": args.status})
+        client.collection(collection).document(doc_id).update({"status": args.status})
     print(f"{len(ids)} Meldung(en) auf status={args.status} gesetzt.")
+    return 0
+
+
+# ---------------------------------------------------------------------
+# suggestions ("Wir haben dein Event nicht?")
+# ---------------------------------------------------------------------
+def normalize_suggestion(doc_id: str, data: dict) -> dict:
+    created = data.get("createdAt")
+    if hasattr(created, "isoformat"):
+        created = created.isoformat()
+    return {
+        "id": doc_id,
+        "url": data.get("url"),
+        "name": data.get("name"),
+        "hinweis": data.get("hinweis") or "",
+        "email": data.get("email"),
+        "anonym": data.get("anonym"),
+        "status": data.get("status") or "neu",
+        "createdAt": created,
+    }
+
+
+def cmd_suggestions(args) -> int:
+    """Zeigt die Hinweise auf fehlende Veranstaltungen, neueste zuerst.
+
+    Bewusst nur Anzeigen und kein 'propose': Ein Vorschlag von außen ist
+    eine Adresse, kein Datensatz. Was daraus wird, hängt an der Quelle -
+    robots.txt und Nutzungsbedingungen prüfen, dann ein Scraper oder ein
+    Eintrag in manual_overrides.json (siehe CLAUDE.md, Fahrplan Punkt 1).
+    Nichts davon lässt sich sinnvoll automatisieren.
+    """
+    if args.from_json:
+        raw = load_json(Path(args.from_json), None)
+        if raw is None:
+            sys.exit(f"Datei nicht gefunden: {args.from_json}")
+        if isinstance(raw, dict):
+            eintraege = [normalize_suggestion(k, v) for k, v in raw.items()]
+        else:
+            eintraege = [normalize_suggestion(d.get("id", str(i)), d)
+                         for i, d in enumerate(raw)]
+    else:
+        client = firestore_client(args.credentials)
+        query = client.collection(SUGGESTION_COLLECTION)
+        if not args.all:
+            query = query.where("status", "==", "neu")
+        eintraege = [normalize_suggestion(doc.id, doc.to_dict())
+                     for doc in query.stream()]
+
+    eintraege.sort(key=lambda e: e.get("createdAt") or "", reverse=True)
+    if not eintraege:
+        print("Keine offenen Hinweise auf fehlende Veranstaltungen.")
+        return 0
+    print(f"{len(eintraege)} Hinweis(e) auf fehlende Veranstaltungen:\n")
+    for e in eintraege:
+        print(f"  {e['name'] or '(ohne Namen)'}")
+        print(f"    {e['url']}")
+        if e["hinweis"]:
+            print(f"    Hinweis: {e['hinweis']}")
+        print(f"    {e['createdAt'] or '?'} · id={e['id']} · status={e['status']}")
+        print()
+    print("Weiter: Quelle prüfen (robots.txt, Nutzungsbedingungen), dann\n"
+          "Scraper oder manual_overrides.json - nie automatisch übernehmen.\n"
+          "Erledigt markieren: review_reports.py mark-done --collection "
+          "eventSuggestions --report-id <id>")
     return 0
 
 
@@ -512,8 +597,19 @@ def main(argv: list[str] | None = None) -> int:
     p_rej.add_argument("--all", action="store_true", help="alle offenen verwerfen")
     p_rej.set_defaults(func=cmd_reject)
 
+    p_sugg = sub.add_parser("suggestions",
+                            help='Hinweise auf fehlende Veranstaltungen anzeigen')
+    p_sugg.add_argument("--credentials", help="Pfad zum Service-Account-JSON")
+    p_sugg.add_argument("--from-json", help="statt Firestore: Export-Datei einlesen")
+    p_sugg.add_argument("--all", action="store_true",
+                        help="auch bereits erledigte Hinweise")
+    p_sugg.set_defaults(func=cmd_suggestions)
+
     p_done = sub.add_parser("mark-done", help="Meldungen in Firestore als erledigt markieren")
     p_done.add_argument("--credentials", help="Pfad zum Service-Account-JSON")
+    p_done.add_argument("--collection", default=COLLECTION,
+                        choices=[COLLECTION, SUGGESTION_COLLECTION],
+                        help="welche Collection (Standard: errorReports)")
     p_done.add_argument("--report-id", action="append", default=[],
                         help="einzelne Meldungs-ID(s); ohne: alle aus der Inbox")
     p_done.add_argument("--status", default="erledigt",
