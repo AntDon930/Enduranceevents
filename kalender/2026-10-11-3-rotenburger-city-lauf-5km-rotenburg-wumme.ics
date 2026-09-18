@@ -9,12 +9,11 @@ UID:2026-10-11-3-rotenburger-city-lauf-5km-rotenburg-wumme@antdon930.githu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
-SUMMARY:3. Rotenburger City Lauf – 5 km Oetjen-Lauf (jahrgangsberechtigt 2
- 014 und älter)
+SUMMARY:3. Rotenburger City Lauf – 5 km Oetjen-Lauf
 LOCATION:Rotenburg (Wümme)\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://rotenburger-ci
- ty-lauf.com/
+ ty-lauf.com
 TRANSP:TRANSPARENT
-URL:https://rotenburger-city-lauf.com/
+URL:https://rotenburger-city-lauf.com
 END:VEVENT
 END:VCALENDAR

@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-30-1-halloween-run-rotenburg-6-7km-rotenburg@antdon930.github.
- io
+UID:2026-10-30-1-halloween-run-rotenburg-13-3km-rotenburg-wumme@antdon930.
+ github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
-SUMMARY:1. Halloween-Run-Rotenburg – Teufelslauf 6\,666 K
-LOCATION:Rotenburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.7 km\nhttps://halloween-ru
- n-rotenburg.de/
+SUMMARY:1. Halloween-Run-Rotenburg – Kürbislauf 13\,333 K
+LOCATION:Rotenburg (Wümme)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.3 km\nhttps://halloween-r
+ un-rotenburg.de/
 TRANSP:TRANSPARENT
 URL:https://halloween-run-rotenburg.de/
 END:VEVENT

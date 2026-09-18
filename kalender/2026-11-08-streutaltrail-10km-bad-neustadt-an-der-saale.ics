@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-08-streutaltrail-11km-bad-neustadt-an-der-saale@antdon930.gith
+UID:2026-11-08-streutaltrail-10km-bad-neustadt-an-der-saale@antdon930.gith
  ub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:StreutalTrail
 LOCATION:Bad Neustadt an der Saale\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 11 km\nhttps://streutal
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 10 km\nhttps://streutal
  trail.de/
 TRANSP:TRANSPARENT
 URL:https://streutaltrail.de/

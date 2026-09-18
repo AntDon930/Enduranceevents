@@ -672,5 +672,118 @@
   "TESTVERANSTALTUNG Neujahrslauf|2030-01-02": {
     "exclude": true,
     "_note": "Kein Event, sondern ein Probe-Eintrag im Kalender von laufen.de - der Name sagt es selbst ('TESTVERANSTALTUNG Neujahrslauf', 02.01.2030, Dolgesheim). Solche Eintraege bleiben in oeffentlichen Kalendern stehen; audit_events.py meldet sie jetzt unter 'Testeintrag der Quelle?'. Geprueft 2026-09-18."
+  },
+  "Lohelauf Wentorf|2026-09-20|5": {
+    "exclude": true,
+    "_note": "sc-wentorf.de nennt fuenf Wettbewerbe, jeden GENAU EINMAL: 1,5 km (Jg. 2017 und juenger), 3,0 km (ab Jg. 2016), 6,0 km = 2 x 3,0 km (ab Jg. 2012), 9,0 km = 3 x 3,0 km (ab Jg. 2008) und 5,0 km Walking (alle Jahrgaenge), am 20.09.2026. Die 5 km standen ZWEIMAL in der Liste - einmal knapp aus einer Quelle ('5km Walking'), einmal ausfuehrlich von der Veranstalterseite. Der Override-Schluessel trifft beide Zeilen, deshalb sind sie ausgeschlossen und die richtige steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "Lohelauf Wentorf|2026-09-20|6": {
+    "exclude": true,
+    "_note": "sc-wentorf.de nennt fuenf Wettbewerbe, jeden GENAU EINMAL: 1,5 km (Jg. 2017 und juenger), 3,0 km (ab Jg. 2016), 6,0 km = 2 x 3,0 km (ab Jg. 2012), 9,0 km = 3 x 3,0 km (ab Jg. 2008) und 5,0 km Walking (alle Jahrgaenge), am 20.09.2026. Die 6 km standen ZWEIMAL in der Liste - einmal knapp aus einer Quelle ('6km Lauf'), einmal ausfuehrlich von der Veranstalterseite. Der Override-Schluessel trifft beide Zeilen, deshalb sind sie ausgeschlossen und die richtige steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "Lohelauf Wentorf|2026-09-20|9": {
+    "exclude": true,
+    "_note": "sc-wentorf.de nennt fuenf Wettbewerbe, jeden GENAU EINMAL: 1,5 km (Jg. 2017 und juenger), 3,0 km (ab Jg. 2016), 6,0 km = 2 x 3,0 km (ab Jg. 2012), 9,0 km = 3 x 3,0 km (ab Jg. 2008) und 5,0 km Walking (alle Jahrgaenge), am 20.09.2026. Die 9 km standen ZWEIMAL in der Liste - einmal knapp aus einer Quelle ('9km Lauf'), einmal ausfuehrlich von der Veranstalterseite. Der Override-Schluessel trifft beide Zeilen, deshalb sind sie ausgeschlossen und die richtige steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|7": {
+    "exclude": true,
+    "_note": "halloween-run-rotenburg.de nennt sieben Wettbewerbe am 30.10.2026, alles Vielfache der 3,333-km-Runde: Spuk-Lauf 1.000 m, Airport-Sprint 3.000 m, Geisterlauf 3,333 K (1 Runde), Teufelslauf 6,666 K (2 Runden), Horror-Zehn 10 K (3 Runden), Kuerbislauf 13,333 K (4 Runden) und Evilthon 16,666 K (5 Runden). Einen 7-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer den Teufelslauf (6,666), Kuerbislauf (13,333) bzw. Evilthon (16,666). Die genaue Zeile bleibt. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|13": {
+    "exclude": true,
+    "_note": "halloween-run-rotenburg.de nennt sieben Wettbewerbe am 30.10.2026, alles Vielfache der 3,333-km-Runde: Spuk-Lauf 1.000 m, Airport-Sprint 3.000 m, Geisterlauf 3,333 K (1 Runde), Teufelslauf 6,666 K (2 Runden), Horror-Zehn 10 K (3 Runden), Kuerbislauf 13,333 K (4 Runden) und Evilthon 16,666 K (5 Runden). Einen 13-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer den Teufelslauf (6,666), Kuerbislauf (13,333) bzw. Evilthon (16,666). Die genaue Zeile bleibt. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|17": {
+    "exclude": true,
+    "_note": "halloween-run-rotenburg.de nennt sieben Wettbewerbe am 30.10.2026, alles Vielfache der 3,333-km-Runde: Spuk-Lauf 1.000 m, Airport-Sprint 3.000 m, Geisterlauf 3,333 K (1 Runde), Teufelslauf 6,666 K (2 Runden), Horror-Zehn 10 K (3 Runden), Kuerbislauf 13,333 K (4 Runden) und Evilthon 16,666 K (5 Runden). Einen 17-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer den Teufelslauf (6,666), Kuerbislauf (13,333) bzw. Evilthon (16,666). Die genaue Zeile bleibt. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|10": {
+    "exclude": true,
+    "_note": "halloween-run-rotenburg.de nennt sieben Wettbewerbe am 30.10.2026, alles Vielfache der 3,333-km-Runde: Spuk-Lauf 1.000 m, Airport-Sprint 3.000 m, Geisterlauf 3,333 K (1 Runde), Teufelslauf 6,666 K (2 Runden), Horror-Zehn 10 K (3 Runden), Kuerbislauf 13,333 K (4 Runden) und Evilthon 16,666 K (5 Runden). Die 10 km standen ZWEIMAL da ('Horror-Zehn 10 K' und schlicht '10 km'). Beide tragen dieselbe Distanz, der Override-Schluessel kann sie also nicht unterscheiden - beide ausgeschlossen, die richtige Zeile steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "Halloween-Run-Bremen|2026-10-31|8": {
+    "exclude": true,
+    "_note": "halloween-run-bremen.de nennt fuenf Wettbewerbe am 31.10.2026: Splatterthon 42,195 km, Monsterthon 25 km, Evilthon 16,666 km, Halbevilthon 8,333 km und Spuklauf 1.000 m, am Werdersee. Einen 8-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer den Halbevilthon (8,333 km). Geprueft 2026-09-18."
+  },
+  "Halloween-Run-Bremen|2026-10-31|17": {
+    "exclude": true,
+    "_note": "halloween-run-bremen.de nennt fuenf Wettbewerbe am 31.10.2026: Splatterthon 42,195 km, Monsterthon 25 km, Evilthon 16,666 km, Halbevilthon 8,333 km und Spuklauf 1.000 m, am Werdersee. Einen 17-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer den Evilthon (16,666 km). Geprueft 2026-09-18."
+  },
+  "Halloween-Run-Bremen|2026-10-31|25": {
+    "exclude": true,
+    "_note": "halloween-run-bremen.de nennt fuenf Wettbewerbe am 31.10.2026: Splatterthon 42,195 km, Monsterthon 25 km, Evilthon 16,666 km, Halbevilthon 8,333 km und Spuklauf 1.000 m, am Werdersee. Die 25 km standen ZWEIMAL da ('Monsterthon Walking' und '25 km'). Beide tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden - beide ausgeschlossen, die richtige Zeile steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "Halloween-Run-Bremen|2026-10-31|42.2": {
+    "wettbewerb": "Splatterthon",
+    "_note": "halloween-run-bremen.de nennt den Marathon 'Splatterthon: 42,195 Kilometer - der komplette Marathon fuer wahre Ausdauer-Monster!'. Die Zeile trug nur 'Marathon'; alle anderen Wettbewerbe der Veranstaltung stehen mit ihrem Namen da. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|6.7": {
+    "standort": "Rotenburg (Wümme)",
+    "_note": "Ort vereinheitlicht: Die Zeilen derselben Veranstaltung standen teils unter 'Rotenburg', teils unter 'Rotenburg (Wuemme)'. Gelaufen wird auf dem Flugplatz Rotenburg (EDXQ), halloween-run-rotenburg.de. Geprueft 2026-09-18."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30|13.3": {
+    "standort": "Rotenburg (Wümme)",
+    "_note": "Ort vereinheitlicht: Die Zeilen derselben Veranstaltung standen teils unter 'Rotenburg', teils unter 'Rotenburg (Wuemme)'. Gelaufen wird auf dem Flugplatz Rotenburg (EDXQ), halloween-run-rotenburg.de. Geprueft 2026-09-18."
+  },
+  "3. Rotenburger City Lauf|2026-10-11|5": {
+    "exclude": true,
+    "_note": "rotenburger-city-lauf.com nennt vier Wettbewerbe am Sonntag, 11.10.2026: 400 m Bambini-Lauf, 2,5 km Schueler-Lauf, 5 km Oetjen-Lauf (10:15 Uhr, Jg. 2014 und aelter) und 10 km Sparkassenlauf (10:15 Uhr, Jg. 2010 und aelter), beide bestenlistenfaehig (Vermessungs-ID GER-2025-0116). Jeder Lauf findet GENAU EINMAL statt. Die 5 km standen zweimal da - zwei Quellen, zwei Schreibweisen desselben Laufs. Beide Zeilen tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden; die richtige steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "3. Rotenburger City Lauf|2026-10-11|10": {
+    "exclude": true,
+    "_note": "rotenburger-city-lauf.com nennt vier Wettbewerbe am Sonntag, 11.10.2026: 400 m Bambini-Lauf, 2,5 km Schueler-Lauf, 5 km Oetjen-Lauf (10:15 Uhr, Jg. 2014 und aelter) und 10 km Sparkassenlauf (10:15 Uhr, Jg. 2010 und aelter), beide bestenlistenfaehig (Vermessungs-ID GER-2025-0116). Jeder Lauf findet GENAU EINMAL statt. Die 10 km standen zweimal da - zwei Quellen, zwei Schreibweisen desselben Laufs. Beide Zeilen tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden; die richtige steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "StreutalTrail|2026-11-08|11": {
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "_note": "streutaltrail.de nennt fuer den 'LIFE! STREUTALTRAIL 2026' am 08.11.2026 vier Strecken: Marathon, 15 km, 10 km und 5 km. Einen 11-km-Lauf gibt es nicht; die Strecke ist 10 km. Geprueft 2026-09-18."
+  },
+  "8. LIFE! Streutal 42km Trail-Marathon|2026-11-08|42": {
+    "exclude": true,
+    "_note": "streutaltrail.de nennt fuer den 'LIFE! STREUTALTRAIL 2026' am 08.11.2026 vier Strecken: Marathon, 15 km, 10 km und 5 km. Diese Zeile ist derselbe Marathon wie 'StreutalTrail' [Marathon] (42,2 km, gleiche Seite, gleicher Tag), nur unter dem ausgeschriebenen Namen und auf 42 km gerundet. Geprueft 2026-09-18."
+  },
+  "Herbstwaldlauf Berlin|2026-11-29|6": {
+    "exclude": true,
+    "_note": "herbstwaldlauf-berlin.de nennt die Veranstaltung '70. Herbstwaldlauf / Gunni-Sachs-Gedenklauf' am 29. November 2026 mit vier Strecken: '1,9 km | 3,8 km | 6 km | 11 km'. Die 6 km standen zweimal da - einmal unter dem offiziellen Doppelnamen, einmal als 'Herbstwaldlauf Berlin'. Die Zeile unter dem offiziellen Namen bleibt. Geprueft 2026-09-18."
+  },
+  "Herbstwaldlauf Berlin|2026-11-29|11": {
+    "exclude": true,
+    "_note": "herbstwaldlauf-berlin.de nennt die Veranstaltung '70. Herbstwaldlauf / Gunni-Sachs-Gedenklauf' am 29. November 2026 mit vier Strecken: '1,9 km | 3,8 km | 6 km | 11 km'. Die 11 km standen zweimal da - einmal unter dem offiziellen Doppelnamen, einmal als 'Herbstwaldlauf Berlin'. Die Zeile unter dem offiziellen Namen bleibt. Geprueft 2026-09-18."
+  },
+  "13. Sylvestermarathon|2026-12-31|42.2": {
+    "exclude": true,
+    "_note": "my.raceresult.com/410134 nennt die Veranstaltung '13. Sylvester Marathon', 31.12.2026, Bremen. Sie stand zweimal da - einmal als '13. Sylvestermarathon' ohne Wettbewerbs-Label, einmal als 'Sylvester Marathon Bremen' mit dem Label 'Marathon'. Dieselbe Anmeldeseite, derselbe Tag, dieselbe Distanz. Die Zeile mit Label bleibt. Geprueft 2026-09-18."
+  },
+  "Kreischaer Berglauf|2027-04-10|7": {
+    "exclude": true,
+    "_note": "mittelsaechsische-lauftour.com nennt drei Strecken: eine kleine Runde (3,3 km, Bambini), eine grosse Runde (6,6 km) und drei grosse Runden (10 km). Einen 7-km-Lauf gibt es nicht - das ist die gerundete Angabe einer zweiten Quelle fuer die 6,6 km. Der Ort stimmt uebrigens: Start ist das 'Buergerhaus Thalheim, Leubener Str. 5, 04758 Oschatz / Thalheim', also Oschatz und nicht Kreischa bei Dresden. Geprueft 2026-09-18."
+  },
+  "2. Celler Holzwerk - Staffelmarathon|2026-10-04|42.2": {
+    "exclude": true,
+    "_note": "Der '2. Celler Holzwerk-Staffelmarathon' am 04.10.2026 im Otto-Schade-Stadion Celle ist AUSSCHLIESSLICH ein Team-Wettbewerb: vier Laeuferinnen und Laeufer, 32 Runden zu je ca. 1,3 km, zusammen 42,195 km, Wertung getrennt nach Maenner-, Frauen- und Mixed-Teams, 70 Teams Limit, 60 EUR je Team (celler-presse.de, celleheute.de, run-timing.de/981). Einen Einzelmarathon gibt es nicht. Die Veranstaltung stand zweimal da - einmal mit dem Label 'Staffelmarathon ueber 42,195 Kilometer (32 Runden)', einmal nur als 'Marathon'. Beide tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden; die richtige Zeile steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "15. Heseper Martinslauf|2026-11-07|9": {
+    "exclude": true,
+    "_note": "Duplikat: Dieselbe Ausschreibung (ladv.de/46909), derselbe Tag, dieselbe Strecke - einmal als 'Langstrecke 8,8km' (Gross-Hesepe), einmal gerundet als '9 km' (Geeste). Gross Hesepe ist ein Ortsteil von Geeste. Die Zeile mit dem genaueren Label bleibt. Die exakte Laenge steht nur in der PDF-Ausschreibung, die ladv.de verlinkt - unser Feld sagt 8,9 km, das Label 8,8 km; diese 100 m sind offen. Geprueft 2026-09-18."
+  },
+  "Zweistädtelauf|2026-09-26|21.2": {
+    "exclude": true,
+    "_note": "Duplikat unter dem alten Namen: merkendorf.de fuehrt die Veranstaltung am 26.09.2026 als 'Stadtlauf Merkendorf'; der 'Zweistaedtelauf' (Merkendorf - Wolframs-Eschenbach) ist ihr frueherer Name. Gleiche Seite, gleicher Tag, 21,2 statt 21,1 km. Die Zeile mit Label 'Halbmarathon' bleibt. Geprueft 2026-09-18."
+  },
+  "Fun & Erlebnis Marathons|2026-12-31|22": {
+    "exclude": true,
+    "_note": "'Fun & Erlebnis Marathons' ist der Name einer Hamburger REIHE, nicht der der einzelnen Veranstaltung: my.raceresult.com/378406 heisst in Wirklichkeit '67. Billerhuder Insel Marathon (mit Halbmarathon) am 31.12.2026'. Der 22-km-Eintrag ist die gerundete Angabe einer zweiten Quelle fuer den Halbmarathon (21,8 km) derselben Veranstaltung - gleiche Anmeldeseite, gleicher Tag. Die Zeile mit dem Wettbewerbs-Label bleibt. Geprueft 2026-09-18."
+  },
+  "Fun & Erlebnis Marathons|2026-12-31|44": {
+    "exclude": true,
+    "_note": "'Fun & Erlebnis Marathons' ist der Name einer Hamburger REIHE, nicht der der einzelnen Veranstaltung: my.raceresult.com/378406 heisst in Wirklichkeit '67. Billerhuder Insel Marathon (mit Halbmarathon) am 31.12.2026'. Der 44-km-Eintrag ist die gerundete Angabe einer zweiten Quelle fuer den Marathon (43,5 km) derselben Veranstaltung - gleiche Anmeldeseite, gleicher Tag. Die Zeile mit dem Wettbewerbs-Label bleibt. Geprueft 2026-09-18."
+  },
+  "Fun & Erlebnis Marathons|2027-04-09|11": {
+    "exclude": true,
+    "_note": "'Fun & Erlebnis Marathons' ist der Name einer Hamburger REIHE, nicht der der einzelnen Veranstaltung: my.raceresult.com/378406 heisst in Wirklichkeit '67. Billerhuder Insel Marathon (mit Halbmarathon) am 31.12.2026'. Der 11-km-Eintrag ist die gerundete Angabe einer zweiten Quelle fuer den Viertelmarathon (11,1 km) derselben Veranstaltung - gleiche Anmeldeseite, gleicher Tag. Die Zeile mit dem Wettbewerbs-Label bleibt. Geprueft 2026-09-18."
+  },
+  "Fun & Erlebnis Marathons|2027-04-09|22": {
+    "exclude": true,
+    "_note": "'Fun & Erlebnis Marathons' ist der Name einer Hamburger REIHE, nicht der der einzelnen Veranstaltung: my.raceresult.com/378406 heisst in Wirklichkeit '67. Billerhuder Insel Marathon (mit Halbmarathon) am 31.12.2026'. Der 22-km-Eintrag ist die gerundete Angabe einer zweiten Quelle fuer den Halbmarathon (21,5 km) derselben Veranstaltung - gleiche Anmeldeseite, gleicher Tag. Die Zeile mit dem Wettbewerbs-Label bleibt. Geprueft 2026-09-18."
   }
 }

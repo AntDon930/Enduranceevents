@@ -9,12 +9,11 @@ UID:2026-10-11-3-rotenburger-city-lauf-10km-rotenburg-wumme@antdon930.gith
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
-SUMMARY:3. Rotenburger City Lauf – 10 km Sparkassenlauf - offiziell vermes
- sen
+SUMMARY:3. Rotenburger City Lauf – 10 km Sparkassenlauf
 LOCATION:Rotenburg (Wümme)\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rotenburger-c
- ity-lauf.com/
+ ity-lauf.com
 TRANSP:TRANSPARENT
-URL:https://rotenburger-city-lauf.com/
+URL:https://rotenburger-city-lauf.com
 END:VEVENT
 END:VCALENDAR

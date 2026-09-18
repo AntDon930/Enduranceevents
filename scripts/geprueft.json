@@ -509,5 +509,101 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com/370919, flvw.de",
     "notiz": "Der Termin liegt vier Jahre in der Zukunft, ist aber in sich stimmig: Die 9. Auflage war am 01.03.2026, die 13. faellt damit auf 2030. Der Eintrag stammt aus dem FLVW-Laufkalender (Kennung '30L19000394360001', 30 = 2030). Der Veranstalter (alstaetter-sandhasenlauf.de) nennt so weit im Voraus nichts, also nicht zu bestaetigen - es ist vermutlich ein Vorab-Eintrag des Verbands."
+  },
+  "Lohelauf Wentorf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "sc-wentorf.de",
+    "notiz": "Jede der drei Distanzen (5 Walking, 6, 9 km) stand doppelt - zwei Quellen, zwei Schreibweisen desselben Wettbewerbs. Je eine Zeile bleibt."
+  },
+  "1. Halloween-Run-Rotenburg|2026-10-30": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "halloween-run-rotenburg.de",
+    "notiz": "Vier Doppelungen: Eine zweite Quelle hatte die Rundendistanzen gerundet (7/13/17 km statt 6,666/13,333/16,666) und die 10 km ein zweites Mal geliefert. Der Geisterlauf (3,333 km) faellt korrekt unter die 5-km-Mindestdistanz."
+  },
+  "Halloween-Run-Bremen|2026-10-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "halloween-run-bremen.de",
+    "notiz": "Drei Doppelungen aus einer zweiten Quelle (8 statt 8,333; 17 statt 16,666; 25 km doppelt). Der Spuklauf (1.000 m) faellt korrekt unter die 5-km-Mindestdistanz."
+  },
+  "3. Rotenburger City Lauf|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "rotenburger-city-lauf.com",
+    "notiz": "5 km (Oetjen-Lauf) und 10 km (Sparkassenlauf) standen je doppelt; je eine Zeile bleibt."
+  },
+  "Elsterlauf|2027-05-30": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "elsterlauf.de/elsterlauf-ablauf",
+    "notiz": "Fehlalarm des Berichts 'Gleiche Veranstalter-Seite, gleiche Distanz': Der Mineralquellen-Halbmarathon ist 21,1 km (Start 9:30), das Walking 21,5 km (Start 8:05) - zwei verschiedene Strecken, und genau so stehen sie auch bei uns. Der Bericht fasst +/- 0,5 km zusammen. Alle sechs Laufstrecken stimmen (5,7 / 11 / 21,1 / 42 km plus Walking). ANMERKUNG zu Datenregel 12: Die Seite nennt die 30 km ausdruecklich eine 'ca. 30 km Radtour', kein Radrennen - in CLAUDE.md steht der Elsterlauf bisher unter den Veranstaltungen mit einem eigenen Radrennen. Nicht geaendert, das war eine Entscheidung des Nutzers; gehoert aber noch einmal angesehen."
+  },
+  "5. Klosterlauf Aurachtal|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "sc-muenchaurach.de (über Suche; die Seite selbst antwortet mit 503), laufen.de",
+    "notiz": "Fehlalarm: '5km Walking/Nordic Walking' und 'Hobbylauf' ueber 5 km sind ZWEI Wettbewerbe, nicht eine Doppelung (Datenregel 1). Die 5. Auflage am 11.10.2026 bietet 400 m Bambini, 1 km Kinderlauf, 5 km Walking/Nordic Walking, 5 km Hobbylauf, 5 km Jugendlauf und 10 km Hauptlauf. Der 5-km-JUGENDLAUF fehlt bei uns - nicht nachgetragen, weil die offizielle Seite gerade mit 503 antwortet und ich keine Zeile aus einer Zusammenfassung anlege."
+  },
+  "StreutalTrail|2026-11-08": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "streutaltrail.de",
+    "notiz": "Vier Strecken (Marathon, 15, 10, 5 km). Die 11-km-Zeile war die 10-km-Strecke, der Marathon stand doppelt."
+  },
+  "Herbstwaldlauf Berlin|2026-11-29": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "herbstwaldlauf-berlin.de",
+    "notiz": "Doppelt unter zwei Namen; die Zeilen unter 'Herbstwaldlauf / Gunni-Sachs-Gedenklauf' bleiben."
+  },
+  "13. Sylvestermarathon|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/410134",
+    "notiz": "Duplikat des 'Sylvester Marathon Bremen'."
+  },
+  "Kreischaer Berglauf|2027-04-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "mittelsaechsische-lauftour.com",
+    "notiz": "6,6 km und 10 km bestaetigt, die 7-km-Zeile war die gerundete 6,6-km-Runde. Der ueberraschende Ort Oschatz ist richtig (Buergerhaus Thalheim)."
+  },
+  "2. Celler Holzwerk - Staffelmarathon|2026-10-04": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "celler-presse.de, celleheute.de, run-timing.de/981",
+    "notiz": "Reines Team-Event (4 Laeufer, 32 Runden a 1,3 km = 42,195 km), keinen Einzelmarathon. Stand doppelt. OFFENE FRAGE an den Nutzer: Bei einer Staffel steht bei uns die TEAM-Gesamtstrecke in laenge_km - bei 'DUO Marathon 2 x 21,1 km' dagegen die Teilstrecke. Das gehoert vereinheitlicht."
+  },
+  "15. Heseper Martinslauf|2026-11-07": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de/ausschreibung/detail/46909",
+    "notiz": "Crosslauf mit kurzer und langer Strecke je Altersklasse. Die Langstrecke stand doppelt (8,9 km mit Label vs. 9 km gerundet). Offen bleiben 100 m: Das Label sagt 8,8 km, unser Feld 8,9 - die genaue Zahl steht nur in der verlinkten PDF."
+  },
+  "Zweistädtelauf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "merkendorf.de",
+    "notiz": "Frueherer Name derselben Veranstaltung (jetzt 'Stadtlauf Merkendorf')."
+  },
+  "Stadtlauf Merkendorf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "merkendorf.de, hdsports.org",
+    "notiz": "Das Duplikat unter dem alten Namen 'Zweistaedtelauf' ist raus. OFFEN ist die Distanz: merkendorf.de spricht von einer 'Halbmarathonstrecke' und sagt, der Stadtlauf starte 2026 ERSTMALS am Freizeitzentrum Weissbachmuehle auf einer NEUEN Strecke; hdsports.org nennt fuer den 26.09.2026 dagegen Buergerlauf 11,6 km, Hobbylauf 5,8 km, Walking 5,8 km, Schuelerlauf 3 km und Bambini - und KEINEN Halbmarathon. Moeglicherweise ist unsere 21,1-km-Zeile der alte Zweistaedtelauf und die Veranstaltung hat 2026 andere Strecken. Nichts geaendert, solange die Ausschreibung das nicht klaert."
+  },
+  "Fun & Erlebnis Marathons|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/378406",
+    "notiz": "Vier gerundete Doppelungen entfernt (22/44 km am 31.12., 11/22 km am 09.04.2027). ANMERKUNG: Der Name ist der der REIHE, nicht der Veranstaltung - die vom 31.12.2026 heisst '67. Billerhuder Insel Marathon'. Umbenennen kann ein Override nicht, der Name ist Teil des Schluessels."
+  },
+  "FLVW Crossmeisterschaften|2026-11-14": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "lanet3.de/external/dlv/register/12297",
+    "notiz": "Vier Zeilen: 5 km, 8 km ('Crosslauf Langstrecke - L10'), 9,8 km ('Crosslauf Langstrecke - L9') und 10 km. Bei einer Crossmeisterschaft haengt die Strecke an der Altersklasse (kurz/lang), die Codes L9/L10 sehen nach Laufnummern der Meldeliste aus. Ob 8/9,8 km und 5/10 km vier Wettbewerbe oder zwei plus zwei gerundete Doppelungen sind, sagt die Anmeldeseite nicht. Nichts geaendert."
   }
 }
