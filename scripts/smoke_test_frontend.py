@@ -271,6 +271,30 @@ def pruefe_mastersuche(ctx, basis):
     pruefe(seite.evaluate("""() => document.getElementById('master-search').value === ''
                && !location.search.includes('s=')"""),
            "das ✕ leert Suche und Adresse")
+
+    # Der Spaltenfilter "Name": Enter im Textfeld schließt das Panel und
+    # behält den Filter (vom Nutzer gemeldet: der Filter griff, aber das
+    # Fenster blieb stehen). Der Fokus geht zurück an den Knopf.
+    knopf = seite.locator('.col-filter-btn[data-col="name"]')
+    if pruefe(knopf.count() == 1, "der Spaltenfilter „Name“ hat einen Knopf"):
+        knopf.click()
+        seite.wait_for_timeout(300)
+        feld_im_panel = seite.locator('.filter-panel:not([hidden]) input[type="text"]')
+        pruefe(feld_im_panel.count() == 1, "das Namens-Panel öffnet ein Textfeld")
+        feld_im_panel.fill("marathon")
+        seite.wait_for_timeout(400)
+        feld_im_panel.press("Enter")
+        seite.wait_for_timeout(400)
+        nach_enter = seite.evaluate("""() => ({
+            zu: !document.querySelector('.filter-panel:not([hidden])'),
+            filter: location.search.includes('q=marathon'),
+            fokus: document.activeElement === document.querySelector('.col-filter-btn[data-col=name]'),
+            zeilen: document.querySelectorAll('tbody tr[data-idx]').length
+        })""")
+        pruefe(nach_enter["zu"], "Enter im Namensfeld schließt das Panel")
+        pruefe(nach_enter["filter"] and nach_enter["zeilen"] > 0,
+               "… und der Filter bleibt gesetzt (q=marathon, %d Zeilen)" % nach_enter["zeilen"])
+        pruefe(nach_enter["fokus"], "… der Fokus liegt wieder auf dem Knopf")
     seite.close()
 
 
@@ -1241,6 +1265,42 @@ def pruefe_ausgangspunkt(ctx, basis):
     seite.close()
 
 
+def pruefe_karten_suche(ctx, basis):
+    """Die Mastersuche auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
+
+    Dasselbe Feld wie in der Liste (filter-ui.js baut es), vor den
+    Filterknöpfen. Eine Eingabe filtert die Marker, steht als ?s= in der
+    Adresse und geht so mit in die Liste.
+    """
+    seite, _ = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
+    seite.wait_for_timeout(2500)
+    feld = seite.locator("#master-search")
+    if not pruefe(feld.count() == 1, "Karte: das Suchfeld steht in der Filterleiste"):
+        seite.close()
+        return
+    lage = seite.evaluate("""() => {
+        const f = document.querySelector('.master-search');
+        const k = document.querySelector('#filter-buttons');
+        return !!(f.compareDocumentPosition(k) & Node.DOCUMENT_POSITION_FOLLOWING); }""")
+    pruefe(lage, "Karte: es steht vor den Filterknöpfen, wie in der Liste")
+    vorher = seite.evaluate("() => document.getElementById('map-hint').textContent")
+    seite.fill("#master-search", "ironman")
+    seite.wait_for_timeout(900)
+    nachher = seite.evaluate("""() => ({
+        hinweis: document.getElementById('map-hint').textContent,
+        url: location.search,
+        chip: document.getElementById('active-chips').textContent,
+        liste: document.getElementById('list-btn-label').getAttribute('href')
+    })""")
+    zahl = lambda txt: int(re.search(r"\d+", txt).group(0)) if re.search(r"\d+", txt) else -1
+    pruefe(0 < zahl(nachher["hinweis"]) < zahl(vorher),
+           "Karte: die Suche filtert die Marker (%s → %s)" % (vorher, nachher["hinweis"]))
+    pruefe("s=ironman" in nachher["url"], "Karte: die Suche steht in der Adresse (%s)" % nachher["url"])
+    pruefe("Suche" in nachher["chip"], "Karte: es entsteht ein Chip „Suche: …“")
+    pruefe("s=ironman" in (nachher["liste"] or ""), "Karte: der Listen-Knopf nimmt die Suche mit")
+    seite.close()
+
+
 def pruefe_karte_und_rundweg(ctx, basis):
     print("\nKarte und Seitenwechsel")
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
@@ -1260,6 +1320,7 @@ def pruefe_karte_und_rundweg(ctx, basis):
 
     if marker:
         pruefe_ausgangspunkt(ctx, basis)
+        pruefe_karten_suche(ctx, basis)
 
         # Der Link im Popup: ohne "↗" (der Pfeil sah aus wie ein
         # Stempel - vom Nutzer gemeldet). Ein einzelner Ort, damit kein

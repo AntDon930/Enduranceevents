@@ -29,7 +29,7 @@ Nicht auf einen anderen Branch pushen.
 | `favicon.svg`, `apple-touch-icon.png` | Seitensymbol; das PNG entsteht aus dem SVG (nach Änderung neu erzeugen) |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
-| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel – beide Seiten bedienen dieselben |
+| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
 | `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den geteilten Dateien (**nach jeder Änderung daran laufen lassen**) |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
@@ -87,7 +87,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 159 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 170 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -95,7 +95,10 @@ Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
 `navigator.share` geht und der Rückweg über den geteilten Link),
 Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
-sichtbar, Sprachumschalter), der Abo-Dialog (Knopf, Zusammenfassung,
+sichtbar, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
+Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
+(vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
+sie mit), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
@@ -1283,7 +1286,16 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Feld links von der Trefferzahl sucht über **Name, Wettbewerb UND Ort**
   und liegt in `filters.js` als `state.suche` (Adresse: `?s=`), neben
   dem unveränderten `nameQuery` (`?q=`, nur Name + Wettbewerb, das
-  Textfeld der Spalte „Name"). Zwei Felder statt einem, mit Absicht:
+  Textfeld der Spalte „Name"). **Gebaut wird das Feld von
+  `filter-ui.js` (`ui.buildSearch(container)` → `{ sync, input }`),
+  seit dem 19.09.2026 steht es auch auf der Karte** (vom Nutzer
+  gewünscht) – ganz links in der Filterleiste, vor den Knöpfen. Markup,
+  Vorschläge, Tastatur und CSS (`filter-ui.css`) liegen deshalb EINMAL
+  im Modul; die Seiten rufen nur `suche.sync()` in ihrem `render()`
+  (Platzhalter, ✕-Beschriftung und Feldinhalt folgen so Sprache und
+  Zustand). Die Ids `master-search`, `-clear`, `-list` sind fest – ein
+  Feld je Seite, der Rauchtest greift darauf zu. Zwei Felder statt
+  einem, mit Absicht:
   - Würde die Mastersuche auf `nameQuery` schreiben, hieße der
     Spaltenfilter „Name" plötzlich auch „Ort" – ein Spaltenfilter, der
     etwas anderes filtert als seine Spalte.
@@ -1539,7 +1551,8 @@ Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
   alleWerte })` gibt den Bedienteil: `attachButton()` (Liste: eigene
   Spaltenköpfe), `buildButtonBar(container, { ohne })` (Karte und
   Abo-Dialog: beschriftete Knopfreihe), `refresh()`,
-  `updateIndicators()`, `close()`, `options()`, `resetTransient()`.
+  `updateIndicators()`, `close()`, `options()`, `resetTransient()`,
+  `buildSearch(container)` (die Mastersuche, siehe Frontend-Fallen).
   **Mehrere Bedieneinheiten je Seite sind erlaubt** (Liste + Abo-Dialog)
   – jede hält ihre eigenen Knöpfe, ihr eigenes Panel und ihren eigenen
   Zustand.
@@ -1574,7 +1587,10 @@ Abo-Dialog; Begründung bei den Abos weiter oben.
   Seite gemischt, damit `t()` unverändert bleibt. Ein Text, den beide
   Seiten brauchen, gehört ins Modul – nicht in beide `I18N`-Objekte.
 - **Das Panel per Tastatur**: Escape schließt es und gibt den Fokus an
-  seinen Knopf zurück (`closePanel(true)`), Pfeil nach unten am Knopf
+  seinen Knopf zurück (`closePanel(true)`), **Enter im Textfeld des
+  Namens-Panels ebenso** – der Filter griff schon beim Tippen, aber das
+  Panel blieb stehen (vom Nutzer am 19.09.2026 gemeldet); das Feld
+  trägt `enterkeyhint="done"`. Pfeil nach unten am Knopf
   öffnet es und geht hinein, ein `focusout` mit echtem `relatedTarget`
   schließt es (bei `null` **nicht** – dann hat sich das Panel nur selbst
   neu gezeichnet). Die Knöpfe tragen `aria-haspopup`/`aria-expanded`

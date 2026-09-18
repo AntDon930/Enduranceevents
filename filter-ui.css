@@ -315,3 +315,110 @@
   cursor: pointer;
 }
 .tree-children { margin-left: 18px; }
+
+/* ---------- Die Mastersuche ----------
+   EIN Feld über Eventname, Wettbewerb und Ort (state.suche, siehe
+   filters.js), mit ✕ und Vorschlagsliste. Steht in der Liste ganz links
+   in der Werkzeugleiste und auf der Karte ganz links in der Filterleiste
+   - dasselbe Feld an derselben Stelle (vom Nutzer für die Karte
+   nachgefordert, 19.09.2026). Gebaut von filter-ui.js (buildSearch). */
+/* Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort. Sie
+   steht ganz links in der Werkzeugleiste, vor der Trefferzahl - das
+   ist die Stelle, an der man sie sucht, und die Zahl daneben sagt
+   sofort, was die Eingabe gebracht hat. Die Spaltenfilter bleiben
+   daneben bestehen: Sie sind das genaue Werkzeug, das hier ist das
+   schnelle. */
+.master-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 1 260px;
+  min-width: 170px;
+}
+.master-search svg {
+  position: absolute;
+  left: 9px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.master-search input {
+  width: 100%;
+  padding: 7px 28px 7px 30px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  /* `type="search"` bringt in WebKit eine eigene Optik mit (eckige
+     Ecken in Safari) - abschalten, sonst sieht das Feld auf dem iPhone
+     anders aus als überall sonst. */
+  appearance: none;
+  -webkit-appearance: none;
+}
+/* ... und ein eigenes ✕. Ohne das standen ZWEI Kreuze im Feld: das
+   von WebKit und unseres. Unseres bleibt, weil es auch den Filter
+   zurücksetzt und in jedem Browser gleich aussieht. */
+.master-search input::-webkit-search-cancel-button,
+.master-search input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+/* Die Vorschlagsliste hängt am Feld (position: relative am
+   .master-search). z-index 1000 wie das Filter-Panel: über den
+   Tabellenköpfen, unter den Dialogen (2000). */
+.search-suggest {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.search-suggest[hidden] { display: none; }
+.search-suggest li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.search-suggest li[aria-selected="true"],
+.search-suggest li:hover { background: var(--row-hover, rgba(0, 0, 0, 0.06)); }
+.search-suggest .vs-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.search-suggest .vs-anzahl {
+  flex: none;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+}
+.master-search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+/* Das ✕ erscheint nur, wenn etwas im Feld steht - ein dauerhaft
+   sichtbares Kreuz an einem leeren Feld sieht nach Fehler aus. */
+.master-search button {
+  position: absolute;
+  right: 6px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+.master-search button[hidden] { display: none; }
+.master-search button:hover { color: var(--text); }

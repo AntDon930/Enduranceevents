@@ -12,6 +12,8 @@
 // onChange, setOrigin }) gibt einen Bedienteil zurück. `onChange` ruft die
 // Seite auf ihre Art neu auf (Liste: Tabelle, Karte: Marker), `setOrigin`
 // ist optional und darf mehr tun als den Ausgangspunkt zu setzen.
+// Dazu gehört die Mastersuche (buildSearch) - EIN Feld über Name,
+// Wettbewerb und Ort, ebenfalls auf beiden Seiten.
 //
 // Das Panel folgt seinem Knopf beim Scrollen und schließt sich NICHT
 // (siehe folgeDemKnopf) - das war auf 390 px nötig, sonst ließ sich der
@@ -26,6 +28,12 @@
   // damit t() unverändert funktioniert.
   const I18N = {
     de: {
+      // Die Mastersuche (buildSearch) - auf beiden Seiten.
+      suche_platzhalter: 'Event oder Ort suchen',
+      suche_leeren: 'Suche leeren',
+      vorschlag_liste: 'Vorschläge',
+      vorschlag_serie: (n) => n === 1 ? '1 Veranstaltung' : n + ' Veranstaltungen',
+      vorschlag_ort: (n) => n === 1 ? '1 Veranstaltung am Ort' : n + ' Veranstaltungen am Ort',
       col_datum: 'Datum',
       col_name: 'Name',
       col_sportart: 'Sportart',
@@ -73,6 +81,11 @@
       geo_current_label: 'Aktueller Standort'
     },
     en: {
+      suche_platzhalter: 'Search event or place',
+      suche_leeren: 'Clear search',
+      vorschlag_liste: 'Suggestions',
+      vorschlag_serie: (n) => n === 1 ? '1 event' : n + ' events',
+      vorschlag_ort: (n) => n === 1 ? '1 event in this place' : n + ' events in this place',
       col_datum: 'Date',
       col_name: 'Name',
       col_sportart: 'Sport',
@@ -933,6 +946,17 @@
         state.nameQuery = input.value;
         onChange();
       });
+      // Enter schließt das Panel (vom Nutzer gemeldet: der Filter griff
+      // schon beim Tippen, aber das Fenster blieb stehen). Der Fokus
+      // geht zurück an den Knopf, wie bei Escape - nur dass der Filter
+      // bleibt. `enterkeyhint="done"` beschriftet die Taste auf dem
+      // Handy entsprechend.
+      input.setAttribute('enterkeyhint', 'done');
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key !== 'Enter') return;
+        ev.preventDefault();
+        closePanel(true);
+      });
       panel.appendChild(input);
     }
 
@@ -1188,10 +1212,187 @@
     };
     window.addEventListener('scroll', folgeDemKnopf, true);
     window.addEventListener('resize', folgeDemKnopf);
+    // ---------- Die Mastersuche ----------
+    //
+    // EIN Feld über Eventname, Wettbewerb und Ort (EF.matchEvent, Feld
+    // `suche`), mit ✕ und Vorschlagsliste. Ursprünglich nur in der Liste;
+    // seit dem 19.09.2026 auch auf der Karte (vom Nutzer gewünscht) -
+    // deshalb hier, nicht zweimal in den Seiten.
+    //
+    // Der Filterzustand wird bei JEDEM Tastendruck gesetzt, nur das
+    // Neuzeichnen (onChange) wartet 180 ms: Über 4.000 Events zu filtern
+    // und Tabelle bzw. Marker neu zu bauen kostet auf einem Handy mehr
+    // als der Abstand zwischen zwei Tastendrücken. Enter zeichnet sofort.
+    //
+    // Vorschläge: Der Anlass war die Frage nach einer VERANSTALTER-Spalte.
+    // Gemessen an den Daten lohnt die nicht (größte Serie 21
+    // Veranstaltungen, nennenswert rund elf) - eine Spalte kostete Platz,
+    // den die Werkzeugleiste auf dem Laptop nicht hat, ein Vorschlag im
+    // Suchfeld kostet keinen. Der Index (EF.buildSuggestions) entsteht
+    // ERST BEIM ERSTEN TIPPEN, nicht beim Laden: 35 ms bei 4.335 Events,
+    // 112 ms bei 20.000 - das gehört nicht in den ersten Seitenaufbau.
+    //
+    // buildSearch(container) füllt den Container (Klasse .master-search)
+    // und gibt { sync, input } zurück. sync() gleicht Feld, ✕ und
+    // Platzhalter an Zustand und Sprache an - nach jedem Neuzeichnen
+    // aufrufen. Die Ids (master-search, -clear, -list) sind fest: Es
+    // gibt EIN solches Feld je Seite, und der Rauchtest greift darauf zu.
+    function buildSearch(container) {
+      container.classList.add('master-search');
+      container.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none"'
+        + ' stroke="currentColor" stroke-width="2" stroke-linecap="round"'
+        + ' stroke-linejoin="round" aria-hidden="true">'
+        + '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>'
+        + '<input type="search" id="master-search" autocomplete="off" enterkeyhint="search"'
+        + ' role="combobox" aria-expanded="false" aria-autocomplete="list"'
+        + ' aria-controls="master-search-list">'
+        + '<button type="button" id="master-search-clear" hidden aria-label="">&#10005;</button>'
+        + '<ul class="search-suggest" id="master-search-list" role="listbox" hidden></ul>';
+      const feld = container.querySelector('input');
+      const kreuz = container.querySelector('button');
+      const liste = container.querySelector('ul');
+      let timer = null;
+      let vorschlagIndex = null;
+      let vorschlagTreffer = [];
+      let vorschlagAktiv = -1;      // -1 = nichts hervorgehoben
+
+      function holeVorschlagIndex() {
+        if (vorschlagIndex === null) vorschlagIndex = EF.buildSuggestions(getEvents());
+        return vorschlagIndex;
+      }
+      function zeichneJetzt() {
+        if (timer !== null) { clearTimeout(timer); timer = null; }
+        onChange();
+      }
+      function schliesseVorschlaege() {
+        liste.hidden = true;
+        liste.innerHTML = '';
+        vorschlagTreffer = [];
+        vorschlagAktiv = -1;
+        feld.setAttribute('aria-expanded', 'false');
+        feld.removeAttribute('aria-activedescendant');
+      }
+      function hebeVorschlagHervor(i) {
+        vorschlagAktiv = i;
+        [...liste.children].forEach((li, n) => {
+          li.setAttribute('aria-selected', n === i ? 'true' : 'false');
+        });
+        if (i < 0) { feld.removeAttribute('aria-activedescendant'); return; }
+        feld.setAttribute('aria-activedescendant', 'ms-opt-' + i);
+        const li = liste.children[i];
+        if (li && li.scrollIntoView) li.scrollIntoView({ block: 'nearest' });
+      }
+      function zeigeVorschlaege() {
+        const q = feld.value.trim();
+        vorschlagTreffer = q.length >= 2 ? EF.matchSuggestions(holeVorschlagIndex(), q, 8) : [];
+        if (!vorschlagTreffer.length) { schliesseVorschlaege(); return; }
+        liste.setAttribute('aria-label', t('vorschlag_liste'));
+        liste.innerHTML = vorschlagTreffer.map((v, i) => {
+          // t(key, ...args) ruft einen Funktions-Text SELBST auf - also
+          // t(key, wert), nicht t(key)(wert).
+          const hinweis = t(v.art === 'ort' ? 'vorschlag_ort' : 'vorschlag_serie', v.anzahl);
+          return `<li role="option" id="ms-opt-${i}" aria-selected="false" data-i="${i}">`
+            + `<span class="vs-text">${EF.escapeHtml(v.text)}</span>`
+            + `<span class="vs-anzahl" aria-label="${EF.escapeHtml(hinweis)}">${v.anzahl}</span></li>`;
+        }).join('');
+        liste.hidden = false;
+        feld.setAttribute('aria-expanded', 'true');
+        hebeVorschlagHervor(-1);
+      }
+      function uebernimmVorschlag(i) {
+        const v = vorschlagTreffer[i];
+        if (!v) return;
+        feld.value = v.text;
+        state.suche = v.text;
+        kreuz.hidden = false;
+        schliesseVorschlaege();
+        zeichneJetzt();
+      }
+
+      // EIN Listener an der Liste, nicht einer je Eintrag. `mousedown`
+      // statt `click`: Ein Klick würde erst das `focusout` des Feldes
+      // auslösen, das die Liste schließt, und ginge dann ins Leere.
+      liste.addEventListener('mousedown', (ev) => {
+        const li = ev.target.closest('li[data-i]');
+        if (!li) return;
+        ev.preventDefault();
+        uebernimmVorschlag(Number(li.dataset.i));
+      });
+      feld.addEventListener('input', () => {
+        state.suche = feld.value;
+        kreuz.hidden = !feld.value;
+        zeigeVorschlaege();
+        if (timer !== null) clearTimeout(timer);
+        timer = setTimeout(() => { timer = null; onChange(); }, 180);
+      });
+      feld.addEventListener('keydown', (ev) => {
+        const offen = !liste.hidden && vorschlagTreffer.length > 0;
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+          if (!offen) { zeigeVorschlaege(); return; }
+          ev.preventDefault();
+          const schritt = ev.key === 'ArrowDown' ? 1 : -1;
+          const anzahl = vorschlagTreffer.length;
+          // Über den Rand hinaus landet man wieder im Feld (-1), nicht am
+          // anderen Ende: Die Eingabe ist der Ausgangspunkt, kein Ring.
+          let neu = vorschlagAktiv + schritt;
+          if (neu >= anzahl) neu = -1;
+          if (neu < -1) neu = anzahl - 1;
+          hebeVorschlagHervor(neu);
+          return;
+        }
+        if (ev.key === 'Escape') {
+          if (offen) { ev.preventDefault(); schliesseVorschlaege(); }
+          return;
+        }
+        if (ev.key !== 'Enter') return;
+        // Enter auf einem hervorgehobenen Vorschlag übernimmt ihn, sonst
+        // zeichnet es die Suche sofort (ohne die 180 ms abzuwarten).
+        if (offen && vorschlagAktiv >= 0) {
+          ev.preventDefault();
+          uebernimmVorschlag(vorschlagAktiv);
+          return;
+        }
+        schliesseVorschlaege();
+        zeichneJetzt();
+      });
+      // Verlässt der Fokus das Feld UND die Liste, ist die Auswahl vorbei.
+      // `relatedTarget === null` heißt nur, dass das Fenster den Fokus
+      // verloren hat - dieselbe Unterscheidung wie beim Filter-Panel.
+      feld.addEventListener('focusout', (ev) => {
+        if (ev.relatedTarget && !liste.contains(ev.relatedTarget)) schliesseVorschlaege();
+      });
+      kreuz.addEventListener('click', () => {
+        feld.value = '';
+        state.suche = '';
+        kreuz.hidden = true;
+        schliesseVorschlaege();
+        feld.focus();
+        zeichneJetzt();
+      });
+
+      // Das Feld an Zustand und Sprache angleichen - der Chip „Suche: …"
+      // und „Filter zurücksetzen" ändern den Zustand, ohne das Feld
+      // anzufassen. Nicht, während jemand darin tippt: Dann ist das Feld
+      // die Quelle.
+      function sync() {
+        feld.placeholder = t('suche_platzhalter');
+        feld.setAttribute('aria-label', t('suche_platzhalter'));
+        kreuz.setAttribute('aria-label', t('suche_leeren'));
+        kreuz.hidden = !state.suche;
+        if (document.activeElement === feld) return;
+        if (feld.value !== state.suche) feld.value = state.suche;
+        // Der Zustand kam von außen (Chip entfernt, „Filter löschen") -
+        // dann gehört auch die Vorschlagsliste zu.
+        if (!liste.hidden) schliesseVorschlaege();
+      }
+      return { sync, input: feld };
+    }
+
     return {
       COLUMNS,
       attachButton,
       buildButtonBar,
+      buildSearch,
       open: openPanel,
       close: closePanel,
       refresh,

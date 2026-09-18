@@ -52,7 +52,7 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=452fb354">
+<link rel="stylesheet" href="filter-ui.css?v=ef11a010">
 <style>
   :root {
     color-scheme: light dark;
@@ -325,6 +325,9 @@
      (filter-ui.js), die Chips zeigen, was gesetzt ist. -->
 <div class="filter-bar" id="filter-bar">
   <div class="filter-bar-row">
+    <!-- Die Mastersuche wie in der Liste, ganz links (vom Nutzer
+         gewünscht). Gefüllt von ui.buildSearch() (filter-ui.js). -->
+    <div class="master-search" id="master-search-box"></div>
     <span class="filter-bar-label" id="filter-bar-label"></span>
     <div class="filter-btn-bar" id="filter-buttons"></div>
     <button type="button" class="reset-btn" id="reset-btn"></button>
@@ -361,7 +364,7 @@
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=f921fa30"></script>
-<script src="filter-ui.js?v=fa0b0980"></script>
+<script src="filter-ui.js?v=0db74e4c"></script>
 
 <script>
 (async function () {
@@ -674,6 +677,11 @@
     getLang: () => currentLang,
     onChange: () => render()
   });
+  // Die Mastersuche: dasselbe Feld wie in der Liste (Name, Wettbewerb,
+  // Ort, mit Vorschlägen). Gefiltert wird über EF.matchEvent, also
+  // dieselbe Regel, die auch die Liste anwendet - und der Wert steht als
+  // ?s= in der Adresse, überlebt also den Seitenwechsel.
+  const suche = ui.buildSearch(document.getElementById('master-search-box'));
 
   function setLanguage(lang) {
     currentLang = lang;
@@ -780,6 +788,7 @@
   function render(opts) {
     ui.updateIndicators();
     renderChips();
+    suche.sync();
     // Das offene Panel zeigt Häkchen und Regler des Filters - nach einer
     // Änderung muss es mitkommen (es zeichnet sich nicht neu, solange der
     // Fokus darin liegt, siehe filter-ui.js).
