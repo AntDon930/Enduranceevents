@@ -1019,5 +1019,35 @@
     "ergebnis": "unklar",
     "quelle": "triathlon.de/pages/triathlon-de-cup-muenchen-2026",
     "notiz": "Gespeichert sind 10 und 20 km - das sind mit grosser Wahrscheinlichkeit Rad- oder Laufstrecken, nicht Gesamtstrecken (Datenregel 15). Die Seite nennt 'Volkstriathlon' und 'Grand Prix' als Formate, die Teilstrecken stehen aber nur in der verlinkten Ausschreibung; ausserdem nennt sie 'Triathlon Muenchen - 15./16./17. Mai 2026', unser Eintrag steht auf dem 25.06.2027. Ohne Ausschreibung nichts geaendert."
+  },
+  "Freiberger Adventslauf|2026-11-28": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de",
+    "notiz": "120-km-Zeile ohne Label entfernt; laengste Strecke ist der Hauptlauf ueber 12 km."
+  },
+  "Ensinger Laufcup|2026-10-17": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ensinger-laufcup.de",
+    "notiz": "24-km-Zeile ohne Label entfernt. FEHLT: der Eselsburg-Trail - seine Laenge nennt die Seite nicht."
+  },
+  "Höhlerfestlauf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "hoehlerfestlauf.de",
+    "notiz": "22-km-Zeile ohne Label entfernt. FEHLT: der neue '12 km Crosslauf mit Hindernissen' - er hat dieselbe Distanz wie der Hauptlauf und waere ein eigener Wettbewerb."
+  },
+  "Philippi Road Runners Jubiläumslauf|2026-10-17": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "philippi-reisen.de",
+    "notiz": "Die gemeldete 22-km-Zeile ist der Halbmarathon und richtig. Label ergaenzt."
+  },
+  "VR-Bank Mitte Herbstlauf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "vr-bankmitte-herbstlauf.de",
+    "notiz": "Die gemeldete 21,1-km-Zeile ist der Halbmarathon durch den Kuellstedter Tunnel und richtig."
   }
 }

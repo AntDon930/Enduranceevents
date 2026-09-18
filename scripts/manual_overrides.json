@@ -1158,5 +1158,25 @@
   "OstseeMan Triathlon Glücksburg|2027-07-31|5.5": {
     "exclude": true,
     "_note": "Kein Triathlon-Wettbewerb: Der OstseeMan bietet neben Lang- (226 km) und Mitteldistanz (113 km) einen 'Glueck in Sicht Charity Run' ueber 5,5 km um 17:00 Uhr (15,00 EUR, 371 Plaetze). Gespeichert waren 6 km und die Sportart Triathlon - es ist ein Volkslauf. Er steht jetzt unter seinem eigenen Namen in manual_events.json. WARUM NICHT per Override: Ein Override, der laenge_km aendert, bricht seinen eigenen distanzgenauen Schluessel fuer die SPAETEREN Schritte - fix_multisport_art1() sucht den Override mit der schon korrigierten Distanz, findet ihn nicht mehr und setzt art1 wieder auf Triathlon (der Name der Veranstaltung enthaelt das Wort). Geprueft 2026-09-18. Dieser Schluessel mit 5,5 km ist noetig, weil ein frueherer Override die Distanz bereits von 6 auf 5,5 km gesetzt hatte - der Schluessel mit 6 km trifft die Zeile seitdem nicht mehr. Beide stehen hier, damit auch ein neuer Scraper-Lauf (der wieder 6 km liefert) die Zeile ausschliesst."
+  },
+  "Freiberger Adventslauf|2026-11-28|120": {
+    "exclude": true,
+    "_note": "Die Zeile stammt aus einem Kalender, traegt KEIN Wettbewerbs-Label und eine Distanz, die groesser ist als alles, was der Veranstalter anbietet. berlin-timing.de nennt fuer den '33. Freiberger Adventslauf 2026' am 28.11.2026: Bambinilauf 400 m, Kinderlauf 1 km, Teenielauf 3 km, Volkslauf 6 km, Hauptlauf 12 km und einen Staffellauf 4x 3 km. Einen 120-km-Lauf gibt es nicht. Geprueft 2026-09-18."
+  },
+  "Ensinger Laufcup|2026-10-17|24": {
+    "exclude": true,
+    "_note": "Die Zeile stammt aus einem Kalender, traegt KEIN Wettbewerbs-Label und eine Distanz, die groesser ist als alles, was der Veranstalter anbietet. ensinger-laufcup.de nennt fuer den '19. Ensinger Laufcup' am 17.10.2026 die Strecken 5 KM, 10 KM, den Eselsburg-Trail sowie Bambini- und Schuelerlaeufe. Einen 24-km-Lauf gibt es nicht. (Die Laenge des Eselsburg-Trails nennt die Seite nicht - er fehlt deshalb weiterhin in der Liste, geraten wird nicht.) Geprueft 2026-09-18."
+  },
+  "Höhlerfestlauf|2026-09-26|22": {
+    "exclude": true,
+    "_note": "Die Zeile stammt aus einem Kalender, traegt KEIN Wettbewerbs-Label und eine Distanz, die groesser ist als alles, was der Veranstalter anbietet. hoehlerfestlauf.de nennt fuer den 26.09.2026 die Wettbewerbe 12 km, 5 km, 2,5 km, 0,8 km, 12 km Walking und neu einen '12 km Crosslauf mit Hindernissen'. Einen 22-km-Lauf gibt es nicht. Geprueft 2026-09-18."
+  },
+  "Philippi Road Runners Jubiläumslauf|2026-10-17|22": {
+    "wettbewerb": "Halbmarathon",
+    "_note": "KEIN Fehler, obwohl der Bericht die Zeile meldet: philippi-reisen.de nennt fuer den '2. PHILIPPI-Lauf' am 17.10.2026 drei Distanzen - 'Halbmarathon (~22 km)' um 10:30 Uhr, einen 11-km-Lauf um 11:10 und einen 6-km-Lauf um 11:30. Die 22 km sind der Halbmarathon; die zweite Quelle, die nur 6 und 11 km nennt, ist unvollstaendig. Genau die Lektion aus dem ersten Durchgang: Streckenlisten der Quellen sind nicht verlaesslich vollstaendig. Label ergaenzt. Geprueft 2026-09-18."
+  },
+  "VR-Bank Mitte Herbstlauf|2026-09-26|21.1": {
+    "wettbewerb": "Halbmarathon durch den Küllstedter Tunnel",
+    "_note": "KEIN Fehler: vr-bankmitte-herbstlauf.de nennt fuer den 26.09.2026 in Dingelstaedt einen 'Halbmarathon durch den Kuellstedter Tunnel' (Start 9:30 Uhr, ueber 3 km im 1.530 m langen Tunnel) sowie 10 km, 5 km, 3 km, 1 km und 400 m Bambini. Die 21,1-km-Zeile ist der Halbmarathon; die zweite Quelle nannte nur 5 und 10 km. Label ergaenzt. Geprueft 2026-09-18."
   }
 }

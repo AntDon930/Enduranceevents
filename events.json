@@ -8184,19 +8184,6 @@
     "veranstalter_url": "https://www.darmstaedter-lauftreff.de/hutzellauf-geschichte/hutzellauf-bilder/"
   },
   {
-    "name": "Höhlerfestlauf",
-    "standort": "Gera",
-    "lat": 50.8765528,
-    "lon": 12.0832674,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 22.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000029460000",
-    "land": "Deutschland"
-  },
-  {
     "land": "Deutschland",
     "name": "Höhlerfestlauf",
     "standort": "Gera",
@@ -8917,7 +8904,8 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://www.vr-bankmitte-herbstlauf.de/"
+    "veranstalter_url": "https://www.vr-bankmitte-herbstlauf.de/",
+    "wettbewerb": "Halbmarathon durch den Küllstedter Tunnel"
   },
   {
     "land": "Deutschland",
@@ -19718,19 +19706,6 @@
     "land": "Deutschland",
     "name": "Ensinger Laufcup",
     "standort": "Vaihingen an der Enz",
-    "lat": 48.9321398,
-    "lon": 8.9568316,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 24.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000215060000"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ensinger Laufcup",
-    "standort": "Vaihingen an der Enz",
     "lat": 48.9334357,
     "lon": 8.961208,
     "art1": "Laufen",
@@ -20113,7 +20088,8 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "veranstalter_url": "https://my.raceresult.com/413723/",
-    "laenge_km": 22.0
+    "laenge_km": 22.0,
+    "wettbewerb": "Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -29491,19 +29467,6 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "veranstalter_url": "https://my.raceresult.com/411931/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Freiberger Adventslauf",
-    "standort": "Freiberg",
-    "lat": 50.9169415,
-    "lon": 13.3428889,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 120.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000026360000"
   },
   {
     "land": "Deutschland",
