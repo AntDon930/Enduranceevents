@@ -1784,6 +1784,68 @@ Blaze-Schritte (Cloud Functions deployen, Extension „Trigger Email"
 plus SMTP) – siehe unten. Abos werden also schon gespeichert, aber es
 geht noch keine E-Mail heraus; die Datenschutzerklärung sagt das auch so.
 
+## Die Mastersuche
+
+Ein Feld links von der Trefferzahl, das über **Eventname, Wettbewerb und
+Ort** sucht: „münchen" findet die Events in München, „marathon" die
+Marathons. Die Filter je Spalte bleiben daneben bestehen – sie sind das
+genaue Werkzeug (Umkreis, Zeitraum, Distanzkategorie), die Mastersuche
+der schnelle Zugriff.
+
+Drei Entscheidungen dahinter:
+
+1. **Ein eigener Filter, nicht das Namensfeld.** In `filters.js` gibt es
+   jetzt `state.suche` (Adresse `?s=`) **neben** dem unveränderten
+   `nameQuery` (`?q=`, Textfeld der Spalte „Name"). Würde die
+   Mastersuche auf `nameQuery` schreiben, filterte der Spaltenfilter
+   „Name" plötzlich auch nach Orten – ein Filter, der etwas anderes tut
+   als seine Spalte sagt.
+2. **Sie gilt auch für die Karte.** Weil sie in `EF.matchEvent()` steckt,
+   filtert sie beide Seiten, steht als Chip in der Leiste und übersteht
+   den Wechsel Liste → Karte → Liste.
+3. **Sie gehört ins Abo.** Wer „München" gesucht hat und dann
+   abonniert, will Events aus München – nicht alles. Damit steht die
+   Regel ein drittes Mal in `functions/index.js` (wie schon
+   `nameQuery`); sie ist dort absichtlich so schlicht wie hier
+   (kleinschreiben, `includes`), damit die Kopien nicht auseinander
+   laufen.
+
+Gefiltert wird bei jedem Tastendruck, **neu gezeichnet erst nach
+180 ms**: Über 4.000 Events zu filtern und die Tabelle zu bauen kostet
+auf einem Handy mehr Zeit als der Abstand zwischen zwei Tastendrücken –
+ohne die kurze Pause ruckelte das Tippen. Enter zeichnet sofort.
+
+## Die Karte zeigt Europa, und die Welt nur einmal
+
+Beim Herauszoomen lag Europa als Briefmarke in einer mehrfach
+nebeneinander gezeichneten Weltkarte. Drei Einstellungen beheben das:
+
+- **`noWrap: true`** an der Kachel-Ebene – das ist der Punkt gegen die
+  Wiederholung: Ohne das zeichnet Leaflet die Kacheln links und rechts
+  der Datumsgrenze beliebig oft weiter.
+- **`maxBounds`** auf Europa, mit `maxBoundsViscosity: 1` (harte Kante
+  statt Zurückfedern, das sich nach Fehler anfühlt). Europa statt DACH,
+  damit die Karte nicht angefasst werden muss, wenn weitere Länder
+  dazukommen.
+- **Ein gerechneter kleinster Zoom.** Eine feste Zahl geht nicht: Auf
+  390 px passt Europa erst bei Zoom 3 ins Bild, auf 1.400 px schon bei
+  5. Gerechnet wird über Europas **Breite** (`getBoundsZoom` auf einen
+  flachen Streifen über Europas Längengrade) – beide naheliegenden
+  Varianten waren daneben, weil Europa hochkant liegt und ein
+  Browserfenster quer: „Europa passt ganz ins Bild" ergab auf einem
+  breiten, niedrigen Fenster Zoom 3 und damit Kanada bis China im Bild,
+  „das Fenster liegt ganz in Europa" ergab Zoom 6 und man konnte DACH
+  nicht mehr am Stück sehen.
+
+**Was bewusst offen bleibt**: die Länder außerhalb von DACH grau
+hinterlegen oder dort keine Ortsnamen zeigen. Die OSM-Kacheln sind
+fertige Bilder – dafür bräuchte es entweder Ländergrenzen als GeoJSON
+(eine zusätzliche Datendatei mit eigener Namensnennung, die als Maske
+über die Karte gelegt wird) oder einen anderen Kachel-Anbieter mit
+label-freiem Stil. Letzterer wäre ein zweiter fremder Server und müsste
+in die Datenschutzerklärung – die OSM-Kacheln sind dort bisher die
+einzige Ausnahme.
+
 ## Die Tabelle: eine Schrift, eine Zeilenhöhe, die ganze Seite
 
 Nach dem ersten Blick des Nutzers auf die fertige Seite (18.09.2026) sind
@@ -2169,7 +2231,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 103 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 121 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -2197,8 +2259,11 @@ dann den Dialog), „Wir haben dein Event nicht?" (der Knopf unter der
 Liste, die drei Felder, die eigenen Fehlermeldungen statt der
 Browser-Blase, beide Wege in der Null-Treffer-Box), dass **alle Zeilen
 der Tabelle gleich hoch** sind und dass die Distanz im Deutschen mit
-Komma und im Englischen mit Punkt steht, sowie die Filter über den Weg
-Liste → Karte → Liste.
+Komma und im Englischen mit Punkt steht, die **Mastersuche** (findet
+Orte UND Namen, Chip, `?s=` in der Adresse), das **zweizeilige Datum**
+bei mehrtägigen Rennen, den **Events-Knopf der Startseite**, den
+**Kartenrahmen** (Herauszoomen endet bei Europa, keine zweite Weltkarte
+daneben) sowie die Filter über den Weg Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt

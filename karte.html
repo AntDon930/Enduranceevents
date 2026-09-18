@@ -360,7 +360,7 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=1d337a61"></script>
+<script src="filters.js?v=62082c3c"></script>
 <script src="filter-ui.js?v=50612dad"></script>
 
 <script>
@@ -401,9 +401,12 @@
       hint_empty: 'Kein Event entspricht den Filtern.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
-      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen ↗`,
+      // Ohne "↗": Der Pfeil sah am Knopf aus wie ein Stempel (vom
+      // Nutzer gemeldet). Dass der Link in die Liste führt, sagt der
+      // Text schon.
+      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen`,
       filter_label: 'Filter:',
-      reset: 'Alle Filter zurücksetzen',
+      reset: 'Filter zurücksetzen',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
       origin_title: 'Ausgangspunkt'
@@ -418,9 +421,9 @@
       hint_empty: 'No event matches the filters.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
-      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list ↗`,
+      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list`,
       filter_label: 'Filters:',
-      reset: 'Reset all filters',
+      reset: 'Reset filters',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
       origin_title: 'Starting point'
@@ -474,9 +477,33 @@
   const escapeHtml = EF.escapeHtml;
 
   // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
-  const map = L.map('map').setView([48.5, 10.5], 6);
+  // Der Rahmen der Karte: EUROPA, nicht die Welt und nicht nur DACH.
+  // Nur Europa - beim Herauszoomen lag Europa vorher als Briefmarke
+  // mitten in einer dreifach nebeneinander gezeichneten Weltkarte (vom
+  // Nutzer gemeldet). Europa statt DACH, damit die Karte nicht angefasst
+  // werden muss, wenn weitere Länder dazukommen (so vom Nutzer
+  // entschieden).
+  const EUROPA_BOUNDS = L.latLngBounds([34.0, -13.0], [71.5, 42.0]);
+  const map = L.map('map', {
+    // Begrenzt das Verschieben. `maxBoundsViscosity: 1` heißt: harte
+    // Kante, die Karte lässt sich nicht über den Rand hinausziehen (bei
+    // 0 federt sie nur zurück, was sich nach Fehler anfühlt).
+    maxBounds: EUROPA_BOUNDS,
+    maxBoundsViscosity: 1,
+    // Der kleinste Zoom wird gleich ausgerechnet (setzeMinZoomAufEuropa):
+    // Er hängt von der Fenstergröße ab - auf dem Handy passt Europa erst
+    // bei Zoom 3 ins Bild, auf einem breiten Bildschirm schon bei 5.
+    minZoom: 3,
+    // Der Sprung auf die "nächste" Weltkopie beim Ziehen über den
+    // Rand - ohne Weltkopien sinnlos.
+    worldCopyJump: false
+  }).setView([48.5, 10.5], 6);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
+    // DAS ist der Punkt gegen die dreifache Weltkarte: Ohne `noWrap`
+    // zeichnet Leaflet die Kacheln links und rechts der Datumsgrenze
+    // beliebig oft weiter.
+    noWrap: true,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
   }).addTo(map);
   // Alles, was beim Filtern neu gezeichnet wird, liegt in einer eigenen
@@ -484,6 +511,42 @@
   // Es sind ZWEI Ebenen, und das ist wichtig: Die Event-Marker werden
   // gebuendelt (markercluster), der Ausgangspunkt und sein Umkreis dagegen
   // nicht - sonst verschwaende der rote Punkt in einem Buendel.
+  // So weit herauszoomen, dass Europa genau das Bild füllt - und keinen
+  // Schritt weiter. Eine feste Zahl geht nicht: Auf 390 px passt Europa
+  // erst bei Zoom 3 hinein, auf 1.400 px schon bei 5, und mit einer
+  // festen 4 sähe man auf dem breiten Bildschirm halb Asien mit (bei
+  // einer festen 5 auf dem Handy nur die Alpen).
+  // Gerechnet wird über die BREITE, nicht über die ganze Fläche - und
+  // das ist der Kern der Sache. Europa ist hochkant (etwa 55° breit,
+  // 37° hoch), ein Browserfenster liegt quer. Beide Naheliegenden
+  // Varianten waren daneben:
+  //   - "Europa passt ganz ins Bild" (getBoundsZoom) ergab auf einem
+  //     breiten, niedrigen Fenster Zoom 3: Europa als Briefmarke,
+  //     daneben von Kanada bis China alles mit im Bild - genau das,
+  //     was der Nutzer nicht will.
+  //   - "Das Fenster liegt ganz in Europa" (getBoundsZoom(…, true))
+  //     ergab Zoom 6: Man konnte nicht mehr herauszoomen, bis DACH
+  //     am Stück zu sehen war.
+  // Maßgeblich ist deshalb, wann Europas BREITE das Fenster füllt.
+  // Dafür wird ein flacher Streifen über Europas Längengrade gemessen -
+  // die Höhe kann dann nichts verderben. Senkrecht begrenzt `maxBounds`.
+  const EUROPA_BREITE = L.latLngBounds([48.5, -13.0], [48.6, 42.0]);
+  function setzeMinZoomAufEuropa() {
+    const z = map.getBoundsZoom(EUROPA_BREITE);
+    map.setMinZoom(Math.max(2, Math.min(z, 8)));
+  }
+  setzeMinZoomAufEuropa();
+  // Beim Drehen des Geräts oder Verkleinern des Fensters neu rechnen -
+  // sonst bleibt der Wert des ersten Aufrufs stehen.
+  let minZoomFrame = null;
+  window.addEventListener('resize', () => {
+    if (minZoomFrame !== null) return;
+    minZoomFrame = requestAnimationFrame(() => {
+      minZoomFrame = null;
+      setzeMinZoomAufEuropa();
+    });
+  });
+
   const markerLayer = createMarkerLayer();
   markerLayer.addTo(map);
   const overlayLayer = L.layerGroup().addTo(map);

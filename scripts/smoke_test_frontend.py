@@ -165,6 +165,134 @@ def pruefe_liste(ctx, basis):
     seite.close()
 
 
+def pruefe_startseite(ctx, basis):
+    """Der Weg von der Startseite in die Liste - oben im Kopf und im Bild.
+
+    Bis jetzt führte nur der Knopf mitten im Bild ("Events entdecken")
+    dorthin; wer schon weiß, was er will, musste erst scrollen. Beide
+    müssen dasselbe Ziel haben.
+    """
+    print("\nStartseite")
+    seite, probleme = seite_oeffnen(ctx, basis + "/index.html", ".top-bar")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_timeout(600)
+    stand = seite.evaluate("""() => {
+        const oben = document.querySelector('.top-bar .events-btn');
+        const mitte = document.querySelector('.hero-cta-row a.cta-btn');
+        const anmelden = document.querySelector('#auth-mount');
+        return {
+            text: oben ? oben.textContent.trim() : null,
+            ziel: oben ? oben.getAttribute('href') : null,
+            heroZiel: mitte ? mitte.getAttribute('href') : null,
+            vorAnmelden: !!(oben && anmelden
+                && oben.getBoundingClientRect().left < anmelden.getBoundingClientRect().left)
+        };
+    }""")
+    pruefe(bool(stand["text"]), "im Kopf steht ein Events-Knopf (%s)" % stand["text"])
+    pruefe(stand["ziel"] == stand["heroZiel"] == "events.html",
+           "er führt zur Liste, wie „Events entdecken“ (%s / %s)"
+           % (stand["ziel"], stand["heroZiel"]))
+    pruefe(stand["vorAnmelden"], "er steht links von der Anmeldung")
+    seite.close()
+
+
+def pruefe_mastersuche(ctx, basis):
+    """Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort.
+
+    Der Prüfstein ist, dass sie beides findet - einen Namen UND einen
+    Ort - und dass sie in der Adresse steht (sonst überlebt sie den
+    Seitenwechsel zur Karte nicht).
+    """
+    print("\nMastersuche")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_timeout(1400)
+    feld = seite.locator("#master-search")
+    if not pruefe(feld.count() == 1, "das Suchfeld steht in der Werkzeugleiste"):
+        seite.close()
+        return
+    # Vor der Trefferzahl (so vom Nutzer gewünscht): auf breiten
+    # Bildschirmen links daneben, auf Handybreite darüber - beides ist
+    # dasselbe "davor". Geprüft wird deshalb die Reihenfolge, nicht die
+    # x-Koordinate: Auf 390 px bricht die Zeile um, und dann haben beide
+    # denselben linken Rand.
+    lage = seite.evaluate("""() => {
+        const feld = document.querySelector('.master-search');
+        const zahl = document.getElementById('result-count');
+        const s = feld.getBoundingClientRect();
+        const z = zahl.getBoundingClientRect();
+        return {
+            davorImDom: !!(feld.compareDocumentPosition(zahl)
+                           & Node.DOCUMENT_POSITION_FOLLOWING),
+            davorImBild: s.top < z.top - 2 || (Math.abs(s.top - z.top) <= 2 && s.left < z.left)
+        };
+    }""")
+    pruefe(lage["davorImDom"] and lage["davorImBild"],
+           "es steht vor der Trefferzahl (%s)" % lage)
+
+    seite.fill("#master-search", "münchen")
+    seite.wait_for_timeout(700)
+    ort = seite.evaluate("""() => ({
+        treffer: document.getElementById('result-count').textContent,
+        orte: [...document.querySelectorAll('tbody tr td.col-standort')]
+                .slice(0, 8).map(t => t.textContent.trim()),
+        chip: [...document.querySelectorAll('#active-chips')].map(c => c.textContent).join(' '),
+        url: location.search
+    })""")
+    pruefe(bool(ort["orte"]) and all("ünchen" in o for o in ort["orte"]),
+           "eine Ortseingabe findet Events an diesem Ort (%s)" % ", ".join(ort["orte"][:3]))
+    pruefe("Suche" in ort["chip"], "es entsteht ein Chip „Suche: …\u201c")
+    pruefe("s=" in ort["url"], "die Suche steht in der Adresse (%s)" % ort["url"])
+
+    seite.fill("#master-search", "marathon")
+    seite.wait_for_timeout(700)
+    namen = seite.evaluate("""() => [...document.querySelectorAll('tbody tr td.col-name')]
+        .slice(0, 8).map(t => t.textContent.toLowerCase())""")
+    pruefe(bool(namen), "eine Namenseingabe liefert Treffer (%d Zeilen)" % len(namen))
+
+    # Das ✕ leert Feld und Filter.
+    seite.evaluate("() => document.getElementById('master-search-clear').click()")
+    seite.wait_for_timeout(500)
+    pruefe(seite.evaluate("""() => document.getElementById('master-search').value === ''
+               && !location.search.includes('s=')"""),
+           "das ✕ leert Suche und Adresse")
+    seite.close()
+
+
+def pruefe_datum_zweizeilig(ctx, basis):
+    """Ein mehrtägiges Rennen steht in zwei Zeilen, nicht irgendwie umgebrochen.
+
+    Vorher brach die Zelle dort um, wo gerade Platz war ("18 Sep 2026 –
+    20" / "Sep 2026") - vom Nutzer gemeldet. Geprüft wird der
+    Zeilenumbruch NACH dem Gedankenstrich und dass die Zeile dadurch
+    nicht höher wird als jede andere.
+    """
+    print("\nDatum über mehrere Tage")
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    seite.wait_for_timeout(1400)
+    stand = seite.evaluate("""() => {
+        const zellen = [...document.querySelectorAll('tbody tr td.col-datum')];
+        const mehrtaegig = zellen.find(z => z.textContent.includes('–'));
+        if (!mehrtaegig) return null;
+        const alle = [...document.querySelectorAll('tbody tr')].slice(0, 30)
+            .map(r => Math.round(r.getBoundingClientRect().height));
+        return {
+            html: mehrtaegig.querySelector('.cell-clamp').innerHTML,
+            hoehe: Math.round(mehrtaegig.closest('tr').getBoundingClientRect().height),
+            hoehen: [...new Set(alle)]
+        };
+    }""")
+    if not pruefe(bool(stand), "es gibt ein mehrtägiges Event in der ersten Seite"):
+        seite.close()
+        return
+    pruefe(stand["html"].count("<br>") == 1 and stand["html"].strip().split("<br>")[0].endswith("–"),
+           "Anfangsdatum mit Gedankenstrich, Enddatum darunter (%s)" % stand["html"])
+    pruefe(stand["hoehen"] == [stand["hoehe"]],
+           "die zweizeilige Zelle macht die Zeile nicht höher (%s)"
+           % ", ".join("%d px" % h for h in stand["hoehen"]))
+    seite.close()
+
+
 def pruefe_gruppierung(ctx, basis):
     """Datenregel der Anzeige: N Strecken = aufgeklappt N Zeilen."""
     print("\nZusammenfassen (events.html?gruppiert=1)")
@@ -748,6 +876,46 @@ def pruefe_cluster(seite):
            % (vorher, nachher))
 
 
+def pruefe_kartenrahmen(seite):
+    """Die Welt genau EINMAL, und nicht weiter heraus als Europa.
+
+    Beim Herauszoomen zeichnete Leaflet die Weltkarte vorher beliebig oft
+    nebeneinander (vom Nutzer gemeldet). Geprüft wird beides, was das
+    behebt: `noWrap` an der Kachel-Ebene (keine zwei Kacheln, die
+    dieselbe Stelle der Welt zeigen) und der kleinste Zoom (der
+    Herauszoomen-Knopf muss irgendwann abschalten - sonst landet man
+    wieder bei der ganzen Welt).
+    """
+    for _ in range(9):
+        seite.evaluate("""() => { const b = document.querySelector('.leaflet-control-zoom-out');
+            if (b) b.click(); }""")
+        seite.wait_for_timeout(160)
+    seite.wait_for_timeout(900)
+    stand = seite.evaluate("""() => ({
+        ende: !!document.querySelector('.leaflet-control-zoom-out.leaflet-disabled'),
+        kacheln: [...document.querySelectorAll('img.leaflet-tile')].map(i => i.src)
+    })""")
+    pruefe(stand["ende"],
+           "Herauszoomen hat eine Grenze (Europa, nicht die ganze Welt)")
+    # Eine Kachel ist /{z}/{x}/{y}.png. Zwei Kacheln zeigen dieselbe
+    # Stelle der Welt, wenn ihre x-Werte sich um genau 2^z unterscheiden -
+    # genau das entsteht ohne noWrap.
+    kacheln = set()
+    doppelt = []
+    for url in stand["kacheln"]:
+        teile = url.rstrip(".png").split("/")[-3:]
+        if len(teile) != 3 or not all(t.lstrip("-").isdigit() for t in teile):
+            continue
+        z, x, y = (int(t) for t in teile)
+        schluessel = (z, x % (2 ** z), y)
+        if schluessel in kacheln:
+            doppelt.append(url)
+        kacheln.add(schluessel)
+    pruefe(bool(kacheln) and not doppelt,
+           "die Weltkarte steht nur einmal da (%d Kacheln, %d doppelt)"
+           % (len(kacheln), len(doppelt)))
+
+
 def pruefe_ausgangspunkt(ctx, basis):
     """Ausgangspunkt und Umkreis bleiben ungebündelt.
 
@@ -782,12 +950,27 @@ def pruefe_karte_und_rundweg(ctx, basis):
     if marker:
         pruefe(marker > 0, "Marker auf der Karte (%d)" % marker)
         pruefe_cluster(seite)
+        pruefe_kartenrahmen(seite)
     else:
         ueberspringe("keine Marker - Leaflet kam nicht durch (CDN blockiert?)")
     seite.close()
 
     if marker:
         pruefe_ausgangspunkt(ctx, basis)
+
+        # Der Link im Popup: ohne "↗" (der Pfeil sah aus wie ein
+        # Stempel - vom Nutzer gemeldet). Ein einzelner Ort, damit kein
+        # Bündel den Klick abfängt.
+        seite, _ = seite_oeffnen(ctx, basis + "/karte.html?standort=Mosnang", ".filter-bar")
+        seite.wait_for_timeout(2800)
+        seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
+            if (m) m.click(); }""")
+        seite.wait_for_timeout(700)
+        link = seite.evaluate("""() => { const a = document.querySelector('.popup-link');
+            return a ? a.textContent.trim() : null; }""")
+        pruefe(bool(link) and "↗" not in link and "Liste" in link,
+               "Popup verlinkt die Liste, ohne Pfeil-Symbol (%s)" % link)
+        seite.close()
 
     # Filter über den Seitenwechsel: Liste → Karte → Liste
     seite, _ = seite_oeffnen(ctx, basis + "/events.html?land=Deutschland&gruppiert=1", "tbody tr")
@@ -834,6 +1017,9 @@ def main() -> int:
                                       is_mobile=True, has_touch=True)
             try:
                 pruefe_liste(ctx, basis)
+                pruefe_startseite(ctx, basis)
+                pruefe_mastersuche(ctx, basis)
+                pruefe_datum_zweizeilig(ctx, basis)
                 pruefe_gruppierung(ctx, basis)
                 pruefe_fenster(ctx, basis)
                 pruefe_teilen(ctx, basis)

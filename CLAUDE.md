@@ -75,7 +75,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 103 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 121 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -90,8 +90,12 @@ Tastaturbedienung (ein Tab-Stopp, Pfeile,
 Enter, Escape, Fokusfessel der Dialoge), „Wir haben dein Event nicht?"
 (Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
 Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
-Dezimaltrennzeichen in DE und EN, Filter über den Weg
-Liste → Karte → Liste. Ohne Playwright bricht er
+Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
+Chip, `?s=` in der Adresse, das ✕), das **zweizeilige Datum** bei
+mehrtägigen Rennen, der **Events-Knopf der Startseite** (gleiches Ziel
+wie „Events entdecken“, links von der Anmeldung), der **Kartenrahmen**
+(Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben) und der
+Popup-Link ohne Pfeil, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -491,9 +495,10 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     Zukunft). Neu gezeichnet wird bei jeder Änderung **nur der Kasten**
     (`zeichneAboZusammenfassung()`, `#abo-umfasst`) – ein `render()` des
     ganzen Dialogs nähme den gewählten Rhythmus und den Fokus mit.
-  - **`nameQuery` gehört ins Abo.** Ohne das Feld wäre ein Abo stiller
-    weiter gefasst als die Suche, aus der es entstand – wer „marathon"
-    gesucht hat, bekäme alles. `functions/index.js` prüft es mit.
+  - **`nameQuery` und `suche` gehören ins Abo.** Ohne diese Felder wäre
+    ein Abo stiller weiter gefasst als die Suche, aus der es entstand –
+    wer „marathon" gesucht hat, bekäme alles. `functions/index.js` prüft
+    beide mit.
   - **Drei Rhythmen** (`sofort`, `woechentlich`, `monatlich`) stehen an
     **vier** Stellen: `auth.js` (`ABO_RHYTHMEN`), `functions/index.js`
     (+ `RHYTHMUS_TAGE`), `firestore.rules` und die Texte in
@@ -628,6 +633,40 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     (`h_fehlt`/`t_fehlt`, DE und EN). Kommt ein weiteres Feld dazu, muss
     er mit.
 
+- **Die Mastersuche ist ein eigener Filter, nicht `nameQuery`.** Das
+  Feld links von der Trefferzahl sucht über **Name, Wettbewerb UND Ort**
+  und liegt in `filters.js` als `state.suche` (Adresse: `?s=`), neben
+  dem unveränderten `nameQuery` (`?q=`, nur Name + Wettbewerb, das
+  Textfeld der Spalte „Name"). Zwei Felder statt einem, mit Absicht:
+  - Würde die Mastersuche auf `nameQuery` schreiben, hieße der
+    Spaltenfilter „Name" plötzlich auch „Ort" – ein Spaltenfilter, der
+    etwas anderes filtert als seine Spalte.
+  - Weil sie in `EF.matchEvent()` steckt, filtert sie die **Karte**
+    mit, steht im Chip, in der Adresse und überlebt den Seitenwechsel.
+  - Sie gehört ins **Abo** (`serializeFiltersForNotify` → Feld `suche`)
+    und ist deshalb ein **drittes Mal** in `functions/index.js`
+    nachgebaut – wie `nameQuery`. Die Regel ist dort absichtlich so
+    schlicht wie hier (kleinschreiben, `includes`): Je einfacher, desto
+    eher bleiben beide Kopien gleich. Wer hier normalisiert (Umlaute,
+    Akzente), muss es dort genauso tun, sonst bekommt jemand E-Mails
+    über Events, die seine Suche nie gezeigt hat.
+  - Gefiltert wird bei jedem Tastendruck, **neu gezeichnet erst nach
+    180 ms** (`sucheTimer`): Über 4.000 Events filtern und die Tabelle
+    bauen kostet auf einem Handy mehr als der Abstand zwischen zwei
+    Tastendrücken. Enter zeichnet sofort.
+  - `syncMasterSearch()` gleicht das Feld an den Zustand an (der Chip
+    „Suche: …" und „Filter zurücksetzen" ändern ihn, ohne das Feld
+    anzufassen) – **nicht**, während jemand darin tippt, sonst
+    überschreibt ein Renderlauf die Eingabe.
+
+- **Ein mehrtägiges Datum steht in zwei Zeilen.** `formatRangeHtml()`
+  setzt ein `<br>` nach dem Gedankenstrich; vorher brach die Zelle dort
+  um, wo gerade Platz war („18 Sep 2026 – 20" / „Sep 2026", vom Nutzer
+  gemeldet). Zwei Zeilen passen genau in die 52 px Zeilenhöhe.
+  **`formatRange()` (Text) bleibt daneben bestehen** – Melde-Dialog und
+  Teilen-Text escapen ihren Wert, dort stünde ein `<br>` als Zeichenfolge
+  im Text.
+
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)
@@ -672,6 +711,33 @@ zurückgedreht werden sollten:
    holt `events.html` + `events.json` per `prefetch` vor. Deshalb steht
    die Liste nach dem Klick auf „Events" in 814 statt 2.112 ms.
 
+Der **Rahmen der Karte ist Europa**, und die Welt steht genau einmal da
+(beides vom Nutzer gemeldet: „die Weltkarte wird immer dupliziert"):
+
+- **`noWrap: true`** an der Kachel-Ebene. Ohne das zeichnet Leaflet die
+  Kacheln links und rechts der Datumsgrenze beliebig oft weiter.
+- **`maxBounds: EUROPA_BOUNDS`** (`maxBoundsViscosity: 1`, harte Kante)
+  begrenzt das Verschieben. Europa statt DACH, damit die Karte bei einer
+  Erweiterung der Länder nicht angefasst werden muss (so vom Nutzer
+  entschieden).
+- **Der kleinste Zoom wird gerechnet, nicht festgelegt**
+  (`setzeMinZoomAufEuropa()`, auch bei `resize`) – und zwar über Europas
+  **Breite**: `map.getBoundsZoom()` auf einen flachen Streifen über
+  Europas Längengrade. Die beiden naheliegenden Varianten waren beide
+  falsch, weil Europa hochkant liegt und ein Fenster quer:
+  „Europa passt ganz ins Bild" ergab auf einem breiten, niedrigen
+  Fenster Zoom 3 (Europa als Briefmarke, daneben Kanada bis China),
+  „das Fenster liegt ganz in Europa" (`getBoundsZoom(…, true)`) ergab
+  Zoom 6 (DACH war nicht mehr am Stück zu sehen). Senkrecht begrenzt
+  `maxBounds`.
+- **Was NICHT geht**: die Länder außerhalb von DACH grau hinterlegen
+  oder die Ortsnamen dort ausblenden. Beides braucht entweder
+  Ländergrenzen als GeoJSON (eine zusätzliche Datendatei samt
+  Namensnennung) oder einen anderen Kachel-Anbieter – und der wäre ein
+  zweiter fremder Server in der Datenschutzerklärung (siehe
+  „Nichts von fremden Servern"). Vom Nutzer gefragt, bewusst offen
+  gelassen.
+
 Auf der Karte entstehen die Popups erst beim Öffnen (`bindPopup(fn)`)
 statt ~1.500 Stück im Voraus. Die Marker werden **gebündelt**
 (Leaflet.markercluster): `createMarkerLayer()` fällt ohne das Plugin auf
@@ -705,7 +771,8 @@ Deshalb liegt alles Gemeinsame in zwei Dateien, die `events.html` und
   Zustand und die Regeln: `createState()`, `matchEvent()`,
   Distanzkategorien, `readParams()`/`toParams()` (Filter in der
   Adresse), `buildChips()` samt Chip-Texten und `VALUE_TRANSLATIONS`,
-  die Zeitraum-Knöpfe, `dropPastEvents()`, `copyState(state,
+  die Zeitraum-Knöpfe, `dropPastEvents()`, die Mastersuche
+  (`state.suche`, siehe Frontend-Fallen), `copyState(state,
   ohneDatum)` (Kopie samt Sets – der Abo-Dialog filtert damit ohne die
   Liste anzufassen) und die Helfer `escapeHtml()`,
   `uniqueSorted(values, lang)`, `formatDate(iso, lang)` sowie
@@ -974,6 +1041,16 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    Längen-Spanne statt Marken, Dezimalkomma im Deutschen. **„Fehler
    melden" bleibt wie es ist** – der Nutzer findet den Knopf so gut
    (ausdrücklich am 18.09.2026 gesagt).
+
+   Im zweiten Durchgang am 18.09.2026 dazu: **Mastersuche** (ein Feld
+   für Name oder Ort), **zweizeiliges Datum** bei mehrtägigen Rennen,
+   **Events-Knopf im Kopf der Startseite**, kürzere Knopftexte („Filter
+   zurücksetzen", „Events per E-Mail"), **kein ↗** mehr an Links, und
+   der **Kartenrahmen** (keine zweite Weltkarte, Europa als Grenze).
+   Offen aus diesem Durchgang: die Länder außerhalb von DACH grau
+   hinterlegen bzw. ihre Ortsnamen ausblenden – siehe „Tempo"/Karte,
+   das braucht Ländergrenzen als GeoJSON oder einen anderen
+   Kachel-Anbieter.
 
    Offen, in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und

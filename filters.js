@@ -27,6 +27,7 @@
       preset_m3: 'Nächste 3 Monate',
       preset_year: 'Dieses Jahr',
       chip_distanz_count: (n) => `Länge: ${n} ausgewählt`,
+      chip_suche: (q) => `Suche: „${q}"`,
       chip_name: (q) => `Name: „${q}"`,
       chip_sportart: (v) => `Sportart: ${v}`,
       chip_standort: (v) => `Stadt/Ort: ${v}`,
@@ -48,6 +49,7 @@
       preset_m3: 'Next 3 months',
       preset_year: 'This year',
       chip_distanz_count: (n) => `Length: ${n} selected`,
+      chip_suche: (q) => `Search: "${q}"`,
       chip_name: (q) => `Name: "${q}"`,
       chip_sportart: (v) => `Sport: ${v}`,
       chip_standort: (v) => `City: ${v}`,
@@ -296,6 +298,11 @@
       art1: new Set(),
       art2: new Set(),
       standort: new Set(),
+      // Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort.
+      // Bewusst getrennt von `nameQuery` (dem Textfeld der Spalte
+      // "Name"): Die Spaltenfilter bleiben die genauen Werkzeuge, die
+      // Mastersuche ist der schnelle Weg ("München", "Marathon").
+      suche: '',
       nameQuery: '',
       selectedDays: new Set(),       // ausgewählte datum_start-Werte (aus dem Jahr/Monat/Tag-Baum)
       datePreset: null,              // 'weekend' | 'd30' | 'm3' | 'year' - nur fürs Etikett
@@ -324,6 +331,7 @@
       state.selectedDays.forEach(v => kopie.selectedDays.add(v));
       kopie.datePreset = state.datePreset;
     }
+    kopie.suche = state.suche;
     kopie.nameQuery = state.nameQuery;
     kopie.laengeMin = state.laengeMin;
     kopie.laengeMax = state.laengeMax;
@@ -337,6 +345,7 @@
     state.art1.clear();
     state.art2.clear();
     state.standort.clear();
+    state.suche = '';
     state.nameQuery = '';
     state.selectedDays.clear();
     state.datePreset = null;
@@ -351,7 +360,7 @@
   // Chip-Zeile ohne aktive Filter komplett aus.
   function hasFilters(state) {
     return !!(state.land.size || state.art1.size || state.art2.size || state.standort.size
-      || state.nameQuery.trim() || state.selectedDays.size
+      || state.suche.trim() || state.nameQuery.trim() || state.selectedDays.size
       || state.laengeMin !== '' || state.laengeMax !== ''
       || state.distanceCategories.size || (state.origin && state.radiusKm != null));
   }
@@ -423,6 +432,16 @@
       const haystack = `${e.name || ''} ${e.wettbewerb || ''}`.toLowerCase();
       if (!haystack.includes(needle)) return false;
     }
+    // Die Mastersuche sucht zusätzlich im Ort: EIN Feld für "Marathon"
+    // und für "München". Absichtlich dieselbe schlichte Regel wie oben
+    // (kleinschreiben, `includes`) - sie muss in `functions/index.js`
+    // noch einmal stehen, damit ein Abo genau das trifft, was die Suche
+    // zeigte. Je einfacher die Regel, desto eher bleiben beide gleich.
+    if (state.suche.trim()) {
+      const needle = state.suche.trim().toLowerCase();
+      const haystack = `${e.name || ''} ${e.wettbewerb || ''} ${e.standort || ''}`.toLowerCase();
+      if (!haystack.includes(needle)) return false;
+    }
     if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
     if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
     if (state.laengeMax !== '' && e.laenge_km != null && e.laenge_km > parseFloat(state.laengeMax)) return false;
@@ -459,6 +478,7 @@
   // Karte die Filter mitnimmt.
   function toParams(state) {
     const p = new URLSearchParams();
+    if (state.suche.trim()) p.set('s', state.suche.trim());
     if (state.nameQuery.trim()) p.set('q', state.nameQuery.trim());
     if (state.land.size) p.set('land', Array.from(state.land).join(','));
     if (state.art1.size) p.set('sportart', Array.from(state.art1).join(','));
@@ -505,6 +525,8 @@
     });
     const q = p.get('q');
     if (q) state.nameQuery = q;
+    const suche = p.get('s');
+    if (suche) state.suche = suche;
     const kmmin = p.get('kmmin'); if (kmmin) state.laengeMin = kmmin;
     const kmmax = p.get('kmmax'); if (kmmax) state.laengeMax = kmmax;
     const zeitraum = p.get('zeitraum');
@@ -551,6 +573,7 @@
     const t = ctx.t;
     const tv = ctx.tv;
     const chips = [];
+    if (state.suche.trim()) chips.push({ label: t('chip_suche', state.suche.trim()), clear: () => { state.suche = ''; } });
     if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     if (state.selectedDays.size > 0) {
       // Sind alle vorhandenen Termine ausgewählt, ist "Datum: Alle"

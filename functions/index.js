@@ -171,6 +171,15 @@ function eventMatchesFilters(event, filters) {
     const haystack = `${event.name || ""} ${event.wettbewerb || ""}`.toLowerCase();
     if (!haystack.includes(needle)) return false;
   }
+  // Die Mastersuche (ein Feld über Name, Wettbewerb UND Ort). Muss
+  // Zeichen für Zeichen dieselbe Regel sein wie in filters.js
+  // matchEvent() - sonst bekäme jemand E-Mails über Events, die seine
+  // Suche nie gezeigt hätte. Alte Abos haben das Feld nicht.
+  if (filters.suche && String(filters.suche).trim()) {
+    const needle = String(filters.suche).trim().toLowerCase();
+    const haystack = `${event.name || ""} ${event.wettbewerb || ""} ${event.standort || ""}`.toLowerCase();
+    if (!haystack.includes(needle)) return false;
+  }
   if (filters.land && filters.land.length && !filters.land.includes(event.land)) return false;
   if (filters.art1 && filters.art1.length && !filters.art1.includes(event.art1)) return false;
   if (filters.art2 && filters.art2.length && !filters.art2.includes(event.art2)) return false;

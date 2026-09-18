@@ -97,6 +97,25 @@
     color: #14315e;
     border-color: #fff;
   }
+  /* Der direkte Weg zur Liste, links von "Anmelden". Bis jetzt führte
+     nur der Knopf mitten im Bild ("Events entdecken") dorthin - wer
+     schon weiß, was er will, soll nicht erst scrollen müssen. Gleiches
+     Ziel, gleiche Optik wie die anderen Knöpfe im Kopf. */
+  .events-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .events-btn:hover { background: rgba(255,255,255,0.24); }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -340,6 +359,9 @@
 
   <div class="top-bar">
     <div class="top-actions-row">
+      <!-- Erst der Weg zur Liste, dann die Anmeldung: Die Liste ist der
+           Zweck der Seite, das Konto nur Zubehör. -->
+      <a class="events-btn" href="events.html" data-i="nav_events">Events</a>
       <div id="auth-mount"></div>
       <div class="lang-switch" id="lang-switch">
         <button type="button" class="lang-btn" data-lang="de">DE</button>
@@ -456,6 +478,7 @@
       eyebrow: 'Ausdauer Events in DACH',
       headline: 'Wo Ausdauer beginnt.',
       lead: 'Entdecke Lauf-, Schwimm-, Rad- und Triathlon-Events in Deutschland, Österreich und der Schweiz.',
+      nav_events: 'Events',
       cta: 'Events entdecken',
       ctaFinal: 'Zur vollständigen Event-Liste',
       scroll: 'Mehr erfahren',
@@ -473,6 +496,7 @@
       eyebrow: 'Endurance Events in DACH',
       headline: 'Where endurance begins.',
       lead: 'Discover running, swimming, cycling and triathlon events across Germany, Austria and Switzerland.',
+      nav_events: 'Events',
       cta: 'Explore events',
       ctaFinal: 'See the full event list',
       scroll: 'Learn more',

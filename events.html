@@ -334,6 +334,54 @@
     overflow: hidden;
   }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+  /* Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort. Sie
+     steht ganz links in der Werkzeugleiste, vor der Trefferzahl - das
+     ist die Stelle, an der man sie sucht, und die Zahl daneben sagt
+     sofort, was die Eingabe gebracht hat. Die Spaltenfilter bleiben
+     daneben bestehen: Sie sind das genaue Werkzeug, das hier ist das
+     schnelle. */
+  .master-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 1 260px;
+    min-width: 170px;
+  }
+  .master-search svg {
+    position: absolute;
+    left: 9px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+  .master-search input {
+    width: 100%;
+    padding: 7px 28px 7px 30px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.85rem;
+  }
+  .master-search input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  /* Das ✕ erscheint nur, wenn etwas im Feld steht - ein dauerhaft
+     sichtbares Kreuz an einem leeren Feld sieht nach Fehler aus. */
+  .master-search button {
+    position: absolute;
+    right: 6px;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 2px 4px;
+    cursor: pointer;
+  }
+  .master-search button[hidden] { display: none; }
+  .master-search button:hover { color: var(--text); }
   .reset-btn {
     padding: 8px 16px;
     border-radius: 999px;
@@ -985,6 +1033,16 @@
 
 <div class="toolbar">
   <div class="toolbar-main">
+    <!-- Mastersuche: Eventname oder Ort, ein Feld. Steht links von der
+         Trefferzahl (so vom Nutzer gewünscht). -->
+    <div class="master-search">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+      </svg>
+      <input type="search" id="master-search" autocomplete="off" enterkeyhint="search">
+      <button type="button" id="master-search-clear" hidden aria-label="">&#10005;</button>
+    </div>
     <div class="result-count" id="result-count"></div>
     <!-- Der Schalter steht direkt hinter der Trefferzahl: Er verändert,
          WIE diese Zahl zu lesen ist ("810 Veranstaltungen (1413
@@ -1084,7 +1142,7 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=1d337a61"></script>
+<script src="filters.js?v=62082c3c"></script>
 <script src="filter-ui.js?v=50612dad"></script>
 
 <script>
@@ -1126,7 +1184,9 @@
       // Kurz halten: Die Länder stehen schon in der Überschrift, und
       // jede Zeile mehr macht den blauen Kasten höher.
       subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
-      reset: 'Alle Filter zurücksetzen',
+      reset: 'Filter zurücksetzen',
+      suche_platzhalter: 'Event oder Ort suchen',
+      suche_leeren: 'Suche leeren',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
       home: 'Startseite',
@@ -1135,7 +1195,7 @@
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
       // sortiert wird über alle Events, gezeichnet nur ein Teil.
       mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
-      abo_open: 'Neue Events per E-Mail',
+      abo_open: 'Events per E-Mail',
       abo_titel: 'Neue Events per E-Mail',
       abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
       abo_welche: 'Welche Events?',
@@ -1199,7 +1259,7 @@
       report_cat_doppelt: 'Event ist doppelt in der Liste',
       report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
       report_cat_sonstiges: 'Sonstiges',
-      detail_link: 'Zur Veranstalter-Website ↗',
+      detail_link: 'Zur Veranstalter-Website',
       cal_btn: 'Zum Kalender hinzufügen',
       cal_google: 'Google Kalender / Gmail',
       cal_outlook: 'Outlook',
@@ -1241,14 +1301,16 @@
       tab_title: 'Endurance Events D/A/CH',
       title: 'Endurance Events – Germany / Austria / Switzerland',
       subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
-      reset: 'Reset all filters',
+      reset: 'Reset filters',
+      suche_platzhalter: 'Search event or place',
+      suche_leeren: 'Clear search',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
       home: 'Home',
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
-      abo_open: 'New events by e-mail',
+      abo_open: 'Events by e-mail',
       abo_titel: 'New events by e-mail',
       abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
       abo_welche: 'Which events?',
@@ -1312,7 +1374,7 @@
       report_cat_doppelt: 'Event is listed twice',
       report_cat_abgesagt: 'Event is cancelled / not happening',
       report_cat_sonstiges: 'Something else',
-      detail_link: 'Visit organizer website ↗',
+      detail_link: 'Visit organizer website',
       cal_btn: 'Add to calendar',
       cal_google: 'Google Calendar / Gmail',
       cal_outlook: 'Outlook',
@@ -1681,6 +1743,45 @@
   const resetBtnEl = document.getElementById('reset-btn');
   resetBtnEl.addEventListener('click', resetFilters);
 
+  // ---------- Mastersuche ----------
+  //
+  // Ein Feld über Eventname, Wettbewerb und Ort (EF.matchEvent, Feld
+  // `suche`). Der Filterzustand wird bei JEDEM Tastendruck gesetzt -
+  // nur das Neuzeichnen wartet kurz: Über 4.000 Events zu filtern und
+  // die Tabelle neu zu bauen kostet auf einem Handy mehr Zeit als der
+  // Abstand zwischen zwei Tastendrücken, das Tippen ruckelte sonst.
+  const masterSearchEl = document.getElementById('master-search');
+  const masterClearEl = document.getElementById('master-search-clear');
+  let sucheTimer = null;
+  masterSearchEl.addEventListener('input', () => {
+    state.suche = masterSearchEl.value;
+    masterClearEl.hidden = !masterSearchEl.value;
+    if (sucheTimer !== null) clearTimeout(sucheTimer);
+    sucheTimer = setTimeout(() => { sucheTimer = null; render(); }, 180);
+  });
+  // Enter zeichnet sofort, ohne die 180 ms abzuwarten.
+  masterSearchEl.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'Enter') return;
+    if (sucheTimer !== null) { clearTimeout(sucheTimer); sucheTimer = null; }
+    render();
+  });
+  masterClearEl.addEventListener('click', () => {
+    masterSearchEl.value = '';
+    state.suche = '';
+    masterClearEl.hidden = true;
+    masterSearchEl.focus();
+    render();
+  });
+
+  // Das Feld an den Zustand angleichen - der Chip „Suche: …" und
+  // „Filter zurücksetzen" können ihn ändern, ohne das Feld anzufassen.
+  // Nicht, während jemand darin tippt: Dann ist das Feld die Quelle.
+  function syncMasterSearch() {
+    masterClearEl.hidden = !state.suche;
+    if (document.activeElement === masterSearchEl) return;
+    if (masterSearchEl.value !== state.suche) masterSearchEl.value = state.suche;
+  }
+
   const groupToggleEl = document.getElementById('group-toggle');
   const groupToggleLabelEl = document.getElementById('group-toggle-label');
   // Merken, wie der Nutzer die Liste lieber sieht - die Einstellung
@@ -1841,6 +1942,19 @@
     return `${formatDate(start)} – ${formatDate(end)}`;
   }
 
+  // Dasselbe für die Tabelle und die Detail-Box: Ein mehrtägiges Rennen
+  // steht in ZWEI Zeilen - Anfangsdatum samt Gedankenstrich, Enddatum
+  // darunter. Vorher brach die Zelle dort um, wo gerade Platz war
+  // ("18 Sep 2026 – 20" / "Sep 2026", vom Nutzer gemeldet). Ein <br>
+  // statt zweier Blöcke, damit `.cell-clamp` (zwei Zeilen) weiter greift
+  // und die Zeilenhöhe von 52 px stimmt.
+  // Die Textfassung oben bleibt für Melde-Dialog und Teilen-Text - dort
+  // wird der Rückgabewert escaped, ein <br> stünde als Zeichenfolge da.
+  function formatRangeHtml(start, end) {
+    if (start === end) return escapeHtml(formatDate(start));
+    return `${escapeHtml(formatDate(start))} –<br>${escapeHtml(formatDate(end))}`;
+  }
+
   // Längenangaben immer auf EINE Dezimalstelle: die Quellen geben dieselbe
   // Strecke unterschiedlich genau an (Marathon als "42,195 km"), angezeigt
   // wird einheitlich "42.2 km". Runde Distanzen bleiben ohne Nachkomma-
@@ -1888,6 +2002,9 @@
     titleEl.textContent = t('title');
     subtitleEl.textContent = t('subtitle');
     resetBtnEl.textContent = t('reset');
+    masterSearchEl.placeholder = t('suche_platzhalter');
+    masterSearchEl.setAttribute('aria-label', t('suche_platzhalter'));
+    masterClearEl.setAttribute('aria-label', t('suche_leeren'));
     groupToggleLabelEl.textContent = t('group_toggle');
     shareBtnLabelEl.textContent = t('share_search');
     document.getElementById('abo-open-label').textContent = t('abo_open');
@@ -2055,7 +2172,7 @@
         return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
              + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
       }
-      case 'datum': return td(`<div class="cell-clamp">${formatRange(e.datum_start, e.datum_ende)}</div>`);
+      case 'datum': return td(`<div class="cell-clamp">${formatRangeHtml(e.datum_start, e.datum_ende)}</div>`);
       case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
       case 'standort': return td(`<div class="cell-clamp">${escapeHtml(e.standort)}</div>`);
       case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
@@ -2350,6 +2467,7 @@
     }
 
     renderDetail();
+    syncMasterSearch();
     // Füllt der erste Schub das Bild nicht (kurze Liste, hoher
     // Bildschirm), gleich den nächsten anhängen - sonst müsste jemand
     // auf einen Knopf tippen, obwohl noch Platz ist.
@@ -2706,6 +2824,10 @@
       // wäre das Abo stillschweigend weiter gefasst als die Suche, aus
       // der es entstand. functions/index.js prüft es mit.
       nameQuery: state.nameQuery.trim(),
+      // Die Mastersuche gehört aus demselben Grund dazu: Wer „München"
+      // gesucht hat und dann abonniert, will Events aus München.
+      // functions/index.js prüft sie mit.
+      suche: state.suche.trim(),
       land: Array.from(state.land),
       art1: Array.from(state.art1),
       art2: Array.from(state.art2),
@@ -2744,6 +2866,7 @@
   // Datumsfilter, und der gehört nicht dazu.
   function aboBeschreibung(f) {
     const teile = [];
+    if (f.suche) teile.push(`„${f.suche}"`);
     if (f.nameQuery) teile.push(`„${f.nameQuery}"`);
     if (f.art1 && f.art1.length) teile.push(f.art1.map(v => tv('art1', v)).join(', '));
     if (f.art2 && f.art2.length) teile.push(f.art2.map(v => tv('art2', v)).join(', '));
@@ -2751,9 +2874,11 @@
       const labels = EF.DISTANCE_CATEGORY_LABELS[currentLang] || {};
       teile.push(f.distanceCategories.map(k => labels[k] || k).join(', '));
     }
-    if (f.laengeMin && f.laengeMax) teile.push(`${f.laengeMin}–${f.laengeMax} km`);
-    else if (f.laengeMin) teile.push(t('abo_von_km', f.laengeMin));
-    else if (f.laengeMax) teile.push(t('abo_bis_km', f.laengeMax));
+    // Auch hier das Dezimaltrennzeichen der Sprache (siehe EF.formatNumber).
+    const kmZahl = (v) => EF.formatNumber(v, currentLang, 1);
+    if (f.laengeMin && f.laengeMax) teile.push(`${kmZahl(f.laengeMin)}–${kmZahl(f.laengeMax)} km`);
+    else if (f.laengeMin) teile.push(t('abo_von_km', kmZahl(f.laengeMin)));
+    else if (f.laengeMax) teile.push(t('abo_bis_km', kmZahl(f.laengeMax)));
     if (f.origin && f.radiusKm != null) {
       teile.push(t('abo_umkreis', f.radiusKm, f.origin.label));
     } else if (f.standort && f.standort.length) {
@@ -2967,7 +3092,7 @@
         </button>
       </div>
       <dl class="detail-grid">
-        <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRange(e.datum_start, e.datum_ende)}</dd>
+        <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRangeHtml(e.datum_start, e.datum_ende)}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
         <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
