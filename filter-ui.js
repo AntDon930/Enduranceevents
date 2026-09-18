@@ -166,8 +166,10 @@
   // (`alleWerte: true`): Ein Abo schaut in die Zukunft, und „jedes neue
   // Radrennen in der Schweiz" muss man abonnieren können, BEVOR das erste
   // in events.json steht. Genau daran wäre der Wunsch des Nutzers sonst
-  // gescheitert - es gibt derzeit kein einziges Fahrrad-Event, „Fahrrad"
-  // stand also gar nicht zur Wahl.
+  // gescheitert - damals gab es kein einziges Fahrrad-Event, „Fahrrad"
+  // stand also gar nicht zur Wahl. Inzwischen stehen neun Radrennen in
+  // den Daten; fürs Schwimmen und für die Schweiz gilt das Argument
+  // unverändert.
   // In der Liste bleibt es bei den vorhandenen Werten: Ein Filter, der
   // garantiert null Treffer liefert, ist dort nur Ballast.
   const BEKANNTE_WERTE = {

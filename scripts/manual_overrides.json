@@ -247,5 +247,23 @@
     "exclude": true,
     "_note": "Duplikat: Der Veranstalter (fnwm.de, SC Gefrees) fuehrt die Veranstaltung als 'Fichtellauf (Trail + Nordic Walking)' am 19.09.2026 in Gefrees mit den Trail-Strecken 8/14/21 km. Die 21-km-Zeile steht damit zweimal in den Daten - einmal unter dem Veranstaltungsnamen 'Fichtellauf' (Wettbewerb 'Halbmarathon'), einmal unter dem Namen der Trail-Unterseite. Geprueft am 18.09.2026 gegen fnwm.de und die Ankuendigung des WFC Coburg-Neukirchen ('SC Gefrees: Fichtellauf (Trail+NordicWalking)'). Vom automatischen Dedupe nicht erkannt, weil die Namen keine gemeinsamen Woerter haben.",
     "_quelle": "https://www.fnwm.de/trail-running/"
+  },
+  "ONW-Lauf Dannenberg 2025|2026-09-18|10.5": {
+    "exclude": true,
+    "_note": "Duplikat von 'ONW-Lauf' (10,5 km, gleicher Tag, gleicher Ort). Die offizielle Seite onw-wendland.de/anmeldung-onw-lauf/ nennt am 18.09.2026 drei Strecken (2,1 / 4,2 / 10,5 km); der Eintrag hier trägt zusätzlich die falsche Jahreszahl 2025 im Namen und nur einen Portallink. Geprüft 2026-09-18."
+  },
+  "Hörnlelauf Bad Kohlgrub|2026-09-19|7": {
+    "exclude": true,
+    "_note": "Duplikat von '45. Hörnle Berglauf Bad Kohlgrub' (7 km, gleicher Tag, gleiche Veranstalter-Seite skiclub-bad-kohlgrub.de/veranstaltungen.php?id=94). Laut dieser Seite heißt das Rennen '45. Hörnlelauf', 7 km Bergstrecke mit 640 Hm - also ein Berglauf; dieser Eintrag stand mit art2 'Straße' da. Der behaltene Eintrag hat art2 'Berg'. Geprüft 2026-09-18."
+  },
+  "BFUTR EXTREME|2026-09-19|18": {
+    "exclude": true,
+    "_note": "Duplikat des 'Black Forest ULTRA Trail Run' in Kirchzarten, der mit 105/79/52/33/19 km bereits vollständig in der Liste steht. BFUTR EXTREME ist dessen längste Strecke (laut ultra-trailrun.de und ITRA 105,67 km / 5.435 Hm) - hier stand sie mit 18 km und der Kategorie 'Straße'. Geprüft 2026-09-18."
+  },
+  "Bodensee Marathon|2026-09-19|42.2": {
+    "standort": "Kressbronn am Bodensee",
+    "lat": 47.5968864,
+    "lon": 9.5982209,
+    "_note": "Falsch verortet: Der Eintrag lag auf 49.0656/10.1379 - das ist Franken, 168 km vom Bodensee. Ursache ist der abgeschnittene Ortsname 'Kressbronn'; der Ort heißt 'Kressbronn am Bodensee'. Start/Ziel laut bodensee-marathon.de ist die Festhalle Kressbronn. Die übrigen Strecken derselben Veranstaltung (10 km, Halbmarathon) liegen bereits richtig. Geprüft 2026-09-18."
   }
 }

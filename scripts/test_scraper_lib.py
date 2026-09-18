@@ -1169,6 +1169,145 @@ def test_asset_stempel() -> None:
         print("  -> python3 scripts/stamp_assets.py ausführen")
 
 
+def test_fremde_sportart() -> None:
+    """Ein Radrennen bei einer Laufveranstaltung ist ein Radrennen - eine
+    Triathlon-Teilstrecke dagegen nicht.
+
+    Die Unterscheidung kostet Mühe und ist genau die, an der die erste
+    Fassung dieser Regel gescheitert ist: Sie hätte aus dem "21,5 km
+    Radfahren" des Aluman (einem Triathlon) ein eigenständiges
+    Radrennen gemacht. Erkennungszeichen ist die VERBFORM im Label -
+    "Radfahren"/"Laufen"/"Run 1" beschreibt eine Etappe, "Rad 100 km"
+    ein Rennen, das man einzeln bucht.
+    """
+    print("\nSportart aus dem Wettbewerbs-Label:")
+    from clean_events import fix_fremde_sportart_im_wettbewerb
+
+    def lauf(name, wb, km, art1="Laufen"):
+        return {"name": name, "datum_start": "2026-09-19", "wettbewerb": wb,
+                "laenge_km": km, "art1": art1, "art2": "Straße"}
+
+    # Laufveranstaltung mit eigenem Radrennen (Drei Talsperren Marathon)
+    talsperren = [lauf("Drei Talsperren Marathon", "Marathon", 42.2),
+                  lauf("Drei Talsperren Marathon", "Halbmarathon", 21.1),
+                  lauf("Drei Talsperren Marathon", "Rad 100 km", 100.0)]
+    fix_fremde_sportart_im_wettbewerb(talsperren)
+    check("'Rad 100 km' bei einem Marathon -> Fahrrad",
+          [e["art1"] for e in talsperren], ["Laufen", "Laufen", "Fahrrad"])
+    check("Fahrrad bekommt KEINE Laufen-Kategorie",
+          talsperren[2]["art2"], None)
+
+    # Triathlon: beide Zeilen sind Teilstrecken
+    roemer = [lauf("RömerMan", "42 km Radfahren mit dem Rennrad", 42.0),
+              lauf("RömerMan", "10 km Laufen durch das Grünprojekt", 10.0)]
+    fix_fremde_sportart_im_wettbewerb(roemer)
+    check("Triathlon-Teilstrecke bleibt unangetastet",
+          [e["art1"] for e in roemer], ["Laufen", "Laufen"])
+
+    # Eine einzelne Zeile, die schon als Triathlon geführt wird
+    tri = [lauf("Lauchringer Triathlon-Nacht", "ca. 18,6 km Radfahren", 18.6,
+                art1="Triathlon")]
+    fix_fremde_sportart_im_wettbewerb(tri)
+    check("art1 'Triathlon' wird nie überschrieben", tri[0]["art1"], "Triathlon")
+
+    # "Mountainbike" darf nicht über \bbike\b als Teilstrecke gelten
+    apfel = [lauf("Frickinger Apfellauf", "Lauf", 10.0),
+             lauf("Frickinger Apfellauf", "Mountainbike", 20.0)]
+    fix_fremde_sportart_im_wettbewerb(apfel)
+    check("'Mountainbike' neben 'Lauf' -> Fahrrad",
+          [e["art1"] for e in apfel], ["Laufen", "Fahrrad"])
+
+    # Der Name allein reicht nicht - "Rad" steckt in vielen Laufnamen
+    radweg = [lauf("Lauf am Radweg", None, 10.0)]
+    fix_fremde_sportart_im_wettbewerb(radweg)
+    check("'Rad' im NAMEN ändert nichts", radweg[0]["art1"], "Laufen")
+
+
+def test_zwei_rennen_in_einer_zeile() -> None:
+    """"15 km / 21 km Crosslauf" sind zwei Rennen, nicht eines über 21 km.
+
+    Vor diesem Fix nahm guess_distance_km() die größere Zahl - der
+    15-km-Lauf des Limberglaufs Ranis fehlte dadurch komplett in der
+    Liste. Ein fehlendes Event ist die unangenehmere Sorte Fehler: eine
+    falsche Zahl sieht man, eine fehlende Zeile nicht.
+    """
+    print("\nZwei Rennen in einer Zeile:")
+    from scraper_lib import parse_competitions, SiteConfig
+    config = SiteConfig(base_url="", calendar_url="")
+
+    geteilt = parse_competitions(["15 km / 21 km Crosslauf (ab Jahrgang 2008)"], config)
+    check("wird in zwei Wettbewerbe geteilt",
+          sorted(k.laenge_km for k in geteilt), [15.0, 21.0])
+    check("der Zusatz gehört beiden",
+          all("Crosslauf" in (k.label or "") for k in geteilt), True)
+
+    # Aufteilungen DERSELBEN Strecke bleiben ein Wettbewerb
+    for text, erwartet in (("19 km (14 + 5 km)", [19.0]),
+                           ("100 km (10 x 10 km)", [100.0]),
+                           ("42,195 km Marathon (Rundkurs 8,33 km, fünfmal)", [42.2]),
+                           ("46,5 km, 3 Runden je 15,5 km", [46.5])):
+        check(f"{text!r} bleibt ein Wettbewerb",
+              [k.laenge_km for k in parse_competitions([text], config)], erwartet)
+
+
+def test_koordinaten_widerspruch() -> None:
+    """Dieselbe Veranstaltung darf nicht an zwei Orten liegen.
+
+    Der Bodensee Marathon stand mit seiner Marathon-Strecke auf
+    49.07/10.14 - das ist Franken, 168 km vom Bodensee. Ursache war der
+    abgeschnittene Ortsname "Kressbronn" statt "Kressbronn am Bodensee".
+    Für die Umkreissuche und die Karte ist das kein Schönheitsfehler:
+    Wer im Umkreis von Friedrichshafen sucht, sah den Marathon nicht.
+    """
+    print("\nWidersprüchliche Koordinaten:")
+    from clean_events import report_widerspruechliche_koordinaten
+
+    falsch = [
+        {"name": "Bodensee Marathon", "datum_start": "2026-09-19",
+         "standort": "Kressbronn", "lat": 49.0656, "lon": 10.1379},
+        {"name": "Bodensee Marathon", "datum_start": "2026-09-19",
+         "standort": "Kressbronn am Bodensee", "lat": 47.5969, "lon": 9.5982},
+    ]
+    check("168 km auseinander wird gemeldet",
+          len(report_widerspruechliche_koordinaten(falsch)), 1)
+
+    # Nachbarorte derselben Veranstaltung sind normal (Start/Ziel getrennt)
+    nah = [
+        {"name": "Drei Talsperren Marathon", "datum_start": "2026-09-19",
+         "standort": "Eibenstock", "lat": 50.4727, "lon": 12.6115},
+        {"name": "Drei Talsperren Marathon", "datum_start": "2026-09-19",
+         "standort": "Eibenstock", "lat": 50.4950, "lon": 12.5996},
+    ]
+    check("3 km auseinander ist kein Fall",
+          report_widerspruechliche_koordinaten(nah), [])
+
+
+def test_override_koordinaten() -> None:
+    """Ein Override muss auch lat/lon setzen können - und beide Wege
+    (Einsammeln und rückwirkendes Aufräumen) müssen dieselben Felder
+    kennen. Zwei getrennte Listen wären ein Fehler, der sich erst Wochen
+    später zeigt: Das Feld wirkt je nach Weg oder nicht."""
+    print("\nOverride-Felder:")
+    from scraper_lib import OVERRIDE_FIELDS
+    import clean_events
+    import inspect
+
+    check("lat und lon sind erlaubte Override-Felder",
+          {"lat", "lon"} <= set(OVERRIDE_FIELDS), True)
+    quelle = inspect.getsource(clean_events.apply_overrides)
+    check("apply_overrides nutzt die gemeinsame Liste",
+          "OVERRIDE_FIELDS" in quelle, True)
+
+    events = [{"name": "Bodensee Marathon", "datum_start": "2026-09-19",
+               "laenge_km": 42.2, "standort": "Kressbronn",
+               "lat": 49.0656, "lon": 10.1379}]
+    behalten, _, geaendert = clean_events.apply_overrides(events)
+    check("die Koordinaten werden wirklich verschoben",
+          round(behalten[0]["lat"], 3), 47.597)
+    check("und die Änderung wird berichtet",
+          any("lat" in zeile for zeile in geaendert), True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1177,6 +1316,8 @@ def main() -> int:
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
                  test_override_schluessel, test_suche_uebersetzungen,
+                 test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
+                 test_koordinaten_widerspruch, test_override_koordinaten,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

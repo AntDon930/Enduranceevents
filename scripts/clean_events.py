@@ -88,6 +88,9 @@ from scraper_lib import (  # noqa: E402
     is_same_event,
     is_same_race,
     find_override,
+    ART2_LISTEN,
+    _haversine_km,
+    OVERRIDE_FIELDS,
     parse_duration_h,
     load_manual_overrides,
     round_km,
@@ -122,8 +125,7 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
                     + ")"
                 )
                 continue
-            for field in ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
-                          "land", "standort", "veranstalter_url"):
+            for field in OVERRIDE_FIELDS:
                 if field not in override or event.get(field) == override[field]:
                     continue
                 # Ein Override darf einen direkten Veranstalter-Link NIE durch
@@ -192,6 +194,41 @@ def refresh_art2(events: list[dict]) -> list[str]:
     return changed
 
 
+def fill_art2_andere_sportarten(events: list[dict]) -> list[str]:
+    """Trägt die Kategorie bei Nicht-Lauf-Sportarten nach, wo die Quelle
+    sie ausdrücklich nennt.
+
+    `refresh_art2()` daneben gilt nur für Laufen und liest nur den
+    NAMEN. Für ein Radrennen steht die Auskunft aber im
+    Wettbewerbs-Label ("Mountainbike Rennen 42 km"), nicht im Namen der
+    Laufveranstaltung, an der es hängt ("Possenlauf").
+
+    Gefüllt wird nur, was leer ist, und nur für Sportarten mit einer
+    EIGENEN Stichwortliste (ART2_LISTEN). Ohne diese Bedingung fiele
+    guess_art2() still auf die Laufen-Liste zurück - ein
+    Mountainbike-Rennen bekäme "Straße".
+    """
+    overrides = load_manual_overrides()
+    changed: list[str] = []
+    for event in events:
+        art1 = event.get("art1")
+        if art1 in (None, "Laufen") or art1 not in ART2_LISTEN:
+            continue
+        if event.get("art2") is not None:
+            continue
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"))
+        if own and "art2" in own:
+            continue
+        text = f"{event.get('wettbewerb') or ''} {event.get('name') or ''}"
+        geraten = guess_art2(text, ART2_CONFIG, art1)
+        if geraten:
+            changed.append(f"{event.get('name')} [{event.get('wettbewerb')}]: "
+                           f"art2 None -> {geraten!r}")
+            event["art2"] = geraten
+    return changed
+
+
 def fix_multisport_art1(events: list[dict]) -> list[str]:
     """Zieht Triathlons (und andere Mehrsport-Wettkämpfe) nach, die als
     Laufveranstaltung gespeichert sind.
@@ -234,6 +271,272 @@ def fix_multisport_art1(events: list[dict]) -> list[str]:
                        f"art2 {alt_art2!r} -> {event.get('art2')!r}")
         event["art1"] = neu
     return changed
+
+
+# Ein Wettbewerbs-Label, das AUSDRÜCKLICH eine andere Sportart nennt.
+# Das ist keine Vermutung aus dem Namen, sondern die Angabe der Quelle
+# selbst: Der "Drei Talsperren Marathon" in Eibenstock trägt neben
+# Marathon, Halbmarathon und 8 km auch "Rad 100 km", "Rad 50 km" und
+# "Rad 30 km" - laut Ausschreibung eigenständige Wettbewerbe, für die
+# man sich einzeln anmeldet. Bei uns standen sie als LAUF in der Liste,
+# also als 100-km-Lauf.
+#
+# Die Wortgrenzen sind der ganze Trick: "rad" ohne sie trifft
+# "Konrad", "Radeberg", "Stadtradeln"; "bike" trifft "Bikepark-Lauf".
+FREMDE_SPORTART_IM_LABEL = (
+    (re.compile(r"(?:^|[\s(\[/|–-])(?:rad|radrennen|radmarathon|radtour|radstrecke|"
+                r"radfahren|mtb|mountainbike|bike|velo)(?:$|[\s):\]/|,.–-])", re.I),
+     "Fahrrad"),
+    (re.compile(r"(?:^|[\s(\[/|–-])(?:schwimmen|schwimmstrecke|"
+                r"freiwasserschwimmen|open ?water)(?:$|[\s):\]/|,.–-])", re.I),
+     "Schwimmen"),
+)
+
+# Nennt das Label MEHRERE Disziplinen, ist es keine eigene Sportart,
+# sondern eine Teilstrecke oder eine Aufzählung ("500 m Schwimmen +
+# 5 km Laufen", "10 km Radfahren bis zur 1. Wechselzone", "6,5 km:
+# Rad, Lauf, Skiroller, Walking"). Solche Zeilen werden NICHT
+# umgestellt, sondern von report_multisport_teilstrecken() gemeldet.
+MEHRERE_DISZIPLINEN_RE = re.compile(
+    r"wechselzone|\+|skiroller", re.I)
+
+# VERBFORMEN einer Disziplin - das Erkennungszeichen einer Teilstrecke.
+# Der Unterschied, um den sich alles dreht, steht in den Daten selbst:
+#
+#   "Rad 100 km", "Mountainbike Rennen 42 km"   -> ein Rennen, das man bucht
+#   "21,5 km Radfahren", "7,3 km Laufen"        -> eine Etappe, die man absolviert
+#   "Run 1", "ca. 20 km Radstrecke"             -> ebenso
+#
+# Ein Veranstalter, der seine Wettbewerbe so benennt, beschreibt einen
+# Mehrsport-Wettkampf. Deshalb wird nicht die einzelne ZEILE geprüft,
+# sondern die ganze VERANSTALTUNG: Trägt IRGENDEINE ihrer Zeilen eine
+# solche Verbform, bleibt die Sportart unangetastet.
+#
+# Gemessen an den zwölf Veranstaltungen, die die Regel sonst getroffen
+# hätte, trennt das sauber: Aluman, RömerMan, Trifun Pellworm,
+# Mainathlon, Dirty Race und Speck Race sind Triathlons und bleiben
+# stehen; beim Drei Talsperren Marathon, Possenlauf, Elsterlauf,
+# Frickinger Apfellauf, Pfettrachtaler Lauf und Schneeglöckchen-Lauf
+# heißen die Laufstrecken "Marathon", "10 km Lauf", "8,0 km Lauf" -
+# dort ist das Radrennen wirklich ein eigener Wettbewerb.
+#
+# Die Wortgrenzen sind wieder entscheidend: `\bbike\b` darf NICHT in
+# "Mountainbike" treffen, sonst fällt der Frickinger Apfellauf durch.
+TEILSTRECKEN_VERB_RE = re.compile(
+    r"\b(laufen|laufstrecke|run|running|schwimmen|schwimmstrecke|swim|"
+    r"radfahren|radstrecke|bike|biken)\b", re.I)
+
+
+def _ist_mehrsport_veranstaltung(gruppe: list[dict]) -> bool:
+    """True, wenn IRGENDEINE Zeile dieser Veranstaltung ihre Strecke als
+    Disziplin-Etappe benennt (siehe TEILSTRECKEN_VERB_RE)."""
+    return any(TEILSTRECKEN_VERB_RE.search(e.get("wettbewerb") or "")
+               for e in gruppe)
+
+
+def fix_fremde_sportart_im_wettbewerb(events: list[dict]) -> list[str]:
+    """Stellt Zeilen um, deren Wettbewerbs-Label ausdrücklich eine andere
+    Sportart nennt als `art1`.
+
+    Gefunden bei der Einzelprüfung von 200 Events: Der "Drei Talsperren
+    Marathon" hatte drei Radrennen (30/50/100 km) als LAUF in der Liste.
+    Das ist keine Randnotiz - ein 100-km-Lauf ist eine Ultradistanz, ein
+    100-km-Radrennen ein Vormittag.
+
+    Bewusst eng gehalten, weil eine falsche Umstellung unsichtbar ist
+    (siehe „die wichtigste Lektion" im README):
+
+    - Es zählt nur das **Wettbewerbs-Label**, nicht der Name. Im Namen
+      steht „Rad" auch bei „Radrennbahn-Lauf".
+    - Das Label muss **genau eine** fremde Sportart nennen. Steht
+      daneben noch Laufen, Walking oder eine Wechselzone, ist es eine
+      Teilstrecke eines Mehrsport-Wettkampfs - die wird nur gemeldet.
+    - Ein von Hand gesetztes `art1` (Override) bleibt unangetastet.
+    """
+    overrides = load_manual_overrides()
+    veranstaltungen: dict[tuple, list[dict]] = {}
+    for event in events:
+        veranstaltungen.setdefault(((event.get("name") or "").casefold(),
+                                    event.get("datum_start")), []).append(event)
+    changed: list[str] = []
+    for event in events:
+        label = event.get("wettbewerb") or ""
+        if not label:
+            continue
+        # Ein Triathlon ist schon richtig eingeordnet; sein "Radfahren"
+        # ist eine Etappe, kein eigenes Rennen.
+        if event.get("art1") == "Triathlon":
+            continue
+        treffer = [sport for muster, sport in FREMDE_SPORTART_IM_LABEL
+                   if muster.search(label)]
+        if len(treffer) != 1 or treffer[0] == event.get("art1"):
+            continue
+        if MEHRERE_DISZIPLINEN_RE.search(label):
+            continue
+        gruppe = veranstaltungen[((event.get("name") or "").casefold(),
+                                  event.get("datum_start"))]
+        if _ist_mehrsport_veranstaltung(gruppe):
+            continue
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"))
+        if own and "art1" in own:
+            continue
+        neu = treffer[0]
+        alt_art2 = event.get("art2")
+        if not (own and "art2" in own):
+            # Für Fahrrad und Schwimmen gibt es noch KEINE eigene
+            # Stichwortliste (Fahrplan Punkt 1). guess_art2() fiele sonst
+            # still auf die LAUFEN-Liste zurück und machte aus einem
+            # Mountainbike-Rennen einen "Straße"-Eintrag. Keine Kategorie
+            # ist ehrlicher als eine falsche.
+            event["art2"] = (guess_art2(label, ART2_CONFIG, neu)
+                             if neu in ART2_LISTEN else None)
+        changed.append(
+            f"{event.get('name')} [{label}]: art1 {event.get('art1')!r} -> {neu!r}, "
+            f"art2 {alt_art2!r} -> {event.get('art2')!r}")
+        event["art1"] = neu
+    return changed
+
+
+def report_widerspruechliche_koordinaten(events: list[dict],
+                                         grenze_km: float = 30.0) -> list[str]:
+    """Meldet Veranstaltungen, die am selben Tag an zwei weit
+    auseinanderliegenden Punkten liegen.
+
+    Der Fund, der diese Prüfung ausgelöst hat: Der "Bodensee Marathon"
+    stand mit seiner Marathon-Strecke auf 49.07/10.14 - mitten in
+    Franken, 168 km vom Bodensee. Ursache ist der Geocoder: Die eine
+    Quelle nannte als Ort "Kressbronn", die andere "Kressbronn am
+    Bodensee", und für das kurze "Kressbronn" fand sich ein
+    gleichnamiger Ort anderswo.
+
+    Das ist kein Schönheitsfehler: Die Umkreissuche und die Karte
+    bauen ausschließlich auf diesen Koordinaten auf. Wer im Umkreis
+    von 25 km um Friedrichshafen sucht, bekommt den Marathon nicht zu
+    sehen - obwohl er dort stattfindet.
+
+    Warum nur ein Hinweis und keine Korrektur: Welcher der beiden
+    Punkte der richtige ist, steht in den Daten nicht. Die Mehrheit zu
+    nehmen wäre geraten - und zu viel automatisch verschoben ist
+    schlimmer als eine Meldung, weil es niemand sieht.
+    """
+    gruppen: dict[tuple, list[dict]] = {}
+    for event in events:
+        lat, lon = event.get("lat"), event.get("lon")
+        if not isinstance(lat, (int, float)) or not isinstance(lon, (int, float)):
+            continue
+        gruppen.setdefault(((event.get("name") or "").casefold(),
+                            event.get("datum_start")), []).append(event)
+    meldungen: list[str] = []
+    for (_, datum), gruppe in gruppen.items():
+        if len(gruppe) < 2:
+            continue
+        weiteste, paar = 0.0, None
+        for i, a in enumerate(gruppe):
+            for b in gruppe[i + 1:]:
+                km = _haversine_km(a["lat"], a["lon"], b["lat"], b["lon"])
+                if km > weiteste:
+                    weiteste, paar = km, (a, b)
+        if paar and weiteste > grenze_km:
+            a, b = paar
+            meldungen.append(
+                f"{datum} {a.get('name')}: {weiteste:.0f} km auseinander - "
+                f"{a.get('standort')} ({a['lat']:.3f},{a['lon']:.3f}) vs. "
+                f"{b.get('standort')} ({b['lat']:.3f},{b['lon']:.3f})")
+    return sorted(meldungen)
+
+
+def report_gleiche_seite_gleiche_distanz(events: list[dict]) -> list[str]:
+    """Meldet Einträge mit DERSELBEN Veranstalter-Seite, demselben Datum
+    und derselben Distanz, die aber unter verschiedenen Namen laufen.
+
+    Der Auslöser: "45. Hörnle Berglauf Bad Kohlgrub" und "Hörnlelauf
+    Bad Kohlgrub" - beide am 19.09.2026, beide 7 km, beide mit derselben
+    vollständigen Adresse (…/veranstaltungen.php?id=94). Laut Quelle ist
+    das ein einziges Rennen. Der Namensvergleich in `is_same_event()`
+    kommt hier nicht heran: als Wortmengen haben „hornle/berglauf" und
+    „hornlelauf" zu wenig gemeinsam.
+
+    Warum das NICHT automatisch zusammengeführt wird: Die Regel wurde
+    über den ganzen Bestand durchgerechnet und hätte 48 Paare
+    verschmolzen - darunter echte, verschiedene Wettbewerbe derselben
+    Veranstaltung: den Marathon des "24h Mad Chicken Run" mit dem
+    24-Stunden-Rennen, den "Kolberger Berglauf" mit der Wanderung über
+    dieselbe Strecke, und bei der "Heidi-Challenge" die "Tour Werder
+    61,8 km" mit der "Tour City Berlin 63,0 km". Genau davor warnt die
+    wichtigste Lektion im README. Also: melden, einzeln prüfen,
+    bestätigte Fälle nach manual_overrides.json.
+
+    Die VOLLSTÄNDIGE Adresse ist Bedingung, nicht die Domain: Unter
+    einer Domain liegen mehrere Rennen eines Veranstalters (deshalb ist
+    die Domain auch in `_same_name()` ausdrücklich kein Kriterium).
+    """
+    gruppen: dict[tuple, list[dict]] = {}
+    for event in events:
+        url = (event.get("veranstalter_url") or "").strip().rstrip("/")
+        if not url or is_portal_link(url) or not event.get("datum_start"):
+            continue
+        gruppen.setdefault((url, event["datum_start"]), []).append(event)
+    meldungen: list[str] = []
+    for (url, datum), gruppe in gruppen.items():
+        for i, a in enumerate(gruppe):
+            for b in gruppe[i + 1:]:
+                # Beide Distanzen müssen BEKANNT sein: Ist eine davon
+                # None, hält _compatible_distance() alles für kompatibel -
+                # so wurde aus dem 42-km-Lauf und dem 24-Stunden-Rennen
+                # desselben Veranstalters ein Paar.
+                if not isinstance(a.get("laenge_km"), (int, float)):
+                    continue
+                if not isinstance(b.get("laenge_km"), (int, float)):
+                    continue
+                if a.get("art1") != b.get("art1"):
+                    continue
+                if abs(a["laenge_km"] - b["laenge_km"]) > 0.5:
+                    continue
+                if is_same_event(a, b):
+                    continue  # greift ohnehin schon
+                meldungen.append(
+                    f"{datum} {a['laenge_km']:g} km: {a.get('name')!r} "
+                    f"[{a.get('wettbewerb') or '-'}] vs. {b.get('name')!r} "
+                    f"[{b.get('wettbewerb') or '-'}] - {url}")
+    return sorted(meldungen)
+
+
+# Zwei km-Angaben in einem Label. "3 Runden je 15,5 km" o. Ä. ist keine
+# zweite Strecke, sondern die Aufteilung derselben.
+_RUNDEN_RE = re.compile(r"runde|round|\bà\b|\bje\b|\bx\b|mal\b|Rundkurs", re.I)
+
+
+def report_mehrere_distanzen_im_label(events: list[dict]) -> list[str]:
+    """Meldet Wettbewerbs-Label mit ZWEI verschiedenen Streckenlängen.
+
+    Gefunden an "15 km / 21 km Crosslauf" beim Limberglauf Ranis: Die
+    Quelle hatte zwei getrennte Wettbewerbe in eine Zeile geschrieben,
+    `parse_competitions()` machte daraus einen einzigen Eintrag mit
+    21 km - der 15-km-Lauf fehlte in der Liste komplett. Laut
+    Ausschreibung gibt es ihn (Start 10:10 Uhr, 15 EUR).
+
+    Das ist die unangenehmere Sorte Fehler: Ein FEHLENDES Event sieht
+    niemand. Deshalb die Meldung - was daraus wird (Override oder ein
+    genauerer Parser für diese Quelle), entscheidet die Einzelprüfung.
+
+    Nur ein Hinweis, weil die Muster auseinandergehen: "10 km
+    (10,50 km)" ist dieselbe Strecke zweimal genannt, "19 km
+    (14 + 5 km)" ihre Aufteilung, "100 km (10 x 10 km)" das
+    Rundenformat - und "3 000 m, 5 km, 10 km" wirklich drei Rennen.
+    """
+    meldungen: list[str] = []
+    for event in events:
+        label = event.get("wettbewerb") or ""
+        if not label or _RUNDEN_RE.search(label):
+            continue
+        werte = {float(z.replace(",", "."))
+                 for z in re.findall(r"(?<!\d)(\d{1,3}(?:[.,]\d+)?)\s*km\b", label, re.I)}
+        if len(werte) > 1:
+            meldungen.append(
+                f"{event.get('datum_start')} {event.get('name')} "
+                f"[{label}] -> gespeichert: {event.get('laenge_km')} km")
+    return sorted(meldungen)
 
 
 # Wortbestandteile, die bei einem Mehrsport-Wettkampf eine EINZELNE
@@ -1121,6 +1424,11 @@ def main() -> None:
     # würde einem noch als "Laufen" geführten Triathlon "Trail/Cross"
     # verpassen.
     multisport_fixes = fix_multisport_art1(events)
+    # Nach fix_multisport_art1: Ein Triathlon ist zuerst ein Triathlon;
+    # erst danach ist ein "Rad 50 km" bei einer LAUFveranstaltung ein
+    # eigenständiges Radrennen.
+    fremde_sportart = fix_fremde_sportart_im_wettbewerb(events)
+    art2_andere = fill_art2_andere_sportarten(events)
     art2_merges = merge_trail_cross(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
@@ -1136,6 +1444,9 @@ def main() -> None:
     moegliche_dups = report_moegliche_duplikate(events)
     tri_teilstrecken = report_multisport_teilstrecken(events)
     tri_distanzen = report_triathlon_distanzen(events)
+    koord_wider = report_widerspruechliche_koordinaten(events)
+    gleiche_seite = report_gleiche_seite_gleiche_distanz(events)
+    mehrfach_km = report_mehrere_distanzen_im_label(events)
     # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
     # Nach dem Zusammenführen ändern sich die Mehrheiten innerhalb einer
     # Veranstaltung, und umgekehrt lässt ein vereinheitlichter Name zwei
@@ -1171,6 +1482,9 @@ def main() -> None:
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Per Override ausgeschlossen", excluded)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
+    section("Sportart korrigiert (Label nennt eine andere Sportart)",
+            fremde_sportart)
+    section("Kategorie bei Nicht-Lauf-Sportarten nachgetragen", art2_andere)
     section("Kategorie Trail/Cross zusammengefasst", art2_merges)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
@@ -1189,6 +1503,12 @@ def main() -> None:
             tri_teilstrecken)
     section("⚠ Triathlon-Distanz passt zu keinem Format (nur Hinweis)", tri_distanzen)
     section("⚠ Unplausible Laufdistanz an einem Tag (nur Hinweis)", implausible)
+    section("⚠ Dieselbe Veranstaltung an zwei weit entfernten Punkten (nur Hinweis)",
+            koord_wider)
+    section("⚠ Gleiche Veranstalter-Seite, gleiche Distanz, anderer Name (nur Hinweis)",
+            gleiche_seite)
+    section("⚠ Zwei Streckenlängen in einem Wettbewerbs-Label (nur Hinweis)",
+            mehrfach_km)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
     section("Laufserie: Datum aus dem Termin-Label übernommen", series_fixes)
     section("Namens-Formatierung bereinigt", tidy_fixes)

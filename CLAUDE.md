@@ -262,6 +262,50 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      15-km-SwimRun ist normal). Beide gehören einzeln geprüft und als
      Override eingetragen.
 
+11. **Das Wettbewerbs-Label darf eine andere Sportart nennen als die
+   Veranstaltung.** Der „Drei Talsperren Marathon" hat neben Marathon,
+   Halbmarathon und 8 km auch „Rad 100 km", „Rad 50 km" und „Rad 30 km" -
+   laut Ausschreibung eigenständige Wettbewerbe. Bei uns standen sie als
+   **Lauf** in der Liste, also als 100-km-Lauf.
+   `clean_events.fix_fremde_sportart_im_wettbewerb()` stellt das um. Die
+   Abgrenzung zur Triathlon-Teilstrecke ist der ganze Aufwand daran, und
+   sie steckt in der **Verbform** des Labels:
+
+   | Label | heißt | Folge |
+   |---|---|---|
+   | „Rad 100 km", „Mountainbike Rennen 42 km" | ein Rennen, das man bucht | `art1` → Fahrrad |
+   | „21,5 km Radfahren", „7,3 km Laufen", „Run 1" | eine Etappe, die man absolviert | unangetastet |
+
+   Geprüft wird nicht die einzelne Zeile, sondern die ganze
+   **Veranstaltung** (`TEILSTRECKEN_VERB_RE`,
+   `_ist_mehrsport_veranstaltung()`): Trägt IRGENDEINE ihrer Zeilen eine
+   Verbform, bleibt alles stehen. An den zwölf Veranstaltungen, die die
+   Regel sonst getroffen hätte, trennt das sauber - Aluman, RömerMan,
+   Trifun Pellworm, Mainathlon, Dirty Race und Speck Race sind
+   Triathlons und bleiben; Drei Talsperren, Possenlauf, Elsterlauf,
+   Frickinger Apfellauf und Schneeglöckchen-Lauf haben wirklich ein
+   eigenes Radrennen. Die erste Fassung der Regel hatte nur das Label
+   geprüft und aus sechs Triathlon-Etappen Radrennen gemacht.
+   **`art1 == "Triathlon"` wird nie überschrieben.**
+
+   Damit stehen die **ersten Radrennen überhaupt** in `events.json` (9).
+   `ART2_KEYWORDS_FAHRRAD` gibt es deshalb jetzt - **ohne
+   Voreinstellung**: „Mountainbike" wird zu Mountainbike, „Rad 100 km"
+   bleibt ohne Kategorie. Aus „Rad 100 km" geht der Untergrund nicht
+   hervor, und eine geratene Kategorie ist schlechter als keine - sie
+   sieht aus wie eine Angabe.
+
+12. **Zwei Rennen in einer Zeile.** „15 km / 21 km Crosslauf" ist nicht
+   ein Rennen über 21 km. `guess_distance_km()` nimmt bei mehreren Zahlen
+   die größte - der 15-km-Lauf des Limberglaufs Ranis **fehlte dadurch
+   komplett** in der Liste. `_trenne_doppelte_distanzen()` teilt solche
+   Zeilen jetzt vor `parse_competitions()`.
+   Bewusst eng: Das Label muss **mit** „A km / B km" anfangen. „19 km
+   (14 + 5 km)", „100 km (10 x 10 km)" und „3 Runden je 15,5 km" sind
+   Aufteilungen derselben Strecke, kein zweites Rennen.
+   **Ein fehlendes Event ist die unangenehmere Sorte Fehler**: Eine
+   falsche Zahl sieht man, eine fehlende Zeile nicht.
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die
@@ -281,6 +325,76 @@ Fichtel-Duplikats passiert. `test_override_schluessel` prüft jetzt jeden
 Schlüssel gegen `override_keys()`.
 
 Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
+
+### Was die Einzelprüfung von 200 Events gelehrt hat (18.09.2026)
+
+Der Nutzer hat darum gebeten, 200 Events ganz genau anzusehen. Geprüft
+wurden die ersten 200 nach Datum (18./19.09.2026). Von 80 maschinellen
+Verdachtsfällen blieben nach der Einzelprüfung **7 echte Fehler** übrig;
+alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
+
+1. **Die Prüfregel irrt öfter als die Daten.** Drei der vier größten
+   Fundgruppen waren Fehler meiner *Prüfung*:
+   - „Wochentag Mo-Fr" (45 Treffer) - die 200 Events liegen auf Fr/Sa,
+     und ein Freitagabend-Stadtlauf ist völlig normal. Regel auf Mo-Do
+     eingeengt.
+   - „‚Halbmarathon', aber Distanz passt nicht" - der *Veranstaltungs*name
+     ist „Bernburger Halbmarathon", der *Wettbewerb* sind 12 km. Die
+     Regel muss das **Label** lesen, nicht den Namen.
+   - „Cross im Namen, Kategorie Hindernis" - der „Family-CrossDeLuxe
+     Leipzig" ist tatsächlich ein Hindernislauf. Die Regel
+     „spezifisch vor generisch" hat richtig gearbeitet.
+
+2. **Eine naheliegende „Verbesserung" hätte 57 richtige Einordnungen
+   zerstört.** `berglauf` steht ohne Wortgrenze in
+   `ART2_KEYWORDS_LAUFEN`, und „Lim·berglauf" trifft darauf. Der Reflex
+   war, `\bberglauf\b` daraus zu machen. Gemessen: Von 58 betroffenen
+   Events sind 57 **echte** Bergläufe - „Belchen·berglauf",
+   „Turm·berglauf", „Nebelhorn·berglauf". Deutsche Komposita sind hier
+   die Regel, nicht die Ausnahme. **Die fehlende Wortgrenze bleibt.**
+   Vor jedem „das sieht falsch aus" erst zählen, was die Änderung
+   anrichtet.
+
+3. **Koordinaten sind Daten, keine Dekoration.** Der „Bodensee
+   Marathon" lag mit seiner Marathon-Strecke auf 49.07/10.14 - das ist
+   Franken, 168 km vom Bodensee. Der Ortsname war auf „Kressbronn"
+   verkürzt (statt „Kressbronn am Bodensee"), und dafür fand der
+   Geocoder einen gleichnamigen Ort anderswo. Umkreissuche und Karte
+   bauen allein darauf auf: Wer im Umkreis von Friedrichshafen suchte,
+   bekam den Marathon nicht zu sehen.
+   Neu deshalb: **`lat`/`lon` dürfen im Override stehen**
+   (`OVERRIDE_FIELDS`, jetzt EINE Liste für beide Wege statt zweier),
+   und `report_widerspruechliche_koordinaten()` meldet Veranstaltungen,
+   die am selben Tag an zwei über 30 km entfernten Punkten liegen -
+   **9 weitere Fälle** derselben Art stehen damit auf der Liste
+   (Steverlauf/Senden, Pokallauf/Roßbach, Quickborn, Zeil am Main …).
+
+4. **Dieselbe Veranstalter-SEITE ist ein starkes Signal - und trotzdem
+   keine Regel.** „45. Hörnle Berglauf Bad Kohlgrub" und „Hörnlelauf
+   Bad Kohlgrub" tragen dieselbe vollständige Adresse
+   (`…veranstaltungen.php?id=94`), dasselbe Datum, dieselben 7 km - ein
+   Rennen. Durchgerechnet über den ganzen Bestand hätte diese Regel aber
+   **48 Paare** verschmolzen, darunter echte Wettbewerbe: den Marathon
+   des „24h Mad Chicken Run" mit dem 24-Stunden-Rennen, den „Kolberger
+   Berglauf" mit der Wanderung über dieselbe Strecke, „Tour Werder
+   61,8 km" mit „Tour City Berlin 63,0 km". Also
+   `report_gleiche_seite_gleiche_distanz()` - **melden, nicht
+   zusammenführen** (36 Fälle offen). Die DOMAIN allein bleibt auch
+   weiterhin kein Kriterium, siehe `_same_name()`.
+
+Die sieben behobenen Fehler: Bodensee Marathon falsch verortet; ONW-Lauf
+Dannenberg doppelt (mit der Jahreszahl 2025 im Namen); Hörnlelauf Bad
+Kohlgrub doppelt (und als „Straße" statt Berglauf); „BFUTR EXTREME" mit
+18 km/Straße statt der 105 km des Black Forest ULTRA Trail Run, den wir
+bereits vollständig hatten; drei Radrennen des Drei Talsperren Marathons
+als Lauf geführt; der 15-km-Lauf des Limberglaufs Ranis fehlte ganz.
+Jeder Fall gegen die offizielle Ausschreibung geprüft, die Belege stehen
+als `_note` in `manual_overrides.json`.
+
+**Was in den 200 bleibt**: 21 Einträge mit einem Portallink statt der
+offiziellen Seite. Das ist kein falscher Datensatz, nur ein schlechterer
+Link - und Datenregel 2 verbietet das Raten. Er wird ersetzt, sobald
+eine Quelle die offizielle Seite nennt (`update_existing_event()`).
 
 ### Nutzer-Fehlermeldungen
 
@@ -558,13 +672,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
       erst beim Öffnen.
     - **`alleWerte: true`.** Die Liste bietet nur Werte an, zu denen es
       Events gibt; ein Abo schaut in die Zukunft. Ohne diese Flagge
-      stand „Fahrrad" gar nicht zur Wahl – in `events.json` steht
-      bislang kein einziges Radrennen, und genau das wollte der Nutzer
-      abonnieren. Die Liste steht in `filter-ui.js`
-      (`BEKANNTE_WERTE` = `EF.LAENDER` + die Sportarten aus
-      `DISTANCE_CATEGORIES`, dazu `ALLE_ART2` aus `ART2_BY_ART1`).
-      Achtung: `ART2_BY_ART1['Triathlon']` fehlt noch (Fahrplan Punkt 1),
-      die Kategorie-Auswahl bleibt für Triathlon deshalb leer.
+      stand „Fahrrad" gar nicht zur Wahl – damals stand in
+      `events.json` kein einziges Radrennen, und genau das wollte der
+      Nutzer abonnieren. (Inzwischen sind es neun, siehe Datenregel 11 –
+      die Flagge bleibt trotzdem nötig: Für die Schweiz oder fürs
+      Schwimmen gilt dasselbe Argument weiter.) Die Liste steht in
+      `filter-ui.js` (`BEKANNTE_WERTE` = `EF.LAENDER` + die Sportarten
+      aus `DISTANCE_CATEGORIES`, dazu `ALLE_ART2` aus `ART2_BY_ART1`).
     - **`updateIndicators()` färbt nur die eigenen Knöpfe.** Es läuft
       über die `buttons`-Sammlung der Bedieneinheit (gelöste Knöpfe
       fliegen dabei raus), nicht über

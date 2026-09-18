@@ -774,8 +774,16 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 
 ## Datenqualität
 
-Neun Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
+Elf Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
+
+> **Die Einzelprüfung von 200 Events (18.09.2026)** hat vier davon
+> hervorgebracht bzw. geschärft und ist in `CLAUDE.md` unter „Was die
+> Einzelprüfung von 200 Events gelehrt hat" im Detail festgehalten -
+> mit den drei Fällen, in denen sich die *Prüfregel* geirrt hat und
+> nicht die Daten, und mit der „Verbesserung", die 57 richtige
+> Einordnungen zerstört hätte. Lesen, bevor jemand die nächste
+> naheliegende Regel einbaut.
 
 - **Vergangene Events werden entfernt** (`scraper_lib.filter_past()` beim
   Einsammeln, `clean_events.drop_past_events()` rückwirkend für die
@@ -795,6 +803,21 @@ und eindeutige Events in `events.json` landen:
   aufgeräumt, ohne den Filter stünden dazwischen bis zu sieben Tage
   Vergangenheit in der Liste. `clean_events.py --today YYYY-MM-DD` setzt
   den Stichtag für Tests von Hand.
+- **Die Sportart aus dem Wettbewerbs-Label**
+  (`clean_events.fix_fremde_sportart_im_wettbewerb()`). Nennt das Label
+  ausdrücklich eine andere Sportart als die Veranstaltung („Rad 100 km"
+  beim „Drei Talsperren Marathon"), ist das die Angabe der Quelle
+  selbst - kein Raten. Abgegrenzt wird gegen die Triathlon-Teilstrecke
+  über die **Verbform** („21,5 km Radfahren" ist eine Etappe), und
+  geprüft wird die ganze Veranstaltung, nicht die einzelne Zeile. Ein
+  `art1 == "Triathlon"` wird nie überschrieben. Details in `CLAUDE.md`,
+  Datenregel 11.
+- **Zwei Rennen in einer Zeile werden geteilt**
+  (`scraper_lib._trenne_doppelte_distanzen()`): „15 km / 21 km
+  Crosslauf" sind zwei Wettbewerbe. Vorher nahm `guess_distance_km()`
+  die größere Zahl, und der 15-km-Lauf fehlte ganz. Aufteilungen
+  derselben Strecke („19 km (14 + 5 km)") bleiben unangetastet.
+  Details in `CLAUDE.md`, Datenregel 12.
 - **Dauer statt Distanz bei Zeitrennen**
   (`scraper_lib.parse_duration_h()`, nachgetragen von
   `clean_events.fill_duration()`). Erkannt werden „24-Stunden-Lauf",
@@ -1731,8 +1754,10 @@ mit einem Rhythmus.
      nimmt dafür `panelParent`.
   3. **Auch Werte ohne heutige Events** (`alleWerte: true`). Die Liste
      bietet nur an, was in den Daten steht – sinnvoll dort, falsch hier:
-     In `events.json` steht bislang kein einziges Radrennen, „Fahrrad"
-     stand also gar nicht zur Wahl. Ein Abo schaut aber in die Zukunft,
+     Als der Dialog entstand, stand in `events.json` kein einziges
+     Radrennen, „Fahrrad" stand also gar nicht zur Wahl. (Inzwischen
+     sind es neun – für die Schweiz und fürs Schwimmen gilt das
+     Argument aber unverändert.) Ein Abo schaut aber in die Zukunft,
      und genau das war der Wunsch. Angeboten werden deshalb alle
      Sportarten und Länder, die die Seite kennt.
 

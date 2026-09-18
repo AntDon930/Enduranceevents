@@ -257,8 +257,29 @@ DEFAULT_ART2_TRIATHLON = "Straße"
 # bekäme ein Triathlon die Lauf-Kategorien ("Straße", "Trail/Cross", …) -
 # und ein "Cross-Duathlon" stünde als "Trail/Cross" da, also als
 # Laufkategorie an einer Nicht-Laufveranstaltung.
+# Kategorien fürs Radfahren. Bewusst KEINE Voreinstellung (None statt
+# "Straße"): Aus "Rad 100 km" oder "40 km Radtour" geht der Untergrund
+# nicht hervor, und eine geratene Kategorie ist schlechter als keine -
+# sie sieht aus wie eine Angabe. Gesetzt wird nur, was die Quelle
+# ausdrücklich nennt.
+#
+# Die Liste ist entstanden, als die Einzelprüfung von 200 Events die
+# ersten Radrennen überhaupt in events.json gebracht hat (die
+# Mountainbike-Rennen des Possenlaufs, das Radrennen des Drei
+# Talsperren Marathons). Vollständig wird sie mit Fahrplan Punkt 1;
+# die Werte müssen zu ART2_BY_ART1['Fahrrad'] in filter-ui.js passen.
+ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"mountainbike|\bmtb\b|\bxc\b", re.I), "Mountainbike"),
+    (re.compile(r"gravel|schotter", re.I), "Gravel"),
+    (re.compile(r"cyclo.?cross|cyclecross|querfeldein", re.I), "Cyclecross"),
+    (re.compile(r"zeitfahren|\bitt\b|einzelzeitfahren", re.I), "Zeitfahren"),
+    (re.compile(r"bahnrennen|radbahn|velodrom", re.I), "Bahn"),
+    (re.compile(r"rennrad|straßenrennen|stra..enrennen", re.I), "Straße"),
+]
+
 ART2_LISTEN: dict[str, tuple[list, str | None]] = {
     "Triathlon": (ART2_KEYWORDS_TRIATHLON, DEFAULT_ART2_TRIATHLON),
+    "Fahrrad": (ART2_KEYWORDS_FAHRRAD, None),
 }
 
 
@@ -763,6 +784,42 @@ class Competition:
     raw: str = ""
 
 
+# Zwei Rennen in EINER Zeile: "15 km / 21 km Crosslauf (ab Jahrgang
+# 2008)". `guess_distance_km()` nimmt bei mehreren Zahlen die größte -
+# aus zwei Wettbewerben wurde damit ein einziger über 21 km, und der
+# 15-km-Lauf fehlte in der Liste. Aufgefallen bei der Einzelprüfung von
+# 200 Events am Limberglauf Ranis; laut Ausschreibung des TSV 1860 Ranis
+# gibt es beide (Start 10:10 bzw. 10:05 Uhr, 15 bzw. 18 EUR).
+#
+# Ein FEHLENDES Event ist die unangenehmere Sorte Fehler: Eine falsche
+# Zahl sieht man, eine fehlende Zeile nicht.
+#
+# Bewusst eng: Das Label muss MIT "A km / B km" ANFANGEN. Damit bleiben
+# "3 Runden je 15,5 km", "19 km (14 + 5 km)" und "100 km (10 x 10 km)"
+# unangetastet - dort ist die zweite Zahl die Aufteilung derselben
+# Strecke, kein zweites Rennen. Der Rest der Zeile ("Crosslauf (ab
+# Jahrgang 2008)") gehört beiden.
+_ZWEI_RENNEN_RE = re.compile(
+    r"^(?P<a>\d{1,3}(?:[.,]\d+)?)\s*km\s*/\s*(?P<b>\d{1,3}(?:[.,]\d+)?)\s*km"
+    r"(?P<rest>\s.*)?$", re.I)
+
+
+def _trenne_doppelte_distanzen(items):
+    """Macht aus "15 km / 21 km Crosslauf" zwei Einträge."""
+    aufgeteilt = []
+    for raw in items:
+        text, hint = raw if isinstance(raw, tuple) else (raw, "")
+        treffer = _ZWEI_RENNEN_RE.match(re.sub(r"\s+", " ", text or "").strip())
+        if not treffer:
+            aufgeteilt.append(raw)
+            continue
+        rest = treffer.group("rest") or ""
+        for zahl in (treffer.group("a"), treffer.group("b")):
+            neu = f"{zahl} km{rest}"
+            aufgeteilt.append((neu, hint) if isinstance(raw, tuple) else neu)
+    return aufgeteilt
+
+
 def parse_competitions(
     items: Iterable[str | tuple[str, str]], config: SiteConfig
 ) -> list[Competition]:
@@ -780,6 +837,7 @@ def parse_competitions(
     keine eigenen Einträge für unsere Liste.
     """
     result: list[Competition] = []
+    items = _trenne_doppelte_distanzen(items)
     # Schlüssel ist das PAAR (Distanz, Dauer): Ein "6h" und ein "12h"
     # derselben Veranstaltung haben beide keine Distanz - über die Distanz
     # allein wäre der zweite ein Duplikat des ersten und fiele weg.
@@ -1562,6 +1620,22 @@ def load_manual_overrides() -> dict:
     return _manual_overrides_cache
 
 
+# Die Felder, die ein Eintrag in manual_overrides.json setzen darf.
+# EINE Liste, nicht zwei: Sie wird an zwei Stellen gebraucht (hier beim
+# Einsammeln, in clean_events.apply_overrides() rückwirkend auf die
+# bestehende Datei). Standen sie getrennt da, wirkte ein neues Feld je
+# nach Weg - ein Fehler, der sich erst Wochen später zeigt.
+#
+# `lat`/`lon` sind dabei, seit die Einzelprüfung von 200 Events einen
+# falsch verorteten Bodensee-Marathon zutage gefördert hat: Der
+# Geocoder hatte "Kressbronn" (statt "Kressbronn am Bodensee") auf
+# 49.07/10.14 gelegt - 168 km daneben, mitten in Franken. Ohne
+# Koordinaten im Override lässt sich so ein Fall nicht reparieren: Ein
+# neuer `standort` allein verschiebt den Kartenpunkt nicht.
+OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
+                   "land", "standort", "veranstalter_url", "lat", "lon")
+
+
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:
     """Die Schlüssel, unter denen ein Event in manual_overrides.json stehen
     kann - vom spezifischsten zum allgemeinsten:
@@ -1611,8 +1685,7 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
             if override.get("exclude"):
                 excluded += 1
                 continue
-            for field in ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
-                          "land", "standort", "veranstalter_url"):
+            for field in OVERRIDE_FIELDS:
                 if field not in override:
                     continue
                 # Ein Override darf einen direkten Veranstalter-Link NIE
