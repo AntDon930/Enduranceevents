@@ -56,7 +56,7 @@ from dataclasses import dataclass, field, fields, replace
 from datetime import date
 from pathlib import Path
 from typing import Callable, Iterable
-from urllib.parse import urljoin
+from urllib.parse import urlparse, urljoin
 from urllib.robotparser import RobotFileParser
 
 import requests
@@ -2020,7 +2020,22 @@ PORTAL_DOMAINS = (
 
 
 def is_portal_link(url: str | None) -> bool:
-    return bool(url) and any(domain in url for domain in PORTAL_DOMAINS)
+    """Zeigt der Link auf ein Kalenderportal statt auf den Veranstalter?
+
+    Verglichen wird der HOSTNAME, nicht der ganze Link als Zeichenkette:
+    "tsv-weeze-leichtathletik.de" enthält "leichtathletik.de" als
+    Teilzeichenkette und galt damit als Portal - der echte
+    Veranstalter-Link des Weezer Staffellaufs hätte beim nächsten
+    Datenlauf durch einen fremden Link ersetzt werden können (gefunden
+    bei der Linkprüfung am 19.09.2026). Subdomains zählen mit
+    (www.laufen.de, my.laufen.de), fremde Domains mit gleicher Endung
+    nicht.
+    """
+    if not url:
+        return False
+    host = urlparse(url if "://" in url else "http://" + url).netloc.lower()
+    host = host.split("@")[-1].split(":")[0]
+    return any(host == domain or host.endswith("." + domain) for domain in PORTAL_DOMAINS)
 
 
 def update_existing_event(target: dict, source: dict) -> None:

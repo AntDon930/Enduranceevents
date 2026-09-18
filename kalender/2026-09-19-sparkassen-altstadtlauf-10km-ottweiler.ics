@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Sparkassen-Altstadtlauf
 LOCATION:Ottweiler\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V14000007960001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tvo-leich
+ tathletik.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V14000007960001
+URL:https://www.tvo-leichtathletik.de/
 END:VEVENT
 END:VCALENDAR

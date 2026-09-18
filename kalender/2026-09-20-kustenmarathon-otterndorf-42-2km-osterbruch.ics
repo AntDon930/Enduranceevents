@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Küstenmarathon Otterndorf – Marathon
 LOCATION:Osterbruch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.davengo
- .com/event/overview/26-sparkassen-kuestenmarathon-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.kuesten
+ marathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/26-sparkassen-kuestenmarathon-2
- 026
+URL:https://www.kuestenmarathon.de/
 END:VEVENT
 END:VCALENDAR

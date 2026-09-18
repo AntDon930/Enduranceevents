@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:3. Aindlinger Kleeblattmarsch
 LOCATION:Aindling\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://laufen.de/lauf
- kalender/details/26V02000738860001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.aindling-b
+ ewegt-sich.de/?kleeblatt=
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000738860001
+URL:https://www.aindling-bewegt-sich.de/?kleeblatt=
 END:VEVENT
 END:VCALENDAR

@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Hanstedter Waldlauf
 LOCATION:Uelzen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
- bung/detail/49020/40.-Hanstedt-Waldlauf-2026-Uelzen.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.klv-uelzen.de
+ /
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49020/40.-Hanstedt-Waldlauf-2026-
- Uelzen.htm
+URL:https://www.klv-uelzen.de/
 END:VEVENT
 END:VCALENDAR

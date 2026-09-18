@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Run of Colours
 LOCATION:Köln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/372562/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.aidshilfe
+ -koeln.de/kalender/run-of-colours/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/372562/
+URL:https://www.aidshilfe-koeln.de/kalender/run-of-colours/
 END:VEVENT
 END:VCALENDAR

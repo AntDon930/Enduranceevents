@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Superherorun – 12 km Maxi Hero Run
 LOCATION:Schönau-Berzdorf auf dem Eigen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://baer-servi
- ce.de/veranstaltung/SHR/
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.superh
+ erorun.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/SHR/
+URL:https://www.superherorun.de/
 END:VEVENT
 END:VCALENDAR

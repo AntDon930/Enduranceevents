@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Muddy Älbler Hindernislauf
 LOCATION:Albstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7 km\nhttp://api.maxx-tim
- ing.de/showevents/198
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 7 km\nhttps://muddy-aelbl
+ er.de/hindernislauf/
 TRANSP:TRANSPARENT
-URL:http://api.maxx-timing.de/showevents/198
+URL:https://muddy-aelbler.de/hindernislauf/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Düsseldorf Night Run
 LOCATION:Düsseldorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.anmeldungs
- -service.de/nightrun2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.d-running.
+ de/night-run
 TRANSP:TRANSPARENT
-URL:https://www.anmeldungs-service.de/nightrun2026/
+URL:https://www.d-running.de/night-run
 END:VEVENT
 END:VCALENDAR

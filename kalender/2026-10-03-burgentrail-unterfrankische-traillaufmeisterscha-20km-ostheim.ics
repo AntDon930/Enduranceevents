@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Burgentrail Unterfränkische Traillaufmeisterschaften
 LOCATION:Ostheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 20 km\nhttps://laufen.d
- e/laufkalender/details/26B02000618050500
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 20 km\nhttps://sc-osthe
+ im.de/burgentrail/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26B02000618050500
+URL:https://sc-ostheim.de/burgentrail/
 END:VEVENT
 END:VCALENDAR

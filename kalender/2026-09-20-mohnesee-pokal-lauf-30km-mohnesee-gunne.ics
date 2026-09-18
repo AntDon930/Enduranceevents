@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Möhnesee-Pokal-Lauf
 LOCATION:Möhnesee-Günne\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://laufen.de/lau
- fkalender/details/26V19000291760001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://lg-deiringsen
+ .de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000291760001
+URL:https://lg-deiringsen.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Schusterlauf Preetz
 LOCATION:Preetz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.davengo.co
- m/event/overview/schusterlauf-preetz-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://schusterlauf.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/schusterlauf-preetz-2026
+URL:https://schusterlauf.de/
 END:VEVENT
 END:VCALENDAR

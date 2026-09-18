@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:9. Trainingslauf Bottwartal-Marathon
 LOCATION:Steinheim an der Murr\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://laufen.de/lau
- fkalender/details/26V20900004060014
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.bottwarta
+ l-marathon.de/deine-vorbereitung/trainingsangebot/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20900004060014
+URL:https://www.bottwartal-marathon.de/deine-vorbereitung/trainingsangebot
+ /
 END:VEVENT
 END:VCALENDAR

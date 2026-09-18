@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:24. Bordesholmer Seelauf SEE +RUN – 5 km Kurzstrecke
 LOCATION:Bordesholm\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.davengo.co
- m/event/overview/24-bordesholmer-seelauf-see-run-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tsv-bordesholm
+ .de/veranstaltungen/see-and-run/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/24-bordesholmer-seelauf-see-run
- -2026
+URL:https://tsv-bordesholm.de/veranstaltungen/see-and-run/
 END:VEVENT
 END:VCALENDAR

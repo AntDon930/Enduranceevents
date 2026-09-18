@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260918
 DTEND;VALUE=DATE:20260919
 SUMMARY:Nagolder Mittsommerlauf
 LOCATION:Nagold\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /376250/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vfl-nagold.co
+ m/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/376250/
+URL:https://www.vfl-nagold.com/
 END:VEVENT
 END:VCALENDAR

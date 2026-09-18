@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:39. Herbstlauf und 29. Wandertag Fleckenberg
 LOCATION:Fleckenberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
- fkalender/details/26V19000221160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://vflfleckenber
+ g.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000221160001
+URL:https://vflfleckenberg.de/
 END:VEVENT
 END:VCALENDAR

@@ -311,6 +311,13 @@ def test_offizieller_link() -> None:
     check("running.life ist Portal", is_portal_link("https://running.life/de/termine/x"), True)
     check("laufen.de ist Portal", is_portal_link("https://laufen.de/laufkalender/details/1"), True)
     check("Veranstalter ist kein Portal", is_portal_link("https://www.braunenberg-lauf.de/"), False)
+    # Hostname statt Teilzeichenkette: "tsv-weeze-leichtathletik.de" ist
+    # kein Portal, obwohl "leichtathletik.de" darin steckt (Linkprüfung
+    # 19.09.2026); Subdomains des Portals zählen dagegen mit.
+    check("Vereinsdomain mit Portal-Endung ist kein Portal",
+          is_portal_link("https://www.tsv-weeze-leichtathletik.de/staffel.html"), False)
+    check("Subdomain des Portals ist Portal",
+          is_portal_link("https://www.leichtathletik.de/wettkaempfe/x"), True)
 
     # Kernfall: Ein gespeicherter Portallink wird durch die offizielle Seite
     # ersetzt - ohne das behalten Altbestände den Portallink für immer.

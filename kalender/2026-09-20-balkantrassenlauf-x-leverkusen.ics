@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Balkantrassenlauf
 LOCATION:Leverkusen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /354931/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.feinerlauf.de
+ /
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/354931/
+URL:https://www.feinerlauf.de/
 END:VEVENT
 END:VCALENDAR

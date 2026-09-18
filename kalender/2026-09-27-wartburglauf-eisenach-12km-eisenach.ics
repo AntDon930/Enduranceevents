@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Wartburglauf Eisenach – Hauptlauf
 LOCATION:Eisenach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://my.raceresult
- .com/403690/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.sv-wartbu
+ rgstadt.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/403690/
+URL:https://www.sv-wartburgstadt.de/
 END:VEVENT
 END:VCALENDAR

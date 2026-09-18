@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Superherorun – 9 km Superherorun
 LOCATION:Schönau-Berzdorf auf dem Eigen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://baer-service.d
- e/veranstaltung/SHR/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.superheror
+ un.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/SHR/
+URL:https://www.superherorun.de/
 END:VEVENT
 END:VCALENDAR

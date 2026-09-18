@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Ziegeleilauf
 LOCATION:Twistringen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.2 km\nhttps://my.raceresu
- lt.com/368780/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.2 km\nhttp://ziegelei-twi
+ stringen.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/368780/
+URL:http://ziegelei-twistringen.de/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:16. Weddelbrooker Dorflauf
 LOCATION:Weddelbrook\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26K17000000060058
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsvweddel
+ brook.de/verein/dorflauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26K17000000060058
+URL:https://www.tsvweddelbrook.de/verein/dorflauf
 END:VEVENT
 END:VCALENDAR

@@ -11,8 +11,8 @@ DTEND;VALUE=DATE:20260921
 SUMMARY:Mud Masters - Airport Weeze
 LOCATION:Weeze\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://mudmasters.com
- /nl/event/airport-weeze-2027
+ /event/airport-weeze
 TRANSP:TRANSPARENT
-URL:https://mudmasters.com/nl/event/airport-weeze-2027
+URL:https://mudmasters.com/event/airport-weeze
 END:VEVENT
 END:VCALENDAR

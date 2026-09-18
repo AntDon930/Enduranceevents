@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:Entega Nightrun
 LOCATION:Darmstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26L07900000460002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.entega-ni
+ ghtrun.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26L07900000460002
+URL:https://www.entega-nightrun.de/
 END:VEVENT
 END:VCALENDAR

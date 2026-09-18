@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Rasteder Ellernteichstaffellauf
 LOCATION:Rastede\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://laufen.de/la
- ufkalender/details/26V09000613960000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://www.lauftref
+ f-rastede.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000613960000
+URL:https://www.lauftreff-rastede.de/
 END:VEVENT
 END:VCALENDAR

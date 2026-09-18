@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Bokeler Straßenlauf
 LOCATION:Beverstedt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/364714/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lav-bokel.
+ net/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/364714/
+URL:https://www.lav-bokel.net/
 END:VEVENT
 END:VCALENDAR

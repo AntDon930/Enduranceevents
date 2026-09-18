@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:23. Schottener Stauseelauf
 LOCATION:Schotten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V07000041660001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tgv-sch
+ otten.de/aktuelles-termine/2026/23-schottener-stauseelauf-sa-26092026/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000041660001
+URL:https://www.tgv-schotten.de/aktuelles-termine/2026/23-schottener-staus
+ eelauf-sa-26092026/
 END:VEVENT
 END:VCALENDAR

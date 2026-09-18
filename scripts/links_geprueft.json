@@ -1,0 +1,3580 @@
+{
+ "_readme": "Protokoll der LINKPRÜFUNG (Veranstalter-Webseite), getrennt von geprueft.json: Dort steht die Prüfung der DATEN einer Veranstaltung, hier nur die ihres Links - audit_events.py --offen blendet nur geprueft.json aus. Schlüssel: '<Name>|<datum_start>'. ergebnis: 'korrigiert' = bessere/richtige Seite gefunden, Override in manual_overrides.json | 'link_ok' = Link ist die offizielle Seite oder es gibt keine bessere (raceresult ohne Organizer-URL, Bot-Sperre) | 'unklar' = kein offizieller Link auffindbar, Portal/Anmeldung bleibt. Vorgehen (19.09.2026, erste 500 Veranstaltungen nach Datum): jeden Link abgerufen (Status, Titel, Erwähnung von Event/Ort), bei my.raceresult.com die /contact-Seite (Organizer-URL, robots.txt erlaubt sie), bei Portal-/Anmeldelinks und toten Links Websuche und Abruf der gefundenen Seite.",
+ "10. Schnebelhorn Panoramatrail|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "panoramatrail.ch",
+  "alt": "https://panoramatrail.ch/",
+  "notiz": "Seite existiert (Websuche); der Verbindungsabbruch lag am Proxy der Sandbox."
+ },
+ "Future Run|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "ihk.de/elbeweser",
+  "alt": "https://www.ihk.de/elbeweser/aus-und-weiterbildung/future-run",
+  "notiz": "IHK-Seite \"FUTURE RUN 2026\" ist die Veranstalterseite; Weiterleitung auf ein IHK-Login nur für Bots."
+ },
+ "eine RUNDE Sache|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://myracepartner.com/veranstaltung/?event-id=532160",
+  "notiz": "Keine eigene Seite auffindbar, nur myracepartner (Anmeldung) - bleibt."
+ },
+ "24h Mad Chicken Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "mad-chicken-run.de",
+  "alt": "https://runtix.com/sts/10021/3210",
+  "neu": "https://mad-chicken-run.de/",
+  "notiz": "Offizielle Seite des Veranstalters (Titel \"Bist du verrückt genug? - Mad-Chicken-Run\"); runtix war nur die Anmeldung."
+ },
+ "8. Neusser Integrationslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "neuss-integrationslauf.de",
+  "alt": "https://laufen.de/laufkalender/details/26V10002012160001",
+  "neu": "https://www.neuss-integrationslauf.de/",
+  "notiz": "Offizielle Seite, nennt den 8. Lauf am 19.09.2026; laufen.de war der Portallink."
+ },
+ "Baltic X Cross Duathlon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "binzer-bucht.de",
+  "alt": "https://www.sportstiming.dk/event/17162",
+  "neu": "https://binzer-bucht.de/baltic-x-cross-duathlon/",
+  "notiz": "Veranstalter ist die Binzer Bucht (Kontakt active@binzer-bucht.de), eigene Eventseite; sportstiming.dk war nur die Anmeldung."
+ },
+ "Crosslauf - Landkreiscup Amberg Sulzbach|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "landkreiscup.de",
+  "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04273",
+  "neu": "https://www.landkreiscup.de/",
+  "notiz": "Offizielle Seite des Landkreiscups Amberg-Sulzbach (Termine, Startzeiten); Ausrichter SC Monte Kaolino Hirschau ohne eigene Laufseite. rennmeldung.de war nur die Anmeldung."
+ },
+ "DKB Staffellauf Liebenberg|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://myracepartner.com/veranstaltung/?event-id=536137",
+  "notiz": "Nur myracepartner und der Veranstaltungskalender der DKB-Stiftung, keine eigene Laufseite. Hinweis: kulturfeste.de nennt 14.09.2026 als Termin - nicht geprüft."
+ },
+ "Düsseldorf Night Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "d-running.de",
+  "alt": "https://www.anmeldungs-service.de/nightrun2026/",
+  "neu": "https://www.d-running.de/night-run",
+  "notiz": "Offizielle Seite (D.SPORTS/D.LIVE), Titel \"Night Run 2026\"; anmeldungs-service.de war nur die Anmeldung."
+ },
+ "Edeka Ladage-Lauf Wennigsen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lauf.edeka-ladage.de",
+  "alt": "https://laufen.de/laufkalender/details/26V09000331260000",
+  "neu": "https://lauf.edeka-ladage.de/",
+  "notiz": "Offizielle Laufseite \"Edeka Ladage Lauf - Lauf 2026\"; der laufen.de-Portallink lief auf eine tote Adresse."
+ },
+ "Altstadt-Run - Schwalmstadt|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/409639/",
+  "neu": "https://www.esvjahntreysa.de/",
+  "notiz": "Organizer-URL der raceresult-Kontaktseite; Seite des ESV Jahn Treysa nennt den Altstadtrun 2026."
+ },
+ "Run of Colours|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/372562/",
+  "neu": "https://www.aidshilfe-koeln.de/kalender/run-of-colours/",
+  "notiz": "Organizer-URL (Aidshilfe Köln), Seite \"RUN OF COLOURS\" mit Anmeldung/Ergebnissen 2026."
+ },
+ "Ziegeleilauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/368780/",
+  "neu": "http://ziegelei-twistringen.de/",
+  "notiz": "Organizer-URL; Seite der Alten Ziegelei nennt \"Ziegelei Lauf 2026, 19.09.2026\"."
+ },
+ "Balkantrassenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/354931/",
+  "neu": "https://www.feinerlauf.de/",
+  "notiz": "Organizer-URL www.feinerlauf.de (Veranstalter Oliver Witzke); Startseite listet die Läufe."
+ },
+ "2. Balkanstassenlauf Marathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "feinerlauf.de",
+  "alt": "https://www.feinerlauf.de/balkantrassenlauf",
+  "neu": "https://www.feinerlauf.de/",
+  "notiz": "Bisheriger Link /balkantrassenlauf ist 404; Veranstalterseite feinerlauf.de (laut raceresult-Kontakt des Balkantrassenlaufs)."
+ },
+ "Phoenix-Halbmarathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/381220/",
+  "neu": "https://sparkassen-phoenix-halbmarathon.de/",
+  "notiz": "Organizer-URL, eigene Seite des Halbmarathons (upletics)."
+ },
+ "Beerfelder Waldlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/415668/",
+  "neu": "https://www.skiclub-beerfelden.de/",
+  "notiz": "Organizer-URL; Seite des Skiclubs trägt Ausschreibung und Ergebnisse Beerfelder Waldlauf 2026."
+ },
+ "Bokeler Straßenlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/364714/",
+  "neu": "https://www.lav-bokel.net/",
+  "notiz": "Organizer-URL; Seite nennt \"LAV Strassenlauf am 26. September 2026\" samt Ausschreibung."
+ },
+ "Psyland Backyard Ultra Community Run|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/390791/",
+  "neu": "https://psyland25.com/backyard-ultra/",
+  "notiz": "Organizer-URL, eigene Backyard-Seite."
+ },
+ "24. Elmshorner Stadtlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/389937/",
+  "neu": "https://www.elmshorner-stadtlauf.de/",
+  "notiz": "Organizer-URL, eigene Seite mit Ausschreibung 2026."
+ },
+ "25. Marner Kohltagelauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/396063/",
+  "neu": "https://marner-kohltagelauf.com/",
+  "notiz": "Organizer-URL, eigene Seite (\"Melde dich jetzt für 2026 an\")."
+ },
+ "37. Eper Michaelislauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/415488/",
+  "neu": "https://www.tv-westfalia07epe.de/",
+  "notiz": "Organizer-URL; Vereinsseite führt \"Michaelislauf 2026\"."
+ },
+ "Dörenther Klippen UltraTrail|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/418468/",
+  "neu": "https://ultra-uwe-unterwegs.de/",
+  "notiz": "Organizer-URL zeigte auf einen Bericht des Veranstalters (ultra-uwe-unterwegs.de); Startseite mit Lauftermine gesetzt."
+ },
+ "Erzsteig über Hüggel-Gipfel UltraTrail|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/418470/",
+  "neu": "https://ultra-uwe-unterwegs.de/",
+  "notiz": "Organizer-URL des Veranstalters Uwe Laig."
+ },
+ "Schmugglertrail Ultramarathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/402245/",
+  "neu": "https://ultra-uwe-unterwegs.de/",
+  "notiz": "Organizer-URL des Veranstalters (TV Hohne / Uwe Laig)."
+ },
+ "Lauf am Berzdorfer See|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/416895/",
+  "neu": "https://www.xn--ol-grlitz-37a.de/",
+  "notiz": "Organizer-URL www.ol-görlitz.de (Umlaut-Domain, hier als Punycode); Seite des OL Görlitz e.V."
+ },
+ "Wartburglauf Eisenach|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/403690/",
+  "neu": "https://www.sv-wartburgstadt.de/",
+  "notiz": "Organizer-URL; Vereinsseite listet \"47. Wartburglauf, 27. Sept. 2026\"."
+ },
+ "28. Alfelder Leinetal-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/381986/",
+  "neu": "https://www.lav-alfeld.de/",
+  "notiz": "Organizer-URL; Seite nennt den 28. Leinetal-Lauf am 3.10.2026 mit Ausschreibung."
+ },
+ "8. Bondorflauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/383665/",
+  "neu": "https://radfreizeit.sv-bondorf.de/",
+  "notiz": "Organizer-URL der Abteilung Rad- und Freizeitsport des SV Bondorf (Veranstalter laut Kontaktseite)."
+ },
+ "Crosslauf Jüchen|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "crosslauf-juechen.de, raceresult",
+  "alt": "https://www.crosslauf-juechen.de/",
+  "notiz": "Die Vereinsseite meldet \"Die Veranstaltung wird nicht mehr durchgeführt\" (503-Seite), die raceresult-Seite 376587 ist inzwischen 404. Termin ist der 18.09.2026 - fällt morgen ohnehin aus der Liste. Möglicherweise abgesagt; nichts geändert."
+ },
+ "Family-CrossDeLuxe Leipzig|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "crossdeluxe.de",
+  "alt": "https://running.life/de/termine/family-crossdeluxe-leipzig",
+  "neu": "https://crossdeluxe.de/leipzig/family/",
+  "notiz": "Offizielle Seite \"AOK PLUS Family-CrossDeLuxe\", 19.-20.09.2026 Markkleeberger See; running.life war der Portallink."
+ },
+ "HOYWOJ-Citylauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "sportclub-hoyerswerda.de",
+  "alt": "https://baer-service.de/veranstaltung/HOY/",
+  "neu": "https://hoywojcitylauf.sportclub-hoyerswerda.de/",
+  "notiz": "Eigene Laufseite des Sportclub Hoyerswerda (19. HOYWOJ-Citylauf am 19.09.2026); baer-service.de war nur die Anmeldung/Zeitnahme."
+ },
+ "Hanstedter Waldlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "klv-uelzen.de",
+  "alt": "https://ladv.de/ausschreibung/detail/49020/40.-Hanstedt-Waldlauf-2026-Uelzen.htm",
+  "neu": "https://www.klv-uelzen.de/",
+  "notiz": "Veranstalter ist der Kreisleichtathletikverband Uelzen (Ausschreibungen dort unter Veranstaltungen); ladv.de war das Ausschreibungsportal."
+ },
+ "Mud Masters - Airport Weeze|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "mudmasters.com",
+  "alt": "https://running.life/de/termine/mud-masters-airport-weeze-nrw",
+  "neu": "https://mudmasters.com/event/airport-weeze",
+  "notiz": "Offizielle Eventseite (19 & 20 September 2026); running.life war der Portallink."
+ },
+ "Sparkassen-Altstadtlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tvo-leichtathletik.de",
+  "alt": "https://laufen.de/laufkalender/details/26V14000007960001",
+  "neu": "https://www.tvo-leichtathletik.de/",
+  "notiz": "Veranstalter TV Ottweiler Leichtathletik, Seite trägt \"Ausschreibungen Altstadtlauf 2026 (mit Anmeldelink)\", 19. September; laufen.de war der Portallink."
+ },
+ "Superherorun|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "superherorun.de",
+  "alt": "https://baer-service.de/veranstaltung/SHR/",
+  "neu": "https://www.superherorun.de/",
+  "notiz": "Eigene Seite (\"Superherorun Nr. 3 am 19.09.2026\"); baer-service.de war nur die Anmeldung."
+ },
+ "Wunnebad Swim&Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "Websuche (hdsports, DTU)",
+  "alt": "https://wunnebad-swim-and-run-2026.racepedia.de/ergebnisse",
+  "neu": "https://wunnebad-swim-run.de/",
+  "notiz": "Veranstalterseite laut mehreren Kalendern (VfL Waiblingen Triathlon); Abruf aus der Sandbox scheiterte am Proxy. HINWEIS: 2026 laut hdsports nur noch für Jugendliche - Daten nicht geprüft."
+ },
+ "Nagolder Mittsommerlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact, vfl-nagold.com",
+  "alt": "https://my.raceresult.com/376250/",
+  "neu": "https://www.vfl-nagold.com/",
+  "notiz": "Organizer-URL /vfl-mittsommerlauf/ ist 404; Vereinsseite gesetzt. HINWEIS: Die Seite wirbt für den 18.09.2026 mit \"Herbstlauf unter Flutlicht\" - womöglich umbenannt, Daten nicht geprüft."
+ },
+ "Essener Rhein-Herne-Kanal Marathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/395940/",
+  "notiz": "Organizer-URL tusem-leichtathletik.de ist eine reservierte STRATO-Domain ohne Inhalt - raceresult bleibt."
+ },
+ "Idar-Obersteiner Felsenkirche Treppenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/377205/registration",
+  "notiz": "Organizer-URL marathonteam-hagner.de antwortet 404 - raceresult bleibt."
+ },
+ "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/412923/",
+  "notiz": "Organizer-URL skilaeuferzunft.de leitet auf die Abteilungsseite der TSG Leutkirch (Skisport), der Lauf ist dort nicht erkennbar - raceresult bleibt."
+ },
+ "Belgershainer Crosslauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/415685/",
+  "neu": "https://www.sv1863belgershain.de/",
+  "notiz": "Organizer-URL /wordpress/ ist 404, die Vereinsseite selbst erreichbar; Veranstalter SV 1863 Belgershain."
+ },
+ "Fun & Erlebnis Marathons|2026-09-23": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/414254/",
+  "notiz": "Organizer-URL teichwiesen.myblog.de ist tot (nginx-Standardseite) - raceresult bleibt."
+ },
+ "Fun & Erlebnis Marathons|2026-09-30": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/414337/",
+  "notiz": "wie 23.09.: Organizer-URL tot - raceresult bleibt."
+ },
+ "Autohaus Prinz - Schildberglauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://myracepartner.com/veranstaltung/?event-id=532946",
+  "notiz": "Keine eigene Seite, nur Kalender und myracepartner. HINWEIS: Kalender nennen Schildau (Belgern-Schildau) als Ort, bei uns steht Lossatal - Ort nicht geprüft."
+ },
+ "66. Crosslauf Rund um den Wasserturm|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V15000018060000",
+  "notiz": "Ausrichter SV Einheit Bräunsdorf; Vereinsseite aus der Sandbox nicht erreichbar, sachselauf.de ist die Zeitnahme. laufen.de bleibt."
+ },
+ "Stadtfestlauf Lüdinghausen|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://ladv.de/ausschreibung/detail/45622/23.-Stadtfestlauf-L%C3%BCdinghausen-L%C3%BCdinghausen.htm",
+  "notiz": "Organizer-URL www.lh-lauf.de leitet selbst auf die raceresult-Seite 374874 weiter - die ist damit die offizielle Seite."
+ },
+ "17. Wehringer Wertachlauf mit schwäbischen Meisterschaften|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lg-wehringen.de",
+  "alt": "https://www.lg-wehringen.de/Wettkampfe/Wertachlauf/2026/2026.html",
+  "neu": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/",
+  "notiz": "Alte Adresse /Wettkampfe/Wertachlauf/2026/2026.html ist 404 (Seite neu gebaut); neue Eventseite \"17. Wehringer Wertachlauf, 19. September 2026\"."
+ },
+ "Wehringer Wertachlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lg-wehringen.de",
+  "alt": "https://www.lg-wehringen.de/Wettkampfe/Wertachlauf/2026/2026.html",
+  "neu": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/",
+  "notiz": "wie \"17. Wehringer Wertachlauf …\" (dieselbe Veranstaltung unter zweitem Namen - Duplikat, nicht zusammengeführt)."
+ },
+ "38. Volkslauf Rund um den Disibodenberg|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tv-odernheim.de",
+  "alt": "https://laufen.de/laufkalender/details/26V13000129460000",
+  "neu": "https://www.tv-odernheim.de/disibodenberglauf-2026-2/",
+  "notiz": "Seite \"Disibodenberglauf 2026\" des TV Odernheim; laufen.de war der Portallink."
+ },
+ "Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühle e.V.|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "fitinlautern.de",
+  "alt": "https://laufen.de/laufkalender/details/26V11000023360001",
+  "neu": "https://fitinlautern.de/",
+  "notiz": "Seite des veranstaltenden Vereins Fit in Lautern e.V. (Presse: \"Informationen und Anmeldung unter fitinlautern.de\"); laufen.de war der Portallink."
+ },
+ "Ziegenhainer Auelauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "mittelsaechsische-lauftour.com",
+  "alt": "https://mittelsaechsische-lauftour.com/wettkaempfe/ziegenhainer-auelauf.html",
+  "neu": "https://mittelsaechsische-lauftour.com/",
+  "notiz": "Die bisherige Unterseite ist 404; die Lauftour-Seite (22. Mittelsächsische Lauftour 2026, Ausschreibung/Wettkämpfe) führt den Auelauf."
+ },
+ "16. Weddelbrooker Dorflauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tsvweddelbrook.de",
+  "alt": "https://laufen.de/laufkalender/details/26K17000000060058",
+  "neu": "https://www.tsvweddelbrook.de/verein/dorflauf",
+  "notiz": "Dorflauf-Seite des TSV Weddelbrook (Ausschreibung, Strecken, Anmeldung); der laufen.de-Link lief auf eine tote Domain."
+ },
+ "39. Herbstlauf und 29. Wandertag Fleckenberg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "vflfleckenberg.de",
+  "alt": "https://laufen.de/laufkalender/details/26V19000221160001",
+  "neu": "https://vflfleckenberg.de/",
+  "notiz": "Vereinsseite nennt \"39. Herbstlauf und Wandertag am 20. September 2026 in Fleckenberg\" mit Anmeldelink; laufen.de war der Portallink."
+ },
+ "40. Engenhahner Gickel-Waldlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "gickellauf.de",
+  "alt": "https://laufen.de/laufkalender/details/26V07000083860001",
+  "neu": "http://www.gickellauf.de/",
+  "notiz": "Laufseite des TSV Engenhahn (\"Der 40. Gickellauf findet am Sonntag, den 20.09. statt\"); laufen.de war der Portallink."
+ },
+ "Alagastlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Websuche",
+  "alt": "https://leichtathletik.sv-gau-algesheim.de/veranstaltungen/alagast-volkslauf/alagastlauf-2026/",
+  "notiz": "Unsere Seite leichtathletik.sv-gau-algesheim.de/…/alagastlauf-2026/ steht in den Suchtreffern; Abruf aus der Sandbox scheitert am Proxy. Daneben gibt es alagastlauf.de - beide vom SV 1910."
+ },
+ "Firmenstaffellauf Meißen|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://baer-service.de/veranstaltung/MFL/",
+  "notiz": "Keine Veranstalterseite (Träger: Partnerschaft für Demokratie/Diakonie/KSB Meißen), nur baer-service als Anmeldung - bleibt."
+ },
+ "Neustadter Altstadtlauf|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://runtix.com/sts/10021/3180",
+  "notiz": "Veranstalter Postsportverein Neustadt, keine eigene Laufseite gefunden - runtix bleibt."
+ },
+ "Weeze 3 x 5 km Staffellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "tsv-weeze-leichtathletik.de",
+  "alt": "https://www.tsv-weeze-leichtathletik.de/staffel.html",
+  "notiz": "Eigene Staffel-Seite des TSV Weeze. HINWEIS: is_portal_link() hält den Link fälschlich für einen Portallink, weil \"leichtathletik.de\" als Teilzeichenkette drinsteckt - siehe Fix in scraper_lib."
+ },
+ "Holperdorper Berg Ultra Trail|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/401968/",
+  "notiz": "Kontaktseite nennt keine Organizer-URL (Veranstalter Uwe Laig) - raceresult bleibt."
+ },
+ "Owweremschdä Stadtlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/391279/",
+  "notiz": "Keine Organizer-URL auf der Kontaktseite - raceresult bleibt."
+ },
+ "Peenetal Crosslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/386845/",
+  "notiz": "Keine Organizer-URL (Lüssower Dorfgemeinschaft) - raceresult bleibt."
+ },
+ "Stadtlauf Tribsees|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/409366/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Northeimer Tageslicht Ultra|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/388203/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Rathenower Herbst-Marathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/421206/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Fernsehturm Steinegge Ultra|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/418510/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Schönberger Stadtlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/387777/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Äpfele-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/393767/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "4 Moore Ultratrail-Marathon|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/383623/",
+  "notiz": "Keine Organizer-URL - raceresult bleibt."
+ },
+ "Burgstäffeleslauf Esslingen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/390598/",
+  "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
+ },
+ "Herbstcrosslauf des KSB Altmark West|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/383937/",
+  "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
+ },
+ "Neuensteiner Stadtlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/354869/",
+  "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
+ },
+ "Breckerfelder Flower Power Ultra 50|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/385715/",
+  "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
+ },
+ "PULSEDAY DRT Lauf|2026-09-24": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/414417/",
+  "notiz": "Organizer-URL zeigt auf eine Fachgruppen-Seite von herzmedizin.de, nicht auf den Lauf - raceresult bleibt."
+ },
+ "Idar-Obersteiner Altstadtlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/389713/",
+  "notiz": "Organizer-URL ist die Stadt-Homepage idar-oberstein.de ohne Laufseite - raceresult bleibt."
+ },
+ "Neustädter Gestütspokallauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/399313/",
+  "notiz": "Organizer-URL ist die Amts-Homepage - raceresult bleibt."
+ },
+ "Stadtlauf Herdorf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/421569/",
+  "notiz": "Organizer-URL ist der Zeitnehmer (ausdauer-shop.de) - raceresult bleibt."
+ },
+ "Feuerwehrlauf am Schönbuch Turm|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/373019/",
+  "notiz": "Organizer-URL ist der Eventdienstleister (eventservice-stahl.de) - raceresult bleibt."
+ },
+ "Herforder Highway Ultra|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/364614/",
+  "notiz": "Organizer-URL ist ein Facebook-Event-Link - raceresult bleibt."
+ },
+ "Valkyrie Trailrun|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/370252/",
+  "notiz": "Organizer-URL crossfitrecklinghausen.de/events/ ist 404 - raceresult bleibt."
+ },
+ "Deichenwand-Trail Wilgartswiesen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "raceresult /contact",
+  "alt": "https://my.raceresult.com/381869/",
+  "neu": "https://www.deichenwand-trail.de/",
+  "notiz": "Organizer-URL www.deichenwand-trail.de (TSV Wilgartswiesen); Abruf aus der Sandbox am Proxy gescheitert, die Domain ist eventspezifisch."
+ },
+ "Gesmolder Kirmeslauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "sv-viktoria-gesmold.de",
+  "alt": "https://www.laufen-os.de/wettkaempfe/8-gesmolder-kirmeslauf-2026",
+  "neu": "https://www.sv-viktoria-gesmold.de/kirmeslauf/",
+  "notiz": "Kirmeslauf-Seite des veranstaltenden SV Viktoria Gesmold; der bisherige laufen-os.de-Link (Anmeldeportal) ist 404."
+ },
+ "Entega Nightrun|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "entega-nightrun.de",
+  "alt": "https://laufen.de/laufkalender/details/26L07900000460002",
+  "neu": "https://www.entega-nightrun.de/",
+  "notiz": "Eigene Seite (Ausschreibung, Anmeldung, Strecke); laufen.de war der Portallink."
+ },
+ "3. Aindlinger Kleeblattmarsch|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "aindling-bewegt-sich.de",
+  "alt": "https://laufen.de/laufkalender/details/26V02000738860001",
+  "neu": "https://www.aindling-bewegt-sich.de/?kleeblatt=",
+  "notiz": "Seite des Veranstalters aindling BEWEGT sich e.V. (\"startet am 26. September 2026 in die 3. Runde\"); laufen.de war der Portallink."
+ },
+ "40. Weezer Staffellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tsv-weeze-leichtathletik.de",
+  "alt": "https://laufen.de/laufkalender/details/26V10001010760003",
+  "neu": "https://www.tsv-weeze-leichtathletik.de/staffel.html",
+  "notiz": "Staffel-Seite des TSV Weeze Leichtathletik; laufen.de war der Portallink. HINWEIS: dieselbe Veranstaltung steht auch als \"Weeze 3 x 5 km Staffellauf\" in der Liste - Duplikat."
+ },
+ "21. Panoramalauf Kriegsheim|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "llgwonnegau.de",
+  "alt": "https://laufen.de/laufkalender/details/26V13003076860000",
+  "neu": "https://www.llgwonnegau.de/",
+  "notiz": "Seite der veranstaltenden LLG Wonnegau (\"Hinweis zum 21. Panoramalauf\"); laufen.de war der Portallink. HINWEIS: dieselbe Veranstaltung steht auch als \"Kriegsheimer Panoramalauf\" (Monsheim, runtix) in der Liste - Duplikat."
+ },
+ "Kriegsheimer Panoramalauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "llgwonnegau.de",
+  "alt": "https://runtix.com/sts/10021/3161",
+  "neu": "https://www.llgwonnegau.de/",
+  "notiz": "wie \"21. Panoramalauf Kriegsheim\" (Duplikat); runtix war nur die Anmeldung."
+ },
+ "Fleckenberger Herbstlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "vflfleckenberg.de",
+  "alt": "https://vflfleckenberg.de/37-herbstlauf-und-wandertag-am-15-september-2024-in-fleckenberg/",
+  "neu": "https://vflfleckenberg.de/",
+  "notiz": "Bisheriger Link zeigte auf den Artikel von 2024; Vereinsseite mit dem Beitrag zum 39. Herbstlauf 2026. HINWEIS: Duplikat von \"39. Herbstlauf und 29. Wandertag Fleckenberg\"."
+ },
+ "39. Cochem Zeller Crosslauf Serie|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V13000072960000",
+  "notiz": "Serie von VfL Bremm/TuS Kaisersesch/SV Alflen ohne eigene Seite (nur Verbandskalender lv-rr.de) - laufen.de bleibt."
+ },
+ "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V13000496150000",
+  "notiz": "Veranstalter SV Diez-Freiendiez, keine eigene Laufseite gefunden (Anmeldung über volkslauf.de/raceresult) - laufen.de bleibt."
+ },
+ "Bergklosterlauf Bestwig|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Websuche",
+  "alt": "https://www.tus-velmede-bestwig.de/bergklosterlauf",
+  "notiz": "tus-velmede-bestwig.de/bergklosterlauf steht so in den Suchtreffern; der Abruf aus der Sandbox lief in einen Timeout."
+ },
+ "Crosslauf Friedrichsruh mit Kreismeisterschaft|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V09000512150000",
+  "notiz": "Veranstalter TV Langen ohne eigene Laufseite; für 2026 nur ladv/laufen.de - laufen.de bleibt."
+ },
+ "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "sg-zons.de",
+  "alt": "https://sg-zons.de/7-meilen-lauf.html",
+  "neu": "https://www.sg-zons.de/7-meilen-v-zons/aktuelles.html",
+  "notiz": "Alte Adresse /7-meilen-lauf.html ist 404 (Seite umgebaut); Laufseite der SG Zons (Aktuelles, Anmeldung, Ergebnisse). HINWEIS: Duplikat von \"Zonser Nachtlauf\" (Dormagen)."
+ },
+ "Zonser Nachtlauf|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "sg-zons.de",
+  "alt": "https://www.sg-zons.de/7-meilen-lauf.html",
+  "neu": "https://www.sg-zons.de/7-meilen-v-zons/aktuelles.html",
+  "notiz": "wie \"50. Nachtlauf über 7 Meilen …\" (Duplikat)."
+ },
+ "23. Schottener Stauseelauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tgv-schotten.de",
+  "alt": "https://laufen.de/laufkalender/details/26V07000041660001",
+  "neu": "https://www.tgv-schotten.de/aktuelles-termine/2026/23-schottener-stauseelauf-sa-26092026/",
+  "notiz": "Eventseite des TGV Schotten; laufen.de war der Portallink."
+ },
+ "24. Bordesholmer Seelauf SEE +RUN|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tsv-bordesholm.de",
+  "alt": "https://www.davengo.com/event/overview/24-bordesholmer-seelauf-see-run-2026",
+  "neu": "https://tsv-bordesholm.de/veranstaltungen/see-and-run/",
+  "notiz": "SEE&RUN-Seite des TSV Bordesholm; davengo war nur die Anmeldung. ACHTUNG: Die Seite meldet \"Absage des SEE&RUN 2026 – Fokus auf 2027 gerichtet\" - Veranstaltung ABGESAGT, Entscheidung (exclude) beim Nutzer."
+ },
+ "Running Paule RP-Marathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "running-paule.de",
+  "alt": "https://running-paule.de/wp-content/uploads/2026/03/69.-RP-Marathon-Ausschreibung-20.09.26.pdf",
+  "neu": "https://running-paule.de/",
+  "notiz": "Der PDF-Link ist 404; Startseite listet \"69. RP-Marathon 19.09.26\". HINWEIS: Seite nennt den 19.09., bei uns steht der 20.09.2026 - Datum nicht geprüft."
+ },
+ "1. Bärmesener Päädellauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "fkp-enduranceteam.de",
+  "alt": "https://laufen.de/laufkalender/details/26V11000026160002",
+  "neu": "https://www.fkp-enduranceteam.de/paedellauf",
+  "notiz": "Eigene Laufseite des FKP Endurance-Teams (27.09.2026); laufen.de war der Portallink."
+ },
+ "19. Nordahl Grieg Gedenklauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "maxim-gorki-gesamtschule.kleinmachnow.de",
+  "alt": "https://laufen.de/laufkalender/details/26V04006906160001",
+  "neu": "https://maxim-gorki-gesamtschule.kleinmachnow.de/Nordahl-Grieg-Gedenklauf",
+  "notiz": "Seite des Veranstalters (Maxim-Gorki-Gesamtschule, \"19. Nordahl-Grieg-Gedenklauf\"); laufen.de war der Portallink."
+ },
+ "30. Ruhstorfer Geländelauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "laruhstorf.de",
+  "alt": "https://laufen.de/laufkalender/details/26L02000232160001",
+  "neu": "https://laruhstorf.de/",
+  "notiz": "Seite der SVG Ruhstorf Leichtathletik (\"Sonntag, 27. September 2026, 30. Ruhstorfer Geländelauf, Anmeldung\"); laufen.de war der Portallink."
+ },
+ "6h Klostersee-Lauf - Spendenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "rickyssporttreff.de",
+  "alt": "https://rickyssporttreff.de/event/6h-kls-2026/",
+  "neu": "https://rickyssporttreff.de/",
+  "notiz": "Die Eventseite /event/6h-kls-2026/ ist 404; Startseite des Veranstalters gesetzt."
+ },
+ "Landkreislauf Regensburg|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "landkreis-regensburg.de",
+  "alt": "https://www.landkreis-regensburg.de/freizeit-tourismus/landkreislauf/",
+  "notiz": "Die Seite antwortet mit einem Sicherheitscheck (503) nur für automatische Abrufe; Adresse ist die Landkreislauf-Seite."
+ },
+ "41. Volkswandertag|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V09900014060000",
+  "notiz": "Keine Veranstalterseite gefunden (nur Kalender/Facebook) - laufen.de bleibt."
+ },
+ "Studernheimer Kerwelauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://runtix.com/sts/10021/3108",
+  "notiz": "Veranstalter Studernheimer Arbeitsgemeinschaft e.V. ohne eigene Seite - runtix bleibt."
+ },
+ "9. Trainingslauf Bottwartal-Marathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "bottwartal-marathon.de",
+  "alt": "https://laufen.de/laufkalender/details/26V20900004060014",
+  "neu": "https://www.bottwartal-marathon.de/deine-vorbereitung/trainingsangebot/",
+  "notiz": "Seite \"Trainingsangebot\" des Bottwartal-Marathons mit der Terminliste der Trainingsläufe; laufen.de war der Portallink."
+ },
+ "EnergieSüdwest Cup|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "energie-suedwest.de",
+  "alt": "https://runtix.com/sts/10021/3132",
+  "neu": "https://energie-suedwest.de/die-energie-sudwest/energiesudwest-cup/",
+  "notiz": "Cup-Seite des Namensgebers mit Terminen 2026 (27.09. Göcklingen); runtix war nur die Anmeldung."
+ },
+ "Raiba-Ellernstaffellauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lauftreff-rastede.de",
+  "alt": "https://portal.run-timing.de/1002/registration",
+  "neu": "https://www.lauftreff-rastede.de/",
+  "notiz": "Veranstalter Lauftreff Rastede (\"1. Raiba-Ellernlauf 2026 am 27. September\"); run-timing war nur die Anmeldung. HINWEIS: Duplikat von \"Rasteder Ellernteichstaffellauf\"."
+ },
+ "Rasteder Ellernteichstaffellauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lauftreff-rastede.de",
+  "alt": "https://laufen.de/laufkalender/details/26V09000613960000",
+  "neu": "https://www.lauftreff-rastede.de/",
+  "notiz": "wie \"Raiba-Ellernstaffellauf\" (Duplikat); laufen.de war der Portallink."
+ },
+ "Schusterlauf Preetz|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "schusterlauf.de",
+  "alt": "https://www.davengo.com/event/overview/schusterlauf-preetz-2026",
+  "neu": "https://schusterlauf.de/",
+  "notiz": "Eigene Seite (\"42. Schusterlauf Preetz 2026\"); davengo war nur die Anmeldung."
+ },
+ "Stolpener Basalt-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "basaltlauf.org",
+  "alt": "https://baer-service.de/veranstaltung/SBL/",
+  "neu": "https://basaltlauf.org/",
+  "notiz": "Eigene Seite (\"27. September 2026, 9. Stolpener Basalt-Lauf\"); baer-service.de war nur die Anmeldung."
+ },
+ "10. Kranlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "kranlauf.de",
+  "alt": "https://laufen.de/laufkalender/details/26V07000059560002",
+  "neu": "https://kranlauf.de/",
+  "notiz": "Eigene Seite des Benefizlaufs der Aids-Hilfe Offenbach; laufen.de war der Portallink."
+ },
+ "26. Krautsander Insellauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V09000551060000",
+  "notiz": "Veranstalter LG Kehdingen (SV Dornbusch/TV Wischhafen) ohne eigene Seite - laufen.de bleibt."
+ },
+ "Buchdorfer Jedermannslauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V02000739360003",
+  "notiz": "Veranstalter LG Donau-Ries ohne eigene Seite - laufen.de bleibt."
+ },
+ "13. Stauch Cup|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V20900001260000",
+  "notiz": "Veranstalter Gemeinde Kupferzell mit TSV Kupferzell/SC Bibersfeld; die Kalenderseite der Gemeinde ist 404, Zeitnahme racesolution.de, sonst nur Facebook. Der laufen.de-Link leitet auf racesolution.de/anmeldung (404) - bleibt mangels Alternative."
+ },
+ "21. Stimberg-Haardlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "tus09e.de",
+  "alt": "https://ladv.de/ausschreibung/detail/46180/21.-Stimberg-Haard-Lauf-Oer-Erkenschwick.htm",
+  "neu": "https://tus09e.de/leichtathletik/haardlauf/",
+  "notiz": "Haardlauf-Seite des TuS 09 Erkenschwick (\"Stimberg-Haardlauf am 3. Oktober 2026\"); ladv.de war das Ausschreibungsportal."
+ },
+ "36. Volkslauf SV Traisa|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "svtraisa.de",
+  "alt": "https://laufen.de/laufkalender/details/26V07000110760002",
+  "neu": "https://www.svtraisa.de/",
+  "notiz": "Seite des veranstaltenden SV 1911 Traisa (Triathlon-Abteilung richtet den Volkslauf am 3.10. aus); laufen.de war der Portallink."
+ },
+ "Alois-Andritzki-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://baer-service.de/veranstaltung/AAL/",
+  "notiz": "Veranstalter Cyrill-Methodius-Verein/SG Radibor; posol.de ist eine sorbische Zeitung, keine Laufseite - baer-service bleibt."
+ },
+ "Benefizlauf der Wiehenläufer|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "wiehenläufer.de",
+  "alt": "https://laufen.de/laufkalender/details/26L19000392760001",
+  "neu": "http://www.xn--wiehenlufer-r8a.de/",
+  "notiz": "Seite des Veranstalters (Wiehenläufer/Wiehensport Hüllhorst); der laufen.de-Link lief auf eine nicht auflösbare Domain. ACHTUNG: Startseite beginnt mit \"Leider muss der Benefizlauf krankheitsbedingt …\" - ohne Jahresangabe im Ausschnitt; möglicherweise ABGESAGT, Entscheidung beim Nutzer."
+ },
+ "Burgentrail Unterfränkische Traillaufmeisterschaften|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "sc-ostheim.de",
+  "alt": "https://laufen.de/laufkalender/details/26B02000618050500",
+  "neu": "https://sc-ostheim.de/burgentrail/",
+  "notiz": "Burgentrail-Seite des SC Ostheim (\"am 3. Oktober 2026\"); laufen.de war der Portallink."
+ },
+ "Lauf für einen guten Zweck - Rastenberg|2026-09-22": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://runtix.com/sts/10021/3221",
+  "notiz": "Keine Veranstalterseite (nur runtix/br-timing) - runtix bleibt."
+ },
+ "10 km Fliegerhorstlauf Schortens|2026-09-24": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Fliegerhorstlauf/",
+  "notiz": "Veranstalter Bundeswehr Fliegerhorst Upjever ohne eigene Seite; laufmanager.net (Anmeldung) bleibt. HINWEIS: eine Quelle vermutet, der Lauf finde 2026 nicht statt - unbestätigt."
+ },
+ "Turmlauf Sankt Englmar|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04277",
+  "notiz": "Charity-Sprint der ASID GmbH am WaldWipfelWeg ohne eigene Seite - rennmeldung.de bleibt."
+ },
+ "Bahnstreckenlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://laufen.de/laufkalender/details/26V13000042160000",
+  "notiz": "Veranstalter TuS Bad Marienberg Leichtathletik ohne eigene Laufseite (ergebnisliste.de ist die Zeitnahme) - laufen.de bleibt."
+ },
+ "Saarländische Meisterschaften 5km Straße|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://ladv.de/ausschreibung/detail/48514/Saarl%C3%A4ndische-Meisterschaften-5km-Stra%C3%9Fe-Ottweiler.htm",
+  "notiz": "Die Meisterschaft läuft IM Sparkassen-Altstadtlauf Ottweiler (ltf-koellertal.de: \"Sparkassen-Altstadtlauf Ottweiler mit Saarlandmeisterschaft 5 km\") - Meisterschaft-im-Rahmen-Fall wie in CLAUDE.md beschrieben; ladv bleibt, Entscheidung (exclude) beim Nutzer."
+ },
+ "Campuslauf Hochschule Wismar|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://myracepartner.com/veranstaltung/?event-id=522924",
+  "notiz": "Die Campuslauf-Seite der Hochschule (hs-wismar.de/…/campuslauf-wismar/) ist 404 - myracepartner bleibt."
+ },
+ "Hohe Schrecke Waldlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "hohe-schrecke-waldlauf.com",
+  "alt": "https://runtix.com/sts/10021/3120",
+  "neu": "https://www.hohe-schrecke-waldlauf.com/",
+  "notiz": "Eigene Seite (\"Das Event 2026\"); runtix war nur die Anmeldung."
+ },
+ "Kolberger Berglauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "heimatvereinkolberg.de",
+  "alt": "https://www.berlin-timing.de/Kolberger-Berglauf",
+  "neu": "https://heimatvereinkolberg.de/",
+  "notiz": "Veranstalter Heimatverein Kolberg, Seite listet \"8. Kolberger Berglauf, 26. September 2026\"; berlin-timing.de war die Zeitnahme/Anmeldung."
+ },
+ "Uplengener RVB Herbstmarktlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://ladv.de/ausschreibung/detail/48187/22.-Uplengener-RVB-Herbstmarktlauf-Uplengen.htm",
+  "notiz": "Veranstalter LG Uplengen ohne eigene Seite (larasch/raceresult = Anmeldung) - ladv bleibt."
+ },
+ "Mommelsteinlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "unklar",
+  "quelle": "Websuche",
+  "alt": "https://runtix.com/sts/10021/3198",
+  "notiz": "Veranstalter SV 1962 Hohleborn ohne eigene Seite (nur Facebook) - runtix bleibt."
+ },
+ "Brückenlauf Wetter-Ruhr|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "inklusions-sportverein.de",
+  "alt": "https://time-and-voice.com/de/running/brueckenlauf-wetter-2026",
+  "neu": "https://inklusions-sportverein.de/",
+  "notiz": "Veranstalter Volmarsteiner Inklusions-Sportverein (Seite mit \"Laufevent 2026\"); brueckenlauf.bbw-web.de ist eine gekaperte Domain, time-and-voice.com war die Zeitnahme/Anmeldung."
+ },
+ "Möhnesee-Pokal-Lauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lg-deiringsen.de",
+  "alt": "https://laufen.de/laufkalender/details/26V19000291760001",
+  "neu": "https://lg-deiringsen.de/",
+  "notiz": "Veranstalter LG Deiringsen (Seite mit \"38. Möhnesee-Pokal-Lauf\"); laufen.de war der Portallink."
+ },
+ "Saarwiesenlauf Merzig|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "lv-merzig.de",
+  "alt": "https://ladv.de/ausschreibung/detail/45432/CEB-Saarwiesenlauf-Merzig.htm",
+  "neu": "https://lv-merzig.de/saarwiesenlauf",
+  "notiz": "Saarwiesenlauf-Seite des LV Merzig (verweist auf die Ausschreibung der CEB zum 20.09.2026); ladv.de war das Ausschreibungsportal."
+ },
+ "Küstenmarathon Otterndorf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "kuestenmarathon.de",
+  "alt": "https://www.davengo.com/event/overview/26-sparkassen-kuestenmarathon-2026",
+  "neu": "https://www.kuestenmarathon.de/",
+  "notiz": "Eigene Seite mit Ausschreibung 2026 (26. Sparkassen-Küstenmarathon); davengo war nur die Anmeldung."
+ },
+ "Muddy Älbler Hindernislauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "korrigiert",
+  "quelle": "muddy-aelbler.de",
+  "alt": "http://api.maxx-timing.de/showevents/198",
+  "neu": "https://muddy-aelbler.de/hindernislauf/",
+  "notiz": "Eigene Seite (\"Hindernislauf 2026: Jetzt anmelden\"); api.maxx-timing.de war die Zeitnahme."
+ },
+ "ONW-Lauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "onw-wendland.de",
+  "alt": "https://onw-wendland.de/anmeldung-onw-lauf/",
+  "notiz": "Eigene Seite des Veranstalters (Anmeldeseite auf der Vereinsdomain)."
+ },
+ "Ultramarsch Heidelberg X-Trem|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "ultramarsch.de",
+  "alt": "https://www.ultramarsch.de/p/2026-ticket-ultramarsch-heidelberg-x-trem-ultra-late-ticket",
+  "notiz": "Eigene Seite des Veranstalters (Ticketseite auf der Eventdomain)."
+ },
+ "39. 10km Lauf Neuhütten|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "lgneu.de",
+  "alt": "https://www.lgneu.de/anmeldung-vl/",
+  "notiz": "Anmeldeseite auf der Vereinsdomain des Veranstalters."
+ },
+ "25. Altstadtfestlauf in Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "altstadtfest-lauf.de",
+  "alt": "https://www.altstadtfest-lauf.de/",
+  "notiz": "Eventspezifische Domain; Abruf aus der Sandbox am Proxy gescheitert."
+ },
+ "SportScheck RUN Hannover|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.sportscheck.com/run-hannover.html",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "24. AggerEnergie- und Sparkassenlauf Gummersbach|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://lg-gm.de/portfolio/24-aggerenergie-und-sparkassenlauf-am-20-09-2026/",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "Red Bull Wattlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.redbull.com/de-de/events/red-bull-wattlauf",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "Run & Hike - Brannenburg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.personal-training-diana-fuchs.com/run-und-hike/",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "Wilden Weiden-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.wearecyclocross.com/hela-cross-lauf-serie-26-27/wilden-weiden-lauf-26.09.26/",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "18. Bickendorfer Büdchenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.bickendorferbuedchenlauf.de/",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "Bleckeder Storchenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "HTTP 403",
+  "alt": "https://www.vfl-bleckede.de/seite/850301/1.-bleckeder-storchenlauf.html",
+  "notiz": "Seite sperrt automatische Abrufe (403); Adresse ist eventspezifisch und in den Suchtreffern bekannt."
+ },
+ "20. Wipperfürther Stadtlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stadtlauf-wipperfuerth.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "25. Stadtlauf Hanau - Stärke zeigen - gemeinsam gegen Gewalt an Frauen|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hanauerstadtlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Backyardman Würzburg|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://backyardman.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bad Freienwalder Flutlichtlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://athleticon1997.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Delbrücker Katharinenlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.rw-bentfeld.de/katharinenlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Frankenpost Firmenlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.frankenpost-firmenlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Globetrotter Wandertage - Bad Schandau|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://wandern.bad-schandau.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "INTERSPORT Urban Trail Run Dresden|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.intersport.de/d/content/events/urban-trail-run-dresden",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kassel Marathon|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kassel-marathon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kowsky Team- und Firmenlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stgk.de/Veranstaltung_Detail.asp?Code=5",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "LCM Stundenlauf|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lc-mengerskirchen.de/event/50-lcm-stundenlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lois-Doff-Gedächtnisstaffel|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sc-anger.de/stoisser-alm-berglauf/lois-doff-gedaechtnisstaffel/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ma'Dame Run|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://madamerun.eu/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Trailrunning Squad Backyard Ultra|2026-09-18": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.trailrunningsquad.de/backyard-ultra/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Fürst Carl Seenlandmarathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://seenlandmarathon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Klausdorfer Kranichlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.klausdorfer-sc.de/kranichlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "17. Röderhof-Benefiz-Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://roederhof-benefiz-lauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "19. Duinger Berglauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sportclub-duingen.com/berglauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "20. Belchenberglauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.belchenberglauf.tus-schoenau.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Ort und ein Datum 2026/27."
+ },
+ "22. Bädleslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ssv-zuffenhausen.de/veranstaltungen/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "25h Lauffestival Göttingen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://25h-lauffestival.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "29. Aspacher Volkslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://murrtal-runners.de/volkslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "31. Seelauf TSV-Obernzenn|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsvobernzenn.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "34. Wilstermarsch Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://mtv-wilster.de/sparten/wilstermarschlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "37. Bessunger Merck-Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stadtteillauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "39. Lauf in die Mönau|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/lauf-in-die-moenau/veranstaltung/ausschreibung/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "41. Mühlenlauf in Laar|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sv-grenzland.de/muehlenlauf",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "45. Hörnle Berglauf Bad Kohlgrub|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://skiclub-bad-kohlgrub.de/veranstaltungen.php?id=94",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "50. Schurwaldlauf Rommelshausen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/schurwaldlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "8. Nassauer Hospiz-Charity-Run 2026|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hospiz-nassau.de/hospizlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ahmadiyya Charity Walk Leipzig|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/4-ahmadiyya-charity-walk-leipzig",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Riedstadt-Goddelau|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/4-ahmadiyya-charity-walk-riedstadt-goddelau",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Westerwald|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/5-ahmadiyya-charity-walk-westerwald",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Alfhausener Volkslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.laufen-os.de/wettkaempfe/13-alfhausener-volkslauf-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Arberland Ultra Trail|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.woidlaeufer.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Baaber Heidelauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.laufteam-ruegen.de/seite/765941/baaber-heidelauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Battle Cancer Berlin|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.battlecancer.com/de/berlin",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "Baumholder Stadtlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://baumholder-stadtlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Benefizlauf Sömmerda|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://run4kids-soem.de/unsere-veranstaltungen/../unsere-veranstaltungen/t/9_benefiz_hindernislauf-45.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bernburger Halbmarathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lauf.psv-bernburg.de/hm/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Black Forest ULTRA Trail Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ultra-trailrun.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bodensee Marathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.bodensee-marathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Brauereienlauf durch die Fränkische Toskana|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://brauereienlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "BraunenBerg-Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.braunenberg-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Center Run - Pösna Park|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://center-run.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Charity Walk & Run - München|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charity-walk.de/veranstaltungsorte/muenchen/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Devil's Loop - Langenberg Backyard Ultramarathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://devils-loop.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Disibodenberglauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tv-odernheim.de/disibodenberglauf-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Dr.-Selmayr-Gedächtnislauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://dr-selmayr-gedaechtnislauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Drachentriathlon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.drachentriathlon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Drei Talsperren Marathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.drei-talsperren-marathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Dresden Frauenlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.dresden-frauenlauf.com/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Fichtellauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.fnwm.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Frauenlauf Rosenheim|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://time2win.at/event/1018",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Freimarktslauf Garrel|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://freimarktslauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Geisaer Stundenlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.svborsch.de/ausschreibung-geisaer-stundenlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Gemeindelauf Niedertaufkirchen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.skiclub-ntk.de/programm/gemeindelauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "HEROS 100|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://spendenmarsch.org/heros-100/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Heidener Teufelslauf 2026|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.teufelslauf-heiden.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hellerberglauf Buxheim|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sport-in-blog.de/2026/01/07/hellerberglauf-buxheim-2/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hiking-Day Detmold|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hiking-day.de/event-details/hiking-day-detmold-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hochhausmarathon Köln|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://hochhausmarathon-koeln.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Insellauf Amrum|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.amrum.de/veranstaltungen/norddorf-auf-amrum/e-insellauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Int. Pronsfelder Volks- und Straßenlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.chiplauf.de/de/events/39-int-pronsfelder-volks-und-strassenlauf-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "KXL - Eichsfelder Kessel Benefiz Crosslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.kessel-x-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kapuziner-Kessellauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Klever Citylauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lvmarathon-kleve.com/citylauf-kleve/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ladage Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lauf.edeka-ladage.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lauf rund um das Freibad Waschmühle|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://fitinlautern.de/",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "Limberglauf Ranis|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.tsv1860ranis.de/seite/700360/laufsport.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "MBH Benefizlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Ort und ein Datum 2026/27."
+ },
+ "Messelauf Lauda-Königshofen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.messelauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Meulenwald-Föhren-Lauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.lgmf.de/Meulenwald-F%C3%B6hren-Lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Mittelpunkt Marathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.mjenmt.de/event-details/mittelpunkt-marathon-1",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Muko-Lauf Wald|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.muko-wald.de/der-spendenlauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Nordkette Vertical Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.nordkette-vertical-run.at/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Obernzenner Seelauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsvobernzenn.de/events/31-obernzenner-seelauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Obstacle City Run Berlin|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.obstacle-city-run.de/obstacle-city-run-berlin",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Regionalparklauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rhön-Grabfeld-Cup – Hollstadt|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://rhoengrabfeldcup.de/event/hollstadt-2/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Run and Bike Berlin|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://run-and-bike-berlin.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Running Paule Marathon|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://running-paule.de/laufevents/66-rp-marathon/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Runterra Race|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.runterra.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Sebnitzer Rucksacklauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.sebnitzer-rucksacklauf.de/rucksacklauf/index.php",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Sedus Firmenlauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sedus.com/de/sedustainable/soziales/sedus-run",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Stadtlauf Schrobenhausen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stadtmarketing-schrobenhausen.de/veranstaltungen/veranstaltungen-im-detail/?tx_gbevents_main%5Bevent%5D=26&cHash=b1abc7306956dc92503efc7140a090ed",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stadtparklauf Sondershausen|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.glueckauf-sondershausen.de/stadtparklauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stadtwald-Cross in Lutherstadt Wittenberg|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stadtwald-wittenberg.de/stadtwald-cross",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Team Duathlon Race for2|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tritronicteam.de/racefor2/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Tiroler Silberpfad Trophy|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Tortuga Run|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tortuga-run.com/tortuga-run-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wandlitz hier läuft's|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.wandlitz-hier-laeufts.de/loofen",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Welterbelauf Zollverein|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.welterbelauf-zollverein.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Winnender Wengert Wetzede|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://winnenden.lions.de/wetzede2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wuppertaler Volkslauf|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sv-bayer.de/wuppertaler_volkslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wutzseelauf Lindow|2026-09-19": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.esab-ausbildung.de/startseite/wutzseelauf-lindow/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "(L)auf zur Venus|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.krebsgesellschaft-hb.de/aktivitaeten-alle-veranstaltungen.html?vid=14",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "10 km von Röthenbach|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.dav-roethenbach.de/10-km-roethenbach26",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Fürst Carl Seenlandmarathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.seenlandmarathon.org",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Seidenraupen Cross|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://seidenraupen.org/seidenraupencross/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "16. Kemmerner Kuckuckslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kemmerner-kuckuckslauf.de/infos/laufstrecken",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "17. Preungesheimer Dorflauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tv-preungesheim.de/dorflauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "2. Grebinlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kwg-grebin.de/grebinlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "20. Kassel Marathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.kassel-marathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "20. Stuttgarter Lebenslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.abseitz.de/lebenslauf/lebenslauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "21. Wilscher FUN-RUN|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.vfr-wilsche-neubokel.de/funrun",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "24. Uentroper Geithelauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tus-uentrop.de/laufevents/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "26. S - Küstenmarathon zum Welkindertag|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.kuestenmarathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "27. Memminger Altstadtlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.mm-altstadtlauf.de/ausschreibung/einzelstarter",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "32. Citylauf Leer|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://citylauf-leer.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "33. Tübinger Erbe-Lauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tuebinger-erbe-lauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "35. Halbmarathon Altötting|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.halbmarathon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "37. Jesteburger Volkslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stgk.de/Veranstaltung_Detail.asp?Code=20",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "50. Laacher See Naturlauf mit 21. VR Bank Cup|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.laacher-see-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "51. Nationaler Sparkassen-Marathon (S-Meisterschaft)|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sparkassenmarathon-marburg.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "8. Lauf durch das Thüringer Schiefergebirge|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.schiefergebirgslauf.de/",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "Ahmadiyya Charity Walk Hamburg-Harburg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/7-ahmadiyya-charity-walk-hamburg-harburg",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Winnenden|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/11-ahmadiyya-charity-walk-winnenden",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Würzburg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/2-ahmadiyya-charity-walk-wrzburg",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Altstadtlauf Salzwedel|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.elbe-ohre-cup.de/veranstaltungen/8-altstadtlauf-salzwedel/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Baden-Marathon Karlsruhe|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.Baden-Marathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bibert-Trail|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sv-grosshabersdorf.de/sportangebot/lauftreff/bibert-trail/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "CANOSSA Benefiz Berglauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://canossa-berglauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Cross-Duathlon in Hünsborn|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://h2bw.de/ausschreibung",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Dingolfinger Halbmarathon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tv-dingolfing.de/sparten/halbmarathon/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Druffeler Volkslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.druffelersg.de/volkslauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Edith Lücke - Frauenlauf in Trier|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://silvesterlauf.de/event/frauenlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Eltviller Familienlauf 2026|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.eltville.de/freizeit-tourismus/kultur-veranstaltungen/feste-events/eltvillerfamilienlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Erdinger Stadtlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://trisport-erding.de/category/stadtlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Gickellauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.gickellauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Halbmarathon Hamburg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.halb-marathon.hamburg",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Heidelauf Halle|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://heidelauf-halle.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hiddestorfer Rübenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ruebenlauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Horster Löwenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.zukunfthorst.de/de/blog/jetzt-anmelden-2-horster-loewenlauf-am-20-09-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hünsborn 2 be Wild|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://h2bw.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laurentiuslauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Inklusionslauf Solingen by max-camp|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://max-camp.com/event/inklusions-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Internationaler Hugenottenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.neu-isenburg.de/kultur-und-freizeit/sport/sportkalender/Hugenottenlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Karlsfelder Seelauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsvek.de/sportangebot/leichtathletik/wettkampfangebot-la/seelauf-la.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kornwestheimer Triathlon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.szk-triathlon.de/kornwestheimer-sika-triathlon-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Königswinterer Lauf für Luis|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.luispaulo-stiftung.de/event/erster-koenigswinterer-lauf-fuer-luis/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lauf Quer durch die Dresdner Heide|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://qdh-run.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lauf durch den Volkspark Rehberge|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://run.teamwork-sportevents.de/laufveranstaltungen/lauf-durch-den-volkspark-rehberge/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lauf zur Grubenlampe|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laufzurgrubenlampe.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Laufmit – inklusiv bewegt|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lebenshilfe-saarlouis.de/inklusiv-bewegt/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Laurentiuslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laurentiuslauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lohelauf Wentorf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sc-wentorf.de/lohelauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Marktlauf Kirchseeon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://atsv-kirchseeon-marktlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Mutterstadter Volkslauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ltc-mutterstadt.org/volkslauf/lauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Naturafit Triathlon Höchstadt|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://hoechstadt-triathlon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Naunhofer Seenlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.bsc-victoria.de/seenlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Pink 5k Run Duisburg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://pink-5k.de/duisburg/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Reichenauer Insellauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.svreichenau.de/leichtathletik/reichenauer-insellauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Run Ums Rantumbecken|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.insel-sylt.de/veranstaltungshighlights/outdoorveranstaltungen/run-ums-rantumbecken/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rund um den Fühlinger See|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.llg80nordparkkoeln.de/?page_id=225",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Schuster Tegernseelauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tegernseelauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Schwarzenberg-Lauf Elstra|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://schwarzenberglauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Spielzeuglauf Sonneberg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://v2.leichtathletik-sonneberg.de/veranstaltungen/sonneberger-spielzeuglauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "SwimRun Urban Challenge Berlin|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.swimrun-challenge.com/wettkampf-deutschland/rennen-berlin/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "TK Elevator Towerrun|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://towerrun.tkelevator.com/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Trail Marathon Heidelberg|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.trailmarathon-heidelberg.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Triathlon Alzenau|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.triathlon-alzenau.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wiha-Dukt-Lauf Wilkau-Haßlau|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.guesport-reisen.de/wiha-dukt-lauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wolfenbütteler Stadtlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.mtv-wolfenbuettel.de/de/veranstaltungen/wolfenbuetteler-stadtlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wuppertaler Sparkassen Crosstriathlon|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.triclub-wuppertal.de/cross_triathlon",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "proWissen Lauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.wis-potsdam.de/projektvielfalt/prowissen-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "triathlon.de CUP Königsbrunn|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://triathlon.de/pages/triathlon-de-cup-koenigsbrunn",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "twinfitlauf|2026-09-20": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.twinfit.de/twinfitlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Mönchengladbacher Firmenlauf RUN & FUN|2026-09-21": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.santander-run-fun-mg.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "15. Flugfeld Firmenlauf Tage|2026-09-22": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.eventservice-stahl.de/veranstaltungen/flugfeld-firmenlauf-tage/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "2. AOK Firmenlauf in Haslach im Kinzigtal|2026-09-22": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://haslach.bw-running.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bahnabend Bremenstadion Ennepetal|2026-09-23": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sportfreunde-ennepetal.de/1-bahnabend-im-bremenstadion-in-ennepetal-termin-fuer-2026-steht/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "17. AOK Firmenlauf Balingen|2026-09-24": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://balingen.bw-running.de/home",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stadtwerke Karlsruhe Volkslauf|2026-09-24": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stadtwerke-karlsruhe.de/de/veranstaltungen/termine/dauerveranstaltungen/volkslauf.php",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "2. Fischhoflauf|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sportprogramme.org/cakespg/events/menue/5037",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Firmen-CrossDeLuxe Leipzich|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://crossdeluxe.de/leipzig/firmen/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "MOUNTAINMAN Reit im Winkl|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://mountainman.de/trailrunning-events/alps/reit-im-winkl/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rheinhöhenlauf|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.rheinhoehenlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rhön-Grabfeld-Cup – Saal|2026-09-25": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://rhoengrabfeldcup.de/event/saal-2/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "\"Puls am Berg\" Dossenheim|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsg-germania-dossenheim.de/berglauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "10. Emmertinger Herbstfestlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://djk-emmerting.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "10. Möhrendorfer Karpfenweiherlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tria-fit.de/wp-content/uploads/2026/01/Ausschreibung_Weiherlauf_2026.pdf",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "11. Schelder Berglauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://asc-dillenburg.de/bergausschreibung/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Bausch+Ströbel Stadtlauf Ilshofen|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.stadtlauf-ilshofen.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "19. Benin Benefiz-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.llgwustweiler.de/veranstaltungen/benin-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "20. Wiesentheider Kirchweihlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kirchweihlauf.tsv-djk-wiesentheid.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "22. Böckstiegellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://boeckstiegellauf.de/ausschreibung/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "24. Hohenlockstedter Pellkartoffellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.pellkartoffellauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "25. Wald-und Hügellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tv1878.de/events/wald-und-huegellauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "29. Cloppenburger Citylauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.cloppenburg.de/portal/seiten/citylauf-900000016-31040.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "3-Täler-Lauf Mettingen|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tvmettingen.de/sportgruppen/gesundheitssport-lauftreff/3-taeler-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "32. Durlacher Turmberglauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsdurlach.de/sportangebot/leichtathletik/turmberglauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "37. REHAmed Herkules-Berglauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://leichtathletik.psv-kassel.de/herkules-berglauf/ausschreibung-des-rehamed-herkules-berglaufs-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "39. Hofheimer Volkslauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tv1896hofheim.de/hofheimer-volkslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "6. Appelhülsener Landlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.appelhuelsener-landlauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "6. Remsecker Waldlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://remsecker-waldlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "8. Friedrichshaller Runde|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.friedrichshall-tourismus.de/fuehrungen-veranstaltungen/veranstaltungen/friedrichshaller-runde.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "8. Oldersumer Appel-Loop|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://fc-oldersum.de/appel-loop/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ahmadiyya Charity Walk Altenstadt|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/6-ahmadiyya-charity-walk-altenstadt",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Böblingen / Weil im Schönbuch|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/2-ahmadiyya-charity-walk-bblingen-weil-im-schnbuch",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Aindlinger Kleeblattmarsch|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.aindling-bewegt-sich.de/?kleeblatt=",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Andreasturm-Challenge|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hildesheim-tourismus.de/andreasturm-challenge",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Basche Cross Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tsv-egestorf.de/veranstaltungen/basche-cross-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Brockenheroes|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://brockenheroes.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Citylauf Telgte|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.citylauf-telgte.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Crossdeluxe Markkleeberg|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://crossdeluxe.de/leipzig/original/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Crosslauf Winhöring|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tsvwinhoering.de/leichtathletik/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "DROLAUF Landschafts- und Genusslauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tus-09-drolshagen.de/sportangebot/lauftreff/drolauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Deadly Dozen Wolfsburg|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.deadlydozen.de/event/wolfsburg",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Der Ruf der alten Mauern|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://katjas-laufzeit.de/der-ruf-der-alten-mauern-ausschreibung-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Emmertinger Herbstfestlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://djk-emmerting.de/abteilungen/lauftreff/10-emmertinger-herbstfestlauf-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "FMT – Sommer-Edition|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://fishermanstrail.wordpress.com/ausschreibung/13-fmt-sommer-edition/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Fleesensee-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kersten-friedrich-events.com/fleesensee-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "GENERALI 5K|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.bmw-berlin-marathon.com/anmelden/generali-5k",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Grafschafter Kreissparkassen Crossduathlon|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tus-ahrweiler-triathlon.de/crossduathlon",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Grengellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://vflengelskirchen.de/grengellauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Grüntenstafette|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.808project.de/gruentenstafette",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Herbstfestlauf Niederstetten|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laufgemeinschaft-tauberfranken.de/29-niederstettener-herbstlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hotfoot Run Warstein|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://hotfootrun.de/runs/warstein-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hutzellauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.darmstaedter-lauftreff.de/hutzellauf-geschichte/hutzellauf-bilder/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Höhlerfestlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://hoehlerfestlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Jag de Wuidsau|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://jagdewuidsau.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kleeblattultra|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kleeblattultra.de/de/index.php/der-lauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "König Ludwig Lauf - Sommeredition|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lichtenauer Wildschütz Klostermannlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.vfl-lichtenau.de/klostermannlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lüchower Stunde|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sc-luechow.de/de/sportangebot/sportangebote-und-abteilungen/leichtathletik/sportkalender/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Mosbacher Stadtlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.laz-mosbach.de/stadtlauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "MudMates Made4More|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.mudmates.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Möhrendorfer Karpfenweiherlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tria-fit.de/veranstaltungen/landschaftslauf-aktuell",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Müritz-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://mueritz-lauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Oktoberfestlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.oktoberfestlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Onkolauf Essen|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.onkolauf.de/der-lauf/ausschreibung/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Penter Egge Ultra|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lg-lottehalen.jimdofree.com/penter-egge-ultra-26-9/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Pöhl Trail|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.poehl-trail.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "R5K Tour Finale - Berlin|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.bmw-berlin-marathon.com/anmelden/kids-and-youth/r5k",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rodheimer Volkslauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Schleizer Wisentalauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sv-saale-orla-08.de/schleizer-wisentalauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Speck Race|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://speck-race.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Spitzmüller AG Night Run|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.roadrunners-suedbaden.de/night-run",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stadtlauf Merkendorf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.merkendorf.de/Tourismus-Freizeit/Stadtlauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stauseelauf in Schotten|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.oberhessencup.de/stauseelaufschotten",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Sterntaler Spendenlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.kinderhospiz-sterntaler.de/termine/13-sterntaler-spendenlauf-am-26-september-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Teltschikturm-Jedermann-Treppenlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://feuerwehr-wilhelmsfeld.de/teltschikturmfest",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Tilly-Lauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tilly-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Tuttlinger TSF Backyard Ultra|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tsftut.de/index.php/veranstaltungen/tuttlinger-backyard-ultra",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Uchtspringer Heidelauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.elbe-ohre-cup.de/veranstaltungen/uchtspringer-heidelauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Uckermärkischer Rolandlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.rolandlauf-prenzlau.de/",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "VR-Bank Mitte Herbstlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.vr-bankmitte-herbstlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Waieländer Waldlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.waldlauf-inzlingen.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Wiesentheider Kirchweihlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://kirchweihlauf.tsv-djk-wiesentheid.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ötigheimer Herbstlauf|2026-09-26": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tgoetigheim.de/veranstaltungen/herbstlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "#ZeroHungerRun Bonn|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.welthungerhilfe.de/zerohungerrun-der-spendenlauf-gegen-hunger",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "13. Schönebecker Drei-Brücken-Lauf - Landescup 14|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://xn--drei-brcken-lauf-pzb.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "14. Bahrs-Kartoffellauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://svjembke.de/post/64",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "15. GVG Citylauf Erftstadt|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.citylauf-erftstadt.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "17. Crosslauf und Nordic Walking in Birkenwerder|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://gruen-weiss-birkenwerder.de/crosslauf-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "22. Einstein-Marathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.einstein-marathon.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "24. Chamer Stadtlauf mit 22. Halbmarathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202606281",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "27. Theodor-Heuss-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.theodor-heuss-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "29. SPORT IN Reisberglauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.mtv-in-la.de/reisberglauf-2025/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "34. Asse-Volkslauf und Nordic Walking|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.asse-volkslauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "35. Volkslauf durch das schöne Alstertal|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.lauftreff-alstertal.de/volkslauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "45. Esslinger Schurwaldlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.datasport.de/anmeldeservice/schurwaldlauf2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "45. Saaraltarmlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lsg-saarlouis.de/saaraltarmlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "46. Altkönig-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://mtv-kronberg.de/events/altkoenig-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "5. Topiblütenlauf Staffort|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://svstaffort.de/sv2/bin/index.php?c=Termine&id=97",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "52. Internationaler Hochfelln-Berglauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hochfellnberglauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "7-Meilen-Trail - Kaiserslautern|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://7meilentrail.github.io",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ahmadiyya Charity Walk Dreieich|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/1-ahmadiyya-charity-walk-dreieich-im-rahmen-der-interkulturellen-wochen",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Hamburg-Schnelsen|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/1-ahmadiyya-charity-walk-hamburg-schnelsen",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Ahmadiyya Charity Walk Offenbach|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charitywalk.de/events/4-ahmadiyya-charity-walk-offenbach",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Altstadtfestlauf in Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Auricher Spendenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.auricher-spendenlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Bad Homburger Kurparklauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.badhomburgerkurparklauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Berlin Marathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.bmw-berlin-marathon.com",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bertlicher Straßenläufe|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.bertlicher-strassenlaeufe.de/",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "Brauerschwender Basaltlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tv-brauerschwend.de/brauerschwender-basaltlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Burgenlauf von Penzlin nach Burg Stargard|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://hsv.hs-nb.de/termin-und-events/burgenlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Charity Walk & Run - Herborn|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://charity-walk.de/veranstaltungsorte/herborn/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "City-Lauf Lübeck|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.city-lauf-luebeck.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Detten Urban Run|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://dur-emsdetten.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Diezer Stadtlauf - Karl Maxeiner Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sv-diez-freiendiez.com/Events-2026/Diezer-Stadtlauf-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Dortmunder Familienlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://dortmunder-familienlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Dreggicher 1000er|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://dreggicher1000er.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Duisburg Urban-Run|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://urban-series.de/urban-run/duisburg-run/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Fossiliuslauf Wehingen|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://193.22.146.48/fossiliuslauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Hasselfelder Talsperrenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.skiverein-hasselfelde.de/WETTKAeMPFE/Talsperrenlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
+ },
+ "Herbstlauf Niederrhein|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.herbstlauf-niederrhein.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Herner City-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.martinilauf-herne.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Holy Aperoly Run|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://holyaperolyrun.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "ILE-Gäubodenlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ile-gaeuboden.de/7-ile-gaeubodenlauf-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Internationaler Hochfellnberglauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.hochfellnberglauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "IsarLauf - Bad Tölz|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://skiclub-lenggries.de/isarlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kienberglauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sv08-oehrenstock.de/kienberglauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Klosterlauf Schuttern|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://klosterlauf-schuttern.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kraichgau-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.kraichgaulauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Kulmbach Trails|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.kulmbach-trails.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lilien-Team-Marathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://wirlilien.sv98.de/lilien-team-marathon-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lions - Dietzenbacher Stadtlauf 2026|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.lions-dietzenbach.de/lions-dietzenbacher-stadtlauf-sport-und-spass-fuer-die-ganze-familie/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Lions-Monopteros-Lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://muenchen-alt-schwabing.lions.de/monopteroslauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Mülsengrundlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://motor-thurm.de/index.php/muelsengrundlauf.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Nauener Altstadtlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.qualitytime-events.de/nauener-altstadtlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Neandertallauf Erkrath|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.neandertallauf.com/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Northeimer Stadtlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.northeimer-stadtlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Oberholzer Volkssportlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://lfv-oberholz.de/cms/ovl/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Obstacle Odyssey|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tus-homberg.de/project/obstacle-odyssey/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Ostsee Staffel Marathon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ostsee-staffelmarathon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rats-Run - Hintersteinenberg|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://v2.rats-runners.de/hintersteinenberg/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rellinger Citylauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://citylauf.wetzstopp.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Rund um den Kellerskopf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://tus-rambach.de/ruk-2026",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Spardaxtrem|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sparda-xtrem.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Spendenlauf Deutsche KinderKrebshilfe Holzminden|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.psv-holzminden.de/psv-leichtathletik/laufen-fuer-den-guten-zweck-am-27-09-2026/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Steiger(Honig)lauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.ltv-erfurt.de/steigerhoniglauf/92-steigerhoniglauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Tarper Lauf der Kulturen|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.stgk.de/Veranstaltung_Detail.asp?Code=35",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Torgauer Sparkassen Teichelauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://ssv1952-torgau.de/index.php/initiativen/sparkassen-teichelauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Vinnhorster Volkslauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tusvinnhorst-ev.de/about-5",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Waldmeisterlauf Painten|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sgpainten.de/laufsport/waldmeisterlauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Weinheimer Herbstlauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.herbstlauf-weinheim.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Weinstadt Triathlon|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.sgweinstadt.de/weinstadt-triathlon",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Weisseritztallauf|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.roethenbach-ev.de/Weisseritztallauf_Startseite.htm",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Zweitalsperrenlauf in Tambach|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://wintersport-tambach.de/ztl/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "raCe Chemnitz|2026-09-27": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.race-chemnitz.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "AOK Firmenlauf Renningen|2026-09-29": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://renningen.bw-running.de/home",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "15. AOK Firmenlauf Ludwigsburg|2026-09-30": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://ludwigsburg.bw-running.de/home",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "HaBeBu Lauf|2026-09-30": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://athleticon.bsvhh.de/public/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Oberaudorf Trail Festival|2026-10-01": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.oberaudorftrailfestival.com",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Runners Festival Klouster|2026-10-01": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://runners-festival.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Salamander Run|2026-10-01": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://salamander-windows.de/salamander-run",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Stundenlaufserie|2026-10-01": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://stundenlauf.lg-exa.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "EGE-Citylauf Verl|2026-10-02": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "http://www.citylauf-verl.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Eickendorfer Feldmarklauf|2026-10-02": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laufgruppe.bsv-eickendorf.com/eickendorfer-feldmarklauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "13. Sparkassen-Phoenix-Halbmarathon|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sparkassen-phoenix-halbmarathon.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "16. Köhlbrandbrückenlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.koehlbrandbrueckenlauf.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "16. Labertal-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.lv-geiselhoering.de/archive/9297",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "17. Duvenstedter Dorflauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.duvenstedter-dorflauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "21. Korschenbroicher Waldlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.korschenbroicherlc.de/veranstaltungen/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "24h-Lauf für Kinderrechte - Freiburg|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.24hlauf-freiburg.de",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "25. Benther-Berg-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://vsv-benthe.de/vsv-sportarten/benther-berg-lauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "32. Bismarckturmlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.fsv-neustadt-orla.de/Veranstaltungen/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "33. Saerbecker Kirmeslauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://falkesaerbeck.de/leichtathletik/kirmeslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "34. Treiser Volkslauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://laufundwalkingtreff-treis.de/volkslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "35. Herbstlauf TuS Ofen|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.tus-ofen.de/herbstlauf",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "38. Neudorfer Fichtelberglauf mit LM Berglauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://fichtelberglauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "5. Ludwigsburger DJK-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://djk-lauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "53. Rothaarwaldlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.rothaar-waldlauf.de/",
+  "notiz": "Erreichbar (200); Seite von Hand angesehen, passt zum Event."
+ },
+ "Bergstraße-Odenwald 50|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://bo50.de/cms/iwebs/default.aspx?mmid=6547&smid=10476#33959",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Bismarck-Gedenklauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.elbe-ohre-cup.de/veranstaltungen/bismarck-gedenklauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Black Forest Trailrun Masters|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://trailrun-masters.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Brandenburger Beetzseelauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://vfl-brandenburg.de/beetzseelauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Buxachtal-Lauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://triathlon.tv-memmingen.de/buxachtallauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Crailsheimer Sparkassenlauf|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://sparkassenlauf-crailsheim.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Cross der Deutschen Einheit|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://crossderdeutscheneinheit.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "E2H10K Ultratrail Calw 100|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://e2h10k.simdif.com/contact.html",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Einheitslauf Glöwen|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.gloewen.de/einheitslauf/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ },
+ "Elbtal-Weinlauf Meißen|2026-10-03": {
+  "am": "2026-09-19",
+  "ergebnis": "link_ok",
+  "quelle": "Linkcheck",
+  "alt": "https://www.elbtal-weinlauf.de/",
+  "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+ }
+}

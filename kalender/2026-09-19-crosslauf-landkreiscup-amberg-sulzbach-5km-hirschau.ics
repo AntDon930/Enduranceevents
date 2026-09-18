@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Crosslauf - Landkreiscup Amberg Sulzbach – Herren\, 5 km
 LOCATION:Hirschau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttps://rennmeldu
- ng.de/cgi-bin/bewerb.cgi?bewerb=04273
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttps://www.landk
+ reiscup.de/
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04273
+URL:https://www.landkreiscup.de/
 END:VEVENT
 END:VCALENDAR

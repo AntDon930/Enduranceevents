@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:40. Weezer Staffellauf
 LOCATION:Weeze\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/26V10001010760003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsv-weeze-
+ leichtathletik.de/staffel.html
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10001010760003
+URL:https://www.tsv-weeze-leichtathletik.de/staffel.html
 END:VEVENT
 END:VCALENDAR

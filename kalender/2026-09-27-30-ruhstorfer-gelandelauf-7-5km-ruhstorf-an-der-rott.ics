@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:30. Ruhstorfer Geländelauf
 LOCATION:Ruhstorf an der Rott\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 7.5 km\nhttps://laufen.
- de/laufkalender/details/26L02000232160001
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 7.5 km\nhttps://laruhst
+ orf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26L02000232160001
+URL:https://laruhstorf.de/
 END:VEVENT
 END:VCALENDAR

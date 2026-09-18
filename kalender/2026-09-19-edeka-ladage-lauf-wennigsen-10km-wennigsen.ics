@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Edeka Ladage-Lauf Wennigsen
 LOCATION:Wennigsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09000331260000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lauf.edeka-la
+ dage.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000331260000
+URL:https://lauf.edeka-ladage.de/
 END:VEVENT
 END:VCALENDAR

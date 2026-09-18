@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:8. Neusser Integrationslauf
 LOCATION:Neuss\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/26V10002012160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.neuss-inte
+ grationslauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10002012160001
+URL:https://www.neuss-integrationslauf.de/
 END:VEVENT
 END:VCALENDAR

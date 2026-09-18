@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Hohe Schrecke Waldlauf – 15 km Lauf und 15 km Wandern/Walking
 LOCATION:Roßleben-Wiehe\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://runtix.com/st
- s/10021/3120
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.hohe-schr
+ ecke-waldlauf.com/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3120
+URL:https://www.hohe-schrecke-waldlauf.com/
 END:VEVENT
 END:VCALENDAR

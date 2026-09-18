@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Stolpener Basalt-Lauf
 LOCATION:Stolpen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://baer-service.
- de/veranstaltung/SBL/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://basaltlauf.or
+ g/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/SBL/
+URL:https://basaltlauf.org/
 END:VEVENT
 END:VCALENDAR

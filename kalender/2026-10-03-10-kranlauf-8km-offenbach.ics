@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:10. Kranlauf
 LOCATION:Offenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://laufen.de/lauf
- kalender/details/26V07000059560002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://kranlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000059560002
+URL:https://kranlauf.de/
 END:VEVENT
 END:VCALENDAR

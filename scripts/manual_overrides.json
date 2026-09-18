@@ -91,7 +91,8 @@
   },
   "17. Wehringer Wertachlauf mit schwäbischen Meisterschaften|2026-09-19": {
     "laenge_km": 10.0,
-    "_note": "Hauptlauf 10 km. veranstalter_url hier bewusst NICHT gesetzt: der Scraper findet inzwischen die direkte Veranstalter-Seite (lg-wehringen.de), die dem früher hier eingetragenen Portallink vorzuziehen ist."
+    "_note": "Hauptlauf 10 km. veranstalter_url hier bewusst NICHT gesetzt: der Scraper findet inzwischen die direkte Veranstalter-Seite (lg-wehringen.de), die dem früher hier eingetragenen Portallink vorzuziehen ist. | Linkprüfung 2026-09-19: Alte Adresse /Wettkampfe/Wertachlauf/2026/2026.html ist 404 (Seite neu gebaut); neue Eventseite \"17. Wehringer Wertachlauf, 19. September 2026\". (Quelle: lg-wehringen.de)",
+    "veranstalter_url": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/"
   },
   "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
     "laenge_km": 22.0,
@@ -132,7 +133,8 @@
     "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross)."
   },
   "3. Aindlinger Kleeblattmarsch|2026-09-26": {
-    "_note": "BEWUSST KEINE laenge_km: 24-Stunden-Format mit bis zu vier Runden à 25 km (25/50/75/100 km je nach Teilnehmer), ohne Streckenmarkierung/Straßensperrung - eine einzelne feste Distanz gibt es nicht. Liegt in jedem Fall deutlich über 5 km, bleibt ohne Distanz in der Liste."
+    "_note": "BEWUSST KEINE laenge_km: 24-Stunden-Format mit bis zu vier Runden à 25 km (25/50/75/100 km je nach Teilnehmer), ohne Streckenmarkierung/Straßensperrung - eine einzelne feste Distanz gibt es nicht. Liegt in jedem Fall deutlich über 5 km, bleibt ohne Distanz in der Liste. | Linkprüfung 2026-09-19: Seite des Veranstalters aindling BEWEGT sich e.V. (\"startet am 26. September 2026 in die 3. Runde\"); laufen.de war der Portallink. (Quelle: aindling-bewegt-sich.de)",
+    "veranstalter_url": "https://www.aindling-bewegt-sich.de/?kleeblatt="
   },
   "10. Möhrendorfer Karpfenweiherlauf|2026-09-26": {
     "laenge_km": 21.1,
@@ -170,7 +172,8 @@
   },
   "30. Ruhstorfer Geländelauf|2026-09-27": {
     "laenge_km": 7.5,
-    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross, via 'Geländelauf')."
+    "_note": "art2 ergibt sich bereits automatisch aus dem Namen (Trail/Cross, via 'Geländelauf'). | Linkprüfung 2026-09-19: Seite der SVG Ruhstorf Leichtathletik (\"Sonntag, 27. September 2026, 30. Ruhstorfer Geländelauf, Anmeldung\"); laufen.de war der Portallink. (Quelle: laruhstorf.de)",
+    "veranstalter_url": "https://laruhstorf.de/"
   },
   "1. Bernauer Kurpark-Kinder-Crosslauf|2026-09-27": {
     "laenge_km": 1.5,
@@ -660,8 +663,8 @@
     "_note": "Der Lauf ist am 31.12.2026 um 13:30 Uhr (runme.de: 'Donnerstag, 31. Dezember 2026', 13:30 Uhr, 10 km auf einem huegeligen Rundkurs). Der gespeicherte Zeitraum 13.-31.12.2026 stammt von my.raceresult.com/377493, das ZWEI Veranstaltungen unter einer Anmeldung fuehrt: '42. Britzinger Silvesterlauf und 6. Britzinger Nikolauslauf'. Der Nikolauslauf am 13.12. ist eine eigene Veranstaltung; seine Strecken nennt keine erreichbare Quelle, deshalb wird er NICHT geraten. Geprueft 2026-09-18. NACHTRAG: Mit dem richtigen Datum verschmolz die Zeile sofort mit dem '42. Internationaler Britzinger Silvesterlauf' (31.12.2026, 10,1 km), der bereits unter eigenem Namen in der Liste stand - ein Duplikat, das das falsche Datum unsichtbar gemacht hatte. Dieselbe Klasse wie der Rodheimer Volkslauf (fehlende Koordinaten)."
   },
   "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)|2026-09-25|11.3": {
-    "veranstalter_url": "https://sg-zons.de/7-meilen-lauf.html",
-    "_note": "sg-zons.de (SG Zons 1971 e.V., Ausschreibung): '49. Nachtlauf 7 MEILEN VON ZONS', Freitag 25.09.2026, 20:00 Uhr, Distanz 11.263 Meter - unsere 11,3 km stimmen. Der Portallink ist durch die offizielle Seite ersetzt (Datenregel 2). Der Jedermannlauf ueber 3,1 Meilen (5 km, Start 19:00 Uhr im Heidestadion) fehlte und steht jetzt in manual_events.json. Geprueft 2026-09-18."
+    "veranstalter_url": "https://www.sg-zons.de/7-meilen-v-zons/aktuelles.html",
+    "_note": "sg-zons.de (SG Zons 1971 e.V., Ausschreibung): '49. Nachtlauf 7 MEILEN VON ZONS', Freitag 25.09.2026, 20:00 Uhr, Distanz 11.263 Meter - unsere 11,3 km stimmen. Der Portallink ist durch die offizielle Seite ersetzt (Datenregel 2). Der Jedermannlauf ueber 3,1 Meilen (5 km, Start 19:00 Uhr im Heidestadion) fehlte und steht jetzt in manual_events.json. Geprueft 2026-09-18. | Linkprüfung 2026-09-19: /7-meilen-lauf.html ist inzwischen 404, Adresse auf die neue Laufseite nachgezogen (der distanzgenaue Schlüssel hat Vorrang vor dem Veranstaltungs-Schlüssel)."
   },
   "24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km) und Hauptlauf 8km|2026-12-24|42.2": {
     "veranstalter_url": "https://www.baerenfelslauf.de/",
@@ -1226,5 +1229,301 @@
     "wettbewerb": null,
     "veranstalter_url": "https://backyardman.de/",
     "_note": "Kein Lauf, sondern ein BACKYARD ULTRA TRIATHLON - laut backyardman.de 'die Weltpremiere eines neuen Ultra-Formats: ein Backyard-Ultra, erstmals kombiniert mit dem Triathlon'. Jede Runde: '500 M Schwimmen', '20 KM Radfahren', '5 KM Laufen'; 'Jeder Loop startet exakt alle zwei Stunden' und 'Wer als Einzige:r uebrig bleibt, gewinnt. Alle anderen gelten als DNF' - also offenes Ende, keine Distanz (Datenregel 9), 18.09.2026 am Freibad Zellingen. Die gespeicherten '7 km' waren die Laufrunde eines gewoehnlichen Backyards. Die offizielle Seite stand auf der KONTAKT-Seite der Anmeldung (my.raceresult.com/410433/contact: 'https://backyardman.de/', Veranstalter J.A. Schweighoefer Veranstaltungs UG) - vom Nutzer am 19.09.2026 gezeigt, siehe Datenregel 2. Geprueft 2026-09-19."
+  },
+  "24h Mad Chicken Run|2026-09-19": {
+    "veranstalter_url": "https://mad-chicken-run.de/",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Seite des Veranstalters (Titel \"Bist du verrückt genug? - Mad-Chicken-Run\"); runtix war nur die Anmeldung. (Quelle: mad-chicken-run.de)"
+  },
+  "8. Neusser Integrationslauf|2026-09-19": {
+    "veranstalter_url": "https://www.neuss-integrationslauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Seite, nennt den 8. Lauf am 19.09.2026; laufen.de war der Portallink. (Quelle: neuss-integrationslauf.de)"
+  },
+  "Baltic X Cross Duathlon|2026-09-19": {
+    "veranstalter_url": "https://binzer-bucht.de/baltic-x-cross-duathlon/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter ist die Binzer Bucht (Kontakt active@binzer-bucht.de), eigene Eventseite; sportstiming.dk war nur die Anmeldung. (Quelle: binzer-bucht.de)"
+  },
+  "Crosslauf - Landkreiscup Amberg Sulzbach|2026-09-19": {
+    "veranstalter_url": "https://www.landkreiscup.de/",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Seite des Landkreiscups Amberg-Sulzbach (Termine, Startzeiten); Ausrichter SC Monte Kaolino Hirschau ohne eigene Laufseite. rennmeldung.de war nur die Anmeldung. (Quelle: landkreiscup.de)"
+  },
+  "Düsseldorf Night Run|2026-09-19": {
+    "veranstalter_url": "https://www.d-running.de/night-run",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Seite (D.SPORTS/D.LIVE), Titel \"Night Run 2026\"; anmeldungs-service.de war nur die Anmeldung. (Quelle: d-running.de)"
+  },
+  "Edeka Ladage-Lauf Wennigsen|2026-09-19": {
+    "veranstalter_url": "https://lauf.edeka-ladage.de/",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Laufseite \"Edeka Ladage Lauf - Lauf 2026\"; der laufen.de-Portallink lief auf eine tote Adresse. (Quelle: lauf.edeka-ladage.de)"
+  },
+  "Altstadt-Run - Schwalmstadt|2026-09-19": {
+    "veranstalter_url": "https://www.esvjahntreysa.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL der raceresult-Kontaktseite; Seite des ESV Jahn Treysa nennt den Altstadtrun 2026. (Quelle: raceresult /contact)"
+  },
+  "Run of Colours|2026-09-19": {
+    "veranstalter_url": "https://www.aidshilfe-koeln.de/kalender/run-of-colours/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL (Aidshilfe Köln), Seite \"RUN OF COLOURS\" mit Anmeldung/Ergebnissen 2026. (Quelle: raceresult /contact)"
+  },
+  "Ziegeleilauf|2026-09-19": {
+    "veranstalter_url": "http://ziegelei-twistringen.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Seite der Alten Ziegelei nennt \"Ziegelei Lauf 2026, 19.09.2026\". (Quelle: raceresult /contact)"
+  },
+  "Balkantrassenlauf|2026-09-20": {
+    "veranstalter_url": "https://www.feinerlauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL www.feinerlauf.de (Veranstalter Oliver Witzke); Startseite listet die Läufe. (Quelle: raceresult /contact)"
+  },
+  "2. Balkanstassenlauf Marathon|2026-09-20": {
+    "veranstalter_url": "https://www.feinerlauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Bisheriger Link /balkantrassenlauf ist 404; Veranstalterseite feinerlauf.de (laut raceresult-Kontakt des Balkantrassenlaufs). (Quelle: feinerlauf.de)"
+  },
+  "Phoenix-Halbmarathon|2026-09-20": {
+    "veranstalter_url": "https://sparkassen-phoenix-halbmarathon.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL, eigene Seite des Halbmarathons (upletics). (Quelle: raceresult /contact)"
+  },
+  "Beerfelder Waldlauf|2026-09-26": {
+    "veranstalter_url": "https://www.skiclub-beerfelden.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Seite des Skiclubs trägt Ausschreibung und Ergebnisse Beerfelder Waldlauf 2026. (Quelle: raceresult /contact)"
+  },
+  "Bokeler Straßenlauf|2026-09-26": {
+    "veranstalter_url": "https://www.lav-bokel.net/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Seite nennt \"LAV Strassenlauf am 26. September 2026\" samt Ausschreibung. (Quelle: raceresult /contact)"
+  },
+  "Psyland Backyard Ultra Community Run|2026-09-26": {
+    "veranstalter_url": "https://psyland25.com/backyard-ultra/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL, eigene Backyard-Seite. (Quelle: raceresult /contact)"
+  },
+  "24. Elmshorner Stadtlauf|2026-09-27": {
+    "veranstalter_url": "https://www.elmshorner-stadtlauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL, eigene Seite mit Ausschreibung 2026. (Quelle: raceresult /contact)"
+  },
+  "25. Marner Kohltagelauf|2026-09-27": {
+    "veranstalter_url": "https://marner-kohltagelauf.com/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL, eigene Seite (\"Melde dich jetzt für 2026 an\"). (Quelle: raceresult /contact)"
+  },
+  "37. Eper Michaelislauf|2026-09-27": {
+    "veranstalter_url": "https://www.tv-westfalia07epe.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Vereinsseite führt \"Michaelislauf 2026\". (Quelle: raceresult /contact)"
+  },
+  "Dörenther Klippen UltraTrail|2026-09-26": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL zeigte auf einen Bericht des Veranstalters (ultra-uwe-unterwegs.de); Startseite mit Lauftermine gesetzt. (Quelle: raceresult /contact)"
+  },
+  "Erzsteig über Hüggel-Gipfel UltraTrail|2026-09-27": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL des Veranstalters Uwe Laig. (Quelle: raceresult /contact)"
+  },
+  "Schmugglertrail Ultramarathon|2026-09-27": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL des Veranstalters (TV Hohne / Uwe Laig). (Quelle: raceresult /contact)"
+  },
+  "Lauf am Berzdorfer See|2026-09-27": {
+    "veranstalter_url": "https://www.xn--ol-grlitz-37a.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL www.ol-görlitz.de (Umlaut-Domain, hier als Punycode); Seite des OL Görlitz e.V. (Quelle: raceresult /contact)"
+  },
+  "Wartburglauf Eisenach|2026-09-27": {
+    "veranstalter_url": "https://www.sv-wartburgstadt.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Vereinsseite listet \"47. Wartburglauf, 27. Sept. 2026\". (Quelle: raceresult /contact)"
+  },
+  "28. Alfelder Leinetal-Lauf|2026-10-03": {
+    "veranstalter_url": "https://www.lav-alfeld.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL; Seite nennt den 28. Leinetal-Lauf am 3.10.2026 mit Ausschreibung. (Quelle: raceresult /contact)"
+  },
+  "8. Bondorflauf|2026-09-27": {
+    "veranstalter_url": "https://radfreizeit.sv-bondorf.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL der Abteilung Rad- und Freizeitsport des SV Bondorf (Veranstalter laut Kontaktseite). (Quelle: raceresult /contact)"
+  },
+  "Family-CrossDeLuxe Leipzig|2026-09-19": {
+    "veranstalter_url": "https://crossdeluxe.de/leipzig/family/",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Seite \"AOK PLUS Family-CrossDeLuxe\", 19.-20.09.2026 Markkleeberger See; running.life war der Portallink. (Quelle: crossdeluxe.de)"
+  },
+  "HOYWOJ-Citylauf|2026-09-19": {
+    "veranstalter_url": "https://hoywojcitylauf.sportclub-hoyerswerda.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Laufseite des Sportclub Hoyerswerda (19. HOYWOJ-Citylauf am 19.09.2026); baer-service.de war nur die Anmeldung/Zeitnahme. (Quelle: sportclub-hoyerswerda.de)"
+  },
+  "Hanstedter Waldlauf|2026-09-19": {
+    "veranstalter_url": "https://www.klv-uelzen.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter ist der Kreisleichtathletikverband Uelzen (Ausschreibungen dort unter Veranstaltungen); ladv.de war das Ausschreibungsportal. (Quelle: klv-uelzen.de)"
+  },
+  "Mud Masters - Airport Weeze|2026-09-19": {
+    "veranstalter_url": "https://mudmasters.com/event/airport-weeze",
+    "_note": "Linkprüfung 2026-09-19: Offizielle Eventseite (19 & 20 September 2026); running.life war der Portallink. (Quelle: mudmasters.com)"
+  },
+  "Sparkassen-Altstadtlauf|2026-09-19": {
+    "veranstalter_url": "https://www.tvo-leichtathletik.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter TV Ottweiler Leichtathletik, Seite trägt \"Ausschreibungen Altstadtlauf 2026 (mit Anmeldelink)\", 19. September; laufen.de war der Portallink. (Quelle: tvo-leichtathletik.de)"
+  },
+  "Superherorun|2026-09-19": {
+    "veranstalter_url": "https://www.superherorun.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"Superherorun Nr. 3 am 19.09.2026\"); baer-service.de war nur die Anmeldung. (Quelle: superherorun.de)"
+  },
+  "Wunnebad Swim&Run|2026-09-19": {
+    "veranstalter_url": "https://wunnebad-swim-run.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalterseite laut mehreren Kalendern (VfL Waiblingen Triathlon); Abruf aus der Sandbox scheiterte am Proxy. HINWEIS: 2026 laut hdsports nur noch für Jugendliche - Daten nicht geprüft. (Quelle: Websuche (hdsports, DTU))"
+  },
+  "Nagolder Mittsommerlauf|2026-09-18": {
+    "veranstalter_url": "https://www.vfl-nagold.com/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL /vfl-mittsommerlauf/ ist 404; Vereinsseite gesetzt. HINWEIS: Die Seite wirbt für den 18.09.2026 mit \"Herbstlauf unter Flutlicht\" - womöglich umbenannt, Daten nicht geprüft. (Quelle: raceresult /contact, vfl-nagold.com)"
+  },
+  "Belgershainer Crosslauf|2026-10-03": {
+    "veranstalter_url": "https://www.sv1863belgershain.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL /wordpress/ ist 404, die Vereinsseite selbst erreichbar; Veranstalter SV 1863 Belgershain. (Quelle: raceresult /contact)"
+  },
+  "Wehringer Wertachlauf|2026-09-19": {
+    "veranstalter_url": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/",
+    "_note": "Linkprüfung 2026-09-19: wie \"17. Wehringer Wertachlauf …\" (dieselbe Veranstaltung unter zweitem Namen - Duplikat, nicht zusammengeführt). (Quelle: lg-wehringen.de)"
+  },
+  "38. Volkslauf Rund um den Disibodenberg|2026-09-19": {
+    "veranstalter_url": "https://www.tv-odernheim.de/disibodenberglauf-2026-2/",
+    "_note": "Linkprüfung 2026-09-19: Seite \"Disibodenberglauf 2026\" des TV Odernheim; laufen.de war der Portallink. (Quelle: tv-odernheim.de)"
+  },
+  "Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühle e.V.|2026-09-19": {
+    "veranstalter_url": "https://fitinlautern.de/",
+    "_note": "Linkprüfung 2026-09-19: Seite des veranstaltenden Vereins Fit in Lautern e.V. (Presse: \"Informationen und Anmeldung unter fitinlautern.de\"); laufen.de war der Portallink. (Quelle: fitinlautern.de)"
+  },
+  "Ziegenhainer Auelauf|2026-09-19": {
+    "veranstalter_url": "https://mittelsaechsische-lauftour.com/",
+    "_note": "Linkprüfung 2026-09-19: Die bisherige Unterseite ist 404; die Lauftour-Seite (22. Mittelsächsische Lauftour 2026, Ausschreibung/Wettkämpfe) führt den Auelauf. (Quelle: mittelsaechsische-lauftour.com)"
+  },
+  "16. Weddelbrooker Dorflauf|2026-09-20": {
+    "veranstalter_url": "https://www.tsvweddelbrook.de/verein/dorflauf",
+    "_note": "Linkprüfung 2026-09-19: Dorflauf-Seite des TSV Weddelbrook (Ausschreibung, Strecken, Anmeldung); der laufen.de-Link lief auf eine tote Domain. (Quelle: tsvweddelbrook.de)"
+  },
+  "39. Herbstlauf und 29. Wandertag Fleckenberg|2026-09-20": {
+    "veranstalter_url": "https://vflfleckenberg.de/",
+    "_note": "Linkprüfung 2026-09-19: Vereinsseite nennt \"39. Herbstlauf und Wandertag am 20. September 2026 in Fleckenberg\" mit Anmeldelink; laufen.de war der Portallink. (Quelle: vflfleckenberg.de)"
+  },
+  "40. Engenhahner Gickel-Waldlauf|2026-09-20": {
+    "veranstalter_url": "http://www.gickellauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Laufseite des TSV Engenhahn (\"Der 40. Gickellauf findet am Sonntag, den 20.09. statt\"); laufen.de war der Portallink. (Quelle: gickellauf.de)"
+  },
+  "Deichenwand-Trail Wilgartswiesen|2026-09-19": {
+    "veranstalter_url": "https://www.deichenwand-trail.de/",
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL www.deichenwand-trail.de (TSV Wilgartswiesen); Abruf aus der Sandbox am Proxy gescheitert, die Domain ist eventspezifisch. (Quelle: raceresult /contact)"
+  },
+  "Gesmolder Kirmeslauf|2026-09-18": {
+    "veranstalter_url": "https://www.sv-viktoria-gesmold.de/kirmeslauf/",
+    "_note": "Linkprüfung 2026-09-19: Kirmeslauf-Seite des veranstaltenden SV Viktoria Gesmold; der bisherige laufen-os.de-Link (Anmeldeportal) ist 404. (Quelle: sv-viktoria-gesmold.de)"
+  },
+  "Entega Nightrun|2026-09-25": {
+    "veranstalter_url": "https://www.entega-nightrun.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (Ausschreibung, Anmeldung, Strecke); laufen.de war der Portallink. (Quelle: entega-nightrun.de)"
+  },
+  "40. Weezer Staffellauf|2026-09-26": {
+    "veranstalter_url": "https://www.tsv-weeze-leichtathletik.de/staffel.html",
+    "_note": "Linkprüfung 2026-09-19: Staffel-Seite des TSV Weeze Leichtathletik; laufen.de war der Portallink. HINWEIS: dieselbe Veranstaltung steht auch als \"Weeze 3 x 5 km Staffellauf\" in der Liste - Duplikat. (Quelle: tsv-weeze-leichtathletik.de)"
+  },
+  "21. Panoramalauf Kriegsheim|2026-09-20": {
+    "veranstalter_url": "https://www.llgwonnegau.de/",
+    "_note": "Linkprüfung 2026-09-19: Seite der veranstaltenden LLG Wonnegau (\"Hinweis zum 21. Panoramalauf\"); laufen.de war der Portallink. HINWEIS: dieselbe Veranstaltung steht auch als \"Kriegsheimer Panoramalauf\" (Monsheim, runtix) in der Liste - Duplikat. (Quelle: llgwonnegau.de)"
+  },
+  "Kriegsheimer Panoramalauf|2026-09-20": {
+    "veranstalter_url": "https://www.llgwonnegau.de/",
+    "_note": "Linkprüfung 2026-09-19: wie \"21. Panoramalauf Kriegsheim\" (Duplikat); runtix war nur die Anmeldung. (Quelle: llgwonnegau.de)"
+  },
+  "Fleckenberger Herbstlauf|2026-09-20": {
+    "veranstalter_url": "https://vflfleckenberg.de/",
+    "_note": "Linkprüfung 2026-09-19: Bisheriger Link zeigte auf den Artikel von 2024; Vereinsseite mit dem Beitrag zum 39. Herbstlauf 2026. HINWEIS: Duplikat von \"39. Herbstlauf und 29. Wandertag Fleckenberg\". (Quelle: vflfleckenberg.de)"
+  },
+  "50. Nachtlauf über 7 Meilen und 30. Jedermannlauf über 3,1 Meilen (5 km)|2026-09-25": {
+    "veranstalter_url": "https://www.sg-zons.de/7-meilen-v-zons/aktuelles.html",
+    "_note": "Linkprüfung 2026-09-19: Alte Adresse /7-meilen-lauf.html ist 404 (Seite umgebaut); Laufseite der SG Zons (Aktuelles, Anmeldung, Ergebnisse). HINWEIS: Duplikat von \"Zonser Nachtlauf\" (Dormagen). (Quelle: sg-zons.de)"
+  },
+  "Zonser Nachtlauf|2026-09-25": {
+    "veranstalter_url": "https://www.sg-zons.de/7-meilen-v-zons/aktuelles.html",
+    "_note": "Linkprüfung 2026-09-19: wie \"50. Nachtlauf über 7 Meilen …\" (Duplikat). (Quelle: sg-zons.de)"
+  },
+  "23. Schottener Stauseelauf|2026-09-26": {
+    "veranstalter_url": "https://www.tgv-schotten.de/aktuelles-termine/2026/23-schottener-stauseelauf-sa-26092026/",
+    "_note": "Linkprüfung 2026-09-19: Eventseite des TGV Schotten; laufen.de war der Portallink. (Quelle: tgv-schotten.de)"
+  },
+  "24. Bordesholmer Seelauf SEE +RUN|2026-09-20": {
+    "veranstalter_url": "https://tsv-bordesholm.de/veranstaltungen/see-and-run/",
+    "_note": "Linkprüfung 2026-09-19: SEE&RUN-Seite des TSV Bordesholm; davengo war nur die Anmeldung. ACHTUNG: Die Seite meldet \"Absage des SEE&RUN 2026 – Fokus auf 2027 gerichtet\" - Veranstaltung ABGESAGT, Entscheidung (exclude) beim Nutzer. (Quelle: tsv-bordesholm.de)"
+  },
+  "Running Paule RP-Marathon|2026-09-20": {
+    "veranstalter_url": "https://running-paule.de/",
+    "_note": "Linkprüfung 2026-09-19: Der PDF-Link ist 404; Startseite listet \"69. RP-Marathon 19.09.26\". HINWEIS: Seite nennt den 19.09., bei uns steht der 20.09.2026 - Datum nicht geprüft. (Quelle: running-paule.de)"
+  },
+  "1. Bärmesener Päädellauf|2026-09-27": {
+    "veranstalter_url": "https://www.fkp-enduranceteam.de/paedellauf",
+    "_note": "Linkprüfung 2026-09-19: Eigene Laufseite des FKP Endurance-Teams (27.09.2026); laufen.de war der Portallink. (Quelle: fkp-enduranceteam.de)"
+  },
+  "19. Nordahl Grieg Gedenklauf|2026-09-27": {
+    "veranstalter_url": "https://maxim-gorki-gesamtschule.kleinmachnow.de/Nordahl-Grieg-Gedenklauf",
+    "_note": "Linkprüfung 2026-09-19: Seite des Veranstalters (Maxim-Gorki-Gesamtschule, \"19. Nordahl-Grieg-Gedenklauf\"); laufen.de war der Portallink. (Quelle: maxim-gorki-gesamtschule.kleinmachnow.de)"
+  },
+  "6h Klostersee-Lauf - Spendenlauf|2026-09-27": {
+    "veranstalter_url": "https://rickyssporttreff.de/",
+    "_note": "Linkprüfung 2026-09-19: Die Eventseite /event/6h-kls-2026/ ist 404; Startseite des Veranstalters gesetzt. (Quelle: rickyssporttreff.de)"
+  },
+  "9. Trainingslauf Bottwartal-Marathon|2026-09-27": {
+    "veranstalter_url": "https://www.bottwartal-marathon.de/deine-vorbereitung/trainingsangebot/",
+    "_note": "Linkprüfung 2026-09-19: Seite \"Trainingsangebot\" des Bottwartal-Marathons mit der Terminliste der Trainingsläufe; laufen.de war der Portallink. (Quelle: bottwartal-marathon.de)"
+  },
+  "EnergieSüdwest Cup|2026-09-27": {
+    "veranstalter_url": "https://energie-suedwest.de/die-energie-sudwest/energiesudwest-cup/",
+    "_note": "Linkprüfung 2026-09-19: Cup-Seite des Namensgebers mit Terminen 2026 (27.09. Göcklingen); runtix war nur die Anmeldung. (Quelle: energie-suedwest.de)"
+  },
+  "Raiba-Ellernstaffellauf|2026-09-27": {
+    "veranstalter_url": "https://www.lauftreff-rastede.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter Lauftreff Rastede (\"1. Raiba-Ellernlauf 2026 am 27. September\"); run-timing war nur die Anmeldung. HINWEIS: Duplikat von \"Rasteder Ellernteichstaffellauf\". (Quelle: lauftreff-rastede.de)"
+  },
+  "Rasteder Ellernteichstaffellauf|2026-09-27": {
+    "veranstalter_url": "https://www.lauftreff-rastede.de/",
+    "_note": "Linkprüfung 2026-09-19: wie \"Raiba-Ellernstaffellauf\" (Duplikat); laufen.de war der Portallink. (Quelle: lauftreff-rastede.de)"
+  },
+  "Schusterlauf Preetz|2026-09-27": {
+    "veranstalter_url": "https://schusterlauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"42. Schusterlauf Preetz 2026\"); davengo war nur die Anmeldung. (Quelle: schusterlauf.de)"
+  },
+  "Stolpener Basalt-Lauf|2026-09-27": {
+    "veranstalter_url": "https://basaltlauf.org/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"27. September 2026, 9. Stolpener Basalt-Lauf\"); baer-service.de war nur die Anmeldung. (Quelle: basaltlauf.org)"
+  },
+  "10. Kranlauf|2026-10-03": {
+    "veranstalter_url": "https://kranlauf.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite des Benefizlaufs der Aids-Hilfe Offenbach; laufen.de war der Portallink. (Quelle: kranlauf.de)"
+  },
+  "21. Stimberg-Haardlauf|2026-10-03": {
+    "veranstalter_url": "https://tus09e.de/leichtathletik/haardlauf/",
+    "_note": "Linkprüfung 2026-09-19: Haardlauf-Seite des TuS 09 Erkenschwick (\"Stimberg-Haardlauf am 3. Oktober 2026\"); ladv.de war das Ausschreibungsportal. (Quelle: tus09e.de)"
+  },
+  "36. Volkslauf SV Traisa|2026-10-03": {
+    "veranstalter_url": "https://www.svtraisa.de/",
+    "_note": "Linkprüfung 2026-09-19: Seite des veranstaltenden SV 1911 Traisa (Triathlon-Abteilung richtet den Volkslauf am 3.10. aus); laufen.de war der Portallink. (Quelle: svtraisa.de)"
+  },
+  "Benefizlauf der Wiehenläufer|2026-10-03": {
+    "veranstalter_url": "http://www.xn--wiehenlufer-r8a.de/",
+    "_note": "Linkprüfung 2026-09-19: Seite des Veranstalters (Wiehenläufer/Wiehensport Hüllhorst); der laufen.de-Link lief auf eine nicht auflösbare Domain. ACHTUNG: Startseite beginnt mit \"Leider muss der Benefizlauf krankheitsbedingt …\" - ohne Jahresangabe im Ausschnitt; möglicherweise ABGESAGT, Entscheidung beim Nutzer. (Quelle: wiehenläufer.de)"
+  },
+  "Burgentrail Unterfränkische Traillaufmeisterschaften|2026-10-03": {
+    "veranstalter_url": "https://sc-ostheim.de/burgentrail/",
+    "_note": "Linkprüfung 2026-09-19: Burgentrail-Seite des SC Ostheim (\"am 3. Oktober 2026\"); laufen.de war der Portallink. (Quelle: sc-ostheim.de)"
+  },
+  "Hohe Schrecke Waldlauf|2026-09-26": {
+    "veranstalter_url": "https://www.hohe-schrecke-waldlauf.com/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"Das Event 2026\"); runtix war nur die Anmeldung. (Quelle: hohe-schrecke-waldlauf.com)"
+  },
+  "Kolberger Berglauf|2026-09-26": {
+    "veranstalter_url": "https://heimatvereinkolberg.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter Heimatverein Kolberg, Seite listet \"8. Kolberger Berglauf, 26. September 2026\"; berlin-timing.de war die Zeitnahme/Anmeldung. (Quelle: heimatvereinkolberg.de)"
+  },
+  "Brückenlauf Wetter-Ruhr|2026-09-26": {
+    "veranstalter_url": "https://inklusions-sportverein.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter Volmarsteiner Inklusions-Sportverein (Seite mit \"Laufevent 2026\"); brueckenlauf.bbw-web.de ist eine gekaperte Domain, time-and-voice.com war die Zeitnahme/Anmeldung. (Quelle: inklusions-sportverein.de)"
+  },
+  "Möhnesee-Pokal-Lauf|2026-09-20": {
+    "veranstalter_url": "https://lg-deiringsen.de/",
+    "_note": "Linkprüfung 2026-09-19: Veranstalter LG Deiringsen (Seite mit \"38. Möhnesee-Pokal-Lauf\"); laufen.de war der Portallink. (Quelle: lg-deiringsen.de)"
+  },
+  "Saarwiesenlauf Merzig|2026-09-20": {
+    "veranstalter_url": "https://lv-merzig.de/saarwiesenlauf",
+    "_note": "Linkprüfung 2026-09-19: Saarwiesenlauf-Seite des LV Merzig (verweist auf die Ausschreibung der CEB zum 20.09.2026); ladv.de war das Ausschreibungsportal. (Quelle: lv-merzig.de)"
+  },
+  "Küstenmarathon Otterndorf|2026-09-20": {
+    "veranstalter_url": "https://www.kuestenmarathon.de/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite mit Ausschreibung 2026 (26. Sparkassen-Küstenmarathon); davengo war nur die Anmeldung. (Quelle: kuestenmarathon.de)"
+  },
+  "Muddy Älbler Hindernislauf|2026-09-20": {
+    "veranstalter_url": "https://muddy-aelbler.de/hindernislauf/",
+    "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"Hindernislauf 2026: Jetzt anmelden\"); api.maxx-timing.de war die Zeitnahme. (Quelle: muddy-aelbler.de)"
   }
 }

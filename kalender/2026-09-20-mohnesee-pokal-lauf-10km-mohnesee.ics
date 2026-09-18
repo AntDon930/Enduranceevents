@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Möhnesee-Pokal-Lauf
 LOCATION:Möhnesee\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/405316/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-deiringsen
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/405316/
+URL:https://lg-deiringsen.de/
 END:VEVENT
 END:VCALENDAR

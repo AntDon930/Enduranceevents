@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Kolberger Berglauf – 21\,1 km Halbmarathon\, ab Altersklasse U18
 LOCATION:Heidesee\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 21.1 km\nhttps://www.berlin-ti
- ming.de/Kolberger-Berglauf
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 21.1 km\nhttps://heimatvereink
+ olberg.de/
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Kolberger-Berglauf
+URL:https://heimatvereinkolberg.de/
 END:VEVENT
 END:VCALENDAR

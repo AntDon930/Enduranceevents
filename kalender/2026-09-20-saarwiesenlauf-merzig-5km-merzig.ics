@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Saarwiesenlauf Merzig
 LOCATION:Merzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
- reibung/detail/45432/CEB-Saarwiesenlauf-Merzig.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lv-merzig.de/s
+ aarwiesenlauf
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/45432/CEB-Saarwiesenlauf-Merzig.h
- tm
+URL:https://lv-merzig.de/saarwiesenlauf
 END:VEVENT
 END:VCALENDAR

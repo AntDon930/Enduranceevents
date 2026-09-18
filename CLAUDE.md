@@ -40,6 +40,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
+| `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
@@ -725,6 +726,58 @@ darunter drei, die eine **Entscheidung des Nutzers** brauchen:
 - **Staffeln**: Beim Celler Staffelmarathon steht die TEAM-Gesamtstrecke
   in `laenge_km` (42,195 km auf vier Läufer), beim „DUO Marathon
   2 x 21,1 km" dagegen die Teilstrecke. Das gehört vereinheitlicht.
+
+### Vierter Durchgang: die Veranstalter-Links von 500 Veranstaltungen (19.09.2026)
+
+Auf Wunsch des Nutzers („checke 500 Events, ob die alle die richtige
+Veranstalter-Webseite haben – auch googeln"). Geprüft wurden die
+**ersten 500 Veranstaltungen nach Datum** (18.09.–03.10.2026, ~900
+Zeilen), Protokoll in `scripts/links_geprueft.json`. Vorgehen:
+
+1. **Jeden Link abgerufen** (Status, Titel, ob die Seite Event oder Ort
+   nennt). 379 eigene Seiten, davon 352 erreichbar und passend, 27 mit
+   403/404/Timeout.
+2. **`my.raceresult.com` → `/contact`** (47 Fälle; robots.txt erlaubt
+   die Seite). Die Organizer-URL steht dort im JSON-LD
+   (`"organizer":{…,"url":…}`) – 24-mal brauchbar, sonst leer,
+   Platzhaltertext („Geben Sie hier die Veranstaltungs-Website an"),
+   Facebook, Zeitnehmer oder Stadt-Homepage.
+3. **Portal- und Anmeldelinks (74) sowie tote Links per Websuche**, die
+   gefundene Seite abgerufen und gegen Event/Datum geprüft. Geraten
+   wurde nichts: Wo nur Kalender und Anmeldeportale auftauchten, bleibt
+   der alte Link (`unklar`).
+
+Ergebnis: **77 korrigiert** (Overrides in `manual_overrides.json`, je
+mit `_note` und Quelle), **394 in Ordnung**, **29 unklar**. Was dabei
+außer Links herauskam – **alles Entscheidungen des Nutzers, nichts
+davon ist umgesetzt**:
+
+- **Sechs Duplikate unter zwei Namen** (jetzt mit derselben Seite,
+  deshalb meldet `report_gleiche_seite_gleiche_distanz()` 12 statt 5):
+  Wehringer Wertachlauf (19.09.), Panoramalauf Kriegsheim/Monsheim
+  (20.09.), Herbstlauf Fleckenberg (20.09.), Zonser Nachtlauf (25.09.),
+  Ellernstaffellauf Rastede (27.09.), Weezer Staffellauf (26.09.). Dazu
+  die **Saarländische 5-km-Meisterschaft**, die IM Altstadtlauf
+  Ottweiler läuft (Meisterschaft-im-Rahmen-Fall).
+- **Abgesagt laut Veranstalter**: Bordesholmer SEE&RUN 2026
+  („Fokus auf 2027"); wahrscheinlich auch Benefizlauf der Wiehenläufer
+  („krankheitsbedingt", ohne Jahr) und Crosslauf Jüchen (Vereinsseite:
+  „wird nicht mehr durchgeführt", raceresult-Seite weg).
+- **Datenhinweise**: Running Paule RP-Marathon steht bei uns am 20.09.,
+  die Seite nennt den 19.09.; VfL Nagold bewirbt den 18.09. als
+  „Herbstlauf unter Flutlicht" (bei uns „Mittsommerlauf"); Schildberglauf
+  liegt laut Kalendern in Schildau, nicht Lossatal; Wunnebad Swim&Run
+  ist 2026 nur für Jugendliche; DKB Staffellauf Liebenberg laut
+  kulturfeste.de am 14.09. statt 19.09.
+- **Ein Fehler im Code**: `is_portal_link()` verglich Teilzeichenketten
+  – `tsv-weeze-leichtathletik.de` galt als Portal („leichtathletik.de"
+  steckt drin), der echte Veranstalter-Link wäre beim nächsten Datenlauf
+  ersetzbar gewesen. Jetzt Hostname-Vergleich, mit Test.
+
+Was die Sandbox nicht kann: Einige Seiten blocken automatische Abrufe
+(403, Sicherheitscheck) oder scheitern am Proxy; die stehen als
+`link_ok` mit Hinweis, weil die Adresse eventspezifisch und in der
+Websuche belegt ist.
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
@@ -2034,6 +2087,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    und Overrides nach `pending_overrides.json` schreibt – der Nutzer
    bestätigt mit `review_reports.py confirm`. Vorher robots.txt von
    my.raceresult.com prüfen. Kein Lauf ohne sein Ja.
+
+12. **Ergebnisse der Linkprüfung** (19.09.2026, siehe „Vierter
+   Durchgang"): sechs Duplikate unter zwei Namen zusammenführen oder
+   ausschließen? Bordesholmer SEE&RUN 2026 (abgesagt), Wiehenläufer und
+   Crosslauf Jüchen ausschließen? Und `raceresult_kontakt.py` (Punkt 10)
+   lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
+   Organizer-URL.
 
 11. **Weg zurück zur Startseite.** Der Knopf „Startseite" ist aus dem
    Kopf von Liste und Karte **entfernt** (vom Nutzer am 19.09.2026: „bloß

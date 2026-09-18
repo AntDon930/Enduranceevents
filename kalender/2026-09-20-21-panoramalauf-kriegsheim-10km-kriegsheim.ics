@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:21. Panoramalauf Kriegsheim
 LOCATION:Kriegsheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V13003076860000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.llgwonneg
+ au.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13003076860000
+URL:https://www.llgwonnegau.de/
 END:VEVENT
 END:VCALENDAR
