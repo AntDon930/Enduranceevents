@@ -109,8 +109,8 @@
   .top-bar-text { flex: 1 1 260px; min-width: 0; }
   h1 { font-size: 1.25rem; margin: 0 0 2px; color: #fff; }
   .subtitle { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin: 0; }
-  /* Darf umbrechen: auf 390 px stand die Reihe (Startseite, Liste,
-     Anmelden, DE/EN) sonst in einer Zeile und ragte über den blauen
+  /* Darf umbrechen: auf 390 px stand die Reihe (Liste, Anmelden,
+     DE/EN) sonst in einer Zeile und ragte über den blauen
      Kasten hinaus - "EN" war angeschnitten. In events.html war dieselbe
      Stelle schon behoben, hier stand noch die alte Fassung. */
   .top-actions {
@@ -125,7 +125,7 @@
        linken Rand (in events.html vom Nutzer gemeldet). */
     margin-left: auto;
   }
-  .home-btn, .list-btn {
+  .list-btn {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -140,7 +140,7 @@
     font-weight: 600;
     text-decoration: none;
   }
-  .home-btn:hover, .list-btn:hover { background: rgba(255,255,255,0.26); }
+  .list-btn:hover { background: rgba(255,255,255,0.26); }
   .lang-switch { display: flex; gap: 4px; flex-shrink: 0; }
   .lang-btn {
     padding: 5px 11px;
@@ -387,7 +387,8 @@
     <p class="subtitle" id="subtitle">Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.</p>
   </div>
   <div class="top-actions">
-    <a class="home-btn" href="index.html" id="home-btn-label">Startseite</a>
+    <!-- Kein Startseiten-Knopf mehr (vom Nutzer am 19.09.2026 entfernt,
+         siehe events.html und die To-dos in CLAUDE.md). -->
     <a class="list-btn" href="events.html" id="list-btn-label">Liste</a>
     <div id="auth-mount"></div>
     <div class="lang-switch" id="lang-switch">
@@ -478,7 +479,6 @@
     de: {
       title: 'Karte',
       subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
-      home: 'Startseite',
       list: 'Liste',
       hint: (n, cities) => `${n} Events an ${cities} Orten`,
       hint_filtered: (n, total, cities) => `${n} von ${total} Events an ${cities} Orten`,
@@ -498,7 +498,6 @@
     en: {
       title: 'Map',
       subtitle: 'Click a marker to see the events at that location in the list.',
-      home: 'Home',
       list: 'List',
       hint: (n, cities) => `${n} events across ${cities} locations`,
       hint_filtered: (n, total, cities) => `${n} of ${total} events across ${cities} locations`,
@@ -538,7 +537,6 @@
 
   const titleEl = document.getElementById('page-title');
   const subtitleEl = document.getElementById('subtitle');
-  const homeLabelEl = document.getElementById('home-btn-label');
   const listLabelEl = document.getElementById('list-btn-label');
   const hintEl = document.getElementById('map-hint');
   const filterBarLabelEl = document.getElementById('filter-bar-label');
@@ -770,7 +768,6 @@
     document.title = t('title') + ' – Ausdauersport-Events D/A/CH';
     titleEl.textContent = t('title');
     subtitleEl.textContent = t('subtitle');
-    homeLabelEl.textContent = t('home');
     listLabelEl.textContent = t('list');
     resetBtnEl.textContent = t('reset');
     filterBarLabelEl.textContent = t('filter_label');

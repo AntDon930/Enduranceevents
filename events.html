@@ -135,22 +135,7 @@
   .share-btn:hover { background: rgba(255,255,255,0.24); color: #fff; }
   .share-btn svg { flex-shrink: 0; }
 
-  .home-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.55);
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .home-btn:hover, .map-btn:hover { background: rgba(255,255,255,0.26); }
+  .map-btn:hover { background: rgba(255,255,255,0.26); }
   .map-btn {
     display: inline-flex;
     align-items: center;
@@ -867,7 +852,9 @@
        in der Werkzeugleiste stand er zwischen Filter-Chips und
        Zurücksetzen und ging dort unter. -->
   <div class="top-actions">
-    <a class="home-btn" href="index.html" id="home-btn"><span id="home-btn-label"></span></a>
+    <!-- Kein Startseiten-Knopf mehr (vom Nutzer am 19.09.2026 entfernt:
+         "bloß verwirrend"); wie man zur Startseite zurückkommt, ist ein
+         offener Punkt in CLAUDE.md. -->
     <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
     <div id="auth-mount"></div>
     <div class="lang-switch" id="lang-switch">
@@ -1041,7 +1028,6 @@
       reset: 'Filter löschen',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
-      home: 'Startseite',
       map: 'Karte',
       result_count: (n, total) => `${n} von ${total} Events`,
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
@@ -1146,7 +1132,6 @@
       reset: 'Reset filters',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
-      home: 'Home',
       map: 'Map',
       result_count: (n, total) => `${n} of ${total} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
@@ -1592,7 +1577,6 @@
       showToast(t('share_fail'));
     }
   });
-  const homeBtnLabelEl = document.getElementById('home-btn-label');
   const mapBtnEl = document.getElementById('map-btn');
   const mapBtnLabelEl = document.getElementById('map-btn-label');
   const notifyBoxEl = document.getElementById('notify-box');
@@ -1762,7 +1746,6 @@
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
     shareBtnEl.title = t('share_search');
-    homeBtnLabelEl.textContent = t('home');
     mapBtnLabelEl.textContent = t('map');
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     // Das offene Panel trägt Texte in der alten Sprache - zu machen ist

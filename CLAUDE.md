@@ -2035,6 +2035,14 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    bestätigt mit `review_reports.py confirm`. Vorher robots.txt von
    my.raceresult.com prüfen. Kein Lauf ohne sein Ja.
 
+11. **Weg zurück zur Startseite.** Der Knopf „Startseite" ist aus dem
+   Kopf von Liste und Karte **entfernt** (vom Nutzer am 19.09.2026: „bloß
+   verwirrend"). Damit führt von dort kein Link mehr zu `index.html`
+   (nur die Browser-Zurück-Taste). **Der Nutzer überlegt sich noch, wie
+   man wieder auf die Startseite kommt** – etwa Titel/Logo im blauen
+   Kasten als Link (übliche Konvention) oder ein Eintrag in der Fußzeile.
+   Nichts davon ohne seine Entscheidung bauen.
+
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für
 den E-Mail-Versand, `og:image` sobald die Domain steht, und die
