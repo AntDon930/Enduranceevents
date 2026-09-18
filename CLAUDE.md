@@ -262,7 +262,7 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      15-km-SwimRun ist normal). Beide gehören einzeln geprüft und als
      Override eingetragen.
 
-11. **Das Wettbewerbs-Label darf eine andere Sportart nennen als die
+12. **Das Wettbewerbs-Label darf eine andere Sportart nennen als die
    Veranstaltung.** Der „Drei Talsperren Marathon" hat neben Marathon,
    Halbmarathon und 8 km auch „Rad 100 km", „Rad 50 km" und „Rad 30 km" -
    laut Ausschreibung eigenständige Wettbewerbe. Bei uns standen sie als
@@ -295,7 +295,7 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    hervor, und eine geratene Kategorie ist schlechter als keine - sie
    sieht aus wie eine Angabe.
 
-12. **Zwei Rennen in einer Zeile.** „15 km / 21 km Crosslauf" ist nicht
+13. **Zwei Rennen in einer Zeile.** „15 km / 21 km Crosslauf" ist nicht
    ein Rennen über 21 km. `guess_distance_km()` nimmt bei mehreren Zahlen
    die größte - der 15-km-Lauf des Limberglaufs Ranis **fehlte dadurch
    komplett** in der Liste. `_trenne_doppelte_distanzen()` teilt solche
@@ -585,12 +585,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
   ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
   dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
-  Namen, weil Name + Datum + Distanz nicht eindeutig sind („TEAG - Legend of Cross - Mühlberg" steht am 31.10.2026 mit
-  10, 17 und 30 km je zweimal in den Daten, einmal unter „Mühlberg"
-  und einmal unter „Drei Gleichen").
-  Das frühere Beispiel „Königsforst-Marathon" trägt nicht mehr: Dessen
-  zweite 42,2-km-Zeile war ein Verortungsfehler und ist seit der
-  Einzelprüfung vom 18.09.2026 zusammengeführt.)
+  Namen, weil Name + Datum + Distanz nicht eindeutig sind: „TEAG -
+  Legend of Cross - Mühlberg" steht am 31.10.2026 mit 10, 17 und 30 km
+  je zweimal in den Daten, einmal unter „Mühlberg" und einmal unter
+  „Drei Gleichen". Das frühere Beispiel „Königsforst-Marathon" trägt
+  nicht mehr: Dessen zweite 42,2-km-Zeile war ein Verortungsfehler und
+  ist seit der Einzelprüfung vom 18.09.2026 zusammengeführt.
 - **`DTSTAMP` ist fest** (`20260101T000000Z`), nicht „jetzt": sonst
   änderte jeder Lauf alle 4.150 Dateien und der wöchentliche Commit wäre
   ein Riesen-Diff ohne inhaltliche Änderung.
@@ -703,7 +703,7 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
       Events gibt; ein Abo schaut in die Zukunft. Ohne diese Flagge
       stand „Fahrrad" gar nicht zur Wahl – damals stand in
       `events.json` kein einziges Radrennen, und genau das wollte der
-      Nutzer abonnieren. (Inzwischen sind es neun, siehe Datenregel 11 –
+      Nutzer abonnieren. (Inzwischen sind es neun, siehe Datenregel 12 –
       die Flagge bleibt trotzdem nötig: Für die Schweiz oder fürs
       Schwimmen gilt dasselbe Argument weiter.) Die Liste steht in
       `filter-ui.js` (`BEKANNTE_WERTE` = `EF.LAENDER` + die Sportarten

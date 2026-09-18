@@ -816,13 +816,13 @@ und eindeutige Events in `events.json` landen:
   über die **Verbform** („21,5 km Radfahren" ist eine Etappe), und
   geprüft wird die ganze Veranstaltung, nicht die einzelne Zeile. Ein
   `art1 == "Triathlon"` wird nie überschrieben. Details in `CLAUDE.md`,
-  Datenregel 11.
+  Datenregel 12.
 - **Zwei Rennen in einer Zeile werden geteilt**
   (`scraper_lib._trenne_doppelte_distanzen()`): „15 km / 21 km
   Crosslauf" sind zwei Wettbewerbe. Vorher nahm `guess_distance_km()`
   die größere Zahl, und der 15-km-Lauf fehlte ganz. Aufteilungen
   derselben Strecke („19 km (14 + 5 km)") bleiben unangetastet.
-  Details in `CLAUDE.md`, Datenregel 12.
+  Details in `CLAUDE.md`, Datenregel 13.
 - **Dauer statt Distanz bei Zeitrennen**
   (`scraper_lib.parse_duration_h()`, nachgetragen von
   `clean_events.fill_duration()`). Erkannt werden „24-Stunden-Lauf",
