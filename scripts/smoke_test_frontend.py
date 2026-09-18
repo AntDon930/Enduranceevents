@@ -507,6 +507,39 @@ def pruefe_gruppierung(ctx, basis):
            "aufgeklappt: die letzte Strecke schließt den Rahmen unten ab")
     pruefe(rahmen["nurEineLetzte"] == 1,
            "genau EINE Zeile trägt „letzte\u201c (%d)" % rahmen["nurEineLetzte"])
+    # Der ganze Block ist blau hinterlegt (vom Nutzer am 19.09.2026
+    # gewünscht: "wie die Farbe von dem ersten"), die gewählte Strecke
+    # darin einen Ton kräftiger - und NUR sie: Die Veranstaltungszeile
+    # wird aufgeklappt nicht mehr mitmarkiert, wenn eine andere Strecke
+    # gewählt ist. Die Maus erst weg, sonst färbt :hover die Zeile.
+    seite.mouse.move(0, 0)
+    seite.wait_for_timeout(100)
+    farben = seite.evaluate("""() => {
+        const bg = (tr) => getComputedStyle(tr).backgroundColor;
+        const r = document.querySelector('tr.group-row:not(.single)');
+        const zeilen = [r];
+        let n = r.nextElementSibling;
+        while (n && n.classList.contains('sub-row')) { zeilen.push(n); n = n.nextElementSibling; }
+        const aussen = [...document.querySelectorAll('tbody tr')]
+          .filter(tr => !zeilen.includes(tr) && !tr.classList.contains('mehr-row')).slice(0, 2);
+        const gewaehlt = zeilen.filter(z => z.classList.contains('active'));
+        const rest = zeilen.filter(z => !z.classList.contains('active'));
+        return {
+          block: [...new Set(rest.map(bg))],
+          gewaehlt: gewaehlt.length,
+          gewaehltFarbe: gewaehlt.map(bg),
+          aussen: aussen.map(bg)
+        }; }""")
+    pruefe(len(farben["block"]) == 1,
+           "aufgeklappt: alle nicht gewählten Zeilen des Blocks tragen EINE Farbe (%s)"
+           % ", ".join(farben["block"]))
+    pruefe(all(f != farben["block"][0] for f in farben["aussen"]),
+           "die Blockfarbe unterscheidet sich von den Zeilen außerhalb (Zebra)")
+    pruefe(farben["gewaehlt"] == 1,
+           "aufgeklappt: genau EINE Zeile des Blocks ist als gewählt markiert (%d)"
+           % farben["gewaehlt"])
+    pruefe(farben["gewaehlt"] == 1 and farben["gewaehltFarbe"][0] != farben["block"][0],
+           "die gewählte Strecke hebt sich vom Block ab")
     # Der Rahmen darf die Zeilenhöhe nicht anfassen - deshalb box-shadow
     # und nicht border (border-collapse teilt sich die Ränder zwischen
     # zwei Zeilen, eine dickere Linie macht die Zeile höher).

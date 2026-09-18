@@ -43,6 +43,7 @@
     --accent-bg: #eaf1ff;
     --row-alt: #f8fafc;
     --row-hover: #eef4ff;
+    --row-active-block: #d4e2ff;
     --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
   }
   @media (prefers-color-scheme: dark) {
@@ -56,6 +57,7 @@
       --accent-bg: #1e2a40;
       --row-alt: #202329;
       --row-hover: #22314a;
+      --row-active-block: #2a3d63;
     }
   }
   * { box-sizing: border-box; }
@@ -330,13 +332,14 @@
        1-px-Linie daneben macht die Zeile einen Pixel höher. Alle Zeilen
        sind aber gleich hoch (52 px, siehe `tbody tr`), und der Rauchtest
        prüft das auf den Pixel. Ein Schatten wirkt nie auf das Layout.
-     - **Keine Hintergrundfarbe.** Naheliegend wäre ein zarter Farbton
-       über den ganzen Block gewesen - nur sind in dieser Palette
-       `--row-alt`, `--row-hover` und `--accent-bg` alle blasses Blau:
-       Der Block sähe aus wie eine Markierung oder wie die Zeile unter
-       dem Mauszeiger. Die Linien nutzen einen anderen Kanal und können
-       damit nicht verwechselt werden - sie bleiben auch sichtbar, wenn
-       eine Zeile ausgewählt ist oder der Mauszeiger darauf steht.
+     - **Hintergrundfarbe kam später dazu** (19.09.2026, auf Wunsch des
+       Nutzers): Der Block ist jetzt durchgehend in `--accent-bg`
+       hinterlegt, siehe die Hintergrund-Regeln bei `tbody tr`. Die
+       ursprüngliche Sorge - der Block sähe aus wie eine Markierung -
+       ist damit gelöst, dass die ausgewählte Strecke im Block einen
+       eigenen, kräftigeren Ton bekommt (`--row-active-block`). Die
+       Linien bleiben: Sie zeigen die Kanten des Blocks auch dort, wo
+       zwei Blöcke direkt aufeinander folgen.
      - **Oben und unten über die ganze Breite.** Der senkrechte Strich
        allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
        scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
@@ -727,8 +730,24 @@
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
+  /* Der aufgeklappte Block ist durchgehend in dem Blau hinterlegt, das
+     vorher nur seine erste Zeile trug (die war als ausgewählte Strecke
+     markiert) - so vom Nutzer am 19.09.2026 gewünscht: "alle
+     ausgeklappten einfach bisschen blau hinterlegen wie die Farbe von
+     dem ersten". Die Regel steht zwischen Zebra und Auswahl: Sie
+     überdeckt den Zebrastreifen, und die tatsächlich ausgewählte
+     Strecke im Block bekommt darunter einen Ton kräftiger
+     (--row-active-block), sonst wäre sie im Block nicht mehr zu
+     erkennen. Die Spezifität ist bedeutungstragend: `tbody tr.active`
+     (0,1,2) verlöre gegen `tbody tr.group-row.open` (0,2,2), die
+     Auswahl auf der Veranstaltungszeile wäre unsichtbar - deshalb die
+     eigene, spezifischere Auswahl-Regel für den Block danach. */
+  tbody tr.group-row.open,
+  tbody tr.sub-row { background: var(--accent-bg); }
   tbody tr:hover { background: var(--row-hover); }
   tbody tr.active { background: var(--accent-bg); }
+  tbody tr.group-row.open.active,
+  tbody tr.sub-row.active { background: var(--row-active-block); }
   /* Tastaturbedienung: die Zeile, auf der der Fokus steht, muss zu sehen
      sein. `:focus-visible` statt `:focus`, damit ein Mausklick (der die
      Zeile ebenfalls fokussiert) keinen Rahmen hinterlässt. `-2px` legt
@@ -2579,8 +2598,15 @@
     liste.forEach((g, i) => {
       const nr = startNr + i;
       const einzeln = istEinzelgruppe(g);
-      const aktiv = g.rows.some(({ idx }) => idx === selectedIndex);
       const offen = !einzeln && state.offeneGruppen.has(g.key);
+      // Zugeklappt steht die Veranstaltungszeile für die gewählte Strecke
+      // darin und wird markiert; aufgeklappt ist sie selbst die erste
+      // Strecke, und markiert wird nur die Zeile, die wirklich gewählt
+      // ist (siehe markiereAuswahl). Sonst sähen zwei Zeilen im Block
+      // ausgewählt aus.
+      const aktiv = offen
+        ? g.rows[0].idx === selectedIndex
+        : g.rows.some(({ idx }) => idx === selectedIndex);
       // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
       // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
       // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
@@ -2964,7 +2990,13 @@
     const nr = idxZuGruppe.get(selectedIndex);
     if (nr != null) {
       const gz = bodyEl.querySelector(`tr[data-g="${nr}"]`);
-      if (gz) gz.classList.add('active');
+      // Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
+      // - dann ist sie nur markiert, wenn genau diese gewählt ist. Sonst
+      // trüge der Block zwei markierte Zeilen (der ganze Block ist ohnehin
+      // blau hinterlegt, die Auswahl darin einen Ton kräftiger).
+      if (gz && !(gz.classList.contains('open') && Number(gz.dataset.idx) !== selectedIndex)) {
+        gz.classList.add('active');
+      }
     }
   }
 

@@ -87,7 +87,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 155 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 159 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -932,14 +932,18 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     daneben macht die Zeile einen Pixel höher. Alle Zeilen sind aber
     gleich hoch (52 px), und der Rauchtest prüft das auf den Pixel. Ein
     Schatten wirkt nie auf das Layout.
-  - **Keine Hintergrundfarbe.** Naheliegend wäre ein zarter Farbton über
-    den ganzen Block gewesen – nur sind `--row-alt`, `--row-hover` und
-    `--accent-bg` in dieser Palette alle blasses Blau: Der Block sähe aus
-    wie eine Markierung oder wie die Zeile unter dem Mauszeiger. Die
-    Linien nutzen einen anderen Kanal, bleiben deshalb auch sichtbar,
-    wenn eine Zeile ausgewählt ist, und rühren die vier
-    `background`-Regeln von `tbody tr` nicht an (Zebra → Block → Hover →
-    Auswahl liefen sich sonst gegenseitig über den Haufen).
+  - **Der Block ist durchgehend blau hinterlegt** (`--accent-bg`, vom
+    Nutzer am 19.09.2026 so gewünscht – vorher bewusst ohne Farbe). Die
+    Regel steht zwischen Zebra und Auswahl; die **gewählte Strecke im
+    Block** bekommt einen Ton kräftiger (`--row-active-block`, hell und
+    dunkel definiert), sonst wäre sie im Block unsichtbar. Dafür wird
+    die Veranstaltungszeile **aufgeklappt nicht mehr mitmarkiert**, wenn
+    eine andere Strecke gewählt ist (`markiereAuswahl()` und `aktiv` in
+    `gruppenHtml`): Sie zeigt die erste Strecke selbst, zwei markierte
+    Zeilen sähen nach zwei Auswahlen aus. Zugeklappt bleibt es beim
+    Alten – dort steht sie für die verborgene Strecke. Der Rauchtest
+    prüft eine Farbe im Block, anders als außen, genau eine gewählte
+    Zeile darin.
   - **Oben und unten über die ganze Breite.** Der senkrechte Strich
     allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
     scrollt auf dem Handy waagerecht – wer nach rechts schiebt, sähe ihn
