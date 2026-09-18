@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # Die Dateien, die mehrere Seiten gemeinsam nutzen. Nur bei denen kann ein
 # halber Cache-Stand die Seite zerlegen; die Inline-Skripte stecken in der
 # HTML-Datei selbst und sind damit immer passend.
-ASSETS = ("filters.js", "filter-ui.js", "filter-ui.css")
+ASSETS = ("filters.js", "filter-ui.js", "filter-ui.css", "event-detail.js", "event-detail.css")
 
 HTML_FILES = ("index.html", "events.html", "karte.html")
 

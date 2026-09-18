@@ -892,11 +892,11 @@ def pruefe_teilen(ctx, basis):
     seite.locator("tbody tr[data-idx]").nth(2).click()
     seite.wait_for_timeout(900)
     name = seite.evaluate("() => document.querySelector('#detail-panel h2').textContent")
-    if not pruefe(seite.locator("#event-share-btn").count() == 1,
+    if not pruefe(seite.locator("#detail-panel .event-share-btn").count() == 1,
                   "Teilen-Knopf steht in der Box (%s)" % name):
         seite.close()
         return
-    seite.locator("#event-share-btn").click()
+    seite.locator("#detail-panel .event-share-btn").click()
     seite.wait_for_timeout(400)
     daten = seite.evaluate("() => window.__geteilt[0] || null")
     if not pruefe(bool(daten), "Klick öffnet den Teilen-Dialog des Geräts"):
@@ -935,9 +935,9 @@ def pruefe_teilen(ctx, basis):
     seite.wait_for_timeout(400)
     seite.locator("tbody tr[data-idx]").first.click()
     seite.wait_for_timeout(700)
-    seite.locator("#event-share-btn").click()
+    seite.locator("#detail-panel .event-share-btn").click()
     seite.wait_for_timeout(700)
-    toast = seite.evaluate("() => document.getElementById('toast').textContent")
+    toast = seite.evaluate("() => (document.querySelector('.toast') || {}).textContent || ''")
     pruefe(bool(toast.strip()), "ohne Teilen-Dialog wird kopiert (%s)" % toast.strip())
     seite.close()
 
@@ -1105,7 +1105,7 @@ def pruefe_tastatur(ctx, basis):
     # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück
     seite.locator("tbody tr").first.click()
     seite.wait_for_timeout(900)
-    melden = seite.locator("#report-open-btn")
+    melden = seite.locator("#detail-panel .report-open-btn")
     if melden.count():
         melden.click()
         seite.wait_for_timeout(600)
@@ -1121,7 +1121,7 @@ def pruefe_tastatur(ctx, basis):
         seite.keyboard.press("Escape")
         seite.wait_for_timeout(400)
         pruefe(seite.evaluate("""() => document.getElementById('report-overlay').hidden
-                   && document.activeElement.id === 'report-open-btn'"""),
+                   && document.activeElement.classList.contains('report-open-btn')"""),
                "Escape schließt den Dialog und gibt den Fokus zurück")
     else:
         ueberspringe("Melde-Knopf nicht gefunden")
@@ -1301,6 +1301,90 @@ def pruefe_karten_suche(ctx, basis):
     seite.close()
 
 
+def pruefe_karten_details(ctx, basis):
+    """Die Detail-Box auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
+
+    Das Popup eines Ortes listet seine Events; ein Klick öffnet oben
+    rechts dieselbe Box wie in der Liste (event-detail.js). Höchstens
+    zwei zugleich, die neueste oben, ein ✕ schließt; "Fehler melden"
+    führt in die Liste und öffnet dort den Melde-Dialog.
+    """
+    print("\nDetail-Box auf der Karte")
+    # Ein Ort mit mehreren Strecken, damit zwei Boxen entstehen können.
+    seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?standort=Mosnang", ".filter-bar")
+    seite.wait_for_timeout(2800)
+    seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
+        if (m) m.click(); }""")
+    seite.wait_for_timeout(700)
+    knoepfe = seite.locator(".leaflet-popup .popup-event")
+    if not pruefe(knoepfe.count() >= 2, "das Popup listet die Events des Ortes (%d)" % knoepfe.count()):
+        seite.close()
+        return
+    erster = knoepfe.nth(0).locator(".pe-name").text_content()
+    knoepfe.nth(0).click()
+    seite.wait_for_timeout(400)
+    box = seite.evaluate("""() => {
+        const b = [...document.querySelectorAll('#map-details .detail-panel')];
+        const wrap = document.querySelector('.map-wrap').getBoundingClientRect();
+        const r = b[0] ? b[0].getBoundingClientRect() : null;
+        return {
+          anzahl: b.length,
+          name: b[0] ? b[0].querySelector('h2').textContent : '',
+          felder: b[0] ? b[0].querySelectorAll('.detail-grid dt').length : 0,
+          ics: b[0] ? !!b[0].querySelector('a.cal-ics[href^="kalender/"]') : false,
+          teilen: b[0] ? !!b[0].querySelector('.event-share-btn') : false,
+          melden: b[0] ? !!b[0].querySelector('.report-open-btn') : false,
+          schliessen: b[0] ? !!b[0].querySelector('.detail-close') : false,
+          obenRechts: r ? (r.top - wrap.top < 100 && wrap.right - r.right < 40) : false
+        }; }""")
+    pruefe(box["anzahl"] == 1 and box["name"] == erster,
+           "ein Klick öffnet die Box mit diesem Event (%s)" % box["name"])
+    pruefe(box["felder"] >= 6, "dieselbe Struktur wie in der Liste (%d Felder)" % box["felder"])
+    pruefe(box["ics"] and box["teilen"] and box["melden"] and box["schliessen"],
+           "Kalenderdatei, Teilen, Fehler melden und ✕ sind da")
+    pruefe(box["obenRechts"], "die Box steht oben rechts über der Karte")
+    pruefe(not probleme, "ohne Skriptfehler (%s)" % (probleme[0] if probleme else "keine"))
+
+    # Zweites Event: zwei Boxen, das neue oben. Drittes: immer noch zwei.
+    # Auf Handybreite liegt die Box ÜBER dem Popup (die Karte ist nur
+    # 390 px breit) - ein Nutzer schiebt die Karte kurz beiseite, der
+    # Test klickt den Eintrag deshalb direkt an.
+    klick = lambda i: knoepfe.nth(i).evaluate("b => b.click()")
+    zweiter = knoepfe.nth(1).locator(".pe-name").text_content()
+    klick(1)
+    seite.wait_for_timeout(400)
+    namen = lambda: seite.evaluate("""() => [...document.querySelectorAll('#map-details .detail-panel h2')]
+        .map(h => h.textContent)""")
+    zwei = namen()
+    pruefe(len(zwei) == 2 and zwei[0] == zweiter, "das zweite Event kommt als zweite Box obenauf")
+    if knoepfe.count() >= 3:
+        klick(2)
+        seite.wait_for_timeout(400)
+        pruefe(len(namen()) == 2, "ein drittes Event verdrängt das älteste - es bleiben zwei")
+    else:
+        klick(0)
+        seite.wait_for_timeout(400)
+        pruefe(len(namen()) == 2 and namen()[0] == erster,
+               "ein schon offenes Event wandert nur nach oben - es bleiben zwei")
+    seite.locator("#map-details .detail-close").first.click()
+    seite.wait_for_timeout(300)
+    pruefe(len(namen()) == 1, "das ✕ schließt eine Box")
+
+    # "Fehler melden" führt in die Liste und öffnet dort den Dialog.
+    seite.locator("#map-details .report-open-btn").first.click()
+    seite.wait_for_load_state("domcontentloaded")
+    seite.wait_for_selector("#detail-panel h2", timeout=30000)
+    seite.wait_for_timeout(1200)
+    melden = seite.evaluate("""() => ({
+        liste: location.pathname.endsWith('events.html'),
+        offen: !document.getElementById('report-overlay').hidden,
+        adresse: location.search })""")
+    pruefe(melden["liste"] and melden["offen"],
+           "Fehler melden führt in die Liste und öffnet den Melde-Dialog")
+    pruefe("melden=" not in melden["adresse"], "… und der Parameter bleibt nicht in der Adresse")
+    seite.close()
+
+
 def pruefe_karte_und_rundweg(ctx, basis):
     print("\nKarte und Seitenwechsel")
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html", ".filter-bar")
@@ -1321,6 +1405,7 @@ def pruefe_karte_und_rundweg(ctx, basis):
     if marker:
         pruefe_ausgangspunkt(ctx, basis)
         pruefe_karten_suche(ctx, basis)
+        pruefe_karten_details(ctx, basis)
 
         # Der Link im Popup: ohne "↗" (der Pfeil sah aus wie ein
         # Stempel - vom Nutzer gemeldet). Ein einzelner Ort, damit kein

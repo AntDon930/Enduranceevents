@@ -648,9 +648,10 @@ def test_kalenderdateien() -> None:
     if not node:
         print("  (node nicht vorhanden - JS-Gegenprobe übersprungen)")
         return
-    quelle = (Path(__file__).resolve().parent.parent / "events.html").read_text(encoding="utf-8")
-    # Die drei Funktionen aus events.html herausschneiden und in node laufen
-    # lassen. Kein Nachbau: es läuft genau der Code, den die Seite nutzt.
+    quelle = (Path(__file__).resolve().parent.parent / "event-detail.js").read_text(encoding="utf-8")
+    # Die vier Funktionen aus event-detail.js (die Detail-Box, von Liste
+    # UND Karte genutzt) herausschneiden und in node laufen lassen. Kein
+    # Nachbau: es läuft genau der Code, den die Seiten nutzen.
     stuecke = []
     for name in ("function icsSlug(", "function icsMasszahl(", "function eventSlug(",
                  "function icsFileName("):
@@ -667,7 +668,7 @@ def test_kalenderdateien() -> None:
         return
     js_namen = _json.loads(ergebnis.stdout)
     py_namen = [ics_dateiname(f) for f in faelle]
-    check("events.html und build_ics.py erzeugen dieselben Dateinamen",
+    check("event-detail.js und build_ics.py erzeugen dieselben Dateinamen",
           js_namen, py_namen)
 
     # Und: passt der Ordner kalender/ überhaupt zu events.json?
@@ -869,8 +870,8 @@ def test_js_syntax() -> None:
                                      capture_output=True, text=True)
                 check(f"{name}: Inline-Skript {nr} ist gültiges JS",
                       fehlerzeile(erg), "")
-        for name in ("filters.js", "filter-ui.js", "auth.js", "firebase-config.js",
-                     "functions/index.js"):
+        for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js",
+                     "firebase-config.js", "functions/index.js"):
             pfad = wurzel / name
             if not pfad.exists():
                 continue
@@ -1078,7 +1079,7 @@ def test_keine_fremden_dateien() -> None:
                    + _re.findall(r'<link\b[^>]*\shref="(https?://[^"]+)"', ohne)
                    if not any(ok in u for ok in erlaubt)]
         check(f"{name} lädt nichts von fremden Servern", treffer, [])
-    for name in ("auth.js", "filters.js", "filter-ui.js"):
+    for name in ("auth.js", "filters.js", "filter-ui.js", "event-detail.js"):
         quelle = (wurzel / name).read_text(encoding="utf-8")
         ohne = _re.sub(r"//[^\n]*", "", quelle)
         treffer = [u for u in _re.findall(r"['\"](https?://[^'\"]+\.js)['\"]", ohne)

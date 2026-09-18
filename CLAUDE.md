@@ -30,7 +30,8 @@ Nicht auf einen anderen Branch pushen.
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
-| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den geteilten Dateien (**nach jeder Änderung daran laufen lassen**) |
+| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Felder, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, bis zu zwei) zeigen dieselbe |
+| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den fünf geteilten Dateien (`filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
@@ -71,8 +72,9 @@ dort an (typisch nach einem Datenlauf), hilft:
 python3 scripts/build_ics.py            # und die Dateien mitcommitten
 ```
 
-Wurde `filters.js`, `filter-ui.js` oder `filter-ui.css` angefasst,
-**vorher** stempeln (der Test schlägt sonst fehl und sagt es auch):
+Wurde `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`
+oder `event-detail.css` angefasst, **vorher** stempeln (der Test schlägt
+sonst fehl und sagt es auch):
 
 ```bash
 python3 scripts/stamp_assets.py
@@ -87,7 +89,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 170 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 181 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -98,7 +100,9 @@ Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
 sichtbar, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
 Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
 (vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
-sie mit), der Abo-Dialog (Knopf, Zusammenfassung,
+sie mit), die **Detail-Box auf der Karte** (Popup listet die Events,
+Klick öffnet die Box oben rechts, zwei Boxen, ✕, „Fehler melden" führt
+in die Liste und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
@@ -992,7 +996,7 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Der Link im Detailbereich trägt bewusst **kein `download`-Attribut** –
   das würde Safari das Übergeben an den Kalender wieder verbieten.
 - **Der Dateiname wird zweimal berechnet**: `ics_dateiname()` in
-  `build_ics.py` und `icsFileName()` in `events.html`
+  `build_ics.py` und `icsFileName()` in `event-detail.js`
   (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
   ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
   dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
@@ -1082,10 +1086,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   erst für die ganze gefilterte Liste (Saisonplan) - und dafür reicht
   ein Druck-Stylesheet.
   - **`eventSlug(e)`** ist die Kennung (Datum, Name, Maßzahl, Ort) und
-    steht nur EINMAL da: `icsFileName()` baut darauf auf, und
-    `test_scraper_lib.py` prüft sie gegen `build_ics.ics_dateiname()`
-    (schneidet dafür `eventSlug` mit aus der Seite heraus - beim
-    Umbenennen dort nachziehen). Eine laufende Nummer wäre wertlos: Sie
+    steht nur EINMAL da, in `event-detail.js`: `icsFileName()` baut
+    darauf auf, und `test_scraper_lib.py` prüft sie gegen
+    `build_ics.ics_dateiname()` (schneidet dafür `icsSlug`,
+    `icsMasszahl`, `eventSlug`, `icsFileName` aus dem Modul heraus -
+    beim Umbenennen dort nachziehen). `EED.eventLink()` zeigt IMMER auf
+    `events.html`, auch von der Karte aus – nur die Liste kennt
+    `?event=`. Eine laufende Nummer wäre wertlos: Sie
     verschiebt sich, sobald ein Event dazukommt oder ein vergangenes
     wegfällt, und ein geteilter Link zeigte auf ein fremdes Rennen.
   - `?event=…` wird **gelesen** (readUrlState) und bleibt in der Adresse
@@ -1096,6 +1103,43 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - Beim Öffnen eines geteilten Links wird zur Box gescrollt
     (`zeigeDetailbereich()`), sonst sieht der Empfänger auf dem Handy nur
     eine Liste.
+- **Die Detail-Box ist ein Modul (`event-detail.js`/`.css`,
+  `window.EnduranceDetail` = `EED`).** `EED.render(container, e, { t,
+  tv, lang, onReport, onClose })` baut sie – in der Liste in
+  `#detail-panel` (mit `onReport` → Melde-Dialog, ohne `onClose`), auf
+  der Karte in `#map-details` **oben rechts über der Karte, bis zu zwei
+  Boxen, die neueste oben, die dritte verdrängt die älteste** (vom
+  Nutzer am 19.09.2026 so gewünscht: „genau gleiche Struktur wie wenn
+  man auf eins von der Liste klickt"). Dafür listet das **Popup eines
+  Ortes seine Events** (`.popup-event`, `data-idx`); ein Klick öffnet
+  die Box (`zeigeDetail`), EIN Zuhörer am Kartencontainer, weil Leaflet
+  den Popup-Inhalt bei jedem Öffnen neu baut. Vier Dinge daran:
+  - **Keine Ids in der Box, nur Klassen** (`.event-share-btn`,
+    `.report-open-btn`, `.cal-open-btn`, `.cal-menu`, `.cal-ics`, …):
+    auf der Karte stehen zwei Boxen zugleich. Der Rauchtest sucht
+    entsprechend `#detail-panel .event-share-btn`.
+  - **„Fehler melden" auf der Karte führt in die Liste**
+    (`EED.eventLink(e) + '&melden=1'`): Der Melde-Dialog mit Firestore
+    lebt nur dort, `readUrlState()` liest `melden=1` (`deepMelden`) und
+    öffnet ihn nach dem ersten Zeichnen; `writeUrlState()` wirft den
+    Parameter gleich wieder aus der Adresse.
+  - **Der Toast (`EED.showToast`) erzeugt sein Element selbst** – kein
+    `#toast` mehr im Markup; `events.html` ruft ihn über den Wrapper
+    `showToast()` auch für „Suche teilen".
+  - **Ab 900 px stehen die zwei Boxen NEBENEINANDER** (`row-reverse`,
+    die neueste rechts außen) – übereinander passten zwei nicht in die
+    Kartenhöhe, die zweite war abgeschnitten. Unter 600 px beginnt der
+    Stapel bei 84 px, unter Zoom-Knöpfen und Kopfzeile der Karte.
+  - **Die Popup-Einträge haben feste Farben**, nicht die Seitenvariablen:
+    Das Leaflet-Popup ist immer weiß, im Dunkelmodus waren die hellen
+    Seitenfarben darauf unlesbar.
+  - Auf Handybreite **liegt die Box über dem Popup** (die Karte ist nur
+    390 px breit); der Rauchtest klickt weitere Popup-Einträge deshalb
+    per JavaScript an. Am Rechner stören sie sich nicht.
+  `formatRange`/`formatRangeHtml`/`formatLength`/`displayWettbewerb`
+  wohnen ebenfalls im Modul; `events.html` behält nur Wrapper mit
+  `currentLang` für die Tabelle.
+
 - **Abos sind Filter + Rhythmus** („Neue Events per E-Mail"). Der Knopf
   steht in der Werkzeugleiste und ist **immer** erreichbar – die alte
   Box erschien nur bei null Treffern, wer „alle neuen Schwimm-Events in

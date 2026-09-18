@@ -53,6 +53,7 @@
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=ef11a010">
+<link rel="stylesheet" href="event-detail.css?v=72fc4249">
 <style>
   :root {
     color-scheme: light dark;
@@ -289,6 +290,81 @@
     font-weight: 600;
   }
   .leaflet-popup-content { margin: 10px 12px; }
+  /* Die Events des Ortes im Popup - ein Klick öffnet die Detail-Box
+     (vom Nutzer am 19.09.2026 gewünscht). Bei vielen Events am Ort
+     (Berlin) scrollt die Liste, statt das Popup über die Karte hinaus
+     wachsen zu lassen. */
+  .popup-events {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  /* Feste Farben statt der Seitenvariablen: Das Leaflet-Popup ist immer
+     weiß, im Dunkelmodus wären die hellen Seitenfarben darauf unlesbar
+     (im Screenshot gesehen). */
+  .popup-event {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 5px 6px;
+    margin: 0;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: #1c1f24;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .popup-event:hover, .popup-event:focus-visible { background: #eaf1ff; color: #14509a; outline: none; }
+  .popup-event .pe-meta { display: block; color: #6b7280; font-size: 0.75rem; }
+  .leaflet-popup-content { min-width: 220px; }
+
+  /* Die Detail-Boxen oben rechts ÜBER der Karte: dieselbe Box wie in der
+     Liste (event-detail.css), bis zu zwei übereinander, die neueste
+     oben. Über den Leaflet-Bedienelementen (800) und dem Popup (700),
+     unter dem Filter-Panel (1000). Auf dem Handy so breit wie die Karte
+     minus Rand; werden die Boxen höher als die Karte, scrollt der
+     Stapel. */
+  .map-details {
+    position: absolute;
+    z-index: 900;
+    top: 10px;
+    right: 10px;
+    width: min(340px, calc(100% - 20px));
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .map-details:empty { display: none; }
+  .map-details .detail-panel {
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  /* Breite Karte (Rechner): zwei Boxen NEBENEINANDER, die neueste rechts
+     außen - übereinander passten zwei nicht in die Kartenhöhe, die
+     zweite war abgeschnitten (im Screenshot gesehen). row-reverse, weil
+     die neueste im DOM vorn steht. */
+  @media (min-width: 900px) {
+    .map-details {
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      width: auto;
+      max-width: calc(100% - 80px);
+    }
+    .map-details .detail-panel { width: 320px; flex: none; }
+  }
+  /* Handy: unter Zoom-Knöpfen und Kopfzeile der Karte, sonst verdeckt
+     die Box beide. */
+  @media (max-width: 599px) {
+    .map-details { top: 84px; max-height: calc(100% - 94px); }
+  }
+  .map-details .detail-panel h2 { font-size: 1.05rem; }
+  .map-details .detail-panel .sub { margin-bottom: 10px; }
   /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
      Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
      Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
@@ -338,6 +414,9 @@
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-hint" id="map-hint">Lade Events…</div>
+  <!-- Bis zu zwei Detail-Boxen (event-detail.js), gefüllt von
+       zeigeDetail() nach einem Klick auf ein Event im Popup. -->
+  <div class="map-details" id="map-details"></div>
 </div>
 
 <script src="vendor/leaflet-1.9.4/leaflet.js"></script>
@@ -365,6 +444,7 @@
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=f921fa30"></script>
 <script src="filter-ui.js?v=0db74e4c"></script>
+<script src="event-detail.js?v=bbba0065"></script>
 
 <script>
 (async function () {
@@ -374,6 +454,7 @@
   // auch zu sehen wären - vorher zeigte die Karte immer alle.
   const EF = window.EnduranceFilters;
   const EFU = window.EnduranceFilterUI;
+  const EED = window.EnduranceDetail;
 
   // Sicherung gegen eine halb alte Seite: GitHub Pages liefert jede Datei
   // mit max-age=600, ein Browser kann also diese Seite mit einer zehn
@@ -382,7 +463,7 @@
   // LEER (blauer Kopf, sonst nichts; genau das ist passiert). Die
   // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
   // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
-  if (!EF || !EFU || !EF.uniqueSorted || !EFU.create) {
+  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EFU.create || !EED.render) {
     let spracheDe = true;
     try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
     document.getElementById('page-title').textContent =
@@ -435,8 +516,8 @@
   // Chip- und Zeitraum-Texte aus filters.js, die Texte der Filter-Panels
   // und die Spaltennamen aus filter-ui.js - die Karte beschriftet die
   // Filter damit wortgleich wie die Liste.
-  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de);
-  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en);
+  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de, EED.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en, EED.I18N.en);
 
   let currentLang = 'de';
   try {
@@ -784,11 +865,65 @@
     });
   }
 
+  // ---------- Detail-Boxen oben rechts ----------
+  //
+  // Ein Klick auf ein Event im Popup öffnet seine Box über der Karte -
+  // dieselbe Box wie in der Liste (event-detail.js: Datum, Land, Ort,
+  // Sportart, Kategorie, Länge, Veranstalter-Link, Kalender, Teilen).
+  // Höchstens ZWEI zugleich, die neueste oben; die dritte verdrängt die
+  // älteste (so vom Nutzer gewünscht: "maximal bis 2"). Jede Box hat
+  // ein ✕. Ein zweiter Klick auf ein schon offenes Event hebt es nur
+  // nach oben.
+  //
+  // "Fehler melden" führt in die LISTE (?event=…&melden=1): Der
+  // Melde-Dialog mit seiner Firestore-Anbindung lebt nur dort, und eine
+  // zweite Kopie liefe auseinander.
+  const MAX_DETAILS = 2;
+  const detailsEl = document.getElementById('map-details');
+  let offeneDetails = [];   // Events, neueste zuerst
+
+  function detailKontext() {
+    return {
+      t, tv, lang: currentLang,
+      onReport: (e) => { window.location.href = EED.eventLink(e) + '&melden=1'; },
+      onClose: (e) => {
+        offeneDetails = offeneDetails.filter(x => x !== e);
+        zeichneDetails();
+      }
+    };
+  }
+
+  function zeichneDetails() {
+    detailsEl.innerHTML = '';
+    offeneDetails.forEach(e => {
+      const box = document.createElement('div');
+      box.className = 'detail-panel';
+      EED.render(box, e, detailKontext());
+      detailsEl.appendChild(box);
+    });
+  }
+
+  function zeigeDetail(e) {
+    offeneDetails = [e, ...offeneDetails.filter(x => x !== e)].slice(0, MAX_DETAILS);
+    zeichneDetails();
+  }
+
+  // EIN Zuhörer für alle Popups: Leaflet baut den Popup-Inhalt bei jedem
+  // Öffnen neu, ein Zuhörer je Knopf ginge dabei verloren.
+  document.getElementById('map').addEventListener('click', (ev) => {
+    const knopf = ev.target.closest('.popup-event');
+    if (!knopf) return;
+    const e = events[Number(knopf.dataset.idx)];
+    if (e) zeigeDetail(e);
+  });
+
   // opts.refit === false lässt den Kartenausschnitt, wie er ist.
   function render(opts) {
     ui.updateIndicators();
     renderChips();
     suche.sync();
+    // Die Boxen tragen übersetzte Texte - beim Sprachwechsel neu.
+    zeichneDetails();
     // Das offene Panel zeigt Häkchen und Regler des Filters - nach einer
     // Änderung muss es mitkommen (es zeichnet sich nicht neu, solange der
     // Fokus darin liegt, siehe filter-ui.js).
@@ -815,9 +950,11 @@
       withCoords++;
       const key = e.standort;
       if (!byStandort.has(key)) {
-        byStandort.set(key, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0 });
+        byStandort.set(key, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0, events: [] });
       }
-      byStandort.get(key).count++;
+      const loc = byStandort.get(key);
+      loc.count++;
+      loc.events.push(e);
     });
 
     hintEl.textContent = withCoords === 0
@@ -842,10 +979,23 @@
       // gefilterten Karte zurück in eine ungefilterte Liste. Weil er erst
       // beim Klick entsteht, trägt er jetzt sogar die Filter von genau
       // diesem Moment.
+      //
+      // Dazu die Events des Ortes selbst, eines je Zeile: Ein Klick
+      // öffnet die Detail-Box oben rechts (zeigeDetail) - dieselbe Box
+      // wie in der Liste. data-idx ist die Nummer in `events`, der
+      // Klick kommt über EINEN Zuhörer am Kartencontainer an (unten).
       marker.bindPopup(() =>
         // tv(): Städte mit eigenem englischen Namen (München → Munich).
         `<div class="popup-title">${escapeHtml(tv('standort', loc.standort))}</div>` +
         `<div class="popup-sub">${escapeHtml(tv('land', loc.land) || '')} · ${t('popup_count', loc.count)}</div>` +
+        `<ul class="popup-events">` + loc.events.map(e => {
+          const wb = EED.displayWettbewerb(e);
+          return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(e)}">`
+            + `<span class="pe-name">${escapeHtml(e.name)}</span>`
+            + `<span class="pe-meta">${escapeHtml(EED.formatRange(e.datum_start, e.datum_ende, currentLang))}`
+            + ` · ${escapeHtml(EED.formatLength(e, currentLang))}${wb ? ' · ' + escapeHtml(wb) : ''}</span>`
+            + `</button></li>`;
+        }).join('') + `</ul>` +
         `<a class="popup-link" href="${linkTo('events.html', { standort: loc.standort })}">`
         + `${escapeHtml(t('popup_link', loc.count))}</a>`
       );

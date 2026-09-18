@@ -31,6 +31,7 @@
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=ef11a010">
+<link rel="stylesheet" href="event-detail.css?v=72fc4249">
 <style>
   :root {
     color-scheme: light dark;
@@ -134,30 +135,6 @@
   .share-btn:hover { background: rgba(255,255,255,0.24); color: #fff; }
   .share-btn svg { flex-shrink: 0; }
 
-  /* Kurz aufpoppende Rückmeldung, mittig unten. pointer-events: none,
-     damit sie nie einen Klick abfängt. */
-  .toast {
-    position: fixed;
-    left: 50%;
-    bottom: 32px;
-    transform: translate(-50%, 12px);
-    background: var(--accent);
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
-    opacity: 0;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    z-index: 3000;
-    pointer-events: none;
-  }
-  .toast.visible { opacity: 1; transform: translate(-50%, 0); }
-  .toast[hidden] { display: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .toast { transition: none; }
-  }
   .home-btn {
     display: inline-flex;
     align-items: center;
@@ -797,139 +774,11 @@
   }
 
   /* Excel-style column filter button + floating panel */
-  /* Die Filterknöpfe und das schwebende Panel stehen in filter-ui.css -
-     die Karte bindet dieselbe Datei ein (siehe filter-ui.js). */
+  /* Die Filterknöpfe und das schwebende Panel stehen in filter-ui.css,
+     die Detail-Box samt Kalender-Menü, Melde-Knopf und Kurzmeldung in
+     event-detail.css - die Karte bindet dieselben Dateien ein. Hier
+     steht nur, WO die Box auf dieser Seite sitzt (.side-panel). */
 
-  .detail-panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 22px;
-  }
-  .detail-empty {
-    color: var(--text-muted);
-    text-align: center;
-    padding: 24px 8px;
-    font-size: 0.9rem;
-  }
-  /* Kopfzeile der Box: Name + Ort links, Teilen-Knopf oben rechts. */
-  .detail-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .detail-head-text { min-width: 0; flex: 1; }
-  .detail-share {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--text-muted);
-    cursor: pointer;
-  }
-  .detail-share:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
-  .detail-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .detail-panel h2 { margin: 0 0 4px; font-size: 1.2rem; }
-  .detail-panel .sub { color: var(--text-muted); margin-bottom: 16px; font-size: 0.88rem; }
-  .detail-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    row-gap: 9px;
-    column-gap: 14px;
-    font-size: 0.88rem;
-  }
-  .detail-grid dt { color: var(--text-muted); font-weight: 500; }
-  .detail-grid dd { margin: 0; font-weight: normal; }
-  .detail-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 9px 16px;
-    background: var(--accent);
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.88rem;
-  }
-  .detail-link:hover { opacity: 0.9; }
-
-  /* "Zum Kalender hinzufügen" steht zwischen dem Veranstalter-Link und
-     dem Melde-Knopf und sieht wie eine dritte, gleichwertige Schaltfläche
-     aus - nur ohne Akzentfarbe, damit der Link zur offiziellen Seite die
-     Hauptaktion bleibt. */
-  .cal-box { position: relative; margin-top: 12px; }
-  .cal-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    width: 100%;
-    padding: 9px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--panel);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 0.88rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .cal-btn:hover { background: var(--row-hover); border-color: var(--accent); color: var(--accent); }
-  .cal-btn svg { flex-shrink: 0; }
-  .cal-menu {
-    margin-top: 6px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--panel);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    overflow: hidden;
-  }
-  .cal-menu[hidden] { display: none; }
-  .cal-menu a,
-  .cal-menu button {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 9px 12px;
-    font-family: inherit;
-    font-size: 0.85rem;
-    color: var(--text);
-    text-decoration: none;
-    background: none;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-  }
-  .cal-menu a:hover,
-  .cal-menu button:hover { background: var(--row-hover); color: var(--accent); }
-  .cal-note {
-    padding: 8px 12px;
-    font-size: 0.76rem;
-    color: var(--text-muted);
-    background: var(--bg);
-  }
-
-  /* "Fehler zu diesem Event melden" - bewusst als unauffaelliger
-     Sekundaer-Button unter dem Veranstalter-Link: er soll auffindbar
-     sein, aber nicht mit dem Link zur offiziellen Seite konkurrieren. */
-  .report-btn {
-    display: block;
-    width: 100%;
-    margin-top: 12px;
-    padding: 8px 12px;
-    background: transparent;
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-family: inherit;
-    cursor: pointer;
-  }
-  .report-btn:hover { background: var(--row-hover); color: var(--text); }
 
   /* Das Melde-Formular nutzt die Modal-Styles aus auth.js
      (.ee-modal-overlay, .ee-modal, .ee-field, .ee-submit-btn,
@@ -1036,10 +885,8 @@
   </div>
 </div>
 
-<!-- Kurze Rückmeldung nach dem Kopieren. Bewusst ein eigenes, kleines
-     Fenster statt einer Textänderung am Knopf: man sieht es auch, wenn
-     der Blick gerade auf der Liste liegt. -->
-<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<!-- Die kurze Rückmeldung nach dem Kopieren (Toast) erzeugt
+     event-detail.js beim ersten Aufruf selbst. -->
 
 <div class="toolbar">
   <div class="toolbar-main">
@@ -1149,6 +996,7 @@
      dieselben Events zeigen. -->
 <script src="filters.js?v=f921fa30"></script>
 <script src="filter-ui.js?v=0db74e4c"></script>
+<script src="event-detail.js?v=bbba0065"></script>
 
 <script>
 (async function () {
@@ -1165,7 +1013,8 @@
   // LEER (blauer Kopf, sonst nichts; genau das ist passiert). Die
   // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
   // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
-  if (!EF || !EFU || !EF.uniqueSorted || !EFU.create) {
+  const EED = window.EnduranceDetail;
+  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EFU.create || !EED.render) {
     let spracheDe = true;
     try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
     document.getElementById('page-title').textContent =
@@ -1224,8 +1073,6 @@
       abo_fehler: 'Das hat nicht geklappt. Bitte später noch einmal versuchen.',
       abo_meine: 'Meine Abos',
       abo_loeschen: 'Löschen',
-      share_event: 'Dieses Event teilen',
-      share_event_done: 'Event kopiert!',
       col_entfernung: 'Entfernung',
       sort_hint: 'Klicken zum Sortieren',
       group_toggle: 'Events zusammenfassen',
@@ -1238,12 +1085,6 @@
       result_count_grouped: (g, n, total) => `${g} von ${total} Events`,
       share_search: 'Suche mit Freunden teilen',
       share_done: '✓ Link kopiert!',
-      share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
-      detail_empty: 'Wähle eine Zeile aus, um Details zu sehen.',
-      detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
-      detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
-      detail_wettbewerb: 'Wettbewerb',
-      report_btn: 'Fehler zu diesem Event melden',
       report_title: 'Fehler melden',
       report_intro: 'Danke, dass du hilfst! Was stimmt bei diesem Event nicht?',
       report_field_label: 'Wo liegt der Fehler?',
@@ -1267,13 +1108,6 @@
       report_cat_doppelt: 'Event ist doppelt in der Liste',
       report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
       report_cat_sonstiges: 'Sonstiges',
-      detail_link: 'Zur Veranstalter-Website',
-      cal_btn: 'Zum Kalender hinzufügen',
-      cal_google: 'Google Kalender / Gmail',
-      cal_outlook: 'Outlook',
-      cal_ics: 'Apple Kalender & andere (.ics)',
-      cal_note: 'Ganztägiger Termin. Die .ics-Datei wird geladen – zum Eintragen öffnen.',
-      cal_note_apple: 'Ganztägiger Termin. Öffnet sich im Kalender – dort auf „Hinzufügen" tippen. Lädt Safari stattdessen eine Datei, diese in „Dateien" antippen.',
       empty_events: 'Keine Events gefunden.',
       notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       // "Wir haben dein Event nicht?" - der zweite Weg bei null Treffern.
@@ -1342,20 +1176,12 @@
       abo_fehler: 'That did not work. Please try again later.',
       abo_meine: 'My subscriptions',
       abo_loeschen: 'Delete',
-      share_event: 'Share this event',
-      share_event_done: 'Event copied!',
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
       group_toggle: 'Group by event',
       result_count_grouped: (g, n, total) => `${g} of ${total} events`,
       share_search: 'Share this search',
       share_done: '✓ Link copied!',
-      share_fail: 'Could not copy – please use the address bar',
-      detail_empty: 'Select a row to see details.',
-      detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
-      detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
-      detail_wettbewerb: 'Race',
-      report_btn: 'Report an error in this event',
       report_title: 'Report an error',
       report_intro: 'Thanks for helping! What is wrong with this event?',
       report_field_label: 'Where is the error?',
@@ -1379,13 +1205,6 @@
       report_cat_doppelt: 'Event is listed twice',
       report_cat_abgesagt: 'Event is cancelled / not happening',
       report_cat_sonstiges: 'Something else',
-      detail_link: 'Visit organizer website',
-      cal_btn: 'Add to calendar',
-      cal_google: 'Google Calendar / Gmail',
-      cal_outlook: 'Outlook',
-      cal_ics: 'Apple Calendar & others (.ics)',
-      cal_note: 'All-day event. The .ics file is downloaded – open it to add the event.',
-      cal_note_apple: 'All-day event. Opens in Calendar – tap “Add” there. If Safari downloads a file instead, tap it in the Files app.',
       empty_events: 'No events found.',
       notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
       notify_fehlt: 'Or is the event missing from our list? Then let us know.',
@@ -1421,8 +1240,8 @@
   // dieselben Chips, und zwei Kopien derselben Texte wären mit der Zeit
   // auseinandergelaufen. Die gespeicherten Filterwerte bleiben intern
   // immer auf Deutsch (Datenformat), übersetzt wird nur die ANZEIGE.
-  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de);
-  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en);
+  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de, EED.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en, EED.I18N.en);
   const VALUE_TRANSLATIONS = EF.VALUE_TRANSLATIONS;
 
   let currentLang = 'de';
@@ -1464,44 +1283,11 @@
   // Kanonische Distanz-Bezeichnungen und ihre Länge in km. Steht so ein
   // Wort allein im Wettbewerbs-Feld und passt zur Länge, sagt es nichts
   // Neues (siehe displayWettbewerb).
-  const CANONICAL_RACE_NAMES = {
-    'marathon': 42.2,
-    'halbmarathon': 21.1,
-    'half marathon': 21.1,
-    'halbmarathon (hm)': 21.1
-  };
 
   // Die Wettbewerbs-Bezeichnung, ODER null wenn sie nur die Länge
-  // wiederholt.
-  //
-  // Die Quellen benennen einen Wettbewerb oft schlicht mit seiner Distanz
-  // ("50 km", "6 km") oder mit deren kanonischem Namen ("Halbmarathon").
-  // Beides steht schon in der Längen-Spalte; im Detailbereich erschien es
-  // dadurch zweimal ("Race 50 km" über "Length 50 km"), in der Liste als
-  // Unterzeile unter dem Namen. Bei gerundeten Quellenangaben sah es sogar
-  // nach einem Widerspruch aus: Unterzeile "6 km" über der Spalte "5.5 km".
-  //
-  // Bezeichnungen mit eigener Aussage bleiben: "Laufen", "Wandern",
-  // "Moslig 8000", "5×5 km Staffel", "26 km Trail". Das Feld selbst bleibt
-  // in events.json erhalten - die Duplikat-Erkennung der Scraper braucht
-  // es (über "Halbmarathon" wurde der doppelte München-Halbmarathon
-  // gefunden).
+  // wiederholt (Begründung in event-detail.js).
   function displayWettbewerb(e) {
-    const label = (e.wettbewerb || '').trim();
-    if (!label) return null;
-    const km = e.laenge_km;
-
-    // Kanonischer Name, der genau die gespeicherte Länge bezeichnet?
-    const canonical = CANONICAL_RACE_NAMES[label.toLowerCase()];
-    if (canonical != null && km != null && Math.abs(canonical - Number(km)) <= 0.5) return null;
-
-    // Bleibt nach Abzug der Distanzangaben und Füllwörter noch etwas übrig?
-    const rest = label
-      .replace(/\d{1,3}(?:[.,]\d+)?\s*(?:km|kilometer)\b/gi, ' ')
-      .replace(/\b(?:ca|circa|etwa|rund|ungefähr|approx|ungefaehr)\b\.?/gi, ' ')
-      .replace(/[\s.,;:\-–|~()]+/g, '')
-      .trim();
-    return rest ? label : null;
+    return EED.displayWettbewerb(e);
   }
 
   // Reihenfolge der Spalten: Name, Datum, Land, Standort, Sportart,
@@ -1595,21 +1381,6 @@
   // Filtermechanismus dazu.
   const DATE_PRESETS = EF.DATE_PRESETS;
 
-  // iPadOS meldet sich in Safari als "Macintosh"; der Touch-Zähler
-  // verrät trotzdem, dass ein iPad davorsteht. Gebraucht an zwei Stellen:
-  // für den richtigen Einstellungs-Pfad in der Standort-Hilfe und für den
-  // Kalender-Eintrag (siehe setupCalendarBox).
-  function istIosGeraet() {
-    const ua = navigator.userAgent || '';
-    return /iPhone|iPad|iPod/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
-  }
-
-  // Mac ohne Touch = Schreibtisch-macOS. Dort ist der Kalender die
-  // Standard-App für .ics, das Öffnen lohnt also genauso.
-  function istAppleGeraet() {
-    return istIosGeraet() || /Mac/.test(navigator.userAgent || '');
-  }
-
   function applyDatePreset(preset) {
     EF.applyDatePreset(state, preset, uniqueSorted(events.map(e => e.datum_start)));
     selectedIndex = null;
@@ -1639,6 +1410,7 @@
   // es setzt und writeUrlState() es gleich danach wieder braucht (und
   // beide laufen weit vor dieser Textstelle - Temporal Dead Zone).
   let deepEventSlug = null;
+  let deepMelden = false;
   const FENSTER_SCHRITT = 200;
   let fenster = null;
   // Die angeforderte Bild-Aktualisierung des Nachladens. Steht hier
@@ -1803,24 +1575,9 @@
 
   const shareBtnEl = document.getElementById('share-btn');
   const shareBtnLabelEl = document.getElementById('share-btn-label');
-  const toastEl = document.getElementById('toast');
-  let toastTimer = null;
 
-  // Kleines Fenster, das knapp zwei Sekunden lang sichtbar ist. Zwei
-  // Zeitgeber: einer für das Ausblenden (Deckkraft), einer fürs
-  // Wegnehmen aus dem Layout danach.
-  function showToast(text) {
-    window.clearTimeout(toastTimer);
-    toastEl.textContent = text;
-    toastEl.hidden = false;
-    // Ein Bildaufbau muss zwischen hidden=false und der Klasse liegen,
-    // sonst gibt es keinen Übergang, sondern einen Sprung.
-    window.requestAnimationFrame(() => toastEl.classList.add('visible'));
-    toastTimer = window.setTimeout(() => {
-      toastEl.classList.remove('visible');
-      toastTimer = window.setTimeout(() => { toastEl.hidden = true; }, 220);
-    }, 1800);
-  }
+  // Die Kurzmeldung kommt aus event-detail.js (dort für beide Seiten).
+  function showToast(text) { EED.showToast(text); }
 
   shareBtnEl.addEventListener('click', () => {
     const url = window.location.href;
@@ -1910,6 +1667,11 @@
   // hinscrollen (am Rechner steht sie daneben und zeigt es schon - dann
   // bewegt sich nichts, siehe zeigeDetailbereich).
   if (deepEventSlug) zeigeDetailbereich();
+  // ?melden=1 (Melde-Knopf der Karte) öffnet den Dialog - aber erst ganz
+  // am Ende des Skripts: openReportModal() braucht reportOverlay und
+  // reportFesselGesetzt, die weiter unten deklariert sind (Temporal
+  // Dead Zone - hier aufgerufen hieß es "Cannot access
+  // 'reportFesselGesetzt' before initialization").
 
   // ---------- helpers ----------
 
@@ -1935,23 +1697,15 @@
     return EF.formatDate(iso, currentLang);
   }
 
+  // Datum als Text (Melde-Dialog, Teilen) und als zwei Zeilen mit <br>
+  // (Tabelle, Box) - beide in event-detail.js, mit Begründung.
   function formatRange(start, end) {
-    if (start === end) return formatDate(start);
-    return `${formatDate(start)} – ${formatDate(end)}`;
+    return EED.formatRange(start, end, currentLang);
+  }
+  function formatRangeHtml(start, end) {
+    return EED.formatRangeHtml(start, end, currentLang);
   }
 
-  // Dasselbe für die Tabelle und die Detail-Box: Ein mehrtägiges Rennen
-  // steht in ZWEI Zeilen - Anfangsdatum samt Gedankenstrich, Enddatum
-  // darunter. Vorher brach die Zelle dort um, wo gerade Platz war
-  // ("18 Sep 2026 – 20" / "Sep 2026", vom Nutzer gemeldet). Ein <br>
-  // statt zweier Blöcke, damit `.cell-clamp` (zwei Zeilen) weiter greift
-  // und die Zeilenhöhe von 52 px stimmt.
-  // Die Textfassung oben bleibt für Melde-Dialog und Teilen-Text - dort
-  // wird der Rückgabewert escaped, ein <br> stünde als Zeichenfolge da.
-  function formatRangeHtml(start, end) {
-    if (start === end) return escapeHtml(formatDate(start));
-    return `${escapeHtml(formatDate(start))} –<br>${escapeHtml(formatDate(end))}`;
-  }
 
   // Längenangaben immer auf EINE Dezimalstelle: die Quellen geben dieselbe
   // Strecke unterschiedlich genau an (Marathon als "42,195 km"), angezeigt
@@ -1975,15 +1729,9 @@
   // "24h" der Name der Veranstaltung, die Zeile selbst aber eine feste
   // 42-km-Strecke. Sie als "24 h" anzuzeigen würde die Distanz
   // verschlucken.
+
   function formatLength(e) {
-    if (e.laenge_km != null) return formatKm(e.laenge_km);
-    if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) {
-      return EF.formatHours(e.dauer_h, currentLang);
-    }
-    // Backyard Ultra ohne Zeitbegrenzung: bewusst "–". Der Lauf endet,
-    // wenn nur noch eine Person weiterläuft - es gibt keine Länge, und
-    // die Rundenlänge ist keine (siehe clear_backyard_lap_km()).
-    return formatKm(null);
+    return EED.formatLength(e, currentLang);
   }
 
   function escapeHtml(str) {
@@ -2843,6 +2591,12 @@
       if (treffer >= 0) {
         selectedIndex = treffer;
         deepEventSlug = gesucht;
+        // ?melden=1 dazu: der Melde-Knopf in der Box auf der KARTE führt
+        // hierher, weil der Melde-Dialog (Firestore) nur in der Liste
+        // lebt. Der Parameter verschwindet mit dem nächsten
+        // writeUrlState() von selbst - er soll nicht in einem geteilten
+        // Link landen.
+        deepMelden = p.get('melden') === '1';
       }
     }
   }
@@ -3110,299 +2864,26 @@
     notifyBoxEl.hidden = true;
   }
 
+  // Die Box selbst baut event-detail.js (Liste UND Karte, dieselbe
+  // Struktur - vom Nutzer so gewünscht). Hier bleibt nur, was die Liste
+  // beisteuert: das Event und der Melde-Dialog.
+  function detailKontext() {
+    return { t, tv, lang: currentLang, onReport: (e) => openReportModal(e) };
+  }
+
   function renderDetail() {
     if (selectedIndex === null || !events[selectedIndex]) {
-      detailEl.innerHTML = `<div class="detail-empty">${escapeHtml(t('detail_empty'))}</div>`;
+      EED.renderEmpty(detailEl, detailKontext());
       return;
     }
-    const e = events[selectedIndex];
-    detailEl.innerHTML = `
-      <div class="detail-head">
-        <div class="detail-head-text">
-          <h2>${escapeHtml(e.name)}</h2>
-          <div class="sub">${escapeHtml(tv('standort', e.standort))}, ${escapeHtml(tv('land', e.land))}</div>
-        </div>
-        <button type="button" class="detail-share" id="event-share-btn"
-                title="${escapeHtml(t('share_event'))}" aria-label="${escapeHtml(t('share_event'))}">
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
-            <path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>
-          </svg>
-        </button>
-      </div>
-      <dl class="detail-grid">
-        <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRangeHtml(e.datum_start, e.datum_ende)}</dd>
-        <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
-        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))}</dd>
-        <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
-        <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
-        ${displayWettbewerb(e) ? `<dt>${escapeHtml(t('detail_wettbewerb'))}</dt><dd>${escapeHtml(displayWettbewerb(e))}</dd>` : ''}
-        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatLength(e)}</dd>
-      </dl>
-      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
-      <div class="cal-box">
-        <button type="button" class="cal-btn" id="cal-open-btn" aria-expanded="false">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/>
-          </svg>
-          <span>${escapeHtml(t('cal_btn'))}</span>
-        </button>
-        <div class="cal-menu" id="cal-menu" hidden>
-          <a id="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
-          <a id="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
-          <a id="cal-ics">${escapeHtml(t('cal_ics'))}</a>
-          <div class="cal-note" id="cal-note"></div>
-        </div>
-      </div>
-      <button type="button" class="report-btn" id="report-open-btn">${escapeHtml(t('report_btn'))}</button>
-    `;
-    detailEl.querySelector('#report-open-btn').addEventListener('click', () => openReportModal(e));
-    detailEl.querySelector('#event-share-btn').addEventListener('click', () => teileEvent(e));
-    setupCalendarBox(e);
+    EED.render(detailEl, events[selectedIndex], detailKontext());
   }
 
-  // ---------- Ein einzelnes Event teilen ----------
-  //
-  // Geteilt wird ein LINK auf genau dieses Event plus die Angaben, die
-  // in der Box stehen - kein PDF und kein Bild. Gründe, der Reihe nach:
-  //
-  //   - Die Box enthält eine Handvoll Fakten und zwei Links. Wer den
-  //     Link antippt, landet genau hier: mit "Zum Kalender hinzufügen",
-  //     der Veranstalter-Seite und der Karte daneben. Ein PDF kann das
-  //     alles nicht, und es veraltet - verlegt der Veranstalter das
-  //     Rennen, ist das PDF für immer falsch.
-  //   - `navigator.share()` öffnet den Teilen-Dialog des Geräts.
-  //     Damit funktionieren WhatsApp, iMessage, Mail, Signal, Notizen
-  //     und AirDrop auf einmal, ohne dass die Seite einen einzigen
-  //     Dienst kennen muss.
-  //   - Ein PDF bräuchte eine Bibliothek (jsPDF o. Ä., ~150-400 KB) für
-  //     ein schlechteres Ergebnis. Wo ein PDF sinnvoll wäre: die ganze
-  //     gefilterte Liste als Saisonplan - das ist eine andere Funktion,
-  //     und dafür reicht später ein Druck-Stylesheet (der Browser
-  //     schreibt daraus selbst ein PDF).
-  //
-  // Ohne `navigator.share` (Firefox am Rechner, Safari am Mac je nach
-  // Version) wird Text + Link in die Ablage kopiert.
-
-  // Der Link auf genau dieses Event. Absolut, damit er in einer
-  // Nachricht anklickbar ist.
-  function eventLink(e) {
-    const basis = window.location.origin + window.location.pathname;
-    return `${basis}?event=${encodeURIComponent(eventSlug(e))}`;
-  }
-
-  // Die Angaben aus der Box, in der Reihenfolge, in der sie dort stehen.
-  function eventShareText(e) {
-    const zeilen = [
-      e.name,
-      `${formatRange(e.datum_start, e.datum_ende)} · ${tv('standort', e.standort)}, ${tv('land', e.land)}`,
-      `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e)}`
-    ];
-    const wb = displayWettbewerb(e);
-    if (wb) zeilen.splice(2, 0, wb);
-    return zeilen.join('\n');
-  }
-
-  function teileEvent(e) {
-    const url = eventLink(e);
-    const text = eventShareText(e);
-    if (navigator.share) {
-      // Bricht jemand den Dialog ab, kommt ein AbortError - das ist
-      // keine Panne und darf keine Meldung auslösen.
-      navigator.share({ title: e.name, text, url }).catch((err) => {
-        if (err && (err.name === 'AbortError' || err.name === 'NotAllowedError')) return;
-        kopiereInAblage(text + '\n' + url);
-      });
-      return;
-    }
-    kopiereInAblage(text + '\n' + url);
-  }
-
-  // Kopieren mit Rückfallweg: `navigator.clipboard` braucht einen
-  // sicheren Kontext (https oder localhost). Ohne den hilft ein
-  // unsichtbares Textfeld samt execCommand - alt, aber es funktioniert
-  // überall.
-  function kopiereInAblage(text) {
-    if (navigator.clipboard && window.isSecureContext !== false) {
-      navigator.clipboard.writeText(text)
-        .then(() => showToast(t('share_event_done')))
-        .catch(() => showToast(t('share_fail')));
-      return;
-    }
-    try {
-      const feld = document.createElement('textarea');
-      feld.value = text;
-      feld.setAttribute('readonly', '');
-      feld.style.cssText = 'position:fixed;top:-1000px;opacity:0';
-      document.body.appendChild(feld);
-      feld.select();
-      const ok = document.execCommand('copy');
-      feld.remove();
-      showToast(ok ? t('share_event_done') : t('share_fail'));
-    } catch (err) {
-      showToast(t('share_fail'));
-    }
-  }
-
-  // ---------- Zum Kalender hinzufügen ----------
-
-  // Alle Termine sind GANZTÄGIG. Startzeiten stehen in keiner Quelle
-  // verlässlich (und wenn, dann pro Wettbewerb verschieden) - ein
-  // ganztägiger Eintrag behauptet keine Uhrzeit, die wir nicht kennen.
-  //
-  // Ganztägige Termine enden im iCalendar-Format (RFC 5545) am FOLGETAG:
-  // DTEND ist exklusiv. Dasselbe gilt für den dates-Parameter von Google
-  // und startdt/enddt von Outlook. Ohne das +1 fehlt der letzte Tag.
-  function calDatePlusDays(iso, tage) {
-    const [j, m, d] = iso.split('-').map(Number);
-    const dt = new Date(Date.UTC(j, m - 1, d));
-    dt.setUTCDate(dt.getUTCDate() + tage);
-    return dt.toISOString().slice(0, 10);
-  }
-
-  function calFields(e) {
-    const start = e.datum_start;
-    const endeInklusiv = e.datum_ende && e.datum_ende > start ? e.datum_ende : start;
-    const wb = displayWettbewerb(e);
-    const titel = wb ? `${e.name} – ${wb}` : e.name;
-    const zeilen = [
-      `${t('detail_sportart')}: ${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''}`,
-      `${t('detail_laenge')}: ${formatLength(e)}`
-    ];
-    if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
-    return {
-      titel,
-      ort: `${tv('standort', e.standort)}${e.land ? ', ' + tv('land', e.land) : ''}`,
-      beschreibung: zeilen.join('\n'),
-      start,
-      endeExklusiv: calDatePlusDays(endeInklusiv, 1),
-      url: e.veranstalter_url || ''
-    };
-  }
-
-  function setupCalendarBox(e) {
-    const btn = detailEl.querySelector('#cal-open-btn');
-    const menu = detailEl.querySelector('#cal-menu');
-    if (!btn || !menu) return;
-    const f = calFields(e);
-    const kompakt = (iso) => iso.replace(/-/g, '');
-
-    detailEl.querySelector('#cal-google').href =
-      'https://calendar.google.com/calendar/render?action=TEMPLATE'
-      + `&text=${encodeURIComponent(f.titel)}`
-      + `&dates=${kompakt(f.start)}/${kompakt(f.endeExklusiv)}`
-      + `&details=${encodeURIComponent(f.beschreibung)}`
-      + `&location=${encodeURIComponent(f.ort)}`;
-
-    // Outlook.com deckt private Konten ab; Outlook für Arbeit/Schule
-    // (outlook.office.com) versteht dieselbe Adresse und leitet um.
-    detailEl.querySelector('#cal-outlook').href =
-      'https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent'
-      + '&allday=true'
-      + `&subject=${encodeURIComponent(f.titel)}`
-      + `&startdt=${f.start}`
-      + `&enddt=${f.endeExklusiv}`
-      + `&body=${encodeURIComponent(f.beschreibung)}`
-      + `&location=${encodeURIComponent(f.ort)}`;
-
-    // Die .ics-Datei liegt fertig im Ordner kalender/ (erzeugt von
-    // scripts/build_ics.py, eine je Event). Ein einfacher Link genügt -
-    // und nur so kommt die Datei mit dem Inhaltstyp text/calendar vom
-    // Server, den iOS braucht, um den Termin dem Kalender anzubieten.
-    // Alles, was die Seite selbst erzeugte (Blob, data-URI, sogar eine
-    // vom Service Worker erfundene Antwort), war für Safari ein Download.
-    //
-    // Bewusst OHNE download-Attribut: das würde Safari das Übergeben an
-    // den Kalender wieder verbieten.
-    const icsEl = detailEl.querySelector('#cal-ics');
-    icsEl.href = `kalender/${icsFileName(e)}`;
-    const noteEl = detailEl.querySelector('#cal-note');
-    if (noteEl) noteEl.textContent = t(istAppleGeraet() ? 'cal_note_apple' : 'cal_note');
-
-    btn.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      const offen = !menu.hidden;
-      menu.hidden = offen;
-      btn.setAttribute('aria-expanded', offen ? 'false' : 'true');
-    });
-    menu.addEventListener('click', () => {
-      menu.hidden = true;
-      btn.setAttribute('aria-expanded', 'false');
-    });
-
-    // Klick daneben oder Escape schließt das Menü. Der Zuhörer wird nur
-    // EINMAL angemeldet (renderDetail baut den Bereich bei jedem Klick
-    // neu, sonst sammelten sich die Zuhörer an).
-    if (!setupCalendarBox.listenersAttached) {
-      setupCalendarBox.listenersAttached = true;
-      document.addEventListener('click', (ev) => {
-        const m = detailEl.querySelector('#cal-menu');
-        if (!m || m.hidden) return;
-        if (m.contains(ev.target) || detailEl.querySelector('#cal-open-btn').contains(ev.target)) return;
-        m.hidden = true;
-        detailEl.querySelector('#cal-open-btn').setAttribute('aria-expanded', 'false');
-      });
-      document.addEventListener('keydown', (ev) => {
-        if (ev.key !== 'Escape') return;
-        const m = detailEl.querySelector('#cal-menu');
-        if (!m || m.hidden) return;
-        m.hidden = true;
-        detailEl.querySelector('#cal-open-btn').setAttribute('aria-expanded', 'false');
-      });
-    }
-  }
-
-  // Dateiname der fertigen .ics-Datei. **Muss mit ics_dateiname() in
-  // scripts/build_ics.py übereinstimmen** - sonst zeigt der Knopf auf
-  // eine Datei, die es nicht gibt. scripts/test_scraper_lib.py prüft
-  // beide Umsetzungen gegeneinander (ruft dafür node auf), also beim
-  // Ändern immer beide anfassen.
-  //
-  // Aufbau: <datum>-<name>-<distanz>-<ort>.ics. Der Ort gehört dazu, weil
-  // Name + Datum + Distanz nicht eindeutig sind ("TEAG - Legend of Cross
-  // - Mühlberg" steht am 31.10.2026 mit 10, 17 und 30 km je zweimal in
-  // den Daten, einmal unter "Mühlberg" und einmal unter "Drei Gleichen").
-  function icsSlug(text) {
-    return (text || '')
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .replace(/ß/g, 'ss')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '')
-      .slice(0, 48)
-      .replace(/^-+|-+$/g, '');
-  }
-
-  function icsMasszahl(e) {
-    if (e.laenge_km != null) {
-      return `${(Math.round(Number(e.laenge_km) * 10) / 10)}km`.replace('.', '-');
-    }
-    if (e.dauer_h != null) {
-      return `${(Math.round(Number(e.dauer_h) * 10) / 10)}h`.replace('.', '-');
-    }
-    return 'x';
-  }
-
-  // Die dauerhafte Kennung eines Events: Datum, Name, Maßzahl, Ort.
-  // Zwei Dinge hängen daran, deshalb steht sie nur EINMAL hier:
-  //   - der Name der Kalenderdatei (icsFileName, muss zu build_ics.py
-  //     passen - test_scraper_lib.py prüft beide gegeneinander),
-  //   - der Link auf ein einzelnes Event (?event=…, siehe teileEvent).
-  // Eine ID in events.json gibt es nicht, und eine laufende Nummer wäre
-  // wertlos: Sie verschiebt sich, sobald ein Event dazukommt oder ein
-  // vergangenes wegfällt - ein geteilter Link zeigte dann auf ein
-  // fremdes Rennen.
+  // Die dauerhafte Kennung eines Events (Datum, Name, Maßzahl, Ort) -
+  // steht in event-detail.js, weil Kalenderdatei und geteilter Link
+  // darauf aufbauen und die Karte beides auch braucht.
   function eventSlug(e) {
-    const teile = [e.datum_start || 'ohne-datum', icsSlug(e.name), icsMasszahl(e)];
-    const ort = icsSlug(e.standort);
-    if (ort) teile.push(ort);
-    return teile.join('-');
-  }
-
-  function icsFileName(e) {
-    return eventSlug(e) + '.ics';
+    return EED.eventSlug(e);
   }
 
   // ---------- Fehler melden ----------
@@ -3740,6 +3221,12 @@
     ui.close();
     buildHeader();
     render();
+  }
+
+  // Siehe oben beim Deep-Link: erst hier sind alle Teile des
+  // Melde-Dialogs deklariert.
+  if (deepMelden && selectedIndex !== null && events[selectedIndex]) {
+    openReportModal(events[selectedIndex]);
   }
 })();
 </script>
