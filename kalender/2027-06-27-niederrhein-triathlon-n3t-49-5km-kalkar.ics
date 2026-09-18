@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-27-niederrhein-triathlon-n3t-38km-kalkar@antdon930.github.io
+UID:2027-06-27-niederrhein-triathlon-n3t-49-5km-kalkar@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:Niederrhein Triathlon N3T – Stadt Kalkar Kurzdistanz
 LOCATION:Kalkar\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 38 km\nhttps://www.nieder
- rhein-triathlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 49.5 km\nhttps://www.nied
+ errhein-triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://www.niederrhein-triathlon.de/
 END:VEVENT

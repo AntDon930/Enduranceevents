@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-08-29-otterndorf-triathlon-20km-otterndorf@antdon930.github.io
+UID:2027-08-29-otterndorf-triathlon-51-5km-otterndorf@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
-SUMMARY:Otterndorf Triathlon – Sprintdistanz
+SUMMARY:Otterndorf Triathlon – Olympische Distanz
 LOCATION:Otterndorf\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://my.raceres
- ult.com/419516/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://my.racer
+ esult.com/419516/
 TRANSP:TRANSPARENT
 URL:https://my.raceresult.com/419516/
 END:VEVENT

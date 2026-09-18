@@ -591,9 +591,94 @@ def guess_art2(text: str, config: SiteConfig, art1: str | None = None) -> str | 
     return standard
 
 
+# Teilstrecken einer Mehrsport-Veranstaltung. Je Disziplin ein Muster,
+# das die Zahl VOR oder NACH dem Stichwort nimmt - beide Schreibweisen
+# kommen vor ("1,5 km Schwimmen", "Schwimmen 1,5 km", "400m Swim").
+# Meter werden mitgelesen: "1.500 m Schwimmen" sind 1,5 km.
+_DISZIPLIN_WORTE = {
+    "schwimmen": r"schwimm\w*|swim\w*",
+    "rad": r"radfahren|radstrecke|\brad\b|\bbike\b|mountainbike|mtb",
+    "laufen": r"laufen|laufstrecke|\blauf\b|\brun\b",
+}
+_ZAHL = r"(\d{1,5}(?:[.,]\d+)?)\s*(km|kilometer|m|meter)\b"
+_TEILSTRECKEN_MUSTER = {
+    name: (re.compile(rf"{_ZAHL}\s*(?:{wort})", re.I),
+           re.compile(rf"(?:{wort})\s*:?\s*{_ZAHL}", re.I))
+    for name, wort in _DISZIPLIN_WORTE.items()
+}
+
+
+def _teilstrecke_km(zahl: str, einheit: str) -> float | None:
+    """Eine Teilstreckenangabe in Kilometer. "1.500 m" -> 1.5."""
+    wert = float(zahl.replace(".", "").replace(",", ".")) if (
+        einheit.lower().startswith("m") and "," not in zahl and "." in zahl
+    ) else float(zahl.replace(",", "."))
+    if einheit.lower().startswith("m"):
+        wert /= 1000.0
+    return wert if wert > 0 else None
+
+
+def summiere_teilstrecken(text: str) -> float | None:
+    """Gesamtstrecke einer Mehrsport-Veranstaltung aus ihren Teilstrecken.
+
+    Warum es das braucht: `guess_distance_km()` nimmt bei mehreren Zahlen
+    die GRÖSSTE - bei einem Triathlon ist das die Radstrecke. Deshalb
+    stand die olympische Distanz des Triathlon Höchstadt mit "40 km" in
+    der Liste statt mit 51,5 km (1,5 km Schwimmen + 40 km Rad + 10 km
+    Laufen), und dasselbe bei jedem zweiten Triathlon im Bestand. Eine
+    Radstrecke als Länge des Rennens auszuweisen ist doppelt falsch: Die
+    Zahl stimmt nicht, und sie sieht aus wie ein Radrennen.
+
+    Drei Bedingungen, alle nötig, damit die Regel nur zuschlägt, wo
+    wirklich Teilstrecken aufgezählt sind:
+
+    - **Mindestens zwei verschiedene Disziplinen** mit eigener Zahl.
+    - **Schwimmen oder Rad muss dabei sein.** Ein reiner Lauftext kann
+      damit nie hineinrutschen.
+    - **Je Disziplin genau EINE Angabe.** Zählt ein Text mehrere
+      Wettbewerbe auf ("Jedermann 400m Swim 20km Bike ... Kurzdistanz
+      1.500m Swim 40km Bike ..."), lässt sich nicht sagen, welche
+      Zahlen zusammengehören - dann lieber nichts (Rückgabe None, der
+      Aufrufer macht weiter wie bisher).
+
+    Gibt die Summe in Kilometern zurück oder None.
+    """
+    if not text:
+        return None
+
+    def sammle(index: int) -> dict[str, float] | None:
+        """Ein Durchgang mit EINER Schreibweise (0 = Zahl vor dem Wort,
+        1 = Wort vor der Zahl). Die beiden nicht zu mischen ist nötig:
+        In "400m Swim 20km Bike 5km Run" passt auf "Swim 20km" auch die
+        zweite Schreibweise, und Schwimmen bekäme 20 km statt 400 m."""
+        gefunden: dict[str, float] = {}
+        for name, muster in _TEILSTRECKEN_MUSTER.items():
+            werte = {_teilstrecke_km(z, e) for z, e in muster[index].findall(text)}
+            werte.discard(None)
+            if len(werte) == 1:
+                gefunden[name] = werte.pop()
+            elif len(werte) > 1:
+                return None      # mehrere Wettbewerbe in einem Text - nicht raten
+        return gefunden
+
+    for index in (0, 1):
+        gefunden = sammle(index)
+        if gefunden is None:
+            return None
+        if len(gefunden) >= 2 and ({"schwimmen", "rad"} & gefunden.keys()):
+            return round_km(sum(gefunden.values()))
+    return None
+
+
 def guess_distance_km(text: str, config: SiteConfig) -> float | None:
     if not text:
         return None
+    # Mehrsport zuerst: Zählt der Text Teilstrecken auf (Schwimmen/Rad/
+    # Laufen), ist die Länge des Rennens ihre SUMME - nicht die größte
+    # Einzelzahl. Siehe summiere_teilstrecken().
+    mehrsport = summiere_teilstrecken(text)
+    if mehrsport is not None:
+        return mehrsport
     # Der VORKOMMATEIL erlaubt bis zu fünf Stellen, und (?<!\d) verhindert,
     # dass der Regex mitten in einer Zahl anfängt. Ohne beides wurde eine
     # vierstellige Distanz auf ihre letzten drei Stellen verkürzt - der

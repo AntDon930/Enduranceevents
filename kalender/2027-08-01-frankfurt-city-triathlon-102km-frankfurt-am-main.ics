@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-08-01-frankfurt-city-triathlon-45km-frankfurt-am-main@antdon930.g
- ithub.io
+UID:2027-08-01-frankfurt-city-triathlon-102km-frankfurt-am-main@antdon930.
+ github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
-SUMMARY:Frankfurt City Triathlon – Olympische Distanz
+SUMMARY:Frankfurt City Triathlon – Mitteldistanz
 LOCATION:Frankfurt am Main\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 45 km\nhttps://www.frankf
- urt-city-triathlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 102 km\nhttps://www.frank
+ furt-city-triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://www.frankfurt-city-triathlon.de/
 END:VEVENT

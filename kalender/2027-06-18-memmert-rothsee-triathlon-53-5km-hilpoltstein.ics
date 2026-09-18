@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-18-memmert-rothsee-triathlon-5km-hilpoltstein@antdon930.github
- .io
+UID:2027-06-18-memmert-rothsee-triathlon-53-5km-hilpoltstein@antdon930.git
+ hub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270621
-SUMMARY:Memmert Rothsee Triathlon
+SUMMARY:Memmert Rothsee Triathlon – Kurzdistanz
 LOCATION:Hilpoltstein\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 5 km\nhttps://rothsee-tri
- athlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 53.5 km\nhttps://rothsee-
+ triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://rothsee-triathlon.de/
 END:VEVENT

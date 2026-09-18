@@ -4,13 +4,13 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-07-17-bhtc-mohnesee-triathlon-15km-mohnesee@antdon930.github.io
+UID:2027-07-17-bhtc-mohnesee-triathlon-87km-mohnesee@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270717
 DTEND;VALUE=DATE:20270718
 SUMMARY:BHTC Möhnesee Triathlon – Grand Prix
 LOCATION:Möhnesee\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 15 km\nhttps://www.moehne
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 87 km\nhttps://www.moehne
  see-triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://www.moehnesee-triathlon.de/

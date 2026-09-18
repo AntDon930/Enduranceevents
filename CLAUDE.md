@@ -350,6 +350,45 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      „Hindernis" wäre falsch: Ein Hindernislauf (Spartan, XLETIX,
      CrossDeLuxe, Muddy Angel, Tough Mudder) IST ein Laufformat und
      bleibt. `test_nicht_ausdauer` hält beide Seiten fest.
+
+15. **Die Länge eines Triathlons ist die SUMME seiner Teilstrecken.**
+   Der größte systematische Datenfehler, den die Einzelprüfung gefunden
+   hat: `guess_distance_km()` nimmt bei mehreren Zahlen die größte – bei
+   einem Triathlon ist das die **Radstrecke**. Deshalb stand die
+   Kurzdistanz des Triathlon Höchstadt mit „40 km" in der Liste statt
+   mit 51,5 km (1,5 + 40 + 10), der Niederrhein N3T mit 38 statt 49,5,
+   Frankfurt City mit 80 statt 102, Indeland mit 88 statt 109,9, der
+   Schloss-Triathlon Moritzburg mit 173 statt 218,8. Nennt die Quelle
+   nur EINE Zahl, ist es stattdessen oft die Laufstrecke (Möhnesee 5 /
+   10 / 15 statt 25,5 / 51,5 / 87).
+
+   Eine Radstrecke als Länge des Rennens auszuweisen ist doppelt falsch:
+   Die Zahl stimmt nicht, und sie sieht aus wie ein Radrennen.
+
+   `summiere_teilstrecken()` (`scraper_lib.py`) fängt das beim
+   Einsammeln ab. Drei Bedingungen, alle nötig, damit die Regel nur
+   dort zuschlägt, wo wirklich Teilstrecken aufgezählt sind:
+   - **Mindestens zwei verschiedene Disziplinen** mit eigener Zahl.
+   - **Schwimmen oder Rad muss dabei sein.** Ein reiner Lauftext kann
+     damit nie hineinrutschen.
+   - **Je Disziplin genau EINE Angabe.** Zählt ein Text mehrere
+     Wettbewerbe auf („Jedermann 400m Swim 20km Bike 5km Run …
+     Kurzdistanz 1.500m Swim 40km Bike 10km Run"), lässt sich nicht
+     sagen, welche Zahlen zusammengehören – dann lieber nichts.
+
+   Die beiden Schreibweisen (Zahl vor dem Wort, Wort vor der Zahl)
+   werden **getrennt** ausgewertet und nicht gemischt: In „400m Swim
+   20km Bike 5km Run" passt auf „Swim 20km" auch die zweite
+   Schreibweise, und Schwimmen bekäme 20 km statt 400 m.
+   `test_mehrsport_teilstrecken` hält Treffer und Gegenproben fest.
+
+   **Der Bestand ist damit NICHT geheilt** – die Regel wirkt erst beim
+   nächsten Datenlauf, weil `clean_events.py` den Quelltext nicht mehr
+   hat. Die vorhandenen Zeilen gehören einzeln geprüft;
+   `report_triathlon_distanzen()` meldet sie (40 → 18 am 18.09.2026).
+   Und eine Zuordnung Label → Standarddistanz wäre falsch: Deutsche
+   Veranstaltungen weichen ab (Moritzburgs „Langdistanz" hat 173 km
+   Rad, Frankfurts „Mitteldistanz" 80 km, Indelands 88 km).
    - Jeder Ausschluss wird **gemeldet**, nicht stillschweigend gemacht.
 
 ### Die wichtigste Lektion

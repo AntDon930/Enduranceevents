@@ -1718,6 +1718,55 @@ def test_manuelle_events() -> None:
     check("idempotent, also gleich viele Zeilen", len(nochmal), len(eintraege))
 
 
+def test_mehrsport_teilstrecken() -> None:
+    """Die Länge eines Triathlons ist die SUMME seiner Teilstrecken.
+
+    `guess_distance_km()` nimmt bei mehreren Zahlen die größte - bei
+    einem Triathlon ist das die Radstrecke. Deshalb stand die
+    Kurzdistanz des Triathlon Höchstadt mit „40 km" in der Liste statt
+    mit 51,5 km, und dasselbe bei jedem zweiten Triathlon im Bestand:
+    Niederrhein N3T 38 statt 49,5; Frankfurt City 80 statt 102;
+    Indeland 88 statt 109,9. Eine Radstrecke als Länge des Rennens ist
+    doppelt falsch - die Zahl stimmt nicht, und sie sieht aus wie ein
+    Radrennen.
+
+    Die Gegenproben sind hier der wichtigere Teil: Die Regel darf NUR
+    dort zuschlagen, wo wirklich Teilstrecken aufgezählt sind.
+    """
+    print("\nMehrsport: Teilstrecken summieren (summiere_teilstrecken):")
+    from scraper_lib import summiere_teilstrecken as summe
+
+    check("1,5 km Schwimmen + 40 km Rad + 10 km Laufen",
+          summe("1,5 km Schwimmen, 40 km Radfahren, 10 km Laufen"), 51.5)
+    check("englisch und ohne Leerzeichen", summe("400m Swim 20km Bike 5km Run"), 25.4)
+    check("Meter mit Tausenderpunkt", summe("1.500m Swim 40km Bike 10km Run"), 51.5)
+    check("Wort vor der Zahl", summe("Schwimmen 1,5 km / Rad 40 km / Laufen 10 km"), 51.5)
+    check("Langdistanz", summe("3,8 km Schwimmen, 180 km Rad, 42,2 km Laufen"), 226.0)
+    check("Duathlon ohne Schwimmen", summe("10 km Laufen und 40 km Radfahren"), 50.0)
+
+    # --- Gegenproben ---------------------------------------------------
+    check("ein reiner Lauftext bleibt unberührt",
+          summe("5 km Lauf, 10 km Lauf, 21,1 km Lauf"), None)
+    check("ein Halbmarathon auch", summe("21,1 km Halbmarathon"), None)
+    check("ein Radrennen allein reicht nicht", summe("Rad 100 km"), None)
+    check("eine einzelne Teilstrecke auch nicht", summe("ca. 18,6 km Radfahren"), None)
+    check("'Mountainbike Rennen 42 km' ist kein Mehrsport",
+          summe("Mountainbike Rennen 42 km"), None)
+    # Der wichtigste Schutz: Zählt ein Text MEHRERE Wettbewerbe auf,
+    # lässt sich nicht sagen, welche Zahlen zusammengehören. Dann lieber
+    # nichts - der Aufrufer macht weiter wie bisher.
+    check("zwei Wettbewerbe in einem Text ergeben nichts",
+          summe("Jedermann 400m Swim 20km Bike 5km Run "
+                "Kurzdistanz 1.500m Swim 40km Bike 10km Run"), None)
+    check("leerer Text", summe(""), None)
+
+    from scraper_lib import guess_distance_km
+    check("guess_distance_km nutzt die Summe",
+          guess_distance_km("1,5 km Schwimmen, 40 km Radfahren, 10 km Laufen", CONFIG), 51.5)
+    check("und bleibt sonst wie bisher",
+          guess_distance_km("5 km, 10 km, 42,195 km", CONFIG), 42.2)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1731,6 +1780,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_serientermin_im_label,
+                 test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):

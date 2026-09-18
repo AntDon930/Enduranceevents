@@ -1000,5 +1000,142 @@
     "datum_start": "2027-02-27",
     "datum_ende": "2027-02-27",
     "_note": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Der 50-km-Ultralauf ist am 27.02.2027, nicht am 26.02. Geprueft 2026-09-18."
+  },
+  "Naturafit Triathlon Höchstadt|2026-09-20|20": {
+    "laenge_km": 25.4,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. hoechstadt-triathlon.de nennt Jedermann: '400m Swim 20km Bike 5km Run' = 25,4 km. Geprueft 2026-09-18."
+  },
+  "Naturafit Triathlon Höchstadt|2026-09-20|40": {
+    "laenge_km": 51.5,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. hoechstadt-triathlon.de nennt Kurzdistanz: '1.500m Swim 40km Bike 10km Run' = 51,5 km. Geprueft 2026-09-18."
+  },
+  "Niederrhein Triathlon N3T|2027-06-27|10.5": {
+    "laenge_km": 13.2,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. niederrhein-triathlon.de nennt Schnupperdistanz: '200 m Schwimmen, 10,5 km Radfahren, 2,5 km Laufen' = 13,2 km. Geprueft 2026-09-18."
+  },
+  "Niederrhein Triathlon N3T|2027-06-27|19": {
+    "laenge_km": 24.5,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. niederrhein-triathlon.de nennt Sprintdistanz: '500 m Schwimmen, 19 km Radfahren, 5 km Laufen' = 24,5 km. Geprueft 2026-09-18."
+  },
+  "Niederrhein Triathlon N3T|2027-06-27|38": {
+    "laenge_km": 49.5,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. niederrhein-triathlon.de nennt Kurzdistanz: '1,5 km Schwimmen, 38 km Radfahren, 10 km Laufen' = 49,5 km. Geprueft 2026-09-18."
+  },
+  "Frankfurt City Triathlon|2027-08-01|12": {
+    "laenge_km": 17.4,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. frankfurt-city-triathlon.de nennt Jedermann Distanz: '0,4 km Schwimmen / 12 km Radfahren / 5 km Laufen' = 17,4 km. Geprueft 2026-09-18."
+  },
+  "Frankfurt City Triathlon|2027-08-01|28": {
+    "laenge_km": 33.8,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. frankfurt-city-triathlon.de nennt Sprint Distanz: '0,75 km Schwimmen / 28 km Radfahren / 5 km Laufen' = 33,75 km. Geprueft 2026-09-18."
+  },
+  "Frankfurt City Triathlon|2027-08-01|45": {
+    "laenge_km": 56.5,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. frankfurt-city-triathlon.de nennt Olympische Distanz: '1,5 km Schwimmen / 45 km Radfahren / 10 km Laufen' = 56,5 km. Geprueft 2026-09-18."
+  },
+  "Frankfurt City Triathlon|2027-08-01|80": {
+    "laenge_km": 102.0,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. frankfurt-city-triathlon.de nennt Mitteldistanz: '2 km Schwimmen / 80 km Radfahren / 20 km Laufen' = 102 km. Geprueft 2026-09-18."
+  },
+  "Indeland Triathlon|2027-06-20|48": {
+    "laenge_km": 59.5,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. indeland-triathlon.de nennt Kurzdistanz: '1,5 km Schwimmen/48 km Radfahren/10 km Laufen' = 59,5 km. Geprueft 2026-09-18."
+  },
+  "Indeland Triathlon|2027-06-20|88": {
+    "laenge_km": 109.9,
+    "_note": "Gespeichert war die RADSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. indeland-triathlon.de nennt Mitteldistanz: '1,9 km Schwimmen /88 km Radfahren /20 km Laufen' = 109,9 km. Geprueft 2026-09-18."
+  },
+  "Kornwestheimer Triathlon|2026-09-20|5": {
+    "laenge_km": 25.6,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. szk-triathlon.de nennt fuer den Volkstriathlon '500 m' Schwimmen, '20,0 km' Rad und '5,1 km' Laufen = 25,6 km; die gespeicherten 5 km waren die Laufstrecke. Geprueft 2026-09-18.",
+    "wettbewerb": "Volkstriathlon"
+  },
+  "Weinstadt Triathlon|2026-09-27|5": {
+    "laenge_km": 23.6,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. sgweinstadt.de nennt '0,3 km Schwimmen / 18,7 km Radfahren / 4,6 km Laufen' = 23,6 km fuer den Jedermann-Triathlon, den einzigen Triathlon-Wettbewerb der Veranstaltung. Geprueft 2026-09-18.",
+    "wettbewerb": "Jedermann-Triathlon"
+  },
+  "Memmert Rothsee Triathlon|2027-06-18|5": {
+    "laenge_km": 25.3,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. rothsee-triathlon.de nennt fuer den Jedermanntriathlon '750 m | 19,5 km | 5 km' = 25,25 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Jedermanntriathlon"
+  },
+  "Memmert Rothsee Triathlon|2027-06-18|10": {
+    "laenge_km": 53.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. rothsee-triathlon.de nennt fuer die Kurzdistanz (Deutsche Meisterschaft AK) '1,5 km | 42 km | 10 km' = 53,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Kurzdistanz"
+  },
+  "Mainfrankentriathlon|2027-07-31|5": {
+    "laenge_km": 25.6,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. mainfrankentriathlon.de nennt fuer die Sprintdistanz '0,6 km Schwimmen - 20 km Radfahren - 5 km Laufen' = 25,6 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Sprint"
+  },
+  "Mainfrankentriathlon|2027-07-31|10": {
+    "laenge_km": 51.7,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. mainfrankentriathlon.de nennt fuer die olympische Distanz '1,67 km Schwimmen - 40 km Radfahren - 10 km Laufen' = 51,67 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Olympisch"
+  },
+  "Heinerman Triathlon|2027-06-27|20": {
+    "laenge_km": 25.8,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. heinerman.de nennt fuer die Sprint-Distanz '(0,75 km / 20 km / 5 km)' = 25,75 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Sprint"
+  },
+  "Lauchringer Triathlon-Nacht|2027-06-25|5.4": {
+    "exclude": true,
+    "_note": "Teilstrecke, kein eigenes Rennen: triathlon-lauchringen.de nennt fuer die 10. Lauchringer Triathlon-Nacht am 25.06.2027 ein Rennen aus '400m' Schwimmen, 'ca. 18,6 km' Rad und 'ca. 5,4 km' Laufen. Die Laufstrecke stand als eigene Zeile da, die Radstrecke als zweite - beide sind dasselbe Rennen. Die Zeile mit 18,6 km traegt jetzt die Gesamtstrecke. Geprueft 2026-09-18."
+  },
+  "Lauchringer Triathlon-Nacht|2027-06-25|18.6": {
+    "laenge_km": 24.4,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. triathlon-lauchringen.de nennt '400m' Schwimmen, 'ca. 18,6 km' Rad und 'ca. 5,4 km' Laufen = 24,4 km. Geprueft 2026-09-18."
+  },
+  "Triathlon Stralsund|2027-09-05|10": {
+    "exclude": true,
+    "_note": "Teilstrecke, kein eigenes Rennen: Das Label lautet schlicht 'Laufen'. stralsund-triathlon.de nennt fuer den 8. Triathlon am 05.09.2027 Schwimmen '0,4 bis 1,5 km', Rad '11 bis 44 km' und Laufen '2,5 bis 10 km' - die 10 km sind der Laufteil der olympischen Distanz, die 44 km ihr Radteil. Die Zeile mit 44 km traegt jetzt die Gesamtstrecke. Geprueft 2026-09-18."
+  },
+  "Triathlon Stralsund|2027-09-05|44": {
+    "laenge_km": 55.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad. Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. stralsund-triathlon.de nennt fuer die olympische Distanz 1,5 km Schwimmen + 44 km Rad + 10 km Laufen = 55,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Olympische Distanz"
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12|173": {
+    "laenge_km": 218.8,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. schlosstriathlon.de nennt fuer die BarockMan Langdistanz '3,8/173/42km' (so heisst die Wettkampf-Information des Veranstalters) = 218,8 km - die Radstrecke ist mit 173 km kuerzer als die klassischen 180. Geprueft 2026-09-18."
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12|87": {
+    "laenge_km": 109.9,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. schlosstriathlon.de nennt fuer die Halbdistanz 1,9 km Schwimmen, 87 km Rad, 21 km Laufen = 109,9 km. Geprueft 2026-09-18."
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12|40": {
+    "laenge_km": 51.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. schlosstriathlon.de nennt fuer die Sparkasse Meissen Olympische Distanz 1,5 / 40 / 10 km = 51,5 km. Geprueft 2026-09-18."
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12|20": {
+    "laenge_km": 25.8,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. schlosstriathlon.de nennt fuer die LandMAXX Jedermann Distanz 0,75 / 20 / 5 km = 25,75 km. Geprueft 2026-09-18."
+  },
+  "BHTC Möhnesee Triathlon|2027-07-17|5": {
+    "laenge_km": 25.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. moehnesee-triathlon.de nennt fuer den Volkstriathlon 0,5 km Schwimmen, 20 km Rad, 5 km Laufen = 25,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Volkstriathlon"
+  },
+  "BHTC Möhnesee Triathlon|2027-07-17|10": {
+    "laenge_km": 51.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. moehnesee-triathlon.de nennt fuer die Olympische Distanz 1,5 / 40 / 10 km = 51,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Olympische Distanz"
+  },
+  "BHTC Möhnesee Triathlon|2027-07-17|15": {
+    "laenge_km": 87.0,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. moehnesee-triathlon.de nennt fuer den Grand Prix 2,0 km Schwimmen, 70 km Rad, 15 km Laufen = 87 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Grand Prix"
+  },
+  "Otterndorf Triathlon|2027-08-29|20": {
+    "laenge_km": 25.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. otterndorf-triathlon.de (Ausschreibung des TSV Otterndorf) nennt fuer die Sprintdistanz 0,5 km Schwimmen, 20 km Rad, 5 km Laufen = 25,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Sprintdistanz"
+  },
+  "Otterndorf Triathlon|2027-08-29|40": {
+    "laenge_km": 51.5,
+    "_note": "Gespeichert war eine TEILSTRECKE statt der Gesamtstrecke: guess_distance_km() nimmt bei mehreren Zahlen die groesste, und das ist bei einem Triathlon fast immer das Rad (manchmal, wenn die Quelle nur eine Zahl nennt, auch der Lauf). Die Laenge eines Triathlons ist die Summe seiner drei Teilstrecken. otterndorf-triathlon.de (Ausschreibung des TSV Otterndorf) nennt fuer die Olympische Distanz 1,5 km Schwimmen, 40 km Rad, 10 km Laufen = 51,5 km. Geprueft 2026-09-18.",
+    "wettbewerb": "Olympische Distanz"
   }
 }

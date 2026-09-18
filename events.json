@@ -5287,8 +5287,8 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "veranstalter_url": "https://www.szk-triathlon.de/kornwestheimer-sika-triathlon-2026/",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km"
+    "laenge_km": 25.6,
+    "wettbewerb": "Volkstriathlon"
   },
   {
     "land": "Deutschland",
@@ -5831,7 +5831,7 @@
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
     "veranstalter_url": "https://hoechstadt-triathlon.de/",
-    "laenge_km": 20.0,
+    "laenge_km": 25.4,
     "wettbewerb": "Jedermann"
   },
   {
@@ -5844,7 +5844,7 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 40.0,
+    "laenge_km": 51.5,
     "wettbewerb": "Kurzdistanz",
     "veranstalter_url": "https://hoechstadt-triathlon.de/"
   },
@@ -11677,8 +11677,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 23.6,
+    "wettbewerb": "Jedermann-Triathlon",
     "veranstalter_url": "https://www.sgweinstadt.de/weinstadt-triathlon"
   },
   {
@@ -50611,7 +50611,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-13",
-    "laenge_km": 173.0,
+    "laenge_km": 218.8,
     "wettbewerb": "BarockMan Langdistanz",
     "veranstalter_url": "https://schlosstriathlon.de/"
   },
@@ -50625,7 +50625,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-13",
-    "laenge_km": 87.0,
+    "laenge_km": 109.9,
     "wettbewerb": "Halbdistanz",
     "veranstalter_url": "https://schlosstriathlon.de/"
   },
@@ -50639,7 +50639,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-13",
-    "laenge_km": 40.0,
+    "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz Sparkasse Meißen",
     "veranstalter_url": "https://schlosstriathlon.de/"
   },
@@ -50653,7 +50653,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-13",
-    "laenge_km": 20.0,
+    "laenge_km": 25.8,
     "wettbewerb": "LandMAXX Jedermann Distanz",
     "veranstalter_url": "https://schlosstriathlon.de/"
   },
@@ -51520,8 +51520,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-18",
     "datum_ende": "2027-06-20",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 53.5,
+    "wettbewerb": "Kurzdistanz",
     "veranstalter_url": "https://rothsee-triathlon.de/"
   },
   {
@@ -51534,8 +51534,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-18",
     "datum_ende": "2027-06-20",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 25.3,
+    "wettbewerb": "Jedermanntriathlon",
     "veranstalter_url": "https://rothsee-triathlon.de/"
   },
   {
@@ -51947,7 +51947,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
-    "laenge_km": 88.0,
+    "laenge_km": 109.9,
     "wettbewerb": "Mitteldistanz",
     "veranstalter_url": "https://www.indeland-triathlon.de/"
   },
@@ -51961,7 +51961,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
-    "laenge_km": 48.0,
+    "laenge_km": 59.5,
     "wettbewerb": "Kurzdistanz",
     "veranstalter_url": "https://www.indeland-triathlon.de/"
   },
@@ -52303,22 +52303,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-25",
     "datum_ende": "2027-06-25",
-    "laenge_km": 18.6,
-    "wettbewerb": "ca. 18,6 km Radfahren",
-    "veranstalter_url": "https://www.triathlon-lauchringen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lauchringer Triathlon-Nacht",
-    "standort": "Lauchringen",
-    "lat": 47.6293259,
-    "lon": 8.3127498,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-25",
-    "datum_ende": "2027-06-25",
-    "laenge_km": 5.4,
-    "wettbewerb": "ca. 5,4 km Laufen",
+    "laenge_km": 24.4,
     "veranstalter_url": "https://www.triathlon-lauchringen.de/"
   },
   {
@@ -52919,7 +52904,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
-    "laenge_km": 20.0,
+    "laenge_km": 25.8,
     "wettbewerb": "Sprint",
     "veranstalter_url": "http://www.heinerman.de/"
   },
@@ -52975,7 +52960,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
-    "laenge_km": 38.0,
+    "laenge_km": 49.5,
     "wettbewerb": "Stadt Kalkar Kurzdistanz",
     "veranstalter_url": "https://www.niederrhein-triathlon.de/"
   },
@@ -52989,7 +52974,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
-    "laenge_km": 19.0,
+    "laenge_km": 24.5,
     "wettbewerb": "Umwelttechnik Janßen Sprintdistanz",
     "veranstalter_url": "https://www.niederrhein-triathlon.de/"
   },
@@ -53003,7 +52988,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
-    "laenge_km": 10.5,
+    "laenge_km": 13.2,
     "wettbewerb": "Sparkasse Rhein-Maas Schnupperdistanz",
     "veranstalter_url": "https://www.niederrhein-triathlon.de/"
   },
@@ -54420,7 +54405,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-17",
     "datum_ende": "2027-07-17",
-    "laenge_km": 5.0,
+    "laenge_km": 25.5,
     "wettbewerb": "Volkstriathlon",
     "veranstalter_url": "https://www.moehnesee-triathlon.de/"
   },
@@ -54434,7 +54419,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-17",
     "datum_ende": "2027-07-17",
-    "laenge_km": 10.0,
+    "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz",
     "veranstalter_url": "https://www.moehnesee-triathlon.de/"
   },
@@ -54448,7 +54433,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-17",
     "datum_ende": "2027-07-17",
-    "laenge_km": 15.0,
+    "laenge_km": 87.0,
     "wettbewerb": "Grand Prix",
     "veranstalter_url": "https://www.moehnesee-triathlon.de/"
   },
@@ -55358,8 +55343,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-31",
     "datum_ende": "2027-07-31",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 51.7,
+    "wettbewerb": "Olympisch",
     "veranstalter_url": "https://www.mainfrankentriathlon.de/"
   },
   {
@@ -55372,8 +55357,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-31",
     "datum_ende": "2027-07-31",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 25.6,
+    "wettbewerb": "Sprint",
     "veranstalter_url": "https://www.mainfrankentriathlon.de/"
   },
   {
@@ -55582,7 +55567,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
-    "laenge_km": 80.0,
+    "laenge_km": 102.0,
     "wettbewerb": "Mitteldistanz",
     "veranstalter_url": "https://www.frankfurt-city-triathlon.de/"
   },
@@ -55596,7 +55581,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
-    "laenge_km": 45.0,
+    "laenge_km": 56.5,
     "wettbewerb": "Olympische Distanz",
     "veranstalter_url": "https://www.frankfurt-city-triathlon.de/"
   },
@@ -55610,7 +55595,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
-    "laenge_km": 28.0,
+    "laenge_km": 33.8,
     "wettbewerb": "Sprint Distanz",
     "veranstalter_url": "https://www.frankfurt-city-triathlon.de/"
   },
@@ -55624,7 +55609,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
-    "laenge_km": 12.0,
+    "laenge_km": 17.4,
     "wettbewerb": "Jedermann Distanz",
     "veranstalter_url": "https://www.frankfurt-city-triathlon.de/"
   },
@@ -56884,7 +56869,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "laenge_km": 20.0,
+    "laenge_km": 25.5,
     "wettbewerb": "Sprintdistanz",
     "veranstalter_url": "https://my.raceresult.com/419516/"
   },
@@ -56898,7 +56883,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "laenge_km": 40.0,
+    "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz",
     "veranstalter_url": "https://my.raceresult.com/419516/"
   },
@@ -57492,21 +57477,8 @@
     "datum_start": "2027-09-05",
     "datum_ende": "2027-09-05",
     "veranstalter_url": "https://stralsund-triathlon.de/",
-    "laenge_km": 44.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Triathlon Stralsund",
-    "standort": "Stralsund",
-    "lat": 54.3090654,
-    "lon": 13.0770347,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-05",
-    "datum_ende": "2027-09-05",
-    "laenge_km": 10.0,
-    "wettbewerb": "Laufen",
-    "veranstalter_url": "https://stralsund-triathlon.de/"
+    "laenge_km": 55.5,
+    "wettbewerb": "Olympische Distanz"
   },
   {
     "land": "Deutschland",

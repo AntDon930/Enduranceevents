@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-12-schloss-triathlon-moritzburg-40km-moritzburg@antdon930.gith
- ub.io
+UID:2027-06-12-schloss-triathlon-moritzburg-109-9km-moritzburg@antdon930.g
+ ithub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270614
-SUMMARY:Schloss-Triathlon Moritzburg – Olympische Distanz Sparkasse Meißen
+SUMMARY:Schloss-Triathlon Moritzburg – Halbdistanz
 LOCATION:Moritzburg\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 40 km\nhttps://schlosstri
- athlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 109.9 km\nhttps://schloss
+ triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://schlosstriathlon.de/
 END:VEVENT

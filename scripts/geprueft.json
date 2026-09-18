@@ -112,7 +112,7 @@
     "am": "2026-09-18",
     "ergebnis": "korrigiert",
     "quelle": "schlosstriathlon.de",
-    "notiz": "42,2-km-Zeile ohne Label war die Marathon-Teilstrecke."
+    "notiz": "Alle vier Zeilen waren die Radstrecke: 173 -> 218,8; 87 -> 109,9; 40 -> 51,5; 20 -> 25,8 km."
   },
   "Dörenther Klippen UltraTrail|2026-12-28": {
     "am": "2026-09-18",
@@ -899,5 +899,95 @@
     "ergebnis": "quelle_ok",
     "quelle": "berlin-triathlon.de, uferbahnlauf.de",
     "notiz": "KEINE Doppelung: Der 'Uferbahnlauf Berlin' (Bahn) und der 'Berlin Triathlon' finden am selben Tag in Berlin statt, sind aber verschiedene Veranstaltungen und verschiedene Sportarten."
+  },
+  "Naturafit Triathlon Höchstadt|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "hoechstadt-triathlon.de",
+    "notiz": "Alle Distanzen waren die Radstrecke. Auf die Gesamtstrecke gesetzt: 20 -> 25.4 km; 40 -> 51.5 km."
+  },
+  "Niederrhein Triathlon N3T|2027-06-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "niederrhein-triathlon.de",
+    "notiz": "Alle Distanzen waren die Radstrecke. Auf die Gesamtstrecke gesetzt: 10.5 -> 13.2 km; 19 -> 24.5 km; 38 -> 49.5 km."
+  },
+  "Frankfurt City Triathlon|2027-08-01": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "frankfurt-city-triathlon.de",
+    "notiz": "Alle Distanzen waren die Radstrecke. Auf die Gesamtstrecke gesetzt: 12 -> 17.4 km; 28 -> 33.8 km; 45 -> 56.5 km; 80 -> 102 km."
+  },
+  "Indeland Triathlon|2027-06-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "indeland-triathlon.de",
+    "notiz": "Alle Distanzen waren die Radstrecke. Auf die Gesamtstrecke gesetzt: 48 -> 59.5 km; 88 -> 109.9 km."
+  },
+  "Kornwestheimer Triathlon|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "szk-triathlon.de",
+    "notiz": "5 km (Laufstrecke) -> 25,6 km Gesamtstrecke des Volkstriathlons."
+  },
+  "Weinstadt Triathlon|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "sgweinstadt.de",
+    "notiz": "5 km -> 23,6 km (0,3 + 18,7 + 4,6). Daneben gibt es nur einen Swim & Run fuer Kinder."
+  },
+  "Memmert Rothsee Triathlon|2027-06-18": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "rothsee-triathlon.de",
+    "notiz": "Beide Zeilen waren die Laufstrecke: 5 -> 25,3 km (Jedermann), 10 -> 53,5 km (Kurzdistanz)."
+  },
+  "Mainfrankentriathlon|2027-07-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "mainfrankentriathlon.de",
+    "notiz": "Beide Zeilen waren die Laufstrecke: 5 -> 25,6 km (Sprint), 10 -> 51,7 km (Olympisch)."
+  },
+  "Heinerman Triathlon|2027-06-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "heinerman.de",
+    "notiz": "20 km (Radstrecke) -> 25,8 km Sprint-Distanz. FEHLT: die olympische Distanz (1,5 km Schwimmen im Darmstaedter Woog, 40 km Rad, 10 km Laufen = 51,5 km)."
+  },
+  "Lauchringer Triathlon-Nacht|2027-06-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-lauchringen.de",
+    "notiz": "Zwei Teilstrecken EINES Rennens standen als zwei Zeilen; jetzt eine Zeile mit 24,4 km."
+  },
+  "Triathlon Stralsund|2027-09-05": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "stralsund-triathlon.de",
+    "notiz": "Zwei Teilstrecken EINES Rennens (44 km Rad, 10 km Laufen) standen als zwei Zeilen; jetzt eine Zeile mit 55,5 km. FEHLT: der Jedermann-Triathlon (0,4 + 11 + 2,5 = 13,9 km)."
+  },
+  "BHTC Möhnesee Triathlon|2027-07-17": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "moehnesee-triathlon.de",
+    "notiz": "Alle drei Zeilen waren die Laufstrecke: 5 -> 25,5; 10 -> 51,5; 15 -> 87 km."
+  },
+  "Otterndorf Triathlon|2027-08-29": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "otterndorf-triathlon.de",
+    "notiz": "Beide Zeilen waren die Radstrecke: 20 -> 25,5; 40 -> 51,5 km."
+  },
+  "Lipperlandtriathlon|2027-06-20": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "tglage.de/triathlon.html",
+    "notiz": "Fehlalarm: Die vier Zeilen (6, 13, 26, 51 km) sind bereits GESAMTstrecken, nicht Teilstrecken. tglage.de nennt die Volksdistanz mit '0,5 km Schwimmen, 20 km Radfahren, 5 km Laufen' = 25,5 km (unsere 26) und die Olympische Distanz mit '1 km Schwimmen, 40 km Radfahren, 10 km Laufen' = 51 km (unsere 51). Die 6 und 13 km sind die Schueler- und Jugendwettbewerbe, bei denen 'die Schwimmstrecke fuer die juengeren Teilnehmer halbiert' wird. Der Bericht meldet sie nur, weil sie zu keinem der vier Standardformate passen."
+  },
+  "Berlin Triathlon|2027-06-05": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "berlin-triathlon.de/Ausschreibung/Strecken, finishers.com",
+    "notiz": "Die echten Formate sind bekannt: Olympische Distanz 1,5 km Schwimmen - 38 km Rad - 10,1 km Laufen = 49,6 km; Sprint 0,75 - 20 - 4,7 = 25,5 km; Mitteldistanz 1,9 - 89 - 21 = 111,9 km; dazu Fitness, Swim und Kids (100 m / 2,5 km / 400 m). OFFEN: Unsere drei Zeilen tragen 5, 9 und 19 km mit den Labels '5 km', '9 km' und '19 km' - keine davon passt zu einer Teilstrecke ODER einer Gesamtstrecke dieser Formate. Welche Zeile welchen Wettbewerb meint, ist nicht zu sagen; geraten wird nicht. Die Strecken-Seite selbst ist nur unter berlin-triathlon.de/Ausschreibung/Strecken/mobile/ erreichbar, die anderen Pfade antworten mit 404."
   }
 }

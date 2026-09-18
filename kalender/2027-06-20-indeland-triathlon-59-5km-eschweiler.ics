@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-20-indeland-triathlon-88km-eschweiler@antdon930.github.io
+UID:2027-06-20-indeland-triathlon-59-5km-eschweiler@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
-SUMMARY:Indeland Triathlon – Mitteldistanz
+SUMMARY:Indeland Triathlon – Kurzdistanz
 LOCATION:Eschweiler\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 88 km\nhttps://www.indela
- nd-triathlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 59.5 km\nhttps://www.inde
+ land-triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://www.indeland-triathlon.de/
 END:VEVENT

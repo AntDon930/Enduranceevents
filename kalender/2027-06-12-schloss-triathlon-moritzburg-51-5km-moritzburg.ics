@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-12-schloss-triathlon-moritzburg-20km-moritzburg@antdon930.gith
- ub.io
+UID:2027-06-12-schloss-triathlon-moritzburg-51-5km-moritzburg@antdon930.gi
+ thub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270614
-SUMMARY:Schloss-Triathlon Moritzburg – LandMAXX Jedermann Distanz
+SUMMARY:Schloss-Triathlon Moritzburg – Olympische Distanz Sparkasse Meißen
 LOCATION:Moritzburg\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://schlosstri
- athlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://schlosst
+ riathlon.de/
 TRANSP:TRANSPARENT
 URL:https://schlosstriathlon.de/
 END:VEVENT
