@@ -15307,11 +15307,12 @@
     "lat": 48.4069119,
     "lon": 9.0602912,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Berglauf",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000855160001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000855160001",
+    "wettbewerb": "Dreifürstensteig, ca. Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -18052,7 +18053,8 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000552660000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000552660000",
+    "wettbewerb": "Sparkassen-Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -20710,7 +20712,8 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000714460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000714460000",
+    "wettbewerb": "BKK VerbundPlus Halbmarathon"
   },
   {
     "land": "Deutschland",
@@ -25368,11 +25371,12 @@
     "lat": 49.3777244,
     "lon": 7.0525145,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000012460000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000012460000",
+    "wettbewerb": "Wustweiler Biber-Trail (WuBiT)"
   },
   {
     "land": "Deutschland",
@@ -57095,7 +57099,8 @@
     "datum_start": "2027-09-05",
     "datum_ende": "2027-09-05",
     "veranstalter_url": "https://my.raceresult.com/417096/",
-    "laenge_km": 21.1
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon"
   },
   {
     "land": "Deutschland",

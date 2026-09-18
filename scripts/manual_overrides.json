@@ -1196,5 +1196,27 @@
     "dauer_h": 6.0,
     "wettbewerb": "6 Stunden, 2-km-Runde",
     "_note": "Zeitrennen ohne feste Strecke (Datenregel 8): Gelaufen wird am 19.09.2026 von 9 bis etwa 15 Uhr eine beliebige Zahl von 2-km-Runden um das Freibad Waschmuehle in Kaiserslautern, Pausen erlaubt; der Erloes geht an den Freundeskreis Waschmuehle e.V. Die gespeicherten 21,6 km sind keine Renndistanz. Quelle: wochenblatt-reporter.de ('Sechs Stunden rund um die Waschmuehle'), kaiserslautern.de, fitinlautern.de. Geprueft 2026-09-18."
+  },
+  "Citylauf Schwabach|2026-10-11|21.1": {
+    "wettbewerb": "Sparkassen-Halbmarathon",
+    "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. schwabacher-citylauf.de nennt fuer den '33. SCHWABACHER CITYLAUF am 11. Oktober 2026' den 'Sparkassen - HALBMARATHON', eine Halbmarathon-Staffel, den 'RIBE - HAUPTLAUF 10,2 km', den 'Baecker Distlers HOBBYLAUF 5,3 km', 'AOK - GOLDEN WALKING 5,3 km' und den 'AOK - GOLDSCHLAeGER MARSCH 21,1 km'. Geprueft 2026-09-18."
+  },
+  "Biberacher Genießerlauf|2026-10-18|21.1": {
+    "wettbewerb": "BKK VerbundPlus Halbmarathon",
+    "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. biberacher-geniesserlauf.de nennt fuer Sonntag, 18. Oktober den 'BKK VerbundPlus Halbmarathon' als laengste Strecke, dazu die 'Kreissparkasse Biberach-Staffel (2 x 8 km)' und den 'REWE Engel Genuss Walk' ueber knapp sechs Kilometer. Geprueft 2026-09-18."
+  },
+  "Canyon Run Mühlheim|2027-09-05|21.1": {
+    "wettbewerb": "Halbmarathon",
+    "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. canyon-run.de nennt fuer den 'CANYON RUN 2027 AM 05.09.2027' einen Halbmarathon (Start 9:15 Uhr, Sportanlage Dietesheim in Muehlheim), 10 km, 5 km, einen 800-m-Schuelerlauf und einen 400-m-Minilauf. Geprueft 2026-09-18."
+  },
+  "Mössinger Apfellauf|2026-10-04|21": {
+    "wettbewerb": "Dreifürstensteig, ca. Halbmarathon",
+    "art2": "Berglauf",
+    "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. lg-steinlach-zollern.de nennt fuer Sonntag, 4. Oktober 2026 die Strecke 'Dreifuerstensteig, ca. Halbmarathon' mit 'ca. 750 HM', Start 9:30 Uhr in gefuehrten Gruppen, dazu 'Streuobstwiesenstrecke, ca. 11 km' und das Apfelwalking ueber 10 und 7 km. 750 Hoehenmeter auf 21 km sind 36 hm/km - damit ist es ein Berglauf und keine Strasse (Datenregel 6). ANMERKUNG: Die Seite sagt 'kein Wettkampf. Es erfolgt keine Zeitnahme.' Geprueft 2026-09-18."
+  },
+  "Freundschaftslauf Wustweiler|2026-11-07|21": {
+    "wettbewerb": "Wustweiler Biber-Trail (WuBiT)",
+    "art2": "Trail/Cross",
+    "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. llgwustweiler.de nennt fuer Samstag, 07. November 2026 den 'Wustweiler Biber-Trail (WuBiT): 21 km Trail - 600 Hoehenmeter' um 13:00 Uhr, dazu ab 15:00 Uhr Laufstrecken ueber 7, 8, 9, 10 und 11 km und Walking ueber 5 und 6 km. Es ist kein Strassen-Halbmarathon, sondern ein Trail - Kategorie entsprechend gesetzt. Geprueft 2026-09-18."
   }
 }

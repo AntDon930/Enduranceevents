@@ -1163,5 +1163,35 @@
     "ergebnis": "unklar",
     "quelle": "laufen.de",
     "notiz": "Kein Datenfehler, nur ein sehr langer Name: Die Quelle schreibt die Einordnung in die Serie mit in den Veranstaltungsnamen. Umbenennen kann ein Override nicht (der Name ist Teil des Schluessels). Die Zeile hat ausserdem keine Distanzangabe - die nennt die Quelle nicht."
+  },
+  "Citylauf Schwabach|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "schwabacher-citylauf.de",
+    "notiz": "Der gemeldete Halbmarathon ist echt; Label ergaenzt."
+  },
+  "Biberacher Genießerlauf|2026-10-18": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "biberacher-geniesserlauf.de",
+    "notiz": "Der gemeldete Halbmarathon ist echt; Label ergaenzt."
+  },
+  "Canyon Run Mühlheim|2027-09-05": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "canyon-run.de",
+    "notiz": "Der gemeldete Halbmarathon ist echt; Label ergaenzt."
+  },
+  "Mössinger Apfellauf|2026-10-04": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "lg-steinlach-zollern.de",
+    "notiz": "Die gemeldete 21-km-Strecke ist echt (Dreifuerstensteig, ca. 750 hm) - Kategorie auf Berglauf korrigiert. Die Veranstaltung ist ausdruecklich kein Wettkampf und hat keine Zeitnahme."
+  },
+  "Freundschaftslauf Wustweiler|2026-11-07": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "llgwustweiler.de",
+    "notiz": "Die gemeldete 21-km-Zeile ist der Wustweiler Biber-Trail (600 hm); Label und Kategorie ergaenzt."
   }
 }
