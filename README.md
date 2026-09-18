@@ -431,9 +431,14 @@ Schweiz.
   **zwei** Stellen berechnet – in `build_ics.py` (erzeugt die Dateien)
   und in `events.html` (verlinkt sie); `test_scraper_lib.py` prüft beide
   gegeneinander und lässt dafür den echten JS-Code in `node` laufen. Der
-  Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sind: Der
-  „Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten (für
-  Bensberg und für Bergisch Gladbach – dasselbe Rennen aus zwei Quellen).
+  Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sind:
+  „TEAG - Legend of Cross - Mühlberg" steht am 31.10.2026 mit 10, 17 und
+  30 km je zweimal in den Daten – einmal unter „Mühlberg", einmal unter
+  „Drei Gleichen" (Mühlberg ist ein Ortsteil davon). Das frühere
+  Beispiel „Königsforst-Marathon" trägt nicht mehr: Dessen zweite
+  42,2-km-Zeile lag durch einen Geocoding-Fehler bei Kassel, deshalb
+  griff die Duplikat-Erkennung nicht (sie erlaubt 30 km Abstand). Seit
+  der Einzelprüfung vom 18.09.2026 sind die beiden zusammengeführt.
 
   `DTSTAMP` ist absichtlich ein **fester** Zeitstempel und nicht „jetzt":
   sonst änderte jeder Wochenlauf alle 4.150 Dateien, und der Commit wäre

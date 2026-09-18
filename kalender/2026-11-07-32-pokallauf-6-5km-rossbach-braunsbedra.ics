@@ -4,12 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-07-32-pokallauf-6-5km-rossbach@antdon930.github.io
+UID:2026-11-07-32-pokallauf-6-5km-rossbach-braunsbedra@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:32. Pokallauf
-LOCATION:Roßbach\, Deutschland
+LOCATION:Roßbach (Braunsbedra)\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://laufen.de/la
  ufkalender/details/26V16900000760000
 TRANSP:TRANSPARENT

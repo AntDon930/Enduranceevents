@@ -84,11 +84,11 @@ def ics_dateiname(event: dict) -> str:
     `2027-06-26-hofer-backyard-ultra-x-hof.ics`.
 
     Der Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sind:
-    Der "Königsforst-Marathon" am 14.03.2027 steht mit 42,2 km zweimal in
-    den Daten, einmal für Bensberg und einmal für Bergisch Gladbach
-    (dasselbe Rennen aus zwei Quellen, das die Duplikat-Erkennung nicht
-    zusammengeführt hat). Ohne den Ort hätte eine der beiden Zeilen keine
-    Datei - und ihr Kalender-Knopf zeigte ins Leere.
+    "TEAG - Legend of Cross - Mühlberg" steht am 31.10.2026 mit 10, 17 und
+    30 km je zweimal in den Daten, einmal unter "Mühlberg" und einmal
+    unter "Drei Gleichen" (Mühlberg ist ein Ortsteil davon). Ohne den Ort
+    hätte eine der beiden Zeilen keine Datei - und ihr Kalender-Knopf
+    zeigte ins Leere.
 
     Der Name wird NUR aus Feldern des Events gebildet, damit
     `icsFileName()` in events.html ihn ohne Zusatzwissen ausrechnen kann."""

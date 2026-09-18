@@ -365,9 +365,34 @@ alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
    Neu deshalb: **`lat`/`lon` dürfen im Override stehen**
    (`OVERRIDE_FIELDS`, jetzt EINE Liste für beide Wege statt zweier),
    und `report_widerspruechliche_koordinaten()` meldet Veranstaltungen,
-   die am selben Tag an zwei über 30 km entfernten Punkten liegen -
-   **9 weitere Fälle** derselben Art stehen damit auf der Liste
-   (Steverlauf/Senden, Pokallauf/Roßbach, Quickborn, Zeil am Main …).
+   die am selben Tag an zwei über 30 km entfernten Punkten liegen.
+
+   Der Bericht fand **neun weitere Fälle**, alle einzeln an der
+   offiziellen Seite geprüft und behoben (der Bericht meldet jetzt 0):
+   Steverlauf → Senden in Westfalen statt bei Neu-Ulm (400 km);
+   Pokallauf → Roßbach bei Braunsbedra statt im Westerwald;
+   Quickborn → Kreis Pinneberg statt Dithmarschen; Cross der Deutschen
+   Einheit → Weißensee in Thüringen statt Berlin-Weißensee;
+   Hohenloher Silvesterlauf → Wallhausen-Hengstfeld statt Wallhausen an
+   der Nahe; Laubacher Ramsberglauf → Laubach in Hessen statt im
+   Hunsrück; Rodenbacher Lauftag → Rodenbach im Main-Kinzig-Kreis statt
+   bei Kaiserslautern; Zeiler Waldmarathon → Zeil am Main statt Raum
+   Frankfurt; Königsforst-Marathon → Bergisch Gladbach statt bei Kassel.
+
+   Zwei Nachwirkungen, die zeigen, wie weit so ein Fehler reicht:
+   - Beim **Königsforst-Marathon** war die falsch verortete Zeile ein
+     unerkanntes Duplikat: Die Orts-Bedingung der Duplikat-Erkennung
+     erlaubt 30 km, 158 km sprengen sie. Mit den richtigen Koordinaten
+     fielen die beiden 42,2-km-Zeilen zusammen. Die Veranstaltung hat
+     jetzt genau die drei Strecken, die ihre Ausschreibung nennt.
+     Damit trägt auch die alte Begründung für den **Ort im
+     ICS-Dateinamen** nicht mehr - sie steht an vier Stellen und ist
+     auf „TEAG - Legend of Cross - Mühlberg" umgestellt.
+   - Beim **Rodenbacher Lauftag** wäre die 50-km-Strecke fast
+     gelöscht worden: Die Cup-Seite main-lauf-cup.de listet sie nicht.
+     Die Ausschreibung des Veranstalters nennt sie sehr wohl
+     (50-km-Harry-Arndt-Lauf, Start 9:31 Uhr). Wieder dieselbe Lektion:
+     **Streckenlisten der Quellen sind nicht verlässlich vollständig.**
 
 4. **Dieselbe Veranstalter-SEITE ist ein starkes Signal - und trotzdem
    keine Regel.** „45. Hörnle Berglauf Bad Kohlgrub" und „Hörnlelauf
@@ -560,8 +585,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
   ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
   dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
-  Namen, weil Name + Datum + Distanz nicht eindeutig sind
-  („Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten).
+  Namen, weil Name + Datum + Distanz nicht eindeutig sind („TEAG - Legend of Cross - Mühlberg" steht am 31.10.2026 mit
+  10, 17 und 30 km je zweimal in den Daten, einmal unter „Mühlberg"
+  und einmal unter „Drei Gleichen").
+  Das frühere Beispiel „Königsforst-Marathon" trägt nicht mehr: Dessen
+  zweite 42,2-km-Zeile war ein Verortungsfehler und ist seit der
+  Einzelprüfung vom 18.09.2026 zusammengeführt.)
 - **`DTSTAMP` ist fest** (`20260101T000000Z`), nicht „jetzt": sonst
   änderte jeder Lauf alle 4.150 Dateien und der wöchentliche Commit wäre
   ein Riesen-Diff ohne inhaltliche Änderung.

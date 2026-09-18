@@ -4,12 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-14-zeiler-waldmarathon-42-2km-zeil@antdon930.github.io
+UID:2026-11-14-zeiler-waldmarathon-42-2km-zeil-am-main@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Zeiler Waldmarathon – Flessabank-Marathon
-LOCATION:Zeil\, Deutschland
+LOCATION:Zeil am Main\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.zeiler-w
  aldmarathon.de
 TRANSP:TRANSPARENT

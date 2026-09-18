@@ -3324,9 +3324,9 @@
   // Ändern immer beide anfassen.
   //
   // Aufbau: <datum>-<name>-<distanz>-<ort>.ics. Der Ort gehört dazu, weil
-  // Name + Datum + Distanz nicht eindeutig sind (der
-  // "Königsforst-Marathon" steht mit 42,2 km zweimal in den Daten, für
-  // Bensberg und für Bergisch Gladbach).
+  // Name + Datum + Distanz nicht eindeutig sind ("TEAG - Legend of Cross
+  // - Mühlberg" steht am 31.10.2026 mit 10, 17 und 30 km je zweimal in
+  // den Daten, einmal unter "Mühlberg" und einmal unter "Drei Gleichen").
   function icsSlug(text) {
     return (text || '')
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '')

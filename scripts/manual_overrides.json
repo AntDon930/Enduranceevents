@@ -265,5 +265,58 @@
     "lat": 47.5968864,
     "lon": 9.5982209,
     "_note": "Falsch verortet: Der Eintrag lag auf 49.0656/10.1379 - das ist Franken, 168 km vom Bodensee. Ursache ist der abgeschnittene Ortsname 'Kressbronn'; der Ort heißt 'Kressbronn am Bodensee'. Start/Ziel laut bodensee-marathon.de ist die Festhalle Kressbronn. Die übrigen Strecken derselben Veranstaltung (10 km, Halbmarathon) liegen bereits richtig. Geprüft 2026-09-18."
+  },
+  "25. Steverlauf|2026-11-14|10": {
+    "lat": 51.8588,
+    "lon": 7.4826,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen asv-senden.de/steverlauf/: Der Steverlauf findet im Sportpark Senden statt, Postfach 1247, 48303 Senden (Nordrhein-Westfalen, Münsterland - die Stever ist ein Fluss dort). Der Eintrag lag auf 48.33/10.05, das ist Senden bei Neu-Ulm in Bayern, 400 km entfernt. Die 5-km-Strecke derselben Veranstaltung lag bereits richtig."
+  },
+  "25. Steverlauf|2026-11-14|7": {
+    "lat": 51.8588,
+    "lon": 7.4826,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen asv-senden.de/steverlauf/: Der Steverlauf findet im Sportpark Senden statt, Postfach 1247, 48303 Senden (Nordrhein-Westfalen, Münsterland - die Stever ist ein Fluss dort). Der Eintrag lag auf 48.33/10.05, das ist Senden bei Neu-Ulm in Bayern, 400 km entfernt. Die 5-km-Strecke derselben Veranstaltung lag bereits richtig."
+  },
+  "32. Pokallauf|2026-11-07|6.5": {
+    "standort": "Roßbach (Braunsbedra)",
+    "lat": 51.2607,
+    "lon": 11.8922,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des Pokallaufs 'Schlacht bei Roßbach': Veranstalter Roßbacher Str. 18, 06242 Braunsbedra OT Roßbach (Sachsen-Anhalt), Strecken 12 und 6,5 km. Der Eintrag lag auf 50.60/7.68 - Roßbach im Westerwaldkreis. Beide Zeilen stammen von derselben laufen.de-Seite, nur mit unterschiedlich geschriebenem Ort."
+  },
+  "47. Quickborn Run über 5 km und 10 km|2026-11-08|10": {
+    "lat": 53.7289,
+    "lon": 9.9079,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen quickbo-run.de/quickborn-run/: Start am Dietrich-Bonhoeffer-Gymnasium, Ziegenweg 5, 25451 Quickborn (Kreis Pinneberg bei Hamburg). Der Eintrag lag auf 54.01/9.21 - Quickborn in Dithmarschen."
+  },
+  "Cross der Deutschen Einheit|2026-10-03|21": {
+    "lat": 51.1955,
+    "lon": 11.0681,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen crossderdeutscheneinheit.de: 'Weißensee | Thüringen', Parken am Gondelteich. Der Eintrag lag auf 52.55/13.46 - Berlin-Weißensee. Die 10,5- und 6-km-Strecken derselben Veranstaltung lagen bereits richtig."
+  },
+  "Hohenloher Silvesterlauf|2026-12-31|10": {
+    "lat": 49.2124,
+    "lon": 10.0677,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen hohenloher-silvesterlauf.de: Start vor dem Vereinsheim in Hengstfeld, SpVgg Hengstfeld-Wallhausen, Mittelgasse 24, 74599 Wallhausen-Hengstfeld (Hohenlohe, Baden-Württemberg). Der Eintrag lag auf 49.89/7.77 - Wallhausen an der Nahe."
+  },
+  "Königsforst-Marathon|2027-03-14|42.2": {
+    "standort": "Bergisch Gladbach",
+    "lat": 50.9896,
+    "lon": 7.123,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen koenigsforst-marathon.de: Der Lauf führt über Waldwege zum 'Monte Troodelöh' im Königsforst bei Bensberg (Bergisch Gladbach, NRW); angeboten werden genau drei Strecken (63,3 / 42,2 / 21,1 km). Eine der beiden 42,2-km-Zeilen lag auf 51.23/9.35 - das ist bei Kassel. Weil die Orts-Bedingung der Duplikat-Erkennung 30 km erlaubt, blieben die beiden Zeilen deshalb getrennt; mit den richtigen Koordinaten fallen sie zusammen. Der Schlüssel trifft absichtlich BEIDE 42,2-km-Zeilen."
+  },
+  "Laubacher Ramsberglauf|2026-10-11|10": {
+    "lat": 50.5435,
+    "lon": 8.9868,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen sv1874laubach.de: Start und Ziel im Laubacher Schlosspark, Laubach in Hessen. Der Eintrag lag auf 50.06/7.51 - Laubach im Hunsrück. Die 5- und 7,5-km-Strecken lagen bereits richtig."
+  },
+  "Rodenbacher Lauftag|2026-10-03|50": {
+    "lat": 50.1313,
+    "lon": 9.0601,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des 7. Rodenbacher Lauftags: Waldstadion Niederrodenbach, Am Waldstadion 1, 63517 Rodenbach (Main-Kinzig-Kreis, Hessen). Der Eintrag lag auf 49.47/7.66 - Rodenbach bei Kaiserslautern. ACHTUNG: Die 50-km-Strecke selbst ist richtig (50-km-Harry-Arndt-Lauf, Start 9:31 Uhr) - die Cup-Seite main-lauf-cup.de listet sie nicht, ist also unvollständig. Nicht löschen."
+  },
+  "Zeiler Waldmarathon|2026-11-14|42.2": {
+    "standort": "Zeil am Main",
+    "lat": 50.0115,
+    "lon": 10.5922,
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des Zeiler Waldmarathons: Laufpark Zeil im Naturpark Haßberge, Zeil am Main (Landkreis Haßberge, Bayern), Strecken 42,2 und 21,1 km. Der Eintrag lag auf 50.11/8.68 - im Raum Frankfurt."
   }
 }
