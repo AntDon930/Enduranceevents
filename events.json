@@ -507,7 +507,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
-    "veranstalter_url": "https://lc-mengerskirchen.de/event/50-lcm-stundenlauf/"
+    "veranstalter_url": "https://lc-mengerskirchen.de/event/50-lcm-stundenlauf/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -2143,7 +2144,8 @@
     "art2": "Bahn",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.svborsch.de/ausschreibung-geisaer-stundenlauf/"
+    "veranstalter_url": "https://www.svborsch.de/ausschreibung-geisaer-stundenlauf/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -12167,7 +12169,8 @@
     "art2": "Bahn",
     "datum_start": "2026-10-01",
     "datum_ende": "2026-10-01",
-    "veranstalter_url": "https://stundenlauf.lg-exa.de/"
+    "veranstalter_url": "https://stundenlauf.lg-exa.de/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -16122,7 +16125,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-07",
     "datum_ende": "2026-10-07",
-    "veranstalter_url": "https://www.warburgersv.de/veranstaltungen/archiv/29-warburger-stundenlauf-2019"
+    "veranstalter_url": "https://www.warburgersv.de/veranstaltungen/archiv/29-warburger-stundenlauf-2019",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -16134,7 +16138,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-07",
     "datum_ende": "2026-10-07",
-    "veranstalter_url": "https://sv-vorwaerts-zwickau.de/"
+    "veranstalter_url": "https://sv-vorwaerts-zwickau.de/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -19787,7 +19792,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-16",
     "datum_ende": "2026-10-16",
-    "veranstalter_url": "https://www.stundenlaufserie.de/"
+    "veranstalter_url": "https://www.stundenlaufserie.de/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -24199,7 +24205,8 @@
     "art2": "Bahn",
     "datum_start": "2026-10-28",
     "datum_ende": "2026-10-28",
-    "veranstalter_url": "https://my.raceresult.com/419517/"
+    "veranstalter_url": "https://my.raceresult.com/419517/",
+    "dauer_h": 0.5
   },
   {
     "land": "Deutschland",
@@ -27641,7 +27648,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-11",
     "datum_ende": "2026-11-11",
-    "veranstalter_url": "https://bernauer-lauffreunde.de/"
+    "veranstalter_url": "https://bernauer-lauffreunde.de/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -27677,7 +27685,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-13",
     "datum_ende": "2026-11-13",
-    "veranstalter_url": "https://www.stundenlaufserie.de/"
+    "veranstalter_url": "https://www.stundenlaufserie.de/",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -45985,7 +45994,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-04",
     "datum_ende": "2027-05-04",
-    "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=3&cHash=e8d86cf877214df6ee1588184e66aa8c"
+    "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=3&cHash=e8d86cf877214df6ee1588184e66aa8c",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -58451,7 +58461,8 @@
     "art2": "Straße",
     "datum_start": "2027-09-07",
     "datum_ende": "2027-09-07",
-    "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=9&cHash=301b91a55c948ddc34667d23fe7158d9"
+    "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=9&cHash=301b91a55c948ddc34667d23fe7158d9",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",

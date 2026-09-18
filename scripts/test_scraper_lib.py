@@ -1343,6 +1343,41 @@ def test_zwei_sportarten_im_namen() -> None:
         check(f"{name!r} bleibt ein Lauf", guess_art1(name, config), "Laufen")
 
 
+def test_stundenlauf() -> None:
+    """Ein „Stundenlauf" ist eine Stunde - ein „Halbstundenlauf" eine halbe.
+
+    Das Muster für Zeitrennen verlangte eine ZAHL vor dem Wort, und der
+    klassische Ein-Stunden-Lauf heißt einfach „Stundenlauf". 13
+    Veranstaltungen standen deshalb ganz ohne Maßzahl in der Liste
+    („LCM Stundenlauf", „Warburger Stundenlauf", „Stundenlauf mit
+    Musik"). Gefunden bei der Einzelprüfung der ersten 400 Events, die
+    Definition gegen Wikipedia/Brockhaus geprüft.
+
+    Die Falle steckt im Wort: „Halb·stundenlauf" enthält „stundenlauf"
+    als Teilzeichenkette. Ohne die Sonderzeile davor wäre er doppelt so
+    lang wie in Wirklichkeit - deshalb steht sie ZUERST, und dieser Test
+    hält die Reihenfolge fest.
+    """
+    print("\nStundenlauf:")
+    from scraper_lib import parse_duration_h
+
+    for text, erwartet in (
+            ("LCM Stundenlauf", 1.0),
+            ("50. LCM Stundenlauf", 1.0),
+            ("Stundenlaufserie - Halle (Saale)", 1.0),
+            ("Zwickauer Halb- und Stundenlauf", 1.0),
+            ("Halbstundenlauf des TSV Zeulenroda", 0.5),
+            # Mit Zahl greift weiterhin das allgemeine Muster.
+            ("15. Bokeler 6 Stundenlauf", 6.0),
+            ("24-Stunden-Lauf", 24.0),
+            ("12h Lauf", 12.0),
+            # Gegenproben: kein Zeitrennen.
+            ("Halbmarathon", None),
+            ("Stundenplan der Wettkämpfe", None),
+            ("Zeitlimit 6 Stunden", None)):
+        check(f"{text!r} -> {erwartet!r}", parse_duration_h(text), erwartet)
+
+
 def test_audit_pruefungen() -> None:
     """Die Einzelprüfung meldet echte Fehler - und schweigt bei den
     Fällen, die sie früher fälschlich gemeldet hat.
@@ -1424,6 +1459,7 @@ def main() -> int:
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
+                 test_stundenlauf,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

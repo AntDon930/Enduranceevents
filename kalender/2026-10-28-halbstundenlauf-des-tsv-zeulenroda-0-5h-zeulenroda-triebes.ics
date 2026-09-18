@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-28-halbstundenlauf-des-tsv-zeulenroda-x-zeulenroda-triebes@ant
- don930.github.io
+UID:2026-10-28-halbstundenlauf-des-tsv-zeulenroda-0-5h-zeulenroda-triebes@
+ antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Halbstundenlauf des TSV Zeulenroda
 LOCATION:Zeulenroda-Triebes\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: -\nhttps://my.raceresult.com/4
- 19517/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 0.5 h\nhttps://my.raceresult.c
+ om/419517/
 TRANSP:TRANSPARENT
 URL:https://my.raceresult.com/419517/
 END:VEVENT

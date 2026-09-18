@@ -736,6 +736,27 @@ _DURATION_CONVERSION = re.compile(
 DURATION_MIN_H = 1.0
 DURATION_MAX_H = 72.0
 
+# Der klassische EIN-Stunden-Lauf heißt einfach "Stundenlauf", ohne
+# Zahl davor - und fiel damit durch `_DURATION_PATTERN`, das eine Zahl
+# verlangt. 13 Veranstaltungen standen deshalb ohne jede Maßzahl in der
+# Liste ("LCM Stundenlauf", "Warburger Stundenlauf",
+# "Stundenlauf mit Musik"). Gefunden bei der Einzelprüfung der ersten
+# 400 Events.
+#
+# Die Falle steckt im Wort selbst: Ein **Halb**stundenlauf ist eine
+# halbe Stunde. Ohne die erste Zeile hier würde er über die Teilzeichen-
+# kette "stundenlauf" zu einem EIN-Stunden-Lauf - doppelt so lang.
+# Deshalb steht sie VOR der allgemeinen Zeile; die Reihenfolge ist
+# bedeutungstragend, nicht kosmetisch.
+#
+# `(?<![\d\s]\s?)` gibt es hier bewusst NICHT: Eine Zahl davor
+# ("6 Stundenlauf") fängt `_DURATION_PATTERN` schon ab, und das läuft
+# zuerst. Hier landet nur, was gar keine Zahl nennt.
+_STUNDENLAUF_OHNE_ZAHL = [
+    (re.compile(r"halbe?s?[-\s]?stundenlauf|halbstundenlauf", re.I), 0.5),
+    (re.compile(r"stunden(?:lauf|rennen)", re.I), 1.0),
+]
+
 
 def parse_duration_h(text: str) -> float | None:
     """Liest die Dauer eines zeitlich begrenzten Rennens in Stunden.
@@ -763,6 +784,13 @@ def parse_duration_h(text: str) -> float | None:
             continue
         if DURATION_MIN_H <= wert <= DURATION_MAX_H:
             return round(wert, 1)
+    # Kein Treffer mit Zahl: Nennt der Text einen "Stundenlauf" ohne
+    # Zahl, ist die klassische eine Stunde gemeint (siehe
+    # _STUNDENLAUF_OHNE_ZAHL). Eine Zielschlusszeit heißt nie so, die
+    # False-Friends-Prüfung ist hier also nicht nötig.
+    for muster, stunden in _STUNDENLAUF_OHNE_ZAHL:
+        if muster.search(text):
+            return stunden
     return None
 
 

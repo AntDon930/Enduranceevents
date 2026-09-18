@@ -83,6 +83,15 @@ KINDERLAUF_MAX_KM = 10.0
 # Aufteilung derselben Strecke, kein Widerspruch.
 RUNDEN_RE = re.compile(r"runde|round|\bà\b|\bje\b|\bx\b|mal\b|rundkurs", re.I)
 
+# Ein Zeitrennen hat eine Dauer, keine Strecke (Datenregel 8). Steht bei
+# einem "Stundenlauf" trotzdem eine Distanz, ist das meist die Runde
+# oder die Siegerleistung des Vorjahres - der "Emder Stundenlauf" und
+# der "15. Bokeler 6 Stundenlauf" stehen beide mit 10,0 km da.
+# `fill_duration()` trägt bei diesen Zeilen bewusst KEINE Dauer nach
+# (es füllt nur, wo gar nichts steht), also fällt es sonst niemandem auf.
+ZEITRENNEN_IM_NAMEN_RE = re.compile(
+    r"stunden(?:lauf|rennen)|\d+\s*h[-\s]?lauf|backyard", re.I)
+
 KM_IM_LABEL_RE = re.compile(r"(?<!\d)(\d{1,3}(?:[.,]\d+)?)\s*km", re.I)
 
 # Ein Freitagabend-Stadtlauf ist völlig normal, ein Rennen am Dienstag
@@ -161,6 +170,9 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
 
         if km > 130 or (0 < km < 4.9 and event.get("art1") == "Laufen"):
             melde("auffällige Distanz", f"{km:g} km")
+
+        if ZEITRENNEN_IM_NAMEN_RE.search(f"{name} {wb}"):
+            melde("Zeitrennen im Namen, aber eine Distanz gesetzt", f"{km:g} km")
 
     # --- Kategorie gegen den Namen ------------------------------------
     text = f"{name} {wb}".lower()

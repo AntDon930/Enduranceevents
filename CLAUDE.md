@@ -181,6 +181,20 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Einträgen ohne Distanz (`clean_events.fill_duration()`).
    Filter: Kategorie „Zeitrennen" im Länge-Panel, gespiegelt in
    `functions/index.js` (`ZEIT_CATEGORY_KEY`).
+
+   **Ein „Stundenlauf" ist eine Stunde, ein „Halbstundenlauf" eine
+   halbe.** Das Muster `_DURATION_PATTERN` verlangt eine ZAHL vor dem
+   Wort – der klassische Ein-Stunden-Lauf heißt aber einfach
+   „Stundenlauf". 13 Veranstaltungen standen dadurch ganz ohne Maßzahl
+   in der Liste. `_STUNDENLAUF_OHNE_ZAHL` fängt das jetzt ab, **die
+   Reihenfolge der beiden Zeilen ist bedeutungstragend**: „Halb·
+   stundenlauf" enthält „stundenlauf" als Teilzeichenkette und wäre
+   sonst doppelt so lang. Definition gegen Wikipedia/Brockhaus geprüft
+   (möglichst viele Runden in einer Stunde); `test_stundenlauf` hält
+   beides fest.
+   Steht bei einem Zeitrennen trotzdem eine Distanz („Emder
+   Stundenlauf – 10 km"), meldet das `audit_events.py` – `fill_duration()`
+   füllt bewusst nur, wo gar nichts steht.
 9. **`art2` „Backcountry Ultra"** (nur Laufen). Zwei Stichwörter mit
    **unterschiedlicher Position** in `ART2_KEYWORDS_LAUFEN` – das ist
    Absicht, nicht Zufall:

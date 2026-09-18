@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-01-stundenlaufserie-x-leipzig@antdon930.github.io
+UID:2026-10-01-stundenlaufserie-1h-leipzig@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:Stundenlaufserie
 LOCATION:Leipzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: -\nhttps://stundenlauf.lg-exa.
- de/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 1 h\nhttps://stundenlauf.lg-ex
+ a.de/
 TRANSP:TRANSPARENT
 URL:https://stundenlauf.lg-exa.de/
 END:VEVENT

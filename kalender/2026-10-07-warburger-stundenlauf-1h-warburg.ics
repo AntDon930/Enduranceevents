@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-07-warburger-stundenlauf-x-warburg@antdon930.github.io
+UID:2026-10-07-warburger-stundenlauf-1h-warburg@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261007
 DTEND;VALUE=DATE:20261008
 SUMMARY:Warburger Stundenlauf
 LOCATION:Warburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.warburgersv.d
- e/veranstaltungen/archiv/29-warburger-stundenlauf-2019
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.warburgersv
+ .de/veranstaltungen/archiv/29-warburger-stundenlauf-2019
 TRANSP:TRANSPARENT
 URL:https://www.warburgersv.de/veranstaltungen/archiv/29-warburger-stunden
  lauf-2019
