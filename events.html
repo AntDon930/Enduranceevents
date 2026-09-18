@@ -362,6 +362,20 @@
     color: var(--text);
     font: inherit;
     font-size: 0.85rem;
+    /* `type="search"` bringt in WebKit eine eigene Optik mit (eckige
+       Ecken in Safari) - abschalten, sonst sieht das Feld auf dem iPhone
+       anders aus als überall sonst. */
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  /* ... und ein eigenes ✕. Ohne das standen ZWEI Kreuze im Feld: das
+     von WebKit und unseres. Unseres bleibt, weil es auch den Filter
+     zurücksetzt und in jedem Browser gleich aussieht. */
+  .master-search input::-webkit-search-cancel-button,
+  .master-search input::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
   }
   .master-search input:focus {
     outline: none;
