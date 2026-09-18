@@ -1605,6 +1605,64 @@ def test_nicht_ausdauer() -> None:
     check("und meldet den Ausschluss mit Grund", len(entfernt), 1)
 
 
+def test_serientermin_im_label() -> None:
+    """Ein Serientermin, der MITTEN im Wettbewerbs-Label steht.
+
+    Die Hammer Winterlaufserie hat drei Termine (31.01. = 10 km,
+    14.02. = 15 km, 28.02. = Halbmarathon), und `expand_competitions()`
+    hatte jede Distanz an jeden Termin gehängt - neun Zeilen statt drei.
+    Zwei davon trugen ihren Termin im Label: „15,0 km (am 14.02.2027 für
+    M/W ab 18 bis M/W85)". `_DATE_LABEL` sah das nicht, weil es ein Label
+    verlangt, das MIT dem Datum beginnt.
+
+    Die Gegenproben sind der wichtigere Teil - gezählt wurde vorher: Im
+    ganzen Bestand tragen genau zwei Zeilen ein „am <Datum>" im Label,
+    beide echte Serientermine. Damit die Regel nicht mehr fängt als das,
+    gelten zwei Bedingungen:
+
+    - Das Wort „am" muss davorstehen. Ein blankes Datum irgendwo im Text
+      kann alles sein.
+    - Der Termin muss IM Zeitraum der Veranstaltung liegen, und Wörter
+      wie „Anmeldeschluss" schließen ihn aus. Sonst schöbe
+      „(Anmeldeschluss am 14.02.2027)" den Lauf auf die Meldefrist.
+    """
+    print("\nSerientermin im Wettbewerbs-Label (_datum_aus_label):")
+    from clean_events import _datum_aus_label, fix_series_dates
+
+    def zeile(wb, start="2027-01-31", ende="2027-02-28"):
+        return {"name": "Hammer Winterlaufserie", "datum_start": start,
+                "datum_ende": ende, "laenge_km": 15.0, "wettbewerb": wb}
+
+    check("Klammerzusatz wird zum Termin",
+          _datum_aus_label(zeile("15,0 km (am 14.02.2027 für M/W ab 18 bis M/W85)")),
+          ("2027-02-14", "15,0 km"))
+    check("und das Label behält seinen Rest",
+          _datum_aus_label(zeile("Halbmarathon (am 28.02.2027 für M/W ab 18)")),
+          ("2027-02-28", "Halbmarathon"))
+    check("auch ohne Klammern", _datum_aus_label(zeile("10 km am 14.02.2027")),
+          ("2027-02-14", "10 km"))
+
+    check("Anmeldeschluss ist kein Termin",
+          _datum_aus_label(zeile("10 km (Anmeldeschluss am 14.02.2027)")), None)
+    check("ein Datum außerhalb des Zeitraums auch nicht",
+          _datum_aus_label(zeile("Lauf am 14.03.2027")), None)
+    check("ein blankes Datum ohne „am“ ebenfalls nicht",
+          _datum_aus_label(zeile("10 km 14.02.2027 Start 11 Uhr")), None)
+    check("ein gewöhnliches Label bleibt unangetastet",
+          _datum_aus_label(zeile("15,0 km")), None)
+
+    events = [zeile("15,0 km (am 14.02.2027 für M/W ab 18 bis M/W85)"),
+              zeile("10,0 km")]
+    meldungen = fix_series_dates(events)
+    check("fix_series_dates setzt Start UND Ende",
+          (events[0]["datum_start"], events[0]["datum_ende"]),
+          ("2027-02-14", "2027-02-14"))
+    check("und lässt die Zeile ohne Termin in Ruhe",
+          (events[1]["datum_start"], events[1]["datum_ende"]),
+          ("2027-01-31", "2027-02-28"))
+    check("eine Meldung je verschobener Zeile", len(meldungen), 1)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1617,7 +1675,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer,
+                 test_nicht_ausdauer, test_serientermin_im_label,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

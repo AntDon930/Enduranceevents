@@ -10,10 +10,10 @@ DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:Hammer Winterlaufserie
 LOCATION:Hamm\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://lg-hamm.de/in
- dex.php/leichtathletik/veranstaltungen/winterlaufserie
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.lg-hamm.d
+ e/index.php/leichtathletik/veranstaltungen/winterlaufserie
 TRANSP:TRANSPARENT
-URL:https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlauf
- serie
+URL:https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winter
+ laufserie
 END:VEVENT
 END:VCALENDAR

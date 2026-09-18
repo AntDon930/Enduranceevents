@@ -401,5 +401,29 @@
     "ergebnis": "unklar",
     "quelle": "blaueslandlaeuft.fitness",
     "notiz": "ENTSCHEIDUNG DES NUTZERS NOETIG: Das ist ein VIRTUELLER Lauf - 'Egal wo, egal wann, keine Zeitwertung...!', Zeitraum 'vom Do 26. November bis Sa 02. Januar 2027', Kategorien u. a. 5 km und 10 km. Deshalb steht dort 'virtuell' als Ort, es gibt keine Koordinaten, keinen Kartenmarker und keine sinnvolle Entfernung; ausserdem laeuft er ueber fuenf Wochen. Die Liste ist auf Veranstaltungen an einem Ort und an einem Termin gebaut. Ich loesche nichts von mir aus (keine automatische Loeschregel, und hier waere es sogar eine neue Kategorie-Entscheidung) - Vorschlag: virtuelle Challenges wie HYROX ueber eine eigene Regel ausschliessen."
+  },
+  "Hammer Winterlaufserie|2027-01-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-hamm.de",
+    "notiz": "Serie mit drei Terminen (31.01. = 10 km, 14.02. = 15 km, 28.02. = HM). Von neun gespeicherten Zeilen waren sechs erfunden - expand_competitions() hatte jede Distanz an jeden Termin gehaengt. Zwei Zeilen trugen ihren Termin im Label ('am 14.02.2027'), die holt jetzt fix_series_dates(); vier erfundene per Override ausgeschlossen, das Ende der 31.01.-Zeile korrigiert."
+  },
+  "Lindensee Laufserie|2026-10-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "lc-ruesselsheim.de",
+    "notiz": "Zwei Termine: 10.10.2026 mit 5 und 10 km, 21.11.2026 mit 5 und 15 km. Die 15-km-Zeile lag auf dem Oktober-Termin und spannte bis November. FEHLT weiterhin: der 5-km-Lauf am 21.11. - ein Override kann keine Zeile hinzufuegen."
+  },
+  "Runners Festival Klouster|2026-10-01": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "runners-festival.de",
+    "notiz": "18 km -> 17,5 km (Skihuettentrail), Kategorie Strasse -> Trail/Cross. Zeitraum 01.-18.10.2026 ist richtig: frei einteilbares Festival."
+  },
+  "Volks- und Staffeltriathlon TuS Wasserstraße|2027-06-01": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "tus-wasserstrasse.de, my.raceresult.com/360365",
+    "notiz": "Distanz korrigiert (22,5 km war die Rad-Teilstrecke, das Rennen sind 28,8 km: 550 m + 22,5 km + 5.750 m). OFFEN: Das Datum. Der Veranstalter nennt fuer die 41. Auflage nur 'Sommer 2027'; der gespeicherte Zeitraum 01.06.-31.08.2027 ist ein Platzhalter. Die 40. Auflage war Samstag, 04.07.2026. Sobald der Termin steht, gehoert er als datum_start/datum_ende in den Override."
   }
 }

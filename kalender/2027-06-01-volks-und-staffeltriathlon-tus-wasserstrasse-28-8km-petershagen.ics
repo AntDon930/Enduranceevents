@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-01-volks-und-staffeltriathlon-tus-wasserstrasse-22-5km-petersh
+UID:2027-06-01-volks-und-staffeltriathlon-tus-wasserstrasse-28-8km-petersh
  agen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270601
 DTEND;VALUE=DATE:20270901
-SUMMARY:Volks- und Staffeltriathlon TuS Wasserstraße – 22\,5 km Radfahren
+SUMMARY:Volks- und Staffeltriathlon TuS Wasserstraße
 LOCATION:Petershagen\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 22.5 km\nhttps://tus-wass
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 28.8 km\nhttps://tus-wass
  erstrasse.de/sport/laufen
 TRANSP:TRANSPARENT
 URL:https://tus-wasserstrasse.de/sport/laufen

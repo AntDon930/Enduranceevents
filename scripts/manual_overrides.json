@@ -482,5 +482,50 @@
     "lat": 51.2973261,
     "lon": 6.8493503,
     "_note": "Ohne Koordinaten: wie die 47. Auflage, Ort 'Ratingen Innenstadt'. Koordinaten ueber Nominatim. Geprueft 2026-09-18."
+  },
+  "Hammer Winterlaufserie|2027-01-31|10": {
+    "datum_ende": "2027-01-31",
+    "_note": "Die Serie hat drei Termine, nicht einen Zeitraum: lg-hamm.de nennt '10,0 km 31.01.27 11:00 Uhr ab M/W14 bis M/W40' und '10,0 km 31.01.27 12:15 Uhr ab M/W45 bis M/W85', '15,0 km 14.02.27' und 'HM 28.02.27'. Diese Zeile ist der 10-km-Lauf am 31.01., ihr Ende stand auf dem Ende der Serie. Geprueft 2026-09-18."
+  },
+  "Hammer Winterlaufserie|2027-02-14|10": {
+    "exclude": true,
+    "_note": "Am 14.02.2027 gibt es nur die 15 km ('15,0 km 14.02.27 11:00 Uhr ab M/W 18 bis M/W85', lg-hamm.de). Die 10 km laufen am 31.01., der Halbmarathon am 28.02. Diese Zeile hat expand_competitions() erfunden, indem es jede Distanz der Serie an jeden Termin gehaengt hat. Geprueft 2026-09-18."
+  },
+  "Hammer Winterlaufserie|2027-02-14|21.1": {
+    "exclude": true,
+    "_note": "Am 14.02.2027 gibt es nur die 15 km (lg-hamm.de). Der Halbmarathon ist am 28.02.2027. Erfundene Zeile, siehe 'Hammer Winterlaufserie|2027-02-14|10'. Geprueft 2026-09-18."
+  },
+  "Hammer Winterlaufserie|2027-02-28|10": {
+    "exclude": true,
+    "_note": "Am 28.02.2027 gibt es nur den Halbmarathon ('HM 28.02.27 11:00 Uhr ab M/W 18 bis M/W85', lg-hamm.de). Erfundene Zeile. Geprueft 2026-09-18."
+  },
+  "Hammer Winterlaufserie|2027-02-28|15": {
+    "exclude": true,
+    "_note": "Am 28.02.2027 gibt es nur den Halbmarathon (lg-hamm.de). Die 15 km laufen am 14.02. Erfundene Zeile. Geprueft 2026-09-18."
+  },
+  "Lindensee Laufserie|2026-10-10|15": {
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "_note": "lc-ruesselsheim.de: 'Wir werden die Serie im Oktober mit 5 und 10km und im November mit 5 und 15km fortsetzen.' Die 15 km gehoeren also zum Termin am 21.11.2026, nicht zum 10.10. Geprueft 2026-09-18."
+  },
+  "Lindensee Laufserie|2026-10-10|5": {
+    "datum_ende": "2026-10-10",
+    "_note": "Der 5-km-Lauf am 10.10.2026 endet an diesem Tag; das Ende stand auf dem zweiten Serientermin (21.11.). Den 5-km-Lauf gibt es an BEIDEN Terminen (lc-ruesselsheim.de) - der zweite fehlt in der Liste. Geprueft 2026-09-18."
+  },
+  "Runners Festival Klouster|2026-10-01|18": {
+    "laenge_km": 17.5,
+    "art2": "Trail/Cross",
+    "wettbewerb": "Skihüttentrail",
+    "_note": "runners-festival.de nennt drei Strecken: 'Kindertrail 3,9 km / 90 hm', 'Hauptlauf 12 km / 340 hm' und 'Skihuettentrail 17,5 km / 470 hm'. Gespeichert waren 18 km - das ist die gerundete Angabe der Quelle, die echte Strecke ist 17,5 km. 'Strasse' war falsch: Es sind Trails im Bayerischen Wald. Der Zeitraum 01.-18.10.2026 stimmt, das Festival ist bewusst frei einteilbar ('Teilnehmer koennen ihre Strecke jederzeit waehrend des Festivals laufen'). Geprueft 2026-09-18."
+  },
+  "Runners Festival Klouster|2026-10-01|12": {
+    "art2": "Trail/Cross",
+    "wettbewerb": "Hauptlauf",
+    "_note": "runners-festival.de: 'Hauptlauf 12 km / 340 hm', ein Trail im Bayerischen Wald - 'Strasse' war falsch. Geprueft 2026-09-18."
+  },
+  "Volks- und Staffeltriathlon TuS Wasserstraße|2027-06-01|22.5": {
+    "laenge_km": 28.8,
+    "wettbewerb": null,
+    "_note": "Gespeichert war die RAD-TEILSTRECKE, nicht das Rennen (Label '22,5 km Radfahren' - Verbform, also eine Etappe, siehe Datenregel 12). tus-wasserstrasse.de nennt das Format '550 m schwimmen - 22,5 km Rad fahren - 5.750 m laufen', zusammen 28,8 km. OFFEN bleibt das Datum: Der Verein kuendigt nur 'Sommer 2027' an (die 40. Auflage war am 04.07.2026), der gespeicherte Zeitraum 01.06.-31.08.2027 ist also ein Platzhalter der Quelle. Geraten wird nicht - siehe Protokoll. Geprueft 2026-09-18."
   }
 }

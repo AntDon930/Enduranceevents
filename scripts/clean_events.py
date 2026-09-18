@@ -757,6 +757,50 @@ _DATE_LABEL = re.compile(
     r"^(\d{1,2})\.(\d{1,2})\.(\d{4})\s*(?:[-–—|,:]\s*(?P<rest>.*))?$"
 )
 
+# Zweite Form: das Datum steht MITTEN im Label, eingeleitet von "am" -
+# "15,0 km (am 14.02.2027 für M/W ab 18 bis M/W85)" (Hammer
+# Winterlaufserie). Dasselbe Signal wie oben, nur anders gesetzt: Das
+# Label sagt, an welchem Termin der Serie diese Strecke gelaufen wird.
+# Bewusst eng: "am" muss davorstehen (ein blankes Datum irgendwo im Text
+# kann alles Mögliche sein, etwa eine Anmeldefrist), und der Termin muss
+# innerhalb des gespeicherten Zeitraums der Veranstaltung liegen - siehe
+# `_datum_aus_label()`.
+_DATE_IM_LABEL = re.compile(r"\bam\s+(\d{1,2})\.(\d{1,2})\.(\d{4})")
+
+# Wörter, nach denen ein Datum KEIN Wettkampftermin ist. Ohne das würde
+# "10 km (Anmeldeschluss am 14.02.2027)" den Lauf auf den Meldeschluss
+# schieben - der kann durchaus im Zeitraum der Serie liegen.
+_KEIN_TERMIN = re.compile(r"meldeschluss|anmeld|nachmeld|meldefrist|ummeld", re.I)
+
+
+def _datum_aus_label(event: dict) -> tuple[str, str] | None:
+    """Termin aus einem Label der Form "... (am TT.MM.JJJJ ...)".
+
+    Gibt `(iso_datum, neues_label)` zurück oder `None`. Der Termin wird
+    nur angenommen, wenn er im Zeitraum der Veranstaltung liegt: Eine
+    Serie vom 31.01. bis 28.02. kann keine Strecke am 14.03. haben, ein
+    Datum ausserhalb ist also etwas anderes (Anmeldeschluss, Ausweich-
+    termin, Vorjahr) und wird nicht angefasst.
+    """
+    label = (event.get("wettbewerb") or "").strip()
+    match = _DATE_IM_LABEL.search(label)
+    if not match or _KEIN_TERMIN.search(label):
+        return None
+    day, month, year = (int(match.group(i)) for i in (1, 2, 3))
+    try:
+        termin = date(year, month, day).isoformat()
+    except ValueError:
+        return None
+    start = event.get("datum_start") or ""
+    ende = event.get("datum_ende") or start
+    if not start or not (start <= termin <= ende):
+        return None
+    # Den Klammerzusatz mit dem Datum entfernen, den Rest behalten.
+    rest = re.sub(r"\s*\((?:[^()]*\bam\s+\d{1,2}\.\d{1,2}\.\d{4}[^()]*)\)", "", label)
+    rest = _DATE_IM_LABEL.sub("", rest)      # auch ohne Klammern ("10 km am 14.02.2027")
+    rest = re.sub(r"\s{2,}", " ", rest).strip(" -–—|,:")
+    return termin, rest
+
 
 def fix_series_dates(events: list[dict]) -> list[str]:
     """Korrigiert Laufserien, bei denen die Quelle als "Wettbewerbe" die
@@ -784,6 +828,21 @@ def fix_series_dates(events: list[dict]) -> list[str]:
     changed: list[str] = []
     for event in events:
         label = (event.get("wettbewerb") or "").strip()
+        aus_klammer = _datum_aus_label(event)
+        if aus_klammer:
+            termin, rest = aus_klammer
+            if termin != event.get("datum_start") or termin != event.get("datum_ende"):
+                changed.append(
+                    f"{event.get('name')} ({event.get('laenge_km')} km): "
+                    f"Datum {event.get('datum_start')} -> {termin} (laut Label {label!r})"
+                )
+            event["datum_start"] = termin
+            event["datum_ende"] = termin
+            if rest:
+                event["wettbewerb"] = rest
+            else:
+                event.pop("wettbewerb", None)
+            continue
         match = _DATE_LABEL.match(label)
         if not match:
             continue

@@ -10,10 +10,10 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Hammer Winterlaufserie – Halbmarathon
 LOCATION:Hamm\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lg-hamm.de/
- index.php/leichtathletik/veranstaltungen/winterlaufserie
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lg-hamm
+ .de/index.php/leichtathletik/veranstaltungen/winterlaufserie
 TRANSP:TRANSPARENT
-URL:https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlauf
- serie
+URL:https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winter
+ laufserie
 END:VEVENT
 END:VCALENDAR

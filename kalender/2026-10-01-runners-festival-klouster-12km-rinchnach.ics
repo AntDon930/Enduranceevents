@@ -9,10 +9,10 @@ UID:2026-10-01-runners-festival-klouster-12km-rinchnach@antdon930.github.i
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261019
-SUMMARY:Runners Festival Klouster
+SUMMARY:Runners Festival Klouster – Hauptlauf
 LOCATION:Rinchnach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://runners-festi
- val.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 12 km\nhttps://runners-
+ festival.de/
 TRANSP:TRANSPARENT
 URL:https://runners-festival.de/
 END:VEVENT

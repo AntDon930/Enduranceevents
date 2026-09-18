@@ -12107,11 +12107,11 @@
     "lat": 48.9522577,
     "lon": 13.2027959,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-10-01",
     "datum_ende": "2026-10-18",
     "laenge_km": 12.0,
-    "wettbewerb": "12 km",
+    "wettbewerb": "Hauptlauf",
     "veranstalter_url": "https://runners-festival.de/"
   },
   {
@@ -12121,11 +12121,11 @@
     "lat": 48.9522577,
     "lon": 13.2027959,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-10-01",
     "datum_ende": "2026-10-18",
-    "laenge_km": 18.0,
-    "wettbewerb": "18 km",
+    "laenge_km": 17.5,
+    "wettbewerb": "Skihüttentrail",
     "veranstalter_url": "https://runners-festival.de/"
   },
   {
@@ -17221,23 +17221,9 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-10",
-    "datum_ende": "2026-11-21",
+    "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.lc-ruesselsheim.de/lindensee-laufserie-infos/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lindensee Laufserie",
-    "standort": "Rüsselsheim am Main",
-    "lat": 49.9887497,
-    "lon": 8.4216976,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-11-21",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km",
     "veranstalter_url": "https://www.lc-ruesselsheim.de/lindensee-laufserie-infos/"
   },
   {
@@ -29303,15 +29289,16 @@
   {
     "land": "Deutschland",
     "name": "44. Lindenseelaufserie",
-    "standort": "Rüsselsheim",
-    "lat": 49.991701,
-    "lon": 8.4138251,
+    "standort": "Rüsselsheim am Main",
+    "lat": 49.9887497,
+    "lon": 8.4216976,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000078260002"
+    "wettbewerb": "15 km",
+    "veranstalter_url": "https://www.lc-ruesselsheim.de/lindensee-laufserie-infos/"
   },
   {
     "land": "Deutschland",
@@ -38013,36 +38000,8 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-31",
-    "datum_ende": "2027-02-28",
+    "datum_ende": "2027-01-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-31",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 15.0,
-    "wettbewerb": "15,0 km (am 14.02.2027 für M/W ab 18 bis M/W85)",
-    "veranstalter_url": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-31",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon (am 28.02.2027 für M/W ab 18 bis M/W85)",
     "veranstalter_url": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
@@ -38523,35 +38482,7 @@
     "datum_ende": "2027-02-14",
     "laenge_km": 15.0,
     "wettbewerb": "15,0 km",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-14",
-    "datum_ende": "2027-02-14",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,0 km",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-14",
-    "datum_ende": "2027-02-14",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
+    "veranstalter_url": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
     "land": "Deutschland",
@@ -39361,35 +39292,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-28",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,0 km",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hammer Winterlaufserie",
-    "standort": "Hamm",
-    "lat": 51.6738583,
-    "lon": 7.8159816,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-28",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 15.0,
-    "wettbewerb": "15,0 km",
-    "veranstalter_url": "https://lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
+    "veranstalter_url": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/winterlaufserie"
   },
   {
     "land": "Deutschland",
@@ -49623,8 +49526,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-01",
     "datum_ende": "2027-08-31",
-    "laenge_km": 22.5,
-    "wettbewerb": "22,5 km Radfahren",
+    "laenge_km": 28.8,
+    "wettbewerb": null,
     "veranstalter_url": "https://tus-wasserstrasse.de/sport/laufen"
   },
   {
