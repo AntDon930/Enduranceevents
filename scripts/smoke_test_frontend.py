@@ -916,6 +916,39 @@ def pruefe_kartenrahmen(seite):
            % (len(kacheln), len(doppelt)))
 
 
+def pruefe_maske(seite):
+    """Die graue Maske über allem außerhalb der abgedeckten Länder.
+
+    Drei Dinge können daran schiefgehen, und alle drei wären still:
+    die Maske fehlt (laender.json nicht gefunden), sie liegt ÜBER den
+    Markern (dann sind die Bündel-Zahlen matt), oder sie fängt Klicks ab
+    (dann ist kein Marker mehr anklickbar). Dass Klicks durchgehen,
+    prüft zusätzlich das Popup weiter unten.
+    """
+    stand = seite.evaluate("""() => {
+        const pane = document.querySelector('.leaflet-maske-pane');
+        const pfad = pane ? pane.querySelector('path') : null;
+        const marker = document.querySelector('.leaflet-marker-pane');
+        return {
+            da: !!pfad,
+            zIndex: pane ? parseInt(getComputedStyle(pane).zIndex, 10) : null,
+            markerZ: marker ? parseInt(getComputedStyle(marker).zIndex, 10) : null,
+            klicks: pane ? getComputedStyle(pane).pointerEvents : null,
+            regel: pfad ? pfad.getAttribute('fill-rule') : null
+        };
+    }""")
+    if not pruefe(stand["da"], "die graue Maske liegt auf der Karte (laender.json)"):
+        return
+    pruefe(stand["zIndex"] > 200 and stand["zIndex"] < stand["markerZ"],
+           "sie liegt über den Kacheln und unter den Markern (%s < %s)"
+           % (stand["zIndex"], stand["markerZ"]))
+    pruefe(stand["klicks"] == "none", "sie fängt keine Klicks ab (%s)" % stand["klicks"])
+    # Ohne evenodd wären die Länder nicht ausgespart, sondern die Maske
+    # läge als eine große Fläche über allem.
+    pruefe(stand["regel"] == "evenodd",
+           "die Länder sind ausgespart (fill-rule: %s)" % stand["regel"])
+
+
 def pruefe_ausgangspunkt(ctx, basis):
     """Ausgangspunkt und Umkreis bleiben ungebündelt.
 
@@ -950,6 +983,7 @@ def pruefe_karte_und_rundweg(ctx, basis):
     if marker:
         pruefe(marker > 0, "Marker auf der Karte (%d)" % marker)
         pruefe_cluster(seite)
+        pruefe_maske(seite)
         pruefe_kartenrahmen(seite)
     else:
         ueberspringe("keine Marker - Leaflet kam nicht durch (CDN blockiert?)")

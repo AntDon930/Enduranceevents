@@ -23,6 +23,8 @@ Nicht auf einen anderen Branch pushen.
 | `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
 | `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
+| `laender.json` | **69 KB**, Umrisse von DE/AT/CH für die graue Maske auf der Karte |
+| `scripts/build_laender.py` | baut `laender.json` aus Natural Earth; läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
 | `favicon.svg`, `apple-touch-icon.png` | Seitensymbol; das PNG entsteht aus dem SVG (nach Änderung neu erzeugen) |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
@@ -75,7 +77,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 121 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 125 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -94,8 +96,10 @@ Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
 Chip, `?s=` in der Adresse, das ✕), das **zweizeilige Datum** bei
 mehrtägigen Rennen, der **Events-Knopf der Startseite** (gleiches Ziel
 wie „Events entdecken“, links von der Anmeldung), der **Kartenrahmen**
-(Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben) und der
-Popup-Link ohne Pfeil, Filter über den Weg Liste → Karte → Liste. Ohne Playwright bricht er
+(Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben), die
+**graue Maske** (vorhanden, unter den Markern, fängt keine Klicks ab,
+Länder ausgespart) und der Popup-Link ohne Pfeil, Filter über den Weg
+Liste → Karte → Liste. Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -730,13 +734,38 @@ Der **Rahmen der Karte ist Europa**, und die Welt steht genau einmal da
   „das Fenster liegt ganz in Europa" (`getBoundsZoom(…, true)`) ergab
   Zoom 6 (DACH war nicht mehr am Stück zu sehen). Senkrecht begrenzt
   `maxBounds`.
-- **Was NICHT geht**: die Länder außerhalb von DACH grau hinterlegen
-  oder die Ortsnamen dort ausblenden. Beides braucht entweder
-  Ländergrenzen als GeoJSON (eine zusätzliche Datendatei samt
-  Namensnennung) oder einen anderen Kachel-Anbieter – und der wäre ein
-  zweiter fremder Server in der Datenschutzerklärung (siehe
-  „Nichts von fremden Servern"). Vom Nutzer gefragt, bewusst offen
-  gelassen.
+**Alles außerhalb der abgedeckten Länder liegt unter einer grauen
+Maske** (`zeichneMaske()`, vom Nutzer am 18.09.2026 so entschieden:
+eigene Daten, kein fremder Server). Sechs Dinge daran:
+
+- **Ein einziges Polygon**: ein Rechteck über die halbe Welt, mit den
+  Ländern als Aussparungen. Möglich macht das `fill-rule: evenodd`
+  (Leaflet-Voreinstellung) – jeder weitere Ring kehrt die Füllung um.
+  Deshalb wird ein Loch INNERHALB eines Landes von selbst wieder grau;
+  das ist kein Sonderfall für Sonderfälle, Büsingen am Hochrhein ist
+  deutsch und liegt mitten in der Schweiz.
+- **Eigene Ebene** (`map.createPane('maskePane')`, z-index **250**):
+  über den Kacheln (200), unter Markern und Umkreis (400). Läge sie
+  oben, wären die Bündel-Zahlen matt und der Ausgangspunkt halb
+  verdeckt.
+- **`pointerEvents: none` am Pane und `interactive: false` am Polygon.**
+  Ohne beides fängt die Maske die Klicks ab und kein Marker öffnet mehr
+  sein Popup. Der Rauchtest prüft es.
+- **Die Umrisse liegen in `laender.json`** (69 KB, 24 KB gezippt),
+  erzeugt von `scripts/build_laender.py` aus **Natural Earth**
+  (`ne_10m_admin_0_countries`, Public Domain, im Impressum genannt).
+  1:10 Mio ist Absicht: Bei 1:50 Mio läge die Maskenkante an Orten wie
+  Basel oder Konstanz sichtbar neben der Grenze. Vereinfacht auf
+  ~100 m, Koordinaten auf vier Stellen.
+- **Die Schlüssel in `laender.json` sind die Länder-Namen aus
+  `EF.LAENDER`** (und damit aus `events.json`). Ein Land dazu heißt:
+  Zeile in `build_laender.py` eintragen, Skript laufen lassen – sonst
+  liegt das neue Land stillschweigend unter dem Schleier.
+  `test_laender_maske` vergleicht beide Listen.
+- **Geladen wird sie NACH den Events** (`ladeMaske()`, ohne `await`,
+  Fehlschlag bleibt still): Die Maske ist Beiwerk, die Marker sind der
+  Zweck. Ohne die Datei ist die Karte vollständig, nur überall gleich
+  hell.
 
 Auf der Karte entstehen die Popups erst beim Öffnen (`bindPopup(fn)`)
 statt ~1.500 Stück im Voraus. Die Marker werden **gebündelt**
@@ -872,6 +901,10 @@ Datenschutzerklärung auch nicht erklären.
   auf einen fremden Server, kein nachgeladenes fremdes Skript, und jede
   `vendor/`-Datei existiert. Ein `<a href>` zählt nicht mit – ein Link
   überträgt nichts, solange niemand klickt.
+- **Dieselbe Linie bei der grauen Maske**: Ein Kachel-Anbieter mit
+  label-armem Stil hätte sie ohne eigene Daten geliefert – wäre aber
+  ein zweiter fremder Server. Der Nutzer hat deshalb die eigene Datei
+  gewählt (`laender.json`, 69 KB). Nicht umdrehen, ohne zu fragen.
 - **Einzige Ausnahme: die OpenStreetMap-Kacheln** auf `karte.html`.
   Eine Karte ohne Kartenbilder gibt es nicht; sie stehen deshalb in der
   Datenschutzerklärung. (Wer strenger sein will: Kacheln erst nach
@@ -1047,10 +1080,10 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    **Events-Knopf im Kopf der Startseite**, kürzere Knopftexte („Filter
    zurücksetzen", „Events per E-Mail"), **kein ↗** mehr an Links, und
    der **Kartenrahmen** (keine zweite Weltkarte, Europa als Grenze).
-   Offen aus diesem Durchgang: die Länder außerhalb von DACH grau
-   hinterlegen bzw. ihre Ortsnamen ausblenden – siehe „Tempo"/Karte,
-   das braucht Ländergrenzen als GeoJSON oder einen anderen
-   Kachel-Anbieter.
+   Ebenfalls erledigt: die **graue Maske** über allem außerhalb von
+   DACH. Der Nutzer hat sich für die eigene GeoJSON-Datei entschieden
+   und **gegen einen fremden Kachel-Anbieter** (18.09.2026) – siehe
+   „Tempo"/Karte und `scripts/build_laender.py`.
 
    Offen, in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und

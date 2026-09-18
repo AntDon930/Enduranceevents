@@ -880,6 +880,59 @@ def test_keine_fremden_dateien() -> None:
     check("alle vendor-Dateien liegen im Repo", fehlend, [])
 
 
+def test_laender_maske() -> None:
+    """laender.json - die Umrisse für die graue Maske auf karte.html.
+
+    Der Prüfstein sind die SCHLÜSSEL: Sie müssen genau die Länder heißen,
+    die filters.js in LAENDER führt (und events.json im Feld `land`).
+    Wird dort eines umbenannt oder ergänzt, ohne die Maske neu zu bauen,
+    liegt das Land stillschweigend unter dem grauen Schleier - sichtbar
+    nur, wenn man genau hinschaut.
+    """
+    import json as _json
+    import re as _re
+
+    print("\nLändermaske (build_laender):")
+    wurzel = Path(__file__).resolve().parent.parent
+    pfad = wurzel / "laender.json"
+    check("laender.json liegt im Repo", pfad.exists(), True)
+    if not pfad.exists():
+        print("  -> python3 scripts/build_laender.py ausführen")
+        return
+    daten = _json.loads(pfad.read_text(encoding="utf-8"))
+    laender = daten.get("laender") or {}
+
+    # Die Namen aus filters.js (LAENDER = [...]) - dieselbe Quelle, aus
+    # der die Filterliste entsteht.
+    quelle = (wurzel / "filters.js").read_text(encoding="utf-8")
+    treffer = _re.search(r"const LAENDER = \[([^\]]*)\]", quelle)
+    aus_filters = _re.findall(r"'([^']+)'", treffer.group(1)) if treffer else []
+    check("dieselben Länder wie in filters.js",
+          sorted(laender), sorted(aus_filters))
+
+    # Jeder Ring ist eine Fläche: mindestens vier Punkte und geschlossen.
+    offen = [name for name, ringe in laender.items()
+             for ring in ringe if len(ring) < 4 or ring[0] != ring[-1]]
+    check("alle Ringe sind geschlossene Flächen", offen, [])
+
+    # Die Koordinaten stehen als [lon, lat] (GeoJSON-Reihenfolge) - karte.html
+    # dreht sie für Leaflet. Verdrehte Werte fielen sonst erst am Bild auf.
+    verdreht = []
+    for name, ringe in laender.items():
+        for ring in ringe:
+            for lon, lat in ring[:50]:
+                if not (-30 <= lon <= 60 and 35 <= lat <= 72):
+                    verdreht.append((name, lon, lat))
+                    break
+    check("Koordinaten liegen in Europa und in der Reihenfolge lon, lat",
+          verdreht[:3], [])
+
+    # Größe: Die Datei lädt die Karte bei jedem Aufruf nach. 200 KB wären
+    # keine Maske mehr, sondern ein zweites events.json.
+    kb = pfad.stat().st_size // 1024
+    check("laender.json bleibt klein (%d KB)" % kb, kb < 200, True)
+
+
 def test_asset_stempel() -> None:
     """Die ?v=-Stempel an den geteilten Skripten (stamp_assets.py).
 
@@ -908,7 +961,7 @@ def main() -> int:
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
-                 test_keine_fremden_dateien,
+                 test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()
 

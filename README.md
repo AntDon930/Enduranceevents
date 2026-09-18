@@ -1837,14 +1837,51 @@ nebeneinander gezeichneten Weltkarte. Drei Einstellungen beheben das:
   „das Fenster liegt ganz in Europa" ergab Zoom 6 und man konnte DACH
   nicht mehr am Stück sehen.
 
-**Was bewusst offen bleibt**: die Länder außerhalb von DACH grau
-hinterlegen oder dort keine Ortsnamen zeigen. Die OSM-Kacheln sind
-fertige Bilder – dafür bräuchte es entweder Ländergrenzen als GeoJSON
-(eine zusätzliche Datendatei mit eigener Namensnennung, die als Maske
-über die Karte gelegt wird) oder einen anderen Kachel-Anbieter mit
-label-freiem Stil. Letzterer wäre ein zweiter fremder Server und müsste
-in die Datenschutzerklärung – die OSM-Kacheln sind dort bisher die
-einzige Ausnahme.
+### Die graue Maske: Deutschland, Österreich, Schweiz heben sich ab
+
+Frankreich und Polen sind auf der Karte zu sehen – sie grenzen an –,
+aber sie sind hier nicht das Thema, und ohne Maske sahen sie genauso aus
+wie Deutschland. Jetzt liegt alles außerhalb der abgedeckten Länder
+unter einem grauen Schleier: Städtenamen und Straßen bleiben lesbar,
+treten aber zurück.
+
+Es gab zwei Wege dorthin, und der Nutzer hat sich am 18.09.2026 für den
+zweiten entschieden:
+
+1. **Ein Kachel-Anbieter mit label-armem Stil.** Kostet keine eigenen
+   Daten – wäre aber ein **zweiter fremder Server**, an den die
+   IP-Adresse jedes Besuchers geht. Die OSM-Kacheln sind bisher die
+   einzige Ausnahme, die dieses Projekt sich erlaubt. Verworfen.
+2. **Eigene Ländergrenzen.** `scripts/build_laender.py` holt sie aus
+   **Natural Earth** (`ne_10m_admin_0_countries`, Public Domain),
+   schneidet die drei Länder heraus, vereinfacht sie auf ~100 m und
+   schreibt `laender.json` (69 KB, 24 KB gezippt). Die Datei liegt im
+   Repo und wird vom eigenen Server geliefert – es geht nichts an
+   Dritte.
+
+Wie die Maske gezeichnet wird:
+
+- **Ein einziges Polygon**: ein Rechteck über die halbe Welt, mit den
+  Ländern als Aussparungen. Das macht `fill-rule: evenodd` möglich, die
+  Voreinstellung von Leaflet – jeder weitere Ring kehrt die Füllung um.
+  Angenehmer Nebeneffekt: Ein Loch *innerhalb* eines Landes wird von
+  selbst wieder grau, und genau das braucht es für Büsingen am
+  Hochrhein (deutsch, liegt mitten in der Schweiz).
+- **Eine eigene Ebene mit z-index 250**: über den Kartenbildern (200),
+  unter Markern und Umkreis (400). Läge sie oben, wären die
+  Bündel-Zahlen matt und der Ausgangspunkt halb verdeckt.
+- **Sie fängt keine Klicks ab** (`pointer-events: none` und
+  `interactive: false`) – sonst wäre kein Marker unter ihr mehr
+  anklickbar. Der Rauchtest prüft beides.
+- **Geladen wird sie nach den Events**, ohne `await`, und ein Fehlschlag
+  bleibt still: Die Maske ist Beiwerk, die Marker sind der Zweck.
+
+**Ein weiteres Land dazu** heißt: eine Zeile in `build_laender.py`
+(Name → ISO-Code), Skript laufen lassen, `laender.json` mit committen.
+Die Schlüssel der Datei sind dieselben Ländernamen wie in `filters.js`
+(`LAENDER`) und in `events.json` – `test_laender_maske` vergleicht die
+Listen, damit ein neues Land nicht stillschweigend unter dem Schleier
+liegen bleibt.
 
 ## Die Tabelle: eine Schrift, eine Zeilenhöhe, die ganze Seite
 
@@ -2231,7 +2268,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 121 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 125 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar
@@ -2263,7 +2300,8 @@ Komma und im Englischen mit Punkt steht, die **Mastersuche** (findet
 Orte UND Namen, Chip, `?s=` in der Adresse), das **zweizeilige Datum**
 bei mehrtägigen Rennen, den **Events-Knopf der Startseite**, den
 **Kartenrahmen** (Herauszoomen endet bei Europa, keine zweite Weltkarte
-daneben) sowie die Filter über den Weg Liste → Karte → Liste.
+daneben), die **graue Maske** (vorhanden, unter den Markern, fängt keine
+Klicks ab) sowie die Filter über den Weg Liste → Karte → Liste.
 
 Ohne Playwright oder ohne startbares Chromium bricht das Skript mit einem
 Hinweis ab und gibt 0 zurück – wie die übersprungenen Scraper. Es ersetzt
