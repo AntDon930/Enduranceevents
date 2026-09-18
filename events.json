@@ -3984,19 +3984,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "19. Aerzener twinfit-Volkslauf",
-    "standort": "Aerzen",
-    "lat": 52.0496072,
-    "lon": 9.2638158,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09900000260000"
-  },
-  {
-    "land": "Deutschland",
     "name": "2. Balkanstassenlauf Marathon",
     "standort": "Leverkusen-Opladen",
     "lat": 51.0580494,
@@ -4201,19 +4188,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "33. Insellauf mit HM, 10km, 3x7km Staffel und Kinderläufen",
-    "standort": "Reichenau",
-    "lat": 47.6956373,
-    "lon": 9.0592022,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000090760001"
-  },
-  {
-    "land": "Deutschland",
     "name": "33. Tübinger Erbe-Lauf",
     "standort": "Tübingen",
     "lat": 48.5203263,
@@ -4334,19 +4308,6 @@
     "datum_ende": "2026-09-20",
     "laenge_km": 21.1,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000083860001"
-  },
-  {
-    "land": "Deutschland",
-    "name": "5. Sonneberger Spielzeuglauf",
-    "standort": "Sonneberg",
-    "lat": 50.3575412,
-    "lon": 11.1691714,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V18000021160001"
   },
   {
     "land": "Deutschland",
@@ -4661,19 +4622,6 @@
     "datum_ende": "2026-09-20",
     "laenge_km": 6.0,
     "veranstalter_url": "https://canossa-berglauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "CEB-Saarwiesenlauf",
-    "standort": "Merzig",
-    "lat": 49.4427023,
-    "lon": 6.6374902,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000006660000"
   },
   {
     "land": "Deutschland",
@@ -6261,19 +6209,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Sparkassen-Küstenmarathon 26",
-    "standort": "Otterndorf",
-    "lat": 53.8073939,
-    "lon": 8.8956836,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000514360000"
-  },
-  {
-    "land": "Deutschland",
     "name": "Spielzeuglauf Sonneberg",
     "standort": "Sonneberg",
     "lat": 50.3601821,
@@ -7312,19 +7247,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "33. Lauf Rund um den Grengel",
-    "standort": "Engelskirchen",
-    "lat": 50.9872964,
-    "lon": 7.4084206,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10003004160001"
-  },
-  {
-    "land": "Deutschland",
     "name": "37. REHAmed Herkules-Berglauf",
     "standort": "Kassel",
     "lat": 51.3157833,
@@ -7885,19 +7807,6 @@
     "laenge_km": 90.0,
     "wettbewerb": "Der große Ruf der alten Mauern – ca. 90 km",
     "veranstalter_url": "https://katjas-laufzeit.de/der-ruf-der-alten-mauern-ausschreibung-2026/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei-Täler-Lauf",
-    "standort": "Mettingen",
-    "lat": 52.3161663,
-    "lon": 7.7836981,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 14.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000311560001"
   },
   {
     "land": "Deutschland",
@@ -9455,19 +9364,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "21. Herner St. Martini City-Lauf",
-    "standort": "Herne",
-    "lat": 51.5380394,
-    "lon": 7.219985,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000150960001"
-  },
-  {
-    "land": "Deutschland",
     "name": "22. Einstein-Marathon",
     "standort": "Ulm",
     "lat": 48.3984968,
@@ -9771,19 +9667,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "38. Herdorfer Götzelauf",
-    "standort": "Herdorf",
-    "lat": 50.7788397,
-    "lon": 7.9514498,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000119460000"
-  },
-  {
-    "land": "Deutschland",
     "name": "39. Cochem Zeller Crosslauf Serie",
     "standort": "Ulmen (Eifel)",
     "lat": 50.2115907,
@@ -9972,19 +9855,6 @@
     "datum_ende": "2026-09-27",
     "laenge_km": 10.0,
     "veranstalter_url": "https://my.raceresult.com/383665/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)",
-    "standort": "Diez",
-    "lat": 50.3694175,
-    "lon": 8.0174521,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000496150000"
   },
   {
     "land": "Deutschland",
@@ -12558,19 +12428,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "49. Warburger Oktoberwochenlauf",
-    "standort": "Warburg",
-    "lat": 51.4886533,
-    "lon": 9.1488385,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 21.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000162660002"
-  },
-  {
-    "land": "Deutschland",
     "name": "5. Ludwigsburger DJK-Lauf",
     "standort": "Ludwigsburg-Oßweil",
     "lat": 48.8926261,
@@ -12609,19 +12466,6 @@
     "veranstalter_url": "https://www.rothaar-waldlauf.de/",
     "lat": 51.0515666,
     "lon": 8.3926278
-  },
-  {
-    "land": "Deutschland",
-    "name": "9. Volks - und Feuerwehrlauf Rhede",
-    "standort": "Rhede",
-    "lat": 51.8363135,
-    "lon": 6.696091,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L10009901260001"
   },
   {
     "land": "Deutschland",
@@ -16552,19 +16396,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Damscheider Kuckucks-Trail",
-    "standort": "Damscheid",
-    "lat": 50.1016112,
-    "lon": 7.6825568,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000012460000"
-  },
-  {
-    "land": "Deutschland",
     "name": "DieSPECKer LaufSPECKtakel",
     "standort": "Diespeck",
     "lat": 49.5944916,
@@ -18160,19 +17991,6 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 8.0,
     "veranstalter_url": "https://my.raceresult.com/414034/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Berliner Morgenpost Great 10K",
-    "standort": "Berlin",
-    "lat": 52.5173885,
-    "lon": 13.3951309,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/berliner-morgenpost-great-10k"
   },
   {
     "land": "Deutschland",
@@ -19781,19 +19599,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "26. Prignitzer Moormeile",
-    "standort": "Bad Wilsnack",
-    "lat": 52.9706466,
-    "lon": 11.9231901,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 12.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04090001260000"
-  },
-  {
-    "land": "Deutschland",
     "name": "29. Bad Dürkheimer Berglauf mit RLP-Meisterschaft",
     "standort": "Bad Dürkheim",
     "lat": 49.4632944,
@@ -19860,19 +19665,6 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 8.0,
     "veranstalter_url": "https://www.tsv-burghaslach.de/2026/04/17/39-burghaslacher-fackellauf-2026/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "40. Hachenburger Löwenlauf",
-    "standort": "Hachenburg",
-    "lat": 50.6627538,
-    "lon": 7.8253173,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000193160000"
   },
   {
     "land": "Deutschland",
@@ -21024,32 +20816,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.xn--mngstener-brckenlauf-pecl.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "52. Traditioneller Sparkassen-Herbstwaldlauf",
-    "standort": "Beckum",
-    "lat": 51.7555148,
-    "lon": 8.041135,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000041760001"
-  },
-  {
-    "land": "Deutschland",
-    "name": "56. Döbraberg Dr. Heinz Laubmann Gedächtnis Lauf",
-    "standort": "Hof",
-    "lat": 50.3187507,
-    "lon": 11.9162992,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 23.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000441360000"
   },
   {
     "land": "Deutschland",
@@ -22943,19 +22709,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "38. VR Bank Westküsten Herbstlauf Schafstedt",
-    "standort": "Schafstedt",
-    "lat": 54.0822589,
-    "lon": 9.2960827,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K17000000060059"
-  },
-  {
-    "land": "Deutschland",
     "name": "39. Glauchauer Herbstlauf",
     "standort": "Glauchau",
     "lat": 50.8199031,
@@ -23912,19 +23665,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km RUN",
     "veranstalter_url": "https://www.sportscheck.com/run-nuernberg.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Thüngersheimer Bocksbeutellauf 2026",
-    "standort": "Thüngersheim",
-    "lat": 49.8716474,
-    "lon": 9.8522176,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000645560000"
   },
   {
     "land": "Deutschland",
@@ -30068,19 +29808,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "32. FORD Advent-Lauf",
-    "standort": "Saarbrücken",
-    "lat": 49.234362,
-    "lon": 6.996379,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000009160000"
-  },
-  {
-    "land": "Deutschland",
     "name": "33. Adventslauf SV Weiden e.V.",
     "standort": "Dornhan",
     "lat": 48.3502837,
@@ -30622,19 +30349,6 @@
     "laenge_km": 8.2,
     "veranstalter_url": "https://my.raceresult.com/394430/",
     "wettbewerb": "8 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "40. Nikolauslauf und 131. Straßenlauf",
-    "standort": "Dülmen",
-    "lat": 51.8283677,
-    "lon": 7.2791406,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-05",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000011260001"
   },
   {
     "land": "Deutschland",
@@ -31413,19 +31127,6 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000132360000"
-  },
-  {
-    "land": "Deutschland",
-    "name": "32. Ilsfelder Nikolauslauf",
-    "standort": "Ilsfeld",
-    "lat": 49.0553992,
-    "lon": 9.2458327,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000113360000"
   },
   {
     "land": "Deutschland",
@@ -32453,7 +32154,7 @@
     "lat": 53.3574436,
     "lon": 10.2127204,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 5.0,
@@ -32467,7 +32168,7 @@
     "lat": 53.3574436,
     "lon": 10.2127204,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 9.0,
@@ -32694,34 +32395,6 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "veranstalter_url": "https://my.raceresult.com/382583/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sparkassen Advents-Cross der LG Nordheide",
-    "standort": "Winsen (Luhe)",
-    "lat": 53.3636474,
-    "lon": 10.2059206,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-13",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000424060000",
-    "wettbewerb": "Langstrecke 9km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sparkassen Advents-Cross der LG Nordheide",
-    "standort": "Winsen",
-    "lat": 53.3636474,
-    "lon": 10.2059206,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-13",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Mittelstrecke (männlich)",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000424060000"
   },
   {
     "land": "Deutschland",
@@ -34262,19 +33935,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "45. Silvesterlauf Kirchheim/Teck",
-    "standort": "Kirchheim unter Teck",
-    "lat": 48.6480545,
-    "lon": 9.4510227,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 18.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000813160000"
-  },
-  {
-    "land": "Deutschland",
     "name": "46. Oberlichtenauer Silvesterlauf",
     "standort": "Pulsnitz",
     "lat": 51.2027255,
@@ -35650,19 +35310,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.silvesterlauf.com"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sparkasse Gießen Silvesterlauf 2026 Rund um den Schiffenberg",
-    "standort": "Gießen",
-    "lat": 50.5862066,
-    "lon": 8.6742306,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000031160001"
   },
   {
     "land": "Deutschland",
@@ -42543,19 +42190,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "41. Lauf Rund um den Allwetterzoo",
-    "standort": "Münster",
-    "lat": 51.9625101,
-    "lon": 7.6251879,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-11",
-    "datum_ende": "2027-04-11",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27L19000395160001"
-  },
-  {
-    "land": "Deutschland",
     "name": "Borna Halbmarathon",
     "standort": "Borna",
     "lat": 51.1245977,
@@ -43231,19 +42865,6 @@
     "datum_start": "2027-04-17",
     "datum_ende": "2027-04-17",
     "veranstalter_url": "https://my.raceresult.com/418307/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "10. LiWa Schurwald-Marathon",
-    "standort": "Lichtenwald",
-    "lat": 48.7451285,
-    "lon": 9.4820782,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-18",
-    "datum_ende": "2027-04-18",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.liwalauf.tsv-lichtenwald.de"
   },
   {
     "land": "Deutschland",
@@ -50163,19 +49784,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://my.raceresult.com/376620/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "22. Europa-Marathon Görlitz",
-    "standort": "Görlitz",
-    "lat": 51.1563185,
-    "lon": 14.991018,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-06",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.europamarathon.de"
   },
   {
     "land": "Deutschland",

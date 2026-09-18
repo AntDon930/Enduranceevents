@@ -805,5 +805,133 @@
   "25. Marner Kohltagelauf|2026-09-27|5": {
     "exclude": true,
     "_note": "marner-kohltagelauf.com nennt vier Laeufe: Kids Run 400 m, 2,5 km, 5 km und 10 km (Hauptlauf, in der Presse mit 10,1 km beziffert). Die 5 km standen zweimal da - '5km Lauf' und '5 km fuer verschiedene Jahrgaenge, Gebuehren 6,00-17,00 EUR'. Beide tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden; die richtige Zeile steht in manual_events.json. Geprueft 2026-09-18."
+  },
+  "19. Aerzener twinfit-Volkslauf|2026-09-20|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'twinfitlauf' (twinfit.de), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "CEB-Saarwiesenlauf|2026-09-20|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Saarwiesenlauf Merzig' (ladv.de, Ausschreibung 'CEB-Saarwiesenlauf Merzig'), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "Sparkassen-Küstenmarathon 26|2026-09-20|42.2": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: '26. S - Kuestenmarathon zum Welkindertag' - die Zeile mit der offiziellen Seite kuestenmarathon.de. Geprueft 2026-09-18."
+  },
+  "33. Insellauf mit HM, 10km, 3x7km Staffel und Kinderläufen|2026-09-20|21.1": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Reichenauer Insellauf' (svreichenau.de) mit Halbmarathon, 10 km und 3x7-km-Staffel - der lange Name der Kalenderzeile zaehlt genau diese Strecken auf. Geprueft 2026-09-18."
+  },
+  "5. Sonneberger Spielzeuglauf|2026-09-20|9": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Spielzeuglauf Sonneberg' (leichtathletik-sonneberg.de), 6 km Einsteigerlauf und 9 km Hauptlauf. Geprueft 2026-09-18."
+  },
+  "33. Lauf Rund um den Grengel|2026-09-26|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Grengellauf' (vflengelskirchen.de), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "Drei-Täler-Lauf|2026-09-26|14.1": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: '3-Taeler-Lauf Mettingen' (tvmettingen.de), 8,3 und 14,1 km. Geprueft 2026-09-18."
+  },
+  "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)|2026-09-27|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Diezer Stadtlauf - Karl Maxeiner Lauf' (sv-diez-freiendiez.com), 5 und 10 km. ACHTUNG: Die 5-km-Zeile derselben Kalenderquelle ist KEIN Duplikat - sie traegt das Label '5 km Walking, Nordic-Walking und Gehen', und der Veranstalter bestaetigt: 'Auch Geher und Walker koennen erneut ueber die 5 km Distanz antreten'. Laufen und Gehen ueber dieselbe Strecke sind zwei Eintraege (Datenregel 1). Geprueft 2026-09-18."
+  },
+  "38. Herdorfer Götzelauf|2026-09-27|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Stadtlauf Herdorf' (my.raceresult.com/421569), 5 und 10 km. Der Goetzelauf laeuft als Rundkurs durch die Herdorfer Innenstadt und meldet ueber genau diese Race-Result-Seite an - eine Veranstaltung. Geprueft 2026-09-18."
+  },
+  "21. Herner St. Martini City-Lauf|2026-09-27|5": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Herner City-Lauf' (martinilauf-herne.de). Geprueft 2026-09-18."
+  },
+  "9. Volks - und Feuerwehrlauf Rhede|2026-10-03|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Volkslauf Feuerwehr Rhede' (feuerwehr-rhede.de), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "49. Warburger Oktoberwochenlauf|2026-10-03|21.5": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Oktoberwochen Volkslauf' (warburgersv.de), 5, 10 und 21,5 km. Geprueft 2026-09-18."
+  },
+  "Damscheider Kuckucks-Trail|2026-10-10|21": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Kuckucks-Trail Damscheid' (kuckuckstrail.de), 9,5 km Best of Trail und 21 km Extended. Geprueft 2026-09-18."
+  },
+  "Berliner Morgenpost Great 10K|2026-10-11|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Great 10k Berlin' (davengo.com), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "26. Prignitzer Moormeile|2026-10-17|12.4": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Moormeile Bad Wilsnack' (moormeile.de), 7,8 und 12,4 km. Geprueft 2026-09-18."
+  },
+  "40. Hachenburger Löwenlauf|2026-10-17|21.1": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Loewenlauf Hachenburg' (loewenlauf-hachenburg.de), 6,3 km Teamlauf, 10,5 km und Halbmarathon. Geprueft 2026-09-18."
+  },
+  "52. Traditioneller Sparkassen-Herbstwaldlauf|2026-10-18|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Herbstwaldlauf Beckum' (my.raceresult.com/388543), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "56. Döbraberg Dr. Heinz Laubmann Gedächtnis Lauf|2026-10-18|23": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Doebraberglauf' (doebraberglauf.de), 9, 15 und 23 km. Geprueft 2026-09-18."
+  },
+  "38. VR Bank Westküsten Herbstlauf Schafstedt|2026-10-25|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Schafstedter VRBW Herbstlauf' (stgk.de), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "Thüngersheimer Bocksbeutellauf 2026|2026-10-25|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Bocksbeutel-Lauf Thuengersheim' (my.raceresult.com/390310) mit dem Label '10 km als listenfaehige Hauptstrecke'. Die entfernte Zeile trug ausserdem die Jahreszahl im Namen. Geprueft 2026-09-18."
+  },
+  "32. FORD Advent-Lauf|2026-11-29|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Advent-Lauf Saarbruecken' (my.raceresult.com/416702), 5 km Jedermannslauf und 10 km Sparkassen-Cup. Geprueft 2026-09-18."
+  },
+  "40. Nikolauslauf und 131. Straßenlauf|2026-12-05|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Nikolauslauf der TSG Duelmen' (my.raceresult.com/417521), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "32. Ilsfelder Nikolauslauf|2026-12-06|10": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Nikolauslauf Ilsfeld' (sc-ilsfeld.de), 5 und 10 km. Geprueft 2026-09-18."
+  },
+  "Sparkassen Advents-Cross der LG Nordheide|2026-12-13|5": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Adventscross der LG Nordheide' - die Zeile mit der Ausschreibung auf ladv.de statt des Portallinks. Geprueft 2026-09-18."
+  },
+  "Sparkassen Advents-Cross der LG Nordheide|2026-12-13|9": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Adventscross der LG Nordheide' (ladv.de). Geprueft 2026-09-18."
+  },
+  "Sparkasse Gießen Silvesterlauf 2026 Rund um den Schiffenberg|2026-12-31|21.1": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Silvesterlauf Giessen' (silvesterlauf-giessen.de), 5, 10 und 21,1 km. Die entfernte Zeile trug ausserdem die Jahreszahl im Namen. Geprueft 2026-09-18."
+  },
+  "45. Silvesterlauf Kirchheim/Teck|2026-12-31|18": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Silvesterlauf auf die Burg Teck' (vfl-kirchheim.de). Geprueft 2026-09-18."
+  },
+  "41. Lauf Rund um den Allwetterzoo|2027-04-11|21.1": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Zoolauf Muenster' (wasser-freizeit.de), 5, 10 und 21,1 km - der Zoolauf laeuft rund um den Allwetterzoo. Geprueft 2026-09-18."
+  },
+  "10. LiWa Schurwald-Marathon|2027-04-18|42.2": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Liwa Laufevent' (liwalauf.tsv-lichtenwald.de), 10 km SmileRun, Halbmarathon und Marathon. Geprueft 2026-09-18."
+  },
+  "22. Europa-Marathon Görlitz|2027-06-06|42.2": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Europamarathon' (europamarathon.de) mit Marathon und Halbmarathon. Geprueft 2026-09-18."
+  },
+  "Adventscross der LG Nordheide|2026-12-13|5": {
+    "art2": "Trail/Cross",
+    "_note": "Ein Advents-CROSS ist ein Gelaendelauf, keine Strassenstrecke. Die Kategorie stand auf 'Strasse', weil die Ausschreibung auf ladv.de das Wort 'Cross' nur im Titel fuehrt. Die zweite, jetzt entfernte Quelle hatte 'Trail/Cross' richtig. Geprueft 2026-09-18."
+  },
+  "Adventscross der LG Nordheide|2026-12-13|9": {
+    "art2": "Trail/Cross",
+    "_note": "Ein Advents-CROSS ist ein Gelaendelauf, keine Strassenstrecke. Die Kategorie stand auf 'Strasse', weil die Ausschreibung auf ladv.de das Wort 'Cross' nur im Titel fuehrt. Die zweite, jetzt entfernte Quelle hatte 'Trail/Cross' richtig. Geprueft 2026-09-18."
   }
 }

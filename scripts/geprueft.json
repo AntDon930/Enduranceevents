@@ -617,5 +617,179 @@
     "ergebnis": "unklar",
     "quelle": "marner-kohltagelauf.com, boyens-medien.de",
     "notiz": "Die Doppelungen sind geraeumt (5 km stand zweimal, 10 km doppelt neben den 10,1 km). OFFEN und wichtig: Auf marner-kohltagelauf.com steht 'Leider muessen wir den Kohltagelauf 2026 aufgrund der Wetterverhaeltnisse absagen!' - die Veranstaltung waere also ABGESAGT. Dieselbe Seite wirbt im Titel aber mit 'Melde dich jetzt fuer 2026 an!', und eine Wetterabsage neun Tage im Voraus (Termin 27.09.2026) ist ungewoehnlich; der Hinweis koennte von einer frueheren Auflage stammen. Nicht geloescht - ein echtes Rennen zu entfernen waere der schwerere Fehler. ALLGEMEIN: Abgesagte Veranstaltungen sind eine Luecke - weder die Scraper noch clean_events.py erkennen sie."
+  },
+  "19. Aerzener twinfit-Volkslauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'twinfitlauf' (twinfit.de), 5 und 10 km."
+  },
+  "CEB-Saarwiesenlauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Saarwiesenlauf Merzig' (ladv.de, Ausschreibung 'CEB-Saarwiesenlauf Merzig'), 5 und 10 km."
+  },
+  "Sparkassen-Küstenmarathon 26|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: '26. S - Kuestenmarathon zum Welkindertag' - die Zeile mit der offiziellen Seite kuestenmarathon.de."
+  },
+  "33. Insellauf mit HM, 10km, 3x7km Staffel und Kinderläufen|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Reichenauer Insellauf' (svreichenau.de) mit Halbmarathon, 10 km und 3x7-km-Staffel - der lange Name der Kalenderzeile zaehlt genau diese Strecken auf."
+  },
+  "5. Sonneberger Spielzeuglauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Spielzeuglauf Sonneberg' (leichtathletik-sonneberg.de), 6 km Einsteigerlauf und 9 km Hauptlauf."
+  },
+  "33. Lauf Rund um den Grengel|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Grengellauf' (vflengelskirchen.de), 5 und 10 km."
+  },
+  "Drei-Täler-Lauf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: '3-Taeler-Lauf Mettingen' (tvmettingen.de), 8,3 und 14,1 km."
+  },
+  "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Diezer Stadtlauf - Karl Maxeiner Lauf' (sv-diez-freiendiez.com), 5 und 10 km. ACHTUNG: Die 5-km-Zeile derselben Kalenderquelle ist KEIN Duplikat - sie traegt das Label '5 km Walking, Nordic-Walking und Gehen', und der Veranstalter bestaetigt: 'Auch Geher und Walker koennen erneut ueber die 5 km Distanz antreten'. Laufen und Gehen ueber dieselbe Strecke sind zwei Eintraege (Datenregel 1)."
+  },
+  "38. Herdorfer Götzelauf|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Stadtlauf Herdorf' (my.raceresult.com/421569), 5 und 10 km. Der Goetzelauf laeuft als Rundkurs durch die Herdorfer Innenstadt und meldet ueber genau diese Race-Result-Seite an - eine Veranstaltung."
+  },
+  "21. Herner St. Martini City-Lauf|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Herner City-Lauf' (martinilauf-herne.de)."
+  },
+  "9. Volks - und Feuerwehrlauf Rhede|2026-10-03": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Volkslauf Feuerwehr Rhede' (feuerwehr-rhede.de), 5 und 10 km."
+  },
+  "49. Warburger Oktoberwochenlauf|2026-10-03": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Oktoberwochen Volkslauf' (warburgersv.de), 5, 10 und 21,5 km."
+  },
+  "Damscheider Kuckucks-Trail|2026-10-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Kuckucks-Trail Damscheid' (kuckuckstrail.de), 9,5 km Best of Trail und 21 km Extended."
+  },
+  "Berliner Morgenpost Great 10K|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Great 10k Berlin' (davengo.com), 5 und 10 km."
+  },
+  "26. Prignitzer Moormeile|2026-10-17": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Moormeile Bad Wilsnack' (moormeile.de), 7,8 und 12,4 km."
+  },
+  "40. Hachenburger Löwenlauf|2026-10-17": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Loewenlauf Hachenburg' (loewenlauf-hachenburg.de), 6,3 km Teamlauf, 10,5 km und Halbmarathon."
+  },
+  "52. Traditioneller Sparkassen-Herbstwaldlauf|2026-10-18": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Herbstwaldlauf Beckum' (my.raceresult.com/388543), 5 und 10 km."
+  },
+  "56. Döbraberg Dr. Heinz Laubmann Gedächtnis Lauf|2026-10-18": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Doebraberglauf' (doebraberglauf.de), 9, 15 und 23 km."
+  },
+  "38. VR Bank Westküsten Herbstlauf Schafstedt|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Schafstedter VRBW Herbstlauf' (stgk.de), 5 und 10 km."
+  },
+  "Thüngersheimer Bocksbeutellauf 2026|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Bocksbeutel-Lauf Thuengersheim' (my.raceresult.com/390310) mit dem Label '10 km als listenfaehige Hauptstrecke'. Die entfernte Zeile trug ausserdem die Jahreszahl im Namen."
+  },
+  "32. FORD Advent-Lauf|2026-11-29": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Advent-Lauf Saarbruecken' (my.raceresult.com/416702), 5 km Jedermannslauf und 10 km Sparkassen-Cup."
+  },
+  "40. Nikolauslauf und 131. Straßenlauf|2026-12-05": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Nikolauslauf der TSG Duelmen' (my.raceresult.com/417521), 5 und 10 km."
+  },
+  "32. Ilsfelder Nikolauslauf|2026-12-06": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Nikolauslauf Ilsfeld' (sc-ilsfeld.de), 5 und 10 km."
+  },
+  "Sparkassen Advents-Cross der LG Nordheide|2026-12-13": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Adventscross der LG Nordheide' (ladv.de)."
+  },
+  "Sparkasse Gießen Silvesterlauf 2026 Rund um den Schiffenberg|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Silvesterlauf Giessen' (silvesterlauf-giessen.de), 5, 10 und 21,1 km. Die entfernte Zeile trug ausserdem die Jahreszahl im Namen."
+  },
+  "45. Silvesterlauf Kirchheim/Teck|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Silvesterlauf auf die Burg Teck' (vfl-kirchheim.de)."
+  },
+  "41. Lauf Rund um den Allwetterzoo|2027-04-11": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Zoolauf Muenster' (wasser-freizeit.de), 5, 10 und 21,1 km - der Zoolauf laeuft rund um den Allwetterzoo."
+  },
+  "10. LiWa Schurwald-Marathon|2027-04-18": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Liwa Laufevent' (liwalauf.tsv-lichtenwald.de), 10 km SmileRun, Halbmarathon und Marathon."
+  },
+  "22. Europa-Marathon Görlitz|2027-06-06": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Veranstalterseite (siehe manual_overrides.json)",
+    "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Europamarathon' (europamarathon.de) mit Marathon und Halbmarathon."
   }
 }
