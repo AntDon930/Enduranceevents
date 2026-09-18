@@ -1193,5 +1193,29 @@
     "ergebnis": "quelle_ok",
     "quelle": "llgwustweiler.de",
     "notiz": "Die gemeldete 21-km-Zeile ist der Wustweiler Biber-Trail (600 hm); Label und Kategorie ergaenzt."
+  },
+  "Sedus Firmenlauf|2026-09-19": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "-",
+    "notiz": "Die Labels nennen zwei Zahlen: '10 km (10,50 km)' und '5 km (4,80 km)' - die Klammer ist offenbar die genaue Messung, gespeichert sind die gerundeten 10 und 5 km. ABSICHTLICH NICHT korrigiert: Mit 4,80 km faellt die kuerzere Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf - ein echtes Rennen zu verlieren waere der schwerere Fehler als 200 m Ungenauigkeit. Derselbe Fall wie bei der Bramfelder Winterlaufserie (4,66-km-Runde). Das ist eine Frage an den Nutzer: Soll die 5-km-Grenze knapp darunter liegende, offiziell als '5 km' beworbene Strecken mitnehmen?"
+  },
+  "Hiddestorfer Rübenlauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm: Das Label '5,2 km 5 km Lauf, Startgeld 10,00 EUR' nennt die genaue Laenge (5,2 km) und daneben den beworbenen Namen '5 km Lauf'. Gespeichert sind die genauen 5,2 km - richtig."
+  },
+  "Lions-Monopteros-Lauf|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm: '19 km (14 + 5 km)' ist eine Aufteilung DERSELBEN Strecke, kein zweites Rennen - genau der Fall, den _trenne_doppelte_distanzen() bewusst nicht anfasst (Datenregel 13). Gespeichert sind 19 km - richtig."
+  },
+  "Geretsrieder Stadtlauf|2027-04-25": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm: '5,3 km 5 km Lauf und U20' nennt die genaue Laenge und den beworbenen Namen. Gespeichert sind 5,3 km - richtig."
   }
 }
