@@ -867,13 +867,14 @@
 
   // ---------- Detail-Boxen oben rechts ----------
   //
-  // Ein Klick auf ein Event im Popup öffnet seine Box über der Karte -
-  // dieselbe Box wie in der Liste (event-detail.js: Datum, Land, Ort,
-  // Sportart, Kategorie, Länge, Veranstalter-Link, Kalender, Teilen).
-  // Höchstens ZWEI zugleich, die neueste oben; die dritte verdrängt die
-  // älteste (so vom Nutzer gewünscht: "maximal bis 2"). Jede Box hat
-  // ein ✕. Ein zweiter Klick auf ein schon offenes Event hebt es nur
-  // nach oben.
+  // Ein Klick auf einen Marker mit einem oder zwei Events öffnet deren
+  // Boxen über der Karte, bei mehr Events listet das Popup sie und ein
+  // Klick auf einen Eintrag öffnet die Box - dieselbe Box wie in der
+  // Liste (event-detail.js: Datum, Land, Ort, Sportart, Kategorie,
+  // Länge, Veranstalter-Link, Kalender, Teilen). Höchstens ZWEI
+  // zugleich, die neueste oben; die dritte verdrängt die älteste (so vom
+  // Nutzer gewünscht: "maximal bis 2"). Jede Box hat ein ✕. Ein zweiter
+  // Klick auf ein schon offenes Event hebt es nur nach oben.
   //
   // "Fehler melden" führt in die LISTE (?event=…&melden=1): Der
   // Melde-Dialog mit seiner Firestore-Anbindung lebt nur dort, und eine
@@ -905,6 +906,14 @@
 
   function zeigeDetail(e) {
     offeneDetails = [e, ...offeneDetails.filter(x => x !== e)].slice(0, MAX_DETAILS);
+    zeichneDetails();
+  }
+
+  // Alle Events eines Ortes auf einmal (Marker mit 1 oder 2): Sie
+  // ersetzen, was offen war - der Klick auf den Marker ist die Frage
+  // "was ist hier?", und die Antwort sind genau diese Boxen.
+  function zeigeDetails(liste) {
+    offeneDetails = liste.slice(0, MAX_DETAILS);
     zeichneDetails();
   }
 
@@ -980,10 +989,20 @@
       // beim Klick entsteht, trägt er jetzt sogar die Filter von genau
       // diesem Moment.
       //
-      // Dazu die Events des Ortes selbst, eines je Zeile: Ein Klick
-      // öffnet die Detail-Box oben rechts (zeigeDetail) - dieselbe Box
-      // wie in der Liste. data-idx ist die Nummer in `events`, der
-      // Klick kommt über EINEN Zuhörer am Kartencontainer an (unten).
+      // Hat der Ort höchstens so viele Events, wie Boxen Platz haben
+      // (zwei), öffnet der Klick auf den Marker die Boxen DIREKT - ohne
+      // Popup (vom Nutzer am 19.09.2026 so gewünscht: "wenn ich auf die
+      // 1 klicke, soll sich rechts oben einfach die Info öffnen; zeigt
+      // der Punkt 2, werden rechts zwei Events angezeigt"). Erst ab
+      // drei Events bleibt das Popup mit der Auswahlliste: Ein Klick
+      // dort öffnet die Box (zeigeDetail). data-idx ist die Nummer in
+      // `events`, der Klick kommt über EINEN Zuhörer am Kartencontainer
+      // an (unten).
+      if (loc.events.length <= MAX_DETAILS) {
+        marker.on('click', () => zeigeDetails(loc.events));
+        markers.push(marker);
+        return;
+      }
       marker.bindPopup(() =>
         // tv(): Städte mit eigenem englischen Namen (München → Munich).
         `<div class="popup-title">${escapeHtml(tv('standort', loc.standort))}</div>` +

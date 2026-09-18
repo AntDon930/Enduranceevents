@@ -89,7 +89,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 181 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 182 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -100,9 +100,10 @@ Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
 sichtbar, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
 Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
 (vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
-sie mit), die **Detail-Box auf der Karte** (Popup listet die Events,
-Klick öffnet die Box oben rechts, zwei Boxen, ✕, „Fehler melden" führt
-in die Liste und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
+sie mit), die **Detail-Box auf der Karte** (Marker „2" öffnet direkt
+zwei Boxen oben rechts, ab drei Events listet das Popup, Klick öffnet
+die Box, zwei Boxen, Verdrängen, ✕, „Fehler melden" führt in die Liste
+und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
@@ -1110,10 +1111,14 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   der Karte in `#map-details` **oben rechts über der Karte, bis zu zwei
   Boxen, die neueste oben, die dritte verdrängt die älteste** (vom
   Nutzer am 19.09.2026 so gewünscht: „genau gleiche Struktur wie wenn
-  man auf eins von der Liste klickt"). Dafür listet das **Popup eines
-  Ortes seine Events** (`.popup-event`, `data-idx`); ein Klick öffnet
-  die Box (`zeigeDetail`), EIN Zuhörer am Kartencontainer, weil Leaflet
-  den Popup-Inhalt bei jedem Öffnen neu baut. Vier Dinge daran:
+  man auf eins von der Liste klickt"). **Ein Marker mit 1 oder 2
+  Events öffnet die Boxen direkt beim Klick, ohne Popup**
+  (`zeigeDetails(loc.events)`; „wenn ich auf die 1 klicke, soll sich
+  rechts oben einfach die Info öffnen"). Erst ab drei Events listet das
+  **Popup des Ortes seine Events** (`.popup-event`, `data-idx`); ein
+  Klick öffnet die Box (`zeigeDetail`), EIN Zuhörer am Kartencontainer,
+  weil Leaflet den Popup-Inhalt bei jedem Öffnen neu baut. `MAX_DETAILS`
+  entscheidet beides. Vier Dinge daran:
   - **Keine Ids in der Box, nur Klassen** (`.event-share-btn`,
     `.report-open-btn`, `.cal-open-btn`, `.cal-menu`, `.cal-ics`, …):
     auf der Karte stehen zwei Boxen zugleich. Der Rauchtest sucht

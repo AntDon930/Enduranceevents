@@ -1304,32 +1304,28 @@ def pruefe_karten_suche(ctx, basis):
 def pruefe_karten_details(ctx, basis):
     """Die Detail-Box auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
 
-    Das Popup eines Ortes listet seine Events; ein Klick öffnet oben
-    rechts dieselbe Box wie in der Liste (event-detail.js). Höchstens
-    zwei zugleich, die neueste oben, ein ✕ schließt; "Fehler melden"
-    führt in die Liste und öffnet dort den Melde-Dialog.
+    Ein Marker mit einem oder zwei Events öffnet deren Boxen DIREKT oben
+    rechts - dieselbe Box wie in der Liste (event-detail.js). Erst ab
+    drei Events listet das Popup sie, ein Klick öffnet die Box.
+    Höchstens zwei zugleich, die neueste oben, ein ✕ schließt; "Fehler
+    melden" führt in die Liste und öffnet dort den Melde-Dialog.
     """
     print("\nDetail-Box auf der Karte")
-    # Ein Ort mit mehreren Strecken, damit zwei Boxen entstehen können.
+    # Ein Ort mit genau zwei Strecken: der Marker "2" öffnet beide Boxen.
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?standort=Mosnang", ".filter-bar")
     seite.wait_for_timeout(2800)
     seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
         if (m) m.click(); }""")
-    seite.wait_for_timeout(700)
-    knoepfe = seite.locator(".leaflet-popup .popup-event")
-    if not pruefe(knoepfe.count() >= 2, "das Popup listet die Events des Ortes (%d)" % knoepfe.count()):
-        seite.close()
-        return
-    erster = knoepfe.nth(0).locator(".pe-name").text_content()
-    knoepfe.nth(0).click()
-    seite.wait_for_timeout(400)
+    seite.wait_for_timeout(600)
+    namen = lambda: seite.evaluate("""() => [...document.querySelectorAll('#map-details .detail-panel h2')]
+        .map(h => h.textContent)""")
     box = seite.evaluate("""() => {
         const b = [...document.querySelectorAll('#map-details .detail-panel')];
         const wrap = document.querySelector('.map-wrap').getBoundingClientRect();
         const r = b[0] ? b[0].getBoundingClientRect() : null;
         return {
           anzahl: b.length,
-          name: b[0] ? b[0].querySelector('h2').textContent : '',
+          popup: !!document.querySelector('.leaflet-popup'),
           felder: b[0] ? b[0].querySelectorAll('.detail-grid dt').length : 0,
           ics: b[0] ? !!b[0].querySelector('a.cal-ics[href^="kalender/"]') : false,
           teilen: b[0] ? !!b[0].querySelector('.event-share-btn') : false,
@@ -1337,35 +1333,15 @@ def pruefe_karten_details(ctx, basis):
           schliessen: b[0] ? !!b[0].querySelector('.detail-close') : false,
           obenRechts: r ? (r.top - wrap.top < 100 && wrap.right - r.right < 40) : false
         }; }""")
-    pruefe(box["anzahl"] == 1 and box["name"] == erster,
-           "ein Klick öffnet die Box mit diesem Event (%s)" % box["name"])
+    if not pruefe(box["anzahl"] == 2 and not box["popup"],
+                  "Marker „2\u201c öffnet direkt zwei Boxen, ohne Popup (%d Boxen)" % box["anzahl"]):
+        seite.close()
+        return
     pruefe(box["felder"] >= 6, "dieselbe Struktur wie in der Liste (%d Felder)" % box["felder"])
     pruefe(box["ics"] and box["teilen"] and box["melden"] and box["schliessen"],
            "Kalenderdatei, Teilen, Fehler melden und ✕ sind da")
-    pruefe(box["obenRechts"], "die Box steht oben rechts über der Karte")
+    pruefe(box["obenRechts"], "die Boxen stehen oben rechts über der Karte")
     pruefe(not probleme, "ohne Skriptfehler (%s)" % (probleme[0] if probleme else "keine"))
-
-    # Zweites Event: zwei Boxen, das neue oben. Drittes: immer noch zwei.
-    # Auf Handybreite liegt die Box ÜBER dem Popup (die Karte ist nur
-    # 390 px breit) - ein Nutzer schiebt die Karte kurz beiseite, der
-    # Test klickt den Eintrag deshalb direkt an.
-    klick = lambda i: knoepfe.nth(i).evaluate("b => b.click()")
-    zweiter = knoepfe.nth(1).locator(".pe-name").text_content()
-    klick(1)
-    seite.wait_for_timeout(400)
-    namen = lambda: seite.evaluate("""() => [...document.querySelectorAll('#map-details .detail-panel h2')]
-        .map(h => h.textContent)""")
-    zwei = namen()
-    pruefe(len(zwei) == 2 and zwei[0] == zweiter, "das zweite Event kommt als zweite Box obenauf")
-    if knoepfe.count() >= 3:
-        klick(2)
-        seite.wait_for_timeout(400)
-        pruefe(len(namen()) == 2, "ein drittes Event verdrängt das älteste - es bleiben zwei")
-    else:
-        klick(0)
-        seite.wait_for_timeout(400)
-        pruefe(len(namen()) == 2 and namen()[0] == erster,
-               "ein schon offenes Event wandert nur nach oben - es bleiben zwei")
     seite.locator("#map-details .detail-close").first.click()
     seite.wait_for_timeout(300)
     pruefe(len(namen()) == 1, "das ✕ schließt eine Box")
@@ -1382,6 +1358,36 @@ def pruefe_karten_details(ctx, basis):
     pruefe(melden["liste"] and melden["offen"],
            "Fehler melden führt in die Liste und öffnet den Melde-Dialog")
     pruefe("melden=" not in melden["adresse"], "… und der Parameter bleibt nicht in der Adresse")
+    seite.close()
+
+    # Ein Ort mit vielen Events: das Popup listet sie, ein Klick öffnet
+    # die Box, die zweite kommt obenauf, die dritte verdrängt die älteste.
+    seite, _ = seite_oeffnen(ctx, basis + "/karte.html?standort=Berlin", ".filter-bar")
+    seite.wait_for_timeout(2800)
+    seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
+        if (m) m.click(); }""")
+    seite.wait_for_timeout(700)
+    knoepfe = seite.locator(".leaflet-popup .popup-event")
+    if not pruefe(knoepfe.count() >= 3, "ab drei Events listet das Popup sie (%d)" % knoepfe.count()):
+        seite.close()
+        return
+    # Auf Handybreite liegt die Box ÜBER dem Popup (die Karte ist nur
+    # 390 px breit) - ein Nutzer schiebt die Karte kurz beiseite, der
+    # Test klickt die Einträge deshalb direkt an.
+    klick = lambda i: knoepfe.nth(i).evaluate("b => b.click()")
+    erster = knoepfe.nth(0).locator(".pe-name").text_content()
+    zweiter = knoepfe.nth(1).locator(".pe-name").text_content()
+    klick(0)
+    seite.wait_for_timeout(400)
+    eins = namen()
+    pruefe(len(eins) == 1 and eins[0] == erster, "ein Klick im Popup öffnet die Box (%s)" % (eins or [''])[0])
+    klick(1)
+    seite.wait_for_timeout(400)
+    zwei = namen()
+    pruefe(len(zwei) == 2 and zwei[0] == zweiter, "das zweite Event kommt als zweite Box obenauf")
+    klick(2)
+    seite.wait_for_timeout(400)
+    pruefe(len(namen()) == 2, "ein drittes Event verdrängt das älteste - es bleiben zwei")
     seite.close()
 
 
@@ -1409,8 +1415,10 @@ def pruefe_karte_und_rundweg(ctx, basis):
 
         # Der Link im Popup: ohne "↗" (der Pfeil sah aus wie ein
         # Stempel - vom Nutzer gemeldet). Ein einzelner Ort, damit kein
-        # Bündel den Klick abfängt.
-        seite, _ = seite_oeffnen(ctx, basis + "/karte.html?standort=Mosnang", ".filter-bar")
+        # Bündel den Klick abfängt - und einer mit mehr als zwei Events,
+        # denn bei ein oder zwei öffnet der Marker die Boxen direkt und
+        # kein Popup (siehe pruefe_karten_details).
+        seite, _ = seite_oeffnen(ctx, basis + "/karte.html?standort=Berlin", ".filter-bar")
         seite.wait_for_timeout(2800)
         seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
             if (m) m.click(); }""")
