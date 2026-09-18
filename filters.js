@@ -107,6 +107,32 @@
       'Swimrun': { de: 'Swimrun', en: 'Swimrun' },
       'Quadrathlon': { de: 'Quadrathlon', en: 'Quadrathlon' },
       'Indoor': { de: 'Indoor', en: 'Indoor' }
+    },
+    // Städte mit einem eigenen englischen Namen. Nur ECHTE Exonyme -
+    // Orte, die im Englischen anders heißen, nicht bloß anders
+    // geschrieben werden: „Munich" gehört hierher, „Wurzburg" (nur ohne
+    // Umlaut) nicht. Wer in der englischen Fassung „Munich" sucht oder
+    // liest, soll München finden; alle anderen der ~1.500 Orte stehen in
+    // beiden Sprachen gleich da (tv() gibt den Wert dann unverändert
+    // zurück).
+    //
+    // Die Liste gilt AUCH für die Suche: `matchEvent` schaut in beide
+    // Sprachen, damit „Munich" auch auf der deutschen Seite trifft
+    // (siehe unten). Wird hier ein Ort ergänzt, muss die Kopie in
+    // functions/index.js mit - `test_suche_uebersetzungen` vergleicht
+    // beide.
+    standort: {
+      'München': { de: 'München', en: 'Munich' },
+      'Köln': { de: 'Köln', en: 'Cologne' },
+      'Nürnberg': { de: 'Nürnberg', en: 'Nuremberg' },
+      'Hannover': { de: 'Hannover', en: 'Hanover' },
+      'Braunschweig': { de: 'Braunschweig', en: 'Brunswick' },
+      'Konstanz': { de: 'Konstanz', en: 'Constance' },
+      'Wien': { de: 'Wien', en: 'Vienna' },
+      'Zürich': { de: 'Zürich', en: 'Zurich' },
+      'Genf': { de: 'Genf', en: 'Geneva' },
+      'Luzern': { de: 'Luzern', en: 'Lucerne' },
+      'Basel': { de: 'Basel', en: 'Basel' }
     }
   };
 
@@ -424,6 +450,24 @@
     return false;
   }
 
+  // Worin die Mastersuche sucht: Name, Wettbewerb, Ort - und Land,
+  // Sportart und Kategorie in BEIDEN Sprachen.
+  //
+  // Die zweite Hälfte ist der Punkt: Wer die Seite auf Deutsch stehen
+  // hat, soll trotzdem „Germany" oder „Munich" eingeben können und
+  // dieselben Events bekommen (so vom Nutzer gewünscht). Umgekehrt
+  // findet „Laufen" in der englischen Fassung die Running-Events. Das
+  // kostet nichts an Genauigkeit: Gesucht wird weiterhin als Teiltext,
+  // nur eben über ein paar Wörter mehr.
+  function sucheHeuhaufen(e) {
+    const teile = [e.name, e.wettbewerb, e.standort, e.land, e.art1, e.art2];
+    ['land', 'art1', 'art2', 'standort'].forEach(feld => {
+      const eintrag = VALUE_TRANSLATIONS[feld] && VALUE_TRANSLATIONS[feld][e[feld]];
+      if (eintrag) teile.push(eintrag.de, eintrag.en);
+    });
+    return teile.filter(Boolean).join(' ').toLowerCase();
+  }
+
   // Trifft ein einzelnes Event alle aktiven Filter? Die Liste und die
   // Karte fragen dieselbe Funktion - sonst zeigte ein Kartenmarker
   // Events, die in der Liste herausgefiltert sind.
@@ -447,8 +491,7 @@
     // zeigte. Je einfacher die Regel, desto eher bleiben beide gleich.
     if (state.suche.trim()) {
       const needle = state.suche.trim().toLowerCase();
-      const haystack = `${e.name || ''} ${e.wettbewerb || ''} ${e.standort || ''}`.toLowerCase();
-      if (!haystack.includes(needle)) return false;
+      if (!sucheHeuhaufen(e).includes(needle)) return false;
     }
     if (state.selectedDays.size && !state.selectedDays.has(e.datum_start)) return false;
     if (state.laengeMin !== '' && e.laenge_km != null && e.laenge_km < parseFloat(state.laengeMin)) return false;
@@ -615,7 +658,7 @@
       selected.forEach(v => chips.push({ label: t(chipKey, format(v)), clear: () => selected.delete(v) }));
     }
     pushSetChips('land', 'chip_land', v => tv('land', v));
-    pushSetChips('standort', 'chip_standort', v => v);
+    pushSetChips('standort', 'chip_standort', v => tv('standort', v));
     pushSetChips('art1', 'chip_sportart', v => tv('art1', v));
     pushSetChips('art2', 'chip_kategorie', v => tv('art2', v));
 
@@ -660,6 +703,7 @@
     MAX_VALUE_CHIPS,
     URL_MAX_DAYS,
     escapeHtml,
+    sucheHeuhaufen,
     uniqueSorted,
     formatDate,
     formatNumber,

@@ -156,6 +156,19 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Wettbewerb, ist das Label das Unterscheidende („10 km Lauf" vs.
    „10 km Nordic Walking"), und Lauf vs. Wandern über dieselbe Strecke
    sind zwei Einträge.
+   **Was das Dedupe NICHT erkennt**: Zwei Schreibweisen ohne ein
+   gemeinsames Wort. „13. Fichtelgebirgstrailrun" und „Fichtellauf"
+   (19.09.2026, Gefrees, beide 21 km) sind dieselbe Veranstaltung – der
+   Veranstalter nennt sie „Fichtellauf (Trail + Nordic Walking)", der
+   Trail Run IST der Fichtellauf. Kein Namensvergleich kann das sehen.
+   `clean_events.report_moegliche_duplikate()` **meldet** solche Paare
+   (gleicher Tag + Ort + Distanz, verschiedene Namen; 60 Stück), geprüft
+   und ausgeschlossen wird einzeln über `manual_overrides.json`.
+   **Nicht automatisch zusammenführen**: Ein Straßenlauf und ein
+   Trailrun desselben Veranstalters am selben Tag über dieselbe Distanz
+   sind ein häufiger, echter Fall – die Regel würde ein echtes Rennen
+   unsichtbar machen.
+
 8. **Zeitrennen haben `dauer_h`, nicht `laenge_km`.** Ein 24-Stunden-Lauf
    hat keine feste Strecke; die Dauer in Stunden steht in `dauer_h` und
    erscheint in derselben Spalte („24 h"). Eine bekannte Distanz hat in der
@@ -259,6 +272,13 @@ Solche Fälle daher nur **melden** (`report_suspicious_distances()`), einzeln
 per Websuche prüfen und bestätigte Fehler mit `"exclude": true` in
 `manual_overrides.json` eintragen. Schlüssel dort:
 `"<Name>|<Datum>|<km>"` (distanzgenau) oder `"<Name>|<Datum>"`.
+
+**Die Distanz im Schlüssel wird mit `:g` formatiert** – also `|21`, nicht
+`|21.0`. Ein Schlüssel in der falschen Schreibweise wird
+**stillschweigend nie gefunden**: Der Override steht in der Datei, sieht
+richtig aus und tut nichts. Genau das ist beim Eintragen des
+Fichtel-Duplikats passiert. `test_override_schluessel` prüft jetzt jeden
+Schlüssel gegen `override_keys()`.
 
 Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
 
@@ -728,6 +748,38 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   **`formatRange()` (Text) bleibt daneben bestehen** – Melde-Dialog und
   Teilen-Text escapen ihren Wert, dort stünde ein `<br>` als Zeichenfolge
   im Text.
+
+- **Die Werkzeugleiste muss in EINE Zeile passen** – auf 1024 px, der
+  Breite eines iPads. Sie hatte früher dasselbe Raster wie `.layout`
+  (rechter Rand exakt auf dem Tabellenrand, zweite Spalte für den
+  Detailbereich frei); damit blieben ihr nur ~676 px, und Suchfeld,
+  Trefferzahl, Schalter und die zwei Knöpfe brachen um (vom Nutzer
+  gemeldet). Jetzt nutzt sie die **ganze Breite**, und die Texte sind
+  kürzer: „Filter löschen" statt „Filter zurücksetzen", „Events
+  zusammenfassen" statt „Veranstaltungen zusammenfassen", und die
+  Trefferzeile nennt beim Zusammenfassen nur noch **eine** Zahl
+  (`%d von %d Events` statt „… Veranstaltungen (… Strecken) von …
+  Events"). Wer hier Text hinzufügt, bricht die Zeile wieder.
+
+- **Städte mit eigenem englischen Namen** stehen in
+  `VALUE_TRANSLATIONS.standort` (München → Munich, Köln → Cologne, …).
+  Nur **echte Exonyme** – Orte, die im Englischen anders *heißen*, nicht
+  bloß anders geschrieben werden („Wurzburg" ohne Umlaut gehört NICHT
+  dazu). Angezeigt wird überall über `tv('standort', …)`: Tabelle,
+  Detailbereich, Chips, Karten-Popup, Teilen-Text und Melde-Dialog. Die
+  übrigen ~1.500 Orte gibt `tv()` unverändert zurück.
+
+- **Die Mastersuche sucht in BEIDEN Sprachen** (`sucheHeuhaufen()` in
+  `filters.js`): Wer die Seite auf Deutsch stehen hat, findet mit
+  „Germany", „Munich" oder „running" dieselben Events wie mit
+  „Deutschland", „München", „Laufen" (so vom Nutzer gewünscht).
+  Durchsucht werden Name, Wettbewerb, Ort **und** die Übersetzungen von
+  Land, Sportart, Kategorie und Ort.
+  **Dieselbe Regel steht ein zweites Mal in `functions/index.js`**
+  (`SUCH_UEBERSETZUNGEN` + `sucheHeuhaufen()`), damit ein Abo genau das
+  trifft, was die Suche gezeigt hat. `test_suche_uebersetzungen`
+  vergleicht beide Tabellen Wert für Wert – wird in `filters.js` eine
+  Übersetzung ergänzt, muss die Kopie mit.
 
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 

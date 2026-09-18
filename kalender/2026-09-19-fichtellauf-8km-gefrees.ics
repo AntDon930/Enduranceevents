@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
 SUMMARY:Fichtellauf
 LOCATION:Gefrees\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.fnwm.de/
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 8 km\nhttps://www.fnwm.
+ de/
 TRANSP:TRANSPARENT
 URL:https://www.fnwm.de/
 END:VEVENT

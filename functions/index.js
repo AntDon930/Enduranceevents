@@ -158,6 +158,70 @@ function matchesDistanceCategories(event, keys) {
   });
 }
 
+// Die Übersetzungen, die die Mastersuche mitdurchsucht - eine KOPIE aus
+// filters.js (VALUE_TRANSLATIONS). Nötig, weil die Function den
+// Browser-Code nicht laden kann; `test_suche_uebersetzungen` in
+// scripts/test_scraper_lib.py vergleicht beide Listen, damit sie nicht
+// auseinanderlaufen. Nur die Felder, in denen die Suche sucht.
+const SUCH_UEBERSETZUNGEN = {
+  land: {
+    "Deutschland": ["Deutschland", "Germany"],
+    "Österreich": ["Österreich", "Austria"],
+    "Schweiz": ["Schweiz", "Switzerland"],
+  },
+  art1: {
+    "Laufen": ["Laufen", "Running"],
+    "Schwimmen": ["Schwimmen", "Swimming"],
+    "Fahrrad": ["Fahrrad", "Cycling"],
+    "Triathlon": ["Triathlon", "Triathlon"],
+  },
+  art2: {
+    "Straße": ["Straße", "Road"],
+    "Trail/Cross": ["Trail/Cross", "Trail/Cross"],
+    "Trail": ["Trail", "Trail"],
+    "Bahn": ["Bahn", "Track"],
+    "Berg": ["Berg", "Mountain"],
+    "Cross": ["Cross", "Cross Country"],
+    "Hindernis": ["Hindernis", "Obstacle"],
+    "Backcountry Ultra": ["Backcountry Ultra", "Backcountry Ultra"],
+    "Freiwasser": ["Freiwasser", "Open Water"],
+    "Becken": ["Becken", "Pool"],
+    "Zeitfahren": ["Zeitfahren", "Time Trial"],
+    "Mountainbike": ["Mountainbike", "Mountain Bike"],
+    "Gravel": ["Gravel", "Gravel"],
+    "Cyclecross": ["Cyclecross", "Cyclocross"],
+    "Duathlon": ["Duathlon", "Duathlon"],
+    "Aquathlon": ["Aquathlon", "Aquathlon"],
+    "Swimrun": ["Swimrun", "Swimrun"],
+    "Quadrathlon": ["Quadrathlon", "Quadrathlon"],
+    "Indoor": ["Indoor", "Indoor"],
+  },
+  standort: {
+    "München": ["München", "Munich"],
+    "Köln": ["Köln", "Cologne"],
+    "Nürnberg": ["Nürnberg", "Nuremberg"],
+    "Hannover": ["Hannover", "Hanover"],
+    "Braunschweig": ["Braunschweig", "Brunswick"],
+    "Konstanz": ["Konstanz", "Constance"],
+    "Wien": ["Wien", "Vienna"],
+    "Zürich": ["Zürich", "Zurich"],
+    "Genf": ["Genf", "Geneva"],
+    "Luzern": ["Luzern", "Lucerne"],
+    "Basel": ["Basel", "Basel"],
+  },
+};
+
+// Gegenstück zu sucheHeuhaufen() in filters.js.
+function sucheHeuhaufen(event) {
+  const teile = [event.name, event.wettbewerb, event.standort,
+                 event.land, event.art1, event.art2];
+  ["land", "art1", "art2", "standort"].forEach((feld) => {
+    const werte = SUCH_UEBERSETZUNGEN[feld] && SUCH_UEBERSETZUNGEN[feld][event[feld]];
+    if (werte) teile.push(werte[0], werte[1]);
+  });
+  return teile.filter(Boolean).join(" ").toLowerCase();
+}
+
 // Portierte Version der Filterlogik aus events.html getFiltered() - ohne
 // den Datumsfilter (das gesuchte Event liegt annahmegemäß in der Zukunft,
 // siehe README).
@@ -171,14 +235,14 @@ function eventMatchesFilters(event, filters) {
     const haystack = `${event.name || ""} ${event.wettbewerb || ""}`.toLowerCase();
     if (!haystack.includes(needle)) return false;
   }
-  // Die Mastersuche (ein Feld über Name, Wettbewerb UND Ort). Muss
-  // Zeichen für Zeichen dieselbe Regel sein wie in filters.js
-  // matchEvent() - sonst bekäme jemand E-Mails über Events, die seine
-  // Suche nie gezeigt hätte. Alte Abos haben das Feld nicht.
+  // Die Mastersuche (ein Feld über Name, Wettbewerb, Ort - und Land,
+  // Sportart, Kategorie in BEIDEN Sprachen). Muss Zeichen für Zeichen
+  // dieselbe Regel sein wie in filters.js sucheHeuhaufen() - sonst
+  // bekäme jemand E-Mails über Events, die seine Suche nie gezeigt
+  // hätte. Alte Abos haben das Feld nicht.
   if (filters.suche && String(filters.suche).trim()) {
     const needle = String(filters.suche).trim().toLowerCase();
-    const haystack = `${event.name || ""} ${event.wettbewerb || ""} ${event.standort || ""}`.toLowerCase();
-    if (!haystack.includes(needle)) return false;
+    if (!sucheHeuhaufen(event).includes(needle)) return false;
   }
   if (filters.land && filters.land.length && !filters.land.includes(event.land)) return false;
   if (filters.art1 && filters.art1.length && !filters.art1.includes(event.art1)) return false;

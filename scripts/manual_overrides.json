@@ -237,5 +237,15 @@
     "dauer_h": 12,
     "wettbewerb": null,
     "_note": "Backyard Ultra mit 12-Stunden-Begrenzung (steht im Namen). Die gespeicherten 67 bzw. 34 km sind keine Wettkampfdistanz, sondern was man in der Zeit zusammenläuft bzw. eine Rundensumme - eine Backyard-Strecke steht nicht vorher fest. Vom Nutzer am 16.09.2026 so entschieden: Dauer 12 h eintragen, Distanz löschen."
+  },
+  "Fichtellauf|2026-09-19": {
+    "art2": "Trail/Cross",
+    "_note": "Der Fichtellauf ist der Fichtelgebirgs Trail Run (8/14/21 km plus Nordic Walking), keine Strassenveranstaltung. Der Scraper hatte 'Strasse' gesetzt, weil im Namen kein Trail-Stichwort steht. Geprueft am 18.09.2026 gegen fnwm.de.",
+    "_quelle": "https://www.fnwm.de/trail-running/"
+  },
+  "13. Fichtelgebirgstrailrun|2026-09-19|21": {
+    "exclude": true,
+    "_note": "Duplikat: Der Veranstalter (fnwm.de, SC Gefrees) fuehrt die Veranstaltung als 'Fichtellauf (Trail + Nordic Walking)' am 19.09.2026 in Gefrees mit den Trail-Strecken 8/14/21 km. Die 21-km-Zeile steht damit zweimal in den Daten - einmal unter dem Veranstaltungsnamen 'Fichtellauf' (Wettbewerb 'Halbmarathon'), einmal unter dem Namen der Trail-Unterseite. Geprueft am 18.09.2026 gegen fnwm.de und die Ankuendigung des WFC Coburg-Neukirchen ('SC Gefrees: Fichtellauf (Trail+NordicWalking)'). Vom automatischen Dedupe nicht erkannt, weil die Namen keine gemeinsamen Woerter haben.",
+    "_quelle": "https://www.fnwm.de/trail-running/"
   }
 }

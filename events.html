@@ -209,18 +209,15 @@
     border-color: #fff;
   }
 
-  /* Dasselbe Raster wie .layout, damit der rechte Rand der ersten Spalte
-     exakt auf dem rechten Tabellenrand liegt. Die zweite Spalte bleibt
-     leer und hält nur die Breite des Detailbereichs frei - so sitzt der
-     Zurücksetzen-Button über der LISTE und nicht über den Details. */
+  /* Die Werkzeugleiste nutzt die GANZE Breite, nicht nur die der Tabelle.
+     Vorher hatte sie dasselbe Raster wie .layout - der rechte Rand lag
+     damit exakt auf dem Tabellenrand, und die zweite Spalte blieb für
+     den Detailbereich frei. Das sah aufgeräumter aus, ließ der Reihe
+     aber nur ~676 px von 1024: Suchfeld, Trefferzahl, Schalter und die
+     zwei Knöpfe brachen dort in zwei Zeilen um (vom Nutzer gemeldet).
+     Eine Zeile ist wichtiger als die Kante. */
   .toolbar {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
-    gap: 16px;
     margin-bottom: 10px;
-  }
-  @media (max-width: 900px) {
-    .toolbar { grid-template-columns: 1fr; }
   }
   .toolbar-main {
     display: flex;
@@ -1136,7 +1133,7 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=1fa6339e"></script>
+<script src="filters.js?v=d641d194"></script>
 <script src="filter-ui.js?v=75bf0ac5"></script>
 
 <script>
@@ -1178,7 +1175,7 @@
       // Kurz halten: Die Länder stehen schon in der Überschrift, und
       // jede Zeile mehr macht den blauen Kasten höher.
       subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
-      reset: 'Filter zurücksetzen',
+      reset: 'Filter löschen',
       suche_platzhalter: 'Event oder Ort suchen',
       suche_leeren: 'Suche leeren',
       footer_imprint: 'Impressum',
@@ -1219,8 +1216,14 @@
       share_event_done: 'Event kopiert!',
       col_entfernung: 'Entfernung',
       sort_hint: 'Klicken zum Sortieren',
-      group_toggle: 'Veranstaltungen zusammenfassen',
-      result_count_grouped: (g, n, total) => `${g} Veranstaltungen (${n} Strecken) von ${total} Events`,
+      group_toggle: 'Events zusammenfassen',
+      // Kurz halten: Die deutsche Fassung brach sonst in eine zweite
+      // Zeile um ("2472 Veranstaltungen (4344 Strecken) von 4344 Events"
+      // neben Suchfeld, Schalter und zwei Knöpfen - vom Nutzer
+      // gemeldet). „Veranstaltungen" heißt jetzt überall „Events", die
+      // Klammer mit den Strecken entfällt: Zusammengefasst zeigt die
+      // Liste Veranstaltungen, und der Schalter direkt daneben sagt das.
+      result_count_grouped: (g, n, total) => `${g} von ${total} Events`,
       share_search: 'Suche mit Freunden teilen',
       share_done: '✓ Link kopiert!',
       share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
@@ -1334,7 +1337,7 @@
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
       group_toggle: 'Group by event',
-      result_count_grouped: (g, n, total) => `${g} events (${n} races) of ${total}`,
+      result_count_grouped: (g, n, total) => `${g} of ${total} events`,
       share_search: 'Share this search',
       share_done: '✓ Link copied!',
       share_fail: 'Could not copy – please use the address bar',
@@ -2172,7 +2175,11 @@
       }
       case 'datum': return td(`<div class="cell-clamp">${formatRangeHtml(e.datum_start, e.datum_ende)}</div>`);
       case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
-      case 'standort': return td(`<div class="cell-clamp">${escapeHtml(e.standort)}</div>`);
+      // tv() statt des rohen Werts: Städte mit eigenem englischen Namen
+      // stehen in der englischen Fassung auch so da (München → Munich,
+      // siehe VALUE_TRANSLATIONS.standort). Alle anderen ~1.500 Orte
+      // gibt tv() unverändert zurück.
+      case 'standort': return td(`<div class="cell-clamp">${escapeHtml(tv('standort', e.standort))}</div>`);
       case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div>`);
       case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
@@ -3076,7 +3083,7 @@
       <div class="detail-head">
         <div class="detail-head-text">
           <h2>${escapeHtml(e.name)}</h2>
-          <div class="sub">${escapeHtml(e.standort)}, ${escapeHtml(tv('land', e.land))}</div>
+          <div class="sub">${escapeHtml(tv('standort', e.standort))}, ${escapeHtml(tv('land', e.land))}</div>
         </div>
         <button type="button" class="detail-share" id="event-share-btn"
                 title="${escapeHtml(t('share_event'))}" aria-label="${escapeHtml(t('share_event'))}">
@@ -3090,7 +3097,7 @@
       <dl class="detail-grid">
         <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRangeHtml(e.datum_start, e.datum_ende)}</dd>
         <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
-        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(e.standort)}</dd>
+        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))}</dd>
         <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
         <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
         ${displayWettbewerb(e) ? `<dt>${escapeHtml(t('detail_wettbewerb'))}</dt><dd>${escapeHtml(displayWettbewerb(e))}</dd>` : ''}
@@ -3153,7 +3160,7 @@
   function eventShareText(e) {
     const zeilen = [
       e.name,
-      `${formatRange(e.datum_start, e.datum_ende)} · ${e.standort}, ${tv('land', e.land)}`,
+      `${formatRange(e.datum_start, e.datum_ende)} · ${tv('standort', e.standort)}, ${tv('land', e.land)}`,
       `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e)}`
     ];
     const wb = displayWettbewerb(e);
@@ -3230,7 +3237,7 @@
     if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
     return {
       titel,
-      ort: `${e.standort}${e.land ? ', ' + tv('land', e.land) : ''}`,
+      ort: `${tv('standort', e.standort)}${e.land ? ', ' + tv('land', e.land) : ''}`,
       beschreibung: zeilen.join('\n'),
       start,
       endeExklusiv: calDatePlusDays(endeInklusiv, 1),
@@ -3427,7 +3434,7 @@
       <h2 id="report-heading">${escapeHtml(t('report_title'))}</h2>
       <div class="report-event-summary">
         <strong>${escapeHtml(e.name)}</strong>
-        <span>${escapeHtml(formatRange(e.datum_start, e.datum_ende))} &middot; ${escapeHtml(e.standort)} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
+        <span>${escapeHtml(formatRange(e.datum_start, e.datum_ende))} &middot; ${escapeHtml(tv('standort', e.standort))} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
       </div>
       <p class="report-intro">${escapeHtml(t('report_intro'))}</p>
       <div id="report-msg"></div>

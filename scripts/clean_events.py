@@ -328,6 +328,46 @@ def report_triathlon_distanzen(events: list[dict]) -> list[str]:
     return treffer
 
 
+def report_moegliche_duplikate(events: list[dict]) -> list[str]:
+    """Meldet Paare, die WAHRSCHEINLICH dieselbe Veranstaltung sind: gleicher
+    Tag, gleicher Ort, gleiche Distanz - aber Namen, die das automatische
+    Dedupe nicht als ähnlich erkennt.
+
+    Beispiel aus den echten Daten (vom Nutzer gemeldet): Am 19.09.2026
+    standen in Gefrees „13. Fichtelgebirgstrailrun" (21 km) und
+    „Fichtellauf · Halbmarathon" (21 km) nebeneinander - dasselbe Rennen,
+    einmal unter dem Namen der Trail-Unterseite des Veranstalters. Die
+    Namensvergleiche in `is_same_event()` haben keine Chance: Die beiden
+    Namen teilen kein einziges Wort.
+
+    **Nur gemeldet, nichts zusammengeführt** - und das ist hier besonders
+    wichtig: Ein Straßenlauf und ein Trailrun desselben Veranstalters am
+    selben Tag über dieselbe Distanz sind ein häufiger, ECHTER Fall. Die
+    Regel „gleicher Tag + Ort + Distanz = Duplikat" würde solche Paare
+    verschmelzen und ein echtes Rennen unsichtbar machen. Genau davor
+    warnt die wichtigste Lektion im README. Bestätigte Fälle gehören
+    einzeln mit `"exclude": true` in manual_overrides.json.
+    """
+    from collections import defaultdict
+
+    gruppen: dict[tuple, list[dict]] = defaultdict(list)
+    for event in events:
+        km = event.get("laenge_km")
+        if km is None or not event.get("datum_start") or not event.get("standort"):
+            continue
+        gruppen[(event["datum_start"], event["standort"].casefold(), round(float(km), 1))].append(event)
+
+    treffer: list[str] = []
+    for (datum, _ort, km), gruppe in sorted(gruppen.items()):
+        namen = {(e.get("name") or "").casefold() for e in gruppe}
+        if len(namen) < 2:
+            continue
+        beschreibung = " || ".join(
+            f"{e.get('name')} [{e.get('art2')}]" for e in gruppe)
+        treffer.append(f"{datum}, {gruppe[0].get('standort')}, {km:g} km: {beschreibung}")
+    return treffer
+
+
 def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
     """Einmalige Datenkorrektur zu einem behobenen Bug: Der Stichwort-
     Fallback in `guess_distance_km()` prüfte "marathon" vor "halbmarathon"
@@ -1093,6 +1133,7 @@ def main() -> None:
     events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
     implausible = report_implausible_distances(events)
+    moegliche_dups = report_moegliche_duplikate(events)
     tri_teilstrecken = report_multisport_teilstrecken(events)
     tri_distanzen = report_triathlon_distanzen(events)
     # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
@@ -1142,6 +1183,8 @@ def main() -> None:
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
+    section("⚠ Gleicher Tag, Ort und Distanz unter anderem Namen (nur Hinweis)",
+            moegliche_dups)
     section("⚠ Mehrsport: Zeile sieht nach einer Teilstrecke aus (nur Hinweis)",
             tri_teilstrecken)
     section("⚠ Triathlon-Distanz passt zu keinem Format (nur Hinweis)", tri_distanzen)

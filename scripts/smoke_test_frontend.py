@@ -325,19 +325,25 @@ def pruefe_gruppierung(ctx, basis):
            "der Aufklapp-Pfeil steht am linken Rand der ersten Spalte")
 
     # Auf diese eine Veranstaltung eingrenzen (über die Mastersuche) und
-    # die Zahl der Strecken aus der Trefferzeile lesen.
+    # ihre Strecken ZÄHLEN - einmal ohne Zusammenfassen, da steht je
+    # Strecke eine Zeile. Die Trefferzeile nennt die Zahl nicht mehr
+    # (sie ist kürzer geworden, damit die Werkzeugleiste in eine Zeile
+    # passt), das Zählen ist ohnehin die direktere Probe.
     seite.fill("#master-search", zu["name"])
     seite.wait_for_timeout(700)
-    zahlen = seite.evaluate("""() => {
-        const t = document.getElementById('result-count').textContent;
-        const m = t.match(/(\d+)\D+\((\d+)/);
-        return m ? { veranstaltungen: +m[1], strecken: +m[2], text: t } : { text: t };
-    }""")
-    if zahlen.get("veranstaltungen") != 1:
-        ueberspringe("Name trifft mehrere Veranstaltungen (%s)" % zahlen["text"])
+    seite.evaluate("() => document.getElementById('group-toggle').click()")   # aus
+    seite.wait_for_timeout(500)
+    strecken = seite.evaluate("""() => ({
+        zeilen: document.querySelectorAll('tbody tr[data-idx]').length,
+        gruppiert: document.getElementById('group-toggle').checked
+    })""")
+    seite.evaluate("() => document.getElementById('group-toggle').click()")   # wieder an
+    seite.wait_for_timeout(500)
+    if strecken["gruppiert"] or not strecken["zeilen"]:
+        ueberspringe("Zusammenfassen ließ sich nicht umschalten")
         seite.close()
         return
-    zu["anzahl"] = zahlen["strecken"]
+    zu["anzahl"] = strecken["zeilen"]
     # Zugeklappt steht in der Länge-Spalte die SPANNE ("5–42,2 km"), keine
     # Marke je Strecke: Eine Veranstaltung mit vielen Wettbewerben machte
     # die Zeile sonst vielfach höher als alle anderen.

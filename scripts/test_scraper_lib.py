@@ -924,6 +924,128 @@ def test_abo_rhythmen() -> None:
           sorted(aus_auth))
 
 
+def test_override_schluessel() -> None:
+    """Die Schlüssel in manual_overrides.json müssen zu override_keys() passen.
+
+    Die Distanz wird dort mit `:g` formatiert - also "21", nicht "21.0".
+    Ein Schlüssel in der falschen Schreibweise wird **stillschweigend nie
+    gefunden**: Der Override steht in der Datei, sieht richtig aus und
+    tut nichts. Genau das ist beim Eintragen des Fichtel-Duplikats
+    passiert (Schlüssel "…|21.0", Wirkung null). Dieser Test macht daraus
+    einen roten Test statt einer stillen Lücke.
+    """
+    import json as _json
+
+    print("\nSchlüssel in manual_overrides.json:")
+    wurzel = Path(__file__).resolve().parent.parent
+    pfad = wurzel / "scripts" / "manual_overrides.json"
+    daten = _json.loads(pfad.read_text(encoding="utf-8"))
+
+    from scraper_lib import override_keys
+
+    falsch = []
+    for key in daten:
+        if key == "_readme":
+            continue
+        teile = key.split("|")
+        if len(teile) not in (2, 3):
+            falsch.append(f"{key}: weder '<Name>|<Datum>' noch '<Name>|<Datum>|<km>'")
+            continue
+        if len(teile) == 3:
+            try:
+                km = float(teile[2])
+            except ValueError:
+                falsch.append(f"{key}: dritter Teil ist keine Zahl")
+                continue
+            # Genau so baut override_keys() den Schlüssel.
+            erwartet = override_keys(teile[0], teile[1], km)[0]
+            if key != erwartet:
+                falsch.append(f"{key}: müsste {erwartet!r} heißen")
+    check("alle Schlüssel in der Form, die find_override sucht", falsch, [])
+
+
+def test_suche_uebersetzungen() -> None:
+    """Die Mastersuche sucht in BEIDEN Sprachen - und zwar an zwei Stellen.
+
+    „Germany" muss auch auf der deutschen Seite alle Events in
+    Deutschland finden (so vom Nutzer gewünscht). Dafür durchsucht
+    `sucheHeuhaufen()` in filters.js die Übersetzungen von Land,
+    Sportart, Kategorie und Ort mit. Dieselbe Regel steht ein zweites Mal
+    in functions/index.js, damit ein ABO genau das trifft, was die Suche
+    gezeigt hat - sonst kämen E-Mails über Events, die man nie gesehen
+    hat, oder gar keine.
+
+    Dieser Test vergleicht die beiden Listen Wert für Wert. Läuft eine
+    weg, fällt es hier auf und nicht erst beim Empfänger.
+    """
+    import json as _json
+    import re as _re
+    import shutil
+    import subprocess
+
+    print("\nÜbersetzungen für die Mastersuche (filters.js == functions/index.js):")
+    node = shutil.which("node")
+    if not node:
+        print("  – übersprungen: node nicht gefunden")
+        return
+    wurzel = Path(__file__).resolve().parent.parent
+
+    # filters.js lässt sich in node laden: Die Datei hängt ihr Objekt an
+    # `window` ODER `globalThis` (siehe letzte Zeile dort).
+    skript = (f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+              "const T = globalThis.EnduranceFilters.VALUE_TRANSLATIONS;"
+              "const raus = {};"
+              "['land','art1','art2','standort'].forEach(f => {"
+              "  raus[f] = {};"
+              "  Object.keys(T[f] || {}).forEach(k => { raus[f][k] = [T[f][k].de, T[f][k].en]; });"
+              "});"
+              "console.log(JSON.stringify(raus));")
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("filters.js ließ sich laden", ergebnis.stderr.strip()[:200], "")
+        return
+    aus_filters = _json.loads(ergebnis.stdout)
+
+    # Und die Kopie in der Cloud Function.
+    fn = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
+    start = fn.index("const SUCH_UEBERSETZUNGEN")
+    ende = fn.index("\n};", start) + 3
+    skript2 = (fn[start:ende].replace("const SUCH_UEBERSETZUNGEN", "const S")
+               + "console.log(JSON.stringify(S));")
+    ergebnis2 = subprocess.run([node, "-e", skript2], capture_output=True, text=True)
+    if ergebnis2.returncode != 0:
+        check("functions/index.js ließ sich lesen", ergebnis2.stderr.strip()[:200], "")
+        return
+    aus_function = _json.loads(ergebnis2.stdout)
+
+    for feld in ("land", "art1", "art2", "standort"):
+        check(f"{feld}: dieselben Schlüssel",
+              sorted(aus_filters.get(feld, {})), sorted(aus_function.get(feld, {})))
+        abweichend = sorted(k for k in aus_filters.get(feld, {})
+                            if aus_filters[feld][k] != aus_function.get(feld, {}).get(k))
+        check(f"{feld}: dieselben Übersetzungen", abweichend, [])
+
+    # Und die Suche selbst: ein deutsches Event muss auf englische
+    # Eingaben antworten und umgekehrt.
+    probe = _json.dumps({"name": "Marathon München by Brooks", "wettbewerb": "42,2 km",
+                         "standort": "München", "land": "Deutschland",
+                         "art1": "Laufen", "art2": "Straße"}, ensure_ascii=False)
+    skript3 = (f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+               "const EF = globalThis.EnduranceFilters;"
+               f"const e = {probe};"
+               "const st = EF.createState(); const raus = {};"
+               "['germany','munich','münchen','running','road','zzznix'].forEach(q => {"
+               "  st.suche = q; raus[q] = EF.matchEvent(st, e); });"
+               "console.log(JSON.stringify(raus));")
+    ergebnis3 = subprocess.run([node, "-e", skript3], capture_output=True, text=True)
+    treffer = _json.loads(ergebnis3.stdout) if ergebnis3.returncode == 0 else {}
+    check("englische Eingaben treffen deutsche Daten",
+          [treffer.get(q) for q in ("germany", "munich", "running", "road")],
+          [True, True, True, True])
+    check("deutsche Eingaben treffen weiterhin", treffer.get("münchen"), True)
+    check("ein Unsinnswort trifft nicht", treffer.get("zzznix"), False)
+
+
 def test_keine_fremden_dateien() -> None:
     """Keine Skripte und Stylesheets von fremden Servern.
 
@@ -1054,6 +1176,7 @@ def main() -> int:
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien,
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
+                 test_override_schluessel, test_suche_uebersetzungen,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

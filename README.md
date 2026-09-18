@@ -1846,7 +1846,21 @@ Die Meldungen stehen bei jedem Lauf von `clean_events.py` im Bericht
 
 Ein Feld links von der Trefferzahl, das über **Eventname, Wettbewerb und
 Ort** sucht: „münchen" findet die Events in München, „marathon" die
-Marathons. Die Filter je Spalte bleiben daneben bestehen – sie sind das
+Marathons – **und zwar in beiden Sprachen**. Wer die Seite auf Deutsch
+stehen hat, kann „Germany", „Munich" oder „running" eingeben und bekommt
+dieselben Treffer wie mit „Deutschland", „München", „Laufen". Dafür
+durchsucht `sucheHeuhaufen()` zusätzlich die Übersetzungen von Land,
+Sportart, Kategorie und Ort. Dieselbe Regel steht ein zweites Mal in
+`functions/index.js`, damit ein **Abo** genau das trifft, was die Suche
+gezeigt hat; `test_suche_uebersetzungen` vergleicht beide Tabellen.
+
+Städte mit einem eigenen englischen Namen stehen in der englischen
+Fassung auch so da: **München → Munich, Köln → Cologne, Nürnberg →
+Nuremberg, Hannover → Hanover, Braunschweig → Brunswick, Konstanz →
+Constance, Wien → Vienna, Zürich → Zurich, Genf → Geneva, Luzern →
+Lucerne**. Bewusst nur echte Exonyme – Orte, die im Englischen anders
+*heißen*, nicht bloß anders geschrieben werden. Die übrigen ~1.500 Orte
+bleiben in beiden Sprachen gleich. Die Filter je Spalte bleiben daneben bestehen – sie sind das
 genaue Werkzeug (Umkreis, Zeitraum, Distanzkategorie), die Mastersuche
 der schnelle Zugriff.
 
@@ -1872,6 +1886,34 @@ Gefiltert wird bei jedem Tastendruck, **neu gezeichnet erst nach
 180 ms**: Über 4.000 Events zu filtern und die Tabelle zu bauen kostet
 auf einem Handy mehr Zeit als der Abstand zwischen zwei Tastendrücken –
 ohne die kurze Pause ruckelte das Tippen. Enter zeichnet sofort.
+
+## Zwei Namen, ein Rennen
+
+Am 19.09.2026 standen in Gefrees zwei Einträge mit 21 km nebeneinander:
+„13. Fichtelgebirgstrailrun" und „Fichtellauf · Halbmarathon". Der
+Veranstalter (SC Gefrees, fnwm.de) führt die Veranstaltung selbst als
+**„Fichtellauf (Trail + Nordic Walking)"** mit den Strecken 8/14/21 km –
+der Trail Run *ist* der Fichtellauf. Zwei Namen, ein Rennen.
+
+Das automatische Dedupe hatte keine Chance: Es vergleicht Datum, Ort,
+Distanz und **Namen**, und diese beiden Namen teilen kein einziges Wort.
+Der Fall ist per Websuche gegen die Ausschreibung geprüft und mit
+`"exclude": true` in `manual_overrides.json` erledigt (dazu die
+Korrektur, dass der Fichtellauf ein Trailrun ist und nicht „Straße").
+
+**Automatisch zusammenführen wäre hier falsch.** Die naheliegende Regel
+„gleicher Tag + gleicher Ort + gleiche Distanz = Duplikat" würde auch
+einen Straßenlauf und einen Trailrun desselben Veranstalters am selben
+Tag verschmelzen – ein häufiger, echter Fall. Stattdessen **meldet**
+`clean_events.py` solche Paare (aktuell 60), und sie werden einzeln
+geprüft. Das ist dieselbe Linie wie bei den verdächtigen Distanzen, aus
+demselben Grund.
+
+Eine Falle dabei, die einen Nachmittag kosten kann: Die Distanz im
+Override-Schlüssel wird mit `:g` formatiert, also `|21` und **nicht**
+`|21.0`. Ein Schlüssel in der falschen Schreibweise wird stillschweigend
+nie gefunden – der Override steht in der Datei, sieht richtig aus und
+tut nichts. `test_override_schluessel` prüft das jetzt.
 
 ## Die Karte zeigt Europa, und die Welt nur einmal
 
