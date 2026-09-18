@@ -2608,7 +2608,19 @@
     if (k === 'Enter' || k === ' ' || k === 'Spacebar') {
       // Die Leertaste würde sonst die Seite weiterblättern.
       ev.preventDefault();
-      if (tr.dataset.klapp) {
+      // Die LEERTASTE klappt um (wie →/←). ENTER nicht: Umklappen hat
+      // mit ihnen schon drei Wege, und Enter ist der EINZIGE Weg in den
+      // Detailbereich - dort stehen Kalenderdatei, Veranstalter-Seite
+      // und „Fehler melden".
+      //
+      // Vorher stand hier ein gemeinsamer Zweig mit `return` davor, und
+      // damit kam ein Tastatur-Nutzer bei einer Veranstaltung mit
+      // MEHREREN Strecken nie an diese Links. Aufgefallen ist es erst,
+      // als die Einzelprüfung der Events 201-400 fünf Zeilen entfernt
+      // hat und dadurch eine aufklappbare Zeile ans Ende des Fensters
+      // rutschte, wo der Rauchtest Enter drückt - vorher lag dort
+      // zufällig immer eine einzelne Strecke.
+      if (tr.dataset.klapp && k !== 'Enter') {
         const g = gruppenAktuell[Number(tr.dataset.g)];
         if (g) klappeGruppe(tr, g);
         waehleZeile(Number(tr.dataset.idx));

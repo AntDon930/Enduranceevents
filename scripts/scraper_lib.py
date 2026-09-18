@@ -230,12 +230,32 @@ DEFAULT_ART2_LAUFEN = "Straße"
 #      Deutschland auch derselben Verbandsstruktur). Die Seite hat vier
 #      Sportarten; „Triathlon" ist die Mehrsport-Schublade, und die
 #      genaue Form steht in `art2`.
+# Ein Name, der ZWEI Sportarten nennt: "Swim & Run", "Bike+Run",
+# "Run and Bike". Das ist keine Vermutung - der Veranstalter schreibt
+# selbst hin, dass geschwommen und gelaufen wird.
+#
+# Das Trennzeichen ist der ganze Grund, warum es diese Konstante gibt.
+# Vorher stand hier `swim ?run`, also nur ein optionales LEERZEICHEN -
+# und damit blieben elf Veranstaltungen Laufveranstaltungen, die keine
+# sind: "Wunnebad Swim&Run", "DSW Swim & Run", "Kronberger Bike+Run",
+# "Run and Bike Berlin". Gefunden bei der Einzelprüfung der Events
+# 201-400 am 18.09.2026.
+#
+# Warum NICHT einfach "athlon" als Stichwort, was naheliegend wäre:
+# Unter den zwölf Events mit "athlon" im Namen sind die "Decathlon
+# Hybrid Series" (der Sporthändler), der "Weinathlon" und der
+# "Eschathlon Halbmarathon" - Wortspiele auf einen Laufnamen. Nur
+# eindeutige Begriffe, siehe Datenregel 11.
+_ZWEI_SPORTARTEN = (r"swim\s*(?:&|\+|and|und|-)?\s*run|"
+                    r"(?:run|bike)\s*(?:&|\+|and|und)\s*(?:bike|run)")
+
 ART1_KEYWORDS: list[tuple[re.Pattern, str]] = [
     # "ironman" deckt auch "Ironman 70.3 …" und "Ironman 5150 …" ab - die
     # Marken-Kürzel brauchen keine eigene Zeile und wären ohne den
     # Markennamen zu riskant ("70.3" könnte eine Distanz sein).
     (re.compile(r"triathlon|ironman|challenge roth|xterra|"
-                r"duathlon|aquathlon|swim ?run|quadrathlon", re.I), "Triathlon"),
+                r"duathlon|aquathlon|quadrathlon|" + _ZWEI_SPORTARTEN, re.I),
+     "Triathlon"),
 ]
 
 # Kategorien innerhalb der Mehrsport-Schublade. Reihenfolge wieder
@@ -244,9 +264,13 @@ ART1_KEYWORDS: list[tuple[re.Pattern, str]] = [
 # zufällig im Gelände stattfindet - "Duathlon" ist die Auskunft, die
 # jemand beim Filtern sucht, "Cross" die Nebenangabe.
 ART2_KEYWORDS_TRIATHLON: list[tuple[re.Pattern, str]] = [
-    (re.compile(r"swim ?run", re.I), "Swimrun"),
+    # Dieselbe Schreibweisen-Falle wie in ART1_KEYWORDS: "Swim&Run"
+    # und "Swim + Run" sind dasselbe Format wie "SwimRun".
+    (re.compile(r"swim\s*(?:&|\+|and|und|-)?\s*run", re.I), "Swimrun"),
     (re.compile(r"aquathlon", re.I), "Aquathlon"),
-    (re.compile(r"duathlon", re.I), "Duathlon"),
+    # Ein Run&Bike ist ein Duathlon-Format (Laufen und Radfahren).
+    (re.compile(r"duathlon|(?:run|bike)\s*(?:&|\+|and|und)\s*(?:bike|run)",
+                re.I), "Duathlon"),
     (re.compile(r"quadrathlon", re.I), "Quadrathlon"),
     (re.compile(r"indoor", re.I), "Indoor"),
     (re.compile(r"cross|xterra|gelände|off.?road", re.I), "Cross"),

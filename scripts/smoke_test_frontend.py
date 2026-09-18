@@ -822,6 +822,46 @@ def pruefe_tastatur(ctx, basis):
     seite.wait_for_timeout(200)
     pruefe(seite.evaluate("() => !!document.activeElement.closest('#detail-panel')"),
            "von dort erreicht Tab die Links im Detailbereich")
+    seite.close()
+
+    # Enter auf einer AUFKLAPPBAREN Veranstaltungszeile - der Fall, der
+    # lange unentdeckt blieb. Bis zum 18.09.2026 klappte Enter dort nur
+    # um (wie →/← und die Leertaste) und sprang NICHT in die Angaben;
+    # ein Tastatur-Nutzer kam bei jeder Veranstaltung mit mehreren
+    # Strecken also nie an Kalenderdatei und Veranstalter-Seite.
+    #
+    # Aufgefallen ist das nur, weil eine Datenänderung zufällig eine
+    # solche Zeile ans Ende des Fensters geschoben hat, wo die Prüfung
+    # oben Enter drückt. Deshalb steht der Fall jetzt AUSDRÜCKLICH hier
+    # und nicht dem Zufall überlassen.
+    seite, _ = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1", "tr.group-row")
+    seite.wait_for_timeout(600)
+    hat = seite.evaluate("""() => { const r =
+        document.querySelector('tr.group-row[data-klapp]');
+        if (!r) return null;
+        r.tabIndex = 0; r.focus();
+        return {idx: r.dataset.idx, offen: r.getAttribute('aria-expanded')}; }""")
+    if hat:
+        seite.keyboard.press("Enter")
+        seite.wait_for_timeout(900)
+        pruefe(seite.evaluate("() => document.activeElement.id === 'detail-panel'"),
+               "Enter auf einer aufklappbaren Veranstaltung springt in die Angaben")
+        pruefe(seite.evaluate("""() => { const h = document.querySelector('#detail-panel h2');
+                   return !!h && !!h.textContent.trim(); }"""),
+               "und die Angaben sind gefüllt")
+        # Die Leertaste bleibt der Weg zum Umklappen.
+        seite.evaluate("""() => document.querySelector('tr.group-row[data-klapp]').focus()""")
+        vorher_offen = seite.evaluate(
+            """() => document.querySelector('tr.group-row[data-klapp]')
+                   .getAttribute('aria-expanded')""")
+        seite.keyboard.press(" ")
+        seite.wait_for_timeout(500)
+        pruefe(seite.evaluate(
+            """() => document.querySelector('tr.group-row[data-klapp]')
+                   .getAttribute('aria-expanded')""") != vorher_offen,
+            "die Leertaste klappt weiterhin um (%s → umgekehrt)" % vorher_offen)
+    else:
+        ueberspringe("keine aufklappbare Veranstaltung gefunden")
 
     # Filter-Panel: Enter öffnet, Escape schließt und gibt den Fokus zurück
     knopf = seite.locator('.col-filter-btn[data-col="land"]')

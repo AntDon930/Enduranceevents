@@ -1308,6 +1308,41 @@ def test_override_koordinaten() -> None:
           any("lat" in zeile for zeile in geaendert), True)
 
 
+def test_zwei_sportarten_im_namen() -> None:
+    """"Swim&Run" und "Bike+Run" sind Mehrsport - "Decathlon" ist ein Laden.
+
+    Das Trennzeichen war die Lücke: `swim ?run` erlaubte nur ein
+    optionales LEERZEICHEN, und damit blieben elf Veranstaltungen
+    Laufveranstaltungen, die keine sind ("Wunnebad Swim&Run", "DSW
+    Swim & Run", "Kronberger Bike+Run", "Run and Bike Berlin").
+
+    Die Gegenprobe ist der wichtigere Teil dieses Tests: "athlon" als
+    Stichwort wäre naheliegend gewesen und hätte die "Decathlon Hybrid
+    Series" (den Sporthändler), den "Weinathlon" und den "Eschathlon
+    Halbmarathon" zu Triathlons gemacht - alles Wortspiele auf einen
+    Laufnamen.
+    """
+    print("\nZwei Sportarten im Namen:")
+    from scraper_lib import guess_art1, guess_art2, SiteConfig
+    config = SiteConfig(base_url="", calendar_url="")
+
+    for name, art2 in (("Wunnebad Swim&Run", "Swimrun"),
+                       ("DSW Swim & Run", "Swimrun"),
+                       ("Swim+Run Winnweiler", "Swimrun"),
+                       ("Run and Bike Berlin", "Duathlon"),
+                       ("Kronberger Bike+Run", "Duathlon")):
+        gefunden = guess_art1(name, config)
+        check(f"{name!r} ist Mehrsport", gefunden, "Triathlon")
+        check(f"{name!r} bekommt die Kategorie {art2}",
+              guess_art2(name, config, gefunden), art2)
+
+    # Gegenprobe: Laufveranstaltungen, die nur so KLINGEN
+    for name in ("Decathlon Hybrid Series - Plochingen", "Weinathlon",
+                 "Eschathlon Halbmarathon", "Rundlauf am Bikepark",
+                 "24. Bordesholmer Seelauf SEE +RUN", "Sunrun Berlin"):
+        check(f"{name!r} bleibt ein Lauf", guess_art1(name, config), "Laufen")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1318,6 +1353,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
+                 test_zwei_sportarten_im_namen,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()

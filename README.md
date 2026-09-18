@@ -782,13 +782,16 @@ committen – die Seite liest die Datei bei jedem Aufruf neu ein.
 Elf Mechanismen sorgen dafür, dass nur sinnvolle, korrekt kategorisierte
 und eindeutige Events in `events.json` landen:
 
-> **Die Einzelprüfung von 200 Events (18.09.2026)** hat vier davon
+> **Die Einzelprüfung von 400 Events (18.09.2026, in zwei Durchgängen)**
+> hat mehrere davon
 > hervorgebracht bzw. geschärft und ist in `CLAUDE.md` unter „Was die
 > Einzelprüfung von 200 Events gelehrt hat" im Detail festgehalten -
 > mit den drei Fällen, in denen sich die *Prüfregel* geirrt hat und
 > nicht die Daten, und mit der „Verbesserung", die 57 richtige
 > Einordnungen zerstört hätte. Lesen, bevor jemand die nächste
-> naheliegende Regel einbaut.
+> naheliegende Regel einbaut – und die drei Lektionen des zweiten
+> Durchgangs, darunter ein Frontend-Fehler, den eine Datenänderung
+> aufgedeckt hat.
 
 - **Vergangene Events werden entfernt** (`scraper_lib.filter_past()` beim
   Einsammeln, `clean_events.drop_past_events()` rückwirkend für die

@@ -84,7 +84,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 127 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 130 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -96,7 +96,8 @@ sichtbar, Sprachumschalter), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
-Enter, Escape, Fokusfessel der Dialoge), „Wir haben dein Event nicht?"
+Enter **auch auf einer aufklappbaren Veranstaltung**, Leertaste,
+Escape, Fokusfessel der Dialoge), „Wir haben dein Event nicht?"
 (Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
 Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
 Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
@@ -421,6 +422,64 @@ offiziellen Seite. Das ist kein falscher Datensatz, nur ein schlechterer
 Link - und Datenregel 2 verbietet das Raten. Er wird ersetzt, sobald
 eine Quelle die offizielle Seite nennt (`update_existing_event()`).
 
+### Zweiter Durchgang: die Events 201-400 (18.09.2026)
+
+Auf Wunsch des Nutzers gleich weiter mit den nächsten 200 (19./20.09.2026).
+Von 72 maschinellen Verdachtsfällen blieben **sechs echte Fehler** - und
+ein Fund, der mit den Daten gar nichts zu tun hatte (siehe unten).
+
+Die sechs: der Kinderlauf des Karlsfelder Seelaufs stand mit **21,1 km**
+in der Liste (er ist 999 m lang - die Distanz war das Maximum aus der
+Streckenliste); der Stadtlauf Erding stand unter **drei** Namen
+(„23. Stadtlauf Erding 2026", „Erdinger Stadtlauf", „Stadtlauf Erding");
+der „Alagastlauf" doppelt, weil laufen.de ihn als „Alagastaluf" führt
+(ein fehlendes l); der Laacher See Naturlauf trug das Label „9 km" bei
+8,5 km echter Strecke; und der „Running Paule Marathon" stand mit
+**6,4 km** da - das ist die RUNDENLÄNGE (4× 6,4 km + 4× 4,2 km = ein
+Marathon), dieselbe Fehlerklasse wie die Backyard-Runde.
+
+Drei Lektionen:
+
+1. **Ein Trennzeichen kostete elf Veranstaltungen.** `ART1_KEYWORDS`
+   enthielt `swim ?run` - nur ein optionales LEERZEICHEN. „Wunnebad
+   Swim&Run", „DSW Swim & Run", „Kronberger Bike+Run" und „Run and Bike
+   Berlin" blieben deshalb Laufveranstaltungen. Jetzt steht dort
+   `_ZWEI_SPORTARTEN` (`&`, `+`, „and", „und", Bindestrich), und
+   Run&Bike/Bike&Run ist als Duathlon-Format dabei.
+   **Nicht** daraus geworden ist das naheliegende Stichwort „athlon":
+   Unter den zwölf Events mit „athlon" im Namen sind die „Decathlon
+   Hybrid Series" (der Sporthändler), der „Weinathlon" und der
+   „Eschathlon Halbmarathon". Dieselbe Linie wie bei „berglauf" im
+   ersten Durchgang - erst zählen, was eine Regel anrichtet.
+   `test_zwei_sportarten_im_namen` hält beide Seiten fest.
+
+2. **Ein Override kann nicht umbenennen.** Beim Stadtlauf Erding heißt
+   die Veranstaltung offiziell „Stadtlauf Erding", die brauchbarste
+   Zeile aber „Erdinger Stadtlauf" (sie hat die offizielle Seite UND
+   beide Strecken). Der Name ist Teil des Override-Schlüssels, also
+   ging nur: die Duplikate ausschließen und den Namen stehen lassen.
+   Falls das öfter vorkommt, wäre ein `name`-Feld im Override der
+   nächste Schritt - dann muss `find_override` aber über den ALTEN
+   Namen suchen und darf den Schlüssel nicht mit sich selbst brechen.
+
+3. **Eine Datenänderung hat einen Frontend-Fehler aufgedeckt, der nichts
+   mit Daten zu tun hatte.** Nach dem Entfernen von fünf Zeilen war der
+   Rauchtest rot: „Enter springt in die Angaben". Kein Zufall und kein
+   Wackler - **Enter klappte auf einer Veranstaltungszeile nur um**,
+   statt in den Detailbereich zu springen, und ein Tastatur-Nutzer kam
+   bei jeder Veranstaltung mit mehreren Strecken nie an Kalenderdatei
+   und Veranstalter-Link. Der Rauchtest hatte den Fall bis dahin nur
+   zufällig NICHT getroffen (am Ende des Fensters lag immer eine
+   einzelne Strecke). Behoben in `events.html`, und der Fall steht
+   jetzt ausdrücklich im Rauchtest - siehe Frontend-Fallen,
+   „Tastaturbedienung".
+   Die Lehre: Ein roter Test nach einer Datenänderung ist nicht
+   automatisch „die Daten haben sich verschoben". Erst nachsehen.
+
+**Was auch hier bleibt**: 56 Portallinks und 11 Einträge ohne
+Distanzangabe. Beides sind keine falschen Daten - die Quelle nennt sie
+schlicht nicht, und Datenregel 2 verbietet das Raten.
+
 ### Nutzer-Fehlermeldungen
 
 In `events.html` gibt es pro Event „Fehler zu diesem Event melden"
@@ -622,6 +681,19 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Detailbereich (`tabindex="-1"` am `#detail-panel`). Alles über **einen**
   `keydown`-Listener am `<tbody>` – kein Listener je Zeile, das
   Ein-String-Zeichnen bleibt.
+  **Enter klappt NICHT um, auch nicht auf einer Veranstaltungszeile.**
+  Dafür gibt es schon →, ← und die Leertaste – drei Wege. Enter ist der
+  **einzige** Weg in den Detailbereich, und dort stehen Kalenderdatei,
+  Veranstalter-Seite und „Fehler melden". Bis zum 18.09.2026 stand im
+  Enter-/Leertaste-Zweig ein gemeinsames `return` vor dem Sprung: Wer
+  die Liste mit der Tastatur bedient, kam bei jeder Veranstaltung mit
+  **mehreren Strecken** nie an diese Links. Gemerkt hat es niemand,
+  weil der Rauchtest Enter am Ende des Fensters drückt – und dort lag
+  zufällig immer eine einzelne Strecke. Erst als die Einzelprüfung der
+  Events 201–400 fünf Zeilen entfernte, rutschte eine aufklappbare
+  Zeile dorthin. Der Fall steht deshalb jetzt **ausdrücklich** im
+  Rauchtest (beide Seiten: Enter springt, Leertaste klappt um), nicht
+  dem Zufall überlassen.
 - **Die Tabelle zeichnet nur ein FENSTER** (`FENSTER_SCHRITT = 200`,
   `zeigeMehr()`), gefiltert und sortiert wird aber über **alle** Events.
   Gemessen mit 20.770 Events (`scripts/bench_frontend.py`): alle Zeilen

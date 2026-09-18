@@ -318,5 +318,29 @@
     "lat": 50.0115,
     "lon": 10.5922,
     "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des Zeiler Waldmarathons: Laufpark Zeil im Naturpark Haßberge, Zeil am Main (Landkreis Haßberge, Bayern), Strecken 42,2 und 21,1 km. Der Eintrag lag auf 50.11/8.68 - im Raum Frankfurt."
+  },
+  "47. Karlsfelder Seelauf|2026-09-20|21.1": {
+    "exclude": true,
+    "_note": "Der Kinderlauf des Karlsfelder Seelaufs ist laut tsvek.de 999 m lang, nicht 21,1 km - die Distanz wurde als Maximum aus der Streckenliste (Halbmarathon, 10 km, 5 km, 999 m Kinderlauf) übernommen. Die drei echten Strecken stehen bereits unter 'Karlsfelder Seelauf'. 999 m liegt unter der 5-km-Mindestdistanz. Geprüft 2026-09-18."
+  },
+  "23. Stadtlauf Erding 2026|2026-09-20|10": {
+    "exclude": true,
+    "_note": "Duplikat von 'Erdinger Stadtlauf' (10 km, gleicher Tag, gleicher Ort, dieselbe Veranstalter-Seite trisport-erding.de). Laut dieser Seite heißt die Veranstaltung 'Stadtlauf Erding', 23. Auflage am 20.09.2026, mit 5 und 10 km (dazu 800-m-Kinderläufe). Dieser Eintrag trägt zusätzlich die Jahreszahl im Namen. Geprüft 2026-09-18."
+  },
+  "Stadtlauf Erding|2026-09-20|5": {
+    "exclude": true,
+    "_note": "Duplikat von 'Erdinger Stadtlauf' (5 km, gleicher Tag und Ort). Behalten wird die Zeile mit der offiziellen Seite trisport-erding.de statt des Portallinks my.raceresult.com; dadurch stehen beide Strecken (5 und 10 km) unter EINEM Namen. Offiziell heißt die Veranstaltung 'Stadtlauf Erding' - umbenennen kann ein Override nicht, der Name ist Teil des Schlüssels. Geprüft 2026-09-18."
+  },
+  "17. Gau-Algesheimer Alagastaluf|2026-09-20|10": {
+    "exclude": true,
+    "_note": "Duplikat von 'Alagastlauf' (10 km, gleicher Tag und Ort). Der Name ist ein Tippfehler der Quelle laufen.de: Der Lauf heißt laut leichtathletik.sv-gau-algesheim.de 'Alagastlauf' (ein l), Volkslauf am 3. Sonntag im September. Der behaltene Eintrag hat die offizielle Seite und das Label '10 km, vier Runden'. Geprüft 2026-09-18."
+  },
+  "Running Paule Marathon|2026-09-19|6.4": {
+    "exclude": true,
+    "_note": "6,4 km ist eine RUNDENLÄNGE, kein eigener Lauf: Der RP-Marathon läuft in der Variante '4x2' viermal nacheinander eine 6,4-km-Runde (über Flegessen ins Steinbachtal) und eine 4,2-km-Runde - zusammen die Marathondistanz. So steht es auf running.life und running-paule.de. Marathon und Halbmarathon derselben Veranstaltung stehen bereits mit der offiziellen Seite in der Liste. Gleiche Fehlerklasse wie die Backyard-Runde (Datenregel 9). Geprüft 2026-09-18."
+  },
+  "50. Laacher See Naturlauf mit 21. VR Bank Cup|2026-09-20|8.5": {
+    "wettbewerb": "8,5 km Hauptlauf",
+    "_note": "Das Label sagte '9 km', die gespeicherte Distanz 8,5 km. Richtig sind 8,5 km: Der Hauptlauf führt in einer Runde um den Laacher See (laacher-see-lauf.de, Ausschreibung zum 50. Lauf am 20.09.2026). Die '9 km' der Quelle sind gerundet. Geprüft 2026-09-18."
   }
 }
