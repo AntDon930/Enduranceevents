@@ -605,5 +605,17 @@
     "ergebnis": "unklar",
     "quelle": "lanet3.de/external/dlv/register/12297",
     "notiz": "Vier Zeilen: 5 km, 8 km ('Crosslauf Langstrecke - L10'), 9,8 km ('Crosslauf Langstrecke - L9') und 10 km. Bei einer Crossmeisterschaft haengt die Strecke an der Altersklasse (kurz/lang), die Codes L9/L10 sehen nach Laufnummern der Meldeliste aus. Ob 8/9,8 km und 5/10 km vier Wettbewerbe oder zwei plus zwei gerundete Doppelungen sind, sagt die Anmeldeseite nicht. Nichts geaendert."
+  },
+  "12. Olympiaberg-Cross München mit Deutschem Cross Cup|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "olympiaberg-cross-muenchen.de/ausschreibung",
+    "notiz": "Die Veranstaltung stand unter zwei Namen ('12. Olympiaberg-Cross Muenchen mit Deutschem Cross Cup' und 'Olympia Alm Cross') und mit einem 10-km-Lauf, den die Ausschreibung nicht kennt - ihre laengste Strecke ist die Langstrecke ueber 7.700 m. Jetzt zwei Zeilen unter dem offiziellen Namen: Elitelauf 6.600 m und Langstrecke 7.700 m. Die Mittelstrecke (4.400 m) faellt unter die 5-km-Mindestdistanz."
+  },
+  "25. Marner Kohltagelauf|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "marner-kohltagelauf.com, boyens-medien.de",
+    "notiz": "Die Doppelungen sind geraeumt (5 km stand zweimal, 10 km doppelt neben den 10,1 km). OFFEN und wichtig: Auf marner-kohltagelauf.com steht 'Leider muessen wir den Kohltagelauf 2026 aufgrund der Wetterverhaeltnisse absagen!' - die Veranstaltung waere also ABGESAGT. Dieselbe Seite wirbt im Titel aber mit 'Melde dich jetzt fuer 2026 an!', und eine Wetterabsage neun Tage im Voraus (Termin 27.09.2026) ist ungewoehnlich; der Hinweis koennte von einer frueheren Auflage stammen. Nicht geloescht - ein echtes Rennen zu entfernen waere der schwerere Fehler. ALLGEMEIN: Abgesagte Veranstaltungen sind eine Luecke - weder die Scraper noch clean_events.py erkennen sie."
   }
 }

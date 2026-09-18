@@ -9658,36 +9658,8 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 5.0,
-    "wettbewerb": "5km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/396063/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "25. Marner Kohltagelauf",
-    "standort": "Marne",
-    "lat": 53.9527645,
-    "lon": 9.0106605,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km für verschiedene Jahrgänge, Gebühren 6,00–17,00 EUR",
-    "veranstalter_url": "https://my.raceresult.com/396063/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "25. Marner Kohltagelauf",
-    "standort": "Marne",
-    "lat": 53.9527645,
-    "lon": 9.0106605,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km für verschiedene Jahrgänge, Gebühren 8,00–19,00 EUR",
-    "veranstalter_url": "https://my.raceresult.com/396063/"
+    "wettbewerb": "5 km Lauf",
+    "veranstalter_url": "https://marner-kohltagelauf.com/"
   },
   {
     "land": "Deutschland",
@@ -22807,14 +22779,29 @@
     "land": "Deutschland",
     "name": "12. Olympiaberg-Cross München mit Deutschem Cross Cup",
     "standort": "München",
-    "lat": 48.1371079,
-    "lon": 11.5753822,
+    "lat": 48.1687059,
+    "lon": 11.5503638,
     "art1": "Laufen",
     "art2": "Trail/Cross",
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://olympiaberg-cross-muenchen.de/"
+    "laenge_km": 6.6,
+    "wettbewerb": "Elitelauf 6.600 m",
+    "veranstalter_url": "https://olympiaberg-cross-muenchen.de/ausschreibung/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Olympiaberg-Cross München mit Deutschem Cross Cup",
+    "standort": "München",
+    "lat": 48.1687059,
+    "lon": 11.5503638,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 7.7,
+    "wettbewerb": "Langstrecke 7.700 m",
+    "veranstalter_url": "https://olympiaberg-cross-muenchen.de/ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -23673,34 +23660,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://oldenburg-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Olympia Alm Cross",
-    "standort": "Olympiapark",
-    "lat": 48.1687059,
-    "lon": 11.5503638,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://olympiaberg-cross-muenchen.de/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Olympia Alm Cross",
-    "standort": "Olympiapark",
-    "lat": 48.1687059,
-    "lon": 11.5503638,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 6.6,
-    "wettbewerb": "6,6 km",
-    "veranstalter_url": "https://olympiaberg-cross-muenchen.de/"
   },
   {
     "land": "Deutschland",

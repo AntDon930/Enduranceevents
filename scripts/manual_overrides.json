@@ -785,5 +785,25 @@
   "Fun & Erlebnis Marathons|2027-04-09|22": {
     "exclude": true,
     "_note": "'Fun & Erlebnis Marathons' ist der Name einer Hamburger REIHE, nicht der der einzelnen Veranstaltung: my.raceresult.com/378406 heisst in Wirklichkeit '67. Billerhuder Insel Marathon (mit Halbmarathon) am 31.12.2026'. Der 22-km-Eintrag ist die gerundete Angabe einer zweiten Quelle fuer den Halbmarathon (21,5 km) derselben Veranstaltung - gleiche Anmeldeseite, gleicher Tag. Die Zeile mit dem Wettbewerbs-Label bleibt. Geprueft 2026-09-18."
+  },
+  "12. Olympiaberg-Cross München mit Deutschem Cross Cup|2026-10-25|10": {
+    "exclude": true,
+    "_note": "Die Ausschreibung auf olympiaberg-cross-muenchen.de zaehlt fuer den 25.10.2026 elf Wettbewerbe auf: Barfusslauf 1.200 m, Zwergerllauf 600 m, Kinder U10 und U12 je 1.200 m, Jugend U14/U16 2.200 m, Jugend U18/U20 3.300 m, Speed Cross U18/U20 und Erwachsene je 600 m + 600 m, Mittelstrecke 4.400 m, Elitelauf 6.600 m und Langstrecke 7.700 m. Die laengste Strecke sind also 7,7 km - einen 10-km-Lauf gibt es 2026 nicht. Diese Zeile nennt 10 km ohne Wettbewerbs-Label. Geprueft 2026-09-18."
+  },
+  "Olympia Alm Cross|2026-10-25|10": {
+    "exclude": true,
+    "_note": "Die Ausschreibung auf olympiaberg-cross-muenchen.de zaehlt fuer den 25.10.2026 elf Wettbewerbe auf: Barfusslauf 1.200 m, Zwergerllauf 600 m, Kinder U10 und U12 je 1.200 m, Jugend U14/U16 2.200 m, Jugend U18/U20 3.300 m, Speed Cross U18/U20 und Erwachsene je 600 m + 600 m, Mittelstrecke 4.400 m, Elitelauf 6.600 m und Langstrecke 7.700 m. Die laengste Strecke sind also 7,7 km - einen 10-km-Lauf gibt es 2026 nicht. Dieselbe Veranstaltung unter einem zweiten Namen ('Olympia Alm Cross' - der Start liegt an der Olympia Alm), ebenfalls mit 10 km. Geprueft 2026-09-18."
+  },
+  "Olympia Alm Cross|2026-10-25|6.6": {
+    "exclude": true,
+    "_note": "Die Ausschreibung auf olympiaberg-cross-muenchen.de zaehlt fuer den 25.10.2026 elf Wettbewerbe auf: Barfusslauf 1.200 m, Zwergerllauf 600 m, Kinder U10 und U12 je 1.200 m, Jugend U14/U16 2.200 m, Jugend U18/U20 3.300 m, Speed Cross U18/U20 und Erwachsene je 600 m + 600 m, Mittelstrecke 4.400 m, Elitelauf 6.600 m und Langstrecke 7.700 m. Die laengste Strecke sind also 7,7 km - einen 10-km-Lauf gibt es 2026 nicht. Die 6,6 km sind richtig (Elitelauf 6.600 m), stehen aber unter dem zweiten Namen der Veranstaltung. Ersetzt durch eine Zeile unter dem offiziellen Namen in manual_events.json, zusammen mit der fehlenden Langstrecke. Geprueft 2026-09-18."
+  },
+  "25. Marner Kohltagelauf|2026-09-27|10": {
+    "exclude": true,
+    "_note": "marner-kohltagelauf.com nennt vier Laeufe: Kids Run 400 m, 2,5 km, 5 km und 10 km (Hauptlauf, in der Presse mit 10,1 km beziffert). Der Hauptlauf steht bereits mit 10,1 km da; diese Zeile ist dieselbe Strecke aus einer zweiten Quelle, auf 10 km gerundet. Geprueft 2026-09-18."
+  },
+  "25. Marner Kohltagelauf|2026-09-27|5": {
+    "exclude": true,
+    "_note": "marner-kohltagelauf.com nennt vier Laeufe: Kids Run 400 m, 2,5 km, 5 km und 10 km (Hauptlauf, in der Presse mit 10,1 km beziffert). Die 5 km standen zweimal da - '5km Lauf' und '5 km fuer verschiedene Jahrgaenge, Gebuehren 6,00-17,00 EUR'. Beide tragen dieselbe Distanz, der Override-Schluessel kann sie nicht unterscheiden; die richtige Zeile steht in manual_events.json. Geprueft 2026-09-18."
   }
 }

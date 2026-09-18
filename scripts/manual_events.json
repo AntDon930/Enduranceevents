@@ -640,6 +640,54 @@
       "veranstalter_url": "https://portal.run-timing.de/981/announcement",
       "_quelle": "https://portal.run-timing.de/981/announcement",
       "_note": "Der '2. Celler Holzwerk-Staffelmarathon' am 04.10.2026 im Otto-Schade-Stadion Celle ist AUSSCHLIESSLICH ein Team-Wettbewerb: vier Laeuferinnen und Laeufer, 32 Runden zu je ca. 1,3 km, zusammen 42,195 km, Wertung getrennt nach Maenner-, Frauen- und Mixed-Teams, 70 Teams Limit, 60 EUR je Team (celler-presse.de, celleheute.de, run-timing.de/981). Einen Einzelmarathon gibt es nicht. Diese Zeile ersetzt zwei doppelte Eintraege. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "12. Olympiaberg-Cross München mit Deutschem Cross Cup",
+      "standort": "München",
+      "lat": 48.1687059,
+      "lon": 11.5503638,
+      "art1": "Laufen",
+      "art2": "Trail/Cross",
+      "datum_start": "2026-10-25",
+      "datum_ende": "2026-10-25",
+      "laenge_km": 6.6,
+      "wettbewerb": "Elitelauf 6.600 m",
+      "veranstalter_url": "https://olympiaberg-cross-muenchen.de/ausschreibung/",
+      "_quelle": "https://olympiaberg-cross-muenchen.de/ausschreibung/",
+      "_note": "Die Ausschreibung auf olympiaberg-cross-muenchen.de zaehlt fuer den 25.10.2026 elf Wettbewerbe auf: Barfusslauf 1.200 m, Zwergerllauf 600 m, Kinder U10 und U12 je 1.200 m, Jugend U14/U16 2.200 m, Jugend U18/U20 3.300 m, Speed Cross U18/U20 und Erwachsene je 600 m + 600 m, Mittelstrecke 4.400 m, Elitelauf 6.600 m und Langstrecke 7.700 m. Die laengste Strecke sind also 7,7 km - einen 10-km-Lauf gibt es 2026 nicht. Diese Zeile steht unter dem offiziellen Namen. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "12. Olympiaberg-Cross München mit Deutschem Cross Cup",
+      "standort": "München",
+      "lat": 48.1687059,
+      "lon": 11.5503638,
+      "art1": "Laufen",
+      "art2": "Trail/Cross",
+      "datum_start": "2026-10-25",
+      "datum_ende": "2026-10-25",
+      "laenge_km": 7.7,
+      "wettbewerb": "Langstrecke 7.700 m",
+      "veranstalter_url": "https://olympiaberg-cross-muenchen.de/ausschreibung/",
+      "_quelle": "https://olympiaberg-cross-muenchen.de/ausschreibung/",
+      "_note": "Die Ausschreibung auf olympiaberg-cross-muenchen.de zaehlt fuer den 25.10.2026 elf Wettbewerbe auf: Barfusslauf 1.200 m, Zwergerllauf 600 m, Kinder U10 und U12 je 1.200 m, Jugend U14/U16 2.200 m, Jugend U18/U20 3.300 m, Speed Cross U18/U20 und Erwachsene je 600 m + 600 m, Mittelstrecke 4.400 m, Elitelauf 6.600 m und Langstrecke 7.700 m. Die laengste Strecke sind also 7,7 km - einen 10-km-Lauf gibt es 2026 nicht. Diese Zeile steht unter dem offiziellen Namen. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "25. Marner Kohltagelauf",
+      "standort": "Marne",
+      "lat": 53.9521162,
+      "lon": 9.0107437,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-09-27",
+      "datum_ende": "2026-09-27",
+      "laenge_km": 5.0,
+      "wettbewerb": "5 km Lauf",
+      "veranstalter_url": "https://marner-kohltagelauf.com/",
+      "_quelle": "https://marner-kohltagelauf.com/",
+      "_note": "marner-kohltagelauf.com nennt vier Laeufe: Kids Run 400 m, 2,5 km, 5 km und 10 km (Hauptlauf, in der Presse mit 10,1 km beziffert). Diese Zeile ersetzt zwei doppelte Eintraege. Geprueft 2026-09-18."
     }
   ]
 }
