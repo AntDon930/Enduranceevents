@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-02-13-asv-duisburg-winterlaufserie-8km-duisburg@antdon930.github.
- io
+UID:2027-02-13-asv-duisburg-winterlaufserie-7-5km-duisburg@antdon930.githu
+ b.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270213
 DTEND;VALUE=DATE:20270214
-SUMMARY:ASV Duisburg Winterlaufserie
+SUMMARY:ASV Duisburg Winterlaufserie – Kleine Serie
 LOCATION:Duisburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.asv-winter
- laufserie.de/ausschreibung/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.asv-wint
+ erlaufserie.de/ausschreibung/
 TRANSP:TRANSPARENT
 URL:https://www.asv-winterlaufserie.de/ausschreibung/
 END:VEVENT

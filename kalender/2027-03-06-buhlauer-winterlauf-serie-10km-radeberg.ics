@@ -4,13 +4,13 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-07-buhlauer-winterlauf-serie-20km-radeberg@antdon930.github.io
+UID:2027-03-06-buhlauer-winterlauf-serie-10km-radeberg@antdon930.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261107
-DTEND;VALUE=DATE:20261108
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
 SUMMARY:Bühlauer Winterlauf Serie
 LOCATION:Radeberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://www.laufsport
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufsport
  laden.de/buehlauer-winterlaufserie/
 TRANSP:TRANSPARENT
 URL:https://www.laufsportladen.de/buehlauer-winterlaufserie/

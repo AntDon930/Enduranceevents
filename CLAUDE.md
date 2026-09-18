@@ -40,7 +40,8 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
-| `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen |
+| `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
+| `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -370,6 +371,46 @@ Fichtel-Duplikats passiert. `test_override_schluessel` prüft jetzt jeden
 Schlüssel gegen `override_keys()`.
 
 Zu viel gelöscht ist schlimmer als eine Zahl zu großzügig – es ist unsichtbar.
+
+### Fehlende Strecken nachtragen (`scripts/manual_events.json`)
+
+**Ein Override ändert eine Zeile, er legt keine an.** Beim Durchgehen
+der Streckenlisten kam derselbe Fall immer wieder: Die Veranstaltung
+steht in der Liste, aber nicht alle ihre Wettbewerbe. Die Bühlauer
+Winterlaufserie hat fünf Termine à vier Distanzen – wir hatten einen
+Termin. Der proWissen-Lauf hat 5 km UND 10 km – wir hatten die 10 km.
+Und ein fehlendes Event ist die unangenehmere Sorte Fehler: Eine falsche
+Zahl sieht man, eine fehlende Zeile nicht.
+
+Deshalb `scripts/manual_events.json` – das Gegenstück zu
+`manual_overrides.json`, gelesen von `clean_events.add_manual_events()`.
+Fünf Dinge daran:
+
+- **Nur einzeln geprüft.** Jeder Eintrag ist an der offiziellen
+  Ausschreibung belegt, die Stelle steht als `_quelle`/`_note` in der
+  Datei. Dieselbe Linie wie bei den Overrides: geraten wird nie.
+- **Felder mit `_` am Anfang sind Dokumentation** und landen nicht in
+  `events.json`.
+- **Doppelt kann nichts entstehen**: Übersprungen wird jeder Eintrag,
+  zu dem `is_same_event()` schon eine Zeile findet – also genau die
+  Duplikat-Definition des Projekts. Damit ist der Schritt idempotent
+  und verträgt sich mit einem späteren Scraper-Lauf, der dieselbe
+  Strecke selbst einsammelt: Dann greift er nicht mehr.
+- **Der Name muss der sein, den die Veranstaltung nach dem Aufräumen
+  TRÄGT** (`unify_event_names` kann ihn vereinheitlichen) – sonst
+  erkennt `is_same_event()` die eigene Zeile beim nächsten Lauf nicht
+  wieder und legt sie erneut an. Real passiert: Die nachgetragene
+  Lindensee-Strecke heißt am 21.11. „44. Lindenseelaufserie".
+- **`add_manual_events()` läuft NACH `apply_overrides()`.** Ein Override
+  mit dem Schlüssel `"<Name>|<Datum>"` trifft sonst jede Strecke dieser
+  Veranstaltung an diesem Tag – auch eine gerade nachgetragene. Beim ASV
+  Duisburg hat genau das die neue 5-km-Zeile auf 10 km gesetzt und damit
+  zum Duplikat gemacht.
+
+Danach laufen die nachgetragenen Zeilen durch **dieselben** Regeln wie
+alles andere (Kategorie, Rundung, Mindestdistanz, vergangene Events,
+Zusammenführen). `test_manuelle_events` hält Pflichtfelder und
+Idempotenz fest.
 
 ### Was die Einzelprüfung von 200 Events gelehrt hat (18.09.2026)
 
@@ -1486,18 +1527,30 @@ Datei auf `main` aktualisiert wird** – dafür braucht es einen Push auf
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
 Ausschreibung geprüft. Ohne dieses Protokoll fängt jede Sitzung von
-vorn an. Vier Ergebnisse, und der Unterschied ist wichtig:
+vorn an. Fünf Ergebnisse, und der Unterschied ist wichtig:
 
 | `ergebnis` | heißt |
 |---|---|
 | `quelle_ok` | offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig |
-| `korrigiert` | Fehler gefunden, Korrektur in `manual_overrides.json` |
+| `korrigiert` | Fehler gefunden, Korrektur in `manual_overrides.json` bzw. `manual_events.json` |
 | `label_ok` | **nur am Wettbewerbs-Label entschieden**, ohne Abruf – schwächer |
+| `unklar` | angesehen, aber an der Quelle **nicht zu entscheiden** – die Begründung sagt, was fehlt |
 | `entfernt` | gehört nicht in die Liste (`NICHT_AUSDAUER`) |
 
 `label_ok` nicht mit `quelle_ok` verwechseln: „Halbmarathon 22,8 km"
 nennt seine Distanz selbst, das reicht für diese eine Frage – aber die
 Zeile ist damit nicht vollständig geprüft.
+
+`unklar` blendet `--offen` mit aus – sonst wird derselbe Fall jede
+Sitzung neu recherchiert. Damit er nicht stillschweigend verschwindet,
+nennt `audit_events.py` im Kopf die Zahl der `unklar`-Fälle
+(`zaehle_unklar()`). Offen stehen dort z. B. die Walking-Distanz des
+Freundschaftslaufs Marpingen (Veranstalterseite löst nicht mehr auf) und
+die virtuelle „XMAS-Challenge" des Blauen Landes – **die braucht eine
+Entscheidung des Nutzers**: „Egal wo, egal wann", fünf Wochen lang, ohne
+Ort und ohne Koordinaten. Die Liste ist auf Veranstaltungen an einem Ort
+und an einem Termin gebaut; ob virtuelle Läufe wie HYROX über eine
+eigene Regel herausfallen sollen, entscheidet nicht Claude.
 
 **Nach einem großen Datenlauf** gehört die Einzelprüfung dazu:
 

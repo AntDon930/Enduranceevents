@@ -425,5 +425,47 @@
     "ergebnis": "unklar",
     "quelle": "tus-wasserstrasse.de, my.raceresult.com/360365",
     "notiz": "Distanz korrigiert (22,5 km war die Rad-Teilstrecke, das Rennen sind 28,8 km: 550 m + 22,5 km + 5.750 m). OFFEN: Das Datum. Der Veranstalter nennt fuer die 41. Auflage nur 'Sommer 2027'; der gespeicherte Zeitraum 01.06.-31.08.2027 ist ein Platzhalter. Die 40. Auflage war Samstag, 04.07.2026. Sobald der Termin steht, gehoert er als datum_start/datum_ende in den Override."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "winterlaufserie-hamburg.de",
+    "notiz": "Fuenf Termine mit je denselben Strecken; die Zeilen des ersten Termins spannten bis zum Ende der Serie. ANMERKUNG: Die echten Distanzen sind Vielfache der 4,66-km-Runde (4,66/9,32/13,98/18,64/23,3 km), die Quelle rundet auf 5/9/14/19/23. Bewusst NICHT korrigiert: Mit 4,66 km faellt die kuerzeste Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf."
+  },
+  "Winterlaufserie Alfter|2026-11-15": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "alfterer-sc.de",
+    "notiz": "Sechs Serientage mit je 10/15/20 km; die Zeilen des ersten Termins spannten bis zum Ende der Serie."
+  },
+  "HKK-Winterlaufserie|2027-01-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "bremer-winterlaufserie.com",
+    "notiz": "Drei Termine mit unterschiedlichem Streckenangebot; gespeichert waren ueberall alle vier Distanzen. Drei erfundene Zeilen raus, zwei Enden korrigiert."
+  },
+  "Bühlauer Winterlauf Serie|2026-11-07": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "laufsportladen.de",
+    "notiz": "Fuenf Termine mit je 10/20/30/40 km. Die vier Zeilen des ersten Termins spannten bis zum Ende der Serie - korrigiert. FEHLEN: die vier folgenden Termine (05.12.2026, 09.01., 06.02., 06.03.2027), also 16 Zeilen."
+  },
+  "ASV Duisburg Winterlaufserie|2027-01-23": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "asv-winterlaufserie.de",
+    "notiz": "Drei Termine mit je zwei Wettbewerben. Gespeichert waren an zwei Terminen je vier Distanzen (5/8/10/15), die gar nicht zum Programm passten. Vier Zeilen raus, zwei Distanzen korrigiert (8 -> 7,5 km; 15 -> 21,1 km am 13.03.), die undatierte Serienzeile auf den 23.01. gesetzt. FEHLT: die 5 km der Kleinen Serie am 23.01."
+  },
+  "Winterlaufserie Wilhelmsburg|2027-01-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "winterlaufserie-wilhelmsburg.de",
+    "notiz": "Drei Termine mit je 1-4 Runden a ca. 5 km. Die Zeilen des ersten Termins spannten bis zum Ende der Serie. FEHLEN: 07.02. und 07.03.2027, also acht Zeilen."
+  },
+  "35. Ismaninger Winterlaufserie|2026-12-13": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "winterlaufserie.net",
+    "notiz": "Drei Termine, je eine Hauptstrecke: 13.12. = 13 km, 17.01. = 17 km, 21.02. = Halbmarathon. Der Halbmarathon lag auf dem Dezember-Termin. FEHLT: der 17-km-Lauf am 17.01.2027."
   }
 }

@@ -110,6 +110,69 @@ def completeness(event: dict) -> int:
     return sum(1 for value in event.values() if value is not None)
 
 
+# Einzeln recherchierte Events, die KEINE Quelle liefert. Gegenstück zu
+# manual_overrides.json: Das korrigiert vorhandene Zeilen, dies trägt
+# fehlende nach.
+MANUAL_EVENTS_PATH = Path(__file__).resolve().parent / "manual_events.json"
+
+
+def load_manual_events() -> list[dict]:
+    """Liest scripts/manual_events.json (Liste von Event-Dicts).
+
+    Schlüssel, die mit "_" beginnen, sind Dokumentation (`_note`,
+    `_quelle`) und landen NICHT in events.json - dort gehört nur hin,
+    was die Seite anzeigt.
+    """
+    if not MANUAL_EVENTS_PATH.exists():
+        return []
+    roh = json.loads(MANUAL_EVENTS_PATH.read_text(encoding="utf-8"))
+    eintraege = roh.get("events", roh) if isinstance(roh, dict) else roh
+    return [{k: v for k, v in e.items() if not k.startswith("_")} for e in eintraege]
+
+
+def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Trägt einzeln recherchierte Strecken nach, die keine Quelle liefert.
+
+    Warum es das gibt: Beim Durchgehen der Streckenlisten tauchte immer
+    wieder derselbe Fall auf - eine Veranstaltung steht in der Liste,
+    aber nicht alle ihre Wettbewerbe. Die Bühlauer Winterlaufserie hat
+    fünf Termine, wir hatten einen; der proWissen-Lauf hat 5 km UND
+    10 km, wir hatten die 10 km. Ein Override kann das nicht heilen: Er
+    ändert eine vorhandene Zeile, er legt keine an. Und ein fehlendes
+    Event ist die unangenehmere Sorte Fehler - eine falsche Zahl sieht
+    man, eine fehlende Zeile nicht.
+
+    Nachgetragen wird nur, was einzeln an der offiziellen Ausschreibung
+    geprüft ist; die Belegstelle steht als `_quelle`/`_note` in der
+    Datei (dieselbe Linie wie bei manual_overrides.json).
+
+    Doppelt kann dabei nichts entstehen: Übersprungen wird jeder
+    Eintrag, zu dem `is_same_event()` bereits eine Zeile findet - also
+    genau die Duplikat-Definition des Projekts. Damit ist der Schritt
+    idempotent und verträgt sich mit einem späteren Scraper-Lauf, der
+    dieselbe Strecke von selbst einsammelt: Dann greift er nicht mehr.
+
+    Die nachgetragenen Zeilen laufen danach durch DIESELBEN Regeln wie
+    alles andere (Kategorie, Rundung, Mindestdistanz, vergangene Events,
+    Zusammenführen) - deshalb steht dieser Schritt ganz am Anfang.
+    """
+    manuell = load_manual_events()
+    if not manuell:
+        return events, []
+    hinzu: list[str] = []
+    for kandidat in manuell:
+        if any(is_same_event(vorhanden, kandidat) for vorhanden in events):
+            continue
+        events = events + [dict(kandidat)]
+        hinzu.append(
+            f"{kandidat.get('name')} ({kandidat.get('datum_start')}"
+            + (f", {kandidat['laenge_km']:g} km"
+               if isinstance(kandidat.get("laenge_km"), (int, float)) else "")
+            + f") - {kandidat.get('standort')}"
+        )
+    return events, hinzu
+
+
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
     overrides = load_manual_overrides()
     kept: list[dict] = []
@@ -1511,6 +1574,13 @@ def main() -> None:
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
     events, excluded, override_changes = apply_overrides(events)
+    # NACH apply_overrides: Ein Override mit dem Schlüssel "<Name>|<Datum>"
+    # trifft JEDE Strecke dieser Veranstaltung an diesem Tag - auch eine
+    # gerade nachgetragene. Beim ASV Duisburg hat genau das die neue
+    # 5-km-Zeile auf 10 km gesetzt und damit zum Duplikat gemacht.
+    # Nachgetragene Zeilen sind ohnehin schon einzeln geprüft und
+    # brauchen keinen Override.
+    events, manuell_ergaenzt = add_manual_events(events)
     # VOR refresh_art2: Das holt die Kategorie aus der Lauf-Liste und
     # würde einem noch als "Laufen" geführten Triathlon "Trail/Cross"
     # verpassen.
@@ -1572,6 +1642,7 @@ def main() -> None:
                 print(f"  - {line}")
 
     section("Manuelle Korrekturen angewendet", override_changes)
+    section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)

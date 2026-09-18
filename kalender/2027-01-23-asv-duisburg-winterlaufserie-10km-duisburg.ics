@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-03-13-asv-duisburg-winterlaufserie-15km-duisburg@antdon930.github
+UID:2027-01-23-asv-duisburg-winterlaufserie-10km-duisburg@antdon930.github
  .io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20270313
-DTEND;VALUE=DATE:20270314
-SUMMARY:ASV Duisburg Winterlaufserie
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:ASV Duisburg Winterlaufserie – Große Serie
 LOCATION:Duisburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.asv-winte
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.asv-winte
  rlaufserie.de/ausschreibung/
 TRANSP:TRANSPARENT
 URL:https://www.asv-winterlaufserie.de/ausschreibung/

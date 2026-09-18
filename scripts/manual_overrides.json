@@ -527,5 +527,132 @@
     "laenge_km": 28.8,
     "wettbewerb": null,
     "_note": "Gespeichert war die RAD-TEILSTRECKE, nicht das Rennen (Label '22,5 km Radfahren' - Verbform, also eine Etappe, siehe Datenregel 12). tus-wasserstrasse.de nennt das Format '550 m schwimmen - 22,5 km Rad fahren - 5.750 m laufen', zusammen 28,8 km. OFFEN bleibt das Datum: Der Verein kuendigt nur 'Sommer 2027' an (die 40. Auflage war am 04.07.2026), der gespeicherte Zeitraum 01.06.-31.08.2027 ist also ein Platzhalter der Quelle. Geraten wird nicht - siehe Protokoll. Geprueft 2026-09-18."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15|5": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15|9": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15|14": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15|19": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Bramfelder Winterlaufserie|2026-11-15|23": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Alfter|2026-11-15|10": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat SECHS Termine (alfterer-sc.de: '1. Serientag: So, 15. November 2026' bis '6. Serientag: So, 24. Januar 2027'), an jedem dieselben Strecken ('Rundstrecken 10 km - 15 km - 20 km'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die fuenf folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Alfter|2026-11-15|15": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat SECHS Termine (alfterer-sc.de: '1. Serientag: So, 15. November 2026' bis '6. Serientag: So, 24. Januar 2027'), an jedem dieselben Strecken ('Rundstrecken 10 km - 15 km - 20 km'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die fuenf folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Alfter|2026-11-15|20": {
+    "datum_ende": "2026-11-15",
+    "_note": "Die Serie hat SECHS Termine (alfterer-sc.de: '1. Serientag: So, 15. November 2026' bis '6. Serientag: So, 24. Januar 2027'), an jedem dieselben Strecken ('Rundstrecken 10 km - 15 km - 20 km'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die fuenf folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+  },
+  "HKK-Winterlaufserie|2027-01-10|5": {
+    "datum_ende": "2027-01-10",
+    "_note": "bremer-winterlaufserie.com nennt fuer die 47. HKK-Winterlaufserie drei Termine mit unterschiedlichem Angebot: 10. Januar 2027 = 5 km und 10 km (plus 1,8 km Kids), 7. Februar 2027 = 5, 10 und 15 km, 7. Maerz 2027 = 5, 10, 15 und 20 km. Gespeichert waren an jedem Termin alle vier Distanzen. Diese Zeile ist richtig, ihr Ende stand aber auf dem Ende der Serie. Geprueft 2026-09-18."
+  },
+  "HKK-Winterlaufserie|2027-01-10|10": {
+    "datum_ende": "2027-01-10",
+    "_note": "bremer-winterlaufserie.com nennt fuer die 47. HKK-Winterlaufserie drei Termine mit unterschiedlichem Angebot: 10. Januar 2027 = 5 km und 10 km (plus 1,8 km Kids), 7. Februar 2027 = 5, 10 und 15 km, 7. Maerz 2027 = 5, 10, 15 und 20 km. Gespeichert waren an jedem Termin alle vier Distanzen. Diese Zeile ist richtig, ihr Ende stand aber auf dem Ende der Serie. Geprueft 2026-09-18."
+  },
+  "HKK-Winterlaufserie|2027-01-10|15": {
+    "exclude": true,
+    "_note": "bremer-winterlaufserie.com nennt fuer die 47. HKK-Winterlaufserie drei Termine mit unterschiedlichem Angebot: 10. Januar 2027 = 5 km und 10 km (plus 1,8 km Kids), 7. Februar 2027 = 5, 10 und 15 km, 7. Maerz 2027 = 5, 10, 15 und 20 km. Gespeichert waren an jedem Termin alle vier Distanzen. Am 10.01.2027 gibt es diese Strecke nicht - expand_competitions() hat sie an den Termin gehaengt. Geprueft 2026-09-18."
+  },
+  "HKK-Winterlaufserie|2027-01-10|20": {
+    "exclude": true,
+    "_note": "bremer-winterlaufserie.com nennt fuer die 47. HKK-Winterlaufserie drei Termine mit unterschiedlichem Angebot: 10. Januar 2027 = 5 km und 10 km (plus 1,8 km Kids), 7. Februar 2027 = 5, 10 und 15 km, 7. Maerz 2027 = 5, 10, 15 und 20 km. Gespeichert waren an jedem Termin alle vier Distanzen. Am 10.01.2027 gibt es diese Strecke nicht - expand_competitions() hat sie an den Termin gehaengt. Geprueft 2026-09-18."
+  },
+  "HKK-Winterlaufserie|2027-02-07|20": {
+    "exclude": true,
+    "_note": "bremer-winterlaufserie.com nennt fuer die 47. HKK-Winterlaufserie drei Termine mit unterschiedlichem Angebot: 10. Januar 2027 = 5 km und 10 km (plus 1,8 km Kids), 7. Februar 2027 = 5, 10 und 15 km, 7. Maerz 2027 = 5, 10, 15 und 20 km. Gespeichert waren an jedem Termin alle vier Distanzen. Die 20 km gibt es nur am 7. Maerz (Grosse Serie). Geprueft 2026-09-18."
+  },
+  "Bühlauer Winterlauf Serie|2026-11-07|10": {
+    "datum_ende": "2026-11-07",
+    "_note": "laufsportladen.de nennt fuenf Termine ('jeweils am ersten Samstag im Winterhalbjahr, 07.11.2026, 05.12.2026, 09.01.2027, 06.02.2027, 06.03.2027'), an jedem dieselben Strecken ('Es koennen 10, 20, 30 oder 40 km absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine FEHLEN in der Liste - ein Override kann keine Zeile hinzufuegen. Geprueft 2026-09-18."
+  },
+  "Bühlauer Winterlauf Serie|2026-11-07|20": {
+    "datum_ende": "2026-11-07",
+    "_note": "laufsportladen.de nennt fuenf Termine ('jeweils am ersten Samstag im Winterhalbjahr, 07.11.2026, 05.12.2026, 09.01.2027, 06.02.2027, 06.03.2027'), an jedem dieselben Strecken ('Es koennen 10, 20, 30 oder 40 km absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine FEHLEN in der Liste - ein Override kann keine Zeile hinzufuegen. Geprueft 2026-09-18."
+  },
+  "Bühlauer Winterlauf Serie|2026-11-07|30": {
+    "datum_ende": "2026-11-07",
+    "_note": "laufsportladen.de nennt fuenf Termine ('jeweils am ersten Samstag im Winterhalbjahr, 07.11.2026, 05.12.2026, 09.01.2027, 06.02.2027, 06.03.2027'), an jedem dieselben Strecken ('Es koennen 10, 20, 30 oder 40 km absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine FEHLEN in der Liste - ein Override kann keine Zeile hinzufuegen. Geprueft 2026-09-18."
+  },
+  "Bühlauer Winterlauf Serie|2026-11-07|40": {
+    "datum_ende": "2026-11-07",
+    "_note": "laufsportladen.de nennt fuenf Termine ('jeweils am ersten Samstag im Winterhalbjahr, 07.11.2026, 05.12.2026, 09.01.2027, 06.02.2027, 06.03.2027'), an jedem dieselben Strecken ('Es koennen 10, 20, 30 oder 40 km absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine FEHLEN in der Liste - ein Override kann keine Zeile hinzufuegen. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-01-23": {
+    "exclude": true,
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Fuer den 23.01. lieferte die Quelle nur EINE Zeile ohne jede Distanz, die bis zum 21.03.2027 spannte - die Serie endet am 13.03. Sie ist durch die beiden echten Wettbewerbe in manual_events.json ersetzt. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-02-13|8": {
+    "laenge_km": 7.5,
+    "wettbewerb": "Kleine Serie",
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.02. sind es 7,5 km, nicht 8 km. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-02-13|15": {
+    "wettbewerb": "Große Serie",
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Die 15 km am 13.02. stimmen (Grosse Serie). Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-02-13|5": {
+    "exclude": true,
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.02.2027 gibt es nur 7,5 km und 15 km. Diese Zeile hat expand_competitions() an den Termin gehaengt. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-02-13|10": {
+    "exclude": true,
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.02.2027 gibt es nur 7,5 km und 15 km. Diese Zeile hat expand_competitions() an den Termin gehaengt. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-03-13|10": {
+    "wettbewerb": "Kleine Serie",
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Die 10 km am 13.03. stimmen (Kleine Serie). Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-03-13|15": {
+    "laenge_km": 21.1,
+    "wettbewerb": "Große Serie",
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.03. laeuft die Grosse Serie 21,1 km, nicht 15 km - die 15 km sind der Februar-Termin. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-03-13|5": {
+    "exclude": true,
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.03.2027 gibt es nur 10 km und 21,1 km. Geprueft 2026-09-18."
+  },
+  "ASV Duisburg Winterlaufserie|2027-03-13|8": {
+    "exclude": true,
+    "_note": "asv-winterlaufserie.de nennt drei Termine mit je zwei Wettbewerben - Kleine Serie: '23.01.2027: 5 km', '13.02.2027: 7,5 km', '13.03.2027: 10 km'; Grosse Serie: '23.01.2027: 10 km', '13.02.2027: 15 km', '13.03.2027: 21,1 km'. Am 13.03.2027 gibt es nur 10 km und 21,1 km. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Wilhelmsburg|2027-01-10|5": {
+    "datum_ende": "2027-01-10",
+    "_note": "winterlaufserie-wilhelmsburg.de nennt drei Termine ('10. Januar 2027, 7. Februar 2027, 7. Maerz 2027', Start 9:30 Uhr fuer alle Distanzen und alle drei Termine) und einen Rundkurs: 'Die Strecke betraegt ca. 5 km pro Runde und kann bis zu viermal absolviert werden'. Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die beiden folgenden Termine FEHLEN in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Wilhelmsburg|2027-01-10|10": {
+    "datum_ende": "2027-01-10",
+    "_note": "winterlaufserie-wilhelmsburg.de nennt drei Termine ('10. Januar 2027, 7. Februar 2027, 7. Maerz 2027', Start 9:30 Uhr fuer alle Distanzen und alle drei Termine) und einen Rundkurs: 'Die Strecke betraegt ca. 5 km pro Runde und kann bis zu viermal absolviert werden'. Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die beiden folgenden Termine FEHLEN in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Wilhelmsburg|2027-01-10|15": {
+    "datum_ende": "2027-01-10",
+    "_note": "winterlaufserie-wilhelmsburg.de nennt drei Termine ('10. Januar 2027, 7. Februar 2027, 7. Maerz 2027', Start 9:30 Uhr fuer alle Distanzen und alle drei Termine) und einen Rundkurs: 'Die Strecke betraegt ca. 5 km pro Runde und kann bis zu viermal absolviert werden'. Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die beiden folgenden Termine FEHLEN in der Liste. Geprueft 2026-09-18."
+  },
+  "Winterlaufserie Wilhelmsburg|2027-01-10|20": {
+    "datum_ende": "2027-01-10",
+    "_note": "winterlaufserie-wilhelmsburg.de nennt drei Termine ('10. Januar 2027, 7. Februar 2027, 7. Maerz 2027', Start 9:30 Uhr fuer alle Distanzen und alle drei Termine) und einen Rundkurs: 'Die Strecke betraegt ca. 5 km pro Runde und kann bis zu viermal absolviert werden'. Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die beiden folgenden Termine FEHLEN in der Liste. Geprueft 2026-09-18."
+  },
+  "35. Ismaninger Winterlaufserie|2026-12-13|21.1": {
+    "datum_start": "2027-02-21",
+    "datum_ende": "2027-02-21",
+    "_note": "winterlaufserie.net nennt drei Termine mit je EINER Hauptstrecke: '13.12.2026: 13 km Lauf', '17.01.2027: 17 km Lauf', '21.02.2027: Halbmarathon'. Der Halbmarathon gehoert also zum 21.02.2027; gespeichert war er auf dem ersten Termin und spannte bis zum letzten. Die 13 km am 13.12. stimmen. FEHLT: der 17-km-Lauf am 17.01.2027. Geprueft 2026-09-18."
   }
 }

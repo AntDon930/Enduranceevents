@@ -1663,6 +1663,49 @@ def test_serientermin_im_label() -> None:
     check("eine Meldung je verschobener Zeile", len(meldungen), 1)
 
 
+def test_manuelle_events() -> None:
+    """Einzeln recherchierte Strecken nachtragen (manual_events.json).
+
+    Gebraucht wird das, weil ein Override eine Zeile ÄNDERN, aber keine
+    ANLEGEN kann - und beim Durchgehen der Streckenlisten fehlten immer
+    wieder einzelne Wettbewerbe einer vorhandenen Veranstaltung (die
+    Bühlauer Winterlaufserie hat fünf Termine, wir hatten einen).
+
+    Geprüft wird vor allem, dass dabei nichts DOPPELT entsteht:
+    Übersprungen wird jeder Eintrag, zu dem `is_same_event()` schon eine
+    Zeile findet. Damit ist der Schritt idempotent und verträgt sich mit
+    einem späteren Scraper-Lauf, der dieselbe Strecke selbst einsammelt.
+    """
+    print("\nEinzeln recherchierte Events (manual_events.json):")
+    from clean_events import add_manual_events, load_manual_events
+
+    eintraege = load_manual_events()
+    check("die Datei ist lesbar und nicht leer", len(eintraege) > 0, True)
+    check("Dokumentations-Felder landen nicht in events.json",
+          [k for e in eintraege for k in e if k.startswith("_")], [])
+    for feld in ("name", "datum_start", "standort", "art1", "veranstalter_url"):
+        fehlend = [e.get("name") for e in eintraege if not e.get(feld)]
+        check(f"jeder Eintrag hat {feld}", fehlend, [])
+    ohne_koordinaten = [e.get("name") for e in eintraege
+                        if e.get("lat") is None or e.get("lon") is None]
+    check("jeder Eintrag hat Koordinaten", ohne_koordinaten, [])
+
+    beispiel = dict(eintraege[0])
+    ergaenzt, meldungen = add_manual_events([beispiel])
+    schluessel = (beispiel["name"], beispiel["datum_start"], beispiel.get("laenge_km"))
+    check("eine schon vorhandene Strecke wird nicht doppelt angelegt",
+          sum(1 for e in ergaenzt
+              if (e["name"], e["datum_start"], e.get("laenge_km")) == schluessel), 1)
+    check("und alle anderen kommen dazu", len(meldungen), len(eintraege) - 1)
+
+    ergaenzt, meldungen = add_manual_events([])
+    check("in eine leere Liste wird alles nachgetragen",
+          (len(ergaenzt), len(meldungen)), (len(eintraege), len(eintraege)))
+    nochmal, meldungen = add_manual_events(ergaenzt)
+    check("ein zweiter Durchlauf trägt nichts mehr nach", meldungen, [])
+    check("idempotent, also gleich viele Zeilen", len(nochmal), len(eintraege))
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1676,6 +1719,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_serientermin_im_label,
+                 test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()
