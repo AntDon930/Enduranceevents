@@ -81,6 +81,7 @@ from scraper_lib import (  # noqa: E402
     MIN_DISTANCE_KM,
     Geocoder,
     SiteConfig,
+    guess_art1,
     guess_art2,
     guess_land,
     is_portal_link,
@@ -189,6 +190,142 @@ def refresh_art2(events: list[dict]) -> list[str]:
             changed.append(f"{event.get('name')}: art2 {current!r} -> {guessed!r}")
             event["art2"] = guessed
     return changed
+
+
+def fix_multisport_art1(events: list[dict]) -> list[str]:
+    """Zieht Triathlons (und andere Mehrsport-Wettkämpfe) nach, die als
+    Laufveranstaltung gespeichert sind.
+
+    Alle vier Quellen sind Laufkalender; ihre SiteConfig trägt
+    `default_art1 = "Laufen"`, und damit stand jeder Triathlon als
+    Laufveranstaltung in der Liste. Der Nutzer hat es an einer Zeile
+    gemerkt, die es nicht geben darf: „Ironman 70.3 Kraichgau · Laufen ·
+    Straße" - bei einem Ironman kann man sich nicht für den Lauf allein
+    anmelden. `guess_art1()` erkennt das inzwischen beim Einsammeln,
+    dieser Schritt holt den Bestand nach.
+
+    Umgestellt wird NUR von "Laufen" aus und nur bei einem eindeutigen
+    Stichwort im Namen (ART1_KEYWORDS). Eine von Hand gesetzte Sportart
+    (Override) bleibt unangetastet, und die Kategorie wird gleich
+    mitgezogen - ein Triathlon mit der Laufkategorie "Trail/Cross" wäre
+    nur halb korrigiert.
+    """
+    overrides = load_manual_overrides()
+    changed: list[str] = []
+    for event in events:
+        if event.get("art1") != "Laufen":
+            continue
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"))
+        if own and "art1" in own:
+            continue
+        name = event.get("name") or ""
+        neu = guess_art1(name, ART2_CONFIG)
+        if neu == "Laufen":
+            continue
+        alt_art2 = event.get("art2")
+        # Die Kategorie kommt aus der Liste der NEUEN Sportart (siehe
+        # ART2_LISTEN in scraper_lib.py). Ein manuell gesetztes art2
+        # bleibt auch hier stehen.
+        if not (own and "art2" in own):
+            event["art2"] = guess_art2(f"{name} {event.get('wettbewerb') or ''}",
+                                       ART2_CONFIG, neu)
+        changed.append(f"{name}: art1 {event['art1']!r} -> {neu!r}, "
+                       f"art2 {alt_art2!r} -> {event.get('art2')!r}")
+        event["art1"] = neu
+    return changed
+
+
+# Wortbestandteile, die bei einem Mehrsport-Wettkampf eine EINZELNE
+# Disziplin bezeichnen. Steht so etwas im Wettbewerbs-Label, ist die
+# Zeile keine Anmeldemöglichkeit, sondern eine Teilstrecke.
+TEILSTRECKE_RE = re.compile(
+    r"^(ca\.\s*)?(\d+([.,]\d+)?\s*km\s+)?"
+    r"(laufen|lauf|radfahren|rad(strecke)?|schwimmen|schwimmstrecke|run|bike|swim)\b",
+    re.I)
+
+
+def report_multisport_teilstrecken(events: list[dict]) -> list[str]:
+    """Meldet Zeilen, die bei einem Mehrsport-Wettkampf nur eine
+    TEILSTRECKE beschreiben - und deshalb keine Anmeldemöglichkeit sind.
+
+    Beispiele aus den echten Daten: „Ironman Hamburg · 42,2 km Laufen
+    entlang der Alster" (der Laufteil eines Triathlons), „Volks- und
+    Staffeltriathlon · 22,5 km Radfahren", „Triathlon Stralsund ·
+    Laufen · 10 km". Die Quellen listen bei Triathlons oft die drei
+    Disziplinen einzeln auf; `parse_competitions()` hat daraus je eine
+    eigene Zeile gemacht.
+
+    **Nur gemeldet, nichts gelöscht** - dieselbe Regel wie bei den
+    verdächtigen Distanzen (siehe README, „Datenqualität"): Ob eine
+    solche Zeile eine echte Teilstrecke ist oder doch ein eigener
+    Wettbewerb (es gibt Staffeln und Einzelstarts über eine Disziplin),
+    entscheidet die Ausschreibung, nicht ein Muster. Bestätigte Fälle
+    gehören mit `"exclude": true` in manual_overrides.json.
+    """
+    treffer: list[str] = []
+    for event in events:
+        if event.get("art1") != "Triathlon":
+            continue
+        label = (event.get("wettbewerb") or "").strip()
+        if not label or not TEILSTRECKE_RE.match(label):
+            continue
+        treffer.append(f"{event.get('name')} ({event.get('datum_start')}): "
+                       f"Label {label!r}, {event.get('laenge_km')} km - "
+                       f"sieht nach einer Teilstrecke aus")
+    return treffer
+
+
+# Die Gesamtdistanzen der geläufigen Triathlon-Formate in km (Schwimmen +
+# Rad + Laufen zusammen). Nur zum PRÜFEN, nie zum Überschreiben.
+TRIATHLON_DISTANZEN_KM = (
+    25.75,   # Super-Sprint / Jedermann (halbe Sprintdistanz, grob)
+    51.5,    # Sprint 25,75 / Olympisch 51,5 (Ironman-Marke: 5150)
+    113.0,   # Mitteldistanz / Ironman 70.3
+    226.0,   # Langdistanz / Ironman
+)
+
+
+def report_triathlon_distanzen(events: list[dict]) -> list[str]:
+    """Meldet Triathlon-Zeilen, deren Distanz zu keinem gängigen Format
+    passt.
+
+    Ein Triathlon ist die SUMME aus Schwimmen, Rad und Laufen; die
+    üblichen Formate liegen bei ~26, ~52, 113 und 226 km. Steht dort
+    etwas ganz anderes (im Bestand z. B. „Ironman Hamburg · 178 km" -
+    das ist die Radstrecke, oder „Ironman 70.3 Kraichgau · 52 km" - das
+    ist die olympische Distanz, nicht die 113 km einer 70.3), stimmt
+    entweder die Zahl nicht oder die Zeile gehört zu einem anderen
+    Wettbewerb derselben Veranstaltung.
+
+    **Nur gemeldet.** Die Marke sagt zwar die Solldistanz („70.3" sind
+    113 km), aber viele Ironman-Veranstaltungen tragen an einem
+    Wochenende mehrere Wettbewerbe aus - die 52 km könnten also der
+    5150-Wettbewerb sein, der nur falsch zugeordnet ist. Automatisch
+    überschreiben würde hier echte Daten verfälschen; die Lehre dazu
+    steht im README.
+    """
+    treffer: list[str] = []
+    for event in events:
+        if event.get("art1") != "Triathlon":
+            continue
+        # Nur der klassische Triathlon (Schwimmen-Rad-Laufen) hat diese
+        # Formate. Ein Duathlon, ein Aquathlon oder ein SwimRun hat ganz
+        # andere Gesamtlängen - ein 15-km-SwimRun ist völlig normal und
+        # gehört nicht in diese Meldung.
+        if event.get("art2") not in ("Straße", "Cross"):
+            continue
+        km = event.get("laenge_km")
+        if km is None:
+            continue
+        # 15 % Toleranz: Die Strecken weichen von Ort zu Ort ab (ein
+        # "Olympischer" Triathlon kann 48 oder 52 km lang sein).
+        if any(abs(km - soll) <= soll * 0.15 for soll in TRIATHLON_DISTANZEN_KM):
+            continue
+        treffer.append(f"{event.get('name')} ({event.get('datum_start')}): "
+                       f"{km} km passt zu keinem Triathlon-Format"
+                       + (f", Label {event.get('wettbewerb')!r}" if event.get("wettbewerb") else ""))
+    return treffer
 
 
 def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
@@ -940,6 +1077,10 @@ def main() -> None:
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
 
     events, excluded, override_changes = apply_overrides(events)
+    # VOR refresh_art2: Das holt die Kategorie aus der Lauf-Liste und
+    # würde einem noch als "Laufen" geführten Triathlon "Trail/Cross"
+    # verpassen.
+    multisport_fixes = fix_multisport_art1(events)
     art2_merges = merge_trail_cross(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
@@ -952,6 +1093,8 @@ def main() -> None:
     events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
     implausible = report_implausible_distances(events)
+    tri_teilstrecken = report_multisport_teilstrecken(events)
+    tri_distanzen = report_triathlon_distanzen(events)
     # Zusammenführen und Namen-Vereinheitlichen bedingen sich GEGENSEITIG:
     # Nach dem Zusammenführen ändern sich die Mehrheiten innerhalb einer
     # Veranstaltung, und umgekehrt lässt ein vereinheitlichter Name zwei
@@ -986,6 +1129,7 @@ def main() -> None:
 
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Per Override ausgeschlossen", excluded)
+    section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Kategorie Trail/Cross zusammengefasst", art2_merges)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
@@ -998,6 +1142,9 @@ def main() -> None:
     section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
     section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
+    section("⚠ Mehrsport: Zeile sieht nach einer Teilstrecke aus (nur Hinweis)",
+            tri_teilstrecken)
+    section("⚠ Triathlon-Distanz passt zu keinem Format (nur Hinweis)", tri_distanzen)
     section("⚠ Unplausible Laufdistanz an einem Tag (nur Hinweis)", implausible)
     section("Duplikat-Gruppen zusammengeführt", dup_report)
     section("Laufserie: Datum aus dem Termin-Label übernommen", series_fixes)

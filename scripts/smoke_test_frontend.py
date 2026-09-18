@@ -298,16 +298,46 @@ def pruefe_gruppierung(ctx, basis):
     print("\nZusammenfassen (events.html?gruppiert=1)")
     seite, probleme = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1", "tr.group-row")
     pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    # Die Spalte „#" gibt es nicht mehr (sie wurde als Durchnummerierung
+    # der Events gelesen). Die Zahl der Strecken kommt deshalb aus der
+    # Trefferzeile: Auf EINE Veranstaltung eingegrenzt steht dort
+    # „1 Veranstaltung (N Strecken)" - und genau N Zeilen müssen sich
+    # aufklappen.
     zu = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
         if (!r) return null;
-        return {anzahl: parseInt(r.querySelector('.count-pill').textContent, 10),
+        return {name: r.querySelector('.group-name-text').textContent.trim(),
                 laenge: (r.querySelector('.col-laenge_km') || {}).textContent || '',
                 marken: r.querySelectorAll('.badge').length,
                 hoehe: Math.round(r.getBoundingClientRect().height),
+                spalten: [...document.querySelectorAll('thead th')].map(th => th.className),
                 offen: r.classList.contains('open')}; }""")
     if not pruefe(bool(zu), "es gibt eine Veranstaltung mit mehreren Strecken"):
         seite.close()
         return
+    pruefe(not any("col-anzahl" in k for k in zu["spalten"]),
+           "es gibt keine „#\u201c-Spalte mehr (%d Spalten)" % len(zu["spalten"]))
+    # Der Pfeil sitzt jetzt ganz links, an der Stelle der alten Zahl.
+    pruefe(seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
+               const pfeil = r.querySelector('.chevron');
+               const zelle = r.querySelector('td');
+               if (!pfeil || !zelle) return false;
+               return pfeil.getBoundingClientRect().left - zelle.getBoundingClientRect().left < 16; }"""),
+           "der Aufklapp-Pfeil steht am linken Rand der ersten Spalte")
+
+    # Auf diese eine Veranstaltung eingrenzen (über die Mastersuche) und
+    # die Zahl der Strecken aus der Trefferzeile lesen.
+    seite.fill("#master-search", zu["name"])
+    seite.wait_for_timeout(700)
+    zahlen = seite.evaluate("""() => {
+        const t = document.getElementById('result-count').textContent;
+        const m = t.match(/(\d+)\D+\((\d+)/);
+        return m ? { veranstaltungen: +m[1], strecken: +m[2], text: t } : { text: t };
+    }""")
+    if zahlen.get("veranstaltungen") != 1:
+        ueberspringe("Name trifft mehrere Veranstaltungen (%s)" % zahlen["text"])
+        seite.close()
+        return
+    zu["anzahl"] = zahlen["strecken"]
     # Zugeklappt steht in der Länge-Spalte die SPANNE ("5–42,2 km"), keine
     # Marke je Strecke: Eine Veranstaltung mit vielen Wettbewerben machte
     # die Zeile sonst vielfach höher als alle anderen.

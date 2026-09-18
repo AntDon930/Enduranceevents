@@ -224,13 +224,20 @@
   // UI aufbauen: Button (im Mount-Punkt #auth-mount) + Modal (an <body>)
   // ---------------------------------------------------------------------
   const STYLE = `
+    /* Wie die Nachbarknöpfe im blauen Kopf: durchscheinend, weißer
+       Rahmen. Vorher war der Knopf WEISS gefüllt - damit war "Anmelden"
+       das Auffälligste auf der ganzen Startseite, obwohl das Konto nur
+       Zubehör ist (vom Nutzer gemeldet). Weiß gefüllt ist im Kopf jetzt
+       nur noch die aktive Sprache, und das ist eine Zustandsanzeige,
+       kein Angebot. */
     .ee-auth-btn {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 14px; border-radius: 999px; border: none;
-      background: #fff; color: #14315e; cursor: pointer;
+      padding: 5px 14px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.14); color: #fff; cursor: pointer;
       font-size: 0.8rem; font-weight: 700;
     }
-    .ee-auth-btn:hover { opacity: 0.92; }
+    .ee-auth-btn:hover { background: rgba(255,255,255,0.26); }
     .ee-auth-user { display: inline-flex; align-items: center; gap: 8px; }
     .ee-auth-user button {
       padding: 4px 11px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.55);

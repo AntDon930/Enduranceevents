@@ -282,22 +282,6 @@
   @media (prefers-reduced-motion: reduce) {
     .chevron { transition: none; }
   }
-  /* Anzahl der zusammengefassten Strecken. Auch die 1 wird angezeigt -
-     sonst sieht eine einzelne Strecke nach einem fehlenden Wert aus.
-     Bewusst ohne Kapsel/Rahmen: als Kapsel war die Zahl breiter als die
-     ganze Spalte jetzt ist. */
-  /* Die Zahl der zusammengefassten Strecken steht schlicht in der
-     Tabelle, am linken Rand der ersten Spalte. Eine Variante, in der sie
-     als Kapsel halb über der Rahmenlinie lag, war ausprobiert und wieder
-     verworfen - sie wirkte wie ein aufgeklebtes Etikett. */
-  .count-pill {
-    display: inline-block;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-muted);
-    text-align: left;
-  }
-  .group-row:hover .count-pill { color: var(--text); }
   /* Die Marken in der Länge-Spalte (eine Kapsel je Distanz) sind weg:
      Sie sahen mit ihrem Rahmen und dem abgesetzten Hintergrund aus, als
      ließen sie sich anklicken, und bei einer Veranstaltung mit vielen
@@ -310,7 +294,6 @@
      (vom Nutzer gemeldet). Kenntlich sind Veranstaltung und Strecke jetzt
      über Pfeil, Anzahl und Einrückung - nicht über die Schriftgröße. */
   tbody tr.sub-row .col-name { padding-left: 22px; }
-  tbody tr.sub-row .col-anzahl { color: var(--text-muted); }
   /* Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
      (siehe groupRowHtml) - zwei Strecken sind dann auch zwei Zeilen, nicht
      drei. Damit die Zeilen einer Veranstaltung dabei wie ein Block wirken,
@@ -541,9 +524,6 @@
      danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
      ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
      immer zu breit. */
-  .col-anzahl { width: 28px; text-align: left; }
-  thead th.col-anzahl .th-inner { padding-left: 8px; padding-right: 0; }
-  tbody td.col-anzahl { padding-left: 8px; padding-right: 0; }
   .col-name { width: 22%; }
   .col-datum { width: 13%; }
   /* 13 %, nicht 11 %: Bei 11 % (93 px auf Handybreite) brach
@@ -1156,8 +1136,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=62082c3c"></script>
-<script src="filter-ui.js?v=50612dad"></script>
+<script src="filters.js?v=1fa6339e"></script>
+<script src="filter-ui.js?v=75bf0ac5"></script>
 
 <script>
 (async function () {
@@ -1238,7 +1218,6 @@
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       col_entfernung: 'Entfernung',
-      col_anzahl: 'Anzahl',
       sort_hint: 'Klicken zum Sortieren',
       group_toggle: 'Veranstaltungen zusammenfassen',
       result_count_grouped: (g, n, total) => `${g} Veranstaltungen (${n} Strecken) von ${total} Events`,
@@ -1353,7 +1332,6 @@
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       col_entfernung: 'Distance',
-      col_anzahl: 'Count',
       sort_hint: 'Click to sort',
       group_toggle: 'Group by event',
       result_count_grouped: (g, n, total) => `${g} events (${n} races) of ${total}`,
@@ -1553,12 +1531,19 @@
   // Veranstaltung besteht - eine einzelne Strecke zeigt "1". Die Spalte
   // ist nicht sortierbar (SORT_KEYS kennt sie nicht): sortiert werden
   // einzelne Strecken, die Gruppen entstehen erst danach.
-  const COUNT_COLUMN = { key: 'anzahl', labelKey: 'col_anzahl', short: '#', type: 'none' };
+  // Die Spalte „#" (Anzahl der Strecken) ist WEG. Sie stand beim
+  // Zusammenfassen ganz links und wurde als Durchnummerierung der Events
+  // gelesen - „1, 2, 1, 1, 3" sah nach einer kaputten Liste aus (vom
+  // Nutzer gemeldet). Wie viele Strecken sich hinter einer Veranstaltung
+  // verbergen, muss man vorher auch nicht wissen; dass sie sich
+  // aufklappt, sagt der Pfeil, der jetzt an dieser Stelle steht (er
+  // saß immer schon im Namensfeld, hat aber ohne die Zahl davor den
+  // Platz ganz links). Die Gesamtzahl steht weiter in der Trefferzeile
+  // („7 Veranstaltungen (10 Strecken)").
 
   function activeColumns() {
     const cols = COLUMNS.slice();
     if (state.origin) cols.splice(4, 0, DISTANCE_COLUMN);
-    if (state.gruppiert) cols.unshift(COUNT_COLUMN);
     return cols;
   }
 
@@ -2180,7 +2165,6 @@
     const td = (inhalt, extra) =>
       `<td class="col-${col.key}${extra ? ' ' + extra : ''}">${inhalt}</td>`;
     switch (col.key) {
-      case 'anzahl': return td('');   // nur in Gruppenzeilen gefüllt
       case 'name': {
         const wb = displayWettbewerb(e);
         return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
@@ -2278,8 +2262,6 @@
     });
     return cols.map(col => {
       switch (col.key) {
-        case 'anzahl':
-          return `<td class="col-anzahl"><span class="count-pill">${g.rows.length}</span></td>`;
         case 'name':
           // Statt des Pfeils ein gleich breiter Platzhalter: sonst
           // beginnen die Namen einzelner Strecken weiter links als die

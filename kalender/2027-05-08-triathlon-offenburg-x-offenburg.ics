@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:Triathlon Offenburg
 LOCATION:Offenburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://triathlon-offenbu
- rg.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triathlon-offe
+ nburg.de/
 TRANSP:TRANSPARENT
 URL:https://triathlon-offenburg.de/
 END:VEVENT

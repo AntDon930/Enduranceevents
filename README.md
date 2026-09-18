@@ -1784,6 +1784,64 @@ Blaze-Schritte (Cloud Functions deployen, Extension „Trigger Email"
 plus SMTP) – siehe unten. Abos werden also schon gespeichert, aber es
 geht noch keine E-Mail heraus; die Datenschutzerklärung sagt das auch so.
 
+## Ein Ironman ist kein Lauf
+
+Die vier aktiven Quellen sind **Laufkalender**. Ihre Konfiguration trägt
+deshalb `default_art1 = "Laufen"` – und genau das stand dann auch bei
+jedem Triathlon, den sie nebenbei mitlisten. Aufgefallen ist es an einer
+Zeile, die es nicht geben darf:
+
+> Ironman 70.3 Kraichgau · **Laufen** · Straße · 52 km
+
+Bei einem Ironman kann man sich nicht für den Lauf allein anmelden.
+**132 Einträge** waren betroffen: Triathlons, Duathlons, SwimRuns.
+
+**Die Sportart kommt jetzt aus dem Namen**, nicht aus der Quelle:
+`guess_art1()` (`scraper_lib.py`) überschreibt die Voreinstellung bei
+einem eindeutigen Stichwort, `clean_events.fix_multisport_art1()` holt
+den Bestand nach. Nur **eindeutige** Begriffe stehen in der Liste –
+„Triathlon" und „Ironman" sind eindeutig, ein „Rad" im Namen ist es
+nicht („Radrennbahn-Lauf"). Was nicht eindeutig ist, bleibt draußen;
+dieselbe Vorsicht wie beim Löschen (siehe „Datenqualität").
+
+**„Triathlon" ist die Mehrsport-Schublade.** Duathlon
+(Laufen-Rad-Laufen), Aquathlon (Schwimmen-Laufen), SwimRun und
+Quadrathlon sind keine Triathlons im Wortsinn, gehören aber zur selben
+Familie – und die Seite hat nur vier Sportarten. Die genaue Form steht
+in `art2`: **Straße, Cross, Duathlon, Aquathlon, Swimrun, Quadrathlon,
+Indoor**. Damit ist auch das Kategorie-Panel für Triathlon gefüllt, das
+bis dahin leer gewesen wäre.
+
+Dabei gilt: **das Format vor dem Gelände**. Ein „Baltic X Cross
+Duathlon" ist ein *Duathlon*, der im Gelände stattfindet – danach sucht
+jemand, nicht nach „Cross".
+
+### Was dabei noch aufgefallen ist (und nur gemeldet wird)
+
+Zwei Sorten Fehler stecken noch in den Triathlon-Daten. Beide werden von
+`clean_events.py` **gemeldet, nicht korrigiert** – aus demselben Grund
+wie bei den verdächtigen Distanzen:
+
+1. **Teilstrecken als eigene Zeile** (5 Fälle). Die Quellen listen bei
+   einem Triathlon oft die drei Disziplinen einzeln auf, und daraus
+   wurde je eine Zeile: „Ironman Hamburg · 42,2 km Laufen entlang der
+   Alster" ist der Laufteil, keine Anmeldemöglichkeit. Ob so eine Zeile
+   wirklich eine Teilstrecke ist oder doch ein eigener Wettbewerb (es
+   gibt Staffeln und Einzelstarts), sagt die Ausschreibung – nicht ein
+   Muster.
+2. **Distanzen, die zu keinem Format passen** (44 Fälle). Ein Triathlon
+   ist die Summe aus Schwimmen, Rad und Laufen; die üblichen Formate
+   liegen bei ~26, ~52, 113 und 226 km. „Ironman Hamburg · 178 km" ist
+   die Radstrecke, „Ironman 70.3 Kraichgau · 52 km" die olympische
+   Distanz statt der 113 km einer 70.3. Automatisch überschreiben wäre
+   falsch: Viele Ironman-Veranstaltungen tragen an einem Wochenende
+   mehrere Wettbewerbe aus, die 52 km könnten also der 5150 sein, nur
+   falsch zugeordnet. Geprüft wird das einzeln, bestätigte Fälle kommen
+   als Override in `manual_overrides.json`.
+
+Die Meldungen stehen bei jedem Lauf von `clean_events.py` im Bericht
+(mit `--quiet` nur als Zahl).
+
 ## Die Mastersuche
 
 Ein Feld links von der Trefferzahl, das über **Eventname, Wettbewerb und
@@ -2268,7 +2326,7 @@ und dann `http://localhost:8000` im Browser öffnen.
 
 `scripts/smoke_test_frontend.py` nimmt einem das Durchklicken ab. Das
 Skript startet selbst einen Server auf einem freien Port, öffnet die drei
-Seiten auf Handybreite (390 px) in Chromium und prüft 125 Punkte:
+Seiten auf Handybreite (390 px) in Chromium und prüft 127 Punkte:
 
 ```bash
 python3 scripts/smoke_test_frontend.py        # alles, unsichtbar

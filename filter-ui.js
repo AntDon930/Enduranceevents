@@ -133,7 +133,15 @@
   const ART2_BY_ART1 = {
     'Laufen': ['Straße', 'Trail/Cross', 'Bahn', 'Berg', 'Hindernis', 'Backcountry Ultra'],
     'Schwimmen': ['Freiwasser', 'Becken'],
-    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross']
+    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross'],
+    // Triathlon ist die Mehrsport-Schublade: Duathlon (Laufen-Rad-Laufen),
+    // Aquathlon (Schwimmen-Laufen) und SwimRun sind keine Triathlons im
+    // Wortsinn, gehören aber zur selben Familie - und die genaue Form ist
+    // genau die Auskunft, die jemand hier sucht. Dieselben Werte erzeugt
+    // ART2_KEYWORDS_TRIATHLON in scraper_lib.py; test_kategorie
+    // vergleicht beide Listen.
+    'Triathlon': ['Straße', 'Cross', 'Duathlon', 'Aquathlon', 'Swimrun',
+                  'Quadrathlon', 'Indoor']
   };
   // Alle Kategorien, die ART2_BY_ART1 kennt - die Gegenstuecke zu
   // BEKANNTE_WERTE fuer `art2`.

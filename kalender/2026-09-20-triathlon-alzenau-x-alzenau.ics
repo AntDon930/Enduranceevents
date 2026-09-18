@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
 SUMMARY:Triathlon Alzenau
 LOCATION:Alzenau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.triathlon-alz
- enau.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.triathlon-
+ alzenau.de/
 TRANSP:TRANSPARENT
 URL:https://www.triathlon-alzenau.de/
 END:VEVENT

@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270605
 DTEND;VALUE=DATE:20270607
 SUMMARY:Berlin Triathlon
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://berlin-triathl
- on.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 9 km\nhttps://berlin-tria
+ thlon.de/
 TRANSP:TRANSPARENT
 URL:https://berlin-triathlon.de/
 END:VEVENT

@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270822
 DTEND;VALUE=DATE:20270823
 SUMMARY:Allgäu Triathlon
 LOCATION:Immenstadt im Allgäu\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.808project.de
- /allgaeutriathlon
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.808project
+ .de/allgaeutriathlon
 TRANSP:TRANSPARENT
 URL:https://www.808project.de/allgaeutriathlon
 END:VEVENT

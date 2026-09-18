@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:100km Duathlon Dresden
 LOCATION:Dresden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.100km-du
- athlon.de
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 100 km\nhttps://www.100
+ km-duathlon.de
 TRANSP:TRANSPARENT
 URL:https://www.100km-duathlon.de
 END:VEVENT

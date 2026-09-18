@@ -84,7 +84,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 125 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 127 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen, Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -206,6 +206,48 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    `clean_events.drop_past_events()` rückwirkend, und `dropPastEvents()`
    beim Laden in `events.html`/`karte.html` (zwischen zwei Läufen liegt
    eine Woche).
+
+11. **Die Sportart kommt nicht von der Quelle.** Alle vier aktiven
+   Quellen sind **Laufkalender**; ihre `SiteConfig` trägt
+   `default_art1 = "Laufen"` – und damit stand jeder Triathlon als
+   Laufveranstaltung in der Liste. Aufgefallen ist es dem Nutzer an einer
+   Zeile, die es nicht geben darf: „Ironman 70.3 Kraichgau · Laufen ·
+   Straße". Bei einem Ironman kann man sich nicht für den Lauf allein
+   anmelden. 132 Einträge waren betroffen.
+   - `guess_art1()` (`scraper_lib.py`, `ART1_KEYWORDS`) überschreibt die
+     Voreinstellung der Quelle, wenn der Name eindeutig eine andere
+     Sportart nennt. `clean_events.fix_multisport_art1()` holt den
+     Bestand nach (idempotent, respektiert Overrides).
+   - **Nur eindeutige Stichwörter.** „Triathlon" und „Ironman" sind
+     eindeutig, ein „Rad" im Namen ist es nicht („Radrennbahn-Lauf").
+     Was nicht eindeutig ist, bleibt draußen – dieselbe Linie wie bei
+     der wichtigsten Lektion unten.
+   - **„Triathlon" ist die Mehrsport-Schublade.** Duathlon
+     (Laufen-Rad-Laufen), Aquathlon (Schwimmen-Laufen), SwimRun und
+     Quadrathlon sind keine Triathlons im Wortsinn, gehören aber zur
+     selben Familie; die Seite hat nur vier Sportarten. Die genaue Form
+     steht in **`art2`** (`ART2_KEYWORDS_TRIATHLON`): Straße, Cross,
+     Duathlon, Aquathlon, Swimrun, Quadrathlon, Indoor. Damit ist auch
+     `ART2_BY_ART1['Triathlon']` gefüllt, das bis dahin fehlte.
+   - **Das Format steht vor dem Gelände**: Ein „Baltic X Cross Duathlon"
+     ist ein **Duathlon**, der im Gelände stattfindet – danach filtert
+     jemand, nicht nach „Cross". Deshalb stehen Swimrun/Aquathlon/
+     Duathlon in der Liste VOR „Cross". Dieselbe Sorte Reihenfolge wie
+     bei `ART2_KEYWORDS_LAUFEN`, also nicht „aufräumen".
+   - **`guess_art2(text, config, art1)`** nimmt die Kategorie-Liste zur
+     Sportart (`ART2_LISTEN`). Ohne das dritte Argument bleibt es bei
+     der Lauf-Liste – ältere Aufrufe funktionieren unverändert, ein
+     Cross-Triathlon bekäme dort aber „Trail/Cross", also eine
+     Laufkategorie an einer Nicht-Laufveranstaltung.
+   - **Zwei Meldungen, keine automatische Korrektur** (siehe Lektion
+     unten): `report_multisport_teilstrecken()` findet Zeilen, die nur
+     eine Teilstrecke beschreiben („Ironman Hamburg · 42,2 km Laufen
+     entlang der Alster" – der Laufteil eines Triathlons, keine
+     Anmeldemöglichkeit; 5 Fälle), und `report_triathlon_distanzen()`
+     Zeilen, deren Distanz zu keinem gängigen Format passt (~26, ~52,
+     113, 226 km; 44 Fälle, nur für den klassischen Triathlon – ein
+     15-km-SwimRun ist normal). Beide gehören einzeln geprüft und als
+     Override eingetragen.
 
 ### Die wichtigste Lektion
 
@@ -331,8 +373,17 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `flex: 1` geben – dann rutscht der Knopf beim Umbruch nach links.
 - **Zusammenfassen ist reine Anzeige** (`state.gruppiert`,
   `buildGroups()`): Datenregel 1 (eine Zeile pro Strecke) bleibt gültig,
-  die Tabelle bündelt sie nur nach Name + Datum + Ort, zeigt die
-  Distanzen als Marken und vorn die Spalte „Anzahl" (auch „1").
+  die Tabelle bündelt sie nur nach Name + Datum + Ort und zeigt die
+  Spanne der Distanzen.
+- **Die Spalte „#" (Anzahl) gibt es nicht mehr.** Sie stand beim
+  Zusammenfassen ganz links und wurde als Durchnummerierung der Events
+  gelesen – „1, 2, 1, 1, 3" sah nach einer kaputten Liste aus (vom
+  Nutzer gemeldet). An ihrer Stelle steht jetzt der **Aufklapp-Pfeil**
+  (der saß immer schon im Namensfeld, hat ohne die Zahl davor aber den
+  Platz ganz links). Wie viele Strecken sich hinter einer Veranstaltung
+  verbergen, muss man vorher nicht wissen – die Gesamtzahl steht in der
+  Trefferzeile („7 Veranstaltungen (10 Strecken)"). Nicht
+  wieder einführen.
 - **Aufgeklappt zeigt die Veranstaltungszeile die erste Strecke selbst**
   (`groupRowHtml()` mit `offen`, `subRowsHtml()` gibt nur `rows.slice(1)`
   aus): zwei Strecken = zwei Zeilen. Die frühere dritte Zeile war die
@@ -1061,12 +1112,14 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    prüfen. **Kein Scraper ohne sein Ja**; die vier übersprungenen
    Quellen zeigen, warum.
    Was dafür vorher fehlt (und ohne die Links schon gebaut werden
-   kann): **`art2`-Stichwörter für Fahrrad, Schwimmen und Triathlon** –
-   `ART2_KEYWORDS_LAUFEN` ist die einzige Liste, alle anderen Sportarten
-   bekämen also „–" in der Kategorie-Spalte. Und
-   **`ART2_BY_ART1['Triathlon']` fehlt ganz**, das Kategorie-Panel wäre
-   für Triathlon leer. Die Distanzkategorien je Sportart
-   (`DISTANCE_CATEGORIES`) stehen dagegen schon.
+   kann): **`art2`-Stichwörter für Fahrrad und Schwimmen** –
+   für diese beiden Sportarten gibt es noch keine Liste, sie bekämen
+   also „–" in der Kategorie-Spalte. **Triathlon ist seit dem
+   18.09.2026 erledigt** (`ART2_KEYWORDS_TRIATHLON`,
+   `ART2_BY_ART1['Triathlon']`, siehe Datenregel 11) – und mit
+   `guess_art1()` steht auch das Muster, nach dem Fahrrad und Schwimmen
+   erkannt werden könnten. Die Distanzkategorien je Sportart
+   (`DISTANCE_CATEGORIES`) stehen ohnehin schon.
 2. **Vorbereitung auf >20.000 Events** – *erste Hälfte erledigt*: Die
    Tabelle zeichnet nur ein Fenster von 200 Einträgen (siehe
    Frontend-Fallen und „Tempo"), gemessen mit `bench_frontend.py`.
@@ -1103,6 +1156,11 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    **Events-Knopf im Kopf der Startseite**, kürzere Knopftexte („Filter
    zurücksetzen", „Events per E-Mail"), **kein ↗** mehr an Links, und
    der **Kartenrahmen** (keine zweite Weltkarte, Europa als Grenze).
+   Im dritten Durchgang (18.09.2026): der **Anmelden-Knopf** ist nicht
+   mehr weiß gefüllt (er war das Auffälligste auf der Startseite,
+   obwohl das Konto nur Zubehör ist), und die **Spalte „#"** ist weg –
+   an ihrer Stelle steht der Aufklapp-Pfeil.
+
    Ebenfalls erledigt: die **graue Maske** über allem außerhalb von
    DACH. Der Nutzer hat sich für die eigene GeoJSON-Datei entschieden
    und **gegen einen fremden Kachel-Anbieter** (18.09.2026) – siehe

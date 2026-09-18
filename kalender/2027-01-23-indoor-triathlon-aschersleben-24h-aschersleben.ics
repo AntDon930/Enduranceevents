@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270125
 SUMMARY:Indoor-Triathlon Aschersleben
 LOCATION:Aschersleben\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://triathlon-asch
- ersleben.de/
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: 24 h\nhttps://triathlon-a
+ schersleben.de/
 TRANSP:TRANSPARENT
 URL:https://triathlon-aschersleben.de/
 END:VEVENT

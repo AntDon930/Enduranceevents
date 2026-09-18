@@ -98,7 +98,15 @@
       'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
       'Mountainbike': { de: 'Mountainbike', en: 'Mountain Bike' },
       'Gravel': { de: 'Gravel', en: 'Gravel' },
-      'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' }
+      'Cyclecross': { de: 'Cyclecross', en: 'Cyclocross' },
+      // Mehrsport (art1 "Triathlon"): die Form des Wettkampfs. Alle vier
+      // Begriffe sind international dieselben; "Indoor" heißt der
+      // Hallen-Triathlon (Becken, Ergometer, Laufband).
+      'Duathlon': { de: 'Duathlon', en: 'Duathlon' },
+      'Aquathlon': { de: 'Aquathlon', en: 'Aquathlon' },
+      'Swimrun': { de: 'Swimrun', en: 'Swimrun' },
+      'Quadrathlon': { de: 'Quadrathlon', en: 'Quadrathlon' },
+      'Indoor': { de: 'Indoor', en: 'Indoor' }
     }
   };
 

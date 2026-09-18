@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270821
 DTEND;VALUE=DATE:20270822
 SUMMARY:Jedermanntriathlon
 LOCATION:Neustrelitz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://jedermann-tri
- athlon.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://jedermann-
+ triathlon.de/
 TRANSP:TRANSPARENT
 URL:https://jedermann-triathlon.de/
 END:VEVENT

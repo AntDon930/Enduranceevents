@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270529
 DTEND;VALUE=DATE:20270531
 SUMMARY:Powertriathlon Gera
 LOCATION:Gera\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://powertriathlon.de
- /home
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://powertriathlon
+ .de/home
 TRANSP:TRANSPARENT
 URL:https://powertriathlon.de/home
 END:VEVENT

@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Reiling - Harsewinkel Triathlon
 LOCATION:Harsewinkel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://trispeed.de/triath
- lon/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttp://trispeed.de/tri
+ athlon/
 TRANSP:TRANSPARENT
 URL:http://trispeed.de/triathlon/
 END:VEVENT

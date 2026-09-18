@@ -205,6 +205,70 @@ ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
 ]
 DEFAULT_ART2_LAUFEN = "Straße"
 
+# --------------------------------------------------------------------------
+# Sportart (art1): Mehrsport erkennen, nicht der Quelle glauben
+# --------------------------------------------------------------------------
+#
+# Alle vier aktiven Quellen sind LAUFkalender, ihre SiteConfig trägt also
+# `default_art1 = "Laufen"` - und damit landete jeder Triathlon als
+# Laufveranstaltung in der Liste. Der Nutzer hat es an einer Zeile gemerkt,
+# die es nicht geben darf: „Ironman 70.3 Kraichgau · Laufen · Straße".
+# Bei einem Ironman kann man sich nicht für den Lauf allein anmelden.
+#
+# Deshalb überschreibt `guess_art1()` die Voreinstellung, wenn der Name
+# eindeutig eine andere Sportart nennt. Zwei Regeln für diese Liste:
+#
+#   1. **Nur eindeutige Begriffe.** „Triathlon" und „Ironman" sind
+#      eindeutig; ein „Rad" im Namen ist es nicht („Radrennbahn-Lauf",
+#      „Am Radweg"). Was nicht eindeutig ist, bleibt draußen und wird
+#      lieber von clean_events.py GEMELDET - siehe die wichtigste Lektion
+#      im README: zu viel automatisch umgestellt ist schlimmer als eine
+#      Lücke, weil es unsichtbar ist.
+#   2. **Mehrsport gehört zu „Triathlon".** Duathlon (Laufen-Rad-Laufen),
+#      Aquathlon (Schwimmen-Laufen) und SwimRun sind keine Triathlons im
+#      Wortsinn, aber es sind Mehrsport-Wettkämpfe derselben Familie (in
+#      Deutschland auch derselben Verbandsstruktur). Die Seite hat vier
+#      Sportarten; „Triathlon" ist die Mehrsport-Schublade, und die
+#      genaue Form steht in `art2`.
+ART1_KEYWORDS: list[tuple[re.Pattern, str]] = [
+    # "ironman" deckt auch "Ironman 70.3 …" und "Ironman 5150 …" ab - die
+    # Marken-Kürzel brauchen keine eigene Zeile und wären ohne den
+    # Markennamen zu riskant ("70.3" könnte eine Distanz sein).
+    (re.compile(r"triathlon|ironman|challenge roth|xterra|"
+                r"duathlon|aquathlon|swim ?run|quadrathlon", re.I), "Triathlon"),
+]
+
+# Kategorien innerhalb der Mehrsport-Schublade. Reihenfolge wieder
+# spezifisch vor generisch, und die Formate stehen VOR dem Gelände:
+# Ein "Baltic X Cross Duathlon" ist ein Duathlon (das Format), der
+# zufällig im Gelände stattfindet - "Duathlon" ist die Auskunft, die
+# jemand beim Filtern sucht, "Cross" die Nebenangabe.
+ART2_KEYWORDS_TRIATHLON: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"swim ?run", re.I), "Swimrun"),
+    (re.compile(r"aquathlon", re.I), "Aquathlon"),
+    (re.compile(r"duathlon", re.I), "Duathlon"),
+    (re.compile(r"quadrathlon", re.I), "Quadrathlon"),
+    (re.compile(r"indoor", re.I), "Indoor"),
+    (re.compile(r"cross|xterra|gelände|off.?road", re.I), "Cross"),
+]
+DEFAULT_ART2_TRIATHLON = "Straße"
+
+# Welche art2-Liste zu welcher Sportart gehört. Ohne diese Zuordnung
+# bekäme ein Triathlon die Lauf-Kategorien ("Straße", "Trail/Cross", …) -
+# und ein "Cross-Duathlon" stünde als "Trail/Cross" da, also als
+# Laufkategorie an einer Nicht-Laufveranstaltung.
+ART2_LISTEN: dict[str, tuple[list, str | None]] = {
+    "Triathlon": (ART2_KEYWORDS_TRIATHLON, DEFAULT_ART2_TRIATHLON),
+}
+
+
+def guess_art1(text: str, config: "SiteConfig") -> str:
+    """Die Sportart aus dem Text - sonst die Voreinstellung der Quelle."""
+    for pattern, sportart in ART1_KEYWORDS:
+        if pattern.search(text or ""):
+            return sportart
+    return config.default_art1
+
 KNOWN_DISTANCES_KM_LAUFEN = {
     "marathon": 42.2,
     "halbmarathon": 21.1,
@@ -467,11 +531,19 @@ def round_km(value: float | int | None) -> float | None:
     return round(float(value), 1)
 
 
-def guess_art2(text: str, config: SiteConfig) -> str | None:
-    for pattern, kategorie in config.art2_keywords:
+def guess_art2(text: str, config: SiteConfig, art1: str | None = None) -> str | None:
+    """Die Kategorie aus dem Text.
+
+    `art1` entscheidet, welche Stichwortliste gilt: Ein Triathlon hat
+    andere Kategorien als ein Lauf (siehe ART2_LISTEN). Ohne `art1`
+    bleibt es bei der Liste aus der SiteConfig - so rufen ältere
+    Scraper-Skripte die Funktion weiter unverändert auf.
+    """
+    keywords, standard = ART2_LISTEN.get(art1 or "", (config.art2_keywords, config.default_art2))
+    for pattern, kategorie in keywords:
         if pattern.search(text or ""):
             return kategorie
-    return config.default_art2
+    return standard
 
 
 def guess_distance_km(text: str, config: SiteConfig) -> float | None:
@@ -974,7 +1046,10 @@ def normalize_jsonld_event(raw: dict, config: SiteConfig) -> Event:
     datum_ende = parse_flexible_date(str(raw.get("endDate") or "")) or datum_start
 
     combined_text = " ".join(str(raw.get(k) or "") for k in ("name", "description"))
-    art2 = guess_art2(combined_text, config)
+    # Sportart VOR Kategorie: Die Kategorie-Liste hängt an der Sportart
+    # (ein Triathlon hat andere Kategorien als ein Lauf).
+    art1 = guess_art1(combined_text, config)
+    art2 = guess_art2(combined_text, config, art1)
     laenge_km = guess_distance_km(combined_text, config)
     dauer_h = parse_duration_h(combined_text)
 
@@ -983,7 +1058,7 @@ def normalize_jsonld_event(raw: dict, config: SiteConfig) -> Event:
     return Event(
         land=land, name=name.strip() if name else None,
         standort=standort.strip() if standort else None,
-        lat=lat, lon=lon, art1=config.default_art1, art2=art2,
+        lat=lat, lon=lon, art1=art1, art2=art2,
         datum_start=datum_start, datum_ende=datum_ende,
         laenge_km=laenge_km, dauer_h=dauer_h, veranstalter_url=veranstalter_url,
     )
@@ -1027,8 +1102,9 @@ def parse_html_fallback(soup: BeautifulSoup, page_url: str, config: SiteConfig) 
         events.append(
             Event(
                 land=guess_land(f"{standort or ''} {combined_text}") or config.default_land,
-                name=name, standort=standort, art1=config.default_art1,
-                art2=guess_art2(combined_text, config),
+                name=name, standort=standort,
+                art1=guess_art1(combined_text, config),
+                art2=guess_art2(combined_text, config, guess_art1(combined_text, config)),
                 datum_start=datum_start, datum_ende=datum_start,
                 laenge_km=guess_distance_km(combined_text, config),
                 dauer_h=parse_duration_h(combined_text),
@@ -1207,7 +1283,8 @@ def fetch_events_from_api(session: requests.Session, api_url: str, config: SiteC
             Event(
                 land=land, name=str(name).strip() if name else None,
                 standort=str(standort).strip() if standort else None,
-                art1=config.default_art1, art2=guess_art2(combined_text, config),
+                art1=guess_art1(combined_text, config),
+                art2=guess_art2(combined_text, config, guess_art1(combined_text, config)),
                 datum_start=datum_start, datum_ende=datum_start,
                 laenge_km=guess_distance_km(combined_text, config),
                 dauer_h=parse_duration_h(combined_text),

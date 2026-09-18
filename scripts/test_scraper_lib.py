@@ -143,6 +143,72 @@ def test_kategorie() -> None:
     fehlend = sorted(k for k in erzeugbar if f"'{k}'" not in zeile)
     check("Filter kennt alle Laufen-Kategorien", fehlend, [])
 
+    # ---- Mehrsport: Ein Ironman ist kein Lauf ----
+    #
+    # Alle Quellen sind Laufkalender (default_art1 = "Laufen"), also stand
+    # jeder Triathlon als Laufveranstaltung in der Liste - vom Nutzer an
+    # "Ironman 70.3 Kraichgau · Laufen · Straße" gemeldet. Bei einem
+    # Ironman kann man sich nicht für den Lauf allein anmelden.
+    from scraper_lib import (ART2_KEYWORDS_TRIATHLON, DEFAULT_ART2_TRIATHLON,
+                             guess_art1)
+    print("\nSportart-Erkennung (guess_art1):")
+    for name, erwartet in (
+            ("Ironman 70.3 Kraichgau", "Triathlon"),
+            ("Ironman 5150 Erkner Berlin-Brandenburg", "Triathlon"),
+            ("Challenge Roth", "Triathlon"),
+            ("Kornwestheimer Triathlon", "Triathlon"),
+            ("Baltic X Cross Duathlon", "Triathlon"),
+            ("SwimRun Rheinsberg", "Triathlon"),
+            # Gegenprobe: Läufe bleiben Läufe. "Marathon" und "Ultra"
+            # dürfen nichts umstellen.
+            ("Königsforst-Marathon", "Laufen"),
+            ("Hofer Backyard Ultra", "Laufen"),
+            ("Spartan Race Hindernislauf", "Laufen")):
+        check(name, guess_art1(name, CONFIG), erwartet)
+
+    print("\nKategorie beim Mehrsport (guess_art2 mit art1):")
+    # Das Format steht VOR dem Gelände: Ein "Cross Duathlon" ist ein
+    # Duathlon, der im Gelände stattfindet - "Duathlon" ist die Auskunft,
+    # nach der jemand filtert.
+    check("Cross Duathlon -> Duathlon",
+          guess_art2("Baltic X Cross Duathlon", CONFIG, "Triathlon"), "Duathlon")
+    check("Crosstriathlon -> Cross",
+          guess_art2("Wuppertaler Sparkassen Crosstriathlon", CONFIG, "Triathlon"), "Cross")
+    check("SwimRun", guess_art2("SwimRun Rheinsberg", CONFIG, "Triathlon"), "Swimrun")
+    check("Indoor-Triathlon",
+          guess_art2("Indoor-Triathlon Aschersleben", CONFIG, "Triathlon"), "Indoor")
+    check("Ironman -> Straße",
+          guess_art2("Ironman 70.3 Kraichgau", CONFIG, "Triathlon"), "Straße")
+    # Ohne art1 bleibt es bei der Lauf-Liste (ältere Aufrufe).
+    check("ohne art1 unverändert", guess_art2("Mausebergecrosslauf", CONFIG), "Trail/Cross")
+
+    # Über den ganzen Block statt über eine Zeile: Die Triathlon-Liste
+    # ist länger als 80 Zeichen und daher umbrochen.
+    start = ui_js.index("'Triathlon': [")
+    zeile_tri = ui_js[start:ui_js.index("]", start)]
+    erzeugbar_tri = {kat for _, kat in ART2_KEYWORDS_TRIATHLON} | {DEFAULT_ART2_TRIATHLON}
+    fehlend_tri = sorted(k for k in erzeugbar_tri if f"'{k}'" not in zeile_tri)
+    check("Filter kennt alle Triathlon-Kategorien", fehlend_tri, [])
+
+    # Und die Übersetzung muss jeden Wert kennen - sonst steht im Filter
+    # der rohe Schlüssel.
+    filters_js = (Path(__file__).resolve().parent.parent / "filters.js").read_text(encoding="utf-8")
+    ohne_text = sorted(k for k in erzeugbar_tri if f"'{k}': {{" not in filters_js)
+    check("jede Triathlon-Kategorie ist übersetzt", ohne_text, [])
+
+    # Der Bestand wird nachgezogen (clean_events.fix_multisport_art1).
+    from clean_events import fix_multisport_art1
+    bestand = [
+        {"name": "Ironman 70.3 Kraichgau", "art1": "Laufen", "art2": "Straße"},
+        {"name": "Cross-Duathlon in Hünsborn", "art1": "Laufen", "art2": "Trail/Cross"},
+        {"name": "Königsforst-Marathon", "art1": "Laufen", "art2": "Straße"},
+    ]
+    check("zwei Einträge umgestellt", len(fix_multisport_art1(bestand)), 2)
+    check("Sportart und Kategorie stimmen",
+          [(r["art1"], r["art2"]) for r in bestand],
+          [("Triathlon", "Straße"), ("Triathlon", "Duathlon"), ("Laufen", "Straße")])
+    check("idempotent", len(fix_multisport_art1(bestand)), 0)
+
 
 def test_land() -> None:
     print("\nLand-Erkennung (guess_land):")
