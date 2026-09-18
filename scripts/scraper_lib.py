@@ -1755,6 +1755,43 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
     return result, excluded
 
 
+# Formate, die KEIN Ausdauer-Event im Zuschnitt dieser Seite sind.
+#
+# Die Seite führt Laufen, Schwimmen, Fahrrad und Triathlon. HYROX ist
+# etwas anderes: achtmal ein Kilometer Laufen im Wechsel mit acht
+# Kraftstationen (Sled Push, Burpees, Wall Balls, Rudern …). Man kann
+# sich dafür nicht als Läufer anmelden und eine Laufleistung erbringen -
+# dieselbe Überlegung wie beim Ironman, nur umgekehrt. Vom Nutzer am
+# 18.09.2026 entschieden („Die Events sind mit Fitness aufgaben und
+# keine reinen Lauf schwimm oder Rennrad events").
+#
+# **Diese Liste ist bewusst winzig und leicht umzudrehen**: „erst einmal
+# raus" hat der Nutzer gesagt. Wer HYROX zurückhaben will, nimmt die
+# Zeile heraus - beim nächsten Datenlauf sind die Events wieder da.
+#
+# Nur EINDEUTIGE Markennamen gehören hierher. Ein Stichwort wie
+# „Fitness" oder „Hindernis" wäre falsch: Ein Hindernislauf (Spartan,
+# XLETIX, CrossDeLuxe) IST ein Laufformat und bleibt in der Liste.
+NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"\bhyrox\b", re.I), "HYROX (Laufen + Kraftstationen)"),
+]
+
+
+def ist_nicht_ausdauer(text: str | None) -> str | None:
+    """Der Grund, warum dieses Event nicht in die Liste gehört - sonst None."""
+    for muster, grund in NICHT_AUSDAUER:
+        if muster.search(text or ""):
+            return grund
+    return None
+
+
+def filter_nicht_ausdauer(events: list[Event]) -> tuple[list[Event], int]:
+    """Wirft Formate heraus, die kein Ausdauer-Event sind (NICHT_AUSDAUER)."""
+    kept = [e for e in events
+            if not ist_nicht_ausdauer(f"{e.name or ''} {e.wettbewerb or ''}")]
+    return kept, len(events) - len(kept)
+
+
 def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) -> tuple[list[Event], int]:
     kept = [
         e for e in events
@@ -1999,6 +2036,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
         print(f"  ({overrides_excluded} Event(s) laut scripts/manual_overrides.json "
               f"ausgeschlossen, z. B. verifizierte Duplikate unter anderem Namen.)")
 
+    events_to_use, nicht_ausdauer_skipped = filter_nicht_ausdauer(events_to_use)
+    if nicht_ausdauer_skipped:
+        print(f"  ({nicht_ausdauer_skipped} Event(s) übersprungen, die kein "
+              f"Ausdauer-Format sind - siehe NICHT_AUSDAUER.)")
     events_to_use, too_short_skipped = filter_min_distance(events_to_use)
     if too_short_skipped:
         print(f"  ({too_short_skipped} Event(s) unter {MIN_DISTANCE_KM:g} km übersprungen.)")

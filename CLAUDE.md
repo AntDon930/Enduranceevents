@@ -322,6 +322,23 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    **Ein fehlendes Event ist die unangenehmere Sorte Fehler**: Eine
    falsche Zahl sieht man, eine fehlende Zeile nicht.
 
+14. **HYROX gehört nicht in die Liste.** Die Seite führt Laufen,
+   Schwimmen, Fahrrad und Triathlon. HYROX ist achtmal ein Kilometer
+   Laufen im Wechsel mit acht Kraftstationen (Sled Push, Burpees, Wall
+   Balls, Rudern) – man kann sich dafür nicht als Läufer anmelden.
+   Vom Nutzer am 18.09.2026 entschieden, ausdrücklich „erst einmal".
+   - `NICHT_AUSDAUER` in `scraper_lib.py` hält die Liste, angewendet
+     beim Einsammeln (`filter_nicht_ausdauer`) und rückwirkend
+     (`clean_events.drop_nicht_ausdauer`) – dieselbe Aufteilung wie bei
+     den vergangenen Events.
+   - **Die Liste ist winzig und leicht umzudrehen**: Zeile heraus, und
+     beim nächsten Datenlauf sind die Events wieder da.
+   - **Nur eindeutige Markennamen.** Ein Stichwort wie „Fitness" oder
+     „Hindernis" wäre falsch: Ein Hindernislauf (Spartan, XLETIX,
+     CrossDeLuxe, Muddy Angel, Tough Mudder) IST ein Laufformat und
+     bleibt. `test_nicht_ausdauer` hält beide Seiten fest.
+   - Jeder Ausschluss wird **gemeldet**, nicht stillschweigend gemacht.
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die

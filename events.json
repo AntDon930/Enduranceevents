@@ -12094,18 +12094,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "HYROX Karlsruhe",
-    "standort": "Rheinstetten",
-    "lat": 48.9618109,
-    "lon": 8.292246,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-01",
-    "datum_ende": "2026-10-04",
-    "veranstalter_url": "https://hyrox.com/event/hyrox-karlsruhe/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Oberaudorf Trail Festival",
     "standort": "Oberaudorf",
     "lat": 47.6473685,
@@ -24210,18 +24198,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "HYROX Hamburg",
-    "standort": "Schanzenviertel",
-    "lat": 53.5621469,
-    "lon": 9.9658095,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-28",
-    "datum_ende": "2026-11-01",
-    "veranstalter_url": "https://hyrox.com/event/intersport-hyrox-hamburg/"
-  },
-  {
-    "land": "Deutschland",
     "name": "1. Halloween-Run-Rotenburg",
     "standort": "Rotenburg (Wümme)",
     "lat": 53.1108906,
@@ -27650,18 +27626,6 @@
     "datum_ende": "2026-11-11",
     "veranstalter_url": "https://bernauer-lauffreunde.de/",
     "dauer_h": 1.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "HYROX Düsseldorf",
-    "standort": "Düsseldorf",
-    "lat": 51.2230411,
-    "lon": 6.7824545,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-11",
-    "datum_ende": "2026-11-15",
-    "veranstalter_url": "https://hyrox.com/event/hyrox-dusseldorf/"
   },
   {
     "land": "Deutschland",
@@ -32372,18 +32336,6 @@
     "laenge_km": 6.4,
     "veranstalter_url": "https://www.zhs-muenchen.de/",
     "wettbewerb": "6,4 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "HYROX Frankfurt",
-    "standort": "Frankfurt am Main",
-    "lat": 50.1109221,
-    "lon": 8.6821267,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-10",
-    "datum_ende": "2026-12-13",
-    "veranstalter_url": "https://hyrox.com/event/fitness-first-hyrox-frankfurt/"
   },
   {
     "land": "Deutschland",
@@ -42282,18 +42234,6 @@
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
     "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=1&cHash=da16ec58accef2c8fd08c8ae6cadf6d6"
-  },
-  {
-    "land": "Deutschland",
-    "name": "HYROX Cologne",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-08",
-    "datum_ende": "2027-04-11",
-    "veranstalter_url": "https://hyrox.com/event/all-inclusive-fitness-hyrox-cologne/"
   },
   {
     "land": "Deutschland",

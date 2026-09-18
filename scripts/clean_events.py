@@ -88,6 +88,7 @@ from scraper_lib import (  # noqa: E402
     is_same_event,
     is_same_race,
     find_override,
+    ist_nicht_ausdauer,
     ART2_LISTEN,
     _haversine_km,
     OVERRIDE_FIELDS,
@@ -192,6 +193,37 @@ def refresh_art2(events: list[dict]) -> list[str]:
             changed.append(f"{event.get('name')}: art2 {current!r} -> {guessed!r}")
             event["art2"] = guessed
     return changed
+
+
+def drop_nicht_ausdauer(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Entfernt Formate, die kein Ausdauer-Event sind (NICHT_AUSDAUER).
+
+    Das Gegenstück zu `scraper_lib.filter_nicht_ausdauer()` für den
+    bestehenden Bestand - dieselbe Aufteilung wie bei den vergangenen
+    Events (`filter_past` beim Einsammeln, `drop_past_events` hier).
+
+    Die einzige Zeile in der Liste ist HYROX: achtmal ein Kilometer
+    Laufen im Wechsel mit acht Kraftstationen. Vom Nutzer am 18.09.2026
+    entschieden, und ausdrücklich „erst einmal" - eine Zeile aus
+    NICHT_AUSDAUER heraus, und die Events kommen beim nächsten
+    Datenlauf zurück.
+
+    Anders als die Distanz- und Datumsregeln ist das KEINE Heuristik:
+    Ein eindeutiger Markenname ist eine Tatsache, keine Vermutung. Die
+    Warnung der „wichtigsten Lektion" gilt trotzdem - deshalb steht in
+    der Liste nur, was der Nutzer einzeln entschieden hat, und jeder
+    Ausschluss wird gemeldet.
+    """
+    kept: list[dict] = []
+    entfernt: list[str] = []
+    for event in events:
+        grund = ist_nicht_ausdauer(f"{event.get('name') or ''} "
+                                   f"{event.get('wettbewerb') or ''}")
+        if grund:
+            entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
+        else:
+            kept.append(event)
+    return kept, entfernt
 
 
 def fill_art2_andere_sportarten(events: list[dict]) -> list[str]:
@@ -1423,6 +1455,7 @@ def main() -> None:
     # VOR refresh_art2: Das holt die Kategorie aus der Lauf-Liste und
     # würde einem noch als "Laufen" geführten Triathlon "Trail/Cross"
     # verpassen.
+    events, nicht_ausdauer = drop_nicht_ausdauer(events)
     multisport_fixes = fix_multisport_art1(events)
     # Nach fix_multisport_art1: Ein Triathlon ist zuerst ein Triathlon;
     # erst danach ist ein "Rad 50 km" bei einer LAUFveranstaltung ein
@@ -1481,6 +1514,7 @@ def main() -> None:
 
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Per Override ausgeschlossen", excluded)
+    section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Sportart korrigiert (Label nennt eine andere Sportart)",
             fremde_sportart)

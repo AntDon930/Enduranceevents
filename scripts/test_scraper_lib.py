@@ -1544,6 +1544,38 @@ def test_such_vorschlaege() -> None:
           len([x for x in d["bonn"] if x.startswith("Bonn:")]), 1)
 
 
+def test_nicht_ausdauer() -> None:
+    """HYROX gehört nicht in die Liste - ein Hindernislauf schon.
+
+    HYROX ist achtmal ein Kilometer Laufen im Wechsel mit acht
+    Kraftstationen; man kann sich dafür nicht als Läufer anmelden. Vom
+    Nutzer am 18.09.2026 entschieden.
+
+    Die Gegenprobe ist der wichtigere Teil: Ein Hindernislauf (Spartan,
+    XLETIX, CrossDeLuxe, Muddy Angel) IST ein Laufformat und bleibt.
+    Ein Stichwort wie „Fitness" oder „Hindernis" in NICHT_AUSDAUER
+    hätte die alle mitgenommen.
+    """
+    print("\nKein Ausdauer-Format (NICHT_AUSDAUER):")
+    from scraper_lib import ist_nicht_ausdauer
+    from clean_events import drop_nicht_ausdauer
+
+    for name in ("HYROX Karlsruhe", "Intersport HYROX Hamburg", "hyrox cologne"):
+        check(f"{name!r} fliegt heraus", bool(ist_nicht_ausdauer(name)), True)
+    for name in ("Kulmbach Spartan Trifecta Weekend", "XLETIX Challenge - Nürburgring",
+                 "Family-CrossDeLuxe Leipzig", "Muddy Angel Run - Berlin",
+                 "Tough Mudder Hamburg", "Fitnesslauf Bochum", "Hindernislauf Kiel"):
+        check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
+
+    behalten, entfernt = drop_nicht_ausdauer([
+        {"name": "HYROX Berlin", "datum_start": "2027-01-01"},
+        {"name": "Spartan Berlin", "datum_start": "2027-01-01"},
+    ])
+    check("drop_nicht_ausdauer behält den Hindernislauf",
+          [e["name"] for e in behalten], ["Spartan Berlin"])
+    check("und meldet den Ausschluss mit Grund", len(entfernt), 1)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1556,6 +1588,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
+                 test_nicht_ausdauer,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel):
         test()
