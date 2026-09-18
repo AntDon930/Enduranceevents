@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-03-ret-team-backyard-80km-kreuzau@antdon930.github.io
+UID:2026-10-03-ret-team-backyard-12h-kreuzau@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:RET-Team Backyard
 LOCATION:Kreuzau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Backcountry Ultra\nLänge: 80 km\nhttps://ww
- w.rureifel-trail.com/kopie-von-backyard
+DESCRIPTION:Sportart: Laufen / Backcountry Ultra\nLänge: 12 h\nhttps://www
+ .rureifel-trail.com/kopie-von-backyard
 TRANSP:TRANSPARENT
 URL:https://www.rureifel-trail.com/kopie-von-backyard
 END:VEVENT

@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-18-trailrunning-squad-backyard-ultra-6-7km-bosperde@antdon930.
- github.io
+UID:2026-09-18-trailrunning-squad-backyard-ultra-x-bosperde@antdon930.gith
+ ub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260918
 DTEND;VALUE=DATE:20260919
 SUMMARY:Trailrunning Squad Backyard Ultra
 LOCATION:Bösperde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6.7 km\nhttps://www.tra
- ilrunningsquad.de/backyard-ultra/
+DESCRIPTION:Sportart: Laufen / Backcountry Ultra\nLänge: -\nhttps://www.tr
+ ailrunningsquad.de/backyard-ultra/
 TRANSP:TRANSPARENT
 URL:https://www.trailrunningsquad.de/backyard-ultra/
 END:VEVENT

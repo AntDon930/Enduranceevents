@@ -411,5 +411,76 @@
     "datum_start": "2027-05-30",
     "datum_ende": "2027-05-30",
     "_note": "FALSCHES DATUM aus der Quelle: running.life nennt den 23.05.2027, richtig ist der 30.05.2027. Vier unabhängige Kalender nennen den 30.05. (kilometerliebe.de, finishers.com, spoferan.com, racenotify.com), und das Muster passt: Der 70.3 Kraichgau liegt am letzten Sonntag im Mai (26.05.2024, 25.05.2025, 31.05.2026 laut Wikipedia), 2027 also am 30.05. ironman.com selbst ist nicht abrufbar (robots.txt verbietet ClaudeBot). Die Distanz-Korrektur auf 113 km steht unter dem Schlüssel mit der alten Distanz. Geprüft 2026-09-18."
+  },
+  "HuBuT Winter Edition|2027-02-20": {
+    "laenge_km": null,
+    "_note": "Zeitrennen ohne feste Strecke (Datenregel 8): hunsbuckel-trail.de führt die Veranstaltung als 'HuBuT Winter Edition 6 std.Lauf'. Die 6 h sind richtig, die gespeicherten 7 km sind die Runde. Geprüft 2026-09-18."
+  },
+  "Bergischer 6 Stunden Lauf|2027-05-22": {
+    "laenge_km": null,
+    "_note": "Zeitrennen ohne feste Strecke (Datenregel 8): feinerlauf.de nennt eine 3-km-Runde und ausschließlich das 6-Stunden-Format. Die gespeicherten 45 km sind keine Renndistanz, sondern die Schwelle für die DUV-Veröffentlichung ('Wer mindestens 45km weit läuft, dessen Ergebnis wird zur Veröffentlichung an die DUV übersandt'). Geprüft 2026-09-18."
+  },
+  "Trailrunning Squad Backyard Ultra|2026-09-18|6.7": {
+    "laenge_km": null,
+    "art2": "Backcountry Ultra",
+    "_note": "Klassischer Backyard Ultra, kein Trailrun: trailrunningsquad.de sagt '6,7 Kilometer. Zu jeder vollen Stunde. Wer die Runde nicht innerhalb einer Stunde beendet, scheidet aus.' und 'Ende: Offen (Last Human Standing)'. Die 6,7 km sind die RUNDE (Datenregel 9), es gibt weder feste Gesamtstrecke noch Zeitlimit. Die Kategorie war 'Trail/Cross', weil der VERANSTALTER 'Trailrunning Squad' heisst und 'trail' in ART2_KEYWORDS_LAUFEN vor 'backyard' steht - die Reihenfolge ist richtig so (Datenregel 9), nur dieser Name kollidiert damit. Geprüft 2026-09-18."
+  },
+  "RET-Team Backyard|2026-10-03|80": {
+    "laenge_km": null,
+    "dauer_h": 12.0,
+    "wettbewerb": null,
+    "_note": "Die 80 km sind keine Renndistanz, sondern die rechnerische Obergrenze: rureifel-trail.com sagt 'Es wird immer zur vollen Stunde gestartet, sodass maximal 12 x 6,7 km zurückgelegt werden, das entspricht einer maximalen Distanz von ca. 80,4 km und 1.440 Höhenmetern.' Die Runde ist 6,7 km (120 hm), das Rennen ist auf 12 Stunden begrenzt (Starts 7:30 bis 18:30 Uhr), Solo und 2er-/4er-Teams. Damit ist es ein Zeitrennen mit 12 h (Datenregel 8/9), wie 'Murr BackYard 12h'. Löst den offenen Fahrplan-Punkt 3. Geprüft 2026-09-18."
+  },
+  "Emder Stundenlauf|2026-10-25|10": {
+    "laenge_km": null,
+    "dauer_h": 1.0,
+    "wettbewerb": null,
+    "_note": "Stundenlauf auf der Bahn, kein 10-km-Lauf: emder-lg.de sagt, es gehe darum, 'innerhalb einer Stunde möglichst viele Stadionrunden zurückzulegen'. Die 10 km stammen aus einem Zusatz - 'Mit der Teilnahme am Stundenlauf besteht auch die Möglichkeit für alle Teilnehmer*Innen sich eine 10.000 Meter Bahnzeit in die Bestenliste eintragen zu lassen' -, also eine Zwischenzeit, kein eigener Wettbewerb. Start 25.10.2026, 10:00 Uhr, Sportplatz des Johannes-Althusius-Gymnasiums. Geprüft 2026-09-18."
+  },
+  "2. Usedom Beach Marathon|2027-06-05|42.2": {
+    "exclude": true,
+    "_note": "Duplikat des 'Usedom Beach Marathon' am selben Tag ueber dieselbe Distanz und von derselben Seite (usedom.de/usedom-beach-marathon), nur unter einem Namen mit Auflagenzahl und mit 'Ahlbeck' statt 'Heringsdorf' als Ort. usedom.de nennt fuer den Marathon 'Start: Zinnowitz', 'Ziel: Ahlbeck' - Ahlbeck ist ein Ortsteil des Ostseebads Heringsdorf, es ist also dieselbe Veranstaltung. Geprueft 2026-09-18."
+  },
+  "34. Rodheimer Volkslauf|2026-09-26": {
+    "standort": "Rosbach vor der Höhe - Rodheim",
+    "lat": 50.2654762,
+    "lon": 8.7033446,
+    "_note": "Ohne Koordinaten: Der Ort stand als 'Rosbach-Rodheim v.d.H.' in den Daten, die Abkuerzung fand kein Geocoder. Rodheim vor der Hoehe ist ein Stadtteil von Rosbach vor der Hoehe (Wetteraukreis). Koordinaten ueber Nominatim zum ausgeschriebenen Namen. Ohne lat/lon faellt ein Event aus Karte und Umkreissuche - siehe die Lektion 'Koordinaten sind Daten, keine Dekoration'. Geprueft 2026-09-18. NACHTRAG: Mit den Koordinaten erkannte die Duplikat-Pruefung die Zeile sofort als Doppelung des 'Rodheimer Volkslauf' (sgrodheim.de, mit allen drei Strecken 5/10/21,1 km und offizieller Seite) - die 21,1-km-Zeile ist damit verschmolzen. Genau der Koenigsforst-Fall: Ohne Koordinaten sprengt die 30-km-Bedingung der Duplikat-Erkennung, das Duplikat bleibt unsichtbar. Der Override bleibt stehen, falls ein Scraper-Lauf die Zeile mit Auflagenzahl wieder einsammelt."
+  },
+  "Isar-Lauf Bad Tölz – Lenggries|2026-09-27": {
+    "standort": "Bad Tölz",
+    "lat": 47.7610013,
+    "lon": 11.559607,
+    "_note": "Ohne Koordinaten: Der Ort stand als 'Toelz - Lenggries' in den Daten (zwei Orte in einem Feld). Der Ski-Club Lenggries nennt fuer den 18. Isar-Lauf am 27.09.2026: Start der 30 km und 21 km in Bad Toelz, Start der 10 km in Lenggries, GEMEINSAMES ZIEL am westlichen Isarufer in Bad Toelz. Damit ist Bad Toelz der Ort der Veranstaltung. Die drei Strecken 10/21/30 km stimmen. Geprueft 2026-09-18."
+  },
+  "Gaudilauf 27|2026-10-04": {
+    "lat": 51.6066028,
+    "lon": 13.3125927,
+    "_note": "Ohne Koordinaten: Der Ort ist 'Uebigau-Wahrenbrueck OT Muenchen' - Muenchen ist hier ein Ortsteil im Landkreis Elbe-Elster (Brandenburg), nicht die bayerische Landeshauptstadt. Dass der Geocoder hier nichts fand, hat einen Verortungsfehler von 400 km verhindert. Koordinaten ueber Nominatim zu 'Muenchen, Uebigau-Wahrenbrueck'. Geprueft 2026-09-18."
+  },
+  "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11": {
+    "lat": 50.9818378,
+    "lon": 6.075201,
+    "_note": "Ohne Koordinaten: Ort 'Geilenkirchen - Gillrath'. Gillrath ist ein Stadtteil von Geilenkirchen (Kreis Heinsberg); Koordinaten ueber Nominatim. Geprueft 2026-09-18."
+  },
+  "52. Gillrather Crosslauf|2027-01-09": {
+    "lat": 50.9818378,
+    "lon": 6.075201,
+    "_note": "Ohne Koordinaten: derselbe Ort wie der Geilenkirchener Volkslauf ('Geilenkirchen - Gillrath'). Koordinaten ueber Nominatim. Geprueft 2026-09-18."
+  },
+  "Nordhessische Crosslaufmeisterschaften|2026-10-31": {
+    "lat": 51.4641992,
+    "lon": 9.4644542,
+    "_note": "Ohne Koordinaten: Ort 'Hofgeismar-Udenhausen'. Udenhausen liegt im Landkreis Kassel zwischen Hofgeismar und Grebenstein; Koordinaten ueber Nominatim ('Udenhausen, Grebenstein'). Geprueft 2026-09-18."
+  },
+  "47. Ratinger Neujahrslauf|2027-01-10": {
+    "lat": 51.2973261,
+    "lon": 6.8493503,
+    "_note": "Ohne Koordinaten: Ort 'Ratingen Innenstadt' - der Zusatz 'Innenstadt' liess den Geocoder leer ausgehen. Koordinaten von Ratingen (Kreis Mettmann) ueber Nominatim. Geprueft 2026-09-18."
+  },
+  "48. Ratinger Neujahrslauf|2028-01-09": {
+    "lat": 51.2973261,
+    "lon": 6.8493503,
+    "_note": "Ohne Koordinaten: wie die 47. Auflage, Ort 'Ratingen Innenstadt'. Koordinaten ueber Nominatim. Geprueft 2026-09-18."
   }
 }

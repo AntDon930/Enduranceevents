@@ -1,5 +1,5 @@
 {
-  "_readme": "Protokoll der EINZELPRÜFUNGEN. Schlüssel: '<Name>|<datum_start>' (geprüft wird eine VERANSTALTUNG, nicht eine Strecke - anders als in manual_overrides.json, das auch distanzgenaue Schlüssel kennt). Zweck: Die Prüfung von ~2.360 Veranstaltungen geht über mehrere Sitzungen; ohne dieses Protokoll fängt jede von vorn an. `python3 scripts/audit_events.py --offen` blendet aus, was hier steht. ergebnis: 'quelle_ok' = offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig | 'korrigiert' = Fehler gefunden, Korrektur steht in manual_overrides.json | 'label_ok' = am Wettbewerbs-Label selbst entschieden, OHNE die Seite abzurufen (schwächer! z. B. 'Halbmarathon 22,8 km' nennt seine Distanz selbst) | 'entfernt' = gehört nicht in die Liste. Ein Eintrag gilt für den GENANNTEN Termin - eine neue Ausgabe derselben Veranstaltung ist wieder ungeprüft.",
+  "_readme": "Protokoll der EINZELPRÜFUNGEN. Schlüssel: '<Name>|<datum_start>' (geprüft wird eine VERANSTALTUNG, nicht eine Strecke - anders als in manual_overrides.json, das auch distanzgenaue Schlüssel kennt). Zweck: Die Prüfung von ~2.360 Veranstaltungen geht über mehrere Sitzungen; ohne dieses Protokoll fängt jede von vorn an. `python3 scripts/audit_events.py --offen` blendet aus, was hier steht. ergebnis: 'quelle_ok' = offizielle Seite (oder mehrere unabhängige Kalender) abgerufen, alles richtig | 'korrigiert' = Fehler gefunden, Korrektur steht in manual_overrides.json | 'label_ok' = am Wettbewerbs-Label selbst entschieden, OHNE die Seite abzurufen (schwächer! z. B. 'Halbmarathon 22,8 km' nennt seine Distanz selbst) | 'unklar' = angesehen, aber an der Quelle nicht zu entscheiden (die Begründung sagt, was fehlt); `--offen` blendet es aus, damit es nicht jede Sitzung neu recherchiert wird, und audit_events.py nennt die Zahl im Kopf | 'entfernt' = gehört nicht in die Liste. Ein Eintrag gilt für den GENANNTEN Termin - eine neue Ausgabe derselben Veranstaltung ist wieder ungeprüft.",
   "29. Rursee Marathon|2026-11-08": {
     "am": "2026-09-18",
     "ergebnis": "quelle_ok",
@@ -245,5 +245,161 @@
     "ergebnis": "entfernt",
     "quelle": "hyrox.com (Format bekannt)",
     "notiz": "Laufen + acht Kraftstationen - kein Ausdauer-Event (NICHT_AUSDAUER)."
+  },
+  "HuBuT Winter Edition|2027-02-20": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "hunsbuckel-trail.de",
+    "notiz": "6-Stunden-Lauf; die 7 km waren die Rundenlänge."
+  },
+  "Bergischer 6 Stunden Lauf|2027-05-22": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "feinerlauf.de",
+    "notiz": "45 km war die DUV-Veröffentlichungsschwelle, nicht die Strecke; 3-km-Runde, nur 6-h-Format."
+  },
+  "Trailrunning Squad Backyard Ultra|2026-09-18": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "trailrunningsquad.de",
+    "notiz": "Backyard mit 6,7-km-Runde, offenes Ende; Kategorie war Trail/Cross wegen des Veranstalternamens."
+  },
+  "RET-Team Backyard|2026-10-03": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "rureifel-trail.com",
+    "notiz": "80 km war die Obergrenze aus 12 x 6,7 km; Zeitrennen über 12 h."
+  },
+  "Emder Stundenlauf|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "emder-lg.de",
+    "notiz": "1-Stunden-Bahnlauf; die 10 km waren eine Zwischenzeit für die Bestenliste."
+  },
+  "Walhallalauf|2027-04-25": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "walhallalauf.de",
+    "notiz": "Alle drei Strecken stimmen auf die Nachkommastelle: '10 km Rundkurs', '5,4 km Rundkurs' (Label '5 km Lauf') und Waldlauf '7,1 km Rundkurs'. Das Label rundet, unser Feld nicht - kein Fehler."
+  },
+  "proWissen Lauf|2026-09-20": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "wis-potsdam.de",
+    "notiz": "Die gespeicherten 10 km sind richtig. ABER: 5 km und 10 km sind zwei eigene Wettbewerbe (beide Start 11:15), bei uns steht nur die 10-km-Zeile - der 5-km-Lauf FEHLT. Das Label '3 000 m, 5 km, 10 km (ab 18 Jahre)' faengt _trenne_doppelte_distanzen() nicht, weil es nicht mit 'A km / B km' beginnt (Datenregel 13, bewusst eng). Nachtragen geht nur ueber einen Scraper-Lauf oder eine neue Zeile - ein Override kann nichts hinzufuegen."
+  },
+  "24. Chamer Stadtlauf mit 22. Halbmarathon|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm der Pruefregel: Der Halbmarathon steht mit 21,1 km da, die gemeldete 7,3-km-Zeile ist der Stadtlauf. Die Regel hat den VERANSTALTUNGSnamen gelesen statt das Label - genau die Lektion aus dem ersten Durchgang ('Bernburger Halbmarathon')."
+  },
+  "2. Usedom Beach Marathon|2027-06-05": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "usedom.de",
+    "notiz": "Duplikat des 'Usedom Beach Marathon' (Ahlbeck ist Ortsteil von Heringsdorf)."
+  },
+  "Usedom Beach Marathon|2027-06-05": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "usedom.de",
+    "notiz": "Marathon 42,195 km (Zinnowitz -> Ahlbeck), Halbmarathon 21,0975 km (Koserow -> Ahlbeck), 10 km Pier Run (Ahlbeck) - alle drei Zeilen richtig. Die Pruefregel hat wieder den Veranstaltungsnamen gelesen ('Marathon') statt das Label."
+  },
+  "Borgberg Trail-Marathon|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "ultra-uwe-unterwegs.de (Veranstalter Uwe Laig), my.raceresult.com/415243",
+    "notiz": "Gelaufen wird eine Runde von 8,6 km: 3 Runden = 25,8 km (Label 'Halbmarathon', gespeichert 26 km), 5 Runden = 43 km (Label 'Ultramarathon', gespeichert 43,2 km). Das Label ist die lockere Bezeichnung des Veranstalters, die Distanzen stimmen."
+  },
+  "2. Fischhoflauf|2026-09-25": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "ATSV Tirschenreuth (atsv-tirschenreuth.de, ueber Suche)",
+    "notiz": "Der Hauptlauf ist 5.580 m lang; unsere 5,6 km stimmen, das Label '6 km' der Quelle rundet."
+  },
+  "52. Silvesterlauf in Fluorn-Winzeln|2026-12-31": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "silvesterlauf-fluorn.de/ausschreibung, ladv.de",
+    "notiz": "Hauptlauf 6,4 km (U18/U20, Junioren, Aktive, Senioren); daneben 2,8 km U14/U16 und 1,9 km U10/U12. Unsere 6,4 km stimmen, das Label '6 km' rundet."
+  },
+  "Freundschaftslauf Marpingen|2026-10-10": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "hdsports.at, runme.de",
+    "notiz": "Der Hauptlauf ueber 11 km ist bestaetigt (38. IKK Suedwest Freundschaftslauf, 10.10.2026, 15:00 Uhr, Start am Bergmannskreuz). OFFEN ist die Walking-Zeile: wir haben 6 km, zwei Kalender nennen '11 km - 7 km' fuer Strassenlauf und Nordic Walking. Die Seite des Veranstalters (volkslauf.ltf.de) loest nicht mehr auf, ltf.de fuehrt den Lauf nicht - ohne Ausschreibung nicht zu entscheiden, also nichts geaendert. Das Label der Quelle ('7 km, 7,5 km, 8 km, 9 km, 10 km, 11 km') bleibt unerklaert."
+  },
+  "Erzsteig über Hüggel-Gipfel UltraTrail|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm: 'Trail/Cross' ist richtig, die Veranstaltung nennt sich selbst UltraTrail. Die Pruefregel hat 'Gipfel' im Namen als Berglauf-Signal gelesen."
+  },
+  "Erzsteig über Hüggel-Gipfel UltraTrail|2026-12-30": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Wie der Termin am 27.09.2026: 'Trail/Cross' ist richtig."
+  },
+  "Gaffenberglauf|2026-11-01": {
+    "am": "2026-09-18",
+    "ergebnis": "label_ok",
+    "quelle": "-",
+    "notiz": "Fehlalarm: Das Label sagt selbst '13 km Trail', 'Gaffenberg' ist der Ortsname. Dieselbe Klasse wie 'Limberglauf' (deutsche Komposita)."
+  },
+  "34. Rodheimer Volkslauf|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt - daraufhin verschmolz die Zeile mit dem 'Rodheimer Volkslauf' (sgrodheim.de, 5/10/21,1 km): ein Duplikat, das ohne lat/lon unsichtbar war."
+  },
+  "Isar-Lauf Bad Tölz – Lenggries|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "skiclub-lenggries.de, my.raceresult.com/391771",
+    "notiz": "Koordinaten ergaenzt, Ort auf Bad Toelz (gemeinsames Ziel); 10/21/30 km bestaetigt."
+  },
+  "Gaudilauf 27|2026-10-04": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt; der Ortsteil heisst Muenchen, liegt aber in Brandenburg."
+  },
+  "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt (Gillrath, Stadtteil von Geilenkirchen)."
+  },
+  "52. Gillrather Crosslauf|2027-01-09": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt (Gillrath, Stadtteil von Geilenkirchen)."
+  },
+  "Nordhessische Crosslaufmeisterschaften|2026-10-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt (Udenhausen, Landkreis Kassel)."
+  },
+  "47. Ratinger Neujahrslauf|2027-01-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt (Ratingen)."
+  },
+  "48. Ratinger Neujahrslauf|2028-01-09": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "Nominatim",
+    "notiz": "Koordinaten ergaenzt (Ratingen)."
+  },
+  "Blaues Land läuft – XMAS-Challenge|2026-11-26": {
+    "am": "2026-09-18",
+    "ergebnis": "unklar",
+    "quelle": "blaueslandlaeuft.fitness",
+    "notiz": "ENTSCHEIDUNG DES NUTZERS NOETIG: Das ist ein VIRTUELLER Lauf - 'Egal wo, egal wann, keine Zeitwertung...!', Zeitraum 'vom Do 26. November bis Sa 02. Januar 2027', Kategorien u. a. 5 km und 10 km. Deshalb steht dort 'virtuell' als Ort, es gibt keine Koordinaten, keinen Kartenmarker und keine sinnvolle Entfernung; ausserdem laeuft er ueber fuenf Wochen. Die Liste ist auf Veranstaltungen an einem Ort und an einem Termin gebaut. Ich loesche nichts von mir aus (keine automatische Loeschregel, und hier waere es sogar eine neue Kategorie-Entscheidung) - Vorschlag: virtuelle Challenges wie HYROX ueber eine eigene Regel ausschliessen."
   }
 }

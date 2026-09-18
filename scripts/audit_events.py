@@ -70,6 +70,16 @@ def lade_geprueft() -> dict:
 def ist_geprueft(protokoll: dict, event: dict) -> bool:
     return f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold() in protokoll
 
+
+def zaehle_unklar(protokoll: dict) -> int:
+    """Wie viele Veranstaltungen im Protokoll als 'unklar' stehen.
+
+    'unklar' heisst: angesehen, aber an der Quelle nicht zu entscheiden.
+    `--offen` blendet sie aus (sonst werden sie jede Sitzung neu
+    recherchiert), deshalb nennt der Kopf ihre Zahl - sonst verschwaenden
+    sie stillschweigend."""
+    return sum(1 for v in protokoll.values() if v.get("ergebnis") == "unklar")
+
 # Anmelde- und Zeitnahme-Portale, die is_portal_link() (noch) nicht
 # kennt. Dort steht keine Ausschreibung, sondern ein Anmeldeformular -
 # als `veranstalter_url` ist das die zweite Wahl (Datenregel 2).
@@ -339,8 +349,12 @@ def main() -> int:
         protokoll = lade_geprueft()
         vorher = len(teil)
         teil = [e for e in teil if not ist_geprueft(protokoll, e)]
+        unklar = zaehle_unklar(protokoll)
         print(f"(--offen: {vorher - len(teil)} von {vorher} Zeilen sind bereits "
               f"geprüft, {len(protokoll)} Veranstaltungen im Protokoll.)")
+        if unklar:
+            print(f"(davon {unklar} als 'unklar' abgelegt - an der Quelle nicht "
+                  f"zu entscheiden, Begründung steht in geprueft.json.)")
     if not teil:
         print("Keine Events in diesem Ausschnitt.")
         return 0

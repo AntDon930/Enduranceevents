@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-25-emder-stundenlauf-10km-emden@antdon930.github.io
+UID:2026-10-25-emder-stundenlauf-1h-emden@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Emder Stundenlauf
 LOCATION:Emden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.emder-lg.
- de/laufen/bahnserie/emder-stundenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.emder-lg.de
+ /laufen/bahnserie/emder-stundenlauf
 TRANSP:TRANSPARENT
 URL:https://www.emder-lg.de/laufen/bahnserie/emder-stundenlauf
 END:VEVENT

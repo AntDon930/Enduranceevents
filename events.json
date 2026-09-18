@@ -627,10 +627,10 @@
     "lat": 51.450529,
     "lon": 7.770644,
     "art1": "Laufen",
-    "art2": "Trail/Cross",
+    "art2": "Backcountry Ultra",
     "datum_start": "2026-09-18",
     "datum_ende": "2026-09-18",
-    "laenge_km": 6.7,
+    "laenge_km": null,
     "veranstalter_url": "https://www.trailrunningsquad.de/backyard-ultra/",
     "wettbewerb": "7 km"
   },
@@ -7339,17 +7339,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "34. Rodheimer Volkslauf",
-    "standort": "Rosbach-Rodheim v.d.H.",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000054360001"
-  },
-  {
-    "land": "Deutschland",
     "name": "37. REHAmed Herkules-Berglauf",
     "standort": "Kassel",
     "lat": 51.3157833,
@@ -8748,6 +8737,20 @@
     "art2": "Straße",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon als längste Distanz, Wertung im Main-Lauf-Cup",
+    "veranstalter_url": "https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rodheimer Volkslauf",
+    "standort": "Rosbach vor der Höhe",
+    "lat": 50.3007398,
+    "lon": 8.6927327,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Fitnesslauf, auch offen für Walker und Nordic Walker",
     "veranstalter_url": "https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/"
@@ -8763,20 +8766,6 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rodheimer Volkslauf",
-    "standort": "Rosbach vor der Höhe",
-    "lat": 50.3007398,
-    "lon": 8.6927327,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon als längste Distanz, Wertung im Main-Lauf-Cup",
     "veranstalter_url": "https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/"
   },
   {
@@ -10856,38 +10845,44 @@
   {
     "land": "Deutschland",
     "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Tölz – Lenggries",
+    "standort": "Bad Tölz",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 30.0,
     "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
-    "wettbewerb": "30 km"
+    "wettbewerb": "30 km",
+    "lat": 47.7610013,
+    "lon": 11.559607
   },
   {
     "land": "Deutschland",
     "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Tölz – Lenggries",
+    "standort": "Bad Tölz",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "http://www.toelzer-isar-lauf.de/"
+    "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
+    "lat": 47.7610013,
+    "lon": 11.559607
   },
   {
     "land": "Deutschland",
     "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Tölz – Lenggries",
+    "standort": "Bad Tölz",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 21.0,
     "wettbewerb": "21 km",
-    "veranstalter_url": "http://www.toelzer-isar-lauf.de/"
+    "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
+    "lat": 47.7610013,
+    "lon": 11.559607
   },
   {
     "land": "Deutschland",
@@ -14134,9 +14129,10 @@
     "art2": "Backcountry Ultra",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "laenge_km": 80.0,
-    "wettbewerb": "80 km",
-    "veranstalter_url": "https://www.rureifel-trail.com/kopie-von-backyard"
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://www.rureifel-trail.com/kopie-von-backyard",
+    "dauer_h": 12.0
   },
   {
     "land": "Deutschland",
@@ -15394,7 +15390,9 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 27.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006221560000"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04006221560000",
+    "lat": 51.6066028,
+    "lon": 13.3125927
   },
   {
     "land": "Deutschland",
@@ -18023,7 +18021,9 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004003360002"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004003360002",
+    "lat": 50.9818378,
+    "lon": 6.075201
   },
   {
     "land": "Deutschland",
@@ -23419,9 +23419,10 @@
     "art2": "Straße",
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.emder-lg.de/laufen/bahnserie/emder-stundenlauf"
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://www.emder-lg.de/laufen/bahnserie/emder-stundenlauf",
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -25028,7 +25029,9 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 8.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K07000001660001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26K07000001660001",
+    "lat": 51.4641992,
+    "lon": 9.4644542
   },
   {
     "land": "Deutschland",
@@ -36580,7 +36583,9 @@
     "datum_start": "2027-01-09",
     "datum_ende": "2027-01-09",
     "laenge_km": 9.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10004003360001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10004003360001",
+    "lat": 50.9818378,
+    "lon": 6.075201
   },
   {
     "land": "Deutschland",
@@ -36699,7 +36704,9 @@
     "datum_start": "2027-01-10",
     "datum_ende": "2027-01-10",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10002013260001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10002013260001",
+    "lat": 51.2973261,
+    "lon": 6.8493503
   },
   {
     "land": "Deutschland",
@@ -38680,7 +38687,7 @@
     "art2": "Trail/Cross",
     "datum_start": "2027-02-20",
     "datum_ende": "2027-02-20",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "veranstalter_url": "https://hunsbuckel-trail.de/ergebnisse",
     "dauer_h": 6.0
   },
@@ -48047,7 +48054,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-22",
-    "laenge_km": 45.0,
+    "laenge_km": null,
     "dauer_h": 6.0,
     "veranstalter_url": "https://www.feinerlauf.de/bergischer-6-stunden-lauf/"
   },
@@ -49879,19 +49886,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://my.raceresult.com/398724/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "2. Usedom Beach Marathon",
-    "standort": "Ahlbeck",
-    "lat": 53.6704395,
-    "lon": 14.1862434,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://usedom.de/usedom-beach-marathon"
   },
   {
     "land": "Deutschland",
@@ -59227,7 +59221,9 @@
     "datum_start": "2028-01-09",
     "datum_ende": "2028-01-09",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/28V10002013260001"
+    "veranstalter_url": "https://laufen.de/laufkalender/details/28V10002013260001",
+    "lat": 51.2973261,
+    "lon": 6.8493503
   },
   {
     "land": "Deutschland",
