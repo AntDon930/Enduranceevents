@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-01-23-indoor-triathlon-aschersleben-24h-aschersleben@antdon930.gi
- thub.io
+UID:2027-01-23-indoor-triathlon-aschersleben-x-aschersleben@antdon930.gith
+ ub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270125
 SUMMARY:Indoor-Triathlon Aschersleben
 LOCATION:Aschersleben\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: 24 h\nhttps://triathlon-a
- schersleben.de/
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: -\nhttps://triathlon-asch
+ ersleben.de/
 TRANSP:TRANSPARENT
 URL:https://triathlon-aschersleben.de/
 END:VEVENT

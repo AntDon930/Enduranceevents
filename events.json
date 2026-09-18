@@ -33607,7 +33607,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-20",
     "datum_ende": "2026-12-20",
-    "laenge_km": 6.0,
+    "laenge_km": null,
     "veranstalter_url": "https://my.raceresult.com/383807/",
     "dauer_h": 3.0
   },
@@ -37655,7 +37655,7 @@
     "datum_start": "2027-01-23",
     "datum_ende": "2027-01-24",
     "veranstalter_url": "https://triathlon-aschersleben.de/",
-    "dauer_h": 24.0
+    "dauer_h": null
   },
   {
     "land": "Deutschland",
@@ -45252,7 +45252,7 @@
     "art2": "Straße",
     "datum_start": "2027-04-30",
     "datum_ende": "2027-05-02",
-    "laenge_km": 42.2,
+    "laenge_km": null,
     "veranstalter_url": "https://treppenmarathon.de/",
     "dauer_h": 24.0
   },
@@ -48537,8 +48537,8 @@
     "datum_start": "2027-05-23",
     "datum_ende": "2027-05-23",
     "veranstalter_url": "https://www.ironman.com/races/im703-kraichgau",
-    "laenge_km": 52.0,
-    "wettbewerb": "52 km"
+    "laenge_km": 113.0,
+    "wettbewerb": "113 km"
   },
   {
     "land": "Deutschland",
@@ -50547,21 +50547,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
-    "laenge_km": 178.0,
-    "veranstalter_url": "https://www.ironman.com/races/im-hamburg"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ironman Hamburg",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-06",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 42.2,
-    "wettbewerb": "42,2 km Laufen entlang der Alster",
+    "laenge_km": 226.0,
+    "wettbewerb": "226 km",
     "veranstalter_url": "https://www.ironman.com/races/im-hamburg"
   },
   {
@@ -51519,19 +51506,6 @@
     "laenge_km": 21.5,
     "wettbewerb": "21,5 km Panoramalauf / Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/406561/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schloss-Triathlon Moritzburg",
-    "standort": "Moritzburg",
-    "lat": 51.1592018,
-    "lon": 13.6819406,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-12",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.schloss-triathlon-moritzburg.de"
   },
   {
     "land": "Deutschland",
@@ -56179,7 +56153,8 @@
     "datum_start": "2027-07-30",
     "datum_ende": "2027-07-30",
     "veranstalter_url": "https://portal.run-timing.de/1027/registration",
-    "dauer_h": 24.0
+    "dauer_h": null,
+    "laenge_km": 678.0
   },
   {
     "land": "Deutschland",
@@ -56797,7 +56772,9 @@
     "art2": "Straße",
     "datum_start": "2027-08-08",
     "datum_ende": "2027-08-08",
-    "veranstalter_url": "https://www.ironman.com/races/im703-leipzig"
+    "veranstalter_url": "https://www.ironman.com/races/im703-leipzig",
+    "laenge_km": 113.0,
+    "wettbewerb": "113 km"
   },
   {
     "land": "Deutschland",
@@ -58558,35 +58535,8 @@
     "art2": "Straße",
     "datum_start": "2027-09-11",
     "datum_ende": "2027-09-11",
-    "laenge_km": 40.0,
-    "veranstalter_url": "https://www.ironman.com/races/5150-erkner"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ironman 5150 Erkner Berlin-Brandenburg",
-    "standort": "Erkner",
-    "lat": 52.4244119,
-    "lon": 13.7497832,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
-    "veranstalter_url": "https://www.ironman.com/races/5150-erkner"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ironman 5150 Erkner Berlin-Brandenburg",
-    "standort": "Erkner",
-    "lat": 52.4244119,
-    "lon": 13.7497832,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
     "veranstalter_url": "https://www.ironman.com/races/5150-erkner"
   },
   {

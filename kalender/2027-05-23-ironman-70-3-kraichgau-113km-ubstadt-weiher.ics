@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-23-ironman-70-3-kraichgau-52km-ubstadt-weiher@antdon930.github
- .io
+UID:2027-05-23-ironman-70-3-kraichgau-113km-ubstadt-weiher@antdon930.githu
+ b.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:Ironman 70.3 Kraichgau
 LOCATION:Ubstadt-Weiher\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://www.ironma
- n.com/races/im703-kraichgau
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 113 km\nhttps://www.ironm
+ an.com/races/im703-kraichgau
 TRANSP:TRANSPARENT
 URL:https://www.ironman.com/races/im703-kraichgau
 END:VEVENT

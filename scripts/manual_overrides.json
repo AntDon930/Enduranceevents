@@ -342,5 +342,53 @@
   "50. Laacher See Naturlauf mit 21. VR Bank Cup|2026-09-20|8.5": {
     "wettbewerb": "8,5 km Hauptlauf",
     "_note": "Das Label sagte '9 km', die gespeicherte Distanz 8,5 km. Richtig sind 8,5 km: Der Hauptlauf führt in einer Runde um den Laacher See (laacher-see-lauf.de, Ausschreibung zum 50. Lauf am 20.09.2026). Die '9 km' der Quelle sind gerundet. Geprüft 2026-09-18."
+  },
+  "Triple Ultra Triathlon Lensahn|2027-07-30": {
+    "laenge_km": 678.0,
+    "dauer_h": null,
+    "_note": "Streckenbasiert, KEIN 24-Stunden-Rennen: 11,4 km Schwimmen (228 Bahnen im Lensahner Hallenbad) + 540 km Rad (68 Runden) + 126,6 km Laufen (98 Runden) = 678 km, also die dreifache Ironman-Distanz. Quelle: triathlonlensahn.de und Wikipedia. Die gespeicherten 24 h waren vermutlich eine Karenzzeit. Geprüft 2026-09-18."
+  },
+  "Indoor-Triathlon Aschersleben|2027-01-23": {
+    "dauer_h": null,
+    "_note": "Kein 24-Stunden-Rennen: Der Hauptwettbewerb im Ballhaus Aschersleben besteht aus DREI Runden à 300 m Schwimmen + 4 km Radfahren + 1,6 km Laufen (also ~17,7 km gesamt), dazu ein Jedermann-Wettbewerb und ein Kids Swim Run. Die '24' stammt wahrscheinlich aus dem Datum (23./24. Januar). Die Distanz bleibt bewusst LEER statt 17,7 km: Das Format ist für die Ausgabe 2026 belegt, für 2027 nicht - '–' ist ehrlicher als eine übertragene Zahl. Geprüft 2026-09-18."
+  },
+  "Mt. Everest Treppenmarathon|2027-04-30": {
+    "laenge_km": null,
+    "_note": "Keine 42,2 km - die Distanz stammt aus dem Wort 'Marathon' im Namen. Gelaufen wird die Spitzhaustreppe in Radebeul: 397 Stufen und 88,4 Hm pro Runde, 100 Runden entsprechen der Höhe des Mount Everest. Die 24 h sind RICHTIG - der Wettbewerb 'Alleingang' gibt es sowohl über 100 Runden als auch als 24-Stunden-Variante (treppenmarathon.de). Geprüft 2026-09-18."
+  },
+  "Warendorfer Weihnachtslauf|2026-12-20": {
+    "laenge_km": null,
+    "_note": "Die 6 km sind die RUNDENLÄNGE, keine Renndistanz: Der Lauf geht über eine ca. 5,64 km lange Runde durch den Emspark, und man läuft in einem Zeitfenster von 3 oder 6 Stunden so viele Runden wie man will. Die gespeicherten 3 h sind damit richtig, die Distanz nicht. Gleiche Fehlerklasse wie die Backyard-Runde (Datenregel 9). Das 6-Stunden-Fenster fehlt als eigener Eintrag. Geprüft 2026-09-18."
+  },
+  "Ironman Hamburg|2027-06-06|42.2": {
+    "laenge_km": 226.0,
+    "wettbewerb": "226 km",
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. Diese Zeile war die LAUF-TEILSTRECKE ('42,2 km Laufen entlang der Alster') - bei einem Ironman kann man sich dafür nicht einzeln anmelden, man muss alle drei Disziplinen machen. Auf die Gesamtdistanz des Rennens gesetzt. Die zweite Zeile derselben Veranstaltung (178 km, die Radstrecke) ist ausgeschlossen. Geprüft 2026-09-18."
+  },
+  "Ironman Hamburg|2027-06-06|178": {
+    "exclude": true,
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. 178 km ist die RADSTRECKE (180 km), keine Anmeldemöglichkeit. Das Rennen steht mit 226 km in der Liste. Geprüft 2026-09-18."
+  },
+  "Ironman 5150 Erkner Berlin-Brandenburg|2027-09-11|40": {
+    "exclude": true,
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. 40 km ist die RADSTRECKE des 5150, keine Anmeldemöglichkeit. Das Rennen steht mit 52 km (= 51,5 km olympische Distanz) in der Liste. Geprüft 2026-09-18."
+  },
+  "Ironman 5150 Erkner Berlin-Brandenburg|2027-09-11|10": {
+    "exclude": true,
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. 10 km ist die LAUFSTRECKE des 5150, keine Anmeldemöglichkeit. Geprüft 2026-09-18."
+  },
+  "Ironman 70.3 Kraichgau|2027-05-23|52": {
+    "laenge_km": 113.0,
+    "wettbewerb": "113 km",
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. 52 km ist die olympische Distanz - in Kraichgau startet am selben Tag zusätzlich das 'Sparkasse 5i50 Kraichgau' über diese Distanz (Quelle: oberderdingen.de, Wikipedia). Die Zeile trug aber den Namen des 70.3, und der sind 113 km. Das 5150 fehlt damit als eigener Eintrag. ACHTUNG: Mehrere Quellen nennen als Termin 2027 den 30.05.2027, nicht den 23.05. - das Datum kann ein Override nicht korrigieren (OVERRIDE_FIELDS kennt kein Datumsfeld). Geprüft 2026-09-18."
+  },
+  "Ironman 70.3 Leipzig|2027-08-08": {
+    "laenge_km": 113.0,
+    "wettbewerb": "113 km",
+    "_note": "Die Ironman-Distanzen sind normiert: Ironman 3,8+180+42,2 = 226 km; 70.3 = 1,9+90+21,1 = 113 km; 5150 = 1,5+40+10 = 51,5 km. Die Zeile hatte gar keine Maßzahl. Ein Ironman 70.3 sind 70,3 Meilen = 113 km, das folgt aus dem Namen selbst. Geprüft 2026-09-18."
+  },
+  "Schloss-Triathlon Moritzburg|2027-06-12|42.2": {
+    "exclude": true,
+    "_note": "Teilstrecke: 42,2 km ohne Wettbewerbs-Label bei einem Triathlon ist die Marathon-Teilstrecke der Langdistanz. Die echten Formate stehen bereits einzeln in der Liste - BarockMan Langdistanz (173 km), Halbdistanz (87 km), Olympische Distanz (40 km) und LandMAXX Jedermann (20 km), alle mit Label und von schlosstriathlon.de. Geprüft 2026-09-18."
   }
 }
