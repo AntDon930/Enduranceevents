@@ -469,13 +469,16 @@ def pruefe_gruppierung(ctx, basis):
     pruefe(auf["aria"] == "true" and auf["pfeil"], "aufgeklappt: Pfeil und aria-expanded stimmen")
     # Der Rahmen um die aufgeklappte Veranstaltung: Linie oben an der
     # Veranstaltungszeile, Linie unten an der letzten Strecke, senkrechter
-    # Strich links durch alle Zeilen dazwischen. Ohne ihn sah man den
+    # Strich links UND rechts durch alle Zeilen dazwischen. Ohne ihn sah man den
     # Strecken einer Veranstaltung nicht an, dass sie zusammengehören
     # (vom Nutzer gemeldet). Geprüft wird der berechnete Stil, nicht die
     # Klasse - eine Klasse ohne passende CSS-Regel wäre unsichtbar.
     rahmen = seite.evaluate("""() => {
         const r = document.querySelector('tr.group-row:not(.single)');
         const schatten = (tr) => getComputedStyle(tr.querySelector('td')).boxShadow || 'none';
+        const schattenRechts = (tr) => getComputedStyle(tr.querySelector('td:last-child')).boxShadow || 'none';
+        // Der Strich links liegt bei x = +3px, der rechts bei -3px (inset).
+        const strichRechts = (s) => /inset\s+-3px/.test(s) || /-3px\s+0px\s+0px\s+0px\s+inset/.test(s);
         const zeilen = [r];
         let n = r.nextElementSibling;
         while (n && n.classList.contains('sub-row')) { zeilen.push(n); n = n.nextElementSibling; }
@@ -483,14 +486,23 @@ def pruefe_gruppierung(ctx, basis):
         return {
           zeilen: zeilen.length,
           mitStrich: zeilen.filter(z => schatten(z).includes('inset')).length,
+          mitStrichRechts: zeilen.filter(z => strichRechts(schattenRechts(z))).length,
           kopfLinie: schatten(r),
           fussKlasse: letzte.classList.contains('letzte'),
           fussLinie: schatten(letzte),
+          fussLinieRechts: schattenRechts(letzte),
           nurEineLetzte: document.querySelectorAll('tr.sub-row.letzte').length
         }; }""")
     pruefe(rahmen["mitStrich"] == rahmen["zeilen"],
            "aufgeklappt: alle %d Zeilen des Blocks tragen den senkrechten Strich links"
            % rahmen["zeilen"])
+    # Rechts das Gegenstück (vom Nutzer am 19.09.2026 nachgefordert) -
+    # ohne ihn war der Rahmen eine offene Klammer.
+    pruefe(rahmen["mitStrichRechts"] == rahmen["zeilen"],
+           "aufgeklappt: alle %d Zeilen des Blocks tragen den senkrechten Strich rechts"
+           % rahmen["zeilen"])
+    pruefe("-2px" in rahmen["fussLinieRechts"].replace(" ", ""),
+           "aufgeklappt: die untere Linie reicht bis in die rechte Eckzelle")
     pruefe(rahmen["fussKlasse"] and "-2px" in rahmen["fussLinie"].replace(" ", ""),
            "aufgeklappt: die letzte Strecke schließt den Rahmen unten ab")
     pruefe(rahmen["nurEineLetzte"] == 1,

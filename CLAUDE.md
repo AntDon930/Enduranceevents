@@ -87,7 +87,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 153 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 155 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -918,9 +918,11 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   gleich breiter Platzhalter (`.chevron-spacer`), sonst beginnen die
   Namen einzelner Strecken weiter links als die der aufklappbaren.
 - **Aufgeklappt bekommt die Veranstaltung einen RAHMEN**: eine Linie oben
-  an der Veranstaltungszeile, eine unten an der letzten Strecke, ein
-  senkrechter Strich links durch alle Zeilen dazwischen – alles in
-  `var(--accent)`. Ohne ihn standen die Strecken einer Veranstaltung
+  an der Veranstaltungszeile, eine unten an der letzten Strecke, je ein
+  senkrechter Strich links UND rechts durch alle Zeilen dazwischen – alles
+  in `var(--accent)`. Der rechte Strich kam am 19.09.2026 auf Wunsch des
+  Nutzers dazu (vorher eine offene Klammer); er hängt an `:last-child`,
+  weil die letzte Spalte mit der Entfernungs-Spalte wechselt. Ohne ihn standen die Strecken einer Veranstaltung
   mitten in der Liste, ohne dass man ihnen ansah, dass sie
   zusammengehören; man konnte nicht erkennen, ob eine Veranstaltung drei
   oder fünf Läufe hat (vom Nutzer gemeldet). Drei Entscheidungen daran:
@@ -947,9 +949,9 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Bewusst eine Klasse und **kein** `.sub-row:not(:has(+ .sub-row))`: Der
   Selektor müsste bei über 4.000 Zeilen für jede davon die Nachbarschaft
   prüfen, und die Tabelle ist genau an dieser Stelle auf Tempo gebaut.
-  Die Reihenfolge der fünf CSS-Regeln ist bedeutungstragend – die
-  Kombinationen für die Eckzellen (`:first-child` mit zwei Schatten)
-  müssen NACH den allgemeinen stehen: `box-shadow` ist EINE Eigenschaft,
+  Die Reihenfolge der acht CSS-Regeln ist bedeutungstragend – die
+  Kombinationen für die Eckzellen (`:first-child`/`:last-child` mit zwei
+  Schatten) müssen NACH den allgemeinen stehen: `box-shadow` ist EINE Eigenschaft,
   die spätere Regel ersetzt die frühere vollständig statt sie zu
   ergänzen.
 

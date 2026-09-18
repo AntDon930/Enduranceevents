@@ -315,7 +315,8 @@
   }
   /* Aufgeklappt bekommt die Veranstaltung einen RAHMEN: eine Linie oben
      an der Veranstaltungszeile, eine unten an der letzten Strecke und
-     ein senkrechter Strich links durch alle Zeilen dazwischen. Ohne das
+     je ein senkrechter Strich links und rechts durch alle Zeilen
+     dazwischen. Ohne das
      standen die Strecken einer Veranstaltung mitten in der Liste, ohne
      dass man ihnen ansah, dass sie zusammengehören - man konnte nicht
      erkennen, ob eine Veranstaltung drei oder fünf Läufe hat (vom
@@ -341,20 +342,35 @@
        scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
        ihn nicht mehr. Die beiden waagerechten Linien laufen über alle
        Spalten und bleiben damit in jeder Scroll-Stellung im Bild.
+     - **Rechts ebenfalls ein Strich** (`:last-child`, vom Nutzer am
+       19.09.2026 nachgefordert): Ohne ihn war der Rahmen offen wie eine
+       Klammer - der Block hatte links und oben/unten eine Kante, rechts
+       lief er ins Leere. Die letzte Zelle wechselt mit den Spalten
+       (Entfernung kommt und geht), deshalb `:last-child` und keine
+       Spaltenklasse.
 
-     Reihenfolge der fünf Regeln ist bedeutungstragend: Die Kombinationen
-     für die Eckzellen (`:first-child` mit zwei Schatten) müssen NACH den
-     allgemeinen stehen - `box-shadow` ist EINE Eigenschaft, die spätere
-     Regel ersetzt die frühere vollständig statt sie zu ergänzen. */
+     Reihenfolge der acht Regeln ist bedeutungstragend: Die Kombinationen
+     für die Eckzellen (`:first-child`/`:last-child` mit zwei Schatten)
+     müssen NACH den allgemeinen stehen - `box-shadow` ist EINE
+     Eigenschaft, die spätere Regel ersetzt die frühere vollständig statt
+     sie zu ergänzen. */
   tbody tr.group-row.open > td:first-child,
   tbody tr.sub-row > td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  tbody tr.group-row.open > td:last-child,
+  tbody tr.sub-row > td:last-child { box-shadow: inset -3px 0 0 var(--accent); }
   tbody tr.group-row.open > td { box-shadow: inset 0 2px 0 var(--accent); }
   tbody tr.group-row.open > td:first-child {
     box-shadow: inset 3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
   }
+  tbody tr.group-row.open > td:last-child {
+    box-shadow: inset -3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
+  }
   tbody tr.sub-row.letzte > td { box-shadow: inset 0 -2px 0 var(--accent); }
   tbody tr.sub-row.letzte > td:first-child {
     box-shadow: inset 3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
+  }
+  tbody tr.sub-row.letzte > td:last-child {
+    box-shadow: inset -3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
   }
   .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
   /* Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort. Sie
