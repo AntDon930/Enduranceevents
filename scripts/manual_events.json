@@ -688,6 +688,22 @@
       "veranstalter_url": "https://marner-kohltagelauf.com/",
       "_quelle": "https://marner-kohltagelauf.com/",
       "_note": "marner-kohltagelauf.com nennt vier Laeufe: Kids Run 400 m, 2,5 km, 5 km und 10 km (Hauptlauf, in der Presse mit 10,1 km beziffert). Diese Zeile ersetzt zwei doppelte Eintraege. Geprueft 2026-09-18."
+    },
+    {
+      "land": "Deutschland",
+      "name": "Crosslauf in den Ravensbergen",
+      "standort": "Potsdam",
+      "lat": 52.3905689,
+      "lon": 13.0644729,
+      "art1": "Laufen",
+      "art2": "Trail/Cross",
+      "datum_start": "2026-11-14",
+      "datum_ende": "2026-11-14",
+      "laenge_km": 5.4,
+      "wettbewerb": "5,4 km (3 Runden)",
+      "_quelle": "https://www.strassenlauf.org/va_details.php?id=973",
+      "_note": "Der allgemeine Lauf des 'Crosslauf in den Ravensbergen' fehlte: Neben den Strecken der 22. Deutschen Polizeimeisterschaften (9 km, 7,2 km, 3,6 km) startet um 9:45 Uhr ein Lauf ueber 5,4 km - drei Runden auf dem 1,8 km langen Rundkurs im Potsdamer Waldgebiet Ravensberge. Geprueft 2026-09-18. Als veranstalter_url steht hier strassenlauf.org - der Kalender, der die Ausschreibung wiedergibt; eine eigene Seite hat der Lauf nicht, und geraten wird nicht (Datenregel 2).",
+      "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
     }
   ]
 }

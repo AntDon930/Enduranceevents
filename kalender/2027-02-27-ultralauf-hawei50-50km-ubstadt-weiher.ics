@@ -8,14 +8,11 @@ UID:2027-02-27-ultralauf-hawei50-50km-ubstadt-weiher@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
-SUMMARY:Ultralauf HaWei50 – 50 km Straßenlauf (Hauptlauf und Deutsche Meis
- terschaften)
+SUMMARY:Ultralauf HaWei50
 LOCATION:Ubstadt-Weiher\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://ladv.de/aussc
- hreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C3%9Fenlauf-2027-Ubstadt-
- Weiher.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
+ .com/401228/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C
- 3%9Fenlauf-2027-Ubstadt-Weiher.htm
+URL:https://my.raceresult.com/401228/
 END:VEVENT
 END:VCALENDAR

@@ -8352,19 +8352,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Kreismeisterschaften Waldlauf (Kreis Ludwigsburg)",
-    "standort": "Remseck",
-    "lat": 48.8727053,
-    "lon": 9.2735947,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 7.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000213850000"
-  },
-  {
-    "land": "Deutschland",
     "name": "König Ludwig Lauf - Sommeredition",
     "standort": "Oberammergau",
     "lat": 47.597344,
@@ -8812,34 +8799,6 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "veranstalter_url": "https://feuerwehr-wilhelmsfeld.de/teltschikturmfest"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Thür. Landesmeisterschaft Straße",
-    "standort": "Dingelstädt",
-    "lat": 51.3149726,
-    "lon": 10.3191675,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48624/Th%C3%BCr.-Landesmeisterschaft-Stra%C3%9Fe-Dingelst%C3%A4dt.htm"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Thür. Landesmeisterschaft Straße",
-    "standort": "Dingelstädt",
-    "lat": 51.3149726,
-    "lon": 10.3191675,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48624/Th%C3%BCr.-Landesmeisterschaft-Stra%C3%9Fe-Dingelst%C3%A4dt.htm"
   },
   {
     "land": "Deutschland",
@@ -10656,48 +10615,6 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://www.hochfellnberglauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Bad Tölz",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 30.0,
-    "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
-    "wettbewerb": "30 km",
-    "lat": 47.7610013,
-    "lon": 11.559607
-  },
-  {
-    "land": "Deutschland",
-    "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Bad Tölz",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
-    "lat": 47.7610013,
-    "lon": 11.559607
-  },
-  {
-    "land": "Deutschland",
-    "name": "Isar-Lauf Bad Tölz – Lenggries",
-    "standort": "Bad Tölz",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km",
-    "veranstalter_url": "http://www.toelzer-isar-lauf.de/",
-    "lat": 47.7610013,
-    "lon": 11.559607
   },
   {
     "land": "Deutschland",
@@ -13690,34 +13607,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Oberbayerische Straßenlaufmeisterschaften 10 km",
-    "standort": "Anzing",
-    "lat": 48.1506375,
-    "lon": 11.8541298,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/45205/Oberbayerische-Stra%C3%9Fenlaufmeisterschaften-10-km-Anzing.htm",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Oberbayerische Straßenlaufmeisterschaften 10 km",
-    "standort": "Anzing",
-    "lat": 48.1514756,
-    "lon": 11.8534519,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/45205/Oberbayerische-Stra%C3%9Fenlaufmeisterschaften-10-km-Anzing.htm"
-  },
-  {
-    "land": "Deutschland",
     "name": "Ochsenweiherlauf Emskirchen",
     "standort": "Emskirchen",
     "lat": 49.552487,
@@ -14922,20 +14811,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Bayerische Halbmarathon-Meisterschaften",
-    "standort": "Aschaffenburg",
-    "lat": 49.9706701,
-    "lon": 9.1384857,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46129/Bayerische-Halbmarathon-Meisterschaften-Aschaffenburg.htm",
-    "wettbewerb": "Halbmarathon"
-  },
-  {
-    "land": "Deutschland",
     "name": "Burgdorfer Spargel-Lauf",
     "standort": "Burgdorf (Region Hannover)",
     "lat": 52.4438008,
@@ -15628,20 +15503,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Rheinland-Pfalz-Meisterschaft 10km Straßenlauf",
-    "standort": "Föhren",
-    "lat": 49.8588045,
-    "lon": 6.7656678,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Straßenlauf für die Altersklasse M14",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49160/Rheinland-Pfalz-Meisterschaften-5km-U16-F%C3%B6hren.htm"
-  },
-  {
-    "land": "Deutschland",
     "name": "Röderlauf - Großenhain",
     "standort": "Großenhain",
     "lat": 51.2912275,
@@ -16174,19 +16035,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.djk-coesfeld.de/de/citylauf-startseite/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "39. IKK Südwest Freundschaftslauf",
-    "standort": "Marpingen",
-    "lat": 49.45163,
-    "lon": 7.0573231,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 11.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000006360002"
   },
   {
     "land": "Deutschland",
@@ -22627,19 +22475,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "24. Kreutzer-Bergisch-Land-Marathon (Ziel in Remscheid-Hackenberg)",
-    "standort": "Remscheid",
-    "lat": 51.1798706,
-    "lon": 7.1943544,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.roentgenlauf.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "26. Dresden Marathon",
     "standort": "Dresden",
     "lat": 51.0493286,
@@ -24384,19 +24219,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "Crosslauf - Langstrecke",
     "veranstalter_url": "https://laufen.de/laufkalender/details/26K19019002860001"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kreismeisterschaft und 3. Halloween-Crosslauf im Örtzetal zu Munster",
-    "standort": "Munster",
-    "lat": 51.9625101,
-    "lon": 7.6251879,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26K09000452950000"
   },
   {
     "land": "Deutschland",
@@ -27479,20 +27301,6 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
     "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deutsche Polizeimeisterschaften Crosslauf",
-    "standort": "Potsdam",
-    "lat": 52.4009309,
-    "lon": 13.0591397,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04009004660000",
-    "wettbewerb": "Langstrecke Männer"
   },
   {
     "land": "Deutschland",
@@ -32993,19 +32801,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Berliner Serien-Marathon 23.12.-31.12.2026 (Wir wollen doch nur laufen)",
-    "standort": "Berlin",
-    "lat": 52.5173885,
-    "lon": 13.3951309,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-23",
-    "datum_ende": "2026-12-23",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/groups/4025"
-  },
-  {
-    "land": "Deutschland",
     "name": "Wir wollen doch nur laufen (Marathon-Serie)",
     "standort": "Berlin",
     "lat": 52.5200066,
@@ -37396,19 +37191,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Winterlaufserie (10 km)",
-    "standort": "Hamm",
-    "lat": 51.681281,
-    "lon": 7.8191185,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-31",
-    "datum_ende": "2027-01-31",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000323460001"
-  },
-  {
-    "land": "Deutschland",
     "name": "GVG-Winterstaffel Pulheim",
     "standort": "Pulheim",
     "lat": 50.9995815,
@@ -38382,20 +38164,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "6. HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1717722,
-    "lon": 8.640534,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-26",
-    "laenge_km": 10.0,
-    "wettbewerb": "HaWei by night (26.2.)",
-    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
-  },
-  {
-    "land": "Deutschland",
     "name": "HaWei by night",
     "standort": "Ubstadt-Weiher",
     "lat": 49.1627831,
@@ -38433,48 +38201,6 @@
     "datum_start": "2027-02-26",
     "datum_ende": "2027-02-28",
     "veranstalter_url": "https://ultralauf-dresden.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ultralauf HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1627831,
-    "lon": 8.6290693,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/401228/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ultralauf HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1627831,
-    "lon": 8.6290693,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/401228/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ultralauf HaWei50",
-    "standort": "Ubstadt-Weiher",
-    "lat": 49.1627831,
-    "lon": 8.6290693,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-26",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/401228/"
   },
   {
     "land": "Deutschland",
@@ -38668,8 +38394,8 @@
     "datum_start": "2027-02-27",
     "datum_ende": "2027-02-27",
     "laenge_km": 50.0,
-    "wettbewerb": "50 km Straßenlauf (Hauptlauf und Deutsche Meisterschaften)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C3%9Fenlauf-2027-Ubstadt-Weiher.htm"
+    "wettbewerb": "50 km",
+    "veranstalter_url": "https://my.raceresult.com/401228/"
   },
   {
     "land": "Deutschland",

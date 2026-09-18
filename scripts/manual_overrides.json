@@ -448,10 +448,8 @@
     "_note": "Ohne Koordinaten: Der Ort stand als 'Rosbach-Rodheim v.d.H.' in den Daten, die Abkuerzung fand kein Geocoder. Rodheim vor der Hoehe ist ein Stadtteil von Rosbach vor der Hoehe (Wetteraukreis). Koordinaten ueber Nominatim zum ausgeschriebenen Namen. Ohne lat/lon faellt ein Event aus Karte und Umkreissuche - siehe die Lektion 'Koordinaten sind Daten, keine Dekoration'. Geprueft 2026-09-18. NACHTRAG: Mit den Koordinaten erkannte die Duplikat-Pruefung die Zeile sofort als Doppelung des 'Rodheimer Volkslauf' (sgrodheim.de, mit allen drei Strecken 5/10/21,1 km und offizieller Seite) - die 21,1-km-Zeile ist damit verschmolzen. Genau der Koenigsforst-Fall: Ohne Koordinaten sprengt die 30-km-Bedingung der Duplikat-Erkennung, das Duplikat bleibt unsichtbar. Der Override bleibt stehen, falls ein Scraper-Lauf die Zeile mit Auflagenzahl wieder einsammelt."
   },
   "Isar-Lauf Bad Tölz – Lenggries|2026-09-27": {
-    "standort": "Bad Tölz",
-    "lat": 47.7610013,
-    "lon": 11.559607,
-    "_note": "Ohne Koordinaten: Der Ort stand als 'Toelz - Lenggries' in den Daten (zwei Orte in einem Feld). Der Ski-Club Lenggries nennt fuer den 18. Isar-Lauf am 27.09.2026: Start der 30 km und 21 km in Bad Toelz, Start der 10 km in Lenggries, GEMEINSAMES ZIEL am westlichen Isarufer in Bad Toelz. Damit ist Bad Toelz der Ort der Veranstaltung. Die drei Strecken 10/21/30 km stimmen. Geprueft 2026-09-18."
+    "exclude": true,
+    "_note": "Doppelung unter zwei Namen: Der Ski-Club Lenggries fuehrt den 18. Isar-Lauf am 27.09.2026 auf skiclub-lenggries.de mit vier Wettbewerben - 5 km fuer Sportlerinnen und Sportler mit Beeintraechtigung, 10 km (Start Lenggries, Ziel Bad Toelz), 21 km Halbmarathon und 30 km (beide Start und Ziel Bad Toelz). Genau diese Zeilen stehen unter 'IsarLauf - Bad Toelz' in der Liste, mit Labels. Die Zeilen unter dem Namen 'Isar-Lauf Bad Toelz - Lenggries' (toelzer-isar-lauf.de, antwortet mit 503) sind dieselben drei Strecken ohne die 5 km. Sichtbar wurde die Doppelung erst, nachdem der Ort von 'Toelz - Lenggries' auf 'Bad Toelz' berichtigt war - vorher fehlten die Koordinaten, und die 30-km-Bedingung der Duplikat-Erkennung konnte gar nicht greifen. Der dritte Fall dieser Art an einem Tag. Geprueft 2026-09-18."
   },
   "Gaudilauf 27|2026-10-04": {
     "lat": 51.6066028,
@@ -933,5 +931,74 @@
   "Adventscross der LG Nordheide|2026-12-13|9": {
     "art2": "Trail/Cross",
     "_note": "Ein Advents-CROSS ist ein Gelaendelauf, keine Strassenstrecke. Die Kategorie stand auf 'Strasse', weil die Ausschreibung auf ladv.de das Wort 'Cross' nur im Titel fuehrt. Die zweite, jetzt entfernte Quelle hatte 'Trail/Cross' richtig. Geprueft 2026-09-18."
+  },
+  "24. Kreutzer-Bergisch-Land-Marathon (Ziel in Remscheid-Hackenberg)|2026-10-25|42.2": {
+    "exclude": true,
+    "_note": "Doppelung: Dieselbe Seite (roentgenlauf.de), derselbe Tag, dieselben 42,2 km. Der Kreutzer-Bergisch-Land-Marathon ist der Marathon des Roentgenlaufs; die Zeile 'Roentgenlauf Remscheid' [Marathon (42,195 km)] bleibt. Geprueft 2026-09-18."
+  },
+  "Kreismeisterschaft und 3. Halloween-Crosslauf im Örtzetal zu Munster|2026-10-31|10": {
+    "exclude": true,
+    "_note": "Doppelung: Die Ausschreibung auf ladv.de heisst 'Kreismeisterschaft und 3. Halloween-Crosslauf zu Munster' und steht bei uns als 'Halloween Crosslauf zu Munster' mit 5 und 10 km. Diese Zeile ist dieselbe Veranstaltung aus dem Kalender von laufen.de, ohne Label. Geprueft 2026-09-18."
+  },
+  "Deutsche Polizeimeisterschaften Crosslauf|2026-11-14|9": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung: strassenlauf.org sagt zum 'Crosslauf in den Ravensbergen' am 14.11.2026 in Potsdam ausdruecklich, er finde 'im Rahmen der 22. Deutschen Polizeimeisterschaften im Crosslauf' statt. Gelaufen wird ein 1,8-km-Rundkurs; die Polizeimeisterschaften gehen ueber 9 km, 7,2 km und 3,6 km, der allgemeine Lauf um 9:45 Uhr ueber 5,4 km (3 Runden). Die 9-km-Zeile steht bereits unter 'Crosslauf in den Ravensbergen'. Geprueft 2026-09-18."
+  },
+  "Berliner Serien-Marathon 23.12.-31.12.2026 (Wir wollen doch nur laufen)|2026-12-23|42.2": {
+    "exclude": true,
+    "_note": "Doppelung: my.raceresult.com/groups/4025 ist die SAMMELSEITE der Serie 'Wir wollen doch nur laufen' (23.12.-31.12.2026), nicht ein einzelner Lauf. Der Marathon am 23.12. steht bereits als 'Wir wollen doch nur laufen (Marathon-Serie)' [Marathon] mit seiner eigenen Anmeldeseite (my.raceresult.com/410899). Geprueft 2026-09-18."
+  },
+  "53. Winterlaufserie (10 km)|2027-01-31|10": {
+    "exclude": true,
+    "_note": "Doppelung: Das ist der 10-km-Lauf am 31.01.2027 der 'Hammer Winterlaufserie', der bereits mit der offiziellen Seite (lg-hamm.de) in der Liste steht. Geprueft 2026-09-18."
+  },
+  "39. IKK Südwest Freundschaftslauf|2026-10-10|11": {
+    "exclude": true,
+    "_note": "Doppelung: Derselbe Lauf steht als 'Freundschaftslauf Marpingen' mit 11 km in der Liste. Diese Zeile kommt aus dem Kalender von laufen.de, ohne Label und mit Portallink. Geprueft 2026-09-18."
+  },
+  "Thür. Landesmeisterschaft Straße|2026-09-26|5": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'VR-Bank Mitte Herbstlauf' in Dingelstaedt (5, 10 und 21,1 km, vr-bankmitte-herbstlauf.de). Geprueft 2026-09-18."
+  },
+  "Thür. Landesmeisterschaft Straße|2026-09-26|10": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'VR-Bank Mitte Herbstlauf' in Dingelstaedt. Geprueft 2026-09-18."
+  },
+  "Kreismeisterschaften Waldlauf (Kreis Ludwigsburg)|2026-09-26|7.5": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: '6. Remsecker Waldlauf' (remsecker-waldlauf.de). Geprueft 2026-09-18."
+  },
+  "Oberbayerische Straßenlaufmeisterschaften 10 km|2026-10-03|5": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'Schweiger Forstlauf der LG Sempt' in Anzing (forstlauf.de). Geprueft 2026-09-18."
+  },
+  "Oberbayerische Straßenlaufmeisterschaften 10 km|2026-10-03|10": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'Schweiger Forstlauf der LG Sempt' in Anzing. Geprueft 2026-09-18."
+  },
+  "Bayerische Halbmarathon-Meisterschaften|2026-10-04|21.1": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'Aschaffenburger Halbmarathon' (my.raceresult.com/373194). Geprueft 2026-09-18."
+  },
+  "Rheinland-Pfalz-Meisterschaft 10km Straßenlauf|2026-10-04|5": {
+    "exclude": true,
+    "_note": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'IRT-Laeufermeeting Foehren' (chiplauf.de). Der Titel der Ausschreibung nennt sie selbst 'Rheinland-Pfalz-Meisterschaften 5km U16', das Label lautet '5 km Strassenlauf fuer die Altersklasse M14'. Geprueft 2026-09-18."
+  },
+  "6. HaWei50|2027-02-26|10": {
+    "exclude": true,
+    "_note": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Diese Zeile traegt selbst das Label 'HaWei by night (26.2.)' - es ist der 10-km-Nachtlauf, der bereits unter 'HaWei by night' (ladv.de) steht. Geprueft 2026-09-18."
+  },
+  "Ultralauf HaWei50|2027-02-26|5": {
+    "exclude": true,
+    "_note": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Die 5 km sind der Nachtlauf am 26.02. und stehen bereits unter 'HaWei by night'. Geprueft 2026-09-18."
+  },
+  "Ultralauf HaWei50|2027-02-26|10": {
+    "exclude": true,
+    "_note": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Die 10 km sind der Nachtlauf am 26.02. und stehen bereits unter 'HaWei by night'. Geprueft 2026-09-18."
+  },
+  "Ultralauf HaWei50|2027-02-26|50": {
+    "datum_start": "2027-02-27",
+    "datum_ende": "2027-02-27",
+    "_note": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Der 50-km-Ultralauf ist am 27.02.2027, nicht am 26.02. Geprueft 2026-09-18."
   }
 }

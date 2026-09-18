@@ -358,7 +358,7 @@
     "am": "2026-09-18",
     "ergebnis": "korrigiert",
     "quelle": "skiclub-lenggries.de, my.raceresult.com/391771",
-    "notiz": "Koordinaten ergaenzt, Ort auf Bad Toelz (gemeinsames Ziel); 10/21/30 km bestaetigt."
+    "notiz": "Koordinaten ergaenzt, Ort auf Bad Toelz (gemeinsames Ziel); 10/21/30 km bestaetigt. NACHTRAG: Die Zeilen sind Doppelungen des 'IsarLauf - Bad Toelz' (skiclub-lenggries.de, mit allen vier Wettbewerben) und jetzt ausgeschlossen - sichtbar geworden erst durch die Ortskorrektur."
   },
   "Gaudilauf 27|2026-10-04": {
     "am": "2026-09-18",
@@ -791,5 +791,113 @@
     "ergebnis": "korrigiert",
     "quelle": "Veranstalterseite (siehe manual_overrides.json)",
     "notiz": "Doppelt: Kalenderzeile von laufen.de neben der Zeile des Veranstalters. bleibt: 'Europamarathon' (europamarathon.de) mit Marathon und Halbmarathon."
+  },
+  "24. Kreutzer-Bergisch-Land-Marathon (Ziel in Remscheid-Hackenberg)|2026-10-25": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "roentgenlauf.de",
+    "notiz": "Doppelung: Dieselbe Seite (roentgenlauf.de), derselbe Tag, dieselben 42,2 km. Der Kreutzer-Bergisch-Land-Marathon ist der Marathon des Roentgenlaufs; die Zeile 'Roentgenlauf Remscheid' [Marathon (42,195 km)] bleibt."
+  },
+  "Kreismeisterschaft und 3. Halloween-Crosslauf im Örtzetal zu Munster|2026-10-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de/ausschreibung/detail/46123",
+    "notiz": "Doppelung: Die Ausschreibung auf ladv.de heisst 'Kreismeisterschaft und 3. Halloween-Crosslauf zu Munster' und steht bei uns als 'Halloween Crosslauf zu Munster' mit 5 und 10 km. Diese Zeile ist dieselbe Veranstaltung aus dem Kalender von laufen.de, ohne Label."
+  },
+  "Deutsche Polizeimeisterschaften Crosslauf|2026-11-14": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "strassenlauf.org/va_details.php?id=973",
+    "notiz": "Keine eigene Veranstaltung: strassenlauf.org sagt zum 'Crosslauf in den Ravensbergen' am 14.11.2026 in Potsdam ausdruecklich, er finde 'im Rahmen der 22. Deutschen Polizeimeisterschaften im Crosslauf' statt. Gelaufen wird ein 1,8-km-Rundkurs; die Polizeimeisterschaften gehen ueber 9 km, 7,2 km und 3,6 km, der allgemeine Lauf um 9:45 Uhr ueber 5,4 km (3 Runden). Die 9-km-Zeile steht bereits unter 'Crosslauf in den Ravensbergen'."
+  },
+  "Berliner Serien-Marathon 23.12.-31.12.2026 (Wir wollen doch nur laufen)|2026-12-23": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/groups/4025",
+    "notiz": "Doppelung: my.raceresult.com/groups/4025 ist die SAMMELSEITE der Serie 'Wir wollen doch nur laufen' (23.12.-31.12.2026), nicht ein einzelner Lauf. Der Marathon am 23.12. steht bereits als 'Wir wollen doch nur laufen (Marathon-Serie)' [Marathon] mit seiner eigenen Anmeldeseite (my.raceresult.com/410899)."
+  },
+  "53. Winterlaufserie (10 km)|2027-01-31": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-hamm.de",
+    "notiz": "Doppelung: Das ist der 10-km-Lauf am 31.01.2027 der 'Hammer Winterlaufserie', der bereits mit der offiziellen Seite (lg-hamm.de) in der Liste steht."
+  },
+  "39. IKK Südwest Freundschaftslauf|2026-10-10": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "slb-saarland.com, hdsports.at",
+    "notiz": "Doppelung: Derselbe Lauf steht als 'Freundschaftslauf Marpingen' mit 11 km in der Liste. Diese Zeile kommt aus dem Kalender von laufen.de, ohne Label und mit Portallink."
+  },
+  "Thür. Landesmeisterschaft Straße|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de / Veranstalterseite",
+    "notiz": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'VR-Bank Mitte Herbstlauf' in Dingelstaedt."
+  },
+  "Kreismeisterschaften Waldlauf (Kreis Ludwigsburg)|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de / Veranstalterseite",
+    "notiz": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: '6. Remsecker Waldlauf' (remsecker-waldlauf.de)."
+  },
+  "Oberbayerische Straßenlaufmeisterschaften 10 km|2026-10-03": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de / Veranstalterseite",
+    "notiz": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'Schweiger Forstlauf der LG Sempt' in Anzing."
+  },
+  "Bayerische Halbmarathon-Meisterschaften|2026-10-04": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de / Veranstalterseite",
+    "notiz": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'Aschaffenburger Halbmarathon' (my.raceresult.com/373194)."
+  },
+  "Rheinland-Pfalz-Meisterschaft 10km Straßenlauf|2026-10-04": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "ladv.de / Veranstalterseite",
+    "notiz": "Keine eigene Veranstaltung, sondern eine Meisterschaft, die IM Rahmen eines oeffentlichen Laufs ausgetragen wird: gleicher Tag, gleicher Ort, gleiche Distanz. Wer starten will, meldet sich beim Volkslauf an - zweimal in der Liste zu stehen hilft niemandem. Die Zeile des Laufs bleibt. bleibt: 'IRT-Laeufermeeting Foehren' (chiplauf.de). Der Titel der Ausschreibung nennt sie selbst 'Rheinland-Pfalz-Meisterschaften 5km U16', das Label lautet '5 km Strassenlauf fuer die Altersklasse M14'."
+  },
+  "6. HaWei50|2027-02-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "lsg-weiher.de, ladv.de/ausschreibung/detail/49033",
+    "notiz": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Diese Zeile traegt selbst das Label 'HaWei by night (26.2.)' - es ist der 10-km-Nachtlauf, der bereits unter 'HaWei by night' (ladv.de) steht."
+  },
+  "Ultralauf HaWei50|2027-02-26": {
+    "am": "2026-09-18",
+    "ergebnis": "korrigiert",
+    "quelle": "lsg-weiher.de/hawei50",
+    "notiz": "lsg-weiher.de/hawei50 nennt zwei Veranstaltungen: den Ultralauf HaWei50 am 'Samstag, den 27.02.2027' um 10:00 Uhr und als 'Side Event HaWei by night - Nachtlauf ueber 5/10 km' am Abend zuvor, also am 26.02.2027. Bei uns stand alles auf dem 26.02. und unter drei Namen. Der 50-km-Ultralauf ist am 27.02.2027, nicht am 26.02."
+  },
+  "GENERALI 5K|2026-09-26": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "bmw-berlin-marathon.com",
+    "notiz": "KEINE Doppelung: Der GENERALI 5K und das 'R5K Tour Finale - Berlin' laufen beide am 26.09.2026 ueber 5 km im Rahmen des BMW BERLIN-MARATHON, sind aber zwei Wettbewerbe mit eigenen Anmeldeseiten (/anmelden/generali-5k und /anmelden/kids-and-youth/r5k) - das Tour-Finale ist die Jugendserie."
+  },
+  "Dortmunder Familienlauf|2026-09-27": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "dortmunder-familienlauf.de, holyaperolyrun.de",
+    "notiz": "KEINE Doppelung: 'Dortmunder Familienlauf' und 'Holy Aperoly Run' sind zwei Veranstaltungen verschiedener Veranstalter am selben Tag in Dortmund, jede mit eigener Seite und eigenen 5- und 10-km-Laeufen."
+  },
+  "Hohenbuschei-Lauf|2026-10-11": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "time-and-voice.com, pink-5k.de",
+    "notiz": "KEINE Doppelung: Der Hohenbuschei-Lauf (5/10/15/20/25 km) und der 'Pink 5K Run Dortmund' sind zwei Veranstaltungen am selben Tag in Dortmund."
+  },
+  "Bad Liebenzeller Paracelsuslauf|2027-04-17": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "calwer-laeufe.de, missio-cross-challenge.de",
+    "notiz": "KEINE Doppelung: Der Paracelsuslauf (5 km Firmenlauf/Walk, 10 km) und die 'Missio-Cross-Challenge' (5 km, 80 km) sind zwei Veranstaltungen am selben Tag in Bad Liebenzell, jede mit eigener Seite."
+  },
+  "Uferbahnlauf Berlin|2027-06-05": {
+    "am": "2026-09-18",
+    "ergebnis": "quelle_ok",
+    "quelle": "berlin-triathlon.de, uferbahnlauf.de",
+    "notiz": "KEINE Doppelung: Der 'Uferbahnlauf Berlin' (Bahn) und der 'Berlin Triathlon' finden am selben Tag in Berlin statt, sind aber verschiedene Veranstaltungen und verschiedene Sportarten."
   }
 }
