@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-litermont-trail-run-5km-nalbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Litermont Trail Run
+LOCATION:Nalbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://my.raceresult.c
+ om/380641/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/380641/
+END:VEVENT
+END:VCALENDAR

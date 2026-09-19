@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-35-ricklinger-volkslauf-5km-hannover@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:35. Ricklinger Volkslauf
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tusricklin
+ gen.de/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tusricklingen.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

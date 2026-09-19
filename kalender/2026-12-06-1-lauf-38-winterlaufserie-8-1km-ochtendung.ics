@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-1-lauf-38-winterlaufserie-8-1km-ochtendung@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:1. Lauf 38. Winterlaufserie
+LOCATION:Ochtendung\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttps://laufen.de/la
+ ufkalender/details/26V13000125160005
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000125160005
+END:VEVENT
+END:VCALENDAR

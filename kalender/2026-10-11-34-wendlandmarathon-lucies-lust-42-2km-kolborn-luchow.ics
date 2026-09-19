@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-34-wendlandmarathon-lucies-lust-42-2km-kolborn-luchow@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:34. Wendlandmarathon "Lucies Lust"
+LOCATION:Kolborn (Lüchow)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.igaswen
+ dland.de
+TRANSP:TRANSPARENT
+URL:https://www.igaswendland.de
+END:VEVENT
+END:VCALENDAR

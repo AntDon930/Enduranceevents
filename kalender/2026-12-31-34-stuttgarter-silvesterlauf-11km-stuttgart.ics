@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-34-stuttgarter-silvesterlauf-11km-stuttgart@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:34. Stuttgarter Silvesterlauf
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.stuttgarte
+ r-silvesterlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.stuttgarter-silvesterlauf.de
+END:VEVENT
+END:VCALENDAR

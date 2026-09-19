@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-winterlaufserie-krumme-lanke-21-1km-krumme-lanke@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Winterlaufserie Krumme Lanke – Halbmarathon
+LOCATION:Krumme Lanke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.bsv1892
+ -leichtathletik.de/winterserie.html
+TRANSP:TRANSPARENT
+URL:https://www.bsv1892-leichtathletik.de/winterserie.html
+END:VEVENT
+END:VCALENDAR

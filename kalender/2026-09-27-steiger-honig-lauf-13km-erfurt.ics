@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-steiger-honig-lauf-13km-erfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Steiger(Honig)lauf
+LOCATION:Erfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.ltv-erfur
+ t.de/steigerhoniglauf/92-steigerhoniglauf
+TRANSP:TRANSPARENT
+URL:https://www.ltv-erfurt.de/steigerhoniglauf/92-steigerhoniglauf
+END:VEVENT
+END:VCALENDAR

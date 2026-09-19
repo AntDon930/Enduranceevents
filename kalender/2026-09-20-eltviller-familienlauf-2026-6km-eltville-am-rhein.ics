@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-eltviller-familienlauf-2026-6km-eltville-am-rhein@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Eltviller Familienlauf 2026
+LOCATION:Eltville am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.eltville.d
+ e/freizeit-tourismus/kultur-veranstaltungen/feste-events/eltvillerfamilie
+ nlauf/
+TRANSP:TRANSPARENT
+URL:https://www.eltville.de/freizeit-tourismus/kultur-veranstaltungen/fest
+ e-events/eltvillerfamilienlauf/
+END:VEVENT
+END:VCALENDAR

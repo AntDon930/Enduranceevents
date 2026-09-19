@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-rhon-grabfeld-cup-ostheim-20km-ostheim-vor-der-rhon@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Rhön-Grabfeld-Cup – Ostheim – 20\,0 km Hauptlauf Burgentrail
+LOCATION:Ostheim vor der Rhön\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://rhoengrabfeldc
+ up.de/event/ostheim/
+TRANSP:TRANSPARENT
+URL:https://rhoengrabfeldcup.de/event/ostheim/
+END:VEVENT
+END:VCALENDAR

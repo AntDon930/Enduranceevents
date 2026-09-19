@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kranichlauf-10km-hohwacht-ostsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kranichlauf
+LOCATION:Hohwacht (Ostsee)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.deolescho
+ ol.de/blog/kranichlauf-2026-10-km-natur-pur
+TRANSP:TRANSPARENT
+URL:https://www.deoleschool.de/blog/kranichlauf-2026-10-km-natur-pur
+END:VEVENT
+END:VCALENDAR

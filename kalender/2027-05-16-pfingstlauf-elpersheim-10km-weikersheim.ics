@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-pfingstlauf-elpersheim-10km-weikersheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Pfingstlauf Elpersheim
+LOCATION:Weikersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sv-elpersheim
+ .de/pfingstlauf/
+TRANSP:TRANSPARENT
+URL:https://sv-elpersheim.de/pfingstlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-ahmadiyya-charity-walk-wurzburg-x-wurzburg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Ahmadiyya Charity Walk Würzburg
+LOCATION:Würzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://charitywalk.de/ev
+ ents/2-ahmadiyya-charity-walk-wrzburg
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/2-ahmadiyya-charity-walk-wrzburg
+END:VEVENT
+END:VCALENDAR

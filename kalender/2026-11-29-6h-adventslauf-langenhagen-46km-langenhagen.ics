@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-6h-adventslauf-langenhagen-46km-langenhagen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:6h Adventslauf Langenhagen
+LOCATION:Langenhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://shinsplinters
+ -langenhagen.webnode.com/
+TRANSP:TRANSPARENT
+URL:https://shinsplinters-langenhagen.webnode.com/
+END:VEVENT
+END:VCALENDAR

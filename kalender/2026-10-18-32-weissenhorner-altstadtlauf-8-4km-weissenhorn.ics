@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-32-weissenhorner-altstadtlauf-8-4km-weissenhorn@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:32. Weißenhorner Altstadtlauf
+LOCATION:Weißenhorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://www.tsv-weis
+ senhorn.de
+TRANSP:TRANSPARENT
+URL:https://www.tsv-weissenhorn.de
+END:VEVENT
+END:VCALENDAR

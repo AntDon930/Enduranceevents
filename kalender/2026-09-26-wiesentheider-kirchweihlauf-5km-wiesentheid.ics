@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-wiesentheider-kirchweihlauf-5km-wiesentheid@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Wiesentheider Kirchweihlauf
+LOCATION:Wiesentheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://kirchweihlauf.
+ tsv-djk-wiesentheid.de/
+TRANSP:TRANSPARENT
+URL:https://kirchweihlauf.tsv-djk-wiesentheid.de/
+END:VEVENT
+END:VCALENDAR

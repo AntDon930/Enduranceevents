@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-stuhr-8-5km-stuhr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Stuhr – 8\,5 km : Zwei Runden auf gleicher Strecke
+LOCATION:Stuhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.5 km\nhttps://lc-hansa-stu
+ hr.de/2026/09/49-silvesterlauf-in-stuhr-fahrenhorst/
+TRANSP:TRANSPARENT
+URL:https://lc-hansa-stuhr.de/2026/09/49-silvesterlauf-in-stuhr-fahrenhors
+ t/
+END:VEVENT
+END:VCALENDAR

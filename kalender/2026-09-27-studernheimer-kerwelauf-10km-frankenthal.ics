@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-studernheimer-kerwelauf-10km-frankenthal@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Studernheimer Kerwelauf
+LOCATION:Frankenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
+ s/10021/3108
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3108
+END:VEVENT
+END:VCALENDAR

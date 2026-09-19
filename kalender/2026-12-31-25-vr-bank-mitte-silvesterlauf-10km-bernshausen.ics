@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-25-vr-bank-mitte-silvesterlauf-10km-bernshausen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:25. VR - Bank Mitte Silvesterlauf
+LOCATION:Bernshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vrbankmitt
+ e-silvesterlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.vrbankmitte-silvesterlauf.de
+END:VEVENT
+END:VCALENDAR

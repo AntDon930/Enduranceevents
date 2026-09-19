@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-glaserner-monch-lauf-12km-langenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Gläserner Mönch Lauf – 12 km Mönchlauf Runde 2 ab AK 12
+LOCATION:Langenstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://glaeserner-mo
+ ench-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://glaeserner-moench-lauf.de/
+END:VEVENT
+END:VCALENDAR

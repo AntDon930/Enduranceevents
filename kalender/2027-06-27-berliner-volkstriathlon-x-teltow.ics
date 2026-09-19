@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-berliner-volkstriathlon-x-teltow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Berliner Volkstriathlon
+LOCATION:Teltow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttp://wj-tools.de/ind
+ ex.php/volkstriathlon
+TRANSP:TRANSPARENT
+URL:http://wj-tools.de/index.php/volkstriathlon
+END:VEVENT
+END:VCALENDAR

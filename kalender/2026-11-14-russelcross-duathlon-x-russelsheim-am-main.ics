@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-russelcross-duathlon-x-russelsheim-am-main@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Rüsselcross Duathlon
+LOCATION:Rüsselsheim am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.tg-tria-
+ ruesselsheim.de/ruesselcross-start/
+TRANSP:TRANSPARENT
+URL:https://www.tg-tria-ruesselsheim.de/ruesselcross-start/
+END:VEVENT
+END:VCALENDAR

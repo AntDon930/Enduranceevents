@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-spendenlauf-am-braunsteich-weisswasser-10km-weisskeissel@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Spendenlauf am Braunsteich Weißwasser
+LOCATION:Weißkeißel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://baer-service.
+ de/veranstaltung/BTL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/BTL/
+END:VEVENT
+END:VCALENDAR

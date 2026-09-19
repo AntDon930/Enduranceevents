@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-haasower-waldlauf-10-8km-neuhausen-spree@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Haasower Waldlauf
+LOCATION:Neuhausen/Spree\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://www.haasow.
+ com/waldlauf
+TRANSP:TRANSPARENT
+URL:https://www.haasow.com/waldlauf
+END:VEVENT
+END:VCALENDAR

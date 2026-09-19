@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-33-filderstadt-halbmarathon-10km-filderstadt@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:33. Filderstadt-Halbmarathon – 10 km Lauf
+LOCATION:Filderstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://filderstadt-h
+ albmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://filderstadt-halbmarathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-muddy-angel-run-gelsenkirchen-5km-gelsenkirchen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Muddy Angel Run - Gelsenkirchen
+LOCATION:Gelsenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.muddyangel
+ run.com/events/gelsenkirchen-2027/
+TRANSP:TRANSPARENT
+URL:https://www.muddyangelrun.com/events/gelsenkirchen-2027/
+END:VEVENT
+END:VCALENDAR

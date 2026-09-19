@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-29-rursee-marathon-42-2km-simmerath-einruhr@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:29. Rursee Marathon
+LOCATION:Simmerath-Einruhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.rursee-m
+ arathon.de
+TRANSP:TRANSPARENT
+URL:http://www.rursee-marathon.de
+END:VEVENT
+END:VCALENDAR

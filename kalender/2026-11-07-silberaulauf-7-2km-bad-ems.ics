@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-silberaulauf-7-2km-bad-ems@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Silberaulauf
+LOCATION:Bad Ems\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://ladv.de/auss
+ chreibung/datei/453324
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/datei/453324
+END:VEVENT
+END:VCALENDAR

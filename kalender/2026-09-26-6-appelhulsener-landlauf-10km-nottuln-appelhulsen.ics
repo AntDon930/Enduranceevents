@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-6-appelhulsener-landlauf-10km-nottuln-appelhulsen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:6. Appelhülsener Landlauf – 10\,0 km Großer Landlauf M/W 14-95
+LOCATION:Nottuln-Appelhülsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.appelhuel
+ sener-landlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.appelhuelsener-landlauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-nebelseelauf-10km-larz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Nebelseelauf – Crosslauf 10 km
+LOCATION:Lärz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://my.raceresult.
+ com/408835/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/408835/
+END:VEVENT
+END:VCALENDAR

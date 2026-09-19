@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-23-mitteldeutscher-marathon-42-2km-halle-saale@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:23. Mitteldeutscher Marathon – Marathon
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.mitteld
+ eutscher-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.mitteldeutscher-marathon.de/
+END:VEVENT
+END:VCALENDAR

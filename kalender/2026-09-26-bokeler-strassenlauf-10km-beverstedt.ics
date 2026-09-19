@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bokeler-strassenlauf-10km-beverstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Bokeler Straßenlauf – 10 km Lauf - Jahrgang 2012 und älter\, Start
+ gebühr 8\,00 EUR
+LOCATION:Beverstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lav-bokel
+ .net/
+TRANSP:TRANSPARENT
+URL:https://www.lav-bokel.net/
+END:VEVENT
+END:VCALENDAR

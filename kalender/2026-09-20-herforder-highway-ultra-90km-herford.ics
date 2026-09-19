@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-herforder-highway-ultra-90km-herford@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Herforder Highway Ultra – Rocket (Wo)Man
+LOCATION:Herford\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 90 km\nhttps://my.raceresult
+ .com/364614/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/364614/
+END:VEVENT
+END:VCALENDAR

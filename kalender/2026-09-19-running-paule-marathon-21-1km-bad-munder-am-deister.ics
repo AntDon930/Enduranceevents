@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-running-paule-marathon-21-1km-bad-munder-am-deister@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Running Paule Marathon – Halbmarathon
+LOCATION:Bad Münder am Deister\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://running-pau
+ le.de/laufevents/66-rp-marathon/
+TRANSP:TRANSPARENT
+URL:https://running-paule.de/laufevents/66-rp-marathon/
+END:VEVENT
+END:VCALENDAR

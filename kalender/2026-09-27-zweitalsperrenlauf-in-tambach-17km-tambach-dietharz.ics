@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-zweitalsperrenlauf-in-tambach-17km-tambach-dietharz@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Zweitalsperrenlauf in Tambach – 17 km Cross – Experte
+LOCATION:Tambach-Dietharz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 17 km\nhttps://wintersport-ta
+ mbach.de/ztl/
+TRANSP:TRANSPARENT
+URL:https://wintersport-tambach.de/ztl/
+END:VEVENT
+END:VCALENDAR

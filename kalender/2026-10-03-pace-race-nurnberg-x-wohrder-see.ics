@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-pace-race-nurnberg-x-wohrder-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Pace Race Nürnberg
+LOCATION:Wöhrder See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://pace-race.com/nur
+ nberg
+TRANSP:TRANSPARENT
+URL:https://pace-race.com/nurnberg
+END:VEVENT
+END:VCALENDAR

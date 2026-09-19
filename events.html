@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<title>Ausdauersport-Events D/A/CH</title>
+<!-- Seitensymbol. Ohne diese Zeilen fragt jeder Browser von sich aus
+     /favicon.ico an und bekommt von GitHub Pages die 404-Seite - der Tab
+     bleibt leer. Eine SVG-Datei reicht fuer alle Groessen; das PNG
+     braucht nur iOS fuer den Startbildschirm (dort rundet das System die
+     Ecken selbst, deshalb ist es randvoll). -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
+     auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
+     nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
+     absolute Adresse, und die Domain steht noch nicht fest. -->
+<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ausdauersport-Events D/A/CH">
+<meta property="og:title" content="Ausdauersport-Events D/A/CH – die Liste">
+<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<!-- events.json ist das, worauf die Seite wartet - deshalb wird der
+     Download hier angestossen, noch bevor der Browser das Stylesheet und
+     die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
+     filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
+<link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+<!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
+<link rel="stylesheet" href="filter-ui.css?v=ef11a010">
+<link rel="stylesheet" href="event-detail.css?v=72fc4249">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e0e3e8;
+    --text: #1c1f24;
+    --text-muted: #6b7280;
+    --accent: #14509a;
+    --accent-bg: #eaf1ff;
+    --row-alt: #f8fafc;
+    --row-hover: #eef4ff;
+    --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2025;
+      --border: #2c3038;
+      --text: #e7e9ec;
+      --text-muted: #9aa1ac;
+      --accent: #5b9dff;
+      --accent-bg: #1e2a40;
+      --row-alt: #202329;
+      --row-hover: #22314a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { height: 100%; }
+  body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 16px;
+    background: var(--hero-gradient);
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+  }
+  /* Titel und Untertitel nehmen den Platz, der übrig bleibt (min-width: 0,
+     damit sie schrumpfen dürfen) - so bleibt die Knopfreihe möglichst
+     lange in derselben Zeile und der blaue Kasten flach. */
+  .top-bar-text { flex: 1 1 260px; min-width: 0; }
+  h1 {
+    font-size: 1.25rem;
+    margin: 0 0 2px;
+    color: #fff;
+  }
+  .subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  /* EINE umbrechende Reihe, immer rechts. Vorher lagen die Knöpfe in
+     zwei Reihen (Teilen-Knopf darunter) und die ganze Einheit war eine
+     Spalte: Sobald sie unter den Titel umbrach, saß sie am LINKEN Rand
+     (vom Nutzer gemeldet) - ein einzelnes Flex-Element auf einer neuen
+     Zeile beginnt dort. `margin-left: auto` schiebt sie in beiden Fällen
+     nach rechts, und eine Reihe statt zwei macht den Kasten flacher.
+     Dass die E-Mail-Adresse nicht mehr dabeisteht (siehe auth.js), hält
+     die Reihe zusätzlich schmal. */
+  .top-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px 8px;
+    /* Darf schrumpfen und umbrechen: auf 390 px ragte die Knopfreihe
+       vorher 10 px über den blauen Kasten hinaus, DE/EN war angeschnitten. */
+    min-width: 0;
+    max-width: 100%;
+    margin-left: auto;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.92);
+    font-family: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .share-btn:hover { background: rgba(255,255,255,0.24); color: #fff; }
+  .share-btn svg { flex-shrink: 0; }
+
+  .map-btn:hover { background: rgba(255,255,255,0.26); }
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .lang-btn.active {
+    background: #fff;
+    color: #14315e;
+    border-color: #fff;
+  }
+
+  /* Die Werkzeugleiste nutzt die GANZE Breite, nicht nur die der Tabelle.
+     Vorher hatte sie dasselbe Raster wie .layout - der rechte Rand lag
+     damit exakt auf dem Tabellenrand, und die zweite Spalte blieb für
+     den Detailbereich frei. Das sah aufgeräumter aus, ließ der Reihe
+     aber nur ~676 px von 1024: Suchfeld, Trefferzahl, Schalter und die
+     zwei Knöpfe brachen dort in zwei Zeilen um (vom Nutzer gemeldet).
+     Eine Zeile ist wichtiger als die Kante. */
+  .toolbar {
+    margin-bottom: 10px;
+  }
+  .toolbar-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  /* Schiebt den Button an das rechte Ende der Tabellenspalte. */
+  .toolbar-actions {
+    /* margin-left: auto hält "Alle Filter zurücksetzen" am rechten Rand -
+       auch dann, wenn Trefferzahl, Schalter und Chips so breit werden,
+       dass der Knopf in eine eigene Zeile rutscht. Versuch, die Chips
+       stattdessen wachsen zu lassen (flex: 1): dann rutschte der Knopf
+       beim Umbruch nach LINKS. */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .group-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    /* Etwas Abstand zur Trefferzahl links davon, damit Zahl und Schalter
+       nicht ineinanderlaufen. */
+    margin-left: 4px;
+  }
+  .group-toggle:hover { color: var(--text); }
+  /* Zusammengefasste Zeile: der Name trägt einen Aufklapp-Pfeil, die
+     Längen stehen als kleine Marken nebeneinander. */
+  .group-row { cursor: pointer; font-weight: 600; }
+  .group-row:hover { background: var(--row-hover); }
+  .group-name { display: flex; align-items: center; gap: 6px; }
+  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  /* Rundes Feld mit Pfeil, dreht sich beim Aufklappen um 90°. */
+  .chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text-muted);
+    transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
+  }
+  .group-row:hover .chevron { color: var(--accent); border-color: var(--accent); }
+  /* Veranstaltung mit nur einer Strecke: kein Pfeil, aber derselbe
+     Einzug - so beginnen alle Namen der Spalte auf einer Linie. */
+  .chevron-spacer { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; }
+  .chevron.open { transform: rotate(90deg); color: var(--accent); border-color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    .chevron { transition: none; }
+  }
+  /* Die Marken in der Länge-Spalte (eine Kapsel je Distanz) sind weg:
+     Sie sahen mit ihrem Rahmen und dem abgesetzten Hintergrund aus, als
+     ließen sie sich anklicken, und bei einer Veranstaltung mit vielen
+     Wettbewerben füllten sie mehrere Zeilen (beides vom Nutzer
+     gemeldet). Stattdessen steht dort jetzt die Spanne "5–42,2 km"
+     (laengeSpanne) - gleiche Schrift wie der Rest der Tabelle. */
+  /* Unterzeilen tragen dieselbe Schrift wie alle anderen Zeilen - nur
+     eingerückt. Sie waren früher kleiner (0.82rem); zusammen mit den
+     Marken in der Länge-Spalte wirkte die Tabelle dadurch uneinheitlich
+     (vom Nutzer gemeldet). Kenntlich sind Veranstaltung und Strecke jetzt
+     über Pfeil, Anzahl und Einrückung - nicht über die Schriftgröße. */
+  tbody tr.sub-row .col-name { padding-left: 22px; }
+  /* Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
+     (siehe groupRowHtml) - zwei Strecken sind dann auch zwei Zeilen, nicht
+     drei. Damit die Zeilen einer Veranstaltung dabei wie ein Block wirken,
+     bekommt sie dieselbe Schrift wie ihre Unterzeilen; Pfeil und Anzahl
+     bleiben als Kennzeichen der Veranstaltung. */
+  tbody tr.group-row.open { font-weight: normal; }
+  /* Mit Wettbewerbs-Zeile unter dem Namen säße der Pfeil sonst mittig
+     zwischen beiden Zeilen. */
+  .group-row.open .group-name { align-items: flex-start; }
+  /* Aufgeklappt darf der Name umbrechen (darunter steht die Bezeichnung
+     des Wettbewerbs) - aber höchstens auf zwei Zeilen, sonst wäre die
+     Zeile höher als alle anderen. Gekürzt wird .group-name-text, nicht
+     .group-name: Dessen display:-webkit-box widerspricht dem Flex, der
+     Name rutschte damit unter das Chevron. */
+  .group-row.open .group-name-text {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* Aufgeklappt bekommt die Veranstaltung einen RAHMEN: eine Linie oben
+     an der Veranstaltungszeile, eine unten an der letzten Strecke und
+     je ein senkrechter Strich links und rechts durch alle Zeilen
+     dazwischen. Ohne das
+     standen die Strecken einer Veranstaltung mitten in der Liste, ohne
+     dass man ihnen ansah, dass sie zusammengehören - man konnte nicht
+     erkennen, ob eine Veranstaltung drei oder fünf Läufe hat (vom
+     Nutzer gemeldet).
+
+     Drei Entscheidungen dahinter:
+
+     - **`box-shadow: inset` statt `border`.** Ein Rahmen aus Rändern
+       verschöbe die Zeilen: `border-collapse: collapse` teilt sich die
+       Ränder zwischen zwei Zeilen, und eine 2-px-Linie gegen die
+       1-px-Linie daneben macht die Zeile einen Pixel höher. Alle Zeilen
+       sind aber gleich hoch (52 px, siehe `tbody tr`), und der Rauchtest
+       prüft das auf den Pixel. Ein Schatten wirkt nie auf das Layout.
+     - **Hintergrundfarbe kam später dazu** (19.09.2026, auf Wunsch des
+       Nutzers): Der Block ist durchgehend in `--accent-bg` hinterlegt,
+       siehe die Hintergrund-Regeln bei `tbody tr` - in EINEM Ton, auch
+       die gewählte Strecke (ein kräftigerer Ton für sie war gebaut und
+       vom Nutzer wieder verworfen). Die Linien bleiben: Sie zeigen die
+       Kanten des Blocks auch dort, wo zwei Blöcke direkt aufeinander
+       folgen.
+     - **Oben und unten über die ganze Breite.** Der senkrechte Strich
+       allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
+       scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
+       ihn nicht mehr. Die beiden waagerechten Linien laufen über alle
+       Spalten und bleiben damit in jeder Scroll-Stellung im Bild.
+     - **Rechts ebenfalls ein Strich** (`:last-child`, vom Nutzer am
+       19.09.2026 nachgefordert): Ohne ihn war der Rahmen offen wie eine
+       Klammer - der Block hatte links und oben/unten eine Kante, rechts
+       lief er ins Leere. Die letzte Zelle wechselt mit den Spalten
+       (Entfernung kommt und geht), deshalb `:last-child` und keine
+       Spaltenklasse.
+
+     Reihenfolge der acht Regeln ist bedeutungstragend: Die Kombinationen
+     für die Eckzellen (`:first-child`/`:last-child` mit zwei Schatten)
+     müssen NACH den allgemeinen stehen - `box-shadow` ist EINE
+     Eigenschaft, die spätere Regel ersetzt die frühere vollständig statt
+     sie zu ergänzen. */
+  tbody tr.group-row.open > td:first-child,
+  tbody tr.sub-row > td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  tbody tr.group-row.open > td:last-child,
+  tbody tr.sub-row > td:last-child { box-shadow: inset -3px 0 0 var(--accent); }
+  tbody tr.group-row.open > td { box-shadow: inset 0 2px 0 var(--accent); }
+  tbody tr.group-row.open > td:first-child {
+    box-shadow: inset 3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
+  }
+  tbody tr.group-row.open > td:last-child {
+    box-shadow: inset -3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
+  }
+  tbody tr.sub-row.letzte > td { box-shadow: inset 0 -2px 0 var(--accent); }
+  tbody tr.sub-row.letzte > td:first-child {
+    box-shadow: inset 3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
+  }
+  tbody tr.sub-row.letzte > td:last-child {
+    box-shadow: inset -3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
+  }
+  .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+  /* Die Mastersuche (Feld, ✕ und Vorschlagsliste) ist in filter-ui.css
+     gestylt und in filter-ui.js gebaut - die Karte hat dasselbe Feld.
+     Hier steht nur ihr Platz in der Werkzeugleiste. */
+  .reset-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(20,80,154,0.25);
+  }
+  .reset-btn:hover { opacity: 0.9; }
+  .active-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  .chip button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .notify-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.86rem;
+  }
+  .notify-box[hidden] { display: none; }
+  .notify-box p { margin: 0; flex: 1; min-width: 200px; color: var(--text); }
+  .notify-box button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .notify-box button:hover { opacity: 0.9; }
+  .notify-box .notify-status { font-size: 0.8rem; color: var(--text-muted); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    position: sticky;
+    top: 16px;
+  }
+  .side-panel .detail-panel { width: 100%; }
+
+  .table-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow-x: auto;
+    max-height: 78vh;
+    overflow-y: auto;
+  }
+  /* Die Liste soll die ganze Seite nutzen. Vorher war die Tabelle auf
+     78vh begrenzt, die SEITE aber höher: Scrollte man die Seite statt der
+     Liste, hörte die Liste auf und darunter blieb eine leere Fläche -
+     und man scrollte in zwei verschiedenen Dingen (vom Nutzer gemeldet).
+     Ab 901 px (zweispaltig, Detailbereich NEBEN der Tabelle) ist die
+     Seite deshalb genau fensterhoch, und nur die Liste scrollt.
+     Fußzeile und der Knopf "Event fehlt?" stehen damit immer sichtbar
+     am unteren Rand.
+     Auf dem Handy bleibt es beim Seiten-Scroll: Dort steht der
+     Detailbereich UNTER der Tabelle und muss erreichbar sein - genau
+     dafür scrollt zeigeDetailbereich() die Seite. */
+  @media (min-width: 901px) {
+    html { height: 100%; }
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    /* min-height: 0 an beiden Stellen - ohne das wächst ein Grid-/
+       Flex-Element auf seine Inhaltshöhe und schiebt die Fußzeile aus
+       dem Bild, statt selbst zu scrollen. */
+    .layout { flex: 1 1 auto; min-height: 0; align-items: stretch; }
+    .layout > * { min-height: 0; }
+    .table-wrap { max-height: 100%; height: 100%; }
+    .side-panel { max-height: 100%; overflow-y: auto; }
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 800px;
+    table-layout: fixed;
+    font-size: 0.86rem;
+  }
+  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Land, 4 Standort, 5 Sportart,
+     6 Kategorie, 7 Länge. Name breiter, Länge schmaler (die Einheit "km"
+     steht ohnehin schon in jeder Zelle). Die Anmeldung-Spalte (Offen/
+     Geschlossen) wurde entfernt: der Anmeldeschluss lässt sich bei den
+     meisten Quellen nicht zuverlässig auslesen und fehlt daher fast
+     überall - keine gute Datenbasis für einen Filter/eine Spalte. */
+  /* Spaltenbreiten über KLASSEN, nicht über nth-child: die Spalten
+     wechseln je nach Zustand (Entfernung nur mit Ausgangspunkt, Anzahl
+     nur beim Zusammenfassen), und mit nth-child bräuchte jede Kombination
+     ihren eigenen Satz Regeln. Die Summe muss nicht genau 100 % sein -
+     table-layout: fixed verteilt proportional. */
+  /* Die Zusammenfassung soll so wenig Platz wie möglich kosten: die
+     Anzahl steht als kleine Zahl ganz links am Tabellenrand, gleich
+     danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
+     ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
+     immer zu breit. */
+  .col-name { width: 22%; }
+  .col-datum { width: 13%; }
+  /* 13 %, nicht 11 %: Bei 11 % (93 px auf Handybreite) brach
+     "Deutschland" mitten im Wort um ("Deutschl" / "and") - das Wort
+     braucht 76 px, der Inhalt hatte 73 px. Die Spaltenbreiten summieren
+     sich ohnehin nur auf 95 %, die zwei Prozentpunkte kosten also keine
+     andere Spalte. */
+  .col-land { width: 13%; }
+  .col-standort { width: 14%; }
+  .col-entfernung { width: 11%; }
+  .col-art1 { width: 11%; }
+  .col-art2 { width: 13%; }
+  .col-laenge_km { width: 11%; }
+  table.with-distance { min-width: 900px; }
+
+  /* Der Browser ueberspringt Layout und Zeichnen fuer Zeilen, die gerade
+     nicht im Bild sind. Bei ueber 4.000 Zeilen ist das der Unterschied
+     zwischen einer zaeh aufbauenden und einer sofort da stehenden Liste.
+     Moeglich ist es nur, weil die Spaltenbreiten fest sind
+     (table-layout: fixed) - sonst muesste der Browser doch jede Zeile
+     ausmessen, um die Spalten zu verteilen. contain-intrinsic-size nennt
+     die geschaetzte Zeilenhoehe, damit die Bildlaufleiste von Anfang an
+     stimmt. Browser ohne content-visibility ignorieren beide Zeilen. */
+  /* Jede Zeile ist gleich hoch, und kein Text darf über zwei Zeilen
+     hinausgehen (so vom Nutzer gewünscht). `height` wirkt an einem <tr>
+     wie eine Mindesthöhe: Eine einzeilige Zeile wird auf 52 px gestreckt,
+     eine zweizeilige braucht genau so viel - damit sind alle gleich hoch.
+     Dass nichts darüber hinauswächst, sichern die Kürzungen
+     (.cell-clamp, .group-name-text) und die Längen-SPANNE bei
+     zusammengefassten Veranstaltungen (laengeSpanne) - vorher stand dort
+     je Strecke eine eigene Marke, was eine Veranstaltung mit 15
+     Wettbewerben über vier Zeilen zog. */
+  tbody tr {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 52px;
+    height: 52px;
+  }
+  thead th {
+    position: sticky;
+    top: 0;
+    background: var(--panel);
+    z-index: 2;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    padding: 0;
+    font-weight: 600;
+  }
+  .th-inner {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .th-inner span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* Der Spaltenname ist ein Knopf (Sortierung), soll aber wie eine
+     Kopfzeile aussehen - deshalb ohne Rahmen und Hintergrund. */
+  .th-sort {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .th-sort:hover { color: var(--accent); }
+  .th-sort.active { color: var(--accent); }
+  .sort-arrow { font-size: 0.7em; flex-shrink: 0; }
+
+  tbody td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    text-align: left;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: normal;
+  }
+  .cell-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  /* Bezeichnung des konkreten Wettbewerbs unter dem Veranstaltungsnamen.
+     Eine Veranstaltung mit mehreren Strecken steht mit je einer Zeile pro
+     Strecke in der Liste - ohne diese Zeile wären die Zeilen bis auf die
+     Längenangabe identisch. */
+  .wettbewerb {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  tbody tr { cursor: pointer; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  /* Der aufgeklappte Block ist durchgehend in EINEM Blau hinterlegt -
+     alle Strecken gleich, auch die gerade ausgewählte. So vom Nutzer am
+     19.09.2026 entschieden ("bei den zusammengefügten Events die gleiche
+     blaue Farbe benutzen"): Ein Zwischenstand gab der gewählten Strecke
+     im Block einen kräftigeren Ton (--row-active-block), und genau der
+     sah in der Liste wie zwei verschiedene Blautöne aus. Welche Strecke
+     gewählt ist, zeigt der Detailbereich daneben; die Klasse `active`
+     bleibt an der Zeile (markiereAuswahl, Tastatur, Rauchtest), sie
+     färbt im Block nur nicht mehr. Außerhalb eines Blocks bleibt
+     `tr.active` die Markierung der gewählten Zeile - dasselbe Blau. */
+  tbody tr.group-row.open,
+  tbody tr.sub-row { background: var(--accent-bg); }
+  tbody tr:hover { background: var(--row-hover); }
+  tbody tr.active { background: var(--accent-bg); }
+  /* Tastaturbedienung: die Zeile, auf der der Fokus steht, muss zu sehen
+     sein. `:focus-visible` statt `:focus`, damit ein Mausklick (der die
+     Zeile ebenfalls fokussiert) keinen Rahmen hinterlässt. `-2px` legt
+     ihn nach innen - außen würde ihn der scrollende Tabellen-Container
+     abschneiden. */
+  tbody tr:focus { outline: none; }
+  tbody tr:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: var(--accent-bg);
+  }
+  /* Enter auf einer Zeile springt in die Angaben - dort muss sichtbar
+     sein, dass der Fokus jetzt hier steht. */
+  .detail-panel:focus { outline: none; }
+  .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* "Neue Events per E-Mail" - sekundär neben "Alle Filter
+     zurücksetzen", damit die Werkzeugleiste nicht zwei laute Knöpfe
+     hat. */
+  .abo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--panel);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .abo-btn:hover { background: var(--accent-bg); }
+
+  /* Inhalt des Abo-Dialogs */
+  .abo-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 0 0 14px;
+    font-size: 0.86rem;
+  }
+  .abo-summary strong { display: block; margin-bottom: 2px; }
+  /* Eigene Zeile: Im ersten Versuch stand der Hinweis direkt hinter der
+     Filter-Zusammenfassung und las sich wie ein Teil von ihr
+     ("… 25 km um München Der Datumsfilter gehört nicht dazu"). */
+  .abo-summary .abo-hint {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+  /* Die Filterknöpfe im Dialog: dieselben wie in der Liste
+     (filter-ui.css), hier nur die Reihe darum. */
+  .abo-filter { margin: 0 0 12px; }
+  .abo-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .abo-abschnitt { display: block; margin: 0 0 6px; }
+  .abo-filter > strong { display: block; }
+  .abo-rhythm { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
+  .abo-rhythm label {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 11px;
+    cursor: pointer;
+    font-size: 0.88rem;
+  }
+  .abo-rhythm label:hover { background: var(--row-hover); }
+  .abo-rhythm input { margin-top: 3px; }
+  .abo-rhythm .abo-rhythm-note { display: block; color: var(--text-muted); font-size: 0.8rem; }
+  .abo-list { margin: 18px 0 0; border-top: 1px solid var(--border); padding-top: 14px; }
+  .abo-list h3 { margin: 0 0 8px; font-size: 0.92rem; }
+  .abo-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    font-size: 0.84rem;
+  }
+  .abo-item .abo-item-rhythm { color: var(--text-muted); font-size: 0.8rem; }
+  .abo-item button {
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+  .abo-item button:hover { color: #b42318; border-color: #b42318; }
+  .abo-status { font-size: 0.85rem; margin-top: 10px; }
+  .abo-status.ok { color: #1a7f37; }
+  .abo-status.fehler { color: #b42318; }
+
+  /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr).
+     Die Zelle spannt über alle Spalten, also über die volle
+     Tabellenbreite (800 px) - ein mittig gesetzter Knopf lag auf
+     Handybreite damit außerhalb des Bildes, sobald man waagerecht
+     gescrollt hatte. `position: sticky; left: 0` am inneren Element
+     hält ihn am linken Rand des SICHTBAREN Bereichs, egal wie weit die
+     Tabelle geschoben ist. */
+  .mehr-row td {
+    padding: 0;
+    background: var(--panel);
+  }
+  .mehr-row .mehr-inner {
+    position: sticky;
+    left: 0;
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 10px 8px;
+  }
+  .mehr-row .mehr-btn {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .mehr-row .mehr-btn:hover { background: var(--accent-bg); }
+  .empty-row td {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+  }
+
+  /* Excel-style column filter button + floating panel */
+  /* Die Filterknöpfe und das schwebende Panel stehen in filter-ui.css,
+     die Detail-Box samt Kalender-Menü, Melde-Knopf und Kurzmeldung in
+     event-detail.css - die Karte bindet dieselben Dateien ein. Hier
+     steht nur, WO die Box auf dieser Seite sitzt (.side-panel). */
+
+
+  /* Das Melde-Formular nutzt die Modal-Styles aus auth.js
+     (.ee-modal-overlay, .ee-modal, .ee-field, .ee-submit-btn,
+     .ee-form-msg) - hier nur die Ergaenzungen fuer Select/Textarea
+     und die Event-Zusammenfassung im Dialog. */
+  .report-event-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+  }
+  .report-event-summary strong { display: block; margin-bottom: 2px; }
+  .report-event-summary span { color: var(--text-muted); }
+  .report-intro { margin: 0 0 14px; font-size: 0.86rem; color: var(--text-muted); }
+  .ee-field select,
+  .ee-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.92rem;
+    font-family: inherit;
+  }
+  .ee-field textarea { resize: vertical; min-height: 90px; }
+  .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
+
+  /* "Wir haben dein Event nicht?" - eine schmale, leise Zeile UNTER der
+     Liste. Wer etwas sucht, soll zuerst die Liste sehen; wer nichts
+     gefunden hat, findet hier den nächsten Schritt. Ab 901 px ist die
+     Seite genau fensterhoch, die Zeile steht also immer sichtbar unten.
+     Dieselbe Sache steht zusätzlich in der Box bei null Treffern - dort
+     ist sie der naheliegende nächste Schritt. */
+  .fehlt-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 10px;
+    padding: 10px 16px 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .fehlt-bar span { text-align: center; }
+  .fehlt-btn {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .fehlt-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
+  /* Im Melde-Dialog steht die Adresse der offiziellen Seite - ein langes
+     Feld, das nicht abgeschnitten sein darf. */
+  .ee-field input[type="url"] { font-family: inherit; }
+  /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
+     Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
+     Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
+     weil diese Seite ihre eigenen Farbvariablen mitbringt. */
+  .seiten-footer {
+    padding: 18px 16px 28px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+  .seiten-footer a { color: inherit; }
+  .seiten-footer .trenner { opacity: 0.5; padding: 0 6px; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-text">
+    <h1 id="page-title"></h1>
+    <p class="subtitle" id="subtitle"></p>
+  </div>
+  <!-- Alle Knöpfe in EINER umbrechenden Reihe, rechts. Der Teilen-Knopf
+       gehört zur Seite als Ganzem (die aktuelle Suche), nicht zur Tabelle -
+       in der Werkzeugleiste stand er zwischen Filter-Chips und
+       Zurücksetzen und ging dort unter. -->
+  <div class="top-actions">
+    <!-- Kein Startseiten-Knopf mehr (vom Nutzer am 19.09.2026 entfernt:
+         "bloß verwirrend"); wie man zur Startseite zurückkommt, ist ein
+         offener Punkt in CLAUDE.md. -->
+    <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
+    <div id="auth-mount"></div>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button type="button" class="share-btn" id="share-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+        <path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>
+      </svg>
+      <span id="share-btn-label"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Die kurze Rückmeldung nach dem Kopieren (Toast) erzeugt
+     event-detail.js beim ersten Aufruf selbst. -->
+
+<div class="toolbar">
+  <div class="toolbar-main">
+    <!-- Mastersuche: Eventname oder Ort, ein Feld. Steht links von der
+         Trefferzahl (so vom Nutzer gewünscht). -->
+    <!-- Gefüllt von ui.buildSearch() (filter-ui.js): Feld, ✕ und die
+         Vorschlagsliste ("Iron" → "Ironman"). Die Karte hat dasselbe. -->
+    <div class="master-search" id="master-search-box"></div>
+    <div class="result-count" id="result-count"></div>
+    <!-- Der Schalter steht direkt hinter der Trefferzahl: Er verändert,
+         WIE diese Zahl zu lesen ist ("810 Veranstaltungen (1413
+         Strecken)"), gehört also dorthin und nicht zu den Knöpfen
+         rechts. -->
+    <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
+    <div class="active-chips" id="active-chips"></div>
+    <div class="toolbar-actions">
+      <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern. Die
+           frühere Box erschien erst, wenn eine Suche leer ausging - wer
+           "alle neuen Schwimm-Events in Thüringen" abonnieren wollte,
+           kam also gar nicht an sie heran. -->
+      <button type="button" class="abo-btn" id="abo-open-btn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+        </svg>
+        <span id="abo-open-label"></span>
+      </button>
+      <button class="reset-btn" id="reset-btn"></button>
+    </div>
+  </div>
+</div>
+
+<div class="notify-box" id="notify-box" hidden></div>
+
+<!-- Abo-Dialog ("Neue Events per E-Mail"). Nutzt die Modal-Stile aus
+     auth.js (.ee-modal-overlay/.ee-modal) und dieselbe Fokusfessel
+     (dialogTasten) wie der Melde-Dialog. -->
+<div class="ee-modal-overlay" id="abo-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="abo-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="abo-close" aria-label="Schliessen">&#10005;</button>
+    <div id="abo-body"></div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="table-wrap">
+    <table id="event-table">
+      <thead>
+        <tr id="header-row"></tr>
+      </thead>
+      <tbody id="event-body"></tbody>
+    </table>
+  </div>
+  <div class="side-panel">
+    <!-- tabindex="-1": Enter auf einer Zeile springt hierher (siehe
+         Tastaturbedienung), ein eigener Tab-Stopp ist es aber nicht. -->
+    <div class="detail-panel" id="detail-panel" tabindex="-1"></div>
+  </div>
+</div>
+
+<!-- Unter der Liste: der Hinweis, dass die Liste nicht vollständig sein
+     muss. Führt in denselben Dialog wie der Knopf in der
+     Null-Treffer-Box - ein Weg, an dem ein Vorschlag entsteht. -->
+<div class="fehlt-bar">
+  <span id="fehlt-bar-text"></span>
+  <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
+</div>
+
+<!-- "Wir haben dein Event nicht?" - gespeichert wird via
+     EndauranceAuth.suggestEvent() in der Firestore-Collection
+     "eventSuggestions" (anonyme Anmeldung, wie bei den
+     Fehlermeldungen). -->
+<div class="ee-modal-overlay" id="suggest-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="suggest-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="suggest-close" aria-label="Schliessen">&#10005;</button>
+    <div id="suggest-body"></div>
+  </div>
+</div>
+
+<!-- Melde-Dialog fuer falsche Event-Daten. Nutzt die Modal-Optik aus
+     auth.js; gespeichert wird via EndauranceAuth.reportEventError() in
+     der Firestore-Collection "errorReports" (anonyme Anmeldung, damit
+     die Security Rules request.auth verlangen koennen). -->
+<div class="ee-modal-overlay" id="report-overlay" hidden>
+  <div class="ee-modal" role="dialog" aria-modal="true" aria-labelledby="report-heading" tabindex="-1">
+    <button type="button" class="ee-modal-close" id="report-close" aria-label="Schliessen">&#10005;</button>
+    <div id="report-body"></div>
+  </div>
+</div>
+
+<!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
+     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
+     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
+<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
+     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
+     Firebase, bevor es events.json ueberhaupt anforderte.
+     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
+     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+
+<!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
+     nutzt karte.html, damit Liste und Karte unter denselben Filtern
+     dieselben Events zeigen. -->
+<script src="filters.js?v=a681a4ab"></script>
+<script src="filter-ui.js?v=ce0893e2"></script>
+<script src="event-detail.js?v=bbba0065"></script>
+
+<script>
+(async function () {
+  // Gemeinsamer Filterzustand (filters.js). Alles, was Liste UND Karte
+  // brauchen, steht dort - hier bleibt nur, was die Liste ausmacht
+  // (Spalten, Sortierung, Zusammenfassen, Filter-Panels).
+  const EF = window.EnduranceFilters;
+  const EFU = window.EnduranceFilterUI;
+
+  // Sicherung gegen eine halb alte Seite: GitHub Pages liefert jede Datei
+  // mit max-age=600, ein Browser kann also diese Seite mit einer zehn
+  // Minuten alten filters.js kombinieren. Fehlt darin eine Funktion,
+  // bricht das Skript in seiner ersten Zeile ab - die Seite blieb dann
+  // LEER (blauer Kopf, sonst nichts; genau das ist passiert). Die
+  // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
+  // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
+  const EED = window.EnduranceDetail;
+  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EFU.create || !EED.render) {
+    let spracheDe = true;
+    try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
+    document.getElementById('page-title').textContent =
+      spracheDe ? 'Bitte neu laden' : 'Please reload';
+    document.getElementById('subtitle').textContent = spracheDe
+      ? 'Der Browser hat eine veraltete Programmdatei gespeichert. Einmal neu laden genügt (auf dem iPhone/iPad: Seite schließen und wieder öffnen).'
+      : 'Your browser kept an outdated script file. Just reload the page (on iPhone/iPad: close the tab and open it again).';
+    return;
+  }
+
+  // ---------- Übersetzungen / i18n ----------
+
+  const I18N = {
+    de: {
+      tab_title: 'Ausdauersport-Events D/A/CH',
+      title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
+      // Kein Bedienhinweis mehr ("Klicke auf eine
+      // Kopfzeile-Filterschaltfläche …") - das war ein Handbuchsatz für
+      // etwas, das man sieht, und er machte den blauen Kasten hoch. Hier
+      // steht jetzt, WAS die Liste ist und wie aktuell sie ist.
+      // Kurz halten: Die Länder stehen schon in der Überschrift, und
+      // jede Zeile mehr macht den blauen Kasten höher.
+      subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
+      reset: 'Filter löschen',
+      footer_imprint: 'Impressum',
+      footer_privacy: 'Datenschutz',
+      map: 'Karte',
+      result_count: (n, total) => `${n} von ${total} Events`,
+      // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
+      // sortiert wird über alle Events, gezeichnet nur ein Teil.
+      mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
+      abo_open: 'Events per E-Mail',
+      abo_titel: 'Neue Events per E-Mail',
+      abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
+      abo_welche: 'Welche Events?',
+      abo_wie_oft: 'Wie oft?',
+      abo_summary_titel: 'Dieses Abo umfasst:',
+      abo_alles: 'Alle neuen Events',
+      abo_ohne_datum: 'Der Datumsfilter gehört nicht dazu – ein Abo schaut in die Zukunft.',
+      abo_umkreis: (km, ort) => `${km} km um ${ort}`,
+      abo_orte_mehr: (orte, rest) => `${orte} und ${rest} weitere Orte`,
+      abo_von_km: (km) => `ab ${km} km`,
+      abo_bis_km: (km) => `bis ${km} km`,
+      abo_r_sofort: 'Sofort',
+      abo_r_sofort_note: 'Sobald ein passendes Event dazukommt (die Daten werden derzeit wöchentlich aktualisiert).',
+      abo_r_woechentlich: 'Wöchentlich',
+      abo_r_woechentlich_note: 'Einmal pro Woche, gesammelt in einer E-Mail.',
+      abo_r_monatlich: 'Monatlich',
+      abo_r_monatlich_note: 'Einmal im Monat, gesammelt in einer E-Mail.',
+      abo_speichern: 'Abo anlegen',
+      abo_an: (mail) => `Die E-Mails gehen an ${mail}.`,
+      abo_login: 'Anmelden',
+      abo_login_grund: 'Für ein Abo brauchen wir eine E-Mail-Adresse – deshalb die Anmeldung.',
+      abo_gespeichert: 'Abo angelegt. Du kannst es jederzeit wieder löschen.',
+      abo_fehler: 'Das hat nicht geklappt. Bitte später noch einmal versuchen.',
+      abo_meine: 'Meine Abos',
+      abo_loeschen: 'Löschen',
+      col_entfernung: 'Entfernung',
+      sort_hint: 'Klicken zum Sortieren',
+      group_toggle: 'Events zusammenfassen',
+      // Kurz halten: Die deutsche Fassung brach sonst in eine zweite
+      // Zeile um ("2472 Veranstaltungen (4344 Strecken) von 4344 Events"
+      // neben Suchfeld, Schalter und zwei Knöpfen - vom Nutzer
+      // gemeldet). „Veranstaltungen" heißt jetzt überall „Events", die
+      // Klammer mit den Strecken entfällt: Zusammengefasst zeigt die
+      // Liste Veranstaltungen, und der Schalter direkt daneben sagt das.
+      result_count_grouped: (g, n, total) => `${g} von ${total} Events`,
+      share_search: 'Suche mit Freunden teilen',
+      share_done: '✓ Link kopiert!',
+      report_title: 'Fehler melden',
+      report_intro: 'Danke, dass du hilfst! Was stimmt bei diesem Event nicht?',
+      report_field_label: 'Wo liegt der Fehler?',
+      report_field_placeholder: 'Bitte auswählen …',
+      report_desc_label: 'Was ist falsch? (kurze Beschreibung)',
+      report_desc_placeholder: 'z. B. "Der Lauf ist 12,4 km lang, nicht 10 km" oder "Die Webseite ist veraltet, neu: …"',
+      report_send: 'Meldung absenden',
+      report_sending: 'Wird gesendet …',
+      report_thanks: '✓ Danke! Die Meldung ist eingegangen und wird geprüft.',
+      report_err_field: 'Bitte wähle aus, wo der Fehler liegt.',
+      report_err_desc: 'Bitte beschreibe den Fehler kurz (mindestens 10 Zeichen).',
+      report_err_save: 'Die Meldung konnte nicht gespeichert werden. Bitte später erneut versuchen.',
+      report_err_anon: 'Anonymes Melden ist in diesem Projekt noch nicht aktiviert (Firebase-Anbieter „Anonym\").',
+      report_err_config: 'Melden ist noch nicht eingerichtet (Firebase-Konfiguration fehlt).',
+      report_cat_laenge: 'Länge / Distanz',
+      report_cat_datum: 'Datum',
+      report_cat_ort: 'Stadt / Ort oder Land',
+      report_cat_url: 'Link zur Veranstalter-Website',
+      report_cat_sportart: 'Sportart oder Kategorie',
+      report_cat_name: 'Name der Veranstaltung',
+      report_cat_doppelt: 'Event ist doppelt in der Liste',
+      report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
+      report_cat_sonstiges: 'Sonstiges',
+      empty_events: 'Keine Events gefunden.',
+      notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
+      // "Wir haben dein Event nicht?" - der zweite Weg bei null Treffern.
+      // Ein Abo hilft nur, wenn das Event NOCH NICHT stattfindet; unsere
+      // Liste kann aber auch einfach unvollständig sein. Dann soll man
+      // uns die Veranstaltung nennen können.
+      notify_fehlt: 'Oder fehlt die Veranstaltung bei uns? Dann sag uns Bescheid.',
+      fehlt_bar_text: 'Eine Veranstaltung fehlt in der Liste?',
+      fehlt_open: 'Event melden',
+      fehlt_titel: 'Wir haben dein Event nicht?',
+      fehlt_intro: 'Schick uns die Adresse der offiziellen Seite – alles Weitere (Datum, Strecken, Ort) holen wir uns von dort. Abtippen musst du nichts.',
+      fehlt_url_label: 'Adresse der offiziellen Seite',
+      fehlt_url_placeholder: 'https://…',
+      fehlt_name_label: 'Name der Veranstaltung',
+      fehlt_name_placeholder: 'z. B. Zürich Marathon',
+      fehlt_hinweis_label: 'Hinweis (optional)',
+      fehlt_hinweis_placeholder: 'Was wir wissen sollten – z. B. „nur die Radrennen, nicht das Kinderrennen“.',
+      fehlt_send: 'Absenden',
+      fehlt_sending: 'Wird gesendet …',
+      fehlt_thanks: 'Danke! Wir schauen uns die Seite an und nehmen die Veranstaltung auf.',
+      fehlt_err_url: 'Bitte die Adresse der offiziellen Seite angeben.',
+      fehlt_err_name: 'Bitte den Namen der Veranstaltung angeben.',
+      notify_btn: 'Benachrichtigen, sobald verfügbar',
+      notify_login_btn: 'Anmelden, um benachrichtigt zu werden',
+      notify_saved: '✓ Gespeichert – wir melden uns per E-Mail.',
+      notify_error: 'Fehler beim Speichern – bitte später erneut versuchen.',
+      load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
+      // Chip- und Zeitraum-Texte: siehe filters.js (unten eingemischt)
+      // Texte der Filter-Panels und die Spaltennamen: filter-ui.js
+      // (unten eingemischt) - die Karte zeigt dieselben Knöpfe.
+    },
+    en: {
+      tab_title: 'Endurance Events D/A/CH',
+      title: 'Endurance Events – Germany / Austria / Switzerland',
+      subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
+      reset: 'Reset filters',
+      footer_imprint: 'Legal notice',
+      footer_privacy: 'Privacy',
+      map: 'Map',
+      result_count: (n, total) => `${n} of ${total} events`,
+      mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
+      abo_open: 'Events by e-mail',
+      abo_titel: 'New events by e-mail',
+      abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
+      abo_welche: 'Which events?',
+      abo_wie_oft: 'How often?',
+      abo_summary_titel: 'This subscription covers:',
+      abo_alles: 'All new events',
+      abo_ohne_datum: 'The date filter is not part of it – a subscription looks ahead.',
+      abo_umkreis: (km, ort) => `${km} km around ${ort}`,
+      abo_orte_mehr: (orte, rest) => `${orte} and ${rest} more places`,
+      abo_von_km: (km) => `from ${km} km`,
+      abo_bis_km: (km) => `up to ${km} km`,
+      abo_r_sofort: 'Right away',
+      abo_r_sofort_note: 'As soon as a matching event is added (the data is currently refreshed weekly).',
+      abo_r_woechentlich: 'Weekly',
+      abo_r_woechentlich_note: 'Once a week, collected in one e-mail.',
+      abo_r_monatlich: 'Monthly',
+      abo_r_monatlich_note: 'Once a month, collected in one e-mail.',
+      abo_speichern: 'Create subscription',
+      abo_an: (mail) => `E-mails will go to ${mail}.`,
+      abo_login: 'Sign in',
+      abo_login_grund: 'A subscription needs an e-mail address – that is why you sign in.',
+      abo_gespeichert: 'Subscription created. You can delete it at any time.',
+      abo_fehler: 'That did not work. Please try again later.',
+      abo_meine: 'My subscriptions',
+      abo_loeschen: 'Delete',
+      col_entfernung: 'Distance',
+      sort_hint: 'Click to sort',
+      group_toggle: 'Group by event',
+      result_count_grouped: (g, n, total) => `${g} of ${total} events`,
+      share_search: 'Share this search',
+      share_done: '✓ Link copied!',
+      report_title: 'Report an error',
+      report_intro: 'Thanks for helping! What is wrong with this event?',
+      report_field_label: 'Where is the error?',
+      report_field_placeholder: 'Please choose …',
+      report_desc_label: 'What is wrong? (short description)',
+      report_desc_placeholder: 'e.g. "The race is 12.4 km, not 10 km" or "The website is outdated, the new one is …"',
+      report_send: 'Send report',
+      report_sending: 'Sending …',
+      report_thanks: '✓ Thank you! Your report has been received and will be reviewed.',
+      report_err_field: 'Please choose where the error is.',
+      report_err_desc: 'Please describe the error briefly (at least 10 characters).',
+      report_err_save: 'Could not save the report. Please try again later.',
+      report_err_anon: 'Anonymous reporting is not enabled yet for this project (Firebase provider "Anonymous").',
+      report_err_config: 'Reporting is not set up yet (Firebase configuration missing).',
+      report_cat_laenge: 'Length / distance',
+      report_cat_datum: 'Date',
+      report_cat_ort: 'City or country',
+      report_cat_url: 'Link to the organizer website',
+      report_cat_sportart: 'Sport or category',
+      report_cat_name: 'Event name',
+      report_cat_doppelt: 'Event is listed twice',
+      report_cat_abgesagt: 'Event is cancelled / not happening',
+      report_cat_sonstiges: 'Something else',
+      empty_events: 'No events found.',
+      notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
+      notify_fehlt: 'Or is the event missing from our list? Then let us know.',
+      fehlt_bar_text: 'An event missing from the list?',
+      fehlt_open: 'Report an event',
+      fehlt_titel: 'Is your event missing?',
+      fehlt_intro: 'Send us the address of the official website – we will take everything else (date, distances, location) from there. No need to type it in.',
+      fehlt_url_label: 'Address of the official website',
+      fehlt_url_placeholder: 'https://…',
+      fehlt_name_label: 'Name of the event',
+      fehlt_name_placeholder: 'e.g. Zurich Marathon',
+      fehlt_hinweis_label: 'Note (optional)',
+      fehlt_hinweis_placeholder: 'Anything we should know – e.g. "only the bike races, not the kids\' race".',
+      fehlt_send: 'Send',
+      fehlt_sending: 'Sending …',
+      fehlt_thanks: 'Thank you! We will look at the website and add the event.',
+      fehlt_err_url: 'Please enter the address of the official website.',
+      fehlt_err_name: 'Please enter the name of the event.',
+      notify_btn: 'Notify me when available',
+      notify_login_btn: 'Sign in to get notified',
+      notify_saved: '✓ Saved – we’ll email you.',
+      notify_error: 'Could not save – please try again later.',
+      load_error: (msg) => `Could not load events.json: ${msg}`,
+      // Chip- und Zeitraum-Texte: siehe filters.js (unten eingemischt)
+    
+      // Texte der Filter-Panels und die Spaltennamen: filter-ui.js
+      // (unten eingemischt) - die Karte zeigt dieselben Knöpfe.
+    }
+  };
+
+  // Chip-/Zeitraum-Texte und die Übersetzung der Datenwerte
+  // (Land/Sportart/Kategorie) kommen aus filters.js - die Karte zeigt
+  // dieselben Chips, und zwei Kopien derselben Texte wären mit der Zeit
+  // auseinandergelaufen. Die gespeicherten Filterwerte bleiben intern
+  // immer auf Deutsch (Datenformat), übersetzt wird nur die ANZEIGE.
+  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de, EED.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en, EED.I18N.en);
+  const VALUE_TRANSLATIONS = EF.VALUE_TRANSLATIONS;
+
+  let currentLang = 'de';
+  try {
+    const saved = localStorage.getItem('endurance-lang');
+    if (saved === 'de' || saved === 'en') currentLang = saved;
+  } catch (e) { /* localStorage evtl. nicht verfügbar */ }
+
+  function t(key, ...args) {
+    const entry = I18N[currentLang][key];
+    return typeof entry === 'function' ? entry(...args) : entry;
+  }
+
+  function tv(field, value) {
+    if (value == null) return value;
+    const entry = VALUE_TRANSLATIONS[field] && VALUE_TRANSLATIONS[field][value];
+    return entry ? entry[currentLang] : value;
+  }
+
+  // ---------- Distanzkategorien (nach Sportart) ----------
+
+  // Die Tabellen selbst (welche Distanz zu welcher Kategorie zählt) und
+  // die Grenzen des Umkreis-Reglers stehen in filters.js: die Karte
+  // filtert mit genau denselben Kategorien.
+  const DISTANCE_CATEGORIES = EF.DISTANCE_CATEGORIES;
+  const DISTANCE_CATEGORY_LABELS = EF.DISTANCE_CATEGORY_LABELS;
+  const RADIUS_MIN_KM = EF.RADIUS_MIN_KM;
+  const RADIUS_MAX_KM = EF.RADIUS_MAX_KM;
+  const RADIUS_DEFAULT_KM = EF.RADIUS_DEFAULT_KM;
+
+  // Bewusst eine Funktions-Deklaration (keine const-Zuweisung): sie ist
+  // hochgezogen und damit auch vor ihrer Textstelle aufrufbar - genau
+  // die Temporal-Dead-Zone-Falle, die dieses Skript schon zweimal
+  // erwischt hat.
+  function matchesDistanceCategory(e) {
+    return EF.matchesDistanceCategory(state, e);
+  }
+
+  // Kanonische Distanz-Bezeichnungen und ihre Länge in km. Steht so ein
+  // Wort allein im Wettbewerbs-Feld und passt zur Länge, sagt es nichts
+  // Neues (siehe displayWettbewerb).
+
+  // Die Wettbewerbs-Bezeichnung, ODER null wenn sie nur die Länge
+  // wiederholt (Begründung in event-detail.js).
+  function displayWettbewerb(e) {
+    return EED.displayWettbewerb(e);
+  }
+
+  // Reihenfolge der Spalten: Name, Datum, Land, Standort, Sportart,
+  // Kategorie, Länge - die Liste steht in filter-ui.js, weil dieselbe
+  // hier die Tabellenköpfe und auf der Karte die Knopfreihe baut.
+  // Keine Anmeldung-Spalte/-Filter: der Anmeldeschluss lässt sich bei
+  // den meisten gescrapten Quellen nicht zuverlässig auslesen (fehlt fast
+  // überall) - keine gute Datenbasis, siehe Docstrings der Scraper-Skripte.
+  const COLUMNS = EFU.COLUMNS;
+
+  // Sortierschlüssel pro Spalte. Jede Funktion gibt [Gruppe, Wert] zurück:
+  // die Gruppe sortiert Einträge ohne verwertbare Angabe ans Ende, egal in
+  // welche Richtung sortiert wird (eine Zeile ohne Distanz soll nicht bei
+  // "aufsteigend" ganz oben stehen).
+  const SORT_KEYS = {
+    name: e => [0, `${e.name || ''} ${e.wettbewerb || ''}`.toLowerCase()],
+    datum: e => [0, e.datum_start || ''],
+    land: e => [0, tv('land', e.land).toLowerCase()],
+    standort: e => [0, (e.standort || '').toLowerCase()],
+    art1: e => [0, tv('art1', e.art1).toLowerCase()],
+    art2: e => [0, e.art2 ? tv('art2', e.art2).toLowerCase() : ''],
+    // Drei Stufen: bekannte Distanz, dann Zeitrennen (nach Dauer), dann
+    // Einträge ohne beides. Km und Stunden sind nicht vergleichbar - sie
+    // in eine Zahlenreihe zu mischen würde eine Ordnung behaupten, die es
+    // nicht gibt.
+    laenge_km: e => e.laenge_km != null ? [0, e.laenge_km]
+                  : e.dauer_h != null ? [1, e.dauer_h] : [2, 0],
+    entfernung: e => {
+      const d = distanceFromOrigin(e);
+      return d == null ? [1, 0] : [0, d];
+    }
+  };
+
+  // Die Entfernungs-Spalte gibt es nur mit Ausgangspunkt - ohne einen
+  // wäre sie eine Spalte voller Striche. Sie steht direkt hinter
+  // Stadt/Ort, weil sie dieselbe Frage beantwortet ("wie weit weg?").
+  const DISTANCE_COLUMN = { key: 'entfernung', labelKey: 'col_entfernung', type: 'none' };
+
+  // Beim Zusammenfassen steht ganz vorn, aus wie vielen Zeilen eine
+  // Veranstaltung besteht - eine einzelne Strecke zeigt "1". Die Spalte
+  // ist nicht sortierbar (SORT_KEYS kennt sie nicht): sortiert werden
+  // einzelne Strecken, die Gruppen entstehen erst danach.
+  // Die Spalte „#" (Anzahl der Strecken) ist WEG. Sie stand beim
+  // Zusammenfassen ganz links und wurde als Durchnummerierung der Events
+  // gelesen - „1, 2, 1, 1, 3" sah nach einer kaputten Liste aus (vom
+  // Nutzer gemeldet). Wie viele Strecken sich hinter einer Veranstaltung
+  // verbergen, muss man vorher auch nicht wissen; dass sie sich
+  // aufklappt, sagt der Pfeil, der jetzt an dieser Stelle steht (er
+  // saß immer schon im Namensfeld, hat aber ohne die Zahl davor den
+  // Platz ganz links). Die Gesamtzahl steht weiter in der Trefferzeile
+  // („7 Veranstaltungen (10 Strecken)").
+
+  function activeColumns() {
+    const cols = COLUMNS.slice();
+    if (state.origin) cols.splice(4, 0, DISTANCE_COLUMN);
+    return cols;
+  }
+
+  function distanceFromOrigin(e) {
+    if (!state.origin || e.lat == null || e.lon == null) return null;
+    return haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
+  }
+
+  function formatDistance(e) {
+    const d = distanceFromOrigin(e);
+    if (d == null) return '–';
+    // Unter 10 km mit einer Nachkommastelle (dort macht sie einen
+    // Unterschied), darüber gerundet - und immer mit dem
+    // Trennzeichen der gewählten Sprache.
+    return d < 10
+      ? `${EF.formatNumber(d, currentLang, 1)} km`
+      : `${Math.round(d)} km`;
+  }
+
+  // Ab wie vielen ausgewählten Werten ein Mengen-Filter zu EINEM Chip
+  // zusammengefasst wird (siehe buildChips in filters.js).
+  const MAX_VALUE_CHIPS = EF.MAX_VALUE_CHIPS;
+
+  // Aufklapp-Zeichen der zusammengefassten Zeilen: ein Pfeil in einem
+  // runden Feld, der sich beim Öffnen dreht. Das frühere "▸" war ein
+  // Schriftzeichen - in jeder Schrift anders groß, nicht mittig und ohne
+  // Bewegung. Steht hier oben, weil der erste render() (siehe
+  // urlZustandGelesen) es bei aktiver Gruppierung sofort braucht.
+  const CHEVRON_SVG = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" '
+    + 'stroke="currentColor" stroke-width="2.5" stroke-linecap="round" '
+    + 'stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+
+  // Zeitraum-Schnellfilter (dieses Wochenende, nächste 30 Tage …):
+  // Tabelle in filters.js. Sie setzen dieselben state.selectedDays wie
+  // der Jahr/Monat/Tag-Baum, es kommt also kein zweiter
+  // Filtermechanismus dazu.
+  const DATE_PRESETS = EF.DATE_PRESETS;
+
+  function applyDatePreset(preset) {
+    EF.applyDatePreset(state, preset, uniqueSorted(events.map(e => e.datum_start)));
+    selectedIndex = null;
+  }
+
+  // ^ DATE_PRESETS steht hier oben, NICHT beim Datums-Panel: readUrlState()
+  // liest den Zeitraum schon beim Laden der Seite, und eine const-Tabelle
+  // weiter unten wäre zu diesem Zeitpunkt noch nicht initialisiert
+  // ("Cannot access 'DATE_PRESETS' before initialization" - genau dieser
+  // Fehler ist beim Bauen passiert).
+
+
+  let events = [];
+  let selectedIndex = null;
+
+  // Stehen hier oben, NICHT beim Zeichnen der Tabelle: `const`/`let` auf
+  // oberster Ebene sind vor ihrer Textstelle nicht benutzbar (Temporal
+  // Dead Zone), und render() läuft schon viel früher - setLanguage()
+  // ruft es auf, bevor die Tabelle überhaupt zum ersten Mal entsteht.
+  let gruppenAktuell = [];         // Gruppen der aktuellen Anzeige
+  const idxZuGruppe = new Map();   // Event-Index -> Nummer seiner Gruppe
+  // Wie viele Zeilen (bzw. Veranstaltungen) höchstens in einem Schub in
+  // den DOM gehen, und was gerade im Fenster steht. Siehe zeigeMehr().
+  // Auch das steht hier oben und nicht beim Zeichnen: render() braucht
+  // es sofort (Temporal Dead Zone).
+  // Das per ?event=… geteilte Event. Steht hier oben, weil readUrlState()
+  // es setzt und writeUrlState() es gleich danach wieder braucht (und
+  // beide laufen weit vor dieser Textstelle - Temporal Dead Zone).
+  let deepEventSlug = null;
+  let deepMelden = false;
+  const FENSTER_SCHRITT = 200;
+  let fenster = null;
+  // Die angeforderte Bild-Aktualisierung des Nachladens. Steht hier
+  // oben, weil pruefeNachladen() schon am Ende des ERSTEN render()
+  // läuft - weiter unten deklariert warf es "Cannot access
+  // 'nachladeFrame' before initialization" (dieselbe Falle wie bei
+  // DATE_PRESETS und tabStopZeile; der Rauchtest hat es gemeldet).
+  let nachladeFrame = null;
+  // Die eine Zeile, die per Tab erreichbar ist (Tastaturbedienung der
+  // Tabelle, siehe setzeTabStop). Aus demselben Grund hier oben: render()
+  // setzt sie am Ende, und render() läuft lange vor ihrer Textstelle -
+  // dort deklariert warf sie "Cannot access 'tabStopZeile' before
+  // initialization" und brach render() nach dem Detailbereich ab.
+  let tabStopZeile = null;
+
+  // Vor dem ersten readUrlState() darf writeUrlState() NICHTS schreiben,
+  // sonst löscht der erste render() die Parameter eines geteilten Links
+  // wieder: window.EndauranceAuth meldet den Anmeldestatus schon, während
+  // events.json noch lädt, und ruft dabei render() auf - mit leerem
+  // Filterzustand. Die Flagge steht hier oben und nicht beim
+  // Deep-Link-Abschnitt, weil genau dieser frühe render() sie sonst noch
+  // nicht sieht ("Cannot access ... before initialization").
+  let urlZustandGelesen = false;
+
+  // Filterzustand: die eigentlichen Filter kommen aus filters.js
+  // (createState), damit die Karte denselben Zustand lesen kann. Dazu
+  // kommen hier die Dinge, die nur die Liste hat.
+  const state = Object.assign(EF.createState(), {
+    treeExpanded: new Set(),      // aufgeklappte Knoten im Datum-Baum (UI-Zustand)
+    sortKey: 'datum',             // Spalte, nach der sortiert wird (siehe SORT_KEYS)
+    sortDir: 'asc',               // 'asc' | 'desc'
+    // Zusammenfassen ist reine ANZEIGE: die Daten bleiben eine Zeile pro
+    // Strecke (Datenregel 1), die Tabelle zeigt sie nur gebündelt.
+    // Voreinstellung AN (so vom Nutzer gewünscht): Wer die Seite zum
+    // ersten Mal öffnet, sieht eine Zeile je Veranstaltung. Aus wird es
+    // nur, wenn jemand den Schalter selbst umlegt - das merkt sich der
+    // Browser (siehe unten beim Schalter).
+    gruppiert: true,
+    offeneGruppen: new Set()      // aufgeklappte Gruppen (Schlüssel siehe groupKey)
+  });
+
+  // Die Filter-Bedienelemente (Knöpfe + schwebendes Panel) kommen aus
+  // filter-ui.js - die Karte benutzt genau dieselben. Was die Liste
+  // darüber hinaus tun muss, steckt in den beiden Haken: onChange zeichnet
+  // die Tabelle neu, setOrigin schaltet zusätzlich die Entfernungs-Spalte
+  // samt Sortierung.
+  const ui = EFU.create({
+    state,
+    getEvents: () => events,
+    t,
+    tv,
+    getLang: () => currentLang,
+    onChange: () => { selectedIndex = null; render(); },
+    setOrigin: (origin) => setOrigin(origin)
+  });
+
+  // Der Abo-Dialog bekommt seine EIGENE Bedieneinheit mit eigenem
+  // Filterzustand: Dieselben Knöpfe und Panels wie die Liste (also keine
+  // zweite Kopie der Filterlogik - siehe CLAUDE.md), aber was dort
+  // umgestellt wird, verändert die Liste dahinter NICHT. Sonst hätte ein
+  // Blick in den Abo-Dialog die laufende Suche umgebaut.
+  //
+  // `aboState` wird beim Öffnen aus der aktuellen Suche gefüllt
+  // (EF.copyState, ohne Datum) - wer die Liste schon gefiltert hat,
+  // findet seine Filter also vor.
+  const aboState = EF.createState();
+  const aboUi = EFU.create({
+    state: aboState,
+    getEvents: () => events,
+    t,
+    tv,
+    getLang: () => currentLang,
+    // Nur die Zusammenfassung im Dialog neu schreiben - keine Tabelle,
+    // keine Adresse, nichts an der Liste.
+    onChange: () => zeichneAboZusammenfassung(),
+    // Auch Sportarten, Kategorien und Länder anbieten, zu denen es heute
+    // noch kein Event gibt: Ein Abo schaut in die Zukunft. Ohne das
+    // stünde „Fahrrad" gar nicht zur Wahl (in den Daten steht bislang
+    // kein einziges Radrennen) - und genau das wollte der Nutzer
+    // abonnieren können.
+    alleWerte: true,
+    // Ein Ausgangspunkt im Abo-Dialog ist nur ein Filter dieses Abos;
+    // die Entfernungs-Spalte der Liste hat damit nichts zu tun.
+    setOrigin: (origin) => {
+      aboState.origin = origin;
+      if (origin && aboState.radiusKm == null) aboState.radiusKm = EF.RADIUS_DEFAULT_KM;
+      if (!origin) aboState.radiusKm = null;
+    },
+    // Das Panel gehört IN den Dialog: an <body> gehängt läge es hinter
+    // dem Overlay (z-index 2000 gegen 1000) und außerhalb der
+    // Fokusfessel. Als Funktion, weil `aboOverlay` weiter unten steht -
+    // aufgerufen wird sie erst beim Öffnen eines Panels.
+    panelParent: () => aboOverlay
+  });
+
+  const bodyEl = document.getElementById('event-body');
+  const tableEl = document.getElementById('event-table');
+  // Der scrollende Behälter der Tabelle (bis 78vh hoch). Das Nachladen
+  // des nächsten Zeilen-Schubs hängt an seinem Scrollen, nicht nur am
+  // Fenster.
+  const wrapEl = tableEl.closest('.table-wrap');
+  const headerRowEl = document.getElementById('header-row');
+  const countEl = document.getElementById('result-count');
+  // Abo-Dialog ("Neue Events per E-Mail"). Hier oben und nicht beim
+  // Dialog-Code: `?abos=1` öffnet ihn schon beim Laden, und ein `const`
+  // weiter unten wäre dann noch nicht benutzbar (Temporal Dead Zone).
+  const aboOverlay = document.getElementById('abo-overlay');
+  const aboBodyEl = document.getElementById('abo-body');
+  let aboFesselGesetzt = false;
+  let aboFokusVorher = null;
+  let aboRhythmus = 'woechentlich';
+  // Wurde die Seite mit ?abos=1 aufgerufen? Gesetzt in readUrlState().
+  let aboGewuenscht = false;
+  const chipsEl = document.getElementById('active-chips');
+  const detailEl = document.getElementById('detail-panel');
+  const titleEl = document.getElementById('page-title');
+  const subtitleEl = document.getElementById('subtitle');
+  const resetBtnEl = document.getElementById('reset-btn');
+  resetBtnEl.addEventListener('click', resetFilters);
+
+  // ---------- Mastersuche ----------
+  //
+  // Ein Feld über Eventname, Wettbewerb und Ort (EF.matchEvent, Feld
+  // `suche`), samt Vorschlägen ("Iron" → "Ironman"). Gebaut von
+  // filter-ui.js (ui.buildSearch), weil die Karte dasselbe Feld zeigt -
+  // die Begründungen (Vorschläge statt Veranstalter-Spalte, 180 ms
+  // Verzögerung, mousedown statt click) stehen dort.
+  const suche = ui.buildSearch(document.getElementById('master-search-box'));
+
+  // Das Feld an den Zustand angleichen - der Chip „Suche: …" und
+  // „Filter zurücksetzen" können ihn ändern, ohne das Feld anzufassen.
+  function syncMasterSearch() { suche.sync(); }
+
+  const groupToggleEl = document.getElementById('group-toggle');
+  const groupToggleLabelEl = document.getElementById('group-toggle-label');
+  // Merken, wie der Nutzer die Liste lieber sieht - die Einstellung
+  // gehört zur Ansicht, nicht zum Filter, und überlebt deshalb den
+  // Seitenwechsel (wie die Sprache).
+  // Gemerkt wird nur, was jemand SELBST umgestellt hat. Fehlt der
+  // Eintrag (erster Besuch, gelöschter Speicher), gilt die
+  // Voreinstellung aus `state` - nicht "aus". Ein `=== '1'` hätte hier
+  // beides gleich behandelt und die Voreinstellung stillschweigend
+  // ausgehebelt.
+  try {
+    const gemerkt = localStorage.getItem('endurance-gruppiert');
+    if (gemerkt !== null) state.gruppiert = gemerkt === '1';
+  } catch (e) { /* ignorieren */ }
+  groupToggleEl.checked = state.gruppiert;
+  groupToggleEl.addEventListener('change', () => {
+    state.gruppiert = groupToggleEl.checked;
+    try { localStorage.setItem('endurance-gruppiert', state.gruppiert ? '1' : '0'); } catch (e) { /* ignorieren */ }
+    state.offeneGruppen.clear();
+    selectedIndex = null;
+    // buildHeader() muss mit: das Zusammenfassen schaltet die Spalte
+    // "Anzahl" zu bzw. ab (activeColumns). Ohne den Aufruf bekam der
+    // Tabellenkörper eine Zelle mehr als die Kopfzeile Spalten hatte -
+    // alle Überschriften standen um eine Spalte verschoben, bis die
+    // Seite neu geladen wurde.
+    buildHeader();
+    render();
+  });
+
+  const shareBtnEl = document.getElementById('share-btn');
+  const shareBtnLabelEl = document.getElementById('share-btn-label');
+
+  // Die Kurzmeldung kommt aus event-detail.js (dort für beide Seiten).
+  function showToast(text) { EED.showToast(text); }
+
+  shareBtnEl.addEventListener('click', () => {
+    const url = window.location.href;
+    // navigator.clipboard braucht einen sicheren Kontext; ohne den (oder
+    // bei verweigerter Erlaubnis) bleibt nur der Hinweis auf die
+    // Adresszeile - dort steht die vollständige Adresse ja bereits.
+    if (navigator.clipboard && window.isSecureContext !== false) {
+      navigator.clipboard.writeText(url)
+        .then(() => showToast(t('share_done')))
+        .catch(() => showToast(t('share_fail')));
+    } else {
+      showToast(t('share_fail'));
+    }
+  });
+  const mapBtnEl = document.getElementById('map-btn');
+  const mapBtnLabelEl = document.getElementById('map-btn-label');
+  const notifyBoxEl = document.getElementById('notify-box');
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // "Benachrichtige mich"-Box neu rendern, sobald sich der Login-Status
+  // ändert (z. B. nachdem sich der Nutzer im Modal erfolgreich angemeldet
+  // hat, während die Box wegen 0 Treffern sichtbar war).
+  // auth.js haengt mit `defer` im HTML und ist an dieser Stelle noch nicht
+  // da - das ist Absicht, damit der Abruf von events.json nicht auf
+  // Firebase wartet. Die Warteschlange nimmt den Listener auf, auth.js
+  // meldet ihn nach (siehe EE_AUTH_QUEUE dort).
+  if (window.EndauranceAuth) {
+    window.EndauranceAuth.onAuthChange(() => render());
+  } else {
+    (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push(() => render());
+  }
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    events = dropPastEvents(await res.json());
+  } catch (err) {
+    setLanguage(currentLang, { skipRender: true });
+    bodyEl.innerHTML = `<tr><td colspan="7" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
+    return;
+  }
+
+  // Filterzustand aus der Adresse übernehmen (siehe readUrlState). Deckt
+  // auch die beiden alten Deep-Links ab, die es vorher schon gab:
+  // ?sportart=Fahrrad von der Willkommensseite und ?standort=Frankfurt
+  // vom Marker in karte.html.
+  readUrlState();
+  urlZustandGelesen = true;
+  groupToggleEl.checked = state.gruppiert;
+
+  setLanguage(currentLang);
+
+  // ?abos=1 öffnet die Abo-Verwaltung. Darauf zeigt der Abmelde-Link in
+  // den E-Mails, solange die Abmelde-Function keine Adresse hat
+  // (UNSUBSCRIBE_URL in functions/index.js) - dann führt der Weg eben
+  // über die Anmeldung und "Löschen".
+  //
+  // Gelesen wird der Parameter in readUrlState(), NICHT hier: Dazwischen
+  // liegt setLanguage() -> render() -> writeUrlState(), und das schreibt
+  // die Adresse auf die bekannten Filter-Parameter zurück - `abos` war
+  // an dieser Stelle längst weg. Genau dieselbe Falle wie beim geteilten
+  // Event-Link, nur eine Zeile später gemerkt.
+  //
+  // Der Dialog braucht außerdem `window.EndauranceAuth` (Anmeldestatus,
+  // Firestore). `auth.js` trägt `defer`, existiert hier also noch nicht -
+  // deshalb derselbe Weg wie beim render(): über EE_AUTH_QUEUE, sobald
+  // der Anmeldestatus das erste Mal gemeldet wird.
+  if (aboGewuenscht) {
+    if (window.EndauranceAuth) {
+      oeffneAboDialog();
+    } else {
+      let schonOffen = false;
+      (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push(() => {
+        if (schonOffen) return;        // onAuthChange meldet sich mehrmals
+        schonOffen = true;
+        oeffneAboDialog();
+      });
+    }
+  }
+
+  // Wer einem geteilten Event-Link folgt, soll das Event sehen und nicht
+  // eine Liste. Auf dem Handy steht die Box unter der Tabelle, also
+  // hinscrollen (am Rechner steht sie daneben und zeigt es schon - dann
+  // bewegt sich nichts, siehe zeigeDetailbereich).
+  if (deepEventSlug) zeigeDetailbereich();
+  // ?melden=1 (Melde-Knopf der Karte) öffnet den Dialog - aber erst ganz
+  // am Ende des Skripts: openReportModal() braucht reportOverlay und
+  // reportFesselGesetzt, die weiter unten deklariert sind (Temporal
+  // Dead Zone - hier aufgerufen hieß es "Cannot access
+  // 'reportFesselGesetzt' before initialization").
+
+  // ---------- helpers ----------
+
+  // Vergangene Events erscheinen gar nicht (Datenregel 10). Die Regel
+  // steht in filters.js, weil die Karte beim Laden genauso filtert.
+  function dropPastEvents(list) {
+    return EF.dropPastEvents(list);
+  }
+
+  // Die drei kleinen Helfer stehen in filters.js: die Filter-Panels
+  // brauchen sie genauso (Datums-Baum, Häkchenlisten).
+  function uniqueSorted(values) {
+    return EF.uniqueSorted(values, currentLang);
+  }
+
+  // Wrapper statt const-Zuweisung: hochgezogen und damit auch vor
+  // dieser Zeile aufrufbar (siehe matchesDistanceCategory).
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    return EF.haversineKm(lat1, lon1, lat2, lon2);
+  }
+
+  function formatDate(iso) {
+    return EF.formatDate(iso, currentLang);
+  }
+
+  // Datum als Text (Melde-Dialog, Teilen) und als zwei Zeilen mit <br>
+  // (Tabelle, Box) - beide in event-detail.js, mit Begründung.
+  function formatRange(start, end) {
+    return EED.formatRange(start, end, currentLang);
+  }
+  function formatRangeHtml(start, end) {
+    return EED.formatRangeHtml(start, end, currentLang);
+  }
+
+
+  // Längenangaben immer auf EINE Dezimalstelle: die Quellen geben dieselbe
+  // Strecke unterschiedlich genau an (Marathon als "42,195 km"), angezeigt
+  // wird einheitlich "42.2 km". Runde Distanzen bleiben ohne Nachkomma-
+  // stelle ("10 km" statt "10.0 km").
+  // Das Dezimaltrennzeichen richtet sich nach der Sprache der SEITE
+  // (DE: Komma, EN: Punkt) - siehe EF.formatNumber in filters.js. Vorher
+  // stand auch im deutschen Text "42.2 km"; ein Punkt liest sich dort wie
+  // eine Tausendertrennung.
+  function formatKm(km) {
+    return EF.formatKm(km, currentLang);
+  }
+
+  // Was in der Spalte "Länge" steht. Nicht jedes Rennen hat eine Strecke:
+  // ein 24-Stunden-Lauf ist über die ZEIT begrenzt, gelaufen wird so weit
+  // man kommt. Solche Einträge tragen `dauer_h` statt `laenge_km` und
+  // zeigen hier "24 h".
+  //
+  // Eine bekannte Distanz hat dabei VORRANG, auch wenn beide Felder
+  // gesetzt sind: Beim "24h Mad Chicken Run | Marathon, 42 km" ist das
+  // "24h" der Name der Veranstaltung, die Zeile selbst aber eine feste
+  // 42-km-Strecke. Sie als "24 h" anzuzeigen würde die Distanz
+  // verschlucken.
+
+  function formatLength(e) {
+    return EED.formatLength(e, currentLang);
+  }
+
+  function escapeHtml(str) {
+    return EF.escapeHtml(str);
+  }
+
+  // ---------- Sprache ----------
+
+  function setLanguage(lang, opts) {
+    currentLang = lang;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = lang;
+    document.title = t('tab_title');
+    titleEl.textContent = t('title');
+    subtitleEl.textContent = t('subtitle');
+    resetBtnEl.textContent = t('reset');
+    // Platzhalter und ✕-Beschriftung der Mastersuche kommen über
+    // suche.sync() im render().
+    groupToggleLabelEl.textContent = t('group_toggle');
+    shareBtnLabelEl.textContent = t('share_search');
+    document.getElementById('abo-open-label').textContent = t('abo_open');
+    document.getElementById('abo-open-btn').title = t('abo_titel');
+    document.getElementById('fehlt-bar-text').textContent = t('fehlt_bar_text');
+    const fehltKnopf = document.getElementById('fehlt-open-btn');
+    fehltKnopf.textContent = t('fehlt_open');
+    fehltKnopf.title = t('fehlt_titel');
+    // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
+    document.getElementById('footer-impressum').textContent = t('footer_imprint');
+    document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
+    shareBtnEl.title = t('share_search');
+    mapBtnLabelEl.textContent = t('map');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    // Das offene Panel trägt Texte in der alten Sprache - zu machen ist
+    // einfacher (und für den Nutzer verständlicher) als es umzubauen.
+    ui.close();
+    if (opts && opts.skipRender) return;
+    buildHeader();
+    render();
+  }
+
+  // ---------- header / filter ----------
+
+  // Was ein Ausgangspunkt in der LISTE auslöst. Das Setzen selbst steckt
+  // in filters.js (setOriginPlain), hier kommt dazu, was nur die Tabelle
+  // betrifft: Mit einem Ausgangspunkt ist "was ist am nächsten?" die
+  // naheliegende Frage - also nach Entfernung sortieren, solange noch die
+  // Standard-Sortierung aktiv ist. Eine selbst gewählte Sortierung wird
+  // nicht überschrieben. Fällt der Ausgangspunkt weg, verschwindet die
+  // Spalte und mit ihr die Sortierung. Die Filter-Panels rufen das über
+  // den setOrigin-Haken (siehe EFU.create oben).
+  function setOrigin(origin) {
+    const hatteOrigin = !!state.origin;
+    EF.setOriginPlain(state, origin);
+    if (origin && !hatteOrigin && state.sortKey === 'datum') {
+      state.sortKey = 'entfernung';
+      state.sortDir = 'asc';
+    }
+    if (!origin && state.sortKey === 'entfernung') {
+      state.sortKey = 'datum';
+      state.sortDir = 'asc';
+    }
+    selectedIndex = null;
+    buildHeader();
+  }
+
+  function buildHeader() {
+    headerRowEl.innerHTML = '';
+    activeColumns().forEach(col => {
+      const th = document.createElement('th');
+      th.className = `col-${col.key}`;
+      const inner = document.createElement('div');
+      inner.className = 'th-inner';
+
+      // Der Spaltenname selbst ist der Sortier-Knopf. Vorher sortierte die
+      // Liste ausschließlich nach Datum - bei 4000 Zeilen (und später
+      // 20.000) war das der größte Mangel. Spalten ohne Sortierschlüssel
+      // (Anzahl) bekommen nur eine Beschriftung, keinen toten Knopf.
+      if (SORT_KEYS[col.key]) {
+        const sortBtn = document.createElement('button');
+        sortBtn.type = 'button';
+        sortBtn.className = 'th-sort' + (state.sortKey === col.key ? ' active' : '');
+        sortBtn.title = `${t(col.labelKey)} – ${t('sort_hint')}`;
+        sortBtn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span>`
+          + (state.sortKey === col.key
+               ? `<span class="sort-arrow">${state.sortDir === 'asc' ? '▲' : '▼'}</span>`
+               : '');
+        sortBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          toggleSort(col.key);
+        });
+        th.setAttribute('aria-sort', state.sortKey === col.key
+          ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
+        inner.appendChild(sortBtn);
+      } else {
+        const label = document.createElement('span');
+        // In die schmale Anzahl-Spalte passt kein Wort - dort steht "#",
+        // der volle Name bleibt als Tooltip erhalten.
+        label.textContent = col.short || t(col.labelKey);
+        label.title = t(col.labelKey);
+        inner.appendChild(label);
+      }
+
+      // Die Entfernungs-Spalte hat kein eigenes Filter-Panel: gefiltert
+      // wird sie über den Umkreis-Regler im Stadt/Ort-Filter.
+      if (col.type !== 'none') {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'col-filter-btn';
+        btn.dataset.col = col.key;
+        btn.textContent = '▾';
+        ui.attachButton(btn, col);
+        inner.appendChild(btn);
+      }
+
+      th.appendChild(inner);
+      headerRowEl.appendChild(th);
+    });
+
+  }
+
+  // ---------- filtering / rendering ----------
+
+  function getFiltered() {
+    return events
+      .map((e, idx) => ({ e, idx }))
+      // Welche Filter ein Event treffen müssen, entscheidet
+      // EF.matchEvent - dieselbe Funktion nutzt die Karte.
+      .filter(({ e }) => EF.matchEvent(state, e))
+      // Sortiert nach der angeklickten Spalte, Standard ist das Datum
+      // aufsteigend (nächster Termin zuerst). Vergangene Events brauchen
+      // keinen Sonderfall mehr - sie kommen gar nicht in die Liste
+      // (siehe dropPastEvents beim Laden).
+      .sort((a, b) => compareEvents(a.e, b.e));
+  }
+
+  // Erster Klick auf eine Spalte sortiert aufsteigend, der zweite dreht
+  // die Richtung. Datum und Entfernung fangen aufsteigend an (nächster
+  // Termin / nächstgelegener Ort zuerst) - das ist auch bei allen anderen
+  // Spalten die erwartete Leserichtung.
+  function toggleSort(key) {
+    if (!SORT_KEYS[key]) return;
+    if (state.sortKey === key) {
+      state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      state.sortKey = key;
+      state.sortDir = 'asc';
+    }
+    buildHeader();
+    render();
+  }
+
+  function compareEvents(a, b) {
+    const fn = SORT_KEYS[state.sortKey] || SORT_KEYS.datum;
+    const [ga, va] = fn(a);
+    const [gb, vb] = fn(b);
+    // Einträge ohne Angabe stehen immer hinten, unabhängig von der Richtung.
+    if (ga !== gb) return ga - gb;
+    let cmp;
+    if (typeof va === 'number' && typeof vb === 'number') cmp = va - vb;
+    else cmp = String(va).localeCompare(String(vb), currentLang === 'de' ? 'de' : 'en');
+    if (cmp === 0) {
+      // Gleichstand: Datum, dann Name - sonst wechselt die Reihenfolge
+      // gleichwertiger Zeilen bei jedem Neuzeichnen.
+      cmp = (a.datum_start || '').localeCompare(b.datum_start || '')
+         || (a.name || '').localeCompare(b.name || '');
+      return cmp;
+    }
+    return state.sortDir === 'asc' ? cmp : -cmp;
+  }
+
+  // Eine Tabellenzelle. Die Zellen werden aus activeColumns() aufgebaut
+  // statt fest untereinander geschrieben - nur so lässt sich die
+  // Entfernungs-Spalte an der richtigen Stelle einschieben, ohne die
+  // Reihenfolge an zwei Orten pflegen zu müssen.
+  function cellHtml(col, e) {
+    const td = (inhalt, extra) =>
+      `<td class="col-${col.key}${extra ? ' ' + extra : ''}">${inhalt}</td>`;
+    switch (col.key) {
+      case 'name': {
+        const wb = displayWettbewerb(e);
+        return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
+             + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
+      }
+      case 'datum': return td(`<div class="cell-clamp">${formatRangeHtml(e.datum_start, e.datum_ende)}</div>`);
+      case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
+      // tv() statt des rohen Werts: Städte mit eigenem englischen Namen
+      // stehen in der englischen Fassung auch so da (München → Munich,
+      // siehe VALUE_TRANSLATIONS.standort). Alle anderen ~1.500 Orte
+      // gibt tv() unverändert zurück.
+      case 'standort': return td(`<div class="cell-clamp">${escapeHtml(tv('standort', e.standort))}</div>`);
+      case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
+      case 'art1': return td(`<div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div>`);
+      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
+      case 'laenge_km': return td(`<div class="cell-clamp">${formatLength(e)}</div>`);
+      default: return td('');
+    }
+  }
+
+
+  // Schlüssel einer Veranstaltung: Name + Datum + Ort. Genau die drei
+  // Felder machen aus mehreren Strecken eine Veranstaltung - die Distanz
+  // ist gerade das, was sie unterscheidet.
+  function groupKey(e) {
+    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+  }
+
+  // Gruppiert die (schon sortierten) Zeilen in der Reihenfolge, in der
+  // sie auftreten - so bleibt die gewählte Sortierung sichtbar.
+  function buildGroups(filtered) {
+    const gruppen = [];
+    const index = new Map();
+    filtered.forEach(row => {
+      const key = groupKey(row.e);
+      let g = index.get(key);
+      if (!g) {
+        g = { key, rows: [] };
+        index.set(key, g);
+        gruppen.push(g);
+      }
+      g.rows.push(row);
+    });
+    return gruppen;
+  }
+
+  // Besteht eine Veranstaltung nur aus einer Strecke, gibt es nichts
+  // aufzuklappen: die Unterzeile würde Wort für Wort dasselbe zeigen wie
+  // die Zeile darüber. Solche Zeilen bekommen deshalb keinen Pfeil (und
+  // in render() auch kein Klick-Verhalten zum Aufklappen).
+  function istEinzelgruppe(g) {
+    return g.rows.length === 1;
+  }
+
+  // Zugeklappt fasst diese Zeile die ganze Veranstaltung zusammen (alle
+  // Längen als Marken). Aufgeklappt zeigt sie die ERSTE Strecke wie eine
+  // gewöhnliche Zeile - die übrigen folgen als Unterzeilen. Eine
+  // Veranstaltung mit zwei Strecken steht dadurch aufgeklappt in zwei
+  // Zeilen; vorher waren es drei (Zusammenfassung + beide Strecken), und
+  // die Zusammenfassung wiederholte nur, was direkt darunter stand.
+  // Was bei einer zusammengefassten Veranstaltung in der Länge-Spalte
+  // steht: die SPANNE über alle ihre Strecken, "5–42,2 km". Eine
+  // Veranstaltung mit 15 Wettbewerben hatte vorher 15 Marken in der
+  // Zelle und war dadurch vielfach höher als jede andere Zeile (so vom
+  // Nutzer gemeldet); die einzelnen Distanzen stehen aufgeklappt
+  // ohnehin in ihren eigenen Zeilen.
+  //
+  // Eine bekannte Distanz hat Vorrang (Datenregel 8): Bietet eine
+  // Veranstaltung Strecken UND ein Zeitrennen, nennt die Zeile die
+  // Strecken. Nur wenn es gar keine Distanz gibt, steht dort die Spanne
+  // der Dauern ("12–24 h").
+  function laengeSpanne(g) {
+    const km = [];
+    const stunden = [];
+    g.rows.forEach(({ e }) => {
+      if (e.laenge_km != null && !Number.isNaN(Number(e.laenge_km))) km.push(Number(e.laenge_km));
+      else if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) stunden.push(Number(e.dauer_h));
+    });
+    const werte = km.length ? km : stunden;
+    if (!werte.length) return '–';
+    const einheit = km.length ? 'km' : 'h';
+    const zahl = (v) => EF.formatNumber(v, currentLang, 1);
+    const von = zahl(Math.min.apply(null, werte));
+    const bis = zahl(Math.max.apply(null, werte));
+    // Ohne Leerzeichen um den Gedankenstrich: Die Spalte ist schmal, und
+    // "5 – 42,2 km" bräuchte dort zwei Zeilen.
+    return von === bis ? `${von} ${einheit}` : `${von}–${bis} ${einheit}`;
+  }
+
+  function groupRowHtml(g, cols) {
+    const e = g.rows[0].e;
+    const einzeln = istEinzelgruppe(g);
+    const offen = !einzeln && state.offeneGruppen.has(g.key);
+    const wb = offen ? displayWettbewerb(e) : null;
+    const kategorien = [];
+    g.rows.forEach(({ e: r }) => {
+      const k = r.art2 ? tv('art2', r.art2) : null;
+      if (k && !kategorien.includes(k)) kategorien.push(k);
+    });
+    return cols.map(col => {
+      switch (col.key) {
+        case 'name':
+          // Statt des Pfeils ein gleich breiter Platzhalter: sonst
+          // beginnen die Namen einzelner Strecken weiter links als die
+          // der aufklappbaren Veranstaltungen.
+          return `<td class="col-name"><div class="group-name" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
+               + (einzeln
+                   ? `<span class="chevron-spacer" aria-hidden="true"></span>`
+                   : `<span class="chevron${offen ? ' open' : ''}">${CHEVRON_SVG}</span>`)
+               + `<span class="group-name-text">${escapeHtml(e.name)}`
+               + (wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : '')
+               + `</span></div></td>`;
+        case 'art2':
+          // Aufgeklappt gehört in die Zeile nur die Kategorie der ersten
+          // Strecke - die übrigen stehen in ihren eigenen Zeilen.
+          if (offen) return cellHtml(col, e);
+          return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
+        case 'laenge_km':
+          if (offen) return cellHtml(col, e);
+          return `<td class="col-laenge_km"><div class="cell-clamp">${escapeHtml(laengeSpanne(g))}</div></td>`;
+        default:
+          return cellHtml(col, e);
+      }
+    }).join('');
+  }
+
+  // ---------- Die Tabelle zeichnen ----------
+  //
+  // Alle Zeilen entstehen als EIN HTML-String und werden in einem Zug
+  // gesetzt. Vorher baute render() jede Zeile einzeln: createElement,
+  // tr.innerHTML (ein eigener HTML-Parser-Lauf pro Zeile), ein eigener
+  // Click-Listener, appendChild - bei 4.155 Einträgen also 4.155-mal
+  // alles davon. Ein einzelner Klick auf eine Zeile kostete damit 157 ms
+  // auf dem Entwicklungsrechner, auf einem Handy ein Mehrfaches.
+  //
+  // Die Klicks laufen jetzt über EINEN Listener am <tbody>
+  // (Event-Delegation), die angeklickte Zeile verrät sich über
+  // data-idx (welches Event) und data-g (zu welcher Gruppe sie gehört).
+  // Zwei Folgen davon, beide beabsichtigt:
+  //   - eine Zeile auswählen zeichnet die Tabelle NICHT neu (waehleZeile),
+  //   - auf-/zuklappen rührt nur die Zeilen dieser Gruppe an
+  //     (klappeGruppe).
+
+  // ---------- Das Fenster: nur die ersten N Einträge im DOM ----------
+  //
+  // Gemessen mit 20.770 Events (synthetisch, unter Handy-Bedingungen):
+  // Alle Zeilen in den DOM zu legen kostete 317.913 Knoten und 12,2 MB
+  // HTML, und JEDE Änderung baute sie neu - Sortieren 4,6 s,
+  // Zusammenfassen 8,2 s, Filter zurücksetzen 4,4 s. Mit 4.154 Events
+  // waren es 0,7-1,0 s, deshalb fiel es bisher nicht auf.
+  //
+  // Gefiltert und sortiert wird weiter über ALLE Events - nur das
+  // Zeichnen ist begrenzt. Die Trefferzahl nennt deshalb unverändert
+  // die volle Zahl; im DOM stehen `FENSTER_SCHRITT` Einträge, und beim
+  // Scrollen kommt der nächste Schub dazu (zeigeMehr). Das ist dieselbe
+  // Linie wie bei klappeGruppe(): anhängen statt neu zeichnen.
+  function zeilenHtml(liste, cols) {
+    return liste.map(({ e, idx }) =>
+      `<tr data-idx="${idx}" tabindex="-1"${idx === selectedIndex ? ' class="active"' : ''}>`
+      + cols.map(col => cellHtml(col, e)).join('')
+      + '</tr>'
+    ).join('');
+  }
+
+  // startNr: die Nummer der ersten Gruppe dieses Schubs. `data-g` muss
+  // die ABSOLUTE Nummer tragen - klappeGruppe() liest damit in
+  // gruppenAktuell nach.
+  function gruppenHtml(liste, cols, startNr) {
+    const teile = [];
+    liste.forEach((g, i) => {
+      const nr = startNr + i;
+      const einzeln = istEinzelgruppe(g);
+      const offen = !einzeln && state.offeneGruppen.has(g.key);
+      // Zugeklappt steht die Veranstaltungszeile für die gewählte Strecke
+      // darin und wird markiert; aufgeklappt ist sie selbst die erste
+      // Strecke, und markiert wird nur die Zeile, die wirklich gewählt
+      // ist (siehe markiereAuswahl). Sonst sähen zwei Zeilen im Block
+      // ausgewählt aus.
+      const aktiv = offen
+        ? g.rows[0].idx === selectedIndex
+        : g.rows.some(({ idx }) => idx === selectedIndex);
+      // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
+      // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
+      // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
+      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
+        + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
+        + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
+        + `>${groupRowHtml(g, cols)}</tr>`);
+      if (offen) teile.push(subRowsHtml(g, cols));
+    });
+    return teile.join('');
+  }
+
+  // Die letzte Zeile der Tabelle, solange noch etwas fehlt: ein Knopf.
+  // Er ist nicht nur Zierde - beim Scrollen lädt der nächste Schub von
+  // selbst nach, aber mit der Tastatur und für Screenreader braucht es
+  // etwas Anfassbares, und die Zahl sagt ehrlich, wie viel noch kommt.
+  function mehrZeileSetzen() {
+    const alt = bodyEl.querySelector('tr.mehr-row');
+    if (alt) alt.remove();
+    if (!fenster || fenster.gezeigt >= fenster.gesamt) return;
+    const rest = fenster.gesamt - fenster.gezeigt;
+    const schritt = Math.min(FENSTER_SCHRITT, rest);
+    bodyEl.insertAdjacentHTML('beforeend',
+      `<tr class="mehr-row"><td colspan="${fenster.cols.length}">`
+      + `<span class="mehr-inner">`
+      + `<button type="button" class="mehr-btn">${escapeHtml(t('mehr_btn', schritt, rest))}</button>`
+      + `</span></td></tr>`);
+  }
+
+  function zeigeMehr() {
+    if (!fenster || fenster.gezeigt >= fenster.gesamt) return false;
+    const bis = Math.min(fenster.gezeigt + FENSTER_SCHRITT, fenster.gesamt);
+    const teil = fenster.daten.slice(fenster.gezeigt, bis);
+    const html = fenster.art === 'gruppen'
+      ? gruppenHtml(teil, fenster.cols, fenster.gezeigt)
+      : zeilenHtml(teil, fenster.cols);
+    const mehr = bodyEl.querySelector('tr.mehr-row');
+    if (mehr) mehr.remove();
+    bodyEl.insertAdjacentHTML('beforeend', html);
+    fenster.gezeigt = bis;
+    mehrZeileSetzen();
+    // Der Tab-Stopp kann im vorigen Schub gestanden haben (oder es gab
+    // noch keinen) - dann hier setzen, sonst ist die Tabelle per Tab
+    // nicht erreichbar.
+    if (!tabStopZeile || !tabStopZeile.isConnected) {
+      setzeTabStop(bodyEl.querySelector('tr.active[data-idx]') || bodyEl.querySelector('tr[data-idx]'));
+    }
+    return true;
+  }
+
+  // Ist der "Mehr"-Knopf schon fast im Bild? Dann nachladen, ohne dass
+  // jemand tippen muss. Gemessen wird gegen das Fenster UND gegen den
+  // scrollenden Tabellen-Container (`.table-wrap` ist bis 78vh hoch und
+  // scrollt selbst).
+  function fastImBild() {
+    const mehr = bodyEl.querySelector('tr.mehr-row');
+    if (!mehr) return false;
+    const unten = wrapEl
+      ? Math.min(window.innerHeight, wrapEl.getBoundingClientRect().bottom)
+      : window.innerHeight;
+    return mehr.getBoundingClientRect().top <= unten + 400;
+  }
+
+  // `nachladeFrame` steht oben bei `state` (Temporal Dead Zone).
+  function pruefeNachladen() {
+    if (nachladeFrame !== null) return;
+    nachladeFrame = requestAnimationFrame(() => {
+      nachladeFrame = null;
+      // Schleife, weil ein Schub kürzer sein kann als der sichtbare
+      // Bereich (am Rechner ist die Tabelle 78vh hoch). Die Obergrenze
+      // ist eine Sicherung gegen eine Endlosschleife, falls der Knopf
+      // aus anderen Gründen nie aus dem Bild wandert.
+      let schutz = 0;
+      while (schutz++ < 25 && fastImBild()) {
+        if (!zeigeMehr()) break;
+      }
+    });
+  }
+
+  // Ohne die erste Strecke: die steht aufgeklappt in der
+  // Veranstaltungszeile selbst (groupRowHtml).
+  //
+  // Die LETZTE Unterzeile trägt zusätzlich `letzte` - sie schließt den
+  // Rahmen um die aufgeklappte Veranstaltung nach unten ab (siehe die
+  // box-shadow-Regeln im Stylesheet). Bewusst eine Klasse und kein
+  // CSS-Selektor wie `.sub-row:not(:has(+ .sub-row))`: Der müsste bei
+  // über 4.000 Zeilen für jede davon die Nachbarschaft prüfen, und die
+  // Tabelle ist genau an dieser Stelle auf Tempo gebaut.
+  function subRowsHtml(g, cols) {
+    const unter = g.rows.slice(1);
+    return unter.map(({ e, idx }, i) =>
+      `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}`
+      + `${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
+      + cols.map(col => cellHtml(col, e)).join('')
+      + '</tr>'
+    ).join('');
+  }
+
+  function render() {
+    ui.updateIndicators();
+    renderChips();
+    ui.refresh();
+    const filtered = getFiltered();
+    countEl.textContent = t('result_count', filtered.length, events.length);
+
+    const cols = activeColumns();
+    tableEl.classList.toggle('with-distance', !!state.origin);
+
+    gruppenAktuell = [];
+    idxZuGruppe.clear();
+
+    if (filtered.length === 0) {
+      fenster = null;
+      bodyEl.innerHTML = `<tr class="empty-row"><td colspan="${cols.length}">${escapeHtml(t('empty_events'))}</td></tr>`;
+      renderNotifyPrompt();
+    } else if (state.gruppiert) {
+      // Eine Zeile pro Veranstaltung, Klick klappt die Strecken auf. Die
+      // Daten bleiben unangetastet - Datenregel 1 gilt weiter, das hier
+      // ist nur die Anzeige.
+      gruppenAktuell = buildGroups(filtered);
+      countEl.textContent = t('result_count_grouped', gruppenAktuell.length, filtered.length, events.length);
+      // idxZuGruppe für ALLE Gruppen, nicht nur die gezeichneten:
+      // markiereAuswahl() fragt danach, und ausgewählt sein kann auch
+      // eine Strecke, die noch nicht im DOM steht.
+      gruppenAktuell.forEach((g, nr) => g.rows.forEach(({ idx }) => idxZuGruppe.set(idx, nr)));
+      fenster = { art: 'gruppen', daten: gruppenAktuell, cols, gezeigt: 0, gesamt: gruppenAktuell.length };
+      bodyEl.innerHTML = '';
+      zeigeMehr();
+      removeNotifyPrompt();
+    } else {
+      fenster = { art: 'zeilen', daten: filtered, cols, gezeigt: 0, gesamt: filtered.length };
+      bodyEl.innerHTML = '';
+      zeigeMehr();
+      removeNotifyPrompt();
+    }
+
+    renderDetail();
+    syncMasterSearch();
+    // Füllt der erste Schub das Bild nicht (kurze Liste, hoher
+    // Bildschirm), gleich den nächsten anhängen - sonst müsste jemand
+    // auf einen Knopf tippen, obwohl noch Platz ist.
+    pruefeNachladen();
+    // Eine Zeile bleibt per Tab erreichbar (siehe setzeTabStop).
+    setzeTabStop(bodyEl.querySelector('tr.active[data-idx]') || bodyEl.querySelector('tr[data-idx]'));
+    writeUrlState();
+    updateMapLink();
+    // Zum Schluss, nicht früher: Die Spaltenbreiten stehen erst jetzt fest
+    // (die Klasse `with-distance` schaltet sie um, wenn ein Ausgangspunkt
+    // dazukommt). Ein offenes Filter-Panel hinge sonst an der alten
+    // Position seines Knopfes.
+    ui.reposition();
+  }
+
+  // Beim Scrollen den nächsten Schub anhängen. Zwei Quellen, weil die
+  // Tabelle in einem eigenen Behälter scrollt, die Seite aber auch:
+  // auf dem Handy bewegt man meist die Seite, am Rechner den Behälter.
+  if (wrapEl) wrapEl.addEventListener('scroll', pruefeNachladen, { passive: true });
+  window.addEventListener('scroll', pruefeNachladen, { passive: true });
+  window.addEventListener('resize', pruefeNachladen);
+
+  // Ein Listener für die ganze Tabelle. Der Klick auf eine Unterzeile
+  // braucht kein stopPropagation mehr: sie trägt kein data-klapp, also
+  // wählt sie nur aus, statt die Gruppe darüber zuzuklappen.
+  bodyEl.addEventListener('click', (ev) => {
+    // Der "Mehr"-Knopf ist keine Event-Zeile: er trägt kein data-idx und
+    // würde sonst durchfallen.
+    if (ev.target.closest && ev.target.closest('.mehr-row')) {
+      zeigeMehr();
+      return;
+    }
+    const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
+    if (!tr || !bodyEl.contains(tr)) return;
+    setzeTabStop(tr);
+    let geklappt = false;
+    if (tr.dataset.klapp) {
+      const g = gruppenAktuell[Number(tr.dataset.g)];
+      if (g) { klappeGruppe(tr, g); geklappt = true; }
+    }
+    // Zum Detailbereich scrollen (auf dem Handy steht er weit unten) -
+    // aber NICHT, wenn der Klick eine Veranstaltung auf- oder zugeklappt
+    // hat: dann will man die Strecken sehen, die gerade an dieser Stelle
+    // erscheinen.
+    waehleZeile(Number(tr.dataset.idx), { zeigeDetail: !geklappt });
+  });
+
+  // ---------- Tastaturbedienung der Tabelle ----------
+  //
+  // Die Zeilen sind <tr> mit einem Listener am <tbody> - ohne
+  // Zutun also weder fokussierbar noch auslösbar, die Liste war mit
+  // der Tastatur nicht zu bedienen. Nachgerüstet ohne das schnelle
+  // Ein-String-Zeichnen aufzugeben:
+  //
+  // - Jede Zeile trägt `tabindex="-1"` (steht in den Vorlagen, kostet
+  //   nichts), erreichbar per Tab ist aber nur EINE ("roving tabindex",
+  //   das übliche Muster für lange Listen). 4.155 Tab-Stopps wären eine
+  //   Falle: man käme aus der Tabelle nicht mehr heraus.
+  // - Bewegt wird mit den Pfeiltasten, weiterhin über EINEN Listener am
+  //   <tbody> - kein Listener je Zeile.
+  //
+  // Tasten: ↑/↓ Zeile, Home/End erste/letzte, →/← Veranstaltung auf-/
+  // zuklappen, Leertaste klappt um, Enter springt in die Angaben (von
+  // dort erreicht Tab die Links: Veranstalter, Kalender, Fehler melden).
+  //
+  // `tabStopZeile` steht oben bei `state` (Temporal Dead Zone).
+  function setzeTabStop(zeile) {
+    if (tabStopZeile && tabStopZeile !== zeile && tabStopZeile.isConnected) {
+      tabStopZeile.tabIndex = -1;
+    }
+    tabStopZeile = zeile || null;
+    if (tabStopZeile) tabStopZeile.tabIndex = 0;
+  }
+
+  // Eine Zeile mit der Tastatur ansteuern heißt auch: sie auswählen. Der
+  // Detailbereich zeigt sofort, wo man ist (kein zusätzliches Enter).
+  // Gescrollt wird dabei NICHT zu den Angaben - das würde die Tabelle,
+  // in der man gerade navigiert, aus dem Bild schieben.
+  function fokussiereZeile(zeile) {
+    if (!zeile) return;
+    setzeTabStop(zeile);
+    zeile.focus();
+    waehleZeile(Number(zeile.dataset.idx));
+  }
+
+  function nachbarZeile(tr, vorwaerts) {
+    let n = vorwaerts ? tr.nextElementSibling : tr.previousElementSibling;
+    while (n && !(n.dataset && n.dataset.idx != null)) {
+      n = vorwaerts ? n.nextElementSibling : n.previousElementSibling;
+    }
+    // Am unteren Rand des Fensters den nächsten Schub holen: sonst wäre
+    // mit der Tastatur nur die erste Seite der Liste erreichbar (das
+    // Nachladen beim Scrollen hilft dort nicht).
+    if (!n && vorwaerts && zeigeMehr()) return nachbarZeile(tr, true);
+    return n;
+  }
+
+  bodyEl.addEventListener('keydown', (ev) => {
+    if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    const tr = ev.target.closest && ev.target.closest('tr[data-idx]');
+    if (!tr || !bodyEl.contains(tr)) return;
+    const k = ev.key;
+    if (k === 'ArrowDown' || k === 'ArrowUp') {
+      const ziel = nachbarZeile(tr, k === 'ArrowDown');
+      if (!ziel) return;
+      ev.preventDefault();
+      fokussiereZeile(ziel);
+      return;
+    }
+    if (k === 'Home' || k === 'End') {
+      ev.preventDefault();
+      // End heißt "ans Ende des Geladenen". Steht der Fokus schon dort,
+      // holt End den nächsten Schub - so kommt man auch mit der Tastatur
+      // durch die ganze Liste, ohne dass ein Tastendruck 20.000 Zeilen
+      // in den DOM legt.
+      if (k === 'End' && !nachbarZeile(tr, true)) zeigeMehr();
+      const zeilen = bodyEl.querySelectorAll('tr[data-idx]');
+      if (!zeilen.length) return;
+      fokussiereZeile(k === 'Home' ? zeilen[0] : zeilen[zeilen.length - 1]);
+      return;
+    }
+    if (k === 'ArrowRight' || k === 'ArrowLeft') {
+      if (!tr.dataset.klapp) return;
+      const offen = tr.getAttribute('aria-expanded') === 'true';
+      // Schon im gewünschten Zustand: nichts tun (nicht umklappen).
+      if ((k === 'ArrowRight') === offen) return;
+      const g = gruppenAktuell[Number(tr.dataset.g)];
+      if (!g) return;
+      ev.preventDefault();
+      klappeGruppe(tr, g);
+      // klappeGruppe baut den Inhalt der Zeile neu; der Fokus bleibt an
+      // der Zeile selbst, sie wird nicht ersetzt.
+      return;
+    }
+    if (k === 'Enter' || k === ' ' || k === 'Spacebar') {
+      // Die Leertaste würde sonst die Seite weiterblättern.
+      ev.preventDefault();
+      // Die LEERTASTE klappt um (wie →/←). ENTER nicht: Umklappen hat
+      // mit ihnen schon drei Wege, und Enter ist der EINZIGE Weg in den
+      // Detailbereich - dort stehen Kalenderdatei, Veranstalter-Seite
+      // und „Fehler melden".
+      //
+      // Vorher stand hier ein gemeinsamer Zweig mit `return` davor, und
+      // damit kam ein Tastatur-Nutzer bei einer Veranstaltung mit
+      // MEHREREN Strecken nie an diese Links. Aufgefallen ist es erst,
+      // als die Einzelprüfung der Events 201-400 fünf Zeilen entfernt
+      // hat und dadurch eine aufklappbare Zeile ans Ende des Fensters
+      // rutschte, wo der Rauchtest Enter drückt - vorher lag dort
+      // zufällig immer eine einzelne Strecke.
+      if (tr.dataset.klapp && k !== 'Enter') {
+        const g = gruppenAktuell[Number(tr.dataset.g)];
+        if (g) klappeGruppe(tr, g);
+        waehleZeile(Number(tr.dataset.idx));
+        return;
+      }
+      waehleZeile(Number(tr.dataset.idx));
+      if (k === 'Enter') {
+        zeigeDetailbereich();
+        // tabindex="-1" am Detailbereich (siehe HTML): ansteuerbar, aber
+        // kein zusätzlicher Tab-Stopp.
+        if (detailEl) detailEl.focus();
+      }
+    }
+  });
+
+  // Auf- und Zuklappen rührt nur die Zeilen dieser einen Veranstaltung an.
+  // Die Tabelle dafür komplett neu zu zeichnen (so war es vorher) heißt
+  // bei 4.155 Zeilen: erneut filtern, sortieren und alles neu aufbauen -
+  // für eine Handvoll Unterzeilen. Die Trefferzahl ändert sich dabei
+  // ohnehin nicht, das Zusammenfassen ist reine Anzeige.
+  function klappeGruppe(tr, g) {
+    const warOffen = state.offeneGruppen.has(g.key);
+    if (warOffen) state.offeneGruppen.delete(g.key);
+    else state.offeneGruppen.add(g.key);
+    // Erst die alten Unterzeilen weg (in beide Richtungen: aufgeklappt
+    // wandert die erste Strecke in die Veranstaltungszeile).
+    let n = tr.nextElementSibling;
+    while (n && n.classList.contains('sub-row')) {
+      const weg = n;
+      n = n.nextElementSibling;
+      weg.remove();
+    }
+    const cols = activeColumns();
+    // Die Veranstaltungszeile wechselt ihren Inhalt: zugeklappt die
+    // Zusammenfassung, aufgeklappt die erste Strecke. groupRowHtml liest
+    // den schon umgesetzten Zustand, der Pfeil steckt darin.
+    tr.classList.toggle('open', !warOffen);
+    tr.innerHTML = groupRowHtml(g, cols);
+    tr.setAttribute('aria-expanded', warOffen ? 'false' : 'true');
+    if (!warOffen) tr.insertAdjacentHTML('afterend', subRowsHtml(g, cols));
+    // Zuklappen kann die Zeile entfernt haben, die den Tab-Stopp trug -
+    // dann übernimmt ihn die Veranstaltungszeile, sonst wäre die Tabelle
+    // per Tab nicht mehr erreichbar.
+    if (!tabStopZeile || !tabStopZeile.isConnected) setzeTabStop(tr);
+  }
+
+  // Eine Zeile auswählen heißt: Detailbereich füllen und die Markierung
+  // umhängen. Vorher lief dafür das komplette render() - filtern,
+  // sortieren, alle Zeilen neu bauen, nur damit eine Zeile eine Klasse
+  // bekommt. `selectedIndex` steht in keinem Link (siehe currentParams),
+  // also ist auch writeUrlState() hier nichts zu tun.
+  function waehleZeile(idx, opts) {
+    selectedIndex = idx;
+    markiereAuswahl();
+    renderDetail();
+    if (opts && opts.zeigeDetail) zeigeDetailbereich();
+  }
+
+  // Auf dem Handy wirkte ein Tippen auf eine Zeile folgenlos: unter 900 px
+  // hat die Seite nur EINE Spalte, der Detailbereich steht also unter der
+  // Tabelle - und die ist 78vh hoch. Die Angaben erschienen damit rund
+  // einen Bildschirm weiter unten, ohne dass irgendetwas darauf hinwies.
+  //
+  // Gescrollt wird nur, wenn der Bereich wirklich außerhalb des Bildes
+  // liegt: am Rechner steht er neben der Tabelle, dort darf sich nichts
+  // bewegen. `prefers-reduced-motion` schaltet das sanfte Scrollen ab -
+  // dieselbe Rücksicht wie bei den Übergängen im Stylesheet.
+  function zeigeDetailbereich() {
+    if (!detailEl) return;
+    const box = detailEl.getBoundingClientRect();
+    const sichtbar = box.top < window.innerHeight - 80 && box.bottom > 80;
+    if (sichtbar) return;
+    let sanft = true;
+    try {
+      sanft = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) { /* ältere Browser: dann sanft */ }
+    try {
+      detailEl.scrollIntoView({ behavior: sanft ? 'smooth' : 'auto', block: 'start' });
+    } catch (e) {
+      detailEl.scrollIntoView();
+    }
+  }
+
+  // Bei Gruppierung sind zwei Zeilen zu markieren: die Unterzeile selbst
+  // und die Veranstaltungszeile darüber (sie kann zugeklappt sein).
+  // Die Gruppenzeile trägt data-g, die Unterzeilen nicht - daher das
+  // :not([data-g]).
+  function markiereAuswahl() {
+    bodyEl.querySelectorAll('tr.active').forEach(tr => tr.classList.remove('active'));
+    if (selectedIndex === null) return;
+    const zeile = bodyEl.querySelector(`tr[data-idx="${selectedIndex}"]:not([data-g])`);
+    if (zeile) zeile.classList.add('active');
+    const nr = idxZuGruppe.get(selectedIndex);
+    if (nr != null) {
+      const gz = bodyEl.querySelector(`tr[data-g="${nr}"]`);
+      // Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
+      // - dann ist sie nur markiert, wenn genau diese gewählt ist. Sonst
+      // trüge der Block zwei markierte Zeilen (der ganze Block ist ohnehin
+      // blau hinterlegt, die Auswahl darin einen Ton kräftiger).
+      if (gz && !(gz.classList.contains('open') && Number(gz.dataset.idx) !== selectedIndex)) {
+        gz.classList.add('active');
+      }
+    }
+  }
+
+  // Der Kartenknopf nimmt den Filterzustand mit: karte.html liest
+  // dieselben Parameter (filters.js) und zeigt genau die Events, die hier
+  // in der Liste stehen. Ohne das fing man auf der Karte wieder bei allen
+  // ~4.100 Events an.
+  function updateMapLink() {
+    const suffix = currentParams().toString();
+    mapBtnEl.href = 'karte.html' + (suffix ? '?' + suffix : '');
+  }
+
+  // ---------- Filter in der Adresse (teilbarer Link) ----------
+
+  // Die Adresse trägt den vollständigen Filterzustand, damit eine
+  // gefilterte Liste weitergegeben werden kann ("alle Trails im Umkreis
+  // von 50 km um Stuttgart"). history.replaceState statt pushState: jeder
+  // Häkchen-Klick würde sonst einen Eintrag in der Zurück-Geschichte
+  // anlegen, und der Zurück-Knopf wäre nicht mehr zu gebrauchen.
+  //
+  // Den Filterteil baut filters.js (toParams) - die Karte liest und
+  // schreibt genau dieselben Parameter, deshalb nimmt der Wechsel
+  // zwischen Liste und Karte die Filter mit. Hier kommen nur die beiden
+  // Ansichts-Parameter der Liste dazu (Sortierung, Zusammenfassen).
+  function currentParams() {
+    const p = EF.toParams(state);
+    if (state.sortKey !== 'datum' || state.sortDir !== 'asc') {
+      p.set('sort', `${state.sortKey}:${state.sortDir}`);
+    }
+    // In der Adresse steht nur die ABWEICHUNG von der Voreinstellung
+    // (an): "gruppiert=0", wenn jemand die Strecken einzeln sehen will.
+    // Die Karte reicht den Wert unverändert zurück, und ohne ihn wäre
+    // der Weg Liste (aus) -> Karte -> Liste wieder zusammengefasst.
+    // Alte Links mit "gruppiert=1" bleiben gültig (readUrlState).
+    if (!state.gruppiert) p.set('gruppiert', '0');
+    return p;
+  }
+
+  function writeUrlState() {
+    if (!urlZustandGelesen) return;
+    if (!window.history || !window.history.replaceState) return;
+    const p = currentParams();
+    // Ein geteiltes Event bleibt in der Adresse stehen, solange es
+    // ausgewählt ist - damit ein Neuladen oder Weitergeben des Links
+    // dasselbe Event zeigt. NICHT in currentParams(): Das speist auch
+    // den Kartenknopf, und die Karte kennt kein einzelnes Event.
+    //
+    // Eine andere Zeile auszuwählen schreibt die Adresse gar nicht neu
+    // (waehleZeile ruft kein writeUrlState - siehe "Tempo"); der
+    // Parameter verschwindet daher erst beim nächsten Filterwechsel,
+    // und genau dann ist er auch nicht mehr wahr.
+    if (deepEventSlug && selectedIndex !== null && events[selectedIndex]
+        && eventSlug(events[selectedIndex]) === deepEventSlug) {
+      p.set('event', deepEventSlug);
+    }
+    const suffix = p.toString();
+    const neu = window.location.pathname + (suffix ? '?' + suffix : '');
+    if (neu !== window.location.pathname + window.location.search) {
+      try { window.history.replaceState(null, '', neu); } catch (e) { /* ignorieren */ }
+    }
+  }
+
+  function readUrlState() {
+    let p;
+    try { p = new URLSearchParams(window.location.search); } catch (e) { return; }
+    // Die Filter selbst liest filters.js - damit versteht die Karte
+    // dieselben Links (auch die beiden alten: ?sportart=Fahrrad von der
+    // Willkommensseite, ?standort=Frankfurt vom Kartenmarker).
+    EF.readParams(state, window.location.search, {
+      knownStandort: v => events.some(e => e.standort === v),
+      alleTage: uniqueSorted(events.map(e => e.datum_start)),
+      geoLabel: t('geo_current_label'),
+      // Ein Ausgangspunkt schaltet in der Liste zusätzlich die
+      // Entfernungs-Spalte samt Sortierung zu.
+      setOrigin: (_state, origin) => setOrigin(origin)
+    });
+    const sort = p.get('sort');
+    if (sort) {
+      const [key, dir] = sort.split(':');
+      // Nach Entfernung sortieren geht nur mit Ausgangspunkt - ohne einen
+      // gibt es die Spalte nicht, und die Liste stünde ohne sichtbare
+      // Sortierung da. Kommt so aus der Karte zurück, wenn dort der
+      // Umkreis entfernt wurde (oder aus einem von Hand gekürzten Link).
+      if (SORT_KEYS[key] && (key !== 'entfernung' || state.origin)) {
+        state.sortKey = key;
+        state.sortDir = dir === 'desc' ? 'desc' : 'asc';
+      }
+    }
+    // "1" und "0" sind beide gültig; fehlt der Parameter, bleibt es bei
+    // der Voreinstellung bzw. der gemerkten Wahl des Nutzers.
+    if (p.get('gruppiert') === '1') state.gruppiert = true;
+    else if (p.get('gruppiert') === '0') state.gruppiert = false;
+    // Ein geteiltes Event (?event=…): die Zeile auswählen, damit die Box
+    // sie zeigt. Die Kennung ist der eventSlug - eine laufende Nummer
+    // wäre wertlos, sie verschiebt sich mit jedem neuen Event.
+    //
+    // Bewusst OHNE Filter: Wer ein Event teilt, teilt nicht seine Suche.
+    // Steht das Event trotz eines Filters nicht in der Tabelle, zeigt die
+    // Box es trotzdem - markiereAuswahl() findet dann eben keine Zeile.
+    // Abo-Verwaltung öffnen (Abmelde-Link der E-Mails). Hier gelesen,
+    // weil writeUrlState() die Adresse gleich danach auf die
+    // Filter-Parameter zurückschreibt.
+    if (p.get('abos') === '1') aboGewuenscht = true;
+    const gesucht = p.get('event');
+    if (gesucht) {
+      const treffer = events.findIndex(e => eventSlug(e) === gesucht);
+      if (treffer >= 0) {
+        selectedIndex = treffer;
+        deepEventSlug = gesucht;
+        // ?melden=1 dazu: der Melde-Knopf in der Box auf der KARTE führt
+        // hierher, weil der Melde-Dialog (Firestore) nur in der Liste
+        // lebt. Der Parameter verschwindet mit dem nächsten
+        // writeUrlState() von selbst - er soll nicht in einem geteilten
+        // Link landen.
+        deepMelden = p.get('melden') === '1';
+      }
+    }
+  }
+
+  // ---------- "Benachrichtige mich"-Box (0 Treffer) ----------
+
+  // Die aktuell aktiven Filter als einfaches, JSON-serialisierbares Objekt
+  // (Sets -> Arrays) für die Firestore-Ablage. Bewusst OHNE Datumsfilter
+  // (state.selectedDays): das gesuchte Event liegt annahmegemäß in der
+  // Zukunft und ist deshalb noch nicht in events.json - ein Datumsfilter
+  // würde eine spätere Benachrichtigung dafür also nie zulassen.
+  // `quelle` ist der Filterzustand, aus dem das Abo entsteht - beim
+  // Abo-Dialog `aboState`, nicht die laufende Suche.
+  function serializeFiltersForNotify(quelle) {
+    const state = quelle || aboState;
+    return {
+      // Der Namensfilter gehört dazu: Wer „marathon" gesucht hat und
+      // dann abonniert, will Marathons - nicht alles. Ohne dieses Feld
+      // wäre das Abo stillschweigend weiter gefasst als die Suche, aus
+      // der es entstand. functions/index.js prüft es mit.
+      nameQuery: state.nameQuery.trim(),
+      // Die Mastersuche gehört aus demselben Grund dazu: Wer „München"
+      // gesucht hat und dann abonniert, will Events aus München.
+      // functions/index.js prüft sie mit.
+      suche: state.suche.trim(),
+      land: Array.from(state.land),
+      art1: Array.from(state.art1),
+      art2: Array.from(state.art2),
+      standort: Array.from(state.standort),
+      laengeMin: state.laengeMin || null,
+      laengeMax: state.laengeMax || null,
+      distanceCategories: Array.from(state.distanceCategories),
+      radiusKm: state.radiusKm,
+      origin: state.origin ? { lat: state.origin.lat, lon: state.origin.lon, label: state.origin.label } : null
+    };
+  }
+
+  // ---------- Abo: "Neue Events per E-Mail" ----------
+  //
+  // Ein Abo ist: DIESE Filter + EIN Rhythmus. Der Knopf steht in der
+  // Werkzeugleiste und ist immer erreichbar - die alte Box erschien nur
+  // bei null Treffern, wer also "alle neuen Schwimm-Events in Thüringen"
+  // wollte, kam nie an sie heran.
+  //
+  // Was NICHT ins Abo geht: der Datumsfilter. Ein Abo blickt in die
+  // Zukunft, ein Datumsfilter in die Vergangenheit dieser Suche - mit
+  // ihm könnte nie ein neues Event passen (siehe
+  // serializeFiltersForNotify).
+  // aboOverlay/aboBodyEl und die drei Zustände stehen oben bei den
+  // übrigen Element-Konstanten (Temporal Dead Zone: der ?abos=1-Zweig
+  // läuft beim Laden, also weit vor dieser Zeile).
+
+  function aboRhythmen() {
+    // Die Liste kommt aus auth.js, damit sie nicht an zwei Stellen steht.
+    const aus = window.EndauranceAuth && window.EndauranceAuth.ABO_RHYTHMEN;
+    return Array.isArray(aus) && aus.length ? aus : ['sofort', 'woechentlich', 'monatlich'];
+  }
+
+  // Was dieses Abo abdeckt, in einem Satz - gebaut aus GENAU den Feldern,
+  // die auch gespeichert werden. Nicht aus den Chips: die zeigen auch den
+  // Datumsfilter, und der gehört nicht dazu.
+  function aboBeschreibung(f) {
+    const teile = [];
+    if (f.suche) teile.push(`„${f.suche}"`);
+    if (f.nameQuery) teile.push(`„${f.nameQuery}"`);
+    if (f.art1 && f.art1.length) teile.push(f.art1.map(v => tv('art1', v)).join(', '));
+    if (f.art2 && f.art2.length) teile.push(f.art2.map(v => tv('art2', v)).join(', '));
+    if (f.distanceCategories && f.distanceCategories.length) {
+      const labels = EF.DISTANCE_CATEGORY_LABELS[currentLang] || {};
+      teile.push(f.distanceCategories.map(k => labels[k] || k).join(', '));
+    }
+    // Auch hier das Dezimaltrennzeichen der Sprache (siehe EF.formatNumber).
+    const kmZahl = (v) => EF.formatNumber(v, currentLang, 1);
+    if (f.laengeMin && f.laengeMax) teile.push(`${kmZahl(f.laengeMin)}–${kmZahl(f.laengeMax)} km`);
+    else if (f.laengeMin) teile.push(t('abo_von_km', kmZahl(f.laengeMin)));
+    else if (f.laengeMax) teile.push(t('abo_bis_km', kmZahl(f.laengeMax)));
+    if (f.origin && f.radiusKm != null) {
+      teile.push(t('abo_umkreis', f.radiusKm, f.origin.label));
+    } else if (f.standort && f.standort.length) {
+      const orte = f.standort.slice(0, 3).join(', ');
+      teile.push(f.standort.length > 3 ? t('abo_orte_mehr', orte, f.standort.length - 3) : orte);
+    }
+    if (f.land && f.land.length) teile.push(f.land.map(v => tv('land', v)).join(', '));
+    return teile.length ? teile.join(' · ') : t('abo_alles');
+  }
+
+  function oeffneAboDialog() {
+    if (!window.EndauranceAuth) return;
+    // Ein offenes Filter-Panel der Liste stünde sonst hinter dem Dialog
+    // (und sein Knopf bekäme keinen Klick mehr ab).
+    ui.close();
+    // Mit der aktuellen Suche starten (ohne Datum) - wer die Liste schon
+    // gefiltert hat, findet seine Auswahl vor und kann sie hier
+    // nachschärfen.
+    uebernehmeSucheInAbo();
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
+    if (!aboFesselGesetzt && window.EndauranceAuth.dialogTasten) {
+      window.EndauranceAuth.dialogTasten(aboOverlay, schliesseAboDialog);
+      aboFesselGesetzt = true;
+    }
+    aboFokusVorher = document.activeElement;
+    aboOverlay.hidden = false;
+    zeichneAboDialog();
+    const dlg = aboOverlay.querySelector('.ee-modal');
+    if (dlg) { try { dlg.focus({ preventScroll: true }); } catch (e) { dlg.focus(); } }
+  }
+
+  function schliesseAboDialog() {
+    // Ein offenes Filter-Panel hängt an <body>, nicht am Dialog - ohne
+    // das bliebe es über der Liste stehen.
+    aboUi.close();
+    aboOverlay.hidden = true;
+    aboBodyEl.innerHTML = '';
+    if (aboFokusVorher && aboFokusVorher.isConnected) {
+      try { aboFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    aboFokusVorher = null;
+  }
+
+  // Die Suche der Liste in den Abo-Zustand übernehmen. Als Kopie, damit
+  // das Umstellen im Dialog die Liste nicht anfasst.
+  function uebernehmeSucheInAbo() {
+    const kopie = EF.copyState(state, true);   // true = ohne Datumsfilter
+    Object.keys(kopie).forEach(k => { aboState[k] = kopie[k]; });
+    aboUi.resetTransient();
+  }
+
+  // Nur den Kasten „Dieses Abo umfasst" neu schreiben - der Rest des
+  // Dialogs (Rhythmus-Auswahl, Knöpfe) bleibt stehen, sonst verlöre ein
+  // Klick im Filter-Panel den Rhythmus oder den Fokus.
+  function zeichneAboZusammenfassung() {
+    const kasten = aboBodyEl.querySelector('#abo-umfasst');
+    if (!kasten) return;
+    kasten.textContent = aboBeschreibung(serializeFiltersForNotify());
+    aboUi.updateIndicators();
+  }
+
+  function zeichneAboDialog(meldung) {
+    const filter = serializeFiltersForNotify();
+    const user = window.EndauranceAuth.getUser();
+    const rhythmen = aboRhythmen().map(key => `
+      <label>
+        <input type="radio" name="abo-rhythmus" value="${key}"${key === aboRhythmus ? ' checked' : ''}>
+        <span>
+          <strong>${escapeHtml(t('abo_r_' + key))}</strong>
+          <span class="abo-rhythm-note">${escapeHtml(t('abo_r_' + key + '_note'))}</span>
+        </span>
+      </label>`).join('');
+
+    aboBodyEl.innerHTML = `
+      <h2 id="abo-heading">${escapeHtml(t('abo_titel'))}</h2>
+      <p class="report-intro">${escapeHtml(t('abo_intro'))}</p>
+      <div class="abo-filter">
+        <strong>${escapeHtml(t('abo_welche'))}</strong>
+        <div class="abo-filter-bar" id="abo-filter-bar"></div>
+      </div>
+      <div class="abo-summary">
+        <strong>${escapeHtml(t('abo_summary_titel'))}</strong>
+        <span id="abo-umfasst">${escapeHtml(aboBeschreibung(filter))}</span>
+        <span class="abo-hint">${escapeHtml(t('abo_ohne_datum'))}</span>
+      </div>
+      <strong class="abo-abschnitt">${escapeHtml(t('abo_wie_oft'))}</strong>
+      <div class="abo-rhythm">${rhythmen}</div>
+      ${user
+        ? `<button type="button" class="ee-submit-btn" id="abo-save-btn">${escapeHtml(t('abo_speichern'))}</button>
+           <div class="abo-hint" style="margin-top:8px">${escapeHtml(t('abo_an', user.email))}</div>`
+        : `<button type="button" class="ee-submit-btn" id="abo-login-btn">${escapeHtml(t('abo_login'))}</button>
+           <div class="abo-hint" style="margin-top:8px">${escapeHtml(t('abo_login_grund'))}</div>`}
+      <div id="abo-status">${meldung
+        ? `<div class="abo-status ${meldung.art}">${escapeHtml(meldung.text)}</div>` : ''}</div>
+      <div class="abo-list" id="abo-list" hidden></div>
+    `;
+
+    // Dieselben Filterknöpfe und Panels wie die Liste - nur ohne „Datum"
+    // (ein Abo schaut in die Zukunft) und auf dem eigenen Zustand.
+    aboUi.buildButtonBar(aboBodyEl.querySelector('#abo-filter-bar'), { ohne: ['datum'] });
+
+    aboBodyEl.querySelectorAll('input[name="abo-rhythmus"]').forEach(el => {
+      el.addEventListener('change', () => { aboRhythmus = el.value; });
+    });
+
+    const loginBtn = aboBodyEl.querySelector('#abo-login-btn');
+    if (loginBtn) loginBtn.addEventListener('click', () => window.EndauranceAuth.openModal('login'));
+
+    const saveBtn = aboBodyEl.querySelector('#abo-save-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        saveBtn.disabled = true;
+        window.EndauranceAuth.saveFilterSubscription(filter, {
+          rhythmus: aboRhythmus,
+          name: aboBeschreibung(filter)
+        })
+          .then(() => { zeichneAboDialog({ art: 'ok', text: t('abo_gespeichert') }); ladeAboListe(); })
+          .catch(() => {
+            saveBtn.disabled = false;
+            const st = aboBodyEl.querySelector('#abo-status');
+            if (st) st.innerHTML = `<div class="abo-status fehler">${escapeHtml(t('abo_fehler'))}</div>`;
+          });
+      });
+    }
+
+    if (user) ladeAboListe();
+  }
+
+  // Die eigenen Abos zeigen - ohne sie käme man nur über den Link in der
+  // E-Mail wieder heraus.
+  function ladeAboListe() {
+    const kasten = aboBodyEl.querySelector('#abo-list');
+    if (!kasten || !window.EndauranceAuth.listFilterSubscriptions) return;
+    window.EndauranceAuth.listFilterSubscriptions().then(abos => {
+      const offen = abos.filter(a => a.aktiv !== false);
+      if (!offen.length) { kasten.hidden = true; return; }
+      kasten.hidden = false;
+      kasten.innerHTML = `<h3>${escapeHtml(t('abo_meine'))}</h3>` + offen.map(a => `
+        <div class="abo-item" data-abo="${escapeHtml(a.id)}">
+          <span>
+            ${escapeHtml(a.name || t('abo_alles'))}
+            <span class="abo-item-rhythm">${escapeHtml(t('abo_r_' + (a.rhythmus || 'sofort')))}</span>
+          </span>
+          <button type="button">${escapeHtml(t('abo_loeschen'))}</button>
+        </div>`).join('');
+      kasten.querySelectorAll('.abo-item button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.closest('.abo-item').dataset.abo;
+          btn.disabled = true;
+          window.EndauranceAuth.deleteFilterSubscription(id)
+            .then(() => ladeAboListe())
+            .catch(() => { btn.disabled = false; });
+        });
+      });
+    }).catch(() => { kasten.hidden = true; });
+  }
+
+  document.getElementById('abo-open-btn').addEventListener('click', oeffneAboDialog);
+  document.getElementById('abo-close').addEventListener('click', schliesseAboDialog);
+  aboOverlay.addEventListener('click', (ev) => {
+    if (ev.target === aboOverlay) schliesseAboDialog();
+  });
+
+  function renderNotifyPrompt() {
+    if (!window.EndauranceAuth) { notifyBoxEl.hidden = true; return; }
+    notifyBoxEl.hidden = false;
+    // Wie im Melde-Dialog: Firestore schon jetzt nachladen lassen.
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
+    // Ein Weg, nicht zwei: Die Box bei null Treffern führt in denselben
+    // Dialog wie der Knopf in der Werkzeugleiste. Früher hatte sie ihren
+    // eigenen Speichern-Knopf - damit gab es zwei Stellen, an denen ein
+    // Abo entstand, und nur eine davon kannte den Rhythmus.
+    // Zwei Wege, weil es zwei Gründe für null Treffer gibt: Das Event
+    // findet noch nicht statt (dann hilft ein Abo) - oder es findet
+    // statt, steht aber nicht in unserer Liste. Der zweite Fall war
+    // vorher gar nicht vorgesehen.
+    notifyBoxEl.innerHTML = `
+      <p>${escapeHtml(t('notify_text'))}<br><span class="notify-status">${escapeHtml(t('notify_fehlt'))}</span></p>
+      <button type="button" id="notify-open-btn">${escapeHtml(t('abo_open'))}</button>
+      <button type="button" class="fehlt-btn" id="notify-fehlt-btn">${escapeHtml(t('fehlt_open'))}</button>
+    `;
+    notifyBoxEl.querySelector('#notify-open-btn')
+      .addEventListener('click', oeffneAboDialog);
+    notifyBoxEl.querySelector('#notify-fehlt-btn')
+      .addEventListener('click', openSuggestModal);
+  }
+
+  function removeNotifyPrompt() {
+    notifyBoxEl.hidden = true;
+  }
+
+  // Die Box selbst baut event-detail.js (Liste UND Karte, dieselbe
+  // Struktur - vom Nutzer so gewünscht). Hier bleibt nur, was die Liste
+  // beisteuert: das Event und der Melde-Dialog.
+  function detailKontext() {
+    return { t, tv, lang: currentLang, onReport: (e) => openReportModal(e) };
+  }
+
+  function renderDetail() {
+    if (selectedIndex === null || !events[selectedIndex]) {
+      EED.renderEmpty(detailEl, detailKontext());
+      return;
+    }
+    EED.render(detailEl, events[selectedIndex], detailKontext());
+  }
+
+  // Die dauerhafte Kennung eines Events (Datum, Name, Maßzahl, Ort) -
+  // steht in event-detail.js, weil Kalenderdatei und geteilter Link
+  // darauf aufbauen und die Karte beides auch braucht.
+  function eventSlug(e) {
+    return EED.eventSlug(e);
+  }
+
+  // ---------- Fehler melden ----------
+  // Reihenfolge = Reihenfolge im Drop-down. Die Schluessel landen
+  // unveraendert in Firestore (Feld "kategorie") und werden von
+  // scripts/review_reports.py wieder erkannt - also nicht umbenennen,
+  // ohne dort nachzuziehen.
+  const REPORT_CATEGORIES = [
+    'laenge', 'datum', 'ort', 'url', 'sportart', 'name', 'doppelt', 'abgesagt', 'sonstiges'
+  ];
+  const REPORT_DESC_MAX = 600;
+  const REPORT_DESC_MIN = 10;
+
+  const reportOverlay = document.getElementById('report-overlay');
+  const reportDialogEl = reportOverlay.querySelector('.ee-modal');
+  const reportBodyEl = document.getElementById('report-body');
+
+  document.getElementById('report-close').addEventListener('click', closeReportModal);
+  reportOverlay.addEventListener('click', (evt) => {
+    if (evt.target === reportOverlay) closeReportModal();
+  });
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape' && !reportOverlay.hidden) closeReportModal();
+  });
+  // Escape und die Fokusfessel kommen aus auth.js (dialogTasten) - der
+  // Anmelde-Dialog dort braucht genau dasselbe, und zwei Kopien laufen
+  // auseinander.
+  //
+  // Erst beim ersten Öffnen eingehängt, nicht hier: auth.js trägt
+  // `defer`, dieses Inline-Skript läuft davor - window.EndauranceAuth
+  // gibt es an dieser Stelle noch nicht (dieselbe Reihenfolge wie bei
+  // EE_AUTH_QUEUE). Ohne auth.js bleibt es beim Escape-Listener oben.
+  let reportFesselGesetzt = false;
+
+  function setzeReportFessel() {
+    if (reportFesselGesetzt) return;
+    if (!window.EndauranceAuth || !window.EndauranceAuth.dialogTasten) return;
+    window.EndauranceAuth.dialogTasten(reportOverlay, closeReportModal);
+    reportFesselGesetzt = true;
+  }
+
+  // Wohin der Fokus zurückgeht: auf "Fehler zu diesem Event melden".
+  let reportFokusVorher = null;
+
+  function closeReportModal() {
+    reportOverlay.hidden = true;
+    reportBodyEl.innerHTML = '';
+    if (reportFokusVorher && reportFokusVorher.isConnected) {
+      try { reportFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    reportFokusVorher = null;
+  }
+
+  function openReportModal(e) {
+    // Das Firestore-SDK haengt nicht mehr im HTML (344 KB fuer jeden
+    // Seitenaufruf); auth.js laedt es nach. Hier schon anstossen, damit
+    // beim Abschicken nichts mehr zu warten ist.
+    if (window.EndauranceAuth && window.EndauranceAuth.prepareFirestore) {
+      window.EndauranceAuth.prepareFirestore();
+    }
+    setzeReportFessel();
+    reportFokusVorher = document.activeElement;
+    const kmText = formatLength(e);
+    const wb = displayWettbewerb(e);
+    reportBodyEl.innerHTML = `
+      <h2 id="report-heading">${escapeHtml(t('report_title'))}</h2>
+      <div class="report-event-summary">
+        <strong>${escapeHtml(e.name)}</strong>
+        <span>${escapeHtml(formatRange(e.datum_start, e.datum_ende))} &middot; ${escapeHtml(tv('standort', e.standort))} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
+      </div>
+      <p class="report-intro">${escapeHtml(t('report_intro'))}</p>
+      <div id="report-msg"></div>
+      <form id="report-form">
+        <div class="ee-field">
+          <label for="report-kategorie">${escapeHtml(t('report_field_label'))}</label>
+          <select id="report-kategorie" autocomplete="off">
+            <!-- Leere Vorauswahl: es soll bewusst nichts vorbelegt sein,
+                 sonst wandert eine unbeabsichtigte Kategorie in die
+                 Meldung. Die Pflicht-Pruefung sitzt im submit-Handler. -->
+            <option value="" selected>${escapeHtml(t('report_field_placeholder'))}</option>
+            ${REPORT_CATEGORIES.map(k => `<option value="${k}">${escapeHtml(t('report_cat_' + k))}</option>`).join('')}
+          </select>
+        </div>
+        <div class="ee-field">
+          <label for="report-desc">${escapeHtml(t('report_desc_label'))}</label>
+          <textarea id="report-desc" maxlength="${REPORT_DESC_MAX}" placeholder="${escapeHtml(t('report_desc_placeholder'))}"></textarea>
+          <div class="report-counter" id="report-counter">0 / ${REPORT_DESC_MAX}</div>
+        </div>
+        <button type="submit" class="ee-submit-btn" id="report-submit">${escapeHtml(t('report_send'))}</button>
+      </form>
+    `;
+    reportOverlay.hidden = false;
+
+    // Bewusst ohne required-Attribute: die Browser-Blase ist nicht
+    // uebersetzt und passt optisch nicht zum Dialog - validiert wird
+    // unten im submit-Handler mit den eigenen i18n-Texten.
+    const form = reportBodyEl.querySelector('#report-form');
+    const selectEl = reportBodyEl.querySelector('#report-kategorie');
+    const descEl = reportBodyEl.querySelector('#report-desc');
+    const counterEl = reportBodyEl.querySelector('#report-counter');
+    const msgEl = reportBodyEl.querySelector('#report-msg');
+    const submitEl = reportBodyEl.querySelector('#report-submit');
+
+    descEl.addEventListener('input', () => {
+      counterEl.textContent = `${descEl.value.length} / ${REPORT_DESC_MAX}`;
+    });
+    // Bewusst KEIN focus() auf das Drop-down: ein fokussiertes <select>
+    // klappt in mehreren Browsern sofort auf, und der Dialog begruesst
+    // einen dann mit einer offenen Liste. Stattdessen den Dialog selbst
+    // fokussieren - damit liegt der Tastaturfokus im Dialog, die Auswahl
+    // bleibt aber leer und zu, bis jemand sie anfasst.
+    reportDialogEl.focus({ preventScroll: true });
+
+    function setMsg(text, kind) {
+      msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${escapeHtml(text)}</div>` : '';
+    }
+
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const kategorie = selectEl.value;
+      const beschreibung = descEl.value.trim();
+      if (!kategorie) { setMsg(t('report_err_field'), 'error'); return; }
+      if (beschreibung.length < REPORT_DESC_MIN) { setMsg(t('report_err_desc'), 'error'); descEl.focus(); return; }
+      setMsg(null);
+      submitEl.disabled = true;
+      submitEl.textContent = t('report_sending');
+      window.EndauranceAuth.reportEventError({ event: e, kategorie, beschreibung })
+        .then(() => {
+          setMsg(t('report_thanks'), 'success');
+          // Formular nach dem Absenden entfernen, damit dieselbe Meldung
+          // nicht versehentlich zweimal abgeschickt wird.
+          form.querySelectorAll('.ee-field').forEach(el => el.remove());
+          submitEl.remove();
+          window.setTimeout(() => { if (!reportOverlay.hidden) closeReportModal(); }, 2500);
+        })
+        .catch((err) => {
+          submitEl.disabled = false;
+          submitEl.textContent = t('report_send');
+          setMsg(reportErrorMessage(err), 'error');
+        });
+    });
+  }
+
+  // Firebase-Fehlercodes in verstaendliche Saetze uebersetzen. Der Fall
+  // "auth/operation-not-allowed" bzw. "auth/admin-restricted-operation"
+  // heisst konkret: der Anbieter "Anonym" ist in der Firebase-Konsole
+  // noch nicht aktiviert (Authentication -> Sign-in method).
+  function reportErrorMessage(err) {
+    const code = (err && (err.code || err.message)) || '';
+    if (code === 'not-configured') return t('report_err_config');
+    if (code === 'auth/operation-not-allowed' || code === 'auth/admin-restricted-operation') {
+      return t('report_err_anon');
+    }
+    return t('report_err_save');
+  }
+
+  // ---------- "Wir haben dein Event nicht?" ----------
+  //
+  // Zwei Wege führen hierher: die Leiste unter der Liste (immer da) und
+  // die Box bei null Treffern (dort neben dem Abo). Beide öffnen DIESEN
+  // Dialog - dieselbe Linie wie bei den Abos, an denen es auch nur einen
+  // Weg gibt.
+  //
+  // Gefragt wird nur nach der Adresse der offiziellen Seite und dem
+  // Namen. Datum, Strecken, Ort und Sportart holen wir uns von genau
+  // dieser Seite: Abgetippte Angaben wären eine dritte Datenquelle neben
+  // Scraper und manual_overrides.json, und die offizielle Seite brauchen
+  // wir nach Datenregel 2 ohnehin. Übernommen wird ein Vorschlag NIE
+  // automatisch (siehe CLAUDE.md).
+  const SUGGEST_NAME_MAX = 200;
+  const SUGGEST_HINWEIS_MAX = 600;
+  const SUGGEST_URL_MAX = 500;
+
+  const suggestOverlay = document.getElementById('suggest-overlay');
+  const suggestDialogEl = suggestOverlay.querySelector('.ee-modal');
+  const suggestBodyEl = document.getElementById('suggest-body');
+  let suggestFesselGesetzt = false;
+  let suggestFokusVorher = null;
+
+  document.getElementById('suggest-close').addEventListener('click', closeSuggestModal);
+  suggestOverlay.addEventListener('click', (evt) => {
+    if (evt.target === suggestOverlay) closeSuggestModal();
+  });
+  document.getElementById('fehlt-open-btn').addEventListener('click', openSuggestModal);
+
+  function closeSuggestModal() {
+    suggestOverlay.hidden = true;
+    suggestBodyEl.innerHTML = '';
+    if (suggestFokusVorher && suggestFokusVorher.isConnected) {
+      try { suggestFokusVorher.focus(); } catch (e) { /* ignorieren */ }
+    }
+    suggestFokusVorher = null;
+  }
+
+  function openSuggestModal() {
+    if (!window.EndauranceAuth) return;
+    // Firestore schon jetzt nachladen lassen (344 KB, hängt nicht im
+    // HTML) - dieselbe Vorsorge wie im Melde- und im Abo-Dialog.
+    if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
+    // Escape + Fokusfessel aus auth.js, erst beim ersten Öffnen: auth.js
+    // trägt `defer` und existiert beim Inline-Skript noch nicht.
+    if (!suggestFesselGesetzt && window.EndauranceAuth.dialogTasten) {
+      window.EndauranceAuth.dialogTasten(suggestOverlay, closeSuggestModal);
+      suggestFesselGesetzt = true;
+    }
+    suggestFokusVorher = document.activeElement;
+    suggestBodyEl.innerHTML = `
+      <h2 id="suggest-heading">${escapeHtml(t('fehlt_titel'))}</h2>
+      <p class="report-intro">${escapeHtml(t('fehlt_intro'))}</p>
+      <div id="suggest-msg"></div>
+      <form id="suggest-form">
+        <div class="ee-field">
+          <label for="suggest-url">${escapeHtml(t('fehlt_url_label'))}</label>
+          <input type="url" id="suggest-url" inputmode="url" autocomplete="off"
+                 maxlength="${SUGGEST_URL_MAX}" placeholder="${escapeHtml(t('fehlt_url_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-name">${escapeHtml(t('fehlt_name_label'))}</label>
+          <input type="text" id="suggest-name" autocomplete="off"
+                 maxlength="${SUGGEST_NAME_MAX}" placeholder="${escapeHtml(t('fehlt_name_placeholder'))}">
+        </div>
+        <div class="ee-field">
+          <label for="suggest-hinweis">${escapeHtml(t('fehlt_hinweis_label'))}</label>
+          <textarea id="suggest-hinweis" maxlength="${SUGGEST_HINWEIS_MAX}"
+                    placeholder="${escapeHtml(t('fehlt_hinweis_placeholder'))}"></textarea>
+          <div class="report-counter" id="suggest-counter">0 / ${SUGGEST_HINWEIS_MAX}</div>
+        </div>
+        <button type="submit" class="ee-submit-btn" id="suggest-submit">${escapeHtml(t('fehlt_send'))}</button>
+      </form>
+    `;
+    suggestOverlay.hidden = false;
+
+    const form = suggestBodyEl.querySelector('#suggest-form');
+    const urlEl = suggestBodyEl.querySelector('#suggest-url');
+    const nameEl = suggestBodyEl.querySelector('#suggest-name');
+    const hinweisEl = suggestBodyEl.querySelector('#suggest-hinweis');
+    const counterEl = suggestBodyEl.querySelector('#suggest-counter');
+    const msgEl = suggestBodyEl.querySelector('#suggest-msg');
+    const submitEl = suggestBodyEl.querySelector('#suggest-submit');
+
+    hinweisEl.addEventListener('input', () => {
+      counterEl.textContent = `${hinweisEl.value.length} / ${SUGGEST_HINWEIS_MAX}`;
+    });
+    urlEl.focus({ preventScroll: true });
+
+    function setMsg(text, kind) {
+      msgEl.innerHTML = text ? `<div class="ee-form-msg ${kind}">${escapeHtml(text)}</div>` : '';
+    }
+
+    // Bewusst ohne die eingebaute Browser-Prüfung (novalidate-Verhalten,
+    // siehe Melde-Dialog): Die Blase ist nicht übersetzt. Geprüft wird
+    // hier, mit den eigenen Texten - und so, wie firestore.rules es
+    // verlangt (http:// oder https://, Name mindestens zwei Zeichen).
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const name = nameEl.value.trim();
+      const hinweis = hinweisEl.value.trim();
+      const url = normalisiereUrl(urlEl.value);
+      if (!url) { setMsg(t('fehlt_err_url'), 'error'); urlEl.focus(); return; }
+      if (name.length < 2) { setMsg(t('fehlt_err_name'), 'error'); nameEl.focus(); return; }
+      setMsg(null);
+      submitEl.disabled = true;
+      submitEl.textContent = t('fehlt_sending');
+      window.EndauranceAuth.suggestEvent({ url, name, hinweis })
+        .then(() => {
+          setMsg(t('fehlt_thanks'), 'success');
+          form.querySelectorAll('.ee-field').forEach(el => el.remove());
+          submitEl.remove();
+          window.setTimeout(() => { if (!suggestOverlay.hidden) closeSuggestModal(); }, 2500);
+        })
+        .catch((err) => {
+          submitEl.disabled = false;
+          submitEl.textContent = t('fehlt_send');
+          // Dieselben Fehlertexte wie beim Melden: "Anonym" nicht
+          // aktiviert, keine Firebase-Konfiguration, sonstiger Fehler.
+          setMsg(reportErrorMessage(err), 'error');
+        });
+    });
+  }
+
+  // "zuerich-marathon.ch" ohne Schema ist der häufigste Fall, wenn
+  // jemand eine Adresse aus dem Kopf eintippt - dann https:// davor
+  // setzen, statt die Eingabe abzulehnen. Ohne einen Punkt im Namen ist
+  // es keine Adresse (dann tippt jemand den Namen ins falsche Feld).
+  function normalisiereUrl(eingabe) {
+    let text = String(eingabe || '').trim();
+    if (!text) return null;
+    if (!/^https?:\/\//i.test(text)) {
+      if (/^[a-z]+:\/\//i.test(text)) return null;   // ftp://, javascript: usw.
+      text = 'https://' + text;
+    }
+    let u;
+    try { u = new URL(text); } catch (e) { return null; }
+    if (!u.hostname.includes('.')) return null;
+    return u.href.slice(0, SUGGEST_URL_MAX);
+  }
+
+  function renderChips() {
+    // Welche Chips es gibt und was ihr ✕ entfernt, entscheidet
+    // filters.js (buildChips) - die Karte zeigt dieselben Chips.
+    const chips = EF.buildChips(state, {
+      t,
+      tv,
+      lang: currentLang,
+      dayCount: uniqueSorted(events.map(e => e.datum_start)).length,
+      // Wie viele Werte ein Mengen-Filter überhaupt hat (für "Land: Alle"
+      // statt drei Einzel-Chips) - fragt dieselbe Stelle, die auch die
+      // Häkchenliste im Panel füllt.
+      optionCount: stateKey => ui.options(stateKey).length,
+      // Der Umkreis-Chip nimmt den Ausgangspunkt mit - in der Liste
+      // verschwindet dabei auch die Entfernungs-Spalte (setOrigin).
+      setOrigin: (_state, origin) => setOrigin(origin)
+    });
+
+    chipsEl.innerHTML = '';
+    chips.forEach(c => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${escapeHtml(c.label)} <button aria-label="✕">✕</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        c.clear();
+        selectedIndex = null;
+        render();
+      });
+      chipsEl.appendChild(chip);
+    });
+  }
+
+  function resetFilters() {
+    EF.clearFilters(state);
+    state.sortKey = 'datum';
+    state.sortDir = 'asc';
+    ui.resetTransient();
+    selectedIndex = null;
+    ui.close();
+    buildHeader();
+    render();
+  }
+
+  // Siehe oben beim Deep-Link: erst hier sind alle Teile des
+  // Melde-Dialogs deklariert.
+  if (deepMelden && selectedIndex !== null && events[selectedIndex]) {
+    openReportModal(events[selectedIndex]);
+  }
+})();
+</script>
+
+<footer class="seiten-footer">
+  <a href="impressum.html" id="footer-impressum">Impressum</a><span class="trenner">·</span><a href="datenschutz.html" id="footer-datenschutz">Datenschutz</a>
+</footer>
+</body>
+</html>

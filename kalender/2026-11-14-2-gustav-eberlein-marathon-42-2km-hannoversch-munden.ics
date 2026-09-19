@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-2-gustav-eberlein-marathon-42-2km-hannoversch-munden@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:2. Gustav-Eberlein Marathon
+LOCATION:Hannoversch Münden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://gustav-eber
+ lein.de/marathon
+TRANSP:TRANSPARENT
+URL:https://gustav-eberlein.de/marathon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-39-lauf-in-die-monau-5km-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:39. Lauf in die Mönau – 5 km Hobby-Lauf
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tv48-erlan
+ gen.de/de/Veranstaltungen-Geselligkeit/lauf-in-die-moenau/
+TRANSP:TRANSPARENT
+URL:https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/lauf-in-d
+ ie-moenau/
+END:VEVENT
+END:VCALENDAR

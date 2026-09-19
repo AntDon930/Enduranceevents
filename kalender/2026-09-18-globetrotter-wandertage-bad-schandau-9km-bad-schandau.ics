@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-18-globetrotter-wandertage-bad-schandau-9km-bad-schandau@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260918
+DTEND;VALUE=DATE:20260921
+SUMMARY:Globetrotter Wandertage - Bad Schandau
+LOCATION:Bad Schandau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://wandern.bad-sc
+ handau.de/
+TRANSP:TRANSPARENT
+URL:https://wandern.bad-schandau.de/
+END:VEVENT
+END:VCALENDAR

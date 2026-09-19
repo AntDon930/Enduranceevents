@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-springe-deister-marathon-5km-springe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Springe-Deister-Marathon – 5 km Lauf - vermessene Strecke
+LOCATION:Springe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://verein.causeit
+ sfun.de/index.php
+TRANSP:TRANSPARENT
+URL:https://verein.causeitsfun.de/index.php
+END:VEVENT
+END:VCALENDAR

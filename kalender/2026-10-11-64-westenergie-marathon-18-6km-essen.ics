@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-64-westenergie-marathon-18-6km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:64. Westenergie Marathon – Westenergie Seerunde
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.6 km\nhttps://westenergie
+ -marathon.de/
+TRANSP:TRANSPARENT
+URL:https://westenergie-marathon.de/
+END:VEVENT
+END:VCALENDAR

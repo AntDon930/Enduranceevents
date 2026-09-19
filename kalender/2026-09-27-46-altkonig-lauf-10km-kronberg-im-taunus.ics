@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-46-altkonig-lauf-10km-kronberg-im-taunus@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:46. Altkönig-Lauf – 10 km wellige Strecke\, ca. 150 Höhenmeter
+LOCATION:Kronberg im Taunus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://mtv-kronberg.d
+ e/events/altkoenig-lauf/
+TRANSP:TRANSPARENT
+URL:https://mtv-kronberg.de/events/altkoenig-lauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-black-forest-ultra-trail-run-19km-kirchzarten@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Black Forest ULTRA Trail Run
+LOCATION:Kirchzarten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 19 km\nhttps://www.ultra-trai
+ lrun.de/
+TRANSP:TRANSPARENT
+URL:https://www.ultra-trailrun.de/
+END:VEVENT
+END:VCALENDAR

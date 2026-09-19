@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-grafschafter-kreissparkassen-crossduathlon-9km-grafschaft@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Grafschafter Kreissparkassen Crossduathlon
+LOCATION:Grafschaft\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 9 km\nhttps://www.tus-a
+ hrweiler-triathlon.de/crossduathlon
+TRANSP:TRANSPARENT
+URL:https://www.tus-ahrweiler-triathlon.de/crossduathlon
+END:VEVENT
+END:VCALENDAR

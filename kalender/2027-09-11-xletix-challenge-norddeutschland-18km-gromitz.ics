@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-xletix-challenge-norddeutschland-18km-gromitz@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270913
+SUMMARY:Xletix Challenge - Norddeutschland – X-treme Distanz
+LOCATION:Grömitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.xletix.co
+ m/events/norddeutschland-2027/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/norddeutschland-2027/
+END:VEVENT
+END:VCALENDAR

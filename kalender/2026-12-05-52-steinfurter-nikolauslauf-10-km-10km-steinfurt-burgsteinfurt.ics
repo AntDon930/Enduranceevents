@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-52-steinfurter-nikolauslauf-10-km-10km-steinfurt-burgsteinf
+ urt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:52. Steinfurter Nikolauslauf 10 km
+LOCATION:Steinfurt-Burgsteinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V19000301660001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V19000301660001
+END:VEVENT
+END:VCALENDAR

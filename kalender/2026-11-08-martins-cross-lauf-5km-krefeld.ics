@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-martins-cross-lauf-5km-krefeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Martins-Cross-Lauf
+LOCATION:Krefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttp://www.preussen-lei
+ chtathletik.de
+TRANSP:TRANSPARENT
+URL:http://www.preussen-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

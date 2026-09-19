@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-41-potzberg-berglauf-8-2km-matzenbach-gimsbach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:41. Potzberg-Berglauf
+LOCATION:Matzenbach-Gimsbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.2 km\nhttps://www.tusglanmu
+ enchweiler.de/potzberglauf/
+TRANSP:TRANSPARENT
+URL:https://www.tusglanmuenchweiler.de/potzberglauf/
+END:VEVENT
+END:VCALENDAR

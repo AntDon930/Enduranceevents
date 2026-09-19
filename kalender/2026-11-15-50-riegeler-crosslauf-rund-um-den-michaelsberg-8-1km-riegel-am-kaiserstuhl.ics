@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-50-riegeler-crosslauf-rund-um-den-michaelsberg-8-1km-riegel
+ -am-kaiserstuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:50. Riegeler Crosslauf - Rund um den Michaelsberg
+LOCATION:Riegel am Kaiserstuhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.1 km\nhttps://laufen.de/lau
+ fkalender/details/26V01000069660000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V01000069660000
+END:VEVENT
+END:VCALENDAR

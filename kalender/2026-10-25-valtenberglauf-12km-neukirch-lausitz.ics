@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-valtenberglauf-12km-neukirch-lausitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Valtenberglauf – 12 km - Volkssport ab 16 Jahren\; Organisationsbe
+ itrag 15€
+LOCATION:Neukirch/Lausitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://www.tv-valtenb
+ erg.de/valtenberglauf/
+TRANSP:TRANSPARENT
+URL:https://www.tv-valtenberg.de/valtenberglauf/
+END:VEVENT
+END:VCALENDAR

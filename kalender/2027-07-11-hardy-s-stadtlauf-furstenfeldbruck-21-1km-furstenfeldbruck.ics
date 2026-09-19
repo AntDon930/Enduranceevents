@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-hardy-s-stadtlauf-furstenfeldbruck-21-1km-furstenfeldbruck@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Hardy's Stadtlauf Fürstenfeldbruck – Halbmarathon
+LOCATION:Fürstenfeldbruck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/411121/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/411121/
+END:VEVENT
+END:VCALENDAR

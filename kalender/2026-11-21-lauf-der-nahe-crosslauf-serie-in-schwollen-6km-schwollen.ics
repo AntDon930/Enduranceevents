@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-lauf-der-nahe-crosslauf-serie-in-schwollen-6km-schwollen@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Lauf der Nahe-Crosslauf-Serie in Schwollen
+LOCATION:Schwollen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://my.raceresult.c
+ om/374075/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/374075/
+END:VEVENT
+END:VCALENDAR

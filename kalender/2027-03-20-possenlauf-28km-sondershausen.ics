@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-possenlauf-28km-sondershausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Possenlauf – Mountainbike Rennen 28 km
+LOCATION:Sondershausen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 28 km\nhttps://www.po
+ ssen-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.possen-lauf.de/
+END:VEVENT
+END:VCALENDAR

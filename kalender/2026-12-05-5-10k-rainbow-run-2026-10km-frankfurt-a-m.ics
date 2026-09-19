@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-5-10k-rainbow-run-2026-10km-frankfurt-a-m@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:5/10k Rainbow Run 2026
+LOCATION:Frankfurt a.M.\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://rainbowrun-fra
+ nkfurt.de/
+TRANSP:TRANSPARENT
+URL:http://rainbowrun-frankfurt.de/
+END:VEVENT
+END:VCALENDAR

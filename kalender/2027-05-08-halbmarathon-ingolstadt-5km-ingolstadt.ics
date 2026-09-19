@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-halbmarathon-ingolstadt-5km-ingolstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Halbmarathon Ingolstadt
+LOCATION:Ingolstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.halbmaratho
+ n-ingolstadt.net
+TRANSP:TRANSPARENT
+URL:http://www.halbmarathon-ingolstadt.net
+END:VEVENT
+END:VCALENDAR

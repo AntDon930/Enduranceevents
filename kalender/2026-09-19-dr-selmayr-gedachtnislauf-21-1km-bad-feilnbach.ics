@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-dr-selmayr-gedachtnislauf-21-1km-bad-feilnbach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Dr.-Selmayr-Gedächtnislauf – 21\,1 km Halbmarathon auf Feld- und R
+ adwegen
+LOCATION:Bad Feilnbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://dr-selmayr-
+ gedaechtnislauf.de
+TRANSP:TRANSPARENT
+URL:https://dr-selmayr-gedaechtnislauf.de
+END:VEVENT
+END:VCALENDAR

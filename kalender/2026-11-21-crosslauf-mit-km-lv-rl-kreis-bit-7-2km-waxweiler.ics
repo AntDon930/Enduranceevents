@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-crosslauf-mit-km-lv-rl-kreis-bit-7-2km-waxweiler@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Crosslauf mit KM (LV RL Kreis BIT) – Crosslauf
+LOCATION:Waxweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.2 km\nhttps://laufen.de/lau
+ fkalender/details/26V13000078850000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000078850000
+END:VEVENT
+END:VCALENDAR

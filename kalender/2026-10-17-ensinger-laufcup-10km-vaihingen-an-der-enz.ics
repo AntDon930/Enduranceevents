@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-ensinger-laufcup-10km-vaihingen-an-der-enz@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Ensinger Laufcup
+LOCATION:Vaihingen an der Enz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ensinger-lauf
+ cup.de/
+TRANSP:TRANSPARENT
+URL:https://ensinger-laufcup.de/
+END:VEVENT
+END:VCALENDAR

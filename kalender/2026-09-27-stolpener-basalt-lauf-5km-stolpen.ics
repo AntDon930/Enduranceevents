@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-stolpener-basalt-lauf-5km-stolpen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Stolpener Basalt-Lauf
+LOCATION:Stolpen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://basaltlauf.org
+ /
+TRANSP:TRANSPARENT
+URL:https://basaltlauf.org/
+END:VEVENT
+END:VCALENDAR

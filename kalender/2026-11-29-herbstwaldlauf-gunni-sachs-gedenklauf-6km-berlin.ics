@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-herbstwaldlauf-gunni-sachs-gedenklauf-6km-berlin@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Herbstwaldlauf / Gunni-Sachs-Gedenklauf
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://herbstwaldlauf
+ -berlin.de/
+TRANSP:TRANSPARENT
+URL:https://herbstwaldlauf-berlin.de/
+END:VEVENT
+END:VCALENDAR

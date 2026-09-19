@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-kriegsheimer-panoramalauf-5km-monsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Kriegsheimer Panoramalauf – 5 km Schnupperlauf\, 1 Runde
+LOCATION:Monsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.llgwonnega
+ u.de/
+TRANSP:TRANSPARENT
+URL:https://www.llgwonnegau.de/
+END:VEVENT
+END:VCALENDAR

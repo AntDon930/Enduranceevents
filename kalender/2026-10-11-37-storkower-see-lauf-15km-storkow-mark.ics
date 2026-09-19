@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-37-storkower-see-lauf-15km-storkow-mark@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:37. Storkower See Lauf – 15 km offen ab 14 Jahren
+LOCATION:Storkow (Mark)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://tv-fuerstenwa
+ lde.org/
+TRANSP:TRANSPARENT
+URL:https://tv-fuerstenwalde.org/
+END:VEVENT
+END:VCALENDAR

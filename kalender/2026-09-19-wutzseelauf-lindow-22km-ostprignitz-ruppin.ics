@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-wutzseelauf-lindow-22km-ostprignitz-ruppin@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Wutzseelauf Lindow
+LOCATION:Ostprignitz-Ruppin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttps://www.esab-ausb
+ ildung.de/startseite/wutzseelauf-lindow/
+TRANSP:TRANSPARENT
+URL:https://www.esab-ausbildung.de/startseite/wutzseelauf-lindow/
+END:VEVENT
+END:VCALENDAR

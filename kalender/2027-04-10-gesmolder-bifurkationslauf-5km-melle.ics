@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-gesmolder-bifurkationslauf-5km-melle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Gesmolder Bifurkationslauf – 5 km Jedermannlauf
+LOCATION:Melle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sv-viktori
+ a-gesmold.de/
+TRANSP:TRANSPARENT
+URL:https://www.sv-viktoria-gesmold.de/
+END:VEVENT
+END:VCALENDAR

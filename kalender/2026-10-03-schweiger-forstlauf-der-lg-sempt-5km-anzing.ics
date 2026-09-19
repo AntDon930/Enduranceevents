@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-schweiger-forstlauf-der-lg-sempt-5km-anzing@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Schweiger Forstlauf der LG Sempt
+LOCATION:Anzing\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://forstlauf.de/
+TRANSP:TRANSPARENT
+URL:http://forstlauf.de/
+END:VEVENT
+END:VCALENDAR

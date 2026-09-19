@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-teutomarsch-45km-lengerich-hohne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:TeutoMarsch
+LOCATION:Lengerich-Hohne\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttp://www.tvh1911.de
+TRANSP:TRANSPARENT
+URL:http://www.tvh1911.de
+END:VEVENT
+END:VCALENDAR

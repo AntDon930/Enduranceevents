@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-naturafit-triathlon-hochstadt-51-5km-erlangen-hochstadt@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Naturafit Triathlon Höchstadt – Kurzdistanz
+LOCATION:Erlangen-Höchstadt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://hoechsta
+ dt-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://hoechstadt-triathlon.de/
+END:VEVENT
+END:VCALENDAR

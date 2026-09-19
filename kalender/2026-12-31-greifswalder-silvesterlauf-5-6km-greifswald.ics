@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-greifswalder-silvesterlauf-5-6km-greifswald@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Greifswalder Silvesterlauf – 5\,6 km Lauf\, Jahrgang 2012 und älte
+ r
+LOCATION:Greifswald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://my.raceresul
+ t.com/407623/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/407623/
+END:VEVENT
+END:VCALENDAR

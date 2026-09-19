@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-34-kreuzberglauf-mit-ufr-meisterschaften-10-2km-schonau-an-
+ der-brend@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:34. Kreuzberglauf mit Ufr. Meisterschaften
+LOCATION:Schönau an der Brend\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.2 km\nhttp://olympia-schoe
+ nau.de/
+TRANSP:TRANSPARENT
+URL:http://olympia-schoenau.de/
+END:VEVENT
+END:VCALENDAR

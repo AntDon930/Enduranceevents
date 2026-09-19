@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-07-borkener-citylauf-5km-borken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270608
+SUMMARY:Borkener Citylauf
+LOCATION:Borken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ssv-borken
+ .de/seite/253023/citylauf-borken.html
+TRANSP:TRANSPARENT
+URL:https://www.ssv-borken.de/seite/253023/citylauf-borken.html
+END:VEVENT
+END:VCALENDAR

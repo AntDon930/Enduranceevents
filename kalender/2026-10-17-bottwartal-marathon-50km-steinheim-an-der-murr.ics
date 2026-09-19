@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-bottwartal-marathon-50km-steinheim-an-der-murr@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Bottwartal-Marathon
+LOCATION:Steinheim an der Murr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.bottwarta
+ l-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bottwartal-marathon.de/
+END:VEVENT
+END:VCALENDAR

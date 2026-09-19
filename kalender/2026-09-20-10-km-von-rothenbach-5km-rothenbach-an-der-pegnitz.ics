@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-10-km-von-rothenbach-5km-rothenbach-an-der-pegnitz@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:10 km von Röthenbach
+LOCATION:Röthenbach an der Pegnitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.dav-roethe
+ nbach.de/10-km-roethenbach26
+TRANSP:TRANSPARENT
+URL:https://www.dav-roethenbach.de/10-km-roethenbach26
+END:VEVENT
+END:VCALENDAR

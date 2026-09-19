@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-sloopsteener-seenrunden-ultramarathon-23km-westerkappeln@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:Sloopsteener Seenrunden Ultramarathon – Halbmarathon
+LOCATION:Westerkappeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 23 km\nhttps://my.raceresult
+ .com/412994/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412994/
+END:VEVENT
+END:VCALENDAR

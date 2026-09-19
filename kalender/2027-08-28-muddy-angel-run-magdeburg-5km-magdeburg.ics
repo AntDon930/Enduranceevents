@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-muddy-angel-run-magdeburg-5km-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Muddy Angel Run - Magdeburg
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.muddyangel
+ run.com/events/magdeburg-2027/
+TRANSP:TRANSPARENT
+URL:https://www.muddyangelrun.com/events/magdeburg-2027/
+END:VEVENT
+END:VCALENDAR

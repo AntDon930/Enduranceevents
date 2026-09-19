@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-altenburger-skatstadtmarathon-21-1km-windischleuba@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Altenburger Skatstadtmarathon – Halbmarathon Alte Ziegelei Halbmar
+ athon
+LOCATION:Windischleuba\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.skatsta
+ dtmarathon.de
+TRANSP:TRANSPARENT
+URL:https://www.skatstadtmarathon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-run-hike-brannenburg-x-brannenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Run & Hike - Brannenburg
+LOCATION:Brannenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.personal-trai
+ ning-diana-fuchs.com/run-und-hike/
+TRANSP:TRANSPARENT
+URL:https://www.personal-training-diana-fuchs.com/run-und-hike/
+END:VEVENT
+END:VCALENDAR

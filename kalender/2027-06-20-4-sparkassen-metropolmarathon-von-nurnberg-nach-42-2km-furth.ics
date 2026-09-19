@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-4-sparkassen-metropolmarathon-von-nurnberg-nach-42-2km-furt
+ h@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:4. Sparkassen Metropolmarathon von Nürnberg nach Fürth
+LOCATION:Fürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.metropol
+ marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.metropolmarathon.de
+END:VEVENT
+END:VCALENDAR

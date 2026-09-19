@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-lemming-swim-run-8km-karlsruhe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Lemming Swim & Run
+LOCATION:Karlsruhe\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 8 km\nhttps://lemming-sw
+ im-and-run.de/
+TRANSP:TRANSPARENT
+URL:https://lemming-swim-and-run.de/
+END:VEVENT
+END:VCALENDAR

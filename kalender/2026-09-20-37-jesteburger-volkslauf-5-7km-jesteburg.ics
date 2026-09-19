@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-37-jesteburger-volkslauf-5-7km-jesteburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:37. Jesteburger Volkslauf
+LOCATION:Jesteburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://www.stgk.de/
+ Veranstaltung_Detail.asp?Code=20
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=20
+END:VEVENT
+END:VCALENDAR

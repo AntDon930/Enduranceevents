@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-ahmadiyya-charity-walk-dietzenbach-5km-dietzenbach@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Ahmadiyya Charity Walk Dietzenbach
+LOCATION:Dietzenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://charitywalk.de
+ /events/8-ahmadiyya-charity-walk-dietzenbach-ilaqa-hessen-sd-ost
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/8-ahmadiyya-charity-walk-dietzenbach-ila
+ qa-hessen-sd-ost
+END:VEVENT
+END:VCALENDAR

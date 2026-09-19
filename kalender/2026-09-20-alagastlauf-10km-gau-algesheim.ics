@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-alagastlauf-10km-gau-algesheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Alagastlauf – 10 km \, vier Runden
+LOCATION:Gau-Algesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leichtathleti
+ k.sv-gau-algesheim.de/veranstaltungen/alagast-volkslauf/alagastlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://leichtathletik.sv-gau-algesheim.de/veranstaltungen/alagast-vol
+ kslauf/alagastlauf-2026/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-fossiliuslauf-wehingen-11km-wehingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Fossiliuslauf Wehingen
+LOCATION:Wehingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://193.22.146.48/
+ fossiliuslauf
+TRANSP:TRANSPARENT
+URL:http://193.22.146.48/fossiliuslauf
+END:VEVENT
+END:VCALENDAR

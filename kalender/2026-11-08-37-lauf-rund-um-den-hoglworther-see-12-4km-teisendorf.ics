@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-37-lauf-rund-um-den-hoglworther-see-12-4km-teisendorf@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:37. Lauf Rund um den Höglwörther See
+LOCATION:Teisendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.4 km\nhttps://laufen.de/l
+ aufkalender/details/26V02000154160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000154160000
+END:VEVENT
+END:VCALENDAR

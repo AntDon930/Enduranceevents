@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-kienberglauf-5km-langewiesen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Kienberglauf
+LOCATION:Langewiesen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://sv08-oehrenstoc
+ k.de/kienberglauf
+TRANSP:TRANSPARENT
+URL:https://sv08-oehrenstock.de/kienberglauf
+END:VEVENT
+END:VCALENDAR

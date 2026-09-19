@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-stadtwald-cross-in-lutherstadt-wittenberg-6km-lutherstadt-w
+ ittenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Stadtwald-Cross in Lutherstadt Wittenberg – 6 km Crosslauf
+LOCATION:Lutherstadt Wittenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.stadtwald-w
+ ittenberg.de/stadtwald-cross
+TRANSP:TRANSPARENT
+URL:https://www.stadtwald-wittenberg.de/stadtwald-cross
+END:VEVENT
+END:VCALENDAR

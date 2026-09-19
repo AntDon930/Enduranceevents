@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-stadtwerke-karlsruhe-volkslauf-10-5km-karlsruhe@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:Stadtwerke Karlsruhe Volkslauf – 10\,5 km Laufstrecke
+LOCATION:Karlsruhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.stadtwe
+ rke-karlsruhe.de/de/veranstaltungen/termine/dauerveranstaltungen/volkslau
+ f.php
+TRANSP:TRANSPARENT
+URL:https://www.stadtwerke-karlsruhe.de/de/veranstaltungen/termine/dauerve
+ ranstaltungen/volkslauf.php
+END:VEVENT
+END:VCALENDAR

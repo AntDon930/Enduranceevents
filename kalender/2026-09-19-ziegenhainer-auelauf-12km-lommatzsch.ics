@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-ziegenhainer-auelauf-12km-lommatzsch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Ziegenhainer Auelauf – 12 km (4 Runden)
+LOCATION:Lommatzsch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://mittelsaechsi
+ sche-lauftour.com/
+TRANSP:TRANSPARENT
+URL:https://mittelsaechsische-lauftour.com/
+END:VEVENT
+END:VCALENDAR

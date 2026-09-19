@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-41-muhlenlauf-in-laar-10km-laar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:41. Mühlenlauf in Laar – 5 und 10 Kilometer (Hauptläufe)
+LOCATION:Laar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sv-grenzland.
+ de/muehlenlauf
+TRANSP:TRANSPARENT
+URL:https://sv-grenzland.de/muehlenlauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-aluman-21-5km-grevesmuhlen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Aluman – 21\,5 km Radfahren Richtung Groß Walmstorf
+LOCATION:Grevesmühlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.5 km\nhttps://www.aluman-
+ gvm.de
+TRANSP:TRANSPARENT
+URL:https://www.aluman-gvm.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-city-marathon-wiesbaden-21-1km-wiesbaden@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:City Marathon Wiesbaden – Halbmarathon
+LOCATION:Wiesbaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/412690/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412690/
+END:VEVENT
+END:VCALENDAR

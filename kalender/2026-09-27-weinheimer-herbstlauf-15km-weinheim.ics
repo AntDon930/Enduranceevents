@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-weinheimer-herbstlauf-15km-weinheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Weinheimer Herbstlauf
+LOCATION:Weinheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.herbstlau
+ f-weinheim.de/
+TRANSP:TRANSPARENT
+URL:https://www.herbstlauf-weinheim.de/
+END:VEVENT
+END:VCALENDAR

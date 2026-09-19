@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-heidener-teufelslauf-2026-10km-heiden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Heidener Teufelslauf 2026
+LOCATION:Heiden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.teufelsla
+ uf-heiden.de
+TRANSP:TRANSPARENT
+URL:https://www.teufelslauf-heiden.de
+END:VEVENT
+END:VCALENDAR

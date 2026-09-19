@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-43-mainova-frankfurt-marathon-42-2km-frankfurt@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:43. Mainova Frankfurt Marathon – Marathon
+LOCATION:Frankfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.frankfur
+ t-marathon.com
+TRANSP:TRANSPARENT
+URL:http://www.frankfurt-marathon.com
+END:VEVENT
+END:VCALENDAR

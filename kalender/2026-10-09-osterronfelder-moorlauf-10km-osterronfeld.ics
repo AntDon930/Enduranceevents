@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-osterronfelder-moorlauf-10km-osterronfeld@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Osterrönfelder Moorlauf – Moorlauf
+LOCATION:Osterrönfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.moorlauf.w
+ etzstopp.de/
+TRANSP:TRANSPARENT
+URL:http://www.moorlauf.wetzstopp.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-12-olympiaberg-cross-munchen-mit-deutschem-cross-6-6km-munc
+ hen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:12. Olympiaberg-Cross München mit Deutschem Cross Cup – Elitelauf 
+ 6.600 m
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.6 km\nhttps://olympiaberg-c
+ ross-muenchen.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://olympiaberg-cross-muenchen.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

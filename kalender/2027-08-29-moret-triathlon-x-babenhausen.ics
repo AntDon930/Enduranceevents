@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-moret-triathlon-x-babenhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Moret Triathlon
+LOCATION:Babenhausen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.maxx-timin
+ g.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://www.maxx-timing.de/anmeldung
+END:VEVENT
+END:VCALENDAR

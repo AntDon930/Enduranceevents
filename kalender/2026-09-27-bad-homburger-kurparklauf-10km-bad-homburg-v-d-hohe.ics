@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-bad-homburger-kurparklauf-10km-bad-homburg-v-d-hohe@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Bad Homburger Kurparklauf
+LOCATION:Bad Homburg v. d. Höhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.badhombur
+ gerkurparklauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.badhomburgerkurparklauf.de/
+END:VEVENT
+END:VCALENDAR

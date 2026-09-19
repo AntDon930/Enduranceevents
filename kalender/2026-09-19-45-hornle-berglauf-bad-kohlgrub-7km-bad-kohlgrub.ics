@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-45-hornle-berglauf-bad-kohlgrub-7km-bad-kohlgrub@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:45. Hörnle Berglauf Bad Kohlgrub
+LOCATION:Bad Kohlgrub\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://skiclub-bad-koh
+ lgrub.de/veranstaltungen.php?id=94
+TRANSP:TRANSPARENT
+URL:https://skiclub-bad-kohlgrub.de/veranstaltungen.php?id=94
+END:VEVENT
+END:VCALENDAR

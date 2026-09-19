@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-17-crosslauf-und-nordic-walking-in-birkenwerder-8-6km-birke
+ nwerder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:17. Crosslauf und Nordic Walking in Birkenwerder – 8\,6 km Hauptla
+ uf
+LOCATION:Birkenwerder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.6 km\nhttps://gruen-weiss-b
+ irkenwerder.de/crosslauf-2026/
+TRANSP:TRANSPARENT
+URL:https://gruen-weiss-birkenwerder.de/crosslauf-2026/
+END:VEVENT
+END:VCALENDAR

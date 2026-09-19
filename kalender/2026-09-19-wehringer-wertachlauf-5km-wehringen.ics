@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-wehringer-wertachlauf-5km-wehringen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Wehringer Wertachlauf – Hobbylauf\, 5 km\, Jahrgänge ab 2014
+LOCATION:Wehringen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lg-wehring
+ en.de/events/17-wehringer-wertachlauf/
+TRANSP:TRANSPARENT
+URL:https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/
+END:VEVENT
+END:VCALENDAR

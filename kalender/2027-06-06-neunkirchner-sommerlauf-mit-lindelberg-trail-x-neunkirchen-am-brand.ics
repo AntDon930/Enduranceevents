@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-neunkirchner-sommerlauf-mit-lindelberg-trail-x-neunkirchen-
+ am-brand@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Neunkirchner Sommerlauf Mit Lindelberg-Trail
+LOCATION:Neunkirchen am Brand\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.sportprogramme
+ .org/cakespg/events/menue/5048
+TRANSP:TRANSPARENT
+URL:https://www.sportprogramme.org/cakespg/events/menue/5048
+END:VEVENT
+END:VCALENDAR

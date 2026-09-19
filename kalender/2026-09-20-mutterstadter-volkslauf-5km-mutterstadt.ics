@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-mutterstadter-volkslauf-5km-mutterstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Mutterstadter Volkslauf – ca. 5 km Jedermannslauf (2013 und älter)
+LOCATION:Mutterstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ltc-mutter
+ stadt.org/volkslauf/lauf.html
+TRANSP:TRANSPARENT
+URL:https://www.ltc-mutterstadt.org/volkslauf/lauf.html
+END:VEVENT
+END:VCALENDAR

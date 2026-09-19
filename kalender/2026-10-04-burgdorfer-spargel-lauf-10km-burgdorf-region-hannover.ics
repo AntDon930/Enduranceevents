@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-burgdorfer-spargel-lauf-10km-burgdorf-region-hannover@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Burgdorfer Spargel-Lauf
+LOCATION:Burgdorf (Region Hannover)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://vvvburgdorf.d
+ e/10-burgdorfer-spargel-lauf/
+TRANSP:TRANSPARENT
+URL:https://vvvburgdorf.de/10-burgdorfer-spargel-lauf/
+END:VEVENT
+END:VCALENDAR

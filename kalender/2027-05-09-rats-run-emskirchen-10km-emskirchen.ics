@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-rats-run-emskirchen-10km-emskirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Rats-Run - Emskirchen
+LOCATION:Emskirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://v2.rats-runne
+ rs.de/emskirchen-event/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/emskirchen-event/
+END:VEVENT
+END:VCALENDAR

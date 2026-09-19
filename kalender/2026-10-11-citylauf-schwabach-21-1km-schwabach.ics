@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-citylauf-schwabach-21-1km-schwabach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Citylauf Schwabach – Sparkassen-Halbmarathon
+LOCATION:Schwabach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
+ aufkalender/details/26V02000552660000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000552660000
+END:VEVENT
+END:VCALENDAR

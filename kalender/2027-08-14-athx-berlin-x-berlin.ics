@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-athx-berlin-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270816
+SUMMARY:ATHX Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://athxgames.com/eve
+ nts/01krwybw82cd8h9reednq08rdy
+TRANSP:TRANSPARENT
+URL:https://athxgames.com/events/01krwybw82cd8h9reednq08rdy
+END:VEVENT
+END:VCALENDAR

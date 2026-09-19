@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karte – Ausdauersport-Events D/A/CH</title>
+<!-- Seitensymbol. Ohne diese Zeilen fragt jeder Browser von sich aus
+     /favicon.ico an und bekommt von GitHub Pages die 404-Seite - der Tab
+     bleibt leer. Eine SVG-Datei reicht fuer alle Groessen; das PNG
+     braucht nur iOS fuer den Startbildschirm (dort rundet das System die
+     Ecken selbst, deshalb ist es randvoll). -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
+     auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
+     nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
+     absolute Adresse, und die Domain steht noch nicht fest. -->
+<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ausdauersport-Events D/A/CH">
+<meta property="og:title" content="Ausdauersport-Events D/A/CH – die Karte">
+<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<!-- Leaflet, markercluster und die Firebase-SDKs liegen im Repo
+     (vendor/), nicht auf einem CDN. Zwei Gründe:
+
+     1. Datenschutz: Ein CDN-Abruf überträgt die IP-Adresse jedes
+        Besuchers an unpkg bzw. Google - und zwar bei JEDEM Aufruf, auch
+        wenn niemand sich anmeldet. Was die Seite gar nicht an Dritte
+        schickt, muss die Datenschutzerklärung auch nicht erklären.
+     2. Verlässlichkeit: Die Version im Ordner ist die Version, die
+        ausgeliefert wird. Kein fremder Ausfall, keine stille Änderung,
+        keine Integrity-Prüfung nötig (gleiche Herkunft).
+
+     Die Dateien sind die unveränderten Originale; ihre SHA-256-Summen
+     stimmen mit den SRI-Werten überein, die vorher im HTML standen
+     (geprüft beim Umstellen). Aktualisieren heißt: neue Version in einen
+     neuen Ordner legen (vendor/leaflet-1.9.4 -> …-1.9.5) und die
+     Verweise umhängen - dann ist der Pfad die Versionsangabe und kein
+     Browser-Cache kann einen halben Stand mischen. -->
+<link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
+<!-- Zusammenfassen der Marker (Leaflet.markercluster). Nur MarkerCluster.css,
+     NICHT MarkerCluster.Default.css: das Aussehen der Bündel steht unten bei
+     .cluster-badge, das Stylesheet hier bringt allein die Bewegung beim
+     Auf- und Zuklappen und die Spinnenbeine. -->
+<link rel="stylesheet" href="vendor/leaflet.markercluster-1.5.3/MarkerCluster.css">
+<!-- events.json ist das, worauf die Seite wartet - deshalb wird der
+     Download hier angestossen, noch bevor der Browser das Stylesheet und
+     die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
+     filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
+<link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+<!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
+<link rel="stylesheet" href="filter-ui.css?v=ef11a010">
+<link rel="stylesheet" href="event-detail.css?v=72fc4249">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e0e3e8;
+    --text: #1c1f24;
+    --text-muted: #6b7280;
+    --accent: #14509a;
+    --accent-bg: #eaf1ff;
+    /* filter-ui.css braucht --row-hover (Zeitraum-Knöpfe im Datumsfilter). */
+    --row-hover: #eef4ff;
+    --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2025;
+      --border: #2c3038;
+      --text: #e7e9ec;
+      --text-muted: #9aa1ac;
+      --accent: #5b9dff;
+      --accent-bg: #1e2a40;
+      --row-hover: #22314a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+  }
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 16px;
+    background: var(--hero-gradient);
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+  }
+  /* Nimmt den übrigen Platz und darf schrumpfen - so bleibt die
+     Knopfreihe möglichst lange in derselben Zeile (dieselbe Begründung
+     wie in events.html). */
+  .top-bar-text { flex: 1 1 260px; min-width: 0; }
+  h1 { font-size: 1.25rem; margin: 0 0 2px; color: #fff; }
+  .subtitle { color: rgba(255,255,255,0.85); font-size: 0.85rem; margin: 0; }
+  /* Darf umbrechen: auf 390 px stand die Reihe (Liste, Anmelden,
+     DE/EN) sonst in einer Zeile und ragte über den blauen
+     Kasten hinaus - "EN" war angeschnitten. In events.html war dieselbe
+     Stelle schon behoben, hier stand noch die alte Fassung. */
+  .top-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px 8px;
+    max-width: 100%;
+    /* Bleibt rechts, AUCH wenn die Reihe unter den Titel umbricht: Ein
+       einzelnes Flex-Element auf einer neuen Zeile beginnt sonst am
+       linken Rand (in events.html vom Nutzer gemeldet). */
+    margin-left: auto;
+  }
+  .list-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .list-btn:hover { background: rgba(255,255,255,0.26); }
+  .lang-switch { display: flex; gap: 4px; flex-shrink: 0; }
+  .lang-btn {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .lang-btn.active { background: #fff; color: #14315e; border-color: #fff; }
+
+  /* Filterleiste: dieselben Filterknöpfe und Chips wie in der Liste
+     (filter-ui.css, filter-ui.js). Obere Zeile die Knöpfe, darunter die
+     gesetzten Filter als Chips - ohne diese Anzeige sähe eine gefilterte
+     Karte wie eine kaputte aus ("wo sind meine Events?"). */
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .filter-bar-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  /* Ohne Chips keine leere zweite Zeile (und kein Abstand dafür). */
+  .active-chips:empty { display: none; }
+  .filter-bar-label { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  .active-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+  }
+  .chip button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0;
+  }
+  .reset-btn {
+    margin-left: auto;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .reset-btn:hover { opacity: 0.9; }
+
+  .map-wrap {
+    flex: 1;
+    min-height: 60vh;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  #map { position: absolute; inset: 0; }
+  .map-hint {
+    position: absolute;
+    z-index: 500;
+    top: 10px;
+    /* Neben den +/--Knöpfen von Leaflet, nicht darunter: bei 390 px
+       verdeckten sie sonst den Anfang des Textes ("699 von …"). */
+    left: 52px;
+    max-width: calc(100% - 62px);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+  .marker-badge {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.72rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    border: 2px solid #fff;
+  }
+  /* Ein Buendel mehrerer Orte. Bewusst anders als ein einzelner Ort
+     (.marker-badge): heller Kern, breiter Ring - so ist auf einen Blick zu
+     sehen, dass hier noch etwas zum Aufklappen liegt. Die Zahl ist die
+     Summe der EVENTS darunter, nicht die der Orte: sie soll zur Zahl in
+     der Kopfzeile passen. */
+  .cluster-badge {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 0 0 4px rgba(20,80,154,0.25);
+  }
+  /* Ausgangspunkt der Umkreissuche: ein farbiger Punkt, deutlich anders
+     als die blauen Event-Marker. */
+  .origin-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d94f4f;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  }
+  .popup-title { font-weight: 700; margin-bottom: 2px; }
+  .popup-sub { color: var(--text-muted, #6b7280); font-size: 0.82rem; margin-bottom: 8px; }
+  .popup-link {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .leaflet-popup-content { margin: 10px 12px; }
+  /* Die Events des Ortes im Popup - ein Klick öffnet die Detail-Box
+     (vom Nutzer am 19.09.2026 gewünscht). Bei vielen Events am Ort
+     (Berlin) scrollt die Liste, statt das Popup über die Karte hinaus
+     wachsen zu lassen. */
+  .popup-events {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  /* Feste Farben statt der Seitenvariablen: Das Leaflet-Popup ist immer
+     weiß, im Dunkelmodus wären die hellen Seitenfarben darauf unlesbar
+     (im Screenshot gesehen). */
+  .popup-event {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 5px 6px;
+    margin: 0;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: #1c1f24;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .popup-event:hover, .popup-event:focus-visible { background: #eaf1ff; color: #14509a; outline: none; }
+  .popup-event .pe-meta { display: block; color: #6b7280; font-size: 0.75rem; }
+  .leaflet-popup-content { min-width: 220px; }
+
+  /* Die Detail-Boxen oben rechts ÜBER der Karte: dieselbe Box wie in der
+     Liste (event-detail.css), bis zu zwei übereinander, die neueste
+     oben. Über den Leaflet-Bedienelementen (800) und dem Popup (700),
+     unter dem Filter-Panel (1000). Auf dem Handy so breit wie die Karte
+     minus Rand; werden die Boxen höher als die Karte, scrollt der
+     Stapel. */
+  .map-details {
+    position: absolute;
+    z-index: 900;
+    top: 10px;
+    right: 10px;
+    width: min(340px, calc(100% - 20px));
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .map-details:empty { display: none; }
+  .map-details .detail-panel {
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  /* Breite Karte (Rechner): zwei Boxen NEBENEINANDER, die neueste rechts
+     außen - übereinander passten zwei nicht in die Kartenhöhe, die
+     zweite war abgeschnitten (im Screenshot gesehen). row-reverse, weil
+     die neueste im DOM vorn steht. */
+  @media (min-width: 900px) {
+    .map-details {
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      width: auto;
+      max-width: calc(100% - 80px);
+    }
+    .map-details .detail-panel { width: 320px; flex: none; }
+  }
+  /* Handy: unter Zoom-Knöpfen und Kopfzeile der Karte, sonst verdeckt
+     die Box beide. */
+  @media (max-width: 599px) {
+    .map-details { top: 84px; max-height: calc(100% - 94px); }
+  }
+  .map-details .detail-panel h2 { font-size: 1.05rem; }
+  .map-details .detail-panel .sub { margin-bottom: 10px; }
+  /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
+     Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
+     Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
+     weil diese Seite ihre eigenen Farbvariablen mitbringt. */
+  .seiten-footer {
+    padding: 18px 16px 28px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+  .seiten-footer a { color: inherit; }
+  .seiten-footer .trenner { opacity: 0.5; padding: 0 6px; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-text">
+    <h1 id="page-title">Karte</h1>
+    <p class="subtitle" id="subtitle">Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.</p>
+  </div>
+  <div class="top-actions">
+    <!-- Kein Startseiten-Knopf mehr (vom Nutzer am 19.09.2026 entfernt,
+         siehe events.html und die To-dos in CLAUDE.md). -->
+    <a class="list-btn" href="events.html" id="list-btn-label">Liste</a>
+    <div id="auth-mount"></div>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- Dieselben Filter wie in der Liste: die Knöpfe öffnen dieselben Panels
+     (filter-ui.js), die Chips zeigen, was gesetzt ist. -->
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-bar-row">
+    <!-- Die Mastersuche wie in der Liste, ganz links (vom Nutzer
+         gewünscht). Gefüllt von ui.buildSearch() (filter-ui.js). -->
+    <div class="master-search" id="master-search-box"></div>
+    <span class="filter-bar-label" id="filter-bar-label"></span>
+    <div class="filter-btn-bar" id="filter-buttons"></div>
+    <button type="button" class="reset-btn" id="reset-btn"></button>
+  </div>
+  <div class="active-chips" id="active-chips"></div>
+</div>
+
+<div class="map-wrap">
+  <div id="map"></div>
+  <div class="map-hint" id="map-hint">Lade Events…</div>
+  <!-- Bis zu zwei Detail-Boxen (event-detail.js), gefüllt von
+       zeigeDetail() nach einem Klick auf ein Event im Popup. -->
+  <div class="map-details" id="map-details"></div>
+</div>
+
+<script src="vendor/leaflet-1.9.4/leaflet.js"></script>
+<!-- Zusammenfassen der Marker. Ohne `defer` und direkt hinter leaflet.js,
+     weil das Plugin L beim Ausfuehren braucht. Bleibt es aus (Netzsperre,
+     unpkg nicht erreichbar), faellt die Karte unten auf eine einfache
+     Ebene zurueck - dann liegen die Marker wieder einzeln da, statt dass
+     die Seite leer bleibt. -->
+<script src="vendor/leaflet.markercluster-1.5.3/leaflet.markercluster.js"></script>
+
+<!-- Login/Registrierung (Google + E-Mail/Passwort), siehe auth.js und
+     firebase-config.js. Ohne ausgefüllte Firebase-Config zeigt der
+     "Anmelden"-Button einen Hinweis statt kaputter Funktionalität. -->
+<!-- `defer`: laedt parallel zum Seitenaufbau und laeuft erst danach.
+     Ohne das wartete das Inline-Skript dieser Seite auf ~200 KB
+     Firebase, bevor es events.json ueberhaupt anforderte.
+     firebase-firestore-compat.js (344 KB) fehlt hier absichtlich -
+     auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
+<script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
+<script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<script defer src="firebase-config.js"></script>
+<script defer src="auth.js"></script>
+
+<!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
+     Adresse, dieselben Kategorien, dieselben Chips. -->
+<script src="filters.js?v=a681a4ab"></script>
+<script src="filter-ui.js?v=ce0893e2"></script>
+<script src="event-detail.js?v=bbba0065"></script>
+
+<script>
+(async function () {
+  // Gemeinsamer Filterzustand mit events.html (filters.js): Die Karte
+  // liest die Filter aus derselben Adresse und prüft sie mit denselben
+  // Funktionen. Ein Marker zeigt damit genau die Events, die in der Liste
+  // auch zu sehen wären - vorher zeigte die Karte immer alle.
+  const EF = window.EnduranceFilters;
+  const EFU = window.EnduranceFilterUI;
+  const EED = window.EnduranceDetail;
+
+  // Sicherung gegen eine halb alte Seite: GitHub Pages liefert jede Datei
+  // mit max-age=600, ein Browser kann also diese Seite mit einer zehn
+  // Minuten alten filters.js kombinieren. Fehlt darin eine Funktion,
+  // bricht das Skript in seiner ersten Zeile ab - die Seite blieb dann
+  // LEER (blauer Kopf, sonst nichts; genau das ist passiert). Die
+  // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
+  // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
+  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EFU.create || !EED.render) {
+    let spracheDe = true;
+    try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
+    document.getElementById('page-title').textContent =
+      spracheDe ? 'Bitte neu laden' : 'Please reload';
+    document.getElementById('subtitle').textContent = spracheDe
+      ? 'Der Browser hat eine veraltete Programmdatei gespeichert. Einmal neu laden genügt (auf dem iPhone/iPad: Seite schließen und wieder öffnen).'
+      : 'Your browser kept an outdated script file. Just reload the page (on iPhone/iPad: close the tab and open it again).';
+    return;
+  }
+
+  const I18N = {
+    de: {
+      title: 'Karte',
+      subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
+      list: 'Liste',
+      hint: (n, cities) => `${n} Events an ${cities} Orten`,
+      hint_filtered: (n, total, cities) => `${n} von ${total} Events an ${cities} Orten`,
+      hint_empty: 'Kein Event entspricht den Filtern.',
+      load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
+      popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
+      // Ohne "↗": Der Pfeil sah am Knopf aus wie ein Stempel (vom
+      // Nutzer gemeldet). Dass der Link in die Liste führt, sagt der
+      // Text schon.
+      popup_link: (n) => `${n} Event${n === 1 ? '' : 's'} in der Liste anzeigen`,
+      filter_label: 'Filter:',
+      reset: 'Filter zurücksetzen',
+      footer_imprint: 'Impressum',
+      footer_privacy: 'Datenschutz',
+      origin_title: 'Ausgangspunkt'
+    },
+    en: {
+      title: 'Map',
+      subtitle: 'Click a marker to see the events at that location in the list.',
+      list: 'List',
+      hint: (n, cities) => `${n} events across ${cities} locations`,
+      hint_filtered: (n, total, cities) => `${n} of ${total} events across ${cities} locations`,
+      hint_empty: 'No event matches the filters.',
+      load_error: (msg) => `Could not load events.json: ${msg}`,
+      popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
+      popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list`,
+      filter_label: 'Filters:',
+      reset: 'Reset filters',
+      footer_imprint: 'Legal notice',
+      footer_privacy: 'Privacy',
+      origin_title: 'Starting point'
+    }
+  };
+  // Chip- und Zeitraum-Texte aus filters.js, die Texte der Filter-Panels
+  // und die Spaltennamen aus filter-ui.js - die Karte beschriftet die
+  // Filter damit wortgleich wie die Liste.
+  Object.assign(I18N.de, EF.I18N.de, EFU.I18N.de, EED.I18N.de);
+  Object.assign(I18N.en, EF.I18N.en, EFU.I18N.en, EED.I18N.en);
+
+  let currentLang = 'de';
+  try {
+    const saved = localStorage.getItem('endurance-lang');
+    if (saved === 'de' || saved === 'en') currentLang = saved;
+  } catch (e) { /* localStorage evtl. nicht verfügbar (privater Modus) */ }
+
+  const t = (key, ...args) => {
+    const entry = I18N[currentLang][key];
+    return typeof entry === 'function' ? entry(...args) : entry;
+  };
+
+  const tv = (field, value) => {
+    if (value == null) return value;
+    const entry = EF.VALUE_TRANSLATIONS[field] && EF.VALUE_TRANSLATIONS[field][value];
+    return entry ? entry[currentLang] : value;
+  };
+
+  const titleEl = document.getElementById('page-title');
+  const subtitleEl = document.getElementById('subtitle');
+  const listLabelEl = document.getElementById('list-btn-label');
+  const hintEl = document.getElementById('map-hint');
+  const filterBarLabelEl = document.getElementById('filter-bar-label');
+  const filterButtonsEl = document.getElementById('filter-buttons');
+  const chipsEl = document.getElementById('active-chips');
+  const resetBtnEl = document.getElementById('reset-btn');
+
+  // Der Filterzustand selbst (Land, Sportart, Umkreis …) - dieselbe
+  // Struktur wie in der Liste, gelesen und geschrieben über dieselbe
+  // Adresse. Gesetzt wird er hier mit denselben Knöpfen und Panels.
+  const state = EF.createState();
+  // Die reinen Ansichts-Parameter der Liste (Sortierung, Zusammenfassen)
+  // versteht die Karte nicht, sie trägt sie aber unverändert weiter:
+  // sonst verlöre der Weg Liste -> Karte -> Liste die Ansicht.
+  const listenAnsicht = {};
+  let events = [];
+  let alleStandorte = new Set();
+  let alleTage = [];
+
+  const escapeHtml = EF.escapeHtml;
+
+  // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
+  // Der Rahmen der Karte: EUROPA, nicht die Welt und nicht nur DACH.
+  // Nur Europa - beim Herauszoomen lag Europa vorher als Briefmarke
+  // mitten in einer dreifach nebeneinander gezeichneten Weltkarte (vom
+  // Nutzer gemeldet). Europa statt DACH, damit die Karte nicht angefasst
+  // werden muss, wenn weitere Länder dazukommen (so vom Nutzer
+  // entschieden).
+  const EUROPA_BOUNDS = L.latLngBounds([34.0, -13.0], [71.5, 42.0]);
+  const map = L.map('map', {
+    // Begrenzt das Verschieben. `maxBoundsViscosity: 1` heißt: harte
+    // Kante, die Karte lässt sich nicht über den Rand hinausziehen (bei
+    // 0 federt sie nur zurück, was sich nach Fehler anfühlt).
+    maxBounds: EUROPA_BOUNDS,
+    maxBoundsViscosity: 1,
+    // Der kleinste Zoom wird gleich ausgerechnet (setzeMinZoomAufEuropa):
+    // Er hängt von der Fenstergröße ab - auf dem Handy passt Europa erst
+    // bei Zoom 3 ins Bild, auf einem breiten Bildschirm schon bei 5.
+    minZoom: 3,
+    // Der Sprung auf die "nächste" Weltkopie beim Ziehen über den
+    // Rand - ohne Weltkopien sinnlos.
+    worldCopyJump: false
+  }).setView([48.5, 10.5], 6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    // DAS ist der Punkt gegen die dreifache Weltkarte: Ohne `noWrap`
+    // zeichnet Leaflet die Kacheln links und rechts der Datumsgrenze
+    // beliebig oft weiter.
+    noWrap: true,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
+  }).addTo(map);
+  // Alles, was beim Filtern neu gezeichnet wird, liegt in einer eigenen
+  // Ebene - so muss nur diese geleert werden, nicht die Kachel-Ebene.
+  // Es sind ZWEI Ebenen, und das ist wichtig: Die Event-Marker werden
+  // gebuendelt (markercluster), der Ausgangspunkt und sein Umkreis dagegen
+  // nicht - sonst verschwaende der rote Punkt in einem Buendel.
+  // So weit herauszoomen, dass Europa genau das Bild füllt - und keinen
+  // Schritt weiter. Eine feste Zahl geht nicht: Auf 390 px passt Europa
+  // erst bei Zoom 3 hinein, auf 1.400 px schon bei 5, und mit einer
+  // festen 4 sähe man auf dem breiten Bildschirm halb Asien mit (bei
+  // einer festen 5 auf dem Handy nur die Alpen).
+  // Gerechnet wird über die BREITE, nicht über die ganze Fläche - und
+  // das ist der Kern der Sache. Europa ist hochkant (etwa 55° breit,
+  // 37° hoch), ein Browserfenster liegt quer. Beide Naheliegenden
+  // Varianten waren daneben:
+  //   - "Europa passt ganz ins Bild" (getBoundsZoom) ergab auf einem
+  //     breiten, niedrigen Fenster Zoom 3: Europa als Briefmarke,
+  //     daneben von Kanada bis China alles mit im Bild - genau das,
+  //     was der Nutzer nicht will.
+  //   - "Das Fenster liegt ganz in Europa" (getBoundsZoom(…, true))
+  //     ergab Zoom 6: Man konnte nicht mehr herauszoomen, bis DACH
+  //     am Stück zu sehen war.
+  // Maßgeblich ist deshalb, wann Europas BREITE das Fenster füllt.
+  // Dafür wird ein flacher Streifen über Europas Längengrade gemessen -
+  // die Höhe kann dann nichts verderben. Senkrecht begrenzt `maxBounds`.
+  const EUROPA_BREITE = L.latLngBounds([48.5, -13.0], [48.6, 42.0]);
+  function setzeMinZoomAufEuropa() {
+    const z = map.getBoundsZoom(EUROPA_BREITE);
+    map.setMinZoom(Math.max(2, Math.min(z, 8)));
+  }
+  setzeMinZoomAufEuropa();
+  // Beim Drehen des Geräts oder Verkleinern des Fensters neu rechnen -
+  // sonst bleibt der Wert des ersten Aufrufs stehen.
+  let minZoomFrame = null;
+  window.addEventListener('resize', () => {
+    if (minZoomFrame !== null) return;
+    minZoomFrame = requestAnimationFrame(() => {
+      minZoomFrame = null;
+      setzeMinZoomAufEuropa();
+    });
+  });
+
+  // ---------- Die graue Maske über allem außerhalb der abgedeckten Länder ----------
+  //
+  // Zweck: Der Blick soll auf der Region bleiben. Frankreich und Polen
+  // sind auf der Karte zu sehen (sie grenzen an), aber sie sind hier
+  // nicht das Thema - und ohne Maske sahen sie genauso aus wie
+  // Deutschland (vom Nutzer gemeldet).
+  //
+  // Die Maske ist EIN Polygon: ein großes Rechteck mit den Ländern als
+  // Aussparungen. Die Umrisse liegen in `laender.json` (erzeugt von
+  // scripts/build_laender.py aus Natural Earth, Public Domain, ~69 KB /
+  // 24 KB gezippt). Bewusst eigene Daten statt eines Kachel-Anbieters
+  // mit label-armem Stil: Der wäre ein zweiter fremder Server, an den
+  // die IP jedes Besuchers geht (siehe README "Nichts von fremden
+  // Servern"); die Maske überträgt nichts.
+  //
+  // Eigene Ebene (`pane`) mit z-index 250: über den Kacheln (200), aber
+  // UNTER den Markern und dem Umkreis (400). Läge sie oben, wären die
+  // Bündel-Zahlen matt und der rote Ausgangspunkt halb verdeckt.
+  // `pointerEvents: none` und `interactive: false`: Die Maske darf
+  // keinen Klick abfangen, sonst wären Marker unter ihr nicht mehr
+  // anklickbar.
+  map.createPane('maskePane');
+  map.getPane('maskePane').style.zIndex = 250;
+  map.getPane('maskePane').style.pointerEvents = 'none';
+
+  // Das Rechteck reicht weit über Europa hinaus - `maxBounds` lässt
+  // ohnehin nicht weiter, aber so entsteht auch beim Federn am Rand
+  // keine unmaskierte Lücke. ±84° statt ±90°: Mehr kennt die
+  // Mercator-Projektion nicht.
+  const MASKE_AUSSEN = [[-84, -179.9], [84, -179.9], [84, 179.9], [-84, 179.9]];
+
+  function zeichneMaske(laender) {
+    // Reihenfolge: erst das Rechteck, dann alle Ringe der Länder. Mit
+    // `fill-rule: evenodd` (Leaflet-Voreinstellung) wird jeder Ring
+    // darin zur Aussparung - und ein Loch INNERHALB eines Landes wieder
+    // grau. Das ist kein Sonderfall für Sonderfälle: Büsingen am
+    // Hochrhein ist deutsch und liegt mitten in der Schweiz.
+    const ringe = [MASKE_AUSSEN];
+    Object.keys(laender).forEach(name => {
+      (laender[name] || []).forEach(ring => {
+        // laender.json speichert [lon, lat] (GeoJSON-Reihenfolge),
+        // Leaflet erwartet [lat, lon].
+        ringe.push(ring.map(([lon, lat]) => [lat, lon]));
+      });
+    });
+    L.polygon(ringe, {
+      pane: 'maskePane',
+      interactive: false,
+      stroke: false,
+      // Ein grauer Schleier, kein Deckel: Städtenamen und Straßen
+      // bleiben lesbar, treten aber zurück. Die OSM-Kacheln sind immer
+      // hell - die Farbe muss also nicht auf das Farbschema der Seite
+      // reagieren.
+      fillColor: '#5b6472',
+      fillOpacity: 0.42
+    }).addTo(map);
+  }
+
+  // Die Maske ist Beiwerk: Sie wird NACH den Events geladen und ein
+  // Fehlschlag bleibt still (dann ist die Karte eben überall gleich
+  // hell). Ein `await` hier würde die Marker verzögern.
+  function ladeMaske() {
+    fetch('laender.json')
+      .then(res => (res.ok ? res.json() : null))
+      .then(daten => { if (daten && daten.laender) zeichneMaske(daten.laender); })
+      .catch(() => { /* ohne Maske ist die Karte vollständig, nur fahler */ });
+  }
+
+  const markerLayer = createMarkerLayer();
+  markerLayer.addTo(map);
+  const overlayLayer = L.layerGroup().addTo(map);
+
+  // Ohne das Plugin (unpkg nicht erreichbar, Netzsperre) bleibt es bei
+  // einer einfachen Ebene: die Marker liegen dann wieder einzeln da. Eine
+  // Karte ohne Buendel ist unuebersichtlich, eine leere Seite waere
+  // schlimmer.
+  function createMarkerLayer() {
+    if (typeof L.markerClusterGroup !== 'function') return L.layerGroup();
+    return L.markerClusterGroup({
+      // Kein Umriss beim Darueberfahren: auf dem Handy gibt es kein
+      // "darueber", und am Rechner blinkte er bei jedem Schwenk auf.
+      showCoverageOnHover: false,
+      // Liegen mehrere Orte auf derselben Koordinate, faechert ein Klick
+      // sie auf statt endlos weiter hineinzuzoomen.
+      spiderfyOnMaxZoom: true,
+      // Ab dieser Zoomstufe steht jeder Ort fuer sich: wer so weit
+      // hineingezoomt hat, will die einzelnen Orte sehen.
+      disableClusteringAtZoom: 11,
+      // Der Radius in Bildschirmpunkten. Weit draussen (ganz D/A/CH im
+      // Bild) darf er groesser sein, sonst klebt ueber jeder Grossstadt
+      // ein eigenes Buendel; naeher dran wird er kleiner, damit Nachbar-
+      // orte sich trennen.
+      maxClusterRadius: zoom => (zoom <= 6 ? 80 : zoom <= 8 ? 60 : 45),
+      // Baut die Buendel in Haeppchen auf, damit der Aufbau bei vielen
+      // Markern den Bildlauf nicht blockiert (wichtig fuer den geplanten
+      // Datenstand mit >20.000 Events).
+      chunkedLoading: true,
+      iconCreateFunction: clusterIcon
+    });
+  }
+
+  // Die Zahl im Buendel ist die Summe der Events, nicht die der Marker:
+  // ein Marker steht fuer einen Ort und traegt seine Event-Zahl in
+  // options.eeCount.
+  function clusterIcon(cluster) {
+    let events = 0;
+    cluster.getAllChildMarkers().forEach(m => { events += (m.options.eeCount || 1); });
+    const size = events >= 500 ? 56 : events >= 100 ? 48 : events >= 20 ? 40 : 34;
+    return L.divIcon({
+      className: '',
+      html: `<div class="cluster-badge" style="width:${size}px;height:${size}px;">${events}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
+    });
+  }
+
+  // Dieselben Filterknöpfe und Panels wie in der Liste (filter-ui.js).
+  // Ein Filter, der hier gesetzt wird, gilt beim Wechsel in die Liste
+  // weiter - beide Seiten schreiben ihn in dieselbe Adresse.
+  const ui = EFU.create({
+    state,
+    getEvents: () => events,
+    t,
+    tv,
+    getLang: () => currentLang,
+    onChange: () => render()
+  });
+  // Die Mastersuche: dasselbe Feld wie in der Liste (Name, Wettbewerb,
+  // Ort, mit Vorschlägen). Gefiltert wird über EF.matchEvent, also
+  // dieselbe Regel, die auch die Liste anwendet - und der Wert steht als
+  // ?s= in der Adresse, überlebt also den Seitenwechsel.
+  const suche = ui.buildSearch(document.getElementById('master-search-box'));
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
+    document.title = t('title') + ' – Ausdauersport-Events D/A/CH';
+    titleEl.textContent = t('title');
+    subtitleEl.textContent = t('subtitle');
+    listLabelEl.textContent = t('list');
+    resetBtnEl.textContent = t('reset');
+    filterBarLabelEl.textContent = t('filter_label');
+    // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
+    document.getElementById('footer-impressum').textContent = t('footer_imprint');
+    document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
+    // Die Filterknöpfe tragen die Spaltennamen - neu bauen, sonst bleibt
+    // "Stadt/Ort" auf Englisch stehen.
+    ui.buildButtonBar(filterButtonsEl);
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    // Chips und Popups tragen übersetzte Texte, müssen also mit. Ohne
+    // neuen Ausschnitt: ein Sprachwechsel ändert nicht, wohin man schaut.
+    if (events.length) render({ refit: false });
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // ---------- Filter <-> Adresse ----------
+
+  // Der Filterzustand als Parameter - Filterteil aus filters.js, dazu die
+  // durchgereichten Ansichts-Parameter der Liste.
+  function currentParams() {
+    const p = EF.toParams(state);
+    Object.keys(listenAnsicht).forEach(k => p.set(k, listenAnsicht[k]));
+    return p;
+  }
+
+  function linkTo(seite, extra) {
+    const p = currentParams();
+    if (extra) Object.keys(extra).forEach(k => p.set(k, extra[k]));
+    const suffix = p.toString();
+    return seite + (suffix ? '?' + suffix : '');
+  }
+
+  // Die eigene Adresse mitschreiben: entfernt jemand hier einen Chip, soll
+  // der Link auf diese Karte den neuen Stand zeigen (replaceState statt
+  // pushState - wie in events.html, damit der Zurück-Knopf brauchbar
+  // bleibt).
+  function writeUrlState() {
+    if (!window.history || !window.history.replaceState) return;
+    const suffix = currentParams().toString();
+    const neu = window.location.pathname + (suffix ? '?' + suffix : '');
+    if (neu !== window.location.pathname + window.location.search) {
+      try { window.history.replaceState(null, '', neu); } catch (e) { /* ignorieren */ }
+    }
+  }
+
+  // ---------- Filterleiste ----------
+
+  function renderChips() {
+    const chips = EF.buildChips(state, {
+      t,
+      tv,
+      lang: currentLang,
+      dayCount: alleTage.length,
+      // Wie viele Werte ein Mengen-Filter hat, weiß dieselbe Stelle, die
+      // auch die Häkchenliste im Panel füllt.
+      optionCount: stateKey => ui.options(stateKey).length
+    });
+    chipsEl.innerHTML = '';
+    chips.forEach(c => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${escapeHtml(c.label)} <button aria-label="✕">✕</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        c.clear();
+        render();
+      });
+      chipsEl.appendChild(chip);
+    });
+  }
+
+  // "Alle Filter zurücksetzen" - wie in der Liste, samt offenem Panel und
+  // der Eingabe im Ortssuchfeld.
+  resetBtnEl.addEventListener('click', () => {
+    EF.clearFilters(state);
+    ui.resetTransient();
+    ui.close();
+    render();
+  });
+
+  // ---------- Marker ----------
+
+  function badgeIcon(count) {
+    const size = count >= 20 ? 34 : count >= 5 ? 28 : 22;
+    return L.divIcon({
+      className: '',
+      html: `<div class="marker-badge" style="width:${size}px;height:${size}px;">${count}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
+    });
+  }
+
+  // ---------- Detail-Boxen oben rechts ----------
+  //
+  // Ein Klick auf einen Marker mit einem oder zwei Events öffnet deren
+  // Boxen über der Karte, bei mehr Events listet das Popup sie und ein
+  // Klick auf einen Eintrag öffnet die Box - dieselbe Box wie in der
+  // Liste (event-detail.js: Datum, Land, Ort, Sportart, Kategorie,
+  // Länge, Veranstalter-Link, Kalender, Teilen). Höchstens ZWEI
+  // zugleich, die neueste oben; die dritte verdrängt die älteste (so vom
+  // Nutzer gewünscht: "maximal bis 2"). Jede Box hat ein ✕. Ein zweiter
+  // Klick auf ein schon offenes Event hebt es nur nach oben.
+  //
+  // "Fehler melden" führt in die LISTE (?event=…&melden=1): Der
+  // Melde-Dialog mit seiner Firestore-Anbindung lebt nur dort, und eine
+  // zweite Kopie liefe auseinander.
+  const MAX_DETAILS = 2;
+  const detailsEl = document.getElementById('map-details');
+  let offeneDetails = [];   // Events, neueste zuerst
+
+  function detailKontext() {
+    return {
+      t, tv, lang: currentLang,
+      onReport: (e) => { window.location.href = EED.eventLink(e) + '&melden=1'; },
+      onClose: (e) => {
+        offeneDetails = offeneDetails.filter(x => x !== e);
+        zeichneDetails();
+      }
+    };
+  }
+
+  function zeichneDetails() {
+    detailsEl.innerHTML = '';
+    offeneDetails.forEach(e => {
+      const box = document.createElement('div');
+      box.className = 'detail-panel';
+      EED.render(box, e, detailKontext());
+      detailsEl.appendChild(box);
+    });
+  }
+
+  function zeigeDetail(e) {
+    offeneDetails = [e, ...offeneDetails.filter(x => x !== e)].slice(0, MAX_DETAILS);
+    zeichneDetails();
+  }
+
+  // Alle Events eines Ortes auf einmal (Marker mit 1 oder 2): Sie
+  // ersetzen, was offen war - der Klick auf den Marker ist die Frage
+  // "was ist hier?", und die Antwort sind genau diese Boxen.
+  function zeigeDetails(liste) {
+    offeneDetails = liste.slice(0, MAX_DETAILS);
+    zeichneDetails();
+  }
+
+  // EIN Zuhörer für alle Popups: Leaflet baut den Popup-Inhalt bei jedem
+  // Öffnen neu, ein Zuhörer je Knopf ginge dabei verloren.
+  document.getElementById('map').addEventListener('click', (ev) => {
+    const knopf = ev.target.closest('.popup-event');
+    if (!knopf) return;
+    const e = events[Number(knopf.dataset.idx)];
+    if (e) zeigeDetail(e);
+  });
+
+  // opts.refit === false lässt den Kartenausschnitt, wie er ist.
+  function render(opts) {
+    ui.updateIndicators();
+    renderChips();
+    suche.sync();
+    // Die Boxen tragen übersetzte Texte - beim Sprachwechsel neu.
+    zeichneDetails();
+    // Das offene Panel zeigt Häkchen und Regler des Filters - nach einer
+    // Änderung muss es mitkommen (es zeichnet sich nicht neu, solange der
+    // Fokus darin liegt, siehe filter-ui.js).
+    ui.refresh();
+    listLabelEl.href = linkTo('events.html');
+    writeUrlState();
+    renderMarkers(!opts || opts.refit !== false);
+  }
+
+  function renderMarkers(refit) {
+    markerLayer.clearLayers();
+    overlayLayer.clearLayers();
+    const passend = events.filter(e => EF.matchEvent(state, e));
+
+    // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
+    // so zeigt z. B. Frankfurt EINEN Marker mit der Zahl "10" statt zehn
+    // übereinanderliegender Punkte. Koordinaten des ersten Events mit
+    // gültigem lat/lon je Standort werden übernommen (alle Events am
+    // selben Ort teilen sich ohnehin dieselbe Geocoding-Koordinate).
+    const byStandort = new Map();
+    let withCoords = 0;
+    passend.forEach(e => {
+      if (e.lat == null || e.lon == null || !e.standort) return;
+      withCoords++;
+      const key = e.standort;
+      if (!byStandort.has(key)) {
+        byStandort.set(key, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0, events: [] });
+      }
+      const loc = byStandort.get(key);
+      loc.count++;
+      loc.events.push(e);
+    });
+
+    hintEl.textContent = withCoords === 0
+      ? t('hint_empty')
+      : EF.hasFilters(state)
+        ? t('hint_filtered', withCoords, events.length, byStandort.size)
+        : t('hint', withCoords, byStandort.size);
+
+    const markers = [];
+    byStandort.forEach(loc => {
+      // eeCount: die Event-Zahl dieses Ortes. clusterIcon() summiert sie
+      // ueber alle Marker eines Buendels - sonst stuende dort die Zahl der
+      // ORTE und die Karte widersprueche ihrer eigenen Kopfzeile.
+      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count), eeCount: loc.count });
+      // Der Popup-Inhalt entsteht erst beim Öffnen: bindPopup nimmt auch
+      // eine FUNKTION. Als fertiger String kostete er bei ~2.000 Orten
+      // 2.000 Popups samt 2.000 linkTo()-Aufrufen (jeder baut eigene
+      // URLSearchParams) - für höchstens eines, das jemand ansieht.
+      //
+      // Der Link in die Liste nimmt die aktuellen Filter mit und setzt
+      // zusätzlich diesen Ort - sonst führte ein Marker aus einer
+      // gefilterten Karte zurück in eine ungefilterte Liste. Weil er erst
+      // beim Klick entsteht, trägt er jetzt sogar die Filter von genau
+      // diesem Moment.
+      //
+      // Hat der Ort höchstens so viele Events, wie Boxen Platz haben
+      // (zwei), öffnet der Klick auf den Marker die Boxen DIREKT - ohne
+      // Popup (vom Nutzer am 19.09.2026 so gewünscht: "wenn ich auf die
+      // 1 klicke, soll sich rechts oben einfach die Info öffnen; zeigt
+      // der Punkt 2, werden rechts zwei Events angezeigt"). Erst ab
+      // drei Events bleibt das Popup mit der Auswahlliste: Ein Klick
+      // dort öffnet die Box (zeigeDetail). data-idx ist die Nummer in
+      // `events`, der Klick kommt über EINEN Zuhörer am Kartencontainer
+      // an (unten).
+      if (loc.events.length <= MAX_DETAILS) {
+        marker.on('click', () => zeigeDetails(loc.events));
+        markers.push(marker);
+        return;
+      }
+      marker.bindPopup(() =>
+        // tv(): Städte mit eigenem englischen Namen (München → Munich).
+        `<div class="popup-title">${escapeHtml(tv('standort', loc.standort))}</div>` +
+        `<div class="popup-sub">${escapeHtml(tv('land', loc.land) || '')} · ${t('popup_count', loc.count)}</div>` +
+        `<ul class="popup-events">` + loc.events.map(e => {
+          const wb = EED.displayWettbewerb(e);
+          return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(e)}">`
+            + `<span class="pe-name">${escapeHtml(e.name)}</span>`
+            + `<span class="pe-meta">${escapeHtml(EED.formatRange(e.datum_start, e.datum_ende, currentLang))}`
+            + ` · ${escapeHtml(EED.formatLength(e, currentLang))}${wb ? ' · ' + escapeHtml(wb) : ''}</span>`
+            + `</button></li>`;
+        }).join('') + `</ul>` +
+        `<a class="popup-link" href="${linkTo('events.html', { standort: loc.standort })}">`
+        + `${escapeHtml(t('popup_link', loc.count))}</a>`
+      );
+      markers.push(marker);
+    });
+    // In EINEM Zug einhaengen: markercluster rechnet die Buendel dann
+    // einmal statt nach jedem Marker neu (bei ~1.500 Orten der
+    // Unterschied zwischen ruckelfrei und zaeh).
+    if (typeof markerLayer.addLayers === 'function') {
+      markerLayer.addLayers(markers);
+    } else {
+      markers.forEach(m => markerLayer.addLayer(m));
+    }
+
+    // Umkreissuche sichtbar machen: der Ausgangspunkt als Punkt, der
+    // Umkreis als Kreis. Erst damit ist zu sehen, WARUM außerhalb keine
+    // Marker stehen.
+    let kreis = null;
+    if (state.origin) {
+      L.marker([state.origin.lat, state.origin.lon], {
+        icon: L.divIcon({ className: '', html: '<div class="origin-dot"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }),
+        title: `${t('origin_title')}: ${state.origin.label}`
+      }).addTo(overlayLayer);
+      if (state.radiusKm != null) {
+        kreis = L.circle([state.origin.lat, state.origin.lon], {
+          radius: state.radiusKm * 1000,
+          color: '#14509a',
+          weight: 1,
+          fillColor: '#14509a',
+          fillOpacity: 0.06
+        }).addTo(overlayLayer);
+      }
+    }
+
+    // Ausschnitt: der Umkreis hat Vorrang (er ist die Frage, die gestellt
+    // wurde), sonst alle Marker. Ohne beides bleibt der Blick auf D/A/CH.
+    if (!refit) {
+      return;
+    } else if (kreis) {
+      map.fitBounds(kreis.getBounds().pad(0.1));
+    } else if (markers.length) {
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+    }
+  }
+
+  // ---------- Laden ----------
+
+  try {
+    const res = await fetch('events.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    // Vergangene Events zählen nicht mit: die Marker-Zahl eines Ortes
+    // soll dieselbe sein wie die Trefferzahl in events.html (dort
+    // dieselbe Filterung beim Laden, siehe EF.dropPastEvents).
+    events = EF.dropPastEvents(await res.json());
+  } catch (err) {
+    setLanguage(currentLang);
+    hintEl.textContent = t('load_error', err.message);
+    return;
+  }
+
+  // Erst jetzt, damit die Maske nicht mit events.json um die Leitung
+  // streitet (sie ist Beiwerk, siehe ladeMaske).
+  ladeMaske();
+
+  alleStandorte = new Set(events.map(e => e.standort).filter(v => v));
+  alleTage = Array.from(new Set(events.map(e => e.datum_start).filter(v => v))).sort();
+
+  // Filter aus der Adresse übernehmen - dieselben Parameter, die
+  // events.html schreibt (?land=…&kat=…&ort=…&umkreis=…). Ein Tippfehler
+  // im Ortsnamen wird verworfen statt zu einer leeren Karte zu führen.
+  EF.readParams(state, window.location.search, {
+    knownStandort: v => alleStandorte.has(v),
+    alleTage,
+    geoLabel: t('geo_current_label')
+  });
+  try {
+    const p = new URLSearchParams(window.location.search);
+    ['sort', 'gruppiert'].forEach(k => { if (p.get(k)) listenAnsicht[k] = p.get(k); });
+  } catch (e) { /* ignorieren */ }
+
+  setLanguage(currentLang);
+  render();
+})();
+</script>
+
+<footer class="seiten-footer">
+  <a href="impressum.html" id="footer-impressum">Impressum</a><span class="trenner">·</span><a href="datenschutz.html" id="footer-datenschutz">Datenschutz</a>
+</footer>
+</body>
+</html>

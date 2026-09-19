@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-ahmadiyya-charity-walk-dreieich-5km-dreieich@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Ahmadiyya Charity Walk Dreieich
+LOCATION:Dreieich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://charitywalk.de
+ /events/1-ahmadiyya-charity-walk-dreieich-im-rahmen-der-interkulturellen-
+ wochen
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/1-ahmadiyya-charity-walk-dreieich-im-rah
+ men-der-interkulturellen-wochen
+END:VEVENT
+END:VCALENDAR

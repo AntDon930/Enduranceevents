@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-30-ruhstorfer-gelandelauf-7-5km-ruhstorf-an-der-rott@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:30. Ruhstorfer Geländelauf
+LOCATION:Ruhstorf an der Rott\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://laruhstorf.de
+ /
+TRANSP:TRANSPARENT
+URL:https://laruhstorf.de/
+END:VEVENT
+END:VCALENDAR

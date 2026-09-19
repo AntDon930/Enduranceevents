@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-21-kunstweglauf-rednitzhembach-10km-rednitzhembach@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:21. Kunstweglauf Rednitzhembach
+LOCATION:Rednitzhembach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.powerbaers
+ .de
+TRANSP:TRANSPARENT
+URL:http://www.powerbaers.de
+END:VEVENT
+END:VCALENDAR

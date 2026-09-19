@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-isarlauf-bad-tolz-10km-bad-tolz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:IsarLauf - Bad Tölz – 10 km (Start in Lenggries\, Ziel in Bad Tölz
+ )
+LOCATION:Bad Tölz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://skiclub-lengg
+ ries.de/isarlauf/
+TRANSP:TRANSPARENT
+URL:https://skiclub-lenggries.de/isarlauf/
+END:VEVENT
+END:VCALENDAR

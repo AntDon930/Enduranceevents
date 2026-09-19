@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-trail-marathon-heidelberg-30km-heidelberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Trail Marathon Heidelberg
+LOCATION:Heidelberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://www.trailmarat
+ hon-heidelberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.trailmarathon-heidelberg.de/
+END:VEVENT
+END:VCALENDAR

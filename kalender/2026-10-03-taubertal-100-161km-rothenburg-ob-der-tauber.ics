@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-taubertal-100-161km-rothenburg-ob-der-tauber@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Taubertal 100
+LOCATION:Rothenburg ob der Tauber\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 161 km\nhttps://laufen.de/la
+ ufkalender/details/26L02000000060000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26L02000000060000
+END:VEVENT
+END:VCALENDAR

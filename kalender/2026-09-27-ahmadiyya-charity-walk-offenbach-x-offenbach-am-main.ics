@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-ahmadiyya-charity-walk-offenbach-x-offenbach-am-main@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Ahmadiyya Charity Walk Offenbach
+LOCATION:Offenbach am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://charitywalk.de/ev
+ ents/4-ahmadiyya-charity-walk-offenbach
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/4-ahmadiyya-charity-walk-offenbach
+END:VEVENT
+END:VCALENDAR

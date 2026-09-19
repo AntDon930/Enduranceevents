@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-muddy-angel-run-dresden-5km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Muddy Angel Run - Dresden
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.muddyangel
+ run.com/events/dresden-2027/
+TRANSP:TRANSPARENT
+URL:https://www.muddyangelrun.com/events/dresden-2027/
+END:VEVENT
+END:VCALENDAR

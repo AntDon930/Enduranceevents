@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-winterlaufserie-eckernforde-21-1km-eckernforde@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270208
+SUMMARY:Winterlaufserie Eckernförde – 21\,1 km Halbmarathon (mit Zusatzkil
+ ometer)
+LOCATION:Eckernförde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/401813/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/401813/
+END:VEVENT
+END:VCALENDAR

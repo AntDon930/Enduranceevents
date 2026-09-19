@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-xletix-challenge-nrw-12km-herten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:XLETIX Challenge NRW – Adventure Distanz
+LOCATION:Herten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.xletix.co
+ m/events/nrw-2027/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/nrw-2027/
+END:VEVENT
+END:VCALENDAR

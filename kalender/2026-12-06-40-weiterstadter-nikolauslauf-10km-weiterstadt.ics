@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-40-weiterstadter-nikolauslauf-10km-weiterstadt@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:40. Weiterstädter Nikolauslauf
+LOCATION:Weiterstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tusgriesh
+ eim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikol
+ auslauf/
+END:VEVENT
+END:VCALENDAR

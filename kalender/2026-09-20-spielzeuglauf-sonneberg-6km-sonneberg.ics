@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-spielzeuglauf-sonneberg-6km-sonneberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Spielzeuglauf Sonneberg – 6 km Einsteigerlauf
+LOCATION:Sonneberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://v2.leichtathle
+ tik-sonneberg.de/veranstaltungen/sonneberger-spielzeuglauf/
+TRANSP:TRANSPARENT
+URL:https://v2.leichtathletik-sonneberg.de/veranstaltungen/sonneberger-spi
+ elzeuglauf/
+END:VEVENT
+END:VCALENDAR

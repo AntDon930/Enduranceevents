@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-14-bausch-strobel-stadtlauf-ilshofen-10km-ilshofen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:14. Bausch+Ströbel Stadtlauf Ilshofen – 10 km Volkslauf (9\,8 km\,
+  2 Runden)
+LOCATION:Ilshofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.stadtlauf-
+ ilshofen.de/
+TRANSP:TRANSPARENT
+URL:http://www.stadtlauf-ilshofen.de/
+END:VEVENT
+END:VCALENDAR

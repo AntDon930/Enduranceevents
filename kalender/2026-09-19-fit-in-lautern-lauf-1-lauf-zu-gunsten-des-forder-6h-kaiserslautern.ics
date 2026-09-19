@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-fit-in-lautern-lauf-1-lauf-zu-gunsten-des-forder-6h-kaisers
+ lautern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühl
+ e e.V. – 6 Stunden\, 2-km-Runde
+LOCATION:Kaiserslautern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://fitinlautern.de
+ /
+TRANSP:TRANSPARENT
+URL:https://fitinlautern.de/
+END:VEVENT
+END:VCALENDAR

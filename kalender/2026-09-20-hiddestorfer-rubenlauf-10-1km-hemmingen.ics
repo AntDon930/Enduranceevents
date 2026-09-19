@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-hiddestorfer-rubenlauf-10-1km-hemmingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Hiddestorfer Rübenlauf – 10\,1 km Hauptlauf\, Startgeld 13\,00 €
+LOCATION:Hemmingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.1 km\nhttps://www.ruebenl
+ auf.de
+TRANSP:TRANSPARENT
+URL:https://www.ruebenlauf.de
+END:VEVENT
+END:VCALENDAR

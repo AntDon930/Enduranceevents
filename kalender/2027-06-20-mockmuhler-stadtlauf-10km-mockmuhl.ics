@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mockmuhler-stadtlauf-10km-mockmuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Möckmühler Stadtlauf – 10 km Lauf
+LOCATION:Möckmühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
+ .com/412457/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/412457/
+END:VEVENT
+END:VCALENDAR

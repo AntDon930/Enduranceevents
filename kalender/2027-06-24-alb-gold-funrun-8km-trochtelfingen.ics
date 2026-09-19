@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-24-alb-gold-funrun-8km-trochtelfingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270624
+DTEND;VALUE=DATE:20270625
+SUMMARY:ALB-GOLD FunRun
+LOCATION:Trochtelfingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.alb-gold.d
+ e/aktiv/funrun.html
+TRANSP:TRANSPARENT
+URL:https://www.alb-gold.de/aktiv/funrun.html
+END:VEVENT
+END:VCALENDAR

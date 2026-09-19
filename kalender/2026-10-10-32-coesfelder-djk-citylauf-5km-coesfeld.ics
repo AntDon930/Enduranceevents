@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-32-coesfelder-djk-citylauf-5km-coesfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:32. Coesfelder DJK - Citylauf
+LOCATION:Coesfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.djk-coesfe
+ ld.de/de/citylauf-startseite/
+TRANSP:TRANSPARENT
+URL:https://www.djk-coesfeld.de/de/citylauf-startseite/
+END:VEVENT
+END:VCALENDAR

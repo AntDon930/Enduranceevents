@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-lichterlauf-in-steckenborn-10km-steckenborn@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Lichterlauf in Steckenborn
+LOCATION:Steckenborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://komet-steckenb
+ orn.de
+TRANSP:TRANSPARENT
+URL:http://komet-steckenborn.de
+END:VEVENT
+END:VCALENDAR

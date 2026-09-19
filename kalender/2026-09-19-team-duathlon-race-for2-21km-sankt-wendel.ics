@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-team-duathlon-race-for2-21km-sankt-wendel@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Team Duathlon Race for2
+LOCATION:Sankt Wendel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 21 km\nhttps://www.trit
+ ronicteam.de/racefor2/
+TRANSP:TRANSPARENT
+URL:https://www.tritronicteam.de/racefor2/
+END:VEVENT
+END:VCALENDAR

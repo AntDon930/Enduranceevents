@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-baltic-x-cross-duathlon-11km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Baltic X Cross Duathlon – Kurzdistanz
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 11 km\nhttps://binzer-b
+ ucht.de/baltic-x-cross-duathlon/
+TRANSP:TRANSPARENT
+URL:https://binzer-bucht.de/baltic-x-cross-duathlon/
+END:VEVENT
+END:VCALENDAR

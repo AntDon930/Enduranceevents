@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-autohaus-prinz-schildberglauf-6km-lossatal@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Autohaus Prinz - Schildberglauf
+LOCATION:Lossatal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://myracepartner.c
+ om/veranstaltung/?event-id=532946
+TRANSP:TRANSPARENT
+URL:https://myracepartner.com/veranstaltung/?event-id=532946
+END:VEVENT
+END:VCALENDAR

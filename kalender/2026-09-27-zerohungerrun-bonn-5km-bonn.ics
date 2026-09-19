@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-zerohungerrun-bonn-5km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:#ZeroHungerRun Bonn – 5 km Lauf
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.welthunger
+ hilfe.de/zerohungerrun-der-spendenlauf-gegen-hunger
+TRANSP:TRANSPARENT
+URL:https://www.welthungerhilfe.de/zerohungerrun-der-spendenlauf-gegen-hun
+ ger
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-schnelsener-moorlauf-x-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Schnelsener Moorlauf
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://schnelsener-moorla
+ uf.aghamburgwest.de/
+TRANSP:TRANSPARENT
+URL:http://schnelsener-moorlauf.aghamburgwest.de/
+END:VEVENT
+END:VCALENDAR

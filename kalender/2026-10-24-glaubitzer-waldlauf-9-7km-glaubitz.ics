@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-glaubitzer-waldlauf-9-7km-glaubitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Glaubitzer-Waldlauf – 9\,7 km - für mU18/20\; M60\, M65\; W20 bis 
+ W50
+LOCATION:Glaubitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://www.rezoa.de
+ /glaubitzer-waldlauf
+TRANSP:TRANSPARENT
+URL:https://www.rezoa.de/glaubitzer-waldlauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-zainhammerlauf-13-8km-eberswalde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Zainhammerlauf – 13\,8 km m/w ab U18
+LOCATION:Eberswalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.8 km\nhttp://www.barnimer
+ -sparkassen-lauf-cup.de/laeufe.php
+TRANSP:TRANSPARENT
+URL:http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php
+END:VEVENT
+END:VCALENDAR

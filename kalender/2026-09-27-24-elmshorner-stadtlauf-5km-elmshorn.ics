@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-24-elmshorner-stadtlauf-5km-elmshorn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:24. Elmshorner Stadtlauf
+LOCATION:Elmshorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.elmshorner
+ -stadtlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.elmshorner-stadtlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-rosengartenlauf-forst-5km-forst-lausitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Rosengartenlauf - Forst – 5 km Lauf
+LOCATION:Forst (Lausitz)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://ltsv.de/rosenga
+ rtenlauf/
+TRANSP:TRANSPARENT
+URL:http://ltsv.de/rosengartenlauf/
+END:VEVENT
+END:VCALENDAR

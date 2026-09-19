@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-20-belchenberglauf-11-4km-schonau-im-schwarzwald@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:20. Belchenberglauf
+LOCATION:Schönau (im Schwarzwald)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11.4 km\nhttp://www.belchenbe
+ rglauf.tus-schoenau.de/
+TRANSP:TRANSPARENT
+URL:http://www.belchenberglauf.tus-schoenau.de/
+END:VEVENT
+END:VCALENDAR

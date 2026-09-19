@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-50-seligenstadter-winterlaufserie-lauf-2-10km-seligenstadt@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:50. Seligenstädter Winterlaufserie\, Lauf 2
+LOCATION:Seligenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26L07900007060004
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26L07900007060004
+END:VEVENT
+END:VCALENDAR

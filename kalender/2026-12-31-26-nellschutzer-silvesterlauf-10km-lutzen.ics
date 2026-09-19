@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-26-nellschutzer-silvesterlauf-10km-lutzen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:26. Nellschützer Silvesterlauf
+LOCATION:Lützen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V16000130260001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V16000130260001
+END:VEVENT
+END:VCALENDAR

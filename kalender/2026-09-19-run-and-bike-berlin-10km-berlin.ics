@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-run-and-bike-berlin-10km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Run and Bike Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 10 km\nhttps://run-and-
+ bike-berlin.de/
+TRANSP:TRANSPARENT
+URL:https://run-and-bike-berlin.de/
+END:VEVENT
+END:VCALENDAR

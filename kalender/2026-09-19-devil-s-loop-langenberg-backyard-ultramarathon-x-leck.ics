@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-devil-s-loop-langenberg-backyard-ultramarathon-x-leck@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260921
+SUMMARY:Devil's Loop - Langenberg Backyard Ultramarathon
+LOCATION:Leck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://devils-lo
+ op.de
+TRANSP:TRANSPARENT
+URL:https://devils-loop.de
+END:VEVENT
+END:VCALENDAR

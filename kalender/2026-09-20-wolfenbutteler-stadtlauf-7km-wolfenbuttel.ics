@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-wolfenbutteler-stadtlauf-7km-wolfenbuttel@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Wolfenbütteler Stadtlauf – Radio 38 Halbmarathonstaffel (3 x 7\,03
+  km)
+LOCATION:Wolfenbüttel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.mtv-wolfen
+ buettel.de/de/veranstaltungen/wolfenbuetteler-stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.mtv-wolfenbuettel.de/de/veranstaltungen/wolfenbuetteler-st
+ adtlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-6-remsecker-waldlauf-5km-remseck-am-neckar@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:6. Remsecker Waldlauf
+LOCATION:Remseck am Neckar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49221/Kreismeisterschaften-Waldlauf-%28Kreis-Ludwigsburg%2
+ 9-Remseck.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49221/Kreismeisterschaften-Waldla
+ uf-%28Kreis-Ludwigsburg%29-Remseck.htm
+END:VEVENT
+END:VCALENDAR

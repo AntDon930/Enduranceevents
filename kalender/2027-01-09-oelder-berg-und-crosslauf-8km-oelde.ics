@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-oelder-berg-und-crosslauf-8km-oelde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Oelder Berg- und Crosslauf
+LOCATION:Oelde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.lv-oelde.de
+ /de/veranstaltungen/oelder-berg--und-crosslauf/
+TRANSP:TRANSPARENT
+URL:https://www.lv-oelde.de/de/veranstaltungen/oelder-berg--und-crosslauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-45-saaraltarmlauf-5km-saarlouis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:45. Saaraltarmlauf
+LOCATION:Saarlouis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lsg-saarlouis.
+ de/saaraltarmlauf/
+TRANSP:TRANSPARENT
+URL:https://lsg-saarlouis.de/saaraltarmlauf/
+END:VEVENT
+END:VCALENDAR

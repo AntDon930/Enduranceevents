@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-paderborner-martinslauf-6km-paderborn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:Paderborner Martinslauf – Stadtwerke Paderborn Lauf I
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.paderborne
+ r-martinslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.paderborner-martinslauf.de/
+END:VEVENT
+END:VCALENDAR

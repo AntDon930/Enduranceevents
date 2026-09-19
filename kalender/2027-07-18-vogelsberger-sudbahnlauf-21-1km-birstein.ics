@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-vogelsberger-sudbahnlauf-21-1km-birstein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Vogelsberger Südbahnlauf – 21\,1 km Halbmarathon
+LOCATION:Birstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 21.1 km\nhttps://vogelsbergers
+ uedbahnlauf.wordpress.com
+TRANSP:TRANSPARENT
+URL:https://vogelsbergersuedbahnlauf.wordpress.com
+END:VEVENT
+END:VCALENDAR

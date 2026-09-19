@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-rotary-albstadt-charitylauf-1h-albstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Rotary Albstadt Charitylauf – Stundenlauf (Runden zählen)
+LOCATION:Albstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://rotary-albstadt
+ -charitylauf.de/
+TRANSP:TRANSPARENT
+URL:https://rotary-albstadt-charitylauf.de/
+END:VEVENT
+END:VCALENDAR

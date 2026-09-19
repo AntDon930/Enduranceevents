@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-mops-ultra-night-edition-52km-schloss-holte-stukenbrock@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Mops-Ultra Night Edition
+LOCATION:Schloß Holte-Stukenbrock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 52 km\nhttps://my.raceresult
+ .com/413777/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/413777/
+END:VEVENT
+END:VCALENDAR

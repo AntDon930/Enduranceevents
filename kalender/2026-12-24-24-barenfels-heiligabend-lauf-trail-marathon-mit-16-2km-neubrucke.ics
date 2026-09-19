@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-24-barenfels-heiligabend-lauf-trail-marathon-mit-16-2km-neu
+ brucke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:24. BÄRENFELS HEILIGABEND -LAUF Trail Marathon mit 10-Meilen (16km
+ ) und Hauptlauf 8km – 10-Meilen-Lauf
+LOCATION:Neubrücke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16.2 km\nhttps://www.baerenfe
+ lslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.baerenfelslauf.de/
+END:VEVENT
+END:VCALENDAR

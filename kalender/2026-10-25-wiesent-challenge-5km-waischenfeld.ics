@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-wiesent-challenge-5km-waischenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Wiesent Challenge – 2x5 km Staffellauf
+LOCATION:Waischenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.wiesent-cha
+ llenge.de/anmeldung/
+TRANSP:TRANSPARENT
+URL:http://www.wiesent-challenge.de/anmeldung/
+END:VEVENT
+END:VCALENDAR

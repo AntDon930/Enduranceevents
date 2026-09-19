@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-02-kickelhahn-berglauf-6km-ilmenau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270602
+DTEND;VALUE=DATE:20270603
+SUMMARY:Kickelhahn Berglauf
+LOCATION:Ilmenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www1.tu-ilmenau
+ .de/kickelhahn-berglauf/index.html
+TRANSP:TRANSPARENT
+URL:https://www1.tu-ilmenau.de/kickelhahn-berglauf/index.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-35-waldlauf-auf-den-hinsbecker-hohen-10km-nettetal-hinsbeck
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:35. Waldlauf auf den Hinsbecker Höhen
+LOCATION:Nettetal-Hinsbeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vfl-hinsbe
+ ck.de
+TRANSP:TRANSPARENT
+URL:http://www.vfl-hinsbeck.de
+END:VEVENT
+END:VCALENDAR

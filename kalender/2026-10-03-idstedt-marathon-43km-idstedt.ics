@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-idstedt-marathon-43km-idstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Idstedt Marathon
+LOCATION:Idstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://my.raceresult
+ .com/419211/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/419211/
+END:VEVENT
+END:VCALENDAR

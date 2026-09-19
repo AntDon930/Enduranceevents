@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-freundschaftslauf-marpingen-11km-marpingen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Freundschaftslauf Marpingen – 7 km\, 7\,5 km\, 8 km\, 9 km\, 10 km
+ \, 11 km
+LOCATION:Marpingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.slb-saarl
+ and.com/zahlen-daten-fakten/termine/newsdetail-termine?tx_news_pi1%5Bacti
+ on%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14734
+ &cHash=efbf42cd2e9388e26b5286fbbdba339e
+TRANSP:TRANSPARENT
+URL:https://www.slb-saarland.com/zahlen-daten-fakten/termine/newsdetail-te
+ rmine?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_
+ news_pi1%5Bnews%5D=14734&cHash=efbf42cd2e9388e26b5286fbbdba339e
+END:VEVENT
+END:VCALENDAR

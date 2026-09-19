@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-17-roderhof-benefiz-lauf-5-2km-diekholzen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:17. Röderhof-Benefiz-Lauf – 5\,2 km Lauf
+LOCATION:Diekholzen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://roederhof-be
+ nefiz-lauf.de
+TRANSP:TRANSPARENT
+URL:https://roederhof-benefiz-lauf.de
+END:VEVENT
+END:VCALENDAR

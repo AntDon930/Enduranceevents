@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-18-bickendorfer-budchenlauf-5km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:18. Bickendorfer Büdchenlauf – 5 km Volkslauf M/W U12 bis M/W 80
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.bickendorf
+ erbuedchenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.bickendorferbuedchenlauf.de/
+END:VEVENT
+END:VCALENDAR

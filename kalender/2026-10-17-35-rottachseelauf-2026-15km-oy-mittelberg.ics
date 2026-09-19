@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-35-rottachseelauf-2026-15km-oy-mittelberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:35. Rottachseelauf 2026
+LOCATION:Oy-Mittelberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.tsvpeters
+ thal.de/Rottachseelauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsvpetersthal.de/Rottachseelauf/
+END:VEVENT
+END:VCALENDAR

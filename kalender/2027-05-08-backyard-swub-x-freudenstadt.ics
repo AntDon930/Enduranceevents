@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-backyard-swub-x-freudenstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Backyard SWUB – 6\,708 km pro Runde beim SWUB\; 24 Stunden ergeben
+  100 Meilen.
+LOCATION:Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://neckarlau
+ f.com/schwarzwaldultra-backyard.html
+TRANSP:TRANSPARENT
+URL:https://neckarlauf.com/schwarzwaldultra-backyard.html
+END:VEVENT
+END:VCALENDAR

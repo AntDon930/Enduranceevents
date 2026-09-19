@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-rodenbacher-lauftag-5km-rodenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Rodenbacher Lauftag – 5 km Straßenlauf
+LOCATION:Rodenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ssc-hanau-rode
+ nbach.de/?page_id=196
+TRANSP:TRANSPARENT
+URL:https://ssc-hanau-rodenbach.de/?page_id=196
+END:VEVENT
+END:VCALENDAR

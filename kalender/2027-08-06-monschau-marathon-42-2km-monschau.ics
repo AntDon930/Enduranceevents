@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-06-monschau-marathon-42-2km-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270809
+SUMMARY:Monschau Marathon – 42\,195 km Marathon
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://monschau-ma
+ rathon.de/
+TRANSP:TRANSPARENT
+URL:https://monschau-marathon.de/
+END:VEVENT
+END:VCALENDAR

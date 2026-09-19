@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-25-spreewald-marathon-42-2km-burg-im-spreewald@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:25. Spreewald Marathon
+LOCATION:Burg im Spreewald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.Spreewal
+ dMarathon.de
+TRANSP:TRANSPARENT
+URL:http://www.SpreewaldMarathon.de
+END:VEVENT
+END:VCALENDAR

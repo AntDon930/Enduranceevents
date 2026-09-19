@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-marathon-rund-um-den-falkenstein-21-1km-inzell@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Marathon Rund um den Falkenstein – Halbmarathon
+LOCATION:Inzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
+ lt.com/413192/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/413192/
+END:VEVENT
+END:VCALENDAR

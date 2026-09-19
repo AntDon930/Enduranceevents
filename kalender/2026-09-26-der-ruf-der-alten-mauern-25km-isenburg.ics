@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-der-ruf-der-alten-mauern-25km-isenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260928
+SUMMARY:Der Ruf der alten Mauern – Der Pfad der alten Mauern – ca. 25 km
+LOCATION:Isenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25 km\nhttps://katjas-laufzei
+ t.de/der-ruf-der-alten-mauern-ausschreibung-2026/
+TRANSP:TRANSPARENT
+URL:https://katjas-laufzeit.de/der-ruf-der-alten-mauern-ausschreibung-2026
+ /
+END:VEVENT
+END:VCALENDAR

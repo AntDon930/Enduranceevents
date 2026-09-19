@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-wunnebad-swim-run-x-winnenden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Wunnebad Swim&Run
+LOCATION:Winnenden\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttps://wunnebad-swim
+ -run.de/
+TRANSP:TRANSPARENT
+URL:https://wunnebad-swim-run.de/
+END:VEVENT
+END:VCALENDAR

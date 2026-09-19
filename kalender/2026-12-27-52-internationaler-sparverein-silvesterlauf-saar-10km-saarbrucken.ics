@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-27-52-internationaler-sparverein-silvesterlauf-saar-10km-saarb
+ rucken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261227
+DTEND;VALUE=DATE:20261228
+SUMMARY:52. Internationaler Sparverein Silvesterlauf Saarbrücken
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.silvester
+ lauf-sb.de/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf-sb.de/
+END:VEVENT
+END:VCALENDAR

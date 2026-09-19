@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-rhon-grabfeld-cup-hollstadt-10km-hollstadt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Rhön-Grabfeld-Cup – Hollstadt – 10\,0 km Hobbylauf / Walking
+LOCATION:Hollstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rhoengrabfeld
+ cup.de/event/hollstadt-2/
+TRANSP:TRANSPARENT
+URL:https://rhoengrabfeldcup.de/event/hollstadt-2/
+END:VEVENT
+END:VCALENDAR

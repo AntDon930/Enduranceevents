@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-branitzer-parklauf-5km-cottbus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Branitzer Parklauf – 5 km Lauf
+LOCATION:Cottbus\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.cpl-ev.de/
+ html/veranstaltungen.htm
+TRANSP:TRANSPARENT
+URL:https://www.cpl-ev.de/html/veranstaltungen.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-herbert-furbock-lauf-21km-muhltal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Herbert-Fürböck-Lauf – 21 km Halbmarathon\, ab 16 Jahren
+LOCATION:Mühltal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.svtraisa.
+ de/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.svtraisa.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

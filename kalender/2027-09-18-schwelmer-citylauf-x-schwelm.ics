@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-schwelmer-citylauf-x-schwelm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Schwelmer Citylauf
+LOCATION:Schwelm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://citylauf.roteerde
+ .de
+TRANSP:TRANSPARENT
+URL:https://citylauf.roteerde.de
+END:VEVENT
+END:VCALENDAR

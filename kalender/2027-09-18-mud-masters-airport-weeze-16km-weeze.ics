@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-mud-masters-airport-weeze-16km-weeze@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:Mud Masters - Airport Weeze
+LOCATION:Weeze\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://mudmasters.co
+ m/nl/event/airport-weeze-2027
+TRANSP:TRANSPARENT
+URL:https://mudmasters.com/nl/event/airport-weeze-2027
+END:VEVENT
+END:VCALENDAR

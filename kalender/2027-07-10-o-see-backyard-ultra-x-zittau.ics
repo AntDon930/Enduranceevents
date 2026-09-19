@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-o-see-backyard-ultra-x-zittau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270714
+SUMMARY:O-SEE Backyard Ultra
+LOCATION:Zittau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://o-see-bac
+ kyard.de/
+TRANSP:TRANSPARENT
+URL:https://o-see-backyard.de/
+END:VEVENT
+END:VCALENDAR

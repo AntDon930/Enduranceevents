@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-chemnitzer-indoor-triathlon-x-chemnitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270322
+SUMMARY:Chemnitzer Indoor Triathlon
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: -\nhttps://www.triathlonc
+ hemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-tri
+ athlon/
+END:VEVENT
+END:VCALENDAR

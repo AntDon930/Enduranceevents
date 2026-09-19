@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-22-darss-marathon-42-2km-wieck-darss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:22. Darss Marathon
+LOCATION:Wieck/Darss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.darss-ma
+ rathon.de
+TRANSP:TRANSPARENT
+URL:http://www.darss-marathon.de
+END:VEVENT
+END:VCALENDAR

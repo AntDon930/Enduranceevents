@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-15-ohmbachsee-halbmarathon-21-1km-brucken@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:15. Ohmbachsee Halbmarathon – Halbmarathon
+LOCATION:Brücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lg-ohmb
+ achsee.de/
+TRANSP:TRANSPARENT
+URL:https://www.lg-ohmbachsee.de/
+END:VEVENT
+END:VCALENDAR

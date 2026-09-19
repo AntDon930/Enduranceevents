@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-spreewald-duathlon-x-lubbenau-spreewald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Spreewald Duathlon
+LOCATION:Lübbenau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.spreewal
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

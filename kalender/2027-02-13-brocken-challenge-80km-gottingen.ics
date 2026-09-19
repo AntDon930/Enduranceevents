@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-13-brocken-challenge-80km-gottingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:Brocken-Challenge
+LOCATION:Göttingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 80 km\nhttps://www.brocken-c
+ hallenge.de/
+TRANSP:TRANSPARENT
+URL:https://www.brocken-challenge.de/
+END:VEVENT
+END:VCALENDAR

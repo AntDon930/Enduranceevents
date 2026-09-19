@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-mo-pla-neuseenman-x-grafenhainichen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270531
+SUMMARY:mo.pla neuseenMAN
+LOCATION:Gräfenhainichen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://neuseenman.maxima
+ lpuls.com/
+TRANSP:TRANSPARENT
+URL:https://neuseenman.maximalpuls.com/
+END:VEVENT
+END:VCALENDAR

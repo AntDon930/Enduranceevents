@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-internationaler-biesfelder-dorflauf-9-2km-kurten@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Internationaler Biesfelder Dorflauf – 9\,2 km Dorflauf Xtreme mit 
+ Gemeindemeisterschaftswertung
+LOCATION:Kürten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttps://union-biesfe
+ ld-triathlon.de/internationaler-biesfelder-dorflauf/
+TRANSP:TRANSPARENT
+URL:https://union-biesfeld-triathlon.de/internationaler-biesfelder-dorflau
+ f/
+END:VEVENT
+END:VCALENDAR

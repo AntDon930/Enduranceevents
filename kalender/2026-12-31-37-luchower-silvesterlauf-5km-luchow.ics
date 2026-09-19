@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-37-luchower-silvesterlauf-5km-luchow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:37. Lüchower Silvesterlauf
+LOCATION:Lüchow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sc-luechow
+ .de/de/sportangebot/sportangebote-und-abteilungen/leichtathletik/sportkal
+ ender/
+TRANSP:TRANSPARENT
+URL:https://www.sc-luechow.de/de/sportangebot/sportangebote-und-abteilunge
+ n/leichtathletik/sportkalender/
+END:VEVENT
+END:VCALENDAR

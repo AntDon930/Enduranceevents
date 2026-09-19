@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-mazdalauf-eilenburg-5km-eilenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Mazdalauf Eilenburg – 5 km Lauf
+LOCATION:Eilenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mazdalauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://www.mazdalauf.de/
+END:VEVENT
+END:VCALENDAR

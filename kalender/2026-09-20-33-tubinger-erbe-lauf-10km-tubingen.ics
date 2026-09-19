@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-33-tubinger-erbe-lauf-10km-tubingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:33. Tübinger Erbe-Lauf
+LOCATION:Tübingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tuebinger
+ -erbe-lauf.de
+TRANSP:TRANSPARENT
+URL:https://www.tuebinger-erbe-lauf.de
+END:VEVENT
+END:VCALENDAR

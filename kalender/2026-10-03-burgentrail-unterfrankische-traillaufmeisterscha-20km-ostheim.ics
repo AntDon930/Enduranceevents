@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-burgentrail-unterfrankische-traillaufmeisterscha-20km-osthe
+ im@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Burgentrail Unterfränkische Traillaufmeisterschaften
+LOCATION:Ostheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://sc-ostheim.de/
+ burgentrail/
+TRANSP:TRANSPARENT
+URL:https://sc-ostheim.de/burgentrail/
+END:VEVENT
+END:VCALENDAR

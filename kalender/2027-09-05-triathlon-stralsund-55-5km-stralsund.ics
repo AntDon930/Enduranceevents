@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-triathlon-stralsund-55-5km-stralsund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Triathlon Stralsund – Olympische Distanz
+LOCATION:Stralsund\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 55.5 km\nhttps://stralsun
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://stralsund-triathlon.de/
+END:VEVENT
+END:VCALENDAR

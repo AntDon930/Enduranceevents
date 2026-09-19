@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-22-2-aok-firmenlauf-in-haslach-im-kinzigtal-5km-haslach@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+SUMMARY:2. AOK Firmenlauf in Haslach im Kinzigtal – 5 km Hauptlauf
+LOCATION:Haslach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://haslach.bw-runn
+ ing.de
+TRANSP:TRANSPARENT
+URL:http://haslach.bw-running.de
+END:VEVENT
+END:VCALENDAR

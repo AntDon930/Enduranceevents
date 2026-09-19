@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-14-int-weihnachts-crosslauf-16km-borgholzhausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261215
+SUMMARY:Int. Weihnachts-Crosslauf
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttp://www.lcsolbad.de
+TRANSP:TRANSPARENT
+URL:http://www.lcsolbad.de
+END:VEVENT
+END:VCALENDAR

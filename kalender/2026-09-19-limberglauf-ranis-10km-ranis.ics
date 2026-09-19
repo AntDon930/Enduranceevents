@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-limberglauf-ranis-10km-ranis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Limberglauf Ranis – 10 km Crosslauf (ab Jahrgang 2010)
+LOCATION:Ranis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttp://www.tsv1860rani
+ s.de/seite/700360/laufsport.html
+TRANSP:TRANSPARENT
+URL:http://www.tsv1860ranis.de/seite/700360/laufsport.html
+END:VEVENT
+END:VCALENDAR

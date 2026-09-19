@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-03-swb-marathon-bremen-10km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+SUMMARY:swb-Marathon Bremen – 10 km HIRSCH-10km Lauf\, Männer und Frauen\,
+  2015 und älter
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
+ om/event/overview/22-swb-marathon-bremen-2027
+TRANSP:TRANSPARENT
+URL:https://www.davengo.com/event/overview/22-swb-marathon-bremen-2027
+END:VEVENT
+END:VCALENDAR

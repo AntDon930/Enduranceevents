@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-gemeinsam-sind-wir-pink-8km-bad-bruckenau@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Gemeinsam sind wir PINK
+LOCATION:Bad Brückenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://gemeinsam-sind
+ -wir-pink.de/
+TRANSP:TRANSPARENT
+URL:https://gemeinsam-sind-wir-pink.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-ahmadiyya-charity-walk-riedstadt-goddelau-5km-riedstadt@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Ahmadiyya Charity Walk Riedstadt-Goddelau
+LOCATION:Riedstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://charitywalk.de
+ /events/4-ahmadiyya-charity-walk-riedstadt-goddelau
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/4-ahmadiyya-charity-walk-riedstadt-godde
+ lau
+END:VEVENT
+END:VCALENDAR

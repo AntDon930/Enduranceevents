@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-otillo-rugen-germany-7km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:ÖTILLÖ Rügen Germany
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://otilloswimrun.
+ com/races/rugen-germany/
+TRANSP:TRANSPARENT
+URL:https://otilloswimrun.com/races/rugen-germany/
+END:VEVENT
+END:VCALENDAR

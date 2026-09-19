@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-nordseeman-nordseewoman-x-wilhelmshaven@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270809
+SUMMARY:NordseeMan & NordseeWoman
+LOCATION:Wilhelmshaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://nordseeman.de/
+TRANSP:TRANSPARENT
+URL:https://nordseeman.de/
+END:VEVENT
+END:VCALENDAR

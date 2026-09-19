@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-plopsa-nikolauslauf-hassloch-by-lch-5km-hassloch@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Plopsa Nikolauslauf Haßloch by LCH
+LOCATION:Haßloch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lc-hassloch.de
+ /plopsa-nikolauslauf-by-lch/
+TRANSP:TRANSPARENT
+URL:https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/
+END:VEVENT
+END:VCALENDAR

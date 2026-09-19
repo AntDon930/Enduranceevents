@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-dorenther-klippen-ultratrail-23km-ibbenburen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Dörenther Klippen UltraTrail
+LOCATION:Ibbenbüren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 23 km\nhttps://ultra-uwe-unte
+ rwegs.de/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/
+END:VEVENT
+END:VCALENDAR

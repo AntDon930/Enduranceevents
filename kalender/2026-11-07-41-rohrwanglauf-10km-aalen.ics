@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-41-rohrwanglauf-10km-aalen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:41. Rohrwanglauf
+LOCATION:Aalen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://rohrwanglauf.d
+ e/
+TRANSP:TRANSPARENT
+URL:http://rohrwanglauf.de/
+END:VEVENT
+END:VCALENDAR

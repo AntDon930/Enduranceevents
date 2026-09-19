@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-2-fischhoflauf-5-6km-tirschenreuth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:2. Fischhoflauf
+LOCATION:Tirschenreuth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.sportpro
+ gramme.org/cakespg/events/menue/5037
+TRANSP:TRANSPARENT
+URL:https://www.sportprogramme.org/cakespg/events/menue/5037
+END:VEVENT
+END:VCALENDAR

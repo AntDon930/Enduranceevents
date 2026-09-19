@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-lichtenauer-wildschutz-klostermannlauf-21-1km-lichtenau@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Lichtenauer Wildschütz Klostermannlauf – 21\,1 km Halbmarathon
+LOCATION:Lichtenau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.vfl-lic
+ htenau.de/klostermannlauf/
+TRANSP:TRANSPARENT
+URL:https://www.vfl-lichtenau.de/klostermannlauf/
+END:VEVENT
+END:VCALENDAR

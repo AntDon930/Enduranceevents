@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-landgrafenlauf-jena-11km-jena@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Landgrafenlauf - Jena
+LOCATION:Jena\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.landgrafe
+ nverein-jena.de/news
+TRANSP:TRANSPARENT
+URL:https://www.landgrafenverein-jena.de/news
+END:VEVENT
+END:VCALENDAR

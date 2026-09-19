@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-79-viersener-herbstwaldlauf-rund-um-den-bismarck-7-2km-vier
+ sen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:79. Viersener Herbstwaldlauf Rund um den Bismarckturm
+LOCATION:Viersen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://lgviersen.de
+ /
+TRANSP:TRANSPARENT
+URL:https://lgviersen.de/
+END:VEVENT
+END:VCALENDAR

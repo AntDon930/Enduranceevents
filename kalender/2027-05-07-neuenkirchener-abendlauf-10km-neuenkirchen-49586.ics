@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-neuenkirchener-abendlauf-10km-neuenkirchen-49586@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Neuenkirchener Abendlauf – 10 km Straße für Jugend\, Aktive und Ma
+ sters
+LOCATION:Neuenkirchen\, 49586\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
+ hreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirc
+ hen-bei-Bramsche.htm
+END:VEVENT
+END:VCALENDAR

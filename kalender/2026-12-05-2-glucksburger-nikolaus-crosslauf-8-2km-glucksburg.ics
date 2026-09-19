@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-2-glucksburger-nikolaus-crosslauf-8-2km-glucksburg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:2. Glücksburger Nikolaus-Crosslauf
+LOCATION:Glücksburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.2 km\nhttps://my.raceresult
+ .com/394430/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/394430/
+END:VEVENT
+END:VCALENDAR

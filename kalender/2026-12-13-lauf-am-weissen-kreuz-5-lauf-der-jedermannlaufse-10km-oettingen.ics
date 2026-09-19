@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-lauf-am-weissen-kreuz-5-lauf-der-jedermannlaufse-10km-oetti
+ ngen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Lauf am Weißen Kreuz - 5. Lauf der Jedermannlaufserie
+LOCATION:Oettingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/26V02000739360001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V02000739360001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-bodensee-openwater-wallhausen-2-5km-wallhausen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Bodensee Openwater Wallhausen – Q2\,5
+LOCATION:Wallhausen\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2.5 km\nhttps://www.b
+ odensee-openwater.com/
+TRANSP:TRANSPARENT
+URL:https://www.bodensee-openwater.com/
+END:VEVENT
+END:VCALENDAR

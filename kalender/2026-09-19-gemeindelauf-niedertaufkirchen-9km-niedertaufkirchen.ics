@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-19-gemeindelauf-niedertaufkirchen-9km-niedertaufkirchen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:Gemeindelauf Niedertaufkirchen – Hauptlauf 9 km
+LOCATION:Niedertaufkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.skiclub-nt
+ k.de/programm/gemeindelauf
+TRANSP:TRANSPARENT
+URL:https://www.skiclub-ntk.de/programm/gemeindelauf
+END:VEVENT
+END:VCALENDAR

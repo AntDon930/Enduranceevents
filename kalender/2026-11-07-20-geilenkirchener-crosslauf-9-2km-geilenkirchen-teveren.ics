@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-20-geilenkirchener-crosslauf-9-2km-geilenkirchen-teveren@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:20. Geilenkirchener Crosslauf
+LOCATION:Geilenkirchen-Teveren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.2 km\nhttps://www.atvgeilen
+ kirchen.de/index.php/me-cross
+TRANSP:TRANSPARENT
+URL:https://www.atvgeilenkirchen.de/index.php/me-cross
+END:VEVENT
+END:VCALENDAR

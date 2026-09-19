@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-20-schuster-tegernseelauf-10km-tegernsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:Schuster Tegernseelauf
+LOCATION:Tegernsee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tegernseelauf
+ .de/
+TRANSP:TRANSPARENT
+URL:https://tegernseelauf.de/
+END:VEVENT
+END:VCALENDAR
