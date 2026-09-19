@@ -44,7 +44,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
-| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** (raceresult-Kontaktseite, externe Links der Seite), prüft jede Kandidatenseite am Namen und schreibt erst einen Bericht (`sammeln`), dann Overrides + Protokoll (`anwenden`); `pruefen` ruft eigene Seiten ab (tot? nennt den Lauf?) |
+| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen, siehe „Neunter Durchgang" |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -972,6 +972,82 @@ dort bereits als 404 bzw. leere Domain abgelegt. **Vor jeder
 Linkarbeit `links_geprueft.json` UND `geprueft.json` filtern**, nicht
 nur eines von beiden. 225 raceresult-Veranstaltungen sind noch ganz
 ungeprüft (Punkt 10).
+
+### Neunter Durchgang: die Veranstalterseite hinter Zeitnehmer- und Portallinks (19.09.2026)
+
+Auf Wunsch des Nutzers („zieh die anderen Zeitnehmer genauso nach … check
+ob es ein Link zu der offiziellen Webseite gibt, so viele wie möglich
+seriös"). Dafür gibt es jetzt `scripts/veranstalter_links.py` mit vier
+Modi, alle ohne Raten – übernommen wird nur, was die Zielseite am
+Namen des Laufs belegt (`nennt_den_lauf()`: ein unverwechselbares
+Wort des Namens im Text oder im Hostnamen, oder das Datum):
+
+| Modus | tut | Ergebnis |
+|---|---|---|
+| `sammeln --bericht` | ruft jeden Portallink ab (raceresult: die `/contact`-Seite, sonst die externen Links der Seite), prüft jede Kandidatenseite | 404 Veranstaltungen: **95 gefunden**, 3 abgelehnt, 267 unklar, 32 `link_ok` |
+| `pruefen --bericht` | ruft die EIGENEN Veranstalterseiten ab (tot? nennt den Lauf?) | 1.247 Seiten, 1.110 in Ordnung, **4 Adressen korrigiert** |
+| `verifizieren --kandidaten <json> --bericht` | prüft Adressen aus einer **Websuche** (Handarbeit) mit derselben Regel | 122 Veranstaltungen: **81 gefunden**, 41 unklar |
+| `anwenden --bericht [--auch-geprueft]` | schreibt Overrides (`veranstalter_url` + `_note`) und `links_geprueft.json` | – |
+
+Zusammen mit dem achten Durchgang fallen die Portalzeilen damit von
+847 auf **566** (695 vor der Websuche). Was übrig ist, sind fast nur
+noch Veranstaltungen, die **wirklich keine eigene Seite haben**:
+private Ultra-Serien mit raceresult als einziger Adresse (Uwe Laig
+rund um Ibbenbüren/Osnabrück – Dörenther Klippen, Silbersee-Hüggel,
+Wassermühlen, Gut Sutthausen, Sloopsteener, Mühlenweg, Holter Wald,
+Mops-Ultra …; die Bremer Marathons von Bergmarathon bis Zeitsprung;
+Fun & Erlebnis Marathons; SOBVL und „Wir wollen doch nur laufen" in
+Berlin; Speck-weg-Serie; Northeimer Heiligabend-/Neujahrsmarathon),
+dazu Vereine, deren Seite den Lauf nicht nennt (`unklar`).
+
+Sechs Lektionen aus dem Bau, alle im Code festgehalten:
+
+1. **Ortsnamen zählen nur im Hostnamen.** Die erste Fassung nahm
+   „Cross", „Martin" oder den Ort als Beleg – und fand damit die
+   Stadtverwaltung, den Sportladen und den Ergebnisdienst. Jetzt:
+   Namenswörter ab fünf Buchstaben außerhalb der `ALLGEMEIN`-Liste,
+   der Ort nur, wenn er im Hostnamen steckt (`tsg-giengen.de`).
+2. **Ergebnisdienste und Karten sind keine Veranstalter**
+   (`KEIN_VERANSTALTER`: live-results.de, ddmess.de, sportstiming,
+   maximalpuls.com, yumpu, stay22 …; `KEIN_VERANSTALTER_PFAD`:
+   Datenschutz/Impressum/AGB/Cookie-Seiten). **Ausnahme von Hand**:
+   `leipzigrun.maximalpuls.com` IST die Veranstaltungsseite – die
+   maximalPULS GmbH veranstaltet den Leipzig Run selbst. Steht als
+   Override mit Begründung, nicht als Regel.
+3. **Ein tröpfelnder Server hängt das Skript 20 Minuten.** Der
+   `Abrufer` liest gestreamt mit 30-s-Frist und 2-MB-Grenze, hält 2 s
+   Pause je Host, respektiert robots.txt, und `--fortsetzen` führt
+   einen Bericht weiter. `ironman.com` steht in `NIE_ABRUFEN`.
+4. **Die Websuche ist Handarbeit, die Prüfung nicht.** Eine
+   gefundene Adresse landet nie direkt in den Daten; `verifizieren`
+   ruft sie ab und lässt dieselbe Regel entscheiden. 41 von 122
+   Kandidaten fielen dabei durch – meist Vereinsseiten, die den Lauf
+   nur in einem Menüpunkt oder als Bild führen (TSG Dülmen, TSG
+   Schnaitheim, SG Bad Schönborn, LG Nordheide). Die Adresse steht
+   dann in der `unklar`-Notiz, für einen zweiten Blick.
+5. **Das Budget für Websuchen ist endlich** (200 je Sitzung). 122 der
+   309 offenen Fälle waren damit drin. Für die Fortsetzung: `python3
+   scripts/veranstalter_links.py sammeln` erneut laufen lassen, dann nur
+   die `unklar`-Fälle ohne Notiz „Websuche" suchen. Serien (siehe
+   oben) lohnen die Suche nicht.
+6. **`anwenden` braucht `--auch-geprueft`, wenn `sammeln` dieselben
+   Schlüssel schon als `unklar` eingetragen hat** – sonst werden 0
+   Overrides geschrieben, ohne Fehlermeldung. Die Notiz sagt dann
+   „per Websuche gefunden (nicht auf der Portalseite verlinkt)".
+
+Nebenbefunde (alle in `geprueft.json`): **Österberg 333** ist ein
+Bergsprint über 333 m (Länge 0,3 km eingetragen, fällt über Datenregel 5
+heraus), **Klaar Kiming Throwdown** ein CrossFit-Wettkampf (`exclude`,
+dieselbe Klasse wie HYROX), der **13. Alstätter Sandhasenlauf 2030**
+eine DLV-Serienprognose drei Jahre voraus mit toter Quellseite
+(`exclude`). Offen als `unklar`: Silvesterlauf Amberg steht bei uns
+in Kallmünz, Kalender nennen den Marktplatz Amberg (25 km); Hainberglauf
+laut Kalendern 4,8 statt 5 km (Veranstalterseite 503); **Runworx**
+(5-km-Hindernislauf plus Kraft-WOD) gehört wahrscheinlich in die
+HYROX-Klasse – Punkt 14. Und ein neues Meisterschaft-im-Rahmen-Paar:
+„Rennbahncross in Herxheim" und „Rennbahncross mit
+rheinland-pfälzischen Crosslaufmeisterschaften" (15.11.2026, dieselbe
+Seite) – Punkt 12.
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
@@ -2296,7 +2372,9 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
 
 12. **Ergebnisse der Linkprüfung** (19.09.2026, siehe „Vierter
    Durchgang"): sechs Duplikate unter zwei Namen zusammenführen oder
-   ausschließen? Bordesholmer SEE&RUN 2026 (abgesagt), Wiehenläufer und
+   ausschließen? Dazu aus dem neunten Durchgang: „Rennbahncross in
+   Herxheim" / „Rennbahncross mit rheinland-pfälzischen
+   Crosslaufmeisterschaften" (15.11.2026, dieselbe Seite). Bordesholmer SEE&RUN 2026 (abgesagt), Wiehenläufer und
    Crosslauf Jüchen ausschließen? Und `raceresult_kontakt.py` (Punkt 10)
    lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
    Organizer-URL.
@@ -2334,6 +2412,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      „Ja HYROX ausschließen"): Gymrace und Decathlon Hybrid Series stehen
      in `NICHT_AUSDAUER`, drei Zeilen sind heraus. Die Spenden-, Schul-
      und Spaßformate darunter und darüber bleiben offen.
+     **Nachzügler (19.09.2026, neunter Durchgang)**: „Runworx" in
+     Vogtei (31.10.2026) ist laut runworx.de ein 5-km-Hindernislauf mit
+     anschließendem Kraft-WOD im Gym – dieselbe Klasse; steht als
+     `unklar` im Protokoll, weil eine weitere `NICHT_AUSDAUER`-Zeile
+     ohne Ja des Nutzers nicht dazukommt. Der „Klaar Kiming Throwdown"
+     (Bredstedt, 24.04.2027) ist dagegen ein reiner CrossFit-Wettkampf
+     ohne Lauf und per `exclude` heraus.
    - **Spaßformate**: Schweiger Tragathlon (Bierkasten-Tragen in
      Viererteams), The Quest Auwald (Checkpoint-Jagd über 2/3 h,
      Strecke frei), Pace Race Nürnberg („Social Racing"-Arena).
