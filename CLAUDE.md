@@ -986,11 +986,11 @@ Wort des Namens im Text oder im Hostnamen, oder das Datum):
 |---|---|---|
 | `sammeln --bericht` | ruft jeden Portallink ab (raceresult: die `/contact`-Seite, sonst die externen Links der Seite), prüft jede Kandidatenseite | 404 Veranstaltungen: **95 gefunden**, 3 abgelehnt, 267 unklar, 32 `link_ok` |
 | `pruefen --bericht` | ruft die EIGENEN Veranstalterseiten ab (tot? nennt den Lauf?) | 1.247 Seiten, 1.110 in Ordnung, **4 Adressen korrigiert** |
-| `verifizieren --kandidaten <json> --bericht` | prüft Adressen aus einer **Websuche** (Handarbeit) mit derselben Regel | 122 Veranstaltungen: **81 gefunden**, 41 unklar |
+| `verifizieren --kandidaten <json> --bericht` | prüft Adressen aus einer **Websuche** (Handarbeit) mit derselben Regel | 122 Veranstaltungen: **88 gefunden**, 34 unklar |
 | `anwenden --bericht [--auch-geprueft]` | schreibt Overrides (`veranstalter_url` + `_note`) und `links_geprueft.json` | – |
 
 Zusammen mit dem achten Durchgang fallen die Portalzeilen damit von
-847 auf **566** (695 vor der Websuche). Was übrig ist, sind fast nur
+847 auf **555** (695 vor der Websuche). Was übrig ist, sind fast nur
 noch Veranstaltungen, die **wirklich keine eigene Seite haben**:
 private Ultra-Serien mit raceresult als einziger Adresse (Uwe Laig
 rund um Ibbenbüren/Osnabrück – Dörenther Klippen, Silbersee-Hüggel,
@@ -1007,6 +1007,14 @@ Sechs Lektionen aus dem Bau, alle im Code festgehalten:
    Stadtverwaltung, den Sportladen und den Ergebnisdienst. Jetzt:
    Namenswörter ab fünf Buchstaben außerhalb der `ALLGEMEIN`-Liste,
    der Ort nur, wenn er im Hostnamen steckt (`tsg-giengen.de`).
+   **Aber**: Der Ort im Hostnamen ist auch die Stadt-Homepage –
+   `niedenstein.de` nennt den Panoramalauf im Namen, Veranstalter ist
+   die SG Chattengau. Eine Kandidatenadresse aus der Websuche muss
+   deshalb schon die des VERANSTALTERS sein; die Regel prüft nur, ob
+   die Seite den Lauf nennt, nicht, wem sie gehört. Und **Umlaute im
+   Host**: „Dülmen" heißt `tsg-duelmen.de` – `host_woerter()` prüft
+   seit dem 19.09.2026 beide Schreibweisen (sieben Treffer mehr;
+   `test_veranstalter_links` hält es fest).
 2. **Ergebnisdienste und Karten sind keine Veranstalter**
    (`KEIN_VERANSTALTER`: live-results.de, ddmess.de, sportstiming,
    maximalpuls.com, yumpu, stay22 …; `KEIN_VERANSTALTER_PFAD`:
@@ -1021,9 +1029,11 @@ Sechs Lektionen aus dem Bau, alle im Code festgehalten:
 4. **Die Websuche ist Handarbeit, die Prüfung nicht.** Eine
    gefundene Adresse landet nie direkt in den Daten; `verifizieren`
    ruft sie ab und lässt dieselbe Regel entscheiden. 41 von 122
-   Kandidaten fielen dabei durch – meist Vereinsseiten, die den Lauf
-   nur in einem Menüpunkt oder als Bild führen (TSG Dülmen, TSG
-   Schnaitheim, SG Bad Schönborn, LG Nordheide). Die Adresse steht
+   Kandidaten fielen zunächst durch – meist Vereinsseiten, die den
+   Lauf nur in einem Menüpunkt oder als Bild führen (SG Bad Schönborn,
+   TSV Hasede, HSG Uni Greifswald), oder tote Unterseiten (404);
+   sieben davon holte ein zweiter Anlauf mit der Startseite bzw. der
+   Umlaut-Schreibweise des Hosts. Die Adresse steht
    dann in der `unklar`-Notiz, für einen zweiten Blick.
 5. **Das Budget für Websuchen ist endlich** (200 je Sitzung). 122 der
    309 offenen Fälle waren damit drin. Für die Fortsetzung: `python3

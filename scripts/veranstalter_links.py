@@ -105,6 +105,23 @@ def namens_woerter(name: str) -> list[str]:
     return [w for w in re.findall(r"[a-z]{5,}", norm(name)) if w not in ALLGEMEIN]
 
 
+_UMLAUTE = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "Ä": "ae", "Ö": "oe", "Ü": "ue", "ß": "ss"})
+
+
+def host_woerter(name: str) -> list[str]:
+    """Die Namenswörter in BEIDEN Schreibweisen, die ein Hostname haben kann.
+
+    `norm()` macht aus „Dülmen" `dulmen` - der Verein heißt aber
+    `tsg-duelmen.de`, und `lgruelzheim.de`, `lc-jueterbog.de`,
+    `kyffhaeuser-berglauf.de` genauso. Ohne die ue/oe/ae-Variante fand
+    `nennt_den_lauf()` diese Seiten nicht (neunter Durchgang, 19.09.2026)."""
+    woerter = list(namens_woerter(name))
+    for w in namens_woerter(name.translate(_UMLAUTE)):
+        if w not in woerter:
+            woerter.append(w)
+    return woerter
+
+
 def host_von(url: str) -> str:
     try:
         h = urlparse(url if "://" in url else "http://" + url).netloc.lower()
@@ -210,10 +227,11 @@ def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
     ortswoerter = {w for o in orte for w in re.findall(r"[a-z]{4,}", norm(o))}
     treffer = []
     for nm in namen:
+        host_hit = next((w for w in host_woerter(nm) if w in hostn), None)
+        if host_hit:
+            treffer.insert(0, "host:" + host_hit)
+            continue
         for w in namens_woerter(nm):
-            if w in hostn:
-                treffer.insert(0, "host:" + w)
-                break
             if w in txt and w not in ortswoerter:
                 treffer.append(w)
                 break

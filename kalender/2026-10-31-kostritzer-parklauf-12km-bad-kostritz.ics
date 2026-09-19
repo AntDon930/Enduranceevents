@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Köstritzer Parklauf
 LOCATION:Bad Köstritz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://ladv.de/aussc
- hreibung/detail/45725/K%C3%B6stritzer-Parklauf-Bad-K%C3%B6stritz.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.lav-elste
+ rtal.de/Wettkampf/Wettkampfkalender
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/45725/K%C3%B6stritzer-Parklauf-Ba
- d-K%C3%B6stritz.htm
+URL:https://www.lav-elstertal.de/Wettkampf/Wettkampfkalender
 END:VEVENT
 END:VCALENDAR

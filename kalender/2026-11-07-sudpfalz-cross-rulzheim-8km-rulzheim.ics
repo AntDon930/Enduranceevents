@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Südpfalz Cross Rülzheim
 LOCATION:Rülzheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://runtix.com/sts/
- 10021/3220
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.lgruelzheim.
+ de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3220
+URL:http://www.lgruelzheim.de/
 END:VEVENT
 END:VCALENDAR

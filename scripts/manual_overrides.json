@@ -3017,5 +3017,33 @@
   "Klaar Kiming Throwdown|2027-04-24": {
     "exclude": true,
     "_note": "CrossFit-Throwdown von Klaar Kiming Sports Performance (my.raceresult.com/397041, 19.09.2026: Movement Book, keine Laufdistanz) - dieselbe Klasse wie HYROX/Gymrace (vom Nutzer am 19.09.2026 ausgeschlossen), kein Lauf."
+  },
+  "Nikolauslauf der TSG Schnaitheim|2026-12-05": {
+    "veranstalter_url": "https://www.tsg-schnaitheim.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsg-schnaitheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schnaitheim). Linkprüfung 2026-09-19."
+  },
+  "Nikolauslauf der TSG Dülmen|2026-12-05": {
+    "veranstalter_url": "https://www.tsg-duelmen.de/de/sport/leichtathletik/termine--ausschreibungen/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsg-duelmen.de/de/sport/leichtathletik/termine--ausschreibungen/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:duelmen). Linkprüfung 2026-09-19."
+  },
+  "Halloweenlauf Buchen|2026-10-31": {
+    "veranstalter_url": "https://www.tsv-buchen.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.tsv-buchen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:buchen). Linkprüfung 2026-09-19."
+  },
+  "Südpfalz Cross Rülzheim|2026-11-07": {
+    "veranstalter_url": "http://www.lgruelzheim.de/",
+    "_note": "Veranstalterseite statt runtix.com: http://www.lgruelzheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ruelzheim). Linkprüfung 2026-09-19."
+  },
+  "Spessart Silvester Trail|2026-12-31": {
+    "veranstalter_url": "https://www.crossdog.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.crossdog.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (spessart). Linkprüfung 2026-09-19."
+  },
+  "Martinslauf - Sankt Martin|2026-11-07": {
+    "veranstalter_url": "http://www.tus-sanktmartin.de/",
+    "_note": "Veranstalterseite statt runtix.com: http://www.tus-sanktmartin.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (martinslauf, datum). Linkprüfung 2026-09-19."
+  },
+  "Köstritzer Parklauf|2026-10-31": {
+    "veranstalter_url": "https://www.lav-elstertal.de/Wettkampf/Wettkampfkalender",
+    "_note": "Veranstalterseite statt ladv.de: https://www.lav-elstertal.de/Wettkampf/Wettkampfkalender - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kostritzer, datum). Linkprüfung 2026-09-19."
   }
 }

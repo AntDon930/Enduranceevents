@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Nikolauslauf der TSG Schnaitheim – 10 km Hauptlauf
 LOCATION:Schnaitheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/386008/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-schna
+ itheim.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/386008/
+URL:https://www.tsg-schnaitheim.de/
 END:VEVENT
 END:VCALENDAR

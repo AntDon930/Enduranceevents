@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Martinslauf - Sankt Martin – Hauptlauf
 LOCATION:Sankt Martin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://runtix.com/s
- ts/10021/3223
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttp://www.tus-sankt
+ martin.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3223
+URL:http://www.tus-sanktmartin.de/
 END:VEVENT
 END:VCALENDAR

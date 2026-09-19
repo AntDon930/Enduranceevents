@@ -1921,6 +1921,35 @@ def test_kalender_staging() -> None:
           'os.environ.get("GITHUB_ACTIONS")' in quelle, True)
 
 
+def test_veranstalter_links() -> None:
+    """Die Prüfregel von scripts/veranstalter_links.py: Eine Kandidatenseite
+    gilt nur, wenn sie den Lauf am Namen nennt (neunter Durchgang,
+    19.09.2026). Festgehalten werden die Gegenproben, die beim Bau
+    aufgetreten sind."""
+    import veranstalter_links as vl
+    # Umlaute im Hostnamen: „Dülmen" heißt im Netz tsg-duelmen.de.
+    assert "duelmen" in vl.host_woerter("Nikolauslauf der TSG Dülmen")
+    assert vl.nennt_den_lauf("<p>Termine</p>", "https://www.tsg-duelmen.de/de/sport/",
+                             ["Nikolauslauf der TSG Dülmen"], ["2026-12-05"], ["Dülmen"]) == ["host:duelmen"]
+    assert vl.nennt_den_lauf("<p>x</p>", "http://www.kyffhaeuser-berglauf.de/",
+                             ["Kyffhäuser Berglauf"], ["2027-04-10"], ["Bad Frankenhausen"]) == ["host:kyffhaeuser"]
+    # Der Ortsname zählt im TEXT nicht - sonst wäre jeder Laufshop der Stadt ein Treffer.
+    assert vl.nennt_den_lauf("<p>Laufschuhe in Leipzig kaufen</p>", "https://shop.example.de/",
+                             ["Leipzig Run"], ["2026-10-11"], ["Leipzig"]) == []
+    # Allgemeine Wörter („Herbstlauf", „Sparkasse") belegen nichts, ein unverwechselbares schon.
+    assert vl.nennt_den_lauf("<p>Herbstlauf der Sparkasse</p>", "https://example.de/",
+                             ["Sparkassen Herbstlauf"], ["2026-10-11"], ["Bayreuth"]) == []
+    assert vl.nennt_den_lauf("<p>Der Ingelheimer Polderlauf startet</p>", "https://www.polderlauf.de/",
+                             ["Ingelheimer Polderlauf"], ["2026-10-03"], ["Ingelheim am Rhein"])[0] == "host:polderlauf"
+    # Das Datum allein reicht als Beleg.
+    assert "datum" in vl.nennt_den_lauf("<p>Start am 03.10.2026</p>", "https://example.de/",
+                                        ["Lauf"], ["2026-10-03"], ["Ort"])
+    # Ergebnisdienste, Karten und Datenschutzseiten sind keine Veranstalter.
+    assert vl.kandidaten_url_normalisieren("https://www.sportstiming.dk/event/17605") is None
+    assert vl.kandidaten_url_normalisieren("https://example.de/datenschutz") is None
+    print("✓ Veranstalterseiten-Prüfung (Umlaut-Hosts, Ortswort, Allgemeinwörter, Datum, Fremd-Hosts)")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -1933,7 +1962,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer, test_laufen_weiterleitung, test_serientermin_im_label,
+                 test_nicht_ausdauer, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

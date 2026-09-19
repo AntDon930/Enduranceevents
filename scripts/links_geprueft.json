@@ -6144,7 +6144,7 @@
     "ergebnis": "unklar",
     "quelle": "time-and-voice.com",
     "alt": "https://time-and-voice.com/de/running/herbstlauf-2026",
-    "notiz": "Websuche nannte http://www.helmuturbach.de/herbstlauf.html, Seite nennt den Lauf nicht erkennbar (Status 200) - time-and-voice.com bleibt."
+    "notiz": "Websuche nannte http://www.helmuturbach.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - time-and-voice.com bleibt."
   },
   "Jenaer Kernberglauf|2026-10-17": {
     "am": "2026-09-19",
@@ -13865,7 +13865,7 @@
     "ergebnis": "unklar",
     "quelle": "sas-online.net",
     "alt": "https://www.sas-online.net/eventportal_bs/837/",
-    "notiz": "Websuche nannte https://numeas.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - sas-online.net bleibt."
+    "notiz": "Websuche nannte https://www.dzi.uk-erlangen.de/aktuelles/veranstaltungen/veranstaltungen/lauf-gegen-krebs-2026-9423/, Seite nennt den Lauf nicht erkennbar (Status 200) - sas-online.net bleibt."
   },
   "L³-Laatzen-Leinwiesen-Lauf|2026-10-10": {
     "am": "2026-09-19",
@@ -13963,7 +13963,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/362485/",
-    "notiz": "Websuche nannte https://www.hesselberg.de/events/hesselberglauf.html, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.hesselberg.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "EnergieSüdwest Cup|2026-10-11": {
     "am": "2026-09-19",
@@ -14054,7 +14054,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/392952/",
-    "notiz": "Websuche nannte https://sg-chattengau.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte nur die Stadt-Homepage niedenstein.de und den Laufcup selc.de; die Seite des Veranstalters SG Chattengau (sg-chattengau.de) nennt den Lauf nicht erkennbar - my.raceresult.com bleibt."
   },
   "24. Schloss Cross Laupheim|2026-10-17": {
     "am": "2026-09-19",
@@ -14394,10 +14394,10 @@
   },
   "Halloweenlauf Buchen|2026-10-31": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "ladv.de",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-buchen.de",
     "alt": "https://ladv.de/ausschreibung/detail/48792/Halloweenlauf-Stadtlauf-TSV-Buchen-2026-Buchen.htm",
-    "notiz": "Websuche nannte https://www.tsv-buchen.de/sparten/leichtathletik/eigene-wettkaempfe/halloweenlauf/, Seite nennt den Lauf nicht erkennbar (Status 404) - ladv.de bleibt."
+    "notiz": "Veranstalterseite statt ladv.de: https://www.tsv-buchen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:buchen). Linkprüfung 2026-09-19."
   },
   "Harzer Hexen-Rennen (HHR)|2026-10-31": {
     "am": "2026-09-19",
@@ -14422,10 +14422,10 @@
   },
   "Köstritzer Parklauf|2026-10-31": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "ladv.de",
+    "ergebnis": "korrigiert",
+    "quelle": "lav-elstertal.de",
     "alt": "https://ladv.de/ausschreibung/detail/45725/K%C3%B6stritzer-Parklauf-Bad-K%C3%B6stritz.htm",
-    "notiz": "Websuche nannte https://www.lav-elstertal.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - ladv.de bleibt."
+    "notiz": "Veranstalterseite statt ladv.de: https://www.lav-elstertal.de/Wettkampf/Wettkampfkalender - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kostritzer, datum). Linkprüfung 2026-09-19."
   },
   "Mühlhausener Spendenlauf|2026-10-31": {
     "am": "2026-09-19",
@@ -14467,7 +14467,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/374608/",
-    "notiz": "Websuche nannte https://tsv-nea.de/sparkassen-nachtlauf/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://tsv-nea.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Viadukt Ultramarathon|2026-11-01": {
     "am": "2026-09-19",
@@ -14499,10 +14499,10 @@
   },
   "Martinslauf - Sankt Martin|2026-11-07": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "runtix.com",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-sanktmartin.de",
     "alt": "https://runtix.com/sts/10021/3223",
-    "notiz": "Websuche nannte https://www.tus-sanktmartin.de/, Seite nennt den Lauf nicht erkennbar (Status fehler:ConnectionError) - runtix.com bleibt."
+    "notiz": "Veranstalterseite statt runtix.com: http://www.tus-sanktmartin.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (martinslauf, datum). Linkprüfung 2026-09-19."
   },
   "Rodgauer Winterlaufserie|2026-11-07": {
     "am": "2026-09-19",
@@ -14527,10 +14527,10 @@
   },
   "Südpfalz Cross Rülzheim|2026-11-07": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "runtix.com",
+    "ergebnis": "korrigiert",
+    "quelle": "lgruelzheim.de",
     "alt": "https://runtix.com/sts/10021/3220",
-    "notiz": "Websuche nannte http://www.lgruelzheim.de/lauf-veranstaltungen.html, Seite nennt den Lauf nicht erkennbar (Status 404) - runtix.com bleibt."
+    "notiz": "Veranstalterseite statt runtix.com: http://www.lgruelzheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ruelzheim). Linkprüfung 2026-09-19."
   },
   "Ultramarathon rund um Werther|2026-11-07": {
     "am": "2026-09-19",
@@ -14943,21 +14943,21 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/372700/",
-    "notiz": "Websuche nannte https://www.stoertebeker-whisky.com/event/m%C3%B6nchguter-brennereilauf.html, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.stoertebeker-whisky.com/event/mönchguter-brennereilauf.html, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
   },
   "Nikolauslauf der TSG Dülmen|2026-12-05": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-duelmen.de",
     "alt": "https://my.raceresult.com/417521/",
-    "notiz": "Websuche nannte https://www.tsg-duelmen.de/de/sport/leichtathletik/termine--ausschreibungen/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-duelmen.de/de/sport/leichtathletik/termine--ausschreibungen/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:duelmen). Linkprüfung 2026-09-19."
   },
   "Nikolauslauf der TSG Schnaitheim|2026-12-05": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-schnaitheim.de",
     "alt": "https://my.raceresult.com/386008/",
-    "notiz": "Websuche nannte https://www.tsg-schnaitheim.de/termin/nikolauslauf/, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-schnaitheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schnaitheim). Linkprüfung 2026-09-19."
   },
   "Nikolauslauf des ALV Mainz|2026-12-05": {
     "am": "2026-09-19",
@@ -15321,7 +15321,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/407623/",
-    "notiz": "Websuche nannte https://www.hsguni-greifswald.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.hsguni-greifswald.de/veranstaltungen/2784179/2025/12/31/48.-greifswalder-wgg-silvesterlauf.html, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
   },
   "Häcker Silvesterlauf Rödinghausen|2026-12-31": {
     "am": "2026-09-19",
@@ -15342,7 +15342,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/409357/",
-    "notiz": "Websuche nannte https://www.turnverein-oberrodenbach.de/ig-veranstaltungen/ig-silvesterlauf.html, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.turnverein-oberrodenbach.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Rhader Silvesterlauf|2026-12-31": {
     "am": "2026-09-19",
@@ -15416,10 +15416,10 @@
   },
   "Spessart Silvester Trail|2026-12-31": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "crossdog.de",
     "alt": "https://my.raceresult.com/408957/",
-    "notiz": "Websuche nannte https://www.crossdog.de/silvestertrail, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.crossdog.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (spessart). Linkprüfung 2026-09-19."
   },
   "Sylvester Marathon Bremen|2026-12-31": {
     "am": "2026-09-19",
@@ -15734,7 +15734,7 @@
     "ergebnis": "unklar",
     "quelle": "runtix.com",
     "alt": "https://runtix.com/sts/10021/3168",
-    "notiz": "Websuche nannte https://www.kyffhaeuser-berglauf.de/, Seite nennt den Lauf nicht erkennbar (Status fehler:SSLError) - runtix.com bleibt."
+    "notiz": "Websuche nannte http://www.kyffhaeuser-berglauf.de/, Seite nennt den Lauf nicht erkennbar (Status fehler:SSLError) - runtix.com bleibt."
   },
   "Panorama Run Güntersleben|2027-04-11": {
     "am": "2026-09-19",
