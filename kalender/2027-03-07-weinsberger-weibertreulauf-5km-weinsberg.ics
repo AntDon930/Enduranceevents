@@ -4,15 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-03-07-weinsberger-weibertreulauf-x-weinsberg@antdon930.github.io
+UID:2027-03-07-weinsberger-weibertreulauf-5km-weinsberg@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:Weinsberger Weibertreulauf
 LOCATION:Weinsberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tsv-weinsberg
- .de/index.php/weibertreulauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://weibertreulauf
+ .de
 TRANSP:TRANSPARENT
-URL:https://www.tsv-weinsberg.de/index.php/weibertreulauf
+URL:https://weibertreulauf.de
 END:VEVENT
 END:VCALENDAR

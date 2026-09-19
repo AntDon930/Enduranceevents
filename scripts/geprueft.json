@@ -2057,5 +2057,155 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com/396315/contact",
     "notiz": "14.11.2026 bestätigt ('1. Wuppertaler Löwenlauf', Polizei-SV Wuppertal); Organizer-URL leer."
+  },
+  "Überruhrer Crosslauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tlv-germania.de/veranstaltungen/ueberruhrer-crosslauf",
+    "notiz": "Längste Strecke 3 km - unter der 5-km-Grenze, fällt per Override heraus."
+  },
+  "Hegau-Bodensee Crosslaufserie - Konstanz|2027-01-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "hegau-bodensee-cross.de/serie/konstanz",
+    "notiz": "Hauptlauf ca. 7,8 km nachgetragen; stand ohne Distanz."
+  },
+  "Lümmellauf|2027-01-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ssc-hagen-ahrensburg.de (Ausschreibung 2027 PDF)",
+    "notiz": "Drei Strecken nachgetragen (18,0 / 9,4 / 5,0 km, laut Ausschreibung gemessen); stand ohne Distanz."
+  },
+  "Zabergäu-Lauf Pfaffenhofen|2027-04-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "zabergaeulauf.de (+/streckenverlauf)",
+    "notiz": "18,3 / 10 / 5 km nachgetragen; stand ohne Distanz."
+  },
+  "Sandkruger Schleife|2027-01-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sandkruger-schleife.de (+/unsere-strecken)",
+    "notiz": "13 und 5 km nachgetragen; stand ohne Distanz."
+  },
+  "Weinsberger Weibertreulauf|2027-03-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-weinsberg.de, weibertreulauf.de",
+    "notiz": "Halbmarathon / 10 / 5 km nachgetragen, eigene Event-Seite als Link; stand ohne Distanz."
+  },
+  "Mazdalauf Eilenburg|2027-03-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "mazdalauf.de/ausschreibung",
+    "notiz": "10 und 5 km nachgetragen; stand ohne Distanz."
+  },
+  "GaPa Vertical|2027-04-23": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "gapavertical.de/ausschreibung-2027",
+    "notiz": "650-m-Vertical - unter der 5-km-Grenze, fällt per Override heraus."
+  },
+  "Waldsträßer Crosslauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "tv-waldstrasse.de/crosslauf",
+    "notiz": "'Samstag, 21. November 2026', 11:30 Uhr, Schlosspark Biebrich; die Ausschreibung 2026 ist ein PDF ohne Textebene."
+  },
+  "AOK Advents-Aaseelauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "advents-aaseelauf.de",
+    "notiz": "'29. November 2026' bestätigt; Strecken-Seite nennt nur 'unterschiedlich viele Runden um den Aasee'."
+  },
+  "Nikolaus Duathlon|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "triathlon.eintracht.de",
+    "notiz": "'5. Dezember 2026' bestätigt (Laufen-Rad-Laufen); Distanzen nicht genannt."
+  },
+  "Johannesbad Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de/ausschreibung/detail/48938",
+    "notiz": "So 06.12.2026 (Athletic Perl); 'Der Veranstalter hat keine Wettbewerbe hinterlegt'."
+  },
+  "Bad Harzburger Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "mtk1886.de/Silvesterlauf",
+    "notiz": "'Do., 31. Dez. 2026' bestätigt; Distanzen nicht genannt."
+  },
+  "Silvesterlauf Fischbachtal|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lauftreff-fischbachtal.de/veranstaltungen",
+    "notiz": "'Donnerstag, 31 Dezember 2026, 14:00' bestätigt; Distanz nicht genannt."
+  },
+  "Silvesterlauf Rund um die Steinbachtalsperre|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lc-euskirchen.de",
+    "notiz": "'Silvesterlauf 2026' (39.) angekündigt, 'Anmeldung startet im Oktober'; Distanzen noch nicht veröffentlicht."
+  },
+  "Meininger Silvesterlauf|2027-01-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "psvmeiningen.de",
+    "notiz": "'Am 03.01.2027 fällt zum 54. Mal der Startschuss'; Strecken nur im Flyer (nicht abrufbar)."
+  },
+  "Schnelsener Moorlauf|2027-01-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "schnelsener-moorlauf.aghamburgwest.de",
+    "notiz": "Seite antwortet 503."
+  },
+  "Flemmingen Wintercross|2027-01-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lg-rudelsburg.de/flemmingen-wintercross",
+    "notiz": "'findet am 23.01.2027 statt' bestätigt; Distanzen nicht genannt."
+  },
+  "Ultralauf Dresden|2027-02-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ultralauf-dresden.de",
+    "notiz": "'Ultralauf 14 26.02. - 28.02.2027' bestätigt (mehrtägig); Distanzen/Dauern nicht auf der Startseite."
+  },
+  "Luisenturmlauf Borgholzhausen|2027-03-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rsv-borgholzhausen.de/luisenturmlauf",
+    "notiz": "Seite nennt nur die Ausgabe 2026 (01.03.2026: Halbmarathon 21,1 km, Volkslauf 12,5 km, Walking 12,5 km); 07.03.2027 ist nicht veröffentlicht - nichts eingetragen."
+  },
+  "Westparklauf|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "westparklauf.de",
+    "notiz": "Frameset-Seite, nur Ergebnislinks bis 2025; 2027 nicht genannt."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "triathlonchemnitz.de",
+    "notiz": "Seite antwortet 403."
+  },
+  "Sulzburger Frühlingslauf|2027-03-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lg-sulzburglaufen.de/sulzburg",
+    "notiz": "'Der 31. Frühlingslauf findet am 20. März 2027 statt!'; Distanzen nicht genannt (nur Ergebnis-PDFs)."
+  },
+  "Wendelsteiner Panoramalauf|2027-04-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "tsv-wendelstein.de/panoramalauf",
+    "notiz": "'Der 28. Panoramalauf findet am 18.04.2027 statt'; Ausschreibung nur als Download 2026."
+  },
+  "Ditzinger Lebenslauf|2027-04-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ditzinger-lebenslauf.de",
+    "notiz": "'29. Ditzinger Lebenslauf am 25. April 2027' bestätigt; Distanzen nicht genannt."
   }
 }

@@ -1750,5 +1750,46 @@
     "laenge_km": 10.1,
     "wettbewerb": "Cross lang (10.060 m)",
     "_note": "ladv.de/ausschreibung/detail/46315 (So 08.11.2026, SV 1860 Minden): 'Cross lang 10.060m', 'Cross mittel 5.030m', dazu 2.000 m und 1.000 m. Geprüft 2026-09-19."
+  },
+  "Überruhrer Crosslauf|2026-11-29": {
+    "laenge_km": 3.0,
+    "wettbewerb": "U18+ 3,0 km",
+    "_note": "tlv-germania.de (29.11.2026): längste Strecke 'U18+: 3,0 km', darunter 2,0 / 1,0 / 0,5 km je Altersklasse - ein reiner Kurzcross, Datenregel 5 nimmt die Zeile heraus. Geprüft 2026-09-19."
+  },
+  "Hegau-Bodensee Crosslaufserie - Konstanz|2027-01-31": {
+    "laenge_km": 7.8,
+    "wettbewerb": "Hauptlauf (ca. 7.800 m)",
+    "_note": "hegau-bodensee-cross.de/serie/konstanz ('Nächster geplante Termin ist Sonntag der 31.01.2027'): 'Hauptlauf ca. 7.800 Meter', 'Kurzstrecke ca. 2.600 Meter' (unter der Grenze), Jugend/Schüler 900-1.800 m. Geprüft 2026-09-19."
+  },
+  "Lümmellauf|2027-01-17": {
+    "laenge_km": 18.0,
+    "wettbewerb": "Langstrecke (18.000 m)",
+    "_note": "ssc-hagen-ahrensburg.de, Ausschreibung_2027.pdf ('17. Januar 2027'): '20 km (18 000 m)' 10:10 Uhr, '10 km (9 350 m)' 10:00 Uhr, '5 km (5 000 m)' 10:25 Uhr, Walking 10 km, Schülerläufe 1 km (1 300 m) und 2 km (2 400 m). Gespeichert sind die gemessenen Längen. Geprüft 2026-09-19."
+  },
+  "Zabergäu-Lauf Pfaffenhofen|2027-04-24": {
+    "laenge_km": 18.3,
+    "wettbewerb": "Dinosaurier Challenge (380 hm)",
+    "_note": "zabergaeulauf.de ('24.04.2027 – der Zabergäu-Lauf bleibt ... beim letzten Wochenende im April'), Streckenverlauf: '5-km-Runde (60 Höhenmeter)', 'Der Zehner ... 120 Höhenmeter', Dinosaurier Challenge '380 Höhenmeter ... verteilt auf 18,3 Kilometer'. Geprüft 2026-09-19."
+  },
+  "Sandkruger Schleife|2027-01-10": {
+    "laenge_km": 13.0,
+    "wettbewerb": "Öffentlicher Lauf 13 km",
+    "_note": "sandkruger-schleife.de ('30. Sandkruger Schleife am 10.01.2027'), Unsere Strecken: 'Die 13 km-Strecke - Öffentliche Lauf', 'Die 5 km Strecke - Bruno Lauf', 1-km-Kinderlauf. Geprüft 2026-09-19."
+  },
+  "Weinsberger Weibertreulauf|2027-03-07": {
+    "veranstalter_url": "https://weibertreulauf.de",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
+    "_note": "weibertreulauf.de ('42. Weinsberger Weibertreulauf', '7. März 2027'): Halbmarathon, 10 km, 5 km, Jugend 660 m / 1500 m; die TSV-Seite verweist dorthin. 10 und 5 km in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Mazdalauf Eilenburg|2027-03-07": {
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf",
+    "_note": "mazdalauf.de/ausschreibung ('Sonntag, 07. März 2027'): '10 km Hauptlauf (ab U18 bis Senioren 65 m/w)', '5 km Lauf (Schülerwertung U 14 und U16, Senioren 70 m/w und älter ...)', '5 km Walking/Nordic-Walking', 2 km Schüler, Frühstückslauf ca. 1,5 km. Geprüft 2026-09-19."
+  },
+  "GaPa Vertical|2027-04-23": {
+    "laenge_km": 0.7,
+    "wettbewerb": "Vertical ca. 650 m, 190 hm",
+    "_note": "gapavertical.de/ausschreibung-2027 ('Freitag, 23. April 2027'): 'Streckenlänge: ca. 650 m', 'Höhenmeter: ca. 190 m' - ein Vertical-Sprint, Datenregel 5 nimmt die Zeile heraus. Geprüft 2026-09-19."
   }
 }

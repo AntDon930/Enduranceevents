@@ -29944,18 +29944,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Überruhrer Crosslauf",
-    "standort": "Essen",
-    "lat": 51.4556432,
-    "lon": 7.0115552,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "veranstalter_url": "https://tlv-germania.de/veranstaltungen/ueberruhrer-crosslauf.html"
-  },
-  {
-    "land": "Deutschland",
     "name": "Holger Anders Flutlicht Paarlauf",
     "standort": "Laage",
     "lat": 53.9286632,
@@ -35887,6 +35875,23 @@
     "art2": "Straße",
     "datum_start": "2027-01-10",
     "datum_ende": "2027-01-10",
+    "veranstalter_url": "https://sandkruger-schleife.de/",
+    "laenge_km": 13.0,
+    "wettbewerb": "Öffentlicher Lauf 13 km"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Hatten",
+    "lat": 53.0540807,
+    "lon": 8.2529751,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Sandkruger Schleife",
+    "datum_start": "2027-01-10",
+    "datum_ende": "2027-01-10",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "Bruno-Lauf 5 km",
     "veranstalter_url": "https://sandkruger-schleife.de/"
   },
   {
@@ -36384,6 +36389,38 @@
     "art2": "Straße",
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
+    "veranstalter_url": "https://ssc-hagen-ahrensburg.de/luemmellauf/",
+    "laenge_km": 18.0,
+    "wettbewerb": "Langstrecke (18.000 m)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Ahrensburg",
+    "lat": 53.6764136,
+    "lon": 10.2378854,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Lümmellauf",
+    "datum_start": "2027-01-17",
+    "datum_ende": "2027-01-17",
+    "laenge_km": 9.4,
+    "dauer_h": null,
+    "wettbewerb": "Mittelstrecke (9.350 m)",
+    "veranstalter_url": "https://ssc-hagen-ahrensburg.de/luemmellauf/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Ahrensburg",
+    "lat": 53.6764136,
+    "lon": 10.2378854,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Lümmellauf",
+    "datum_start": "2027-01-17",
+    "datum_ende": "2027-01-17",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km (5.000 m)",
     "veranstalter_url": "https://ssc-hagen-ahrensburg.de/luemmellauf/"
   },
   {
@@ -37101,7 +37138,9 @@
     "art2": "Trail/Cross",
     "datum_start": "2027-01-31",
     "datum_ende": "2027-01-31",
-    "veranstalter_url": "https://hegau-bodensee-cross.de/serie/konstanz/"
+    "veranstalter_url": "https://hegau-bodensee-cross.de/serie/konstanz/",
+    "laenge_km": 7.8,
+    "wettbewerb": "Hauptlauf (ca. 7.800 m)"
   },
   {
     "land": "Deutschland",
@@ -38963,6 +39002,23 @@
     "art2": "Straße",
     "datum_start": "2027-03-07",
     "datum_ende": "2027-03-07",
+    "veranstalter_url": "https://www.mazdalauf.de/",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Eilenburg",
+    "lat": 51.4597557,
+    "lon": 12.617702,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Mazdalauf Eilenburg",
+    "datum_start": "2027-03-07",
+    "datum_ende": "2027-03-07",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km Lauf",
     "veranstalter_url": "https://www.mazdalauf.de/"
   },
   {
@@ -38975,7 +39031,39 @@
     "art2": "Straße",
     "datum_start": "2027-03-07",
     "datum_ende": "2027-03-07",
-    "veranstalter_url": "https://www.tsv-weinsberg.de/index.php/weibertreulauf"
+    "veranstalter_url": "https://weibertreulauf.de",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Weinsberg",
+    "lat": 49.1484633,
+    "lon": 9.2872657,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Weinsberger Weibertreulauf",
+    "datum_start": "2027-03-07",
+    "datum_ende": "2027-03-07",
+    "laenge_km": 10.0,
+    "dauer_h": null,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://weibertreulauf.de"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Weinsberg",
+    "lat": 49.1484633,
+    "lon": 9.2872657,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Weinsberger Weibertreulauf",
+    "datum_start": "2027-03-07",
+    "datum_ende": "2027-03-07",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://weibertreulauf.de"
   },
   {
     "land": "Deutschland",
@@ -43166,18 +43254,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "GaPa Vertical",
-    "standort": "Garmisch-Partenkirchen",
-    "lat": 47.4919023,
-    "lon": 11.0947806,
-    "art1": "Laufen",
-    "art2": "Berg",
-    "datum_start": "2027-04-23",
-    "datum_ende": "2027-04-23",
-    "veranstalter_url": "https://gapavertical.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Ultratrail Fränkische Schweiz",
     "standort": "Ebermannstadt",
     "lat": 49.7815547,
@@ -43588,6 +43664,38 @@
     "art2": "Straße",
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-24",
+    "veranstalter_url": "https://zabergaeulauf.de/",
+    "laenge_km": 18.3,
+    "wettbewerb": "Dinosaurier Challenge (380 hm)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Pfaffenhofen",
+    "lat": 49.0623221,
+    "lon": 8.9746004,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Zabergäu-Lauf Pfaffenhofen",
+    "datum_start": "2027-04-24",
+    "datum_ende": "2027-04-24",
+    "laenge_km": 10.0,
+    "dauer_h": null,
+    "wettbewerb": "10 km (120 hm)",
+    "veranstalter_url": "https://zabergaeulauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Pfaffenhofen",
+    "lat": 49.0623221,
+    "lon": 8.9746004,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Zabergäu-Lauf Pfaffenhofen",
+    "datum_start": "2027-04-24",
+    "datum_ende": "2027-04-24",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5 km (60 hm)",
     "veranstalter_url": "https://zabergaeulauf.de/"
   },
   {
