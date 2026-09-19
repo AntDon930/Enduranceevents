@@ -857,6 +857,39 @@ sie fallen erst auf, wenn der Wochentag nicht passt.
 **Die Audit-Kategorie bleibt** – sie hat die sechs Fehler gefunden,
 nicht als Datumsfehler, sondern weil man dafür die Seite aufruft.
 
+### Siebter Durchgang: Zeilen ohne Distanzangabe (19.09.2026)
+
+316 Zeilen stehen ohne `laenge_km` und ohne `dauer_h` in der Liste –
+sie zeigen „–" und treffen nie einen Längenfilter. Die frühesten ~90
+davon an der offiziellen Seite geprüft (Protokoll in `geprueft.json`,
+Stand danach 268 offen). Ergebnis, ehrlich gerechnet:
+
+- **~30 % bekamen ihre Distanz** – meist erst auf der Unterseite
+  „Strecken"/„Ausschreibung", die Startseite nennt sie fast nie. Oft
+  waren es gleich mehrere Wettbewerbe (Balkantrassenlauf 42,2 / 21,1 /
+  10 / 5 km, Run and Bike Berlin 42 / 21 / 10 km, triathlon.de CUP
+  Königsbrunn 25,5 / 51,5 / 101,9 km, Pöhl Trail 21 / 12 / 5 km,
+  Remshalden Run 11,4 / 5,7 km + Staffel + Stundenlauf) – **eine Zeile
+  ohne Distanz verbirgt häufig eine ganze Veranstaltung.**
+- **Ein Viertel sind Runden- oder Zeitformate** (Stundenläufe,
+  Paarläufe, Spendenläufe auf der 400-m-Bahn) – die mit fester Dauer
+  stehen jetzt als Zeitrennen, der Rest wartet auf Punkt 14.
+- **Fehler nebenbei**: Drachentriathlon ist 2026 ein Duathlon am 20.09.
+  (19.09. war der Kinderduathlon); Hünsborn 2 be Wild ist ein
+  Lauf-MTB-Lauf-Duathlon (29 / 43,4 km), stand als Trailrun; Wetzede
+  fand am 12.09. statt (stand am 19.09.); drei Bergsprints und ein
+  Jugend-Staffelcross unter 5 km fielen heraus.
+- **raceresult-Kontaktseiten** (vom Nutzer gewünscht): 17 abgerufen,
+  6 brauchbare Organizer-URLs (Remshalden, Meckenheim, Sägerserie,
+  Chiemgauer100, Haus Vortlage, Wild & Run); der Rest Platzhalter,
+  Zeitnahme-Firma, Stadt oder Verband.
+
+Womit die Sandbox nicht weiterkommt: Strecken nur als **Bild** (Northeim),
+als **PDF mit kaputter Zeichenzuordnung** (Sondershausen), hinter
+**Polar-Flow-Links** (Rimsingen) oder auf **raceresult-Infoseiten**
+(dynamisch, nicht lesbar – Oppau, Apfelstaffel). Und **Jahreswechsel-
+Prognosen** (Borken) sieht keine Regel.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -2195,6 +2228,24 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    bleibt in jedem Fall (stand fälschlich mit 42,2 km, korrigiert).
    Vorschlag: raus, per `NICHT_AUSDAUER`-Zeile `treppenlauf|towerrun`,
    mit dem Idar-Obersteiner als Gegenprobe im Test.
+
+14. **Spenden-, Schul- und Fitnessformate ohne Wettkampfdistanz.** Beim
+   Durchgehen der Zeilen ohne Maßzahl (19.09.2026) kamen drei Sorten
+   zusammen, alle im Protokoll als `unklar`:
+   - **Runden-Spendenläufe mit frei gewählter Dauer** (Sterntaler
+     Spendenlauf Mannheim, STELP Spendenlauf Stuttgart, ProSana
+     Gesundheitslauf Schramberg) und ein **Schul-Spendenlauf** (Bonner
+     Friedenslauf, „hunderte Schüler*innen"). Wo die Dauer FEST ist
+     (Waschmühle 6 h, Rotary Albstadt 1 h, Meißen 1 h, Rastenberg 4 h),
+     stehen sie jetzt als Zeitrennen – das ist Datenregel 8. Ohne feste
+     Dauer bleibt nur „–", oder sie fliegen raus.
+   - **Fitness-Rennen mit Kraftstationen** – dieselbe Klasse wie HYROX:
+     Gymrace Airport Weeze („fitness race with workout stations"),
+     Decathlon Hybrid Series Plochingen. Vorschlag: beide zu
+     `NICHT_AUSDAUER` (nur Markennamen, wie bei HYROX).
+   - **Spaßformate**: Schweiger Tragathlon (Bierkasten-Tragen in
+     Viererteams), The Quest Auwald (Checkpoint-Jagd über 2/3 h,
+     Strecke frei), Pace Race Nürnberg („Social Racing"-Arena).
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

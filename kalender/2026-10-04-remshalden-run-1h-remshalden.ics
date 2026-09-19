@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-04-remshalden-run-x-remshalden@antdon930.github.io
+UID:2026-10-04-remshalden-run-1h-remshalden@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
-SUMMARY:Remshalden Run
+SUMMARY:Remshalden Run – Jedermannslauf (60 Minuten)
 LOCATION:Remshalden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /393903/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.hgv-remshal
+ den.de/remshalden-run.html
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/393903/
+URL:https://www.hgv-remshalden.de/remshalden-run.html
 END:VEVENT
 END:VCALENDAR

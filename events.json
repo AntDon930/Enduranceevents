@@ -13280,7 +13280,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "veranstalter_url": "https://my.raceresult.com/402651/"
+    "veranstalter_url": "https://www.lav23.de/"
   },
   {
     "land": "Deutschland",
@@ -15226,15 +15226,63 @@
   },
   {
     "land": "Deutschland",
-    "name": "Remshalden Run",
     "standort": "Remshalden",
     "lat": 48.8079622,
     "lon": 9.4259007,
     "art1": "Laufen",
     "art2": "Straße",
+    "name": "Remshalden Run",
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
-    "veranstalter_url": "https://my.raceresult.com/393903/"
+    "laenge_km": 11.4,
+    "dauer_h": 1,
+    "wettbewerb": "Sportler-Lauf 11,4 km (10 Runden)",
+    "veranstalter_url": "https://www.hgv-remshalden.de/remshalden-run.html"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Remshalden",
+    "lat": 48.8079622,
+    "lon": 9.4259007,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Remshalden Run",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 5.7,
+    "dauer_h": null,
+    "wettbewerb": "Sportler-Lauf 5,7 km",
+    "veranstalter_url": "https://www.hgv-remshalden.de/remshalden-run.html"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Remshalden",
+    "lat": 48.8079622,
+    "lon": 9.4259007,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Remshalden Run",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": null,
+    "dauer_h": 1,
+    "wettbewerb": "Jedermannslauf (60 Minuten)",
+    "veranstalter_url": "https://www.hgv-remshalden.de/remshalden-run.html"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Remshalden",
+    "lat": 48.8079622,
+    "lon": 9.4259007,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Remshalden Run",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 11.4,
+    "dauer_h": null,
+    "wettbewerb": "Firmen-Staffellauf 11,4 km (10 Runden)",
+    "veranstalter_url": "https://www.hgv-remshalden.de/remshalden-run.html"
   },
   {
     "land": "Deutschland",
@@ -16886,7 +16934,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "veranstalter_url": "https://my.raceresult.com/378536/"
+    "veranstalter_url": "https://saegerserie-berlin.de/"
   },
   {
     "land": "Deutschland",
@@ -19631,7 +19679,7 @@
     "art2": "Trail/Cross",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://www.sportprogramme.org/cakespg/events/menue/5046"
+    "veranstalter_url": "http://www.tv-bechtsrieth.de"
   },
   {
     "land": "Deutschland",
@@ -19914,18 +19962,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Renninger Stadion-Staffel-Cross",
-    "standort": "Renningen",
-    "lat": 48.7716629,
-    "lon": 8.9343957,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://www.spvgg-renningen.de/leichtathletik/cross-staffellauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "Rhön-Grabfeld-Cup – Bad Königshofen",
     "standort": "Bad Königshofen im Grabfeld",
     "lat": 50.3013477,
@@ -19934,7 +19970,9 @@
     "art2": "Trail/Cross",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-18",
-    "veranstalter_url": "https://rhoengrabfeldcup.de/event/bad-koenigshofen/"
+    "veranstalter_url": "https://rhoengrabfeldcup.de/event/bad-koenigshofen/",
+    "laenge_km": 10.5,
+    "wettbewerb": "Hauptlauf ca. 10,5 km"
   },
   {
     "land": "Deutschland",
@@ -20016,7 +20054,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://www.anmeldungs-service.de/schanzenlaufoberstdorf2026/"
+    "veranstalter_url": "https://feuerwehr-oberstdorf.de/aktuelles/schanzenlauf"
   },
   {
     "land": "Deutschland",
@@ -24266,7 +24304,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
-    "veranstalter_url": "https://triathlon-service.de/veranstaltungen/anmeldung.php?veranstaltung=37"
+    "veranstalter_url": "https://www.svelbland.de/newsdetails/1-scharfenberger-mini-ultra.html"
   },
   {
     "land": "Deutschland",
@@ -24699,6 +24737,23 @@
     "art2": "Bahn",
     "datum_start": "2026-11-06",
     "datum_ende": "2026-11-06",
+    "veranstalter_url": "https://vfl-brandenburg.de/lichterpaarlauf/",
+    "dauer_h": 1,
+    "wettbewerb": "Paarlauf 60 Minuten (400-m-Runde)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Brandenburg an der Havel",
+    "lat": 52.4125287,
+    "lon": 12.5316444,
+    "art1": "Laufen",
+    "art2": "Bahn",
+    "name": "Lichterpaarlauf Brandenburg",
+    "datum_start": "2026-11-06",
+    "datum_ende": "2026-11-06",
+    "laenge_km": null,
+    "dauer_h": 0.5,
+    "wettbewerb": "Paarlauf 30 Minuten (400-m-Runde)",
     "veranstalter_url": "https://vfl-brandenburg.de/lichterpaarlauf/"
   },
   {
@@ -26397,6 +26452,23 @@
     "art2": "Straße",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
+    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46315/Robert-Hannemann-Volkslauf-2026-Minden.htm",
+    "laenge_km": 10.1,
+    "wettbewerb": "Cross lang (10.060 m)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Minden",
+    "lat": 52.2923549,
+    "lon": 8.9160539,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Robert Hannemann Gedächtnislauf",
+    "datum_start": "2026-11-08",
+    "datum_ende": "2026-11-08",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "Cross mittel (5.030 m)",
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/46315/Robert-Hannemann-Volkslauf-2026-Minden.htm"
   },
   {

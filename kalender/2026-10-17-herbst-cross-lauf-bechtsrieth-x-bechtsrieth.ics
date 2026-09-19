@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Herbst Cross Lauf - Bechtsrieth
 LOCATION:Bechtsrieth\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: -\nhttps://www.sportpro
- gramme.org/cakespg/events/menue/5046
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: -\nhttp://www.tv-bechts
+ rieth.de
 TRANSP:TRANSPARENT
-URL:https://www.sportprogramme.org/cakespg/events/menue/5046
+URL:http://www.tv-bechtsrieth.de
 END:VEVENT
 END:VCALENDAR

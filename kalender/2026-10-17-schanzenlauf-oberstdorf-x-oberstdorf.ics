@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Schanzenlauf Oberstdorf
 LOCATION:Oberstdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.anmeldungs-se
- rvice.de/schanzenlaufoberstdorf2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://feuerwehr-oberstd
+ orf.de/aktuelles/schanzenlauf
 TRANSP:TRANSPARENT
-URL:https://www.anmeldungs-service.de/schanzenlaufoberstdorf2026/
+URL:https://feuerwehr-oberstdorf.de/aktuelles/schanzenlauf
 END:VEVENT
 END:VCALENDAR

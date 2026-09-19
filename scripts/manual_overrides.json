@@ -1704,5 +1704,51 @@
     "dauer_h": 1,
     "wettbewerb": "Stundenlauf (Runden zählen)",
     "_note": "rotary-albstadt-charitylauf.de ('11. Oktober 2026'): eine Stunde laufen, 'die Zeit ist dabei egal, es werden lediglich die Runden gezählt', Sponsoren zahlen je Runde. Zeitrennen (Datenregel 8). Geprüft 2026-09-19."
+  },
+  "Remshalden Run|2026-10-04": {
+    "veranstalter_url": "https://www.hgv-remshalden.de/remshalden-run.html",
+    "laenge_km": 11.4,
+    "wettbewerb": "Sportler-Lauf 11,4 km (10 Runden)",
+    "_note": "hgv-remshalden.de/remshalden-run.html ('Am 4. Oktober 2026'): Sportler-Lauf '11,4 km oder 5,7 km', Firmen-Staffellauf '11,4 km · 10 Runden', Jedermannslauf '60 Minuten Lauf auf Zeit', Jugend 2,28 km, Junior 1,14 km. Veranstalter-Link von der raceresult-Kontaktseite (393903/contact: HGV Remshalden). Weitere Wettbewerbe in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Rhön-Grabfeld-Cup – Bad Königshofen|2026-10-17": {
+    "laenge_km": 10.5,
+    "wettbewerb": "Hauptlauf ca. 10,5 km",
+    "_note": "rhoengrabfeldcup.de/event/bad-koenigshofen ('9. Kön.iG Lauf', 17.-18.10.2026): Sa 17.10. 'Hauptlauf Ca. 10.500 m' (14:30), Kinder/Jugend 400-1.500 m; So freies Laufen 12-14 Uhr. Crosslauf ohne Zeitnahme. Geprüft 2026-09-19."
+  },
+  "Renninger Stadion-Staffel-Cross|2026-10-17": {
+    "laenge_km": 1.7,
+    "wettbewerb": "Jugendstaffeln U8–U18 (450–1.650 m)",
+    "_note": "spvgg-renningen.de ('Samstag, 17.10.2026'): Staffeln U8 'ca. 450m', U10 'ca. 900m', U12 'ca. 1200m', U16/U18 'ca. 1650m' - ein reiner Nachwuchs-Staffelcross ohne Erwachsenenstrecke. Längste Teilstrecke 1,65 km, Datenregel 5 nimmt die Zeile heraus. Geprüft 2026-09-19."
+  },
+  "Schanzenlauf Oberstdorf|2026-10-17": {
+    "veranstalter_url": "https://feuerwehr-oberstdorf.de/aktuelles/schanzenlauf",
+    "_note": "Veranstalter Feuerwehr Oberstdorf (Seite laut anmeldungs-service.de): Treppenlauf auf der Heini-Klopfer-Skiflugschanze, '1'000+ Stufen', '207 Meter hoch, 412 Meter weit', Zweierteams, teils mit Atemschutz, 17.10.2026. Treppenlauf - Entscheidung Punkt 13. Geprüft 2026-09-19."
+  },
+  "Meckenheimer Apfelstaffel|2026-10-03": {
+    "veranstalter_url": "https://www.lav23.de/",
+    "_note": "Organizer-URL von der raceresult-Kontaktseite (402651/contact, LAV 23 Meckenheim); die Seite nennt '4. Apfelstaffel am 03.10.2026' mit Ausschreibung und Streckenplan. Geprüft 2026-09-19."
+  },
+  "Herbst Cross Lauf - Bechtsrieth|2026-10-17": {
+    "veranstalter_url": "http://www.tv-bechtsrieth.de",
+    "_note": "Veranstalter TV Bechtsrieth laut sportprogramme.org; die Vereinsseite nennt 'Am 17.10.2026 findet wieder unser bekannter Crosslauf statt'. Geprüft 2026-09-19."
+  },
+  "Sägerserie|2026-10-10": {
+    "veranstalter_url": "https://saegerserie-berlin.de/",
+    "_note": "Organizer SC TF Veranstaltungs gGmbH laut raceresult-Kontaktseite (378536/contact, sctf-events.de); sctf-events.de: Sägerserie '10. + 24. Okt. + 07. Nov. 2026', 'Die härteste Crosslauf-Serie Berlins', Seite saegerserie-berlin.de. Die beiden weiteren Termine stehen schon mit Distanzen in der Liste. Geprüft 2026-09-19."
+  },
+  "Scharfenberger Mini Ultra|2026-10-31": {
+    "veranstalter_url": "https://www.svelbland.de/newsdetails/1-scharfenberger-mini-ultra.html",
+    "_note": "Veranstalterseite laut triathlon-service.de (Anmeldung 37): 'Samstag, 31. Oktober 2026', '600 m Rundkurs Gj. 2015 und jünger' 10:00 Uhr, '1.100 m Rundkurs Gj. 2014 und älter' 12:00 Uhr - Rundkurse, ob mit Zeitlimit oder fester Rundenzahl steht dort nicht. Geprüft 2026-09-19."
+  },
+  "Lichterpaarlauf Brandenburg|2026-11-06": {
+    "dauer_h": 1,
+    "wettbewerb": "Paarlauf 60 Minuten (400-m-Runde)",
+    "_note": "vfl-brandenburg.de/lichterpaarlauf (06.11.2026): Zweierteams laufen '30 min abwechselnd die 400m Runde' (17:00) bzw. '60 min abwechselnd die 400m Runde' (18:30). Zeitrennen (Datenregel 8); der 30-Minuten-Lauf steht in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Robert Hannemann Gedächtnislauf|2026-11-08": {
+    "laenge_km": 10.1,
+    "wettbewerb": "Cross lang (10.060 m)",
+    "_note": "ladv.de/ausschreibung/detail/46315 (So 08.11.2026, SV 1860 Minden): 'Cross lang 10.060m', 'Cross mittel 5.030m', dazu 2.000 m und 1.000 m. Geprüft 2026-09-19."
   }
 }
