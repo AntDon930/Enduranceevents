@@ -1147,18 +1147,22 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     daneben macht die Zeile einen Pixel höher. Alle Zeilen sind aber
     gleich hoch (52 px), und der Rauchtest prüft das auf den Pixel. Ein
     Schatten wirkt nie auf das Layout.
-  - **Der Block ist durchgehend blau hinterlegt** (`--accent-bg`, vom
-    Nutzer am 19.09.2026 so gewünscht – vorher bewusst ohne Farbe). Die
-    Regel steht zwischen Zebra und Auswahl; die **gewählte Strecke im
-    Block** bekommt einen Ton kräftiger (`--row-active-block`, hell und
-    dunkel definiert), sonst wäre sie im Block unsichtbar. Dafür wird
-    die Veranstaltungszeile **aufgeklappt nicht mehr mitmarkiert**, wenn
-    eine andere Strecke gewählt ist (`markiereAuswahl()` und `aktiv` in
-    `gruppenHtml`): Sie zeigt die erste Strecke selbst, zwei markierte
-    Zeilen sähen nach zwei Auswahlen aus. Zugeklappt bleibt es beim
-    Alten – dort steht sie für die verborgene Strecke. Der Rauchtest
-    prüft eine Farbe im Block, anders als außen, genau eine gewählte
-    Zeile darin.
+  - **Der Block ist durchgehend in EINEM Blau hinterlegt** (`--accent-bg`,
+    vom Nutzer am 19.09.2026 so gewünscht – vorher bewusst ohne Farbe).
+    Die Regel steht zwischen Zebra und Auswahl. **Die gewählte Strecke
+    im Block trägt dieselbe Farbe** – ein kräftigerer Ton für sie
+    (`--row-active-block`) war gebaut und am selben Tag vom Nutzer
+    verworfen („bitte die gleiche blaue Farbe benutzen"): In der Liste
+    sah das wie zwei verschiedene Blautöne aus. Welche Strecke gewählt
+    ist, zeigt der Detailbereich; die Klasse `active` bleibt an genau
+    einer Zeile (Tastatur, `markiereAuswahl()`), färbt im Block aber
+    nicht. Die Veranstaltungszeile wird **aufgeklappt nicht mehr
+    mitmarkiert**, wenn eine andere Strecke gewählt ist (`aktiv` in
+    `gruppenHtml`): Sie zeigt die erste Strecke selbst. Zugeklappt
+    bleibt es beim Alten – dort steht sie für die verborgene Strecke.
+    Der Rauchtest prüft eine Farbe im Block, anders als außen, genau
+    eine als gewählt markierte Zeile darin mit derselben Farbe. Nicht
+    wieder einen zweiten Ton einführen.
   - **Oben und unten über die ganze Breite.** Der senkrechte Strich
     allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
     scrollt auf dem Handy waagerecht – wer nach rechts schiebt, sähe ihn
@@ -1662,6 +1666,17 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   trifft, was die Suche gezeigt hat. `test_suche_uebersetzungen`
   vergleicht beide Tabellen Wert für Wert – wird in `filters.js` eine
   Übersetzung ergänzt, muss die Kopie mit.
+
+- **Der Rauchtest sucht seinen Kartenort aus `events.json`**
+  (`ort_mit_zwei_strecken()` in `smoke_test_frontend.py`): der
+  alphabetisch erste Ort mit genau zwei künftigen Strecken, für den
+  Marker „2". Vorher stand dort fest „Mosnang" (Schnebelhorn
+  Panoramatrail) – am 19.09.2026 fiel das Event als vergangen aus der
+  Liste, und die Prüfung meldete „0 Boxen", ohne dass sich an der Karte
+  etwas geändert hatte. **Ein roter Rauchtest nach einer Datenänderung
+  kann ein fest eingetragenes Beispiel sein** – dieselbe Lehre wie beim
+  Enter-Fall im zweiten Durchgang. Keine festen Ortsnamen mehr in den
+  Prüfungen.
 
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 

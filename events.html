@@ -44,7 +44,6 @@
     --accent-bg: #eaf1ff;
     --row-alt: #f8fafc;
     --row-hover: #eef4ff;
-    --row-active-block: #d4e2ff;
     --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
   }
   @media (prefers-color-scheme: dark) {
@@ -58,7 +57,6 @@
       --accent-bg: #1e2a40;
       --row-alt: #202329;
       --row-hover: #22314a;
-      --row-active-block: #2a3d63;
     }
   }
   * { box-sizing: border-box; }
@@ -295,13 +293,12 @@
        sind aber gleich hoch (52 px, siehe `tbody tr`), und der Rauchtest
        prüft das auf den Pixel. Ein Schatten wirkt nie auf das Layout.
      - **Hintergrundfarbe kam später dazu** (19.09.2026, auf Wunsch des
-       Nutzers): Der Block ist jetzt durchgehend in `--accent-bg`
-       hinterlegt, siehe die Hintergrund-Regeln bei `tbody tr`. Die
-       ursprüngliche Sorge - der Block sähe aus wie eine Markierung -
-       ist damit gelöst, dass die ausgewählte Strecke im Block einen
-       eigenen, kräftigeren Ton bekommt (`--row-active-block`). Die
-       Linien bleiben: Sie zeigen die Kanten des Blocks auch dort, wo
-       zwei Blöcke direkt aufeinander folgen.
+       Nutzers): Der Block ist durchgehend in `--accent-bg` hinterlegt,
+       siehe die Hintergrund-Regeln bei `tbody tr` - in EINEM Ton, auch
+       die gewählte Strecke (ein kräftigerer Ton für sie war gebaut und
+       vom Nutzer wieder verworfen). Die Linien bleiben: Sie zeigen die
+       Kanten des Blocks auch dort, wo zwei Blöcke direkt aufeinander
+       folgen.
      - **Oben und unten über die ganze Breite.** Der senkrechte Strich
        allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
        scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
@@ -595,24 +592,20 @@
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
-  /* Der aufgeklappte Block ist durchgehend in dem Blau hinterlegt, das
-     vorher nur seine erste Zeile trug (die war als ausgewählte Strecke
-     markiert) - so vom Nutzer am 19.09.2026 gewünscht: "alle
-     ausgeklappten einfach bisschen blau hinterlegen wie die Farbe von
-     dem ersten". Die Regel steht zwischen Zebra und Auswahl: Sie
-     überdeckt den Zebrastreifen, und die tatsächlich ausgewählte
-     Strecke im Block bekommt darunter einen Ton kräftiger
-     (--row-active-block), sonst wäre sie im Block nicht mehr zu
-     erkennen. Die Spezifität ist bedeutungstragend: `tbody tr.active`
-     (0,1,2) verlöre gegen `tbody tr.group-row.open` (0,2,2), die
-     Auswahl auf der Veranstaltungszeile wäre unsichtbar - deshalb die
-     eigene, spezifischere Auswahl-Regel für den Block danach. */
+  /* Der aufgeklappte Block ist durchgehend in EINEM Blau hinterlegt -
+     alle Strecken gleich, auch die gerade ausgewählte. So vom Nutzer am
+     19.09.2026 entschieden ("bei den zusammengefügten Events die gleiche
+     blaue Farbe benutzen"): Ein Zwischenstand gab der gewählten Strecke
+     im Block einen kräftigeren Ton (--row-active-block), und genau der
+     sah in der Liste wie zwei verschiedene Blautöne aus. Welche Strecke
+     gewählt ist, zeigt der Detailbereich daneben; die Klasse `active`
+     bleibt an der Zeile (markiereAuswahl, Tastatur, Rauchtest), sie
+     färbt im Block nur nicht mehr. Außerhalb eines Blocks bleibt
+     `tr.active` die Markierung der gewählten Zeile - dasselbe Blau. */
   tbody tr.group-row.open,
   tbody tr.sub-row { background: var(--accent-bg); }
   tbody tr:hover { background: var(--row-hover); }
   tbody tr.active { background: var(--accent-bg); }
-  tbody tr.group-row.open.active,
-  tbody tr.sub-row.active { background: var(--row-active-block); }
   /* Tastaturbedienung: die Zeile, auf der der Fokus steht, muss zu sehen
      sein. `:focus-visible` statt `:focus`, damit ein Mausklick (der die
      Zeile ebenfalls fokussiert) keinen Rahmen hinterlässt. `-2px` legt

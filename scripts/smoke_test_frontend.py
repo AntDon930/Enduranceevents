@@ -33,6 +33,7 @@ import socket
 import socketserver
 import sys
 import threading
+import urllib.parse
 
 WURZEL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -531,9 +532,11 @@ def pruefe_gruppierung(ctx, basis):
            "aufgeklappt: die letzte Strecke schließt den Rahmen unten ab")
     pruefe(rahmen["nurEineLetzte"] == 1,
            "genau EINE Zeile trägt „letzte\u201c (%d)" % rahmen["nurEineLetzte"])
-    # Der ganze Block ist blau hinterlegt (vom Nutzer am 19.09.2026
-    # gewünscht: "wie die Farbe von dem ersten"), die gewählte Strecke
-    # darin einen Ton kräftiger - und NUR sie: Die Veranstaltungszeile
+    # Der ganze Block ist in EINEM Blau hinterlegt (vom Nutzer am
+    # 19.09.2026 entschieden: "die gleiche blaue Farbe"), die gewählte
+    # Strecke darin trägt dieselbe Farbe - ein kräftigerer Ton für sie
+    # war gebaut und wieder verworfen. Als gewählt markiert (Klasse
+    # `active`) ist trotzdem genau EINE Zeile: Die Veranstaltungszeile
     # wird aufgeklappt nicht mehr mitmarkiert, wenn eine andere Strecke
     # gewählt ist. Die Maus erst weg, sonst färbt :hover die Zeile.
     seite.mouse.move(0, 0)
@@ -562,8 +565,8 @@ def pruefe_gruppierung(ctx, basis):
     pruefe(farben["gewaehlt"] == 1,
            "aufgeklappt: genau EINE Zeile des Blocks ist als gewählt markiert (%d)"
            % farben["gewaehlt"])
-    pruefe(farben["gewaehlt"] == 1 and farben["gewaehltFarbe"][0] != farben["block"][0],
-           "die gewählte Strecke hebt sich vom Block ab")
+    pruefe(farben["gewaehlt"] == 1 and farben["gewaehltFarbe"][0] == farben["block"][0],
+           "die gewählte Strecke trägt dieselbe Blockfarbe wie die anderen")
     # Der Rahmen darf die Zeilenhöhe nicht anfassen - deshalb box-shadow
     # und nicht border (border-collapse teilt sich die Ränder zwischen
     # zwei Zeilen, eine dickere Linie macht die Zeile höher).
@@ -1301,6 +1304,28 @@ def pruefe_karten_suche(ctx, basis):
     seite.close()
 
 
+def ort_mit_zwei_strecken() -> str | None:
+    """Der alphabetisch erste Ort, an dem genau zwei künftige Strecken
+    liegen - für den Marker "2" auf der Karte (ein Marker je `standort`,
+    siehe karte.html). Vergangene Events zählen nicht: Die Seite wirft
+    sie beim Laden weg (dropPastEvents), der Marker sähe sie nie."""
+    import datetime
+    import json
+    heute = datetime.date.today().isoformat()
+    pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "events.json")
+    with open(pfad, encoding="utf-8") as f:
+        events = json.load(f)
+    je_ort: dict[str, int] = {}
+    for e in events:
+        ende = e.get("datum_ende") or e.get("datum_start") or ""
+        if ende and ende < heute:
+            continue
+        if e.get("standort"):
+            je_ort[e["standort"]] = je_ort.get(e["standort"], 0) + 1
+    kandidaten = sorted(o for o, n in je_ort.items() if n == 2)
+    return kandidaten[0] if kandidaten else None
+
+
 def pruefe_karten_details(ctx, basis):
     """Die Detail-Box auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
 
@@ -1312,7 +1337,14 @@ def pruefe_karten_details(ctx, basis):
     """
     print("\nDetail-Box auf der Karte")
     # Ein Ort mit genau zwei Strecken: der Marker "2" öffnet beide Boxen.
-    seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?standort=Mosnang", ".filter-bar")
+    # Der Ort wird aus events.json gesucht, nicht fest eingetragen: Der
+    # frühere Ort (Mosnang, Schnebelhorn Panoramatrail) fiel am 19.09.2026
+    # als vergangenes Event aus der Liste, und die Prüfung lief ins Leere.
+    ort = ort_mit_zwei_strecken()
+    if ort is None:
+        pruefe(False, "kein Ort mit genau zwei künftigen Strecken in events.json")
+        return
+    seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?standort=" + urllib.parse.quote(ort), ".filter-bar")
     seite.wait_for_timeout(2800)
     seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
         if (m) m.click(); }""")
