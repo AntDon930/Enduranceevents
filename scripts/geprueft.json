@@ -430,7 +430,7 @@
     "am": "2026-09-18",
     "ergebnis": "korrigiert",
     "quelle": "winterlaufserie-hamburg.de",
-    "notiz": "Fuenf Termine mit je denselben Strecken; die Zeilen des ersten Termins spannten bis zum Ende der Serie. ANMERKUNG: Die echten Distanzen sind Vielfache der 4,66-km-Runde (4,66/9,32/13,98/18,64/23,3 km), die Quelle rundet auf 5/9/14/19/23. Bewusst NICHT korrigiert: Mit 4,66 km faellt die kuerzeste Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf."
+    "notiz": "Fuenf Termine mit je denselben Strecken; die Zeilen des ersten Termins spannten bis zum Ende der Serie. ANMERKUNG: Die echten Distanzen sind Vielfache der 4,66-km-Runde (4,66/9,32/13,98/18,64/23,3 km), die Quelle rundet auf 5/9/14/19/23. Bewusst NICHT korrigiert: Mit 4,66 km faellt die kuerzeste Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf. Entschieden (19.09.2026, Nutzer): Läufe unter 5 km bleiben draußen. Die fünf '5 km'-Zeilen (4,66-km-Runde) sind per Override heraus; 9/14/19/23 km bleiben gerundet."
   },
   "Winterlaufserie Alfter|2026-11-15": {
     "am": "2026-09-18",
@@ -1196,9 +1196,9 @@
   },
   "Sedus Firmenlauf|2026-09-19": {
     "am": "2026-09-18",
-    "ergebnis": "unklar",
+    "ergebnis": "korrigiert",
     "quelle": "-",
-    "notiz": "Die Labels nennen zwei Zahlen: '10 km (10,50 km)' und '5 km (4,80 km)' - die Klammer ist offenbar die genaue Messung, gespeichert sind die gerundeten 10 und 5 km. ABSICHTLICH NICHT korrigiert: Mit 4,80 km faellt die kuerzere Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf - ein echtes Rennen zu verlieren waere der schwerere Fehler als 200 m Ungenauigkeit. Derselbe Fall wie bei der Bramfelder Winterlaufserie (4,66-km-Runde). Das ist eine Frage an den Nutzer: Soll die 5-km-Grenze knapp darunter liegende, offiziell als '5 km' beworbene Strecken mitnehmen?"
+    "notiz": "Die Labels nennen zwei Zahlen: '10 km (10,50 km)' und '5 km (4,80 km)' - die Klammer ist offenbar die genaue Messung, gespeichert sind die gerundeten 10 und 5 km. ABSICHTLICH NICHT korrigiert: Mit 4,80 km faellt die kuerzere Strecke unter die 5-km-Mindestdistanz (Datenregel 5) und verschwaende beim naechsten Scraper-Lauf - ein echtes Rennen zu verlieren waere der schwerere Fehler als 200 m Ungenauigkeit. Derselbe Fall wie bei der Bramfelder Winterlaufserie (4,66-km-Runde). Das ist eine Frage an den Nutzer: Soll die 5-km-Grenze knapp darunter liegende, offiziell als '5 km' beworbene Strecken mitnehmen? Entschieden (19.09.2026, Nutzer): Läufe unter 5 km bleiben draußen. 5-km-Zeile auf 4,80 km gesetzt und damit heraus; 10-km-Zeile auf 10,50 km."
   },
   "Hiddestorfer Rübenlauf|2026-09-20": {
     "am": "2026-09-18",
@@ -1382,9 +1382,9 @@
   },
   "Hochplatten Berglauf|2026-10-22": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
+    "ergebnis": "korrigiert",
     "quelle": "hochplatten-berglauf.de",
-    "notiz": "Termin Do 22.10.2026 16:00 Uhr bestätigt. Strecke laut Veranstalter 'rund 4,6 Kilometern' (Piesenhausen - Staffn-Alm), gespeichert '5 km' - fällt unter die offene Entscheidung zur 5-km-Grenze (Punkt 4); korrigiert man auf 4,6 km, verschwindet der Lauf."
+    "notiz": "Termin Do 22.10.2026 16:00 Uhr bestätigt. Strecke laut Veranstalter 'rund 4,6 Kilometern' (Piesenhausen - Staffn-Alm), gespeichert '5 km' - fällt unter die offene Entscheidung zur 5-km-Grenze (Punkt 4); korrigiert man auf 4,6 km, verschwindet der Lauf. Entschieden (19.09.2026, Nutzer): Läufe unter 5 km bleiben draußen. 4,6 km per Override gesetzt, Zeile heraus."
   },
   "Martinslauf Sindorf|2026-11-05": {
     "am": "2026-09-19",
@@ -1496,9 +1496,9 @@
   },
   "Herbstcross des Saalfelder LV|2026-10-07": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
+    "ergebnis": "korrigiert",
     "quelle": "saalfelder-lv.de/herbstcross_2025_ausschreibung",
-    "notiz": "'Mittwoch, 07. Oktober 2026' bestätigt. Hauptlauf 'ca. 4800 m - 6 Runden' - unter der 5-km-Grenze (Punkt 4); gespeichert ohne Distanz, deshalb nicht angefasst: mit 4,8 km würde die Zeile beim nächsten Lauf verschwinden."
+    "notiz": "'Mittwoch, 07. Oktober 2026' bestätigt. Hauptlauf 'ca. 4800 m - 6 Runden' - unter der 5-km-Grenze (Punkt 4); gespeichert ohne Distanz, deshalb nicht angefasst: mit 4,8 km würde die Zeile beim nächsten Lauf verschwinden. Entschieden (19.09.2026, Nutzer): Läufe unter 5 km bleiben draußen. Hauptlauf 4,8 km per Override gesetzt, Zeile heraus."
   },
   "Döbelner Fackellauf|2026-10-28": {
     "am": "2026-09-19",
@@ -1910,15 +1910,15 @@
   },
   "Gymrace Airport Weeze|2026-10-10": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
+    "ergebnis": "entfernt",
     "quelle": "gymrace.com/event/weeze-october-2026",
-    "notiz": "10.10.2026, Airport Weeze: Fitness-Rennen mit Workout-Stationen (Solo/Buddies/Team Relay, 'Heavy'), kein Laufwettbewerb - dieselbe Klasse wie HYROX (Punkt 14)."
+    "notiz": "10.10.2026, Airport Weeze: Fitness-Rennen mit Workout-Stationen (Solo/Buddies/Team Relay, 'Heavy'), kein Laufwettbewerb - dieselbe Klasse wie HYROX (Punkt 14). Vom Nutzer am 19.09.2026 bestätigt ('Ja HYROX ausschließen'): steht jetzt in NICHT_AUSDAUER."
   },
   "Decathlon Hybrid Series - Plochingen|2026-10-11": {
     "am": "2026-09-19",
-    "ergebnis": "unklar",
+    "ergebnis": "entfernt",
     "quelle": "my.raceresult.com/419872/contact",
-    "notiz": "11.10.2026, Veranstalter DECATHLON Deutschland; Hybrid-Fitness-Format (Laufen + Kraftstationen) wie HYROX - Punkt 14. Organizer-URL leer."
+    "notiz": "11.10.2026, Veranstalter DECATHLON Deutschland; Hybrid-Fitness-Format (Laufen + Kraftstationen) wie HYROX - Punkt 14. Organizer-URL leer. Vom Nutzer am 19.09.2026 bestätigt ('Ja HYROX ausschließen'): steht jetzt in NICHT_AUSDAUER."
   },
   "Schweiger Tragathlon|2026-10-24": {
     "am": "2026-09-19",
@@ -2207,5 +2207,11 @@
     "ergebnis": "unklar",
     "quelle": "ditzinger-lebenslauf.de",
     "notiz": "'29. Ditzinger Lebenslauf am 25. April 2027' bestätigt; Distanzen nicht genannt."
+  },
+  "Gymrace Airport Weeze|2027-06-05": {
+    "am": "2026-09-19",
+    "ergebnis": "entfernt",
+    "quelle": "gymrace.com",
+    "notiz": "Fitness-Rennen mit Workout-Stationen (NICHT_AUSDAUER, wie HYROX)."
   }
 }

@@ -536,7 +536,8 @@
   },
   "Bramfelder Winterlaufserie|2026-11-15|5": {
     "datum_ende": "2026-11-15",
-    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18."
+    "_note": "Die Serie hat FUENF Termine (winterlaufserie-hamburg.de: '15. November 2026, 13. Dezember 2026, 17. Januar 2027, 21. Februar 2027, 21. Maerz 2027'), und an jedem gibt es dieselben Strecken - gelaufen werden 1 bis 5 Runden um den Bramfelder See ('Die Rundenlaenge betraegt 4.660 m. Die Runde kann 1-5 mal absolviert werden'). Diese Zeile ist der erste Termin, ihr Ende stand auf dem Ende der Serie. Die vier folgenden Termine stehen bereits einzeln in der Liste. Geprueft 2026-09-18. | Die '5 km' sind eine 4,66-km-Runde (winterlaufserie-hamburg.de). Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus.",
+    "laenge_km": 4.7
   },
   "Bramfelder Winterlaufserie|2026-11-15|9": {
     "datum_ende": "2026-11-15",
@@ -2259,5 +2260,39 @@
   "21. GVG-Donatuslauf|2028-03-12": {
     "veranstalter_url": "http://www.donatuslauf.de",
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.donatuslauf.de. Seite abgerufen, sie nennt den Lauf (donatuslauf). Linkprüfung 2026-09-19."
+  },
+  "Sedus Firmenlauf|2026-09-19|5": {
+    "laenge_km": 4.8,
+    "_note": "Label '5 km (4,80 km)': gemessen sind 4,80 km. Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Sedus Firmenlauf|2026-09-19|10": {
+    "laenge_km": 10.5,
+    "wettbewerb": "10 km (10,50 km)",
+    "_note": "Label '10 km (10,50 km)': gemessen sind 10,50 km - die genaue Länge gespeichert. Geprüft 2026-09-19."
+  },
+  "Bramfelder Winterlaufserie|2026-12-13|5": {
+    "laenge_km": 4.7,
+    "_note": "Die '5 km' sind eine 4,66-km-Runde (winterlaufserie-hamburg.de). Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Bramfelder Winterlaufserie|2027-01-17|5": {
+    "laenge_km": 4.7,
+    "_note": "Die '5 km' sind eine 4,66-km-Runde (winterlaufserie-hamburg.de). Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Bramfelder Winterlaufserie|2027-02-21|5": {
+    "laenge_km": 4.7,
+    "_note": "Die '5 km' sind eine 4,66-km-Runde (winterlaufserie-hamburg.de). Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Bramfelder Winterlaufserie|2027-03-21|5": {
+    "laenge_km": 4.7,
+    "_note": "Die '5 km' sind eine 4,66-km-Runde (winterlaufserie-hamburg.de). Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Hochplatten Berglauf|2026-10-22": {
+    "laenge_km": 4.6,
+    "_note": "hochplatten-berglauf.de: 'rund 4,6 Kilometern' von Piesenhausen zur Staffn-Alm, gespeichert war '5 km'. Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "Herbstcross des Saalfelder LV|2026-10-07": {
+    "laenge_km": 4.8,
+    "wettbewerb": "Hauptlauf ca. 4.800 m (6 Runden)",
+    "_note": "saalfelder-lv.de: Hauptlauf 'ca. 4800 m - 6 Runden', gespeichert ohne Distanz. Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
   }
 }

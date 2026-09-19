@@ -96,7 +96,7 @@ from dataclasses import dataclass, field, fields
 from datetime import date
 from pathlib import Path
 from typing import Iterable
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
 import requests
@@ -626,6 +626,53 @@ def parse_detail_page(html: str, page_url: str) -> dict:
     return result
 
 
+# Wohin laufen.de eine Detailseite weiterleitet, ohne dass das der
+# Veranstalter-Link wäre: Anmeldeportale, Zeitnehmer, soziale Netze -
+# und laufen.de selbst (www-Variante). Ein Ziel auf einem dieser Hosts
+# ist kein besserer Link als der Portallink, den wir schon haben.
+WEITERLEITUNG_KEIN_VERANSTALTER = (
+    "laufen.de", "lanet3.de", "raceresult.com", "datasport.de", "datasport.com",
+    "racepedia.de", "facebook.com", "fb.me", "instagram.com",
+)
+
+
+def veranstalter_link_aus_weiterleitung(detail_url: str, location: str | None) -> str | None:
+    """Der Veranstalter-Link, auf den eine laufen.de-Detailseite weiterleitet
+    - oder None, wenn das Ziel keiner ist.
+
+    Jeder Detaillink `laufen.de/laufkalender/details/<id>` leitet per 302
+    auf den Veranstalter-Link weiter, den der DLV-Kalender hinterlegt hat
+    (gefunden am 19.09.2026: 182 von 208 gespeicherten Detaillinks). Vorher
+    folgte `session.get()` der Weiterleitung stillschweigend,
+    `parse_detail_page()` parste dann die Veranstalterseite als wäre sie
+    eine laufen.de-Seite - fand dort natürlich keinen "Mehr Infos"-Link,
+    und der Portallink blieb stehen. 215 Zeilen trugen deshalb einen
+    laufen.de-Link, der in Wahrheit auf die offizielle Seite zeigte.
+
+    Genommen wird das Ziel nur, wenn es auf einem fremden Host liegt und
+    dieser weder Portal (`is_portal_link`) noch Anmeldung/Zeitnahme/
+    soziales Netz ist (WEITERLEITUNG_KEIN_VERANSTALTER). Vom Nutzer am
+    19.09.2026 freigegeben (Entscheidungspunkt 15 in CLAUDE.md).
+    """
+    # Wie überall in diesem Skript: scraper_lib erst bei Bedarf laden.
+    from scraper_lib import is_portal_link
+
+    if not location:
+        return None
+    ziel = urljoin(detail_url, location.strip())
+    parsed = urlparse(ziel)
+    if parsed.scheme not in ("http", "https"):
+        return None
+    host = parsed.netloc.lower().split("@")[-1].split(":")[0]
+    if not host or "." not in host:
+        return None
+    if any(host == d or host.endswith("." + d) for d in WEITERLEITUNG_KEIN_VERANSTALTER):
+        return None
+    if is_portal_link(ziel):
+        return None
+    return ziel
+
+
 def enrich_from_details(
     session: requests.Session,
     events: list[Event],
@@ -663,7 +710,7 @@ def enrich_from_details(
           f"also ca. {len(todo) * delay / 60:.0f} Minuten) ...")
 
     result: list[Event] = []
-    fetched = failed = expanded = 0
+    fetched = failed = expanded = weitergeleitet = 0
 
     for event in events:
         if id(event) not in todo_ids:
@@ -675,7 +722,22 @@ def enrich_from_details(
             print(f"  … {fetched + failed}/{len(todo)} Detailseiten verarbeitet.")
 
         try:
-            resp = session.get(event.detail_url, timeout=20)
+            # Ohne allow_redirects: Die Weiterleitung IST die Information
+            # (siehe veranstalter_link_aus_weiterleitung()).
+            resp = session.get(event.detail_url, timeout=20, allow_redirects=False)
+            if 300 <= resp.status_code < 400:
+                ziel = resp.headers.get("Location")
+                link = veranstalter_link_aus_weiterleitung(event.detail_url, ziel)
+                if link:
+                    event.veranstalter_url = link
+                    weitergeleitet += 1
+                # Weitergeleitet wird auch auf Portale und Anmeldungen -
+                # dann bleibt der Portallink. In beiden Fällen gibt es
+                # keine laufen.de-Detailseite zum Parsen: Wettbewerbe und
+                # Land bleiben auf dem Stand der Ergebnisliste.
+                result.append(event)
+                time.sleep(delay)
+                continue
             resp.raise_for_status()
             detail = parse_detail_page(resp.text, event.detail_url)
             fetched += 1
@@ -708,7 +770,8 @@ def enrich_from_details(
 
         time.sleep(delay)
 
-    print(f"\n→ Detailseiten: {fetched} geladen, {failed} fehlgeschlagen; "
+    print(f"\n→ Detailseiten: {fetched} geladen, {weitergeleitet} auf den "
+          f"Veranstalter weitergeleitet, {failed} fehlgeschlagen; "
           f"{expanded} Veranstaltung(en) in mehrere Wettbewerbe aufgeteilt "
           f"({len(events)} -> {len(result)} Einträge).")
     return result

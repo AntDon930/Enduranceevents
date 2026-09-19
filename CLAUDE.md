@@ -150,6 +150,13 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Reverse-Geocoding der Koordinaten.
 5. **5-km-Mindestdistanz nur für `art1 == "Laufen"`** und nur bei *bekannter*
    Distanz. 3,5 km Freiwasserschwimmen ist eine ernsthafte Distanz.
+   **Die Grenze ist hart** (vom Nutzer am 19.09.2026 entschieden: „Die
+   Läufe unter 5km nicht aufnehmen"): Eine als „5 km" beworbene Strecke
+   mit 4,80 km (Sedus Firmenlauf), eine 4,66-km-Runde (Bramfelder
+   Winterlaufserie), 4,6 km (Hochplatten Berglauf) und 4,8 km
+   (Herbstcross Saalfeld) stehen mit ihrer echten Länge im Override und
+   fallen damit heraus. Wer eine solche Zeile prüft, trägt die gemessene
+   Länge ein und lässt die Regel entscheiden – nicht die Marketingzahl.
 6. **`art2`: spezifisch vor generisch.** „Straße"/Marathon steht in
    `ART2_KEYWORDS_LAUFEN` bewusst ZULETZT, sonst wird ein „Bergtrail
    Trail-Marathon" zum Straßenlauf. Zusätzlich: ab 20 Höhenmetern pro km gilt
@@ -374,7 +381,9 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    **Ein fehlendes Event ist die unangenehmere Sorte Fehler**: Eine
    falsche Zahl sieht man, eine fehlende Zeile nicht.
 
-14. **HYROX gehört nicht in die Liste.** Die Seite führt Laufen,
+14. **HYROX gehört nicht in die Liste – und Gymrace und die Decathlon
+   Hybrid Series ebenso** (dieselbe Klasse, vom Nutzer am 19.09.2026
+   bestätigt: „Ja HYROX ausschließen"). Die Seite führt Laufen,
    Schwimmen, Fahrrad und Triathlon. HYROX ist achtmal ein Kilometer
    Laufen im Wechsel mit acht Kraftstationen (Sled Push, Burpees, Wall
    Balls, Rudern) – man kann sich dafür nicht als Läufer anmelden.
@@ -384,7 +393,8 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      (`clean_events.drop_nicht_ausdauer`) – dieselbe Aufteilung wie bei
      den vergangenen Events.
    - **Die Liste ist winzig und leicht umzudrehen**: Zeile heraus, und
-     beim nächsten Datenlauf sind die Events wieder da.
+     beim nächsten Datenlauf sind die Events wieder da. Drei Zeilen
+     heute: HYROX, Gymrace, Decathlon Hybrid Series.
    - **Nur eindeutige Markennamen.** Ein Stichwort wie „Fitness" oder
      „Hindernis" wäre falsch: Ein Hindernislauf (Spartan, XLETIX,
      CrossDeLuxe, Muddy Angel, Tough Mudder) IST ein Laufformat und
@@ -910,9 +920,8 @@ oder das Datum im Text bzw. im Hostnamen – „lauf", „marathon",
 
 Damit sind von 215 laufen.de-Portalzeilen **98 übrig**; die
 Audit-Kategorie „Portallink" fällt von 791 auf rund 100 laufen.de- plus
-die raceresult-Zeilen. Beim nächsten Datenlauf kommt das für NEUE
-Events wieder – deshalb Entscheidungspunkt 15 (Scraper folgt der
-Weiterleitung). Die Werkzeuge liegen nicht im Repo (zwei kurze
+die raceresult-Zeilen. Für NEUE Events erledigt das seit dem 19.09.2026
+der Scraper selbst (Punkt 15, gebaut). Die Werkzeuge liegen nicht im Repo (zwei kurze
 Skripte im Chat); wenn der Nutzer Punkt 15 ablehnt, lohnt ein
 `scripts/laufen_redirects.py` nach demselben Muster.
 
@@ -2196,15 +2205,11 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Celler Staffelmarathon und Rennsteig-Staffellauf stehen mit der
    TEAM-Strecke (42,195 bzw. 140 km), „DUO Marathon 2 x 21,1 km" mit der
    Teilstrecke. Das gehört vereinheitlicht.
-4. **Die 5-km-Grenze bei „5 km" mit 4,8 km.** Sedus Firmenlauf („5 km
-   (4,80 km)") und Bramfelder Winterlaufserie (4,66-km-Runde): Korrigiert
-   man die Distanz, fällt die Strecke unter Datenregel 5 und
-   verschwindet beim nächsten Datenlauf. Frage: Soll die Grenze knapp
-   darunter liegende, offiziell als „5 km" beworbene Strecken mitnehmen?
-   Dazugekommen (19.09.2026, Wochentags-Durchgang): Hochplatten Berglauf
-   („rund 4,6 Kilometern“, gespeichert „5 km“) und Herbstcross des
-   Saalfelder LV („ca. 4800 m“, gespeichert ohne Distanz) – beide stehen
-   als `unklar` im Protokoll und sind nicht angefasst.
+4. ~~Die 5-km-Grenze bei „5 km" mit 4,8 km~~ **entschieden** (19.09.2026):
+   Läufe unter 5 km bleiben draußen, auch die als „5 km" beworbenen. Sedus
+   (4,80 km), Bramfelder Winterlaufserie (4,66-km-Runde), Hochplatten
+   (4,6 km) und Herbstcross Saalfeld (4,8 km) stehen mit ihrer echten
+   Länge im Override und sind heraus – siehe Datenregel 5.
 5. **Meisterschaften im Rahmen eines Volkslaufs** stehen NICHT mehr
    doppelt (7 Fälle entfernt, z. B. Bayerische Halbmarathon-
    Meisterschaften = Aschaffenburger Halbmarathon). Umkehrbar, falls
@@ -2273,28 +2278,28 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      (Waschmühle 6 h, Rotary Albstadt 1 h, Meißen 1 h, Rastenberg 4 h),
      stehen sie jetzt als Zeitrennen – das ist Datenregel 8. Ohne feste
      Dauer bleibt nur „–", oder sie fliegen raus.
-   - **Fitness-Rennen mit Kraftstationen** – dieselbe Klasse wie HYROX:
-     Gymrace Airport Weeze („fitness race with workout stations"),
-     Decathlon Hybrid Series Plochingen. Vorschlag: beide zu
-     `NICHT_AUSDAUER` (nur Markennamen, wie bei HYROX).
+   - ~~Fitness-Rennen mit Kraftstationen~~ **entschieden** (19.09.2026,
+     „Ja HYROX ausschließen"): Gymrace und Decathlon Hybrid Series stehen
+     in `NICHT_AUSDAUER`, drei Zeilen sind heraus. Die Spenden-, Schul-
+     und Spaßformate darunter und darüber bleiben offen.
    - **Spaßformate**: Schweiger Tragathlon (Bierkasten-Tragen in
      Viererteams), The Quest Auwald (Checkpoint-Jagd über 2/3 h,
      Strecke frei), Pace Race Nürnberg („Social Racing"-Arena).
 
-15. **Scraper-Ergänzung: die laufen.de-Weiterleitung mitnehmen.** Jeder
-   gespeicherte `laufen.de/laufkalender/details/<id>`-Link leitet per
-   302 auf den Veranstalter-Link des DLV-Kalenders weiter (siehe „Achter
-   Durchgang"). `enrich_from_details()` folgt der Weiterleitung, parst
-   dann die Veranstalterseite als wäre sie eine laufen.de-Detailseite
-   und findet dort natürlich keinen „organizer_url" – so bleibt der
-   Portallink stehen. Vorschlag (ein paar Zeilen in
-   `laufkalender_scraper.py`): `allow_redirects=False` beim Abruf, und
-   zeigt `Location` auf einen fremden Host, diesen als
-   `veranstalter_url` nehmen – außer er ist Portal/Anmeldung
-   (`lanet3.de`, `my.raceresult.com`, `datasport.de`, `racepedia.de`,
-   Facebook). Sonst holt sich jeder neue Datenlauf wieder Portallinks,
-   die heute per Override (120 Stück) ersetzt sind. **Scraper-Änderung,
-   also erst mit Ja.**
+15. ~~Scraper-Ergänzung: die laufen.de-Weiterleitung mitnehmen~~
+   **gebaut** (19.09.2026, vom Nutzer freigegeben):
+   `veranstalter_link_aus_weiterleitung()` in `laufkalender_scraper.py`;
+   `enrich_from_details()` ruft die Detailseite mit
+   `allow_redirects=False` ab und nimmt bei einem 302 das Ziel als
+   `veranstalter_url`, außer es liegt auf laufen.de, einem Anmeldeportal
+   (lanet3, raceresult, datasport, racepedia), einem sozialen Netz oder
+   einer `PORTAL_DOMAINS`-Adresse (`WEITERLEITUNG_KEIN_VERANSTALTER`).
+   Bei einer Weiterleitung gibt es keine Detailseite zum Parsen –
+   Wettbewerbe und Land bleiben dann auf dem Stand der Ergebnisliste,
+   wie vorher auch (die Veranstalterseite lieferte nie welche).
+   `test_laufen_weiterleitung` prüft Helfer und Abrufschleife mit einer
+   Fake-Session. Die 120 Overrides aus dem achten Durchgang bleiben
+   stehen; beim nächsten Datenlauf sind sie für diese Events ein No-op.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

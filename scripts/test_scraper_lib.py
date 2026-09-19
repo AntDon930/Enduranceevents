@@ -23,6 +23,8 @@ lässt sich also direkt in CI einhängen.
 from __future__ import annotations
 
 import sys
+
+import requests
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1603,6 +1605,69 @@ def test_such_vorschlaege() -> None:
           len([x for x in d["bonn"] if x.startswith("Bonn:")]), 1)
 
 
+def test_laufen_weiterleitung() -> None:
+    """Die laufen.de-Detailseite leitet auf den Veranstalter weiter - und
+    genau dieses Ziel ist der Veranstalter-Link (Entscheidungspunkt 15,
+    vom Nutzer am 19.09.2026 freigegeben).
+
+    Gegenproben: Ziele auf Anmeldeportalen (lanet3, raceresult, datasport,
+    racepedia), sozialen Netzen, Kalenderportalen (PORTAL_DOMAINS) und
+    innerhalb von laufen.de (www-Variante) sind KEIN Veranstalter-Link.
+    """
+    print("\nlaufen.de-Weiterleitung (veranstalter_link_aus_weiterleitung):")
+    from laufkalender_scraper import veranstalter_link_aus_weiterleitung as vl
+    detail = "https://laufen.de/laufkalender/details/26V09000621060001"
+    check("Veranstalter-Host", vl(detail, "https://www.sv-molbergen-leichtathletik.de/"),
+          "https://www.sv-molbergen-leichtathletik.de/")
+    check("http ohne www", vl(detail, "http://www.svg-poenitz.de"), "http://www.svg-poenitz.de")
+    check("Leerzeichen am Rand", vl(detail, "  https://www.taubertal100.de/ "), "https://www.taubertal100.de/")
+    for ziel in ("https://lanet3.de/external/dlv/register/13425",
+                 "https://my.raceresult.com/354931/",
+                 "https://www.datasport.de/anmeldeservice/x",
+                 "https://schwabacher-citylauf-2026.racepedia.de",
+                 "https://www.facebook.com/events/123", "https://fb.me/e/abc",
+                 "https://www.laufen.de/laufkalender/details/26V09000621060001",
+                 "https://running.life/de/termine/x",
+                 "/laufkalender/details/26V09000621060001",
+                 "mailto:ch.olbrich@gmx.de", "", None):
+        check(f"kein Veranstalter: {ziel!r}", vl(detail, ziel), None)
+
+    # Der Abruf selbst: eine Weiterleitung setzt den Link und parst nichts,
+    # eine echte Detailseite (200) läuft wie bisher durch parse_detail_page.
+    import laufkalender_scraper as lk
+
+    class _Resp:
+        def __init__(self, status, headers=None, text=""):
+            self.status_code, self.headers, self.text = status, headers or {}, text
+        def raise_for_status(self):
+            if self.status_code >= 400:
+                raise requests.exceptions.HTTPError(str(self.status_code))
+
+    class _Session:
+        def __init__(self, antworten): self.antworten, self.aufrufe = antworten, []
+        def get(self, url, timeout=20, allow_redirects=True):
+            self.aufrufe.append((url, allow_redirects))
+            return self.antworten[url]
+
+    e1 = lk.Event(name="A", detail_url="https://laufen.de/laufkalender/details/1",
+                  veranstalter_url="https://laufen.de/laufkalender/details/1")
+    e2 = lk.Event(name="B", detail_url="https://laufen.de/laufkalender/details/2",
+                  veranstalter_url="https://laufen.de/laufkalender/details/2")
+    e3 = lk.Event(name="C", detail_url="https://laufen.de/laufkalender/details/3",
+                  veranstalter_url="https://laufen.de/laufkalender/details/3")
+    sess = _Session({
+        e1.detail_url: _Resp(302, {"Location": "https://www.wellen-marathon.de"}),
+        e2.detail_url: _Resp(302, {"Location": "https://lanet3.de/external/dlv/register/1"}),
+        e3.detail_url: _Resp(200, text="<html><body></body></html>"),
+    })
+    out = lk.enrich_from_details(sess, [e1, e2, e3], delay=0, max_details=0)
+    check("Weiterleitung setzt den Veranstalter-Link", out[0].veranstalter_url, "https://www.wellen-marathon.de")
+    check("Portal-Ziel lässt den Portallink stehen", out[1].veranstalter_url, e2.detail_url)
+    check("Detailseite ohne Weiterleitung bleibt unverändert", out[2].veranstalter_url, e3.detail_url)
+    check("kein Event geht verloren", len(out), 3)
+    check("ohne allow_redirects abgerufen", all(not ar for _, ar in sess.aufrufe), True)
+
+
 def test_nicht_ausdauer() -> None:
     """HYROX gehört nicht in die Liste - ein Hindernislauf schon.
 
@@ -1619,11 +1684,13 @@ def test_nicht_ausdauer() -> None:
     from scraper_lib import ist_nicht_ausdauer
     from clean_events import drop_nicht_ausdauer
 
-    for name in ("HYROX Karlsruhe", "Intersport HYROX Hamburg", "hyrox cologne"):
+    for name in ("HYROX Karlsruhe", "Intersport HYROX Hamburg", "hyrox cologne",
+                 "Gymrace Airport Weeze", "Decathlon Hybrid Series - Plochingen"):
         check(f"{name!r} fliegt heraus", bool(ist_nicht_ausdauer(name)), True)
     for name in ("Kulmbach Spartan Trifecta Weekend", "XLETIX Challenge - Nürburgring",
                  "Family-CrossDeLuxe Leipzig", "Muddy Angel Run - Berlin",
-                 "Tough Mudder Hamburg", "Fitnesslauf Bochum", "Hindernislauf Kiel"):
+                 "Tough Mudder Hamburg", "Fitnesslauf Bochum", "Hindernislauf Kiel",
+                 "Decathlon Stadtlauf Plochingen", "Hybrid Trail Harz"):
         check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
 
     behalten, entfernt = drop_nicht_ausdauer([
@@ -1837,7 +1904,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer, test_serientermin_im_label,
+                 test_nicht_ausdauer, test_laufen_weiterleitung, test_serientermin_im_label,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

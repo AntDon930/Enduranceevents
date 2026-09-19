@@ -2900,23 +2900,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
+    "laenge_km": 10.5,
     "veranstalter_url": "https://www.sedus.com/de/sedustainable/soziales/sedus-run",
     "wettbewerb": "10 km (10,50 km)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sedus Firmenlauf",
-    "standort": "Dogern",
-    "lat": 47.6075565,
-    "lon": 8.1661218,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km (4,80 km)",
-    "veranstalter_url": "https://www.sedus.com/de/sedustainable/soziales/sedus-run"
   },
   {
     "land": "Deutschland",
@@ -15552,18 +15538,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Herbstcross des Saalfelder LV",
-    "standort": "Saalfeld/Saale",
-    "lat": 50.6492736,
-    "lon": 11.3661502,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-10-07",
-    "datum_ende": "2026-10-07",
-    "veranstalter_url": "https://www.saalfelder-lv.de/herbstcross_2025_ausschreibung"
-  },
-  {
-    "land": "Deutschland",
     "name": "Warburger Stundenlauf",
     "standort": "Warburg",
     "lat": 51.4899078,
@@ -16287,18 +16261,6 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 6.2,
     "veranstalter_url": "https://my.raceresult.com/421429/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Gymrace Airport Weeze",
-    "standort": "Weeze",
-    "lat": 51.6266679,
-    "lon": 6.1968442,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "veranstalter_url": "https://www.gymrace.com/event/weeze-october-2026"
   },
   {
     "land": "Deutschland",
@@ -17930,18 +17892,6 @@
     "laenge_km": 5.5,
     "wettbewerb": "ca. 5,5 km (erste Runde)",
     "veranstalter_url": "https://my.raceresult.com/396016/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Decathlon Hybrid Series - Plochingen",
-    "standort": "Plochingen",
-    "lat": 48.7131896,
-    "lon": 9.4197264,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "veranstalter_url": "https://my.raceresult.com/419872/"
   },
   {
     "land": "Deutschland",
@@ -21247,20 +21197,6 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/422747/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hochplatten Berglauf",
-    "standort": "Marquartstein",
-    "lat": 47.7584623,
-    "lon": 12.4621144,
-    "art1": "Laufen",
-    "art2": "Berg",
-    "datum_start": "2026-10-22",
-    "datum_ende": "2026-10-22",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://hochplatten-berglauf.de/"
   },
   {
     "land": "Deutschland",
@@ -27849,20 +27785,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Bramfelder Winterlaufserie",
-    "standort": "Bramfelder See",
-    "lat": 53.6196761,
-    "lon": 10.0636136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-15",
-    "datum_ende": "2026-11-15",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bremer Kuhcross QX",
     "standort": "Bremen",
     "lat": 53.0758196,
@@ -31900,20 +31822,6 @@
     "datum_ende": "2026-12-13",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bramfelder Winterlaufserie",
-    "standort": "Bramfelder See",
-    "lat": 53.6196761,
-    "lon": 10.0636136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-13",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -36339,20 +36247,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Bramfelder Winterlaufserie",
-    "standort": "Bramfelder See",
-    "lat": 53.6196761,
-    "lon": 10.0636136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-17",
-    "datum_ende": "2027-01-17",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Fun & Erlebnis Marathons - Schneverdingen",
     "standort": "Schneverdingen",
     "lat": 53.1162319,
@@ -37921,20 +37815,6 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bramfelder Winterlaufserie",
-    "standort": "Bramfelder See",
-    "lat": 53.6196761,
-    "lon": 10.0636136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-21",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -40299,20 +40179,6 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bramfelder Winterlaufserie",
-    "standort": "Bramfelder See",
-    "lat": 53.6196761,
-    "lon": 10.0636136,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-21",
-    "datum_ende": "2027-03-21",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -49164,18 +49030,6 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
     "veranstalter_url": "https://giantsrun.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Gymrace Airport Weeze",
-    "standort": "Weeze",
-    "lat": 51.6266679,
-    "lon": 6.1968442,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
-    "veranstalter_url": "https://atleta.cc/e/SdUE1YSQBKcr"
   },
   {
     "land": "Deutschland",

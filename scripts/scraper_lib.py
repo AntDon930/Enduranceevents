@@ -1891,6 +1891,12 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
 # XLETIX, CrossDeLuxe) IST ein Laufformat und bleibt in der Liste.
 NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bhyrox\b", re.I), "HYROX (Laufen + Kraftstationen)"),
+    # Dieselbe Klasse wie HYROX - Fitness-Rennen mit Workout-Stationen,
+    # beim Durchgehen der Zeilen ohne Distanz am 19.09.2026 gefunden und
+    # vom Nutzer bestätigt ("Ja HYROX ausschließen"). Wieder nur
+    # Markennamen, keine Stichwörter wie "Fitness" oder "Hybrid".
+    (re.compile(r"\bgymrace\b", re.I), "Gymrace (Fitness-Rennen mit Workout-Stationen)"),
+    (re.compile(r"decathlon\s+hybrid\s+series", re.I), "Decathlon Hybrid Series (Laufen + Kraftstationen)"),
 ]
 
 
