@@ -2329,6 +2329,21 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Fake-Session. Die 120 Overrides aus dem achten Durchgang bleiben
    stehen; beim nächsten Datenlauf sind sie für diese Events ein No-op.
 
+16. **Vereinsinterne Leichtathletik-Veranstaltungen.** Der Nutzer hat am
+   19.09.2026 den „4. Zülpicher Seepark Nikolauslauf" herausgenommen
+   (Veranstalter: Leichtathletik-Abteilung des TuS Zülpich; „hauptsächlich
+   auf Leichtathletik getrimmt, da dürfen keine Außenstehenden mitmachen")
+   – per `exclude` in `manual_overrides.json`, Befund in `geprueft.json`.
+   **Zur Kenntnis**: Die Ausschreibung 2025 auf der Vereinsseite nennt
+   einen offenen Jedermannlauf, eine Firmenstaffel und einen 9,5-km-
+   Hauptlauf mit Online-Anmeldung; der 2026-Termin steht dort noch nicht.
+   Das steht so im Override, falls die Entscheidung umgedreht wird.
+   **Eine Regel dafür gibt es nicht**: „leichtathletik" im Hostnamen
+   trifft 17 Domains (34 Zeilen), und ein Lauf-Cup oder Stadtlauf wird
+   oft vom LA-Verein ausgerichtet und ist trotzdem offen – wie beim
+   Chlodwiglauf desselben Vereins (1.400 Starter, Eifelcup). Nur
+   einzeln prüfen, nie am Domainnamen entscheiden.
+
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für
 den E-Mail-Versand, `og:image` sobald die Domain steht, und die

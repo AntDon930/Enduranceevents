@@ -30722,19 +30722,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel",
-    "standort": "Zülpich",
-    "lat": 50.6922459,
-    "lon": 6.6472694,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 9.5,
-    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "40. Weiterstädter Nikolauslauf",
     "standort": "Weiterstadt",
     "lat": 49.9178,

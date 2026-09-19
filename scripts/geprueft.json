@@ -2213,5 +2213,11 @@
     "ergebnis": "entfernt",
     "quelle": "gymrace.com",
     "notiz": "Fitness-Rennen mit Workout-Stationen (NICHT_AUSDAUER, wie HYROX)."
+  },
+  "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "entfernt",
+    "quelle": "tuszuelpich-leichtathletik.de/veranstaltungen.html",
+    "notiz": "Auf Wunsch des Nutzers ausgeschlossen (Vereins-Leichtathletik, nach seiner Einschätzung nur für Mitglieder). Die Ausschreibung 2025 auf der Seite beschreibt allerdings einen offenen Jedermannlauf (3,5 km), eine Firmen-/Funstaffel und einen 9,5-km-Hauptlauf mit Online-Anmeldung; 2026-Termin dort noch nicht angekündigt. Override mit exclude, Begründung dort."
   }
 }
