@@ -216,6 +216,14 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Stundenlauf – 10 km"), meldet das `audit_events.py` – `fill_duration()`
    füllt bewusst nur, wo gar nichts steht.
 
+   **Zwei Dauern sind zwei Wettbewerbe.** `_compatible_distance()`
+   vergleicht bei Zeilen ohne Distanz die `dauer_h` – Stundenlauf und
+   Halbstundenlauf des Döbelner Fackellaufs sind sonst EINE Zeile, und
+   `manual_events.json` konnte den zweiten nicht anlegen, weil
+   `is_same_event()` ihn für den ersten hielt. Fehlt eine der beiden
+   Dauern, bleibt es beim Alten (unbekannt schließt nichts aus);
+   `test_duplikate` hält alle drei Fälle fest.
+
    **Die Rundenlänge ist keine Renndistanz** – inzwischen die vierte
    Begegnung mit dieser Fehlerklasse (Backyard-Runde, „Running Paule
    Marathon" 6,4 km, „Warendorfer Weihnachtslauf" 6 km, „Borsig
@@ -810,6 +818,44 @@ Nebenbefund: **PDF-Ausschreibungen lassen sich in der Sandbox lesen** –
 Zlib-plus-ToUnicode-Dekoder (im Chat gebaut, nicht im Repo) reichte für
 die Werdauer Ausschreibung. Falls das öfter gebraucht wird, lohnt sich
 ein `scripts/pdf_text.py`.
+
+### Sechster Durchgang: die Wochentage Mo–Do (19.09.2026)
+
+Die 120 Zeilen der Audit-Kategorie „Wochentag Mo–Do“ durchgesehen
+und die ~45 Veranstaltungen mit echtem Zweifel an der offiziellen
+Seite geprüft (Feiertage, Silvester, Heiligabend, Dreikönig,
+Rosenmontag, Buß- und Bettag und die Mittwochabend-Stadt- und
+Campusläufe brauchten keine Prüfung). **Kein einziges Datum war
+falsch** – Stundenläufe, Firmenläufe und Campusläufe liegen wirklich
+unter der Woche. Gefunden wurden dafür sechs andere Fehler:
+
+- **Falscher Link auf ein anderes Rennen**: Der „Sparkassen
+  Uni-Triathlon“ (Magdeburg, Barleber See) zeigte auf den *Berliner*
+  Uni-Triathlon. Jetzt usc-triathlon.de, dazu die Sprintdistanz
+  500 m / 20 km / 5 km = 25,5 km.
+- **Gerundete Distanzen**: Karlsruhe Volkslauf 11 → 10,5 km,
+  Frühlingslauf Schwerin 11 → 10,5 km, Martinslauf Sindorf 7 → 6,6 km.
+- **Zeitrennen ohne Maßzahl**: Rastenberg (4-Stunden-Spendenlauf auf
+  der 400-m-Runde), Döbelner Fackellauf (Stundenlauf; der
+  Halbstundenlauf nachgetragen – dafür musste `_compatible_distance()`
+  Dauern vergleichen lernen, siehe Datenregel 8).
+- **Idar-Obersteiner Felsenkirche Treppenlauf mit 42,2 km** – es sind
+  5,4 und 8,1 km (aus „Marathonteam Hagner“ wurde ein Marathon).
+- Drei Veranstalter-Links über die **raceresult-Kontaktseite** (Haus
+  Vortlage, Wild & Run, Idar-Oberstein); bei PULSEDAY, Töwerland und
+  Fun & Erlebnis Marathons nannte sie nur Verband, Kurverwaltung oder
+  einen abgeschalteten Blog – Link bleibt.
+
+Was daraus als **Entscheidung** übrig bleibt: Treppenläufe (neuer Punkt
+13), zwei weitere 4,6/4,8-km-Läufe für Punkt 4, und drei
+2027-Termine, die nur Prognosen sind (Borkener Citylauf 07.06.2027 ist
+ein Montag – die 2026-Ausgabe war Sonntag, der 7.6.; Wild & Run und
+Uni-Triathlon Magdeburg haben ihren 2027-Termin noch nicht
+veröffentlicht). Solche **Jahreswechsel-Prognosen** erkennt keine Regel;
+sie fallen erst auf, wenn der Wochentag nicht passt.
+
+**Die Audit-Kategorie bleibt** – sie hat die sechs Fehler gefunden,
+nicht als Datumsfehler, sondern weil man dafür die Seite aufruft.
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
@@ -2088,6 +2134,10 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    man die Distanz, fällt die Strecke unter Datenregel 5 und
    verschwindet beim nächsten Datenlauf. Frage: Soll die Grenze knapp
    darunter liegende, offiziell als „5 km" beworbene Strecken mitnehmen?
+   Dazugekommen (19.09.2026, Wochentags-Durchgang): Hochplatten Berglauf
+   („rund 4,6 Kilometern“, gespeichert „5 km“) und Herbstcross des
+   Saalfelder LV („ca. 4800 m“, gespeichert ohne Distanz) – beide stehen
+   als `unklar` im Protokoll und sind nicht angefasst.
 5. **Meisterschaften im Rahmen eines Volkslaufs** stehen NICHT mehr
    doppelt (7 Fälle entfernt, z. B. Bayerische Halbmarathon-
    Meisterschaften = Aschaffenburger Halbmarathon). Umkehrbar, falls
@@ -2134,6 +2184,17 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    man wieder auf die Startseite kommt** – etwa Titel/Logo im blauen
    Kasten als Link (übliche Konvention) oder ein Eintrag in der Fußzeile.
    Nichts davon ohne seine Entscheidung bauen.
+
+13. **Treppenläufe – rein oder raus?** Sieben Zeilen sind Towerruns
+   (ADAC Charity Treppenlauf München: „472 Stufen, 22 Etagen“, TK
+   Elevator Towerrun, ALTIMATE Treppenlauf Berlin, Teltschikturm,
+   Monschau, Lotto Thüringen Treppenlauf). Das ist ein eigenes Format
+   ohne Laufdistanz – dieselbe Frage wie bei HYROX, nur ist es Laufen.
+   Der Idar-Obersteiner Felsenkirche Treppenlauf ist KEIN Towerrun,
+   sondern ein Berglauf über 5,4 / 8,1 km mit Treppen im Kurs – der
+   bleibt in jedem Fall (stand fälschlich mit 42,2 km, korrigiert).
+   Vorschlag: raus, per `NICHT_AUSDAUER`-Zeile `treppenlauf|towerrun`,
+   mit dem Idar-Obersteiner als Gegenprobe im Test.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für
