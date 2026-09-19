@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-28-dobelner-fackellauf-x-dobeln@antdon930.github.io
+UID:2026-10-28-dobelner-fackellauf-0-5h-dobeln@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
-SUMMARY:Döbelner Fackellauf
+SUMMARY:Döbelner Fackellauf – Halbstundenlauf
 LOCATION:Döbeln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://mittelsaechsische
- -lauftour.com/wettkaempfe/fackellauf.html
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 0.5 h\nhttps://mittelsaechsi
+ sche-lauftour.com/wettkaempfe/fackellauf.html
 TRANSP:TRANSPARENT
 URL:https://mittelsaechsische-lauftour.com/wettkaempfe/fackellauf.html
 END:VEVENT

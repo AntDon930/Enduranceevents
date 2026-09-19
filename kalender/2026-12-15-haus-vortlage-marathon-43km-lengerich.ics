@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Haus Vortlage Marathon
 LOCATION:Lengerich\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://my.raceresult
- .com/414972/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://ultra-uwe-unt
+ erwegs.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414972/
+URL:https://ultra-uwe-unterwegs.de
 END:VEVENT
 END:VCALENDAR

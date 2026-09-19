@@ -1565,5 +1565,48 @@
   "Rodenbacher Lauftag|2026-10-03": {
     "veranstalter_url": "https://ssc-hanau-rodenbach.de/?page_id=196",
     "_note": "Lauftag-Seite des SSC Hanau-Rodenbach ('Ausschreibung des 7. Rodenbacher Lauftages am 03.10.2026'); laufen.de war der Portallink. 50-km-Harry-Arndt-Gedenklauf 2024 und 2025 dort belegt, 2026 in der Ausschreibung (siehe Override mit |50). Geprüft 2026-09-19."
+  },
+  "Haus Vortlage Marathon|2026-12-15": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "_note": "Organizer-URL von der raceresult-Kontaktseite (414972/contact: Uwe Laig, Lengerich). Termin 15.12.2026 (Di) steht so bei raceresult; die Tabelle auf ultra-uwe-unterwegs.de nennt daneben einen 'Haus Vortlage-Marathon' am 20.02. - vermutlich eine weitere Ausgabe. Geprüft 2026-09-19."
+  },
+  "Sparkassen Uni-Triathlon|2027-06-09": {
+    "veranstalter_url": "https://usc-triathlon.de/wp2/der-uni-triathlon/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz",
+    "_note": "Der gespeicherte Link (berlin-timing.de/UNI-Triathlon) war der Berliner Uni-Triathlon - ein anderes Rennen. Der Magdeburger läuft am Barleber See; uni-triathlon.de leitet auf usc-triathlon.de/wp2/der-uni-triathlon/ ('500m' Schwimmen, '20km' Rad, '5km' Laufen, 36. Auflage am 10.06.2026). Termin 2027 dort noch nicht genannt; 09.06.2027 ist wie 2026 ein Mittwoch. Geprüft 2026-09-19."
+  },
+  "Wild & Run Oberkollbach|2027-07-21": {
+    "veranstalter_url": "https://sportverein-oberkollbach.de/wildandrun/",
+    "_note": "Organizer-URL von der raceresult-Kontaktseite (419924/contact, SV Oberkollbach). Die Seite sagt 'Sei 2027 dabei - Termin folgt'; der 21.07.2027 (Mi) stammt aus der raceresult-Anmeldung. Geprüft 2026-09-19."
+  },
+  "Frühlingslauf Schwerin|2027-04-07|11": {
+    "laenge_km": 10.5,
+    "wettbewerb": "10,5 km (3 Runden)",
+    "_note": "fuenf-seen-lauf.de (Laufkalender, 07.04.2027): 'Rundenlauf um den Ostorfer See über 3,5 km, 7,0 km oder 10,5 km; (ein, zwei oder drei Runden)' - 11 km war gerundet. Geprüft 2026-09-19."
+  },
+  "Stadtwerke Karlsruhe Volkslauf|2026-09-24|11": {
+    "laenge_km": 10.5,
+    "wettbewerb": "10,5 km Laufstrecke",
+    "_note": "stadtwerke-karlsruhe.de ('Donnerstag 24. September 2026'): '5 km Laufstrecke', '10,5 km Laufstrecke', '5 km Walking' - 11 km war gerundet. Geprüft 2026-09-19."
+  },
+  "Martinslauf Sindorf|2026-11-05|7": {
+    "laenge_km": 6.6,
+    "wettbewerb": "6,6 km (2 Runden)",
+    "_note": "martinslauf-sindorf.de: '3 Läufe – 1 Start: ... finishe wahlweise nach 3,3 km, 6,6 km oder 10 km' - 7 km war gerundet. Geprüft 2026-09-19."
+  },
+  "Lauf für einen guten Zweck - Rastenberg|2026-09-22": {
+    "dauer_h": 4,
+    "wettbewerb": "4-Stunden-Lauf (400-m-Runde)",
+    "_note": "runtix.com/sts/10021/3221: '4-Stunden-Lauf (400m)' auf dem Sportplatz Rastenberg, Sponsoren zahlen je Runde - ein Zeitrennen (Datenregel 8), stand ohne jede Maßzahl. Geprüft 2026-09-19."
+  },
+  "Döbelner Fackellauf|2026-10-28": {
+    "dauer_h": 1,
+    "wettbewerb": "Stundenlauf",
+    "_note": "mittelsaechsische-lauftour.com (Mittwoch 28.10.2026): 'Stundenlauf', 'Halbstundenlauf', 'Stunden-Walking' - 'Jeder Läufer zählt seine Runden selbst'. Der Halbstundenlauf steht in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Idar-Obersteiner Felsenkirche Treppenlauf|2026-09-20|42.2": {
+    "exclude": true,
+    "_note": "Kein Marathon: Der Treppenlauf hat zwei Strecken, 'Kurz: 5,4 km, 350 Stufen, 246 Höhenmeter' und 'Lang: 8,1 km, 510 Stufen, 468 Höhenmeter' (Stadt Idar-Oberstein, Pressemitteilung Mai 2026; Veranstalter Marathonteam Hagner laut raceresult-Kontaktseite 377205/contact). Die 42,2 km stammen wohl vom Wort 'Marathonteam'. Beide Strecken stehen in manual_events.json. Geprüft 2026-09-19."
   }
 }

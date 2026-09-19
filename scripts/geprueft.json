@@ -1307,5 +1307,287 @@
     "ergebnis": "korrigiert",
     "quelle": "werdauer-waldlauf.de (Ausschreibung 2027 als PDF)",
     "notiz": "31 km ist echt ('¾ Marathon (31 km Lauf)', 18.04.2027); Distanzen stimmen. Veranstalter-Link ersetzt: das Anmeldeportal löste nicht mehr auf."
+  },
+  "R5K Tour Finale - Berlin|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "bmw-berlin-marathon.com/anmelden/kids-and-youth/r5k",
+    "notiz": "KEINE Doppelung mit dem GENERALI 5K: Jugendserie ('offen für ambitionierte Läufer:innen von 12 bis 22 Jahren', Qualifikationszeit unter 22:00 min über 5 km), eigener Wettbewerb - siehe Eintrag GENERALI 5K."
+  },
+  "Holy Aperoly Run|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "holyaperolyrun.de",
+    "notiz": "KEINE Doppelung mit dem Dortmunder Familienlauf: Revierpark Wischlingen, 5 und 10 km Run/Walk, Veranstalter GID Projects - siehe Eintrag Dortmunder Familienlauf."
+  },
+  "Pink 5K Run Dortmund|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "pink-5k.de/dortmund",
+    "notiz": "KEINE Doppelung mit dem Hohenbuschei-Lauf: TSC Eintracht Dortmund (Victor-Toyka-Str.), 5 km Run/Walk - siehe Eintrag Hohenbuschei-Lauf."
+  },
+  "Missio-Cross-Challenge|2027-04-17": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "missio-cross-challenge.de",
+    "notiz": "KEINE Doppelung mit dem Paracelsuslauf: 80 km von Bad Liebenzell nach Schwaigern, Läuferstationen alle 5 km (Einstieg für jede Teilstrecke), Liebenzeller Mission - siehe Eintrag Paracelsuslauf."
+  },
+  "Spreewald-Marathon|2027-04-22": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "spreewaldmarathon.de",
+    "notiz": "Mehrtägig '22.-25. April 2027' (Do-So, Burg/Lübbenau/Straupitz): 42,195 km, 21,0975 km, 10 km; die Nachtwalken (5 / 4,5 km) sind Walking. Wochentag Do ist der erste Veranstaltungstag."
+  },
+  "Vier Türme Hamme Ultra|2027-02-02": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/409915 (+/contact)",
+    "notiz": "'11. Vier Türme Lauf (Ultra)', raceresult nennt selbst den 02.02.2027 (Di); Organizer-URL leer, Veranstalter Olaf Häsler. Link bleibt."
+  },
+  "Haus Vortlage Marathon|2026-12-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/414972/contact, ultra-uwe-unterwegs.de",
+    "notiz": "Veranstalter-Link von der raceresult-Kontaktseite. 43 km und Halbmarathon nicht weiter belegbar (Seite nennt keine Distanzen); Termin laut raceresult 15.12.2026 (Di)."
+  },
+  "Pfälzer Bergland Trail|2027-04-01": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "pfaelzer-berglandtrail.de",
+    "notiz": "Etappenlauf 1.-4.4.2027 (1.4. Anreise, 'wegen Ostern um eine Woche verschoben'): 'an drei Lauftagen über insgesamt etwa 130 Kilometer (ca. 75 Kilometer als Zweier-Staffel)'."
+  },
+  "Borkener Citylauf|2027-06-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ssv-borken.de, runme.de",
+    "notiz": "2027-Termin nicht veröffentlicht: Die SSV-Seite kennt nur den 07.06.2026 (So), die verlinkte 2027-Seite antwortet 404; 07.06.2027 ist ein Montag (wohl Jahreswechsel-Prognose), runme.de prognostiziert Fr 04.06.2027. Nicht geändert - ohne Quelle wäre jedes Datum geraten."
+  },
+  "Gäulauf Gommersheim|2027-05-27": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "vg-edenkoben.de/leben-und-arbeiten/gaeulauf",
+    "notiz": "'Wir sehen uns 2027 - am 27. Mai 2027' (Do). Distanzen dort nicht genannt."
+  },
+  "Lauf für einen guten Zweck - Rastenberg|2026-09-22": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "runtix.com/sts/10021/3221",
+    "notiz": "4-Stunden-Lauf auf der 400-m-Runde (Spendenlauf), stand ohne Maßzahl - jetzt 4 h."
+  },
+  "Töwerland Herbstlauf|2026-10-22": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/372019/contact",
+    "notiz": "Termin 22.10.2026 (Do) bestätigt; Organizer-URL ist juist.de (Kurverwaltung, keine Event-Seite) - Link bleibt."
+  },
+  "Hochplatten Berglauf|2026-10-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "hochplatten-berglauf.de",
+    "notiz": "Termin Do 22.10.2026 16:00 Uhr bestätigt. Strecke laut Veranstalter 'rund 4,6 Kilometern' (Piesenhausen - Staffn-Alm), gespeichert '5 km' - fällt unter die offene Entscheidung zur 5-km-Grenze (Punkt 4); korrigiert man auf 4,6 km, verschwindet der Lauf."
+  },
+  "Martinslauf Sindorf|2026-11-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "martinslauf-sindorf.de",
+    "notiz": "Termin 05.11.2026 bestätigt; '7 km' sind 6,6 km (2 Runden à 3,3 km), 10 km stimmt."
+  },
+  "Sternchenlauf Sende|2027-05-26": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "sternchenlauf.de",
+    "notiz": "'am 26.05.2027!' (Mi) bestätigt; 5 und 10 km wie 2026."
+  },
+  "Sparkassen Uni-Triathlon|2027-06-09": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "usc-triathlon.de/wp2/der-uni-triathlon",
+    "notiz": "Falscher Link (Berliner Uni-Triathlon) ersetzt; Sprintdistanz 500 m / 20 km / 5 km = 25,5 km nachgetragen. Termin 2027 noch offen (2026: Mi 10.06.)."
+  },
+  "Frühlingslauf Schwerin|2027-04-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "fuenf-seen-lauf.de (Laufkalender)",
+    "notiz": "Termin 07.04.2027 bestätigt; 11 km sind 10,5 km (3 Runden um den Ostorfer See), 7 km stimmt."
+  },
+  "Kickelhahn Berglauf|2027-06-02": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "www1.tu-ilmenau.de/kickelhahn-berglauf",
+    "notiz": "'02.06.27' (Mi) bestätigt; Distanz dort nicht genannt."
+  },
+  "Hohner See Lauf|2027-06-30": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "hohner-see-lauf.de",
+    "notiz": "30.06.2027 (Mi, Hohner Sportwoche): '6km kurze Laufdistanz', '10,4km Laufdistanz' - stimmt."
+  },
+  "Wild & Run Oberkollbach|2027-07-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/419924/contact, sportverein-oberkollbach.de/wildandrun",
+    "notiz": "Veranstalter-Link von der raceresult-Kontaktseite. Termin 2027 laut Veranstalter noch offen ('Termin folgt'), 21.07.2027 stammt aus der raceresult-Anmeldung."
+  },
+  "Stralsunder Firmenstaffellauf|2027-06-09": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "firmenstaffellauf-stralsund.de",
+    "notiz": "'Mittwoch, 09. Juni 2027' bestätigt; 'Staffel Laufen: 3 x 4 km' = 12 km Team (Staffel-Frage, Punkt 3)."
+  },
+  "Leipziger Silberseelauf|2027-05-12": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "silberseelauf-leipzig.de",
+    "notiz": "'voraussichtlich am 12. Mai 2027' (Mi); 5 / 10 / 20 km wie 2026."
+  },
+  "Glühwürmchen Lauf|2027-05-26": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "gluehwuermchen-lauf.de",
+    "notiz": "26.05.2027 (Mi) bestätigt; 5 und 10 km Run/Walk."
+  },
+  "Salamander Run|2026-10-01": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "salamander-windows.de/salamander-run",
+    "notiz": "'Do, 1. Oktober, Wertachauen', '5 km Wegstrecke'."
+  },
+  "Biberacher Herbstwaldlauf 2026|2026-10-07": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "ladv.de/ausschreibung/detail/49094",
+    "notiz": "'Wednesday, 07. October 2026' (TG Biberach); Distanzen in der LADV-Ausschreibung nur je Altersklasse."
+  },
+  "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/412923/contact",
+    "notiz": "'Leutkircher Stadtmeisterschaft 10.000 m und 5.000 m', 30.09.2026 (Mi), TSG Skiläuferzunft; skilaeuferzunft.de antwortet 503 - Link bleibt."
+  },
+  "Stadtwerke Karlsruhe Volkslauf|2026-09-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "stadtwerke-karlsruhe.de",
+    "notiz": "'Donnerstag 24. September 2026' 17:30 Uhr; 11 km sind 10,5 km, 5 km stimmt."
+  },
+  "10 km Fliegerhorstlauf Schortens|2026-09-24": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "laufmanager.net (Ausschreibung)",
+    "notiz": "24.09.2026, 'Streckenlänge: 10.0 km', Start 12:30 Uhr (Teamlauf)."
+  },
+  "HaBeBu Lauf|2026-09-30": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "athleticon.bsvhh.de",
+    "notiz": "30.09.2026 bestätigt (Kurz/Lang, 63 Meldungen am 18.09.); Distanz dort nicht ausgeschrieben, Label 'ca. 10,5 km' bleibt."
+  },
+  "Women's Journey Frankfurt|2026-10-14": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "women-journey.com",
+    "notiz": "'14.10. 2026', Deutsche Bank Park: 5 km (und 2,3 km, unter der Grenze)."
+  },
+  "Offener Vereinscrosslauf|2026-11-18": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "wsgwildenau.de/wettkampf/vereinscrosslauf",
+    "notiz": "'Buß- und Bettag Mittwoch, 18.11.2026', 6 km und 12 km Bergrunde, Start Schanzenbaude 11:00."
+  },
+  "Herbstcross des Saalfelder LV|2026-10-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "saalfelder-lv.de/herbstcross_2025_ausschreibung",
+    "notiz": "'Mittwoch, 07. Oktober 2026' bestätigt. Hauptlauf 'ca. 4800 m - 6 Runden' - unter der 5-km-Grenze (Punkt 4); gespeichert ohne Distanz, deshalb nicht angefasst: mit 4,8 km würde die Zeile beim nächsten Lauf verschwinden."
+  },
+  "Döbelner Fackellauf|2026-10-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "mittelsaechsische-lauftour.com/wettkaempfe/fackellauf.html",
+    "notiz": "Mi 28.10.2026 bestätigt; Stundenlauf (1 h) per Override, Halbstundenlauf nachgetragen."
+  },
+  "PULSEDAY DRT Lauf|2026-09-24": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/414417/contact",
+    "notiz": "24.09.2026 (Do) bestätigt, Pulseday Taskforce/AGEP; Organizer-URL ist eine Verbandsseite (herzmedizin.de), keine Event-Seite - Link bleibt."
+  },
+  "Campuslauf Dortmund|2027-05-12": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "hsp.tu-dortmund.de/wettkampf-events/campuslauf",
+    "notiz": "'Der 41. Campuslauf findet voraussichtlich am 12. Mai 2027 statt' (Mi)."
+  },
+  "Keibellauf Huchenfeld|2027-05-05": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "keibellauf.de",
+    "notiz": "05.05.2027 (Mi): 'Keibellauf ca. 9,2km', Mini-Keibel 4,6 km, Staffel 2x4,6 km - 9,2 km stimmt."
+  },
+  "10. Karneval-Marathon|2026-11-11": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "karneval-marathon.de",
+    "notiz": "11.11.2026 (Mi, Sessionsbeginn), DLV-vermessene Marathonstrecke."
+  },
+  "ADAC Charity Treppenlauf|2026-11-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sportundkulturverein.net/veranstaltung/10-adac-treppenlauf-2026",
+    "notiz": "12.11.2026, ADAC-Zentrale München: '472 Stufen, 22 Etagen' - ein Treppenlauf (Towerrun), keine Laufdistanz. Ob Treppenläufe in die Liste gehören, ist eine Entscheidung des Nutzers (7 Zeilen)."
+  },
+  "Zwickauer Halb- und Stundenlauf|2026-10-07": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "sv-vorwaerts-zwickau.de",
+    "notiz": "07.10.2026 (Mi), 'Zwickauer Laufserie Finale Halb-und Stundenlauf U16 – Masters', Wostokweg 31."
+  },
+  "Stundenlaufserie|2026-10-01": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "stundenlauf.lg-exa.de",
+    "notiz": "'STUNDENLÄUFE 09.04.26 / 07.05.26 / 04.06.26 / 03.09.26 / 01.10.26', Blaue Bahn Leipzig - 01.10.2026 (Do) stimmt."
+  },
+  "Bernauer Stundenlauf|2026-11-11": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "bernauer-lauffreunde.de",
+    "notiz": "'11.11.' bestätigt (Mi), Formate '15 min, 30 min, 60 min'."
+  },
+  "Adventlauf und Walk - Bremen|2026-12-09": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "atsbuntentor.de",
+    "notiz": "'Immer am zweiten Mittwoch im Dezember' = 09.12.2026."
+  },
+  "Stundenlauf mit Musik - Schwerin|2027-05-04": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "fuenf-seen-lauf.de (Laufkalender)",
+    "notiz": "'04.05.2027' (Di) bestätigt; 'Gewertet wird die gelaufene Strecke über eine ganze und über eine halbe Stunde'."
+  },
+  "Fun & Erlebnis Marathons|2026-09-23": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/414254/contact",
+    "notiz": "Wöchentliche Hamburger Marathonserie von Christian Hottas ('John Coltrane Marathon am 23.09.2026', Teichwiesen #2118) - Mittwochstermine sind echt. Organizer-URL teichwiesen.myblog.de (myblog.de ist abgeschaltet) - Link bleibt."
+  },
+  "Ahmadiyya Charity Walk Berlin/Tempelhof|2026-10-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "charitywalk.de, ahmadiyya.de",
+    "notiz": "Die Event-Seite liefert nur den Seitentitel; ahmadiyya.de kennt für Berlin den 19.04.2026 (Kissingen-Stadion). Ob es am Di 27.10.2026 einen weiteren Walk in Tempelhof gibt, ist nicht zu belegen."
+  },
+  "Warburger Stundenlauf|2026-10-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "warburgersv.de",
+    "notiz": "'33. Warburger Stundenlauf 2026' steht im Menü, der verlinkte Beitrag ist aber das Archiv 2019 und nennt kein Datum; 07.10.2026 (Mi) nicht zu belegen."
+  },
+  "Idar-Obersteiner Felsenkirche Treppenlauf|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "idar-oberstein.de (Pressemitteilung), my.raceresult.com/377205/contact",
+    "notiz": "Stand mit 42,2 km - es sind 5,4 km und 8,1 km (mit 350 bzw. 510 Stufen). 42,2-km-Zeile ausgeschlossen, beide Strecken nachgetragen, Veranstalter-Link von der Kontaktseite."
   }
 }

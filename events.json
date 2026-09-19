@@ -4774,16 +4774,31 @@
   },
   {
     "land": "Deutschland",
-    "name": "Idar-Obersteiner Felsenkirche Treppenlauf",
     "standort": "Idar-Oberstein",
     "lat": 49.7023846,
     "lon": 7.3197922,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Berg",
+    "name": "Idar-Obersteiner Felsenkirche Treppenlauf",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/377205/registration"
+    "laenge_km": 5.4,
+    "wettbewerb": "Kurzstrecke 5,4 km (350 Stufen, 246 hm)",
+    "veranstalter_url": "https://www.marathonteam-hagner.de/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Idar-Oberstein",
+    "lat": 49.7023846,
+    "lon": 7.3197922,
+    "art1": "Laufen",
+    "art2": "Berg",
+    "name": "Idar-Obersteiner Felsenkirche Treppenlauf",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 8.1,
+    "wettbewerb": "Langstrecke 8,1 km (510 Stufen, 468 hm)",
+    "veranstalter_url": "https://www.marathonteam-hagner.de/"
   },
   {
     "land": "Deutschland",
@@ -6134,7 +6149,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-22",
     "datum_ende": "2026-09-22",
-    "veranstalter_url": "https://runtix.com/sts/10021/3221"
+    "veranstalter_url": "https://runtix.com/sts/10021/3221",
+    "dauer_h": 4,
+    "wettbewerb": "4-Stunden-Lauf (400-m-Runde)"
   },
   {
     "land": "Deutschland",
@@ -6228,8 +6245,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-24",
     "datum_ende": "2026-09-24",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 10.5,
+    "wettbewerb": "10,5 km Laufstrecke",
     "veranstalter_url": "https://www.stadtwerke-karlsruhe.de/de/veranstaltungen/termine/dauerveranstaltungen/volkslauf.php"
   },
   {
@@ -23166,6 +23183,23 @@
     "art2": "Straße",
     "datum_start": "2026-10-28",
     "datum_ende": "2026-10-28",
+    "veranstalter_url": "https://mittelsaechsische-lauftour.com/wettkaempfe/fackellauf.html",
+    "dauer_h": 1,
+    "wettbewerb": "Stundenlauf"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Döbeln",
+    "lat": 51.1229322,
+    "lon": 13.1167196,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Döbelner Fackellauf",
+    "datum_start": "2026-10-28",
+    "datum_ende": "2026-10-28",
+    "laenge_km": null,
+    "dauer_h": 0.5,
+    "wettbewerb": "Halbstundenlauf",
     "veranstalter_url": "https://mittelsaechsische-lauftour.com/wettkaempfe/fackellauf.html"
   },
   {
@@ -24432,8 +24466,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-05",
     "datum_ende": "2026-11-05",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km",
+    "laenge_km": 6.6,
+    "wettbewerb": "6,6 km (2 Runden)",
     "veranstalter_url": "https://www.martinslauf-sindorf.de/"
   },
   {
@@ -32043,7 +32077,7 @@
     "datum_ende": "2026-12-15",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/414972/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -32057,7 +32091,7 @@
     "datum_ende": "2026-12-15",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/414972/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -41014,8 +41048,8 @@
     "art2": "Straße",
     "datum_start": "2027-04-07",
     "datum_ende": "2027-04-07",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 10.5,
+    "wettbewerb": "10,5 km (3 Runden)",
     "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=1&cHash=da16ec58accef2c8fd08c8ae6cadf6d6"
   },
   {
@@ -49407,7 +49441,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-09",
     "datum_ende": "2027-06-09",
-    "veranstalter_url": "https://www.berlin-timing.de/UNI-Triathlon"
+    "veranstalter_url": "https://usc-triathlon.de/wp2/der-uni-triathlon/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz"
   },
   {
     "land": "Deutschland",
@@ -54342,7 +54378,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-21",
     "datum_ende": "2027-07-21",
-    "veranstalter_url": "https://my.raceresult.com/419924/"
+    "veranstalter_url": "https://sportverein-oberkollbach.de/wildandrun/"
   },
   {
     "land": "Deutschland",

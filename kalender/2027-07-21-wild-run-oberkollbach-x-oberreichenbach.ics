@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270721
 DTEND;VALUE=DATE:20270722
 SUMMARY:Wild & Run Oberkollbach
 LOCATION:Oberreichenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /419924/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportverein-oberk
+ ollbach.de/wildandrun/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419924/
+URL:https://sportverein-oberkollbach.de/wildandrun/
 END:VEVENT
 END:VCALENDAR

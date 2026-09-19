@@ -1556,6 +1556,17 @@ def _same_place(a: dict, b: dict) -> bool:
 
 def _compatible_distance(a: dict, b: dict) -> bool:
     ka, kb = a.get("laenge_km"), b.get("laenge_km")
+    if ka is None and kb is None:
+        # Zeitrennen (Datenregel 8): Nennen BEIDE eine Dauer und die
+        # Dauern unterscheiden sich, sind es zwei Wettbewerbe - der
+        # Stundenlauf und der Halbstundenlauf des Döbelner Fackellaufs
+        # wären sonst eine Zeile (manual_events konnte den zweiten nicht
+        # anlegen, weil is_same_event() ihn für die erste hielt). Fehlt
+        # eine Dauer, bleibt es beim Alten: unbekannt schließt nichts aus.
+        ha, hb = a.get("dauer_h"), b.get("dauer_h")
+        if ha is not None and hb is not None:
+            return abs(ha - hb) <= max(0.1, 0.05 * max(ha, hb))
+        return True
     if ka is None or kb is None:
         return True  # unbekannte Distanz schließt ein Duplikat nicht aus
     # Toleranz gegen Quellen-Ungenauigkeiten (42,195 vs. 42,2; 21,0 vs. 21,1),

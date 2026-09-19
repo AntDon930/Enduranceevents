@@ -4,15 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-22-lauf-fur-einen-guten-zweck-rastenberg-x-rastenberg@antdon93
- 0.github.io
+UID:2026-09-22-lauf-fur-einen-guten-zweck-rastenberg-4h-rastenberg@antdon9
+ 30.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260922
 DTEND;VALUE=DATE:20260923
-SUMMARY:Lauf für einen guten Zweck - Rastenberg
+SUMMARY:Lauf für einen guten Zweck - Rastenberg – 4-Stunden-Lauf (400-m-Ru
+ nde)
 LOCATION:Rastenberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://runtix.com/sts/10
- 021/3221
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 4 h\nhttps://runtix.com/sts/
+ 10021/3221
 TRANSP:TRANSPARENT
 URL:https://runtix.com/sts/10021/3221
 END:VEVENT

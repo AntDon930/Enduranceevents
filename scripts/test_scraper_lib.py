@@ -348,6 +348,16 @@ def test_duplikate() -> None:
     hm = dict(a, laenge_km=21.1)
     check("Marathon vs. Halbmarathon getrennt", is_same_event(a, hm), False)
 
+    # Zeitrennen: Stundenlauf und Halbstundenlauf derselben Veranstaltung
+    # sind zwei Wettbewerbe (Döbelner Fackellauf); dieselbe Dauer bleibt
+    # ein Duplikat, und eine fehlende Dauer schließt nichts aus.
+    st = {"name": "Döbelner Fackellauf", "datum_start": "2026-10-28",
+          "standort": "Döbeln", "laenge_km": None, "dauer_h": 1.0}
+    check("Stundenlauf vs. Halbstundenlauf getrennt",
+          is_same_event(st, dict(st, dauer_h=0.5)), False)
+    check("gleiche Dauer bleibt Duplikat", is_same_event(st, dict(st)), True)
+    check("ohne Dauer weiter Duplikat", is_same_event(st, dict(st, dauer_h=None)), True)
+
     # Vom Nutzer gemeldet: Marathon und Halbmarathon München standen je
     # DOPPELT in der Liste. Ursache war die Wortstellung - als Zeichenfolge
     # nur 0,69 Ähnlichkeit, als Wortmenge identisch.
