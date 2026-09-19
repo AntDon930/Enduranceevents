@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:46. Krummenseelauf – 7\,2 km Lauf für Jugend und Altersklassen
 LOCATION:Mittenwalde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://www.berlin-t
- iming.de/Krummenseelauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://www.leichtat
+ hletik-kw.de/
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Krummenseelauf
+URL:https://www.leichtathletik-kw.de/
 END:VEVENT
 END:VCALENDAR

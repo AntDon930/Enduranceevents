@@ -11,9 +11,9 @@ DTEND;VALUE=DATE:20261129
 SUMMARY:Freiberger Adventslauf – Hauptlauf\, 12 km\, ab 2007\, Startgebühr
   18\,00 €
 LOCATION:Freiberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.berlin-ti
- ming.de/Freiberger-Adventslauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttp://freiberger-adv
+ entslauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Freiberger-Adventslauf
+URL:http://freiberger-adventslauf.de/
 END:VEVENT
 END:VCALENDAR

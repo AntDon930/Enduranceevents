@@ -2042,6 +2042,15 @@ ENRICHABLE_FIELDS = (
 PORTAL_DOMAINS = (
     "laufen.de", "running.life", "runnersworld.de", "leichtathletik.de",
     "ahotu.com", "blv-sport.de", "planet-marathon.de", "runningcompany.de",
+    # Zeitnehmer, kein Veranstalter: Die Seite nennt selbst die
+    # Veranstalterseite ("Informationen zur Veranstaltung entnehmen Sie
+    # bitte der Veranstalterseite") - vom Nutzer am 19.09.2026 am
+    # Kallinchen Triathlon gemeldet. 16 Zeilen (8 Veranstaltungen) trugen
+    # diesen Link; alle acht stehen jetzt per Override auf der dort
+    # genannten Seite. Als Portal gelistet, damit ein Datenlauf den
+    # Zeitnehmer-Link durch eine bekannte offizielle Seite ersetzt und
+    # audit_events.py ihn als Portallink meldet.
+    "berlin-timing.de",
 )
 
 

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:Scharmützelsee Triathlon
 LOCATION:Bad Saarow\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.berlin-tim
- ing.de/Scharmuetzelsee-Triathlon
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://scharmuetzelse
+ e-triathlon.de/
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Scharmuetzelsee-Triathlon
+URL:https://scharmuetzelsee-triathlon.de/
 END:VEVENT
 END:VCALENDAR

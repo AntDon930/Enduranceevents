@@ -806,6 +806,23 @@ davon ist umgesetzt**:
   steckt drin), der echte Veranstalter-Link wäre beim nächsten Datenlauf
   ersetzbar gewesen. Jetzt Hostname-Vergleich, mit Test.
 
+**Zeitnehmer-Seiten sind Portallinks** (vom Nutzer am 19.09.2026 am
+Kallinchen Triathlon gemeldet: berlin-timing.de schreibt fett
+„Informationen zur Veranstaltung entnehmen Sie bitte der
+Veranstalterseite" samt Link – und bei uns stand der Zeitnehmer). Warum
+das durchgerutscht war: Die Linkprüfung hatte nur die ersten 500
+Veranstaltungen nach Datum (bis 03.10.2026) angesehen, der Triathlon
+liegt im August 2027; und `berlin-timing.de` stand in keiner Liste, also
+meldete auch `audit_events.py` ihn nicht als Portallink. Jetzt: alle
+acht Veranstaltungen mit diesem Zeitnehmer auf die dort genannte
+Veranstalterseite gesetzt (Protokoll in `links_geprueft.json`; Krummensee
+aus der Sandbox nicht abrufbar, Volkstriathlon unter neuem Pfad),
+`berlin-timing.de` in `PORTAL_DOMAINS` und
+`WEITERLEITUNG_KEIN_VERANSTALTER`. **Andere Zeitnehmer** (raceresult,
+datasport, lanet3, racepedia) stehen nur in der Weiterleitungs-Liste –
+ob sie ebenfalls als Portal gelten sollen, ist offen; bei raceresult
+liegt die Veranstalterseite auf `/contact` (Punkt 10).
+
 Was die Sandbox nicht kann: Einige Seiten blocken automatische Abrufe
 (403, Sicherheitscheck) oder scheitern am Proxy; die stehen als
 `link_ok` mit Hinweis, weil die Adresse eventspezifisch und in der

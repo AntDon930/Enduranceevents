@@ -11,9 +11,9 @@ DTEND;VALUE=DATE:20261129
 SUMMARY:Freiberger Adventslauf – Volkslauf\, 6 km\, ab 2012\, Startgebühr 
  12\,00 €
 LOCATION:Freiberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.berlin-tim
- ing.de/Freiberger-Adventslauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://freiberger-adve
+ ntslauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Freiberger-Adventslauf
+URL:http://freiberger-adventslauf.de/
 END:VEVENT
 END:VCALENDAR

@@ -328,6 +328,9 @@ def test_offizieller_link() -> None:
     check("running.life ist Portal", is_portal_link("https://running.life/de/termine/x"), True)
     check("laufen.de ist Portal", is_portal_link("https://laufen.de/laufkalender/details/1"), True)
     check("Veranstalter ist kein Portal", is_portal_link("https://www.braunenberg-lauf.de/"), False)
+    # Ein Zeitnehmer ist kein Veranstalter (Kallinchen Triathlon, 19.09.2026).
+    check("Zeitnehmer ist Portal",
+          is_portal_link("https://www.berlin-timing.de/Kallinchen-Triathlon"), True)
     # Hostname statt Teilzeichenkette: "tsv-weeze-leichtathletik.de" ist
     # kein Portal, obwohl "leichtathletik.de" darin steckt (Linkprüfung
     # 19.09.2026); Subdomains des Portals zählen dagegen mit.

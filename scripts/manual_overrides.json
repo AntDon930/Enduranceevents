@@ -2294,5 +2294,37 @@
     "laenge_km": 4.8,
     "wettbewerb": "Hauptlauf ca. 4.800 m (6 Runden)",
     "_note": "saalfelder-lv.de: Hauptlauf 'ca. 4800 m - 6 Runden', gespeichert ohne Distanz. Vom Nutzer am 19.09.2026 entschieden: Läufe unter 5 km nicht aufnehmen - auch die als '5 km' beworbenen. Datenregel 5 nimmt die Zeile mit der echten Länge heraus."
+  },
+  "37. Storkower See Lauf|2026-10-11": {
+    "veranstalter_url": "https://tv-fuerstenwalde.org/",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Storkower-See-Lauf) durch die dort genannte Veranstalterseite ersetzt. Zielseite (TV Fürstenwalde) abgerufen, nennt den Storkower See Lauf. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "46. Krummenseelauf|2026-10-17": {
+    "veranstalter_url": "https://www.leichtathletik-kw.de/",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Krummenseelauf) durch die dort genannte Veranstalterseite ersetzt. berlin-timing nennt unter 'Veranstalter-Daten' die WSG 81 Königs Wusterhausen mit Internet leichtathletik-kw.de. Die Seite ist aus der Sandbox NICHT abrufbar (TLS-Handshake schlägt fehl, auch mit älteren Ciphern) - Link übernommen, weil der Zeitnehmer ihn ausdrücklich als Veranstalterseite nennt; bei Gelegenheit im Browser prüfen. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Freiberger Adventslauf|2026-11-28": {
+    "veranstalter_url": "http://freiberger-adventslauf.de/",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Freiberger-Adventslauf) durch die dort genannte Veranstalterseite ersetzt. Zielseite abgerufen ('Freiberger Adventslauf'), Hetzdorfer SV 1990. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Fontane Lauf|2027-04-10": {
+    "veranstalter_url": "https://www.sg-rauen1951.de/index.php/fontanelauf",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Fontane-Lauf) durch die dort genannte Veranstalterseite ersetzt. Zielseite (SG Rauen 1951) abgerufen, nennt den Fontanelauf. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Berliner Volkstriathlon|2027-06-27": {
+    "veranstalter_url": "http://wj-tools.de/index.php/volkstriathlon",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Berliner-Volkstriathlon) durch die dort genannte Veranstalterseite ersetzt. berlin-timing verlinkt noch den alten Pfad /joomla25/... (404); dieselbe Seite liegt heute unter /index.php/volkstriathlon (abgerufen: 'Volkstriathlon - Weltraumjogger Berlin', Ausschreibung, Zeitplan, Strecken). Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Haasower Waldlauf|2027-07-31": {
+    "veranstalter_url": "https://www.haasow.com/waldlauf",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Haasower-Waldlauf) durch die dort genannte Veranstalterseite ersetzt. Zielseite abgerufen (haasow.com/waldlauf). Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Scharmützelsee Triathlon|2027-08-01": {
+    "veranstalter_url": "https://scharmuetzelsee-triathlon.de/",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Scharmuetzelsee-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Zielseite abgerufen ('Scharmützelsee Triathlon'), TV Fürstenwalde 1990. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "Kallinchen Triathlon|2027-08-29": {
+    "veranstalter_url": "https://www.kallinchentriathlon.de/",
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Kallinchen-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Vom Nutzer gemeldet: berlin-timing schreibt 'Informationen zur Veranstaltung entnehmen Sie bitte der Veranstalterseite: Kallinchen Triathlon'. Zielseite abgerufen, nennt den Kallinchen Triathlon. Linkprüfung 2026-09-19 (berlin-timing.de)."
   }
 }

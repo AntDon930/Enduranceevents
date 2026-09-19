@@ -633,6 +633,7 @@ def parse_detail_page(html: str, page_url: str) -> dict:
 WEITERLEITUNG_KEIN_VERANSTALTER = (
     "laufen.de", "lanet3.de", "raceresult.com", "datasport.de", "datasport.com",
     "racepedia.de", "facebook.com", "fb.me", "instagram.com",
+    "berlin-timing.de",  # Zeitnehmer (siehe PORTAL_DOMAINS in scraper_lib.py)
 )
 
 

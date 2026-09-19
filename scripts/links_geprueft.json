@@ -4843,5 +4843,61 @@
     "quelle": "laufen.de-Weiterleitung -> donatuslauf.de",
     "alt": "https://laufen.de/laufkalender/details/28V10003004560001",
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "37. Storkower See Lauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://tv-fuerstenwalde.org/",
+    "alt": "https://www.berlin-timing.de/Storkower-See-Lauf",
+    "notiz": "Zielseite (TV Fürstenwalde) abgerufen, nennt den Storkower See Lauf."
+  },
+  "46. Krummenseelauf|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://www.leichtathletik-kw.de/",
+    "alt": "https://www.berlin-timing.de/Krummenseelauf",
+    "notiz": "berlin-timing nennt unter 'Veranstalter-Daten' die WSG 81 Königs Wusterhausen mit Internet leichtathletik-kw.de. Die Seite ist aus der Sandbox NICHT abrufbar (TLS-Handshake schlägt fehl, auch mit älteren Ciphern) - Link übernommen, weil der Zeitnehmer ihn ausdrücklich als Veranstalterseite nennt; bei Gelegenheit im Browser prüfen."
+  },
+  "Freiberger Adventslauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> http://freiberger-adventslauf.de/",
+    "alt": "https://www.berlin-timing.de/Freiberger-Adventslauf",
+    "notiz": "Zielseite abgerufen ('Freiberger Adventslauf'), Hetzdorfer SV 1990."
+  },
+  "Fontane Lauf|2027-04-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://www.sg-rauen1951.de/index.php/fontanelauf",
+    "alt": "https://www.berlin-timing.de/Fontane-Lauf",
+    "notiz": "Zielseite (SG Rauen 1951) abgerufen, nennt den Fontanelauf."
+  },
+  "Berliner Volkstriathlon|2027-06-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> http://wj-tools.de/index.php/volkstriathlon",
+    "alt": "https://www.berlin-timing.de/Berliner-Volkstriathlon",
+    "notiz": "berlin-timing verlinkt noch den alten Pfad /joomla25/... (404); dieselbe Seite liegt heute unter /index.php/volkstriathlon (abgerufen: 'Volkstriathlon - Weltraumjogger Berlin', Ausschreibung, Zeitplan, Strecken)."
+  },
+  "Haasower Waldlauf|2027-07-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://www.haasow.com/waldlauf",
+    "alt": "https://www.berlin-timing.de/Haasower-Waldlauf",
+    "notiz": "Zielseite abgerufen (haasow.com/waldlauf)."
+  },
+  "Scharmützelsee Triathlon|2027-08-01": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://scharmuetzelsee-triathlon.de/",
+    "alt": "https://www.berlin-timing.de/Scharmuetzelsee-Triathlon",
+    "notiz": "Zielseite abgerufen ('Scharmützelsee Triathlon'), TV Fürstenwalde 1990."
+  },
+  "Kallinchen Triathlon|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "berlin-timing.de -> https://www.kallinchentriathlon.de/",
+    "alt": "https://www.berlin-timing.de/Kallinchen-Triathlon",
+    "notiz": "Vom Nutzer gemeldet: berlin-timing schreibt 'Informationen zur Veranstaltung entnehmen Sie bitte der Veranstalterseite: Kallinchen Triathlon'. Zielseite abgerufen, nennt den Kallinchen Triathlon."
   }
 }

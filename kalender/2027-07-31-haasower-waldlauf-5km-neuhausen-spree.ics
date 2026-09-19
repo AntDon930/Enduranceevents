@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:Haasower Waldlauf
 LOCATION:Neuhausen/Spree\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.berlin-tim
- ing.de/Haasower-Waldlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.haasow.com
+ /waldlauf
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Haasower-Waldlauf
+URL:https://www.haasow.com/waldlauf
 END:VEVENT
 END:VCALENDAR

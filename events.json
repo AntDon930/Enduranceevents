@@ -17336,7 +17336,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://www.berlin-timing.de/Storkower-See-Lauf",
+    "veranstalter_url": "https://tv-fuerstenwalde.org/",
     "wettbewerb": "15 km offen ab 14 Jahren"
   },
   {
@@ -17351,7 +17351,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 8.0,
     "wettbewerb": "8 km offen ab 12 Jahren",
-    "veranstalter_url": "https://www.berlin-timing.de/Storkower-See-Lauf"
+    "veranstalter_url": "https://tv-fuerstenwalde.org/"
   },
   {
     "land": "Deutschland",
@@ -19332,7 +19332,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf",
+    "veranstalter_url": "https://www.leichtathletik-kw.de/",
     "wettbewerb": "15 km Lauf für Frauen und Männer nach Altersklassen"
   },
   {
@@ -19347,7 +19347,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 7.2,
     "wettbewerb": "7,2 km Lauf für Jugend und Altersklassen",
-    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf"
+    "veranstalter_url": "https://www.leichtathletik-kw.de/"
   },
   {
     "land": "Deutschland",
@@ -29286,7 +29286,7 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 6.0,
     "wettbewerb": "Volkslauf, 6 km, ab 2012, Startgebühr 12,00 €",
-    "veranstalter_url": "https://www.berlin-timing.de/Freiberger-Adventslauf"
+    "veranstalter_url": "http://freiberger-adventslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -29300,7 +29300,7 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 12.0,
     "wettbewerb": "Hauptlauf, 12 km, ab 2007, Startgebühr 18,00 €",
-    "veranstalter_url": "https://www.berlin-timing.de/Freiberger-Adventslauf"
+    "veranstalter_url": "http://freiberger-adventslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -41409,7 +41409,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Fontane-Lauf"
+    "veranstalter_url": "https://www.sg-rauen1951.de/index.php/fontanelauf"
   },
   {
     "land": "Deutschland",
@@ -41423,7 +41423,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Fontane-Lauf"
+    "veranstalter_url": "https://www.sg-rauen1951.de/index.php/fontanelauf"
   },
   {
     "land": "Deutschland",
@@ -41437,7 +41437,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Fontane-Lauf"
+    "veranstalter_url": "https://www.sg-rauen1951.de/index.php/fontanelauf"
   },
   {
     "land": "Deutschland",
@@ -41451,7 +41451,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Fontane-Lauf"
+    "veranstalter_url": "https://www.sg-rauen1951.de/index.php/fontanelauf"
   },
   {
     "land": "Deutschland",
@@ -52705,7 +52705,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
-    "veranstalter_url": "https://www.berlin-timing.de/Berliner-Volkstriathlon"
+    "veranstalter_url": "http://wj-tools.de/index.php/volkstriathlon"
   },
   {
     "land": "Deutschland",
@@ -55130,7 +55130,7 @@
     "datum_ende": "2027-07-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Haasower-Waldlauf"
+    "veranstalter_url": "https://www.haasow.com/waldlauf"
   },
   {
     "land": "Deutschland",
@@ -55144,7 +55144,7 @@
     "datum_ende": "2027-07-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Haasower-Waldlauf"
+    "veranstalter_url": "https://www.haasow.com/waldlauf"
   },
   {
     "land": "Deutschland",
@@ -55158,7 +55158,7 @@
     "datum_ende": "2027-07-31",
     "laenge_km": 10.8,
     "wettbewerb": "10,8 km",
-    "veranstalter_url": "https://www.berlin-timing.de/Haasower-Waldlauf"
+    "veranstalter_url": "https://www.haasow.com/waldlauf"
   },
   {
     "land": "Deutschland",
@@ -55352,7 +55352,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
-    "veranstalter_url": "https://www.berlin-timing.de/Scharmuetzelsee-Triathlon"
+    "veranstalter_url": "https://scharmuetzelsee-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -56562,7 +56562,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://www.berlin-timing.de/Kallinchen-Triathlon"
+    "veranstalter_url": "https://www.kallinchentriathlon.de/"
   },
   {
     "land": "Deutschland",
