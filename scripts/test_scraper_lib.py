@@ -331,6 +331,15 @@ def test_offizieller_link() -> None:
     # Ein Zeitnehmer ist kein Veranstalter (Kallinchen Triathlon, 19.09.2026).
     check("Zeitnehmer ist Portal",
           is_portal_link("https://www.berlin-timing.de/Kallinchen-Triathlon"), True)
+    # Die übrigen Zeitnehmer und Anmeldeplattformen ebenso (19.09.2026,
+    # "zieh die anderen Zeitnehmer genauso nach"): Ein Link dorthin ist
+    # nie die Veranstalterseite - er wird ersetzt, sobald eine bekannt ist.
+    for url in ("https://my.raceresult.com/354931/", "https://runtix.com/sts/10021/3221",
+                "https://www.davengo.com/event/overview/x", "https://ladv.de/ausschreibung/detail/1/x.htm",
+                "https://www.datasport.de/anmeldeservice/x", "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=1",
+                "https://laufen-os.de/", "https://www.sas-online.net/eventportal_bs/837/"):
+        check(f"Zeitnehmer/Anmeldung ist Portal: {url.split('/')[2]}", is_portal_link(url), True)
+    check("Veranstalter mit Zeitnehmer im Namen bleibt", is_portal_link("https://timing-team-lauf.de/"), False)
     # Hostname statt Teilzeichenkette: "tsv-weeze-leichtathletik.de" ist
     # kein Portal, obwohl "leichtathletik.de" darin steckt (Linkprüfung
     # 19.09.2026); Subdomains des Portals zählen dagegen mit.

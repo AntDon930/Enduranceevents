@@ -2051,6 +2051,18 @@ PORTAL_DOMAINS = (
     # Zeitnehmer-Link durch eine bekannte offizielle Seite ersetzt und
     # audit_events.py ihn als Portallink meldet.
     "berlin-timing.de",
+    # Die übrigen Zeitnehmer und Anmeldeplattformen genauso (vom Nutzer
+    # am 19.09.2026: "zieh die anderen Zeitnehmer genauso nach"). Bei
+    # my.raceresult.com nennt die Kontaktseite /contact die
+    # Veranstalterseite (scripts/veranstalter_links.py holt sie);
+    # rennmeldung.de sperrt /cgi-bin/ per robots.txt - nur eintragen,
+    # nie abrufen. laufen-os.de und strassenlauf.org sind regionale
+    # Laufkalender, ladv.de ein Ausschreibungsportal.
+    "raceresult.com", "datasport.de", "datasport.com", "lanet3.de", "racepedia.de",
+    "runtix.com", "davengo.com", "myracepartner.com", "sas-online.net",
+    "maxx-timing.de", "rennmeldung.de", "time-and-voice.com", "anmeldungs-service.de",
+    "laufmanager.net", "triathlon-service.de", "zeitgemaess.info", "sportstiming.dk",
+    "laufauswertung.com", "race-result.de", "ladv.de", "laufen-os.de", "strassenlauf.org",
 )
 
 

@@ -631,9 +631,10 @@ def parse_detail_page(html: str, page_url: str) -> dict:
 # und laufen.de selbst (www-Variante). Ein Ziel auf einem dieser Hosts
 # ist kein besserer Link als der Portallink, den wir schon haben.
 WEITERLEITUNG_KEIN_VERANSTALTER = (
-    "laufen.de", "lanet3.de", "raceresult.com", "datasport.de", "datasport.com",
-    "racepedia.de", "facebook.com", "fb.me", "instagram.com",
-    "berlin-timing.de",  # Zeitnehmer (siehe PORTAL_DOMAINS in scraper_lib.py)
+    # Zeitnehmer, Anmeldeplattformen und Kalender stehen seit dem
+    # 19.09.2026 alle in PORTAL_DOMAINS (scraper_lib.py); die Prüfung
+    # unten fragt is_portal_link(). Hier bleiben nur die sozialen Netze.
+    "facebook.com", "fb.me", "instagram.com",
 )
 
 
