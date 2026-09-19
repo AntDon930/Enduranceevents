@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270627
 SUMMARY:S'KayRun – 12 km Hindernislauf mit 250 Hm und 20 Hindernissen
 LOCATION:Erlenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.datasp
- ort.de/anmeldeservice/skayrun2027
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 12 km\nhttps://www.tsverl
+ enbach.de/skay-run
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/skayrun2027
+URL:https://www.tsverlenbach.de/skay-run
 END:VEVENT
 END:VCALENDAR

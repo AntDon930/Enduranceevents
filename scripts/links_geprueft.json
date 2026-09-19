@@ -13628,5 +13628,2700 @@
     "quelle": "neckarlauf.com",
     "alt": "https://neckarlauf.com/transeuropalauf.html",
     "notiz": "Seite abgerufen, nennt den Lauf (transeuropalauf, datum)."
+  },
+  "Ingelheimer Polderlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3212",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.caritas-mainz.de/spende-engagement/sie-haben-zeit/ehrenamtsprojekte/brotkorb) - runtix.com bleibt."
+  },
+  "Kap Arkona Lauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/kap-arkona-lauf-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Lichtensteiner Herbstcross|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49189/KM-Crosslauf-49.-Lichtensteiner-Herbstcross-2026-Lichtenstein.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Maxdorfer Gemüselauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3201",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://connect.garmin.com/modern/activity/15854938316, https://engelhornjournal.com/laufcup/) - runtix.com bleibt."
+  },
+  "Mooshamer Waldlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04288",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "NRZ Klosterlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10001004060001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Osterfeiner SgH-Dümmerlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sw-osterfeine.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://sw-osterfeine.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (osterfeiner, datum). Linkprüfung 2026-09-19."
+  },
+  "Rimbachlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "running.life",
+    "alt": "https://running.life/de/termine/rimbachlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gotrail.run/, https://walking.life/) - running.life bleibt."
+  },
+  "Ultra Bremerhaven - Bremen Nord|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/380339/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Wald- und Heidelauf Kremperheide|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lauftreff-kremperheide.de",
+    "alt": "https://my.raceresult.com/409748/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lauftreff-Kremperheide.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (heidelauf). Linkprüfung 2026-09-19."
+  },
+  "Waldesruh Läuft|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "bwmw.club",
+    "alt": "https://myracepartner.com/veranstaltung/?event-id=460371",
+    "notiz": "Veranstalterseite statt myracepartner.com: https://www.bwmw.club/ - auf der myracepartner.com-Seite verlinkt, Zielseite nennt den Lauf (waldesruh, datum). Linkprüfung 2026-09-19."
+  },
+  "Waldlauf TSV Altenau|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04284",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "Weiner Family Run|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "fcsww.de",
+    "alt": "https://my.raceresult.com/380348/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://fcsww.de/lauftreff - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (weiner). Linkprüfung 2026-09-19."
+  },
+  "Zötler-Herbstgeländelauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04283",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "1. Oktoberlauf Embsen|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "mtv-embsen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000441260000",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.mtv-embsen.de - auf der laufen.de-Seite verlinkt, Zielseite nennt den Lauf (oktoberlauf). Linkprüfung 2026-09-19."
+  },
+  "19. Boitzer Herbstlauf|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/382040/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.svkirchboitzen.de/index.htm) - my.raceresult.com bleibt."
+  },
+  "Aschaffenburger Halbmarathon|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "hm-ab.de",
+    "alt": "https://my.raceresult.com/373194/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://hm-ab.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (aschaffenburger, datum). Linkprüfung 2026-09-19."
+  },
+  "Burgenpatt Ultramarathon|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397990/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://ultra-uwe-unterwegs.de) - my.raceresult.com bleibt."
+  },
+  "EWR-Stadtlauf Bürstadt|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "stadtlauf-buerstadt.de",
+    "alt": "https://my.raceresult.com/412509/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://stadtlauf-buerstadt.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
+  },
+  "Herbstlauf Ovenhausen|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-ovenhausen.de",
+    "alt": "https://my.raceresult.com/377111/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tus-ovenhausen.de/herbstlauf-ausschreibung/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:ovenhausen). Linkprüfung 2026-09-19."
+  },
+  "Kalbsvilla Run Ortenberg|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/374416/",
+    "notiz": "Kontaktseite nennt https://www.facebook.com/glauburgrennt - Portal/Anmeldung/soziales Netz - my.raceresult.com bleibt."
+  },
+  "Murr BackYard 12h|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413464/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.3komma8.de) - my.raceresult.com bleibt."
+  },
+  "TVM Gehrenberglauf|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-markdorf.de",
+    "alt": "https://my.raceresult.com/414333/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tv-markdorf.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (gehrenberglauf). Linkprüfung 2026-09-19."
+  },
+  "Biberacher Herbstwaldlauf 2026|2026-10-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49094/Biberacher-Herbstwaldlauf-2026-Biberach-Ri%C3%9F.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-09": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/368240/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "19. Parforceheide Crosslauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "anmeldung.laufauswertung.com",
+    "alt": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=2B39E8C869",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://rsv-eintracht1949.de/sportarten/leichtathletik/) - anmeldung.laufauswertung.com bleibt."
+  },
+  "Ansorge Branchenlauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "anmeldungs-service.de",
+    "alt": "https://www.anmeldungs-service.de/branchenlauf2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://qrco.de/beNtDg, http://www.pani-solutions.de) - anmeldungs-service.de bleibt."
+  },
+  "Fläminglauf TF-Ergas-Cup|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "strassenlauf.org",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=981",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.lc-jueterbog.de, http://www.ssf-timing.de) - strassenlauf.org bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/373996/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Großrossler Sternenlauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421429/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Hase - Lauf Bersenbrück|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-bersenbrück.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/hase-lauf-bersenbrueck-2026",
+    "notiz": "Veranstalterseite statt laufen-os.de: http://www.tus-bersenbrück.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:bersenbruck). Linkprüfung 2026-09-19."
+  },
+  "Herberts Bremserlauf mit dem TSV Zornheim|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3216",
+    "notiz": "ecovin-braunbeck.de ist ein Weingut (Charity-Projektseite nennt den Lauf) - kein Veranstalter-Beleg - runtix.com bleibt."
+  },
+  "Hochzeitstag-Ultra|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/416506/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Lauf gegen Krebs|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sas-online.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/837/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.numeas.de, https://www.sas-zeitmesssysteme.de/index.php?pid=7) - sas-online.net bleibt."
+  },
+  "L³-Laatzen-Leinwiesen-Lauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/381133/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Ramsthaler Wein-Berg-Lauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "saaletal-marathon.de",
+    "alt": "https://my.raceresult.com/391951/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.saaletal-marathon.de/weinberglauf - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (ramsthaler, datum). Linkprüfung 2026-09-19."
+  },
+  "Schwedter Herbstlauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/386304/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.schwedterhasen.de) - my.raceresult.com bleibt."
+  },
+  "Volkslauf Altwarmbüchen|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-altwarmbüchen.de",
+    "alt": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=F334C25E22",
+    "notiz": "Veranstalterseite statt anmeldung.laufauswertung.com: http://www.tus-altwarmbüchen.de - auf der anmeldung.laufauswertung.com-Seite verlinkt, Zielseite nennt den Lauf (host:altwarmbuchen). Linkprüfung 2026-09-19."
+  },
+  "Westenergie Marathon|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "westenergie-marathon.de",
+    "alt": "https://my.raceresult.com/364112/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://westenergie-marathon.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:westenergie). Linkprüfung 2026-09-19."
+  },
+  "Wonneberger Strassenlauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/390495/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/44662/25.-Sebastian-Fredrich-Gedenklauf-Lubmin.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tri-hgwaii.de/01_news/wordpress/) - ladv.de bleibt."
+  },
+  "Bayerische Marathon Meisterschaften|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://marathonmuenchen.org) - ladv.de bleibt."
+  },
+  "Berglauf Schneelaufverein Geislingen e.V.|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "schneelaufverein-geislingen.de",
+    "alt": "https://my.raceresult.com/414034/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.schneelaufverein-geislingen.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:schneelaufverein). Linkprüfung 2026-09-19."
+  },
+  "Bewegung die bleibt - Lauf fürs Leben|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "myracepartner.com",
+    "alt": "https://myracepartner.com/veranstaltung/?event-id=532894",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gmpg.org/xfn/11, https://hospiz-ipek.com/, https://merlinrose.de/) - myracepartner.com bleibt."
+  },
+  "ClimAid Plant a Tree Run|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/375637/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.climaid.de) - my.raceresult.com bleibt."
+  },
+  "DAV Herbstlauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/396016/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.alpenverein-bayreuth.de/de/aktuelles/2022/09/29Herbstlauf2022.php) - my.raceresult.com bleibt."
+  },
+  "Dorumer Dörploop|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/366982/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Elektronikbob Hesselberglauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/362485/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "EnergieSüdwest Cup|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3133",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "Friesengang um den Dümmer|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.pzn24.de, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.aok.de/nds-ad-kontakt/, https://www.weser-ems-personal.de/) - laufen-os.de bleibt."
+  },
+  "GK Knollenlauf und Halbmarathon|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/367031/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.djk-gillrath.de) - my.raceresult.com bleibt."
+  },
+  "Great 10k Berlin|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/great-10k-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Hohenbuschei-Lauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "hohenbuschei.info",
+    "alt": "https://time-and-voice.com/de/running/hohenbuschei-2026",
+    "notiz": "Veranstalterseite statt time-and-voice.com: http://www.hohenbuschei.info - auf der time-and-voice.com-Seite verlinkt, Zielseite nennt den Lauf (host:hohenbuschei, datum). Linkprüfung 2026-09-19."
+  },
+  "Härtsfeld Panoramalauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/375592/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Leipzig Run|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "datasport.de",
+    "alt": "https://www.datasport.de/anmeldeservice/leipzigrun2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://eu.altrarunning.com/de-de/collections/sale?utm_source=google&utm_medium=cpc&utm_campaign=w_de-de_altrarunning_search_brand_pure_exact_performance&gclsrc=aw.ds&gad_source=1&gad_campaignid=19022215637&gbraid=0AAAAApAJPw4l_fgeI4WWl3AuLcXONYqm6&gclid=CjwKCAjwhZDUBhBGEiwAbi5bjgi5pC7_RY0Hn9ToQbU42GctHcIu2OoTXHi-vMpVWDyBUjk61s3zoBoC95MQAvD_BwE, https://www.l.de/, https://www.elldus.de/) - datasport.de bleibt."
+  },
+  "Maudacher Kerwelauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3218",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.br-timing.de) - runtix.com bleibt."
+  },
+  "Offenbacher Mainuferlauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "maxx-timing.de",
+    "alt": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.messelauf.de, https://anmeldung.events, http://www.muddy-aelbler.de, http://rsc-turbine.de) - maxx-timing.de bleibt."
+  },
+  "Schöllanger Herbstlauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04293",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "Stadtlauf Giengen an der Brenz|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sas-online.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/839/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.tsg-giengen.de/index.php?option=com_content&view=category&layout=blog&id=103&Itemid=393, https://www.sas-zeitmesssysteme.de/index.php?pid=7) - sas-online.net bleibt."
+  },
+  "Westbahnlauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "westbahnlauf-2026.racepedia.de",
+    "alt": "https://westbahnlauf-2026.racepedia.de/anmeldung",
+    "notiz": "Seite nicht ladbar (robots) - westbahnlauf-2026.racepedia.de bleibt."
+  },
+  "24. Panoramalauf Niedenstein|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/392952/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://sg1898chattengau.de) - my.raceresult.com bleibt."
+  },
+  "24. Schloss Cross Laupheim|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "schloss-cross.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48931/24.-Schloss-Cross-Laupheim-Laupheim.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://schloss-cross.de - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (host:schloss). Linkprüfung 2026-09-19."
+  },
+  "35. Herbstlauf der DJK Feudenheim|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "djk-feudenheim.de",
+    "alt": "https://runtix.com/sts/10021/3169",
+    "notiz": "Veranstalterseite statt runtix.com: http://www.djk-feudenheim.de/Herbstlauf - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:feudenheim, datum). Linkprüfung 2026-09-19."
+  },
+  "Benediktbeurer Kirta Lauf|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/407802/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Blaulichtlauf der Freiwilligen Feuerwehr Schwaan|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/377756/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Bottwartal-Marathon|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "anmeldungs-service.de",
+    "alt": "https://www.anmeldungs-service.de/bottwartalmarathon2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.pani-solutions.de) - anmeldungs-service.de bleibt."
+  },
+  "Nattheimer Maultaschenlauf|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-nattheim.de",
+    "alt": "https://my.raceresult.com/414318/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-nattheim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nattheimer). Linkprüfung 2026-09-19."
+  },
+  "Rodewalder Eulenlauf|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ssv-rodewald.de",
+    "alt": "https://my.raceresult.com/417316/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ssv-rodewald.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (rodewalder, datum). Linkprüfung 2026-09-19."
+  },
+  "Volks-Crosslauf TuS Lichterfelde|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tusli.de",
+    "alt": "https://myracepartner.com/veranstaltung/?event-id=532819",
+    "notiz": "Veranstalterseite statt myracepartner.com: https://tusli.de/leichtathletik - auf der myracepartner.com-Seite verlinkt, Zielseite nennt den Lauf (lichterfelde). Linkprüfung 2026-09-19."
+  },
+  "15. Spannrit Volks- und Straßenlauf TSG Kleinostheim|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-ausdauersport.de",
+    "alt": "https://my.raceresult.com/416185/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-ausdauersport.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (spannrit, datum). Linkprüfung 2026-09-19."
+  },
+  "32. Weißenhorner Altstadtlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-weissenhorn.de",
+    "alt": "https://my.raceresult.com/395780/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsv-weissenhorn.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (weissenhorner, datum). Linkprüfung 2026-09-19."
+  },
+  "38. Kauferinger Stauseelauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "vflkaufering.de",
+    "alt": "https://my.raceresult.com/414327/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.vflkaufering.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (kauferinger, datum). Linkprüfung 2026-09-19."
+  },
+  "6. Salacher Löwenlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "salacher-loewenlauf-2026.racepedia.de",
+    "alt": "https://salacher-loewenlauf-2026.racepedia.de/ergebnisse",
+    "notiz": "Seite nicht ladbar (robots) - salacher-loewenlauf-2026.racepedia.de bleibt."
+  },
+  "Herbstwaldlauf Beckum|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ski-club-beckum.de",
+    "alt": "https://my.raceresult.com/388543/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ski-club-beckum.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (herbstwaldlauf). Linkprüfung 2026-09-19."
+  },
+  "Hubertuslauf Neuruppin|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "kreissportbund-opr.de",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=979",
+    "notiz": "Veranstalterseite statt strassenlauf.org: https://www.kreissportbund-opr.de - auf der strassenlauf.org-Seite verlinkt, Zielseite nennt den Lauf (hubertuslauf, datum). Linkprüfung 2026-09-19."
+  },
+  "Hörnlelauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/395172/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "La Corsa di Paolo|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "troialaufevents.de",
+    "alt": "https://my.raceresult.com/408900/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.troialaufevents.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (corsa, datum). Linkprüfung 2026-09-19."
+  },
+  "Lengericher UltraTrail|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/377610/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (lengericher). Linkprüfung 2026-09-19."
+  },
+  "Naturpark Schönbuchlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3162",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "Schönower Herbstcross|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "schoenower-sv.de",
+    "alt": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1F25E8A497",
+    "notiz": "Veranstalterseite statt anmeldung.laufauswertung.com: https://www.schoenower-sv.de - auf der anmeldung.laufauswertung.com-Seite verlinkt, Zielseite nennt den Lauf (schonower). Linkprüfung 2026-09-19."
+  },
+  "Fun & Erlebnis Marathons|2026-10-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422747/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Töwerland Herbstlauf|2026-10-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/372019/",
+    "notiz": "juist.de ist die Inselseite der Kurverwaltung, 'Töwerland' steht dort überall - my.raceresult.com bleibt."
+  },
+  "1. Lauf zur Crosslauf Serie im Kreis Bernkastel-Wittlich|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000251360000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "23. Bremer Zeitsprung-Marathon|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/315501",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "29. Altendorf-Ersdorfer Obstmeilenlauf|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "obstmeilenlauf.de",
+    "alt": "https://my.raceresult.com/414304/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.obstmeilenlauf.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (altendorf). Linkprüfung 2026-09-19."
+  },
+  "Albiger Doppelzwölfer|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421768/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "B.U.T.XxX - BURGBERNHEIM ULTRA TRAIL|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "but10x10tsvburgbernheim.de",
+    "alt": "https://my.raceresult.com/371444/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.but10x10tsvburgbernheim.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:burgbernheim, datum). Linkprüfung 2026-09-19."
+  },
+  "Baltic X Backyard Ultra|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sportstiming.dk",
+    "alt": "https://www.sportstiming.dk/event/17605",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, http://binzerbuchtactive.com) - sportstiming.dk bleibt."
+  },
+  "Freudenseelauf|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49130/42.-Freudenseelauf-2026-Hauzenberg.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Internationaler Kärnten Marathon|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "internationaler-kaernten-marathon.at",
+    "alt": "https://my.raceresult.com/392278/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.internationaler-kaernten-marathon.at/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (karnten). Linkprüfung 2026-09-19."
+  },
+  "Lauf um den Mittelpunkt von Sachsen|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47354/Lauf-um-den-Mittelpunkt-von-Sachsen-Naundorf-%28Bobritzsch-Hilbersdorf%29.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Sieberather-Crosslauf|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422655/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Sägerserie|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sctf-events.de",
+    "alt": "https://my.raceresult.com/378537/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sctf-events.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (sagerserie). Linkprüfung 2026-09-19."
+  },
+  "45. Eibsee-Herbstlauf 2026|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04240",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "54. Porzellinerlauf|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sv1910-kahla.de",
+    "alt": "https://my.raceresult.com/393555/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sv1910-kahla.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (porzellinerlauf). Linkprüfung 2026-09-19."
+  },
+  "Bietlauf für einen Wohltätigen Zweck|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49110/25.-Bietlauf-f%C3%BCr-einen-Wohlt%C3%A4tigen-Zweck-Tiefenbronn-M%C3%BChlhausen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Bocksbeutel-Lauf Thüngersheim|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-thuengersheim.de",
+    "alt": "https://my.raceresult.com/390310/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsv-thuengersheim.de/aktionen-events/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (bocksbeutel). Linkprüfung 2026-09-19."
+  },
+  "Borgberg Trail-Marathon|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/415243/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (borgberg). Linkprüfung 2026-09-19."
+  },
+  "Genetic-Twin-Run Koblenz|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421953/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://rt108.round-table.de/) - my.raceresult.com bleibt."
+  },
+  "Harzlauf Thale|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418518/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Parkcrosslauf - Wiesenburg/Mark|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-wiesenburg.de",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=958",
+    "notiz": "Veranstalterseite statt strassenlauf.org: https://www.tsv-wiesenburg.de/ - auf der strassenlauf.org-Seite verlinkt, Zielseite nennt den Lauf (parkcrosslauf). Linkprüfung 2026-09-19."
+  },
+  "Pfinztallauf|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-berghausen.de",
+    "alt": "https://my.raceresult.com/387214/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsv-berghausen.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (pfinztallauf, datum). Linkprüfung 2026-09-19."
+  },
+  "Fun & Erlebnis Marathons|2026-10-28": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/266617/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Halbstundenlauf des TSV Zeulenroda|2026-10-28": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419517/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "39. Bredstedt-Cross|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47490/39.-Bredstedt-Cross-Bredstedt.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Cross- und Waldlaufmeisterschaften|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48772/Cross-und-Waldlaufmeisterschaften-2026-Ibbenb%C3%BCren.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Dom Zu Dom Ultra - Verden|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/378641/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Gut Sutthausen Ultramarathon|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412655/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Halloween Crosslauf zu Munster|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "eintracht-munster.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46123/Kreismeisterschaft-und-3.-Halloween-Crosslauf-zu-Munster-Munster.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.eintracht-munster.de/index.php/sparten/leichtathletik - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (host:munster). Linkprüfung 2026-09-19."
+  },
+  "Halloweenlauf Buchen|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48792/Halloweenlauf-Stadtlauf-TSV-Buchen-2026-Buchen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Harzer Hexen-Rennen (HHR)|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "hex-erlebniswelt.de",
+    "alt": "https://my.raceresult.com/418978/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.hex-erlebniswelt.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (harzer, datum). Linkprüfung 2026-09-19."
+  },
+  "Hochstift-Cup|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "hochstift-cup.de",
+    "alt": "https://my.raceresult.com/365928/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.hochstift-cup.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:hochstift). Linkprüfung 2026-09-19."
+  },
+  "Kreis-Crossmeisterschaften|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47972/Kreis-Crossmeisterschaften-Kreuztal.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Köstritzer Parklauf|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/45725/K%C3%B6stritzer-Parklauf-Bad-K%C3%B6stritz.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Mühlhausener Spendenlauf|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "zeitgemaess.info",
+    "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202610311",
+    "notiz": "Seite nicht ladbar (robots) - zeitgemaess.info bleibt."
+  },
+  "Runworx|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/383803/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Sparkasse Trier EURO-Cross|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "euro-cross.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49275/Sparkasse-Trier-Euro-Cross-2026-LVRR-Regiom-Trier-Crosslauf-Ralingen.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.euro-cross.de - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (trier, datum). Linkprüfung 2026-09-19."
+  },
+  "45. Tiergarten-Cross|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "spiridon-schleswig.de",
+    "alt": "https://my.raceresult.com/413199/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.spiridon-schleswig.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (tiergarten). Linkprüfung 2026-09-19."
+  },
+  "Meller Crosslauf|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/48-meller-crosslauf-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.scmelle.de/, https://www.pzn24.de, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.motioncheck.de/) - laufen-os.de bleibt."
+  },
+  "Neustädter Sparkassen Nachtlauf|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/374608/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Viadukt Ultramarathon|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/365736/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "14. Dorstener Sparkassen Crosslauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lt-dorsten.de",
+    "alt": "https://my.raceresult.com/383025/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lt-dorsten.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (dorstener). Linkprüfung 2026-09-19."
+  },
+  "15. Heseper Martinslauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "32. Pokallauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V16900000760000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Martinslauf - Sankt Martin|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3223",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "Rodgauer Winterlaufserie|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "maxx-timing.de",
+    "alt": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.messelauf.de, https://anmeldung.events, http://www.muddy-aelbler.de, http://rsc-turbine.de) - maxx-timing.de bleibt."
+  },
+  "Silberaulauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/datei/453324",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Sägerserie|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sctf-events.de",
+    "alt": "https://my.raceresult.com/378538/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sctf-events.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (sagerserie). Linkprüfung 2026-09-19."
+  },
+  "Südpfalz Cross Rülzheim|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3220",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "Ultramarathon rund um Werther|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/390457/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "16. Friesenheimer Eulenlauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3148",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "27. Hohen Neuendorfer Herbstlauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ssv-hohen-neuendorf.de",
+    "alt": "https://myracepartner.com/veranstaltung/?event-id=513914",
+    "notiz": "Veranstalterseite statt myracepartner.com: https://www.ssv-hohen-neuendorf.de - auf der myracepartner.com-Seite verlinkt, Zielseite nennt den Lauf (host:hohen). Linkprüfung 2026-09-19."
+  },
+  "280. Heidelauf Halle am 08.11.2026|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "heidelauf-halle.de",
+    "alt": "https://my.raceresult.com/400388/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://Heidelauf-halle.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:heidelauf). Linkprüfung 2026-09-19."
+  },
+  "36. Int. Martinslauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-losheim.de",
+    "alt": "https://my.raceresult.com/419555/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tv-losheim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (martinslauf). Linkprüfung 2026-09-19."
+  },
+  "40. int. Hohenzollern Berglauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ski-club-hechingen.de",
+    "alt": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
+    "notiz": "Veranstalterseite statt anmeldungs-service.de: http://www.ski-club-hechingen.de - auf der anmeldungs-service.de-Seite verlinkt, Zielseite nennt den Lauf (hohenzollern). Linkprüfung 2026-09-19."
+  },
+  "Cross Kreismeisterschaft KLV Stormarn|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "klv-stormarn.de",
+    "alt": "https://my.raceresult.com/422225/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.klv-stormarn.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:stormarn). Linkprüfung 2026-09-19."
+  },
+  "Offene Landesmeisterschaften Cross|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49194/35.-offene-Landesmeisterschaften-Cross-Freital.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Robert Hannemann Gedächtnislauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46315/Robert-Hannemann-Volkslauf-2026-Minden.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Ronsberger Sparkassen-Crosslauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "anmeldungs-service.de",
+    "alt": "https://www.anmeldungs-service.de/ronsbergercrosslauf2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.pani-solutions.de) - anmeldungs-service.de bleibt."
+  },
+  "2. Potsdamer Cross im Rahmen der 22. DPM|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V04005402760000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Alten-Busecker Winterlaufserie|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-alten-buseck.com",
+    "alt": "https://my.raceresult.com/382197/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-alten-buseck.com - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:alten). Linkprüfung 2026-09-19."
+  },
+  "Bezirksmeisterschaften Crosslauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "nlv-bezirk-braunschweig.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48712/Bezirksmeisterschaften-Crosslauf-Velpke.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.nlv-bezirk-braunschweig.de/ - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (bezirksmeisterschaften). Linkprüfung 2026-09-19."
+  },
+  "Crosslauf in den Ravensbergen|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "strassenlauf.org",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=973",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.osc-leichtathletik.de, http://www.ssf-timing.de) - strassenlauf.org bleibt."
+  },
+  "Deutsche Polizeimeisterschaften Crosslauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V04009004660000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "FLVW Crossmeisterschaften|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lanet3.de",
+    "alt": "https://lanet3.de/external/dlv/register/12297",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - lanet3.de bleibt."
+  },
+  "Feuchtwanger Crosslauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-feuchtwangen.de",
+    "alt": "https://www.sas-online.net/eventportal_bs/845/",
+    "notiz": "Veranstalterseite statt sas-online.net: https://www.tus-feuchtwangen.de/sportarten/leichtathletik/aktuelles - auf der sas-online.net-Seite verlinkt, Zielseite nennt den Lauf (feuchtwanger). Linkprüfung 2026-09-19."
+  },
+  "Landesoffener Crosslauf des KLV Segeberg|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirchen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Landgrafenlauf - Jena|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/403691/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.laufservice-jena.de/) - my.raceresult.com bleibt."
+  },
+  "Nebelseelauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/408835/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.seehotel-ichlim.de) - my.raceresult.com bleibt."
+  },
+  "PSV-Winterlaufserie|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419767/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.psv-holzminden.de/psv-winterlauf/) - my.raceresult.com bleibt."
+  },
+  "Stadion-Crosslauf Barsinghausen|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46485/Stadion-Crosslauf-Barsinghausen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Wuppertaler Löwenlauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/396315/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Zeitzgrundlauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "gruenweiss-stadtroda.de",
+    "alt": "https://my.raceresult.com/420882/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.gruenweiss-stadtroda.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (zeitzgrundlauf). Linkprüfung 2026-09-19."
+  },
+  "Georgsmarienhütter Ultra-Trail|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/377644/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (georgsmarienhutter). Linkprüfung 2026-09-19."
+  },
+  "Mauritz-Lindenweg-Marathon|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/372747/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.teamneverest.de) - my.raceresult.com bleibt."
+  },
+  "Nürnberger Winterlaufserie|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "runningconcepts.de",
+    "alt": "https://my.raceresult.com/415981/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.runningconcepts.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nurnberger, datum). Linkprüfung 2026-09-19."
+  },
+  "Rennbahncross in Herxheim|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3137",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "32. Kalmit-Berglauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "pfaelzer-berglaufpokal.de",
+    "alt": "https://runtix.com/sts/10021/3165",
+    "notiz": "Veranstalterseite statt runtix.com: https://pfaelzer-berglaufpokal.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (kalmit). Linkprüfung 2026-09-19."
+  },
+  "Crosslauf mit KM (LV RL Kreis BIT)|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000078850000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Kletterfelsen Brumleytal Ultra-Trail|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/411728/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Klosterparklauf Harsefeld|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "volkslauf-harsefeld.de",
+    "alt": "https://my.raceresult.com/377831/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://volkslauf-harsefeld.de/klosterparklauf/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (klosterparklauf, datum). Linkprüfung 2026-09-19."
+  },
+  "Kordigast-Berglauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418148/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.kordigast-berglauf.de) - my.raceresult.com bleibt."
+  },
+  "Lauf der Nahe-Crosslauf-Serie in Schwollen|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/374075/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.nahe-cross.de) - my.raceresult.com bleibt."
+  },
+  "Rurbrücken - Volkslauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "rurbrueckenlauf-linnich.jimdofree.com",
+    "alt": "https://my.raceresult.com/419683/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://rurbrueckenlauf-linnich.jimdofree.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (rurbrucken). Linkprüfung 2026-09-19."
+  },
+  "36. Hamelner Winterlaufserie|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000322260001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "5. Artenschutzlauf|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V01000038860002",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Bramscher Königstannen-Kanal-Cross|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "bramscher-rumlaeufer.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/5-bramscher-koenigstannen-kanal-cross-2026",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://bramscher-rumlaeufer.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:bramscher). Linkprüfung 2026-09-19."
+  },
+  "SOBVL|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/365995/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Warendorfer Garagen-Backyard|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufschule-tatje.de",
+    "alt": "https://my.raceresult.com/414210/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.laufschule-tatje.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (warendorfer). Linkprüfung 2026-09-19."
+  },
+  "Wilscher Geburtstags-Etappen-Marathon|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000129860003",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "33. Nikolauslauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-geroldseck-lahr.com",
+    "alt": "https://my.raceresult.com/374173/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lg-geroldseck-lahr.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
+  },
+  "Bernhard Marathon|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/416674/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Eschweiler Waldlauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lsg-eschweiler.de",
+    "alt": "https://my.raceresult.com/411931/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.lsg-eschweiler.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:eschweiler). Linkprüfung 2026-09-19."
+  },
+  "Großkarolinenfelder Nikolauslauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "karolauf.de",
+    "alt": "https://my.raceresult.com/422392/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.karolauf.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (grosskarolinenfelder, datum). Linkprüfung 2026-09-19."
+  },
+  "Hainberglauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/399160/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.steinachtallauf.de/hainberglauf) - my.raceresult.com bleibt."
+  },
+  "Laufen gegen Gewalt an Frauen - Lemke|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/395025/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "33. Schmachtendorfer Nikolauslauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sterkrade-nord.de",
+    "alt": "https://my.raceresult.com/380320/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sterkrade-nord.de/nikolauslauf - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (schmachtendorfer). Linkprüfung 2026-09-19."
+  },
+  "36. Weihnachtsmarktlauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V11000028960002",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "6h Adventslauf Langenhagen|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "shinsplinters-langenhagen.webnode.com",
+    "alt": "https://my.raceresult.com/376824/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://shinsplinters-langenhagen.webnode.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:langenhagen). Linkprüfung 2026-09-19."
+  },
+  "Advent-Lauf Saarbrücken|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/416702/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://saar05-leichtathletik.de/wp-content/uploads/2025/07/Advent-Ausschreibung-Layout.pdf) - my.raceresult.com bleibt."
+  },
+  "Adventslauf Gießen|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421590/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Hohe Ward - Werse Ultramarathon|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418218/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Kuhsee Marathon|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409990/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Holger Anders Flutlicht Paarlauf|2026-12-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/320371/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "2. Glücksburger Nikolaus-Crosslauf|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/394430/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Bremer Bergmarathon|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/373210/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Crosslauf am Rodelberg|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "vfl-pinneberg.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49058/CROSSLAUF-am-Rodelberg-Pinneberg.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.vfl-pinneberg.de/de/aktuelles/aktuelles/crosslauf/?returnToListName=News_Newsroom_de&returnToListPage=1 - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (rodelberg, datum). Linkprüfung 2026-09-19."
+  },
+  "Mönchguter Brennereilauf|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/372700/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Nikolauslauf der TSG Dülmen|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/417521/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Nikolauslauf der TSG Schnaitheim|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/386008/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Nikolauslauf des ALV Mainz|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "alvmainz.de",
+    "alt": "https://runtix.com/sts/10021/3171",
+    "notiz": "Veranstalterseite statt runtix.com: http://www.alvmainz.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:mainz). Linkprüfung 2026-09-19."
+  },
+  "Plopsa Nikolauslauf Haßloch by LCH|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3211",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.br-timing.de/) - runtix.com bleibt."
+  },
+  "Rodgauer Winterlaufserie|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "maxx-timing.de",
+    "alt": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.messelauf.de, https://anmeldung.events, http://www.muddy-aelbler.de, http://rsc-turbine.de) - maxx-timing.de bleibt."
+  },
+  "X-Mas StairRun Oberhof|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/394956/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "12. Werdener Crosslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10002017660001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "36. Hamelner Winterlaufserie|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000322260003",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Barbara-Runde mit Sparkassen-Firmenlauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/401809/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Johannesbad Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48938/2.-Johannesbad-Nikolauslauf-Orscholz.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Klausdorfer Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Nikolauslauf Bad Schönborn|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3147",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sg-badschoenborn.de, http://www.br-timing.de%20, http://www.br-timing.de) - runtix.com bleibt."
+  },
+  "Nikolauslauf Landsberg a. Lech|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de",
+    "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04246",
+    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+  },
+  "Nikolauslauf des Ahrensburger TSV|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46344/59.-Nikolauslauf-des-Ahrensburger-TSV-Ahrensburg.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Nospa Fischteiche Cross|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420973/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Sport-Tahedl-Nikolauslauf - Regensburg|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "zeitgemaess.info",
+    "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612061",
+    "notiz": "Seite nicht ladbar (robots) - zeitgemaess.info bleibt."
+  },
+  "Wildeshauser Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufmanager.net",
+    "alt": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Nikolauslauf/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sport-reckemeier.de, http://www.lauf-team.de) - laufmanager.net bleibt."
+  },
+  "10. Ellewicker Adventslauf|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419466/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Alten-Busecker Winterlaufserie|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-alten-buseck.com",
+    "alt": "https://my.raceresult.com/382197/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-alten-buseck.com - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:alten). Linkprüfung 2026-09-19."
+  },
+  "Dinkelsbühler Wald- und Crosslauf mit Kreismeisterschaften|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/362493/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Rund um den Langenberg Ultra|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419387/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "34. Adventslauf|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000097860002",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Adventscross der LG Nordheide|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47339/Sparkassen-Advents-Cross-der-LG-Nordheide-Winsen-%28Luhe%29.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "SLC Weihnachtslauf|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/382583/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Ugly Christmas Sweater Run - Leverkusen|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409571/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Cross im Grund|2026-12-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/383400/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "43. Country Cross|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410164/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Essener Rhein-Herne-Kanal Marathon|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/395941/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "SOBVL|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/365996/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Warendorfer Weihnachtslauf|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/383807/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410899/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Northeimer Heiligabend Marathon|2026-12-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419707/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Wassermühlen-Ultra Rulle|2026-12-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412479/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Vom See zum Schloss Ultramarathon|2026-12-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412648/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silbersee-Hüggel UltraTrail|2026-12-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412660/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Sloopsteener Seenrunden Ultramarathon|2026-12-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412994/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Speck weg Serie Brockenläufe|2026-12-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414030/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Dörenther Klippen UltraTrail|2026-12-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413895/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Schloss Tatenhausen Ultramarathon|2026-12-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414345/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "12. Mergelstetter Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419461/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "16. THERAmed-Adam-Riese-Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sas-online.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/812/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.obermain-marathon.de/index.php?dom=sil&year=26, https://www.sas-zeitmesssysteme.de/index.php?pid=7) - sas-online.net bleibt."
+  },
+  "23. Silvesterlauf Nürnberg|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "maxx-timing.de",
+    "alt": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.messelauf.de, https://anmeldung.events, http://www.muddy-aelbler.de, http://rsc-turbine.de) - maxx-timing.de bleibt."
+  },
+  "26. Nellschützer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V16000130260001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "40. Haseder Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414673/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "44. Seubersdorfer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "zeitgemaess.info",
+    "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612313",
+    "notiz": "Seite nicht ladbar (robots) - zeitgemaess.info bleibt."
+  },
+  "46. Oberlichtenauer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/388423/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "49. Aachener Silvesterlauf presented by J&J MedTech|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420711/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "49. Wernigeröder Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "harz-gebirgslauf.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49082/49.-Werniger%C3%B6der-Silvesterlauf-Wernigerode.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://harz-gebirgslauf.de/event/49-wernigeroeder-silvesterlauf.html - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (wernigeroder, datum). Linkprüfung 2026-09-19."
+  },
+  "54. Kißlegger Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000732660000",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "54. Ziegenhainer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000020160001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Binzer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/399181/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Friedberger Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/411836/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/378406/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Greifswalder Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/407623/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Häcker Silvesterlauf Rödinghausen|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/378423/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Insel-Apotheke CUP|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/407796/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Oberrodenbacher Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409357/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Rhader Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414231/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvester-Ultramarathon Breuna|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422344/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvesterlauf Amberg|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "zeitgemaess.info",
+    "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612312",
+    "notiz": "Seite nicht ladbar (robots) - zeitgemaess.info bleibt."
+  },
+  "Silvesterlauf Bad Kreuznach auf dem Kuhberg|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3179",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - runtix.com bleibt."
+  },
+  "Silvesterlauf Heddesheim|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "heddesheimer-sl.iwebfree.de",
+    "alt": "https://runtix.com/sts/10021/3219",
+    "notiz": "Veranstalterseite statt runtix.com: https://heddesheimer-sl.iwebfree.de/ - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:heddesheim). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf MTV \"Fichte\" Winsen (Aller)|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/383689/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvesterlauf Mörschied|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418908/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvesterlauf Stadtlohn|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421745/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvesterlauf der LG Kaufungen|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420202/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Silvesterlauf des TSV Poggenhagen|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419475/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Spessart Silvester Trail|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/408957/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Sylvester Marathon Bremen|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410134/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Sylvesterlauf Pfalzdorf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419365/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Tus Iserlohn Silvesterlauf „Rund um den Danzturm“|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412297/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410853/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Lengericher UltraTrail|2027-01-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/377589/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Northeimer Neujahrsmarathon|2027-01-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419711/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Die Ha(a)rd Winter|2027-01-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/393626/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Gut Sutthausen Ultramarathon|2027-01-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413535/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Brogginger Spendenlauf|2027-01-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/396206/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Eversburger Gewässer Ultramarathon|2027-01-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412651/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Dreikönigslauf Sperrfechter Freizeitpark|2027-01-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420604/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Winterlaufserie Eckernförde|2027-01-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/401813/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "18. Lauf rund um den Halterner See|2027-01-16": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/401815/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Fun & Erlebnis Marathons - Schneverdingen|2027-01-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/379965/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Nürnberger Winterlaufserie|2027-01-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/415986/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Alten-Busecker Winterlaufserie - Finale|2027-01-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/382199/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Leinetal-Ultra Winter Edition|2027-01-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420165/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Insellauf Königswinter|2027-01-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/417296/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Vier Türme Hamme Ultra|2027-02-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409915/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Tunnelweg-Teufelskanzel-Trailmarathon|2027-02-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/405895/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Do It Fast - Winter Edition|2027-02-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412248/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Haferberg - Hasenmühle UltraTrail|2027-02-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/405937/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Nürnberger Winterlaufserie|2027-02-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/415987/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Rosenmontags Marathon|2027-02-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/369959",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Obertrubacher Crosslauf|2027-02-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48852/Obertrubacher-Crosslauf-Obertrubach.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Seriencross MOL - Schöneiche|2027-02-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/408346/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "35. Ismaninger Winterlaufserie|2027-02-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "winterlaufserie.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/840/",
+    "notiz": "Veranstalterseite statt sas-online.net: https://winterlaufserie.net - auf der sas-online.net-Seite verlinkt, Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
+  },
+  "Treßsee Marathon|2027-02-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/386628",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "HaWei by night|2027-02-26": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lsg-weiher.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.lsg-weiher.de/hawei-by-night - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (hawei, datum). Linkprüfung 2026-09-19."
+  },
+  "7. Meißner Marathon Doppeldecker - Tag 1|2027-02-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/405788",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Ultralauf HaWei50|2027-02-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "lsg-weiher.de",
+    "alt": "https://my.raceresult.com/401228/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lsg-weiher.de/hawei50 - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (hawei, datum). Linkprüfung 2026-09-19."
+  },
+  "8. Meißner Marathon Doppeldecker - Tag 2|2027-02-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/405788",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Bremer Bergmarathon|2027-02-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/382681/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "KäseKross|2027-02-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "kaesekross.de",
+    "alt": "https://runtix.com/sts/10021/3205",
+    "notiz": "Veranstalterseite statt runtix.com: https://kaesekross.de/ - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (kasekross). Linkprüfung 2026-09-19."
+  },
+  "10. Alstätter Sandhasenlauf|2027-03-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/27L19000394360001",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "51. Ruhrtallauf|2027-03-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/401816/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Internationaler Kaiserstuhllauf|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48880/39.-Internationaler-Kaiserstuhllauf-Ihringen.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "13. Ibbenbürener Klippenlauf|2027-03-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "ibbenbuerener-klippenlauf.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/13-ibbenbuerener-klippenlauf-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://www.ibbenbuerener-klippenlauf.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (ibbenburener). Linkprüfung 2026-09-19."
+  },
+  "Frau Holle Märchenland Ultra|2027-03-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422662/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Kieler Hochbrückenlauf|2027-03-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/37-kieler-hochbrueckenlauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Sonthofer Frühlingslauf|2027-03-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sonthofer-fruehlingslauf.de",
+    "alt": "https://www.datasport.de/anmeldeservice/sonthoferfruehlingslauf2027",
+    "notiz": "Veranstalterseite statt datasport.de: http://www.sonthofer-fruehlingslauf.de/ - auf der datasport.de-Seite verlinkt, Zielseite nennt den Lauf (host:sonthofer). Linkprüfung 2026-09-19."
+  },
+  "Jurasteig Nonstop Ultratrail (JUNUT)|2027-04-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/400103/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Fun & Erlebnis Marathons|2027-04-09": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/400258/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Gesmolder Bifurkationslauf|2027-04-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-viktoria-gesmold.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/3-gesmolder-bifurkationslauf-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://www.sv-viktoria-gesmold.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (gesmolder). Linkprüfung 2026-09-19."
+  },
+  "Kyffhäuser Berglauf|2027-04-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "runtix.com",
+    "alt": "https://runtix.com/sts/10021/3168",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.kyffhaeuser-berglauf.de) - runtix.com bleibt."
+  },
+  "Panorama Run Güntersleben|2027-04-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397286/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Turm zu Turm Lauf|2027-04-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/22-turm-zu-turm-lauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tvg-sport.de/sportangebot/laufsport-triathlon/turm-zu-turmlauf.html, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.pzn24.de, https://www.motioncheck.de/) - laufen-os.de bleibt."
+  },
+  "Österberg 333|2027-04-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418307/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "rappid. Marathon|2027-04-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/415403/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Klaar Kiming Throwdown|2027-04-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397041/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Osnabrücker Gipfelsturm|2027-04-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "diakoniestiftung-osl.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/15-osnabruecker-gipfelsturm-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://www.diakoniestiftung-osl.de/projekte-aktionen/gipfelsturm - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (osnabrucker). Linkprüfung 2026-09-19."
+  },
+  "Volkslauf im Volkspark Langendreer|2027-04-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409928/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Kochercup|2027-05-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397220/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Legend of Cross - Fryheit|2027-05-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418858/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Osterather Mailauf|2027-05-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397371/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Schluchseelauf|2027-05-01": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/415739/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Dyckerhoff Steinbruch Marathon|2027-05-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397880/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Waldreiterlauf|2027-05-02": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419664/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Neuenkirchener Abendlauf|2027-05-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Spendenlauf für Glücksmomente|2027-05-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421056/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Westerwälder Backyard Ultra|2027-05-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/397586/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Baltic X Coast Run|2027-05-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sportstiming.dk",
+    "alt": "https://www.sportstiming.dk/event/18495",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, http://binzerbuchtactive.com) - sportstiming.dk bleibt."
+  },
+  "Niedermeiserer Dorflauf|2027-05-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422872/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Ultratrail Oerlinghausen|2027-05-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/388264/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Weinathlon|2027-05-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/405643/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Backyard Ultra Lüneburg|2027-05-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409511/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Bruch Ultra Kettenkamp|2027-05-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.pzn24.de, https://gebaeudereinigung-dinda.de/, https://www.helpage.de/mitmachen/fuer-laeufer-innen/bmw-berlin-marathon) - laufen-os.de bleibt."
+  },
+  "Tergaster Volkslauf|2027-05-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/402052/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Borgloher Weiherlauf|2027-05-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tusborgloh.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/22-borgloher-weiherlauf-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://tusborgloh.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (borgloher). Linkprüfung 2026-09-19."
+  },
+  "VFL Ahaus Stadtfestlauf|2027-05-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/406973/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Frauenlauf Bremen|2027-05-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/400106/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Sponsorenlauf Brustkrebshilfe Dorsten|2027-05-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422109/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Nacht Von Hasbergen|2027-05-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "nacht-von-hasbergen.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/46-nacht-von-hasbergen-28-mai-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: http://nacht-von-hasbergen.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:nacht). Linkprüfung 2026-09-19."
+  },
+  "Rund um Schloß Holte|2027-05-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/403275/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "10k Hamburg|2027-05-30": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419629/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Büchener Triathlon|2027-05-30": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/404622/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Firmenlauf Lörrach|2027-06-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410610/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Wolfhager Volkslauf - Rund um den Graner Berg|2027-06-04": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/398724/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Wessumer Klumpenlauf|2027-06-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/376620/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Haster Volkslauf|2027-06-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/haster-volkslauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tushaste01.de/, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.pzn24.de, https://www.helpage.de/mitmachen/fuer-laeufer-innen/bmw-berlin-marathon) - laufen-os.de bleibt."
+  },
+  "Stadtlauf des TSV Neustadt|2027-06-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-neustadt.net",
+    "alt": "https://ladv.de/ausschreibung/detail/49165/15.-Neust%C3%A4dter-Stadtlauf-Neustadt-am-R%C3%BCbenberge.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.tsv-neustadt.net/ - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (host:neustadt). Linkprüfung 2026-09-19."
+  },
+  "Bad Wildbader Stäffeleslauf|2027-06-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/407534/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Hallig-Dreeathlon|2027-06-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/420460/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Kleinbahn-Lauf|2027-06-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/411371/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Voxtruper Volkslauf|2027-06-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "vfr-voxtrup.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/14-voxtruper-volkslauf-2027",
+    "notiz": "Veranstalterseite statt laufen-os.de: http://www.vfr-voxtrup.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (voxtruper). Linkprüfung 2026-09-19."
+  },
+  "Hohenloher Genießerlauf|2027-06-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/393848/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Panorama-Baumwipfel-Lauf|2027-06-12": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/406561/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Nesselwanger Seenlauf|2027-06-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/404129/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Jemgumer Dörploop|2027-06-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409001/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Podbielski Lauf|2027-06-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/417959/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Möckmühler Stadtlauf|2027-06-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412457/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Midsummerrun Hamburg|2027-06-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/407465/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Mittsommernachtslauf Hannover|2027-06-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414386/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "City Marathon Wiesbaden|2027-06-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412690/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "S'KayRun|2027-06-26": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tsverlenbach.de",
+    "alt": "https://www.datasport.de/anmeldeservice/skayrun2027",
+    "notiz": "Veranstalterseite statt datasport.de: https://www.tsverlenbach.de/skay-run - auf der datasport.de-Seite verlinkt, Zielseite nennt den Lauf (kayrun). Linkprüfung 2026-09-19."
+  },
+  "Bremer Brückenlauf|2027-07-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410016/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Heuchelberg Trail|2027-07-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/409838/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Dorstener 24-Stunden-Lauf|2027-07-09": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418089/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Most Insane Psyland Backyard Ultra|2027-07-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/390792/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Hardy's Stadtlauf Fürstenfeldbruck|2027-07-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/411121/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "3. Halener Bahnmarathon|2027-07-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/340929",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Internationaler Allgäu Volkslauf|2027-07-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412238/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Sparkassen-ADAM-RIESE Nachtlauf|2027-07-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sas-online.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/843/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.obermain-marathon.de/index.php?dom=alt1&year=26, https://www.sas-zeitmesssysteme.de/index.php?pid=7) - sas-online.net bleibt."
+  },
+  "Waldlauf Renquishausen|2027-07-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413109/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Black Forest Team Battle|2027-07-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419886/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Lauf-Samstag Füssen|2027-07-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Rund um Detmold|2027-07-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/398707/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Holter Wald Ultra|2027-08-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/403291/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Backyard Ultra-Marathon Tharandter Wald|2027-08-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419054/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Mops-Ultra Night Edition|2027-08-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413777/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Mühlenweg Ultra|2027-08-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/364127/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Eilenriederennen Hannover|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/416201/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Moret Triathlon|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "maxx-timing.de",
+    "alt": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.messelauf.de, https://anmeldung.events, http://www.muddy-aelbler.de, http://rsc-turbine.de) - maxx-timing.de bleibt."
+  },
+  "Muldental-Triathlon|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413694/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Otterndorf Triathlon|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419516/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Swim&Run Winnweiler|2027-08-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419673/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Weidatalcross|2027-09-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "weidatalcross.de",
+    "alt": "https://runtix.com/sts/10021/3222",
+    "notiz": "Veranstalterseite statt runtix.com: http://www.weidatalcross.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:weidatalcross, datum). Linkprüfung 2026-09-19."
+  },
+  "Flensburg Liebt Dich Marathon|2027-09-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Rostocker Frauenlauf|2027-09-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418708/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "10-Teiche-Marathon|2027-09-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422206/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Tierparklauf Berlin|2027-09-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/volvo-tierparklauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Othaler Gutshof Lauf|2027-09-12": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "othaler-gutshof-lauf.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49054/7.-Othaler-Gutshof-Lauf-Allstedt-OT-Othal.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://othaler-gutshof-lauf.de/ - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (host:othaler). Linkprüfung 2026-09-19."
+  },
+  "24h Mad Chicken Run|2027-09-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "mad-chicken-run.de",
+    "alt": "https://runtix.com/sts/10021/3210",
+    "notiz": "Veranstalterseite statt runtix.com: http://www.Mad-Chicken-Run.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:chicken, datum). Linkprüfung 2026-09-19."
+  },
+  "Friedberger Triathlon|2027-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419312/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "swb-Marathon Bremen|2027-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "davengo.com",
+    "alt": "https://www.davengo.com/event/overview/22-swb-marathon-bremen-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - davengo.com bleibt."
+  },
+  "Running Festival Mannheim|2027-10-16": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "datasport.de",
+    "alt": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - datasport.de bleibt."
+  },
+  "Bremer Bergmarathon|2027-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/382692/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Friedberger Silvesterlauf|2027-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/411836/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "13. Alstätter Sandhasenlauf|2030-03-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/30L19000394360001",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
   }
 }

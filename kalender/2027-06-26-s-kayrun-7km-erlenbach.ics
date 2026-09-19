@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270627
 SUMMARY:S'KayRun – 7 km SulmRun
 LOCATION:Erlenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.datasport.
- de/anmeldeservice/skayrun2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.tsverlenba
+ ch.de/skay-run
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/skayrun2027
+URL:https://www.tsverlenbach.de/skay-run
 END:VEVENT
 END:VCALENDAR

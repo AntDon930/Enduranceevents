@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:Nürnberger Winterlaufserie
 LOCATION:Nürnberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /415981/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.runningconcep
+ ts.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/415981/
+URL:https://www.runningconcepts.de
 END:VEVENT
 END:VCALENDAR

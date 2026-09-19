@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270521
 DTEND;VALUE=DATE:20270522
 SUMMARY:Borgloher Weiherlauf – 9\,7 km Hauptlauf
 LOCATION:Hilter am Teutoburger Wald\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://www.laufen-o
- s.de/wettkaempfe/22-borgloher-weiherlauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://tusborgloh.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/22-borgloher-weiherlauf-2027
+URL:https://tusborgloh.de/
 END:VEVENT
 END:VCALENDAR

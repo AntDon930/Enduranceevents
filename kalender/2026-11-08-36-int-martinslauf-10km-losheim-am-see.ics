@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:36. Int. Martinslauf
 LOCATION:Losheim am See\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/419555/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv-loshei
+ m.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419555/
+URL:https://www.tv-losheim.de
 END:VEVENT
 END:VCALENDAR

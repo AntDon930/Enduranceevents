@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Hochstift-Cup
 LOCATION:Delbrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://my.raceresul
- t.com/365928/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.hochstif
+ t-cup.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/365928/
+URL:https://www.hochstift-cup.de
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Hubertuslauf Neuruppin – 15 km Lauf (ab Altersklasse u16)
 LOCATION:Neuruppin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.strassenl
- auf.org/va_details.php?id=979
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.kreisspor
+ tbund-opr.de
 TRANSP:TRANSPARENT
-URL:https://www.strassenlauf.org/va_details.php?id=979
+URL:https://www.kreissportbund-opr.de
 END:VEVENT
 END:VCALENDAR

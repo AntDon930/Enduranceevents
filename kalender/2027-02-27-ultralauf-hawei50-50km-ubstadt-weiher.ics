@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:Ultralauf HaWei50
 LOCATION:Ubstadt-Weiher\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
- .com/401228/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.lsg-weihe
+ r.de/hawei50
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/401228/
+URL:https://www.lsg-weiher.de/hawei50
 END:VEVENT
 END:VCALENDAR

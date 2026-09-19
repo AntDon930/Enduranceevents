@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Feuchtwanger Crosslauf
 LOCATION:Feuchtwangen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.sas-online.
- net/eventportal_bs/845/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.tus-feuchtw
+ angen.de/sportarten/leichtathletik/aktuelles
 TRANSP:TRANSPARENT
-URL:https://www.sas-online.net/eventportal_bs/845/
+URL:https://www.tus-feuchtwangen.de/sportarten/leichtathletik/aktuelles
 END:VEVENT
 END:VCALENDAR

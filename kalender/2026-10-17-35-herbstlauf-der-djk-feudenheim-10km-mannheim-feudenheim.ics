@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:35. Herbstlauf der DJK Feudenheim – 10 km Hauptlauf
 LOCATION:Mannheim-Feudenheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
- s/10021/3169
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.djk-feuden
+ heim.de/Herbstlauf
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3169
+URL:http://www.djk-feudenheim.de/Herbstlauf
 END:VEVENT
 END:VCALENDAR

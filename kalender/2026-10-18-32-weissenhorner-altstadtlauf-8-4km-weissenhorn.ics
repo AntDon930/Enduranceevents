@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:32. Weißenhorner Altstadtlauf
 LOCATION:Weißenhorn\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://my.raceresul
- t.com/395780/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://www.tsv-weis
+ senhorn.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/395780/
+URL:https://www.tsv-weissenhorn.de
 END:VEVENT
 END:VCALENDAR

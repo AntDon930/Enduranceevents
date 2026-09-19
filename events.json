@@ -13516,7 +13516,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 18.0,
     "wettbewerb": "18 km Lauf, Startgebühr 10,00 €",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026"
+    "veranstalter_url": "https://sw-osterfeine.de/"
   },
   {
     "land": "Deutschland",
@@ -13530,7 +13530,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf, Startgebühr 8,00 €",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026"
+    "veranstalter_url": "https://sw-osterfeine.de/"
   },
   {
     "land": "Deutschland",
@@ -13544,7 +13544,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 6.6,
     "wettbewerb": "6,6 km Lauf, Startgebühr 8,00 €",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026"
+    "veranstalter_url": "https://sw-osterfeine.de/"
   },
   {
     "land": "Deutschland",
@@ -14081,7 +14081,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf, ab 10 Jahren, Startgeld 8,00 Euro.",
-    "veranstalter_url": "https://my.raceresult.com/409748/"
+    "veranstalter_url": "https://www.lauftreff-Kremperheide.de"
   },
   {
     "land": "Deutschland",
@@ -14095,7 +14095,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 6.0,
     "wettbewerb": "6 km Lauf, ab 6 Jahren, Startgeld 8,00 Euro.",
-    "veranstalter_url": "https://my.raceresult.com/409748/"
+    "veranstalter_url": "https://www.lauftreff-Kremperheide.de"
   },
   {
     "land": "Deutschland",
@@ -14165,7 +14165,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Rundkurs, überwiegend Waldwege",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=460371"
+    "veranstalter_url": "https://www.bwmw.club/"
   },
   {
     "land": "Deutschland",
@@ -14179,7 +14179,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Rundkurs, zwei Runden, überwiegend Waldwege",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=460371"
+    "veranstalter_url": "https://www.bwmw.club/"
   },
   {
     "land": "Deutschland",
@@ -14207,7 +14207,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf und Walker",
-    "veranstalter_url": "https://my.raceresult.com/380348/"
+    "veranstalter_url": "https://fcsww.de/lauftreff"
   },
   {
     "land": "Deutschland",
@@ -14221,7 +14221,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/380348/"
+    "veranstalter_url": "https://fcsww.de/lauftreff"
   },
   {
     "land": "Deutschland",
@@ -14290,7 +14290,7 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000441260000",
+    "veranstalter_url": "https://www.mtv-embsen.de",
     "wettbewerb": "10 km Lauf"
   },
   {
@@ -14305,7 +14305,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/400462/"
+    "veranstalter_url": "https://www.mtv-embsen.de"
   },
   {
     "land": "Deutschland",
@@ -14319,7 +14319,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 11.0,
     "wettbewerb": "11 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/400462/"
+    "veranstalter_url": "https://www.mtv-embsen.de"
   },
   {
     "land": "Deutschland",
@@ -14499,7 +14499,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/373194/"
+    "veranstalter_url": "https://hm-ab.de"
   },
   {
     "land": "Deutschland",
@@ -14764,7 +14764,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/412509/"
+    "veranstalter_url": "https://stadtlauf-buerstadt.de/"
   },
   {
     "land": "Deutschland",
@@ -14778,7 +14778,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/412509/"
+    "veranstalter_url": "https://stadtlauf-buerstadt.de/"
   },
   {
     "land": "Deutschland",
@@ -14845,7 +14845,7 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/377111/",
+    "veranstalter_url": "https://www.tus-ovenhausen.de/herbstlauf-ausschreibung/",
     "wettbewerb": "10 km"
   },
   {
@@ -14860,7 +14860,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 20.8,
     "wettbewerb": "20,8 km",
-    "veranstalter_url": "https://my.raceresult.com/377111/"
+    "veranstalter_url": "https://www.tus-ovenhausen.de/herbstlauf-ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -15408,7 +15408,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://my.raceresult.com/414333/"
+    "veranstalter_url": "https://www.tv-markdorf.de/"
   },
   {
     "land": "Deutschland",
@@ -16358,7 +16358,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/hase-lauf-bersenbrueck-2026"
+    "veranstalter_url": "http://www.tus-bersenbrück.de"
   },
   {
     "land": "Deutschland",
@@ -16372,7 +16372,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/hase-lauf-bersenbrueck-2026"
+    "veranstalter_url": "http://www.tus-bersenbrück.de"
   },
   {
     "land": "Deutschland",
@@ -16745,7 +16745,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 17.3,
-    "veranstalter_url": "https://my.raceresult.com/391951/",
+    "veranstalter_url": "https://www.saaletal-marathon.de/weinberglauf",
     "wettbewerb": "Winzerrunde 17,3 km , Jahrgang 2010 und älter, 24.00 EUR."
   },
   {
@@ -16759,7 +16759,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 5.4,
-    "veranstalter_url": "https://my.raceresult.com/391951/"
+    "veranstalter_url": "https://www.saaletal-marathon.de/weinberglauf"
   },
   {
     "land": "Deutschland",
@@ -16772,7 +16772,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 10.4,
-    "veranstalter_url": "https://my.raceresult.com/391951/"
+    "veranstalter_url": "https://www.saaletal-marathon.de/weinberglauf"
   },
   {
     "land": "Deutschland",
@@ -16938,7 +16938,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=F334C25E22"
+    "veranstalter_url": "http://www.tus-altwarmbüchen.de"
   },
   {
     "land": "Deutschland",
@@ -16952,7 +16952,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=F334C25E22"
+    "veranstalter_url": "http://www.tus-altwarmbüchen.de"
   },
   {
     "land": "Deutschland",
@@ -17120,7 +17120,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/364112/"
+    "veranstalter_url": "https://westenergie-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -17625,7 +17625,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 8.0,
-    "veranstalter_url": "https://my.raceresult.com/414034/"
+    "veranstalter_url": "http://www.schneelaufverein-geislingen.de"
   },
   {
     "land": "Deutschland",
@@ -18142,7 +18142,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 25.0,
     "wettbewerb": "25 km",
-    "veranstalter_url": "https://time-and-voice.com/de/running/hohenbuschei-2026"
+    "veranstalter_url": "http://www.hohenbuschei.info"
   },
   {
     "land": "Deutschland",
@@ -18156,7 +18156,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 20.0,
     "wettbewerb": "20 km",
-    "veranstalter_url": "https://time-and-voice.com/de/running/hohenbuschei-2026"
+    "veranstalter_url": "http://www.hohenbuschei.info"
   },
   {
     "land": "Deutschland",
@@ -18170,7 +18170,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://time-and-voice.com/de/running/hohenbuschei-2026"
+    "veranstalter_url": "http://www.hohenbuschei.info"
   },
   {
     "land": "Deutschland",
@@ -18184,7 +18184,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time-and-voice.com/de/running/hohenbuschei-2026"
+    "veranstalter_url": "http://www.hohenbuschei.info"
   },
   {
     "land": "Deutschland",
@@ -18198,7 +18198,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://time-and-voice.com/de/running/hohenbuschei-2026"
+    "veranstalter_url": "http://www.hohenbuschei.info"
   },
   {
     "land": "Deutschland",
@@ -19221,7 +19221,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 8.4,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48931/24.-Schloss-Cross-Laupheim-Laupheim.htm"
+    "veranstalter_url": "https://schloss-cross.de"
   },
   {
     "land": "Deutschland",
@@ -19263,7 +19263,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3169",
+    "veranstalter_url": "http://www.djk-feudenheim.de/Herbstlauf",
     "wettbewerb": "10 km Hauptlauf"
   },
   {
@@ -19796,7 +19796,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km für Jugend U14 sowie weitere Altersklassen",
-    "veranstalter_url": "https://my.raceresult.com/414318/"
+    "veranstalter_url": "https://www.tsg-nattheim.de"
   },
   {
     "land": "Deutschland",
@@ -19810,7 +19810,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 10.1,
     "wettbewerb": "10,1 km für ältere Jugend und Erwachsene",
-    "veranstalter_url": "https://my.raceresult.com/414318/"
+    "veranstalter_url": "https://www.tsg-nattheim.de"
   },
   {
     "land": "Deutschland",
@@ -19936,7 +19936,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 6.0,
     "wettbewerb": "6 km Lauf, Jahrgänge 2020 und älter, Startgeld 7,00 EUR",
-    "veranstalter_url": "https://my.raceresult.com/417316/"
+    "veranstalter_url": "https://ssv-rodewald.de"
   },
   {
     "land": "Deutschland",
@@ -19950,7 +19950,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 12.0,
     "wettbewerb": "12 km Lauf, Jahrgänge 2016 und älter, Startgeld 7,00 EUR",
-    "veranstalter_url": "https://my.raceresult.com/417316/"
+    "veranstalter_url": "https://ssv-rodewald.de"
   },
   {
     "land": "Deutschland",
@@ -20185,7 +20185,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=532819"
+    "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -20199,7 +20199,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=532819"
+    "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -20212,7 +20212,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/416185/"
+    "veranstalter_url": "https://www.tsg-ausdauersport.de/"
   },
   {
     "land": "Deutschland",
@@ -20321,7 +20321,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 8.4,
-    "veranstalter_url": "https://my.raceresult.com/395780/",
+    "veranstalter_url": "https://www.tsv-weissenhorn.de",
     "wettbewerb": "8 km"
   },
   {
@@ -20391,7 +20391,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 8.2,
-    "veranstalter_url": "https://my.raceresult.com/414327/",
+    "veranstalter_url": "https://www.vflkaufering.de",
     "wettbewerb": "8,25 km Lauf um den Stausee, ab Altersklasse U12"
   },
   {
@@ -20657,7 +20657,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/388543/"
+    "veranstalter_url": "https://ski-club-beckum.de"
   },
   {
     "land": "Deutschland",
@@ -20671,7 +20671,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/388543/"
+    "veranstalter_url": "https://ski-club-beckum.de"
   },
   {
     "land": "Deutschland",
@@ -20684,7 +20684,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=979",
+    "veranstalter_url": "https://www.kreissportbund-opr.de",
     "wettbewerb": "15 km Lauf (ab Altersklasse u16)"
   },
   {
@@ -20699,7 +20699,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 8.0,
     "wettbewerb": "8 km Walking (ab Altersklasse u14)",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=979"
+    "veranstalter_url": "https://www.kreissportbund-opr.de"
   },
   {
     "land": "Deutschland",
@@ -20752,7 +20752,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://my.raceresult.com/408900/",
+    "veranstalter_url": "https://www.troialaufevents.de/",
     "wettbewerb": "La Corsa di Paolo Esordienti"
   },
   {
@@ -20767,7 +20767,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/408900/"
+    "veranstalter_url": "https://www.troialaufevents.de/"
   },
   {
     "land": "Deutschland",
@@ -20809,7 +20809,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://my.raceresult.com/377610/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -20823,7 +20823,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://my.raceresult.com/377610/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -21030,7 +21030,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1F25E8A497"
+    "veranstalter_url": "https://www.schoenower-sv.de"
   },
   {
     "land": "Deutschland",
@@ -21044,7 +21044,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1F25E8A497"
+    "veranstalter_url": "https://www.schoenower-sv.de"
   },
   {
     "land": "Deutschland",
@@ -21360,7 +21360,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 16.1,
-    "veranstalter_url": "https://my.raceresult.com/414304/"
+    "veranstalter_url": "https://www.obstmeilenlauf.de"
   },
   {
     "land": "Deutschland",
@@ -21438,7 +21438,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 100.0,
-    "veranstalter_url": "https://my.raceresult.com/371444/",
+    "veranstalter_url": "https://www.but10x10tsvburgbernheim.de/",
     "wettbewerb": "100 km (10 x 10 km)"
   },
   {
@@ -21453,7 +21453,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 50.0,
     "wettbewerb": "50 km (5 x 10 km)",
-    "veranstalter_url": "https://my.raceresult.com/371444/"
+    "veranstalter_url": "https://www.but10x10tsvburgbernheim.de/"
   },
   {
     "land": "Deutschland",
@@ -21687,7 +21687,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 50.0,
-    "veranstalter_url": "https://my.raceresult.com/392278/",
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/",
     "land": "Österreich",
     "wettbewerb": "Dominik Pacher Super Marathon"
   },
@@ -21703,7 +21703,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 15.5,
     "wettbewerb": "Kombilauf (City Run & Viertelmarathon)",
-    "veranstalter_url": "https://my.raceresult.com/392278/"
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Österreich",
@@ -21717,7 +21717,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 5.0,
     "wettbewerb": "Sparkasse City Run",
-    "veranstalter_url": "https://my.raceresult.com/392278/"
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Österreich",
@@ -21731,7 +21731,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 42.2,
     "wettbewerb": "Ossiacher See Marathon",
-    "veranstalter_url": "https://my.raceresult.com/392278/"
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Österreich",
@@ -21745,7 +21745,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 10.5,
     "wettbewerb": "Viertelmarathon",
-    "veranstalter_url": "https://my.raceresult.com/392278/"
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Österreich",
@@ -21759,7 +21759,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 21.1,
     "wettbewerb": "Intersport Pilz Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/392278/"
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Deutschland",
@@ -22104,7 +22104,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/378537/"
+    "veranstalter_url": "https://www.sctf-events.de"
   },
   {
     "land": "Deutschland",
@@ -22118,7 +22118,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/378537/"
+    "veranstalter_url": "https://www.sctf-events.de"
   },
   {
     "land": "Deutschland",
@@ -22449,7 +22449,7 @@
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
     "laenge_km": 13.0,
-    "veranstalter_url": "https://my.raceresult.com/393555/",
+    "veranstalter_url": "https://www.sv1910-kahla.de/",
     "wettbewerb": "13 km Hauptlauf, ab 14 Jahre (Jg. 2012 und älter)"
   },
   {
@@ -22464,7 +22464,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Einsteigerlauf, ab 10 Jahre (Jg. 2016 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/393555/"
+    "veranstalter_url": "https://www.sv1910-kahla.de/"
   },
   {
     "land": "Deutschland",
@@ -22561,7 +22561,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 10.0,
     "wettbewerb": "10 km als listenfähige Hauptstrecke",
-    "veranstalter_url": "https://my.raceresult.com/390310/"
+    "veranstalter_url": "https://www.tsv-thuengersheim.de/aktionen-events/"
   },
   {
     "land": "Deutschland",
@@ -22575,7 +22575,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 43.2,
     "wettbewerb": "Ultramarathon",
-    "veranstalter_url": "https://my.raceresult.com/415243/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -22589,7 +22589,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 26.0,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/415243/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -23005,7 +23005,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 11.6,
     "wettbewerb": "11,6 km für U16 und älter",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=958"
+    "veranstalter_url": "https://www.tsv-wiesenburg.de/"
   },
   {
     "land": "Deutschland",
@@ -23019,7 +23019,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 6.5,
     "wettbewerb": "6,5 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=958"
+    "veranstalter_url": "https://www.tsv-wiesenburg.de/"
   },
   {
     "land": "Deutschland",
@@ -23032,7 +23032,7 @@
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/387214/",
+    "veranstalter_url": "https://www.tsv-berghausen.de/",
     "wettbewerb": "10 km Hauptlauf: asphaltierte, fast ebene Wendepunktstrecke"
   },
   {
@@ -23047,7 +23047,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf und Walking",
-    "veranstalter_url": "https://my.raceresult.com/387214/"
+    "veranstalter_url": "https://www.tsv-berghausen.de/"
   },
   {
     "land": "Deutschland",
@@ -23630,7 +23630,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46123/Kreismeisterschaft-und-3.-Halloween-Crosslauf-zu-Munster-Munster.htm"
+    "veranstalter_url": "https://www.eintracht-munster.de/index.php/sparten/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -23644,7 +23644,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46123/Kreismeisterschaft-und-3.-Halloween-Crosslauf-zu-Munster-Munster.htm"
+    "veranstalter_url": "https://www.eintracht-munster.de/index.php/sparten/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -23895,7 +23895,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://my.raceresult.com/418978/"
+    "veranstalter_url": "https://www.hex-erlebniswelt.de/"
   },
   {
     "land": "Deutschland",
@@ -23909,7 +23909,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 100.0,
     "wettbewerb": "100 km",
-    "veranstalter_url": "https://my.raceresult.com/365928/"
+    "veranstalter_url": "https://www.hochstift-cup.de"
   },
   {
     "land": "Deutschland",
@@ -23923,7 +23923,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 20.0,
     "wettbewerb": "20 km",
-    "veranstalter_url": "https://my.raceresult.com/365928/"
+    "veranstalter_url": "https://www.hochstift-cup.de"
   },
   {
     "land": "Deutschland",
@@ -23937,7 +23937,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/365928/"
+    "veranstalter_url": "https://www.hochstift-cup.de"
   },
   {
     "land": "Deutschland",
@@ -23951,7 +23951,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/365928/"
+    "veranstalter_url": "https://www.hochstift-cup.de"
   },
   {
     "land": "Deutschland",
@@ -24254,7 +24254,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49275/Sparkasse-Trier-Euro-Cross-2026-LVRR-Regiom-Trier-Crosslauf-Ralingen.htm"
+    "veranstalter_url": "https://www.euro-cross.de"
   },
   {
     "land": "Deutschland",
@@ -24445,7 +24445,7 @@
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
     "laenge_km": 8.8,
-    "veranstalter_url": "https://my.raceresult.com/413199/"
+    "veranstalter_url": "https://www.spiridon-schleswig.de"
   },
   {
     "land": "Deutschland",
@@ -24744,7 +24744,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 7.3,
-    "veranstalter_url": "https://my.raceresult.com/383025/",
+    "veranstalter_url": "https://www.lt-dorsten.de",
     "wettbewerb": "7 km"
   },
   {
@@ -25502,7 +25502,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 20.0,
     "wettbewerb": "20 km",
-    "veranstalter_url": "https://my.raceresult.com/378538/"
+    "veranstalter_url": "https://www.sctf-events.de"
   },
   {
     "land": "Deutschland",
@@ -25516,7 +25516,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://my.raceresult.com/378538/"
+    "veranstalter_url": "https://www.sctf-events.de"
   },
   {
     "land": "Deutschland",
@@ -25530,7 +25530,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/378538/"
+    "veranstalter_url": "https://www.sctf-events.de"
   },
   {
     "land": "Deutschland",
@@ -25637,7 +25637,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 11.0,
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=513914",
+    "veranstalter_url": "https://www.ssv-hohen-neuendorf.de",
     "wettbewerb": "11 km Lauf"
   },
   {
@@ -25652,7 +25652,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Lauf",
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=513914"
+    "veranstalter_url": "https://www.ssv-hohen-neuendorf.de"
   },
   {
     "name": "280. Heidelauf Halle am 08.11.2026",
@@ -25664,7 +25664,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://my.raceresult.com/400388/",
+    "veranstalter_url": "https://Heidelauf-halle.de",
     "land": "Deutschland"
   },
   {
@@ -25756,7 +25756,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/419555/",
+    "veranstalter_url": "https://www.tv-losheim.de",
     "wettbewerb": "10 km"
   },
   {
@@ -25771,7 +25771,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/419555/"
+    "veranstalter_url": "https://www.tv-losheim.de"
   },
   {
     "land": "Deutschland",
@@ -25880,7 +25880,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 8.1,
-    "veranstalter_url": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
+    "veranstalter_url": "http://www.ski-club-hechingen.de",
     "wettbewerb": "8 km"
   },
   {
@@ -26102,7 +26102,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/422225/"
+    "veranstalter_url": "https://www.klv-stormarn.de/"
   },
   {
     "land": "Deutschland",
@@ -26957,7 +26957,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/382197/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -26971,7 +26971,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/382191/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -26985,7 +26985,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 15.0,
     "wettbewerb": "15 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/382191/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -26999,7 +26999,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Jedermannslauf und 5 km Walking/Nordic Walking",
-    "veranstalter_url": "https://my.raceresult.com/382191/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -27027,7 +27027,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48712/Bezirksmeisterschaften-Crosslauf-Velpke.htm"
+    "veranstalter_url": "https://www.nlv-bezirk-braunschweig.de/"
   },
   {
     "land": "Deutschland",
@@ -27150,7 +27150,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/845/"
+    "veranstalter_url": "https://www.tus-feuchtwangen.de/sportarten/leichtathletik/aktuelles"
   },
   {
     "land": "Deutschland",
@@ -27603,7 +27603,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
-    "veranstalter_url": "https://my.raceresult.com/420882/"
+    "veranstalter_url": "https://www.gruenweiss-stadtroda.de"
   },
   {
     "land": "Deutschland",
@@ -27617,7 +27617,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/420882/"
+    "veranstalter_url": "https://www.gruenweiss-stadtroda.de"
   },
   {
     "land": "Deutschland",
@@ -27820,7 +27820,7 @@
     "datum_ende": "2026-11-15",
     "laenge_km": 48.0,
     "wettbewerb": "48 km",
-    "veranstalter_url": "https://my.raceresult.com/377644/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
   },
   {
     "land": "Deutschland",
@@ -27941,7 +27941,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "veranstalter_url": "https://my.raceresult.com/415981/"
+    "veranstalter_url": "https://www.runningconcepts.de"
   },
   {
     "land": "Deutschland",
@@ -28324,7 +28324,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 8.3,
-    "veranstalter_url": "https://runtix.com/sts/10021/3165",
+    "veranstalter_url": "https://pfaelzer-berglaufpokal.de",
     "wettbewerb": "8 km"
   },
   {
@@ -28679,7 +28679,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
-    "veranstalter_url": "https://my.raceresult.com/377831/"
+    "veranstalter_url": "https://volkslauf-harsefeld.de/klosterparklauf/"
   },
   {
     "land": "Deutschland",
@@ -28815,7 +28815,7 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/419683/"
+    "veranstalter_url": "https://rurbrueckenlauf-linnich.jimdofree.com/"
   },
   {
     "land": "Deutschland",
@@ -28829,7 +28829,7 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/419683/"
+    "veranstalter_url": "https://rurbrueckenlauf-linnich.jimdofree.com/"
   },
   {
     "land": "Deutschland",
@@ -28974,7 +28974,7 @@
     "datum_ende": "2026-11-22",
     "laenge_km": 9.0,
     "wettbewerb": "9 km (3 Runden)",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/5-bramscher-koenigstannen-kanal-cross-2026"
+    "veranstalter_url": "https://bramscher-rumlaeufer.de/"
   },
   {
     "land": "Deutschland",
@@ -29141,7 +29141,7 @@
     "datum_ende": "2026-11-22",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/414210/"
+    "veranstalter_url": "https://www.laufschule-tatje.de"
   },
   {
     "land": "Deutschland",
@@ -29192,7 +29192,7 @@
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/374173/",
+    "veranstalter_url": "https://www.lg-geroldseck-lahr.com/",
     "wettbewerb": "10 km"
   },
   {
@@ -29272,7 +29272,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://my.raceresult.com/411931/"
+    "veranstalter_url": "http://www.lsg-eschweiler.de"
   },
   {
     "land": "Deutschland",
@@ -29326,7 +29326,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-28",
     "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://my.raceresult.com/422392/"
+    "veranstalter_url": "http://www.karolauf.de"
   },
   {
     "land": "Deutschland",
@@ -29422,7 +29422,7 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/380320/"
+    "veranstalter_url": "https://www.sterkrade-nord.de/nikolauslauf"
   },
   {
     "land": "Deutschland",
@@ -29586,7 +29586,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/376824/"
+    "veranstalter_url": "https://shinsplinters-langenhagen.webnode.com/"
   },
   {
     "land": "Deutschland",
@@ -29600,7 +29600,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://my.raceresult.com/376824/"
+    "veranstalter_url": "https://shinsplinters-langenhagen.webnode.com/"
   },
   {
     "land": "Deutschland",
@@ -30201,7 +30201,7 @@
     "datum_ende": "2026-12-05",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49058/CROSSLAUF-am-Rodelberg-Pinneberg.htm"
+    "veranstalter_url": "https://www.vfl-pinneberg.de/de/aktuelles/aktuelles/crosslauf/?returnToListName=News_Newsroom_de&returnToListPage=1"
   },
   {
     "land": "Deutschland",
@@ -30434,7 +30434,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 12.3,
-    "veranstalter_url": "https://runtix.com/sts/10021/3171"
+    "veranstalter_url": "http://www.alvmainz.de"
   },
   {
     "land": "Deutschland",
@@ -30447,7 +30447,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 6.2,
-    "veranstalter_url": "https://runtix.com/sts/10021/3171"
+    "veranstalter_url": "http://www.alvmainz.de"
   },
   {
     "land": "Deutschland",
@@ -31479,7 +31479,7 @@
     "datum_start": "2026-12-12",
     "datum_ende": "2026-12-12",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://my.raceresult.com/382197/",
+    "veranstalter_url": "https://www.tsg-alten-buseck.com",
     "wettbewerb": "15 km Hauptlauf"
   },
   {
@@ -31494,7 +31494,7 @@
     "datum_ende": "2026-12-12",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/382197/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -33562,7 +33562,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 18.0,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49082/49.-Werniger%C3%B6der-Silvesterlauf-Wernigerode.htm"
+    "veranstalter_url": "https://harz-gebirgslauf.de/event/49-wernigeroeder-silvesterlauf.html"
   },
   {
     "land": "Deutschland",
@@ -34490,7 +34490,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 7.7,
     "wettbewerb": "Heddesheimer Meile, 7,7 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3219"
+    "veranstalter_url": "https://heddesheimer-sl.iwebfree.de/"
   },
   {
     "land": "Deutschland",
@@ -37759,7 +37759,7 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon 21.100 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/840/"
+    "veranstalter_url": "https://winterlaufserie.net"
   },
   {
     "land": "Deutschland",
@@ -37912,7 +37912,7 @@
     "datum_ende": "2027-02-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei-by-night"
   },
   {
     "land": "Deutschland",
@@ -37926,7 +37926,7 @@
     "datum_ende": "2027-02-26",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei-by-night"
   },
   {
     "land": "Deutschland",
@@ -38133,7 +38133,7 @@
     "datum_ende": "2027-02-27",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/401228/"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
   },
   {
     "land": "Deutschland",
@@ -38147,7 +38147,7 @@
     "datum_ende": "2027-02-27",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Nachtlauf (HaWei by night)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C3%9Fenlauf-2027-Ubstadt-Weiher.htm"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
   },
   {
     "land": "Deutschland",
@@ -38161,7 +38161,7 @@
     "datum_ende": "2027-02-27",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Nachtlauf (HaWei by night)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C3%9Fenlauf-2027-Ubstadt-Weiher.htm"
+    "veranstalter_url": "https://www.lsg-weiher.de/hawei50"
   },
   {
     "land": "Deutschland",
@@ -38326,7 +38326,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 17.0,
     "wettbewerb": "17 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3205"
+    "veranstalter_url": "https://kaesekross.de/"
   },
   {
     "land": "Deutschland",
@@ -38340,7 +38340,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3205"
+    "veranstalter_url": "https://kaesekross.de/"
   },
   {
     "land": "Deutschland",
@@ -38354,7 +38354,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3205"
+    "veranstalter_url": "https://kaesekross.de/"
   },
   {
     "land": "Deutschland",
@@ -38368,7 +38368,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3205"
+    "veranstalter_url": "https://kaesekross.de/"
   },
   {
     "land": "Deutschland",
@@ -39628,7 +39628,7 @@
     "datum_start": "2027-03-20",
     "datum_ende": "2027-03-20",
     "laenge_km": 24.7,
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-ibbenbuerener-klippenlauf-2027",
+    "veranstalter_url": "https://www.ibbenbuerener-klippenlauf.de",
     "wettbewerb": "24,7 km Hauptlauf, ca. 500 m Höhendifferenz, 9 Anstiege"
   },
   {
@@ -39643,7 +39643,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 12.4,
     "wettbewerb": "12,4 km Jedermannlauf, ca. 240 m Höhendifferenz, 4 Anstiege",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-ibbenbuerener-klippenlauf-2027"
+    "veranstalter_url": "https://www.ibbenbuerener-klippenlauf.de"
   },
   {
     "land": "Deutschland",
@@ -40515,7 +40515,7 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/sonthoferfruehlingslauf2027"
+    "veranstalter_url": "http://www.sonthofer-fruehlingslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -41493,7 +41493,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 9.9,
     "wettbewerb": "9,94 km Hauptlauf rund um die Bifurkation",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/3-gesmolder-bifurkationslauf-2027"
+    "veranstalter_url": "https://www.sv-viktoria-gesmold.de/"
   },
   {
     "land": "Deutschland",
@@ -41507,7 +41507,7 @@
     "datum_ende": "2027-04-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Jedermannlauf",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/3-gesmolder-bifurkationslauf-2027"
+    "veranstalter_url": "https://www.sv-viktoria-gesmold.de/"
   },
   {
     "land": "Deutschland",
@@ -43492,7 +43492,7 @@
     "datum_ende": "2027-04-24",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/15-osnabruecker-gipfelsturm-2027"
+    "veranstalter_url": "https://www.diakoniestiftung-osl.de/projekte-aktionen/gipfelsturm"
   },
   {
     "land": "Deutschland",
@@ -46863,7 +46863,7 @@
     "datum_ende": "2027-05-21",
     "laenge_km": 9.7,
     "wettbewerb": "9,7 km Hauptlauf",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/22-borgloher-weiherlauf-2027"
+    "veranstalter_url": "https://tusborgloh.de/"
   },
   {
     "land": "Deutschland",
@@ -47956,7 +47956,7 @@
     "datum_ende": "2027-05-28",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/46-nacht-von-hasbergen-28-mai-2027"
+    "veranstalter_url": "http://nacht-von-hasbergen.de/"
   },
   {
     "land": "Deutschland",
@@ -47970,7 +47970,7 @@
     "datum_ende": "2027-05-28",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/46-nacht-von-hasbergen-28-mai-2027"
+    "veranstalter_url": "http://nacht-von-hasbergen.de/"
   },
   {
     "land": "Deutschland",
@@ -49617,7 +49617,7 @@
     "datum_ende": "2027-06-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49165/15.-Neust%C3%A4dter-Stadtlauf-Neustadt-am-R%C3%BCbenberge.htm"
+    "veranstalter_url": "https://www.tsv-neustadt.net/"
   },
   {
     "land": "Deutschland",
@@ -49631,7 +49631,7 @@
     "datum_ende": "2027-06-06",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49165/15.-Neust%C3%A4dter-Stadtlauf-Neustadt-am-R%C3%BCbenberge.htm"
+    "veranstalter_url": "https://www.tsv-neustadt.net/"
   },
   {
     "land": "Deutschland",
@@ -50041,7 +50041,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/14-voxtruper-volkslauf-2027"
+    "veranstalter_url": "http://www.vfr-voxtrup.de"
   },
   {
     "land": "Deutschland",
@@ -50055,7 +50055,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/14-voxtruper-volkslauf-2027"
+    "veranstalter_url": "http://www.vfr-voxtrup.de"
   },
   {
     "land": "Deutschland",
@@ -52611,7 +52611,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 12.0,
     "wettbewerb": "12 km Hindernislauf mit 250 Hm und 20 Hindernissen",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/skayrun2027"
+    "veranstalter_url": "https://www.tsverlenbach.de/skay-run"
   },
   {
     "land": "Deutschland",
@@ -52625,7 +52625,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 7.0,
     "wettbewerb": "7 km SulmRun",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/skayrun2027"
+    "veranstalter_url": "https://www.tsverlenbach.de/skay-run"
   },
   {
     "land": "Deutschland",
@@ -56859,7 +56859,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 17.0,
     "wettbewerb": "17 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3222"
+    "veranstalter_url": "http://www.weidatalcross.de"
   },
   {
     "land": "Deutschland",
@@ -56873,7 +56873,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3222"
+    "veranstalter_url": "http://www.weidatalcross.de"
   },
   {
     "land": "Deutschland",
@@ -57553,7 +57553,7 @@
     "datum_ende": "2027-09-12",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49054/7.-Othaler-Gutshof-Lauf-Allstedt-OT-Othal.htm"
+    "veranstalter_url": "https://othaler-gutshof-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -57567,7 +57567,7 @@
     "datum_ende": "2027-09-12",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49054/7.-Othaler-Gutshof-Lauf-Allstedt-OT-Othal.htm"
+    "veranstalter_url": "https://othaler-gutshof-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -57581,7 +57581,7 @@
     "datum_ende": "2027-09-12",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49054/7.-Othaler-Gutshof-Lauf-Allstedt-OT-Othal.htm"
+    "veranstalter_url": "https://othaler-gutshof-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -57620,7 +57620,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 42.0,
     "wettbewerb": "Marathon, 21 flache Runden, 42 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3210"
+    "veranstalter_url": "http://www.Mad-Chicken-Run.de"
   },
   {
     "land": "Deutschland",
@@ -57634,7 +57634,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 22.0,
     "wettbewerb": "Halbmarathon, 11 flache Runden, 22 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3210"
+    "veranstalter_url": "http://www.Mad-Chicken-Run.de"
   },
   {
     "land": "Deutschland",
@@ -57648,7 +57648,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 10.0,
     "wettbewerb": "10 km, 5 flache Runden",
-    "veranstalter_url": "https://runtix.com/sts/10021/3210"
+    "veranstalter_url": "http://www.Mad-Chicken-Run.de"
   },
   {
     "land": "Deutschland",
@@ -57662,7 +57662,7 @@
     "datum_ende": "2027-09-18",
     "dauer_h": 24.0,
     "wettbewerb": "24h Solo, 2 km MotoCross Runde, 60 Hm pro Runde",
-    "veranstalter_url": "https://runtix.com/sts/10021/3210"
+    "veranstalter_url": "http://www.Mad-Chicken-Run.de"
   },
   {
     "land": "Deutschland",

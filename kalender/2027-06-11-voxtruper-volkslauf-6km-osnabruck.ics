@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270611
 DTEND;VALUE=DATE:20270612
 SUMMARY:Voxtruper Volkslauf
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.laufen-os.
- de/wettkaempfe/14-voxtruper-volkslauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.vfr-voxtrup
+ .de
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/14-voxtruper-volkslauf-2027
+URL:http://www.vfr-voxtrup.de
 END:VEVENT
 END:VCALENDAR

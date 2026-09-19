@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:6h Adventslauf Langenhagen
 LOCATION:Langenhagen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
- .com/376824/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://shinsplinters
+ -langenhagen.webnode.com/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/376824/
+URL:https://shinsplinters-langenhagen.webnode.com/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:TVM Gehrenberglauf
 LOCATION:Markdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://my.raceresult.c
- om/414333/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://www.tv-markdorf
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414333/
+URL:https://www.tv-markdorf.de/
 END:VEVENT
 END:VCALENDAR

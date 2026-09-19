@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Internationaler Kärnten Marathon – Dominik Pacher Super Marathon
 LOCATION:Feldkirchen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
- .com/392278/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.internati
+ onaler-kaernten-marathon.at/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/392278/
+URL:https://www.internationaler-kaernten-marathon.at/
 END:VEVENT
 END:VCALENDAR

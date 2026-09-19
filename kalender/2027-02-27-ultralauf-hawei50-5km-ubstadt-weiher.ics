@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:Ultralauf HaWei50 – 5 km Nachtlauf (HaWei by night)
 LOCATION:Ubstadt-Weiher\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
- reibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C3%9Fenlauf-2027-Ubstadt-W
- eiher.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lsg-weiher
+ .de/hawei50
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49034/6.-HaWei50--DM-50-km-Stra%C
- 3%9Fenlauf-2027-Ubstadt-Weiher.htm
+URL:https://www.lsg-weiher.de/hawei50
 END:VEVENT
 END:VCALENDAR

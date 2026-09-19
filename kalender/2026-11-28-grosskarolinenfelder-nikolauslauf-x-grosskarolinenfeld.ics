@@ -11,9 +11,8 @@ DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:Großkarolinenfelder Nikolauslauf
 LOCATION:Großkarolinenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /422392/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.karolauf.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/422392/
+URL:http://www.karolauf.de
 END:VEVENT
 END:VCALENDAR

@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Osterfeiner SgH-Dümmerlauf – 18 km Lauf\, Startgebühr 10\,00 €
 LOCATION:Damme\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.laufen-os
- .de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://sw-osterfeine
+ .de/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/13-osterfeiner-sgh-duemmerlauf-20
- 26
+URL:https://sw-osterfeine.de/
 END:VEVENT
 END:VCALENDAR

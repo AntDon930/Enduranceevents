@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:Sonthofer Frühlingslauf
 LOCATION:Sonthofen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.datasport
- .de/anmeldeservice/sonthoferfruehlingslauf2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sonthofer-
+ fruehlingslauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/sonthoferfruehlingslauf2027
+URL:http://www.sonthofer-fruehlingslauf.de/
 END:VEVENT
 END:VCALENDAR

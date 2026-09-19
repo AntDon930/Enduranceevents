@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:27. Hohen Neuendorfer Herbstlauf – 5\,5 km Lauf
 LOCATION:Hohen Neuendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://myracepartne
- r.com/veranstaltung/?event-id=513914
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://www.ssv-hohe
+ n-neuendorf.de
 TRANSP:TRANSPARENT
-URL:https://myracepartner.com/veranstaltung/?event-id=513914
+URL:https://www.ssv-hohen-neuendorf.de
 END:VEVENT
 END:VCALENDAR

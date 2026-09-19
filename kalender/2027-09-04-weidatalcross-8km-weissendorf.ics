@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270904
 DTEND;VALUE=DATE:20270905
 SUMMARY:Weidatalcross
 LOCATION:Weißendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://runtix.com/sts
- /10021/3222
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttp://www.weidatalcro
+ ss.de
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3222
+URL:http://www.weidatalcross.de
 END:VEVENT
 END:VCALENDAR

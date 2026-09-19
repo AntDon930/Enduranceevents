@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:Eschweiler Waldlauf
 LOCATION:Eschweiler Wald\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /411931/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.lsg-eschweiler
+ .de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/411931/
+URL:http://www.lsg-eschweiler.de
 END:VEVENT
 END:VCALENDAR

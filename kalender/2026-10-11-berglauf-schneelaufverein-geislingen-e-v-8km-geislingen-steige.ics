@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Berglauf Schneelaufverein Geislingen e.V.
 LOCATION:Geislingen (Steige)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://my.raceresult.c
- om/414034/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.schneelaufve
+ rein-geislingen.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414034/
+URL:http://www.schneelaufverein-geislingen.de
 END:VEVENT
 END:VCALENDAR

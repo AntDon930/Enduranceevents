@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:KäseKross
 LOCATION:Gera\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://runtix.com/sts
- /10021/3205
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://kaesekross.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3205
+URL:https://kaesekross.de/
 END:VEVENT
 END:VCALENDAR

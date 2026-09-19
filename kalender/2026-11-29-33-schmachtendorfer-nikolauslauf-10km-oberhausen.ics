@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:33. Schmachtendorfer Nikolauslauf
 LOCATION:Oberhausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/380320/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sterkrade
+ -nord.de/nikolauslauf
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/380320/
+URL:https://www.sterkrade-nord.de/nikolauslauf
 END:VEVENT
 END:VCALENDAR

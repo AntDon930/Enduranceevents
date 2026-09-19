@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
 SUMMARY:24h Mad Chicken Run – Halbmarathon\, 11 flache Runden\, 22 km
 LOCATION:Kolkwitz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttps://runtix.com/st
- s/10021/3210
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttp://www.Mad-Chicke
+ n-Run.de
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3210
+URL:http://www.Mad-Chicken-Run.de
 END:VEVENT
 END:VCALENDAR

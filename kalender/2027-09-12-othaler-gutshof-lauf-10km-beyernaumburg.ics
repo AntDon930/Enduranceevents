@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270912
 DTEND;VALUE=DATE:20270913
 SUMMARY:Othaler Gutshof Lauf
 LOCATION:Beyernaumburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
- hreibung/detail/49054/7.-Othaler-Gutshof-Lauf-Allstedt-OT-Othal.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://othaler-gutsh
+ of-lauf.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49054/7.-Othaler-Gutshof-Lauf-All
- stedt-OT-Othal.htm
+URL:https://othaler-gutshof-lauf.de/
 END:VEVENT
 END:VCALENDAR

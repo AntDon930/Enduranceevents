@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf Heddesheim – Heddesheimer Meile\, 7\,7 km
 LOCATION:Heddesheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://runtix.com/s
- ts/10021/3219
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://heddesheimer
+ -sl.iwebfree.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3219
+URL:https://heddesheimer-sl.iwebfree.de/
 END:VEVENT
 END:VCALENDAR

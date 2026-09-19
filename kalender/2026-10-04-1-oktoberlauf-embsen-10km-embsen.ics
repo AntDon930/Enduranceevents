@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:1. Oktoberlauf Embsen – 10 km Lauf
 LOCATION:Embsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09000441260000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.mtv-embse
+ n.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000441260000
+URL:https://www.mtv-embsen.de
 END:VEVENT
 END:VCALENDAR

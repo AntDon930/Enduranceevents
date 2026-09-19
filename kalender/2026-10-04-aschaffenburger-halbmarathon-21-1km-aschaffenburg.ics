@@ -11,9 +11,8 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Aschaffenburger Halbmarathon – Halbmarathon
 LOCATION:Aschaffenburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/373194/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://hm-ab.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/373194/
+URL:https://hm-ab.de
 END:VEVENT
 END:VCALENDAR

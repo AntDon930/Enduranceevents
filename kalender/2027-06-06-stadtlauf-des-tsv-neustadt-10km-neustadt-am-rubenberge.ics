@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Stadtlauf des TSV Neustadt
 LOCATION:Neustadt am Rübenberge\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
- hreibung/detail/49165/15.-Neust%C3%A4dter-Stadtlauf-Neustadt-am-R%C3%BCbe
- nberge.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv-neust
+ adt.net/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49165/15.-Neust%C3%A4dter-Stadtla
- uf-Neustadt-am-R%C3%BCbenberge.htm
+URL:https://www.tsv-neustadt.net/
 END:VEVENT
 END:VCALENDAR

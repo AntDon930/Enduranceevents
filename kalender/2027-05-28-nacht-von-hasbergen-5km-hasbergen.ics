@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270528
 DTEND;VALUE=DATE:20270529
 SUMMARY:Nacht Von Hasbergen
 LOCATION:Hasbergen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufen-os.
- de/wettkaempfe/46-nacht-von-hasbergen-28-mai-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://nacht-von-hasbe
+ rgen.de/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/46-nacht-von-hasbergen-28-mai-202
- 7
+URL:http://nacht-von-hasbergen.de/
 END:VEVENT
 END:VCALENDAR

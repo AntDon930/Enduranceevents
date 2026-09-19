@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:La Corsa di Paolo
 LOCATION:Darmstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
- com/408900/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.troialaufe
+ vents.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/408900/
+URL:https://www.troialaufevents.de/
 END:VEVENT
 END:VCALENDAR

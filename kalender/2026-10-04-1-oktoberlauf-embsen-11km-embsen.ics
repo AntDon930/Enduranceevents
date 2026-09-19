@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:1. Oktoberlauf Embsen – 11 km Lauf
 LOCATION:Embsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://my.raceresult
- .com/400462/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.mtv-embse
+ n.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/400462/
+URL:https://www.mtv-embsen.de
 END:VEVENT
 END:VCALENDAR

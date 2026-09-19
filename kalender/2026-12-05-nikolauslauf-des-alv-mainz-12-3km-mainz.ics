@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Nikolauslauf des ALV Mainz
 LOCATION:Mainz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.3 km\nhttps://runtix.com/
- sts/10021/3171
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.3 km\nhttp://www.alvmainz
+ .de
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3171
+URL:http://www.alvmainz.de
 END:VEVENT
 END:VCALENDAR

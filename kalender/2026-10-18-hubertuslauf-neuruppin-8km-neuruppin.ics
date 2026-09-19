@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Hubertuslauf Neuruppin – 8 km Walking (ab Altersklasse u14)
 LOCATION:Neuruppin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.strassenla
- uf.org/va_details.php?id=979
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.kreissport
+ bund-opr.de
 TRANSP:TRANSPARENT
-URL:https://www.strassenlauf.org/va_details.php?id=979
+URL:https://www.kreissportbund-opr.de
 END:VEVENT
 END:VCALENDAR

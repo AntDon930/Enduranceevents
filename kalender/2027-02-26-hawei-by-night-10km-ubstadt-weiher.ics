@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:HaWei by night
 LOCATION:Ubstadt-Weiher\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
- hreibung/detail/49033/6.-HaWei-by-night--5-10-km-Nachtlauf-rund-um-den-Ha
- rdtsee-Ubstadt-Weiher.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lsg-weihe
+ r.de/hawei-by-night
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49033/6.-HaWei-by-night--5-10-km-
- Nachtlauf-rund-um-den-Hardtsee-Ubstadt-Weiher.htm
+URL:https://www.lsg-weiher.de/hawei-by-night
 END:VEVENT
 END:VCALENDAR

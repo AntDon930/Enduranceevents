@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Klosterparklauf Harsefeld
 LOCATION:Harsefeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /377831/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://volkslauf-harsefe
+ ld.de/klosterparklauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/377831/
+URL:https://volkslauf-harsefeld.de/klosterparklauf/
 END:VEVENT
 END:VCALENDAR

@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:24. Schloss Cross Laupheim
 LOCATION:Laupheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttps://ladv.de/aussc
- hreibung/detail/48931/24.-Schloss-Cross-Laupheim-Laupheim.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttps://schloss-cross
+ .de
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/48931/24.-Schloss-Cross-Laupheim-
- Laupheim.htm
+URL:https://schloss-cross.de
 END:VEVENT
 END:VCALENDAR

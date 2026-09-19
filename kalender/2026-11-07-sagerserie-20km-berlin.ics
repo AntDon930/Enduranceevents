@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Sägerserie
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://my.raceresult
- .com/378538/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://www.sctf-even
+ ts.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/378538/
+URL:https://www.sctf-events.de
 END:VEVENT
 END:VCALENDAR

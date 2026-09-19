@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Herbstlauf Ovenhausen
 LOCATION:Höxter\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.8 km\nhttps://my.raceresu
- lt.com/377111/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.8 km\nhttps://www.tus-ove
+ nhausen.de/herbstlauf-ausschreibung/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/377111/
+URL:https://www.tus-ovenhausen.de/herbstlauf-ausschreibung/
 END:VEVENT
 END:VCALENDAR

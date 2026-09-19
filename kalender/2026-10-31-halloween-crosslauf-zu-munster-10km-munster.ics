@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Halloween Crosslauf zu Munster
 LOCATION:Munster\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://ladv.de/aussch
- reibung/detail/46123/Kreismeisterschaft-und-3.-Halloween-Crosslauf-zu-Mun
- ster-Munster.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.eintracht-
+ munster.de/index.php/sparten/leichtathletik
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/46123/Kreismeisterschaft-und-3.-H
- alloween-Crosslauf-zu-Munster-Munster.htm
+URL:https://www.eintracht-munster.de/index.php/sparten/leichtathletik
 END:VEVENT
 END:VCALENDAR

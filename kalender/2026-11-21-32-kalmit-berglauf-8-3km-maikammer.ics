@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:32. Kalmit-Berglauf
 LOCATION:Maikammer\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.3 km\nhttps://runtix.com/st
- s/10021/3165
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.3 km\nhttps://pfaelzer-berg
+ laufpokal.de
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3165
+URL:https://pfaelzer-berglaufpokal.de
 END:VEVENT
 END:VCALENDAR

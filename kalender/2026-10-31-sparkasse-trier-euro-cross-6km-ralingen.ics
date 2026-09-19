@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Sparkasse Trier EURO-Cross
 LOCATION:Ralingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://ladv.de/ausschr
- eibung/detail/49275/Sparkasse-Trier-Euro-Cross-2026-LVRR-Regiom-Trier-Cro
- sslauf-Ralingen.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.euro-cross.
+ de
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49275/Sparkasse-Trier-Euro-Cross-
- 2026-LVRR-Regiom-Trier-Crosslauf-Ralingen.htm
+URL:https://www.euro-cross.de
 END:VEVENT
 END:VCALENDAR

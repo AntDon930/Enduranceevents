@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Hase - Lauf Bersenbrück
 LOCATION:Bersenbrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufen-os.
- de/wettkaempfe/hase-lauf-bersenbrueck-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.tus-bersenb
+ rück.de
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/hase-lauf-bersenbrueck-2026
+URL:http://www.tus-bersenbrück.de
 END:VEVENT
 END:VCALENDAR

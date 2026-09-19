@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:EWR-Stadtlauf Bürstadt
 LOCATION:Bürstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412509/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://stadtlauf-buer
+ stadt.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412509/
+URL:https://stadtlauf-buerstadt.de/
 END:VEVENT
 END:VCALENDAR
