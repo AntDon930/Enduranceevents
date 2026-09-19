@@ -1269,7 +1269,9 @@
   },
   "Balkantrassenlauf|2026-09-20": {
     "veranstalter_url": "https://www.feinerlauf.de/",
-    "_note": "Linkprüfung 2026-09-19: Organizer-URL www.feinerlauf.de (Veranstalter Oliver Witzke); Startseite listet die Läufe. (Quelle: raceresult /contact)"
+    "_note": "Linkprüfung 2026-09-19: Organizer-URL www.feinerlauf.de (Veranstalter Oliver Witzke); Startseite listet die Läufe. (Quelle: raceresult /contact) | Veranstalter Feiner Lauf (Oliver Witzke) laut raceresult-Kontaktseite 354931/contact ('www.feinerlauf.de'; die Event-Unterseite antwortet 404). Distanzen laut allevents.in und running.life: 'Marathonlauf, Halbmarathonlauf, 10km-Lauf und ein 5km-Lauf' auf der Balkantrasse. Die drei kürzeren stehen in manual_events.json. Geprüft 2026-09-19.",
+    "laenge_km": 42.2,
+    "wettbewerb": "Marathonlauf"
   },
   "2. Balkanstassenlauf Marathon|2026-09-20": {
     "veranstalter_url": "https://www.feinerlauf.de/",
@@ -1608,5 +1610,99 @@
   "Idar-Obersteiner Felsenkirche Treppenlauf|2026-09-20|42.2": {
     "exclude": true,
     "_note": "Kein Marathon: Der Treppenlauf hat zwei Strecken, 'Kurz: 5,4 km, 350 Stufen, 246 Höhenmeter' und 'Lang: 8,1 km, 510 Stufen, 468 Höhenmeter' (Stadt Idar-Oberstein, Pressemitteilung Mai 2026; Veranstalter Marathonteam Hagner laut raceresult-Kontaktseite 377205/contact). Die 42,2 km stammen wohl vom Wort 'Marathonteam'. Beide Strecken stehen in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Baumholder Stadtlauf|2026-09-19": {
+    "laenge_km": 6.3,
+    "wettbewerb": "Hauptlauf ab 16 Jahre (7 Runden)",
+    "_note": "baumholder-stadtlauf.de/strecken.html: '16 Jahre und älter: 7 Runden = 6.300 m'; U16/U14 4 Runden = 3,6 km (unter der Grenze), Kinderläufe 200-1.200 m. Stand ohne Distanz. Geprüft 2026-09-19."
+  },
+  "Drachentriathlon|2026-09-19": {
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "art2": "Duathlon",
+    "wettbewerb": "Drachenduathlon (Sprint- und Olympische Distanz)",
+    "_note": "drachentriathlon.de: 'Unser Drachentriathlon wird dieses Jahr nun erstmals ein Drachenduathlon (Sprint & olympische Distanz)' - Drachenduathlon Sonntag 20.09.2026, der 19.09. ist der Kinderduathlon. Distanzen stehen nur in der (nicht abrufbaren) Ausschreibung. Geprüft 2026-09-19."
+  },
+  "Hünsborn 2 be Wild|2026-09-20": {
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "laenge_km": 29.0,
+    "wettbewerb": "Jedermann (Lauf – MTB – Lauf)",
+    "_note": "h2bw.de/strecken: Jedermann '1. Lauf 4,4 km, MTB 2 x 10 km, 2. Lauf 4,6 km' = 29 km; Kurzdistanz '2 x 4,4 km, MTB 3 x 10 km, 4,6 km' = 43,4 km (steht in manual_events.json). Ein Lauf-MTB-Lauf ist ein Duathlon (Datenregel 11: Format vor Gelände), stand als Trailrun ohne Distanz. Datenregel 15: Summe der Teilstrecken. Geprüft 2026-09-19."
+  },
+  "Triathlon Alzenau|2026-09-20": {
+    "laenge_km": 27.1,
+    "wettbewerb": "Sprintdistanz",
+    "_note": "triathlon-alzenau.de (Ausschreibung, '20.9.2026'): Schwimmen '500 m, Landstart, Meerhofsee Alzenau', Rad '22 km', Laufen '4,6 km, Unterwald Alzenau' = 27,1 km (Datenregel 15). Geprüft 2026-09-19."
+  },
+  "Wuppertaler Sparkassen Crosstriathlon|2026-09-20": {
+    "laenge_km": 33.6,
+    "wettbewerb": "Bergischer Hammer",
+    "_note": "triclub-wuppertal.de: Laufstrecke '1 Runde = 2,5km', 'Bergischer Hammer: 4 Runden'; Radstrecke 'Eine Runde jetzt nur noch 11,4 km'. Wuppertaler Rundschau (Sept. 2026): Hammer 750 m / 22 km / 10 km, Hämmerchen 500 m / 11 km / 5 km - also 2 bzw. 1 Radrunde. Summe mit der offiziellen Rundenlänge: 0,75 + 22,8 + 10 = 33,6 km (Hämmerchen 16,9 km in manual_events.json). Geprüft 2026-09-19."
+  },
+  "triathlon.de CUP Königsbrunn|2026-09-20": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz",
+    "_note": "triathlon.de (Ausschreibung Königsbrunn, 20.09.2026): Volksdistanz 'Distanz: 0,5 - 20 - 5' = 25,5 km; Olympische Distanz '1,5 - 40 - 10' = 51,5 km und Mitteldistanz '1,9 - 80 - 20' = 101,9 km stehen in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Run and Bike Berlin|2026-09-19": {
+    "laenge_km": 42.0,
+    "wettbewerb": "42 km",
+    "_note": "run-and-bike-berlin.de/infos-zum-lauf ('RUN & BIKE 19. September 2026', Startzeiten): '42 km 10:00 Uhr, 21 km 10:10 Uhr, 10 km 10:20 Uhr'. 21 und 10 km stehen in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Wuppertaler Volkslauf|2026-09-19": {
+    "laenge_km": 10.0,
+    "wettbewerb": "Laufsport Bunert Run 10 km",
+    "_note": "sv-bayer.de ('59. Wuppertaler Volkslauf am 19.09.2026'), Distanzen laut Wuppertaler Rundschau/WZ zur 59. Ausgabe: 10 km (Laufsport Bunert Run, 14:30), 5 km (AOK Run, 15:20), dazu 3 und 2 km Kinder/Jugend. 5 km in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Sebnitzer Rucksacklauf|2026-09-19": {
+    "laenge_km": 2.0,
+    "wettbewerb": "Rucksacklauf ca. 2.000 m (190 hm)",
+    "_note": "sebnitzer-rucksacklauf.de/rucksacklauf/strecke.php (Websuche, Seite antwortet aus der Sandbox 503): Strecke ca. 2.000 m mit ca. 190 hm vom Urzeitpark zur Bergstation Buchberg; runme.de nennt 2,4 km. Beides unter 5 km - Datenregel 5 nimmt die Zeile heraus. Geprüft 2026-09-19."
+  },
+  "Lauf rund um das Freibad Waschmühle|2026-09-19": {
+    "dauer_h": 6,
+    "wettbewerb": "6-Stunden-Lauf (2,3-km-Runde)",
+    "_note": "wochenblatt-reporter.de ('Sechs Stunden rund um die Waschmühle'): Sa 19.09.2026, 9-15 Uhr, 2,3-km-Runde, beliebig viele Runden - Spendenlauf fürs Freibad. Zeitrennen (Datenregel 8). Geprüft 2026-09-19."
+  },
+  "Winnender Wengert Wetzede|2026-09-19": {
+    "exclude": true,
+    "_note": "winnenden.lions.de/wetzede2026: 'Samstag, 12. September 2026; ab 13:30 – 16:00 Uhr', 'ca. 840m Rundkurs mit ca. 20 Höhenmeter', gezählt werden Runden. Der gespeicherte 19.09. ist falsch, die Veranstaltung ist vorbei - und ein Runden-Spendenlauf ohne Distanz. Geprüft 2026-09-19."
+  },
+  "Klosterlauf Schuttern|2026-09-27": {
+    "laenge_km": 10.0,
+    "wettbewerb": "Hauptlauf (4 Runden)",
+    "_note": "klosterlauf-schuttern.de/strecke ('Sonntag, 27.09.2026'): 'Die asphaltierte Rundstrecke à 2,5 km wird innerhalb von Schuttern viermal durchlaufen' = 10 km; Bambini 650 m, Schüler 1,3 km. Geprüft 2026-09-19."
+  },
+  "Zweitalsperrenlauf in Tambach|2026-09-27": {
+    "laenge_km": 17.0,
+    "wettbewerb": "17 km Cross – Experte",
+    "_note": "wintersport-tambach.de/ztl/strecken: '3 KILOMETER Cross - Anfänger', '6 KILOMETER Cross - Junior', '12 KILOMETER Nordic Walking', '17 KILOMETER Cross - Experte'. Nachholtermin 27.09.2026 (23.08. wegen Sturmschäden abgesagt). 6 km und 12 km NW in manual_events.json. Geprüft 2026-09-19.",
+    "art2": "Trail/Cross"
+  },
+  "Neustädter Söhrenberg-Triathlon|2026-10-03": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Jedermann-Wettbewerb",
+    "_note": "triathlon-neustadt.de (Ausschreibung Jedermann, Termin '03. Oktober 2026'): '450 m Schwimmen im Hallenbad-Neustadt, 20 km Rad (3 Radrunden) & 5 km Lauf (1 große Laufrunde)' = 25,45 -> 25,5 km. Geprüft 2026-09-19."
+  },
+  "Pöhl Trail|2026-09-26": {
+    "laenge_km": 21.0,
+    "wettbewerb": "Langstrecke",
+    "_note": "poehl-trail.de/strecken ('5. Auflage ... am 26. September 2026'): Sprintstrecke '5 Kilometer ... etwa 135 Höhenmetern', Kurzstrecke '12 Kilometer ... 330 Höhenmetern', Langstrecke '21 Kilometer ... 500 Höhenmetern'. 12 und 5 km in manual_events.json. Geprüft 2026-09-19."
+  },
+  "Firmenstaffellauf Meißen|2026-09-25": {
+    "dauer_h": 1,
+    "wettbewerb": "Firmenstaffel – 1 Stunde (400-m-Runden)",
+    "_note": "baer-service.de/veranstaltung/MFL: 7. Firmenstaffellauf 25.09.2026, 'Eine Stunde lang 400 m Stadionrunden laufen', 2er-/3er-Teams im Wechsel. Zeitrennen (Datenregel 8). Geprüft 2026-09-19."
+  },
+  "Dreggicher 1000er|2026-09-27": {
+    "laenge_km": 0.9,
+    "wettbewerb": "912 m, 140 hm, 22 % Steigung",
+    "_note": "dreggicher1000er.de ('Am 27. September 2026'): '912 Meter Länge', '140 Höhenmeter', '22% Steigung' - ein Bergsprint, unter 5 km (Datenregel 5 nimmt die Zeile heraus). Geprüft 2026-09-19."
+  },
+  "Rotary Albstadt Charitylauf|2026-10-11": {
+    "dauer_h": 1,
+    "wettbewerb": "Stundenlauf (Runden zählen)",
+    "_note": "rotary-albstadt-charitylauf.de ('11. Oktober 2026'): eine Stunde laufen, 'die Zeit ist dabei egal, es werden lediglich die Runden gezählt', Sponsoren zahlen je Runde. Zeitrennen (Datenregel 8). Geprüft 2026-09-19."
   }
 }

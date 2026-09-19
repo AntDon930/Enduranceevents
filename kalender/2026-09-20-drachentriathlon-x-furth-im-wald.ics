@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-19-drachentriathlon-x-furth-im-wald@antdon930.github.io
+UID:2026-09-20-drachentriathlon-x-furth-im-wald@antdon930.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260919
+DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
-SUMMARY:Drachentriathlon
+SUMMARY:Drachentriathlon – Drachenduathlon (Sprint- und Olympische Distanz
+ )
 LOCATION:Furth im Wald\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.drachentri
- athlon.de/
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.drachent
+ riathlon.de/
 TRANSP:TRANSPARENT
 URL:https://www.drachentriathlon.de/
 END:VEVENT

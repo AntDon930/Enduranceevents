@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-27-klosterlauf-schuttern-x-friesenheim@antdon930.github.io
+UID:2026-09-27-klosterlauf-schuttern-10km-friesenheim@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
-SUMMARY:Klosterlauf Schuttern
+SUMMARY:Klosterlauf Schuttern – Hauptlauf (4 Runden)
 LOCATION:Friesenheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://klosterlauf-schut
- tern.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://klosterlauf-s
+ chuttern.de/
 TRANSP:TRANSPARENT
 URL:https://klosterlauf-schuttern.de/
 END:VEVENT

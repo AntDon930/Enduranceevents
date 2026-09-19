@@ -1589,5 +1589,227 @@
     "ergebnis": "korrigiert",
     "quelle": "idar-oberstein.de (Pressemitteilung), my.raceresult.com/377205/contact",
     "notiz": "Stand mit 42,2 km - es sind 5,4 km und 8,1 km (mit 350 bzw. 510 Stufen). 42,2-km-Zeile ausgeschlossen, beide Strecken nachgetragen, Veranstalter-Link von der Kontaktseite."
+  },
+  "Baumholder Stadtlauf|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "baumholder-stadtlauf.de/strecken.html",
+    "notiz": "Hauptlauf 6,3 km (7 Runden à 900 m) nachgetragen; stand ohne Distanz."
+  },
+  "Drachentriathlon|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "drachentriathlon.de",
+    "notiz": "2026 ein Duathlon am 20.09. (19.09. = Kinderduathlon); Kategorie und Datum korrigiert, Distanzen bleiben offen (Ausschreibung nur als Kinder-PDF verlinkt)."
+  },
+  "Hünsborn 2 be Wild|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "h2bw.de/strecken",
+    "notiz": "Lauf-MTB-Lauf-Duathlon (20.09.2026), stand als Trailrun ohne Distanz: Jedermann 29 km, Kurzdistanz 43,4 km."
+  },
+  "Triathlon Alzenau|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-alzenau.de (Ausschreibung)",
+    "notiz": "Sprint 500 m / 22 km / 4,6 km = 27,1 km nachgetragen; stand ohne Distanz."
+  },
+  "Wuppertaler Sparkassen Crosstriathlon|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "triclub-wuppertal.de, wuppertaler-rundschau.de",
+    "notiz": "So 20.09.2026 bestätigt; Hammer 33,6 km und Hämmerchen 16,9 km nachgetragen (Summe der Teilstrecken)."
+  },
+  "triathlon.de CUP Königsbrunn|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon.de (Ausschreibung Königsbrunn)",
+    "notiz": "Drei Distanzen nachgetragen (25,5 / 51,5 / 101,9 km); stand als eine Zeile ohne Distanz."
+  },
+  "Run and Bike Berlin|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "run-and-bike-berlin.de/infos-zum-lauf",
+    "notiz": "Drei Wettbewerbe 42 / 21 / 10 km nachgetragen; stand ohne Distanz."
+  },
+  "Balkantrassenlauf|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/354931/contact, allevents.in, running.life",
+    "notiz": "Vier Strecken (42,2 / 21,1 / 10 / 5 km) nachgetragen, Veranstalter-Link feinerlauf.de von der Kontaktseite; der gespeicherte feinerlauf-Link zeigte auf die Startseite ohne den Lauf."
+  },
+  "Wuppertaler Volkslauf|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-bayer.de, wuppertaler-rundschau.de, wz.de",
+    "notiz": "10 und 5 km nachgetragen; stand ohne Distanz."
+  },
+  "Sebnitzer Rucksacklauf|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sebnitzer-rucksacklauf.de (Websuche), runme.de",
+    "notiz": "Strecke ca. 2 km mit Rucksack - unter der 5-km-Grenze, fällt per Override heraus."
+  },
+  "Lauf rund um das Freibad Waschmühle|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "wochenblatt-reporter.de (fitinlautern.de lädt nicht)",
+    "notiz": "6-Stunden-Rundenlauf (2,3 km) - als Zeitrennen eingetragen."
+  },
+  "Winnender Wengert Wetzede|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "winnenden.lions.de/wetzede2026",
+    "notiz": "Fand am 12.09.2026 statt (nicht 19.09.), 840-m-Runden über 2,5 h - ausgeschlossen."
+  },
+  "Klosterlauf Schuttern|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "klosterlauf-schuttern.de/strecke",
+    "notiz": "Hauptlauf 10 km nachgetragen; stand ohne Distanz."
+  },
+  "Zweitalsperrenlauf in Tambach|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "wintersport-tambach.de/ztl (+/strecken)",
+    "notiz": "Nachholtermin 27.09.2026 bestätigt; 17 / 6 km Cross und 12 km NW nachgetragen (3 km unter der Grenze)."
+  },
+  "Neustädter Söhrenberg-Triathlon|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-neustadt.de (Ausschreibung Jedermann)",
+    "notiz": "450 m / 20 km / 5 km = 25,5 km nachgetragen; stand ohne Distanz."
+  },
+  "Pöhl Trail|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "poehl-trail.de/strecken",
+    "notiz": "21 / 12 / 5 km nachgetragen; stand ohne Distanz."
+  },
+  "Firmenstaffellauf Meißen|2026-09-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "baer-service.de/veranstaltung/MFL",
+    "notiz": "1-Stunden-Teamstaffel auf 400-m-Runden - als Zeitrennen eingetragen."
+  },
+  "Dreggicher 1000er|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "dreggicher1000er.de",
+    "notiz": "912-m-Bergsprint - unter der 5-km-Grenze, fällt per Override heraus."
+  },
+  "Rotary Albstadt Charitylauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "rotary-albstadt-charitylauf.de",
+    "notiz": "Einstündiger Spendenlauf mit Rundenzählung - als 1 h eingetragen."
+  },
+  "ProSana Gesundheitslauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "prosana-schramberg.de/gesundheitslauf",
+    "notiz": "'verkaufsoffener Sonntag, 11.10.2026', 'knapp 1000 m lange Rundstrecke', beliebig viele Runden 10-12 Uhr - ein Spendenlauf ohne Wettkampfdistanz und ohne Zeitwertung. Nicht angefasst; Frage an den Nutzer (Punkt 14)."
+  },
+  "Bonner Friedenslauf|2026-10-09": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "propeace.de/de/friedenslauf/bonn",
+    "notiz": "'19. Bonner Friedenslauf am 9. Oktober 2026', 'hunderte Schüler*innen', Spenden je Runde - ein Schul-Spendenlauf ohne Distanz. Nicht angefasst; Frage an den Nutzer (Punkt 14)."
+  },
+  "Sterntaler Spendenlauf|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "kinderhospiz-sterntaler.de",
+    "notiz": "Sa 26.09.2026 10-17 Uhr, Michael-Hoffmann-Stadion Mannheim, 400-m-Runden, Dauer und Strecke frei gewählt - Spendenlauf ohne Wettkampfdistanz. Nicht angefasst (Punkt 14)."
+  },
+  "The Quest – Auwald|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufsinn-ulm.de/the-quest",
+    "notiz": "Sa 03.10.2026: Checkpoint-Jagd über 2 oder 3 Stunden auf ~55 km² Fläche, Strecke frei gewählt (Orientierungslauf-Format). Keine Distanz möglich; als 2/3-h-Zeitrennen wäre es irreführend. Nicht angefasst (Punkt 14)."
+  },
+  "Pace Race Nürnberg|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "pace-race.com/nurnberg",
+    "notiz": "'Samstag, 03. Oktober 2026', 'Laufarena für Social Racing' auf dem Norisring - Distanz auf der Seite nicht genannt."
+  },
+  "Hanstedter Waldlauf|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "klv-uelzen.de",
+    "notiz": "Zur 31. Ausgabe nennt der KLV Uelzen 'Langstrecke 7080 m', 'Senioren 4100 m', 'Frauen/Seniorinnen 3080 m'; die 2026-Ausschreibung (Sa 19.09.2026, Hanstedt II) war nicht abrufbar, runme.de vermutet sogar einen Ausfall. Ohne Beleg für 2026 keine Distanz eingetragen."
+  },
+  "Stadtparklauf Sondershausen|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "glueckauf-sondershausen.de/stadtparklauf",
+    "notiz": "'am 19.09.2026' bestätigt; die Ausschreibung ist ein PDF, dessen Text sich nicht lesen ließ (kaputte Zeichenzuordnung). Distanz offen."
+  },
+  "Northeimer Stadtlauf|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "northeimer-stadtlauf.de",
+    "notiz": "27.09.2026 bestätigt; Zeitplan/Wettbewerbe stehen nur als Bild (JPEG) und im Programmheft-PDF. Distanz offen."
+  },
+  "Mosbacher Stadtlauf|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laz-mosbach.de/stadtlauf.html",
+    "notiz": "'Samstag, den 26. September' bestätigt, Start/Ziel Marktplatz; Strecken nicht genannt."
+  },
+  "Volkslauf um den Seehamer See|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sc-seeham.de",
+    "notiz": "'am 3. Oktober', 'drei verschiedene Strecken' - die Strecken-Unterseite nennt keine Kilometer."
+  },
+  "Oppauer Seenlauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lu-laeuft.de, djk-oppau.de",
+    "notiz": "3.10.2026 bestätigt; Distanzen nur auf my.raceresult.com/381782 (dynamisch, nicht lesbar)."
+  },
+  "Mönchengladbacher Firmenlauf RUN & FUN|2026-09-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "santander-run-fun-mg.de",
+    "notiz": "'21. September 2026' bestätigt; Distanz auf der Seite nicht genannt (Firmenlauf)."
+  },
+  "Turmlauf Sankt Englmar|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rennmeldung.de (Bewerb 04277)",
+    "notiz": "'3. Turmlauf Sankt Englmar', 26.09.2026, Veranstalter ASID GmbH; keine Distanz genannt."
+  },
+  "Fire Trail Nesselwang|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "fire-trail-allgäu.de/nesselwang",
+    "notiz": "'Samstag, 10.10.26' bestätigt; Strecke 'über Treppenstufen, Waldwege, Steigungen' auf rund 1.500 m Höhe, Länge nicht genannt."
+  },
+  "Rhön-Grabfeld-Cup – Saal|2026-09-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "rhoengrabfeldcup.de/event/saal-2",
+    "notiz": "'Freitag und Samstag, 25. und 26. September 2026', 'Crosslauf (ohne Zeitnahme)', Anmeldung vor Ort - keine Distanzen genannt."
+  },
+  "Grüntenstafette|2026-09-26": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "808project.de/gruentenstafette",
+    "notiz": "26.09.2026: 'Ein-Tages- und Multisport-Event in Sechser-Teams' (Trailrun – Rennrad – Berglauf – Alpinlauf – Mountainbike – Straßenlauf), ausgebucht; Etappenlängen nicht genannt. Team-Staffel (Punkt 3)."
+  },
+  "Solvay-Lauf|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "lauf.psv-bernburg.de/solvay-lauf",
+    "notiz": "Seite zeigt nur 'Anmeldung 2026' / 'Ergebnisse 2025', keine Distanzen."
+  },
+  "Spardaxtrem|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "sparda-xtrem.de",
+    "notiz": "Hindernislauf Uhingen 27.09.2026; die Streckenseite antwortet 403."
   }
 }

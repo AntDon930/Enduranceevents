@@ -4,14 +4,13 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-20-2-balkanstassenlauf-marathon-42-2km-leverkusen-opladen@antd
- on930.github.io
+UID:2026-09-20-balkantrassenlauf-21-1km-leverkusen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260920
 DTEND;VALUE=DATE:20260921
-SUMMARY:2. Balkanstassenlauf Marathon
-LOCATION:Leverkusen-Opladen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.feinerl
+SUMMARY:Balkantrassenlauf – Halbmarathonlauf
+LOCATION:Leverkusen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.feinerl
  auf.de/
 TRANSP:TRANSPARENT
 URL:https://www.feinerlauf.de/

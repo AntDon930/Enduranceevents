@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-26-pohl-trail-x-pohl@antdon930.github.io
+UID:2026-09-26-pohl-trail-12km-pohl@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
-SUMMARY:Pöhl Trail
+SUMMARY:Pöhl Trail – Kurzstrecke
 LOCATION:Pöhl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: -\nhttps://www.poehl-tr
- ail.de
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 12 km\nhttps://www.poeh
+ l-trail.de
 TRANSP:TRANSPARENT
 URL:https://www.poehl-trail.de
 END:VEVENT

@@ -979,7 +979,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://baumholder-stadtlauf.de/"
+    "veranstalter_url": "https://baumholder-stadtlauf.de/",
+    "laenge_km": 6.3,
+    "wettbewerb": "Hauptlauf ab 16 Jahre (7 Runden)"
   },
   {
     "land": "Deutschland",
@@ -1476,18 +1478,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Halbmarathon auf Feld- und Radwegen",
     "veranstalter_url": "https://dr-selmayr-gedaechtnislauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drachentriathlon",
-    "standort": "Furth im Wald",
-    "lat": 49.3101132,
-    "lon": 12.8387951,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-20",
-    "veranstalter_url": "https://www.drachentriathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -2202,7 +2192,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://fitinlautern.de/"
+    "veranstalter_url": "https://fitinlautern.de/",
+    "dauer_h": 6,
+    "wettbewerb": "6-Stunden-Lauf (2,3-km-Runde)"
   },
   {
     "land": "Deutschland",
@@ -2752,6 +2744,38 @@
     "art2": "Duathlon",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
+    "veranstalter_url": "https://run-and-bike-berlin.de/",
+    "laenge_km": 42.0,
+    "wettbewerb": "42 km"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Berlin",
+    "lat": 52.5200066,
+    "lon": 13.404954,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "name": "Run and Bike Berlin",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 21.0,
+    "dauer_h": null,
+    "wettbewerb": "21 km",
+    "veranstalter_url": "https://run-and-bike-berlin.de/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Berlin",
+    "lat": 52.5200066,
+    "lon": 13.404954,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "name": "Run and Bike Berlin",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 10.0,
+    "dauer_h": null,
+    "wettbewerb": "10 km",
     "veranstalter_url": "https://run-and-bike-berlin.de/"
   },
   {
@@ -2865,18 +2889,6 @@
     "laenge_km": 5.0,
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/48514/Saarl%C3%A4ndische-Meisterschaften-5km-Stra%C3%9Fe-Ottweiler.htm",
     "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sebnitzer Rucksacklauf",
-    "standort": "Sebnitz",
-    "lat": 50.9709117,
-    "lon": 14.273873,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "http://www.sebnitzer-rucksacklauf.de/rucksacklauf/index.php"
   },
   {
     "land": "Deutschland",
@@ -3305,18 +3317,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Winnender Wengert Wetzede",
-    "standort": "Winnenden",
-    "lat": 48.8750046,
-    "lon": 9.3971423,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://winnenden.lions.de/wetzede2026"
-  },
-  {
-    "land": "Deutschland",
     "name": "Wunnebad Swim&Run",
     "standort": "Winnenden",
     "lat": 48.8750046,
@@ -3337,6 +3337,23 @@
     "art2": "Straße",
     "datum_start": "2026-09-19",
     "datum_ende": "2026-09-19",
+    "veranstalter_url": "https://www.sv-bayer.de/wuppertaler_volkslauf/",
+    "laenge_km": 10.0,
+    "wettbewerb": "Laufsport Bunert Run 10 km"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Wuppertal",
+    "lat": 51.2562128,
+    "lon": 7.1507636,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Wuppertaler Volkslauf",
+    "datum_start": "2026-09-19",
+    "datum_ende": "2026-09-19",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "AOK Run 5 km",
     "veranstalter_url": "https://www.sv-bayer.de/wuppertaler_volkslauf/"
   },
   {
@@ -3600,19 +3617,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km Hauptlauf (ab Jg. 2014)",
     "veranstalter_url": "https://www.tv-preungesheim.de/dorflauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "2. Balkanstassenlauf Marathon",
-    "standort": "Leverkusen-Opladen",
-    "lat": 51.0580494,
-    "lon": 6.9901886,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-20",
-    "datum_ende": "2026-09-20",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://www.feinerlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -4186,6 +4190,53 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
+    "veranstalter_url": "https://www.feinerlauf.de/",
+    "laenge_km": 42.2,
+    "wettbewerb": "Marathonlauf"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Leverkusen",
+    "lat": 51.0459248,
+    "lon": 7.0192196,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Balkantrassenlauf",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 21.1,
+    "dauer_h": null,
+    "wettbewerb": "Halbmarathonlauf",
+    "veranstalter_url": "https://www.feinerlauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Leverkusen",
+    "lat": 51.0459248,
+    "lon": 7.0192196,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Balkantrassenlauf",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 10.0,
+    "dauer_h": null,
+    "wettbewerb": "10km-Lauf",
+    "veranstalter_url": "https://www.feinerlauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Leverkusen",
+    "lat": 51.0459248,
+    "lon": 7.0192196,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Balkantrassenlauf",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "5km-Lauf",
     "veranstalter_url": "https://www.feinerlauf.de/"
   },
   {
@@ -4311,6 +4362,19 @@
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
     "veranstalter_url": "https://www.tv-dingolfing.de/sparten/halbmarathon/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Drachentriathlon",
+    "standort": "Furth im Wald",
+    "lat": 49.3101132,
+    "lon": 12.8387951,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "veranstalter_url": "https://www.drachentriathlon.de/",
+    "wettbewerb": "Drachenduathlon (Sprint- und Olympische Distanz)"
   },
   {
     "land": "Deutschland",
@@ -4766,10 +4830,27 @@
     "standort": "Wenden",
     "lat": 50.9716418,
     "lon": 7.8665433,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
+    "art1": "Triathlon",
+    "art2": "Duathlon",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
+    "veranstalter_url": "https://h2bw.de/",
+    "laenge_km": 29.0,
+    "wettbewerb": "Jedermann (Lauf – MTB – Lauf)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Wenden",
+    "lat": 50.9716418,
+    "lon": 7.8665433,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "name": "Hünsborn 2 be Wild",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 43.4,
+    "dauer_h": null,
+    "wettbewerb": "Kurzdistanz (Lauf – MTB – Lauf)",
     "veranstalter_url": "https://h2bw.de/"
   },
   {
@@ -5948,7 +6029,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
-    "veranstalter_url": "https://www.triathlon-alzenau.de/"
+    "veranstalter_url": "https://www.triathlon-alzenau.de/",
+    "laenge_km": 27.1,
+    "wettbewerb": "Sprintdistanz"
   },
   {
     "land": "Deutschland",
@@ -5960,6 +6043,38 @@
     "art2": "Straße",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
+    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-koenigsbrunn",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Königsbrunn",
+    "lat": 48.273105,
+    "lon": 10.8894293,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "name": "triathlon.de CUP Königsbrunn",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 51.5,
+    "dauer_h": null,
+    "wettbewerb": "Olympische Distanz",
+    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-koenigsbrunn"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Königsbrunn",
+    "lat": 48.273105,
+    "lon": 10.8894293,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "name": "triathlon.de CUP Königsbrunn",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 101.9,
+    "dauer_h": null,
+    "wettbewerb": "Mitteldistanz",
     "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-koenigsbrunn"
   },
   {
@@ -6098,6 +6213,23 @@
     "art2": "Cross",
     "datum_start": "2026-09-20",
     "datum_ende": "2026-09-20",
+    "veranstalter_url": "https://www.triclub-wuppertal.de/cross_triathlon",
+    "laenge_km": 33.6,
+    "wettbewerb": "Bergischer Hammer"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Wuppertal",
+    "lat": 51.2562128,
+    "lon": 7.1507636,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "name": "Wuppertaler Sparkassen Crosstriathlon",
+    "datum_start": "2026-09-20",
+    "datum_ende": "2026-09-20",
+    "laenge_km": 16.9,
+    "dauer_h": null,
+    "wettbewerb": "Bergisches Hämmerchen",
     "veranstalter_url": "https://www.triclub-wuppertal.de/cross_triathlon"
   },
   {
@@ -6370,7 +6502,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-25",
     "datum_ende": "2026-09-25",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/MFL/"
+    "veranstalter_url": "https://baer-service.de/veranstaltung/MFL/",
+    "dauer_h": 1,
+    "wettbewerb": "Firmenstaffel – 1 Stunde (400-m-Runden)"
   },
   {
     "land": "Deutschland",
@@ -8190,6 +8324,38 @@
     "art2": "Trail/Cross",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
+    "veranstalter_url": "https://www.poehl-trail.de",
+    "laenge_km": 21.0,
+    "wettbewerb": "Langstrecke"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Pöhl",
+    "lat": 50.5580136,
+    "lon": 12.1741815,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "name": "Pöhl Trail",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "laenge_km": 12.0,
+    "dauer_h": null,
+    "wettbewerb": "Kurzstrecke",
+    "veranstalter_url": "https://www.poehl-trail.de"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Pöhl",
+    "lat": 50.5580136,
+    "lon": 12.1741815,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "name": "Pöhl Trail",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "laenge_km": 5.0,
+    "dauer_h": null,
+    "wettbewerb": "Sprintstrecke",
     "veranstalter_url": "https://www.poehl-trail.de"
   },
   {
@@ -9943,18 +10109,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Dreggicher 1000er",
-    "standort": "Bad Brückenau",
-    "lat": 50.3108959,
-    "lon": 9.7940875,
-    "art1": "Laufen",
-    "art2": "Trail/Cross",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "veranstalter_url": "https://dreggicher1000er.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Duisburg Urban-Run",
     "standort": "Duisburg",
     "lat": 51.4344079,
@@ -10309,7 +10463,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
-    "veranstalter_url": "https://klosterlauf-schuttern.de/"
+    "veranstalter_url": "https://klosterlauf-schuttern.de/",
+    "laenge_km": 10.0,
+    "wettbewerb": "Hauptlauf (4 Runden)"
   },
   {
     "land": "Deutschland",
@@ -11301,9 +11457,41 @@
     "lat": 50.7929688,
     "lon": 10.6132646,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail/Cross",
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
+    "veranstalter_url": "https://wintersport-tambach.de/ztl/",
+    "laenge_km": 17.0,
+    "wettbewerb": "17 km Cross – Experte"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Tambach-Dietharz",
+    "lat": 50.7929688,
+    "lon": 10.6132646,
+    "art1": "Laufen",
+    "art2": "Trail/Cross",
+    "name": "Zweitalsperrenlauf in Tambach",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 6.0,
+    "dauer_h": null,
+    "wettbewerb": "6 km Cross – Junior",
+    "veranstalter_url": "https://wintersport-tambach.de/ztl/"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Tambach-Dietharz",
+    "lat": 50.7929688,
+    "lon": 10.6132646,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "Zweitalsperrenlauf in Tambach",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 12.0,
+    "dauer_h": null,
+    "wettbewerb": "12 km Nordic Walking",
     "veranstalter_url": "https://wintersport-tambach.de/ztl/"
   },
   {
@@ -13132,7 +13320,9 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "veranstalter_url": "https://www.triathlon-neustadt.de"
+    "veranstalter_url": "https://www.triathlon-neustadt.de",
+    "laenge_km": 25.5,
+    "wettbewerb": "Jedermann-Wettbewerb"
   },
   {
     "land": "Deutschland",
@@ -18509,7 +18699,9 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "veranstalter_url": "https://rotary-albstadt-charitylauf.de/"
+    "veranstalter_url": "https://rotary-albstadt-charitylauf.de/",
+    "dauer_h": 1,
+    "wettbewerb": "Stundenlauf (Runden zählen)"
   },
   {
     "land": "Deutschland",

@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-27-zweitalsperrenlauf-in-tambach-x-tambach-dietharz@antdon930.
- github.io
+UID:2026-09-27-zweitalsperrenlauf-in-tambach-12km-tambach-dietharz@antdon9
+ 30.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
-SUMMARY:Zweitalsperrenlauf in Tambach
+SUMMARY:Zweitalsperrenlauf in Tambach – 12 km Nordic Walking
 LOCATION:Tambach-Dietharz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://wintersport-tamba
- ch.de/ztl/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://wintersport-t
+ ambach.de/ztl/
 TRANSP:TRANSPARENT
 URL:https://wintersport-tambach.de/ztl/
 END:VEVENT

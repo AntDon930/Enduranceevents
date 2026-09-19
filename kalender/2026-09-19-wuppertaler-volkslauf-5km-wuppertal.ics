@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-19-wuppertaler-volkslauf-x-wuppertal@antdon930.github.io
+UID:2026-09-19-wuppertaler-volkslauf-5km-wuppertal@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260919
 DTEND;VALUE=DATE:20260920
-SUMMARY:Wuppertaler Volkslauf
+SUMMARY:Wuppertaler Volkslauf – AOK Run 5 km
 LOCATION:Wuppertal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sv-bayer.de/w
- uppertaler_volkslauf/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sv-bayer.d
+ e/wuppertaler_volkslauf/
 TRANSP:TRANSPARENT
 URL:https://www.sv-bayer.de/wuppertaler_volkslauf/
 END:VEVENT
