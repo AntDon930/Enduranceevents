@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Schwedter Herbstlauf
 LOCATION:Schwedt/Oder\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://my.raceresult
- .com/386304/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://tsv-blauweiss
+ 65schwedt.de/?cat=7
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/386304/
+URL:https://tsv-blauweiss65schwedt.de/?cat=7
 END:VEVENT
 END:VCALENDAR

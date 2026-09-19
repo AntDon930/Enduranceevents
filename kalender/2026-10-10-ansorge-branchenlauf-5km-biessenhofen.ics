@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Ansorge Branchenlauf
 LOCATION:Biessenhofen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.anmeldungs
- -service.de/branchenlauf2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ansorge-logist
+ ik.de/
 TRANSP:TRANSPARENT
-URL:https://www.anmeldungs-service.de/branchenlauf2026/
+URL:https://ansorge-logistik.de/
 END:VEVENT
 END:VCALENDAR

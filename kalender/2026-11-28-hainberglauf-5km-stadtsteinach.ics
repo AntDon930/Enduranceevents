@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:Hainberglauf
 LOCATION:Stadtsteinach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://my.raceresult.c
- om/399160/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttp://www.steinachtall
+ auf.de/hainberglauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/399160/
+URL:http://www.steinachtallauf.de/hainberglauf/
 END:VEVENT
 END:VCALENDAR

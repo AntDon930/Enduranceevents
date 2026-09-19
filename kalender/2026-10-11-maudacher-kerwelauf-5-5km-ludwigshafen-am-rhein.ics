@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Maudacher Kerwelauf – 5\,5 km Hauptlauf (Einsteigerlauf)
 LOCATION:Ludwigshafen am Rhein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://runtix.com/s
- ts/10021/3218
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://maudach.de/k
+ erwe-lauf.html
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3218
+URL:https://maudach.de/kerwe-lauf.html
 END:VEVENT
 END:VCALENDAR

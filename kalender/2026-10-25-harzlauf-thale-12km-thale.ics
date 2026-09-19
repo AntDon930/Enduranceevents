@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Harzlauf Thale
 LOCATION:Thale\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://my.raceresult
- .com/418518/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttp://www.harzlauf-t
+ hale.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/418518/
+URL:http://www.harzlauf-thale.de/
 END:VEVENT
 END:VCALENDAR

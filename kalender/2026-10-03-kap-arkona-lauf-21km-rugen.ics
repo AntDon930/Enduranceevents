@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Kap Arkona Lauf – 21 km Halbmarathon\, Jahrgang 2010 und älter.
 LOCATION:Rügen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.davengo.c
- om/event/overview/kap-arkona-lauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://kap-arkona-la
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/kap-arkona-lauf-2026
+URL:https://kap-arkona-lauf.de/
 END:VEVENT
 END:VCALENDAR

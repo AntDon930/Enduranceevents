@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Runworx
 LOCATION:Vogtei\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /383803/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.runworx.de/in
+ dex.html
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/383803/
+URL:https://www.runworx.de/index.html
 END:VEVENT
 END:VCALENDAR

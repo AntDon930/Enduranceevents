@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Schöllanger Herbstlauf
 LOCATION:Oberstdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rennmeldung.d
- e/cgi-bin/bewerb.cgi?bewerb=04293
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sc-rubiho
+ rn.de/
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04293
+URL:https://www.sc-rubihorn.de/
 END:VEVENT
 END:VCALENDAR

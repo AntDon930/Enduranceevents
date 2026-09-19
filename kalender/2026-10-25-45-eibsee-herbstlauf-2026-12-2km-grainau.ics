@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:45. Eibsee-Herbstlauf 2026
 LOCATION:Grainau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.2 km\nhttps://rennmeldung
- .de/cgi-bin/bewerb.cgi?bewerb=04240
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.2 km\nhttp://www.eibseela
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04240
+URL:http://www.eibseelauf.de/
 END:VEVENT
 END:VCALENDAR

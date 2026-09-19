@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Hörnlelauf
 LOCATION:Konstanz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /395172/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://konstanzer-laeufe
+ .de/hoernlelauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/395172/
+URL:https://konstanzer-laeufe.de/hoernlelauf/
 END:VEVENT
 END:VCALENDAR

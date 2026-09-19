@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Plopsa Nikolauslauf Haßloch by LCH
 LOCATION:Haßloch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://runtix.com/st
- s/10021/3211
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://lc-hassloch.d
+ e/plopsa-nikolauslauf-by-lch/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3211
+URL:https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/
 END:VEVENT
 END:VCALENDAR

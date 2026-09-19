@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Maxdorfer Gemüselauf
 LOCATION:Maxdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://runtix.com/sts
- /10021/3201
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-maxdor
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3201
+URL:https://www.tsg-maxdorf.de/
 END:VEVENT
 END:VCALENDAR

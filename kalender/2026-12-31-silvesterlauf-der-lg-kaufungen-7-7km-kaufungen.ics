@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf der LG Kaufungen
 LOCATION:Kaufungen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://my.raceresul
- t.com/420202/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://www.lg-kaufu
+ ngen.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/420202/
+URL:https://www.lg-kaufungen.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Rimbachlauf
 LOCATION:Schwindegg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://running.life/de/t
- ermine/rimbachlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.rimbachlauf.co
+ m/
 TRANSP:TRANSPARENT
-URL:https://running.life/de/termine/rimbachlauf
+URL:http://www.rimbachlauf.com/
 END:VEVENT
 END:VCALENDAR

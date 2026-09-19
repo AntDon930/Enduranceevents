@@ -12864,7 +12864,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3212"
+    "veranstalter_url": "https://www.polderlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -12878,7 +12878,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf oder Walk",
-    "veranstalter_url": "https://runtix.com/sts/10021/3212"
+    "veranstalter_url": "https://www.polderlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -12892,7 +12892,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 21.0,
     "wettbewerb": "21 km Halbmarathon, Jahrgang 2010 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/kap-arkona-lauf-2026"
+    "veranstalter_url": "https://kap-arkona-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -12906,7 +12906,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf, Jahrgang 2012 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/kap-arkona-lauf-2026"
+    "veranstalter_url": "https://kap-arkona-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -13239,7 +13239,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3201",
+    "veranstalter_url": "https://www.tsg-maxdorf.de/",
     "wettbewerb": "10 km"
   },
   {
@@ -13254,7 +13254,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3201"
+    "veranstalter_url": "https://www.tsg-maxdorf.de/"
   },
   {
     "land": "Deutschland",
@@ -13280,7 +13280,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04288"
+    "veranstalter_url": "https://www.scmoosham.de/mooshamer-waldlauf/"
   },
   {
     "land": "Deutschland",
@@ -13625,7 +13625,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
-    "veranstalter_url": "https://running.life/de/termine/rimbachlauf"
+    "veranstalter_url": "http://www.rimbachlauf.com/"
   },
   {
     "land": "Deutschland",
@@ -14235,7 +14235,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04283"
+    "veranstalter_url": "https://www.skiclub-rettenberg.org/"
   },
   {
     "land": "Deutschland",
@@ -15642,7 +15642,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 173.0,
     "wettbewerb": "173 km mit 6000 Höhenmetern nonstop",
-    "veranstalter_url": "https://my.raceresult.com/368240/"
+    "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/"
   },
   {
     "land": "Deutschland",
@@ -15656,7 +15656,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 70.0,
     "wettbewerb": "70 km mit knapp 2100 Höhenmetern nonstop",
-    "veranstalter_url": "https://my.raceresult.com/368240/"
+    "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/"
   },
   {
     "land": "Deutschland",
@@ -15985,7 +15985,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.anmeldungs-service.de/branchenlauf2026/"
+    "veranstalter_url": "https://ansorge-logistik.de/"
   },
   {
     "land": "Deutschland",
@@ -16456,7 +16456,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3216"
+    "veranstalter_url": "https://www.tsv-zornheim.de/"
   },
   {
     "land": "Deutschland",
@@ -16469,7 +16469,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3216",
+    "veranstalter_url": "https://www.tsv-zornheim.de/",
     "wettbewerb": "10 km"
   },
   {
@@ -16786,7 +16786,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/386304/"
+    "veranstalter_url": "https://tsv-blauweiss65schwedt.de/?cat=7"
   },
   {
     "land": "Deutschland",
@@ -16800,7 +16800,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/386304/"
+    "veranstalter_url": "https://tsv-blauweiss65schwedt.de/?cat=7"
   },
   {
     "land": "Deutschland",
@@ -17863,7 +17863,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 24.0,
     "wettbewerb": "24 km",
-    "veranstalter_url": "https://my.raceresult.com/375637/"
+    "veranstalter_url": "https://climaid.de/"
   },
   {
     "land": "Deutschland",
@@ -17961,7 +17961,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Volkslauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3133"
+    "veranstalter_url": "https://energie-suedwest.de/energiesuedwest-cup/"
   },
   {
     "land": "Deutschland",
@@ -17975,7 +17975,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Volkslauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3133"
+    "veranstalter_url": "https://energie-suedwest.de/energiesuedwest-cup/"
   },
   {
     "land": "Deutschland",
@@ -18017,7 +18017,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-2026"
+    "veranstalter_url": "http://svlembruch.blogspot.com/"
   },
   {
     "land": "Deutschland",
@@ -18031,7 +18031,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-2026"
+    "veranstalter_url": "http://svlembruch.blogspot.com/"
   },
   {
     "land": "Deutschland",
@@ -18045,7 +18045,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-2026"
+    "veranstalter_url": "http://svlembruch.blogspot.com/"
   },
   {
     "land": "Deutschland",
@@ -18059,7 +18059,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-2026"
+    "veranstalter_url": "http://svlembruch.blogspot.com/"
   },
   {
     "land": "Deutschland",
@@ -18101,7 +18101,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km - JG 2013 und älter, ab 30 €.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/great-10k-2026"
+    "veranstalter_url": "https://berlin-laeuft.de/great10k/"
   },
   {
     "land": "Deutschland",
@@ -18114,7 +18114,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://www.davengo.com/event/overview/great-10k-2026"
+    "veranstalter_url": "https://berlin-laeuft.de/great10k/"
   },
   {
     "land": "Deutschland",
@@ -18380,7 +18380,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km (Halbmarathon)",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/leipzigrun2026"
+    "veranstalter_url": "https://leipzigrun.maximalpuls.com/"
   },
   {
     "land": "Deutschland",
@@ -18394,7 +18394,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/leipzigrun2026"
+    "veranstalter_url": "https://leipzigrun.maximalpuls.com/"
   },
   {
     "land": "Deutschland",
@@ -18507,7 +18507,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.3,
     "wettbewerb": "10,3 km Hauptlauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3218"
+    "veranstalter_url": "https://maudach.de/kerwe-lauf.html"
   },
   {
     "land": "Deutschland",
@@ -18521,7 +18521,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Hauptlauf (Einsteigerlauf)",
-    "veranstalter_url": "https://runtix.com/sts/10021/3218"
+    "veranstalter_url": "https://maudach.de/kerwe-lauf.html"
   },
   {
     "land": "Deutschland",
@@ -18560,7 +18560,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung",
+    "veranstalter_url": "https://www.offenbacher-lc.de/index.php/mainuferlauf",
     "wettbewerb": "Halbmarathon"
   },
   {
@@ -18575,7 +18575,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung"
+    "veranstalter_url": "https://www.offenbacher-lc.de/index.php/mainuferlauf"
   },
   {
     "land": "Deutschland",
@@ -18589,7 +18589,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung"
+    "veranstalter_url": "https://www.offenbacher-lc.de/index.php/mainuferlauf"
   },
   {
     "land": "Deutschland",
@@ -18769,7 +18769,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04293"
+    "veranstalter_url": "https://www.sc-rubihorn.de/"
   },
   {
     "land": "Deutschland",
@@ -18783,7 +18783,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04293"
+    "veranstalter_url": "https://www.sc-rubihorn.de/"
   },
   {
     "land": "Deutschland",
@@ -18863,7 +18863,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/839/"
+    "veranstalter_url": "https://www.tsg-giengen.de/de/Stadtlauf/"
   },
   {
     "land": "Deutschland",
@@ -18961,7 +18961,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://westbahnlauf-2026.racepedia.de/anmeldung"
+    "veranstalter_url": "https://westbahnlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -19383,7 +19383,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://my.raceresult.com/407802/"
+    "veranstalter_url": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html"
   },
   {
     "land": "Deutschland",
@@ -19437,7 +19437,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
-    "veranstalter_url": "https://my.raceresult.com/377756/"
+    "veranstalter_url": "https://blaulicht-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -19479,7 +19479,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://www.anmeldungs-service.de/bottwartalmarathon2026/"
+    "veranstalter_url": "https://www.bottwartal-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -20433,7 +20433,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://salacher-loewenlauf-2026.racepedia.de/ergebnisse",
+    "veranstalter_url": "https://www.tsg-salach.de/neuigkeiten/loewenlauf.html",
     "wettbewerb": "10 km"
   },
   {
@@ -20448,7 +20448,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://salacher-loewenlauf-2026.racepedia.de/ergebnisse"
+    "veranstalter_url": "https://www.tsg-salach.de/neuigkeiten/loewenlauf.html"
   },
   {
     "land": "Deutschland",
@@ -20711,7 +20711,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
-    "veranstalter_url": "https://my.raceresult.com/395172/"
+    "veranstalter_url": "https://konstanzer-laeufe.de/hoernlelauf/"
   },
   {
     "land": "Deutschland",
@@ -20933,7 +20933,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 25.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3162",
+    "veranstalter_url": "https://schoenbuchlauf.de/",
     "wettbewerb": "25 km Naturpark Schönbuchlauf"
   },
   {
@@ -20948,7 +20948,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 50.0,
     "wettbewerb": "50 km Schönbuch-Ultra, limitiert auf max. 100 Teilnehmer",
-    "veranstalter_url": "https://runtix.com/sts/10021/3162"
+    "veranstalter_url": "https://schoenbuchlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -20962,7 +20962,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 10.0,
     "wettbewerb": "10 km EDEKA Hacker-Lauf mit Schönbuch-Cup-Wertung",
-    "veranstalter_url": "https://runtix.com/sts/10021/3162"
+    "veranstalter_url": "https://schoenbuchlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -20976,7 +20976,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 5.0,
     "wettbewerb": "5 km LOTTO Jedermann-Lauf und 5 km Junior-Lauf",
-    "veranstalter_url": "https://runtix.com/sts/10021/3162"
+    "veranstalter_url": "https://schoenbuchlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -21304,7 +21304,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000251360000",
+    "veranstalter_url": "https://lg-bernkastel-wittlich.de/",
     "wettbewerb": "Hauptlauf"
   },
   {
@@ -21467,7 +21467,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.sportstiming.dk/event/17605"
+    "veranstalter_url": "https://www.binzer-bucht.de/"
   },
   {
     "land": "Deutschland",
@@ -21619,7 +21619,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 6.6,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49130/42.-Freudenseelauf-2026-Hauzenberg.htm"
+    "veranstalter_url": "https://www.tv-hauzenberg.de/"
   },
   {
     "land": "Deutschland",
@@ -21827,7 +21827,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 8.4,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/47354/Lauf-um-den-Mittelpunkt-von-Sachsen-Naundorf-%28Bobritzsch-Hilbersdorf%29.htm",
+    "veranstalter_url": "https://www.tvl-freiberg.de/",
     "land": "Deutschland",
     "wettbewerb": "8,4 km Hauptlauf"
   },
@@ -22423,7 +22423,7 @@
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
     "laenge_km": 12.2,
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04240"
+    "veranstalter_url": "http://www.eibseelauf.de/"
   },
   {
     "land": "Deutschland",
@@ -22824,7 +22824,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://my.raceresult.com/418518/"
+    "veranstalter_url": "http://www.harzlauf-thale.de/"
   },
   {
     "land": "Deutschland",
@@ -22838,7 +22838,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
-    "veranstalter_url": "https://my.raceresult.com/418518/"
+    "veranstalter_url": "http://www.harzlauf-thale.de/"
   },
   {
     "land": "Deutschland",
@@ -22852,7 +22852,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/418518/"
+    "veranstalter_url": "http://www.harzlauf-thale.de/"
   },
   {
     "land": "Deutschland",
@@ -23406,7 +23406,7 @@
     "art2": "Bahn",
     "datum_start": "2026-10-28",
     "datum_ende": "2026-10-28",
-    "veranstalter_url": "https://my.raceresult.com/419517/",
+    "veranstalter_url": "https://www.tsv-zeulenroda.de/",
     "dauer_h": 0.5
   },
   {
@@ -23504,7 +23504,7 @@
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
     "laenge_km": 7.2,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/47490/39.-Bredstedt-Cross-Bredstedt.htm",
+    "veranstalter_url": "https://www.bredstedter-tsv.de/",
     "wettbewerb": "7200m"
   },
   {
@@ -24105,7 +24105,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202610311"
+    "veranstalter_url": "https://xn--sv-mhlhausen-glb.de/fit-fun/spendenlauf/"
   },
   {
     "land": "Deutschland",
@@ -24119,7 +24119,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202610311"
+    "veranstalter_url": "https://xn--sv-mhlhausen-glb.de/fit-fun/spendenlauf/"
   },
   {
     "land": "Deutschland",
@@ -24228,7 +24228,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-31",
     "datum_ende": "2026-10-31",
-    "veranstalter_url": "https://my.raceresult.com/383803/"
+    "veranstalter_url": "https://www.runworx.de/index.html"
   },
   {
     "land": "Deutschland",
@@ -24551,7 +24551,7 @@
     "datum_ende": "2026-11-01",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/48-meller-crosslauf-2026"
+    "veranstalter_url": "https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf"
   },
   {
     "land": "Deutschland",
@@ -24758,7 +24758,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 8.9,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
+    "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf",
     "wettbewerb": "Langstrecke 8,8km"
   },
   {
@@ -25609,7 +25609,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3148",
+    "veranstalter_url": "https://svf-ludwigshafen.de/2026/01/28/comeback-des-friesenheimer-eulenlaufs/",
     "wettbewerb": "10 km"
   },
   {
@@ -26388,7 +26388,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46315/Robert-Hannemann-Volkslauf-2026-Minden.htm",
+    "veranstalter_url": "https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-2025",
     "laenge_km": 10.1,
     "wettbewerb": "Cross lang (10.060 m)"
   },
@@ -27068,7 +27068,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
+    "veranstalter_url": "https://www.sc-potsdam.de/leichtathletik/"
   },
   {
     "land": "Deutschland",
@@ -27082,7 +27082,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
+    "veranstalter_url": "https://www.sc-potsdam.de/leichtathletik/"
   },
   {
     "land": "Deutschland",
@@ -27096,7 +27096,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=973"
+    "veranstalter_url": "https://www.sc-potsdam.de/leichtathletik/"
   },
   {
     "land": "Deutschland",
@@ -27275,7 +27275,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/403691/"
+    "veranstalter_url": "https://www.landgrafenverein-jena.de/news"
   },
   {
     "land": "Deutschland",
@@ -27289,7 +27289,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/403691/"
+    "veranstalter_url": "https://www.landgrafenverein-jena.de/news"
   },
   {
     "land": "Deutschland",
@@ -27983,7 +27983,7 @@
     "datum_ende": "2026-11-15",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3137"
+    "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/"
   },
   {
     "land": "Deutschland",
@@ -27997,7 +27997,7 @@
     "datum_ende": "2026-11-15",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3137"
+    "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/"
   },
   {
     "land": "Deutschland",
@@ -28691,7 +28691,7 @@
     "art2": "Trail",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
-    "veranstalter_url": "https://my.raceresult.com/418148/"
+    "veranstalter_url": "https://tv-weismain.de/sportangebot/lauf-und-radsport/kordigast-berglauf/"
   },
   {
     "land": "Deutschland",
@@ -28919,7 +28919,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260001",
+    "veranstalter_url": "https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm",
     "wettbewerb": "5 km Lauf"
   },
   {
@@ -28959,7 +28959,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 7.6,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000038860002",
+    "veranstalter_url": "https://www.volksbank-pur.de/artenschutzlauf",
     "wettbewerb": "7,6 km"
   },
   {
@@ -29154,7 +29154,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000129860003",
+    "veranstalter_url": "https://www.vfr-wilsche-neubokel.de/geburtstags-etappen-marathon",
     "wettbewerb": "42,195 km Marathon"
   },
   {
@@ -29340,7 +29340,7 @@
     "datum_ende": "2026-11-28",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/399160/"
+    "veranstalter_url": "http://www.steinachtallauf.de/hainberglauf/"
   },
   {
     "land": "Deutschland",
@@ -29491,7 +29491,7 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 7.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V11000028960002",
+    "veranstalter_url": "http://www.llg-landstuhl.de/weihnacht.html",
     "wettbewerb": "Ausdauer Lauf"
   },
   {
@@ -29628,7 +29628,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Jedermannslauf, Altersklassen U18 bis M/W 85",
-    "veranstalter_url": "https://my.raceresult.com/416702/"
+    "veranstalter_url": "https://saar05-leichtathletik.de/"
   },
   {
     "land": "Deutschland",
@@ -29642,7 +29642,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Sparkassen-Cup, Altersklassen U18 bis M/W 85",
-    "veranstalter_url": "https://my.raceresult.com/416702/"
+    "veranstalter_url": "https://saar05-leichtathletik.de/"
   },
   {
     "land": "Deutschland",
@@ -29655,7 +29655,7 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/421590/",
+    "veranstalter_url": "https://www.mtv-giessen.de/",
     "wettbewerb": "10 km"
   },
   {
@@ -29670,7 +29670,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/421590/"
+    "veranstalter_url": "https://www.mtv-giessen.de/"
   },
   {
     "land": "Deutschland",
@@ -29874,7 +29874,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-03",
     "datum_ende": "2026-12-03",
-    "veranstalter_url": "https://my.raceresult.com/320371/"
+    "veranstalter_url": "https://www.sportclub-laage.de/"
   },
   {
     "land": "Deutschland",
@@ -30501,7 +30501,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3211"
+    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/"
   },
   {
     "land": "Deutschland",
@@ -30514,7 +30514,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3211"
+    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/"
   },
   {
     "land": "Deutschland",
@@ -30622,7 +30622,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 5.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002017660001",
+    "veranstalter_url": "https://www.werdener-turnerbund.de/",
     "wettbewerb": "Lauf"
   },
   {
@@ -30717,7 +30717,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000322260003",
+    "veranstalter_url": "https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm",
     "wettbewerb": "5 km Lauf"
   },
   {
@@ -31024,7 +31024,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-2026"
+    "veranstalter_url": "https://tsv-klausdorf.de/nikolauslauf"
   },
   {
     "land": "Deutschland",
@@ -31038,7 +31038,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-2026"
+    "veranstalter_url": "https://tsv-klausdorf.de/nikolauslauf"
   },
   {
     "land": "Deutschland",
@@ -31052,7 +31052,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-2026"
+    "veranstalter_url": "https://tsv-klausdorf.de/nikolauslauf"
   },
   {
     "land": "Deutschland",
@@ -31122,7 +31122,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46344/59.-Nikolauslauf-des-Ahrensburger-TSV-Ahrensburg.htm"
+    "veranstalter_url": "https://www.meinatsv.de/"
   },
   {
     "land": "Deutschland",
@@ -31136,7 +31136,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46344/59.-Nikolauslauf-des-Ahrensburger-TSV-Ahrensburg.htm"
+    "veranstalter_url": "https://www.meinatsv.de/"
   },
   {
     "land": "Deutschland",
@@ -31318,7 +31318,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612061"
+    "veranstalter_url": "https://www.lg-telis-finanz.de/"
   },
   {
     "land": "Deutschland",
@@ -31332,7 +31332,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612061"
+    "veranstalter_url": "https://www.lg-telis-finanz.de/"
   },
   {
     "land": "Deutschland",
@@ -31345,7 +31345,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 6.4,
-    "veranstalter_url": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Nikolauslauf/"
+    "veranstalter_url": "https://www.wildeshauser-lauftreff.de/"
   },
   {
     "land": "Deutschland",
@@ -31358,7 +31358,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 12.5,
-    "veranstalter_url": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Nikolauslauf/"
+    "veranstalter_url": "https://www.wildeshauser-lauftreff.de/"
   },
   {
     "land": "Deutschland",
@@ -31397,7 +31397,7 @@
     "datum_start": "2026-12-12",
     "datum_ende": "2026-12-12",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://my.raceresult.com/419466/",
+    "veranstalter_url": "https://www.ellewicker-adventslauf.de/",
     "wettbewerb": "5 km"
   },
   {
@@ -31959,7 +31959,7 @@
     "datum_ende": "2026-12-13",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/409571/"
+    "veranstalter_url": "https://www.ucsr-lev.de/"
   },
   {
     "land": "Deutschland",
@@ -32539,7 +32539,7 @@
     "datum_start": "2026-12-20",
     "datum_ende": "2026-12-20",
     "laenge_km": null,
-    "veranstalter_url": "https://my.raceresult.com/383807/",
+    "veranstalter_url": "https://laufschule-tatje.de/weihnachtslauf/",
     "dauer_h": 3.0
   },
   {
@@ -33011,7 +33011,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 8.1,
-    "veranstalter_url": "https://my.raceresult.com/408225/"
+    "veranstalter_url": "https://www.silvesterlauf-neuss.de/"
   },
   {
     "land": "Deutschland",
@@ -33093,7 +33093,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung",
+    "veranstalter_url": "https://team-klinikum-nuernberg.de/silvesterlauf-ausschreibung/",
     "wettbewerb": "10 km Lauf, Teilnehmerlimit nicht angegeben"
   },
   {
@@ -33108,7 +33108,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf, Teilnehmerlimit 1300",
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung"
+    "veranstalter_url": "https://team-klinikum-nuernberg.de/silvesterlauf-ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -33443,7 +33443,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 9.4,
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612313"
+    "veranstalter_url": "https://www.sv-eintracht-seubersdorf.de/silvesterlauf"
   },
   {
     "land": "Deutschland",
@@ -33482,7 +33482,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 9.2,
-    "veranstalter_url": "https://my.raceresult.com/388423/",
+    "veranstalter_url": "https://www.sg-oberlichtenau.de/",
     "wettbewerb": "9 km"
   },
   {
@@ -33497,7 +33497,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/388423/"
+    "veranstalter_url": "https://www.sg-oberlichtenau.de/"
   },
   {
     "land": "Deutschland",
@@ -33549,7 +33549,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 9.0,
-    "veranstalter_url": "https://my.raceresult.com/420711/"
+    "veranstalter_url": "https://silvesterlauf.dlc-aachen.de/"
   },
   {
     "land": "Deutschland",
@@ -33670,7 +33670,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 7.7,
     "wettbewerb": "Hauptlauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000732660000"
+    "veranstalter_url": "https://sg-kisslegg-de.jimdofree.com/silvesterlauf/"
   },
   {
     "land": "Deutschland",
@@ -33684,7 +33684,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 9.0,
     "wettbewerb": "Lauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000020160001"
+    "veranstalter_url": "https://tuspo-ziegenhain.de/"
   },
   {
     "land": "Deutschland",
@@ -33971,7 +33971,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://my.raceresult.com/411836/"
+    "veranstalter_url": "https://www.friedberger-silvesterlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -34177,7 +34177,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/414231/"
+    "veranstalter_url": "https://ssv-rhade.de/outdoor/laufen/"
   },
   {
     "land": "Deutschland",
@@ -34191,7 +34191,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://my.raceresult.com/414231/"
+    "veranstalter_url": "https://ssv-rhade.de/outdoor/laufen/"
   },
   {
     "land": "Deutschland",
@@ -34205,7 +34205,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/414231/"
+    "veranstalter_url": "https://ssv-rhade.de/outdoor/laufen/"
   },
   {
     "land": "Deutschland",
@@ -34257,7 +34257,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202612312"
+    "veranstalter_url": "https://cis-amberg.de/silvesterlauf/"
   },
   {
     "land": "Deutschland",
@@ -34285,7 +34285,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 KM",
-    "veranstalter_url": "https://runtix.com/sts/10021/3179"
+    "veranstalter_url": "https://www.laufclub-badkreuznach.de/"
   },
   {
     "land": "Deutschland",
@@ -34299,7 +34299,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 KM",
-    "veranstalter_url": "https://runtix.com/sts/10021/3179"
+    "veranstalter_url": "https://www.laufclub-badkreuznach.de/"
   },
   {
     "land": "Deutschland",
@@ -34368,7 +34368,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 7.7,
-    "veranstalter_url": "https://my.raceresult.com/420202/",
+    "veranstalter_url": "https://www.lg-kaufungen.de/",
     "wettbewerb": "7,7 km"
   },
   {
@@ -34381,7 +34381,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://my.raceresult.com/419475/"
+    "veranstalter_url": "https://www.tsv-poggenhagen1946.de/"
   },
   {
     "land": "Deutschland",
@@ -34518,7 +34518,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/383689/"
+    "veranstalter_url": "https://www.mtv-fichte.de/"
   },
   {
     "land": "Deutschland",
@@ -34532,7 +34532,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 10.3,
     "wettbewerb": "10,3 km",
-    "veranstalter_url": "https://my.raceresult.com/383689/"
+    "veranstalter_url": "https://www.mtv-fichte.de/"
   },
   {
     "land": "Deutschland",
@@ -34546,7 +34546,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 6.4,
     "wettbewerb": "Walking 6,4 km",
-    "veranstalter_url": "https://my.raceresult.com/383689/"
+    "veranstalter_url": "https://www.mtv-fichte.de/"
   },
   {
     "land": "Deutschland",
@@ -41951,7 +41951,7 @@
     "datum_ende": "2027-04-11",
     "laenge_km": 13.0,
     "wettbewerb": "Hauptlauf 13 km mit Altersklassenwertung",
-    "veranstalter_url": "https://my.raceresult.com/397286/"
+    "veranstalter_url": "https://www.tsv-guentersleben.de/seite/748569"
   },
   {
     "land": "Deutschland",
@@ -41965,7 +41965,7 @@
     "datum_ende": "2027-04-11",
     "laenge_km": 6.5,
     "wettbewerb": "Hobbylauf 6,5 km ohne Altersklassenwertung",
-    "veranstalter_url": "https://my.raceresult.com/397286/"
+    "veranstalter_url": "https://www.tsv-guentersleben.de/seite/748569"
   },
   {
     "land": "Deutschland",
@@ -42385,18 +42385,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Österberg 333",
-    "standort": "Tübingen",
-    "lat": 48.5216364,
-    "lon": 9.0576448,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-17",
-    "datum_ende": "2027-04-17",
-    "veranstalter_url": "https://my.raceresult.com/418307/"
-  },
-  {
-    "land": "Deutschland",
     "name": "20. Uniper Düsseldorf Marathon",
     "standort": "Düsseldorf",
     "lat": 51.2254018,
@@ -42785,7 +42773,7 @@
     "datum_ende": "2027-04-18",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/415403/"
+    "veranstalter_url": "https://rappid.run/"
   },
   {
     "land": "Deutschland",
@@ -42799,7 +42787,7 @@
     "datum_ende": "2027-04-18",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/415403/"
+    "veranstalter_url": "https://rappid.run/"
   },
   {
     "land": "Deutschland",
@@ -43467,18 +43455,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.hiro-run.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Klaar Kiming Throwdown",
-    "standort": "Bredstedt",
-    "lat": 54.6196009,
-    "lon": 8.9657382,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-24",
-    "datum_ende": "2027-04-24",
-    "veranstalter_url": "https://my.raceresult.com/397041/"
   },
   {
     "land": "Deutschland",
@@ -45355,7 +45331,7 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km (ab 8 Jahre)",
-    "veranstalter_url": "https://www.sportstiming.dk/event/18495"
+    "veranstalter_url": "https://binzer-bucht.de/baltic-x-coast-run/"
   },
   {
     "land": "Deutschland",
@@ -45369,7 +45345,7 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 11.0,
     "wettbewerb": "11 km (ab 14 Jahre)",
-    "veranstalter_url": "https://www.sportstiming.dk/event/18495"
+    "veranstalter_url": "https://binzer-bucht.de/baltic-x-coast-run/"
   },
   {
     "land": "Deutschland",
@@ -45383,7 +45359,7 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 23.0,
     "wettbewerb": "23 km (ab 16 Jahre)",
-    "veranstalter_url": "https://www.sportstiming.dk/event/18495"
+    "veranstalter_url": "https://binzer-bucht.de/baltic-x-coast-run/"
   },
   {
     "land": "Deutschland",
@@ -58100,7 +58076,7 @@
     "art2": "Straße",
     "datum_start": "2027-12-31",
     "datum_ende": "2027-12-31",
-    "veranstalter_url": "https://my.raceresult.com/411836/"
+    "veranstalter_url": "https://www.friedberger-silvesterlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -58236,18 +58212,5 @@
     "datum_ende": "2028-10-01",
     "laenge_km": 42.2,
     "veranstalter_url": "http://www.koeln-marathon.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "13. Alstätter Sandhasenlauf",
-    "standort": "Ahaus-Alstätte",
-    "lat": 52.1767674,
-    "lon": 6.9163963,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2030-03-10",
-    "datum_ende": "2030-03-10",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/30L19000394360001"
   }
 ]

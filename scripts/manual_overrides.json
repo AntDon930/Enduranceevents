@@ -362,7 +362,8 @@
   },
   "Warendorfer Weihnachtslauf|2026-12-20": {
     "laenge_km": null,
-    "_note": "Die 6 km sind die RUNDENLÄNGE, keine Renndistanz: Der Lauf geht über eine ca. 5,64 km lange Runde durch den Emspark, und man läuft in einem Zeitfenster von 3 oder 6 Stunden so viele Runden wie man will. Die gespeicherten 3 h sind damit richtig, die Distanz nicht. Gleiche Fehlerklasse wie die Backyard-Runde (Datenregel 9). Das 6-Stunden-Fenster fehlt als eigener Eintrag. Geprüft 2026-09-18."
+    "_note": "Die 6 km sind die RUNDENLÄNGE, keine Renndistanz: Der Lauf geht über eine ca. 5,64 km lange Runde durch den Emspark, und man läuft in einem Zeitfenster von 3 oder 6 Stunden so viele Runden wie man will. Die gespeicherten 3 h sind damit richtig, die Distanz nicht. Gleiche Fehlerklasse wie die Backyard-Runde (Datenregel 9). Das 6-Stunden-Fenster fehlt als eigener Eintrag. Geprüft 2026-09-18. | Veranstalterseite statt my.raceresult.com: https://laufschule-tatje.de/weihnachtslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (warendorfer). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "https://laufschule-tatje.de/weihnachtslauf/"
   },
   "Ironman Hamburg|2027-06-06|42.2": {
     "laenge_km": 226.0,
@@ -1754,7 +1755,8 @@
   "Robert Hannemann Gedächtnislauf|2026-11-08": {
     "laenge_km": 10.1,
     "wettbewerb": "Cross lang (10.060 m)",
-    "_note": "ladv.de/ausschreibung/detail/46315 (So 08.11.2026, SV 1860 Minden): 'Cross lang 10.060m', 'Cross mittel 5.030m', dazu 2.000 m und 1.000 m. Geprüft 2026-09-19."
+    "_note": "ladv.de/ausschreibung/detail/46315 (So 08.11.2026, SV 1860 Minden): 'Cross lang 10.060m', 'Cross mittel 5.030m', dazu 2.000 m und 1.000 m. Geprüft 2026-09-19. | Veranstalterseite statt ladv.de: https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-2025 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (robert). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-2025"
   },
   "Überruhrer Crosslauf|2026-11-29": {
     "laenge_km": 3.0,
@@ -2686,5 +2688,334 @@
   "24h Mad Chicken Run|2027-09-18": {
     "veranstalter_url": "http://www.Mad-Chicken-Run.de",
     "_note": "Veranstalterseite statt runtix.com: http://www.Mad-Chicken-Run.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:chicken, datum). Linkprüfung 2026-09-19."
+  },
+  "Leipzig Run|2026-10-11": {
+    "veranstalter_url": "https://leipzigrun.maximalpuls.com/",
+    "_note": "Veranstalterseite statt datasport.de: leipzigrun.maximalpuls.com - Websuche 19.09.2026, Seite nennt 11.10.2026 und 'Eine maximalPULS Veranstaltung' (maximalPULS GmbH ist hier der Veranstalter selbst, nicht nur Zeitnehmer). Linkprüfung 2026-09-19."
+  },
+  "Österberg 333|2027-04-17": {
+    "laenge_km": 0.3,
+    "_note": "Bergsprint über 333 Meter (lav-tuebingen.com/oesterberg-333/, 19.09.2026: '333 Meter must be covered', Termin 17.04.2027). Echte Länge eingetragen, damit die 5-km-Mindestdistanz (Datenregel 5) entscheidet - wie bei den Bergsprints im siebten Durchgang. | Veranstalterseite statt my.raceresult.com: https://lav-tuebingen.com/oesterberg-333/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (osterberg). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "https://lav-tuebingen.com/oesterberg-333/"
+  },
+  "13. Alstätter Sandhasenlauf|2030-03-10": {
+    "exclude": true,
+    "_note": "Termin 2030 ist eine Serien-Prognose des DLV-Kalenders drei Jahre voraus; die Quellseite laufen.de/laufkalender/details/30L1900039436000 antwortet am 19.09.2026 mit 404. Der 10. Sandhasenlauf am 07.03.2027 bleibt."
+  },
+  "Ingelheimer Polderlauf|2026-10-03": {
+    "veranstalter_url": "https://www.polderlauf.de/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.polderlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ingelheimer). Linkprüfung 2026-09-19."
+  },
+  "Kap Arkona Lauf|2026-10-03": {
+    "veranstalter_url": "https://kap-arkona-lauf.de/",
+    "_note": "Veranstalterseite statt davengo.com: https://kap-arkona-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:arkona, datum). Linkprüfung 2026-09-19."
+  },
+  "Maxdorfer Gemüselauf|2026-10-03": {
+    "veranstalter_url": "https://www.tsg-maxdorf.de/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.tsg-maxdorf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (maxdorfer, datum). Linkprüfung 2026-09-19."
+  },
+  "Mooshamer Waldlauf|2026-10-03": {
+    "veranstalter_url": "https://www.scmoosham.de/mooshamer-waldlauf/",
+    "_note": "Veranstalterseite statt rennmeldung.de: https://www.scmoosham.de/mooshamer-waldlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (mooshamer). Linkprüfung 2026-09-19."
+  },
+  "Zötler-Herbstgeländelauf|2026-10-03": {
+    "veranstalter_url": "https://www.skiclub-rettenberg.org/",
+    "_note": "Veranstalterseite statt rennmeldung.de: https://www.skiclub-rettenberg.org/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (zotler, datum). Linkprüfung 2026-09-19."
+  },
+  "Rimbachlauf|2026-10-03": {
+    "veranstalter_url": "http://www.rimbachlauf.com/",
+    "_note": "Veranstalterseite statt running.life: http://www.rimbachlauf.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:rimbachlauf). Linkprüfung 2026-09-19."
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-09": {
+    "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.ultratrail-pfaelzer-weinsteig.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ultratrail). Linkprüfung 2026-09-19."
+  },
+  "Ansorge Branchenlauf|2026-10-10": {
+    "veranstalter_url": "https://ansorge-logistik.de/",
+    "_note": "Veranstalterseite statt anmeldungs-service.de: https://ansorge-logistik.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ansorge). Linkprüfung 2026-09-19."
+  },
+  "Schwedter Herbstlauf|2026-10-10": {
+    "veranstalter_url": "https://tsv-blauweiss65schwedt.de/?cat=7",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://tsv-blauweiss65schwedt.de/?cat=7 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schwedter). Linkprüfung 2026-09-19."
+  },
+  "Friesengang um den Dümmer|2026-10-11": {
+    "veranstalter_url": "http://svlembruch.blogspot.com/",
+    "_note": "Veranstalterseite statt laufen-os.de: http://svlembruch.blogspot.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (friesengang). Linkprüfung 2026-09-19."
+  },
+  "Herberts Bremserlauf mit dem TSV Zornheim|2026-10-10": {
+    "veranstalter_url": "https://www.tsv-zornheim.de/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.tsv-zornheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zornheim). Linkprüfung 2026-09-19."
+  },
+  "ClimAid Plant a Tree Run|2026-10-11": {
+    "veranstalter_url": "https://climaid.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://climaid.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:climaid). Linkprüfung 2026-09-19."
+  },
+  "EnergieSüdwest Cup|2026-10-11": {
+    "veranstalter_url": "https://energie-suedwest.de/energiesuedwest-cup/",
+    "_note": "Veranstalterseite statt runtix.com: https://energie-suedwest.de/energiesuedwest-cup/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (energiesudwest). Linkprüfung 2026-09-19."
+  },
+  "Great 10k Berlin|2026-10-11": {
+    "veranstalter_url": "https://berlin-laeuft.de/great10k/",
+    "_note": "Veranstalterseite statt davengo.com: https://berlin-laeuft.de/great10k/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (great). Linkprüfung 2026-09-19."
+  },
+  "Maudacher Kerwelauf|2026-10-11": {
+    "veranstalter_url": "https://maudach.de/kerwe-lauf.html",
+    "_note": "Veranstalterseite statt runtix.com: https://maudach.de/kerwe-lauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (maudacher). Linkprüfung 2026-09-19."
+  },
+  "Offenbacher Mainuferlauf|2026-10-11": {
+    "veranstalter_url": "https://www.offenbacher-lc.de/index.php/mainuferlauf",
+    "_note": "Veranstalterseite statt maxx-timing.de: https://www.offenbacher-lc.de/index.php/mainuferlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:offenbacher). Linkprüfung 2026-09-19."
+  },
+  "Schöllanger Herbstlauf|2026-10-11": {
+    "veranstalter_url": "https://www.sc-rubihorn.de/",
+    "_note": "Veranstalterseite statt rennmeldung.de: https://www.sc-rubihorn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schollanger, datum). Linkprüfung 2026-09-19."
+  },
+  "Stadtlauf Giengen an der Brenz|2026-10-11": {
+    "veranstalter_url": "https://www.tsg-giengen.de/de/Stadtlauf/",
+    "_note": "Veranstalterseite statt sas-online.net: https://www.tsg-giengen.de/de/Stadtlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:giengen, datum). Linkprüfung 2026-09-19."
+  },
+  "Westbahnlauf|2026-10-11": {
+    "veranstalter_url": "https://westbahnlauf.de/",
+    "_note": "Veranstalterseite statt westbahnlauf-2026.racepedia.de: https://westbahnlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:westbahnlauf). Linkprüfung 2026-09-19."
+  },
+  "Benediktbeurer Kirta Lauf|2026-10-17": {
+    "veranstalter_url": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://home.skiclub-bb.com/aktuell/eventuebersicht.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (benediktbeurer). Linkprüfung 2026-09-19."
+  },
+  "Blaulichtlauf der Freiwilligen Feuerwehr Schwaan|2026-10-17": {
+    "veranstalter_url": "https://blaulicht-lauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://blaulicht-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (blaulichtlauf). Linkprüfung 2026-09-19."
+  },
+  "Bottwartal-Marathon|2026-10-17": {
+    "veranstalter_url": "https://www.bottwartal-marathon.de/",
+    "_note": "Veranstalterseite statt anmeldungs-service.de: https://www.bottwartal-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bottwartal). Linkprüfung 2026-09-19."
+  },
+  "6. Salacher Löwenlauf|2026-10-18": {
+    "veranstalter_url": "https://www.tsg-salach.de/neuigkeiten/loewenlauf.html",
+    "_note": "Veranstalterseite statt salacher-loewenlauf-2026.racepedia.de: https://www.tsg-salach.de/neuigkeiten/loewenlauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (salacher). Linkprüfung 2026-09-19."
+  },
+  "Hörnlelauf|2026-10-18": {
+    "veranstalter_url": "https://konstanzer-laeufe.de/hoernlelauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://konstanzer-laeufe.de/hoernlelauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hornlelauf). Linkprüfung 2026-09-19."
+  },
+  "Naturpark Schönbuchlauf|2026-10-18": {
+    "veranstalter_url": "https://schoenbuchlauf.de/",
+    "_note": "Veranstalterseite statt runtix.com: https://schoenbuchlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (naturpark). Linkprüfung 2026-09-19."
+  },
+  "1. Lauf zur Crosslauf Serie im Kreis Bernkastel-Wittlich|2026-10-24": {
+    "veranstalter_url": "https://lg-bernkastel-wittlich.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://lg-bernkastel-wittlich.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bernkastel). Linkprüfung 2026-09-19."
+  },
+  "Freudenseelauf|2026-10-24": {
+    "veranstalter_url": "https://www.tv-hauzenberg.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.tv-hauzenberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (freudenseelauf). Linkprüfung 2026-09-19."
+  },
+  "Lauf um den Mittelpunkt von Sachsen|2026-10-24": {
+    "veranstalter_url": "https://www.tvl-freiberg.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.tvl-freiberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sachsen). Linkprüfung 2026-09-19."
+  },
+  "Halbstundenlauf des TSV Zeulenroda|2026-10-28": {
+    "veranstalter_url": "https://www.tsv-zeulenroda.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsv-zeulenroda.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zeulenroda). Linkprüfung 2026-09-19."
+  },
+  "39. Bredstedt-Cross|2026-10-31": {
+    "veranstalter_url": "https://www.bredstedter-tsv.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.bredstedter-tsv.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bredstedt). Linkprüfung 2026-09-19."
+  },
+  "Mühlhausener Spendenlauf|2026-10-31": {
+    "veranstalter_url": "https://xn--sv-mhlhausen-glb.de/fit-fun/spendenlauf/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://xn--sv-mhlhausen-glb.de/fit-fun/spendenlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (muhlhausener, datum). Linkprüfung 2026-09-19."
+  },
+  "Runworx|2026-10-31": {
+    "veranstalter_url": "https://www.runworx.de/index.html",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.runworx.de/index.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:runworx). Linkprüfung 2026-09-19."
+  },
+  "Meller Crosslauf|2026-11-01": {
+    "veranstalter_url": "https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (meller). Linkprüfung 2026-09-19."
+  },
+  "Baltic X Backyard Ultra|2026-10-24": {
+    "veranstalter_url": "https://www.binzer-bucht.de/",
+    "_note": "Veranstalterseite statt sportstiming.dk: https://www.binzer-bucht.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (baltic). Linkprüfung 2026-09-19."
+  },
+  "45. Eibsee-Herbstlauf 2026|2026-10-25": {
+    "veranstalter_url": "http://www.eibseelauf.de/",
+    "_note": "Veranstalterseite statt rennmeldung.de: http://www.eibseelauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:eibsee). Linkprüfung 2026-09-19."
+  },
+  "Harzlauf Thale|2026-10-25": {
+    "veranstalter_url": "http://www.harzlauf-thale.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.harzlauf-thale.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:harzlauf). Linkprüfung 2026-09-19."
+  },
+  "15. Heseper Martinslauf|2026-11-07": {
+    "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf",
+    "_note": "Veranstalterseite statt ladv.de: https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (heseper). Linkprüfung 2026-09-19."
+  },
+  "16. Friesenheimer Eulenlauf|2026-11-08": {
+    "veranstalter_url": "https://svf-ludwigshafen.de/2026/01/28/comeback-des-friesenheimer-eulenlaufs/",
+    "_note": "Veranstalterseite statt runtix.com: https://svf-ludwigshafen.de/2026/01/28/comeback-des-friesenheimer-eulenlaufs/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (friesenheimer, datum). Linkprüfung 2026-09-19."
+  },
+  "25. Steverlauf|2026-11-14": {
+    "veranstalter_url": "https://www.asv-senden.de/steverlauf/",
+    "_note": "Veranstalterseite statt asv-senden.de: https://www.asv-senden.de/steverlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (steverlauf). Linkprüfung 2026-09-19."
+  },
+  "Crosslauf in den Ravensbergen|2026-11-14": {
+    "veranstalter_url": "https://www.sc-potsdam.de/leichtathletik/",
+    "_note": "Veranstalterseite statt strassenlauf.org: https://www.sc-potsdam.de/leichtathletik/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ravensbergen). Linkprüfung 2026-09-19."
+  },
+  "Landgrafenlauf - Jena|2026-11-14": {
+    "veranstalter_url": "https://www.landgrafenverein-jena.de/news",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.landgrafenverein-jena.de/news - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (landgrafenlauf). Linkprüfung 2026-09-19."
+  },
+  "Rennbahncross in Herxheim|2026-11-15": {
+    "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.tv-herxheim.de/veranstaltungen/rennbahncross/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (rennbahncross). Linkprüfung 2026-09-19."
+  },
+  "Kordigast-Berglauf|2026-11-21": {
+    "veranstalter_url": "https://tv-weismain.de/sportangebot/lauf-und-radsport/kordigast-berglauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://tv-weismain.de/sportangebot/lauf-und-radsport/kordigast-berglauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kordigast, datum). Linkprüfung 2026-09-19."
+  },
+  "36. Hamelner Winterlaufserie|2026-11-22": {
+    "veranstalter_url": "https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm",
+    "_note": "Veranstalterseite statt laufen.de: https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hamelner). Linkprüfung 2026-09-19."
+  },
+  "36. Hamelner Winterlaufserie|2026-12-06": {
+    "veranstalter_url": "https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm",
+    "_note": "Veranstalterseite statt laufen.de: https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hamelner). Linkprüfung 2026-09-19."
+  },
+  "5. Artenschutzlauf|2026-11-22": {
+    "veranstalter_url": "https://www.volksbank-pur.de/artenschutzlauf",
+    "_note": "Veranstalterseite statt laufen.de: https://www.volksbank-pur.de/artenschutzlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (artenschutzlauf). Linkprüfung 2026-09-19."
+  },
+  "Wilscher Geburtstags-Etappen-Marathon|2026-11-22": {
+    "veranstalter_url": "https://www.vfr-wilsche-neubokel.de/geburtstags-etappen-marathon",
+    "_note": "Veranstalterseite statt laufen.de: https://www.vfr-wilsche-neubokel.de/geburtstags-etappen-marathon - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (geburtstags). Linkprüfung 2026-09-19."
+  },
+  "Hainberglauf|2026-11-28": {
+    "veranstalter_url": "http://www.steinachtallauf.de/hainberglauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.steinachtallauf.de/hainberglauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hainberglauf). Linkprüfung 2026-09-19."
+  },
+  "36. Weihnachtsmarktlauf|2026-11-29": {
+    "veranstalter_url": "http://www.llg-landstuhl.de/weihnacht.html",
+    "_note": "Veranstalterseite statt laufen.de: http://www.llg-landstuhl.de/weihnacht.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (weihnachtsmarktlauf). Linkprüfung 2026-09-19."
+  },
+  "Advent-Lauf Saarbrücken|2026-11-29": {
+    "veranstalter_url": "https://saar05-leichtathletik.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://saar05-leichtathletik.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (advent). Linkprüfung 2026-09-19."
+  },
+  "Adventslauf Gießen|2026-11-29": {
+    "veranstalter_url": "https://www.mtv-giessen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.mtv-giessen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:giessen). Linkprüfung 2026-09-19."
+  },
+  "Holger Anders Flutlicht Paarlauf|2026-12-03": {
+    "veranstalter_url": "https://www.sportclub-laage.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sportclub-laage.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (holger, datum). Linkprüfung 2026-09-19."
+  },
+  "Plopsa Nikolauslauf Haßloch by LCH|2026-12-05": {
+    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/",
+    "_note": "Veranstalterseite statt runtix.com: https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (plopsa). Linkprüfung 2026-09-19."
+  },
+  "12. Werdener Crosslauf|2026-12-06": {
+    "veranstalter_url": "https://www.werdener-turnerbund.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.werdener-turnerbund.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:werdener). Linkprüfung 2026-09-19."
+  },
+  "Klausdorfer Nikolauslauf|2026-12-06": {
+    "veranstalter_url": "https://tsv-klausdorf.de/nikolauslauf",
+    "_note": "Veranstalterseite statt davengo.com: https://tsv-klausdorf.de/nikolauslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (klausdorfer). Linkprüfung 2026-09-19."
+  },
+  "Nikolauslauf des Ahrensburger TSV|2026-12-06": {
+    "veranstalter_url": "https://www.meinatsv.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.meinatsv.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ahrensburger). Linkprüfung 2026-09-19."
+  },
+  "Sport-Tahedl-Nikolauslauf - Regensburg|2026-12-06": {
+    "veranstalter_url": "https://www.lg-telis-finanz.de/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://www.lg-telis-finanz.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (tahedl). Linkprüfung 2026-09-19."
+  },
+  "Wildeshauser Nikolauslauf|2026-12-06": {
+    "veranstalter_url": "https://www.wildeshauser-lauftreff.de/",
+    "_note": "Veranstalterseite statt laufmanager.net: https://www.wildeshauser-lauftreff.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:wildeshauser). Linkprüfung 2026-09-19."
+  },
+  "10. Ellewicker Adventslauf|2026-12-12": {
+    "veranstalter_url": "https://www.ellewicker-adventslauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.ellewicker-adventslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ellewicker, datum). Linkprüfung 2026-09-19."
+  },
+  "Ugly Christmas Sweater Run - Leverkusen|2026-12-13": {
+    "veranstalter_url": "https://www.ucsr-lev.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.ucsr-lev.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (christmas, datum). Linkprüfung 2026-09-19."
+  },
+  "12. Silvesterlauf Neuss 2026|2026-12-31": {
+    "veranstalter_url": "https://www.silvesterlauf-neuss.de/",
+    "_note": "Veranstalterseite statt silvesterlauf-neuss.de: https://www.silvesterlauf-neuss.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:neuss). Linkprüfung 2026-09-19."
+  },
+  "23. Silvesterlauf Nürnberg|2026-12-31": {
+    "veranstalter_url": "https://team-klinikum-nuernberg.de/silvesterlauf-ausschreibung/",
+    "_note": "Veranstalterseite statt maxx-timing.de: https://team-klinikum-nuernberg.de/silvesterlauf-ausschreibung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
+  },
+  "Baltic X Coast Run|2027-05-08": {
+    "veranstalter_url": "https://binzer-bucht.de/baltic-x-coast-run/",
+    "_note": "Veranstalterseite statt sportstiming.dk: https://binzer-bucht.de/baltic-x-coast-run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (baltic). Linkprüfung 2026-09-19."
+  },
+  "44. Seubersdorfer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.sv-eintracht-seubersdorf.de/silvesterlauf",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://www.sv-eintracht-seubersdorf.de/silvesterlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (seubersdorfer). Linkprüfung 2026-09-19."
+  },
+  "46. Oberlichtenauer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.sg-oberlichtenau.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sg-oberlichtenau.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (oberlichtenauer). Linkprüfung 2026-09-19."
+  },
+  "49. Aachener Silvesterlauf presented by J&J MedTech|2026-12-31": {
+    "veranstalter_url": "https://silvesterlauf.dlc-aachen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://silvesterlauf.dlc-aachen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (aachener, datum). Linkprüfung 2026-09-19."
+  },
+  "54. Kißlegger Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://sg-kisslegg-de.jimdofree.com/silvesterlauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://sg-kisslegg-de.jimdofree.com/silvesterlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kisslegger). Linkprüfung 2026-09-19."
+  },
+  "54. Ziegenhainer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://tuspo-ziegenhain.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://tuspo-ziegenhain.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ziegenhainer). Linkprüfung 2026-09-19."
+  },
+  "Friedberger Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.friedberger-silvesterlauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.friedberger-silvesterlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:friedberger, datum). Linkprüfung 2026-09-19."
+  },
+  "Friedberger Silvesterlauf|2027-12-31": {
+    "veranstalter_url": "https://www.friedberger-silvesterlauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.friedberger-silvesterlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:friedberger). Linkprüfung 2026-09-19."
+  },
+  "Rhader Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://ssv-rhade.de/outdoor/laufen/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ssv-rhade.de/outdoor/laufen/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (rhader). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf Amberg|2026-12-31": {
+    "veranstalter_url": "https://cis-amberg.de/silvesterlauf/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://cis-amberg.de/silvesterlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:amberg). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf Bad Kreuznach auf dem Kuhberg|2026-12-31": {
+    "veranstalter_url": "https://www.laufclub-badkreuznach.de/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.laufclub-badkreuznach.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kreuznach). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf MTV \"Fichte\" Winsen (Aller)|2026-12-31": {
+    "veranstalter_url": "https://www.mtv-fichte.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.mtv-fichte.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:fichte). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf der LG Kaufungen|2026-12-31": {
+    "veranstalter_url": "https://www.lg-kaufungen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lg-kaufungen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kaufungen). Linkprüfung 2026-09-19."
+  },
+  "Silvesterlauf des TSV Poggenhagen|2026-12-31": {
+    "veranstalter_url": "https://www.tsv-poggenhagen1946.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsv-poggenhagen1946.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:poggenhagen). Linkprüfung 2026-09-19."
+  },
+  "Panorama Run Güntersleben|2027-04-11": {
+    "veranstalter_url": "https://www.tsv-guentersleben.de/seite/748569",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsv-guentersleben.de/seite/748569 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (panorama). Linkprüfung 2026-09-19."
+  },
+  "rappid. Marathon|2027-04-18": {
+    "veranstalter_url": "https://rappid.run/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://rappid.run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:rappid). Linkprüfung 2026-09-19."
+  },
+  "Klaar Kiming Throwdown|2027-04-24": {
+    "exclude": true,
+    "_note": "CrossFit-Throwdown von Klaar Kiming Sports Performance (my.raceresult.com/397041, 19.09.2026: Movement Book, keine Laufdistanz) - dieselbe Klasse wie HYROX/Gymrace (vom Nutzer am 19.09.2026 ausgeschlossen), kein Lauf."
   }
 }

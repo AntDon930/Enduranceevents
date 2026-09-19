@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf Amberg
 LOCATION:Kallmünz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.zeitgemaess.i
- nfo/event.php?ACCESSCODE=202612312
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://cis-amberg.de/sil
+ vesterlauf/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202612312
+URL:https://cis-amberg.de/silvesterlauf/
 END:VEVENT
 END:VCALENDAR

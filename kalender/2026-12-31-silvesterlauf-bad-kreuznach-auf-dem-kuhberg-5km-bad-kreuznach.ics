@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf Bad Kreuznach auf dem Kuhberg
 LOCATION:Bad Kreuznach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://runtix.com/sts
- /10021/3179
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufclub-b
+ adkreuznach.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3179
+URL:https://www.laufclub-badkreuznach.de/
 END:VEVENT
 END:VCALENDAR

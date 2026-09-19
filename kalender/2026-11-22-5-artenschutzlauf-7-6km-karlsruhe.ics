@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:5. Artenschutzlauf
 LOCATION:Karlsruhe\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttps://laufen.de/la
- ufkalender/details/26V01000038860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttps://www.volksban
+ k-pur.de/artenschutzlauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V01000038860002
+URL:https://www.volksbank-pur.de/artenschutzlauf
 END:VEVENT
 END:VCALENDAR

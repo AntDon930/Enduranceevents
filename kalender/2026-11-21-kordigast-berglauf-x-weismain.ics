@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Kordigast-Berglauf
 LOCATION:Weismain\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 418148/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://tv-weismain.de/spo
+ rtangebot/lauf-und-radsport/kordigast-berglauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/418148/
+URL:https://tv-weismain.de/sportangebot/lauf-und-radsport/kordigast-bergla
+ uf/
 END:VEVENT
 END:VCALENDAR

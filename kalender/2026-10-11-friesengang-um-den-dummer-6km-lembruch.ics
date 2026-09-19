@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Friesengang um den Dümmer
 LOCATION:Lembruch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.laufen-os.
- de/wettkaempfe/19-friesengang-um-den-duemmer-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://svlembruch.blog
+ spot.com/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/19-friesengang-um-den-duemmer-202
- 6
+URL:http://svlembruch.blogspot.com/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:36. Hamelner Winterlaufserie – 5 km Lauf
 LOCATION:Hameln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/26V09000322260003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.esv-eintra
+ cht-hameln.de/abteilungen/leichtathletik/aktuelles/index.htm
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000322260003
+URL:https://www.esv-eintracht-hameln.de/abteilungen/leichtathletik/aktuell
+ es/index.htm
 END:VEVENT
 END:VCALENDAR

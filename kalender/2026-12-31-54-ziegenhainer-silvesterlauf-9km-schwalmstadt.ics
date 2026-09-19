@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:54. Ziegenhainer Silvesterlauf – Lauf
 LOCATION:Schwalmstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
- kalender/details/26V07000020160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://tuspo-ziegenha
+ in.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000020160001
+URL:https://tuspo-ziegenhain.de/
 END:VEVENT
 END:VCALENDAR

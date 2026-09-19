@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Ingelheimer Polderlauf – 10 km Lauf
 LOCATION:Ingelheim am Rhein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
- s/10021/3212
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.polderlau
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3212
+URL:https://www.polderlauf.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Great 10k Berlin – 10 km - JG 2013 und älter\, ab 30 €.
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
- om/event/overview/great-10k-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://berlin-laeuft
+ .de/great10k/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/great-10k-2026
+URL:https://berlin-laeuft.de/great10k/
 END:VEVENT
 END:VCALENDAR

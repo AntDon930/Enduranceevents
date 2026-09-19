@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:49. Aachener Silvesterlauf presented by J&J MedTech
 LOCATION:Aachen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://my.raceresult.
- com/420711/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://silvesterlauf.
+ dlc-aachen.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/420711/
+URL:https://silvesterlauf.dlc-aachen.de/
 END:VEVENT
 END:VCALENDAR

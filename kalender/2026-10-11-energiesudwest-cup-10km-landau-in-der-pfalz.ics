@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:EnergieSüdwest Cup – 10 km Volkslauf
 LOCATION:Landau in der Pfalz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
- s/10021/3133
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://energie-suedw
+ est.de/energiesuedwest-cup/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3133
+URL:https://energie-suedwest.de/energiesuedwest-cup/
 END:VEVENT
 END:VCALENDAR

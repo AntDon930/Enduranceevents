@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Westbahnlauf
 LOCATION:Ratingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 10 km\nhttps://westbahnlauf-20
- 26.racepedia.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 10 km\nhttps://westbahnlauf.de
+ /
 TRANSP:TRANSPARENT
-URL:https://westbahnlauf-2026.racepedia.de/anmeldung
+URL:https://westbahnlauf.de/
 END:VEVENT
 END:VCALENDAR

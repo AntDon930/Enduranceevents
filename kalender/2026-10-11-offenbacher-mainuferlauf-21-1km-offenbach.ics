@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Offenbacher Mainuferlauf – Halbmarathon
 LOCATION:Offenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.maxx-ti
- ming.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.offenba
+ cher-lc.de/index.php/mainuferlauf
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://www.offenbacher-lc.de/index.php/mainuferlauf
 END:VEVENT
 END:VCALENDAR

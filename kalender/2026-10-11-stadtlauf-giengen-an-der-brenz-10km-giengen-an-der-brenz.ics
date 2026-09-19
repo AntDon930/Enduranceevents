@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Stadtlauf Giengen an der Brenz
 LOCATION:Giengen an der Brenz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sas-onlin
- e.net/eventportal_bs/839/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-gieng
+ en.de/de/Stadtlauf/
 TRANSP:TRANSPARENT
-URL:https://www.sas-online.net/eventportal_bs/839/
+URL:https://www.tsg-giengen.de/de/Stadtlauf/
 END:VEVENT
 END:VCALENDAR

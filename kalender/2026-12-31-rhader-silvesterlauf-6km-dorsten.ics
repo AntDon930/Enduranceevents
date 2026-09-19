@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Rhader Silvesterlauf
 LOCATION:Dorsten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
- com/414231/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://ssv-rhade.de/o
+ utdoor/laufen/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414231/
+URL:https://ssv-rhade.de/outdoor/laufen/
 END:VEVENT
 END:VCALENDAR

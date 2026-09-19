@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Leipzig Run
 LOCATION:Leipzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.datasport
- .de/anmeldeservice/leipzigrun2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leipzigrun.ma
+ ximalpuls.com/
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/leipzigrun2026
+URL:https://leipzigrun.maximalpuls.com/
 END:VEVENT
 END:VCALENDAR

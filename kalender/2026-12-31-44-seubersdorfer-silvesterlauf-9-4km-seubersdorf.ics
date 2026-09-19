@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:44. Seubersdorfer Silvesterlauf
 LOCATION:Seubersdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://www.zeitgema
- ess.info/event.php?ACCESSCODE=202612313
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://www.sv-eintr
+ acht-seubersdorf.de/silvesterlauf
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202612313
+URL:https://www.sv-eintracht-seubersdorf.de/silvesterlauf
 END:VEVENT
 END:VCALENDAR

@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Wildeshauser Nikolauslauf
 LOCATION:Wildeshausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.laufmana
- ger.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Verans
- taltung/Jahr2026/Nikolauslauf/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.wildesha
+ user-lauftreff.de/
 TRANSP:TRANSPARENT
-URL:https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschre
- ibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Nikolauslauf/
+URL:https://www.wildeshauser-lauftreff.de/
 END:VEVENT
 END:VCALENDAR

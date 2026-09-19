@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf MTV "Fichte" Winsen (Aller) – Walking 6\,4 km
 LOCATION:Winsen (Aller)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://my.raceresul
- t.com/383689/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.mtv-fich
+ te.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/383689/
+URL:https://www.mtv-fichte.de/
 END:VEVENT
 END:VCALENDAR

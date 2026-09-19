@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:6. Salacher Löwenlauf
 LOCATION:Salach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://salacher-loewe
- nlauf-2026.racepedia.de/ergebnisse
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tsg-salach
+ .de/neuigkeiten/loewenlauf.html
 TRANSP:TRANSPARENT
-URL:https://salacher-loewenlauf-2026.racepedia.de/ergebnisse
+URL:https://www.tsg-salach.de/neuigkeiten/loewenlauf.html
 END:VEVENT
 END:VCALENDAR

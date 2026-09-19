@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Naturpark Schönbuchlauf – 25 km Naturpark Schönbuchlauf
 LOCATION:Hildrizhausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://runtix.com/st
- s/10021/3162
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://schoenbuchlau
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3162
+URL:https://schoenbuchlauf.de/
 END:VEVENT
 END:VCALENDAR

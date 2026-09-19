@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Meller Crosslauf
 LOCATION:Melle\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.laufen-os.d
- e/wettkaempfe/48-meller-crosslauf-2026
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.leichtathle
+ tik.scmelle.de/veranstaltungen/meller-crosslauf
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/48-meller-crosslauf-2026
+URL:https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf
 END:VEVENT
 END:VCALENDAR

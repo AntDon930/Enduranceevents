@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:36. Weihnachtsmarktlauf – Ausdauer Lauf
 LOCATION:Landstuhl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.4 km\nhttps://laufen.de/la
- ufkalender/details/26V11000028960002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.4 km\nhttp://www.llg-lands
+ tuhl.de/weihnacht.html
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V11000028960002
+URL:http://www.llg-landstuhl.de/weihnacht.html
 END:VEVENT
 END:VCALENDAR

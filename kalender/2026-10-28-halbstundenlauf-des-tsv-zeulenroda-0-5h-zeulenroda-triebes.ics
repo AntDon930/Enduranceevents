@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Halbstundenlauf des TSV Zeulenroda
 LOCATION:Zeulenroda-Triebes\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 0.5 h\nhttps://my.raceresult.c
- om/419517/
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 0.5 h\nhttps://www.tsv-zeulenr
+ oda.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419517/
+URL:https://www.tsv-zeulenroda.de/
 END:VEVENT
 END:VCALENDAR

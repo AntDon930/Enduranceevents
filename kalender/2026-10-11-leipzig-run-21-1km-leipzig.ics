@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Leipzig Run – 21\,1 km (Halbmarathon)
 LOCATION:Leipzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.dataspo
- rt.de/anmeldeservice/leipzigrun2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://leipzigrun.
+ maximalpuls.com/
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/leipzigrun2026
+URL:https://leipzigrun.maximalpuls.com/
 END:VEVENT
 END:VCALENDAR

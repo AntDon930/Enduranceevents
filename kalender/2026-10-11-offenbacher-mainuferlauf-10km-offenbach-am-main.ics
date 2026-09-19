@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Offenbacher Mainuferlauf
 LOCATION:Offenbach am Main\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.maxx-timi
- ng.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.offenbach
+ er-lc.de/index.php/mainuferlauf
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://www.offenbacher-lc.de/index.php/mainuferlauf
 END:VEVENT
 END:VCALENDAR

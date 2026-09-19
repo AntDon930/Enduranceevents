@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20271231
 DTEND;VALUE=DATE:20280101
 SUMMARY:Friedberger Silvesterlauf
 LOCATION:Friedberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /411836/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.friedberger-s
+ ilvesterlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/411836/
+URL:https://www.friedberger-silvesterlauf.de/
 END:VEVENT
 END:VCALENDAR

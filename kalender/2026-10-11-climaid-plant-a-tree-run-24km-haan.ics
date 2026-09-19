@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:ClimAid Plant a Tree Run
 LOCATION:Haan\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 km\nhttps://my.raceresult
- .com/375637/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 km\nhttps://climaid.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/375637/
+URL:https://climaid.de/
 END:VEVENT
 END:VCALENDAR

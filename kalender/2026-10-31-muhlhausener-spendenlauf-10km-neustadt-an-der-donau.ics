@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Mühlhausener Spendenlauf
 LOCATION:Neustadt an der Donau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zeitgemae
- ss.info/event.php?ACCESSCODE=202610311
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://xn--sv-mhlhau
+ sen-glb.de/fit-fun/spendenlauf/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202610311
+URL:https://xn--sv-mhlhausen-glb.de/fit-fun/spendenlauf/
 END:VEVENT
 END:VCALENDAR

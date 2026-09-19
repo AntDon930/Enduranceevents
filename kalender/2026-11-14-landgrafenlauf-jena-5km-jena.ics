@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Landgrafenlauf - Jena
 LOCATION:Jena\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/403691/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.landgrafen
+ verein-jena.de/news
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/403691/
+URL:https://www.landgrafenverein-jena.de/news
 END:VEVENT
 END:VCALENDAR

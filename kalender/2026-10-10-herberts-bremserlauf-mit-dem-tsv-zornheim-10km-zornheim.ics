@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Herberts Bremserlauf mit dem TSV Zornheim
 LOCATION:Zornheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
- s/10021/3216
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv-zornh
+ eim.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3216
+URL:https://www.tsv-zornheim.de/
 END:VEVENT
 END:VCALENDAR

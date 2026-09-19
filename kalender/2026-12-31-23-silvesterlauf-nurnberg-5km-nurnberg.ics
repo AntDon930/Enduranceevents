@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:23. Silvesterlauf Nürnberg – 5 km Lauf\, Teilnehmerlimit 1300
 LOCATION:Nürnberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.maxx-timin
- g.de/anmeldung
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://team-klinikum-
+ nuernberg.de/silvesterlauf-ausschreibung/
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://team-klinikum-nuernberg.de/silvesterlauf-ausschreibung/
 END:VEVENT
 END:VCALENDAR

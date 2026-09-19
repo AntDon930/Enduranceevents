@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Bottwartal-Marathon
 LOCATION:Steinheim an der Murr\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.anmeldung
- s-service.de/bottwartalmarathon2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.bottwarta
+ l-marathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.anmeldungs-service.de/bottwartalmarathon2026/
+URL:https://www.bottwartal-marathon.de/
 END:VEVENT
 END:VCALENDAR

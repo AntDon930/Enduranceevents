@@ -505,10 +505,9 @@
     "notiz": "Alles bestaetigt: 'Donnerstag 03. 08. 2028 bis 08. September 2028', 'Die Streckenlaenge betraegt zirka 2067 km', Start Flensburg, Ziel Bardolino am Gardasee. Die 37 Tage und die 2067 km sind richtig - ein echter Etappenlauf, kein Datenfehler."
   },
   "13. Alstätter Sandhasenlauf|2030-03-10": {
-    "am": "2026-09-18",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com/370919, flvw.de",
-    "notiz": "Der Termin liegt vier Jahre in der Zukunft, ist aber in sich stimmig: Die 9. Auflage war am 01.03.2026, die 13. faellt damit auf 2030. Der Eintrag stammt aus dem FLVW-Laufkalender (Kennung '30L19000394360001', 30 = 2030). Der Veranstalter (alstaetter-sandhasenlauf.de) nennt so weit im Voraus nichts, also nicht zu bestaetigen - es ist vermutlich ein Vorab-Eintrag des Verbands."
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "notiz": "Serien-Prognose 2030 des DLV-Kalenders, Quellseite 404 (19.09.2026); exclude."
   },
   "Lohelauf Wentorf|2026-09-20": {
     "am": "2026-09-18",
@@ -2049,8 +2048,7 @@
   "Runworx|2026-10-31": {
     "am": "2026-09-19",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com/383803/contact",
-    "notiz": "31.10.2026; Veranstalter und URL nur Platzhalter."
+    "notiz": "5-km-Hindernislauf plus Kraft-WOD im Gym (runworx.de) - Fitness-Hybrid wie HYROX/Gymrace; ob er unter die NICHT_AUSDAUER-Entscheidung fällt, entscheidet der Nutzer (Punkt 14)."
   },
   "Wuppertaler Löwenlauf|2026-11-14": {
     "am": "2026-09-19",
@@ -2225,5 +2223,25 @@
     "ergebnis": "korrigiert",
     "quelle": "tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
     "notiz": "Fehlte ganz. 'Save the Date: 14.03.2027: 21. Zülpicher Chlodwiglauf'; Hauptlauf ca. 10 km (Eifelcup) und Jedermannlauf ca. 5 km laut Vereinsseite (Ausschreibung 2027 noch nicht erschienen). Nachgetragen in manual_events.json."
+  },
+  "Klaar Kiming Throwdown|2027-04-24": {
+    "am": "2026-09-19",
+    "ergebnis": "entfernt",
+    "notiz": "CrossFit-Throwdown, keine Laufveranstaltung (raceresult-Infoseite 19.09.2026); exclude in manual_overrides.json."
+  },
+  "Österberg 333|2027-04-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "notiz": "Bergsprint über 333 m laut lav-tuebingen.com; echte Länge 0,3 km eingetragen, fällt über die 5-km-Mindestdistanz heraus."
+  },
+  "Silvesterlauf Amberg|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "notiz": "Ort steht als Kallmünz (49.16/11.96), Kalender (runme, hdsports) nennen Start Marktplatz Amberg; die Veranstalterseite cis-amberg.de/silvesterlauf nennt am 19.09.2026 keinen Startort - 25 km Abstand, aus der Sandbox nicht zu entscheiden."
+  },
+  "Hainberglauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "notiz": "Kalender nennen 4,8 km statt 5 km; die Veranstalterseite steinachtallauf.de/hainberglauf antwortet am 19.09.2026 mit 503 - Länge nicht belegbar, 5 km bleibt."
   }
 }

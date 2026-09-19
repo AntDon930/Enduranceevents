@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Nikolauslauf des Ahrensburger TSV
 LOCATION:Ahrensburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
- reibung/detail/46344/59.-Nikolauslauf-des-Ahrensburger-TSV-Ahrensburg.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.meinatsv.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/46344/59.-Nikolauslauf-des-Ahrens
- burger-TSV-Ahrensburg.htm
+URL:https://www.meinatsv.de/
 END:VEVENT
 END:VCALENDAR

@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Lauf um den Mittelpunkt von Sachsen – 8\,4 km Hauptlauf
 LOCATION:Naundorf (Bobritzsch-Hilbersdorf)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://ladv.de/auss
- chreibung/detail/47354/Lauf-um-den-Mittelpunkt-von-Sachsen-Naundorf-%28Bo
- britzsch-Hilbersdorf%29.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://www.tvl-frei
+ berg.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/47354/Lauf-um-den-Mittelpunkt-von
- -Sachsen-Naundorf-%28Bobritzsch-Hilbersdorf%29.htm
+URL:https://www.tvl-freiberg.de/
 END:VEVENT
 END:VCALENDAR

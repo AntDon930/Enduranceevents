@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Klausdorfer Nikolauslauf
 LOCATION:Schwentinental\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.davengo.co
- m/event/overview/41-klausdorfer-nikolauslauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://tsv-klausdorf.
+ de/nikolauslauf
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/41-klausdorfer-nikolauslauf-202
- 6
+URL:https://tsv-klausdorf.de/nikolauslauf
 END:VEVENT
 END:VCALENDAR

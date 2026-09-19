@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:rappid. Marathon – Halbmarathon
 LOCATION:Lüdinghausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/415403/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://rappid.run/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/415403/
+URL:https://rappid.run/
 END:VEVENT
 END:VCALENDAR

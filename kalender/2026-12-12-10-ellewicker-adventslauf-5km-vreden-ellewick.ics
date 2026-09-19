@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:10. Ellewicker Adventslauf
 LOCATION:Vreden - Ellewick\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/419466/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ellewicker
+ -adventslauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419466/
+URL:https://www.ellewicker-adventslauf.de/
 END:VEVENT
 END:VCALENDAR

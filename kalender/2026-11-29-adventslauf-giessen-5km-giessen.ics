@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Adventslauf Gießen
 LOCATION:Gießen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/421590/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.mtv-giesse
+ n.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/421590/
+URL:https://www.mtv-giessen.de/
 END:VEVENT
 END:VCALENDAR

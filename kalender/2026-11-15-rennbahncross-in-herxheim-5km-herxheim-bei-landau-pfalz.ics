@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:Rennbahncross in Herxheim
 LOCATION:Herxheim bei Landau (Pfalz)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://runtix.com/sts/1
- 0021/3137
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://www.tv-herxheim.
+ de/veranstaltungen/rennbahncross/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3137
+URL:https://www.tv-herxheim.de/veranstaltungen/rennbahncross/
 END:VEVENT
 END:VCALENDAR

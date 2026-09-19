@@ -455,6 +455,51 @@ def pruefen(args) -> None:
     Path(args.bericht).write_text(json.dumps(bericht, ensure_ascii=False, indent=1))
 
 
+def verifizieren(args) -> None:
+    """Kandidaten aus einer Websuche prüfen: {"<Name>|<Datum>": "https://…"}.
+
+    Die Websuche ist Handarbeit (Claude oder Nutzer); dieser Schritt macht
+    daraus dieselbe Prüfung wie bei `sammeln`: Seite abrufen, und nur wenn
+    sie den Lauf nennt, landet der Fall als `gefunden` im Bericht - den
+    `anwenden` dann wie gewohnt übernimmt. Eine geratene Adresse kommt so
+    nie in die Daten."""
+    events = json.loads(EVENTS.read_text())
+    kandidaten = json.loads(Path(args.kandidaten).read_text())
+    abrufer = Abrufer(pause=args.pause)
+    gruppen: dict[str, dict] = {}
+    for e in events:
+        schluessel = f"{e.get('name')}|{e.get('datum_start')}"
+        if schluessel not in kandidaten:
+            continue
+        g = gruppen.setdefault(schluessel, {"alt": e.get("veranstalter_url"), "namen": set(), "daten": set(), "orte": set()})
+        g["namen"].add(e.get("name") or ""); g["daten"].add(e.get("datum_start") or ""); g["orte"].add(e.get("standort") or "")
+    bericht: "OrderedDict[str, dict]" = OrderedDict()
+    if args.fortsetzen and Path(args.bericht).exists():
+        bericht = json.loads(Path(args.bericht).read_text(), object_pairs_hook=OrderedDict)
+    for schluessel, ziel in kandidaten.items():
+        g = gruppen.get(schluessel)
+        if not g or schluessel in bericht:
+            continue
+        name, datum = schluessel.split("|", 1)
+        eintrag = {"name": name, "datum": datum, "alt": g["alt"], "kandidaten": [], "ergebnis": "unklar",
+                   "ziel": None, "treffer": [], "notiz": ""}
+        k = kandidaten_url_normalisieren(ziel)
+        if not k:
+            eintrag["notiz"] = f"Kandidat {ziel} ist Portal/Anmeldung/soziales Netz"
+        else:
+            status, body = abrufer.hole(k)
+            treffer = nennt_den_lauf(body, k, sorted(g["namen"]), sorted(g["daten"]), sorted(g["orte"])) if status == 200 else []
+            eintrag["kandidaten"].append({"url": k, "status": status or body, "treffer": treffer})
+            if treffer:
+                eintrag["ergebnis"], eintrag["ziel"], eintrag["treffer"] = "gefunden", k, treffer
+            else:
+                eintrag["notiz"] = f"Websuche nannte {k}, Seite nennt den Lauf nicht erkennbar (Status {status or body})"
+        bericht[schluessel] = eintrag
+    Path(args.bericht).write_text(json.dumps(bericht, ensure_ascii=False, indent=1))
+    from collections import Counter
+    print("fertig:", dict(Counter(b["ergebnis"] for b in bericht.values())))
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -472,6 +517,12 @@ def main() -> int:
     q.add_argument("--max", type=int, default=0)
     q.add_argument("--auch-geprueft", action="store_true")
     q.set_defaults(fn=pruefen)
+    v = sub.add_parser("verifizieren", help="Kandidaten aus einer Websuche prüfen und als Bericht schreiben")
+    v.add_argument("--kandidaten", required=True, help='JSON {"<Name>|<Datum>": "https://…"}')
+    v.add_argument("--bericht", required=True)
+    v.add_argument("--pause", type=float, default=1.0)
+    v.add_argument("--fortsetzen", action="store_true")
+    v.set_defaults(fn=verifizieren)
     a = sub.add_parser("anwenden", help="Bericht in Overrides und Linkprotokoll übernehmen")
     a.add_argument("--bericht", required=True)
     a.add_argument("--auch-geprueft", action="store_true")

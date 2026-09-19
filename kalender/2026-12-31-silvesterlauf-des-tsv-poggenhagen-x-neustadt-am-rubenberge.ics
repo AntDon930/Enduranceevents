@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf des TSV Poggenhagen
 LOCATION:Neustadt am Rübenberge\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /419475/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tsv-poggenhag
+ en1946.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419475/
+URL:https://www.tsv-poggenhagen1946.de/
 END:VEVENT
 END:VCALENDAR
