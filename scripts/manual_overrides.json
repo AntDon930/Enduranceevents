@@ -458,12 +458,14 @@
   "Gaudilauf 27|2026-10-04": {
     "lat": 51.6066028,
     "lon": 13.3125927,
-    "_note": "Ohne Koordinaten: Der Ort ist 'Uebigau-Wahrenbrueck OT Muenchen' - Muenchen ist hier ein Ortsteil im Landkreis Elbe-Elster (Brandenburg), nicht die bayerische Landeshauptstadt. Dass der Geocoder hier nichts fand, hat einen Verortungsfehler von 400 km verhindert. Koordinaten ueber Nominatim zu 'Muenchen, Uebigau-Wahrenbrueck'. Geprueft 2026-09-18."
+    "_note": "Ohne Koordinaten: Der Ort ist 'Uebigau-Wahrenbrueck OT Muenchen' - Muenchen ist hier ein Ortsteil im Landkreis Elbe-Elster (Brandenburg), nicht die bayerische Landeshauptstadt. Dass der Geocoder hier nichts fand, hat einen Verortungsfehler von 400 km verhindert. Koordinaten ueber Nominatim zu 'Muenchen, Uebigau-Wahrenbrueck'. Geprueft 2026-09-18. | laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.elsterlauf.de. Seite abgerufen, sie nennt den Lauf (gaudilauf). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "http://www.elsterlauf.de"
   },
   "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11": {
     "lat": 50.9818378,
     "lon": 6.075201,
-    "_note": "Ohne Koordinaten: Ort 'Geilenkirchen - Gillrath'. Gillrath ist ein Stadtteil von Geilenkirchen (Kreis Heinsberg); Koordinaten ueber Nominatim. Geprueft 2026-09-18."
+    "_note": "Ohne Koordinaten: Ort 'Geilenkirchen - Gillrath'. Gillrath ist ein Stadtteil von Geilenkirchen (Kreis Heinsberg); Koordinaten ueber Nominatim. Geprueft 2026-09-18. | laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.djk-gillrath.de. Seite abgerufen, sie nennt den Lauf (geilenkirchener). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "http://www.djk-gillrath.de"
   },
   "52. Gillrather Crosslauf|2027-01-09": {
     "lat": 50.9818378,
@@ -478,12 +480,14 @@
   "47. Ratinger Neujahrslauf|2027-01-10": {
     "lat": 51.2973261,
     "lon": 6.8493503,
-    "_note": "Ohne Koordinaten: Ort 'Ratingen Innenstadt' - der Zusatz 'Innenstadt' liess den Geocoder leer ausgehen. Koordinaten von Ratingen (Kreis Mettmann) ueber Nominatim. Geprueft 2026-09-18."
+    "_note": "Ohne Koordinaten: Ort 'Ratingen Innenstadt' - der Zusatz 'Innenstadt' liess den Geocoder leer ausgehen. Koordinaten von Ratingen (Kreis Mettmann) ueber Nominatim. Geprueft 2026-09-18. | laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.asc-ratingen.de. Seite abgerufen, sie nennt den Lauf (ratinger). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "http://www.asc-ratingen.de"
   },
   "48. Ratinger Neujahrslauf|2028-01-09": {
     "lat": 51.2973261,
     "lon": 6.8493503,
-    "_note": "Ohne Koordinaten: wie die 47. Auflage, Ort 'Ratingen Innenstadt'. Koordinaten ueber Nominatim. Geprueft 2026-09-18."
+    "_note": "Ohne Koordinaten: wie die 47. Auflage, Ort 'Ratingen Innenstadt'. Koordinaten ueber Nominatim. Geprueft 2026-09-18. | laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.asc-ratingen.de. Seite abgerufen, sie nennt den Lauf (ratinger). Linkprüfung 2026-09-19.",
+    "veranstalter_url": "http://www.asc-ratingen.de"
   },
   "Hammer Winterlaufserie|2027-01-31|10": {
     "datum_ende": "2027-01-31",
@@ -1791,5 +1795,469 @@
     "laenge_km": 0.7,
     "wettbewerb": "Vertical ca. 650 m, 190 hm",
     "_note": "gapavertical.de/ausschreibung-2027 ('Freitag, 23. April 2027'): 'Streckenlänge: ca. 650 m', 'Höhenmeter: ca. 190 m' - ein Vertical-Sprint, Datenregel 5 nimmt die Zeile heraus. Geprüft 2026-09-19."
+  },
+  "41. Pönitzer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.svg-poenitz.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.svg-poenitz.de. Seite abgerufen, sie nennt den Lauf (ponitzer). Linkprüfung 2026-09-19."
+  },
+  "41. Klausdorfer Nikolauslauf|2026-12-06": {
+    "veranstalter_url": "http://www.tsv-klausdorf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tsv-klausdorf.de. Seite abgerufen, sie nennt den Lauf (nikolauslauf). Linkprüfung 2026-09-19."
+  },
+  "Taubertal 100|2026-10-03": {
+    "veranstalter_url": "https://www.taubertal100.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.taubertal100.de/. Seite abgerufen, sie nennt den Lauf (taubertal). Linkprüfung 2026-09-19."
+  },
+  "5/10k Rainbow Run 2026|2026-12-05": {
+    "veranstalter_url": "http://rainbowrun-frankfurt.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://rainbowrun-frankfurt.de/. Seite abgerufen, sie nennt den Lauf (rainbow). Linkprüfung 2026-09-19."
+  },
+  "38. Int. Forchheimer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.sportfreunde-forchheim.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.sportfreunde-forchheim.de/. Seite abgerufen, sie nennt den Lauf (forchheimer). Linkprüfung 2026-09-19."
+  },
+  "38. Karlsbader Volkslauf|2026-11-08": {
+    "veranstalter_url": "https://www.svl-leichtathletik.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.svl-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (karlsbader). Linkprüfung 2026-09-19."
+  },
+  "50. Teufelsberglauf 2026|2026-11-08": {
+    "veranstalter_url": "http://www.teufelsberglauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.teufelsberglauf.de. Seite abgerufen, sie nennt den Lauf (teufelsberglauf). Linkprüfung 2026-09-19."
+  },
+  "Ainringer Crosslauf|2026-11-21": {
+    "veranstalter_url": "http://www.sc-ainring.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sc-ainring.de. Seite abgerufen, sie nennt den Lauf (ainringer). Linkprüfung 2026-09-19."
+  },
+  "Burgkirchner Raiffeisen-Crosslauf|2026-10-24": {
+    "veranstalter_url": "http://www.crosslauf-is.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.crosslauf-is.de. Seite abgerufen, sie nennt den Lauf (raiffeisen). Linkprüfung 2026-09-19."
+  },
+  "39. Frankenwaldlauf um den Preis der Kulmbacher Brauerei|2026-10-31": {
+    "veranstalter_url": "http://lg-ludwigschorgast.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://lg-ludwigschorgast.de. Seite abgerufen, sie nennt den Lauf (frankenwaldlauf). Linkprüfung 2026-09-19."
+  },
+  "Wiesent Challenge|2026-10-25": {
+    "veranstalter_url": "http://www.wiesent-challenge.de/anmeldung/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wiesent-challenge.de/anmeldung/. Seite abgerufen, sie nennt den Lauf (wiesent). Linkprüfung 2026-09-19."
+  },
+  "21. Kunstweglauf Rednitzhembach|2026-11-21": {
+    "veranstalter_url": "http://www.powerbaers.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.powerbaers.de. Seite abgerufen, sie nennt den Lauf (kunstweglauf). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 1.Termin|2026-11-08": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 2.Termin|2026-11-15": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 3.Termin|2026-11-22": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 4.Termin|2026-11-29": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 5.Termin|2026-12-06": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 6.Termin|2026-12-13": {
+    "veranstalter_url": "http://www.wintercross.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wintercross.de. Seite abgerufen, sie nennt den Lauf (winter). Linkprüfung 2026-09-19."
+  },
+  "44. Nikolaus-Lauf in Ochsenfurt|2026-12-06": {
+    "veranstalter_url": "https://www.tvochsenfurt-leichtathletik.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tvochsenfurt-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (nikolaus). Linkprüfung 2026-09-19."
+  },
+  "Lauf um den Eisbrunn - 1. Lauf der Jedermannserie|2026-10-25": {
+    "veranstalter_url": "http://www.lg-donau-ries.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lg-donau-ries.de. Seite abgerufen, sie nennt den Lauf (eisbrunn). Linkprüfung 2026-09-19."
+  },
+  "59. Int. LEW Silvesterlauf Gersthofen|2026-12-31": {
+    "veranstalter_url": "http://www.silvester-lauf-gersthofen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.silvester-lauf-gersthofen.de. Seite abgerufen, sie nennt den Lauf (gersthofen). Linkprüfung 2026-09-19."
+  },
+  "49. Augsburger AOK Winterlaufserie Weihnachtslauf|2026-12-20": {
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://tgva.de/augsburger-winterlaufserie/. Seite abgerufen, sie nennt den Lauf (augsburger). Linkprüfung 2026-09-19."
+  },
+  "49. Augsburger AOK-Winterlaufserie Viktoria-Cross|2026-12-05": {
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://tgva.de/augsburger-winterlaufserie/. Seite abgerufen, sie nennt den Lauf (augsburger). Linkprüfung 2026-09-19."
+  },
+  "49. Augsburger AOK-Winterlaufserie Nord-Südring|2026-11-21": {
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://tgva.de/augsburger-winterlaufserie/. Seite abgerufen, sie nennt den Lauf (augsburger). Linkprüfung 2026-09-19."
+  },
+  "49. Augsburger AOK-Winterlaufserie Südring|2026-11-07": {
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://tgva.de/augsburger-winterlaufserie/. Seite abgerufen, sie nennt den Lauf (augsburger). Linkprüfung 2026-09-19."
+  },
+  "Buchdorfer Jedermannslauf|2026-10-03": {
+    "veranstalter_url": "http://www.lg-donau-ries.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lg-donau-ries.de. Seite abgerufen, sie nennt den Lauf (buchdorfer). Linkprüfung 2026-09-19."
+  },
+  "34. Kreuzberglauf mit Ufr. Meisterschaften|2026-10-11": {
+    "veranstalter_url": "http://olympia-schoenau.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://olympia-schoenau.de/. Seite abgerufen, sie nennt den Lauf (kreuzberglauf). Linkprüfung 2026-09-19."
+  },
+  "Gaudilauf 14|2026-10-04": {
+    "veranstalter_url": "http://www.elsterlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.elsterlauf.de. Seite abgerufen, sie nennt den Lauf (gaudilauf). Linkprüfung 2026-09-19."
+  },
+  "48. Silvesterlauf Zossen-Ludwigsfelde|2026-12-31": {
+    "veranstalter_url": "http://www.llv-ludwigsfelde.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.llv-ludwigsfelde.de. Seite abgerufen, sie nennt den Lauf (ludwigsfelde). Linkprüfung 2026-09-19."
+  },
+  "41. Silvesterlauf der LAV Hamburg-Nord|2026-12-31": {
+    "veranstalter_url": "https://walddoerfer-sv.de/events-mit-paypal-buchung/anmeldung-silvesterlauf-2026/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://walddoerfer-sv.de/events-mit-paypal-buchung/anmeldung-silvesterlauf-2026/. Seite abgerufen, sie nennt den Lauf (hamburg). Linkprüfung 2026-09-19."
+  },
+  "33. Winterlaufserie TSV Blau-Weiß Ippinghausen, 1. Lauf|2026-11-08": {
+    "veranstalter_url": "http://www.wila-ippinghausen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wila-ippinghausen.de. Seite abgerufen, sie nennt den Lauf (ippinghausen). Linkprüfung 2026-09-19."
+  },
+  "33. Winterlaufserie TSV Blau-Weiß Ippinghausen, 2.Lauf|2026-12-20": {
+    "veranstalter_url": "http://www.wila-ippinghausen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wila-ippinghausen.de. Seite abgerufen, sie nennt den Lauf (ippinghausen). Linkprüfung 2026-09-19."
+  },
+  "50. Limes- Winterlaufserie - 1. Lauf über 10 km|2026-11-07": {
+    "veranstalter_url": "http://turnverein07.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://turnverein07.de. Seite abgerufen, sie nennt den Lauf (limes). Linkprüfung 2026-09-19."
+  },
+  "48. Spiridon Mainova Silvesterlauf 2026|2026-12-31": {
+    "veranstalter_url": "https://www.spiridon-silvesterlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.spiridon-silvesterlauf.de. Seite abgerufen, sie nennt den Lauf (spiridon). Linkprüfung 2026-09-19."
+  },
+  "40. Weiterstädter Nikolauslauf|2026-12-06": {
+    "veranstalter_url": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/. Seite abgerufen, sie nennt den Lauf (weiterstadter). Linkprüfung 2026-09-19."
+  },
+  "51. Winterlaufserie 2026/2027, 1. Wertungslauf|2026-11-01": {
+    "veranstalter_url": "http://www.sportverein-weimar.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sportverein-weimar.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "51. Winterlaufserie 2026/2027, 2. Wertungslauf|2026-12-06": {
+    "veranstalter_url": "http://www.sportverein-weimar.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sportverein-weimar.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "25. VR - Bank Mitte Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.vrbankmitte-silvesterlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.vrbankmitte-silvesterlauf.de. Seite abgerufen, sie nennt den Lauf (mitte). Linkprüfung 2026-09-19."
+  },
+  "51. Emmerthaler Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.tsg-emmerthal.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tsg-emmerthal.de. Seite abgerufen, sie nennt den Lauf (emmerthaler). Linkprüfung 2026-09-19."
+  },
+  "46. Volkswaldlauf des MTV Borstel-Sangenstedt|2026-10-25": {
+    "veranstalter_url": "http://www.MTV-Borstel-Sangenstedt.de/Volkslauf",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.MTV-Borstel-Sangenstedt.de/Volkslauf. Seite abgerufen, sie nennt den Lauf (borstel). Linkprüfung 2026-09-19."
+  },
+  "2. Lauf Winterlaufserie 2026/2027|2026-12-13": {
+    "veranstalter_url": "http://www.wellen-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.wellen-marathon.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "1. Lauf Winterlaufserie 2026/2027|2026-11-08": {
+    "veranstalter_url": "https://www.wellen-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.wellen-marathon.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-11-08": {
+    "veranstalter_url": "http://tusjaderberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://tusjaderberg.de. Seite abgerufen, sie nennt den Lauf (wanderserie). Linkprüfung 2026-09-19."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-11-22": {
+    "veranstalter_url": "http://tusjaderberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://tusjaderberg.de. Seite abgerufen, sie nennt den Lauf (wanderserie). Linkprüfung 2026-09-19."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-12-06": {
+    "veranstalter_url": "http://tusjaderberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://tusjaderberg.de. Seite abgerufen, sie nennt den Lauf (wanderserie). Linkprüfung 2026-09-19."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-12-20": {
+    "veranstalter_url": "http://tusjaderberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://tusjaderberg.de. Seite abgerufen, sie nennt den Lauf (wanderserie). Linkprüfung 2026-09-19."
+  },
+  "OTB Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://laufen-os.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://laufen-os.de. Seite abgerufen, sie nennt den Lauf (Datum). Linkprüfung 2026-09-19."
+  },
+  "56. Uplengener Adventslauf|2026-11-29": {
+    "veranstalter_url": "http://www.lguplengen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lguplengen.de. Seite abgerufen, sie nennt den Lauf (uplengener). Linkprüfung 2026-09-19."
+  },
+  "41. Burgwedeler Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.sv-burgwedel.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sv-burgwedel.de. Seite abgerufen, sie nennt den Lauf (burgwedeler). Linkprüfung 2026-09-19."
+  },
+  "41. Volkswandertag|2026-09-27": {
+    "veranstalter_url": "http://svwymeerboen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://svwymeerboen.de. Seite abgerufen, sie nennt den Lauf (volkswandertag). Linkprüfung 2026-09-19."
+  },
+  "35. Blumensaatlauf|2026-11-21": {
+    "veranstalter_url": "http://www.Blumensaatlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.Blumensaatlauf.de. Seite abgerufen, sie nennt den Lauf (blumensaatlauf). Linkprüfung 2026-09-19."
+  },
+  "Martins-Cross-Lauf|2026-11-08": {
+    "veranstalter_url": "http://www.preussen-leichtathletik.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.preussen-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (martins). Linkprüfung 2026-09-19."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 1. Lauf|2026-11-21": {
+    "veranstalter_url": "http://sg-bockenberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://sg-bockenberg.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 2. Lauf|2026-12-05": {
+    "veranstalter_url": "http://sg-bockenberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://sg-bockenberg.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "39. VR-Bank Bonn Rhein-Sieg eG Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.lc-euskirchen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.lc-euskirchen.de. Seite abgerufen, sie nennt den Lauf (rhein). Linkprüfung 2026-09-19."
+  },
+  "29. Rursee Marathon|2026-11-08": {
+    "veranstalter_url": "http://www.rursee-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.rursee-marathon.de. Seite abgerufen, sie nennt den Lauf (rursee). Linkprüfung 2026-09-19."
+  },
+  "Lichterlauf in Steckenborn|2026-10-10": {
+    "veranstalter_url": "http://komet-steckenborn.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://komet-steckenborn.de. Seite abgerufen, sie nennt den Lauf (lichterlauf). Linkprüfung 2026-09-19."
+  },
+  "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel|2026-12-06": {
+    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tuszuelpich-leichtathletik.de/. Seite abgerufen, sie nennt den Lauf (zulpicher). Linkprüfung 2026-09-19."
+  },
+  "Rennbahncross mit rheinland-pfälzischen Crosslaufmeisterschaften|2026-11-15": {
+    "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tv-herxheim.de/veranstaltungen/rennbahncross/. Seite abgerufen, sie nennt den Lauf (rennbahncross). Linkprüfung 2026-09-19."
+  },
+  "Rülzheimer Crosslauf|2026-11-07": {
+    "veranstalter_url": "http://www.lgruelzheim.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lgruelzheim.de. Seite abgerufen, sie nennt den Lauf (rulzheimer). Linkprüfung 2026-09-19."
+  },
+  "44. Silvesterlauf Schifferstadt|2026-12-31": {
+    "veranstalter_url": "http://www.lc-schifferstadt.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lc-schifferstadt.de. Seite abgerufen, sie nennt den Lauf (schifferstadt). Linkprüfung 2026-09-19."
+  },
+  "52. Int. Silvester-Straßenlauf Kottweiler-Schwanden|2026-12-31": {
+    "veranstalter_url": "http://www.sv-kottweiler-schwanden.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sv-kottweiler-schwanden.de. Seite abgerufen, sie nennt den Lauf (silvester). Linkprüfung 2026-09-19."
+  },
+  "3. Lauf der 39. Crosslauf-Serie 2026 Cochem-Zell in Kaisersesch|2026-11-08": {
+    "veranstalter_url": "https://www.tus-kaisersesch.de/abteilungen/leichtathletik/crosslauf-kaisersesch/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tus-kaisersesch.de/abteilungen/leichtathletik/crosslauf-kaisersesch/. Seite abgerufen, sie nennt den Lauf (kaisersesch). Linkprüfung 2026-09-19."
+  },
+  "20. Int. Brubbellauf|2026-11-21": {
+    "veranstalter_url": "http://www.svwallenborn.de/brubbellauf",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.svwallenborn.de/brubbellauf. Seite abgerufen, sie nennt den Lauf (brubbellauf). Linkprüfung 2026-09-19."
+  },
+  "47. Nikolaus - Crosslauf in Alflen - 4. Lauf der 39. Crosslaufserie Cochem - Zell|2026-12-06": {
+    "veranstalter_url": "http://www.sportverein-alflen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sportverein-alflen.de. Seite abgerufen, sie nennt den Lauf (nikolaus). Linkprüfung 2026-09-19."
+  },
+  "2. Lauf der 39. Crosslauf-Serie Cochem-Zell 2026 in Bremm|2026-10-18": {
+    "veranstalter_url": "http://www.vfl-bremm.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.vfl-bremm.de. Seite abgerufen, sie nennt den Lauf (bremm). Linkprüfung 2026-09-19."
+  },
+  "MB Brandschutz-Nachtwächterlauf|2026-12-12": {
+    "veranstalter_url": "http://www.tvo-leichtathletik.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tvo-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (nachtwachterlauf). Linkprüfung 2026-09-19."
+  },
+  "Freundschaftslauf Wustweiler|2026-11-07": {
+    "veranstalter_url": "https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/. Seite abgerufen, sie nennt den Lauf (freundschaftslauf). Linkprüfung 2026-09-19."
+  },
+  "48. Dübener Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.sv-bad-dueben.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sv-bad-dueben.de. Seite abgerufen, sie nennt den Lauf (dubener). Linkprüfung 2026-09-19."
+  },
+  "18. Solvay Lauf|2026-10-10": {
+    "veranstalter_url": "https://lauf.psv-bernburg.de/solvay-lauf/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://lauf.psv-bernburg.de/solvay-lauf/. Seite abgerufen, sie nennt den Lauf (solvay). Linkprüfung 2026-09-19."
+  },
+  "40. Jahresendlauf|2026-12-12": {
+    "veranstalter_url": "https://sv-badberka.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://sv-badberka.de. Seite abgerufen, sie nennt den Lauf (jahresendlauf). Linkprüfung 2026-09-19."
+  },
+  "23. Falke-Rothaarsteigmarathon|2026-10-17": {
+    "veranstalter_url": "http://www.rothaarsteig-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.rothaarsteig-marathon.de. Seite abgerufen, sie nennt den Lauf (falke). Linkprüfung 2026-09-19."
+  },
+  "36. Active Laufshop Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.silvesterlauf-muenster.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.silvesterlauf-muenster.de. Seite abgerufen, sie nennt den Lauf (active). Linkprüfung 2026-09-19."
+  },
+  "127. Bertlicher Straßenläufe|2026-11-29": {
+    "veranstalter_url": "http://www.bertlicher-sl.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.bertlicher-sl.de. Seite abgerufen, sie nennt den Lauf (bertlicher). Linkprüfung 2026-09-19."
+  },
+  "TeutoMarsch|2026-10-17": {
+    "veranstalter_url": "http://www.tvh1911.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tvh1911.de. Seite abgerufen, sie nennt den Lauf (teutomarsch). Linkprüfung 2026-09-19."
+  },
+  "Int. Weihnachts-Crosslauf|2026-12-14": {
+    "veranstalter_url": "http://www.lcsolbad.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lcsolbad.de. Seite abgerufen, sie nennt den Lauf (weihnachts). Linkprüfung 2026-09-19."
+  },
+  "39. Backnanger Silvesterlauf 2026|2026-12-31": {
+    "veranstalter_url": "https://www.backnanger-silvesterlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.backnanger-silvesterlauf.de. Seite abgerufen, sie nennt den Lauf (backnanger). Linkprüfung 2026-09-19."
+  },
+  "36. Steinheimer Geologenlauf|2026-11-08": {
+    "veranstalter_url": "https://www.geologenlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.geologenlauf.de. Seite abgerufen, sie nennt den Lauf (steinheimer). Linkprüfung 2026-09-19."
+  },
+  "41. Rohrwanglauf|2026-11-07": {
+    "veranstalter_url": "http://rohrwanglauf.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://rohrwanglauf.de/. Seite abgerufen, sie nennt den Lauf (rohrwanglauf). Linkprüfung 2026-09-19."
+  },
+  "34. Stuttgarter Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "http://www.stuttgarter-silvesterlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.stuttgarter-silvesterlauf.de. Seite abgerufen, sie nennt den Lauf (stuttgarter). Linkprüfung 2026-09-19."
+  },
+  "2. Ditzinger Keltenlauf|2026-10-18": {
+    "veranstalter_url": "http://www.keltenlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.keltenlauf.de. Seite abgerufen, sie nennt den Lauf (keltenlauf). Linkprüfung 2026-09-19."
+  },
+  "30. Adventslauf Dornstetten|2026-12-20": {
+    "veranstalter_url": "http://www.tv-dornstetten.de/silvesterlauf",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tv-dornstetten.de/silvesterlauf. Seite abgerufen, sie nennt den Lauf (adventslauf). Linkprüfung 2026-09-19."
+  },
+  "30. Loßburger Waldlauf|2026-10-10": {
+    "veranstalter_url": "http://www.skiclub-lossburg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.skiclub-lossburg.de. Seite abgerufen, sie nennt den Lauf (loburger). Linkprüfung 2026-09-19."
+  },
+  "39. Geislinger Volkslauf|2026-11-15": {
+    "veranstalter_url": "https://leichtathletik.tsv-geislingen.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://leichtathletik.tsv-geislingen.de/. Seite abgerufen, sie nennt den Lauf (geislinger). Linkprüfung 2026-09-19."
+  },
+  "49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute|2026-12-06": {
+    "veranstalter_url": "http://www.crosslaufserie-oberschwaben.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.crosslaufserie-oberschwaben.de. Seite abgerufen, sie nennt den Lauf (oberschwabische). Linkprüfung 2026-09-19."
+  },
+  "37. Käppelelauf 2026|2026-11-01": {
+    "veranstalter_url": "https://www.kaeppelelauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.kaeppelelauf.de. Seite abgerufen, sie nennt den Lauf (kappelelauf). Linkprüfung 2026-09-19."
+  },
+  "21. Trochtelfinger Nordic Walking Stöckles-Cup|2026-10-11": {
+    "veranstalter_url": "https://stoeckles-cup.jimdofree.com/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://stoeckles-cup.jimdofree.com/. Seite abgerufen, sie nennt den Lauf (trochtelfinger). Linkprüfung 2026-09-19."
+  },
+  "Mössinger Apfellauf|2026-10-04": {
+    "veranstalter_url": "http://www.lgsz.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lgsz.de. Seite abgerufen, sie nennt den Lauf (mossinger). Linkprüfung 2026-09-19."
+  },
+  "10. Trainingslauf Bottwartal-Marathon|2026-10-11": {
+    "veranstalter_url": "http://www.bottwartal-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.bottwartal-marathon.de. Seite abgerufen, sie nennt den Lauf (bottwartal). Linkprüfung 2026-09-19."
+  },
+  "29. Generali Köln Marathon|2027-10-03": {
+    "veranstalter_url": "http://www.koeln-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.koeln-marathon.de. Seite abgerufen, sie nennt den Lauf (generali). Linkprüfung 2026-09-19."
+  },
+  "Reeser Rheinlauf|2027-10-03": {
+    "veranstalter_url": "https://turnvereinrees.de/www-reeser-rheinlauf-de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://turnvereinrees.de/www-reeser-rheinlauf-de/. Seite abgerufen, sie nennt den Lauf (reeser). Linkprüfung 2026-09-19."
+  },
+  "12. Weezer Crosslauf|2027-01-23": {
+    "veranstalter_url": "http://www.tsv-weeze-leichtathletik.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tsv-weeze-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (weezer). Linkprüfung 2026-09-19."
+  },
+  "29. Dreiwiesellauf|2027-04-25": {
+    "veranstalter_url": "https://dreiwiesellauf.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://dreiwiesellauf.de/. Seite abgerufen, sie nennt den Lauf (dreiwiesellauf). Linkprüfung 2026-09-19."
+  },
+  "Angerlauf|2027-01-09": {
+    "veranstalter_url": "http://www.sued-cup.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sued-cup.de. Seite abgerufen, sie nennt den Lauf (angerlauf). Linkprüfung 2026-09-19."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-01-31": {
+    "veranstalter_url": "http://www.hildener-at.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.hildener-at.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-02-14": {
+    "veranstalter_url": "http://www.hildener-at.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.hildener-at.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-02-28": {
+    "veranstalter_url": "http://www.hildener-at.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.hildener-at.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "35. Waldlauf auf den Hinsbecker Höhen|2027-01-16": {
+    "veranstalter_url": "http://www.vfl-hinsbeck.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.vfl-hinsbeck.de. Seite abgerufen, sie nennt den Lauf (hinsbecker). Linkprüfung 2026-09-19."
+  },
+  "33. Energie Cross Neukirchen|2027-02-27": {
+    "veranstalter_url": "http://www.sgnh.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sgnh.de. Seite abgerufen, sie nennt den Lauf (energie). Linkprüfung 2026-09-19."
+  },
+  "29. Crosslauf in Dormagen-Straberg|2027-01-16": {
+    "veranstalter_url": "http://www.fc-straberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.fc-straberg.de. Seite abgerufen, sie nennt den Lauf (dormagen). Linkprüfung 2026-09-19."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 3. Lauf|2027-01-09": {
+    "veranstalter_url": "http://sg-bockenberg.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://sg-bockenberg.de. Seite abgerufen, sie nennt den Lauf (winterlaufserie). Linkprüfung 2026-09-19."
+  },
+  "Meerhardt Extreme 2027|2027-02-20": {
+    "veranstalter_url": "http://www.meerhardtextreme.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.meerhardtextreme.de. Seite abgerufen, sie nennt den Lauf (meerhardt). Linkprüfung 2026-09-19."
+  },
+  "20. GVG-Donatuslauf|2027-03-14": {
+    "veranstalter_url": "http://www.donatuslauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.donatuslauf.de. Seite abgerufen, sie nennt den Lauf (donatuslauf). Linkprüfung 2026-09-19."
+  },
+  "14. Kölner Frühlingslauf|2027-03-14": {
+    "veranstalter_url": "http://koelner-fruehlingslauf.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://koelner-fruehlingslauf.de/. Seite abgerufen, sie nennt den Lauf (kolner). Linkprüfung 2026-09-19."
+  },
+  "54. Internationaler Eschweiler Volkslauf|2027-03-21": {
+    "veranstalter_url": "http://www.LSG-Eschweiler.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.LSG-Eschweiler.de. Seite abgerufen, sie nennt den Lauf (eschweiler). Linkprüfung 2026-09-19."
+  },
+  "49. Monschau-Marathon warm-up|2027-08-07": {
+    "veranstalter_url": "http://monschau-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://monschau-marathon.de. Seite abgerufen, sie nennt den Lauf (monschau). Linkprüfung 2026-09-19."
+  },
+  "49. Monschau Marathon|2027-08-08": {
+    "veranstalter_url": "http://www.monschau-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.monschau-marathon.de. Seite abgerufen, sie nennt den Lauf (monschau). Linkprüfung 2026-09-19."
+  },
+  "7. Appelhülsener Landlauf|2027-09-25": {
+    "veranstalter_url": "http://www.appelhuelsener-landlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.appelhuelsener-landlauf.de. Seite abgerufen, sie nennt den Lauf (appelhulsener). Linkprüfung 2026-09-19."
+  },
+  "34. Sälzerlauf 2027|2027-03-20": {
+    "veranstalter_url": "http://www.saelzerlauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.saelzerlauf.de. Seite abgerufen, sie nennt den Lauf (salzerlauf). Linkprüfung 2026-09-19."
+  },
+  "Hoeschparklauf \"Run the Loop\"|2027-03-14": {
+    "veranstalter_url": "http://www.hoeschparklauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.hoeschparklauf.de. Seite abgerufen, sie nennt den Lauf (hoeschparklauf). Linkprüfung 2026-09-19."
+  },
+  "47. Lipperland Marathon|2027-11-20": {
+    "veranstalter_url": "http://www.lipperland-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lipperland-marathon.de. Seite abgerufen, sie nennt den Lauf (lipperland). Linkprüfung 2026-09-19."
+  },
+  "33 um Humfeld|2027-04-25": {
+    "veranstalter_url": "http://www.lipperland-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lipperland-marathon.de. Seite abgerufen, sie nennt den Lauf (humfeld). Linkprüfung 2026-09-19."
+  },
+  "128. Bertlicher Straßenläufe|2027-02-14": {
+    "veranstalter_url": "http://www.bertlicher-sl.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.bertlicher-sl.de. Seite abgerufen, sie nennt den Lauf (bertlicher). Linkprüfung 2026-09-19."
+  },
+  "40. Bönener Lauf - 10. Lauf am Förderturm|2027-01-10": {
+    "veranstalter_url": "http://www.lauffreundeboenen.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lauffreundeboenen.de. Seite abgerufen, sie nennt den Lauf (forderturm). Linkprüfung 2026-09-19."
+  },
+  "30. Generali Köln Marathon|2028-10-01": {
+    "veranstalter_url": "http://www.koeln-marathon.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.koeln-marathon.de. Seite abgerufen, sie nennt den Lauf (generali). Linkprüfung 2026-09-19."
+  },
+  "21. GVG-Donatuslauf|2028-03-12": {
+    "veranstalter_url": "http://www.donatuslauf.de",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.donatuslauf.de. Seite abgerufen, sie nennt den Lauf (donatuslauf). Linkprüfung 2026-09-19."
   }
 }

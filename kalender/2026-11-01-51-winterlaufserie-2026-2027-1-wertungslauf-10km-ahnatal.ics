@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:51. Winterlaufserie 2026/2027\, 1. Wertungslauf
 LOCATION:Ahnatal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V07000098760004
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sportverei
+ n-weimar.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000098760004
+URL:http://www.sportverein-weimar.de
 END:VEVENT
 END:VCALENDAR

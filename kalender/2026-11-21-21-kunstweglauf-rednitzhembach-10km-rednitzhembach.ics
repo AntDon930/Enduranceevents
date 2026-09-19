@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:21. Kunstweglauf Rednitzhembach
 LOCATION:Rednitzhembach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V02000512160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.powerbaers
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000512160000
+URL:http://www.powerbaers.de
 END:VEVENT
 END:VCALENDAR

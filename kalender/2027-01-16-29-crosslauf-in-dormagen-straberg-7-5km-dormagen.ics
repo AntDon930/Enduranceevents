@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:29. Crosslauf in Dormagen-Straberg
 LOCATION:Dormagen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 7.5 km\nhttps://laufen.
- de/laufkalender/details/27V10002015660001
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 7.5 km\nhttp://www.fc-s
+ traberg.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10002015660001
+URL:http://www.fc-straberg.de
 END:VEVENT
 END:VCALENDAR

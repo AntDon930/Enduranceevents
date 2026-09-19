@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:41. Volkswandertag
 LOCATION:Wymeer\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V09900014060000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://svwymeerboen
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09900014060000
+URL:http://svwymeerboen.de
 END:VEVENT
 END:VCALENDAR

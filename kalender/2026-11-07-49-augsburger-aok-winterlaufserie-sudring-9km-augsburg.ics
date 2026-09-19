@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:49. Augsburger AOK-Winterlaufserie Südring
 LOCATION:Augsburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
- kalender/details/26V02000736460005
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://tgva.de/augsbu
+ rger-winterlaufserie/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000736460005
+URL:https://tgva.de/augsburger-winterlaufserie/
 END:VEVENT
 END:VCALENDAR

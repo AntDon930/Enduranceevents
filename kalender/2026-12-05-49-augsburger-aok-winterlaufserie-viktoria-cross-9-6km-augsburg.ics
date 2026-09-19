@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:49. Augsburger AOK-Winterlaufserie Viktoria-Cross
 LOCATION:Augsburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 9.6 km\nhttps://laufen.
- de/laufkalender/details/26V02000736460003
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 9.6 km\nhttps://tgva.de
+ /augsburger-winterlaufserie/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000736460003
+URL:https://tgva.de/augsburger-winterlaufserie/
 END:VEVENT
 END:VCALENDAR

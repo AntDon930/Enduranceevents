@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:Meerhardt Extreme 2027
 LOCATION:Gummersbach Dieringhausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27V10003003460001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.meerhardte
+ xtreme.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10003003460001
+URL:http://www.meerhardtextreme.de
 END:VEVENT
 END:VCALENDAR

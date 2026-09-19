@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270925
 DTEND;VALUE=DATE:20270926
 SUMMARY:7. Appelhülsener Landlauf
 LOCATION:Nottuln-Appelhülsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27V19000011760001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.appelhuels
+ ener-landlauf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V19000011760001
+URL:http://www.appelhuelsener-landlauf.de
 END:VEVENT
 END:VCALENDAR

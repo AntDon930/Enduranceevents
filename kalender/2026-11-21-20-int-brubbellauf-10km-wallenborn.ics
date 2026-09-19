@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:20. Int. Brubbellauf
 LOCATION:Wallenborn\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V13000078760000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.svwallenbo
+ rn.de/brubbellauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13000078760000
+URL:http://www.svwallenborn.de/brubbellauf
 END:VEVENT
 END:VCALENDAR

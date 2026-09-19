@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:41. Klausdorfer Nikolauslauf
 LOCATION:Klausdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.3 km\nhttps://laufen.de/l
- aufkalender/details/26K17000000060023
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.3 km\nhttp://www.tsv-klau
+ sdorf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26K17000000060023
+URL:http://www.tsv-klausdorf.de
 END:VEVENT
 END:VCALENDAR

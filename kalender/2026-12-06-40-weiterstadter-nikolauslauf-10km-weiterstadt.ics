@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:40. Weiterstädter Nikolauslauf
 LOCATION:Weiterstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V07000067060002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tusgriesh
+ eim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000067060002
+URL:https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikol
+ auslauf/
 END:VEVENT
 END:VCALENDAR

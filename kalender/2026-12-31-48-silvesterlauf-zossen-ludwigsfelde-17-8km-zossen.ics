@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:48. Silvesterlauf Zossen-Ludwigsfelde
 LOCATION:Zossen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.8 km\nhttps://laufen.de/l
- aufkalender/details/26V04007215860001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.8 km\nhttp://www.llv-ludw
+ igsfelde.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V04007215860001
+URL:http://www.llv-ludwigsfelde.de
 END:VEVENT
 END:VCALENDAR

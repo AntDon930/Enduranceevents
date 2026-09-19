@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20280109
 DTEND;VALUE=DATE:20280110
 SUMMARY:48. Ratinger Neujahrslauf
 LOCATION:Ratingen Innenstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/28V10002013260001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.asc-rating
+ en.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/28V10002013260001
+URL:http://www.asc-ratingen.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:49. Augsburger AOK-Winterlaufserie Nord-Südring
 LOCATION:Augsburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.9 km\nhttps://laufen.de/la
- ufkalender/details/26V02000736460004
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.9 km\nhttps://tgva.de/augs
+ burger-winterlaufserie/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000736460004
+URL:https://tgva.de/augsburger-winterlaufserie/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:56. Uplengener Adventslauf
 LOCATION:Großoldendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttps://laufen.de/la
- ufkalender/details/26V09000831760000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttp://www.lguplenge
+ n.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000831760000
+URL:http://www.lguplengen.de
 END:VEVENT
 END:VCALENDAR

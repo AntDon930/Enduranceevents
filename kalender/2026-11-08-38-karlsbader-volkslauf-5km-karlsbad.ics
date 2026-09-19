@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:38. Karlsbader Volkslauf
 LOCATION:Karlsbad\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://svl-leichtathl
- etik.de/Veranstaltungen/KarlsbaderVolkslauf/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.svl-leicht
+ athletik.de
 TRANSP:TRANSPARENT
-URL:https://svl-leichtathletik.de/Veranstaltungen/KarlsbaderVolkslauf/
+URL:https://www.svl-leichtathletik.de
 END:VEVENT
 END:VCALENDAR

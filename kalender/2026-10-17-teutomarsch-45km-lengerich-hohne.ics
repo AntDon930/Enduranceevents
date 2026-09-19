@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:TeutoMarsch
 LOCATION:Lengerich-Hohne\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://laufen.de/lau
- fkalender/details/26V19000311260001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttp://www.tvh1911.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000311260001
+URL:http://www.tvh1911.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:34. Kreuzberglauf mit Ufr. Meisterschaften
 LOCATION:Schönau an der Brend\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10.2 km\nhttps://laufen.de/lau
- fkalender/details/26V02900030160000
+DESCRIPTION:Sportart: Laufen / Berg\nLänge: 10.2 km\nhttp://olympia-schoen
+ au.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02900030160000
+URL:http://olympia-schoenau.de/
 END:VEVENT
 END:VCALENDAR

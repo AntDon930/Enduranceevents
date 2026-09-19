@@ -3604,5 +3604,1244 @@
     "quelle": "my.raceresult.com /contact",
     "alt": "https://my.raceresult.com/390497/",
     "notiz": "Kontaktseite: Organizer-URL leer - Link bleibt."
+  },
+  "Nordhessische Crosslaufmeisterschaften|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26K07000001660001",
+    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/13425 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "Kreis Herbst Waldlauf Meisterschaften|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26K07000003550002",
+    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/12846 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "41. Pönitzer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> svg-poenitz.de",
+    "alt": "https://laufen.de/laufkalender/details/26K17000000060006",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "41. Klausdorfer Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tsv-klausdorf.de",
+    "alt": "https://laufen.de/laufkalender/details/26K17000000060023",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Taubertal 100|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> taubertal100.de",
+    "alt": "https://laufen.de/laufkalender/details/26L02000000060000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "5/10k Rainbow Run 2026|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> rainbowrun-frankfurt.de",
+    "alt": "https://laufen.de/laufkalender/details/26L07900005960001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "50. Seligenstädter Winterlaufserie, Lauf 1|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26L07900007060003",
+    "notiz": "laufen.de leitet auf http://www.tria-seligenstadt.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "50. Seligenstädter Winterlaufserie, Lauf 2|2026-12-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26L07900007060004",
+    "notiz": "laufen.de leitet auf http://www.tria-seligenstadt.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "49. Nat. Nikolaus Volkslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V01000031060000",
+    "notiz": "laufen.de leitet auf https://www.br-timing.de weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "38. Int. Forchheimer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sportfreunde-forchheim.de",
+    "alt": "https://laufen.de/laufkalender/details/26V01000037760000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "38. Karlsbader Volkslauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> svl-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/26V01000040660000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "50. Riegeler Crosslauf - Rund um den Michaelsberg|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V01000069660000",
+    "notiz": "laufen.de leitet auf http://tvriegel.com/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "50. Teufelsberglauf 2026|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> teufelsberglauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000115260000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "32. FT Jahn Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000132360000",
+    "notiz": "laufen.de leitet auf http://www.ftjahn-landsberg.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Ainringer Crosslauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sc-ainring.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000150060000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "37. Lauf Rund um den Höglwörther See|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000154160000",
+    "notiz": "laufen.de leitet auf http://www.seelauf-teisendorf.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Burgkirchner Raiffeisen-Crosslauf|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> crosslauf-is.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000160460000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "50. Neuburger Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000172060000",
+    "notiz": "laufen.de leitet auf http://www.tsv1862-neuburg.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "46. landesoffener Nikolaus-Waldlauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000230160000",
+    "notiz": "laufen.de leitet auf http://www.lac-arnstorf.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "39. Frankenwaldlauf um den Preis der Kulmbacher Brauerei|2026-10-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lg-ludwigschorgast.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000430960000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Wiesent Challenge|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wiesent-challenge.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000431460000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "21. Kunstweglauf Rednitzhembach|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> powerbaers.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000512160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "17. Hueber-Silvesterlauf in Pleinfeld|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000513160000",
+    "notiz": "laufen.de leitet auf https://arriba-goeppersdorf.de/silvesterlauf/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Citylauf Schwabach|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000552660000",
+    "notiz": "laufen.de leitet auf https://schwabacher-citylauf-2026.racepedia.de weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 1.Termin|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 2.Termin|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 3.Termin|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 4.Termin|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 5.Termin|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "43. Winter Crosslaufserie 2026/27 / 6.Termin|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wintercross.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000611960005",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "44. Nikolaus-Lauf in Ochsenfurt|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tvochsenfurt-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000642160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Lauf um den Eisbrunn - 1. Lauf der Jedermannserie|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lg-donau-ries.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000730860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "59. Int. LEW Silvesterlauf Gersthofen|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> silvester-lauf-gersthofen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000732560000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Riespanoramalauf - 3. Lauf der Jedermannlaufserie|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000735260002",
+    "notiz": "laufen.de leitet auf http://www.lg-donau-ries.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Lauf am Lech - 2. Lauf der Jedermannserie|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000735660000",
+    "notiz": "laufen.de leitet auf http://www.lg-donau-ries.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "49. Augsburger AOK Winterlaufserie Weihnachtslauf|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tgva.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000736460002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "49. Augsburger AOK-Winterlaufserie Viktoria-Cross|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tgva.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000736460003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "49. Augsburger AOK-Winterlaufserie Nord-Südring|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tgva.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000736460004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "49. Augsburger AOK-Winterlaufserie Südring|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tgva.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02000736460005",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Schlößlelauf - 4. Lauf der Jedermannlaufserie|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000739360000",
+    "notiz": "laufen.de leitet auf http://www.lg-donau-ries.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Lauf am Weißen Kreuz - 5. Lauf der Jedermannlaufserie|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V02000739360001",
+    "notiz": "laufen.de leitet auf http://www.lg-donau-ries.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "34. Kreuzberglauf mit Ufr. Meisterschaften|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> olympia-schoenau.de",
+    "alt": "https://laufen.de/laufkalender/details/26V02900030160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "62. SCC Cross Country|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V03000101960005",
+    "notiz": "laufen.de leitet auf https://www.strassenlauf.org/va_details.php?id=956 weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+  },
+  "Gaudilauf 27|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> elsterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V04006221560000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Gaudilauf 14|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> elsterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V04006221560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "48. Silvesterlauf Zossen-Ludwigsfelde|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> llv-ludwigsfelde.de",
+    "alt": "https://laufen.de/laufkalender/details/26V04007215860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "41. Silvesterlauf der LAV Hamburg-Nord|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> walddoerfer-sv.de",
+    "alt": "https://laufen.de/laufkalender/details/26V06000100160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "33. Winterlaufserie TSV Blau-Weiß Ippinghausen, 1. Lauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wila-ippinghausen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000023960004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "33. Winterlaufserie TSV Blau-Weiß Ippinghausen, 2.Lauf|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wila-ippinghausen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000023960005",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "50. Limes- Winterlaufserie - 1. Lauf über 10 km|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> turnverein07.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000032460003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "48. Spiridon Mainova Silvesterlauf 2026|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> spiridon-silvesterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000046760001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "40. Weiterstädter Nikolauslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tusgriesheim.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000067060002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "57. Pfungstädter Advents-Crosslauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V07000067860001",
+    "notiz": "laufen.de leitet auf http://www.pfungstadt-leichtathletik.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "33. Villmarer Dorflauf|2026-11-28": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V07000095060002",
+    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/12310 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "51. Winterlaufserie 2026/2027, 1. Wertungslauf|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sportverein-weimar.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000098760004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "51. Winterlaufserie 2026/2027, 2. Wertungslauf|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sportverein-weimar.de",
+    "alt": "https://laufen.de/laufkalender/details/26V07000098760005",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "46. Winterlaufserie Rodgau Jügesheim (2)|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V07010002760004",
+    "notiz": "laufen.de leitet auf https://www.troialaufevents.de/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "46. Winterlaufserie Rodgau Jügesheim (1)|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V07010002760005",
+    "notiz": "laufen.de leitet auf https://www.troialaufevents.de/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Graal-Müritzer Schneckenlauf|2026-11-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V08000012660000",
+    "notiz": "laufen.de leitet auf https://tollense-timing.de/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "25. VR - Bank Mitte Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> vrbankmitte-silvesterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000133460000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "44. Adventslauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V09000190160000",
+    "notiz": "laufen.de leitet auf http://ch.olbrich@gmx.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "51. Emmerthaler Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tsg-emmerthal.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000321360000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "25. Volkslauf mit Walking um den AWB See|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V09000330360000",
+    "notiz": "laufen.de leitet auf https://tus-altwarmbuechen.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "44. Winser Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V09000411660000",
+    "notiz": "laufen.de leitet auf http://mtv-fichte.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "46. Volkswaldlauf des MTV Borstel-Sangenstedt|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> MTV-Borstel-Sangenstedt.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000420360000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "2. Lauf Winterlaufserie 2026/2027|2026-12-13": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wellen-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000514560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "1. Lauf Winterlaufserie 2026/2027|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> wellen-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000514560002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tusjaderberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000680760006",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tusjaderberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000680760007",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tusjaderberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000680760008",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tusjaderberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000680760009",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "OTB Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> laufen-os.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000760260000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "56. Uplengener Adventslauf|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lguplengen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09000831760000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "41. Burgwedeler Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sv-burgwedel.de",
+    "alt": "https://laufen.de/laufkalender/details/26V09900005160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "6. Volksbank run Crosslauf Beach Edition|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V10001011260003",
+    "notiz": "laufen.de leitet auf http://www.leichtathletik.tus-xanten.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "22. BKK Walking am Baldeneysee mit Mini-Marathon|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V10002004860002",
+    "notiz": "laufen.de leitet auf http://www.bkk-walkingday.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "35. Blumensaatlauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> Blumensaatlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10002004860004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Martins-Cross-Lauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> preussen-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10002009860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 1. Lauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sg-bockenberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10003001560002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 2. Lauf|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sg-bockenberg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10003001560003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "39. VR-Bank Bonn Rhein-Sieg eG Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lc-euskirchen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10004002960001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> djk-gillrath.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10004003360002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "67. Hambacher Herbstwaldlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V10004003860001",
+    "notiz": "laufen.de leitet auf http://www.djk-loewe-hambach.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "46. Internationaler Halbmarathon, 56. Internationaler Volkslauf|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V10004004160001",
+    "notiz": "laufen.de leitet auf http://www.djk-herzogenrath.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "32. Rurbrückenlauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V10004005660001",
+    "notiz": "laufen.de leitet auf https://www.pol-tuslinnich.de/index.php weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "29. Rursee Marathon|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> rursee-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10004007660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Lichterlauf in Steckenborn|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> komet-steckenborn.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10004008160002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tuszuelpich-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/26V10004009860002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Rennbahncross mit rheinland-pfälzischen Crosslaufmeisterschaften|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tv-herxheim.de",
+    "alt": "https://laufen.de/laufkalender/details/26V11000001960002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Rülzheimer Crosslauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lgruelzheim.de",
+    "alt": "https://laufen.de/laufkalender/details/26V11000003960003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "44. Silvesterlauf Schifferstadt|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lc-schifferstadt.de",
+    "alt": "https://laufen.de/laufkalender/details/26V11000004460003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "52. Int. Silvester-Straßenlauf Kottweiler-Schwanden|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sv-kottweiler-schwanden.de",
+    "alt": "https://laufen.de/laufkalender/details/26V11000024061001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Ruppertslauf|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V11000026160001",
+    "notiz": "laufen.de leitet auf https://endurance-team-pirmasens.jimdosite.com/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "3. Lauf der 39. Crosslauf-Serie 2026 Cochem-Zell in Kaisersesch|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tus-kaisersesch.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000036960000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "1. Lauf der 17. OIE-Nahe-Crosslaufserie|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V13000056560001",
+    "notiz": "laufen.de leitet auf https://my.raceresult.com/ weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "20. Int. Brubbellauf|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> svwallenborn.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000078760000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "1. Lauf 38. Winterlaufserie|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V13000125160005",
+    "notiz": "laufen.de leitet auf http://www.djk-ochtendung.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "50. Internationaler Wurzelweg-Lauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V13000135460000",
+    "notiz": "laufen.de leitet auf https://www.chiplauf.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "47. Nikolaus - Crosslauf in Alflen - 4. Lauf der 39. Crosslaufserie Cochem - Zell|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sportverein-alflen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000158860000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "2. Lauf der 39. Crosslauf-Serie Cochem-Zell 2026 in Bremm|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> vfl-bremm.de",
+    "alt": "https://laufen.de/laufkalender/details/26V13000174260000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Schwollener Crosslauf - 2. Lauf der 17. OIE Nahecrosslaufserie|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V13000541960000",
+    "notiz": "laufen.de leitet auf http://www.nahe-cross.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "Crosslauf Rund um das Stadion|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V14000002660000",
+    "notiz": "laufen.de leitet auf http://www.tvelm.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "MB Brandschutz-Nachtwächterlauf|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tvo-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/26V14000007960000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Freundschaftslauf Wustweiler|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> llgwustweiler.de",
+    "alt": "https://laufen.de/laufkalender/details/26V14000012460000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "1. Pumpkin run|2026-10-25": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V14000019260001",
+    "notiz": "laufen.de leitet auf https://lcfru.de/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "48. Dübener Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sv-bad-dueben.de",
+    "alt": "https://laufen.de/laufkalender/details/26V15000016160001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Lusatian Race Walking|2026-10-24": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V15000034164000",
+    "notiz": "laufen.de leitet auf https://my.raceresult.com weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "30. Braunsteichlauf Weißwasser|2026-11-21": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V15900001860003",
+    "notiz": "laufen.de leitet auf https://baer-service.de/anmeldung/BTL weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+  },
+  "18. Solvay Lauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lauf.psv-bernburg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V16000170160001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "29. Mausebergecrosslauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V17000041860001",
+    "notiz": "laufen.de leitet auf https://www.sportinhusum.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "40. Jahresendlauf|2026-12-12": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sv-badberka.de",
+    "alt": "https://laufen.de/laufkalender/details/26V18000002360001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "22. Flutlicht-Crosslauf|2026-11-06": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V19000161660001",
+    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/12826 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "23. Falke-Rothaarsteigmarathon|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> rothaarsteig-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/26V19000221160002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "36. Active Laufshop Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> silvesterlauf-muenster.de",
+    "alt": "https://laufen.de/laufkalender/details/26V19000243060003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "127. Bertlicher Straßenläufe|2026-11-29": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> bertlicher-sl.de",
+    "alt": "https://laufen.de/laufkalender/details/26V19000270160004",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "52. Steinfurter Nikolauslauf 10 km|2026-12-05": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V19000301660001",
+    "notiz": "laufen.de leitet auf https://www.marathon-steinfurt.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "39. Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V19000302060001",
+    "notiz": "laufen.de leitet auf https://my.raceresult.com/?lang=de weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "TeutoMarsch|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tvh1911.de",
+    "alt": "https://laufen.de/laufkalender/details/26V19000311260001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "42. Silvesterlauf 2026|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V19000340860002",
+    "notiz": "laufen.de leitet auf http://www.post-sv-gt.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "Int. Weihnachts-Crosslauf|2026-12-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lcsolbad.de",
+    "alt": "https://laufen.de/laufkalender/details/26V19000513460003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "39. Backnanger Silvesterlauf 2026|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> backnanger-silvesterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000232560000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "3. WMF BKK AST Süßen Herbstlauf|2026-11-22": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V20000313960000",
+    "notiz": "laufen.de leitet auf https://www.suessener-stadtlauf.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "36. Steinheimer Geologenlauf|2026-11-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> geologenlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000331460000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "41. Rohrwanglauf|2026-11-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> rohrwanglauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000358160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "34. Stuttgarter Silvesterlauf|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> stuttgarter-silvesterlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000412960000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "2. Ditzinger Keltenlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> keltenlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000511360000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "30. Adventslauf Dornstetten|2026-12-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tv-dornstetten.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000551160000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "30. Loßburger Waldlauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> skiclub-lossburg.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000551360000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "39. Geislinger Volkslauf|2026-11-15": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> leichtathletik.tsv-geislingen.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000651360001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Biberacher Genießerlauf|2026-10-18": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V20000714460000",
+    "notiz": "laufen.de leitet auf https://www.datasport.de/anmeldeservice/halbmarathonbiberach2025 weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+  },
+  "49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute|2026-12-06": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> crosslaufserie-oberschwaben.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000733560000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "49. Herbstlauf Ready4Run Niederwangen|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/26V20000734360002",
+    "notiz": "laufen.de leitet auf https://my.raceresult.com/clubs/5444/ weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "37. Käppelelauf 2026|2026-11-01": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> kaeppelelauf.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000814060000",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "21. Trochtelfinger Nordic Walking Stöckles-Cup|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> stoeckles-cup.jimdofree.com",
+    "alt": "https://laufen.de/laufkalender/details/26V20000832060001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Mössinger Apfellauf|2026-10-04": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lgsz.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20000855160001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "10. Trainingslauf Bottwartal-Marathon|2026-10-11": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> bottwartal-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/26V20900004060015",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Crosslauf-Kreismeisterschaften|2027-01-09": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27K19019000450001",
+    "notiz": "laufen.de leitet auf https://www.lv-oelde.de/de/veranstaltungen/oelder-berg--und-crosslauf/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "50. Seligenstädter Winterlaufserie, Lauf 3|2027-01-16": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27L07900007060001",
+    "notiz": "laufen.de leitet auf http://www.tria-seligenstadt.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "50. Seligenstädter Winterlaufserie, Lauf 4|2027-02-20": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27L07900007060002",
+    "notiz": "laufen.de leitet auf http://www.tria-seligenstadt.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "29. Generali Köln Marathon|2027-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> koeln-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/27L10009910860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Reeser Rheinlauf|2027-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> turnvereinrees.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10001007660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Sieben-Quellen-Crosslauf|2027-02-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10001009460001",
+    "notiz": "laufen.de leitet auf https://sv19straelen.de/ weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "12. Weezer Crosslauf|2027-01-23": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> tsv-weeze-leichtathletik.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10001010760001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "29. Dreiwiesellauf|2027-04-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> dreiwiesellauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10001010960001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Angerlauf|2027-01-09": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sued-cup.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10001011560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "70. Winterwaldlauf|2027-01-23": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10002004860001",
+    "notiz": "laufen.de leitet auf http://www.tusem-leichtathletik.de/index.php/waldlaufserie.html weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-01-31": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> hildener-at.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002007360001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-02-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> hildener-at.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002007360002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "15. Winterlaufserie der Hildener AT|2027-02-28": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> hildener-at.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002007360003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "35. Waldlauf auf den Hinsbecker Höhen|2027-01-16": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> vfl-hinsbeck.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002007760001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "33. Energie Cross Neukirchen|2027-02-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sgnh.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002011960001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "47. Ratinger Neujahrslauf|2027-01-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> asc-ratingen.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002013260001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "29. Crosslauf in Dormagen-Straberg|2027-01-16": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> fc-straberg.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10002015660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "57. Winterlaufserie der SG Bockenberg 26/27, 3. Lauf|2027-01-09": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> sg-bockenberg.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10003001560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Meerhardt Extreme 2027|2027-02-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> meerhardtextreme.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10003003460001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "20. GVG-Donatuslauf|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> donatuslauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10003004560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "14. Kölner Frühlingslauf|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> koelner-fruehlingslauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10003007660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "11. Nachtlauf rund um den Fühlinger See|2027-03-19": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10003008260001",
+    "notiz": "laufen.de leitet auf http://www.llg80.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "42. Winterserie des LSV Porz 1. Lauf|2027-01-24": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10003012060001",
+    "notiz": "laufen.de leitet auf http://www.helmuturbach.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "42. Winterserie des LSV Porz 2. Lauf|2027-02-14": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10003012060002",
+    "notiz": "laufen.de leitet auf http://www.helmuturbach.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "42. Winterserie des LSV Porz 3. Lauf|2027-02-28": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10003012060003",
+    "notiz": "laufen.de leitet auf http://www.helmuturbach.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "54. Internationaler Eschweiler Volkslauf|2027-03-21": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> LSG-Eschweiler.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10004002660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "52. Gillrather Crosslauf|2027-01-09": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V10004003360001",
+    "notiz": "laufen.de leitet auf http://www.djk-gillrath.de weiter, die Seite nennt den Lauf aber nicht erkennbar - nicht übernommen, Portallink bleibt."
+  },
+  "49. Monschau-Marathon warm-up|2027-08-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> monschau-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10004005260002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "49. Monschau Marathon|2027-08-08": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> monschau-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/27V10004005260003",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "7. Appelhülsener Landlauf|2027-09-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> appelhuelsener-landlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000011760001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Stadtfestlauf Lüdinghausen|2027-09-17": {
+    "am": "2026-09-19",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V19000013960001",
+    "notiz": "laufen.de leitet auf https://www.lh-lauf.de weiter, die Seite nennt den Lauf aber nicht erkennbar (leer/JavaScript) - nicht übernommen, Portallink bleibt."
+  },
+  "34. Sälzerlauf 2027|2027-03-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> saelzerlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000081760501",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "Hoeschparklauf \"Run the Loop\"|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> hoeschparklauf.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000110660001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "47. Lipperland Marathon|2027-11-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lipperland-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000180860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "33 um Humfeld|2027-04-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lipperland-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000180860002",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "128. Bertlicher Straßenläufe|2027-02-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> bertlicher-sl.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000270160001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "40. Bönener Lauf - 10. Lauf am Förderturm|2027-01-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> lauffreundeboenen.de",
+    "alt": "https://laufen.de/laufkalender/details/27V19000322260001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "11. Werler Frühlingslauf|2027-03-20": {
+    "am": "2026-09-19",
+    "ergebnis": "link_ok",
+    "quelle": "laufen.de-Weiterleitung",
+    "alt": "https://laufen.de/laufkalender/details/27V19000324160501",
+    "notiz": "laufen.de leitet auf https://my.raceresult.com/ weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+  },
+  "30. Generali Köln Marathon|2028-10-01": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> koeln-marathon.de",
+    "alt": "https://laufen.de/laufkalender/details/28L10009910860001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "48. Ratinger Neujahrslauf|2028-01-09": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> asc-ratingen.de",
+    "alt": "https://laufen.de/laufkalender/details/28V10002013260001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+  },
+  "21. GVG-Donatuslauf|2028-03-12": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de-Weiterleitung -> donatuslauf.de",
+    "alt": "https://laufen.de/laufkalender/details/28V10003004560001",
+    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   }
 }

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:15. Winterlaufserie der Hildener AT
 LOCATION:Hilden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/27V10002007360003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.hildener-at
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10002007360003
+URL:http://www.hildener-at.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:25. VR - Bank Mitte Silvesterlauf
 LOCATION:Bernshausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09000133460000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.vrbankmitt
+ e-silvesterlauf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000133460000
+URL:http://www.vrbankmitte-silvesterlauf.de
 END:VEVENT
 END:VCALENDAR

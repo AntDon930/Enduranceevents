@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:2. Ditzinger Keltenlauf
 LOCATION:Ditzingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://laufen.de/lau
- fkalender/details/26V20000511360000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttp://www.keltenlauf
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000511360000
+URL:http://www.keltenlauf.de
 END:VEVENT
 END:VCALENDAR

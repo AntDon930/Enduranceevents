@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20280312
 DTEND;VALUE=DATE:20280313
 SUMMARY:21. GVG-Donatuslauf
 LOCATION:Erftstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/28V10003004560001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.donatusl
+ auf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/28V10003004560001
+URL:http://www.donatuslauf.de
 END:VEVENT
 END:VCALENDAR

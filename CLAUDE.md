@@ -890,6 +890,40 @@ als **PDF mit kaputter Zeichenzuordnung** (Sondershausen), hinter
 (dynamisch, nicht lesbar – Oppau, Apfelstaffel). Und **Jahreswechsel-
 Prognosen** (Borken) sieht keine Regel.
 
+### Achter Durchgang: die laufen.de-Weiterleitungen (19.09.2026)
+
+Beim Prüfen eines Portallinks fiel auf, dass **jeder gespeicherte
+`laufen.de/laufkalender/details/<id>`-Link per 302 weiterleitet** –
+auf genau den Veranstalter-Link, den der DLV-Kalender selbst hinterlegt
+hat. 208 verschiedene Detaillinks (215 Zeilen) per HEAD aufgelöst
+(2 s Pause), 182 hatten ein Ziel. Dann jede Zielseite abgerufen und
+geprüft, ob sie den Lauf nennt (ein unverwechselbares Wort des Namens
+oder das Datum im Text bzw. im Hostnamen – „lauf", „marathon",
+„Sparkasse" zählen nicht):
+
+| | Zahl | Folge |
+|---|---|---|
+| Zielseite nennt den Lauf | **120** Veranstaltungen | Override `veranstalter_url`, protokolliert in `links_geprueft.json` (`korrigiert`) |
+| Zielseite nennt ihn nicht erkennbar / leer | 45 | `unklar` mit dem Ziel in der Notiz – Portallink bleibt |
+| Ziel ist selbst Portal oder Anmeldung (lanet3, raceresult, datasport, racepedia) oder gar keine Adresse | 14 | `link_ok`, kein besserer Link |
+| kein Redirect (laufen.de zeigt die Detailseite selbst) | 26 | nichts zu tun |
+
+Damit sind von 215 laufen.de-Portalzeilen **98 übrig**; die
+Audit-Kategorie „Portallink" fällt von 791 auf rund 100 laufen.de- plus
+die raceresult-Zeilen. Beim nächsten Datenlauf kommt das für NEUE
+Events wieder – deshalb Entscheidungspunkt 15 (Scraper folgt der
+Weiterleitung). Die Werkzeuge liegen nicht im Repo (zwei kurze
+Skripte im Chat); wenn der Nutzer Punkt 15 ablehnt, lohnt ein
+`scripts/laufen_redirects.py` nach demselben Muster.
+
+**Die raceresult-Kontaktseiten sind dagegen mager**: 23 weitere
+abgerufen, alle schon in der Linkprüfung vom Vortag – und zwei
+„Funde" (crossfitrecklinghausen.de, tusem-leichtathletik.de) waren
+dort bereits als 404 bzw. leere Domain abgelegt. **Vor jeder
+Linkarbeit `links_geprueft.json` UND `geprueft.json` filtern**, nicht
+nur eines von beiden. 225 raceresult-Veranstaltungen sind noch ganz
+ungeprüft (Punkt 10).
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -2246,6 +2280,21 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **Spaßformate**: Schweiger Tragathlon (Bierkasten-Tragen in
      Viererteams), The Quest Auwald (Checkpoint-Jagd über 2/3 h,
      Strecke frei), Pace Race Nürnberg („Social Racing"-Arena).
+
+15. **Scraper-Ergänzung: die laufen.de-Weiterleitung mitnehmen.** Jeder
+   gespeicherte `laufen.de/laufkalender/details/<id>`-Link leitet per
+   302 auf den Veranstalter-Link des DLV-Kalenders weiter (siehe „Achter
+   Durchgang"). `enrich_from_details()` folgt der Weiterleitung, parst
+   dann die Veranstalterseite als wäre sie eine laufen.de-Detailseite
+   und findet dort natürlich keinen „organizer_url" – so bleibt der
+   Portallink stehen. Vorschlag (ein paar Zeilen in
+   `laufkalender_scraper.py`): `allow_redirects=False` beim Abruf, und
+   zeigt `Location` auf einen fremden Host, diesen als
+   `veranstalter_url` nehmen – außer er ist Portal/Anmeldung
+   (`lanet3.de`, `my.raceresult.com`, `datasport.de`, `racepedia.de`,
+   Facebook). Sonst holt sich jeder neue Datenlauf wieder Portallinks,
+   die heute per Override (120 Stück) ersetzt sind. **Scraper-Änderung,
+   also erst mit Ja.**
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:57. Winterlaufserie der SG Bockenberg 26/27\, 3. Lauf
 LOCATION:Bergisch Gladbach-Bensberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.7 km\nhttps://laufen.de/l
- aufkalender/details/27V10003001560001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.7 km\nhttp://sg-bockenber
+ g.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10003001560001
+URL:http://sg-bockenberg.de
 END:VEVENT
 END:VCALENDAR

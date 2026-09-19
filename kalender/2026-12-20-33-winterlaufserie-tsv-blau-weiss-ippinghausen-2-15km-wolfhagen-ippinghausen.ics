@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:33. Winterlaufserie TSV Blau-Weiß Ippinghausen\, 2.Lauf
 LOCATION:Wolfhagen-Ippinghausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
- fkalender/details/26V07000023960005
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://www.wila-ippin
+ ghausen.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000023960005
+URL:http://www.wila-ippinghausen.de
 END:VEVENT
 END:VCALENDAR

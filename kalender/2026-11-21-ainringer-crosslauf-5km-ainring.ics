@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Ainringer Crosslauf
 LOCATION:Ainring\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttps://laufen.de
- /laufkalender/details/26V02000150060000
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttp://www.sc-ain
+ ring.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000150060000
+URL:http://www.sc-ainring.de
 END:VEVENT
 END:VCALENDAR

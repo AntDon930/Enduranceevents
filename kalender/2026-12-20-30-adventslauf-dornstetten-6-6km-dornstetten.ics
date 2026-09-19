@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:30. Adventslauf Dornstetten
 LOCATION:Dornstetten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttps://laufen.de/la
- ufkalender/details/26V20000551160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttp://www.tv-dornst
+ etten.de/silvesterlauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000551160000
+URL:http://www.tv-dornstetten.de/silvesterlauf
 END:VEVENT
 END:VCALENDAR

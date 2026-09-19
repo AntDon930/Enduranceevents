@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:MB Brandschutz-Nachtwächterlauf
 LOCATION:Ottweiler\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V14000007960000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tvo-leicht
+ athletik.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V14000007960000
+URL:http://www.tvo-leichtathletik.de
 END:VEVENT
 END:VCALENDAR

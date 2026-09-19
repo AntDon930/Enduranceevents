@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:52. Int. Silvester-Straßenlauf Kottweiler-Schwanden
 LOCATION:Kottweiler-Schwanden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V11000024061001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-kottwei
+ ler-schwanden.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V11000024061001
+URL:http://www.sv-kottweiler-schwanden.de
 END:VEVENT
 END:VCALENDAR

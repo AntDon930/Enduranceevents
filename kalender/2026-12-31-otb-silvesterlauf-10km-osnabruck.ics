@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:OTB Silvesterlauf
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09000760260000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen-os.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000760260000
+URL:https://laufen-os.de
 END:VEVENT
 END:VCALENDAR

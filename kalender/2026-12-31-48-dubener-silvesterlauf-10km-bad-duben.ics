@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:48. Dübener Silvesterlauf
 LOCATION:Bad Düben\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V15000016160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-bad-due
+ ben.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V15000016160001
+URL:http://www.sv-bad-dueben.de
 END:VEVENT
 END:VCALENDAR

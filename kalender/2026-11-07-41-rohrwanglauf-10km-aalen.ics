@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:41. Rohrwanglauf
 LOCATION:Aalen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V20000358160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://rohrwanglauf.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000358160000
+URL:http://rohrwanglauf.de/
 END:VEVENT
 END:VCALENDAR

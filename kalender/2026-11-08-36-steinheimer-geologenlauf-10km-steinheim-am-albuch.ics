@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:36. Steinheimer Geologenlauf
 LOCATION:Steinheim am Albuch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V20000331460000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.geologenl
+ auf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000331460000
+URL:https://www.geologenlauf.de
 END:VEVENT
 END:VCALENDAR

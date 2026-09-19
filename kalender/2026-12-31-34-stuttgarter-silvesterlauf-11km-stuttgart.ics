@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:34. Stuttgarter Silvesterlauf
 LOCATION:Stuttgart\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://laufen.de/lau
- fkalender/details/26V20000412960000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.stuttgarte
+ r-silvesterlauf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000412960000
+URL:http://www.stuttgarter-silvesterlauf.de
 END:VEVENT
 END:VCALENDAR

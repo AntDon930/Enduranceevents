@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Lichterlauf in Steckenborn
 LOCATION:Steckenborn\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V10004008160002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://komet-steckenb
+ orn.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004008160002
+URL:http://komet-steckenborn.de
 END:VEVENT
 END:VCALENDAR

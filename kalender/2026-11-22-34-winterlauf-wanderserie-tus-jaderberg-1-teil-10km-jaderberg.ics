@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil
 LOCATION:Jaderberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09000680760007
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://tusjaderberg.d
+ e
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000680760007
+URL:http://tusjaderberg.de
 END:VEVENT
 END:VCALENDAR

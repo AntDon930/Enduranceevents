@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:127. Bertlicher Straßenläufe
 LOCATION:Herten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
- aufkalender/details/26V19000270160004
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.bertlich
+ er-sl.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000270160004
+URL:http://www.bertlicher-sl.de
 END:VEVENT
 END:VCALENDAR

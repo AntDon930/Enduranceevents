@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20281001
 DTEND;VALUE=DATE:20281002
 SUMMARY:30. Generali Köln Marathon
 LOCATION:Köln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
- aufkalender/details/28L10009910860001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.koeln-ma
+ rathon.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/28L10009910860001
+URL:http://www.koeln-marathon.de
 END:VEVENT
 END:VCALENDAR

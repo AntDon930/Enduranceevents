@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:2. Lauf Winterlaufserie 2026/2027
 LOCATION:Beverstedt-Wellen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://laufen.de/lau
- fkalender/details/26V09000514560001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.wellen-mar
+ athon.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000514560001
+URL:http://www.wellen-marathon.de
 END:VEVENT
 END:VCALENDAR

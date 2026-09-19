@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:51. Emmerthaler Silvesterlauf
 LOCATION:Emmerthal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/26V09000321360000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.tsg-emmerth
+ al.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000321360000
+URL:http://www.tsg-emmerthal.de
 END:VEVENT
 END:VCALENDAR

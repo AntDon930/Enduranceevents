@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:39. Backnanger Silvesterlauf 2026
 LOCATION:Backnang\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V20000232560000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.backnange
+ r-silvesterlauf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000232560000
+URL:https://www.backnanger-silvesterlauf.de
 END:VEVENT
 END:VCALENDAR

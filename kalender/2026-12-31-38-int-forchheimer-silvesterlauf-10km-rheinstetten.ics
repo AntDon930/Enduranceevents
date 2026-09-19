@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:38. Int. Forchheimer Silvesterlauf
 LOCATION:Rheinstetten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V01000037760000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sportfreu
+ nde-forchheim.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V01000037760000
+URL:https://www.sportfreunde-forchheim.de/
 END:VEVENT
 END:VCALENDAR

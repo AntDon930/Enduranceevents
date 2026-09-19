@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:57. Winterlaufserie der SG Bockenberg 26/27\, 1. Lauf
 LOCATION:Bergisch Gladbach-Bensberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://laufen.de/la
- ufkalender/details/26V10003001560002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttp://sg-bockenberg
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10003001560002
+URL:http://sg-bockenberg.de
 END:VEVENT
 END:VCALENDAR

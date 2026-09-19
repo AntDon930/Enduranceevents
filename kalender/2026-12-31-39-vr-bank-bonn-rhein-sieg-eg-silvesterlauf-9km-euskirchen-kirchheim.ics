@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:39. VR-Bank Bonn Rhein-Sieg eG Silvesterlauf
 LOCATION:Euskirchen Kirchheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
- kalender/details/26V10004002960001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.lc-euskirc
+ hen.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004002960001
+URL:https://www.lc-euskirchen.de
 END:VEVENT
 END:VCALENDAR

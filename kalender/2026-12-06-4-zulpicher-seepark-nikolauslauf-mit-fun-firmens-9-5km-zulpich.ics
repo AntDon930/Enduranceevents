@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel
 LOCATION:Zülpich\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.5 km\nhttps://laufen.de/la
- ufkalender/details/26V10004009860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.5 km\nhttps://www.tuszuelp
+ ich-leichtathletik.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004009860002
+URL:https://www.tuszuelpich-leichtathletik.de/
 END:VEVENT
 END:VCALENDAR

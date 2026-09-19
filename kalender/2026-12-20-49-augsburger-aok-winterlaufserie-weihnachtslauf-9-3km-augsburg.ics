@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:49. Augsburger AOK Winterlaufserie Weihnachtslauf
 LOCATION:Augsburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://laufen.de/la
- ufkalender/details/26V02000736460002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://tgva.de/augs
+ burger-winterlaufserie/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000736460002
+URL:https://tgva.de/augsburger-winterlaufserie/
 END:VEVENT
 END:VCALENDAR

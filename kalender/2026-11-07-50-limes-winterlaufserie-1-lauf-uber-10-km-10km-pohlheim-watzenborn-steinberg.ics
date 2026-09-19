@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:50. Limes- Winterlaufserie - 1. Lauf über 10 km
 LOCATION:Pohlheim\, Watzenborn- Steinberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V07000032460003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://turnverein07.d
+ e
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000032460003
+URL:http://turnverein07.de
 END:VEVENT
 END:VCALENDAR

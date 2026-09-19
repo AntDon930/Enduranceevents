@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:47. Geilenkirchener Volkslauf und 34. Halbmarathon
 LOCATION:Geilenkirchen - Gillrath\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V10004003360002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.djk-gill
+ rath.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004003360002
+URL:http://www.djk-gillrath.de
 END:VEVENT
 END:VCALENDAR

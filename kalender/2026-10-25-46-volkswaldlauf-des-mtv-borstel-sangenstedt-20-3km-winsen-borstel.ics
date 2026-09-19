@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:46. Volkswaldlauf des MTV Borstel-Sangenstedt
 LOCATION:Winsen-Borstel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.3 km\nhttps://laufen.de/l
- aufkalender/details/26V09000420360000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.3 km\nhttp://www.MTV-Bors
+ tel-Sangenstedt.de/Volkslauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000420360000
+URL:http://www.MTV-Borstel-Sangenstedt.de/Volkslauf
 END:VEVENT
 END:VCALENDAR

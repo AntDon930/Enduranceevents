@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:39. Frankenwaldlauf um den Preis der Kulmbacher Brauerei
 LOCATION:Ludwigschorgast\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://laufen.de/lau
- fkalender/details/26V02000430960000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://lg-ludwigschor
+ gast.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000430960000
+URL:http://lg-ludwigschorgast.de
 END:VEVENT
 END:VCALENDAR

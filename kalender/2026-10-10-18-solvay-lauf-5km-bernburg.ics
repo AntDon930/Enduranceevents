@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:18. Solvay Lauf
 LOCATION:Bernburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/26V16000170160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lauf.psv-bernb
+ urg.de/solvay-lauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V16000170160001
+URL:https://lauf.psv-bernburg.de/solvay-lauf/
 END:VEVENT
 END:VCALENDAR

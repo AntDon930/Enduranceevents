@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:44. Nikolaus-Lauf in Ochsenfurt
 LOCATION:Ochsenfurt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://laufen.de/la
- ufkalender/details/26V02000642160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.tvochsen
+ furt-leichtathletik.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000642160000
+URL:https://www.tvochsenfurt-leichtathletik.de
 END:VEVENT
 END:VCALENDAR

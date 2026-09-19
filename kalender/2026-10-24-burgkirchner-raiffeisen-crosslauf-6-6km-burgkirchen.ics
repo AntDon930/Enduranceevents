@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Burgkirchner Raiffeisen-Crosslauf
 LOCATION:Burgkirchen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6.6 km\nhttps://laufen.
- de/laufkalender/details/26V02000160460000
+DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6.6 km\nhttp://www.cros
+ slauf-is.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000160460000
+URL:http://www.crosslauf-is.de
 END:VEVENT
 END:VCALENDAR

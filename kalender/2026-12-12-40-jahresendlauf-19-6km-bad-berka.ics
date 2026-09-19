@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:40. Jahresendlauf
 LOCATION:Bad Berka\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 19.6 km\nhttps://laufen.de/l
- aufkalender/details/26V18000002360001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 19.6 km\nhttps://sv-badberka
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V18000002360001
+URL:https://sv-badberka.de
 END:VEVENT
 END:VCALENDAR

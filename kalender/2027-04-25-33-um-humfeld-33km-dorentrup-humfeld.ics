@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:33 um Humfeld
 LOCATION:Dörentrup Humfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 33 km\nhttps://laufen.de/lau
- fkalender/details/27V19000180860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 33 km\nhttp://www.lipperland
+ -marathon.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V19000180860002
+URL:http://www.lipperland-marathon.de
 END:VEVENT
 END:VCALENDAR

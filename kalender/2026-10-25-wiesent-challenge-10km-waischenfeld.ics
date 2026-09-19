@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Wiesent Challenge – 10 km Run and Hike Panorama-Hauptlauf\, 160 hm
 LOCATION:Waischenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://wiesent-chall
- enge.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.wiesent-ch
+ allenge.de/anmeldung/
 TRANSP:TRANSPARENT
-URL:https://wiesent-challenge.de/
+URL:http://www.wiesent-challenge.de/anmeldung/
 END:VEVENT
 END:VCALENDAR

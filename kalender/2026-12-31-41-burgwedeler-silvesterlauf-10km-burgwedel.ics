@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:41. Burgwedeler Silvesterlauf
 LOCATION:Burgwedel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V09900005160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-burgwed
+ el.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09900005160000
+URL:http://www.sv-burgwedel.de
 END:VEVENT
 END:VCALENDAR

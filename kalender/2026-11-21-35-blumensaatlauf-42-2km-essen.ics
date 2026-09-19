@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:35. Blumensaatlauf – Marathon
 LOCATION:Essen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://mkradio.de/
- blumensaat/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.Blumensa
+ atlauf.de
 TRANSP:TRANSPARENT
-URL:https://mkradio.de/blumensaat/
+URL:http://www.Blumensaatlauf.de
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Gaudilauf 14
 LOCATION:Bad Liebenwerda\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://laufen.de/lau
- fkalender/details/26V04006221560001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttp://www.elsterlauf
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V04006221560001
+URL:http://www.elsterlauf.de
 END:VEVENT
 END:VCALENDAR

@@ -10,11 +10,8 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Mössinger Apfellauf
 LOCATION:Mössingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.lg-steinla
- ch-zollern.de/veranstaltungen/apfellauf/apfellauf-aktuelles/moessinger-ap
- fellauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.lgsz.de
 TRANSP:TRANSPARENT
-URL:https://www.lg-steinlach-zollern.de/veranstaltungen/apfellauf/apfellau
- f-aktuelles/moessinger-apfellauf-2026
+URL:http://www.lgsz.de
 END:VEVENT
 END:VCALENDAR

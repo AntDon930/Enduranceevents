@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:41. Pönitzer Silvesterlauf
 LOCATION:Pönitz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
- fkalender/details/26K17000000060006
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://www.svg-poenit
+ z.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26K17000000060006
+URL:http://www.svg-poenitz.de
 END:VEVENT
 END:VCALENDAR

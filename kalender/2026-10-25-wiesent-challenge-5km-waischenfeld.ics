@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Wiesent Challenge – 2x5 km Staffellauf
 LOCATION:Waischenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://wiesent-challe
- nge.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.wiesent-cha
+ llenge.de/anmeldung/
 TRANSP:TRANSPARENT
-URL:https://wiesent-challenge.de/
+URL:http://www.wiesent-challenge.de/anmeldung/
 END:VEVENT
 END:VCALENDAR

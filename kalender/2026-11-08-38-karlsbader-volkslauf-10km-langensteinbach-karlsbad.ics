@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:38. Karlsbader Volkslauf
 LOCATION:Langensteinbach (Karlsbad)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V01000040660000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.svl-leich
+ tathletik.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V01000040660000
+URL:https://www.svl-leichtathletik.de
 END:VEVENT
 END:VCALENDAR

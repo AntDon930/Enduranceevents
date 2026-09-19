@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:30. Loßburger Waldlauf
 LOCATION:Loßburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V20000551360000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.skiclub-lo
+ ssburg.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000551360000
+URL:http://www.skiclub-lossburg.de
 END:VEVENT
 END:VCALENDAR

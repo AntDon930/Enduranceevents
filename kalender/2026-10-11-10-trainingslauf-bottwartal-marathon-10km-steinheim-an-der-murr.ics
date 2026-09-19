@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:10. Trainingslauf Bottwartal-Marathon
 LOCATION:Steinheim an der Murr\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V20900004060015
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.bottwartal
+ -marathon.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20900004060015
+URL:http://www.bottwartal-marathon.de
 END:VEVENT
 END:VCALENDAR
