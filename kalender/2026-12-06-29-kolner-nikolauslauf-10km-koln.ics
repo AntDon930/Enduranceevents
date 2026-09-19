@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:29. Kölner Nikolauslauf
 LOCATION:Köln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.bonner-ni
- kolauslauf.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://koelner-nikol
+ auslauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.bonner-nikolauslauf.de/
+URL:https://koelner-nikolauslauf.de/
 END:VEVENT
 END:VCALENDAR

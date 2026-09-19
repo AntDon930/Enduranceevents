@@ -2326,5 +2326,21 @@
   "Kallinchen Triathlon|2027-08-29": {
     "veranstalter_url": "https://www.kallinchentriathlon.de/",
     "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Kallinchen-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Vom Nutzer gemeldet: berlin-timing schreibt 'Informationen zur Veranstaltung entnehmen Sie bitte der Veranstalterseite: Kallinchen Triathlon'. Zielseite abgerufen, nennt den Kallinchen Triathlon. Linkprüfung 2026-09-19 (berlin-timing.de)."
+  },
+  "29. Kölner Nikolauslauf|2026-12-06": {
+    "veranstalter_url": "https://koelner-nikolauslauf.de/",
+    "_note": "Der gespeicherte Link bonner-nikolauslauf.de ist der BONNER Nikolauslauf (7. Ausgabe, Rheinaue, derselbe Veranstalter pulsschlag) - ein anderes Rennen. koelner-nikolauslauf.de: '29. Kölner Nikolauslauf - Sonntag, 06. Dezember 2026', Stadtwald, TopLauf 10 km / FunLauf / KidsLauf. Linkprüfung 2026-09-19."
+  },
+  "41. Pegnitztallauf 2026|2026-10-10": {
+    "veranstalter_url": "https://ski-club-artelshofen.jimdoweb.com/",
+    "_note": "Die Unterseite jahresprogramm-2026-1 antwortet 404; die Vereinsseite des Ski-Club Artelshofen (Veranstalter, Vorra) bleibt als Link - runme.de: 41. Pegnitztallauf 10.10.2026, 10 km / 5 km / 1 km. Linkprüfung 2026-09-19."
+  },
+  "LippeUltraTrail|2026-10-25": {
+    "veranstalter_url": "https://tsvleopoldstal.de/Velmerstot-Volkslauf/LippeTrail",
+    "_note": "Der alte Pfad /Lippe-Ultra-Trail/ antwortet 404, die Seite heißt jetzt /LippeTrail (TSV Leopoldstal 09: 50 km, ca. 1.400 hm, 25.10.2026, Anmeldung raceresult 415826). Linkprüfung 2026-09-19."
+  },
+  "Borkener Citylauf|2027-06-07": {
+    "veranstalter_url": "https://www.ssv-borken.de/seite/253023/citylauf-borken.html",
+    "_note": "Die Termin-Unterseite 2027/06/07 antwortet 404 (der 2027-Termin ist eine Prognose, siehe geprueft.json); die Citylauf-Seite des SSV Borken bleibt als Link. Linkprüfung 2026-09-19."
   }
 }

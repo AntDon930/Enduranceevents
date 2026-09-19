@@ -2062,7 +2062,8 @@ PORTAL_DOMAINS = (
     "runtix.com", "davengo.com", "myracepartner.com", "sas-online.net",
     "maxx-timing.de", "rennmeldung.de", "time-and-voice.com", "anmeldungs-service.de",
     "laufmanager.net", "triathlon-service.de", "zeitgemaess.info", "sportstiming.dk",
-    "laufauswertung.com", "race-result.de", "ladv.de", "laufen-os.de", "strassenlauf.org",
+    "laufauswertung.com", "race-result.de", "run-timing.de", "ladv.de", "laufen-os.de",
+    "strassenlauf.org",
 )
 
 

@@ -68,7 +68,14 @@ KEIN_VERANSTALTER = (
     "google.com", "goo.gl", "maps.app.goo.gl", "apple.com", "paypal.com",
     "strava.com", "komoot.com", "komoot.de", "outdooractive.com", "flow.polar.com",
     "wikipedia.org", "openstreetmap.org", "t.me", "spotify.com", "amazon.de",
+    # Zeitnahme- und Meldedienste, die (noch) nicht in PORTAL_DOMAINS
+    # stehen, und Seiten, die beim ersten Lauf als Fehlgriff auffielen
+    # (Ergebnisdienst, Meldeportal, Shop, Werbeagentur).
+    "live-results.de", "ddmess.de", "sportstiming.se", "sportstiming.dk", "maximalpuls.com",
+    "coderesearch.com", "yumpu.com", "out.ac", "stay22.com", "excentos.com",
 )
+# Seiten, die nie die Veranstalterseite sind, egal auf welchem Host.
+KEIN_VERANSTALTER_PFAD = re.compile(r"datenschutz|privacy|impressum|imprint|/agb\b|cookie", re.I)
 # Wörter, die in fast jedem Veranstaltungsnamen stehen und deshalb nichts
 # beweisen.
 ALLGEMEIN = {
@@ -84,7 +91,9 @@ ALLGEMEIN = {
     "duathlon", "swimrun", "backyard", "jedermann", "jedermannlauf", "benefizlauf",
     "charity", "spendenlauf", "kinderlauf", "schuelerlauf", "adventslauf", "nikolauslauf",
     "weihnachtslauf", "osterlauf", "sommerlauf", "seelauf", "panoramalauf", "gedaechtnislauf",
-    "winterlaufserie", "crosslaufserie", "wintercross", "herbstcross",
+    "winterlaufserie", "crosslaufserie", "wintercross", "herbstcross", "cross", "martin",
+    "martins", "leben", "bruch", "family", "night", "gegen", "krebs", "ultramarathon",
+    "stadion", "rahmen", "sankt", "lauftag", "laufen", "lauftreff", "volks", "power",
 }
 
 
@@ -110,7 +119,17 @@ def ist_fremd(host: str, liste=KEIN_VERANSTALTER) -> bool:
 
 def kein_veranstalter(url: str) -> bool:
     h = host_von(url)
-    return not h or "." not in h or ist_fremd(h) or is_portal_link(url)
+    if not h or "." not in h or ist_fremd(h) or is_portal_link(url):
+        return True
+    if h.endswith(".google") or h.startswith("shop."):
+        return True
+    return bool(KEIN_VERANSTALTER_PFAD.search(urlparse(url).path or ""))
+
+
+# Hosts, die dieses Projekt nie abruft - ironman.com verbietet ClaudeBot in
+# der robots.txt, und der Ironman-Scraper bricht deshalb ab (CLAUDE.md,
+# „Quellen"). Diese Linie gilt auch für die Linkprüfung.
+NIE_ABRUFEN = ("ironman.com",)
 
 
 class Abrufer:
@@ -143,7 +162,7 @@ class Abrufer:
     def hole(self, url: str) -> tuple[int | None, str]:
         if url in self.cache:
             return self.cache[url]
-        if not self.erlaubt(url):
+        if ist_fremd(host_von(url), NIE_ABRUFEN) or not self.erlaubt(url):
             self.cache[url] = (None, "robots")
             return self.cache[url]
         host = urlparse(url).netloc.lower()
@@ -151,7 +170,19 @@ class Abrufer:
         if warte > 0:
             time.sleep(warte)
         try:
-            r = self.session.get(url, timeout=25, allow_redirects=True)
+            # Harte Zeitgrenze über den ganzen Abruf: `timeout` gilt in
+            # requests nur zwischen zwei Datenpaketen - ein Server, der
+            # tröpfelt, hielt den ersten Lauf 20 Minuten fest. Deshalb
+            # stückweise lesen, höchstens 30 s und 2 MB.
+            r = self.session.get(url, timeout=(10, 15), allow_redirects=True, stream=True)
+            start, teile, groesse = time.time(), [], 0
+            for chunk in r.iter_content(chunk_size=65536):
+                teile.append(chunk)
+                groesse += len(chunk)
+                if time.time() - start > 30 or groesse > 2_000_000:
+                    break
+            r.close()
+            r._content = b"".join(teile)
             ergebnis = (r.status_code, r.text if r.status_code < 400 else "")
         except requests.RequestException as exc:
             ergebnis = (None, f"fehler:{type(exc).__name__}")
@@ -166,14 +197,24 @@ def text_von(html: str) -> str:
     return norm(re.sub(r"\s+", " ", t))
 
 
-def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str]) -> list[str]:
-    """Die Wörter, an denen die Zielseite den Lauf erkennen lässt."""
+def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
+                   orte: list[str] = ()) -> list[str]:
+    """Die Wörter, an denen die Zielseite den Lauf erkennen lässt.
+
+    Ein Ortsname (der `standort` der Zeile) zählt nur im HOSTNAMEN: Im
+    Text steht er auf jeder Sponsoren-, Shop- und Vereinsseite der
+    Stadt - „Leipzig Run" fand so einen Laufshop. Treffer im Hostnamen
+    stehen vorn, `sammeln()` bevorzugt sie bei mehreren Kandidaten."""
     txt = text_von(html)
     hostn = norm(host_von(ziel))
+    ortswoerter = {w for o in orte for w in re.findall(r"[a-z]{4,}", norm(o))}
     treffer = []
     for nm in namen:
         for w in namens_woerter(nm):
-            if w in txt or w in hostn:
+            if w in hostn:
+                treffer.insert(0, "host:" + w)
+                break
+            if w in txt and w not in ortswoerter:
                 treffer.append(w)
                 break
     for d in daten:
@@ -251,17 +292,23 @@ def sammeln(args) -> None:
         if args.nur_host and host_von(url) != args.nur_host:
             continue
         g = gruppen.setdefault(schluessel, {"name": e.get("name"), "datum": e.get("datum_start"),
-                                            "urls": [], "namen": set(), "daten": set()})
+                                            "urls": [], "namen": set(), "daten": set(), "orte": set()})
         if url not in g["urls"]:
             g["urls"].append(url)
         g["namen"].add(e.get("name") or "")
         g["daten"].add(e.get("datum_start") or "")
+        g["orte"].add(e.get("standort") or "")
     if args.max:
         gruppen = OrderedDict(list(gruppen.items())[: args.max])
     print(f"{len(gruppen)} Veranstaltungen mit Portal-/Zeitnehmer-Link ohne Linkprüfung")
 
     bericht: "OrderedDict[str, dict]" = OrderedDict()
+    if args.fortsetzen and Path(args.bericht).exists():
+        bericht = json.loads(Path(args.bericht).read_text(), object_pairs_hook=OrderedDict)
+        print(f"  setze fort: {len(bericht)} Veranstaltungen schon im Bericht")
     for i, (schluessel, g) in enumerate(gruppen.items(), 1):
+        if schluessel in bericht:
+            continue
         namen, daten = sorted(g["namen"]), sorted(g["daten"])
         eintrag = {"name": g["name"], "datum": g["datum"], "alt": g["urls"][0],
                    "kandidaten": [], "ergebnis": "unklar", "ziel": None, "treffer": [], "notiz": ""}
@@ -302,9 +349,14 @@ def sammeln(args) -> None:
             if status != 200:
                 eintrag["kandidaten"].append({"url": k, "status": status or body, "treffer": []})
                 continue
-            treffer = nennt_den_lauf(body, k, namen, daten)
+            treffer = nennt_den_lauf(body, k, namen, daten, sorted(g["orte"]))
             eintrag["kandidaten"].append({"url": k, "status": status, "treffer": treffer})
         passend = [c for c in eintrag["kandidaten"] if c["treffer"]]
+        # Nennt genau EIN Kandidat den Lauf schon im Hostnamen, ist das
+        # die Veranstalterseite - auch wenn andere ihn im Text erwähnen.
+        im_host = [c for c in passend if any(w.startswith("host:") for w in c["treffer"])]
+        if len(im_host) == 1:
+            passend = im_host
         if len(passend) == 1 or (passend and len({host_von(c["url"]) for c in passend}) == 1):
             eintrag["ergebnis"] = "gefunden"
             eintrag["ziel"] = passend[0]["url"]
@@ -361,6 +413,48 @@ def anwenden(args) -> None:
     print(f"angewendet: {neu_ov} Overrides, {neu_ok} link_ok, {neu_unklar} unklar")
 
 
+def pruefen(args) -> None:
+    """Eigene Veranstalterseiten (kein Portal) abrufen: erreichbar, und
+    nennt die Seite den Lauf? Schreibt nur einen Bericht; `anwenden`
+    kennt ihn nicht - tote Links brauchen eine Websuche, keine Regel."""
+    events = json.loads(EVENTS.read_text())
+    links = json.loads(LINKS.read_text())
+    abrufer = Abrufer(pause=args.pause)
+    gruppen: "OrderedDict[str, dict]" = OrderedDict()
+    for e in sorted(events, key=lambda e: (e.get("datum_start") or "", e.get("name") or "")):
+        url = e.get("veranstalter_url") or ""
+        if not url or is_portal_link(url) or kein_veranstalter(url):
+            continue
+        schluessel = f"{e.get('name')}|{e.get('datum_start')}"
+        if schluessel in links and not args.auch_geprueft:
+            continue
+        g = gruppen.setdefault(schluessel, {"name": e.get("name"), "datum": e.get("datum_start"),
+                                            "url": url, "namen": set(), "daten": set(), "orte": set()})
+        g["namen"].add(e.get("name") or "")
+        g["daten"].add(e.get("datum_start") or "")
+        g["orte"].add(e.get("standort") or "")
+    if args.max:
+        gruppen = OrderedDict(list(gruppen.items())[: args.max])
+    print(f"{len(gruppen)} Veranstaltungen mit eigener Seite ohne Linkprüfung")
+    bericht: "OrderedDict[str, dict]" = OrderedDict()
+    for i, (schluessel, g) in enumerate(gruppen.items(), 1):
+        status, body = abrufer.hole(g["url"])
+        if status == 200:
+            treffer = nennt_den_lauf(body, g["url"], sorted(g["namen"]), sorted(g["daten"]), sorted(g["orte"]))
+            erg = "nennt" if treffer else ("leer" if len(text_von(body)) < 200 else "nennt_nicht")
+        elif status is None:
+            erg, treffer = ("robots" if body == "robots" else "fehler"), []
+        else:
+            erg, treffer = ("tot" if status in (404, 410) else f"http{status}"), []
+        bericht[schluessel] = {"name": g["name"], "datum": g["datum"], "url": g["url"],
+                               "status": status if status is not None else body, "ergebnis": erg, "treffer": treffer}
+        if i % 25 == 0 or i == len(gruppen):
+            from collections import Counter
+            print(f"  … {i}/{len(gruppen)}: {dict(Counter(b['ergebnis'] for b in bericht.values()))}")
+            Path(args.bericht).write_text(json.dumps(bericht, ensure_ascii=False, indent=1))
+    Path(args.bericht).write_text(json.dumps(bericht, ensure_ascii=False, indent=1))
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -370,7 +464,14 @@ def main() -> int:
     s.add_argument("--max", type=int, default=0, help="nur die ersten N Veranstaltungen")
     s.add_argument("--nur-host", default=None, help="nur Links dieses Hosts (z. B. my.raceresult.com)")
     s.add_argument("--auch-geprueft", action="store_true", help="auch Veranstaltungen, die schon in links_geprueft.json stehen")
+    s.add_argument("--fortsetzen", action="store_true", help="vorhandenen Bericht weiterführen statt neu beginnen")
     s.set_defaults(fn=sammeln)
+    q = sub.add_parser("pruefen", help="eigene Veranstalterseiten abrufen (tot? nennt den Lauf?), nur Bericht")
+    q.add_argument("--bericht", required=True)
+    q.add_argument("--pause", type=float, default=1.0)
+    q.add_argument("--max", type=int, default=0)
+    q.add_argument("--auch-geprueft", action="store_true")
+    q.set_defaults(fn=pruefen)
     a = sub.add_parser("anwenden", help="Bericht in Overrides und Linkprotokoll übernehmen")
     a.add_argument("--bericht", required=True)
     a.add_argument("--auch-geprueft", action="store_true")

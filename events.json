@@ -15874,7 +15874,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://ski-club-artelshofen.jimdoweb.com/jahresprogramm-2026-1/",
+    "veranstalter_url": "https://ski-club-artelshofen.jimdoweb.com/",
     "wettbewerb": "10 km"
   },
   {
@@ -22935,7 +22935,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://tsvleopoldstal.de/Velmerstot-Volkslauf/Lippe-Ultra-Trail/"
+    "veranstalter_url": "https://tsvleopoldstal.de/Velmerstot-Volkslauf/LippeTrail"
   },
   {
     "land": "Deutschland",
@@ -30649,7 +30649,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.bonner-nikolauslauf.de/",
+    "veranstalter_url": "https://koelner-nikolauslauf.de/",
     "wettbewerb": "10 km"
   },
   {
@@ -30664,7 +30664,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://www.bonner-nikolauslauf.de/"
+    "veranstalter_url": "https://koelner-nikolauslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -49657,7 +49657,7 @@
     "datum_ende": "2027-06-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.ssv-borken.de/veranstaltungen/2182069/2027/06/07/citylauf.html"
+    "veranstalter_url": "https://www.ssv-borken.de/seite/253023/citylauf-borken.html"
   },
   {
     "land": "Deutschland",
@@ -49671,7 +49671,7 @@
     "datum_ende": "2027-06-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.ssv-borken.de/veranstaltungen/2182069/2027/06/07/citylauf.html"
+    "veranstalter_url": "https://www.ssv-borken.de/seite/253023/citylauf-borken.html"
   },
   {
     "land": "Deutschland",

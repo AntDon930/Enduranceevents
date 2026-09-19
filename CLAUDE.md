@@ -44,6 +44,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
+| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** (raceresult-Kontaktseite, externe Links der Seite), prüft jede Kandidatenseite am Namen und schreibt erst einen Bericht (`sammeln`), dann Overrides + Protokoll (`anwenden`); `pruefen` ruft eigene Seiten ab (tot? nennt den Lauf?) |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -139,11 +140,18 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    KONTAKT-Seite der Anmeldung** (`…/<nr>/contact`, Feld „Organizer-URL"
    samt Veranstalter-Anschrift) – vom Nutzer am 19.09.2026 am
    Backyardman Würzburg gezeigt (`410433/contact` → `backyardman.de`).
-   **Das bei raceresult-Links immer prüfen.** Noch offen als Werkzeug:
-   535 Zeilen (314 Veranstaltungen) mit einem `my.raceresult.com`-Link im Bestand; ein Skript, das
-   für jeden die `/contact`-Seite abruft und die Organizer-URL als
-   Override vorschlägt (`pending_overrides.json`, dann `confirm`), fehlt
-   noch – siehe Offene Punkte.
+   **Das bei raceresult-Links immer prüfen** – seit dem 19.09.2026 macht
+   das `scripts/veranstalter_links.py sammeln` (Kontaktseite abrufen,
+   Organizer-URL prüfen, ob die Seite den Lauf nennt, dann `anwenden`).
+   **Zeitnehmer und Anmeldeplattformen sind Portallinks** (vom Nutzer
+   am 19.09.2026 entschieden: „zieh die anderen Zeitnehmer genauso
+   nach"): raceresult, datasport, lanet3, racepedia, runtix, davengo,
+   myracepartner, sas-online, maxx-timing, rennmeldung, time-and-voice,
+   anmeldungs-service, laufmanager, triathlon-service, zeitgemaess,
+   sportstiming, laufauswertung, berlin-timing, dazu die Kalender ladv,
+   laufen-os und strassenlauf.org – alle in `PORTAL_DOMAINS`.
+   `rennmeldung.de` sperrt `/cgi-bin/` per robots.txt: eintragen ja,
+   abrufen nie (das Skript achtet robots.txt selbst).
 3. **Distanzen immer auf eine Dezimalstelle** (`round_km()`): 42,195 → 42.2.
 4. **`land` nie aus dem Event-Namen raten.** Der „Fränkische-Schweiz-Marathon"
    liegt in Bayern. Quelle: Landesangabe der Seite (`(Schweiz)`, `(AUT)`) oder
@@ -818,10 +826,11 @@ acht Veranstaltungen mit diesem Zeitnehmer auf die dort genannte
 Veranstalterseite gesetzt (Protokoll in `links_geprueft.json`; Krummensee
 aus der Sandbox nicht abrufbar, Volkstriathlon unter neuem Pfad),
 `berlin-timing.de` in `PORTAL_DOMAINS` und
-`WEITERLEITUNG_KEIN_VERANSTALTER`. **Andere Zeitnehmer** (raceresult,
-datasport, lanet3, racepedia) stehen nur in der Weiterleitungs-Liste –
-ob sie ebenfalls als Portal gelten sollen, ist offen; bei raceresult
-liegt die Veranstalterseite auf `/contact` (Punkt 10).
+`WEITERLEITUNG_KEIN_VERANSTALTER`. **Die anderen Zeitnehmer** (raceresult,
+datasport, lanet3, racepedia, runtix, davengo, …) stehen seit dem
+19.09.2026 ebenfalls in `PORTAL_DOMAINS` (vom Nutzer so entschieden);
+bei raceresult liegt die Veranstalterseite auf `/contact`, und
+`scripts/veranstalter_links.py` holt sie (Punkt 10, gebaut).
 
 Was die Sandbox nicht kann: Einige Seiten blocken automatische Abrufe
 (403, Sicherheitscheck) oder scheitern am Proxy; die stehen als
@@ -2278,14 +2287,12 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    **entschieden** (19.09.2026): Laufen und Triathlon tragen denselben
    Wert „Backyard Ultra" (siehe Datenregel 9); der „Backyardman
    Würzburg" steht so in der Liste.
-10. **raceresult-Kontaktseiten auswerten** (vom Nutzer am 19.09.2026
-   gewünscht: „bitte das bei race results immer checken"). 535 Zeilen
-   (314 Veranstaltungen) tragen einen `my.raceresult.com`-Link; die `/contact`-Seite
-   nennt fast immer die offizielle Seite. Vorschlag: ein Skript
-   `scripts/raceresult_kontakt.py`, das die Seiten mit 2 s Pause abruft
-   und Overrides nach `pending_overrides.json` schreibt – der Nutzer
-   bestätigt mit `review_reports.py confirm`. Vorher robots.txt von
-   my.raceresult.com prüfen. Kein Lauf ohne sein Ja.
+10. ~~raceresult-Kontaktseiten auswerten~~ **gebaut** (19.09.2026, vom
+   Nutzer freigegeben): `scripts/veranstalter_links.py` – für ALLE
+   Zeitnehmer-, Anmelde- und Portallinks, nicht nur raceresult. Kein
+   `pending_overrides.json`-Umweg: Übernommen wird nur, was die
+   Zielseite am Namen des Laufs belegt; alles andere steht als `unklar`
+   im Linkprotokoll. Ergebnisse siehe „Neunter Durchgang".
 
 12. **Ergebnisse der Linkprüfung** (19.09.2026, siehe „Vierter
    Durchgang"): sechs Duplikate unter zwei Namen zusammenführen oder
