@@ -30722,6 +30722,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel",
+    "standort": "Zülpich",
+    "lat": 50.6922459,
+    "lon": 6.6472694,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "laenge_km": 9.5,
+    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "40. Weiterstädter Nikolauslauf",
     "standort": "Weiterstadt",
     "lat": 49.9178,
@@ -39205,6 +39218,36 @@
     "datum_ende": "2027-03-14",
     "laenge_km": 21.1,
     "veranstalter_url": "http://www.donatuslauf.de"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Zülpich",
+    "lat": 50.6922459,
+    "lon": 6.6472694,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "21. Zülpicher Chlodwiglauf",
+    "datum_start": "2027-03-14",
+    "datum_ende": "2027-03-14",
+    "dauer_h": null,
+    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+    "laenge_km": 10.0,
+    "wettbewerb": "Hauptlauf ca. 10 km (Eifelcup)"
+  },
+  {
+    "land": "Deutschland",
+    "standort": "Zülpich",
+    "lat": 50.6922459,
+    "lon": 6.6472694,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "name": "21. Zülpicher Chlodwiglauf",
+    "datum_start": "2027-03-14",
+    "datum_ende": "2027-03-14",
+    "dauer_h": null,
+    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+    "laenge_km": 5.0,
+    "wettbewerb": "Jedermann-Lauf ca. 5 km"
   },
   {
     "land": "Deutschland",

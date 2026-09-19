@@ -1244,6 +1244,40 @@
       "veranstalter_url": "https://www.mazdalauf.de/",
       "_quelle": "https://www.mazdalauf.de/ausschreibung/",
       "_note": "Ausschreibung 2027: '5 km Lauf (Schülerwertung U 14 und U16, Senioren 70 m/w und älter ...)'. Der 10-km-Hauptlauf ist die vorhandene Zeile. Geprueft 2026-09-19."
+    },
+    {
+      "land": "Deutschland",
+      "standort": "Zülpich",
+      "lat": 50.6922459,
+      "lon": 6.6472694,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "name": "21. Zülpicher Chlodwiglauf",
+      "datum_start": "2027-03-14",
+      "datum_ende": "2027-03-14",
+      "dauer_h": null,
+      "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+      "_quelle": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+      "laenge_km": 10.0,
+      "wettbewerb": "Hauptlauf ca. 10 km (Eifelcup)",
+      "_note": "Vom Nutzer am 19.09.2026 genannt ('die haben doch einen 10km und 5km Lauf für jedermann'). Vereinsseite: 'Save the Date: 14.03.2027: 21. Zülpicher Chlodwiglauf' und 'Herzstück ist das ca. 10 km Rennen im Rahmen der Eifelcup Laufserie'. Die Ausschreibung 2027 ist noch nicht erschienen; Distanz laut Seite 'ca.' - beim Erscheinen nachmessen. Seepark Zülpich, Start 12:00 Uhr wie in den Vorjahren."
+    },
+    {
+      "land": "Deutschland",
+      "standort": "Zülpich",
+      "lat": 50.6922459,
+      "lon": 6.6472694,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "name": "21. Zülpicher Chlodwiglauf",
+      "datum_start": "2027-03-14",
+      "datum_ende": "2027-03-14",
+      "dauer_h": null,
+      "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+      "_quelle": "https://www.tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+      "laenge_km": 5.0,
+      "wettbewerb": "Jedermann-Lauf ca. 5 km",
+      "_note": "Vereinsseite: 'flankiert von einem ca. 5 km langen Jedermann-Lauf sowie vielen Schüler- und Jugendläufen'. 'ca.' - liegt die gemessene Strecke unter 5 km, fällt die Zeile nach Datenregel 5 heraus; Ausschreibung 2027 beim Erscheinen prüfen. Schüler-/Jugendläufe (450 m bis 2.200 m) bewusst nicht aufgenommen."
     }
   ]
 }

@@ -2026,8 +2026,8 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://komet-steckenborn.de. Seite abgerufen, sie nennt den Lauf (lichterlauf). Linkprüfung 2026-09-19."
   },
   "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel|2026-12-06": {
-    "exclude": true,
-    "_note": "Vom Nutzer am 19.09.2026 ausdrücklich herausgenommen: Veranstalter ist die Leichtathletik-Abteilung des TuS Chlodwig Zülpich (tuszuelpich-leichtathletik.de), die Seite ist auf Vereins-Leichtathletik ausgerichtet (Bahnwettkämpfe, Bestenlisten, Mitgliedsantrag). ZUR KENNTNIS: Die Ausschreibung der Ausgabe 2025 (07.12.2025, veranstaltungen.html) nennt einen 'Jugend- und Jedermannlauf ... offen für alle Klassen ab 10 Jahre', eine Firmen-/Vereins-/Funstaffel und einen 'Hauptlauf ca. 9.500m' mit Online-Anmeldung über MyRaceResult - also einen offenen Volkslauf; der Termin 06.12.2026 stammt aus laufen.de und steht auf der Vereinsseite noch nicht. Falls das Event doch gewünscht ist: diese Zeile löschen, der frühere Link war https://www.tuszuelpich-leichtathletik.de/ (laufen.de-Weiterleitung, Linkprüfung 2026-09-19)."
+    "veranstalter_url": "https://www.tuszuelpich-leichtathletik.de/",
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tuszuelpich-leichtathletik.de/. Seite abgerufen, sie nennt den Lauf (zulpicher). Linkprüfung 2026-09-19. Am 19.09.2026 kurz per exclude herausgenommen (Vereins-Leichtathletik) und vom Nutzer gleich wieder zurückgeholt: Es ist ein offener Volkslauf (Jedermannlauf 3,5 km, Firmen-/Funstaffel, Hauptlauf 9,5 km, Online-Anmeldung über raceresult)."
   },
   "Rennbahncross mit rheinland-pfälzischen Crosslaufmeisterschaften|2026-11-15": {
     "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/",

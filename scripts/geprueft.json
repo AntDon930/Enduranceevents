@@ -2216,8 +2216,14 @@
   },
   "4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel|2026-12-06": {
     "am": "2026-09-19",
-    "ergebnis": "entfernt",
+    "ergebnis": "quelle_ok",
     "quelle": "tuszuelpich-leichtathletik.de/veranstaltungen.html",
-    "notiz": "Auf Wunsch des Nutzers ausgeschlossen (Vereins-Leichtathletik, nach seiner Einschätzung nur für Mitglieder). Die Ausschreibung 2025 auf der Seite beschreibt allerdings einen offenen Jedermannlauf (3,5 km), eine Firmen-/Funstaffel und einen 9,5-km-Hauptlauf mit Online-Anmeldung; 2026-Termin dort noch nicht angekündigt. Override mit exclude, Begründung dort."
+    "notiz": "Offener Volkslauf des TuS Chlodwig Zülpich (Ausschreibung 2025: Jedermannlauf 3,5 km, Firmen-/Funstaffel, Hauptlauf 9,5 km, Online-Anmeldung raceresult). Kurz ausgeschlossen, vom Nutzer am selben Tag zurückgeholt. 2026-Termin (06.12.) aus laufen.de, auf der Vereinsseite noch nicht angekündigt."
+  },
+  "Zülpicher Chlodwiglauf|2027-03-14": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "tuszuelpich-leichtathletik.de/chlodwiglauf-2.html",
+    "notiz": "Fehlte ganz. 'Save the Date: 14.03.2027: 21. Zülpicher Chlodwiglauf'; Hauptlauf ca. 10 km (Eifelcup) und Jedermannlauf ca. 5 km laut Vereinsseite (Ausschreibung 2027 noch nicht erschienen). Nachgetragen in manual_events.json."
   }
 }
