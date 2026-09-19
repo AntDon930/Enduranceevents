@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Werdauer Waldlauf – 10 km Walking/Wandern (nur Zeitnahme)
 LOCATION:Werdau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://anmeldung.lau
- fauswertung.com/Anmeldung/index.php?VID=1692F017B5
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.werdauer-
+ waldlauf.de/
 TRANSP:TRANSPARENT
-URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=1692F017B
- 5
+URL:https://www.werdauer-waldlauf.de/
 END:VEVENT
 END:VCALENDAR

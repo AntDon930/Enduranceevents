@@ -314,7 +314,8 @@
   "Rodenbacher Lauftag|2026-10-03|50": {
     "lat": 50.1313,
     "lon": 9.0601,
-    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des 7. Rodenbacher Lauftags: Waldstadion Niederrodenbach, Am Waldstadion 1, 63517 Rodenbach (Main-Kinzig-Kreis, Hessen). Der Eintrag lag auf 49.47/7.66 - Rodenbach bei Kaiserslautern. ACHTUNG: Die 50-km-Strecke selbst ist richtig (50-km-Harry-Arndt-Lauf, Start 9:31 Uhr) - die Cup-Seite main-lauf-cup.de listet sie nicht, ist also unvollständig. Nicht löschen."
+    "_note": "Falsch verortet (gleichnamiger Ort). Geprüft 2026-09-18 gegen der Ausschreibung des 7. Rodenbacher Lauftags: Waldstadion Niederrodenbach, Am Waldstadion 1, 63517 Rodenbach (Main-Kinzig-Kreis, Hessen). Der Eintrag lag auf 49.47/7.66 - Rodenbach bei Kaiserslautern. ACHTUNG: Die 50-km-Strecke selbst ist richtig (50-km-Harry-Arndt-Lauf, Start 9:31 Uhr) - die Cup-Seite main-lauf-cup.de listet sie nicht, ist also unvollständig. Nicht löschen. Veranstalter-Link 2026-09-19 nachgetragen (find_override nimmt den distanzgenauen Schlüssel, der Eintrag unter '<Name>|<Datum>' greift für diese Zeile nicht).",
+    "veranstalter_url": "https://ssc-hanau-rodenbach.de/?page_id=196"
   },
   "Zeiler Waldmarathon|2026-11-14|42.2": {
     "standort": "Zeil am Main",
@@ -1525,5 +1526,44 @@
   "Muddy Älbler Hindernislauf|2026-09-20": {
     "veranstalter_url": "https://muddy-aelbler.de/hindernislauf/",
     "_note": "Linkprüfung 2026-09-19: Eigene Seite (\"Hindernislauf 2026: Jetzt anmelden\"); api.maxx-timing.de war die Zeitnahme. (Quelle: muddy-aelbler.de)"
+  },
+  "Möhnesee-Pokal-Lauf|2026-09-20|30": {
+    "exclude": true,
+    "_note": "Keine 30-km-Strecke 2026. Soester Anzeiger zum 38. Möhnesee-Pokal-Lauf am 20.09.2026: 'Distanzen: 5 km, 10 km, 15 km und Halbmarathon'; runme.de nennt für den 20.09.2026 5 / 10 / 15 / 21,0975 km. Die 30 km (2 x 15-km-Runde, 'Stadtwerke Soest-Lauf') gab es beim 37. Lauf 2025 (lg-deiringsen.de) - 2026 durch den Halbmarathon ersetzt. Der Halbmarathon steht als eigene Zeile. Geprüft 2026-09-19."
+  },
+  "Entega Nightrun|2026-09-25|10": {
+    "exclude": true,
+    "_note": "Keine 10-km-Strecke. entega-nightrun.de: 'In diesem Jahr können Sie erneut zwischen den Distanzen 2,5 km, 5 km oder 7,5 km wählen. Und erstmals gibt es auch einen Schülerlauf über 1,6 km.' 5 und 7,5 km stehen als eigene Zeilen. Geprüft 2026-09-19."
+  },
+  "Crosslauf Friedrichsruh mit Kreismeisterschaft|2026-09-27|25": {
+    "exclude": true,
+    "_note": "Lesefehler der Quelle: laufen.de führt '2,5km Kreismeisterschaft' mit der Distanzangabe '25 km'. Die LADV-Ausschreibung (2024, gleicher Veranstalter TV Langen) kennt nur 500 m bis 10.000 m ('Bitte die 2500m als 3000m melden'). 2,5 km liegen unter der 5-km-Grenze, deshalb keine Ersatzzeile. Geprüft 2026-09-19."
+  },
+  "Winterlaufserie Drelsdorf|2027-01-10|15": {
+    "exclude": true,
+    "_note": "Serienzeile: expand_competitions() hängt jede Distanz an jeden Termin. sportinhusum.de (LAV Husum): 10.01.2027 '10 km Frauen & Männer, 5 km Jugendliche, 5 km Schüler*innen' - keine 15 km an diesem Termin. Geprüft 2026-09-19."
+  },
+  "Winterlaufserie Drelsdorf|2027-02-07|10": {
+    "exclude": true,
+    "_note": "Serienzeile: sportinhusum.de: 07.02.2027 '21,1 km Frauen & Männer, 15 km Jugendliche, 5 km Schüler*innen' - keine 10 km an diesem Termin (24.01.: 15 / 10 / 5 km, 10.01.: 10 / 5 km). Geprüft 2026-09-19."
+  },
+  "3. Chiemgauer100 StundenRundenLauf 2026|2026-10-17": {
+    "dauer_h": 24,
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://chiemgauer100.de/",
+    "_note": "Zeitrennen, keine 100-km-Strecke: chiemgauer100.de - Runde 6,7 km, Start zu jeder vollen Stunde, 'from Saturday 9.00am until Sunday, 9.00am' (17.-18.10.2026), 'maximum of 24 rounds, equaling 160,8km or 100miles'; 100 km (15 Runden) und 100 Meilen werden nur 'gesondert gemessen und ausgezeichnet'. Offizielle Seite laut raceresult-Kontaktseite (381672/contact, Organizer-URL). Geprüft 2026-09-19."
+  },
+  "Werdauer Waldlauf|2027-04-18": {
+    "veranstalter_url": "https://www.werdauer-waldlauf.de/",
+    "_note": "Ausschreibung 2027 (werdauer-waldlauf.de/wp-content/uploads/2027_Ausschreibung.pdf, '48. Werdauer Waldlauf 18.04.2027'): ¾ Marathon (31 km Lauf), Halbmarathon, 12 km, 7 km, 3 km (2027 neu), 1 km, 10 km Walking/Wandern - die 31 km sind echt. Der alte Link (anmeldung.laufauswertung.com) war ein Anmeldeportal und löst nicht mehr auf. Geprüft 2026-09-19."
+  },
+  "Silvesterlauf Rund um die Thülsfelder Talsperre|2026-12-31": {
+    "veranstalter_url": "https://www.sv-molbergen-leichtathletik.de/",
+    "_note": "Die 16,1 km sind der Hauptlauf über 10 englische Meilen (om-online.de zur Ausgabe 2025/26: 'Lauf über 10 englische Meilen'; ga-online.de: 'Hauptlauf über zehn englische Meilen'). Offizielle Seite: laufen.de leitet den Veranstalter-Link dorthin (aus der Sandbox nur 503). Geprüft 2026-09-19."
+  },
+  "Rodenbacher Lauftag|2026-10-03": {
+    "veranstalter_url": "https://ssc-hanau-rodenbach.de/?page_id=196",
+    "_note": "Lauftag-Seite des SSC Hanau-Rodenbach ('Ausschreibung des 7. Rodenbacher Lauftages am 03.10.2026'); laufen.de war der Portallink. 50-km-Harry-Arndt-Gedenklauf 2024 und 2025 dort belegt, 2026 in der Ausschreibung (siehe Override mit |50). Geprüft 2026-09-19."
   }
 }

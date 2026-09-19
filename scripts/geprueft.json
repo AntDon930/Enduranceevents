@@ -1223,5 +1223,89 @@
     "ergebnis": "korrigiert",
     "quelle": "backyardman.de, my.raceresult.com/410433/contact",
     "notiz": "Backyard Ultra TRIATHLON (500 m / 20 km / 5 km je Zwei-Stunden-Runde, offenes Ende), stand als Laufen mit '7 km'. Offizielle Seite ueber die raceresult-Kontaktseite gefunden - der Nutzer hat darauf hingewiesen."
+  },
+  "Mud Masters - Airport Weeze|2026-09-19": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "mudmasters.com/event/airport-weeze",
+    "notiz": "42 km ist echt: 'On the muddy obstacle course from 6 to 42 kilometers long' - 6 / 12 / 16 / 42 km (19.-20.09.2026). Die 5 km stehen bei der Quelle als Kids-/Family-Strecke, belassen."
+  },
+  "Möhnesee-Pokal-Lauf|2026-09-20": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "soester-anzeiger.de, runme.de, lg-deiringsen.de",
+    "notiz": "30-km-Zeile ausgeschlossen: 2026 gibt es 5 / 10 / 15 km und Halbmarathon, die 30 km waren das Programm 2025."
+  },
+  "Entega Nightrun|2026-09-25": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "entega-nightrun.de",
+    "notiz": "10-km-Zeile ausgeschlossen: nur 2,5 / 5 / 7,5 km (und 1,6 km Schülerlauf)."
+  },
+  "Crosslauf Friedrichsruh mit Kreismeisterschaft|2026-09-27": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de 26V09000512150000, ladv.de/ausschreibung/detail/38180",
+    "notiz": "25-km-Zeile ausgeschlossen: '2,5km Kreismeisterschaft' mit Distanzangabe '25 km' bei laufen.de. Offizielle Seite nicht gefunden (tvlangen.de nennt den Lauf nicht), Portallink bleibt."
+  },
+  "Cross der Deutschen Einheit|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "crossderdeutscheneinheit.de",
+    "notiz": "21 km ist echt: 'Pokal der Sparkasse Mittelthüringen – Helbetal Halbmarathon – alle ab AK 16 (21km)', 2 x 10,5 km. Dazu 10,5 km und 6 km Walking - alle drei richtig."
+  },
+  "Rodenbacher Lauftag|2026-10-03": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "ssc-hanau-rodenbach.de/?page_id=196, ssc-hanau-rodenbach.de/?p=3410",
+    "notiz": "50 km Harry-Arndt-Gedenklauf ist echt (2024: '9:35 Uhr Start 50km-Harry-Arndt-Gedenklauf', 2025 DUV-Cup, Ausschreibung 7. Lauftag 03.10.2026). Veranstalter-Link nachgetragen."
+  },
+  "L³-Laatzen-Leinwiesen-Lauf|2026-10-10": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "my.raceresult.com/381133 (Info), gotrail.run",
+    "notiz": "47 km ist echt: Ultratrail aus drei Runden (Giftener-Seen ~21 km, Fuchsbachtal ~17 km, Grasdorfer Leinemasch ~10 km), dazu 22 km und 10 km. raceresult-Kontaktseite nennt nur den Platzhalter, keine Organizer-URL - Link bleibt."
+  },
+  "Herbstlauf des LSV Porz|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "time-and-voice.com/de/running/herbstlauf-2026",
+    "notiz": "21,1 km ist echt: '12:00 Uhr | 21,1 km Halbmarathon | Jg. 2010 und älter | 17,00 €'; dazu 5 und 10 km."
+  },
+  "3. Chiemgauer100 StundenRundenLauf 2026|2026-10-17": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "chiemgauer100.de, my.raceresult.com/381672/contact",
+    "notiz": "Zeitrennen über 24 Stunden (Stundenrunden à 6,7 km), keine 100-km-Strecke - jetzt 24 h ohne Distanz; offizielle Seite von der raceresult-Kontaktseite."
+  },
+  "Silvesterlauf Rund um die Thülsfelder Talsperre|2026-12-31": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "om-online.de (Jan. 2026), ga-online.de, laufen.de-Weiterleitung",
+    "notiz": "16,1 km ist der Hauptlauf über 10 englische Meilen; 5 und 10 km dazu. Veranstalter-Link nachgetragen (sv-molbergen-leichtathletik.de, aus der Sandbox 503)."
+  },
+  "Winterlaufserie Drelsdorf|2027-01-10": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sportinhusum.de (LAV Husum)",
+    "notiz": "Serie mit drei Terminen: 10.01. 10/5 km, 24.01. 15/10/5 km, 07.02. 21,1/15/5 km. Zwei erfundene Serienzeilen ausgeschlossen (15 km am 10.01., 10 km am 07.02.)."
+  },
+  "Winterlaufserie Drelsdorf|2027-01-24": {
+    "am": "2026-09-19",
+    "ergebnis": "quelle_ok",
+    "quelle": "sportinhusum.de (LAV Husum)",
+    "notiz": "15 km ist echt: '15 km Frauen & Männer, 10 km Jugendliche, 5 km Schüler*innen'."
+  },
+  "Winterlaufserie Drelsdorf|2027-02-07": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "sportinhusum.de (LAV Husum)",
+    "notiz": "21,1 km ist echt; die 10-km-Zeile an diesem Termin ausgeschlossen (siehe 10.01.)."
+  },
+  "Werdauer Waldlauf|2027-04-18": {
+    "am": "2026-09-19",
+    "ergebnis": "korrigiert",
+    "quelle": "werdauer-waldlauf.de (Ausschreibung 2027 als PDF)",
+    "notiz": "31 km ist echt ('¾ Marathon (31 km Lauf)', 18.04.2027); Distanzen stimmen. Veranstalter-Link ersetzt: das Anmeldeportal löste nicht mehr auf."
   }
 }

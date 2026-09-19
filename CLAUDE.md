@@ -779,6 +779,38 @@ Was die Sandbox nicht kann: Einige Seiten blocken automatische Abrufe
 `link_ok` mit Hinweis, weil die Adresse eventspezifisch und in der
 Websuche belegt ist.
 
+### Fünfter Durchgang: „Verdächtige Distanz" leer geprüft (19.09.2026)
+
+Die zwölf offenen Fälle aus `report_suspicious_distances()` einzeln an
+der offiziellen Ausschreibung geprüft (Protokoll in `geprueft.json`).
+**Fünf Zeilen waren falsch** und stehen als `exclude` in
+`manual_overrides.json`: Möhnesee-Pokal-Lauf 30 km (2026 durch den
+Halbmarathon ersetzt, die 30 km waren das Programm 2025), Entega
+Nightrun 10 km (nur 2,5 / 5 / 7,5 km), Crosslauf Friedrichsruh 25 km
+(laufen.de führt „2,5km Kreismeisterschaft" mit „25 km"), und zwei
+Serienzeilen der Winterlaufserie Drelsdorf (15 km am 10.01., 10 km am
+07.02. – jeder Termin hat andere Distanzen). **Der Chiemgauer100
+StundenRundenLauf ist ein 24-Stunden-Rennen** (Stundenrunden à 6,7 km,
+100 km und 100 Meilen werden nur „gesondert ausgezeichnet") und steht
+jetzt mit `dauer_h` 24 statt „100 km". Drei Veranstalter-Links dabei
+nachgetragen (Werdau, Thülsfelder Talsperre, Rodenbach), einer davon
+über die raceresult-Kontaktseite (Chiemgauer100).
+
+**Die übrigen neun Meldungen sind echte Strecken** (Mud Masters 42 km,
+Helbetal-Halbmarathon 21 km, Harry-Arndt-Lauf 50 km, L³ 47 km Ultratrail
+aus drei Runden, Porz 21,1 km, Thülsfelder 10 englische Meilen, Drelsdorf
+15 und 21,1 km, Werdau ¾-Marathon 31 km) – der Bericht meldet sie
+weiter, weil die Bedingung grob ist; wer dort steht, steht auch in
+`geprueft.json`. Damit sind **alle** `clean_events.py`-Berichte
+abgearbeitet; was sie noch nennen, ist geprüft und wartet auf eine
+Entscheidung des Nutzers (siehe „Was der Nutzer noch entscheiden muss").
+
+Nebenbefund: **PDF-Ausschreibungen lassen sich in der Sandbox lesen** –
+`pypdf` ist kaputt (`cryptography`-Backend), aber ein kleiner
+Zlib-plus-ToUnicode-Dekoder (im Chat gebaut, nicht im Repo) reichte für
+die Werdauer Ausschreibung. Falls das öfter gebraucht wird, lohnt sich
+ein `scripts/pdf_text.py`.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
