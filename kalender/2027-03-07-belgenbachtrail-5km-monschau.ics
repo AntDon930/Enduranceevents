@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:Belgenbachtrail
 LOCATION:Monschau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttps://belgenbac
- htrail.de/belgenbachtrail
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://belgenbachtrail
+ .de/belgenbachtrail
 TRANSP:TRANSPARENT
 URL:https://belgenbachtrail.de/belgenbachtrail
 END:VEVENT

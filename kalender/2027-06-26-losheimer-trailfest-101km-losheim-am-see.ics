@@ -11,8 +11,7 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270628
 SUMMARY:Losheimer Trailfest
 LOCATION:Losheim am See\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 101 km\nhttps://trailfe
- st.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 101 km\nhttps://trailfest.de/
 TRANSP:TRANSPARENT
 URL:https://trailfest.de/
 END:VEVENT

@@ -162,16 +162,15 @@ ENGLISH_MONTHS = {
 }
 
 # Zuordnung Stichwort -> Kategorie (art2), passend zur Projekt-Taxonomie für
-# Laufen: Straße, Trail/Cross, Bahn, Berg, Hindernis.
+# Laufen: Straße, Trail, Bahn, Hindernis, Backyard Ultra.
 #
-# "Trail" und "Cross" sind bewusst EINE Kategorie ("Trail/Cross"): Beides
-# sind Geländeläufe, die Quellen benennen dieselbe Strecke mal so, mal so,
-# und eine verlässliche Trennung gibt es nicht (ausdrückliche Vorgabe des
-# Nutzers). Die beiden Stichwort-Zeilen bleiben trotzdem getrennt und an
-# ihrer Stelle stehen - ihre POSITION ist bedeutungstragend: "trail" steht
-# vor "Berg", "cross" dahinter. Ein "Bergcrosslauf" ist damit weiterhin ein
-# Berglauf, ein "Bergtrail" ein Trail/Cross. Nicht zu einer Zeile
-# zusammenziehen.
+# "Trail", "Cross" und "Berglauf" sind bewusst EINE Kategorie ("Trail"):
+# Alles drei sind Geländeläufe, die Quellen benennen dieselbe Strecke mal
+# so, mal so, und eine verlässliche Trennung gibt es nicht (ausdrückliche
+# Vorgabe des Nutzers, zuletzt am 19.09.2026: "Trail" ist "die beste
+# Bezeichnung einfach für die ganzen Events"). Die Stichwort-Zeilen dazu
+# bleiben trotzdem getrennt: Die Trail-Zeile steht VOR "backyard", die
+# Berg-/Cross-Zeile DAHINTER - siehe den Kommentar bei "backyard".
 # Reihenfolge ist bewusst NICHT alphabetisch, sondern von spezifisch nach
 # generisch: "Straße" (inkl. Marathon/Stadtlauf) steht bewusst ZULETZT.
 # Ein Name wie "5. Beck HochRhön Bergtrail 42k Trail-Marathon" enthält das
@@ -181,25 +180,30 @@ ENGLISH_MONTHS = {
 # eindeutig einen Trail-/Geländelauf beschreibt.
 ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
-    # Vor "Trail": ein "Backcountry Ultra Trail" ist ein Backcountry Ultra,
-    # kein gewöhnlicher Trail. Absichtlich NUR das Wort "backcountry" -
-    # ein Backyard Ultra (Rundenformat nach Big's Backyard) ist ein anderes
-    # Format und wird nicht automatisch hierher einsortiert.
-    (re.compile(r"backcountry", re.I), "Backcountry Ultra"),
-    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail/Cross"),
+    (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
     # "backyard" steht NACH "Trail" - und das ist der ganze Trick: Ein
     # reiner "Backyard Ultra" (Last-Man-Standing: gleiche Runde zur
     # gleichen Stunde, bis nur noch eine Person weiterläuft) landet hier
-    # bei Backcountry Ultra. Heißt das Event dagegen "Backyard Ultra
+    # bei Backyard Ultra. Heißt das Event dagegen "Backyard Ultra
     # Trail", greift die Trail-Regel eine Zeile höher zuerst - dann ist es
     # ein Trailrun, der das Wort nur im Namen trägt, und genau so soll es
     # sein (ausdrückliche Vorgabe des Nutzers).
+    #
+    # Die Kategorie hieß bis zum 19.09.2026 "Backcountry Ultra" und hatte
+    # zusätzlich das Stichwort "backcountry" (vor "Trail"). Seit sie auf
+    # Wunsch des Nutzers "Backyard Ultra" heißt - also das FORMAT nennt -,
+    # ist das Stichwort weg: Ein "Backcountry Ultra Trail" ist ein langer
+    # Trailrun durch unwegsames Gelände, kein Rundenrennen bis zum letzten
+    # Läufer; er fällt jetzt über "trail" in die Trail-Kategorie.
     (re.compile(r"backyard|last ?man ?standing|last ?person ?standing", re.I),
-     "Backcountry Ultra"),
-    # "Höhenmeter" im Text ist ein starkes Indiz für einen Berg-/Gelände-
-    # lauf statt eines flachen Straßenlaufs, unabhängig vom Namen.
-    (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Berg"),
-    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Trail/Cross"),
+     "Backyard Ultra"),
+    # Berg- und Crossläufe sind seit dem 19.09.2026 ebenfalls "Trail"
+    # (Wunsch des Nutzers). "Höhenmeter" im Text ist ein starkes Indiz für
+    # einen Gelände- statt eines flachen Straßenlaufs, unabhängig vom
+    # Namen. Die Zeile steht NACH "backyard", damit ein "Backyard Ultra"
+    # mit Höhenmeter-Angabe ein Backyard bleibt.
+    (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Trail"),
+    (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Trail"),
     (re.compile(r"bahn(meeting)?|leichtathletik.?meeting", re.I), "Bahn"),
     (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
 ]
@@ -269,7 +273,9 @@ ART2_KEYWORDS_TRIATHLON: list[tuple[re.Pattern, str]] = [
     # (Backyardman Würzburg: 500 m Schwimmen, 20 km Rad, 5 km Laufen,
     # alle zwei Stunden, bis nur eine Person übrig ist). Steht VORN, weil
     # das Format vor dem Gelände zählt - wie Swimrun/Duathlon vor "Cross".
-    (re.compile(r"backyard|last\s*(?:wo)?man\s*standing", re.I), "Backyard"),
+    # Der Wert ist derselbe wie beim Laufen ("Backyard Ultra", vom Nutzer
+    # am 19.09.2026 zusammengelegt) - eine Kategorie, zwei Sportarten.
+    (re.compile(r"backyard|last\s*(?:wo)?man\s*standing", re.I), "Backyard Ultra"),
     # Dieselbe Schreibweisen-Falle wie in ART1_KEYWORDS: "Swim&Run"
     # und "Swim + Run" sind dasselbe Format wie "SwimRun".
     (re.compile(r"swim\s*(?:&|\+|and|und|-)?\s*run", re.I), "Swimrun"),
@@ -284,8 +290,8 @@ ART2_KEYWORDS_TRIATHLON: list[tuple[re.Pattern, str]] = [
 DEFAULT_ART2_TRIATHLON = "Straße"
 
 # Welche art2-Liste zu welcher Sportart gehört. Ohne diese Zuordnung
-# bekäme ein Triathlon die Lauf-Kategorien ("Straße", "Trail/Cross", …) -
-# und ein "Cross-Duathlon" stünde als "Trail/Cross" da, also als
+# bekäme ein Triathlon die Lauf-Kategorien ("Straße", "Trail", …) -
+# und ein "Cross-Duathlon" stünde als "Trail" da, also als
 # Laufkategorie an einer Nicht-Laufveranstaltung.
 # Kategorien fürs Radfahren. Bewusst KEINE Voreinstellung (None statt
 # "Straße"): Aus "Rad 100 km" oder "40 km Radtour" geht der Untergrund
@@ -774,13 +780,15 @@ def clean_competition_label(text: str) -> str | None:
 # "229 Höhenmeter". Der Tausenderpunkt ("1.100 hm") wird mitgelesen.
 _ELEVATION_PATTERN = re.compile(r"(\d{1,2}(?:[.\s]\d{3})+|\d{2,5})\s*(?:hm\b|höhenmeter)", re.I)
 
-# Ab diesem Anstieg pro Kilometer gilt eine Strecke als Berglauf, wenn der
-# Name nichts Spezifischeres sagt. Hintergrund: Ein flacher Stadt- oder
+# Ab diesem Anstieg pro Kilometer gilt eine Strecke als Berg-/Geländelauf
+# (Kategorie "Trail"), wenn der Name nichts Spezifischeres sagt. Hintergrund: Ein flacher Stadt- oder
 # Straßenmarathon liegt bei unter 5 m/km, ein Berg-/Traillauf klar darüber
 # (BraunenBerg-Lauf: 400 hm auf 14,6 km = 27 m/km; BergBau-Lauf: 248 hm auf
 # 8,2 km = 30 m/km; Nordkette Vertical Run: 1332 hm auf 6,7 km = 199 m/km).
 # 20 m/km liegt bewusst deutlich über dem Profil eines Straßenlaufs, damit
 # ein Stadtlauf mit ein paar Brücken nicht fälschlich zum Berglauf wird.
+# (Der Name der Konstante stammt aus der Zeit, als "Berg" eine eigene
+# Kategorie war; seit dem 19.09.2026 ist ein Berglauf ein "Trail".)
 ELEVATION_BERG_M_PER_KM = 20.0
 
 
@@ -886,7 +894,8 @@ def parse_duration_h(text: str) -> float | None:
 
 
 def art2_from_elevation(text: str, laenge_km: float | None, current: str | None) -> str | None:
-    """Stuft eine Strecke anhand ihres Höhenprofils als "Berg" ein.
+    """Stuft eine Strecke anhand ihres Höhenprofils als "Trail" ein
+    (bis 19.09.2026 als "Berg" - die Kategorie ist im "Trail" aufgegangen).
 
     Nur dann, wenn die Stichwortsuche nichts Spezifischeres gefunden hat
     (also `None` oder das generische "Straße"): ein Name wie
@@ -906,7 +915,7 @@ def art2_from_elevation(text: str, laenge_km: float | None, current: str | None)
     elevation = parse_elevation_m(text)
     if elevation is None:
         return current
-    return "Berg" if elevation / laenge_km >= ELEVATION_BERG_M_PER_KM else current
+    return "Trail" if elevation / laenge_km >= ELEVATION_BERG_M_PER_KM else current
 
 
 @dataclass

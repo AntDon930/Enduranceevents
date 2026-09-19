@@ -160,20 +160,26 @@ laden Leaflet und Firebase (das Skript setzt es schon).
 6. **`art2`: spezifisch vor generisch.** „Straße"/Marathon steht in
    `ART2_KEYWORDS_LAUFEN` bewusst ZULETZT, sonst wird ein „Bergtrail
    Trail-Marathon" zum Straßenlauf. Zusätzlich: ab 20 Höhenmetern pro km gilt
-   eine Strecke als Berglauf (`art2_from_elevation()`).
+   eine Strecke als Geländelauf und bekommt „Trail" (`art2_from_elevation()`).
 
-   **„Trail" und „Cross" sind EINE Kategorie: „Trail/Cross".** Beides ist
-   Geländelauf, die Quellen benennen dieselbe Strecke mal so, mal so, und
-   eine verlässliche Trennung gibt es nicht (so vom Nutzer entschieden).
-   Die beiden Stichwort-Zeilen bleiben trotzdem **getrennt und an ihrer
-   Stelle** – ihre Position ist bedeutungstragend: „trail" steht VOR der
-   Berg-Regel, „cross" DAHINTER. Ein „Bergtrail" ist damit Trail/Cross,
-   ein „Alpiner Crosslauf" bleibt Berglauf. Nicht zu einer Zeile
-   zusammenziehen. Bestehende Daten zieht
-   `clean_events.merge_trail_cross()` nach (idempotent); die Filterliste
-   steht in `filter-ui.js` (`ART2_BY_ART1`), die Übersetzung in
-   `filters.js` – `test_scraper_lib.py` prüft, dass beide dieselben Werte
-   kennen.
+   **„Trail", „Cross" und „Berglauf" sind EINE Kategorie: „Trail".** Alles
+   drei ist Geländelauf, die Quellen benennen dieselbe Strecke mal so, mal
+   so, und eine verlässliche Trennung gibt es nicht. Erst „Trail/Cross"
+   (mit „Berg" daneben), am 19.09.2026 vom Nutzer erweitert und umbenannt:
+   „Berglauf der Kategorie Trail/Cross hinzufügen und die Kategorie nur
+   ‚Trail' nennen, das ist die beste Bezeichnung einfach für die ganzen
+   Events." Die Laufen-Kategorien sind damit: Straße, Trail, Bahn,
+   Hindernis, Backyard Ultra.
+   Die drei Stichwort-Zeilen (trail / berg+höhenmeter / cross) bleiben
+   trotzdem **getrennt und an ihrer Stelle**, weil „backyard" dazwischen
+   steht (siehe Datenregel 9): „trail" VOR „backyard", Berg und Cross
+   DAHINTER. Bestehende Daten zieht `clean_events.merge_art2()` nach
+   (je Sportart, idempotent – „Cross" beim Triathlon bleibt); die
+   Filterliste steht in `filter-ui.js` (`ART2_BY_ART1`), die Übersetzung
+   in `filters.js` und `functions/index.js`, wo die alten Werte
+   („Trail/Cross", „Berg") für geteilte Links von früher weiter
+   übersetzbar sind – `test_scraper_lib.py` prüft, dass Stichwortliste
+   und Filter dieselben Werte kennen.
 7. **Duplikate**: gleiches Datum + ähnlicher Name + Ort ≤ 30 km + kompatible
    Distanz (`is_same_event()`). Gleiche Veranstaltung mit *unterschiedlichen*
    Distanzen bleibt absichtlich getrennt.
@@ -241,30 +247,36 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Staffel" läuft man wirklich 5 km, und die Staffel ist ein eigener
    Wettbewerb. Ohne diese Unterscheidung meldete die Regel sechs
    Staffeln als Fehler, die keine waren.
-9. **`art2` „Backcountry Ultra"** (nur Laufen). Zwei Stichwörter mit
-   **unterschiedlicher Position** in `ART2_KEYWORDS_LAUFEN` – das ist
-   Absicht, nicht Zufall:
-   - „backcountry" steht **VOR** „Trail": ein „Backcountry Ultra Trail"
-     ist ein Backcountry Ultra.
-   - „backyard" (und „last man/person standing") steht **NACH** „Trail":
-     ein reiner „Backyard Ultra" ist Last-Man-Standing und damit
-     Backcountry Ultra, ein „Backyard Ultra **Trail**" dagegen ein
-     Trailrun, der das Wort nur im Namen trägt.
+9. **`art2` „Backyard Ultra"** – EIN Wert für Laufen UND Triathlon (vom
+   Nutzer am 19.09.2026 zusammengelegt: „die Kategorie Backyard und
+   Backyard Ultra zusammenfügen zu ‚Backyard Ultra'"; vorher hieß die
+   Laufkategorie „Backcountry Ultra" und die Triathlon-Kategorie
+   „Backyard"). Das Stichwort „backyard" (und „last man/person standing")
+   steht in `ART2_KEYWORDS_LAUFEN` an einer bestimmten Stelle – Absicht,
+   nicht Zufall:
+   - **NACH** „Trail": ein reiner „Backyard Ultra" ist Last-Man-Standing,
+     ein „Backyard Ultra **Trail**" dagegen ein Trailrun, der das Wort nur
+     im Namen trägt.
+   - **VOR** der Berg-/Höhenmeter-Zeile: ein Backyard mit „120 Höhenmeter
+     pro Runde" bleibt ein Backyard.
 
-   So ausdrücklich vom Nutzer entschieden. Reihenfolge nicht „aufräumen".
+   Das frühere Stichwort „backcountry" ist mit der Umbenennung
+   **weggefallen**: Ein „Backcountry Ultra" ist ein langer Trailrun
+   durch unwegsames Gelände, kein Rundenformat – er fällt über „trail"
+   in die Trail-Kategorie. Kein Event im Bestand trug das Wort.
+   Reihenfolge nicht „aufräumen".
 
    **Backyard Ultra TRIATHLON gibt es auch** (vom Nutzer am 19.09.2026
    genannt – „das ist jetzt neu, das gibts"): Der „Backyardman Würzburg"
    ist laut backyardman.de „die Weltpremiere eines neuen Ultra-Formats:
    ein Backyard-Ultra, erstmals kombiniert mit dem Triathlon" – je
    Zwei-Stunden-Runde 500 m Schwimmen, 20 km Rad, 5 km Laufen, bis nur
-   eine Person übrig ist. Dafür gibt es die Kategorie **„Backyard" unter
+   eine Person übrig ist. Dafür steht **„Backyard Ultra" auch unter
    Triathlon** (`ART2_KEYWORDS_TRIATHLON`, ganz vorn – das Format zählt
    vor dem Gelände; `ART2_BY_ART1['Triathlon']`, Übersetzung in
    `filters.js` und `functions/index.js`). Die Länge bleibt leer wie bei
-   jedem Backyard. Ein Triathlon mit „Backyard" im Namen wird also nicht
-   zum „Backcountry Ultra" (das ist die Laufkategorie), sondern zum
-   Backyard-Triathlon – `guess_art1()` entscheidet zuerst die Sportart.
+   jedem Backyard. `guess_art1()` entscheidet zuerst die Sportart, dann
+   kommt aus beiden Listen derselbe Kategorie-Wert.
 
    **Die Backyard-Runde ist keine Distanz.** Ein Backyard läuft dieselbe
    Runde (klassisch 4,167 Meilen = 6,706 km, in den Quellen „6,7" oder
@@ -272,7 +284,7 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Deshalb:
    - Länge-Spalte zeigt **„–"**, wenn das Rennen zeitlich offen ist, und
      **„24 h"**, wenn es auf 24 Stunden begrenzt ist.
-   - `clean_events.clear_backyard_lap_km()` nimmt bei Backcountry-Ultra-
+   - `clean_events.clear_backyard_lap_km()` nimmt bei Backyard-Ultra-
      Einträgen eine Distanz **bis 10 km** heraus (das ist die Runde; 18
      Einträge betroffen). Größere Angaben (34/67/80 km) bleiben stehen
      und werden nur **gemeldet** – unklar, ob Zielvorgabe, Teamwertung
@@ -325,7 +337,7 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    - **`guess_art2(text, config, art1)`** nimmt die Kategorie-Liste zur
      Sportart (`ART2_LISTEN`). Ohne das dritte Argument bleibt es bei
      der Lauf-Liste – ältere Aufrufe funktionieren unverändert, ein
-     Cross-Triathlon bekäme dort aber „Trail/Cross", also eine
+     Cross-Triathlon bekäme dort aber „Trail", also eine
      Laufkategorie an einer Nicht-Laufveranstaltung.
    - **Zwei Meldungen, keine automatische Korrektur** (siehe Lektion
      unten): `report_multisport_teilstrecken()` findet Zeilen, die nur
@@ -546,7 +558,9 @@ alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
    war, `\bberglauf\b` daraus zu machen. Gemessen: Von 58 betroffenen
    Events sind 57 **echte** Bergläufe - „Belchen·berglauf",
    „Turm·berglauf", „Nebelhorn·berglauf". Deutsche Komposita sind hier
-   die Regel, nicht die Ausnahme. **Die fehlende Wortgrenze bleibt.**
+   die Regel, nicht die Ausnahme. **Die fehlende Wortgrenze bleibt** –
+   auch jetzt, wo das Stichwort „Trail" statt „Berg" ergibt: Ein
+   Limberglauf ist ein Geländelauf, kein Straßenlauf.
    Vor jedem „das sieht falsch aus" erst zählen, was die Änderung
    anrichtet.
 
@@ -2243,11 +2257,10 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
    hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
    swiss-cycling.ch.
-9. **Backyard Ultra TRIATHLON** – ein neues Format (vom Nutzer am
-   19.09.2026 genannt): Der „Backyardman Würzburg" ist einer und steht
-   jetzt so in der Liste. Dafür gibt es die Kategorie „Backyard" unter
-   Triathlon (siehe Datenregel 9) – gebaut, aber umkehrbar, falls sie
-   lieber unter „Straße" mitlaufen soll.
+9. ~~Backyard Ultra TRIATHLON – eigene Kategorie „Backyard"?~~
+   **entschieden** (19.09.2026): Laufen und Triathlon tragen denselben
+   Wert „Backyard Ultra" (siehe Datenregel 9); der „Backyardman
+   Würzburg" steht so in der Liste.
 10. **raceresult-Kontaktseiten auswerten** (vom Nutzer am 19.09.2026
    gewünscht: „bitte das bei race results immer checken"). 535 Zeilen
    (314 Veranstaltungen) tragen einen `my.raceresult.com`-Link; die `/contact`-Seite

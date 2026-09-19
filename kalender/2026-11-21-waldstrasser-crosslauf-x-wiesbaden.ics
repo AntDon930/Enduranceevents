@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Waldsträßer Crosslauf
 LOCATION:Wiesbaden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: -\nhttps://tv-waldstras
- se.de/crosslauf
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://tv-waldstrasse.de/
+ crosslauf
 TRANSP:TRANSPARENT
 URL:https://tv-waldstrasse.de/crosslauf
 END:VEVENT

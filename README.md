@@ -108,12 +108,12 @@ Schweiz.
 
   **Höhenprofil als Kategorie-Signal**: Nennt die Quelle Höhenmeter pro
   Strecke und sagt der Name nichts Spezifischeres, entscheidet der Anstieg
-  pro Kilometer: ab 20 m/km gilt die Strecke als Berglauf
-  (`scraper_lib.art2_from_elevation()`). Der „VR Bank – BraunenBerg-Lauf"
-  über 14,6 km mit ca. 400 Hm (27 m/km) galt vorher als Straßenlauf. Ein
-  flacher Stadtmarathon liegt bei unter 5 m/km und bleibt unberührt; eine
-  aus dem Namen erkannte Kategorie (Trail/Cross, Berg, …) wird nie
-  überschrieben.
+  pro Kilometer: ab 20 m/km gilt die Strecke als Berg-/Geländelauf und
+  bekommt die Kategorie „Trail" (`scraper_lib.art2_from_elevation()`).
+  Der „VR Bank – BraunenBerg-Lauf" über 14,6 km mit ca. 400 Hm (27 m/km)
+  galt vorher als Straßenlauf. Ein flacher Stadtmarathon liegt bei unter
+  5 m/km und bleibt unberührt; eine aus dem Namen erkannte Kategorie
+  (Hindernis, Backyard Ultra, …) wird nie überschrieben.
 
   **Land**: Kalender nennen oft nur eine Postleitzahl, und eine
   vierstellige PLZ unterscheidet Österreich nicht von der Schweiz.
@@ -298,18 +298,24 @@ Schweiz.
   6. **Kategorie** – Checkbox-Liste, deren Optionen von der Sportart-Auswahl
      abhängen. Zuordnung (als `ART2_BY_ART1` in `filter-ui.js`, dort
      anpassbar – die Liste und die Karte teilen sie sich):
-     - *Laufen*: Straße, Trail/Cross, Bahn, Berg, Hindernis,
-       Backcountry Ultra. Letztere trifft „backcountry" (abseits
-       ausgebauter Wege, oft unverpflegt) sowie „backyard" bzw.
-       „last man standing" (gleiche Runde zur gleichen Stunde, bis nur
-       noch eine Person weiterläuft). Die beiden Stichwörter stehen
-       **an verschiedenen Stellen** der Prioritätsliste: „backcountry"
-       vor „Trail" (ein „Backcountry Ultra Trail" bleibt Backcountry
-       Ultra), „backyard" dahinter – ein „Backyard Ultra **Trail**" ist
-       ein Trailrun, der das Wort nur im Namen trägt.
+     - *Laufen*: Straße, Trail, Bahn, Hindernis, Backyard Ultra.
+       **„Trail" umfasst Trail-, Cross- UND Bergläufe** (vom Nutzer am
+       19.09.2026 so entschieden – vorher „Trail/Cross" und daneben
+       „Berg"). „Backyard Ultra" trifft „backyard" bzw. „last man
+       standing" (gleiche Runde zur gleichen Stunde, bis nur noch eine
+       Person weiterläuft); das Stichwort steht in der Prioritätsliste
+       **hinter** „Trail" – ein „Backyard Ultra **Trail**" ist ein
+       Trailrun, der das Wort nur im Namen trägt – und **vor** der
+       Berg-/Höhenmeter-Zeile, damit ein Backyard mit Höhenmeter-Angabe
+       ein Backyard bleibt. (Die Kategorie hieß bis zum 19.09.2026
+       „Backcountry Ultra" und hatte das Stichwort „backcountry"; das ist
+       weg, weil ein Backcountry Ultra ein langer Trailrun ist, kein
+       Rundenformat.)
      - *Schwimmen*: Freiwasser, Becken
      - *Fahrrad*: Straße, Zeitfahren, Mountainbike, Gravel, Bahn, Cyclecross
-     - *Triathlon* hat keine Kategorie-Unterteilung.
+     - *Triathlon*: Straße, Cross, Duathlon, Aquathlon, Swimrun,
+       Quadrathlon, Indoor, Backyard Ultra – derselbe Wert wie beim
+       Laufen, das Format ist dasselbe (Backyardman Würzburg).
   7. **Länge** – Sportart-Tabs (Laufen/Fahrrad/Schwimmen/Triathlon) mit
      sportartspezifischen Distanz-Schnellauswahlen plus dem allgemeinen
      Zahlenbereich von/bis (siehe unten); die Einheit „km" steht bereits in
@@ -900,20 +906,22 @@ und eindeutige Events in `events.json` landen:
   Treffer** (`ART2_KEYWORDS_LAUFEN` in `scraper_lib.py`, dieselbe Liste
   dupliziert in `laufkalender_scraper.py`): Ein Name wie "5. Beck
   HochRhön Bergtrail 42k Trail-Marathon" enthält das Wort "Marathon" -
-  ohne eine bewusste Reihenfolge (Hindernis → Trail → Berg
-  [inkl. "Höhenmeter" im Text] → Cross → Bahn → erst zuletzt Straße/
-  Marathon/Stadtlauf) hätte die generische Straße-Regel zuerst zugetroffen
-  und das Event fälschlich als Straßenlauf statt als Geländelauf eingestuft
+  ohne eine bewusste Reihenfolge (Hindernis → Trail → Backyard →
+  Berg/Höhenmeter → Cross → Bahn → erst zuletzt Straße/Marathon/
+  Stadtlauf) hätte die generische Straße-Regel zuerst zugetroffen und
+  das Event fälschlich als Straßenlauf statt als Geländelauf eingestuft
   (echter, mit realen Daten verifizierter Bug).
-- **"Trail" und "Cross" sind eine Kategorie: "Trail/Cross".** Beides
-  beschreibt einen Geländelauf; die Quellen nennen dieselbe Strecke mal
-  "Crosslauf", mal "Trail", und wer sie auseinanderhalten will, rät. Auf
-  Wunsch des Nutzers zusammengefasst. Die beiden Stichwort-Zeilen der
-  Prioritätsliste bleiben aber getrennt, weil ihre Position verschieden
-  ist (siehe oben: "trail" vor Berg, "cross" danach) - ein "Bergtrail"
-  ist Trail/Cross, ein "Alpiner Crosslauf" bleibt Berglauf. Bereits
-  gespeicherte Werte zieht `clean_events.merge_trail_cross()` nach; der
-  Schritt ist idempotent und lässt "Cyclecross" (Fahrrad) unangetastet.
+- **"Trail", "Cross" und "Berglauf" sind EINE Kategorie: "Trail".** Alles
+  drei beschreibt einen Geländelauf; die Quellen nennen dieselbe Strecke
+  mal "Crosslauf", mal "Trail", mal "Berglauf", und wer sie
+  auseinanderhalten will, rät. Erst zu "Trail/Cross" zusammengefasst, am
+  19.09.2026 auf Wunsch des Nutzers um "Berg" erweitert und in "Trail"
+  umbenannt. Die drei Stichwort-Zeilen der Prioritätsliste bleiben
+  getrennt, weil das backyard-Stichwort dazwischen steht (siehe oben).
+  Bereits gespeicherte Werte zieht `clean_events.merge_art2()` nach
+  (auch "Backcountry Ultra"/"Backyard" → "Backyard Ultra"); der Schritt
+  ist je Sportart definiert und idempotent, "Cross" beim Triathlon und
+  "Cyclecross" beim Fahrrad bleiben unangetastet.
 - **Duplikaterkennung über Quellgrenzen hinweg**
   (`scraper_lib.is_same_event()`): Dieselbe Veranstaltung steht meist in
   mehreren Kalendern – unter abweichendem Namen und mit leicht

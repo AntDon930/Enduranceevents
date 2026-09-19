@@ -207,40 +207,61 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
     return kept, excluded, changed
 
 
-# Alte Kategorien, die heute eine einzige sind. "Trail" und "Cross"
-# beschreiben beide einen Geländelauf; die Quellen benennen dieselbe
-# Strecke mal so, mal so, und wer sie trennen will, rät. Auf Wunsch des
-# Nutzers zusammengefasst zu "Trail/Cross".
-ART2_MERGED_LAUFEN = {"Trail": "Trail/Cross", "Cross": "Trail/Cross"}
+# Alte Kategorien, die heute eine einzige sind - je Sportart, denn "Cross"
+# ist beim Laufen ein Geländelauf (heute "Trail"), beim Triathlon aber
+# weiterhin eine eigene Kategorie, und beim Fahrrad ist "Cyclecross" eine
+# dritte Sache.
+#
+# Laufen: "Trail", "Cross" und "Berg" beschreiben alle einen Geländelauf;
+# die Quellen benennen dieselbe Strecke mal so, mal so, und wer sie
+# trennen will, rät. Erst zu "Trail/Cross" zusammengefasst, am 19.09.2026
+# auf Wunsch des Nutzers um "Berg" erweitert und in "Trail" umbenannt
+# ("die beste Bezeichnung einfach für die ganzen Events"). "Berglauf"
+# stand daneben einmal als Tippfehler-Wert im Override und damit in den
+# Daten - der geht denselben Weg.
+#
+# "Backcountry Ultra" (Laufen) und "Backyard" (Triathlon) sind beide das
+# Last-Man-Standing-Format und heißen seit dem 19.09.2026 in beiden
+# Sportarten gleich: "Backyard Ultra" (so vom Nutzer entschieden).
+ART2_MERGED = {
+    "Laufen": {
+        "Trail/Cross": "Trail", "Cross": "Trail", "Berg": "Trail",
+        "Berglauf": "Trail", "Backcountry Ultra": "Backyard Ultra",
+    },
+    "Triathlon": {"Backyard": "Backyard Ultra"},
+}
 
 
-def merge_trail_cross(events: list[dict]) -> list[str]:
-    """Zieht bereits gespeicherte "Trail"- und "Cross"-Einträge auf die
-    gemeinsame Kategorie "Trail/Cross" nach.
+def merge_art2(events: list[dict]) -> list[str]:
+    """Zieht bereits gespeicherte alte Kategorie-Werte (`ART2_MERGED`) auf
+    die heutigen nach.
 
-    Die Stichwortliste (`ART2_KEYWORDS_LAUFEN`) liefert den neuen Wert
-    schon bei jedem Scraper-Lauf; dieser Schritt holt den Bestand nach.
-    Idempotent: Ein zweiter Durchlauf findet nichts mehr, weil
-    "Trail/Cross" in der Zuordnung nicht mehr vorkommt.
-
-    Nur für `art1 == "Laufen"` - beim Fahrrad ist "Cyclecross" eine eigene
-    Kategorie und bleibt unangetastet.
+    Die Stichwortlisten (`ART2_KEYWORDS_*`) liefern den neuen Wert schon
+    bei jedem Scraper-Lauf; dieser Schritt holt den Bestand nach - und
+    fängt Overrides ab, die noch den alten Wert nennen. Idempotent: Ein
+    zweiter Durchlauf findet nichts mehr, weil kein Zielwert zugleich ein
+    Schlüssel ist.
     """
     changed: list[str] = []
     for event in events:
-        if event.get("art1") != "Laufen":
+        zuordnung = ART2_MERGED.get(event.get("art1") or "")
+        if not zuordnung:
             continue
-        neu = ART2_MERGED_LAUFEN.get(event.get("art2"))
+        neu = zuordnung.get(event.get("art2"))
         if neu:
             changed.append(f"{event.get('name')}: art2 {event['art2']!r} -> {neu!r}")
             event["art2"] = neu
     return changed
 
 
+# Alter Name, damit ältere Aufrufe weiter funktionieren.
+merge_trail_cross = merge_art2
+
+
 def refresh_art2(events: list[dict]) -> list[str]:
     """Bestimmt art2 aus dem Event-Namen neu, wenn dabei eine spezifischere
-    Kategorie als die gespeicherte herauskommt (Trail/Cross, Berg,
-    Hindernis, Bahn statt des generischen "Straße")."""
+    Kategorie als die gespeicherte herauskommt (Trail, Hindernis, Bahn,
+    Backyard Ultra statt des generischen "Straße")."""
     overrides = load_manual_overrides()
     changed: list[str] = []
     for event in events:
@@ -339,7 +360,7 @@ def fix_multisport_art1(events: list[dict]) -> list[str]:
     Umgestellt wird NUR von "Laufen" aus und nur bei einem eindeutigen
     Stichwort im Namen (ART1_KEYWORDS). Eine von Hand gesetzte Sportart
     (Override) bleibt unangetastet, und die Kategorie wird gleich
-    mitgezogen - ein Triathlon mit der Laufkategorie "Trail/Cross" wäre
+    mitgezogen - ein Triathlon mit der Laufkategorie "Trail" wäre
     nur halb korrigiert.
     """
     overrides = load_manual_overrides()
@@ -1123,7 +1144,7 @@ def clear_backyard_lap_km(events: list[dict]) -> tuple[list[str], list[str]]:
     cleared: list[str] = []
     to_check: list[str] = []
     for event in events:
-        if event.get("art2") != "Backcountry Ultra":
+        if event.get("art2") != "Backyard Ultra":
             continue
         km = event.get("laenge_km")
         if not isinstance(km, (int, float)):
@@ -1582,7 +1603,7 @@ def main() -> None:
     # brauchen keinen Override.
     events, manuell_ergaenzt = add_manual_events(events)
     # VOR refresh_art2: Das holt die Kategorie aus der Lauf-Liste und
-    # würde einem noch als "Laufen" geführten Triathlon "Trail/Cross"
+    # würde einem noch als "Laufen" geführten Triathlon "Trail"
     # verpassen.
     events, nicht_ausdauer = drop_nicht_ausdauer(events)
     multisport_fixes = fix_multisport_art1(events)
@@ -1591,7 +1612,7 @@ def main() -> None:
     # eigenständiges Radrennen.
     fremde_sportart = fix_fremde_sportart_im_wettbewerb(events)
     art2_andere = fill_art2_andere_sportarten(events)
-    art2_merges = merge_trail_cross(events)
+    art2_merges = merge_art2(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
     rounding_fixes = round_distances(events)
@@ -1649,7 +1670,7 @@ def main() -> None:
     section("Sportart korrigiert (Label nennt eine andere Sportart)",
             fremde_sportart)
     section("Kategorie bei Nicht-Lauf-Sportarten nachgetragen", art2_andere)
-    section("Kategorie Trail/Cross zusammengefasst", art2_merges)
+    section("Alte Kategorie-Werte zusammengefasst (Trail, Backyard Ultra)", art2_merges)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)

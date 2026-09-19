@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Jenaer Kernberglauf
 LOCATION:Jena\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 5 km\nhttps://www.kernberglauf
- .de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.kernberglau
+ f.de/
 TRANSP:TRANSPARENT
 URL:https://www.kernberglauf.de/
 END:VEVENT

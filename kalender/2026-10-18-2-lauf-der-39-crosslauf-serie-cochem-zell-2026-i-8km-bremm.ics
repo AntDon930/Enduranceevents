@@ -11,8 +11,7 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:2. Lauf der 39. Crosslauf-Serie Cochem-Zell 2026 in Bremm
 LOCATION:Bremm\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 8 km\nhttp://www.vfl-br
- emm.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.vfl-bremm.de
 TRANSP:TRANSPARENT
 URL:http://www.vfl-bremm.de
 END:VEVENT

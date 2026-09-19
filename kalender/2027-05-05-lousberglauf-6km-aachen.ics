@@ -10,7 +10,8 @@ DTSTART;VALUE=DATE:20270505
 DTEND;VALUE=DATE:20270506
 SUMMARY:Lousberglauf
 LOCATION:Aachen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 6 km\nhttps://lousberglauf.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://lousberglauf.de
+ /
 TRANSP:TRANSPARENT
 URL:https://lousberglauf.de/
 END:VEVENT

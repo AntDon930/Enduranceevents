@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:12. Weezer Crosslauf
 LOCATION:Weeze\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttp://www.tsv-we
- eze-leichtathletik.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttp://www.tsv-weeze-le
+ ichtathletik.de
 TRANSP:TRANSPARENT
 URL:http://www.tsv-weeze-leichtathletik.de
 END:VEVENT

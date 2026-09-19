@@ -144,7 +144,10 @@
   };
   // Zuordnung Sportart -> erlaubte Kategorie-Werte.
   const ART2_BY_ART1 = {
-    'Laufen': ['Straße', 'Trail/Cross', 'Bahn', 'Berg', 'Hindernis', 'Backcountry Ultra'],
+    // "Trail" umfasst Trail-, Cross- und Bergläufe (eine Kategorie, so
+    // vom Nutzer entschieden); "Backyard Ultra" ist derselbe Wert wie
+    // beim Triathlon - das Format ist dasselbe.
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra'],
     'Schwimmen': ['Freiwasser', 'Becken'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross'],
     // Triathlon ist die Mehrsport-Schublade: Duathlon (Laufen-Rad-Laufen),
@@ -154,7 +157,7 @@
     // ART2_KEYWORDS_TRIATHLON in scraper_lib.py; test_kategorie
     // vergleicht beide Listen.
     'Triathlon': ['Straße', 'Cross', 'Duathlon', 'Aquathlon', 'Swimrun',
-                  'Quadrathlon', 'Indoor', 'Backyard']
+                  'Quadrathlon', 'Indoor', 'Backyard Ultra']
   };
   // Alle Kategorien, die ART2_BY_ART1 kennt - die Gegenstuecke zu
   // BEKANNTE_WERTE fuer `art2`.

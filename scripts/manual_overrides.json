@@ -2,7 +2,7 @@
   "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, dauer_h, wettbewerb, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert (null löscht ihn); 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden.",
   "47. Gaißacher Berglauf|2026-09-05": {
     "laenge_km": 4.5,
-    "art2": "Berg",
+    "art2": "Trail",
     "_note": "Hauptstrecke laut mehreren Quellen 4,5 km / 480 Hm (optionale Verlängerung zum Rechelkopf +1,6 km). Liegt unter der 5-km-Schwelle und wird dadurch automatisch herausgefiltert, obwohl es ein ernsthafter Berglauf ist - Grenzfall, siehe Chat-Hinweis."
   },
   "9. Gremsdorfer Kerwalauf 2026|2026-09-05": {
@@ -11,7 +11,7 @@
   },
   "48. Hochgratlauf|2026-09-06": {
     "laenge_km": 12.8,
-    "art2": "Berg",
+    "art2": "Trail",
     "veranstalter_url": "https://www.tsv-oberstaufen.de/hochgratlauf",
     "_note": "Offizielle Ausschreibung 2026 (tsv-oberstaufen.de): Hauptstrecke 12,8 km, 714 Hm, Gipfel auf 1834 m."
   },
@@ -67,7 +67,7 @@
   },
   "Kapuziner-Kessellauf|2026-09-19": {
     "laenge_km": 14.3,
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "veranstalter_url": "https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.html",
     "_note": "Hauptlauf 14,3 km mit ca. 300 Hm, überwiegend auf Wald- und Forstwegen (daher Trail statt Straße); weitere Strecken 6 km Hobbylauf/Nordic-Walking sowie Schüler-/Bambiniläufe."
   },
@@ -78,7 +78,7 @@
   },
   "45. Hörnle Berglauf Bad Kohlgrub|2026-09-19": {
     "laenge_km": 7.0,
-    "art2": "Berg",
+    "art2": "Trail",
     "_note": "7 km, 640 Hm laut mehreren Quellen; art2 ergibt sich zusätzlich bereits automatisch aus dem Namen (Berg). veranstalter_url hier bewusst NICHT gesetzt: der Scraper findet inzwischen die direkte Veranstalter-Seite (skiclub-bad-kohlgrub.de), die dem früher hier eingetragenen Portallink vorzuziehen ist."
   },
   "39.Lauf in die Mönau|2026-09-19": {
@@ -96,7 +96,7 @@
   },
   "IWB Laurentiuslauf x Landkreislauf|2026-09-20": {
     "laenge_km": 22.0,
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "veranstalter_url": "https://laurentiuslauf.de/",
     "_note": "Offizielle Seite bewirbt die Strecke ausdrücklich als Trails durch Augsburgs westliche Wälder. Distanzangaben zwischen Quellen leicht widersprüchlich (5/10/22 km je nach Jahr) - 22 km als längste konsistent genannte Distanz übernommen."
   },
@@ -146,7 +146,7 @@
   },
   "König Ludwig Lauf - Sommeredition|2026-09-26": {
     "laenge_km": 21.0,
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "veranstalter_url": "https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf",
     "_note": "U. a. auf trailrunning.de gelistet; Panorama-Strecke durch die Ammergauer Alpen."
   },
@@ -156,7 +156,7 @@
   },
   "29. SPORT IN Reisberglauf|2026-09-27": {
     "laenge_km": 13.8,
-    "art2": "Berg",
+    "art2": "Trail",
     "veranstalter_url": "https://www.mtv-in-la.de/reisberglauf-2025/",
     "_note": "Bergrennen mit Hauptstrecke 'Reisbergrunde' (Wald-/Forstwege, Steigungen/Abfahrten), 13,8 km."
   },
@@ -242,7 +242,7 @@
     "_note": "Backyard Ultra mit 12-Stunden-Begrenzung (steht im Namen). Die gespeicherten 67 bzw. 34 km sind keine Wettkampfdistanz, sondern was man in der Zeit zusammenläuft bzw. eine Rundensumme - eine Backyard-Strecke steht nicht vorher fest. Vom Nutzer am 16.09.2026 so entschieden: Dauer 12 h eintragen, Distanz löschen."
   },
   "Fichtellauf|2026-09-19": {
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "_note": "Der Fichtellauf ist der Fichtelgebirgs Trail Run (8/14/21 km plus Nordic Walking), keine Strassenveranstaltung. Der Scraper hatte 'Strasse' gesetzt, weil im Namen kein Trail-Stichwort steht. Geprueft am 18.09.2026 gegen fnwm.de.",
     "_quelle": "https://www.fnwm.de/trail-running/"
   },
@@ -426,7 +426,7 @@
   },
   "Trailrunning Squad Backyard Ultra|2026-09-18|6.7": {
     "laenge_km": null,
-    "art2": "Backcountry Ultra",
+    "art2": "Backyard Ultra",
     "_note": "Klassischer Backyard Ultra, kein Trailrun: trailrunningsquad.de sagt '6,7 Kilometer. Zu jeder vollen Stunde. Wer die Runde nicht innerhalb einer Stunde beendet, scheidet aus.' und 'Ende: Offen (Last Human Standing)'. Die 6,7 km sind die RUNDE (Datenregel 9), es gibt weder feste Gesamtstrecke noch Zeitlimit. Die Kategorie war 'Trail/Cross', weil der VERANSTALTER 'Trailrunning Squad' heisst und 'trail' in ART2_KEYWORDS_LAUFEN vor 'backyard' steht - die Reihenfolge ist richtig so (Datenregel 9), nur dieser Name kollidiert damit. Geprüft 2026-09-18."
   },
   "RET-Team Backyard|2026-10-03|80": {
@@ -520,12 +520,12 @@
   },
   "Runners Festival Klouster|2026-10-01|18": {
     "laenge_km": 17.5,
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "wettbewerb": "Skihüttentrail",
     "_note": "runners-festival.de nennt drei Strecken: 'Kindertrail 3,9 km / 90 hm', 'Hauptlauf 12 km / 340 hm' und 'Skihuettentrail 17,5 km / 470 hm'. Gespeichert waren 18 km - das ist die gerundete Angabe der Quelle, die echte Strecke ist 17,5 km. 'Strasse' war falsch: Es sind Trails im Bayerischen Wald. Der Zeitraum 01.-18.10.2026 stimmt, das Festival ist bewusst frei einteilbar ('Teilnehmer koennen ihre Strecke jederzeit waehrend des Festivals laufen'). Geprueft 2026-09-18."
   },
   "Runners Festival Klouster|2026-10-01|12": {
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "wettbewerb": "Hauptlauf",
     "_note": "runners-festival.de: 'Hauptlauf 12 km / 340 hm', ein Trail im Bayerischen Wald - 'Strasse' war falsch. Geprueft 2026-09-18."
   },
@@ -934,11 +934,11 @@
     "_note": "Dieselbe Veranstaltung stand zweimal in der Liste: einmal mit dem foermlichen Namen aus dem Kalender von laufen.de, ohne Wettbewerbs-Label und mit einem Portallink, und einmal von der Seite des Veranstalters - dort mit allen Strecken und mit Labels. Gleicher Tag, gleicher Ort, gleiche Distanz. Der Namensvergleich in is_same_event() sieht das nicht, weil die beiden Namen kein gemeinsames Wort haben muessen. Die Zeile des Veranstalters bleibt. bleibt: 'Europamarathon' (europamarathon.de) mit Marathon und Halbmarathon. Geprueft 2026-09-18."
   },
   "Adventscross der LG Nordheide|2026-12-13|5": {
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "_note": "Ein Advents-CROSS ist ein Gelaendelauf, keine Strassenstrecke. Die Kategorie stand auf 'Strasse', weil die Ausschreibung auf ladv.de das Wort 'Cross' nur im Titel fuehrt. Die zweite, jetzt entfernte Quelle hatte 'Trail/Cross' richtig. Geprueft 2026-09-18."
   },
   "Adventscross der LG Nordheide|2026-12-13|9": {
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "_note": "Ein Advents-CROSS ist ein Gelaendelauf, keine Strassenstrecke. Die Kategorie stand auf 'Strasse', weil die Ausschreibung auf ladv.de das Wort 'Cross' nur im Titel fuehrt. Die zweite, jetzt entfernte Quelle hatte 'Trail/Cross' richtig. Geprueft 2026-09-18."
   },
   "24. Kreutzer-Bergisch-Land-Marathon (Ziel in Remscheid-Hackenberg)|2026-10-25|42.2": {
@@ -1220,17 +1220,17 @@
   },
   "Mössinger Apfellauf|2026-10-04|21": {
     "wettbewerb": "Dreifürstensteig, ca. Halbmarathon",
-    "art2": "Berglauf",
+    "art2": "Trail",
     "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. lg-steinlach-zollern.de nennt fuer Sonntag, 4. Oktober 2026 die Strecke 'Dreifuerstensteig, ca. Halbmarathon' mit 'ca. 750 HM', Start 9:30 Uhr in gefuehrten Gruppen, dazu 'Streuobstwiesenstrecke, ca. 11 km' und das Apfelwalking ueber 10 und 7 km. 750 Hoehenmeter auf 21 km sind 36 hm/km - damit ist es ein Berglauf und keine Strasse (Datenregel 6). ANMERKUNG: Die Seite sagt 'kein Wettkampf. Es erfolgt keine Zeitnahme.' Geprueft 2026-09-18."
   },
   "Freundschaftslauf Wustweiler|2026-11-07|21": {
     "wettbewerb": "Wustweiler Biber-Trail (WuBiT)",
-    "art2": "Trail/Cross",
+    "art2": "Trail",
     "_note": "KEIN Fehler, obwohl der Bericht 'Verdaechtige Distanz' die Zeile meldet: Die Strecke gibt es wirklich, die zweite Quelle war unvollstaendig. llgwustweiler.de nennt fuer Samstag, 07. November 2026 den 'Wustweiler Biber-Trail (WuBiT): 21 km Trail - 600 Hoehenmeter' um 13:00 Uhr, dazu ab 15:00 Uhr Laufstrecken ueber 7, 8, 9, 10 und 11 km und Walking ueber 5 und 6 km. Es ist kein Strassen-Halbmarathon, sondern ein Trail - Kategorie entsprechend gesetzt. Geprueft 2026-09-18."
   },
   "Backyardman Würzburg|2026-09-18": {
     "art1": "Triathlon",
-    "art2": "Backyard",
+    "art2": "Backyard Ultra",
     "laenge_km": null,
     "wettbewerb": null,
     "veranstalter_url": "https://backyardman.de/",
@@ -1683,7 +1683,7 @@
     "laenge_km": 17.0,
     "wettbewerb": "17 km Cross – Experte",
     "_note": "wintersport-tambach.de/ztl/strecken: '3 KILOMETER Cross - Anfänger', '6 KILOMETER Cross - Junior', '12 KILOMETER Nordic Walking', '17 KILOMETER Cross - Experte'. Nachholtermin 27.09.2026 (23.08. wegen Sturmschäden abgesagt). 6 km und 12 km NW in manual_events.json. Geprüft 2026-09-19.",
-    "art2": "Trail/Cross"
+    "art2": "Trail"
   },
   "Neustädter Söhrenberg-Triathlon|2026-10-03": {
     "laenge_km": 25.5,

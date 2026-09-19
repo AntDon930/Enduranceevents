@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Crosslauf in den Ravensbergen
 LOCATION:Potsdam\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttps://www.stras
- senlauf.org/va_details.php?id=973
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.strassenlau
+ f.org/va_details.php?id=973
 TRANSP:TRANSPARENT
 URL:https://www.strassenlauf.org/va_details.php?id=973
 END:VEVENT

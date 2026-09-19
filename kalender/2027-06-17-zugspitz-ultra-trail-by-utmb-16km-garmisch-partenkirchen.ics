@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270617
 DTEND;VALUE=DATE:20270620
 SUMMARY:Zugspitz Ultra Trail by UTMB
 LOCATION:Garmisch-Partenkirchen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 16 km\nhttps://zugspitz
- .utmb.world/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://zugspitz.utmb.
+ world/
 TRANSP:TRANSPARENT
 URL:https://zugspitz.utmb.world/
 END:VEVENT

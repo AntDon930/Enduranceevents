@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:HuBuT Winter Edition
 LOCATION:Laubach\, Hunsrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 6 h\nhttps://hunsbuckel
- -trail.de/ergebnisse
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 h\nhttps://hunsbuckel-trail
+ .de/ergebnisse
 TRANSP:TRANSPARENT
 URL:https://hunsbuckel-trail.de/ergebnisse
 END:VEVENT

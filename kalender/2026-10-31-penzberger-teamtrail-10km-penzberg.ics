@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Penzberger TeamTrail
 LOCATION:Penzberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 10 km\nhttps://www.penz
- berger-teamtrail.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.penzberger
+ -teamtrail.de/
 TRANSP:TRANSPARENT
 URL:https://www.penzberger-teamtrail.de/
 END:VEVENT

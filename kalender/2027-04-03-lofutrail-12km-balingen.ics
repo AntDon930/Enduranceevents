@@ -10,8 +10,7 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:LOFUtrail – K12 – 12 km / 500 Hm
 LOCATION:Balingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 12 km\nhttps://lofutrai
- l.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://lofutrail.de/
 TRANSP:TRANSPARENT
 URL:https://lofutrail.de/
 END:VEVENT

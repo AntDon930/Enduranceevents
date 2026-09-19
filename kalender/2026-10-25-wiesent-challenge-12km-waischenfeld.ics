@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:Wiesent Challenge
 LOCATION:Waischenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 12 km\nhttp://www.wiese
- nt-challenge.de/anmeldung/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttp://www.wiesent-cha
+ llenge.de/anmeldung/
 TRANSP:TRANSPARENT
 URL:http://www.wiesent-challenge.de/anmeldung/
 END:VEVENT

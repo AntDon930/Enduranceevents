@@ -269,11 +269,14 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
         # Hindernislauf heißt oft „Cross…" und ist richtig eingeordnet
         # (der „Family-CrossDeLuxe" hat die erste Fassung dieser Regel
         # als Fehlalarm entlarvt).
+        # Seit dem 19.09.2026 ist auch der Berglauf ein "Trail" - beide
+        # Prüfungen erwarten dieselbe Kategorie, bleiben aber getrennt,
+        # damit die Meldung sagt, welches Wort im Namen steht.
         if (re.search(r"\btrail|crosslauf|geländelauf", text)
-                and event.get("art2") not in ("Trail/Cross", "Berg",
-                                              "Backcountry Ultra")):
+                and event.get("art2") not in ("Trail", "Backyard Ultra")):
             melde("Trail/Cross im Namen, andere Kategorie", repr(event.get("art2")))
-        if re.search(r"berglauf|bergrennen|gipfel", text) and event.get("art2") != "Berg":
+        if (re.search(r"berglauf|bergrennen|gipfel", text)
+                and event.get("art2") not in ("Trail", "Backyard Ultra")):
             melde("Berglauf im Namen, andere Kategorie", repr(event.get("art2")))
 
     # --- Vollständigkeit ----------------------------------------------

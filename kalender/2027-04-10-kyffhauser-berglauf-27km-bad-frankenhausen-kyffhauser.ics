@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:Kyffhäuser Berglauf
 LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 27 km\nhttps://runtix.com/sts/
- 10021/3168
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27 km\nhttps://runtix.com/sts
+ /10021/3168
 TRANSP:TRANSPARENT
 URL:https://runtix.com/sts/10021/3168
 END:VEVENT

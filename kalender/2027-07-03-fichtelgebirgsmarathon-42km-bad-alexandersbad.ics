@@ -11,8 +11,8 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:Fichtelgebirgsmarathon – Marathon (42 km)
 LOCATION:Bad Alexandersbad\, Deutschland
-DESCRIPTION:Sportart: Laufen / Berg\nLänge: 42 km\nhttps://fichtelgebirgsm
- arathon.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://fichtelgebirgs
+ marathon.de/
 TRANSP:TRANSPARENT
 URL:https://fichtelgebirgsmarathon.de/
 END:VEVENT

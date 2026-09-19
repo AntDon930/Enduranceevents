@@ -79,20 +79,25 @@
     },
     art2: {
       'Straße': { de: 'Straße', en: 'Road' },
-      // Trail und Cross sind EIN Wert: beides Geländelauf, die Quellen
-      // benennen dieselbe Strecke mal so, mal so (Wunsch des Nutzers).
-      // Die beiden alten Werte bleiben übersetzbar - ein geteilter Link
-      // von früher (?art2=Trail) soll keinen rohen Schlüssel anzeigen.
-      'Trail/Cross': { de: 'Trail/Cross', en: 'Trail/Cross' },
+      // Trail, Cross und Berglauf sind EIN Wert: alles Geländelauf, die
+      // Quellen benennen dieselbe Strecke mal so, mal so (Wunsch des
+      // Nutzers, seit 19.09.2026 nur noch "Trail"). Die alten Werte
+      // bleiben übersetzbar - ein geteilter Link von früher
+      // (?art2=Trail/Cross, ?art2=Berg) soll keinen rohen Schlüssel
+      // anzeigen. "Cross" braucht der Triathlon weiterhin.
       'Trail': { de: 'Trail', en: 'Trail' },
+      'Trail/Cross': { de: 'Trail', en: 'Trail' },
+      'Berg': { de: 'Trail', en: 'Trail' },
       'Bahn': { de: 'Bahn', en: 'Track' },
-      'Berg': { de: 'Berg', en: 'Mountain' },
       'Cross': { de: 'Cross', en: 'Cross Country' },
       'Hindernis': { de: 'Hindernis', en: 'Obstacle' },
-      // Englischer Fachbegriff, in beiden Sprachen gleich: abseits
-      // ausgebauter Wege, oft ohne Verpflegung und teils zeitlich
-      // begrenzt statt über eine feste Strecke.
-      'Backcountry Ultra': { de: 'Backcountry Ultra', en: 'Backcountry Ultra' },
+      // Englischer Fachbegriff, in beiden Sprachen gleich: das
+      // Last-Man-Standing-Format (gleiche Runde zur gleichen Stunde, bis
+      // nur eine Person übrig ist) - beim Laufen UND beim Triathlon
+      // derselbe Wert. Die alten Schlüssel bleiben für geteilte Links.
+      'Backyard Ultra': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
+      'Backcountry Ultra': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
+      'Backyard': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
       'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
       'Becken': { de: 'Becken', en: 'Pool' },
       'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },
@@ -105,7 +110,6 @@
       'Duathlon': { de: 'Duathlon', en: 'Duathlon' },
       'Aquathlon': { de: 'Aquathlon', en: 'Aquathlon' },
       'Swimrun': { de: 'Swimrun', en: 'Swimrun' },
-      'Backyard': { de: 'Backyard', en: 'Backyard' },
       'Quadrathlon': { de: 'Quadrathlon', en: 'Quadrathlon' },
       'Indoor': { de: 'Indoor', en: 'Indoor' }
     },

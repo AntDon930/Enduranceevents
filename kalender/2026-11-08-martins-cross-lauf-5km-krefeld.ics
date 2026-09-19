@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:Martins-Cross-Lauf
 LOCATION:Krefeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5 km\nhttp://www.preuss
- en-leichtathletik.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttp://www.preussen-lei
+ chtathletik.de
 TRANSP:TRANSPARENT
 URL:http://www.preussen-leichtathletik.de
 END:VEVENT

@@ -11,8 +11,7 @@ DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:33. Energie Cross Neukirchen
 LOCATION:Grevenbroich\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail/Cross\nLänge: 5.1 km\nhttp://www.sgnh
- .de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.1 km\nhttp://www.sgnh.de
 TRANSP:TRANSPARENT
 URL:http://www.sgnh.de
 END:VEVENT
