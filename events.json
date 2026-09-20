@@ -253,158 +253,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "14. Fürst Carl Seenlandmarathon",
-    "standort": "Pleinfeld",
-    "lat": 49.1203766,
-    "lon": 11.000989,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://seenlandmarathon.de/",
-    "wettbewerb": "Marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "14. Klausdorfer Kranichlauf",
-    "standort": "Klausdorf",
-    "lat": 54.413173,
-    "lon": 13.0067608,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 15.0,
-    "veranstalter_url": "https://www.klausdorfer-sc.de/kranichlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "14. Klausdorfer Kranichlauf",
-    "standort": "Klausdorf",
-    "lat": 54.403595,
-    "lon": 13.0142853,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.klausdorfer-sc.de/kranichlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "17. Röderhof-Benefiz-Lauf",
-    "standort": "Diekholzen",
-    "lat": 52.0944417,
-    "lon": 9.915534,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://roederhof-benefiz-lauf.de",
-    "wettbewerb": "10 km Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "17. Röderhof-Benefiz-Lauf",
-    "standort": "Diekholzen",
-    "lat": 52.0937894,
-    "lon": 9.9156989,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.2,
-    "wettbewerb": "5,2 km Lauf",
-    "veranstalter_url": "https://roederhof-benefiz-lauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "17. Wehringer Wertachlauf mit schwäbischen Meisterschaften",
-    "standort": "Wehringen",
-    "lat": 48.2462637,
-    "lon": 10.800334,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/",
-    "wettbewerb": "Hauptlauf, 10 km, amtlich vermessen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "19. Duinger Berglauf",
-    "standort": "Duingen",
-    "lat": 52.0057957,
-    "lon": 9.6970268,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.sportclub-duingen.com/berglauf",
-    "wettbewerb": "Lauf 10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "19. Duinger Berglauf",
-    "standort": "Duingen",
-    "lat": 52.0057076,
-    "lon": 9.6992434,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "Lauf 5 km",
-    "veranstalter_url": "https://www.sportclub-duingen.com/berglauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "20. Belchenberglauf",
-    "standort": "Schönau (im Schwarzwald)",
-    "lat": 47.7861792,
-    "lon": 7.8933977,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 11.4,
-    "veranstalter_url": "http://www.belchenberglauf.tus-schoenau.de/",
-    "wettbewerb": "11 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "22. Bädleslauf",
-    "standort": "Stuttgart",
-    "lat": 48.7784485,
-    "lon": 9.1800132,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.ssv-zuffenhausen.de/veranstaltungen/",
-    "wettbewerb": "10 km Hauptlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "22. Bädleslauf",
-    "standort": "Stuttgart",
-    "lat": 48.7758459,
-    "lon": 9.1829321,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.3,
-    "wettbewerb": "5,3 km Lauf",
-    "veranstalter_url": "https://www.ssv-zuffenhausen.de/veranstaltungen/"
-  },
-  {
-    "land": "Deutschland",
     "name": "24h Mad Chicken Run",
     "standort": "Kolkwitz",
     "lat": 51.7497971,
@@ -474,917 +322,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "29. Aspacher Volkslauf",
-    "standort": "Aspach",
-    "lat": 48.9835713,
-    "lon": 9.388114,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://murrtal-runners.de/volkslauf/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "29. Aspacher Volkslauf",
-    "standort": "Aspach",
-    "lat": 48.9675903,
-    "lon": 9.3968064,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://murrtal-runners.de/volkslauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "31. Seelauf TSV-Obernzenn",
-    "standort": "Obernzenn",
-    "lat": 49.45,
-    "lon": 10.4667,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.7,
-    "veranstalter_url": "https://www.tsvobernzenn.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "34. Wilstermarsch Lauf",
-    "standort": "Wilster",
-    "lat": 53.9233519,
-    "lon": 9.3741366,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://mtv-wilster.de/sparten/wilstermarschlauf/",
-    "wettbewerb": "10km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "34. Wilstermarsch Lauf",
-    "standort": "Wilster",
-    "lat": 53.9233519,
-    "lon": 9.3741366,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5km",
-    "veranstalter_url": "https://mtv-wilster.de/sparten/wilstermarschlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "37. Bessunger Merck-Lauf",
-    "standort": "Darmstadt",
-    "lat": 49.872775,
-    "lon": 8.651177,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.stadtteillauf.de/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "37. Bessunger Merck-Lauf",
-    "standort": "Darmstadt",
-    "lat": 49.8728253,
-    "lon": 8.6511929,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.stadtteillauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "38. Volkslauf Rund um den Disibodenberg",
-    "standort": "Odernheim",
-    "lat": 49.7645253,
-    "lon": 7.7040005,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tv-odernheim.de/disibodenberglauf-2026-2/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "39. Lauf in die Mönau",
-    "standort": "Erlangen",
-    "lat": 49.5891571,
-    "lon": 10.9812072,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/lauf-in-die-moenau/veranstaltung/ausschreibung/",
-    "wettbewerb": "10 km Haupt-Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "39. Lauf in die Mönau",
-    "standort": "Erlangen",
-    "lat": 49.5896744,
-    "lon": 11.0119611,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Hobby-Lauf",
-    "veranstalter_url": "https://www.tv48-erlangen.de/de/Veranstaltungen-Geselligkeit/lauf-in-die-moenau/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "41. Mühlenlauf in Laar",
-    "standort": "Laar",
-    "lat": 52.6138228,
-    "lon": 6.7414485,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://sv-grenzland.de/muehlenlauf",
-    "wettbewerb": "5 und 10 Kilometer (Hauptläufe)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "45. Hörnle Berglauf Bad Kohlgrub",
-    "standort": "Bad Kohlgrub",
-    "lat": 47.6659196,
-    "lon": 11.0519029,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://skiclub-bad-kohlgrub.de/veranstaltungen.php?id=94",
-    "wettbewerb": "7 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "50. Schurwaldlauf Rommelshausen",
-    "standort": "Kernen",
-    "lat": 48.7965338,
-    "lon": 9.3286487,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/schurwaldlauf",
-    "wettbewerb": "10 Kilometer Volkslauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "50. Schurwaldlauf Rommelshausen",
-    "standort": "Kernen im Remstal",
-    "lat": 48.814019,
-    "lon": 9.3182543,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 Kilometer Jedermannlauf",
-    "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/schurwaldlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "66. Crosslauf Rund um den Wasserturm",
-    "standort": "Oberschöna",
-    "lat": 50.8974968,
-    "lon": 13.2539626,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000018060000"
-  },
-  {
-    "land": "Deutschland",
-    "name": "8. Nassauer Hospiz-Charity-Run 2026",
-    "standort": "Nassau",
-    "lat": 50.3148917,
-    "lon": 7.8000899,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.hospiz-nassau.de/hospizlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "8. Nassauer Hospiz-Charity-Run 2026",
-    "standort": "Nassau",
-    "lat": 50.3147061,
-    "lon": 7.7996095,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.hospiz-nassau.de/hospizlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "8. Neusser Integrationslauf",
-    "standort": "Neuss",
-    "lat": 51.1981778,
-    "lon": 6.6916476,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://www.neuss-integrationslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "8. Neusser Integrationslauf",
-    "standort": "Neuss",
-    "lat": 51.2041968,
-    "lon": 6.6879511,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.neuss-integrationslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ahmadiyya Charity Walk Leipzig",
-    "standort": "Leipzig",
-    "lat": 51.3396955,
-    "lon": 12.3730747,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://charitywalk.de/events/4-ahmadiyya-charity-walk-leipzig",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ahmadiyya Charity Walk Riedstadt-Goddelau",
-    "standort": "Riedstadt",
-    "lat": 49.8431788,
-    "lon": 8.4671693,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://charitywalk.de/events/4-ahmadiyya-charity-walk-riedstadt-goddelau",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ahmadiyya Charity Walk Westerwald",
-    "standort": "Stahlhofen am Wiesensee",
-    "lat": 50.5869349,
-    "lon": 7.9875957,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "veranstalter_url": "https://charitywalk.de/events/5-ahmadiyya-charity-walk-westerwald",
-    "wettbewerb": "6 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Alfhausener Volkslauf",
-    "standort": "Alfhausen",
-    "lat": 52.500317,
-    "lon": 7.9519799,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-alfhausener-volkslauf-2026",
-    "wettbewerb": "10 km Sparkassen Cup Lauf, Startgebühr 8,00 €"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Alfhausener Volkslauf",
-    "standort": "Alfhausen",
-    "lat": 52.500317,
-    "lon": 7.9519799,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Jedermannlauf, Startgebühr 6,00 €",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/13-alfhausener-volkslauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Altstadt-Run - Schwalmstadt",
-    "standort": "Schwalmstadt",
-    "lat": 50.9216009,
-    "lon": 9.2551871,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://www.esvjahntreysa.de/",
-    "wettbewerb": "7 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Arberland Ultra Trail",
-    "standort": "Bodenmais",
-    "lat": 49.0701803,
-    "lon": 13.1020292,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 102.0,
-    "veranstalter_url": "https://www.woidlaeufer.de/",
-    "wettbewerb": "Elite Race"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Arberland Ultra Trail",
-    "standort": "Bodenmais",
-    "lat": 49.0701803,
-    "lon": 13.1020292,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 66.0,
-    "wettbewerb": "Arberland Classic Trail",
-    "veranstalter_url": "https://www.woidlaeufer.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Arberland Ultra Trail",
-    "standort": "Bodenmais",
-    "lat": 49.0701803,
-    "lon": 13.1020292,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 47.0,
-    "wettbewerb": "Auerhahn Trail",
-    "veranstalter_url": "https://www.woidlaeufer.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Arberland Ultra Trail",
-    "standort": "Bodenmais",
-    "lat": 49.0701803,
-    "lon": 13.1020292,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 36.0,
-    "wettbewerb": "Schachtenbach Trail",
-    "veranstalter_url": "https://www.woidlaeufer.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Arberland Ultra Trail",
-    "standort": "Bodenmais",
-    "lat": 49.0701803,
-    "lon": 13.1020292,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 20.0,
-    "wettbewerb": "Arbersee Trail",
-    "veranstalter_url": "https://www.woidlaeufer.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baaber Heidelauf",
-    "standort": "Baabe",
-    "lat": 54.3603502,
-    "lon": 13.7049129,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 15.0,
-    "veranstalter_url": "http://www.laufteam-ruegen.de/seite/765941/baaber-heidelauf.html",
-    "wettbewerb": "15 km Laufcup W20 bis W55, M20 bis M65"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baaber Heidelauf",
-    "standort": "Baabe",
-    "lat": 54.3603502,
-    "lon": 13.7049129,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Laufcup U16, U18",
-    "veranstalter_url": "http://www.laufteam-ruegen.de/seite/765941/baaber-heidelauf.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baaber Heidelauf",
-    "standort": "Baabe",
-    "lat": 54.3603502,
-    "lon": 13.7049129,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Laufcup U20 und ab W60, M70+",
-    "veranstalter_url": "http://www.laufteam-ruegen.de/seite/765941/baaber-heidelauf.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baltic X Cross Duathlon",
-    "standort": "Binz",
-    "lat": 54.4022152,
-    "lon": 13.606025,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://binzer-bucht.de/baltic-x-cross-duathlon/",
-    "laenge_km": 11.0,
-    "wettbewerb": "Kurzdistanz"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baltic X Cross Duathlon",
-    "standort": "Binz",
-    "lat": 54.4022152,
-    "lon": 13.606025,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 22.0,
-    "wettbewerb": "Langdistanz",
-    "veranstalter_url": "https://binzer-bucht.de/baltic-x-cross-duathlon/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Battle Cancer Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.battlecancer.com/de/berlin"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Baumholder Stadtlauf",
-    "standort": "Baumholder",
-    "lat": 49.617846,
-    "lon": 7.329064,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://baumholder-stadtlauf.de/",
-    "laenge_km": 6.3,
-    "wettbewerb": "Hauptlauf ab 16 Jahre (7 Runden)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Benefizlauf Sömmerda",
-    "standort": "Sömmerda",
-    "lat": 51.1594582,
-    "lon": 11.1188764,
-    "art1": "Laufen",
-    "art2": "Hindernis",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://run4kids-soem.de/unsere-veranstaltungen/../unsere-veranstaltungen/t/9_benefiz_hindernislauf-45.html",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Benefizlauf Sömmerda",
-    "standort": "Sömmerda",
-    "lat": 51.1594582,
-    "lon": 11.1188764,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://run4kids-soem.de/unsere-veranstaltungen/../unsere-veranstaltungen/t/9_benefiz_hindernislauf-45.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bernburger Halbmarathon",
-    "standort": "Bernburg",
-    "lat": 51.7939656,
-    "lon": 11.7373854,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://lauf.psv-bernburg.de/hm/",
-    "wettbewerb": "Halbmarathon (21,098 km) – ab Altersklasse U18"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bernburger Halbmarathon",
-    "standort": "Bernburg (Saale)",
-    "lat": 51.7916385,
-    "lon": 11.7400999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 12.0,
-    "wettbewerb": "12 km – ab Altersklasse U16",
-    "veranstalter_url": "https://lauf.psv-bernburg.de/hm/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bernburger Halbmarathon",
-    "standort": "Bernburg (Saale)",
-    "lat": 51.7916385,
-    "lon": 11.7400999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.2,
-    "wettbewerb": "5,2 km – ab Altersklasse U12",
-    "veranstalter_url": "https://lauf.psv-bernburg.de/hm/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Black Forest ULTRA Trail Run",
-    "standort": "Kirchzarten",
-    "lat": 47.9647189,
-    "lon": 7.9558522,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.ultra-trailrun.de/",
-    "laenge_km": 105.0,
-    "wettbewerb": "105 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Black Forest ULTRA Trail Run",
-    "standort": "Kirchzarten",
-    "lat": 47.9647189,
-    "lon": 7.9558522,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 79.0,
-    "wettbewerb": "79 km",
-    "veranstalter_url": "https://www.ultra-trailrun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Black Forest ULTRA Trail Run",
-    "standort": "Kirchzarten",
-    "lat": 47.9647189,
-    "lon": 7.9558522,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 52.0,
-    "wettbewerb": "52 km",
-    "veranstalter_url": "https://www.ultra-trailrun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Black Forest ULTRA Trail Run",
-    "standort": "Kirchzarten",
-    "lat": 47.9647189,
-    "lon": 7.9558522,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 33.0,
-    "wettbewerb": "33 km",
-    "veranstalter_url": "https://www.ultra-trailrun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Black Forest ULTRA Trail Run",
-    "standort": "Kirchzarten",
-    "lat": 47.9647189,
-    "lon": 7.9558522,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
-    "veranstalter_url": "https://www.ultra-trailrun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bodensee Marathon",
-    "standort": "Kressbronn am Bodensee",
-    "lat": 47.5968864,
-    "lon": 9.5982209,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.bodensee-marathon.de",
-    "wettbewerb": "Marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bodensee Marathon",
-    "standort": "Kressbronn am Bodensee",
-    "lat": 47.5968864,
-    "lon": 9.5982209,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.bodensee-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bodensee Marathon",
-    "standort": "Kressbronn am Bodensee",
-    "lat": 47.5968864,
-    "lon": 9.5982209,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.bodensee-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brauereienlauf durch die Fränkische Toskana",
-    "standort": "Litzendorf",
-    "lat": 49.9122463,
-    "lon": 11.0092999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://brauereienlauf.de/",
-    "wettbewerb": "Marathon – 42 km, Teilnahme ab 18 Jahren, Startgebühr 99€"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brauereienlauf durch die Fränkische Toskana",
-    "standort": "Litzendorf",
-    "lat": 49.9122463,
-    "lon": 11.0092999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://brauereienlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brauereienlauf durch die Fränkische Toskana",
-    "standort": "Litzendorf",
-    "lat": 49.9122463,
-    "lon": 11.0092999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Lauf – Teilnahme ab 12 Jahren, Startgebühr 45€",
-    "veranstalter_url": "https://brauereienlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brauereienlauf durch die Fränkische Toskana",
-    "standort": "Litzendorf",
-    "lat": 49.9122463,
-    "lon": 11.0092999,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://brauereienlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "BraunenBerg-Lauf",
-    "standort": "Aalen",
-    "lat": 48.8366887,
-    "lon": 10.0971163,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 32.0,
-    "veranstalter_url": "https://www.braunenberg-lauf.de/",
-    "wettbewerb": "Rollladen Kaiser – BraunenBerg-Trail"
-  },
-  {
-    "land": "Deutschland",
-    "name": "BraunenBerg-Lauf",
-    "standort": "Aalen",
-    "lat": 48.8366887,
-    "lon": 10.0971163,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 14.6,
-    "wettbewerb": "VR Bank – BraunenBerg-Lauf",
-    "veranstalter_url": "https://www.braunenberg-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "BraunenBerg-Lauf",
-    "standort": "Aalen",
-    "lat": 48.8366887,
-    "lon": 10.0971163,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 8.2,
-    "wettbewerb": "Getränke Keller BergBau-Lauf",
-    "veranstalter_url": "https://www.braunenberg-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Burgstäffeleslauf Esslingen",
-    "standort": "Esslingen am Neckar",
-    "lat": 48.742178,
-    "lon": 9.3144229,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://my.raceresult.com/390598/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Center Run - Pösna Park",
-    "standort": "Großpösna",
-    "lat": 51.2683953,
-    "lon": 12.5025243,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://center-run.de/",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km (4 Runden à 2,5 km)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Center Run - Pösna Park",
-    "standort": "Großpösna",
-    "lat": 51.2683953,
-    "lon": 12.5025243,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://center-run.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Charity Walk & Run - München",
-    "standort": "München",
-    "lat": 48.1351253,
-    "lon": 11.5819806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://charity-walk.de/veranstaltungsorte/muenchen/",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Charity Walk & Run - München",
-    "standort": "München",
-    "lat": 48.1351253,
-    "lon": 11.5819806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://charity-walk.de/veranstaltungsorte/muenchen/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Crosslauf - Landkreiscup Amberg Sulzbach",
-    "standort": "Hirschau",
-    "lat": 49.545563,
-    "lon": 11.9431406,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 8.0,
-    "veranstalter_url": "https://www.landkreiscup.de/",
-    "wettbewerb": "Jugend A/B, Damen, Herren, 8 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Crosslauf - Landkreiscup Amberg Sulzbach",
-    "standort": "Hirschau",
-    "lat": 49.545563,
-    "lon": 11.9431406,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "Herren, 5 km",
-    "veranstalter_url": "https://www.landkreiscup.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deichenwand-Trail Wilgartswiesen",
-    "standort": "Wilgartswiesen",
-    "lat": 49.2089909,
-    "lon": 7.8771401,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 11.2,
-    "veranstalter_url": "https://www.deichenwand-trail.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deichenwand-Trail Wilgartswiesen",
-    "standort": "Wilgartswiesen",
-    "lat": 49.2089909,
-    "lon": 7.8771401,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.6,
-    "veranstalter_url": "https://www.deichenwand-trail.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Devil's Loop - Langenberg Backyard Ultramarathon",
     "standort": "Leck",
     "lat": 54.7715331,
@@ -1396,213 +333,6 @@
     "laenge_km": null,
     "veranstalter_url": "https://devils-loop.de",
     "wettbewerb": "7 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Disibodenberglauf",
-    "standort": "Odernheim am Glan",
-    "lat": 49.7646192,
-    "lon": 7.7042315,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tv-odernheim.de/disibodenberglauf-2026/",
-    "wettbewerb": "10 km Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Disibodenberglauf",
-    "standort": "Odernheim am Glan",
-    "lat": 49.7646192,
-    "lon": 7.7042315,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://www.tv-odernheim.de/disibodenberglauf-2026/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "DKB Staffellauf Liebenberg",
-    "standort": "Löwenberger Land",
-    "lat": 52.894712,
-    "lon": 13.1859903,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 25.0,
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=536137"
-  },
-  {
-    "land": "Deutschland",
-    "name": "DKB Staffellauf Liebenberg",
-    "standort": "Löwenberger Land",
-    "lat": 52.894712,
-    "lon": 13.1859903,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 12.5,
-    "veranstalter_url": "https://myracepartner.com/veranstaltung/?event-id=536137"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Dr.-Selmayr-Gedächtnislauf",
-    "standort": "Bad Feilnbach",
-    "lat": 47.773289,
-    "lon": 12.0094677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://dr-selmayr-gedaechtnislauf.de",
-    "wettbewerb": "10 km Lauf und Walk auf geteerten und kiesigen Wegen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Dr.-Selmayr-Gedächtnislauf",
-    "standort": "Bad Feilnbach",
-    "lat": 47.773289,
-    "lon": 12.0094677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "21,1 km Halbmarathon auf Feld- und Radwegen",
-    "veranstalter_url": "https://dr-selmayr-gedaechtnislauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.47265,
-    "lon": 12.611508,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.drei-talsperren-marathon.de",
-    "wettbewerb": "Marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.4949857,
-    "lon": 12.5996392,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/DTM/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.4949857,
-    "lon": 12.5996392,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/DTM/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.4949857,
-    "lon": 12.5996392,
-    "art1": "Fahrrad",
-    "art2": null,
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 100.0,
-    "wettbewerb": "Rad 100 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/DTM/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.4949857,
-    "lon": 12.5996392,
-    "art1": "Fahrrad",
-    "art2": null,
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 50.0,
-    "wettbewerb": "Rad 50 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/DTM/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drei Talsperren Marathon",
-    "standort": "Eibenstock",
-    "lat": 50.4949857,
-    "lon": 12.5996392,
-    "art1": "Fahrrad",
-    "art2": null,
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 30.0,
-    "wettbewerb": "Rad 30 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/DTM/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Dresden Frauenlauf",
-    "standort": "Dresden",
-    "lat": 51.0504088,
-    "lon": 13.7372621,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://www.dresden-frauenlauf.com/",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Düsseldorf Night Run",
-    "standort": "Düsseldorf",
-    "lat": 51.2230411,
-    "lon": 6.7824545,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://www.d-running.de/night-run",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Edeka Ladage-Lauf Wennigsen",
-    "standort": "Wennigsen",
-    "lat": 52.2762744,
-    "lon": 9.5671846,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://lauf.edeka-ladage.de/"
   },
   {
     "land": "Deutschland",
@@ -1618,240 +348,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Fichtellauf",
-    "standort": "Gefrees",
-    "lat": 50.0960073,
-    "lon": 11.7365825,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://www.fnwm.de/",
-    "wettbewerb": "Halbmarathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fichtellauf",
-    "standort": "Gefrees",
-    "lat": 50.0960073,
-    "lon": 11.7365825,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.fnwm.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fichtellauf",
-    "standort": "Gefrees",
-    "lat": 50.0960073,
-    "lon": 11.7365825,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.fnwm.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fichtellauf",
-    "standort": "Gefrees",
-    "lat": 50.0960073,
-    "lon": 11.7365825,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 14.0,
-    "wettbewerb": "14 km",
-    "veranstalter_url": "https://www.fnwm.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fit in Lautern Lauf 1. Lauf zu Gunsten des Fördervereins Waschmühle e.V.",
-    "standort": "Kaiserslautern",
-    "lat": 49.4432174,
-    "lon": 7.7689951,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": null,
-    "veranstalter_url": "https://fitinlautern.de/",
-    "dauer_h": 6.0,
-    "wettbewerb": "6 Stunden, 2-km-Runde"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Frauenlauf Rosenheim",
-    "standort": "Rosenheim",
-    "lat": 47.8571272,
-    "lon": 12.1181047,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://time2win.at/event/1018",
-    "wettbewerb": "10 km Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Frauenlauf Rosenheim",
-    "standort": "Rosenheim",
-    "lat": 47.8571272,
-    "lon": 12.1181047,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://time2win.at/event/1018"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Freimarktslauf Garrel",
-    "standort": "Garrel",
-    "lat": 52.9554303,
-    "lon": 8.0225529,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://freimarktslauf.de/",
-    "wettbewerb": "10 km Lauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Freimarktslauf Garrel",
-    "standort": "Garrel",
-    "lat": 52.9531085,
-    "lon": 8.0255988,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://freimarktslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Geisaer Stundenlauf",
-    "standort": "Geisa",
-    "lat": 50.7158563,
-    "lon": 9.9516947,
-    "art1": "Laufen",
-    "art2": "Bahn",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.svborsch.de/ausschreibung-geisaer-stundenlauf/",
-    "dauer_h": 1.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Gemeindelauf Niedertaufkirchen",
-    "standort": "Niedertaufkirchen",
-    "lat": 48.3297873,
-    "lon": 12.5501314,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://www.skiclub-ntk.de/programm/gemeindelauf",
-    "wettbewerb": "Hauptlauf 9 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Gemeindelauf Niedertaufkirchen",
-    "standort": "Niedertaufkirchen",
-    "lat": 48.3297873,
-    "lon": 12.5501314,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "Hauptlauf 6 km",
-    "veranstalter_url": "https://www.skiclub-ntk.de/programm/gemeindelauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hanstedter Waldlauf",
-    "standort": "Uelzen",
-    "lat": 52.9652883,
-    "lon": 10.5573402,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.klv-uelzen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heidener Teufelslauf 2026",
-    "standort": "Heiden",
-    "lat": 51.8255419,
-    "lon": 6.9359164,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.teufelslauf-heiden.de",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heidener Teufelslauf 2026",
-    "standort": "Heiden",
-    "lat": 51.8265212,
-    "lon": 6.9340589,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://www.teufelslauf-heiden.de",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hellerberglauf Buxheim",
-    "standort": "Buxheim",
-    "lat": 48.8042125,
-    "lon": 11.2919036,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://sport-in-blog.de/2026/01/07/hellerberglauf-buxheim-2/",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Herbstcrosslauf des KSB Altmark West",
-    "standort": "Kalbe (Milde)",
-    "lat": 52.6565039,
-    "lon": 11.3876946,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://my.raceresult.com/383937/"
-  },
-  {
-    "land": "Deutschland",
     "name": "HEROS 100",
     "standort": "Erfurt",
     "lat": 50.9847679,
@@ -1863,534 +359,6 @@
     "laenge_km": 100.0,
     "veranstalter_url": "https://spendenmarsch.org/heros-100/",
     "wettbewerb": "100 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hiking-Day Detmold",
-    "standort": "Detmold",
-    "lat": 51.9384783,
-    "lon": 8.868638,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.hiking-day.de/event-details/hiking-day-detmold-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hochhausmarathon Köln",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://hochhausmarathon-koeln.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Holperdorper Berg Ultra Trail",
-    "standort": "Lienen",
-    "lat": 52.1454016,
-    "lon": 7.9739032,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 46.5,
-    "veranstalter_url": "https://my.raceresult.com/401968/",
-    "wettbewerb": "46,5 km , ca. 1.332 Hm, 3 Runden je 15,5 km 444 Hm"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Holperdorper Berg Ultra Trail",
-    "standort": "Lienen",
-    "lat": 52.1454016,
-    "lon": 7.9739032,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 31.0,
-    "wettbewerb": "31,0 km , 2 Runden, ca. 888 Hm",
-    "veranstalter_url": "https://my.raceresult.com/401968/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "HOYWOJ-Citylauf",
-    "standort": "Hoyerswerda",
-    "lat": 51.4388605,
-    "lon": 14.2536419,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://hoywojcitylauf.sportclub-hoyerswerda.de/",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Goldrun powered by Noble Metal Factory, Erwachsene"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Insellauf Amrum",
-    "standort": "Amrum",
-    "lat": 54.6637151,
-    "lon": 8.3335989,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 31.5,
-    "veranstalter_url": "https://www.amrum.de/veranstaltungen/norddorf-auf-amrum/e-insellauf",
-    "wettbewerb": "31,5 km Rund um Amrum"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Insellauf Amrum",
-    "standort": "Amrum",
-    "lat": 54.6637151,
-    "lon": 8.3335989,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 16.5,
-    "wettbewerb": "16,5 km Halbstrecke",
-    "veranstalter_url": "https://www.amrum.de/veranstaltungen/norddorf-auf-amrum/e-insellauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Insellauf Amrum",
-    "standort": "Amrum",
-    "lat": 54.6637151,
-    "lon": 8.3335989,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km kürzeste Strecke",
-    "veranstalter_url": "https://www.amrum.de/veranstaltungen/norddorf-auf-amrum/e-insellauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Int. Pronsfelder Volks- und Straßenlauf",
-    "standort": "Pronsfeld",
-    "lat": 50.1588179,
-    "lon": 6.3383144,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://www.chiplauf.de/de/events/39-int-pronsfelder-volks-und-strassenlauf-2026",
-    "wettbewerb": "21,10 km Halbmarathon, Alter 16-99"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Int. Pronsfelder Volks- und Straßenlauf",
-    "standort": "Pronsfeld",
-    "lat": 50.1597633,
-    "lon": 6.3416487,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5,00 km Jedermannlauf, Alter 20-99",
-    "veranstalter_url": "https://www.chiplauf.de/de/events/39-int-pronsfelder-volks-und-strassenlauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Int. Pronsfelder Volks- und Straßenlauf",
-    "standort": "Pronsfeld",
-    "lat": 50.1597633,
-    "lon": 6.3416487,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,00 km Hauptlauf, 10. Lauf im 4 Regio Cup, Alter 14-99",
-    "veranstalter_url": "https://www.chiplauf.de/de/events/39-int-pronsfelder-volks-und-strassenlauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kapuziner-Kessellauf",
-    "standort": "Kulmbach",
-    "lat": 50.1071246,
-    "lon": 11.4581813,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 14.3,
-    "veranstalter_url": "https://www.ausdauersport-kulmbach.de/Kessellauf/KesselAusschreibung.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Klever Citylauf",
-    "standort": "Kleve",
-    "lat": 51.786726,
-    "lon": 6.12954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://lvmarathon-kleve.com/citylauf-kleve/",
-    "wettbewerb": "10 km Hauptlauf über fünf Runden à 2 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Klever Citylauf",
-    "standort": "Kleve",
-    "lat": 51.786726,
-    "lon": 6.12954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Jedermannlauf um den Tiergarten und Kanal",
-    "veranstalter_url": "https://lvmarathon-kleve.com/citylauf-kleve/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "KXL - Eichsfelder Kessel Benefiz Crosslauf",
-    "standort": "Unstrut-Hainich-Kreis",
-    "lat": 51.3152809,
-    "lon": 10.4096374,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 40.0,
-    "veranstalter_url": "https://www.kessel-x-lauf.de/",
-    "wettbewerb": "40 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "KXL - Eichsfelder Kessel Benefiz Crosslauf",
-    "standort": "Unstrut-Hainich-Kreis",
-    "lat": 51.3152809,
-    "lon": 10.4096374,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km",
-    "veranstalter_url": "https://www.kessel-x-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "KXL - Eichsfelder Kessel Benefiz Crosslauf",
-    "standort": "Unstrut-Hainich-Kreis",
-    "lat": 51.3152809,
-    "lon": 10.4096374,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.kessel-x-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "KXL - Eichsfelder Kessel Benefiz Crosslauf",
-    "standort": "Unstrut-Hainich-Kreis",
-    "lat": 51.3152809,
-    "lon": 10.4096374,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.kessel-x-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ladage Lauf",
-    "standort": "Wennigsen (Deister)",
-    "lat": 52.2771328,
-    "lon": 9.5725599,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://lauf.edeka-ladage.de",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ladage Lauf",
-    "standort": "Wennigsen (Deister)",
-    "lat": 52.2771328,
-    "lon": 9.5725599,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://lauf.edeka-ladage.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Landkreislauf Regensburg",
-    "standort": "Regensburg",
-    "lat": 49.0134297,
-    "lon": 12.1016236,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 80.0,
-    "veranstalter_url": "https://www.landkreis-regensburg.de/freizeit-tourismus/landkreislauf/",
-    "wettbewerb": "80 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Landkreislauf Regensburg",
-    "standort": "Regensburg",
-    "lat": 49.0134297,
-    "lon": 12.1016236,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 12.0,
-    "wettbewerb": "12 km",
-    "veranstalter_url": "https://www.landkreis-regensburg.de/freizeit-tourismus/landkreislauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Landkreislauf Regensburg",
-    "standort": "Regensburg",
-    "lat": 49.0134297,
-    "lon": 12.1016236,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.landkreis-regensburg.de/freizeit-tourismus/landkreislauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lauf rund um das Freibad Waschmühle",
-    "standort": "Kaiserslautern",
-    "lat": 49.4400657,
-    "lon": 7.7491265,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://fitinlautern.de/",
-    "dauer_h": 6,
-    "wettbewerb": "6-Stunden-Lauf (2,3-km-Runde)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Limberglauf Ranis",
-    "standort": "Ranis",
-    "lat": 50.6620018,
-    "lon": 11.5676106,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "veranstalter_url": "http://www.tsv1860ranis.de/seite/700360/laufsport.html",
-    "wettbewerb": "21 km Crosslauf (ab Jahrgang 2008)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Limberglauf Ranis",
-    "standort": "Ranis",
-    "lat": 50.6620018,
-    "lon": 11.5676106,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Crosslauf (ab Jahrgang 2014)",
-    "veranstalter_url": "http://www.tsv1860ranis.de/seite/700360/laufsport.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Limberglauf Ranis",
-    "standort": "Ranis",
-    "lat": 50.6620018,
-    "lon": 11.5676106,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Crosslauf (ab Jahrgang 2010)",
-    "veranstalter_url": "http://www.tsv1860ranis.de/seite/700360/laufsport.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Limberglauf Ranis",
-    "standort": "Ranis",
-    "lat": 50.6620018,
-    "lon": 11.5676106,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km Nordic Walking (ohne Alterseinschränkung)",
-    "veranstalter_url": "http://www.tsv1860ranis.de/seite/700360/laufsport.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Limberglauf Ranis",
-    "standort": "Ranis",
-    "lat": 50.6620018,
-    "lon": 11.5676106,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 15.0,
-    "veranstalter_url": "http://www.tsv1860ranis.de/seite/700360/laufsport.html",
-    "wettbewerb": "15 km Crosslauf (ab Jahrgang 2008)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MBH Benefizlauf",
-    "standort": "Ibbenbüren",
-    "lat": 52.2767721,
-    "lon": 7.7189947,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf-2026",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MBH Benefizlauf",
-    "standort": "Ibbenbüren",
-    "lat": 52.2767721,
-    "lon": 7.7189947,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 35.0,
-    "wettbewerb": "35 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MBH Benefizlauf",
-    "standort": "Ibbenbüren",
-    "lat": 52.2767721,
-    "lon": 7.7189947,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MBH Benefizlauf",
-    "standort": "Ibbenbüren",
-    "lat": 52.2767721,
-    "lon": 7.7189947,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/mbh-benefizlauf-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Messelauf Lauda-Königshofen",
-    "standort": "Lauda-Königshofen",
-    "lat": 49.5651125,
-    "lon": 9.7003795,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.messelauf.de/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Messelauf Lauda-Königshofen",
-    "standort": "Lauda-Königshofen",
-    "lat": 49.5651125,
-    "lon": 9.7003795,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.messelauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Meulenwald-Föhren-Lauf",
-    "standort": "Föhren",
-    "lat": 49.8588045,
-    "lon": 6.7656678,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 22.0,
-    "wettbewerb": "~22 km Meulenwald-Föhren-Lauf",
-    "veranstalter_url": "https://www.lgmf.de/Meulenwald-F%C3%B6hren-Lauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Meulenwald-Föhren-Lauf",
-    "standort": "Föhren",
-    "lat": 49.8588045,
-    "lon": 6.7656678,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 15.0,
-    "wettbewerb": "~15 km Teschermännchen-Lauf",
-    "veranstalter_url": "https://www.lgmf.de/Meulenwald-F%C3%B6hren-Lauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Meulenwald-Föhren-Lauf",
-    "standort": "Föhren",
-    "lat": 49.8588045,
-    "lon": 6.7656678,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "~10 km Bischof-Milo-Lauf",
-    "veranstalter_url": "https://www.lgmf.de/Meulenwald-F%C3%B6hren-Lauf/"
   },
   {
     "land": "Deutschland",
@@ -2505,669 +473,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Muko-Lauf Wald",
-    "standort": "Wald",
-    "lat": 47.7223025,
-    "lon": 10.5564895,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,0 km",
-    "veranstalter_url": "https://www.muko-wald.de/der-spendenlauf.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Muko-Lauf Wald",
-    "standort": "Wald",
-    "lat": 47.7223025,
-    "lon": 10.5564895,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "21,1 km",
-    "veranstalter_url": "https://www.muko-wald.de/der-spendenlauf.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Neuensteiner Stadtlauf",
-    "standort": "Neuenstein",
-    "lat": 49.2065257,
-    "lon": 9.5816221,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/354869/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Neuensteiner Stadtlauf",
-    "standort": "Neuenstein",
-    "lat": 49.2065257,
-    "lon": 9.5816221,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://my.raceresult.com/354869/"
-  },
-  {
-    "name": "Nordkette Vertical Run",
-    "standort": "Innsbruck",
-    "lat": 47.2654296,
-    "lon": 11.3927685,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.7,
-    "veranstalter_url": "https://www.nordkette-vertical-run.at/",
-    "land": "Österreich",
-    "wettbewerb": "Nordkette Vertical Run"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Obernzenner Seelauf",
-    "standort": "Obernzenn",
-    "lat": 49.4498052,
-    "lon": 10.4661817,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.tsvobernzenn.de/events/31-obernzenner-seelauf/",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Obstacle City Run Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Hindernis",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 12.0,
-    "veranstalter_url": "https://www.obstacle-city-run.de/obstacle-city-run-berlin"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Obstacle City Run Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Hindernis",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "veranstalter_url": "https://www.obstacle-city-run.de/obstacle-city-run-berlin"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Owweremschdä Stadtlauf",
-    "standort": "Ober-Ramstadt",
-    "lat": 49.8312192,
-    "lon": 8.7450072,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://my.raceresult.com/391279/",
-    "laenge_km": 10.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Owweremschdä Stadtlauf",
-    "standort": "Ober-Ramstadt",
-    "lat": 49.8312192,
-    "lon": 8.7450072,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/391279/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Peenetal Crosslauf",
-    "standort": "Gützkow",
-    "lat": 53.9100998,
-    "lon": 13.4904557,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://my.raceresult.com/386845/",
-    "laenge_km": 5.2
-  },
-  {
-    "land": "Deutschland",
-    "name": "Peenetal Crosslauf",
-    "standort": "Gützkow",
-    "lat": 53.9100998,
-    "lon": 13.4904557,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 11.3,
-    "veranstalter_url": "https://my.raceresult.com/386845/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Regionalparklauf",
-    "standort": "Ahrensfelde",
-    "lat": 52.5817191,
-    "lon": 13.5747926,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 13.2,
-    "veranstalter_url": "http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php",
-    "wettbewerb": "13,2 km : wird als zwei Runden gelaufen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Regionalparklauf",
-    "standort": "Ahrensfelde",
-    "lat": 52.5817191,
-    "lon": 13.5747926,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.6,
-    "wettbewerb": "6,6 km : flacher Rundkurs über Feldwege durch die Feldmark",
-    "veranstalter_url": "http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rhön-Grabfeld-Cup – Hollstadt",
-    "standort": "Hollstadt",
-    "lat": 50.352766,
-    "lon": 10.2890045,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "21,1 km Halbmarathon",
-    "veranstalter_url": "https://rhoengrabfeldcup.de/event/hollstadt-2/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rhön-Grabfeld-Cup – Hollstadt",
-    "standort": "Hollstadt",
-    "lat": 50.352766,
-    "lon": 10.2890045,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10,0 km Hobbylauf / Walking",
-    "veranstalter_url": "https://rhoengrabfeldcup.de/event/hollstadt-2/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rhön-Grabfeld-Cup – Hollstadt",
-    "standort": "Hollstadt",
-    "lat": 50.352766,
-    "lon": 10.2890045,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.6,
-    "wettbewerb": "5,6 km Hobbylauf / Jugend A/B",
-    "veranstalter_url": "https://rhoengrabfeldcup.de/event/hollstadt-2/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Run and Bike Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://run-and-bike-berlin.de/",
-    "laenge_km": 42.0,
-    "wettbewerb": "42 km"
-  },
-  {
-    "land": "Deutschland",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "name": "Run and Bike Berlin",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "dauer_h": null,
-    "wettbewerb": "21 km",
-    "veranstalter_url": "https://run-and-bike-berlin.de/"
-  },
-  {
-    "land": "Deutschland",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "name": "Run and Bike Berlin",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "dauer_h": null,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://run-and-bike-berlin.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Run of Colours",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.aidshilfe-koeln.de/kalender/run-of-colours/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Run of Colours",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.aidshilfe-koeln.de/kalender/run-of-colours/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Running Paule Marathon",
-    "standort": "Bad Münder am Deister",
-    "lat": 52.2184983,
-    "lon": 9.4374889,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://running-paule.de/laufevents/66-rp-marathon/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Running Paule Marathon",
-    "standort": "Bad Münder",
-    "lat": 52.1952894,
-    "lon": 9.4633959,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://running-paule.de/laufevents/66-rp-marathon",
-    "wettbewerb": "Marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Runterra Race",
-    "standort": "Zirndorf",
-    "lat": 49.4428638,
-    "lon": 10.9613504,
-    "art1": "Laufen",
-    "art2": "Hindernis",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.runterra.de/",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Runterra Race",
-    "standort": "Zirndorf",
-    "lat": 49.4428638,
-    "lon": 10.9613504,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 14.0,
-    "wettbewerb": "14 km",
-    "veranstalter_url": "https://www.runterra.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Runterra Race",
-    "standort": "Zirndorf",
-    "lat": 49.4428638,
-    "lon": 10.9613504,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.runterra.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Saarländische Meisterschaften 5km Straße",
-    "standort": "Ottweiler",
-    "lat": 49.4043228,
-    "lon": 7.1630189,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48514/Saarl%C3%A4ndische-Meisterschaften-5km-Stra%C3%9Fe-Ottweiler.htm",
-    "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sedus Firmenlauf",
-    "standort": "Dogern",
-    "lat": 47.6075565,
-    "lon": 8.1661218,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.5,
-    "veranstalter_url": "https://www.sedus.com/de/sedustainable/soziales/sedus-run",
-    "wettbewerb": "10 km (10,50 km)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sparkassen-Altstadtlauf",
-    "standort": "Ottweiler",
-    "lat": 49.4030447,
-    "lon": 7.1631469,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tvo-leichtathletik.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtlauf Schrobenhausen",
-    "standort": "Schrobenhausen",
-    "lat": 48.5626401,
-    "lon": 11.2630624,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.stadtmarketing-schrobenhausen.de/veranstaltungen/veranstaltungen-im-detail/?tx_gbevents_main%5Bevent%5D=26&cHash=b1abc7306956dc92503efc7140a090ed",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtlauf Schrobenhausen",
-    "standort": "Schrobenhausen",
-    "lat": 48.5626401,
-    "lon": 11.2630624,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.stadtmarketing-schrobenhausen.de/veranstaltungen/veranstaltungen-im-detail/?tx_gbevents_main%5Bevent%5D=26&cHash=b1abc7306956dc92503efc7140a090ed"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtlauf Tribsees",
-    "standort": "Tribsees",
-    "lat": 54.0914157,
-    "lon": 12.7601838,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/409366/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtlauf Tribsees",
-    "standort": "Tribsees",
-    "lat": 54.0914157,
-    "lon": 12.7601838,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/409366/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtlauf Tribsees",
-    "standort": "Tribsees",
-    "lat": 54.0914157,
-    "lon": 12.7601838,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/409366/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtparklauf Sondershausen",
-    "standort": "Sondershausen",
-    "lat": 51.3691898,
-    "lon": 10.8710502,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.glueckauf-sondershausen.de/stadtparklauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtwald-Cross in Lutherstadt Wittenberg",
-    "standort": "Lutherstadt Wittenberg",
-    "lat": 51.8704643,
-    "lon": 12.6411506,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://www.stadtwald-wittenberg.de/stadtwald-cross",
-    "wettbewerb": "9 km Crosslauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stadtwald-Cross in Lutherstadt Wittenberg",
-    "standort": "Lutherstadt Wittenberg",
-    "lat": 51.8704643,
-    "lon": 12.6411506,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Crosslauf",
-    "veranstalter_url": "https://www.stadtwald-wittenberg.de/stadtwald-cross"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Superherorun",
-    "standort": "Schönau-Berzdorf auf dem Eigen",
-    "lat": 51.0608617,
-    "lon": 14.8815326,
-    "art1": "Laufen",
-    "art2": "Hindernis",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.superherorun.de/",
-    "laenge_km": 12.0,
-    "wettbewerb": "12 km Maxi Hero Run"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Superherorun",
-    "standort": "Schönau-Berzdorf auf dem Eigen",
-    "lat": 51.0608617,
-    "lon": 14.8815326,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km Superherorun",
-    "veranstalter_url": "https://www.superherorun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Superherorun",
-    "standort": "Schönau-Berzdorf auf dem Eigen",
-    "lat": 51.0608617,
-    "lon": 14.8815326,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Mini Hero Run",
-    "veranstalter_url": "https://www.superherorun.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Team Duathlon Race for2",
-    "standort": "Sankt Wendel",
-    "lat": 49.4677707,
-    "lon": 7.1690625,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://www.tritronicteam.de/racefor2/"
-  },
-  {
-    "name": "Tiroler Silberpfad Trophy",
-    "standort": "Schwaz",
-    "lat": 47.3449529,
-    "lon": 11.7084253,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 86.0,
-    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy",
-    "land": "Österreich",
-    "wettbewerb": "TST 86K"
-  },
-  {
-    "land": "Österreich",
-    "name": "Tiroler Silberpfad Trophy",
-    "standort": "Schwaz",
-    "lat": 47.3449529,
-    "lon": 11.7084253,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 42.0,
-    "wettbewerb": "TST 42K",
-    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
-  },
-  {
-    "land": "Österreich",
-    "name": "Tiroler Silberpfad Trophy",
-    "standort": "Schwaz",
-    "lat": 47.3449529,
-    "lon": 11.7084253,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 23.0,
-    "wettbewerb": "TST 23K",
-    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
-  },
-  {
-    "land": "Österreich",
-    "name": "Tiroler Silberpfad Trophy",
-    "standort": "Schwaz",
-    "lat": 47.3449529,
-    "lon": 11.7084253,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 11.0,
-    "wettbewerb": "TST 11K",
-    "veranstalter_url": "https://silberregion-karwendel.com/de/tiroler-silberpfad-trophy"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tortuga Run",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://tortuga-run.com/tortuga-run-2026/",
-    "wettbewerb": "5,5 Seemeilen (10 km)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tortuga Run",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.5,
-    "wettbewerb": "3 Seemeilen (5,5 km)",
-    "veranstalter_url": "https://tortuga-run.com/tortuga-run-2026/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Ultramarsch Heidelberg X-Trem",
     "standort": "Heidelberg",
     "lat": 49.3987524,
@@ -3193,266 +498,6 @@
     "laenge_km": 60.0,
     "wettbewerb": "60 km",
     "veranstalter_url": "https://www.ultramarsch.de/p/2026-ticket-ultramarsch-heidelberg-x-trem-ultra-late-ticket"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Valkyrie Trailrun",
-    "standort": "Recklinghausen",
-    "lat": 51.6117809,
-    "lon": 7.1973885,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://my.raceresult.com/370252/",
-    "laenge_km": 5.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Valkyrie Trailrun",
-    "standort": "Recklinghausen",
-    "lat": 51.6117809,
-    "lon": 7.1973885,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/370252/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Valkyrie Trailrun",
-    "standort": "Recklinghausen",
-    "lat": 51.6117809,
-    "lon": 7.1973885,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 15.0,
-    "veranstalter_url": "https://my.raceresult.com/370252/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wandlitz hier läuft's",
-    "standort": "Wandlitz",
-    "lat": 52.75422,
-    "lon": 13.47277,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://www.wandlitz-hier-laeufts.de/loofen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wandlitz hier läuft's",
-    "standort": "Wandlitz",
-    "lat": 52.75422,
-    "lon": 13.47277,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://www.wandlitz-hier-laeufts.de/loofen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wehringer Wertachlauf",
-    "standort": "Wehringen",
-    "lat": 48.2466897,
-    "lon": 10.8011928,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "Hobbylauf, 5 km, Jahrgänge ab 2014",
-    "veranstalter_url": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Welterbelauf Zollverein",
-    "standort": "Essen",
-    "lat": 51.4556432,
-    "lon": 7.0115552,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.welterbelauf-zollverein.de/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Welterbelauf Zollverein",
-    "standort": "Essen",
-    "lat": 51.4556432,
-    "lon": 7.0115552,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.welterbelauf-zollverein.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wunnebad Swim&Run",
-    "standort": "Winnenden",
-    "lat": 48.8750046,
-    "lon": 9.3971423,
-    "art1": "Triathlon",
-    "art2": "Swimrun",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://wunnebad-swim-run.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wuppertaler Volkslauf",
-    "standort": "Wuppertal",
-    "lat": 51.2562128,
-    "lon": 7.1507636,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "veranstalter_url": "https://www.sv-bayer.de/wuppertaler_volkslauf/",
-    "laenge_km": 10.0,
-    "wettbewerb": "Laufsport Bunert Run 10 km"
-  },
-  {
-    "land": "Deutschland",
-    "standort": "Wuppertal",
-    "lat": 51.2562128,
-    "lon": 7.1507636,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "name": "Wuppertaler Volkslauf",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 5.0,
-    "dauer_h": null,
-    "wettbewerb": "AOK Run 5 km",
-    "veranstalter_url": "https://www.sv-bayer.de/wuppertaler_volkslauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wutzseelauf Lindow",
-    "standort": "Ostprignitz-Ruppin",
-    "lat": 52.9505718,
-    "lon": 12.9792066,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 22.0,
-    "veranstalter_url": "https://www.esab-ausbildung.de/startseite/wutzseelauf-lindow/",
-    "wettbewerb": "22 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wutzseelauf Lindow",
-    "standort": "Ostprignitz-Ruppin",
-    "lat": 52.9505718,
-    "lon": 12.9792066,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 14.0,
-    "wettbewerb": "14 km",
-    "veranstalter_url": "https://www.esab-ausbildung.de/startseite/wutzseelauf-lindow/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wutzseelauf Lindow",
-    "standort": "Ostprignitz-Ruppin",
-    "lat": 52.9505718,
-    "lon": 12.9792066,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.esab-ausbildung.de/startseite/wutzseelauf-lindow/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ziegeleilauf",
-    "standort": "Twistringen",
-    "lat": 52.796958,
-    "lon": 8.6392413,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 11.2,
-    "veranstalter_url": "http://ziegelei-twistringen.de/",
-    "wettbewerb": "11 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ziegeleilauf",
-    "standort": "Twistringen",
-    "lat": 52.796958,
-    "lon": 8.6392413,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 22.0,
-    "wettbewerb": "22 km",
-    "veranstalter_url": "http://ziegelei-twistringen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ziegeleilauf",
-    "standort": "Twistringen",
-    "lat": 52.796958,
-    "lon": 8.6392413,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "http://ziegelei-twistringen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ziegenhainer Auelauf",
-    "standort": "Lommatzsch",
-    "lat": 51.1953471,
-    "lon": 13.3081211,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 12.0,
-    "veranstalter_url": "https://mittelsaechsische-lauftour.com/",
-    "wettbewerb": "12 km (4 Runden)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ziegenhainer Auelauf",
-    "standort": "Lommatzsch",
-    "lat": 51.1953471,
-    "lon": 13.3081211,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-19",
-    "datum_ende": "2026-09-19",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (2 Runden)",
-    "veranstalter_url": "https://mittelsaechsische-lauftour.com/"
   },
   {
     "land": "Deutschland",
@@ -13749,7 +10794,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V11000026160001"
+    "veranstalter_url": "https://endurance-team-pirmasens.jimdosite.com/ruppertslauf/"
   },
   {
     "land": "Deutschland",
@@ -13874,7 +10919,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 161.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L02000000060000",
+    "veranstalter_url": "https://www.taubertal100.de/",
     "wettbewerb": "100 Meilen"
   },
   {
@@ -15082,7 +12127,7 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000855160001",
+    "veranstalter_url": "http://www.lgsz.de",
     "wettbewerb": "Dreifürstensteig, ca. Halbmarathon"
   },
   {
@@ -15752,7 +12797,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10002004860002"
+    "veranstalter_url": "https://www.baldeneysee.ruhr/walking-day-essen/"
   },
   {
     "land": "Deutschland",
@@ -15779,7 +12824,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 10.8,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000330360000"
+    "veranstalter_url": "http://xn--tus-altwarmbchen-uzb.de/"
   },
   {
     "land": "Deutschland",
@@ -20461,7 +17506,7 @@
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
     "laenge_km": 28.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004003860001"
+    "veranstalter_url": "https://www.djk-loewe-hambach.de/waldlauf"
   },
   {
     "land": "Deutschland",
@@ -21386,7 +18431,7 @@
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004004160001"
+    "veranstalter_url": "http://www.djk-herzogenrath.de/seite/287665/ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -22505,7 +19550,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 9.2,
     "wettbewerb": "9,2 km Crosslauf (Hauptlauf)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49110/25.-Bietlauf-f%C3%BCr-einen-Wohlt%C3%A4tigen-Zweck-Tiefenbronn-M%C3%BChlhausen.htm"
+    "veranstalter_url": "https://www.lvbiet.de/"
   },
   {
     "land": "Deutschland",
@@ -22519,7 +19564,7 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Crosslauf (Freizeitlauf)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49110/25.-Bietlauf-f%C3%BCr-einen-Wohlt%C3%A4tigen-Zweck-Tiefenbronn-M%C3%BChlhausen.htm"
+    "veranstalter_url": "https://www.lvbiet.de/"
   },
   {
     "land": "Deutschland",
@@ -24910,7 +21955,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07010002760005"
+    "veranstalter_url": "https://skgrodgau.de/kategorie/laufen/"
   },
   {
     "land": "Deutschland",
@@ -24936,7 +21981,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000135460000"
+    "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -25171,7 +22216,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V14000012460000",
+    "veranstalter_url": "https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/",
     "wettbewerb": "Wustweiler Biber-Trail (WuBiT)"
   },
   {
@@ -25460,7 +22505,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 7.2,
-    "veranstalter_url": "https://ladv.de/ausschreibung/datei/453324",
+    "veranstalter_url": "https://tvbadems.de/news-leichtathletik",
     "wettbewerb": "7 km"
   },
   {
@@ -25678,7 +22723,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 8.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V17000041860001"
+    "veranstalter_url": "https://sportinhusum.de/sportangebot/outdoor/lav/veranstaltungen/mauseberge-crosslauf/"
   },
   {
     "land": "Deutschland",
@@ -25797,7 +22842,7 @@
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
     "laenge_km": 12.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000154160000"
+    "veranstalter_url": "https://www.seelauf-teisendorf.de/"
   },
   {
     "land": "Deutschland",
@@ -26388,7 +23433,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "veranstalter_url": "https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-2025",
+    "veranstalter_url": "https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-gedaechtnislauf-2026",
     "laenge_km": 10.1,
     "wettbewerb": "Cross lang (10.060 m)"
   },
@@ -26845,7 +23890,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 7.0,
     "wettbewerb": "Walking",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000014260001"
+    "veranstalter_url": "https://www.asv-senden.de/steverlauf/"
   },
   {
     "land": "Deutschland",
@@ -27110,7 +24155,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 7.2,
     "wettbewerb": "Langstrecke Frauen",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04009004660000"
+    "veranstalter_url": "https://dpsk.de/dpm/"
   },
   {
     "land": "Deutschland",
@@ -27219,7 +24264,7 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 9.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V08000012660000"
+    "veranstalter_url": "http://www.schneckenlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -27233,7 +24278,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "http://www.schneckenlauf.de/ausschreibung.html"
+    "veranstalter_url": "http://www.schneckenlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -27247,7 +24292,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "http://www.schneckenlauf.de/ausschreibung.html"
+    "veranstalter_url": "http://www.schneckenlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -27670,7 +24715,7 @@
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
     "laenge_km": 8.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V01000069660000"
+    "veranstalter_url": "http://www.tvriegel.com/index.php/crosslauf-2025"
   },
   {
     "land": "Deutschland",
@@ -27725,7 +24770,7 @@
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
     "laenge_km": 7.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001011260003"
+    "veranstalter_url": "https://www.f-z-x.de/termine/5-volksbank-run-crosslauf-beach-edition"
   },
   {
     "land": "Deutschland",
@@ -28338,7 +25383,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 12.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V10004005660001"
+    "veranstalter_url": "https://rurbrueckenlauf-linnich.jimdofree.com/"
   },
   {
     "land": "Deutschland",
@@ -28487,7 +25532,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L07900007060003"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -28893,7 +25938,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 11.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000313960000"
+    "veranstalter_url": "https://www.ast-suessen.de/"
   },
   {
     "land": "Deutschland",
@@ -29043,7 +26088,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000735260002"
+    "veranstalter_url": "https://www.lg-donau-ries.de/"
   },
   {
     "land": "Deutschland",
@@ -29572,7 +26617,7 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07000067860001"
+    "veranstalter_url": "https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/"
   },
   {
     "land": "Deutschland",
@@ -29807,7 +26852,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/409990/"
+    "veranstalter_url": "https://kuhsee-marathon-challenge.github.io/kmc/"
   },
   {
     "land": "Deutschland",
@@ -29926,7 +26971,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V07010002760004"
+    "veranstalter_url": "https://skgrodgau.de/kategorie/laufen/"
   },
   {
     "land": "Deutschland",
@@ -30691,7 +27736,7 @@
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000132360000"
+    "veranstalter_url": "https://www.ftjahn-landsberg.de/"
   },
   {
     "land": "Deutschland",
@@ -31206,7 +28251,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Nordic Walking",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04246"
+    "veranstalter_url": "https://www.ftjahn-landsberg.de/"
   },
   {
     "land": "Deutschland",
@@ -31220,7 +28265,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04246"
+    "veranstalter_url": "https://www.ftjahn-landsberg.de/"
   },
   {
     "land": "Deutschland",
@@ -32264,7 +29309,7 @@
     "datum_start": "2026-12-19",
     "datum_ende": "2026-12-19",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26L07900007060004"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls25/ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -32400,7 +29445,7 @@
     "datum_start": "2026-12-20",
     "datum_ende": "2026-12-20",
     "laenge_km": 21.0,
-    "veranstalter_url": "https://my.raceresult.com/410164/",
+    "veranstalter_url": "https://www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/",
     "wettbewerb": "21 km Halbmarathon , m/w, Jahrgang 2008 und älter"
   },
   {
@@ -32415,7 +29460,7 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km Lauf , Varianten für Erwachsene und für Jugendliche",
-    "veranstalter_url": "https://my.raceresult.com/410164/"
+    "veranstalter_url": "https://www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/"
   },
   {
     "land": "Deutschland",
@@ -33052,7 +30097,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000513160000"
+    "veranstalter_url": "https://arriba-goeppersdorf.de/silvesterlauf_ausschreibung-und-startliste/"
   },
   {
     "land": "Deutschland",
@@ -33469,7 +30514,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V09000411660000"
+    "veranstalter_url": "https://mtv-fichte.de/aktuelles/ansicht/42-silvesterlauf-des-mtv-fichte-winsen-aller-ev"
   },
   {
     "land": "Deutschland",
@@ -33603,7 +30648,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 6.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V02000172060000"
+    "veranstalter_url": "https://www.tsv1862-neuburg.de/abteilungen/leichtathletik/ausschreibungen/"
   },
   {
     "land": "Deutschland",
@@ -34053,7 +31098,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://my.raceresult.com/378423/"
+    "veranstalter_url": "https://www.cvjm-roedinghausen-silvesterlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -34559,7 +31604,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/418908/"
+    "veranstalter_url": "https://www.xn--tus-mrschied-8ib.de/index.php/laufen/silvesterlauf/463-moerschieder-silvesterlauf"
   },
   {
     "land": "Deutschland",
@@ -34915,7 +31960,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://my.raceresult.com/419365/"
+    "veranstalter_url": "https://www.sylvesterlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -34957,7 +32002,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Walking",
-    "veranstalter_url": "https://my.raceresult.com/412297/"
+    "veranstalter_url": "https://www.silvesterlauf.nrw/"
   },
   {
     "land": "Deutschland",
@@ -34971,7 +32016,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Silvesterlauf",
-    "veranstalter_url": "https://my.raceresult.com/412297/"
+    "veranstalter_url": "https://www.silvesterlauf.nrw/"
   },
   {
     "land": "Deutschland",
@@ -35522,7 +32567,7 @@
     "datum_start": "2027-01-09",
     "datum_ende": "2027-01-09",
     "laenge_km": 9.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10004003360001",
+    "veranstalter_url": "https://djk-gillrath.de/index.php?view=article&id=44%3A48-gillrather-crosslauf&catid=8",
     "lat": 50.9818378,
     "lon": 6.075201
   },
@@ -36078,7 +33123,7 @@
     "datum_start": "2027-01-16",
     "datum_ende": "2027-01-16",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/401815/"
+    "veranstalter_url": "https://www.spiridon-haltern.de/Lauf%20/108_de_Ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -36145,7 +33190,7 @@
     "datum_start": "2027-01-16",
     "datum_ende": "2027-01-16",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27L07900007060001"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -36343,7 +33388,7 @@
     "datum_ende": "2027-01-17",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/415986/"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie"
   },
   {
     "land": "Deutschland",
@@ -36357,7 +33402,7 @@
     "datum_ende": "2027-01-17",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/415986/"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie"
   },
   {
     "land": "Deutschland",
@@ -36481,7 +33526,7 @@
     "datum_ende": "2027-01-23",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/382199/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf"
   },
   {
     "land": "Deutschland",
@@ -36495,7 +33540,7 @@
     "datum_ende": "2027-01-23",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Jedermannslauf",
-    "veranstalter_url": "https://my.raceresult.com/382199/"
+    "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf"
   },
   {
     "land": "Deutschland",
@@ -36715,7 +33760,7 @@
     "datum_start": "2027-01-24",
     "datum_ende": "2027-01-24",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10003012060001"
+    "veranstalter_url": "http://www.helmuturbach.de/winterlaufserie.html"
   },
   {
     "land": "Deutschland",
@@ -36757,7 +33802,7 @@
     "datum_ende": "2027-01-24",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://my.raceresult.com/417296/"
+    "veranstalter_url": "http://www.insellauf.de/"
   },
   {
     "land": "Deutschland",
@@ -36771,7 +33816,7 @@
     "datum_ende": "2027-01-24",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/417296/"
+    "veranstalter_url": "http://www.insellauf.de/"
   },
   {
     "land": "Deutschland",
@@ -36785,7 +33830,7 @@
     "datum_ende": "2027-01-24",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/417296/"
+    "veranstalter_url": "http://www.insellauf.de/"
   },
   {
     "land": "Deutschland",
@@ -37201,7 +34246,7 @@
     "datum_ende": "2027-02-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/412248/"
+    "veranstalter_url": "https://doitfast.de/"
   },
   {
     "land": "Deutschland",
@@ -37215,7 +34260,7 @@
     "datum_ende": "2027-02-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/412248/"
+    "veranstalter_url": "https://doitfast.de/"
   },
   {
     "land": "Deutschland",
@@ -37283,7 +34328,7 @@
     "art2": "Straße",
     "datum_start": "2027-02-07",
     "datum_ende": "2027-02-07",
-    "veranstalter_url": "https://my.raceresult.com/415987/"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie"
   },
   {
     "land": "Deutschland",
@@ -37531,7 +34576,7 @@
     "datum_start": "2027-02-14",
     "datum_ende": "2027-02-14",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10003012060002"
+    "veranstalter_url": "http://www.helmuturbach.de/winterlaufserie.html"
   },
   {
     "land": "Deutschland",
@@ -37669,7 +34714,7 @@
     "datum_start": "2027-02-14",
     "datum_ende": "2027-02-14",
     "laenge_km": 8.8,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10001009460001"
+    "veranstalter_url": "https://sv19straelen.de/2026/02/10/grossartige-stimmung-beim-9-sieben-quellen-crosslauf/"
   },
   {
     "land": "Deutschland",
@@ -37682,7 +34727,7 @@
     "datum_start": "2027-02-20",
     "datum_ende": "2027-02-20",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27L07900007060002"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls25/ausschreibung.html"
   },
   {
     "land": "Deutschland",
@@ -37733,7 +34778,7 @@
     "art2": "Trail",
     "datum_start": "2027-02-20",
     "datum_ende": "2027-02-20",
-    "veranstalter_url": "https://my.raceresult.com/408346/"
+    "veranstalter_url": "https://igl-schoeneiche.de/"
   },
   {
     "land": "Deutschland",
@@ -38187,7 +35232,7 @@
     "datum_start": "2027-02-28",
     "datum_ende": "2027-02-28",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10003012060003"
+    "veranstalter_url": "http://www.helmuturbach.de/winterlaufserie.html"
   },
   {
     "land": "Deutschland",
@@ -39051,7 +36096,7 @@
     "datum_start": "2027-03-13",
     "datum_ende": "2027-03-13",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://my.raceresult.com/401816/"
+    "veranstalter_url": "https://vfl-froendenberg.de/ausschreibung-48-ruhrtallauf/"
   },
   {
     "land": "Deutschland",
@@ -39384,7 +36429,7 @@
     "art2": "Straße",
     "datum_start": "2027-03-14",
     "datum_ende": "2027-03-14",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48880/39.-Internationaler-Kaiserstuhllauf-Ihringen.htm"
+    "veranstalter_url": "https://www.tv-ihringen.de/internationaler-kaiserstuhllauf-2026.html"
   },
   {
     "land": "Deutschland",
@@ -39561,7 +36606,7 @@
     "datum_start": "2027-03-19",
     "datum_ende": "2027-03-19",
     "laenge_km": 7.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V10003008260001"
+    "veranstalter_url": "http://www.llg80nordparkkoeln.de/?page_id=7006"
   },
   {
     "land": "Deutschland",
@@ -40319,7 +37364,7 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 9.5,
     "wettbewerb": "9,5 km für Männer und Frauen, Jahrgang 2015 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/37-kieler-hochbrueckenlauf-2027"
+    "veranstalter_url": "https://lg-albatros-kiel.de/hochbrueckenlauf.html"
   },
   {
     "land": "Deutschland",
@@ -40333,7 +37378,7 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 15.7,
     "wettbewerb": "15,7 km für Männer und Frauen, Jahrgang 2011 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/37-kieler-hochbrueckenlauf-2027"
+    "veranstalter_url": "https://lg-albatros-kiel.de/hochbrueckenlauf.html"
   },
   {
     "land": "Deutschland",
@@ -40347,7 +37392,7 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 29.1,
     "wettbewerb": "29,1 km für Männer und Frauen, Jahrgang 2009 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/37-kieler-hochbrueckenlauf-2027"
+    "veranstalter_url": "https://lg-albatros-kiel.de/hochbrueckenlauf.html"
   },
   {
     "land": "Deutschland",
@@ -40851,7 +37896,7 @@
     "datum_ende": "2027-04-04",
     "laenge_km": 239.0,
     "wettbewerb": "239 km komplette Jurasteig-Route",
-    "veranstalter_url": "https://my.raceresult.com/400103/"
+    "veranstalter_url": "https://junut.de/"
   },
   {
     "land": "Deutschland",
@@ -40865,7 +37910,7 @@
     "datum_ende": "2027-04-04",
     "laenge_km": 170.0,
     "wettbewerb": "170 km Ziel in Kastl",
-    "veranstalter_url": "https://my.raceresult.com/400103/"
+    "veranstalter_url": "https://junut.de/"
   },
   {
     "land": "Deutschland",
@@ -40879,7 +37924,7 @@
     "datum_ende": "2027-04-04",
     "laenge_km": 104.0,
     "wettbewerb": "104 km Ziel in Pielenhofen",
-    "veranstalter_url": "https://my.raceresult.com/400103/"
+    "veranstalter_url": "https://junut.de/"
   },
   {
     "land": "Deutschland",
@@ -44294,7 +41339,7 @@
     "datum_ende": "2027-05-01",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/397220/"
+    "veranstalter_url": "https://www.kocher-cup.de/"
   },
   {
     "land": "Deutschland",
@@ -44308,7 +41353,7 @@
     "datum_ende": "2027-05-01",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/397220/"
+    "veranstalter_url": "https://www.kocher-cup.de/"
   },
   {
     "land": "Deutschland",
@@ -44322,7 +41367,7 @@
     "datum_ende": "2027-05-01",
     "laenge_km": 10.0,
     "wettbewerb": "10 km SPRINT (ab 14 Jahren, Jg. 2013 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/418858/"
+    "veranstalter_url": "https://www.legendofcross.de/fryheit/"
   },
   {
     "land": "Deutschland",
@@ -44336,7 +41381,7 @@
     "datum_ende": "2027-05-01",
     "laenge_km": 20.0,
     "wettbewerb": "20 km EXPERT (ab 16 Jahren, Jg. 2011 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/418858/"
+    "veranstalter_url": "https://www.legendofcross.de/fryheit/"
   },
   {
     "land": "Deutschland",
@@ -44418,7 +41463,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-01",
     "datum_ende": "2027-05-01",
-    "veranstalter_url": "https://my.raceresult.com/397371/"
+    "veranstalter_url": "https://mailauf.de/"
   },
   {
     "land": "Deutschland",
@@ -44430,7 +41475,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-01",
     "datum_ende": "2027-05-02",
-    "veranstalter_url": "https://my.raceresult.com/415739/",
+    "veranstalter_url": "https://www.schluchseelauf.com/",
     "laenge_km": 18.6
   },
   {
@@ -45303,7 +42348,7 @@
     "datum_ende": "2027-05-10",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/397586/"
+    "veranstalter_url": "https://katjas-laufzeit.de/westerwaelder-backyard-ultra-2027-ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -48249,7 +45294,7 @@
     "datum_ende": "2027-08-15",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/419629/"
+    "veranstalter_url": "https://hamburg-10k.de/"
   },
   {
     "land": "Deutschland",
@@ -48263,7 +45308,7 @@
     "datum_ende": "2027-05-30",
     "laenge_km": 26.5,
     "wettbewerb": "Sprinttriathlon",
-    "veranstalter_url": "https://my.raceresult.com/404622/"
+    "veranstalter_url": "https://www.esv-buechen.de/seite/545246/triathlon.html"
   },
   {
     "land": "Deutschland",
@@ -48277,7 +45322,7 @@
     "datum_ende": "2027-05-30",
     "laenge_km": 53.0,
     "wettbewerb": "Olympische Distanz",
-    "veranstalter_url": "https://my.raceresult.com/404622/"
+    "veranstalter_url": "https://www.esv-buechen.de/seite/545246/triathlon.html"
   },
   {
     "land": "Deutschland",
@@ -48721,7 +45766,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-03",
     "datum_ende": "2027-06-03",
-    "veranstalter_url": "https://my.raceresult.com/410610/"
+    "veranstalter_url": "https://www.dhbf.de/better-move/firmenlauf/"
   },
   {
     "land": "Deutschland",
@@ -48857,7 +45902,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": 18.0,
     "wettbewerb": "18 km",
-    "veranstalter_url": "https://my.raceresult.com/398724/"
+    "veranstalter_url": "https://www.laufteam-woh.de/"
   },
   {
     "land": "Deutschland",
@@ -48871,7 +45916,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/398724/"
+    "veranstalter_url": "https://www.laufteam-woh.de/"
   },
   {
     "land": "Deutschland",
@@ -48885,7 +45930,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/398724/"
+    "veranstalter_url": "https://www.laufteam-woh.de/"
   },
   {
     "land": "Deutschland",
@@ -49282,7 +46327,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/376620/"
+    "veranstalter_url": "https://unionwessum.de/klumpenlauf"
   },
   {
     "land": "Deutschland",
@@ -49296,7 +46341,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/376620/"
+    "veranstalter_url": "https://unionwessum.de/klumpenlauf"
   },
   {
     "land": "Deutschland",
@@ -49851,7 +46896,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Radfahren bis zur 1. Wechselzone (nahe Amsinck-Haus)",
-    "veranstalter_url": "https://my.raceresult.com/420460/"
+    "veranstalter_url": "http://www.hallig-dreeathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -49865,7 +46910,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km Laufen zur Badestelle der Hamburger Hallig",
-    "veranstalter_url": "https://my.raceresult.com/420460/"
+    "veranstalter_url": "http://www.hallig-dreeathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -49879,7 +46924,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 31.0,
     "wettbewerb": "31 km",
-    "veranstalter_url": "https://my.raceresult.com/420460/"
+    "veranstalter_url": "http://www.hallig-dreeathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -49919,7 +46964,7 @@
     "art2": "Bahn",
     "datum_start": "2027-06-11",
     "datum_ende": "2027-06-11",
-    "veranstalter_url": "https://my.raceresult.com/411371/"
+    "veranstalter_url": "https://www.tura07.de/neuigkeiten/19-kleinbahn-lauf-2026/"
   },
   {
     "land": "Deutschland",
@@ -50264,7 +47309,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
-    "veranstalter_url": "https://my.raceresult.com/393848/"
+    "veranstalter_url": "https://www.hohenloher-geniesserlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -50360,7 +47405,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 6.0,
     "wettbewerb": "6 km Hörnlein-Genusslauf",
-    "veranstalter_url": "https://my.raceresult.com/406561/"
+    "veranstalter_url": "https://panorama-baumwipfel-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -50374,7 +47419,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 12.7,
     "wettbewerb": "12,7 km Herrenberg-Erlebnislauf",
-    "veranstalter_url": "https://my.raceresult.com/406561/"
+    "veranstalter_url": "https://panorama-baumwipfel-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -50388,7 +47433,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 21.5,
     "wettbewerb": "21,5 km Panoramalauf / Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/406561/"
+    "veranstalter_url": "https://panorama-baumwipfel-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -51213,7 +48258,7 @@
     "datum_ende": "2027-06-18",
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km",
-    "veranstalter_url": "https://my.raceresult.com/409001/"
+    "veranstalter_url": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/"
   },
   {
     "land": "Deutschland",
@@ -51227,7 +48272,7 @@
     "datum_ende": "2027-06-18",
     "laenge_km": 10.6,
     "wettbewerb": "10,6 km",
-    "veranstalter_url": "https://my.raceresult.com/409001/"
+    "veranstalter_url": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/"
   },
   {
     "land": "Deutschland",
@@ -51241,7 +48286,7 @@
     "datum_ende": "2027-06-18",
     "laenge_km": 21.2,
     "wettbewerb": "21,2 km",
-    "veranstalter_url": "https://my.raceresult.com/409001/"
+    "veranstalter_url": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/"
   },
   {
     "land": "Deutschland",
@@ -52117,7 +49162,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-25",
     "datum_ende": "2027-06-25",
-    "veranstalter_url": "https://my.raceresult.com/414386/"
+    "veranstalter_url": "https://www.mittsommernachtslauf-hannover.de/"
   },
   {
     "land": "Deutschland",
@@ -52283,7 +49328,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/412690/"
+    "veranstalter_url": "https://www.wiesbaden-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -52297,7 +49342,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/412690/"
+    "veranstalter_url": "https://www.wiesbaden-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -52311,7 +49356,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/412690/"
+    "veranstalter_url": "https://www.wiesbaden-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -52325,7 +49370,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/412690/"
+    "veranstalter_url": "https://www.wiesbaden-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -53123,7 +50168,7 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/409838/"
+    "veranstalter_url": "https://www.heuchelbergtrail.de/"
   },
   {
     "land": "Deutschland",
@@ -53137,7 +50182,7 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 24.0,
     "wettbewerb": "24 km",
-    "veranstalter_url": "https://my.raceresult.com/409838/"
+    "veranstalter_url": "https://www.heuchelbergtrail.de/"
   },
   {
     "land": "Deutschland",
@@ -53151,7 +50196,7 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
-    "veranstalter_url": "https://my.raceresult.com/409838/"
+    "veranstalter_url": "https://www.heuchelbergtrail.de/"
   },
   {
     "land": "Deutschland",
@@ -53647,7 +50692,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-09",
     "datum_ende": "2027-07-10",
-    "veranstalter_url": "https://my.raceresult.com/418089/",
+    "veranstalter_url": "https://24stundenlaufdorsten.de/",
     "dauer_h": 24.0
   },
   {
@@ -53921,7 +50966,7 @@
     "datum_ende": "2027-07-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/411121/"
+    "veranstalter_url": "https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb"
   },
   {
     "land": "Deutschland",
@@ -53935,7 +50980,7 @@
     "datum_ende": "2027-07-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 Kilometer Lauf",
-    "veranstalter_url": "https://my.raceresult.com/411121/"
+    "veranstalter_url": "https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb"
   },
   {
     "land": "Deutschland",
@@ -53949,7 +50994,7 @@
     "datum_ende": "2027-07-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 Kilometer Lauf , Nordic Walking möglich",
-    "veranstalter_url": "https://my.raceresult.com/411121/"
+    "veranstalter_url": "https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb"
   },
   {
     "land": "Deutschland",
@@ -54530,7 +51575,7 @@
     "datum_ende": "2027-07-18",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/412238/"
+    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/"
   },
   {
     "land": "Deutschland",
@@ -54544,7 +51589,7 @@
     "datum_ende": "2027-07-18",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Hauptlauf",
-    "veranstalter_url": "https://my.raceresult.com/412238/"
+    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/"
   },
   {
     "land": "Deutschland",
@@ -54734,7 +51779,7 @@
     "datum_ende": "2027-07-23",
     "laenge_km": 10.0,
     "wettbewerb": "Hauptlauf 10 km",
-    "veranstalter_url": "https://my.raceresult.com/413109/"
+    "veranstalter_url": "https://sv-renquishausen.de/veranstaltungen/waldlauf/"
   },
   {
     "land": "Deutschland",
@@ -54748,7 +51793,7 @@
     "datum_ende": "2027-07-23",
     "laenge_km": 5.7,
     "wettbewerb": "Jedermann 5,7 km",
-    "veranstalter_url": "https://my.raceresult.com/413109/"
+    "veranstalter_url": "https://sv-renquishausen.de/veranstaltungen/waldlauf/"
   },
   {
     "land": "Deutschland",
@@ -54762,7 +51807,7 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/419886/"
+    "veranstalter_url": "https://www.sportverein-oberkollbach.de/bftb/"
   },
   {
     "land": "Deutschland",
@@ -54846,7 +51891,7 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 42.0,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027"
+    "veranstalter_url": "https://www.laufwochenende-fuessen.de/"
   },
   {
     "land": "Deutschland",
@@ -54860,7 +51905,7 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 21.0,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027"
+    "veranstalter_url": "https://www.laufwochenende-fuessen.de/"
   },
   {
     "land": "Deutschland",
@@ -54874,7 +51919,7 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 10.2,
     "wettbewerb": "Viertelmarathon",
-    "veranstalter_url": "https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027"
+    "veranstalter_url": "https://www.laufwochenende-fuessen.de/"
   },
   {
     "land": "Deutschland",
@@ -56512,7 +53557,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://my.raceresult.com/416201/"
+    "veranstalter_url": "https://www.eilenriederennen.de/"
   },
   {
     "land": "Deutschland",
@@ -56550,7 +53595,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://www.maxx-timing.de/anmeldung"
+    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -56576,7 +53621,7 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 25.5,
     "wettbewerb": "Sprintdistanz",
-    "veranstalter_url": "https://my.raceresult.com/419516/"
+    "veranstalter_url": "https://www.otterndorf-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -56590,7 +53635,7 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz",
-    "veranstalter_url": "https://my.raceresult.com/419516/"
+    "veranstalter_url": "https://www.otterndorf-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -56644,7 +53689,7 @@
     "art2": "Swimrun",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://my.raceresult.com/419673/"
+    "veranstalter_url": "https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/"
   },
   {
     "land": "Deutschland",
@@ -57031,7 +54076,7 @@
     "datum_ende": "2027-09-05",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon-2027"
+    "veranstalter_url": "https://flensburg-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -57045,7 +54090,7 @@
     "datum_ende": "2027-09-05",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon-2027"
+    "veranstalter_url": "https://flensburg-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -57059,7 +54104,7 @@
     "datum_ende": "2027-09-05",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon-2027"
+    "veranstalter_url": "https://flensburg-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -57073,7 +54118,7 @@
     "datum_ende": "2027-09-05",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon-2027"
+    "veranstalter_url": "https://flensburg-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -57156,7 +54201,7 @@
     "datum_ende": "2027-09-05",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/418708/"
+    "veranstalter_url": "https://rostocker-frauenlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -57239,7 +54284,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/422206/"
+    "veranstalter_url": "https://www.hahnenklee.de/spass/harzerwanderwochen/ausschreibung-10-teiche-marathon-2026"
   },
   {
     "land": "Deutschland",
@@ -57253,7 +54298,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://my.raceresult.com/422206/"
+    "veranstalter_url": "https://www.hahnenklee.de/spass/harzerwanderwochen/ausschreibung-10-teiche-marathon-2026"
   },
   {
     "land": "Deutschland",
@@ -57267,7 +54312,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/422206/"
+    "veranstalter_url": "https://www.hahnenklee.de/spass/harzerwanderwochen/ausschreibung-10-teiche-marathon-2026"
   },
   {
     "land": "Deutschland",
@@ -57281,7 +54326,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/422206/"
+    "veranstalter_url": "https://www.hahnenklee.de/spass/harzerwanderwochen/ausschreibung-10-teiche-marathon-2026"
   },
   {
     "land": "Deutschland",
@@ -57335,7 +54380,7 @@
     "datum_ende": "2027-09-12",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf für die Jahrgänge 2014 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/volvo-tierparklauf-2027"
+    "veranstalter_url": "https://berlin-laeuft.de/tierparklauf/"
   },
   {
     "land": "Deutschland",
@@ -57349,7 +54394,7 @@
     "datum_ende": "2027-09-12",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf für die Jahrgänge 2016 und älter.",
-    "veranstalter_url": "https://www.davengo.com/event/overview/volvo-tierparklauf-2027"
+    "veranstalter_url": "https://berlin-laeuft.de/tierparklauf/"
   },
   {
     "land": "Deutschland",
@@ -57897,7 +54942,7 @@
     "datum_ende": "2027-10-03",
     "laenge_km": 42.2,
     "wettbewerb": "42,195 km Marathon, Männer und Frauen, 2009 und älter",
-    "veranstalter_url": "https://www.davengo.com/event/overview/22-swb-marathon-bremen-2027"
+    "veranstalter_url": "https://swb-marathon.com/"
   },
   {
     "land": "Deutschland",
@@ -57911,7 +54956,7 @@
     "datum_ende": "2027-10-03",
     "laenge_km": 21.1,
     "wettbewerb": "21,0975 km Halbmarathon, Männer und Frauen, 2011 und älter",
-    "veranstalter_url": "https://www.davengo.com/event/overview/22-swb-marathon-bremen-2027"
+    "veranstalter_url": "https://swb-marathon.com/"
   },
   {
     "land": "Deutschland",
@@ -57925,7 +54970,7 @@
     "datum_ende": "2027-10-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km HIRSCH-10km Lauf, Männer und Frauen, 2015 und älter",
-    "veranstalter_url": "https://www.davengo.com/event/overview/22-swb-marathon-bremen-2027"
+    "veranstalter_url": "https://swb-marathon.com/"
   },
   {
     "land": "Deutschland",

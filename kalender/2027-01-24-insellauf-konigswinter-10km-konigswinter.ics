@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:Insellauf Königswinter
 LOCATION:Königswinter\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/417296/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.insellauf.
+ de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/417296/
+URL:http://www.insellauf.de/
 END:VEVENT
 END:VCALENDAR

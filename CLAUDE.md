@@ -44,7 +44,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
-| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen, siehe „Neunter Durchgang" |
+| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang" |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -492,6 +492,13 @@ real aufgetreten:
   Wortes „Triathlon" im Veranstaltungsnamen wieder zurück.
 - **Beim nächsten Lauf**: Ein `exclude` unter dem alten Schlüssel trifft
   nichts mehr.
+
+**Allgemeiner und distanzgenauer Schlüssel liegen seit dem 20.09.2026
+ÜBEREINANDER**: `find_override()` mischt „<Name>|<Datum>“ und
+„<Name>|<Datum>|<km>“, der distanzgenaue gewinnt bei Widerspruch.
+Vorher gewann der erste Treffer allein, und ein `veranstalter_url` im
+allgemeinen Eintrag war für jede Strecke mit eigenem Eintrag unsichtbar
+(sechs Fälle, siehe „Zehnter Durchgang“).
 
 Deshalb: **`laenge_km` und `art1` nie im selben Override ändern.** Wo
 eine Zeile eigentlich eine andere Veranstaltung ist (ein Volkslauf im
@@ -1058,6 +1065,60 @@ HYROX-Klasse – Punkt 14. Und ein neues Meisterschaft-im-Rahmen-Paar:
 „Rennbahncross in Herxheim" und „Rennbahncross mit
 rheinland-pfälzischen Crosslaufmeisterschaften" (15.11.2026, dieselbe
 Seite) – Punkt 12.
+
+### Zehnter Durchgang: die Websuche fortgesetzt (20.09.2026)
+
+Auf Wunsch des Nutzers („noch einmal so viele Quellen googeln … und die
+neue URL hinzufügen“). Von den 224 Portallink-Veranstaltungen ohne
+Websuche blieben nach Abzug der privaten Ultra-Serien und der im vierten
+Durchgang schon gesuchten Fälle **161**; dafür rund 120 Websuchen, die
+Kandidaten über `verifizieren` geprüft, mit `anwenden --auch-geprueft`
+übernommen. Ergebnis: **88 Veranstaltungen** haben jetzt ihre
+Veranstalterseite (81 über die Regel, 7 von Hand belegt), die
+Portalzeilen fallen von 555 auf **394**. Vier Dinge, die dabei
+herauskamen:
+
+1. **Ein allgemeiner Override war unsichtbar, sobald eine Strecke einen
+   distanzgenauen hatte.** `find_override()` nahm den ERSTEN Treffer
+   und hörte auf – ein `veranstalter_url` unter „Taubertal 100|2026-10-03“
+   griff für die 161-km-Zeile nie, weil sie „…|161“ (Wettbewerbs-Label)
+   hatte. Sechs Links aus der Linkprüfung vom Vortag standen deshalb
+   wirkungslos in der Datei (Taubertal 100, Mössinger Apfellauf,
+   Freundschaftslauf Wustweiler, Steverlauf ×2, Marner Kohltagelauf).
+   Jetzt legt `find_override()` beide Einträge übereinander, der
+   distanzgenaue gewinnt bei Widerspruch; `test_override_schluessel`
+   hält es fest. **Ein Override, der nichts tut, fällt niemandem auf** –
+   dieselbe Klasse wie der `|21.0`-Schlüssel.
+2. **Umlaut-Domains stehen als Punycode in der Adresse.**
+   `tus-mörschied.de` ist `xn--tus-mrschied-8ib.de`, und darin steckt
+   kein „mörschied“ – `host_von()` dekodiert jetzt (`idna`).
+3. **Der Ort im Hostnamen zählte entgegen der Doku gar nicht.** Die
+   Regel prüfte nur Namenswörter gegen den Host; `djk-herzogenrath.de`
+   für den „46. Internationaler Halbmarathon, 56. Internationaler
+   Volkslauf“ (lauter Allgemeinwörter) fiel durch. Jetzt gilt der Ort
+   im Host **nur bei `verifizieren`** (`ort_im_host=True`) – dort sind
+   die Kandidaten handverlesen. Bei `sammeln` bleibt es aus: Dort ist
+   jeder externe Link der Portalseite Kandidat, und `herzogenrath.de`
+   wäre die Stadtverwaltung.
+4. **Bot-Sperren sind kein Nein.** `seelauf-teisendorf.de` (403) und
+   die Jimdo-Seite des Endurance Team Pirmasens (Ruppertslauf) lassen
+   sich aus der Sandbox nicht lesen; die Domain nennt den Lauf, die
+   Websuche belegt den Veranstalter – als Override mit Begründung
+   eingetragen, wie im vierten Durchgang. Ebenso von Hand: LSV Porz
+   (Seite sagt „Winterlaufserie“, laufen.de „Winterserie“, und „Porz“
+   hat vier Buchstaben), Firmenlauf Lörrach (Ort nur im Text) und der
+   Robert-Hannemann-Lauf (am 19.09. als „korrigiert“ protokolliert,
+   Override vergessen).
+
+Was ohne eigene Seite bleibt (`unklar` mit Notiz „Websuche“): Vereine
+ohne Netzauftritt (SFG Nellschütz, TV Langen, SV Broggingen, TuS
+Dallmin, SC Freital …), Veranstaltungen nur auf raceresult (Nebelseelauf,
+Treßsee Marathon, Mauritz-Lindenweg-Marathon, Rund um Detmold) und
+Seiten, die den Lauf nicht nennen (tvelm.de, lcfru.de, hs-wismar.de nach
+404 der Unterseite). Neu für den Nutzer (siehe „Was der Nutzer noch
+entscheiden muss“, Punkt 17): ein Duplikat unter zwei Namen (FT Jahn
+Nikolauslauf = Nikolauslauf Landsberg a. Lech, 06.12.2026), drei
+Formate der HYROX-/Treppenlauf-Klasse und ein Ortsfehler (Rheine).
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
@@ -2462,6 +2523,28 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    nichts über die Offenheit** – 17 Domains, 34 Zeilen, fast alles
    Volksläufe, die ein LA-Verein ausrichtet. Nie am Domainnamen
    entscheiden.
+
+17. **Funde des zehnten Durchgangs (20.09.2026)** – alles nur notiert:
+   - **Duplikat unter zwei Namen**: „32. FT Jahn Nikolauslauf“ und
+     „Nikolauslauf Landsberg a. Lech“ (06.12.2026) sind derselbe Lauf
+     der FT Jahn Landsberg; beide zeigen jetzt auf ftjahn-landsberg.de,
+     `report_gleiche_seite_gleiche_distanz()` meldet sie.
+   - **HYROX-/Treppenlauf-Klasse** (Punkte 13/14): „Black Forest Team
+     Battle“ (Oberreichenbach, 5×1 km plus Kraftstationen in
+     Zweierteams – laut Veranstalter „functional fitness competition“),
+     „Bad Wildbader Stäffeleslauf“ (1.987 Stufen, 720 m) und „X-Mas
+     StairRun Oberhof“ (701 Stufen der Schanze, **nur für Feuerwehr und
+     Polizei** mit Atemschutz – für Läufer gar nicht buchbar). Dazu
+     „Weinathlon“ (Mücheln, 8,5 km mit sieben Weinstationen, „kein
+     klassischer Wettkampf“) und „Die Ha(a)rd Winter“ (laut raceresult
+     eine **Backyard-Wanderveranstaltung**, 02.–04.01.2027).
+   - **Ortsfehler?** „Cross- und Waldlaufmeisterschaften“ (31.10.2026)
+     steht bei uns in Rheine; laut LG Emsdetten findet die Kreis-Cross-
+     und Waldlaufmeisterschaft 2026 in Ibbenbüren-Dickenberg statt (SV
+     Dickenberg). Nicht geändert – ladv.de nennt Rheine.
+   - **Private Ultras mit ~20 Plätzen** wie „Rund um Schloß Holte“ (50 km,
+     GPX-Navigation, mindestens drei Anmeldungen) gehören zur Uwe-Laig-
+     Klasse: nur raceresult, keine Seite, keine Websuche wert.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

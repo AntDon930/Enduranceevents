@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
 SUMMARY:42. Winterserie des LSV Porz 2. Lauf
 LOCATION:Köln Porz Eil\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/27V10003012060002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.helmutur
+ bach.de/winterlaufserie.html
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10003012060002
+URL:http://www.helmuturbach.de/winterlaufserie.html
 END:VEVENT
 END:VCALENDAR

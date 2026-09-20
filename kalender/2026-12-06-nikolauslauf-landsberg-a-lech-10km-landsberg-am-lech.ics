@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Nikolauslauf Landsberg a. Lech – 10 km Lauf
 LOCATION:Landsberg am Lech\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rennmeldung.d
- e/cgi-bin/bewerb.cgi?bewerb=04246
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ftjahn-la
+ ndsberg.de/
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04246
+URL:https://www.ftjahn-landsberg.de/
 END:VEVENT
 END:VCALENDAR

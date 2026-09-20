@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Sylvesterlauf Pfalzdorf
 LOCATION:Goch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /419365/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sylvesterlauf
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419365/
+URL:https://www.sylvesterlauf.de/
 END:VEVENT
 END:VCALENDAR

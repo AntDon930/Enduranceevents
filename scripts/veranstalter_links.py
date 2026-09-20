@@ -123,11 +123,20 @@ def host_woerter(name: str) -> list[str]:
 
 
 def host_von(url: str) -> str:
+    """Der Hostname ohne `www.` - Umlaut-Domains DEKODIERT: `tus-mörschied.de`
+    steht in der Adresse als `xn--tus-mrschied-8ib.de`, und darin steckt
+    kein „mörschied" (zehnter Durchgang, 20.09.2026)."""
     try:
         h = urlparse(url if "://" in url else "http://" + url).netloc.lower()
     except ValueError:
         return ""
-    return h.split("@")[-1].split(":")[0].removeprefix("www.")
+    h = h.split("@")[-1].split(":")[0].removeprefix("www.")
+    if "xn--" in h:
+        try:
+            h = h.encode("ascii").decode("idna")
+        except (UnicodeError, ValueError):
+            pass
+    return h
 
 
 def ist_fremd(host: str, liste=KEIN_VERANSTALTER) -> bool:
@@ -215,13 +224,18 @@ def text_von(html: str) -> str:
 
 
 def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
-                   orte: list[str] = ()) -> list[str]:
+                   orte: list[str] = (), ort_im_host: bool = False) -> list[str]:
     """Die Wörter, an denen die Zielseite den Lauf erkennen lässt.
 
-    Ein Ortsname (der `standort` der Zeile) zählt nur im HOSTNAMEN: Im
-    Text steht er auf jeder Sponsoren-, Shop- und Vereinsseite der
-    Stadt - „Leipzig Run" fand so einen Laufshop. Treffer im Hostnamen
-    stehen vorn, `sammeln()` bevorzugt sie bei mehreren Kandidaten."""
+    Ein Ortsname (der `standort` der Zeile) zählt im TEXT nie: Dort steht
+    er auf jeder Sponsoren-, Shop- und Vereinsseite der Stadt - „Leipzig
+    Run" fand so einen Laufshop. Im HOSTNAMEN zählt er nur mit
+    `ort_im_host=True` (`verifizieren`, also handverlesene Kandidaten aus
+    der Websuche: `djk-herzogenrath.de` für den Volkslauf Herzogenrath).
+    `sammeln` lässt es aus, weil dort JEDER externe Link der Portalseite
+    Kandidat ist - und `herzogenrath.de` wäre die Stadtverwaltung.
+    Treffer im Hostnamen stehen vorn, `sammeln()` bevorzugt sie bei
+    mehreren Kandidaten."""
     txt = text_von(html)
     hostn = norm(host_von(ziel))
     ortswoerter = {w for o in orte for w in re.findall(r"[a-z]{4,}", norm(o))}
@@ -234,6 +248,12 @@ def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
         for w in namens_woerter(nm):
             if w in txt and w not in ortswoerter:
                 treffer.append(w)
+                break
+    if ort_im_host:
+        for o in orte:
+            hit = next((w for w in host_woerter(o) if len(w) >= 5 and w in hostn), None)
+            if hit:
+                treffer.insert(0, "host:" + hit)
                 break
     for d in daten:
         tag, monat, jahr = int(d[8:10]), int(d[5:7]), d[:4]
@@ -402,7 +422,8 @@ def anwenden(args) -> None:
         if b["ergebnis"] == "gefunden":
             eintrag = overrides.get(schluessel, OrderedDict())
             note = (f"Veranstalterseite statt {alt_host}: {b['ziel']} - "
-                    + ("von der raceresult-Kontaktseite (Organizer-URL)" if alt_host == "my.raceresult.com"
+                    + ("per Websuche gefunden (nicht auf der Portalseite verlinkt)" if b.get("quelle") == "websuche"
+                       else "von der raceresult-Kontaktseite (Organizer-URL)" if alt_host == "my.raceresult.com"
                        else f"auf der {alt_host}-Seite verlinkt")
                     + f", Zielseite nennt den Lauf ({', '.join(b['treffer'][:2])}). Linkprüfung {HEUTE}.")
             eintrag["veranstalter_url"] = b["ziel"]
@@ -500,13 +521,14 @@ def verifizieren(args) -> None:
             continue
         name, datum = schluessel.split("|", 1)
         eintrag = {"name": name, "datum": datum, "alt": g["alt"], "kandidaten": [], "ergebnis": "unklar",
-                   "ziel": None, "treffer": [], "notiz": ""}
+                   "ziel": None, "treffer": [], "notiz": "", "quelle": "websuche"}
         k = kandidaten_url_normalisieren(ziel)
         if not k:
             eintrag["notiz"] = f"Kandidat {ziel} ist Portal/Anmeldung/soziales Netz"
         else:
             status, body = abrufer.hole(k)
-            treffer = nennt_den_lauf(body, k, sorted(g["namen"]), sorted(g["daten"]), sorted(g["orte"])) if status == 200 else []
+            treffer = nennt_den_lauf(body, k, sorted(g["namen"]), sorted(g["daten"]), sorted(g["orte"]),
+                                     ort_im_host=True) if status == 200 else []
             eintrag["kandidaten"].append({"url": k, "status": status or body, "treffer": treffer})
             if treffer:
                 eintrag["ergebnis"], eintrag["ziel"], eintrag["treffer"] = "gefunden", k, treffer

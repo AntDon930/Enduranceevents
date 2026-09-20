@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Freundschaftslauf Wustweiler – Wustweiler Biber-Trail (WuBiT)
 LOCATION:Illingen (Saar)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://laufen.de/lauf
- kalender/details/26V14000012460000
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://www.llgwustwei
+ ler.de/veranstaltungen/freundschaftslauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V14000012460000
+URL:https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/
 END:VEVENT
 END:VCALENDAR

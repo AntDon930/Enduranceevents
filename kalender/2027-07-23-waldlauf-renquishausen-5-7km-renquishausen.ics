@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270723
 DTEND;VALUE=DATE:20270724
 SUMMARY:Waldlauf Renquishausen – Jedermann 5\,7 km
 LOCATION:Renquishausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://my.raceresul
- t.com/413109/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://sv-renquisha
+ usen.de/veranstaltungen/waldlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/413109/
+URL:https://sv-renquishausen.de/veranstaltungen/waldlauf/
 END:VEVENT
 END:VCALENDAR

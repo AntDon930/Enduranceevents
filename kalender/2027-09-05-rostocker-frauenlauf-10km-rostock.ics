@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:Rostocker Frauenlauf
 LOCATION:Rostock\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/418708/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rostocker-fra
+ uenlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/418708/
+URL:https://rostocker-frauenlauf.de/
 END:VEVENT
 END:VCALENDAR

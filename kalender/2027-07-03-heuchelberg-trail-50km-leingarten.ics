@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:Heuchelberg Trail
 LOCATION:Leingarten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://my.raceresult.
- com/409838/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://www.heuchelber
+ gtrail.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/409838/
+URL:https://www.heuchelbergtrail.de/
 END:VEVENT
 END:VCALENDAR

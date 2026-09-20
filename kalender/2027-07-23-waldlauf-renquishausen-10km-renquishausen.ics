@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270723
 DTEND;VALUE=DATE:20270724
 SUMMARY:Waldlauf Renquishausen – Hauptlauf 10 km
 LOCATION:Renquishausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/413109/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sv-renquishau
+ sen.de/veranstaltungen/waldlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/413109/
+URL:https://sv-renquishausen.de/veranstaltungen/waldlauf/
 END:VEVENT
 END:VCALENDAR

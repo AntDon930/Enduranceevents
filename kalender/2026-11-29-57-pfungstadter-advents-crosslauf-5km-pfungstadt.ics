@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:57. Pfungstädter Advents-Crosslauf
 LOCATION:Pfungstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://laufen.de/laufk
- alender/details/26V07000067860001
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.pfungstadt-
+ leichtathletik.de/wp/veranstaltungen/adventscross/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000067860001
+URL:https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscro
+ ss/
 END:VEVENT
 END:VCALENDAR

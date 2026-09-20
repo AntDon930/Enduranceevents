@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270911
 DTEND;VALUE=DATE:20270913
 SUMMARY:Tierparklauf Berlin – 10 km Lauf für die Jahrgänge 2014 und älter.
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
- om/event/overview/volvo-tierparklauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://berlin-laeuft
+ .de/tierparklauf/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/volvo-tierparklauf-2027
+URL:https://berlin-laeuft.de/tierparklauf/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Kochercup
 LOCATION:Aalen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/397220/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.kocher-cup
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/397220/
+URL:https://www.kocher-cup.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:Eilenriederennen Hannover
 LOCATION:Hannover\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /416201/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.eilenriederen
+ nen.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/416201/
+URL:https://www.eilenriederennen.de/
 END:VEVENT
 END:VCALENDAR

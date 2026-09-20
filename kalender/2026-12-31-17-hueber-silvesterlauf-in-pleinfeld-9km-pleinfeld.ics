@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:17. Hueber-Silvesterlauf in Pleinfeld
 LOCATION:Pleinfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
- kalender/details/26V02000513160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://arriba-goepper
+ sdorf.de/silvesterlauf_ausschreibung-und-startliste/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000513160000
+URL:https://arriba-goeppersdorf.de/silvesterlauf_ausschreibung-und-startli
+ ste/
 END:VEVENT
 END:VCALENDAR

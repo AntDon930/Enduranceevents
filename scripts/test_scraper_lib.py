@@ -1012,6 +1012,29 @@ def test_override_schluessel() -> None:
                 falsch.append(f"{key}: müsste {erwartet!r} heißen")
     check("alle Schlüssel in der Form, die find_override sucht", falsch, [])
 
+    # Allgemeiner und distanzgenauer Eintrag liegen ÜBEREINANDER - der
+    # allgemeine (z. B. veranstalter_url für alle Strecken) darf nicht
+    # unsichtbar werden, nur weil EINE Strecke einen eigenen Eintrag hat.
+    # Sechs Veranstalter-Links aus der Linkprüfung griffen genau deshalb
+    # nie (Taubertal 100, Steverlauf, ...), siehe find_override().
+    from scraper_lib import find_override
+
+    ov = {
+        "_readme": "…",
+        "Testlauf|2026-10-03": {"veranstalter_url": "https://testlauf.de/", "art2": "Straße"},
+        "Testlauf|2026-10-03|21": {"wettbewerb": "Halbmarathon", "art2": "Trail"},
+    }
+    beides = find_override(ov, "Testlauf", "2026-10-03", 21.0)
+    check("allgemeiner Eintrag scheint durch den distanzgenauen durch",
+          beides.get("veranstalter_url"), "https://testlauf.de/")
+    check("distanzgenauer Eintrag bringt seine Felder mit", beides.get("wettbewerb"), "Halbmarathon")
+    check("bei Widerspruch gewinnt der distanzgenaue Eintrag", beides.get("art2"), "Trail")
+    nur_allgemein = find_override(ov, "Testlauf", "2026-10-03", 10.0)
+    check("andere Strecke bekommt nur den allgemeinen Eintrag",
+          nur_allgemein, {"veranstalter_url": "https://testlauf.de/", "art2": "Straße"})
+    check("kein Eintrag -> None", find_override(ov, "Anderer Lauf", "2026-10-03", 10.0), None)
+    check("die Datei selbst bleibt unverändert", "wettbewerb" in ov["Testlauf|2026-10-03"], False)
+
 
 def test_suche_uebersetzungen() -> None:
     """Die Mastersuche sucht in BEIDEN Sprachen - und zwar an zwei Stellen.
@@ -1944,6 +1967,19 @@ def test_veranstalter_links() -> None:
     # Das Datum allein reicht als Beleg.
     assert "datum" in vl.nennt_den_lauf("<p>Start am 03.10.2026</p>", "https://example.de/",
                                         ["Lauf"], ["2026-10-03"], ["Ort"])
+    # Umlaut-Domains stehen in der Adresse als Punycode - dekodiert steckt der Name darin
+    # (Silvesterlauf Mörschied auf tus-mörschied.de, zehnter Durchgang 20.09.2026).
+    assert vl.host_von("https://www.xn--tus-mrschied-8ib.de/index.php/laufen") == "tus-mörschied.de"
+    assert vl.nennt_den_lauf("<p>x</p>", "https://www.xn--tus-mrschied-8ib.de/silvesterlauf",
+                             ["Silvesterlauf Mörschied"], ["2026-12-31"], ["Mörschied"]) == ["host:morschied"]
+    # Der ORT im Hostnamen zählt nur für handverlesene Kandidaten (verifizieren):
+    # djk-herzogenrath.de belegt den Volkslauf Herzogenrath - herzogenrath.de wäre die Stadt.
+    assert vl.nennt_den_lauf("<p>Ausschreibung</p>", "http://www.djk-herzogenrath.de/seite/ausschreibung.html",
+                             ["46. Internationaler Halbmarathon, 56. Internationaler Volkslauf"],
+                             ["2026-10-24"], ["Herzogenrath"]) == []
+    assert vl.nennt_den_lauf("<p>Ausschreibung</p>", "http://www.djk-herzogenrath.de/seite/ausschreibung.html",
+                             ["46. Internationaler Halbmarathon, 56. Internationaler Volkslauf"],
+                             ["2026-10-24"], ["Herzogenrath"], ort_im_host=True) == ["host:herzogenrath"]
     # Ergebnisdienste, Karten und Datenschutzseiten sind keine Veranstalter.
     assert vl.kandidaten_url_normalisieren("https://www.sportstiming.dk/event/17605") is None
     assert vl.kandidaten_url_normalisieren("https://example.de/datenschutz") is None

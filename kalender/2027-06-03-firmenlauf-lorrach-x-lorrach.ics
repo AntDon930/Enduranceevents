@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270603
 DTEND;VALUE=DATE:20270604
 SUMMARY:Firmenlauf Lörrach
 LOCATION:Lörrach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /410610/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.dhbf.de/bette
+ r-move/firmenlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/410610/
+URL:https://www.dhbf.de/better-move/firmenlauf/
 END:VEVENT
 END:VCALENDAR

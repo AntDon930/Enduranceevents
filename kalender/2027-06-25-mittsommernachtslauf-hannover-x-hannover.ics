@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270625
 DTEND;VALUE=DATE:20270626
 SUMMARY:Mittsommernachtslauf Hannover
 LOCATION:Hannover\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /414386/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.mittsommernac
+ htslauf-hannover.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414386/
+URL:https://www.mittsommernachtslauf-hannover.de/
 END:VEVENT
 END:VCALENDAR

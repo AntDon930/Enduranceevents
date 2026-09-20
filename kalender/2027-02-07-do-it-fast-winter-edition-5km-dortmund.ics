@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270207
 DTEND;VALUE=DATE:20270208
 SUMMARY:Do It Fast - Winter Edition – 5 km Lauf
 LOCATION:Dortmund\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412248/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://doitfast.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412248/
+URL:https://doitfast.de/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Häcker Silvesterlauf Rödinghausen
 LOCATION:Rödinghausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /378423/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.cvjm-roedingh
+ ausen-silvesterlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/378423/
+URL:https://www.cvjm-roedinghausen-silvesterlauf.de/
 END:VEVENT
 END:VCALENDAR

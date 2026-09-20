@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270816
 SUMMARY:10k Hamburg
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/419629/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://hamburg-10k.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419629/
+URL:https://hamburg-10k.de/
 END:VEVENT
 END:VCALENDAR

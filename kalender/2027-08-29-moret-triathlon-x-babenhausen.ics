@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:Moret Triathlon
 LOCATION:Babenhausen\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.maxx-timin
- g.de/anmeldung
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.vfl-muenst
+ er.de/morettriathlon/ausschreibung/
 TRANSP:TRANSPARENT
-URL:https://www.maxx-timing.de/anmeldung
+URL:https://www.vfl-muenster.de/morettriathlon/ausschreibung/
 END:VEVENT
 END:VCALENDAR

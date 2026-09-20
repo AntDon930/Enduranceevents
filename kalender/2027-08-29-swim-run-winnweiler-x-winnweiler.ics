@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:Swim&Run Winnweiler
 LOCATION:Winnweiler\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttps://my.raceresult
- .com/419673/
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttps://www.winnweile
+ r-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419673/
+URL:https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donne
+ rsberger-land/swim-run/
 END:VEVENT
 END:VCALENDAR

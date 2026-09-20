@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270709
 DTEND;VALUE=DATE:20270711
 SUMMARY:Dorstener 24-Stunden-Lauf
 LOCATION:Dorsten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://my.raceresult.
- com/418089/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://24stundenlaufd
+ orsten.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/418089/
+URL:https://24stundenlaufdorsten.de/
 END:VEVENT
 END:VCALENDAR

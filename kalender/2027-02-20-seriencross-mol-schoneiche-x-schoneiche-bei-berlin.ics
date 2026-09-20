@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:Seriencross MOL - Schöneiche
 LOCATION:Schöneiche bei Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 408346/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://igl-schoeneiche.de
+ /
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/408346/
+URL:https://igl-schoeneiche.de/
 END:VEVENT
 END:VCALENDAR

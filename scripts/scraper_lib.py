@@ -1834,13 +1834,28 @@ def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> 
 
 def find_override(overrides: dict, name: str | None, datum_start: str | None,
                   laenge_km=None) -> dict | None:
-    """Sucht den passendsten Override-Eintrag (siehe override_keys())."""
+    """Sucht die Override-Einträge zu einem Event (siehe override_keys())
+    und legt sie ÜBEREINANDER: erst der allgemeine Schlüssel
+    "<Name>|<Datum>", darüber der distanzgenaue "<Name>|<Datum>|<km>".
+
+    Früher gewann der erste Treffer allein - und ein allgemeiner Eintrag
+    war damit für jede Strecke unsichtbar, die einen eigenen
+    distanzgenauen Eintrag hat. Genau das ist passiert: Die Linkprüfung
+    schrieb `veranstalter_url` unter "Taubertal 100|2026-10-03", die
+    161-km-Zeile hatte aber schon "…|161" (Wettbewerbs-Label) - und
+    behielt den Portallink, obwohl der Override richtig in der Datei
+    stand (sechs Zeilen am 20.09.2026). Felder des distanzgenauen
+    Eintrags haben Vorrang; `_`-Felder (Notizen) werden mitgeführt.
+    """
     lookup = {k.casefold(): v for k, v in overrides.items() if k != "_readme"}
-    for key in override_keys(name, datum_start, laenge_km):
+    merged: dict = {}
+    # override_keys() liefert spezifisch -> allgemein; umgekehrt auflegen,
+    # damit der spezifische Eintrag zuletzt schreibt und gewinnt.
+    for key in reversed(override_keys(name, datum_start, laenge_km)):
         hit = lookup.get(key.casefold())
         if hit is not None:
-            return hit
-    return None
+            merged.update(hit)
+    return merged or None
 
 
 def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:

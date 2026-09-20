@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270724
 DTEND;VALUE=DATE:20270725
 SUMMARY:Lauf-Samstag Füssen – Marathon
 LOCATION:Füssen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://www.davengo.c
- om/event/overview/lauf-samstag-fuessen-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://www.laufwoche
+ nende-fuessen.de/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/lauf-samstag-fuessen-2027
+URL:https://www.laufwochenende-fuessen.de/
 END:VEVENT
 END:VCALENDAR

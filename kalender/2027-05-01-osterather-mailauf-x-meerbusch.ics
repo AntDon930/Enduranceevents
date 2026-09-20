@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Osterather Mailauf
 LOCATION:Meerbusch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /397371/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://mailauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/397371/
+URL:https://mailauf.de/
 END:VEVENT
 END:VCALENDAR

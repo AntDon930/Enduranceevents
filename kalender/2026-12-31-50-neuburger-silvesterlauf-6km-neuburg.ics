@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:50. Neuburger Silvesterlauf
 LOCATION:Neuburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://laufen.de/lauf
- kalender/details/26V02000172060000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tsv1862-ne
+ uburg.de/abteilungen/leichtathletik/ausschreibungen/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000172060000
+URL:https://www.tsv1862-neuburg.de/abteilungen/leichtathletik/ausschreibun
+ gen/
 END:VEVENT
 END:VCALENDAR

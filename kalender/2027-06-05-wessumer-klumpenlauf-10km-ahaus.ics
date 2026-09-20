@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270605
 DTEND;VALUE=DATE:20270606
 SUMMARY:Wessumer Klumpenlauf
 LOCATION:Ahaus\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/376620/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://unionwessum.d
+ e/klumpenlauf
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/376620/
+URL:https://unionwessum.de/klumpenlauf
 END:VEVENT
 END:VCALENDAR

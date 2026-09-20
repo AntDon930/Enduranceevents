@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270627
 SUMMARY:City Marathon Wiesbaden
 LOCATION:Wiesbaden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412690/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.wiesbaden-
+ marathon.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412690/
+URL:https://www.wiesbaden-marathon.de/
 END:VEVENT
 END:VCALENDAR

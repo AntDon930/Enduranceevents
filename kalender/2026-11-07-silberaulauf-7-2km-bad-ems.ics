@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Silberaulauf
 LOCATION:Bad Ems\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://ladv.de/auss
- chreibung/datei/453324
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://tvbadems.de/
+ news-leichtathletik
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/datei/453324
+URL:https://tvbadems.de/news-leichtathletik
 END:VEVENT
 END:VCALENDAR

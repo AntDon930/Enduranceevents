@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270503
 SUMMARY:Schluchseelauf
 LOCATION:Schluchsee\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.6 km\nhttps://my.raceresu
- lt.com/415739/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.6 km\nhttps://www.schluch
+ seelauf.com/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/415739/
+URL:https://www.schluchseelauf.com/
 END:VEVENT
 END:VCALENDAR

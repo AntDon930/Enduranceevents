@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:Hohenloher Genießerlauf
 LOCATION:Crailsheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://my.raceresult
- .com/393848/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.hohenlohe
+ r-geniesserlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/393848/
+URL:https://www.hohenloher-geniesserlauf.de/
 END:VEVENT
 END:VCALENDAR

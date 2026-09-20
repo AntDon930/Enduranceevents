@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:Otterndorf Triathlon – Sprintdistanz
 LOCATION:Otterndorf\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://my.racer
- esult.com/419516/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://www.otte
+ rndorf-triathlon.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419516/
+URL:https://www.otterndorf-triathlon.de/
 END:VEVENT
 END:VCALENDAR

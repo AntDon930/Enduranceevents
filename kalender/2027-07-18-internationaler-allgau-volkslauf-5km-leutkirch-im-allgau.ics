@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270718
 DTEND;VALUE=DATE:20270719
 SUMMARY:Internationaler Allgäu Volkslauf – 5 km Hauptlauf
 LOCATION:Leutkirch im Allgäu\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412238/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-leutki
+ rch.de/skilaeuferzunft/volkslauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412238/
+URL:https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/
 END:VEVENT
 END:VCALENDAR

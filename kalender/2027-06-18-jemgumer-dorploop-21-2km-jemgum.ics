@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270619
 SUMMARY:Jemgumer Dörploop
 LOCATION:Jemgum\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.2 km\nhttps://my.raceresu
- lt.com/409001/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.2 km\nhttps://lauftreff-s
+ v-ems-jemgum.de/jemgumer-doerploop/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/409001/
+URL:https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/
 END:VEVENT
 END:VCALENDAR

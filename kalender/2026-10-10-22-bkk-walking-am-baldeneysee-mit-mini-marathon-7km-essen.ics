@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:22. BKK Walking am Baldeneysee mit Mini-Marathon
 LOCATION:Essen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/26V10002004860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.baldeneyse
+ e.ruhr/walking-day-essen/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10002004860002
+URL:https://www.baldeneysee.ruhr/walking-day-essen/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270611
 DTEND;VALUE=DATE:20270612
 SUMMARY:Hallig-Dreeathlon
 LOCATION:Langenhorn\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 31 km\nhttps://my.raceresult
- .com/420460/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 31 km\nhttp://www.hallig-dre
+ eathlon.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/420460/
+URL:http://www.hallig-dreeathlon.de/
 END:VEVENT
 END:VCALENDAR

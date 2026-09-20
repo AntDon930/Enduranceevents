@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Kuhsee Marathon
 LOCATION:Augsburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://my.raceresult
- .com/409990/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://kuhsee-marath
+ on-challenge.github.io/kmc/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/409990/
+URL:https://kuhsee-marathon-challenge.github.io/kmc/
 END:VEVENT
 END:VCALENDAR

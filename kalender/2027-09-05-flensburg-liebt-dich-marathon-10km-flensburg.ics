@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:Flensburg Liebt Dich Marathon
 LOCATION:Flensburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.davengo.c
- om/event/overview/9-flensburg-liebt-dich-marathon-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://flensburg-mar
+ athon.de/
 TRANSP:TRANSPARENT
-URL:https://www.davengo.com/event/overview/9-flensburg-liebt-dich-marathon
- -2027
+URL:https://flensburg-marathon.de/
 END:VEVENT
 END:VCALENDAR
