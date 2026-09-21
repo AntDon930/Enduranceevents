@@ -30547,7 +30547,7 @@
     "datum_start": "2027-01-30",
     "datum_ende": "2027-01-30",
     "laenge_km": 6.2,
-    "wettbewerb": "Swim & Run 700 m Schwimmen / 5.500 m Laufen (= 6,2 km)",
+    "wettbewerb": "Swim & Run 6,2 km (700 m Schwimmen / 5.500 m Laufen)",
     "veranstalter_url": "https://www.triathlon-darmstadt.de/events-specials/swimrun/"
   },
   {
@@ -32646,7 +32646,8 @@
     "datum_start": "2027-03-13",
     "datum_ende": "2027-03-13",
     "laenge_km": 26.9,
-    "veranstalter_url": "https://teamwork-berlin.eu/ausschreibung-2026/"
+    "veranstalter_url": "https://teamwork-berlin.eu/ausschreibung-2026/",
+    "wettbewerb": "Cross-Duathlon 26,9 km (5,5 km Lauf / 18,7 km Rad / 2,7 km Lauf)"
   },
   {
     "land": "Deutschland",
@@ -40917,7 +40918,7 @@
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-22",
     "laenge_km": 21.8,
-    "wettbewerb": "Rügen Sprint (2,6 km Schwimmen / 19,2 km Laufen = 21,8 km)",
+    "wettbewerb": "Rügen Sprint 21,8 km (2,6 km Schwimmen / 19,2 km Laufen)",
     "veranstalter_url": "https://otilloswimrun.com/races/rugen-germany/"
   },
   {
@@ -42658,7 +42659,7 @@
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-05",
     "laenge_km": 11,
-    "wettbewerb": "Einzel lang (1.000 m Schwimmen / 10 km Laufen = 11 km)",
+    "wettbewerb": "Einzel lang 11 km (1.000 m Schwimmen / 10 km Laufen)",
     "veranstalter_url": "https://werdersee-swim-run.de/"
   },
   {
@@ -42672,7 +42673,7 @@
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-05",
     "laenge_km": 5.5,
-    "wettbewerb": "Einzel kurz (500 m Schwimmen / 5 km Laufen = 5,5 km)",
+    "wettbewerb": "Einzel kurz 5,5 km (500 m Schwimmen / 5 km Laufen)",
     "veranstalter_url": "https://werdersee-swim-run.de/"
   },
   {
@@ -44450,7 +44451,7 @@
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
     "laenge_km": 5.5,
-    "wettbewerb": "Kurzdistanz (500 m Schwimmen / 5 km Laufen = 5,5 km)",
+    "wettbewerb": "Kurzdistanz 5,5 km (500 m Schwimmen / 5 km Laufen)",
     "veranstalter_url": "https://www.swim-run-koeln.de/"
   },
   {
@@ -44464,7 +44465,7 @@
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
     "laenge_km": 11,
-    "wettbewerb": "Langdistanz (1.000 m Schwimmen / 10 km Laufen = 11 km)",
+    "wettbewerb": "Langdistanz 11 km (1.000 m Schwimmen / 10 km Laufen)",
     "veranstalter_url": "https://www.swim-run-koeln.de/"
   },
   {
@@ -47476,7 +47477,7 @@
     "datum_start": "2027-07-11",
     "datum_ende": "2027-07-11",
     "laenge_km": 25.3,
-    "wettbewerb": "Triathlon (0,5 km Schwimmen / 19,2 km Rad / 5,6 km Laufen = 25,3 km)",
+    "wettbewerb": "Triathlon 25,3 km (0,5 km Schwimmen / 19,2 km Rad / 5,6 km Laufen)",
     "veranstalter_url": "https://www.moewathlon.de/ksp-moewathlon/"
   },
   {
@@ -49198,7 +49199,7 @@
     "datum_start": "2027-08-14",
     "datum_ende": "2027-08-14",
     "laenge_km": 49.3,
-    "wettbewerb": "Full Distance (1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen = 49,3 km)",
+    "wettbewerb": "Full Distance 49,3 km (1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen)",
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {
@@ -49212,7 +49213,7 @@
     "datum_start": "2027-08-14",
     "datum_ende": "2027-08-14",
     "laenge_km": 41.9,
-    "wettbewerb": "O-SEE Classic (1,1 km Schwimmen / 30 km MTB / 10,8 km Laufen = 41,9 km)",
+    "wettbewerb": "O-SEE Classic 41,9 km (1,1 km Schwimmen / 30 km MTB / 10,8 km Laufen)",
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {
@@ -49226,7 +49227,7 @@
     "datum_start": "2027-08-14",
     "datum_ende": "2027-08-14",
     "laenge_km": 32.2,
-    "wettbewerb": "O-SEE Reduced (0,75 km Schwimmen / 26 km MTB / 5,4 km Laufen = 32,2 km)",
+    "wettbewerb": "O-SEE Reduced 32,2 km (0,75 km Schwimmen / 26 km MTB / 5,4 km Laufen)",
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {
@@ -49268,7 +49269,7 @@
     "datum_start": "2027-08-14",
     "datum_ende": "2027-08-14",
     "laenge_km": 9.6,
-    "wettbewerb": "Eliminator-Triathlon (0,25 km Schwimmen / 7,6 km Rad / 1,7 km Laufen = 9,6 km je Lauf)",
+    "wettbewerb": "Eliminator-Triathlon 9,6 km je Lauf (0,25 km Schwimmen / 7,6 km Rad / 1,7 km Laufen)",
     "veranstalter_url": "https://trifun.de/events/trinale"
   },
   {
@@ -49380,7 +49381,7 @@
     "datum_start": "2027-08-15",
     "datum_ende": "2027-08-15",
     "laenge_km": 13.5,
-    "wettbewerb": "O-SEE Light (0,5 km Schwimmen / 10 km MTB / 3 km Laufen = 13,5 km)",
+    "wettbewerb": "O-SEE Light 13,5 km (0,5 km Schwimmen / 10 km MTB / 3 km Laufen)",
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {

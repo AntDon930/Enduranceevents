@@ -45,6 +45,7 @@ Nicht auf einen anderen Branch pushen.
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang" |
+| `scripts/seitenabgleich.py` | hält jede Veranstaltung mit eigener Seite gegen den **Seitentext** (Datum da? Distanzen da?) und meldet DATUM/DISTANZ/LEER/FEHLER – nur Bericht, siehe „Elfter Durchgang" |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -1119,6 +1120,117 @@ Seiten, die den Lauf nicht nennen (tvelm.de, lcfru.de, hs-wismar.de nach
 entscheiden muss“, Punkt 17): ein Duplikat unter zwei Namen (FT Jahn
 Nikolauslauf = Nikolauslauf Landsberg a. Lech, 06.12.2026), drei
 Formate der HYROX-/Treppenlauf-Klasse und ein Ortsfehler (Rheine).
+
+### Elfter Durchgang: Abgleich mit den Veranstalterseiten (21.09.2026)
+
+Auf Wunsch des Nutzers („alle Einträge checken, ob es noch Fehler gibt,
+bis die Nutzung aufgebraucht ist – alles so seriös wie irgendwie möglich,
+ich checke es dann händisch danach"). Statt der nächsten 200 nach Datum
+wurde **jede Veranstaltung mit eigener Veranstalterseite** maschinell
+gegen den Seitentext gehalten: `scripts/seitenabgleich.py` ruft die
+1.849 Seiten ab (~65 Minuten) und meldet, ob unser Datum und unsere
+Distanzen im Text stehen. Ergebnis des Laufs: 1.154 ohne Befund, 348
+DISTANZ, 287 DATUM, 58 LEER, 64 FEHLER. Die gemeldeten Fälle wurden dann
+einzeln angesehen (Seite und Unterseiten „Strecken"/„Ausschreibung",
+notfalls das PDF), Korrekturen als Override bzw. in `manual_events.json`.
+
+Stand danach (Protokoll `geprueft.json`, 534 Einträge vom 21.09.2026):
+**202 quelle_ok, 151 korrigiert, 180 unklar, 1 entfernt**; 3.761 →
+3.754 Events, 1.093 Overrides, 115 nachgetragene Strecken. Die
+Fehlerklassen, grob gezählt:
+
+1. **Mehrsport-Veranstaltungen als Lauf mit der RADSTRECKE als Länge** –
+   die größte Klasse und genau der Bestand, den Datenregel 15 nicht
+   heilt: O-SEE Challenge/XTERRA (vier Zeilen, „37 km" war das MTB),
+   Trinale, ksp MöWathlon, ÖTILLÖ Rügen, NordseeMan, Mountain
+   Challenge, Berliner Volkstriathlon, Swim & Run Köln/Werdersee/
+   Winnweiler/Darmstadt, Jag de Wuidsau. Jetzt Triathlon mit der Summe
+   der Teilstrecken; reine Etappen (Laufetappe des MöWathlon, die
+   Einzeletappen des Berchtesgaden Stage Run) ausgeschlossen.
+2. **Doppelte Terminsätze** – die Kalenderprognose UND der echte Termin
+   standen beide in der Liste: Marburger Lahntallauf (27.02./06.03.),
+   Rostocker Citylauf (23.05./30.05.), Klausdorfer Nikolauslauf (unter
+   zweitem Namen), Mitteldeutscher Marathon. Der falsche Satz per
+   `exclude`.
+3. **Ungenaue Distanzen** (~50 Zeilen): Rundenvielfache (Bramfelder
+   Winterlaufserie 4,66 km, Winterloop 7,5 km), Marathon-Bruchteile
+   (Berliner Nikolauslauf: Achtel/Viertel/Drittel/Big 5; Bremerhaven
+   3/4; Regensburg), Marketingzahlen – „5 km" mit 4,5–4,9 km beim
+   Kerner Nachtlauf, Stimberg-Haardlauf, Geilenkirchen, Burgkirchen,
+   Oktoberlauf Petershagen, Belgenbachtrail, Col d'Allrath (2,5 km
+   bergauf) – sie fallen über Datenregel 5 heraus; und Walking-Zeilen,
+   die als Lauf standen (Saaletal Marathon, Citylauf Telgte, Neiße
+   Adventure Race).
+4. **Zeitrennen als Distanz**: SV Schwindegg Ultralauf ist die Deutsche
+   Meisterschaft im 6-Stunden-Lauf (stand als Marathon + 50 km), 6h
+   Adventslauf Langenhagen (Marathon + 46 km waren 10 und 11 Runden),
+   Lauf mit Musik (30-Minuten-Lauf) – Datenregel 8.
+5. **Nicht im Programm**: Possenlauf MTB 28/42 km, Berlin City Night
+   „20 km" (der Doppelstart Skaten + Laufen), KäseKross 9 km, Frickinger
+   MTB (2026 ausgesetzt), Winterloop 8 km, Kinderrennen (O-SEE X'Kids) –
+   und der **Internationale Kammlauf Klingenthal ist Skilanglauf**
+   (klassisch/Freestyle), vier Zeilen entfernt.
+6. **Termine**: Winterlaufserie München (Nikolauslauf 15 statt 10 km),
+   Grüngürtel Ultra (Terminänderung auf der Seite), Frühlingsultra,
+   Ingelheimer Halbe, Apfelblütenlauf, Schluchseelauf (Hauptlauf am
+   Sonntag), Landkreislauf Schwandorf (Nachholtermin nach Hitzeabsage –
+   unser Datum war richtig), Enddaten mehrtägiger Trails (Yeti,
+   Frostwiese, 3Kings3Hills, Lindwurm), Starttage je Strecke (Zugspitz
+   Ultra Trail, Berchtesgaden).
+7. **Orte**: Bühlauer Winterlaufserie (Dresden-Bühlau, nicht Radeberg),
+   EnergieSüdwest Cup (Göcklingen bzw. Offenbach an der Queich, nicht
+   Landau).
+8. **Fehlende Strecken** (~35 Zeilen): Werderseelauf (fünf Strecken
+   neben dem Marathon), Seligenstädter Winterlaufserie (5 km an vier
+   Terminen), Alten-Busecker Winterlaufserie, Eschweiler Volkslauf,
+   Hollenmarsch 21/42 km, Monschau Ultra K56, Tharandter-Wald-Lauf HM,
+   Donatuslauf, Saaletal 3/4-Marathon, Bergische 5 (37-km-Etappe),
+   Einetallauf 21 km, Pönitz 7,5 km, Hasenmelker 5 km, Rainbow Run 5 km,
+   Schmachtendorf 5 km, Berliner Nikolauslauf HM.
+
+Sieben Lektionen, alle im Code oder in den Notizen festgehalten:
+
+- **Ein Label, das eine Rundenlänge oder Teilstrecke nennt, verschwindet
+  oder wird gemeldet.** `drop_contradicting_wettbewerb()` liest JEDE Zahl
+  vor „km" – „Marathon (6 Runden à 7,5 km)" widerspricht 45 km und wird
+  gelöscht; `audit_events.py` liest die ERSTE Zahl. Deshalb steht die
+  Gesamtlänge im Label und vorn: „Full Distance 49,3 km (1,5 km
+  Schwimmen / 37 km MTB / 10,8 km Laufen)".
+- **Ein Zeitrennen lässt sich neben einer Distanz-Zeile nicht
+  nachtragen.** `is_same_event()` hält eine Zeile ohne Distanz für
+  kompatibel mit jeder Distanz („unbekannt schließt nichts aus"); die
+  nachgetragene 6-h-Challenge des Winterloop verschmolz mit der
+  45-km-Zeile, `dauer_h` landete am Marathon. Rokathon 24 h, 24 Stunden
+  van Halen, Winterloop 6/12 h stehen deshalb nur in den Notizen. Wer
+  das lösen will, muss `_compatible_distance()` „Distanz gegen Dauer" als
+  unvereinbar werten lassen – und vorher zählen, was das im Bestand
+  anrichtet.
+- **Ein Override, der Distanz oder Datum ändert, braucht den zweiten
+  Schlüssel** – bekannt („Die wichtigste Lektion"), hier erneut
+  zugeschlagen: Die Labels für O-SEE & Co. griffen im zweiten Lauf nicht
+  mehr, weil aus `|37` `|49.3` und aus dem 13.08. der 14.08. geworden
+  war. Beide Schlüssel eingetragen (der alte für den frischen
+  Scraper-Stand, der neue für den Bestand).
+- **Allgemeiner Schlüssel plus nachgetragene Strecke** ist die
+  ASV-Duisburg-Falle in neuer Form: Bei Zeilen OHNE Distanz (Hasenmelker,
+  Poggenhagen) geht nur der allgemeine Schlüssel; setzt er `laenge_km`,
+  trifft er beim nächsten Lauf auch die nachgetragene 5-km-Zeile,
+  verschmilzt sie, und `add_manual_events()` legt sie danach wieder an.
+  Idempotent, aber ein Umweg – wo es geht, distanzgenaue Schlüssel.
+- **Veranstalterseiten zeigen oft noch das Vorjahr.** Fast alle 180
+  `unklar` heißen „Seite zeigt 2026, 2027 nicht ausgeschrieben". Solche
+  Zeilen sind Kalenderprognosen; die Zählung im Namen verrät sie
+  manchmal („44. Winser Silvesterlauf" ist die Nummer von 2025, „54.
+  Kißlegger" ebenso). Kein Fehler – aber nichts Belegtes. Nach dem
+  nächsten Datenlauf `seitenabgleich.py` erneut laufen lassen.
+- **Gekaperte Domains bestehen die Namensprüfung.** harzlauf-thale.de
+  (Lotterie-Spam) und tus-kaisersesch.de (Shop) trugen den Lauf im
+  Hostnamen; erst das Zählen von Laufvokabular im Seitentext
+  (`hostcheck`, Wegwerf-Skript) fand sie. Idee für `pruefen`.
+- **sportprogramme.org und baer-service.de** sind Anmelde-/Zeitnahme-
+  portale (Oberpfalz bzw. Sachsen) → `PORTAL_DOMAINS`.
+
+Was der Nutzer daraus entscheiden muss, steht unter Punkt 18.
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
@@ -2545,6 +2657,41 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **Private Ultras mit ~20 Plätzen** wie „Rund um Schloß Holte“ (50 km,
      GPX-Navigation, mindestens drei Anmeldungen) gehören zur Uwe-Laig-
      Klasse: nur raceresult, keine Seite, keine Websuche wert.
+
+18. **Funde des elften Durchgangs (21.09.2026)** – Belege in
+   `geprueft.json` (`am` = 2026-09-21), nichts davon entschieden:
+   - **Duplikate unter zwei Namen**: „25. Altstadtfestlauf in Lauf"
+     (10 km) und „Altstadtfestlauf in Lauf" (5 km) sind ein Lauf des
+     Skiclubs Lauf; „TEAG – Legend of Cross" steht mit zwei Terminsätzen
+     (31.10./01.11.); Altwarmbüchen unter zwei Namen. Die 12,5-km-Zeile
+     des „31. Griesheimer Silvesterlaufs" steht in Flörsheim-Weilbach mit
+     TG-Weilbach-Link – wohl der Weilbacher Silvesterlauf, zusammengeführt
+     unter dem falschen Namen (Seite nennt 2026 noch nicht).
+   - **Nicht öffentliche Läufe**: Der „67. Panorama Marathon" (Running
+     Paule, 24.10.2026) ist laut Ausschreibung ein „gemeinsamer, nicht
+     öffentlicher Trainingsmarathon" – dieselbe Klasse wie die privaten
+     Ultra-Serien. Rein oder raus?
+   - **Staffeln** (Punkt 3 weiter): Landkreislauf Schwandorf (10 Läufer,
+     49,5 km / 3 Walker, 12,5 km), Weeze 3×5 km, Dinkelsbühl 4×3 km,
+     Firmenstaffel Sachsen-Anhalt 5×3 km – stehen mit der
+     Team-Gesamtstrecke und sagen es im Label.
+   - **Zeitrennen neben Distanz-Zeilen fehlen** (Rokathon 24 h, 24 Stunden
+     van Halen, Winterloop 6/12 h) – braucht eine Code-Änderung an
+     `_compatible_distance()`, siehe Elfter Durchgang.
+   - **Termine, die wahrscheinlich falsch sind** (Seite nennt 2027 noch
+     nicht, 2026 lag in einem anderen Monat): Mittsommernachtslauf
+     Hannover (bei uns Juni, 2026 im August), Haasower Waldlauf (Juli /
+     August), LST Super Sunday (August / April), Wolfhager Volkslauf
+     (Juni / Mai), Gläserner Mönch Lauf (Juli / Juni), Triathlon
+     Offenburg (08.05. / 16.–17.05.), Ibbenbürener Klippenlauf (20.03. /
+     „letztes Märzwochenende"). Alle als `unklar` notiert, nichts geändert.
+   - **Sonstiges**: ClimAid Plant a Tree Run ist nur für 2024 belegt;
+     Teltowkanal 14 km, Bremer Kuhcross, Warendorfer Garagen-Backyard,
+     Neunkirchner Sommerlauf 2026 abgesagt, Belgershainer Crosslauf
+     möglicherweise eingestellt, Distanzen von Kulmbach Trails / Zötler /
+     Marienhagen nicht prüfbar (siehe Notizen).
+   - **Umkehrbar**: Internationaler Kammlauf Klingenthal (Skilanglauf)
+     ist per `exclude` heraus.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

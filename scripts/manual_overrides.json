@@ -4690,5 +4690,57 @@
   "Firmenstaffel Sachsen-Anhalt|2027-07-08|15": {
     "wettbewerb": "5er-Staffel (5 × 3 km = 15 km)",
     "_note": "firmenstaffel.de: 08.07.2027, Elbauenpark Magdeburg; 5 Läufer je 3 km – Team-Gesamtstrecke (Staffel-Frage, Punkt 3)"
+  },
+  "O-SEE Challenge|2027-08-14|49.3": {
+    "wettbewerb": "Full Distance 49,3 km (1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "O-SEE Challenge|2027-08-14|41.9": {
+    "wettbewerb": "O-SEE Classic 41,9 km (1,1 km Schwimmen / 30 km MTB / 10,8 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "O-SEE Challenge|2027-08-14|32.2": {
+    "wettbewerb": "O-SEE Reduced 32,2 km (0,75 km Schwimmen / 26 km MTB / 5,4 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "O-SEE Challenge|2027-08-15|13.5": {
+    "wettbewerb": "O-SEE Light 13,5 km (0,5 km Schwimmen / 10 km MTB / 3 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Trinale|2027-08-14|9.6": {
+    "wettbewerb": "Eliminator-Triathlon 9,6 km je Lauf (0,25 km Schwimmen / 7,6 km Rad / 1,7 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Mountain Challenge|2027-03-13|26.9": {
+    "wettbewerb": "Cross-Duathlon 26,9 km (5,5 km Lauf / 18,7 km Rad / 2,7 km Lauf)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "ksp MöWathlon|2027-07-11|25.3": {
+    "wettbewerb": "Triathlon 25,3 km (0,5 km Schwimmen / 19,2 km Rad / 5,6 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Sparkasse Bremen Swim & Run am Werdersee|2027-06-05|5.5": {
+    "wettbewerb": "Einzel kurz 5,5 km (500 m Schwimmen / 5 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Sparkasse Bremen Swim & Run am Werdersee|2027-06-05|11": {
+    "wettbewerb": "Einzel lang 11 km (1.000 m Schwimmen / 10 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Swim & Run Köln|2027-06-13|5.5": {
+    "wettbewerb": "Kurzdistanz 5,5 km (500 m Schwimmen / 5 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Swim & Run Köln|2027-06-13|11": {
+    "wettbewerb": "Langdistanz 11 km (1.000 m Schwimmen / 10 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22|21.8": {
+    "wettbewerb": "Rügen Sprint 21,8 km (2,6 km Schwimmen / 19,2 km Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "DSW Swim & Run|2027-01-30|6.2": {
+    "wettbewerb": "Swim & Run 6,2 km (700 m Schwimmen / 5.500 m Laufen)",
+    "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
   }
 }
