@@ -1639,6 +1639,61 @@ Drei Lehren daraus, alle allgemein:
   eine Veranstaltung in Bad Liebenwerda. Der Rauchtest hat es gemeldet.
   Ein Startort ist kein Ort im Sinne der Liste.
 
+### Vierzehnter Durchgang: Zeilen ohne Maßzahl, zweite Runde (21.09.2026, ohne den Nutzer)
+
+Der Nutzer war einige Stunden weg („möchte aber das du weiter an der
+Webseite baust") – gearbeitet wurde deshalb nur, was in diesem Dokument
+als „nur Arbeit, keine Entscheidung" steht, und alles Neue, das eine
+Entscheidung braucht, steht unten in der Liste. Erledigt in dieser
+Reihenfolge: Zeitrennen neben Distanz-Zeilen (Datenregel 8), Duplikate
+unter zwei Namen (offene Punkte, Nr. 19), Ladezustand der Liste
+(Frontend-Fallen), dann die **96 ungeprüften Zeilen ohne Distanz und
+ohne Dauer** an ihren Veranstalterseiten (Protokoll `geprueft.json`,
+`am` = 2026-09-21).
+
+Bilanz der 96, ehrlich gerechnet: **17 bekamen eine Maßzahl** (davon
+sechs Veranstaltungen mit nachgetragenen weiteren Strecken – Leipziger
+Frauenlauf, Nürnberger Winterlaufserie mit drei Terminen, Paul-Ultralauf
+50/100/150 Meilen, Ruhr Trail Run, Besenbinderlauf, Schwelmer Citylauf),
+**vier wurden Zeitrennen** (Klosterparklauf Harsefeld 6 h, Sommer24hLauf
+24/48 h, Sixdaysrun 144 h), **zwei wurden Triathlons** (HavelMan,
+neuseenMAN – beide noch ohne Kilometer), **elf flogen** (siehe unten),
+**23 Wings-for-Life-Standorte** sind belegt ohne Distanz und tragen jetzt
+`charity` per Override, der Rest ist `unklar` – fast immer „2027 noch
+nicht ausgeschrieben" oder „Strecken nur als PDF/auf raceresult".
+
+Drei Klassen, die dabei sichtbar wurden (alle nach Punkt 2 des
+Dreizehnten Durchgangs gezählt, nicht einzeln behandelt):
+
+1. **Hybrid-Fitness-Formate unter neuen Marken.** THE ROX (Wildau),
+   Deadly Dozen („Deadly Sprint", „Deadly Gross": 12 Stunden lang je
+   Stunde 400 m plus zwölf Kraftübungen) und ATHX Games (vier Termine:
+   Strength Zone, MetCon X, Messehalle) – dieselbe Klasse wie HYROX
+   (Datenregel 14). Alle **per Override** ausgeschlossen, nicht über
+   `NICHT_AUSDAUER`: Eine Zeile dort braucht das Ja des Nutzers (so am
+   Runworx gelernt). Kandidaten für die Liste: `the rox`, `deadly
+   dozen|deadly sprint|deadly gross`, `athx`.
+2. **Staffeln ohne Staffel-Wort im Namen.** „Landkreislauf" heißt in
+   Amberg-Sulzbach (11 Läufer je Team) und Günzburg (Staffellauf, jedes
+   Jahr andere Strecke) eine reine Staffel – `ist_staffel()` sieht das
+   nicht. Beide per Override (Datenregel 16). Beim nächsten Datenlauf
+   lohnt ein Blick auf jeden weiteren „Landkreislauf".
+3. **Paarläufe** (Paarlauf mit Musik des SCC, Holger Anders
+   Flutlicht-Paarlauf, Paarlauf des ABC-Zentrum: zwei Läufer wechseln
+   sich über 30 bzw. 60 Minuten ab) sind Zweier-Teams – ob sie unter die
+   Staffel-Regel fallen, ist nicht entschieden (Frage unten).
+
+Nebenbefunde: `_same_name()` hält „5 km Walking" und „5 km Lauf" für
+dieselbe Zeile (die kürzere Wortmenge steckt in der längeren), ein
+Walking-Nachtrag neben dem Lauf derselben Länge geht also nicht – und
+`test_manuelle_events` merkt es sofort (zwei Einträge weniger als
+erwartet). Eine Laufserie hängt in den Quellen jede Distanz an jeden
+Termin (Nürnberger Winterlaufserie: 5 km am 17.01., den es nicht gibt –
+Dritter Durchgang, Muster 3, erneut). Ein Sponsorwechsel wechselt die
+Domain (`brooks-ruhr-trail-run.de` → `altra-ruhr-trail-run.de`, per
+302). Und `firmenlauf-oberschwaben.de` ist ein Hosting-Platzhalter – ob
+es die Veranstaltung 2027 gibt, weiß niemand.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -3582,6 +3637,21 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Wiehenläufer, Jüchen, Wertach, Kriegsheim, Fleckenberg,
      Staffelläufe). Offen: Rellinger Citylauf (17,3 km UND 1 h, Seite
      503).
+   - **Neu aus dem Vierzehnten Durchgang (21.09.2026), je ein Ja/Nein:**
+     - **Paarläufe** (Zweier-Teams über 30/60 Minuten) – Staffel im
+       Sinne von Datenregel 16, also raus? Drei im Bestand.
+     - **Firmenläufe nur für Teams** (Firmenlauf Ratingen: „Teams von
+       Unternehmen, Institutionen, Vereinen", keine Einzelstarter) –
+       rein oder raus? „Es soll jeder die Chance haben sich anzumelden"
+       spräche für raus, aber es sind ~30 Firmenläufe im Bestand, und
+       die meisten nennen ihre Bedingungen nicht.
+     - **THE ROX, Deadly Dozen, ATHX** in `NICHT_AUSDAUER` aufnehmen?
+       Heute per Override draußen (sieben Zeilen); mit der Liste blieben
+       sie beim nächsten Datenlauf von selbst draußen.
+     - **Wings for Life World Run** trägt jetzt `charity` per Override
+       (100 % Startgeld für Rückenmarksforschung, belegt) – 23 Zeilen.
+       Falls nicht gewünscht: die Overrides tragen `"charity": true`,
+       ein `false` schaltet es ab.
    - ~~2027-Termine, die Prognosen sind~~ **entschieden** (21.09.2026):
      „Juni 2027*" mit Fußnote, Datenregel 19.
    - ~~Zeitrennen neben Distanz-Zeilen~~ **gebaut** (21.09.2026):
