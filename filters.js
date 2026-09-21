@@ -199,13 +199,19 @@
     // Veranstaltungen weichen ab (Moritzburgs Langdistanz hat 218,8 km,
     // ein Cross-Triathlon 41,5 km) und fielen sonst in keine Kategorie.
     // Dieselben Grenzen nimmt triathlonFormat() in event-detail.js für die
-    // Länge-Spalte (Sprint, Kurz/Olympisch, 70.3, 140.6), damit Filter
-    // und Anzeige dasselbe sagen. Kopie in functions/index.js.
+    // Länge-Spalte, damit Filter und Anzeige dasselbe sagen; die sechs
+    // Kategorien sind die Vorgabe des Nutzers (Bild vom 21.09.2026):
+    // Super-Sprint, Sprint, Olympisch, Mitteldistanz (70.3), Langstrecke
+    // (140.6), Ultra-Triathlon. Kopie in functions/index.js. Der Schlüssel
+    // 'tultra' statt 'ultra', weil 'ultra' schon der Ultramarathon ist
+    // (die Beschriftungen hängen am Schlüssel).
     'Triathlon': [
-      { key: 'sprint', test: km => km > 0 && km < 40 },
+      { key: 'supersprint', test: km => km > 0 && km < 20 },
+      { key: 'sprint', test: km => km >= 20 && km < 40 },
       { key: 'olympic', test: km => km >= 40 && km < 80 },
       { key: 'middle', test: km => km >= 80 && km < 160 },
-      { key: 'long', test: km => km >= 160 },
+      { key: 'long', test: km => km >= 160 && km < 300 },
+      { key: 'tultra', test: km => km >= 300 },
       { key: 'zeit', zeit: true }
     ]
   };
@@ -217,16 +223,16 @@
       's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (Marathonschwimmen)',
       // "70.3" ist der Markenname (Ironman 70.3) und bleibt mit Punkt;
       // die echten Distanzangaben tragen das deutsche Komma.
-      'sprint': 'Sprint (bis 40 km)', 'olympic': 'Kurz / Olympisch (51,5 km)',
-      'middle': 'Mitteldistanz / 70.3 (113 km)', 'long': 'Langdistanz / 140.6 (226 km)',
+      'supersprint': 'Super-Sprint', 'sprint': 'Sprint', 'olympic': 'Olympisch',
+      'middle': 'Mitteldistanz (70.3)', 'long': 'Langstrecke (140.6)', 'tultra': 'Ultra-Triathlon',
       'zeit': 'Zeitrennen (6 h, 12 h, 24 h …)'
     },
     en: {
       '5k': '5 km', '10k': '10 km', 'half': 'Half Marathon', 'marathon': 'Marathon', 'ultra': 'Ultramarathon',
       'r50': 'up to 50 km', 'r100': '50–100 km', 'r150': '100–150 km', 'r200': '150–200 km', 'rultra': '200+ km',
       's1': '1 km', 's2': '2 km', 's3': '3 km', 's5': '5 km', 's10': '10+ km (marathon swim)',
-      'sprint': 'Sprint (up to 40 km)', 'olympic': 'Short / Olympic (51.5 km)',
-      'middle': 'Middle Distance / 70.3 (113 km)', 'long': 'Long Distance / 140.6 (226 km)',
+      'supersprint': 'Super sprint', 'sprint': 'Sprint', 'olympic': 'Olympic',
+      'middle': 'Middle distance (70.3)', 'long': 'Long distance (140.6)', 'tultra': 'Ultra triathlon',
       'zeit': 'Timed race (6 h, 12 h, 24 h …)'
     }
   };

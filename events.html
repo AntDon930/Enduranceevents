@@ -164,17 +164,25 @@
      Entfernungs-Spalte kommt und geht. Reihenfolge (Vorlage): Datum,
      Name, Sportart, Ort, Land, Kategorie, Länge. */
   .col-datum { width: 13%; }
-  .col-name { width: 24%; }
-  .col-art1 { width: 12%; }
-  .col-standort { width: 13%; }
+  .col-name { width: 23%; }
+  .col-art1 { width: 11%; }
+  .col-standort { width: 12%; }
   .col-entfernung { width: 10%; }
   .col-land { width: 12%; }
   .col-art2 { width: 13%; }
-  .col-laenge_km { width: 12%; }
+  /* 16 % seit den sechs Triathlon-Formaten (21.09.2026): "Mitteldistanz
+     (70.3)" braucht zwei Zeilen, "Sprint, Olympisch & Mitteldistanz (70.3)"
+     muss in die zwei Zeilen der .cell-clamp passen. Dafür Name 24 -> 23 %,
+     Sportart 12 -> 11 %, Ort 13 -> 12 %. Land bleibt 12 %: mit 10 % brach
+     "Deutschland" bei 900 px in zwei Zeilen (gemessen); "Triathlon" mit
+     Symbol passt bei 11 % genau. */
+  .col-laenge_km { width: 16%; }
   table.with-distance { min-width: 960px; }
   /* Datum und Länge stehen in EINER Zeile ("So 27.09.2026", "9,5–28,5 km");
-     ein mehrtägiges Rennen bricht über sein <br>. */
+     ein mehrtägiges Rennen bricht über sein <br>. Nur ein Triathlon-FORMAT
+     (.format, "Mitteldistanz (70.3)") darf umbrechen. */
   td.col-datum .cell-clamp, td.col-laenge_km .cell-clamp { white-space: nowrap; }
+  td.col-laenge_km .cell-clamp.format { white-space: normal; }
   /* Der Browser überspringt Layout und Zeichnen für Zeilen außerhalb
      des Bildes - möglich nur wegen table-layout: fixed. Jede Zeile ist
      gleich hoch (52 px, wie eine Mindesthöhe), kein Text geht über zwei
@@ -615,9 +623,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=97226331"></script>
+<script src="filters.js?v=6f7832c4"></script>
 <script src="filter-ui.js?v=6c73cd91"></script>
-<script src="event-detail.js?v=6baa941b"></script>
+<script src="event-detail.js?v=9a4f0d18"></script>
 
 <script>
 (async function () {
@@ -1572,7 +1580,7 @@
       case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp sport-cell ${EED.sportClass(e.art1)}">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
       case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
-      case 'laenge_km': return td(`<div class="cell-clamp">${formatLength(e)}</div>`);
+      case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${formatLength(e)}</div>`);
       default: return td('');
     }
   }
@@ -1666,7 +1674,7 @@
           return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
         case 'laenge_km':
           if (offen) return cellHtml(col, e);
-          return `<td class="col-laenge_km"><div class="cell-clamp">${escapeHtml(laengeSpanne(g))}</div></td>`;
+          return `<td class="col-laenge_km"><div class="cell-clamp${g.rows.every(r => r.e.art1 === 'Triathlon') ? ' format' : ''}">${escapeHtml(laengeSpanne(g))}</div></td>`;
         default:
           return cellHtml(col, e);
       }

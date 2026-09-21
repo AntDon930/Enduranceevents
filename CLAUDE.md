@@ -1395,7 +1395,8 @@ Was der Nutzer daraus entscheiden muss, steht unter Punkt 18.
 
 Auf Wunsch des Nutzers („Bitte noch einmal alle Triathlons checken und
 die Länge dann ausfüllen"; Anlass: der Munich Triathlon stand ohne
-Länge, gehört „Sprint & Kurzdistanz"). Stand vorher: 149 Triathlon-
+Länge, gehört „Sprint & Kurzdistanz" – mit den sechs Formaten vom
+selben Tag heißt das „Sprint & Olympisch"). Stand vorher: 149 Triathlon-
 Zeilen in 103 Veranstaltungen, **43 Veranstaltungen ohne jede Länge** –
 alle aus dem running.life-Triathlon-Kalender, dessen Detailseiten keine
 Wettbewerbe liefern. Jede der 43 an der Veranstalterseite gelesen
@@ -2302,43 +2303,62 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     anzufassen) – **nicht**, während jemand darin tippt, sonst
     überschreibt ein Renderlauf die Eingabe.
 
-- **Die Länge eines Triathlons ist ein FORMAT, keine Zahl** (vom Nutzer
-  am 21.09.2026 vorgegeben: „Bei den Triathlon Events wird die Länge
-  immer so angegeben: Sprint, Kurz, Olympisch, 70.3, 140.6" – der Munich
-  Triathlon steht damit als „Sprint & Kurzdistanz"). Die Kilometerzahl
-  (Summe der Teilstrecken, Datenregel 15) bleibt in `events.json` und
-  entscheidet Filter und Sortierung; ANGEZEIGT wird das Format –
-  `triathlonFormat(e)` in `event-detail.js`, gebraucht von
+- **Die Länge eines Triathlons ist ein FORMAT, keine Zahl** – und zwar
+  eines von SECHS (vom Nutzer am 21.09.2026 als Bild vorgegeben, „genau
+  so aufnehmen"): **Super-Sprint, Sprint, Olympisch, Mitteldistanz
+  (70.3), Langstrecke (140.6), Ultra-Triathlon**. Die Normdistanzen
+  dahinter (DTU-Sportordnung, World Triathlon, Ironman):
+
+  | Format | Schwimmen / Rad / Laufen | Summe |
+  |---|---|---|
+  | Super-Sprint | 250–500 m / 6,5–13 km / 1,7–3,5 km | ~9–17 km |
+  | Sprint (Volks-/Jedermann) | 500–750 m / 18–22 km / 4,5–5,5 km | ~25,75 km |
+  | Olympisch (Kurz-/Standarddistanz) | 1,5 / 40 / 10 km | 51,5 km |
+  | Mitteldistanz (70.3) | 1,9 / 90 / 21,1 km | 113 km = 70,3 Meilen |
+  | Langstrecke (140.6) | 3,8 / 180 / 42,2 km | 226 km = 140,6 Meilen |
+  | Ultra-Triathlon | Vielfache der Langstrecke (Double, Triple, Deca) | ab 452 km |
+
+  Die Kilometerzahl (Summe der Teilstrecken, Datenregel 15) bleibt in
+  `events.json` und entscheidet Filter und Sortierung; ANGEZEIGT wird
+  das Format – `triathlonFormat(e)` in `event-detail.js`, gebraucht von
   `formatLength()` (Tabelle, Box, Pillen), `formatLengthSpan()`
-  (zusammengefasste Zeile und Karten-Popup: „Sprint & Kurz", „Sprint,
-  Olympisch & 70.3") und dem Teilen-Text. Vier Dinge daran:
-  - **Erst das Label des Veranstalters, dann die Summe.** Wer seine
-    1,5/40/10 „Kurzdistanz" nennt, bekommt „Kurz", nicht „Olympisch" –
-    dieselbe Distanz, aber der Nutzer will die Bezeichnung der
-    Veranstaltung sehen (`FORMAT_IM_LABEL`: 140.6/Langdistanz, 70.3/
-    Mitteldistanz/Halbdistanz, Olympisch, Kurzdistanz, Sprint). Ohne
-    Stichwort entscheidet die Summe: unter 40 km Sprint (auch Volks-,
-    Jedermann-, Schnupperdistanzen), bis 80 km Olympisch, bis 160 km
-    70.3, darüber 140.6.
+  (zusammengefasste Zeile und Karten-Popup: „Sprint & Olympisch",
+  „Sprint, Olympisch & Mitteldistanz (70.3)") und dem Teilen-Text. Vier
+  Dinge daran:
+  - **Erst das Label des Veranstalters, dann die Summe.**
+    `FORMAT_IM_LABEL` liest Ultra/Double/Deca, 140.6/Langdistanz/
+    Langstrecke, 70.3/Mitteldistanz/Halbdistanz, Olympisch/Kurzdistanz/
+    Standard (Kurzdistanz IST die Olympische Distanz), Super-Sprint,
+    Sprint. Ohne Stichwort entscheidet die Summe: unter 20 km Super-Sprint
+    (Schnupper-, Einsteiger-, Fitnessdistanzen), bis 40 km Sprint (auch
+    Volks- und Jedermann), bis 80 km Olympisch, bis 160 km Mitteldistanz,
+    bis 300 km Langstrecke, darüber Ultra.
   - **Das sind GRENZEN zwischen den Formaten, keine Toleranzen um die
     Normdistanzen.** Deutsche Veranstaltungen weichen ab (Moritzburgs
     Langdistanz 218,8 km, Cross-Triathlons 41,5 km, Heilbronns
     Mitteldistanz 106,4 km); mit den früheren Bändern (51,5 ± 3 usw.)
     fielen sie in keine Filterkategorie. `DISTANCE_CATEGORIES.Triathlon`
-    in `filters.js` und die Kopie in `functions/index.js` nehmen seit
-    dem 21.09.2026 dieselben Grenzen – Filter und Spalte sagen dasselbe.
+    in `filters.js` und die Kopie in `functions/index.js` tragen die
+    sechs Kategorien mit denselben Grenzen (Schlüssel `supersprint`,
+    `sprint`, `olympic`, `middle`, `long`, `tultra` – nicht `ultra`, der
+    ist der Ultramarathon, und die Beschriftungen hängen am Schlüssel).
   - **Swimrun und Quadrathlon kennen die Formate nicht** (ein 40-km-Swimrun
     ist kein „Olympisch"): dort zählt nur ein Stichwort im Label, sonst
-    die Kilometer. Ein **Duathlon** über Mittel-/Langdistanz heißt
-    „Mittel"/„Lang" statt „70.3"/„140.6" – das sind Triathlon-Marken.
+    die Kilometer. Ein **Duathlon** über Mittel-/Langstrecke heißt
+    „Mitteldistanz"/„Langstrecke" ohne den Zusatz 70.3/140.6 – das sind
+    Triathlon-Marken.
   - **Zwei Strecken mit demselben Format bekommen die Kilometer dazu**
     (Jedermann 500/20/5 und Sprint 750/20/5 sind beide „Sprint"):
     Pillen als „Sprint (25,5 km)" / „Sprint (25,8 km)", der Fakt in der
-    Box immer „Kurz (51,5 km)" (`formatLength(e, lang, { mitKm: true })`).
+    Box immer „Olympisch (51,5 km)" (`formatLength(e, lang, { mitKm: true })`).
   Das Wettbewerbs-Label trägt die Gesamtlänge VORN und die Teilstrecken
   in Klammern („Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad /
   10 km Laufen)") – so bleibt `drop_contradicting_wettbewerb()` still,
-  und die Box zeigt die Aufteilung.
+  und die Box zeigt die Aufteilung. Die Länge-Spalte ist dafür auf 16 %
+  verbreitert (Name 23 %, Sportart 11 %, Ort 12 %; Land bleibt 12 %, mit
+  10 % brach „Deutschland" bei 900 px um): „Mitteldistanz (70.3)" braucht
+  zwei Zeilen, drei Formate passen in die zwei Zeilen der `.cell-clamp`;
+  nur `.cell-clamp.format` darf in der Länge-Spalte umbrechen.
 
 - **Ein mehrtägiges Datum steht in zwei Zeilen.** `formatRangeHtml()`
   setzt ein `<br>` nach dem Gedankenstrich; vorher brach die Zelle dort

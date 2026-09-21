@@ -130,10 +130,12 @@ const DISTANCE_CATEGORIES = {
   },
   Triathlon: {
     // Grenzen zwischen den Formaten wie in filters.js (21.09.2026).
-    sprint: (km) => km > 0 && km < 40,
+    supersprint: (km) => km > 0 && km < 20,
+    sprint: (km) => km >= 20 && km < 40,
     olympic: (km) => km >= 40 && km < 80,
     middle: (km) => km >= 80 && km < 160,
-    long: (km) => km >= 160,
+    long: (km) => km >= 160 && km < 300,
+    tultra: (km) => km >= 300,
   },
 };
 

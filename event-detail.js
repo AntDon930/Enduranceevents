@@ -171,39 +171,48 @@
   // verschlucken.
   // ---------- Triathlon: die Länge ist ein Format ----------
 
-  // Vom Nutzer am 21.09.2026 vorgegeben: "Bei den Triathlon Events wird
-  // die Länge immer so angegeben: Sprint, Kurz, Olympisch, 70.3, 140.6"
-  // (der Munich Triathlon steht damit als "Sprint & Kurzdistanz"). Die
-  // Kilometerzahl - die Summe der Teilstrecken, Datenregel 15 - bleibt in
-  // events.json, sie entscheidet Filter und Sortierung; ANGEZEIGT wird
+  // Vom Nutzer am 21.09.2026 vorgegeben - erst "Sprint, Kurz, Olympisch,
+  // 70.3, 140.6", dann als Bild die sechs Kategorien, die die Liste
+  // "genau so" führen soll: Super-Sprint, Sprint, Olympisch,
+  // Mitteldistanz (70.3), Langstrecke (140.6), Ultra-Triathlon. Die
+  // Normdistanzen dahinter (DTU-Sportordnung, World Triathlon, Ironman):
+  //   Super-Sprint   250-500 m / 6,5-13 km / 1,7-3,5 km  (~9-17 km)
+  //   Sprint         500-750 m / 18-22 km / 4,5-5,5 km   (~25,75 km)
+  //   Olympisch      1,5 / 40 / 10 km = 51,5 km ("Kurz-"/"Standarddistanz")
+  //   Mitteldistanz  1,9 / 90 / 21,1 km = 113 km = 70.3 Meilen
+  //   Langstrecke    3,8 / 180 / 42,2 km = 226 km = 140.6 Meilen
+  //   Ultra          Vielfache der Langstrecke (Double 452 km, Triple, Deca)
+  // Die Kilometerzahl - die Summe der Teilstrecken, Datenregel 15 - bleibt
+  // in events.json, sie entscheidet Filter und Sortierung; ANGEZEIGT wird
   // das Format. Zwei Quellen, in dieser Reihenfolge:
-  // 1. Das Wettbewerbs-Label des Veranstalters. Wer seine 1,5/40/10
-  //    "Kurzdistanz" nennt, bekommt "Kurz", nicht "Olympisch" - beide
-  //    sind dieselbe Distanz, aber der Nutzer will die Bezeichnung der
-  //    Veranstaltung sehen.
-  // 2. Sonst die Summe: unter 40 km Sprint (auch Volks-, Jedermann- und
-  //    Schnupperdistanzen), bis 80 km Olympisch, bis 160 km 70.3,
-  //    darüber 140.6. Das sind GRENZEN zwischen den Formaten, keine
-  //    Toleranzen um die Normdistanzen herum, weil deutsche
-  //    Veranstaltungen abweichen (Moritzburgs Langdistanz hat 218,8 km,
-  //    ein Cross-Triathlon 41,5 km) - dieselben Grenzen wie die
+  // 1. Das Wettbewerbs-Label des Veranstalters ("Kurzdistanz" ist die
+  //    Olympische Distanz, "Supersprint" der Super-Sprint).
+  // 2. Sonst die Summe: unter 20 km Super-Sprint (Schnupper-, Einsteiger-,
+  //    Fitnessdistanzen), bis 40 km Sprint (auch Volks- und Jedermann),
+  //    bis 80 km Olympisch, bis 160 km Mitteldistanz, bis 300 km
+  //    Langstrecke, darüber Ultra. Das sind GRENZEN zwischen den
+  //    Formaten, keine Toleranzen um die Normdistanzen herum, weil
+  //    deutsche Veranstaltungen abweichen (Moritzburgs Langdistanz hat
+  //    218,8 km, ein Cross-Triathlon 41,5 km) - dieselben Grenzen wie die
   //    Kategorien in filters.js, damit Filter und Spalte dasselbe sagen.
   // Swimrun und Quadrathlon kennen diese Formate nicht (ein 40-km-Swimrun
   // ist kein "Olympisch"): dort zählt nur das Label, sonst die Kilometer.
   const TRIATHLON_FORMATE = {
-    sprint:    { rang: 0, de: 'Sprint',    en: 'Sprint' },
-    kurz:      { rang: 1, de: 'Kurz',      en: 'Short' },
-    olympisch: { rang: 1, de: 'Olympisch', en: 'Olympic' },
-    mittel:    { rang: 2, de: '70.3',      en: '70.3' },
-    lang:      { rang: 3, de: '140.6',     en: '140.6' }
+    supersprint: { rang: 0, de: 'Super-Sprint',         en: 'Super sprint' },
+    sprint:      { rang: 1, de: 'Sprint',               en: 'Sprint' },
+    olympisch:   { rang: 2, de: 'Olympisch',            en: 'Olympic' },
+    mittel:      { rang: 3, de: 'Mitteldistanz (70.3)', en: 'Middle distance (70.3)' },
+    lang:        { rang: 4, de: 'Langstrecke (140.6)',  en: 'Long distance (140.6)' },
+    ultra:       { rang: 5, de: 'Ultra-Triathlon',      en: 'Ultra triathlon' }
   };
   // Reihenfolge: das Längste zuerst - "Langdistanz" enthält kein "kurz",
-  // aber "Halbdistanz" und "Mitteldistanz" stehen vor "Distanz"-Resten.
+  // "Super-Sprint" enthält "Sprint", also steht er davor.
   const FORMAT_IM_LABEL = [
-    [/140[.,]6|langdist|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist/i, 'lang'],
+    [/ultra|double|doppel|triple|dreifach|\bdeca\b|quintuple/i, 'ultra'],
+    [/140[.,]6|langdist|langstreck|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist/i, 'lang'],
     [/70[.,]3|mitteldist|\bmittel\b|middle|halbdist|half[\s-]*dist|halb-?ironman/i, 'mittel'],
-    [/olymp|standard[\s-]*dist/i, 'olympisch'],
-    [/kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist/i, 'kurz'],
+    [/olymp|standard[\s-]*dist|kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist/i, 'olympisch'],
+    [/super[\s-]*sprint/i, 'supersprint'],
     [/sprint/i, 'sprint']
   ];
   function triathlonFormat(e) {
@@ -213,15 +222,21 @@
     if (e.art2 === 'Swimrun' || e.art2 === 'Quadrathlon') return null;
     const km = Number(e.laenge_km);
     if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
+    if (km < 20) return 'supersprint';
     if (km < 40) return 'sprint';
     if (km < 80) return 'olympisch';
     if (km < 160) return 'mittel';
-    return 'lang';
+    if (km < 300) return 'lang';
+    return 'ultra';
   }
   // "70.3" und "140.6" sind Triathlon-Marken; ein Duathlon über die
   // Mittel- oder Langdistanz (Spreewald: 19 km Laufen / 84 km Rad / 5 km
-  // Laufen) heißt schlicht "Mittel" bzw. "Lang".
-  const DUATHLON_NAMEN = { mittel: { de: 'Mittel', en: 'Middle' }, lang: { de: 'Lang', en: 'Long' } };
+  // Laufen) heißt "Mitteldistanz" bzw. "Langstrecke" ohne den Zusatz.
+  const DUATHLON_NAMEN = {
+    mittel: { de: 'Mitteldistanz', en: 'Middle distance' },
+    lang: { de: 'Langstrecke', en: 'Long distance' },
+    ultra: { de: 'Ultra-Duathlon', en: 'Ultra duathlon' }
+  };
   function formatName(key, lang, e) {
     const sprache = lang === 'en' ? 'en' : 'de';
     if (e && e.art2 === 'Duathlon' && DUATHLON_NAMEN[key]) return DUATHLON_NAMEN[key][sprache];
@@ -639,8 +654,9 @@
     if (!formate.length) return null;
     return formate.sort((a, b) => TRIATHLON_FORMATE[a].rang - TRIATHLON_FORMATE[b].rang || a.localeCompare(b));
   }
-  // "Sprint & Kurz", "Sprint, Olympisch & 70.3" - so hat der Nutzer die
-  // Angabe für den Munich Triathlon vorgegeben ("Sprint & Kurzdistanz").
+  // "Sprint & Olympisch", "Sprint, Olympisch & Mitteldistanz (70.3)" - so
+  // hat der Nutzer die Angabe für den Munich Triathlon vorgegeben
+  // ("Sprint & Kurzdistanz").
   function verbindeNamen(namen) {
     if (namen.length <= 1) return namen[0] || '–';
     return `${namen.slice(0, -1).join(', ')} & ${namen[namen.length - 1]}`;

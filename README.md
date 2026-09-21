@@ -1943,18 +1943,23 @@ Die Meldungen stehen bei jedem Lauf von `clean_events.py` im Bericht
 (mit `--quiet` nur als Zahl).
 
 **Die Länge eines Triathlons ist ein Format.** Seit dem 21.09.2026 zeigt
-die Liste bei Triathlons nicht die Kilometer, sondern das Format, wie es
-im Triathlon üblich ist (Vorgabe des Nutzers): **Sprint, Kurz,
-Olympisch, 70.3, 140.6** – erst nach dem Wettbewerbs-Label des
-Veranstalters („Kurzdistanz" bleibt „Kurz"), sonst nach der Summe der
-Teilstrecken (unter 40 km Sprint, bis 80 km Olympisch, bis 160 km 70.3,
-darüber 140.6). Eine Veranstaltung mit mehreren Strecken steht als
-„Sprint & Kurz" in der Liste, die Box nennt zu jeder Strecke die
-Kilometer („Kurz (51,5 km)"). Die Filterkategorien nehmen dieselben
-Grenzen. Im selben Zug wurden alle 43 Triathlons ohne Länge an der
-Ausschreibung nachgetragen (98 Strecken) und die Teilstrecken-Zeilen
-(Ironman Hamburg 3,8 km, Berlin Triathlon 5/9/19 km, …) bereinigt –
-siehe CLAUDE.md, „Zwölfter Durchgang".
+die Liste bei Triathlons nicht die Kilometer, sondern eines von sechs
+Formaten, wie sie im Triathlon üblich sind (Vorgabe des Nutzers):
+**Super-Sprint** (250–500 m / 6,5–13 km / 1,7–3,5 km), **Sprint**
+(500–750 m / 18–22 km / 4,5–5,5 km), **Olympisch** (1,5 / 40 / 10 km,
+auch Kurz- oder Standarddistanz), **Mitteldistanz (70.3)** (1,9 / 90 /
+21,1 km = 113 km), **Langstrecke (140.6)** (3,8 / 180 / 42,2 km =
+226 km) und **Ultra-Triathlon** (Vielfache davon). Erst zählt das
+Wettbewerbs-Label des Veranstalters, sonst die Summe der Teilstrecken
+(unter 20 km Super-Sprint, bis 40 km Sprint, bis 80 km Olympisch, bis
+160 km Mitteldistanz, bis 300 km Langstrecke, darüber Ultra). Eine
+Veranstaltung mit mehreren Strecken steht als „Sprint & Olympisch" in
+der Liste, die Box nennt zu jeder Strecke die Kilometer („Olympisch
+(51,5 km)"). Die Filterkategorien sind dieselben sechs. Im selben Zug
+wurden alle 43 Triathlons ohne Länge an der Ausschreibung nachgetragen
+(98 Strecken) und die Teilstrecken-Zeilen (Ironman Hamburg 3,8 km,
+Berlin Triathlon 5/9/19 km, …) bereinigt – siehe CLAUDE.md, „Zwölfter
+Durchgang".
 
 **Und umgekehrt: ein Lauf im Triathlon-Kalender.** Seit running.life
 auch die Triathlon-Kalender liefert (`default_art1 = "Triathlon"`),
