@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:42. Winterserie des LSV Porz 3. Lauf
 LOCATION:Köln Porz Eil\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/27V10003012060003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.helmutur
+ bach.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10003012060003
+URL:http://www.helmuturbach.de
 END:VEVENT
 END:VCALENDAR

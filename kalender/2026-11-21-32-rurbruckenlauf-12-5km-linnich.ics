@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:32. Rurbrückenlauf
 LOCATION:Linnich\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://laufen.de/l
- aufkalender/details/26V10004005660001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.pol-tus
+ linnich.de/index.php
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004005660001
+URL:https://www.pol-tuslinnich.de/index.php
 END:VEVENT
 END:VCALENDAR

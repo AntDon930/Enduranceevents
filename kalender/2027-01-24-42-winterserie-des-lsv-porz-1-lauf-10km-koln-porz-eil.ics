@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:42. Winterserie des LSV Porz 1. Lauf
 LOCATION:Köln Porz Eil\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27V10003012060001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.helmuturba
+ ch.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V10003012060001
+URL:http://www.helmuturbach.de
 END:VEVENT
 END:VCALENDAR

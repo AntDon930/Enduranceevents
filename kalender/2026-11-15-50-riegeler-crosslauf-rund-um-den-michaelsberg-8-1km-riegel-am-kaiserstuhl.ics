@@ -11,9 +11,8 @@ DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:50. Riegeler Crosslauf - Rund um den Michaelsberg
 LOCATION:Riegel am Kaiserstuhl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.1 km\nhttps://laufen.de/lau
- fkalender/details/26V01000069660000
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.1 km\nhttp://tvriegel.com/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V01000069660000
+URL:http://tvriegel.com/
 END:VEVENT
 END:VCALENDAR

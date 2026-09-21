@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-dm-cross-x-weinstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:DM Cross
+LOCATION:Weinstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://laufen.de/laufkale
+ nder/details/26D00000000000019
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26D00000000000019
+END:VEVENT
+END:VCALENDAR

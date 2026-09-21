@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)
 LOCATION:Lubmin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
- hreibung/detail/44662/25.-Sebastian-Fredrich-Gedenklauf-Lubmin.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tri-hgwaii
+ .de
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/44662/25.-Sebastian-Fredrich-Gede
- nklauf-Lubmin.htm
+URL:http://www.tri-hgwaii.de
 END:VEVENT
 END:VCALENDAR

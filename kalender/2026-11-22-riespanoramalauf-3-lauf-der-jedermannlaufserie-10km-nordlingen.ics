@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Riespanoramalauf - 3. Lauf der Jedermannlaufserie
 LOCATION:Nördlingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V02000735260002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000735260002
+URL:http://www.lg-donau-ries.de
 END:VEVENT
 END:VCALENDAR

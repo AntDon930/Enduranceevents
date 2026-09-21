@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:1. Pumpkin run
 LOCATION:Urexweiler\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/26V14000019260001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lcfru.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V14000019260001
+URL:https://lcfru.de/
 END:VEVENT
 END:VCALENDAR

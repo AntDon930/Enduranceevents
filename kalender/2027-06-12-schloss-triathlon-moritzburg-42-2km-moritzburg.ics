@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-schloss-triathlon-moritzburg-42-2km-moritzburg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Schloss-Triathlon Moritzburg
+LOCATION:Moritzburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 42.2 km\nhttp://www.schlo
+ ss-triathlon-moritzburg.de
+TRANSP:TRANSPARENT
+URL:http://www.schloss-triathlon-moritzburg.de
+END:VEVENT
+END:VCALENDAR

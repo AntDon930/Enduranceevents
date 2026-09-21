@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:Werderseelauf
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
- .com/388224/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://werderseelauf
+ .de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/388224/
+URL:https://werderseelauf.de
 END:VEVENT
 END:VCALENDAR

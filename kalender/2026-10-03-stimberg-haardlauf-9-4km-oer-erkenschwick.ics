@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-stimberg-haardlauf-9-4km-oer-erkenschwick@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Stimberg-Haardlauf – Hauptlauf
+LOCATION:Oer-Erkenschwick\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://my.raceresul
+ t.com/374879/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/374879/
+END:VEVENT
+END:VCALENDAR

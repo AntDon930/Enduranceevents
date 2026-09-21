@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-helmstedter-lauferabend-5km-helmstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Helmstedter Läuferabend
+LOCATION:Helmstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.
+ htm
+END:VEVENT
+END:VCALENDAR

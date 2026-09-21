@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:25. Steverlauf – Walking
 LOCATION:Senden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/26V19000014260001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.asv-senden
+ .de/steverlauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000014260001
+URL:https://www.asv-senden.de/steverlauf/
 END:VEVENT
 END:VCALENDAR

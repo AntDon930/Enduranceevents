@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:12. Mergelstetter Silvesterlauf
 LOCATION:Heidenheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/419461/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://outdoor.svmer
+ gelstetten.de/ausschreibung
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419461/
+URL:https://outdoor.svmergelstetten.de/ausschreibung
 END:VEVENT
 END:VCALENDAR

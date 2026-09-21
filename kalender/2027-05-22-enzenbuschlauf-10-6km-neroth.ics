@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-enzenbuschlauf-10-6km-neroth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Enzenbüschlauf – Walking/Nordic Walking - 10\,6 km
+LOCATION:Neroth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://www.svnerot
+ h.de/enzenbueschlauf/
+TRANSP:TRANSPARENT
+URL:https://www.svneroth.de/enzenbueschlauf/
+END:VEVENT
+END:VCALENDAR

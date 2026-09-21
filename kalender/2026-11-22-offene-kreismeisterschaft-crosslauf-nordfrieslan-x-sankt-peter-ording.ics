@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-offene-kreismeisterschaft-crosslauf-nordfrieslan-x-sankt-pe
+ ter-ording@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Offene Kreismeisterschaft Crosslauf Nordfriesland
+LOCATION:Sankt Peter-Ording\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49306/Offene-Kreismeisterschaft-Crosslauf-Sankt-Peter-Ording.h
+ tm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49306/Offene-Kreismeisterschaft-C
+ rosslauf-Sankt-Peter-Ording.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-17-crosslauf-der-arnstorfer-lg-x-arnstorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:Crosslauf der Arnstorfer LG
+LOCATION:Arnstorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49079/12.-Crosslauf-der-Arnstorfer-LG-Arnstorf.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49079/12.-Crosslauf-der-Arnstorfe
+ r-LG-Arnstorf.htm
+END:VEVENT
+END:VCALENDAR

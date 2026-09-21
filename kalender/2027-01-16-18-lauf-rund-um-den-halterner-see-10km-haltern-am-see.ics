@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:18. Lauf rund um den Halterner See
 LOCATION:Haltern am See\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/401815/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.spiridon-h
+ altern.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/401815/
+URL:http://www.spiridon-haltern.de
 END:VEVENT
 END:VCALENDAR

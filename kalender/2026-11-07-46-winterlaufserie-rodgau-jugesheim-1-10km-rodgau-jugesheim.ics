@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:46. Winterlaufserie Rodgau Jügesheim (1)
 LOCATION:Rodgau-Jügesheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V07010002760005
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.troialauf
+ events.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07010002760005
+URL:https://www.troialaufevents.de/
 END:VEVENT
 END:VCALENDAR

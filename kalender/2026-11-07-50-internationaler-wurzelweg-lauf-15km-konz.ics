@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:50. Internationaler Wurzelweg-Lauf
 LOCATION:Konz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
- fkalender/details/26V13000135460000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.chiplauf.
+ de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13000135460000
+URL:https://www.chiplauf.de
 END:VEVENT
 END:VCALENDAR

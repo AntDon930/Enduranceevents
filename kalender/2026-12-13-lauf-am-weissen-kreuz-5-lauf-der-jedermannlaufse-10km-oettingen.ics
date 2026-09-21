@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:Lauf am Weißen Kreuz - 5. Lauf der Jedermannlaufserie
 LOCATION:Oettingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V02000739360001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000739360001
+URL:http://www.lg-donau-ries.de
 END:VEVENT
 END:VCALENDAR

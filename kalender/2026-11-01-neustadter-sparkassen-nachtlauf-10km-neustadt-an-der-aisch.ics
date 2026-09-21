@@ -11,9 +11,8 @@ DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Neustädter Sparkassen Nachtlauf
 LOCATION:Neustadt an der Aisch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/374608/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tsv-nea.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/374608/
+URL:http://www.tsv-nea.de
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kronberger-bike-run-4-5km-kronberg-im-taunus@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kronberger Bike+Run
+LOCATION:Kronberg im Taunus\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 4.5 km\nhttps://kronberge
+ r-bikeandrun.de/
+TRANSP:TRANSPARENT
+URL:https://kronberger-bikeandrun.de/
+END:VEVENT
+END:VCALENDAR

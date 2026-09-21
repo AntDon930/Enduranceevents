@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:37. Lauf Rund um den Höglwörther See
 LOCATION:Teisendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.4 km\nhttps://laufen.de/l
- aufkalender/details/26V02000154160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.4 km\nhttp://www.seelauf-
+ teisendorf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000154160000
+URL:http://www.seelauf-teisendorf.de
 END:VEVENT
 END:VCALENDAR

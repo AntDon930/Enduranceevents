@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:50. Seligenstädter Winterlaufserie\, Lauf 4
 LOCATION:Seligenstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27L07900007060002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tria-selig
+ enstadt.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27L07900007060002
+URL:http://www.tria-seligenstadt.de
 END:VEVENT
 END:VCALENDAR

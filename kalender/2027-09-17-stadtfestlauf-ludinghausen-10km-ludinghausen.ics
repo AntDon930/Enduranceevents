@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270917
 DTEND;VALUE=DATE:20270918
 SUMMARY:Stadtfestlauf Lüdinghausen
 LOCATION:Lüdinghausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27V19000013960001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lh-lauf.d
+ e
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V19000013960001
+URL:https://www.lh-lauf.de
 END:VEVENT
 END:VCALENDAR

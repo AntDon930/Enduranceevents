@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:67. Hambacher Herbstwaldlauf
 LOCATION:Niederzier-Hambach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28.3 km\nhttps://laufen.de/l
- aufkalender/details/26V10004003860001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28.3 km\nhttp://www.djk-loew
+ e-hambach.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004003860001
+URL:http://www.djk-loewe-hambach.de
 END:VEVENT
 END:VCALENDAR

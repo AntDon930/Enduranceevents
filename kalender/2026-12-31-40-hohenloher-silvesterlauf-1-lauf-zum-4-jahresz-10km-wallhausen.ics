@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-40-hohenloher-silvesterlauf-1-lauf-zum-4-jahresz-10km-wallh
+ ausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:40. Hohenloher Silvesterlauf 1. Lauf zum 4 Jahreszeiten Laufcup 20
+ 27
+LOCATION:Wallhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://hohenloher-sil
+ vesterlauf.de
+TRANSP:TRANSPARENT
+URL:http://hohenloher-silvesterlauf.de
+END:VEVENT
+END:VCALENDAR

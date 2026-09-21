@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-flaminglauf-tf-ergas-cup-1h-juterbog@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Fläminglauf TF-Ergas-Cup – 60 min Stundenlauf (Wertungslauf ab U18
+ )
+LOCATION:Jüterbog\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.strassenlau
+ f.org/va_details.php?id=981
+TRANSP:TRANSPARENT
+URL:https://www.strassenlauf.org/va_details.php?id=981
+END:VEVENT
+END:VCALENDAR

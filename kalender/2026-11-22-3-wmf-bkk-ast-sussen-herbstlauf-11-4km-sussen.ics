@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:3. WMF BKK AST Süßen Herbstlauf
 LOCATION:Süßen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://laufen.de/l
- aufkalender/details/26V20000313960000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.4 km\nhttps://www.suessen
+ er-stadtlauf.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000313960000
+URL:https://www.suessener-stadtlauf.de
 END:VEVENT
 END:VCALENDAR

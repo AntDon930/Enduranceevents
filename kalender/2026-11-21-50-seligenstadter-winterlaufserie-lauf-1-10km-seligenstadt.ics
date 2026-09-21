@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:50. Seligenstädter Winterlaufserie\, Lauf 1
 LOCATION:Seligenstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26L07900007060003
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tria-selig
+ enstadt.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26L07900007060003
+URL:http://www.tria-seligenstadt.de
 END:VEVENT
 END:VCALENDAR

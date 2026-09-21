@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-33-freiberger-adventslauf-120km-freiberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:33. Freiberger Adventslauf
+LOCATION:Freiberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 120 km\nhttps://laufen.de/la
+ ufkalender/details/26V15000026360000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V15000026360000
+END:VEVENT
+END:VCALENDAR

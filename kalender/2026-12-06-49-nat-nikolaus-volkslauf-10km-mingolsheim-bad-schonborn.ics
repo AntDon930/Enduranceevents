@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:49. Nat. Nikolaus Volkslauf
 LOCATION:Mingolsheim (Bad Schönborn)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V01000031060000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.br-timing
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V01000031060000
+URL:https://www.br-timing.de
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-16-o-see-ultra-trail-1-3km-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261019
+SUMMARY:O-SEE Ultra Trail – Youngsters\, 1\,3 km\, U10/U12
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Trail\nLänge: 1.3 km\nhttps://www.o-see-
+ sports.de/veranstaltungen/o-see-ultra-trail
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail
+END:VEVENT
+END:VCALENDAR

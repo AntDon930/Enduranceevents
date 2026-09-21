@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-burgbernheim-ultra-trail-50km-burgbernheim@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Burgbernheim Ultra Trail – 50 km / 5 x 10 km (5 Runden\, 344 m Ans
+ tieg pro Runde)
+LOCATION:Burgbernheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://my.raceresult.
+ com/371444/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/371444/
+END:VEVENT
+END:VCALENDAR

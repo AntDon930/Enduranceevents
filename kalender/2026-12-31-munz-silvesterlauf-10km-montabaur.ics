@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:münz silvesterlauf
 LOCATION:Montabaur\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://my.raceresult.
- com/416606/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://muenz-sport.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/416606/
+URL:https://muenz-sport.de
 END:VEVENT
 END:VCALENDAR

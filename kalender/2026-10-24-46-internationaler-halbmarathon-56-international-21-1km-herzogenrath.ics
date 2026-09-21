@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:46. Internationaler Halbmarathon\, 56. Internationaler Volkslauf
 LOCATION:Herzogenrath\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V10004004160001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.djk-herz
+ ogenrath.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V10004004160001
+URL:http://www.djk-herzogenrath.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Taubertal 100
 LOCATION:Rothenburg ob der Tauber\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 161 km\nhttps://laufen.de/la
- ufkalender/details/26L02000000060000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 161 km\nhttps://www.tauberta
+ l100.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26L02000000060000
+URL:https://www.taubertal100.de/
 END:VEVENT
 END:VCALENDAR

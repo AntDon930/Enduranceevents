@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:39. Cochem Zeller Crosslauf Serie
 LOCATION:Ulmen (Eifel)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://laufen.de/laufk
- alender/details/26V13000072960000
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.fortuna-ulme
+ n.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13000072960000
+URL:http://www.fortuna-ulmen.de
 END:VEVENT
 END:VCALENDAR

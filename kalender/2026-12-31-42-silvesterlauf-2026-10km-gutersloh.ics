@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:42. Silvesterlauf 2026
 LOCATION:Gütersloh\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V19000340860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.post-sv-gt
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000340860002
+URL:http://www.post-sv-gt.de
 END:VEVENT
 END:VCALENDAR

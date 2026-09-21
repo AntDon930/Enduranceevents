@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:44. Winser Silvesterlauf
 LOCATION:Winsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://laufen.de/l
- aufkalender/details/26V09000411660000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttp://mtv-fichte.d
+ e
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000411660000
+URL:http://mtv-fichte.de
 END:VEVENT
 END:VCALENDAR
