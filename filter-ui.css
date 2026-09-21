@@ -75,14 +75,10 @@
   padding: 0 10px;
 }
 .filter-btn-bar .fb-label { color: var(--text-muted); font-weight: 500; }
-.filter-btn-bar .col-filter-btn.has-filter .fb-label { color: inherit; opacity: 0.85; }
-.filter-btn-bar .col-filter-btn.has-filter .fb-label::after { content: ':'; }
-.filter-btn-bar .fb-value {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 190px;
-}
-.filter-btn-bar .fb-value:empty { display: none; }
+/* Gesetzt: der Name in voller Farbe. Kein Doppelpunkt, kein Wert - die
+   Pille sagt nur, DASS gefiltert ist; WAS, sagt die Chip-Zeile (vom
+   Nutzer am 21.09.2026 so entschieden, siehe buildButtonBar). */
+.filter-btn-bar .col-filter-btn.has-filter .fb-label { color: inherit; }
 .filter-btn-bar .fb-caret { display: inline-flex; color: var(--text-muted); margin-left: 2px; }
 /* Im Abo-Dialog ist weniger Platz: kompaktere Pillen. */
 .abo-filter-bar .col-filter-btn { height: 36px; padding: 0 11px; font-size: 0.82rem; border-radius: 10px; }

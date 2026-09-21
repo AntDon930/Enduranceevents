@@ -1971,10 +1971,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Die Filterknöpfe sitzen nicht mehr in den Spaltenköpfen**, sondern
     als Pillen in der Filterleiste (`ui.buildButtonBar(…, { order:
     FILTER_ORDER })`, gebaut in `setLanguage`, weil sie die Spaltennamen
-    tragen). Jede Pille zeigt ihren gesetzten Wert („Sportart: Laufen“),
-    gerechnet aus den Chips (`EF.buildChips` liefert `col` und `value`,
-    `filterSummaries()` in filter-ui.js) – Pille und Chip können so nie
-    Verschiedenes behaupten. Der Datum-Chip nennt bei einem Zeitraum-Knopf
+    tragen). **Die Pille zeigt nur den Spaltennamen** und ob sie gesetzt
+    ist (gefüllte Fläche) – den WERT nennt allein die Chip-Zeile neben
+    „Filter löschen“. Am 21.09.2026 stand kurz „Sportart: Laufen“ in der
+    Pille (gerechnet aus den Chips); der Nutzer hat es am selben Abend
+    zurückgenommen: doppelt zur Chip-Zeile, und die Leiste wurde zu lang
+    („Ort & Umkreis: 25 km um Aktueller Standort“). Gilt für Liste UND
+    Karte. Der Datum-Chip nennt bei einem Zeitraum-Knopf
     den ZEITRAUM („26.09.–26.12.2026“), nicht den Knopfnamen. Die Spalte
     „Name“ hat weiterhin eine Pille (ganz rechts; die Mastersuche deckt
     das meiste ab, der Rauchtest prüft das Namens-Panel dort).
