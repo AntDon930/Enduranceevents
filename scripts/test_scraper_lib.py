@@ -337,7 +337,9 @@ def test_offizieller_link() -> None:
     for url in ("https://my.raceresult.com/354931/", "https://runtix.com/sts/10021/3221",
                 "https://www.davengo.com/event/overview/x", "https://ladv.de/ausschreibung/detail/1/x.htm",
                 "https://www.datasport.de/anmeldeservice/x", "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=1",
-                "https://laufen-os.de/", "https://www.sas-online.net/eventportal_bs/837/"):
+                "https://laufen-os.de/", "https://www.sas-online.net/eventportal_bs/837/",
+                "https://www.sportprogramme.org/cakespg/events/menue/5037",
+                "https://baer-service.de/veranstaltung/AAL/"):
         check(f"Zeitnehmer/Anmeldung ist Portal: {url.split('/')[2]}", is_portal_link(url), True)
     check("Veranstalter mit Zeitnehmer im Namen bleibt", is_portal_link("https://timing-team-lauf.de/"), False)
     # Hostname statt Teilzeichenkette: "tsv-weeze-leichtathletik.de" ist

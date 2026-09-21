@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:2. Fischhoflauf
 LOCATION:Tirschenreuth\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.sportpro
- gramme.org/cakespg/events/menue/5037
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttp://www.atsv-tirs
+ chenreuth.de/leichtathletik
 TRANSP:TRANSPARENT
-URL:https://www.sportprogramme.org/cakespg/events/menue/5037
+URL:http://www.atsv-tirschenreuth.de/leichtathletik
 END:VEVENT
 END:VCALENDAR

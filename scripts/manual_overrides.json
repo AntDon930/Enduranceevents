@@ -138,7 +138,10 @@
   },
   "10. Möhrendorfer Karpfenweiherlauf|2026-09-26": {
     "laenge_km": 21.1,
-    "veranstalter_url": "https://tria-fit.de/wp-content/uploads/2026/01/Ausschreibung_Weiherlauf_2026.pdf"
+    "veranstalter_url": "https://tria-fit.de/veranstaltungen/landschaftslauf-aktuell",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "_note": "Ausschreibung (tria-fit.de, Stand 26.08.2026): Samstag 26.09. nur Schüler- und Jugendläufe, Sonntag 27.09.2026 die Erwachsenenläufe (IMBUS-Hauptlauf 21,1 km, Sparkassen-Lauf 10,5 km, Nordic Walking 7 km). Link von der PDF auf die Veranstaltungsseite (21.09.2026)."
   },
   "Zweistädtelauf|2026-09-26": {
     "laenge_km": 21.2,
@@ -2038,7 +2041,8 @@
   },
   "Rülzheimer Crosslauf|2026-11-07": {
     "veranstalter_url": "http://www.lgruelzheim.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lgruelzheim.de. Seite abgerufen, sie nennt den Lauf (rulzheimer). Linkprüfung 2026-09-19."
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.lgruelzheim.de. Seite abgerufen, sie nennt den Lauf (rulzheimer). Linkprüfung 2026-09-19. | Zweiter Name für den 'Südpfalz Cross Rülzheim' der LG Rülzheim am Sa 07.11.2026 (lgruelzheim.de: offiziell 'Südpfalz-Cross'); die Zeile hier hatte 8,4 km, die andere 8 km - die Seite nennt keine Distanz (21.09.2026).",
+    "exclude": true
   },
   "44. Silvesterlauf Schifferstadt|2026-12-31": {
     "veranstalter_url": "http://www.lc-schifferstadt.de",
@@ -2049,8 +2053,8 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.sv-kottweiler-schwanden.de. Seite abgerufen, sie nennt den Lauf (silvester). Linkprüfung 2026-09-19."
   },
   "3. Lauf der 39. Crosslauf-Serie 2026 Cochem-Zell in Kaisersesch|2026-11-08": {
-    "veranstalter_url": "https://www.tus-kaisersesch.de/abteilungen/leichtathletik/crosslauf-kaisersesch/",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tus-kaisersesch.de/abteilungen/leichtathletik/crosslauf-kaisersesch/. Seite abgerufen, sie nennt den Lauf (kaisersesch). Linkprüfung 2026-09-19."
+    "veranstalter_url": null,
+    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tus-kaisersesch.de/abteilungen/leichtathletik/crosslauf-kaisersesch/. Seite abgerufen, sie nennt den Lauf (kaisersesch). Linkprüfung 2026-09-19. | tus-kaisersesch.de liefert am 21.09.2026 nur noch Shop-Spam (Sonnenbrillen, Werkzeugtaschen) - verfallene/gekaperte Domain. Kein Link statt Spam-Link; Termin 08.11.2026 laut Rhein-Zeitung/Terminliste LV Rheinland (Websuche 21.09.2026)."
   },
   "20. Int. Brubbellauf|2026-11-21": {
     "veranstalter_url": "http://www.svwallenborn.de/brubbellauf",
@@ -2396,7 +2400,8 @@
   },
   "Westenergie Marathon|2026-10-10": {
     "veranstalter_url": "https://westenergie-marathon.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://westenergie-marathon.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:westenergie). Linkprüfung 2026-09-19."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://westenergie-marathon.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:westenergie). Linkprüfung 2026-09-19. | 64. Westenergie Marathon am 11.10.2026 (westenergie-marathon.de, 21.09.2026) - der Marathon läuft am Sonntag, nicht ab Samstag.",
+    "datum_start": "2026-10-11"
   },
   "Berglauf Schneelaufverein Geislingen e.V.|2026-10-11": {
     "veranstalter_url": "http://www.schneelaufverein-geislingen.de",
@@ -2531,8 +2536,10 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://Heidelauf-halle.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:heidelauf). Linkprüfung 2026-09-19."
   },
   "36. Int. Martinslauf|2026-11-08": {
-    "veranstalter_url": "https://www.tv-losheim.de",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-losheim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (martinslauf). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://www.tv-losheim.de/martinslauf-2026/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-losheim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (martinslauf). Linkprüfung 2026-09-19. | tv-losheim.de/martinslauf-2026 (21.09.2026): 'Martinslauf 2026' am 5. September 2026 in der Dorfmitte und am Stausee Losheim mit 2/5/10 km - nicht am 08.11. Mit dem richtigen Datum ist der Lauf vorbei und fällt aus der Liste.",
+    "datum_start": "2026-09-05",
+    "datum_ende": "2026-09-05"
   },
   "40. int. Hohenzollern Berglauf|2026-11-08": {
     "veranstalter_url": "http://www.ski-club-hechingen.de",
@@ -2844,8 +2851,8 @@
     "_note": "Veranstalterseite statt rennmeldung.de: http://www.eibseelauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:eibsee). Linkprüfung 2026-09-19."
   },
   "Harzlauf Thale|2026-10-25": {
-    "veranstalter_url": "http://www.harzlauf-thale.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: http://www.harzlauf-thale.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:harzlauf). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://www.bodetal.de/wandern-aktiv/harzlauf-thale",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.harzlauf-thale.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:harzlauf). Linkprüfung 2026-09-19. | KORREKTUR 21.09.2026: harzlauf-thale.de liefert inzwischen eine Lotterie-Spamseite ('PAITO TOGEL') - die Domain ist verfallen; der Treffer vom 19.09. beruhte nur auf dem Hostnamen. Jetzt die Veranstaltungsseite der Bodetal Tourismus GmbH (Stadt Thale ist Mitveranstalter, SV Stahl Thale Ausrichter)."
   },
   "15. Heseper Martinslauf|2026-11-07": {
     "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf",
@@ -3386,5 +3393,335 @@
   "42. Winterserie des LSV Porz 3. Lauf|2027-02-28": {
     "veranstalter_url": "http://www.helmuturbach.de/winterlaufserie.html",
     "_note": "Veranstalterseite statt laufen.de: http://www.helmuturbach.de/winterlaufserie.html - per Websuche gefunden, von Hand geprüft: Seite des Veranstalters LSV Porz e.V. (Helmut Urbach Laufveranstaltungen), nennt '41. Winterlaufserie LSV Porz' - laufen.de nennt die Serie 'Winterserie' und 'Porz' hat nur vier Buchstaben, deshalb fand die Regel sie nicht. Linkprüfung 2026-09-20."
+  },
+  "MOUNTAINMAN Reit im Winkl|2026-09-25|43": {
+    "exclude": true,
+    "_note": "Der L-Trail hat laut mountainman.de/reit-im-winkl (21.09.2026) 40 km - die 40-km-Zeile gibt es schon, die 43 km sind ein alter Stand."
+  },
+  "MOUNTAINMAN Reit im Winkl|2026-09-25": {
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "_note": "Alle Erwachsenenstrecken (73/52/40/26/11 km) laufen laut mountainman.de am Samstag 26.09.2026; der 25.09. ist nur der Kids-Trail (400-m-Runde). Veranstaltungszeitraum auf der Seite: 25.-26.09.2026."
+  },
+  "2. Fischhoflauf|2026-09-25": {
+    "veranstalter_url": "http://www.atsv-tirschenreuth.de/leichtathletik",
+    "_note": "sportprogramme.org ist Anmeldeportal/Zeitnahme; die dort verlinkte Veranstalterseite des ATSV Tirschenreuth nennt den Fischhoflauf am 25.09.2026 16:00 Uhr (21.09.2026). Hauptlauf ca. 5.580 m laut Portalseite - 5,6 km passt."
+  },
+  "Gögerltrail|2027-03-21": {
+    "veranstalter_url": "http://www.goegerltraillauf.de/",
+    "_note": "sportprogramme.org (Anmeldeportal) verlinkt www.goegerltraillauf.de als 'Ausschreibung des Veranstalters' (Postsportverein Weilheim); die Seite antwortet aus der Sandbox am 21.09.2026 mit 503, die Domain nennt den Lauf. 12,5 km laut Portalseite passt."
+  },
+  "Neunkirchner Sommerlauf Mit Lindelberg-Trail|2027-06-06": {
+    "veranstalter_url": "https://www.neunkirchner-sommerlauf.de/index.html",
+    "_note": "sportprogramme.org (Anmeldeportal) verlinkt die Veranstalterseite der SG Neunkirchen am Brand. ACHTUNG: Die Seite zeigt am 21.09.2026 eine '2026-ABSAGE'; ob der 06.06.2027 stattfindet, ist offen (Punkt 2 der Nutzerentscheidungen)."
+  },
+  "Rheinhöhenlauf|2026-09-25|21.1": {
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "_note": "Linzer Halbmarathon läuft laut rheinhoehenlauf.de (21.09.2026) am Samstag 26.09.2026; nur der RUN50 geht über alle drei Tage 25.-27.09."
+  },
+  "Rheinhöhenlauf|2026-09-25|10": {
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "_note": "Basalt-Schleifen 10er am Samstag 26.09.2026 (rheinhoehenlauf.de, 21.09.2026)."
+  },
+  "Rheinhöhenlauf|2026-09-25|5": {
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "_note": "Linzer 5er am Samstag 26.09.2026 (rheinhoehenlauf.de, 21.09.2026)."
+  },
+  "Rheinhöhenlauf|2026-09-25|50": {
+    "datum_ende": "2026-09-27",
+    "_note": "RUN50 = '50 Kilometer an 3 Tagen', 25.-27.09.2026 (rheinhoehenlauf.de, 21.09.2026) - Etappenlauf, deshalb datum_ende 27.09."
+  },
+  "8. Friedrichshaller Runde|2026-09-26|6": {
+    "laenge_km": 5.7,
+    "_note": "Jedermann-Lauf hat laut friedrichshall-tourismus.de (21.09.2026) 5.700 Meter, nicht 6 km."
+  },
+  "3. Aindlinger Kleeblattmarsch|2026-09-26|8": {
+    "exclude": true,
+    "_note": "Die Veranstaltung ('3. Runde' am 26.09.2026) bietet laut aindling-bewegt-sich.de nur 25-km-Runden (25/50/75/100 km in 24 h), keine 8 km; die vier Strecken stehen unter 'Aindlinger Kleeblattmarsch'. Zweiter Name derselben Veranstaltung mit erfundener Distanz (21.09.2026)."
+  },
+  "Kleeblattultra|2026-09-26|160": {
+    "laenge_km": 162,
+    "_note": "'Die Strecke ist 162 km lang' (kleeblattultra.de/der-lauf, 21.09.2026); das Label sagte es schon, die Zahl stand auf 160."
+  },
+  "Kleeblattultra|2026-09-26|38": {
+    "laenge_km": 37.5,
+    "_note": "Ostrunde 37,5 km laut kleeblattultra.de (21.09.2026); die übrigen Runden: Süd 43, West 41,3, Nord 40,6 km."
+  },
+  "1. Bärmesener Päädellauf|2026-09-27|10.5": {
+    "laenge_km": 11.3,
+    "wettbewerb": "Päädel-Hauptlauf",
+    "_note": "Päädel-Hauptlauf '11,3 km (GPS vermessen)' laut fkp-enduranceteam.de/paedellauf (21.09.2026), nicht 10,5 km."
+  },
+  "19. Nordahl Grieg Gedenklauf|2026-09-27|7": {
+    "exclude": true,
+    "_note": "Die Schulseite (maxim-gorki-gesamtschule.kleinmachnow.de, 21.09.2026) nennt für den 27.09.2026 nur 800 m, 3,2 km, 6,4 km und 9,7 km - keine 7 km."
+  },
+  "19. Nordahl Grieg Gedenklauf|2026-09-27|10.5": {
+    "exclude": true,
+    "_note": "Kein 10,5-km-Lauf laut Veranstalterseite (21.09.2026); Hauptlauf sind 9,7 km (3 x Rundkurs), der schon als eigene Zeile steht."
+  },
+  "Brockenheroes|2026-09-26|24": {
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "_note": "Label 'Rennrad': die 24-km-Strecke von Wernigerode Floßplatz auf den Brocken ist laut brockenheroes.de/die-strecke ein Radrennen (Bergzeitfahren), kein Lauf - Datenregel 12 (21.09.2026)."
+  },
+  "Jag de Wuidsau|2026-09-26": {
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "laenge_km": 32.4,
+    "wettbewerb": "Wuidsaujagd (2er-Staffel: 6 + 3,6 km Laufen, 22,8 km Rad)",
+    "_note": "jagdewuidsau.de (21.09.2026): 'Lauf: 6 km + 3,6 km' und 'Bike: 22,8 km' als Zweier-Staffel - ein Run&Bike, kein 14-km-Lauf; Summe der Teilstrecken 32,4 km (Datenregel 15). Die Formate Schnupperjagd, Überläuferjagd und Spofakljagd nennen keine Distanzen. Allgemeiner Schlüssel, weil laenge_km und art1 zusammen geändert werden."
+  },
+  "Bleckeder Storchenlauf|2026-09-27|17.5": {
+    "laenge_km": 17.4,
+    "_note": "'17,4 km - Strecke' laut vfl-bleckede.de (21.09.2026); das Label sagte es schon."
+  },
+  "Weinheimer Herbstlauf|2026-09-27|15": {
+    "exclude": true,
+    "_note": "herbstlauf-weinheim.de (21.09.2026) bietet '5 KM | 10 KM | Halbmarathon | Staffel' - keine 15 km."
+  },
+  "Black Forest Trailrun Masters|2026-10-03|55": {
+    "wettbewerb": "Elztal Trail",
+    "datum_ende": "2026-10-03",
+    "_note": "trailrun-masters.de (21.09.2026): 'Elztal Trail - Samstag - 55 km'. Der 'Trailrun Masters Etappenlauf' sind '2 Etappen Sa + So - 55 + 37 km' = 92 km und steht jetzt als eigene Zeile in manual_events.json."
+  },
+  "Black Forest Trailrun Masters|2026-10-03|14": {
+    "datum_ende": "2026-10-03",
+    "_note": "'Bodenhäusle Trail - Samstag - 14 km' (trailrun-masters.de, 21.09.2026)."
+  },
+  "Black Forest Trailrun Masters|2026-10-03|37": {
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "_note": "'Biereck-Gehrenberg Trail - Sonntag - 37 km' (trailrun-masters.de, 21.09.2026)."
+  },
+  "Black Forest Trailrun Masters|2026-10-03|22": {
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "_note": "'Biereck - Bachere Trail - Sonntag - 22 km' (trailrun-masters.de, 21.09.2026)."
+  },
+  "Trailrun21 Zell am Harmersbach|2026-10-04|20.7": {
+    "laenge_km": 20.3,
+    "_note": "'TrailRUN21: 20,3 km und 710 hm' (t-resa5.wixsite.com/trailrun21, 21.09.2026)."
+  },
+  "Trailrun21 Zell am Harmersbach|2026-10-04|10": {
+    "laenge_km": 10.3,
+    "_note": "'TrailRUN Light: 10,3 km und 395 hm' (21.09.2026)."
+  },
+  "Olsberg bewegt Inklusionslauf|2026-10-09|5": {
+    "laenge_km": 4.5,
+    "_note": "'4,5 km Ruhrauen-Lauf' (2 x 2.250-m-Rundkurs) laut olsberg.de/olsberg-bewegt (21.09.2026) - keine 5 km; die echte Länge lässt Datenregel 5 entscheiden."
+  },
+  "Mitteldeutscher Marathon|2026-10-04": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung wie '23. Mitteldeutscher Marathon' (Halle, 04.10.2026) unter zweitem Namen mit Ort Leipzig - der Marathon läuft von Leipzig nach Halle, Halbmarathon und 10-km-Lauf sind Halle-basiert (mitteldeutscher-marathon.de, 21.09.2026). Der 10-km-Lauf steht jetzt bei der Halle-Zeile in manual_events.json."
+  },
+  "Magdeburg Marathon|2026-10-03": {
+    "datum_start": "2026-10-04",
+    "_note": "Zweiter Satz derselben drei Strecken mit Start 03.10. statt 04.10.: magdeburg-marathon.eu nennt als Lauftag den 04.10.2026 (Veranstaltungswochenende 3. & 4. Oktober); mit dem richtigen Datum fallen die Doppelzeilen zusammen (21.09.2026)."
+  },
+  "Harz-Gebirgslauf (Brocken-Marathon)|2026-10-10|23": {
+    "laenge_km": 22.5,
+    "wettbewerb": "Halb-Marathon 22,5 km",
+    "_note": "'Halb-Marathon 22,5 km' laut harz-gebirgslauf.de (21.09.2026), nicht 23 km."
+  },
+  "Harz-Gebirgslauf (Brocken-Marathon)|2026-10-10|11": {
+    "laenge_km": 11.2,
+    "wettbewerb": "11,2 km",
+    "_note": "'11,2 km' laut harz-gebirgslauf.de (21.09.2026)."
+  },
+  "Harz-Gebirgslauf (Brocken-Marathon)|2026-10-10|25": {
+    "wettbewerb": "25 km Wandern / Nordic Walking",
+    "_note": "Die 25 km sind laut harz-gebirgslauf.de '11 km / 25 km Wandern Nordic' - eine Wander-/Nordic-Walking-Strecke, kein Lauf (21.09.2026). Der Brocken-Marathon 42,2 km fehlte und steht in manual_events.json."
+  },
+  "Heidi-Challenge|2026-10-10|61.8": {
+    "datum_ende": "2026-10-10",
+    "_note": "Etappe 'Tour Werder 61,8 km - Sa, 10.10.' (heidichallenge.run, 21.09.2026)."
+  },
+  "Heidi-Challenge|2026-10-10|66.6": {
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "_note": "Etappe 'Tour Teltowkanal 66,6 km - So, 11.10.' (heidichallenge.run, 21.09.2026)."
+  },
+  "Heidi-Challenge|2026-10-10|63": {
+    "datum_start": "2026-10-12",
+    "datum_ende": "2026-10-12",
+    "_note": "Etappe 'Tour City Berlin 63,0 km - Mo, 12.10.' (heidichallenge.run, 21.09.2026)."
+  },
+  "Heidi-Challenge|2026-10-10|68.3": {
+    "datum_start": "2026-10-13",
+    "datum_ende": "2026-10-13",
+    "_note": "Etappe 'Tour Havel Nord 68,3 km - Di, 13.10.' (heidichallenge.run, 21.09.2026)."
+  },
+  "Heidi-Challenge|2026-10-10|56.7": {
+    "datum_start": "2026-10-14",
+    "datum_ende": "2026-10-14",
+    "_note": "Etappe 'Tour Havel Süd 56,7 km - Mi, 14.10.' (heidichallenge.run, 21.09.2026)."
+  },
+  "Weesensteiner Berglauf|2026-10-10|12": {
+    "laenge_km": 3.9,
+    "wettbewerb": "3 Berganläufe à 2,4-3,9 km (Bergkönig-Wertung)",
+    "_note": "msv-meusegast.de (21.09.2026): 'ca. Strecken zwischen 2,4 und 3,9 km Berganlauf mit ca. 150 Hm', drei Läufe um 11:00/12:30/14:00 Uhr - Bergsprints, keine 12-km-Strecke. Längste Runde eingetragen, Datenregel 5 entscheidet (wie bei den Bergsprints im siebten Durchgang)."
+  },
+  "POWERMAN Würselen|2026-10-11": {
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "_note": "POWERMAN ist die Duathlon-Serie (Laufen-Rad-Laufen); die Zeilen standen als Lauf mit der Radstrecke als Länge (mc-eschweiler.de, 21.09.2026)."
+  },
+  "POWERMAN Würselen|2026-10-11|20": {
+    "laenge_km": 30,
+    "wettbewerb": "POWERMAN Sprint (5 km Laufen, 20 km Rad, 5 km Laufen)",
+    "_note": "'5 kilometres running, 20 kilometres cycling and 5 kilometres running' = 30 km (Datenregel 15); gespeichert war die Radstrecke 20 km."
+  },
+  "POWERMAN Würselen|2026-10-11|40": {
+    "laenge_km": 55,
+    "wettbewerb": "POWERMAN Short (10 km Laufen, 40 km Rad, 5 km Laufen)",
+    "_note": "'10 kilometres of running, 40 kilometres of cycling and 5 kilometres of running' = 55 km; gespeichert war die Radstrecke 40 km."
+  },
+  "Auwaldlauf|2026-10-11": {
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "_note": "'Samstag, den 10.10.' laut ssvhommertshausen.de/auwaldlauf (21.09.2026), nicht Sonntag 11.10."
+  },
+  "O-SEE Ultra Trail|2026-10-16": {
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "_note": "Alle Trailläufe am 17.10.2026, der 18.10. ist Canicross (o-see-sports.de, 21.09.2026); vorher 16.-18.10."
+  },
+  "O-SEE Ultra Trail|2026-10-16|100": {
+    "laenge_km": 100.2,
+    "wettbewerb": "O-SEE 100K",
+    "_note": "'O-SEE 100K - 100,2 km' (21.09.2026)."
+  },
+  "O-SEE Ultra Trail|2026-10-16|76": {
+    "laenge_km": 75.8,
+    "wettbewerb": "O-SEE 75K",
+    "_note": "'O-SEE 75k - 75,8 km' (21.09.2026)."
+  },
+  "O-SEE Ultra Trail|2026-10-16|51": {
+    "laenge_km": 50.5,
+    "wettbewerb": "O-SEE 50K",
+    "_note": "'O-SEE-50K - 50,5 km' (21.09.2026)."
+  },
+  "O-SEE Ultra Trail|2026-10-16|25": {
+    "laenge_km": 25.1,
+    "wettbewerb": "O-SEE 25K",
+    "_note": "'O-SEE 25K - 25,1 km' (21.09.2026)."
+  },
+  "O-SEE Ultra Trail|2026-10-16|16": {
+    "laenge_km": 16.1,
+    "wettbewerb": "O-SEE 16K",
+    "_note": "'O-SEE 16K - 16,1 km' (21.09.2026)."
+  },
+  "O-SEE Ultra Trail|2026-10-16|6": {
+    "laenge_km": 5.9,
+    "wettbewerb": "Light 5,9K",
+    "_note": "'Light 5,9k - 5,9 km' (21.09.2026)."
+  },
+  "Bolbergtrail|2026-10-17|7": {
+    "laenge_km": 6.5,
+    "wettbewerb": "Short-Trail 6,5 km",
+    "_note": "'NEU! Short-Trail über 6,5 Km und rd. 200 Hm' laut bolbergtrail.de (21.09.2026), nicht 7 km."
+  },
+  "2. Ditzinger Keltenlauf|2026-10-18|12": {
+    "laenge_km": 13,
+    "wettbewerb": "13 km",
+    "_note": "keltenlauf.de (21.09.2026): 'Wir bieten 13 km, 6,7 km, 1,7 km und 500 m Läufe' am 18.10.2026 - der Hauptlauf hat 13 km, nicht 12."
+  },
+  "Biberacher Genießerlauf|2026-10-18|16": {
+    "wettbewerb": "2 x 8 km Staffel (Teamstrecke 16 km)",
+    "_note": "Die 16 km sind laut biberacher-geniesserlauf.de die Zweier-Staffel '2 x 8 Kilometer' (21.09.2026) - Team-Gesamtstrecke, siehe Nutzerentscheidung 3 (Staffeln)."
+  },
+  "Biberacher Genießerlauf|2026-10-18|6": {
+    "wettbewerb": "REWE Engel Genuss Walk (Nordic Walking, knapp 6 km)",
+    "_note": "Die 6 km sind der Nordic-Walking-Genuss-Walk, kein Lauf (biberacher-geniesserlauf.de, 21.09.2026)."
+  },
+  "Bottwartal-Marathon|2026-10-17|50": {
+    "exclude": true,
+    "_note": "Zweiter Name derselben Veranstaltung ('22. Bottwartal-Marathon', 17.+18.10.2026); der Ultra heißt 'Süwag Urmensch Ultra' und hat 51 km (bottwartal-marathon.de/strecken, 21.09.2026) - er steht bei den 22.-Zeilen."
+  },
+  "22. Bottwartal-Marathon|2026-10-18|50": {
+    "laenge_km": 51,
+    "wettbewerb": "Süwag Urmensch Ultra 51 km",
+    "_note": "'Süwag Urmensch Ultra' ist '51km' laut bottwartal-marathon.de/strecken/streckenuebersicht (21.09.2026). Der Tag (Sa 17. oder So 18.10.) steht nicht auf der Seite; Datum aus der Quelle belassen."
+  },
+  "Naturpark Schönbuchlauf|2026-10-18|10": {
+    "exclude": true,
+    "_note": "schoenbuchlauf.de (21.09.2026) zum 51. Lauf am 18.10.2026: 'Wir haben ... die 50 km-Strecke im Programm behalten und auch einen 5 km-Lauf neu aufgenommen' - Programm 5/25/50 km, kein 10-km-EDEKA-Hacker-Lauf mehr."
+  },
+  "Rabaukentrail Fichtelgebirge (3 Tage)|2026-10-23|15": {
+    "datum_ende": "2026-10-23",
+    "_note": "Tag 1 (23.10.2026): 'Kurze Strecke: ca. 15 Kilometer mit etwa 480 Höhenmetern' (laufsinn-ulm.de/rabaukentrail, 21.09.2026)."
+  },
+  "Rabaukentrail Fichtelgebirge (3 Tage)|2026-10-23|39": {
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "_note": "Tag 2 (24.10.2026): 'Lange Strecke: ca 39 Kilometer und ca 1000 Höhenmeter' (21.09.2026)."
+  },
+  "Rabaukentrail Fichtelgebirge (3 Tage)|2026-10-23|19": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "Tag 3 (25.10.2026): 'Lange Strecke: ca 19 Kilometer' (21.09.2026)."
+  },
+  "Rabaukentrail Fichtelgebirge (3 Tage)|2026-10-23|16": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "Tag 3 (25.10.2026): 'Kurze Strecke: ca. 16 Kilometer' (21.09.2026)."
+  },
+  "Rabaukentrail Fichtelgebirge (3 Tage)|2026-10-23|24": {
+    "_note": "24 km gibt es zweimal: Tag 1 lange Strecke (23.10.) und Tag 2 kurze Strecke (24.10.) - Zeitraum 23.-25.10. bleibt (21.09.2026)."
+  },
+  "Harzlauf Thale|2026-10-25|6": {
+    "laenge_km": 5.7,
+    "wettbewerb": "Bodetallauf 5,7 km",
+    "_note": "'Bodetallauf über 5,7 km' (bodetal.de, 21.09.2026)."
+  },
+  "Harzlauf Thale|2026-10-25|12": {
+    "laenge_km": 11.3,
+    "wettbewerb": "Roßtrappenlauf 11,3 km",
+    "_note": "'Roßtrappenlauf über 11,3 km' (bodetal.de, 21.09.2026)."
+  },
+  "Harzlauf Thale|2026-10-25|23": {
+    "laenge_km": 22.6,
+    "wettbewerb": "Roßtrappenlauf XXL 22,6 km",
+    "_note": "'Roßtrappenlauf XXL mit doppelter Kilometeranzahl (22,6 km)' (bodetal.de, 21.09.2026)."
+  },
+  "Halloween Run - Hückeswagen|2026-10-31|5": {
+    "wettbewerb": "5-km-Walk",
+    "_note": "bergische-lauflegenden.de (21.09.2026): Angebot '10-km-Run' und '5-km-Walk' am 31.10.2026 - die 5 km sind eine Walking-Strecke."
+  },
+  "Rursee-Marathon|2026-11-07|42.2": {
+    "datum_start": "2026-11-08",
+    "_note": "Marathon am So 08.11.2026 (rursee-marathon.de; die Zeile stand mit Start 07.11. neben '29. Rursee Marathon' am 08.11. - Doppelzeile mit anderem Startdatum, 21.09.2026)."
+  },
+  "Rursee-Marathon|2026-11-07|16.5": {
+    "datum_start": "2026-11-08",
+    "_note": "16,5-km-Lauf am So 08.11.2026 (rursee-marathon.de, 21.09.2026)."
+  },
+  "Rursee-Marathon|2026-11-07|52": {
+    "datum_start": "2026-11-08",
+    "_note": "52-km-Ultra am So 08.11.2026; '29. Rursee Marathon' führt ihn mit 52,1 km am selben Tag (21.09.2026)."
+  },
+  "Athletik Waldniel Jahresendlauf|2026-11-08|8": {
+    "laenge_km": 8.4,
+    "wettbewerb": "8,4 km (2 Runden)",
+    "_note": "athletik-waldniel.de (21.09.2026): 'Alle Vielfachen von 4,2 km (4,2/8,4/12,6/16,8 etc.) bis zur Marathon-Distanz 42,195 km' - 8,4 statt 8 km."
+  },
+  "RWW Herbstwaldlauf|2026-11-08|7": {
+    "laenge_km": 6.5,
+    "wettbewerb": "6,5 km",
+    "_note": "'The 6.5 km long round' laut adler-langlauf.de/herbstwaldlauf (21.09.2026); 10/25/50 km stimmen."
+  },
+  "Landgrafenlauf - Jena|2026-11-14|11": {
+    "laenge_km": 10,
+    "wettbewerb": "10 km Hauptlauf",
+    "_note": "landgrafenverein-jena.de (21.09.2026): '5 km Einsteigerlauf, 10 km Hauptlauf' am 14.11.2026 - kein 11-km-Lauf."
+  },
+  "Paderborn-Lippstadt Airport Run|2026-11-15|6": {
+    "laenge_km": 5.5,
+    "wettbewerb": "5,5-Kilometer-Lauf",
+    "_note": "airport-pad.com/de/airport-run (21.09.2026): '5,5-Kilometer-Lauf' um 13:45 Uhr und 10-km-Lauf am So 15.11.2026 - keine 6 km."
   }
 }

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-harzlauf-thale-5-7km-thale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Harzlauf Thale – Bodetallauf 5\,7 km
+LOCATION:Thale\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://www.bodetal.
+ de/wandern-aktiv/harzlauf-thale
+TRANSP:TRANSPARENT
+URL:https://www.bodetal.de/wandern-aktiv/harzlauf-thale
+END:VEVENT
+END:VCALENDAR

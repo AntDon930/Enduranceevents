@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Magdeburg Marathon – Marathon
 LOCATION:Magdeburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.magdebur
- g-marathon.eu
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.magdebu
+ rg-marathon.eu/
 TRANSP:TRANSPARENT
-URL:http://www.magdeburg-marathon.eu
+URL:https://www.magdeburg-marathon.eu/
 END:VEVENT
 END:VCALENDAR

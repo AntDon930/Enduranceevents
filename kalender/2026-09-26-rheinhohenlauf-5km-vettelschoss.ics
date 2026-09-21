@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-rheinhohenlauf-5km-vettelschoss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Rheinhöhenlauf – 5 km Linzer 5er
+LOCATION:Vettelschoß\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.rheinhoehen
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.rheinhoehenlauf.de/
+END:VEVENT
+END:VCALENDAR

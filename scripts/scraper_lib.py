@@ -2079,6 +2079,15 @@ PORTAL_DOMAINS = (
     "laufmanager.net", "triathlon-service.de", "zeitgemaess.info", "sportstiming.dk",
     "laufauswertung.com", "race-result.de", "run-timing.de", "ladv.de", "laufen-os.de",
     "strassenlauf.org",
+    # sportprogramme.org: Anmeldeportal mit Zeitnahme aus der Oberpfalz
+    # ("Software zur Bearbeitung inkl. Zeitnahme"); die Eventseite
+    # verlinkt die "Ausschreibung des Veranstalters" (21.09.2026, drei
+    # Veranstaltungen: Fischhoflauf, Gögerltrail, Neunkirchner Sommerlauf).
+    "sportprogramme.org",
+    # baer-service.de: Zeitnahme und Meldewesen aus Sachsen ("Wir haben
+    # die Zeit fest im Griff"); 20 Zeilen (12 Veranstaltungen) trugen
+    # den Link am 21.09.2026, u. a. Oberelbe-Marathon und Leipziger Citytrail.
+    "baer-service.de",
 )
 
 

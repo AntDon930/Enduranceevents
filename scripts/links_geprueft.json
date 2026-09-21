@@ -14323,11 +14323,11 @@
     "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://rt108.round-table.de/) - my.raceresult.com bleibt."
   },
   "Harzlauf Thale|2026-10-25": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "korrigiert",
-    "quelle": "harzlauf-thale.de",
+    "quelle": "bodetal.de",
     "alt": "https://my.raceresult.com/418518/",
-    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.harzlauf-thale.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:harzlauf). Linkprüfung 2026-09-19."
+    "notiz": "harzlauf-thale.de (Treffer vom 19.09. nur über den Hostnamen) ist am 21.09.2026 eine Lotterie-Spamseite - verfallene Domain. Jetzt bodetal.de/wandern-aktiv/harzlauf-thale (Bodetal Tourismus GmbH, Stadt Thale Mitveranstalter)."
   },
   "Parkcrosslauf - Wiesenburg/Mark|2026-10-25": {
     "am": "2026-09-19",

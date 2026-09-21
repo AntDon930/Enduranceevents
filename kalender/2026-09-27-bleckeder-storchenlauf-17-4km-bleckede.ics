@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-bleckeder-storchenlauf-17-4km-bleckede@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Bleckeder Storchenlauf – 17\,4 km Laufen
+LOCATION:Bleckede\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.4 km\nhttps://www.vfl-ble
+ ckede.de/seite/850301/1.-bleckeder-storchenlauf.html
+TRANSP:TRANSPARENT
+URL:https://www.vfl-bleckede.de/seite/850301/1.-bleckeder-storchenlauf.htm
+ l
+END:VEVENT
+END:VCALENDAR

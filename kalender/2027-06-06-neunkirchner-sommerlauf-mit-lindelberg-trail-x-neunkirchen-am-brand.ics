@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Neunkirchner Sommerlauf Mit Lindelberg-Trail
 LOCATION:Neunkirchen am Brand\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.sportprogramme
- .org/cakespg/events/menue/5048
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.neunkirchner-s
+ ommerlauf.de/index.html
 TRANSP:TRANSPARENT
-URL:https://www.sportprogramme.org/cakespg/events/menue/5048
+URL:https://www.neunkirchner-sommerlauf.de/index.html
 END:VEVENT
 END:VCALENDAR
