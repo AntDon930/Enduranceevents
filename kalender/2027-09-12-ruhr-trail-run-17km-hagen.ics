@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-09-12-ruhr-trail-run-x-hagen@antdon930.github.io
+UID:2027-09-12-ruhr-trail-run-17km-hagen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270912
 DTEND;VALUE=DATE:20270913
-SUMMARY:Ruhr Trail Run
+SUMMARY:Ruhr Trail Run – Hero Trail 17 km (ca. 510 hm)
 LOCATION:Hagen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://brooks-ruhr-trail-
- run.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 17 km\nhttps://altra-ruhr-tra
+ il-run.de/
 TRANSP:TRANSPARENT
-URL:https://brooks-ruhr-trail-run.de/
+URL:https://altra-ruhr-trail-run.de/
 END:VEVENT
 END:VCALENDAR

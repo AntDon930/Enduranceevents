@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-ruhr-trail-run-7-2km-hagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Ruhr Trail Run – Morning Street Run 7\,2 km (flach\, Asphalt)
+LOCATION:Hagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://altra-ruhr-t
+ rail-run.de/
+TRANSP:TRANSPARENT
+URL:https://altra-ruhr-trail-run.de/
+END:VEVENT
+END:VCALENDAR

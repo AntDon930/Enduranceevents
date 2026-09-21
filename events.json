@@ -42111,7 +42111,7 @@
     "standort": "Gräfenhainichen",
     "lat": 51.728978,
     "lon": 12.4535112,
-    "art1": "Laufen",
+    "art1": "Triathlon",
     "art2": "Straße",
     "datum_start": "2027-05-28",
     "datum_ende": "2027-05-30",
@@ -43215,18 +43215,6 @@
     "laenge_km": 17.3,
     "wettbewerb": "Fitnesstriathlon 17,3 km (400 m Schwimmen / 14,1 km Rad / 2,8 km Laufen)",
     "veranstalter_url": "https://berlin-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deadly Gross Fürth",
-    "standort": "Fürth",
-    "lat": 49.4771169,
-    "lon": 10.988667,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
-    "veranstalter_url": "https://www.deadlydozen.de/event/gross"
   },
   {
     "land": "Deutschland",
@@ -46826,10 +46814,26 @@
     "lat": 51.524436,
     "lon": 11.0199629,
     "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "veranstalter_url": "https://besenbinderlauf.de/",
+    "laenge_km": 15.0,
+    "wettbewerb": "Südharztrail 15 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Besenbinder Lauf - Rund um Hainrode",
+    "standort": "Südharz",
+    "lat": 51.524436,
+    "lon": 11.0199629,
+    "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
-    "veranstalter_url": "https://besenbinderlauf.de/"
+    "veranstalter_url": "https://besenbinderlauf.de/",
+    "laenge_km": 5.0,
+    "wettbewerb": "Schöne Aussicht 5 km"
   },
   {
     "land": "Deutschland",
@@ -48491,7 +48495,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-09",
     "datum_ende": "2027-07-09",
-    "veranstalter_url": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html"
+    "veranstalter_url": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -52867,7 +52872,37 @@
     "art2": "Trail",
     "datum_start": "2027-09-12",
     "datum_ende": "2027-09-12",
-    "veranstalter_url": "https://brooks-ruhr-trail-run.de/"
+    "veranstalter_url": "https://altra-ruhr-trail-run.de/",
+    "laenge_km": 17.0,
+    "wettbewerb": "Hero Trail 17 km (ca. 510 hm)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ruhr Trail Run",
+    "standort": "Hagen",
+    "lat": 51.3670777,
+    "lon": 7.4632841,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-09-12",
+    "datum_ende": "2027-09-12",
+    "veranstalter_url": "https://altra-ruhr-trail-run.de/",
+    "laenge_km": 9.0,
+    "wettbewerb": "Discovery Trail 9 km (ca. 255 hm)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ruhr Trail Run",
+    "standort": "Hagen",
+    "lat": 51.3670777,
+    "lon": 7.4632841,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-09-12",
+    "datum_ende": "2027-09-12",
+    "veranstalter_url": "https://altra-ruhr-trail-run.de/",
+    "laenge_km": 7.2,
+    "wettbewerb": "Morning Street Run 7,2 km (flach, Asphalt)"
   },
   {
     "land": "Deutschland",

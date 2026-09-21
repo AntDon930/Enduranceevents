@@ -5584,5 +5584,37 @@
     "art2": "Straße",
     "_quelle": "https://www.havelman-brandenburg.de/",
     "_note": "Die Seite beschreibt den HavelMan als Triathlon (12.06.2027, Brandenburg an der Havel, „alle Leistungsniveaus“); die Zeile stand als Lauf, weil kein Stichwort im Namen steht. Distanzen stehen unter „Distanzen & Informationen“ - nicht abgerufen, Länge bleibt offen. Geprüft 2026-09-21."
+  },
+  "Ruhr Trail Run|2027-09-12": {
+    "laenge_km": 17.0,
+    "wettbewerb": "Hero Trail 17 km (ca. 510 hm)",
+    "art2": "Trail",
+    "veranstalter_url": "https://altra-ruhr-trail-run.de/",
+    "_quelle": "https://altra-ruhr-trail-run.de/",
+    "_note": "5. Altra Ruhr Trail Run, 12.09.2027, Südufer Hengsteysee: Hero Trail ca. 17 km / 510 hm, Discovery Trail ca. 9 km / 255 hm, Morning Street Run ca. 7,2 km flach auf Asphalt (Straße), Young Talents 700 m (Datenregel 5). Die alte Adresse brooks-ruhr-trail-run.de leitet auf altra-ruhr-trail-run.de weiter (Sponsorwechsel). Zeile stand ohne Länge; die beiden anderen in manual_events.json. Geprüft 2026-09-21."
+  },
+  "Besenbinder Lauf - Rund um Hainrode|2027-06-26": {
+    "laenge_km": 15.0,
+    "wettbewerb": "Südharztrail 15 km",
+    "art2": "Trail",
+    "_quelle": "https://besenbinderlauf.de/strecken/",
+    "_note": "2. Ausgabe, Sa 26.06.2027 10 Uhr, ASV Sangerhausen, sechs Distanzen: Südharztrail 15 km, Schöne Aussicht 5 km, dazu 3/2/1/0,5 km (Datenregel 5). Zeile stand ohne Länge; die 5 km in manual_events.json. Geprüft 2026-09-21."
+  },
+  "mo.pla neuseenMAN|2027-05-28": {
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_ende": "2027-05-30",
+    "_quelle": "https://neuseenman.maximalpuls.com/",
+    "_note": "Triathlon in Ferropolis (Gräfenhainichen), 28.-30.05.2027: Sprint, Olympische Distanz, Mitteldistanz, AquaBike, Staffeln. Die Zeile stand als Lauf ohne Länge; Kilometer nennt die Seite nicht - eine Triathlon-Zeile ohne Länge ist fast immer eine ganze Veranstaltung (Zwölfter Durchgang), Strecken nachtragen, sobald belegt (DTU-Kalender). Ausnahme von KEIN_VERANSTALTER wie beim Leipzig Run: maximalPULS veranstaltet selbst. Geprüft 2026-09-21."
+  },
+  "Deadly Gross Fürth|2027-06-05": {
+    "exclude": true,
+    "_quelle": "https://www.deadlydozen.de/event/gross",
+    "_note": "Deadly Dozen „Gross“: zwölf Stunden lang jede Stunde eine 400-m-Runde plus zwölf Kraftübungen (Farmers Carry, Deadlifts, Lunges, Snatches - „144 Labours“). Hybrid-Format der HYROX-Klasse (Datenregel 14). Als Override; NICHT_AUSDAUER nur mit Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "Sonthofer Citylauf|2027-07-09": {
+    "datum_vorlaeufig": true,
+    "_quelle": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html",
+    "_note": "„Wir planen im Herbst den 23. Sonthofer AKW Citylauf 2027 für Euch und melden uns dann mit dem finalen Termin“ - der 09.07.2027 ist eine Kalenderprognose (Datenregel 19). Geprüft 2026-09-21."
   }
 }

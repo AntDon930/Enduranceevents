@@ -7140,5 +7140,71 @@
     "ergebnis": "unklar",
     "quelle": "w-u-d-l.de",
     "notiz": "Seite antwortet 403"
+  },
+  "Ruhr Trail Run|2027-09-12": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "altra-ruhr-trail-run.de",
+    "notiz": "17/9 km Trail, 7,2 km Straße; Link auf die neue Domain"
+  },
+  "Besenbinder Lauf - Rund um Hainrode|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "besenbinderlauf.de",
+    "notiz": "15 km Trail, 5 km nachgetragen; vier Kurzstrecken unter 5 km"
+  },
+  "mo.pla neuseenMAN|2027-05-28": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "neuseenman.maximalpuls.com",
+    "notiz": "Triathlon statt Lauf, bis 30.05.; Distanzen (Sprint/Olympisch/Mittel) noch ohne km"
+  },
+  "Deadly Gross Fürth|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "deadlydozen.de",
+    "notiz": "12-h-Hybrid mit Kraftübungen (HYROX-Klasse) - exclude"
+  },
+  "Sonthofer Citylauf|2027-07-09": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-sonthofen.de",
+    "notiz": "Termin 2027 noch nicht veröffentlicht -> datum_vorlaeufig; Strecken offen"
+  },
+  "Sudenburg-Lauf - Der Lauf Mit Dem Lächeln|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "sudenburglauf.de",
+    "notiz": "Sa 12.06.2027, Heinrich-Germer-Stadion; Hauptlauf/Walking/Kinder, Längen auch in der Ausschreibung nicht lesbar"
+  },
+  "Geiersberglauf Waigolshausen|2027-07-02": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tsv-waigolshausen.de",
+    "notiz": "19. Geiersberglauf Fr 02.07.2027 (100 Jahre TSV) bestätigt; Strecke nur als PDF"
+  },
+  "Volkslauf der TGS Hausen|2027-07-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tgs-hausen.de",
+    "notiz": "So 25.07.2027 bestätigt, „Nähere Info im Frühjahr 2027“"
+  },
+  "Holger Anders Flutlicht Paarlauf|2026-12-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "sportclub-laage.de",
+    "notiz": "Termin bestätigt; Paarlauf-Format (Zweierteam) - Staffel-Frage wie beim ABC-Paarlauf, Details nur auf Unterseite"
+  },
+  "Altmühlfrankenlauf|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "altmuehlfranken.de",
+    "notiz": "05.06.2027 rund um Oberhochstatt bestätigt; ob Staffel oder Einzel, steht erst im Herbst fest"
+  },
+  "Paarlauf mit Musik des SCC|2026-11-19": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "scc-berlin-leichtathletik.de",
+    "notiz": "19.11.2026 bestätigt; Paarlauf-Format (Zweierteam) - Staffel-Frage, Ausschreibung nicht abgerufen"
   }
 }
