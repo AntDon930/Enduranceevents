@@ -610,7 +610,7 @@
      dieselben Events zeigen. -->
 <script src="filters.js?v=4503c358"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=261fa037"></script>
+<script src="event-detail.js?v=0e27edbc"></script>
 
 <script>
 (async function () {
@@ -1574,8 +1574,10 @@
   // Schlüssel einer Veranstaltung: Name + Datum + Ort. Genau die drei
   // Felder machen aus mehreren Strecken eine Veranstaltung - die Distanz
   // ist gerade das, was sie unterscheidet.
+  // Der Schlüssel steht in event-detail.js: Die Karte setzt damit je
+  // Veranstaltung EINEN Punkt, die Box sucht damit ihre Strecken.
   function groupKey(e) {
-    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+    return EED.groupKey(e);
   }
 
   // Gruppiert die (schon sortierten) Zeilen in der Reihenfolge, in der
@@ -1622,21 +1624,9 @@
   // Strecken. Nur wenn es gar keine Distanz gibt, steht dort die Spanne
   // der Dauern ("12–24 h").
   function laengeSpanne(g) {
-    const km = [];
-    const stunden = [];
-    g.rows.forEach(({ e }) => {
-      if (e.laenge_km != null && !Number.isNaN(Number(e.laenge_km))) km.push(Number(e.laenge_km));
-      else if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) stunden.push(Number(e.dauer_h));
-    });
-    const werte = km.length ? km : stunden;
-    if (!werte.length) return '–';
-    const einheit = km.length ? 'km' : 'h';
-    const zahl = (v) => EF.formatNumber(v, currentLang, 1);
-    const von = zahl(Math.min.apply(null, werte));
-    const bis = zahl(Math.max.apply(null, werte));
-    // Ohne Leerzeichen um den Gedankenstrich: Die Spalte ist schmal, und
-    // "5 – 42,2 km" bräuchte dort zwei Zeilen.
-    return von === bis ? `${von} ${einheit}` : `${von}–${bis} ${einheit}`;
+    // Steht in event-detail.js (formatLengthSpan): Das Popup der Karte
+    // zeigt dieselbe Spanne je Veranstaltung.
+    return EED.formatLengthSpan(g.rows.map(r => r.e), currentLang);
   }
 
   function groupRowHtml(g, cols) {

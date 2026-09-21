@@ -1512,6 +1512,23 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   („Die Map bitte so gut wie möglich in dem Format darstellen"; ein
   helles Bild – daher das zweite Farbschema, siehe oben). Was daran
   nicht zurückgedreht werden soll (alles in `karte.html`):
+  - **Ein Punkt je VERANSTALTUNG, nicht je Strecke** (vom Nutzer am
+    21.09.2026: „auf der Karte gibt es nur die zusammengefassten Events;
+    wenn man draufklickt, sieht man, welche Distanzen möglich sind").
+    `renderMarkers()` fasst die gefilterten Zeilen über `EED.groupKey`
+    (Name + Starttag + Ort, klein – derselbe Schlüssel wie beim
+    Zusammenfassen der Liste und bei den Strecken-Pillen der Box, seit
+    dem Tag in `event-detail.js`) zu Veranstaltungen zusammen; die erste
+    Zeile vertritt sie (`g.e`), die Zeilen stehen in `g.rows`. Ein Marker
+    je Ort trägt die Zahl seiner Veranstaltungen (`eeCount`), die Bündel
+    summieren sie, die Legende zählt sie („N Events" – dieselbe Zahl wie
+    die Liste beim Zusammenfassen). Ein Ort mit EINER Veranstaltung ist
+    eine Nadel, bis zwei öffnet der Klick die Boxen direkt, ab drei
+    listet das Popup **je Veranstaltung einen Eintrag** mit der Spanne
+    ihrer Strecken (`EED.formatLengthSpan`, dieselbe Funktion wie die
+    Längen-Spalte der Liste) und „4 Strecken". Die Distanzen sieht man
+    dann in der Box (Pillen). Der Rauchtest sucht dafür einen Ort mit
+    genau zwei VERANSTALTUNGEN (`ort_mit_zwei_veranstaltungen()`).
   - **Flach bis Zoom 7, Kacheln ab Zoom 8** (`TILES_AB_ZOOM`,
     `aktualisiereFlach`): Die Übersicht zeigt nur die Landfläche der
     drei Länder (hell, aus `laender.json`, eigenes Pane `landPane` mit
@@ -1528,9 +1545,10 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Bündel: Kreis in der Akzentfarbe + Ortsname** des größten Ortes im
     Bündel (`options.eeStandort`, „349 Köln"). Die Zahl steht ALLEIN in
     `.cluster-badge`/`.marker-badge` – der Rauchtest addiert die Kreise
-    mit `parseInt` gegen die Legende. **Ein Ort mit genau einem Event ist
-    eine Nadel** (`.marker-pin`, Farbe und Symbol der Sportart) mit einer
-    unsichtbaren „1" (`.marker-badge.sr-only`) für dieselbe Rechnung.
+    mit `parseInt` gegen die Legende. **Ein Ort mit genau einer
+    Veranstaltung ist eine Nadel** (`.marker-pin`, Farbe und Symbol der
+    Sportart ihrer ersten Zeile) mit einer unsichtbaren „1"
+    (`.marker-badge.sr-only`) für dieselbe Rechnung.
   - **Beschriftungen werden geordnet** (`ordneBeschriftungen`, nach
     `moveend`/`zoomend`/`animationend` in EINEM Animationsframe plus
     einem zweiten Durchgang nach 450 ms, weil markercluster die Marker
@@ -2215,9 +2233,10 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Übersetzung ergänzt, muss die Kopie mit.
 
 - **Der Rauchtest sucht seinen Kartenort aus `events.json`**
-  (`ort_mit_zwei_strecken()` in `smoke_test_frontend.py`): der
-  alphabetisch erste Ort mit genau zwei künftigen Strecken, für den
-  Marker „2". Vorher stand dort fest „Mosnang" (Schnebelhorn
+  (`ort_mit_zwei_veranstaltungen()` in `smoke_test_frontend.py`): der
+  alphabetisch erste Ort mit genau zwei künftigen Veranstaltungen (Name +
+  Starttag – die Karte zählt seit dem 21.09.2026 Veranstaltungen, nicht
+  Strecken), für den Marker „2". Vorher stand dort fest „Mosnang" (Schnebelhorn
   Panoramatrail) – am 19.09.2026 fiel das Event als vergangen aus der
   Liste, und die Prüfung meldete „0 Boxen", ohne dass sich an der Karte
   etwas geändert hatte. **Ein roter Rauchtest nach einer Datenänderung

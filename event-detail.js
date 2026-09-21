@@ -538,6 +538,37 @@
     try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
   }
 
+  // Der Schlüssel einer VERANSTALTUNG: Name + Starttag + Ort, klein
+  // geschrieben. Die Liste fasst damit ihre Zeilen zusammen, die Karte
+  // setzt je Schlüssel EINEN Punkt (vom Nutzer am 21.09.2026 gewünscht:
+  // "eine Veranstaltung soll auch immer ein Punkt sein auf der Karte"),
+  // und die Box sucht damit ihre Strecken-Pillen (siblings). EIN
+  // Schlüssel für alle drei - sonst zählte die Karte anders als die Liste.
+  function groupKey(e) {
+    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+  }
+
+  // Die Spanne der Längen einer Veranstaltung ("5–42,2 km") für die
+  // zusammengefasste Zeile der Liste und das Popup der Karte: Distanzen
+  // haben Vorrang, sonst die Dauern der Zeitrennen (Datenregel 8). Ohne
+  // Leerzeichen um den Gedankenstrich - die Spalte der Liste ist schmal,
+  // "5 – 42,2 km" bräuchte dort zwei Zeilen.
+  function formatLengthSpan(rows, lang) {
+    const km = [];
+    const stunden = [];
+    rows.forEach(e => {
+      if (e.laenge_km != null && !Number.isNaN(Number(e.laenge_km))) km.push(Number(e.laenge_km));
+      else if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) stunden.push(Number(e.dauer_h));
+    });
+    const werte = km.length ? km : stunden;
+    if (!werte.length) return '–';
+    const einheit = km.length ? 'km' : 'h';
+    const zahl = (v) => EF.formatNumber(v, lang, 1);
+    const von = zahl(Math.min.apply(null, werte));
+    const bis = zahl(Math.max.apply(null, werte));
+    return von === bis ? `${von} ${einheit}` : `${von}–${bis} ${einheit}`;
+  }
+
   // Die Strecken einer Veranstaltung als Pillen: nach Länge sortiert,
   // Zeitrennen dahinter, die gewählte hervorgehoben.
   function streckenPillen(e, ctx) {
@@ -678,6 +709,8 @@
     kopiereInAblage,
     sportIcon,
     sportClass,
-    hostVon
+    hostVon,
+    groupKey,
+    formatLengthSpan
   };
 })(typeof window !== 'undefined' ? window : globalThis);

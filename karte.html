@@ -425,7 +425,7 @@
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=4503c358"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=261fa037"></script>
+<script src="event-detail.js?v=0e27edbc"></script>
 
 <script>
 (async function () {
@@ -469,6 +469,7 @@
       hint_empty: 'Kein Event entspricht den Filtern.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
+      popup_strecken: (n) => `${n} Strecken`,
       // Ohne "↗": Der Pfeil sah am Knopf aus wie ein Stempel (vom
       // Nutzer gemeldet). Dass der Link in die Liste führt, sagt der
       // Text schon.
@@ -492,6 +493,7 @@
       hint_empty: 'No event matches the filters.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
+      popup_strecken: (n) => `${n} distances`,
       popup_link: (n) => `View ${n} event${n === 1 ? '' : 's'} in the list`,
       filter_label: 'Filters:',
       reset: 'Clear filters',
@@ -1094,7 +1096,7 @@
     + '<circle cx="15" cy="14.5" r="9.5" fill="#fff"/></svg>';
   function markerIcon(loc) {
     if (loc.count === 1) {
-      const art1 = loc.events[0].art1;
+      const art1 = loc.gruppen[0].e.art1;
       return L.divIcon({
         className: '',
         html: `<div class="marker-pin ${EED.sportClass(art1)}">${PIN_SVG}`
@@ -1155,13 +1157,13 @@
     };
   }
 
-  // Die Strecken derselben Veranstaltung (Name + Datum + Ort) für die
-  // Pillen in der Box; ein Klick tauscht das Event dieser Box aus.
+  // Die Strecken derselben Veranstaltung (EED.groupKey: Name + Tag +
+  // Ort, über ALLE Events, nicht nur die gefilterten) für die Pillen in
+  // der Box; ein Klick tauscht das Event dieser Box aus.
   function geschwisterVon(e) {
+    const key = EED.groupKey(e);
     const liste = [];
-    events.forEach((x, idx) => {
-      if (x.name === e.name && x.datum_start === e.datum_start && x.standort === e.standort) liste.push({ e: x, idx });
-    });
+    events.forEach((x, idx) => { if (EED.groupKey(x) === key) liste.push({ e: x, idx }); });
     return liste;
   }
 
@@ -1234,28 +1236,44 @@
     overlayLayer.clearLayers();
     const passend = events.filter(e => EF.matchEvent(state, e));
 
-    // Ein Marker pro eindeutigem Standort (nicht pro einzelnem Event) -
-    // so zeigt z. B. Frankfurt EINEN Marker mit der Zahl "10" statt zehn
-    // übereinanderliegender Punkte. Koordinaten des ersten Events mit
-    // gültigem lat/lon je Standort werden übernommen (alle Events am
-    // selben Ort teilen sich ohnehin dieselbe Geocoding-Koordinate).
+    // EIN Punkt je VERANSTALTUNG (EED.groupKey: Name + Tag + Ort), nicht
+    // je Strecke - vom Nutzer am 21.09.2026 so gewünscht: "auf der Karte
+    // gibt es nur die zusammengefassten Events; wenn man draufklickt,
+    // sieht man, welche Distanzen möglich sind". Die Strecken zeigt die
+    // Box als Pillen (siblings). Die erste Zeile einer Veranstaltung
+    // vertritt sie (g.e), ihre Zeilen stehen in g.rows.
+    //
+    // Ein Marker pro Ort (nicht pro Veranstaltung) - so zeigt Frankfurt
+    // EINEN Marker mit der Zahl "10" statt zehn übereinanderliegender
+    // Punkte; die Zahl ist die der VERANSTALTUNGEN dort (eeCount, von
+    // den Bündeln summiert) - dieselbe Zahl wie "N Events" in der Liste
+    // beim Zusammenfassen. Koordinaten der ersten Zeile mit gültigem
+    // lat/lon je Ort (alle Zeilen am selben Ort teilen sich ohnehin
+    // dieselbe Geocoding-Koordinate).
     const byStandort = new Map();
-    let withCoords = 0;
+    const gruppenIndex = new Map();
+    let veranstaltungen = 0;
     passend.forEach(e => {
       if (e.lat == null || e.lon == null || !e.standort) return;
-      withCoords++;
-      const key = e.standort;
-      if (!byStandort.has(key)) {
-        byStandort.set(key, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0, events: [] });
+      const gk = EED.groupKey(e);
+      let g = gruppenIndex.get(gk);
+      if (!g) {
+        g = { e, rows: [] };
+        gruppenIndex.set(gk, g);
+        veranstaltungen++;
+        if (!byStandort.has(e.standort)) {
+          byStandort.set(e.standort, { standort: e.standort, land: e.land, lat: e.lat, lon: e.lon, count: 0, gruppen: [] });
+        }
+        const loc = byStandort.get(e.standort);
+        loc.count++;
+        loc.gruppen.push(g);
       }
-      const loc = byStandort.get(key);
-      loc.count++;
-      loc.events.push(e);
+      g.rows.push(e);
     });
 
-    hintEl.textContent = withCoords === 0
+    hintEl.textContent = veranstaltungen === 0
       ? t('hint_empty')
-      : t('hint', EF.formatInt(withCoords, currentLang));
+      : t('hint', EF.formatInt(veranstaltungen, currentLang));
 
     const markers = [];
     byStandort.forEach(loc => {
@@ -1274,17 +1292,19 @@
       // beim Klick entsteht, trägt er jetzt sogar die Filter von genau
       // diesem Moment.
       //
-      // Hat der Ort höchstens so viele Events, wie Boxen Platz haben
-      // (zwei), öffnet der Klick auf den Marker die Boxen DIREKT - ohne
-      // Popup (vom Nutzer am 19.09.2026 so gewünscht: "wenn ich auf die
-      // 1 klicke, soll sich rechts oben einfach die Info öffnen; zeigt
-      // der Punkt 2, werden rechts zwei Events angezeigt"). Erst ab
-      // drei Events bleibt das Popup mit der Auswahlliste: Ein Klick
-      // dort öffnet die Box (zeigeDetail). data-idx ist die Nummer in
-      // `events`, der Klick kommt über EINEN Zuhörer am Kartencontainer
-      // an (unten).
-      if (loc.events.length <= MAX_DETAILS) {
-        marker.on('click', () => zeigeDetails(loc.events));
+      // Hat der Ort höchstens so viele Veranstaltungen, wie Boxen Platz
+      // haben (zwei), öffnet der Klick auf den Marker die Boxen DIREKT -
+      // ohne Popup (vom Nutzer am 19.09.2026 so gewünscht: "wenn ich auf
+      // die 1 klicke, soll sich rechts oben einfach die Info öffnen;
+      // zeigt der Punkt 2, werden rechts zwei Events angezeigt"). Erst
+      // ab drei Veranstaltungen bleibt das Popup mit der Auswahlliste -
+      // je Veranstaltung EIN Eintrag mit der Spanne ihrer Strecken
+      // ("5–42,2 km · 4 Strecken"); ein Klick dort öffnet die Box
+      // (zeigeDetail) mit den Strecken als Pillen. data-idx ist die
+      // Nummer der vertretenden Zeile in `events`, der Klick kommt über
+      // EINEN Zuhörer am Kartencontainer an (unten).
+      if (loc.gruppen.length <= MAX_DETAILS) {
+        marker.on('click', () => zeigeDetails(loc.gruppen.map(g => g.e)));
         markers.push(marker);
         return;
       }
@@ -1292,12 +1312,12 @@
         // tv(): Städte mit eigenem englischen Namen (München → Munich).
         `<div class="popup-title">${escapeHtml(tv('standort', loc.standort))}</div>` +
         `<div class="popup-sub">${escapeHtml(tv('land', loc.land) || '')} · ${t('popup_count', loc.count)}</div>` +
-        `<ul class="popup-events">` + loc.events.map(e => {
-          const wb = EED.displayWettbewerb(e);
-          return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(e)}">`
-            + `<span class="pe-name">${escapeHtml(e.name)}</span>`
-            + `<span class="pe-meta">${escapeHtml(EF.formatEventDate(e, currentLang))}`
-            + ` · ${escapeHtml(EED.formatLength(e, currentLang))}${wb ? ' · ' + escapeHtml(wb) : ''}</span>`
+        `<ul class="popup-events">` + loc.gruppen.map(g => {
+          return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(g.e)}">`
+            + `<span class="pe-name">${escapeHtml(g.e.name)}</span>`
+            + `<span class="pe-meta">${escapeHtml(EF.formatEventDate(g.e, currentLang))}`
+            + ` · ${escapeHtml(EED.formatLengthSpan(g.rows, currentLang))}`
+            + (g.rows.length > 1 ? ` · ${escapeHtml(t('popup_strecken', g.rows.length))}` : '') + `</span>`
             + `</button></li>`;
         }).join('') + `</ul>` +
         `<a class="popup-link" href="${linkTo('events.html', { standort: loc.standort })}">`

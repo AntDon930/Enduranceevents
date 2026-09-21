@@ -1174,10 +1174,11 @@ def pruefe_cluster(seite):
     """Die Marker werden gebündelt, und die Zahlen darin gehen auf.
 
     Der eigentliche Prüfstein ist die Summe: Jedes Bündel trägt die Zahl
-    der Events darunter, nicht die der Orte. Addiert man alle Bündel und
-    die einzeln stehenden Orte, muss genau die Event-Zahl aus der
-    Kopfzeile herauskommen - sonst zählt die Karte anders als sie
-    beschriftet ist (der Fehler, der bei `eeCount` naheliegt).
+    der VERANSTALTUNGEN darunter (ein Punkt je Veranstaltung, seit dem
+    21.09.2026 - nicht je Strecke, nicht je Ort). Addiert man alle Bündel
+    und die einzeln stehenden Orte, muss genau die Zahl aus der Legende
+    herauskommen - sonst zählt die Karte anders als sie beschriftet ist
+    (der Fehler, der bei `eeCount` naheliegt).
     """
     zahlen = seite.evaluate("""() => {
         const summe = s => Array.from(document.querySelectorAll(s))
@@ -1437,45 +1438,52 @@ def pruefe_karten_suche(ctx, basis):
     seite.close()
 
 
-def ort_mit_zwei_strecken() -> str | None:
-    """Der alphabetisch erste Ort, an dem genau zwei künftige Strecken
-    liegen - für den Marker "2" auf der Karte (ein Marker je `standort`,
-    siehe karte.html). Vergangene Events zählen nicht: Die Seite wirft
-    sie beim Laden weg (dropPastEvents), der Marker sähe sie nie."""
+def ort_mit_zwei_veranstaltungen() -> str | None:
+    """Der alphabetisch erste Ort, an dem genau zwei künftige
+    VERANSTALTUNGEN liegen (Name + Starttag, wie EED.groupKey) - für den
+    Marker "2" auf der Karte. Die Karte zählt seit dem 21.09.2026
+    Veranstaltungen, nicht Strecken (ein Punkt je Veranstaltung, die
+    Strecken stehen als Pillen in der Box); ein Ort mit zwei Strecken
+    EINER Veranstaltung wäre eine Nadel und öffnete nur eine Box.
+    Vergangene Events zählen nicht: Die Seite wirft sie beim Laden weg
+    (dropPastEvents), der Marker sähe sie nie."""
     import datetime
     import json
     heute = datetime.date.today().isoformat()
     pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "events.json")
     with open(pfad, encoding="utf-8") as f:
         events = json.load(f)
-    je_ort: dict[str, int] = {}
+    je_ort: dict[str, set[str]] = {}
     for e in events:
         ende = e.get("datum_ende") or e.get("datum_start") or ""
         if ende and ende < heute:
             continue
-        if e.get("standort"):
-            je_ort[e["standort"]] = je_ort.get(e["standort"], 0) + 1
-    kandidaten = sorted(o for o, n in je_ort.items() if n == 2)
+        if e.get("standort") and e.get("lat") is not None:
+            schluessel = f"{(e.get('name') or '').lower()}|{e.get('datum_start')}"
+            je_ort.setdefault(e["standort"], set()).add(schluessel)
+    kandidaten = sorted(o for o, s in je_ort.items() if len(s) == 2)
     return kandidaten[0] if kandidaten else None
 
 
 def pruefe_karten_details(ctx, basis):
     """Die Detail-Box auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
 
-    Ein Marker mit einem oder zwei Events öffnet deren Boxen DIREKT oben
-    rechts - dieselbe Box wie in der Liste (event-detail.js). Erst ab
-    drei Events listet das Popup sie, ein Klick öffnet die Box.
+    Ein Marker mit einer oder zwei VERANSTALTUNGEN öffnet deren Boxen
+    DIREKT oben rechts - dieselbe Box wie in der Liste (event-detail.js),
+    die Strecken als Pillen darin. Erst ab drei Veranstaltungen listet
+    das Popup sie (je Veranstaltung ein Eintrag), ein Klick öffnet die Box.
     Höchstens zwei zugleich, die neueste oben, ein ✕ schließt; "Fehler
     melden" führt in die Liste und öffnet dort den Melde-Dialog.
     """
     print("\nDetail-Box auf der Karte")
-    # Ein Ort mit genau zwei Strecken: der Marker "2" öffnet beide Boxen.
-    # Der Ort wird aus events.json gesucht, nicht fest eingetragen: Der
-    # frühere Ort (Mosnang, Schnebelhorn Panoramatrail) fiel am 19.09.2026
-    # als vergangenes Event aus der Liste, und die Prüfung lief ins Leere.
-    ort = ort_mit_zwei_strecken()
+    # Ein Ort mit genau zwei Veranstaltungen: der Marker "2" öffnet beide
+    # Boxen. Der Ort wird aus events.json gesucht, nicht fest eingetragen:
+    # Der frühere Ort (Mosnang, Schnebelhorn Panoramatrail) fiel am
+    # 19.09.2026 als vergangenes Event aus der Liste, und die Prüfung lief
+    # ins Leere.
+    ort = ort_mit_zwei_veranstaltungen()
     if ort is None:
-        pruefe(False, "kein Ort mit genau zwei künftigen Strecken in events.json")
+        pruefe(False, "kein Ort mit genau zwei künftigen Veranstaltungen in events.json")
         return
     seite, probleme = seite_oeffnen(ctx, basis + "/karte.html?standort=" + urllib.parse.quote(ort), ".filter-bar")
     seite.wait_for_timeout(2800)

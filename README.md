@@ -2090,10 +2090,20 @@ darunter. Die Kacheln werden dabei nicht abgeschaltet, nur unsichtbar
 gemacht – so sind sie beim Hineinzoomen sofort da, und der Rauchtest
 kann sie weiter zählen (die Prüfung gegen die doppelte Weltkarte).
 
+**Ein Punkt je Veranstaltung, nicht je Strecke** (vom Nutzer am
+21.09.2026 so gewünscht): Die Karte fasst die Zeilen wie die Liste über
+Name + Starttag + Ort zusammen (`EED.groupKey`, ein Schlüssel für beide
+Seiten und für die Strecken-Pillen der Box). Ein Marker zeigt die Zahl
+der Veranstaltungen an seinem Ort, die Bündel summieren sie, und die
+Legende nennt dieselbe Zahl wie die Liste beim Zusammenfassen. Welche
+Distanzen eine Veranstaltung anbietet, sieht man nach dem Klick: in der
+Box als Pillen, im Popup (ab drei Veranstaltungen an einem Ort) als
+Spanne („5–42,2 km · 4 Strecken").
+
 Was sonst zur Vorlage gehört: **Bündel** als Kreise in der Akzentfarbe
-mit der Event-Zahl und dem Namen des größten Ortes darin („349 Köln");
-**ein Ort mit genau einem Event als Nadel** in der Farbe seiner
-Sportart (Orange Laufen, Grün Fahrrad, Blau Schwimmen, Violett
+mit der Zahl der Veranstaltungen und dem Namen des größten Ortes darin
+(„349 Köln"); **ein Ort mit genau einer Veranstaltung als Nadel** in der
+Farbe ihrer Sportart (Orange Laufen, Grün Fahrrad, Blau Schwimmen, Violett
 Triathlon – dieselben Farben wie die Legende unten links und die
 Symbole in der Liste); **Orientierungsorte** (graue Punkte: Basel,
 Bern, Linz, Wien, Graz …) dort, wo kein Bündel steht; **„Mein
