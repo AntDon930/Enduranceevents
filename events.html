@@ -60,7 +60,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=0c9ee0b1">
+<link rel="stylesheet" href="site.css?v=680dc943">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=2b672a58">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -271,20 +271,16 @@
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
-  /* Charity-Events sind leicht rosa hinterlegt (vom Nutzer am 21.09.2026
-     so vorgeschlagen: "Vielleicht findet man eine gute Lösung, das man
-     die Zeile ggf. Leicht rosa hinterlegt"). Die Regel steht NACH dem
-     Zebra - sonst gewänne jede zweite Zeile - und VOR Block, Hover und
-     Auswahl: Welche Zeile gerade gewählt oder aufgeklappt ist, muss
-     stärker sein als eine Eigenschaft des Events. Erkennbar bleibt es
-     dort am Herz hinter dem Namen, das immer steht.
-     Die Fläche ist bewusst sehr leise (--charity-row): Sie liegt hinter
-     einer ganzen Tabellenzeile mit Fließtext, nicht hinter einem
-     Etikett. */
-  tbody tr.charity-row { background: var(--charity-row); }
-  /* Das Herz hinter dem Namen. Es trägt die Bedeutung, die Fläche
-     unterstützt sie nur - eine Zeile, die im aufgeklappten Block liegt
-     oder gerade gewählt ist, hat keine rosa Fläche mehr. */
+  /* Charity-Zeilen sind NICHT eingefärbt - nur das Herz in der Spalte
+     Kategorie markiert sie. Eine leicht rosa hinterlegte Zeile war am
+     21.09.2026 gebaut und vom Nutzer am selben Tag zurückgenommen ("Das
+     Herz für Charity ist eine gute Lösung. Ich denke das reicht aus,
+     dann muss man gar nicht mehr die Zeile in einer anderen Farbe
+     darstellen"). Die Klasse .charity-row bleibt an der Zeile (der
+     Rauchtest und ein späterer Filter können daran ansetzen), sie trägt
+     nur keine Fläche mehr. --charity-row ist damit unbenutzt und aus
+     site.css entfernt. */
+  /* Das Herz hinter der Kategorie. Es trägt die Bedeutung allein. */
   .charity-marke {
     display: inline-flex;
     align-items: center;
@@ -1578,9 +1574,8 @@
   // Reihenfolge an zwei Orten pflegen zu müssen.
   // Das Charity-Herz. Vom Nutzer am 21.09.2026 gewünscht ("Ich würde die
   // Charity Events irgendwie gerne alle markieren in der Zeile mit einem
-  // Icon"), zusammen mit der rosa hinterlegten Zeile (.charity-row im
-  // Stylesheet). Beides zusammen, nicht nur die Fläche: Eine Farbe allein
-  // trägt keine Bedeutung für jemanden, der sie nicht unterscheiden kann.
+  // Icon"). Eine rosa Zeilenfläche dazu hat er am selben Tag wieder
+  // abbestellt - das Herz allein reicht (siehe .charity-row im Stil).
   //
   // Es steht in der Spalte KATEGORIE, nicht hinter dem Namen. Der erste
   // Versuch hing es an den Namen - und dort war es bei der Hälfte der

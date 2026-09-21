@@ -17,12 +17,11 @@ Datenbasis ist `events.json`, gefüllt von Python-Scrapern.
 Alle Arbeit auf **`claude/endurance-events-website-v1wruf`** (PR #1).
 Nicht auf einen anderen Branch pushen.
 
-**Achtung, zweiter Name für denselben Stand**: Seit dem 21.09.2026 gibt
-es daneben `claude/website-access-9d9tg1`. Beide zeigten beim Anlegen
-auf denselben Commit; eine Sitzung, der dieser Branch zugewiesen ist,
-arbeitet dort weiter. Wer einen Stand vermisst, sieht auf dem anderen
-Branch nach – und wer beide offen hat, sollte sie zusammenführen, bevor
-sie auseinanderlaufen.
+**Zweiter Name für denselben Stand**: Seit dem 21.09.2026 gibt es
+daneben `claude/website-access-9d9tg1`. Beide Branches werden **auf
+demselben Commit gehalten** (vom Nutzer am 21.09.2026 so entschieden:
+„die beiden Branches zusammenführen") – jeder Push geht auf beide. Wer
+nur einen sieht, sieht trotzdem alles.
 
 ## Dateien
 
@@ -589,13 +588,12 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      und der Wings for Life World Run tragen kein Stichwort und bleiben
      unmarkiert. Ein Override kann `charity` setzen **und mit `false`
      abschalten**.
-   - **Angezeigt** wird es zweifach: ein Herz in der Spalte **Kategorie**
-     (nicht hinter dem Namen – die Namensspalte ist 23 % breit und kürzt
-     mit „…", dort war das Herz bei jedem langen Namen unsichtbar) und
-     eine **leicht rosa hinterlegte Zeile** (`.charity-row`,
-     `--charity-row`; die Regel steht NACH dem Zebra und VOR Block,
-     Hover und Auswahl – was gerade gewählt ist, muss stärker sein als
-     eine Eigenschaft des Events). Die Detail-Box trägt ein eigenes
+   - **Angezeigt** wird es als Herz in der Spalte **Kategorie** (nicht
+     hinter dem Namen – die Namensspalte ist 23 % breit und kürzt mit
+     „…", dort war das Herz bei jedem langen Namen unsichtbar). Eine
+     leicht rosa hinterlegte Zeile dazu war gebaut und **vom Nutzer am
+     selben Tag verworfen** („Das Herz … reicht aus"); die Klasse
+     `.charity-row` bleibt an der Zeile, ohne Fläche. Die Detail-Box trägt ein eigenes
      Abzeichen neben dem Sport-Abzeichen. Farbe, Tonfläche und Textfarbe
      stehen als `--charity*` in beiden Schemata, nach demselben Muster
      wie die vier Sportfarben.

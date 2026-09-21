@@ -76,16 +76,13 @@
   --sport-schwimmen: #4a9be6; --sport-schwimmen-bg: #10294a; --sport-schwimmen-fg: #9cc8f5;
   --sport-triathlon: #9a7bf0; --sport-triathlon-bg: #2b2352; --sport-triathlon-fg: #c4b3fa;
   /* Charity: die Markierung der Benefiz-Veranstaltungen (Herz in der
-     Zeile, Abzeichen in der Box, rosa hinterlegte Zeile - vom Nutzer am
-     21.09.2026 gewünscht). Eine fünfte Farbe neben den vier
+     Spalte Kategorie, Abzeichen in der Box - vom Nutzer am 21.09.2026
+     gewünscht; eine rosa Zeile dazu hat er am selben Tag verworfen). Eine fünfte Farbe neben den vier
      Sportfarben, nach demselben Muster: Farbe / Tonfläche / Textfarbe
      darauf. Im Dunkeln ist die Tonfläche dunkel und die Schrift hell -
      ein helles Rosa unter weißem Text wäre unlesbar, genau die Falle,
-     vor der der Style Guide bei --on-accent warnt.
-     --charity-row ist die Zeilenfläche und sehr leise: Sie liegt unter
-     einer ganzen Tabellenzeile, nicht unter einem Etikett. */
+     vor der der Style Guide bei --on-accent warnt. */
   --charity: #f783ac;         --charity-bg: #3a1f2b;         --charity-fg: #ffc9dd;
-  --charity-row: #2e1a26;
   /* Die Karte (karte.html): Fläche außerhalb der Länder mit feinem
      Raster, die Landfläche, ihr Umriss, der Schleier über den fremden
      Kacheln und der Filter über den OSM-Kacheln. */
@@ -129,7 +126,6 @@
   --pill-active-border: var(--accent);
   --shadow: 0 12px 36px rgba(11, 27, 51, 0.14);
   --charity: #d6336c;         --charity-bg: #fff0f6;         --charity-fg: #a61e4d;
-  --charity-row: #fdf3f7;
   --sport-laufen: #e8590c;    --sport-laufen-bg: #fff1e8;    --sport-laufen-fg: #9a3b05;
   --sport-fahrrad: #2b8a3e;   --sport-fahrrad-bg: #e9f7ec;   --sport-fahrrad-fg: #1b5e2b;
   --sport-schwimmen: #1971c2; --sport-schwimmen-bg: #e7f1fc; --sport-schwimmen-fg: #0f4c86;
