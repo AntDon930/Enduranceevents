@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:Möckmühler Stadtlauf – 5 km Lauf
 LOCATION:Möckmühl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412457/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.moeckmuehl
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412457/
+URL:https://www.moeckmuehl.de/
 END:VEVENT
 END:VCALENDAR

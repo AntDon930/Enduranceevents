@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:11. Werler Frühlingslauf
 LOCATION:Werl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/27V19000324160501
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://djk-werl.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27V19000324160501
+URL:https://djk-werl.de/
 END:VEVENT
 END:VCALENDAR

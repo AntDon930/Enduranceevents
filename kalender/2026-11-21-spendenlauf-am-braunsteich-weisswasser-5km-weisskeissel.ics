@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Spendenlauf am Braunsteich Weißwasser
 LOCATION:Weißkeißel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://baer
- -service.de/veranstaltung/BTL/
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://lauf
+ bewegung-wsw.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/BTL/
+URL:https://laufbewegung-wsw.de/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20271016
 DTEND;VALUE=DATE:20271018
 SUMMARY:Running Festival Mannheim – Halbmarathon über 21\,0975 km
 LOCATION:Mannheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.dataspo
- rt.de/anmeldeservice/runningfestivalmannheim2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://longevity-h
+ ealth-club.de/running-festival-mannheim
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027
+URL:https://longevity-health-club.de/running-festival-mannheim
 END:VEVENT
 END:VCALENDAR

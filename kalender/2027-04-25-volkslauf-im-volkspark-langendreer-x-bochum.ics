@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Volkslauf im Volkspark Langendreer
 LOCATION:Bochum\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /409928/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.svlangendreer
+ 04.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/409928/
+URL:https://www.svlangendreer04.de/
 END:VEVENT
 END:VCALENDAR

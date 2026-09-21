@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270521
 DTEND;VALUE=DATE:20270522
 SUMMARY:VFL Ahaus Stadtfestlauf
 LOCATION:Ahaus\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /406973/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vflahaus.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/406973/
+URL:https://www.vflahaus.de/
 END:VEVENT
 END:VCALENDAR

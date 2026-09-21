@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270813
 DTEND;VALUE=DATE:20270814
 SUMMARY:Festungslauf in Königstein – 7\,7 km Lauf
 LOCATION:Königstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://baer-service
- .de/veranstaltung/FLK/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://www.festungs
+ lauf.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/FLK/
+URL:https://www.festungslauf.de/
 END:VEVENT
 END:VCALENDAR

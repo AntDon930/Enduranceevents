@@ -4932,7 +4932,8 @@
   "Sparkassen-ADAM-RIESE Nachtlauf|2027-07-23": {
     "laenge_km": 9,
     "wettbewerb": "Hauptlauf 9.000 m",
-    "_note": "sas-online.net/eventportal_bs/843: 11. Nachtlauf 23.07.2027; Hauptlauf 9.000 m (20 Uhr), Hobbylauf 4.500 m, Schülerläufe 780 / 1.650 m"
+    "_note": "sas-online.net/eventportal_bs/843: 11. Nachtlauf 23.07.2027; Hauptlauf 9.000 m (20 Uhr), Hobbylauf 4.500 m, Schülerläufe 780 / 1.650 m | Veranstalterseite statt sas-online.net: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (riese, datum). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://www.obermain-marathon.de/"
   },
   "Festungslauf in Königstein|2027-08-13|9": {
     "laenge_km": 9.4,
@@ -4946,7 +4947,8 @@
   },
   "Running Festival Mannheim|2027-10-16": {
     "datum_ende": "2027-10-17",
-    "_note": "anmeldungs-service: „vom 16.–17. Oktober 2027“; Marathon 42,195, Halbmarathon 21,0975, 10 km, 5 km, Mini-Marathon 2 km"
+    "_note": "anmeldungs-service: „vom 16.–17. Oktober 2027“; Marathon 42,195, Halbmarathon 21,0975, 10 km, 5 km, Mini-Marathon 2 km | Veranstalterseite statt datasport.de: https://longevity-health-club.de/running-festival-mannheim - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
   },
   "NRZ Klosterlauf|2026-10-03|7": {
     "wettbewerb": "7 km Walking/Nordic Walking",
@@ -5918,5 +5920,61 @@
   "Cross im Grund|2026-12-19": {
     "art2": "Hindernis",
     "_note": "Hindernislauf statt Trail: laut Veranstalter (OCR-Squad Erfurt, raceresult 383400) 13 km mit rund 30 Hindernissen - ein OCR, kein Crosslauf. Websuche 2026-09-21."
+  },
+  "Landesoffener Crosslauf des KLV Segeberg|2026-11-14": {
+    "veranstalter_url": "https://www.klv-se.de/veranstaltungen",
+    "_note": "Veranstalterseite statt ladv.de: https://www.klv-se.de/veranstaltungen - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (landesoffener). Linkprüfung 2026-09-21."
+  },
+  "Spendenlauf am Braunsteich Weißwasser|2026-11-21": {
+    "veranstalter_url": "https://laufbewegung-wsw.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://laufbewegung-wsw.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (braunsteich). Linkprüfung 2026-09-21."
+  },
+  "11. Werler Frühlingslauf|2027-03-20": {
+    "veranstalter_url": "https://djk-werl.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://djk-werl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werler). Linkprüfung 2026-09-21."
+  },
+  "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03": {
+    "veranstalter_url": "https://steigerschleife.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://steigerschleife.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schaubergwerk). Linkprüfung 2026-09-21."
+  },
+  "Volkslauf im Volkspark Langendreer|2027-04-25": {
+    "veranstalter_url": "https://www.svlangendreer04.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.svlangendreer04.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:langendreer). Linkprüfung 2026-09-21."
+  },
+  "Lauf in den Frühling - Freital|2027-05-02": {
+    "veranstalter_url": "https://www.laufindenfruehling.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.laufindenfruehling.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:fruehling). Linkprüfung 2026-09-21."
+  },
+  "Neuenkirchener Abendlauf|2027-05-07": {
+    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421",
+    "_note": "Veranstalterseite statt ladv.de: https://www.eintracht-neuenkirchen.de/index.php?id=421 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:neuenkirchen, neuenkirchener). Linkprüfung 2026-09-21."
+  },
+  "VFL Ahaus Stadtfestlauf|2027-05-21": {
+    "veranstalter_url": "https://www.vflahaus.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.vflahaus.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ahaus, host:ahaus). Linkprüfung 2026-09-21."
+  },
+  "Frauenlauf Bremen|2027-05-23": {
+    "veranstalter_url": "https://frauenlauf-bremen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://frauenlauf-bremen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremen, host:frauenlauf). Linkprüfung 2026-09-21."
+  },
+  "Nesselwanger Seenlauf|2027-06-13": {
+    "veranstalter_url": "https://www.skiklub-nesselwang.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.skiklub-nesselwang.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nesselwang, nesselwanger). Linkprüfung 2026-09-21."
+  },
+  "Möckmühler Stadtlauf|2027-06-20": {
+    "veranstalter_url": "https://www.moeckmuehl.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.moeckmuehl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:moeckmuehl, mockmuhler). Linkprüfung 2026-09-21."
+  },
+  "Midsummerrun Hamburg|2027-06-25": {
+    "veranstalter_url": "https://www.lauftreff-alstertal.de/midsummerrun",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lauftreff-alstertal.de/midsummerrun - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (midsummerrun, datum). Linkprüfung 2026-09-21."
+  },
+  "Festungslauf in Königstein|2027-08-13": {
+    "veranstalter_url": "https://www.festungslauf.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.festungslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:festungslauf, datum). Linkprüfung 2026-09-21."
+  },
+  "Wurzener Ringelnatzlauf|2027-08-29": {
+    "veranstalter_url": "https://www.ringelnatzlauf.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.ringelnatzlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ringelnatzlauf, datum). Linkprüfung 2026-09-21."
   }
 }

@@ -20695,7 +20695,7 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "laenge_km": 7.9,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirchen.htm",
+    "veranstalter_url": "https://www.klv-se.de/veranstaltungen",
     "wettbewerb": "5 Cross Lang"
   },
   {
@@ -22299,7 +22299,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://baer-service.de/veranstaltung/BTL/",
+    "veranstalter_url": "https://laufbewegung-wsw.de/",
     "charity": true
   },
   {
@@ -22313,7 +22313,7 @@
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://baer-service.de/veranstaltung/BTL/",
+    "veranstalter_url": "https://laufbewegung-wsw.de/",
     "charity": true
   },
   {
@@ -33400,7 +33400,7 @@
     "datum_start": "2027-03-20",
     "datum_ende": "2027-03-20",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27V19000324160501"
+    "veranstalter_url": "https://djk-werl.de/"
   },
   {
     "land": "Deutschland",
@@ -34726,7 +34726,7 @@
     "datum_ende": "2027-04-03",
     "laenge_km": 5.0,
     "wettbewerb": "Crosslauf",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48855/17.-Lauf-Rund-um-das-Schaubergwerk-R%C3%B6hrigschacht-Sangerhausen.htm"
+    "veranstalter_url": "https://steigerschleife.de/"
   },
   {
     "land": "Deutschland",
@@ -34740,7 +34740,7 @@
     "datum_ende": "2027-04-03",
     "laenge_km": 14.0,
     "wettbewerb": "Crosslauf lang",
-    "veranstalter_url": "https://steigerschleife.de/ausschreibung/"
+    "veranstalter_url": "https://steigerschleife.de/"
   },
   {
     "land": "Deutschland",
@@ -34754,7 +34754,7 @@
     "datum_ende": "2027-04-03",
     "laenge_km": 5.1,
     "wettbewerb": "5,1 km Buschklepper - 7,00 €",
-    "veranstalter_url": "https://steigerschleife.de/ausschreibung/"
+    "veranstalter_url": "https://steigerschleife.de/"
   },
   {
     "land": "Deutschland",
@@ -37951,7 +37951,7 @@
     "art2": "Straße",
     "datum_start": "2027-04-25",
     "datum_ende": "2027-04-25",
-    "veranstalter_url": "https://my.raceresult.com/409928/"
+    "veranstalter_url": "https://www.svlangendreer04.de/"
   },
   {
     "land": "Deutschland",
@@ -38575,7 +38575,7 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf, Altersklassen M/W U18 bis 80+",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/LFF/"
+    "veranstalter_url": "https://www.laufindenfruehling.de/"
   },
   {
     "land": "Deutschland",
@@ -38589,7 +38589,7 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Walking / Nordic Walking, Altersklassen M/W",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/LFF/"
+    "veranstalter_url": "https://www.laufindenfruehling.de/"
   },
   {
     "land": "Deutschland",
@@ -39143,7 +39143,7 @@
     "datum_ende": "2027-05-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Straße für Jugend, Aktive und Masters",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm"
+    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421"
   },
   {
     "land": "Deutschland",
@@ -39157,7 +39157,7 @@
     "datum_ende": "2027-05-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Straße für Jugend, Aktive und Masters",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm"
+    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421"
   },
   {
     "land": "Deutschland",
@@ -41045,7 +41045,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-21",
     "datum_ende": "2027-05-21",
-    "veranstalter_url": "https://my.raceresult.com/406973/"
+    "veranstalter_url": "https://www.vflahaus.de/"
   },
   {
     "land": "Deutschland",
@@ -41472,7 +41472,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-23",
     "datum_ende": "2027-05-23",
-    "veranstalter_url": "https://my.raceresult.com/400106/",
+    "veranstalter_url": "https://frauenlauf-bremen.de/",
     "laenge_km": 10.0
   },
   {
@@ -41487,7 +41487,7 @@
     "datum_ende": "2027-05-23",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/400106/"
+    "veranstalter_url": "https://frauenlauf-bremen.de/"
   },
   {
     "land": "Deutschland",
@@ -45250,7 +45250,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
-    "veranstalter_url": "https://my.raceresult.com/404129/"
+    "veranstalter_url": "https://www.skiklub-nesselwang.de/"
   },
   {
     "land": "Deutschland",
@@ -46315,7 +46315,7 @@
     "datum_ende": "2027-06-20",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/412457/"
+    "veranstalter_url": "https://www.moeckmuehl.de/"
   },
   {
     "land": "Deutschland",
@@ -46329,7 +46329,7 @@
     "datum_ende": "2027-06-20",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/412457/"
+    "veranstalter_url": "https://www.moeckmuehl.de/"
   },
   {
     "land": "Deutschland",
@@ -46620,7 +46620,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-25",
     "datum_ende": "2027-06-25",
-    "veranstalter_url": "https://my.raceresult.com/407465/"
+    "veranstalter_url": "https://www.lauftreff-alstertal.de/midsummerrun"
   },
   {
     "land": "Deutschland",
@@ -49527,7 +49527,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-23",
     "datum_ende": "2027-07-23",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/843/",
+    "veranstalter_url": "https://www.obermain-marathon.de/",
     "laenge_km": 9,
     "wettbewerb": "Hauptlauf 9.000 m"
   },
@@ -50594,7 +50594,7 @@
     "datum_ende": "2027-08-13",
     "laenge_km": 9.4,
     "wettbewerb": "9,4 km Lauf",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/FLK/"
+    "veranstalter_url": "https://www.festungslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -50608,7 +50608,7 @@
     "datum_ende": "2027-08-13",
     "laenge_km": 7.7,
     "wettbewerb": "7,7 km Lauf",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/FLK/"
+    "veranstalter_url": "https://www.festungslauf.de/"
   },
   {
     "land": "Deutschland",
@@ -51868,7 +51868,7 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf , Organisationsbeitrag ab 15,00 €",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/WRL/"
+    "veranstalter_url": "https://www.ringelnatzlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -51882,7 +51882,7 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf , Organisationsbeitrag ab 15,00 €",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/WRL/"
+    "veranstalter_url": "https://www.ringelnatzlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -53303,7 +53303,7 @@
     "datum_ende": "2027-10-17",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon über 42,195 km",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
+    "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
   },
   {
     "land": "Deutschland",
@@ -53317,7 +53317,7 @@
     "datum_ende": "2027-10-17",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon über 21,0975 km",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
+    "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
   },
   {
     "land": "Deutschland",
@@ -53331,7 +53331,7 @@
     "datum_ende": "2027-10-17",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Run und 10 km Firmen-Cup",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
+    "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
   },
   {
     "land": "Deutschland",
@@ -53345,7 +53345,7 @@
     "datum_ende": "2027-10-17",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Run",
-    "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
+    "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
   },
   {
     "land": "Deutschland",

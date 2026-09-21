@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Lauf Rund um das Schaubergwerk Röhrigschacht – Crosslauf
 LOCATION:Sangerhausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://ladv.de/ausschr
- eibung/detail/48855/17.-Lauf-Rund-um-das-Schaubergwerk-R%C3%B6hrigschacht
- -Sangerhausen.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://steigerschleife
+ .de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/48855/17.-Lauf-Rund-um-das-Schaub
- ergwerk-R%C3%B6hrigschacht-Sangerhausen.htm
+URL:https://steigerschleife.de/
 END:VEVENT
 END:VCALENDAR

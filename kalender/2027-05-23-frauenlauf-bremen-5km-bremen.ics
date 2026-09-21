@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:Frauenlauf Bremen
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/400106/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://frauenlauf-bre
+ men.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/400106/
+URL:https://frauenlauf-bremen.de/
 END:VEVENT
 END:VCALENDAR
