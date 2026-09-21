@@ -23221,19 +23221,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "33. Freiberger Adventslauf",
-    "standort": "Freiberg",
-    "lat": 50.9169415,
-    "lon": 13.3428889,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "laenge_km": 120.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15000026360000"
-  },
-  {
-    "land": "Deutschland",
     "name": "33. Nikolauslauf",
     "standort": "Reichenbach (Lahr/Schwarzwald)",
     "lat": 48.3289958,
@@ -23312,18 +23299,6 @@
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
     "veranstalter_url": "https://my.raceresult.com/416674/"
-  },
-  {
-    "name": "DM Cross",
-    "standort": "Weinstadt",
-    "lat": 48.8085568,
-    "lon": 9.3774813,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-28",
-    "datum_ende": "2026-11-28",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26D00000000000019",
-    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -44088,18 +44063,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.klippenlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Haster Volkslauf",
-    "standort": "Osnabrück",
-    "lat": 52.2799112,
-    "lon": 8.0471788,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-06",
-    "datum_ende": "2027-06-06",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/haster-volkslauf-2027"
   },
   {
     "land": "Deutschland",

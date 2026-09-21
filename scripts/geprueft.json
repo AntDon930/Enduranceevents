@@ -6497,5 +6497,113 @@
     "ergebnis": "unklar",
     "quelle": "https://laufen.de/laufkalender/details/27V19000013960001",
     "notiz": "Abruf scheitert am SSL-Fehler"
+  },
+  "Marzahner Läufercup|2026-09-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/46206/Marzahner-L%C3%A4ufercup-2026--Lauf-7-Berlin-Marzahn.htm",
+    "notiz": "ladv-Ausschreibung „Lauf 7“ ohne lesbare Distanz/Datum"
+  },
+  "Marner Kohltagelauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://my.raceresult.com/396063/",
+    "notiz": "raceresult: 25. Marner Kohltagelauf 27.09.2026 (Anmeldung offen) – die Veranstalterseite hatte die Absage 2026 verkündet (Punkt 2); nicht geändert"
+  },
+  "Helmstedter Läuferabend|2026-10-09": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm",
+    "notiz": "ladv-Ausschreibung: 3.000 / 5.000 / 10.000 m und Stundenlauf – unsere 5 und 10 km; Datum nicht lesbar"
+  },
+  "Storkower See Lauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.berlin-timing.de/Storkower-See-Lauf",
+    "notiz": "berlin-timing (Zeitnehmer): 11.10.2026; 15 km, 8 km (auch Walking), 4 km, 2 km, 1 km"
+  },
+  "Burgbernheim Ultra Trail|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/371444/",
+    "notiz": "raceresult: B.U.T. Burgbernheim Ultra Trail, 24.10.2026; Distanzen dort nicht lesbar"
+  },
+  "Dorstener Sparkassencross|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/383025/",
+    "notiz": "raceresult: 14. Dorstener Sparkassencross, 07.11.2026; Distanz nicht lesbar"
+  },
+  "Heseper Martinslauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
+    "notiz": "ladv-Ausschreibung: im Text steht der 31.10.2026 (Termin oder Meldeschluss?), bei uns 07.11.; Distanz nicht lesbar"
+  },
+  "Kneter Stundenlauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Grossen_Stunde/",
+    "notiz": "laufmanager.net: 8. Kneter Stundenlauf, 07.11.2026; Bambini 400 m, 2 km, Stundenlauf"
+  },
+  "Kreismeisterschaften Crosslauf Harburg-Land & Lüneburg|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/49250/Kreismeisterschaften-Crosslauf-Pattensen-%28Winsen%29.htm",
+    "notiz": "ladv-Titel: „in Pattensen (Winsen)“ – bei uns Wulfsen (Nachbarort); im Text 01.11.2026 (Termin oder Meldeschluss?); Distanzen nicht lesbar"
+  },
+  "Int. Hohenzollernberglauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
+    "notiz": "Anmeldeportal ohne lesbare Distanz/Datum (04.11.2026 im Text = wohl Meldeschluss)"
+  },
+  "Offene Kreismeisterschaft Crosslauf Nordfriesland|2026-11-22": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/49306/Offene-Kreismeisterschaft-Crosslauf-Sankt-Peter-Ording.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Distanz; 18.11.2026 im Text (Meldeschluss?)"
+  },
+  "33. Freiberger Adventslauf|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/26V15000026360000",
+    "notiz": "120-km-Zeile ausgeschlossen (Tippfehler für 12 km, Duplikat unter zweitem Namen); 28.11.2026 bestätigt"
+  },
+  "DM Cross|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/26D00000000000019",
+    "notiz": "Deutsche Crosslauf-Meisterschaft im Rahmen des Weinstadtcross (28./29.11.2026) – ausgeschlossen wie die Fälle in Punkt 5"
+  },
+  "Lothar Fricke-Winterlaufserie|2026-12-02": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/45794/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm",
+    "notiz": "ladv-Ausschreibung 21. Winterlaufserie 2026/2027 ohne lesbare Termine/Distanzen"
+  },
+  "Silvesterlauf - Krefeld|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/408225/",
+    "notiz": "raceresult: 55. Forstwalder Silvesterlauf 2026, 31.12.2026; Distanz nicht lesbar"
+  },
+  "Crosslauf der Arnstorfer LG|2027-01-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/49079/12.-Crosslauf-der-Arnstorfer-LG-Arnstorf.htm",
+    "notiz": "ladv-Ausschreibung 12. Crosslauf ohne lesbare Angaben"
+  },
+  "Haster Volkslauf|2027-05-30": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.laufen-os.de/wettkaempfe/haster-volkslauf-2027",
+    "notiz": "laufen-os.de: Haster Volkslauf 2027 am 30.05.2027 (28.05. = Meldeschluss); die zweite Zeile am 06.06.2027 ist damit falsch und ausgeschlossen"
+  },
+  "Schwandorfer Charity Stadtlauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sportprogramme.org/cakespg/events/menue/5049",
+    "notiz": "sportprogramme.org: 03.07.2027; Distanz nicht lesbar"
   }
 }

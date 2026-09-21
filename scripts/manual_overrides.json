@@ -4857,5 +4857,17 @@
   "Crosslauf-Kreismeisterschaften|2027-01-09|8.3": {
     "exclude": true,
     "_note": "Der laufen.de-Link leitet auf lv-oelde.de „Oelder Berg- und Crosslauf“ – die Kreismeisterschaft läuft im Rahmen des Oelder Berg- und Crosslaufs (09.01.2027, 8,3 km), der in der Liste steht; Meisterschaft-im-Rahmen-Fall wie in Punkt 5"
+  },
+  "33. Freiberger Adventslauf|2026-11-28|120": {
+    "exclude": true,
+    "_note": "laufen.de-Link → berlin-timing: 33. Freiberger Adventslauf 28.11.2026 mit Volkslauf 6 km, Hauptlauf 12 km, Teenielauf 3 km, Staffel 4×3 km. „120 km“ ist ein Tippfehler für 12 km – und die Veranstaltung steht als „Freiberger Adventslauf“ (6 und 12 km) bereits in der Liste."
+  },
+  "DM Cross|2026-11-28": {
+    "exclude": true,
+    "_note": "laufen.de-Link → leichtathletik.de: Deutsche Crosslauf-Meisterschaften 2026 in Weinstadt (28./29.11.2026) – die Meisterschaft läuft im Rahmen des Weinstadtcross, der in der Liste steht (Meisterschaft-im-Rahmen-Fall wie Punkt 5); Zeile ohne Distanz"
+  },
+  "Haster Volkslauf|2027-06-06": {
+    "exclude": true,
+    "_note": "laufen-os.de/wettkaempfe/haster-volkslauf-2027 nennt den 30.05.2027; der 06.06. ist eine Kalenderprognose, der Datenlauf vom 21.09.2026 hat die Zeile mit dem richtigen Datum gebracht"
   }
 }
