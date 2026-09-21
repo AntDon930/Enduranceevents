@@ -547,11 +547,11 @@
     "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
   },
   "Breckerfelder Flower Power Ultra 50|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "laufenamwengeberg.com",
     "alt": "https://my.raceresult.com/385715/",
-    "notiz": "Kontaktseite nur mit Platzhaltertext - raceresult bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://laufenamwengeberg.com/breckerfelder-flower-power-ultra/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (breckerfelder). Linkprüfung 2026-09-21."
   },
   "PULSEDAY DRT Lauf|2026-09-24": {
     "am": "2026-09-19",
@@ -3578,11 +3578,11 @@
     "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
   },
   "Idstedt Marathon|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com /contact",
-    "alt": "https://my.raceresult.com/419211/",
-    "notiz": "Kontaktseite: Organizer-URL nur Platzhalter ('Geben Sie hier die Veranstaltungs-Website an') - Link bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nur raceresult/Kalender (4 Runden als Acht, 90 % Wald- und Feldwege)"
   },
   "Litermont Trail Run|2026-10-03": {
     "am": "2026-09-21",
@@ -6854,11 +6854,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (halloween)."
   },
   "Halloween-Run-Bremen|2026-10-31": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
     "quelle": "halloween-run-bremen.de",
-    "alt": "https://halloween-run-bremen.de/",
-    "notiz": "Seite abgerufen, nennt den Lauf (halloween)."
+    "alt": "https://my.raceresult.com/370515",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://halloween-run-bremen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremen, host:halloween). Linkprüfung 2026-09-21."
   },
   "Halloweenlauf - Oppen|2026-10-31": {
     "am": "2026-09-19",
@@ -13777,11 +13777,11 @@
     "notiz": "Websuche: SKC Glauburg / Laufgruppe Glauburg, Kontakt glauburg-rennt@gmx.de, nur raceresult (5/10/21,1 km, NW)"
   },
   "Murr BackYard 12h|2026-10-04": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/413464/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.3komma8.de) - my.raceresult.com bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: private Veranstalter (Gerhard Petermann, Achim Seiter / 3komma8 sportkult-services), 6,7-km-Runde, nur raceresult"
   },
   "TVM Gehrenberglauf|2026-10-04": {
     "am": "2026-09-19",
@@ -13910,11 +13910,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sv-wonneberg.de/aktuelles/strassenlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:wonneberg). Linkprüfung 2026-09-21."
   },
   "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)|2026-10-11": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "ladv.de",
-    "alt": "https://ladv.de/ausschreibung/detail/44662/25.-Sebastian-Fredrich-Gedenklauf-Lubmin.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tri-hgwaii.de/01_news/wordpress/) - ladv.de bleibt."
+    "quelle": "tri-hgwaii.de",
+    "alt": "http://www.tri-hgwaii.de",
+    "notiz": "Websuche nannte http://www.tri-hgwaii.de/, Seite nennt den Lauf nicht erkennbar (Status fehler:ReadTimeout) - tri-hgwaii.de bleibt."
   },
   "Bayerische Marathon Meisterschaften|2026-10-11": {
     "am": "2026-09-20",
@@ -13931,11 +13931,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: http://www.schneelaufverein-geislingen.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:schneelaufverein). Linkprüfung 2026-09-19."
   },
   "Bewegung die bleibt - Lauf fürs Leben|2026-10-11": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "myracepartner.com",
-    "alt": "https://myracepartner.com/veranstaltung/?event-id=532894",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gmpg.org/xfn/11, https://hospiz-ipek.com/, https://merlinrose.de/) - myracepartner.com bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Spendenlauf des Hospiz IPEK Mahlow (5-10 km, Startgeld = Spende), keine Seite gefunden"
   },
   "ClimAid Plant a Tree Run|2026-10-11": {
     "am": "2026-09-19",
@@ -14316,11 +14316,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (borgberg). Linkprüfung 2026-09-19."
   },
   "Genetic-Twin-Run Koblenz|2026-10-25": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/421953/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://rt108.round-table.de/) - my.raceresult.com bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nichts gefunden"
   },
   "Harzlauf Thale|2026-10-25": {
     "am": "2026-09-21",
@@ -14372,11 +14372,11 @@
     "notiz": "Websuche nannte http://www.lg-emsdetten.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - ladv.de bleibt."
   },
   "Dom Zu Dom Ultra - Verden|2026-10-31": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/378641/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nur Kalender (56 km), kein Veranstalter - privates Ultra-Format"
   },
   "Gut Sutthausen Ultramarathon|2026-10-31": {
     "am": "2026-09-19",
@@ -14470,11 +14470,11 @@
     "notiz": "Websuche nannte https://tsv-nea.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Viadukt Ultramarathon|2026-11-01": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/365736/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: 45 km auf dem Viadukt-Wanderweg, 20 Plätze, 20 € - privates Format, nur raceresult (dort 1. Ausgabe 28.06.2026)"
   },
   "14. Dorstener Sparkassen Crosslauf|2026-11-07": {
     "am": "2026-09-19",
@@ -14491,11 +14491,11 @@
     "notiz": "Veranstalterseite statt ladv.de: https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (heseper). Linkprüfung 2026-09-19."
   },
   "32. Pokallauf|2026-11-07": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "laufen.de",
-    "alt": "https://laufen.de/laufkalender/details/26V16900000760000",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Heimatverein Roßbach/Schlacht und VfL Roßbach, keine Seite; braunsbedra.de ist die Stadt. 12/6,5/3 km"
   },
   "Martinslauf - Sankt Martin|2026-11-07": {
     "am": "2026-09-19",

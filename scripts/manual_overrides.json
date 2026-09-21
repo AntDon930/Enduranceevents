@@ -5874,5 +5874,13 @@
   "62. SCC Cross Country|2026-11-07": {
     "veranstalter_url": "https://www.scc-berlin-leichtathletik.de/",
     "_note": "Veranstalterseite statt strassenlauf.org: https://www.scc-berlin-leichtathletik.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:berlin, country). Linkprüfung 2026-09-21."
+  },
+  "Halloween-Run-Bremen|2026-10-31": {
+    "veranstalter_url": "https://halloween-run-bremen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://halloween-run-bremen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremen, host:halloween). Linkprüfung 2026-09-21."
+  },
+  "Breckerfelder Flower Power Ultra 50|2026-10-03": {
+    "veranstalter_url": "https://laufenamwengeberg.com/breckerfelder-flower-power-ultra/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://laufenamwengeberg.com/breckerfelder-flower-power-ultra/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (breckerfelder). Linkprüfung 2026-09-21."
   }
 }

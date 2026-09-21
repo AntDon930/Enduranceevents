@@ -3651,8 +3651,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      - **Firmenläufe nur für Teams** (Firmenlauf Ratingen: „Teams von
        Unternehmen, Institutionen, Vereinen", keine Einzelstarter) –
        rein oder raus? „Es soll jeder die Chance haben sich anzumelden"
-       spräche für raus, aber es sind ~30 Firmenläufe im Bestand, und
-       die meisten nennen ihre Bedingungen nicht.
+       spräche für raus. **Stichprobe von 8 der 28 Firmenläufe
+       (21.09.2026, Veranstalterseiten)**: Essen lässt Einzelstarter
+       ausdrücklich zu (Solo im „bunert Essen Team"), Gießen und
+       Sauerland nennen nur Teams (Sauerland: auch Einzelunternehmer),
+       Bonn, Landshut, Bamberg, Ludwigsburg und Soest sagen es nicht
+       (Bamberg: hybrid mit 4-wöchiger Sammelphase). Die Klasse ist also
+       gemischt; eine Regel „Firmenlauf = raus" träfe auch offene.
      - **THE ROX, Deadly Dozen, ATHX** in `NICHT_AUSDAUER` aufnehmen?
        Heute per Override draußen (sieben Zeilen); mit der Liste blieben
        sie beim nächsten Datenlauf von selbst draußen.
