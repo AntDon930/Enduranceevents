@@ -5622,5 +5622,120 @@
     "wettbewerb": "AVU Lauf fürs Klima 10 km",
     "_quelle": "https://citylauf.roteerde.de/laeufe-und-strecken",
     "_note": "12. Schwelmer Citylauf, 18.09.2027: 10 km („AVU Lauf fürs Klima“, ab U18), 5 km Jedermann-/Firmenlauf; Bambini/Schüler 250-1.500 m und eine 3×750-m-Fun-Staffel (Datenregeln 5 und 16). Zeile stand ohne Länge; die 5 km in manual_events.json. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Frankfurt am Main|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Gangelt|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Gemmrigheim|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Hannover Eilenriede|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Kiel Mönkeberg|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Leipzig Red Bull Arena|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Lutherstadt Eisleben|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Munich|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Möhnesee Körbecke|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Obertshausen|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Oldenburg|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Regensburg Donaupark|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Rehlingen-Siersburg Gewerbegebiet|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Schladitzer See|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Sigmaringen|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Töging|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life - Tübingen|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Bamberg Gaustadt|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Berlin|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Bonn|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Bremen Neustadt|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Erfurt|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Wings for Life World Run Göttingen|2027-05-09": {
+    "charity": true,
+    "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
   }
 }

@@ -40083,7 +40083,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/frankfurt-am-main"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/frankfurt-am-main",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40095,7 +40096,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gangelt"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gangelt",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40107,7 +40109,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gemmrigheim"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gemmrigheim",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40119,7 +40122,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/hannover-eilenriede"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/hannover-eilenriede",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40131,7 +40135,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/kiel-monkeberg"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/kiel-monkeberg",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40143,7 +40148,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/leipzig-red-bull-arena"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/leipzig-red-bull-arena",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40155,7 +40161,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/lutherstadt-eisleben"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/lutherstadt-eisleben",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40167,7 +40174,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/niederaula"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/niederaula",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40179,7 +40187,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/mohnesee-korbecke"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/mohnesee-korbecke",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40191,7 +40200,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/obertshausen"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/obertshausen",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40203,7 +40213,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/oldenburg"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/oldenburg",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40215,7 +40226,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/regensburg-donaupark"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/regensburg-donaupark",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40227,7 +40239,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/rehlingen-siersburg-gewerbegebiet"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/rehlingen-siersburg-gewerbegebiet",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40239,7 +40252,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/schladitzer-see"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/schladitzer-see",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40251,7 +40265,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/sigmaringen"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/sigmaringen",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40263,7 +40278,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/toging"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/toging",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40275,7 +40291,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/tubingen"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/tubingen",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40287,7 +40304,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bamberg-gaustadt"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bamberg-gaustadt",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40299,7 +40317,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/berlin"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40311,7 +40330,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bonn"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bonn",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40323,7 +40343,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bremen-neustadt"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/bremen-neustadt",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40335,7 +40356,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/erfurt-luisenpark"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/erfurt-luisenpark",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -40347,7 +40369,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
-    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gottingen"
+    "veranstalter_url": "https://www.wingsforlifeworldrun.com/en/locations/gottingen",
+    "charity": true
   },
   {
     "land": "Deutschland",
