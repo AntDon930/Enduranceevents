@@ -469,6 +469,14 @@ def test_duplikate() -> None:
           is_same_event(st, dict(st, dauer_h=0.5)), False)
     check("gleiche Dauer bleibt Duplikat", is_same_event(st, dict(st)), True)
     check("ohne Dauer weiter Duplikat", is_same_event(st, dict(st, dauer_h=None)), True)
+    # Distanz gegen Dauer (seit 21.09.2026): zwei Wettbewerbe. Der
+    # 24-h-Lauf des Rokathon ist nicht sein Marathon - vorher verschmolz
+    # ein nachgetragenes Zeitrennen mit der Distanz-Zeile und ließ sich
+    # gar nicht anlegen. Ohne JEDE Angabe bleibt es ein Duplikat.
+    m = dict(st, laenge_km=42.2, dauer_h=None)
+    check("Marathon vs. 24-h-Lauf getrennt", is_same_event(m, dict(st, dauer_h=24.0)), False)
+    check("Marathon vs. Zeile ohne jede Angabe: Duplikat",
+          is_same_event(m, dict(st, dauer_h=None)), True)
 
     # Vom Nutzer gemeldet: Marathon und Halbmarathon München standen je
     # DOPPELT in der Liste. Ursache war die Wortstellung - als Zeichenfolge

@@ -1778,6 +1778,24 @@ def _compatible_distance(a: dict, b: dict) -> bool:
             return abs(ha - hb) <= max(0.1, 0.05 * max(ha, hb))
         return True
     if ka is None or kb is None:
+        # Eine Zeile MIT Distanz gegen eine Zeile, die stattdessen eine
+        # DAUER trägt: zwei Wettbewerbe. Ein 24-Stunden-Lauf ist nicht der
+        # Marathon derselben Veranstaltung, auch wenn beide auf derselben
+        # Runde laufen. Bis zum 21.09.2026 galt hier "unbekannt schließt
+        # nichts aus" - und deshalb ließen sich Rokathon 24 h, die 24
+        # Stunden van Halen und die 6-/12-h-Challenge des Winterloop
+        # nicht neben ihre Marathon-Zeilen tragen: is_same_event() hielt
+        # sie für dieselbe Strecke (Elfter Durchgang).
+        # Am Bestand nachgezählt: Fünf Veranstaltungen tragen genau diese
+        # Struktur schon (Remshalden Run 1 h neben 5,7/11,4 km, Mad
+        # Chicken Run 24 h neben 10/22/42 km, ...) - dort hielt nur das
+        # abweichende Label die Zeilen auseinander. Die Regel macht
+        # ausdrücklich, was der Bestand längst zeigt.
+        # Ohne jede Angabe (weder Distanz noch Dauer) bleibt es beim
+        # Alten: unbekannt schließt nichts aus.
+        ohne_distanz = b if ka is not None else a
+        if ohne_distanz.get("dauer_h") is not None:
+            return False
         return True  # unbekannte Distanz schließt ein Duplikat nicht aus
     # Toleranz gegen Quellen-Ungenauigkeiten (42,195 vs. 42,2; 21,0 vs. 21,1),
     # aber weit genug unter echten Distanzunterschieden (5 km vs. 10 km),

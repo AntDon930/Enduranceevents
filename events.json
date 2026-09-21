@@ -2931,20 +2931,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "25. Altstadtfestlauf in Lauf",
-    "standort": "Lauf an der Pegnitz",
-    "lat": 49.5204487,
-    "lon": 11.2829495,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.altstadtfest-lauf.de/",
-    "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
     "name": "25. Marner Kohltagelauf",
     "standort": "Marne",
     "lat": 53.9521162,
@@ -3353,6 +3339,20 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Altstadtfestlauf in Lauf",
+    "standort": "Lauf an der Pegnitz",
+    "lat": 49.5110483,
+    "lon": 11.2780245,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "veranstalter_url": "https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km (2 Runden)"
   },
   {
     "land": "Deutschland",
@@ -8075,19 +8075,6 @@
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km Jedermann-Lauf (ab 8 Jahren; Jahrgang 2018 und älter)",
     "veranstalter_url": "http://eiderlauf.athletico-buedelsdorf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "49. Herbstlauf Ready4Run Niederwangen",
-    "standort": "Wangen im Allgäu",
-    "lat": 47.6856552,
-    "lon": 9.8342247,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 5.4,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000734360002"
   },
   {
     "land": "Deutschland",
@@ -17829,10 +17816,10 @@
     "art1": "Laufen",
     "art2": "Hindernis",
     "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
+    "datum_ende": "2026-11-01",
     "laenge_km": 30.0,
     "veranstalter_url": "https://www.legendofcross.de/",
-    "wettbewerb": "Berserker (mind. 30 Hindernisse)"
+    "wettbewerb": "Berserker 30 km (mind. 30 Hindernisse)"
   },
   {
     "land": "Deutschland",
@@ -17843,9 +17830,9 @@
     "art1": "Laufen",
     "art2": "Hindernis",
     "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
+    "datum_ende": "2026-11-01",
     "laenge_km": 17.0,
-    "wettbewerb": "Expert (mind. 20 Hindernisse)",
+    "wettbewerb": "Expert 17 km (mind. 20 Hindernisse)",
     "veranstalter_url": "https://www.legendofcross.de/"
   },
   {
@@ -17857,52 +17844,10 @@
     "art1": "Laufen",
     "art2": "Hindernis",
     "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
+    "datum_ende": "2026-11-01",
     "laenge_km": 10.0,
-    "wettbewerb": "Sprint (mind. 15 Hindernisse)",
+    "wettbewerb": "Sprint 10 km (mind. 15 Hindernisse)",
     "veranstalter_url": "https://www.legendofcross.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "TEAG - Legend of Cross - Mühlberg",
-    "standort": "Drei Gleichen",
-    "lat": 50.8973272,
-    "lon": 10.8496601,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-11-01",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km SPRINT (ab 14 Jahre, Jg. 2012 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/369156/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "TEAG - Legend of Cross - Mühlberg",
-    "standort": "Drei Gleichen",
-    "lat": 50.8973272,
-    "lon": 10.8496601,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-11-01",
-    "laenge_km": 17.0,
-    "wettbewerb": "17 km EXPERT (ab 16 Jahre, Jg. 2010 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/369156/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "TEAG - Legend of Cross - Mühlberg",
-    "standort": "Drei Gleichen",
-    "lat": 50.8973272,
-    "lon": 10.8496601,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-11-01",
-    "laenge_km": 30.0,
-    "wettbewerb": "30 km BERSERKER (ab 18 Jahre, Jg. 2008 und älter)",
-    "veranstalter_url": "https://my.raceresult.com/369156/"
   },
   {
     "land": "Deutschland",
@@ -20348,20 +20293,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "2. Potsdamer Cross im Rahmen der 22. DPM",
-    "standort": "Potsdam",
-    "lat": 52.4009309,
-    "lon": 13.0591397,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 5.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005402760000",
-    "wettbewerb": "Cross"
-  },
-  {
-    "land": "Deutschland",
     "name": "25. Steverlauf",
     "standort": "Senden",
     "lat": 51.8588,
@@ -21584,19 +21515,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Rennbahncross mit rheinland-pfälzischen Crosslaufmeisterschaften",
-    "standort": "Herxheim",
-    "lat": 49.1463456,
-    "lon": 8.2156228,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-15",
-    "datum_ende": "2026-11-15",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/"
-  },
-  {
-    "land": "Deutschland",
     "name": "StoneBreakTrail Meltewitz",
     "standort": "Lossatal",
     "lat": 51.3894031,
@@ -22291,20 +22209,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "http://nlv-kreis-nordwest.de/meisterschaften/kreismeisterschaften-crosslauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lauf der Nahe-Crosslauf-Serie in Schwollen",
-    "standort": "Schwollen",
-    "lat": 49.705677,
-    "lon": 7.1742678,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-21",
-    "datum_ende": "2026-11-21",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/374075/"
   },
   {
     "land": "Deutschland",
@@ -24330,19 +24234,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "TopLauf",
     "veranstalter_url": "https://koelner-nikolauslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "32. FT Jahn Nikolauslauf",
-    "standort": "Landsberg",
-    "lat": 48.0497474,
-    "lon": 10.8768728,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.ftjahn-landsberg.de/"
   },
   {
     "land": "Deutschland",
@@ -30645,6 +30536,34 @@
     "laenge_km": 22.5,
     "wettbewerb": "Halbmarathon (3 Runden, ca. 22,5 km)",
     "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Mountainman Winterloop Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6766377,
+    "lon": 12.4692465,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-23",
+    "datum_ende": "2027-01-24",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/",
+    "dauer_h": 6.0,
+    "wettbewerb": "6-h-Challenge (7,5-km-Runde)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Mountainman Winterloop Reit im Winkl",
+    "standort": "Reit im Winkl",
+    "lat": 47.6766377,
+    "lon": 12.4692465,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-23",
+    "datum_ende": "2027-01-24",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/",
+    "dauer_h": 12.0,
+    "wettbewerb": "12-h-Challenge (7,5-km-Runde)"
   },
   {
     "land": "Deutschland",
@@ -47256,6 +47175,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Rokathon Rockenhausen",
+    "standort": "Rockenhausen",
+    "lat": 49.6311747,
+    "lon": 7.8215535,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-27",
+    "veranstalter_url": "https://www.rokathon.de/",
+    "dauer_h": 24.0,
+    "wettbewerb": "24-Stunden-Lauf (Runde 1,758 km)"
+  },
+  {
+    "land": "Deutschland",
     "name": "S'KayRun",
     "standort": "Erlenbach",
     "lat": 49.173117,
@@ -50425,6 +50358,20 @@
     "laenge_km": 100.0,
     "wettbewerb": "100 km",
     "veranstalter_url": "https://lg-lottehalen.jimdofree.com/die-24-stunden-van-halen-7-8-8-8/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Die 24 Stunden van Halen",
+    "standort": "Lotte",
+    "lat": 52.2783846,
+    "lon": 7.9200437,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-07",
+    "datum_ende": "2027-08-08",
+    "veranstalter_url": "https://lg-lottehalen.jimdofree.com/die-24-stunden-van-halen-7-8-8-8/",
+    "dauer_h": 24.0,
+    "wettbewerb": "24-Stunden-Lauf (Runde 1,465 m, max. 25 Läufer)"
   },
   {
     "land": "Deutschland",

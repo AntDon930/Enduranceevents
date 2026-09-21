@@ -2055,7 +2055,9 @@
   },
   "Rennbahncross mit rheinland-pfälzischen Crosslaufmeisterschaften|2026-11-15": {
     "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tv-herxheim.de/veranstaltungen/rennbahncross/. Seite abgerufen, sie nennt den Lauf (rennbahncross). Linkprüfung 2026-09-19."
+    "_note": "Die Landesmeisterschaft läuft IM „Rennbahncross in Herxheim“ (15.11.2026, dieselbe Seite, 5 und 9 km stehen dort). Meisterschaft-im-Rahmen-Fall (offene Punkte, Nr. 5, umkehrbar). Geprüft 2026-09-21.",
+    "exclude": true,
+    "_quelle": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/"
   },
   "Rülzheimer Crosslauf|2026-11-07": {
     "veranstalter_url": "http://www.lgruelzheim.de",
@@ -3458,7 +3460,9 @@
   },
   "32. FT Jahn Nikolauslauf|2026-12-06": {
     "veranstalter_url": "https://www.ftjahn-landsberg.de/",
-    "_note": "Veranstalterseite statt laufen.de: https://www.ftjahn-landsberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:landsberg). Linkprüfung 2026-09-20."
+    "_note": "Dieselbe Veranstaltung wie „Nikolauslauf Landsberg a. Lech“ (06.12.2026, gleiche Seite, dort mit 5 UND 10 km). Duplikat unter zwei Namen (Zehnter Durchgang, Punkt 17). Die Zeile mit beiden Strecken bleibt. Geprüft 2026-09-21.",
+    "exclude": true,
+    "_quelle": "https://www.ftjahn-landsberg.de/"
   },
   "44. Winser Silvesterlauf|2026-12-31": {
     "veranstalter_url": "https://mtv-fichte.de/aktuelles/ansicht/42-silvesterlauf-des-mtv-fichte-winsen-aller-ev",
@@ -5434,5 +5438,48 @@
     "wettbewerb": "Jedermann-Triathlon 23,6 km (0,3 km Schwimmen / 18,7 km Rad / 4,6 km Laufen)",
     "_quelle": "https://www.sgweinstadt.de/weinstadt-triathlon",
     "_note": "Vom Nutzer am 21.09.2026 gemeldet: Die Box zeigte „Sprint · Jedermann-Triathlon“, richtig ist „Super-Sprint“. Die Summe 23,6 km liegt knapp über der Sprint-Grenze (23 km), der Schwimmteil von 300 m aber unter dem kleinsten Sprint-Schwimmen (500 m) - erst die Teilstrecken im Label machen das für triathlonFormat() sichtbar. Schreibweise nach der Vorgabe: Gesamtlänge vorn, Teilstrecken in Klammern."
+  },
+  "25. Altstadtfestlauf in Lauf|2026-09-27|10": {
+    "exclude": true,
+    "_quelle": "https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/",
+    "_note": "Dieselbe Veranstaltung wie „Altstadtfestlauf in Lauf“ (Ski-Club Lauf, So 27.09.2026, 5-km-Runde, 10 km = 2 Runden). Duplikat unter zwei Namen; die 10-km-Strecke steht jetzt unter dem anderen Namen in manual_events.json. Geprüft 2026-09-21."
+  },
+  "TEAG - Legend of Cross - Mühlberg|2026-10-31": {
+    "standort": "Mühlberg",
+    "lat": 50.8681704,
+    "lon": 10.8245247,
+    "datum_ende": "2026-11-01",
+    "_quelle": "https://www.legendofcross.de/",
+    "_note": "Die Strecken (10/17/30 km) standen je ZWEIMAL: einmal unter „Mühlberg“ (legendofcross.de), einmal unter „Drei Gleichen“ (raceresult). Die Seite nennt den Ort „Mühlberg an den Drei Gleichen“ – Mühlberg ist ein Ortsteil der Gemeinde Drei Gleichen, es ist EIN Ort. Der Override setzt Ort und Koordinaten für alle sechs Zeilen gleich; die Duplikat-Erkennung führt sie danach zusammen (Ort ≤ 30 km war vorher die Bedingung, an der es scheiterte). Die Veranstaltung läuft laut Seite über „31. Oktober und 01. November“, daher datum_ende. Damit fällt das Beispiel weg, mit dem CLAUDE.md den Ort im ICS-Dateinamen begründet hat (siehe dort). Geprüft 2026-09-21. Koordinaten sind die Nominatim-Werte der vorhandenen Mühlberg-Zeilen, nicht geraten. Zusammengeführt wurden die Zeilen erst durch die drei distanzgenauen Label-Overrides darunter: Beide Sätze trugen ein Label („Berserker (mind. 30 Hindernisse)“ gegen „30 km BERSERKER (ab 18 Jahre …)“), und _same_name() hält zwei verschiedene Labels für zwei Wettbewerbe. Der Schlüssel unterscheidet nicht nach Ort oder Link – ein exclude hätte beide Zeilen getroffen. Also EIN Label für beide, dann greift die Duplikat-Erkennung."
+  },
+  "Lauf der Nahe-Crosslauf-Serie in Schwollen|2026-11-21": {
+    "exclude": true,
+    "_quelle": "http://www.nahe-cross.de",
+    "_note": "Dieselbe Veranstaltung wie „Schwollener Crosslauf - 2. Lauf der 17. OIE Nahecrosslaufserie“ (21.11.2026, 6,4 km, Veranstalterseite nahe-cross.de); diese Zeile stammt aus dem raceresult-Portal und rundet auf 6 km. Duplikat unter zwei Namen (Elfter Durchgang, Punkt 18). Geprüft 2026-09-21."
+  },
+  "2. Potsdamer Cross im Rahmen der 22. DPM|2026-11-14": {
+    "exclude": true,
+    "_quelle": "https://www.sc-potsdam.de/leichtathletik/",
+    "_note": "DPM = Deutsche Polizeimeisterschaft im Crosslauf, ausgetragen IM Rahmen des „Crosslauf in den Ravensbergen“ (14.11.2026, Potsdam, 5/7/9 km – der steht in der Liste). Nicht offen für alle; Meisterschaft-im-Rahmen-Fall wie die sieben anderen (offene Punkte, Nr. 5, umkehrbar). Geprüft 2026-09-21."
+  },
+  "49. Herbstlauf Ready4Run Niederwangen|2026-10-04": {
+    "exclude": true,
+    "_quelle": "https://www.sg-niederwangen.de/events/standard-titel/herbstlauf/",
+    "_note": "Dieselbe Veranstaltung wie „Herbstlauf Niederwangen“ (SG Niederwangen, So 04.10.2026; dort Viertelmarathon 10,5 km und 5 km). Diese Zeile kommt aus dem DLV-Kalender und nennt 5,4 km; die Veranstalterseite gibt die 5-km-Strecke nicht auf die Nachkommastelle an, die 5,0-km-Zeile bleibt so stehen. Duplikat unter zwei Namen (Elfter Durchgang, Punkt 18). Geprüft 2026-09-21."
+  },
+  "TEAG - Legend of Cross - Mühlberg|2026-10-31|10": {
+    "wettbewerb": "Sprint 10 km (mind. 15 Hindernisse)",
+    "_quelle": "https://www.legendofcross.de/",
+    "_note": "Siehe den allgemeinen Schlüssel: dasselbe Label für beide Doppelzeilen, damit die Duplikat-Erkennung sie zusammenführt. Gesamtlänge vorn, Zusatz in Klammern. Geprüft 2026-09-21."
+  },
+  "TEAG - Legend of Cross - Mühlberg|2026-10-31|17": {
+    "wettbewerb": "Expert 17 km (mind. 20 Hindernisse)",
+    "_quelle": "https://www.legendofcross.de/",
+    "_note": "Siehe den allgemeinen Schlüssel: dasselbe Label für beide Doppelzeilen, damit die Duplikat-Erkennung sie zusammenführt. Gesamtlänge vorn, Zusatz in Klammern. Geprüft 2026-09-21."
+  },
+  "TEAG - Legend of Cross - Mühlberg|2026-10-31|30": {
+    "wettbewerb": "Berserker 30 km (mind. 30 Hindernisse)",
+    "_quelle": "https://www.legendofcross.de/",
+    "_note": "Siehe den allgemeinen Schlüssel: dasselbe Label für beide Doppelzeilen, damit die Duplikat-Erkennung sie zusammenführt. Gesamtlänge vorn, Zusatz in Klammern. Geprüft 2026-09-21."
   }
 }
