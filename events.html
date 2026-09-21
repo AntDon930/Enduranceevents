@@ -1320,6 +1320,25 @@
     (window.EE_AUTH_QUEUE = window.EE_AUTH_QUEUE || []).push(() => render());
   }
 
+  // Beschriftungen VOR dem Abruf: Suchfeld, Filterpillen, Knöpfe und
+  // Fußzeile tragen sonst bis zum Eintreffen von events.json keinen Text
+  // (der Ladezustand zeigte leere Pillen neben grauen Balken). Ohne
+  // render() - das wartet auf die Daten (eventsGeladen).
+  // NICHT direkt aufrufen: Dieses Skript steht VOR der Fußzeile im HTML,
+  // und setLanguage() beschriftet auch die Fußzeile (Fußnote, Impressum,
+  // "Event fehlt?") - beim direkten Aufruf war `#datum-fussnote` noch
+  // nicht geparst, und der Rauchtest meldete "Cannot set properties of
+  // null". Also erst nach DOMContentLoaded, aber ohne den Abruf darauf
+  // warten zu lassen (der soll so früh wie möglich losgehen). Sind die
+  // Daten bis dahin schon da, beschriftet der reguläre Aufruf weiter
+  // unten - dann ist hier nichts mehr zu tun.
+  const fruehBeschriften = () => { if (!eventsGeladen) setLanguage(currentLang, { skipRender: true }); };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fruehBeschriften, { once: true });
+  } else {
+    fruehBeschriften();
+  }
+
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -1957,6 +1976,7 @@
     if (!eventsGeladen) {
       countEl.textContent = '';
       removeNotifyPrompt();
+      suche.sync();
       if (!bodyEl.querySelector('.skeleton-row')) bodyEl.innerHTML = ladeZeilenHtml;
       return;
     }
