@@ -375,11 +375,28 @@ ART2_LISTEN: dict[str, tuple[list, str | None]] = {
 }
 
 
+# Ein LAUF in einem Triathlon-Kalender. running.life führt in seinem
+# Triathlon-Kalender auch die Läufe der Triathlon-Veranstalter - der
+# "O-SEE Ultra Trail" (O-SEE Sports, Ausrichter der XTERRA-Rennen) stand
+# deshalb als Triathlon in der Liste, mit Kinderläufen unter 5 km, die
+# der 5-km-Regel nur entgingen, weil die für Triathlon nicht gilt (vom
+# Nutzer am 21.09.2026 gemeldet: "hat nichts mit Triathlon zu tun").
+# Gilt NUR, wenn die Voreinstellung der Quelle Triathlon ist, und nur
+# ohne Mehrsport-Stichwort (ART1_KEYWORDS steht vorn): Ein "Cross
+# Triathlon Trail Edition" bleibt Triathlon. In einem Laufkalender ändert
+# die Zeile nichts (die Voreinstellung ist dort schon Laufen), und ein
+# Radkalender ("MTB Trail Marathon") ist nicht betroffen.
+LAUF_IM_TRIATHLONKALENDER = re.compile(
+    r"trail|marathon|\blauf\b|lauf$|-lauf|läufe|\brun\b|running|ultra", re.I)
+
+
 def guess_art1(text: str, config: "SiteConfig") -> str:
     """Die Sportart aus dem Text - sonst die Voreinstellung der Quelle."""
     for pattern, sportart in ART1_KEYWORDS:
         if pattern.search(text or ""):
             return sportart
+    if config.default_art1 == "Triathlon" and LAUF_IM_TRIATHLONKALENDER.search(text or ""):
+        return "Laufen"
     return config.default_art1
 
 KNOWN_DISTANCES_KM_LAUFEN = {

@@ -755,6 +755,33 @@ TRIATHLON_DISTANZEN_KM = (
 )
 
 
+# Kategorien, die es NUR beim Laufen gibt. Ein Triathlon im Gelände heißt
+# "Cross"; trägt eine Triathlon-Zeile "Trail", "Bahn" oder "Hindernis",
+# stammt die Kategorie aus der Lauf-Liste - und meist ist die Zeile ein
+# Lauf, der als Triathlon einsortiert wurde.
+LAUF_KATEGORIEN_NUR_LAUFEN = {"Trail", "Bahn", "Hindernis"}
+
+
+def report_triathlon_mit_laufkategorie(events: list[dict]) -> list[str]:
+    """Meldet Triathlon-Zeilen mit einer Kategorie, die es nur beim Laufen
+    gibt.
+
+    Gefunden am "O-SEE Ultra Trail" (Nutzer 21.09.2026: "hat nichts mit
+    Triathlon zu tun - Triathlons können auch nicht wirklich ein Trail
+    Event sein"): Die Kinderläufe und der Canicross standen als
+    Triathlon/Trail in der Liste und entgingen so der 5-km-Regel, die
+    nur für Laufen gilt. Nur Meldung, keine Umstellung - ob die Zeile
+    ein Lauf ist (dann Override `art1: Laufen`) oder ein Cross-Triathlon
+    (dann `art2: Cross`), entscheidet die Ausschreibung.
+    """
+    return [
+        f"{e.get('name')} ({e.get('datum_start')}, {e.get('wettbewerb') or '–'}, "
+        f"{e.get('art2')}): wahrscheinlich ein Lauf – Override art1 prüfen"
+        for e in events
+        if e.get("art1") == "Triathlon" and e.get("art2") in LAUF_KATEGORIEN_NUR_LAUFEN
+    ]
+
+
 def report_triathlon_distanzen(events: list[dict]) -> list[str]:
     """Meldet Triathlon-Zeilen, deren Distanz zu keinem gängigen Format
     passt.
@@ -1685,6 +1712,7 @@ def main() -> None:
     moegliche_dups = report_moegliche_duplikate(events)
     tri_teilstrecken = report_multisport_teilstrecken(events)
     tri_distanzen = report_triathlon_distanzen(events)
+    tri_laufkategorie = report_triathlon_mit_laufkategorie(events)
     koord_wider = report_widerspruechliche_koordinaten(events)
     gleiche_seite = report_gleiche_seite_gleiche_distanz(events)
     mehrfach_km = report_mehrere_distanzen_im_label(events)
@@ -1746,6 +1774,7 @@ def main() -> None:
     section("⚠ Mehrsport: Zeile sieht nach einer Teilstrecke aus (nur Hinweis)",
             tri_teilstrecken)
     section("⚠ Triathlon-Distanz passt zu keinem Format (nur Hinweis)", tri_distanzen)
+    section("⚠ Triathlon mit Laufkategorie – wahrscheinlich ein Lauf (nur Hinweis)", tri_laufkategorie)
     section("⚠ Unplausible Laufdistanz an einem Tag (nur Hinweis)", implausible)
     section("⚠ Dieselbe Veranstaltung an zwei weit entfernten Punkten (nur Hinweis)",
             koord_wider)

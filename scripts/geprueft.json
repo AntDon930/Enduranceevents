@@ -6618,5 +6618,11 @@
   "ergebnis": "entfernt",
   "quelle": "https://www.sportverein-oberkollbach.de/bftb/",
   "notiz": "5x1 km + Kraftstationen; Nutzer 21.09.2026: HYROX-Klasse nicht aufnehmen - NICHT_AUSDAUER"
+ },
+ "O-SEE Ultra Trail|2026-10-17": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.o-see-sports.de/",
+  "notiz": "Reines Trail-Lauf-Event (Nutzer 21.09.2026: 'hat nichts mit Triathlon zu tun'); vier Zeilen unter 5 km (Juniors, Youngsters, Minis, Canicross) standen als Triathlon/Trail und entgingen so der 5-km-Regel - Override art1 Laufen, damit fallen sie heraus. Ein Triathlon kann keine Kategorie Trail haben (Cross ist die Geländeform); clean_events meldet solche Zeilen jetzt."
  }
 }

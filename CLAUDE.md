@@ -390,6 +390,31 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      113, 226 km; 44 Fälle, nur für den klassischen Triathlon – ein
      15-km-SwimRun ist normal). Beide gehören einzeln geprüft und als
      Override eingetragen.
+   - **Der umgekehrte Fall: ein LAUF im Triathlon-Kalender** (vom
+     Nutzer am 21.09.2026 am „O-SEE Ultra Trail" gemeldet: „Das ist ein
+     reines Trail lauf Event. Triathlons können auch nicht wirklich ein
+     Trail Event sein"). running.life führt die Trailläufe von O-SEE
+     Sports (100K bis Minis) im Triathlon-Kalender, weil derselbe
+     Veranstalter die O-SEE Challenge ausrichtet; `default_art1 =
+     "Triathlon"` machte daraus Triathlons mit Kategorie „Trail" – eine
+     Kategorie, die es beim Triathlon gar nicht gibt. Folge: Die vier
+     Kinder-/Canicross-Zeilen unter 5 km blieben stehen, weil
+     Datenregel 5 nur für Laufen gilt. Drei Dinge dagegen:
+     - `guess_art1()` fällt bei `default_art1 == "Triathlon"` auf
+       „Laufen" zurück, wenn der Name ein Laufwort trägt
+       (`LAUF_IM_TRIATHLONKALENDER`: trail, marathon, lauf, run, ultra)
+       und KEIN Mehrsport-Stichwort – die `ART1_KEYWORDS` laufen vorher,
+       „XTERRA", „Cross Triathlon Trail Edition" und „Swimrun" bleiben
+       Triathlon. Nur im Triathlon-Kalender: Im Laufkalender ändert sich
+       nichts, im Radkalender bleibt ein „MTB Trail Marathon" Rad.
+     - `fix_multisport_art1()` konvertiert nur Laufen → Triathlon, nie
+       zurück; der Bestand braucht deshalb den **Override** (`art1:
+       "Laufen"`, beide Datumsschlüssel, siehe „Die wichtigste Lektion").
+       Mit `art1` Laufen greift Datenregel 5, die vier Zeilen fallen.
+     - `report_triathlon_mit_laufkategorie()` meldet jede Triathlon-Zeile
+       mit einer reinen Laufkategorie (`LAUF_KATEGORIEN_NUR_LAUFEN`:
+       Trail, Bahn, Hindernis) – nur Hinweis, Override prüfen.
+     `test_lauf_im_triathlonkalender` hält Treffer und Gegenproben fest.
 
 12. **Das Wettbewerbs-Label darf eine andere Sportart nennen als die
    Veranstaltung.** Der „Drei Talsperren Marathon" hat neben Marathon,

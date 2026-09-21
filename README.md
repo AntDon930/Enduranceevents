@@ -1942,6 +1942,20 @@ wie bei den verdächtigen Distanzen:
 Die Meldungen stehen bei jedem Lauf von `clean_events.py` im Bericht
 (mit `--quiet` nur als Zahl).
 
+**Und umgekehrt: ein Lauf im Triathlon-Kalender.** Seit running.life
+auch die Triathlon-Kalender liefert (`default_art1 = "Triathlon"`),
+stand der „O-SEE Ultra Trail" – ein reines Trail-Lauf-Event, das
+derselbe Veranstalter wie die O-SEE Challenge ausrichtet – als
+Triathlon mit Kategorie „Trail" in der Liste, und seine vier
+Kinder- und Canicross-Strecken unter 5 km blieben stehen, weil die
+Mindestdistanz nur für Laufen gilt (vom Nutzer am 21.09.2026 gemeldet).
+`guess_art1()` fällt deshalb im Triathlon-Kalender auf „Laufen" zurück,
+wenn der Name ein Laufwort trägt (`LAUF_IM_TRIATHLONKALENDER`) und kein
+Mehrsport-Stichwort – „XTERRA" oder „Swimrun" bleiben Triathlon. Für den
+Bestand gilt der Override (`art1: "Laufen"`), und
+`report_triathlon_mit_laufkategorie()` in `clean_events.py` meldet jede
+Triathlon-Zeile mit einer reinen Laufkategorie (Trail, Bahn, Hindernis).
+
 ## Die Mastersuche
 
 Ein Feld links von der Trefferzahl, das über **Eventname, Wettbewerb und

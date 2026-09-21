@@ -1311,6 +1311,32 @@ def test_farbschema_skript() -> None:
     check("site.css: kein prefers-color-scheme", "prefers-color-scheme" in css, False)
 
 
+def test_lauf_im_triathlonkalender() -> None:
+    """Ein Lauf im Triathlon-Kalender bleibt ein Lauf.
+
+    running.life führt im Triathlon-Kalender auch die Läufe der
+    Triathlon-Veranstalter; der "O-SEE Ultra Trail" stand deshalb als
+    Triathlon in der Liste - mit Kinderläufen unter 5 km, die der
+    5-km-Regel entgingen (Nutzer 21.09.2026: "hat nichts mit Triathlon
+    zu tun", und ein Triathlon kann keine Kategorie Trail haben).
+    Die Regel greift NUR bei Triathlon als Voreinstellung und nie gegen
+    ein Mehrsport-Stichwort.
+    """
+    from scraper_lib import SiteConfig, guess_art1
+    print("\nLauf im Triathlon-Kalender (guess_art1):")
+    tri = SiteConfig(base_url="", calendar_url="", default_art1="Triathlon")
+    lauf = SiteConfig(base_url="", calendar_url="", default_art1="Laufen")
+    rad = SiteConfig(base_url="", calendar_url="", default_art1="Fahrrad")
+    check("O-SEE Ultra Trail im Triathlon-Kalender -> Laufen", guess_art1("O-SEE Ultra Trail", tri), "Laufen")
+    check("Zittauer Gebirgslauf im Triathlon-Kalender -> Laufen", guess_art1("Zittauer Gebirgslauf", tri), "Laufen")
+    check("XTERRA Germany bleibt Triathlon", guess_art1("XTERRA Germany", tri), "Triathlon")
+    check("Cross Triathlon Trail Edition bleibt Triathlon", guess_art1("Cross Triathlon Trail Edition", tri), "Triathlon")
+    check("Swimrun bleibt Triathlon", guess_art1("Rheinsberger SwimRun", tri), "Triathlon")
+    check("Ohne Laufwort bleibt die Voreinstellung", guess_art1("O-SEE Challenge", tri), "Triathlon")
+    check("Im Laufkalender wie bisher", guess_art1("O-SEE Ultra Trail", lauf), "Laufen")
+    check("MTB Trail Marathon im Radkalender bleibt Fahrrad", guess_art1("MTB Trail Marathon", rad), "Fahrrad")
+
+
 def test_fremde_sportart() -> None:
     """Ein Radrennen bei einer Laufveranstaltung ist ein Radrennen - eine
     Triathlon-Teilstrecke dagegen nicht.
@@ -2176,7 +2202,8 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel, test_farbschema_skript):
+                 test_asset_stempel, test_farbschema_skript,
+                 test_lauf_im_triathlonkalender):
         test()
 
     print()
