@@ -147,6 +147,75 @@ const DISTANCE_CATEGORIES = {
 // in DISTANCE_CATEGORIES steht dafür null statt einer Testfunktion.
 const ZEIT_CATEGORY_KEY = "zeit";
 
+// Triathlon-Format - eine KOPIE von triathlonFormat() in filters.js
+// (Label, Schwimm-Teilstrecke, Summe; Datenregel 21). Der Längen-Filter
+// beim Triathlon prüft das Format, nicht die rohen Kilometer, damit ein
+// Abo genau das trifft, was die Liste zeigt. test_triathlon_format_kopie
+// vergleicht beide Fassungen Zeile für Zeile.
+// Reihenfolge: das Längste zuerst - "Langdistanz" enthält kein "kurz",
+// "Super-Sprint" enthält "Sprint", also steht er davor.
+const TRIATHLON_FORMAT_IM_LABEL = [
+  [/ultra|double|doppel|triple|dreifach|\bdeca\b|quintuple/i, "ultra"],
+  [/140[.,]6|langdist|langstreck|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist/i, "lang"],
+  [/70[.,]3|mitteldist|\bmittel\b|middle|halbdist|half[\s-]*dist|halb-?ironman/i, "mittel"],
+  [/olymp|standard[\s-]*dist|kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist/i, "olympisch"],
+  [/super[\s-]*sprint/i, "supersprint"],
+  [/sprint/i, "sprint"]
+];
+// Das Schwimmen aus dem Label ("0,3 km Schwimmen", "400 m Swim") in
+// Kilometern, oder null. Die Teilstrecken stehen dort in Klammern
+// hinter der Gesamtlänge (siehe CLAUDE.md, Elfter Durchgang).
+const TRIATHLON_SCHWIMMEN_IM_LABEL = /(\d+(?:[.,]\d+)?)\s*(km|m)\s*(?:schwimmen|swim)/i;
+function schwimmKm(e) {
+const treffer = TRIATHLON_SCHWIMMEN_IM_LABEL.exec(e.wettbewerb || "");
+  if (!treffer) return null;
+const wert = parseFloat(treffer[1].replace(",", "."));
+  if (Number.isNaN(wert)) return null;
+  return treffer[2].toLowerCase() === "m" ? wert / 1000 : wert;
+}
+
+function triathlonFormat(e) {
+  if (!e || e.art1 !== "Triathlon") return null;
+const label = e.wettbewerb || "";
+  for (const [muster, key] of TRIATHLON_FORMAT_IM_LABEL) if (muster.test(label)) return key;
+  if (e.art2 === "Swimrun" || e.art2 === "Quadrathlon") return null;
+const km = Number(e.laenge_km);
+  if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
+  // Das SCHWIMMEN entscheidet, wo die Summe es nicht kann. Vom Nutzer
+  // am 21.09.2026 am "2. Weinstadt Triathlon" gemeldet: 0,3 km
+  // Schwimmen / 18,7 km Rad / 4,6 km Laufen, also 23,6 km - knapp
+  // ÜBER der Sprint-Grenze von 23 km, und die Box schrieb "Sprint".
+  // Richtig ist Super-Sprint, und der Grund steht in den 300 Metern:
+  // Ein Sprint schwimmt 500-750 m, ein Super-Sprint 250-500 m.
+  //
+  // Zwei Zeilen daneben zeigen, warum die Summe das grundsätzlich
+  // nicht leisten kann: Der Berliner Volkstriathlon hat bei 23,7 km
+  // Gesamtlänge 700 m Schwimmen (ein echter Sprint), der
+  // Stadttriathlon Erding bei 25,4 km nur 400 m. Dieselbe Summe,
+  // verschiedene Formate - die Radstrecke gleicht den kurzen
+  // Schwimmteil wieder aus.
+  //
+  // Bewusst eng gehalten: Die Regel greift nur, wenn das Label die
+  // Teilstrecke überhaupt nennt, nur NACH unten (auf Super-Sprint)
+  // und nur, wenn kein Format-Stichwort im Label steht - ein als
+  // "Jedermann Sprint" ausgeschriebenes Rennen bleibt ein Sprint,
+  // auch mit 400 m Schwimmen. Am Bestand vom 21.09.2026 nachgezählt:
+  // zwei Zeilen ändern sich (Erding und der Günzburger Cross
+  // Triathlon, beide 400 m).
+const schwimmen = schwimmKm(e);
+  if (schwimmen != null && schwimmen < 0.5) return "supersprint";
+  if (km < 23) return "supersprint";
+  if (km < 40) return "sprint";
+  if (km < 80) return "olympisch";
+  if (km < 160) return "mittel";
+  if (km < 230) return "lang";
+  return "ultra";
+}
+const TRIATHLON_FORMAT_KATEGORIE = {
+  supersprint: "supersprint", sprint: "sprint", olympisch: "olympic",
+  mittel: "middle", lang: "long", ultra: "tultra",
+};
+
 function matchesDistanceCategories(event, keys) {
   return keys.some((key) => {
     const [sport, category] = String(key).split(":");
@@ -154,6 +223,11 @@ function matchesDistanceCategories(event, keys) {
     const sportCats = DISTANCE_CATEGORIES[sport] || {};
     if (!(category in sportCats)) return false;
     if (category === ZEIT_CATEGORY_KEY) return event.dauer_h != null;
+    // Triathlon: das angezeigte Format entscheidet (wie in filters.js).
+    if (sport === "Triathlon") {
+      const format = triathlonFormat(event);
+      if (format) return TRIATHLON_FORMAT_KATEGORIE[format] === category;
+    }
     // Wie in der Liste: ohne bekannte Distanz kein Treffer.
     if (event.laenge_km == null) return false;
     const test = sportCats[category];

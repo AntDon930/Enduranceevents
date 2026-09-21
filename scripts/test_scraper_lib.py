@@ -2208,11 +2208,12 @@ def _node_event_detail(ausdruck: str):
     if not node:
         return None
     wurzel = Path(__file__).resolve().parent.parent
+    # Erst das echte filters.js (EF), dann event-detail.js - kein
+    # Stummel: triathlonFormat() wohnt in filters.js.
     skript = (
         "global.window = global;"
-        "global.EnduranceFilters = { escapeHtml: s => String(s),"
-        "  formatKm: (km, l) => (km == null ? '–' : String(km).replace('.', l === 'en' ? '.' : ',') + 'km'),"
-        "  formatHours: (h, l) => String(h) + 'h', formatNumber: v => String(v) };"
+        f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+        "global.EnduranceFilters.relativeDays = () => '';"
         f"require({_json.dumps(str(wurzel / 'event-detail.js'))});"
         "const EED = global.EnduranceDetail;"
         f"console.log(JSON.stringify({ausdruck}));"
@@ -2295,6 +2296,62 @@ def test_triathlon_format() -> None:
         return
     for (f, erwartet), ist in zip(faelle, got):
         check(f"{(f.get('wettbewerb') or f['laenge_km'])!r} -> {erwartet!r}", ist, erwartet)
+
+
+def test_triathlon_format_kopie() -> None:
+    """triathlonFormat() steht zweimal - filters.js (Liste, Karte) und
+    functions/index.js (Abo-Filter). Beide Fassungen müssen wortgleich
+    sein (bis auf Einrückung und Anführungszeichen), und der Längen-
+    Filter muss bei JEDEM Triathlon im Bestand dieselbe Kategorie
+    treffen, die die Spalte anzeigt (Datenregel 21)."""
+    print("\nTriathlon-Format: Kopie in functions/index.js und Filter == Anzeige:")
+    wurzel = Path(__file__).resolve().parent.parent
+    def block(text: str) -> str:
+        a = text.index("TRIATHLON_FORMAT_IM_LABEL = [")
+        b = text.index("TRIATHLON_FORMAT_KATEGORIE = {")
+        zeilen = []
+        for z in text[a:b].splitlines():
+            z = z.strip().replace('"', "'")
+            if z and not z.startswith("//"):
+                zeilen.append(z)
+        return "\n".join(zeilen)
+    web = block((wurzel / "filters.js").read_text(encoding="utf-8"))
+    fn = block((wurzel / "functions" / "index.js").read_text(encoding="utf-8"))
+    check("filters.js und functions/index.js: dieselbe Regel", fn == web, True)
+    if fn != web:
+        import difflib
+        for d in list(difflib.unified_diff(web.splitlines(), fn.splitlines(), lineterm=""))[:12]:
+            print("    " + d)
+
+    import json as _json
+    import shutil
+    import subprocess
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    skript = (
+        "global.window = global;"
+        f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+        "const EF = global.EnduranceFilters;"
+        f"const events = require({_json.dumps(str(wurzel / 'events.json'))}).filter(e => e.art1 === 'Triathlon' && e.laenge_km != null);"
+        "const KAT = { supersprint: 'supersprint', sprint: 'sprint', olympisch: 'olympic', mittel: 'middle', lang: 'long', ultra: 'tultra' };"
+        "const keys = Object.values(KAT);"
+        "let falsch = [];"
+        "for (const e of events) {"
+        "  const f = EF.triathlonFormat(e); if (!f) continue;"
+        "  const st = EF.createState();"
+        "  const getroffen = keys.filter(k => { st.distanceCategories = new Set(['Triathlon:' + k]); return EF.matchEvent(st, e); });"
+        "  if (getroffen.length !== 1 || getroffen[0] !== KAT[f]) falsch.push([e.name, e.laenge_km, f, getroffen]);"
+        "}"
+        "console.log(JSON.stringify({ n: events.length, falsch: falsch.slice(0, 5) }));"
+    )
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("filters.js läuft in node", ergebnis.stderr.strip()[:300], "")
+        return
+    out = _json.loads(ergebnis.stdout)
+    check(f"Filterkategorie == angezeigtes Format bei {out['n']} Triathlon-Zeilen", out["falsch"], [])
 
 
 def test_charity_merkmal() -> None:
@@ -2382,7 +2439,8 @@ def main() -> int:
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel, test_farbschema_skript,
                  test_lauf_im_triathlonkalender,
-                 test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal):
+                 test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal,
+                 test_triathlon_format_kopie):
         test()
 
     print()

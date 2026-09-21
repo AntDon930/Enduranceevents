@@ -739,13 +739,16 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    steht schon in „Elfter Durchgang": Gesamtlänge vorn, Teilstrecken in
    Klammern. Für Weinstadt ist das ein Override.
 
-   **Filter und Anzeige können hier auseinandergehen**: Die
-   Distanzkategorien in `filters.js` rechnen weiter nur mit den
-   Kilometern (sie filtern über alle Events, ohne das Label zu
-   zerlegen). Drei Zeilen zeigen deshalb ein Format, das ihre
-   Filterkategorie nicht teilt. Das ist die kleinere Ungenauigkeit: Die
-   angezeigte Angabe stimmt, und ein Filter, der nach Kilometern
-   greift, ist nachvollziehbar.
+   **Filter und Anzeige sagen dasselbe** (seit dem 21.09.2026, abends):
+   `triathlonFormat()` wohnt in `filters.js`, `event-detail.js` ruft es
+   von dort, und `matchesDistanceCategory()` prüft beim Triathlon das
+   FORMAT gegen die gewählte Kategorie (`TRIATHLON_FORMAT_KATEGORIE`:
+   olympisch → `olympic`, ultra → `tultra`), nicht die rohen Kilometer.
+   Vorher zeigten drei Zeilen ein Format, das ihre Filterkategorie nicht
+   teilte. `functions/index.js` trägt die Kopie für den Abo-Filter;
+   `test_triathlon_format_kopie` vergleicht beide Fassungen Zeile für
+   Zeile UND prüft an jeder Triathlon-Zeile des Bestands, dass der Filter
+   genau die Kategorie trifft, die die Spalte anzeigt.
 
 ### Die wichtigste Lektion
 

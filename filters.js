@@ -198,8 +198,9 @@
     // Normdistanzen (25,75 / 51,5 / 113 / 226 km) herum - deutsche
     // Veranstaltungen weichen ab (Moritzburgs Langdistanz hat 218,8 km,
     // ein Cross-Triathlon 41,5 km) und fielen sonst in keine Kategorie.
-    // Dieselben Grenzen nimmt triathlonFormat() in event-detail.js für die
-    // Länge-Spalte, damit Filter und Anzeige dasselbe sagen; die sechs
+    // Die Grenzen sind die Rückfallebene von triathlonFormat() (unten);
+    // matchesDistanceCategory prüft beim Triathlon das FORMAT, das die
+    // Spalte anzeigt - Label und Schwimmteil können es verschieben. Die sechs
     // Kategorien sind die Vorgabe des Nutzers (Bild vom 21.09.2026):
     // Super-Sprint, Sprint, Olympisch, Mitteldistanz (70.3), Langstrecke
     // (140.6), Ultra-Triathlon. Kopie in functions/index.js. Der Schlüssel
@@ -769,6 +770,86 @@
     return haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
   }
 
+  // ---------- Triathlon: die Länge ist ein FORMAT ----------
+  //
+  // Sechs Formate (Vorgabe des Nutzers, 21.09.2026): Super-Sprint, Sprint,
+  // Olympisch, Mitteldistanz (70.3), Langstrecke (140.6), Ultra. Die
+  // Kilometer in events.json sind die Summe der Teilstrecken (Datenregel
+  // 15); WELCHES Format eine Zeile ist, entscheidet diese Funktion - in
+  // dieser Reihenfolge: das Label des Veranstalters, dann die
+  // Schwimm-Teilstrecke im Label (Datenregel 21), dann die Summe. Die
+  // Anzeigenamen stehen in event-detail.js (TRIATHLON_FORMATE); der
+  // Filter "Länge" nimmt dieselbe Funktion (matchesDistanceCategory), damit
+  // Spalte und Filter nie Verschiedenes sagen. Eine KOPIE steht in
+  // functions/index.js (Abo-Filter); test_triathlon_format_kopie hält
+  // beide gleich.
+  // Reihenfolge: das Längste zuerst - "Langdistanz" enthält kein "kurz",
+  // "Super-Sprint" enthält "Sprint", also steht er davor.
+  const TRIATHLON_FORMAT_IM_LABEL = [
+    [/ultra|double|doppel|triple|dreifach|\bdeca\b|quintuple/i, 'ultra'],
+    [/140[.,]6|langdist|langstreck|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist/i, 'lang'],
+    [/70[.,]3|mitteldist|\bmittel\b|middle|halbdist|half[\s-]*dist|halb-?ironman/i, 'mittel'],
+    [/olymp|standard[\s-]*dist|kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist/i, 'olympisch'],
+    [/super[\s-]*sprint/i, 'supersprint'],
+    [/sprint/i, 'sprint']
+  ];
+  // Das Schwimmen aus dem Label ("0,3 km Schwimmen", "400 m Swim") in
+  // Kilometern, oder null. Die Teilstrecken stehen dort in Klammern
+  // hinter der Gesamtlänge (siehe CLAUDE.md, Elfter Durchgang).
+  const TRIATHLON_SCHWIMMEN_IM_LABEL = /(\d+(?:[.,]\d+)?)\s*(km|m)\s*(?:schwimmen|swim)/i;
+  function schwimmKm(e) {
+    const treffer = TRIATHLON_SCHWIMMEN_IM_LABEL.exec(e.wettbewerb || '');
+    if (!treffer) return null;
+    const wert = parseFloat(treffer[1].replace(',', '.'));
+    if (Number.isNaN(wert)) return null;
+    return treffer[2].toLowerCase() === 'm' ? wert / 1000 : wert;
+  }
+
+  function triathlonFormat(e) {
+    if (!e || e.art1 !== 'Triathlon') return null;
+    const label = e.wettbewerb || '';
+    for (const [muster, key] of TRIATHLON_FORMAT_IM_LABEL) if (muster.test(label)) return key;
+    if (e.art2 === 'Swimrun' || e.art2 === 'Quadrathlon') return null;
+    const km = Number(e.laenge_km);
+    if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
+    // Das SCHWIMMEN entscheidet, wo die Summe es nicht kann. Vom Nutzer
+    // am 21.09.2026 am "2. Weinstadt Triathlon" gemeldet: 0,3 km
+    // Schwimmen / 18,7 km Rad / 4,6 km Laufen, also 23,6 km - knapp
+    // ÜBER der Sprint-Grenze von 23 km, und die Box schrieb "Sprint".
+    // Richtig ist Super-Sprint, und der Grund steht in den 300 Metern:
+    // Ein Sprint schwimmt 500-750 m, ein Super-Sprint 250-500 m.
+    //
+    // Zwei Zeilen daneben zeigen, warum die Summe das grundsätzlich
+    // nicht leisten kann: Der Berliner Volkstriathlon hat bei 23,7 km
+    // Gesamtlänge 700 m Schwimmen (ein echter Sprint), der
+    // Stadttriathlon Erding bei 25,4 km nur 400 m. Dieselbe Summe,
+    // verschiedene Formate - die Radstrecke gleicht den kurzen
+    // Schwimmteil wieder aus.
+    //
+    // Bewusst eng gehalten: Die Regel greift nur, wenn das Label die
+    // Teilstrecke überhaupt nennt, nur NACH unten (auf Super-Sprint)
+    // und nur, wenn kein Format-Stichwort im Label steht - ein als
+    // "Jedermann Sprint" ausgeschriebenes Rennen bleibt ein Sprint,
+    // auch mit 400 m Schwimmen. Am Bestand vom 21.09.2026 nachgezählt:
+    // zwei Zeilen ändern sich (Erding und der Günzburger Cross
+    // Triathlon, beide 400 m).
+    const schwimmen = schwimmKm(e);
+    if (schwimmen != null && schwimmen < 0.5) return 'supersprint';
+    if (km < 23) return 'supersprint';
+    if (km < 40) return 'sprint';
+    if (km < 80) return 'olympisch';
+    if (km < 160) return 'mittel';
+    if (km < 230) return 'lang';
+    return 'ultra';
+  }
+  // Format-Schlüssel -> Kategorie-Schlüssel des Längen-Filters
+  // (DISTANCE_CATEGORIES.Triathlon: 'olympic', nicht 'olympisch';
+  // 'tultra', weil 'ultra' der Ultramarathon ist).
+  const TRIATHLON_FORMAT_KATEGORIE = {
+    supersprint: 'supersprint', sprint: 'sprint', olympisch: 'olympic',
+    mittel: 'middle', lang: 'long', ultra: 'tultra'
+  };
+
   function matchesDistanceCategory(state, e) {
     if (state.distanceCategories.size === 0) return true;
     for (const compositeKey of state.distanceCategories) {
@@ -782,6 +863,16 @@
       if (cat.zeit) {
         if (e.dauer_h != null) return true;
         continue;
+      }
+      // Triathlon: das ANGEZEIGTE Format entscheidet (Label, Schwimmen,
+      // Summe - siehe triathlonFormat), nicht die rohen Kilometer. Ohne
+      // Format (Swimrun, Quadrathlon, keine Länge) wie überall die km.
+      if (sport === 'Triathlon') {
+        const format = triathlonFormat(e);
+        if (format) {
+          if (TRIATHLON_FORMAT_KATEGORIE[format] === catKey) return true;
+          continue;
+        }
       }
       if (e.laenge_km == null) continue;
       if (cat.test(e.laenge_km)) return true;
@@ -1090,6 +1181,7 @@
     formatNumber,
     formatKm,
     formatHours,
+    triathlonFormat,
     isoOf,
     todayIso,
     createState,
