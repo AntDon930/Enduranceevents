@@ -83,6 +83,7 @@ from scraper_lib import (  # noqa: E402
     SiteConfig,
     guess_art1,
     guess_art2,
+    ist_charity,
     guess_land,
     is_portal_link,
     is_same_event,
@@ -258,6 +259,50 @@ def merge_art2(events: list[dict]) -> list[str]:
 merge_trail_cross = merge_art2
 
 
+def fix_charity(events: list[dict]) -> list[str]:
+    """Setzt das Merkmal `charity` aus dem Namen - und holt die Zeilen ab,
+    die die alte Kategorie "Charity" tragen.
+
+    Vorgeschichte in einem Satz: Am 21.09.2026 kam "Charity" auf Wunsch
+    des Nutzers als KATEGORIE (art2) dazu und verdrängte dort die echte
+    Kategorie; am selben Tag hat er das zurückgenommen ("Aber da bitte
+    wieder die Kategorie einfügen"). Seitdem ist Charity ein Merkmal
+    NEBEN der Kategorie.
+
+    Zwei Dinge tut die Funktion, beide idempotent:
+
+    1. `charity: True`, wo ist_charity() den Namen erkennt.
+    2. Wo noch `art2 == "Charity"` steht, wird das Feld geleert - die
+       echte Kategorie holt refresh_art2() unmittelbar danach aus der
+       Stichwortliste zurück (deshalb läuft fix_charity DAVOR).
+
+    Ein Override mit ausdrücklichem `charity` wird nicht angefasst:
+    Der Wings for Life World Run trägt das Wort nicht im Namen, ist aber
+    einer - solche Zeilen markiert der Nutzer von Hand, und eine Regel
+    darf ihm das nicht wieder wegnehmen. Umgekehrt kann er mit
+    `"charity": false` eine Fehlmarkierung abschalten.
+    """
+    overrides = load_manual_overrides()
+    changed: list[str] = []
+    for event in events:
+        own = find_override(overrides, event.get("name"), event.get("datum_start"),
+                            event.get("laenge_km"))
+        war_kategorie = event.get("art2") == "Charity"
+        if war_kategorie:
+            event["art2"] = None
+        if own and "charity" in own:
+            continue  # von Hand entschieden
+        if ist_charity(event.get("name") or ""):
+            if not event.get("charity"):
+                changed.append(f"{event.get('name')}: charity -> True")
+                event["charity"] = True
+        elif war_kategorie:
+            # Stand nur über die alte Kategorie als Charity da, der Name
+            # sagt es aber nicht - dann ist es auch keine Markierung.
+            changed.append(f"{event.get('name')}: Kategorie 'Charity' -> echte Kategorie")
+    return changed
+
+
 def refresh_art2(events: list[dict]) -> list[str]:
     """Bestimmt art2 aus dem Event-Namen neu, wenn dabei eine spezifischere
     Kategorie als die gespeicherte herauskommt (Trail, Hindernis, Bahn,
@@ -271,17 +316,37 @@ def refresh_art2(events: list[dict]) -> list[str]:
             continue  # manuell gesetzte Kategorie nicht überschreiben
         if event.get("art1") != "Laufen":
             continue  # Stichwortliste gilt nur für Laufen
-        guessed = guess_art2(event.get("name") or "", ART2_CONFIG)
+        # Name UND Wettbewerbs-Label: Die Gattung steht oft nur im Label
+        # ("Hot-20 (40 Hindernisse)" beim Hotfoot Run, "9,2 km Crosslauf"
+        # beim Bietlauf) - der Veranstaltungsname nennt sie nicht. Beim
+        # Einsammeln liest expand_competitions() das Label längst mit;
+        # hier fehlte es. Nachgezählt am Bestand vom 21.09.2026: vier
+        # Zeilen ändern sich, alle vier zu Recht (Crossläufe, die als
+        # Straße standen).
+        guessed = guess_art2(f"{event.get('name') or ''} {event.get('wettbewerb') or ''}",
+                             ART2_CONFIG)
         current = event.get("art2")
-        # "Charity" gewinnt auch gegen eine schon gesetzte spezifische
-        # Kategorie: Der "Bietlauf für einen Wohltätigen Zweck" (9,2 km
-        # Crosslauf) stand als Trail und gehört laut Nutzer (21.09.2026)
-        # in die Charity-Kategorie - der Zweck zählt vor dem Untergrund.
-        if guessed == "Charity" and current != "Charity":
-            changed.append(f"{event.get('name')}: art2 {current!r} -> 'Charity'")
-            event["art2"] = "Charity"
+        # "Charity" war bis zum 21.09.2026 eine Kategorie und gewann hier
+        # sogar gegen eine schon gesetzte spezifische - der Zweck vor dem
+        # Untergrund. Am selben Tag zurückgenommen: Charity ist jetzt ein
+        # eigenes Merkmal (fix_charity), die Kategorie bleibt die
+        # Kategorie. "Charity" als Altwert holt fix_charity() ab.
+        # Ein Hindernislauf schlägt auch eine schon gesetzte Trail-Kategorie.
+        # Grund ist die Reihenfolge der Stichwortliste selbst: Dort steht
+        # "Hindernis" VOR "Trail", weil ein Hindernislauf durchs Gelände
+        # immer noch ein Hindernislauf ist. Fünf Zeilen standen nur
+        # deshalb als Trail, weil "Cross" in ihrem Namen steht
+        # (CrossDeLuxe Erzgebirge, "Puls 300 Cross- und Hindernis-Lauf",
+        # der Berserker des Legend of Cross) - und die gleichnamigen
+        # Schwesterveranstaltungen wären danach Hindernis gewesen, sie
+        # nicht. Sonst bleibt es bei der Regel, nur Generisches zu
+        # ersetzen: Eine Kategorie, die spezifischer ist als die
+        # geratene, wird nicht angefasst.
+        if guessed == "Hindernis" and current == "Trail":
+            changed.append(f"{event.get('name')}: art2 'Trail' -> 'Hindernis'")
+            event["art2"] = "Hindernis"
             continue
-        if guessed and guessed != current and current in (None, "Straße"):
+        if guessed and guessed != current and current in (None, "Straße", "Charity"):
             changed.append(f"{event.get('name')}: art2 {current!r} -> {guessed!r}")
             event["art2"] = guessed
     return changed
@@ -1691,6 +1756,9 @@ def main() -> None:
     fremde_sportart = fix_fremde_sportart_im_wettbewerb(events)
     art2_andere = fill_art2_andere_sportarten(events)
     art2_merges = merge_art2(events)
+    # VOR refresh_art2: fix_charity leert die alte Kategorie "Charity",
+    # refresh_art2 holt die echte danach aus der Stichwortliste.
+    charity_changes = fix_charity(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
     rounding_fixes = round_distances(events)
@@ -1758,6 +1826,7 @@ def main() -> None:
             fremde_sportart)
     section("Kategorie bei Nicht-Lauf-Sportarten nachgetragen", art2_andere)
     section("Alte Kategorie-Werte zusammengefasst (Trail, Backyard Ultra)", art2_merges)
+    section("Charity-Merkmal gesetzt", charity_changes)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)

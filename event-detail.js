@@ -41,6 +41,13 @@
       detail_vorlaeufig: 'Termin noch nicht veröffentlicht',
       cal_vorlaeufig: '(Termin vorläufig)',
       detail_close: 'Schließen',
+      charity: 'Charity',
+      charity_titel: 'Charity-Event: Die Veranstaltung läuft für einen guten Zweck.',
+      // Die Fußnote zum Sternchen steht hier statt in beiden Seiten:
+      // Liste und Karte zeigen denselben Text, und der Tooltip am
+      // Sternchen selbst (formatEventRangeHtml) braucht ihn auch.
+      datum_vorlaeufig_kurz: 'Termin noch nicht veröffentlicht – der Monat ist der des Vorjahres',
+      datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
@@ -69,6 +76,10 @@
       detail_vorlaeufig: 'Date not yet published',
       cal_vorlaeufig: '(date provisional)',
       detail_close: 'Close',
+      charity: 'Charity',
+      charity_titel: 'Charity event: this race runs for a good cause.',
+      datum_vorlaeufig_kurz: 'Date not yet published – the month is the one from last year',
+      datum_fussnote: '* exact date not yet published – month as in the previous year',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       share_fail: 'Could not copy – please use the address bar',
@@ -84,8 +95,62 @@
 
   const escapeHtml = (s) => EF.escapeHtml(s);
 
+  // Ein Text des Moduls, ohne den Umweg über das I18N der Seite - für
+  // die Helfer, die keinen ctx bekommen (formatEventRangeHtml).
+  function txt(lang, key) {
+    return (I18N[lang === 'en' ? 'en' : 'de'])[key];
+  }
+
+  // Das Sternchen an einem vorläufigen Termin, als <abbr> mit Erklärung.
+  //
+  // Es gab die Fußnote unten in der Fußzeile von Anfang an, aber der
+  // Nutzer hat sie am 21.09.2026 nicht gefunden ("Bei dem Kochercup
+  // steht zum Beispiel ein '*' bei der Datumsangabe. Jedoch finde ich
+  // als user nirgendwo was genau das '*' bedeutet") - kein Wunder: Sie
+  // steht klein und grau am Seitenende, zwischen Liste und Impressum,
+  // und auf dem Handy scrollt man erst an vierhundert Zeilen vorbei.
+  // Die Erklärung gehört an das Zeichen selbst. Die Fußzeile behält sie
+  // trotzdem: Ein `title` ist auf einem Touchgerät nicht zu sehen.
+  function vorlaeufigStern(lang) {
+    return `<abbr class="vorlaeufig-stern" title="${escapeHtml(txt(lang, 'datum_vorlaeufig_kurz'))}">*</abbr>`;
+  }
+
   // ---------- Wettbewerbs-Label ----------
 
+  // Die Wettbewerbs-Bezeichnung als kurzer ZUSATZ unter dem Namen -
+  // oder null, wenn sie nichts sagt, was nicht schon dasteht.
+  //
+  // Die Quellen benennen einen Wettbewerb meist mit seiner Distanz
+  // ("50 km", "Halbmarathon", "9 km mit über 30 Hindernissen") oder
+  // hängen sie an den Streckennamen ("Brian Trail (15,5 km, 500 hm)",
+  // "10 km Fuchsburg Lauf (ab Jahrgang 2015)"). Die Länge steht aber
+  // schon in ihrer eigenen Spalte UND in der Detail-Box - vom Nutzer am
+  // 21.09.2026 deshalb so entschieden: "Wir haben die Länge in der
+  // Liste schon und in der Detailansicht dann auch. Man muss es nicht
+  // 3x sehen. Wenn ein Event zum Beispiel ein Geh event ist, dann kann
+  // man da schon 'Walking' oder so hinschreiben, einfach eine kleine
+  // Zusatzinformation. Aber keine Informationen die bereits genannt
+  // wurden."
+  //
+  // Weggeschnitten werden deshalb alle MASSZAHLEN, in drei Schritten:
+  //
+  //   1. Eine Klammer, die eine Maßzahl enthält, fliegt GANZ -
+  //      "(15,5 km, 500 hm)" ist nach dem Streichen der Zahlen nur noch
+  //      "(, )", und "(1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  //      wäre "( Schwimmen / Rad / Laufen)". Eine Klammer ohne Maßzahl
+  //      bleibt: "(ab Jahrgang 2015)" ist genau die Art Zusatz, die
+  //      gemeint ist.
+  //   2. Freistehende Maßzahlen außerhalb von Klammern.
+  //   3. Was danach nur noch aus Füllwörtern und Zeichen besteht, ist
+  //      kein Zusatz mehr - dann null.
+  //
+  // Danach bleibt "Brian Trail", "Berglauf auf den Lousberg",
+  // "Fuchsburg Lauf (ab Jahrgang 2015)", "Walking", "Nordic Walking",
+  // "Staffel" - und bei "Marathon", "21,1 km" oder "5 km Lauf" null.
+  //
+  // Das Feld selbst bleibt in events.json unangetastet: Die
+  // Duplikat-Erkennung der Scraper braucht den vollen Text, und die
+  // Strecken-Pille zeigt ihn als Tooltip.
   const CANONICAL_RACE_NAMES = {
     'marathon': 42.2,
     'halbmarathon': 21.1,
@@ -93,21 +158,53 @@
     'halbmarathon (hm)': 21.1
   };
 
-  // Die Wettbewerbs-Bezeichnung, ODER null wenn sie nur die Länge
-  // wiederholt.
-  //
-  // Die Quellen benennen einen Wettbewerb oft schlicht mit seiner Distanz
-  // ("50 km", "6 km") oder mit deren kanonischem Namen ("Halbmarathon").
-  // Beides steht schon in der Längen-Spalte; im Detailbereich erschien es
-  // dadurch zweimal ("Race 50 km" über "Length 50 km"), in der Liste als
-  // Unterzeile unter dem Namen. Bei gerundeten Quellenangaben sah es sogar
-  // nach einem Widerspruch aus: Unterzeile "6 km" über der Spalte "5.5 km".
-  //
-  // Bezeichnungen mit eigener Aussage bleiben: "Laufen", "Wandern",
-  // "Moslig 8000", "5×5 km Staffel", "26 km Trail". Das Feld selbst bleibt
-  // in events.json erhalten - die Duplikat-Erkennung der Scraper braucht
-  // es (über "Halbmarathon" wurde der doppelte München-Halbmarathon
-  // gefunden).
+  // Eine Maßzahl: km, Meter, Höhenmeter, Stunden, Minuten - auch als
+  // Produkt ("2x5 km", "5 × 5 km"), sonst bliebe das "2x" stehen.
+  // "hm" VOR "m", sonst frisst "m" das h weg.
+  // Der Bindestrich zwischen Zahl und Einheit muss mit: "400-m-Runde",
+  // "4-Stunden-Lauf", "10-km-Strecke" schreiben die Quellen genauso oft
+  // wie mit Leerzeichen.
+  const MASSZAHL_RE = new RegExp(
+    '(?:\\d{1,4}\\s*[x×]\\s*)?' +
+    '\\d{1,5}(?:[.,]\\d+)?[-\\s]*\\+?[-\\s]*' +
+    '(?:km|kilometer|hm|höhenmeter|hoehenmeter|m|meter|std|stunden?|h|min|minuten?)\\b',
+    'gi');
+  // Wörter, die allein keinen Zusatz ergeben ("ca.", "ab", "und").
+  const FUELLWORT_RE = /\b(?:ca|circa|etwa|rund|ungefähr|ungefaehr|approx|ab|bis|und|oder|mit|je|pro|über|ueber|lang|kurz|mittel|strecke|distanz|lauf|run)\b\.?/gi;
+  // Dieselben Wörter am ANFANG des Rests: Aus "6 km mit 15 Hindernissen"
+  // wird sonst "mit 15 Hindernissen", aus "ca. 10.700 m, 25+ Hindernisse"
+  // ein "ca., 25+ Hindernisse".
+  const FUELLWORT_VORNE_RE = /^(?:(?:ca|circa|etwa|rund|ungefähr|ungefaehr|approx|mit|und|oder|ab|bis|je|pro|über|ueber)\b\.?[\s,;:/–—-]*)+/i;
+
+  function wettbewerbZusatz(label) {
+    let rest = String(label || '');
+    // 1. Klammern mit Maßzahl ganz weg.
+    rest = rest.replace(/\(([^()]*)\)/g, (ganz, innen) => {
+      MASSZAHL_RE.lastIndex = 0;
+      return MASSZAHL_RE.test(innen) ? ' ' : ganz;
+    });
+    // 2. Freistehende Maßzahlen.
+    rest = rest.replace(MASSZAHL_RE, ' ');
+    // 3. Aufräumen: leere Klammern, verwaiste Satzzeichen, Ränder.
+    rest = rest
+      .replace(/\(\s*[-–—,;:/.+]*\s*\)/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      // Satzzeichen, vor denen jetzt nichts mehr steht.
+      .replace(/(^|[\s(])[,;:.]+\s*/g, '$1')
+      .replace(/\s+([,;:.])/g, '$1')
+      .replace(/\s*([/|·])\s*(?=[/|·]|$)/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/^[\s\-–—,;:/.|·]+|[\s\-–—,;:/.|·]+$/g, '')
+      .trim();
+    rest = rest.replace(FUELLWORT_VORNE_RE, '').trim();
+    // Eine Klammer, die jetzt den ganzen Rest ausmacht, verliert sie:
+    // aus "5.555 m (Berglauf auf den Lousberg)" wird "Berglauf auf den
+    // Lousberg", nicht "(Berglauf auf den Lousberg)".
+    const nurKlammer = /^\(([^()]*)\)$/.exec(rest);
+    if (nurKlammer) rest = nurKlammer[1].trim();
+    return rest;
+  }
+
   function displayWettbewerb(e) {
     const label = (e.wettbewerb || '').trim();
     if (!label) return null;
@@ -117,13 +214,20 @@
     const canonical = CANONICAL_RACE_NAMES[label.toLowerCase()];
     if (canonical != null && km != null && Math.abs(canonical - Number(km)) <= 0.5) return null;
 
-    // Bleibt nach Abzug der Distanzangaben und Füllwörter noch etwas übrig?
-    const rest = label
-      .replace(/\d{1,3}(?:[.,]\d+)?\s*(?:km|kilometer)\b/gi, ' ')
-      .replace(/\b(?:ca|circa|etwa|rund|ungefähr|approx|ungefaehr)\b\.?/gi, ' ')
-      .replace(/[\s.,;:\-–|~()]+/g, '')
-      .trim();
-    return rest ? label : null;
+    const zusatz = wettbewerbZusatz(label);
+    if (!zusatz) return null;
+    // Bleibt nach Abzug der Füllwörter noch ein Wort übrig?
+    const kern = zusatz.replace(FUELLWORT_RE, ' ').replace(/[\s.,;:\-–|~()/]+/g, '');
+    if (!kern) return null;
+    // Wiederholt der Zusatz nur die Sportart oder die Kategorie, die in
+    // ihren eigenen Spalten stehen? Dann ist er keine Zusatzinformation.
+    const gleich = (a, b) => String(a || '').toLowerCase() === String(b || '').toLowerCase();
+    if (gleich(zusatz, e.art1) || gleich(zusatz, e.art2)) return null;
+    // Auch ein kanonischer Name kann erst nach dem Kürzen sichtbar
+    // werden ("42,2 km Marathon" -> "Marathon").
+    const kanonisch = CANONICAL_RACE_NAMES[zusatz.toLowerCase()];
+    if (kanonisch != null && km != null && Math.abs(kanonisch - Number(km)) <= 0.5) return null;
+    return zusatz;
   }
 
   // ---------- Datum und Länge ----------
@@ -155,7 +259,9 @@
   // Dasselbe für ein EVENT: ein vorläufiger Termin (datum_vorlaeufig)
   // steht als "Juni 2027*", ohne Tag.
   function formatEventRangeHtml(e, lang, weekday) {
-    if (e.datum_vorlaeufig) return escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + '*';
+    if (e.datum_vorlaeufig) {
+      return escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + vorlaeufigStern(lang);
+    }
     return formatRangeHtml(e.datum_start, e.datum_ende, lang, weekday);
   }
 
@@ -219,6 +325,18 @@
     [/super[\s-]*sprint/i, 'supersprint'],
     [/sprint/i, 'sprint']
   ];
+  // Das Schwimmen aus dem Label ("0,3 km Schwimmen", "400 m Swim") in
+  // Kilometern, oder null. Die Teilstrecken stehen dort in Klammern
+  // hinter der Gesamtlänge (siehe CLAUDE.md, Elfter Durchgang).
+  const SCHWIMM_IM_LABEL = /(\d+(?:[.,]\d+)?)\s*(km|m)\s*(?:schwimmen|swim)/i;
+  function schwimmKm(e) {
+    const treffer = SCHWIMM_IM_LABEL.exec(e.wettbewerb || '');
+    if (!treffer) return null;
+    const wert = parseFloat(treffer[1].replace(',', '.'));
+    if (Number.isNaN(wert)) return null;
+    return treffer[2].toLowerCase() === 'm' ? wert / 1000 : wert;
+  }
+
   function triathlonFormat(e) {
     if (!e || e.art1 !== 'Triathlon') return null;
     const label = e.wettbewerb || '';
@@ -226,6 +344,29 @@
     if (e.art2 === 'Swimrun' || e.art2 === 'Quadrathlon') return null;
     const km = Number(e.laenge_km);
     if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
+    // Das SCHWIMMEN entscheidet, wo die Summe es nicht kann. Vom Nutzer
+    // am 21.09.2026 am "2. Weinstadt Triathlon" gemeldet: 0,3 km
+    // Schwimmen / 18,7 km Rad / 4,6 km Laufen, also 23,6 km - knapp
+    // ÜBER der Sprint-Grenze von 23 km, und die Box schrieb "Sprint".
+    // Richtig ist Super-Sprint, und der Grund steht in den 300 Metern:
+    // Ein Sprint schwimmt 500-750 m, ein Super-Sprint 250-500 m.
+    //
+    // Zwei Zeilen daneben zeigen, warum die Summe das grundsätzlich
+    // nicht leisten kann: Der Berliner Volkstriathlon hat bei 23,7 km
+    // Gesamtlänge 700 m Schwimmen (ein echter Sprint), der
+    // Stadttriathlon Erding bei 25,4 km nur 400 m. Dieselbe Summe,
+    // verschiedene Formate - die Radstrecke gleicht den kurzen
+    // Schwimmteil wieder aus.
+    //
+    // Bewusst eng gehalten: Die Regel greift nur, wenn das Label die
+    // Teilstrecke überhaupt nennt, nur NACH unten (auf Super-Sprint)
+    // und nur, wenn kein Format-Stichwort im Label steht - ein als
+    // "Jedermann Sprint" ausgeschriebenes Rennen bleibt ein Sprint,
+    // auch mit 400 m Schwimmen. Am Bestand vom 21.09.2026 nachgezählt:
+    // zwei Zeilen ändern sich (Erding und der Günzburger Cross
+    // Triathlon, beide 400 m).
+    const schwimmen = schwimmKm(e);
+    if (schwimmen != null && schwimmen < 0.5) return 'supersprint';
     if (km < 23) return 'supersprint';
     if (km < 40) return 'sprint';
     if (km < 80) return 'olympisch';
@@ -594,6 +735,20 @@
       + ` aria-hidden="true">${pfad}</svg>`;
   }
 
+  // Das Charity-Symbol: ein Herz mit Kontur, wie alle Symbole der Seite
+  // (1,8 px Strich, runde Enden, Inline-SVG - kein <img> je Zeile).
+  // Es steht in der Tabelle hinter dem Namen und in der Detail-Box als
+  // eigenes Abzeichen neben dem Sport-Abzeichen. Vom Nutzer am
+  // 21.09.2026 gewünscht: "Ich würde die Charity Events irgendwie gerne
+  // alle markieren in der Zeile mit einem Icon."
+  const CHARITY_PFAD = '<path d="M12 20s-7-4.5-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.5 12 20 12 20z"/>';
+  function charityIcon(size) {
+    const px = size || 15;
+    return `<svg class="charity-icon" viewBox="0 0 24 24" width="${px}" height="${px}" fill="none"`
+      + ' stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'
+      + ' aria-hidden="true">' + CHARITY_PFAD + '</svg>';
+  }
+
   const FACT_SVG = {
     ort: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
     strecke: '<path d="M4 17c3-6 5-6 8 0s5 6 8 0"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/>',
@@ -634,11 +789,12 @@
     return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
   }
 
-  // Die Spanne der Längen einer Veranstaltung ("5–42,2 km") für die
+  // Die Spanne der Längen einer Veranstaltung ("5–42,2km") für die
   // zusammengefasste Zeile der Liste und das Popup der Karte: Distanzen
   // haben Vorrang, sonst die Dauern der Zeitrennen (Datenregel 8). Ohne
-  // Leerzeichen um den Gedankenstrich - die Spalte der Liste ist schmal,
-  // "5 – 42,2 km" bräuchte dort zwei Zeilen.
+  // Leerzeichen um den Gedankenstrich und ohne eines vor der Einheit -
+  // die Spalte der Liste ist schmal, "5 – 42,2 km" bräuchte dort zwei
+  // Zeilen (zum fehlenden Leerzeichen siehe EF.formatKm).
   // Die Formate der Triathlon-Zeilen einer Veranstaltung, nach Länge
   // geordnet und ohne Doppelte ("Sprint & Kurz") - oder null, wenn die
   // Zeilen keine Triathlons sind oder eine Zeile mit Länge kein Format
@@ -681,7 +837,7 @@
     const zahl = (v) => EF.formatNumber(v, lang, 1);
     const von = zahl(Math.min.apply(null, werte));
     const bis = zahl(Math.max.apply(null, werte));
-    return von === bis ? `${von} ${einheit}` : `${von}–${bis} ${einheit}`;
+    return von === bis ? `${von}${einheit}` : `${von}–${bis}${einheit}`;
   }
 
   // Die Strecken einer Veranstaltung als Pillen: nach Länge sortiert,
@@ -747,12 +903,23 @@
     const relativ = e.datum_vorlaeufig ? t('detail_vorlaeufig') : EF.relativeDays(e.datum_start, lang);
     const mehrtaegig = e.datum_ende && e.datum_ende !== e.datum_start;
     const datumGross = e.datum_vorlaeufig
-      ? escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + '*'
+      ? escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + vorlaeufigStern(lang)
       : mehrtaegig
         ? `${escapeHtml(EF.formatDateLong(e.datum_start, lang))} –<br>${escapeHtml(EF.formatDateLong(e.datum_ende, lang))}`
         : escapeHtml(EF.formatDateLong(e.datum_start, lang));
     const kategorie = `${tv('art1', e.art1)}${e.art2 ? ' · ' + tv('art2', e.art2) : ''}`;
-    const strecke = `${formatLength(e, lang)}${wb ? ' · ' + wb : ''}`;
+    // NUR die Länge - "5,6km", nicht "5,6 km · 5.555 m (Berglauf auf den
+    // Lousberg)". Vom Nutzer am 21.09.2026 entschieden, mit der
+    // Begründung, die für die ganze Seite gilt: "Wir wollen nicht zu
+    // viele Infos zeigen, weil das erhöht die chance, dass sie Infos
+    // auch falsch sind." Das Wettbewerbs-Label ist die unzuverlässigste
+    // Angabe, die wir haben (es kommt wörtlich aus dem Kalendereintrag
+    // und wiederholte hier meist ohnehin die Distanz); wo es wirklich
+    // etwas Eigenes sagt, steht es als Zusatz unter dem Namen in der
+    // Liste und als Tooltip an der Strecken-Pille.
+    // Bei einem Triathlon ist "die Länge" das FORMAT ("Super-Sprint"),
+    // siehe formatLength/triathlonFormat.
+    const strecke = formatLength(e, lang);
     container.innerHTML = `
       <div class="detail-head">
         <div class="detail-head-text">
@@ -764,7 +931,10 @@
         ${ctx.onClose ? `<button type="button" class="detail-share detail-close"
                 title="${escapeHtml(t('detail_close'))}" aria-label="${escapeHtml(t('detail_close'))}">&#10005;</button>` : ''}
       </div>
-      <div class="detail-badge ${sportClass(e.art1)}">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
+      <div class="detail-badges">
+        <div class="detail-badge ${sportClass(e.art1)}">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
+        ${e.charity ? `<div class="detail-badge detail-badge--charity" title="${escapeHtml(t('charity_titel'))}">${charityIcon(15)}<span>${escapeHtml(t('charity'))}</span></div>` : ''}
+      </div>
       <h2>${escapeHtml(e.name)}</h2>
       ${streckenPillen(e, ctx)}
       <dl class="detail-grid">
@@ -830,6 +1000,7 @@
     kopiereInAblage,
     sportIcon,
     sportClass,
+    charityIcon,
     hostVon,
     groupKey,
     formatLengthSpan

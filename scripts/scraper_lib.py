@@ -201,22 +201,72 @@ ENGLISH_MONTHS = {
 # zutreffen und das Event fälschlich als Straßenlauf einstufen (echter
 # Bug, mit realen Daten verifiziert), obwohl "Bergtrail"/"Trail-Marathon"
 # eindeutig einen Trail-/Geländelauf beschreibt.
-# "Charity" steht ganz VORN, vor jedem Gelände-Stichwort: Vom Nutzer am
-# 21.09.2026 so entschieden ("eine neue Kategorie ... die 'Charity' heißt
-# ... alle Schwimmen, Lauf und Rennrad Charity Events"). Ein
-# "Benefiz-Crosslauf" ist damit Charity, nicht Trail - der Zweck zählt
-# vor dem Untergrund. Erkannt wird nur, was der Name selbst sagt
-# (Charity, Benefiz, Spendenlauf, Sponsorenlauf, wohltätig); ein Lauf, der
-# sein Startgeld spendet, ohne es im Namen zu tragen, bleibt in seiner
-# Gelände-Kategorie. Dieselbe Zeile steht in ART2_KEYWORDS_FAHRRAD und
-# ART2_KEYWORDS_SCHWIMMEN (CHARITY_KEYWORD).
+# "Charity" war vom 21.09.2026 an eine KATEGORIE in diesen Listen und
+# stand ganz vorn - ein Benefiz-Crosslauf war damit Charity statt Trail.
+# Am selben Tag hat der Nutzer das zurückgenommen: "Ich weiß das wir
+# jetzt in der Kategorie 'Charity' stehen drinnen haben. Aber da bitte
+# wieder die Kategorie einfügen." Der Grund ist derselbe, aus dem die
+# Listen von spezifisch nach generisch sortiert sind: Ein Charity-Lauf
+# findet trotzdem auf einem Untergrund statt, und die Kategorie war die
+# Information, die dabei verloren ging.
+#
+# Charity ist deshalb seit dem 21.09.2026 ein eigenes MERKMAL neben der
+# Kategorie (Feld `charity` am Event, gesetzt von ist_charity() aus dem
+# Namen); die Liste markiert solche Zeilen mit einem Symbol und rosa
+# hinterlegt. Die Lehre dahinter ist allgemeiner und steht in CLAUDE.md:
+# Ein Merkmal, das QUER zu einer Einteilung liegt, gehört nicht als
+# weiterer Wert in sie hinein - es verdrängt sonst genau den Wert, den
+# es ergänzen sollte.
 CHARITY_KEYWORD = re.compile(
     r"charity|benefiz|spenden[- ]?(?:lauf|läufe|marathon|run|schwimmen|radeln|walk|meile)|"
-    r"sponsoren[- ]?lauf|wohltätig", re.I)
+    r"sponsoren[- ]?lauf|wohltätig|"
+    # "Lauf für einen guten Zweck - Rastenberg" trug keines der Stichwörter
+    # oben und stand deshalb als Straßenlauf da (vom Nutzer am 21.09.2026
+    # gemeldet). Die Wendung ist eindeutig und häufig; "guter Zweck" in
+    # allen Beugungen ist dieselbe Aussage wie "wohltätig".
+    r"gute[nmr]?\s+zweck", re.I)
+
+
+def ist_charity(text: str) -> bool:
+    """Nennt der Text die Veranstaltung selbst als Charity-Event?
+
+    Seit dem 21.09.2026 ist Charity KEINE Kategorie (art2) mehr, sondern
+    ein eigenes Merkmal neben ihr - vom Nutzer so gewünscht: "Ich weiß
+    das wir jetzt in der Kategorie 'Charity' stehen drinnen haben. Aber
+    da bitte wieder die Kategorie einfügen." Ein Benefiz-Crosslauf ist
+    damit wieder ein Trail UND ein Charity-Event, statt seine
+    Gelände-Kategorie zu verlieren; die Liste markiert ihn mit Symbol
+    und rosa hinterlegter Zeile.
+
+    Erkannt wird weiterhin nur, was der NAME sagt - ein Lauf, der sein
+    Startgeld spendet, ohne es im Namen zu tragen ("Lauf gegen Krebs",
+    Wings for Life World Run), bleibt unmarkiert. Geraten wird nie.
+    """
+    return bool(CHARITY_KEYWORD.search(text or ""))
 
 ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
-    (CHARITY_KEYWORD, "Charity"),
-    (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
+    # Hindernisläufe (OCR). Zwei Wege, weil die Quellen die Gattung
+    # selten beim Namen nennen - vom Nutzer am 21.09.2026 an der "Xletix
+    # Challenge - Berlin" gemeldet ("ist ein Hindernis lauf und kein Lauf
+    # auf der Straße"). Die Nachzählung machte daraus eine ganze Klasse:
+    # 18 XLETIX-, 13 Muddy-Angel-, 5 CrossDeLuxe-, 4 Mud-Masters-Zeilen
+    # und die Rats-Run-/Hotfoot-Serien standen als Straßenlauf da.
+    #
+    # 1. Die Markennamen. Sie sind eindeutig - dieselbe Linie wie bei
+    #    NICHT_AUSDAUER: "Fitness" wäre geraten, "XLETIX" ist eine
+    #    Tatsache.
+    # 2. Die PLURALFORM "Hindernisse(n)" und "Hindernis-Lauf". Der
+    #    Plural ist der Trick und kein Zufall: Ein Hindernislauf wirbt
+    #    mit ihrer ZAHL ("mit 15 Hindernissen", "25+ Hindernisse",
+    #    "mind. 30 Hindernissen"), während der Singular in einem
+    #    gewöhnlichen Lauf vorkommt - der "TIME2RUN Silvesterlauf in
+    #    Schwabmünchen" nennt "kein Wasserhindernis" bzw. "mögliches
+    #    Wasserhindernis". Ein Muster auf "hindernis" ohne Plural hätte
+    #    diese beiden Zeilen zu Hindernisläufen gemacht, und zwar genau
+    #    die eine, die es ausdrücklich VERNEINT.
+    (re.compile(r"hindernis[- ]?lauf|hindernisse[nr]?\b|obstacle|ocr\b|"
+                r"spartan|tough mudder|xletix|muddy angel|mud masters|"
+                r"crossdeluxe|cross de luxe|rats.?run|hotfoot", re.I), "Hindernis"),
     (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
     # "backyard" steht NACH "Trail" - und das ist der ganze Trick: Ein
     # reiner "Backyard Ultra" (Last-Man-Standing: gleiche Runde zur
@@ -348,7 +398,6 @@ DEFAULT_ART2_TRIATHLON = "Straße"
 # Talsperren Marathons). Vollständig wird sie mit Fahrplan Punkt 1;
 # die Werte müssen zu ART2_BY_ART1['Fahrrad'] in filter-ui.js passen.
 ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
-    (CHARITY_KEYWORD, "Charity"),
     (re.compile(r"mountainbike|\bmtb\b|\bxc\b", re.I), "Mountainbike"),
     (re.compile(r"gravel|schotter", re.I), "Gravel"),
     (re.compile(r"cyclo.?cross|cyclecross|querfeldein", re.I), "Cyclecross"),
@@ -362,7 +411,6 @@ ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
 # ist, muss die Quelle sagen. Die Werte müssen zu ART2_BY_ART1['Schwimmen']
 # in filter-ui.js passen (Freiwasser, Becken, Charity).
 ART2_KEYWORDS_SCHWIMMEN: list[tuple[re.Pattern, str]] = [
-    (CHARITY_KEYWORD, "Charity"),
     (re.compile(r"freiwasser|open ?water|see-?schwimm|see-?(?:durch|über)?querung|"
                 r"fluss-?schwimm|kanal-?schwimm|strand-?schwimm|bodensee", re.I), "Freiwasser"),
     (re.compile(r"hallenbad|schwimmhalle|schwimmbad|becken", re.I), "Becken"),
@@ -480,6 +528,11 @@ class Event:
     # None (nicht False), damit to_dict() das Feld weglässt, solange es
     # nicht gesetzt ist.
     datum_vorlaeufig: bool | None = None
+    # Benefiz-/Spendenveranstaltung - ein Merkmal NEBEN der Kategorie,
+    # nicht eines ihrer Werte (siehe ist_charity()). Wie
+    # datum_vorlaeufig None statt False, damit to_dict() das Feld
+    # weglässt, solange es nicht gesetzt ist.
+    charity: bool | None = None
     veranstalter_url: str | None = None
 
     def is_valid(self) -> bool:
@@ -1976,7 +2029,7 @@ def load_manual_overrides() -> dict:
 # seitenabgleich.py BESTAETIGT, dann den Override löschen.
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "land", "standort", "veranstalter_url", "lat", "lon",
-                   "datum_start", "datum_ende", "datum_vorlaeufig")
+                   "datum_start", "datum_ende", "datum_vorlaeufig", "charity")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:

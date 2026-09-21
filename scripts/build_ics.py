@@ -165,7 +165,12 @@ def build_ics(event: dict, stempel: str) -> str:
     titel = f"{event['name']} – {wb}" if wb else event["name"]
     beschreibung = [
         f"Sportart: {event.get('art1') or '-'}"
-        + (f" / {event['art2']}" if event.get("art2") else ""),
+        + (f" / {event['art2']}" if event.get("art2") else "")
+        # Charity ist seit dem 21.09.2026 ein Merkmal NEBEN der Kategorie
+        # (Datenregel 17). Solange es eine Kategorie war, stand es in
+        # dieser Zeile; ohne den Zusatz hier ginge die Auskunft für die
+        # Kalenderdatei verloren, während Liste und Box sie zeigen.
+        + (" · Charity" if event.get("charity") else ""),
         f"Länge: {laenge_text(event)}",
     ]
     # Kalenderprognose (datum_vorlaeufig): Ein Termin muss einen Tag

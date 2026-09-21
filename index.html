@@ -64,7 +64,7 @@
 <!-- Farben, Kopfzeile und Fußzeile: geteilt mit Liste und Karte. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=db0399b8">
+<link rel="stylesheet" href="site.css?v=0c9ee0b1">
 <style>
   /* Farben, Kopfzeile und Fußzeile stehen in site.css; hier nur, was
      allein die Startseite hat: Hero, Kennzahlen, Sportarten. */
@@ -266,6 +266,10 @@
   .sport-card.sport-schwimmen svg { color: var(--sport-schwimmen); }
   .sport-card.sport-triathlon svg { color: var(--sport-triathlon); }
   .sport-card .name { font-family: var(--font-display); font-weight: 600; color: var(--text); font-size: 1.25rem; }
+  /* Die Anzahl unter dem Namen der Sportart: leise, damit die Kachel
+     weiter vom Namen lebt. Sie ist erst da, wenn die Daten da sind. */
+  .sport-count { margin-top: 4px; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+  .sport-count[hidden] { display: none; }
 
   .final-cta {
     text-align: center;
@@ -391,18 +395,22 @@
     <a class="sport-card" href="events.html?sportart=Laufen">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="5.5" r="2"/><path d="M9 20l3-5 2 2 3-1M6 20l3.5-6.5L7 11l2-4 4 1 1 3 3 1"/></svg>
       <div class="name" data-i="sportRun">Laufen</div>
+      <div class="sport-count" data-sport="Laufen" hidden></div>
     </a>
     <a class="sport-card sport-fahrrad" href="events.html?sportart=Fahrrad">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h3l4 9M10 8h3M13 8l2 3.5"/></svg>
       <div class="name" data-i="sportBike">Fahrrad</div>
+      <div class="sport-count" data-sport="Fahrrad" hidden></div>
     </a>
     <a class="sport-card sport-schwimmen" href="events.html?sportart=Schwimmen">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="1.6"/><path d="M4 12l3-2 3 2 3-2 2 1.5"/><path d="M2 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M8 12l1-4 4-1 2 3"/></svg>
       <div class="name" data-i="sportSwim">Schwimmen</div>
+      <div class="sport-count" data-sport="Schwimmen" hidden></div>
     </a>
     <a class="sport-card sport-triathlon" href="events.html?sportart=Triathlon">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.7"/><path d="M12 6.5v5l-3 3v6M12 11.5l3 3v6M6 12l3-1.5M18 12l-3-1.5"/></svg>
       <div class="name" data-i="sportTri">Triathlon</div>
+      <div class="sport-count" data-sport="Triathlon" hidden></div>
     </a>
   </div>
 </div>
@@ -441,6 +449,15 @@
      auth.js laedt es erst nach, wenn wirklich geschrieben wird. -->
 <script defer src="vendor/firebase-10.14.1/firebase-app-compat.js"></script>
 <script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
+<!-- filters.js liefert hier nur zwei Dinge: dropPastEvents() (welche
+     Events "aktuell" sind - dieselbe Grenze wie in der Liste) und
+     formatInt() (Tausendertrennzeichen je nach DE/EN, nicht nach der
+     Browsersprache). Beides nachzubauen wäre eine zweite Kopie, die beim
+     nächsten Umbau ausschert - genau das, was das Modul verhindern soll.
+     `defer` blockiert den Seitenaufbau nicht, und events.html, das diese
+     Seite ohnehin per prefetch vorlädt, braucht die Datei danach sowieso:
+     Der Abruf wärmt also den Cache für den nächsten Klick. -->
+<script defer src="filters.js?v=afa4275d"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 
@@ -462,6 +479,8 @@
       sportsTitle: 'Finde deine Disziplin',
       sportsSub: 'Klicke auf eine Sportart und stöbere dich direkt durch die Liste.',
       sportRun: 'Laufen', sportBike: 'Fahrrad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
+      sportCount: (n) => `${n} Events`,
+      sportCount1: '1 Event',
       footer: 'Endurance Events – Ausdauersport im deutschsprachigen Raum',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz'
@@ -481,6 +500,8 @@
       sportsTitle: 'Find your discipline',
       sportsSub: 'Click a sport and browse straight through the list.',
       sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
+      sportCount: (n) => `${n} events`,
+      sportCount1: '1 event',
       footer: 'Endurance Events – endurance sport in the German-speaking region',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy'
@@ -502,6 +523,57 @@
       if (I18N[l][key] != null) el.textContent = I18N[l][key];
     });
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    // Die Zahlen tragen das Tausendertrennzeichen der gewählten Sprache
+    // ("1.889" / "1,889") und müssen deshalb mit umschalten. Sie haben
+    // kein data-i: Ihr Text entsteht aus den Daten, nicht aus I18N.
+    zeigeZahlen();
+  }
+
+  // ---------- Wie viele Events je Sportart? ----------
+  //
+  // Vom Nutzer am 21.09.2026 gewünscht: "Können wir auf der Startseite
+  // bitte noch bei den 4 Blöcken (schwimmen, Rennrad, laufen, triathlon)
+  // immer noch die Anzahl der jeweiligen Events dann hinzufügen die
+  // aktuell in der Liste sind."
+  //
+  // "aktuell in der Liste" ist wörtlich zu nehmen: Gezählt wird nach
+  // EF.dropPastEvents(), also mit derselben Grenze, die events.html beim
+  // Laden zieht - sonst verspräche die Startseite Events, die einen Klick
+  // später nicht mehr da sind. Zwischen zwei Datenläufen liegt eine
+  // Woche, in der Zeit fallen durchaus welche heraus.
+  //
+  // Die Zahlen stehen erst da, wenn sie stimmen: Die Felder sind `hidden`,
+  // bis der Abruf zurück ist. Eine "0" oder ein Platzhalter, der später
+  // springt, wäre schlechter als eine Karte ohne Zahl - und schlägt der
+  // Abruf fehl (oder fehlt filters.js), bleibt die Seite genau so, wie sie
+  // vorher war. Die Zahl ist Beiwerk, die vier Kacheln sind der Zweck.
+  let zaehlung = null;
+
+  function zeigeZahlen() {
+    if (!zaehlung) return;
+    document.querySelectorAll('.sport-count').forEach(el => {
+      const n = zaehlung[el.dataset.sport] || 0;
+      if (!n) { el.hidden = true; return; }
+      el.textContent = n === 1
+        ? I18N[lang].sportCount1
+        : I18N[lang].sportCount(window.EnduranceFilters.formatInt(n, lang));
+      el.hidden = false;
+    });
+  }
+
+  function ladeZahlen() {
+    const EF = window.EnduranceFilters;
+    if (!EF || !EF.dropPastEvents || !EF.formatInt) return;
+    fetch('events.json')
+      .then(r => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then(alle => {
+        zaehlung = {};
+        EF.dropPastEvents(alle).forEach(e => {
+          zaehlung[e.art1] = (zaehlung[e.art1] || 0) + 1;
+        });
+        zeigeZahlen();
+      })
+      .catch(() => { /* still bleiben - siehe oben */ });
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -509,6 +581,13 @@
   });
 
   applyLang(lang);
+  // Nach `defer`: filters.js ist dann geladen (dieselbe Reihenfolge wie
+  // EE_AUTH_QUEUE in events.html - dieses Inline-Skript läuft davor).
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ladeZahlen);
+  } else {
+    ladeZahlen();
+  }
 })();
 </script>
 </body>

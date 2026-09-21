@@ -117,32 +117,78 @@ def test_kategorie() -> None:
     from scraper_lib import ART2_KEYWORDS_LAUFEN
     check("kein 'Berg' mehr in der Stichwortliste",
           sorted({k for _, k in ART2_KEYWORDS_LAUFEN}),
-          ["Backyard Ultra", "Bahn", "Charity", "Hindernis", "Straße", "Trail"])
+          ["Backyard Ultra", "Bahn", "Hindernis", "Straße", "Trail"])
     check("Stadtlauf -> Straße", guess_art2("40. Wolfenbütteler Stadtlauf", CONFIG), "Straße")
     check("Hindernislauf", guess_art2("Spartan Race Hindernislauf", CONFIG), "Hindernis")
-    # "Charity" (Nutzer, 21.09.2026): der Zweck zählt vor dem Untergrund,
-    # das Stichwort steht deshalb ganz vorn - ein Benefiz-Crosslauf ist
-    # Charity, ein Charity-Treppenlauf auch. Nur der Name entscheidet.
+
+    # ---- Hindernisläufe: Marken und der PLURAL ----
+    #
+    # Vom Nutzer am 21.09.2026 an der "Xletix Challenge - Berlin"
+    # gemeldet ("ist ein Hindernis lauf und kein Lauf auf der Straße").
+    # Die Nachzählung machte daraus 58 Zeilen. Erkannt wird die Marke
+    # oder die PLURALFORM "Hindernisse(n)" - ein Hindernislauf wirbt mit
+    # ihrer Zahl.
+    for name in ("Xletix Challenge - Berlin", "XLETIX Challenge NRW",
+                 "Muddy Angel Run - Dresden", "Mud Masters - Airport Weeze",
+                 "CrossDeLuxe Erzgebirge", "Rats-Run - Kupferzell",
+                 "Hotfoot Run Warstein Hot-20 (40 Hindernisse)",
+                 "Puls 300 Cross- und Hindernis-Lauf",
+                 "Bären Run 6 km Strongman Bären, etwa 20 Hindernissen"):
+        check(f"{name!r} -> Hindernis", guess_art2(name, CONFIG), "Hindernis")
+    # Die Gegenprobe, an der die naheliegende Fassung gescheitert wäre:
+    # Ein gewöhnlicher Silvesterlauf nennt im SINGULAR ein Hindernis -
+    # und zwar einmal, um es ausdrücklich zu VERNEINEN. Ein Muster auf
+    # "hindernis" ohne Plural hätte beide Zeilen zu Hindernisläufen
+    # gemacht.
+    check("'kein Wasserhindernis' ist kein Hindernislauf",
+          guess_art2("TIME2RUN Silvesterlauf in Schwabmünchen "
+                     "6,7 km Strecke, kein Wasserhindernis", CONFIG), "Straße")
+    check("'mögliches Wasserhindernis' ebenso",
+          guess_art2("TIME2RUN Silvesterlauf in Schwabmünchen "
+                     "12 km Strecke, mögliches Wasserhindernis", CONFIG), "Straße")
+
+    # ---- Charity ist eine MARKIERUNG, keine Kategorie ----
+    #
+    # Vom 21.09.2026 an war "Charity" eine Kategorie (art2) und stand in
+    # der Stichwortliste ganz vorn - ein Benefiz-Crosslauf war damit
+    # Charity STATT Trail. Am selben Tag hat der Nutzer das
+    # zurückgenommen ("Aber da bitte wieder die Kategorie einfügen"):
+    # Die Kategorie war gerade die Auskunft, die dabei verloren ging.
+    # Seitdem trägt das Event ein eigenes Merkmal (ist_charity), und die
+    # Kategorie bleibt die Kategorie.
+    from scraper_lib import ist_charity
     for name in ("19. Benin Benefiz-Lauf", "Sterntaler Spendenlauf",
                  "Bietlauf für einen Wohltätigen Zweck 9,2 km Crosslauf",
                  "ADAC Charity Treppenlauf", "Sponsorenlauf Brustkrebshilfe Dorsten",
-                 "Borne to Run 48-Stunden-Spenden-Lauf"):
-        check(f"{name!r} -> Charity", guess_art2(name, CONFIG), "Charity")
-    check("Lauf ohne Charity-Wort bleibt Straße",
-          guess_art2("Lauf gegen Krebs", CONFIG), "Straße")
+                 "Borne to Run 48-Stunden-Spenden-Lauf",
+                 # Vom Nutzer am 21.09.2026 gemeldet - trug keines der
+                 # alten Stichwörter und stand deshalb unmarkiert da.
+                 "Lauf für einen guten Zweck - Rastenberg"):
+        check(f"{name!r} -> charity", ist_charity(name), True)
+    check("Lauf ohne Charity-Wort ist nicht markiert",
+          ist_charity("Lauf gegen Krebs"), False)
+    # Die Kategorie bleibt jetzt erhalten - genau das war der Wunsch.
+    check("Benefiz-Crosslauf behält seine Kategorie",
+          guess_art2("Bietlauf für einen Wohltätigen Zweck 9,2 km Crosslauf", CONFIG), "Trail")
+    check("Charity-Treppenlauf behält seine Kategorie",
+          guess_art2("ADAC Charity Treppenlauf", CONFIG), "Trail")
+    check("Spendenlauf auf der Straße bleibt Straße",
+          guess_art2("Sterntaler Spendenlauf", CONFIG), "Straße")
+    check("Benefiz-Seeschwimmen behält Freiwasser",
+          guess_art2("Benefiz-Seeschwimmen im Freiwasser", CONFIG, "Schwimmen"), "Freiwasser")
     # Treppenläufe sind Trail (Nutzer, 21.09.2026: "als Trail aufnehmen").
     for name in ("Lotto Thüringen Treppenlauf", "TK Elevator Towerrun",
                  "Bad Wildbader Stäffeleslauf", "Neuwoges-Treppenhauslauf",
                  "Mt. Everest Treppenmarathon"):
         check(f"{name!r} -> Trail", guess_art2(name, CONFIG), "Trail")
-    # Charity auch beim Schwimmen und Fahrrad - und die Schwimm-Liste
-    # kennt Freiwasser/Becken, ohne Voreinstellung.
-    check("Charity-Schwimmen", guess_art2("Benefiz-Seeschwimmen", CONFIG, "Schwimmen"), "Charity")
+    # Die Schwimm-Liste kennt Freiwasser/Becken, ohne Voreinstellung.
     check("Freiwasser", guess_art2("Bodensee Openwater Konstanz", CONFIG, "Schwimmen"), "Freiwasser")
     check("Becken", guess_art2("Hallenbad-Cup 1500 m", CONFIG, "Schwimmen"), "Becken")
     check("Schwimmen ohne Hinweis: keine Kategorie",
           guess_art2("Sommer-Cup", CONFIG, "Schwimmen"), None)
-    check("Charity-Radrennen", guess_art2("Benefiz-Radrennen", CONFIG, "Fahrrad"), "Charity")
+    check("Charity beim Radrennen ist eine Markierung, keine Kategorie",
+          (ist_charity("Benefiz-Radrennen"), guess_art2("Benefiz-Radrennen", CONFIG, "Fahrrad")),
+          (True, None))
 
     # Bestehende Daten werden auf die zusammengefasste Kategorie
     # nachgezogen - je Sportart: Beim Laufen wird "Cross" zu "Trail",

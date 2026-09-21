@@ -60,10 +60,10 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=db0399b8">
+<link rel="stylesheet" href="site.css?v=0c9ee0b1">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=2b672a58">
-<link rel="stylesheet" href="event-detail.css?v=185add98">
+<link rel="stylesheet" href="event-detail.css?v=92628441">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Karte und Startseite); hier nur, was allein
@@ -271,6 +271,28 @@
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
+  /* Charity-Events sind leicht rosa hinterlegt (vom Nutzer am 21.09.2026
+     so vorgeschlagen: "Vielleicht findet man eine gute Lösung, das man
+     die Zeile ggf. Leicht rosa hinterlegt"). Die Regel steht NACH dem
+     Zebra - sonst gewänne jede zweite Zeile - und VOR Block, Hover und
+     Auswahl: Welche Zeile gerade gewählt oder aufgeklappt ist, muss
+     stärker sein als eine Eigenschaft des Events. Erkennbar bleibt es
+     dort am Herz hinter dem Namen, das immer steht.
+     Die Fläche ist bewusst sehr leise (--charity-row): Sie liegt hinter
+     einer ganzen Tabellenzeile mit Fließtext, nicht hinter einem
+     Etikett. */
+  tbody tr.charity-row { background: var(--charity-row); }
+  /* Das Herz hinter dem Namen. Es trägt die Bedeutung, die Fläche
+     unterstützt sie nur - eine Zeile, die im aufgeklappten Block liegt
+     oder gerade gewählt ist, hat keine rosa Fläche mehr. */
+  .charity-marke {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: -2px;
+    margin-left: 5px;
+    color: var(--charity);
+  }
+  .charity-marke svg { flex-shrink: 0; }
   /* Der aufgeklappte Block ist durchgehend in EINEM Ton hinterlegt,
      auch die gewählte Strecke (so vom Nutzer entschieden, 19.09.2026);
      `active` bleibt an der Zeile für Tastatur und Rauchtest. */
@@ -623,9 +645,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=2e12c2b1"></script>
-<script src="filter-ui.js?v=6c73cd91"></script>
-<script src="event-detail.js?v=cceec346"></script>
+<script src="filters.js?v=afa4275d"></script>
+<script src="filter-ui.js?v=841724c1"></script>
+<script src="event-detail.js?v=ee7682e2"></script>
 
 <script>
 (async function () {
@@ -662,7 +684,6 @@
       title: 'Endurance Events',
       nav_events: 'Events',
       stand: (d) => `Stand: ${d}`,
-      datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
       // Kein Bedienhinweis mehr ("Klicke auf eine
       // Kopfzeile-Filterschaltfläche …") - das war ein Handbuchsatz für
       // etwas, das man sieht, und er machte den blauen Kasten hoch. Hier
@@ -775,7 +796,6 @@
       title: 'Endurance Events',
       nav_events: 'Events',
       stand: (d) => `Updated: ${d}`,
-      datum_fussnote: '* exact date not yet published – month as in the previous year',
       subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
       reset: 'Clear filters',
       footer_imprint: 'Legal notice',
@@ -1556,19 +1576,57 @@
   // statt fest untereinander geschrieben - nur so lässt sich die
   // Entfernungs-Spalte an der richtigen Stelle einschieben, ohne die
   // Reihenfolge an zwei Orten pflegen zu müssen.
-  // opts.zweiteZeile: in einem aufgeklappten Block steht unter dem Namen
-  // IMMER der Wettbewerb - notfalls die Länge ("10 km"), damit sich die
-  // Strecken einer Veranstaltung auch im Namen unterscheiden (Vorlage
-  // des Nutzers). Außerhalb eines Blocks nur, wenn das Label mehr sagt
-  // als die Längen-Spalte (displayWettbewerb).
+  // Das Charity-Herz. Vom Nutzer am 21.09.2026 gewünscht ("Ich würde die
+  // Charity Events irgendwie gerne alle markieren in der Zeile mit einem
+  // Icon"), zusammen mit der rosa hinterlegten Zeile (.charity-row im
+  // Stylesheet). Beides zusammen, nicht nur die Fläche: Eine Farbe allein
+  // trägt keine Bedeutung für jemanden, der sie nicht unterscheiden kann.
+  //
+  // Es steht in der Spalte KATEGORIE, nicht hinter dem Namen. Der erste
+  // Versuch hing es an den Namen - und dort war es bei der Hälfte der
+  // Zeilen unsichtbar: Die Namensspalte ist 23 % breit und kürzt mit
+  // "…", also verschwand das Herz genau bei den langen Namen
+  // ("Spendenlauf Deutsche KinderKrebshilfe Holzminden"). Die Kategorie
+  // ist kurz ("Straße") und kürzt nie - und dort hat die Auskunft bis
+  // zum 21.09.2026 ohnehin gestanden, als Charity noch eine Kategorie
+  // war. Wer sie dort sucht, findet sie dort.
+  // Die Beschriftung für Screenreader steht als `aria-label` am Span
+  // selbst, NICHT als .sr-only-Element darin. Der Unterschied ist nicht
+  // Geschmack: .sr-only ist `position: absolute`, und ein absolut
+  // positioniertes Element bezieht sich auf den nächsten positionierten
+  // Vorfahren - `overflow-x: auto` an .table-wrap ist keiner. Die
+  // Beschriftungen landeten damit am Dokument, an der x-Stelle ihrer
+  // Zelle in der 900 px breiten Tabelle, und zogen die ganze SEITE 124 px
+  // in die Breite; auf dem Handy scrollte danach alles waagerecht, und
+  // der sticky "Weitere 200 anzeigen"-Knopf war nicht mehr klickbar.
+  // Der Rauchtest hat genau das gemeldet.
+  function charityMarke(e) {
+    if (!e.charity) return '';
+    return `<span class="charity-marke" role="img" aria-label="${escapeHtml(t('charity'))}"`
+      + ` title="${escapeHtml(t('charity_titel'))}">${EED.charityIcon(14)}</span>`;
+  }
+
+  // Unter dem Namen steht die Wettbewerbs-Bezeichnung, aber nur, wenn
+  // sie etwas sagt, was nicht schon in einer eigenen Spalte steht
+  // (displayWettbewerb schneidet dafür jede Maßzahl heraus).
+  //
+  // Bis zum 21.09.2026 stand dort in einem aufgeklappten Block ERSATZWEISE
+  // die Länge ("10 km"), damit sich die Strecken einer Veranstaltung auch
+  // im Namen unterscheiden. Der Nutzer hat das an diesem Tag abgeräumt:
+  // "Wir haben die Länge in der Liste schon und in der Detailansicht dann
+  // auch. Man muss es nicht 3x sehen." Die Längen-Spalte steht in
+  // derselben Zeile - sie unterscheidet die Strecken bereits.
   function cellHtml(col, e, opts) {
     const td = (inhalt, extra) =>
       `<td class="col-${col.key}${extra ? ' ' + extra : ''}">${inhalt}</td>`;
     switch (col.key) {
       case 'name': {
-        const wb = displayWettbewerb(e) || (opts && opts.zweiteZeile ? formatLength(e) : null);
-        return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
-             + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
+        const wb = displayWettbewerb(e);
+        const titel = (wb ? e.name + ' – ' + wb : e.name)
+          + (e.charity ? ' · ' + t('charity_titel') : '');
+        return td(`<div class="cell-clamp" title="${escapeHtml(titel)}">`
+             + `${escapeHtml(e.name)}`
+             + `${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
       }
       case 'datum': return td(`<div class="cell-clamp">${EED.formatEventRangeHtml(e, currentLang, true)}</div>`);
       case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
@@ -1579,7 +1637,7 @@
       case 'standort': return td(`<div class="cell-clamp">${escapeHtml(tv('standort', e.standort))}</div>`);
       case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp sport-cell ${EED.sportClass(e.art1)}">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
-      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
+      case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}${charityMarke(e)}</div>`);
       case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${formatLength(e)}</div>`);
       default: return td('');
     }
@@ -1648,7 +1706,10 @@
     const e = g.rows[0].e;
     const einzeln = istEinzelgruppe(g);
     const offen = !einzeln && state.offeneGruppen.has(g.key);
-    const wb = offen ? (displayWettbewerb(e) || formatLength(e)) : null;
+    const wb = offen ? displayWettbewerb(e) : null;
+    // Eine Veranstaltung gilt als Charity, sobald EINE ihrer Strecken so
+    // markiert ist - zugeklappt steht diese Zeile für alle.
+    const charity = g.rows.some(({ e: r }) => r.charity);
     const kategorien = [];
     g.rows.forEach(({ e: r }) => {
       const k = r.art2 ? tv('art2', r.art2) : null;
@@ -1671,7 +1732,8 @@
           // Aufgeklappt gehört in die Zeile nur die Kategorie der ersten
           // Strecke - die übrigen stehen in ihren eigenen Zeilen.
           if (offen) return cellHtml(col, e);
-          return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}</div></td>`;
+          return `<td class="col-art2"><div class="cell-clamp">${kategorien.length ? escapeHtml(kategorien.join(' · ')) : '–'}`
+               + `${charityMarke({ charity })}</div></td>`;
         case 'laenge_km':
           if (offen) return cellHtml(col, e);
           return `<td class="col-laenge_km"><div class="cell-clamp${g.rows.every(r => r.e.art1 === 'Triathlon') ? ' format' : ''}">${escapeHtml(laengeSpanne(g))}</div></td>`;
@@ -1712,11 +1774,12 @@
   // Scrollen kommt der nächste Schub dazu (zeigeMehr). Das ist dieselbe
   // Linie wie bei klappeGruppe(): anhängen statt neu zeichnen.
   function zeilenHtml(liste, cols) {
-    return liste.map(({ e, idx }) =>
-      `<tr data-idx="${idx}" tabindex="-1"${idx === selectedIndex ? ' class="active"' : ''}>`
-      + cols.map(col => cellHtml(col, e)).join('')
-      + '</tr>'
-    ).join('');
+    return liste.map(({ e, idx }) => {
+      const klassen = (idx === selectedIndex ? 'active ' : '') + (e.charity ? 'charity-row' : '');
+      return `<tr data-idx="${idx}" tabindex="-1"${klassen.trim() ? ` class="${klassen.trim()}"` : ''}>`
+        + cols.map(col => cellHtml(col, e)).join('')
+        + '</tr>';
+    }).join('');
   }
 
   // startNr: die Nummer der ersten Gruppe dieses Schubs. `data-g` muss
@@ -1739,7 +1802,9 @@
       // data-klapp und aria-expanded nur an Zeilen, die sich wirklich
       // aufklappen - eine einzelne Strecke wäre sonst dauerhaft
       // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
-      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}"`
+      // Wie in groupRowHtml: eine Strecke genügt.
+      const charity = g.rows.some(({ e: r }) => r.charity);
+      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}${charity ? ' charity-row' : ''}"`
         + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
         + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
         + `>${groupRowHtml(g, cols)}</tr>`);
@@ -1828,8 +1893,9 @@
     const unter = g.rows.slice(1);
     return unter.map(({ e, idx }, i) =>
       `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}`
-      + `${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
-      + cols.map(col => cellHtml(col, e, { zweiteZeile: true })).join('')
+      + `${idx === selectedIndex ? ' active' : ''}${e.charity ? ' charity-row' : ''}"`
+      + ` data-idx="${idx}" tabindex="-1">`
+      + cols.map(col => cellHtml(col, e)).join('')
       + '</tr>'
     ).join('');
   }
@@ -2514,7 +2580,37 @@
   // Struktur - vom Nutzer so gewünscht). Hier bleibt nur, was die Liste
   // beisteuert: das Event und der Melde-Dialog.
   function detailKontext() {
-    return { t, tv, lang: currentLang, onReport: (e) => openReportModal(e) };
+    return { t, tv, lang: currentLang, onReport: (e) => openReportModal(e), onClose: schliesseDetail };
+  }
+
+  // Das ✕ neben dem Teilen-Knopf. Die Karte hatte es von Anfang an (dort
+  // liegen bis zu zwei Boxen über der Karte), die Liste nicht - bis der
+  // Nutzer es am 21.09.2026 auch hier wollte: "Da bitte dann neben dem
+  // share button auch noch ein 'x' hinmachen, wo man das Fenster dann
+  // wieder schließen kann." Zurück bleibt "Wähle eine Zeile aus, um
+  // Details zu sehen."
+  //
+  // Drei Dinge gehören dazu, sonst schließt sich nur die Hälfte:
+  //   - die Markierung in der Tabelle (markiereAuswahl über selectedIndex
+  //     = null),
+  //   - der Parameter ?event= in der Adresse (writeUrlState) - sonst
+  //     zeigte ein kopierter Link weiter auf ein Event, das hier gar
+  //     nicht mehr offen ist,
+  //   - der Fokus. Er stand im ✕, und das verschwindet gerade; ohne
+  //     dieses Zurücksetzen landet er am <body>, und wer mit der
+  //     Tastatur arbeitet, beginnt wieder ganz oben. Er geht an die
+  //     Zeile, die eben gewählt war.
+  function schliesseDetail() {
+    const zeile = bodyEl.querySelector(`tr[data-idx="${selectedIndex}"]`);
+    selectedIndex = null;
+    deepEventSlug = null;
+    markiereAuswahl();
+    renderDetail();
+    writeUrlState();
+    if (zeile && zeile.isConnected) {
+      setzeTabStop(zeile);
+      zeile.focus({ preventScroll: true });
+    }
   }
 
   // Die Strecken derselben Veranstaltung (Name + Datum + Ort, wie beim

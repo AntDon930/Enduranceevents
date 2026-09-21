@@ -17,6 +17,13 @@ Datenbasis ist `events.json`, gefüllt von Python-Scrapern.
 Alle Arbeit auf **`claude/endurance-events-website-v1wruf`** (PR #1).
 Nicht auf einen anderen Branch pushen.
 
+**Achtung, zweiter Name für denselben Stand**: Seit dem 21.09.2026 gibt
+es daneben `claude/website-access-9d9tg1`. Beide zeigten beim Anlegen
+auf denselben Commit; eine Sitzung, der dieser Branch zugewiesen ist,
+arbeitet dort weiter. Wer einen Stand vermisst, sieht auf dem anderen
+Branch nach – und wer beide offen hat, sollte sie zusammenführen, bevor
+sie auseinanderlaufen.
+
 ## Dateien
 
 | Datei | Zweck |
@@ -550,24 +557,57 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    `clean_events.drop_staffeln()` rückwirkend, `test_staffeln` hält beide
    Seiten fest. Wer Staffeln zurückwill, nimmt die beiden Aufrufe heraus.
 
-17. **Kategorie „Charity"** (vom Nutzer am 21.09.2026 gewünscht: „eine
-   neue Kategorie … die ‚Charity' heißt … alle Schwimmen, Lauf und
-   Rennrad Charity Events"). `CHARITY_KEYWORD` (charity, benefiz,
-   spendenlauf/-marathon/-run, sponsorenlauf, wohltätig) steht **ganz
-   vorn** in `ART2_KEYWORDS_LAUFEN`, `ART2_KEYWORDS_FAHRRAD` und der
-   neuen `ART2_KEYWORDS_SCHWIMMEN` – der Zweck zählt vor dem Untergrund,
-   ein Benefiz-Crosslauf ist Charity, ein Charity-Treppenlauf auch.
-   `refresh_art2()` zieht bestehende Zeilen auch von einer spezifischen
-   Kategorie auf Charity (Bietlauf für einen Wohltätigen Zweck: Trail →
-   Charity). Erkannt wird nur, was der NAME sagt: „Lauf gegen Krebs"
-   oder der Wings for Life World Run tragen kein Stichwort und bleiben
-   in ihrer Kategorie. Die 18 „Ahmadiyya Charity Walk" sind Charity
-   (Walking-Frage, siehe unten). Filterliste in `filter-ui.js`
-   (Laufen, Schwimmen, Fahrrad – nicht Triathlon, der Nutzer nannte drei
-   Sportarten), Übersetzung in `filters.js` und `functions/index.js`,
-   `test_kategorie` prüft alle drei. Schwimmen hat damit erstmals eine
-   Stichwortliste (Charity, Freiwasser, Becken; ohne Voreinstellung wie
-   beim Fahrrad).
+17. **Charity ist eine MARKIERUNG, keine Kategorie** – und der Weg
+   dorthin ist die Lehre. Am 21.09.2026 wollte der Nutzer „eine neue
+   Kategorie … die ‚Charity' heißt … alle Schwimmen, Lauf und Rennrad
+   Charity Events"; sie kam als `art2`-Wert ganz vorn in die
+   Stichwortlisten, vor jedes Gelände-Stichwort. **Am selben Tag hat er
+   es zurückgenommen**: „Ich weiß das wir jetzt in der Kategorie
+   ‚Charity' stehen drinnen haben. Aber da bitte wieder die Kategorie
+   einfügen."
+
+   Der Grund ist allgemein und steht deshalb hier: **Ein Merkmal, das
+   QUER zu einer Einteilung liegt, darf nicht als weiterer Wert in sie
+   hinein.** Ein Benefiz-Crosslauf ist ein Crosslauf, der für einen
+   guten Zweck läuft – als Kategorie verdrängte „Charity" genau die
+   Auskunft, die sie ergänzen sollte (der Bietlauf verlor sein „Trail",
+   43 Zeilen verloren ihre Kategorie). Dieselbe Frage kommt wieder, bei
+   „Frauenlauf", „Firmenlauf", „Nachtlauf", „Kinderlauf": Das sind alles
+   Eigenschaften NEBEN dem Untergrund, keine Untergründe.
+
+   Wie es jetzt aussieht:
+   - **`charity: true` am Event** (`ist_charity()` in `scraper_lib.py`,
+     gesetzt von `clean_events.fix_charity()`; wie `datum_vorlaeufig`
+     None statt False, damit `to_dict()` es weglässt). `art2` bleibt die
+     echte Kategorie, `refresh_art2()` holt sie für die Altbestände
+     zurück.
+   - **Stichwörter** wie bisher (charity, benefiz, spendenlauf/-marathon/
+     -run, sponsorenlauf, wohltätig) plus **„guter Zweck"** in allen
+     Beugungen: „Lauf für einen guten Zweck – Rastenberg" trug keines
+     der alten und stand unmarkiert da (vom Nutzer am 21.09.2026
+     gemeldet). Erkannt wird nur, was der NAME sagt – „Lauf gegen Krebs"
+     und der Wings for Life World Run tragen kein Stichwort und bleiben
+     unmarkiert. Ein Override kann `charity` setzen **und mit `false`
+     abschalten**.
+   - **Angezeigt** wird es zweifach: ein Herz in der Spalte **Kategorie**
+     (nicht hinter dem Namen – die Namensspalte ist 23 % breit und kürzt
+     mit „…", dort war das Herz bei jedem langen Namen unsichtbar) und
+     eine **leicht rosa hinterlegte Zeile** (`.charity-row`,
+     `--charity-row`; die Regel steht NACH dem Zebra und VOR Block,
+     Hover und Auswahl – was gerade gewählt ist, muss stärker sein als
+     eine Eigenschaft des Events). Die Detail-Box trägt ein eigenes
+     Abzeichen neben dem Sport-Abzeichen. Farbe, Tonfläche und Textfarbe
+     stehen als `--charity*` in beiden Schemata, nach demselben Muster
+     wie die vier Sportfarben.
+   - **Gefiltert** wird weiter über die Kategorie-Pille: „Charity" steht
+     in `ART2_BY_ART1` (Laufen, Schwimmen, Fahrrad – nicht Triathlon,
+     der Nutzer nannte drei Sportarten), und `EF.matchesKategorie()`
+     löst den Sonderfall auf (`e.charity`, dazu `art2 === 'Charity'` für
+     geteilte Links von früher). **Dieselbe Auflösung steht in
+     `functions/index.js`** – laufen die beiden auseinander, bekommt
+     jemand E-Mails über Events, die seine Suche nie gezeigt hat.
+   - `test_kategorie` hält beides fest: dass `ist_charity()` greift UND
+     dass die Kategorie dabei erhalten bleibt.
 
 18. **Abgesagt, nicht öffentlich, Schule – per Override** (vom Nutzer am
    21.09.2026 entschieden: „Abgesagte Veranstaltungen bitte nicht
@@ -619,6 +659,85 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      derselbe Lauf als DATUM.
    - `test_datum_vorlaeufig` hält Override-Feld, `to_dict()` (kein
      `false` in events.json) und die Kalenderdatei fest.
+
+20. **Hindernisläufe: die Marke oder der PLURAL.** Vom Nutzer am
+   21.09.2026 an einer einzigen Zeile gemeldet („Xletix Challenge -
+   Berlin ist ein Hindernis lauf und kein Lauf auf der Straße") – die
+   Nachzählung machte daraus **58 Zeilen**: alle 18 XLETIX-, 13 Muddy-
+   Angel-, 5 CrossDeLuxe-, 4 Mud-Masters-Zeilen und die Rats-Run-/
+   Hotfoot-Serien standen als Straßenlauf da. Die Stichwortliste kannte
+   nur `hindernislauf|obstacle|ocr|spartan|tough mudder`, und kein
+   Veranstalter nennt seine Veranstaltung „Hindernislauf" – er nennt
+   sie „XLETIX Challenge" und schreibt „mit 15 Hindernissen" daneben.
+   Zwei Wege deshalb:
+   - **Die Markennamen** (xletix, muddy angel, mud masters, crossdeluxe,
+     rats-run, hotfoot, dazu die alten). Eindeutig, also eine Tatsache –
+     dieselbe Linie wie bei `NICHT_AUSDAUER`: „Fitness" wäre geraten,
+     „XLETIX" ist es nicht.
+   - **Die PLURALFORM „Hindernisse(n)"** und „Hindernis-Lauf". Der
+     Plural ist der ganze Trick: Ein Hindernislauf wirbt mit ihrer ZAHL
+     („mit 15 Hindernissen", „25+ Hindernisse", „mind. 30 Hindernissen"),
+     der SINGULAR steht dagegen in gewöhnlichen Läufen – der „TIME2RUN
+     Silvesterlauf in Schwabmünchen" nennt „kein Wasserhindernis" bzw.
+     „mögliches Wasserhindernis". Ein Muster auf „hindernis" ohne Plural
+     hätte ausgerechnet die Zeile zum Hindernislauf gemacht, die es
+     ausdrücklich VERNEINT. Beide Gegenproben stehen in
+     `test_kategorie`.
+
+   Zwei Änderungen an `clean_events.refresh_art2()` gehören dazu, beide
+   am Bestand nachgezählt (die Linie der „wichtigsten Lektion": erst
+   zählen, was eine Regel anrichtet):
+   - Es liest jetzt **Name UND Wettbewerbs-Label**. Die Gattung steht oft
+     nur im Label („Hot-20 (40 Hindernisse)", „9,2 km Crosslauf"), und
+     `expand_competitions()` liest es beim Einsammeln längst mit. Vier
+     Zeilen ändern sich zusätzlich, alle vier zu Recht (Crossläufe, die
+     als Straße standen).
+   - **Hindernis schlägt Trail.** Sonst bleibt es dabei, nur Generisches
+     zu ersetzen; hier ist die Ausnahme die Reihenfolge der
+     Stichwortliste selbst (Hindernis steht VOR Trail, weil ein
+     Hindernislauf durchs Gelände immer noch ein Hindernislauf ist).
+     Fünf Zeilen standen nur deshalb als Trail, weil „Cross" in ihrem
+     Namen steht (CrossDeLuxe Erzgebirge, „Puls 300 Cross- und
+     Hindernis-Lauf", der Berserker des Legend of Cross) – und ihre
+     Schwesterveranstaltungen wären danach Hindernis gewesen, sie nicht.
+
+   **Die allgemeine Lehre**: Eine gemeldete Zeile ist selten eine
+   einzelne Zeile. Erst zählen, wie viele derselben Klasse angehören,
+   dann eine Regel bauen – ein Override hätte hier 1 von 58 Fällen
+   erledigt und die anderen 57 beim nächsten Datenlauf erneut erzeugt.
+
+21. **Die Länge eines Triathlons entscheidet auch das SCHWIMMEN.** Vom
+   Nutzer am 21.09.2026 am „2. Weinstadt Triathlon" gemeldet: 0,3 km
+   Schwimmen / 18,7 km Rad / 4,6 km Laufen, und die Box schrieb „Sprint"
+   – richtig ist **Super-Sprint**. Die Summe 23,6 km liegt knapp über
+   der Sprint-Grenze (23 km), der Schwimmteil von 300 m aber unter dem
+   kleinsten Sprint-Schwimmen (500 m).
+
+   Zwei Zeilen daneben zeigen, dass die Summe das **grundsätzlich** nicht
+   leisten kann: Der Berliner Volkstriathlon hat bei 23,7 km Gesamtlänge
+   700 m Schwimmen (ein echter Sprint), der Stadttriathlon Erding bei
+   25,4 km nur 400 m. Dieselbe Summe, verschiedene Formate – die
+   Radstrecke gleicht den kurzen Schwimmteil wieder aus.
+
+   `triathlonFormat()` (`event-detail.js`) liest deshalb die
+   Schwimm-Teilstrecke aus dem Label, wenn sie dort steht. Bewusst eng:
+   nur wenn das Label sie überhaupt nennt, nur NACH unten (auf
+   Super-Sprint) und nur, wenn **kein** Format-Stichwort im Label steht –
+   ein als „Jedermann Sprint" ausgeschriebenes Rennen bleibt ein Sprint,
+   auch mit 400 m Schwimmen. Am Bestand nachgezählt: **zwei** Zeilen
+   ändern sich (Erding und der Günzburger Cross Triathlon, beide 400 m).
+
+   Damit das greift, gehört die Aufteilung ins Label – die Schreibweise
+   steht schon in „Elfter Durchgang": Gesamtlänge vorn, Teilstrecken in
+   Klammern. Für Weinstadt ist das ein Override.
+
+   **Filter und Anzeige können hier auseinandergehen**: Die
+   Distanzkategorien in `filters.js` rechnen weiter nur mit den
+   Kilometern (sie filtern über alle Events, ohne das Label zu
+   zerlegen). Drei Zeilen zeigen deshalb ein Format, das ihre
+   Filterkategorie nicht teilt. Das ist die kleinere Ungenauigkeit: Die
+   angezeigte Angabe stimmt, und ein Filter, der nach Kilometern
+   greift, ist nachvollziehbar.
 
 ### Die wichtigste Lektion
 
@@ -1438,6 +1557,78 @@ Vier Dinge daraus:
   keine Wettbewerbe – jede neue Zeile dort landet ohne Länge und gehört
   in denselben Durchgang.
 
+### Dreizehnter Durchgang: aus einer Nutzer-Meldung eine Regel machen (21.09.2026)
+
+Der Nutzer hat an diesem Tag eine Liste von Beobachtungen geschickt und
+einen Auftrag dazu, der über die einzelnen Fälle hinausgeht:
+
+> „Es ist außerdem sehr wichtig, das du aus allen Verbesserungen die ich
+> dir über die Datenqualität gebe lernst damit wir ständig die Qualität
+> verbessern können und bei neuen Events nicht die gleichen Fehler
+> entstehen."
+
+**Das ist eine Arbeitsanweisung, kein Kommentar.** Sie heißt: Eine
+gemeldete Zeile wird nicht als Zeile erledigt. Das Vorgehen, das sich
+an diesem Durchgang bewährt hat, in vier Schritten:
+
+1. **Den Fall an der Quelle prüfen.** Wie immer (Datenregel 2).
+2. **Die KLASSE zählen, nicht den Fall.** Ein kurzes Wegwerf-Skript über
+   `events.json`: Wie viele Zeilen haben denselben Fehler? Das ist der
+   Schritt, der am ehesten übersprungen wird, und der mit Abstand
+   wertvollste.
+3. **Eine Regel bauen, wenn die Klasse größer als eins ist** – und die
+   Regel wieder am Bestand nachzählen, samt Gegenproben (die Linie der
+   „wichtigsten Lektion": erst zählen, was eine Änderung anrichtet).
+4. **Einen Override nur, wenn die Klasse wirklich eins ist** (ein
+   falscher Termin, eine falsche Distanz auf genau einer Seite).
+
+Was das an diesem Tag gebracht hat – fünf Meldungen, vier Klassen:
+
+| Meldung des Nutzers | Klasse | Ergebnis |
+|---|---|---|
+| „Xletix Challenge - Berlin ist ein Hindernis lauf" | **58 Zeilen** | Regel (Datenregel 20) |
+| „Lauf für einen guten Zweck - Rastenberg ist ein Charity Event" | 1 + 43 unmarkierte | Stichwort + Umbau (Datenregel 17) |
+| „2. Weinstadt Triathlon … müsste da stehen Super-Sprint" | 3 Zeilen | Regel (Datenregel 21) |
+| „Winterlauf … Originalstrecke über 18 Kilometer" | 1 | Override |
+| „Gaudilauf 27 und 14 – woher kommen die Informationen?" | 2 | Override + `manual_events.json` |
+
+Die erste Zeile ist das Argument für den ganzen Abschnitt: Ein Override
+hätte **1 von 58** Fällen erledigt, und die anderen 57 wären beim
+nächsten Datenlauf unverändert wieder entstanden.
+
+**Der Gaudilauf war kein Datenfehler** – die Nachfrage lohnte trotzdem.
+Der DLV-Laufkalender (laufen.de) führt bei dieser Veranstaltung **jede
+Distanz als eigene Veranstaltung** und schreibt die Kilometer in den
+NAMEN: „Gaudilauf 27", „Gaudilauf 14". Datum, Ort, Distanzen und
+Veranstalter stimmten alle (20. Gaudilauf am 04.10.2026, LWV 05 / SG
+Medizin Bad Liebenwerda, 27 km ab München im Landkreis Elbe-Elster und
+14 km ab Bad Liebenwerda); nur der Name verstieß gegen Datenregel 1 –
+der Veranstaltungsname bleibt identisch, die Distanz steht in
+`laenge_km`. Dass der Nutzer nichts fand, lag zusätzlich daran, dass
+der gespeicherte Link auf die Startseite von `elsterlauf.de` zeigte, wo
+der **Elsterlauf** (30.05.2027) steht – dieselbe Veranstalterseite, eine
+andere Veranstaltung. Behoben über `exclude` beider Zeilen plus einen
+Eintrag „Gaudilauf" mit zwei Strecken in `manual_events.json` und den
+Link auf die Gaudilauf-Seite.
+
+Drei Lehren daraus, alle allgemein:
+
+- **Eine Distanz im NAMEN ist ein Warnzeichen.** Wo sie steht, hat eine
+  Quelle eine Veranstaltung in ihre Strecken zerlegt – dann gehören die
+  Zeilen zusammengeführt. Ein Override kann das nicht (der Name ist Teil
+  seines Schlüssels); der Weg ist `exclude` plus `manual_events.json`,
+  und der läuft in dieser Reihenfolge von selbst richtig, weil
+  `add_manual_events()` nach `apply_overrides()` kommt.
+- **Ein Link auf die Startseite des Veranstalters kann der falsche sein**,
+  wenn derselbe Verein mehrere Veranstaltungen ausrichtet. „Die Seite
+  nennt den Lauf" (die Regel aus dem neunten Durchgang) prüft nicht, ob
+  sie ihn auf der verlinkten SEITE nennt.
+- **Was ins Wettbewerbs-Label kommt, durchsucht die Mastersuche.** Der
+  Startort der 27 km stand kurz als „27 km (Start München,
+  Elsterbrücke)" im Label – und damit fand eine Ortssuche nach „München"
+  eine Veranstaltung in Bad Liebenwerda. Der Rauchtest hat es gemeldet.
+  Ein Startort ist kein Ort im Sinne der Liste.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -1516,6 +1707,104 @@ prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
 selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
+
+- **Weniger anzeigen ist eine Datenqualitäts-Entscheidung.** Der Nutzer
+  hat das am 21.09.2026 in einem Satz begründet, der für die ganze Seite
+  gilt: „Wir wollen nicht zu viele Infos zeigen, weil das erhöht die
+  chance, dass sie Infos auch falsch sind." Daraus drei Änderungen, die
+  **nicht** zurückgedreht werden sollen:
+  - **Das Feld „Strecke" in der Detail-Box zeigt nur die Länge** –
+    „5,6km", nicht „5,6 km · 5.555 m (Berglauf auf den Lousberg)". Das
+    Wettbewerbs-Label ist die unzuverlässigste Angabe im Datensatz (es
+    kommt wörtlich aus dem Kalendereintrag) und wiederholte dort meist
+    ohnehin die Distanz. Bei einem Triathlon ist „die Länge" das FORMAT
+    („Super-Sprint"), ohne den Zusatz des Labels.
+  - **Unter dem Namen steht keine Maßzahl mehr.**
+    `EED.displayWettbewerb()` schneidet jede Maßzahl aus dem Label
+    (km, m, hm, Stunden, Minuten, auch „2x5 km" und „400-m-Runde") und
+    gibt null zurück, wenn nichts Eigenes übrig bleibt. Begründung des
+    Nutzers: „Wir haben die Länge in der Liste schon und in der
+    Detailansicht dann auch. Man muss es nicht 3x sehen. Wenn ein Event
+    zum Beispiel ein Geh event ist, dann kann man da schon ‚Walking'
+    oder so hinschreiben … Aber keine Informationen die bereits genannt
+    wurden." Aus „Brian Trail (15,5 km, 500 hm)" wird „Brian Trail", aus
+    „5.555 m (Berglauf auf den Lousberg)" „Berglauf auf den Lousberg",
+    aus „10 km Fuchsburg Lauf (ab Jahrgang 2015)" „Fuchsburg Lauf (ab
+    Jahrgang 2015)". Zwei Feinheiten, beide nötig: Eine **Klammer mit
+    Maßzahl fliegt GANZ** (sonst bliebe „( Schwimmen / Rad / Laufen)"
+    stehen), eine Klammer OHNE Maßzahl bleibt (das ist genau die Art
+    Zusatz, die gemeint ist); und eine Klammer, die danach den ganzen
+    Rest ausmacht, verliert sie. Nach dem Kürzen tragen von 3.877 Zeilen
+    noch 1.312 einen Zusatz.
+    **Der Rückfall auf die Länge im aufgeklappten Block ist weg** – er
+    stand dort, damit sich die Strecken einer Veranstaltung im Namen
+    unterscheiden; die Längen-Spalte in derselben Zeile tut das bereits.
+  - **Das Wettbewerbs-Feld in `events.json` bleibt unangetastet.** Die
+    Duplikat-Erkennung der Scraper braucht den vollen Text, und die
+    Strecken-Pille zeigt ihn als Tooltip. Gekürzt wird nur die ANZEIGE.
+
+- **Maßzahlen ohne Leerzeichen: „16km", „6h".** Vom Nutzer am 21.09.2026
+  so gewünscht. Es gilt für die Maßzahl eines Events (`EF.formatKm`,
+  `EF.formatHours`, `EF.formatDistanceKm`, `EED.formatLengthSpan`) –
+  also Länge-Spalte, Spanne einer Veranstaltung, Strecken-Pillen,
+  Entfernung und Detail-Box. **Nicht** betroffen sind Sätze, in denen
+  eine Zahl vorkommt („Umkreis: 25 km", „Länge ab 10 km", „bis 50 km" im
+  Filter): Dort ist die Einheit ein Wort im Satz, kein Etikett an einer
+  Zahl.
+
+- **Das Sternchen erklärt sich selbst.** Die Fußnote zu „Juni 2027*"
+  stand von Anfang an in der Fußzeile – der Nutzer hat sie am 21.09.2026
+  trotzdem nicht gefunden („finde ich als user nirgendwo was genau das
+  ‚*' bedeutet"), und zu Recht: klein, grau, am Seitenende, auf dem
+  Handy hinter vierhundert Zeilen. Das Zeichen selbst ist jetzt ein
+  `<abbr class="vorlaeufig-stern">` mit Erklärung im `title`, gepunktet
+  unterstrichen und in der Signalfarbe (`EED.vorlaeufigStern`, gilt für
+  Liste UND Karte). Die Fußzeile behält den Text – ein `title` erscheint
+  auf einem Touchgerät nicht –, jetzt mit 78 % statt 60 % Deckung, und
+  er steht als `datum_fussnote` nur noch EINMAL in `event-detail.js`
+  statt in beiden Seiten.
+  **Die allgemeine Lehre**: Eine Erklärung gehört an die Stelle, an der
+  die Frage entsteht, nicht dorthin, wo Platz ist.
+
+- **Die Detail-Box hat auch in der Liste ein ✕.** Die Karte hatte es von
+  Anfang an, die Liste nicht (`onClose` war optional und wurde dort nicht
+  übergeben) – bis der Nutzer es am 21.09.2026 auch hier wollte. Drei
+  Dinge gehören dazu, sonst schließt sich nur die Hälfte: die Markierung
+  in der Tabelle (`selectedIndex = null` plus `markiereAuswahl`), der
+  Parameter `?event=` in der Adresse (`writeUrlState`), und der **Fokus**
+  – er steht im ✕, und das verschwindet gerade; ohne Zurücksetzen landet
+  er am `<body>`, und wer mit der Tastatur arbeitet, beginnt wieder ganz
+  oben. Er geht an die Zeile, die eben gewählt war.
+
+- **`.sr-only` gehört nicht in die Tabelle.** Das Charity-Herz trug
+  zuerst eine `.sr-only`-Beschriftung; die ist `position: absolute`, und
+  ein absolut positioniertes Element bezieht sich auf den nächsten
+  POSITIONIERTEN Vorfahren – `overflow-x: auto` an `.table-wrap` ist
+  keiner. Die Beschriftungen landeten damit am Dokument, an der x-Stelle
+  ihrer Zelle in der 900 px breiten Tabelle, und zogen die ganze SEITE
+  124 px in die Breite: Auf dem Handy scrollte danach alles waagerecht,
+  und der sticky „Weitere 200 anzeigen"-Knopf war nicht mehr klickbar.
+  Für eine Beschriftung in einer Tabellenzelle also `role="img"` +
+  `aria-label` am Element selbst. **Der Rauchtest hat genau das
+  gemeldet** („kein waagerechter Überlauf der Seite (124 px)") – die
+  Prüfung ist keine Formalie.
+
+- **Die Startseite zählt die Events je Sportart** (vom Nutzer am
+  21.09.2026 gewünscht). Gezählt wird nach `EF.dropPastEvents()`, also
+  mit derselben Grenze, die `events.html` beim Laden zieht – sonst
+  verspräche die Startseite Events, die einen Klick später nicht mehr da
+  sind. Dafür lädt `index.html` seit dem Tag **`filters.js`** (mit
+  `defer`): Die zwei Helfer nachzubauen wäre eine zweite Kopie, die beim
+  nächsten Umbau ausschert, und die Datei braucht `events.html` – das
+  die Startseite ohnehin per `prefetch` vorlädt – danach sowieso, der
+  Abruf wärmt also den Cache. Die Zahlen sind `hidden`, bis der Abruf
+  zurück ist: Eine „0" oder ein Platzhalter, der später springt, wäre
+  schlechter als eine Kachel ohne Zahl, und schlägt der Abruf fehl,
+  bleibt die Seite wie vorher. Sie tragen kein `data-i` (ihr Text kommt
+  aus den Daten), müssen aber in `applyLang()` mitgezeichnet werden –
+  das Tausendertrennzeichen hängt am Umschalter DE/EN.
+  **Sie machen die Datenlücke sichtbar**: 3.667 Laufen, 201 Triathlon,
+  5 Schwimmen, 4 Fahrrad. Das ist Fahrplan-Punkt 1.
 
 - **Der Style Guide des Nutzers gilt („Design-System v1", Richtung
   „Morgenstart", 21.09.2026: „Bitte an den Style Guide halten").** Er
@@ -3246,7 +3535,17 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Nutzer hat Gehen (Race Walking) und Skilanglauf ausgeschlossen;
      ob Nordic Walking dazugehört, ist nicht entschieden. Die Walking-
      Zeilen stehen als `art1` Laufen in der Liste. Die „Ahmadiyya
-     Charity Walks" sind jetzt Charity.
+     Charity Walks" sind als Charity MARKIERT und behalten seit dem
+     Umbau vom 21.09.2026 ihre Kategorie (siehe Datenregel 17).
+     **Der Zusatz unter dem Namen macht einen Teil davon sichtbar**:
+     Seit die Anzeige die Maßzahlen herausschneidet, steht dort bei
+     **76 Zeilen** „Walking" bzw. „Nordic Walking" (aus „5 km Walking,
+     Jahrgang 2012 und älter" wird „Walking, Jahrgang 2012 und älter") –
+     genau der Fall, den der Nutzer als Beispiel für einen guten Zusatz
+     genannt hat. Die 18 „Ahmadiyya Charity Walk" gehören NICHT dazu:
+     Ihr Label ist schlicht „5 km", die Gattung steht nur im Namen. Wer
+     die Walking-Zeilen zählen will, darf sich also nicht auf den Zusatz
+     verlassen.
    - **Duplikate unter zwei Namen** (Punkt 12/17/18): keine Entscheidung
      nötig, nur Arbeit – die schwächere Zeile per `exclude`, die
      fehlende Strecke ggf. in `manual_events.json`.

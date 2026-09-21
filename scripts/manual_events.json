@@ -2910,6 +2910,38 @@
       "veranstalter_url": "https://berlin-triathlon.de/",
       "_quelle": "https://berlin-triathlon.de/Ausschreibung/Strecken/",
       "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Streckenseite: S-Bahn Berlin-Fitnesstriathlon 400 m / 14,08 km / 2,8 km; Spreeschwimmen (nur Schwimmen) und Kindertriathlon weggelassen. Welcher Wettbewerb am 5. und welcher am 6. Juni startet, sagt die Seite nicht. Geprueft 2026-09-21."
+    },
+    {
+      "land": "Deutschland",
+      "name": "Gaudilauf",
+      "standort": "Bad Liebenwerda",
+      "lat": 51.5158115,
+      "lon": 13.39272,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-10-04",
+      "datum_ende": "2026-10-04",
+      "veranstalter_url": "https://www.elsterlauf.de/tag/gaudilauf/",
+      "_quelle": "https://www.elsterlauf.de/tag/gaudilauf/",
+      "_note": "Ersetzt die beiden DLV-Zeilen „Gaudilauf 27“ und „Gaudilauf 14“, die die Distanz im NAMEN trugen (Datenregel 1: Der Veranstaltungsname bleibt identisch, die Distanz steht in laenge_km). Beide sind in manual_overrides.json als exclude eingetragen. Beleg: elsterlauf.de nennt den „20. Gaudilauf am 04. Oktober 2026“ mit 27 km ab München (Elsterbrücke, 8:45 Uhr) und 14 km ab Bad Liebenwerda (Kurpark Musikmuschel, 10:00 Uhr); Veranstalter SG Medizin Bad Liebenwerda e.V. und LWV 05. Beide Strecken stehen unter dem Ort Bad Liebenwerda, damit sie EINE Veranstaltung sind (groupKey = Name + Starttag + Ort). Der abweichende Startort der 27 km stand kurz im Wettbewerbs-Label („27 km (Start München, Elsterbrücke)“) und ist wieder heraus: Die Mastersuche durchsucht auch das Label, und damit fand eine Ortssuche nach „München“ eine Veranstaltung in Bad Liebenwerda. Der Rauchtest hat das gemeldet. Ein Startort ist kein Ort im Sinne der Liste. Geprüft 2026-09-21 auf Nachfrage des Nutzers.",
+      "laenge_km": 27.0,
+      "wettbewerb": "27 km"
+    },
+    {
+      "land": "Deutschland",
+      "name": "Gaudilauf",
+      "standort": "Bad Liebenwerda",
+      "lat": 51.5158115,
+      "lon": 13.39272,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-10-04",
+      "datum_ende": "2026-10-04",
+      "veranstalter_url": "https://www.elsterlauf.de/tag/gaudilauf/",
+      "_quelle": "https://www.elsterlauf.de/tag/gaudilauf/",
+      "_note": "Ersetzt die beiden DLV-Zeilen „Gaudilauf 27“ und „Gaudilauf 14“, die die Distanz im NAMEN trugen (Datenregel 1: Der Veranstaltungsname bleibt identisch, die Distanz steht in laenge_km). Beide sind in manual_overrides.json als exclude eingetragen. Beleg: elsterlauf.de nennt den „20. Gaudilauf am 04. Oktober 2026“ mit 27 km ab München (Elsterbrücke, 8:45 Uhr) und 14 km ab Bad Liebenwerda (Kurpark Musikmuschel, 10:00 Uhr); Veranstalter SG Medizin Bad Liebenwerda e.V. und LWV 05. Beide Strecken stehen unter dem Ort Bad Liebenwerda, damit sie EINE Veranstaltung sind (groupKey = Name + Starttag + Ort). Der abweichende Startort der 27 km stand kurz im Wettbewerbs-Label („27 km (Start München, Elsterbrücke)“) und ist wieder heraus: Die Mastersuche durchsucht auch das Label, und damit fand eine Ortssuche nach „München“ eine Veranstaltung in Bad Liebenwerda. Der Rauchtest hat das gemeldet. Ein Startort ist kein Ort im Sinne der Liste. Geprüft 2026-09-21 auf Nachfrage des Nutzers.",
+      "laenge_km": 14.0,
+      "wettbewerb": "14 km"
     }
   ]
 }

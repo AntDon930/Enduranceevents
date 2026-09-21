@@ -460,10 +460,9 @@
     "_note": "Doppelung unter zwei Namen: Der Ski-Club Lenggries fuehrt den 18. Isar-Lauf am 27.09.2026 auf skiclub-lenggries.de mit vier Wettbewerben - 5 km fuer Sportlerinnen und Sportler mit Beeintraechtigung, 10 km (Start Lenggries, Ziel Bad Toelz), 21 km Halbmarathon und 30 km (beide Start und Ziel Bad Toelz). Genau diese Zeilen stehen unter 'IsarLauf - Bad Toelz' in der Liste, mit Labels. Die Zeilen unter dem Namen 'Isar-Lauf Bad Toelz - Lenggries' (toelzer-isar-lauf.de, antwortet mit 503) sind dieselben drei Strecken ohne die 5 km. Sichtbar wurde die Doppelung erst, nachdem der Ort von 'Toelz - Lenggries' auf 'Bad Toelz' berichtigt war - vorher fehlten die Koordinaten, und die 30-km-Bedingung der Duplikat-Erkennung konnte gar nicht greifen. Der dritte Fall dieser Art an einem Tag. Geprueft 2026-09-18."
   },
   "Gaudilauf 27|2026-10-04": {
-    "lat": 51.6066028,
-    "lon": 13.3125927,
-    "_note": "Ohne Koordinaten: Der Ort ist 'Uebigau-Wahrenbrueck OT Muenchen' - Muenchen ist hier ein Ortsteil im Landkreis Elbe-Elster (Brandenburg), nicht die bayerische Landeshauptstadt. Dass der Geocoder hier nichts fand, hat einen Verortungsfehler von 400 km verhindert. Koordinaten ueber Nominatim zu 'Muenchen, Uebigau-Wahrenbrueck'. Geprueft 2026-09-18. | laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.elsterlauf.de. Seite abgerufen, sie nennt den Lauf (gaudilauf). Linkprüfung 2026-09-19.",
-    "veranstalter_url": "http://www.elsterlauf.de"
+    "exclude": true,
+    "_quelle": "https://www.elsterlauf.de/tag/gaudilauf/",
+    "_note": "Vom Nutzer am 21.09.2026 hinterfragt („woher kommen die Informationen?“). Die Daten stimmen - es ist der 20. Gaudilauf am 04.10.2026 des LWV 05 / der SG Medizin Bad Liebenwerda, 27 km ab München (Ortsteil von Uebigau-Wahrenbrück) und 14 km ab Bad Liebenwerda. Falsch ist nur der NAME: Der DLV-Laufkalender führt jede Distanz als eigene Veranstaltung und schreibt die Kilometer hinein. Das verstößt gegen Datenregel 1 (der Veranstaltungsname bleibt identisch, die Distanz steht in laenge_km). Beide Zeilen deshalb raus, dafür eine Veranstaltung „Gaudilauf“ mit zwei Strecken in manual_events.json. | Historie dieser Zeile, für den Fall, dass sie zurückkommt: Koordinaten am 18.09.2026 über Nominatim ergänzt (der Ortsteil heißt München, liegt aber in Brandenburg - ohne sie wäre es ein Verortungsfehler von 400 km geworden); Veranstalter-Link am 19.09.2026 aus der laufen.de-Weiterleitung (302) übernommen."
   },
   "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11": {
     "lat": 50.9818378,
@@ -1928,8 +1927,9 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://olympia-schoenau.de/. Seite abgerufen, sie nennt den Lauf (kreuzberglauf). Linkprüfung 2026-09-19."
   },
   "Gaudilauf 14|2026-10-04": {
-    "veranstalter_url": "http://www.elsterlauf.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.elsterlauf.de. Seite abgerufen, sie nennt den Lauf (gaudilauf). Linkprüfung 2026-09-19."
+    "exclude": true,
+    "_quelle": "https://www.elsterlauf.de/tag/gaudilauf/",
+    "_note": "Siehe „Gaudilauf 27|2026-10-04“: Distanz im Namen, ersetzt durch die Veranstaltung „Gaudilauf“ in manual_events.json. | Historie: Veranstalter-Link am 19.09.2026 aus der laufen.de-Weiterleitung (302) übernommen."
   },
   "48. Silvesterlauf Zossen-Ludwigsfelde|2026-12-31": {
     "veranstalter_url": "http://www.llv-ludwigsfelde.de",
@@ -5417,5 +5417,22 @@
   "Chemnitzer Indoor Triathlon|2027-03-20|12": {
     "art2": "Indoor",
     "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Hallen-Triathlon (Sportforum Chemnitz: 50-m-Becken, Ergometer, Tartanoval) - Kategorie Indoor wie die 26-km-Zeile; Super Sprint und Sprint sind ohne genaue Zahlen ausgeschrieben. Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon"
+  },
+  "63. Winterlauf|2026-12-13|16": {
+    "laenge_km": 18.0,
+    "wettbewerb": "18 km",
+    "_quelle": "https://www.atg-aachen.de/winterlauf",
+    "_note": "Vom Nutzer am 21.09.2026 gemeldet und an der Veranstalterseite geprüft: „wir laufen wieder auf der Originalstrecke über 18 Kilometer“. Die 16 km waren die verkürzte Strecke der Vorjahre. Zweiter Schlüssel mit 18 km daneben, weil dieser Override seine eigene Distanz ändert."
+  },
+  "63. Winterlauf|2026-12-13|18": {
+    "laenge_km": 18.0,
+    "wettbewerb": "18 km",
+    "_quelle": "https://www.atg-aachen.de/winterlauf",
+    "_note": "Zweiter Schlüssel zum 16-km-Eintrag darüber: Sobald der Override gegriffen hat, findet find_override() ihn nur noch unter der NEUEN Distanz."
+  },
+  "Weinstadt Triathlon|2026-09-27|23.6": {
+    "wettbewerb": "Jedermann-Triathlon 23,6 km (0,3 km Schwimmen / 18,7 km Rad / 4,6 km Laufen)",
+    "_quelle": "https://www.sgweinstadt.de/weinstadt-triathlon",
+    "_note": "Vom Nutzer am 21.09.2026 gemeldet: Die Box zeigte „Sprint · Jedermann-Triathlon“, richtig ist „Super-Sprint“. Die Summe 23,6 km liegt knapp über der Sprint-Grenze (23 km), der Schwimmteil von 300 m aber unter dem kleinsten Sprint-Schwimmen (500 m) - erst die Teilstrecken im Label machen das für triathlonFormat() sichtbar. Schreibweise nach der Vorgabe: Gesamtlänge vorn, Teilstrecken in Klammern."
   }
 }

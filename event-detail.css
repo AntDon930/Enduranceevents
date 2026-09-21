@@ -85,6 +85,16 @@
 .detail-badge.sport-triathlon { background: var(--sport-triathlon-bg); color: var(--sport-triathlon-fg); }
 .detail-badge.sport-triathlon .sport-icon { color: var(--sport-triathlon); }
 .detail-badge .sport-icon { flex-shrink: 0; }
+/* Sport-Abzeichen und Charity-Abzeichen nebeneinander; auf schmalen
+   Boxen (die Karte stapelt zwei davon) darf umbrochen werden. Der
+   Außenabstand wandert dafür von den Abzeichen an die Reihe. */
+.detail-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; }
+.detail-badges .detail-badge { margin: 0; }
+.detail-badge--charity {
+  background: var(--charity-bg, #fff0f6);
+  color: var(--charity-fg, #a61e4d);
+}
+.detail-badge--charity .charity-icon { color: var(--charity, #d6336c); flex-shrink: 0; }
 .detail-panel h2 { margin: 0 0 16px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
 .detail-section-title {
   font-size: 0.75rem;

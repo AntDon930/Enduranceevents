@@ -222,6 +222,10 @@ const SUCH_UEBERSETZUNGEN = {
 function sucheHeuhaufen(event) {
   const teile = [event.name, event.wettbewerb, event.standort,
                  event.land, event.art1, event.art2];
+  // Wie in filters.js (sucheHeuhaufen): Ein markiertes Charity-Event
+  // soll die Suche nach "Charity"/"Benefiz" auch dann finden, wenn es
+  // nicht so heißt.
+  if (event.charity) teile.push("Charity", "Benefiz");
   ["land", "art1", "art2", "standort"].forEach((feld) => {
     const werte = SUCH_UEBERSETZUNGEN[feld] && SUCH_UEBERSETZUNGEN[feld][event[feld]];
     if (werte) teile.push(werte[0], werte[1]);
@@ -253,7 +257,15 @@ function eventMatchesFilters(event, filters) {
   }
   if (filters.land && filters.land.length && !filters.land.includes(event.land)) return false;
   if (filters.art1 && filters.art1.length && !filters.art1.includes(event.art1)) return false;
-  if (filters.art2 && filters.art2.length && !filters.art2.includes(event.art2)) return false;
+  // Kategorie - mit dem Sonderfall "Charity": Das ist seit dem
+  // 21.09.2026 keine Kategorie mehr, sondern ein eigenes Merkmal am
+  // Event (event.charity). Dieselbe Auflösung steht in filters.js
+  // (matchesKategorie); laufen die beiden auseinander, bekommt jemand
+  // E-Mails über Events, die seine Suche nie gezeigt hat.
+  if (filters.art2 && filters.art2.length &&
+      !filters.art2.includes(event.art2) &&
+      !(filters.art2.includes("Charity") &&
+        (event.charity === true || event.art2 === "Charity"))) return false;
   if (filters.standort && filters.standort.length && !filters.standort.includes(event.standort)) return false;
   if (filters.laengeMin && event.laenge_km != null && event.laenge_km < parseFloat(filters.laengeMin)) return false;
   if (filters.laengeMax && event.laenge_km != null && event.laenge_km > parseFloat(filters.laengeMax)) return false;
@@ -347,6 +359,7 @@ function eventKurz(event) {
     land: event.land || null,
     art1: event.art1 || null,
     art2: event.art2 || null,
+    charity: event.charity === true,
     laenge_km: event.laenge_km != null ? event.laenge_km : null,
     dauer_h: event.dauer_h != null ? event.dauer_h : null,
     veranstalter_url: event.veranstalter_url || null,

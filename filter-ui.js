@@ -149,9 +149,12 @@
     // "Trail" umfasst Trail-, Cross- und Bergläufe (eine Kategorie, so
     // vom Nutzer entschieden); "Backyard Ultra" ist derselbe Wert wie
     // beim Triathlon - das Format ist dasselbe.
-    // "Charity" (seit 21.09.2026, Wunsch des Nutzers) gibt es bei Laufen,
-    // Schwimmen und Fahrrad - der Zweck der Veranstaltung als Kategorie,
-    // erzeugt von CHARITY_KEYWORD in scraper_lib.py.
+    // "Charity" steht hier zwar unter den Kategorien, IST aber keine:
+    // Seit dem 21.09.2026 ist es ein eigenes Merkmal am Event
+    // (e.charity, aus ist_charity() in scraper_lib.py) - der Nutzer
+    // wollte die echte Kategorie zurück. Im Panel bleibt es als
+    // Filterwert stehen, weil das Suchen danach sein ursprünglicher
+    // Wunsch war; EF.matchesKategorie() löst den Sonderfall auf.
     'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Charity'],
     'Schwimmen': ['Freiwasser', 'Becken', 'Charity'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross', 'Charity'],
@@ -290,6 +293,11 @@
 
     function availableArt2Options() {
       const roh = getEvents().map(e => e.art2);
+      // "Charity" steht an keinem Event mehr in `art2` (es ist ein
+      // eigenes Merkmal, siehe ART2_BY_ART1) - ohne diese Zeile fiele
+      // der Filterwert stillschweigend aus dem Panel, sobald ein
+      // Datenlauf die letzte Zeile mit der alten Kategorie ersetzt hat.
+      if (getEvents().some(e => e.charity)) roh.push('Charity');
       const presentArt2 = uniqueSorted(alleWerte ? roh.concat(ALLE_ART2) : roh);
       if (state.art1.size === 0) return presentArt2;
       const allowed = new Set();

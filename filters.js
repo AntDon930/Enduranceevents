@@ -343,7 +343,7 @@
   // Trennzeichen der gewählten Sprache. Liste (Spalte und Box) und Karte
   // (Box: "14 km von deinem Standort") zeigen sie damit gleich.
   function formatDistanceKm(d, lang) {
-    return d < 10 ? `${formatNumber(d, lang, 1)} km` : `${Math.round(d)} km`;
+    return d < 10 ? `${formatNumber(d, lang, 1)}km` : `${Math.round(d)}km`;
   }
   // "in 6 Tagen", "heute", "morgen", "in 3 Wochen", "in 5 Monaten" - die
   // Zeile unter dem großen Datum der Box. Leer für Vergangenes.
@@ -412,16 +412,24 @@
     return lang === 'en' ? text : text.replace('.', ',');
   }
 
-  // "42,2 km" bzw. "42.2 km". Ganze Zahlen ohne Nachkommastelle ("10 km").
+  // "42,2km" bzw. "42.2km". Ganze Zahlen ohne Nachkommastelle ("10km").
+  //
+  // OHNE Leerzeichen zwischen Zahl und Einheit - vom Nutzer am
+  // 21.09.2026 so gewünscht ("16 km wird zu 16km zum Beispiel und 6 h zu
+  // 6h"). Das gilt für die MASSZAHL eines Events: Länge-Spalte, Spanne
+  // einer Veranstaltung, Strecken-Pillen, Entfernung, Detail-Box. Nicht
+  // betroffen sind Sätze, in denen eine Zahl vorkommt ("Umkreis: 25 km",
+  // "Länge ab 10 km", "bis 50 km" im Filter) - dort ist die Einheit ein
+  // eigenes Wort im Satz, kein Etikett an einer Zahl.
   function formatKm(km, lang) {
     if (km == null || Number.isNaN(Number(km))) return '–';
-    return `${formatNumber(km, lang, 1)} km`;
+    return `${formatNumber(km, lang, 1)}km`;
   }
 
-  // "24 h" bzw. "1,5 h" - Zeitrennen haben keine Distanz (Datenregel 8).
+  // "24h" bzw. "1,5h" - Zeitrennen haben keine Distanz (Datenregel 8).
   function formatHours(h, lang) {
     if (h == null || Number.isNaN(Number(h))) return '–';
-    return `${formatNumber(h, lang, 1)} h`;
+    return `${formatNumber(h, lang, 1)}h`;
   }
 
   function isoOf(d) {
@@ -792,6 +800,10 @@
   // nur eben über ein paar Wörter mehr.
   function sucheHeuhaufen(e) {
     const teile = [e.name, e.wettbewerb, e.standort, e.land, e.art1, e.art2];
+    // Ein markiertes Charity-Event soll die Suche nach "Charity" bzw.
+    // "Benefiz" auch dann finden, wenn es nicht so heißt - die Kategorie
+    // trug das Wort früher, jetzt tut es das Merkmal.
+    if (e.charity) teile.push('Charity', 'Benefiz');
     ['land', 'art1', 'art2', 'standort'].forEach(feld => {
       const eintrag = VALUE_TRANSLATIONS[feld] && VALUE_TRANSLATIONS[feld][e[feld]];
       if (eintrag) teile.push(eintrag.de, eintrag.en);
@@ -802,10 +814,28 @@
   // Trifft ein einzelnes Event alle aktiven Filter? Die Liste und die
   // Karte fragen dieselbe Funktion - sonst zeigte ein Kartenmarker
   // Events, die in der Liste herausgefiltert sind.
+  // Der Kategorie-Filter. "Charity" ist der Sonderfall darin: Es ist
+  // seit dem 21.09.2026 keine Kategorie mehr, sondern ein eigenes
+  // Merkmal am Event (e.charity) - der Nutzer wollte die echte
+  // Kategorie zurück, ein Benefiz-Crosslauf ist ein Trail UND ein
+  // Charity-Event. Im Filter-Panel steht "Charity" trotzdem weiter bei
+  // den Kategorien: Danach zu suchen war der ursprüngliche Wunsch
+  // ("alle Schwimmen, Lauf und Rennrad Charity Events"), und eine
+  // eigene Filterreihe nur dafür wäre eine Pille mehr in einer Leiste,
+  // die auf 1024 px ohnehin knapp ist.
+  //
+  // `e.art2 === 'Charity'` bleibt mitgeprüft: Ein geteilter Link aus
+  // der Zeit, als es die Kategorie noch gab, soll weiter etwas finden.
+  // Dasselbe steht in functions/index.js (ABO-Filter).
+  function matchesKategorie(state, e) {
+    if (state.art2.has(e.art2)) return true;
+    return state.art2.has('Charity') && (e.charity === true || e.art2 === 'Charity');
+  }
+
   function matchEvent(state, e) {
     if (state.land.size && !state.land.has(e.land)) return false;
     if (state.art1.size && !state.art1.has(e.art1)) return false;
-    if (state.art2.size && !state.art2.has(e.art2)) return false;
+    if (state.art2.size && !matchesKategorie(state, e)) return false;
     if (state.standort.size && !state.standort.has(e.standort)) return false;
     // Die Suche greift auch auf die Wettbewerbsbezeichnung zu, damit
     // z. B. "Halbmarathon" die Halbmarathon-Strecke einer Veranstaltung
