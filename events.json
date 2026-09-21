@@ -33854,19 +33854,6 @@
   {
     "land": "Deutschland",
     "name": "Königsforst-Marathon",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Königsforst-Marathon",
     "standort": "Bergisch Gladbach",
     "lat": 50.9896,
     "lon": 7.123,
