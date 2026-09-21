@@ -173,7 +173,10 @@ laden Leaflet und Firebase (das Skript setzt es schon).
 
    **„Trail", „Cross" und „Berglauf" sind EINE Kategorie: „Trail".** Alles
    drei ist Geländelauf, die Quellen benennen dieselbe Strecke mal so, mal
-   so, und eine verlässliche Trennung gibt es nicht. Erst „Trail/Cross"
+   so, und eine verlässliche Trennung gibt es nicht. **Treppenläufe
+   (Towerruns, Schanzenläufe, „Stäffeleslauf") sind seit dem 21.09.2026
+   ebenfalls Trail** („Ja Treppenläufe als Trail aufnehmen"); sie haben
+   meist keine Distanz, nur Stufen, die Länge bleibt leer. Erst „Trail/Cross"
    (mit „Berg" daneben), am 19.09.2026 vom Nutzer erweitert und umbenannt:
    „Berglauf der Kategorie Trail/Cross hinzufügen und die Kategorie nur
    ‚Trail' nennen, das ist die beste Bezeichnung einfach für die ganzen
@@ -414,8 +417,17 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      (`clean_events.drop_nicht_ausdauer`) – dieselbe Aufteilung wie bei
      den vergangenen Events.
    - **Die Liste ist winzig und leicht umzudrehen**: Zeile heraus, und
-     beim nächsten Datenlauf sind die Events wieder da. Drei Zeilen
-     heute: HYROX, Gymrace, Decathlon Hybrid Series.
+     beim nächsten Datenlauf sind die Events wieder da. Seit dem
+     21.09.2026 (Entscheidungen des Nutzers) stehen dort: HYROX, Gymrace,
+     Decathlon Hybrid Series, Runworx, Black Forest Team Battle
+     („Keine Hyrox oder ähnliche Events mit Kraft Übungen"); **Gehen**
+     (Race Walking, Geher-Wettbewerbe) und **Skilanglauf** („Gehen und
+     Skilanglauf nicht aufnehmen"); **virtuelle Läufe** („Virtuelle
+     Läufe rausnehmen" – geprüft wird auch der ORT, die XMAS-Challenge
+     des Blauen Landes trug „virtuell" nur dort, `nicht_ausdauer_text()`).
+     **Nicht** darunter fallen die Walking-/Nordic-Walking-Strecken
+     innerhalb eines Volkslaufs (145 Zeilen) – das ist eine offene
+     Frage an den Nutzer, siehe unten.
    - **Nur eindeutige Markennamen.** Ein Stichwort wie „Fitness" oder
      „Hindernis" wäre falsch: Ein Hindernislauf (Spartan, XLETIX,
      CrossDeLuxe, Muddy Angel, Tough Mudder) IST ein Laufformat und
@@ -460,6 +472,72 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Veranstaltungen weichen ab (Moritzburgs „Langdistanz" hat 173 km
    Rad, Frankfurts „Mitteldistanz" 80 km, Indelands 88 km).
    - Jeder Ausschluss wird **gemeldet**, nicht stillschweigend gemacht.
+
+16. **Erst einmal keine Staffeln** (vom Nutzer am 21.09.2026
+   entschieden). Eine Staffel ist ein Team-Wettbewerb; im Bestand stand
+   mal die Team-Gesamtstrecke, mal die Teilstrecke. `ist_staffel()` in
+   `scraper_lib.py` entscheidet in zwei Stufen, beide **am Bestand
+   gezählt** (49 Zeilen mit „Staffel", 29 entfernt): Ein **Label**, das
+   nur die Staffel beschreibt („ZEISS Marathon Staffel", „2x5 km
+   Staffel", „DUO Marathon 2 x 21,1 km", „H/21 for Two"), nimmt diese
+   eine Zeile; ein **Name**, der eine Staffelveranstaltung nennt
+   (Staffellauf, Staffelmarathon, Firmenstaffel, Marathonstaffel,
+   Staffel-Mix), nimmt alle Zeilen – auch die „5 km" des Ostsee
+   Staffelmarathons, das ist seine Rundenlänge. **Gegenproben, die
+   bleiben müssen**: Einzelrennen mit Staffel-Option („10 km Lauf und
+   Staffel", „Einzel oder Staffel", „Solo oder Staffel"); Namen, in
+   denen die Staffel nur Zusatz ist („Nikolauslauf mit Fun/Firmenstaffel",
+   „Volks- und Staffeltriathlon"); die „GVG-Winterstaffel Pulheim"
+   (Seite geprüft: Staffel PLUS Einzelstrecken 5/10/21,1/42,2 km) und
+   die „Meckenheimer Apfelstaffel" („Einzelläufe und Staffeln") – deshalb
+   fällt bewusst NICHT jedes „Staffel" im Namen; Orte (Staffelsee, Bad
+   Staffelstein). `filter_staffeln()` beim Einsammeln,
+   `clean_events.drop_staffeln()` rückwirkend, `test_staffeln` hält beide
+   Seiten fest. Wer Staffeln zurückwill, nimmt die beiden Aufrufe heraus.
+
+17. **Kategorie „Charity"** (vom Nutzer am 21.09.2026 gewünscht: „eine
+   neue Kategorie … die ‚Charity' heißt … alle Schwimmen, Lauf und
+   Rennrad Charity Events"). `CHARITY_KEYWORD` (charity, benefiz,
+   spendenlauf/-marathon/-run, sponsorenlauf, wohltätig) steht **ganz
+   vorn** in `ART2_KEYWORDS_LAUFEN`, `ART2_KEYWORDS_FAHRRAD` und der
+   neuen `ART2_KEYWORDS_SCHWIMMEN` – der Zweck zählt vor dem Untergrund,
+   ein Benefiz-Crosslauf ist Charity, ein Charity-Treppenlauf auch.
+   `refresh_art2()` zieht bestehende Zeilen auch von einer spezifischen
+   Kategorie auf Charity (Bietlauf für einen Wohltätigen Zweck: Trail →
+   Charity). Erkannt wird nur, was der NAME sagt: „Lauf gegen Krebs"
+   oder der Wings for Life World Run tragen kein Stichwort und bleiben
+   in ihrer Kategorie. Die 18 „Ahmadiyya Charity Walk" sind Charity
+   (Walking-Frage, siehe unten). Filterliste in `filter-ui.js`
+   (Laufen, Schwimmen, Fahrrad – nicht Triathlon, der Nutzer nannte drei
+   Sportarten), Übersetzung in `filters.js` und `functions/index.js`,
+   `test_kategorie` prüft alle drei. Schwimmen hat damit erstmals eine
+   Stichwortliste (Charity, Freiwasser, Becken; ohne Voreinstellung wie
+   beim Fahrrad).
+
+18. **Abgesagt, nicht öffentlich, Schule – per Override** (vom Nutzer am
+   21.09.2026 entschieden: „Abgesagte Veranstaltungen bitte nicht
+   aufführen", „Nicht öffentliche Läufe nicht aufnehmen. Es soll jeder
+   die Chance haben sich … anzumelden", „Schul Events bitte nicht
+   aufnehmen"). Keine Regel kann das erkennen, deshalb `exclude` mit
+   Beleg in `manual_overrides.json`: Marner Kohltagelauf 2026 (beide
+   Zeilen), Benefizlauf der Wiehenläufer 2026 („krankheitsbedingt …
+   AUSFALLEN"), Belgershainer Crosslauf (seit 2022 nicht mehr
+   ausgeschrieben), ClimAid Plant a Tree Run (Getränkemarke, kein Lauf
+   2026); 67. Panorama Marathon (Running Paule, „nicht öffentlicher
+   Trainingsmarathon"), X-Mas StairRun Oberhof (nur Feuerwehr/Polizei),
+   Schanzenlauf Oberstdorf (Feuerwehr-Treppenlauf in Teams, umkehrbar);
+   Bonner Friedenslauf (Schul-Spendenlauf). **Meisterschaften bleiben,
+   wenn jeder starten kann** – die sieben im Rahmen eines Volkslaufs
+   sind Duplikate des Volkslaufs und bleiben draußen (der Volkslauf
+   steht in der Liste), die Polizeimeisterschaft (Potsdamer Cross) ist
+   nicht offen. Spenden- und Spaßformate ohne Distanz (Sterntaler, STELP,
+   ProSana, The Quest, Tragathlon, Pace Race) **bleiben** („Ja bitte
+   aufnehmen"), Weinathlon auch (keine Kraftübungen). `seitenabgleich.py`
+   meldet seit dem Tag **ABGESAGT**, wenn die Veranstalterseite von
+   Absage/Ausfall spricht – nur Hinweis, der Kohltagelauf wirbt neben
+   der Absage weiter mit „Melde dich jetzt an". Der Neunkirchner
+   Sommerlauf ist KEIN Absage-Fall mehr: Die Seite dankt inzwischen für
+   die Teilnahme 2026.
 
 ### Die wichtigste Lektion
 
@@ -2289,6 +2367,20 @@ vorhanden" (`smoke_test_frontend.py`, die Prüfung bei
 Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,
 größte Quelle), running.life, runningcompany.de, planet-marathon.de.
 
+**running.life liest seit dem 21.09.2026 alle sechs Kalender** (vom
+Nutzer freigegeben: „Du hast mein Ja"): Laufen und Triathlon je
+Deutschland, Österreich, Schweiz – `KALENDER` in
+`runninglife_scraper.py`, je Kalender mit eigener Sportart-Voreinstellung
+(Triathlon-Kalender → „Triathlon"; `expand_competitions()` nimmt seit
+dem Tag die Kategorie-Liste der Sportart, sonst bekäme ein
+Cross-Triathlon „Trail"). Die Adresse für Österreich heißt
+`/laufkalender/osterreich` (mit oe ist 404). `--max-pages 110` gilt je
+Kalender, die kleinen enden von selbst. Probelauf (eine Seite je
+Kalender, ohne Details): 104 neue Events, davon die ersten Schweizer
+überhaupt. **Der nächste Datenlauf bringt sie** – Workflow auslösen,
+nicht im Chat warten (Laufzeit steigt um grob eine Stunde, das
+`timeout-minutes: 300` reicht).
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -2435,10 +2527,10 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    Quelle, und vorher je Quelle robots.txt und Nutzungsbedingungen
    prüfen. **Kein Scraper ohne sein Ja**; die vier übersprungenen
    Quellen zeigen, warum.
-   Was dafür vorher fehlt (und ohne die Links schon gebaut werden
-   kann): **`art2`-Stichwörter für Fahrrad und Schwimmen** –
-   für diese beiden Sportarten gibt es noch keine Liste, sie bekämen
-   also „–" in der Kategorie-Spalte. **Triathlon ist seit dem
+   Was dafür vorher fehlte, ist gebaut: `ART2_KEYWORDS_FAHRRAD` (seit
+   Datenregel 12) und `ART2_KEYWORDS_SCHWIMMEN` (21.09.2026, mit
+   „Charity", siehe Datenregel 17); running.life liefert seit dem
+   21.09.2026 AT/CH und Triathlon (siehe „Quellen"). **Triathlon ist seit dem
    18.09.2026 erledigt** (`ART2_KEYWORDS_TRIATHLON`,
    `ART2_BY_ART1['Triathlon']`, siehe Datenregel 11) – und mit
    `guess_art1()` steht auch das Muster, nach dem Fahrrad und Schwimmen
@@ -2516,20 +2608,14 @@ Gesammelt aus der Einzelprüfung und dem Design-Durchgang. **Jeder Punkt
 wartet auf ein Ja/Nein des Nutzers** – nichts davon entscheidet Claude
 allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
 
-1. **Virtuelle Läufe – rein oder raus?** „Blaues Land läuft –
-   XMAS-Challenge": „Egal wo, egal wann", fünf Wochen lang, ohne Ort und
-   ohne Koordinaten. Die Liste ist auf Karte und Umkreissuche gebaut.
-   Vorschlag: wie HYROX über eine eigene Regel ausschließen.
-2. **Abgesagte Veranstaltungen.** Niemand erkennt sie – weder Scraper
-   noch `clean_events.py`. Beim Marner Kohltagelauf (27.09.2026) schreibt
-   der Veranstalter „Leider müssen wir den Kohltagelauf 2026 …
-   absagen!", wirbt daneben aber mit „Melde dich jetzt für 2026 an!".
-   Nicht gelöscht. Frage: Soll es dafür eine Meldung geben, und was tun
-   mit dem Kohltagelauf?
-3. **Staffeln: Team-Gesamtstrecke oder Teilstrecke in `laenge_km`?**
-   Celler Staffelmarathon und Rennsteig-Staffellauf stehen mit der
-   TEAM-Strecke (42,195 bzw. 140 km), „DUO Marathon 2 x 21,1 km" mit der
-   Teilstrecke. Das gehört vereinheitlicht.
+1. ~~Virtuelle Läufe – rein oder raus?~~ **entschieden** (21.09.2026:
+   „rausnehmen") – Regel in `NICHT_AUSDAUER`, prüft auch den Ort; siehe
+   Datenregel 14.
+2. ~~Abgesagte Veranstaltungen~~ **entschieden** (21.09.2026: „nicht
+   aufführen") – per Override mit Beleg, `seitenabgleich.py` meldet
+   ABGESAGT; siehe Datenregel 18.
+3. ~~Staffeln~~ **entschieden** (21.09.2026: „Erst einmal keine Staffeln
+   aufnehmen") – Datenregel 16.
 4. ~~Die 5-km-Grenze bei „5 km" mit 4,8 km~~ **entschieden** (19.09.2026):
    Läufe unter 5 km bleiben draußen, auch die als „5 km" beworbenen. Sedus
    (4,80 km), Bramfelder Winterlaufserie (4,66-km-Runde), Hochplatten
@@ -2543,10 +2629,9 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Zusammengehörigkeit; eine Zahl („6 Strecken") steht nicht dabei, weil
    die Namensspalte auf Handybreite nur 176 px hat. Falls gewünscht: am
    ehesten im runden Pfeil-Feld statt des Pfeils.
-7. **`runninglife_scraper.py` auf alle sechs Kalender ausweiten** (Laufen
-   und Triathlon je DE/AT/CH; heute nur `/laufkalender/deutschland`,
-   daher 15 AT- und 2 CH-Events). Rund 1.100 zusätzliche Events, gleiche
-   Quelle, gleiche robots.txt – trotzdem: kein Scraper-Umbau ohne sein Ja.
+7. ~~`runninglife_scraper.py` auf alle sechs Kalender ausweiten~~
+   **gebaut** (21.09.2026, „Du hast mein Ja") – siehe „Quellen"; die
+   Events kommen mit dem nächsten Datenlauf.
 8. **Die Quellenliste für die 20.000+** (Ergebnis der Recherche vom
    18.09.2026, siehe README „Quellen für den großen Datenlauf") will der
    Nutzer selbst durchsehen. Blockiert (403/robots.txt, nicht umgangen):
@@ -2581,7 +2666,8 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Kasten als Link (übliche Konvention) oder ein Eintrag in der Fußzeile.
    Nichts davon ohne seine Entscheidung bauen.
 
-13. **Treppenläufe – rein oder raus?** Sieben Zeilen sind Towerruns
+13. ~~Treppenläufe – rein oder raus?~~ **entschieden** (21.09.2026: „als
+   Trail aufnehmen", Datenregel 6). Ursprünglich: Sieben Zeilen sind Towerruns
    (ADAC Charity Treppenlauf München: „472 Stufen, 22 Etagen“, TK
    Elevator Towerrun, ALTIMATE Treppenlauf Berlin, Teltschikturm,
    Monschau, Lotto Thüringen Treppenlauf). Das ist ein eigenes Format
@@ -2592,7 +2678,11 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Vorschlag: raus, per `NICHT_AUSDAUER`-Zeile `treppenlauf|towerrun`,
    mit dem Idar-Obersteiner als Gegenprobe im Test.
 
-14. **Spenden-, Schul- und Fitnessformate ohne Wettkampfdistanz.** Beim
+14. ~~Spenden-, Schul- und Fitnessformate ohne Wettkampfdistanz~~
+   **entschieden** (21.09.2026): Spenden- und Spaßformate bleiben und
+   bekommen die Kategorie „Charity" (Datenregel 17), Schul-Events
+   fliegen per Override (Bonner Friedenslauf), Runworx und Black Forest
+   Team Battle stehen in `NICHT_AUSDAUER`. Ursprünglich: Beim
    Durchgehen der Zeilen ohne Maßzahl (19.09.2026) kamen drei Sorten
    zusammen, alle im Protokoll als `unklar`:
    - **Runden-Spendenläufe mit frei gewählter Dauer** (Sterntaler
@@ -2715,6 +2805,25 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Crosslauf), die 90-km-Zeile des SCC Cross Country (Tippfehler für
      9 km). Und **„Lusatian Race Walking"** (24.10.2026, 42,2 km) ist
      Gehen, keine Laufveranstaltung – dieselbe Frage wie beim Kammlauf.
+
+19. **Stand nach den Entscheidungen vom 21.09.2026 – was offen bleibt:**
+   - **Walking-Strecken innerhalb von Volksläufen** (145 Zeilen, „5 km
+     Nordic Walking" neben dem Hauptlauf) und reine Wanderformate: Der
+     Nutzer hat Gehen (Race Walking) und Skilanglauf ausgeschlossen;
+     ob Nordic Walking dazugehört, ist nicht entschieden. Die Walking-
+     Zeilen stehen als `art1` Laufen in der Liste. Die „Ahmadiyya
+     Charity Walks" sind jetzt Charity.
+   - **Duplikate unter zwei Namen** (Punkt 12/17/18): keine Entscheidung
+     nötig, nur Arbeit – die schwächere Zeile per `exclude`, die
+     fehlende Strecke ggf. in `manual_events.json`.
+   - **2027-Termine, die Prognosen sind** (Punkt 18): lassen (der
+     Datenlauf zieht sie nach) oder bis zur Ausschreibung ausschließen.
+   - **Zeitrennen neben Distanz-Zeilen** (Rokathon 24 h, van Halen,
+     Winterloop 6/12 h): braucht `_compatible_distance()` „Distanz gegen
+     Dauer = unvereinbar", vorher zählen.
+   - **Cross- und Waldlaufmeisterschaften Rheine/Ibbenbüren**, Zahl der
+     Strecken am Block (Punkt 6), Rückweg zur Startseite (Punkt 11),
+     Quellenliste (Punkt 8).
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

@@ -147,9 +147,12 @@
     // "Trail" umfasst Trail-, Cross- und Bergläufe (eine Kategorie, so
     // vom Nutzer entschieden); "Backyard Ultra" ist derselbe Wert wie
     // beim Triathlon - das Format ist dasselbe.
-    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra'],
-    'Schwimmen': ['Freiwasser', 'Becken'],
-    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross'],
+    // "Charity" (seit 21.09.2026, Wunsch des Nutzers) gibt es bei Laufen,
+    // Schwimmen und Fahrrad - der Zweck der Veranstaltung als Kategorie,
+    // erzeugt von CHARITY_KEYWORD in scraper_lib.py.
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Charity'],
+    'Schwimmen': ['Freiwasser', 'Becken', 'Charity'],
+    'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross', 'Charity'],
     // Triathlon ist die Mehrsport-Schublade: Duathlon (Laufen-Rad-Laufen),
     // Aquathlon (Schwimmen-Laufen) und SwimRun sind keine Triathlons im
     // Wortsinn, gehören aber zur selben Familie - und die genaue Form ist

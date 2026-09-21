@@ -1316,7 +1316,8 @@
   },
   "25. Marner Kohltagelauf|2026-09-27": {
     "veranstalter_url": "https://marner-kohltagelauf.com/",
-    "_note": "Linkprüfung 2026-09-19: Organizer-URL, eigene Seite (\"Melde dich jetzt für 2026 an\"). (Quelle: raceresult /contact)"
+    "_note": "ABGESAGT: marner-kohltagelauf.com: 'Leider müssen wir den Kohltagelauf 2026 aufgrund der Wetterverhältnisse absagen!'. Nutzer 21.09.2026: abgesagte Veranstaltungen nicht aufführen. Zweite Zeile derselben Veranstaltung: 'Marner Kohltagelauf'.",
+    "exclude": true
   },
   "37. Eper Michaelislauf|2026-09-27": {
     "veranstalter_url": "https://www.tv-westfalia07epe.de/",
@@ -1384,7 +1385,8 @@
   },
   "Belgershainer Crosslauf|2026-10-03": {
     "veranstalter_url": "https://www.sv1863belgershain.de/",
-    "_note": "Linkprüfung 2026-09-19: Organizer-URL /wordpress/ ist 404, die Vereinsseite selbst erreichbar; Veranstalter SV 1863 Belgershain. (Quelle: raceresult /contact)"
+    "_note": "Karteileiche: Die Vereinsseite sv1863belgershain.de nennt am 21.09.2026 keinen Crosslauf 2026 (zuletzt '3. Crosslauf am 24.09.2022'); der Termin 03.10.2026 ist nicht belegt. Nutzer 21.09.2026: keine abgesagten/nicht stattfindenden Veranstaltungen. Zurückholen, sobald der Verein ausschreibt.",
+    "exclude": true
   },
   "Wehringer Wertachlauf|2026-09-19": {
     "veranstalter_url": "https://www.lg-wehringen.de/events/17-wehringer-wertachlauf/",
@@ -1515,7 +1517,8 @@
   },
   "Benefizlauf der Wiehenläufer|2026-10-03": {
     "veranstalter_url": "http://www.xn--wiehenlufer-r8a.de/",
-    "_note": "Linkprüfung 2026-09-19: Seite des Veranstalters (Wiehenläufer/Wiehensport Hüllhorst); der laufen.de-Link lief auf eine nicht auflösbare Domain. ACHTUNG: Startseite beginnt mit \"Leider muss der Benefizlauf krankheitsbedingt …\" - ohne Jahresangabe im Ausschnitt; möglicherweise ABGESAGT, Entscheidung beim Nutzer. (Quelle: wiehenläufer.de)"
+    "_note": "ABGESAGT: wiehenläufer.de (Startseite, 21.09.2026): 'Leider muss der Benefizlauf krankheitsbedingt in diesem Jahr AUSFALLEN'. Nutzer 21.09.2026: abgesagte Veranstaltungen nicht aufführen.",
+    "exclude": true
   },
   "Burgentrail Unterfränkische Traillaufmeisterschaften|2026-10-03": {
     "veranstalter_url": "https://sc-ostheim.de/burgentrail/",
@@ -1743,7 +1746,8 @@
   },
   "Schanzenlauf Oberstdorf|2026-10-17": {
     "veranstalter_url": "https://feuerwehr-oberstdorf.de/aktuelles/schanzenlauf",
-    "_note": "Veranstalter Feuerwehr Oberstdorf (Seite laut anmeldungs-service.de): Treppenlauf auf der Heini-Klopfer-Skiflugschanze, '1'000+ Stufen', '207 Meter hoch, 412 Meter weit', Zweierteams, teils mit Atemschutz, 17.10.2026. Treppenlauf - Entscheidung Punkt 13. Geprüft 2026-09-19."
+    "_note": "NICHT ÖFFENTLICH (nach Lage der Seite): feuerwehr-oberstdorf.de beschreibt 'ein Feuerwehr-Treppenlauf der besonderen Art' in Teams, Ausrichter Freiwillige Feuerwehr Oberstdorf; eine offene Anmeldung für alle ist nicht erkennbar. Nutzer 21.09.2026: nur offen anmeldbare Events. Umkehrbar, falls die Ausschreibung Jedermann-Starts vorsieht.",
+    "exclude": true
   },
   "Meckenheimer Apfelstaffel|2026-10-03": {
     "veranstalter_url": "https://www.lav23.de/",
@@ -2770,7 +2774,8 @@
   },
   "ClimAid Plant a Tree Run|2026-10-11": {
     "veranstalter_url": "https://climaid.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://climaid.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:climaid). Linkprüfung 2026-09-19."
+    "_note": "Nicht belegt: climaid.de ist die Seite einer Getränkemarke und nennt am 21.09.2026 keinen Lauf 2026 (zuletzt 11.10.2024, Haan). Nutzer 21.09.2026: keine abgesagten/nicht stattfindenden Veranstaltungen.",
+    "exclude": true
   },
   "EnergieSüdwest Cup|2026-10-11": {
     "veranstalter_url": "https://energie-suedwest.de/energiesuedwest-cup/",
@@ -4749,7 +4754,8 @@
   },
   "Die Ha(a)rd Winter|2027-01-02": {
     "datum_ende": "2027-01-04",
-    "_note": "my.raceresult.com/393626: 4. Backyard Wanderveranstaltung „Die Ha(a)rd“, 02.–04.01.2027, Haltern am See"
+    "_note": "WANDERN, kein Lauf: laut raceresult '4. Backyard Wanderveranstaltung Die Ha(a)rd', 02.-04.01.2027. Nutzer 21.09.2026: Gehen nicht aufnehmen. Umkehrbar.",
+    "exclude": true
   },
   "Leinetal-Ultra Winter Edition|2027-01-23": {
     "standort": "Northeim",
@@ -4869,5 +4875,21 @@
   "Haster Volkslauf|2027-06-06": {
     "exclude": true,
     "_note": "laufen-os.de/wettkaempfe/haster-volkslauf-2027 nennt den 30.05.2027; der 06.06. ist eine Kalenderprognose, der Datenlauf vom 21.09.2026 hat die Zeile mit dem richtigen Datum gebracht"
+  },
+  "Marner Kohltagelauf|2026-09-27": {
+    "exclude": true,
+    "_note": "ABGESAGT (Duplikat des '25. Marner Kohltagelauf' mit raceresult-Link): Veranstalterseite verkündet die Absage 2026. Nutzer 21.09.2026."
+  },
+  "67. Panorama Marathon|2026-10-24": {
+    "exclude": true,
+    "_note": "NICHT ÖFFENTLICH: Ausschreibung (PDF, running-paule.de) nennt einen 'gemeinsamen, nicht öffentlichen Trainingsmarathon'. Nutzer 21.09.2026: 'Es soll jeder die Chance haben sich bei den Events aus der Liste anzumelden'."
+  },
+  "X-Mas StairRun Oberhof|2026-12-05": {
+    "exclude": true,
+    "_note": "NICHT ÖFFENTLICH: Treppenlauf auf der Schanze nur für Feuerwehr und Polizei (mit Atemschutz), laut raceresult-Ausschreibung. Nutzer 21.09.2026: nur offen anmeldbare Events."
+  },
+  "Bonner Friedenslauf|2026-10-09": {
+    "exclude": true,
+    "_note": "SCHUL-Spendenlauf ('hunderte Schüler*innen', Spenden je Runde, keine Distanz, propeace.de). Nutzer 21.09.2026: 'Schul Events bitte nicht aufnehmen, die sind meistens zu intern'."
   }
 }

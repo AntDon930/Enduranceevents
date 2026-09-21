@@ -186,6 +186,7 @@ const SUCH_UEBERSETZUNGEN = {
     "Backyard Ultra": ["Backyard Ultra", "Backyard Ultra"],
     "Backcountry Ultra": ["Backyard Ultra", "Backyard Ultra"],
     "Backyard": ["Backyard Ultra", "Backyard Ultra"],
+    "Charity": ["Charity", "Charity"],
     "Freiwasser": ["Freiwasser", "Open Water"],
     "Becken": ["Becken", "Pool"],
     "Zeitfahren": ["Zeitfahren", "Time Trial"],

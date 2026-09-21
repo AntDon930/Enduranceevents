@@ -178,7 +178,21 @@ ENGLISH_MONTHS = {
 # zutreffen und das Event fälschlich als Straßenlauf einstufen (echter
 # Bug, mit realen Daten verifiziert), obwohl "Bergtrail"/"Trail-Marathon"
 # eindeutig einen Trail-/Geländelauf beschreibt.
+# "Charity" steht ganz VORN, vor jedem Gelände-Stichwort: Vom Nutzer am
+# 21.09.2026 so entschieden ("eine neue Kategorie ... die 'Charity' heißt
+# ... alle Schwimmen, Lauf und Rennrad Charity Events"). Ein
+# "Benefiz-Crosslauf" ist damit Charity, nicht Trail - der Zweck zählt
+# vor dem Untergrund. Erkannt wird nur, was der Name selbst sagt
+# (Charity, Benefiz, Spendenlauf, Sponsorenlauf, wohltätig); ein Lauf, der
+# sein Startgeld spendet, ohne es im Namen zu tragen, bleibt in seiner
+# Gelände-Kategorie. Dieselbe Zeile steht in ART2_KEYWORDS_FAHRRAD und
+# ART2_KEYWORDS_SCHWIMMEN (CHARITY_KEYWORD).
+CHARITY_KEYWORD = re.compile(
+    r"charity|benefiz|spenden[- ]?(?:lauf|läufe|marathon|run|schwimmen|radeln|walk|meile)|"
+    r"sponsoren[- ]?lauf|wohltätig", re.I)
+
 ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
+    (CHARITY_KEYWORD, "Charity"),
     (re.compile(r"hindernislauf|obstacle|ocr\b|spartan|tough mudder", re.I), "Hindernis"),
     (re.compile(r"trail|geländelauf|ultratrail", re.I), "Trail"),
     # "backyard" steht NACH "Trail" - und das ist der ganze Trick: Ein
@@ -203,6 +217,12 @@ ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
     # Namen. Die Zeile steht NACH "backyard", damit ein "Backyard Ultra"
     # mit Höhenmeter-Angabe ein Backyard bleibt.
     (re.compile(r"berglauf|bergrennen|bergmarathon|mountain ?run|gipfel|alpin|gebirg|höhenmeter", re.I), "Trail"),
+    # Treppenläufe (Towerruns, Schanzenläufe, "Stäffeleslauf") sind seit
+    # dem 21.09.2026 dabei und zählen als Trail (vom Nutzer so
+    # entschieden: "Ja Treppenläufe als Trail aufnehmen"). Sie haben
+    # meist keine Laufdistanz, nur Stufen - die Länge bleibt leer.
+    (re.compile(r"treppenlauf|treppenhauslauf|treppenmarathon|treppen-?run|tower ?run|"
+                r"stair ?run|stairs|stäffele|schanzenlauf", re.I), "Trail"),
     (re.compile(r"crosslauf|cross.?country|\bcross\b", re.I), "Trail"),
     (re.compile(r"bahn(meeting)?|leichtathletik.?meeting", re.I), "Bahn"),
     (re.compile(r"halbmarathon|marathon|stadtlauf|straßenlauf|city ?run|\bstraße\b", re.I), "Straße"),
@@ -305,6 +325,7 @@ DEFAULT_ART2_TRIATHLON = "Straße"
 # Talsperren Marathons). Vollständig wird sie mit Fahrplan Punkt 1;
 # die Werte müssen zu ART2_BY_ART1['Fahrrad'] in filter-ui.js passen.
 ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
+    (CHARITY_KEYWORD, "Charity"),
     (re.compile(r"mountainbike|\bmtb\b|\bxc\b", re.I), "Mountainbike"),
     (re.compile(r"gravel|schotter", re.I), "Gravel"),
     (re.compile(r"cyclo.?cross|cyclecross|querfeldein", re.I), "Cyclecross"),
@@ -313,9 +334,21 @@ ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
     (re.compile(r"rennrad|straßenrennen|stra..enrennen", re.I), "Straße"),
 ]
 
+# Kategorien fürs Schwimmen. Wie beim Fahrrad OHNE Voreinstellung: Ob ein
+# "Seeschwimmen" im Freiwasser oder ein Wettkampf im Hallenbad gemeint
+# ist, muss die Quelle sagen. Die Werte müssen zu ART2_BY_ART1['Schwimmen']
+# in filter-ui.js passen (Freiwasser, Becken, Charity).
+ART2_KEYWORDS_SCHWIMMEN: list[tuple[re.Pattern, str]] = [
+    (CHARITY_KEYWORD, "Charity"),
+    (re.compile(r"freiwasser|open ?water|see-?schwimm|see-?(?:durch|über)?querung|"
+                r"fluss-?schwimm|kanal-?schwimm|strand-?schwimm|bodensee", re.I), "Freiwasser"),
+    (re.compile(r"hallenbad|schwimmhalle|schwimmbad|becken", re.I), "Becken"),
+]
+
 ART2_LISTEN: dict[str, tuple[list, str | None]] = {
     "Triathlon": (ART2_KEYWORDS_TRIATHLON, DEFAULT_ART2_TRIATHLON),
     "Fahrrad": (ART2_KEYWORDS_FAHRRAD, None),
+    "Schwimmen": (ART2_KEYWORDS_SCHWIMMEN, None),
 }
 
 
@@ -1061,8 +1094,12 @@ def expand_competitions(
         # einer Veranstaltung mit "Halbmarathon" und "Trailrun" ist die
         # eine Strecke Straße, die andere Trail. Der `hint` trägt dabei
         # das, was die Quelle separat über die Strecke sagt.
+        # Mit base.art1: Ein Triathlon (etwa aus dem Triathlon-Kalender
+        # von running.life) bekommt seine eigene Kategorie-Liste - ohne
+        # das dritte Argument bekäme ein Cross-Triathlon "Trail", eine
+        # Laufkategorie an einer Nicht-Laufveranstaltung.
         clone.art2 = guess_art2(
-            f"{base.name or ''} {comp.label or ''} {comp.hint}", config
+            f"{base.name or ''} {comp.label or ''} {comp.hint}", config, base.art1
         )
         # Höhenprofil als zusätzliches Signal, wenn der Name nichts
         # Spezifischeres sagt (siehe art2_from_elevation()). Bewusst auf dem
@@ -1921,7 +1958,98 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     # Markennamen, keine Stichwörter wie "Fitness" oder "Hybrid".
     (re.compile(r"\bgymrace\b", re.I), "Gymrace (Fitness-Rennen mit Workout-Stationen)"),
     (re.compile(r"decathlon\s+hybrid\s+series", re.I), "Decathlon Hybrid Series (Laufen + Kraftstationen)"),
+    # Nachzügler derselben Klasse, vom Nutzer am 21.09.2026 bestätigt
+    # ("Keine Hyrox oder ähnliche Events mit Kraft Übungen aufnehmen"):
+    # Runworx ist ein 5-km-Hindernislauf mit Kraft-WOD im Gym, der Black
+    # Forest Team Battle "5x1 km plus Kraftstationen" in Zweierteams.
+    (re.compile(r"\brunworx\b", re.I), "Runworx (Hindernislauf + Kraft-WOD)"),
+    (re.compile(r"black\s+forest\s+team\s+battle", re.I),
+     "Black Forest Team Battle (Laufen + Kraftstationen)"),
+    # Gehen und Skilanglauf sind keine Laufveranstaltungen (vom Nutzer am
+    # 21.09.2026 entschieden: "Gehen und Skilanglauf nicht aufnehmen").
+    # "Race Walking" ist die Leichtathletik-Disziplin Gehen (Lusatian Race
+    # Walking, 42,2 km in Zittau), der Kammlauf Klingenthal ist
+    # Skilanglauf. NICHT gemeint sind die Walking-/Nordic-Walking-Strecken
+    # innerhalb eines Volkslaufs - die bleiben, bis der Nutzer anders
+    # entscheidet (siehe CLAUDE.md, "Was der Nutzer noch entscheiden muss").
+    (re.compile(r"race\s*walking|racewalking|\bgeher(?:tag|wettbewerb|meeting)?\b", re.I),
+     "Gehen / Race Walking (keine Laufveranstaltung)"),
+    (re.compile(r"skilanglauf|ski-langlauf|\blanglauf\b|skimarathon", re.I),
+     "Skilanglauf (keine Laufveranstaltung)"),
+    # Virtuelle Läufe ("egal wo, egal wann") haben weder Ort noch Termin
+    # noch Koordinaten; die Liste ist auf Karte und Umkreissuche gebaut.
+    # Vom Nutzer am 21.09.2026 entschieden ("Virtuelle Läufe rausnehmen").
+    # Geprüft wird auch der ORT: Die XMAS-Challenge des Blauen Landes
+    # trug "virtuell" nur im Feld standort.
+    (re.compile(r"virtuell|virtual\s*(?:run|race|lauf|challenge)|\bvirtual\b", re.I),
+     "virtueller Lauf (kein Ort, kein Termin)"),
 ]
+
+
+def nicht_ausdauer_text(name, wettbewerb, standort=None) -> str:
+    """Der Text, gegen den NICHT_AUSDAUER geprüft wird: Name, Wettbewerb
+    und Ort. Der Ort gehört dazu, weil ein virtueller Lauf sein
+    "virtuell" dort trägt (Blaues Land läuft - XMAS-Challenge)."""
+    return f"{name or ''} {wettbewerb or ''} {standort or ''}"
+
+
+# --------------------------------------------------------------------------
+# Staffeln: erst einmal keine (vom Nutzer am 21.09.2026 entschieden)
+# --------------------------------------------------------------------------
+#
+# Eine Staffel ist ein Team-Wettbewerb, kein Einzelrennen: Bei "3 x 5 km
+# Staffel" läuft eine Person 5 km, in der Liste stünde die Zeile aber wie
+# ein 15-km-Lauf (Team-Gesamtstrecke) oder wie ein 5-km-Lauf (Teilstrecke)
+# - beides war im Bestand zu finden, uneinheitlich (Punkt 3 der
+# Nutzerentscheidungen). "Erst einmal keine Staffeln aufnehmen" - also
+# fliegen sie heraus, an zwei Stellen wie NICHT_AUSDAUER: beim Einsammeln
+# (filter_staffeln) und rückwirkend (clean_events.drop_staffeln).
+#
+# Zwei Stufen, beide gezählt am Bestand vom 21.09.2026 (49 Zeilen mit
+# "Staffel", davon 34 zu entfernen, 15 zu behalten):
+#
+#   1. Das LABEL beschreibt nur die Staffel ("ZEISS Marathon Staffel",
+#      "2x5 km Staffel", "DUO Marathon 2 x 21,1 km", "H/21 for Two
+#      (Staffel)"): Nur diese Zeile fällt, die anderen Strecken der
+#      Veranstaltung bleiben. NICHT, wenn das Label die Staffel nur als
+#      Option nennt - "10 km Lauf und Staffel", "Everesting Solo oder
+#      Staffel", "Halbmarathon 21,095 km, Einzel und Staffel", "5 km
+#      Strecke, ebenfalls als Einzel- oder Duo-Staffel möglich": Das ist
+#      ein Einzelrennen, das man auch als Staffel laufen kann.
+#   2. Der NAME nennt eine Staffelveranstaltung (Staffellauf,
+#      Staffelmarathon, Firmenstaffel, Marathonstaffel, Staffel-Mix):
+#      Die ganze Veranstaltung ist eine Staffel, alle Zeilen fallen -
+#      auch der "5 km" des Ostsee Staffelmarathons, das ist seine
+#      Rundenlänge. NICHT dagegen, wenn die Staffel nur ein Zusatz ist
+#      ("Nikolauslauf mit Fun/Firmenstaffel", "Volks- und
+#      Staffeltriathlon"), und nicht bei Orten ("Staffelsee", "Bad
+#      Staffelstein"). Bewusst NICHT jedes "Staffel" im Namen: Die
+#      "GVG-Winterstaffel Pulheim" ist eine Staffel MIT Einzelstrecken
+#      (5, 10, 21,1, 42,2 km - Seite geprüft), die "Meckenheimer
+#      Apfelstaffel" bietet "Einzelläufe und Staffeln" - beide bleiben.
+STAFFEL_LABEL = re.compile(r"staffel|relay|ekiden|\bduo\b|for two", re.I)
+STAFFEL_LABEL_MIT_EINZEL = re.compile(
+    r"einzel|solo|\boder\b|\bund\b|auch|ebenfalls|möglich", re.I)
+STAFFEL_NAME = re.compile(
+    r"staffel[ -]?(?:lauf|marathon|mix)|(?:firmen|team|marathon)staffel", re.I)
+STAFFEL_NAME_NEBENBEI = re.compile(r"\bmit\b.*staffel|und staffel|/\s*\w*staffel", re.I)
+
+
+def ist_staffel(name: str | None, wettbewerb: str | None) -> str | None:
+    """Der Grund, warum diese Zeile eine Staffel ist - sonst None."""
+    wb = wettbewerb or ""
+    if STAFFEL_LABEL.search(wb) and not STAFFEL_LABEL_MIT_EINZEL.search(wb):
+        return f"Staffel-Wettbewerb ({wb.strip()})"
+    n = name or ""
+    if STAFFEL_NAME.search(n) and not STAFFEL_NAME_NEBENBEI.search(n):
+        return "Staffelveranstaltung (Name)"
+    return None
+
+
+def filter_staffeln(events: list["Event"]) -> tuple[list["Event"], int]:
+    """Wirft Staffeln heraus (siehe ist_staffel)."""
+    kept = [e for e in events if not ist_staffel(e.name, e.wettbewerb)]
+    return kept, len(events) - len(kept)
 
 
 def ist_nicht_ausdauer(text: str | None) -> str | None:
@@ -1935,7 +2063,7 @@ def ist_nicht_ausdauer(text: str | None) -> str | None:
 def filter_nicht_ausdauer(events: list[Event]) -> tuple[list[Event], int]:
     """Wirft Formate heraus, die kein Ausdauer-Event sind (NICHT_AUSDAUER)."""
     kept = [e for e in events
-            if not ist_nicht_ausdauer(f"{e.name or ''} {e.wettbewerb or ''}")]
+            if not ist_nicht_ausdauer(nicht_ausdauer_text(e.name, e.wettbewerb, e.standort))]
     return kept, len(events) - len(kept)
 
 
@@ -2233,6 +2361,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     if nicht_ausdauer_skipped:
         print(f"  ({nicht_ausdauer_skipped} Event(s) übersprungen, die kein "
               f"Ausdauer-Format sind - siehe NICHT_AUSDAUER.)")
+    events_to_use, staffel_skipped = filter_staffeln(events_to_use)
+    if staffel_skipped:
+        print(f"  ({staffel_skipped} Staffel-Zeile(n) übersprungen - erst einmal "
+              f"keine Staffeln, siehe ist_staffel.)")
     events_to_use, too_short_skipped = filter_min_distance(events_to_use)
     if too_short_skipped:
         print(f"  ({too_short_skipped} Event(s) unter {MIN_DISTANCE_KM:g} km übersprungen.)")

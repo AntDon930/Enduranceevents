@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:STELP Spendenlauf
 LOCATION:Stuttgart\, Deutschland
-DESCRIPTION:Sportart: Laufen / Bahn\nLänge: -\nhttps://stelp.events/event/
- run/
+DESCRIPTION:Sportart: Laufen / Charity\nLänge: -\nhttps://stelp.events/eve
+ nt/run/
 TRANSP:TRANSPARENT
 URL:https://stelp.events/event/run/
 END:VEVENT

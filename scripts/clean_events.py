@@ -88,7 +88,7 @@ from scraper_lib import (  # noqa: E402
     is_same_event,
     is_same_race,
     find_override,
-    ist_nicht_ausdauer,
+    ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
     ART2_LISTEN,
     _haversine_km,
     OVERRIDE_FIELDS,
@@ -273,6 +273,14 @@ def refresh_art2(events: list[dict]) -> list[str]:
             continue  # Stichwortliste gilt nur für Laufen
         guessed = guess_art2(event.get("name") or "", ART2_CONFIG)
         current = event.get("art2")
+        # "Charity" gewinnt auch gegen eine schon gesetzte spezifische
+        # Kategorie: Der "Bietlauf für einen Wohltätigen Zweck" (9,2 km
+        # Crosslauf) stand als Trail und gehört laut Nutzer (21.09.2026)
+        # in die Charity-Kategorie - der Zweck zählt vor dem Untergrund.
+        if guessed == "Charity" and current != "Charity":
+            changed.append(f"{event.get('name')}: art2 {current!r} -> 'Charity'")
+            event["art2"] = "Charity"
+            continue
         if guessed and guessed != current and current in (None, "Straße"):
             changed.append(f"{event.get('name')}: art2 {current!r} -> {guessed!r}")
             event["art2"] = guessed
@@ -301,8 +309,25 @@ def drop_nicht_ausdauer(events: list[dict]) -> tuple[list[dict], list[str]]:
     kept: list[dict] = []
     entfernt: list[str] = []
     for event in events:
-        grund = ist_nicht_ausdauer(f"{event.get('name') or ''} "
-                                   f"{event.get('wettbewerb') or ''}")
+        grund = ist_nicht_ausdauer(nicht_ausdauer_text(
+            event.get("name"), event.get("wettbewerb"), event.get("standort")))
+        if grund:
+            entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
+        else:
+            kept.append(event)
+    return kept, entfernt
+
+
+def drop_staffeln(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Entfernt Staffeln - das Gegenstück zu `scraper_lib.filter_staffeln()`
+    für den Bestand. Vom Nutzer am 21.09.2026 entschieden ("Erst einmal
+    keine Staffeln aufnehmen"); die Regel samt Gegenproben steht bei
+    `ist_staffel()` in scraper_lib.py. Jeder Ausschluss wird gemeldet.
+    """
+    kept: list[dict] = []
+    entfernt: list[str] = []
+    for event in events:
+        grund = ist_staffel(event.get("name"), event.get("wettbewerb"))
         if grund:
             entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
         else:
@@ -1606,6 +1631,7 @@ def main() -> None:
     # würde einem noch als "Laufen" geführten Triathlon "Trail"
     # verpassen.
     events, nicht_ausdauer = drop_nicht_ausdauer(events)
+    events, staffeln = drop_staffeln(events)
     multisport_fixes = fix_multisport_art1(events)
     # Nach fix_multisport_art1: Ein Triathlon ist zuerst ein Triathlon;
     # erst danach ist ein "Rad 50 km" bei einer LAUFveranstaltung ein
@@ -1666,6 +1692,7 @@ def main() -> None:
     section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
+    section("Staffeln entfernt (erst einmal keine Staffeln)", staffeln)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Sportart korrigiert (Label nennt eine andere Sportart)",
             fremde_sportart)

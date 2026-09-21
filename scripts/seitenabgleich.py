@@ -9,6 +9,11 @@ Host, 30-s-Frist) und der Text gegen unsere Daten gehalten:
              Termine im selben, vorigen oder nächsten Jahr
     DISTANZ  mindestens eine unserer laenge_km fehlt im Text, obwohl die
              Seite km-Angaben hat (±0,15 km bzw. gleiche gerundete Zahl)
+    ABGESAGT die Seite spricht von Absage/Ausfall (abgesagt, findet nicht
+             statt, fällt aus, cancelled) - seit dem 21.09.2026, weil der
+             Nutzer abgesagte Veranstaltungen nicht in der Liste will;
+             nur ein Hinweis (der Kohltagelauf wirbt neben der Absage
+             weiter mit "Melde dich jetzt an"), geprüft wird von Hand
     LEER     unter 300 Zeichen Text (JS-Seite, Frames, Platzhalter)
     FEHLER   Abruf gescheitert (Status, robots, Timeout)
 
@@ -56,6 +61,8 @@ def distanzen_aus(txt):
     if re.search(r"(?<!halb)(?<!half )marathon", txt): out.add(42.2)
     return out
 
+ABGESAGT_RE = re.compile(r"abgesagt|absage\b|findet nicht statt|f[aä]llt (?:in diesem jahr |dieses jahr |\d{4} )?aus|muss(?:te)? (?:\w+ ){0,3}ausfallen|cancell?ed|wird nicht mehr durchgeführt", re.I)
+
 def passt(km, gefunden):
     return any(abs(km-g) <= 0.15 or (abs(km-g) < 0.6 and abs(round(km)-round(g)) == 0) for g in gefunden)
 
@@ -93,6 +100,9 @@ for i,(k,g) in enumerate(gruppen.items(),1):
         if not r["datum_ok"] and nah: flags.append("DATUM")
         if r["km_fehlt"] and dist: flags.append("DISTANZ")
         if len(txt)<300: flags.append("LEER")
+        m=ABGESAGT_RE.search(txt)
+        if m:
+            flags.append("ABGESAGT"); r["absage"]=txt[max(0,m.start()-80):m.end()+80].strip()
         r["flags"]=flags
     else:
         r["flags"]=["FEHLER"]

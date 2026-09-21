@@ -98,6 +98,9 @@
       'Backyard Ultra': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
       'Backcountry Ultra': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
       'Backyard': { de: 'Backyard Ultra', en: 'Backyard Ultra' },
+      // Der Zweck als Kategorie (Laufen, Schwimmen, Fahrrad) - in beiden
+      // Sprachen dasselbe Wort.
+      'Charity': { de: 'Charity', en: 'Charity' },
       'Freiwasser': { de: 'Freiwasser', en: 'Open Water' },
       'Becken': { de: 'Becken', en: 'Pool' },
       'Zeitfahren': { de: 'Zeitfahren', en: 'Time Trial' },

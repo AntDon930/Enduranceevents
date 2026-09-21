@@ -100,6 +100,9 @@ SCRIPT_EXTRA_ARGS: dict[str, list[str]] = {
     # gibt. Vorher standen hier nur die 10 Standardseiten, also ~200
     # Events - und für die restlichen fehlte damit auch die offizielle
     # Veranstalter-Seite, die running.life pro Event kennt.
+    # Seit dem 21.09.2026 gilt die Grenze JE KALENDER - das Skript liest
+    # sechs (Laufen und Triathlon je DE/AT/CH); Österreich, Schweiz und
+    # die Triathlon-Kalender sind kleiner und enden früher von selbst.
     "runninglife_scraper.py": ["--max-pages", "110"],
 }
 

@@ -117,9 +117,32 @@ def test_kategorie() -> None:
     from scraper_lib import ART2_KEYWORDS_LAUFEN
     check("kein 'Berg' mehr in der Stichwortliste",
           sorted({k for _, k in ART2_KEYWORDS_LAUFEN}),
-          ["Backyard Ultra", "Bahn", "Hindernis", "Straße", "Trail"])
+          ["Backyard Ultra", "Bahn", "Charity", "Hindernis", "Straße", "Trail"])
     check("Stadtlauf -> Straße", guess_art2("40. Wolfenbütteler Stadtlauf", CONFIG), "Straße")
     check("Hindernislauf", guess_art2("Spartan Race Hindernislauf", CONFIG), "Hindernis")
+    # "Charity" (Nutzer, 21.09.2026): der Zweck zählt vor dem Untergrund,
+    # das Stichwort steht deshalb ganz vorn - ein Benefiz-Crosslauf ist
+    # Charity, ein Charity-Treppenlauf auch. Nur der Name entscheidet.
+    for name in ("19. Benin Benefiz-Lauf", "Sterntaler Spendenlauf",
+                 "Bietlauf für einen Wohltätigen Zweck 9,2 km Crosslauf",
+                 "ADAC Charity Treppenlauf", "Sponsorenlauf Brustkrebshilfe Dorsten",
+                 "Borne to Run 48-Stunden-Spenden-Lauf"):
+        check(f"{name!r} -> Charity", guess_art2(name, CONFIG), "Charity")
+    check("Lauf ohne Charity-Wort bleibt Straße",
+          guess_art2("Lauf gegen Krebs", CONFIG), "Straße")
+    # Treppenläufe sind Trail (Nutzer, 21.09.2026: "als Trail aufnehmen").
+    for name in ("Lotto Thüringen Treppenlauf", "TK Elevator Towerrun",
+                 "Bad Wildbader Stäffeleslauf", "Neuwoges-Treppenhauslauf",
+                 "Mt. Everest Treppenmarathon"):
+        check(f"{name!r} -> Trail", guess_art2(name, CONFIG), "Trail")
+    # Charity auch beim Schwimmen und Fahrrad - und die Schwimm-Liste
+    # kennt Freiwasser/Becken, ohne Voreinstellung.
+    check("Charity-Schwimmen", guess_art2("Benefiz-Seeschwimmen", CONFIG, "Schwimmen"), "Charity")
+    check("Freiwasser", guess_art2("Bodensee Openwater Konstanz", CONFIG, "Schwimmen"), "Freiwasser")
+    check("Becken", guess_art2("Hallenbad-Cup 1500 m", CONFIG, "Schwimmen"), "Becken")
+    check("Schwimmen ohne Hinweis: keine Kategorie",
+          guess_art2("Sommer-Cup", CONFIG, "Schwimmen"), None)
+    check("Charity-Radrennen", guess_art2("Benefiz-Radrennen", CONFIG, "Fahrrad"), "Charity")
 
     # Bestehende Daten werden auf die zusammengefasste Kategorie
     # nachgezogen - je Sportart: Beim Laufen wird "Cross" zu "Trail",
@@ -1739,21 +1762,95 @@ def test_nicht_ausdauer() -> None:
     from clean_events import drop_nicht_ausdauer
 
     for name in ("HYROX Karlsruhe", "Intersport HYROX Hamburg", "hyrox cologne",
-                 "Gymrace Airport Weeze", "Decathlon Hybrid Series - Plochingen"):
+                 "Gymrace Airport Weeze", "Decathlon Hybrid Series - Plochingen",
+                 # Nachzügler, vom Nutzer am 21.09.2026 bestätigt
+                 "Runworx", "Black Forest Team Battle",
+                 # Gehen und Skilanglauf (Nutzer, 21.09.2026)
+                 "Lusatian Race Walking", "Internationaler Kammlauf (Skilanglauf)",
+                 "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
+                 # virtuelle Läufe (Nutzer, 21.09.2026)
+                 "Virtueller Silvesterlauf", "Virtual Run Berlin"):
         check(f"{name!r} fliegt heraus", bool(ist_nicht_ausdauer(name)), True)
     for name in ("Kulmbach Spartan Trifecta Weekend", "XLETIX Challenge - Nürburgring",
                  "Family-CrossDeLuxe Leipzig", "Muddy Angel Run - Berlin",
                  "Tough Mudder Hamburg", "Fitnesslauf Bochum", "Hindernislauf Kiel",
-                 "Decathlon Stadtlauf Plochingen", "Hybrid Trail Harz"):
+                 "Decathlon Stadtlauf Plochingen", "Hybrid Trail Harz",
+                 # Walking-Strecken bleiben (offene Frage an den Nutzer),
+                 # "Langläufer" ist kein Langlauf, ein Bergläufer kein Geher.
+                 "21. Trochtelfinger Nordic Walking Stöckles-Cup", "Ahmadiyya Charity Walk",
+                 "5 km Walking", "Langläufer-Cup Oberstdorf", "Marathon der Bergläufer"):
         check(f"{name!r} bleibt", ist_nicht_ausdauer(name), None)
+    # Der Ort zählt mit: Die XMAS-Challenge trug "virtuell" nur dort.
+    from scraper_lib import nicht_ausdauer_text
+    check("Ort 'virtuell' reicht",
+          bool(ist_nicht_ausdauer(nicht_ausdauer_text("Blaues Land läuft – XMAS-Challenge",
+                                                      "10 km", "virtuell"))), True)
+    check("normaler Ort ändert nichts",
+          ist_nicht_ausdauer(nicht_ausdauer_text("Stadtlauf", "10 km", "Murnau")), None)
 
     behalten, entfernt = drop_nicht_ausdauer([
         {"name": "HYROX Berlin", "datum_start": "2027-01-01"},
         {"name": "Spartan Berlin", "datum_start": "2027-01-01"},
+        {"name": "XMAS-Challenge", "datum_start": "2027-01-01", "standort": "virtuell"},
     ])
     check("drop_nicht_ausdauer behält den Hindernislauf",
           [e["name"] for e in behalten], ["Spartan Berlin"])
-    check("und meldet den Ausschluss mit Grund", len(entfernt), 1)
+    check("und meldet die Ausschlüsse mit Grund", len(entfernt), 2)
+
+
+def test_staffeln() -> None:
+    """Erst einmal keine Staffeln (Nutzer, 21.09.2026).
+
+    Zwei Stufen (siehe ist_staffel): Ein Label, das NUR die Staffel
+    beschreibt, nimmt diese eine Zeile; ein Name, der eine
+    Staffelveranstaltung nennt, nimmt alle Zeilen. Die Gegenproben sind
+    der wichtigere Teil - alle am Bestand gezählt: ein Einzelrennen mit
+    Staffel-Option bleibt, eine Laufserie namens "Winterstaffel" bleibt,
+    ein Ort namens Staffelsee bleibt.
+    """
+    print("\nStaffeln (ist_staffel):")
+    from scraper_lib import ist_staffel, filter_staffeln, Event
+    from clean_events import drop_staffeln
+
+    for name, wb in (("22. Einstein-Marathon", "ZEISS Marathon Staffel"),
+                     ("Uni-Lauf Bamberg", "2x5 km Staffel, Wechsel an der Buger Spitze"),
+                     ("Lübeck Marathon", "DUO Marathon 2 x 21,1 km"),
+                     ("H/21 Halbmarathon Hannover", "H/21 for Two (Staffel)"),
+                     ("Landkreislauf Schwandorf", "Läufer-Staffel (10 Läufer, Gesamtstrecke ca. 49,5 km)"),
+                     ("Firmenstaffel Sachsen-Anhalt", "5er-Staffel (5 × 3 km = 15 km)"),
+                     ("Ostsee Staffel Marathon", "5 km"),
+                     ("40. Weezer Staffellauf", None),
+                     ("Rasteder Ellernteichstaffellauf", None),
+                     ("Stadtpark-Staffel-Marathon", "Marathon"),
+                     ("Marathonstaffel Mörfelden", "Marathon"),
+                     ("Staffel-Mix-Marathon", None),
+                     ("Stralsunder Firmenstaffellauf", "12 km")):
+        check(f"{name!r} / {wb!r} fällt", bool(ist_staffel(name, wb)), True)
+    for name, wb in (("#ZeroHungerRun Bonn", "10 km Lauf und Staffel"),
+                     ("Butterkuchenlauf", "12 km (Einzel oder Staffel)"),
+                     ("GaPa Everesting-Festival", "Everesting Solo oder Staffel"),
+                     ("Grünwalder Burglauf", "5 km Strecke, ebenfalls als Einzel- oder Duo-Staffel möglich"),
+                     ("Inzeller Falkensteinlauf", "Halbmarathon 21,095 km, Einzel und Staffel"),
+                     ("GVG-Winterstaffel Pulheim", "Halbmarathon"),
+                     ("Meckenheimer Apfelstaffel", None),
+                     ("4. Zülpicher Seepark Nikolauslauf mit Fun/Firmenstaffel", None),
+                     ("Volks- und Staffeltriathlon TuS Wasserstraße", None),
+                     ("Staffelsee Panoramalauf", "5 km"),
+                     ("21. Obermain-Marathon Bad Staffelstein", "Sparkassen-Marathon"),
+                     ("Rund um den Kellerskopf", "21 km Halbmarathon (2 x 10,5 km Runde)")):
+        check(f"{name!r} / {wb!r} bleibt", ist_staffel(name, wb), None)
+
+    zeilen = [Event(name="Lübeck Marathon", wettbewerb="Marathon", laenge_km=42.2),
+              Event(name="Lübeck Marathon", wettbewerb="DUO Marathon 2 x 21,1 km", laenge_km=21.1)]
+    behalten, n = filter_staffeln(zeilen)
+    check("filter_staffeln nimmt nur die Staffel-Zeile", [e.wettbewerb for e in behalten], ["Marathon"])
+    check("und zählt sie", n, 1)
+    behalten, entfernt = drop_staffeln([
+        {"name": "Weezer Staffellauf", "datum_start": "2027-01-01"},
+        {"name": "Stadtlauf", "datum_start": "2027-01-01", "wettbewerb": "10 km"},
+    ])
+    check("drop_staffeln behält den Stadtlauf", [e["name"] for e in behalten], ["Stadtlauf"])
+    check("und meldet den Ausschluss", len(entfernt), 1)
 
 
 def test_serientermin_im_label() -> None:
@@ -2000,7 +2097,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
+                 test_nicht_ausdauer, test_staffeln, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

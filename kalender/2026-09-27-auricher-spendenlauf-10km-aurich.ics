@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Auricher Spendenlauf
 LOCATION:Aurich\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.auricher-s
- pendenlauf.de/
+DESCRIPTION:Sportart: Laufen / Charity\nLänge: 10 km\nhttp://www.auricher-
+ spendenlauf.de/
 TRANSP:TRANSPARENT
 URL:http://www.auricher-spendenlauf.de/
 END:VEVENT

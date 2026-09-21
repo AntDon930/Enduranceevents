@@ -67,9 +67,10 @@ Kartenliste, gewinnen die Chips - beim Kraichgau-Lauf etwa nennen die
 Karten 10 km und 5 km, die Chips zusätzlich Halbmarathon und Marathon.
 
 Jede Seite enthält 20 Events, `<a rel="next">` verlinkt zur nächsten
-Seite (`?page=2`, `?page=3`, ...). Für Österreich/Schweiz analog
-`/laufkalender/oesterreich` bzw. `/laufkalender/schweiz` als
-`CONFIG.calendar_url` in einer Kopie dieses Skripts eintragen.
+Seite (`?page=2`, `?page=3`, ...). Seit dem 21.09.2026 liest das Skript
+ALLE SECHS Kalender (Laufen und Triathlon je Deutschland, Österreich,
+Schweiz - siehe `KALENDER`); `CONFIG.calendar_url` ist nur noch der
+Startwert, der je Kalender ersetzt wird.
 
 Kalendertiefe
 --------------
@@ -93,6 +94,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from dataclasses import replace
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from bs4 import BeautifulSoup  # noqa: E402
@@ -243,8 +245,47 @@ def parse_detail_page(html: str) -> dict:
     return result
 
 
+# Alle sechs Kalender von running.life (vom Nutzer am 21.09.2026
+# freigegeben: "Du hast mein Ja"). Vorher stand hier nur der deutsche
+# Laufkalender - daher 11 Events in Österreich, 0 in der Schweiz und die
+# Triathlons nur, soweit ein Laufkalender sie nebenbei führte. Die
+# Adressen sind am 21.09.2026 geprüft (alle 200; "oesterreich" mit oe
+# ist 404, die Seite schreibt "osterreich"). robots.txt sperrt nur
+# /<sprache>/map/ und /demo-*, die Kalender sind frei. Für die
+# Triathlon-Kalender ist die Voreinstellung der Sportart "Triathlon" -
+# guess_art1() erkennt die meisten am Namen, aber nicht jeden
+# ("Challenge Wanaka", "Kraichgau 113").
+KALENDER: list[tuple[str, str]] = [
+    ("https://running.life/laufkalender/deutschland", "Laufen"),
+    ("https://running.life/laufkalender/osterreich", "Laufen"),
+    ("https://running.life/laufkalender/schweiz", "Laufen"),
+    ("https://running.life/triathlon-kalender/deutschland", "Triathlon"),
+    ("https://running.life/triathlon-kalender/osterreich", "Triathlon"),
+    ("https://running.life/triathlon-kalender/schweiz", "Triathlon"),
+]
+
+
 def fetch_runninglife_events(session, config, delay, max_pages, render_js) -> list[Event]:
-    """Seiten-spezifischer Abruf: JSON-LD + Kachel-Chips zusammenführen."""
+    """Seiten-spezifischer Abruf über alle Kalender (KALENDER): JSON-LD +
+    Kachel-Chips zusammenführen. `max_pages` gilt je Kalender; die
+    Schleife stoppt von selbst, sobald ein Kalender keine nächste Seite
+    mehr verlinkt (Österreich und die Schweiz sind deutlich kleiner als
+    Deutschland)."""
+    all_events: list[Event] = []
+    zaehler = {"details": 0, "official": 0, "expanded": 0}
+    for kalender_url, art1 in KALENDER:
+        cfg = replace(config, calendar_url=kalender_url, default_art1=art1)
+        print(f"\n=== Kalender {kalender_url} ({art1}) ===")
+        all_events.extend(_lade_kalender(session, cfg, delay, max_pages, render_js, zaehler))
+        time.sleep(delay)
+    print(f"\n→ {zaehler['details']} Detailseite(n) abgerufen, davon "
+          f"{zaehler['official']} mit offizieller Veranstalter-Seite; "
+          f"{zaehler['expanded']} Veranstaltung(en) in mehrere Wettbewerbe aufgeteilt.")
+    return all_events
+
+
+def _lade_kalender(session, config, delay, max_pages, render_js, zaehler) -> list[Event]:
+    """Ein Kalender (config.calendar_url) über alle seine Seiten."""
     all_events: list[Event] = []
     url = config.calendar_url
     seen_urls: set[str] = set()
@@ -307,9 +348,10 @@ def fetch_runninglife_events(session, config, delay, max_pages, render_js) -> li
         if url:
             time.sleep(delay)
 
-    print(f"\n→ {details_fetched} Detailseite(n) abgerufen, davon "
-          f"{official_links} mit offizieller Veranstalter-Seite; "
-          f"{expanded} Veranstaltung(en) in mehrere Wettbewerbe aufgeteilt.")
+    zaehler["details"] += details_fetched
+    zaehler["official"] += official_links
+    zaehler["expanded"] += expanded
+    print(f"  → Kalender fertig: {len(all_events)} Einträge, {details_fetched} Detailseite(n).")
     return all_events
 
 
