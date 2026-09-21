@@ -1901,8 +1901,9 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.silvester-lauf-gersthofen.de. Seite abgerufen, sie nennt den Lauf (gersthofen). Linkprüfung 2026-09-19."
   },
   "49. Augsburger AOK Winterlaufserie Weihnachtslauf|2026-12-20": {
-    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://tgva.de/augsburger-winterlaufserie/. Seite abgerufen, sie nennt den Lauf (augsburger). Linkprüfung 2026-09-19."
+    "exclude": true,
+    "_quelle": "https://tgva.de",
+    "_note": "Dieselbe Veranstaltung wie „49. Augsburger AOK-Winterlaufserie“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
   },
   "49. Augsburger AOK-Winterlaufserie Viktoria-Cross|2026-12-05": {
     "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/",
@@ -2026,8 +2027,9 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.Blumensaatlauf.de. Seite abgerufen, sie nennt den Lauf (blumensaatlauf). Linkprüfung 2026-09-19."
   },
   "Martins-Cross-Lauf|2026-11-08": {
-    "veranstalter_url": "http://www.preussen-leichtathletik.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.preussen-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (martins). Linkprüfung 2026-09-19."
+    "exclude": true,
+    "_quelle": "https://preussen-leichtathletik.de",
+    "_note": "Dieselbe Veranstaltung wie „Martins-Crosslauf“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
   },
   "57. Winterlaufserie der SG Bockenberg 26/27, 1. Lauf|2026-11-21": {
     "veranstalter_url": "http://sg-bockenberg.de",
@@ -5757,5 +5759,35 @@
   "Silvesterlauf - Krefeld|2026-12-31": {
     "veranstalter_url": "https://www.djk-vfl-forstwald.de",
     "_note": "Veranstalterseite statt my.raceresult.com: https://www.djk-vfl-forstwald.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-21."
+  },
+  "42. Schusterlauf|2026-09-27": {
+    "exclude": true,
+    "_quelle": "https://schusterlauf.de",
+    "_note": "Dieselbe Veranstaltung wie „Schusterlauf Preetz“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "Herbstlauf|2026-10-04": {
+    "exclude": true,
+    "_quelle": "https://tus-ovenhausen.de",
+    "_note": "Dieselbe Veranstaltung wie „Herbstlauf Ovenhausen“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "51. Hubertuslauf|2026-10-18": {
+    "exclude": true,
+    "_quelle": "https://kreissportbund-opr.de",
+    "_note": "Dieselbe Veranstaltung wie „Hubertuslauf Neuruppin“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "45. Nikolauslauf|2026-12-05": {
+    "exclude": true,
+    "_quelle": "https://tsg-schnaitheim.de",
+    "_note": "Dieselbe Veranstaltung wie „Nikolauslauf der TSG Schnaitheim“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "52. Silvesterlauf|2026-12-31": {
+    "exclude": true,
+    "_quelle": "https://lg-kaufungen.de",
+    "_note": "Dieselbe Veranstaltung wie „Silvesterlauf der LG Kaufungen“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "53. Königsforst-Marathon mit Halbmarathon und Ultramarathon|2027-03-14": {
+    "exclude": true,
+    "_quelle": "https://koenigsforst-marathon.de",
+    "_note": "Dieselbe Veranstaltung wie „Königsforst-Marathon“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
   }
 }

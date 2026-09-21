@@ -2386,9 +2386,12 @@ Seite statt eines Symbols.
 Dazu im Kopf aller drei Seiten `description` und die Open-Graph-Angaben
 (`og:title`, `og:description`, `og:site_name`, `twitter:card`). „Suche mit
 Freunden teilen" verschickt einen Link auf `events.html`; ohne diese
-Angaben zeigen WhatsApp, iMessage und Co. nur die nackte Adresse. Ein
-`og:image` fehlt **bewusst**: es verlangt eine absolute Adresse, und die
-Domain steht noch nicht fest – nachzutragen, sobald die Seite live ist.
+Angaben zeigen WhatsApp, iMessage und Co. nur die nackte Adresse. Seit
+dem 21.09.2026 gibt es auch ein `og:image` (`og-image.png`, 1200 × 630,
+per Chromium-Screenshot aus einer HTML-Vorlage mit Marke, Sportfarben und
+Barlow erzeugt – Illustration statt Foto, wie der Style Guide es
+vorsieht); es trägt die absolute Adresse der GitHub-Pages-Seite und muss
+bei einem Domainwechsel in allen drei Seiten mitziehen.
 
 ## Tempo der Seite
 

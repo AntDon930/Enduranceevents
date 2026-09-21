@@ -2197,6 +2197,130 @@ def test_kalender_staging() -> None:
           'os.environ.get("GITHUB_ACTIONS")' in quelle, True)
 
 
+def _node_event_detail(ausdruck: str):
+    """Lässt event-detail.js komplett in node laufen (mit einem Stummel
+    für EnduranceFilters) und gibt das JSON des Ausdrucks zurück - kein
+    Nachbau, es läuft der Code der Seiten (`EED` ist das Modul)."""
+    import json as _json
+    import shutil
+    import subprocess
+    node = shutil.which("node")
+    if not node:
+        return None
+    wurzel = Path(__file__).resolve().parent.parent
+    skript = (
+        "global.window = global;"
+        "global.EnduranceFilters = { escapeHtml: s => String(s),"
+        "  formatKm: (km, l) => (km == null ? '–' : String(km).replace('.', l === 'en' ? '.' : ',') + 'km'),"
+        "  formatHours: (h, l) => String(h) + 'h', formatNumber: v => String(v) };"
+        f"require({_json.dumps(str(wurzel / 'event-detail.js'))});"
+        "const EED = global.EnduranceDetail;"
+        f"console.log(JSON.stringify({ausdruck}));"
+    )
+    ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    if ergebnis.returncode != 0:
+        check("event-detail.js läuft in node", ergebnis.stderr.strip()[:300], "")
+        return None
+    return _json.loads(ergebnis.stdout)
+
+
+def test_wettbewerb_zusatz() -> None:
+    """Der Zusatz unter dem Namen (displayWettbewerb): keine Maßzahl mehr.
+
+    Vom Nutzer am 21.09.2026 entschieden: "Wir haben die Länge in der
+    Liste schon und in der Detailansicht dann auch. Man muss es nicht 3x
+    sehen." Hier die Fälle aus seiner Meldung und die Gegenproben, an
+    denen die erste Fassung gescheitert war (leere Klammern, "ca. ,",
+    ein führendes "mit", "400-m-Runde" mit Bindestrich)."""
+    print("\nZusatz unter dem Namen (displayWettbewerb):")
+    faelle = [
+        ("Brian Trail (15,5 km, 500 hm)", 15.5, "Brian Trail"),
+        ("5.555 m (Berglauf auf den Lousberg)", 5.6, "Berglauf auf den Lousberg"),
+        ("10 km Fuchsburg Lauf (ab Jahrgang 2015)", 10, "Fuchsburg Lauf (ab Jahrgang 2015)"),
+        ("Marathon", 42.2, None),
+        ("21,1 km", 21.1, None),
+        ("18 km", 18, None),
+        ("Marathon (6 Runden à 7,5 km)", 42.2, None),
+        ("Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)", 51.5, "Kurzdistanz"),
+        ("2x5 km Staffel", 5, "Staffel"),
+        ("4-Stunden-Lauf (400-m-Runde)", None, None),
+        ("6 km mit 15 Hindernissen (Fun Distanz)", 6, "15 Hindernissen (Fun Distanz)"),
+        ("ca. 10.700 m, 25+ Hindernisse", 10.7, "25+ Hindernisse"),
+        ("Nordic Walking", 8, "Nordic Walking"),
+        ("5 km Walking - Startgebühr 7 Euro", 5, "Walking - Startgebühr 7 Euro"),
+        ("Moslig 8000", None, "Moslig 8000"),
+        ("Cross lang (10.060 m)", 10.1, "Cross lang"),
+        # Wiederholt nur Sportart oder Kategorie: kein Zusatz.
+        ("Laufen", 10, None),
+        ("Trail", 12, None),
+    ]
+    import json as _json
+    events = [{"wettbewerb": w, "laenge_km": km, "art1": "Laufen", "art2": "Trail"} for w, km, _ in faelle]
+    got = _node_event_detail(_json.dumps(events, ensure_ascii=False) + ".map(e => EED.displayWettbewerb(e))")
+    if got is None:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    for (w, km, erwartet), ist in zip(faelle, got):
+        check(f"{w!r} -> {erwartet!r}", ist, erwartet)
+
+
+def test_triathlon_format() -> None:
+    """triathlonFormat(): erst das Label, dann das SCHWIMMEN, dann die Summe.
+
+    Datenregel 21 (21.09.2026): Weinstadt hat 23,6 km Gesamtlänge, aber
+    nur 300 m Schwimmen - Super-Sprint, nicht Sprint. Die Regel greift
+    nur nach unten, nur mit Teilstrecke im Label und nur ohne
+    Format-Stichwort."""
+    print("\nTriathlon-Format (triathlonFormat):")
+    T = "Triathlon"
+    faelle = [
+        ({"art1": T, "laenge_km": 23.6, "wettbewerb": "Jedermann-Triathlon 23,6 km (0,3 km Schwimmen / 18,7 km Rad / 4,6 km Laufen)"}, "supersprint"),
+        ({"art1": T, "laenge_km": 23.7, "wettbewerb": "Volkstriathlon 23,7 km (0,7 km Schwimmen / 18 km Rad / 5 km Laufen)"}, "sprint"),
+        ({"art1": T, "laenge_km": 25.4, "wettbewerb": "Volksdistanz 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)"}, "supersprint"),
+        ({"art1": T, "laenge_km": 25.4, "wettbewerb": "Jedermann Sprint 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)"}, "sprint"),
+        ({"art1": T, "laenge_km": 23.6, "wettbewerb": "Jedermann-Triathlon"}, "sprint"),
+        ({"art1": T, "laenge_km": 51.5, "wettbewerb": ""}, "olympisch"),
+        ({"art1": T, "laenge_km": 113, "wettbewerb": ""}, "mittel"),
+        ({"art1": T, "laenge_km": 226, "wettbewerb": ""}, "lang"),
+        ({"art1": T, "laenge_km": 452, "wettbewerb": ""}, "ultra"),
+        ({"art1": T, "laenge_km": 25.5, "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"}, "sprint"),
+        ({"art1": T, "art2": "Swimrun", "laenge_km": 40, "wettbewerb": ""}, None),
+        ({"art1": "Laufen", "laenge_km": 42.2, "wettbewerb": ""}, None),
+    ]
+    import json as _json
+    got = _node_event_detail(_json.dumps([f for f, _ in faelle], ensure_ascii=False)
+                             + ".map(e => EED.triathlonFormat(e))")
+    if got is None:
+        print("  (node nicht vorhanden - übersprungen)")
+        return
+    for (f, erwartet), ist in zip(faelle, got):
+        check(f"{(f.get('wettbewerb') or f['laenge_km'])!r} -> {erwartet!r}", ist, erwartet)
+
+
+def test_charity_merkmal() -> None:
+    """fix_charity(): das Merkmal aus dem Namen, die alte Kategorie geleert,
+    refresh_art2() holt die echte zurück (Datenregel 17)."""
+    print("\nCharity-Merkmal (fix_charity):")
+    from clean_events import fix_charity, refresh_art2  # lokaler Import
+    rows = [
+        {"name": "Bietlauf für einen Wohltätigen Zweck", "datum_start": "2026-10-03", "art1": "Laufen", "art2": "Charity", "wettbewerb": "9,2 km Crosslauf"},
+        {"name": "Lauf für einen guten Zweck - Rastenberg", "datum_start": "2026-09-22", "art1": "Laufen", "art2": "Straße"},
+        {"name": "Stadtlauf Erding", "datum_start": "2026-09-27", "art1": "Laufen", "art2": "Straße"},
+        {"name": "Ahmadiyya Charity Walk Neuwied", "datum_start": "2026-10-11", "art1": "Laufen", "art2": "Charity"},
+    ]
+    fix_charity(rows)
+    check("Benefiz-Crosslauf: charity gesetzt", rows[0].get("charity"), True)
+    check("... und die alte Kategorie geleert", rows[0].get("art2"), None)
+    check("'guten Zweck' -> charity", rows[1].get("charity"), True)
+    check("Stadtlauf bleibt ohne Merkmal", rows[2].get("charity"), None)
+    refresh_art2(rows)
+    check("refresh_art2 holt die Kategorie aus dem Label zurück", rows[0].get("art2"), "Trail")
+    check("Charity Walk ohne Gelände-Stichwort wird Straße", rows[3].get("art2"), "Straße")
+    vorher = [dict(r) for r in rows]
+    fix_charity(rows); refresh_art2(rows)
+    check("fix_charity ist idempotent", rows, vorher)
+
+
 def test_veranstalter_links() -> None:
     """Die Prüfregel von scripts/veranstalter_links.py: Eine Kandidatenseite
     gilt nur, wenn sie den Lauf am Namen nennt (neunter Durchgang,
@@ -2257,7 +2381,8 @@ def main() -> int:
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
                  test_asset_stempel, test_farbschema_skript,
-                 test_lauf_im_triathlonkalender):
+                 test_lauf_im_triathlonkalender,
+                 test_wettbewerb_zusatz, test_triathlon_format, test_charity_merkmal):
         test()
 
     print()

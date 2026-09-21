@@ -3374,7 +3374,9 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
-   - Kleinteiliger: `og:image` (braucht die Domain). ~~Ladezustand~~
+   - Kleinteiliger: ~~`og:image`~~ **gebaut** (21.09.2026: `og-image.png`
+     mit der GitHub-Pages-Adresse; bei einem Domainwechsel in allen drei
+     Seiten nachziehen). ~~Ladezustand~~
      **gebaut** (21.09.2026: acht Platzhalterzeilen im `<tbody>`, und
      `render()` lässt sie stehen, bis `events.json` da ist –
      `eventsGeladen`. Die Sperre ist der eigentliche Teil: Ein früher
@@ -3675,10 +3677,9 @@ den E-Mail-Versand, `og:image` sobald die Domain steht, und die
 Testmeldung in `errorReports` verwerfen.
 
 
-- **`og:image` nachtragen, sobald die Domain feststeht** – die
-  Vorschau beim Teilen (`description`/Open Graph, in allen drei
-  Seiten) hat bisher kein Bild, weil `og:image` eine absolute
-  Adresse verlangt.
+- ~~`og:image` nachtragen~~ **erledigt** (21.09.2026): `og-image.png`
+  mit der Adresse `antdon930.github.io/Enduranceevents/`; bei einem
+  Domainwechsel die Adresse in allen drei Seiten ändern.
 
 - ~~GeoNames-Namensnennung ins Impressum~~ **erledigt** (17.09.2026):
   Sie steht jetzt in `impressum.html` unter „Datenquellen und

@@ -7410,5 +7410,59 @@
     "ergebnis": "quelle_ok",
     "quelle": "wingsforlifeworldrun.com",
     "notiz": "09.05.2027; Catcher-Car-Format ohne feste Distanz; 100 % Startgeld für Rückenmarksforschung -> charity per Override"
+  },
+  "42. Schusterlauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "schusterlauf.de",
+    "notiz": "Duplikat von „Schusterlauf Preetz“ - exclude"
+  },
+  "Herbstlauf|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-ovenhausen.de",
+    "notiz": "Duplikat von „Herbstlauf Ovenhausen“ - exclude"
+  },
+  "51. Hubertuslauf|2026-10-18": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "kreissportbund-opr.de",
+    "notiz": "Duplikat von „Hubertuslauf Neuruppin“ - exclude"
+  },
+  "Martins-Cross-Lauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "preussen-leichtathletik.de",
+    "notiz": "Duplikat von „Martins-Crosslauf“ - exclude"
+  },
+  "45. Nikolauslauf|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-schnaitheim.de",
+    "notiz": "Duplikat von „Nikolauslauf der TSG Schnaitheim“ - exclude"
+  },
+  "49. Augsburger AOK Winterlaufserie Weihnachtslauf|2026-12-20": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tgva.de",
+    "notiz": "Duplikat von „49. Augsburger AOK-Winterlaufserie“ - exclude"
+  },
+  "52. Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-kaufungen.de",
+    "notiz": "Duplikat von „Silvesterlauf der LG Kaufungen“ - exclude"
+  },
+  "53. Königsforst-Marathon mit Halbmarathon und Ultramarathon|2027-03-14": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "koenigsforst-marathon.de",
+    "notiz": "Duplikat von „Königsforst-Marathon“ - exclude"
+  },
+  "Sparkasse 3-Länder-Marathon|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "sparkasse-3-laender-marathon.at",
+    "notiz": "Bericht ‚gleiche Seite, gleiche Distanz‘: Viertelmarathon 10,9 km und 11 km Nordic Walking sind zwei Wettbewerbe, kein Duplikat"
   }
 }

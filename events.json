@@ -3079,19 +3079,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "42. Schusterlauf",
-    "standort": "Preetz",
-    "lat": 54.2359233,
-    "lon": 10.2818352,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 16.0,
-    "veranstalter_url": "http://www.schusterlauf.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "45. Esslinger Schurwaldlauf",
     "standort": "Esslingen",
     "lat": 48.7427584,
@@ -8439,19 +8426,6 @@
     "veranstalter_url": "https://www.elsterlauf.de/tag/gaudilauf/",
     "laenge_km": 14.0,
     "wettbewerb": "14 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Herbstlauf",
-    "standort": "Höxter",
-    "lat": 51.7938902,
-    "lon": 9.348855,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 10.0,
-    "veranstalter_url": "http://www.tus-ovenhausen.de"
   },
   {
     "land": "Deutschland",
@@ -14003,19 +13977,6 @@
     "laenge_km": 8.2,
     "veranstalter_url": "https://www.vflkaufering.de",
     "wettbewerb": "8,25 km Lauf um den Stausee, ab Altersklasse U12"
-  },
-  {
-    "land": "Deutschland",
-    "name": "51. Hubertuslauf",
-    "standort": "Neuruppin",
-    "lat": 52.9243859,
-    "lon": 12.8092919,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 15.0,
-    "veranstalter_url": "http://www.kreissportbund-opr.de"
   },
   {
     "land": "Deutschland",
@@ -19742,19 +19703,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Martins-Cross-Lauf",
-    "standort": "Krefeld",
-    "lat": 51.3331205,
-    "lon": 6.5623343,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 5.0,
-    "veranstalter_url": "http://www.preussen-leichtathletik.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Martins-Crosslauf",
     "standort": "Krefeld",
     "lat": 51.3331205,
@@ -23443,19 +23391,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "45. Nikolauslauf",
-    "standort": "Schnaitheim",
-    "lat": 48.7069037,
-    "lon": 10.1607494,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-05",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://tsg-leichtathletik-rasenkraftsport.heidenheim.com/index.php/rasenkraftsport/"
-  },
-  {
-    "land": "Deutschland",
     "name": "46. Winterlaufserie Rodgau Jügesheim (2)",
     "standort": "Rodgau-Jügesheim",
     "lat": 50.0257712,
@@ -26111,19 +26046,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "49. Augsburger AOK Winterlaufserie Weihnachtslauf",
-    "standort": "Augsburg",
-    "lat": 48.3690341,
-    "lon": 10.8979522,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-20",
-    "datum_ende": "2026-12-20",
-    "laenge_km": 9.3,
-    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/"
-  },
-  {
-    "land": "Deutschland",
     "name": "49. Augsburger AOK-Winterlaufserie",
     "standort": "Augsburg",
     "lat": 48.3690341,
@@ -27418,19 +27340,6 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.sv-kottweiler-schwanden.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "52. Silvesterlauf",
-    "standort": "Kaufungen",
-    "lat": 51.2835776,
-    "lon": 9.6198254,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 7.7,
-    "veranstalter_url": "https://www.silvester.eu"
   },
   {
     "land": "Deutschland",
@@ -33133,19 +33042,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://bienwald-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "53. Königsforst-Marathon mit Halbmarathon und Ultramarathon",
-    "standort": "Bergisch Gladbach-Bensberg",
-    "lat": 50.9570987,
-    "lon": 7.1833775,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 63.3,
-    "veranstalter_url": "http://www.koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",

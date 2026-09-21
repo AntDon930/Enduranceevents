@@ -43,15 +43,23 @@
 </script>
 <!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
-     nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
-     absolute Adresse, und die Domain steht noch nicht fest. -->
+     nur die nackte Adresse. Das og:image (1200×630, og-image.png) trägt
+     die Adresse der GitHub-Pages-Seite; zieht die Seite auf eine eigene
+     Domain, muss die Adresse in allen drei Seiten mit (Open Graph
+     verlangt eine absolute). Erzeugt per Chromium-Screenshot aus einer
+     HTML-Vorlage (Marke, Sportfarben, Barlow) - kein Foto, wie der
+     Style Guide es vorsieht. -->
 <meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Endurance Events">
 <meta property="og:title" content="Endurance Events – Ausdauersport im deutschsprachigen Raum">
 <meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://antdon930.github.io/Enduranceevents/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Endurance Events – Ausdauersport im deutschsprachigen Raum">
+<meta name="twitter:card" content="summary_large_image">
 <!-- Verbindungsaufbau zu den mit `defer` geladenen Firebase-Dateien. -->
 <!-- Fast jeder Besuch geht von hier in die Liste. Ihre beiden groessten
      Bestandteile wandern deshalb schon jetzt in den Cache - mit
