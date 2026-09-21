@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Waldlauf TSV Altenau
 LOCATION:Altenau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://rennmeldung.de
- /cgi-bin/bewerb.cgi?bewerb=04284
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://ski-altenau.tzs
+ ports.de/waldlauf
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04284
+URL:http://ski-altenau.tzsports.de/waldlauf
 END:VEVENT
 END:VCALENDAR

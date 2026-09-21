@@ -3585,18 +3585,18 @@
     "notiz": "Kontaktseite: Organizer-URL nur Platzhalter ('Geben Sie hier die Veranstaltungs-Website an') - Link bleibt."
   },
   "Litermont Trail Run|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-nalbach.de",
     "alt": "https://my.raceresult.com/380641/",
-    "notiz": "Kontaktseite: nur ein Facebook-Event - Link bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tv-nalbach.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nalbach). Linkprüfung 2026-09-21."
   },
   "Marathon Rund um den Falkenstein|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "falkensteinlauf.de",
     "alt": "https://my.raceresult.com/413192/",
-    "notiz": "Kontaktseite: Organizer-URL leer - Link bleibt. Veranstalter aus Wallenhorst, Ort laut JSON-LD Inzell 83334 - Ort stimmt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.falkensteinlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:falkenstein). Linkprüfung 2026-09-21."
   },
   "RuKT Rund um die Kipshagener Teiche 45K|2026-10-03": {
     "am": "2026-09-19",
@@ -5027,11 +5027,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (langeooger, datum)."
   },
   "Leipziger Citytrail|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "baer-service.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "scdhfk-laufsport.de",
     "alt": "https://baer-service.de/veranstaltung/SLL/",
-    "notiz": "Seite abgerufen, nennt den Lauf (leipziger)."
+    "notiz": "Veranstalterseite statt baer-service.de: https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (leipziger). Linkprüfung 2026-09-21."
   },
   "MTR Backyard Ultra|2026-10-03": {
     "am": "2026-09-19",
@@ -5279,11 +5279,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (mattern, datum)."
   },
   "Burgdorfer Spargel-Lauf|2026-10-04": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
     "quelle": "vvvburgdorf.de",
     "alt": "https://vvvburgdorf.de/10-burgdorfer-spargel-lauf/",
-    "notiz": "Seite abgerufen, nennt den Lauf (burgdorfer)."
+    "notiz": "Veranstalterseite statt vvvburgdorf.de: https://vvvburgdorf.de/arbeitskreise/spargel-lauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:burgdorf, burgdorfer). Linkprüfung 2026-09-21."
   },
   "Bären Run|2026-10-04": {
     "am": "2026-09-19",
@@ -13644,11 +13644,11 @@
     "notiz": "Veranstalterseite statt davengo.com: https://kap-arkona-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:arkona, datum). Linkprüfung 2026-09-19."
   },
   "Lichtensteiner Herbstcross|2026-10-03": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "ladv.de",
-    "alt": "https://ladv.de/ausschreibung/detail/49189/KM-Crosslauf-49.-Lichtensteiner-Herbstcross-2026-Lichtenstein.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Ausrichter SSV Fortschritt Lichtenstein (KV Leichtathletik Zwickau), keine eigene Seite; sv-vorwaerts-zwickau.de berichtet nur"
   },
   "Maxdorfer Gemüselauf|2026-10-03": {
     "am": "2026-09-19",
@@ -13707,11 +13707,11 @@
     "notiz": "Veranstalterseite statt myracepartner.com: https://www.bwmw.club/ - auf der myracepartner.com-Seite verlinkt, Zielseite nennt den Lauf (waldesruh, datum). Linkprüfung 2026-09-19."
   },
   "Waldlauf TSV Altenau|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "rennmeldung.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ski-altenau.tzsports.de",
     "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04284",
-    "notiz": "Seite nicht ladbar (robots) - rennmeldung.de bleibt."
+    "notiz": "Veranstalterseite statt rennmeldung.de: http://ski-altenau.tzsports.de/waldlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:altenau, host:altenau). Linkprüfung 2026-09-21."
   },
   "Weiner Family Run|2026-10-03": {
     "am": "2026-09-19",
@@ -13749,11 +13749,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://hm-ab.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (aschaffenburger, datum). Linkprüfung 2026-09-19."
   },
   "Burgenpatt Ultramarathon|2026-10-04": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/397990/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://ultra-uwe-unterwegs.de) - my.raceresult.com bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: 1. Burgenpatt Ultramarathon (45 km auf 11,4-km-Runde, Selbstverpflegung, Handzeitnahme, wenige Plätze) - privates Format ohne Seite, nur raceresult"
   },
   "EWR-Stadtlauf Bürstadt|2026-10-04": {
     "am": "2026-09-19",
@@ -13770,11 +13770,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tus-ovenhausen.de/herbstlauf-ausschreibung/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:ovenhausen). Linkprüfung 2026-09-19."
   },
   "Kalbsvilla Run Ortenberg|2026-10-04": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/374416/",
-    "notiz": "Kontaktseite nennt https://www.facebook.com/glauburgrennt - Portal/Anmeldung/soziales Netz - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: SKC Glauburg / Laufgruppe Glauburg, Kontakt glauburg-rennt@gmx.de, nur raceresult (5/10/21,1 km, NW)"
   },
   "Murr BackYard 12h|2026-10-04": {
     "am": "2026-09-19",
@@ -13833,11 +13833,11 @@
     "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
   },
   "Großrossler Sternenlauf|2026-10-10": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/421429/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: DRK Großrosseln und Förderkreis SV Karlsbrunn, nur im Gemeindekalender grossrosseln.de - Gemeindeseite ist nicht der Veranstalter"
   },
   "Hase - Lauf Bersenbrück|2026-10-10": {
     "am": "2026-09-19",
@@ -16336,7 +16336,7 @@
     "ergebnis": "unklar",
     "quelle": "ladv.de",
     "alt": "https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Websuche nannte https://www.tsvg-helmstedt.de/sportarten/leichtathletik/l%C3%A4uferabend/, Seite nennt den Lauf nicht erkennbar (Status 404) - ladv.de bleibt."
   },
   "Storkower See Lauf|2026-10-11": {
     "am": "2026-09-21",

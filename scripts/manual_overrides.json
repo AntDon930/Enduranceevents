@@ -5825,5 +5825,25 @@
   "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
     "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/",
     "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:leutkirch). Linkprüfung 2026-09-21."
+  },
+  "Leipziger Citytrail|2026-10-03": {
+    "veranstalter_url": "https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/",
+    "_note": "Veranstalterseite statt baer-service.de: https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (leipziger). Linkprüfung 2026-09-21."
+  },
+  "Litermont Trail Run|2026-10-03": {
+    "veranstalter_url": "https://www.tv-nalbach.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-nalbach.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nalbach). Linkprüfung 2026-09-21."
+  },
+  "Marathon Rund um den Falkenstein|2026-10-03": {
+    "veranstalter_url": "https://www.falkensteinlauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.falkensteinlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:falkenstein). Linkprüfung 2026-09-21."
+  },
+  "Waldlauf TSV Altenau|2026-10-03": {
+    "veranstalter_url": "http://ski-altenau.tzsports.de/waldlauf",
+    "_note": "Veranstalterseite statt rennmeldung.de: http://ski-altenau.tzsports.de/waldlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:altenau, host:altenau). Linkprüfung 2026-09-21."
+  },
+  "Burgdorfer Spargel-Lauf|2026-10-04": {
+    "veranstalter_url": "https://vvvburgdorf.de/arbeitskreise/spargel-lauf/",
+    "_note": "Veranstalterseite statt vvvburgdorf.de: https://vvvburgdorf.de/arbeitskreise/spargel-lauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:burgdorf, burgdorfer). Linkprüfung 2026-09-21."
   }
 }

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Litermont Trail Run
 LOCATION:Nalbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://my.raceresult.
- com/380641/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://www.tv-nalbach
+ .de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/380641/
+URL:https://www.tv-nalbach.de/
 END:VEVENT
 END:VCALENDAR
