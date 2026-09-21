@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Zeiler Waldmarathon – Zaundirekt Walking und Nordic Walking
 LOCATION:Zeil am Main\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.sas-onli
- ne.net/eventportal_bs/827/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://zeiler-waldm
+ arathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.sas-online.net/eventportal_bs/827/
+URL:https://zeiler-waldmarathon.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Zeiler Waldmarathon – Flessabank-Marathon
 LOCATION:Zeil am Main\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.zeiler-w
- aldmarathon.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://zeiler-wald
+ marathon.de/
 TRANSP:TRANSPARENT
-URL:http://www.zeiler-waldmarathon.de
+URL:https://zeiler-waldmarathon.de/
 END:VEVENT
 END:VCALENDAR

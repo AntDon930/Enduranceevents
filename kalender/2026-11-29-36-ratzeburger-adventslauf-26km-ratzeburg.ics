@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:36. Ratzeburger Adventslauf
 LOCATION:Ratzeburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26 km\nhttps://adventslauf.d
- e/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26 km\nhttps://www.adventsla
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://adventslauf.de/
+URL:https://www.adventslauf.de/
 END:VEVENT
 END:VCALENDAR

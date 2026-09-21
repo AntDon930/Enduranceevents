@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Zeiler Waldmarathon – Fränkische Halbmarathon
 LOCATION:Zeil am Main\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sas-onl
- ine.net/eventportal_bs/827/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://zeiler-wald
+ marathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.sas-online.net/eventportal_bs/827/
+URL:https://zeiler-waldmarathon.de/
 END:VEVENT
 END:VCALENDAR

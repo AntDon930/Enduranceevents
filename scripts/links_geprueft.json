@@ -3977,11 +3977,11 @@
     "notiz": "Veranstalterseite statt laufen.de: https://www.pfungstadt-leichtathletik.de/wp/veranstaltungen/adventscross/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (pfungstadter). Linkprüfung 2026-09-20."
   },
   "33. Villmarer Dorflauf|2026-11-28": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "lf-1987-villmar.de",
     "alt": "https://laufen.de/laufkalender/details/26V07000095060002",
-    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/12310 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+    "notiz": "Veranstalterseite statt laufen.de: https://www.lf-1987-villmar.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:villmar). Linkprüfung 2026-09-21."
   },
   "51. Winterlaufserie 2026/2027, 1. Wertungslauf|2026-11-01": {
     "am": "2026-09-19",
@@ -7498,11 +7498,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (buchenbach)."
   },
   "Zeiler Waldmarathon|2026-11-14": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "www.zeiler-waldmarathon.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "zeiler-waldmarathon.de",
     "alt": "http://www.zeiler-waldmarathon.de",
-    "notiz": "Seite abgerufen, nennt den Lauf (zeiler, datum)."
+    "notiz": "Veranstalterseite statt zeiler-waldmarathon.de: https://zeiler-waldmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zeiler, datum). Linkprüfung 2026-09-21."
   },
   "17. Jetzendorfer Hobby Crosslauf|2026-11-15": {
     "am": "2026-09-19",
@@ -7813,11 +7813,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (weiden)."
   },
   "36. Ratzeburger Adventslauf|2026-11-29": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
     "quelle": "adventslauf.de",
     "alt": "https://adventslauf.de/",
-    "notiz": "Seite abgerufen, nennt den Lauf (ratzeburger)."
+    "notiz": "Veranstalterseite statt adventslauf.de: https://www.adventslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ratzeburger). Linkprüfung 2026-09-21."
   },
   "56. Lorsbacher Winterlauf- und Walkingserie|2026-11-29": {
     "am": "2026-09-19",
@@ -8471,11 +8471,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (datum)."
   },
   "Chemnitzer Silvesterlauf|2026-12-31": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
     "quelle": "baer-service.de",
     "alt": "https://baer-service.de/veranstaltung/CSL/",
-    "notiz": "Seite abgerufen, nennt den Lauf (chemnitzer)."
+    "notiz": "Websuche nannte https://www.triathlonchemnitz.de/veranstaltungen/silvesterlauf/, Seite nennt den Lauf nicht erkennbar (Status 403) - baer-service.de bleibt."
   },
   "Emsauen Rheine Ultramarathon|2026-12-31": {
     "am": "2026-09-19",
@@ -14687,11 +14687,11 @@
     "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
   },
   "Wuppertaler Löwenlauf|2026-11-14": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/396315/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nichts gefunden (nur Schwebebahnlauf, LCW-Volkslauf, Derentaler Löwenlauf)"
   },
   "Zeitzgrundlauf|2026-11-14": {
     "am": "2026-09-19",
@@ -15009,11 +15009,11 @@
     "notiz": "Websuche nannte https://www.sus-oberaden.de/, Seite nennt den Lauf nicht erkennbar (Status fehler:ProxyError) - my.raceresult.com bleibt."
   },
   "Johannesbad Nikolauslauf|2026-12-06": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "ladv.de",
-    "alt": "https://ladv.de/ausschreibung/detail/48938/2.-Johannesbad-Nikolauslauf-Orscholz.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Ausrichter Athletic Perl (Markus Krempchen), Anmeldung über meisterchip.de, keine Veranstalterseite; Johannesbad-Klinik ist der Namensgeber"
   },
   "Klausdorfer Nikolauslauf|2026-12-06": {
     "am": "2026-09-19",
@@ -15226,11 +15226,11 @@
     "notiz": "Websuche nannte https://outdoor.svmergelstetten.de/ausschreibung/, Seite nennt den Lauf nicht erkennbar (Status robots) - my.raceresult.com bleibt."
   },
   "16. THERAmed-Adam-Riese-Silvesterlauf|2026-12-31": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "sas-online.net",
-    "alt": "https://www.sas-online.net/eventportal_bs/812/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.obermain-marathon.de/index.php?dom=sil&year=26, https://www.sas-zeitmesssysteme.de/index.php?pid=7) - sas-online.net bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "obermain-marathon.de",
+    "alt": "http://www.obermain-marathon.de",
+    "notiz": "Veranstalterseite statt obermain-marathon.de: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (theramed, datum). Linkprüfung 2026-09-21."
   },
   "23. Silvesterlauf Nürnberg|2026-12-31": {
     "am": "2026-09-19",
@@ -15478,11 +15478,11 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Brogginger Spendenlauf|2027-01-03": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/396206/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.pascal-schucker.de/Spendenaktionen/Spendenlauf-Broggingen, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
   },
   "Eversburger Gewässer Ultramarathon|2027-01-03": {
     "am": "2026-09-19",
@@ -15499,11 +15499,11 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Winterlaufserie Eckernförde|2027-01-10": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/401813/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Veranstalter „Baltic Wir 3“ (Eckernförde), keine eigene Seite, nur raceresult/Kalender"
   },
   "18. Lauf rund um den Halterner See|2027-01-16": {
     "am": "2026-09-20",
@@ -16382,10 +16382,10 @@
   },
   "Int. Hohenzollernberglauf|2026-11-08": {
     "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "anmeldungs-service.de",
+    "ergebnis": "korrigiert",
+    "quelle": "ski-club-hechingen.de",
     "alt": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.ski-club-hechingen.de, http://www.pani-solutions.de) - anmeldungs-service.de bleibt."
+    "notiz": "Veranstalterseite statt anmeldungs-service.de: https://www.ski-club-hechingen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:hechingen). Linkprüfung 2026-09-21."
   },
   "Offene Kreismeisterschaft Crosslauf Nordfriesland|2026-11-22": {
     "am": "2026-09-21",
