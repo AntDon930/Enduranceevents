@@ -138,7 +138,7 @@
 
   // ISO-Ländercode -> der Landname, wie er in events.json steht
   // (places.json speichert DE/AT/CH, die Anzeige übersetzt tv('land', …)).
-  const LAND_BY_CODE = { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz' };
+  const LAND_BY_CODE = { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz', IT: 'Italien (Südtirol)' };
 
   const MONTH_NAMES = {
     de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],

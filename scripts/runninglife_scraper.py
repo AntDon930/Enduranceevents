@@ -154,6 +154,9 @@ FLAG_TO_LAND = {
     "deu": "Deutschland", "de": "Deutschland",
     "aut": "Österreich", "at": "Österreich",
     "che": "Schweiz", "sui": "Schweiz", "ch": "Schweiz",
+    # Italien nur als Zwischenstand: ob Südtirol, entscheiden PLZ oder
+    # Koordinaten (scraper_lib.praezisiere_italien / in_suedtirol).
+    "ita": "Italien", "it": "Italien",
 }
 
 

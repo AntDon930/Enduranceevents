@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karte – Ausdauersport-Events D/A/CH</title>
+<title>Karte – Endurance Events</title>
 <!-- Seitensymbol. Ohne diese Zeilen fragt jeder Browser von sich aus
      /favicon.ico an und bekommt von GitHub Pages die 404-Seite - der Tab
      bleibt leer. Eine SVG-Datei reicht fuer alle Groessen; das PNG
@@ -44,11 +44,11 @@
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
      nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
      absolute Adresse, und die Domain steht noch nicht fest. -->
-<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ausdauersport-Events D/A/CH">
-<meta property="og:title" content="Ausdauersport-Events D/A/CH – die Karte">
-<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon in Deutschland, Österreich und der Schweiz – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:site_name" content="Endurance Events">
+<meta property="og:title" content="Endurance Events – die Karte">
+<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
 <!-- Leaflet, markercluster und die Firebase-SDKs liegen im Repo
@@ -426,8 +426,8 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=4503c358"></script>
-<script src="filter-ui.js?v=868a053f"></script>
+<script src="filters.js?v=3a76ecc8"></script>
+<script src="filter-ui.js?v=6c73cd91"></script>
 <script src="event-detail.js?v=e8b08aa2"></script>
 
 <script>
@@ -755,7 +755,9 @@
     ['Innsbruck', 47.27, 11.40], ['Klagenfurt', 46.62, 14.31],
     ['Zürich', 47.38, 8.54], ['Bern', 46.95, 7.45], ['Basel', 47.56, 7.59], ['Genf', 46.20, 6.15],
     ['Lausanne', 46.52, 6.63], ['Luzern', 47.05, 8.31], ['St. Gallen', 47.42, 9.37],
-    ['Lugano', 46.00, 8.95], ['Chur', 46.85, 9.53]
+    ['Lugano', 46.00, 8.95], ['Chur', 46.85, 9.53],
+    ['Bozen', 46.4983, 11.3548], ['Meran', 46.6713, 11.1594], ['Brixen', 46.7150, 11.6560],
+    ['Bruneck', 46.7965, 11.9380]
   ];
   function baueReferenzOrte() {
     referenzLayer.clearLayers();

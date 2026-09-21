@@ -318,6 +318,31 @@ def drop_nicht_ausdauer(events: list[dict]) -> tuple[list[dict], list[str]]:
     return kept, entfernt
 
 
+def drop_ausserhalb(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Wirft Zeilen heraus, deren `land` keine abgedeckte Region ist.
+
+    Praktisch trifft das nur "Italien": den Zwischenstand, den die
+    Scraper für italienische Events stehen lassen, bis Koordinaten
+    entscheiden, ob es Südtirol ist (scraper_lib.in_suedtirol). Läuft
+    NACH fix_land(): Erst dort werden Koordinaten zu "Italien (Südtirol)"
+    - was danach noch "Italien" heißt, liegt außerhalb (Trentino, Mailand)
+    und gehört nicht in die Liste. Zeilen ohne `land` bleiben, wie
+    überall (unbekannt schließt nichts aus).
+    """
+    from scraper_lib import LAENDER, in_suedtirol, SUEDTIROL
+    kept, removed = [], []
+    for e in events:
+        land = e.get("land")
+        if land == "Italien" and in_suedtirol(e.get("lat"), e.get("lon")):
+            e["land"] = SUEDTIROL
+            land = SUEDTIROL
+        if land and land not in LAENDER:
+            removed.append(f"{e.get('name')} ({e.get('standort')}, {land})")
+            continue
+        kept.append(e)
+    return kept, removed
+
+
 def drop_staffeln(events: list[dict]) -> tuple[list[dict], list[str]]:
     """Entfernt Staffeln - das Gegenstück zu `scraper_lib.filter_staffeln()`
     für den Bestand. Vom Nutzer am 21.09.2026 entschieden ("Erst einmal
@@ -1644,6 +1669,13 @@ def main() -> None:
     rounding_fixes = round_distances(events)
     label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
+    # Danach: Was außerhalb der abgedeckten Regionen liegt ("Italien" ohne
+    # Südtirol), fliegt - siehe drop_ausserhalb().
+    events, ausserhalb = drop_ausserhalb(events)
+    if ausserhalb:
+        print(f"\nAußerhalb der abgedeckten Regionen entfernt ({len(ausserhalb)}):")
+        for zeile in ausserhalb:
+            print(f"  - {zeile}")
     backyard_cleared, backyard_check = clear_backyard_lap_km(events)
     duration_fills = fill_duration(events)
     events, too_short = drop_too_short(events)

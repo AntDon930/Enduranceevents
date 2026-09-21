@@ -95,6 +95,7 @@ LAND_BOX = {
     "Deutschland": (47.2, 55.1, 5.8, 15.1),
     "Österreich": (46.3, 49.1, 9.5, 17.2),
     "Schweiz": (45.8, 47.9, 5.9, 10.5),
+    "Italien (Südtirol)": (46.2, 47.1, 10.3, 12.5),
 }
 
 # Ein Kinderlauf über zehn Kilometer gibt es nicht. Gemessen: Bei einer

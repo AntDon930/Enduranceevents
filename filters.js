@@ -79,7 +79,8 @@
     land: {
       'Deutschland': { de: 'Deutschland', en: 'Germany' },
       'Österreich': { de: 'Österreich', en: 'Austria' },
-      'Schweiz': { de: 'Schweiz', en: 'Switzerland' }
+      'Schweiz': { de: 'Schweiz', en: 'Switzerland' },
+      'Italien (Südtirol)': { de: 'Italien (Südtirol)', en: 'Italy (South Tyrol)' }
     },
     art1: {
       'Laufen': { de: 'Laufen', en: 'Running' },
@@ -156,7 +157,9 @@
 
   // Die drei Länder, die die Daten überhaupt enthalten. Gebraucht als
   // Prüfung beim Lesen der Adresse (?land=…).
-  const LAENDER = ['Deutschland', 'Österreich', 'Schweiz'];
+  // Südtirol (Provinz Bozen) seit dem 21.09.2026 als vierte Region - im
+  // Filter "Italien (Südtirol)", damit niemand ganz Italien erwartet.
+  const LAENDER = ['Deutschland', 'Österreich', 'Schweiz', 'Italien (Südtirol)'];
 
   // ---------- Distanzkategorien (nach Sportart) ----------
 

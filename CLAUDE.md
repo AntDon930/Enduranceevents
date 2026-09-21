@@ -6,8 +6,10 @@ Bedarf gezielt lesen).
 ## Was das ist
 
 Statische Webseite mit einer filterbaren Liste von Ausdauersport-Events
-(Laufen, Schwimmen, Fahrrad, Triathlon) in Deutschland, Österreich und der
-Schweiz. Läuft auf GitHub Pages, kein Build-Schritt, kein Framework.
+(Laufen, Schwimmen, Fahrrad, Triathlon) im deutschsprachigen Raum:
+Deutschland, Österreich, Schweiz und **Südtirol** (seit dem 21.09.2026,
+im Filter „Italien (Südtirol)"). Läuft auf GitHub Pages, kein
+Build-Schritt, kein Framework.
 Datenbasis ist `events.json`, gefüllt von Python-Scrapern.
 
 ## Entwicklungs-Branch
@@ -22,10 +24,10 @@ Nicht auf einen anderen Branch pushen.
 | `events.json` | die Daten (**~450 KB**, wächst mit jedem Lauf) |
 | `index.html` | Startseite (statisch, kein Kartenlink – bewusst entfernt) |
 | `events.html` | die Liste; Tabelle mit 7 Spalten, Filter pro Spalte |
-| `places.json` | **~1,4 MB**, alle Orte + PLZ von DE/AT/CH für die Umkreissuche (nie komplett lesen) |
-| `laender.json` | **69 KB**, Umrisse von DE/AT/CH für die graue Maske auf der Karte |
-| `scripts/build_laender.py` | baut `laender.json` aus Natural Earth; läuft nicht im Workflow mit |
-| `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
+| `places.json` | **~1,5 MB**, alle Orte + PLZ von DE/AT/CH und Südtirol (GeoNames IT, nur Provinz Bozen) für die Umkreissuche (nie komplett lesen) |
+| `laender.json` | **73 KB**, Umrisse von DE/AT/CH und Südtirol für die Maske und die Landfläche der Karte – und für `scraper_lib.in_suedtirol()` |
+| `scripts/build_laender.py` | baut `laender.json` aus Natural Earth (Staaten aus admin_0, Südtirol als Provinz IT-BZ aus admin_1); läuft nicht im Workflow mit |
+| `scripts/build_places.py` | baut `places.json` aus GeoNames (`TEILGEBIET`: Italien nur admin2 „BZ"); läuft nicht im Workflow mit |
 | `favicon.svg`, `apple-touch-icon.png` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
@@ -165,6 +167,26 @@ laden Leaflet und Firebase (das Skript setzt es schon).
 4. **`land` nie aus dem Event-Namen raten.** Der „Fränkische-Schweiz-Marathon"
    liegt in Bayern. Quelle: Landesangabe der Seite (`(Schweiz)`, `(AUT)`) oder
    Reverse-Geocoding der Koordinaten.
+
+   **Südtirol ist die vierte Region** (vom Nutzer am 21.09.2026
+   aufgenommen: „sehr viele Radrennen, ein sehr sportliches Bundesland –
+   damit alle Ausdauer-Events im deutschsprachigen Raum"). Der Wert heißt
+   **„Italien (Südtirol)"** (`scraper_lib.SUEDTIROL`), damit niemand ganz
+   Italien erwartet, und steht in `LAENDER` (`scraper_lib`, `filters.js`,
+   `laender.json`, `functions/index.js`, `filter-ui.js` `LAND_BY_CODE`
+   `IT`). **„Italien" allein ist kein gültiger Wert**, nur ein
+   Zwischenstand: `guess_land()` macht daraus Südtirol, wenn eine
+   Südtiroler PLZ dabeisteht (`39010–39100` = genau die Provinz Bozen,
+   `praezisiere_italien()`), `reverse_land()` und `filter_dach()` über
+   die Koordinaten (`in_suedtirol()`: Punkt-in-Polygon gegen den Umriss
+   in `laender.json` – Nominatim nennt die Provinz je nach Sprache
+   „Bozen", „Bolzano" oder „Südtirol", der Umriss ist eindeutig; Trient
+   liegt in derselben Region, aber außerhalb). Was danach noch „Italien"
+   heißt, wirft `clean_events.drop_ausserhalb()` heraus (nach
+   `fix_land()`, mit Bericht). `test_land` hält Meran (PLZ), Mailand
+   (bleibt „Italien"), Bozen/Sterzing (drin), Innsbruck/Trient (draußen)
+   fest. Die Ortsauswahl kennt 750 Südtiroler Orte (deutsch UND
+   italienisch, wie GeoNames sie führt), Region „Südtirol".
 5. **5-km-Mindestdistanz nur für `art1 == "Laufen"`** und nur bei *bekannter*
    Distanz. 3,5 km Freiwasserschwimmen ist eine ernsthafte Distanz.
    **Die Grenze ist hart** (vom Nutzer am 19.09.2026 entschieden: „Die
@@ -1480,6 +1502,11 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     nicht gebaut.
   - Die beiden Textseiten (`seite.css`) tragen dieselben Farben und
     Schriften, folgen aber weiter der Systemeinstellung (kein Knopf).
+  - **Die Seite nennt sich „Ausdauersport im deutschsprachigen Raum"**
+    (seit Südtirol, 21.09.2026): Titel, `og:site_name` „Endurance
+    Events", Beschreibungen („Deutschland, Österreich, Schweiz und
+    Südtirol"), Hero-Zeile, „4 Regionen" – kein „DACH"/„D/A/CH" mehr in
+    sichtbaren Texten (in Code-Kommentaren darf es stehen).
 
 - **Das Aussehen ist seit dem 21.09.2026 die Vorlage des Nutzers** (ein
   Bild: dunkle Fläche, Marke mit orangem Zeichen, Navigation „Events /
@@ -1601,6 +1628,9 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     (`path.maske-pfad`, ebenso `path.land-pfad`, `path.umkreis-pfad`):
     Leaflet schreibt `fill`/`stroke` als Attribut, eine CSS-Regel gewinnt
     – so folgen sie dem Farbschema.
+  - **Orientierungsorte** enthalten seit dem 21.09.2026 Bozen, Meran,
+    Brixen und Bruneck; die Landfläche und die Maske kommen automatisch
+    aus `laender.json` (vier Schlüssel).
   - **Bündel: Kreis in der Akzentfarbe + Ortsname** des größten Ortes im
     Bündel (`options.eeStandort`, „349 Köln"). Die Zahl steht ALLEIN in
     `.cluster-badge`/`.marker-badge` – der Rauchtest addiert die Kreise

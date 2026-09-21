@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum – Ausdauersport-Events D/A/CH</title>
+<title>Impressum – Endurance Events</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2563eb">
 <!-- Rechtliche Seiten gehören nicht in Suchergebnisse, aber sie müssen
      erreichbar sein. `noindex` ist zulässig und üblich. -->
 <meta name="robots" content="noindex">
-<meta name="description" content="Impressum und Angaben zum Anbieter von Ausdauersport-Events D/A/CH.">
+<meta name="description" content="Impressum und Angaben zum Anbieter von Endurance Events.">
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
 <link rel="stylesheet" href="seite.css">
 </head>
@@ -198,7 +198,7 @@
     lang = l;
     try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
     document.documentElement.lang = l;
-    document.title = I18N[l].titel + ' – Ausdauersport-Events D/A/CH';
+    document.title = I18N[l].titel + ' – Endurance Events';
     document.querySelectorAll('[data-i]').forEach(el => {
       const key = el.getAttribute('data-i');
       if (I18N[l][key] != null) el.textContent = I18N[l][key];

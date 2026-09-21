@@ -266,6 +266,18 @@ def test_land() -> None:
     check("Fränkische Schweiz ist Deutschland",
           guess_land("25. Fränkische-Schweiz-Marathon"), None)
     check("Sächsische Schweiz", guess_land("Sächsische Schweiz Trail"), None)
+    # Südtirol (21.09.2026): "Italien" gilt nur mit Südtiroler PLZ oder
+    # Koordinaten in der Provinz Bozen - sonst bleibt der Zwischenstand
+    # "Italien" stehen und fällt später heraus.
+    from scraper_lib import in_suedtirol, LAENDER as _regionen
+    check("(Italien) mit Südtiroler PLZ", guess_land("39012 Meran (Italien)"), "Italien (Südtirol)")
+    check("(ITA) ohne Südtiroler PLZ bleibt Italien", guess_land("20121 Milano (ITA)"), "Italien")
+    check("Südtirol im Text", guess_land("Bozen, Südtirol"), "Italien (Südtirol)")
+    check("Bozen liegt in Südtirol", in_suedtirol(46.4983, 11.3548), True)
+    check("Sterzing liegt in Südtirol", in_suedtirol(46.8967, 11.4300), True)
+    check("Innsbruck nicht", in_suedtirol(47.2692, 11.4041), False)
+    check("Trient nicht (gleiche Region, andere Provinz)", in_suedtirol(46.0667, 11.1167), False)
+    check("Südtirol zählt zu den Regionen", "Italien (Südtirol)" in _regionen, True)
     # Zweibuchstabige Codes dürfen in Freitext NICHT anschlagen.
     check("'de' in Freitext", guess_land("Tour de France"), None)
 

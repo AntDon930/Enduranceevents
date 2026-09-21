@@ -63,7 +63,14 @@ from collections import defaultdict
 from datetime import date
 from typing import Dict, List, Tuple
 
-LAENDER = ["DE", "AT", "CH"]
+LAENDER = ["DE", "AT", "CH", "IT"]
+
+# Von einem Land nur ein Teil: Südtirol (Provinz Bozen, GeoNames-Code
+# admin2 = "BZ") - die Seite deckt von Italien nur den deutschsprachigen
+# Teil ab (vom Nutzer am 21.09.2026 aufgenommen). Postleitzahl- und
+# Gazetteer-Datei werden auf diesen Code gefiltert, die Region heißt in
+# der Ortsauswahl "Südtirol" statt "Trentino-Alto Adige".
+TEILGEBIET = {"IT": {"admin2": "BZ", "region": "Südtirol"}}
 
 ZIP_URL = "https://download.geonames.org/export/zip/{cc}.zip"
 DUMP_URL = "https://download.geonames.org/export/dump/{cc}.zip"
@@ -181,6 +188,9 @@ def gazetteer(cc: str, cache_dir: str) -> Dict[str, List[Tuple[float, float, int
             continue
         klasse = f[6]
         if klasse not in ("P", "A"):
+            continue
+        # Nur das Teilgebiet (Südtirol): Spalte 11 ist der admin2-Code.
+        if cc in TEILGEBIET and f[11] != TEILGEBIET[cc]["admin2"]:
             continue
         try:
             lat, lon = float(f[4]), float(f[5])
@@ -315,6 +325,11 @@ def sammle_orte(cc: str, cache_dir: str) -> List[dict]:
         plz, name, region, admin1 = f[1].strip(), f[2].strip(), f[3].strip(), f[4].strip()
         if not plz or not name or _ist_firma(name, streng=cc in ORTSBEZUG_PRUEFEN):
             continue
+        # Nur das Teilgebiet (Südtirol): Spalte 6 ist der admin2-Code.
+        if cc in TEILGEBIET:
+            if f[6].strip() != TEILGEBIET[cc]["admin2"]:
+                continue
+            region = TEILGEBIET[cc]["region"]
         try:
             lat, lon = float(f[9]), float(f[10])
         except ValueError:

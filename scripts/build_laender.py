@@ -16,7 +16,9 @@ Ausnahme, die dieses Projekt sich erlaubt (siehe README "Nichts von
 fremden Servern"). Eine Maske aus eigenen Daten kostet ~60 KB und
 überträgt nichts.
 
-Quelle: Natural Earth (`ne_10m_admin_0_countries`), **Public Domain**
+Quelle: Natural Earth (`ne_10m_admin_0_countries` für die Staaten,
+`ne_10m_admin_1_states_provinces` für Südtirol - die Provinz Bozen ist
+keine Staatsgrenze), **Public Domain**
 (keine Namensnennung verlangt; sie steht trotzdem im Impressum, weil
 dort alle Datenquellen stehen). 1:10 Mio ist die genaueste der drei
 Natural-Earth-Stufen - bei 1:50 Mio lägen die Grenzen an Orten wie Basel
@@ -46,15 +48,29 @@ ZIEL = WURZEL / "laender.json"
 
 QUELLE_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
               "master/geojson/ne_10m_admin_0_countries.geojson")
+# Provinzen und Bundesländer (~40 MB) - nur geladen, wenn ein Eintrag in
+# LAENDER sie braucht.
+QUELLE_ADMIN1_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
+                     "master/geojson/ne_10m_admin_1_states_provinces.geojson")
 
 # Welche Länder die Seite abdeckt. Der Schlüssel ist GENAU der Wert, der
 # in events.json im Feld `land` steht (und in filters.js in LAENDER) -
 # so lässt sich die Maske später um ein Land erweitern, ohne hier etwas
 # umzubauen: Zeile eintragen, Skript laufen lassen, fertig.
+# Der Wert nennt die Eigenschaft und ihren Wert in der Quelle: Staaten
+# über ADM0_A3 in ne_10m_admin_0_countries, Provinzen über iso_3166_2 in
+# ne_10m_admin_1_states_provinces.
+#
+# Südtirol (vom Nutzer am 21.09.2026 aufgenommen: "sehr viele Radrennen,
+# ein sehr sportliches Land - damit sind es alle Ausdauer-Events im
+# deutschsprachigen Raum") ist die Provinz Bozen (IT-BZ), nicht ganz
+# Italien; im Filter heißt sie "Italien (Südtirol)", damit niemand ganz
+# Italien erwartet.
 LAENDER = {
-    "Deutschland": "DEU",
-    "Österreich": "AUT",
-    "Schweiz": "CHE",
+    "Deutschland": ("ADM0_A3", "DEU"),
+    "Österreich": ("ADM0_A3", "AUT"),
+    "Schweiz": ("ADM0_A3", "CHE"),
+    "Italien (Südtirol)": ("iso_3166_2", "IT-BZ"),
 }
 
 # Vereinfachung in Grad. 0.001° ≈ 110 m in der Höhe; in der Breite wird
@@ -70,12 +86,12 @@ TOLERANZ_GRAD = 0.001
 STELLEN = 4
 
 
-def lade_quelle(pfad: str | None) -> dict:
+def lade_quelle(pfad: str | None, url: str = QUELLE_URL) -> dict:
     if pfad:
         with open(pfad, encoding="utf-8") as fh:
             return json.load(fh)
-    print(f"Lade {QUELLE_URL} …")
-    with urllib.request.urlopen(QUELLE_URL, timeout=300) as antwort:
+    print(f"Lade {url} …")
+    with urllib.request.urlopen(url, timeout=600) as antwort:
         return json.loads(antwort.read().decode("utf-8"))
 
 
@@ -157,17 +173,24 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--quelle", help="lokale ne_10m_admin_0_countries.geojson")
+    ap.add_argument("--quelle-admin1", help="lokale ne_10m_admin_1_states_provinces.geojson")
     ap.add_argument("--toleranz", type=float, default=TOLERANZ_GRAD,
                     help="Vereinfachung in Grad (Standard %(default)s ≈ 110 m)")
     ap.add_argument("--ziel", default=str(ZIEL))
     args = ap.parse_args(argv)
 
-    rohdaten = lade_quelle(args.quelle)
     nach_code = {}
-    for feat in rohdaten.get("features", []):
-        code = (feat.get("properties") or {}).get("ADM0_A3")
-        if code in LAENDER.values():
-            nach_code[code] = feat
+    gesucht = set(LAENDER.values())
+    quellen = [("ADM0_A3", args.quelle, QUELLE_URL)]
+    if any(eig != "ADM0_A3" for eig, _ in gesucht):
+        quellen.append(("iso_3166_2", args.quelle_admin1, QUELLE_ADMIN1_URL))
+    for eigenschaft, pfad, url in quellen:
+        rohdaten = lade_quelle(pfad, url)
+        for feat in rohdaten.get("features", []):
+            wert = (feat.get("properties") or {}).get(eigenschaft)
+            if (eigenschaft, wert) in gesucht:
+                nach_code[(eigenschaft, wert)] = feat
+        del rohdaten
 
     fehlend = [name for name, code in LAENDER.items() if code not in nach_code]
     if fehlend:
@@ -193,14 +216,15 @@ def main(argv: list[str] | None = None) -> int:
         "_readme": (
             "Umrisse der abgedeckten Länder für die graue Maske auf karte.html. "
             "Erzeugt von scripts/build_laender.py aus Natural Earth "
-            "(ne_10m_admin_0_countries, Public Domain), vereinfacht auf "
+            "(ne_10m_admin_0_countries; Südtirol = Provinz Bozen aus "
+            "ne_10m_admin_1_states_provinces; Public Domain), vereinfacht auf "
             f"{args.toleranz}° (~{round(args.toleranz * 111)} m). Schlüssel = Wert des "
             "Feldes `land` in events.json. Jeder Eintrag ist eine Liste von "
             "Ringen ([[lon, lat], …]); äußere Ringe und Löcher stehen in der "
             "Reihenfolge der Quelle, die Karte zeichnet sie mit "
             "fill-rule: evenodd."
         ),
-        "quelle": "Natural Earth, ne_10m_admin_0_countries (Public Domain)",
+        "quelle": "Natural Earth, ne_10m_admin_0_countries + ne_10m_admin_1_states_provinces (Public Domain)",
         "laender": ausgabe,
     }
     ziel = Path(args.ziel)

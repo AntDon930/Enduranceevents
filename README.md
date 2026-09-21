@@ -2121,6 +2121,36 @@ verschwinden (größte Bündel zuerst) –, und welche Orientierungsorte
 unter einem Bündel, einem Namen oder einem wichtigeren Ort liegen. Ohne
 das stand bei Zoom 6 „252 Hamburg" über dem Namen von Bremerhaven.
 
+## Südtirol: die vierte Region
+
+Seit dem 21.09.2026 deckt die Seite neben Deutschland, Österreich und der
+Schweiz auch **Südtirol** ab (vom Nutzer gewünscht: dort gibt es sehr
+viele Radrennen, und damit sind es alle Ausdauer-Events im
+deutschsprachigen Raum). Im Filter heißt die Region „Italien (Südtirol)",
+damit niemand ganz Italien erwartet. Was dafür umgebaut wurde:
+
+- **Umriss**: `build_laender.py` holt Südtirol als Provinz Bozen (IT-BZ)
+  aus `ne_10m_admin_1_states_provinces` (Natural Earth, Public Domain) –
+  die Staaten weiter aus admin_0. `laender.json` hat damit vier Schlüssel;
+  Karte (Maske und Landfläche) und die Erkennung im Scraper lesen
+  dieselbe Datei.
+- **Erkennung**: „Italien" ist nur ein Zwischenstand. Eine Südtiroler
+  Postleitzahl (39010–39100) oder Koordinaten im Umriss
+  (`scraper_lib.in_suedtirol`, Punkt-in-Polygon) machen daraus
+  „Italien (Südtirol)"; was ohne beides „Italien" bleibt, wirft
+  `clean_events.drop_ausserhalb()` nach dem Reverse-Geocoding heraus.
+  So landet Trient nicht in der Liste, obwohl es in derselben Region
+  liegt.
+- **Ortsauswahl**: `build_places.py` liest GeoNames Italien, behält aber
+  nur die Provinz Bozen (`TEILGEBIET`, admin2 „BZ") – 750 Orte mit
+  deutschem und italienischem Namen, Region „Südtirol".
+- **Texte**: Die Seite nennt sich „Ausdauersport im deutschsprachigen
+  Raum"; Karte mit Bozen, Meran, Brixen und Bruneck als
+  Orientierungsorten.
+
+Daten aus Südtirol kommen erst mit einer Quelle, die der Nutzer
+freigibt (Fahrplan, Punkt 1) – die Regeln stehen bereit.
+
 ## Der Style Guide (Design-System v1)
 
 Seit dem 21.09.2026 richtet sich die Gestaltung nach dem Style Guide des

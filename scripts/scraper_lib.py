@@ -107,13 +107,35 @@ DEFAULT_HTML_FALLBACK_SELECTORS = {
 # sie in deutschem Fließtext als eigenständige Wörter vorkommen und
 # falsch anschlagen. Für explizite Code-Felder (z. B. JSON-LD
 # `addressCountry: "DE"`) ist COUNTRY_CODE_MAP zuständig.
+# Südtirol ist die vierte Region (vom Nutzer am 21.09.2026 aufgenommen:
+# "sehr viele Radrennen, ein sehr sportliches Land - damit sind es alle
+# Ausdauer-Events im deutschsprachigen Raum"). Der Wert heißt bewusst
+# "Italien (Südtirol)", damit niemand ganz Italien erwartet. Erkannt wird
+# Südtirol an der Postleitzahl (39010-39100 sind genau die Provinz Bozen)
+# oder an den Koordinaten (in_suedtirol(), Umriss aus laender.json);
+# "Italien" allein ist KEIN gültiger Wert - er bleibt als Zwischenstand
+# stehen, bis Koordinaten entscheiden, und fällt sonst heraus
+# (filter_dach, clean_events.drop_ausserhalb).
+SUEDTIROL = "Italien (Südtirol)"
 LAND_KEYWORDS = {
+    "südtirol": SUEDTIROL, "suedtirol": SUEDTIROL, "south tyrol": SUEDTIROL,
+    "alto adige": SUEDTIROL,
     "deutschland": "Deutschland", "germany": "Deutschland",
     "österreich": "Österreich", "austria": "Österreich",
     "schweiz": "Schweiz", "switzerland": "Schweiz", "suisse": "Schweiz",
+    "italien": "Italien", "italy": "Italien", "italia": "Italien",
 }
-COUNTRY_CODE_MAP = {"DE": "Deutschland", "AT": "Österreich", "CH": "Schweiz"}
-DACH_LAENDER = {"Deutschland", "Österreich", "Schweiz"}
+COUNTRY_CODE_MAP = {"DE": "Deutschland", "AT": "Österreich", "CH": "Schweiz", "IT": "Italien"}
+# Die Regionen, die die Seite abdeckt - dieselben Werte wie LAENDER in
+# filters.js und die Schlüssel in laender.json. DACH_LAENDER bleibt als
+# alter Name bestehen (ältere Aufrufe), meint aber dasselbe.
+LAENDER = {"Deutschland", "Österreich", "Schweiz", SUEDTIROL}
+DACH_LAENDER = LAENDER
+# Südtiroler Postleitzahlen (CAP): 39010-39100, ausschließlich Provinz Bozen.
+PLZ_SUEDTIROL_PATTERN = re.compile(r"\b39\d{3}\b")
+# Für die Geocoding-Anfrage: "Bozen, Südtirol, Italien" versteht
+# Nominatim, "Bozen, Italien (Südtirol)" nicht unbedingt.
+LAND_SUCHNAME = {SUEDTIROL: "Südtirol, Italien"}
 
 # Länderkürzel, wie Kalender sie in KLAMMERN hinter den Ort schreiben -
 # laufen.de mischt ausgeschriebene Namen und Kürzel: "9607 Mosnang
@@ -125,6 +147,7 @@ LAND_ABBREVIATIONS = {
     "D": "Deutschland", "GER": "Deutschland", "DEU": "Deutschland",
     "A": "Österreich", "AUT": "Österreich",
     "CH": "Schweiz", "SUI": "Schweiz", "CHE": "Schweiz",
+    "I": "Italien", "IT": "Italien", "ITA": "Italien",
 }
 # Klammerzusatz am Ende einer Ortsangabe: "... (Schweiz)" / "... (AUT)".
 _LAND_PARENTHETICAL = re.compile(r"\(\s*([A-Za-zÄÖÜäöüß.]{1,20})\s*\)\s*$")
@@ -590,7 +613,10 @@ def guess_land(text: str) -> str | None:
     if not text:
         return None
     cleaned = FALSE_LAND_PATTERNS.sub(" ", text)
+    return praezisiere_italien(_guess_land_roh(cleaned), cleaned)
 
+
+def _guess_land_roh(cleaned: str) -> str | None:
     # Zuerst der Klammerzusatz: die verlässlichste Angabe, wenn vorhanden
     # (deckt "(Schweiz)" ebenso wie "(AUT)" ab, siehe LAND_ABBREVIATIONS).
     paren = _LAND_PARENTHETICAL.search(re.sub(r"\s+", " ", cleaned).strip())
@@ -610,6 +636,65 @@ def guess_land(text: str) -> str | None:
     if PLZ_DE_PATTERN.search(cleaned):  # fünfstellige PLZ -> Deutschland
         return "Deutschland"
     return None
+
+
+def praezisiere_italien(land: str | None, text: str) -> str | None:
+    """"Italien" wird zu "Italien (Südtirol)", wenn eine Südtiroler
+    Postleitzahl dabeisteht ("39012 Meran (Italien)"); sonst bleibt
+    "Italien" stehen - ein Zwischenstand, den erst die Koordinaten
+    entscheiden (in_suedtirol) und der ohne sie herausfällt."""
+    if land != "Italien":
+        return land
+    return SUEDTIROL if PLZ_SUEDTIROL_PATTERN.search(text or "") else "Italien"
+
+
+# ---------- Südtirol über die Koordinaten ----------
+#
+# Der Umriss der Provinz Bozen liegt in laender.json (aus Natural Earth,
+# gebaut von scripts/build_laender.py - dieselbe Datei, mit der die Karte
+# ihre Maske zeichnet). Punkt-in-Polygon per Strahlmethode; die Ringe
+# werden evenodd gezählt wie auf der Karte. Ohne die Datei ist nichts
+# in Südtirol - lieber ein fehlendes Event als ein Trentiner als
+# Südtiroler.
+_SUEDTIROL_RINGE: list | None = None
+_SUEDTIROL_BOX = (46.2, 47.1, 10.3, 12.5)   # lat_min, lat_max, lon_min, lon_max
+
+
+def _lade_suedtirol_ringe() -> list:
+    global _SUEDTIROL_RINGE
+    if _SUEDTIROL_RINGE is None:
+        pfad = Path(__file__).resolve().parent.parent / "laender.json"
+        try:
+            daten = json.loads(pfad.read_text(encoding="utf-8"))
+            _SUEDTIROL_RINGE = list((daten.get("laender") or {}).get(SUEDTIROL) or [])
+        except (OSError, ValueError):
+            _SUEDTIROL_RINGE = []
+    return _SUEDTIROL_RINGE
+
+
+def _punkt_in_ring(lat: float, lon: float, ring: list) -> bool:
+    innen = False
+    j = len(ring) - 1
+    for i in range(len(ring)):
+        xi, yi = ring[i][0], ring[i][1]
+        xj, yj = ring[j][0], ring[j][1]
+        if (yi > lat) != (yj > lat):
+            x = (xj - xi) * (lat - yi) / (yj - yi) + xi
+            if lon < x:
+                innen = not innen
+        j = i
+    return innen
+
+
+def in_suedtirol(lat: float | None, lon: float | None) -> bool:
+    """True, wenn die Koordinate in Südtirol (Provinz Bozen) liegt."""
+    if lat is None or lon is None:
+        return False
+    lat_min, lat_max, lon_min, lon_max = _SUEDTIROL_BOX
+    if not (lat_min <= lat <= lat_max and lon_min <= lon <= lon_max):
+        return False
+    treffer = sum(1 for ring in _lade_suedtirol_ringe() if _punkt_in_ring(lat, lon, ring))
+    return treffer % 2 == 1
 
 
 def round_km(value: float | int | None) -> float | None:
@@ -1150,7 +1235,7 @@ class Geocoder:
             )
 
     def geocode(self, standort: str, land: str | None) -> tuple[float, float] | None:
-        query = f"{standort}, {land}" if land else standort
+        query = f"{standort}, {LAND_SUCHNAME.get(land, land)}" if land else standort
         if query in self.cache:
             cached = self.cache[query]
             return tuple(cached) if cached else None
@@ -1209,6 +1294,11 @@ class Geocoder:
             raw = (location.raw or {}).get("address", {})
             code = (raw.get("country_code") or "").upper()
             land = COUNTRY_CODE_MAP.get(code) or guess_land(raw.get("country") or "")
+            # Italien nur als Südtirol: entscheidet der Umriss, nicht die
+            # Adresse (Nominatim nennt die Provinz je nach Sprache
+            # "Bozen", "Bolzano" oder "Südtirol" - der Umriss ist eindeutig).
+            if land == "Italien":
+                land = SUEDTIROL if in_suedtirol(lat, lon) else "Italien"
 
         self.cache[key] = land
         self._save()
@@ -1782,9 +1872,17 @@ def dedupe_key(
 
 
 def filter_dach(events: list[Event], include_all: bool) -> tuple[list[Event], int]:
+    """Behält, was in den abgedeckten Regionen liegt (LAENDER) oder noch
+    kein Land hat. "Italien" wird vorher über die Koordinaten zu
+    "Italien (Südtirol)", wo sie in Südtirol liegen; ohne Koordinaten
+    bleibt es beim Zwischenstand, den später clean_events.fix_land()
+    (Reverse-Geocoding) und drop_ausserhalb() erledigen."""
+    for e in events:
+        if e.land == "Italien" and in_suedtirol(getattr(e, "lat", None), getattr(e, "lon", None)):
+            e.land = SUEDTIROL
     if include_all:
         return events, 0
-    kept = [e for e in events if e.land is None or e.land in DACH_LAENDER]
+    kept = [e for e in events if e.land is None or e.land == "Italien" or e.land in LAENDER]
     skipped = len(events) - len(kept)
     return kept, skipped
 

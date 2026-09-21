@@ -168,6 +168,7 @@ const SUCH_UEBERSETZUNGEN = {
     "Deutschland": ["Deutschland", "Germany"],
     "Österreich": ["Österreich", "Austria"],
     "Schweiz": ["Schweiz", "Switzerland"],
+    "Italien (Südtirol)": ["Italien (Südtirol)", "Italy (South Tyrol)"],
   },
   art1: {
     "Laufen": ["Laufen", "Running"],
