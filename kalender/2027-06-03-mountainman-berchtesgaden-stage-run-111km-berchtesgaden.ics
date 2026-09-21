@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-mountainman-berchtesgaden-stage-run-111km-berchtesgaden@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270607
+SUMMARY:MOUNTAINMAN Berchtesgaden Stage Run
+LOCATION:Berchtesgaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 111 km\nhttps://mountainman.
+ de/trailrunning-events/alps/berchtesgaden/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/berchtesgaden/
+END:VEVENT
+END:VCALENDAR

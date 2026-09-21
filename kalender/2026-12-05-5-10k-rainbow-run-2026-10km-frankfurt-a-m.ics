@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:5/10k Rainbow Run 2026
 LOCATION:Frankfurt a.M.\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://rainbowrun-fra
- nkfurt.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.fvv-xmas.
+ org/sport/rainbowrun/
 TRANSP:TRANSPARENT
-URL:http://rainbowrun-frankfurt.de/
+URL:https://www.fvv-xmas.org/sport/rainbowrun/
 END:VEVENT
 END:VCALENDAR

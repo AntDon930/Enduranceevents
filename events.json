@@ -1594,7 +1594,8 @@
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "laenge_km": 32.4,
-    "veranstalter_url": "https://jagdewuidsau.de/"
+    "veranstalter_url": "https://jagdewuidsau.de/",
+    "wettbewerb": "Wuidsaujagd 2er-Staffel (6 + 3,6 km Laufen, 22,8 km Rad = 32,4 km)"
   },
   {
     "land": "Deutschland",
@@ -18663,9 +18664,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-07",
@@ -18677,9 +18678,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-07",
@@ -18691,9 +18692,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-07",
@@ -18705,9 +18706,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-07",
@@ -20492,6 +20493,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "49. Augsburger AOK-Winterlaufserie Nord-Südring",
+    "standort": "Augsburg",
+    "lat": 48.3690341,
+    "lon": 10.8979522,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 9.9,
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/"
+  },
+  {
+    "land": "Deutschland",
     "name": "53. Neusser Erftlauf",
     "standort": "Neuss",
     "lat": 51.1981778,
@@ -21310,8 +21324,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 23.3,
+    "wettbewerb": "5 Runden (23,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -21324,8 +21338,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 18.6,
+    "wettbewerb": "4 Runden (18,6 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -21339,7 +21353,7 @@
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
     "laenge_km": 14.0,
-    "wettbewerb": "14 km",
+    "wettbewerb": "3 Runden (14,0 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -21352,8 +21366,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.3,
+    "wettbewerb": "2 Runden (9,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -22012,19 +22026,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "49. Augsburger AOK-Winterlaufserie Nord-Südring",
-    "standort": "Augsburg",
-    "lat": 48.3690341,
-    "lon": 10.8979522,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-21",
-    "datum_ende": "2026-11-21",
-    "laenge_km": 9.9,
-    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/"
-  },
-  {
-    "land": "Deutschland",
     "name": "50. Bad Gandersheimer See-Park-Lauf",
     "standort": "Bad Gandersheim",
     "lat": 51.8704732,
@@ -22061,6 +22062,20 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
+  },
+  {
+    "name": "50. Seligenstädter Winterlaufserie, Lauf 1",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "standort": "Seligenstadt",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html",
+    "lat": 50.0347055,
+    "lon": 8.9593719
   },
   {
     "land": "Deutschland",
@@ -23378,8 +23393,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 43.0,
-    "wettbewerb": "43 km",
+    "laenge_km": 43.2,
+    "wettbewerb": "Kuhsee Marathon Challenge (18 Runden à 2,4 km = 43,2 km)",
     "veranstalter_url": "https://kuhsee-marathon-challenge.github.io/kmc/"
   },
   {
@@ -23552,7 +23567,21 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 10.0,
-    "veranstalter_url": "http://rainbowrun-frankfurt.de/"
+    "veranstalter_url": "https://www.fvv-xmas.org/sport/rainbowrun/"
+  },
+  {
+    "name": "5/10k Rainbow Run 2026",
+    "datum_start": "2026-12-05",
+    "datum_ende": "2026-12-05",
+    "standort": "Frankfurt a.M.",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.fvv-xmas.org/sport/rainbowrun/",
+    "lat": 50.1106444,
+    "lon": 8.6820917
   },
   {
     "land": "Deutschland",
@@ -23709,9 +23738,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-05",
@@ -23723,9 +23752,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-05",
@@ -23737,9 +23766,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-05",
@@ -23751,9 +23780,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-05",
@@ -24073,8 +24102,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "laenge_km": 21.0,
-    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/"
+    "laenge_km": 21.1,
+    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/",
+    "wettbewerb": "Halbmarathon (vermessen)"
   },
   {
     "land": "Deutschland",
@@ -24086,8 +24116,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "laenge_km": 5.0,
-    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/"
+    "laenge_km": 5.5,
+    "veranstalter_url": "https://lc-hassloch.de/plopsa-nikolauslauf-by-lch/",
+    "wettbewerb": "5,5-km-Lauf"
   },
   {
     "land": "Deutschland",
@@ -24155,9 +24186,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
-    "laenge_km": 10.0,
+    "laenge_km": 15,
     "veranstalter_url": "https://www.laufwinter.de",
-    "wettbewerb": "10 km"
+    "wettbewerb": "Nikolauslauf 15 km"
   },
   {
     "land": "Deutschland",
@@ -24318,19 +24349,6 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "41. Klausdorfer Nikolauslauf",
-    "standort": "Klausdorf",
-    "lat": 54.413173,
-    "lon": 13.0067608,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 15.3,
-    "veranstalter_url": "http://www.tsv-klausdorf.de"
   },
   {
     "land": "Deutschland",
@@ -25070,6 +25088,34 @@
     "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
+    "name": "Alten-Busecker Winterlaufserie",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "standort": "Buseck/Alten-Buseck",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf",
+    "veranstalter_url": "https://www.tsg-alten-buseck.com",
+    "lat": 50.624167,
+    "lon": 8.7515145
+  },
+  {
+    "name": "Alten-Busecker Winterlaufserie",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "standort": "Buseck/Alten-Buseck",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 21.1,
+    "wettbewerb": "21,1 km Hauptlauf",
+    "veranstalter_url": "https://www.tsg-alten-buseck.com",
+    "lat": 50.624167,
+    "lon": 8.7515145
+  },
+  {
     "land": "Deutschland",
     "name": "Dinkelsbühler Wald- und Crosslauf mit Kreismeisterschaften",
     "standort": "Dinkelsbühl",
@@ -25351,8 +25397,8 @@
     "art2": "Straße",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 23.3,
+    "wettbewerb": "5 Runden (23,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -25365,8 +25411,8 @@
     "art2": "Straße",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 18.6,
+    "wettbewerb": "4 Runden (18,6 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -25380,7 +25426,7 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 14.0,
-    "wettbewerb": "14 km",
+    "wettbewerb": "3 Runden (14,0 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -25393,8 +25439,8 @@
     "art2": "Straße",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.3,
+    "wettbewerb": "2 Runden (9,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -25753,9 +25799,9 @@
     "art2": "Trail",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 45.0,
+    "laenge_km": 46.8,
     "veranstalter_url": "https://www.hartfuessler.de/x-mas-trail/",
-    "wettbewerb": "47 km"
+    "wettbewerb": "X-MAS Trail (46,8 km, 1.500 hm)"
   },
   {
     "land": "Deutschland",
@@ -25767,8 +25813,8 @@
     "art2": "Trail",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 33.0,
-    "wettbewerb": "33 km",
+    "laenge_km": 33.5,
+    "wettbewerb": "Ruprecht Trail (33,5 km, 1.050 hm)",
     "veranstalter_url": "https://www.hartfuessler.de/x-mas-trail/"
   },
   {
@@ -25781,8 +25827,8 @@
     "art2": "Trail",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km",
+    "laenge_km": 15.5,
+    "wettbewerb": "Brian Trail (15,5 km, 500 hm)",
     "veranstalter_url": "https://www.hartfuessler.de/x-mas-trail/"
   },
   {
@@ -25837,7 +25883,21 @@
     "datum_start": "2026-12-19",
     "datum_ende": "2026-12-19",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tria-seligenstadt.de/wls25/ausschreibung.html"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
+  },
+  {
+    "name": "50. Seligenstädter Winterlaufserie, Lauf 2",
+    "datum_start": "2026-12-19",
+    "datum_ende": "2026-12-19",
+    "standort": "Seligenstadt",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html",
+    "lat": 50.0347055,
+    "lon": 8.9593719
   },
   {
     "land": "Deutschland",
@@ -26005,6 +26065,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "49. Augsburger AOK-Winterlaufserie",
+    "standort": "Augsburg",
+    "lat": 48.3690341,
+    "lon": 10.8979522,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-20",
+    "datum_ende": "2026-12-20",
+    "laenge_km": 9.3,
+    "wettbewerb": "4. Lauf, ca. 9,3 km (3 Runden)",
+    "veranstalter_url": "https://tgva.de/augsburger-winterlaufserie/"
+  },
+  {
+    "land": "Deutschland",
     "name": "55. Weihnachtslauf Lipperreihe",
     "standort": "Oerlinghausen",
     "lat": 51.9492295,
@@ -26114,6 +26188,20 @@
     "laenge_km": null,
     "veranstalter_url": "https://laufschule-tatje.de/weihnachtslauf/",
     "dauer_h": 3.0
+  },
+  {
+    "land": "Deutschland",
+    "name": "Warendorfer Weihnachtslauf",
+    "standort": "Warendorf",
+    "lat": 51.9514351,
+    "lon": 7.9841001,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-20",
+    "datum_ende": "2026-12-20",
+    "dauer_h": 6.0,
+    "wettbewerb": "6-Stunden-Lauf",
+    "veranstalter_url": "https://laufschule-tatje.de/weihnachtslauf/"
   },
   {
     "land": "Deutschland",
@@ -26964,6 +27052,20 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 15.0,
     "veranstalter_url": "http://www.svg-poenitz.de"
+  },
+  {
+    "name": "41. Pönitzer Silvesterlauf",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "standort": "Pönitz",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km",
+    "veranstalter_url": "http://www.svg-poenitz.de",
+    "lat": 50.8568858,
+    "lon": 12.4229372
   },
   {
     "land": "Deutschland",
@@ -27954,7 +28056,9 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://www.tsv-poggenhagen1946.de/"
+    "veranstalter_url": "https://www.tsv-poggenhagen1946.de/",
+    "laenge_km": 8.2,
+    "wettbewerb": "Hauptlauf 8.200 m"
   },
   {
     "land": "Deutschland",
@@ -29128,9 +29232,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-09",
@@ -29142,9 +29246,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-09",
@@ -29156,9 +29260,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-09",
@@ -29170,9 +29274,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-09",
@@ -29721,6 +29825,20 @@
     "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
   },
   {
+    "name": "50. Seligenstädter Winterlaufserie, Lauf 3",
+    "datum_start": "2027-01-16",
+    "datum_ende": "2027-01-16",
+    "standort": "Seligenstadt",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html",
+    "lat": 50.0347055,
+    "lon": 8.9593719
+  },
+  {
     "land": "Deutschland",
     "name": "Crosslauf \"Rund um die Zinkspitze\"",
     "standort": "Hundeshagen",
@@ -29772,8 +29890,8 @@
     "art2": "Straße",
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 23.3,
+    "wettbewerb": "5 Runden (23,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -29786,8 +29904,8 @@
     "art2": "Straße",
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 18.6,
+    "wettbewerb": "4 Runden (18,6 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -29801,7 +29919,7 @@
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
     "laenge_km": 14.0,
-    "wettbewerb": "14 km",
+    "wettbewerb": "3 Runden (14,0 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -29814,8 +29932,8 @@
     "art2": "Straße",
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.3,
+    "wettbewerb": "2 Runden (9,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -30071,6 +30189,34 @@
     "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf"
   },
   {
+    "name": "Alten-Busecker Winterlaufserie - Finale",
+    "datum_start": "2027-01-23",
+    "datum_ende": "2027-01-23",
+    "standort": "Buseck",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf",
+    "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf",
+    "lat": 50.6082767,
+    "lon": 8.7828811
+  },
+  {
+    "name": "Alten-Busecker Winterlaufserie - Finale",
+    "datum_start": "2027-01-23",
+    "datum_ende": "2027-01-23",
+    "standort": "Buseck",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km Hauptlauf",
+    "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf",
+    "lat": 50.6082767,
+    "lon": 8.7828811
+  },
+  {
     "land": "Deutschland",
     "name": "ASV Duisburg Winterlaufserie",
     "standort": "Duisburg",
@@ -30208,18 +30354,19 @@
     "veranstalter_url": "https://my.raceresult.com/420165/"
   },
   {
-    "land": "Deutschland",
     "name": "Mountainman Winterloop Reit im Winkl",
-    "standort": "Reit im Winkl",
-    "lat": 47.6766377,
-    "lon": 12.4692465,
-    "art1": "Laufen",
-    "art2": "Straße",
     "datum_start": "2027-01-23",
     "datum_ende": "2027-01-24",
+    "standort": "Reit im Winkl",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "dauer_h": null,
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/",
+    "lat": 47.6766377,
+    "lon": 12.4692465,
     "laenge_km": 45.0,
-    "wettbewerb": "45 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/"
+    "wettbewerb": "Marathon (6 Runden, ca. 45 km)"
   },
   {
     "land": "Deutschland",
@@ -30231,22 +30378,7 @@
     "art2": "Straße",
     "datum_start": "2027-01-23",
     "datum_ende": "2027-01-24",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Mountainman Winterloop Reit im Winkl",
-    "standort": "Reit im Winkl",
-    "lat": 47.6766377,
-    "lon": 12.4692465,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-23",
-    "datum_ende": "2027-01-24",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
+    "laenge_km": 22.5,
     "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/winterloop-reit-im-winkl/"
   },
   {
@@ -30300,8 +30432,8 @@
     "art2": "Straße",
     "datum_start": "2027-01-24",
     "datum_ende": "2027-01-24",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 11.3,
+    "wettbewerb": "11,3 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -30314,8 +30446,8 @@
     "art2": "Straße",
     "datum_start": "2027-01-24",
     "datum_ende": "2027-01-24",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 5.5,
+    "wettbewerb": "5,5 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -30654,9 +30786,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-02-06",
@@ -30668,9 +30800,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-02-06",
@@ -30682,9 +30814,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-02-06",
@@ -30696,9 +30828,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-02-06",
@@ -31255,7 +31387,21 @@
     "datum_start": "2027-02-20",
     "datum_ende": "2027-02-20",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tria-seligenstadt.de/wls25/ausschreibung.html"
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html"
+  },
+  {
+    "name": "50. Seligenstädter Winterlaufserie, Lauf 4",
+    "datum_start": "2027-02-20",
+    "datum_ende": "2027-02-20",
+    "standort": "Seligenstadt",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.tria-seligenstadt.de/wls26/ausschreibung.html",
+    "lat": 50.0347055,
+    "lon": 8.9593719
   },
   {
     "land": "Deutschland",
@@ -31344,8 +31490,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-21",
     "datum_ende": "2027-02-21",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 23.3,
+    "wettbewerb": "5 Runden (23,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -31358,8 +31504,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-21",
     "datum_ende": "2027-02-21",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 18.6,
+    "wettbewerb": "4 Runden (18,6 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -31373,7 +31519,7 @@
     "datum_start": "2027-02-21",
     "datum_ende": "2027-02-21",
     "laenge_km": 14.0,
-    "wettbewerb": "14 km",
+    "wettbewerb": "3 Runden (14,0 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -31386,8 +31532,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-21",
     "datum_ende": "2027-02-21",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.3,
+    "wettbewerb": "2 Runden (9,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -31553,132 +31699,6 @@
     "laenge_km": 84.0,
     "wettbewerb": "84 km",
     "veranstalter_url": "https://my.raceresult.com/405788/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Internationaler Kammlauf",
-    "standort": "Klingenthal",
-    "lat": 50.370718,
-    "lon": 12.4681708,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km Klassisch",
-    "veranstalter_url": "https://vsc-klingenthal.de/kammlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Internationaler Kammlauf",
-    "standort": "Klingenthal",
-    "lat": 50.370718,
-    "lon": 12.4681708,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 26.0,
-    "wettbewerb": "26 km Klassisch",
-    "veranstalter_url": "https://vsc-klingenthal.de/kammlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Internationaler Kammlauf",
-    "standort": "Klingenthal",
-    "lat": 50.370718,
-    "lon": 12.4681708,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Familienlauf, klassische Technik",
-    "veranstalter_url": "https://vsc-klingenthal.de/kammlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Internationaler Kammlauf",
-    "standort": "Klingenthal",
-    "lat": 50.370718,
-    "lon": 12.4681708,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Kleiner Kammlauf, klassische Technik",
-    "veranstalter_url": "https://vsc-klingenthal.de/kammlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Marburger Lahntallauf",
-    "standort": "Marburg",
-    "lat": 50.8018843,
-    "lon": 8.7657677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://ultra-marburg.de/lahntallauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Marburger Lahntallauf",
-    "standort": "Marburg",
-    "lat": 50.8018843,
-    "lon": 8.7657677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://ultra-marburg.de/lahntallauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Marburger Lahntallauf",
-    "standort": "Marburg",
-    "lat": 50.8018843,
-    "lon": 8.7657677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 30.0,
-    "wettbewerb": "30 km",
-    "veranstalter_url": "https://ultra-marburg.de/lahntallauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Marburger Lahntallauf",
-    "standort": "Marburg",
-    "lat": 50.8018843,
-    "lon": 8.7657677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://ultra-marburg.de/lahntallauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Marburger Lahntallauf",
-    "standort": "Marburg",
-    "lat": 50.8018843,
-    "lon": 8.7657677,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-27",
-    "datum_ende": "2027-02-27",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km Ultramarathon",
-    "veranstalter_url": "https://ultra-marburg.de/lahntallauf/"
   },
   {
     "land": "Deutschland",
@@ -31855,8 +31875,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-28",
     "datum_ende": "2027-02-28",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 11.3,
+    "wettbewerb": "11,3 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -31869,8 +31889,8 @@
     "art2": "Straße",
     "datum_start": "2027-02-28",
     "datum_ende": "2027-02-28",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 5.5,
+    "wettbewerb": "5,5 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -31988,9 +32008,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-03-06",
@@ -32002,9 +32022,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-03-06",
@@ -32016,9 +32036,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-03-06",
@@ -32030,9 +32050,9 @@
   {
     "land": "Deutschland",
     "name": "Bühlauer Winterlauf Serie",
-    "standort": "Radeberg",
-    "lat": 51.1129963,
-    "lon": 13.9142216,
+    "standort": "Dresden",
+    "lat": 51.0653,
+    "lon": 13.8566,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-03-06",
@@ -32052,7 +32072,7 @@
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-07",
     "laenge_km": 161.0,
-    "wettbewerb": "161 km",
+    "wettbewerb": "Lindwurm XXL (161 km, ca. 4.500 hm)",
     "veranstalter_url": "https://quaelixfaktor.de/lindwurm-24"
   },
   {
@@ -32065,8 +32085,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-07",
-    "laenge_km": 115.0,
-    "wettbewerb": "115 km",
+    "laenge_km": 114.5,
+    "wettbewerb": "Lindwurm plus (114,5 km, 2.850 hm)",
     "veranstalter_url": "https://quaelixfaktor.de/lindwurm-24"
   },
   {
@@ -32080,7 +32100,7 @@
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-07",
     "laenge_km": 70.0,
-    "wettbewerb": "70 km",
+    "wettbewerb": "Lindwurm classic (70 km, 1.900 hm)",
     "veranstalter_url": "https://quaelixfaktor.de/lindwurm-24"
   },
   {
@@ -32094,7 +32114,7 @@
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-07",
     "laenge_km": 45.0,
-    "wettbewerb": "45 km",
+    "wettbewerb": "Lindwurm midi (45 km, 1.000 hm)",
     "veranstalter_url": "https://quaelixfaktor.de/lindwurm-24"
   },
   {
@@ -32107,8 +32127,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-06",
     "datum_ende": "2027-03-07",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km",
+    "laenge_km": 24.5,
+    "wettbewerb": "Lindwurm mini (24,5 km, 550 hm)",
     "veranstalter_url": "https://quaelixfaktor.de/lindwurm-24"
   },
   {
@@ -32361,20 +32381,6 @@
     "datum_ende": "2027-03-07",
     "laenge_km": 46.0,
     "wettbewerb": "46 km Ultra Trail (BUT) - ±1400 Hm, Startgeld 42€",
-    "veranstalter_url": "https://belgenbachtrail.de/belgenbachtrail"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Belgenbachtrail",
-    "standort": "Monschau",
-    "lat": 50.5563349,
-    "lon": 6.2426261,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://belgenbachtrail.de/belgenbachtrail"
   },
   {
@@ -32664,8 +32670,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-13",
     "datum_ende": "2027-03-13",
-    "laenge_km": 47.0,
-    "wettbewerb": "47 km",
+    "laenge_km": 46.8,
+    "wettbewerb": "3 Runden à 15,6 km = 46,8 km",
     "veranstalter_url": "https://lg-lottehalen.jimdofree.com/dortmund-ems-kanal-ultra-13-3/"
   },
   {
@@ -32679,7 +32685,7 @@
     "datum_start": "2027-03-13",
     "datum_ende": "2027-03-13",
     "laenge_km": 22.0,
-    "wettbewerb": "22 km",
+    "wettbewerb": "2 Runden à 11 km = 22 km (Halbmarathon-Wertung)",
     "veranstalter_url": "https://lg-lottehalen.jimdofree.com/dortmund-ems-kanal-ultra-13-3/"
   },
   {
@@ -32730,12 +32736,11 @@
     "standort": "Glienicke/Nordbahn",
     "lat": 52.6333266,
     "lon": 13.327178,
-    "art1": "Laufen",
-    "art2": "Straße",
+    "art1": "Triathlon",
+    "art2": "Duathlon",
     "datum_start": "2027-03-13",
     "datum_ende": "2027-03-13",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 26.9,
     "veranstalter_url": "https://teamwork-berlin.eu/ausschreibung-2026/"
   },
   {
@@ -32888,8 +32893,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-14",
     "datum_ende": "2027-03-14",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 11.3,
+    "wettbewerb": "11,3 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -32902,8 +32907,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-14",
     "datum_ende": "2027-03-14",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 5.5,
+    "wettbewerb": "5,5 km",
     "veranstalter_url": "https://eisenacher-leichtathletik-verein.de/winterlauf/"
   },
   {
@@ -33012,7 +33017,7 @@
     "datum_start": "2027-03-14",
     "datum_ende": "2027-03-14",
     "laenge_km": 8.0,
-    "wettbewerb": "8 km",
+    "wettbewerb": "5 Miles (8,05 km)",
     "veranstalter_url": "https://www.lsvham.de/category.php?id=05CB32"
   },
   {
@@ -33383,6 +33388,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Frühlingsultra - Freudenstadt-Grüntal",
+    "standort": "Freudenstadt",
+    "lat": 48.4644796,
+    "lon": 8.4179988,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-20",
+    "datum_ende": "2027-03-20",
+    "laenge_km": 50.0,
+    "wettbewerb": "50 km",
+    "veranstalter_url": "https://neckarlauf.com/fr-hlingsultra.html"
+  },
+  {
+    "land": "Deutschland",
     "name": "Heineparklauf",
     "standort": "Rudolstadt",
     "lat": 50.7182972,
@@ -33421,34 +33440,6 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 20.0,
     "wettbewerb": "20,0 km Lauf",
-    "veranstalter_url": "https://www.possen-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Possenlauf",
-    "standort": "Sondershausen",
-    "lat": 51.3691898,
-    "lon": 10.8710502,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 42.0,
-    "wettbewerb": "Mountainbike Rennen 42 km",
-    "veranstalter_url": "https://www.possen-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Possenlauf",
-    "standort": "Sondershausen",
-    "lat": 51.3691898,
-    "lon": 10.8710502,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 28.0,
-    "wettbewerb": "Mountainbike Rennen 28 km",
     "veranstalter_url": "https://www.possen-lauf.de/"
   },
   {
@@ -33725,8 +33716,37 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 21.0,
-    "veranstalter_url": "http://www.LSG-Eschweiler.de"
+    "laenge_km": 21.1,
+    "veranstalter_url": "http://www.LSG-Eschweiler.de",
+    "wettbewerb": "Halbmarathon"
+  },
+  {
+    "name": "54. Internationaler Eschweiler Volkslauf",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "standort": "Eschweiler",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Hauptlauf",
+    "veranstalter_url": "http://www.LSG-Eschweiler.de",
+    "lat": 50.8175029,
+    "lon": 6.2630894
+  },
+  {
+    "name": "54. Internationaler Eschweiler Volkslauf",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "standort": "Eschweiler",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "http://www.LSG-Eschweiler.de",
+    "lat": 50.8175029,
+    "lon": 6.2630894
   },
   {
     "land": "Deutschland",
@@ -33738,8 +33758,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 23.3,
+    "wettbewerb": "5 Runden (23,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -33752,8 +33772,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 18.6,
+    "wettbewerb": "4 Runden (18,6 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -33767,7 +33787,7 @@
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
     "laenge_km": 14.0,
-    "wettbewerb": "14 km",
+    "wettbewerb": "3 Runden (14,0 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -33780,8 +33800,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.3,
+    "wettbewerb": "2 Runden (9,3 km)",
     "veranstalter_url": "https://www.winterlaufserie-hamburg.de/infos/"
   },
   {
@@ -33851,20 +33871,6 @@
     "laenge_km": 57.0,
     "wettbewerb": "57 km",
     "veranstalter_url": "https://my.raceresult.com/422662/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Frühlingsultra - Freudenstadt-Grüntal",
-    "standort": "Freudenstadt",
-    "lat": 48.4644796,
-    "lon": 8.4179988,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-21",
-    "datum_ende": "2027-03-21",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km",
-    "veranstalter_url": "https://neckarlauf.com/fr-hlingsultra.html"
   },
   {
     "land": "Deutschland",
@@ -34100,8 +34106,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 35.0,
-    "wettbewerb": "35 km",
+    "laenge_km": 34.5,
+    "wettbewerb": "ca. 34,5 km",
     "veranstalter_url": "https://tinnum66.de/syltlauf/"
   },
   {
@@ -34128,8 +34134,8 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 33.0,
-    "wettbewerb": "33 km",
+    "laenge_km": 33.3,
+    "wettbewerb": "33,333 km",
     "veranstalter_url": "https://my.raceresult.com/388224/"
   },
   {
@@ -35244,8 +35250,8 @@
     "art2": "Straße",
     "datum_start": "2027-04-10",
     "datum_ende": "2027-04-10",
-    "laenge_km": 21.0,
-    "wettbewerb": "Powerwalking 21 km",
+    "laenge_km": 21.1,
+    "wettbewerb": "1/2-Marathon",
     "veranstalter_url": "https://saaletal-marathon.de/"
   },
   {
@@ -35258,9 +35264,23 @@
     "art2": "Straße",
     "datum_start": "2027-04-10",
     "datum_ende": "2027-04-10",
-    "laenge_km": 10.0,
-    "wettbewerb": "Walking 10 km",
+    "laenge_km": 10.5,
+    "wettbewerb": "1/4-Marathon (ca. 10,5 km)",
     "veranstalter_url": "https://saaletal-marathon.de/"
+  },
+  {
+    "name": "Saaletal Marathon",
+    "datum_start": "2027-04-10",
+    "datum_ende": "2027-04-10",
+    "standort": "Ramsthal",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 31.6,
+    "wettbewerb": "3/4-Marathon (ca. 31,6 km)",
+    "veranstalter_url": "http://www.saaletal-marathon.de",
+    "lat": 50.1398945,
+    "lon": 10.0692744
   },
   {
     "land": "Deutschland",
@@ -35539,6 +35559,48 @@
     "laenge_km": 6.5,
     "wettbewerb": "Hobbylauf 6,5 km ohne Altersklassenwertung",
     "veranstalter_url": "https://www.tsv-guentersleben.de/seite/748569"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Tönisvorster Apfelblütenlauf",
+    "standort": "Tönisvorst",
+    "lat": 51.3274683,
+    "lon": 6.4438452,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-04-11",
+    "datum_ende": "2027-04-11",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://apfel-blueten-lauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Tönisvorster Apfelblütenlauf",
+    "standort": "Tönisvorst",
+    "lat": 51.3274683,
+    "lon": 6.4438452,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-04-11",
+    "datum_ende": "2027-04-11",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://apfel-blueten-lauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Tönisvorster Apfelblütenlauf",
+    "standort": "Tönisvorst",
+    "lat": 51.3274683,
+    "lon": 6.4438452,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-04-11",
+    "datum_ende": "2027-04-11",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
+    "veranstalter_url": "https://apfel-blueten-lauf.de/"
   },
   {
     "land": "Deutschland",
@@ -35855,7 +35917,7 @@
     "datum_start": "2027-04-17",
     "datum_ende": "2027-04-17",
     "laenge_km": 77.0,
-    "wettbewerb": "77 km",
+    "wettbewerb": "RET77 (77 km)",
     "veranstalter_url": "https://www.rureifel-trail.com/"
   },
   {
@@ -35869,7 +35931,7 @@
     "datum_start": "2027-04-17",
     "datum_ende": "2027-04-17",
     "laenge_km": 46.0,
-    "wettbewerb": "46 km",
+    "wettbewerb": "RET44+ (46 km)",
     "veranstalter_url": "https://www.rureifel-trail.com/"
   },
   {
@@ -35882,8 +35944,8 @@
     "art2": "Trail",
     "datum_start": "2027-04-17",
     "datum_ende": "2027-04-17",
-    "laenge_km": 23.0,
-    "wettbewerb": "23 km",
+    "laenge_km": 22.5,
+    "wettbewerb": "RET22 (22,5 km)",
     "veranstalter_url": "https://www.rureifel-trail.com/"
   },
   {
@@ -35897,7 +35959,7 @@
     "datum_start": "2027-04-17",
     "datum_ende": "2027-04-17",
     "laenge_km": 12.0,
-    "wettbewerb": "12 km",
+    "wettbewerb": "RET11 (12 km)",
     "veranstalter_url": "https://www.rureifel-trail.com/"
   },
   {
@@ -36064,8 +36126,8 @@
     "art2": "Straße",
     "datum_start": "2027-04-18",
     "datum_ende": "2027-04-18",
-    "laenge_km": 13.0,
-    "wettbewerb": "13 km",
+    "laenge_km": 12.5,
+    "wettbewerb": "12,5 km",
     "veranstalter_url": "https://einetallauf.de/"
   },
   {
@@ -36081,6 +36143,20 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://einetallauf.de/"
+  },
+  {
+    "name": "Einetallauf Aschersleben",
+    "datum_start": "2027-04-18",
+    "datum_ende": "2027-04-18",
+    "standort": "Aschersleben",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 21.0,
+    "wettbewerb": "21 km",
+    "veranstalter_url": "https://einetallauf.de/",
+    "lat": 51.7591297,
+    "lon": 11.4619062
   },
   {
     "land": "Deutschland",
@@ -37614,48 +37690,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Tönisvorster Apfelblütenlauf",
-    "standort": "Tönisvorst",
-    "lat": 51.3274683,
-    "lon": 6.4438452,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-25",
-    "datum_ende": "2027-04-25",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://apfel-blueten-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tönisvorster Apfelblütenlauf",
-    "standort": "Tönisvorst",
-    "lat": 51.3274683,
-    "lon": 6.4438452,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-25",
-    "datum_ende": "2027-04-25",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://apfel-blueten-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tönisvorster Apfelblütenlauf",
-    "standort": "Tönisvorst",
-    "lat": 51.3274683,
-    "lon": 6.4438452,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-25",
-    "datum_ende": "2027-04-25",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km (Halbmarathon)",
-    "veranstalter_url": "https://apfel-blueten-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Volkslauf im Volkspark Langendreer",
     "standort": "Bochum",
     "lat": 51.4818445,
@@ -37811,7 +37845,23 @@
     "art2": "Straße",
     "datum_start": "2027-05-01",
     "datum_ende": "2027-05-01",
-    "veranstalter_url": "http://www.hasenmelker-lauf.de/"
+    "veranstalter_url": "http://www.hasenmelker-lauf.de/",
+    "laenge_km": 10.6,
+    "wettbewerb": "Hauptlauf 10,6 km"
+  },
+  {
+    "name": "Dransfelder Hasenmelker-Lauf",
+    "datum_start": "2027-05-01",
+    "datum_ende": "2027-05-01",
+    "standort": "Niemetal",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "http://www.hasenmelker-lauf.de/",
+    "lat": 51.5201919,
+    "lon": 9.7075371
   },
   {
     "land": "Deutschland",
@@ -37995,19 +38045,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Schluchseelauf",
-    "standort": "Schluchsee",
-    "lat": 47.818711,
-    "lon": 8.1771184,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-01",
-    "datum_ende": "2027-05-02",
-    "veranstalter_url": "https://www.schluchseelauf.com/",
-    "laenge_km": 18.6
-  },
-  {
-    "land": "Deutschland",
     "name": "Spreewald Duathlon",
     "standort": "Lübbenau/Spreewald",
     "lat": 51.8654806,
@@ -38070,8 +38107,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-02",
     "datum_ende": "2027-05-02",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 8.9,
+    "wettbewerb": "Badische Meile (8,88889 km)",
     "veranstalter_url": "https://badischemeile.de/"
   },
   {
@@ -38319,7 +38356,7 @@
     "datum_start": "2027-05-02",
     "datum_ende": "2027-05-02",
     "laenge_km": 35.0,
-    "wettbewerb": "35 km",
+    "wettbewerb": "NAR Walk 35 km (Wanderung)",
     "veranstalter_url": "https://www.neisse-adventure-race.online"
   },
   {
@@ -38419,6 +38456,19 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://quaelixfaktor.de/marialinden"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Schluchseelauf",
+    "standort": "Schluchsee",
+    "lat": 47.818711,
+    "lon": 8.1771184,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-02",
+    "datum_ende": "2027-05-02",
+    "veranstalter_url": "https://www.schluchseelauf.com/",
+    "laenge_km": 18.6
   },
   {
     "land": "Deutschland",
@@ -39220,8 +39270,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-08",
     "datum_ende": "2027-05-08",
-    "laenge_km": 112.0,
-    "wettbewerb": "112 km",
+    "laenge_km": 111,
+    "wettbewerb": "111 km Solo (Ultra Marathon um Sylt)",
     "veranstalter_url": "https://www.northseaultra.com/"
   },
   {
@@ -39596,7 +39646,7 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "wettbewerb": "Viertelmarathon",
     "veranstalter_url": "https://www.regensburg-marathon.de/regensburg-marathon.html"
   },
   {
@@ -39624,7 +39674,7 @@
     "datum_start": "2027-05-09",
     "datum_ende": "2027-05-09",
     "laenge_km": 32.0,
-    "wettbewerb": "32 km",
+    "wettbewerb": "Dreiviertelmarathon (Halbmarathonrunde + Viertelmarathonrunde)",
     "veranstalter_url": "https://www.regensburg-marathon.de/regensburg-marathon.html"
   },
   {
@@ -40094,7 +40144,9 @@
     "art2": "Straße",
     "datum_start": "2027-05-14",
     "datum_ende": "2027-05-14",
-    "veranstalter_url": "https://lauf-mit-musik.de/"
+    "veranstalter_url": "https://lauf-mit-musik.de/",
+    "dauer_h": 0.5,
+    "wettbewerb": "30-Minuten-Lauf"
   },
   {
     "land": "Deutschland",
@@ -40494,9 +40546,37 @@
     "art2": "Straße",
     "datum_start": "2027-05-21",
     "datum_ende": "2027-05-22",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km (Paket S)",
     "veranstalter_url": "https://www.hollenmarsch.de/"
+  },
+  {
+    "name": "Bödefelder Hollenmarsch",
+    "datum_start": "2027-05-21",
+    "datum_ende": "2027-05-22",
+    "standort": "Schmallenberg",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 21.0,
+    "wettbewerb": "21 km (Paket M)",
+    "veranstalter_url": "https://www.hollenmarsch.de/",
+    "lat": 51.1526332,
+    "lon": 8.2907901
+  },
+  {
+    "name": "Bödefelder Hollenmarsch",
+    "datum_start": "2027-05-21",
+    "datum_ende": "2027-05-22",
+    "standort": "Schmallenberg",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 42.0,
+    "wettbewerb": "42 km (Paket L)",
+    "veranstalter_url": "https://www.hollenmarsch.de/",
+    "lat": 51.1526332,
+    "lon": 8.2907901
   },
   {
     "land": "Deutschland",
@@ -40711,8 +40791,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-23",
-    "laenge_km": 163.0,
-    "wettbewerb": "163 km",
+    "laenge_km": 162.5,
+    "wettbewerb": "100 Meilen (162,5 km, 26 h)",
     "veranstalter_url": "https://www.hartfuessler.de/halden-mohikaner/"
   },
   {
@@ -40726,7 +40806,7 @@
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-23",
     "laenge_km": 100.0,
-    "wettbewerb": "100 km",
+    "wettbewerb": "100 km (16 h, Runden à 6,25 km)",
     "veranstalter_url": "https://www.hartfuessler.de/halden-mohikaner/"
   },
   {
@@ -40740,7 +40820,7 @@
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-23",
     "laenge_km": 50.0,
-    "wettbewerb": "50 km",
+    "wettbewerb": "50 km (8 h, Runden à 6,25 km)",
     "veranstalter_url": "https://www.hartfuessler.de/halden-mohikaner/"
   },
   {
@@ -40754,7 +40834,7 @@
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-23",
     "laenge_km": 25.0,
-    "wettbewerb": "25 km",
+    "wettbewerb": "25 km (4 h, Runden à 6,25 km)",
     "veranstalter_url": "https://www.hartfuessler.de/halden-mohikaner/"
   },
   {
@@ -41020,6 +41100,48 @@
   },
   {
     "land": "Deutschland",
+    "name": "Ingelheimer Halbe",
+    "standort": "Ingelheim am Rhein",
+    "lat": 49.9764195,
+    "lon": 8.0560682,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
+    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ingelheimer Halbe",
+    "standort": "Ingelheim am Rhein",
+    "lat": 49.9764195,
+    "lon": 8.0560682,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Lauf",
+    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ingelheimer Halbe",
+    "standort": "Ingelheim am Rhein",
+    "lat": 49.9764195,
+    "lon": 8.0560682,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf und Walking",
+    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "Löwenlauf Bad Zwesten",
     "standort": "Bad Zwesten",
     "lat": 51.0520771,
@@ -41223,48 +41345,6 @@
     "datum_start": "2027-05-23",
     "datum_ende": "2027-05-23",
     "veranstalter_url": "https://www.vt-rinteln.de/volksbanklauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rostocker Citylauf",
-    "standort": "Rostock",
-    "lat": 54.0924406,
-    "lon": 12.0991466,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-23",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km (Halbmarathon)",
-    "veranstalter_url": "https://rostocker-citylauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rostocker Citylauf",
-    "standort": "Rostock",
-    "lat": 54.0924406,
-    "lon": 12.0991466,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-23",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://rostocker-citylauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rostocker Citylauf",
-    "standort": "Rostock",
-    "lat": 54.0924406,
-    "lon": 12.0991466,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-23",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://rostocker-citylauf.de/"
   },
   {
     "land": "Deutschland",
@@ -41754,8 +41834,8 @@
     "art2": "Trail",
     "datum_start": "2027-05-29",
     "datum_ende": "2027-05-29",
-    "laenge_km": 11.2,
-    "wettbewerb": "11,25 km (Trailrun)",
+    "laenge_km": 10.5,
+    "wettbewerb": "Trailrun 10,5 km",
     "veranstalter_url": "https://koderlauf.de/"
   },
   {
@@ -41980,48 +42060,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Ingelheimer Halbe",
-    "standort": "Ingelheim am Rhein",
-    "lat": 49.9764195,
-    "lon": 8.0560682,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-30",
-    "datum_ende": "2027-05-30",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km Halbmarathon",
-    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ingelheimer Halbe",
-    "standort": "Ingelheim am Rhein",
-    "lat": 49.9764195,
-    "lon": 8.0560682,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-30",
-    "datum_ende": "2027-05-30",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ingelheimer Halbe",
-    "standort": "Ingelheim am Rhein",
-    "lat": 49.9764195,
-    "lon": 8.0560682,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-30",
-    "datum_ende": "2027-05-30",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lauf und Walking",
-    "veranstalter_url": "https://www.der-ingelheimer-halbe.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Ironman 70.3 Kraichgau",
     "standort": "Ubstadt-Weiher",
     "lat": 49.1627831,
@@ -42216,76 +42254,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
-    "standort": "Berchtesgaden",
-    "lat": 47.6301796,
-    "lon": 13.0000742,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-02",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 111.0,
-    "wettbewerb": "111 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
-    "standort": "Berchtesgaden",
-    "lat": 47.6301796,
-    "lon": 13.0000742,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-02",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 57.0,
-    "wettbewerb": "57 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
-    "standort": "Berchtesgaden",
-    "lat": 47.6301796,
-    "lon": 13.0000742,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-02",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 32.0,
-    "wettbewerb": "32 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
-    "standort": "Berchtesgaden",
-    "lat": 47.6301796,
-    "lon": 13.0000742,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-02",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 29.0,
-    "wettbewerb": "29 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
-    "standort": "Berchtesgaden",
-    "lat": 47.6301796,
-    "lon": 13.0000742,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-02",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Firmenlauf Lörrach",
     "standort": "Lörrach",
     "lat": 47.6167921,
@@ -42295,6 +42263,19 @@
     "datum_start": "2027-06-03",
     "datum_ende": "2027-06-03",
     "veranstalter_url": "https://www.dhbf.de/better-move/firmenlauf/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
+    "standort": "Berchtesgaden",
+    "lat": 47.6301796,
+    "lon": 13.0000742,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-03",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 111.0,
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
   },
   {
     "land": "Deutschland",
@@ -42623,6 +42604,19 @@
     "laenge_km": 92.0,
     "wettbewerb": "92 km",
     "veranstalter_url": "https://www.lauf-zwischen-den-meeren.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
+    "standort": "Berchtesgaden",
+    "lat": 47.6301796,
+    "lon": 13.0000742,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-05",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 57.0,
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
   },
   {
     "land": "Deutschland",
@@ -43032,6 +43026,20 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.lg-mettenheim.de/alleelauf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MOUNTAINMAN Berchtesgaden Stage Run",
+    "standort": "Berchtesgaden",
+    "lat": 47.6301796,
+    "lon": 13.0000742,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 25.0,
+    "wettbewerb": "WATZ Final – 1 Etappe (25 km, 1.300+ hm)",
+    "veranstalter_url": "https://mountainman.de/trailrunning-events/alps/berchtesgaden/"
   },
   {
     "land": "Deutschland",
