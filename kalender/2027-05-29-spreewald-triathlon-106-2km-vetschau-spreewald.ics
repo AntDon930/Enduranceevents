@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-spreewald-triathlon-106-2km-vetschau-spreewald@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Spreewald Triathlon – Mitteldistanz 106\,2 km (2\,2 km Schwimmen /
+  84 km Rad / 20 km Laufen)
+LOCATION:Vetschau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 106.2 km\nhttps://spreewa
+ ld-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

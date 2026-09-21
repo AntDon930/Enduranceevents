@@ -169,7 +169,74 @@
   // "24h" der Name der Veranstaltung, die Zeile selbst aber eine feste
   // 42-km-Strecke. Sie als "24 h" anzuzeigen würde die Distanz
   // verschlucken.
-  function formatLength(e, lang) {
+  // ---------- Triathlon: die Länge ist ein Format ----------
+
+  // Vom Nutzer am 21.09.2026 vorgegeben: "Bei den Triathlon Events wird
+  // die Länge immer so angegeben: Sprint, Kurz, Olympisch, 70.3, 140.6"
+  // (der Munich Triathlon steht damit als "Sprint & Kurzdistanz"). Die
+  // Kilometerzahl - die Summe der Teilstrecken, Datenregel 15 - bleibt in
+  // events.json, sie entscheidet Filter und Sortierung; ANGEZEIGT wird
+  // das Format. Zwei Quellen, in dieser Reihenfolge:
+  // 1. Das Wettbewerbs-Label des Veranstalters. Wer seine 1,5/40/10
+  //    "Kurzdistanz" nennt, bekommt "Kurz", nicht "Olympisch" - beide
+  //    sind dieselbe Distanz, aber der Nutzer will die Bezeichnung der
+  //    Veranstaltung sehen.
+  // 2. Sonst die Summe: unter 40 km Sprint (auch Volks-, Jedermann- und
+  //    Schnupperdistanzen), bis 80 km Olympisch, bis 160 km 70.3,
+  //    darüber 140.6. Das sind GRENZEN zwischen den Formaten, keine
+  //    Toleranzen um die Normdistanzen herum, weil deutsche
+  //    Veranstaltungen abweichen (Moritzburgs Langdistanz hat 218,8 km,
+  //    ein Cross-Triathlon 41,5 km) - dieselben Grenzen wie die
+  //    Kategorien in filters.js, damit Filter und Spalte dasselbe sagen.
+  // Swimrun und Quadrathlon kennen diese Formate nicht (ein 40-km-Swimrun
+  // ist kein "Olympisch"): dort zählt nur das Label, sonst die Kilometer.
+  const TRIATHLON_FORMATE = {
+    sprint:    { rang: 0, de: 'Sprint',    en: 'Sprint' },
+    kurz:      { rang: 1, de: 'Kurz',      en: 'Short' },
+    olympisch: { rang: 1, de: 'Olympisch', en: 'Olympic' },
+    mittel:    { rang: 2, de: '70.3',      en: '70.3' },
+    lang:      { rang: 3, de: '140.6',     en: '140.6' }
+  };
+  // Reihenfolge: das Längste zuerst - "Langdistanz" enthält kein "kurz",
+  // aber "Halbdistanz" und "Mitteldistanz" stehen vor "Distanz"-Resten.
+  const FORMAT_IM_LABEL = [
+    [/140[.,]6|langdist|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist/i, 'lang'],
+    [/70[.,]3|mitteldist|\bmittel\b|middle|halbdist|half[\s-]*dist|halb-?ironman/i, 'mittel'],
+    [/olymp|standard[\s-]*dist/i, 'olympisch'],
+    [/kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist/i, 'kurz'],
+    [/sprint/i, 'sprint']
+  ];
+  function triathlonFormat(e) {
+    if (!e || e.art1 !== 'Triathlon') return null;
+    const label = e.wettbewerb || '';
+    for (const [muster, key] of FORMAT_IM_LABEL) if (muster.test(label)) return key;
+    if (e.art2 === 'Swimrun' || e.art2 === 'Quadrathlon') return null;
+    const km = Number(e.laenge_km);
+    if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
+    if (km < 40) return 'sprint';
+    if (km < 80) return 'olympisch';
+    if (km < 160) return 'mittel';
+    return 'lang';
+  }
+  // "70.3" und "140.6" sind Triathlon-Marken; ein Duathlon über die
+  // Mittel- oder Langdistanz (Spreewald: 19 km Laufen / 84 km Rad / 5 km
+  // Laufen) heißt schlicht "Mittel" bzw. "Lang".
+  const DUATHLON_NAMEN = { mittel: { de: 'Mittel', en: 'Middle' }, lang: { de: 'Lang', en: 'Long' } };
+  function formatName(key, lang, e) {
+    const sprache = lang === 'en' ? 'en' : 'de';
+    if (e && e.art2 === 'Duathlon' && DUATHLON_NAMEN[key]) return DUATHLON_NAMEN[key][sprache];
+    return TRIATHLON_FORMATE[key][sprache];
+  }
+
+  // `opts.mitKm`: "Kurz (51,5 km)" - für den Fakt in der Box und den
+  // Teilen-Text; Tabelle und Pillen zeigen nur das Format.
+  function formatLength(e, lang, opts) {
+    const format = triathlonFormat(e);
+    if (format) {
+      const name = formatName(format, lang, e);
+      return opts && opts.mitKm && e.laenge_km != null
+        ? `${name} (${EF.formatKm(e.laenge_km, lang)})` : name;
+    }
     if (e.laenge_km != null) return EF.formatKm(e.laenge_km, lang);
     if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) {
       return EF.formatHours(e.dauer_h, lang);
@@ -329,7 +396,7 @@
     const zeilen = [
       e.name,
       `${EF.formatEventDate(e, lang)} · ${tv('standort', e.standort)}, ${tv('land', e.land)}`,
-      `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e, lang)}`
+      `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e, lang, { mitKm: true })}`
     ];
     const wb = displayWettbewerb(e);
     if (wb) zeilen.splice(2, 0, wb);
@@ -377,7 +444,7 @@
     const titel = (wb ? `${e.name} – ${wb}` : e.name) + (e.datum_vorlaeufig ? ' ' + t('cal_vorlaeufig') : '');
     const zeilen = [
       `${t('detail_sportart')}: ${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''}`,
-      `${t('detail_laenge')}: ${formatLength(e, lang)}`
+      `${t('detail_laenge')}: ${formatLength(e, lang, { mitKm: true })}`
     ];
     if (e.datum_vorlaeufig) zeilen.unshift(t('detail_vorlaeufig'));
     if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
@@ -553,7 +620,35 @@
   // haben Vorrang, sonst die Dauern der Zeitrennen (Datenregel 8). Ohne
   // Leerzeichen um den Gedankenstrich - die Spalte der Liste ist schmal,
   // "5 – 42,2 km" bräuchte dort zwei Zeilen.
+  // Die Formate der Triathlon-Zeilen einer Veranstaltung, nach Länge
+  // geordnet und ohne Doppelte ("Sprint & Kurz") - oder null, wenn die
+  // Zeilen keine Triathlons sind oder eine Zeile mit Länge kein Format
+  // hat (Swimrun): dann gilt die Kilometer-Spanne wie überall. Zeilen
+  // ganz ohne Angabe werden übergangen, wie bei der Spanne auch.
+  function triathlonFormate(rows) {
+    if (!rows.length || !rows.every(e => e.art1 === 'Triathlon')) return null;
+    const formate = [];
+    for (const e of rows) {
+      const f = triathlonFormat(e);
+      if (!f) {
+        if (e.laenge_km != null || e.dauer_h != null) return null;
+        continue;
+      }
+      if (!formate.includes(f)) formate.push(f);
+    }
+    if (!formate.length) return null;
+    return formate.sort((a, b) => TRIATHLON_FORMATE[a].rang - TRIATHLON_FORMATE[b].rang || a.localeCompare(b));
+  }
+  // "Sprint & Kurz", "Sprint, Olympisch & 70.3" - so hat der Nutzer die
+  // Angabe für den Munich Triathlon vorgegeben ("Sprint & Kurzdistanz").
+  function verbindeNamen(namen) {
+    if (namen.length <= 1) return namen[0] || '–';
+    return `${namen.slice(0, -1).join(', ')} & ${namen[namen.length - 1]}`;
+  }
+
   function formatLengthSpan(rows, lang) {
+    const formate = triathlonFormate(rows);
+    if (formate) return verbindeNamen(formate.map(f => formatName(f, lang, rows[0])));
     const km = [];
     const stunden = [];
     rows.forEach(e => {
@@ -578,12 +673,17 @@
                     : x.e.dauer_h != null ? [1, Number(x.e.dauer_h)] : [2, 0];
     geschwister.sort((a, b) => { const va = wert(a), vb = wert(b); return va[0] - vb[0] || va[1] - vb[1]; });
     const t = ctx.t;
+    // Zwei Strecken mit demselben Format (Jedermann 500/20/5 und Sprint
+    // 750/20/5 sind beide "Sprint") bekommen die Kilometer dazu - sonst
+    // stünden zwei gleiche Pillen nebeneinander.
+    const namen = geschwister.map(x => formatLength(x.e, ctx.lang));
+    const doppelt = new Set(namen.filter((n, i) => namen.indexOf(n) !== i));
     return `<div class="detail-section-title">${escapeHtml(t('detail_strecken_titel'))}</div>`
       + '<div class="detail-strecken" role="group">'
-      + geschwister.map(x => {
+      + geschwister.map((x, i) => {
           const aktiv = x.e === e;
           const wb = displayWettbewerb(x.e);
-          const beschriftung = formatLength(x.e, ctx.lang);
+          const beschriftung = doppelt.has(namen[i]) ? formatLength(x.e, ctx.lang, { mitKm: true }) : namen[i];
           return `<button type="button" class="strecke-pill${aktiv ? ' active' : ''}" data-idx="${x.idx}"`
             + `${aktiv ? ' aria-pressed="true"' : ''}${wb ? ` title="${escapeHtml(wb)}"` : ''}>${escapeHtml(beschriftung)}</button>`;
         }).join('')
@@ -699,6 +799,7 @@
     formatRangeHtml,
     formatEventRangeHtml,
     formatLength,
+    triathlonFormat,
     eventSlug,
     icsFileName,
     icsMasszahl,

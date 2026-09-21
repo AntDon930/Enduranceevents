@@ -1942,6 +1942,20 @@ wie bei den verdächtigen Distanzen:
 Die Meldungen stehen bei jedem Lauf von `clean_events.py` im Bericht
 (mit `--quiet` nur als Zahl).
 
+**Die Länge eines Triathlons ist ein Format.** Seit dem 21.09.2026 zeigt
+die Liste bei Triathlons nicht die Kilometer, sondern das Format, wie es
+im Triathlon üblich ist (Vorgabe des Nutzers): **Sprint, Kurz,
+Olympisch, 70.3, 140.6** – erst nach dem Wettbewerbs-Label des
+Veranstalters („Kurzdistanz" bleibt „Kurz"), sonst nach der Summe der
+Teilstrecken (unter 40 km Sprint, bis 80 km Olympisch, bis 160 km 70.3,
+darüber 140.6). Eine Veranstaltung mit mehreren Strecken steht als
+„Sprint & Kurz" in der Liste, die Box nennt zu jeder Strecke die
+Kilometer („Kurz (51,5 km)"). Die Filterkategorien nehmen dieselben
+Grenzen. Im selben Zug wurden alle 43 Triathlons ohne Länge an der
+Ausschreibung nachgetragen (98 Strecken) und die Teilstrecken-Zeilen
+(Ironman Hamburg 3,8 km, Berlin Triathlon 5/9/19 km, …) bereinigt –
+siehe CLAUDE.md, „Zwölfter Durchgang".
+
 **Und umgekehrt: ein Lauf im Triathlon-Kalender.** Seit running.life
 auch die Triathlon-Kalender liefert (`default_art1 = "Triathlon"`),
 stand der „O-SEE Ultra Trail" – ein reines Trail-Lauf-Event, das

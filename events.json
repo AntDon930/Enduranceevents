@@ -6562,7 +6562,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 7.0,
-    "wettbewerb": "7,0 km",
+    "wettbewerb": "7 km (offene Klasse ab 12; Zweierteam mit einem Rad)",
     "veranstalter_url": "https://kronberger-bikeandrun.de/"
   },
   {
@@ -6576,7 +6576,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 13.2,
-    "wettbewerb": "13,2 km",
+    "wettbewerb": "13,2 km (offene Klasse ab 14; Zweierteam mit einem Rad)",
     "veranstalter_url": "https://kronberger-bikeandrun.de/"
   },
   {
@@ -6586,11 +6586,11 @@
     "lat": 50.1826861,
     "lon": 8.5201703,
     "art1": "Triathlon",
-    "art2": "Straße",
+    "art2": "Duathlon",
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 4.5,
-    "wettbewerb": "4,5 km",
+    "wettbewerb": "4,5 km (Schueler B und offene Klasse; Zweierteam mit einem Rad)",
     "veranstalter_url": "https://kronberger-bikeandrun.de/"
   },
   {
@@ -18046,7 +18046,9 @@
     "art2": "Duathlon",
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
-    "veranstalter_url": "https://www.radteam-neu-isenburg.de/index.php?id=153"
+    "veranstalter_url": "https://www.radteam-neu-isenburg.de/index.php?id=153",
+    "laenge_km": 29.6,
+    "wettbewerb": "Duathlon 29,6 km (5 km Laufen / 20 km Rad / 4,6 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -21028,6 +21030,22 @@
     "art2": "Duathlon",
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
+    "veranstalter_url": "https://www.tg-tria-ruesselsheim.de/ruesselcross-start/",
+    "laenge_km": 27.5,
+    "wettbewerb": "RüsselCross Classic 27,5 km (5 km Laufen / 20 km MTB / 2,5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rüsselcross Duathlon",
+    "standort": "Rüsselsheim am Main",
+    "lat": 49.9887497,
+    "lon": 8.4216976,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 13.0,
+    "wettbewerb": "Jedermann 13 km (2,3 km Laufen / 10 km MTB / 0,7 km Laufen)",
     "veranstalter_url": "https://www.tg-tria-ruesselsheim.de/ruesselcross-start/"
   },
   {
@@ -23918,6 +23936,22 @@
     "art2": "Duathlon",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
+    "veranstalter_url": "https://triathlon.eintracht.de/wettkaempfe/nikolaus-duathlon/",
+    "laenge_km": 28.5,
+    "wettbewerb": "Xtra 28,5 km (5 km Laufen / 21 km Rad / 2,5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Nikolaus Duathlon",
+    "standort": "Frankfurt am Main",
+    "lat": 50.1109221,
+    "lon": 8.6821267,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2026-12-05",
+    "datum_ende": "2026-12-05",
+    "laenge_km": 19.0,
+    "wettbewerb": "Light 19 km (2 km Laufen / 15 km Rad / 2 km Laufen)",
     "veranstalter_url": "https://triathlon.eintracht.de/wettkaempfe/nikolaus-duathlon/"
   },
   {
@@ -30818,39 +30852,11 @@
     "lat": 48.9609405,
     "lon": 9.2523179,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Duathlon",
     "datum_start": "2027-01-30",
     "datum_ende": "2027-01-30",
-    "laenge_km": 5.0,
-    "wettbewerb": "Run 1",
-    "veranstalter_url": "https://sillahopp.squarespace.com/dirty-race"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Dirty Race",
-    "standort": "Murr",
-    "lat": 48.9609405,
-    "lon": 9.2523179,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-30",
-    "datum_ende": "2027-01-30",
-    "laenge_km": 15.0,
-    "wettbewerb": "Bike",
-    "veranstalter_url": "https://sillahopp.squarespace.com/dirty-race"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Dirty Race",
-    "standort": "Murr",
-    "lat": 48.9609405,
-    "lon": 9.2523179,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-01-30",
-    "datum_ende": "2027-01-30",
-    "laenge_km": 4.4,
-    "wettbewerb": "Run 2",
+    "laenge_km": 24.4,
+    "wettbewerb": "Solo 24,4 km (5 km Laufen / 15 km MTB / 4,4 km Laufen)",
     "veranstalter_url": "https://sillahopp.squarespace.com/dirty-race"
   },
   {
@@ -33623,7 +33629,7 @@
     "lat": 50.8282222,
     "lon": 12.9208547,
     "art1": "Triathlon",
-    "art2": "Straße",
+    "art2": "Indoor",
     "datum_start": "2027-03-20",
     "datum_ende": "2027-03-21",
     "laenge_km": 12.0,
@@ -33637,11 +33643,11 @@
     "lat": 50.8282222,
     "lon": 12.9208547,
     "art1": "Triathlon",
-    "art2": "Straße",
+    "art2": "Indoor",
     "datum_start": "2027-03-20",
     "datum_ende": "2027-03-21",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 6.2,
+    "wettbewerb": "Super Super Sprint 6,2 km (200 m Schwimmen / 5 km Rad / 1 km Laufen)",
     "veranstalter_url": "http://www.indoortriathlon-chemnitz.de"
   },
   {
@@ -38447,6 +38453,36 @@
     "art2": "Duathlon",
     "datum_start": "2027-05-01",
     "datum_ende": "2027-05-01",
+    "veranstalter_url": "https://www.spreewald-triathlon.de/",
+    "laenge_km": 108.0,
+    "wettbewerb": "Langdistanz 108 km (19 km Laufen / 84 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Spreewald Duathlon",
+    "standort": "Lübbenau/Spreewald",
+    "lat": 51.8654806,
+    "lon": 13.9539622,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-05-01",
+    "datum_ende": "2027-05-01",
+    "laenge_km": 57.0,
+    "wettbewerb": "Kurzdistanz 57 km (10 km Laufen / 42 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.spreewald-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Spreewald Duathlon",
+    "standort": "Lübbenau/Spreewald",
+    "lat": 51.8654806,
+    "lon": 13.9539622,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-05-01",
+    "datum_ende": "2027-05-01",
+    "laenge_km": 22.0,
+    "wettbewerb": "22 km (6 km Laufen / 11 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.spreewald-triathlon.de/"
   },
   {
@@ -39400,7 +39436,9 @@
     "art2": "Cross",
     "datum_start": "2027-05-08",
     "datum_ende": "2027-05-08",
-    "veranstalter_url": "https://www.tri-gz.de/g%C3%BCnzburger-alkoholfrei-cross-triathlon-2027/"
+    "veranstalter_url": "https://www.tri-gz.de/g%C3%BCnzburger-alkoholfrei-cross-triathlon-2027/",
+    "laenge_km": 31.4,
+    "wettbewerb": "Cross-Triathlon 31,4 km (400 m Schwimmen / 26 km MTB / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -39859,7 +39897,9 @@
     "datum_start": "2027-05-08",
     "datum_ende": "2027-05-08",
     "veranstalter_url": "https://triathlon-offenburg.de/",
-    "datum_vorlaeufig": true
+    "datum_vorlaeufig": true,
+    "laenge_km": 27.5,
+    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -40773,6 +40813,36 @@
     "art2": "Straße",
     "datum_start": "2027-05-16",
     "datum_ende": "2027-05-16",
+    "veranstalter_url": "https://drensteinfurt-triathlon.de/",
+    "laenge_km": 25.4,
+    "wettbewerb": "Jedermann Sprint 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Drensteinfurt Triathlon",
+    "standort": "Drensteinfurt",
+    "lat": 51.7941523,
+    "lon": 7.7354791,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-16",
+    "datum_ende": "2027-05-16",
+    "laenge_km": 50.8,
+    "wettbewerb": "Jedermann Kurz 50,8 km (800 m Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://drensteinfurt-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Drensteinfurt Triathlon",
+    "standort": "Drensteinfurt",
+    "lat": 51.7941523,
+    "lon": 7.7354791,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-16",
+    "datum_ende": "2027-05-16",
+    "laenge_km": 76.2,
+    "wettbewerb": "Jedermann Mittel 76,2 km (1,2 km Schwimmen / 60 km Rad / 15 km Laufen)",
     "veranstalter_url": "https://drensteinfurt-triathlon.de/"
   },
   {
@@ -41364,6 +41434,22 @@
     "art2": "Straße",
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-22",
+    "veranstalter_url": "https://www.lv-oelde.de/de/triathlon/volkstriathlon/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Oelder Triathlon",
+    "standort": "Oelde",
+    "lat": 51.8297412,
+    "lon": 8.1463962,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-22",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 11.9,
+    "wettbewerb": "Schnupperdistanz 11,9 km (200 m Schwimmen / 10 km Rad / 1,7 km Laufen)",
     "veranstalter_url": "https://www.lv-oelde.de/de/triathlon/volkstriathlon/"
   },
   {
@@ -42351,6 +42437,22 @@
     "art2": "Straße",
     "datum_start": "2027-05-29",
     "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://powertriathlon.de/home",
+    "laenge_km": 51.5,
+    "wettbewerb": "Powertriathlon 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Powertriathlon Gera",
+    "standort": "Gera",
+    "lat": 50.8850706,
+    "lon": 12.0807203,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-29",
+    "datum_ende": "2027-05-30",
+    "laenge_km": 25.7,
+    "wettbewerb": "Sprint 25,7 km (700 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://powertriathlon.de/home"
   },
   {
@@ -42377,7 +42479,9 @@
     "art2": "Straße",
     "datum_start": "2027-05-29",
     "datum_ende": "2027-05-29",
-    "veranstalter_url": "https://spreewald-triathlon.de/"
+    "veranstalter_url": "https://spreewald-triathlon.de/",
+    "laenge_km": 106.2,
+    "wettbewerb": "Mitteldistanz 106,2 km (2,2 km Schwimmen / 84 km Rad / 20 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -42583,7 +42687,37 @@
     "art2": "Straße",
     "datum_start": "2027-05-30",
     "datum_ende": "2027-05-30",
-    "veranstalter_url": "https://portal.run-timing.de/1025/registration"
+    "veranstalter_url": "https://post-sv-uelzen.de/oseetriathlon",
+    "laenge_km": 27.1,
+    "wettbewerb": "Sprint 27,1 km (750 m Schwimmen / 22 km Rad / 4,4 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "O-See-Triathlon Uelzen",
+    "standort": "Uelzen",
+    "lat": 52.9652883,
+    "lon": 10.5573402,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "laenge_km": 53.3,
+    "wettbewerb": "Standard 53,3 km (1,5 km Schwimmen / 43 km Rad / 8,8 km Laufen)",
+    "veranstalter_url": "https://post-sv-uelzen.de/oseetriathlon"
+  },
+  {
+    "land": "Deutschland",
+    "name": "O-See-Triathlon Uelzen",
+    "standort": "Uelzen",
+    "lat": 52.9652883,
+    "lon": 10.5573402,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "laenge_km": 106.9,
+    "wettbewerb": "Half 106,9 km (1,9 km Schwimmen / 85 km Rad / 20 km Laufen)",
+    "veranstalter_url": "https://post-sv-uelzen.de/oseetriathlon"
   },
   {
     "land": "Deutschland",
@@ -42727,6 +42861,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Spreewald Triathlon",
+    "standort": "Vetschau/Spreewald",
+    "lat": 51.783243,
+    "lon": 14.0757975,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "laenge_km": 53.5,
+    "wettbewerb": "Olympische Distanz 53,5 km (1,5 km Schwimmen / 42 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://spreewald-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Volks- und Staffeltriathlon TuS Wasserstraße",
     "standort": "Petershagen",
     "lat": 52.3745951,
@@ -42844,6 +42992,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-04",
     "datum_ende": "2027-06-05",
+    "veranstalter_url": "https://www.koberbachtal-triathlon.de/",
+    "laenge_km": 47.5,
+    "wettbewerb": "Olympische Distanz 47,5 km (1,5 km Schwimmen / 36 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Koberbachtal-Triathlon",
+    "standort": "Werdau",
+    "lat": 50.7288716,
+    "lon": 12.3751839,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-04",
+    "datum_ende": "2027-06-05",
+    "laenge_km": 25.8,
+    "wettbewerb": "Jedermann 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.koberbachtal-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Koberbachtal-Triathlon",
+    "standort": "Werdau",
+    "lat": 50.7288716,
+    "lon": 12.3751839,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-04",
+    "datum_ende": "2027-06-05",
+    "laenge_km": 12.9,
+    "wettbewerb": "Einsteiger / Supersprint 12,9 km (400 m Schwimmen / 10 km Rad / 2,5 km Laufen)",
     "veranstalter_url": "https://www.koberbachtal-triathlon.de/"
   },
   {
@@ -43011,8 +43189,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-06",
-    "laenge_km": 19.0,
-    "wettbewerb": "19 km",
+    "laenge_km": 108.9,
+    "wettbewerb": "Mitteldistanz 108,9 km (1,9 km Schwimmen / 88 km Rad / 19 km Laufen)",
     "veranstalter_url": "https://berlin-triathlon.de/"
   },
   {
@@ -43025,8 +43203,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-06",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 47.2,
+    "wettbewerb": "Olympische Distanz 47,2 km (1,5 km Schwimmen / 36,5 km Rad / 9,2 km Laufen)",
     "veranstalter_url": "https://berlin-triathlon.de/"
   },
   {
@@ -43039,8 +43217,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-06",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 27.2,
+    "wettbewerb": "Sprintdistanz 27,2 km (750 m Schwimmen / 21,7 km Rad / 4,7 km Laufen)",
+    "veranstalter_url": "https://berlin-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Berlin Triathlon",
+    "standort": "Berlin",
+    "lat": 52.5200066,
+    "lon": 13.404954,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-05",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 17.3,
+    "wettbewerb": "Fitnesstriathlon 17,3 km (400 m Schwimmen / 14,1 km Rad / 2,8 km Laufen)",
     "veranstalter_url": "https://berlin-triathlon.de/"
   },
   {
@@ -43437,7 +43629,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
-    "veranstalter_url": "https://www.bonn-triathlon.de/"
+    "veranstalter_url": "https://www.bonn-triathlon.de/",
+    "laenge_km": 84.2,
+    "wettbewerb": "84,2 km (4,2 km Schwimmen / 65 km Rad / 15 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -43449,6 +43643,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
+    "veranstalter_url": "https://www.enni-triathlon.de/",
+    "laenge_km": 48.0,
+    "wettbewerb": "Kurzdistanz 48 km (1 km Schwimmen / 37 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Enni-Triathlon",
+    "standort": "Moers",
+    "lat": 51.4516041,
+    "lon": 6.6408148,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 24.5,
+    "wettbewerb": "Sprintdistanz 24,5 km (500 m Schwimmen / 19 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.enni-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Enni-Triathlon",
+    "standort": "Moers",
+    "lat": 51.4516041,
+    "lon": 6.6408148,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 13.2,
+    "wettbewerb": "Fitnessdistanz 13,2 km (250 m Schwimmen / 10 km Rad / 3 km Laufen)",
     "veranstalter_url": "https://www.enni-triathlon.de/"
   },
   {
@@ -43553,20 +43777,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Ironman Hamburg",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-06",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 3.8,
-    "wettbewerb": "3,8 km Schwimmen durch die Alster",
-    "veranstalter_url": "https://www.ironman.com/races/im-hamburg"
-  },
-  {
-    "land": "Deutschland",
     "name": "Mettenheimer Alleelauf",
     "standort": "Mettenheim",
     "lat": 48.2655698,
@@ -43657,6 +43867,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
+    "veranstalter_url": "http://trispeed.de/triathlon/",
+    "laenge_km": 51.0,
+    "wettbewerb": "Kurzdistanz 51 km (1 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Reiling - Harsewinkel Triathlon",
+    "standort": "Harsewinkel",
+    "lat": 51.9642818,
+    "lon": 8.2333679,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "http://trispeed.de/triathlon/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Reiling - Harsewinkel Triathlon",
+    "standort": "Harsewinkel",
+    "lat": 51.9642818,
+    "lon": 8.2333679,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 12.0,
+    "wettbewerb": "Schnuppertriathlon 12 km (200 m Schwimmen / 10 km Rad / 1,8 km Laufen)",
     "veranstalter_url": "http://trispeed.de/triathlon/"
   },
   {
@@ -43766,6 +44006,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
+    "veranstalter_url": "https://triathlon-ingolstadt.de/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Ingolstadt",
+    "standort": "Ingolstadt",
+    "lat": 48.7667395,
+    "lon": 11.4226498,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://triathlon-ingolstadt.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Ingolstadt",
+    "standort": "Ingolstadt",
+    "lat": 48.7667395,
+    "lon": 11.4226498,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 107.9,
+    "wettbewerb": "Mitteldistanz 107,9 km (1,9 km Schwimmen / 86 km Rad / 20 km Laufen)",
     "veranstalter_url": "https://triathlon-ingolstadt.de/"
   },
   {
@@ -44761,6 +45031,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://www.aasee-triathlon.de",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Aasee Triathlon",
+    "standort": "Bocholt",
+    "lat": 51.8384277,
+    "lon": 6.6150917,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 51.5,
+    "wettbewerb": "Bocholter Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.aasee-triathlon.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Aasee Triathlon",
+    "standort": "Bocholt",
+    "lat": 51.8384277,
+    "lon": 6.6150917,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 112.0,
+    "wettbewerb": "Mitteldistanz 112 km (2 km Schwimmen / 90 km Rad / 20 km Laufen)",
     "veranstalter_url": "https://www.aasee-triathlon.de"
   },
   {
@@ -44801,6 +45101,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://www.burgwald-triathlon.de/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Burgwald Triathlon",
+    "standort": "Burgwald",
+    "lat": 51.0195754,
+    "lon": 8.7579484,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.burgwald-triathlon.de/"
   },
   {
@@ -45119,6 +45435,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://trisport-erding.de/stadttriathlon/information-stadttriathlon/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Stadttriathlon Erding",
+    "standort": "Erding",
+    "lat": 48.3058389,
+    "lon": 11.9068811,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 25.4,
+    "wettbewerb": "Volksdistanz 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://trisport-erding.de/stadttriathlon/information-stadttriathlon/"
   },
   {
@@ -45159,6 +45491,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://www.triathlon-heilbronn.de/",
+    "laenge_km": 27.8,
+    "wettbewerb": "Sprintdistanz 27,8 km (750 m Schwimmen / 22 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Heilbronn",
+    "standort": "Heilbronn",
+    "lat": 49.1426929,
+    "lon": 9.210879,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 57.0,
+    "wettbewerb": "Kurzdistanz 57 km (1,5 km Schwimmen / 45 km Rad / 10,5 km Laufen)",
+    "veranstalter_url": "https://www.triathlon-heilbronn.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Heilbronn",
+    "standort": "Heilbronn",
+    "lat": 49.1426929,
+    "lon": 9.210879,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 106.4,
+    "wettbewerb": "Mitteldistanz 106,4 km (1,9 km Schwimmen / 83 km Rad / 21,5 km Laufen)",
     "veranstalter_url": "https://www.triathlon-heilbronn.de/"
   },
   {
@@ -45199,6 +45561,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://www.wuerzburg-triathlon.de/",
+    "laenge_km": 27.6,
+    "wettbewerb": "Jedermann Distanz 27,6 km (600 m Schwimmen / 22 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Würzburg Triathlon",
+    "standort": "Würzburg",
+    "lat": 49.7913044,
+    "lon": 9.9533548,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 55.5,
+    "wettbewerb": "Olympische Distanz 55,5 km (1,5 km Schwimmen / 44 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.wuerzburg-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Würzburg Triathlon",
+    "standort": "Würzburg",
+    "lat": 49.7913044,
+    "lon": 9.9533548,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 113.1,
+    "wettbewerb": "Mitteldistanz 113,1 km (2,1 km Schwimmen / 90 km Rad / 21 km Laufen)",
     "veranstalter_url": "https://www.wuerzburg-triathlon.de/"
   },
   {
@@ -45771,6 +46163,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
+    "veranstalter_url": "https://www.triathlon-ottobeuren.de/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Unterallgäuer Triathlon",
+    "standort": "Ottobeuren",
+    "lat": 47.941043,
+    "lon": 10.3006937,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.triathlon-ottobeuren.de/"
   },
   {
@@ -45937,7 +46345,7 @@
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
     "laenge_km": 51.0,
-    "wettbewerb": "51 km",
+    "wettbewerb": "Kurzdistanz 51 km (1 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://tglage.de/triathlon.html#lipperlandtriathlon"
   },
   {
@@ -45950,36 +46358,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
-    "laenge_km": 26.0,
-    "wettbewerb": "26 km",
-    "veranstalter_url": "https://tglage.de/triathlon.html#lipperlandtriathlon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lipperlandtriathlon",
-    "standort": "Lage",
-    "lat": 51.9906003,
-    "lon": 8.7895873,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-20",
-    "datum_ende": "2027-06-20",
-    "laenge_km": 13.0,
-    "wettbewerb": "13 km",
-    "veranstalter_url": "https://tglage.de/triathlon.html#lipperlandtriathlon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lipperlandtriathlon",
-    "standort": "Lage",
-    "lat": 51.9906003,
-    "lon": 8.7895873,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-20",
-    "datum_ende": "2027-06-20",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://tglage.de/triathlon.html#lipperlandtriathlon"
   },
   {
@@ -46048,6 +46428,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
+    "veranstalter_url": "https://muenster-triathlon.de/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Münster City Triathlon",
+    "standort": "Münster",
+    "lat": 51.9606649,
+    "lon": 7.6261347,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-20",
+    "datum_ende": "2027-06-20",
+    "laenge_km": 51.4,
+    "wettbewerb": "Olympische Distanz 51,4 km (1,4 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://muenster-triathlon.de/"
   },
   {
@@ -46170,6 +46566,36 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-20",
+    "veranstalter_url": "https://www.steinbeck-triathlon.de/",
+    "laenge_km": 32.5,
+    "wettbewerb": "ShortMan 32,5 km (500 m Schwimmen / 27 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Steinbecker Triathlon",
+    "standort": "Recke",
+    "lat": 52.3710519,
+    "lon": 7.7189989,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-20",
+    "datum_ende": "2027-06-20",
+    "laenge_km": 53.5,
+    "wettbewerb": "Olympische Distanz 53,5 km (1,5 km Schwimmen / 42 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.steinbeck-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Steinbecker Triathlon",
+    "standort": "Recke",
+    "lat": 52.3710519,
+    "lon": 7.7189989,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-20",
+    "datum_ende": "2027-06-20",
+    "laenge_km": 92.5,
+    "wettbewerb": "SteelMan (Mitteldistanz) 92,5 km (1,5 km Schwimmen / 70 km Rad / 21 km Laufen)",
     "veranstalter_url": "https://www.steinbeck-triathlon.de/"
   },
   {
@@ -46401,23 +46827,9 @@
     "art1": "Triathlon",
     "art2": "Straße",
     "datum_start": "2027-06-25",
-    "datum_ende": "2027-06-27",
-    "laenge_km": 20.0,
-    "wettbewerb": "20 km",
-    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
-  },
-  {
-    "land": "Deutschland",
-    "name": "triathlon.de CUP München",
-    "standort": "Oberschleißheim",
-    "lat": 48.2522461,
-    "lon": 11.559062,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-25",
-    "datum_ende": "2027-06-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "datum_ende": "2027-06-25",
+    "laenge_km": 12.7,
+    "wettbewerb": "Schnupper-Triathlon 12,7 km (200 m Schwimmen / 10 km Rad / 2,5 km Laufen)",
     "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
   },
   {
@@ -46544,6 +46956,22 @@
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
+    "veranstalter_url": "https://edersee-triathlon.de/",
+    "laenge_km": 53.5,
+    "wettbewerb": "Olympische Distanz 53,5 km (1,5 km Schwimmen / 42 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Edersee-Triathlon",
+    "standort": "Waldeck",
+    "lat": 51.2076269,
+    "lon": 9.0646516,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 23.8,
+    "wettbewerb": "Volkstriathlon 23,8 km (750 m Schwimmen / 18 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://edersee-triathlon.de/"
   },
   {
@@ -46812,6 +47240,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "triathlon.de CUP München",
+    "standort": "Oberschleißheim",
+    "lat": 48.2522461,
+    "lon": 11.559062,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
+  },
+  {
+    "land": "Deutschland",
     "name": "Waaker Bystopen-Attacke",
     "standort": "Waake",
     "lat": 51.5562273,
@@ -46848,6 +47290,50 @@
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
+    "veranstalter_url": "https://werbellinseetriathlon.de/",
+    "laenge_km": 49.8,
+    "wettbewerb": "Olympische Distanz 49,8 km (1,5 km Schwimmen / 39 km Rad / 9,3 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Werbellinsee Triathlon",
+    "standort": "Werbellinsee",
+    "lat": 52.9240948,
+    "lon": 13.7139476,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 24.4,
+    "wettbewerb": "Sprinttriathlon 24,4 km (700 m Schwimmen / 19 km Rad / 4,8 km Laufen)",
+    "veranstalter_url": "https://werbellinseetriathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Werbellinsee Triathlon",
+    "standort": "Werbellinsee",
+    "lat": 52.9240948,
+    "lon": 13.7139476,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 15.4,
+    "wettbewerb": "Volkstriathlon 15,4 km (400 m Schwimmen / 12 km Rad / 3 km Laufen)",
+    "veranstalter_url": "https://werbellinseetriathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Werbellinsee Triathlon",
+    "standort": "Werbellinsee",
+    "lat": 52.9240948,
+    "lon": 13.7139476,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "laenge_km": 34.0,
+    "wettbewerb": "Schorfheide-Graveltriathlon 34 km (1,5 km Schwimmen / 25 km Rad / 7,5 km Laufen)",
     "veranstalter_url": "https://werbellinseetriathlon.de/"
   },
   {
@@ -47028,7 +47514,65 @@
     "art2": "Straße",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
+    "veranstalter_url": "https://triathlon-trebgast.de/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Trebgast",
+    "standort": "Trebgast",
+    "lat": 50.0658515,
+    "lon": 11.5520426,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 25.0,
+    "wettbewerb": "Volksdistanz 25 km (500 m Schwimmen / 20 km Rad / 4,5 km Laufen)",
     "veranstalter_url": "https://triathlon-trebgast.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Trebgast",
+    "standort": "Trebgast",
+    "lat": 50.0658515,
+    "lon": 11.5520426,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 11.9,
+    "wettbewerb": "Schnupperdistanz 11,9 km (200 m Schwimmen / 10 km Rad / 1,8 km Laufen)",
+    "veranstalter_url": "https://triathlon-trebgast.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "triathlon.de CUP München",
+    "standort": "Oberschleißheim",
+    "lat": 48.2522461,
+    "lon": 11.559062,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volks-Triathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
+  },
+  {
+    "land": "Deutschland",
+    "name": "triathlon.de CUP München",
+    "standort": "Oberschleißheim",
+    "lat": 48.2522461,
+    "lon": 11.559062,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 101.9,
+    "wettbewerb": "Mitteldistanz 101,9 km (1,9 km Schwimmen / 80 km Rad / 20 km Laufen)",
+    "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
   },
   {
     "land": "Deutschland",
@@ -47136,22 +47680,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-03",
     "datum_ende": "2027-07-03",
-    "laenge_km": 21.5,
-    "wettbewerb": "21,5 km Radfahren Richtung Groß Walmstorf",
-    "veranstalter_url": "https://www.aluman-gvm.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Aluman",
-    "standort": "Grevesmühlen",
-    "lat": 53.8600277,
-    "lon": 11.1906933,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-07-03",
-    "datum_ende": "2027-07-03",
-    "laenge_km": 3.2,
-    "wettbewerb": "2 x 3,25 km Laufen um den Ploggensee",
+    "laenge_km": 28.5,
+    "wettbewerb": "Aluman 28,5 km (500 m Schwimmen / 21,5 km Rad / 6,5 km Laufen)",
     "veranstalter_url": "https://www.aluman-gvm.de"
   },
   {
@@ -47774,6 +48304,22 @@
     "art2": "Straße",
     "datum_start": "2027-07-04",
     "datum_ende": "2027-07-04",
+    "veranstalter_url": "https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon",
+    "laenge_km": 25.4,
+    "wettbewerb": "Volkstriathlon (Saerbeck Classic) 25,4 km (700 m Schwimmen / 20 km Rad / 4,7 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Saerbecker Triathlon",
+    "standort": "Saerbeck",
+    "lat": 52.1747613,
+    "lon": 7.6313899,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "laenge_km": 51.8,
+    "wettbewerb": "Kurzdistanz 51,8 km (1,4 km Schwimmen / 40 km Rad / 10,4 km Laufen)",
     "veranstalter_url": "https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon"
   },
   {
@@ -47857,8 +48403,8 @@
     "art2": "Straße",
     "datum_start": "2027-07-04",
     "datum_ende": "2027-07-04",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 28.0,
+    "wettbewerb": "Volkstriathlon 28 km (500 m Schwimmen / 23 km Rad / 4,5 km Laufen)",
     "veranstalter_url": "https://www.triathlon-wanzleben.de/"
   },
   {
@@ -48091,6 +48637,22 @@
     "art2": "Straße",
     "datum_start": "2027-07-11",
     "datum_ende": "2027-07-11",
+    "veranstalter_url": "https://www.tripaul.de/tri",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprint 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Churfranken Triathlon",
+    "standort": "Niedernberg",
+    "lat": 49.9148781,
+    "lon": 9.1349242,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympisch 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.tripaul.de/tri"
   },
   {
@@ -48220,6 +48782,22 @@
     "art2": "Straße",
     "datum_start": "2027-07-11",
     "datum_ende": "2027-07-11",
+    "veranstalter_url": "https://www.triathlon-verl.de/",
+    "laenge_km": 25.8,
+    "wettbewerb": "Volksdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "IOK-Triathlon Verl",
+    "standort": "Verl",
+    "lat": 51.8819448,
+    "lon": 8.5061035,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 51.5,
+    "wettbewerb": "Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.triathlon-verl.de/"
   },
   {
@@ -48316,6 +48894,22 @@
     "art2": "Straße",
     "datum_start": "2027-07-11",
     "datum_ende": "2027-07-11",
+    "veranstalter_url": "https://tc-fiko.de/rostocker-triathlon/",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rostocker Triathlon",
+    "standort": "Rostock",
+    "lat": 54.0924406,
+    "lon": 12.0991466,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 12.9,
+    "wettbewerb": "Supersprintdistanz 12,9 km (400 m Schwimmen / 10 km Rad / 2,5 km Laufen)",
     "veranstalter_url": "https://tc-fiko.de/rostocker-triathlon/"
   },
   {
@@ -48804,6 +49398,36 @@
     "art2": "Straße",
     "datum_start": "2027-07-18",
     "datum_ende": "2027-07-18",
+    "veranstalter_url": "https://www.mey-generalbau-triathlon.com/",
+    "laenge_km": 54.2,
+    "wettbewerb": "Kurzdistanz 54,2 km (1,5 km Schwimmen / 43 km Rad / 9,7 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Tübingen",
+    "standort": "Tübingen",
+    "lat": 48.5216364,
+    "lon": 9.0576448,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "laenge_km": 27.4,
+    "wettbewerb": "Sprintdistanz 27,4 km (750 m Schwimmen / 22 km Rad / 4,7 km Laufen)",
+    "veranstalter_url": "https://www.mey-generalbau-triathlon.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triathlon Tübingen",
+    "standort": "Tübingen",
+    "lat": 48.5216364,
+    "lon": 9.0576448,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "laenge_km": 14.5,
+    "wettbewerb": "Schnupperdistanz 14,5 km (300 m Schwimmen / 11 km Rad / 3,2 km Laufen)",
     "veranstalter_url": "https://www.mey-generalbau-triathlon.com/"
   },
   {
@@ -49164,6 +49788,22 @@
     "art2": "Straße",
     "datum_start": "2027-07-25",
     "datum_ende": "2027-07-25",
+    "veranstalter_url": "https://www.munich-triathlon.com/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Munich Triathlon",
+    "standort": "München",
+    "lat": 48.1351253,
+    "lon": 11.5819806,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-25",
+    "datum_ende": "2027-07-25",
+    "laenge_km": 51.5,
+    "wettbewerb": "Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.munich-triathlon.com/"
   },
   {
@@ -49246,6 +49886,36 @@
     "art2": "Straße",
     "datum_start": "2027-07-25",
     "datum_ende": "2027-07-25",
+    "veranstalter_url": "https://silbersee-triathlon.com/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Silbersee-Triathlon",
+    "standort": "Stuhr",
+    "lat": 53.0289775,
+    "lon": 8.7361402,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-25",
+    "datum_ende": "2027-07-25",
+    "laenge_km": 28.8,
+    "wettbewerb": "Sprintdistanz 28,8 km (750 m Schwimmen / 23 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://silbersee-triathlon.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Silbersee-Triathlon",
+    "standort": "Stuhr",
+    "lat": 53.0289775,
+    "lon": 8.7361402,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-25",
+    "datum_ende": "2027-07-25",
+    "laenge_km": 28.5,
+    "wettbewerb": "Volksdistanz 28,5 km (500 m Schwimmen / 23 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://silbersee-triathlon.com/"
   },
   {
@@ -49581,6 +50251,22 @@
     "art2": "Straße",
     "datum_start": "2027-08-01",
     "datum_ende": "2027-08-01",
+    "veranstalter_url": "https://scharmuetzelsee-triathlon.de/",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Scharmützelsee Triathlon",
+    "standort": "Bad Saarow",
+    "lat": 52.2742962,
+    "lon": 14.0546568,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-01",
+    "datum_ende": "2027-08-01",
+    "laenge_km": 49.5,
+    "wettbewerb": "Olympische Distanz 49,5 km (1,5 km Schwimmen / 38 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://scharmuetzelsee-triathlon.de/"
   },
   {
@@ -49718,7 +50404,9 @@
     "art2": "Straße",
     "datum_start": "2027-08-07",
     "datum_ende": "2027-08-08",
-    "veranstalter_url": "https://nordseeman.de/"
+    "veranstalter_url": "https://nordseeman.de/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -49730,7 +50418,9 @@
     "art2": "Straße",
     "datum_start": "2027-08-07",
     "datum_ende": "2027-08-07",
-    "veranstalter_url": "https://usedom-triathlon.de/"
+    "veranstalter_url": "https://usedom-triathlon.de/",
+    "laenge_km": 19.5,
+    "wettbewerb": "Volkssporttriathlon 19,5 km (500 m Schwimmen / 15 km Rad / 4 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -49826,6 +50516,22 @@
     "art2": "Straße",
     "datum_start": "2027-08-08",
     "datum_ende": "2027-08-08",
+    "veranstalter_url": "https://citytriathlonbremen.de/start/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volkstriathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "City Triathlon Bremen",
+    "standort": "Bremen",
+    "lat": 53.0792962,
+    "lon": 8.8016937,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-08",
+    "datum_ende": "2027-08-08",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympic Triathlon 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://citytriathlonbremen.de/start/"
   },
   {
@@ -49841,6 +50547,34 @@
     "veranstalter_url": "https://www.ironman.com/races/im703-leipzig",
     "laenge_km": 113.0,
     "wettbewerb": "113 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NordseeMan & NordseeWoman",
+    "standort": "Wilhelmshaven",
+    "lat": 53.5323403,
+    "lon": 8.1068722,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-08",
+    "datum_ende": "2027-08-08",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://nordseeman.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NordseeMan & NordseeWoman",
+    "standort": "Wilhelmshaven",
+    "lat": 53.5323403,
+    "lon": 8.1068722,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-08",
+    "datum_ende": "2027-08-08",
+    "laenge_km": 113.0,
+    "wettbewerb": "Mitteldistanz 113 km (1,9 km Schwimmen / 90 km Rad / 21,1 km Laufen)",
+    "veranstalter_url": "https://nordseeman.de/"
   },
   {
     "land": "Deutschland",
@@ -49925,20 +50659,6 @@
     "laenge_km": 7.7,
     "wettbewerb": "7,7 km Lauf",
     "veranstalter_url": "https://baer-service.de/veranstaltung/FLK/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "O-SEE Challenge",
-    "standort": "Olbersdorfer See",
-    "lat": 50.8896193,
-    "lon": 14.7798625,
-    "art1": "Triathlon",
-    "art2": "Cross",
-    "datum_start": "2027-08-13",
-    "datum_ende": "2027-08-15",
-    "laenge_km": 13.5,
-    "wettbewerb": "Family & Kids Races",
-    "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {
     "land": "Deutschland",
@@ -50312,20 +51032,8 @@
     "datum_start": "2027-08-21",
     "datum_ende": "2027-08-21",
     "laenge_km": 25.1,
-    "veranstalter_url": "https://jedermann-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Jedermanntriathlon",
-    "standort": "Neustrelitz",
-    "lat": 53.3601147,
-    "lon": 13.0730197,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-21",
-    "datum_ende": "2027-08-21",
-    "laenge_km": 4.5,
-    "veranstalter_url": "https://jedermann-triathlon.de/"
+    "veranstalter_url": "https://jedermann-triathlon.de/",
+    "wettbewerb": "Jedermann-Triathlon 25,1 km (600 m Schwimmen / 20 km Rad / 4,5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -50379,6 +51087,36 @@
     "art2": "Straße",
     "datum_start": "2027-08-22",
     "datum_ende": "2027-08-22",
+    "veranstalter_url": "https://www.808project.de/allgaeutriathlon",
+    "laenge_km": 113.9,
+    "wettbewerb": "Classic 113,9 km (1,9 km Schwimmen / 92 km Rad / 20 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Allgäu Triathlon",
+    "standort": "Immenstadt im Allgäu",
+    "lat": 47.5592213,
+    "lon": 10.2206641,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 57.5,
+    "wettbewerb": "Olymp 57,5 km (1,5 km Schwimmen / 46 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.808project.de/allgaeutriathlon"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Allgäu Triathlon",
+    "standort": "Immenstadt im Allgäu",
+    "lat": 47.5592213,
+    "lon": 10.2206641,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 34.5,
+    "wettbewerb": "Sprint 34,5 km (500 m Schwimmen / 29 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.808project.de/allgaeutriathlon"
   },
   {
@@ -50850,7 +51588,8 @@
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
     "veranstalter_url": "https://www.kallinchentriathlon.de/",
-    "laenge_km": 51.0
+    "laenge_km": 50.5,
+    "wettbewerb": "Olympisch 50,5 km (1,5 km Schwimmen / 39 km Rad / 10 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -50862,8 +51601,8 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "laenge_km": 32.0,
-    "wettbewerb": "32 km",
+    "laenge_km": 31.8,
+    "wettbewerb": "Sprint 31,8 km (750 m Schwimmen / 26 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.kallinchentriathlon.de/"
   },
   {
@@ -50876,8 +51615,8 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km",
+    "laenge_km": 16.1,
+    "wettbewerb": "Supersprint 16,1 km (300 m Schwimmen / 13 km Rad / 2,8 km Laufen)",
     "veranstalter_url": "https://www.kallinchentriathlon.de/"
   },
   {
@@ -50947,7 +51686,37 @@
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-    "datum_vorlaeufig": true
+    "datum_vorlaeufig": true,
+    "laenge_km": 107.1,
+    "wettbewerb": "Mitteldistanz 107,1 km (2 km Schwimmen / 84 km Rad / 21,1 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Moret Triathlon",
+    "standort": "Babenhausen",
+    "lat": 49.9593613,
+    "lon": 8.9588974,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Moret Triathlon",
+    "standort": "Babenhausen",
+    "lat": 49.9593613,
+    "lon": 8.9588974,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/"
   },
   {
     "land": "Deutschland",
@@ -50959,7 +51728,37 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://my.raceresult.com/413694/"
+    "veranstalter_url": "https://www.muldental-triathlon.de/",
+    "laenge_km": 51.6,
+    "wettbewerb": "Olympische Distanz 51,6 km (1,5 km Schwimmen / 40,1 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Muldental-Triathlon",
+    "standort": "Grimma",
+    "lat": 51.2364426,
+    "lon": 12.7202313,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprint 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.muldental-triathlon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Muldental-Triathlon",
+    "standort": "Grimma",
+    "lat": 51.2364426,
+    "lon": 12.7202313,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 16.2,
+    "wettbewerb": "Super-Sprint 16,2 km (350 m Schwimmen / 13,4 km Rad / 2,5 km Laufen)",
+    "veranstalter_url": "https://www.muldental-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -51630,7 +52429,7 @@
     "datum_ende": "2027-09-05",
     "veranstalter_url": "https://stralsund-triathlon.de/",
     "laenge_km": 55.5,
-    "wettbewerb": "Olympische Distanz"
+    "wettbewerb": "Olympische Distanz 55,5 km (1,5 km Schwimmen / 44 km Rad / 10 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -51642,8 +52441,8 @@
     "art2": "Straße",
     "datum_start": "2027-09-05",
     "datum_ende": "2027-09-05",
-    "laenge_km": 1.5,
-    "wettbewerb": "Schwimmen",
+    "laenge_km": 27.8,
+    "wettbewerb": "Jedermann-Triathlon 27,8 km (750 m Schwimmen / 22 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://stralsund-triathlon.de/"
   },
   {

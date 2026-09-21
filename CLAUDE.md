@@ -1391,6 +1391,52 @@ Sieben Lektionen, alle im Code oder in den Notizen festgehalten:
 
 Was der Nutzer daraus entscheiden muss, steht unter Punkt 18.
 
+### Zwölfter Durchgang: alle Triathlons (21.09.2026)
+
+Auf Wunsch des Nutzers („Bitte noch einmal alle Triathlons checken und
+die Länge dann ausfüllen"; Anlass: der Munich Triathlon stand ohne
+Länge, gehört „Sprint & Kurzdistanz"). Stand vorher: 149 Triathlon-
+Zeilen in 103 Veranstaltungen, **43 Veranstaltungen ohne jede Länge** –
+alle aus dem running.life-Triathlon-Kalender, dessen Detailseiten keine
+Wettbewerbe liefern. Jede der 43 an der Veranstalterseite gelesen
+(Wegwerf-Skript mit `veranstalter_links.Abrufer` über Start- und
+Unterseiten „Strecken/Ausschreibung", dann von Hand; wo die Seite nur
+ein PDF oder Bilder hat, der **DTU-Veranstaltungskalender**
+`triathlondeutschland.de/…/veranstaltungskalender/` – er nennt je
+Wettbewerb Schwimmen/Rad/Laufen und ist damit die beste zweite Quelle).
+Ergebnis: **41 Veranstaltungen mit 98 Strecken** (41 Overrides an der
+vorhandenen Zeile, 57 neue Zeilen in `manual_events.json`), 2 `unklar`
+(Indoor-Triathlon Aschersleben und 1. Friedberger Triathlon – 2027 noch
+nicht ausgeschrieben). Dazu die Gegenprüfung der 50 Triathlon-Zeilen
+unter 20 km: **Teilstrecken** bei Ironman Hamburg (3,8 km Schwimmen),
+Aluman, Dirty Race, Stralsund, Jedermanntriathlon Neustrelitz, Wanzleben,
+Berlin Triathlon (5/9/19 km = drei Laufstrecken) und triathlon.de CUP
+München (10/20 km) – zusammengeführt bzw. durch die Summen ersetzt,
+Kinder-/Jugendzeilen (Lipperland) und ein Duplikat (O-SEE „Family &
+Kids Races") ausgeschlossen. Protokoll: 55 Einträge in `geprueft.json`.
+Vier Dinge daraus:
+
+- **Eine Triathlon-Zeile ohne Länge ist fast immer eine ganze
+  Veranstaltung** – im Schnitt 2,4 Wettbewerbe (Sprint/Volks, Olympisch/
+  Kurz, oft Mittel, dazu Schnupper). Dieselbe Lehre wie im siebten
+  Durchgang bei den Läufen.
+- **Der allgemeine Override-Schlüssel plus nachgetragene Strecken** ist
+  hier 41-mal der Normalfall (die Zeile hat keine Distanz, also gibt es
+  keinen distanzgenauen Schlüssel): Beim nächsten Lauf trifft der
+  Override alle Zeilen der Veranstaltung, sie verschmelzen, und
+  `add_manual_events()` legt die weiteren wieder an – idempotent (CI
+  prüft es), aber ein Umweg (siehe Elfter Durchgang, Hasenmelker).
+- **`report_triathlon_distanzen()` meldet jetzt 35 statt 31 Fälle** –
+  erwartbar, weil deutsche Veranstaltungen von 25,75/51,5/113/226 km
+  abweichen (Tübingen 27,4/54,2, Heilbronn 27,8/57/106,4, Bonn 84,2 km).
+  Alle sind an der Ausschreibung belegt; der Bericht ist damit eher ein
+  Hinweis auf Abweichler als auf Fehler.
+- **Was die Sandbox nicht liest**: raceresult-Seiten (dynamisch), manche
+  PDFs (Heilbronn ging über die rohen Streams), Jimdo-/Squarespace-Seiten
+  nur teilweise. Für die Zukunft: `running.life` liefert bei Triathlons
+  keine Wettbewerbe – jede neue Zeile dort landet ohne Länge und gehört
+  in denselben Durchgang.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -2255,6 +2301,44 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     „Suche: …" und „Filter zurücksetzen" ändern ihn, ohne das Feld
     anzufassen) – **nicht**, während jemand darin tippt, sonst
     überschreibt ein Renderlauf die Eingabe.
+
+- **Die Länge eines Triathlons ist ein FORMAT, keine Zahl** (vom Nutzer
+  am 21.09.2026 vorgegeben: „Bei den Triathlon Events wird die Länge
+  immer so angegeben: Sprint, Kurz, Olympisch, 70.3, 140.6" – der Munich
+  Triathlon steht damit als „Sprint & Kurzdistanz"). Die Kilometerzahl
+  (Summe der Teilstrecken, Datenregel 15) bleibt in `events.json` und
+  entscheidet Filter und Sortierung; ANGEZEIGT wird das Format –
+  `triathlonFormat(e)` in `event-detail.js`, gebraucht von
+  `formatLength()` (Tabelle, Box, Pillen), `formatLengthSpan()`
+  (zusammengefasste Zeile und Karten-Popup: „Sprint & Kurz", „Sprint,
+  Olympisch & 70.3") und dem Teilen-Text. Vier Dinge daran:
+  - **Erst das Label des Veranstalters, dann die Summe.** Wer seine
+    1,5/40/10 „Kurzdistanz" nennt, bekommt „Kurz", nicht „Olympisch" –
+    dieselbe Distanz, aber der Nutzer will die Bezeichnung der
+    Veranstaltung sehen (`FORMAT_IM_LABEL`: 140.6/Langdistanz, 70.3/
+    Mitteldistanz/Halbdistanz, Olympisch, Kurzdistanz, Sprint). Ohne
+    Stichwort entscheidet die Summe: unter 40 km Sprint (auch Volks-,
+    Jedermann-, Schnupperdistanzen), bis 80 km Olympisch, bis 160 km
+    70.3, darüber 140.6.
+  - **Das sind GRENZEN zwischen den Formaten, keine Toleranzen um die
+    Normdistanzen.** Deutsche Veranstaltungen weichen ab (Moritzburgs
+    Langdistanz 218,8 km, Cross-Triathlons 41,5 km, Heilbronns
+    Mitteldistanz 106,4 km); mit den früheren Bändern (51,5 ± 3 usw.)
+    fielen sie in keine Filterkategorie. `DISTANCE_CATEGORIES.Triathlon`
+    in `filters.js` und die Kopie in `functions/index.js` nehmen seit
+    dem 21.09.2026 dieselben Grenzen – Filter und Spalte sagen dasselbe.
+  - **Swimrun und Quadrathlon kennen die Formate nicht** (ein 40-km-Swimrun
+    ist kein „Olympisch"): dort zählt nur ein Stichwort im Label, sonst
+    die Kilometer. Ein **Duathlon** über Mittel-/Langdistanz heißt
+    „Mittel"/„Lang" statt „70.3"/„140.6" – das sind Triathlon-Marken.
+  - **Zwei Strecken mit demselben Format bekommen die Kilometer dazu**
+    (Jedermann 500/20/5 und Sprint 750/20/5 sind beide „Sprint"):
+    Pillen als „Sprint (25,5 km)" / „Sprint (25,8 km)", der Fakt in der
+    Box immer „Kurz (51,5 km)" (`formatLength(e, lang, { mitKm: true })`).
+  Das Wettbewerbs-Label trägt die Gesamtlänge VORN und die Teilstrecken
+  in Klammern („Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad /
+  10 km Laufen)") – so bleibt `drop_contradicting_wettbewerb()` still,
+  und die Box zeigt die Aufteilung.
 
 - **Ein mehrtägiges Datum steht in zwei Zeilen.** `formatRangeHtml()`
   setzt ein `<br>` nach dem Gedankenstrich; vorher brach die Zelle dort

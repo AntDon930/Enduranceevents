@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-triathlon-de-cup-munchen-12-7km-oberschleissheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:triathlon.de CUP München – Schnupper-Triathlon 12\,7 km (200 m Sch
+ wimmen / 10 km Rad / 2\,5 km Laufen)
+LOCATION:Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 12.7 km\nhttps://triathlo
+ n.de/pages/triathlon-de-cup-muenchen-2026
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-muenchen-2026
+END:VEVENT
+END:VCALENDAR

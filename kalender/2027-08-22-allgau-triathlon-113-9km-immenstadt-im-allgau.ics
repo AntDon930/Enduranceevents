@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-allgau-triathlon-113-9km-immenstadt-im-allgau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Allgäu Triathlon – Classic 113\,9 km (1\,9 km Schwimmen / 92 km Ra
+ d / 20 km Laufen)
+LOCATION:Immenstadt im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 113.9 km\nhttps://www.808
+ project.de/allgaeutriathlon
+TRANSP:TRANSPARENT
+URL:https://www.808project.de/allgaeutriathlon
+END:VEVENT
+END:VCALENDAR

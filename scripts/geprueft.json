@@ -37,10 +37,10 @@
   "notiz": "Datum 23.05. -> 30.05.2027 (letzter Sonntag im Mai) und 52 -> 113 km."
  },
  "Ironman Hamburg|2027-06-06": {
-  "am": "2026-09-18",
+  "am": "2026-09-21",
   "ergebnis": "korrigiert",
-  "quelle": "normierte Ironman-Distanz, ironman.com nicht abrufbar",
-  "notiz": "42,2-km- und 178-km-Zeilen waren Lauf- und Radstrecke; jetzt eine Zeile mit 226 km."
+  "quelle": "https://www.ironman.com/races/im-hamburg",
+  "notiz": "3,8-km-Zeile (Schwimmen durch die Alster) war die dritte Teilstrecke; ausgeschlossen, es bleibt die 226-km-Zeile."
  },
  "Ironman 5150 Erkner Berlin-Brandenburg|2027-09-11": {
   "am": "2026-09-18",
@@ -85,10 +85,10 @@
   "notiz": "Die 678 km stimmen: Ein Triple Ultra ist die dreifache Langdistanz - 11,4 km Schwimmen, 540 km Rad, 126,6 km Laufen = 678 km. Termin '30. Juli - 01. August 2027', Veranstalter TSV Lensahn von 1924. Der Bericht meldet die Zahl nur, weil sie zu keinem der vier Standardformate passt."
  },
  "Indoor-Triathlon Aschersleben|2027-01-23": {
-  "am": "2026-09-18",
-  "ergebnis": "korrigiert",
-  "quelle": "specialolympics.de, aschersleben-ballhaus.de",
-  "notiz": "Kein 24-Stunden-Rennen; 3 Runden a 300 m + 4 km + 1,6 km."
+  "am": "2026-09-21",
+  "ergebnis": "unklar",
+  "quelle": "https://triathlon-aschersleben.de/indoor/",
+  "notiz": "Seite nennt nur Datum (23./24.01.2027, Ballhaus) und 'Weitere Infos gibt es dann rechtzeitig hier' - Distanzen 2027 noch nicht veroeffentlicht."
  },
  "Mt. Everest Treppenmarathon|2027-04-30": {
   "am": "2026-09-18",
@@ -960,10 +960,10 @@
   "notiz": "Zwei Teilstrecken EINES Rennens standen als zwei Zeilen; jetzt eine Zeile mit 24,4 km."
  },
  "Triathlon Stralsund|2027-09-05": {
-  "am": "2026-09-18",
+  "am": "2026-09-21",
   "ergebnis": "korrigiert",
-  "quelle": "stralsund-triathlon.de",
-  "notiz": "Zwei Teilstrecken EINES Rennens (44 km Rad, 10 km Laufen) standen als zwei Zeilen; jetzt eine Zeile mit 55,5 km. FEHLT: der Jedermann-Triathlon (0,4 + 11 + 2,5 = 13,9 km)."
+  "quelle": "https://stralsund-triathlon.de/distanzen/",
+  "notiz": "Schwimm-Teilstrecke ausgeschlossen, Olympische Distanz 55,5 km (1,5/44/10) beschriftet, Jedermann 27,8 km nachgetragen."
  },
  "BHTC Möhnesee Triathlon|2027-07-17": {
   "am": "2026-09-18",
@@ -978,16 +978,16 @@
   "notiz": "Beide Zeilen waren die Radstrecke: 20 -> 25,5; 40 -> 51,5 km."
  },
  "Lipperlandtriathlon|2027-06-20": {
-  "am": "2026-09-18",
-  "ergebnis": "quelle_ok",
-  "quelle": "tglage.de/triathlon.html",
-  "notiz": "Fehlalarm: Die vier Zeilen (6, 13, 26, 51 km) sind bereits GESAMTstrecken, nicht Teilstrecken. tglage.de nennt die Volksdistanz mit '0,5 km Schwimmen, 20 km Radfahren, 5 km Laufen' = 25,5 km (unsere 26) und die Olympische Distanz mit '1 km Schwimmen, 40 km Radfahren, 10 km Laufen' = 51 km (unsere 51). Die 6 und 13 km sind die Schueler- und Jugendwettbewerbe, bei denen 'die Schwimmstrecke fuer die juengeren Teilnehmer halbiert' wird. Der Bericht meldet sie nur, weil sie zu keinem der vier Standardformate passen."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0",
+  "notiz": "Kurzdistanz 51 km (1/40/10) beschriftet, Sprint 26 -> 25,5 km (0,5/20/5), Schueler-B- und Jugend-B-Zeilen (6 / 13 km) ausgeschlossen."
  },
  "Berlin Triathlon|2027-06-05": {
-  "am": "2026-09-18",
-  "ergebnis": "unklar",
-  "quelle": "berlin-triathlon.de/Ausschreibung/Strecken, finishers.com",
-  "notiz": "Die echten Formate sind bekannt: Olympische Distanz 1,5 km Schwimmen - 38 km Rad - 10,1 km Laufen = 49,6 km; Sprint 0,75 - 20 - 4,7 = 25,5 km; Mitteldistanz 1,9 - 89 - 21 = 111,9 km; dazu Fitness, Swim und Kids (100 m / 2,5 km / 400 m). OFFEN: Unsere drei Zeilen tragen 5, 9 und 19 km mit den Labels '5 km', '9 km' und '19 km' - keine davon passt zu einer Teilstrecke ODER einer Gesamtstrecke dieser Formate. Welche Zeile welchen Wettbewerb meint, ist nicht zu sagen; geraten wird nicht. Die Strecken-Seite selbst ist nur unter berlin-triathlon.de/Ausschreibung/Strecken/mobile/ erreichbar, die anderen Pfade antworten mit 404."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://berlin-triathlon.de/Ausschreibung/Strecken/",
+  "notiz": "Die drei Zeilen 5 / 9 / 19 km waren die Laufstrecken von Sprint, Olympisch und Mittel; jetzt 27,2 / 47,2 / 108,9 km plus Fitnesstriathlon 17,3 km nachgetragen."
  },
  "Büchener Triathlon|2027-05-30": {
   "am": "2026-09-18",
@@ -996,10 +996,10 @@
   "notiz": "Beide Zeilen waren die Radstrecke: 21 -> 26,5; 42 -> 53 km."
  },
  "Jedermanntriathlon|2027-08-21": {
-  "am": "2026-09-18",
+  "am": "2026-09-21",
   "ergebnis": "korrigiert",
-  "quelle": "jedermann-triathlon.de",
-  "notiz": "20 km (Radstrecke) -> 25,1 km (0,6 + 20 + 4,5)."
+  "quelle": "https://jedermann-triathlon.de/",
+  "notiz": "Lafit Jedermann-Triathlon Neustrelitz-Praelank: 600 m / 20 km / 4,5 km = 25,1 km; die 4,5-km-Zeile war die Laufstrecke."
  },
  "OstseeMan Triathlon Glücksburg|2027-07-31": {
   "am": "2026-09-18",
@@ -1008,16 +1008,16 @@
   "notiz": "Lang- und Mitteldistanz stimmen (226 und 113 km). Die dritte Zeile war der 'Glueck in Sicht Charity Run' - 5,5 km Laufen, nicht 6 km Triathlon; er steht jetzt unter eigenem Namen."
  },
  "Wanzleber Sparkassen Triathlon|2027-07-04": {
-  "am": "2026-09-18",
-  "ergebnis": "unklar",
-  "quelle": "triathlon-wanzleben.de",
-  "notiz": "Gespeichert sind 5 km - das ist mit grosser Wahrscheinlichkeit die Laufstrecke, nicht die Gesamtstrecke (Datenregel 15). Die Seite des Veranstalters nennt die Teilstrecken nicht auf der Startseite, sondern nur in einer verlinkten Ausschreibung, und sie fuehrt den '13. Wanzleber Sparkassen Triathlon' fuer den 05.07.2026 - unser Eintrag steht auf dem 04.07.2027. Ohne Ausschreibung nichts geaendert."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.myfinish.de/Deutschland/Sachsen-Anhalt/Wanzleben/Triathlon/5994IOY/8._Wanzleber_Sparkassen_Triathlon.html",
+  "notiz": "5-km-Zeile war die Laufstrecke; jetzt 28 km = 0,5 + 23 + 4,5 (Veranstalterseite nennt 2027 nur 'safe the date 04.07.2027')."
  },
  "triathlon.de CUP München|2027-06-25": {
-  "am": "2026-09-18",
-  "ergebnis": "unklar",
-  "quelle": "triathlon.de/pages/triathlon-de-cup-muenchen-2026",
-  "notiz": "Gespeichert sind 10 und 20 km - das sind mit grosser Wahrscheinlichkeit Rad- oder Laufstrecken, nicht Gesamtstrecken (Datenregel 15). Die Seite nennt 'Volkstriathlon' und 'Grand Prix' als Formate, die Teilstrecken stehen aber nur in der verlinkten Ausschreibung; ausserdem nennt sie 'Triathlon Muenchen - 15./16./17. Mai 2026', unser Eintrag steht auf dem 25.06.2027. Ohne Ausschreibung nichts geaendert."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://triathlon.de/pages/triathlon-de-cup-ausschreibung",
+  "notiz": "Die Zeilen 10 km und 20 km waren Teilstrecken; jetzt vier Wettbewerbe mit Starttag: Schnupper 12,7 km (Fr), Olympisch 51,5 km (Sa), Volks 25,5 km und Mitteldistanz 101,9 km (So)."
  },
  "Freiberger Adventslauf|2026-11-28": {
   "am": "2026-09-18",
@@ -1974,10 +1974,10 @@
   "notiz": "'01. November 2026' bestätigt; Distanzen nicht genannt."
  },
  "Hugenotten-Duathlon|2026-11-01": {
-  "am": "2026-09-19",
-  "ergebnis": "unklar",
-  "quelle": "radteam-neu-isenburg.de",
-  "notiz": "'Der 19. Hugenottenduathlon findet am 1. November 2026 statt'; Distanzen nur im externen Anmeldelink."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/11-2025/hugenotten-duathlon",
+  "notiz": "Die Vereinsseite (radteam-neu-isenburg.de) verweist fuer alle Details auf raceresult (dynamisch, nicht lesbar); der DTU-Kalender nennt fuer 2025 5 km Laufen / 20 km Rad / 4,6 km Laufen = 29,6 km. Die Strecken schwanken von Jahr zu Jahr leicht (2023: 4,8/20/4,8; 2024: 4,8/20,2/4,4)."
  },
  "Jatznicker Waldlauf|2026-11-07": {
   "am": "2026-09-19",
@@ -2022,10 +2022,10 @@
   "notiz": "'Am 14.11.2026 ist es wieder soweit!' bestätigt; Distanzen nicht genannt."
  },
  "Rüsselcross Duathlon|2026-11-14": {
-  "am": "2026-09-19",
-  "ergebnis": "unklar",
-  "quelle": "tg-tria-ruesselsheim.de/ruesselcross-start",
-  "notiz": "'22. RüsselCross am 14.11.2026' bestätigt (mit Hessischen Meisterschaften); Distanzen nur in der Ausschreibung."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/11-2025/21-ruesselcross-duathlon",
+  "notiz": "Die Vereinsseite nennt nur Datum und Anmeldung, die Ausschreibung ist ein PDF; der DTU-Kalender 2025 nennt Landesmeisterschaft/Classic 5 km Lauf / 20 km MTB / 2,5 km Lauf und Jedermann 2,3 / 10 / 0,7 km (auch Jugend A/B). Schueler-Rennen (0,4/2,5/0,4) weggelassen."
  },
  "Herbst-Cross-Lauf Rosenthal|2026-11-15": {
   "am": "2026-09-19",
@@ -2118,10 +2118,10 @@
   "notiz": "'29. November 2026' bestätigt; Strecken-Seite nennt nur 'unterschiedlich viele Runden um den Aasee'."
  },
  "Nikolaus Duathlon|2026-12-05": {
-  "am": "2026-09-19",
-  "ergebnis": "unklar",
-  "quelle": "triathlon.eintracht.de",
-  "notiz": "'5. Dezember 2026' bestätigt (Laufen-Rad-Laufen); Distanzen nicht genannt."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://triathlon.eintracht.de/news/nikolaus-duathlon-zurueck-in-den-startloechern-146272/",
+  "notiz": "Die Wettkampfseite nennt keine Distanzen; die Vereinsnachricht zum Nikolaus-Duathlon nennt Xtra 5 km Lauf / 21 km Rad / 2,5 km Lauf und Light 2 / 15 / 2 km (auch Jugend A und Staffeln). Schueler-Rennen weggelassen. Aeltere Ausgaben hatten 5/22,5/2,5 (Classic) und 2,5/15/2,5 (Jedermann)."
  },
  "Johannesbad Nikolauslauf|2026-12-06": {
   "am": "2026-09-19",
@@ -2184,10 +2184,10 @@
   "notiz": "Frameset-Seite, nur Ergebnislinks bis 2025; 2027 nicht genannt. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Chemnitzer Indoor Triathlon|2027-03-20": {
-  "am": "2026-09-19",
-  "ergebnis": "unklar",
-  "quelle": "triathlonchemnitz.de",
-  "notiz": "Seite antwortet 403."
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon",
+  "notiz": "Super Super Sprint 6,2 km (0,2/5/1) beschriftet, beide kurzen Zeilen auf Kategorie Indoor; Super Sprint (12 km) und Sprint (26 km) ohne belegte Teilstrecken gelassen."
  },
  "Sulzburger Frühlingslauf|2027-03-20": {
   "am": "2026-09-19",
@@ -3951,9 +3951,9 @@
  },
  "Triathlon Offenburg|2027-05-08": {
   "am": "2026-09-21",
-  "ergebnis": "unklar",
-  "quelle": "https://triathlon-offenburg.de/",
-  "notiz": "„Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht auf der Startseite | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
+  "ergebnis": "korrigiert",
+  "quelle": "https://triathlon-offenburg.de/ausschreibung-to-2026",
+  "notiz": "Ausschreibung 2026: Sprint Einzel 0,5 km Schwimmen / 22 km Rad (3 Runden) / 5 km Laufen (3 Runden) = 27,5 km; daneben nur Schueler/Jugend und Staffeln."
  },
  "Regensburg Marathon|2027-05-09": {
   "am": "2026-09-21",
@@ -4023,9 +4023,9 @@
  },
  "Powertriathlon Gera|2027-05-29": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://powertriathlon.de/home",
-  "notiz": "29./30.05.2027 bestätigt; Distanzen „folgen in Kürze“"
+  "ergebnis": "korrigiert",
+  "quelle": "https://powertriathlon.de/ausschreibung",
+  "notiz": "Ausschreibung: Powertriathlon 1,5 km Schwimmen / 40 km Rad / 10 km Laufen; Sprint 700 m / 20 km / 5 km. Staffeln (Jedermann 500 m, Familien-, Firmenstaffel) weggelassen."
  },
  "Ingelheimer Halbe|2027-05-30": {
   "am": "2026-09-21",
@@ -4101,9 +4101,9 @@
  },
  "Koberbachtal-Triathlon|2027-06-04": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://www.koberbachtal-triathlon.de/wettkaempfe/ausschreibung/",
-  "notiz": "17. Koberbachtal-Triathlon 04./05.06.2027 bestätigt; Distanzen nur im Ausschreibungs-PDF (Zeile ohne Distanz bleibt)"
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.koberbachtal-triathlon.de/wettkaempfe/strecke/",
+  "notiz": "Streckenseite: Schwimmen 1510 m olympisch / 750 m jedermann / 400 m einsteiger-supersprint; Rad 36 km (2 Runden) / 20 km (1 Runde) / 10 km (2 x 5 km); Laufen 5000-m-Runde (olympisch 2 Runden) / 2500 m supersprint. Zuordnung nach den Bezeichnungen der Streckenseite; Meilenschwimmen, Kinder und Schueler weggelassen."
  },
  "Women's Run Hamburg|2027-06-13": {
   "am": "2026-09-21",
@@ -4173,9 +4173,9 @@
  },
  "Edersee-Triathlon|2027-06-26": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://edersee-triathlon.de/",
-  "notiz": "42. Waldecker Edersee-Triathlon am 26.06.2027; Distanzen nur in der Ausschreibung"
+  "ergebnis": "korrigiert",
+  "quelle": "https://edersee-triathlon.de/files/Ausschreibung-2025_40.-Edersee-Triathlon.pdf",
+  "notiz": "Ausschreibung 2025 (PDF des Veranstalters): Olympische Distanz 1,5 km / 42 km / 10 km, Volkstriathlon 0,75 / 18 / 5 km; Staffel weggelassen. 2027 noch nicht ausgeschrieben."
  },
  "Losheimer Trailfest|2027-06-26": {
   "am": "2026-09-21",
@@ -4324,8 +4324,8 @@
  "NordseeMan & NordseeWoman|2027-08-07": {
   "am": "2026-09-21",
   "ergebnis": "korrigiert",
-  "quelle": "https://nordseeman.de/",
-  "notiz": "Sportart Laufen → Triathlon; 07./08.08.2027 bestätigt; Distanzen nur als Namen (Mittel/Olympisch/Volks)"
+  "quelle": "https://nordseeman.de/mitteldistanz/",
+  "notiz": "Distanzseiten: Volksdistanz 500 m / 20 km / 5 km am Samstag 07.08.2027, Olympische Distanz 1,5 / 40 / 10 km und Mitteldistanz 1,9 / 90 / 21,1 km am Sonntag 08.08.2027; Junior, Para-Wertungen und Staffeln weggelassen."
  },
  "Allgäu Panorama Marathon|2027-08-08": {
   "am": "2026-09-21",
@@ -4337,7 +4337,7 @@
   "am": "2026-09-21",
   "ergebnis": "korrigiert",
   "quelle": "https://www.xterraplanet.com/event/xterra-germany",
-  "notiz": "Laufen → Triathlon/Cross; Radstrecken durch die Summen ersetzt (49,3 / 41,9 / 32,2 / 13,5 km), Tage je Wettbewerb, Kinderrennen ausgeschlossen"
+  "notiz": "Zeile Family & Kids Races mit 13,5 km ausgeschlossen (Duplikat des O-SEE Light); Full/Classic/Reduced/Light bleiben."
  },
  "Trinale|2027-08-14": {
   "am": "2026-09-21",
@@ -4365,9 +4365,9 @@
  },
  "Moret Triathlon|2027-08-29": {
   "am": "2026-09-21",
-  "ergebnis": "unklar",
-  "quelle": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-  "notiz": "Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.vfl-muenster.de/wp-content/uploads/2025/12/Ausschreibung-Moret-Triathlon-30.08.2026__V5.pdf",
+  "notiz": "Ausschreibung 2026 (PDF): Mitteldistanz 2 km / 84 km / 21,1 km, Olympische Distanz 1,5 / 40 / 10 km, Sprintdistanz 0,75 / 20 / 5 km; Schueler/Jugend und Liga weggelassen."
  },
  "Swim&Run Winnweiler|2027-08-29": {
   "am": "2026-09-21",
@@ -4533,9 +4533,9 @@
  },
  "Unterallgäuer Triathlon|2027-06-19": {
   "am": "2026-09-21",
-  "ergebnis": "unklar",
-  "quelle": "https://www.triathlon-ottobeuren.de/",
-  "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  "ergebnis": "korrigiert",
+  "quelle": "https://triathlon-ottobeuren.de/",
+  "notiz": "Veranstalterseite (Stand 2026): Volksdistanz 0,5 km / 20 km / 5 km, Olympische Distanz 1,5 / 40 / 10 km; Staffel weggelassen. Termin 2027 dort noch nicht genannt."
  },
  "46. Krummenseelauf|2026-10-17": {
   "am": "2026-09-21",
@@ -6027,15 +6027,15 @@
  },
  "Muldental-Triathlon|2027-08-29": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://my.raceresult.com/413694/",
-  "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („eins Muldental-Triathlon“, Grimma)"
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.muldental-triathlon.de/",
+  "notiz": "Veranstalterseite (raceresult war nur das Portal): Olympische Distanz 1.500 m / 40,08 km / 10 km, Sprint 750 m / 20,04 km / 5 km, Super-Sprint 350 m / 13,36 km / 2,5 km, 29.08.2027 Flossplatz Grimma; Bundesliga und Team-Triathlon weggelassen."
  },
  "Friedberger Triathlon|2027-09-19": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://my.raceresult.com/419312/",
-  "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  "ergebnis": "unklar",
+  "quelle": "https://my.raceresult.com/419312/info",
+  "notiz": "1. Friedberger Triathlon (Friedberg/Bayern, 19.09.2027): raceresult nennt keine Wettbewerbe und keine Website (Platzhalter), die TSV-Friedberg-Seite kennt ihn nicht; kilometerliebe.de fuehrt ihn als Mitteldistanz ohne Zahlen."
  },
  "Bremer Brückenlauf|2027-07-03": {
   "am": "2026-09-21",
@@ -6243,9 +6243,9 @@
  },
  "O-See-Triathlon Uelzen|2027-05-30": {
   "am": "2026-09-21",
-  "ergebnis": "quelle_ok",
-  "quelle": "https://portal.run-timing.de/1025/registration",
-  "notiz": "run-timing: „30. Mai 2027, 19. O-See-Triathlon“; Distanzen nicht im Text"
+  "ergebnis": "korrigiert",
+  "quelle": "https://post-sv-uelzen.de/ausschreibung-in-kurzform",
+  "notiz": "Veranstalter ist der Post-SV Uelzen (run-timing ist das Anmeldeportal): Ausschreibung in Kurzform nennt Sprint/Liga 0,75 km / ca. 22 km / 4,4 km, Standard 1,5 / ca. 43 / 8,8 km, Half 1,9 / 85 / ca. 20 km, 30.05.2027."
  },
  "Haster Volkslauf|2027-06-06": {
   "am": "2026-09-21",
@@ -6624,5 +6624,203 @@
   "ergebnis": "korrigiert",
   "quelle": "https://www.o-see-sports.de/",
   "notiz": "Reines Trail-Lauf-Event (Nutzer 21.09.2026: 'hat nichts mit Triathlon zu tun'); vier Zeilen unter 5 km (Juniors, Youngsters, Minis, Canicross) standen als Triathlon/Trail und entgingen so der 5-km-Regel - Override art1 Laufen, damit fallen sie heraus. Ein Triathlon kann keine Kategorie Trail haben (Cross ist die Geländeform); clean_events meldet solche Zeilen jetzt."
+ },
+ "Spreewald Duathlon|2027-05-01": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/04-2026/spreewald-duathlon-2026",
+  "notiz": "spreewald-triathlon.de nennt keine Distanzen; der DTU-Kalender 2026 nennt Langdistanz 19 km Lauf / 84 km Rad / 5 km Lauf, Kurzdistanz 10 / 42 / 5 km und eine dritte Strecke 6 / 11 / 5 km."
+ },
+ "Günzburger Alkoholfrei Cross Triathlon|2027-05-08": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/05-2026/10-guenzburger-alkoholfrei-crosstriathlon",
+  "notiz": "tri-gz.de nennt fuer 2027 nur das Datum; der DTU-Kalender 2026 nennt 400 m Schwimmen / 26 km MTB / 5 km Laufen (Einzel und Staffel)."
+ },
+ "Drensteinfurt Triathlon|2027-05-16": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/05-2025/3drensteinfurt-triathlon",
+  "notiz": "drensteinfurt-triathlon.de hat die Ausschreibung 2027 nur als PDF; der DTU-Kalender 2025 nennt Jedermann Sprint 0,4 km / 20 km / 5 km, Kurz 0,8 / 40 / 10 km und Mittel ('76.2er') 1,2 / 60 / 15 km. Schueler/Jugend und Staffeln weggelassen."
+ },
+ "Oelder Triathlon|2027-05-22": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.lv-oelde.de/de/triathlon/volkstriathlon/wertung/",
+  "notiz": "Seite 'Wettkaempfe und Wertungen': Volksdistanz 500 m Schwimmen / 20 km Rad / 5 km Laufen; Schnupperdistanz 200 m / 10 km / 1,7 km (ab Jahrgang 2010). Schueler/Jugend/Staffeln weggelassen."
+ },
+ "Spreewald Triathlon|2027-05-29": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.hdsports.org/triathlons/spreewald-triathlon",
+  "notiz": "spreewald-triathlon.de nennt keine Distanzen; hdsports fuehrt fuer 2027 Mitteldistanz 2,2 km / 84 km / 20 km am Samstag und Olympische Distanz 1,5 / 42 / 10 km am Sonntag (30.05.2027)."
+ },
+ "Bonn Triathlon|2027-06-06": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.bonn-triathlon.de/",
+  "notiz": "Startseite 'Save the date: 06.06.2027 - Swim 4,2 km, Bike 65 km, Run 15 km'; eine Distanz, auch als Staffel (Ausschreibung 2026 nennt 64 km Rad)."
+ },
+ "Enni-Triathlon|2027-06-06": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2026/enni-triathlon-moers",
+  "notiz": "enni-triathlon.de nennt die drei Distanzen nur dem Namen nach; der DTU-Kalender 2026 nennt Kurzdistanz 1,0 km / 37 km / 10 km, Sprint 0,5 / 19 / 5 km und die Fitnessdistanz 0,25 / 10 / 3 km."
+ },
+ "Reiling - Harsewinkel Triathlon|2027-06-06": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://trispeed.de/triathlon/infos/",
+  "notiz": "Infoseite: Kurzdistanz/Olympische Distanz 1-40-10 km, Volksdistanz/Sprint 0,5-20-5 km, Schnuppertriathlon 0,2-10-1,8 km (ab Jahrgang 2008); Schueler weggelassen."
+ },
+ "Triathlon Ingolstadt|2027-06-06": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://triathlonbayern.de/meldestart-fuer-den-audi-triathlon-ingolstadt-am-1-oktober/",
+  "notiz": "triathlon-ingolstadt.de zeigt nur den Kinderlauf und den TriDay; der BTV-Bericht zum Meldestart nennt Olympisch 1,5 km / 40 km / 10 km, Sprint 0,75 / 20 / 5 km und Mitteldistanz 1,9 / 86 / 20 km. Jedermann-Distanz ohne Zahlen, weggelassen."
+ },
+ "Aasee Triathlon|2027-06-13": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.aasee-triathlon.de/index.php/ausschreibung",
+  "notiz": "Ausschreibung: Sprintdistanz 500 m / 20 km / 5 km, Bocholter Distanz 1.500 m / 40 km / 10 km, Mitteldistanz 2.000 m / 90 km / 20 km; Schueler und Staffeln weggelassen."
+ },
+ "Burgwald Triathlon|2027-06-13": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.burgwald-triathlon.de/strecke-sprint/",
+  "notiz": "Streckenseiten: Olympisch 3 x 500 m Schwimmen / 4 x 10 km Rad / 4 x 2,5 km Laufen, Sprint 500 m / 20 km / 5 km; Schueler weggelassen."
+ },
+ "Stadttriathlon Erding|2027-06-13": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://trisport-erding.de/stadttriathlon/strecken/",
+  "notiz": "Streckenseite: Schwimmen 1500 m (olympisch) bzw. 400 m (Volksdistanz), Laufen 10 km bzw. 5 km; Radstrecke 40 bzw. 20 km laut spoferan-Ausschreibung."
+ },
+ "Triathlon Heilbronn|2027-06-13": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlon-heilbronn.de/media/pages/anmeldung/ausschreibung/1b1ae7d78f-1782291480/heilbronn_2027_ausschreibung-2.pdf",
+  "notiz": "Ausschreibung 2027 (PDF): Sprint 0,75 km / 22 km / 5 km, Kurzdistanz 1,5 / 45 / 10,5 km, Mitteldistanz 1,9 / 83 / 21,5 km; Staffeln weggelassen."
+ },
+ "Würzburg Triathlon|2027-06-13": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.wuerzburg-triathlon.de/distanzen",
+  "notiz": "Distanzseiten: Jedermann 600 m / 22 km / 5 km, Olympisch 1,5 km / 44 km / 10 km, Mitteldistanz 2,1 km / 90 km / 21 km; Staffeln weggelassen."
+ },
+ "Münster City Triathlon|2027-06-20": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://muenster-triathlon.de/ausschreibung/",
+  "notiz": "Ausschreibung: Volksdistanz 500 m / 20 km / 5 km, Olympische Distanz 1.350 m / 40 km / 10 km; Staffel- und Inklusionswettbewerbe weggelassen."
+ },
+ "Steinbecker Triathlon|2027-06-20": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.hdsports.org/triathlons/steinbecker-triathlon",
+  "notiz": "steinbeck-triathlon.de nennt nur Rundenlaengen (Schwimmen 1,9/1,5/0,5 km, Rad-Rundkurs 13,5 km, Lauf-Rundkurs 5,1 km); hdsports fuehrt fuer 2027 ShortMan 0,5 / 27 / 5 km, Olympisch 1,5 / 42 / 10 km, SteelMan 1,5 / 70 / 21 km."
+ },
+ "Werbellinsee Triathlon|2027-06-26": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://werbellinseetriathlon.de/Ausschreibung/Strecken/",
+  "notiz": "Streckenseite: Olympisch 1,5 km / 39 km / 9,3 km, Sprint 0,7 / 19 / 4,75 km, Volkstriathlon 0,4 / 12 / 3 km, Schorfheide-Graveltriathlon 1,5 / 25 km offroad / 7,5 km offroad (Kategorie Cross); Kinder und Staffeln weggelassen."
+ },
+ "Triathlon Trebgast|2027-06-27": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2026/tennet-powertriathlon-trebgast-2026",
+  "notiz": "triathlon-trebgast.de liefert dem Abruf keinen Text; der DTU-Kalender 2026 (TenneT POWERTRIATHLON Trebgast) nennt Olympisch 1.500 m / 40 km / 10 km, Volksdistanz 500 m / 20 km / 4,5 km, Schnupperdistanz 200 m / 10 km / 1,75 km (ab 12 Jahren); Staffeln weggelassen."
+ },
+ "Saerbecker Triathlon|2027-07-04": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon/strecken",
+  "notiz": "Ausschreibung und Streckenseite: Volkstriathlon 700 m / 20 km / 4,7 km (Laufrunde 2,85 km, 1,65 x), Kurzdistanz 1.400 m / 40 km / 10,4 km; Aquabike (ohne Lauf) und Liga weggelassen."
+ },
+ "Churfranken Triathlon|2027-07-11": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.tripaul.de/tri",
+  "notiz": "Ausschreibung 11.07.27: Sprint 0,5-20-5, Olympisch 1,5-40-10; Staffeln weggelassen."
+ },
+ "IOK-Triathlon Verl|2027-07-11": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlon-verl.de/ein-startseiten-abschnitt/strecken/",
+  "notiz": "Streckenseite: Volksdistanz 750 m / 20 km / 2 x 2,5 km, Kurzdistanz 2 x 750 m / 40 km / 4 x 2,5 km; Staffel und Schueler weggelassen."
+ },
+ "Rostocker Triathlon|2027-07-11": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/07-2026/41-neue-rostocker-wg-triathlon",
+  "notiz": "tc-fiko.de nennt keine Distanzen; der DTU-Kalender 2026 nennt Sprint 0,75 km / 20 km / 5 km und Supersprint 0,4 / 10 / 2,5 km (dazu Relay, Schueler, Jugend - weggelassen)."
+ },
+ "Triathlon Tübingen|2027-07-18": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.mey-generalbau-triathlon.com/infos/strecken",
+  "notiz": "Streckenseite: Kurzdistanz 1,5 km / 43 km / 9,7 km, SUZUKI Sprintdistanz 0,75 / 22 / 4,7 km, Schnupperdistanz 0,3 / 11 / 3,2 km (ab 14); Staffeln weggelassen."
+ },
+ "Munich Triathlon|2027-07-25": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.munich-triathlon.com/infos/strecken",
+  "notiz": "Vom Nutzer genannt ('Sprint & Kurzdistanz'); Streckenseite: Sprintdistanz 0,5 km / 20 km / 5 km, Kurzdistanz 1,5 km / 40 km / 10 km (Olympiapark, 25.07.2027); Staffeln weggelassen."
+ },
+ "Silbersee-Triathlon|2027-07-25": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://silbersee-triathlon.com/?page_id=30",
+  "notiz": "Veranstalterseite: Olympische Distanz 1500 m / 40 km / 10 km, Sprintdistanz 750 m / 23 km / 5 km, Volksdistanz 500 m / 23 km / 5 km; Staffeln weggelassen."
+ },
+ "Scharmützelsee Triathlon|2027-08-01": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://scharmuetzelsee-triathlon.de/ausschreibung",
+  "notiz": "Ausschreibung: Sprintdistanz 0,75 / 20 / 5 km, Olympische Distanz 1,5 / 38 / 10 km (Landesmeisterschaft); Jedermann-Familienwettbewerb 0,2/5/1 km ab 10 Jahren und Staffeln weggelassen."
+ },
+ "Usedom Volkssport Triathlon|2027-08-07": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.usedom-exclusiv.de/168/freizeit-sport-usedom/volkssport-triathlon-koserow-usedom.html",
+  "notiz": "usedom-triathlon.de nennt Datum (07.08.2027, 17:30 Uhr) und Staffel, die Strecke nur als Plan; laut usedom-exclusiv.de und Nordkurier: 500 m Ostsee / 15 km Rad / 4 km Strandlauf, fuer Frauen und Maenner ab 55 verkuerzt auf 11 km / 3 km."
+ },
+ "City Triathlon Bremen|2027-08-08": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://citytriathlonbremen.de/start/das-event/ausschreibung-2025/",
+  "notiz": "Ausschreibung: Volkstriathlon 500 m / 20 km / 5 km, Olympic Triathlon 1,5 km / 40 km / 10 km, Sprinttriathlon 750 m / 20 km / 5 km; Staffeln weggelassen."
+ },
+ "Allgäu Triathlon|2027-08-22": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.808project.de/allgaeutriathlon/ausschreibung-at",
+  "notiz": "Ausschreibung (Stand 2026): Classic 1,9 km / 92 km / 20 km, Olymp 1,5 / 46 / 10 km, Sprint 0,5 / 29 / 5 km; Classic-Staffel weggelassen."
+ },
+ "Aluman|2027-07-03": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://www.aluman-gvm.de/",
+  "notiz": "Beide Zeilen waren Teilstrecken (Rad 21,5 km, Lauf 2 x 3,25 km); jetzt eine Zeile 28,5 km = 0,5 + 21,5 + 6,5."
+ },
+ "Dirty Race|2027-01-30": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://sillahopp.squarespace.com/dirty-race",
+  "notiz": "Drei Teilstrecken-Zeilen (Run 1, Bike, Run 2) zu einer Duathlon-Zeile 24,4 km zusammengefuehrt, Kategorie Duathlon."
+ },
+ "Kronberger Bike+Run|2026-10-03": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "https://kronberger-bikeandrun.de/",
+  "notiz": "Drei Strecken 13,2 / 7 / 4,5 km (Zweierteams mit einem Rad, Laufen und Radfahren im Wechsel); 4,5-km-Zeile stand als Strasse, jetzt Duathlon wie die anderen."
+ },
+ "Kallinchen Triathlon|2027-08-29": {
+  "am": "2026-09-21",
+  "ergebnis": "korrigiert",
+  "quelle": "http://kallinchentriathlon.de/Wettkampf/Ausschreibung/",
+  "notiz": "Drei Wettbewerbe mit den Summen der Ausschreibung: Olympisch 50,5, Sprint 31,8, Supersprint 16,1 km (vorher 51 / 32 / 16 ohne Label); Kindertriathlon weggelassen."
  }
 }

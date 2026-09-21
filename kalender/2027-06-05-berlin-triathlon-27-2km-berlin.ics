@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-berlin-triathlon-27-2km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Berlin Triathlon – Sprintdistanz 27\,2 km (750 m Schwimmen / 21\,7
+  km Rad / 4\,7 km Laufen)
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.2 km\nhttps://berlin-t
+ riathlon.de/
+TRANSP:TRANSPARENT
+URL:https://berlin-triathlon.de/
+END:VEVENT
+END:VCALENDAR

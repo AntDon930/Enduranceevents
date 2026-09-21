@@ -2372,7 +2372,9 @@
   },
   "Scharmützelsee Triathlon|2027-08-01": {
     "veranstalter_url": "https://scharmuetzelsee-triathlon.de/",
-    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Scharmuetzelsee-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Zielseite abgerufen ('Scharmützelsee Triathlon'), TV Fürstenwalde 1990. Linkprüfung 2026-09-19 (berlin-timing.de)."
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Scharmuetzelsee-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Zielseite abgerufen ('Scharmützelsee Triathlon'), TV Fürstenwalde 1990. Linkprüfung 2026-09-19 (berlin-timing.de). | Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung: Sprintdistanz 0,75 / 20 / 5 km, Olympische Distanz 1,5 / 38 / 10 km (Landesmeisterschaft); Jedermann-Familienwettbewerb 0,2/5/1 km ab 10 Jahren und Staffeln weggelassen. Quelle: https://scharmuetzelsee-triathlon.de/ausschreibung",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   "Kallinchen Triathlon|2027-08-29": {
     "veranstalter_url": "https://www.kallinchentriathlon.de/",
@@ -3402,9 +3404,11 @@
   },
   "Moret Triathlon|2027-08-29": {
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-    "_note": "Veranstalterseite statt maxx-timing.de: https://www.vfl-muenster.de/morettriathlon/ausschreibung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (moret). Linkprüfung 2026-09-20.",
+    "_note": "Veranstalterseite statt maxx-timing.de: https://www.vfl-muenster.de/morettriathlon/ausschreibung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (moret). Linkprüfung 2026-09-20. | Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 2026 (PDF): Mitteldistanz 2 km / 84 km / 21,1 km, Olympische Distanz 1,5 / 40 / 10 km, Sprintdistanz 0,75 / 20 / 5 km; Schueler/Jugend und Liga weggelassen. Quelle: https://www.vfl-muenster.de/wp-content/uploads/2025/12/Ausschreibung-Moret-Triathlon-30.08.2026__V5.pdf",
     "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen.",
+    "laenge_km": 107.1,
+    "wettbewerb": "Mitteldistanz 107,1 km (2 km Schwimmen / 84 km Rad / 21,1 km Laufen)"
   },
   "Otterndorf Triathlon|2027-08-29": {
     "veranstalter_url": "https://www.otterndorf-triathlon.de/",
@@ -4432,7 +4436,9 @@
   "NordseeMan & NordseeWoman|2027-08-07": {
     "art1": "Triathlon",
     "art2": "Straße",
-    "_note": "nordseeman.de: Triathlon in Wilhelmshaven, 07./08.08.2027 – Mitteldistanz, Olympische Distanz, Volksdistanz, Junior, S+R-Relay, ParaTriathlon; stand als Laufveranstaltung"
+    "_note": "nordseeman.de: Triathlon in Wilhelmshaven, 07./08.08.2027 – Mitteldistanz, Olympische Distanz, Volksdistanz, Junior, S+R-Relay, ParaTriathlon; stand als Laufveranstaltung | Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Distanzseiten: Volksdistanz 500 m / 20 km / 5 km am Samstag 07.08.2027, Olympische Distanz 1,5 / 40 / 10 km und Mitteldistanz 1,9 / 90 / 21,1 km am Sonntag 08.08.2027; Junior, Para-Wertungen und Staffeln weggelassen. Quelle: https://nordseeman.de/mitteldistanz/",
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   "O-SEE Challenge|2027-08-13": {
     "art1": "Triathlon",
@@ -4989,7 +4995,9 @@
   },
   "Triathlon Offenburg|2027-05-08": {
     "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: „Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht au). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: „Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht au). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen. | Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 2026: Sprint Einzel 0,5 km Schwimmen / 22 km Rad (3 Runden) / 5 km Laufen (3 Runden) = 27,5 km; daneben nur Schueler/Jugend und Staffeln. Quelle: https://triathlon-offenburg.de/ausschreibung-to-2026",
+    "laenge_km": 27.5,
+    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)"
   },
   "Ahnataler Abendvolkslauf|2027-05-14": {
     "datum_vorlaeufig": true,
@@ -5046,5 +5054,368 @@
   "3. Halener Bahnmarathon|2027-07-17": {
     "datum_vorlaeufig": true,
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 is). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+  },
+  "Hugenotten-Duathlon|2026-11-01": {
+    "laenge_km": 29.6,
+    "wettbewerb": "Duathlon 29,6 km (5 km Laufen / 20 km Rad / 4,6 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Die Vereinsseite (radteam-neu-isenburg.de) verweist fuer alle Details auf raceresult (dynamisch, nicht lesbar); der DTU-Kalender nennt fuer 2025 5 km Laufen / 20 km Rad / 4,6 km Laufen = 29,6 km. Die Strecken schwanken von Jahr zu Jahr leicht (2023: 4,8/20/4,8; 2024: 4,8/20,2/4,4). Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/11-2025/hugenotten-duathlon"
+  },
+  "Rüsselcross Duathlon|2026-11-14": {
+    "laenge_km": 27.5,
+    "wettbewerb": "RüsselCross Classic 27,5 km (5 km Laufen / 20 km MTB / 2,5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Die Vereinsseite nennt nur Datum und Anmeldung, die Ausschreibung ist ein PDF; der DTU-Kalender 2025 nennt Landesmeisterschaft/Classic 5 km Lauf / 20 km MTB / 2,5 km Lauf und Jedermann 2,3 / 10 / 0,7 km (auch Jugend A/B). Schueler-Rennen (0,4/2,5/0,4) weggelassen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/11-2025/21-ruesselcross-duathlon"
+  },
+  "Nikolaus Duathlon|2026-12-05": {
+    "laenge_km": 28.5,
+    "wettbewerb": "Xtra 28,5 km (5 km Laufen / 21 km Rad / 2,5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Die Wettkampfseite nennt keine Distanzen; die Vereinsnachricht zum Nikolaus-Duathlon nennt Xtra 5 km Lauf / 21 km Rad / 2,5 km Lauf und Light 2 / 15 / 2 km (auch Jugend A und Staffeln). Schueler-Rennen weggelassen. Aeltere Ausgaben hatten 5/22,5/2,5 (Classic) und 2,5/15/2,5 (Jedermann). Quelle: https://triathlon.eintracht.de/news/nikolaus-duathlon-zurueck-in-den-startloechern-146272/"
+  },
+  "Spreewald Duathlon|2027-05-01": {
+    "laenge_km": 108.0,
+    "wettbewerb": "Langdistanz 108 km (19 km Laufen / 84 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). spreewald-triathlon.de nennt keine Distanzen; der DTU-Kalender 2026 nennt Langdistanz 19 km Lauf / 84 km Rad / 5 km Lauf, Kurzdistanz 10 / 42 / 5 km und eine dritte Strecke 6 / 11 / 5 km. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/04-2026/spreewald-duathlon-2026"
+  },
+  "Günzburger Alkoholfrei Cross Triathlon|2027-05-08": {
+    "laenge_km": 31.4,
+    "wettbewerb": "Cross-Triathlon 31,4 km (400 m Schwimmen / 26 km MTB / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). tri-gz.de nennt fuer 2027 nur das Datum; der DTU-Kalender 2026 nennt 400 m Schwimmen / 26 km MTB / 5 km Laufen (Einzel und Staffel). Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/05-2026/10-guenzburger-alkoholfrei-crosstriathlon"
+  },
+  "Drensteinfurt Triathlon|2027-05-16": {
+    "laenge_km": 25.4,
+    "wettbewerb": "Jedermann Sprint 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). drensteinfurt-triathlon.de hat die Ausschreibung 2027 nur als PDF; der DTU-Kalender 2025 nennt Jedermann Sprint 0,4 km / 20 km / 5 km, Kurz 0,8 / 40 / 10 km und Mittel ('76.2er') 1,2 / 60 / 15 km. Schueler/Jugend und Staffeln weggelassen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/05-2025/3drensteinfurt-triathlon"
+  },
+  "Oelder Triathlon|2027-05-22": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Seite 'Wettkaempfe und Wertungen': Volksdistanz 500 m Schwimmen / 20 km Rad / 5 km Laufen; Schnupperdistanz 200 m / 10 km / 1,7 km (ab Jahrgang 2010). Schueler/Jugend/Staffeln weggelassen. Quelle: https://www.lv-oelde.de/de/triathlon/volkstriathlon/wertung/"
+  },
+  "Powertriathlon Gera|2027-05-29": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Powertriathlon 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung: Powertriathlon 1,5 km Schwimmen / 40 km Rad / 10 km Laufen; Sprint 700 m / 20 km / 5 km. Staffeln (Jedermann 500 m, Familien-, Firmenstaffel) weggelassen. Quelle: https://powertriathlon.de/ausschreibung"
+  },
+  "Spreewald Triathlon|2027-05-29": {
+    "laenge_km": 106.2,
+    "wettbewerb": "Mitteldistanz 106,2 km (2,2 km Schwimmen / 84 km Rad / 20 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). spreewald-triathlon.de nennt keine Distanzen; hdsports fuehrt fuer 2027 Mitteldistanz 2,2 km / 84 km / 20 km am Samstag und Olympische Distanz 1,5 / 42 / 10 km am Sonntag (30.05.2027). Quelle: https://www.hdsports.org/triathlons/spreewald-triathlon"
+  },
+  "O-See-Triathlon Uelzen|2027-05-30": {
+    "laenge_km": 27.1,
+    "wettbewerb": "Sprint 27,1 km (750 m Schwimmen / 22 km Rad / 4,4 km Laufen)",
+    "veranstalter_url": "https://post-sv-uelzen.de/oseetriathlon",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Veranstalter ist der Post-SV Uelzen (run-timing ist das Anmeldeportal): Ausschreibung in Kurzform nennt Sprint/Liga 0,75 km / ca. 22 km / 4,4 km, Standard 1,5 / ca. 43 / 8,8 km, Half 1,9 / 85 / ca. 20 km, 30.05.2027. Quelle: https://post-sv-uelzen.de/ausschreibung-in-kurzform"
+  },
+  "Koberbachtal-Triathlon|2027-06-04": {
+    "laenge_km": 47.5,
+    "wettbewerb": "Olympische Distanz 47,5 km (1,5 km Schwimmen / 36 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseite: Schwimmen 1510 m olympisch / 750 m jedermann / 400 m einsteiger-supersprint; Rad 36 km (2 Runden) / 20 km (1 Runde) / 10 km (2 x 5 km); Laufen 5000-m-Runde (olympisch 2 Runden) / 2500 m supersprint. Zuordnung nach den Bezeichnungen der Streckenseite; Meilenschwimmen, Kinder und Schueler weggelassen. Quelle: https://www.koberbachtal-triathlon.de/wettkaempfe/strecke/"
+  },
+  "Bonn Triathlon|2027-06-06": {
+    "laenge_km": 84.2,
+    "wettbewerb": "84,2 km (4,2 km Schwimmen / 65 km Rad / 15 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Startseite 'Save the date: 06.06.2027 - Swim 4,2 km, Bike 65 km, Run 15 km'; eine Distanz, auch als Staffel (Ausschreibung 2026 nennt 64 km Rad). Quelle: https://www.bonn-triathlon.de/"
+  },
+  "Enni-Triathlon|2027-06-06": {
+    "laenge_km": 48.0,
+    "wettbewerb": "Kurzdistanz 48 km (1 km Schwimmen / 37 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). enni-triathlon.de nennt die drei Distanzen nur dem Namen nach; der DTU-Kalender 2026 nennt Kurzdistanz 1,0 km / 37 km / 10 km, Sprint 0,5 / 19 / 5 km und die Fitnessdistanz 0,25 / 10 / 3 km. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2026/enni-triathlon-moers"
+  },
+  "Reiling - Harsewinkel Triathlon|2027-06-06": {
+    "laenge_km": 51.0,
+    "wettbewerb": "Kurzdistanz 51 km (1 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Infoseite: Kurzdistanz/Olympische Distanz 1-40-10 km, Volksdistanz/Sprint 0,5-20-5 km, Schnuppertriathlon 0,2-10-1,8 km (ab Jahrgang 2008); Schueler weggelassen. Quelle: https://trispeed.de/triathlon/infos/"
+  },
+  "Triathlon Ingolstadt|2027-06-06": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). triathlon-ingolstadt.de zeigt nur den Kinderlauf und den TriDay; der BTV-Bericht zum Meldestart nennt Olympisch 1,5 km / 40 km / 10 km, Sprint 0,75 / 20 / 5 km und Mitteldistanz 1,9 / 86 / 20 km. Jedermann-Distanz ohne Zahlen, weggelassen. Quelle: https://triathlonbayern.de/meldestart-fuer-den-audi-triathlon-ingolstadt-am-1-oktober/"
+  },
+  "Aasee Triathlon|2027-06-13": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung: Sprintdistanz 500 m / 20 km / 5 km, Bocholter Distanz 1.500 m / 40 km / 10 km, Mitteldistanz 2.000 m / 90 km / 20 km; Schueler und Staffeln weggelassen. Quelle: https://www.aasee-triathlon.de/index.php/ausschreibung"
+  },
+  "Burgwald Triathlon|2027-06-13": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseiten: Olympisch 3 x 500 m Schwimmen / 4 x 10 km Rad / 4 x 2,5 km Laufen, Sprint 500 m / 20 km / 5 km; Schueler weggelassen. Quelle: https://www.burgwald-triathlon.de/strecke-sprint/"
+  },
+  "Stadttriathlon Erding|2027-06-13": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseite: Schwimmen 1500 m (olympisch) bzw. 400 m (Volksdistanz), Laufen 10 km bzw. 5 km; Radstrecke 40 bzw. 20 km laut spoferan-Ausschreibung. Quelle: https://trisport-erding.de/stadttriathlon/strecken/"
+  },
+  "Triathlon Heilbronn|2027-06-13": {
+    "laenge_km": 27.8,
+    "wettbewerb": "Sprintdistanz 27,8 km (750 m Schwimmen / 22 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 2027 (PDF): Sprint 0,75 km / 22 km / 5 km, Kurzdistanz 1,5 / 45 / 10,5 km, Mitteldistanz 1,9 / 83 / 21,5 km; Staffeln weggelassen. Quelle: https://www.triathlon-heilbronn.de/media/pages/anmeldung/ausschreibung/1b1ae7d78f-1782291480/heilbronn_2027_ausschreibung-2.pdf"
+  },
+  "Würzburg Triathlon|2027-06-13": {
+    "laenge_km": 27.6,
+    "wettbewerb": "Jedermann Distanz 27,6 km (600 m Schwimmen / 22 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Distanzseiten: Jedermann 600 m / 22 km / 5 km, Olympisch 1,5 km / 44 km / 10 km, Mitteldistanz 2,1 km / 90 km / 21 km; Staffeln weggelassen. Quelle: https://www.wuerzburg-triathlon.de/distanzen"
+  },
+  "Unterallgäuer Triathlon|2027-06-19": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Veranstalterseite (Stand 2026): Volksdistanz 0,5 km / 20 km / 5 km, Olympische Distanz 1,5 / 40 / 10 km; Staffel weggelassen. Termin 2027 dort noch nicht genannt. Quelle: https://triathlon-ottobeuren.de/"
+  },
+  "Münster City Triathlon|2027-06-20": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung: Volksdistanz 500 m / 20 km / 5 km, Olympische Distanz 1.350 m / 40 km / 10 km; Staffel- und Inklusionswettbewerbe weggelassen. Quelle: https://muenster-triathlon.de/ausschreibung/"
+  },
+  "Steinbecker Triathlon|2027-06-20": {
+    "laenge_km": 32.5,
+    "wettbewerb": "ShortMan 32,5 km (500 m Schwimmen / 27 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). steinbeck-triathlon.de nennt nur Rundenlaengen (Schwimmen 1,9/1,5/0,5 km, Rad-Rundkurs 13,5 km, Lauf-Rundkurs 5,1 km); hdsports fuehrt fuer 2027 ShortMan 0,5 / 27 / 5 km, Olympisch 1,5 / 42 / 10 km, SteelMan 1,5 / 70 / 21 km. Quelle: https://www.hdsports.org/triathlons/steinbecker-triathlon"
+  },
+  "Edersee-Triathlon|2027-06-26": {
+    "laenge_km": 53.5,
+    "wettbewerb": "Olympische Distanz 53,5 km (1,5 km Schwimmen / 42 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 2025 (PDF des Veranstalters): Olympische Distanz 1,5 km / 42 km / 10 km, Volkstriathlon 0,75 / 18 / 5 km; Staffel weggelassen. 2027 noch nicht ausgeschrieben. Quelle: https://edersee-triathlon.de/files/Ausschreibung-2025_40.-Edersee-Triathlon.pdf"
+  },
+  "Werbellinsee Triathlon|2027-06-26": {
+    "laenge_km": 49.8,
+    "wettbewerb": "Olympische Distanz 49,8 km (1,5 km Schwimmen / 39 km Rad / 9,3 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseite: Olympisch 1,5 km / 39 km / 9,3 km, Sprint 0,7 / 19 / 4,75 km, Volkstriathlon 0,4 / 12 / 3 km, Schorfheide-Graveltriathlon 1,5 / 25 km offroad / 7,5 km offroad (Kategorie Cross); Kinder und Staffeln weggelassen. Quelle: https://werbellinseetriathlon.de/Ausschreibung/Strecken/"
+  },
+  "Triathlon Trebgast|2027-06-27": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). triathlon-trebgast.de liefert dem Abruf keinen Text; der DTU-Kalender 2026 (TenneT POWERTRIATHLON Trebgast) nennt Olympisch 1.500 m / 40 km / 10 km, Volksdistanz 500 m / 20 km / 4,5 km, Schnupperdistanz 200 m / 10 km / 1,75 km (ab 12 Jahren); Staffeln weggelassen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2026/tennet-powertriathlon-trebgast-2026"
+  },
+  "Saerbecker Triathlon|2027-07-04": {
+    "laenge_km": 25.4,
+    "wettbewerb": "Volkstriathlon (Saerbeck Classic) 25,4 km (700 m Schwimmen / 20 km Rad / 4,7 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung und Streckenseite: Volkstriathlon 700 m / 20 km / 4,7 km (Laufrunde 2,85 km, 1,65 x), Kurzdistanz 1.400 m / 40 km / 10,4 km; Aquabike (ohne Lauf) und Liga weggelassen. Quelle: https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon/strecken"
+  },
+  "Churfranken Triathlon|2027-07-11": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprint 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 11.07.27: Sprint 0,5-20-5, Olympisch 1,5-40-10; Staffeln weggelassen. Quelle: https://www.tripaul.de/tri"
+  },
+  "IOK-Triathlon Verl|2027-07-11": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Volksdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseite: Volksdistanz 750 m / 20 km / 2 x 2,5 km, Kurzdistanz 2 x 750 m / 40 km / 4 x 2,5 km; Staffel und Schueler weggelassen. Quelle: https://www.triathlon-verl.de/ein-startseiten-abschnitt/strecken/"
+  },
+  "Rostocker Triathlon|2027-07-11": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). tc-fiko.de nennt keine Distanzen; der DTU-Kalender 2026 nennt Sprint 0,75 km / 20 km / 5 km und Supersprint 0,4 / 10 / 2,5 km (dazu Relay, Schueler, Jugend - weggelassen). Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/07-2026/41-neue-rostocker-wg-triathlon"
+  },
+  "Triathlon Tübingen|2027-07-18": {
+    "laenge_km": 54.2,
+    "wettbewerb": "Kurzdistanz 54,2 km (1,5 km Schwimmen / 43 km Rad / 9,7 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Streckenseite: Kurzdistanz 1,5 km / 43 km / 9,7 km, SUZUKI Sprintdistanz 0,75 / 22 / 4,7 km, Schnupperdistanz 0,3 / 11 / 3,2 km (ab 14); Staffeln weggelassen. Quelle: https://www.mey-generalbau-triathlon.com/infos/strecken"
+  },
+  "Munich Triathlon|2027-07-25": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Vom Nutzer genannt ('Sprint & Kurzdistanz'); Streckenseite: Sprintdistanz 0,5 km / 20 km / 5 km, Kurzdistanz 1,5 km / 40 km / 10 km (Olympiapark, 25.07.2027); Staffeln weggelassen. Quelle: https://www.munich-triathlon.com/infos/strecken"
+  },
+  "Silbersee-Triathlon|2027-07-25": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Veranstalterseite: Olympische Distanz 1500 m / 40 km / 10 km, Sprintdistanz 750 m / 23 km / 5 km, Volksdistanz 500 m / 23 km / 5 km; Staffeln weggelassen. Quelle: https://silbersee-triathlon.com/?page_id=30"
+  },
+  "Usedom Volkssport Triathlon|2027-08-07": {
+    "laenge_km": 19.5,
+    "wettbewerb": "Volkssporttriathlon 19,5 km (500 m Schwimmen / 15 km Rad / 4 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). usedom-triathlon.de nennt Datum (07.08.2027, 17:30 Uhr) und Staffel, die Strecke nur als Plan; laut usedom-exclusiv.de und Nordkurier: 500 m Ostsee / 15 km Rad / 4 km Strandlauf, fuer Frauen und Maenner ab 55 verkuerzt auf 11 km / 3 km. Quelle: https://www.usedom-exclusiv.de/168/freizeit-sport-usedom/volkssport-triathlon-koserow-usedom.html"
+  },
+  "City Triathlon Bremen|2027-08-08": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volkstriathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung: Volkstriathlon 500 m / 20 km / 5 km, Olympic Triathlon 1,5 km / 40 km / 10 km, Sprinttriathlon 750 m / 20 km / 5 km; Staffeln weggelassen. Quelle: https://citytriathlonbremen.de/start/das-event/ausschreibung-2025/"
+  },
+  "Allgäu Triathlon|2027-08-22": {
+    "laenge_km": 113.9,
+    "wettbewerb": "Classic 113,9 km (1,9 km Schwimmen / 92 km Rad / 20 km Laufen)",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung (Stand 2026): Classic 1,9 km / 92 km / 20 km, Olymp 1,5 / 46 / 10 km, Sprint 0,5 / 29 / 5 km; Classic-Staffel weggelassen. Quelle: https://www.808project.de/allgaeutriathlon/ausschreibung-at"
+  },
+  "Muldental-Triathlon|2027-08-29": {
+    "laenge_km": 51.6,
+    "wettbewerb": "Olympische Distanz 51,6 km (1,5 km Schwimmen / 40,1 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://www.muldental-triathlon.de/",
+    "_note": "Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Veranstalterseite (raceresult war nur das Portal): Olympische Distanz 1.500 m / 40,08 km / 10 km, Sprint 750 m / 20,04 km / 5 km, Super-Sprint 350 m / 13,36 km / 2,5 km, 29.08.2027 Flossplatz Grimma; Bundesliga und Team-Triathlon weggelassen. Quelle: https://www.muldental-triathlon.de/"
+  },
+  "Ironman Hamburg|2027-06-06|3.8": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 3,8-km-Zeile ist die SCHWIMM-Teilstrecke des Ironman (226-km-Zeile steht). Quelle: https://www.ironman.com/races/im-hamburg"
+  },
+  "O-SEE Challenge|2027-08-13|13.5": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Zeile 'Family & Kids Races' (13.-15.08.) trug die 13,5 km des O-SEE Light (15.08.) - Kinder-/Familienrennen ohne Erwachsenendistanz, Duplikat. Quelle: https://www.xterraplanet.com/event/xterra-germany"
+  },
+  "Aluman|2027-07-03|3.2": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 3,2-km-Zeile ist die LAUF-Teilstrecke (2 x 3,25 km). Quelle: https://www.aluman-gvm.de/"
+  },
+  "Aluman|2027-07-03|21.5": {
+    "laenge_km": 28.5,
+    "wettbewerb": "Aluman 28,5 km (500 m Schwimmen / 21,5 km Rad / 6,5 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 21,5-km-Zeile war die RAD-Teilstrecke; die Veranstalterseite nennt 500 m Schwimmen / 21,5 km Rad / 6,5 km Laufen (2 x 3,25 km), Einzel oder Staffel. 21.5 km -> 28.5 km. Quelle: https://www.aluman-gvm.de/"
+  },
+  "Aluman|2027-07-03|28.5": {
+    "wettbewerb": "Aluman 28,5 km (500 m Schwimmen / 21,5 km Rad / 6,5 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://www.aluman-gvm.de/"
+  },
+  "Triathlon Stralsund|2027-09-05|1.5": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 1,5-km-Zeile 'Schwimmen' ist die Schwimm-Teilstrecke der Olympischen Distanz. Quelle: https://stralsund-triathlon.de/distanzen/"
+  },
+  "Triathlon Stralsund|2027-09-05|55.5": {
+    "wettbewerb": "Olympische Distanz 55,5 km (1,5 km Schwimmen / 44 km Rad / 10 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Label mit Teilstrecken nachgetragen. Quelle: https://stralsund-triathlon.de/distanzen/"
+  },
+  "Dirty Race|2027-01-30|4.4": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Teilstrecke 'Run 2' des Run-Bike-Run. Quelle: https://sillahopp.squarespace.com/dirty-race"
+  },
+  "Dirty Race|2027-01-30|5": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Teilstrecke 'Run 1' des Run-Bike-Run. Quelle: https://sillahopp.squarespace.com/dirty-race"
+  },
+  "Dirty Race|2027-01-30|15": {
+    "laenge_km": 24.4,
+    "wettbewerb": "Solo 24,4 km (5 km Laufen / 15 km MTB / 4,4 km Laufen)",
+    "art2": "Duathlon",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 15-km-Zeile war die BIKE-Teilstrecke; Dirty Race ist ein Duathlon (Run 1 5 km Asphalt / Bike 15 km MTB-Gravel / Run 2 4,4 km Cross) = 24,4 km, Solo oder Duett. 15 km -> 24.4 km. Quelle: https://sillahopp.squarespace.com/dirty-race"
+  },
+  "Dirty Race|2027-01-30|24.4": {
+    "wettbewerb": "Solo 24,4 km (5 km Laufen / 15 km MTB / 4,4 km Laufen)",
+    "art2": "Duathlon",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://sillahopp.squarespace.com/dirty-race"
+  },
+  "Kronberger Bike+Run|2026-10-03|4.5": {
+    "art2": "Duathlon",
+    "wettbewerb": "4,5 km (Schueler B und offene Klasse; Zweierteam mit einem Rad)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Bike+Run: Zweierteams teilen sich ein Rad und wechseln beliebig - Kategorie Duathlon wie die beiden anderen Zeilen. Quelle: https://kronberger-bikeandrun.de/"
+  },
+  "Kronberger Bike+Run|2026-10-03|7": {
+    "wettbewerb": "7 km (offene Klasse ab 12; Zweierteam mit einem Rad)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Quelle: https://kronberger-bikeandrun.de/"
+  },
+  "Kronberger Bike+Run|2026-10-03|13.2": {
+    "wettbewerb": "13,2 km (offene Klasse ab 14; Zweierteam mit einem Rad)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Quelle: https://kronberger-bikeandrun.de/"
+  },
+  "Jedermanntriathlon|2027-08-21|4.5": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 4,5-km-Zeile ist die LAUF-Teilstrecke. Quelle: https://jedermann-triathlon.de/"
+  },
+  "Jedermanntriathlon|2027-08-21|25.1": {
+    "wettbewerb": "Jedermann-Triathlon 25,1 km (600 m Schwimmen / 20 km Rad / 4,5 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Label mit Teilstrecken nachgetragen. Quelle: https://jedermann-triathlon.de/"
+  },
+  "Wanzleber Sparkassen Triathlon|2027-07-04|5": {
+    "laenge_km": 28.0,
+    "wettbewerb": "Volkstriathlon 28 km (500 m Schwimmen / 23 km Rad / 4,5 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 5-km-Zeile war die (gerundete) Laufstrecke; triathlon-wanzleben.de nennt fuer 2027 nur das Datum, laut myfinish/DTU-Kalender 500 m Schwimmen / 23 km Rad / 4,5 km Laufen. 5 km -> 28 km. Quelle: https://www.myfinish.de/Deutschland/Sachsen-Anhalt/Wanzleben/Triathlon/5994IOY/8._Wanzleber_Sparkassen_Triathlon.html"
+  },
+  "Wanzleber Sparkassen Triathlon|2027-07-04|28": {
+    "wettbewerb": "Volkstriathlon 28 km (500 m Schwimmen / 23 km Rad / 4,5 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://www.myfinish.de/Deutschland/Sachsen-Anhalt/Wanzleben/Triathlon/5994IOY/8._Wanzleber_Sparkassen_Triathlon.html"
+  },
+  "triathlon.de CUP München|2027-06-25|10": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 10-km-Zeile ist die LAUF-Teilstrecke der Olympischen Distanz; die Wettbewerbe stehen einzeln in manual_events.json. Quelle: https://triathlon.de/pages/triathlon-de-cup-ausschreibung"
+  },
+  "triathlon.de CUP München|2027-06-25|20": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 20-km-Zeile ist die RAD-Teilstrecke des Volks-Triathlons; die Wettbewerbe stehen einzeln in manual_events.json. Quelle: https://triathlon.de/pages/triathlon-de-cup-ausschreibung"
+  },
+  "Berlin Triathlon|2027-06-05|19": {
+    "laenge_km": 108.9,
+    "wettbewerb": "Mitteldistanz 108,9 km (1,9 km Schwimmen / 88 km Rad / 19 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 19-km-Zeile war die LAUF-Teilstrecke der Mitteldistanz (Xenofit-Mitteldistanz 1,9 / 88,04 / 19 km). 19 km -> 108.9 km. Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Berlin Triathlon|2027-06-05|108.9": {
+    "wettbewerb": "Mitteldistanz 108,9 km (1,9 km Schwimmen / 88 km Rad / 19 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Berlin Triathlon|2027-06-05|9": {
+    "laenge_km": 47.2,
+    "wettbewerb": "Olympische Distanz 47,2 km (1,5 km Schwimmen / 36,5 km Rad / 9,2 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 9-km-Zeile war die LAUF-Teilstrecke der Olympischen Distanz (1,5 / 36,45 / 9,2 km). 9 km -> 47.2 km. Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Berlin Triathlon|2027-06-05|47.2": {
+    "wettbewerb": "Olympische Distanz 47,2 km (1,5 km Schwimmen / 36,5 km Rad / 9,2 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Berlin Triathlon|2027-06-05|5": {
+    "laenge_km": 27.2,
+    "wettbewerb": "Sprintdistanz 27,2 km (750 m Schwimmen / 21,7 km Rad / 4,7 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Die 5-km-Zeile war die LAUF-Teilstrecke der Sprintdistanz (0,75 / 21,71 / 4,7 km). 5 km -> 27.2 km. Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Berlin Triathlon|2027-06-05|27.2": {
+    "wettbewerb": "Sprintdistanz 27,2 km (750 m Schwimmen / 21,7 km Rad / 4,7 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://berlin-triathlon.de/Ausschreibung/Strecken/"
+  },
+  "Lipperlandtriathlon|2027-06-20|6": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Schueler B (10/11): 0,2 / 5 / 1 km - Kinderrennen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0"
+  },
+  "Lipperlandtriathlon|2027-06-20|13": {
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Jugend B (14/15): 0,5 / 10 / 2,5 km - Jugendrennen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0"
+  },
+  "Lipperlandtriathlon|2027-06-20|26": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). DTU-Kalender 2025: Sprintdistanz 0,5 km / 20 km / 5 km = 25,5 km (tglage.de nennt fuer 2027 nur den voraussichtlichen Termin). 26 km -> 25.5 km. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0"
+  },
+  "Lipperlandtriathlon|2027-06-20|25.5": {
+    "wettbewerb": "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0"
+  },
+  "Lipperlandtriathlon|2027-06-20|51": {
+    "wettbewerb": "Kurzdistanz 51 km (1 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Label mit Teilstrecken nachgetragen. Quelle: https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/06-2025/40-lipperlandtriathlon-0"
+  },
+  "Kallinchen Triathlon|2027-08-29|16": {
+    "laenge_km": 16.1,
+    "wettbewerb": "Supersprint 16,1 km (300 m Schwimmen / 13 km Rad / 2,8 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Ausschreibung: Wettkampf C Supersprint 0,3 / 13 / 2,8 km. 16 km -> 16.1 km. Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Kallinchen Triathlon|2027-08-29|16.1": {
+    "wettbewerb": "Supersprint 16,1 km (300 m Schwimmen / 13 km Rad / 2,8 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Kallinchen Triathlon|2027-08-29|32": {
+    "laenge_km": 31.8,
+    "wettbewerb": "Sprint 31,8 km (750 m Schwimmen / 26 km Rad / 5 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Ausschreibung: Wettkampf B Sprint 0,75 / 26 / 5 km. 32 km -> 31.8 km. Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Kallinchen Triathlon|2027-08-29|31.8": {
+    "wettbewerb": "Sprint 31,8 km (750 m Schwimmen / 26 km Rad / 5 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Kallinchen Triathlon|2027-08-29|51": {
+    "laenge_km": 50.5,
+    "wettbewerb": "Olympisch 50,5 km (1,5 km Schwimmen / 39 km Rad / 10 km Laufen)",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Ausschreibung: Wettkampf A Olympisch 1,5 / 39 / 10 km. 51 km -> 50.5 km. Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Kallinchen Triathlon|2027-08-29|50.5": {
+    "wettbewerb": "Olympisch 50,5 km (1,5 km Schwimmen / 39 km Rad / 10 km Laufen)",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: http://kallinchentriathlon.de/Wettkampf/Ausschreibung/"
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|6": {
+    "laenge_km": 6.2,
+    "wettbewerb": "Super Super Sprint 6,2 km (200 m Schwimmen / 5 km Rad / 1 km Laufen)",
+    "art2": "Indoor",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Ausschreibung: Super Super Sprint 200 m Schwimmen / 5 km Ergometer / 1 km Laufen (Schueler A bis AK85); die Zeile stand als Strasse statt Indoor. 6 km -> 6.2 km. Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon"
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|6.2": {
+    "wettbewerb": "Super Super Sprint 6,2 km (200 m Schwimmen / 5 km Rad / 1 km Laufen)",
+    "art2": "Indoor",
+    "_note": "Zweiter Schluessel mit der NEUEN Distanz fuer den Bestand (siehe Eintrag mit der alten). Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon"
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|12": {
+    "art2": "Indoor",
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Hallen-Triathlon (Sportforum Chemnitz: 50-m-Becken, Ergometer, Tartanoval) - Kategorie Indoor wie die 26-km-Zeile; Super Sprint und Sprint sind ohne genaue Zahlen ausgeschrieben. Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon"
   }
 }
