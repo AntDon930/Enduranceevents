@@ -3317,8 +3317,15 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
    - Kleinteiliger: `og:image` (braucht die Domain). ~~Ladezustand~~
-     **gebaut** (21.09.2026: acht Platzhalterzeilen im `<tbody>`, die
-     der erste `render()` ersetzt – Begründung im Markup); „DACH" und
+     **gebaut** (21.09.2026: acht Platzhalterzeilen im `<tbody>`, und
+     `render()` lässt sie stehen, bis `events.json` da ist –
+     `eventsGeladen`. Die Sperre ist der eigentliche Teil: Ein früher
+     `render()` aus `onAuthChange` zeigte vorher bei jedem Aufruf „0
+     Events / Keine Events gefunden" samt Abo-Kasten, bis die Daten da
+     waren; der Platzhalter allein wäre sofort überschrieben worden. Das
+     kam erst mit einem Bildschirmfoto bei angehaltenem Abruf heraus –
+     der Rauchtest wartet auf die Daten und sieht diesen Zustand nie);
+     „DACH" und
      „Beispielprojekt" kommen in sichtbaren Texten nicht mehr vor
      (nur noch in Code-Kommentaren, geprüft 21.09.2026).
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem

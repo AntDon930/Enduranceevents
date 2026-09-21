@@ -1079,6 +1079,10 @@
 
 
   let events = [];
+  // Erst nach dem Abruf true - davor zeigt render() den Ladezustand
+  // (Platzhalterzeilen) statt "0 Events". Steht hier oben bei `events`,
+  // weil render() über EE_AUTH_QUEUE lange vor dem Abruf laufen kann.
+  let eventsGeladen = false;
   let selectedIndex = null;
 
   // Stehen hier oben, NICHT beim Zeichnen der Tabelle: `const`/`let` auf
@@ -1192,6 +1196,18 @@
   });
 
   const bodyEl = document.getElementById('event-body');
+
+  // Der Ladezustand: die Platzhalterzeilen, die im HTML im <tbody> stehen
+
+  // (siehe dort). render() setzt sie wieder ein, solange events.json noch
+
+  // nicht da ist - EndauranceAuth.onAuthChange ruft render() nämlich
+
+  // schon VOR dem Abruf, und ohne diese Sperre stand bis zum Laden "0
+
+  // Events / Keine Events gefunden" samt Abo-Kasten auf der Seite.
+
+  const ladeZeilenHtml = bodyEl.innerHTML;
   const tableEl = document.getElementById('event-table');
   // Der scrollende Behälter der Tabelle (bis 78vh hoch). Das Nachladen
   // des nächsten Zeilen-Schubs hängt an seinem Scrollen, nicht nur am
@@ -1320,6 +1336,7 @@
       }
     } catch (e) { /* kein Stand */ }
     events = dropPastEvents(await res.json());
+    eventsGeladen = true;
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });
     bodyEl.innerHTML = `<tr><td colspan="7" class="empty-row">${escapeHtml(t('load_error', err.message))}</td></tr>`;
@@ -1933,6 +1950,16 @@
     ui.updateIndicators();
     renderChips();
     ui.refresh();
+    // Noch keine Daten: Ladezustand statt "0 Events". Die Trefferzahl
+    // bleibt leer (eine Null wäre eine falsche Aussage), der Kasten für
+    // null Treffer bleibt zu - er erschien sonst für den Bruchteil einer
+    // Sekunde bei jedem Seitenaufruf.
+    if (!eventsGeladen) {
+      countEl.textContent = '';
+      removeNotifyPrompt();
+      if (!bodyEl.querySelector('.skeleton-row')) bodyEl.innerHTML = ladeZeilenHtml;
+      return;
+    }
     const filtered = getFiltered();
     countEl.textContent = t('result_count', EF.formatInt(filtered.length, currentLang));
 
