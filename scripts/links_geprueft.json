@@ -9844,18 +9844,19 @@
     "notiz": "Seite abgerufen, nennt den Lauf (saaletal, datum)."
   },
   "21. Obermain-Marathon Bad Staffelstein|2027-04-11": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "www.obermain-marathon.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "obermain-marathon.de",
     "alt": "http://www.obermain-marathon.de",
-    "notiz": "Seite abgerufen, nennt den Lauf (obermain, datum)."
+    "notiz": "Veranstalterseite statt obermain-marathon.de: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:obermain, datum). Linkprüfung 2026-09-21."
   },
   "Borna Halbmarathon|2027-04-11": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "baer-service.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "Websuche",
     "alt": "https://baer-service.de/veranstaltung/BHM/",
-    "notiz": "Seite abgerufen, nennt den Lauf (borna)."
+    "neu": "https://www.neuseensport.de/borna-running/borna-half",
+    "notiz": "Veranstalterseite statt baer-service.de: https://www.neuseensport.de/borna-running/borna-half - per Websuche gefunden, von Hand geprüft: der Borna Half wird von NeuseenSport e.V. mit VSV77 Borna, LAT Borna und Laufshop Haas ausgerichtet (Kontakt office@neuseensport.de); die Seite ist ohne JavaScript leer, deshalb konnte die Regel sie nicht belegen. Linkprüfung 2026-09-21."
   },
   "Dorflauf Geiß-Nidda|2027-04-11": {
     "am": "2026-09-19",
@@ -10292,11 +10293,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (lemming)."
   },
   "Oberelbe-Marathon|2027-04-25": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "www.oberelbe-marathon.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "oberelbe-marathon.de",
     "alt": "http://www.oberelbe-marathon.de",
-    "notiz": "Seite abgerufen, nennt den Lauf (oberelbe)."
+    "notiz": "Veranstalterseite statt oberelbe-marathon.de: https://www.oberelbe-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:oberelbe). Linkprüfung 2026-09-21."
   },
   "Pfalztrail|2027-04-25": {
     "am": "2026-09-19",
@@ -11832,11 +11833,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (ahrathon, datum)."
   },
   "Altenburger Skatstadtmarathon|2027-06-12": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "baer-service.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "skatstadtmarathon.de",
     "alt": "https://baer-service.de/veranstaltung/SSM/",
-    "notiz": "Seite abgerufen, nennt den Lauf (altenburger)."
+    "notiz": "Veranstalterseite statt baer-service.de: https://www.skatstadtmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:skatstadtmarathon). Linkprüfung 2026-09-21."
   },
   "Enni-Donkenlauf|2027-06-12": {
     "am": "2026-09-19",
@@ -13001,11 +13002,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (hausen)."
   },
   "Triple Ultra Triathlon Lensahn|2027-07-30": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "portal.run-timing.de",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonlensahn.de",
     "alt": "https://portal.run-timing.de/1027/registration",
-    "notiz": "Seite abgerufen, nennt den Lauf (lensahn)."
+    "notiz": "Veranstalterseite statt portal.run-timing.de: https://www.triathlonlensahn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:lensahn). Linkprüfung 2026-09-21."
   },
   "Berlin City Night|2027-07-31": {
     "am": "2026-09-19",
@@ -13414,11 +13415,11 @@
     "notiz": "Seite abgerufen, nennt den Lauf (allgau, datum)."
   },
   "Borsig Halbmarathon|2027-09-05": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
     "quelle": "borsighalbmarathon.de",
-    "alt": "https://borsighalbmarathon.de/",
-    "notiz": "Seite abgerufen, nennt den Lauf (borsig)."
+    "alt": "https://my.raceresult.com/420910/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://borsighalbmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:borsig). Linkprüfung 2026-09-21."
   },
   "Canyon Run Mühlheim|2027-09-05": {
     "am": "2026-09-19",
@@ -14380,11 +14381,11 @@
     "notiz": "Websuche: nur Kalender (56 km), kein Veranstalter - privates Ultra-Format"
   },
   "Gut Sutthausen Ultramarathon|2026-10-31": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/412655/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sutthausen). Linkprüfung 2026-09-21."
   },
   "Halloween Crosslauf zu Munster|2026-10-31": {
     "am": "2026-09-19",
@@ -14534,11 +14535,11 @@
     "notiz": "Veranstalterseite statt runtix.com: http://www.lgruelzheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ruelzheim). Linkprüfung 2026-09-19."
   },
   "Ultramarathon rund um Werther|2026-11-07": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/390457/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werther). Linkprüfung 2026-09-21."
   },
   "16. Friesenheimer Eulenlauf|2026-11-08": {
     "am": "2026-09-19",
@@ -14744,11 +14745,11 @@
     "notiz": "Websuche: Veranstalter SV Eifelland Waxweiler (Kontakt privat), keine Vereins- oder Laufseite gefunden - laufen.de bleibt."
   },
   "Kletterfelsen Brumleytal Ultra-Trail|2026-11-21": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/411728/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kletterfelsen). Linkprüfung 2026-09-21."
   },
   "Klosterparklauf Harsefeld|2026-11-21": {
     "am": "2026-09-19",
@@ -14898,11 +14899,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.mtv-giessen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:giessen). Linkprüfung 2026-09-19."
   },
   "Hohe Ward - Werse Ultramarathon|2026-11-29": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/418218/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werse). Linkprüfung 2026-09-21."
   },
   "Kuhsee Marathon|2026-11-29": {
     "am": "2026-09-20",
@@ -15087,11 +15088,11 @@
     "notiz": "Websuche nannte https://xn--tsv-dinkelsbhl-rsb.de/crosslauf-anmeldung/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Rund um den Langenberg Ultra|2026-12-12": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/419387/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (langenberg). Linkprüfung 2026-09-21."
   },
   "34. Adventslauf|2026-12-13": {
     "am": "2026-09-19",
@@ -15136,11 +15137,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (country). Linkprüfung 2026-09-20."
   },
   "Essener Rhein-Herne-Kanal Marathon|2026-12-20": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/395941/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat organisiert von Michael Scheele (TUSEM Essen LA); die Seite tusem-leichtathletik.de/…/2-rhk-marathon.html liefert nur eine leere Hülle (4 KB, nennt den Lauf nicht) - raceresult bleibt."
   },
   "SOBVL|2026-12-20": {
     "am": "2026-09-19",
@@ -15171,32 +15172,33 @@
     "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
   },
   "Wassermühlen-Ultra Rulle|2026-12-24": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/412479/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (wassermuhlen). Linkprüfung 2026-09-21."
   },
   "Vom See zum Schloss Ultramarathon|2026-12-25": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/412648/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schloss). Linkprüfung 2026-09-21."
   },
   "Silbersee-Hüggel UltraTrail|2026-12-26": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/412660/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (silbersee). Linkprüfung 2026-09-21."
   },
   "Sloopsteener Seenrunden Ultramarathon|2026-12-27": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/412994/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "neu": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "notiz": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt den Lauf als ‚1. Megalithgrab Sloopsteene Ultramarathon' (andere Schreibweise, deshalb kein Regel-Treffer). Linkprüfung 2026-09-21."
   },
   "Speck weg Serie Brockenläufe|2026-12-27": {
     "am": "2026-09-19",
@@ -15206,18 +15208,18 @@
     "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
   },
   "Dörenther Klippen UltraTrail|2026-12-28": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/413895/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (dorenther). Linkprüfung 2026-09-21."
   },
   "Schloss Tatenhausen Ultramarathon|2026-12-29": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/414345/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schloss). Linkprüfung 2026-09-21."
   },
   "12. Mergelstetter Silvesterlauf|2026-12-31": {
     "am": "2026-09-19",
@@ -15451,11 +15453,11 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Lengericher UltraTrail|2027-01-01": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/377589/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (lengericher). Linkprüfung 2026-09-21."
   },
   "Northeimer Neujahrsmarathon|2027-01-01": {
     "am": "2026-09-19",
@@ -15472,11 +15474,11 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Gut Sutthausen Ultramarathon|2027-01-02": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/413535/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sutthausen). Linkprüfung 2026-09-21."
   },
   "Brogginger Spendenlauf|2027-01-03": {
     "am": "2026-09-21",
@@ -15486,11 +15488,11 @@
     "notiz": "Websuche nannte https://www.pascal-schucker.de/Spendenaktionen/Spendenlauf-Broggingen, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
   },
   "Eversburger Gewässer Ultramarathon|2027-01-03": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/412651/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (eversburger). Linkprüfung 2026-09-21."
   },
   "Dreikönigslauf Sperrfechter Freizeitpark|2027-01-06": {
     "am": "2026-09-21",
@@ -15815,11 +15817,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.schluchseelauf.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schluchseelauf). Linkprüfung 2026-09-20."
   },
   "Dyckerhoff Steinbruch Marathon|2027-05-02": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/397880/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (dyckerhoff). Linkprüfung 2026-09-21."
   },
   "Waldreiterlauf|2027-05-02": {
     "am": "2026-09-20",
@@ -15864,11 +15866,11 @@
     "notiz": "Websuche: Veranstalter TSV 1864 Niedermeiser ohne Website (raceresult-Kontaktseite ohne URL; stadt-liebenau.de ist die Stadt) - raceresult bleibt."
   },
   "Ultratrail Oerlinghausen|2027-05-08": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/388264/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ultratrail). Linkprüfung 2026-09-21."
   },
   "Weinathlon|2027-05-08": {
     "am": "2026-09-19",
@@ -15878,18 +15880,18 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Backyard Ultra Lüneburg|2027-05-15": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/409511/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Veranstalter MW Sport-Events UG, Ausschreibung nur als PDF auf raceresult, keine eigene Seite - raceresult bleibt."
   },
   "Bruch Ultra Kettenkamp|2027-05-15": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "laufen-os.de",
+    "quelle": "Websuche",
     "alt": "https://www.laufen-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.pzn24.de, https://gebaeudereinigung-dinda.de/, https://www.helpage.de/mitmachen/fuer-laeufer-innen/bmw-berlin-marathon) - laufen-os.de bleibt."
+    "notiz": "Websuche ohne Treffer zum Lauf (nur das gleichnamige Open-Air-Festival) - laufen-os.de bleibt."
   },
   "Tergaster Volkslauf|2027-05-17": {
     "am": "2026-09-20",
@@ -16088,11 +16090,11 @@
     "notiz": "Veranstalterseite statt datasport.de: https://www.tsverlenbach.de/skay-run - auf der datasport.de-Seite verlinkt, Zielseite nennt den Lauf (kayrun). Linkprüfung 2026-09-19."
   },
   "Bremer Brückenlauf|2027-07-03": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "bremer-brueckenlauf.de",
     "alt": "https://my.raceresult.com/410016/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://bremer-brueckenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremer). Linkprüfung 2026-09-21."
   },
   "Heuchelberg Trail|2027-07-03": {
     "am": "2026-09-20",
@@ -16109,11 +16111,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://24stundenlaufdorsten.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:stunden). Linkprüfung 2026-09-20."
   },
   "Most Insane Psyland Backyard Ultra|2027-07-10": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "psy25.com",
     "alt": "https://my.raceresult.com/390792/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://psy25.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (insane). Linkprüfung 2026-09-21."
   },
   "Hardy's Stadtlauf Fürstenfeldbruck|2027-07-11": {
     "am": "2026-09-20",
@@ -16123,11 +16125,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:hardy). Linkprüfung 2026-09-20."
   },
   "3. Halener Bahnmarathon|2027-07-17": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/340929",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Ausrichter SC Halen 58 e.V. (Charity-Bahnmarathon), keine Vereinsseite gefunden; lg-lottehalen.jimdofree.com ist die LG Lotte/Halen und nennt den Lauf nicht - raceresult bleibt."
   },
   "Internationaler Allgäu Volkslauf|2027-07-18": {
     "am": "2026-09-20",
@@ -16165,32 +16167,33 @@
     "notiz": "Veranstalterseite statt davengo.com: https://www.laufwochenende-fuessen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:fuessen). Linkprüfung 2026-09-20."
   },
   "Rund um Detmold|2027-07-24": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/398707/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "neu": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "notiz": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt ‚7. Rund um Detmold' unter 2027 (‚Detmold' steht dort als eigene Zeile, die Regel las es nicht als Namenswort). Linkprüfung 2026-09-21."
   },
   "Holter Wald Ultra|2027-08-07": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/403291/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (holter). Linkprüfung 2026-09-21."
   },
   "Backyard Ultra-Marathon Tharandter Wald|2027-08-14": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/419054/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: nur raceresult, Kalender und backyardultra.de (Kalender), keine Veranstalterseite - raceresult bleibt."
   },
   "Mops-Ultra Night Edition|2027-08-21": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/413777/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (edition). Linkprüfung 2026-09-21."
   },
   "Mühlenweg Ultra|2027-08-28": {
     "am": "2026-09-19",

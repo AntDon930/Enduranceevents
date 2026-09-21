@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:Borsig Halbmarathon – Halbmarathon
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/420910/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://borsighalbm
+ arathon.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/420910/
+URL:https://borsighalbmarathon.de/
 END:VEVENT
 END:VCALENDAR

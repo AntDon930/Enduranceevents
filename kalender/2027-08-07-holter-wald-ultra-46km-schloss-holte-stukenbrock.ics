@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270807
 DTEND;VALUE=DATE:20270808
 SUMMARY:Holter Wald Ultra
 LOCATION:Schloß Holte-Stukenbrock\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
- .com/403291/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://ultra-uwe-unt
+ erwegs.de/veranstaltungen/uwes-laufangebote/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/403291/
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
 END:VEVENT
 END:VCALENDAR

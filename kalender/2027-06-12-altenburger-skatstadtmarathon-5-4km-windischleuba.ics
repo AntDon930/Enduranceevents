@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:Altenburger Skatstadtmarathon – 5\,4 km Fitnesslauf
 LOCATION:Windischleuba\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://baer-service
- .de/veranstaltung/SSM/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://www.skatstad
+ tmarathon.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/SSM/
+URL:https://www.skatstadtmarathon.de/
 END:VEVENT
 END:VCALENDAR

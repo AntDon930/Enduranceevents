@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:Bremer Brückenlauf – Halbmarathon
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://my.raceresu
- lt.com/410016/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://bremer-brue
+ ckenlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/410016/
+URL:https://bremer-brueckenlauf.de/
 END:VEVENT
 END:VCALENDAR

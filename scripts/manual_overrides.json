@@ -353,7 +353,8 @@
   "Triple Ultra Triathlon Lensahn|2027-07-30": {
     "laenge_km": 678.0,
     "dauer_h": null,
-    "_note": "Streckenbasiert, KEIN 24-Stunden-Rennen: 11,4 km Schwimmen (228 Bahnen im Lensahner Hallenbad) + 540 km Rad (68 Runden) + 126,6 km Laufen (98 Runden) = 678 km, also die dreifache Ironman-Distanz. Quelle: triathlonlensahn.de und Wikipedia. Die gespeicherten 24 h waren vermutlich eine Karenzzeit. Geprüft 2026-09-18."
+    "_note": "Streckenbasiert, KEIN 24-Stunden-Rennen: 11,4 km Schwimmen (228 Bahnen im Lensahner Hallenbad) + 540 km Rad (68 Runden) + 126,6 km Laufen (98 Runden) = 678 km, also die dreifache Ironman-Distanz. Quelle: triathlonlensahn.de und Wikipedia. Die gespeicherten 24 h waren vermutlich eine Karenzzeit. Geprüft 2026-09-18. | Veranstalterseite statt portal.run-timing.de: https://www.triathlonlensahn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:lensahn). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://www.triathlonlensahn.de/"
   },
   "Indoor-Triathlon Aschersleben|2027-01-23": {
     "dauer_h": null,
@@ -4873,7 +4874,8 @@
   },
   "Most Insane Psyland Backyard Ultra|2027-07-10": {
     "datum_ende": "2027-07-12",
-    "_note": "my.raceresult.com/390792: 1. Most Insane Psyland Backyard Ultra, 10.–12.07.2027, Tengen"
+    "_note": "my.raceresult.com/390792: 1. Most Insane Psyland Backyard Ultra, 10.–12.07.2027, Tengen | Veranstalterseite statt my.raceresult.com: https://psy25.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (insane). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://psy25.com/"
   },
   "Mühlenweg Ultra|2027-08-28": {
     "datum_ende": "2027-08-29",
@@ -5004,7 +5006,8 @@
   },
   "Oberelbe-Marathon|2027-04-25": {
     "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den 27. Oberelbe-Marathon am 26.04.2026 (Marathon, HM, 10 km, 5 km, 2,7 km); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den 27. Oberelbe-Marathon am 26.04.2026 (Marathon, HM, 10 km, 5 km, 2,7 km); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen. | Veranstalterseite statt oberelbe-marathon.de: https://www.oberelbe-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:oberelbe). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://www.oberelbe-marathon.de/"
   },
   "Halbmarathon Ingolstadt|2027-05-08": {
     "datum_vorlaeufig": true,
@@ -5976,5 +5979,101 @@
   "Wurzener Ringelnatzlauf|2027-08-29": {
     "veranstalter_url": "https://www.ringelnatzlauf.de/",
     "_note": "Veranstalterseite statt baer-service.de: https://www.ringelnatzlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ringelnatzlauf, datum). Linkprüfung 2026-09-21."
+  },
+  "21. Obermain-Marathon Bad Staffelstein|2027-04-11": {
+    "veranstalter_url": "https://www.obermain-marathon.de/",
+    "_note": "Veranstalterseite statt obermain-marathon.de: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:obermain, datum). Linkprüfung 2026-09-21."
+  },
+  "Altenburger Skatstadtmarathon|2027-06-12": {
+    "veranstalter_url": "https://www.skatstadtmarathon.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.skatstadtmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:skatstadtmarathon). Linkprüfung 2026-09-21."
+  },
+  "Bremer Brückenlauf|2027-07-03": {
+    "veranstalter_url": "https://bremer-brueckenlauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://bremer-brueckenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremer). Linkprüfung 2026-09-21."
+  },
+  "Borsig Halbmarathon|2027-09-05": {
+    "veranstalter_url": "https://borsighalbmarathon.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://borsighalbmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:borsig). Linkprüfung 2026-09-21."
+  },
+  "Gut Sutthausen Ultramarathon|2026-10-31": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sutthausen). Linkprüfung 2026-09-21."
+  },
+  "Gut Sutthausen Ultramarathon|2027-01-02": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sutthausen). Linkprüfung 2026-09-21."
+  },
+  "Ultramarathon rund um Werther|2026-11-07": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werther). Linkprüfung 2026-09-21."
+  },
+  "Kletterfelsen Brumleytal Ultra-Trail|2026-11-21": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (kletterfelsen). Linkprüfung 2026-09-21."
+  },
+  "Hohe Ward - Werse Ultramarathon|2026-11-29": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werse). Linkprüfung 2026-09-21."
+  },
+  "Rund um den Langenberg Ultra|2026-12-12": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (langenberg). Linkprüfung 2026-09-21."
+  },
+  "Wassermühlen-Ultra Rulle|2026-12-24": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (wassermuhlen). Linkprüfung 2026-09-21."
+  },
+  "Vom See zum Schloss Ultramarathon|2026-12-25": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schloss). Linkprüfung 2026-09-21."
+  },
+  "Silbersee-Hüggel UltraTrail|2026-12-26": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (silbersee). Linkprüfung 2026-09-21."
+  },
+  "Dörenther Klippen UltraTrail|2026-12-28": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (dorenther). Linkprüfung 2026-09-21."
+  },
+  "Schloss Tatenhausen Ultramarathon|2026-12-29": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (schloss). Linkprüfung 2026-09-21."
+  },
+  "Lengericher UltraTrail|2027-01-01": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (lengericher). Linkprüfung 2026-09-21."
+  },
+  "Eversburger Gewässer Ultramarathon|2027-01-03": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (eversburger). Linkprüfung 2026-09-21."
+  },
+  "Dyckerhoff Steinbruch Marathon|2027-05-02": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (dyckerhoff). Linkprüfung 2026-09-21."
+  },
+  "Ultratrail Oerlinghausen|2027-05-08": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ultratrail). Linkprüfung 2026-09-21."
+  },
+  "Holter Wald Ultra|2027-08-07": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (holter). Linkprüfung 2026-09-21."
+  },
+  "Mops-Ultra Night Edition|2027-08-21": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (edition). Linkprüfung 2026-09-21."
+  },
+  "Borna Halbmarathon|2027-04-11": {
+    "veranstalter_url": "https://www.neuseensport.de/borna-running/borna-half",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.neuseensport.de/borna-running/borna-half - per Websuche gefunden, von Hand geprüft: der Borna Half wird von NeuseenSport e.V. mit VSV77 Borna, LAT Borna und Laufshop Haas ausgerichtet (Kontakt office@neuseensport.de); die Seite ist ohne JavaScript leer, deshalb konnte die Regel sie nicht belegen. Linkprüfung 2026-09-21."
+  },
+  "Sloopsteener Seenrunden Ultramarathon|2026-12-27": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt den Lauf als ‚1. Megalithgrab Sloopsteene Ultramarathon' (andere Schreibweise, deshalb kein Regel-Treffer). Linkprüfung 2026-09-21."
+  },
+  "Rund um Detmold|2027-07-24": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt ‚7. Rund um Detmold' unter 2027 (‚Detmold' steht dort als eigene Zeile, die Regel las es nicht als Namenswort). Linkprüfung 2026-09-21."
   }
 }

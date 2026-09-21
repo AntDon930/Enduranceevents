@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:Gut Sutthausen Ultramarathon – 45 km (drei Runden)
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://my.raceresult
- .com/413535/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://ultra-uwe-unt
+ erwegs.de/veranstaltungen/uwes-laufangebote/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/413535/
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
 END:VEVENT
 END:VCALENDAR

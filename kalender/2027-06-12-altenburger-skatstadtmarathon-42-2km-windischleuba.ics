@@ -12,8 +12,8 @@ DTEND;VALUE=DATE:20270613
 SUMMARY:Altenburger Skatstadtmarathon – Marathon Sparkassen Marathon
 LOCATION:Windischleuba\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.skatsta
- dtmarathon.de
+ dtmarathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.skatstadtmarathon.de
+URL:https://www.skatstadtmarathon.de/
 END:VEVENT
 END:VCALENDAR

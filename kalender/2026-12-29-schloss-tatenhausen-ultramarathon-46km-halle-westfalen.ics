@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:Schloss Tatenhausen Ultramarathon
 LOCATION:Halle (Westfalen)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
- .com/414345/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://ultra-uwe-unt
+ erwegs.de/veranstaltungen/uwes-laufangebote/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/414345/
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
 END:VEVENT
 END:VCALENDAR

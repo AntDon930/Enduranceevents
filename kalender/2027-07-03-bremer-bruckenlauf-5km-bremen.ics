@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:Bremer Brückenlauf
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/410016/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://bremer-bruecke
+ nlauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/410016/
+URL:https://bremer-brueckenlauf.de/
 END:VEVENT
 END:VCALENDAR

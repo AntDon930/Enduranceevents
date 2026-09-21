@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:21. Obermain-Marathon Bad Staffelstein – Sparkassen-Marathon
 LOCATION:Bad Staffelstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.obermain
- -marathon.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.obermai
+ n-marathon.de/
 TRANSP:TRANSPARENT
-URL:http://www.obermain-marathon.de
+URL:https://www.obermain-marathon.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:Borna Halbmarathon – Halbmarathon
 LOCATION:Borna\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://baer-servic
- e.de/veranstaltung/BHM/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.neuseen
+ sport.de/borna-running/borna-half
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/BHM/
+URL:https://www.neuseensport.de/borna-running/borna-half
 END:VEVENT
 END:VCALENDAR
