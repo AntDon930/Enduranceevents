@@ -5789,5 +5789,41 @@
     "exclude": true,
     "_quelle": "https://koenigsforst-marathon.de",
     "_note": "Dieselbe Veranstaltung wie „Königsforst-Marathon“ am selben Tag, am selben Ort, über dieselbe Distanz (Bericht ‚Gleicher Tag, Ort und Distanz unter anderem Namen‘). Diese Zeile ist der Kalendereintrag ohne Wettbewerbs-Label; die andere trägt die Strecken der Veranstalterseite. Duplikat unter zwei Namen (Dritter Durchgang, Muster 1). Geprüft 2026-09-21."
+  },
+  "Turmlauf Sankt Englmar|2026-09-26": {
+    "art2": "Trail",
+    "charity": true,
+    "_quelle": "https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html",
+    "_note": "Turmlauf am WaldWipfelWeg: rund 500 m und 30 hm bis auf den 52 m hohen Waldturm - ein Towerrun (Trail wie alle Treppenläufe, Datenregel 6), ohne Laufdistanz. Charity-Lauf für die Kinderklinik Dritter Orden Passau (ASID GmbH), das Wort steht nicht im Namen, daher per Override. Websuche 2026-09-21. | Veranstalterseite statt rennmeldung.de: https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (turmlauf). Linkprüfung 2026-09-21.",
+    "veranstalter_url": "https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html"
+  },
+  "6. Remsecker Waldlauf|2026-09-26": {
+    "veranstalter_url": "https://remsecker-waldlauf.de/",
+    "_note": "Veranstalterseite statt remsecker-waldlauf.de: https://remsecker-waldlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:remseck, host:remsecker). Linkprüfung 2026-09-21."
+  },
+  "Idar-Obersteiner Altstadtlauf|2026-09-26": {
+    "veranstalter_url": "https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:oberstein, obersteiner). Linkprüfung 2026-09-21."
+  },
+  "Schönberger Stadtlauf|2026-09-26": {
+    "veranstalter_url": "https://jugend-freizeit-schoenberg.de/tag/schoenberger-stadtlauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://jugend-freizeit-schoenberg.de/tag/schoenberger-stadtlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schoenberg, schonberger). Linkprüfung 2026-09-21."
+  },
+  "Feuerwehrlauf am Schönbuch Turm|2026-09-27": {
+    "exclude": true,
+    "_quelle": "https://www.eventservice-stahl.de/veranstaltungen/feuerwehrlauf-am-schönbuch-turm/",
+    "_note": "Kreisfeuerwehrverband Böblingen: 700 m mit 60 hm und 174 Stufen auf den Schönbuchturm, Zweierteams, „für ambitionierte Feuerwehrleute und Angehörige anderer BOS“ - nicht öffentlich (Datenregel 18, wie der X-Mas StairRun Oberhof), außerdem unter 5 km. Websuche 2026-09-21."
+  },
+  "24. Chamer Stadtlauf mit 22. Halbmarathon|2026-09-27": {
+    "veranstalter_url": "https://www.asv-cham.de/chamer-stadtlauf/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://www.asv-cham.de/chamer-stadtlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (chamer, datum). Linkprüfung 2026-09-21."
+  },
+  "Studernheimer Kerwelauf|2026-09-27": {
+    "veranstalter_url": "https://www.studernheim.net/",
+    "_note": "Veranstalterseite statt runtix.com: https://www.studernheim.net/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (studernheimer, datum). Linkprüfung 2026-09-21."
+  },
+  "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
+    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:leutkirch). Linkprüfung 2026-09-21."
   }
 }

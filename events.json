@@ -698,7 +698,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49221/Kreismeisterschaften-Waldlauf-%28Kreis-Ludwigsburg%29-Remseck.htm"
+    "veranstalter_url": "https://remsecker-waldlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -1586,7 +1586,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/389713/"
+    "veranstalter_url": "https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/"
   },
   {
     "land": "Deutschland",
@@ -2170,7 +2170,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/387777/"
+    "veranstalter_url": "https://jugend-freizeit-schoenberg.de/tag/schoenberger-stadtlauf/"
   },
   {
     "land": "Deutschland",
@@ -2184,7 +2184,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/387777/"
+    "veranstalter_url": "https://jugend-freizeit-schoenberg.de/tag/schoenberger-stadtlauf/"
   },
   {
     "land": "Deutschland",
@@ -2327,10 +2327,11 @@
     "lat": 49.0023413,
     "lon": 12.8242723,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
-    "veranstalter_url": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04277"
+    "veranstalter_url": "https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -2886,7 +2887,7 @@
     "lat": 49.2238643,
     "lon": 12.6620845,
     "wettbewerb": "Halbmarathon, Jahrgang 2010 und älter, Startgebühr 17,00 €",
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202606281"
+    "veranstalter_url": "https://www.asv-cham.de/chamer-stadtlauf/"
   },
   {
     "land": "Deutschland",
@@ -2899,7 +2900,7 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 7.3,
-    "veranstalter_url": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202606281"
+    "veranstalter_url": "https://www.asv-cham.de/chamer-stadtlauf/"
   },
   {
     "land": "Deutschland",
@@ -3860,18 +3861,6 @@
     "laenge_km": 31.0,
     "wettbewerb": "31 km",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Feuerwehrlauf am Schönbuch Turm",
-    "standort": "Herrenberg",
-    "lat": 48.5950369,
-    "lon": 8.8671577,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "veranstalter_url": "https://my.raceresult.com/373019/"
   },
   {
     "land": "Deutschland",
@@ -4873,7 +4862,7 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://runtix.com/sts/10021/3108"
+    "veranstalter_url": "https://www.studernheim.net/"
   },
   {
     "land": "Deutschland",
@@ -5237,7 +5226,7 @@
     "datum_ende": "2026-09-30",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/412923/"
+    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/"
   },
   {
     "land": "Deutschland",
@@ -5251,7 +5240,7 @@
     "datum_ende": "2026-09-30",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/412923/"
+    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/"
   },
   {
     "land": "Deutschland",

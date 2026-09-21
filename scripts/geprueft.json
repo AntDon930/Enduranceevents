@@ -1776,10 +1776,10 @@
     "notiz": "'21. September 2026' bestätigt; Distanz auf der Seite nicht genannt (Firmenlauf)."
   },
   "Turmlauf Sankt Englmar|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "rennmeldung.de (Bewerb 04277)",
-    "notiz": "'3. Turmlauf Sankt Englmar', 26.09.2026, Veranstalter ASID GmbH; keine Distanz genannt."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "asid-gmbh.de",
+    "notiz": "Towerrun (500 m, 52-m-Turm) -> Trail ohne Länge, Charity per Override"
   },
   "Fire Trail Nesselwang|2026-10-10": {
     "am": "2026-09-19",
@@ -1932,10 +1932,10 @@
     "notiz": "Stadion-Treppenlauf ('ALTIMATE beginnt 2026 in Köln, Berlin und Düsseldorf'); Berliner Termin/Details auf der Seite nicht genannt. Treppenlauf-Frage (Punkt 13)."
   },
   "Feuerwehrlauf am Schönbuch Turm|2026-09-27": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com/373019/contact",
-    "notiz": "27.09.2026 bestätigt; Organizer-URL ist die Zeitnahme (eventservice-stahl.de) - Link bleibt, Distanz offen."
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "eventservice-stahl.de",
+    "notiz": "nur Feuerwehr/BOS, 700 m - exclude (Datenregel 18)"
   },
   "Neustädter Gestütspokallauf|2026-09-27": {
     "am": "2026-09-19",

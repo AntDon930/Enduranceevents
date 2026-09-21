@@ -314,11 +314,11 @@
     "notiz": "Organizer-URL marathonteam-hagner.de antwortet 404 - raceresult bleibt."
   },
   "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tsg-leutkirch.de",
     "alt": "https://my.raceresult.com/412923/",
-    "notiz": "Organizer-URL skilaeuferzunft.de leitet auf die Abteilungsseite der TSG Leutkirch (Skisport), der Lauf ist dort nicht erkennbar - raceresult bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:leutkirch). Linkprüfung 2026-09-21."
   },
   "Belgershainer Crosslauf|2026-10-03": {
     "am": "2026-09-19",
@@ -442,11 +442,11 @@
     "notiz": "Keine Veranstalterseite (Träger: Partnerschaft für Demokratie/Diakonie/KSB Meißen), nur baer-service als Anmeldung - bleibt."
   },
   "Neustadter Altstadtlauf|2026-09-25": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "Websuche",
-    "alt": "https://runtix.com/sts/10021/3180",
-    "notiz": "Veranstalter Postsportverein Neustadt, keine eigene Laufseite gefunden - runtix bleibt."
+    "alt": null,
+    "notiz": "Websuche: Veranstalter Post SV Neustadt e.V. (33. Altstadtlauf 25.09.2026, 10/4/1 km, br-timing), keine eigene Vereinsseite gefunden; neustadt.eu ist die Stadt"
   },
   "Weeze 3 x 5 km Staffellauf|2026-09-26": {
     "am": "2026-09-19",
@@ -498,32 +498,32 @@
     "notiz": "Keine Organizer-URL - raceresult bleibt."
   },
   "Fernsehturm Steinegge Ultra|2026-09-25": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
-    "alt": "https://my.raceresult.com/418510/",
-    "notiz": "Keine Organizer-URL - raceresult bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nur raceresult (2. Ausgabe 2025, 3 Runden à 15,1 km, 20 Plätze, 5 €) - private Ultra-Serie ohne eigene Seite, Klasse Uwe Laig"
   },
   "Schönberger Stadtlauf|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "jugend-freizeit-schoenberg.de",
     "alt": "https://my.raceresult.com/387777/",
-    "notiz": "Keine Organizer-URL - raceresult bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://jugend-freizeit-schoenberg.de/tag/schoenberger-stadtlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schoenberg, schonberger). Linkprüfung 2026-09-21."
   },
   "Äpfele-Lauf|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
-    "alt": "https://my.raceresult.com/393767/",
-    "notiz": "Keine Organizer-URL - raceresult bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: 5-km-Lauf beim Gölshäuser Streuobstfest (Bretten), nur raceresult; TV Bretten Lauftreff ohne eigene Seite zum Lauf"
   },
   "4 Moore Ultratrail-Marathon|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
-    "alt": "https://my.raceresult.com/383623/",
-    "notiz": "Keine Organizer-URL - raceresult bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nur raceresult (53 km durch Kananoher Forst und vier Moore), kein Veranstalter genannt"
   },
   "Burgstäffeleslauf Esslingen|2026-09-19": {
     "am": "2026-09-19",
@@ -561,25 +561,25 @@
     "notiz": "Organizer-URL zeigt auf eine Fachgruppen-Seite von herzmedizin.de, nicht auf den Lauf - raceresult bleibt."
   },
   "Idar-Obersteiner Altstadtlauf|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "idar-oberstein.de",
     "alt": "https://my.raceresult.com/389713/",
-    "notiz": "Organizer-URL ist die Stadt-Homepage idar-oberstein.de ohne Laufseite - raceresult bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:oberstein, obersteiner). Linkprüfung 2026-09-21."
   },
   "Neustädter Gestütspokallauf|2026-09-27": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
-    "alt": "https://my.raceresult.com/399313/",
-    "notiz": "Organizer-URL ist die Amts-Homepage - raceresult bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nichts zum Lauf, nur Gestüt/Hengstparaden"
   },
   "Stadtlauf Herdorf|2026-09-27": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/421569/",
-    "notiz": "Organizer-URL ist der Zeitnehmer (ausdauer-shop.de) - raceresult bleibt."
+    "notiz": "Websuche nannte https://www.ausdauer57.de/herdorf/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Feuerwehrlauf am Schönbuch Turm|2026-09-27": {
     "am": "2026-09-19",
@@ -674,11 +674,11 @@
     "notiz": "Serie von VfL Bremm/TuS Kaisersesch/SV Alflen ohne eigene Seite (nur Verbandskalender lv-rr.de) - laufen.de bleibt."
   },
   "9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft)|2026-09-27": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "Websuche",
+    "quelle": "laufen.de",
     "alt": "https://laufen.de/laufkalender/details/26V13000496150000",
-    "notiz": "Veranstalter SV Diez-Freiendiez, keine eigene Laufseite gefunden (Anmeldung über volkslauf.de/raceresult) - laufen.de bleibt."
+    "notiz": "Websuche nannte https://www.sv-diez-freiendiez.com/Events/, Seite nennt den Lauf nicht erkennbar (Status 404) - laufen.de bleibt."
   },
   "Bergklosterlauf Bestwig|2026-09-27": {
     "am": "2026-09-19",
@@ -781,11 +781,11 @@
     "notiz": "Keine Veranstalterseite gefunden (nur Kalender/Facebook) - laufen.de bleibt."
   },
   "Studernheimer Kerwelauf|2026-09-27": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "Websuche",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "studernheim.net",
     "alt": "https://runtix.com/sts/10021/3108",
-    "notiz": "Veranstalter Studernheimer Arbeitsgemeinschaft e.V. ohne eigene Seite - runtix bleibt."
+    "notiz": "Veranstalterseite statt runtix.com: https://www.studernheim.net/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (studernheimer, datum). Linkprüfung 2026-09-21."
   },
   "9. Trainingslauf Bottwartal-Marathon|2026-09-27": {
     "am": "2026-09-19",
@@ -844,11 +844,11 @@
     "notiz": "Eigene Seite des Benefizlaufs der Aids-Hilfe Offenbach; laufen.de war der Portallink."
   },
   "26. Krautsander Insellauf|2026-10-03": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "Websuche",
-    "alt": "https://laufen.de/laufkalender/details/26V09000551060000",
-    "notiz": "Veranstalter LG Kehdingen (SV Dornbusch/TV Wischhafen) ohne eigene Seite - laufen.de bleibt."
+    "alt": null,
+    "notiz": "Websuche: LG Kehdingen / SV Dornbusch-TV Wischhafen, nur E-Mail, keine Seite"
   },
   "Buchdorfer Jedermannslauf|2026-10-03": {
     "am": "2026-09-19",
@@ -881,11 +881,11 @@
     "notiz": "Seite des veranstaltenden SV 1911 Traisa (Triathlon-Abteilung richtet den Volkslauf am 3.10. aus); laufen.de war der Portallink."
   },
   "Alois-Andritzki-Lauf|2026-10-03": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "Websuche",
-    "alt": "https://baer-service.de/veranstaltung/AAL/",
-    "notiz": "Veranstalter Cyrill-Methodius-Verein/SG Radibor; posol.de ist eine sorbische Zeitung, keine Laufseite - baer-service bleibt."
+    "alt": null,
+    "notiz": "Websuche: Cyrill-Methodius-Verein / SG 1922 Radibor, Anmeldung über posol.de und baer-service; keine Veranstalterseite zum Lauf; Strecken 0,5-6 km"
   },
   "Benefizlauf der Wiehenläufer|2026-10-03": {
     "am": "2026-09-19",
@@ -911,25 +911,25 @@
     "notiz": "Keine Veranstalterseite (nur runtix/br-timing) - runtix bleibt."
   },
   "10 km Fliegerhorstlauf Schortens|2026-09-24": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "Websuche",
+    "quelle": "laufmanager.net",
     "alt": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Fliegerhorstlauf/",
-    "notiz": "Veranstalter Bundeswehr Fliegerhorst Upjever ohne eigene Seite; laufmanager.net (Anmeldung) bleibt. HINWEIS: eine Quelle vermutet, der Lauf finde 2026 nicht statt - unbestätigt."
+    "notiz": "Websuche nannte http://www.lg-wilhelmshaven.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - laufmanager.net bleibt."
   },
   "Turmlauf Sankt Englmar|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "Websuche",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "asid-gmbh.de",
     "alt": "https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04277",
-    "notiz": "Charity-Sprint der ASID GmbH am WaldWipfelWeg ohne eigene Seite - rennmeldung.de bleibt."
+    "notiz": "Veranstalterseite statt rennmeldung.de: https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (turmlauf). Linkprüfung 2026-09-21."
   },
   "Bahnstreckenlauf|2026-09-26": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "Websuche",
-    "alt": "https://laufen.de/laufkalender/details/26V13000042160000",
-    "notiz": "Veranstalter TuS Bad Marienberg Leichtathletik ohne eigene Laufseite (ergebnisliste.de ist die Zeitnahme) - laufen.de bleibt."
+    "alt": null,
+    "notiz": "Websuche: Veranstalter TuS Bad Marienberg Leichtathletik (Wäller Bahnstreckenlauf, Radweg Langenbach-Nistertal, ab 2026 im Wäller-Lauf-Cup), Ergebnisse auf ergebnisliste.de (Dienst), keine Veranstalterseite gefunden"
   },
   "Saarländische Meisterschaften 5km Straße|2026-09-19": {
     "am": "2026-09-19",
@@ -2458,11 +2458,11 @@
     "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
   },
   "6. Remsecker Waldlauf|2026-09-26": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "Linkcheck",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "remsecker-waldlauf.de",
     "alt": "https://remsecker-waldlauf.de/",
-    "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+    "notiz": "Veranstalterseite statt remsecker-waldlauf.de: https://remsecker-waldlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:remseck, host:remsecker). Linkprüfung 2026-09-21."
   },
   "8. Friedrichshaller Runde|2026-09-26": {
     "am": "2026-09-19",
@@ -2892,11 +2892,11 @@
     "notiz": "Erreichbar (200); die Seite nennt den Eventnamen."
   },
   "24. Chamer Stadtlauf mit 22. Halbmarathon|2026-09-27": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "Linkcheck",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "asv-cham.de",
     "alt": "https://www.zeitgemaess.info/event.php?ACCESSCODE=202606281",
-    "notiz": "Erreichbar (200); die Seite nennt den Eventnamen und ein Datum 2026/27."
+    "notiz": "Veranstalterseite statt zeitgemaess.info: https://www.asv-cham.de/chamer-stadtlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (chamer, datum). Linkprüfung 2026-09-21."
   },
   "27. Theodor-Heuss-Lauf|2026-09-27": {
     "am": "2026-09-19",
@@ -16329,7 +16329,7 @@
     "ergebnis": "unklar",
     "quelle": "ladv.de",
     "alt": "https://ladv.de/ausschreibung/detail/46206/Marzahner-L%C3%A4ufercup-2026--Lauf-7-Berlin-Marzahn.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Websuche nannte https://leichtathletik.vfl-fortuna-marzahn.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - ladv.de bleibt."
   },
   "Helmstedter Läuferabend|2026-10-09": {
     "am": "2026-09-21",

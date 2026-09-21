@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:Leutkircher Langstrecken-Stadtmeisterschaft
 LOCATION:Leutkirch im Allgäu\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/412923/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-leutki
+ rch.de/skilaeuferzunft/volkslauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/412923/
+URL:https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/
 END:VEVENT
 END:VCALENDAR

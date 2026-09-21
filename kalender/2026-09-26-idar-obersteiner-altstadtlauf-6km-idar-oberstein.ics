@@ -11,9 +11,11 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Idar-Obersteiner Altstadtlauf
 LOCATION:Idar-Oberstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://my.raceresult.
- com/389713/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.idar-obers
+ tein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweic
+ htermin-fuer-den-altstadtlauf-steht/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/389713/
+URL:https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitte
+ ilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/
 END:VEVENT
 END:VCALENDAR

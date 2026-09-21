@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:24. Chamer Stadtlauf mit 22. Halbmarathon
 LOCATION:Cham\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.3 km\nhttps://www.zeitgema
- ess.info/event.php?ACCESSCODE=202606281
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.3 km\nhttps://www.asv-cham
+ .de/chamer-stadtlauf/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202606281
+URL:https://www.asv-cham.de/chamer-stadtlauf/
 END:VEVENT
 END:VCALENDAR

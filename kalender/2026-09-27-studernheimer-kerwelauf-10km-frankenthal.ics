@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Studernheimer Kerwelauf
 LOCATION:Frankenthal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://runtix.com/st
- s/10021/3108
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.studernhe
+ im.net/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3108
+URL:https://www.studernheim.net/
 END:VEVENT
 END:VCALENDAR

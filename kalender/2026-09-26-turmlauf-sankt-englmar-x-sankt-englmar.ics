@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Turmlauf Sankt Englmar
 LOCATION:Sankt Englmar\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://rennmeldung.de/cg
- i-bin/bewerb.cgi?bewerb=04277
+DESCRIPTION:Sportart: Laufen / Trail · Charity\nLänge: -\nhttps://www.asid
+ -gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in-st-englmar.html
 TRANSP:TRANSPARENT
-URL:https://rennmeldung.de/cgi-bin/bewerb.cgi?bewerb=04277
+URL:https://www.asid-gmbh.de/aktuelles/1384.1-turmlauf-am-waldwipfelweg-in
+ -st-englmar.html
 END:VEVENT
 END:VCALENDAR

@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:6. Remsecker Waldlauf
 LOCATION:Remseck am Neckar\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
- reibung/detail/49221/Kreismeisterschaften-Waldlauf-%28Kreis-Ludwigsburg%2
- 9-Remseck.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://remsecker-wald
+ lauf.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49221/Kreismeisterschaften-Waldla
- uf-%28Kreis-Ludwigsburg%29-Remseck.htm
+URL:https://remsecker-waldlauf.de/
 END:VEVENT
 END:VCALENDAR
