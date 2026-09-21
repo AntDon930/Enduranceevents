@@ -29,7 +29,7 @@ Nicht auf einen anderen Branch pushen.
 | `favicon.svg`, `apple-touch-icon.png` | Seitensymbol (orange wie die Marke im Kopf); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, siehe Git-Log vom 21.09.2026), `cairosvg` gibt es in der Sandbox nicht |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
-| `site.css` | **Farben, Kopfzeile (Marke, Navigation, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach der Vorlage des Nutzers (dunkel, helle Pillen, Orange nur für Marke und Sportart-Symbole) |
+| `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
 | `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, bis zu zwei) zeigen dieselbe |
 | `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sechs geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
@@ -93,7 +93,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 182 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 197 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
@@ -121,8 +121,14 @@ mehrtägigen Rennen, der **Events-Knopf der Startseite** (gleiches Ziel
 wie „Events entdecken“, links von der Anmeldung), der **Kartenrahmen**
 (Herauszoomen hat eine Grenze, keine zweite Weltkarte daneben), die
 **graue Maske** (vorhanden, unter den Markern, fängt keine Klicks ab,
-Länder ausgespart) und der Popup-Link ohne Pfeil, Filter über den Weg
-Liste → Karte → Liste. Ohne Playwright bricht er
+Länder ausgespart), der **Aufbau der Karte nach der Vorlage** (Legende
+unten links mit Trefferzahl und vier Sportarten, „Mein Standort" öffnet
+das Ort-Panel, Werkzeugleiste ohne Filter weg, Landfläche unter den
+Kacheln, flache Übersicht und Kacheln ab Zoom 8, Bündel mit Ortsnamen,
+Orientierungsorte, „E-Mail-Abo" in die Liste), der Popup-Link ohne
+Pfeil, Filter über den Weg Liste → Karte → Liste und das **Farbschema**
+(der Knopf schaltet um, die Wahl bleibt gespeichert und gilt auf der
+nächsten Seite). Ohne Playwright bricht er
 mit Hinweis ab (Rückgabewert 0). Chromium liegt unter
 `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`; in dieser Sandbox
 blockt der Proxy CDNs per TLS – mit `args=['--ignore-certificate-errors']`
@@ -1426,12 +1432,29 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     Werkzeugleiste, Fußzeile) für alle drei Seiten – nichts davon zurück
     in eine Seite kopieren. In `events.html` steht nur noch Tabelle,
     Detailbereich und die Dialoge, in `karte.html` nur die Karte.
-  - **Nur EIN Farbschema (dunkel)**, `color-scheme: dark`. `--accent` ist
-    HELL (Hauptknopf, gewählte Pille, Sortierpfeil), `--on-accent` die
-    Schrift darauf; ein festes `#fff` auf einer Akzentfläche ist
-    unsichtbar (in filter-ui.css, event-detail.css und `.ee-submit-btn`
-    schon umgestellt). `--brand` (Orange) nur für Marke, Sportart-Symbole
-    und das Abzeichen in der Box; `--frame` für die Linien um einen
+  - **ZWEI Farbschemata, ein Knopf.** Die Vorlage der Liste war dunkel,
+    die der Karte (am selben Tag) hell – beide gelten. Das Schema hängt
+    an `data-theme` am `<html>` („dark" = die Werte in `:root`, „light"
+    = der Block `:root[data-theme="light"]` in `site.css`); gesetzt wird
+    es von einem **wortgleichen Skript im `<head>` aller drei Seiten**
+    (gespeicherte Wahl `endurance-theme` vor der Systemeinstellung, und
+    im Kopf, damit die Seite nicht erst im falschen Schema aufblitzt),
+    der Knopf `.theme-btn` in der Kopfzeile schaltet um (Sonne im
+    Dunkeln, Mond im Hellen). `test_farbschema_skript` vergleicht die drei
+    Kopien und verbietet `prefers-color-scheme` in `site.css` – darüber
+    hätte der Knopf keine Wirkung. **Feste Farben gibt es nur, wo eine
+    Fläche in beiden Schemata gleich aussieht** (Leaflet-Popup, das Weiß
+    in der Marker-Nadel, die Sportfarben); alles andere über die
+    Variablen. Die wichtigsten: `--accent` ist die Hervorhebung (dunkel:
+    HELL, hell: Marine `#0f1b33`), `--on-accent` die Schrift darauf – ein
+    festes `#fff` auf einer Akzentfläche ist im Dunkeln unsichtbar;
+    `--pill-active-bg/-fg/-border` für gesetzte Pillen und DE/EN (dunkel
+    leise, hell Marine mit weißer Schrift); `--logo-bg/-fg/-dot` für die
+    Marke (dunkel: orange Kachel, weißer Punkt; hell: Marine, oranger
+    Punkt); `--shadow`; `--sport-laufen/-fahrrad/-schwimmen/-triathlon`
+    (eine Farbe je Sportart – Symbole in der Tabelle, Abzeichen der Box,
+    Nadeln und Legende der Karte; Laufen ist Orange = `--brand`);
+    `--map-*` für die Karte. `--frame` für die Linien um einen
     aufgeklappten Block.
   - **Die Filterknöpfe sitzen nicht mehr in den Spaltenköpfen**, sondern
     als Pillen in der Filterleiste (`ui.buildButtonBar(…, { order:
@@ -1461,11 +1484,18 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     aus dem `Last-Modified` der `events.json` (GitHub Pages schickt ihn,
     der lokale Server auch); fehlt er, bleibt die Zeile verborgen.
   - **Detail-Box**: `EED.render(container, e, { …, siblings, onSelect,
-    mapLink })`. `siblings` sind die Zeilen derselben Veranstaltung (Liste:
+    mapLink, listLink, distanceText })`. `siblings` sind die Zeilen derselben Veranstaltung (Liste:
     über `groupKey` aus ALLEN Events, nicht den gefilterten; Karte: Name +
     Datum + Ort), `onSelect(idx)` wechselt die Strecke (Liste:
     `waehleZeile` ohne Scrollen; Karte: tauscht das Event dieser Box aus),
-    `mapLink` (nur Liste) ist `karte.html?s=<Name>`. Das Kalender-Menü
+    `mapLink` (nur Liste) ist `karte.html?s=<Name>`, `listLink` (nur
+    Karte) `EED.eventLink(e)` – je Seite nur der Knopf zur ANDEREN.
+    `distanceText` („14 km", `EF.formatDistanceKm`, in beiden Seiten
+    dieselbe Schreibweise) ersetzt den vierten Fakt „Veranstalter" durch
+    „Entfernung: 14 km von deinem Standort", sobald ein Ausgangspunkt
+    gesetzt ist (Vorlage der Karte); die Veranstalterseite bleibt als
+    Hauptknopf. Das Abzeichen trägt `sportClass(e.art1)` und damit die
+    Farbe der Sportart. Das Kalender-Menü
     liegt absolut unter dem Knopf, die Klassen `.event-share-btn`,
     `.report-open-btn`, `.cal-open-btn`, `.cal-ics`, `.detail-close`,
     `.detail-grid dt` bleiben – der Rauchtest hängt daran.
@@ -1477,6 +1507,57 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Startseite**: dieselbe Kopfzeile über dem Hero (der `.events-btn`
     ist der Navigationslink „Events“, links von der Anmeldung), Hero
     dunkel mit orangem Schimmer, Fußzeile wie überall.
+
+- **Die Karte ist seit dem 21.09.2026 die zweite Vorlage des Nutzers**
+  („Die Map bitte so gut wie möglich in dem Format darstellen"; ein
+  helles Bild – daher das zweite Farbschema, siehe oben). Was daran
+  nicht zurückgedreht werden soll (alles in `karte.html`):
+  - **Flach bis Zoom 7, Kacheln ab Zoom 8** (`TILES_AB_ZOOM`,
+    `aktualisiereFlach`): Die Übersicht zeigt nur die Landfläche der
+    drei Länder (hell, aus `laender.json`, eigenes Pane `landPane` mit
+    z-index **150 – UNTER den Kacheln** (200), `fillRule: nonzero`) auf
+    grauer Fläche mit feinem Raster (CSS-Hintergrund von `#map`, wandert
+    nicht mit). Die Kacheln werden **nicht abgeschaltet, sondern per CSS
+    ausgeblendet** (`.map-flach .leaflet-tile-pane { visibility: hidden }`):
+    So sind sie beim Hineinzoomen sofort da, und der Rauchtest kann sie
+    weiter zählen (noWrap-Prüfung bei kleinstem Zoom). Die Maske (250,
+    evenodd) bleibt darüber, ihre Farbe kommt jetzt aus dem Stylesheet
+    (`path.maske-pfad`, ebenso `path.land-pfad`, `path.umkreis-pfad`):
+    Leaflet schreibt `fill`/`stroke` als Attribut, eine CSS-Regel gewinnt
+    – so folgen sie dem Farbschema.
+  - **Bündel: Kreis in der Akzentfarbe + Ortsname** des größten Ortes im
+    Bündel (`options.eeStandort`, „349 Köln"). Die Zahl steht ALLEIN in
+    `.cluster-badge`/`.marker-badge` – der Rauchtest addiert die Kreise
+    mit `parseInt` gegen die Legende. **Ein Ort mit genau einem Event ist
+    eine Nadel** (`.marker-pin`, Farbe und Symbol der Sportart) mit einer
+    unsichtbaren „1" (`.marker-badge.sr-only`) für dieselbe Rechnung.
+  - **Beschriftungen werden geordnet** (`ordneBeschriftungen`, nach
+    `moveend`/`zoomend`/`animationend` in EINEM Animationsframe plus
+    einem zweiten Durchgang nach 450 ms, weil markercluster die Marker
+    animiert schiebt): größte Bündel zuerst; ein Name, der einen Nachbarn
+    überschneidet, wandert nach links (`.label-links`), sonst
+    verschwindet er (`.label-versteckt`). Dann die **Orientierungsorte**
+    (`REFERENZ_ORTE`, ~37 Städte fest im Code, graue Punkte, nur in der
+    flachen Ansicht, Pane 300): weg, wenn ein Bündel, ein Name oder ein
+    wichtigerer Ort auf ihnen liegt, oder ein Bündel denselben Namen
+    trägt. Ausgeblendet wird mit `visibility`, nicht `display` – sonst
+    hätte ein Kasten keine Maße mehr und käme nie zurück.
+  - **„Mein Standort"** (`StandortControl`, unter den Zoom-Knöpfen)
+    öffnet das Ort-Panel an seiner Pille (`ui.open`, kein künstlicher
+    Klick – der liefe bis zum Dokument und schlösse das Panel gleich
+    wieder) und drückt dort `.geo-btn`: derselbe Weg wie im Panel, kein
+    zweiter.
+  - **Legende unten links** (`.map-legend`) mit `#map-hint` („3.830
+    Events" – die Werkzeugleiste zeigt keine Trefferzahl mehr und ist
+    **ohne Filter ausgeblendet**, `toolbarEl.hidden`) und den vier
+    Sportfarben; Quellenangabe unten rechts ohne Leaflet-Vorspann
+    (`attributionControl`, Text je Sprache). **„E-Mail-Abo"** in der
+    Filterleiste führt in die Liste mit diesen Filtern und `?abos=1`.
+    Der Umkreis ist gestrichelt (`dashArray`), der Ausschnitt knapp um
+    die Marker (`pad(0.04)`, sonst fiel D/A/CH auf 1440×700 in Zoom 5)
+    und höchstens Zoom 13 (ein einzelner Ort zoomte bis zur Hausnummer).
+  - Auf der Karte gibt es KEINE festen Farben außer im Popup und im Weiß
+    der Nadel – alles über `--map-*`, `--accent`, `--sport-*`.
 
 - **Das Filter-Panel folgt seinem Spaltenknopf beim Scrollen, es schließt
   sich nicht mehr** (jetzt in `filter-ui.js`) (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
@@ -2228,6 +2309,11 @@ eigene Daten, kein fremder Server). Sechs Dinge daran:
   Deshalb wird ein Loch INNERHALB eines Landes von selbst wieder grau;
   das ist kein Sonderfall für Sonderfälle, Büsingen am Hochrhein ist
   deutsch und liegt mitten in der Schweiz.
+  **Seit dem 21.09.2026 zeichnet `zeichneMaske()` aus denselben Ringen
+  zusätzlich die LANDFLÄCHE** (Pane `landPane`, z-index 150 unter den
+  Kacheln, `fillRule: nonzero`, hell gefüllt): Sie ist die flache Karte
+  der Übersicht, solange die Kacheln ausgeblendet sind (siehe
+  Frontend-Fallen, „Die Karte ist seit dem 21.09.2026 …“).
 - **Eigene Ebene** (`map.createPane('maskePane')`, z-index **250**):
   über den Kacheln (200), unter Markern und Umkreis (400). Läge sie
   oben, wären die Bündel-Zahlen matt und der Ausgangspunkt halb
@@ -2678,6 +2764,13 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    Filterpillen über der Tabelle, Sportart-Symbole, Detail-Box mit großem
    Datum, Abzeichen, Strecken-Pillen und gestuften Knöpfen, „Stand“ in
    der Werkzeugleiste, Fußzeile – siehe Frontend-Fallen, erster Punkt.
+   **Am selben Tag die Karte nach der zweiten Vorlage** („Die Map bitte
+   so gut wie möglich in dem Format darstellen“, ein helles Bild): flache
+   Landfläche, Bündel mit Ortsnamen, Nadeln in Sportfarbe, „Mein
+   Standort“, Legende, Entfernung in der Box – und weil die eine Vorlage
+   dunkel und die andere hell war, gibt es seitdem **beide Schemata mit
+   Umschalter** in der Kopfzeile (Voreinstellung: die Systemeinstellung).
+   Siehe Frontend-Fallen, erster und zweiter Punkt.
 
    Offen, in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
@@ -2747,6 +2840,22 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Crosslauf Jüchen ausschließen? Und `raceresult_kontakt.py` (Punkt 10)
    lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
    Organizer-URL.
+
+20. **Farbschema und Pillen (21.09.2026, aus dem Kartenumbau)** – drei
+   Kleinigkeiten, die ein Ja/Nein brauchen:
+   - **Voreinstellung hell oder dunkel?** Heute folgt die Seite der
+     Systemeinstellung (`prefers-color-scheme` im Kopf-Skript), der
+     Knopf überschreibt sie dauerhaft. Soll IMMER dunkel (Vorlage der
+     Liste) oder IMMER hell (Vorlage der Karte) die Voreinstellung sein,
+     ist es eine Zeile im Kopf-Skript aller drei Seiten.
+   - **Die Pille „Name"** steht weiter ganz rechts in der Filterleiste
+     (beide Vorlagen zeigen sie nicht; die Mastersuche deckt Name und
+     Ort ab). Weg damit hieße: `'name'` aus `FILTER_ORDER` in beiden
+     Seiten streichen und die Rauchtest-Prüfung des Namens-Panels
+     umziehen.
+   - **Das Raster der Karte** steht fest (CSS-Hintergrund) und wandert
+     beim Schieben nicht mit – wie Papier. Ein echtes Gradnetz wäre eine
+     eigene Ebene aus Linien; nur, wenn es stört.
 
 11. ~~Weg zurück zur Startseite~~ **gebaut** (21.09.2026, mit dem
    Umbau nach der Vorlage): Die Marke „Endurance Events" im Kopf ist ein

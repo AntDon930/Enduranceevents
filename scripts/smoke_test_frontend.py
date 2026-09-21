@@ -1211,6 +1211,100 @@ def pruefe_cluster(seite):
            % (vorher, nachher))
 
 
+def pruefe_karten_aufbau(seite):
+    """Der Aufbau der Karte nach der Vorlage des Nutzers (21.09.2026).
+
+    Legende unten links mit der Trefferzahl (#map-hint) und den vier
+    Sportfarben, "Mein Standort" unter den Zoom-Knöpfen, die Werkzeugleiste
+    nur mit gesetztem Filter, die Landfläche UNTER den Kacheln (sie ist die
+    flache Karte, solange die Kacheln ausgeblendet sind), Bündel mit
+    Ortsnamen, Orientierungsorte, "E-Mail-Abo" in die Liste - und beim
+    Hineinzoomen kommen die Kacheln.
+    """
+    stand = seite.evaluate("""() => {
+        const legende = document.getElementById('map-legend');
+        const wrap = document.querySelector('.map-wrap').getBoundingClientRect();
+        const r = legende ? legende.getBoundingClientRect() : null;
+        const landPane = document.querySelector('.leaflet-land-pane');
+        const kacheln = document.querySelector('.leaflet-tile-pane');
+        return {
+          legende: !!legende && legende.contains(document.getElementById('map-hint')),
+          sportarten: legende ? legende.querySelectorAll('.legend-item').length : 0,
+          untenLinks: r ? (r.left - wrap.left < 40 && wrap.bottom - r.bottom < 60) : false,
+          standort: !!document.querySelector('.standort-btn'),
+          werkzeugleiste: !!document.getElementById('toolbar') && document.getElementById('toolbar').hidden,
+          land: !!document.querySelector('path.land-pfad'),
+          landZ: landPane ? parseInt(getComputedStyle(landPane).zIndex, 10) : null,
+          flach: document.getElementById('map').classList.contains('map-flach'),
+          kachelnUnsichtbar: kacheln ? getComputedStyle(kacheln).visibility === 'hidden' : false,
+          beschriftet: document.querySelectorAll('.cluster-label').length,
+          referenz: document.querySelectorAll('.ref-city:not(.ref-hidden)').length,
+          abo: (document.getElementById('abo-btn') || {}).href || ''
+        }; }""")
+    pruefe(stand["legende"] and stand["sportarten"] == 4,
+           "Legende mit Trefferzahl und vier Sportarten (%d)" % stand["sportarten"])
+    pruefe(stand["untenLinks"], "… sie steht unten links auf der Karte")
+    pruefe(stand["standort"], "„Mein Standort“ steht auf der Karte")
+    pruefe(stand["werkzeugleiste"], "ohne Filter ist die Werkzeugleiste (Chips) ausgeblendet")
+    pruefe(stand["land"] and stand["landZ"] is not None and stand["landZ"] < 200,
+           "die Landfläche liegt unter den Kacheln (z %s)" % stand["landZ"])
+    pruefe(stand["flach"] and stand["kachelnUnsichtbar"],
+           "in der Übersicht ist die Karte flach (Kacheln ausgeblendet)")
+    pruefe(stand["beschriftet"] > 0, "Bündel tragen Ortsnamen (%d)" % stand["beschriftet"])
+    pruefe(stand["referenz"] > 0, "Orientierungsorte sind zu sehen (%d)" % stand["referenz"])
+    pruefe("abos=1" in stand["abo"], "„E-Mail-Abo“ führt in die Liste und öffnet dort den Abo-Dialog")
+    # "Mein Standort" öffnet das Ort-Panel und drückt dort den
+    # Standort-Knopf (ohne Erlaubnis bleibt es beim Status-Text).
+    seite.locator(".standort-btn").click()
+    seite.wait_for_timeout(700)
+    panel = seite.evaluate("""() => { const p = document.querySelector('.filter-panel');
+        return { offen: !!p && !p.hidden, geo: !!(p && p.querySelector('.geo-btn')) }; }""")
+    pruefe(panel["offen"] and panel["geo"], "„Mein Standort“ öffnet das Ort-Panel mit dem Standort-Knopf")
+    seite.locator("#map-legend").click()
+    seite.wait_for_timeout(300)
+    # Hineinzoomen: ab Zoom 8 kommen die Kacheln.
+    for _ in range(4):
+        seite.evaluate("() => document.querySelector('.leaflet-control-zoom-in').click()")
+        seite.wait_for_timeout(400)
+    seite.wait_for_timeout(1200)
+    kacheln = seite.evaluate("""() => ({
+        flach: document.getElementById('map').classList.contains('map-flach'),
+        sichtbar: getComputedStyle(document.querySelector('.leaflet-tile-pane')).visibility !== 'hidden' })""")
+    pruefe(not kacheln["flach"] and kacheln["sichtbar"], "beim Hineinzoomen kommen die Kacheln (ab Zoom 8)")
+    # Zurück in die Übersicht - die folgenden Prüfungen (Bündel, Rahmen)
+    # rechnen mit dem Ausgangszoom.
+    for _ in range(4):
+        seite.evaluate("() => document.querySelector('.leaflet-control-zoom-out').click()")
+        seite.wait_for_timeout(400)
+    seite.wait_for_timeout(1200)
+
+
+def pruefe_farbschema(ctx, basis):
+    """Hell/Dunkel (21.09.2026): der Knopf in der Kopfzeile schaltet um,
+    die Wahl bleibt gespeichert und gilt auf der nächsten Seite."""
+    print("\nFarbschema")
+    seite, _ = seite_oeffnen(ctx, basis + "/index.html", ".theme-btn")
+    stand = seite.evaluate("""() => {
+        const s = () => document.documentElement.getAttribute('data-theme');
+        const bg = () => getComputedStyle(document.body).backgroundColor;
+        const vorher = { schema: s(), bg: bg() };
+        document.querySelector('.theme-btn').click();
+        const nachher = { schema: s(), bg: bg() };
+        let gespeichert = null;
+        try { gespeichert = localStorage.getItem('endurance-theme'); } catch (e) { /* egal */ }
+        return { vorher, nachher, gespeichert }; }""")
+    pruefe(stand["vorher"]["schema"] in ("light", "dark") and stand["nachher"]["schema"] != stand["vorher"]["schema"],
+           "der Knopf schaltet das Schema um (%s → %s)" % (stand["vorher"]["schema"], stand["nachher"]["schema"]))
+    pruefe(stand["vorher"]["bg"] != stand["nachher"]["bg"], "… und die Seite wechselt die Farbe")
+    pruefe(stand["gespeichert"] == stand["nachher"]["schema"], "die Wahl wird gespeichert (%s)" % stand["gespeichert"])
+    seite.goto(basis + "/karte.html")
+    seite.wait_for_selector(".filter-bar", timeout=30000)
+    schema = seite.evaluate("() => document.documentElement.getAttribute('data-theme')")
+    pruefe(schema == stand["nachher"]["schema"], "… und gilt auf der nächsten Seite (%s)" % schema)
+    seite.evaluate("() => { try { localStorage.removeItem('endurance-theme'); } catch (e) { /* egal */ } }")
+    seite.close()
+
+
 def pruefe_kartenrahmen(seite):
     """Die Welt genau EINMAL, und nicht weiter heraus als Europa.
 
@@ -1474,6 +1568,9 @@ def pruefe_karte_und_rundweg(ctx, basis):
     marker = seite.locator(".leaflet-marker-icon").count()
     if marker:
         pruefe(marker > 0, "Marker auf der Karte (%d)" % marker)
+        # Der Aufbau zuerst: pruefe_cluster klickt ein Bündel an und zoomt
+        # damit hinein - die flache Übersicht gibt es nur davor.
+        pruefe_karten_aufbau(seite)
         pruefe_cluster(seite)
         pruefe_maske(seite)
         pruefe_kartenrahmen(seite)
@@ -1597,6 +1694,7 @@ def main() -> int:
                 pruefe_abo(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
+                pruefe_farbschema(ctx, basis)
             finally:
                 browser.close()
     finally:

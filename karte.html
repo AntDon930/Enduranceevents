@@ -12,6 +12,34 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0b1220">
+<!-- Farbschema hell/dunkel (siehe site.css). Läuft hier im Kopf, damit die
+     Seite nicht erst im falschen Schema aufblitzt: gespeicherte Wahl
+     (endurance-theme) vor der Systemeinstellung. Der Knopf .theme-btn in
+     der Kopfzeile schaltet um. In allen drei Seiten WORTGLEICH -
+     test_scraper_lib.py (test_farbschema_skript) vergleicht die Kopien. -->
+<script>
+(function () {
+  var wahl = null;
+  try { wahl = localStorage.getItem('endurance-theme'); } catch (e) { /* privater Modus */ }
+  var hell = wahl ? wahl === 'light'
+    : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  var setze = function (h) {
+    document.documentElement.setAttribute('data-theme', h ? 'light' : 'dark');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', h ? '#ffffff' : '#0b1220');
+  };
+  setze(hell);
+  document.addEventListener('DOMContentLoaded', function () {
+    var knopf = document.querySelector('.theme-btn');
+    if (!knopf) return;
+    knopf.addEventListener('click', function () {
+      hell = document.documentElement.getAttribute('data-theme') !== 'light';
+      setze(hell);
+      try { localStorage.setItem('endurance-theme', hell ? 'light' : 'dark'); } catch (e) { /* ignorieren */ }
+    });
+  });
+})();
+</script>
 <!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
      nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
@@ -52,75 +80,173 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
-<link rel="stylesheet" href="site.css?v=0ee7a3b7">
+<link rel="stylesheet" href="site.css?v=6d1192e9">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=389055b9">
-<link rel="stylesheet" href="event-detail.css?v=02379c86">
+<link rel="stylesheet" href="filter-ui.css?v=283a480c">
+<link rel="stylesheet" href="event-detail.css?v=71407061">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Liste und Startseite); hier nur, was allein
-     die Karte hat. */
+     die Karte hat. Aufbau seit dem 21.09.2026 nach der Vorlage des
+     Nutzers: die Karte randlos unter der Filterleiste, FLACH gezeichnet
+     (Landfläche hell, außen grau mit feinem Raster, die OSM-Kacheln erst
+     ab Zoom TILES_AB_ZOOM), Bündel als Marine-Kreise mit dem Namen des
+     größten Ortes, einzelne Orte als Nadel in der Farbe der Sportart,
+     Orientierungsorte als graue Punkte, Legende unten links, "Mein
+     Standort" unter den Zoom-Knöpfen. Alle Farben aus den Variablen in
+     site.css, damit beide Farbschemata stimmen. */
   html, body { height: 100%; }
   body { display: flex; flex-direction: column; }
 
   .map-wrap {
     flex: 1;
     min-height: 60vh;
-    margin: 0 var(--seite-rand) 14px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
     position: relative;
+    background: var(--map-bg);
   }
   #map { position: absolute; inset: 0; }
-  /* Die Trefferzeile ("3.873 Events an 1.375 Orten") steht in der
-     Werkzeugleiste wie die Trefferzahl der Liste - nicht mehr als Kasten
-     über der Karte, wo sie die Zoom-Knöpfe bedrängte. */
-  .marker-badge {
-    background: var(--brand);
-    color: #fff;
+  /* Die Fläche außerhalb der Länder: grau mit feinem Raster. Das Raster
+     steht fest und wandert nicht mit - ein Papier, keine
+     Gradnetz-Zeichnung. Leaflet setzt selbst ein #ddd, daher die Regel. */
+  #map.leaflet-container {
+    background-color: var(--map-bg);
+    background-image:
+      linear-gradient(var(--map-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--map-grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+    font-family: inherit;
+  }
+  /* Flach (Zoom < TILES_AB_ZOOM): die Kacheln bleiben geladen, sind aber
+     unsichtbar - beim Hineinzoomen sind sie sofort da, und der Rauchtest
+     zählt sie (noWrap). Darüber gefiltert, damit sie zur Fläche passen. */
+  .leaflet-tile-pane { filter: var(--map-tile-filter); }
+  .map-flach .leaflet-tile-pane { visibility: hidden; }
+  /* Landfläche, Schleier und Umkreis: Farbe über CSS, damit sie dem
+     Farbschema folgt (Leaflet schreibt fill/stroke als Attribut; eine
+     CSS-Regel gewinnt gegen ein Attribut). */
+  path.land-pfad { fill: var(--map-land); stroke: var(--map-outline); }
+  path.maske-pfad { fill: var(--map-mask); fill-opacity: var(--map-mask-opacity); }
+  path.umkreis-pfad { stroke: var(--accent); fill: var(--accent); }
+
+  /* Bündel (und Orte mit mehreren Events): Kreis in der Akzentfarbe mit
+     der Event-Zahl, Ring in Panelfarbe, der Ortsname rechts daneben. Die
+     Zahl steht ALLEIN im Kreis - der Rauchtest addiert die Kreise
+     (parseInt) gegen die Legende. */
+  .cluster-mark { position: relative; }
+  .cluster-badge, .marker-badge {
+    background: var(--accent);
+    color: var(--on-accent);
     border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 0.72rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
-    border: 2px solid #fff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border: 3px solid var(--panel);
+    box-shadow: 0 0 0 1px var(--border-strong), 0 4px 12px rgba(0, 0, 0, 0.22);
   }
-  /* Ein Bündel mehrerer Orte: breiter Ring, damit man sieht, dass hier
-     noch etwas aufzuklappen ist. Die Zahl ist die Summe der EVENTS. */
-  .cluster-badge {
-    background: var(--brand);
-    color: #fff;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.78rem;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.45), 0 0 0 4px rgba(249,115,22,0.28);
+  .marker-badge { font-size: 0.74rem; border-width: 2px; }
+  .cluster-label {
+    position: absolute;
+    left: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+    text-shadow: 0 0 3px var(--map-halo), 0 0 3px var(--map-halo), 0 0 6px var(--map-halo);
+    pointer-events: none;
   }
+  /* Beschriftungen, die einem Nachbarn im Weg wären, wandern nach links
+     oder verschwinden (ordneBeschriftungen). */
+  .cluster-label.label-links { left: auto; right: calc(100% + 6px); }
+  .cluster-label.label-versteckt { visibility: hidden; }
+  /* Ein Ort mit genau EINEM Event: eine Nadel in der Farbe der Sportart
+     mit deren Symbol. Die "1" darin ist nur für Screenreader und den
+     Rauchtest da (.marker-badge.sr-only). */
+  .marker-pin { position: relative; width: 30px; height: 40px; color: var(--sport-laufen); }
+  .marker-pin.sport-fahrrad { color: var(--sport-fahrrad); }
+  .marker-pin.sport-schwimmen { color: var(--sport-schwimmen); }
+  .marker-pin.sport-triathlon { color: var(--sport-triathlon); }
+  .marker-pin .pin-shape { position: absolute; inset: 0; width: 30px; height: 40px; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3)); }
+  .marker-pin .pin-icon { position: absolute; left: 8px; top: 7.5px; width: 14px; height: 14px; display: block; }
+  .marker-pin .pin-icon svg { display: block; }
+  /* Orientierungsorte ohne eigenes Bündel (Basel, Bern, Linz …): grauer
+     Punkt mit Namen, nicht anklickbar. Sie verschwinden, sobald ein
+     Bündel auf ihnen liegt oder die Kacheln die Namen liefern
+     (blendeReferenzAus). */
+  .ref-city {
+    display: flex; align-items: center; gap: 5px;
+    white-space: nowrap; font-size: 0.74rem; color: var(--text-muted);
+    text-shadow: 0 0 3px var(--map-halo), 0 0 3px var(--map-halo);
+    pointer-events: none;
+  }
+  .ref-city .ref-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); border: 1.5px solid var(--map-land); flex-shrink: 0; }
+  .ref-city.ref-hidden { visibility: hidden; }
   /* Ausgangspunkt der Umkreissuche: deutlich anders als die Marker. */
   .origin-dot {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #3b82f6;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    background: var(--accent);
+    border: 2px solid var(--panel);
+    box-shadow: 0 0 0 1px var(--border-strong), 0 2px 6px rgba(0, 0, 0, 0.35);
   }
-  /* Das Leaflet-Popup ist immer weiß - feste Farben statt der
-     Seitenvariablen, sonst wäre helle Schrift auf Weiß unlesbar. */
+  /* Leaflet-Bedienelemente in den Seitenfarben. */
+  .leaflet-bar { border: 1px solid var(--border) !important; border-radius: 10px !important; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important; overflow: hidden; }
+  .leaflet-bar a { background: var(--panel) !important; color: var(--text) !important; border-bottom-color: var(--border) !important; }
+  .leaflet-bar a.leaflet-disabled { color: var(--text-muted) !important; }
+  .leaflet-control-attribution { background: var(--panel) !important; color: var(--text-muted) !important; font-size: 0.7rem; border-radius: 8px 0 0 0; padding: 3px 8px; }
+  .leaflet-control-attribution a { color: var(--text) !important; }
+  /* "Mein Standort" unter den Zoom-Knöpfen (StandortControl). */
+  .standort-control { background: none !important; border: none !important; box-shadow: none !important; overflow: visible; }
+  .standort-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 36px; padding: 0 12px;
+    border-radius: 10px; border: 1px solid var(--border);
+    background: var(--panel); color: var(--text);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    font: inherit; font-size: 0.84rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+  }
+  .standort-btn:hover { border-color: var(--border-strong); }
+  .standort-btn svg { flex-shrink: 0; }
+  /* Legende unten links: Trefferzahl (#map-hint - der Rauchtest liest
+     die erste Zahl) und die vier Sportfarben. Über der Karte (800),
+     unter den Detail-Boxen (900). */
+  .map-legend {
+    position: absolute; left: 12px; bottom: 12px; z-index: 800;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px;
+    max-width: calc(100% - 24px);
+    padding: 8px 14px;
+    border-radius: 12px; border: 1px solid var(--border);
+    background: var(--panel); color: var(--text-muted);
+    box-shadow: var(--shadow);
+    font-size: 0.82rem;
+  }
+  .map-legend .result-count { font-size: 0.98rem; color: var(--text); }
+  .legend-sep { width: 1px; height: 18px; background: var(--border); }
+  .legend-items { display: inline-flex; flex-wrap: wrap; gap: 8px 14px; }
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sport-laufen); flex-shrink: 0; }
+  .legend-dot.sport-fahrrad { background: var(--sport-fahrrad); }
+  .legend-dot.sport-schwimmen { background: var(--sport-schwimmen); }
+  .legend-dot.sport-triathlon { background: var(--sport-triathlon); }
+  /* Ohne gesetzten Filter ist die Werkzeugleiste (Chips, "Filter
+     löschen") leer und weg - die Pillen zeigen den Stand schon selbst. */
+  .toolbar[hidden] { display: none; }
+  .toolbar { padding-top: 10px; padding-bottom: 10px; }
+
+  /* Das Leaflet-Popup (ab drei Events an einem Ort) ist immer weiß -
+     feste Farben statt der Seitenvariablen, sonst wäre im dunklen
+     Schema helle Schrift auf Weiß unlesbar. */
   .popup-title { font-weight: 700; margin-bottom: 2px; color: #1c1f24; }
   .popup-sub { color: #6b7280; font-size: 0.82rem; margin-bottom: 8px; }
   .popup-link {
     display: inline-block;
     padding: 6px 12px;
     border-radius: 999px;
-    background: #0b1220;
+    background: #0f1b33;
     color: #fff !important;
     text-decoration: none;
     font-size: 0.82rem;
@@ -150,12 +276,6 @@
   }
   .popup-event:hover, .popup-event:focus-visible { background: #eef2f8; color: #0b1220; outline: none; }
   .popup-event .pe-meta { display: block; color: #6b7280; font-size: 0.75rem; }
-  /* Die Kachel-Ebene leicht abgedunkelt, damit die Karte zur dunklen
-     Fläche passt; Marker und Popups liegen darüber und bleiben hell. */
-  .leaflet-tile-pane { filter: brightness(0.92) saturate(0.85); }
-  .leaflet-control-zoom a { background: var(--panel) !important; color: var(--text) !important; border-color: var(--border) !important; }
-  .leaflet-control-attribution { background: rgba(11,18,32,0.75) !important; color: var(--text-muted) !important; }
-  .leaflet-control-attribution a { color: var(--text) !important; }
 
   /* Die Detail-Boxen oben rechts ÜBER der Karte: dieselbe Box wie in der
      Liste (event-detail.css), bis zu zwei, die neueste zuerst. Über den
@@ -176,7 +296,7 @@
   .map-details:empty { display: none; }
   .map-details .detail-panel {
     padding: 16px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    box-shadow: var(--shadow);
   }
   /* Breite Karte: zwei Boxen NEBENEINANDER, die neueste rechts außen -
      übereinander passten zwei nicht in die Kartenhöhe. */
@@ -189,9 +309,12 @@
     }
     .map-details .detail-panel { width: 340px; flex: none; }
   }
-  /* Handy: unter den Zoom-Knöpfen, sonst verdeckt die Box beide. */
+  /* Handy: unter den Zoom-Knöpfen, sonst verdeckt die Box beide; die
+     Legende über der Quellenangabe. */
   @media (max-width: 599px) {
     .map-details { top: 60px; max-height: calc(100% - 70px); }
+    .map-legend { bottom: 30px; padding: 6px 10px; gap: 6px 10px; font-size: 0.76rem; }
+    .map-legend .result-count { font-size: 0.9rem; }
   }
   .map-details .detail-panel .detail-date { font-size: 1.3rem; }
   .map-details .detail-panel h2 { font-size: 1.15rem; }
@@ -216,6 +339,10 @@
     <a class="nav-link active" href="karte.html" id="nav-map" aria-current="page">Karte</a>
   </nav>
   <div class="top-actions">
+    <button type="button" class="icon-btn theme-btn" id="theme-btn" aria-label="Hell / Dunkel – Light / Dark" title="Hell / Dunkel – Light / Dark">
+      <svg class="theme-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
     <div class="lang-switch" id="lang-switch">
       <button type="button" class="lang-btn" data-lang="de">DE</button>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -239,12 +366,23 @@
       </svg>
       <span id="list-btn-text">Liste</span>
     </a>
+    <!-- "E-Mail-Abo": der Abo-Dialog lebt in der Liste (Firestore) -
+         der Knopf führt mit den aktuellen Filtern dorthin und öffnet
+         ihn (?abos=1), siehe render(). -->
+    <a class="bar-btn" href="events.html?abos=1" id="abo-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+           stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>
+      </svg>
+      <span id="abo-btn-text">E-Mail-Abo</span>
+    </a>
   </div>
 </div>
 
-<!-- Werkzeugleiste wie in der Liste: Trefferzeile, Chips, "Filter löschen". -->
-<div class="toolbar">
-  <div class="result-count" id="map-hint">Lade Events…</div>
+<!-- Werkzeugleiste: Chips und "Filter löschen" - nur sichtbar, wenn ein
+     Filter gesetzt ist (renderChips). Die Trefferzahl steht in der
+     Legende unten links auf der Karte. -->
+<div class="toolbar" id="toolbar" hidden>
   <div class="active-chips" id="active-chips"></div>
   <button type="button" class="reset-btn" id="reset-btn"></button>
 </div>
@@ -254,6 +392,12 @@
   <!-- Bis zu zwei Detail-Boxen (event-detail.js), gefüllt von
        zeigeDetail() nach einem Klick auf ein Event im Popup. -->
   <div class="map-details" id="map-details"></div>
+  <!-- Legende: Trefferzahl und die Farbe je Sportart (setLanguage). -->
+  <div class="map-legend" id="map-legend">
+    <span class="result-count" id="map-hint">Lade Events…</span>
+    <span class="legend-sep" aria-hidden="true"></span>
+    <span class="legend-items" id="legend-sports"></span>
+  </div>
 </div>
 
 <script src="vendor/leaflet-1.9.4/leaflet.js"></script>
@@ -279,9 +423,9 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=eca383b0"></script>
+<script src="filters.js?v=4503c358"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=23e80eeb"></script>
+<script src="event-detail.js?v=261fa037"></script>
 
 <script>
 (async function () {
@@ -316,10 +460,12 @@
       title: 'Karte',
       subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
       list: 'Liste',
+      abo: 'E-Mail-Abo',
+      standort_btn: 'Mein Standort',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende',
       nav_events: 'Events',
       datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
-      hint: (n, cities) => `${n} Events an ${cities} Orten`,
-      hint_filtered: (n, total, cities) => `${n} Events an ${cities} Orten`,
+      hint: (n) => `${n} Events`,
       hint_empty: 'Kein Event entspricht den Filtern.',
       load_error: (msg) => `Konnte events.json nicht laden: ${msg}`,
       popup_count: (n) => `${n} Event${n === 1 ? '' : 's'}`,
@@ -337,10 +483,12 @@
       title: 'Map',
       subtitle: 'Click a marker to see the events at that location in the list.',
       list: 'List',
+      abo: 'Email alerts',
+      standort_btn: 'My location',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       nav_events: 'Events',
       datum_fussnote: '* exact date not yet published – month as in the previous year',
-      hint: (n, cities) => `${n} events across ${cities} locations`,
-      hint_filtered: (n, total, cities) => `${n} events across ${cities} locations`,
+      hint: (n) => `${n} events`,
       hint_empty: 'No event matches the filters.',
       load_error: (msg) => `Could not load events.json: ${msg}`,
       popup_count: (n) => `${n} event${n === 1 ? '' : 's'}`,
@@ -384,6 +532,9 @@
   const filterButtonsEl = document.getElementById('filter-buttons');
   const chipsEl = document.getElementById('active-chips');
   const resetBtnEl = document.getElementById('reset-btn');
+  const toolbarEl = document.getElementById('toolbar');
+  const aboBtnEl = document.getElementById('abo-btn');
+  const legendSportsEl = document.getElementById('legend-sports');
 
   // Der Filterzustand selbst (Land, Sportart, Umkreis …) - dieselbe
   // Struktur wie in der Liste, gelesen und geschrieben über dieselbe
@@ -419,16 +570,37 @@
     minZoom: 3,
     // Der Sprung auf die "nächste" Weltkopie beim Ziehen über den
     // Rand - ohne Weltkopien sinnlos.
-    worldCopyJump: false
+    worldCopyJump: false,
+    // Die Quellenangabe wird unten selbst gesetzt (ohne "Leaflet"-Vorspann
+    // und in der Sprache der Seite, siehe setLanguage).
+    attributionControl: false
   }).setView([48.5, 10.5], 6);
+  const attributionControl = L.control.attribution({ prefix: false }).addTo(map);
+  let attributionText = '';
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     // DAS ist der Punkt gegen die dreifache Weltkarte: Ohne `noWrap`
     // zeichnet Leaflet die Kacheln links und rechts der Datumsgrenze
     // beliebig oft weiter.
-    noWrap: true,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'
+    noWrap: true
   }).addTo(map);
+  // Flach oder mit Kacheln: Bis Zoom 7 zeigt die Karte nur die
+  // Landfläche aus laender.json (Vorlage des Nutzers - eine ruhige
+  // Übersicht ohne Straßen und Ortsnamen); ab Zoom 8 kommen die
+  // OSM-Kacheln, weil man dann Orte und Wege braucht. Die Kacheln
+  // werden nicht abgeschaltet, sondern per CSS ausgeblendet
+  // (.map-flach): So sind sie beim Hineinzoomen sofort da, und der
+  // Rauchtest kann sie weiter zählen (noWrap-Prüfung). Die
+  // Orientierungsorte (graue Punkte) gibt es nur in der flachen
+  // Ansicht - darüber stehen die Namen auf den Kacheln.
+  const TILES_AB_ZOOM = 8;
+  function aktualisiereFlach() {
+    const flach = map.getZoom() < TILES_AB_ZOOM;
+    map.getContainer().classList.toggle('map-flach', flach);
+    if (flach && !map.hasLayer(referenzLayer)) referenzLayer.addTo(map);
+    if (!flach && map.hasLayer(referenzLayer)) map.removeLayer(referenzLayer);
+  }
+  map.on('zoomend', aktualisiereFlach);
   // Alles, was beim Filtern neu gezeichnet wird, liegt in einer eigenen
   // Ebene - so muss nur diese geleert werden, nicht die Kachel-Ebene.
   // Es sind ZWEI Ebenen, und das ist wichtig: Die Event-Marker werden
@@ -494,6 +666,23 @@
   map.createPane('maskePane');
   map.getPane('maskePane').style.zIndex = 250;
   map.getPane('maskePane').style.pointerEvents = 'none';
+  // Die LANDFLÄCHE der abgedeckten Länder (dieselben Umrisse, hell
+  // gefüllt) liegt mit z-index 150 UNTER den Kacheln (200): In der
+  // flachen Ansicht (Kacheln ausgeblendet) ist sie die Karte, mit
+  // Kacheln verschwindet sie darunter. `fillRule: nonzero`, damit ein
+  // Ring innerhalb eines anderen (Büsingen in der Schweiz) mitgefüllt
+  // wird - bei der Maske dagegen bleibt evenodd (dort spart jeder Ring
+  // aus, und der Rauchtest prüft das).
+  map.createPane('landPane');
+  map.getPane('landPane').style.zIndex = 150;
+  map.getPane('landPane').style.pointerEvents = 'none';
+  // Orientierungsorte (graue Punkte mit Namen): über der Maske (250),
+  // unter den Markern (600); fangen keine Klicks ab.
+  map.createPane('referenzPane');
+  map.getPane('referenzPane').style.zIndex = 300;
+  map.getPane('referenzPane').style.pointerEvents = 'none';
+  const referenzLayer = L.layerGroup();
+  aktualisiereFlach();
 
   // Das Rechteck reicht weit über Europa hinaus - `maxBounds` lässt
   // ohnehin nicht weiter, aber so entsteht auch beim Federn am Rand
@@ -507,26 +696,164 @@
     // darin zur Aussparung - und ein Loch INNERHALB eines Landes wieder
     // grau. Das ist kein Sonderfall für Sonderfälle: Büsingen am
     // Hochrhein ist deutsch und liegt mitten in der Schweiz.
-    const ringe = [MASKE_AUSSEN];
+    const laenderRinge = [];
     Object.keys(laender).forEach(name => {
       (laender[name] || []).forEach(ring => {
         // laender.json speichert [lon, lat] (GeoJSON-Reihenfolge),
         // Leaflet erwartet [lat, lon].
-        ringe.push(ring.map(([lon, lat]) => [lat, lon]));
+        laenderRinge.push(ring.map(([lon, lat]) => [lat, lon]));
       });
     });
-    L.polygon(ringe, {
+    // Erst die Landfläche (unter den Kacheln, siehe landPane) ...
+    L.polygon(laenderRinge, {
+      pane: 'landPane',
+      interactive: false,
+      className: 'land-pfad',
+      fillRule: 'nonzero',
+      weight: 1,
+      color: '#c9c9c4',
+      fillColor: '#f8f8f6',
+      fillOpacity: 1
+    }).addTo(map);
+    // ... dann der Schleier über allem außerhalb. Farbe und Deckkraft
+    // kommen aus dem Stylesheet (path.maske-pfad), damit sie dem
+    // Farbschema folgen; die Werte hier sind nur der Rückfall.
+    L.polygon([MASKE_AUSSEN].concat(laenderRinge), {
       pane: 'maskePane',
       interactive: false,
       stroke: false,
-      // Ein grauer Schleier, kein Deckel: Städtenamen und Straßen
-      // bleiben lesbar, treten aber zurück. Die OSM-Kacheln sind immer
-      // hell - die Farbe muss also nicht auf das Farbschema der Seite
-      // reagieren.
-      fillColor: '#5b6472',
-      fillOpacity: 0.42
+      className: 'maske-pfad',
+      fillColor: '#dcdedf',
+      fillOpacity: 0.6
     }).addTo(map);
   }
+
+  // ---------- Orientierungsorte ----------
+  //
+  // Die flache Karte hat keine Beschriftung - ohne ein paar bekannte
+  // Städte wüsste man nicht, wo man ist. Deshalb graue Punkte mit Namen
+  // (Vorlage des Nutzers: Basel, Bern, Linz, Wien, Graz …), fest im
+  // Code, weil sie nichts mit den Daten zu tun haben. Sie werden
+  // ausgeblendet, sobald ein Bündel oder dessen Beschriftung auf ihnen
+  // liegt oder ein Bündel denselben Namen trägt (blendeReferenzAus) -
+  // sonst stünde "Köln" zweimal nebeneinander.
+  const REFERENZ_ORTE = [
+    ['Berlin', 52.52, 13.405], ['Hamburg', 53.55, 9.993], ['München', 48.137, 11.575],
+    ['Köln', 50.937, 6.96], ['Frankfurt am Main', 50.11, 8.68], ['Stuttgart', 48.776, 9.18],
+    ['Düsseldorf', 51.225, 6.776], ['Leipzig', 51.34, 12.37], ['Dortmund', 51.514, 7.466],
+    ['Bremen', 53.08, 8.80], ['Dresden', 51.05, 13.74], ['Hannover', 52.375, 9.73],
+    ['Nürnberg', 49.45, 11.08], ['Kiel', 54.32, 10.14], ['Rostock', 54.09, 12.10],
+    ['Magdeburg', 52.13, 11.63], ['Erfurt', 50.98, 11.03], ['Saarbrücken', 49.24, 6.99],
+    ['Freiburg im Breisgau', 47.995, 7.85], ['Regensburg', 49.01, 12.10], ['Münster', 51.96, 7.63],
+    ['Kassel', 51.31, 9.49],
+    ['Wien', 48.21, 16.37], ['Graz', 47.07, 15.44], ['Linz', 48.31, 14.29], ['Salzburg', 47.80, 13.04],
+    ['Innsbruck', 47.27, 11.40], ['Klagenfurt', 46.62, 14.31],
+    ['Zürich', 47.38, 8.54], ['Bern', 46.95, 7.45], ['Basel', 47.56, 7.59], ['Genf', 46.20, 6.15],
+    ['Lausanne', 46.52, 6.63], ['Luzern', 47.05, 8.31], ['St. Gallen', 47.42, 9.37],
+    ['Lugano', 46.00, 8.95], ['Chur', 46.85, 9.53]
+  ];
+  function baueReferenzOrte() {
+    referenzLayer.clearLayers();
+    REFERENZ_ORTE.forEach(([name, lat, lon]) => {
+      L.marker([lat, lon], {
+        pane: 'referenzPane',
+        interactive: false,
+        keyboard: false,
+        icon: L.divIcon({
+          className: '',
+          html: `<div class="ref-city"><span class="ref-dot"></span><span>${escapeHtml(tv('standort', name))}</span></div>`,
+          iconSize: [0, 0],
+          // Der Punkt sitzt links in der Zeile, 8 px groß: sein
+          // Mittelpunkt liegt auf der Koordinate.
+          iconAnchor: [4, 7]
+        })
+      }).addTo(referenzLayer);
+    });
+    blendeReferenzAus();
+  }
+  // Nach jedem Schwenk, Zoom und nach dem Umbau der Bündel werden die
+  // Beschriftungen geordnet (ordneBeschriftungen), in zwei Schritten:
+  //
+  // 1. Die Ortsnamen der BÜNDEL, größte zuerst: Ein Name, der ein anderes
+  //    Bündel oder einen schon gesetzten Namen überschneidet, wandert auf
+  //    die linke Seite seines Kreises; hilft auch das nicht, verschwindet
+  //    er. Die Zahl im Kreis bleibt immer. Ohne das lag bei Zoom 6 "252
+  //    Hamburg" über dem Namen von Bremerhaven, bei Zoom 8 stand jede
+  //    zweite Beschriftung in einer anderen.
+  // 2. Die ORIENTIERUNGSORTE: Ein grauer Punkt samt Name verschwindet,
+  //    wenn er ein Bündel, einen Bündel-Namen oder einen wichtigeren
+  //    Orientierungsort (weiter vorn in REFERENZ_ORTE) überschneidet -
+  //    oder wenn ein Bündel denselben Namen trägt ("Köln" stünde sonst
+  //    zweimal nebeneinander).
+  //
+  // Ausgeblendet wird mit visibility, nicht display: So behält ein Kasten
+  // seine Maße, und der Name kommt zurück, sobald wieder Platz ist.
+  // Gerechnet wird aus dem DOM (getBoundingClientRect), in EINEM
+  // Animationsframe, nie mehrmals hintereinander.
+  let ordnenFrame = null;
+  let ordnenNachlauf = null;
+  function ueberschneidet(a, b, rand) {
+    return a.left < b.right + rand && a.right > b.left - rand && a.top < b.bottom + rand && a.bottom > b.top - rand;
+  }
+  function ordneBeschriftungen(nachlauf) {
+    // Ein zweiter Durchgang nach der Bewegung der Marker: markercluster
+    // schiebt sie animiert an ihren Platz (~300 ms), der erste Durchgang
+    // sähe sonst noch die alten Lagen ("Magdeburg" halb unter Berlin).
+    // Und ein dritter nach 1,2 s: Auf einem langsamen Gerät (oder unter
+    // Last) ist die Animation nach 450 ms noch nicht fertig.
+    if (!nachlauf) {
+      clearTimeout(ordnenNachlauf);
+      ordnenNachlauf = setTimeout(() => {
+        ordneBeschriftungen(true);
+        ordnenNachlauf = setTimeout(() => ordneBeschriftungen(true), 750);
+      }, 450);
+    }
+    if (ordnenFrame !== null) return;
+    ordnenFrame = requestAnimationFrame(() => {
+      ordnenFrame = null;
+      const markerPane = map.getPane('markerPane');
+      // Belegte Flächen: erst die Kreise und Nadeln, dann die gesetzten
+      // Namen. `el` merkt sich, wem eine Fläche gehört - der eigene Kreis
+      // zählt für einen Namen nicht als Hindernis.
+      const belegt = Array.from(markerPane.querySelectorAll('.cluster-badge, .marker-badge:not(.sr-only), .marker-pin'))
+        .map(el => ({ el, rect: el.getBoundingClientRect() }));
+      const beschriftungen = Array.from(markerPane.querySelectorAll('.cluster-label'));
+      beschriftungen.forEach(l => l.classList.remove('label-links', 'label-versteckt'));
+      // Größte Bündel zuerst: Sie behalten ihren Namen, die kleinen
+      // weichen aus.
+      const zahl = l => parseInt((l.previousElementSibling || {}).textContent, 10) || 0;
+      beschriftungen.sort((a, b) => zahl(b) - zahl(a));
+      const frei = (rect, eigener) => !belegt.some(b => b.el !== eigener && ueberschneidet(rect, b.rect, 2));
+      beschriftungen.forEach(label => {
+        const eigener = label.previousElementSibling;
+        let r = label.getBoundingClientRect();
+        if (!frei(r, eigener)) {
+          label.classList.add('label-links');
+          r = label.getBoundingClientRect();
+          if (!frei(r, eigener)) { label.classList.add('label-versteckt'); return; }
+        }
+        belegt.push({ el: label, rect: r });
+      });
+
+      if (!map.hasLayer(referenzLayer)) return;
+      const namen = new Set(beschriftungen.filter(l => !l.classList.contains('label-versteckt')).map(l => l.textContent));
+      referenzLayer.eachLayer(m => {
+        const el = m.getElement();
+        const kasten = el && el.firstElementChild;
+        if (!kasten) return;
+        const r = kasten.getBoundingClientRect();
+        const verdeckt = namen.has(kasten.textContent)
+          || belegt.some(b => ueberschneidet(r, b.rect, 4));
+        kasten.classList.toggle('ref-hidden', verdeckt);
+        // Die Sichtbaren belegen ihren Platz für die weniger wichtigen.
+        if (!verdeckt) belegt.push({ el: kasten, rect: r });
+      });
+    });
+  }
+  // Ohne Argument aufrufen - die Ereignis-Objekte von Leaflet dürfen
+  // nicht als `nachlauf` ankommen.
+  const blendeReferenzAus = () => ordneBeschriftungen();
+  map.on('moveend zoomend', blendeReferenzAus);
 
   // Die Maske ist Beiwerk: Sie wird NACH den Events geladen und ein
   // Fehlschlag bleibt still (dann ist die Karte eben überall gleich
@@ -540,6 +867,9 @@
 
   const markerLayer = createMarkerLayer();
   markerLayer.addTo(map);
+  // markercluster meldet 'animationend', wenn die Bündel neu stehen -
+  // erst dann ist bekannt, welche Orientierungsorte verdeckt sind.
+  markerLayer.on('animationend', blendeReferenzAus);
   const overlayLayer = L.layerGroup().addTo(map);
 
   // Ohne das Plugin (unpkg nicht erreichbar, Netzsperre) bleibt es bei
@@ -573,14 +903,25 @@
 
   // Die Zahl im Buendel ist die Summe der Events, nicht die der Marker:
   // ein Marker steht fuer einen Ort und traegt seine Event-Zahl in
-  // options.eeCount.
+  // options.eeCount. Daneben steht der Name des Ortes mit den meisten
+  // Events im Bündel (options.eeStandort) - "349 Köln" (Vorlage des
+  // Nutzers): so weiß man, was das Bündel ist, ohne hineinzuzoomen.
   function clusterIcon(cluster) {
     let events = 0;
-    cluster.getAllChildMarkers().forEach(m => { events += (m.options.eeCount || 1); });
+    let groesster = null;
+    cluster.getAllChildMarkers().forEach(m => {
+      const n = m.options.eeCount || 1;
+      events += n;
+      if (!groesster || n > (groesster.options.eeCount || 1)) groesster = m;
+    });
     const size = events >= 500 ? 56 : events >= 100 ? 48 : events >= 20 ? 40 : 34;
+    const ort = groesster && groesster.options.eeStandort ? tv('standort', groesster.options.eeStandort) : '';
     return L.divIcon({
       className: '',
-      html: `<div class="cluster-badge" style="width:${size}px;height:${size}px;">${events}</div>`,
+      html: `<div class="cluster-mark" style="width:${size}px;height:${size}px;">`
+        + `<div class="cluster-badge" style="width:${size}px;height:${size}px;">${events}</div>`
+        + (ort ? `<span class="cluster-label">${escapeHtml(ort)}</span>` : '')
+        + '</div>',
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2]
     });
@@ -603,6 +944,40 @@
   // ?s= in der Adresse, überlebt also den Seitenwechsel.
   const suche = ui.buildSearch(document.getElementById('master-search-box'));
 
+  // "Mein Standort" unter den Zoom-Knöpfen (Vorlage des Nutzers): öffnet
+  // das Ort-Panel an seiner Pille und drückt dort den Standort-Knopf -
+  // dieselbe Abfrage, derselbe Umkreis (25 km), dieselben Hinweise bei
+  // verweigerter Erlaubnis. Kein zweiter Weg zur Ortung, nur ein
+  // zweiter Knopf. `ui.open` statt eines Klicks auf die Pille: Ein
+  // künstlicher Klick liefe bis zum Dokument und schlösse das Panel
+  // gleich wieder ("Klick außerhalb").
+  const TARGET_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
+    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>';
+  let standortBtnText = null;
+  const StandortControl = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd() {
+      const div = L.DomUtil.create('div', 'leaflet-bar standort-control');
+      const btn = L.DomUtil.create('button', 'standort-btn', div);
+      btn.type = 'button';
+      btn.innerHTML = TARGET_SVG + '<span></span>';
+      standortBtnText = btn.querySelector('span');
+      L.DomEvent.disableClickPropagation(div);
+      L.DomEvent.on(btn, 'click', (ev) => { L.DomEvent.stop(ev); oeffneStandort(); });
+      return div;
+    }
+  });
+  new StandortControl().addTo(map);
+  function oeffneStandort() {
+    const pille = filterButtonsEl.querySelector('.col-filter-btn[data-col="standort"]');
+    const spalte = EFU.COLUMNS.find(c => c.key === 'standort');
+    if (!pille || !spalte) return;
+    ui.open(spalte, pille);
+    const geo = document.querySelector('.filter-panel .geo-btn');
+    if (geo) geo.click();
+  }
+
   function setLanguage(lang) {
     currentLang = lang;
     try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
@@ -610,9 +985,20 @@
     // Die Marke im Kopf heißt in beiden Sprachen gleich; der Untertitel
     // ist weg (die Zeile bleibt der Notbremse).
     listTextEl.textContent = t('list');
+    document.getElementById('abo-btn-text').textContent = t('abo');
+    if (standortBtnText) standortBtnText.textContent = t('standort_btn');
     navEventsEl.textContent = t('nav_events');
     document.getElementById('nav-map').textContent = t('title');
     resetBtnEl.textContent = t('reset');
+    // Quellenangabe der Kacheln in der Sprache der Seite.
+    if (attributionText) attributionControl.removeAttribution(attributionText);
+    attributionText = t('attribution');
+    attributionControl.addAttribution(attributionText);
+    // Legende: eine Farbe je Sportart (Klassen aus event-detail.js).
+    legendSportsEl.innerHTML = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'].map(art =>
+      `<span class="legend-item"><span class="legend-dot ${EED.sportClass(art)}" aria-hidden="true"></span>${escapeHtml(tv('art1', art))}</span>`
+    ).join('');
+    baueReferenzOrte();
     const fussnote = document.getElementById('datum-fussnote');
     fussnote.textContent = t('datum_fussnote');
     fussnote.hidden = !events.some(e => e.datum_vorlaeufig);
@@ -674,6 +1060,7 @@
       optionCount: stateKey => ui.options(stateKey).length
     });
     chipsEl.innerHTML = '';
+    toolbarEl.hidden = chips.length === 0;
     chips.forEach(c => {
       const chip = document.createElement('span');
       chip.className = 'chip';
@@ -697,11 +1084,34 @@
 
   // ---------- Marker ----------
 
-  function badgeIcon(count) {
-    const size = count >= 20 ? 34 : count >= 5 ? 28 : 22;
+  // Ein Ort mit EINEM Event: eine Nadel in der Farbe der Sportart mit
+  // deren Symbol (Vorlage des Nutzers). Die Spitze steht auf der
+  // Koordinate. Die unsichtbare "1" (.marker-badge.sr-only) hält die
+  // Rechnung des Rauchtests am Leben: Summe aller Kreise und Nadeln =
+  // Zahl in der Legende.
+  const PIN_SVG = '<svg class="pin-shape" viewBox="0 0 30 40" aria-hidden="true">'
+    + '<path d="M15 39.5C15 39.5 2.5 24.5 2.5 14.5a12.5 12.5 0 0 1 25 0C27.5 24.5 15 39.5 15 39.5z" fill="currentColor"/>'
+    + '<circle cx="15" cy="14.5" r="9.5" fill="#fff"/></svg>';
+  function markerIcon(loc) {
+    if (loc.count === 1) {
+      const art1 = loc.events[0].art1;
+      return L.divIcon({
+        className: '',
+        html: `<div class="marker-pin ${EED.sportClass(art1)}">${PIN_SVG}`
+          + `<span class="pin-icon">${EED.sportIcon(art1, 14)}</span>`
+          + '<span class="marker-badge sr-only">1</span></div>',
+        iconSize: [30, 40],
+        iconAnchor: [15, 39]
+      });
+    }
+    // Mehrere Events an einem Ort: Kreis mit Zahl und Ortsname, wie ein
+    // Bündel, nur kleiner.
+    const size = loc.count >= 20 ? 34 : loc.count >= 5 ? 30 : 26;
     return L.divIcon({
       className: '',
-      html: `<div class="marker-badge" style="width:${size}px;height:${size}px;">${count}</div>`,
+      html: `<div class="cluster-mark" style="width:${size}px;height:${size}px;">`
+        + `<div class="marker-badge" style="width:${size}px;height:${size}px;">${loc.count}</div>`
+        + `<span class="cluster-label">${escapeHtml(tv('standort', loc.standort))}</span></div>`,
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2]
     });
@@ -724,6 +1134,15 @@
   const MAX_DETAILS = 2;
   const detailsEl = document.getElementById('map-details');
   let offeneDetails = [];   // Events, neueste zuerst
+
+  // Die Entfernung vom Ausgangspunkt für die Box ("14 km von deinem
+  // Standort") - dieselbe Schreibweise wie die Entfernungs-Spalte der
+  // Liste (EF.formatDistanceKm). Ohne Ausgangspunkt zeigt die Box statt
+  // dessen den Veranstalter.
+  function entfernungText(e) {
+    if (!state.origin || e.lat == null || e.lon == null) return null;
+    return EF.formatDistanceKm(EF.haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon), currentLang);
+  }
 
   function detailKontext() {
     return {
@@ -753,6 +1172,9 @@
       box.className = 'detail-panel';
       EED.render(box, e, Object.assign(detailKontext(), {
         siblings: geschwisterVon(e),
+        // "In der Liste": dieses Event in der Liste, ausgewählt.
+        listLink: EED.eventLink(e),
+        distanceText: entfernungText(e),
         onSelect: (idx) => {
           const neu = events[idx];
           if (!neu) return;
@@ -799,8 +1221,12 @@
     ui.refresh();
     listLabelEl.href = linkTo('events.html');
     navEventsEl.href = linkTo('events.html');
+    // Der Abo-Dialog lebt in der Liste: dorthin, mit diesen Filtern,
+    // und ?abos=1 öffnet ihn (events.html liest den Parameter).
+    aboBtnEl.href = linkTo('events.html', { abos: '1' });
     writeUrlState();
     renderMarkers(!opts || opts.refit !== false);
+    blendeReferenzAus();
   }
 
   function renderMarkers(refit) {
@@ -829,16 +1255,14 @@
 
     hintEl.textContent = withCoords === 0
       ? t('hint_empty')
-      : EF.hasFilters(state)
-        ? t('hint_filtered', EF.formatInt(withCoords, currentLang), events.length, EF.formatInt(byStandort.size, currentLang))
-        : t('hint', EF.formatInt(withCoords, currentLang), EF.formatInt(byStandort.size, currentLang));
+      : t('hint', EF.formatInt(withCoords, currentLang));
 
     const markers = [];
     byStandort.forEach(loc => {
       // eeCount: die Event-Zahl dieses Ortes. clusterIcon() summiert sie
       // ueber alle Marker eines Buendels - sonst stuende dort die Zahl der
       // ORTE und die Karte widersprueche ihrer eigenen Kopfzeile.
-      const marker = L.marker([loc.lat, loc.lon], { icon: badgeIcon(loc.count), eeCount: loc.count });
+      const marker = L.marker([loc.lat, loc.lon], { icon: markerIcon(loc), eeCount: loc.count, eeStandort: loc.standort });
       // Der Popup-Inhalt entsteht erst beim Öffnen: bindPopup nimmt auch
       // eine FUNKTION. Als fertiger String kostete er bei ~2.000 Orten
       // 2.000 Popups samt 2.000 linkTo()-Aufrufen (jeder baut eigene
@@ -900,12 +1324,16 @@
         title: `${t('origin_title')}: ${state.origin.label}`
       }).addTo(overlayLayer);
       if (state.radiusKm != null) {
+        // Gestrichelt in der Akzentfarbe (Vorlage des Nutzers); die Farbe
+        // kommt aus dem Stylesheet (path.umkreis-pfad), hier der Rückfall.
         kreis = L.circle([state.origin.lat, state.origin.lon], {
           radius: state.radiusKm * 1000,
-          color: '#14509a',
-          weight: 1,
-          fillColor: '#14509a',
-          fillOpacity: 0.06
+          className: 'umkreis-pfad',
+          color: '#0f1b33',
+          weight: 1.5,
+          dashArray: '6 6',
+          fillColor: '#0f1b33',
+          fillOpacity: 0.05
         }).addTo(overlayLayer);
       }
     }
@@ -917,7 +1345,12 @@
     } else if (kreis) {
       map.fitBounds(kreis.getBounds().pad(0.1));
     } else if (markers.length) {
-      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+      // Knapp um die Marker: Mit 15 % Rand passte D/A/CH auf 1440×700
+      // nicht mehr in Zoom 6 und die Karte sprang auf 5 - die Länder
+      // standen dann als Briefmarke in der Mitte.
+      // Höchstens Zoom 13 (Ortsebene): Bei einem einzelnen Ort zoomte
+      // die Karte sonst bis auf die Hausnummer.
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.04), { maxZoom: 13 });
     }
   }
 

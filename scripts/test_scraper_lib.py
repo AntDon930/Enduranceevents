@@ -1266,6 +1266,39 @@ def test_asset_stempel() -> None:
         print("  -> python3 scripts/stamp_assets.py ausführen")
 
 
+def test_farbschema_skript() -> None:
+    """Hell und Dunkel: das Skript im <head>, das `data-theme` setzt, steht
+    in allen drei Seiten WORTGLEICH.
+
+    Es muss im Kopf jeder Seite stehen (sonst blitzt die Seite im falschen
+    Schema auf), und es ist deshalb dreimal kopiert statt als Datei
+    eingebunden. Drei Kopien laufen auseinander, wenn niemand hinsieht -
+    dieser Test sieht hin. Dazu: der Knopf in jeder Kopfzeile und site.css
+    mit beiden Schemata über `data-theme` (nicht über
+    prefers-color-scheme - dann hätte der Knopf keine Wirkung).
+    """
+    import os
+    import re
+
+    print("\nFarbschema-Skript (hell/dunkel) in den Seiten:")
+    wurzel = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    fassungen: dict[str, str | None] = {}
+    for name in ("index.html", "events.html", "karte.html"):
+        with open(os.path.join(wurzel, name), encoding="utf-8") as f:
+            html = f.read()
+        m = re.search(r"<script>\n\(function \(\) \{\n  var wahl = null;.*?</script>", html, re.S)
+        fassungen[name] = m.group(0) if m else None
+        check(f"{name}: Skript im Kopf vorhanden", m is not None, True)
+        check(f"{name}: Knopf .theme-btn in der Kopfzeile", 'class="icon-btn theme-btn"' in html, True)
+        check(f"{name}: Skript steht VOR den Stylesheets",
+              m is not None and m.start() < html.index("<link rel=\"stylesheet\""), True)
+    check("alle drei Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
+    with open(os.path.join(wurzel, "site.css"), encoding="utf-8") as f:
+        css = f.read()
+    check("site.css: helles Schema über :root[data-theme=\"light\"]", ':root[data-theme="light"]' in css, True)
+    check("site.css: kein prefers-color-scheme", "prefers-color-scheme" in css, False)
+
+
 def test_fremde_sportart() -> None:
     """Ein Radrennen bei einer Laufveranstaltung ist ein Radrennen - eine
     Triathlon-Teilstrecke dagegen nicht.
@@ -2131,7 +2164,7 @@ def main() -> int:
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
                  test_keine_fremden_dateien, test_laender_maske,
-                 test_asset_stempel):
+                 test_asset_stempel, test_farbschema_skript):
         test()
 
     print()

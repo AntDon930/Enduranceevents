@@ -8,11 +8,23 @@
    eingebunden (scripts/stamp_assets.py).
 
    Die Variablen sind der Vertrag mit filter-ui.css und event-detail.css:
-   --accent ist die HELLE Hervorhebung (Hauptknopf, gewählte Pille,
+   --accent ist die Hervorhebung (Hauptknopf, gewählte Pille,
    Sortierpfeil), --on-accent die Schrift darauf; die alte blaue
    Akzentfarbe gibt es nicht mehr. --frame sind die Linien um einen
-   aufgeklappten Block, leiser als der Akzent. Nur EIN Farbschema:
-   color-scheme: dark, damit Formularfelder und Rollbalken mitziehen. */
+   aufgeklappten Block, leiser als der Akzent.
+
+   ZWEI Farbschemata seit dem 21.09.2026: Die Vorlage der Liste war
+   dunkel, die der Karte hell - beide gelten. Das Schema hängt an
+   `data-theme` am <html>: "dark" (Voreinstellung, die Werte unten in
+   :root) oder "light" (der Block :root[data-theme="light"]). Gesetzt
+   wird das Attribut von einem kleinen Skript im <head> jeder Seite
+   (gespeicherte Wahl `endurance-theme` vor der Systemeinstellung), der
+   Knopf .theme-btn in der Kopfzeile schaltet um. Die Gestaltung hängt
+   NUR an den Variablen - feste Farben gibt es nur dort, wo eine Fläche
+   in beiden Schemata gleich aussieht (Leaflet-Popup, Sportfarben der
+   Marker). Nicht auf eine @media-Abfrage der Systemeinstellung
+   umstellen: Dann hätte der Knopf keine Wirkung (test_farbschema_skript
+   wacht darüber). */
 :root {
   color-scheme: dark;
   --bg: #0b1220;
@@ -31,6 +43,72 @@
   --brand: #f97316;
   --brand-bg: rgba(249, 115, 22, 0.14);
   --seite-rand: 28px;
+  /* Kopfzeile, Marke (Kachel, Linie, Punkt) und die GESETZTE Pille -
+     im Dunkeln leise (Fläche wie ein Chip), im Hellen kräftig (Marine
+     mit weißer Schrift, Vorlage der Karte). */
+  --header-bg: var(--bg);
+  --logo-bg: var(--brand);
+  --logo-fg: #ffffff;
+  --logo-dot: #ffffff;
+  --pill-active-bg: var(--accent-bg);
+  --pill-active-fg: var(--text);
+  --pill-active-border: var(--border-strong);
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  /* Eine Farbe je Sportart: Marker-Nadeln, Legende und das Abzeichen
+     der Detail-Box. Laufen ist Orange - die Markenfarbe. */
+  --sport-laufen: #f97316;
+  --sport-fahrrad: #22c55e;
+  --sport-schwimmen: #3b82f6;
+  --sport-triathlon: #a78bfa;
+  /* Die Karte (karte.html): Fläche außerhalb der Länder mit feinem
+     Raster, die Landfläche, ihr Umriss, der Schleier über den fremden
+     Kacheln und der Filter über den OSM-Kacheln. */
+  --map-bg: #0e1626;
+  --map-grid: rgba(255, 255, 255, 0.05);
+  --map-land: #182338;
+  --map-outline: #3b4a66;
+  --map-mask: #0b1220;
+  --map-mask-opacity: 0.55;
+  --map-tile-filter: brightness(0.72) saturate(0.7);
+  --map-halo: #182338;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f4f2;
+  --panel: #ffffff;
+  --panel-2: #f6f6f4;
+  --border: #e3e3df;
+  --border-strong: #c9c9c4;
+  --text: #0f172a;
+  --text-muted: #6b7280;
+  --accent: #0f1b33;
+  --on-accent: #ffffff;
+  --accent-bg: #e9ebef;
+  --row-alt: #fafaf8;
+  --row-hover: #f0f1f3;
+  --frame: #9aa3b5;
+  --brand: #f97316;
+  --brand-bg: rgba(249, 115, 22, 0.12);
+  --header-bg: var(--panel);
+  --logo-bg: #0f1b33;
+  --logo-fg: #ffffff;
+  --logo-dot: #f97316;
+  --pill-active-bg: var(--accent);
+  --pill-active-fg: var(--on-accent);
+  --pill-active-border: var(--accent);
+  --shadow: 0 12px 36px rgba(15, 27, 51, 0.16);
+  --sport-laufen: #f97316;
+  --sport-fahrrad: #16a34a;
+  --sport-schwimmen: #2563eb;
+  --sport-triathlon: #7c3aed;
+  --map-bg: #e8e9eb;
+  --map-grid: rgba(15, 27, 51, 0.06);
+  --map-land: #f8f8f6;
+  --map-outline: #c9c9c4;
+  --map-mask: #dcdedf;
+  --map-mask-opacity: 0.6;
+  --map-tile-filter: grayscale(0.35) brightness(1.02);
+  --map-halo: #f8f8f6;
 }
 * { box-sizing: border-box; }
 html { height: 100%; }
@@ -61,7 +139,7 @@ a { color: inherit; }
   gap: 12px 28px;
   padding: 14px var(--seite-rand);
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--header-bg);
 }
 .brand {
   display: inline-flex;
@@ -75,13 +153,16 @@ a { color: inherit; }
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: var(--brand);
+  background: var(--logo-bg);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #fff;
+  color: var(--logo-fg);
 }
+/* Der Punkt am Ende der Linie: im Hellen orange auf Marine (Vorlage der
+   Karte), im Dunkeln weiß auf Orange. */
+.brand-logo circle { fill: var(--logo-dot); }
 .brand-name {
   margin: 0;
   font-size: 1.35rem;
@@ -144,7 +225,13 @@ a { color: inherit; }
   font-size: 0.86rem;
   font-weight: 700;
 }
-.lang-btn.active { background: var(--accent-bg); color: var(--text); }
+.lang-btn.active { background: var(--pill-active-bg); color: var(--pill-active-fg); }
+/* Hell/Dunkel: ein Symbol-Knopf; im Dunkeln zeigt er die Sonne (dahin
+   führt der Klick), im Hellen den Mond. Umgeschaltet wird vom Skript im
+   <head> der Seite (data-theme), siehe oben. */
+.theme-btn .theme-moon { display: none; }
+:root[data-theme="light"] .theme-btn .theme-sun { display: none; }
+:root[data-theme="light"] .theme-btn .theme-moon { display: inline; }
 /* Der Anmelde-Knopf kommt aus auth.js (weiß umrandet für den alten
    blauen Kopf) - hier ruhig: nur Symbol und Wort. */
 #auth-mount .ee-auth-btn,
@@ -255,7 +342,7 @@ a { color: inherit; }
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--panel);
   transition: transform 0.16s ease;
 }
 .group-toggle input:checked + .switch { background: var(--accent); }

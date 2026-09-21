@@ -321,6 +321,14 @@
     const mitPunkt = s.replace(/\B(?=(\d{3})+(?!\d))/g, lang === 'en' ? ',' : '.');
     return mitPunkt;
   }
+
+  // Eine Entfernung in km: unter 10 km mit einer Nachkommastelle (dort
+  // macht sie einen Unterschied), darüber gerundet - und immer mit dem
+  // Trennzeichen der gewählten Sprache. Liste (Spalte und Box) und Karte
+  // (Box: "14 km von deinem Standort") zeigen sie damit gleich.
+  function formatDistanceKm(d, lang) {
+    return d < 10 ? `${formatNumber(d, lang, 1)} km` : `${Math.round(d)} km`;
+  }
   // "in 6 Tagen", "heute", "morgen", "in 3 Wochen", "in 5 Monaten" - die
   // Zeile unter dem großen Datum der Box. Leer für Vergangenes.
   function relativeDays(iso, lang, heute) {
@@ -1016,6 +1024,7 @@
     formatDateLong,
     formatDateRangeShort,
     formatInt,
+    formatDistanceKm,
     relativeDays,
     I18N,
     VALUE_TRANSLATIONS,

@@ -39,37 +39,42 @@
 .filter-btn-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 .filter-btn-bar .col-filter-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 0 12px;
+  padding: 0 11px;
   height: 44px;
   border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text);
   font: inherit;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   white-space: nowrap;
   max-width: 100%;
 }
 .filter-btn-bar .col-filter-btn:hover { border-color: var(--border-strong, var(--text-muted)); }
+/* Gesetzt oder offen: im Hellen Marine mit weißer Schrift (Vorlage der
+   Karte, 21.09.2026), im Dunkeln eine leise Fläche - die drei Variablen
+   stehen in site.css. */
 .filter-btn-bar .col-filter-btn.open,
 .filter-btn-bar .col-filter-btn.has-filter {
-  color: var(--text);
-  border-color: var(--border-strong, var(--accent));
-  background: var(--accent-bg);
+  color: var(--pill-active-fg, var(--text));
+  border-color: var(--pill-active-border, var(--border-strong, var(--accent)));
+  background: var(--pill-active-bg, var(--accent-bg));
 }
 .filter-btn-bar .fb-label { color: var(--text-muted); font-weight: 500; }
+.filter-btn-bar .col-filter-btn.open .fb-label,
+.filter-btn-bar .col-filter-btn.has-filter .fb-label { color: inherit; opacity: 0.85; }
 .filter-btn-bar .col-filter-btn.has-filter .fb-label::after { content: ':'; }
 .filter-btn-bar .fb-value {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 220px;
+  max-width: 190px;
 }
 .filter-btn-bar .fb-value:empty { display: none; }
 .filter-btn-bar .fb-caret { display: inline-flex; color: var(--text-muted); margin-left: 2px; }
@@ -87,7 +92,7 @@
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+  box-shadow: var(--shadow, 0 12px 36px rgba(0, 0, 0, 0.45));
   padding: 12px;
   min-width: 240px;
   max-width: 300px;
@@ -362,7 +367,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  flex: 0 1 320px;
+  flex: 0 1 280px;
   min-width: 170px;
 }
 .master-search svg {
@@ -411,7 +416,7 @@
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow, 0 12px 36px rgba(0, 0, 0, 0.45));
   max-height: 46vh;
   overflow-y: auto;
 }

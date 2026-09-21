@@ -35,6 +35,9 @@
       detail_strecken_titel: 'Strecken dieser Veranstaltung',
       detail_link: 'Zur Veranstalterseite',
       detail_map: 'Auf der Karte',
+      detail_list: 'In der Liste',
+      detail_entfernung: 'Entfernung',
+      detail_entfernung_von: (d) => `${d} von deinem Standort`,
       detail_vorlaeufig: 'Termin noch nicht veröffentlicht',
       cal_vorlaeufig: '(Termin vorläufig)',
       detail_close: 'Schließen',
@@ -60,6 +63,9 @@
       detail_strecken_titel: 'Races of this event',
       detail_link: 'Organizer website',
       detail_map: 'On the map',
+      detail_list: 'In the list',
+      detail_entfernung: 'Distance',
+      detail_entfernung_von: (d) => `${d} from your location`,
       detail_vorlaeufig: 'Date not yet published',
       cal_vorlaeufig: '(date provisional)',
       detail_close: 'Close',
@@ -486,6 +492,14 @@
     Fahrrad: '<circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4.5-9h3l4.5 9M10 8h3.5M13.5 8l2.5 4"/>',
     Triathlon: '<circle cx="12" cy="4" r="1.8"/><path d="M12 6v5l-3 4M12 11l3 4M5 20h14M8 17.5l-1.5 2.5M16 17.5l1.5 2.5"/>'
   };
+  // Die CSS-Klasse der Sportart (sport-laufen …): färbt das Abzeichen der
+  // Box, die Marker-Nadeln und die Legende der Karte über die Variablen
+  // --sport-<art> aus site.css. Unbekannte Sportart -> Laufen.
+  const SPORT_KLASSE = { Laufen: 'laufen', Schwimmen: 'schwimmen', Fahrrad: 'fahrrad', Triathlon: 'triathlon' };
+  function sportClass(art1) {
+    return 'sport-' + (SPORT_KLASSE[art1] || 'laufen');
+  }
+
   function sportIcon(art1, size) {
     const pfad = SPORT_SVG[art1] || SPORT_SVG.Laufen;
     const px = size || 16;
@@ -498,7 +512,8 @@
     ort: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
     strecke: '<path d="M4 17c3-6 5-6 8 0s5 6 8 0"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/>',
     kategorie: '<path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
-    veranstalter: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'
+    veranstalter: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    entfernung: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 5.3-5.3 2.2 2.2-5.3z"/>'
   };
   function factIcon(key) {
     return `<span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"`
@@ -508,6 +523,9 @@
   const MAP_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
     + ' stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>';
+  const LIST_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
+    + ' stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<path d="M4 6h16M4 12h16M4 18h16"/></svg>';
   const EXT_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"'
     + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/></svg>';
@@ -553,7 +571,8 @@
     container.innerHTML = `<div class="detail-empty">${escapeHtml(ctx.t('detail_empty'))}</div>`;
   }
 
-  // ctx: { t, tv, lang, onReport?, onClose?, siblings?, onSelect?, mapLink? }.
+  // ctx: { t, tv, lang, onReport?, onClose?, siblings?, onSelect?, mapLink?,
+  //        listLink?, distanceText? }.
   // Gibt nichts zurück; die Knöpfe hängen an der Box selbst.
   //
   // Aufbau seit dem 21.09.2026 (Vorlage des Nutzers): das Datum groß
@@ -564,7 +583,11 @@
   // (Ort, Strecke, Kategorie, Veranstalter); dann die Knöpfe, klar
   // gestuft: die Veranstalterseite als Hauptknopf, Kalender und Karte
   // daneben, "Fehler melden" als leiser Link. `mapLink` (Liste) ist die
-  // Adresse der Karte mit diesem Event; auf der Karte fehlt der Knopf.
+  // Adresse der Karte mit diesem Event, `listLink` (Karte) die der Liste
+  // mit diesem Event - je Seite gibt es nur den Knopf zur ANDEREN.
+  // `distanceText` ("14 km") ersetzt den vierten Fakt (Veranstalter)
+  // durch die Entfernung vom Ausgangspunkt (Vorlage der Karte); die
+  // Veranstalterseite bleibt als Hauptknopf darunter.
   function render(container, e, ctx) {
     const { t, tv, lang } = ctx;
     const wb = displayWettbewerb(e);
@@ -590,16 +613,18 @@
         ${ctx.onClose ? `<button type="button" class="detail-share detail-close"
                 title="${escapeHtml(t('detail_close'))}" aria-label="${escapeHtml(t('detail_close'))}">&#10005;</button>` : ''}
       </div>
-      <div class="detail-badge">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
+      <div class="detail-badge ${sportClass(e.art1)}">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
       <h2>${escapeHtml(e.name)}</h2>
       ${streckenPillen(e, ctx)}
       <dl class="detail-grid">
         <div class="fact">${factIcon('ort')}<div><dt>${escapeHtml(t('detail_ort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))},<br>${escapeHtml(tv('land', e.land))}</dd></div></div>
         <div class="fact">${factIcon('strecke')}<div><dt>${escapeHtml(t('detail_strecke'))}</dt><dd>${escapeHtml(strecke)}</dd></div></div>
         <div class="fact">${factIcon('kategorie')}<div><dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(kategorie)}</dd></div></div>
-        <div class="fact">${factIcon('veranstalter')}<div><dt>${escapeHtml(t('detail_veranstalter'))}</dt><dd>${e.veranstalter_url
+        ${ctx.distanceText
+          ? `<div class="fact">${factIcon('entfernung')}<div><dt>${escapeHtml(t('detail_entfernung'))}</dt><dd>${escapeHtml(t('detail_entfernung_von', ctx.distanceText))}</dd></div></div>`
+          : `<div class="fact">${factIcon('veranstalter')}<div><dt>${escapeHtml(t('detail_veranstalter'))}</dt><dd>${e.veranstalter_url
             ? `<a class="detail-host" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hostVon(e.veranstalter_url))}</a>`
-            : '–'}</dd></div></div>
+            : '–'}</dd></div></div>`}
       </dl>
       ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(t('detail_link'))}</span>${EXT_SVG}</a>` : ''}
       <div class="detail-actions">
@@ -615,6 +640,7 @@
           </div>
         </div>
         ${ctx.mapLink ? `<a class="cal-btn detail-map-btn" href="${escapeHtml(ctx.mapLink)}">${MAP_SVG}<span>${escapeHtml(t('detail_map'))}</span></a>` : ''}
+        ${ctx.listLink ? `<a class="cal-btn detail-list-btn" href="${escapeHtml(ctx.listLink)}">${LIST_SVG}<span>${escapeHtml(t('detail_list'))}</span></a>` : ''}
       </div>
       ${ctx.onReport ? `<button type="button" class="report-btn report-open-btn">${escapeHtml(t('report_btn'))}</button>` : ''}
     `;
@@ -651,6 +677,7 @@
     showToast,
     kopiereInAblage,
     sportIcon,
+    sportClass,
     hostVon
   };
 })(typeof window !== 'undefined' ? window : globalThis);

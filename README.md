@@ -2076,6 +2076,54 @@ Wie die Maske gezeichnet wird:
 - **Geladen wird sie nach den Events**, ohne `await`, und ein Fehlschlag
   bleibt still: Die Maske ist Beiwerk, die Marker sind der Zweck.
 
+### Die flache Karte: Landfläche statt Kacheln in der Übersicht
+
+Seit dem 21.09.2026 folgt die Karte einer Vorlage des Nutzers: In der
+Übersicht (bis Zoom 7) ist sie **flach** – die drei Länder als helle
+Fläche auf grauem Grund mit feinem Raster, ohne Straßen und Ortsnamen;
+erst ab Zoom 8 kommen die OpenStreetMap-Kacheln, weil man dann Orte und
+Wege braucht. Dafür zeichnet `zeichneMaske()` aus denselben Umrissen ein
+zweites Polygon, die **Landfläche**, in ein Pane mit z-index 150 – also
+*unter* den Kacheln (200): Solange die Kacheln per CSS ausgeblendet
+sind (`.map-flach`), ist sie die Karte; mit Kacheln verschwindet sie
+darunter. Die Kacheln werden dabei nicht abgeschaltet, nur unsichtbar
+gemacht – so sind sie beim Hineinzoomen sofort da, und der Rauchtest
+kann sie weiter zählen (die Prüfung gegen die doppelte Weltkarte).
+
+Was sonst zur Vorlage gehört: **Bündel** als Kreise in der Akzentfarbe
+mit der Event-Zahl und dem Namen des größten Ortes darin („349 Köln");
+**ein Ort mit genau einem Event als Nadel** in der Farbe seiner
+Sportart (Orange Laufen, Grün Fahrrad, Blau Schwimmen, Violett
+Triathlon – dieselben Farben wie die Legende unten links und die
+Symbole in der Liste); **Orientierungsorte** (graue Punkte: Basel,
+Bern, Linz, Wien, Graz …) dort, wo kein Bündel steht; **„Mein
+Standort"** unter den Zoom-Knöpfen (öffnet das Ort-Panel und startet die
+Ortung – derselbe Weg wie im Panel); die Trefferzahl in der **Legende**
+statt in der Werkzeugleiste, die ohne Filter ganz verschwindet; ein
+gestrichelter Umkreis; und in der Detail-Box statt des Veranstalters
+die **Entfernung** vom Ausgangspunkt („14 km von deinem Standort") sowie
+ein Knopf „In der Liste".
+
+Die Beschriftungen ordnen sich selbst: Nach jedem Schwenk oder Zoom
+prüft `ordneBeschriftungen()`, welche Ortsnamen einen Nachbarn
+überschneiden – die wandern auf die linke Seite ihres Kreises oder
+verschwinden (größte Bündel zuerst) –, und welche Orientierungsorte
+unter einem Bündel, einem Namen oder einem wichtigeren Ort liegen. Ohne
+das stand bei Zoom 6 „252 Hamburg" über dem Namen von Bremerhaven.
+
+## Zwei Farbschemata: hell und dunkel
+
+Die Vorlage der Liste war dunkel, die der Karte hell – beide gelten.
+Das Schema hängt an `data-theme` am `<html>` (die Werte in `site.css`:
+`:root` dunkel, `:root[data-theme="light"]` hell). Gesetzt wird es von
+einem kleinen, in allen drei Seiten wortgleichen Skript im `<head>` –
+im Kopf, damit die Seite nicht erst im falschen Schema aufblitzt –, das
+die gespeicherte Wahl (`endurance-theme` im lokalen Speicher) vor die
+Systemeinstellung stellt. Der Knopf in der Kopfzeile (Sonne im Dunkeln,
+Mond im Hellen) schaltet um und merkt sich die Wahl.
+`test_farbschema_skript` vergleicht die drei Kopien; der Rauchtest
+drückt den Knopf und prüft, dass die Wahl die nächste Seite überlebt.
+
 **Ein weiteres Land dazu** heißt: eine Zeile in `build_laender.py`
 (Name → ISO-Code), Skript laufen lassen, `laender.json` mit committen.
 Die Schlüssel der Datei sind dieselben Ländernamen wie in `filters.js`

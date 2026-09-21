@@ -59,8 +59,10 @@
 }
 .detail-share:hover { color: var(--text); border-color: var(--border-strong, var(--accent)); }
 .detail-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-/* Sportart und Kategorie als Abzeichen in der Markenfarbe - die
-   einzige Farbe in der Box. */
+/* Sportart und Kategorie als Abzeichen in der Farbe der SPORTART
+   (--sport-laufen usw. aus site.css; Laufen ist Orange, die Markenfarbe)
+   - die einzige Farbe in der Box. Die Klasse sport-<art> setzt
+   event-detail.js (sportClass); ohne color-mix bleibt es bei Orange. */
 .detail-badge {
   display: flex;
   align-items: center;
@@ -72,6 +74,12 @@
   color: var(--brand, #f97316);
   font-size: 0.86rem;
   font-weight: 600;
+}
+@supports (background: color-mix(in srgb, red 10%, transparent)) {
+  .detail-badge.sport-laufen { color: var(--sport-laufen, #f97316); background: color-mix(in srgb, var(--sport-laufen, #f97316) 14%, transparent); }
+  .detail-badge.sport-fahrrad { color: var(--sport-fahrrad, #16a34a); background: color-mix(in srgb, var(--sport-fahrrad, #16a34a) 14%, transparent); }
+  .detail-badge.sport-schwimmen { color: var(--sport-schwimmen, #2563eb); background: color-mix(in srgb, var(--sport-schwimmen, #2563eb) 14%, transparent); }
+  .detail-badge.sport-triathlon { color: var(--sport-triathlon, #7c3aed); background: color-mix(in srgb, var(--sport-triathlon, #7c3aed) 14%, transparent); }
 }
 .detail-badge .sport-icon { flex-shrink: 0; }
 .detail-panel h2 { margin: 0 0 16px; font-size: 1.45rem; font-weight: 800; line-height: 1.2; overflow-wrap: anywhere; }
@@ -108,8 +116,10 @@
   color: var(--on-accent, #fff);
   border-color: var(--accent);
 }
-/* Vier Fakten im Raster, je mit Symbol: Ort, Strecke, Kategorie,
-   Veranstalter. dt/dd bleiben (Screenreader, Rauchtest zählt die dt). */
+/* Vier Fakten im Raster, je mit Symbol: Ort, Strecke, Kategorie und
+   Veranstalter - oder statt des Veranstalters die ENTFERNUNG, sobald ein
+   Ausgangspunkt gesetzt ist ("14 km von deinem Standort", Vorlage der
+   Karte). dt/dd bleiben (Screenreader, Rauchtest zählt die dt). */
 .detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -201,7 +211,7 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--panel);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+  box-shadow: var(--shadow, 0 12px 36px rgba(0,0,0,0.45));
   overflow: hidden;
 }
 .cal-menu[hidden] { display: none; }
