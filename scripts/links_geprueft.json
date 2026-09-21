@@ -16323,5 +16323,110 @@
     "quelle": "laufen.de",
     "alt": "https://laufen.de/laufkalender/details/30L19000394360001",
     "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Marzahner Läufercup|2026-09-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46206/Marzahner-L%C3%A4ufercup-2026--Lauf-7-Berlin-Marzahn.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Helmstedter Läuferabend|2026-10-09": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Storkower See Lauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-fuerstenwalde.org",
+    "alt": "https://www.berlin-timing.de/Storkower-See-Lauf",
+    "notiz": "Veranstalterseite statt berlin-timing.de: https://tv-fuerstenwalde.org - auf der berlin-timing.de-Seite verlinkt, Zielseite nennt den Lauf (storkower, datum). Linkprüfung 2026-09-21."
+  },
+  "Burgbernheim Ultra Trail|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "but10x10tsvburgbernheim.de",
+    "alt": "https://my.raceresult.com/371444/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.but10x10tsvburgbernheim.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:burgbernheim, datum). Linkprüfung 2026-09-21."
+  },
+  "Dorstener Sparkassencross|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "lt-dorsten.de",
+    "alt": "https://my.raceresult.com/383025/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lt-dorsten.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (dorstener). Linkprüfung 2026-09-21."
+  },
+  "Heseper Martinslauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Kneter Stundenlauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "laufmanager.net",
+    "alt": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Grossen_Stunde/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sport-reckemeier.de, http://tsv-grossenkneten.de) - laufmanager.net bleibt."
+  },
+  "Kreismeisterschaften Crosslauf Harburg-Land & Lüneburg|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49250/Kreismeisterschaften-Crosslauf-Pattensen-%28Winsen%29.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Int. Hohenzollernberglauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "anmeldungs-service.de",
+    "alt": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.ski-club-hechingen.de, http://www.pani-solutions.de) - anmeldungs-service.de bleibt."
+  },
+  "Offene Kreismeisterschaft Crosslauf Nordfriesland|2026-11-22": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49306/Offene-Kreismeisterschaft-Crosslauf-Sankt-Peter-Ording.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-12-02": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/45794/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Silvesterlauf - Krefeld|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "djk-vfl-forstwald.de",
+    "alt": "https://my.raceresult.com/408225/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.djk-vfl-forstwald.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-21."
+  },
+  "Crosslauf der Arnstorfer LG|2027-01-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49079/12.-Crosslauf-der-Arnstorfer-LG-Arnstorf.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Haster Volkslauf|2027-05-30": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/haster-volkslauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tushaste01.de/, https://www.pzn24.de, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.weser-ems-personal.de/) - laufen-os.de bleibt."
+  },
+  "Schwandorfer Charity Stadtlauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "sportprogramme.org",
+    "alt": "https://www.sportprogramme.org/cakespg/events/menue/5049",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.laufzeit.online/, http://www.ips-regensburg.de, https://pettnerhof.de/shop/, http://www.ski-club-schwandorf.de/) - sportprogramme.org bleibt."
   }
 }

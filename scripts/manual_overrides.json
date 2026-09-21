@@ -5583,7 +5583,9 @@
     "art1": "Triathlon",
     "art2": "Straße",
     "_quelle": "https://www.havelman-brandenburg.de/",
-    "_note": "Die Seite beschreibt den HavelMan als Triathlon (12.06.2027, Brandenburg an der Havel, „alle Leistungsniveaus“); die Zeile stand als Lauf, weil kein Stichwort im Namen steht. Distanzen stehen unter „Distanzen & Informationen“ - nicht abgerufen, Länge bleibt offen. Geprüft 2026-09-21."
+    "_note": "Die Seite beschreibt den HavelMan als Triathlon (12.06.2027, Brandenburg an der Havel, „alle Leistungsniveaus“); die Zeile stand als Lauf, weil kein Stichwort im Namen steht. Distanzen stehen unter „Distanzen & Informationen“ - nicht abgerufen, Länge bleibt offen. Geprüft 2026-09-21. Stadt Brandenburg (stadt-brandenburg.de/sport/termin/87): „2. Triathlon HavelMan“ am 12.06.2027, Regattastrecke, Havelsport Brandenburg e.V. Distanzen laut Ausschreibung der Erstauflage 2026 (die 2027er ist noch nicht veröffentlicht): WB2 Sprint 0,75 km Schwimmen / 20 km Rad / 5 km Laufen, WB3 Kurz/Olympisch 1,5 / 40 / 10 km; WB1 (Einsteiger/Kinder 0,2 / 5 / 1 km) nicht aufgenommen. Staffeln zu 2-3 Personen daneben (Datenregel 16). Summen nach Datenregel 15. Geprüft 2026-09-21.",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
   },
   "Ruhr Trail Run|2027-09-12": {
     "laenge_km": 17.0,
@@ -5605,7 +5607,9 @@
     "art2": "Straße",
     "datum_ende": "2027-05-30",
     "_quelle": "https://neuseenman.maximalpuls.com/",
-    "_note": "Triathlon in Ferropolis (Gräfenhainichen), 28.-30.05.2027: Sprint, Olympische Distanz, Mitteldistanz, AquaBike, Staffeln. Die Zeile stand als Lauf ohne Länge; Kilometer nennt die Seite nicht - eine Triathlon-Zeile ohne Länge ist fast immer eine ganze Veranstaltung (Zwölfter Durchgang), Strecken nachtragen, sobald belegt (DTU-Kalender). Ausnahme von KEIN_VERANSTALTER wie beim Leipzig Run: maximalPULS veranstaltet selbst. Geprüft 2026-09-21."
+    "_note": "Triathlon in Ferropolis (Gräfenhainichen), 28.-30.05.2027: Sprint, Olympische Distanz, Mitteldistanz, AquaBike, Staffeln. Die Zeile stand als Lauf ohne Länge; Kilometer nennt die Seite nicht - eine Triathlon-Zeile ohne Länge ist fast immer eine ganze Veranstaltung (Zwölfter Durchgang), Strecken nachtragen, sobald belegt (DTU-Kalender). Ausnahme von KEIN_VERANSTALTER wie beim Leipzig Run: maximalPULS veranstaltet selbst. Geprüft 2026-09-21. Formate laut Veranstalterseite (Sprint, Olympische Distanz, Mitteldistanz, dazu AquaBike und Staffeln); die Teilstrecken laut Kalendereinträgen zum neuseenMAN (Sprint 0,75/20/5, Olympisch 1,5/40/10, Mitteldistanz 1,9/90/21,1 - Rad als 20-km-Runde ein-, zwei- bzw. 30-km-Runde dreimal, Laufen 5-km-Runde am Gremminer See). Summen nach Datenregel 15. Geprüft 2026-09-21.",
+    "laenge_km": 113.0,
+    "wettbewerb": "Mitteldistanz 113 km (1,9 km Schwimmen / 90 km Rad / 21,1 km Laufen)"
   },
   "Deadly Gross Fürth|2027-06-05": {
     "exclude": true,
@@ -5737,5 +5741,21 @@
     "charity": true,
     "_quelle": "https://www.wingsforlifeworldrun.com/en/locations/berlin",
     "_note": "Wings for Life World Run, So 09.05.2027, 11 Uhr UTC an allen Standorten: „100% of all entry fees go to spinal cord research“ - ein Charity-Lauf, der das Wort nicht im Namen trägt; deshalb per Override (ist_charity() liest nur den Namen). Keine feste Distanz: Gelaufen wird, bis das Catcher Car einen einholt - die Länge bleibt leer. Die deutschen Standorte sind App-Run-Treffpunkte an einem Ort und Termin, keine virtuellen Läufe im Sinne von Datenregel 14. Geprüft 2026-09-21."
+  },
+  "Storkower See Lauf|2026-10-11": {
+    "veranstalter_url": "https://tv-fuerstenwalde.org",
+    "_note": "Veranstalterseite statt berlin-timing.de: https://tv-fuerstenwalde.org - auf der berlin-timing.de-Seite verlinkt, Zielseite nennt den Lauf (storkower, datum). Linkprüfung 2026-09-21."
+  },
+  "Burgbernheim Ultra Trail|2026-10-24": {
+    "veranstalter_url": "https://www.but10x10tsvburgbernheim.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.but10x10tsvburgbernheim.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:burgbernheim, datum). Linkprüfung 2026-09-21."
+  },
+  "Dorstener Sparkassencross|2026-11-07": {
+    "veranstalter_url": "https://www.lt-dorsten.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lt-dorsten.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (dorstener). Linkprüfung 2026-09-21."
+  },
+  "Silvesterlauf - Krefeld|2026-12-31": {
+    "veranstalter_url": "https://www.djk-vfl-forstwald.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.djk-vfl-forstwald.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-21."
   }
 }

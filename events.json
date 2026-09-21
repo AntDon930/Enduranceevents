@@ -12413,7 +12413,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 15.0,
     "wettbewerb": "15 km , offen ab 14 Jahre, Cup-Wertung möglich",
-    "veranstalter_url": "https://www.berlin-timing.de/Storkower-See-Lauf"
+    "veranstalter_url": "https://tv-fuerstenwalde.org"
   },
   {
     "land": "Deutschland",
@@ -12427,7 +12427,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 8.0,
     "wettbewerb": "8 km , offen ab 12 Jahre, Cup-Wertung möglich",
-    "veranstalter_url": "https://www.berlin-timing.de/Storkower-See-Lauf"
+    "veranstalter_url": "https://tv-fuerstenwalde.org"
   },
   {
     "land": "Deutschland",
@@ -15036,7 +15036,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 100.0,
     "wettbewerb": "100 km / 10 x 10 km (10 Runden, 344 m Anstieg pro Runde)",
-    "veranstalter_url": "https://my.raceresult.com/371444/"
+    "veranstalter_url": "https://www.but10x10tsvburgbernheim.de/"
   },
   {
     "land": "Deutschland",
@@ -15050,7 +15050,7 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 50.0,
     "wettbewerb": "50 km / 5 x 10 km (5 Runden, 344 m Anstieg pro Runde)",
-    "veranstalter_url": "https://my.raceresult.com/371444/"
+    "veranstalter_url": "https://www.but10x10tsvburgbernheim.de/"
   },
   {
     "land": "Deutschland",
@@ -18573,7 +18573,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/383025/"
+    "veranstalter_url": "https://www.lt-dorsten.de"
   },
   {
     "land": "Deutschland",
@@ -28047,7 +28047,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 8.1,
-    "veranstalter_url": "https://my.raceresult.com/408225/"
+    "veranstalter_url": "https://www.djk-vfl-forstwald.de"
   },
   {
     "land": "Deutschland",
@@ -42138,7 +42138,37 @@
     "art2": "Straße",
     "datum_start": "2027-05-28",
     "datum_ende": "2027-05-30",
-    "veranstalter_url": "https://neuseenman.maximalpuls.com/"
+    "veranstalter_url": "https://neuseenman.maximalpuls.com/",
+    "laenge_km": 113.0,
+    "wettbewerb": "Mitteldistanz 113 km (1,9 km Schwimmen / 90 km Rad / 21,1 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "mo.pla neuseenMAN",
+    "standort": "Gräfenhainichen",
+    "lat": 51.728978,
+    "lon": 12.4535112,
+    "datum_start": "2027-05-28",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://neuseenman.maximalpuls.com/",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "mo.pla neuseenMAN",
+    "standort": "Gräfenhainichen",
+    "lat": 51.728978,
+    "lon": 12.4535112,
+    "datum_start": "2027-05-28",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://neuseenman.maximalpuls.com/",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -44664,7 +44694,23 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
-    "veranstalter_url": "https://www.havelman-brandenburg.de/"
+    "veranstalter_url": "https://www.havelman-brandenburg.de/",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Havelman Brandenburg",
+    "standort": "Brandenburg an der Havel",
+    "lat": 52.4125287,
+    "lon": 12.5316444,
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-12",
+    "veranstalter_url": "https://www.havelman-brandenburg.de/",
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",

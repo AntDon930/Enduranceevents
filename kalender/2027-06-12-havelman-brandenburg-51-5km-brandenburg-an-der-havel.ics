@@ -4,15 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-12-havelman-brandenburg-x-brandenburg-an-der-havel@antdon930.g
- ithub.io
+UID:2027-06-12-havelman-brandenburg-51-5km-brandenburg-an-der-havel@antdon
+ 930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
-SUMMARY:Havelman Brandenburg
+SUMMARY:Havelman Brandenburg – Olympische Distanz 51\,5 km (1\,5 km Schwim
+ men / 40 km Rad / 10 km Laufen)
 LOCATION:Brandenburg an der Havel\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.havelman-b
- randenburg.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://www.have
+ lman-brandenburg.de/
 TRANSP:TRANSPARENT
 URL:https://www.havelman-brandenburg.de/
 END:VEVENT

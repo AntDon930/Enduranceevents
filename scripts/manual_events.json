@@ -3214,6 +3214,54 @@
       "wettbewerb": "Jedermann-/Firmenlauf 5 km",
       "_quelle": "https://citylauf.roteerde.de/laeufe-und-strecken",
       "_note": "Siehe Override „Schwelmer Citylauf|2027-09-18“. Geprüft 2026-09-21."
+    },
+    {
+      "land": "Deutschland",
+      "name": "mo.pla neuseenMAN",
+      "standort": "Gräfenhainichen",
+      "lat": 51.728978,
+      "lon": 12.4535112,
+      "datum_start": "2027-05-28",
+      "datum_ende": "2027-05-30",
+      "veranstalter_url": "https://neuseenman.maximalpuls.com/",
+      "art1": "Triathlon",
+      "art2": "Straße",
+      "laenge_km": 51.5,
+      "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+      "_quelle": "https://neuseenman.maximalpuls.com/",
+      "_note": "Formate laut Veranstalterseite (Sprint, Olympische Distanz, Mitteldistanz, dazu AquaBike und Staffeln); die Teilstrecken laut Kalendereinträgen zum neuseenMAN (Sprint 0,75/20/5, Olympisch 1,5/40/10, Mitteldistanz 1,9/90/21,1 - Rad als 20-km-Runde ein-, zwei- bzw. 30-km-Runde dreimal, Laufen 5-km-Runde am Gremminer See). Summen nach Datenregel 15. Geprüft 2026-09-21."
+    },
+    {
+      "land": "Deutschland",
+      "name": "mo.pla neuseenMAN",
+      "standort": "Gräfenhainichen",
+      "lat": 51.728978,
+      "lon": 12.4535112,
+      "datum_start": "2027-05-28",
+      "datum_ende": "2027-05-30",
+      "veranstalter_url": "https://neuseenman.maximalpuls.com/",
+      "art1": "Triathlon",
+      "art2": "Straße",
+      "laenge_km": 25.8,
+      "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)",
+      "_quelle": "https://neuseenman.maximalpuls.com/",
+      "_note": "Formate laut Veranstalterseite (Sprint, Olympische Distanz, Mitteldistanz, dazu AquaBike und Staffeln); die Teilstrecken laut Kalendereinträgen zum neuseenMAN (Sprint 0,75/20/5, Olympisch 1,5/40/10, Mitteldistanz 1,9/90/21,1 - Rad als 20-km-Runde ein-, zwei- bzw. 30-km-Runde dreimal, Laufen 5-km-Runde am Gremminer See). Summen nach Datenregel 15. Geprüft 2026-09-21."
+    },
+    {
+      "land": "Deutschland",
+      "name": "Havelman Brandenburg",
+      "standort": "Brandenburg an der Havel",
+      "lat": 52.4125287,
+      "lon": 12.5316444,
+      "datum_start": "2027-06-12",
+      "datum_ende": "2027-06-12",
+      "veranstalter_url": "https://www.havelman-brandenburg.de/",
+      "art1": "Triathlon",
+      "art2": "Straße",
+      "laenge_km": 25.8,
+      "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)",
+      "_quelle": "https://www.havelman-brandenburg.de/ausschreibung-1/",
+      "_note": "Stadt Brandenburg (stadt-brandenburg.de/sport/termin/87): „2. Triathlon HavelMan“ am 12.06.2027, Regattastrecke, Havelsport Brandenburg e.V. Distanzen laut Ausschreibung der Erstauflage 2026 (die 2027er ist noch nicht veröffentlicht): WB2 Sprint 0,75 km Schwimmen / 20 km Rad / 5 km Laufen, WB3 Kurz/Olympisch 1,5 / 40 / 10 km; WB1 (Einsteiger/Kinder 0,2 / 5 / 1 km) nicht aufgenommen. Staffeln zu 2-3 Personen daneben (Datenregel 16). Summen nach Datenregel 15. Geprüft 2026-09-21."
     }
   ]
 }

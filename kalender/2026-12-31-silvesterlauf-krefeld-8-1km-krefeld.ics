@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf - Krefeld
 LOCATION:Krefeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttps://my.raceresul
- t.com/408225/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttps://www.djk-vfl-
+ forstwald.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/408225/
+URL:https://www.djk-vfl-forstwald.de
 END:VEVENT
 END:VCALENDAR
