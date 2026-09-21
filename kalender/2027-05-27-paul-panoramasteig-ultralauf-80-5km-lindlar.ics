@@ -4,13 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-27-paul-panoramasteig-ultralauf-x-lindlar@antdon930.github.io
+UID:2027-05-27-paul-panoramasteig-ultralauf-80-5km-lindlar@antdon930.githu
+ b.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270527
 DTEND;VALUE=DATE:20270531
-SUMMARY:Paul - Panoramasteig Ultralauf
+SUMMARY:Paul - Panoramasteig Ultralauf – PAUL50 - 50 Meilen
 LOCATION:Lindlar\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://paul-ultralauf.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 80.5 km\nhttps://paul-ultrala
+ uf.de
 TRANSP:TRANSPARENT
 URL:https://paul-ultralauf.de
 END:VEVENT

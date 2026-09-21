@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-02-07-nurnberger-winterlaufserie-x-nurnberg@antdon930.github.io
+UID:2027-01-17-nurnberger-winterlaufserie-15km-nurnberg@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20270207
-DTEND;VALUE=DATE:20270208
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
 SUMMARY:Nürnberger Winterlaufserie
 LOCATION:Nürnberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://runningconcepts.d
- e/nuernberger-winterlaufserie
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://runningconcep
+ ts.de/nuernberger-winterlaufserie
 TRANSP:TRANSPARENT
 URL:https://runningconcepts.de/nuernberger-winterlaufserie
 END:VEVENT

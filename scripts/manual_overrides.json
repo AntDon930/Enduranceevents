@@ -2620,16 +2620,21 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (georgsmarienhutter). Linkprüfung 2026-09-19."
   },
   "Nürnberger Winterlaufserie|2026-11-15": {
-    "veranstalter_url": "https://www.runningconcepts.de",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.runningconcepts.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nurnberger, datum). Linkprüfung 2026-09-19."
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "_quelle": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "_note": "runningconcepts.de: drei Termine, Gutmann am Dutzendteich - 15.11.2026 5/10 km, 17.01.2027 10/15 km, 07.02.2027 10/20 km. Die beiden vorhandenen Zeilen standen ohne Länge (allgemeiner Schlüssel, bekannter Umweg mit add_manual_events), der Januar-Termin fehlte ganz. Geprüft 2026-09-21."
   },
   "32. Kalmit-Berglauf|2026-11-21": {
     "veranstalter_url": "https://pfaelzer-berglaufpokal.de",
     "_note": "Veranstalterseite statt runtix.com: https://pfaelzer-berglaufpokal.de - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (kalmit). Linkprüfung 2026-09-19."
   },
   "Klosterparklauf Harsefeld|2026-11-21": {
-    "veranstalter_url": "https://volkslauf-harsefeld.de/klosterparklauf/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://volkslauf-harsefeld.de/klosterparklauf/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (klosterparklauf, datum). Linkprüfung 2026-09-19."
+    "dauer_h": 6.0,
+    "wettbewerb": "6-Stunden-Lauf (Runde 1.461,4 m)",
+    "_quelle": "https://volkslauf-harsefeld.de/klosterparklauf/",
+    "_note": "Sa 21.11.2026, 10-16 Uhr: 6-Stundenlauf auf der vermessenen 1.461,4-m-Runde; die „Zeit über 50 km“ ist eine Zwischenwertung, kein eigener Wettbewerb. Datenregel 8. Geprüft 2026-09-21."
   },
   "Rurbrücken - Volkslauf|2026-11-21": {
     "veranstalter_url": "https://rurbrueckenlauf-linnich.jimdofree.com/",
@@ -3235,8 +3240,11 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://runningconcepts.de/nuernberger-winterlaufserie - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (nurnberger, datum). Linkprüfung 2026-09-20."
   },
   "Nürnberger Winterlaufserie|2027-02-07": {
+    "laenge_km": 20.0,
+    "wettbewerb": "20 km",
     "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://runningconcepts.de/nuernberger-winterlaufserie - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (nurnberger, datum). Linkprüfung 2026-09-20."
+    "_quelle": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "_note": "runningconcepts.de: drei Termine, Gutmann am Dutzendteich - 15.11.2026 5/10 km, 17.01.2027 10/15 km, 07.02.2027 10/20 km. Die beiden vorhandenen Zeilen standen ohne Länge (allgemeiner Schlüssel, bekannter Umweg mit add_manual_events), der Januar-Termin fehlte ganz. Geprüft 2026-09-21."
   },
   "Alten-Busecker Winterlaufserie - Finale|2027-01-23": {
     "veranstalter_url": "https://www.tsg-alten-buseck.com/winterlauf",
@@ -5481,5 +5489,62 @@
     "wettbewerb": "Berserker 30 km (mind. 30 Hindernisse)",
     "_quelle": "https://www.legendofcross.de/",
     "_note": "Siehe den allgemeinen Schlüssel: dasselbe Label für beide Doppelzeilen, damit die Duplikat-Erkennung sie zusammenführt. Gesamtlänge vorn, Zusatz in Klammern. Geprüft 2026-09-21."
+  },
+  "Leipziger Frauenlauf|2027-05-02": {
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Lauf",
+    "_quelle": "https://leipzigerfrauenlauf.de/wettbewerbe/",
+    "_note": "So 02.05.2027, Clara-Zetkin-Park: 2,5 km (U10, fällt unter Datenregel 5), 5 km und 10 km Lauf, 5 km Walking, 5 km Nordic Walking. Die Zeile stand ohne Länge; sie trägt jetzt die 10 km, die übrigen stehen in manual_events.json. Allgemeiner Schlüssel, weil die Zeile keine Distanz hatte - beim nächsten Lauf trifft er alle Strecken, verschmilzt sie, und add_manual_events() legt sie wieder an (bekannter Umweg, Zwölfter Durchgang). Geprüft 2026-09-21."
+  },
+  "Andreasturm-Challenge|2026-09-26": {
+    "art2": "Trail",
+    "_quelle": "https://www.hildesheim-tourismus.de/andreasturm-challenge",
+    "_note": "Treppenlauf: 364 Stufen, 114,5 m Höhe im St.-Andreas-Kirchturm, Wertungslauf des Deutschen Towerrunning Cups. Treppenläufe sind Trail (Datenregel 6), die Länge bleibt leer. Der Name trägt kein Treppen-Stichwort, deshalb per Override. Geprüft 2026-09-21."
+  },
+  "Halden Inferno|2027-04-24": {
+    "art2": "Trail",
+    "_quelle": "https://www.hartfuessler.de/hhi",
+    "_note": "„From dusk till dawn“ auf der Halde Duhamel (Ensdorf), Sa 24.04.2027 ab 20:15: keine feste Strecke, Ziel sind möglichst viele Höhenmeter bis Sonnenaufgang (ab 1.000 hm „Haldenhammer“). Geländelauf ohne Distanz; keine feste Dauer im Sinne von Datenregel 8 (Sonnenuntergang bis -aufgang). Unter Vorbehalt der Genehmigung (Bauarbeiten). Geprüft 2026-09-21."
+  },
+  "The Rox|2027-02-20": {
+    "exclude": true,
+    "_quelle": "https://www.the-rox.de/",
+    "_note": "„Hybrid-Fitness-Event“: Laufrunden im Wechsel mit Kraftstationen (Burpee Broad Jumps, Lunges, Navy Shuttle Runs), im A10 Center Wildau - die HYROX-Klasse (Datenregel 14, Entscheidung des Nutzers vom 21.09.2026: „Keine Hyrox oder ähnliche Events mit Kraft Übungen“). Als Override, nicht in NICHT_AUSDAUER: Eine neue Zeile dort braucht sein Ja. Geprüft 2026-09-21."
+  },
+  "Deadly Sprint im Glaspalast|2027-03-20": {
+    "exclude": true,
+    "_quelle": "https://www.deadlydozen.de/event/deadly-sprint-im-glaspalast",
+    "_note": "Deadly Dozen: „Der ultimative Fitness-Wettkampf“ - Kraft-/Fitness-Format, kein Lauf mit Distanz (HYROX-Klasse, Datenregel 14). Als Override; NICHT_AUSDAUER nur mit Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "Landkreislauf Amberg-Sulzbach|2027-05-08": {
+    "exclude": true,
+    "_quelle": "https://www.kreis-as.de/Region-Sport/Landkreislauf",
+    "_note": "Reine Staffel: „in Form eines Staffellaufs, jedes Team besteht aus elf Läufern“ (08.05.2027). Datenregel 16 (erst einmal keine Staffeln); der Name trägt kein Staffel-Stichwort, deshalb per Override. Geprüft 2026-09-21."
+  },
+  "Nürnberger Winterlaufserie|2027-01-17|5": {
+    "exclude": true,
+    "_quelle": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "_note": "Die Seite nennt für den 17.01.2027 nur 10 und 15 km (5 km gibt es am 15.11.2026). Die 5-km-Zeile kam aus einer Quelle, die jede Distanz an jeden Termin hängt (Laufserien-Falle, Dritter Durchgang, Muster 3). Geprüft 2026-09-21."
+  },
+  "Paul - Panoramasteig Ultralauf|2027-05-27": {
+    "laenge_km": 241.4,
+    "wettbewerb": "PAUL150 - 150 Meilen (ca. 7.000 hm)",
+    "datum_ende": "2027-05-30",
+    "art2": "Trail",
+    "_quelle": "https://paul-ultralauf.de",
+    "_note": "27.-30.05.2027, Bergischer Panoramasteig (Naturpark Bergisches Land), meist unbefestigte Pfade: PAUL150 (150 Meilen = 241,4 km, ca. 7.000 hm), PAUL100 (100 Meilen = 160,9 km), PAUL50 (50 Meilen = 80,5 km), jeweils Einzelläufer ohne Etappen, Startgruppen Freitag/Samstag. Die Zeile stand ohne Länge; die beiden kürzeren stehen in manual_events.json (allgemeiner Schlüssel, bekannter Umweg). Meilen-in-km auf eine Stelle gerundet. Geprüft 2026-09-21."
+  },
+  "Sommer24hLauf|2027-08-27": {
+    "dauer_h": 48.0,
+    "wettbewerb": "48-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)",
+    "datum_ende": "2027-08-29",
+    "art2": "Trail",
+    "_quelle": "https://neckarlauf.com/sommer24hlauf.html",
+    "_note": "Freudenstadt-Grüntal: 48-h-Lauf ab Fr 27.08.2027 12 Uhr, 24-h-Lauf ab Sa 28.08.2027 12 Uhr, Runde 3.600 m mit ca. 70 hm (Gelände), Wertung nach vollen Runden, Einzelläufer. Die Zeile stand ohne Maßzahl; der 24-h-Lauf steht mit seinem eigenen Starttag in manual_events.json. Datenregel 8. Geprüft 2026-09-21."
+  },
+  "Landkreislauf|2027-07-03": {
+    "exclude": true,
+    "_quelle": "https://www.landkreis-guenzburg.de/landkreis/sport/landkreislauf/",
+    "_note": "Landkreislauf Günzburg (SV Deisenhausen-Bleichen, 03.07.2027): der Hauptlauf ist ein Staffellauf, jedes Jahr auf anderer Strecke; daneben Nordic Walking und Kinderläufe. Datenregel 16 (erst einmal keine Staffeln). Geprüft 2026-09-21."
   }
 }

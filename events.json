@@ -849,7 +849,7 @@
     "lat": 52.154778,
     "lon": 9.9579652,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
     "veranstalter_url": "https://www.hildesheim-tourismus.de/andreasturm-challenge"
@@ -21455,7 +21455,23 @@
     "art2": "Straße",
     "datum_start": "2026-11-15",
     "datum_ende": "2026-11-15",
-    "veranstalter_url": "https://www.runningconcepts.de"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Nürnberger Winterlaufserie",
+    "standort": "Nürnberg",
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-15",
+    "datum_ende": "2026-11-15",
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km"
   },
   {
     "land": "Deutschland",
@@ -22182,7 +22198,9 @@
     "art2": "Straße",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
-    "veranstalter_url": "https://volkslauf-harsefeld.de/klosterparklauf/"
+    "veranstalter_url": "https://volkslauf-harsefeld.de/klosterparklauf/",
+    "dauer_h": 6.0,
+    "wettbewerb": "6-Stunden-Lauf (Runde 1.461,4 m)"
   },
   {
     "land": "Deutschland",
@@ -30201,9 +30219,9 @@
     "art2": "Straße",
     "datum_start": "2027-01-17",
     "datum_ende": "2027-01-17",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km"
   },
   {
     "land": "Deutschland",
@@ -31187,7 +31205,23 @@
     "art2": "Straße",
     "datum_start": "2027-02-07",
     "datum_ende": "2027-02-07",
-    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie"
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "laenge_km": 20.0,
+    "wettbewerb": "20 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Nürnberger Winterlaufserie",
+    "standort": "Nürnberg",
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-07",
+    "datum_ende": "2027-02-07",
+    "veranstalter_url": "https://runningconcepts.de/nuernberger-winterlaufserie",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km"
   },
   {
     "land": "Deutschland",
@@ -31680,18 +31714,6 @@
     "datum_start": "2027-02-20",
     "datum_ende": "2027-02-20",
     "veranstalter_url": "https://igl-schoeneiche.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "The Rox",
-    "standort": "Wildau",
-    "lat": 52.3254224,
-    "lon": 13.6275612,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-20",
-    "datum_ende": "2027-02-20",
-    "veranstalter_url": "https://www.the-rox.de/"
   },
   {
     "land": "Deutschland",
@@ -33606,18 +33628,6 @@
     "laenge_km": 6.2,
     "wettbewerb": "Super Super Sprint 6,2 km (200 m Schwimmen / 5 km Rad / 1 km Laufen)",
     "veranstalter_url": "http://www.indoortriathlon-chemnitz.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deadly Sprint im Glaspalast",
-    "standort": "Sindelfingen",
-    "lat": 48.7074558,
-    "lon": 9.0044053,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "veranstalter_url": "https://www.deadlydozen.de/event/deadly-sprint-im-glaspalast"
   },
   {
     "land": "Deutschland",
@@ -37367,7 +37377,7 @@
     "lat": 49.3062355,
     "lon": 6.7804113,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-24",
     "veranstalter_url": "https://www.hartfuessler.de/hhi"
@@ -38732,7 +38742,23 @@
     "art2": "Straße",
     "datum_start": "2027-05-02",
     "datum_ende": "2027-05-02",
-    "veranstalter_url": "https://leipzigerfrauenlauf.de/"
+    "veranstalter_url": "https://leipzigerfrauenlauf.de/",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Lauf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Leipziger Frauenlauf",
+    "standort": "Leipzig",
+    "lat": 51.3396955,
+    "lon": 12.3730747,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-05-02",
+    "datum_ende": "2027-05-02",
+    "veranstalter_url": "https://leipzigerfrauenlauf.de/",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf"
   },
   {
     "land": "Deutschland",
@@ -39498,18 +39524,6 @@
     "laenge_km": 6.5,
     "wettbewerb": "6,5 km",
     "veranstalter_url": "https://www.kanonenbahnlauf.org/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Landkreislauf Amberg-Sulzbach",
-    "standort": "Sulzbach-Rosenberg",
-    "lat": 49.4969642,
-    "lon": 11.7554254,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-08",
-    "datum_ende": "2027-05-08",
-    "veranstalter_url": "https://www.kreis-as.de/Region-Sport/Landkreislauf"
   },
   {
     "land": "Deutschland",
@@ -42070,7 +42084,37 @@
     "art2": "Trail",
     "datum_start": "2027-05-27",
     "datum_ende": "2027-05-30",
-    "veranstalter_url": "https://paul-ultralauf.de"
+    "veranstalter_url": "https://paul-ultralauf.de",
+    "laenge_km": 241.4,
+    "wettbewerb": "PAUL150 - 150 Meilen (ca. 7.000 hm)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Paul - Panoramasteig Ultralauf",
+    "standort": "Lindlar",
+    "lat": 51.0188593,
+    "lon": 7.3765504,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-05-27",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://paul-ultralauf.de",
+    "laenge_km": 160.9,
+    "wettbewerb": "PAUL100 - 100 Meilen"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Paul - Panoramasteig Ultralauf",
+    "standort": "Lindlar",
+    "lat": 51.0188593,
+    "lon": 7.3765504,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-05-27",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://paul-ultralauf.de",
+    "laenge_km": 80.5,
+    "wettbewerb": "PAUL50 - 50 Meilen"
   },
   {
     "land": "Deutschland",
@@ -47914,18 +47958,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Landkreislauf",
-    "standort": "Kötz",
-    "lat": 48.4071303,
-    "lon": 10.2757695,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-03",
-    "datum_ende": "2027-07-03",
-    "veranstalter_url": "https://www.landkreis-guenzburg.de/landkreis/sport/landkreislauf/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Lausitzer Seenland 100",
     "standort": "Großräschen",
     "lat": 51.5907452,
@@ -51261,10 +51293,12 @@
     "lat": 48.4644796,
     "lon": 8.4179988,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2027-08-27",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html"
+    "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html",
+    "dauer_h": 48.0,
+    "wettbewerb": "48-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)"
   },
   {
     "land": "Deutschland",
@@ -51374,6 +51408,20 @@
     "laenge_km": 49.0,
     "wettbewerb": "49 km",
     "veranstalter_url": "https://my.raceresult.com/364127/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Sommer24hLauf",
+    "standort": "Freudenstadt",
+    "lat": 48.4644796,
+    "lon": 8.4179988,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-29",
+    "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html",
+    "dauer_h": 24.0,
+    "wettbewerb": "24-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)"
   },
   {
     "land": "Deutschland",

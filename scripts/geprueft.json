@@ -6834,5 +6834,239 @@
     "ergebnis": "unklar",
     "quelle": "citylauf.wetzstopp.de",
     "notiz": "Zeile trägt 17,3 km UND 1 h (Audit „Distanz UND Dauer“). Seite antwortet 503 – nicht zu entscheiden, ob Stundenlauf (dann dauer_h) oder feste Strecke. Der Rellinger Herbstlauf desselben Veranstalters ist ein Stundenlauf auf der Bahn."
+  },
+  "Leipziger Frauenlauf|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "leipzigerfrauenlauf.de",
+    "notiz": "ohne Länge -> 10 km; 5 km Lauf, 5 km Walking, 5 km Nordic Walking nachgetragen; 2,5 km unter der Mindestdistanz"
+  },
+  "Klosterparklauf Harsefeld|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "volkslauf-harsefeld.de",
+    "notiz": "6-Stundenlauf -> dauer_h 6"
+  },
+  "Andreasturm-Challenge|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "hildesheim-tourismus.de",
+    "notiz": "Treppenlauf (364 Stufen) -> Trail, ohne Länge"
+  },
+  "Halden Inferno|2027-04-24": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "hartfuessler.de",
+    "notiz": "Nachtlauf ohne feste Strecke (Höhenmeter-Format) -> Trail, Länge bleibt leer"
+  },
+  "Lüchower Stunde|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "sc-luechow.de",
+    "notiz": "Vereinsseite nennt die Veranstaltung nicht; dem Namen nach ein Stundenlauf, aber nicht belegt"
+  },
+  "Ahmadiyya Charity Walk Offenbach|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "charitywalk.de",
+    "notiz": "Seite liefert aus der Sandbox nur den Kopf; die übrigen Charity Walks stehen mit 5 km"
+  },
+  "Rimbachlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "rimbachlauf.com",
+    "notiz": "10. Rimbachlauf 2026 genehmigt, Strecken nur auf Unterseite (nicht abrufbar)"
+  },
+  "Kordigast-Berglauf|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tv-weismain.de",
+    "notiz": "20. Kordigast-Berglauf am 21.11.2026 bestätigt; Länge nur in Strecke/Ausschreibung (nicht abgerufen)"
+  },
+  "Rhädenlauf Wildeck|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tvo1888.de",
+    "notiz": "Termin bestätigt, Strecken nicht auf der Seite"
+  },
+  "Eschweiler Waldlauf|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "lsg-eschweiler.de",
+    "notiz": "Sa 28.11.26 bestätigt (Waldlaufmeisterschaften Region Südwest, U8-U12 genannt); Streckenlängen nicht auf der Seite"
+  },
+  "Silvesterlauf - Petershagen|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tus-wasserstrasse.de",
+    "notiz": "drei Laufstrecken, eine Walkingstrecke, Kinderlauf - Längen nicht genannt"
+  },
+  "Sylvesterlauf Pfalzdorf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "sylvesterlauf.de",
+    "notiz": "Meldeportal 2026 „öffnet in Kürze“, Strecken noch nicht veröffentlicht"
+  },
+  "Wittenburger Mühlenlauf|2027-03-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "laufgruppe-wittenburg.de",
+    "notiz": "07.03.2027 bestätigt, Streckenpläne nur für 2026, Längen nicht genannt"
+  },
+  "Würzburger Residenzlauf|2027-04-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "residenzlauf.de",
+    "notiz": "Seite zeigt aus der Sandbox nur Cookie-Hinweis und Countdown"
+  },
+  "Maisel's Funrun|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "maisels-funrun.de",
+    "notiz": "22. FunRun So 02.05.2027 bestätigt, Anmeldung ab 11.11.2026, Strecken nicht genannt"
+  },
+  "Firmenlauf Oberschwaben|2027-05-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "firmenlauf-oberschwaben.de",
+    "notiz": "Domain ist ein Hosting-Platzhalter (webgo) - keine Seite; ob die Veranstaltung 2027 stattfindet, ist offen"
+  },
+  "Nürnberger Winterlaufserie|2026-11-15": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "runningconcepts.de",
+    "notiz": "5/10 km; Januar-Termin 17.01.2027 (10/15 km) nachgetragen"
+  },
+  "Nürnberger Winterlaufserie|2027-02-07": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "runningconcepts.de",
+    "notiz": "10/20 km"
+  },
+  "The Rox|2027-02-20": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "the-rox.de",
+    "notiz": "Hybrid-Fitness-Event mit Kraftstationen (HYROX-Klasse) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "Deadly Sprint im Glaspalast|2027-03-20": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "deadlydozen.de",
+    "notiz": "Fitness-Wettkampf (Deadly Dozen) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "Landkreislauf Amberg-Sulzbach|2027-05-08": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "kreis-as.de",
+    "notiz": "Staffel mit 11 Läufern - exclude (Datenregel 16)"
+  },
+  "Paarlauf des ABC-Zentrum Berlin|2026-12-04": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "abczb.de",
+    "notiz": "Paarlauf über 30 bzw. 60 Minuten, zwei Läufer wechseln sich ab - ein Zweier-Team-Format; ob es unter die Staffel-Regel (16) fällt, hat der Nutzer nicht entschieden (drei Paarläufe im Bestand)"
+  },
+  "Großkarolinenfelder Nikolauslauf|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "karolauf.de",
+    "notiz": "Start 28.11.2026 bestätigt; Strecken nur in der Ausschreibung (PDF), Strecke-Seite ohne Text"
+  },
+  "Nikolaus Waldlauf - Weißenbrunn|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "leichtathletik-weißenbrunn.de",
+    "notiz": "Sa 05.12.2026 bestätigt (Wald-/Schotterwege mit Trailpassagen); Längen nur auf raceresult"
+  },
+  "Lauf einsmehr|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "laufeinsmehr.de",
+    "notiz": "Seite antwortet 503"
+  },
+  "Mental Health Rocks Run|2027-03-14": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "mentalhealthrocks.de",
+    "notiz": "14.03.2027 Olympiapark München bestätigt; Strecken nur auf der Anmeldeseite"
+  },
+  "Nürnberger Winterlaufserie|2027-01-17": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "runningconcepts.de",
+    "notiz": "10/15 km; erfundene 5-km-Zeile ausgeschlossen"
+  },
+  "Paul - Panoramasteig Ultralauf|2027-05-27": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "paul-ultralauf.de",
+    "notiz": "150/100/50 Meilen -> 241,4/160,9/80,5 km, Trail, bis 30.05."
+  },
+  "Sommer24hLauf|2027-08-27": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "neckarlauf.com",
+    "notiz": "48 h ab Fr, 24 h ab Sa nachgetragen; 3,6-km-Runde mit 70 hm"
+  },
+  "Landkreislauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "landkreis-guenzburg.de",
+    "notiz": "Staffellauf - exclude (Datenregel 16)"
+  },
+  "Teltschikturm-Jedermann-Treppenlauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "feuerwehr-wilhelmsfeld.de",
+    "notiz": "Treppenlauf auf den 36 m hohen Turm, offen (Jedermann in Klassen, auch Teams zu 3-4) - Trail ohne Länge, wie alle Treppenläufe"
+  },
+  "Vennlauf Monschau|2027-05-22": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "tv-muetzenich.de",
+    "notiz": "22.05.2027 bestätigt, Strecken nicht genannt"
+  },
+  "Muko-Freundschaftslauf|2027-05-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "muko-berlin-brandenburg.de",
+    "notiz": "25. Spendenlauf im Lustgarten Potsdam, 13-16 Uhr, ohne feste Distanz - Spendenformat, bleibt (Nutzer 21.09.2026)"
+  },
+  "Rintelner Volksbank-Lauf|2027-05-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "vt-rinteln.de",
+    "notiz": "23.05.2027 bestätigt, Strecken nur unter „Wettbewerbe und Startzeiten“ (nicht abgerufen)"
+  },
+  "Mühlhäuser Röblinglauf|2027-05-28": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "röblinglauf.de",
+    "notiz": "28.05.2027, Rundkurs Schwanenteich; Kinder-, Jugend-, Unternehmens- und Einzelstarterlauf, Längen nicht genannt"
+  },
+  "Citylauf Aschaffenburg|2027-06-04": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "citylauf-aschaffenburg.de",
+    "notiz": "04.06.2027 bestätigt, Strecken nur auf Unterseite"
+  },
+  "Dünenlauf Sandhausen|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "duenenlauf-sandhausen.de",
+    "notiz": "05.06.2027; „Informationen zum Dünenlauf 2027 folgen“ - Hauptlauf, Walking, Bambini"
+  },
+  "Erlanger Benefizlauf|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "benefizlauf-erlangen.de",
+    "notiz": "14. Benefizlauf am 05.06.2027 (Verlegung wegen Bergkirchweih), Rundenlauf ohne Maßzahl - Spendenformat, bleibt"
+  },
+  "ATHX Stuttgart|2027-04-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "athxgames.com",
+    "notiz": "Messe Stuttgart, Kategorien ATHX/Pro/Lite, „Workouts“, „movement standards“ - sehr wahrscheinlich Hybrid-Fitness (HYROX-Klasse), auf der Eventseite nicht ausdrücklich; vier ATHX-Termine im Bestand"
   }
 }

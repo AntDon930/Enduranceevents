@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-02-leipziger-frauenlauf-x-leipzig@antdon930.github.io
+UID:2027-05-02-leipziger-frauenlauf-5km-leipzig@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
-SUMMARY:Leipziger Frauenlauf
+SUMMARY:Leipziger Frauenlauf – 5 km Lauf
 LOCATION:Leipzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://leipzigerfrauenla
- uf.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://leipzigerfraue
+ nlauf.de/
 TRANSP:TRANSPARENT
 URL:https://leipzigerfrauenlauf.de/
 END:VEVENT
