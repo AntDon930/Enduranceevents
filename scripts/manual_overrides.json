@@ -2007,8 +2007,8 @@
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://tusjaderberg.de. Seite abgerufen, sie nennt den Lauf (wanderserie). Linkprüfung 2026-09-19."
   },
   "OTB Silvesterlauf|2026-12-31": {
-    "veranstalter_url": "https://laufen-os.de",
-    "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://laufen-os.de. Seite abgerufen, sie nennt den Lauf (Datum). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://otb.de/sportangebot/silvesterlauf",
+    "_note": "Veranstalterseite statt laufen-os.de: https://otb.de/sportangebot/silvesterlauf - per Websuche gefunden, von Hand geprüft: OTB = Osnabrücker Turnerbund, die Unterseite ‚Silvesterlauf' nennt 10 km und Osnabrück (‚OTB' hat drei Buchstaben, ‚Silvesterlauf' ist ein Allgemeinwort - die Regel konnte es nicht belegen). Linkprüfung 2026-09-21."
   },
   "56. Uplengener Adventslauf|2026-11-29": {
     "veranstalter_url": "http://www.lguplengen.de",
@@ -5902,5 +5902,21 @@
   "16. THERAmed-Adam-Riese-Silvesterlauf|2026-12-31": {
     "veranstalter_url": "https://www.obermain-marathon.de/",
     "_note": "Veranstalterseite statt obermain-marathon.de: https://www.obermain-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (theramed, datum). Linkprüfung 2026-09-21."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-12-02": {
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:quedlinburg, lothar). Linkprüfung 2026-09-21."
+  },
+  "39. Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.sc-altenrheine.de/kalender/silvesterlauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.sc-altenrheine.de/kalender/silvesterlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:rheine). Linkprüfung 2026-09-21."
+  },
+  "Binzer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.binzer-bucht.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.binzer-bucht.de - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:binzer). Linkprüfung 2026-09-21."
+  },
+  "Cross im Grund|2026-12-19": {
+    "art2": "Hindernis",
+    "_note": "Hindernislauf statt Trail: laut Veranstalter (OCR-Squad Erfurt, raceresult 383400) 13 km mit rund 30 Hindernissen - ein OCR, kein Crosslauf. Websuche 2026-09-21."
   }
 }

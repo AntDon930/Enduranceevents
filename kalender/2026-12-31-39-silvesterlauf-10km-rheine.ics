@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:39. Silvesterlauf
 LOCATION:Rheine\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V19000302060001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sc-altenr
+ heine.de/kalender/silvesterlauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000302060001
+URL:https://www.sc-altenrheine.de/kalender/silvesterlauf/
 END:VEVENT
 END:VCALENDAR

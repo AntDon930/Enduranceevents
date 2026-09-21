@@ -23325,7 +23325,7 @@
     "datum_start": "2026-12-02",
     "datum_ende": "2026-12-02",
     "dauer_h": 2.0,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/45794/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm"
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/"
   },
   {
     "land": "Deutschland",
@@ -25943,7 +25943,7 @@
     "lat": 50.9847679,
     "lon": 11.0298799,
     "art1": "Laufen",
-    "art2": "Trail",
+    "art2": "Hindernis",
     "datum_start": "2026-12-19",
     "datum_ende": "2026-12-19",
     "laenge_km": 13.0,
@@ -26942,7 +26942,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V19000302060001"
+    "veranstalter_url": "https://www.sc-altenrheine.de/kalender/silvesterlauf/"
   },
   {
     "land": "Deutschland",
@@ -27489,7 +27489,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "veranstalter_url": "https://my.raceresult.com/399181/"
+    "veranstalter_url": "https://www.binzer-bucht.de"
   },
   {
     "land": "Deutschland",
@@ -27862,7 +27862,7 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen-os.de"
+    "veranstalter_url": "https://otb.de/sportangebot/silvesterlauf"
   },
   {
     "land": "Deutschland",

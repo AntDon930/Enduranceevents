@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Binzer Silvesterlauf
 LOCATION:Binz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /399181/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.binzer-bucht.
+ de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/399181/
+URL:https://www.binzer-bucht.de
 END:VEVENT
 END:VCALENDAR

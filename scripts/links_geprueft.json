@@ -4103,11 +4103,12 @@
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   },
   "OTB Silvesterlauf|2026-12-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "korrigiert",
-    "quelle": "laufen.de-Weiterleitung -> laufen-os.de",
-    "alt": "https://laufen.de/laufkalender/details/26V09000760260000",
-    "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
+    "quelle": "Websuche",
+    "alt": "https://laufen-os.de",
+    "neu": "https://otb.de/sportangebot/silvesterlauf",
+    "notiz": "Unterseite des Osnabrücker Turnerbunds, von Hand geprüft (10 km, Osnabrück)."
   },
   "56. Uplengener Adventslauf|2026-11-29": {
     "am": "2026-09-19",
@@ -4418,11 +4419,11 @@
     "notiz": "Websuche nannte https://www.marathon-steinfurt.de/aktuelles/meldung/51-nikolauslauf-am-06122025/, Seite nennt den Lauf nicht erkennbar (Status 404) - laufen.de bleibt."
   },
   "39. Silvesterlauf|2026-12-31": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "sc-altenrheine.de",
     "alt": "https://laufen.de/laufkalender/details/26V19000302060001",
-    "notiz": "laufen.de leitet auf https://my.raceresult.com/?lang=de weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+    "notiz": "Veranstalterseite statt laufen.de: https://www.sc-altenrheine.de/kalender/silvesterlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:rheine). Linkprüfung 2026-09-21."
   },
   "TeutoMarsch|2026-10-17": {
     "am": "2026-09-19",
@@ -14680,11 +14681,11 @@
     "notiz": "Websuche nannte https://www.psv-holzminden.de/psv-winterlauf/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Stadion-Crosslauf Barsinghausen|2026-11-14": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "ladv.de",
+    "quelle": "Websuche",
     "alt": "https://ladv.de/ausschreibung/detail/46485/Stadion-Crosslauf-Barsinghausen.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Websuche: nur ladv.de und Laufkalender, keine Vereinsseite nennt den Lauf - ladv.de bleibt."
   },
   "Wuppertaler Löwenlauf|2026-11-14": {
     "am": "2026-09-21",
@@ -14827,11 +14828,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lg-geroldseck-lahr.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-19."
   },
   "Bernhard Marathon|2026-11-28": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/416674/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: lt-hemsbach.de nennt ‚Bernhards Marathon' nur in Berichten bis 2019, keine Ausschreibung 2026; raceresult-Kontaktseite nennt als Veranstalter eine Privatperson (Speyer) mit Platzhalter statt Website - raceresult bleibt."
   },
   "Eschweiler Waldlauf|2026-11-28": {
     "am": "2026-09-19",
@@ -14855,11 +14856,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: http://www.steinachtallauf.de/hainberglauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hainberglauf). Linkprüfung 2026-09-19."
   },
   "Laufen gegen Gewalt an Frauen - Lemke|2026-11-28": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/395025/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: Benefizlauf in Marklohe-Lemke, nur raceresult und Presseartikel, keine Veranstalterseite - raceresult bleibt."
   },
   "33. Schmachtendorfer Nikolauslauf|2026-11-29": {
     "am": "2026-09-19",
@@ -15044,11 +15045,11 @@
     "notiz": "Veranstalterseite statt ladv.de: https://www.meinatsv.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ahrensburger). Linkprüfung 2026-09-19."
   },
   "Nospa Fischteiche Cross|2026-12-06": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/420973/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Veranstalter SV Enge-Sande, die Vereinsseite (www.sv-enge-sande.de, an der 9,6-km-Zeile hinterlegt) nennt den Cross nicht auf der Startseite; keine eigene Seite des Laufs - raceresult bleibt."
   },
   "Sport-Tahedl-Nikolauslauf - Regensburg|2026-12-06": {
     "am": "2026-09-19",
@@ -15121,11 +15122,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.ucsr-lev.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (christmas, datum). Linkprüfung 2026-09-19."
   },
   "Cross im Grund|2026-12-19": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/383400/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Veranstalter OCR-Squad Erfurt (13 km mit ~30 Hindernissen), nur raceresult und soziale Netze als Adresse - raceresult bleibt. Kategorie auf Hindernis gesetzt (Override)."
   },
   "43. Country Cross|2026-12-20": {
     "am": "2026-09-20",
@@ -15296,11 +15297,11 @@
     "notiz": "Veranstalterseite statt laufen.de: https://tuspo-ziegenhain.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ziegenhainer). Linkprüfung 2026-09-19."
   },
   "Binzer Silvesterlauf|2026-12-31": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "binzer-bucht.de",
     "alt": "https://my.raceresult.com/399181/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.binzer-bucht.de - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:binzer). Linkprüfung 2026-09-21."
   },
   "Friedberger Silvesterlauf|2026-12-31": {
     "am": "2026-09-19",
@@ -15352,11 +15353,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://ssv-rhade.de/outdoor/laufen/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (rhader). Linkprüfung 2026-09-19."
   },
   "Silvester-Ultramarathon Breuna|2026-12-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/422344/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: nur raceresult und Laufkalender, keine Veranstalterseite - raceresult bleibt."
   },
   "Silvesterlauf Amberg|2026-12-31": {
     "am": "2026-09-19",
@@ -16396,10 +16397,10 @@
   },
   "Lothar Fricke-Winterlaufserie|2026-12-02": {
     "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "ladv.de",
+    "ergebnis": "korrigiert",
+    "quelle": "leichtathletik-quedlinburg.de",
     "alt": "https://ladv.de/ausschreibung/detail/45794/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:quedlinburg, lothar). Linkprüfung 2026-09-21."
   },
   "Silvesterlauf - Krefeld|2026-12-31": {
     "am": "2026-09-21",
