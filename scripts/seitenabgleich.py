@@ -14,6 +14,9 @@ Host, 30-s-Frist) und der Text gegen unsere Daten gehalten:
              Nutzer abgesagte Veranstaltungen nicht in der Liste will;
              nur ein Hinweis (der Kohltagelauf wirbt neben der Absage
              weiter mit "Melde dich jetzt an"), geprüft wird von Hand
+    BESTAETIGT die Zeile ist als vorläufig markiert (datum_vorlaeufig,
+             Kalenderprognose), die Seite nennt unser Datum aber jetzt -
+             der Override kann weg, das Sternchen auch (seit 21.09.2026)
     LEER     unter 300 Zeichen Text (JS-Seite, Frames, Platzhalter)
     FEHLER   Abruf gescheitert (Status, robots, Timeout)
 
@@ -73,7 +76,7 @@ for e in sorted(events, key=lambda e:(e.get("datum_start") or "", e.get("name") 
     if not url or is_portal_link(url) or kein_veranstalter(url): continue
     if "ironman.com" in url: continue
     k=f"{e.get('name')}|{e.get('datum_start')}"
-    g=gruppen.setdefault(k,{"name":e.get("name"),"datum":e.get("datum_start"),"ende":e.get("datum_ende"),"url":url,"ort":e.get("standort"),"art1":e.get("art1"),"km":[],"dauer":[]})
+    g=gruppen.setdefault(k,{"name":e.get("name"),"datum":e.get("datum_start"),"ende":e.get("datum_ende"),"url":url,"ort":e.get("standort"),"art1":e.get("art1"),"km":[],"dauer":[],"vorlaeufig":bool(e.get("datum_vorlaeufig"))})
     if isinstance(e.get("laenge_km"),(int,float)): g["km"].append(e["laenge_km"])
     if isinstance(e.get("dauer_h"),(int,float)): g["dauer"].append(e["dauer_h"])
 if MAX: gruppen=OrderedDict(list(gruppen.items())[:MAX])
@@ -98,6 +101,7 @@ for i,(k,g) in enumerate(gruppen.items(),1):
         r["textlaenge"]=len(txt)
         flags=[]
         if not r["datum_ok"] and nah: flags.append("DATUM")
+        if g["vorlaeufig"] and r["datum_ok"]: flags.append("BESTAETIGT")
         if r["km_fehlt"] and dist: flags.append("DISTANZ")
         if len(txt)<300: flags.append("LEER")
         m=ABGESAGT_RE.search(txt)

@@ -8,10 +8,11 @@ UID:2027-04-25-oberelbe-marathon-5km-dresden@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
-SUMMARY:Oberelbe-Marathon – 5 km Lauf
+SUMMARY:Oberelbe-Marathon – 5 km Lauf (Termin vorläufig)
 LOCATION:Dresden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://baer-service.d
- e/veranstaltung/ELB/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 5 km\nhttps:
+ //baer-service.de/veranstaltung/ELB/
 TRANSP:TRANSPARENT
 URL:https://baer-service.de/veranstaltung/ELB/
 END:VEVENT

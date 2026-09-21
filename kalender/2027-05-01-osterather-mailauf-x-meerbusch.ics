@@ -8,9 +8,11 @@ UID:2027-05-01-osterather-mailauf-x-meerbusch@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
-SUMMARY:Osterather Mailauf
+SUMMARY:Osterather Mailauf (Termin vorläufig)
 LOCATION:Meerbusch\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://mailauf.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: -\nhttps://m
+ ailauf.de/
 TRANSP:TRANSPARENT
 URL:https://mailauf.de/
 END:VEVENT

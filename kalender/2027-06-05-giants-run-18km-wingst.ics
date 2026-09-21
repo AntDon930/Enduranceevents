@@ -8,10 +8,11 @@ UID:2027-06-05-giants-run-18km-wingst@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270605
 DTEND;VALUE=DATE:20270606
-SUMMARY:Giants Run
+SUMMARY:Giants Run (Termin vorläufig)
 LOCATION:Wingst\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://giantsrun.com
- /
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 18 km\nhttps
+ ://giantsrun.com/
 TRANSP:TRANSPARENT
 URL:https://giantsrun.com/
 END:VEVENT

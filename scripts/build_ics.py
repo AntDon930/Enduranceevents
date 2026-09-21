@@ -168,6 +168,12 @@ def build_ics(event: dict, stempel: str) -> str:
         + (f" / {event['art2']}" if event.get("art2") else ""),
         f"Länge: {laenge_text(event)}",
     ]
+    # Kalenderprognose (datum_vorlaeufig): Ein Termin muss einen Tag
+    # haben, aber der Eintrag sagt, dass niemand ihn veröffentlicht hat -
+    # im Titel und in der Beschreibung (dieselben Worte wie die Box).
+    if event.get("datum_vorlaeufig"):
+        titel += " (Termin vorläufig)"
+        beschreibung.insert(0, "Termin noch nicht veröffentlicht – Datum laut Vorjahr, bitte beim Veranstalter prüfen.")
     if event.get("veranstalter_url"):
         beschreibung.append(event["veranstalter_url"])
 

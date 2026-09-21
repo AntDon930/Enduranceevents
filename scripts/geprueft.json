@@ -1359,7 +1359,7 @@
   "am": "2026-09-19",
   "ergebnis": "unklar",
   "quelle": "ssv-borken.de, runme.de",
-  "notiz": "2027-Termin nicht veröffentlicht: Die SSV-Seite kennt nur den 07.06.2026 (So), die verlinkte 2027-Seite antwortet 404; 07.06.2027 ist ein Montag (wohl Jahreswechsel-Prognose), runme.de prognostiziert Fr 04.06.2027. Nicht geändert - ohne Quelle wäre jedes Datum geraten."
+  "notiz": "2027-Termin nicht veröffentlicht: Die SSV-Seite kennt nur den 07.06.2026 (So), die verlinkte 2027-Seite antwortet 404; 07.06.2027 ist ein Montag (wohl Jahreswechsel-Prognose), runme.de prognostiziert Fr 04.06.2027. Nicht geändert - ohne Quelle wäre jedes Datum geraten. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Gäulauf Gommersheim|2027-05-27": {
   "am": "2026-09-19",
@@ -2181,7 +2181,7 @@
   "am": "2026-09-19",
   "ergebnis": "unklar",
   "quelle": "westparklauf.de",
-  "notiz": "Frameset-Seite, nur Ergebnislinks bis 2025; 2027 nicht genannt."
+  "notiz": "Frameset-Seite, nur Ergebnislinks bis 2025; 2027 nicht genannt. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Chemnitzer Indoor Triathlon|2027-03-20": {
   "am": "2026-09-19",
@@ -3089,7 +3089,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "bramscher-rumlaeufer.de",
-  "notiz": "Seite nennt KKC 4.0 am 23. November (Vorjahr), 3 und 9 km; 2026 nicht genannt."
+  "notiz": "Seite nennt KKC 4.0 am 23. November (Vorjahr), 3 und 9 km; 2026 nicht genannt. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "36. Hamelner Winterlaufserie|2026-11-22": {
   "am": "2026-09-21",
@@ -3257,7 +3257,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/",
-  "notiz": "Seite zeigt den Lauf 2025 (07.12.2025, 5/10 km); 2026 noch nicht ausgeschrieben"
+  "notiz": "Seite zeigt den Lauf 2025 (07.12.2025, 5/10 km); 2026 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Adventslauf der TG Lage|2026-12-06": {
   "am": "2026-09-21",
@@ -3275,7 +3275,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/",
-  "notiz": "Seite zeigt den 42. Country Cross (21.12.2025, 5,5 km / 21 km); 2026 noch nicht ausgeschrieben"
+  "notiz": "Seite zeigt den 42. Country Cross (21.12.2025, 5,5 km / 21 km); 2026 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "56. Lorsbacher Winterlauf- und Walkingserie|2026-12-20": {
   "am": "2026-09-21",
@@ -3335,7 +3335,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.crosslaufserie-oberschwaben.de",
-  "notiz": "Seite zeigt die Serie 2025/26 (1. Lauf Blitzenreute 07.12.2025); 2026/27 noch nicht ausgeschrieben"
+  "notiz": "Seite zeigt die Serie 2025/26 (1. Lauf Blitzenreute 07.12.2025); 2026/27 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "51. Winterlaufserie 2026/2027, 2. Wertungslauf|2026-12-06": {
   "am": "2026-09-21",
@@ -3353,13 +3353,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://sv-badberka.de",
-  "notiz": "Seite nennt „44. Jahresendlauf“ am 14.12.2024 – 2026 wäre der 46.; unser Name „40.“ und die 19,6 km sind nicht zu prüfen, 2026 nicht ausgeschrieben"
+  "notiz": "Seite nennt „44. Jahresendlauf“ am 14.12.2024 – 2026 wäre der 46.; unser Name „40.“ und die 19,6 km sind nicht zu prüfen, 2026 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "MB Brandschutz-Nachtwächterlauf|2026-12-12": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.tvo-leichtathletik.de",
-  "notiz": "Seite zeigt den Lauf 2025 (13.12.2025); 2026 noch nicht ausgeschrieben"
+  "notiz": "Seite zeigt den Lauf 2025 (13.12.2025); 2026 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "8. X-MAS Marathon am kleinem Brombachsee|2026-12-13": {
   "am": "2026-09-21",
@@ -3461,19 +3461,19 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.lauffreundeboenen.de",
-  "notiz": "Seite führt Läufe bis „9. Lauf | 2026“; 2027 noch nicht ausgeschrieben"
+  "notiz": "Seite führt Läufe bis „9. Lauf | 2026“; 2027 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "35. Waldlauf auf den Hinsbecker Höhen|2027-01-16": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.vfl-hinsbeck.de",
-  "notiz": "34. Waldlauf am 17.01.2026 belegt; 2027 noch nicht ausgeschrieben"
+  "notiz": "34. Waldlauf am 17.01.2026 belegt; 2027 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "12. Weezer Crosslauf|2027-01-23": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.tsv-weeze-leichtathletik.de",
-  "notiz": "11. Crosslauf am 24.01.2026 belegt; 2027 noch nicht ausgeschrieben"
+  "notiz": "11. Crosslauf am 24.01.2026 belegt; 2027 noch nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "38. Int. Forchheimer Silvesterlauf|2026-12-31": {
   "am": "2026-09-21",
@@ -3641,7 +3641,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://ultra.rlt-rodgau.de/",
-  "notiz": "26. Ultramarathon am 31.01.2026 belegt; 2027 noch nicht ausgeschrieben (30.01.2027 ist der passende Samstag)"
+  "notiz": "26. Ultramarathon am 31.01.2026 belegt; 2027 noch nicht ausgeschrieben (30.01.2027 ist der passende Samstag) | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "15. Winterlaufserie der Hildener AT|2027-01-31": {
   "am": "2026-09-21",
@@ -3731,7 +3731,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.tsv-guentersleben.de/seite/748569",
-  "notiz": "Seite zeigt den 3. Panorama Run am 19.04.2026 ohne Distanzen; 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt den 3. Panorama Run am 19.04.2026 ohne Distanzen; 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Ith-Hils-Ultratrail|2027-04-17": {
   "am": "2026-09-21",
@@ -3755,13 +3755,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.tv-ihringen.de/internationaler-kaiserstuhllauf-2026.html",
-  "notiz": "Seite zeigt 2026 (15.03.2026): Hauptlauf 17,8 km, 9,7 km, 3.550 m; 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt"
+  "notiz": "Seite zeigt 2026 (15.03.2026): Hauptlauf 17,8 km, 9,7 km, 3.550 m; 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "51. Ruhrtallauf|2027-03-13": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://vfl-froendenberg.de/ausschreibung-48-ruhrtallauf/",
-  "notiz": "Seite zeigt den 50. Ruhrtallauf am 14.03.2026 (5 und 10 km Straßenlauf); 2027 nicht ausgeschrieben, Zählung „51.“ passt"
+  "notiz": "Seite zeigt den 50. Ruhrtallauf am 14.03.2026 (5 und 10 km Straßenlauf); 2027 nicht ausgeschrieben, Zählung „51.“ passt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "52. Bienwald-Marathon Kandel|2027-03-14": {
   "am": "2026-09-21",
@@ -3803,7 +3803,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.ibbenbuerener-klippenlauf.de",
-  "notiz": "Hauptlauf 24,7 km und Kurzstrecke 12,4 km bestätigt; Termin 2027 nicht genannt – „in der Regel am letzten Wochenende im März“, das wäre der 27./28.03.2027, bei uns steht der 20.03."
+  "notiz": "Hauptlauf 24,7 km und Kurzstrecke 12,4 km bestätigt; Termin 2027 nicht genannt – „in der Regel am letzten Wochenende im März“, das wäre der 27./28.03.2027, bei uns steht der 20.03. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Silberwaldlauf|2027-04-04": {
   "am": "2026-09-21",
@@ -3821,7 +3821,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.sv-viktoria-gesmold.de/bifurkationslauf/",
-  "notiz": "Seite zeigt 2026: Hauptlauf 9,7 km, Jedermannlauf 5 km; 2027 nicht ausgeschrieben (bei uns 9,9 km)"
+  "notiz": "Seite zeigt 2026: Hauptlauf 9,7 km, Jedermannlauf 5 km; 2027 nicht ausgeschrieben (bei uns 9,9 km) | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Liwa Laufevent|2027-04-18": {
   "am": "2026-09-21",
@@ -3857,7 +3857,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.oberelbe-marathon.de",
-  "notiz": "Seite zeigt den 27. Oberelbe-Marathon am 26.04.2026 (Marathon, HM, 10 km, 5 km, 2,7 km); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt den 27. Oberelbe-Marathon am 26.04.2026 (Marathon, HM, 10 km, 5 km, 2,7 km); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Tönisvorster Apfelblütenlauf|2027-04-25": {
   "am": "2026-09-21",
@@ -3881,7 +3881,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.kocher-cup.de/",
-  "notiz": "Seite zeigt 2026 (01.05.2026, Unterkochen): Hauptlauf und PALM Stundenlauf ohne Distanzangabe; 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt 2026 (01.05.2026, Unterkochen): Hauptlauf und PALM Stundenlauf ohne Distanzangabe; 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Badische Meile|2027-05-02": {
   "am": "2026-09-21",
@@ -3917,7 +3917,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://otv1893.de/kurse/mailauf-vom-osterather-tv/",
-  "notiz": "mailauf.de leitet auf otv1893.de; dort nur 2026 (01.05.2026: 5 km / 10 km, Schüler 2,5 km); Zeile ohne Distanz bleibt"
+  "notiz": "mailauf.de leitet auf otv1893.de; dort nur 2026 (01.05.2026: 5 km / 10 km, Schüler 2,5 km); Zeile ohne Distanz bleibt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Schluchseelauf|2027-05-01": {
   "am": "2026-09-21",
@@ -3929,7 +3929,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.halbmarathon-ingolstadt.net",
-  "notiz": "Seite zeigt 2026 (09.05.2026): Halbmarathon, FitnessRun&Fun, Staffeln – ohne km. Bei uns steht nur eine 5-km-Zeile, der Halbmarathon selbst fehlt; 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt 2026 (09.05.2026): Halbmarathon, FitnessRun&Fun, Staffeln – ohne km. Bei uns steht nur eine 5-km-Zeile, der Halbmarathon selbst fehlt; 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Huy-Burgen-Lauf|2027-05-08": {
   "am": "2026-09-21",
@@ -3953,7 +3953,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://triathlon-offenburg.de/",
-  "notiz": "„Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht auf der Startseite"
+  "notiz": "„Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht auf der Startseite | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Regensburg Marathon|2027-05-09": {
   "am": "2026-09-21",
@@ -3965,7 +3965,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.ftsv-heckershausen.de/abendvolkslauf",
-  "notiz": "Seite zeigt den 45. Lauf am 22.05.2026 (5 / 10 / 18,4 km); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt"
+  "notiz": "Seite zeigt den 45. Lauf am 22.05.2026 (5 / 10 / 18,4 km); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "GaPa Everesting-Festival|2027-05-14": {
   "am": "2026-09-21",
@@ -4043,19 +4043,19 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.dhbf.de/better-move/firmenlauf/",
-  "notiz": "Seite zeigt 2026 (07.05.2026, ca. 5 km im Grütt-Park); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt"
+  "notiz": "Seite zeigt 2026 (07.05.2026, ca. 5 km im Grütt-Park); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Wolfhager Volkslauf - Rund um den Graner Berg|2027-06-04": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.laufteam-woh.de/",
-  "notiz": "Seite nennt den 36. Volkslauf am 08./09.05.2026; 2027 nicht ausgeschrieben – unser 04./05.06.2027 ist nicht belegt"
+  "notiz": "Seite nennt den 36. Volkslauf am 08./09.05.2026; 2027 nicht ausgeschrieben – unser 04./05.06.2027 ist nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Giants Run|2027-06-05": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://giantsrun.com/",
-  "notiz": "Extremhindernislauf, 9K, 18K oder beides = 27K bestätigt; Datum und Ort 2027 nicht auf der Seite"
+  "notiz": "Extremhindernislauf, 9K, 18K oder beides = 27K bestätigt; Datum und Ort 2027 nicht auf der Seite | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Run + Fun in Tuttlingen|2027-06-05": {
   "am": "2026-09-21",
@@ -4073,13 +4073,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.europamarathon.de/",
-  "notiz": "„Ausschreibung folgt“; Datum und Halbmarathon 2027 nicht bestätigt"
+  "notiz": "„Ausschreibung folgt“; Datum und Halbmarathon 2027 nicht bestätigt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Kleinbahn-Lauf|2027-06-11": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.tura07.de/neuigkeiten/19-kleinbahn-lauf-2026/",
-  "notiz": "Seite zeigt den 19. Lauf am Freitag, 12.06.2026 (5 und 10 km, je auch Walking); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt"
+  "notiz": "Seite zeigt den 19. Lauf am Freitag, 12.06.2026 (5 und 10 km, je auch Walking); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Voxtruper Volkslauf|2027-06-11": {
   "am": "2026-09-21",
@@ -4097,7 +4097,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://panorama-baumwipfel-lauf.de/",
-  "notiz": "Seite zeigt die 10. Ausgabe am 13.06.2026 mit genau unseren Strecken (6 / 12,7 / 21,5 km); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt die 10. Ausgabe am 13.06.2026 mit genau unseren Strecken (6 / 12,7 / 21,5 km); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Koberbachtal-Triathlon|2027-06-04": {
   "am": "2026-09-21",
@@ -4115,13 +4115,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.wvv.de/energie-b2c/firmenlauf/",
-  "notiz": "Seite zeigt 2026 (Do 18.06.2026, 8,4 km, Dallenbergbad); 2027 nicht ausgeschrieben – bei uns 8 km"
+  "notiz": "Seite zeigt 2026 (Do 18.06.2026, 8,4 km, Dallenbergbad); 2027 nicht ausgeschrieben – bei uns 8 km | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Jemgumer Dörploop|2027-06-18": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/",
-  "notiz": "Seite zeigt den 4. Dörploop am 19.06.2026 mit genau unseren Strecken (5,3 / 10,6 / 21,2 km); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt den 4. Dörploop am 19.06.2026 mit genau unseren Strecken (5,3 / 10,6 / 21,2 km); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Feldbergfestlauf|2027-06-19": {
   "am": "2026-09-21",
@@ -4145,7 +4145,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.mittsommernachtslauf-hannover.de/",
-  "notiz": "Seite zeigt 2026: 14.08.2026 mit 7,7 km und 21,1 km Einzellauf, 23,1 km Staffel – unser Termin 25.06.2027 liegt zwei Monate früher, nicht belegt; Zeile ohne Distanz"
+  "notiz": "Seite zeigt 2026: 14.08.2026 mit 7,7 km und 21,1 km Einzellauf, 23,1 km Staffel – unser Termin 25.06.2027 liegt zwei Monate früher, nicht belegt; Zeile ohne Distanz | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "SachsenTrail Erzgebirge|2027-06-25": {
   "am": "2026-09-21",
@@ -4205,7 +4205,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.heuchelbergtrail.de/",
-  "notiz": "12 / 24 / 50 km bestätigt („Anmeldung 2027“ offen), Datum 2027 nicht im Text"
+  "notiz": "12 / 24 / 50 km bestätigt („Anmeldung 2027“ offen), Datum 2027 nicht im Text | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Hoalfinger Sommerlauf|2027-07-03": {
   "am": "2026-09-21",
@@ -4235,13 +4235,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://lgstaffelseemurnau.run/8-staffelseelauf-2026/",
-  "notiz": "Seite zeigt den 8. Lauf am 05.07.2026 mit 5 und 10 km; 2027 nicht ausgeschrieben – bei uns nur 5 km"
+  "notiz": "Seite zeigt den 8. Lauf am 05.07.2026 mit 5 und 10 km; 2027 nicht ausgeschrieben – bei uns nur 5 km | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Dorstener 24-Stunden-Lauf|2027-07-09": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://24stundenlaufdorsten.de/",
-  "notiz": "Seite nennt nur 2026 (10./11.07.2026); 2027 nicht ausgeschrieben"
+  "notiz": "Seite nennt nur 2026 (10./11.07.2026); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "O-SEE Backyard Ultra|2027-07-10": {
   "am": "2026-09-21",
@@ -4259,19 +4259,19 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://glaeserner-moench-lauf.de/",
-  "notiz": "27. Lauf war am Samstag, 27.06.2026; unser Termin Sonntag, 11.07.2027 ist nicht belegt, Distanzen 2027 nicht genannt"
+  "notiz": "27. Lauf war am Samstag, 27.06.2026; unser Termin Sonntag, 11.07.2027 ist nicht belegt, Distanzen 2027 nicht genannt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Hardy's Stadtlauf Fürstenfeldbruck|2027-07-11": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb",
-  "notiz": "Seite zeigt 2026 (12.07.2026: 5 km, 10 km, Halbmarathon); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt 2026 (12.07.2026: 5 km, 10 km, Halbmarathon); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Firmenlauf Neumarkt|2027-07-15": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://firmenlauf.bayern/firmenlauf-neumarkt/",
-  "notiz": "Seite zeigt 2026 (Live-Lauf 16.07.2026, dazu hybrid); 2027 nicht ausgeschrieben, 6 km nicht prüfbar"
+  "notiz": "Seite zeigt 2026 (Live-Lauf 16.07.2026, dazu hybrid); 2027 nicht ausgeschrieben, 6 km nicht prüfbar | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Waldlauf Renquishausen|2027-07-23": {
   "am": "2026-09-21",
@@ -4283,7 +4283,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://sporthilfe-wiesbaden.de/sporthilfe/veranstaltungen/citymarathon_2026/",
-  "notiz": "wiesbaden-marathon.de leitet auf die Seite 2026 (Sa 20.06.2026: 3 / 5 / 10 / 21,1 / 42,2 km); 2027 nicht ausgeschrieben"
+  "notiz": "wiesbaden-marathon.de leitet auf die Seite 2026 (Sa 20.06.2026: 3 / 5 / 10 / 21,1 / 42,2 km); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Berlin City Night|2027-07-31": {
   "am": "2026-09-21",
@@ -4295,7 +4295,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.haasow.com/waldlauf",
-  "notiz": "Seite zeigt den 28. Lauf am 29.08.2026 (2,6 / 5 / 10 km, Walking 5 km) – kein 10,8 km; unser Termin 31.07.2027 liegt vier Wochen früher, nicht belegt"
+  "notiz": "Seite zeigt den 28. Lauf am 29.08.2026 (2,6 / 5 / 10 km, Walking 5 km) – kein 10,8 km; unser Termin 31.07.2027 liegt vier Wochen früher, nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Marathon Nacht Rostock|2027-07-31": {
   "am": "2026-09-21",
@@ -4349,7 +4349,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.808project.de/lst-super-sunday",
-  "notiz": "Seite zeigt den Lauf am 26.04.2026 (5 / 10 km, Kempten); 2027 nicht ausgeschrieben – unser 22.08.2027 ist nicht belegt"
+  "notiz": "Seite zeigt den Lauf am 26.04.2026 (5 / 10 km, Kempten); 2027 nicht ausgeschrieben – unser 22.08.2027 ist nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Volkslauf Bad Segeberg|2027-08-22": {
   "am": "2026-09-21",
@@ -4361,13 +4361,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.eilenriederennen.de/",
-  "notiz": "Seite zeigt das 22. Rennen am 30.08.2026 (5 / 10 km, Halbmarathon); 2027 nicht ausgeschrieben, Zeile ohne Distanz"
+  "notiz": "Seite zeigt das 22. Rennen am 30.08.2026 (5 / 10 km, Halbmarathon); 2027 nicht ausgeschrieben, Zeile ohne Distanz | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Moret Triathlon|2027-08-29": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-  "notiz": "Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben"
+  "notiz": "Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Swim&Run Winnweiler|2027-08-29": {
   "am": "2026-09-21",
@@ -4397,13 +4397,13 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://flensburg-marathon.de/",
-  "notiz": "Seite zeigt 2026 (06.09.2026: Marathon, Halbmarathon, Staffel, 10 km, 5 km); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt 2026 (06.09.2026: Marathon, Halbmarathon, Staffel, 10 km, 5 km); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Stadtwerke Halbmarathon Bochum|2027-09-05": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://stadtwerke-halbmarathon.de/",
-  "notiz": "Seite zeigt 2026 (06.09.2026: Halbmarathon, 10 km, 5 km); 2027 nicht ausgeschrieben – bei uns nur der Halbmarathon"
+  "notiz": "Seite zeigt 2026 (06.09.2026: Halbmarathon, 10 km, 5 km); 2027 nicht ausgeschrieben – bei uns nur der Halbmarathon | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Tierparklauf Berlin|2027-09-11": {
   "am": "2026-09-21",
@@ -4421,7 +4421,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://lauf.psv-bernburg.de/hm/",
-  "notiz": "Seite zeigt den 9. Halbmarathon am 19.09.2026 (5 & 12 km, Halbmarathon); 2027 nicht ausgeschrieben"
+  "notiz": "Seite zeigt den 9. Halbmarathon am 19.09.2026 (5 & 12 km, Halbmarathon); 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "7. Appelhülsener Landlauf|2027-09-25": {
   "am": "2026-09-21",
@@ -4433,7 +4433,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://turnvereinrees.de/www-reeser-rheinlauf-de/",
-  "notiz": "Seite nennt nur den 3. Rheinlauf am 04.10.2026; 2027 nicht ausgeschrieben"
+  "notiz": "Seite nennt nur den 3. Rheinlauf am 04.10.2026; 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Friedberger Silvesterlauf|2026-12-31": {
   "am": "2026-09-21",
@@ -4457,19 +4457,19 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.donatuslauf.de",
-  "notiz": "Seite nennt 2028 nicht – Kalenderprognose"
+  "notiz": "Seite nennt 2028 nicht – Kalenderprognose | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "29. Generali Köln Marathon|2027-10-03": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://generali-koeln-marathon.de/",
-  "notiz": "koeln-marathon.de leitet auf generali-koeln-marathon.de; dort nur der 04.10.2026 (Marathon, Halbmarathon, Staffel). 2027 nicht ausgeschrieben; der Halbmarathon fehlt in unserer 2027-Zeile"
+  "notiz": "koeln-marathon.de leitet auf generali-koeln-marathon.de; dort nur der 04.10.2026 (Marathon, Halbmarathon, Staffel). 2027 nicht ausgeschrieben; der Halbmarathon fehlt in unserer 2027-Zeile | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "30. Generali Köln Marathon|2028-10-01": {
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://generali-koeln-marathon.de/",
-  "notiz": "Kalenderprognose, Seite nennt 2028 nicht"
+  "notiz": "Kalenderprognose, Seite nennt 2028 nicht | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "41. Silvesterlauf der LAV Hamburg-Nord|2026-12-31": {
   "am": "2026-09-21",
@@ -4733,7 +4733,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.diakoniestiftung-osl.de/projekte-aktionen/gipfelsturm",
-  "notiz": "2026: 10 km; 2027 nicht ausgeschrieben – bei uns 11 km"
+  "notiz": "2026: 10 km; 2027 nicht ausgeschrieben – bei uns 11 km | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "ClimAid Plant a Tree Run|2026-10-11": {
   "am": "2026-09-21",
@@ -4811,7 +4811,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf",
-  "notiz": "Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km stehen dort nicht"
+  "notiz": "Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km stehen dort nicht | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Bahnabend Bremenstadion Ennepetal|2026-09-23": {
   "am": "2026-09-21",
@@ -5183,7 +5183,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "http://www.fc-straberg.de",
-  "notiz": "28. Crosslauf am 17.01.2026 belegt; 2027 nicht ausgeschrieben"
+  "notiz": "28. Crosslauf am 17.01.2026 belegt; 2027 nicht ausgeschrieben | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "DSW Swim & Run|2027-01-30": {
   "am": "2026-09-21",
@@ -5303,7 +5303,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://www.alb-gold.de/aktiv/funrun.html",
-  "notiz": "24.06.2027 vorläufig (Bestätigung im November 2026); 2026 Runde 3,8 km, 1–2 Runden – unsere 8 km wären 2 Runden (7,6 km), 2027 nicht festgelegt"
+  "notiz": "24.06.2027 vorläufig (Bestätigung im November 2026); 2026 Runde 3,8 km, 1–2 Runden – unsere 8 km wären 2 Runden (7,6 km), 2027 nicht festgelegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Firmenstaffel Sachsen-Anhalt|2027-07-08": {
   "am": "2026-09-21",
@@ -5507,7 +5507,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://my.raceresult.com/315501",
-  "notiz": "Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Termin 24.10.2026 ist damit nicht belegt"
+  "notiz": "Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Termin 24.10.2026 ist damit nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Albiger Doppelzwölfer|2026-10-24": {
   "am": "2026-09-21",
@@ -5993,7 +5993,7 @@
   "am": "2026-09-21",
   "ergebnis": "unklar",
   "quelle": "https://my.raceresult.com/340929",
-  "notiz": "Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 ist nicht belegt"
+  "notiz": "Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 ist nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
  },
  "Rund um Detmold|2027-07-24": {
   "am": "2026-09-21",

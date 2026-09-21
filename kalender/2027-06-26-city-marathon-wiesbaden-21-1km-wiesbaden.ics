@@ -9,10 +9,11 @@ UID:2027-06-26-city-marathon-wiesbaden-21-1km-wiesbaden@antdon930.github.i
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270627
-SUMMARY:City Marathon Wiesbaden – Halbmarathon
+SUMMARY:City Marathon Wiesbaden – Halbmarathon (Termin vorläufig)
 LOCATION:Wiesbaden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.wiesbad
- en-marathon.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.1 km\nhtt
+ ps://www.wiesbaden-marathon.de/
 TRANSP:TRANSPARENT
 URL:https://www.wiesbaden-marathon.de/
 END:VEVENT

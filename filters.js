@@ -342,6 +342,30 @@
     return en ? `in ${j} years` : `in ${j} Jahren`;
   }
 
+  const MONATE_LANG = {
+    de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  };
+  // "Juni 2027" - für vorläufige Termine (datum_vorlaeufig): Der Tag ist
+  // eine Kalenderprognose, veröffentlicht ist nur, dass der Lauf in etwa
+  // in diesem Monat stattfindet (vom Nutzer am 21.09.2026 entschieden:
+  // "kein konkretes Datum, wenn noch kein genauer Tag genannt wurde").
+  function formatMonthYear(iso, lang) {
+    if (!iso) return '';
+    const [y, m] = iso.split('-').map(Number);
+    return `${(MONATE_LANG[lang] || MONATE_LANG.de)[m - 1]} ${y}`;
+  }
+  // Das Datum EINES Events als Text: vorläufig -> "Juni 2027*", sonst der
+  // Tag bzw. der Zeitraum; opts.weekday / opts.long wie bei den
+  // Einzelfunktionen. Das Sternchen verweist auf die Fußnote der Seite.
+  function formatEventDate(e, lang, opts) {
+    const o = opts || {};
+    if (e.datum_vorlaeufig) return formatMonthYear(e.datum_start, lang) + '*';
+    const f = o.long ? formatDateLong : o.weekday ? formatDateWeekday : formatDate;
+    if (!e.datum_ende || e.datum_ende === e.datum_start) return f(e.datum_start, lang);
+    return `${f(e.datum_start, lang)} – ${f(e.datum_ende, lang)}`;
+  }
+
   // Dezimaltrennzeichen je Sprache: im Deutschen das Komma, im Englischen
   // der Punkt. Vorher stand in der Liste auch auf Deutsch "42.2 km" - für
   // deutsche Augen liest sich das wie eine Tausendertrennung. Alle Stellen,
@@ -986,6 +1010,8 @@
   }
 
   global.EnduranceFilters = {
+    formatMonthYear,
+    formatEventDate,
     formatDateWeekday,
     formatDateLong,
     formatDateRangeShort,

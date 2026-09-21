@@ -1217,6 +1217,45 @@ Docstring am Kopf jedes Skripts.
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).
 
+### Quellen für den großen Datenlauf (Stand 21.09.2026)
+
+Kandidaten für die geplanten 20.000+ Events, gesammelt per Websuche am
+21.09.2026 und mit der `robots.txt` jeder Seite abgeglichen (live
+abgerufen). **Nichts davon wird gescraped, bevor der Nutzer die Quelle
+freigibt** und die Nutzungsbedingungen gelesen sind – die vier
+übersprungenen Quellen oben zeigen, warum. Quellen, die den Abruf
+sperren oder ausdrücklich verbieten, stehen auf Wunsch des Nutzers
+NICHT in dieser Liste (geprüft und ausgeschlossen: radsport-events.de,
+schwimmkalender.de, tri2b.com, triafreunde.com, hdsports.org,
+datasport.com, alpen-open-watercup.de, rad-net.de, swiss-cycling.ch,
+ahotu.com).
+
+| Quelle | Inhalt | robots.txt (21.09.2026) | Anmerkung |
+|---|---|---|---|
+| `laufevent.at/events/` | Laufkalender Österreich, ~550 Events/Jahr, Filter nach Region | aus der Sandbox nicht erreichbar (kein Abruf) | vor dem Bau vom Rechner aus prüfen |
+| `sparkasse.at/running/laufkalender` | Laufkalender Österreich (Erste Bank Sparkasse Running) | erlaubt (nur Bank-Bereiche gesperrt) | Kalender einer Bank, Daten vermutlich aus laufkalender.at |
+| `oelv.at/de/sport/laufsport` | ÖLV-Laufkalender (Verband) | erlaubt (nur `/login/`) | Verbandstermine, Volksläufe unvollständig |
+| `wlv.or.at/wettkaempfe-termine/laufkalender` | Wiener LV, Laufkalender | erlaubt (keine Sperre) | regional |
+| `runme.at`, `runme.ch` | Laufkalender AT und CH | Kalender erlaubt (`/call/` gesperrt); **sperrt GPTBot und CCBot ausdrücklich** | Betreiber will keine KI-Crawler – nur mit Nachfrage beim Betreiber |
+| `laufkalender-schweiz.ch` | Laufkalender Schweiz, „fast 1.000 Läufe“, Filter nach Kanton/Distanz | keine robots.txt (404) | Nutzungsbedingungen lesen |
+| `lauftermine.ch` | Laufkalender Schweiz (älteres Verzeichnis) | keine robots.txt (404) | Struktur prüfen |
+| `laufkalender-nws.ch` | Nordwestschweiz, Herbst-/Winterläufe | erlaubt (`/app/`, `/j/` gesperrt) | klein, regional |
+| `trophyrunners.de/laufevents/oesterreich/`, `trophyrunners.com` (CH) | Volksläufe AT/CH | aus der Sandbox nicht erreichbar | vom Rechner aus prüfen |
+| `finishers.com` (Schweiz u. a.) | Laufkalender mit Detailseiten | erlaubt (Konto/Buchung/Filter-Adressen gesperrt) | internationale Plattform, ToS lesen |
+| `running.life` – `traillauf-kalender/…`, `hindernislauf-kalender/…` | dieselbe Quelle wie heute, weitere Kalender | erlaubt (wie bisher) | prüfen, ob die Trail-/OCR-Kalender Events enthalten, die im Laufkalender fehlen |
+| `triathlon-austria.at/de/service-termine` | Verbandstermine Triathlon Österreich | erlaubt (nur `/login/`) | Verband, vollständig für AT |
+| `mission-triathlon.de/saisonplanung-…` | redaktionelle Liste ~250 Triathlons DE/AT/CH | erlaubt | Liste, keine Datenbank – eher als Abgleich |
+| `events.endure-cycling.com` | Radrennen, Jedermannrennen, Radmarathons UND Triathlons AT/DE/EU, mit Karte und Filtern | erlaubt (keine Sperre) | vielversprechend für Fahrrad; ToS prüfen |
+| `bike-x.de/rennrad/news/termine-jedermannrennen-und-radmarathons/` | Termine Jedermannrennen/Radmarathons DE | erlaubt (nur `/irelements/`) | redaktionelle Liste |
+| `brv-breitensport.de/termine/rtf-kalender/` | RTF-Kalender Berlin/Mitteldeutschland | erlaubt | regional |
+| `dsv.de/…/freiwasserschwimmen/wettkampf/kalender/` | DSV-Freiwasser-Kalender (Verband) | erlaubt | Wettkampfsport, keine Jedermann-Schwimmen |
+| `openwaterschwimmen.com/openwater` | Freiwasser-Termine im deutschsprachigen Raum | erlaubt (`?lightbox=` gesperrt) | Wix-Seite, evtl. JS-gerendert |
+| `team-warmduscher.de/open-water/open-water-in-deutschland/` | Liste Open-Water-Veranstaltungen DE | erlaubt | Vereinsseite, Liste ohne Struktur |
+
+Je Quelle vor dem Bau: Nutzungsbedingungen/Impressum auf ein
+Scraping-Verbot durchsehen, Detailseiten auf Veranstalter-Link und
+Strecken prüfen, `--max-pages 2 --no-details` als Probelauf.
+
 ### Laufzeit
 
 Ein **vollständiger Lauf dauert rund zwei Stunden**: laufen.de und

@@ -8,10 +8,11 @@ UID:2027-07-09-dorstener-24-stunden-lauf-24h-dorsten@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270709
 DTEND;VALUE=DATE:20270711
-SUMMARY:Dorstener 24-Stunden-Lauf
+SUMMARY:Dorstener 24-Stunden-Lauf (Termin vorläufig)
 LOCATION:Dorsten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://24stundenlaufd
- orsten.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 24 h\nhttps:
+ //24stundenlaufdorsten.de/
 TRANSP:TRANSPARENT
 URL:https://24stundenlaufdorsten.de/
 END:VEVENT

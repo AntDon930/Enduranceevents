@@ -35,6 +35,8 @@
       detail_strecken_titel: 'Strecken dieser Veranstaltung',
       detail_link: 'Zur Veranstalterseite',
       detail_map: 'Auf der Karte',
+      detail_vorlaeufig: 'Termin noch nicht veröffentlicht',
+      cal_vorlaeufig: '(Termin vorläufig)',
       detail_close: 'Schließen',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
@@ -58,6 +60,8 @@
       detail_strecken_titel: 'Races of this event',
       detail_link: 'Organizer website',
       detail_map: 'On the map',
+      detail_vorlaeufig: 'Date not yet published',
+      cal_vorlaeufig: '(date provisional)',
       detail_close: 'Close',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
@@ -141,6 +145,12 @@
     const f = weekday ? EF.formatDateWeekday : formatDate;
     if (start === end) return escapeHtml(f(start, lang));
     return `${escapeHtml(f(start, lang))} –<br>${escapeHtml(f(end, lang))}`;
+  }
+  // Dasselbe für ein EVENT: ein vorläufiger Termin (datum_vorlaeufig)
+  // steht als "Juni 2027*", ohne Tag.
+  function formatEventRangeHtml(e, lang, weekday) {
+    if (e.datum_vorlaeufig) return escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + '*';
+    return formatRangeHtml(e.datum_start, e.datum_ende, lang, weekday);
   }
 
   // Was in der Spalte "Länge" und in der Box steht. Nicht jedes Rennen
@@ -312,7 +322,7 @@
     const { tv, lang } = ctx;
     const zeilen = [
       e.name,
-      `${formatRange(e.datum_start, e.datum_ende, lang)} · ${tv('standort', e.standort)}, ${tv('land', e.land)}`,
+      `${EF.formatEventDate(e, lang)} · ${tv('standort', e.standort)}, ${tv('land', e.land)}`,
       `${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''} · ${formatLength(e, lang)}`
     ];
     const wb = displayWettbewerb(e);
@@ -356,11 +366,14 @@
     const start = e.datum_start;
     const endeInklusiv = e.datum_ende && e.datum_ende > start ? e.datum_ende : start;
     const wb = displayWettbewerb(e);
-    const titel = wb ? `${e.name} – ${wb}` : e.name;
+    // Ein vorläufiger Termin trägt es im Titel: Der Kalendereintrag muss
+    // einen Tag haben, aber niemand soll ihn für veröffentlicht halten.
+    const titel = (wb ? `${e.name} – ${wb}` : e.name) + (e.datum_vorlaeufig ? ' ' + t('cal_vorlaeufig') : '');
     const zeilen = [
       `${t('detail_sportart')}: ${tv('art1', e.art1)}${e.art2 ? ' / ' + tv('art2', e.art2) : ''}`,
       `${t('detail_laenge')}: ${formatLength(e, lang)}`
     ];
+    if (e.datum_vorlaeufig) zeilen.unshift(t('detail_vorlaeufig'));
     if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
     return {
       titel,
@@ -555,11 +568,15 @@
   function render(container, e, ctx) {
     const { t, tv, lang } = ctx;
     const wb = displayWettbewerb(e);
-    const relativ = EF.relativeDays(e.datum_start, lang);
+    // Vorläufiger Termin: nur Monat und Jahr mit Sternchen, darunter
+    // statt "in 6 Tagen" der Hinweis, dass der Tag nicht veröffentlicht ist.
+    const relativ = e.datum_vorlaeufig ? t('detail_vorlaeufig') : EF.relativeDays(e.datum_start, lang);
     const mehrtaegig = e.datum_ende && e.datum_ende !== e.datum_start;
-    const datumGross = mehrtaegig
-      ? `${escapeHtml(EF.formatDateLong(e.datum_start, lang))} –<br>${escapeHtml(EF.formatDateLong(e.datum_ende, lang))}`
-      : escapeHtml(EF.formatDateLong(e.datum_start, lang));
+    const datumGross = e.datum_vorlaeufig
+      ? escapeHtml(EF.formatMonthYear(e.datum_start, lang)) + '*'
+      : mehrtaegig
+        ? `${escapeHtml(EF.formatDateLong(e.datum_start, lang))} –<br>${escapeHtml(EF.formatDateLong(e.datum_ende, lang))}`
+        : escapeHtml(EF.formatDateLong(e.datum_start, lang));
     const kategorie = `${tv('art1', e.art1)}${e.art2 ? ' · ' + tv('art2', e.art2) : ''}`;
     const strecke = `${formatLength(e, lang)}${wb ? ' · ' + wb : ''}`;
     container.innerHTML = `
@@ -623,6 +640,7 @@
     displayWettbewerb,
     formatRange,
     formatRangeHtml,
+    formatEventRangeHtml,
     formatLength,
     eventSlug,
     icsFileName,

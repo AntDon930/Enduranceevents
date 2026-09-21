@@ -1798,6 +1798,35 @@ def test_nicht_ausdauer() -> None:
     check("und meldet die Ausschlüsse mit Grund", len(entfernt), 2)
 
 
+def test_datum_vorlaeufig() -> None:
+    """Ein vorläufiger Termin (Kalenderprognose) trägt `datum_vorlaeufig`.
+
+    Vom Nutzer am 21.09.2026 entschieden: Wo kein Tag veröffentlicht ist,
+    zeigt die Liste nur "Juni 2027*" mit Fußnote. Das Feld kommt allein
+    per Override (OVERRIDE_FIELDS), die Kalenderdatei sagt es im Titel,
+    und ein Event ohne das Feld trägt es auch nicht als false in
+    events.json (to_dict lässt None weg).
+    """
+    print("\nVorläufige Termine (datum_vorlaeufig):")
+    from scraper_lib import OVERRIDE_FIELDS, Event
+    import build_ics
+    check("Override-Feld bekannt", "datum_vorlaeufig" in OVERRIDE_FIELDS, True)
+    e = Event(name="Borkener Citylauf", datum_start="2027-06-07", datum_ende="2027-06-07",
+              standort="Borken", laenge_km=10.0)
+    check("ohne Markierung fehlt das Feld in events.json",
+          "datum_vorlaeufig" in e.to_dict(), False)
+    e.datum_vorlaeufig = True
+    check("markiert steht es drin", e.to_dict().get("datum_vorlaeufig"), True)
+    ics = build_ics.build_ics(e.to_dict(), "20260101T000000Z")
+    check("Kalenderdatei nennt den vorläufigen Termin im Titel",
+          "SUMMARY:Borkener Citylauf (Termin vorläufig)" in ics, True)
+    check("und in der Beschreibung", "Termin noch nicht veröffentlicht" in ics, True)
+    ics_ohne = build_ics.build_ics(Event(name="Stadtlauf", datum_start="2027-06-07",
+                                         datum_ende="2027-06-07", standort="X").to_dict(),
+                                   "20260101T000000Z")
+    check("ein normaler Termin bleibt unverändert", "vorläufig" in ics_ohne, False)
+
+
 def test_staffeln() -> None:
     """Erst einmal keine Staffeln (Nutzer, 21.09.2026).
 
@@ -2097,7 +2126,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer, test_staffeln, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
+                 test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

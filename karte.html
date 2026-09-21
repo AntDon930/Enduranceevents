@@ -52,7 +52,7 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
-<link rel="stylesheet" href="site.css?v=7bd0d7ec">
+<link rel="stylesheet" href="site.css?v=0ee7a3b7">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=389055b9">
 <link rel="stylesheet" href="event-detail.css?v=02379c86">
@@ -279,9 +279,9 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=22af23e0"></script>
+<script src="filters.js?v=eca383b0"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=d958b76a"></script>
+<script src="event-detail.js?v=23e80eeb"></script>
 
 <script>
 (async function () {
@@ -317,6 +317,7 @@
       subtitle: 'Klicke auf einen Marker, um die Events an diesem Ort in der Liste zu sehen.',
       list: 'Liste',
       nav_events: 'Events',
+      datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
       hint: (n, cities) => `${n} Events an ${cities} Orten`,
       hint_filtered: (n, total, cities) => `${n} Events an ${cities} Orten`,
       hint_empty: 'Kein Event entspricht den Filtern.',
@@ -337,6 +338,7 @@
       subtitle: 'Click a marker to see the events at that location in the list.',
       list: 'List',
       nav_events: 'Events',
+      datum_fussnote: '* exact date not yet published – month as in the previous year',
       hint: (n, cities) => `${n} events across ${cities} locations`,
       hint_filtered: (n, total, cities) => `${n} events across ${cities} locations`,
       hint_empty: 'No event matches the filters.',
@@ -611,6 +613,9 @@
     navEventsEl.textContent = t('nav_events');
     document.getElementById('nav-map').textContent = t('title');
     resetBtnEl.textContent = t('reset');
+    const fussnote = document.getElementById('datum-fussnote');
+    fussnote.textContent = t('datum_fussnote');
+    fussnote.hidden = !events.some(e => e.datum_vorlaeufig);
     // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
@@ -867,7 +872,7 @@
           const wb = EED.displayWettbewerb(e);
           return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(e)}">`
             + `<span class="pe-name">${escapeHtml(e.name)}</span>`
-            + `<span class="pe-meta">${escapeHtml(EED.formatRange(e.datum_start, e.datum_ende, currentLang))}`
+            + `<span class="pe-meta">${escapeHtml(EF.formatEventDate(e, currentLang))}`
             + ` · ${escapeHtml(EED.formatLength(e, currentLang))}${wb ? ' · ' + escapeHtml(wb) : ''}</span>`
             + `</button></li>`;
         }).join('') + `</ul>` +
@@ -957,7 +962,8 @@
 </script>
 
 <footer class="site-footer">
-  <span></span>
+  <!-- Fußnote zu "Juni 2027*" (vorläufige Termine), siehe events.html. -->
+  <span class="fussnote" id="datum-fussnote" hidden></span>
   <div class="seiten-footer">
     <a id="footer-impressum" href="impressum.html">Impressum</a>
     <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>

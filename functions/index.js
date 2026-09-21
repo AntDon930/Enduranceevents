@@ -338,6 +338,7 @@ function eventKurz(event) {
     name: String(event.name || "").slice(0, 200),
     datum_start: event.datum_start || null,
     datum_ende: event.datum_ende || null,
+    datum_vorlaeufig: event.datum_vorlaeufig ? true : null,
     standort: String(event.standort || "").slice(0, 120),
     land: event.land || null,
     art1: event.art1 || null,
@@ -369,6 +370,17 @@ function abmeldeLink(subId, token) {
   return `${seitenBasis()}/events.html?abos=1`;
 }
 
+// Ein vorläufiger Termin (datum_vorlaeufig, Kalenderprognose) steht wie
+// auf der Seite nur als Monat: "Juni 2027 (Termin noch nicht
+// veröffentlicht)".
+const MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
+  "August", "September", "Oktober", "November", "Dezember"];
+function datumText(event) {
+  const iso = event.datum_start || "";
+  if (!event.datum_vorlaeufig || !/^\d{4}-\d{2}/.test(iso)) return iso;
+  return `${MONATE[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)} (Termin noch nicht veröffentlicht)`;
+}
+
 function eventEmailHtml(event) {
   const link = event.veranstalter_url
     ? `<p><a href="${event.veranstalter_url}">Zur Veranstalter-Website</a></p>`
@@ -376,7 +388,7 @@ function eventEmailHtml(event) {
   return (
     `<h2>${event.name}</h2>` +
     `<p>${event.standort || ""}, ${event.land || ""}<br>` +
-    `${event.datum_start || ""}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}</p>` +
+    `${datumText(event)}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}</p>` +
     link
   );
 }

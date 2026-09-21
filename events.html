@@ -30,7 +30,7 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
-<link rel="stylesheet" href="site.css?v=7bd0d7ec">
+<link rel="stylesheet" href="site.css?v=0ee7a3b7">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=389055b9">
 <link rel="stylesheet" href="event-detail.css?v=02379c86">
@@ -571,9 +571,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=22af23e0"></script>
+<script src="filters.js?v=eca383b0"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=d958b76a"></script>
+<script src="event-detail.js?v=23e80eeb"></script>
 
 <script>
 (async function () {
@@ -610,6 +610,7 @@
       title: 'Endurance Events',
       nav_events: 'Events',
       stand: (d) => `Stand: ${d}`,
+      datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
       // Kein Bedienhinweis mehr ("Klicke auf eine
       // Kopfzeile-Filterschaltfläche …") - das war ein Handbuchsatz für
       // etwas, das man sieht, und er machte den blauen Kasten hoch. Hier
@@ -722,6 +723,7 @@
       title: 'Endurance Events',
       nav_events: 'Events',
       stand: (d) => `Updated: ${d}`,
+      datum_fussnote: '* exact date not yet published – month as in the previous year',
       subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
       reset: 'Clear filters',
       footer_imprint: 'Legal notice',
@@ -1354,6 +1356,9 @@
     navMapEl.textContent = t('map');
     resetBtnEl.textContent = t('reset');
     standEl.textContent = datenStand ? t('stand', EF.formatDateWeekday(datenStand, lang, true)) : '';
+    const fussnote = document.getElementById('datum-fussnote');
+    fussnote.textContent = t('datum_fussnote');
+    fussnote.hidden = !events.some(e => e.datum_vorlaeufig);
     document.getElementById('stand-box').hidden = !datenStand;
     // Die Filterpillen tragen die Spaltennamen - neu bauen, sonst bleibt
     // "Ort & Umkreis" auf Englisch stehen. Reihenfolge der Vorlage.
@@ -1517,7 +1522,7 @@
         return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
              + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
       }
-      case 'datum': return td(`<div class="cell-clamp">${formatRangeHtml(e.datum_start, e.datum_ende)}</div>`);
+      case 'datum': return td(`<div class="cell-clamp">${EED.formatEventRangeHtml(e, currentLang, true)}</div>`);
       case 'land': return td(`<div class="cell-clamp">${escapeHtml(tv('land', e.land))}</div>`);
       // tv() statt des rohen Werts: Städte mit eigenem englischen Namen
       // stehen in der englischen Fassung auch so da (München → Munich,
@@ -2574,7 +2579,7 @@
       <h2 id="report-heading">${escapeHtml(t('report_title'))}</h2>
       <div class="report-event-summary">
         <strong>${escapeHtml(e.name)}</strong>
-        <span>${escapeHtml(formatRange(e.datum_start, e.datum_ende))} &middot; ${escapeHtml(tv('standort', e.standort))} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
+        <span>${escapeHtml(EF.formatEventDate(e, currentLang))} &middot; ${escapeHtml(tv('standort', e.standort))} &middot; ${escapeHtml(kmText)}${wb ? ' &middot; ' + escapeHtml(wb) : ''}</span>
       </div>
       <p class="report-intro">${escapeHtml(t('report_intro'))}</p>
       <div id="report-msg"></div>
@@ -2863,6 +2868,9 @@
     <span id="fehlt-bar-text"></span>
     <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
   </div>
+  <!-- Fußnote zu "Juni 2027*": nur sichtbar, wenn die Liste vorläufige
+       Termine enthält (datum_vorlaeufig). -->
+  <span class="fussnote" id="datum-fussnote" hidden></span>
   <div class="seiten-footer">
     <a id="footer-impressum" href="impressum.html">Impressum</a>
     <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>

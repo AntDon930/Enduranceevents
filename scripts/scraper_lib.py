@@ -436,6 +436,10 @@ class Event:
     # "Halbmarathon" beim Schnebelhorn Panoramatrail). Jede Strecke wird zu
     # einem eigenen Eintrag; dieses Feld sagt, welche gemeint ist.
     wettbewerb: str | None = None
+    # Kalenderprognose statt veröffentlichtem Termin - siehe OVERRIDE_FIELDS.
+    # None (nicht False), damit to_dict() das Feld weglässt, solange es
+    # nicht gesetzt ist.
+    datum_vorlaeufig: bool | None = None
     veranstalter_url: str | None = None
 
     def is_valid(self) -> bool:
@@ -1846,9 +1850,18 @@ def load_manual_overrides() -> dict:
 #
 # Reihenfolge beachten: `apply_overrides()` läuft VOR `drop_past_events()`
 # und vor `build_ics.py`, beide sehen also das richtige Datum.
+# `datum_vorlaeufig`: Der Termin ist eine Kalenderprognose (Seite des
+# Veranstalters nennt das Jahr noch nicht). Die Liste zeigt dann nur
+# "Juni 2027*" mit Fußnote statt eines Tages, den niemand veröffentlicht
+# hat (vom Nutzer am 21.09.2026 entschieden). Gesetzt wird das Feld NUR
+# per Override aus der Einzelprüfung - keine Regel kann eine Prognose von
+# einem echten Termin unterscheiden. Der Override hängt am (vorläufigen)
+# Datum: Bringt der Datenlauf einen anderen Tag, greift er nicht mehr und
+# das Sternchen verschwindet von selbst; bringt er denselben Tag, meldet
+# seitenabgleich.py BESTAETIGT, dann den Override löschen.
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "land", "standort", "veranstalter_url", "lat", "lon",
-                   "datum_start", "datum_ende")
+                   "datum_start", "datum_ende", "datum_vorlaeufig")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:

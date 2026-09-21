@@ -540,6 +540,32 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Sommerlauf ist KEIN Absage-Fall mehr: Die Seite dankt inzwischen für
    die Teilnahme 2026.
 
+19. **Vorläufige Termine tragen `datum_vorlaeufig`** (vom Nutzer am
+   21.09.2026 entschieden: „kein konkretes Datum auf jeden Fall, wenn
+   noch kein genauer Tag genannt wurde"). Viele Kalender tragen den
+   Termin des nächsten Jahres vor, bevor der Veranstalter ihn
+   veröffentlicht hat (der Elfte Durchgang fand ~180 „Seite zeigt 2026,
+   2027 nicht ausgeschrieben"). Solche Zeilen zeigen in Liste, Box,
+   Karten-Popup und E-Mail nur **„Juni 2027*"** (`EF.formatEventDate`,
+   `EED.formatEventRangeHtml`, `datumText` in `functions/index.js`), die
+   Box sagt „Termin noch nicht veröffentlicht" statt „in 6 Tagen", die
+   Fußzeile trägt die Fußnote (nur sichtbar, wenn es markierte Zeilen
+   gibt), die Kalenderdatei „(Termin vorläufig)" im Titel. Gefiltert und
+   sortiert wird weiter mit dem Prognose-Tag – er ist die beste Schätzung.
+   - **Nur per Override** (`OVERRIDE_FIELDS`), aus der Einzelprüfung:
+     Keine Regel kann eine Prognose von einem echten Termin
+     unterscheiden. 56 Veranstaltungen (94 Zeilen) sind markiert –
+     die `unklar`-Fälle des Elften Durchgangs ohne Silvester-/
+     Neujahrsläufe (der Tag ist dort durch den Kalender fest).
+   - **Der Override hängt am vorläufigen Datum**: Bringt der Datenlauf
+     einen anderen Tag, greift er nicht mehr, das Sternchen verschwindet
+     von selbst. Bringt er denselben Tag, bleibt es – deshalb meldet
+     `seitenabgleich.py` **BESTAETIGT**, wenn die Seite unser Datum
+     inzwischen nennt; dann den Override löschen. Neue Prognosen findet
+     derselbe Lauf als DATUM.
+   - `test_datum_vorlaeufig` hält Override-Feld, `to_dict()` (kein
+     `false` in events.json) und die Kalenderdatei fest.
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die
@@ -2689,19 +2715,19 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    doppelt (7 Fälle entfernt, z. B. Bayerische Halbmarathon-
    Meisterschaften = Aschaffenburger Halbmarathon). Umkehrbar, falls
    die Meisterschaft als eigener Eintrag gewünscht ist.
-6. **Zahl der Strecken am aufgeklappten Block?** Der Rahmen zeigt die
-   Zusammengehörigkeit; eine Zahl („6 Strecken") steht nicht dabei, weil
-   die Namensspalte auf Handybreite nur 176 px hat. Falls gewünscht: am
-   ehesten im runden Pfeil-Feld statt des Pfeils.
+6. ~~Zahl der Strecken am aufgeklappten Block?~~ **entschieden**
+   (21.09.2026: „nicht relevant") – keine Zahl.
 7. ~~`runninglife_scraper.py` auf alle sechs Kalender ausweiten~~
    **gebaut** (21.09.2026, „Du hast mein Ja") – siehe „Quellen"; die
    Events kommen mit dem nächsten Datenlauf.
-8. **Die Quellenliste für die 20.000+** (Ergebnis der Recherche vom
-   18.09.2026, siehe README „Quellen für den großen Datenlauf") will der
-   Nutzer selbst durchsehen. Blockiert (403/robots.txt, nicht umgangen):
-   radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
+8. **Die Quellenliste für die 20.000+** steht seit dem 21.09.2026 im
+   README („Quellen für den großen Datenlauf": 19 Kandidaten mit
+   robots.txt-Stand; die Recherche vom 18.09. war nie im Repo gelandet).
+   Gesperrte Quellen stehen auf Wunsch des Nutzers nicht in der Liste
+   (radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
    hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
-   swiss-cycling.ch.
+   swiss-cycling.ch, ahotu.com). Der Nutzer sieht die Liste durch; kein
+   Scraper ohne sein Ja.
 9. ~~Backyard Ultra TRIATHLON – eigene Kategorie „Backyard"?~~
    **entschieden** (19.09.2026): Laufen und Triathlon tragen denselben
    Wert „Backyard Ultra" (siehe Datenregel 9); der „Backyardman
@@ -2840,13 +2866,11 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **Zeitrennen neben Distanz-Zeilen fehlen** (Rokathon 24 h, 24 Stunden
      van Halen, Winterloop 6/12 h) – braucht eine Code-Änderung an
      `_compatible_distance()`, siehe Elfter Durchgang.
-   - **Termine, die wahrscheinlich falsch sind** (Seite nennt 2027 noch
-     nicht, 2026 lag in einem anderen Monat): Mittsommernachtslauf
-     Hannover (bei uns Juni, 2026 im August), Haasower Waldlauf (Juli /
-     August), LST Super Sunday (August / April), Wolfhager Volkslauf
-     (Juni / Mai), Gläserner Mönch Lauf (Juli / Juni), Triathlon
-     Offenburg (08.05. / 16.–17.05.), Ibbenbürener Klippenlauf (20.03. /
-     „letztes Märzwochenende"). Alle als `unklar` notiert, nichts geändert.
+   - ~~Termine, die wahrscheinlich falsch sind~~ **entschieden**
+     (21.09.2026): als vorläufig markiert („Juni 2027*", Datenregel 19) –
+     Mittsommernachtslauf Hannover, Haasower Waldlauf, LST Super Sunday,
+     Wolfhager Volkslauf, Gläserner Mönch Lauf, Triathlon Offenburg,
+     Ibbenbürener Klippenlauf und 49 weitere Prognosen.
    - **Sonstiges**: ClimAid Plant a Tree Run ist nur für 2024 belegt;
      Teltowkanal 14 km, Bremer Kuhcross, Warendorfer Garagen-Backyard,
      Neunkirchner Sommerlauf 2026 abgesagt, Belgershainer Crosslauf
@@ -2877,14 +2901,18 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **Duplikate unter zwei Namen** (Punkt 12/17/18): keine Entscheidung
      nötig, nur Arbeit – die schwächere Zeile per `exclude`, die
      fehlende Strecke ggf. in `manual_events.json`.
-   - **2027-Termine, die Prognosen sind** (Punkt 18): lassen (der
-     Datenlauf zieht sie nach) oder bis zur Ausschreibung ausschließen.
+   - ~~2027-Termine, die Prognosen sind~~ **entschieden** (21.09.2026):
+     „Juni 2027*" mit Fußnote, Datenregel 19.
    - **Zeitrennen neben Distanz-Zeilen** (Rokathon 24 h, van Halen,
      Winterloop 6/12 h): braucht `_compatible_distance()` „Distanz gegen
      Dauer = unvereinbar", vorher zählen.
-   - **Cross- und Waldlaufmeisterschaften Rheine/Ibbenbüren**, Zahl der
-     Strecken am Block (Punkt 6), Rückweg zur Startseite (Punkt 11),
-     Quellenliste (Punkt 8).
+   - ~~Cross- und Waldlaufmeisterschaften Rheine/Ibbenbüren~~ **erledigt**
+     (Websuche 21.09.2026: lg-emsdetten.de nennt Ibbenbüren/Dickenberg,
+     Ausrichter SV Dickenberg – Override mit Koordinaten des Ortsteils).
+     ~~Zahl der Strecken am Block~~ **entschieden** (21.09.2026: nein).
+     ~~Quellenliste~~ **steht jetzt im README** („Quellen für den großen
+     Datenlauf", 21.09.2026, ohne die gesperrten Quellen) – der Nutzer
+     sieht sie durch; kein Scraper ohne sein Ja.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

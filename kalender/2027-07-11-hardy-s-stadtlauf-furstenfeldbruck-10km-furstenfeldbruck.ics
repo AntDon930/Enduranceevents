@@ -9,10 +9,12 @@ UID:2027-07-11-hardy-s-stadtlauf-furstenfeldbruck-10km-furstenfeldbruck@an
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270711
 DTEND;VALUE=DATE:20270712
-SUMMARY:Hardy's Stadtlauf Fürstenfeldbruck – 10 Kilometer Lauf
+SUMMARY:Hardy's Stadtlauf Fürstenfeldbruck – 10 Kilometer Lauf (Termin vor
+ läufig)
 LOCATION:Fürstenfeldbruck\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hardys-fi
- tness.de/aktuelles/events/hardys-stadtlauf-ffb
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10 km\nhttps
+ ://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb
 TRANSP:TRANSPARENT
 URL:https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb
 END:VEVENT

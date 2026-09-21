@@ -8,10 +8,11 @@ UID:2027-04-25-oberelbe-marathon-42-2km-dresden@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
-SUMMARY:Oberelbe-Marathon – Marathon
+SUMMARY:Oberelbe-Marathon – Marathon (Termin vorläufig)
 LOCATION:Dresden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.oberelbe
- -marathon.de
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 42.2 km\nhtt
+ p://www.oberelbe-marathon.de
 TRANSP:TRANSPARENT
 URL:http://www.oberelbe-marathon.de
 END:VEVENT

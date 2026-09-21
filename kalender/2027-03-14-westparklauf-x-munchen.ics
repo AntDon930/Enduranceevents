@@ -8,9 +8,11 @@ UID:2027-03-14-westparklauf-x-munchen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
-SUMMARY:Westparklauf
+SUMMARY:Westparklauf (Termin vorläufig)
 LOCATION:München\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://westparklauf.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: -\nhttps://w
+ estparklauf.de/
 TRANSP:TRANSPARENT
 URL:https://westparklauf.de/
 END:VEVENT

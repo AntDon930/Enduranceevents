@@ -8,10 +8,12 @@ UID:2027-07-11-glaserner-monch-lauf-6km-langenstein@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270711
 DTEND;VALUE=DATE:20270712
-SUMMARY:Gläserner Mönch Lauf – 6 km Mönchlauf Runde 1 ab AK 10
+SUMMARY:Gläserner Mönch Lauf – 6 km Mönchlauf Runde 1 ab AK 10 (Termin vor
+ läufig)
 LOCATION:Langenstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://glaeserner-moe
- nch-lauf.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 6 km\nhttps:
+ //glaeserner-moench-lauf.de/
 TRANSP:TRANSPARENT
 URL:https://glaeserner-moench-lauf.de/
 END:VEVENT

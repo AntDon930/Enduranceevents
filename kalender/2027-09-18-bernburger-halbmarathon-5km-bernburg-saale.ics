@@ -9,10 +9,11 @@ UID:2027-09-18-bernburger-halbmarathon-5km-bernburg-saale@antdon930.github
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
-SUMMARY:Bernburger Halbmarathon
+SUMMARY:Bernburger Halbmarathon (Termin vorläufig)
 LOCATION:Bernburg (Saale)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lauf.psv-bernb
- urg.de/hm/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 5 km\nhttps:
+ //lauf.psv-bernburg.de/hm/
 TRANSP:TRANSPARENT
 URL:https://lauf.psv-bernburg.de/hm/
 END:VEVENT

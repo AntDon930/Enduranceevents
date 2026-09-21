@@ -9,10 +9,11 @@ UID:2027-01-30-50km-ultramarathon-des-rlt-rodgau-50km-rodgau@antdon930.git
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
-SUMMARY:50km Ultramarathon des RLT Rodgau
+SUMMARY:50km Ultramarathon des RLT Rodgau (Termin vorläufig)
 LOCATION:Rodgau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://ultra.rlt-rod
- gau.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 50 km\nhttps
+ ://ultra.rlt-rodgau.de/
 TRANSP:TRANSPARENT
 URL:https://ultra.rlt-rodgau.de/
 END:VEVENT

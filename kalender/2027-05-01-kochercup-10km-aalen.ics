@@ -8,10 +8,11 @@ UID:2027-05-01-kochercup-10km-aalen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
-SUMMARY:Kochercup
+SUMMARY:Kochercup (Termin vorläufig)
 LOCATION:Aalen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.kocher-cu
- p.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10 km\nhttps
+ ://www.kocher-cup.de/
 TRANSP:TRANSPARENT
 URL:https://www.kocher-cup.de/
 END:VEVENT
