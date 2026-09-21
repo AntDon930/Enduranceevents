@@ -26,12 +26,13 @@ Nicht auf einen anderen Branch pushen.
 | `laender.json` | **69 KB**, Umrisse von DE/AT/CH für die graue Maske auf der Karte |
 | `scripts/build_laender.py` | baut `laender.json` aus Natural Earth; läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
-| `favicon.svg`, `apple-touch-icon.png` | Seitensymbol; das PNG entsteht aus dem SVG (nach Änderung neu erzeugen) |
+| `favicon.svg`, `apple-touch-icon.png` | Seitensymbol (orange wie die Marke im Kopf); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, siehe Git-Log vom 21.09.2026), `cairosvg` gibt es in der Sandbox nicht |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
-| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
-| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Felder, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, bis zu zwei) zeigen dieselbe |
-| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den fünf geteilten Dateien (`filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
+| `site.css` | **Farben, Kopfzeile (Marke, Navigation, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach der Vorlage des Nutzers (dunkel, helle Pillen, Orange nur für Marke und Sportart-Symbole) |
+| `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
+| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, bis zu zwei) zeigen dieselbe |
+| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sechs geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
@@ -75,9 +76,9 @@ dort an (typisch nach einem Datenlauf), hilft:
 python3 scripts/build_ics.py            # und die Dateien mitcommitten
 ```
 
-Wurde `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`
-oder `event-detail.css` angefasst, **vorher** stempeln (der Test schlägt
-sonst fehl und sagt es auch):
+Wurde `site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`,
+`event-detail.js` oder `event-detail.css` angefasst, **vorher** stempeln
+(der Test schlägt sonst fehl und sagt es auch):
 
 ```bash
 python3 scripts/stamp_assets.py
@@ -1389,6 +1390,68 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
 
+- **Das Aussehen ist seit dem 21.09.2026 die Vorlage des Nutzers** (ein
+  Bild: dunkle Fläche, Marke mit orangem Zeichen, Navigation „Events /
+  Karte“, Filterpillen ÜBER der Tabelle, Trefferzahl groß mit Schalter,
+  Chips und „Stand“, Tabelle mit Sportart-Symbolen, Detail-Box mit
+  großem Datum und Strecken-Pillen, Fußzeile „Dein Event fehlt?“ links
+  und Impressum rechts). Was daran nicht zurückgedreht werden soll:
+  - **`site.css` ist das gemeinsame Gerüst** (Farben, Kopf, Filterleiste,
+    Werkzeugleiste, Fußzeile) für alle drei Seiten – nichts davon zurück
+    in eine Seite kopieren. In `events.html` steht nur noch Tabelle,
+    Detailbereich und die Dialoge, in `karte.html` nur die Karte.
+  - **Nur EIN Farbschema (dunkel)**, `color-scheme: dark`. `--accent` ist
+    HELL (Hauptknopf, gewählte Pille, Sortierpfeil), `--on-accent` die
+    Schrift darauf; ein festes `#fff` auf einer Akzentfläche ist
+    unsichtbar (in filter-ui.css, event-detail.css und `.ee-submit-btn`
+    schon umgestellt). `--brand` (Orange) nur für Marke, Sportart-Symbole
+    und das Abzeichen in der Box; `--frame` für die Linien um einen
+    aufgeklappten Block.
+  - **Die Filterknöpfe sitzen nicht mehr in den Spaltenköpfen**, sondern
+    als Pillen in der Filterleiste (`ui.buildButtonBar(…, { order:
+    FILTER_ORDER })`, gebaut in `setLanguage`, weil sie die Spaltennamen
+    tragen). Jede Pille zeigt ihren gesetzten Wert („Sportart: Laufen“),
+    gerechnet aus den Chips (`EF.buildChips` liefert `col` und `value`,
+    `filterSummaries()` in filter-ui.js) – Pille und Chip können so nie
+    Verschiedenes behaupten. Der Datum-Chip nennt bei einem Zeitraum-Knopf
+    den ZEITRAUM („26.09.–26.12.2026“), nicht den Knopfnamen. Die Spalte
+    „Name“ hat weiterhin eine Pille (ganz rechts; die Mastersuche deckt
+    das meiste ab, der Rauchtest prüft das Namens-Panel dort).
+  - **Die Marke führt zur Startseite** (Punkt 11 der offenen Fragen: der
+    Rückweg über das Logo ist die übliche Konvention). `#page-title` ist
+    der Markenname; die Notbremse („Bitte neu laden“) schreibt in
+    `#page-title` und die sonst leere `.page-note` (`#subtitle`).
+  - **Tabelle**: Reihenfolge Datum, Name, Sportart, Ort, Land, Kategorie,
+    Länge (`TABLE_ORDER`; die Entfernung rutscht hinter den Ort); Datum
+    mit Wochentag (`EF.formatDateWeekday`, in der Zelle `nowrap`);
+    Sportart mit Symbol (`EED.sportIcon`, Inline-SVG – kein `<img>` je
+    Zeile); im aufgeklappten Block steht unter jedem Namen IMMER der
+    Wettbewerb, notfalls die Länge (`cellHtml(…, { zweiteZeile: true })`).
+    Spaltenbreiten sind auf 900 px Mindestbreite gerechnet, „So
+    27.09.2026“, „Deutschland“ und „Triathlon“ mit Symbol passen genau –
+    wer eine Spalte schmaler macht, prüft die drei.
+  - **Trefferzahl** ist nur noch die Zahl („1.889 Events“,
+    `EF.formatInt`), kein „von N“ mehr; **„Stand: Mo, 21.09.2026“** kommt
+    aus dem `Last-Modified` der `events.json` (GitHub Pages schickt ihn,
+    der lokale Server auch); fehlt er, bleibt die Zeile verborgen.
+  - **Detail-Box**: `EED.render(container, e, { …, siblings, onSelect,
+    mapLink })`. `siblings` sind die Zeilen derselben Veranstaltung (Liste:
+    über `groupKey` aus ALLEN Events, nicht den gefilterten; Karte: Name +
+    Datum + Ort), `onSelect(idx)` wechselt die Strecke (Liste:
+    `waehleZeile` ohne Scrollen; Karte: tauscht das Event dieser Box aus),
+    `mapLink` (nur Liste) ist `karte.html?s=<Name>`. Das Kalender-Menü
+    liegt absolut unter dem Knopf, die Klassen `.event-share-btn`,
+    `.report-open-btn`, `.cal-open-btn`, `.cal-ics`, `.detail-close`,
+    `.detail-grid dt` bleiben – der Rauchtest hängt daran.
+  - **Karte**: dieselbe Kopf- und Filterleiste; die Trefferzeile
+    („3.830 Events an 1.363 Orten“, `#map-hint`) steht in der
+    Werkzeugleiste, nicht mehr als Kasten über der Karte; Marker orange,
+    Kacheln leicht abgedunkelt; das Popup behält feste helle Farben
+    (Leaflet-Popup ist immer weiß).
+  - **Startseite**: dieselbe Kopfzeile über dem Hero (der `.events-btn`
+    ist der Navigationslink „Events“, links von der Anmeldung), Hero
+    dunkel mit orangem Schimmer, Fußzeile wie überall.
+
 - **Das Filter-Panel folgt seinem Spaltenknopf beim Scrollen, es schließt
   sich nicht mehr** (jetzt in `filter-ui.js`) (`folgeDemKnopf`/`isTriggerVisible`). Früher schloss
   jedes `scroll`/`resize` das Panel – auf 390 px ließ sich der
@@ -2274,8 +2337,9 @@ Cache-Stand.
 
 Zwei Vorkehrungen, beide nicht wegnehmen:
 
-1. **`?v=<Stempel>`** an `filters.js`, `filter-ui.js` und
-   `filter-ui.css` in allen HTML-Dateien - der Stempel ist die ersten
+1. **`?v=<Stempel>`** an `site.css`, `filters.js`, `filter-ui.js`,
+   `filter-ui.css`, `event-detail.js` und `event-detail.css` in allen
+   HTML-Dateien - der Stempel ist die ersten
    acht Hex-Stellen des SHA-256 über den Dateiinhalt. Ändert sich der
    Inhalt, ändert sich die Adresse, und der Browser MUSS neu laden.
    Gesetzt von `scripts/stamp_assets.py`, geprüft von
@@ -2582,19 +2646,19 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    und **gegen einen fremden Kachel-Anbieter** (18.09.2026) – siehe
    „Tempo"/Karte und `scripts/build_laender.py`.
 
+   **Am 21.09.2026 nach der Vorlage des Nutzers umgebaut** (ein Bild
+   der gewünschten Liste, „Können wir die Liste so aufbauen“): Marke und
+   einheitliche Kopfzeile auf allen drei Seiten, dunkles Farbschema,
+   Filterpillen über der Tabelle, Sportart-Symbole, Detail-Box mit großem
+   Datum, Abzeichen, Strecken-Pillen und gestuften Knöpfen, „Stand“ in
+   der Werkzeugleiste, Fußzeile – siehe Frontend-Fallen, erster Punkt.
+
    Offen, in dieser Wirkung:
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
-   - **Marke und einheitliche Kopfzeile**: Startseite und Liste sehen
-     aus wie zwei Projekte; der dicke blaue Kasten mit langem Titel und
-     Hinweissatz wirkt wie ein internes Werkzeug.
-   - **Detail-Box aufwerten**: Datum groß und zuerst, Marken statt
-     Label/Wert-Liste, Knöpfe klar gestuft („Fehler melden" sieht
-     derzeit aus wie deaktiviert).
-   - Kleinteiliger: Sportart-Icons in der Liste, Ladezustand statt
-     „Lade Events…", „Beispielprojekt" und „DACH" aus den Texten,
-     `og:image`.
+   - Kleinteiliger: Ladezustand statt „Lade Events…", „Beispielprojekt"
+     und „DACH" aus den Texten, `og:image`.
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
    16.09. davor, dass etwas Kaputtes deployt. Einziger Blocker ist noch
    die **E-Mail-Adresse** für Impressum und Datenschutz (der Nutzer
@@ -2658,13 +2722,10 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
    Organizer-URL.
 
-11. **Weg zurück zur Startseite.** Der Knopf „Startseite" ist aus dem
-   Kopf von Liste und Karte **entfernt** (vom Nutzer am 19.09.2026: „bloß
-   verwirrend"). Damit führt von dort kein Link mehr zu `index.html`
-   (nur die Browser-Zurück-Taste). **Der Nutzer überlegt sich noch, wie
-   man wieder auf die Startseite kommt** – etwa Titel/Logo im blauen
-   Kasten als Link (übliche Konvention) oder ein Eintrag in der Fußzeile.
-   Nichts davon ohne seine Entscheidung bauen.
+11. ~~Weg zurück zur Startseite~~ **gebaut** (21.09.2026, mit dem
+   Umbau nach der Vorlage): Die Marke „Endurance Events" im Kopf ist ein
+   Link auf `index.html` (übliche Konvention). Falls der Nutzer das
+   nicht will, ist es ein `href` in `site.css`-Markup aller drei Seiten.
 
 13. ~~Treppenläufe – rein oder raus?~~ **entschieden** (21.09.2026: „als
    Trail aufnehmen", Datenregel 6). Ursprünglich: Sieben Zeilen sind Towerruns

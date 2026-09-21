@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ausdauersport-Events">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Endurance Events">
   <!-- Streckenprofil: Anstieg, Senke, Ziel. Bewusst nur drei Linien und
-       ein Punkt - bei 16 px bleibt von mehr nichts uebrig. -->
-  <rect width="64" height="64" rx="14" fill="#2563eb"/>
+       ein Punkt - bei 16 px bleibt von mehr nichts uebrig. Orange wie das
+       Markenzeichen im Kopf der Seiten (site.css, --brand). -->
+  <rect width="64" height="64" rx="14" fill="#f97316"/>
   <path d="M11 46 L26 20 L38 34 L51 17" fill="none" stroke="#ffffff"
         stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="51" cy="17" r="7" fill="#ffffff"/>

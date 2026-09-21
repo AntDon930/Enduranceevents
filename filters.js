@@ -20,8 +20,13 @@
       chip_datum: (n) => `Datum: ${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
       chip_value_all: 'Alle',
       chip_value_count: (n) => `${n} ausgewählt`,
+      chip_value_days: (n) => `${n} Tag${n === 1 ? '' : 'e'} ausgewählt`,
       chip_datum_all: 'Datum: Alle',
       chip_datum_preset: (label) => `Datum: ${label}`,
+      chip_datum_wert: (v) => `Datum: ${v}`,
+      chip_ab_km: (v) => `ab ${v} km`,
+      chip_bis_km: (v) => `bis ${v} km`,
+      chip_umkreis_wert: (km, label) => `${km} km um ${label}`,
       preset_weekend: 'Dieses Wochenende',
       preset_d30: 'Nächste 30 Tage',
       preset_m3: 'Nächste 3 Monate',
@@ -30,7 +35,7 @@
       chip_suche: (q) => `Suche: „${q}"`,
       chip_name: (q) => `Name: „${q}"`,
       chip_sportart: (v) => `Sportart: ${v}`,
-      chip_standort: (v) => `Stadt/Ort: ${v}`,
+      chip_standort: (v) => `Ort: ${v}`,
       chip_land: (v) => `Land: ${v}`,
       chip_kategorie: (v) => `Kategorie: ${v}`,
       chip_laenge_ab: (v) => `Länge ab ${v} km`,
@@ -42,8 +47,13 @@
       chip_datum: (n) => `Date: ${n} day${n === 1 ? '' : 's'} selected`,
       chip_value_all: 'All',
       chip_value_count: (n) => `${n} selected`,
+      chip_value_days: (n) => `${n} day${n === 1 ? '' : 's'} selected`,
       chip_datum_all: 'Date: All',
       chip_datum_preset: (label) => `Date: ${label}`,
+      chip_datum_wert: (v) => `Date: ${v}`,
+      chip_ab_km: (v) => `from ${v} km`,
+      chip_bis_km: (v) => `up to ${v} km`,
+      chip_umkreis_wert: (km, label) => `${km} km around ${label}`,
       preset_weekend: 'This weekend',
       preset_d30: 'Next 30 days',
       preset_m3: 'Next 3 months',
@@ -52,7 +62,7 @@
       chip_suche: (q) => `Search: "${q}"`,
       chip_name: (q) => `Name: "${q}"`,
       chip_sportart: (v) => `Sport: ${v}`,
-      chip_standort: (v) => `City: ${v}`,
+      chip_standort: (v) => `Place: ${v}`,
       chip_land: (v) => `Country: ${v}`,
       chip_kategorie: (v) => `Category: ${v}`,
       chip_laenge_ab: (v) => `Length from ${v} km`,
@@ -253,6 +263,83 @@
       return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
     }
     return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.${y}`;
+  }
+
+  // Wochentag und Monatsnamen für die Anzeige (Tabelle und Detail-Box,
+  // seit dem Umbau vom 21.09.2026 nach der Vorlage des Nutzers: "So
+  // 27.09.2026" in der Tabelle, "So, 27. Sep. 2026" groß in der Box).
+  // Eigene Listen statt toLocaleDateString: Das hängt an der
+  // Spracheinstellung des Browsers, nicht am Umschalter DE/EN der Seite
+  // - dieselbe Begründung wie bei formatNumber.
+  const WOCHENTAGE = {
+    de: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+    en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  };
+  const MONATE_KURZ = {
+    de: ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'],
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  };
+  function wochentagVon(iso, lang) {
+    const [y, m, d] = iso.split('-').map(Number);
+    const wt = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+    return (WOCHENTAGE[lang] || WOCHENTAGE.de)[wt];
+  }
+  // "So 27.09.2026" / "Sun 27 Sep 2026" - die Tabelle.
+  function formatDateWeekday(iso, lang, komma) {
+    if (!iso) return '';
+    return `${wochentagVon(iso, lang)}${komma ? ',' : ''} ${formatDate(iso, lang)}`;
+  }
+  // "So, 27. Sep. 2026" / "Sun, 27 Sep 2026" - die Detail-Box.
+  function formatDateLong(iso, lang) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    const monat = (MONATE_KURZ[lang] || MONATE_KURZ.de)[m - 1];
+    return lang === 'en'
+      ? `${wochentagVon(iso, lang)}, ${d} ${monat} ${y}`
+      : `${wochentagVon(iso, lang)}, ${d}. ${monat} ${y}`;
+  }
+  // Ein Zeitraum, knapp: "26.09.–26.12.2026" (gleiches Jahr nur einmal),
+  // "26 Sep – 26 Dec 2026". Für die Datum-Pille und den Datum-Chip.
+  function formatDateRangeShort(a, b, lang) {
+    if (!a) return '';
+    if (!b || a === b) return formatDate(a, lang);
+    const [ya, ma, da] = a.split('-').map(Number);
+    const [yb] = b.split('-').map(Number);
+    if (lang === 'en') {
+      const mon = MONATE_KURZ.en;
+      const [, mb, db] = b.split('-').map(Number);
+      return ya === yb
+        ? `${da} ${mon[ma - 1]} – ${db} ${mon[mb - 1]} ${yb}`
+        : `${formatDate(a, lang)} – ${formatDate(b, lang)}`;
+    }
+    const kurz = `${String(da).padStart(2, '0')}.${String(ma).padStart(2, '0')}.`;
+    return ya === yb ? `${kurz}–${formatDate(b, lang)}` : `${formatDate(a, lang)}–${formatDate(b, lang)}`;
+  }
+  // Ganze Zahlen mit Tausendertrennzeichen: "1.889" / "1,889".
+  function formatInt(n, lang) {
+    const s = String(Math.round(Number(n) || 0));
+    const mitPunkt = s.replace(/\B(?=(\d{3})+(?!\d))/g, lang === 'en' ? ',' : '.');
+    return mitPunkt;
+  }
+  // "in 6 Tagen", "heute", "morgen", "in 3 Wochen", "in 5 Monaten" - die
+  // Zeile unter dem großen Datum der Box. Leer für Vergangenes.
+  function relativeDays(iso, lang, heute) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    const ziel = Date.UTC(y, m - 1, d);
+    const jetzt = heute ? Date.UTC(heute.getFullYear(), heute.getMonth(), heute.getDate())
+                        : (() => { const n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); })();
+    const tage = Math.round((ziel - jetzt) / 86400000);
+    if (tage < 0) return '';
+    const en = lang === 'en';
+    if (tage === 0) return en ? 'today' : 'heute';
+    if (tage === 1) return en ? 'tomorrow' : 'morgen';
+    if (tage < 21) return en ? `in ${tage} days` : `in ${tage} Tagen`;
+    if (tage < 90) { const w = Math.round(tage / 7); return en ? `in ${w} weeks` : `in ${w} Wochen`; }
+    const mon = Math.round(tage / 30.4);
+    if (mon < 24) return en ? `in ${mon} months` : `in ${mon} Monaten`;
+    const j = Math.round(tage / 365);
+    return en ? `in ${j} years` : `in ${j} Jahren`;
   }
 
   // Dezimaltrennzeichen je Sprache: im Deutschen das Komma, im Englischen
@@ -820,20 +907,29 @@
     const t = ctx.t;
     const tv = ctx.tv;
     const chips = [];
-    if (state.suche.trim()) chips.push({ label: t('chip_suche', state.suche.trim()), clear: () => { state.suche = ''; } });
-    if (state.nameQuery.trim()) chips.push({ label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
+    // Jeder Chip trägt `col` (welcher Filterknopf) und `value` (der
+    // Wert ohne "Datum: "-Vorsatz): Die Filterknöpfe über der Liste
+    // zeigen seit dem 21.09.2026 den gesetzten Wert direkt in der
+    // Pille ("Sportart: Laufen"), gerechnet aus genau diesen Chips -
+    // keine zweite Zusammenfassung (filter-ui.js, filterSummary).
+    if (state.suche.trim()) chips.push({ col: 'suche', value: state.suche.trim(), label: t('chip_suche', state.suche.trim()), clear: () => { state.suche = ''; } });
+    if (state.nameQuery.trim()) chips.push({ col: 'name', value: state.nameQuery.trim(), label: t('chip_name', state.nameQuery.trim()), clear: () => { state.nameQuery = ''; } });
     if (state.selectedDays.size > 0) {
       // Sind alle vorhandenen Termine ausgewählt, ist "Datum: Alle"
       // aussagekräftiger als "Datum: 812 Tage ausgewählt" - gleiche
-      // Logik wie bei den Mengen-Filtern.
+      // Logik wie bei den Mengen-Filtern. Ein Zeitraum-Knopf ("Nächste
+      // 3 Monate") steht als ZEITRAUM da ("26.09.–26.12.2026"): Das
+      // sagt, was gefiltert ist, der Knopfname nicht.
       const alleTage = ctx.dayCount || 0;
       const preset = DATE_PRESETS.find(x => x.key === state.datePreset);
-      const label = preset
-        ? t('chip_datum_preset', t(preset.labelKey))
-        : alleTage > 0 && state.selectedDays.size >= alleTage
-          ? t('chip_datum_all')
-          : t('chip_datum', state.selectedDays.size);
-      chips.push({ label, clear: () => { state.selectedDays.clear(); state.datePreset = null; } });
+      const tage = Array.from(state.selectedDays).sort();
+      let value;
+      if (preset) value = formatDateRangeShort(tage[0], tage[tage.length - 1], ctx.lang);
+      else if (alleTage > 0 && state.selectedDays.size >= alleTage) value = t('chip_value_all');
+      else if (tage.length === 1) value = formatDate(tage[0], ctx.lang);
+      else value = t('chip_value_days', tage.length);
+      chips.push({ col: 'datum', value, label: t('chip_datum_wert', value),
+                   clear: () => { state.selectedDays.clear(); state.datePreset = null; } });
     }
 
     function pushSetChips(stateKey, chipKey, format) {
@@ -841,17 +937,18 @@
       if (selected.size === 0) return;
       const optionCount = ctx.optionCount ? ctx.optionCount(stateKey) : 0;
       if (optionCount > 0 && selected.size >= optionCount) {
-        chips.push({ label: t(chipKey, t('chip_value_all')), clear: () => selected.clear() });
+        chips.push({ col: stateKey, value: t('chip_value_all'), label: t(chipKey, t('chip_value_all')), clear: () => selected.clear() });
         return;
       }
       if (selected.size > MAX_VALUE_CHIPS) {
         chips.push({
+          col: stateKey, value: t('chip_value_count', selected.size),
           label: t(chipKey, t('chip_value_count', selected.size)),
           clear: () => selected.clear()
         });
         return;
       }
-      selected.forEach(v => chips.push({ label: t(chipKey, format(v)), clear: () => selected.delete(v) }));
+      selected.forEach(v => chips.push({ col: stateKey, value: format(v), label: t(chipKey, format(v)), clear: () => selected.delete(v) }));
     }
     pushSetChips('land', 'chip_land', v => tv('land', v));
     pushSetChips('standort', 'chip_standort', v => tv('standort', v));
@@ -860,10 +957,11 @@
 
     // Die Zahl kommt aus einem <input type="number"> und trägt dort immer
     // einen Punkt - im deutschen Chip muss ein Komma stehen.
-    if (state.laengeMin !== '') chips.push({ label: t('chip_laenge_ab', formatNumber(state.laengeMin, ctx.lang, 1)), clear: () => { state.laengeMin = ''; } });
-    if (state.laengeMax !== '') chips.push({ label: t('chip_laenge_bis', formatNumber(state.laengeMax, ctx.lang, 1)), clear: () => { state.laengeMax = ''; } });
+    if (state.laengeMin !== '') chips.push({ col: 'laenge_km', value: t('chip_ab_km', formatNumber(state.laengeMin, ctx.lang, 1)), label: t('chip_laenge_ab', formatNumber(state.laengeMin, ctx.lang, 1)), clear: () => { state.laengeMin = ''; } });
+    if (state.laengeMax !== '') chips.push({ col: 'laenge_km', value: t('chip_bis_km', formatNumber(state.laengeMax, ctx.lang, 1)), label: t('chip_laenge_bis', formatNumber(state.laengeMax, ctx.lang, 1)), clear: () => { state.laengeMax = ''; } });
     if (state.distanceCategories.size > MAX_VALUE_CHIPS) {
       chips.push({
+        col: 'laenge_km', value: t('chip_value_count', state.distanceCategories.size),
         label: t('chip_distanz_count', state.distanceCategories.size),
         clear: () => state.distanceCategories.clear()
       });
@@ -872,13 +970,14 @@
       const sport = compositeKey.slice(0, sep);
       const catKey = compositeKey.slice(sep + 1);
       const label = DISTANCE_CATEGORY_LABELS[ctx.lang][catKey] || catKey;
-      chips.push({ label: t('chip_distanz', tv('art1', sport), label), clear: () => state.distanceCategories.delete(compositeKey) });
+      chips.push({ col: 'laenge_km', value: label, label: t('chip_distanz', tv('art1', sport), label), clear: () => state.distanceCategories.delete(compositeKey) });
     });
     if (state.origin && state.radiusKm != null) {
       // Das Kreuz am Chip entfernt den Ausgangspunkt gleich mit: ein
       // Ausgangspunkt ohne Umkreis filtert nichts und stünde nur noch
       // unsichtbar im Panel.
       chips.push({
+        col: 'standort', value: t('chip_umkreis_wert', state.radiusKm, state.origin.label),
         label: t('chip_umkreis', state.radiusKm, state.origin.label),
         clear: () => { (ctx.setOrigin || setOriginPlain)(state, null); }
       });
@@ -887,6 +986,11 @@
   }
 
   global.EnduranceFilters = {
+    formatDateWeekday,
+    formatDateLong,
+    formatDateRangeShort,
+    formatInt,
+    relativeDays,
     I18N,
     VALUE_TRANSLATIONS,
     LAENDER,

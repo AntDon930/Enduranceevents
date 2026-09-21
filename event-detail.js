@@ -29,13 +29,18 @@
       detail_datum: 'Datum', detail_sportart: 'Sportart', detail_kategorie: 'Kategorie',
       detail_standort: 'Stadt/Ort', detail_land: 'Land', detail_laenge: 'Länge',
       detail_wettbewerb: 'Wettbewerb',
-      detail_link: 'Zur Veranstalter-Website',
+      detail_strecke: 'Strecke',
+      detail_veranstalter: 'Veranstalter',
+      detail_ort: 'Ort',
+      detail_strecken_titel: 'Strecken dieser Veranstaltung',
+      detail_link: 'Zur Veranstalterseite',
+      detail_map: 'Auf der Karte',
       detail_close: 'Schließen',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
       report_btn: 'Fehler zu diesem Event melden',
-      cal_btn: 'Zum Kalender hinzufügen',
+      cal_btn: 'Kalender',
       cal_google: 'Google Kalender / Gmail',
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Kalender & andere (.ics)',
@@ -47,13 +52,18 @@
       detail_datum: 'Date', detail_sportart: 'Sport', detail_kategorie: 'Category',
       detail_standort: 'City', detail_land: 'Country', detail_laenge: 'Length',
       detail_wettbewerb: 'Race',
-      detail_link: 'Visit organizer website',
+      detail_strecke: 'Distance',
+      detail_veranstalter: 'Organizer',
+      detail_ort: 'Place',
+      detail_strecken_titel: 'Races of this event',
+      detail_link: 'Organizer website',
+      detail_map: 'On the map',
       detail_close: 'Close',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       share_fail: 'Could not copy – please use the address bar',
       report_btn: 'Report an error in this event',
-      cal_btn: 'Add to calendar',
+      cal_btn: 'Calendar',
       cal_google: 'Google Calendar / Gmail',
       cal_outlook: 'Outlook',
       cal_ics: 'Apple Calendar & others (.ics)',
@@ -125,9 +135,12 @@
   // und die Zeilenhöhe von 52 px stimmt.
   // Die Textfassung oben bleibt für Melde-Dialog und Teilen-Text - dort
   // wird der Rückgabewert escaped, ein <br> stünde als Zeichenfolge da.
-  function formatRangeHtml(start, end, lang) {
-    if (start === end) return escapeHtml(formatDate(start, lang));
-    return `${escapeHtml(formatDate(start, lang))} –<br>${escapeHtml(formatDate(end, lang))}`;
+  // `weekday`: mit Wochentag davor ("So 27.09.2026") - die Tabelle seit
+  // dem 21.09.2026 (Vorlage des Nutzers).
+  function formatRangeHtml(start, end, lang, weekday) {
+    const f = weekday ? EF.formatDateWeekday : formatDate;
+    if (start === end) return escapeHtml(f(start, lang));
+    return `${escapeHtml(f(start, lang))} –<br>${escapeHtml(f(end, lang))}`;
   }
 
   // Was in der Spalte "Länge" und in der Box steht. Nicht jedes Rennen
@@ -447,6 +460,74 @@
 
   // ---------- Die Box ----------
 
+  // ---------- Sportart-Icons ----------
+  //
+  // Ein Strich-Icon je Sportart, in der Tabelle vor der Sportart und
+  // im Abzeichen der Box (Vorlage des Nutzers, 21.09.2026). Inline-SVG
+  // statt Bilddateien: kein weiterer Abruf, färbbar über currentColor,
+  // und die Liste zeichnet 200 Zeilen als EINEN String - ein <img> je
+  // Zeile wäre ein Abruf je Zeile.
+  const SPORT_SVG = {
+    Laufen: '<circle cx="15" cy="4.5" r="2"/><path d="M9.5 20.5l2.5-5 3 2.5 1-4M6.5 19l3-5.5L8 11l2.5-3.5 4 1.5 1.5 3 3 1"/>',
+    Schwimmen: '<circle cx="16.5" cy="6" r="2"/><path d="M4 12l3.5-2.5 3 2.5 3-2.5 2 1.5"/><path d="M2 18c1.7 1.3 3.3 1.3 5 0s3.3-1.3 5 0 3.3 1.3 5 0 3.3-1.3 5 0"/><path d="M8 12l1-4.5 4-1 2 3"/>',
+    Fahrrad: '<circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4.5-9h3l4.5 9M10 8h3.5M13.5 8l2.5 4"/>',
+    Triathlon: '<circle cx="12" cy="4" r="1.8"/><path d="M12 6v5l-3 4M12 11l3 4M5 20h14M8 17.5l-1.5 2.5M16 17.5l1.5 2.5"/>'
+  };
+  function sportIcon(art1, size) {
+    const pfad = SPORT_SVG[art1] || SPORT_SVG.Laufen;
+    const px = size || 16;
+    return `<svg class="sport-icon" viewBox="0 0 24 24" width="${px}" height="${px}" fill="none"`
+      + ' stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"'
+      + ` aria-hidden="true">${pfad}</svg>`;
+  }
+
+  const FACT_SVG = {
+    ort: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    strecke: '<path d="M4 17c3-6 5-6 8 0s5 6 8 0"/><circle cx="4" cy="17" r="1.5"/><circle cx="20" cy="17" r="1.5"/>',
+    kategorie: '<path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+    veranstalter: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'
+  };
+  function factIcon(key) {
+    return `<span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"`
+      + ' stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+      + `${FACT_SVG[key]}</svg></span>`;
+  }
+  const MAP_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
+    + ' stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>';
+  const EXT_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"'
+    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/></svg>';
+  const CARET_SVG = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"'
+    + ' stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+
+  // Der Veranstalter als Hostname ohne "www." - "kraichgaulauf.de"
+  // statt der ganzen Adresse. Der Link selbst bleibt vollständig.
+  function hostVon(url) {
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
+  }
+
+  // Die Strecken einer Veranstaltung als Pillen: nach Länge sortiert,
+  // Zeitrennen dahinter, die gewählte hervorgehoben.
+  function streckenPillen(e, ctx) {
+    const geschwister = (ctx.siblings || []).slice();
+    if (geschwister.length < 2) return '';
+    const wert = x => x.e.laenge_km != null ? [0, Number(x.e.laenge_km)]
+                    : x.e.dauer_h != null ? [1, Number(x.e.dauer_h)] : [2, 0];
+    geschwister.sort((a, b) => { const va = wert(a), vb = wert(b); return va[0] - vb[0] || va[1] - vb[1]; });
+    const t = ctx.t;
+    return `<div class="detail-section-title">${escapeHtml(t('detail_strecken_titel'))}</div>`
+      + '<div class="detail-strecken" role="group">'
+      + geschwister.map(x => {
+          const aktiv = x.e === e;
+          const wb = displayWettbewerb(x.e);
+          const beschriftung = formatLength(x.e, ctx.lang);
+          return `<button type="button" class="strecke-pill${aktiv ? ' active' : ''}" data-idx="${x.idx}"`
+            + `${aktiv ? ' aria-pressed="true"' : ''}${wb ? ` title="${escapeHtml(wb)}"` : ''}>${escapeHtml(beschriftung)}</button>`;
+        }).join('')
+      + '</div>';
+  }
+
   const SHARE_SVG = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"'
     + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>'
@@ -459,42 +540,64 @@
     container.innerHTML = `<div class="detail-empty">${escapeHtml(ctx.t('detail_empty'))}</div>`;
   }
 
-  // ctx: { t, tv, lang, onReport?, onClose? }. Gibt nichts zurück; die
-  // Knöpfe hängen an der Box selbst.
+  // ctx: { t, tv, lang, onReport?, onClose?, siblings?, onSelect?, mapLink? }.
+  // Gibt nichts zurück; die Knöpfe hängen an der Box selbst.
+  //
+  // Aufbau seit dem 21.09.2026 (Vorlage des Nutzers): das Datum groß
+  // und zuerst, darunter "in 6 Tagen"; ein Abzeichen mit Sportart und
+  // Kategorie; der Name; die STRECKEN der Veranstaltung als Pillen (nur
+  // wenn es mehrere gibt - `siblings` sind die Zeilen derselben
+  // Veranstaltung, `onSelect(idx)` wechselt); vier Fakten mit Symbol
+  // (Ort, Strecke, Kategorie, Veranstalter); dann die Knöpfe, klar
+  // gestuft: die Veranstalterseite als Hauptknopf, Kalender und Karte
+  // daneben, "Fehler melden" als leiser Link. `mapLink` (Liste) ist die
+  // Adresse der Karte mit diesem Event; auf der Karte fehlt der Knopf.
   function render(container, e, ctx) {
     const { t, tv, lang } = ctx;
     const wb = displayWettbewerb(e);
+    const relativ = EF.relativeDays(e.datum_start, lang);
+    const mehrtaegig = e.datum_ende && e.datum_ende !== e.datum_start;
+    const datumGross = mehrtaegig
+      ? `${escapeHtml(EF.formatDateLong(e.datum_start, lang))} –<br>${escapeHtml(EF.formatDateLong(e.datum_ende, lang))}`
+      : escapeHtml(EF.formatDateLong(e.datum_start, lang));
+    const kategorie = `${tv('art1', e.art1)}${e.art2 ? ' · ' + tv('art2', e.art2) : ''}`;
+    const strecke = `${formatLength(e, lang)}${wb ? ' · ' + wb : ''}`;
     container.innerHTML = `
       <div class="detail-head">
         <div class="detail-head-text">
-          <h2>${escapeHtml(e.name)}</h2>
-          <div class="sub">${escapeHtml(tv('standort', e.standort))}, ${escapeHtml(tv('land', e.land))}</div>
+          <div class="detail-date">${datumGross}</div>
+          ${relativ ? `<div class="detail-relative">${escapeHtml(relativ)}</div>` : ''}
         </div>
         <button type="button" class="detail-share event-share-btn"
                 title="${escapeHtml(t('share_event'))}" aria-label="${escapeHtml(t('share_event'))}">${SHARE_SVG}</button>
         ${ctx.onClose ? `<button type="button" class="detail-share detail-close"
                 title="${escapeHtml(t('detail_close'))}" aria-label="${escapeHtml(t('detail_close'))}">&#10005;</button>` : ''}
       </div>
+      <div class="detail-badge">${sportIcon(e.art1, 15)}<span>${escapeHtml(kategorie)}</span></div>
+      <h2>${escapeHtml(e.name)}</h2>
+      ${streckenPillen(e, ctx)}
       <dl class="detail-grid">
-        <dt>${escapeHtml(t('detail_datum'))}</dt><dd>${formatRangeHtml(e.datum_start, e.datum_ende, lang)}</dd>
-        <dt>${escapeHtml(t('detail_land'))}</dt><dd>${escapeHtml(tv('land', e.land))}</dd>
-        <dt>${escapeHtml(t('detail_standort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))}</dd>
-        <dt>${escapeHtml(t('detail_sportart'))}</dt><dd>${escapeHtml(tv('art1', e.art1))}</dd>
-        <dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(e.art2 ? tv('art2', e.art2) : '–')}</dd>
-        ${wb ? `<dt>${escapeHtml(t('detail_wettbewerb'))}</dt><dd>${escapeHtml(wb)}</dd>` : ''}
-        <dt>${escapeHtml(t('detail_laenge'))}</dt><dd>${formatLength(e, lang)}</dd>
+        <div class="fact">${factIcon('ort')}<div><dt>${escapeHtml(t('detail_ort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))},<br>${escapeHtml(tv('land', e.land))}</dd></div></div>
+        <div class="fact">${factIcon('strecke')}<div><dt>${escapeHtml(t('detail_strecke'))}</dt><dd>${escapeHtml(strecke)}</dd></div></div>
+        <div class="fact">${factIcon('kategorie')}<div><dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(kategorie)}</dd></div></div>
+        <div class="fact">${factIcon('veranstalter')}<div><dt>${escapeHtml(t('detail_veranstalter'))}</dt><dd>${e.veranstalter_url
+            ? `<a class="detail-host" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hostVon(e.veranstalter_url))}</a>`
+            : '–'}</dd></div></div>
       </dl>
-      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t('detail_link'))}</a>` : ''}
-      <div class="cal-box">
-        <button type="button" class="cal-btn cal-open-btn" aria-expanded="false">
-          ${CAL_SVG}<span>${escapeHtml(t('cal_btn'))}</span>
-        </button>
-        <div class="cal-menu" hidden>
-          <a class="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
-          <a class="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
-          <a class="cal-ics">${escapeHtml(t('cal_ics'))}</a>
-          <div class="cal-note"></div>
+      ${e.veranstalter_url ? `<a class="detail-link" href="${escapeHtml(e.veranstalter_url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(t('detail_link'))}</span>${EXT_SVG}</a>` : ''}
+      <div class="detail-actions">
+        <div class="cal-box">
+          <button type="button" class="cal-btn cal-open-btn" aria-expanded="false">
+            ${CAL_SVG}<span>${escapeHtml(t('cal_btn'))}</span>${CARET_SVG}
+          </button>
+          <div class="cal-menu" hidden>
+            <a class="cal-google" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_google'))}</a>
+            <a class="cal-outlook" target="_blank" rel="noopener noreferrer">${escapeHtml(t('cal_outlook'))}</a>
+            <a class="cal-ics">${escapeHtml(t('cal_ics'))}</a>
+            <div class="cal-note"></div>
+          </div>
         </div>
+        ${ctx.mapLink ? `<a class="cal-btn detail-map-btn" href="${escapeHtml(ctx.mapLink)}">${MAP_SVG}<span>${escapeHtml(t('detail_map'))}</span></a>` : ''}
       </div>
       ${ctx.onReport ? `<button type="button" class="report-btn report-open-btn">${escapeHtml(t('report_btn'))}</button>` : ''}
     `;
@@ -504,6 +607,11 @@
     }
     if (ctx.onClose) {
       container.querySelector('.detail-close').addEventListener('click', () => ctx.onClose(e));
+    }
+    if (ctx.onSelect) {
+      container.querySelectorAll('.strecke-pill').forEach(btn => {
+        btn.addEventListener('click', () => ctx.onSelect(Number(btn.dataset.idx)));
+      });
     }
     setupCalendarBox(container, e, ctx);
   }
@@ -523,6 +631,8 @@
     eventShareText,
     teileEvent,
     showToast,
-    kopiereInAblage
+    kopiereInAblage,
+    sportIcon,
+    hostVon
   };
 })(typeof window !== 'undefined' ? window : globalThis);

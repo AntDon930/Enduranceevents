@@ -7,8 +7,12 @@
    filter-ui.js. Zwei Kopien desselben CSS wären beim nächsten Umbau
    auseinandergelaufen.
 
-   Gebraucht werden die Farbvariablen der Seite: --panel, --border,
-   --text, --text-muted, --accent, --accent-bg, --bg und --row-hover. */
+   Gebraucht werden die Farbvariablen der Seite: --panel, --panel-2,
+   --border, --border-strong, --text, --text-muted, --accent,
+   --on-accent, --accent-bg, --bg und --row-hover. Seit dem Umbau vom
+   21.09.2026 (Vorlage des Nutzers: dunkle Fläche, helle Pillen) ist
+   --accent die HELLE Hervorhebung und --on-accent die Schrift darauf;
+   ein festes #fff auf einer Akzentfläche wäre unsichtbar. */
 
 .col-filter-btn {
   list-style: none;
@@ -25,30 +29,56 @@
 .col-filter-btn.open,
 .col-filter-btn.has-filter {
   color: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--border-strong, var(--accent));
   background: var(--accent-bg);
 }
-/* Knopfreihe außerhalb einer Tabelle (Karte): dieselben Knöpfe, aber mit
-   Beschriftung statt nur "▾" - ohne Spaltenkopf daneben wüsste sonst
-   niemand, welcher Knopf welcher Filter ist. */
+/* Die Knopfreihe (Liste, Karte, Abo-Dialog): Pillen mit Beschriftung,
+   gesetztem Wert und Pfeil - "Sportart: Laufen ▾". Eine gesetzte Pille
+   ist heller umrandet, damit man auf einen Blick sieht, welche Filter
+   greifen. */
 .filter-btn-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 .filter-btn-bar .col-filter-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
-  font-size: 0.78rem;
+  gap: 6px;
+  padding: 0 12px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
   color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: 100%;
 }
+.filter-btn-bar .col-filter-btn:hover { border-color: var(--border-strong, var(--text-muted)); }
 .filter-btn-bar .col-filter-btn.open,
-.filter-btn-bar .col-filter-btn.has-filter { color: var(--accent); }
+.filter-btn-bar .col-filter-btn.has-filter {
+  color: var(--text);
+  border-color: var(--border-strong, var(--accent));
+  background: var(--accent-bg);
+}
+.filter-btn-bar .fb-label { color: var(--text-muted); font-weight: 500; }
+.filter-btn-bar .col-filter-btn.has-filter .fb-label::after { content: ':'; }
+.filter-btn-bar .fb-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+.filter-btn-bar .fb-value:empty { display: none; }
+.filter-btn-bar .fb-caret { display: inline-flex; color: var(--text-muted); margin-left: 2px; }
+/* Im Abo-Dialog ist weniger Platz: kompaktere Pillen. */
+.abo-filter-bar .col-filter-btn { height: 36px; padding: 0 11px; font-size: 0.82rem; border-radius: 10px; }
 
 .filter-panel {
   position: fixed;
+  color: var(--text);
   /* Über den Leaflet-Bedienelementen der Karte (die liegen bei 800) und
      unter dem Anmelde-Fenster (2000) und der Kurzmeldung (3000). Mit den
      früheren 100 verschwand das Panel auf der Karte hinter den
@@ -56,11 +86,11 @@
   z-index: 1000;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  padding: 10px;
-  min-width: 220px;
-  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+  padding: 12px;
+  min-width: 240px;
+  max-width: 300px;
   font-weight: normal;
   white-space: normal;
   font-size: 0.86rem;
@@ -251,7 +281,7 @@
 }
 .distance-tab.active {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent, #fff);
   border-color: var(--accent);
 }
 .distance-categories {
@@ -279,7 +309,7 @@
   cursor: pointer;
 }
 .date-preset:hover { background: var(--row-hover); }
-.date-preset.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.date-preset.active { background: var(--accent); color: var(--on-accent, #fff); border-color: var(--accent); }
 
 .date-tree {
   max-height: 240px;
@@ -332,24 +362,25 @@
   position: relative;
   display: flex;
   align-items: center;
-  flex: 0 1 260px;
+  flex: 0 1 320px;
   min-width: 170px;
 }
 .master-search svg {
   position: absolute;
-  left: 9px;
+  left: 14px;
   color: var(--text-muted);
   pointer-events: none;
 }
 .master-search input {
   width: 100%;
-  padding: 7px 28px 7px 30px;
-  border-radius: 999px;
+  height: 44px;
+  padding: 0 34px 0 40px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text);
   font: inherit;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   /* `type="search"` bringt in WebKit eine eigene Optik mit (eckige
      Ecken in Safari) - abschalten, sonst sieht das Feld auf dem iPhone
      anders aus als überall sonst. */
@@ -379,8 +410,8 @@
   list-style: none;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   max-height: 46vh;
   overflow-y: auto;
 }
@@ -409,9 +440,10 @@
 }
 /* Das ✕ erscheint nur, wenn etwas im Feld steht - ein dauerhaft
    sichtbares Kreuz an einem leeren Feld sieht nach Fehler aus. */
+.master-search input::placeholder { color: var(--text-muted); }
 .master-search button {
   position: absolute;
-  right: 6px;
+  right: 10px;
   border: none;
   background: none;
   color: var(--text-muted);

@@ -37,7 +37,8 @@
       col_datum: 'Datum',
       col_name: 'Name',
       col_sportart: 'Sportart',
-      col_standort: 'Stadt/Ort',
+      col_standort: 'Ort & Umkreis',
+      col_standort_kurz: 'Ort',
       col_land: 'Land',
       col_kategorie: 'Kategorie',
       col_laenge: 'Länge',
@@ -89,7 +90,8 @@
       col_datum: 'Date',
       col_name: 'Name',
       col_sportart: 'Sport',
-      col_standort: 'City',
+      col_standort: 'Place & radius',
+      col_standort_kurz: 'Place',
       col_land: 'Country',
       col_kategorie: 'Category',
       col_laenge: 'Length',
@@ -174,7 +176,7 @@
     { key: 'name', labelKey: 'col_name', type: 'text' },
     { key: 'datum', labelKey: 'col_datum', type: 'date-tree' },
     { key: 'land', labelKey: 'col_land', type: 'checkbox' },
-    { key: 'standort', labelKey: 'col_standort', type: 'standort' },
+    { key: 'standort', labelKey: 'col_standort', headerKey: 'col_standort_kurz', type: 'standort' },
     { key: 'art1', labelKey: 'col_sportart', type: 'checkbox' },
     { key: 'art2', labelKey: 'col_kategorie', type: 'checkbox' },
     { key: 'laenge_km', labelKey: 'col_laenge', type: 'number-range' }
@@ -1092,14 +1094,39 @@
     // Abgehängte Knöpfe fallen dabei heraus: `buildHeader()` in der
     // Liste baut die Spaltenköpfe bei jedem Ausgangspunkt neu, die alten
     // bleiben sonst für immer in der Sammlung.
+    // Der gesetzte Wert eines Filters als kurzer Text für seine Pille
+    // ("Laufen", "26.09.–26.12.2026", "3 ausgewählt"). Gerechnet aus den
+    // Chips (EF.buildChips, Feld `col`/`value`), damit Pille und Chip
+    // nie Verschiedenes behaupten.
+    function filterSummaries() {
+      const alle = getEvents();
+      const chips = EF.buildChips(state, {
+        t, tv, lang: lang(),
+        dayCount: uniqueSorted(alle.map(e => e.datum_start)).length,
+        optionCount: stateKey => columnOptions(stateKey).length,
+        setOrigin: () => {}
+      });
+      const je = {};
+      chips.forEach(c => { if (c.col) (je[c.col] = je[c.col] || []).push(c.value); });
+      const out = {};
+      Object.keys(je).forEach(col => {
+        const werte = je[col];
+        out[col] = werte.length <= 2 ? werte.join(', ') : t('chip_value_count', werte.length);
+      });
+      return out;
+    }
+
     function updateIndicators() {
       for (let i = buttons.length - 1; i >= 0; i--) {
         if (!buttons[i].isConnected) buttons.splice(i, 1);
       }
+      const werte = buttons.some(b => b.querySelector('.fb-value')) ? filterSummaries() : null;
       buttons.forEach(btn => {
         const col = btn.dataset.col;
         btn.classList.toggle('has-filter', columnHasFilter(col));
         btn.classList.toggle('open', openColKey === col);
+        const wert = btn.querySelector('.fb-value');
+        if (wert) wert.textContent = werte && werte[col] ? werte[col] : '';
         // Für Tastatur und Screenreader: der Knopf öffnet ein Panel, und
         // ob es offen ist, steht nicht nur in der Farbe.
         btn.setAttribute('aria-haspopup', 'dialog');
@@ -1159,15 +1186,26 @@
     // `opts.ohne`: Spalten, die hier keinen Knopf bekommen. Der
     // Abo-Dialog lässt damit „Datum" weg - ein Abo schaut in die
     // Zukunft, ein Datumsfilter wäre dort sinnlos.
+    // `opts.order`: Reihenfolge der Knöpfe (Spaltenschlüssel). Die Liste
+    // zeigt seit dem 21.09.2026 dieselbe Knopfreihe wie die Karte - über
+    // der Tabelle statt in den Spaltenköpfen, in der Reihenfolge der
+    // Vorlage des Nutzers (Datum, Sportart, Kategorie, Länge, Ort, Land).
+    // Jede Pille trägt ihren gesetzten Wert (.fb-value, siehe
+    // updateIndicators): "Sportart: Laufen" statt nur eines Farbpunkts.
     function buildButtonBar(container, opts) {
       const ohne = (opts && opts.ohne) || [];
+      const order = (opts && opts.order) || COLUMNS.map(c => c.key);
       container.innerHTML = '';
       buttons.length = 0;
-      COLUMNS.filter(col => ohne.indexOf(col.key) < 0).forEach(col => {
+      order.map(key => COLUMNS.find(c => c.key === key)).filter(col => col && ohne.indexOf(col.key) < 0).forEach(col => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'col-filter-btn';
-        btn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span><span aria-hidden="true">▾</span>`;
+        btn.innerHTML = `<span class="fb-label">${escapeHtml(t(col.labelKey))}</span>`
+          + `<span class="fb-value"></span><span class="fb-caret" aria-hidden="true">`
+          + '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"'
+          + ' stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
+          + '</span>';
         attachButton(btn, col);       // meldet den Knopf auch an `buttons`
         container.appendChild(btn);
       });

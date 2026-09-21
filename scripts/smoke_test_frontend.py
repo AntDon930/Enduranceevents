@@ -364,7 +364,7 @@ def pruefe_such_vorschlaege(ctx, basis):
     # vergleichen: Die 180-ms-Verzögerung hat da schon gezeichnet, die
     # Zahl ist also längst dieselbe - der erste Versuch dieser Prüfung
     # schlug genau daran an.
-    zahlen = [int(z) for z in re.findall(r"\d+", danach["treffer"])]
+    zahlen = [int(z.replace(".", "")) for z in re.findall(r"\d[\d.]*", danach["treffer"])]
     pruefe(len(zahlen) >= 1 and 0 < zahlen[0] < 200,
            "die Liste ist auf die Serie gefiltert (%s)" % danach["treffer"])
     pruefe("s=Ironman" in danach["adresse"].replace("%20", " "),
@@ -445,13 +445,14 @@ def pruefe_gruppierung(ctx, basis):
         return
     pruefe(not any("col-anzahl" in k for k in zu["spalten"]),
            "es gibt keine „#\u201c-Spalte mehr (%d Spalten)" % len(zu["spalten"]))
-    # Der Pfeil sitzt jetzt ganz links, an der Stelle der alten Zahl.
+    # Der Pfeil sitzt ganz links in der NAMENS-Spalte (seit dem Umbau vom
+    # 21.09.2026 ist Datum die erste Spalte, der Name die zweite).
     pruefe(seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
                const pfeil = r.querySelector('.chevron');
-               const zelle = r.querySelector('td');
+               const zelle = r.querySelector('td.col-name');
                if (!pfeil || !zelle) return false;
                return pfeil.getBoundingClientRect().left - zelle.getBoundingClientRect().left < 16; }"""),
-           "der Aufklapp-Pfeil steht am linken Rand der ersten Spalte")
+           "der Aufklapp-Pfeil steht am linken Rand der Namensspalte")
 
     # Auf diese eine Veranstaltung eingrenzen (über die Mastersuche) und
     # ihre Strecken ZÄHLEN - einmal ohne Zusammenfassen, da steht je
@@ -506,8 +507,12 @@ def pruefe_gruppierung(ctx, basis):
     # Aufklappen - und zwar GENAU diese Veranstaltung, nicht die erste
     # aufklappbare Zeile der Suchtreffer: Bei einer Serie kann davor ein
     # anderer Termin mit demselben Namen stehen.
+    # Der Name ohne die zweite Zeile: aufgeklappt steht unter dem Namen
+    # der Wettbewerb bzw. die Länge (eigener Span), nur die Textknoten
+    # sind der Name.
     finde_gruppe = """(zu) => [...document.querySelectorAll('tr.group-row:not(.single)')].find(r =>
-        r.querySelector('.group-name-text').textContent.trim() === zu.name
+        [...r.querySelector('.group-name-text').childNodes].filter(n => n.nodeType === 3)
+            .map(n => n.textContent).join('').trim() === zu.name
         && ((r.querySelector('.col-datum') || {}).textContent || '').trim() === zu.datum
         && ((r.querySelector('.col-standort') || {}).textContent || '').trim() === zu.ort)"""
     seite.evaluate("(zu) => { const r = (" + finde_gruppe + ")(zu); if (r) r.click(); }", zu)
@@ -995,7 +1000,7 @@ def pruefe_fenster(ctx, basis):
         treffer: document.querySelector('.result-count').textContent.trim(),
         knopf: (document.querySelector('.mehr-btn') || {}).textContent || ''
     })""")
-    gesamt = int(stand["treffer"].split(" ")[0])
+    gesamt = int(stand["treffer"].split(" ")[0].replace(".", "").replace(",", ""))
     pruefe(0 < stand["zeilen"] < gesamt,
            "nur ein Teil der Zeilen im DOM (%d von %d)" % (stand["zeilen"], gesamt))
     pruefe(str(gesamt - stand["zeilen"]) in stand["knopf"],
@@ -1018,10 +1023,12 @@ def pruefe_fenster(ctx, basis):
     gefiltert = seite.evaluate("""() => ({
         treffer: document.querySelector('.result-count').textContent.trim(),
         zeilen: document.querySelectorAll('tbody tr[data-idx]').length })""")
-    teile = gefiltert["treffer"].split(" ")
-    pruefe(gefiltert["zeilen"] > 0 and teile[0] != "0" and teile[0] != teile[2],
-           "Filter greift über alle Events, nicht nur über das Fenster (%s)"
-           % gefiltert["treffer"])
+    # Die Trefferzeile nennt nur noch die Zahl ("1.889 Events") - gegen
+    # die ungefilterte Zahl von oben gehalten.
+    gefiltert_zahl = int(gefiltert["treffer"].split(" ")[0].replace(".", "").replace(",", "") or 0)
+    pruefe(gefiltert["zeilen"] > 0 and 0 < gefiltert_zahl < gesamt,
+           "Filter greift über alle Events, nicht nur über das Fenster (%s von %d)"
+           % (gefiltert["treffer"], gesamt))
     seite.close()
 
 
@@ -1327,7 +1334,7 @@ def pruefe_karten_suche(ctx, basis):
         chip: document.getElementById('active-chips').textContent,
         liste: document.getElementById('list-btn-label').getAttribute('href')
     })""")
-    zahl = lambda txt: int(re.search(r"\d+", txt).group(0)) if re.search(r"\d+", txt) else -1
+    zahl = lambda txt: int(re.search(r"\d[\d.]*", txt).group(0).replace(".", "")) if re.search(r"\d", txt) else -1
     pruefe(0 < zahl(nachher["hinweis"]) < zahl(vorher),
            "Karte: die Suche filtert die Marker (%s → %s)" % (vorher, nachher["hinweis"]))
     pruefe("s=ironman" in nachher["url"], "Karte: die Suche steht in der Adresse (%s)" % nachher["url"])
@@ -1401,7 +1408,9 @@ def pruefe_karten_details(ctx, basis):
                   "Marker „2\u201c öffnet direkt zwei Boxen, ohne Popup (%d Boxen)" % box["anzahl"]):
         seite.close()
         return
-    pruefe(box["felder"] >= 6, "dieselbe Struktur wie in der Liste (%d Felder)" % box["felder"])
+    # Vier Fakten mit Symbol (Ort, Strecke, Kategorie, Veranstalter) seit
+    # dem Umbau vom 21.09.2026 - dieselbe Box wie in der Liste.
+    pruefe(box["felder"] >= 4, "dieselbe Struktur wie in der Liste (%d Felder)" % box["felder"])
     pruefe(box["ics"] and box["teilen"] and box["melden"] and box["schliessen"],
            "Kalenderdatei, Teilen, Fehler melden und ✕ sind da")
     pruefe(box["obenRechts"], "die Boxen stehen oben rechts über der Karte")

@@ -12,7 +12,7 @@
      Ecken selbst, deshalb ist es randvoll). -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#2563eb">
+<meta name="theme-color" content="#0b1220">
 <!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
      nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
@@ -29,392 +29,58 @@
      die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+<!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
+<link rel="stylesheet" href="site.css?v=7bd0d7ec">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=ef11a010">
-<link rel="stylesheet" href="event-detail.css?v=72fc4249">
+<link rel="stylesheet" href="filter-ui.css?v=389055b9">
+<link rel="stylesheet" href="event-detail.css?v=02379c86">
 <style>
-  :root {
-    color-scheme: light dark;
-    --bg: #f7f8fa;
-    --panel: #ffffff;
-    --border: #e0e3e8;
-    --text: #1c1f24;
-    --text-muted: #6b7280;
-    --accent: #14509a;
-    --accent-bg: #eaf1ff;
-    --row-alt: #f8fafc;
-    --row-hover: #eef4ff;
-    --hero-gradient: linear-gradient(135deg, #0b2e6b 0%, #14509a 55%, #1d8fa8 100%);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #14161a;
-      --panel: #1d2025;
-      --border: #2c3038;
-      --text: #e7e9ec;
-      --text-muted: #9aa1ac;
-      --accent: #5b9dff;
-      --accent-bg: #1e2a40;
-      --row-alt: #202329;
-      --row-hover: #22314a;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { height: 100%; }
-  body {
-    margin: 0;
-    padding: 16px;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    text-decoration: none;
-  }
-  .top-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px 16px;
-    background: var(--hero-gradient);
-    border-radius: 14px;
-    padding: 14px 20px;
-    margin-bottom: 12px;
-  }
-  /* Titel und Untertitel nehmen den Platz, der übrig bleibt (min-width: 0,
-     damit sie schrumpfen dürfen) - so bleibt die Knopfreihe möglichst
-     lange in derselben Zeile und der blaue Kasten flach. */
-  .top-bar-text { flex: 1 1 260px; min-width: 0; }
-  h1 {
-    font-size: 1.25rem;
-    margin: 0 0 2px;
-    color: #fff;
-  }
-  .subtitle {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.85rem;
-    margin: 0;
-  }
-  /* EINE umbrechende Reihe, immer rechts. Vorher lagen die Knöpfe in
-     zwei Reihen (Teilen-Knopf darunter) und die ganze Einheit war eine
-     Spalte: Sobald sie unter den Titel umbrach, saß sie am LINKEN Rand
-     (vom Nutzer gemeldet) - ein einzelnes Flex-Element auf einer neuen
-     Zeile beginnt dort. `margin-left: auto` schiebt sie in beiden Fällen
-     nach rechts, und eine Reihe statt zwei macht den Kasten flacher.
-     Dass die E-Mail-Adresse nicht mehr dabeisteht (siehe auth.js), hält
-     die Reihe zusätzlich schmal. */
-  .top-actions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px 8px;
-    /* Darf schrumpfen und umbrechen: auf 390 px ragte die Knopfreihe
-       vorher 10 px über den blauen Kasten hinaus, DE/EN war angeschnitten. */
-    min-width: 0;
-    max-width: 100%;
-    margin-left: auto;
-  }
-  .share-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.10);
-    color: rgba(255,255,255,0.92);
-    font-family: inherit;
-    font-size: 0.76rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .share-btn:hover { background: rgba(255,255,255,0.24); color: #fff; }
-  .share-btn svg { flex-shrink: 0; }
-
-  .map-btn:hover { background: rgba(255,255,255,0.26); }
-  .map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.55);
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .lang-switch {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-  .lang-btn {
-    padding: 5px 11px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.55);
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  .lang-btn.active {
-    background: #fff;
-    color: #14315e;
-    border-color: #fff;
-  }
-
-  /* Die Werkzeugleiste nutzt die GANZE Breite, nicht nur die der Tabelle.
-     Vorher hatte sie dasselbe Raster wie .layout - der rechte Rand lag
-     damit exakt auf dem Tabellenrand, und die zweite Spalte blieb für
-     den Detailbereich frei. Das sah aufgeräumter aus, ließ der Reihe
-     aber nur ~676 px von 1024: Suchfeld, Trefferzahl, Schalter und die
-     zwei Knöpfe brachen dort in zwei Zeilen um (vom Nutzer gemeldet).
-     Eine Zeile ist wichtiger als die Kante. */
-  .toolbar {
-    margin-bottom: 10px;
-  }
-  .toolbar-main {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  /* Schiebt den Button an das rechte Ende der Tabellenspalte. */
-  .toolbar-actions {
-    /* margin-left: auto hält "Alle Filter zurücksetzen" am rechten Rand -
-       auch dann, wenn Trefferzahl, Schalter und Chips so breit werden,
-       dass der Knopf in eine eigene Zeile rutscht. Versuch, die Chips
-       stattdessen wachsen zu lassen (flex: 1): dann rutschte der Knopf
-       beim Umbruch nach LINKS. */
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .group-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    cursor: pointer;
-    white-space: nowrap;
-    /* Etwas Abstand zur Trefferzahl links davon, damit Zahl und Schalter
-       nicht ineinanderlaufen. */
-    margin-left: 4px;
-  }
-  .group-toggle:hover { color: var(--text); }
-  /* Zusammengefasste Zeile: der Name trägt einen Aufklapp-Pfeil, die
-     Längen stehen als kleine Marken nebeneinander. */
-  .group-row { cursor: pointer; font-weight: 600; }
-  .group-row:hover { background: var(--row-hover); }
-  .group-name { display: flex; align-items: center; gap: 6px; }
-  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-  /* Rundes Feld mit Pfeil, dreht sich beim Aufklappen um 90°. */
-  .chevron {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--text-muted);
-    transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
-  }
-  .group-row:hover .chevron { color: var(--accent); border-color: var(--accent); }
-  /* Veranstaltung mit nur einer Strecke: kein Pfeil, aber derselbe
-     Einzug - so beginnen alle Namen der Spalte auf einer Linie. */
-  .chevron-spacer { display: inline-block; width: 16px; height: 16px; flex-shrink: 0; }
-  .chevron.open { transform: rotate(90deg); color: var(--accent); border-color: var(--accent); }
-  @media (prefers-reduced-motion: reduce) {
-    .chevron { transition: none; }
-  }
-  /* Die Marken in der Länge-Spalte (eine Kapsel je Distanz) sind weg:
-     Sie sahen mit ihrem Rahmen und dem abgesetzten Hintergrund aus, als
-     ließen sie sich anklicken, und bei einer Veranstaltung mit vielen
-     Wettbewerben füllten sie mehrere Zeilen (beides vom Nutzer
-     gemeldet). Stattdessen steht dort jetzt die Spanne "5–42,2 km"
-     (laengeSpanne) - gleiche Schrift wie der Rest der Tabelle. */
-  /* Unterzeilen tragen dieselbe Schrift wie alle anderen Zeilen - nur
-     eingerückt. Sie waren früher kleiner (0.82rem); zusammen mit den
-     Marken in der Länge-Spalte wirkte die Tabelle dadurch uneinheitlich
-     (vom Nutzer gemeldet). Kenntlich sind Veranstaltung und Strecke jetzt
-     über Pfeil, Anzahl und Einrückung - nicht über die Schriftgröße. */
-  tbody tr.sub-row .col-name { padding-left: 22px; }
-  /* Aufgeklappt zeigt die Veranstaltungszeile die ERSTE Strecke selbst
-     (siehe groupRowHtml) - zwei Strecken sind dann auch zwei Zeilen, nicht
-     drei. Damit die Zeilen einer Veranstaltung dabei wie ein Block wirken,
-     bekommt sie dieselbe Schrift wie ihre Unterzeilen; Pfeil und Anzahl
-     bleiben als Kennzeichen der Veranstaltung. */
-  tbody tr.group-row.open { font-weight: normal; }
-  /* Mit Wettbewerbs-Zeile unter dem Namen säße der Pfeil sonst mittig
-     zwischen beiden Zeilen. */
-  .group-row.open .group-name { align-items: flex-start; }
-  /* Aufgeklappt darf der Name umbrechen (darunter steht die Bezeichnung
-     des Wettbewerbs) - aber höchstens auf zwei Zeilen, sonst wäre die
-     Zeile höher als alle anderen. Gekürzt wird .group-name-text, nicht
-     .group-name: Dessen display:-webkit-box widerspricht dem Flex, der
-     Name rutschte damit unter das Chevron. */
-  .group-row.open .group-name-text {
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  /* Aufgeklappt bekommt die Veranstaltung einen RAHMEN: eine Linie oben
-     an der Veranstaltungszeile, eine unten an der letzten Strecke und
-     je ein senkrechter Strich links und rechts durch alle Zeilen
-     dazwischen. Ohne das
-     standen die Strecken einer Veranstaltung mitten in der Liste, ohne
-     dass man ihnen ansah, dass sie zusammengehören - man konnte nicht
-     erkennen, ob eine Veranstaltung drei oder fünf Läufe hat (vom
-     Nutzer gemeldet).
-
-     Drei Entscheidungen dahinter:
-
-     - **`box-shadow: inset` statt `border`.** Ein Rahmen aus Rändern
-       verschöbe die Zeilen: `border-collapse: collapse` teilt sich die
-       Ränder zwischen zwei Zeilen, und eine 2-px-Linie gegen die
-       1-px-Linie daneben macht die Zeile einen Pixel höher. Alle Zeilen
-       sind aber gleich hoch (52 px, siehe `tbody tr`), und der Rauchtest
-       prüft das auf den Pixel. Ein Schatten wirkt nie auf das Layout.
-     - **Hintergrundfarbe kam später dazu** (19.09.2026, auf Wunsch des
-       Nutzers): Der Block ist durchgehend in `--accent-bg` hinterlegt,
-       siehe die Hintergrund-Regeln bei `tbody tr` - in EINEM Ton, auch
-       die gewählte Strecke (ein kräftigerer Ton für sie war gebaut und
-       vom Nutzer wieder verworfen). Die Linien bleiben: Sie zeigen die
-       Kanten des Blocks auch dort, wo zwei Blöcke direkt aufeinander
-       folgen.
-     - **Oben und unten über die ganze Breite.** Der senkrechte Strich
-       allein reichte nicht: Die Tabelle ist mindestens 800 px breit und
-       scrollt auf dem Handy waagerecht - wer nach rechts schiebt, sähe
-       ihn nicht mehr. Die beiden waagerechten Linien laufen über alle
-       Spalten und bleiben damit in jeder Scroll-Stellung im Bild.
-     - **Rechts ebenfalls ein Strich** (`:last-child`, vom Nutzer am
-       19.09.2026 nachgefordert): Ohne ihn war der Rahmen offen wie eine
-       Klammer - der Block hatte links und oben/unten eine Kante, rechts
-       lief er ins Leere. Die letzte Zelle wechselt mit den Spalten
-       (Entfernung kommt und geht), deshalb `:last-child` und keine
-       Spaltenklasse.
-
-     Reihenfolge der acht Regeln ist bedeutungstragend: Die Kombinationen
-     für die Eckzellen (`:first-child`/`:last-child` mit zwei Schatten)
-     müssen NACH den allgemeinen stehen - `box-shadow` ist EINE
-     Eigenschaft, die spätere Regel ersetzt die frühere vollständig statt
-     sie zu ergänzen. */
-  tbody tr.group-row.open > td:first-child,
-  tbody tr.sub-row > td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
-  tbody tr.group-row.open > td:last-child,
-  tbody tr.sub-row > td:last-child { box-shadow: inset -3px 0 0 var(--accent); }
-  tbody tr.group-row.open > td { box-shadow: inset 0 2px 0 var(--accent); }
-  tbody tr.group-row.open > td:first-child {
-    box-shadow: inset 3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
-  }
-  tbody tr.group-row.open > td:last-child {
-    box-shadow: inset -3px 0 0 var(--accent), inset 0 2px 0 var(--accent);
-  }
-  tbody tr.sub-row.letzte > td { box-shadow: inset 0 -2px 0 var(--accent); }
-  tbody tr.sub-row.letzte > td:first-child {
-    box-shadow: inset 3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
-  }
-  tbody tr.sub-row.letzte > td:last-child {
-    box-shadow: inset -3px 0 0 var(--accent), inset 0 -2px 0 var(--accent);
-  }
-  .result-count { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
-  /* Die Mastersuche (Feld, ✕ und Vorschlagsliste) ist in filter-ui.css
-     gestylt und in filter-ui.js gebaut - die Karte hat dasselbe Feld.
-     Hier steht nur ihr Platz in der Werkzeugleiste. */
-  .reset-btn {
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: none;
-    background: var(--accent);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 6px 16px rgba(20,80,154,0.25);
-  }
-  .reset-btn:hover { opacity: 0.9; }
-  .active-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    border-radius: 999px;
-    padding: 3px 10px;
-    font-size: 0.75rem;
-    text-decoration: none;
-  }
-  .chip button {
-    border: none;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-    font-size: 0.85rem;
-    line-height: 1;
-    padding: 0;
-  }
-
+  /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
+     in site.css (geteilt mit Karte und Startseite); hier nur, was allein
+     die Liste hat: Tabelle, Detailbereich, Dialoge. */
   .notify-box {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    margin: 0 var(--seite-rand) 12px;
     background: var(--accent-bg);
-    border: 1px solid var(--accent);
-    border-radius: 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
     padding: 12px 16px;
-    margin-bottom: 12px;
     font-size: 0.86rem;
   }
   .notify-box[hidden] { display: none; }
   .notify-box p { margin: 0; flex: 1; min-width: 200px; color: var(--text); }
   .notify-box button {
-    padding: 8px 16px;
-    border-radius: 999px;
+    padding: 9px 16px;
+    border-radius: 10px;
     border: none;
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
     cursor: pointer;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
     white-space: nowrap;
   }
   .notify-box button:hover { opacity: 0.9; }
   .notify-box .notify-status { font-size: 0.8rem; color: var(--text-muted); }
 
+  /* ---------- Tabelle und Detailbereich ---------- */
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+    gap: 20px;
     align-items: start;
+    padding: 0 var(--seite-rand);
+  }
+  @media (min-width: 1300px) {
+    .layout { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); }
   }
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
   }
-
   .side-panel {
     display: flex;
     flex-direction: column;
@@ -428,22 +94,17 @@
   .table-wrap {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 16px;
     overflow-x: auto;
     max-height: 78vh;
     overflow-y: auto;
   }
-  /* Die Liste soll die ganze Seite nutzen. Vorher war die Tabelle auf
-     78vh begrenzt, die SEITE aber höher: Scrollte man die Seite statt der
-     Liste, hörte die Liste auf und darunter blieb eine leere Fläche -
-     und man scrollte in zwei verschiedenen Dingen (vom Nutzer gemeldet).
-     Ab 901 px (zweispaltig, Detailbereich NEBEN der Tabelle) ist die
-     Seite deshalb genau fensterhoch, und nur die Liste scrollt.
-     Fußzeile und der Knopf "Event fehlt?" stehen damit immer sichtbar
-     am unteren Rand.
-     Auf dem Handy bleibt es beim Seiten-Scroll: Dort steht der
-     Detailbereich UNTER der Tabelle und muss erreichbar sein - genau
-     dafür scrollt zeigeDetailbereich() die Seite. */
+  /* Ab 901 px ist die SEITE genau fensterhoch, nur die Liste scrollt.
+     Vorher scrollte man in zwei verschiedenen Dingen (vom Nutzer
+     gemeldet). min-height: 0 an beiden Stellen ist keine Kosmetik: ohne
+     das wächst das Grid auf seine Inhaltshöhe und schiebt die Fußzeile
+     aus dem Bild. Auf dem Handy bleibt der Seiten-Scroll, weil der
+     Detailbereich dort UNTER der Tabelle steht (zeigeDetailbereich). */
   @media (min-width: 901px) {
     html { height: 100%; }
     body {
@@ -452,10 +113,7 @@
       display: flex;
       flex-direction: column;
     }
-    /* min-height: 0 an beiden Stellen - ohne das wächst ein Grid-/
-       Flex-Element auf seine Inhaltshöhe und schiebt die Fußzeile aus
-       dem Bild, statt selbst zu scrollen. */
-    .layout { flex: 1 1 auto; min-height: 0; align-items: stretch; }
+    .layout { flex: 1 1 auto; min-height: 0; align-items: stretch; padding-bottom: 12px; }
     .layout > * { min-height: 0; }
     .table-wrap { max-height: 100%; height: 100%; }
     .side-panel { max-height: 100%; overflow-y: auto; }
@@ -463,58 +121,29 @@
   table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 800px;
+    min-width: 900px;
     table-layout: fixed;
-    font-size: 0.86rem;
+    font-size: 0.9rem;
   }
-  /* Spaltenreihenfolge: 1 Name, 2 Datum, 3 Land, 4 Standort, 5 Sportart,
-     6 Kategorie, 7 Länge. Name breiter, Länge schmaler (die Einheit "km"
-     steht ohnehin schon in jeder Zelle). Die Anmeldung-Spalte (Offen/
-     Geschlossen) wurde entfernt: der Anmeldeschluss lässt sich bei den
-     meisten Quellen nicht zuverlässig auslesen und fehlt daher fast
-     überall - keine gute Datenbasis für einen Filter/eine Spalte. */
-  /* Spaltenbreiten über KLASSEN, nicht über nth-child: die Spalten
-     wechseln je nach Zustand (Entfernung nur mit Ausgangspunkt, Anzahl
-     nur beim Zusammenfassen), und mit nth-child bräuchte jede Kombination
-     ihren eigenen Satz Regeln. Die Summe muss nicht genau 100 % sein -
-     table-layout: fixed verteilt proportional. */
-  /* Die Zusammenfassung soll so wenig Platz wie möglich kosten: die
-     Anzahl steht als kleine Zahl ganz links am Tabellenrand, gleich
-     danach kommt der Name. Feste Pixelbreite statt Prozent - die Zahl
-     ist ein- bis zweistellig, ein Anteil an der Tabellenbreite wäre
-     immer zu breit. */
-  .col-name { width: 22%; }
+  /* Spaltenbreiten über KLASSEN, nicht über nth-child: die
+     Entfernungs-Spalte kommt und geht. Reihenfolge (Vorlage): Datum,
+     Name, Sportart, Ort, Land, Kategorie, Länge. */
   .col-datum { width: 13%; }
-  /* 13 %, nicht 11 %: Bei 11 % (93 px auf Handybreite) brach
-     "Deutschland" mitten im Wort um ("Deutschl" / "and") - das Wort
-     braucht 76 px, der Inhalt hatte 73 px. Die Spaltenbreiten summieren
-     sich ohnehin nur auf 95 %, die zwei Prozentpunkte kosten also keine
-     andere Spalte. */
-  .col-land { width: 13%; }
-  .col-standort { width: 14%; }
-  .col-entfernung { width: 11%; }
-  .col-art1 { width: 11%; }
+  .col-name { width: 24%; }
+  .col-art1 { width: 12%; }
+  .col-standort { width: 13%; }
+  .col-entfernung { width: 10%; }
+  .col-land { width: 12%; }
   .col-art2 { width: 13%; }
-  .col-laenge_km { width: 11%; }
-  table.with-distance { min-width: 900px; }
-
-  /* Der Browser ueberspringt Layout und Zeichnen fuer Zeilen, die gerade
-     nicht im Bild sind. Bei ueber 4.000 Zeilen ist das der Unterschied
-     zwischen einer zaeh aufbauenden und einer sofort da stehenden Liste.
-     Moeglich ist es nur, weil die Spaltenbreiten fest sind
-     (table-layout: fixed) - sonst muesste der Browser doch jede Zeile
-     ausmessen, um die Spalten zu verteilen. contain-intrinsic-size nennt
-     die geschaetzte Zeilenhoehe, damit die Bildlaufleiste von Anfang an
-     stimmt. Browser ohne content-visibility ignorieren beide Zeilen. */
-  /* Jede Zeile ist gleich hoch, und kein Text darf über zwei Zeilen
-     hinausgehen (so vom Nutzer gewünscht). `height` wirkt an einem <tr>
-     wie eine Mindesthöhe: Eine einzeilige Zeile wird auf 52 px gestreckt,
-     eine zweizeilige braucht genau so viel - damit sind alle gleich hoch.
-     Dass nichts darüber hinauswächst, sichern die Kürzungen
-     (.cell-clamp, .group-name-text) und die Längen-SPANNE bei
-     zusammengefassten Veranstaltungen (laengeSpanne) - vorher stand dort
-     je Strecke eine eigene Marke, was eine Veranstaltung mit 15
-     Wettbewerben über vier Zeilen zog. */
+  .col-laenge_km { width: 12%; }
+  table.with-distance { min-width: 960px; }
+  /* Datum und Länge stehen in EINER Zeile ("So 27.09.2026", "9,5–28,5 km");
+     ein mehrtägiges Rennen bricht über sein <br>. */
+  td.col-datum .cell-clamp, td.col-laenge_km .cell-clamp { white-space: nowrap; }
+  /* Der Browser überspringt Layout und Zeichnen für Zeilen außerhalb
+     des Bildes - möglich nur wegen table-layout: fixed. Jede Zeile ist
+     gleich hoch (52 px, wie eine Mindesthöhe), kein Text geht über zwei
+     Zeilen hinaus (.cell-clamp, .group-name-text, laengeSpanne). */
   tbody tr {
     content-visibility: auto;
     contain-intrinsic-size: auto 52px;
@@ -528,38 +157,40 @@
     border-bottom: 1px solid var(--border);
     text-align: left;
     padding: 0;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
   .th-inner {
-    padding: 8px 10px;
+    padding: 15px 10px;
     display: flex;
     align-items: center;
     gap: 6px;
   }
-  .th-inner span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  /* Der Spaltenname ist ein Knopf (Sortierung), soll aber wie eine
-     Kopfzeile aussehen - deshalb ohne Rahmen und Hintergrund. */
+  .th-inner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Der Spaltenname ist der Sortier-Knopf, sieht aber wie eine
+     Kopfzeile aus. */
   .th-sort {
     flex: 1;
     min-width: 0;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     border: none;
     background: none;
     padding: 0;
     margin: 0;
     font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
     color: inherit;
     text-align: left;
     cursor: pointer;
   }
-  .th-sort:hover { color: var(--accent); }
-  .th-sort.active { color: var(--accent); }
+  .th-sort:hover { color: var(--text); }
+  .th-sort.active { color: var(--text); }
   .sort-arrow { font-size: 0.7em; flex-shrink: 0; }
 
   tbody td {
@@ -580,10 +211,10 @@
     text-overflow: ellipsis;
     word-break: break-word;
   }
-  /* Bezeichnung des konkreten Wettbewerbs unter dem Veranstaltungsnamen.
-     Eine Veranstaltung mit mehreren Strecken steht mit je einer Zeile pro
-     Strecke in der Liste - ohne diese Zeile wären die Zeilen bis auf die
-     Längenangabe identisch. */
+  /* Sportart mit Symbol in der Markenfarbe (event-detail.js, sportIcon). */
+  .sport-cell { display: flex; align-items: center; gap: 6px; }
+  .sport-cell .sport-icon { color: var(--brand); flex-shrink: 0; }
+  /* Bezeichnung des konkreten Wettbewerbs unter dem Namen. */
   .wettbewerb {
     display: block;
     font-size: 0.78rem;
@@ -592,82 +223,124 @@
   }
   tbody tr { cursor: pointer; }
   tbody tr:nth-child(even) { background: var(--row-alt); }
-  /* Der aufgeklappte Block ist durchgehend in EINEM Blau hinterlegt -
-     alle Strecken gleich, auch die gerade ausgewählte. So vom Nutzer am
-     19.09.2026 entschieden ("bei den zusammengefügten Events die gleiche
-     blaue Farbe benutzen"): Ein Zwischenstand gab der gewählten Strecke
-     im Block einen kräftigeren Ton (--row-active-block), und genau der
-     sah in der Liste wie zwei verschiedene Blautöne aus. Welche Strecke
-     gewählt ist, zeigt der Detailbereich daneben; die Klasse `active`
-     bleibt an der Zeile (markiereAuswahl, Tastatur, Rauchtest), sie
-     färbt im Block nur nicht mehr. Außerhalb eines Blocks bleibt
-     `tr.active` die Markierung der gewählten Zeile - dasselbe Blau. */
+  /* Der aufgeklappte Block ist durchgehend in EINEM Ton hinterlegt,
+     auch die gewählte Strecke (so vom Nutzer entschieden, 19.09.2026);
+     `active` bleibt an der Zeile für Tastatur und Rauchtest. */
   tbody tr.group-row.open,
   tbody tr.sub-row { background: var(--accent-bg); }
   tbody tr:hover { background: var(--row-hover); }
   tbody tr.active { background: var(--accent-bg); }
-  /* Tastaturbedienung: die Zeile, auf der der Fokus steht, muss zu sehen
-     sein. `:focus-visible` statt `:focus`, damit ein Mausklick (der die
-     Zeile ebenfalls fokussiert) keinen Rahmen hinterlässt. `-2px` legt
-     ihn nach innen - außen würde ihn der scrollende Tabellen-Container
-     abschneiden. */
   tbody tr:focus { outline: none; }
   tbody tr:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: -2px;
     background: var(--accent-bg);
   }
-  /* Enter auf einer Zeile springt in die Angaben - dort muss sichtbar
-     sein, dass der Fokus jetzt hier steht. */
   .detail-panel:focus { outline: none; }
   .detail-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  /* "Neue Events per E-Mail" - sekundär neben "Alle Filter
-     zurücksetzen", damit die Werkzeugleiste nicht zwei laute Knöpfe
-     hat. */
-  .abo-btn {
+
+  /* Zusammengefasste Zeile: Pfeil im runden Feld ganz links im Namen. */
+  .group-row { cursor: pointer; font-weight: 700; }
+  .group-row:hover { background: var(--row-hover); }
+  .group-name { display: flex; align-items: center; gap: 10px; }
+  .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .chevron {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 7px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--accent);
-    background: var(--panel);
-    color: var(--accent);
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--panel-2);
+    color: var(--text-muted);
+    transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
+  }
+  .group-row:hover .chevron { color: var(--text); border-color: var(--text-muted); }
+  /* Eine Strecke allein: kein Pfeil, aber derselbe Einzug. */
+  .chevron-spacer { display: inline-block; width: 22px; height: 22px; flex-shrink: 0; }
+  .chevron.open { transform: rotate(90deg); color: var(--text); border-color: var(--text-muted); }
+  @media (prefers-reduced-motion: reduce) {
+    .chevron { transition: none; }
+  }
+  tbody tr.sub-row .col-name { padding-left: 44px; }
+  tbody tr.group-row.open { font-weight: normal; }
+  .group-row.open .group-name { align-items: flex-start; }
+  .group-row.open .group-name-text {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* Der RAHMEN um die aufgeklappte Veranstaltung (Linie oben, Linie
+     unten, Strich links UND rechts) - als inset box-shadow, damit keine
+     Zeile um einen Pixel wächst (alle Zeilen sind 52 px, der Rauchtest
+     misst das). Reihenfolge der acht Regeln ist bedeutungstragend: die
+     Eckzellen mit zwei Schatten müssen NACH den allgemeinen stehen. Die
+     Farbe ist --frame, nicht der helle Akzent. */
+  tbody tr.group-row.open > td:first-child,
+  tbody tr.sub-row > td:first-child { box-shadow: inset 3px 0 0 var(--frame); }
+  tbody tr.group-row.open > td:last-child,
+  tbody tr.sub-row > td:last-child { box-shadow: inset -3px 0 0 var(--frame); }
+  tbody tr.group-row.open > td { box-shadow: inset 0 2px 0 var(--frame); }
+  tbody tr.group-row.open > td:first-child {
+    box-shadow: inset 3px 0 0 var(--frame), inset 0 2px 0 var(--frame);
+  }
+  tbody tr.group-row.open > td:last-child {
+    box-shadow: inset -3px 0 0 var(--frame), inset 0 2px 0 var(--frame);
+  }
+  tbody tr.sub-row.letzte > td { box-shadow: inset 0 -2px 0 var(--frame); }
+  tbody tr.sub-row.letzte > td:first-child {
+    box-shadow: inset 3px 0 0 var(--frame), inset 0 -2px 0 var(--frame);
+  }
+  tbody tr.sub-row.letzte > td:last-child {
+    box-shadow: inset -3px 0 0 var(--frame), inset 0 -2px 0 var(--frame);
+  }
+
+  /* Die letzte Zeile, solange noch Einträge fehlen (zeigeMehr): der
+     Knopf bleibt per position: sticky am linken Rand des SICHTBAREN
+     Bereichs, egal wie weit die Tabelle geschoben ist. */
+  .mehr-row td { padding: 0; background: var(--panel); }
+  .mehr-row .mehr-inner {
+    position: sticky;
+    left: 0;
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 10px 12px;
+  }
+  .mehr-row .mehr-btn {
+    border: 1px solid var(--border-strong);
+    background: var(--panel-2);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 9px 16px;
     font: inherit;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 600;
     cursor: pointer;
   }
-  .abo-btn:hover { background: var(--accent-bg); }
+  .mehr-row .mehr-btn:hover { background: var(--accent-bg); }
+  .empty-row td { text-align: center; padding: 28px; color: var(--text-muted); }
 
-  /* Inhalt des Abo-Dialogs */
+  /* ---------- Dialoge (Abo, Fehler melden, Event fehlt) ---------- */
+  .ee-submit-btn { color: var(--on-accent) !important; }
+  .abo-btn { }
   .abo-summary {
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 12px;
     margin: 0 0 14px;
     font-size: 0.86rem;
   }
   .abo-summary strong { display: block; margin-bottom: 2px; }
-  /* Eigene Zeile: Im ersten Versuch stand der Hinweis direkt hinter der
-     Filter-Zusammenfassung und las sich wie ein Teil von ihr
-     ("… 25 km um München Der Datumsfilter gehört nicht dazu"). */
-  .abo-summary .abo-hint {
-    display: block;
-    margin-top: 5px;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-  }
-  /* Die Filterknöpfe im Dialog: dieselben wie in der Liste
-     (filter-ui.css), hier nur die Reihe darum. */
+  .abo-summary .abo-hint { display: block; margin-top: 5px; color: var(--text-muted); font-size: 0.82rem; }
   .abo-filter { margin: 0 0 12px; }
-  .abo-filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
+  .abo-filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .abo-abschnitt { display: block; margin: 0 0 6px; }
   .abo-filter > strong { display: block; }
   .abo-rhythm { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
@@ -676,7 +349,7 @@
     gap: 9px;
     align-items: flex-start;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 9px 11px;
     cursor: pointer;
     font-size: 0.88rem;
@@ -692,7 +365,7 @@
     align-items: flex-start;
     justify-content: space-between;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 8px 10px;
     margin-bottom: 8px;
     font-size: 0.84rem;
@@ -703,69 +376,21 @@
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text-muted);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 3px 9px;
     font: inherit;
     font-size: 0.78rem;
     cursor: pointer;
   }
-  .abo-item button:hover { color: #b42318; border-color: #b42318; }
+  .abo-item button:hover { color: #ff8a80; border-color: #ff8a80; }
   .abo-status { font-size: 0.85rem; margin-top: 10px; }
-  .abo-status.ok { color: #1a7f37; }
-  .abo-status.fehler { color: #b42318; }
+  .abo-status.ok { color: #6fdc8c; }
+  .abo-status.fehler { color: #ff8a80; }
 
-  /* Die letzte Zeile, solange noch Einträge fehlen (siehe zeigeMehr).
-     Die Zelle spannt über alle Spalten, also über die volle
-     Tabellenbreite (800 px) - ein mittig gesetzter Knopf lag auf
-     Handybreite damit außerhalb des Bildes, sobald man waagerecht
-     gescrollt hatte. `position: sticky; left: 0` am inneren Element
-     hält ihn am linken Rand des SICHTBAREN Bereichs, egal wie weit die
-     Tabelle geschoben ist. */
-  .mehr-row td {
-    padding: 0;
-    background: var(--panel);
-  }
-  .mehr-row .mehr-inner {
-    position: sticky;
-    left: 0;
-    display: block;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 10px 8px;
-  }
-  .mehr-row .mehr-btn {
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--accent);
-    border-radius: 999px;
-    padding: 7px 16px;
-    font: inherit;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .mehr-row .mehr-btn:hover { background: var(--accent-bg); }
-  .empty-row td {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-muted);
-  }
-
-  /* Excel-style column filter button + floating panel */
-  /* Die Filterknöpfe und das schwebende Panel stehen in filter-ui.css,
-     die Detail-Box samt Kalender-Menü, Melde-Knopf und Kurzmeldung in
-     event-detail.css - die Karte bindet dieselben Dateien ein. Hier
-     steht nur, WO die Box auf dieser Seite sitzt (.side-panel). */
-
-
-  /* Das Melde-Formular nutzt die Modal-Styles aus auth.js
-     (.ee-modal-overlay, .ee-modal, .ee-field, .ee-submit-btn,
-     .ee-form-msg) - hier nur die Ergaenzungen fuer Select/Textarea
-     und die Event-Zusammenfassung im Dialog. */
   .report-event-summary {
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 12px;
     margin-bottom: 14px;
     font-size: 0.85rem;
@@ -786,117 +411,96 @@
   }
   .ee-field textarea { resize: vertical; min-height: 90px; }
   .report-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
-
-  /* "Wir haben dein Event nicht?" - eine schmale, leise Zeile UNTER der
-     Liste. Wer etwas sucht, soll zuerst die Liste sehen; wer nichts
-     gefunden hat, findet hier den nächsten Schritt. Ab 901 px ist die
-     Seite genau fensterhoch, die Zeile steht also immer sichtbar unten.
-     Dieselbe Sache steht zusätzlich in der Box bei null Treffern - dort
-     ist sie der naheliegende nächste Schritt. */
-  .fehlt-bar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 6px 10px;
-    padding: 10px 16px 0;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-  }
-  .fehlt-bar span { text-align: center; }
-  .fehlt-btn {
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--accent);
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .fehlt-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
-  /* Im Melde-Dialog steht die Adresse der offiziellen Seite - ein langes
-     Feld, das nicht abgeschnitten sein darf. */
   .ee-field input[type="url"] { font-family: inherit; }
-  /* Fußzeile mit Impressum und Datenschutz. Beide müssen von JEDER
-     Seite aus unmittelbar erreichbar sein (§ 5 DDG), deshalb steht die
-     Zeile auf allen drei Seiten - hier inline und nicht in seite.css,
-     weil diese Seite ihre eigenen Farbvariablen mitbringt. */
-  .seiten-footer {
-    padding: 18px 16px 28px;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    text-align: center;
+
+  @media (max-width: 900px) {
+    .layout { padding: 0 var(--seite-rand); }
   }
-  .seiten-footer a { color: inherit; }
-  .seiten-footer .trenner { opacity: 0.5; padding: 0 6px; }
 </style>
 </head>
 <body>
 
-<div class="top-bar">
-  <div class="top-bar-text">
-    <h1 id="page-title"></h1>
-    <p class="subtitle" id="subtitle"></p>
-  </div>
-  <!-- Alle Knöpfe in EINER umbrechenden Reihe, rechts. Der Teilen-Knopf
-       gehört zur Seite als Ganzem (die aktuelle Suche), nicht zur Tabelle -
-       in der Werkzeugleiste stand er zwischen Filter-Chips und
-       Zurücksetzen und ging dort unter. -->
+<!-- Kopfzeile: Marke (führt zur Startseite), Navigation, rechts Teilen,
+     DE/EN und Anmelden. Dieselbe Kopfzeile wie auf Karte und Startseite.
+     .top-bar/.top-actions bleiben als Klassen für den Rauchtest. -->
+<header class="site-header top-bar">
+  <a class="brand" href="index.html">
+    <span class="brand-logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
+           stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 46 L26 20 L38 34 L51 17"/><circle cx="51" cy="17" r="5" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <h1 class="brand-name" id="page-title">Endurance Events</h1>
+  </a>
+  <nav class="site-nav" aria-label="Seiten">
+    <a class="nav-link active" href="events.html" id="nav-events" aria-current="page">Events</a>
+    <a class="nav-link" href="karte.html" id="nav-map">Karte</a>
+  </nav>
   <div class="top-actions">
-    <!-- Kein Startseiten-Knopf mehr (vom Nutzer am 19.09.2026 entfernt:
-         "bloß verwirrend"); wie man zur Startseite zurückkommt, ist ein
-         offener Punkt in CLAUDE.md. -->
-    <a class="map-btn" href="karte.html" id="map-btn"><span id="map-btn-label"></span></a>
-    <div id="auth-mount"></div>
-    <div class="lang-switch" id="lang-switch">
-      <button type="button" class="lang-btn" data-lang="de">DE</button>
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
-    </div>
-    <button type="button" class="share-btn" id="share-btn">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+    <!-- Teilen gehört zur Seite als Ganzem (die aktuelle Suche). -->
+    <button type="button" class="icon-btn share-btn" id="share-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
         <path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>
       </svg>
-      <span id="share-btn-label"></span>
+      <span class="sr-only" id="share-btn-label"></span>
     </button>
+    <div class="lang-switch" id="lang-switch">
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div id="auth-mount"></div>
   </div>
-</div>
+</header>
+<!-- Leer, solange alles in Ordnung ist; die Notbremse im Skript schreibt
+     hierhin ("Bitte neu laden"). -->
+<p class="page-note" id="subtitle"></p>
 
 <!-- Die kurze Rückmeldung nach dem Kopieren (Toast) erzeugt
      event-detail.js beim ersten Aufruf selbst. -->
 
+<!-- Filterleiste: Suchfeld, die Filterpillen (dieselben wie auf der
+     Karte, filter-ui.js), rechts die Karte mit diesen Filtern und das
+     E-Mail-Abo. -->
+<div class="filter-bar" id="filter-bar">
+  <div class="master-search" id="master-search-box"></div>
+  <div class="filter-btn-bar" id="filter-buttons"></div>
+  <div class="filter-bar-actions">
+    <a class="bar-btn map-link" href="karte.html" id="map-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+           stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>
+      </svg>
+      <span id="map-btn-label"></span>
+    </a>
+    <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern. -->
+    <button type="button" class="bar-btn abo-btn" id="abo-open-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+           stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+      </svg>
+      <span id="abo-open-label"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Werkzeugleiste: Trefferzahl, der Schalter (verändert, wie die Zahl
+     zu lesen ist), die gesetzten Filter als Chips, "Filter löschen" und
+     rechts der Stand der Daten. -->
 <div class="toolbar">
-  <div class="toolbar-main">
-    <!-- Mastersuche: Eventname oder Ort, ein Feld. Steht links von der
-         Trefferzahl (so vom Nutzer gewünscht). -->
-    <!-- Gefüllt von ui.buildSearch() (filter-ui.js): Feld, ✕ und die
-         Vorschlagsliste ("Iron" → "Ironman"). Die Karte hat dasselbe. -->
-    <div class="master-search" id="master-search-box"></div>
-    <div class="result-count" id="result-count"></div>
-    <!-- Der Schalter steht direkt hinter der Trefferzahl: Er verändert,
-         WIE diese Zahl zu lesen ist ("810 Veranstaltungen (1413
-         Strecken)"), gehört also dorthin und nicht zu den Knöpfen
-         rechts. -->
-    <label class="group-toggle"><input type="checkbox" id="group-toggle"><span id="group-toggle-label"></span></label>
-    <div class="active-chips" id="active-chips"></div>
-    <div class="toolbar-actions">
-      <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern. Die
-           frühere Box erschien erst, wenn eine Suche leer ausging - wer
-           "alle neuen Schwimm-Events in Thüringen" abonnieren wollte,
-           kam also gar nicht an sie heran. -->
-      <button type="button" class="abo-btn" id="abo-open-btn">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
-          <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
-        </svg>
-        <span id="abo-open-label"></span>
-      </button>
-      <button class="reset-btn" id="reset-btn"></button>
-    </div>
+  <div class="result-count" id="result-count"></div>
+  <label class="group-toggle"><input type="checkbox" id="group-toggle"><span class="switch" aria-hidden="true"></span><span id="group-toggle-label"></span></label>
+  <div class="active-chips" id="active-chips"></div>
+  <button type="button" class="reset-btn" id="reset-btn"></button>
+  <div class="stand" id="stand-box" hidden>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/>
+    </svg>
+    <span id="stand"></span>
   </div>
 </div>
 
@@ -928,13 +532,6 @@
   </div>
 </div>
 
-<!-- Unter der Liste: der Hinweis, dass die Liste nicht vollständig sein
-     muss. Führt in denselben Dialog wie der Knopf in der
-     Null-Treffer-Box - ein Weg, an dem ein Vorschlag entsteht. -->
-<div class="fehlt-bar">
-  <span id="fehlt-bar-text"></span>
-  <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
-</div>
 
 <!-- "Wir haben dein Event nicht?" - gespeichert wird via
      EndauranceAuth.suggestEvent() in der Firestore-Collection
@@ -974,9 +571,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=7a9e8dce"></script>
-<script src="filter-ui.js?v=213293f3"></script>
-<script src="event-detail.js?v=bbba0065"></script>
+<script src="filters.js?v=22af23e0"></script>
+<script src="filter-ui.js?v=868a053f"></script>
+<script src="event-detail.js?v=d958b76a"></script>
 
 <script>
 (async function () {
@@ -1010,7 +607,9 @@
   const I18N = {
     de: {
       tab_title: 'Ausdauersport-Events D/A/CH',
-      title: 'Ausdauersport-Events – Deutschland / Österreich / Schweiz',
+      title: 'Endurance Events',
+      nav_events: 'Events',
+      stand: (d) => `Stand: ${d}`,
       // Kein Bedienhinweis mehr ("Klicke auf eine
       // Kopfzeile-Filterschaltfläche …") - das war ein Handbuchsatz für
       // etwas, das man sieht, und er machte den blauen Kasten hoch. Hier
@@ -1022,11 +621,11 @@
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
       map: 'Karte',
-      result_count: (n, total) => `${n} von ${total} Events`,
+      result_count: (n) => `${n} Events`,
       // Der Knopf unter der letzten gezeichneten Zeile. Gefiltert und
       // sortiert wird über alle Events, gezeichnet nur ein Teil.
       mehr_btn: (schritt, rest) => `Weitere ${schritt} von ${rest} anzeigen`,
-      abo_open: 'Events per E-Mail',
+      abo_open: 'E-Mail-Abo',
       abo_titel: 'Neue Events per E-Mail',
       abo_intro: 'Du bekommst eine E-Mail, sobald neue Events dazukommen, die zu dieser Suche passen.',
       abo_welche: 'Welche Events?',
@@ -1061,7 +660,7 @@
       // gemeldet). „Veranstaltungen" heißt jetzt überall „Events", die
       // Klammer mit den Strecken entfällt: Zusammengefasst zeigt die
       // Liste Veranstaltungen, und der Schalter direkt daneben sagt das.
-      result_count_grouped: (g, n, total) => `${g} von ${total} Events`,
+      result_count_grouped: (g) => `${g} Events`,
       share_search: 'Suche mit Freunden teilen',
       share_done: '✓ Link kopiert!',
       report_title: 'Fehler melden',
@@ -1120,15 +719,17 @@
     },
     en: {
       tab_title: 'Endurance Events D/A/CH',
-      title: 'Endurance Events – Germany / Austria / Switzerland',
+      title: 'Endurance Events',
+      nav_events: 'Events',
+      stand: (d) => `Updated: ${d}`,
       subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
-      reset: 'Reset filters',
+      reset: 'Clear filters',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
       map: 'Map',
-      result_count: (n, total) => `${n} of ${total} events`,
+      result_count: (n) => `${n} events`,
       mehr_btn: (schritt, rest) => `Show ${schritt} more of ${rest}`,
-      abo_open: 'Events by e-mail',
+      abo_open: 'E-mail alerts',
       abo_titel: 'New events by e-mail',
       abo_intro: 'You will get an e-mail as soon as new events matching this search are added.',
       abo_welche: 'Which events?',
@@ -1157,7 +758,7 @@
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
       group_toggle: 'Group by event',
-      result_count_grouped: (g, n, total) => `${g} of ${total} events`,
+      result_count_grouped: (g) => `${g} events`,
       share_search: 'Share this search',
       share_done: '✓ Link copied!',
       report_title: 'Report an error',
@@ -1318,9 +919,15 @@
   // Platz ganz links). Die Gesamtzahl steht weiter in der Trefferzeile
   // („7 Veranstaltungen (10 Strecken)").
 
+  // Reihenfolge der Tabelle (Vorlage des Nutzers, 21.09.2026): Datum,
+  // Name, Sportart, Ort, Land, Kategorie, Länge - die Filterpillen über
+  // der Tabelle stehen in ihrer eigenen Reihenfolge (FILTER_ORDER).
+  const TABLE_ORDER = ['datum', 'name', 'art1', 'standort', 'land', 'art2', 'laenge_km'];
+  const FILTER_ORDER = ['datum', 'art1', 'art2', 'laenge_km', 'standort', 'land', 'name'];
+
   function activeColumns() {
-    const cols = COLUMNS.slice();
-    if (state.origin) cols.splice(4, 0, DISTANCE_COLUMN);
+    const cols = TABLE_ORDER.map(key => COLUMNS.find(c => c.key === key)).filter(Boolean);
+    if (state.origin) cols.splice(cols.findIndex(c => c.key === 'standort') + 1, 0, DISTANCE_COLUMN);
     return cols;
   }
 
@@ -1508,6 +1115,12 @@
   const subtitleEl = document.getElementById('subtitle');
   const resetBtnEl = document.getElementById('reset-btn');
   resetBtnEl.addEventListener('click', resetFilters);
+  // Die Filterpillen über der Tabelle (gebaut in setLanguage, weil sie
+  // die Spaltennamen tragen) und der Stand der Daten.
+  const filterButtonsEl = document.getElementById('filter-buttons');
+  const standEl = document.getElementById('stand');
+  const navMapEl = document.getElementById('nav-map');
+  let datenStand = null;   // ISO-Datum aus dem Last-Modified von events.json
 
   // ---------- Mastersuche ----------
   //
@@ -1594,6 +1207,18 @@
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error('HTTP ' + res.status);
+    // "Stand: Mo, 21.09.2026" in der Werkzeugleiste: der Zeitpunkt, zu
+    // dem der Server die Datei zuletzt gespeichert hat (GitHub Pages
+    // schickt Last-Modified). Fehlt der Header, bleibt die Zeile leer.
+    try {
+      const lm = res.headers.get('Last-Modified');
+      if (lm) {
+        const d = new Date(lm);
+        if (!Number.isNaN(d.getTime())) {
+          datenStand = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        }
+      }
+    } catch (e) { /* kein Stand */ }
     events = dropPastEvents(await res.json());
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });
@@ -1679,8 +1304,9 @@
   function formatRange(start, end) {
     return EED.formatRange(start, end, currentLang);
   }
+  // In der Tabelle mit Wochentag ("So 27.09.2026", Vorlage des Nutzers).
   function formatRangeHtml(start, end) {
-    return EED.formatRangeHtml(start, end, currentLang);
+    return EED.formatRangeHtml(start, end, currentLang, true);
   }
 
 
@@ -1723,8 +1349,15 @@
     document.documentElement.lang = lang;
     document.title = t('tab_title');
     titleEl.textContent = t('title');
-    subtitleEl.textContent = t('subtitle');
+    // Kein Untertitel mehr im Kopf - die Zeile bleibt der Notbremse.
+    document.getElementById('nav-events').textContent = t('nav_events');
+    navMapEl.textContent = t('map');
     resetBtnEl.textContent = t('reset');
+    standEl.textContent = datenStand ? t('stand', EF.formatDateWeekday(datenStand, lang, true)) : '';
+    document.getElementById('stand-box').hidden = !datenStand;
+    // Die Filterpillen tragen die Spaltennamen - neu bauen, sonst bleibt
+    // "Ort & Umkreis" auf Englisch stehen. Reihenfolge der Vorlage.
+    ui.buildButtonBar(filterButtonsEl, { order: FILTER_ORDER });
     // Platzhalter und ✕-Beschriftung der Mastersuche kommen über
     // suche.sync() im render().
     groupToggleLabelEl.textContent = t('group_toggle');
@@ -1781,17 +1414,20 @@
       th.className = `col-${col.key}`;
       const inner = document.createElement('div');
       inner.className = 'th-inner';
+      // Kurzer Spaltenname, wo es einen gibt ("Ort" statt "Ort & Umkreis"
+      // - der lange steht auf der Filterpille).
+      const name = t(col.headerKey || col.labelKey);
 
-      // Der Spaltenname selbst ist der Sortier-Knopf. Vorher sortierte die
-      // Liste ausschließlich nach Datum - bei 4000 Zeilen (und später
-      // 20.000) war das der größte Mangel. Spalten ohne Sortierschlüssel
-      // (Anzahl) bekommen nur eine Beschriftung, keinen toten Knopf.
+      // Der Spaltenname selbst ist der Sortier-Knopf. Spalten ohne
+      // Sortierschlüssel bekommen nur eine Beschriftung, keinen toten
+      // Knopf. Die FILTER-Knöpfe sitzen seit dem 21.09.2026 nicht mehr
+      // hier, sondern als Pillen über der Tabelle (filter-bar).
       if (SORT_KEYS[col.key]) {
         const sortBtn = document.createElement('button');
         sortBtn.type = 'button';
         sortBtn.className = 'th-sort' + (state.sortKey === col.key ? ' active' : '');
-        sortBtn.title = `${t(col.labelKey)} – ${t('sort_hint')}`;
-        sortBtn.innerHTML = `<span>${escapeHtml(t(col.labelKey))}</span>`
+        sortBtn.title = `${name} – ${t('sort_hint')}`;
+        sortBtn.innerHTML = `<span>${escapeHtml(name)}</span>`
           + (state.sortKey === col.key
                ? `<span class="sort-arrow">${state.sortDir === 'asc' ? '▲' : '▼'}</span>`
                : '');
@@ -1804,29 +1440,13 @@
         inner.appendChild(sortBtn);
       } else {
         const label = document.createElement('span');
-        // In die schmale Anzahl-Spalte passt kein Wort - dort steht "#",
-        // der volle Name bleibt als Tooltip erhalten.
-        label.textContent = col.short || t(col.labelKey);
-        label.title = t(col.labelKey);
+        label.textContent = name;
         inner.appendChild(label);
-      }
-
-      // Die Entfernungs-Spalte hat kein eigenes Filter-Panel: gefiltert
-      // wird sie über den Umkreis-Regler im Stadt/Ort-Filter.
-      if (col.type !== 'none') {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'col-filter-btn';
-        btn.dataset.col = col.key;
-        btn.textContent = '▾';
-        ui.attachButton(btn, col);
-        inner.appendChild(btn);
       }
 
       th.appendChild(inner);
       headerRowEl.appendChild(th);
     });
-
   }
 
   // ---------- filtering / rendering ----------
@@ -1883,12 +1503,17 @@
   // statt fest untereinander geschrieben - nur so lässt sich die
   // Entfernungs-Spalte an der richtigen Stelle einschieben, ohne die
   // Reihenfolge an zwei Orten pflegen zu müssen.
-  function cellHtml(col, e) {
+  // opts.zweiteZeile: in einem aufgeklappten Block steht unter dem Namen
+  // IMMER der Wettbewerb - notfalls die Länge ("10 km"), damit sich die
+  // Strecken einer Veranstaltung auch im Namen unterscheiden (Vorlage
+  // des Nutzers). Außerhalb eines Blocks nur, wenn das Label mehr sagt
+  // als die Längen-Spalte (displayWettbewerb).
+  function cellHtml(col, e, opts) {
     const td = (inhalt, extra) =>
       `<td class="col-${col.key}${extra ? ' ' + extra : ''}">${inhalt}</td>`;
     switch (col.key) {
       case 'name': {
-        const wb = displayWettbewerb(e);
+        const wb = displayWettbewerb(e) || (opts && opts.zweiteZeile ? formatLength(e) : null);
         return td(`<div class="cell-clamp" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
              + `${escapeHtml(e.name)}${wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : ''}</div>`);
       }
@@ -1900,7 +1525,7 @@
       // gibt tv() unverändert zurück.
       case 'standort': return td(`<div class="cell-clamp">${escapeHtml(tv('standort', e.standort))}</div>`);
       case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
-      case 'art1': return td(`<div class="cell-clamp">${escapeHtml(tv('art1', e.art1))}</div>`);
+      case 'art1': return td(`<div class="cell-clamp sport-cell">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
       case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}</div>`);
       case 'laenge_km': return td(`<div class="cell-clamp">${formatLength(e)}</div>`);
       default: return td('');
@@ -1980,7 +1605,7 @@
     const e = g.rows[0].e;
     const einzeln = istEinzelgruppe(g);
     const offen = !einzeln && state.offeneGruppen.has(g.key);
-    const wb = offen ? displayWettbewerb(e) : null;
+    const wb = offen ? (displayWettbewerb(e) || formatLength(e)) : null;
     const kategorien = [];
     g.rows.forEach(({ e: r }) => {
       const k = r.art2 ? tv('art2', r.art2) : null;
@@ -2161,7 +1786,7 @@
     return unter.map(({ e, idx }, i) =>
       `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}`
       + `${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}" tabindex="-1">`
-      + cols.map(col => cellHtml(col, e)).join('')
+      + cols.map(col => cellHtml(col, e, { zweiteZeile: true })).join('')
       + '</tr>'
     ).join('');
   }
@@ -2171,7 +1796,7 @@
     renderChips();
     ui.refresh();
     const filtered = getFiltered();
-    countEl.textContent = t('result_count', filtered.length, events.length);
+    countEl.textContent = t('result_count', EF.formatInt(filtered.length, currentLang));
 
     const cols = activeColumns();
     tableEl.classList.toggle('with-distance', !!state.origin);
@@ -2188,7 +1813,7 @@
       // Daten bleiben unangetastet - Datenregel 1 gilt weiter, das hier
       // ist nur die Anzeige.
       gruppenAktuell = buildGroups(filtered);
-      countEl.textContent = t('result_count_grouped', gruppenAktuell.length, filtered.length, events.length);
+      countEl.textContent = t('result_count_grouped', EF.formatInt(gruppenAktuell.length, currentLang));
       // idxZuGruppe für ALLE Gruppen, nicht nur die gezeichneten:
       // markiereAuswahl() fragt danach, und ausgewählt sein kann auch
       // eine Strecke, die noch nicht im DOM steht.
@@ -2467,7 +2092,9 @@
   // ~4.100 Events an.
   function updateMapLink() {
     const suffix = currentParams().toString();
-    mapBtnEl.href = 'karte.html' + (suffix ? '?' + suffix : '');
+    const href = 'karte.html' + (suffix ? '?' + suffix : '');
+    mapBtnEl.href = href;
+    navMapEl.href = href;
   }
 
   // ---------- Filter in der Adresse (teilbarer Link) ----------
@@ -2748,7 +2375,7 @@
 
     // Dieselben Filterknöpfe und Panels wie die Liste - nur ohne „Datum"
     // (ein Abo schaut in die Zukunft) und auf dem eigenen Zustand.
-    aboUi.buildButtonBar(aboBodyEl.querySelector('#abo-filter-bar'), { ohne: ['datum'] });
+    aboUi.buildButtonBar(aboBodyEl.querySelector('#abo-filter-bar'), { ohne: ['datum'], order: FILTER_ORDER });
 
     aboBodyEl.querySelectorAll('input[name="abo-rhythmus"]').forEach(el => {
       el.addEventListener('change', () => { aboRhythmus = el.value; });
@@ -2847,12 +2474,31 @@
     return { t, tv, lang: currentLang, onReport: (e) => openReportModal(e) };
   }
 
+  // Die Strecken derselben Veranstaltung (Name + Datum + Ort, wie beim
+  // Zusammenfassen) - über ALLE Events, nicht nur die gefilterten: Die
+  // Box zeigt, was die Veranstaltung anbietet, nicht, was der Filter
+  // gerade durchlässt.
+  function geschwisterVon(e) {
+    const key = groupKey(e);
+    const liste = [];
+    events.forEach((x, idx) => { if (groupKey(x) === key) liste.push({ e: x, idx }); });
+    return liste;
+  }
+
   function renderDetail() {
     if (selectedIndex === null || !events[selectedIndex]) {
       EED.renderEmpty(detailEl, detailKontext());
       return;
     }
-    EED.render(detailEl, events[selectedIndex], detailKontext());
+    const e = events[selectedIndex];
+    EED.render(detailEl, e, Object.assign(detailKontext(), {
+      siblings: geschwisterVon(e),
+      // Eine andere Strecke in der Box wählen: nur die Auswahl wechselt,
+      // die Tabelle bleibt, wo sie ist.
+      onSelect: (idx) => waehleZeile(idx, { zeigeDetail: false }),
+      // Die Karte mit genau dieser Veranstaltung (Mastersuche auf den Namen).
+      mapLink: 'karte.html?s=' + encodeURIComponent(e.name || '')
+    }));
   }
 
   // Die dauerhafte Kennung eines Events (Datum, Name, Maßzahl, Ort) -
@@ -3207,8 +2853,20 @@
 })();
 </script>
 
-<footer class="seiten-footer">
-  <a href="impressum.html" id="footer-impressum">Impressum</a><span class="trenner">·</span><a href="datenschutz.html" id="footer-datenschutz">Datenschutz</a>
+<!-- Fußzeile: links der Hinweis, dass die Liste nicht vollständig sein
+     muss (führt in denselben Dialog wie der Knopf in der Null-Treffer-Box),
+     rechts Impressum und Datenschutz (§ 5 DDG: von jeder Seite aus
+     unmittelbar erreichbar). -->
+<footer class="site-footer">
+  <div class="fehlt-bar">
+    <span class="plus" aria-hidden="true">+</span>
+    <span id="fehlt-bar-text"></span>
+    <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
+  </div>
+  <div class="seiten-footer">
+    <a id="footer-impressum" href="impressum.html">Impressum</a>
+    <a id="footer-datenschutz" href="datenschutz.html">Datenschutz</a>
+  </div>
 </footer>
 </body>
 </html>
