@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-energiesudwest-cup-10km-gocklingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:EnergieSüdwest Cup – 10 km Volkslauf
+LOCATION:Göcklingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://energie-suedw
+ est.de/die-energie-sudwest/energiesudwest-cup/
+TRANSP:TRANSPARENT
+URL:https://energie-suedwest.de/die-energie-sudwest/energiesudwest-cup/
+END:VEVENT
+END:VCALENDAR

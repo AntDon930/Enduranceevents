@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-otillo-rugen-germany-21-8km-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:ÖTILLÖ Rügen Germany – Rügen Sprint (2\,6 km Schwimmen / 19\,2 km 
+ Laufen = 21\,8 km)
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 21.8 km\nhttps://otillos
+ wimrun.com/races/rugen-germany/
+TRANSP:TRANSPARENT
+URL:https://otilloswimrun.com/races/rugen-germany/
+END:VEVENT
+END:VCALENDAR

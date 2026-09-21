@@ -175,10 +175,10 @@
     "notiz": "Trainingslauf, 10 km plausibel."
   },
   "49. Monschau-Marathon warm-up|2027-08-07": {
-    "am": "2026-09-18",
-    "ergebnis": "label_ok",
-    "quelle": "",
-    "notiz": "Warm-up-Lauf, 10 km plausibel."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://monschau-marathon.de/",
+    "notiz": "Samstagswettbewerbe bestätigt, Distanzen nicht genannt – 10 km nicht widerlegt"
   },
   "Lübeck Marathon|2026-10-18": {
     "am": "2026-09-18",
@@ -1110,16 +1110,16 @@
     "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label 'etwas ueber 100 Meilen (ca. 160,9 km)' - die Distanz steht auch im Namen. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
   },
   "Zugspitz Ultra Trail by UTMB|2027-06-17": {
-    "am": "2026-09-18",
-    "ergebnis": "label_ok",
-    "quelle": "-",
-    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '167 km' - der XTRA des Zugspitz Ultratrails. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://zugspitz.utmb.world/",
+    "notiz": "69 → 68,5 km (Leutasch Trail); Streckennamen und Starttage je Strecke; 17.–19.06.2027 bestätigt"
   },
   "3Kings3Hills Trailrun|2027-07-23": {
-    "am": "2026-09-18",
-    "ergebnis": "label_ok",
-    "quelle": "-",
-    "notiz": "Fehlalarm der Pruefregel 'auffaellige Distanz': Das Wettbewerbs-Label nennt die Distanz selbst. Label '168 km'. Ultralaeufe ueber 100 Meilen und mehr sind in diesem Bestand normal - die Regel meldet alles ueber einer Schwelle, damit ein Zahlendreher nicht untergeht."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.3kings-3hills.com/",
+    "notiz": "Ende 25.07. → 24.07.2027; Streckennamen; alle sieben Distanzen bestätigt"
   },
   "Mauerweglauf Berlin|2027-08-14": {
     "am": "2026-09-18",
@@ -2063,10 +2063,10 @@
     "notiz": "Längste Strecke 3 km - unter der 5-km-Grenze, fällt per Override heraus."
   },
   "Hegau-Bodensee Crosslaufserie - Konstanz|2027-01-31": {
-    "am": "2026-09-19",
-    "ergebnis": "korrigiert",
-    "quelle": "hegau-bodensee-cross.de/serie/konstanz",
-    "notiz": "Hauptlauf ca. 7,8 km nachgetragen; stand ohne Distanz."
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hegau-bodensee-cross.de/",
+    "notiz": "Serie 2026/27: 31.01.2027 bestätigt; Hauptlauf-Distanzen (6,6–7,8 km je Ort) nicht in der Ankündigung"
   },
   "Lümmellauf|2027-01-17": {
     "am": "2026-09-19",
@@ -4103,5 +4103,1235 @@
     "ergebnis": "quelle_ok",
     "quelle": "https://www.koberbachtal-triathlon.de/wettkaempfe/ausschreibung/",
     "notiz": "17. Koberbachtal-Triathlon 04./05.06.2027 bestätigt; Distanzen nur im Ausschreibungs-PDF (Zeile ohne Distanz bleibt)"
+  },
+  "Women's Run Hamburg|2027-06-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://womensrun-hamburg.de/",
+    "notiz": "13.06.2027; 5 oder 10 km"
+  },
+  "Firmenlauf Würzburg|2027-06-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.wvv.de/energie-b2c/firmenlauf/",
+    "notiz": "Seite zeigt 2026 (Do 18.06.2026, 8,4 km, Dallenbergbad); 2027 nicht ausgeschrieben – bei uns 8 km"
+  },
+  "Jemgumer Dörploop|2027-06-18": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/",
+    "notiz": "Seite zeigt den 4. Dörploop am 19.06.2026 mit genau unseren Strecken (5,3 / 10,6 / 21,2 km); 2027 nicht ausgeschrieben"
+  },
+  "Feldbergfestlauf|2027-06-19": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://feldbergfest.de/",
+    "notiz": "171. Feldbergfest am 19./20.06.2027 bestätigt; Distanzen „weitere Infos folgen“"
+  },
+  "Metropolmarathon Fürth|2027-06-19": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://metropolmarathon.de/",
+    "notiz": "Seite lieferte keine lesbaren Angaben zu Datum und Strecken 2027"
+  },
+  "Sachsenlauf Coswig|2027-06-20": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sachsenlauf.de",
+    "notiz": "47. Sachsenlauf am 20.06.2027; 5 / 7 / 11 / 11,8 / 21 km (21-km-Runde 2027 zurück in den Friedewald)"
+  },
+  "Mittsommernachtslauf Hannover|2027-06-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.mittsommernachtslauf-hannover.de/",
+    "notiz": "Seite zeigt 2026: 14.08.2026 mit 7,7 km und 21,1 km Einzellauf, 23,1 km Staffel – unser Termin 25.06.2027 liegt zwei Monate früher, nicht belegt; Zeile ohne Distanz"
+  },
+  "SachsenTrail Erzgebirge|2027-06-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sachsentrail.de/",
+    "notiz": "Fr 25.06.–So 27.06.2027 bestätigt; Streckennamen (Half/Quarter/Base/FunTrail) ohne km im Text – unsere km nicht widerlegt"
+  },
+  "Bodensee Openwater Konstanz|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.bodensee-openwater.com/",
+    "notiz": "Konstanz 26.06.2027 Q5/Q10, Friedrichshafen 31.07.2027 Q11, Wallhausen 28.08.2027 Q2,5/Q5 – genau unsere Zeilen"
+  },
+  "Bodensee Openwater Friedrichshafen|2027-07-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.bodensee-openwater.com/",
+    "notiz": "Konstanz 26.06.2027 Q5/Q10, Friedrichshafen 31.07.2027 Q11, Wallhausen 28.08.2027 Q2,5/Q5 – genau unsere Zeilen"
+  },
+  "Bodensee Openwater Wallhausen|2027-08-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.bodensee-openwater.com/",
+    "notiz": "Konstanz 26.06.2027 Q5/Q10, Friedrichshafen 31.07.2027 Q11, Wallhausen 28.08.2027 Q2,5/Q5 – genau unsere Zeilen"
+  },
+  "Edersee-Triathlon|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://edersee-triathlon.de/",
+    "notiz": "42. Waldecker Edersee-Triathlon am 26.06.2027; Distanzen nur in der Ausschreibung"
+  },
+  "Losheimer Trailfest|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://trailfest.de/",
+    "notiz": "52 → 51 km, 101 → 100 km; Streckennamen; 26.–27.06.2027 bestätigt"
+  },
+  "Remmers-Hasetal-Marathon|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://remmers-hasetal-marathon.de",
+    "notiz": "Samstag, 26.06.2027 (25. Ausgabe); Marathon, Halbmarathon, 10 km, 5 km"
+  },
+  "Rokathon Rockenhausen|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.rokathon.de/",
+    "notiz": "26./27.06.2027; Marathon-Einzelstrecke bestätigt; 24-h-Format nur in der Notiz"
+  },
+  "Berliner Volkstriathlon|2027-06-27": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "http://wj-tools.de/index.php/volkstriathlon",
+    "notiz": "Distanz nachgetragen (23,7 km = 0,7 + 18 + 5, Format 2026); Termin 27.06.2027 nicht bestätigt (2026: 05.07.)"
+  },
+  "Heuchelberg Trail|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.heuchelbergtrail.de/",
+    "notiz": "12 / 24 / 50 km bestätigt („Anmeldung 2027“ offen), Datum 2027 nicht im Text"
+  },
+  "Hoalfinger Sommerlauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.svh1931.de/",
+    "notiz": "„Der neue Termin steht fest“ nur als Bild; keine lesbaren Angaben"
+  },
+  "Lausitzer Seenland 100|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://seenland100.de/",
+    "notiz": "03.–04.07.2027 bestätigt; Laufen/Walken/Wandern, Radmarathon 201 km, Run & Bike – die Laufdistanzen nennt die Startseite nicht einzeln"
+  },
+  "Nördlinger Stadtlauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://noerdlingen-laeuft-rund.de",
+    "notiz": "Samstag, 03.07.2027; Hauptlauf ca. 6 km (2026)"
+  },
+  "U. Trail Lamer Winkel (U.TLW)|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://utlw.de/de/",
+    "notiz": "24 → 23 km (Osser-Riese); Streckennamen; 03.07.2027 bestätigt"
+  },
+  "Staffelsee Panoramalauf|2027-07-04": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://lgstaffelseemurnau.run/8-staffelseelauf-2026/",
+    "notiz": "Seite zeigt den 8. Lauf am 05.07.2026 mit 5 und 10 km; 2027 nicht ausgeschrieben – bei uns nur 5 km"
+  },
+  "Dorstener 24-Stunden-Lauf|2027-07-09": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://24stundenlaufdorsten.de/",
+    "notiz": "Seite nennt nur 2026 (10./11.07.2026); 2027 nicht ausgeschrieben"
+  },
+  "O-SEE Backyard Ultra|2027-07-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://o-see-backyard.de/",
+    "notiz": "10.–13.07.2027 bestätigt; Label „7 km“ (Runde) durch das Format ersetzt"
+  },
+  "Dinkelsbühler Staffellauf|2027-07-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.dinkelsbuehler-staffellauf.de/",
+    "notiz": "11.07.2027; 4 × ca. 3 km Staffel, bei uns die Team-Gesamtstrecke 12 km (siehe offene Staffel-Entscheidung)"
+  },
+  "Gläserner Mönch Lauf|2027-07-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://glaeserner-moench-lauf.de/",
+    "notiz": "27. Lauf war am Samstag, 27.06.2026; unser Termin Sonntag, 11.07.2027 ist nicht belegt, Distanzen 2027 nicht genannt"
+  },
+  "Hardy's Stadtlauf Fürstenfeldbruck|2027-07-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.hardys-fitness.de/aktuelles/events/hardys-stadtlauf-ffb",
+    "notiz": "Seite zeigt 2026 (12.07.2026: 5 km, 10 km, Halbmarathon); 2027 nicht ausgeschrieben"
+  },
+  "Firmenlauf Neumarkt|2027-07-15": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://firmenlauf.bayern/firmenlauf-neumarkt/",
+    "notiz": "Seite zeigt 2026 (Live-Lauf 16.07.2026, dazu hybrid); 2027 nicht ausgeschrieben, 6 km nicht prüfbar"
+  },
+  "Waldlauf Renquishausen|2027-07-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://sv-renquishausen.de/veranstaltungen/waldlauf/",
+    "notiz": "Seite antwortet mit 403"
+  },
+  "City Marathon Wiesbaden|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://sporthilfe-wiesbaden.de/sporthilfe/veranstaltungen/citymarathon_2026/",
+    "notiz": "wiesbaden-marathon.de leitet auf die Seite 2026 (Sa 20.06.2026: 3 / 5 / 10 / 21,1 / 42,2 km); 2027 nicht ausgeschrieben"
+  },
+  "Berlin City Night|2027-07-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.berlin-citynight.de/",
+    "notiz": "20-km-Zeile ausgeschlossen (Doppelstart Skaten + Laufen); 31.07.2027, 5 und 10 km bestätigt"
+  },
+  "Haasower Waldlauf|2027-07-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.haasow.com/waldlauf",
+    "notiz": "Seite zeigt den 28. Lauf am 29.08.2026 (2,6 / 5 / 10 km, Walking 5 km) – kein 10,8 km; unser Termin 31.07.2027 liegt vier Wochen früher, nicht belegt"
+  },
+  "Marathon Nacht Rostock|2027-07-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.rostocker-marathon-nacht.com",
+    "notiz": "„Anmeldung für 2027 geöffnet“, Datum nicht im Text; Marathon, Halbmarathon, Rostocker 7 bestätigt"
+  },
+  "49. Monschau Marathon|2027-08-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://monschau-marathon.de/",
+    "notiz": "Ultra K70 am Marathon-Wochenende 06.–08.08.2027 bestätigt (Label gesetzt)"
+  },
+  "Monschau Marathon|2027-08-06": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://monschau-marathon.de/",
+    "notiz": "06.–08.08.2027 bestätigt; Ultra K56 (56 km) fehlte – nachgetragen"
+  },
+  "Die 24 Stunden van Halen|2027-08-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://lg-lottehalen.jimdofree.com/die-24-stunden-van-halen-7-8-8-8/",
+    "notiz": "Sa 07.08. 11 Uhr bis So 08.08.2027 11 Uhr; Marathon, 50 km, 100 km und 24 h auf der 1.465-m-Runde (max. 25 Läufer). Der 24-h-Wettbewerb ohne Distanz verschmilzt in der Duplikat-Erkennung mit der Marathon-Zeile – nicht nachgetragen"
+  },
+  "NordseeMan & NordseeWoman|2027-08-07": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://nordseeman.de/",
+    "notiz": "Sportart Laufen → Triathlon; 07./08.08.2027 bestätigt; Distanzen nur als Namen (Mittel/Olympisch/Volks)"
+  },
+  "Allgäu Panorama Marathon|2027-08-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.allgaeu-panorama-marathon.de/",
+    "notiz": "Seite antwortet mit 429 (zu viele Anfragen)"
+  },
+  "O-SEE Challenge|2027-08-13": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.xterraplanet.com/event/xterra-germany",
+    "notiz": "Laufen → Triathlon/Cross; Radstrecken durch die Summen ersetzt (49,3 / 41,9 / 32,2 / 13,5 km), Tage je Wettbewerb, Kinderrennen ausgeschlossen"
+  },
+  "Trinale|2027-08-14": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://trifun.de/events/trinale",
+    "notiz": "Laufen 10 km → Triathlon 9,6 km (Eliminator-Format); 14.08.2027 bestätigt"
+  },
+  "LST Super Sunday|2027-08-22": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.808project.de/lst-super-sunday",
+    "notiz": "Seite zeigt den Lauf am 26.04.2026 (5 / 10 km, Kempten); 2027 nicht ausgeschrieben – unser 22.08.2027 ist nicht belegt"
+  },
+  "Volkslauf Bad Segeberg|2027-08-22": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://volkslauf-bad-segeberg.de/",
+    "notiz": "Sonntag, 22.08.2027 bestätigt; Distanzen 2027 noch nicht genannt (2026: Hauptlauf 8,5 km, 3 km, 1,8 km) – bei uns 9 km"
+  },
+  "Eilenriederennen Hannover|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.eilenriederennen.de/",
+    "notiz": "Seite zeigt das 22. Rennen am 30.08.2026 (5 / 10 km, Halbmarathon); 2027 nicht ausgeschrieben, Zeile ohne Distanz"
+  },
+  "Moret Triathlon|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
+    "notiz": "Ausschreibung 42. Moret Triathlon 30.08.2026 (Sprint, Olympisch, Mittel); 2027 nicht ausgeschrieben"
+  },
+  "Swim&Run Winnweiler|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/",
+    "notiz": "Distanz nachgetragen (5,5 km, Format 2026); Termin 29.08.2027 nicht bestätigt"
+  },
+  "Tharandter-Wald-Lauf|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027092",
+    "notiz": "Sonntag, 29.08.2027; Lauf 5 / 10 / 21,1 / 30 km (dazu 30 km Run & Bike), Walking 10,5 km – der Halbmarathon fehlte (nachgetragen); die 11 km stehen nicht auf der Seite (vielleicht das Walking 10,5 km), nicht geändert"
+  },
+  "AOK-Firmenlauf Rheine|2027-09-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://aok-firmenlauf-rheine.de/",
+    "notiz": "03.09.2027 ab 18 Uhr, Laufstart 19:15; Distanz nicht genannt"
+  },
+  "City Marathon Bremerhaven|2027-09-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.bremerhaven-marathon.de/",
+    "notiz": "Labels getauscht: 42,2 km = Marathon, 32 → 31,6 km = 3/4-Marathon; 05.09.2027 bestätigt"
+  },
+  "Flensburg Liebt Dich Marathon|2027-09-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://flensburg-marathon.de/",
+    "notiz": "Seite zeigt 2026 (06.09.2026: Marathon, Halbmarathon, Staffel, 10 km, 5 km); 2027 nicht ausgeschrieben"
+  },
+  "Stadtwerke Halbmarathon Bochum|2027-09-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://stadtwerke-halbmarathon.de/",
+    "notiz": "Seite zeigt 2026 (06.09.2026: Halbmarathon, 10 km, 5 km); 2027 nicht ausgeschrieben – bei uns nur der Halbmarathon"
+  },
+  "Tierparklauf Berlin|2027-09-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://berlin-laeuft.de/tierparklauf/",
+    "notiz": "11. & 12.09.2027; 5 km, 10 km (dazu Generationen-Team 2×5 km, Walking)"
+  },
+  "Xletix Challenge - Norddeutschland|2027-09-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.xletix.com/events/norddeutschland-2027/",
+    "notiz": "11./12.09.2027, Grömitz; 6 / 12 / 18 km"
+  },
+  "Bernburger Halbmarathon|2027-09-18": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://lauf.psv-bernburg.de/hm/",
+    "notiz": "Seite zeigt den 9. Halbmarathon am 19.09.2026 (5 & 12 km, Halbmarathon); 2027 nicht ausgeschrieben"
+  },
+  "7. Appelhülsener Landlauf|2027-09-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.appelhuelsener-landlauf.de",
+    "notiz": "Seite nennt nur den 6. Landlauf am 26.09.2026"
+  },
+  "Reeser Rheinlauf|2027-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://turnvereinrees.de/www-reeser-rheinlauf-de/",
+    "notiz": "Seite nennt nur den 3. Rheinlauf am 04.10.2026; 2027 nicht ausgeschrieben"
+  },
+  "Friedberger Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.friedberger-silvesterlauf.de/",
+    "notiz": "8 → 8,2 km; 31.12.2026 bestätigt"
+  },
+  "Friedberger Silvesterlauf|2027-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.friedberger-silvesterlauf.de/",
+    "notiz": "Seite beschreibt nur 2026 (8,2 km); die Zeile 2027 ohne Distanz bleibt"
+  },
+  "20. GVG-Donatuslauf|2027-03-14": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.donatuslauf.de",
+    "notiz": "14.03.2027 bestätigt; 5,5 km und 10 km fehlten (nachgetragen), Halbmarathon bestätigt"
+  },
+  "21. GVG-Donatuslauf|2028-03-12": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.donatuslauf.de",
+    "notiz": "Seite nennt 2028 nicht – Kalenderprognose"
+  },
+  "29. Generali Köln Marathon|2027-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://generali-koeln-marathon.de/",
+    "notiz": "koeln-marathon.de leitet auf generali-koeln-marathon.de; dort nur der 04.10.2026 (Marathon, Halbmarathon, Staffel). 2027 nicht ausgeschrieben; der Halbmarathon fehlt in unserer 2027-Zeile"
+  },
+  "30. Generali Köln Marathon|2028-10-01": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://generali-koeln-marathon.de/",
+    "notiz": "Kalenderprognose, Seite nennt 2028 nicht"
+  },
+  "41. Silvesterlauf der LAV Hamburg-Nord|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://walddoerfer-sv.de/",
+    "notiz": "Anmeldeseite 2026 antwortet mit 404, Startseite des Walddörfer SV nennt den Silvesterlauf nicht"
+  },
+  "Brückenlauf Düsseldorf|2027-05-16": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.brueckenlauf-duesseldorf.de/",
+    "notiz": "16.05.2027 bestätigt; Distanzen nicht im Text (5 und 10 km nicht widerlegt)"
+  },
+  "Nachtlauf Bonn|2027-05-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.bonner-nachtlauf.de",
+    "notiz": "26.05.2027 (Mittwoch vor Fronleichnam) bestätigt; SpeedRun und FunRun ohne km im Text"
+  },
+  "IsarLauf - Bad Tölz|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://skiclub-lenggries.de/isarlauf/",
+    "notiz": "18. Isar-Lauf am Sonntag, 27.09.2026: 30 km, 21 km, 10 km (Start Lenggries), 5 km (Menschen mit Beeinträchtigung), Jugend 3 / 1,4 km"
+  },
+  "Buchdorfer Jedermannslauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.lg-donau-ries.de",
+    "notiz": "35. Buchdorfer Jedermannslauf Sa 03.10.2026 10 Uhr bestätigt; Distanz nicht genannt"
+  },
+  "Lauf um den Eisbrunn - 1. Lauf der Jedermannserie|2026-10-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.lg-donau-ries.de",
+    "notiz": "Maurener „Lauf um den Eisbrunn“ So 25.10.2026 10 Uhr, Auftakt der Jedermannslaufserie; Distanz nicht genannt"
+  },
+  "41. MRRC Silvesterlauf München 2026|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.silvesterlauf-muenchen.de",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Brocken-Challenge|2027-02-13": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.brocken-challenge.de/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Lauf Zwischen Den Meeren|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.lauf-zwischen-den-meeren.de",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Laatzen Leinelauf|2027-06-18": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://leinelauf.de/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Unterallgäuer Triathlon|2027-06-19": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.triathlon-ottobeuren.de/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "46. Krummenseelauf|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.leichtathletik-kw.de/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Leimüller Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.leimueller-silvesterlauf.at/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "25. Altstadtfestlauf in Lauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.altstadtfest-lauf.de/",
+    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+  },
+  "Halbmarathon Pfarrkirchen|2027-04-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://halbmarathon.tus-pfarrkirchen.de/",
+    "notiz": "Seite antwortet mit 500"
+  },
+  "Wartburglauf Eisenach|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sv-wartburgstadt.de/",
+    "notiz": "47. Wartburglauf am 27.09.2026 bestätigt; Distanzen nicht auf der Startseite"
+  },
+  "Wald-Marathon Wilgartswiesen|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.wald-marathon.de/",
+    "notiz": "9. Wald-Marathon am 03.10.2026 (ausgebucht); Streckenlängen stehen nur auf Unterseiten"
+  },
+  "64. Westenergie Marathon|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://westenergie-marathon.de/",
+    "notiz": "Label der 42,2-km-Zeile „AllbauTeamStaffel“ → „Marathon“; 11.10.2026 bestätigt; km der Nebenstrecken nicht auf der Startseite"
+  },
+  "SV Schwindegg Ultralauf|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://ultralauf.sv-schwindegg.de/2026-vr-bank-lauf-deutsche-meisterschaften-im-6h-lauf/",
+    "notiz": "Marathon/50 km → ein 6-Stunden-Lauf (Zeitrennen, Datenregel 8); 17.10.2026 bestätigt"
+  },
+  "Landkreislauf Schwandorf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.partner-sad.de/2026/02/10/landkreislauf-2026-27-juni-2026/",
+    "notiz": "Nachholtermin 10.10.2026 bestätigt (27.06. hitzebedingt abgesagt); 50 → 49,5 km und 13 → 12,5 km als Staffel-Gesamtstrecken beschriftet"
+  },
+  "Sollingquerung|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sollingquerung.de/",
+    "notiz": "07.11.2026 bestätigt; Distanz nicht im Text (48 km nicht widerlegt)"
+  },
+  "Berliner Nikolauslauf|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.berliner-nikolauslauf.com/startseite/",
+    "notiz": "Wettbewerbe sind Marathon-Bruchteile: 11 → 10,5 km (Viertel), 27 → 26,4 km (Big 5 = 5/8); Halbmarathon fehlte (nachgetragen); 05.12.2026 bestätigt"
+  },
+  "Viking Triathlon|2027-06-20": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://viking-triathlon.de/",
+    "notiz": "20.06.2027, Mitteldistanz in Schleswig (Lauf ca. 21 km, drei Runden) – 113 km nicht widerlegt"
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://otilloswimrun.com/races/rugen-germany/",
+    "notiz": "Laufen → Triathlon/Swimrun; 22 → 21,8 km; Streckennamen; 22.05.2027 bestätigt"
+  },
+  "Frankfurter Runden|2027-04-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.frankfurter-runden.de/",
+    "notiz": "25.04.2027, Mainufer; 1–4 Runden à 10 km = 10/20/30/40 km"
+  },
+  "Spartan Berlin|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.spartan.com/en/race/detail/11556/overview",
+    "notiz": "29.08.2027, Spargelhof Klaistow; Sprint 5 km, Super 10 km, Beast 21 km"
+  },
+  "Tough Mudder - Berlin - Brandenburg|2027-08-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://de.toughmudder.com/events/berlin-brandenburg/",
+    "notiz": "28.08.2027, Spargelhof Klaistow; 15K und 5K"
+  },
+  "Kristallmarathon|2027-02-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.triathlonverein-werratal.de/kristallmarathon/",
+    "notiz": "Sonntag, 14.02.2027 bestätigt; Distanzen nur in der Ausschreibung"
+  },
+  "Fichtelgebirgsmarathon|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://fichtelgebirgsmarathon.de/",
+    "notiz": "03.07.2027 bestätigt; „drei verschiedene Läufe“ ohne km im Text (10/21/42 nicht widerlegt)"
+  },
+  "32. Kalmit-Berglauf|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://pfaelzer-berglaufpokal.de",
+    "notiz": "Pokalseite: Kalmit-Berglauf je Jahr 7,1–8,7 km, 350–510 hm; 2026 nicht einzeln beschrieben – 8,3 km nicht prüfbar"
+  },
+  "35. BW Forstsportlauf im Naturpark Schönbuch|2026-10-25": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.tsv-lustnau.de/leichtathletik/kirnberglauf/forstsportlauf/",
+    "notiz": "9 → 8,5 km; 25.10.2026 bestätigt"
+  },
+  "ksp MöWathlon|2027-07-11": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.moewathlon.de/ksp-moewathlon/",
+    "notiz": "Laufen 6/19 km → Triathlon 25,3 km (Summe der Teilstrecken), Laufetappe ausgeschlossen; 11.07.2027 bestätigt"
+  },
+  "33 um Humfeld|2027-04-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.lipperland-marathon.de",
+    "notiz": "Seite des Lipperland-Marathons nennt den Lauf nicht"
+  },
+  "Grüngürtel Ultra|2027-01-10": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://quaelixfaktor.de/gruenguertel-ultra",
+    "notiz": "Termin 10.01. → 17.01.2027 (Terminänderung laut Seite); 63 km nicht im Text, nicht widerlegt"
+  },
+  "Weeze 3 x 5 km Staffellauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tsv-weeze-leichtathletik.de/staffel.html",
+    "notiz": "26.09.2026 bestätigt; 3 × 5 km Staffel, Label gesetzt"
+  },
+  "6h Adventslauf Langenhagen|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "http://shinsplinters-langenhagen.webnode.page/kopie-von-6h-adventslauf-a/",
+    "notiz": "Marathon/46 km → ein 6-Stunden-Lauf (Datenregel 8); Termin 2026 nicht bestätigt"
+  },
+  "Wiedtal Ultra Trail|2027-03-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://mut-zum-wut.de/",
+    "notiz": "14. WiedtalUltraTrail am 13.03.2027 bestätigt; Streckenlängen nur in Karte/PDF (Streckenführung wetterabhängig)"
+  },
+  "Hammer Charity-Lauf|2027-04-18": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.lg-hamm.de/index.php/leichtathletik/veranstaltungen/charitylauf",
+    "notiz": "7 → 6,5 km; 18.04.2027 bestätigt"
+  },
+  "Sparkassen Firmenlauf Soest|2027-06-30": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.firmenlauf-soest.de/",
+    "notiz": "7 → 6,5 km; 30.06.2027 bestätigt"
+  },
+  "Amrumer Mukolauf|2027-05-15": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.amrumer-mukolauf.de",
+    "notiz": "15.05.2027 bestätigt; Strecken „einmal um die Insel“, „halbe Insel“, Rundkurs (kleine 4,5-km-Runde) ohne km – unsere 5 km nicht prüfbar"
+  },
+  "KäseKross|2027-02-28": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://kaesekross.de/",
+    "notiz": "9-km-Zeile ausgeschlossen (nicht im Programm), Streckennamen; 28.02.2027 bestätigt"
+  },
+  "21. Stimberg-Haardlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://tus09e.de/leichtathletik/haardlauf/",
+    "notiz": "„5 km“ ist der Volkslauf mit 4,9 km (fällt heraus); 9,4 km und 03.10.2026 bestätigt"
+  },
+  "Spessart Silvester Trail|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.crossdog.de/",
+    "notiz": "Seite (CaniTrail-Anbieter) nennt den Silvester Trail nicht"
+  },
+  "Osnabrücker Gipfelsturm|2027-04-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.diakoniestiftung-osl.de/projekte-aktionen/gipfelsturm",
+    "notiz": "2026: 10 km; 2027 nicht ausgeschrieben – bei uns 11 km"
+  },
+  "ClimAid Plant a Tree Run|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://climaid.de/",
+    "notiz": "Seite beschreibt nur den Lauf 2024 (11.10.2024, Haan, 24 km); ein Termin 2026 ist nicht belegt"
+  },
+  "Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße|2026-10-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://tus-wasserstrasse.de/sport/laufen",
+    "notiz": "5 → 4,6 km (fällt heraus), 18 → 17,5 km; 31.10.2026 und 10 km bestätigt"
+  },
+  "41. Muswiesenlauf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.muswiesenlauf.de/",
+    "notiz": "10.10.2026; 10.000 m und 5.000 m"
+  },
+  "Isartal Halbmarathon|2026-10-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://isartal-halbmarathon.de/index.php",
+    "notiz": "25.10.2026 bestätigt; Distanzen nur in der Ausschreibung"
+  },
+  "Laufwelt Nikolauslauf|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://rsg-ried-rastatt.de/veranstaltungen/rsg-lauf/ausschreibung-laufwelt-nikolauslauf-der-rsg-ried-rastatt/",
+    "notiz": "06.12.2026; Halbmarathon (2 Runden) und 10 km"
+  },
+  "13. Schloss Marienburg Marathon|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.schloss-marienburg-marathon.de",
+    "notiz": "21.11.2026 bestätigt; Distanzen nur in der Ausschreibung"
+  },
+  "rappid. Marathon|2027-04-18": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://rappid.run/",
+    "notiz": "Seite nennt weder Datum noch Strecken (nur Anmeldelink)"
+  },
+  "Schlaubetal-Marathon|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://schlaubetalmarathon.blogspot.com/",
+    "notiz": "17.10.2026; Marathon und Halbmarathon, Strecken unverändert"
+  },
+  "53. Neusser Erftlauf|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.djk-novesia.de/de/veranstaltungen/neusser-erftlauf/",
+    "notiz": "14.11.2026; 5-km-Runde und 15 km Hauptlauf (DLV-vermessen)"
+  },
+  "38. Karlsbader Volkslauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.svl-leichtathletik.de",
+    "notiz": "08.11.2026 bestätigt; 5-km-Strecke genannt, 10 km nicht ausdrücklich"
+  },
+  "Hohenloher Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hohenloher-silvesterlauf.de/index.php/de/",
+    "notiz": "31.12.2026, 13 Uhr, Hengstfeld; 5 oder 10 km"
+  },
+  "Heckengäu-Volkslauf Wiernsheim|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sfg-serres.com/volkslauf/",
+    "notiz": "„jedes Jahr am 3. Oktober“; 5 und 10 km"
+  },
+  "Karpiner Herbstcross|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://uer-laufcup.de/wp-content/uploads/2025/10/Ausschreibungen-Karpiner-Herbstcross.pdf",
+    "notiz": "Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km stehen dort nicht"
+  },
+  "Bahnabend Bremenstadion Ennepetal|2026-09-23": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sportfreunde-ennepetal.de/1-bahnabend-im-bremenstadion-in-ennepetal-termin-fuer-2026-steht/",
+    "notiz": "Mi 23.09.2026; 800 / 3.000 / 5.000 m auf der Bahn"
+  },
+  "Citylauf Telgte|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.citylauf-telgte.de/",
+    "notiz": "8 → 7,5 km (Walking); 26.09.2026, 5 und 10 km bestätigt"
+  },
+  "DROLAUF Landschafts- und Genusslauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tus-09-drolshagen.de/sportangebot/lauftreff/drolauf/",
+    "notiz": "26.09.2026, 12:30 Uhr; 5 km (Lauf/Walking) und 10 km"
+  },
+  "Altstadtfestlauf in Lauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/",
+    "notiz": "So 27.09.2026, 11 Uhr; 5-km-Runde, 10 km = 2 Runden. Die 10-km-Zeile steht unter dem Namen „25. Altstadtfestlauf in Lauf“ – dieselbe Veranstaltung unter zwei Namen (Punkt 17)"
+  },
+  "EnergieSüdwest Cup|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://energie-suedwest.de/die-energie-sudwest/energiesudwest-cup/",
+    "notiz": "27. Cup, 4. Lauf 27.09.2026 in Göcklingen (5 und 10 km Volkslauf); Ort statt Landau gesetzt"
+  },
+  "EnergieSüdwest Cup|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://energie-suedwest.de/energiesuedwest-cup/",
+    "notiz": "27. Cup, Finale 11.10.2026 in Offenbach an der Queich (5 und 10 km Volkslauf); Ort statt Landau gesetzt"
+  },
+  "Rats-Run - Hintersteinenberg|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://v2.rats-runners.de/hintersteinenberg/",
+    "notiz": "11 → 10,7 km; 27.09.2026 bestätigt"
+  },
+  "10. Kranlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://kranlauf.de/",
+    "notiz": "03.10.2026, Offenbacher Hafen; Kranlauf 6 Runden ≈ 5 Meilen (≈ 8 km), Hobby 2,6 km, Charity-Walk 1,3 km"
+  },
+  "16. Labertal-Lauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.lv-geiselhoering.de/archive/9297",
+    "notiz": "03.10.2026 (mit Niederbayerischen Meisterschaften); Distanzen nur im Ausschreibungs-PDF"
+  },
+  "21. Korschenbroicher Waldlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.korschenbroicherlc.de/veranstaltungen/",
+    "notiz": "03.10.2026, Waldstadion; 400 bis 10.000 m plus Walking"
+  },
+  "28. Alfelder Leinetal-Lauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.lav-alfeld.de/",
+    "notiz": "03.10.2026 bestätigt; Distanzen nur in der Ausschreibung"
+  },
+  "Crailsheimer Sparkassenlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sparkassenlauf-crailsheim.de/",
+    "notiz": "03.10.2026; 5 km und Horaffenlauf 4 × 2,5 km = 10 km"
+  },
+  "Frickinger Apfellauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.frickingen.de/de/freizeit-kultur-tourismus/frickinger-apfellauf",
+    "notiz": "Lauf 10 → 5 km, MTB 20 km ausgeschlossen (2026 nicht ausgetragen); 03.10.2026 bestätigt"
+  },
+  "Gilching Läuft|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://gilching-laeuft.de/",
+    "notiz": "03.10.2026 bestätigt; Distanzen nur auf der Streckenseite (3,7 km Jugend genannt)"
+  },
+  "Langeooger Sanddornlauf 2026|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.langeoog.de/veranstaltungen/langeooger-sanddornlauf",
+    "notiz": "03.10.2026, 13–16 Uhr; 5.000 und 10.000 m"
+  },
+  "Maxdorfer Gemüselauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tsg-maxdorf.de/",
+    "notiz": "03.10.2026; „10km-Jagd auf die Gemüsekörbe“ – 5 km nicht ausdrücklich"
+  },
+  "Weiner Family Run|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://fcsww.de/lauftreff",
+    "notiz": "Lauftreff-Seite ohne Angaben zum Family Run"
+  },
+  "Herbstlauf Niederwangen|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.sg-niederwangen.de/events/standard-titel/herbstlauf/",
+    "notiz": "11 → 10,5 km (Viertelmarathon); 04.10.2026 bestätigt; 5 km nicht genannt"
+  },
+  "Luftschifflauf Mülheim|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://luftschifflauf.de/",
+    "notiz": "04.10.2026; 5 und 10 km (Trainingspläne), Bambini"
+  },
+  "Regensburger Leukämielauf|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.leukaemiehilfe-ostbayern.de/leukaemielauf",
+    "notiz": "04.10.2026 bestätigt; Distanzen nicht auf der Seite"
+  },
+  "30. Loßburger Waldlauf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.skiclub-lossburg.de",
+    "notiz": "10.10.2026 bestätigt; Distanz nicht genannt"
+  },
+  "41. Pegnitztallauf 2026|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://ski-club-artelshofen.jimdoweb.com/",
+    "notiz": "10.10.2026 bestätigt; Distanzen nicht genannt"
+  },
+  "Schwedter Herbstlauf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://tsv-blauweiss65schwedt.de/?cat=7",
+    "notiz": "10.10.2026; vier Streckenlängen (800 m …), Details abgeschnitten"
+  },
+  "24. Burscheider Stadtlauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://stadtsportverband-burscheid.de/index.php/stadtlauf-2026",
+    "notiz": "11.10.2026; 10-km-Hauptlauf, 3 km, 800 m"
+  },
+  "Ilmtallauf Geisenfeld|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://sport-in-blog.de/2026/01/07/ilmtallauf-geisenfeld-3/",
+    "notiz": "8 → 7,9 km; 11.10.2026 bestätigt"
+  },
+  "Porta-Volkslauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.scnammen.de/index.php/veranstaltungen/volkslauf-porta",
+    "notiz": "17,3 → 17 km; 5,5 und 8,8 km bestätigt; Termin nicht auf der Seite"
+  },
+  "Walter Nordstadt-Lauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.autozentrum-walter.de/walter-nordstadt-lauf",
+    "notiz": "11.10.2026; Walter Meile 9.000 m (5 × 1.800 m), FunRun 3.600 m"
+  },
+  "24. Schloss Cross Laupheim|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://schloss-cross.de",
+    "notiz": "Sa 17.10.2026; Hauptlauf 8.400 m, Freizeit 4.200 m, Jugend 2.800 m"
+  },
+  "La Corsa di Paolo|2026-10-18": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.troialaufevents.de/",
+    "notiz": "18.10.2026 bestätigt; Distanzen nicht auf der Seite"
+  },
+  "46. Internationaler Halbmarathon, 56. Internationaler Volkslauf|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.djk-herzogenrath.de/seite/287665/ausschreibung.html",
+    "notiz": "Seite antwortet mit 503"
+  },
+  "67. Panorama Marathon|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://running-paule.de/wp-content/uploads/2026/03/67.-Panorama-Ausschreibung-24.10.26.pdf",
+    "notiz": "Ausschreibung (PDF, 24.10.2026, Start 10 Uhr): laut Text ein „gemeinsamer, nicht öffentlicher Trainingsmarathon“, Rundenwertung ab Halbmarathon – wie die privaten Ultra-Serien; Entscheidung des Nutzers, ob solche Läufe in die Liste gehören"
+  },
+  "Crosslauf - Burgkirchen/Gendorf|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL05.php",
+    "notiz": "5 → 4,5 km (fällt heraus), 7 → 6,6 km; 24.10.2026 bestätigt"
+  },
+  "22. Drachenlauf|2026-10-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://drachenlauf.net/",
+    "notiz": "25.10.2026 bestätigt; km nicht genannt (über 1.000 hm, Siebengebirge)"
+  },
+  "45. Tiergarten-Cross|2026-11-01": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.spiridon-schleswig.de",
+    "notiz": "01.11.2026 bestätigt; Distanz nicht auf der Seite"
+  },
+  "20. Geilenkirchener Crosslauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.atvgeilenkirchen.de/index.php/me-cross",
+    "notiz": "5 → 4,6 km (fällt heraus); 9,2 km und 07.11.2026 bestätigt"
+  },
+  "Sägerserie|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sctf-events.de",
+    "notiz": "Termine 10.10., 24.10., 07.11.2026 bestätigt; Distanzen nicht auf der Seite"
+  },
+  "1. Lauf Winterlaufserie 2026/2027|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.wellen-marathon.de",
+    "notiz": "Seite verweist für die Winterlaufserie auf tsv-wellen.de/winterlauf; Termine 2026/27 nicht im Text"
+  },
+  "2. Lauf Winterlaufserie 2026/2027|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.wellen-marathon.de",
+    "notiz": "siehe 1. Lauf"
+  },
+  "29. Mausebergecrosslauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sportinhusum.de/sportangebot/outdoor/lav/veranstaltungen/mauseberge-crosslauf/",
+    "notiz": "08.11.2026; Männer 5 große Runden = 8.330 m, Frauen 4 Runden = 6.670 m"
+  },
+  "3TürmeWEG Trailrun|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://3tuermetrail.de/",
+    "notiz": "So 08.11.2026, 10 Uhr; 10 km, ca. 300 hm"
+  },
+  "33. Schmachtendorfer Nikolauslauf|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.sterkrade-nord.de/nikolauslauf",
+    "notiz": "So 29.11.2026; 5.000 und 10.000 m (dazu 1.200/1.500 m) – die 5 km fehlten, nachgetragen"
+  },
+  "47. Mühlenberger Nikolauslauf|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.muehlenberger-nikolauslauf.de/",
+    "notiz": "06.12.2026 bestätigt; Distanzen nicht auf der Seite"
+  },
+  "Crosslauf in den Ravensbergen|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.sc-potsdam.de/leichtathletik/",
+    "notiz": "Seite berichtet nur vom Schulcrosslauf; kein Termin 14.11.2026, keine Distanzen"
+  },
+  "Lauf „Ich Lauf Mit gegen Gewalt“|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.landkreis-muenchen.de/themen/familie-soziales/lauf-ich-lauf-mit-gegen-gewalt/",
+    "notiz": "Sa 14.11.2026; 5 und 10 km (DLV-vermessen)"
+  },
+  "10. Kerner Nachtlauf|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf",
+    "notiz": "5 → 4,5 km (fällt heraus); 10 km und 14.11.2026 bestätigt"
+  },
+  "41. Memmelsdorfer Schlosslauf|2026-11-22": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://sc-memmelsdorf.de/schlosslauf/",
+    "notiz": "11 → 10,8 km (10.750 m); Termin nicht auf der Seite"
+  },
+  "Crosslauf - Mühldorf|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.crosslauf-is.de/pages/archiv/ausschreibungen/2026/CRL06.php",
+    "notiz": "9 → 8,8 km; 21.11.2026 bestätigt"
+  },
+  "Crosslauf am Rodelberg|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.vfl-pinneberg.de/de/aktuelles/aktuelles/crosslauf/",
+    "notiz": "9 → 8,5 km; 05.12.2026 bestätigt"
+  },
+  "Nikolauslauf des Ruderclub \"Westfalen\" Herdecke|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.rc-herdecke.de/nikolauslauf/allgemeine-informationen",
+    "notiz": "10 → 9,6 km; 05.12.2026 bestätigt"
+  },
+  "Hegau-Bodensee Crosslaufserie - Meersburg|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hegau-bodensee-cross.de/",
+    "notiz": "Serie 2026/27: 08.11.2026 bestätigt; Hauptlauf-Distanzen (6,6–7,8 km je Ort) nicht in der Ankündigung"
+  },
+  "Hegau-Bodensee Crosslaufserie - Radolfzell|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hegau-bodensee-cross.de/",
+    "notiz": "Serie 2026/27: 13.12.2026 bestätigt; Hauptlauf-Distanzen (6,6–7,8 km je Ort) nicht in der Ankündigung"
+  },
+  "Hegau-Bodensee Crosslaufserie - Stockach|2027-01-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hegau-bodensee-cross.de/",
+    "notiz": "Serie 2026/27: 17.01.2027 bestätigt; Hauptlauf-Distanzen (6,6–7,8 km je Ort) nicht in der Ankündigung"
+  },
+  "Hegau-Bodensee Crosslaufserie - Reichenau|2027-02-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://hegau-bodensee-cross.de/",
+    "notiz": "Serie 2026/27: 21.02.2027 bestätigt; Hauptlauf-Distanzen (6,6–7,8 km je Ort) nicht in der Ankündigung"
+  },
+  "Ugly Christmas Sweater Run - Leverkusen|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.ucsr-lev.de/",
+    "notiz": "13.12.2026, Ostermann-Arena (ausverkauft); Distanz nicht genannt"
+  },
+  "18. Schokocross|2026-12-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://atsbuntentor.de/veranstaltungen/bremer-schokocrosslauf.html",
+    "notiz": "26.12.2026; 8.200 / 4.200 / 2.200 m"
+  },
+  "40. Silvesterlauf Sigmaringen|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.sig-run.de/silvesterlauf-sigmaringen/",
+    "notiz": "40. Silvesterlauf 2026 genannt, Distanzen nicht im Text"
+  },
+  "51. Kieler Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.ltvkiel-ost.de/kieler-silvester-lauf",
+    "notiz": "31.12.2026, 13 Uhr; Distanz nur auf der Streckenseite"
+  },
+  "Finale Furioso 2.0 - Silvesterlauf der DJK Göggelsbuch|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.djk-goeggelsbuch.de/gruppen/triathlon-crew/silvesterlauf",
+    "notiz": "6 → 5,6 km (5.555 m); 10 km und 31.12.2026 bestätigt"
+  },
+  "Neujahrslauf des LSV Porz|2027-01-01": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.helmuturbach.de/neujahrslauf.html",
+    "notiz": "Seite antwortet mit 503"
+  },
+  "Heininger Drei-Königs-Lauf|2027-01-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://tsv-heiningen.de/leichtathletik/vor-dem-dkl-2027/",
+    "notiz": "Seite nennt nur die neue Kinderlauf-Strecke 2027; Datum und Hauptdistanzen nicht im Text"
+  },
+  "Oelder Berg- und Crosslauf|2027-01-09": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.lv-oelde.de/de/veranstaltungen/oelder-berg--und-crosslauf/",
+    "notiz": "8 → 8,3 km; 09.01. bestätigt"
+  },
+  "29. Crosslauf in Dormagen-Straberg|2027-01-16": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "http://www.fc-straberg.de",
+    "notiz": "28. Crosslauf am 17.01.2026 belegt; 2027 nicht ausgeschrieben"
+  },
+  "DSW Swim & Run|2027-01-30": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.triathlon-darmstadt.de/events-specials/swimrun/",
+    "notiz": "6 → 6,2 km (Summe 0,7 + 5,5); Termin 30.01.2027 „voraussichtlich“"
+  },
+  "Sieben-Quellen-Crosslauf|2027-02-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sv19straelen.de/2026/02/10/grossartige-stimmung-beim-9-sieben-quellen-crosslauf/",
+    "notiz": "10. Auflage voraussichtlich 14.02.2027; Distanzen (Mittel-/Langstrecke) ohne km"
+  },
+  "14. Kölner Frühlingslauf|2027-03-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://koelner-fruehlingslauf.de/",
+    "notiz": "So 14.03.2027; drei Rennen ohne km im Text"
+  },
+  "Halbmarathon München|2027-04-18": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://halbmarathon-muenchen.de/",
+    "notiz": "21. Halbmarathon München am 18.04.2027; Distanzen erst mit der Anmeldung (ab September 2026)"
+  },
+  "Col d'Allrath|2027-05-01": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://col-de-allrath.de/",
+    "notiz": "5 → 2,5 km (Bergsprint, fällt heraus); 01.05.2027 bestätigt"
+  },
+  "Rats-Run - Emskirchen|2027-05-09": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://v2.rats-runners.de/emskirchen-event/",
+    "notiz": "09.05.2027; 10.000 m, 30+ Hindernisse"
+  },
+  "Rats-Run - Kupferzell|2027-05-30": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://v2.rats-runners.de/kupferzell-event/",
+    "notiz": "11 → 10,8 km; 30.05.2027 bestätigt"
+  },
+  "Lousberglauf|2027-05-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://hochschulsport.rwth-aachen.de/cms/HSZ/Events/~kjqs/Lousberglauf/",
+    "notiz": "6 → 5,6 km (5.555 m); 05.05.2027 bestätigt; lousberglauf.de leitet auf den RWTH-Hochschulsport"
+  },
+  "Rats-Run - Bodenmais|2027-06-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://v2.rats-runners.de/bodenmais/",
+    "notiz": "13.06.2027; 10.000 m, 460 hm, 30+ Hindernisse"
+  },
+  "Rats-Run - Möckmühl|2027-07-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://v2.rats-runners.de/moeckmuehl-event/",
+    "notiz": "04.07.2027; Streckenlänge 10.000 m"
+  },
+  "Rats-Run - Schleusingen|2027-07-25": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://v2.rats-runners.de/schleusingen-event/",
+    "notiz": "12 → 11,5 km; 25.07.2027 bestätigt"
+  },
+  "Rats-Run - Weißenburg i.Bay.|2027-08-15": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://v2.rats-runners.de/weissenburg/",
+    "notiz": "15.08.2027; Streckenlänge 10.000 m"
+  },
+  "Rats-Run - Auhausen|2027-09-05": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://v2.rats-runners.de/auhausen/",
+    "notiz": "05.09.2027; 10.000+ m"
+  },
+  "Ostufer Fischhallen-Lauf|2027-05-23": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.ltvkiel-ost.de/fischhallen-lauf",
+    "notiz": "21. Fischhallen-Lauf am 23.05.2027 bestätigt; Distanzen nur in der Ausschreibung"
+  },
+  "Hellmich Recycling Parkhauslauf|2027-05-30": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://parkhauslauf.hellmich-recycling.de/",
+    "notiz": "30.05.2027; 8 Runden à ca. 1 km (11 Uhr), 4 Runden, 1 Runde"
+  },
+  "Sparkasse Bremen Swim & Run am Werdersee|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://werdersee-swim-run.de/",
+    "notiz": "5/10 → 5,5/11 km (Summe Schwimmen + Laufen, Datenregel 15); 05.06.2027 bestätigt"
+  },
+  "Mettenheimer Alleelauf|2027-06-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.lg-mettenheim.de/alleelauf",
+    "notiz": "06.06.2027 bestätigt („Termin ist gefixt“); Distanzen 2027 noch offen (2026: 5 und 10 km)"
+  },
+  "Steinfurter Altstadt Abendlauf|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tb-burgsteinfurt.de/saa/",
+    "notiz": "12.06.2027 bestätigt; Erwachsenen-Distanzen nicht genannt"
+  },
+  "Swim & Run Köln|2027-06-13": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.swim-run-koeln.de/",
+    "notiz": "5/10 → 5,5/11 km (Summe Schwimmen + Laufen); 13.06.2027 bestätigt"
+  },
+  "ALB-GOLD FunRun|2027-06-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.alb-gold.de/aktiv/funrun.html",
+    "notiz": "24.06.2027 vorläufig (Bestätigung im November 2026); 2026 Runde 3,8 km, 1–2 Runden – unsere 8 km wären 2 Runden (7,6 km), 2027 nicht festgelegt"
+  },
+  "Firmenstaffel Sachsen-Anhalt|2027-07-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.firmenstaffel.de/",
+    "notiz": "08.07.2027; 5 × 3 km Staffel (Label gesetzt)"
+  },
+  "Altstadtlauf Köln|2027-07-09": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.altstadtlauf-koeln.de",
+    "notiz": "09.07.2027 bestätigt; Distanzen nicht auf der Startseite"
+  },
+  "Internationaler Allgäu Volkslauf|2027-07-18": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/",
+    "notiz": "55. Allgäu Volkslauf am 18.07.2027 ab 8:50 Uhr; Distanzen 2027 noch nicht genannt (2026: 5 und 10 km)"
+  },
+  "Freiberger Bürgerfestlauf|2028-07-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.buergerfestlauf-freiberg.de",
+    "notiz": "14.07.2028; 5 km und (neu) 10 km"
+  },
+  "Oelder Citylauf|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.lv-oelde.de/de/veranstaltungen/oelder-insitech-citylauf/",
+    "notiz": "28. Citylauf am 12.06.2027; 10-km-Straßenlauf, 5-km-Straßenlauf und Firmenlauf, Last one Standing"
   }
 }

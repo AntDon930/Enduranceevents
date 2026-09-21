@@ -1480,7 +1480,10 @@
   },
   "EnergieSüdwest Cup|2026-09-27": {
     "veranstalter_url": "https://energie-suedwest.de/die-energie-sudwest/energiesudwest-cup/",
-    "_note": "Linkprüfung 2026-09-19: Cup-Seite des Namensgebers mit Terminen 2026 (27.09. Göcklingen); runtix war nur die Anmeldung. (Quelle: energie-suedwest.de)"
+    "_note": "Linkprüfung 2026-09-19: Cup-Seite des Namensgebers mit Terminen 2026 (27.09. Göcklingen); runtix war nur die Anmeldung. (Quelle: energie-suedwest.de) | energie-suedwest.de: 27.09.2026 Göcklingen (5-km und 10-km Volkslauf); alle Cup-Läufe standen bei uns in Landau",
+    "standort": "Göcklingen",
+    "lat": 49.1515,
+    "lon": 8.0329
   },
   "Raiba-Ellernstaffellauf|2026-09-27": {
     "veranstalter_url": "https://www.lauftreff-rastede.de/",
@@ -2329,7 +2332,9 @@
   },
   "Berliner Volkstriathlon|2027-06-27": {
     "veranstalter_url": "http://wj-tools.de/index.php/volkstriathlon",
-    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Berliner-Volkstriathlon) durch die dort genannte Veranstalterseite ersetzt. berlin-timing verlinkt noch den alten Pfad /joomla25/... (404); dieselbe Seite liegt heute unter /index.php/volkstriathlon (abgerufen: 'Volkstriathlon - Weltraumjogger Berlin', Ausschreibung, Zeitplan, Strecken). Linkprüfung 2026-09-19 (berlin-timing.de)."
+    "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Berliner-Volkstriathlon) durch die dort genannte Veranstalterseite ersetzt. berlin-timing verlinkt noch den alten Pfad /joomla25/... (404); dieselbe Seite liegt heute unter /index.php/volkstriathlon (abgerufen: 'Volkstriathlon - Weltraumjogger Berlin', Ausschreibung, Zeitplan, Strecken). Linkprüfung 2026-09-19 (berlin-timing.de). | wj-tools.de/volkstriathlon (Ausschreibung 2026, 05.07.2026): 0,7 km Schwimmen, 18 km Radfahren, 5 km Laufen – Summe der Teilstrecken (Datenregel 15). Termin 2027 auf der Seite noch nicht genannt. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)",
+    "laenge_km": 23.7,
+    "wettbewerb": "Volkstriathlon 23,7 km (0,7 km Schwimmen / 18 km Rad / 5 km Laufen)"
   },
   "Haasower Waldlauf|2027-07-31": {
     "veranstalter_url": "https://www.haasow.com/waldlauf",
@@ -2769,7 +2774,10 @@
   },
   "EnergieSüdwest Cup|2026-10-11": {
     "veranstalter_url": "https://energie-suedwest.de/energiesuedwest-cup/",
-    "_note": "Veranstalterseite statt runtix.com: https://energie-suedwest.de/energiesuedwest-cup/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (energiesudwest). Linkprüfung 2026-09-19."
+    "_note": "Veranstalterseite statt runtix.com: https://energie-suedwest.de/energiesuedwest-cup/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (energiesudwest). Linkprüfung 2026-09-19. | energie-suedwest.de: Finale 11.10.2026 in Offenbach an der Queich (5-km und 10-km Volkslauf)",
+    "standort": "Offenbach an der Queich",
+    "lat": 49.1919,
+    "lon": 8.1975
   },
   "Great 10k Berlin|2026-10-11": {
     "veranstalter_url": "https://berlin-laeuft.de/great10k/",
@@ -3377,7 +3385,9 @@
   },
   "Swim&Run Winnweiler|2027-08-29": {
     "veranstalter_url": "https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:winnweiler, host:winnweiler). Linkprüfung 2026-09-20."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.winnweiler-vg.de/tourismus-kultur/veranstaltungen-im-donnersberger-land/swim-run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:winnweiler, host:winnweiler). Linkprüfung 2026-09-20. | winnweiler-vg.de (Ausschreibung 2026, 30.08.2026): Langstrecke 500 m Schwimmen / 5 km Laufen, Kurzstrecke 100 m / 1 km. Summe der Teilstrecken (Datenregel 15); Termin 2027 nicht bestätigt | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)",
+    "laenge_km": 5.5,
+    "wettbewerb": "Langstrecke 5,5 km (500 m Schwimmen / 5 km Laufen)"
   },
   "25. Volkslauf mit Walking um den AWB See|2026-10-10": {
     "veranstalter_url": "http://xn--tus-altwarmbchen-uzb.de/",
@@ -3485,8 +3495,8 @@
     "art1": "Triathlon",
     "art2": "Duathlon",
     "laenge_km": 32.4,
-    "wettbewerb": "Wuidsaujagd 2er-Staffel (6 + 3,6 km Laufen, 22,8 km Rad = 32,4 km)",
-    "_note": "jagdewuidsau.de (21.09.2026): 'Lauf: 6 km + 3,6 km' und 'Bike: 22,8 km' als Zweier-Staffel - ein Run&Bike, kein 14-km-Lauf; Summe der Teilstrecken 32,4 km (Datenregel 15). Die Formate Schnupperjagd, Überläuferjagd und Spofakljagd nennen keine Distanzen. Allgemeiner Schlüssel, weil laenge_km und art1 zusammen geändert werden. | Gesamtlänge im Label, sonst löscht drop_contradicting_wettbewerb() das Label wegen der 22,8 km"
+    "wettbewerb": "Wuidsaujagd 2er-Staffel 32,4 km (6 + 3,6 km Laufen, 22,8 km Rad)",
+    "_note": "jagdewuidsau.de (21.09.2026): 'Lauf: 6 km + 3,6 km' und 'Bike: 22,8 km' als Zweier-Staffel - ein Run&Bike, kein 14-km-Lauf; Summe der Teilstrecken 32,4 km (Datenregel 15). Die Formate Schnupperjagd, Überläuferjagd und Spofakljagd nennen keine Distanzen. Allgemeiner Schlüssel, weil laenge_km und art1 zusammen geändert werden. | Gesamtlänge im Label, sonst löscht drop_contradicting_wettbewerb() das Label wegen der 22,8 km | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
   },
   "Bleckeder Storchenlauf|2026-09-27|17.5": {
     "laenge_km": 17.4,
@@ -4080,8 +4090,8 @@
   },
   "Mountain Challenge|2027-03-13|6": {
     "laenge_km": 26.9,
-    "wettbewerb": "Cross-Duathlon (5,5 + 18,7 + 2,7 = 26,9 km)",
-    "_note": "Summe der Teilstrecken laut Ausschreibung 2026 (Datenregel 15) | Gesamtlänge steht im Label, sonst löscht drop_contradicting_wettbewerb() das Label"
+    "wettbewerb": "Cross-Duathlon 26,9 km (5,5 km Lauf / 18,7 km Rad / 2,7 km Lauf)",
+    "_note": "Summe der Teilstrecken laut Ausschreibung 2026 (Datenregel 15) | Gesamtlänge steht im Label, sonst löscht drop_contradicting_wettbewerb() das Label | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
   },
   "Tönisvorster Apfelblütenlauf|2027-04-25": {
     "datum_start": "2027-04-11",
@@ -4204,5 +4214,481 @@
     "laenge_km": 33.3,
     "wettbewerb": "33,333 km",
     "_note": "werderseelauf.de/ausschreibung-2027: 33,333 km (amtlich vermessen)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|167": {
+    "wettbewerb": "ZUT100 (167 km)",
+    "datum_start": "2027-06-17",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|107": {
+    "wettbewerb": "Ultratrail (107 km)",
+    "datum_start": "2027-06-18",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|86": {
+    "wettbewerb": "Ehrwald Trail (86 km)",
+    "datum_start": "2027-06-18",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|44": {
+    "wettbewerb": "Mittenwald Trail (44 km)",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|29": {
+    "wettbewerb": "Garmisch-Partenkirchen Trail (29 km)",
+    "datum_start": "2027-06-18",
+    "datum_ende": "2027-06-18",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|16": {
+    "wettbewerb": "Grainau Trail (16 km)",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Zugspitz Ultra Trail by UTMB|2027-06-17|69": {
+    "laenge_km": 68.5,
+    "wettbewerb": "Leutasch Trail (68,5 km)",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "_note": "zugspitz.utmb.world: 17.–19.06.2027; ZUT100 167 km (17.06.), Ultratrail 107 km (18.06.), Ehrwald Trail 86 km (18.06.), Leutasch Trail 68,5 km (19.06.), Mittenwald Trail 44 km (19.06.), Garmisch-Partenkirchen Trail 29 km (18.06.), Grainau Trail 16 km (19.06.)"
+  },
+  "Losheimer Trailfest|2027-06-26|52": {
+    "laenge_km": 51,
+    "wettbewerb": "T 50 (51 km, 1.665 hm)",
+    "_note": "trailfest.de: 26.–27.06.2027; T 100 100 km (3.352 hm), T Ch 76 km (2.424 hm), T 50 51 km (1.665 hm), T 24 24 km (759 hm), T 14 14 km (355 hm)"
+  },
+  "Losheimer Trailfest|2027-06-26|101": {
+    "laenge_km": 100,
+    "wettbewerb": "T 100 (100 km, 3.352 hm)",
+    "_note": "trailfest.de: 26.–27.06.2027; T 100 100 km (3.352 hm), T Ch 76 km (2.424 hm), T 50 51 km (1.665 hm), T 24 24 km (759 hm), T 14 14 km (355 hm)"
+  },
+  "Losheimer Trailfest|2027-06-26|76": {
+    "wettbewerb": "T Ch (76 km, 2.424 hm)",
+    "_note": "trailfest.de: 26.–27.06.2027; T 100 100 km (3.352 hm), T Ch 76 km (2.424 hm), T 50 51 km (1.665 hm), T 24 24 km (759 hm), T 14 14 km (355 hm)"
+  },
+  "Losheimer Trailfest|2027-06-26|24": {
+    "wettbewerb": "T 24 (24 km, 759 hm)",
+    "_note": "trailfest.de: 26.–27.06.2027; T 100 100 km (3.352 hm), T Ch 76 km (2.424 hm), T 50 51 km (1.665 hm), T 24 24 km (759 hm), T 14 14 km (355 hm)"
+  },
+  "Losheimer Trailfest|2027-06-26|14": {
+    "wettbewerb": "T 14 (14 km, 355 hm)",
+    "_note": "trailfest.de: 26.–27.06.2027; T 100 100 km (3.352 hm), T Ch 76 km (2.424 hm), T 50 51 km (1.665 hm), T 24 24 km (759 hm), T 14 14 km (355 hm)"
+  },
+  "Rokathon Rockenhausen|2027-06-26|42.2": {
+    "wettbewerb": "Marathon-Einzelstrecke (24 Etappen à 1,758 km = 42,195 km)",
+    "_note": "rokathon.de: 26./27.06.2027, Start Sa 12 Uhr; dazu 2er-/4er-Teams und 24-h-Läufer auf der 1,758-km-Runde. Ein 24-h-Eintrag ohne Distanz verschmilzt in der Duplikat-Erkennung mit dieser Zeile – nicht nachgetragen."
+  },
+  "U. Trail Lamer Winkel (U.TLW)|2027-07-03|24": {
+    "laenge_km": 23,
+    "wettbewerb": "Osser-Riese (23 km, 1.200 hm)",
+    "_note": "utlw.de: 03.07.2027; Rookie-Trail 12 km (550 hm), Osser-Riese 23 km (1.200 hm), König vom Bayerwald 54 km (2.650 hm)"
+  },
+  "U. Trail Lamer Winkel (U.TLW)|2027-07-03|12": {
+    "wettbewerb": "Rookie-Trail (12 km, 550 hm)",
+    "_note": "utlw.de: 03.07.2027; Rookie-Trail 12 km (550 hm), Osser-Riese 23 km (1.200 hm), König vom Bayerwald 54 km (2.650 hm)"
+  },
+  "U. Trail Lamer Winkel (U.TLW)|2027-07-03|54": {
+    "wettbewerb": "König vom Bayerwald (54 km, 2.650 hm)",
+    "_note": "utlw.de: 03.07.2027; Rookie-Trail 12 km (550 hm), Osser-Riese 23 km (1.200 hm), König vom Bayerwald 54 km (2.650 hm)"
+  },
+  "O-SEE Backyard Ultra|2027-07-10": {
+    "wettbewerb": "Backyard Ultra (Runde 6,7056 km, 60-Minuten-Format)",
+    "_note": "o-see-backyard.de: 10.–13.07.2027, Last-Man-Standing um den Olbersdorfer See, Runde 6,7056 km / 70 hm, jede Stunde ein Start"
+  },
+  "Dinkelsbühler Staffellauf|2027-07-11|12": {
+    "wettbewerb": "4er-Staffel (4 × ca. 3 km = 12 km)",
+    "_note": "dinkelsbuehler-staffellauf.de: Sonntag, 11.07.2027; vier Läufer je Team, je ca. 3 km um die Altstadt – Team-Gesamtstrecke (Staffel-Frage, Punkt 3)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23": {
+    "datum_ende": "2027-07-24",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|5": {
+    "wettbewerb": "Traily (5 km)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|16": {
+    "wettbewerb": "Shorty (16 km, 700 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|26": {
+    "wettbewerb": "Base (26 km, 900 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|40": {
+    "wettbewerb": "Marathon (40 km, 1.700 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|58": {
+    "wettbewerb": "Ultra (58 km, 2.400 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|117": {
+    "wettbewerb": "Ultra Trail XL (117 km, 4.400 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "3Kings3Hills Trailrun|2027-07-23|168": {
+    "wettbewerb": "100 Miles (168 km, 6.300 hm)",
+    "_note": "3kings-3hills.com: 23./24.07.2027, Haidmühle; 5 km Traily, 16 km Shorty (700 hm), 26 km Base (900 hm), 40 km Marathon (1.700 hm), 58 km Ultra (2.400 hm), 117 km Ultra Trail XL (4.400 hm), 100 Miles 168 km (6.300 hm)"
+  },
+  "Berlin City Night|2027-07-31|20": {
+    "exclude": true,
+    "_note": "berlin-citynight.de (31.07.2027): 5 km Lauf, 10 km Lauf, 10 km Inlineskating, 10 km Doppelstart (Skaten + Laufen). Eine 20-km-Laufstrecke gibt es nicht – die 20 km sind der Doppelstart (2 × 10 km, davon einmal auf Skates)."
+  },
+  "49. Monschau Marathon|2027-08-08|70": {
+    "wettbewerb": "Ultra K70 (70 km)",
+    "_note": "monschau-marathon.de: 06.–08.08.2027; Marathon 42,195 km, Ultra K56, Ultra K70, Genuss-Marathon, Staffel-Marathon, Samstagswettbewerbe"
+  },
+  "NordseeMan & NordseeWoman|2027-08-07": {
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "_note": "nordseeman.de: Triathlon in Wilhelmshaven, 07./08.08.2027 – Mitteldistanz, Olympische Distanz, Volksdistanz, Junior, S+R-Relay, ParaTriathlon; stand als Laufveranstaltung"
+  },
+  "O-SEE Challenge|2027-08-13": {
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "_note": "xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung."
+  },
+  "O-SEE Challenge|2027-08-13|37": {
+    "laenge_km": 49.3,
+    "wettbewerb": "Full Distance 49,3 km (1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen)",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "_note": "xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "O-SEE Challenge|2027-08-13|30": {
+    "laenge_km": 41.9,
+    "wettbewerb": "O-SEE Classic 41,9 km (1,1 km Schwimmen / 30 km MTB / 10,8 km Laufen)",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "_note": "xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "O-SEE Challenge|2027-08-13|26": {
+    "laenge_km": 32.2,
+    "wettbewerb": "O-SEE Reduced 32,2 km (0,75 km Schwimmen / 26 km MTB / 5,4 km Laufen)",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "_note": "xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "O-SEE Challenge|2027-08-13|10": {
+    "laenge_km": 13.5,
+    "wettbewerb": "O-SEE Light 13,5 km (0,5 km Schwimmen / 10 km MTB / 3 km Laufen)",
+    "datum_start": "2027-08-15",
+    "datum_ende": "2027-08-15",
+    "_note": "xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "O-SEE Challenge|2027-08-13|6": {
+    "exclude": true,
+    "_note": "O-SEE X'Kids Lang ist ein Kinder-/Jugendrennen (Super Sprint & Kids Races am 15.08.2027) – keine Erwachsenenstrecke. xterraplanet.com/event/xterra-germany: XTERRA Germany 13.–15.08.2027, Zittau/Olbersdorfer See. Full Distance 1,5 km Schwimmen / 37 km MTB / 10,8 km Laufen (14.08.), O-SEE Classic 1,1 / 30 / 10,8 km (14.08.), O-SEE Reduced 0,75 / 26 / 5,4 km (14.08.), O-SEE Light 0,5 / 10 / 3 km (15.08.), Super Sprint & Kids (15.08.). Unsere Zeilen trugen die RADSTRECKE als Länge und standen als Laufveranstaltung."
+  },
+  "Trinale|2027-08-14": {
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "_note": "trifun.de/events/trinale: Triathlon im Eliminator-Format (Viertel-/Halbfinale/Finale), 14.08.2027; je Lauf 250 m Schwimmen, 7,6 km Rad, 1,7 km Laufen"
+  },
+  "Trinale|2027-08-14|10": {
+    "laenge_km": 9.6,
+    "wettbewerb": "Eliminator-Triathlon 9,6 km je Lauf (0,25 km Schwimmen / 7,6 km Rad / 1,7 km Laufen)",
+    "_note": "Summe der Teilstrecken eines Laufs (Datenregel 15); stand als 10-km-Lauf | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "City Marathon Bremerhaven|2027-09-05|42.2": {
+    "wettbewerb": "Marathon",
+    "_note": "bremerhaven-marathon.de: Sonntag, 05.09.2027; 5 km, 10 km, Halbmarathon, 3/4-Marathon, Marathon, Staffelmarathon – die Marathon-Zeile trug das Label „3/4-Marathon“"
+  },
+  "City Marathon Bremerhaven|2027-09-05|32": {
+    "laenge_km": 31.6,
+    "wettbewerb": "3/4-Marathon (31,6 km)",
+    "_note": "bremerhaven-marathon.de: Sonntag, 05.09.2027; 5 km, 10 km, Halbmarathon, 3/4-Marathon, Marathon, Staffelmarathon"
+  },
+  "Friedberger Silvesterlauf|2026-12-31|8": {
+    "laenge_km": 8.2,
+    "wettbewerb": "8,2 km Laufstrecke",
+    "_note": "friedberger-silvesterlauf.de: 31.12.2026, 8,2 km (98 % Schotter-Feldwege), dazu Flitzerlauf ca. 700 m"
+  },
+  "64. Westenergie Marathon|2026-10-11|42.2": {
+    "wettbewerb": "Marathon",
+    "_note": "westenergie-marathon.de: 11.10.2026 – Marathon, Westenergie Seerunde, AllbauTeamStaffel Baldeneysee, Walking Day, Mini-Marathon/FunRun. Die Marathon-Zeile trug das Staffel-Label."
+  },
+  "SV Schwindegg Ultralauf|2026-10-17|42.2": {
+    "laenge_km": null,
+    "dauer_h": 6,
+    "wettbewerb": "6-Stunden-Lauf (Deutsche Meisterschaft der DUV)",
+    "_note": "ultralauf.sv-schwindegg.de: 9. Schwindegger VR-Bank 6h-Lauf am Sa 17.10.2026, Deutsche Meisterschaft der DUV im 6-Stunden-Lauf, Runde 1,383 km (IAU Bronze Label). Die Seite nennt keinen Marathon und keine 50 km – nur das 6-h-Rennen."
+  },
+  "SV Schwindegg Ultralauf|2026-10-17|50": {
+    "exclude": true,
+    "_note": "ultralauf.sv-schwindegg.de: nur ein 6-Stunden-Lauf (DM der DUV), keine 50-km-Strecke; die Marathon-Zeile wurde zum 6-h-Eintrag."
+  },
+  "Landkreislauf Schwandorf|2026-10-10|50": {
+    "laenge_km": 49.5,
+    "wettbewerb": "Läufer-Staffel (10 Läufer, Gesamtstrecke ca. 49,5 km)",
+    "_note": "partner-sad.de: ursprünglich 27.06.2026, wegen Hitze abgesagt, neuer Termin 10.10.2026; Staffel mit 10 Läufern über rund 49,51 km in kurzen Abschnitten, Walker 3 je Team über 12,5 km. Team-Gesamtstrecken (Staffel-Frage, Punkt 3)."
+  },
+  "Landkreislauf Schwandorf|2026-10-10|13": {
+    "laenge_km": 12.5,
+    "wettbewerb": "Walker-Staffel (3 Walker, Gesamtstrecke 12,5 km)",
+    "_note": "partner-sad.de: Walker 12,5 km Gesamtstrecke"
+  },
+  "Berliner Nikolauslauf|2026-12-05|11": {
+    "laenge_km": 10.5,
+    "wettbewerb": "Viertel-Marathon (10,5 km)",
+    "_note": "berliner-nikolauslauf.com: 05.12.2026, Hauptlauf 10 Uhr; Wettbewerbe nach Marathon-Bruchteilen: Achtel (5,27 km), Viertel (10,55 km), Drittel (14,07 km), Halb (21,1 km), Big 5 = 5/8 Marathon (26,37 km), dazu Staffel-Halbmarathon und Walking"
+  },
+  "Berliner Nikolauslauf|2026-12-05|27": {
+    "laenge_km": 26.4,
+    "wettbewerb": "Big 5-Marathon (5/8 Marathon, 26,4 km)",
+    "_note": "berliner-nikolauslauf.com: 05.12.2026, Hauptlauf 10 Uhr; Wettbewerbe nach Marathon-Bruchteilen: Achtel (5,27 km), Viertel (10,55 km), Drittel (14,07 km), Halb (21,1 km), Big 5 = 5/8 Marathon (26,37 km), dazu Staffel-Halbmarathon und Walking"
+  },
+  "Berliner Nikolauslauf|2026-12-05|5.3": {
+    "wettbewerb": "Achtel-Marathon (5,3 km)",
+    "_note": "berliner-nikolauslauf.com: 05.12.2026, Hauptlauf 10 Uhr; Wettbewerbe nach Marathon-Bruchteilen: Achtel (5,27 km), Viertel (10,55 km), Drittel (14,07 km), Halb (21,1 km), Big 5 = 5/8 Marathon (26,37 km), dazu Staffel-Halbmarathon und Walking"
+  },
+  "Berliner Nikolauslauf|2026-12-05|14": {
+    "wettbewerb": "Drittel-Marathon (14,1 km)",
+    "_note": "berliner-nikolauslauf.com: 05.12.2026, Hauptlauf 10 Uhr; Wettbewerbe nach Marathon-Bruchteilen: Achtel (5,27 km), Viertel (10,55 km), Drittel (14,07 km), Halb (21,1 km), Big 5 = 5/8 Marathon (26,37 km), dazu Staffel-Halbmarathon und Walking"
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22": {
+    "art1": "Triathlon",
+    "art2": "Swimrun",
+    "_note": "otilloswimrun.com/races/rugen-germany: 22.05.2027; Rügen Experience 7.010 m (Schwimmen 1.020 m / Laufen 5.980 m), Rügen Sprint 21.780 m (2.590 / 19.190 m), Rügen World Series 46.040 m (5.470 / 40.570 m). Swimrun – stand als Laufveranstaltung."
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22|22": {
+    "laenge_km": 21.8,
+    "wettbewerb": "Rügen Sprint 21,8 km (2,6 km Schwimmen / 19,2 km Laufen)",
+    "_note": "otilloswimrun.com/races/rugen-germany: 22.05.2027; Rügen Experience 7.010 m (Schwimmen 1.020 m / Laufen 5.980 m), Rügen Sprint 21.780 m (2.590 / 19.190 m), Rügen World Series 46.040 m (5.470 / 40.570 m). Swimrun – stand als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22|7": {
+    "wettbewerb": "Rügen Experience 7 km (1 km Schwimmen / 6 km Laufen)",
+    "_note": "otilloswimrun.com/races/rugen-germany: 22.05.2027; Rügen Experience 7.010 m (Schwimmen 1.020 m / Laufen 5.980 m), Rügen Sprint 21.780 m (2.590 / 19.190 m), Rügen World Series 46.040 m (5.470 / 40.570 m). Swimrun – stand als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "ÖTILLÖ Rügen Germany|2027-05-22|46": {
+    "wettbewerb": "Rügen World Series 46 km (5,5 km Schwimmen / 40,6 km Laufen)",
+    "_note": "otilloswimrun.com/races/rugen-germany: 22.05.2027; Rügen Experience 7.010 m (Schwimmen 1.020 m / Laufen 5.980 m), Rügen Sprint 21.780 m (2.590 / 19.190 m), Rügen World Series 46.040 m (5.470 / 40.570 m). Swimrun – stand als Laufveranstaltung. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "35. BW Forstsportlauf im Naturpark Schönbuch|2026-10-25|9": {
+    "laenge_km": 8.5,
+    "wettbewerb": "8,5 km",
+    "_note": "tsv-lustnau.de: Sonntag, 25.10.2026, 8,5 km im Wald oberhalb des Klosters Bebenhausen (Lauf und Walking)"
+  },
+  "ksp MöWathlon|2027-07-11": {
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "_note": "moewathlon.de: 11.07.2027, Triathlon 500 m Schwimmen (Badesee Walldorf) / 19,2 km Rad / 5,6 km Laufen. Unsere Zeilen (6 km und 19 km, Laufen) waren die Lauf- und die Radetappe."
+  },
+  "ksp MöWathlon|2027-07-11|19": {
+    "laenge_km": 25.3,
+    "wettbewerb": "Triathlon 25,3 km (0,5 km Schwimmen / 19,2 km Rad / 5,6 km Laufen)",
+    "_note": "moewathlon.de: 11.07.2027, Triathlon 500 m Schwimmen (Badesee Walldorf) / 19,2 km Rad / 5,6 km Laufen. Unsere Zeilen (6 km und 19 km, Laufen) waren die Lauf- und die Radetappe. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "ksp MöWathlon|2027-07-11|6": {
+    "exclude": true,
+    "_note": "Die 6-km-Zeile war die Laufetappe (5,6 km) des Triathlons – keine eigene Anmeldung. moewathlon.de: 11.07.2027, Triathlon 500 m Schwimmen (Badesee Walldorf) / 19,2 km Rad / 5,6 km Laufen. Unsere Zeilen (6 km und 19 km, Laufen) waren die Lauf- und die Radetappe."
+  },
+  "Grüngürtel Ultra|2027-01-10": {
+    "datum_start": "2027-01-17",
+    "datum_ende": "2027-01-17",
+    "_note": "quaelixfaktor.de/gruenguertel-ultra: „ACHTUNG – TERMINÄNDERUNG“ 10.01. → 17.01.2027; 8. Auflage, Kölner Grüngürtelrundweg in beiden Richtungen"
+  },
+  "Weeze 3 x 5 km Staffellauf|2026-09-26|15": {
+    "wettbewerb": "3 × 5 km Staffel (Team-Gesamtstrecke 15 km)",
+    "_note": "tsv-weeze-leichtathletik.de/staffel: 40. Weezer Staffellauf am 26.09.2026, 3×5-km-Staffeln (2025: 48 Staffeln); Team-Gesamtstrecke (Staffel-Frage, Punkt 3)"
+  },
+  "6h Adventslauf Langenhagen|2026-11-29|42.2": {
+    "laenge_km": null,
+    "dauer_h": 6,
+    "wettbewerb": "6-Stunden-Lauf (Runde 4,22 km, 9–15 Uhr)",
+    "_note": "shinsplinters-langenhagen.webnode.page: Auf der 4,22-km-Runde kann von 9 bis 15 Uhr gelaufen, gewalkt und gewandert werden – ein 6-Stunden-Format ohne feste Distanz. Die Zeilen „Marathon“ und „46 km“ waren Rundenzahlen (10 bzw. 11 Runden). Termin 2026 auf der Seite nicht genannt."
+  },
+  "6h Adventslauf Langenhagen|2026-11-29|46": {
+    "exclude": true,
+    "_note": "6-Stunden-Lauf auf der 4,22-km-Runde – 46 km sind 11 Runden, kein eigener Wettbewerb (siehe |42.2)."
+  },
+  "Hammer Charity-Lauf|2027-04-18|7": {
+    "laenge_km": 6.5,
+    "wettbewerb": "6,5 km (Laufen oder Walken)",
+    "_note": "lg-hamm.de: 18.04.2027, 11 Uhr, 6,5 km"
+  },
+  "Sparkassen Firmenlauf Soest|2027-06-30|7": {
+    "laenge_km": 6.5,
+    "wettbewerb": "6,5 km um den Möhnesee",
+    "_note": "firmenlauf-soest.de: Mi 30.06.2027, 19 Uhr, 6,5 km ab Körbecke-Seepark"
+  },
+  "KäseKross|2027-02-28|9": {
+    "exclude": true,
+    "_note": "Keine 9-km-Strecke im Programm. kaesekross.de: So 28.02.2027, Gera; KäseKross 17+ km, KäseKlassik 10 km, KäseSprint 6+ km, Sprint-Staffel 3+ km je Läufer, KidsKross, SpezialKross"
+  },
+  "KäseKross|2027-02-28|17": {
+    "wettbewerb": "KäseKross (17+ km)",
+    "_note": "kaesekross.de: So 28.02.2027, Gera; KäseKross 17+ km, KäseKlassik 10 km, KäseSprint 6+ km, Sprint-Staffel 3+ km je Läufer, KidsKross, SpezialKross"
+  },
+  "KäseKross|2027-02-28|10": {
+    "wettbewerb": "KäseKlassik (10 km)",
+    "_note": "kaesekross.de: So 28.02.2027, Gera; KäseKross 17+ km, KäseKlassik 10 km, KäseSprint 6+ km, Sprint-Staffel 3+ km je Läufer, KidsKross, SpezialKross"
+  },
+  "KäseKross|2027-02-28|6": {
+    "wettbewerb": "KäseSprint (6+ km)",
+    "_note": "kaesekross.de: So 28.02.2027, Gera; KäseKross 17+ km, KäseKlassik 10 km, KäseSprint 6+ km, Sprint-Staffel 3+ km je Läufer, KidsKross, SpezialKross"
+  },
+  "21. Stimberg-Haardlauf|2026-10-03|5": {
+    "laenge_km": 4.9,
+    "wettbewerb": "Volkslauf (ca. 4.900 m)",
+    "_note": "tus09e.de: Sa 03.10.2026; Hauptlauf ca. 9.400 m, Volkslauf ca. 4.900 m, Jugend 2.500 m – der Volkslauf fällt über Datenregel 5 heraus"
+  },
+  "21. Stimberg-Haardlauf|2026-10-03|9.4": {
+    "wettbewerb": "Hauptlauf (ca. 9.400 m)",
+    "_note": "tus09e.de: Hauptlauf ca. 9.400 m"
+  },
+  "Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße|2026-10-31|5": {
+    "laenge_km": 4.6,
+    "wettbewerb": "4.600 m",
+    "_note": "tus-wasserstrasse.de: 31.10.2026, Strecken 4.600 / 10.000 / 17.500 m (dazu Walking 4.600 m) – die 4,6 km fallen über Datenregel 5 heraus"
+  },
+  "Oktoberlauf mit Mühlenkreisserie - TUS Wasserstraße|2026-10-31|18": {
+    "laenge_km": 17.5,
+    "wettbewerb": "17.500 m",
+    "_note": "tus-wasserstrasse.de: 17.500 m"
+  },
+  "Citylauf Telgte|2026-09-26|8": {
+    "laenge_km": 7.5,
+    "wettbewerb": "Walking 7.500 m",
+    "_note": "citylauf-telgte.de: Sa 26.09.2026; 5.000 m, 10.000 m, Walking 7.500 m, Schüler/Fun Run 2.500 m – die 8 km waren die Walking-Strecke"
+  },
+  "Rats-Run - Hintersteinenberg|2026-09-27|11": {
+    "laenge_km": 10.7,
+    "wettbewerb": "ca. 10.700 m, 25+ Hindernisse",
+    "_note": "rats-runners.de: 27.09.2026, Strecke ca. 10.700 m mit ca. 350 hm"
+  },
+  "Frickinger Apfellauf|2026-10-03|10": {
+    "laenge_km": 5,
+    "wettbewerb": "Lauf und Nordic Walking 5 km (Sportzentrum – Altheim und zurück)",
+    "_note": "frickingen.de: Sa 03.10.2026, HSM Sportzentrum am Aubach; 2026 nur Lauf/Nordic Walking über 5 km und ein Pumptrack-Race für Kinder; Mountainbike-Wettbewerb und Kids-Benefizlauf finden 2026 nicht statt"
+  },
+  "Frickinger Apfellauf|2026-10-03|20": {
+    "exclude": true,
+    "_note": "frickingen.de: Der Mountainbike-Wettbewerb findet 2026 nicht statt („nicht verfügbar in 2026“); nur Lauf/Walking über 5 km"
+  },
+  "Herbstlauf Niederwangen|2026-10-04|11": {
+    "laenge_km": 10.5,
+    "wettbewerb": "Viertelmarathon",
+    "_note": "sg-niederwangen.de: So 04.10.2026, Herbstlauf als Viertelmarathon (10,55 km)"
+  },
+  "Ilmtallauf Geisenfeld|2026-10-11|8": {
+    "laenge_km": 7.9,
+    "wettbewerb": "Hauptlauf 7.900 m",
+    "_note": "sport-in-blog.de: 11.10.2026; Hauptlauf 7.900 m, Schüler 1.600 / 800 / 400 m"
+  },
+  "Porta-Volkslauf|2026-10-11|17.3": {
+    "laenge_km": 17,
+    "wettbewerb": "Langstrecke 17.000 m",
+    "_note": "scnammen.de: Kurz 5.500 m, Mittel 8.800 m, Lang 17.000 m; Datum 2026 nicht auf der Seite"
+  },
+  "Crosslauf - Burgkirchen/Gendorf|2026-10-24|5": {
+    "laenge_km": 4.5,
+    "wettbewerb": "ca. 4.500 m",
+    "_note": "crosslauf-is.de CRL05: 24.10.2026; ca. 6.600 m (Männer aktiv bis M60), ca. 4.500 m (U18–U20, Altersklassen), 2.400 / 1.300 / 1.000 / 650 m – die 4,5 km fallen über Datenregel 5 heraus"
+  },
+  "Crosslauf - Burgkirchen/Gendorf|2026-10-24|7": {
+    "laenge_km": 6.6,
+    "wettbewerb": "ca. 6.600 m (Männer)",
+    "_note": "crosslauf-is.de CRL05: längste Strecke ca. 6.600 m"
+  },
+  "20. Geilenkirchener Crosslauf|2026-11-07|5": {
+    "laenge_km": 4.6,
+    "wettbewerb": "2 Runden (4.600 m)",
+    "_note": "atvgeilenkirchen.de: 07.11.2026; Runden 1.050 und 2.300 m, 2 Runden = 4.600 m, 4 Runden = 9.200 m – die 4,6 km fallen über Datenregel 5 heraus"
+  },
+  "20. Geilenkirchener Crosslauf|2026-11-07|9.2": {
+    "wettbewerb": "4 Runden (9.200 m)",
+    "_note": "atvgeilenkirchen.de: 4 Runden = 9.200 m"
+  },
+  "10. Kerner Nachtlauf|2026-11-14|5": {
+    "laenge_km": 4.5,
+    "wettbewerb": "1 Runde (ca. 4,5 km)",
+    "_note": "spvgg-rommelshausen.de: Sa 14.11.2026; Runde ca. 4,5 km, 10 km = 2 Runden – die 4,5 km fallen über Datenregel 5 heraus"
+  },
+  "41. Memmelsdorfer Schlosslauf|2026-11-22|11": {
+    "laenge_km": 10.8,
+    "wettbewerb": "Hauptlauf 10.750 m",
+    "_note": "sc-memmelsdorf.de: Hauptlauf 10.750 m; Datum 2026 nicht im Text"
+  },
+  "Crosslauf - Mühldorf|2026-11-21|9": {
+    "laenge_km": 8.8,
+    "wettbewerb": "8.800 m (Männer aktiv)",
+    "_note": "crosslauf-is.de CRL06: 21.11.2026; 8.800 m Männer, 4.000 m Frauen/AK, Jugend 4.000/1.500 m"
+  },
+  "Crosslauf am Rodelberg|2026-12-05|9": {
+    "laenge_km": 8.5,
+    "wettbewerb": "Langstrecke ca. 8.500 m",
+    "_note": "vfl-pinneberg.de: 05.12.2026; Langstrecke ca. 8.500 m, Mittelstrecke ca. 3.750 m"
+  },
+  "Nikolauslauf des Ruderclub \"Westfalen\" Herdecke|2026-12-05|10": {
+    "laenge_km": 9.6,
+    "wettbewerb": "9.600 m (Ruhruferweg – Bootshaus)",
+    "_note": "rc-herdecke.de: 05.12.2026, 14 Uhr; Strecke 9.600 m"
+  },
+  "Finale Furioso 2.0 - Silvesterlauf der DJK Göggelsbuch|2026-12-31|6": {
+    "laenge_km": 5.6,
+    "wettbewerb": "5.555 m",
+    "_note": "djk-goeggelsbuch.de: 31.12.2026, Allersberg; 5.555 m (10:05 Uhr) und 10 km (10 Uhr), Schüler 1,6 km"
+  },
+  "Oelder Berg- und Crosslauf|2027-01-09|8": {
+    "laenge_km": 8.3,
+    "wettbewerb": "8,3 km",
+    "_note": "lv-oelde.de: 41. Oelder Berg- und Crosslauf am 09.01.; Strecken von 700 m bis 8,3 km"
+  },
+  "DSW Swim & Run|2027-01-30|6": {
+    "laenge_km": 6.2,
+    "wettbewerb": "Swim & Run 6,2 km (700 m Schwimmen / 5.500 m Laufen)",
+    "_note": "triathlon-darmstadt.de: voraussichtlich 30.01.2027; Erwachsene 700 m Schwimmen + 5.500 m Laufen (Format 2026, 2027 noch nicht veröffentlicht) | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "Col d'Allrath|2027-05-01|5": {
+    "laenge_km": 2.5,
+    "wettbewerb": "2,5 km bergauf (Vollrather Höhe)",
+    "_note": "col-de-allrath.de: 01.05.2027, „die wohl härtesten 2,5 km des Rheinlands“ – Einzel Rad, Einzel Lauf, Kombi, Team. Als Lauf 2,5 km, fällt über Datenregel 5 heraus."
+  },
+  "Rats-Run - Kupferzell|2027-05-30|11": {
+    "laenge_km": 10.8,
+    "wettbewerb": "10.800 m, 20+ Hindernisse",
+    "_note": "rats-runners.de: 30.05.2027, Streckenlänge 10.800 m, 80 hm"
+  },
+  "Lousberglauf|2027-05-05|6": {
+    "laenge_km": 5.6,
+    "wettbewerb": "5.555 m (Berglauf auf den Lousberg)",
+    "_note": "hochschulsport.rwth-aachen.de: Mi 05.05.2027, 18 Uhr; „nur 5.555 Meter lang“, gut die Hälfte stetig bergauf"
+  },
+  "Rats-Run - Schleusingen|2027-07-25|12": {
+    "laenge_km": 11.5,
+    "wettbewerb": "11.500+ m, 25+ Hindernisse",
+    "_note": "rats-runners.de: 25.07.2027, Streckenlänge 11.500+ m, 430 hm"
+  },
+  "Sparkasse Bremen Swim & Run am Werdersee|2027-06-05|5": {
+    "laenge_km": 5.5,
+    "wettbewerb": "Einzel kurz 5,5 km (500 m Schwimmen / 5 km Laufen)",
+    "_note": "werdersee-swim-run.de: Sa 05.06.2027; Einzel kurz 500 m Schwimmen + 5.000 m Laufen, Einzel lang 1.000 m + 10.000 m, Staffel 4 × (500 m + 5.000 m). Unsere km waren nur der Laufanteil. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "Sparkasse Bremen Swim & Run am Werdersee|2027-06-05|10": {
+    "laenge_km": 11,
+    "wettbewerb": "Einzel lang 11 km (1.000 m Schwimmen / 10 km Laufen)",
+    "_note": "werdersee-swim-run.de: Sa 05.06.2027; Einzel kurz 500 m Schwimmen + 5.000 m Laufen, Einzel lang 1.000 m + 10.000 m, Staffel 4 × (500 m + 5.000 m). Unsere km waren nur der Laufanteil. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "Swim & Run Köln|2027-06-13|5": {
+    "laenge_km": 5.5,
+    "wettbewerb": "Kurzdistanz 5,5 km (500 m Schwimmen / 5 km Laufen)",
+    "_note": "swim-run-koeln.de: 13.06.2027, Fühlinger See; kurz 500 m Schwimmen + 5 km Laufen, lang 1.000 m + 10 km. Unsere km waren nur der Laufanteil. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "Swim & Run Köln|2027-06-13|10": {
+    "laenge_km": 11,
+    "wettbewerb": "Langdistanz 11 km (1.000 m Schwimmen / 10 km Laufen)",
+    "_note": "swim-run-koeln.de: 13.06.2027, Fühlinger See; kurz 500 m Schwimmen + 5 km Laufen, lang 1.000 m + 10 km. Unsere km waren nur der Laufanteil. | Label mit der Gesamtlänge vorn (audit_events liest die erste Zahl)"
+  },
+  "Firmenstaffel Sachsen-Anhalt|2027-07-08|15": {
+    "wettbewerb": "5er-Staffel (5 × 3 km = 15 km)",
+    "_note": "firmenstaffel.de: 08.07.2027, Elbauenpark Magdeburg; 5 Läufer je 3 km – Team-Gesamtstrecke (Staffel-Frage, Punkt 3)"
   }
 }

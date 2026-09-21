@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-frickinger-apfellauf-5km-frickingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Frickinger Apfellauf – Lauf und Nordic Walking 5 km (Sportzentrum 
+ – Altheim und zurück)
+LOCATION:Frickingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.frickingen
+ .de/de/freizeit-kultur-tourismus/frickinger-apfellauf
+TRANSP:TRANSPARENT
+URL:https://www.frickingen.de/de/freizeit-kultur-tourismus/frickinger-apfe
+ llauf
+END:VEVENT
+END:VCALENDAR
