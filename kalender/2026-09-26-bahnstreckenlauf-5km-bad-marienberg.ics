@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bahnstreckenlauf-5km-bad-marienberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Bahnstreckenlauf – 5 km Lauf
+LOCATION:Bad Marienberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 5 km\nhttps://laufen.de/laufka
+ lender/details/26V13000042160000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000042160000
+END:VEVENT
+END:VCALENDAR

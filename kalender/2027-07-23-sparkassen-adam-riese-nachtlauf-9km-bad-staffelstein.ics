@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-07-23-sparkassen-adam-riese-nachtlauf-x-bad-staffelstein@antdon93
- 0.github.io
+UID:2027-07-23-sparkassen-adam-riese-nachtlauf-9km-bad-staffelstein@antdon
+ 930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270723
 DTEND;VALUE=DATE:20270724
-SUMMARY:Sparkassen-ADAM-RIESE Nachtlauf
+SUMMARY:Sparkassen-ADAM-RIESE Nachtlauf – Hauptlauf 9.000 m
 LOCATION:Bad Staffelstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sas-online.ne
- t/eventportal_bs/843/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.sas-online
+ .net/eventportal_bs/843/
 TRANSP:TRANSPARENT
 URL:https://www.sas-online.net/eventportal_bs/843/
 END:VEVENT

@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-15-bruch-ultra-kettenkamp-7km-kettenkamp@antdon930.github.io
+UID:2027-05-15-bruch-ultra-kettenkamp-x-kettenkamp@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
-SUMMARY:Bruch Ultra Kettenkamp
+SUMMARY:Bruch Ultra Kettenkamp – Backyard (Runde 6\,706 km\, stündlicher S
+ tart)
 LOCATION:Kettenkamp\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.laufen-os.
- de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://www.laufe
+ n-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027
 TRANSP:TRANSPARENT
 URL:https://www.laufen-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027
 END:VEVENT

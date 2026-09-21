@@ -1870,6 +1870,38 @@
       "lon": 6.8514435,
       "_quelle": "https://www.sterkrade-nord.de/nikolauslauf",
       "_note": "33. Schmachtendorfer Nikolauslauf 29.11.2026: 5.000 und 10.000 m; die 5 km fehlten."
+    },
+    {
+      "name": "Kyffhäuser Berglauf",
+      "datum_start": "2027-04-10",
+      "datum_ende": "2027-04-10",
+      "standort": "Bad Frankenhausen/Kyffhäuser",
+      "land": "Deutschland",
+      "art1": "Laufen",
+      "art2": "Trail",
+      "laenge_km": 42.2,
+      "wettbewerb": "Kyffhäuser-Bergmarathon (42,2 km)",
+      "veranstalter_url": "https://runtix.com/sts/10021/3168",
+      "lat": 51.3561014,
+      "lon": 11.1016361,
+      "_quelle": "https://runtix.com/sts/10021/3168",
+      "_note": "49. Internationaler Kyffhäuser-Berglauf 10.04.2027: Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5 km, 6 km, Kombi; der Bergmarathon fehlte."
+    },
+    {
+      "name": "Bahnstreckenlauf",
+      "datum_start": "2026-09-26",
+      "datum_ende": "2026-09-26",
+      "standort": "Bad Marienberg",
+      "land": "Deutschland",
+      "art1": "Laufen",
+      "art2": "Bahn",
+      "laenge_km": 5.0,
+      "wettbewerb": "5 km Lauf",
+      "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000042160000",
+      "lat": 50.6504841,
+      "lon": 7.9523942,
+      "_quelle": "https://laufen.de/laufkalender/details/26V13000042160000",
+      "_note": "laufen.de-Detailseite: 5 km Lauf und 10 km (bestenlistenfähig), dazu Kinder-/Jugendläufe; die 5 km fehlten."
     }
   ]
 }

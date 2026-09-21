@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-12-altenburger-skatstadtmarathon-5km-windischleuba@antdon930.g
- ithub.io
+UID:2027-06-12-altenburger-skatstadtmarathon-13-3km-windischleuba@antdon93
+ 0.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:Altenburger Skatstadtmarathon
 LOCATION:Windischleuba\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://baer-service.d
- e/veranstaltung/SSM/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.3 km\nhttps://baer-servic
+ e.de/veranstaltung/SSM/
 TRANSP:TRANSPARENT
 URL:https://baer-service.de/veranstaltung/SSM/
 END:VEVENT

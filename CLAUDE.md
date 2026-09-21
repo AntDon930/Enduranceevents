@@ -2692,6 +2692,18 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Marienhagen nicht prüfbar (siehe Notizen).
    - **Umkehrbar**: Internationaler Kammlauf Klingenthal (Skilanglauf)
      ist per `exclude` heraus.
+   - **Aus den Portal- und laufen.de-Seiten** (Nachtrag, 21.09.2026):
+     weitere Duplikate unter zwei Namen – „49. Herbstlauf Ready4Run
+     Niederwangen" (5,4 km) = „Herbstlauf Niederwangen" (5 / 10,5 km),
+     „Schwollener Crosslauf – 2. Lauf der OIE-Serie" (6,4 km) = „Lauf
+     der Nahe-Crosslauf-Serie in Schwollen" (6 km), „2. Potsdamer Cross
+     im Rahmen der 22. DPM" (5,5 km) = wohl „Crosslauf in den
+     Ravensbergen" (5/7/9 km, gleicher Tag). Ausgeschlossen, weil die
+     Seite es belegt: „30. Braunsteichlauf Weißwasser" (= Spendenlauf am
+     Braunsteich), „Crosslauf-Kreismeisterschaften" (im Oelder Berg- und
+     Crosslauf), die 90-km-Zeile des SCC Cross Country (Tippfehler für
+     9 km). Und **„Lusatian Race Walking"** (24.10.2026, 42,2 km) ist
+     Gehen, keine Laufveranstaltung – dieselbe Frage wie beim Kammlauf.
 
 Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
 für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für

@@ -6041,5 +6041,461 @@
     "ergebnis": "unklar",
     "quelle": "https://my.raceresult.com/410016/",
     "notiz": "raceresult-Seite leitet im Kreis weiter (https ↔ http), aus der Sandbox nicht lesbar"
+  },
+  "Neustadter Altstadtlauf|2026-09-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://runtix.com/sts/10021/3180",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 33. Neustadter Altstadtlauf, 25.09.2026; Hauptlauf 10 km (5 Runden à 2 km), Schnupper-/Firmenlauf 4 km"
+  },
+  "45. Esslinger Schurwaldlauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.datasport.de/anmeldeservice/schurwaldlauf2026",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): „am 27. September“, 10 km Waldlauf (mit Stadtmeisterschaft)"
+  },
+  "Studernheimer Kerwelauf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://runtix.com/sts/10021/3108",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 10 km Lauf und 5 km Lauf (5,4 km), Walking 5 km; Datum nicht im Text"
+  },
+  "Campuslauf Hochschule Wismar|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://myracepartner.com/veranstaltung/?event-id=522924",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 03.10.2026; Langstrecke 10,5 km, Kurzstrecke 3,5 km, Staffel 3 × 3,5 km"
+  },
+  "Leipziger Citytrail|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://baer-service.de/veranstaltung/SLL/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 7. Leipziger Citytrail: 16,6 / 10 / 5 km (dazu 2 km, 900 m); Datum nicht im Text"
+  },
+  "19. Parforceheide Crosslauf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=2B39E8C869",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 10.10.2026 genannt; 5 km und 10 km Lauf"
+  },
+  "Fläminglauf TF-Ergas-Cup|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.strassenlauf.org/va_details.php?id=981",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 20. Flaminglauf 10.10.2026, „alle Läufe auf der 400-m-Tartanbahn“: 400 m, 3.000 m offen, 6 km Nordic Walking (Straße) … – unsere 6 km sind womöglich das Nordic Walking; längere Läufe im abgeschnittenen Text nicht sichtbar"
+  },
+  "Lauf gegen Krebs|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sas-online.net/eventportal_bs/837/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 10.10.2026 bestätigt; Distanzen nur für Kinder sichtbar (320 m), Zeile ohne Distanz bleibt"
+  },
+  "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://ladv.de/ausschreibung/detail/44662/25.-Sebastian-Fredrich-Gedenklauf-Lubmin.htm",
+    "notiz": "ladv-Ausschreibung: 10 km Straße (Männer/Frauen bis M65), 5 km (ab M70, U16/U14), Kinder 800 m / 2,5 km; Datum im Text nicht lesbar"
+  },
+  "Bayerische Marathon Meisterschaften|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Angaben; wahrscheinlich Meisterschaft IM RAHMEN des München Marathons (11.10.2026) – Punkt 5"
+  },
+  "Bewegung die bleibt - Lauf fürs Leben|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://myracepartner.com/veranstaltung/?event-id=532894",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): So 11.10.2026; 5 km Mutmacher-Lauf, 10 km Herzenslauf, 2,5 km Junge Helden"
+  },
+  "Cross- und Waldlaufmeisterschaften|2026-10-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://ladv.de/ausschreibung/detail/48772/Cross-und-Waldlaufmeisterschaften-2026-Ibbenb%C3%BCren.htm",
+    "notiz": "ladv-Titel: „… 2026 in Ibbenbüren“ – Ort Rheine → Ibbenbüren; Distanzen nicht lesbar"
+  },
+  "Kreis-Crossmeisterschaften|2026-10-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/47972/Kreis-Crossmeisterschaften-Kreuztal.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Distanzen/Datum"
+  },
+  "Rodgauer Winterlaufserie|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "maxx-timing.de/anmeldung ist die allgemeine Anmeldeübersicht, nennt die Rodgauer Serie nicht"
+  },
+  "Rodgauer Winterlaufserie|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.maxx-timing.de/anmeldung",
+    "notiz": "siehe 07.11."
+  },
+  "Ronsberger Sparkassen-Crosslauf|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.anmeldungs-service.de/ronsbergercrosslauf2026/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): nur Bambini-/Schülerläufe (500/1.000 m) im Text, Hauptlauf-Distanz nicht lesbar"
+  },
+  "Landesoffener Crosslauf des KLV Segeberg|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirchen.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Distanzen/Datum"
+  },
+  "Stadion-Crosslauf Barsinghausen|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/46485/Stadion-Crosslauf-Barsinghausen.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Distanzen (Datum 07.11.2026 im Text – Meldeschluss oder Termin?)"
+  },
+  "Spendenlauf am Braunsteich Weißwasser|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://baer-service.de/veranstaltung/BTL/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 30. Spendenlauf: 10 km, 5 km (auch Walking), 3 km, 800 m; Datum nicht im Text"
+  },
+  "Elm-Halbmarathon|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://portal.run-timing.de/1024/registration",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): „06. Dezember 2026, 14. Elm-Advents-Halbmarathon“"
+  },
+  "Nikolauslauf Bad Schönborn|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://runtix.com/sts/10021/3147",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 49. Nikolauslauf, 06.12.2026; 10 km Hauptlauf, 5 km Jedermannlauf, Walking 5 km"
+  },
+  "Adventscross der LG Nordheide|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/47339/Sparkassen-Advents-Cross-der-LG-Nordheide-Winsen-%28Luhe%29.htm",
+    "notiz": "ladv-Ausschreibung: im Text steht der 06.12.2026 (Termin oder Meldeschluss?), bei uns der 13.12.; Distanzen nicht lesbar"
+  },
+  "16. THERAmed-Adam-Riese-Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.sas-online.net/eventportal_bs/812/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 31.12.2026, Bad Staffelstein; 5,5 km Hobbylauf (5.500 m), 10 km Hauptlauf (10.000 m)"
+  },
+  "Chemnitzer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://baer-service.de/veranstaltung/CSL/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 10 → 10,1 km; 3,6 km unter der Grenze; Datum nicht im Text"
+  },
+  "OTB Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen-os.de",
+    "notiz": "laufen-os.de ist die Portal-Startseite, nennt den OTB-Silvesterlauf 2026 nicht"
+  },
+  "Obertrubacher Crosslauf|2027-02-20": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/48852/Obertrubacher-Crosslauf-Obertrubach.htm",
+    "notiz": "ladv-Ausschreibung ohne lesbare Angaben"
+  },
+  "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://ladv.de/ausschreibung/detail/48855/17.-Lauf-Rund-um-das-Schaubergwerk-R%C3%B6hrigschacht-Sangerhausen.htm",
+    "notiz": "ladv-Ausschreibung: Crosslauf lang 14,0 km bestätigt, Crosslauf 2 km, 3 km, …; ob es 5 und 5,1 km gibt, ist nicht lesbar (bei uns zwei Zeilen 5,0 und 5,1)"
+  },
+  "Kyffhäuser Berglauf|2027-04-10": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://runtix.com/sts/10021/3168",
+    "notiz": "runtix.com/sts/10021/3168 (49. Internationaler Kyffhäuser-Berglauf, 10.04.2027): Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5-km-Lauf, 6-km-Lauf, Kombiwertung Run 6 km + Bike 21 km (27 km), Schülerlauf 2 km; 22 → 22,2, 14 → 13,5, 11 km ausgeschlossen, Kombi als Duathlon, Bergmarathon 42,2 km nachgetragen"
+  },
+  "Borna Halbmarathon|2027-04-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://baer-service.de/veranstaltung/BHM/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 2. Borna Half: 21,095 km Einzel und Staffel; Datum nicht im Text"
+  },
+  "Turm zu Turm Lauf|2027-04-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.laufen-os.de/wettkaempfe/22-turm-zu-turm-lauf-2027",
+    "notiz": "laufen-os.de: 22. Turm zu Turm Lauf 2027, 17.04.2027; Distanzen nicht im Text"
+  },
+  "Lauf in den Frühling - Freital|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://baer-service.de/veranstaltung/LFF/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 28. Lauf in den Frühling: 10 km, 5 km (auch Walking, Firmencup), 2 km; Datum nicht im Text"
+  },
+  "Neuenkirchener Abendlauf|2027-05-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm",
+    "notiz": "ladv-Ausschreibung VR-Bank Abendlauf 2027: 5 km und 10 km Straße, Jugend 2.000 m"
+  },
+  "Bruch Ultra Kettenkamp|2027-05-15": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.laufen-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027",
+    "notiz": "laufen-os.de: Backyard-Format (6,706-km-Runde), 15.05.2027 bestätigt; 7 km → Backyard Ultra ohne Distanz"
+  },
+  "O-See-Triathlon Uelzen|2027-05-30": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://portal.run-timing.de/1025/registration",
+    "notiz": "run-timing: „30. Mai 2027, 19. O-See-Triathlon“; Distanzen nicht im Text"
+  },
+  "Haster Volkslauf|2027-06-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://www.laufen-os.de/wettkaempfe/haster-volkslauf-2027",
+    "notiz": "laufen-os.de nennt im Text den 28.05. und 30.05.2027, bei uns 06.06.2027 – Termin nicht eindeutig"
+  },
+  "Altenburger Skatstadtmarathon|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://baer-service.de/veranstaltung/SSM/",
+    "notiz": "baer-service.de/veranstaltung/SSM (17. Altenburger Skatstadtmarathon): 400 m, 3,6 km, 5,4 km Fitnesslauf/-walk, 13,3 km Laufen/Walken, Halbmarathon, Marathon; Datum nicht im Text; 13 → 13,3, 5 → 5,4"
+  },
+  "Sparkassen-ADAM-RIESE Nachtlauf|2027-07-23": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.sas-online.net/eventportal_bs/843/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 23.07.2027; Distanz nachgetragen (Hauptlauf 9 km), Hobbylauf 4,5 km unter der Grenze"
+  },
+  "Festungslauf in Königstein|2027-08-13": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://baer-service.de/veranstaltung/FLK/",
+    "notiz": "baer-service.de/veranstaltung/FLK (23. Festungslauf): 9,4 km Lauf, 7,7 km Lauf (auch Walking), 1,2 km Mini-/Inklusionslauf; 470 hm; Datum nicht im Text; 9 → 9,4, 8 → 7,7"
+  },
+  "Wurzener Ringelnatzlauf|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://baer-service.de/veranstaltung/WRL/",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 14. Ringelnatzlauf: 10 km, 5 km (auch Walking), Kinder bis 2,4 km; Datum nicht im Text"
+  },
+  "Running Festival Mannheim|2027-10-16": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027",
+    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 16.–17.10.2027 (Ende nachgetragen); 42,2 / 21,1 / 10 / 5 km bestätigt"
+  },
+  "Bahnstreckenlauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000042160000",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 26.09.2026; 5 km Lauf und 10 km – die 5 km fehlten (nachgetragen)"
+  },
+  "39. Cochem Zeller Crosslauf Serie|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000072960000",
+    "notiz": "Link leitet auf sv-fortuna-ulmen.de, dort keine Angaben zur Serie"
+  },
+  "13. Stauch Cup|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V20900001260000",
+    "notiz": "laufen.de-Detailseite antwortet mit 404"
+  },
+  "26. Krautsander Insellauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V09000551060000",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 03.10.2026; 2,222 / 5,555 / 11,111 km – unsere 5,6 und 11,1 km"
+  },
+  "NRZ Klosterlauf|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V10001004060001",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 03.10.2026; 21,1 / 10 / 5 km bestätigt, 7 km ist Walking (Label gesetzt)"
+  },
+  "49. Herbstlauf Ready4Run Niederwangen|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V20000734360002",
+    "notiz": "raceresult-Seite der SG Niederwangen ohne Text. Dieselbe Veranstaltung steht als „Herbstlauf Niederwangen“ (04.10.2026, 5 und 10,5 km) in der Liste – Duplikat unter zwei Namen (Punkt 18); die 5,4 km hier gegen 5 km dort"
+  },
+  "Lusatian Race Walking|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V15000034164000",
+    "notiz": "Link ist die raceresult-Übersicht. „Race Walking“ ist GEHEN (Leichtathletik-Disziplin), kein Lauf – Marathon-Gehen über 42,2 km; gehört wie der Kammlauf (Skilanglauf) wohl nicht in die Liste, Entscheidung des Nutzers (Punkt 18)"
+  },
+  "1. Pumpkin run|2026-10-25": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V14000019260001",
+    "notiz": "Link leitet auf lauf-club-urexweiler.de, dort keine Angaben"
+  },
+  "22. Flutlicht-Crosslauf|2026-11-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V19000161660001",
+    "notiz": "Link leitet auf la.net3 (nur per JavaScript lesbar)"
+  },
+  "1. Lauf der 17. OIE-Nahe-Crosslaufserie|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000056560001",
+    "notiz": "Link ist die raceresult-Übersicht, ohne Angaben"
+  },
+  "32. Pokallauf|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V16900000760000",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 07.11.2026; Strecken 0,4 bis 12 km (0,4 / 0,8 / 3 / 6… / 12 km) – unsere 12 und 6,5 km passen"
+  },
+  "62. SCC Cross Country|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/26V03000101960005",
+    "notiz": "Anmeldeportal: 07.11.2026, 4 km und 9 km Crosslauf – die 90-km-Zeile (Tippfehler) ausgeschlossen"
+  },
+  "Lauf am Lech - 2. Lauf der Jedermannserie|2026-11-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V02000735660000",
+    "notiz": "lg-donau-ries.de: Jedermannlaufserie „auf den Originalstrecken 10 km – 5,8 km Jogging/Walking oder 3,5 km Jugend“; Einzeltermin nicht im Text"
+  },
+  "Schlößlelauf - 4. Lauf der Jedermannlaufserie|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V02000739360000",
+    "notiz": "lg-donau-ries.de: Jedermannlaufserie „auf den Originalstrecken 10 km – 5,8 km Jogging/Walking oder 3,5 km Jugend“; Einzeltermin nicht im Text"
+  },
+  "Lauf am Weißen Kreuz - 5. Lauf der Jedermannlaufserie|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V02000739360001",
+    "notiz": "lg-donau-ries.de: Jedermannlaufserie „auf den Originalstrecken 10 km – 5,8 km Jogging/Walking oder 3,5 km Jugend“; Einzeltermin nicht im Text"
+  },
+  "2. Potsdamer Cross im Rahmen der 22. DPM|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V04005402760000",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 14.11.2026; Cross 5,5 km, KidsCross 0,8 km. „Im Rahmen der 22. DPM“ (Deutsche Polizeimeisterschaft) – am selben Tag steht „Crosslauf in den Ravensbergen“ (5/7/9 km) in der Liste, wohl dieselbe Veranstaltung (Punkt 18)"
+  },
+  "Crosslauf Rund um das Stadion|2026-11-15": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V14000002660000",
+    "notiz": "Link leitet auf tv-elm.de, dort keine Angaben"
+  },
+  "Kreis Herbst Waldlauf Meisterschaften|2026-11-15": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26K07000003550002",
+    "notiz": "Link leitet auf la.net3 (nur per JavaScript lesbar)"
+  },
+  "30. Braunsteichlauf Weißwasser|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/26V15900001860003",
+    "notiz": "Duplikat der Zeile „Spendenlauf am Braunsteich Weißwasser“ (dieselbe Anmeldeseite) ausgeschlossen"
+  },
+  "Crosslauf mit KM (LV RL Kreis BIT)|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000078850000",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 21.11.2026; Strecken bis 7,2 km (0,9 / 1,8 / 3,66 / 7,2 km)"
+  },
+  "Schwollener Crosslauf - 2. Lauf der 17. OIE Nahecrosslaufserie|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000541960000",
+    "notiz": "Link leitet auf nahe-crosslauf-serie.de ohne Termine 2026/27. Dieselbe Veranstaltung steht als „Lauf der Nahe-Crosslauf-Serie in Schwollen“ (21.11.2026, 6 km, raceresult) in der Liste – Duplikat unter zwei Namen, 6,4 gegen 6 km (Punkt 18)"
+  },
+  "33. Villmarer Dorflauf|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V07000095060002",
+    "notiz": "Link leitet auf la.net3 (nur per JavaScript lesbar)"
+  },
+  "44. Adventslauf|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V09000190160000",
+    "notiz": "Der laufen.de-Link leitet auf gmx.net (E-Mail-Startseite) – toter Veranstalterlink beim DLV, keine Angaben"
+  },
+  "52. Steinfurter Nikolauslauf 10 km|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V19000301660001",
+    "notiz": "Link leitet auf marathon-steinfurt.de, dort keine Angaben zum Nikolauslauf"
+  },
+  "1. Lauf 38. Winterlaufserie|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V13000125160005",
+    "notiz": "Abruf mit Timeout"
+  },
+  "46. landesoffener Nikolaus-Waldlauf|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V02000230160000",
+    "notiz": "Link leitet auf lac-arnstorf.de, dort keine Angaben im Text"
+  },
+  "49. Nat. Nikolaus Volkslauf|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V01000031060000",
+    "notiz": "Link leitet auf eine Zeitnahme-Startseite ohne Angaben"
+  },
+  "34. Adventslauf|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V07000097860002",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 13.12.2026; Lauf 10,8 km"
+  },
+  "26. Nellschützer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/26V16000130260001",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 31.12.2026; 10 km"
+  },
+  "39. Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V19000302060001",
+    "notiz": "Link ist die raceresult-Übersicht, ohne Angaben"
+  },
+  "42. Silvesterlauf 2026|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/26V19000340860002",
+    "notiz": "Zielseite ohne Text"
+  },
+  "Crosslauf-Kreismeisterschaften|2027-01-09": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://laufen.de/laufkalender/details/27K19019000450001",
+    "notiz": "Meisterschaft im Rahmen des Oelder Berg- und Crosslaufs – Duplikat ausgeschlossen (wie Punkt 5)"
+  },
+  "70. Winterwaldlauf|2027-01-23": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/27V10002004860001",
+    "notiz": "Der laufen.de-Link leitet auf eine reservierte Strato-Domain ohne Inhalt – toter Veranstalterlink"
+  },
+  "10. Alstätter Sandhasenlauf|2027-03-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://laufen.de/laufkalender/details/27L19000394360001",
+    "notiz": "laufen.de-Detailseite (Wettbewerbsliste des DLV-Kalenders): 07.03.2027; Ausdauerlauf 10 km, Lauf 5 km (dazu 2 km, 0,5 km)"
+  },
+  "11. Werler Frühlingslauf|2027-03-20": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/27V19000324160501",
+    "notiz": "Link ist die raceresult-Übersicht, ohne Angaben"
+  },
+  "Stadtfestlauf Lüdinghausen|2027-09-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://laufen.de/laufkalender/details/27V19000013960001",
+    "notiz": "Abruf scheitert am SSL-Fehler"
   }
 }

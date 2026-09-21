@@ -877,6 +877,20 @@
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000042160000"
   },
   {
+    "name": "Bahnstreckenlauf",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "standort": "Bad Marienberg",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Bahn",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Lauf",
+    "veranstalter_url": "https://laufen.de/laufkalender/details/26V13000042160000",
+    "lat": 50.6504841,
+    "lon": 7.9523942
+  },
+  {
     "land": "Deutschland",
     "name": "Basche Cross Lauf",
     "standort": "Barsinghausen",
@@ -6991,7 +7005,7 @@
     "datum_start": "2026-10-03",
     "datum_ende": "2026-10-03",
     "laenge_km": 7.0,
-    "wettbewerb": "Walking/Nordic Walking",
+    "wettbewerb": "7 km Walking/Nordic Walking",
     "veranstalter_url": "https://laufen.de/laufkalender/details/26V10001004060001"
   },
   {
@@ -17123,9 +17137,9 @@
   {
     "land": "Deutschland",
     "name": "Cross- und Waldlaufmeisterschaften",
-    "standort": "Rheine",
-    "lat": 52.2815691,
-    "lon": 7.4434092,
+    "standort": "Ibbenbüren",
+    "lat": 52.2778,
+    "lon": 7.7158,
     "art1": "Laufen",
     "art2": "Trail",
     "datum_start": "2026-10-31",
@@ -18508,19 +18522,6 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 10.0,
     "veranstalter_url": "http://turnverein07.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "62. SCC Cross Country",
-    "standort": "Berlin-Charlottenburg",
-    "lat": 52.5043157,
-    "lon": 13.3026447,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 90.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V03000101960005"
   },
   {
     "land": "Deutschland",
@@ -21789,19 +21790,6 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 10.0,
     "veranstalter_url": "https://lgne-running.de/Stromberglauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "30. Braunsteichlauf Weißwasser",
-    "standort": "Weißwasser",
-    "lat": 51.5054285,
-    "lon": 14.6381818,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-21",
-    "datum_ende": "2026-11-21",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V15900001860003"
   },
   {
     "land": "Deutschland",
@@ -27410,8 +27398,8 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 10.1,
+    "wettbewerb": "10,1 km",
     "veranstalter_url": "https://baer-service.de/veranstaltung/CSL/"
   },
   {
@@ -29203,19 +29191,6 @@
     "laenge_km": 40.0,
     "wettbewerb": "40 km",
     "veranstalter_url": "https://www.laufsportladen.de/buehlauer-winterlaufserie/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Crosslauf-Kreismeisterschaften",
-    "standort": "Oelde",
-    "lat": 51.8260678,
-    "lon": 8.1454954,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-01-09",
-    "datum_ende": "2027-01-09",
-    "laenge_km": 8.3,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/27K19019000450001"
   },
   {
     "land": "Deutschland",
@@ -35056,12 +35031,12 @@
     "standort": "Bad Frankenhausen/Kyffhäuser",
     "lat": 51.3561014,
     "lon": 11.1016361,
-    "art1": "Laufen",
-    "art2": "Trail",
+    "art1": "Triathlon",
+    "art2": "Duathlon",
     "datum_start": "2027-04-10",
     "datum_ende": "2027-04-10",
     "laenge_km": 27.0,
-    "wettbewerb": "27 km",
+    "wettbewerb": "Kombiwertung 27 km (Run 6 km + Bike 21 km)",
     "veranstalter_url": "https://runtix.com/sts/10021/3168"
   },
   {
@@ -35074,8 +35049,8 @@
     "art2": "Trail",
     "datum_start": "2027-04-10",
     "datum_ende": "2027-04-10",
-    "laenge_km": 22.0,
-    "wettbewerb": "22 km",
+    "laenge_km": 22.2,
+    "wettbewerb": "Halbmarathon der TEAG (22,2 km)",
     "veranstalter_url": "https://runtix.com/sts/10021/3168"
   },
   {
@@ -35088,22 +35063,8 @@
     "art2": "Trail",
     "datum_start": "2027-04-10",
     "datum_ende": "2027-04-10",
-    "laenge_km": 14.0,
-    "wettbewerb": "14 km",
-    "veranstalter_url": "https://runtix.com/sts/10021/3168"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kyffhäuser Berglauf",
-    "standort": "Bad Frankenhausen/Kyffhäuser",
-    "lat": 51.3561014,
-    "lon": 11.1016361,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-04-10",
-    "datum_ende": "2027-04-10",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
+    "laenge_km": 13.5,
+    "wettbewerb": "13,5-km-Lauf",
     "veranstalter_url": "https://runtix.com/sts/10021/3168"
   },
   {
@@ -35119,6 +35080,20 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://runtix.com/sts/10021/3168"
+  },
+  {
+    "name": "Kyffhäuser Berglauf",
+    "datum_start": "2027-04-10",
+    "datum_ende": "2027-04-10",
+    "standort": "Bad Frankenhausen/Kyffhäuser",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Trail",
+    "laenge_km": 42.2,
+    "wettbewerb": "Kyffhäuser-Bergmarathon (42,2 km)",
+    "veranstalter_url": "https://runtix.com/sts/10021/3168",
+    "lat": 51.3561014,
+    "lon": 11.1016361
   },
   {
     "land": "Deutschland",
@@ -40173,11 +40148,11 @@
     "lat": 52.5856455,
     "lon": 7.8278115,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Backyard Ultra",
     "datum_start": "2027-05-15",
     "datum_ende": "2027-05-15",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km",
+    "laenge_km": null,
+    "wettbewerb": "Backyard (Runde 6,706 km, stündlicher Start)",
     "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/bruch-ultra-2-0-kettenkamp-2027"
   },
   {
@@ -43641,8 +43616,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
-    "laenge_km": 13.0,
-    "wettbewerb": "13 km",
+    "laenge_km": 13.3,
+    "wettbewerb": "13,3 km",
     "veranstalter_url": "https://baer-service.de/veranstaltung/SSM/"
   },
   {
@@ -43655,8 +43630,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
+    "laenge_km": 5.4,
+    "wettbewerb": "5,4 km Fitnesslauf",
     "veranstalter_url": "https://baer-service.de/veranstaltung/SSM/"
   },
   {
@@ -48209,7 +48184,9 @@
     "art2": "Straße",
     "datum_start": "2027-07-23",
     "datum_ende": "2027-07-23",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/843/"
+    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/843/",
+    "laenge_km": 9,
+    "wettbewerb": "Hauptlauf 9.000 m"
   },
   {
     "land": "Deutschland",
@@ -49116,8 +49093,8 @@
     "art2": "Straße",
     "datum_start": "2027-08-13",
     "datum_ende": "2027-08-13",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 9.4,
+    "wettbewerb": "9,4 km Lauf",
     "veranstalter_url": "https://baer-service.de/veranstaltung/FLK/"
   },
   {
@@ -49130,8 +49107,8 @@
     "art2": "Straße",
     "datum_start": "2027-08-13",
     "datum_ende": "2027-08-13",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
+    "laenge_km": 7.7,
+    "wettbewerb": "7,7 km Lauf",
     "veranstalter_url": "https://baer-service.de/veranstaltung/FLK/"
   },
   {
@@ -51428,7 +51405,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-16",
-    "datum_ende": "2027-10-16",
+    "datum_ende": "2027-10-17",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon über 42,195 km",
     "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
@@ -51442,7 +51419,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-16",
-    "datum_ende": "2027-10-16",
+    "datum_ende": "2027-10-17",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon über 21,0975 km",
     "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
@@ -51456,7 +51433,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-16",
-    "datum_ende": "2027-10-16",
+    "datum_ende": "2027-10-17",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Run und 10 km Firmen-Cup",
     "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"
@@ -51470,7 +51447,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-16",
-    "datum_ende": "2027-10-16",
+    "datum_ende": "2027-10-17",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Run",
     "veranstalter_url": "https://www.datasport.de/anmeldeservice/runningfestivalmannheim2027"

@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-04-10-kyffhauser-berglauf-22km-bad-frankenhausen-kyffhauser@antdo
- n930.github.io
+UID:2027-04-10-kyffhauser-berglauf-13-5km-bad-frankenhausen-kyffhauser@ant
+ don930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
-SUMMARY:Kyffhäuser Berglauf
+SUMMARY:Kyffhäuser Berglauf – 13\,5-km-Lauf
 LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 22 km\nhttps://runtix.com/sts
- /10021/3168
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13.5 km\nhttps://runtix.com/s
+ ts/10021/3168
 TRANSP:TRANSPARENT
 URL:https://runtix.com/sts/10021/3168
 END:VEVENT

@@ -4772,5 +4772,90 @@
   "Mühlenweg Ultra|2027-08-28": {
     "datum_ende": "2027-08-29",
     "_note": "my.raceresult.com/364127: 3. Mühlenweg Ultra, 28./29.08.2027, Wallenhorst"
+  },
+  "Cross- und Waldlaufmeisterschaften|2026-10-31": {
+    "standort": "Ibbenbüren",
+    "lat": 52.2778,
+    "lon": 7.7158,
+    "_note": "ladv.de/ausschreibung/detail/48772: „Cross- und Waldlaufmeisterschaften 2026 in Ibbenbüren“ – bei uns stand Rheine (siehe Punkt 17: laut LG Emsdetten in Ibbenbüren-Dickenberg)"
+  },
+  "Chemnitzer Silvesterlauf|2026-12-31|10": {
+    "laenge_km": 10.1,
+    "wettbewerb": "10,1 km",
+    "_note": "baer-service.de/veranstaltung/CSL: Strecken 0,5 / 1,5 / 3,6 km (auch Canicross) / 10,1 km"
+  },
+  "Kyffhäuser Berglauf|2027-04-10|22": {
+    "laenge_km": 22.2,
+    "wettbewerb": "Halbmarathon der TEAG (22,2 km)",
+    "_note": "runtix.com/sts/10021/3168 (49. Internationaler Kyffhäuser-Berglauf, 10.04.2027): Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5-km-Lauf, 6-km-Lauf, Kombiwertung Run 6 km + Bike 21 km (27 km), Schülerlauf 2 km"
+  },
+  "Kyffhäuser Berglauf|2027-04-10|14": {
+    "laenge_km": 13.5,
+    "wettbewerb": "13,5-km-Lauf",
+    "_note": "runtix.com/sts/10021/3168 (49. Internationaler Kyffhäuser-Berglauf, 10.04.2027): Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5-km-Lauf, 6-km-Lauf, Kombiwertung Run 6 km + Bike 21 km (27 km), Schülerlauf 2 km"
+  },
+  "Kyffhäuser Berglauf|2027-04-10|27": {
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "wettbewerb": "Kombiwertung 27 km (Run 6 km + Bike 21 km)",
+    "_note": "runtix.com/sts/10021/3168 (49. Internationaler Kyffhäuser-Berglauf, 10.04.2027): Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5-km-Lauf, 6-km-Lauf, Kombiwertung Run 6 km + Bike 21 km (27 km), Schülerlauf 2 km – Lauf-Rad-Kombination, als Duathlon geführt (Distanz unverändert)"
+  },
+  "Kyffhäuser Berglauf|2027-04-10|11": {
+    "exclude": true,
+    "_note": "Die Anmeldung (runtix) listet alle Wettbewerbe: 42,2 / 22,2 / 13,5 / 6 km, Kombi 27 km, Schüler 2 km – keine 11-km-Strecke. runtix.com/sts/10021/3168 (49. Internationaler Kyffhäuser-Berglauf, 10.04.2027): Bergmarathon 42,2 km, Halbmarathon 22,2 km, 13,5-km-Lauf, 6-km-Lauf, Kombiwertung Run 6 km + Bike 21 km (27 km), Schülerlauf 2 km"
+  },
+  "Bruch Ultra Kettenkamp|2027-05-15": {
+    "art2": "Backyard Ultra",
+    "_note": "laufen-os.de: „Backyard Bruch Kettenkamp“, 6,706 km je Runde, 15.05.2027 – Backyard-Format; die 7 km waren die Runde (Datenregel 9)"
+  },
+  "Bruch Ultra Kettenkamp|2027-05-15|7": {
+    "laenge_km": null,
+    "wettbewerb": "Backyard (Runde 6,706 km, stündlicher Start)",
+    "_note": "Runde ist keine Distanz (Datenregel 9)"
+  },
+  "Altenburger Skatstadtmarathon|2027-06-12|13": {
+    "laenge_km": 13.3,
+    "wettbewerb": "13,3 km",
+    "_note": "baer-service.de/veranstaltung/SSM (17. Altenburger Skatstadtmarathon): 400 m, 3,6 km, 5,4 km Fitnesslauf/-walk, 13,3 km Laufen/Walken, Halbmarathon, Marathon; Datum nicht im Text"
+  },
+  "Altenburger Skatstadtmarathon|2027-06-12|5": {
+    "laenge_km": 5.4,
+    "wettbewerb": "5,4 km Fitnesslauf",
+    "_note": "baer-service.de/veranstaltung/SSM (17. Altenburger Skatstadtmarathon): 400 m, 3,6 km, 5,4 km Fitnesslauf/-walk, 13,3 km Laufen/Walken, Halbmarathon, Marathon; Datum nicht im Text"
+  },
+  "Sparkassen-ADAM-RIESE Nachtlauf|2027-07-23": {
+    "laenge_km": 9,
+    "wettbewerb": "Hauptlauf 9.000 m",
+    "_note": "sas-online.net/eventportal_bs/843: 11. Nachtlauf 23.07.2027; Hauptlauf 9.000 m (20 Uhr), Hobbylauf 4.500 m, Schülerläufe 780 / 1.650 m"
+  },
+  "Festungslauf in Königstein|2027-08-13|9": {
+    "laenge_km": 9.4,
+    "wettbewerb": "9,4 km Lauf",
+    "_note": "baer-service.de/veranstaltung/FLK (23. Festungslauf): 9,4 km Lauf, 7,7 km Lauf (auch Walking), 1,2 km Mini-/Inklusionslauf; 470 hm; Datum nicht im Text"
+  },
+  "Festungslauf in Königstein|2027-08-13|8": {
+    "laenge_km": 7.7,
+    "wettbewerb": "7,7 km Lauf",
+    "_note": "baer-service.de/veranstaltung/FLK (23. Festungslauf): 9,4 km Lauf, 7,7 km Lauf (auch Walking), 1,2 km Mini-/Inklusionslauf; 470 hm; Datum nicht im Text"
+  },
+  "Running Festival Mannheim|2027-10-16": {
+    "datum_ende": "2027-10-17",
+    "_note": "anmeldungs-service: „vom 16.–17. Oktober 2027“; Marathon 42,195, Halbmarathon 21,0975, 10 km, 5 km, Mini-Marathon 2 km"
+  },
+  "NRZ Klosterlauf|2026-10-03|7": {
+    "wettbewerb": "7 km Walking/Nordic Walking",
+    "_note": "laufen.de-Detailseite: Halbmarathon 21,098 km, 10 km Straßenlauf, 5 km Volkslauf, 7 km Walking/Nordic Walking, Kinder-/Jugendläufe – die 7 km sind die Walking-Strecke"
+  },
+  "62. SCC Cross Country|2026-11-07|90": {
+    "exclude": true,
+    "_note": "strassenlauf.org (Anmeldung 62. SCC Cross Country, 07.11.2026): 4 km Crosslauf (U16) und 9 km Crosslauf (U18 bis Erwachsene) – „90 km“ ist ein Tippfehler der Quelle, die 9-km-Zeile steht daneben"
+  },
+  "30. Braunsteichlauf Weißwasser|2026-11-21|10": {
+    "exclude": true,
+    "_note": "Der laufen.de-Link leitet auf baer-service.de „30. Spendenlauf am Braunsteich Weißwasser“ – dieselbe Veranstaltung steht als „Spendenlauf am Braunsteich Weißwasser“ (21.11.2026, 5 und 10 km) in der Liste; Duplikat unter zweitem Namen"
+  },
+  "Crosslauf-Kreismeisterschaften|2027-01-09|8.3": {
+    "exclude": true,
+    "_note": "Der laufen.de-Link leitet auf lv-oelde.de „Oelder Berg- und Crosslauf“ – die Kreismeisterschaft läuft im Rahmen des Oelder Berg- und Crosslaufs (09.01.2027, 8,3 km), der in der Liste steht; Meisterschaft-im-Rahmen-Fall wie in Punkt 5"
   }
 }
