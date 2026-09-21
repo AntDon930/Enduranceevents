@@ -1697,6 +1697,44 @@ Domain (`brooks-ruhr-trail-run.de` → `altra-ruhr-trail-run.de`, per
 302). Und `firmenlauf-oberschwaben.de` ist ein Hosting-Platzhalter – ob
 es die Veranstaltung 2027 gibt, weiß niemand.
 
+### Fünfzehnter Durchgang: die Websuche zu Ende geführt (21.09.2026, ohne den Nutzer)
+
+Alle Portallink-Veranstaltungen, die noch keine Websuche hatten (nach
+dem Zehnten Durchgang 224, davon ~100 als private Serien übersprungen),
+in vier weiteren Runden gesucht, mit `verifizieren` geprüft und mit
+`anwenden --auch-geprueft` übernommen (Commits „fünfte" bis „achte
+Runde"). **Die Portalzeilen fallen von 394 auf 239.** Was übrig ist,
+steht jetzt vollständig als `unklar` mit Notiz „Websuche" in
+`links_geprueft.json` – die Filterung `quelle == "Websuche"` liefert
+also keine Kandidaten mehr; die nächste Linkarbeit beginnt erst nach
+dem nächsten Datenlauf. Drei Dinge daraus:
+
+1. **Die „privaten Ultra-Serien" hatten doch eine Seite.** Uwe Laigs
+   Läufe rund um Osnabrück, Ibbenbüren und Bielefeld (Gut Sutthausen,
+   Dörenther Klippen, Silbersee-Hüggel, Wassermühlen, Sloopsteene,
+   Kletterfelsen, Lengerich, Eversburg, Tatenhausen, Werther, Hohe Ward,
+   Langenberg, Dyckerhoff, Oerlinghausen, Detmold, Holter Wald, Mops –
+   19 Zeilen) stehen mit Termin auf **„Uwes Laufangebote"**
+   (`ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/`), der
+   Terminseite des Veranstalters. Gefunden über die Websuche nach dem
+   Dyckerhoff Steinbruch Marathon – der Neunte Durchgang hatte die Serie
+   als „nur raceresult, keine Websuche wert" abgehakt. **Eine Serie
+   lohnt EINE Suche**: Findet sie die Seite des Veranstalters, gilt sie
+   für alle seine Läufe. Die übrigen Serien (Fun & Erlebnis Marathons
+   Hamburg, Bremer Marathons, SOBVL, „Wir wollen doch nur laufen",
+   Speck-weg, Northeim, Witzenhausen) haben wirklich keine – je einmal
+   gesucht, Kontaktseiten gelesen, als `unklar` protokolliert.
+2. **Kurze Namen und Allgemeinwörter sieht die Regel nicht.** „OTB
+   Silvesterlauf" (drei Buchstaben plus Allgemeinwort), „Rund um
+   Detmold" (der Ort steht auf der Seite als eigene Zeile), „Sloopsteener
+   Seenrunden" (die Seite schreibt „Sloopsteene") und der Borna Half
+   (Seite ohne JavaScript leer) sind von Hand belegt – Override mit
+   Begründung, wie im Zehnten Durchgang. Vier von 60, der Rest über die
+   Regel.
+3. **Nebenbefund**: „Cross im Grund" (Erfurt) ist laut Veranstalter
+   (OCR-Squad) ein 13-km-Lauf mit rund 30 Hindernissen – Kategorie
+   Hindernis statt Trail, per Override.
+
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger

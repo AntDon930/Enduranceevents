@@ -329,18 +329,18 @@
     "notiz": "Organizer-URL /wordpress/ ist 404, die Vereinsseite selbst erreichbar; Veranstalter SV 1863 Belgershain."
   },
   "Fun & Erlebnis Marathons|2026-09-23": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "raceresult /contact",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/414254/",
-    "notiz": "Organizer-URL teichwiesen.myblog.de ist tot (nginx-Standardseite) - raceresult bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Fun & Erlebnis Marathons|2026-09-30": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "raceresult /contact",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/414337/",
-    "notiz": "wie 23.09.: Organizer-URL tot - raceresult bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Autohaus Prinz - Schildberglauf|2026-09-20": {
     "am": "2026-09-19",
@@ -554,11 +554,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://laufenamwengeberg.com/breckerfelder-flower-power-ultra/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (breckerfelder). Linkprüfung 2026-09-21."
   },
   "PULSEDAY DRT Lauf|2026-09-24": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "raceresult /contact",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/414417/",
-    "notiz": "Organizer-URL zeigt auf eine Fachgruppen-Seite von herzmedizin.de, nicht auf den Lauf - raceresult bleibt."
+    "notiz": "Websuche: PULSEDAY-Lauf, raceresult-Kontaktseite nannte nur den Verband (Linkprüfung 19.09.), keine Laufseite - raceresult bleibt."
   },
   "Idar-Obersteiner Altstadtlauf|2026-09-26": {
     "am": "2026-09-21",
@@ -3599,11 +3599,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.falkensteinlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:falkenstein). Linkprüfung 2026-09-21."
   },
   "RuKT Rund um die Kipshagener Teiche 45K|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com /contact",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/390497/",
-    "notiz": "Kontaktseite: Organizer-URL leer - Link bleibt."
+    "notiz": "Websuche: private Ultra-Serie (Osnabrücker Land), nicht auf ‚Uwes Laufangebote' gelistet, nur raceresult - raceresult bleibt."
   },
   "Nordhessische Crosslaufmeisterschaften|2026-10-31": {
     "am": "2026-09-19",
@@ -13688,11 +13688,11 @@
     "notiz": "Veranstalterseite statt running.life: http://www.rimbachlauf.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:rimbachlauf). Linkprüfung 2026-09-19."
   },
   "Ultra Bremerhaven - Bremen Nord|2026-10-03": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/380339/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Wald- und Heidelauf Kremperheide|2026-10-03": {
     "am": "2026-09-19",
@@ -13828,11 +13828,11 @@
     "notiz": "Websuche nannte http://www.lc-jueterbog.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - strassenlauf.org bleibt."
   },
   "Fun & Erlebnis Marathons|2026-10-10": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/373996/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Großrossler Sternenlauf|2026-10-10": {
     "am": "2026-09-21",
@@ -13856,11 +13856,11 @@
     "notiz": "Veranstalterseite statt runtix.com: https://www.tsv-zornheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zornheim). Linkprüfung 2026-09-19."
   },
   "Hochzeitstag-Ultra|2026-10-10": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/416506/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: privater Ultra (Nack), nur raceresult - raceresult bleibt."
   },
   "Lauf gegen Krebs|2026-10-10": {
     "am": "2026-09-19",
@@ -14192,18 +14192,18 @@
     "notiz": "Veranstalterseite statt anmeldung.laufauswertung.com: https://www.schoenower-sv.de - auf der anmeldung.laufauswertung.com-Seite verlinkt, Zielseite nennt den Lauf (schonower). Linkprüfung 2026-09-19."
   },
   "Fun & Erlebnis Marathons|2026-10-21": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/422747/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Töwerland Herbstlauf|2026-10-22": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/372019/",
-    "notiz": "juist.de ist die Inselseite der Kurverwaltung, 'Töwerland' steht dort überall - my.raceresult.com bleibt."
+    "notiz": "Websuche: Töwerland-Läufe auf Juist, raceresult-Kontaktseite nannte nur die Kurverwaltung (Linkprüfung 19.09.) - raceresult bleibt."
   },
   "1. Lauf zur Crosslauf Serie im Kreis Bernkastel-Wittlich|2026-10-24": {
     "am": "2026-09-19",
@@ -14346,11 +14346,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsv-berghausen.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (pfinztallauf, datum). Linkprüfung 2026-09-19."
   },
   "Fun & Erlebnis Marathons|2026-10-28": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/266617/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Halbstundenlauf des TSV Zeulenroda|2026-10-28": {
     "am": "2026-09-19",
@@ -14801,11 +14801,11 @@
     "notiz": "Veranstalterseite statt laufen-os.de: https://bramscher-rumlaeufer.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:bramscher). Linkprüfung 2026-09-19."
   },
   "SOBVL|2026-11-22": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/365995/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Websuche: SOBVL (Südost Berliner Vielläufer) sind Trainingsläufe in kleiner Runde, nur raceresult - raceresult bleibt."
   },
   "Warendorfer Garagen-Backyard|2026-11-22": {
     "am": "2026-09-19",
@@ -14927,11 +14927,11 @@
     "notiz": "Websuche nannte http://www.tsv-gluecksburg.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Bremer Bergmarathon|2026-12-05": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/373210/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Crosslauf am Rodelberg|2026-12-05": {
     "am": "2026-09-19",
@@ -15144,11 +15144,11 @@
     "notiz": "Websuche: privat organisiert von Michael Scheele (TUSEM Essen LA); die Seite tusem-leichtathletik.de/…/2-rhk-marathon.html liefert nur eine leere Hülle (4 KB, nennt den Lauf nicht) - raceresult bleibt."
   },
   "SOBVL|2026-12-20": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/365996/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: SOBVL (Südost Berliner Vielläufer) sind Trainingsläufe in kleiner Runde, nur raceresult - raceresult bleibt."
   },
   "Warendorfer Weihnachtslauf|2026-12-20": {
     "am": "2026-09-19",
@@ -15158,18 +15158,18 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://laufschule-tatje.de/weihnachtslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (warendorfer). Linkprüfung 2026-09-19."
   },
   "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-23": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/410899/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: private Wuhlheide-Marathons von Jana und Micha Bieler, nur raceresult - raceresult bleibt."
   },
   "Northeimer Heiligabend Marathon|2026-12-24": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/419707/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat von Michael Kiene organisiert; michaelkiene.de (raceresult-Kontaktseite) nennt die Läufe nicht - raceresult bleibt."
   },
   "Wassermühlen-Ultra Rulle|2026-12-24": {
     "am": "2026-09-21",
@@ -15201,11 +15201,11 @@
     "notiz": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt den Lauf als ‚1. Megalithgrab Sloopsteene Ultramarathon' (andere Schreibweise, deshalb kein Regel-Treffer). Linkprüfung 2026-09-21."
   },
   "Speck weg Serie Brockenläufe|2026-12-27": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/414030/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Speck-weg-Serie von Sigrid Eichner (Volkspark Prenzlauer Berg), nur raceresult und 100MC - raceresult bleibt."
   },
   "Dörenther Klippen UltraTrail|2026-12-28": {
     "am": "2026-09-21",
@@ -15313,11 +15313,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.friedberger-silvesterlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:friedberger, datum). Linkprüfung 2026-09-19."
   },
   "Fun & Erlebnis Marathons|2026-12-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/378406/",
-    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Greifswalder Silvesterlauf|2026-12-31": {
     "am": "2026-09-19",
@@ -15425,11 +15425,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.crossdog.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (spessart). Linkprüfung 2026-09-19."
   },
   "Sylvester Marathon Bremen|2026-12-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/410134/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Sylvesterlauf Pfalzdorf|2026-12-31": {
     "am": "2026-09-20",
@@ -15446,11 +15446,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.silvesterlauf.nrw/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (danzturm). Linkprüfung 2026-09-20."
   },
   "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/410853/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: private Wuhlheide-Marathons von Jana und Micha Bieler, nur raceresult - raceresult bleibt."
   },
   "Lengericher UltraTrail|2027-01-01": {
     "am": "2026-09-21",
@@ -15460,11 +15460,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (lengericher). Linkprüfung 2026-09-21."
   },
   "Northeimer Neujahrsmarathon|2027-01-01": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/419711/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat von Michael Kiene organisiert; michaelkiene.de (raceresult-Kontaktseite) nennt die Läufe nicht - raceresult bleibt."
   },
   "Die Ha(a)rd Winter|2027-01-02": {
     "am": "2026-09-19",
@@ -15516,11 +15516,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.spiridon-haltern.de/Lauf%20/108_de_Ausschreibung.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (halterner). Linkprüfung 2026-09-20."
   },
   "Fun & Erlebnis Marathons - Schneverdingen|2027-01-17": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/379965/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Nürnberger Winterlaufserie|2027-01-17": {
     "am": "2026-09-20",
@@ -15537,11 +15537,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-alten-buseck.com/winterlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:alten, datum). Linkprüfung 2026-09-20."
   },
   "Leinetal-Ultra Winter Edition|2027-01-23": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/420165/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat von Michael Kiene organisiert; michaelkiene.de (raceresult-Kontaktseite) nennt die Läufe nicht - raceresult bleibt."
   },
   "Insellauf Königswinter|2027-01-24": {
     "am": "2026-09-20",
@@ -15551,18 +15551,18 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: http://www.insellauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:insellauf, datum). Linkprüfung 2026-09-20."
   },
   "Vier Türme Hamme Ultra|2027-02-02": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/409915/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Tunnelweg-Teufelskanzel-Trailmarathon|2027-02-06": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/405895/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat von Gerno Semmelroth (Kleinalmerode) organisiert, raceresult-Kontaktseite ohne Website - raceresult bleibt."
   },
   "Do It Fast - Winter Edition|2027-02-07": {
     "am": "2026-09-20",
@@ -15572,11 +15572,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://doitfast.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (winter). Linkprüfung 2026-09-20."
   },
   "Haferberg - Hasenmühle UltraTrail|2027-02-07": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/405937/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: privat von Gerno Semmelroth (Kleinalmerode) organisiert, raceresult-Kontaktseite ohne Website - raceresult bleibt."
   },
   "Nürnberger Winterlaufserie|2027-02-07": {
     "am": "2026-09-20",
@@ -15586,11 +15586,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://runningconcepts.de/nuernberger-winterlaufserie - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (nurnberger, datum). Linkprüfung 2026-09-20."
   },
   "Rosenmontags Marathon|2027-02-08": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/369959",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Obertrubacher Crosslauf|2027-02-20": {
     "am": "2026-09-21",
@@ -15649,11 +15649,11 @@
     "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
   },
   "Bremer Bergmarathon|2027-02-28": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/382681/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "KäseKross|2027-02-28": {
     "am": "2026-09-19",
@@ -15691,11 +15691,11 @@
     "notiz": "Veranstalterseite statt laufen-os.de: https://www.ibbenbuerener-klippenlauf.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (ibbenburener). Linkprüfung 2026-09-19."
   },
   "Frau Holle Märchenland Ultra|2027-03-21": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/422662/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Benefiz-Ultra von Marcel Löber (Hessisch Lichtenau), raceresult-Kontaktseite ohne Website - raceresult bleibt."
   },
   "Kieler Hochbrückenlauf|2027-03-21": {
     "am": "2026-09-20",
@@ -15719,11 +15719,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://junut.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:junut). Linkprüfung 2026-09-20."
   },
   "Fun & Erlebnis Marathons|2027-04-09": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/400258/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: ‚Fun & Erlebnis Marathons' (Christian Hottas, Hamburg-Volksdorf) sind Zählmarathons des 100 Marathon Club ohne eigene Seite; die raceresult-Kontaktseite nennt teichwiesen.myblog.de (abgeschaltet) - raceresult bleibt."
   },
   "Gesmolder Bifurkationslauf|2027-04-10": {
     "am": "2026-09-19",
@@ -15936,11 +15936,11 @@
     "notiz": "Veranstalterseite statt laufen-os.de: http://nacht-von-hasbergen.de/ - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:nacht). Linkprüfung 2026-09-19."
   },
   "Rund um Schloß Holte|2027-05-29": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/403275/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: private Ultra-Serie (Osnabrücker Land), nicht auf ‚Uwes Laufangebote' gelistet, nur raceresult - raceresult bleibt."
   },
   "10k Hamburg|2027-05-30": {
     "am": "2026-09-20",
@@ -16196,11 +16196,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (edition). Linkprüfung 2026-09-21."
   },
   "Mühlenweg Ultra|2027-08-28": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/364127/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: private Ultra-Serie (Osnabrücker Land), nicht auf ‚Uwes Laufangebote' gelistet, nur raceresult - raceresult bleibt."
   },
   "Eilenriederennen Hannover|2027-08-29": {
     "am": "2026-09-20",
@@ -16308,11 +16308,11 @@
     "notiz": "Veranstalterseite statt datasport.de: https://longevity-health-club.de/running-festival-mannheim - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-21."
   },
   "Bremer Bergmarathon|2027-12-05": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/382692/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Websuche: Bremer Marathon-Serie (Helmut Rosieka / Olaf Häsler), nur raceresult und Laufberichte, keine Veranstalterseite - raceresult bleibt."
   },
   "Friedberger Silvesterlauf|2027-12-31": {
     "am": "2026-09-19",
