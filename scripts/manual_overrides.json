@@ -5546,5 +5546,43 @@
     "exclude": true,
     "_quelle": "https://www.landkreis-guenzburg.de/landkreis/sport/landkreislauf/",
     "_note": "Landkreislauf Günzburg (SV Deisenhausen-Bleichen, 03.07.2027): der Hauptlauf ist ein Staffellauf, jedes Jahr auf anderer Strecke; daneben Nordic Walking und Kinderläufe. Datenregel 16 (erst einmal keine Staffeln). Geprüft 2026-09-21."
+  },
+  "ATHX Berlin|2027-08-14": {
+    "exclude": true,
+    "_quelle": "https://athxgames.com/",
+    "_note": "ATHX Games ist ein Hybrid-Fitness-Wettkampf („the ultimate test of strength, endurance & conditioning“: Strength Zone, Endurance Zone, MetCon X, 2,5 Stunden in sechs Zonen, Messehalle) - die HYROX-Klasse (Datenregel 14). Als Override; eine Zeile in NICHT_AUSDAUER braucht das Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "ATHX Frankfurt|2027-05-22": {
+    "exclude": true,
+    "_quelle": "https://athxgames.com/",
+    "_note": "ATHX Games ist ein Hybrid-Fitness-Wettkampf („the ultimate test of strength, endurance & conditioning“: Strength Zone, Endurance Zone, MetCon X, 2,5 Stunden in sechs Zonen, Messehalle) - die HYROX-Klasse (Datenregel 14). Als Override; eine Zeile in NICHT_AUSDAUER braucht das Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "ATHX Hamburg|2027-08-28": {
+    "exclude": true,
+    "_quelle": "https://athxgames.com/",
+    "_note": "ATHX Games ist ein Hybrid-Fitness-Wettkampf („the ultimate test of strength, endurance & conditioning“: Strength Zone, Endurance Zone, MetCon X, 2,5 Stunden in sechs Zonen, Messehalle) - die HYROX-Klasse (Datenregel 14). Als Override; eine Zeile in NICHT_AUSDAUER braucht das Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "ATHX Stuttgart|2027-04-17": {
+    "exclude": true,
+    "_quelle": "https://athxgames.com/",
+    "_note": "ATHX Games ist ein Hybrid-Fitness-Wettkampf („the ultimate test of strength, endurance & conditioning“: Strength Zone, Endurance Zone, MetCon X, 2,5 Stunden in sechs Zonen, Messehalle) - die HYROX-Klasse (Datenregel 14). Als Override; eine Zeile in NICHT_AUSDAUER braucht das Ja des Nutzers. Geprüft 2026-09-21."
+  },
+  "Wolmirstedter Ohrelauf|2027-06-18": {
+    "exclude": true,
+    "_quelle": "https://ohrelauf.de/",
+    "_note": "18.06.2027, Schloßdomäne Wolmirstedt, Spendenlauf: Bambini 350 m, Schüler 1,3 km, Mixed-Staffel 2,4 km (4er-Teams) - kein Wettbewerb für Erwachsene über 5 km außer der Staffel. Datenregel 5 und 16. Geprüft 2026-09-21."
+  },
+  "Sixdaysrun Freudenstadt|2027-06-20": {
+    "dauer_h": 144.0,
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "6-Tage-Lauf (Runde 2.236 m)",
+    "_quelle": "https://neckarlauf.com/sixdaysrun.html",
+    "_note": "Erster Sixdaysrun: So 20.06. bis Sa 26.06.2027, Start täglich 12 Uhr, Runde 2.236 m (überwiegend geteert), Einzelläufer, 50 Plätze; späterer Einstieg Mo-Mi möglich. Sechs Tage = 144 h (Datenregel 8). Geprüft 2026-09-21."
+  },
+  "Havelman Brandenburg|2027-06-12": {
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "_quelle": "https://www.havelman-brandenburg.de/",
+    "_note": "Die Seite beschreibt den HavelMan als Triathlon (12.06.2027, Brandenburg an der Havel, „alle Leistungsniveaus“); die Zeile stand als Lauf, weil kein Stichwort im Namen steht. Distanzen stehen unter „Distanzen & Informationen“ - nicht abgerufen, Länge bleibt offen. Geprüft 2026-09-21."
   }
 }

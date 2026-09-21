@@ -7065,8 +7065,80 @@
   },
   "ATHX Stuttgart|2027-04-17": {
     "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "ergebnis": "entfernt",
     "quelle": "athxgames.com",
-    "notiz": "Messe Stuttgart, Kategorien ATHX/Pro/Lite, „Workouts“, „movement standards“ - sehr wahrscheinlich Hybrid-Fitness (HYROX-Klasse), auf der Eventseite nicht ausdrücklich; vier ATHX-Termine im Bestand"
+    "notiz": "Hybrid-Fitness (HYROX-Klasse) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "ATHX Berlin|2027-08-14": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "athxgames.com",
+    "notiz": "Hybrid-Fitness (HYROX-Klasse) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "ATHX Frankfurt|2027-05-22": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "athxgames.com",
+    "notiz": "Hybrid-Fitness (HYROX-Klasse) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "ATHX Hamburg|2027-08-28": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "athxgames.com",
+    "notiz": "Hybrid-Fitness (HYROX-Klasse) - exclude; Kandidat für NICHT_AUSDAUER"
+  },
+  "Wolmirstedter Ohrelauf|2027-06-18": {
+    "am": "2026-09-21",
+    "ergebnis": "entfernt",
+    "quelle": "ohrelauf.de",
+    "notiz": "nur Kinderläufe und eine 2,4-km-Staffel - exclude"
+  },
+  "Sixdaysrun Freudenstadt|2027-06-20": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "neckarlauf.com",
+    "notiz": "6-Tage-Lauf -> dauer_h 144, bis 26.06."
+  },
+  "Havelman Brandenburg|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "havelman-brandenburg.de",
+    "notiz": "Triathlon statt Lauf; Distanzen noch offen (Unterseite)"
+  },
+  "Firmenlauf Ratingen|2027-06-10": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "firmenlauf-ratingen.de",
+    "notiz": "10.06.2027; nur Teams von Unternehmen, Vereinen, Behörden - keine Einzelstarter. Ob Firmenläufe nur für Teams in die Liste gehören, ist eine Klassenfrage (~30 Firmenläufe im Bestand) - Entscheidung des Nutzers"
+  },
+  "Enni-Donkenlauf|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "as-neukirchen-vluyn.de",
+    "notiz": "25. Donkenlauf, Termin 12.06.2027 vorläufig („sobald bestätigt“), Strecken nur auf Unterseite"
+  },
+  "Ottermeerlauf Wiesmoor|2027-06-12": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "ottermeerlauf.de",
+    "notiz": "Sa 12.06.2027; 2026 „72 Staffeln und 64 Ultraläufer“ - Ultralauf plus Staffel, Längen nur in der Ausschreibung"
+  },
+  "Taubertal Trail|2027-07-10": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "taubertal-trail.de",
+    "notiz": "10.07.2027, „3 Täler“, Strecken nur über Anmeldung/Instagram"
+  },
+  "Benkhauser Schlosslauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "benkhauser-schlosslauf.de",
+    "notiz": "Seite antwortet 403"
+  },
+  "WUDL am See der Entscheidung|2027-07-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "w-u-d-l.de",
+    "notiz": "Seite antwortet 403"
   }
 }

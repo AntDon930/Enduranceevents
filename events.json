@@ -36102,18 +36102,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "ATHX Stuttgart",
-    "standort": "Stuttgart",
-    "lat": 48.7758459,
-    "lon": 9.1829321,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-17",
-    "datum_ende": "2027-04-17",
-    "veranstalter_url": "https://athxgames.com/events/01krwy6n4pfbcrvdntsnxx1ve5"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bad Liebenzeller Paracelsuslauf",
     "standort": "Bad Liebenzell",
     "lat": 48.7747206,
@@ -41192,18 +41180,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "ATHX Frankfurt",
-    "standort": "Frankfurt am Main",
-    "lat": 50.1109221,
-    "lon": 8.6821267,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-22",
-    "datum_ende": "2027-05-22",
-    "veranstalter_url": "https://athxgames.com/events/01krwy8bb5rcgrnwpbcczzbray"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bergischer 6 Stunden Lauf",
     "standort": "Remscheid",
     "lat": 51.1787418,
@@ -44673,7 +44649,7 @@
     "standort": "Brandenburg an der Havel",
     "lat": 52.4125287,
     "lon": 12.5316444,
-    "art1": "Laufen",
+    "art1": "Triathlon",
     "art2": "Straße",
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
@@ -45872,18 +45848,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Wolmirstedter Ohrelauf",
-    "standort": "Wolmirstedt",
-    "lat": 52.2521368,
-    "lon": 11.629014,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-18",
-    "datum_ende": "2027-06-18",
-    "veranstalter_url": "https://ohrelauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Zugspitz Ultra Trail by UTMB",
     "standort": "Garmisch-Partenkirchen",
     "lat": 47.4919023,
@@ -46533,7 +46497,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-20",
     "datum_ende": "2027-06-26",
-    "veranstalter_url": "https://neckarlauf.com/sixdaysrun.html"
+    "veranstalter_url": "https://neckarlauf.com/sixdaysrun.html",
+    "dauer_h": 144.0,
+    "wettbewerb": "6-Tage-Lauf (Runde 2.236 m)"
   },
   {
     "land": "Deutschland",
@@ -50687,18 +50653,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "ATHX Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-14",
-    "datum_ende": "2027-08-15",
-    "veranstalter_url": "https://athxgames.com/events/01krwybw82cd8h9reednq08rdy"
-  },
-  {
-    "land": "Deutschland",
     "name": "Backyard Ultra-Marathon Tharandter Wald",
     "standort": "Tharandt",
     "lat": 50.9866531,
@@ -51299,18 +51253,6 @@
     "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html",
     "dauer_h": 48.0,
     "wettbewerb": "48-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "ATHX Hamburg",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-28",
-    "datum_ende": "2027-08-28",
-    "veranstalter_url": "https://athxgames.com/events/01krwydvc664nvf2am0tdtkscp"
   },
   {
     "land": "Deutschland",
