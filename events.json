@@ -53112,7 +53112,23 @@
     "art2": "Straße",
     "datum_start": "2027-09-18",
     "datum_ende": "2027-09-18",
-    "veranstalter_url": "https://citylauf.roteerde.de"
+    "veranstalter_url": "https://citylauf.roteerde.de",
+    "laenge_km": 10.0,
+    "wettbewerb": "AVU Lauf fürs Klima 10 km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Schwelmer Citylauf",
+    "standort": "Schwelm",
+    "lat": 51.2882674,
+    "lon": 7.291086,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "veranstalter_url": "https://citylauf.roteerde.de",
+    "laenge_km": 5.0,
+    "wettbewerb": "Jedermann-/Firmenlauf 5 km"
   },
   {
     "land": "Deutschland",

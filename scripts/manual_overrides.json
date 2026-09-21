@@ -5616,5 +5616,11 @@
     "datum_vorlaeufig": true,
     "_quelle": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html",
     "_note": "„Wir planen im Herbst den 23. Sonthofer AKW Citylauf 2027 für Euch und melden uns dann mit dem finalen Termin“ - der 09.07.2027 ist eine Kalenderprognose (Datenregel 19). Geprüft 2026-09-21."
+  },
+  "Schwelmer Citylauf|2027-09-18": {
+    "laenge_km": 10.0,
+    "wettbewerb": "AVU Lauf fürs Klima 10 km",
+    "_quelle": "https://citylauf.roteerde.de/laeufe-und-strecken",
+    "_note": "12. Schwelmer Citylauf, 18.09.2027: 10 km („AVU Lauf fürs Klima“, ab U18), 5 km Jedermann-/Firmenlauf; Bambini/Schüler 250-1.500 m und eine 3×750-m-Fun-Staffel (Datenregeln 5 und 16). Zeile stand ohne Länge; die 5 km in manual_events.json. Geprüft 2026-09-21."
   }
 }

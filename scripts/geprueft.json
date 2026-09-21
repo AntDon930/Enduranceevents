@@ -7193,7 +7193,7 @@
     "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "sportclub-laage.de",
-    "notiz": "Termin bestätigt; Paarlauf-Format (Zweierteam) - Staffel-Frage wie beim ABC-Paarlauf, Details nur auf Unterseite"
+    "notiz": "03.12.2026 17 Uhr, Recknitzstadion Laage bestätigt; Format (Dauer/Distanz) nirgends genannt - Paarlauf = Zweierteam, Staffel-Frage"
   },
   "Altmühlfrankenlauf|2027-06-05": {
     "am": "2026-09-21",
@@ -7206,5 +7206,71 @@
     "ergebnis": "unklar",
     "quelle": "scc-berlin-leichtathletik.de",
     "notiz": "19.11.2026 bestätigt; Paarlauf-Format (Zweierteam) - Staffel-Frage, Ausschreibung nicht abgerufen"
+  },
+  "Schwelmer Citylauf|2027-09-18": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "citylauf.roteerde.de",
+    "notiz": "10 km, 5 km nachgetragen"
+  },
+  "Crosslauf Horner Rennbahn|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "athleticon.bsvhh.de",
+    "notiz": "Kurz/Mittel/Lang, Kilometer nur in der Ausschreibung (PDF)"
+  },
+  "Dorflauf Geiß-Nidda|2027-04-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "dorflauf.tv-geissnidda.de",
+    "notiz": "Seite antwortet 503 (zweimal)"
+  },
+  "Ahmadiyya Charity Walk Neuwied|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "charitywalk.de",
+    "notiz": "Seite liefert aus der Sandbox nur den Kopf; die übrigen Charity Walks stehen mit 5 km"
+  },
+  "Ahmadiyya Charity Walk Ellwangen|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "charitywalk.de",
+    "notiz": "wie Neuwied"
+  },
+  "Dreikönigslauf Sperrfechter Freizeitpark|2027-01-06": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "notiz": "nur raceresult (dynamisch, nicht lesbar)"
+  },
+  "Charity Challenge \"help-stairs-run\"|2027-03-21": {
+    "am": "2026-09-21",
+    "ergebnis": "label_ok",
+    "quelle": "Name",
+    "notiz": "Treppenlauf laut Name (Stichwortregel -> Trail); Treppenläufe haben keine Laufdistanz, die Länge bleibt leer (Datenregel 6)"
+  },
+  "Lotto Thüringen Treppenlauf|2027-04-10": {
+    "am": "2026-09-21",
+    "ergebnis": "label_ok",
+    "quelle": "Name",
+    "notiz": "Treppenlauf laut Name (Stichwortregel -> Trail); Treppenläufe haben keine Laufdistanz, die Länge bleibt leer (Datenregel 6)"
+  },
+  "Neuwoges-Treppenhauslauf|2027-06-26": {
+    "am": "2026-09-21",
+    "ergebnis": "label_ok",
+    "quelle": "Name",
+    "notiz": "Treppenlauf laut Name (Stichwortregel -> Trail); Treppenläufe haben keine Laufdistanz, die Länge bleibt leer (Datenregel 6)"
+  },
+  "Pace Race Berlin|2027-06-05": {
+    "am": "2026-09-21",
+    "ergebnis": "label_ok",
+    "quelle": "Entscheidung des Nutzers 21.09.2026",
+    "notiz": "„Social Racing“-Arena ohne feste Distanz - Spaßformat, bleibt („Ja bitte aufnehmen“, Datenregel 18)"
+  },
+  "Pace Race Hamburg|2027-09-11": {
+    "am": "2026-09-21",
+    "ergebnis": "label_ok",
+    "quelle": "Entscheidung des Nutzers 21.09.2026",
+    "notiz": "„Social Racing“-Arena ohne feste Distanz - Spaßformat, bleibt („Ja bitte aufnehmen“, Datenregel 18)"
   }
 }
