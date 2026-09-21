@@ -187,10 +187,14 @@
   // das Format. Zwei Quellen, in dieser Reihenfolge:
   // 1. Das Wettbewerbs-Label des Veranstalters ("Kurzdistanz" ist die
   //    Olympische Distanz, "Supersprint" der Super-Sprint).
-  // 2. Sonst die Summe: unter 20 km Super-Sprint (Schnupper-, Einsteiger-,
-  //    Fitnessdistanzen), bis 40 km Sprint (auch Volks- und Jedermann),
-  //    bis 80 km Olympisch, bis 160 km Mitteldistanz, bis 300 km
-  //    Langstrecke, darüber Ultra. Das sind GRENZEN zwischen den
+  // 2. Sonst die Summe (Regel des Nutzers, 21.09.2026: "alles, was weniger
+  //    als ein Sprint ist, ist Super-Sprint, alles über der 140.6 ist
+  //    Ultra"): unter 23 km Super-Sprint - 23 km ist der kleinste
+  //    Sprint der DTU-Sportordnung (0,5 / 18 / 4,5), darunter liegen
+  //    Schnupper-, Einsteiger-, Fitnessdistanzen -, bis 40 km Sprint (auch
+  //    Volks- und Jedermann), bis 80 km Olympisch, bis 160 km
+  //    Mitteldistanz, bis 230 km Langstrecke (226 km plus Spielraum für
+  //    die Vermessung), darüber Ultra. Das sind GRENZEN zwischen den
   //    Formaten, keine Toleranzen um die Normdistanzen herum, weil
   //    deutsche Veranstaltungen abweichen (Moritzburgs Langdistanz hat
   //    218,8 km, ein Cross-Triathlon 41,5 km) - dieselben Grenzen wie die
@@ -222,11 +226,11 @@
     if (e.art2 === 'Swimrun' || e.art2 === 'Quadrathlon') return null;
     const km = Number(e.laenge_km);
     if (e.laenge_km == null || Number.isNaN(km) || km <= 0) return null;
-    if (km < 20) return 'supersprint';
+    if (km < 23) return 'supersprint';
     if (km < 40) return 'sprint';
     if (km < 80) return 'olympisch';
     if (km < 160) return 'mittel';
-    if (km < 300) return 'lang';
+    if (km < 230) return 'lang';
     return 'ultra';
   }
   // "70.3" und "140.6" sind Triathlon-Marken; ein Duathlon über die

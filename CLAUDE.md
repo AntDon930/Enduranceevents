@@ -2329,10 +2329,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
     `FORMAT_IM_LABEL` liest Ultra/Double/Deca, 140.6/Langdistanz/
     Langstrecke, 70.3/Mitteldistanz/Halbdistanz, Olympisch/Kurzdistanz/
     Standard (Kurzdistanz IST die Olympische Distanz), Super-Sprint,
-    Sprint. Ohne Stichwort entscheidet die Summe: unter 20 km Super-Sprint
-    (Schnupper-, Einsteiger-, Fitnessdistanzen), bis 40 km Sprint (auch
-    Volks- und Jedermann), bis 80 km Olympisch, bis 160 km Mitteldistanz,
-    bis 300 km Langstrecke, darüber Ultra.
+    Sprint. Ohne Stichwort entscheidet die Summe – Regel des Nutzers
+    (21.09.2026): „alles, was weniger als ein Sprint ist, ist Super-Sprint,
+    alles über der 140.6 ist Ultra". Also: unter 23 km Super-Sprint (23 km
+    ist der kleinste DTU-Sprint 0,5 / 18 / 4,5; darunter liegen Schnupper-,
+    Einsteiger- und Fitnessdistanzen), bis 40 km Sprint (auch Volks- und
+    Jedermann), bis 80 km Olympisch, bis 160 km Mitteldistanz, bis 230 km
+    Langstrecke (226 km plus Spielraum für die Vermessung), darüber Ultra.
   - **Das sind GRENZEN zwischen den Formaten, keine Toleranzen um die
     Normdistanzen.** Deutsche Veranstaltungen weichen ab (Moritzburgs
     Langdistanz 218,8 km, Cross-Triathlons 41,5 km, Heilbronns

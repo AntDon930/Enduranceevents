@@ -1951,8 +1951,9 @@ auch Kurz- oder Standarddistanz), **Mitteldistanz (70.3)** (1,9 / 90 /
 21,1 km = 113 km), **Langstrecke (140.6)** (3,8 / 180 / 42,2 km =
 226 km) und **Ultra-Triathlon** (Vielfache davon). Erst zählt das
 Wettbewerbs-Label des Veranstalters, sonst die Summe der Teilstrecken
-(unter 20 km Super-Sprint, bis 40 km Sprint, bis 80 km Olympisch, bis
-160 km Mitteldistanz, bis 300 km Langstrecke, darüber Ultra). Eine
+(alles unter einem Sprint, also unter 23 km, ist Super-Sprint; bis 40 km
+Sprint, bis 80 km Olympisch, bis 160 km Mitteldistanz, bis 230 km
+Langstrecke; alles über der 140.6 ist Ultra). Eine
 Veranstaltung mit mehreren Strecken steht als „Sprint & Olympisch" in
 der Liste, die Box nennt zu jeder Strecke die Kilometer („Olympisch
 (51,5 km)"). Die Filterkategorien sind dieselben sechs. Im selben Zug

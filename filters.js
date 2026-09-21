@@ -206,12 +206,12 @@
     // 'tultra' statt 'ultra', weil 'ultra' schon der Ultramarathon ist
     // (die Beschriftungen hängen am Schlüssel).
     'Triathlon': [
-      { key: 'supersprint', test: km => km > 0 && km < 20 },
-      { key: 'sprint', test: km => km >= 20 && km < 40 },
+      { key: 'supersprint', test: km => km > 0 && km < 23 },
+      { key: 'sprint', test: km => km >= 23 && km < 40 },
       { key: 'olympic', test: km => km >= 40 && km < 80 },
       { key: 'middle', test: km => km >= 80 && km < 160 },
-      { key: 'long', test: km => km >= 160 && km < 300 },
-      { key: 'tultra', test: km => km >= 300 },
+      { key: 'long', test: km => km >= 160 && km < 230 },
+      { key: 'tultra', test: km => km >= 230 },
       { key: 'zeit', zeit: true }
     ]
   };
