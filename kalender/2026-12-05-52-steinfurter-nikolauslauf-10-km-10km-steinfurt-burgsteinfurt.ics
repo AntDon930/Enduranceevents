@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:52. Steinfurter Nikolauslauf 10 km
 LOCATION:Steinfurt-Burgsteinfurt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V19000301660001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.marathon-
+ steinfurt.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000301660001
+URL:https://www.marathon-steinfurt.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:2. Glücksburger Nikolaus-Crosslauf
 LOCATION:Glücksburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.2 km\nhttps://my.raceresult
- .com/394430/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.2 km\nhttp://www.tsv-glueck
+ sburg.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/394430/
+URL:http://www.tsv-gluecksburg.de
 END:VEVENT
 END:VCALENDAR

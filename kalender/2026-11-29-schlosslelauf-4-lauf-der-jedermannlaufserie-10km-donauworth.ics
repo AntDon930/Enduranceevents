@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Schlößlelauf - 4. Lauf der Jedermannlaufserie
 LOCATION:Donauwörth\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/26V02000739360000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000739360000
+URL:http://www.lg-donau-ries.de
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:45. Esslinger Schurwaldlauf – 10 km Waldlauf
 LOCATION:Esslingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.datasport
- .de/anmeldeservice/schurwaldlauf2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.schurwaldl
+ auf.de
 TRANSP:TRANSPARENT
-URL:https://www.datasport.de/anmeldeservice/schurwaldlauf2026
+URL:http://www.schurwaldlauf.de
 END:VEVENT
 END:VCALENDAR

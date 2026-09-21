@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:46. landesoffener Nikolaus-Waldlauf
 LOCATION:Arnstorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://laufen.de/lauf
- kalender/details/26V02000230160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttp://www.lac-arnstor
+ f.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000230160000
+URL:http://www.lac-arnstorf.de
 END:VEVENT
 END:VCALENDAR

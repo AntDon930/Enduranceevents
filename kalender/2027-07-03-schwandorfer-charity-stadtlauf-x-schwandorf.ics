@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-schwandorfer-charity-stadtlauf-x-schwandorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Schwandorfer Charity Stadtlauf
+LOCATION:Schwandorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sportprogramm
+ e.org/cakespg/events/menue/5049
+TRANSP:TRANSPARENT
+URL:https://www.sportprogramme.org/cakespg/events/menue/5049
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-kneter-stundenlauf-0-5h-grossenkneten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Kneter Stundenlauf
+LOCATION:Großenkneten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 0.5 h\nhttps://www.laufmanag
+ er.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranst
+ altung/Jahr2026/Grossen_Stunde/
+TRANSP:TRANSPARENT
+URL:https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschre
+ ibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Grossen_Stunde/
+END:VEVENT
+END:VCALENDAR

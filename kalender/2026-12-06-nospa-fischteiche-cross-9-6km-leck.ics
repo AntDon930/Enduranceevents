@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Nospa Fischteiche Cross
 LOCATION:Leck\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.6 km\nhttps://my.raceresult
- .com/420973/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.6 km\nhttp://www.sv-enge-sa
+ nde.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/420973/
+URL:http://www.sv-enge-sande.de
 END:VEVENT
 END:VCALENDAR

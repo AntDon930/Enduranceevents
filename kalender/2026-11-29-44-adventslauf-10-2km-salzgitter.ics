@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:44. Adventslauf
 LOCATION:Salzgitter\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://laufen.de/l
- aufkalender/details/26V09000190160000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttp://ch.olbrich@g
+ mx.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V09000190160000
+URL:http://ch.olbrich@gmx.de
 END:VEVENT
 END:VCALENDAR

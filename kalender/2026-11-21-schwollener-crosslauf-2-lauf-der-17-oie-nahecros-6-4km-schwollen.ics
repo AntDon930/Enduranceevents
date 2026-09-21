@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:Schwollener Crosslauf - 2. Lauf der 17. OIE Nahecrosslaufserie
 LOCATION:Schwollen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttps://laufen.de/lau
- fkalender/details/26V13000541960000
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttp://www.nahe-cross
+ .de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V13000541960000
+URL:http://www.nahe-cross.de
 END:VEVENT
 END:VCALENDAR
