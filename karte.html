@@ -80,10 +80,12 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
-<link rel="stylesheet" href="site.css?v=6d1192e9">
+<!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=db0399b8">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=283a480c">
-<link rel="stylesheet" href="event-detail.css?v=71407061">
+<link rel="stylesheet" href="filter-ui.css?v=2b672a58">
+<link rel="stylesheet" href="event-detail.css?v=185add98">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Liste und Startseite); hier nur, was allein
@@ -140,12 +142,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 0.8rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
     border: 3px solid var(--panel);
     box-shadow: 0 0 0 1px var(--border-strong), 0 4px 12px rgba(0, 0, 0, 0.22);
   }
-  .marker-badge { font-size: 0.74rem; border-width: 2px; }
+  .marker-badge { font-size: 0.86rem; border-width: 2px; }
   .cluster-label {
     position: absolute;
     left: calc(100% + 6px);
@@ -204,10 +207,10 @@
   .standort-btn {
     display: inline-flex; align-items: center; gap: 8px;
     height: 36px; padding: 0 12px;
-    border-radius: 10px; border: 1px solid var(--border);
+    border-radius: var(--radius-ctl, 10px); border: 1px solid var(--border);
     background: var(--panel); color: var(--text);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
-    font: inherit; font-size: 0.84rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+    font: inherit; font-size: 0.875rem; font-weight: 600; cursor: pointer; white-space: nowrap;
   }
   .standort-btn:hover { border-color: var(--border-strong); }
   .standort-btn svg { flex-shrink: 0; }
@@ -219,7 +222,7 @@
     display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px;
     max-width: calc(100% - 24px);
     padding: 8px 14px;
-    border-radius: 12px; border: 1px solid var(--border);
+    border-radius: 14px; border: 1px solid var(--border);
     background: var(--panel); color: var(--text-muted);
     box-shadow: var(--shadow);
     font-size: 0.82rem;
@@ -246,7 +249,7 @@
     display: inline-block;
     padding: 6px 12px;
     border-radius: 999px;
-    background: #0f1b33;
+    background: #0b1b33;
     color: #fff !important;
     text-decoration: none;
     font-size: 0.82rem;
@@ -425,7 +428,7 @@
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=4503c358"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=0e27edbc"></script>
+<script src="event-detail.js?v=e8b08aa2"></script>
 
 <script>
 (async function () {
@@ -1349,10 +1352,10 @@
         kreis = L.circle([state.origin.lat, state.origin.lon], {
           radius: state.radiusKm * 1000,
           className: 'umkreis-pfad',
-          color: '#0f1b33',
+          color: '#0b1b33',
           weight: 1.5,
           dashArray: '6 6',
-          fillColor: '#0f1b33',
+          fillColor: '#0b1b33',
           fillOpacity: 0.05
         }).addTo(overlayLayer);
       }

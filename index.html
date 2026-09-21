@@ -62,21 +62,27 @@
 <link rel="prefetch" href="events.html" as="document">
 <link rel="prefetch" href="events.json" as="fetch" crossorigin="anonymous">
 <!-- Farben, Kopfzeile und Fußzeile: geteilt mit Liste und Karte. -->
-<link rel="stylesheet" href="site.css?v=6d1192e9">
+<!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=db0399b8">
 <style>
   /* Farben, Kopfzeile und Fußzeile stehen in site.css; hier nur, was
      allein die Startseite hat: Hero, Kennzahlen, Sportarten. */
-  /* ---------- Hero ---------- */
+  /* ---------- Hero ----------
+     Nach dem Style Guide (Bildsprache): Illustration statt Stockfoto -
+     Bergketten in drei Navy-Tönen, Höhenlinien, eine Route mit Pins in
+     den Sportfarben, die Sonne als Ziel. Ein Inline-SVG (~4 KB), das von
+     390 bis 1920 px skaliert (preserveAspectRatio "slice" am unteren
+     Rand): Sonne und Pins bleiben rechts vom Text, die Route darunter.
+     Der Text steht deshalb LINKS, nicht mittig. */
   .hero {
     position: relative;
-    min-height: calc(100svh - 73px);
+    min-height: 600px;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background:
-      radial-gradient(900px 520px at 80% 20%, rgba(249,115,22,0.22), transparent 62%),
-      radial-gradient(700px 500px at 15% 85%, rgba(59,130,246,0.16), transparent 60%),
-      linear-gradient(160deg, #0b1220 0%, #0f1a30 55%, #141126 100%);
+    background: #0b1b33;
+    color: #fff;
   }
   .hero-decor {
     position: absolute;
@@ -88,70 +94,66 @@
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
-    padding: 90px 24px 90px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 760px;
+    padding: 72px var(--seite-rand) 150px;
     width: 100%;
   }
   .hero-eyebrow {
     display: inline-block;
-    color: var(--brand);
-    background: var(--brand-bg);
-    border: 1px solid rgba(249,115,22,0.35);
-    backdrop-filter: blur(6px);
-    padding: 6px 16px;
+    color: var(--hero-cta);
+    border: 1px solid rgba(249, 115, 22, 0.45);
+    padding: 6px 14px;
     border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 22px;
   }
+  /* Display: Barlow Condensed 88 px / 700 (Guide), auf dem Handy kleiner. */
   .hero h1 {
-    margin: 0 0 18px;
+    margin: 0 0 16px;
     color: #fff;
-    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-    line-height: 1.08;
-    font-weight: 800;
-    text-shadow: 0 2px 18px rgba(0,0,0,0.25);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7.5vw, 5.5rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0;
   }
+  /* Lead: Barlow 20 px / 400. */
   .hero p.lead {
-    margin: 0 auto 40px;
-    max-width: 620px;
-    color: rgba(255,255,255,0.92);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.55;
+    margin: 0 0 32px;
+    max-width: 560px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.5;
   }
+  /* Der Hero-CTA ist die EINE orange Fläche der Seite (Sonne, mit
+     Navy-Text); alle anderen Knöpfe sind Navy. */
   .cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--accent);
-    color: var(--on-accent);
-    font-weight: 700;
-    font-size: 1.02rem;
-    padding: 16px 30px;
-    border-radius: 999px;
+    background: var(--hero-cta);
+    color: var(--on-hero-cta);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 24px;
+    border-radius: var(--radius-ctl);
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
   }
   .cta-btn .arrow { font-size: 1.15rem; transition: transform 0.15s ease; }
   .cta-btn:hover .arrow { transform: translateX(3px); }
-  /* justify-content: center, damit der Button unter der zentrierten
-     Überschrift steht. Ohne das richtet der Flex-Container ihn links
-     aus - das text-align: center von .hero-content greift auf
-     Flex-Items nicht. */
   .hero-cta-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     gap: 14px;
   }
 
@@ -181,6 +183,10 @@
     0%, 100% { transform: rotate(45deg) translate(0,0); }
     50% { transform: rotate(45deg) translate(3px,3px); }
   }
+  @media (max-width: 600px) {
+    .hero { min-height: 520px; }
+    .hero-content { padding: 48px var(--seite-rand) 150px; }
+  }
 
   /* ---------- Stats strip ---------- */
   .stats {
@@ -204,7 +210,7 @@
     text-align: left;
   }
   .stat svg { flex-shrink: 0; color: var(--brand); }
-  .stat-num { font-weight: 800; font-size: 1.05rem; color: var(--text); }
+  .stat-num { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; color: var(--text); }
   .stat-label { font-size: 0.85rem; color: var(--text-muted); }
   @media (max-width: 760px) {
     .stats-inner { grid-template-columns: 1fr; }
@@ -219,7 +225,9 @@
   }
   .sports h2 {
     text-align: center;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+    font-weight: 600;
     margin: 0 0 8px;
   }
   .sports p.sub {
@@ -251,8 +259,13 @@
     box-shadow: 0 12px 28px rgba(0,0,0,0.35);
     border-color: var(--border-strong);
   }
-  .sport-card svg { color: var(--brand); margin-bottom: 12px; }
-  .sport-card .name { font-weight: 700; color: var(--text); font-size: 0.98rem; }
+  /* Jede Karte in ihrer Sportfarbe (Guide: vier Sportfarben als zweite
+     Ebene für Icons). */
+  .sport-card svg { color: var(--sport-laufen); margin-bottom: 12px; }
+  .sport-card.sport-fahrrad svg { color: var(--sport-fahrrad); }
+  .sport-card.sport-schwimmen svg { color: var(--sport-schwimmen); }
+  .sport-card.sport-triathlon svg { color: var(--sport-triathlon); }
+  .sport-card .name { font-family: var(--font-display); font-weight: 600; color: var(--text); font-size: 1.25rem; }
 
   .final-cta {
     text-align: center;
@@ -266,7 +279,7 @@
 <!-- Dieselbe Kopfzeile wie Liste und Karte (site.css). Der Weg zur Liste
      steht links von der Anmeldung (die Liste ist der Zweck der Seite,
      das Konto nur Zubehör); .events-btn prüft der Rauchtest. -->
-<header class="site-header top-bar">
+<header class="site-header site-header--navy top-bar">
   <a class="brand" href="index.html">
     <span class="brand-logo" aria-hidden="true">
       <svg viewBox="0 0 64 64" width="22" height="22" fill="none" stroke="currentColor"
@@ -293,34 +306,39 @@
   </div>
 </header>
 <div class="hero">
-  <svg class="hero-decor" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- Kontur-/Höhenlinien -->
-    <g fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2">
-      <path d="M-50,700 C 250,620 450,760 750,660 C 1000,580 1250,700 1500,600" />
-      <path d="M-50,760 C 250,690 450,820 750,720 C 1000,650 1250,760 1500,670" />
-      <path d="M-50,820 C 250,760 450,880 750,790 C 1000,720 1250,820 1500,740" />
+  <!-- Die Hero-Illustration des Style Guides: Himmel und drei Bergketten
+       in Navy-Tönen (Nacht #0b1b33, Tiefe #163b6b, dazwischen), feine
+       Höhenlinien, die Sonne (#f97316) mit Glut als Ziel, eine Route
+       als helles Band mit gestrichelter Signal-Linie, darauf drei Pins
+       in den Sportfarben und ein vierter am See (Schwimmen). Feste
+       Farben mit Absicht: Die Illustration sieht in beiden Farbschemata
+       gleich aus (weißer Text darauf). Unten ausgerichtet ("xMidYMax
+       slice"): Auf dem Handy bleibt die Route im Bild, rechts fällt
+       höchstens Himmel weg. -->
+  <svg class="hero-decor" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-himmel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1b33"/><stop offset="1" stop-color="#163b6b"/></linearGradient>
+      <radialGradient id="hero-glut"><stop offset="0" stop-color="#f97316" stop-opacity="0.5"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1440" height="720" fill="url(#hero-himmel)"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1.5">
+      <path d="M700 80C900 40 1200 60 1440 140"/><path d="M760 140C960 100 1220 120 1440 200"/>
+      <path d="M840 200C1020 170 1240 190 1440 260"/><path d="M940 260C1100 240 1280 260 1440 320"/>
     </g>
-    <!-- Strecken-Route mit Checkpoints (in der "sicheren" Mittelzone, wird bei keinem gängigen
-         Seitenverhältnis vom preserveAspectRatio="slice" abgeschnitten) -->
-    <path d="M 220,190 C 420,130 520,300 700,270 C 880,240 940,110 1120,160 C 1200,183 1220,220 1230,260"
-          fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round" />
-    <g transform="translate(220,190) scale(1.5) translate(-12,-12)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="16.5" cy="5.5" r="2"/><path d="M9 20l3-5 2 2 3-1M6 20l3.5-6.5L7 11l2-4 4 1 1 3 3 1"/>
+    <circle cx="930" cy="235" r="230" fill="url(#hero-glut)"/>
+    <circle cx="930" cy="235" r="78" fill="#f97316"/>
+    <path d="M0 470L120 400 240 440 360 350 470 420 600 330 720 400 850 340 960 410 1090 320 1200 390 1320 330 1440 380V720H0z" fill="#2a5a95"/>
+    <path d="M0 540L150 470 280 520 420 440 560 500 700 430 830 500 980 440 1120 510 1260 450 1440 500V720H0z" fill="#163b6b"/>
+    <path d="M0 620L180 570 340 600 520 550 700 590 880 545 1060 585 1240 550 1440 580V720H0z" fill="#10294a"/>
+    <g fill="none" stroke="#4a9be6" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round">
+      <path d="M1080 636h150"/><path d="M1100 652h190"/><path d="M1070 668h160"/>
     </g>
-    <g transform="translate(700,270) scale(1.5) translate(-12,-12)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h3l4 9M10 8h3M13 8l2 3.5"/>
-    </g>
-    <g transform="translate(1120,160) scale(1.5) translate(-12,-12)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="17" cy="6" r="1.6"/><path d="M4 12l3-2 3 2 3-2 2 1.5"/><path d="M2 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M8 12l1-4 4-1 2 3"/>
-    </g>
-    <!-- Ziel-Pin -->
-    <g transform="translate(1230,260)">
-      <path d="M0,-28 C15,-28 26,-17 26,-3 C26,16 0,38 0,38 C0,38 -26,16 -26,-3 C-26,-17 -15,-28 0,-28 Z" fill="#ffffff" fill-opacity="0.95"/>
-      <circle cx="0" cy="-4" r="8" fill="#0b1220" />
-    </g>
-    <!-- Sonne -->
-    <circle cx="1120" cy="170" r="120" fill="#ffe1a8" fill-opacity="0.18" />
-    <circle cx="1120" cy="170" r="70" fill="#ffe1a8" fill-opacity="0.22" />
+    <path d="M-20 700C300 690 500 640 760 560S1200 420 1460 380" fill="none" stroke="#e2ded5" stroke-opacity="0.9" stroke-width="26" stroke-linecap="round"/>
+    <path d="M-20 700C300 690 500 640 760 560S1200 420 1460 380" fill="none" stroke="#e8590c" stroke-width="3" stroke-dasharray="10 14" stroke-linecap="round"/>
+    <g transform="translate(280,675)"><path d="M0 0C0 0-20-24-20-38a20 20 0 0 1 40 0C20-24 0 0 0 0z" fill="#7048e8"/><circle cx="0" cy="-38" r="12" fill="#ffffff"/><g transform="translate(-8,-46) scale(0.667)" fill="none" stroke="#7048e8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.8"/><path d="M12 6v5l-3 4M12 11l3 4M5 20h14M8 17.5l-1.5 2.5M16 17.5l1.5 2.5"/></g></g>
+    <g transform="translate(610,604)"><path d="M0 0C0 0-20-24-20-38a20 20 0 0 1 40 0C20-24 0 0 0 0z" fill="#e8590c"/><circle cx="0" cy="-38" r="12" fill="#ffffff"/><g transform="translate(-8,-46) scale(0.667)" fill="none" stroke="#e8590c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4.5" r="2"/><path d="M9.5 20.5l2.5-5 3 2.5 1-4M6.5 19l3-5.5L8 11l2.5-3.5 4 1.5 1.5 3 3 1"/></g></g>
+    <g transform="translate(1044,474)"><path d="M0 0C0 0-20-24-20-38a20 20 0 0 1 40 0C20-24 0 0 0 0z" fill="#2b8a3e"/><circle cx="0" cy="-38" r="12" fill="#ffffff"/><g transform="translate(-8,-46) scale(0.667)" fill="none" stroke="#2b8a3e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4.5-9h3l4.5 9M10 8h3.5M13.5 8l2.5 4"/></g></g>
+    <g transform="translate(1230,640)"><path d="M0 0C0 0-20-24-20-38a20 20 0 0 1 40 0C20-24 0 0 0 0z" fill="#1971c2"/><circle cx="0" cy="-38" r="12" fill="#ffffff"/><g transform="translate(-8,-46) scale(0.667)" fill="none" stroke="#1971c2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="6" r="2"/><path d="M4 12l3.5-2.5 3 2.5 3-2.5 2 1.5"/><path d="M2 18c1.7 1.3 3.3 1.3 5 0s3.3-1.3 5 0 3.3 1.3 5 0 3.3-1.3 5 0"/><path d="M8 12l1-4.5 4-1 2 3"/></g></g>
   </svg>
 
   <div class="hero-content">
@@ -374,15 +392,15 @@
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="5.5" r="2"/><path d="M9 20l3-5 2 2 3-1M6 20l3.5-6.5L7 11l2-4 4 1 1 3 3 1"/></svg>
       <div class="name" data-i="sportRun">Laufen</div>
     </a>
-    <a class="sport-card" href="events.html?sportart=Fahrrad">
+    <a class="sport-card sport-fahrrad" href="events.html?sportart=Fahrrad">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h3l4 9M10 8h3M13 8l2 3.5"/></svg>
       <div class="name" data-i="sportBike">Fahrrad</div>
     </a>
-    <a class="sport-card" href="events.html?sportart=Schwimmen">
+    <a class="sport-card sport-schwimmen" href="events.html?sportart=Schwimmen">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="1.6"/><path d="M4 12l3-2 3 2 3-2 2 1.5"/><path d="M2 17c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M8 12l1-4 4-1 2 3"/></svg>
       <div class="name" data-i="sportSwim">Schwimmen</div>
     </a>
-    <a class="sport-card" href="events.html?sportart=Triathlon">
+    <a class="sport-card sport-triathlon" href="events.html?sportart=Triathlon">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.7"/><path d="M12 6.5v5l-3 3v6M12 11.5l3 3v6M6 12l3-1.5M18 12l-3-1.5"/></svg>
       <div class="name" data-i="sportTri">Triathlon</div>
     </a>

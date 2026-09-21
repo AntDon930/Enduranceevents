@@ -35,10 +35,11 @@
 }
 .detail-head-text { min-width: 0; flex: 1; }
 .detail-date {
-  font-size: 1.55rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
 }
 .detail-relative { color: var(--text-muted); font-size: 0.86rem; margin-top: 4px; }
 .detail-share {
@@ -48,7 +49,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: var(--radius-ctl, 10px);
   border: 1px solid var(--border);
   background: var(--panel-2, var(--panel));
   color: var(--text-muted);
@@ -59,36 +60,38 @@
 }
 .detail-share:hover { color: var(--text); border-color: var(--border-strong, var(--accent)); }
 .detail-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-/* Sportart und Kategorie als Abzeichen in der Farbe der SPORTART
-   (--sport-laufen usw. aus site.css; Laufen ist Orange, die Markenfarbe)
-   - die einzige Farbe in der Box. Die Klasse sport-<art> setzt
-   event-detail.js (sportClass); ohne color-mix bleibt es bei Orange. */
+/* Sportart und Kategorie als Tag in der Farbe der SPORTART: Tonfläche
+   und Textfarbe aus dem Style Guide (--sport-<art>-bg / -fg in site.css;
+   "Icon, Marker, Tag - nie als Textfarbe auf Weiß", deshalb die dunklere
+   Textfarbe auf der Tonfläche). Die Klasse sport-<art> setzt
+   event-detail.js (sportClass). */
 .detail-badge {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 16px 0 12px;
   padding: 8px 12px;
-  border-radius: 10px;
-  background: var(--brand-bg, rgba(249,115,22,0.14));
-  color: var(--brand, #f97316);
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--sport-laufen-bg, #fff1e8);
+  color: var(--sport-laufen-fg, #9a3b05);
   font-size: 0.86rem;
   font-weight: 600;
 }
-@supports (background: color-mix(in srgb, red 10%, transparent)) {
-  .detail-badge.sport-laufen { color: var(--sport-laufen, #f97316); background: color-mix(in srgb, var(--sport-laufen, #f97316) 14%, transparent); }
-  .detail-badge.sport-fahrrad { color: var(--sport-fahrrad, #16a34a); background: color-mix(in srgb, var(--sport-fahrrad, #16a34a) 14%, transparent); }
-  .detail-badge.sport-schwimmen { color: var(--sport-schwimmen, #2563eb); background: color-mix(in srgb, var(--sport-schwimmen, #2563eb) 14%, transparent); }
-  .detail-badge.sport-triathlon { color: var(--sport-triathlon, #7c3aed); background: color-mix(in srgb, var(--sport-triathlon, #7c3aed) 14%, transparent); }
-}
+.detail-badge .sport-icon { color: var(--sport-laufen, #e8590c); }
+.detail-badge.sport-fahrrad { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+.detail-badge.sport-fahrrad .sport-icon { color: var(--sport-fahrrad); }
+.detail-badge.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
+.detail-badge.sport-schwimmen .sport-icon { color: var(--sport-schwimmen); }
+.detail-badge.sport-triathlon { background: var(--sport-triathlon-bg); color: var(--sport-triathlon-fg); }
+.detail-badge.sport-triathlon .sport-icon { color: var(--sport-triathlon); }
 .detail-badge .sport-icon { flex-shrink: 0; }
-.detail-panel h2 { margin: 0 0 16px; font-size: 1.45rem; font-weight: 800; line-height: 1.2; overflow-wrap: anywhere; }
+.detail-panel h2 { margin: 0 0 16px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
 .detail-section-title {
-  font-size: 0.7rem;
-  letter-spacing: 0.09em;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 10px;
 }
 /* Die Strecken der Veranstaltung: ein Klick wechselt die Zeile
@@ -133,20 +136,20 @@
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-ctl, 10px);
   border: 1px solid var(--border);
-  background: var(--panel-2, var(--panel));
+  background: var(--accent-bg, var(--panel));
   color: var(--text-muted);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 .detail-grid dt {
-  font-size: 0.66rem;
-  letter-spacing: 0.09em;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-  font-weight: 700;
+  font-weight: 600;
   margin: 3px 0 3px;
 }
 .detail-grid dd { margin: 0; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
@@ -163,10 +166,10 @@
   padding: 13px 16px;
   background: var(--accent);
   color: var(--on-accent, #fff);
-  border-radius: 12px;
+  border-radius: var(--radius-ctl, 10px);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 .detail-link:hover { opacity: 0.92; }
 .detail-actions {
@@ -185,12 +188,12 @@
   height: 46px;
   padding: 0 12px;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--panel-2, var(--panel));
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--panel);
   color: var(--text);
   font-family: inherit;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
@@ -209,7 +212,7 @@
   width: max-content;
   max-width: 320px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-ctl, 10px);
   background: var(--panel);
   box-shadow: var(--shadow, 0 12px 36px rgba(0,0,0,0.45));
   overflow: hidden;

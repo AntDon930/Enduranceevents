@@ -504,7 +504,7 @@
     const pfad = SPORT_SVG[art1] || SPORT_SVG.Laufen;
     const px = size || 16;
     return `<svg class="sport-icon" viewBox="0 0 24 24" width="${px}" height="${px}" fill="none"`
-      + ' stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"'
+      + ' stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'
       + ` aria-hidden="true">${pfad}</svg>`;
   }
 
@@ -521,16 +521,16 @@
       + `${FACT_SVG[key]}</svg></span>`;
   }
   const MAP_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
-    + ' stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>';
   const LIST_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"'
-    + ' stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M4 6h16M4 12h16M4 18h16"/></svg>';
   const EXT_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"'
-    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/></svg>';
   const CARET_SVG = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"'
-    + ' stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 
   // Der Veranstalter als Hostname ohne "www." - "kraichgaulauf.de"
   // statt der ganzen Adresse. Der Link selbst bleibt vollständig.
@@ -591,11 +591,11 @@
   }
 
   const SHARE_SVG = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"'
-    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>'
     + '<path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
   const CAL_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"'
-    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
     + '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>';
 
   function renderEmpty(container, ctx) {

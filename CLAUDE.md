@@ -26,7 +26,8 @@ Nicht auf einen anderen Branch pushen.
 | `laender.json` | **69 KB**, Umrisse von DE/AT/CH für die graue Maske auf der Karte |
 | `scripts/build_laender.py` | baut `laender.json` aus Natural Earth; läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames; läuft nicht im Workflow mit |
-| `favicon.svg`, `apple-touch-icon.png` | Seitensymbol (orange wie die Marke im Kopf); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, siehe Git-Log vom 21.09.2026), `cairosvg` gibt es in der Sandbox nicht |
+| `favicon.svg`, `apple-touch-icon.png` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht |
+| `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
@@ -1421,6 +1422,64 @@ prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
 selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
+
+- **Der Style Guide des Nutzers gilt („Design-System v1", Richtung
+  „Morgenstart", 21.09.2026: „Bitte an den Style Guide halten").** Er
+  steht als Bild im Chat und hier in Zahlen; wer eine Farbe, Schrift oder
+  einen Radius ändert, ändert den Guide – also vorher fragen.
+  - **Farben** (`site.css`, helles Schema = der Guide): Nacht `#0B1B33`
+    (Marke, Kopf der Startseite, Fußzeile, Primär-Buttons, gewählte
+    Filter), Tiefe `#163B6B` (Hover, Illustration, Links), Signal
+    `#E8590C` (Marke, Sportfarbe Laufen, Akzente – **nie als Fläche
+    unter weißem Text**), Sonne `#F97316` (**nur** der Hero-CTA, mit
+    Navy-Text, und die Sonne der Illustration), Kreide `#F4F2ED`
+    (Seitenhintergrund, warm statt Grau), Weiß (Karten, Tabelle, Panels),
+    Linie `#E2DED5`, Tinte `#0F1B20` (Text), Grau `#66707F`
+    (Beschriftungen), Ton `#EDF1F7` (gewählte Zeile, aufgeklappter Block,
+    Icon-Flächen). **Sportfarben** als zweite Ebene für Icons, Marker und
+    Tags – nie als Textfarbe auf Weiß, dafür je eine Tonfläche und eine
+    dunklere Textfarbe darauf: Laufen `#E8590C`/`#FFF1E8`/`#9A3B05`,
+    Fahrrad `#2B8A3E`/`#E9F7EC`/`#1B5E2B`, Schwimmen
+    `#1971C2`/`#E7F1FC`/`#0F4C86`, Triathlon `#7048E8`/`#F1ECFF`/`#482FA6`
+    (`--sport-<art>`, `-bg`, `-fg`). Der **Dunkelmodus** ist die
+    Dunkelmodus-Zeile des Guides: Navy wird zur Fläche (Grund `#0B1B33`,
+    Fläche `#13233D`, Linie `#2A3A56`, Ton `#1C2C48`, Text `#EDF1F7`),
+    Signal bleibt Signal, die Sportfarben sind aufgehellt.
+  - **Schrift**: Barlow Condensed für alles Große (Überschriften, Datum,
+    Distanzen, Zahlen – `--font-display`), Barlow für Text und
+    Bedienelemente (`--font-text`). Größen: Display 88 px/700 (Hero),
+    H1 56/700, H2 44/600, H3 24/600 (Kartentitel, `.detail-panel h2`),
+    Zahl/Datum 30/700 (`.result-count`, `.detail-date`), Lead 20/400,
+    Fließtext 16/400, Bedienelemente/Tabelle 14/500, Beschriftung 12/600
+    versal. **Selbst gehostet** (`vendor/fonts/barlow.css`, woff2 mit
+    unicode-range latin/latin-ext) – kein Google-Server, dieselbe Linie
+    wie bei Leaflet und Firebase.
+  - **Komponenten**: Radius **10 px** für Bedienelemente
+    (`--radius-ctl`), 14–16 px für Karten und Panels; Klickflächen
+    mindestens 40 px (Kopfzeile 44). Primär ist Navy, das Orange bleibt
+    dem Hero-CTA vorbehalten. Filterpillen: leer weiß mit Linie, gewählt
+    Navy mit weißer Schrift, **geöffnet weiß mit 2 px Navy-Rand**
+    (`.open:not(.has-filter)`). Chips als Pillen auf Ton. Der Sport-Tag
+    in der Box (`.detail-badge`) trägt Tonfläche und Textfarbe seiner
+    Sportart. Icons: Konturicons mit **1,8 px** Strich, runde Enden, als
+    Inline-SVG.
+  - **Marke**: Navy-Kachel, weiße Route, oranger Punkt auf hellem Grund;
+    auf Navy (Kopf der Startseite `.site-header--navy`, dunkles Schema)
+    weiße Kachel mit Navy-Route, der Punkt bleibt orange
+    (`--logo-bg/-fg/-dot`). Dasselbe Zeichen ist `favicon.svg`.
+  - **Fußzeile ist Navy** in beiden Schemata (`--footer-bg`), die
+    Kopfzeile der Startseite auch; Liste und Karte tragen die helle
+    Kopfzeile (`--header-bg`).
+  - **Bildsprache**: Illustration statt Stockfoto – der Hero der
+    Startseite ist ein Inline-SVG (~4 KB): drei Bergketten in Navy-Tönen,
+    Höhenlinien, die Route als helles Band mit gestrichelter Signal-Linie,
+    Pins in den Sportfarben, die Sonne als Ziel; unten ausgerichtet
+    (`xMidYMax slice`), der Text steht links, Sonne und Pins rechts
+    davon. Fotos sind laut Guide ein optionaler zweiter Schritt (unter
+    einer Navy-Fläche mit 55–65 % Deckung, selbst gehostet als WebP) –
+    nicht gebaut.
+  - Die beiden Textseiten (`seite.css`) tragen dieselben Farben und
+    Schriften, folgen aber weiter der Systemeinstellung (kein Knopf).
 
 - **Das Aussehen ist seit dem 21.09.2026 die Vorlage des Nutzers** (ein
   Bild: dunkle Fläche, Marke mit orangem Zeichen, Navigation „Events /

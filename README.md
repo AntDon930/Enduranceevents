@@ -2121,6 +2121,25 @@ verschwinden (größte Bündel zuerst) –, und welche Orientierungsorte
 unter einem Bündel, einem Namen oder einem wichtigeren Ort liegen. Ohne
 das stand bei Zoom 6 „252 Hamburg" über dem Namen von Bremerhaven.
 
+## Der Style Guide (Design-System v1)
+
+Seit dem 21.09.2026 richtet sich die Gestaltung nach dem Style Guide des
+Nutzers („Bitte an den Style Guide halten"): Navy (`#0B1B33`) und
+Signal-Orange (`#E8590C`), warme Neutrale (Kreide `#F4F2ED` als Grund,
+Linie `#E2DED5`, Tinte `#0F1B20`, Grau `#66707F`, Ton `#EDF1F7`) und
+vier Sportfarben als zweite Ebene für Icons, Marker und Tags – je mit
+Tonfläche und Textfarbe darauf. Barlow Condensed für alles Große,
+Barlow für Text und Bedienelemente; beide liegen als woff2 in
+`vendor/fonts/` (SIL Open Font License) und werden **selbst gehostet** –
+kein Abruf von Google-Servern, dieselbe Linie wie bei Leaflet und
+Firebase. Radius 10 px für Bedienelemente, 14–16 px für Karten; Primär
+ist Navy, das Orange (Sonne `#F97316`) bleibt dem Hero-CTA vorbehalten;
+Klickflächen mindestens 40 px. Die Startseite trägt die Kopfzeile auf
+Navy und statt eines Stockfotos eine Illustration (Bergketten in drei
+Navy-Tönen, Route mit Pins in den Sportfarben, die Sonne als Ziel – ein
+Inline-SVG). Alle Werte stehen in `site.css` und in CLAUDE.md
+(Frontend-Fallen, „Der Style Guide des Nutzers gilt").
+
 ## Zwei Farbschemata: hell und dunkel
 
 Die Vorlage der Liste war dunkel, die der Karte hell – beide gelten.

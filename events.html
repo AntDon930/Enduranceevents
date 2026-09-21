@@ -58,10 +58,12 @@
      filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
 <link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
-<link rel="stylesheet" href="site.css?v=6d1192e9">
+<!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="site.css?v=db0399b8">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=283a480c">
-<link rel="stylesheet" href="event-detail.css?v=71407061">
+<link rel="stylesheet" href="filter-ui.css?v=2b672a58">
+<link rel="stylesheet" href="event-detail.css?v=185add98">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Karte und Startseite); hier nur, was allein
@@ -74,7 +76,7 @@
     margin: 0 var(--seite-rand) 12px;
     background: var(--accent-bg);
     border: 1px solid var(--border-strong);
-    border-radius: 12px;
+    border-radius: var(--radius-ctl, 10px);
     padding: 12px 16px;
     font-size: 0.86rem;
   }
@@ -151,7 +153,12 @@
     width: 100%;
     min-width: 900px;
     table-layout: fixed;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* Zwei Zeilen (mehrtägiges Datum, Name + Wettbewerb) müssen in die
+       52 px passen: 2 × 17,5 px + 16 px Innenabstand. Mit der 1,5 der
+       Seite wurde die Zeile 59 px hoch (Rauchtest). */
+    line-height: 1.25;
   }
   /* Spaltenbreiten über KLASSEN, nicht über nth-child: die
      Entfernungs-Spalte kommt und geht. Reihenfolge (Vorlage): Datum,
@@ -186,7 +193,7 @@
     text-align: left;
     padding: 0;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -610,7 +617,7 @@
      dieselben Events zeigen. -->
 <script src="filters.js?v=4503c358"></script>
 <script src="filter-ui.js?v=868a053f"></script>
-<script src="event-detail.js?v=0e27edbc"></script>
+<script src="event-detail.js?v=e8b08aa2"></script>
 
 <script>
 (async function () {

@@ -1,114 +1,134 @@
-/* Das gemeinsame Gerüst aller Seiten: Farben, Kopfzeile mit Marke und
-   Navigation, Filterleiste, Werkzeugleiste (Trefferzahl, Schalter, Chips,
-   Stand) und Fußzeile. Seit dem 21.09.2026 nach der Vorlage des Nutzers:
-   dunkle Fläche, helle Pillen, Orange nur für die Marke und die
-   Sportart-Symbole. Eine Datei für Liste, Karte und Startseite - zwei
-   Kopien derselben Kopfzeile wären beim nächsten Umbau auseinandergelaufen
-   (dieselbe Linie wie bei filter-ui.css). Wird mit ?v=-Stempel
-   eingebunden (scripts/stamp_assets.py).
+/* Das gemeinsame Gerüst aller Seiten: Farben, Schriften, Kopfzeile mit
+   Marke und Navigation, Filterleiste, Werkzeugleiste (Trefferzahl,
+   Schalter, Chips, Stand) und Fußzeile. Eine Datei für Liste, Karte und
+   Startseite - zwei Kopien derselben Kopfzeile wären beim nächsten Umbau
+   auseinandergelaufen (dieselbe Linie wie bei filter-ui.css). Wird mit
+   ?v=-Stempel eingebunden (scripts/stamp_assets.py).
+
+   SEIT DEM 21.09.2026 GILT DER STYLE GUIDE DES NUTZERS ("Design-System
+   v1", Richtung "Morgenstart"): Navy und Signal-Orange, warme Neutrale,
+   vier Sportfarben als zweite Ebene; Barlow Condensed für alles Große,
+   Barlow für Text und Bedienelemente (vendor/fonts/barlow.css, selbst
+   gehostet); Radius 10 px für Bedienelemente, 14-16 px für Karten und
+   Panels; Primär ist Navy, das Orange bleibt dem Hero-CTA vorbehalten;
+   Klickflächen mindestens 40 px. Die Werte unten sind die des Guides -
+   wer eine Farbe ändert, ändert den Guide.
 
    Die Variablen sind der Vertrag mit filter-ui.css und event-detail.css:
-   --accent ist die Hervorhebung (Hauptknopf, gewählte Pille,
-   Sortierpfeil), --on-accent die Schrift darauf; die alte blaue
-   Akzentfarbe gibt es nicht mehr. --frame sind die Linien um einen
-   aufgeklappten Block, leiser als der Akzent.
+   --accent ist die Hervorhebung (Hauptknopf, gewählte Pille, Sortier-
+   pfeil), --on-accent die Schrift darauf; --frame die Linien um einen
+   aufgeklappten Block.
 
-   ZWEI Farbschemata seit dem 21.09.2026: Die Vorlage der Liste war
-   dunkel, die der Karte hell - beide gelten. Das Schema hängt an
-   `data-theme` am <html>: "dark" (Voreinstellung, die Werte unten in
-   :root) oder "light" (der Block :root[data-theme="light"]). Gesetzt
-   wird das Attribut von einem kleinen Skript im <head> jeder Seite
-   (gespeicherte Wahl `endurance-theme` vor der Systemeinstellung), der
-   Knopf .theme-btn in der Kopfzeile schaltet um. Die Gestaltung hängt
-   NUR an den Variablen - feste Farben gibt es nur dort, wo eine Fläche
-   in beiden Schemata gleich aussieht (Leaflet-Popup, Sportfarben der
-   Marker). Nicht auf eine @media-Abfrage der Systemeinstellung
-   umstellen: Dann hätte der Knopf keine Wirkung (test_farbschema_skript
-   wacht darüber). */
+   ZWEI Farbschemata: hell ist der Guide ("Kreide" als Grund, "Nacht" als
+   Primärfarbe), dunkel seine Dunkelmodus-Zeile ("Navy wird zur Fläche,
+   Signal bleibt Signal, Sportfarben aufgehellt"). Das Schema hängt an
+   `data-theme` am <html>: "dark" (Voreinstellung, die Werte in :root)
+   oder "light" (der Block :root[data-theme="light"]). Gesetzt wird das
+   Attribut von einem kleinen Skript im <head> jeder Seite (gespeicherte
+   Wahl `endurance-theme` vor der Systemeinstellung), der Knopf
+   .theme-btn in der Kopfzeile schaltet um. Die Gestaltung hängt NUR an
+   den Variablen - feste Farben gibt es nur dort, wo eine Fläche in
+   beiden Schemata gleich aussieht (Leaflet-Popup, Sportfarben der
+   Marker, die Navy-Fußzeile). Nicht auf eine @media-Abfrage der
+   Systemeinstellung umstellen: Dann hätte der Knopf keine Wirkung
+   (test_farbschema_skript wacht darüber). */
 :root {
   color-scheme: dark;
-  --bg: #0b1220;
-  --panel: #111a2c;
-  --panel-2: #0f1727;
-  --border: #1f2b41;
-  --border-strong: #3b4a66;
-  --text: #e8eef8;
-  --text-muted: #8d9ab0;
-  --accent: #eef2f8;
-  --on-accent: #0b1220;
-  --accent-bg: #172238;
-  --row-alt: #0f172a;
-  --row-hover: #16223a;
-  --frame: #33456a;
-  --brand: #f97316;
-  --brand-bg: rgba(249, 115, 22, 0.14);
+  --font-text: 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Barlow Condensed', 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius-ctl: 10px;
+  --radius-card: 16px;
   --seite-rand: 28px;
-  /* Kopfzeile, Marke (Kachel, Linie, Punkt) und die GESETZTE Pille -
-     im Dunkeln leise (Fläche wie ein Chip), im Hellen kräftig (Marine
-     mit weißer Schrift, Vorlage der Karte). */
+  /* Dunkelmodus des Guides: Navy wird zur Fläche. */
+  --bg: #0b1b33;
+  --panel: #13233d;
+  --panel-2: #0f1d35;
+  --border: #2a3a56;
+  --border-strong: #3e5273;
+  --text: #edf1f7;
+  --text-muted: #9aa6b8;
+  --accent: #edf1f7;
+  --on-accent: #0b1b33;
+  --accent-bg: #1c2c48;
+  --row-alt: #0f1f38;
+  --row-hover: #182a47;
+  --frame: #3e5273;
+  --brand: #e8590c;
+  --brand-bg: rgba(232, 89, 12, 0.18);
+  --link: #8fb3e6;
+  --hero-cta: #f97316;
+  --on-hero-cta: #0b1b33;
   --header-bg: var(--bg);
-  --logo-bg: var(--brand);
-  --logo-fg: #ffffff;
-  --logo-dot: #ffffff;
+  --footer-bg: #0b1b33;
+  /* Die Marke auf Navy: weiße Kachel, Navy-Route, der Punkt bleibt
+     orange (Guide, Abschnitt Marke). */
+  --logo-bg: #ffffff;
+  --logo-fg: #0b1b33;
+  --logo-dot: #e8590c;
   --pill-active-bg: var(--accent-bg);
   --pill-active-fg: var(--text);
   --pill-active-border: var(--border-strong);
   --shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
-  /* Eine Farbe je Sportart: Marker-Nadeln, Legende und das Abzeichen
-     der Detail-Box. Laufen ist Orange - die Markenfarbe. */
-  --sport-laufen: #f97316;
-  --sport-fahrrad: #22c55e;
-  --sport-schwimmen: #3b82f6;
-  --sport-triathlon: #a78bfa;
+  /* Sportfarben (Icon, Marker, Tag), ihre Tonfläche und die Textfarbe
+     darauf - aufgehellt für den dunklen Grund. */
+  --sport-laufen: #f97316;    --sport-laufen-bg: #3a2213;    --sport-laufen-fg: #ffb27a;
+  --sport-fahrrad: #3db55a;   --sport-fahrrad-bg: #14321e;   --sport-fahrrad-fg: #8fe0a4;
+  --sport-schwimmen: #4a9be6; --sport-schwimmen-bg: #10294a; --sport-schwimmen-fg: #9cc8f5;
+  --sport-triathlon: #9a7bf0; --sport-triathlon-bg: #2b2352; --sport-triathlon-fg: #c4b3fa;
   /* Die Karte (karte.html): Fläche außerhalb der Länder mit feinem
      Raster, die Landfläche, ihr Umriss, der Schleier über den fremden
      Kacheln und der Filter über den OSM-Kacheln. */
-  --map-bg: #0e1626;
+  --map-bg: #0b1b33;
   --map-grid: rgba(255, 255, 255, 0.05);
-  --map-land: #182338;
-  --map-outline: #3b4a66;
-  --map-mask: #0b1220;
+  --map-land: #14243e;
+  --map-outline: #3e5273;
+  --map-mask: #0b1b33;
   --map-mask-opacity: 0.55;
   --map-tile-filter: brightness(0.72) saturate(0.7);
-  --map-halo: #182338;
+  --map-halo: #14243e;
 }
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #f4f4f2;
-  --panel: #ffffff;
-  --panel-2: #f6f6f4;
-  --border: #e3e3df;
-  --border-strong: #c9c9c4;
-  --text: #0f172a;
-  --text-muted: #6b7280;
-  --accent: #0f1b33;
+  --bg: #f4f2ed;            /* Kreide: Seitenhintergrund, warm statt Grau */
+  --panel: #ffffff;         /* Weiß: Karten, Tabelle, Panels */
+  --panel-2: #f7f6f2;
+  --border: #e2ded5;        /* Linie: Rahmen, Trennlinien */
+  --border-strong: #c8c2b4;
+  --text: #0f1b20;          /* Tinte */
+  --text-muted: #66707f;    /* Grau: Beschriftungen (4,5:1 auf Weiß) */
+  --accent: #0b1b33;        /* Nacht: Primär-Buttons, gewählte Filter */
   --on-accent: #ffffff;
-  --accent-bg: #e9ebef;
-  --row-alt: #fafaf8;
-  --row-hover: #f0f1f3;
-  --frame: #9aa3b5;
-  --brand: #f97316;
-  --brand-bg: rgba(249, 115, 22, 0.12);
+  --accent-bg: #edf1f7;     /* Ton: gewählte Zeile, aufgeklappter Block, Icon-Flächen */
+  --row-alt: #faf9f6;
+  --row-hover: #f4f2ed;
+  --frame: #0b1b33;
+  --brand: #e8590c;         /* Signal: Marke, Sportfarbe Laufen, Akzente - nie als Fläche unter weißem Text */
+  --brand-bg: #fff1e8;
+  --link: #163b6b;          /* Tiefe: Hover, Links */
+  --hero-cta: #f97316;      /* Sonne: Hero-CTA mit Navy-Text */
+  --on-hero-cta: #0b1b33;
   --header-bg: var(--panel);
-  --logo-bg: #0f1b33;
+  --footer-bg: #0b1b33;
+  /* Die Marke auf hellem Grund: Navy-Kachel, weiße Route, oranger Punkt. */
+  --logo-bg: #0b1b33;
   --logo-fg: #ffffff;
-  --logo-dot: #f97316;
+  --logo-dot: #e8590c;
   --pill-active-bg: var(--accent);
   --pill-active-fg: var(--on-accent);
   --pill-active-border: var(--accent);
-  --shadow: 0 12px 36px rgba(15, 27, 51, 0.16);
-  --sport-laufen: #f97316;
-  --sport-fahrrad: #16a34a;
-  --sport-schwimmen: #2563eb;
-  --sport-triathlon: #7c3aed;
-  --map-bg: #e8e9eb;
-  --map-grid: rgba(15, 27, 51, 0.06);
-  --map-land: #f8f8f6;
-  --map-outline: #c9c9c4;
-  --map-mask: #dcdedf;
+  --shadow: 0 12px 36px rgba(11, 27, 51, 0.14);
+  --sport-laufen: #e8590c;    --sport-laufen-bg: #fff1e8;    --sport-laufen-fg: #9a3b05;
+  --sport-fahrrad: #2b8a3e;   --sport-fahrrad-bg: #e9f7ec;   --sport-fahrrad-fg: #1b5e2b;
+  --sport-schwimmen: #1971c2; --sport-schwimmen-bg: #e7f1fc; --sport-schwimmen-fg: #0f4c86;
+  --sport-triathlon: #7048e8; --sport-triathlon-bg: #f1ecff; --sport-triathlon-fg: #482fa6;
+  --map-bg: #e9e6df;
+  --map-grid: rgba(11, 27, 51, 0.06);
+  --map-land: #fbfaf7;
+  --map-outline: #c8c2b4;
+  --map-mask: #dad6cc;
   --map-mask-opacity: 0.6;
   --map-tile-filter: grayscale(0.35) brightness(1.02);
-  --map-halo: #f8f8f6;
+  --map-halo: #fbfaf7;
 }
 * { box-sizing: border-box; }
 html { height: 100%; }
@@ -116,11 +136,16 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.5;
   background: var(--bg);
   color: var(--text);
 }
 a { color: inherit; }
+/* Überschriften und Zahlen in der Condensed - "wirkt wie eine
+   Startnummer, bleibt in der Tabelle ruhig". */
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
 /* Nur für Screenreader (z. B. die Beschriftung des Teilen-Symbols). */
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -152,7 +177,7 @@ a { color: inherit; }
 .brand-logo {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--logo-bg);
   display: inline-flex;
   align-items: center;
@@ -165,17 +190,36 @@ a { color: inherit; }
 .brand-logo circle { fill: var(--logo-dot); }
 .brand-name {
   margin: 0;
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0;
   white-space: nowrap;
+}
+/* Die Startseite trägt die Kopfzeile auf Navy (Guide: "Nacht - Kopf der
+   Startseite, Fußzeile"): dort die weiße Kachel mit Navy-Route. Die
+   Variablen werden nur INNERHALB der Kopfzeile umgebogen. */
+.site-header--navy {
+  background: #0b1b33;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.72);
+  --panel-2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(255, 255, 255, 0.4);
+  --logo-bg: #ffffff;
+  --logo-fg: #0b1b33;
+  --logo-dot: #e8590c;
+  --pill-active-bg: #ffffff;
+  --pill-active-fg: #0b1b33;
+  color: #fff;
 }
 .site-nav { display: flex; gap: 26px; }
 .nav-link {
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   padding: 6px 0;
 }
 .nav-link:hover, .nav-link.active { color: var(--text); }
@@ -197,7 +241,7 @@ a { color: inherit; }
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--radius-ctl);
   border: 1px solid var(--border);
   background: var(--panel-2);
   color: var(--text);
@@ -209,14 +253,14 @@ a { color: inherit; }
   display: flex;
   gap: 2px;
   padding: 3px;
-  border-radius: 12px;
+  border-radius: var(--radius-ctl);
   border: 1px solid var(--border);
   background: var(--panel-2);
   flex-shrink: 0;
 }
 .lang-btn {
   padding: 7px 11px;
-  border-radius: 9px;
+  border-radius: 7px;
   border: none;
   background: transparent;
   color: var(--text-muted);
@@ -237,9 +281,9 @@ a { color: inherit; }
 #auth-mount .ee-auth-btn,
 #auth-mount .ee-auth-user button {
   display: inline-flex; align-items: center; gap: 8px;
-  height: 44px; padding: 0 14px 0 12px; border-radius: 12px;
+  height: 44px; padding: 0 14px 0 12px; border-radius: var(--radius-ctl);
   border: 1px solid transparent; background: transparent;
-  color: var(--text); font: inherit; font-size: 0.95rem; font-weight: 700;
+  color: var(--text); font: inherit; font-size: 0.95rem; font-weight: 600;
 }
 #auth-mount .ee-auth-btn::before {
   content: '';
@@ -282,13 +326,13 @@ a { color: inherit; }
   gap: 8px;
   height: 44px;
   padding: 0 16px;
-  border-radius: 12px;
-  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-ctl);
+  border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text);
   font: inherit;
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
@@ -305,9 +349,10 @@ a { color: inherit; }
   padding: 16px var(--seite-rand) 12px;
 }
 .result-count {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 /* Der Schalter steht direkt hinter der Trefferzahl: Er verändert, WIE
@@ -350,16 +395,17 @@ a { color: inherit; }
 .group-toggle input:focus-visible + .switch { outline: 2px solid var(--accent); outline-offset: 2px; }
 .active-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .active-chips:empty { display: none; }
+/* Chips (aktive Filter): Pillen auf der Tonfläche, wie im Guide. */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: var(--accent-bg);
-  border: 1px solid var(--border-strong);
+  border: 1px solid transparent;
   color: var(--text);
-  border-radius: 10px;
+  border-radius: 999px;
   padding: 7px 12px;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -404,6 +450,8 @@ a { color: inherit; }
 /* ---------- Fußzeile: "Dein Event fehlt?" links, Impressum rechts ----------
    Impressum und Datenschutz müssen von JEDER Seite aus unmittelbar
    erreichbar sein (§ 5 DDG). */
+/* Die Fußzeile ist Navy (Guide: "Nacht - Fußzeile"), in beiden
+   Schemata; Schrift darauf weiß bzw. gedämpft weiß. */
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -411,8 +459,9 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 8px 16px;
   padding: 14px var(--seite-rand) 18px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
+  background: var(--footer-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.88rem;
 }
 .fehlt-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -421,7 +470,7 @@ a { color: inherit; }
   padding: 0;
   border: none;
   background: none;
-  color: var(--text);
+  color: #fff;
   font: inherit;
   font-size: 0.88rem;
   font-weight: 700;
@@ -429,12 +478,12 @@ a { color: inherit; }
   text-underline-offset: 3px;
   cursor: pointer;
 }
-.fehlt-btn:hover { color: var(--text-muted); }
-.fussnote { font-size: 0.82rem; color: var(--text-muted); }
+.fehlt-btn:hover { color: rgba(255, 255, 255, 0.8); }
+.fussnote { font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); }
 .fussnote[hidden] { display: none; }
 .seiten-footer { display: flex; gap: 20px; margin-left: auto; }
 .seiten-footer a { color: inherit; text-decoration: none; }
-.seiten-footer a:hover { color: var(--text); text-decoration: underline; }
+.seiten-footer a:hover { color: #fff; text-decoration: underline; }
 .seiten-footer .trenner { display: none; }
 
 /* ---------- Handy ---------- */
