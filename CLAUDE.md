@@ -1977,6 +1977,17 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Enter-Fall im zweiten Durchgang. Keine festen Ortsnamen mehr in den
   Prüfungen.
 
+- **Der Rauchtest zählt die Strecken einer Veranstaltung über Name +
+  Datum + Ort**, nicht über die Suchtreffer zum Namen
+  (`pruefe_gruppierung()`). Nach dem Datenlauf vom 21.09.2026 war die
+  erste aufklappbare Veranstaltung „Fun & Erlebnis Marathons“ – eine
+  Serie mit 17 Zeilen an acht Terminen. Die Mastersuche zeigte 17,
+  aufgeklappt waren es 2, vier CI-Läufe rot („Run failed“-Mails), ohne
+  dass sich an Seite oder Daten etwas geändert hatte. Der Name allein
+  ist kein Schlüssel; der Schlüssel ist derselbe wie beim Zusammenfassen
+  (`groupKey`). Dritte Begegnung mit dieser Fehlerklasse (Enter-Fall,
+  Kartenort, Serie).
+
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 
 ## Tempo (gemessen, nicht geraten)

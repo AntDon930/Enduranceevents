@@ -433,6 +433,8 @@ def pruefe_gruppierung(ctx, basis):
     zu = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
         if (!r) return null;
         return {name: r.querySelector('.group-name-text').textContent.trim(),
+                datum: ((r.querySelector('.col-datum') || {}).textContent || '').trim(),
+                ort: ((r.querySelector('.col-standort') || {}).textContent || '').trim(),
                 laenge: (r.querySelector('.col-laenge_km') || {}).textContent || '',
                 marken: r.querySelectorAll('.badge').length,
                 hoehe: Math.round(r.getBoundingClientRect().height),
@@ -456,14 +458,36 @@ def pruefe_gruppierung(ctx, basis):
     # Strecke eine Zeile. Die Trefferzeile nennt die Zahl nicht mehr
     # (sie ist kürzer geworden, damit die Werkzeugleiste in eine Zeile
     # passt), das Zählen ist ohnehin die direktere Probe.
+    #
+    # Gezählt wird NICHT alles, was die Suche zeigt, sondern nur die
+    # Zeilen mit demselben Namen, Datum UND Ort - der Schlüssel, nach dem
+    # die Seite zusammenfasst. Der Name allein reicht nicht: Nach dem
+    # Datenlauf vom 21.09.2026 war die erste aufklappbare Veranstaltung
+    # „Fun & Erlebnis Marathons“, eine Serie mit 17 Zeilen an acht
+    # Terminen - die Suche zeigte 17, aufgeklappt waren es 2, und die
+    # Prüfung war rot, ohne dass sich an der Seite etwas geändert hatte.
+    # Dieselbe Lehre wie beim festen Kartenort: kein Beispiel aus den
+    # Daten darf die Prüfung tragen.
     seite.fill("#master-search", zu["name"])
     seite.wait_for_timeout(700)
     seite.evaluate("() => document.getElementById('group-toggle').click()")   # aus
     seite.wait_for_timeout(500)
-    strecken = seite.evaluate("""() => ({
-        zeilen: document.querySelectorAll('tbody tr[data-idx]').length,
-        gruppiert: document.getElementById('group-toggle').checked
-    })""")
+    strecken = seite.evaluate("""(zu) => {
+        const txt = (tr, sel) => ((tr.querySelector(sel) || {}).textContent || '').trim();
+        // Die Namenszelle hängt den Wettbewerb als Span an den Namen; ihr
+        // Titel dagegen lautet "Name" oder "Name – Wettbewerb".
+        const gleicheVeranstaltung = tr => {
+            const el = tr.querySelector('.col-name [title]');
+            const titel = el ? el.getAttribute('title') : '';
+            return (titel === zu.name || titel.startsWith(zu.name + ' – '))
+                && txt(tr, '.col-datum') === zu.datum
+                && txt(tr, '.col-standort') === zu.ort;
+        };
+        const alle = [...document.querySelectorAll('tbody tr[data-idx]')];
+        return {
+            zeilen: alle.filter(gleicheVeranstaltung).length,
+            gruppiert: document.getElementById('group-toggle').checked
+        }; }""", zu)
     seite.evaluate("() => document.getElementById('group-toggle').click()")   # wieder an
     seite.wait_for_timeout(500)
     if strecken["gruppiert"] or not strecken["zeilen"]:
@@ -479,13 +503,21 @@ def pruefe_gruppierung(ctx, basis):
     # Deutsches Dezimaltrennzeichen: im deutschen Text ein Komma.
     pruefe("." not in zu["laenge"],
            "deutsche Fassung schreibt die Distanz mit Komma (%s)" % zu["laenge"].strip())
-    seite.locator("tr.group-row:not(.single)").first.click()
+    # Aufklappen - und zwar GENAU diese Veranstaltung, nicht die erste
+    # aufklappbare Zeile der Suchtreffer: Bei einer Serie kann davor ein
+    # anderer Termin mit demselben Namen stehen.
+    finde_gruppe = """(zu) => [...document.querySelectorAll('tr.group-row:not(.single)')].find(r =>
+        r.querySelector('.group-name-text').textContent.trim() === zu.name
+        && ((r.querySelector('.col-datum') || {}).textContent || '').trim() === zu.datum
+        && ((r.querySelector('.col-standort') || {}).textContent || '').trim() === zu.ort)"""
+    seite.evaluate("(zu) => { const r = (" + finde_gruppe + ")(zu); if (r) r.click(); }", zu)
     seite.wait_for_timeout(300)
-    auf = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
+    auf = seite.evaluate("""(zu) => { const r = (""" + finde_gruppe + """)(zu);
+        if (!r) return {unter: -1, offen: false, marken: 0, aria: null, pfeil: false};
         let n = r.nextElementSibling, unter = 0;
         while (n && n.classList.contains('sub-row')) { unter++; n = n.nextElementSibling; }
         return {unter, offen: r.classList.contains('open'), marken: r.querySelectorAll('.badge').length,
-                aria: r.getAttribute('aria-expanded'), pfeil: !!r.querySelector('.chevron.open')}; }""")
+                aria: r.getAttribute('aria-expanded'), pfeil: !!r.querySelector('.chevron.open')}; }""", zu)
     pruefe(auf["unter"] == zu["anzahl"] - 1 and auf["offen"],
            "aufgeklappt: %d Strecken = %d Zeilen (Veranstaltungszeile + %d %s)"
            % (zu["anzahl"], auf["unter"] + 1, auf["unter"],
