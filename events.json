@@ -30261,9 +30261,9 @@
   {
     "land": "Deutschland",
     "name": "Leinetal-Ultra Winter Edition",
-    "standort": "Einbeck",
-    "lat": 51.8205718,
-    "lon": 9.8683087,
+    "standort": "Northeim",
+    "lat": 51.7067,
+    "lon": 9.9973,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-23",
@@ -31616,7 +31616,7 @@
     "datum_start": "2027-02-27",
     "datum_ende": "2027-02-28",
     "laenge_km": 84.0,
-    "wettbewerb": "84 km",
+    "wettbewerb": "Doppeldecker (2 × Marathon an zwei Tagen = 84,4 km)",
     "veranstalter_url": "https://my.raceresult.com/405788/"
   },
   {

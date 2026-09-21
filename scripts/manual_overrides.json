@@ -4742,5 +4742,35 @@
   "DSW Swim & Run|2027-01-30|6.2": {
     "wettbewerb": "Swim & Run 6,2 km (700 m Schwimmen / 5.500 m Laufen)",
     "_note": "Zweiter Schlüssel mit der NEUEN Distanz (und ggf. dem neuen Datum): Der Override mit der alten Distanz greift nur beim frischen Scraper-Stand; für den Bestand braucht das Label diesen Schlüssel (siehe „Die wichtigste Lektion“)."
+  },
+  "Albiger Doppelzwölfer|2026-10-24": {
+    "datum_ende": "2026-10-25",
+    "_note": "my.raceresult.com/421768: 2. Albiger Doppelzwölfer, 24.–25.10.2026"
+  },
+  "Die Ha(a)rd Winter|2027-01-02": {
+    "datum_ende": "2027-01-04",
+    "_note": "my.raceresult.com/393626: 4. Backyard Wanderveranstaltung „Die Ha(a)rd“, 02.–04.01.2027, Haltern am See"
+  },
+  "Leinetal-Ultra Winter Edition|2027-01-23": {
+    "standort": "Northeim",
+    "lat": 51.7067,
+    "lon": 9.9973,
+    "_note": "my.raceresult.com/420165: 5. Leinetal-Ultra Winter Edition, 23.01.2027, Northeim (bei uns stand Einbeck)"
+  },
+  "Spendenlauf für Glücksmomente|2027-05-07": {
+    "datum_ende": "2027-05-08",
+    "_note": "my.raceresult.com/421056: LiebesGrün Spendenlauf 07.–08.05.2027, Schmallenberg-Grafschaft"
+  },
+  "7. Meißner Marathon Doppeldecker - Tag 1|2027-02-27|84": {
+    "wettbewerb": "Doppeldecker (2 × Marathon an zwei Tagen = 84,4 km)",
+    "_note": "my.raceresult.com/405788: Meißner Marathon Doppeldecker 27./28.02.2027"
+  },
+  "Most Insane Psyland Backyard Ultra|2027-07-10": {
+    "datum_ende": "2027-07-12",
+    "_note": "my.raceresult.com/390792: 1. Most Insane Psyland Backyard Ultra, 10.–12.07.2027, Tengen"
+  },
+  "Mühlenweg Ultra|2027-08-28": {
+    "datum_ende": "2027-08-29",
+    "_note": "my.raceresult.com/364127: 3. Mühlenweg Ultra, 28./29.08.2027, Wallenhorst"
   }
 }

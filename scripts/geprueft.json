@@ -5333,5 +5333,713 @@
     "ergebnis": "quelle_ok",
     "quelle": "https://www.lv-oelde.de/de/veranstaltungen/oelder-insitech-citylauf/",
     "notiz": "28. Citylauf am 12.06.2027; 10-km-Straßenlauf, 5-km-Straßenlauf und Firmenlauf, Last one Standing"
+  },
+  "Fernsehturm Steinegge Ultra|2026-09-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/418510/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Idar-Obersteiner Altstadtlauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/389713/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Schönberger Stadtlauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/387777/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Äpfele-Lauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/393767/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Stadtlauf Herdorf|2026-09-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/421569/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Fun & Erlebnis Marathons|2026-09-30": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/414337/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "4 Moore Ultratrail-Marathon|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/383623/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Breckerfelder Flower Power Ultra 50|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/385715/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Idstedt Marathon|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419211/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Litermont Trail Run|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/380641/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Marathon Rund um den Falkenstein|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/413192/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "RuKT Rund um die Kipshagener Teiche 45K|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/390497/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Ultra Bremerhaven - Bremen Nord|2026-10-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/380339/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar (raceresult nennt Bremen 28719 als Ort – Ziel Bremen-Nord)"
+  },
+  "19. Boitzer Herbstlauf|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/382040/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Burgdorfer Spargel-Lauf|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/404930/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Burgenpatt Ultramarathon|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/397990/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Kalbsvilla Run Ortenberg|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/374416/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Murr BackYard 12h|2026-10-04": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/413464/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Murr BackYard #3 – 10*5“)"
+  },
+  "Fun & Erlebnis Marathons|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/373996/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Großrossler Sternenlauf|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/421429/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Hochzeitstag-Ultra|2026-10-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/416506/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "DAV Herbstlauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/396016/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Dorumer Dörploop|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/366982/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Elektronikbob Hesselberglauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/362485/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar (raceresult nennt Ehingen, bei uns Gerolfingen – beide am Hesselberg)"
+  },
+  "GK Knollenlauf und Halbmarathon|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/367031/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar (raceresult: „46. GK Kartoffellauf und 33. Halbmarathon“)"
+  },
+  "Härtsfeld Panoramalauf|2026-10-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/375592/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "24. Panoramalauf Niedenstein|2026-10-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/392952/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Fun & Erlebnis Marathons|2026-10-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/422747/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Carrie Fisher Marathon“, Hamburg-Volksdorf)"
+  },
+  "23. Bremer Zeitsprung-Marathon|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://my.raceresult.com/315501",
+    "notiz": "Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Termin 24.10.2026 ist damit nicht belegt"
+  },
+  "Albiger Doppelzwölfer|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/421768/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: 24.–25.10.2026 (Ende nachgetragen). Der Name deutet auf ein Zeitformat (2 × 12 h), unsere 6 km sind wohl die Runde – nicht prüfbar"
+  },
+  "Sieberather-Crosslauf|2026-10-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/422655/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Fun & Erlebnis Marathons|2026-10-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/266617/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Malwida von Meysenbug Marathon“, Hamburg-Volksdorf)"
+  },
+  "Dom Zu Dom Ultra - Verden|2026-10-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/378641/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Gut Sutthausen Ultramarathon|2026-10-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/412655/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Neustädter Sparkassen Nachtlauf|2026-11-01": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/374608/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Viadukt Ultramarathon|2026-11-01": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/365736/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Ultramarathon rund um Werther|2026-11-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/390457/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Nebelseelauf|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/408835/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "PSV-Winterlaufserie|2026-11-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419767/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Mauritz-Lindenweg-Marathon|2026-11-15": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/372747/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Kletterfelsen Brumleytal Ultra-Trail|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/411728/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Lauf der Nahe-Crosslauf-Serie in Schwollen|2026-11-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/374075/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "SOBVL|2026-11-22": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/365995/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Bernhard Marathon|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/416674/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Laufen gegen Gewalt an Frauen - Lemke|2026-11-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/395025/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "36. Ratzeburger Adventslauf|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/374255/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Hohe Ward - Werse Ultramarathon|2026-11-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/418218/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "2. Glücksburger Nikolaus-Crosslauf|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/394430/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Mönchguter Brennereilauf|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/372700/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "X-Mas StairRun Oberhof|2026-12-05": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/394956/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar – Treppenlauf nur für Feuerwehr/Polizei, siehe Punkt 17"
+  },
+  "Barbara-Runde mit Sparkassen-Firmenlauf|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/401809/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar (Bergkamen-Oberaden, SuS Oberaden)"
+  },
+  "Nospa Fischteiche Cross|2026-12-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/420973/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Dinkelsbühler Wald- und Crosslauf mit Kreismeisterschaften|2026-12-12": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/362493/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Rund um den Langenberg Ultra|2026-12-12": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419387/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "SLC Weihnachtslauf|2026-12-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/382583/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar (raceresult nennt Wismar, bei uns Gägelow – Nachbargemeinde)"
+  },
+  "Cross im Grund|2026-12-19": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/383400/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Essener Rhein-Herne-Kanal Marathon|2026-12-20": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/395941/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "SOBVL|2026-12-20": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/365996/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-23": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/410899/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Northeimer Heiligabend Marathon|2026-12-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419707/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Wassermühlen-Ultra Rulle|2026-12-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/412479/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Vom See zum Schloss Ultramarathon|2026-12-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/412648/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Silbersee-Hüggel UltraTrail|2026-12-26": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/412660/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Speck weg Serie Brockenläufe|2026-12-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/414030/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Speck weg Serie 2026 – 1. Lauf (Brockenläufe)“)"
+  },
+  "Schloss Tatenhausen Ultramarathon|2026-12-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/414345/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "12. Mergelstetter Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419461/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "40. Haseder Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/414673/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Binzer Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/399181/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar – laut raceresult ein Silvester-MANNSCHAFTSLAUF (Staffel), Zeile ohne Distanz"
+  },
+  "Greifswalder Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/407623/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („49. Greifswalder WGG-Silvesterlauf“)"
+  },
+  "Insel-Apotheke CUP|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/407796/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Oberrodenbacher Silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/409357/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Silvesterlauf Stadtlohn|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/421745/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Sylvester Marathon Bremen|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/410134/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Wir wollen doch nur laufen (Marathon-Serie)|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/410853/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "münz silvesterlauf|2026-12-31": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/416606/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Lengericher UltraTrail|2027-01-01": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/377589/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Northeimer Neujahrsmarathon|2027-01-01": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419711/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Die Ha(a)rd Winter|2027-01-02": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/393626/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar – raceresult: „4. Backyard Wanderveranstaltung ‚Die Ha(a)rd‘“, 02.–04.01.2027 (Ende nachgetragen); Wanderformat, siehe Punkt 17"
+  },
+  "Gut Sutthausen Ultramarathon|2027-01-02": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/413535/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Brogginger Spendenlauf|2027-01-03": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/396206/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Fun & Erlebnis Marathons - Schneverdingen|2027-01-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/379965/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („10. Lüneburger Heide Winter Trail (Lauf & Hike), 52 km“ – die 52 km stehen im Titel)"
+  },
+  "Leinetal-Ultra Winter Edition|2027-01-23": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "https://my.raceresult.com/420165/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult nennt Northeim als Ort, bei uns Einbeck – Ort und Koordinaten auf Northeim gesetzt"
+  },
+  "Tunnelweg-Teufelskanzel-Trailmarathon|2027-02-06": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/405895/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Haferberg - Hasenmühle UltraTrail|2027-02-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/405937/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Rosenmontags Marathon|2027-02-08": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://my.raceresult.com/369959",
+    "notiz": "Der hinterlegte raceresult-Link (369959) ist die Ausgabe 2026 („11. Rosenmontags Marathon“, 16.02.2026); der 08.02.2027 ist Rosenmontag, aber nicht belegt"
+  },
+  "Treßsee Marathon|2027-02-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/386628",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "7. Meißner Marathon Doppeldecker - Tag 1|2027-02-27": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/405788",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: „6. Meißner Marathon Doppeldecker“, 27./28.02.2027, Kleinalmerode – unsere Zeilen heißen „7.“ (Tag 1) und „8.“ (Tag 2), die 84 km sind der Doppeldecker (2 × Marathon)"
+  },
+  "8. Meißner Marathon Doppeldecker - Tag 2|2027-02-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/405788",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; siehe Tag 1"
+  },
+  "Frau Holle Märchenland Ultra|2027-03-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/422662/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Fun & Erlebnis Marathons|2027-04-09": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/400258/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („Peter Oestmann Marathon“, Hamburg-Volksdorf)"
+  },
+  "Volkslauf im Volkspark Langendreer|2027-04-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/409928/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Dyckerhoff Steinbruch Marathon|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/397880/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Waldreiterlauf|2027-05-02": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419664/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Spendenlauf für Glücksmomente|2027-05-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/421056/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: „LiebesGrün Spendenlauf 2027“, 07.–08.05.2027 (Ende nachgetragen)"
+  },
+  "Niedermeiserer Dorflauf|2027-05-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/422872/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Ultratrail Oerlinghausen|2027-05-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/388264/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Weinathlon|2027-05-08": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/405643/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Backyard Ultra Lüneburg|2027-05-15": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/409511/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („LG BACKYARD ULTRA 2027“, Embsen)"
+  },
+  "Tergaster Volkslauf|2027-05-17": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/402052/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "VFL Ahaus Stadtfestlauf|2027-05-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/406973/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Frauenlauf Bremen|2027-05-23": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/400106/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Sponsorenlauf Brustkrebshilfe Dorsten|2027-05-23": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/422109/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Rund um Schloß Holte|2027-05-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/403275/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Bad Wildbader Stäffeleslauf|2027-06-11": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/407534/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar – Treppenlauf, siehe Punkt 17"
+  },
+  "Nesselwanger Seenlauf|2027-06-13": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/404129/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Podbielski Lauf|2027-06-19": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/417959/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Möckmühler Stadtlauf|2027-06-20": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/412457/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Midsummerrun Hamburg|2027-06-25": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/407465/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Most Insane Psyland Backyard Ultra|2027-07-10": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/390792/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: 10.–12.07.2027 (Ende nachgetragen)"
+  },
+  "3. Halener Bahnmarathon|2027-07-17": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://my.raceresult.com/340929",
+    "notiz": "Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 ist nicht belegt"
+  },
+  "Rund um Detmold|2027-07-24": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/398707/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Holter Wald Ultra|2027-08-07": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/403291/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Backyard Ultra-Marathon Tharandter Wald|2027-08-14": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419054/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Mops-Ultra Night Edition|2027-08-21": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/413777/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Mühlenweg Ultra|2027-08-28": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/364127/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: 28./29.08.2027 (Ende nachgetragen)"
+  },
+  "Muldental-Triathlon|2027-08-29": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/413694/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar („eins Muldental-Triathlon“, Grimma)"
+  },
+  "Friedberger Triathlon|2027-09-19": {
+    "am": "2026-09-21",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://my.raceresult.com/419312/",
+    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+  },
+  "Bremer Brückenlauf|2027-07-03": {
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "https://my.raceresult.com/410016/",
+    "notiz": "raceresult-Seite leitet im Kreis weiter (https ↔ http), aus der Sandbox nicht lesbar"
   }
 }
