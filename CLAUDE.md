@@ -284,6 +284,16 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    `is_same_event()` ihn für den ersten hielt. Fehlt eine der beiden
    Dauern, bleibt es beim Alten (unbekannt schließt nichts aus);
    `test_duplikate` hält alle drei Fälle fest.
+   **Distanz gegen Dauer ist seit dem 21.09.2026 ebenfalls unvereinbar**:
+   Ein 24-Stunden-Lauf ist nicht der Marathon derselben Veranstaltung.
+   Vorher galt „unbekannte Distanz schließt nichts aus", und deshalb
+   ließen sich Rokathon 24 h, die 24 Stunden van Halen und die
+   6-/12-h-Challenge des Winterloop nicht neben ihre Marathon-Zeilen
+   tragen (Elfter Durchgang). Am Bestand nachgezählt: Fünf
+   Veranstaltungen trugen genau diese Struktur schon (Remshalden Run,
+   Mad Chicken Run, …), dort hielt nur das abweichende Label die Zeilen
+   auseinander – die Regel macht ausdrücklich, was der Bestand zeigte.
+   Ohne JEDE Angabe bleibt es ein Duplikat.
 
    **Die Rundenlänge ist keine Renndistanz** – inzwischen die vierte
    Begegnung mit dieser Fehlerklasse (Backyard-Runde, „Running Paule
@@ -886,9 +896,11 @@ alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
      erlaubt 30 km, 158 km sprengen sie. Mit den richtigen Koordinaten
      fielen die beiden 42,2-km-Zeilen zusammen. Die Veranstaltung hat
      jetzt genau die drei Strecken, die ihre Ausschreibung nennt.
-     Damit trägt auch die alte Begründung für den **Ort im
-     ICS-Dateinamen** nicht mehr - sie steht an vier Stellen und ist
-     auf „TEAG - Legend of Cross - Mühlberg" umgestellt.
+     Damit trug auch die alte Begründung für den **Ort im
+     ICS-Dateinamen** nicht mehr; das Ersatzbeispiel „TEAG - Legend of
+     Cross - Mühlberg" ist am 21.09.2026 denselben Weg gegangen (Drei
+     Gleichen = Mühlberg, zusammengeführt). Der Ort bleibt im Namen -
+     Begründung an der Stelle in `event-detail.js`.
    - Beim **Rodenbacher Lauftag** wäre die 50-km-Strecke fast
      gelöscht worden: Die Cup-Seite main-lauf-cup.de listet sie nicht.
      Die Ausschreibung des Veranstalters nennt sie sehr wohl
@@ -2225,12 +2237,13 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   (`<datum>-<name>-<distanz>-<ort>.ics`). Weichen sie ab, zeigt der Knopf
   ins Leere – `test_scraper_lib.py` prüft beide gegeneinander und lässt
   dafür den echten JS-Code in `node` laufen. Der **Ort** gehört in den
-  Namen, weil Name + Datum + Distanz nicht eindeutig sind: „TEAG -
-  Legend of Cross - Mühlberg" steht am 31.10.2026 mit 10, 17 und 30 km
-  je zweimal in den Daten, einmal unter „Mühlberg" und einmal unter
-  „Drei Gleichen". Das frühere Beispiel „Königsforst-Marathon" trägt
-  nicht mehr: Dessen zweite 42,2-km-Zeile war ein Verortungsfehler und
-  ist seit der Einzelprüfung vom 18.09.2026 zusammengeführt.
+  Namen, weil Name + Datum + Distanz nicht eindeutig sein MÜSSEN: Zweimal
+  stand dieselbe Strecke unter zwei Orten in den Daten (Königsforst-
+  Marathon 18.09.2026, Legend of Cross Mühlberg/Drei Gleichen 21.09.2026)
+  – beide Male ein Verortungsfehler, beide zusammengeführt, und danach
+  gab es kein solches Paar mehr. Der Ort bleibt trotzdem: Der nächste
+  Datenlauf bringt den nächsten Fall, und ein Dateiname, der sich mit
+  jeder Bereinigung ändert, bräche geteilte Links und Kalender.
 - **`DTSTAMP` ist fest** (`20260101T000000Z`), nicht „jetzt": sonst
   änderte jeder Lauf alle 4.150 Dateien und der wöchentliche Commit wäre
   ein Riesen-Diff ohne inhaltliche Änderung.
@@ -3303,8 +3316,11 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
      Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
      Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
-   - Kleinteiliger: Ladezustand statt „Lade Events…", „Beispielprojekt"
-     und „DACH" aus den Texten, `og:image`.
+   - Kleinteiliger: `og:image` (braucht die Domain). ~~Ladezustand~~
+     **gebaut** (21.09.2026: acht Platzhalterzeilen im `<tbody>`, die
+     der erste `render()` ersetzt – Begründung im Markup); „DACH" und
+     „Beispielprojekt" kommen in sichtbaren Texten nicht mehr vor
+     (nur noch in Code-Kommentaren, geprüft 21.09.2026).
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
    16.09. davor, dass etwas Kaputtes deployt. Einziger Blocker ist noch
    die **E-Mail-Adresse** für Impressum und Datenschutz (der Nutzer
@@ -3544,14 +3560,27 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Ihr Label ist schlicht „5 km", die Gattung steht nur im Namen. Wer
      die Walking-Zeilen zählen will, darf sich also nicht auf den Zusatz
      verlassen.
-   - **Duplikate unter zwei Namen** (Punkt 12/17/18): keine Entscheidung
-     nötig, nur Arbeit – die schwächere Zeile per `exclude`, die
-     fehlende Strecke ggf. in `manual_events.json`.
+   - ~~Duplikate unter zwei Namen~~ **abgearbeitet** (21.09.2026, nach
+     Belegen): FT Jahn Nikolauslauf, Altstadtfestlauf in Lauf (10 km
+     unter den anderen Namen umgezogen), Niederwangen, Schwollen, TEAG
+     Legend of Cross (Mühlberg = Drei Gleichen; zusammengeführt über
+     drei gleiche Label-Overrides, weil `_same_name()` zwei
+     verschiedene Labels für zwei Wettbewerbe hält und der
+     Override-Schlüssel nicht nach Ort oder Link unterscheidet). Zwei
+     **Meisterschaft-im-Rahmen**-Fälle dazu, umkehrbar wie die sieben
+     anderen (Punkt 5): Potsdamer Cross (Polizeimeisterschaft) und die
+     rheinland-pfälzischen Crosslaufmeisterschaften in Herxheim. Die
+     übrigen Paare der Liste waren durch die Datenläufe seit dem 19.09.
+     schon verschwunden (Zons, Grengel, Altwarmbüchen, Bordesholm,
+     Wiehenläufer, Jüchen, Wertach, Kriegsheim, Fleckenberg,
+     Staffelläufe). Offen: Rellinger Citylauf (17,3 km UND 1 h, Seite
+     503).
    - ~~2027-Termine, die Prognosen sind~~ **entschieden** (21.09.2026):
      „Juni 2027*" mit Fußnote, Datenregel 19.
-   - **Zeitrennen neben Distanz-Zeilen** (Rokathon 24 h, van Halen,
-     Winterloop 6/12 h): braucht `_compatible_distance()` „Distanz gegen
-     Dauer = unvereinbar", vorher zählen.
+   - ~~Zeitrennen neben Distanz-Zeilen~~ **gebaut** (21.09.2026):
+     `_compatible_distance()` trennt Distanz und Dauer, die vier Zeilen
+     (Rokathon 24 h, van Halen 24 h, Winterloop 6/12 h) stehen in
+     `manual_events.json` – Datenregel 8.
    - ~~Cross- und Waldlaufmeisterschaften Rheine/Ibbenbüren~~ **erledigt**
      (Websuche 21.09.2026: lg-emsdetten.de nennt Ibbenbüren/Dickenberg,
      Ausrichter SV Dickenberg – Override mit Koordinaten des Ortsteils).

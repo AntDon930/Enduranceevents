@@ -417,9 +417,15 @@
   // beide anfassen.
   //
   // Aufbau: <datum>-<name>-<distanz>-<ort>.ics. Der Ort gehört dazu, weil
-  // Name + Datum + Distanz nicht eindeutig sind ("TEAG - Legend of Cross
-  // - Mühlberg" steht am 31.10.2026 mit 10, 17 und 30 km je zweimal in
-  // den Daten, einmal unter "Mühlberg" und einmal unter "Drei Gleichen").
+  // Name + Datum + Distanz nicht eindeutig sein MÜSSEN: Zweimal stand
+  // dieselbe Strecke unter zwei Orten in den Daten (Königsforst-Marathon,
+  // dann "TEAG - Legend of Cross - Mühlberg" unter Mühlberg und Drei
+  // Gleichen) - beide Male ein Verortungsfehler, beide inzwischen
+  // zusammengeführt, und am 21.09.2026 gab es kein solches Paar mehr.
+  // Der Ort bleibt trotzdem im Namen: Der nächste Datenlauf bringt den
+  // nächsten Fall, und ein Dateiname, der sich mit jeder Bereinigung
+  // ändert, wäre für geteilte Links und Kalender schlimmer als ein
+  // überflüssiger Ortsteil.
   function icsSlug(text) {
     return (text || '')
       .normalize('NFD').replace(/[̀-ͯ]/g, '')

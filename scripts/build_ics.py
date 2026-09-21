@@ -83,12 +83,14 @@ def ics_dateiname(event: dict) -> str:
     """`<datum>-<name>-<distanz>-<ort>.ics`, z. B.
     `2027-06-26-hofer-backyard-ultra-x-hof.ics`.
 
-    Der Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sind:
-    "TEAG - Legend of Cross - Mühlberg" steht am 31.10.2026 mit 10, 17 und
-    30 km je zweimal in den Daten, einmal unter "Mühlberg" und einmal
-    unter "Drei Gleichen" (Mühlberg ist ein Ortsteil davon). Ohne den Ort
-    hätte eine der beiden Zeilen keine Datei - und ihr Kalender-Knopf
-    zeigte ins Leere.
+    Der Ort gehört dazu, weil Name + Datum + Distanz nicht eindeutig sein
+    müssen: Zweimal stand dieselbe Strecke unter zwei Orten in den Daten
+    (Königsforst-Marathon, dann "TEAG - Legend of Cross - Mühlberg" unter
+    Mühlberg und Drei Gleichen) - beide Male ein Verortungsfehler, beide
+    zusammengeführt, am 21.09.2026 gab es kein solches Paar mehr. Der Ort
+    bleibt trotzdem: Der nächste Datenlauf bringt den nächsten Fall, und
+    ein Dateiname, der sich mit jeder Bereinigung ändert, bräche geteilte
+    Links und Kalender.
 
     Der Name wird NUR aus Feldern des Events gebildet, damit
     `icsFileName()` in events.html ihn ohne Zusatzwissen ausrechnen kann."""

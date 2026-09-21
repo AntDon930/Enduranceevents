@@ -329,6 +329,7 @@
   .chevron.open { transform: rotate(90deg); color: var(--text); border-color: var(--text-muted); }
   @media (prefers-reduced-motion: reduce) {
     .chevron { transition: none; }
+    .skeleton-row td i { animation: none; }
   }
   tbody tr.sub-row .col-name { padding-left: 44px; }
   tbody tr.group-row.open { font-weight: normal; }
@@ -391,6 +392,22 @@
   }
   .mehr-row .mehr-btn:hover { background: var(--accent-bg); }
   .empty-row td { text-align: center; padding: 28px; color: var(--text-muted); }
+  /* Die Platzhalterzeilen vor dem ersten render() (siehe <tbody>): ein
+     grauer Balken je Zelle, leicht pulsierend - ohne Pulsieren, wenn das
+     System weniger Bewegung wünscht. Keine feste Breite je Spalte: Die
+     Zellen sind über table-layout: fixed schon so breit wie später. */
+  .skeleton-row { cursor: default; pointer-events: none; }
+  .skeleton-row td i {
+    display: block;
+    height: 12px;
+    width: 70%;
+    border-radius: 6px;
+    background: var(--border);
+    animation: skeleton-puls 1.4s ease-in-out infinite;
+  }
+  .skeleton-row td:first-child i { width: 85%; }
+  .skeleton-row td:nth-child(2) i { width: 90%; }
+  @keyframes skeleton-puls { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
 
   /* ---------- Dialoge (Abo, Fehler melden, Event fehlt) ---------- */
   .ee-submit-btn { color: var(--on-accent) !important; }
@@ -592,7 +609,24 @@
       <thead>
         <tr id="header-row"></tr>
       </thead>
-      <tbody id="event-body"></tbody>
+      <!-- Ladezustand: Acht graue Platzhalterzeilen stehen schon im
+           HTML, bevor events.json da ist - der erste render() ersetzt
+           sie. Vorher war die Tabelle bis dahin schlicht leer (und die
+           Trefferzahl auch), was unter Handy-Bedingungen gut eine
+           Sekunde "kaputte Seite" bedeutete (Fahrplan 4, "Ladezustand").
+           Die Zeilen tragen kein data-idx: Der Klick- und der
+           Tastatur-Listener am <tbody> übergehen sie damit von selbst.
+           Sieben Zellen wie die Tabelle ohne Entfernungs-Spalte. -->
+      <tbody id="event-body">
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+        <tr class="skeleton-row"><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+      </tbody>
     </table>
   </div>
   <div class="side-panel">
@@ -643,7 +677,7 @@
      dieselben Events zeigen. -->
 <script src="filters.js?v=afa4275d"></script>
 <script src="filter-ui.js?v=841724c1"></script>
-<script src="event-detail.js?v=ee7682e2"></script>
+<script src="event-detail.js?v=41ffb9e1"></script>
 
 <script>
 (async function () {
