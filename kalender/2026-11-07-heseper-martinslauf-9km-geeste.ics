@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Heseper Martinslauf
 LOCATION:Geeste\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://ladv.de/aussch
- reibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.sv-gross-h
+ esepe.de/abteilung/leichtathletik/martinslauf
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro
- %C3%9F-Hesepe.htm
+URL:https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Wonneberger Strassenlauf
 LOCATION:Wonneberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /390495/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sv-wonneberg.
+ de/aktuelles/strassenlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/390495/
+URL:https://www.sv-wonneberg.de/aktuelles/strassenlauf/
 END:VEVENT
 END:VCALENDAR

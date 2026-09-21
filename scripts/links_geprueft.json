@@ -3767,11 +3767,11 @@
     "notiz": "Veranstalterseite statt laufen.de: https://arriba-goeppersdorf.de/silvesterlauf_ausschreibung-und-startliste/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hueber). Linkprüfung 2026-09-20."
   },
   "Citylauf Schwabach|2026-10-11": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
-    "alt": "https://laufen.de/laufkalender/details/26V02000552660000",
-    "notiz": "laufen.de leitet auf https://schwabacher-citylauf-2026.racepedia.de weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "schwabacher-citylauf.de",
+    "alt": "https://schwabacher-citylauf.de/",
+    "notiz": "Veranstalterseite statt schwabacher-citylauf.de: https://schwabacher-citylauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:schwabach, host:schwabach). Linkprüfung 2026-09-21."
   },
   "43. Winter Crosslaufserie 2026/27 / 1.Termin|2026-11-08": {
     "am": "2026-09-19",
@@ -3900,11 +3900,11 @@
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   },
   "62. SCC Cross Country|2026-11-07": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
-    "alt": "https://laufen.de/laufkalender/details/26V03000101960005",
-    "notiz": "laufen.de leitet auf https://www.strassenlauf.org/va_details.php?id=956 weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "scc-berlin-leichtathletik.de",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=956",
+    "notiz": "Veranstalterseite statt strassenlauf.org: https://www.scc-berlin-leichtathletik.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:berlin, country). Linkprüfung 2026-09-21."
   },
   "Gaudilauf 27|2026-10-04": {
     "am": "2026-09-19",
@@ -4264,11 +4264,11 @@
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   },
   "1. Lauf der 17. OIE-Nahe-Crosslaufserie|2026-11-07": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
     "alt": "https://laufen.de/laufkalender/details/26V13000056560001",
-    "notiz": "laufen.de leitet auf https://my.raceresult.com/ weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+    "notiz": "Websuche nannte http://www.nahe-cross.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - laufen.de bleibt."
   },
   "20. Int. Brubbellauf|2026-11-21": {
     "am": "2026-09-19",
@@ -4383,11 +4383,11 @@
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   },
   "22. Flutlicht-Crosslauf|2026-11-06": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "lf-luechtringen.de",
     "alt": "https://laufen.de/laufkalender/details/26V19000161660001",
-    "notiz": "laufen.de leitet auf https://lanet3.de/external/dlv/register/12826 weiter - Portal/Anmeldung/Social, kein besserer Link; Portallink bleibt."
+    "notiz": "Veranstalterseite statt laufen.de: https://www.lf-luechtringen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:luechtringen, flutlicht). Linkprüfung 2026-09-21."
   },
   "23. Falke-Rothaarsteigmarathon|2026-10-17": {
     "am": "2026-09-19",
@@ -4509,11 +4509,11 @@
     "notiz": "Der gespeicherte laufen.de-Detaillink leitet per 302 auf den Veranstalter-Link des DLV-Kalenders weiter; Zielseite nennt den Lauf - Override."
   },
   "Biberacher Genießerlauf|2026-10-18": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "laufen.de-Weiterleitung",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "biberacher-geniesserlauf.de",
     "alt": "https://laufen.de/laufkalender/details/26V20000714460000",
-    "notiz": "laufen.de leitet auf https://www.datasport.de/anmeldeservice/halbmarathonbiberach2025 weiter - Anmeldeportal/Kalender/keine Webadresse, kein besserer Link; Portallink bleibt."
+    "notiz": "Veranstalterseite statt laufen.de: https://biberacher-geniesserlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:biberach, host:biberacher). Linkprüfung 2026-09-21."
   },
   "49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute|2026-12-06": {
     "am": "2026-09-19",
@@ -13868,11 +13868,11 @@
     "notiz": "Websuche nannte https://www.dzi.uk-erlangen.de/aktuelles/veranstaltungen/veranstaltungen/lauf-gegen-krebs-2026-9423/, Seite nennt den Lauf nicht erkennbar (Status 200) - sas-online.net bleibt."
   },
   "L³-Laatzen-Leinwiesen-Lauf|2026-10-10": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/381133/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: privater Ultratrail (Frank Wintzer, 60 Plätze, 46/22/10 km), nur raceresult; leinelauf.de ist der andere Laatzener Lauf"
   },
   "Ramsthaler Wein-Berg-Lauf|2026-10-10": {
     "am": "2026-09-19",
@@ -13903,11 +13903,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://westenergie-marathon.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:westenergie). Linkprüfung 2026-09-19."
   },
   "Wonneberger Strassenlauf|2026-10-10": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-wonneberg.de",
     "alt": "https://my.raceresult.com/390495/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.sv-wonneberg.de/aktuelles/strassenlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:wonneberg). Linkprüfung 2026-09-21."
   },
   "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)|2026-10-11": {
     "am": "2026-09-19",
@@ -13952,11 +13952,11 @@
     "notiz": "Websuche nannte https://www.alpenverein-bayreuth.de/de/aktuelles/2026/10/3820_Herbstlauf2026.php, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Dorumer Dörploop|2026-10-11": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/366982/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: Veranstalter Marco Mendes (Edeka Mendes, Dorum), 5/10/15 km, nur raceresult"
   },
   "Elektronikbob Hesselberglauf|2026-10-11": {
     "am": "2026-09-19",
@@ -14225,11 +14225,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.obstmeilenlauf.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (altendorf). Linkprüfung 2026-09-19."
   },
   "Albiger Doppelzwölfer|2026-10-24": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-albig.de",
     "alt": "https://my.raceresult.com/421768/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://tv-albig.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:albig). Linkprüfung 2026-09-21."
   },
   "B.U.T.XxX - BURGBERNHEIM ULTRA TRAIL|2026-10-24": {
     "am": "2026-09-19",
@@ -14267,11 +14267,11 @@
     "notiz": "Veranstalterseite statt ladv.de: https://www.tvl-freiberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sachsen). Linkprüfung 2026-09-19."
   },
   "Sieberather-Crosslauf|2026-10-24": {
-    "am": "2026-09-19",
-    "ergebnis": "link_ok",
-    "quelle": "my.raceresult.com",
-    "alt": "https://my.raceresult.com/422655/",
-    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+    "am": "2026-09-21",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
+    "alt": null,
+    "notiz": "Websuche: nichts zum Lauf gefunden; hellenthal.de ist die Gemeinde"
   },
   "Sägerserie|2026-10-24": {
     "am": "2026-09-19",
@@ -14365,11 +14365,11 @@
     "notiz": "Veranstalterseite statt ladv.de: https://www.bredstedter-tsv.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bredstedt). Linkprüfung 2026-09-19."
   },
   "Cross- und Waldlaufmeisterschaften|2026-10-31": {
-    "am": "2026-09-19",
+    "am": "2026-09-21",
     "ergebnis": "unklar",
     "quelle": "ladv.de",
     "alt": "https://ladv.de/ausschreibung/detail/48772/Cross-und-Waldlaufmeisterschaften-2026-Ibbenb%C3%BCren.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Websuche nannte http://www.lg-emsdetten.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - ladv.de bleibt."
   },
   "Dom Zu Dom Ultra - Verden|2026-10-31": {
     "am": "2026-09-19",
@@ -16361,17 +16361,17 @@
   },
   "Heseper Martinslauf|2026-11-07": {
     "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "ladv.de",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-gross-hesepe.de",
     "alt": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+    "notiz": "Veranstalterseite statt ladv.de: https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (heseper). Linkprüfung 2026-09-21."
   },
   "Kneter Stundenlauf|2026-11-07": {
     "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "laufmanager.net",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-grossenkneten.de",
     "alt": "https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Grossen_Stunde/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sport-reckemeier.de, http://tsv-grossenkneten.de) - laufmanager.net bleibt."
+    "notiz": "Veranstalterseite statt laufmanager.net: https://tsv-grossenkneten.de/leichtathletik - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:grossenkneten, kneter). Linkprüfung 2026-09-21."
   },
   "Kreismeisterschaften Crosslauf Harburg-Land & Lüneburg|2026-11-07": {
     "am": "2026-09-21",

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
 SUMMARY:22. Flutlicht-Crosslauf
 LOCATION:Lüchtringen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.9 km\nhttps://laufen.de/lau
- fkalender/details/26V19000161660001
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.9 km\nhttps://www.lf-luecht
+ ringen.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V19000161660001
+URL:https://www.lf-luechtringen.de/
 END:VEVENT
 END:VCALENDAR

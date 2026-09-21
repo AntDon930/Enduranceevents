@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Biberacher Genießerlauf – BKK VerbundPlus Halbmarathon
 LOCATION:Biberach/Riß\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V20000714460000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://biberacher-
+ geniesserlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V20000714460000
+URL:https://biberacher-geniesserlauf.de/
 END:VEVENT
 END:VCALENDAR

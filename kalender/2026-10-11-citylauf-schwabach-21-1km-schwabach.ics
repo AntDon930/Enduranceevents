@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Citylauf Schwabach – Sparkassen-Halbmarathon
 LOCATION:Schwabach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/26V02000552660000
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://schwabacher
+ -citylauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V02000552660000
+URL:https://schwabacher-citylauf.de/
 END:VEVENT
 END:VCALENDAR

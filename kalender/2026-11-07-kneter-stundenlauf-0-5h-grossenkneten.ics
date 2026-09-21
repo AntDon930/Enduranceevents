@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Kneter Stundenlauf
 LOCATION:Großenkneten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 0.5 h\nhttps://www.laufmanag
- er.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranst
- altung/Jahr2026/Grossen_Stunde/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 0.5 h\nhttps://tsv-grossenkn
+ eten.de/leichtathletik
 TRANSP:TRANSPARENT
-URL:https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschre
- ibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Grossen_Stunde/
+URL:https://tsv-grossenkneten.de/leichtathletik
 END:VEVENT
 END:VCALENDAR
