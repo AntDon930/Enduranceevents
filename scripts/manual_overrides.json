@@ -6454,5 +6454,29 @@
   "Apfelland Triathlon|2027-05-21|1.1": {
     "exclude": true,
     "_note": "Kids Aquathlon (Schüler, 1,1 km) - Kinderwettbewerb, keine Ausdauerveranstaltung für Erwachsene; Datenregel 5 gilt nur für Laufen, deshalb per Override wie beim Lipperland-Triathlon. 22.09.2026."
+  },
+  "Int. Martinslauf|2026-11-08": {
+    "veranstalter_url": "https://www.tv-losheim.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-losheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:losheim, martinslauf). Linkprüfung 2026-09-22."
+  },
+  "Emsauen Rheine Ultramarathon|2026-09-22": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (emsauen). Linkprüfung 2026-09-22."
+  },
+  "Powerman Zofingen|2027-09-04": {
+    "veranstalter_url": "https://www.powerman.org/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.powerman.org/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:powerman). Linkprüfung 2026-09-22."
+  },
+  "Infinite Trails Gastein|2027-09-04": {
+    "veranstalter_url": "https://www.infinite-trails.com/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.infinite-trails.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:infinite). Linkprüfung 2026-09-22."
+  },
+  "24 H Burgenland Extrem|2027-01-21": {
+    "veranstalter_url": "https://www.24stundenburgenland.com/",
+    "_note": "Veranstalterseite statt pentek-payment.at: https://www.24stundenburgenland.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:burgenland). Linkprüfung 2026-09-22. ACHTUNG: laut Seite ein '24 Stunden Weitwander-Abenteuer' (Wandern, 120 km) - ob Wanderformate in die Liste gehören, ist eine offene Frage an den Nutzer (Punkt 19)."
+  },
+  "Aarauer Altstadtlauf|2027-06-19": {
+    "veranstalter_url": "https://www.aarauer-altstadtlauf.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.aarauer-altstadtlauf.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:aarau, host:aarauer). Linkprüfung 2026-09-22."
   }
 }

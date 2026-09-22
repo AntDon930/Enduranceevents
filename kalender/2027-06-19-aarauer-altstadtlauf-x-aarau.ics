@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270619
 DTEND;VALUE=DATE:20270620
 SUMMARY:Aarauer Altstadtlauf
 LOCATION:Aarau\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /408161/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.aarauer-altst
+ adtlauf.ch/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/408161/
+URL:https://www.aarauer-altstadtlauf.ch/
 END:VEVENT
 END:VCALENDAR

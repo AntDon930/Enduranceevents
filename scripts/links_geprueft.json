@@ -16435,10 +16435,10 @@
   },
   "Emsauen Rheine Ultramarathon|2026-09-22": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
     "alt": "https://my.raceresult.com/423109/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://ultra-uwe-unterwegs.de/bericht/hockendes-weib-klippenmarathon/) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (emsauen). Linkprüfung 2026-09-22."
   },
   "Ruller Bruch Marathon|2026-09-22": {
     "am": "2026-09-22",
@@ -16508,7 +16508,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/424620/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.svnassig.de) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte http://www.svnassig.de/, Seite nennt den Lauf nicht erkennbar (Status 307) - my.raceresult.com bleibt."
   },
   "Helvetia Backyard Ultra|2026-10-02": {
     "am": "2026-09-22",
@@ -16564,7 +16564,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/395184/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.su-leisach.com) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.su-leisach.com/, Seite nennt den Lauf nicht erkennbar (Status 403) - my.raceresult.com bleibt."
   },
   "Astberglauf|2026-10-11": {
     "am": "2026-09-22",
@@ -16680,10 +16680,10 @@
   },
   "Int. Martinslauf|2026-11-08": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-losheim.de",
     "alt": "https://my.raceresult.com/419555/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tv-losheim.de) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tv-losheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:losheim, martinslauf). Linkprüfung 2026-09-22."
   },
   "Martinslauf Hinterweidenthal|2026-11-08": {
     "am": "2026-09-22",
@@ -16823,7 +16823,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/424618/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.triple-sportevents.de) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.triple-sportevents.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
   },
   "Kerzerslauf|2027-03-20": {
     "am": "2026-09-22",
@@ -16851,7 +16851,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/419717/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.volldampf-clarholz.de) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.volldampf-clarholz.de/, Seite nennt den Lauf nicht erkennbar (Status 403) - my.raceresult.com bleibt."
   },
   "Pfingstlauf Wohlen|2027-05-16": {
     "am": "2026-09-22",
@@ -16872,7 +16872,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/423426/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bergedorfer-citylauf.de) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.bergedorfer-citylauf.de/, Seite nennt den Lauf nicht erkennbar (Status 404) - my.raceresult.com bleibt."
   },
   "Triathlon Frauenfeld|2027-05-23": {
     "am": "2026-09-22",
@@ -16886,7 +16886,7 @@
     "ergebnis": "unklar",
     "quelle": "my.raceresult.com",
     "alt": "https://my.raceresult.com/403759/",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.fyne-terra.ch) - my.raceresult.com bleibt."
+    "notiz": "Websuche nannte https://www.fyne-terra.ch/, Seite nennt den Lauf nicht erkennbar (Status fehler:ReadTimeout) - my.raceresult.com bleibt."
   },
   "Backyard Community Run|2027-06-05": {
     "am": "2026-09-22",
@@ -16911,10 +16911,10 @@
   },
   "Aarauer Altstadtlauf|2027-06-19": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "aarauer-altstadtlauf.ch",
     "alt": "https://my.raceresult.com/408161/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.aarauer-altstadtlauf.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:aarau, host:aarauer). Linkprüfung 2026-09-22."
   },
   "Neuenbürger Schloss-Park-Run|2027-06-26": {
     "am": "2026-09-22",
@@ -16953,17 +16953,17 @@
   },
   "Infinite Trails Gastein|2027-09-04": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com",
+    "ergebnis": "korrigiert",
+    "quelle": "infinite-trails.com",
     "alt": "https://my.raceresult.com/416679/",
-    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.infinite-trails.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:infinite). Linkprüfung 2026-09-22."
   },
   "Powerman Zofingen|2027-09-04": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "datasport.com",
+    "ergebnis": "korrigiert",
+    "quelle": "powerman.org",
     "alt": "https://datasport.com/de/events/powerman-world-championships-zofingen-2027",
-    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://dev.visualwebsiteoptimizer.com, http://www.powerman.ch/de) - datasport.com bleibt."
+    "notiz": "Veranstalterseite statt datasport.com: https://www.powerman.org/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:powerman). Linkprüfung 2026-09-22."
   },
   "Crux Lauf Villach|2027-09-11": {
     "am": "2026-09-22",
@@ -17135,10 +17135,10 @@
   },
   "24 H Burgenland Extrem|2027-01-21": {
     "am": "2026-09-22",
-    "ergebnis": "unklar",
-    "quelle": "pentek-payment.at",
+    "ergebnis": "korrigiert",
+    "quelle": "24stundenburgenland.com",
     "alt": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1",
-    "notiz": "Seite nicht ladbar (robots) - pentek-payment.at bleibt."
+    "notiz": "Veranstalterseite statt pentek-payment.at: https://www.24stundenburgenland.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:burgenland). Linkprüfung 2026-09-22."
   },
   "Donautrail|2027-03-12": {
     "am": "2026-09-22",

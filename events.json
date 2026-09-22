@@ -38,7 +38,7 @@
     "datum_ende": "2026-09-22",
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
-    "veranstalter_url": "https://my.raceresult.com/423109/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
   },
   {
     "land": "Deutschland",
@@ -52,7 +52,7 @@
     "datum_ende": "2026-09-22",
     "laenge_km": 34.0,
     "wettbewerb": "34 km",
-    "veranstalter_url": "https://my.raceresult.com/423109/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
   },
   {
     "land": "Deutschland",
@@ -66,7 +66,7 @@
     "datum_ende": "2026-09-22",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://my.raceresult.com/423109/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
   },
   {
     "land": "Schweiz",
@@ -26986,7 +26986,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/419555/"
+    "veranstalter_url": "https://www.tv-losheim.de/"
   },
   {
     "land": "Deutschland",
@@ -40060,7 +40060,7 @@
     "datum_ende": "2027-01-22",
     "laenge_km": 120.0,
     "wettbewerb": "120 km",
-    "veranstalter_url": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1"
+    "veranstalter_url": "https://www.24stundenburgenland.com/"
   },
   {
     "land": "Österreich",
@@ -40074,7 +40074,7 @@
     "datum_ende": "2027-01-22",
     "laenge_km": 80.0,
     "wettbewerb": "80 km",
-    "veranstalter_url": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1"
+    "veranstalter_url": "https://www.24stundenburgenland.com/"
   },
   {
     "land": "Österreich",
@@ -40088,7 +40088,7 @@
     "datum_ende": "2027-01-22",
     "laenge_km": 60.0,
     "wettbewerb": "60 km",
-    "veranstalter_url": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1"
+    "veranstalter_url": "https://www.24stundenburgenland.com/"
   },
   {
     "land": "Österreich",
@@ -40102,7 +40102,7 @@
     "datum_ende": "2027-01-22",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1"
+    "veranstalter_url": "https://www.24stundenburgenland.com/"
   },
   {
     "land": "Österreich",
@@ -44621,19 +44621,6 @@
     "datum_ende": "2027-03-14",
     "veranstalter_url": "https://www.tv-ihringen.de/internationaler-kaiserstuhllauf-2026.html",
     "datum_vorlaeufig": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "Königsforst-Marathon",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",
@@ -64144,7 +64131,7 @@
     "art2": "Straße",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
-    "veranstalter_url": "https://my.raceresult.com/408161/"
+    "veranstalter_url": "https://www.aarauer-altstadtlauf.ch/"
   },
   {
     "land": "Österreich",
@@ -74729,7 +74716,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 60.0,
     "wettbewerb": "60 km",
-    "veranstalter_url": "https://my.raceresult.com/416679/"
+    "veranstalter_url": "https://www.infinite-trails.com/"
   },
   {
     "land": "Österreich",
@@ -74743,7 +74730,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 45.0,
     "wettbewerb": "45 km",
-    "veranstalter_url": "https://my.raceresult.com/416679/"
+    "veranstalter_url": "https://www.infinite-trails.com/"
   },
   {
     "land": "Österreich",
@@ -74757,7 +74744,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 35.0,
     "wettbewerb": "35 km",
-    "veranstalter_url": "https://my.raceresult.com/416679/"
+    "veranstalter_url": "https://www.infinite-trails.com/"
   },
   {
     "land": "Österreich",
@@ -74771,7 +74758,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://my.raceresult.com/416679/"
+    "veranstalter_url": "https://www.infinite-trails.com/"
   },
   {
     "land": "Österreich",
@@ -74785,7 +74772,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://my.raceresult.com/416679/"
+    "veranstalter_url": "https://www.infinite-trails.com/"
   },
   {
     "land": "Deutschland",
@@ -74837,7 +74824,7 @@
     "datum_start": "2027-09-04",
     "datum_ende": "2027-09-05",
     "laenge_km": 65.0,
-    "veranstalter_url": "https://datasport.com/de/events/powerman-world-championships-zofingen-2027"
+    "veranstalter_url": "https://www.powerman.org/"
   },
   {
     "land": "Schweiz",

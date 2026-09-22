@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270904
 DTEND;VALUE=DATE:20270906
 SUMMARY:Powerman Zofingen
 LOCATION:Zofingen\, Schweiz
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 65 km\nhttps://datasport.
- com/de/events/powerman-world-championships-zofingen-2027
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 65 km\nhttps://www.powerm
+ an.org/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/powerman-world-championships-zofingen-
- 2027
+URL:https://www.powerman.org/
 END:VEVENT
 END:VCALENDAR

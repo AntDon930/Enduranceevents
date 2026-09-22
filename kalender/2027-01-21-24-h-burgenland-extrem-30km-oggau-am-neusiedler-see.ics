@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270121
 DTEND;VALUE=DATE:20270123
 SUMMARY:24 H Burgenland Extrem
 LOCATION:Oggau am Neusiedler See\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.pentek-pa
- yment.at/ppay.php?p=1722&s_p=1
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.24stunden
+ burgenland.com/
 TRANSP:TRANSPARENT
-URL:https://www.pentek-payment.at/ppay.php?p=1722&s_p=1
+URL:https://www.24stundenburgenland.com/
 END:VEVENT
 END:VCALENDAR
