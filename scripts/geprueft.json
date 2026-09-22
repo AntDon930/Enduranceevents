@@ -2876,10 +2876,10 @@
     "notiz": "Seite 'Geologenlauf 2026' mit Anmeldung, aber ohne Termin; 2025 war der 09.11. mit 10 km / 5 km / 7 km Walking."
   },
   "40. int. Hohenzollern Berglauf|2026-11-08": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "ski-club-hechingen.de",
-    "notiz": "Seite nennt nur den 39. Lauf 2025; Termin 2026 und 8,1 km nicht belegbar."
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "schwarzwaelder-bote.de / ski-club-hechingen.de",
+    "notiz": "Duplikat unter zwei Namen: ‚40. int. Hohenzollern Berglauf' und ‚Int. Hohenzollernberglauf' (Hechingen, 08.11.2026, 8,1 km, dieselbe Seite des Ski-Club Hechingen) - die Zeile ohne Zählung fällt (22.09.2026)."
   },
   "36. Int. Martinslauf|2026-11-08": {
     "am": "2026-09-21",
@@ -6200,10 +6200,10 @@
     "notiz": "ladv-Ausschreibung ohne lesbare Angaben"
   },
   "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://ladv.de/ausschreibung/detail/48855/17.-Lauf-Rund-um-das-Schaubergwerk-R%C3%B6hrigschacht-Sangerhausen.htm",
-    "notiz": "ladv-Ausschreibung: Crosslauf lang 14,0 km bestätigt, Crosslauf 2 km, 3 km, …; ob es 5 und 5,1 km gibt, ist nicht lesbar (bei uns zwei Zeilen 5,0 und 5,1)"
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "steigerschleife.de",
+    "notiz": "steigerschleife.de: Buschklepper 5,1 km, Steigerschleife 14 km (dazu Wilddieb 3 km, Grillensprung 2 km, Kinderläufe); die ladv-Zeile ‚Crosslauf' 5 km ist der Buschklepper - fällt (22.09.2026)."
   },
   "Kyffhäuser Berglauf|2027-04-10": {
     "am": "2026-09-21",
@@ -6539,7 +6539,7 @@
     "am": "2026-09-22",
     "ergebnis": "korrigiert",
     "quelle": "sv-gross-hesepe.de",
-    "notiz": "sv-gross-hesepe.de: Martinslauf über ca. 8.870 m (dazu 3.000 / 1.600 / 830 m Kinder- und Jugendläufe) - 8,9 statt 9 km (Seitenabgleich 22.09.2026)."
+    "notiz": "Duplikat unter zwei Namen: ‚15. Heseper Martinslauf' (Groß-Hesepe, Langstrecke 8,8 km) und ‚Heseper Martinslauf' (Geeste) sind derselbe Lauf des SV Groß-Hesepe (gleiche Seite, gleicher Tag, 8,87 km) - die Zeile ohne Zählung fällt (22.09.2026)."
   },
   "Kneter Stundenlauf|2026-11-07": {
     "am": "2026-09-21",

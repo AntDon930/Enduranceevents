@@ -10,10 +10,10 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Lauf Rund um das Schaubergwerk Röhrigschacht – 5\,1 km Buschkleppe
- r - 7\,00 €
+ r
 LOCATION:Sangerhausen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://steigerschle
- ife.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.1 km\nhttps://steigerschlei
+ fe.de/
 TRANSP:TRANSPARENT
 URL:https://steigerschleife.de/
 END:VEVENT

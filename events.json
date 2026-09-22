@@ -18183,7 +18183,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 8.9,
     "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf",
-    "wettbewerb": "Langstrecke 8,8km"
+    "wettbewerb": "Langstrecke ca. 8,87 km"
   },
   {
     "land": "Deutschland",
@@ -18712,20 +18712,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Heseper Martinslauf",
-    "standort": "Geeste",
-    "lat": 52.6017948,
-    "lon": 7.2717158,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 8.9,
-    "wettbewerb": "ca. 8,87 km Hauptlauf",
-    "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "Jatznicker Waldlauf",
     "standort": "Jatznick",
     "lat": 53.5782968,
@@ -19235,7 +19221,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 8.1,
     "veranstalter_url": "http://www.ski-club-hechingen.de",
-    "wettbewerb": "8 km"
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)"
   },
   {
     "land": "Deutschland",
@@ -19637,20 +19623,6 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://huegelland.tsv-katzwang-ultrasport.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Int. Hohenzollernberglauf",
-    "standort": "Hechingen",
-    "lat": 48.3538888,
-    "lon": 8.9613627,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 8.1,
-    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
-    "veranstalter_url": "https://www.ski-club-hechingen.de/"
   },
   {
     "land": "Deutschland",
@@ -34671,8 +34643,8 @@
     "art2": "Trail",
     "datum_start": "2027-04-03",
     "datum_ende": "2027-04-03",
-    "laenge_km": 5.0,
-    "wettbewerb": "Crosslauf",
+    "laenge_km": 14.0,
+    "wettbewerb": "14 km Steigerschleife",
     "veranstalter_url": "https://steigerschleife.de/"
   },
   {
@@ -34685,22 +34657,8 @@
     "art2": "Trail",
     "datum_start": "2027-04-03",
     "datum_ende": "2027-04-03",
-    "laenge_km": 14.0,
-    "wettbewerb": "Crosslauf lang",
-    "veranstalter_url": "https://steigerschleife.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Lauf Rund um das Schaubergwerk Röhrigschacht",
-    "standort": "Sangerhausen",
-    "lat": 51.4725415,
-    "lon": 11.2995045,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-03",
-    "datum_ende": "2027-04-03",
     "laenge_km": 5.1,
-    "wettbewerb": "5,1 km Buschklepper - 7,00 €",
+    "wettbewerb": "5,1 km Buschklepper",
     "veranstalter_url": "https://steigerschleife.de/"
   },
   {

@@ -5862,7 +5862,8 @@
   },
   "Heseper Martinslauf|2026-11-07": {
     "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf",
-    "_note": "Veranstalterseite statt ladv.de: https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (heseper). Linkprüfung 2026-09-21."
+    "_note": "Duplikat unter zwei Namen: ‚15. Heseper Martinslauf' (Groß-Hesepe, Langstrecke 8,8 km) und ‚Heseper Martinslauf' (Geeste) sind derselbe Lauf des SV Groß-Hesepe (gleiche Seite, gleicher Tag, 8,87 km) - die Zeile ohne Zählung fällt (22.09.2026).",
+    "exclude": true
   },
   "Kneter Stundenlauf|2026-11-07": {
     "veranstalter_url": "https://tsv-grossenkneten.de/leichtathletik",
@@ -5882,7 +5883,8 @@
   },
   "Int. Hohenzollernberglauf|2026-11-08": {
     "veranstalter_url": "https://www.ski-club-hechingen.de/",
-    "_note": "Veranstalterseite statt anmeldungs-service.de: https://www.ski-club-hechingen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:hechingen). Linkprüfung 2026-09-21."
+    "_note": "Duplikat unter zwei Namen: ‚40. int. Hohenzollern Berglauf' und ‚Int. Hohenzollernberglauf' (Hechingen, 08.11.2026, 8,1 km, dieselbe Seite des Ski-Club Hechingen) - die Zeile ohne Zählung fällt (22.09.2026).",
+    "exclude": true
   },
   "Zeiler Waldmarathon|2026-11-14": {
     "veranstalter_url": "https://zeiler-waldmarathon.de/",
@@ -6157,5 +6159,31 @@
   "Int. Hohenzollernberglauf|2026-11-08|8.1": {
     "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
     "_note": "Strecke 8,1 km mit 365 Höhenmetern vom Weiherstadion Hechingen in den Burghof der Burg Hohenzollern (Schwarzwälder Bote / runnersworld, Veranstalter Ski-Club Hechingen) - 8,1 statt 8 km (Websuche 22.09.2026)."
+  },
+  "15. Heseper Martinslauf|2026-11-07|8.9": {
+    "wettbewerb": "Langstrecke ca. 8,87 km",
+    "_note": "sv-gross-hesepe.de: Martinslauf über ca. 8.870 m (22.09.2026)."
+  },
+  "40. int. Hohenzollern Berglauf|2026-11-08|8.1": {
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
+    "_note": "Strecke 8,1 km / 365 Höhenmeter vom Weiherstadion in den Burghof (Schwarzwälder Bote, 22.09.2026)."
+  },
+  "40. int. Hohenzollern Berglauf|2026-11-08|8": {
+    "laenge_km": 8.1,
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
+    "_note": "Strecke 8,1 km / 365 Höhenmeter (Schwarzwälder Bote, 22.09.2026)."
+  },
+  "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03|5": {
+    "exclude": true,
+    "_note": "steigerschleife.de: Buschklepper 5,1 km, Steigerschleife 14 km (dazu Wilddieb 3 km, Grillensprung 2 km, Kinderläufe); die ladv-Zeile ‚Crosslauf' 5 km ist der Buschklepper - fällt (22.09.2026)."
+  },
+  "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03|5.1": {
+    "wettbewerb": "5,1 km Buschklepper",
+    "art2": "Trail",
+    "_note": "steigerschleife.de: Buschklepper 5,1 km, Steigerschleife 14 km (dazu Wilddieb 3 km, Grillensprung 2 km, Kinderläufe); die ladv-Zeile ‚Crosslauf' 5 km ist der Buschklepper - fällt (22.09.2026)."
+  },
+  "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03|14": {
+    "wettbewerb": "14 km Steigerschleife",
+    "_note": "steigerschleife.de: Buschklepper 5,1 km, Steigerschleife 14 km (dazu Wilddieb 3 km, Grillensprung 2 km, Kinderläufe); die ladv-Zeile ‚Crosslauf' 5 km ist der Buschklepper - fällt (22.09.2026)."
   }
 }
