@@ -189,7 +189,11 @@ def messe(pw, ordner: str, titel: str, sichtbar: bool) -> None:
 
         stand = seite.evaluate("""() => {
             const r = performance.getEntriesByType('resource')
-                                .find(x => /events\\.(web\\.)?json/.test(x.name) && x.encodedBodySize > 0) || {};
+                                // Beim Rückfall steht auch die 404 von events.web.json in der
+                // Liste (mit dem Textkörper der Fehlerseite) - es zählt der
+                // größte Abruf, das ist die Datei, die die Seite verwendet hat.
+                .filter(x => /events\\.(web\\.)?json/.test(x.name))
+                .sort((a, b) => (b.encodedBodySize || 0) - (a.encodedBodySize || 0))[0] || {};
             return {datei: (r.name || '').split('/').pop(),
                     zeilen: document.querySelectorAll('tbody tr').length,
                     knoten: document.getElementsByTagName('*').length,
