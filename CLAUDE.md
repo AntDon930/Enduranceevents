@@ -103,9 +103,13 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 197 Punkte:
-Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, Aufklappen der
-zusammengefassten Veranstaltungen (samt Rahmen um den Block), Filter-Panel, Kalenderdatei hinter dem
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 223 Punkte:
+Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
+**Kachelansicht** (unter 700 px: Kacheln statt Tabelle, Sortier-Pillen,
+Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
+Block, ab 700 px wieder die Tabelle), Aufklappen der
+zusammengefassten Veranstaltungen (samt Rahmen um den Block – die
+Tabellenprüfungen laufen dafür auf 820 px), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
@@ -1837,6 +1841,62 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
 ## Frontend-Fallen (events.html)
 
+- **Handy: Kacheln statt Tabelle (unter 700 px).** Vom Nutzer am
+  22.09.2026 gefragt („Was genau passiert da bei der Handyansicht?") und
+  freigegeben („Yes, bitte bauen"). Die Tabelle ist 900 px breit; auf
+  dem Handy lagen Länge, Kategorie und Land außerhalb des Bildes, man
+  musste waagerecht scrollen. Jetzt gilt in `events.html` ein
+  `@media (max-width: 699px)`-Block, der **dieselben `<tr>`/`<td>` als
+  Kacheln zeichnet** – kein zweites Markup, keine zweite Zeichenroutine:
+  Sortierung, Fenster, Zusammenfassen, Auswahl und Tastatur laufen
+  unverändert über dieselben Zeilen. Was daran nicht zurückgedreht
+  werden soll:
+  - **Die `<tr>` ist ein Raster** (`grid-template-areas`: Datum |
+    Sportart, Name, Ort | Land, Entfernung, Kategorie | Länge groß
+    rechts), jede `<td>` bekommt ihren Platz über ihre Spaltenklasse.
+    Die Spaltenbreiten der Tabelle (`.col-datum { width: 13% }`) müssen
+    dafür aufgehoben werden – **mit `td[class]`**, sonst verliert das
+    nackte `td` gegen die Klassenregel, und die Zellen sind 13 % breit
+    (so sah die erste Fassung aus: „Böbl / ing…"). Dasselbe bei
+    `table.with-distance { min-width: 960px }`: Mit gesetztem
+    Ausgangspunkt blieb die Tabelle 960 px breit, Chrome (mobil)
+    verbreiterte darauf den ganzen Layout-Viewport auf 977 px, und der
+    Abo-Dialog stand halb außerhalb – der Rauchtest hat es an der
+    Abo-Prüfung gemeldet, nicht an der Liste.
+  - **Die Kopfzeile wird zu Sortier-Pillen** (`thead tr` als Flex-Reihe,
+    Beschriftung „Sortieren" aus `data-label`, gesetzt in
+    `buildHeader()`); nur Spalten mit Sortierschlüssel (`th.sortierbar`)
+    bleiben sichtbar.
+  - **Die Entfernung trägt in der Kachel eine Beschriftung**
+    (`.kachel-label`, in der Tabelle ausgeblendet – dort sagt es der
+    Spaltenkopf).
+  - **Der Rahmen um den aufgeklappten Block** ist hier `border` in
+    `--frame` (die Kacheln hängen ohne Lücke aneinander, Rundung nur
+    oben an der ersten und unten an der letzten), die box-shadow-Regeln
+    der Tabelle werden ausgeschaltet. Die Strecken zeigen Datum, Ort und
+    Land nicht noch einmal – der Rahmen sagt, wozu sie gehören.
+  - **`tr.mehr-row` bleibt `content-visibility: visible`**: Mit `auto`
+    fing die Zeile den Klick, solange ihr Inhalt nach dem Hineinscrollen
+    noch nicht gesetzt war (Playwright: „intercepts pointer events").
+  - **Die Detail-Box ist ein Blatt von unten** (`.side-panel` fixiert,
+    `body.detail-offen`, Schleier als `body::after`, Seiten-Scroll
+    gesperrt). Geöffnet wird sie nur ausdrücklich – Tippen auf eine
+    Kachel, Enter, geteilter Link (`oeffneDetail()` setzt `detailOffen`)
+    –, **nicht beim Bewegen mit den Pfeiltasten** und nicht beim
+    Aufklappen einer Veranstaltung. ✕ (`schliesseDetail`), ein Tippen
+    auf den Schleier (Ziel ist der `<body>`) und Escape schließen sie;
+    Escape aber nicht, solange ein Dialog oder das Filter-Panel offen
+    ist (die haben ihren eigenen Escape). `aktualisiereDetailSheet()`
+    setzt die Klasse und hört auf den Wechsel der Breite – sonst bliebe
+    nach dem Drehen eines Tablets der Seiten-Scroll gesperrt.
+    `zeigeDetailbereich()` tut in der Kachelansicht nichts.
+  - **Im Rauchtest** (390 px) liegt das Blatt nach jedem Tippen auf eine
+    Zeile über allem; wer danach etwas anderes anklickt, ruft vorher
+    `schliesse_blatt()`. Die Prüfungen, die Eigenschaften der TABELLE
+    messen (52-px-Zeilen, box-shadow-Rahmen, Pfeil in der Namensspalte:
+    `pruefe_datum_zweizeilig`, `pruefe_gruppierung`), laufen auf
+    `TABLET_BREITE` (820 px); `pruefe_kacheln` prüft die Kacheln.
+
 - **Weniger anzeigen ist eine Datenqualitäts-Entscheidung.** Der Nutzer
   hat das am 21.09.2026 in einem Satz begründet, der für die ganze Seite
   gilt: „Wir wollen nicht zu viele Infos zeigen, weil das erhöht die
@@ -3454,9 +3514,11 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    Siehe Frontend-Fallen, erster und zweiter Punkt.
 
    Offen, in dieser Wirkung:
-   - **Handy: Karten statt Tabelle.** Unter ~700 px liegen Länge und
-     Sportart außerhalb des Bildes, man muss waagerecht scrollen. Eine
-     Karte je Event (Name, Datum, Ort, Marken) ist der größte Hebel.
+   - ~~**Handy: Karten statt Tabelle.**~~ **gebaut** (22.09.2026, „Yes,
+     bitte bauen"): Unter 700 px ist dieselbe Tabelle ein Stapel von
+     Kacheln, die Detail-Box ein Blatt von unten – siehe Frontend-Fallen,
+     „Handy: Kacheln statt Tabelle". Tablet und Laptop behalten die
+     Tabelle.
    - Kleinteiliger: ~~`og:image`~~ **gebaut** (21.09.2026: `og-image.png`
      mit der GitHub-Pages-Adresse; bei einem Domainwechsel in allen drei
      Seiten nachziehen). ~~Ladezustand~~

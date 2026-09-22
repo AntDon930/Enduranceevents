@@ -99,6 +99,27 @@ def seite_oeffnen(ctx, url, warten=".top-bar"):
     return seite, probleme
 
 
+# Unter 700 px ist die Liste ein Stapel von Kacheln, und die Detail-Box
+# liegt als Blatt ÜBER der Liste (body.detail-offen, mit Schleier). Auf
+# 390 px gilt das für jede Prüfung hier: Wer nach dem Tippen auf eine
+# Zeile noch etwas anderes anklicken will, muss das Blatt erst schließen
+# - der Schleier fängt den Klick sonst ab (und Playwright wartet auf ein
+# Element, das "pointer events" bekommt, bis zum Timeout).
+TABLET_BREITE = 820   # Tablet: die Tabelle (die Kacheln enden bei 699 px)
+
+
+def im_kachelmodus(seite) -> bool:
+    return bool(seite.evaluate("() => matchMedia('(max-width: 699px)').matches"))
+
+
+def schliesse_blatt(seite) -> None:
+    """Schließt die Detail-Box über das ✕, falls sie als Blatt offen ist."""
+    if seite.evaluate("() => document.body.classList.contains('detail-offen')"):
+        seite.evaluate("""() => { const x = document.querySelector('#detail-panel .detail-close');
+            if (x) x.click(); }""")
+        seite.wait_for_timeout(250)
+
+
 def pruefe_kopf(seite, name):
     """Kopfangaben (Symbol, Vorschau) und die Knopfreihe im blauen Kasten."""
     kopf = seite.evaluate("""() => ({
@@ -138,14 +159,23 @@ def pruefe_liste(ctx, basis):
     seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
     # Das sanfte Scrollen braucht einen Moment.
     seite.wait_for_timeout(900)
-    # Auf Handybreite steht der Detailbereich unter der 78vh hohen Tabelle:
-    # ohne Scrollen wirkte das Tippen folgenlos.
+    # Auf Handybreite kommt die Box als Blatt von unten über die Liste
+    # (Kachelansicht, seit dem 22.09.2026). Vorher stand sie unter der
+    # 78vh hohen Tabelle, und die Seite scrollte dorthin - auf dem Tablet
+    # (pruefe_kacheln prüft den Wechsel) gilt das weiter.
     lage = seite.evaluate("""() => { const b = document.getElementById('detail-panel')
         .getBoundingClientRect();
-        return {top: b.top, unten: b.bottom, vh: innerHeight, y: scrollY}; }""")
-    pruefe(lage["y"] > 0 and lage["top"] < lage["vh"] and lage["unten"] > 0,
-           "Tippen auf eine Zeile holt den Detailbereich ins Bild (scrollY %d, oben %d von %d)"
-           % (lage["y"], lage["top"], lage["vh"]))
+        return {top: b.top, unten: b.bottom, vh: innerHeight, y: scrollY,
+                blatt: document.body.classList.contains('detail-offen'),
+                kachel: matchMedia('(max-width: 699px)').matches}; }""")
+    if lage["kachel"]:
+        pruefe(lage["blatt"] and lage["top"] >= 0 and lage["unten"] <= lage["vh"] + 1,
+               "Tippen auf eine Kachel öffnet die Box als Blatt im Bild (oben %d, unten %d von %d)"
+               % (lage["top"], lage["unten"], lage["vh"]))
+    else:
+        pruefe(lage["y"] > 0 and lage["top"] < lage["vh"] and lage["unten"] > 0,
+               "Tippen auf eine Zeile holt den Detailbereich ins Bild (scrollY %d, oben %d von %d)"
+               % (lage["y"], lage["top"], lage["vh"]))
     ics = seite.evaluate("""() => { const a = [...document.querySelectorAll('#detail-panel a')]
         .find(a => /kalender\\//.test(a.getAttribute('href') || ''));
         return a ? {href: a.getAttribute('href'), download: a.hasAttribute('download')} : null; }""")
@@ -156,7 +186,8 @@ def pruefe_liste(ctx, basis):
         # Ohne download-Attribut - sonst reicht Safari die Datei nicht an den Kalender weiter.
         pruefe(not ics["download"], "Kalender-Link trägt kein download-Attribut")
 
-    # Filter-Panel auf Handybreite
+    # Filter-Panel auf Handybreite (das Blatt vorher zu, es liegt über allem)
+    schliesse_blatt(seite)
     knopf = seite.locator('.col-filter-btn[data-col="standort"]')
     if knopf.count():
         knopf.scroll_into_view_if_needed()
@@ -170,6 +201,159 @@ def pruefe_liste(ctx, basis):
         seite.keyboard.press("Escape")
     else:
         ueberspringe("Filterknopf Stadt/Ort nicht gefunden")
+    seite.close()
+
+
+def pruefe_kacheln(ctx, basis):
+    """Unter 700 px: Kacheln statt Tabelle, die Box als Blatt darüber.
+
+    Die Tabelle ist 900 px breit; auf dem Handy lagen Länge, Kategorie
+    und Land außerhalb des Bildes (vom Nutzer gefragt, 22.09.2026).
+    Geprüft wird das ganze Muster: nichts steht außerhalb des Bildes,
+    die Sortier-Pillen, gleich breite Kacheln, das Blatt öffnet sich
+    beim Tippen (und NICHT beim Aufklappen), ✕, Schleier und Escape
+    schließen es, der Rahmen um die aufgeklappte Veranstaltung, und ab
+    700 px ist es wieder die Tabelle - ohne dass der Seiten-Scroll
+    gesperrt bleibt.
+    """
+    print("\nKachelansicht (events.html?gruppiert=1, 390 px)")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1", "tr.group-row")
+    seite.wait_for_timeout(600)
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    if not pruefe(im_kachelmodus(seite), "unter 700 px gilt die Kachelansicht"):
+        seite.close()
+        return
+    stand = seite.evaluate("""() => {
+        const vw = document.documentElement.clientWidth;
+        const zeilen = [...document.querySelectorAll('tbody tr[data-idx]')].slice(0, 30);
+        const breiten = [...new Set(zeilen.map(r => Math.round(r.getBoundingClientRect().width)))];
+        const raus = zeilen.filter(r => r.getBoundingClientRect().right > vw + 1).length;
+        // Länge und Sportart je Kachel: rechts im Bild, nicht abgeschnitten.
+        const zellen = zeilen.flatMap(r => [...r.querySelectorAll('td.col-laenge_km, td.col-art1, td.col-land')]);
+        const zellenRaus = zellen.filter(z => z.getBoundingClientRect().right > vw + 1).length;
+        const pillen = [...document.querySelectorAll('thead th.sortierbar .th-sort')]
+          .filter(b => b.getBoundingClientRect().width > 0);
+        return {
+          anzeige: getComputedStyle(zeilen[0]).display,
+          tabelle: getComputedStyle(document.querySelector('table')).display,
+          breiten, raus, zellen: zellen.length, zellenRaus,
+          pillen: pillen.length,
+          pillenBreite: pillen.every(b => b.getBoundingClientRect().right <= vw + 1),
+          beschriftung: getComputedStyle(document.querySelector('thead tr'), '::before').content,
+          ueberlauf: document.documentElement.scrollWidth - vw,
+          hoehen: [...new Set(zeilen.map(r => Math.round(r.getBoundingClientRect().height)))].length
+        }; }""")
+    pruefe(stand["anzeige"] == "grid" and stand["tabelle"] == "block",
+           "jede Zeile ist eine Kachel (tr als Raster, keine Tabelle mehr)")
+    pruefe(len(stand["breiten"]) == 1 and stand["raus"] == 0,
+           "alle Kacheln sind gleich breit und liegen im Bild (%s px)"
+           % ", ".join(str(b) for b in stand["breiten"]))
+    pruefe(stand["zellen"] > 0 and stand["zellenRaus"] == 0,
+           "Länge, Sportart und Land stehen in jeder Kachel im Bild (%d Zellen)" % stand["zellen"])
+    pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+    pruefe(stand["pillen"] >= 5 and stand["pillenBreite"] and "Sortieren" in stand["beschriftung"],
+           "die Spaltenköpfe sind Sortier-Pillen unter „Sortieren“ (%d)" % stand["pillen"])
+
+    # Tippen auf eine Kachel öffnet das Blatt - ohne die Seite zu scrollen.
+    y_vorher = seite.evaluate("() => scrollY")
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    seite.wait_for_timeout(500)
+    blatt = seite.evaluate("""() => {
+        const b = document.getElementById('detail-panel').getBoundingClientRect();
+        const sp = document.querySelector('.side-panel');
+        return {offen: document.body.classList.contains('detail-offen'),
+                fest: getComputedStyle(sp).position === 'fixed',
+                unten: Math.round(b.bottom), vh: innerHeight, y: scrollY,
+                titel: (document.querySelector('#detail-panel h2') || {}).textContent || '',
+                schleier: getComputedStyle(document.body, '::after').position === 'fixed',
+                gesperrt: getComputedStyle(document.body).overflow === 'hidden'}; }""")
+    pruefe(blatt["offen"] and blatt["fest"] and abs(blatt["unten"] - blatt["vh"]) <= 1
+           and bool(blatt["titel"].strip()),
+           "Tippen öffnet die Box als Blatt am unteren Rand (%s)" % blatt["titel"][:30])
+    pruefe(blatt["schleier"] and blatt["gesperrt"],
+           "dahinter ein Schleier, die Seite scrollt derweil nicht")
+    pruefe(blatt["y"] == y_vorher, "die Liste bleibt, wo sie war (scrollY %d)" % blatt["y"])
+    # ✕ schließt, die Auswahl ist weg.
+    seite.locator("#detail-panel .detail-close").click()
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("""() => !document.body.classList.contains('detail-offen')
+               && !document.querySelector('tbody tr.active')"""),
+           "das ✕ schließt das Blatt und hebt die Auswahl auf")
+    # Tippen auf den Schleier schließt ebenfalls.
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    seite.wait_for_timeout(400)
+    seite.mouse.click(195, 30)
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("() => !document.body.classList.contains('detail-offen')"),
+           "ein Tippen auf den Schleier schließt das Blatt")
+    # Escape schließt und gibt den Fokus an die Kachel zurück.
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    seite.wait_for_timeout(400)
+    seite.keyboard.press("Escape")
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("""() => !document.body.classList.contains('detail-offen')
+               && document.activeElement.matches('tbody tr[data-idx]')"""),
+           "Escape schließt das Blatt, der Fokus steht auf der Kachel")
+
+    # Aufklappen öffnet KEIN Blatt (man will die Strecken sehen); der
+    # Block hängt als eine Kachel zusammen, Rahmen in --frame, die
+    # Strecken wiederholen Datum und Ort nicht.
+    seite.evaluate("() => document.querySelector('tr.group-row[data-klapp]').click()")
+    seite.wait_for_timeout(400)
+    block = seite.evaluate("""() => {
+        const r = document.querySelector('tr.group-row.open');
+        if (!r) return null;
+        const frame = getComputedStyle(document.documentElement).getPropertyValue('--frame').trim();
+        const zeilen = [r];
+        let n = r.nextElementSibling;
+        while (n && n.classList.contains('sub-row')) { zeilen.push(n); n = n.nextElementSibling; }
+        const letzte = zeilen[zeilen.length - 1];
+        const cs = (el) => getComputedStyle(el);
+        const px = (v) => Math.round(parseFloat(v));
+        // Die Farbe des Rahmens gegen --frame: über ein Probeelement, damit
+        // beide Schreibweisen (Hex, rgb) in derselben Form verglichen werden.
+        const probe = document.createElement('i'); probe.style.color = frame;
+        document.body.appendChild(probe); const frameRgb = cs(probe).color; probe.remove();
+        return {
+          blatt: document.body.classList.contains('detail-offen'),
+          zeilen: zeilen.length,
+          oben: px(cs(r).borderTopWidth), obenFarbe: cs(r).borderTopColor === frameRgb,
+          seiten: zeilen.every(z => px(cs(z).borderLeftWidth) === 2 && px(cs(z).borderRightWidth) === 2
+                                 && cs(z).borderLeftColor === frameRgb),
+          unten: px(cs(letzte).borderBottomWidth), untenFarbe: cs(letzte).borderBottomColor === frameRgb,
+          luecke: zeilen.slice(1).every((z, i) =>
+            Math.abs(z.getBoundingClientRect().top - zeilen[i].getBoundingClientRect().bottom) <= 1),
+          ohneDatum: zeilen.slice(1).every(z => cs(z.querySelector('td.col-datum')).display === 'none'),
+          farben: [...new Set(zeilen.map(z => cs(z).backgroundColor))].length
+        }; }""")
+    if pruefe(bool(block) and block["zeilen"] > 1, "eine Veranstaltung lässt sich aufklappen"):
+        pruefe(not block["blatt"], "Aufklappen öffnet kein Blatt")
+        pruefe(block["oben"] == 2 and block["obenFarbe"] and block["unten"] == 2 and block["untenFarbe"],
+               "der Rahmen: 2 px oben an der Veranstaltung, 2 px unten an der letzten Strecke")
+        pruefe(block["seiten"], "… und 2 px links und rechts an allen %d Kacheln des Blocks" % block["zeilen"])
+        pruefe(block["luecke"], "die Kacheln des Blocks hängen ohne Lücke aneinander")
+        pruefe(block["ohneDatum"], "die Strecken wiederholen das Datum nicht")
+        pruefe(block["farben"] == 1, "der Block ist in EINEM Ton hinterlegt")
+        # Tippen auf eine Strecke öffnet das Blatt mit dieser Strecke.
+        seite.locator("tr.sub-row").first.click()
+        seite.wait_for_timeout(400)
+        pruefe(seite.evaluate("() => document.body.classList.contains('detail-offen')"),
+               "Tippen auf eine Strecke im Block öffnet das Blatt")
+
+    # Ab 700 px (Tablet gedreht): wieder die Tabelle, der Seiten-Scroll
+    # nicht mehr gesperrt, die Box steht neben bzw. unter der Liste.
+    seite.set_viewport_size({"width": TABLET_BREITE, "height": 844})
+    seite.wait_for_timeout(400)
+    tablet = seite.evaluate("""() => ({
+        tabelle: getComputedStyle(document.querySelector('table')).display,
+        klasse: document.body.classList.contains('detail-offen'),
+        gesperrt: getComputedStyle(document.body).overflow === 'hidden',
+        fest: getComputedStyle(document.querySelector('.side-panel')).position === 'fixed'
+    })""")
+    pruefe(tablet["tabelle"] == "table" and not tablet["fest"],
+           "ab %d px ist es wieder die Tabelle" % TABLET_BREITE)
+    pruefe(not tablet["klasse"] and not tablet["gesperrt"],
+           "… und der Seiten-Scroll ist nicht mehr gesperrt")
     seite.close()
 
 
@@ -395,8 +579,11 @@ def pruefe_datum_zweizeilig(ctx, basis):
     Zeilenumbruch NACH dem Gedankenstrich und dass die Zeile dadurch
     nicht höher wird als jede andere.
     """
-    print("\nDatum über mehrere Tage")
+    print("\nDatum über mehrere Tage (Tabelle, %d px)" % TABLET_BREITE)
     seite, _ = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    # Die Zeilenhöhe ist eine Eigenschaft der TABELLE - unter 700 px
+    # stehen Kacheln (eigene Prüfung), deshalb hier Tablet-Breite.
+    seite.set_viewport_size({"width": TABLET_BREITE, "height": 844})
     seite.wait_for_timeout(1400)
     stand = seite.evaluate("""() => {
         const zellen = [...document.querySelectorAll('tbody tr td.col-datum')];
@@ -423,9 +610,14 @@ def pruefe_datum_zweizeilig(ctx, basis):
 
 def pruefe_gruppierung(ctx, basis):
     """Datenregel der Anzeige: N Strecken = aufgeklappt N Zeilen."""
-    print("\nZusammenfassen (events.html?gruppiert=1)")
+    print("\nZusammenfassen (events.html?gruppiert=1, Tabelle, %d px)" % TABLET_BREITE)
     seite, probleme = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1", "tr.group-row")
     pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    # Rahmen aus box-shadow, Zeilenhöhe, Pfeil in der Namensspalte: alles
+    # Eigenschaften der TABELLE. Unter 700 px stehen Kacheln - deren
+    # Rahmen prüft pruefe_kacheln.
+    seite.set_viewport_size({"width": TABLET_BREITE, "height": 844})
+    seite.wait_for_timeout(500)
     # Die Spalte „#" gibt es nicht mehr (sie wurde als Durchnummerierung
     # der Events gelesen). Die Zahl der Strecken kommt deshalb aus der
     # Trefferzeile: Auf EINE Veranstaltung eingegrenzt steht dort
@@ -1145,7 +1337,9 @@ def pruefe_tastatur(ctx, basis):
     else:
         ueberspringe("Filterknopf Land nicht gefunden")
 
-    # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück
+    # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück.
+    # Enter oben hat auf Handybreite das Blatt geöffnet - erst zu.
+    schliesse_blatt(seite)
     seite.locator("tbody tr").first.click()
     seite.wait_for_timeout(900)
     melden = seite.locator("#detail-panel .report-open-btn")
@@ -1724,6 +1918,7 @@ def main() -> int:
                                       is_mobile=True, has_touch=True)
             try:
                 pruefe_liste(ctx, basis)
+                pruefe_kacheln(ctx, basis)
                 pruefe_startseite(ctx, basis)
                 pruefe_mastersuche(ctx, basis)
                 pruefe_such_vorschlaege(ctx, basis)

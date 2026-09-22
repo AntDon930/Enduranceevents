@@ -270,6 +270,9 @@
   .sport-cell.sport-schwimmen .sport-icon { color: var(--sport-schwimmen); }
   .sport-cell.sport-triathlon .sport-icon { color: var(--sport-triathlon); }
   /* Bezeichnung des konkreten Wettbewerbs unter dem Namen. */
+  /* Die Beschriftung vor der Entfernung gibt es nur in der Kachelansicht
+     (unter 700 px, siehe unten). */
+  .kachel-label { display: none; }
   .wettbewerb {
     display: block;
     font-size: 0.78rem;
@@ -505,6 +508,237 @@
 
   @media (max-width: 900px) {
     .layout { padding: 0 var(--seite-rand); }
+  }
+
+  /* ---------- Handy: Kacheln statt Tabelle (unter 700 px) ----------
+     Die Tabelle ist mindestens 900 px breit; auf dem Handy lagen Länge,
+     Kategorie und Land außerhalb des Bildes, und man musste waagerecht
+     scrollen, um sie zu sehen (vom Nutzer gefragt, 22.09.2026: "Was
+     genau passiert da bei der Handyansicht?"). Unter 700 px wird
+     DIESELBE Tabelle deshalb als Stapel von Kacheln gezeichnet: Jede
+     <tr> ist ein Raster, jede <td> steht auf einem festen Platz darin
+     (grid-area über die Spaltenklasse). Es entsteht kein zweites Markup
+     - Sortierung, Fenster, Zusammenfassen, Auswahl und Tastatur laufen
+     unverändert über dieselben Zeilen, nur das Stylesheet sieht anders
+     aus. Die Kopfzeile wird zu einer Reihe von Sortier-Pillen.
+     Tablet und Laptop (ab 700 px) behalten die Tabelle. */
+  @media (max-width: 699px) {
+    .table-wrap {
+      background: none;
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+      max-height: none;
+    }
+    table, thead, tbody { display: block; }
+    /* Auch table.with-distance (960 px mit Entfernungs-Spalte) - die
+       Klassenregel schlüge das nackte `table` sonst. */
+    table, table.with-distance { min-width: 0; width: auto; font-size: 0.9rem; }
+    /* Die Spaltenbreiten der Tabelle (.col-*, 13 % usw.) gelten hier
+       nicht - [class] hebt die Spezifität über die Klassenregel. */
+    thead th[class], tbody td[class] { width: auto; }
+    /* Kopfzeile: "Sortieren" + eine Pille je sortierbare Spalte. */
+    thead { margin: 0 0 12px; }
+    thead tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+    thead tr::before {
+      content: attr(data-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+    thead th { position: static; display: block; border: 0; background: none; }
+    thead th:not(.sortierbar) { display: none; }
+    .th-inner { padding: 0; }
+    .th-sort {
+      flex: none;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: var(--panel);
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      min-height: 32px;
+    }
+    .th-sort.active {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    /* Die Kachel: Datum und Sportart oben, Name breit darunter, dann
+       Ort und Land, dann Kategorie und - rechts groß - die Länge. */
+    tbody tr {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "datum art1"
+        "name name"
+        "standort land"
+        "entfernung entfernung"
+        "art2 laenge";
+      column-gap: 12px;
+      row-gap: 4px;
+      align-items: center;
+      height: auto;
+      contain-intrinsic-size: auto 132px;
+      margin: 0 0 10px;
+      padding: 12px 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    tbody tr:nth-child(even) { background: var(--panel); }
+    tbody tr:hover { background: var(--panel); }
+    /* Der Block bleibt auch hier in EINEM Ton - die Zebra-Regel darüber
+       darf die Strecken nicht wieder weiß machen. */
+    tbody tr.group-row.open, tbody tr.sub-row, tbody tr.sub-row:hover { background: var(--accent-bg); }
+    /* Ohne Pfeil kein Einzug: der Platzhalter der Tabelle hat hier
+       keinen Nachbarn, an dem er ausrichten müsste. */
+    .chevron-spacer { display: none; }
+    tbody tr.active, tbody tr.active:hover { background: var(--accent-bg); border-color: var(--border-strong); }
+    tbody tr:focus-visible { outline-offset: 0; }
+    tbody td { display: block; padding: 0; border: 0; min-width: 0; }
+    td.col-datum { grid-area: datum; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+    td.col-datum .cell-clamp { white-space: normal; }
+    td.col-art1 { grid-area: art1; font-size: 0.8rem; color: var(--text-muted); justify-self: end; }
+    td.col-name { grid-area: name; font-weight: 600; padding-top: 2px; }
+    td.col-standort { grid-area: standort; font-size: 0.85rem; color: var(--text-muted); }
+    td.col-land { grid-area: land; font-size: 0.85rem; color: var(--text-muted); justify-self: end; text-align: right; }
+    td.col-entfernung { grid-area: entfernung; font-size: 0.85rem; color: var(--text-muted); }
+    td.col-art2 { grid-area: art2; font-size: 0.82rem; color: var(--text-muted); padding-top: 4px; }
+    td.col-laenge_km {
+      grid-area: laenge;
+      justify-self: end;
+      text-align: right;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding-top: 4px;
+    }
+    td.col-laenge_km .cell-clamp, td.col-laenge_km .cell-clamp.format { white-space: normal; }
+    /* Nur in der Kachel steht vor der Entfernung, was die Zahl ist -
+       in der Tabelle sagt es der Spaltenkopf. */
+    .kachel-label { display: inline; }
+    /* Der Name darf zwei Zeilen haben, auch zugeklappt. */
+    .group-row { font-weight: 600; }
+    .group-name-text {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    tbody tr.group-row.open { font-weight: 600; }
+    /* Der Rahmen um die aufgeklappte Veranstaltung: die Kacheln des
+       Blocks hängen aneinander (kein Abstand, Rundung nur oben an der
+       ersten und unten an der letzten), Rand in --frame - hier über
+       border, weil eine Kachel ihre Höhe ohnehin vom Inhalt nimmt. Die
+       box-shadow-Regeln der Tabelle gelten hier nicht. */
+    tbody tr.group-row.open > td, tbody tr.sub-row > td,
+    tbody tr.group-row.open > td:first-child, tbody tr.sub-row > td:first-child,
+    tbody tr.group-row.open > td:last-child, tbody tr.sub-row > td:last-child,
+    tbody tr.sub-row.letzte > td, tbody tr.sub-row.letzte > td:first-child,
+    tbody tr.sub-row.letzte > td:last-child { box-shadow: none; }
+    tbody tr.group-row.open {
+      border: 2px solid var(--frame);
+      border-bottom: 0;
+      border-radius: 14px 14px 0 0;
+      margin-bottom: 0;
+    }
+    tbody tr.sub-row {
+      border: 2px solid var(--frame);
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      grid-template-areas:
+        "name name"
+        "art2 laenge";
+    }
+    tbody tr.sub-row .col-name { padding-left: 32px; }
+    /* Datum, Ort und Land wiederholen in der Strecke nur die
+       Veranstaltung darüber - der Rahmen sagt, dass sie dazugehört. */
+    tbody tr.sub-row .col-datum, tbody tr.sub-row .col-standort,
+    tbody tr.sub-row .col-land, tbody tr.sub-row .col-entfernung,
+    tbody tr.sub-row .col-art1 { display: none; }
+    tbody tr.sub-row.letzte {
+      border-bottom: 2px solid var(--frame);
+      border-radius: 0 0 14px 14px;
+      margin-bottom: 10px;
+    }
+    /* Der "Mehr"-Knopf, die Leermeldung und die Platzhalter. */
+    tbody tr.mehr-row, tbody tr.empty-row {
+      display: block;
+      /* Immer gezeichnet: Mit content-visibility: auto wäre der Knopf
+         beim Hineinscrollen einen Moment lang nicht anklickbar (die
+         Zeile fängt den Klick, ihr Inhalt ist noch nicht gesetzt). */
+      content-visibility: visible;
+      padding: 0;
+      background: none;
+      border: 0;
+      cursor: default;
+    }
+    .mehr-row .mehr-inner { position: static; width: auto; padding: 4px 0 12px; text-align: center; }
+    .mehr-row .mehr-btn { width: 100%; padding: 12px 16px; }
+    .empty-row td { padding: 28px 12px; }
+    .skeleton-row td:nth-child(n+4) { display: none; }
+    .skeleton-row td { grid-area: auto; }
+
+    /* Die Detail-Box als Blatt von unten (Bottom-Sheet) über der Liste.
+       Ohne Auswahl ist sie unsichtbar; der Klick auf eine Kachel, Enter
+       und ein geteilter Link öffnen sie (body.detail-offen, gesetzt in
+       aktualisiereDetailSheet). Dahinter ein abdunkelnder Schleier,
+       ein Tippen darauf, das ✕ oder Escape schließen sie wieder. */
+    .side-panel {
+      display: none;
+      position: fixed;
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1500;
+      max-height: 88vh;
+      max-height: 88dvh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      align-items: stretch;
+      gap: 0;
+      box-shadow: var(--shadow);
+    }
+    body.detail-offen .side-panel { display: flex; }
+    body.detail-offen { overflow: hidden; }
+    body.detail-offen::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 1400;
+      background: rgba(11, 27, 51, 0.55);
+    }
+    .side-panel .detail-panel {
+      border-radius: 16px 16px 0 0;
+      border-bottom: 0;
+      padding-top: 26px;
+      padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+    }
+    /* Der Griff oben in der Mitte - das übliche Zeichen für "nach unten
+       wegschieben". */
+    .side-panel .detail-panel::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--border-strong);
+      margin: -12px auto 14px;
+    }
   }
 </style>
 </head>
@@ -764,6 +998,7 @@
       abo_loeschen: 'Löschen',
       col_entfernung: 'Entfernung',
       sort_hint: 'Klicken zum Sortieren',
+      sortieren_nach: 'Sortieren',
       group_toggle: 'Events zusammenfassen',
       // Kurz halten: Die deutsche Fassung brach sonst in eine zweite
       // Zeile um ("2472 Veranstaltungen (4344 Strecken) von 4344 Events"
@@ -868,6 +1103,7 @@
       abo_loeschen: 'Delete',
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
+      sortieren_nach: 'Sort by',
       group_toggle: 'Group by event',
       result_count_grouped: (g) => `${g} events`,
       share_search: 'Share this search',
@@ -1107,6 +1343,11 @@
   // beide laufen weit vor dieser Textstelle - Temporal Dead Zone).
   let deepEventSlug = null;
   let deepMelden = false;
+  // Ob die Detail-Box auf dem Handy als Blatt über der Liste offen ist
+  // (Kachelansicht unter 700 px, siehe aktualisiereDetailSheet). Am
+  // Rechner steht die Box immer daneben, dort spielt es keine Rolle.
+  let detailOffen = false;
+  const KACHEL_MQ = window.matchMedia ? window.matchMedia('(max-width: 699px)') : null;
   const FENSTER_SCHRITT = 200;
   let fenster = null;
   // Die angeforderte Bild-Aktualisierung des Nachladens. Steht hier
@@ -1403,7 +1644,7 @@
   // eine Liste. Auf dem Handy steht die Box unter der Tabelle, also
   // hinscrollen (am Rechner steht sie daneben und zeigt es schon - dann
   // bewegt sich nichts, siehe zeigeDetailbereich).
-  if (deepEventSlug) zeigeDetailbereich();
+  if (deepEventSlug) oeffneDetail();
   // ?melden=1 (Melde-Knopf der Karte) öffnet den Dialog - aber erst ganz
   // am Ende des Skripts: openReportModal() braucht reportOverlay und
   // reportFesselGesetzt, die weiter unten deklariert sind (Temporal
@@ -1547,9 +1788,13 @@
 
   function buildHeader() {
     headerRowEl.innerHTML = '';
+    // Die Beschriftung der Pillenreihe in der Kachelansicht ("Sortieren").
+    headerRowEl.dataset.label = t('sortieren_nach');
     activeColumns().forEach(col => {
       const th = document.createElement('th');
-      th.className = `col-${col.key}`;
+      // `sortierbar`: in der Kachelansicht werden nur diese Spalten zu
+      // Pillen, die anderen Köpfe verschwinden (CSS).
+      th.className = `col-${col.key}${SORT_KEYS[col.key] ? ' sortierbar' : ''}`;
       const inner = document.createElement('div');
       inner.className = 'th-inner';
       // Kurzer Spaltenname, wo es einen gibt ("Ort" statt "Ort & Umkreis"
@@ -1699,7 +1944,9 @@
       // siehe VALUE_TRANSLATIONS.standort). Alle anderen ~1.500 Orte
       // gibt tv() unverändert zurück.
       case 'standort': return td(`<div class="cell-clamp">${escapeHtml(tv('standort', e.standort))}</div>`);
-      case 'entfernung': return td(`<div class="cell-clamp">${escapeHtml(formatDistance(e))}</div>`);
+      // Die Beschriftung sieht nur die Kachelansicht (.kachel-label) -
+      // in der Tabelle sagt der Spaltenkopf, was die Zahl ist.
+      case 'entfernung': return td(`<div class="cell-clamp"><span class="kachel-label">${escapeHtml(t('col_entfernung'))}: </span>${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp sport-cell ${EED.sportClass(e.art1)}">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
       case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}${charityMarke(e)}</div>`);
       case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${formatLength(e)}</div>`);
@@ -2172,7 +2419,7 @@
       }
       waehleZeile(Number(tr.dataset.idx));
       if (k === 'Enter') {
-        zeigeDetailbereich();
+        oeffneDetail();
         // tabindex="-1" am Detailbereich (siehe HTML): ansteuerbar, aber
         // kein zusätzlicher Tab-Stopp.
         if (detailEl) detailEl.focus();
@@ -2220,7 +2467,7 @@
     selectedIndex = idx;
     markiereAuswahl();
     renderDetail();
-    if (opts && opts.zeigeDetail) zeigeDetailbereich();
+    if (opts && opts.zeigeDetail) oeffneDetail();
   }
 
   // Auf dem Handy wirkte ein Tippen auf eine Zeile folgenlos: unter 900 px
@@ -2234,6 +2481,9 @@
   // dieselbe Rücksicht wie bei den Übergängen im Stylesheet.
   function zeigeDetailbereich() {
     if (!detailEl) return;
+    // In der Kachelansicht liegt die Box als Blatt ÜBER der Liste - da
+    // gibt es nichts hinzuscrollen.
+    if (istKachelmodus()) return;
     const box = detailEl.getBoundingClientRect();
     const sichtbar = box.top < window.innerHeight - 80 && box.bottom > 80;
     if (sichtbar) return;
@@ -2247,6 +2497,56 @@
       detailEl.scrollIntoView();
     }
   }
+
+  // ---------- Die Detail-Box auf dem Handy: ein Blatt über der Liste ----------
+  //
+  // Unter 700 px ist die Liste ein Stapel von Kacheln (siehe das
+  // Stylesheet), und die Box steht nicht mehr unter ihr, sondern kommt
+  // als Blatt von unten (body.detail-offen). Geöffnet wird sie nur, wo
+  // jemand sie ausdrücklich will - Tippen auf eine Kachel, Enter, ein
+  // geteilter Link (oeffneDetail) -, NICHT beim Bewegen mit den
+  // Pfeiltasten: Da wählt man Zeile für Zeile aus, und ein Blatt, das
+  // dabei jedes Mal die Liste verdeckt, wäre im Weg. Das ✕ in der Box,
+  // ein Tippen auf den Schleier und Escape schließen sie
+  // (schliesseDetail). Am Rechner ändert sich nichts: Dort ist die Box
+  // immer sichtbar, die Klasse am <body> wirkt nur unter 700 px.
+  function istKachelmodus() {
+    return !!(KACHEL_MQ && KACHEL_MQ.matches);
+  }
+
+  function aktualisiereDetailSheet() {
+    const offen = istKachelmodus() && detailOffen
+      && selectedIndex !== null && !!events[selectedIndex];
+    document.body.classList.toggle('detail-offen', offen);
+  }
+
+  function oeffneDetail() {
+    detailOffen = true;
+    aktualisiereDetailSheet();
+    zeigeDetailbereich();
+  }
+
+  // Wechselt das Fenster die Breite (Tablet gedreht), gilt die Klasse
+  // sofort oder gar nicht mehr - sonst bliebe am Rechner der Seiten-
+  // Scroll gesperrt.
+  if (KACHEL_MQ) {
+    const beiWechsel = () => aktualisiereDetailSheet();
+    if (KACHEL_MQ.addEventListener) KACHEL_MQ.addEventListener('change', beiWechsel);
+    else if (KACHEL_MQ.addListener) KACHEL_MQ.addListener(beiWechsel);
+  }
+  // Der Schleier ist ein ::after des <body>; ein Tippen darauf trifft
+  // den <body> selbst - alles andere liegt darunter oder in der Box.
+  document.addEventListener('click', (ev) => {
+    if (ev.target === document.body && detailOffen && istKachelmodus()) schliesseDetail();
+  });
+  // Escape schließt das Blatt - aber nicht, solange ein Dialog oder das
+  // Filter-Panel offen ist: Die haben ihren eigenen Escape, und der
+  // Fokus soll dann dorthin zurück, nicht in die Liste.
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'Escape' || ev.defaultPrevented || !detailOffen || !istKachelmodus()) return;
+    if (document.querySelector('.ee-modal-overlay:not([hidden]), .filter-panel:not([hidden])')) return;
+    schliesseDetail();
+  });
 
   // Bei Gruppierung sind zwei Zeilen zu markieren: die Unterzeile selbst
   // und die Veranstaltungszeile darüber (sie kann zugeklappt sein).
@@ -2679,6 +2979,7 @@
     const zeile = bodyEl.querySelector(`tr[data-idx="${selectedIndex}"]`);
     selectedIndex = null;
     deepEventSlug = null;
+    detailOffen = false;
     markiereAuswahl();
     renderDetail();
     writeUrlState();
@@ -2700,6 +3001,7 @@
   }
 
   function renderDetail() {
+    aktualisiereDetailSheet();
     if (selectedIndex === null || !events[selectedIndex]) {
       EED.renderEmpty(detailEl, detailKontext());
       return;
