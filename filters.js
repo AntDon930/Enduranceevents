@@ -765,6 +765,64 @@
     });
   }
 
+  // ---------- Laden: events.web.json zuerst, events.json als Rückfall ----------
+  //
+  // `events.json` bleibt die lesbare Quelle (Scraper, Overrides, Diff im
+  // wöchentlichen Commit). Für den Browser erzeugt scripts/build_web_data.py
+  // daraus `events.web.json`: ein Array je Feld plus ein Wörterbuch der
+  // Werte, Index -1 = Feld fehlt. Gemessen bei 20.770 Events: 300 statt
+  // 830 KB gzip - der Download war nach dem Fenster der Tabelle der ganze
+  // Rest der Ladezeit (README, "Vorbereitung auf über 20.000 Events").
+  // Die Datei wird nicht committet, sondern im Pages-Workflow erzeugt;
+  // fehlt sie (lokal mit `python3 -m http.server`), lädt der Loader
+  // events.json - die Seiten merken keinen Unterschied.
+  const WEB_DATA_FORMAT = 'endurance-web-1';
+
+  function decodeWebData(d) {
+    if (!d || d.format !== WEB_DATA_FORMAT) throw new Error('unbekanntes Datenformat');
+    const n = d.anzahl;
+    const out = new Array(n);
+    for (let i = 0; i < n; i++) out[i] = {};
+    for (const f of d.felder) {
+      const w = d.werte[f];
+      const idx = d.zeilen[f];
+      for (let i = 0; i < n; i++) {
+        const k = idx[i];
+        if (k >= 0) out[i][f] = w[k];
+      }
+    }
+    return out;
+  }
+
+  // "Stand: Mo, 21.09.2026" in der Werkzeugleiste: bei der kompakten
+  // Datei der Tag des letzten Datencommits (steht in der Datei), sonst
+  // der Last-Modified-Header von events.json (GitHub Pages schickt ihn,
+  // der lokale Server auch). Fehlt beides, bleibt es null.
+  function standAusHeader(res) {
+    try {
+      const lm = res.headers.get('Last-Modified');
+      if (!lm) return null;
+      const d = new Date(lm);
+      if (Number.isNaN(d.getTime())) return null;
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    } catch (e) { return null; }
+  }
+
+  async function loadEvents(opts) {
+    const web = (opts && opts.web) || 'events.web.json';
+    const json = (opts && opts.json) || 'events.json';
+    try {
+      const res = await fetch(web);
+      if (res.ok) {
+        const d = await res.json();
+        return { events: decodeWebData(d), stand: d.stand || standAusHeader(res), quelle: web };
+      }
+    } catch (e) { /* Rückfall auf events.json */ }
+    const res = await fetch(json);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return { events: await res.json(), stand: standAusHeader(res), quelle: json };
+  }
+
   function distanceFromOrigin(state, e) {
     if (!state.origin || e.lat == null || e.lon == null) return null;
     return haversineKm(state.origin.lat, state.origin.lon, e.lat, e.lon);
@@ -1192,6 +1250,8 @@
     hasFilters,
     haversineKm,
     dropPastEvents,
+    decodeWebData,
+    loadEvents,
     distanceFromOrigin,
     matchesDistanceCategory,
     matchEvent,

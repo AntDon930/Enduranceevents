@@ -27,6 +27,7 @@ from __future__ import annotations
 import functools
 import glob
 import http.server
+import subprocess
 import re
 import os
 import socket
@@ -1661,6 +1662,30 @@ def pruefe_karte_und_rundweg(ctx, basis):
     seite.close()
 
 
+def pruefe_datenrueckfall(ctx, basis, web_daten):
+    """Ohne events.web.json (lokal mit `python3 -m http.server`) lädt die
+    Liste events.json - und zeigt dieselbe Zahl. Die eine 404 der
+    kompakten Datei ist dabei erwartet und wird nicht als Fehler gezählt."""
+    print("\nRückfall auf events.json:")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    seite.wait_for_function("() => /\\d/.test(document.querySelector('#result-count')?.textContent || '')")
+    mit = seite.evaluate("() => document.querySelector('#result-count').textContent")
+    quelle_mit = seite.evaluate("() => fetch('events.web.json').then(r => r.status)")
+    pruefe(quelle_mit == 200, "events.web.json wird ausgeliefert (HTTP %s)" % quelle_mit)
+    seite.close()
+    os.rename(web_daten, web_daten + ".weg")
+    try:
+        seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+        seite.wait_for_function("() => /\\d/.test(document.querySelector('#result-count')?.textContent || '')")
+        ohne = seite.evaluate("() => document.querySelector('#result-count').textContent")
+        rest = [p for p in probleme if "events.web.json" not in p]
+        pruefe(not rest, "ohne events.web.json lädt die Liste ohne andere Fehler (%s)" % ("; ".join(rest) or "keine"))
+        pruefe(ohne == mit and mit.strip() != "", "gleiche Trefferzahl mit und ohne kompakte Datei (%s / %s)" % (mit.strip(), ohne.strip()))
+        seite.close()
+    finally:
+        os.rename(web_daten + ".weg", web_daten)
+
+
 def main() -> int:
     sichtbar = "--sichtbar" in sys.argv
     try:
@@ -1670,6 +1695,15 @@ def main() -> int:
               "(pip install playwright && playwright install chromium).")
         return 0
 
+    # Die kompakte Datenfassung liegt nicht im Repo (Pages-Workflow
+    # erzeugt sie, .gitignore) - für den Rauchtest wird sie gebaut, damit
+    # derselbe Weg geprüft wird, den die Seite live nimmt. Eine schon
+    # vorhandene Datei bleibt danach stehen, eine hier erzeugte wird
+    # wieder entfernt.
+    web_daten = os.path.join(WURZEL, "events.web.json")
+    web_daten_war_da = os.path.exists(web_daten)
+    subprocess.run([sys.executable, os.path.join(WURZEL, "scripts", "build_web_data.py")],
+                   check=True, capture_output=True)
     srv, port = starte_server()
     basis = "http://127.0.0.1:%d" % port
     print("Rauchtest gegen %s (Handybreite 390 px)" % basis)
@@ -1703,10 +1737,13 @@ def main() -> int:
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
                 pruefe_farbschema(ctx, basis)
+                pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:
                 browser.close()
     finally:
         srv.shutdown()
+        if not web_daten_war_da and os.path.exists(web_daten):
+            os.remove(web_daten)
 
     schlecht = [t for ok, t in ergebnisse if not ok]
     print("\n%d Prüfungen, %d übersprungen" % (len(ergebnisse), len(uebersprungen)))

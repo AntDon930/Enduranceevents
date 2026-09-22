@@ -2566,7 +2566,7 @@ Array je Feld, und für Felder mit wenigen verschiedenen Werten (`land`,
 Zahlen-Indizes. 300 statt 827 KB heißt bei 1,6 Mbit/s rund 1,5 s statt
 4,1 s.
 
-**Vorgeschlagener Weg** (noch nicht gebaut, absichtlich):
+**Der Weg – gebaut am 22.09.2026** (die Messung dazu steht darunter):
 
 1. `events.json` bleibt **die Quelle**: lesbar, einzeln diffbar – der
    wöchentliche Commit muss durchsehbar bleiben. Scraper,
@@ -2586,6 +2586,41 @@ Zahlen-Indizes. 300 statt 827 KB heißt bei 1,6 Mbit/s rund 1,5 s statt
 5. Die CI prüft den Rückweg: `build_web_data.py` erzeugen, dekodieren,
    mit `events.json` vergleichen. Ein Format, das beim Dekodieren etwas
    verliert, fällt sofort auf.
+
+So ist es gebaut: `scripts/build_web_data.py` (`kodieren()`/`dekodieren()`,
+Format `endurance-web-1`: `felder`, je Feld ein Wörterbuch `werte` und
+ein Index-Array `zeilen`, Index -1 = Feld fehlt – null bleibt ein Wert,
+der Rückweg ist damit auch für „Feld fehlt“ gegen „Feld ist null“
+verlustfrei), `EF.decodeWebData()` und `EF.loadEvents()` in `filters.js`
+(Liste, Karte und Startseite laden über denselben Aufruf; `stand` kommt
+aus der Datei – der Tag des letzten Datencommits, den der Workflow per
+`git log` einträgt – sonst aus dem Last-Modified-Header), der Schritt
+„events.web.json erzeugen“ in `pages.yml` (mit `fetch-depth: 0`, sonst
+stünde der Deploy-Tag als Stand), `events.web.json` in `.gitignore`,
+`test_web_data` in `test_scraper_lib.py` (Rückweg in Python UND mit dem
+echten Dekodierer in node über den ganzen Bestand) und im Rauchtest die
+Prüfung des Rückfalls: ohne die Datei lädt die Liste dieselbe Trefferzahl
+aus `events.json`. Der Rauchtest und `bench_frontend.py` erzeugen die
+Datei selbst (`--ohne-web` misst den alten Weg). Die `preload`-Zeile
+zeigt auf `events.web.json`; lokal ohne die Datei ist das eine 404 in der
+Konsole und sonst nichts.
+
+Gemessen am 22.09.2026, Handy-Bedingungen wie oben (4× gebremste CPU,
+1,6 Mbit/s, gzip), `bench_frontend.py --faktor 5` gegen `--ohne-web`:
+
+| | `events.json` (alter Weg) | `events.web.json` |
+|---|---|---|
+| heutiger Stand (3.861 Events), gzip | 155 KB | **116 KB** |
+| heutiger Stand, bis die Liste steht | 3.035 ms | 3.086 ms |
+| 5-facher Stand (19.305 Events), gzip | ~830 KB | **249 KB** |
+| 5-facher Stand, bis die Liste steht | 6.974 ms | **3.749 ms** |
+| davon Datei (Netz + Parse) | – | 2.797 ms |
+
+Beim heutigen Stand ändert sich nichts Messbares (die Datei ist so oder
+so klein gegen die Skripte), beim großen Stand halbiert sich die
+Ladezeit. Was bleibt, sind die 1,6 s bis DOMContentLoaded (Skripte und
+Stylesheets) und das Parsen; das Sortieren nach Name (1,5 s bei 19.305
+Events) ist der nächste Posten, falls er je stört.
 
 Erst wenn das nicht mehr reicht (deutlich über 40.000 Events), lohnt das
 Aufteilen nach Jahr mit Nachladen beim Filtern – das kostet die

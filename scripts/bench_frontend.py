@@ -42,10 +42,12 @@ import shutil
 import socket
 import socketserver
 import tempfile
+import sys
 import threading
 import time
 
 WURZEL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(WURZEL, "scripts"))
 EVENTS = os.path.join(WURZEL, "events.json")
 
 # Andere Orte für einen Teil der Kopien: sonst wüchsen die Filterlisten
@@ -54,10 +56,10 @@ STAEDTE = ["Bremen", "Kiel", "Erfurt", "Jena", "Ulm", "Passau", "Graz", "Linz",
            "Bern", "Luzern", "Chur", "Sion", "Trier", "Kassel", "Gera"]
 
 
-def baue_datenstand(ziel: str, faktor: int) -> int:
+def baue_datenstand(ziel: str, faktor: int, ohne_web: bool = False) -> int:
     """Legt einen Messordner an: Symlinks aufs Repo, eigene events.json."""
     for name in os.listdir(WURZEL):
-        if name in (".git", "events.json"):
+        if name in (".git", "events.json", "events.web.json"):
             continue
         link = os.path.join(ziel, name)
         if not os.path.lexists(link):
@@ -87,6 +89,13 @@ def baue_datenstand(ziel: str, faktor: int) -> int:
     # "x": schlägt fehl, wenn dort schon etwas liegt - siehe Docstring.
     with open(pfad, "x", encoding="utf-8") as fh:
         json.dump(gross, fh, ensure_ascii=False, indent=2)
+    # Dazu die kompakte Fassung, wie sie der Pages-Workflow erzeugt - das
+    # ist der Weg, den die Seite live nimmt. `--ohne-web` lässt sie weg
+    # und misst den Rückfall auf events.json (die alte Ladezeit).
+    if not ohne_web:
+        from build_web_data import kodieren
+        with open(os.path.join(ziel, "events.web.json"), "x", encoding="utf-8") as fh:
+            json.dump(kodieren(gross, stand="2026-01-01"), fh, ensure_ascii=False, separators=(",", ":"))
     return len(gross)
 
 
@@ -180,8 +189,9 @@ def messe(pw, ordner: str, titel: str, sichtbar: bool) -> None:
 
         stand = seite.evaluate("""() => {
             const r = performance.getEntriesByType('resource')
-                .find(x => /events\\.json/.test(x.name)) || {};
-            return {zeilen: document.querySelectorAll('tbody tr').length,
+                                .find(x => /events\\.(web\\.)?json/.test(x.name) && x.encodedBodySize > 0) || {};
+            return {datei: (r.name || '').split('/').pop(),
+                    zeilen: document.querySelectorAll('tbody tr').length,
                     knoten: document.getElementsByTagName('*').length,
                     treffer: document.querySelector('.result-count').textContent.trim(),
                     json_ms: Math.round(r.duration || 0),
@@ -222,8 +232,8 @@ def messe(pw, ordner: str, titel: str, sichtbar: bool) -> None:
         print("\n%s" % titel)
         print("  bis die Liste steht        %6d ms  (DOMContentLoaded %d ms)"
               % (round((t_liste - t0) * 1000), round((t_dom - t0) * 1000)))
-        print("  events.json (Netz+Parse)   %6d ms  (%d KB gzip)"
-              % (stand["json_ms"], stand["json_kb"]))
+        print("  %-18s (Netz+Parse) %5d ms  (%d KB gzip)"
+              % (stand["datei"] or "events.json", stand["json_ms"], stand["json_kb"]))
         print("  Zeilen im DOM              %6d     (%d Knoten, %s MB HTML)"
               % (stand["zeilen"], stand["knoten"], stand["html_mb"]))
         print("  Trefferzahl                %s" % stand["treffer"])
@@ -245,6 +255,8 @@ def main() -> int:
     p.add_argument("--faktor", type=int, default=5,
                    help="wie oft der echte Datenstand vervielfacht wird (1 = nur echt)")
     p.add_argument("--sichtbar", action="store_true", help="mit Browserfenster")
+    p.add_argument("--ohne-web", action="store_true",
+                   help="ohne events.web.json messen (Rückfall auf events.json, der alte Ladeweg)")
     args = p.parse_args()
 
     try:
@@ -257,17 +269,32 @@ def main() -> int:
     with open(EVENTS, "rb") as fh:
         vorher = fh.read()
 
+    # Für den heutigen Stand die kompakte Datei im Repo erzeugen (wie der
+    # Pages-Workflow) und danach wieder entfernen - sie gehört nicht ins Repo.
+    web_daten = os.path.join(WURZEL, "events.web.json")
+    web_daten_war_da = os.path.exists(web_daten)
+    if not args.ohne_web and not web_daten_war_da:
+        from build_web_data import schreiben
+        schreiben()
+    elif args.ohne_web and web_daten_war_da:
+        os.rename(web_daten, web_daten + ".bench")
+
     with sync_playwright() as pw:
         messe(pw, WURZEL, "Heutiger Stand (%d Events)"
               % len(json.loads(vorher.decode("utf-8"))), args.sichtbar)
         if args.faktor > 1:
             ordner = tempfile.mkdtemp(prefix="ee-bench-")
             try:
-                anzahl = baue_datenstand(ordner, args.faktor)
+                anzahl = baue_datenstand(ordner, args.faktor, args.ohne_web)
                 messe(pw, ordner, "Synthetischer Stand (%d Events, %d×)"
                       % (anzahl, args.faktor), args.sichtbar)
             finally:
                 shutil.rmtree(ordner, ignore_errors=True)
+
+    if not args.ohne_web and not web_daten_war_da and os.path.exists(web_daten):
+        os.remove(web_daten)
+    elif args.ohne_web and web_daten_war_da:
+        os.rename(web_daten + ".bench", web_daten)
 
     with open(EVENTS, "rb") as fh:
         nachher = fh.read()

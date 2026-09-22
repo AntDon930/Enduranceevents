@@ -23,8 +23,24 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # fetch-depth 0: build_web_data.py liest den Tag des letzten
+      # Datencommits aus `git log -- events.json` (die Werkzeugleiste zeigt
+      # ihn als "Stand"); mit einem flachen Checkout stünde dort der
+      # Deploy-Tag.
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Die kompakte Datenfassung entsteht hier, nicht im Repo (siehe
+      # scripts/build_web_data.py und CLAUDE.md). Die Seiten laden sie
+      # zuerst und fallen auf events.json zurück, wenn sie fehlt.
+      - name: events.web.json erzeugen
+        run: python3 scripts/build_web_data.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

@@ -56,11 +56,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Endurance Events – Ausdauersport im deutschsprachigen Raum">
 <meta name="twitter:card" content="summary_large_image">
-<!-- events.json ist das, worauf die Seite wartet - deshalb wird der
+<!-- Die Daten sind das, worauf die Seite wartet - deshalb wird der
      Download hier angestossen, noch bevor der Browser das Stylesheet und
      die Skripte gesehen hat. Ohne diese Zeile begann er erst, nachdem
-     filters.js und filter-ui.js geladen UND ausgefuehrt waren. -->
-<link rel="preload" href="events.json" as="fetch" type="application/json" crossorigin="anonymous">
+     filters.js und filter-ui.js geladen UND ausgefuehrt waren.
+     events.web.json ist die kompakte Fassung aus dem Pages-Workflow
+     (scripts/build_web_data.py); fehlt sie, laedt EF.loadEvents()
+     events.json - dann ist diese Zeile nur eine 404 in der Konsole. -->
+<link rel="preload" href="events.web.json" as="fetch" type="application/json" crossorigin="anonymous">
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
@@ -679,7 +682,7 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=f0821945"></script>
+<script src="filters.js?v=2380c892"></script>
 <script src="filter-ui.js?v=84bd77d8"></script>
 <script src="event-detail.js?v=ddf7318e"></script>
 
@@ -699,7 +702,7 @@
   // ?v=<Stempel>-Anhänge an den Skripten sollen das verhindern
   // (scripts/stamp_assets.py), hier steht die Notbremse, falls doch.
   const EED = window.EnduranceDetail;
-  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EFU.create || !EED.render) {
+  if (!EF || !EFU || !EED || !EF.uniqueSorted || !EF.loadEvents || !EFU.create || !EED.render) {
     let spracheDe = true;
     try { spracheDe = localStorage.getItem('endurance-lang') !== 'en'; } catch (e) { /* ignorieren */ }
     document.getElementById('page-title').textContent =
@@ -1344,21 +1347,13 @@
   }
 
   try {
-    const res = await fetch('events.json');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    // "Stand: Mo, 21.09.2026" in der Werkzeugleiste: der Zeitpunkt, zu
-    // dem der Server die Datei zuletzt gespeichert hat (GitHub Pages
-    // schickt Last-Modified). Fehlt der Header, bleibt die Zeile leer.
-    try {
-      const lm = res.headers.get('Last-Modified');
-      if (lm) {
-        const d = new Date(lm);
-        if (!Number.isNaN(d.getTime())) {
-          datenStand = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-        }
-      }
-    } catch (e) { /* kein Stand */ }
-    events = dropPastEvents(await res.json());
+    // events.web.json zuerst (kompakt, im Pages-Workflow erzeugt), sonst
+    // events.json - EF.loadEvents entscheidet, siehe filters.js. "Stand:
+    // Mo, 21.09.2026" in der Werkzeugleiste kommt mit: der Tag des
+    // letzten Datencommits bzw. der Last-Modified-Header der Datei.
+    const geladen = await EF.loadEvents();
+    datenStand = geladen.stand;
+    events = dropPastEvents(geladen.events);
     eventsGeladen = true;
   } catch (err) {
     setLanguage(currentLang, { skipRender: true });

@@ -64,6 +64,7 @@ nur einen sieht, sieht trotzdem alles.
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
+| `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
 gezielt abfragen:
@@ -3011,15 +3012,33 @@ Umkreis liegen in einer eigenen, **ungebündelten** Ebene
    (`zeigeMehr()`, siehe Frontend-Fallen). Das ist der Punkt, der den
    großen Datenlauf überhaupt tragbar macht.
 
-**Was beim großen Datenlauf (>20.000 Events) noch fehlt**: `events.json`
-ist dann ~7,5 MB (830 KB gzip) und braucht unter Handy-Bedingungen
-**5,4 s** – das ist nach dem Fenster der ganze Rest. Die Varianten sind
-gemessen und der Weg steht im README („Vorbereitung auf über 20.000
-Events"): Spalten-Arrays + Wörterbuch bringen 300 KB statt 830 KB, die
-kompakte Datei wird im Pages-Workflow erzeugt statt committet, der
-Dekodierer gehört in `filters.js`, und der Loader fällt auf
-`events.json` zurück. Kurze Schlüssel allein bringen fast nichts – gzip
-frisst Wiederholungen ohnehin.
+7. **Die Seiten laden `events.web.json`, nicht `events.json`** (seit dem
+   22.09.2026, Fahrplan-Punkt 2): `EF.loadEvents()` in `filters.js` holt
+   die kompakte Fassung (Spalten-Arrays + Wörterbuch je Feld, Index -1 =
+   Feld fehlt; `scripts/build_web_data.py`) und fällt auf `events.json`
+   zurück, wenn sie fehlt. Fünf Dinge daran nicht aufweichen:
+   - **Die Datei wird nie committet** (`.gitignore`); `pages.yml` erzeugt
+     sie vor dem Upload, der Rauchtest und `bench_frontend.py` für sich
+     selbst. Committet wäre sie ein 2-MB-Klotz in jedem Datenlauf.
+   - **Verlustfrei, und geprüft**: `test_web_data` dekodiert den ganzen
+     Bestand in Python UND mit dem echten `EF.decodeWebData()` in node
+     und vergleicht mit `events.json`. „Feld fehlt“ und „Feld ist null“
+     sind zwei verschiedene Dinge (57 echte `null` im Bestand).
+   - **`stand` steht in der Datei** (Tag des letzten Commits an
+     `events.json`, deshalb `fetch-depth: 0` im Pages-Workflow) – der
+     Last-Modified-Header einer erzeugten Datei wäre der Deploy-Tag.
+     Ohne die Datei gilt weiter der Header von `events.json`.
+   - **Alle drei Seiten laden über denselben Aufruf** – die Startseite
+     zählt sonst andere Events als die Liste.
+   - **Die `preload`-Zeile zeigt auf `events.web.json`**; lokal ohne die
+     Datei ist das eine 404 in der Konsole, der Rauchtest baut sie
+     deshalb vorher (und prüft den Rückfall danach, mit der einen
+     erlaubten 404).
+   Gemessen (README, „Vorbereitung auf über 20.000 Events"): beim
+   heutigen Stand 116 statt 155 KB gzip (Ladezeit gleich), beim 5-fachen
+   Stand 249 statt ~830 KB und **3,7 statt 7,0 s bis die Liste steht**.
+   Kurze Schlüssel allein hätten fast nichts gebracht – gzip frisst
+   Wiederholungen ohnehin.
 
 ## Liste und Karte teilen die Filter (`filters.js`, `filter-ui.js`)
 
@@ -3373,16 +3392,17 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
    `guess_art1()` steht auch das Muster, nach dem Fahrrad und Schwimmen
    erkannt werden könnten. Die Distanzkategorien je Sportart
    (`DISTANCE_CATEGORIES`) stehen ohnehin schon.
-2. **Vorbereitung auf >20.000 Events** – *erste Hälfte erledigt*: Die
+2. **Vorbereitung auf >20.000 Events** – **beide Hälften gebaut**: Die
    Tabelle zeichnet nur ein Fenster von 200 Einträgen (siehe
-   Frontend-Fallen und „Tempo"), gemessen mit `bench_frontend.py`.
-   **Offen ist die Datei selbst**: 5,4 s von 6,3 s gehen für
-   `events.json` weg. Der Weg ist gemessen und im README beschrieben
-   („Vorbereitung auf über 20.000 Events"): `scripts/build_web_data.py`
-   erzeugt eine kompakte Fassung (Spalten-Arrays + Wörterbuch, 300 statt
-   830 KB gzip), erzeugt **im Pages-Workflow statt committet**,
-   Dekodierer in `filters.js`, Loader mit Rückfall auf `events.json`,
-   CI prüft den Rückweg. `events.json` bleibt die lesbare Quelle.
+   Frontend-Fallen und „Tempo"), und seit dem 22.09.2026 laden die
+   Seiten die **kompakte `events.web.json`** (`scripts/build_web_data.py`:
+   Spalten-Arrays + Wörterbuch, im Pages-Workflow erzeugt statt
+   committet, Dekodierer und Loader `EF.loadEvents()` in `filters.js`
+   mit Rückfall auf `events.json`, `test_web_data` prüft den Rückweg,
+   der Rauchtest den Rückfall). `events.json` bleibt die lesbare Quelle.
+   Zahlen im README („Vorbereitung auf über 20.000 Events"). Was danach
+   noch bliebe (deutlich über 40.000 Events): Aufteilen nach Jahr –
+   bewusst nicht gebaut.
 3. **Restliche Datenfälle**
    - „RET-Team Backyard 80 km": unklar, ob 80 km Zielvorgabe, Runde oder
      Teamwertung – per Websuche klären und als Override vorschlagen.

@@ -68,7 +68,7 @@
      "Events ansehen" findet events.json dann schon vor, statt 1,6 MB
      (rund 160 KB komprimiert) erst dann anzufordern. -->
 <link rel="prefetch" href="events.html" as="document">
-<link rel="prefetch" href="events.json" as="fetch" crossorigin="anonymous">
+<link rel="prefetch" href="events.web.json" as="fetch" crossorigin="anonymous">
 <!-- Farben, Kopfzeile und Fußzeile: geteilt mit Liste und Karte. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
@@ -465,7 +465,7 @@
      `defer` blockiert den Seitenaufbau nicht, und events.html, das diese
      Seite ohnehin per prefetch vorlädt, braucht die Datei danach sowieso:
      Der Abruf wärmt also den Cache für den nächsten Klick. -->
-<script defer src="filters.js?v=f0821945"></script>
+<script defer src="filters.js?v=2380c892"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 
@@ -571,12 +571,13 @@
 
   function ladeZahlen() {
     const EF = window.EnduranceFilters;
-    if (!EF || !EF.dropPastEvents || !EF.formatInt) return;
-    fetch('events.json')
-      .then(r => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then(alle => {
+    if (!EF || !EF.dropPastEvents || !EF.formatInt || !EF.loadEvents) return;
+    // events.web.json zuerst, sonst events.json - derselbe Loader wie in
+    // der Liste, damit die Startseite dieselben Events zählt.
+    EF.loadEvents()
+      .then(geladen => {
         zaehlung = {};
-        EF.dropPastEvents(alle).forEach(e => {
+        EF.dropPastEvents(geladen.events).forEach(e => {
           zaehlung[e.art1] = (zaehlung[e.art1] || 0) + 1;
         });
         zeigeZahlen();

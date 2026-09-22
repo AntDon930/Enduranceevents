@@ -1311,6 +1311,64 @@ def test_laender_maske() -> None:
     check("laender.json bleibt klein (%d KB)" % kb, kb < 200, True)
 
 
+def test_web_data() -> None:
+    """Die kompakte Datenfassung (scripts/build_web_data.py → events.web.json)
+    muss verlustfrei sein - in Python UND mit dem echten Dekodierer aus
+    filters.js (node). Ein Format, das beim Rückweg etwas verliert, fiele
+    sonst erst im Browser auf, und dort still: eine fehlende Distanz ist
+    nur eine leere Zelle."""
+    import json as _json
+    import shutil
+    import subprocess
+
+    from build_web_data import FORMAT, dekodieren, kodieren
+
+    print("\nKompakte Datenfassung (build_web_data + EF.decodeWebData):")
+    # Feld fehlt (Index -1) ist etwas anderes als Feld = null.
+    faelle = [
+        {"name": "A", "laenge_km": 10.0, "dauer_h": None, "charity": True},
+        {"name": "B", "laenge_km": 10.0},
+        {"name": "A", "wettbewerb": "10 km", "lat": 48.1, "lon": 11.5},
+    ]
+    kodiert = kodieren(faelle, stand="2026-09-22")
+    check("Format", kodiert["format"], FORMAT)
+    check("Wörterbuch fasst gleiche Werte zusammen", kodiert["werte"]["name"], ["A", "B"])
+    check("fehlendes Feld ist -1", kodiert["zeilen"]["charity"], [0, -1, -1])
+    check("null bleibt ein Wert", kodiert["werte"]["dauer_h"], [None])
+    check("Rückweg in Python", dekodieren(kodiert), faelle)
+
+    wurzel = Path(__file__).resolve().parent.parent
+    events = _json.loads((wurzel / "events.json").read_text(encoding="utf-8"))
+    daten = kodieren(events, stand="2026-09-22")
+    check("Rückweg über den ganzen Bestand (Python)", dekodieren(daten) == events, True)
+    roh = len(_json.dumps(events, ensure_ascii=False, separators=(",", ":")))
+    kompakt = len(_json.dumps(daten, ensure_ascii=False, separators=(",", ":")))
+    check("kompakte Fassung ist kleiner als events.json ohne Einrückung", kompakt < roh, True)
+
+    node = shutil.which("node")
+    if not node:
+        print("  (node fehlt - Dekodierer aus filters.js nicht geprüft)")
+        return
+    tmp = wurzel / "scripts" / ".web_data_test.json"
+    tmp.write_text(_json.dumps(daten, ensure_ascii=False), encoding="utf-8")
+    try:
+        skript = (
+            "global.window = global;"
+            f"require({_json.dumps(str(wurzel / 'filters.js'))});"
+            f"const d = JSON.parse(require('fs').readFileSync({_json.dumps(str(tmp))}, 'utf8'));"
+            "process.stdout.write(JSON.stringify(global.EnduranceFilters.decodeWebData(d)));"
+        )
+        ergebnis = subprocess.run([node, "-e", skript], capture_output=True, text=True)
+    finally:
+        tmp.unlink(missing_ok=True)
+    if ergebnis.returncode != 0:
+        check("filters.js dekodiert in node", ergebnis.stderr.strip()[:300], "")
+        return
+    zurueck = _json.loads(ergebnis.stdout)
+    check("Rückweg mit EF.decodeWebData (node) über den ganzen Bestand", zurueck == events, True)
+    print("  ✓ %d Events, %d KB → %d KB (ohne gzip)" % (len(events), roh // 1024, kompakt // 1024))
+
+
 def test_asset_stempel() -> None:
     """Die ?v=-Stempel an den geteilten Skripten (stamp_assets.py).
 
@@ -2431,7 +2489,7 @@ def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
-                 test_vergangene_events, test_zeitrennen, test_kalenderdateien,
+                 test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,
                  test_meldungen,
                  test_ortsverzeichnis, test_js_syntax, test_abo_rhythmen,
                  test_override_schluessel, test_suche_uebersetzungen,
