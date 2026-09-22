@@ -14227,11 +14227,11 @@
     "notiz": "Veranstalterseite statt my.raceresult.com: https://www.obstmeilenlauf.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (altendorf). Linkprüfung 2026-09-19."
   },
   "Albiger Doppelzwölfer|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "korrigiert",
-    "quelle": "tv-albig.de",
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "Websuche",
     "alt": "https://my.raceresult.com/421768/",
-    "notiz": "Veranstalterseite statt my.raceresult.com: https://tv-albig.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:albig). Linkprüfung 2026-09-21."
+    "notiz": "tv-albig.de nennt den Lauf nicht; Veranstalter laut raceresult-Kontaktseite Bettina & Hauke Esemann (LT Hemsbach), privat, ohne Website - raceresult bleibt. Der frühere Treffer war nur der Ort im Hostnamen."
   },
   "B.U.T.XxX - BURGBERNHEIM ULTRA TRAIL|2026-10-24": {
     "am": "2026-09-19",

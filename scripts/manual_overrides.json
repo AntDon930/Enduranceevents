@@ -4851,8 +4851,7 @@
   },
   "Albiger Doppelzwölfer|2026-10-24": {
     "datum_ende": "2026-10-25",
-    "_note": "my.raceresult.com/421768: 2. Albiger Doppelzwölfer, 24.–25.10.2026 | Veranstalterseite statt my.raceresult.com: https://tv-albig.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:albig). Linkprüfung 2026-09-21.",
-    "veranstalter_url": "https://tv-albig.de/"
+    "_note": "my.raceresult.com/421768: 2. Albiger Doppelzwölfer, 24.–25.10.2026. Link zurück auf raceresult (direkt in events.json, 22.09.2026): tv-albig.de (Websuche 21.09., nur der Ort im Hostnamen) nennt den Lauf nicht, Veranstalter laut raceresult-Kontaktseite sind Bettina & Hauke Esemann (LT Hemsbach), privat, ohne Website."
   },
   "Die Ha(a)rd Winter|2027-01-02": {
     "datum_ende": "2027-01-04",
@@ -6125,5 +6124,11 @@
   "36. Ratzeburger Adventslauf|2026-11-29|26": {
     "wettbewerb": "26 km um den Ratzeburger See",
     "_note": "Zwei 26-km-Zeilen (Label ‚26km' und ‚26 km um den Ratzeburger See') sind dieselbe Strecke - gleiches Label, damit sie verschmelzen (adventslauf.de, Seitenabgleich 2026-09-21)."
+  },
+  "Albiger Doppelzwölfer|2026-10-24|6": {
+    "laenge_km": null,
+    "dauer_h": 12,
+    "wettbewerb": "2 × 12 Stunden (Runde 6,03 km)",
+    "_note": "Die 6 km sind die RUNDE: Der Doppelzwölfer ist ein 12-Stunden-Lauf an zwei Tagen (Sa und So je 6:30–18:30 Uhr) auf der 6,03-km-Runde (my.raceresult.com/381332 zur 1. Ausgabe im März 2026, gleiche Ausschreibung) – Datenregel 8, wie Backyard-Runde. 22.09.2026."
   }
 }

@@ -5510,10 +5510,10 @@
     "notiz": "Der hinterlegte raceresult-Link (315501) ist die Ausgabe 2025 („22. Bremer Zeitsprung-Marathon“, 25./26.10.2025); der Termin 24.10.2026 ist damit nicht belegt | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
   },
   "Albiger Doppelzwölfer|2026-10-24": {
-    "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/421768/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar; raceresult: 24.–25.10.2026 (Ende nachgetragen). Der Name deutet auf ein Zeitformat (2 × 12 h), unsere 6 km sind wohl die Runde – nicht prüfbar"
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "my.raceresult.com/421768 + 381332",
+    "notiz": "Zeitrennen 2 × 12 h statt ‚6 km' (Rundenlänge); Link zurück auf raceresult (Veranstalter privat)."
   },
   "Sieberather-Crosslauf|2026-10-24": {
     "am": "2026-09-21",

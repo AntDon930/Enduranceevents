@@ -14862,9 +14862,10 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-25",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://tv-albig.de/"
+    "laenge_km": null,
+    "wettbewerb": "2 × 12 Stunden (Runde 6,03 km)",
+    "veranstalter_url": "https://my.raceresult.com/421768/",
+    "dauer_h": 12
   },
   {
     "land": "Deutschland",
