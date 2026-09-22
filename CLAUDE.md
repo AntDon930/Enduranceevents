@@ -3019,7 +3019,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   dass sich an Seite oder Daten etwas geändert hatte. Der Name allein
   ist kein Schlüssel; der Schlüssel ist derselbe wie beim Zusammenfassen
   (`groupKey`). Dritte Begegnung mit dieser Fehlerklasse (Enter-Fall,
-  Kartenort, Serie).
+  Kartenort, Serie). **Die vierte** (22.09.2026): `pruefe_teilen()`
+  klickte fest die dritte Zeile – nach dem Datenlauf lag dort eine
+  Veranstaltung mit drei Strecken, ein Tippen klappt die nur auf und
+  öffnet das Blatt nicht, der Teilen-Knopf war unsichtbar. Jetzt die
+  erste EINZELNE Strecke (`tr[data-idx]:not([data-klapp])`), wie in den
+  anderen Prüfungen. **Kein fester Zeilenindex in den Prüfungen.**
 
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 

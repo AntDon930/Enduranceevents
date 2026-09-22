@@ -1122,7 +1122,14 @@ def pruefe_teilen(ctx, basis):
     seite.goto(basis + "/events.html", wait_until="domcontentloaded")
     seite.wait_for_selector("tbody tr[data-idx]", timeout=30000)
     seite.wait_for_timeout(400)
-    seite.locator("tbody tr[data-idx]").nth(2).click()
+    # Eine EINZELNE Strecke (kein data-klapp): Ein Tippen auf eine
+    # aufklappbare Veranstaltung klappt nur auf und öffnet auf Handybreite
+    # das Blatt nicht - der Teilen-Knopf bliebe unsichtbar. Bis zum
+    # 22.09.2026 stand hier fest die dritte Zeile; nach dem Datenlauf lag
+    # dort der Emsauen Rheine Ultramarathon mit drei Strecken, und die CI
+    # war rot, ohne dass sich an der Seite etwas geändert hatte (vierte
+    # Begegnung mit dieser Fehlerklasse, siehe CLAUDE.md).
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
     seite.wait_for_timeout(900)
     name = seite.evaluate("() => document.querySelector('#detail-panel h2').textContent")
     if not pruefe(seite.locator("#detail-panel .event-share-btn").count() == 1,
