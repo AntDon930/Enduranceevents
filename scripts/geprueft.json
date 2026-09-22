@@ -5342,10 +5342,10 @@
     "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
   },
   "Idar-Obersteiner Altstadtlauf|2026-09-26": {
-    "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/389713/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "idar-oberstein.de",
+    "notiz": "idar-oberstein.de (Pressemitteilung Juli 2026): Ausweichtermin Sa 26.09.2026, sechs Läufe, der längste über rund 6,5 km (Seitenabgleich 22.09.2026)."
   },
   "Schönberger Stadtlauf|2026-09-26": {
     "am": "2026-09-21",
@@ -6536,10 +6536,10 @@
     "notiz": "raceresult: 14. Dorstener Sparkassencross, 07.11.2026; Distanz nicht lesbar"
   },
   "Heseper Martinslauf|2026-11-07": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://ladv.de/ausschreibung/detail/46909/15.-Heseper-Martinslauf-Gro%C3%9F-Hesepe.htm",
-    "notiz": "ladv-Ausschreibung: im Text steht der 31.10.2026 (Termin oder Meldeschluss?), bei uns 07.11.; Distanz nicht lesbar"
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-gross-hesepe.de",
+    "notiz": "sv-gross-hesepe.de: Martinslauf über ca. 8.870 m (dazu 3.000 / 1.600 / 830 m Kinder- und Jugendläufe) - 8,9 statt 9 km (Seitenabgleich 22.09.2026)."
   },
   "Kneter Stundenlauf|2026-11-07": {
     "am": "2026-09-21",
@@ -6554,10 +6554,10 @@
     "notiz": "ladv-Titel: „in Pattensen (Winsen)“ – bei uns Wulfsen (Nachbarort); im Text 01.11.2026 (Termin oder Meldeschluss?); Distanzen nicht lesbar"
   },
   "Int. Hohenzollernberglauf|2026-11-08": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://www.anmeldungs-service.de/hohenzollernberglauf2026/",
-    "notiz": "Anmeldeportal ohne lesbare Distanz/Datum (04.11.2026 im Text = wohl Meldeschluss)"
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "schwarzwaelder-bote.de / ski-club-hechingen.de",
+    "notiz": "Strecke 8,1 km mit 365 Höhenmetern vom Weiherstadion Hechingen in den Burghof der Burg Hohenzollern (Schwarzwälder Bote / runnersworld, Veranstalter Ski-Club Hechingen) - 8,1 statt 8 km (Websuche 22.09.2026)."
   },
   "Offene Kreismeisterschaft Crosslauf Nordfriesland|2026-11-22": {
     "am": "2026-09-21",

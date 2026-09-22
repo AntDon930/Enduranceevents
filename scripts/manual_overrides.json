@@ -6130,5 +6130,32 @@
     "dauer_h": 12,
     "wettbewerb": "2 × 12 Stunden (Runde 6,03 km)",
     "_note": "Die 6 km sind die RUNDE: Der Doppelzwölfer ist ein 12-Stunden-Lauf an zwei Tagen (Sa und So je 6:30–18:30 Uhr) auf der 6,03-km-Runde (my.raceresult.com/381332 zur 1. Ausgabe im März 2026, gleiche Ausschreibung) – Datenregel 8, wie Backyard-Runde. 22.09.2026."
+  },
+  "Idar-Obersteiner Altstadtlauf|2026-09-26|6": {
+    "laenge_km": 6.5,
+    "wettbewerb": "ca. 6,5 km Hauptlauf",
+    "_note": "idar-oberstein.de (Pressemitteilung Juli 2026): Ausweichtermin Sa 26.09.2026, sechs Läufe, der längste über rund 6,5 km (Seitenabgleich 22.09.2026)."
+  },
+  "Idar-Obersteiner Altstadtlauf|2026-09-26|6.5": {
+    "wettbewerb": "ca. 6,5 km Hauptlauf",
+    "_note": "idar-oberstein.de (Pressemitteilung Juli 2026): Ausweichtermin Sa 26.09.2026, sechs Läufe, der längste über rund 6,5 km (Seitenabgleich 22.09.2026)."
+  },
+  "Heseper Martinslauf|2026-11-07|9": {
+    "laenge_km": 8.9,
+    "wettbewerb": "ca. 8,87 km Hauptlauf",
+    "_note": "sv-gross-hesepe.de: Martinslauf über ca. 8.870 m (dazu 3.000 / 1.600 / 830 m Kinder- und Jugendläufe) - 8,9 statt 9 km (Seitenabgleich 22.09.2026)."
+  },
+  "Heseper Martinslauf|2026-11-07|8.9": {
+    "wettbewerb": "ca. 8,87 km Hauptlauf",
+    "_note": "sv-gross-hesepe.de: Martinslauf über ca. 8.870 m (dazu 3.000 / 1.600 / 830 m Kinder- und Jugendläufe) - 8,9 statt 9 km (Seitenabgleich 22.09.2026)."
+  },
+  "Int. Hohenzollernberglauf|2026-11-08|8": {
+    "laenge_km": 8.1,
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
+    "_note": "Strecke 8,1 km mit 365 Höhenmetern vom Weiherstadion Hechingen in den Burghof der Burg Hohenzollern (Schwarzwälder Bote / runnersworld, Veranstalter Ski-Club Hechingen) - 8,1 statt 8 km (Websuche 22.09.2026)."
+  },
+  "Int. Hohenzollernberglauf|2026-11-08|8.1": {
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
+    "_note": "Strecke 8,1 km mit 365 Höhenmetern vom Weiherstadion Hechingen in den Burghof der Burg Hohenzollern (Schwarzwälder Bote / runnersworld, Veranstalter Ski-Club Hechingen) - 8,1 statt 8 km (Websuche 22.09.2026)."
   }
 }

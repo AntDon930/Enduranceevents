@@ -1572,8 +1572,8 @@
     "art2": "Straße",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 6.5,
+    "wettbewerb": "ca. 6,5 km Hauptlauf",
     "veranstalter_url": "https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/"
   },
   {
@@ -18720,8 +18720,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
+    "laenge_km": 8.9,
+    "wettbewerb": "ca. 8,87 km Hauptlauf",
     "veranstalter_url": "https://www.sv-gross-hesepe.de/abteilung/leichtathletik/martinslauf"
   },
   {
@@ -19648,8 +19648,8 @@
     "art2": "Trail",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
+    "laenge_km": 8.1,
+    "wettbewerb": "8,1 km Berglauf (365 Höhenmeter)",
     "veranstalter_url": "https://www.ski-club-hechingen.de/"
   },
   {

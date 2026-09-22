@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-08-int-hohenzollernberglauf-8km-hechingen@antdon930.github.io
+UID:2026-11-08-int-hohenzollernberglauf-8-1km-hechingen@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
-SUMMARY:Int. Hohenzollernberglauf
+SUMMARY:Int. Hohenzollernberglauf – 8\,1 km Berglauf (365 Höhenmeter)
 LOCATION:Hechingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.ski-club-he
- chingen.de/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.1 km\nhttps://www.ski-club-
+ hechingen.de/
 TRANSP:TRANSPARENT
 URL:https://www.ski-club-hechingen.de/
 END:VEVENT
