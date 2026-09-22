@@ -1217,44 +1217,48 @@ Docstring am Kopf jedes Skripts.
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).
 
-### Quellen für den großen Datenlauf (Stand 21.09.2026)
+### Quellen für den großen Datenlauf (Stand 22.09.2026)
 
-Kandidaten für die geplanten 20.000+ Events, gesammelt per Websuche am
-21.09.2026 und mit der `robots.txt` jeder Seite abgeglichen (live
-abgerufen). **Nichts davon wird gescraped, bevor der Nutzer die Quelle
-freigibt** und die Nutzungsbedingungen gelesen sind – die vier
-übersprungenen Quellen oben zeigen, warum. Quellen, die den Abruf
-sperren oder ausdrücklich verbieten, stehen auf Wunsch des Nutzers
-NICHT in dieser Liste (geprüft und ausgeschlossen: radsport-events.de,
-schwimmkalender.de, tri2b.com, triafreunde.com, hdsports.org,
-datasport.com, alpen-open-watercup.de, rad-net.de, swiss-cycling.ch,
-ahotu.com).
+Am 22.09.2026 hat der Nutzer die Liste freigegeben („Bitte alle scrapen!
+Aber auf ein scraping Verbot achten. Und nichts scrapen was verboten
+ist. Und wirklich überall nachschauen ob es die originale Veranstalter
+Webseite gibt!"). Für jede Quelle wurden davor robots.txt UND
+Nutzungsbedingungen/Impressum live gelesen. **Gebaut sind fünf neue
+Scraper und sechs weitere running.life-Kalender**; jeder nimmt die
+Veranstalterseite von der Detailseite der Quelle (Datenregel 2), und was
+danach noch ein Portallink ist, geht durch `scripts/veranstalter_links.py`.
 
-| Quelle | Inhalt | robots.txt (21.09.2026) | Anmerkung |
-|---|---|---|---|
-| `laufevent.at/events/` | Laufkalender Österreich, ~550 Events/Jahr, Filter nach Region | aus der Sandbox nicht erreichbar (kein Abruf) | vor dem Bau vom Rechner aus prüfen |
-| `sparkasse.at/running/laufkalender` | Laufkalender Österreich (Erste Bank Sparkasse Running) | erlaubt (nur Bank-Bereiche gesperrt) | Kalender einer Bank, Daten vermutlich aus laufkalender.at |
-| `oelv.at/de/sport/laufsport` | ÖLV-Laufkalender (Verband) | erlaubt (nur `/login/`) | Verbandstermine, Volksläufe unvollständig |
-| `wlv.or.at/wettkaempfe-termine/laufkalender` | Wiener LV, Laufkalender | erlaubt (keine Sperre) | regional |
-| `runme.at`, `runme.ch` | Laufkalender AT und CH | Kalender erlaubt (`/call/` gesperrt); **sperrt GPTBot und CCBot ausdrücklich** | Betreiber will keine KI-Crawler – nur mit Nachfrage beim Betreiber |
-| `laufkalender-schweiz.ch` | Laufkalender Schweiz, „fast 1.000 Läufe“, Filter nach Kanton/Distanz | keine robots.txt (404) | Nutzungsbedingungen lesen |
-| `lauftermine.ch` | Laufkalender Schweiz (älteres Verzeichnis) | keine robots.txt (404) | Struktur prüfen |
-| `laufkalender-nws.ch` | Nordwestschweiz, Herbst-/Winterläufe | erlaubt (`/app/`, `/j/` gesperrt) | klein, regional |
-| `trophyrunners.de/laufevents/oesterreich/`, `trophyrunners.com` (CH) | Volksläufe AT/CH | aus der Sandbox nicht erreichbar | vom Rechner aus prüfen |
-| `finishers.com` (Schweiz u. a.) | Laufkalender mit Detailseiten | erlaubt (Konto/Buchung/Filter-Adressen gesperrt) | internationale Plattform, ToS lesen |
-| `running.life` – `traillauf-kalender/…`, `hindernislauf-kalender/…` | dieselbe Quelle wie heute, weitere Kalender | erlaubt (wie bisher) | prüfen, ob die Trail-/OCR-Kalender Events enthalten, die im Laufkalender fehlen |
-| `triathlon-austria.at/de/service-termine` | Verbandstermine Triathlon Österreich | erlaubt (nur `/login/`) | Verband, vollständig für AT |
-| `mission-triathlon.de/saisonplanung-…` | redaktionelle Liste ~250 Triathlons DE/AT/CH | erlaubt | Liste, keine Datenbank – eher als Abgleich |
-| `events.endure-cycling.com` | Radrennen, Jedermannrennen, Radmarathons UND Triathlons AT/DE/EU, mit Karte und Filtern | erlaubt (keine Sperre) | vielversprechend für Fahrrad; ToS prüfen |
-| `bike-x.de/rennrad/news/termine-jedermannrennen-und-radmarathons/` | Termine Jedermannrennen/Radmarathons DE | erlaubt (nur `/irelements/`) | redaktionelle Liste |
-| `brv-breitensport.de/termine/rtf-kalender/` | RTF-Kalender Berlin/Mitteldeutschland | erlaubt | regional |
-| `dsv.de/…/freiwasserschwimmen/wettkampf/kalender/` | DSV-Freiwasser-Kalender (Verband) | erlaubt | Wettkampfsport, keine Jedermann-Schwimmen |
-| `openwaterschwimmen.com/openwater` | Freiwasser-Termine im deutschsprachigen Raum | erlaubt (`?lightbox=` gesperrt) | Wix-Seite, evtl. JS-gerendert |
-| `team-warmduscher.de/open-water/open-water-in-deutschland/` | Liste Open-Water-Veranstaltungen DE | erlaubt | Vereinsseite, Liste ohne Struktur |
+| Quelle | Rechtslage (22.09.2026) | Ergebnis |
+|---|---|---|
+| `events.endure-cycling.com` – Radrennen, Radtourenfahrten, Triathlons DE/AT/CH/IT | robots.txt frei; Impressum/Terms ohne Verbot | **`endure_scraper.py`** – Listen je Sport/Land/Jahr, Detailseite mit JSON-LD (Koordinaten, `sameAs` = Veranstalterseite) |
+| `oelv.at` → `oelv.athmin.at/events.aspx` (ÖLV-Laufkalender) | robots.txt 404 (= frei), Impressum ohne Verbot | **`oelv_scraper.py`** – Filter „Alle Läufe“ per Postback, Detailseite mit Homepage und Bewerben |
+| `sparkasse.at/running/laufkalender` | robots.txt sperrt nur Bank-Bereiche, Impressum ohne Verbot | **`sparkasse_scraper.py`** – 16 Läufe, Detailseite mit Ort, Datum, Veranstalterlink |
+| `laufkalender-nws.ch` | robots.txt frei, `Crawl-delay: 5`; „über NWS“ ohne Verbot | **`nws_scraper.py`** – 39 Läufe, Strecken-Tabelle, Organisation-Link |
+| `lauftermine.ch` | keine robots.txt, kein Impressum, keine Bedingungen | **`lauftermine_scraper.py`** – der Kalender steckt als `v(…)`-Aufrufe im Inline-JavaScript, Veranstalterlink je Lauf |
+| `running.life` – Trail- und Hindernislauf-Kalender DE/AT/CH | wie bisher erlaubt | **`runninglife_scraper.py`**, `KALENDER` auf zwölf Kalender erweitert |
+| `runme.at`, `runme.ch` | **verboten**: „manuelles und/oder automatisiertes Auslesen … nicht zulässig“ (legal-information), dazu Sperre für KI-Crawler | nicht gelesen |
+| `finishers.com` | **verboten**: Terms of Use untersagen Robots/Scraper und „screen scraping“ | nicht gelesen |
+| `bike-x.de` | Nutzungsbedingungen: nur private Nutzung, Text-und-Data-Mining ausdrücklich vorbehalten (§ 44b UrhG) | nicht gelesen |
+| `brv-breitensport.de` | Impressum: „Aufnahme von Inhalten in andere … Internetseiten … nur mit schriftlicher Zustimmung“ | nicht gelesen |
+| `team-warmduscher.de` | Impressum: Verwendung auf anderen digitalen Medien „ausdrücklich untersagt“ | nicht gelesen |
+| `dsv.de` Freiwasser-Kalender | der Kalender ist ein iframe von `dsvdaten.dsv.de`, dessen robots.txt alles sperrt (`Disallow: /`) | nicht gelesen |
+| `triathlondeutschland.de` (DTU-Kalender, nachträglich geprüft) | Impressum: Verwertung „auf Internetseiten jeglicher Art“ bedarf der Zustimmung | nicht gelesen |
+| `mission-triathlon.de` | Urheberrechtshinweis (Kopien nur privat); redaktionelle Liste | nicht gelesen – DTU-Formate stehen ohnehin über endure/running.life |
+| `laufkalender-schweiz.ch` | keine robots.txt, Impressum ohne Verbot | **keine Daten**: die Seite lädt über `/api/events?filter=…`, die Antwort ist bei jedem Filter leer (Kalender offenbar nicht mehr gepflegt) |
+| `wlv.or.at` Laufkalender | robots.txt frei | Kalender leer („Es konnten keine passenden Einträge gefunden werden“), regional; der ÖLV-Kalender deckt Wien ab |
+| `triathlon-austria.at` Termine | robots.txt frei | nur drei Verbandstermine; Österreichs Triathlons kommen über endure und running.life |
+| `openwaterschwimmen.com` | robots.txt frei (`Crawl-delay: 10`) | **veraltet**: „Veranstaltungen 2021 kommen in Kürze!“ |
+| `laufevent.at`, `trophyrunners.de/.com` | aus der Sandbox nicht erreichbar (Verbindung abgebrochen / Proxy-Fehler) | offen – vom Rechner aus prüfen |
+
+Vorher geprüft und ausgeschlossen (sperren den Abruf oder verbieten
+ihn ausdrücklich; auf Wunsch des Nutzers nicht in der Liste):
+radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
+hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
+swiss-cycling.ch, ahotu.com.
 
 Je Quelle vor dem Bau: Nutzungsbedingungen/Impressum auf ein
 Scraping-Verbot durchsehen, Detailseiten auf Veranstalter-Link und
-Strecken prüfen, `--max-pages 2 --no-details` als Probelauf.
+Strecken prüfen, `--dry-run --max-details 3` als Probelauf.
 
 ### Laufzeit
 

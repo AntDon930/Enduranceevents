@@ -2485,6 +2485,63 @@ def test_veranstalter_links() -> None:
     print("✓ Veranstalterseiten-Prüfung (Umlaut-Hosts, Ortswort, ort:-Treffer, Allgemeinwörter, Datum, Fremd-Hosts)")
 
 
+def test_neue_quellen() -> None:
+    """Die Scraper vom 22.09.2026 (endure-cycling, ÖLV, Sparkasse Running,
+    Laufkalender NWS, lauftermine.ch): die Parser, die am Bestand der
+    Live-Seiten kalibriert wurden, ohne Netz - und die Regeln, die beim
+    Bau aufgetreten sind."""
+    from scraper_lib import ort_aus_veranstaltungsort as ort
+    # Veranstaltungsorte -> Ort (ÖLV- und Sparkassen-Kalender).
+    assert ort("OÖ - 4020 Linz, PHDL Linz (Pädagogische Hochschule)") == "Linz"
+    assert ort("Heideparkplatz am Ende der Berggasse 2380 Perchtoldsdorf") == "Perchtoldsdorf"
+    assert ort("ASKÖ-Stadion Graz-Eggenberg, Schloßstraße 20, 8020 Graz") == "Graz"
+    assert ort('Hotel "Fischer am See", Heiterwang 6611') == "Heiterwang"
+    assert ort("Wien-Donauinsel") == "Wien"
+    assert ort("Sportplatz Weißenbach am Lech") == "Weißenbach am Lech"
+    assert ort("Bad Ischl") == "Bad Ischl"
+    import endure_scraper as en
+    assert en.parse_zeitraum("5. April 2026") == ("2026-04-05", "2026-04-05")
+    assert en.parse_zeitraum("18.–20. Juni 2026") == ("2026-06-18", "2026-06-20")
+    assert en.parse_zeitraum("30. Mai – 1. Juni 2026") == ("2026-05-30", "2026-06-01")
+    # Nur km mit Streckenwort davor sind weitere Strecken - "5 km vom Bahnhof" nicht.
+    assert en.strecken_aus_text("Langstrecke 297 km / 2.500 Hm; Light-Variante 145 km. Start 5 km vom Bahnhof") == [297.0, 145.0]
+    import oelv_scraper as oe
+    assert oe.parse_ort("Ames (ESP)") == ("Ames", "ESP")
+    assert oe.parse_ort("Pergine Valsugana (ITA)") == ("Pergine Valsugana", "Italien")
+    assert oe.parse_ort("Ebreichsdorf") == ("Ebreichsdorf", "Österreich")
+    import nws_scraper as nws
+    assert nws.parse_ort("D-Schönau") == ("Schönau", "Deutschland")
+    assert nws.parse_ort("Liestal BL") == ("Liestal", "Schweiz")
+    assert nws.parse_ort("Basel (Staffellauf)") == ("Basel", "Schweiz")
+    assert nws.schoener_name("20. BELCHEN-BERGLAUF") == "20. Belchen-Berglauf"
+    assert nws.schoener_name("16. Muttenz Marathon") == "16. Muttenz Marathon"
+    import lauftermine_scraper as lt
+    kal = ('id=2;mo("Januar 2026","janvier 2026","gennaio 2026","january 2026")\n'
+           'v(1,"www.neujahrsmarathon.ch","Neujahrsmarathon Schlieren","42.2 / 18 / 12 / 6","","ZH","")\n'
+           '//v(7,"www.x.ch","Abgesagt Irgendwo","10","","ZH","")\n'
+           'mo("Dezember","d","d","d")\n'
+           'v(31,"www.stauseelauf.ch","Gippinger Stauseelauf","7.53","","AG","")\n'
+           'mo("Januar","j","j","j")\n'
+           'v(1,"www.neujahrsmarathon.ch","Neujahrsmarathon Schlieren","42.2","","ZH","")\n')
+    e = lt.parse_kalender(kal)
+    assert [x["datum"] for x in e] == ["2026-01-01", "2026-12-31", "2027-01-01"], e
+    assert e[0]["distanzen"] == ["42.2", "18", "12", "6"] and e[0]["kanton"] == "ZH"
+    # Der Ort steht im Namen - oder gar nicht (dann kein Eintrag, kein Raten).
+    assert lt.ort_aus_name("Neujahrsmarathon Schlieren") == "Schlieren"
+    assert lt.ort_aus_name("La Trotteuse-Tissot La Chaux-de-Fonds") == "La Chaux-de-Fonds"
+    assert lt.ort_aus_name("Coupe du Vignoble Cortaillod 3/4") == "Cortaillod"
+    assert lt.ort_aus_name("Zürcher Silvesterlauf") is None
+    assert lt.ort_aus_name("Corrida Bulloise") is None
+    assert lt.ort_aus_name("Bierathlon") is None
+    # Die neuen Kalender gelten als Portal, bis eine Veranstalterseite bekannt ist.
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://events.endure-cycling.com/events/x/")
+    assert is_portal_link("https://oelv.athmin.at/event-details.aspx?event=1")
+    assert is_portal_link("https://radsport-events.de/x")
+    assert not is_portal_link("https://rundumdenharz.com")
+    print("  ✓ neue Quellen: Orte, Zeiträume, Kalender-Skript, Portallinks")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -2497,7 +2554,7 @@ def main() -> int:
                  test_koordinaten_widerspruch, test_override_koordinaten,
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
-                 test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_serientermin_im_label,
+                 test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

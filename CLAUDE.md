@@ -3283,6 +3283,32 @@ vorhanden" (`smoke_test_frontend.py`, die Prüfung bei
 Acht geprüft, **vier aktiv**: laufen.de (`laufkalender_scraper.py`,
 größte Quelle), running.life, runningcompany.de, planet-marathon.de.
 
+**Seit dem 22.09.2026 fünf weitere Scraper** (vom Nutzer freigegeben:
+„Bitte alle scrapen! Aber auf ein scraping Verbot achten. Und nichts
+scrapen was verboten ist. Und wirklich überall nachschauen ob es die
+originale Veranstalter Webseite gibt!"): `endure_scraper.py`
+(Radrennen und Triathlons DE/AT/CH/IT, JSON-LD mit Koordinaten und
+`sameAs` = Veranstalterseite), `oelv_scraper.py` (ÖLV-Laufkalender auf
+oelv.athmin.at, ASP.NET-Postbacks, Homepage + Bewerbe je Lauf),
+`sparkasse_scraper.py` (Erste Bank Sparkasse Running, AT),
+`nws_scraper.py` (Laufkalender Nordwestschweiz, Crawl-delay 5 s),
+`lauftermine_scraper.py` (Schweiz; der Kalender steht als `v(…)`-Aufrufe
+im Inline-JavaScript, der Ort wird aus dem Namen gelesen – ohne
+erkennbaren Ort kein Eintrag). Dazu liest running.life die Trail- und
+Hindernislauf-Kalender mit (zwölf Kalender; eine Veranstaltung, die in
+mehreren steht, wird nur einmal gelesen). **Für jede Quelle wurden
+robots.txt UND Nutzungsbedingungen/Impressum live gelesen** – die
+Rechtslage je Quelle steht im README („Quellen für den großen
+Datenlauf"). **Verboten und deshalb nicht gelesen**: runme.at/.ch
+(„automatisiertes Auslesen … nicht zulässig"), finishers.com (Terms
+gegen Scraping), bike-x.de (nur private Nutzung, TDM-Vorbehalt),
+brv-breitensport.de und team-warmduscher.de (Übernahme in andere
+Webseiten untersagt), dsvdaten.dsv.de (`Disallow: /`),
+triathlondeutschland.de (Verwertung auf Internetseiten nur mit
+Zustimmung). `scraper_lib.ort_aus_veranstaltungsort()` schält aus
+Veranstaltungsorten („Aubad Tulln", „Schloßstraße 20, 8020 Graz") den
+Ort; `test_neue_quellen` hält die Parser fest.
+
 **running.life liest seit dem 21.09.2026 alle sechs Kalender** (vom
 Nutzer freigegeben: „Du hast mein Ja"): Laufen und Triathlon je
 Deutschland, Österreich, Schweiz – `KALENDER` in

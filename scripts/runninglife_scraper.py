@@ -68,8 +68,8 @@ Karten 10 km und 5 km, die Chips zusätzlich Halbmarathon und Marathon.
 
 Jede Seite enthält 20 Events, `<a rel="next">` verlinkt zur nächsten
 Seite (`?page=2`, `?page=3`, ...). Seit dem 21.09.2026 liest das Skript
-ALLE SECHS Kalender (Laufen und Triathlon je Deutschland, Österreich,
-Schweiz - siehe `KALENDER`); `CONFIG.calendar_url` ist nur noch der
+ALLE ZWÖLF Kalender (Laufen, Triathlon, Trail und Hindernislauf je
+Deutschland, Österreich, Schweiz - siehe `KALENDER`); `CONFIG.calendar_url` ist nur noch der
 Startwert, der je Kalender ersetzt wird.
 
 Kalendertiefe
@@ -265,6 +265,17 @@ KALENDER: list[tuple[str, str]] = [
     ("https://running.life/triathlon-kalender/deutschland", "Triathlon"),
     ("https://running.life/triathlon-kalender/osterreich", "Triathlon"),
     ("https://running.life/triathlon-kalender/schweiz", "Triathlon"),
+    # Seit dem 22.09.2026 (vom Nutzer freigegeben: "Bitte alle scrapen"):
+    # die Trail- und Hindernislauf-Kalender - dieselbe Seite, dieselbe
+    # robots.txt, dieselbe Struktur. Was der Laufkalender schon führt,
+    # fällt über das Dedupe zusammen; der Rest sind Trails und OCR-Läufe,
+    # die dort fehlten. Alle sechs Adressen am 22.09.2026 geprüft (200).
+    ("https://running.life/traillauf-kalender/deutschland", "Laufen"),
+    ("https://running.life/traillauf-kalender/osterreich", "Laufen"),
+    ("https://running.life/traillauf-kalender/schweiz", "Laufen"),
+    ("https://running.life/hindernislauf-kalender/deutschland", "Laufen"),
+    ("https://running.life/hindernislauf-kalender/osterreich", "Laufen"),
+    ("https://running.life/hindernislauf-kalender/schweiz", "Laufen"),
 ]
 
 
@@ -275,7 +286,7 @@ def fetch_runninglife_events(session, config, delay, max_pages, render_js) -> li
     mehr verlinkt (Österreich und die Schweiz sind deutlich kleiner als
     Deutschland)."""
     all_events: list[Event] = []
-    zaehler = {"details": 0, "official": 0, "expanded": 0}
+    zaehler = {"details": 0, "official": 0, "expanded": 0, "urls": set()}
     for kalender_url, art1 in KALENDER:
         cfg = replace(config, calendar_url=kalender_url, default_art1=art1)
         print(f"\n=== Kalender {kalender_url} ({art1}) ===")
@@ -312,6 +323,14 @@ def _lade_kalender(session, config, delay, max_pages, render_js, zaehler) -> lis
         for raw in raw_events:
             event = normalize_jsonld_event(raw, config)
             detail_url = event.veranstalter_url  # JSON-LD `url` = running.life-Seite
+            # Dieselbe Veranstaltung steht oft in mehreren Kalendern (ein
+            # Trail im Laufkalender UND im Trail-Kalender). Einmal gelesen
+            # reicht - sonst kostet jeder weitere Kalender dieselben
+            # Detailseiten noch einmal (2 s je Seite, siehe Docstring).
+            if detail_url:
+                if detail_url in zaehler["urls"]:
+                    continue
+                zaehler["urls"].add(detail_url)
             card = cards.get(detail_url or "") or {}
             if not event.land and card.get("land"):
                 event.land = card["land"]

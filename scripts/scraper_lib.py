@@ -404,6 +404,12 @@ ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
     (re.compile(r"zeitfahren|\bitt\b|einzelzeitfahren", re.I), "Zeitfahren"),
     (re.compile(r"bahnrennen|radbahn|velodrom", re.I), "Bahn"),
     (re.compile(r"rennrad|straßenrennen|stra..enrennen", re.I), "Straße"),
+    # Formate, die auf der Straße stattfinden (Radmarathon, Gran Fondo,
+    # Kriterium, Jedermannrennen, RTF) - so nennt sie der Kalender von
+    # endure-cycling (22.09.2026). Bewusst ZULETZT: "RTF Gravel" ist
+    # Gravel, "MTB-Marathon" Mountainbike - spezifisch vor generisch.
+    (re.compile(r"radmarathon|gran\s*fondo|granfondo|kriterium|jedermannrennen|"
+                r"\brtf\b|radtourenfahrt|etappenrennen|rundfahrt", re.I), "Straße"),
 ]
 
 # Kategorien fürs Schwimmen. Wie beim Fahrrad OHNE Voreinstellung: Ob ein
@@ -765,6 +771,52 @@ def in_suedtirol(lat: float | None, lon: float | None) -> bool:
         return False
     treffer = sum(1 for ring in _lade_suedtirol_ringe() if _punkt_in_ring(lat, lon, ring))
     return treffer % 2 == 1
+
+
+# Veranstaltungsorte, wie Kalender sie nennen: "Aubad Tulln", "Hauptplatz
+# Purkersdorf", "ASKÖ-Stadion Graz-Eggenberg, Schloßstraße 20, 8020 Graz",
+# "Heideparkplatz am Ende der Berggasse 2380 Perchtoldsdorf", "Wien -
+# Prater", "Graz-Stadion Eggenberg", "OÖ - 4020 Linz, PHDL Linz". Fürs
+# Geocoding zählt der ORT (Koordinaten sind Daten, keine Dekoration) -
+# ein Geocoder, der "Hauptplatz Purkersdorf, Österreich" bekommt, findet
+# den Platz meist noch, "Heideparkplatz am Ende der Berggasse" nicht.
+# Genutzt von oelv_scraper.py und sparkasse_scraper.py (22.09.2026).
+_ORT_VENUE_PREFIX = re.compile(
+    r"^(?:sportplatz|sportzentrum|sportanlage|sportpark|stadion|hauptplatz|"
+    r"marktplatz|rathausplatz|dorfplatz|kirchplatz|schulzentrum|freibad|"
+    r"strandbad|aubad|therme|trabrennbahn|feuerwehrhaus|gemeindezentrum|"
+    r"ortszentrum|volksschule|mittelschule|gasthaus|hotel|parkplatz|kurpark|"
+    r"bürgerhalle|festplatz|festhalle|turnhalle|mehrzweckhalle)\s+", re.I)
+_ORT_PLZ_VOR = re.compile(
+    r"(?<!\d)\d{4,5}\s+([A-ZÄÖÜ][\wäöüß.'-]+(?:\s+(?:am|an|im|bei|ob|in|auf|unter)"
+    r"\s+(?:der\s+|dem\s+)?[A-ZÄÖÜ][\wäöüß-]+)?)")
+_ORT_PLZ_NACH = re.compile(r"([A-ZÄÖÜ][\wäöüß.'-]+(?:\s+(?:am|an|im|bei)\s+[A-ZÄÖÜ][\wäöüß-]+)?)\s+\d{4,5}(?!\d)")
+_ORT_STADT_PREFIX = re.compile(
+    r"^(Wien|Graz|Linz|Salzburg|Innsbruck|Klagenfurt|Bregenz|Eisenstadt|St\. Pölten|"
+    r"Berlin|Hamburg|München|Köln|Frankfurt|Zürich|Basel|Bern)\s*[-–/]\s*", re.I)
+_ORT_BUNDESLAND_PREFIX = re.compile(r"^(?:W|NÖ|OÖ|S|T|V|B|St|K|Stmk|Ktn|Sbg|Bgld|Vbg)\s*-\s*", re.I)
+
+
+def ort_aus_veranstaltungsort(text: str | None) -> str | None:
+    """Schält den Ort aus einer Veranstaltungsort-Angabe (siehe oben)."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    text = re.sub(r"\s*\([^)]*\)", "", text)
+    text = _ORT_BUNDESLAND_PREFIX.sub("", text)
+    m = _ORT_STADT_PREFIX.match(text)
+    if m:
+        return m.group(1)
+    m = _ORT_PLZ_VOR.search(text)
+    if m:
+        return m.group(1).strip(" ,-")
+    m = _ORT_PLZ_NACH.search(text)
+    if m:
+        return m.group(1).strip(" ,-")
+    ort = re.split(r"[,/]", text)[0].strip()
+    ort = re.split(r"\s+[-–]\s+", ort)[0].strip()
+    ort = _ORT_VENUE_PREFIX.sub("", ort).strip(' "')
+    # "Kurpark Oberlaa" hat das Venue-Wort schon verloren; "Prater
+    # Hauptallee" bleibt - ein Ort im Sinne des Geocoders ist es dennoch.
+    return ort or None
 
 
 def round_km(value: float | int | None) -> float | None:
@@ -2415,6 +2467,17 @@ PORTAL_DOMAINS = (
     # die Zeit fest im Griff"); 20 Zeilen (12 Veranstaltungen) trugen
     # den Link am 21.09.2026, u. a. Oberelbe-Marathon und Leipziger Citytrail.
     "baer-service.de",
+    # Die Kalender vom 22.09.2026 (siehe README, "Quellen für den großen
+    # Datenlauf"): endure-cycling (Rad/Triathlon), ÖLV-Kalender, Erste
+    # Bank Sparkasse Running, Laufkalender Nordwestschweiz, lauftermine.ch.
+    # Ihre Detailseiten bleiben nur stehen, wo die Quelle keine
+    # Veranstalterseite nennt - und werden ersetzt, sobald eine bekannt ist.
+    "events.endure-cycling.com", "oelv.athmin.at", "sparkasse.at",
+    "laufkalender-nws.ch", "lauftermine.ch",
+    # radsport-events.de: Kalender- und Anmeldeportal für Radrennen
+    # (endure-cycling verweist bei manchen Rennen dorthin statt auf den
+    # Veranstalter); selbst nicht gelesen (robots.txt sperrt).
+    "radsport-events.de",
 )
 
 
