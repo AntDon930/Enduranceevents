@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Justistal Marathon
 LOCATION:Sigriswil\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://my.raceresult
- .com/394526/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://www.100marath
+ onclub.ch/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/394526/
+URL:https://www.100marathonclub.ch/
 END:VEVENT
 END:VCALENDAR

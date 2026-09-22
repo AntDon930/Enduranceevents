@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:Wörthersee Marathon (WRC F)
 LOCATION:Klagenfurt\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.woerther
- see-marathon.at
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.woerthe
+ rsee-marathon.at
 TRANSP:TRANSPARENT
-URL:http://www.woerthersee-marathon.at
+URL:https://www.woerthersee-marathon.at
 END:VEVENT
 END:VCALENDAR

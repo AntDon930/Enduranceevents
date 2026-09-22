@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270903
 DTEND;VALUE=DATE:20270904
 SUMMARY:Austria Triathlon Podersdorf
 LOCATION:Podersdorf am See\, Österreich
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30 km\nhttps://time2win.a
- t/event/1098
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30 km\nhttps://www.austri
+ a-triathlon.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1098
+URL:https://www.austria-triathlon.at
 END:VEVENT
 END:VCALENDAR

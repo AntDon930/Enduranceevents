@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:Auenlauf Oberhofen
 LOCATION:Oberhofen im Inntal\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /418744/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.sv-oberhofen.a
+ t
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/418744/
+URL:http://www.sv-oberhofen.at
 END:VEVENT
 END:VCALENDAR

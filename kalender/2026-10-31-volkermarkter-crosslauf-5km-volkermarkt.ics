@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Völkermarkter Crosslauf
 LOCATION:Völkermarkt\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://my.raceresult.c
- om/397458/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.vstlaas.at
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/397458/
+URL:https://www.vstlaas.at
 END:VEVENT
 END:VCALENDAR

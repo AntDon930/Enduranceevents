@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Münchendorfer Family Run
 LOCATION:Münchendorf\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /416787/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.muenchendorf.g
+ v.at
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/416787/
+URL:http://www.muenchendorf.gv.at
 END:VEVENT
 END:VCALENDAR

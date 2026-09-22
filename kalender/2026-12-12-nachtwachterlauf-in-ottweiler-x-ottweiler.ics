@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:Nachtwächterlauf in Ottweiler
 LOCATION:Ottweiler\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /424101/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tvo-leichtath
+ letik.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/424101/
+URL:https://www.tvo-leichtathletik.de
 END:VEVENT
 END:VCALENDAR

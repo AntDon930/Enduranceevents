@@ -456,6 +456,20 @@ def guess_art1(text: str, config: "SiteConfig") -> str:
 KNOWN_DISTANCES_KM_LAUFEN = {
     "marathon": 42.2,
     "halbmarathon": 21.1,
+    # Andere Sprachen (Schweizer und österreichische Quellen seit dem
+    # 22.09.2026): Ohne diese Einträge traf "Half marathon" nur das
+    # Teilwort "marathon" - der Grand Prix Winterthur stand mit 42,2 km
+    # in der Liste. Die Prüfung nimmt das längste passende Stichwort,
+    # "half marathon" schlägt "marathon" also von selbst.
+    "half marathon": 21.1,
+    "half-marathon": 21.1,
+    "halfmarathon": 21.1,
+    "semi-marathon": 21.1,
+    "semi marathon": 21.1,
+    "mezza maratona": 21.1,
+    "½ marathon": 21.1,
+    "1/2 marathon": 21.1,
+    "maratona": 42.2,
     "10 km": 10.0,
     "5 km": 5.0,
 }
@@ -1216,6 +1230,33 @@ def _trenne_doppelte_distanzen(items):
     return aufgeteilt
 
 
+# Ein Label, das seine Strecke nur in METERN nennt ("Hauptlauf 7.900 m",
+# "7200m", "Mini Marathon mit 150 m, 300 m, 550 m und 900 m"): Die größte
+# Meterangabe ist die Distanz. Ohne diese Lesart fiel so ein Label auf das
+# Stichwort zurück - der "Mini Marathon" des Traunsee Halbmarathons (ein
+# Kinderlauf bis 900 m) stand mit 42,2 km in der Liste (ÖLV-Kalender,
+# 22.09.2026). Nur für Labels, nicht für guess_distance_km() allgemein:
+# In einem Namen wie "Stundenlauf auf der 400-m-Bahn" ist die Meterzahl
+# die Runde, nicht die Strecke. "1.500 m" mit Punkt sind 1500 Meter.
+_METER_RE = re.compile(r"(?<![\d,.])(\d{1,2}[.,]\d{3}|\d{2,5})\s*(?:m|meter)\b(?!\s*(?:höhe|hm|ü\.|über))", re.I)
+
+
+def meter_km(text: str) -> float | None:
+    if re.search(r"\d\s*(?:km\b|kilometer)", text or "", re.I):
+        return None
+    # Teilstrecken eines Mehrsport-Wettbewerbs ("50 m Schwimmen 500 m
+    # Laufen") sind die Summe, nicht die größte Zahl (Datenregel 15).
+    if summiere_teilstrecken(text) is not None:
+        return None
+    werte = []
+    for m in _METER_RE.finditer(text or ""):
+        zahl = m.group(1).replace(".", "").replace(",", "")
+        werte.append(int(zahl))
+    if not werte or max(werte) < 100:
+        return None
+    return round_km(max(werte) / 1000.0)
+
+
 def parse_competitions(
     items: Iterable[str | tuple[str, str]], config: SiteConfig
 ) -> list[Competition]:
@@ -1246,7 +1287,9 @@ def parse_competitions(
         text = re.sub(r"\s+", " ", raw_text or "").strip()
         if not text:
             continue
-        km = guess_distance_km(text, config)
+        km = meter_km(text)
+        if km is None:
+            km = guess_distance_km(text, config)
         dauer = parse_duration_h(text)
         # Nennt der Wettbewerb eine Dauer, ist eine km-Angabe daneben die
         # RUNDENLÄNGE, nicht die Renndistanz. Beispiel (Mad Chicken Run):
@@ -1855,6 +1898,21 @@ def _compatible_distance(a: dict, b: dict) -> bool:
     return abs(ka - kb) <= max(0.5, 0.05 * max(ka, kb))
 
 
+# Wörter, die im Wettbewerbs-Label eine GATTUNG nennen - zwei Labels,
+# die sich darin unterscheiden, sind zwei Wettbewerbe (siehe _same_name).
+_LABEL_GATTUNG_RE = re.compile(
+    r"walk|wander|\bgehen\b|geher|staffel|relay|\bteam|bike|\brad|mtb|velo|"
+    r"handbike|inline|skat|kinder|\bkids?\b|schüler|schueler|jugend|youth|"
+    r"junior|bambini|mini|\bu\s?\d{2}\b|sprint|volks|jedermann|olymp|"
+    r"kurz(?:distanz|strecke)|mittel(?:distanz|strecke)|lang(?:distanz|strecke)|"
+    r"ultra|cross|trail|berg", re.I)
+
+
+def _label_gattung(label: str) -> frozenset:
+    """Die Gattungswörter eines Wettbewerbs-Labels (klein, ohne Maßzahlen)."""
+    return frozenset(m.group(0).lower().strip() for m in _LABEL_GATTUNG_RE.finditer(label or ""))
+
+
 def _same_name(a: dict, b: dict) -> bool:
     """Entscheidet, ob zwei Event-Namen dieselbe Veranstaltung bezeichnen.
 
@@ -1927,6 +1985,30 @@ def _same_name(a: dict, b: dict) -> bool:
     if (bare and bare == _bare_name_tokens(b)
             and not (wb_a and wb_b)
             and a.get("art1") == b.get("art1")):
+        return True
+    # Sechster Weg (22.09.2026): BEIDE Seiten nennen einen Wettbewerb, aber
+    # keinen unterscheidenden. Seit mehrere Quellen dieselbe Veranstaltung
+    # liefern, trägt dieselbe Strecke je Quelle ein eigenes Label:
+    # "Marathon" (running.life) neben "42.2 km" (lauftermine.ch), "10 km"
+    # neben "TopLauf", "8 km offen ab 14 Jahren" neben "8 km , offen ab 14
+    # Jahre, Cup-Wertung möglich". Am Bestand nach dem Datenlauf vom
+    # 22.09.2026 nachgezählt: rund 30 Zeilen standen deshalb doppelt, der
+    # Halloween Run Bremen fünffach. Drei Bedingungen halten den Weg eng:
+    # - Zwei Labels sind nur dann EIN Wettbewerb, wenn sie sich in keiner
+    #   GATTUNG unterscheiden (_label_gattung): "10 km Walking" gegen
+    #   "10-km-Lauf", "Halbmarathon" gegen "Peri Power Nordic Walking",
+    #   "Sprintdistanz" gegen "Volksdistanz" bleiben getrennt.
+    # - Die Distanz muss auf beiden Seiten stehen und um weniger als
+    #   0,5 km abweichen: "Kürbislauf 13,333 K" gegen "13 km" ist eine
+    #   Strecke in zwei Schreibweisen, "12 km Seen-Lauf" gegen "12,5 km
+    #   Trailrun" (Seen-Lauf Tannheimer Tal) sind zwei Strecken. Enger als
+    #   die 5 % von _compatible_distance, mit Absicht.
+    # - Dieselbe Sportart, wie beim fünften Weg.
+    ka, kb = a.get("laenge_km"), b.get("laenge_km")
+    if (bare and bare == _bare_name_tokens(b) and wb_a and wb_b
+            and a.get("art1") == b.get("art1")
+            and ka is not None and kb is not None and abs(ka - kb) < 0.5
+            and _label_gattung(wb_a) == _label_gattung(wb_b)):
         return True
     shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
     if len(shorter) >= 2 and shorter <= longer:
@@ -2223,7 +2305,11 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     # Skilanglauf. NICHT gemeint sind die Walking-/Nordic-Walking-Strecken
     # innerhalb eines Volkslaufs - die bleiben, bis der Nutzer anders
     # entscheidet (siehe CLAUDE.md, "Was der Nutzer noch entscheiden muss").
-    (re.compile(r"race\s*walking|racewalking|\bgeher(?:tag|wettbewerb|meeting)?\b", re.I),
+    # "10km Straßengehen" (ÖLV-Kalender, 22.09.2026) ist dieselbe Disziplin
+    # unter ihrem deutschen Namen; ein bloßes "gehen" wäre zu weit
+    # ("um auf längere Distanzen zuzugehen").
+    (re.compile(r"race\s*walking|racewalking|\bgeher(?:tag|wettbewerb|meeting)?\b|"
+                r"stra(?:ß|ss)engehen|bahngehen", re.I),
      "Gehen / Race Walking (keine Laufveranstaltung)"),
     (re.compile(r"skilanglauf|ski-langlauf|\blanglauf\b|skimarathon", re.I),
      "Skilanglauf (keine Laufveranstaltung)"),
@@ -2445,6 +2531,16 @@ PORTAL_DOMAINS = (
     # Zeitnehmer-Link durch eine bekannte offizielle Seite ersetzt und
     # audit_events.py ihn als Portallink meldet.
     "berlin-timing.de",
+    # time2win.at: "Chipzeitnehmung, Ergebnisse und Onlineanmeldung" (Österreich);
+    # 84 Zeilen des Datenlaufs vom 22.09.2026 (running.life AT, ÖLV) trugen
+    # die time2win-Eventseite als Veranstalterlink. Die Eventseite verlinkt
+    # den Veranstalter, veranstalter_links.py sammeln holt ihn.
+    "time2win.at",
+    # Weitere Zeitnehmer aus demselben Datenlauf (Pentek Timing mit seiner
+    # Anmeldeplattform, time-now-sports, Katjas Laufzeit, Softtiming,
+    # Chiplauf) - dieselbe Regel wie bei raceresult und datasport.
+    "pentek-payment.at", "pentek-timing.at", "time-now-sports.at",
+    "katjas-laufzeit.de", "softtiming.ch", "chiplauf.de",
     # Die übrigen Zeitnehmer und Anmeldeplattformen genauso (vom Nutzer
     # am 19.09.2026: "zieh die anderen Zeitnehmer genauso nach"). Bei
     # my.raceresult.com nennt die Kontaktseite /contact die

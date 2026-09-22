@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270604
 DTEND;VALUE=DATE:20270605
 SUMMARY:Hochkönig Ultraks
 LOCATION:Maria Alm\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://time2win.at/e
- vent/1080
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hochkoeni
+ g-ultraks.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1080
+URL:https://www.hochkoenig-ultraks.at
 END:VEVENT
 END:VCALENDAR

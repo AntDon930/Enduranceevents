@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270301
 SUMMARY:Gommerlauf – Marathon
 LOCATION:Obergoms VS\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://datasport.c
- om/de/events/gommerlauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.goms.ch
+ /gommerlauf/uebersicht
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/gommerlauf-2027
+URL:https://www.goms.ch/gommerlauf/uebersicht
 END:VEVENT
 END:VCALENDAR

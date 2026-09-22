@@ -300,7 +300,7 @@
     "datum_ende": "2026-09-24",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/405159/"
+    "veranstalter_url": "https://steiermark.arbeitplus.at/"
   },
   {
     "land": "Deutschland",
@@ -2294,19 +2294,6 @@
     "veranstalter_url": "https://hoehlerfestlauf.de/"
   },
   {
-    "name": "Höhlerfestlauf",
-    "standort": "Gera",
-    "lat": 50.8765528,
-    "lon": 12.0832674,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 22.0,
-    "veranstalter_url": "https://hoehlerfestlauf.de/",
-    "land": "Deutschland"
-  },
-  {
     "land": "Deutschland",
     "name": "Idar-Obersteiner Altstadtlauf",
     "standort": "Idar-Oberstein",
@@ -2358,7 +2345,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/394526/"
+    "veranstalter_url": "https://www.100marathonclub.ch/"
   },
   {
     "land": "Österreich",
@@ -3303,13 +3290,15 @@
   {
     "land": "Schweiz",
     "name": "StraLugano",
-    "standort": "STRALUGANO",
+    "standort": "Lugano",
+    "lat": 46.0469189,
+    "lon": 8.9869314,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-26",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km",
+    "datum_ende": "2026-09-27",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.stralugano.ch"
   },
   {
@@ -3338,20 +3327,6 @@
     "datum_ende": "2026-09-27",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.stralugano.ch"
-  },
-  {
-    "land": "Schweiz",
-    "name": "StraLugano",
-    "standort": "Lugano",
-    "lat": 46.0469189,
-    "lon": 8.9869314,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-26",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.stralugano.ch"
   },
   {
@@ -3771,7 +3746,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://www.time-now-sports.at/wiener-aerztinnenlauf-2026/"
+    "veranstalter_url": "http://www.aerztinnenlauf.at/"
   },
   {
     "land": "Österreich",
@@ -3785,7 +3760,7 @@
     "datum_ende": "2026-09-26",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://www.time-now-sports.at/wiener-aerztinnenlauf-2026/"
+    "veranstalter_url": "http://www.aerztinnenlauf.at/"
   },
   {
     "land": "Deutschland",
@@ -4256,20 +4231,6 @@
     "datum_ende": "2026-09-27",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://einsteinmarathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "22. Einstein-Marathon",
-    "standort": "Ulm",
-    "lat": 48.4010822,
-    "lon": 9.9876076,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://einsteinmarathon.de/"
   },
   {
@@ -4845,7 +4806,7 @@
     "datum_ende": "2026-09-27",
     "laenge_km": 8.4,
     "wettbewerb": "8,44 Km FunRun",
-    "veranstalter_url": "https://time2win.at/event/1096"
+    "veranstalter_url": "https://www.badischllaeuft.at/laufkaiserpaar"
   },
   {
     "land": "Deutschland",
@@ -6293,34 +6254,6 @@
     "veranstalter_url": "https://www.northeimer-stadtlauf.de/"
   },
   {
-    "land": "Österreich",
-    "name": "NÖLV-Straßenlauf-Meisterschaften 10km - inkl. 5km U18 (WRC F)",
-    "standort": "Tattendorf",
-    "lat": 47.9589755,
-    "lon": 16.302319,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5km Straßenlauf",
-    "veranstalter_url": "https://oelv.athmin.at/event-details.aspx?event=37173&int=&returnTo=L2V2ZW50cy5hc3B4"
-  },
-  {
-    "land": "Österreich",
-    "name": "NÖLV-Straßenlauf-Meisterschaften 10km - inkl. 5km U18 (WRC F)",
-    "standort": "Tattendorf",
-    "lat": 47.9589755,
-    "lon": 16.302319,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 10.0,
-    "wettbewerb": "10km Straßenlauf",
-    "veranstalter_url": "https://oelv.athmin.at/event-details.aspx?event=37173&int=&returnTo=L2V2ZW50cy5hc3B4"
-  },
-  {
     "land": "Deutschland",
     "name": "Oberholzer Volkssportlauf",
     "standort": "Großpösna",
@@ -6361,19 +6294,6 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://www.tus-homberg.de/project/obstacle-odyssey/"
-  },
-  {
-    "land": "Österreich",
-    "name": "OÖ U23, Landes- und Meisterschaften im Halbmarathon im Rahmen des Bad Ischler Halbmarathons",
-    "standort": "Bad Ischl",
-    "lat": 47.7115299,
-    "lon": 13.6239333,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-27",
-    "datum_ende": "2026-09-27",
-    "laenge_km": 21.1,
-    "veranstalter_url": "http://www.badischllaeuft.at/kaiserlauf"
   },
   {
     "land": "Deutschland",
@@ -7120,7 +7040,7 @@
     "datum_start": "2026-09-27",
     "datum_ende": "2026-09-27",
     "laenge_km": 42.2,
-    "veranstalter_url": "http://www.woerthersee-marathon.at"
+    "veranstalter_url": "https://www.woerthersee-marathon.at"
   },
   {
     "land": "Österreich",
@@ -7134,7 +7054,7 @@
     "datum_ende": "2026-09-27",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://my.raceresult.com/418267/"
+    "veranstalter_url": "https://www.woerthersee-marathon.at"
   },
   {
     "land": "Deutschland",
@@ -7520,7 +7440,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/421980/"
+    "veranstalter_url": "https://www.helvetiabackyard.ch"
   },
   {
     "land": "Österreich",
@@ -7612,7 +7532,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 10.0,
     "wettbewerb": "10 km : für Einsteiger und Genusswanderer.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7626,7 +7546,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 24.0,
     "wettbewerb": "24 km : für aktive Naturfreunde.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7640,7 +7560,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 35.0,
     "wettbewerb": "35 km : für längere Strecken.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7654,7 +7574,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 56.0,
     "wettbewerb": "56 km : ein längerer Tag auf abwechslungsreichem Terrain.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7668,7 +7588,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 77.0,
     "wettbewerb": "77 km : für erfahrene Trailteilnehmer.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7682,7 +7602,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 101.0,
     "wettbewerb": "101 km : eine Ultra‑Distanz für lange Anstrengungen.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Österreich",
@@ -7696,7 +7616,7 @@
     "datum_ende": "2026-10-02",
     "laenge_km": 160.0,
     "wettbewerb": "160 km : eine umfangreiche, mehrtägige Stil‑Herausforderung.",
-    "veranstalter_url": "https://time2win.at/event/874"
+    "veranstalter_url": "http://www.wachautrail.at"
   },
   {
     "land": "Deutschland",
@@ -8152,19 +8072,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://djk-lauf.de/"
-  },
-  {
-    "land": "Österreich",
-    "name": "5. Waldquellelauf + ÖLV Staatsmeisterschaften 5/10km",
-    "standort": "Kobersdorf",
-    "lat": 47.5967488,
-    "lon": 16.3926882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.lac-unlimited.at"
   },
   {
     "land": "Österreich",
@@ -9070,7 +8977,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://my.raceresult.com/396447/"
+    "veranstalter_url": "https://www.zeitnehmung.at"
   },
   {
     "land": "Österreich",
@@ -9084,7 +8991,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/396447/"
+    "veranstalter_url": "https://www.zeitnehmung.at"
   },
   {
     "land": "Deutschland",
@@ -9154,7 +9061,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 6.5,
     "wettbewerb": "6,5 Km",
-    "veranstalter_url": "https://time2win.at/event/971"
+    "veranstalter_url": "https://www.traunviertler-laufcup.at/"
   },
   {
     "land": "Deutschland",
@@ -10832,34 +10739,6 @@
     "veranstalter_url": "https://www.wildschoenau.com/de/aktivitaeten/wandern/hoehenwegtrophy"
   },
   {
-    "land": "Österreich",
-    "name": "WMS Straßenlauf 10km im Rahmen der ÖMS",
-    "standort": "Kobersdorf",
-    "lat": 47.5967488,
-    "lon": 16.3926882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 10.0,
-    "wettbewerb": "10km Straßengehen",
-    "veranstalter_url": "https://oelv.athmin.at/event-details.aspx?event=37210&int=&returnTo=L2V2ZW50cy5hc3B4"
-  },
-  {
-    "land": "Österreich",
-    "name": "WMS Straßenlauf 10km im Rahmen der ÖMS",
-    "standort": "Kobersdorf",
-    "lat": 47.5967488,
-    "lon": 16.3926882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 5.0,
-    "wettbewerb": "5km Straßenlauf",
-    "veranstalter_url": "https://oelv.athmin.at/event-details.aspx?event=37210&int=&returnTo=L2V2ZW50cy5hc3B4"
-  },
-  {
     "land": "Deutschland",
     "name": "Zötler-Herbstgeländelauf",
     "standort": "Rettenberg",
@@ -10872,20 +10751,6 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://www.skiclub-rettenberg.org/"
-  },
-  {
-    "land": "Österreich",
-    "name": "ÖSTM 10km (ÖM U 18: 5 km) im Rahmen des 5. Waldquellelaufes (WRC B)",
-    "standort": "Kobersdorf",
-    "lat": 47.5967488,
-    "lon": 16.3926882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-03",
-    "datum_ende": "2026-10-03",
-    "laenge_km": 10.0,
-    "wettbewerb": "10km Straßenlauf",
-    "veranstalter_url": "https://oelv.athmin.at/event-details.aspx?event=35707&int=&returnTo=L2V2ZW50cy5hc3B4"
   },
   {
     "land": "Deutschland",
@@ -12080,7 +11945,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 5.0,
     "wettbewerb": "Hauptlauf 5 km",
-    "veranstalter_url": "https://www.time-now-sports.at/rapidlauf-2026/"
+    "veranstalter_url": "https://www.skrapid.at/rapidlauf"
   },
   {
     "land": "Deutschland",
@@ -12292,7 +12157,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Innviertler Halbmarathon",
-    "veranstalter_url": "https://time2win.at/event/1025"
+    "veranstalter_url": "http://www.schloesserlauf.at"
   },
   {
     "land": "Österreich",
@@ -12306,7 +12171,7 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Hauptlauf",
-    "veranstalter_url": "https://time2win.at/event/1025"
+    "veranstalter_url": "http://www.schloesserlauf.at"
   },
   {
     "land": "Österreich",
@@ -13444,7 +13309,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Abendlauf (am Samstag)",
-    "veranstalter_url": "https://datasport.com/de/events/brienzerseelauf-2026"
+    "veranstalter_url": "https://www.brienzerseelauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -13458,7 +13323,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://datasport.com/de/events/brienzerseelauf-2026"
+    "veranstalter_url": "https://www.brienzerseelauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -14818,7 +14683,7 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km+ - Einstiegsstrecke mit Hindernissen und einem Anstieg",
-    "veranstalter_url": "https://time2win.at/event/981"
+    "veranstalter_url": "https://www.woidwetza.at"
   },
   {
     "land": "Österreich",
@@ -14831,7 +14696,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 12.0,
-    "veranstalter_url": "https://time2win.at/event/981"
+    "veranstalter_url": "https://www.woidwetza.at"
   },
   {
     "land": "Österreich",
@@ -14844,7 +14709,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 17.0,
-    "veranstalter_url": "https://time2win.at/event/981"
+    "veranstalter_url": "https://www.woidwetza.at"
   },
   {
     "land": "Deutschland",
@@ -15219,20 +15084,6 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "Hobbylauf",
-    "veranstalter_url": "https://sc-muenchaurach.de/4-klosterlauf-aurachtal/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "5. Klosterlauf Aurachtal",
-    "standort": "Aurachtal",
-    "lat": 49.5752417,
-    "lon": 10.8223486,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 10.0,
-    "wettbewerb": "ca. 10 km Hauptlauf, zwei Runden",
     "veranstalter_url": "https://sc-muenchaurach.de/4-klosterlauf-aurachtal/"
   },
   {
@@ -16937,7 +16788,7 @@
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 42.2,
-    "veranstalter_url": "http://www.sparkasse-marathon.at"
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
   },
   {
     "land": "Österreich",
@@ -16993,7 +16844,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.lv-oelde.de/de/veranstaltungen/3-laender_marathon-2027/"
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
   },
   {
     "land": "Österreich",
@@ -17007,7 +16858,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.lv-oelde.de/de/veranstaltungen/3-laender_marathon-2027/"
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
   },
   {
     "land": "Österreich",
@@ -17064,34 +16915,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Storkower See Lauf",
-    "standort": "Storkow (Mark)",
-    "lat": 52.2536713,
-    "lon": 13.9396311,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km , offen ab 14 Jahre, Cup-Wertung möglich",
-    "veranstalter_url": "https://tv-fuerstenwalde.org"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Storkower See Lauf",
-    "standort": "Storkow (Mark)",
-    "lat": 52.2536713,
-    "lon": 13.9396311,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km , offen ab 12 Jahre, Cup-Wertung möglich",
-    "veranstalter_url": "https://tv-fuerstenwalde.org"
-  },
-  {
-    "land": "Deutschland",
     "name": "Südwestzipfel Lauf",
     "standort": "Grenzach-Wyhlen",
     "lat": 47.5523554,
@@ -17145,17 +16968,6 @@
     "laenge_km": 10.0,
     "veranstalter_url": "https://tsv-thedinghausen.de/erbhoflauf-2026",
     "wettbewerb": "10 km Straßenlauf als zwei Runden des 5 km Rundlaufs"
-  },
-  {
-    "land": "Österreich",
-    "name": "TM Straßengehen Marathon (im Rahmen der ÖSTM Straßengehen Marathon)",
-    "standort": "Wien oder Amstetten",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.tlv.at"
   },
   {
     "land": "Schweiz",
@@ -17349,7 +17161,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-12",
     "datum_ende": "2026-10-12",
-    "veranstalter_url": "https://datasport.com/de/events/yb-stadionlauf-2026"
+    "veranstalter_url": "https://www.bscyb.ch/news?nid=15216"
   },
   {
     "land": "Deutschland",
@@ -17433,7 +17245,7 @@
     "datum_ende": "2026-10-16",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/422975/"
+    "veranstalter_url": "https://www.100marathonclub.ch/"
   },
   {
     "land": "Deutschland",
@@ -17459,7 +17271,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-16",
     "datum_ende": "2026-10-16",
-    "veranstalter_url": "https://my.raceresult.com/418744/"
+    "veranstalter_url": "http://www.sv-oberhofen.at"
   },
   {
     "land": "Deutschland",
@@ -17824,7 +17636,7 @@
     "datum_ende": "2026-10-19",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/370815/"
+    "veranstalter_url": "https://austriabackyardultra.com/"
   },
   {
     "land": "Schweiz",
@@ -17985,19 +17797,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://ensinger-laufcup.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ensinger Laufcup",
-    "standort": "Vaihingen an der Enz",
-    "lat": 48.9321398,
-    "lon": 8.9568316,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 24.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000215060000"
   },
   {
     "land": "Deutschland",
@@ -18858,7 +18657,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/399310/"
+    "veranstalter_url": "https://www.runningleibnitz.at/"
   },
   {
     "land": "Deutschland",
@@ -19934,7 +19733,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
-    "veranstalter_url": "https://my.raceresult.com/416787/"
+    "veranstalter_url": "http://www.muenchendorf.gv.at"
   },
   {
     "land": "Österreich",
@@ -21223,20 +21022,6 @@
     "datum_ende": "2026-10-25",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Kärnten Marathon",
-    "standort": "Feldkirchen in Kärnten",
-    "lat": 46.7267407,
-    "lon": 14.0888806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
     "veranstalter_url": "https://internationaler-kaernten-marathon.at/"
   },
   {
@@ -23076,34 +22861,6 @@
     "veranstalter_url": "https://www.swisscitymarathon.ch/"
   },
   {
-    "land": "Schweiz",
-    "name": "SwissCityMarathon - Lucerne",
-    "standort": "Luzern",
-    "lat": 47.0501682,
-    "lon": 8.3093072,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.swisscitymarathon.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "SwissCityMarathon - Lucerne",
-    "standort": "Luzern",
-    "lat": 47.0501682,
-    "lon": 8.3093072,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.swisscitymarathon.ch/"
-  },
-  {
     "land": "Deutschland",
     "name": "Valtenberglauf",
     "standort": "Neukirch/Lausitz",
@@ -23426,7 +23183,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-26",
     "datum_ende": "2026-10-26",
-    "veranstalter_url": "https://my.raceresult.com/418246/"
+    "veranstalter_url": "https://www.niedernsill.salzburg.at"
   },
   {
     "land": "Österreich",
@@ -23635,48 +23392,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "1. Halloween-Run-Rotenburg",
-    "standort": "Rotenburg (Wümme)",
-    "lat": 53.1108906,
-    "lon": 9.4049292,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-30",
-    "datum_ende": "2026-10-30",
-    "laenge_km": 10.0,
-    "wettbewerb": "Horror-Zehn 10 K",
-    "veranstalter_url": "https://halloween-run-rotenburg.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Rotenburg",
-    "standort": "Rotenburg (Wümme)",
-    "lat": 53.1035076,
-    "lon": 9.3970716,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-30",
-    "datum_ende": "2026-10-30",
-    "laenge_km": 17.0,
-    "wettbewerb": "17 km",
-    "veranstalter_url": "https://halloween-run-rotenburg.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Rotenburg",
-    "standort": "Rotenburg (Wümme)",
-    "lat": 53.1035076,
-    "lon": 9.3970716,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-30",
-    "datum_ende": "2026-10-30",
-    "laenge_km": 13.0,
-    "wettbewerb": "13 km",
-    "veranstalter_url": "https://halloween-run-rotenburg.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Halloween-Run-Rotenburg",
     "standort": "Rotenburg (Wümme)",
     "lat": 53.1035076,
@@ -23687,20 +23402,6 @@
     "datum_ende": "2026-10-30",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://halloween-run-rotenburg.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Rotenburg",
-    "standort": "Rotenburg (Wümme)",
-    "lat": 53.1035076,
-    "lon": 9.3970716,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-30",
-    "datum_ende": "2026-10-30",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km",
     "veranstalter_url": "https://halloween-run-rotenburg.de/"
   },
   {
@@ -24148,62 +23849,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.halloweenrun-koeln.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Bremen",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://halloween-run-bremen.de/",
-    "wettbewerb": "Splatterthon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Bremen",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 8.3,
-    "wettbewerb": "Halbevilthon",
-    "veranstalter_url": "https://halloween-run-bremen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Bremen",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 16.7,
-    "wettbewerb": "Evilthon",
-    "veranstalter_url": "https://halloween-run-bremen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween-Run-Bremen",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 25.0,
-    "wettbewerb": "Monsterthon",
-    "veranstalter_url": "https://halloween-run-bremen.de"
   },
   {
     "land": "Deutschland",
@@ -24827,7 +24472,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://my.raceresult.com/397458/"
+    "veranstalter_url": "https://www.vstlaas.at"
   },
   {
     "land": "Österreich",
@@ -24841,7 +24486,7 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/397458/"
+    "veranstalter_url": "https://www.vstlaas.at"
   },
   {
     "land": "Schweiz",
@@ -25984,20 +25629,6 @@
     "veranstalter_url": "https://force-fondation.ch/forcethon/"
   },
   {
-    "land": "Schweiz",
-    "name": "Forcethon Talent",
-    "standort": "Lausanne",
-    "lat": 46.5236225,
-    "lon": 6.6250829,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 11.6,
-    "wettbewerb": "Elitelauf / Lausanner Lauf-Trophäe",
-    "veranstalter_url": "https://force-fondation.ch/forcethon/"
-  },
-  {
     "land": "Deutschland",
     "name": "Forster Herbstlauf",
     "standort": "Forst (Lausitz)",
@@ -26147,20 +25778,6 @@
     "art2": "Trail",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 9.0,
-    "wettbewerb": "9 km",
-    "veranstalter_url": "https://www.atvgeilenkirchen.de/index.php/me-cross"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Geilenkirchener Crosslauf",
-    "standort": "Geilenkirchen",
-    "lat": 50.967168,
-    "lon": 6.1174584,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.atvgeilenkirchen.de/index.php/me-cross"
@@ -26191,7 +25808,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/405072/"
+    "veranstalter_url": "https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldlauf"
   },
   {
     "land": "Deutschland",
@@ -26205,7 +25822,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/405072/"
+    "veranstalter_url": "https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldlauf"
   },
   {
     "land": "Deutschland",
@@ -26256,7 +25873,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://datasport.com/de/events/kyburglauf-2026"
+    "veranstalter_url": "https://www.kyburglauf.ch/"
   },
   {
     "land": "Österreich",
@@ -27503,7 +27120,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/381870/"
+    "veranstalter_url": "http://www.tv-hinterweidenthal-04.de"
   },
   {
     "land": "Deutschland",
@@ -27517,7 +27134,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://my.raceresult.com/381870/"
+    "veranstalter_url": "http://www.tv-hinterweidenthal-04.de"
   },
   {
     "land": "Österreich",
@@ -27553,7 +27170,7 @@
     "art2": "Trail",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "veranstalter_url": "https://www.laufen-os.de/wettkaempfe/16-osc-crosslauf-in-damme-2026"
+    "veranstalter_url": "https://www.osc-damme.de"
   },
   {
     "land": "Deutschland",
@@ -28097,20 +27714,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "10. Kerner Nachtlauf",
-    "standort": "Kernen im Remstal",
-    "lat": 48.814019,
-    "lon": 9.3182543,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "2. Gustav-Eberlein Marathon",
     "standort": "Hannoversch Münden",
     "lat": 51.4570402,
@@ -28121,20 +27724,6 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 42.2,
     "veranstalter_url": "https://gustav-eberlein.de/marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "2. Potsdamer Cross im Rahmen der 22. DPM",
-    "standort": "Potsdam",
-    "lat": 52.4009309,
-    "lon": 13.0591397,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 5.5,
-    "wettbewerb": "Cross",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005402760000"
   },
   {
     "land": "Deutschland",
@@ -28466,20 +28055,6 @@
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
     "veranstalter_url": "https://www.sv-diestelbruch-mosebeck.de/detmolder-herbstlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deutsche Polizeimeisterschaften Crosslauf",
-    "standort": "Potsdam",
-    "lat": 52.4009309,
-    "lon": 13.0591397,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 7.2,
-    "wettbewerb": "Langstrecke Frauen",
-    "veranstalter_url": "https://dpsk.de/dpm/"
   },
   {
     "land": "Deutschland",
@@ -29341,20 +28916,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "21.1 km",
     "veranstalter_url": "https://www.derfrauenfelder.ch"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Frauenfelder (Halb-)Marathon Wil",
-    "standort": "Frauenfeld",
-    "lat": 47.5535997,
-    "lon": 8.8987541,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-15",
-    "datum_ende": "2026-11-15",
-    "laenge_km": 21.2,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://derfrauenfelder.ch/"
   },
   {
     "land": "Deutschland",
@@ -30298,7 +29859,7 @@
     "art2": "Trail",
     "datum_start": "2026-11-21",
     "datum_ende": "2026-11-21",
-    "veranstalter_url": "https://my.raceresult.com/424510/"
+    "veranstalter_url": "https://www.tvd-la.de/"
   },
   {
     "land": "Deutschland",
@@ -31260,7 +30821,7 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "veranstalter_url": "https://time-now-sports.at/28-klosterneuburger-adventlauf-2026"
+    "veranstalter_url": "https://ulc-klosterneuburg.at/"
   },
   {
     "land": "Deutschland",
@@ -32878,20 +32439,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "29. Kölner Nikolauslauf",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 10.0,
-    "wettbewerb": "TopLauf",
-    "veranstalter_url": "https://koelner-nikolauslauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil",
     "standort": "Jaderberg",
     "lat": 53.3321756,
@@ -33515,7 +33062,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-06",
     "datum_ende": "2026-12-06",
-    "veranstalter_url": "https://time2win.at/event/978"
+    "veranstalter_url": "https://www.nordic-opening.info"
   },
   {
     "land": "Deutschland",
@@ -34035,7 +33582,7 @@
     "art2": "Straße",
     "datum_start": "2026-12-12",
     "datum_ende": "2026-12-12",
-    "veranstalter_url": "https://my.raceresult.com/424101/"
+    "veranstalter_url": "https://www.tvo-leichtathletik.de"
   },
   {
     "land": "Deutschland",
@@ -34200,20 +33747,6 @@
     "laenge_km": 13.0,
     "veranstalter_url": "https://winterlaufserie.net/",
     "wettbewerb": "13 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "35. Ismaninger Winterlaufserie",
-    "standort": "Ismaning",
-    "lat": 48.2258973,
-    "lon": 11.6742738,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon 21.100 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/840/"
   },
   {
     "land": "Deutschland",
@@ -34420,7 +33953,7 @@
     "datum_ende": "2026-12-13",
     "laenge_km": 8.4,
     "wettbewerb": "8,4 km",
-    "veranstalter_url": "https://time2win.at/event/1011"
+    "veranstalter_url": "http://www.florosportevents.at"
   },
   {
     "land": "Deutschland",
@@ -35556,7 +35089,7 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://time2win.at/event/1111"
+    "veranstalter_url": "https://alohasport.at"
   },
   {
     "land": "Österreich",
@@ -35570,7 +35103,7 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1111"
+    "veranstalter_url": "https://alohasport.at"
   },
   {
     "land": "Österreich",
@@ -35584,7 +35117,7 @@
     "datum_ende": "2026-12-20",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://time2win.at/event/1111"
+    "veranstalter_url": "https://alohasport.at"
   },
   {
     "land": "Deutschland",
@@ -39983,7 +39516,7 @@
     "datum_ende": "2027-01-15",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1077"
+    "veranstalter_url": "https://www.dachsteinlauf.at/de"
   },
   {
     "land": "Österreich",
@@ -39997,7 +39530,7 @@
     "datum_ende": "2027-01-15",
     "laenge_km": 40.0,
     "wettbewerb": "40 km",
-    "veranstalter_url": "https://time2win.at/event/1077"
+    "veranstalter_url": "https://www.dachsteinlauf.at/de"
   },
   {
     "land": "Österreich",
@@ -40429,7 +39962,7 @@
     "datum_ende": "2027-01-17",
     "laenge_km": 22.0,
     "wettbewerb": "22 km",
-    "veranstalter_url": "https://datasport.com/de/events/planoiras-volkslanglauf-lenzerheide-2027"
+    "veranstalter_url": "https://arosalenzerheide.swiss/de/Lenzerheide/Top-Events/Sport/Planoiras-Volkslanglauf"
   },
   {
     "land": "Schweiz",
@@ -40513,7 +40046,7 @@
     "datum_ende": "2027-01-23",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://datasport.com/de/events/internationale-inferno-rennen-muerren-2027"
+    "veranstalter_url": "https://www.inferno-muerren.ch/"
   },
   {
     "land": "Österreich",
@@ -41271,7 +40804,7 @@
     "datum_ende": "2027-01-30",
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
-    "veranstalter_url": "https://my.raceresult.com/382039/"
+    "veranstalter_url": "https://www.steiralauf.at"
   },
   {
     "land": "Österreich",
@@ -41285,7 +40818,7 @@
     "datum_ende": "2027-01-30",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://my.raceresult.com/382039/"
+    "veranstalter_url": "https://www.steiralauf.at"
   },
   {
     "land": "Österreich",
@@ -41299,7 +40832,7 @@
     "datum_ende": "2027-01-30",
     "laenge_km": 25.0,
     "wettbewerb": "25 km",
-    "veranstalter_url": "https://my.raceresult.com/382039/"
+    "veranstalter_url": "https://www.steiralauf.at"
   },
   {
     "land": "Österreich",
@@ -41313,7 +40846,7 @@
     "datum_ende": "2027-01-30",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://my.raceresult.com/382039/"
+    "veranstalter_url": "https://www.steiralauf.at"
   },
   {
     "land": "Deutschland",
@@ -42814,7 +42347,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://datasport.com/de/events/gommerlauf-2027"
+    "veranstalter_url": "https://www.goms.ch/gommerlauf/uebersicht"
   },
   {
     "land": "Schweiz",
@@ -42828,7 +42361,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://datasport.com/de/events/gommerlauf-2027"
+    "veranstalter_url": "https://www.goms.ch/gommerlauf/uebersicht"
   },
   {
     "land": "Schweiz",
@@ -42842,7 +42375,7 @@
     "datum_ende": "2027-02-28",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://datasport.com/de/events/gommerlauf-2027"
+    "veranstalter_url": "https://www.goms.ch/gommerlauf/uebersicht"
   },
   {
     "land": "Schweiz",
@@ -44238,7 +43771,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 100.0,
     "wettbewerb": "LINZ100",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Österreich",
@@ -44252,7 +43785,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 75.0,
     "wettbewerb": "LINZ75",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Österreich",
@@ -44266,7 +43799,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 55.0,
     "wettbewerb": "LINZ55",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Österreich",
@@ -44280,7 +43813,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 35.0,
     "wettbewerb": "LINZ35",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Österreich",
@@ -44294,7 +43827,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 22.0,
     "wettbewerb": "LINZ22",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Österreich",
@@ -44308,7 +43841,7 @@
     "datum_ende": "2027-03-12",
     "laenge_km": 14.0,
     "wettbewerb": "LINZ14",
-    "veranstalter_url": "https://time2win.at/event/1023"
+    "veranstalter_url": "http://donautrail.at"
   },
   {
     "land": "Deutschland",
@@ -44739,7 +44272,7 @@
     "datum_ende": "2027-03-13",
     "laenge_km": 8.3,
     "wettbewerb": "8,3 Km",
-    "veranstalter_url": "https://time2win.at/event/1117"
+    "veranstalter_url": "http://www.traunuferlauf.at"
   },
   {
     "land": "Deutschland",
@@ -44880,19 +44413,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://bienwald-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",
@@ -45101,6 +44621,19 @@
     "datum_ende": "2027-03-14",
     "veranstalter_url": "https://www.tv-ihringen.de/internationaler-kaiserstuhllauf-2026.html",
     "datum_vorlaeufig": true
+  },
+  {
+    "land": "Deutschland",
+    "name": "Königsforst-Marathon",
+    "standort": "Bensberg",
+    "lat": 51.2323776,
+    "lon": 9.3541143,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-14",
+    "datum_ende": "2027-03-14",
+    "laenge_km": 42.2,
+    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",
@@ -45761,7 +45294,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 15.0,
     "wettbewerb": "15 km Run",
-    "veranstalter_url": "https://datasport.com/de/events/49-kerzerslauf-2027"
+    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -45775,7 +45308,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Run",
-    "veranstalter_url": "https://datasport.com/de/events/49-kerzerslauf-2027"
+    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -45789,7 +45322,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Run",
-    "veranstalter_url": "https://datasport.com/de/events/49-kerzerslauf-2027"
+    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -46117,7 +45650,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 Km Halbmarathon",
-    "veranstalter_url": "https://time2win.at/event/1026"
+    "veranstalter_url": "https://www.welser-halbmarathon.at"
   },
   {
     "land": "Österreich",
@@ -46131,7 +45664,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 14.0,
     "wettbewerb": "14 Km Lauf",
-    "veranstalter_url": "https://time2win.at/event/1026"
+    "veranstalter_url": "https://www.welser-halbmarathon.at"
   },
   {
     "land": "Österreich",
@@ -46145,7 +45678,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 10.0,
     "wettbewerb": "10 Km Lauf",
-    "veranstalter_url": "https://time2win.at/event/1026"
+    "veranstalter_url": "https://www.welser-halbmarathon.at"
   },
   {
     "land": "Österreich",
@@ -46159,7 +45692,7 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 5.0,
     "wettbewerb": "5 Km POWER-Run",
-    "veranstalter_url": "https://time2win.at/event/1026"
+    "veranstalter_url": "https://www.welser-halbmarathon.at"
   },
   {
     "land": "Deutschland",
@@ -47107,7 +46640,7 @@
     "datum_ende": "2027-04-02",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://time2win.at/event/1132"
+    "veranstalter_url": "http://www.fuxnlauf.at"
   },
   {
     "land": "Deutschland",
@@ -50833,7 +50366,7 @@
     "art2": "Duathlon",
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-24",
-    "veranstalter_url": "https://my.raceresult.com/423293/"
+    "veranstalter_url": "https://www.lurs.at"
   },
   {
     "land": "Deutschland",
@@ -56341,7 +55874,7 @@
     "datum_ende": "2027-05-15",
     "laenge_km": 3.0,
     "wettbewerb": "M. Berger Sonnenlauf - 3 km",
-    "veranstalter_url": "https://www.time-now-sports.at/run-bike-2027/"
+    "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun"
   },
   {
     "land": "Österreich",
@@ -56355,7 +55888,7 @@
     "datum_ende": "2027-05-15",
     "laenge_km": 6.5,
     "wettbewerb": "BTM Hafner Arenalauf - 6,5 km",
-    "veranstalter_url": "https://www.time-now-sports.at/run-bike-2027/"
+    "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun"
   },
   {
     "land": "Österreich",
@@ -56369,7 +55902,7 @@
     "datum_ende": "2027-05-15",
     "laenge_km": 13.0,
     "wettbewerb": "Challenge Lauf - 13 km",
-    "veranstalter_url": "https://www.time-now-sports.at/run-bike-2027/"
+    "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun"
   },
   {
     "land": "Österreich",
@@ -56537,7 +56070,7 @@
     "datum_ende": "2027-05-16",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Kurzstrecke",
-    "veranstalter_url": "https://datasport.com/de/events/pfingstlauf-wohlen-2027"
+    "veranstalter_url": "https://www.pfingstlauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -56551,7 +56084,7 @@
     "datum_ende": "2027-05-16",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Waffenlauf / Hauptlauf",
-    "veranstalter_url": "https://datasport.com/de/events/pfingstlauf-wohlen-2027"
+    "veranstalter_url": "https://www.pfingstlauf.ch/"
   },
   {
     "land": "Österreich",
@@ -56763,34 +56296,6 @@
     "datum_start": "2027-05-21",
     "datum_ende": "2027-05-23",
     "laenge_km": 25.0,
-    "veranstalter_url": "https://www.apfel-tri.com/de"
-  },
-  {
-    "land": "Österreich",
-    "name": "Apfelland Triathlon",
-    "standort": "Stubenbergsee",
-    "lat": 47.229768,
-    "lon": 15.7991756,
-    "art1": "Triathlon",
-    "art2": "Aquathlon",
-    "datum_start": "2027-05-21",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 0.6,
-    "wettbewerb": "Kids Aquathlon Schüler E D 50 m Schwimmen 500 m Laufen",
-    "veranstalter_url": "https://www.apfel-tri.com/de"
-  },
-  {
-    "land": "Österreich",
-    "name": "Apfelland Triathlon",
-    "standort": "Stubenbergsee",
-    "lat": 47.229768,
-    "lon": 15.7991756,
-    "art1": "Triathlon",
-    "art2": "Aquathlon",
-    "datum_start": "2027-05-21",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 1.1,
-    "wettbewerb": "Kids Aquathlon Schüler C B A 100 m Schwimmen 1000 m Laufen",
     "veranstalter_url": "https://www.apfel-tri.com/de"
   },
   {
@@ -57114,20 +56619,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "28. Gerolsteiner Helgoland Marathon",
-    "standort": "Helgoland",
-    "lat": 54.1803268,
-    "lon": 7.8889438,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-22",
-    "datum_ende": "2027-05-22",
-    "laenge_km": 5.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.helgoland-marathon.com/"
-  },
-  {
-    "land": "Deutschland",
     "name": "54. GutsMuths Rennsteiglauf Intersport-Marathon",
     "standort": "Schmiedefeld",
     "lat": 50.5333,
@@ -57165,7 +56656,7 @@
     "datum_ende": "2027-05-24",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/404981/"
+    "veranstalter_url": "https://lustenau.run"
   },
   {
     "land": "Schweiz",
@@ -58035,7 +57526,7 @@
     "art2": "Straße",
     "datum_start": "2027-05-23",
     "datum_ende": "2027-05-23",
-    "laenge_km": 17.2,
+    "laenge_km": 21.1,
     "wettbewerb": "½ Marathon",
     "veranstalter_url": "https://3laenderlauf.org/"
   },
@@ -58481,7 +57972,7 @@
     "datum_ende": "2027-05-23",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://datasport.com/de/events/triathlon-frauenfeld-2027"
+    "veranstalter_url": "http://www.triathlon-frauenfeld.ch"
   },
   {
     "land": "Schweiz",
@@ -59290,7 +58781,7 @@
     "datum_ende": "2027-05-29",
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Halbmarathon (45. Int. BWT Halbmarathon)",
-    "veranstalter_url": "https://time2win.at/event/1108"
+    "veranstalter_url": "https://www.mondseelauf.at"
   },
   {
     "land": "Österreich",
@@ -59304,7 +58795,7 @@
     "datum_ende": "2027-05-29",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1108"
+    "veranstalter_url": "https://www.mondseelauf.at"
   },
   {
     "land": "Österreich",
@@ -59318,7 +58809,7 @@
     "datum_ende": "2027-05-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://time2win.at/event/1108"
+    "veranstalter_url": "https://www.mondseelauf.at"
   },
   {
     "land": "Deutschland",
@@ -60331,7 +59822,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 72.0,
     "wettbewerb": "72 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60345,7 +59836,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 49.0,
     "wettbewerb": "49 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60359,7 +59850,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 34.0,
     "wettbewerb": "34 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60373,7 +59864,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 31.0,
     "wettbewerb": "31 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60387,7 +59878,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 20.0,
     "wettbewerb": "20 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60401,7 +59892,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Österreich",
@@ -60415,7 +59906,7 @@
     "datum_ende": "2027-06-04",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://time2win.at/event/1080"
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at"
   },
   {
     "land": "Deutschland",
@@ -60736,7 +60227,7 @@
     "datum_ende": "2027-06-05",
     "laenge_km": null,
     "wettbewerb": "7 km",
-    "veranstalter_url": "https://my.raceresult.com/418299/"
+    "veranstalter_url": "https://www.helvetiabackyard.ch"
   },
   {
     "land": "Schweiz",
@@ -62730,7 +62221,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 5.0,
     "wettbewerb": "5 km - 15 €",
-    "veranstalter_url": "https://my.raceresult.com/423533/"
+    "veranstalter_url": "https://www.gryndperformance.de"
   },
   {
     "land": "Deutschland",
@@ -62744,7 +62235,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 10.0,
     "wettbewerb": "10 km - 20 €",
-    "veranstalter_url": "https://my.raceresult.com/423533/"
+    "veranstalter_url": "https://www.gryndperformance.de"
   },
   {
     "land": "Österreich",
@@ -63218,19 +62709,6 @@
     "laenge_km": 25.8,
     "wettbewerb": "LandMAXX Jedermann Distanz",
     "veranstalter_url": "https://schlosstriathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schloss-Triathlon Moritzburg",
-    "standort": "Moritzburg",
-    "lat": 51.1592018,
-    "lon": 13.6819406,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-12",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.schloss-triathlon-moritzburg.de"
   },
   {
     "land": "Deutschland",
@@ -65128,20 +64606,6 @@
   },
   {
     "land": "Österreich",
-    "name": "Traunsee Halbmarathon",
-    "standort": "Ebensee",
-    "lat": 47.8071383,
-    "lon": 13.779037,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-19",
-    "datum_ende": "2027-06-19",
-    "laenge_km": 21.1,
-    "wettbewerb": "Mini Marathon mit 150 m , 300 m , 550 m und 900 m",
-    "veranstalter_url": "https://www.traunsee-halbmarathon.at/"
-  },
-  {
-    "land": "Österreich",
     "name": "Triathlon Bregenz",
     "standort": "Lochau",
     "lat": 47.5296789,
@@ -66379,7 +65843,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 44.0,
     "wettbewerb": "44 km",
-    "veranstalter_url": "https://time2win.at/event/1079"
+    "veranstalter_url": "https://www.tauernkrone-challenge.at"
   },
   {
     "land": "Österreich",
@@ -66393,7 +65857,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 37.0,
     "wettbewerb": "37 km",
-    "veranstalter_url": "https://time2win.at/event/1079"
+    "veranstalter_url": "https://www.tauernkrone-challenge.at"
   },
   {
     "land": "Österreich",
@@ -66407,7 +65871,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 31.0,
     "wettbewerb": "31 km",
-    "veranstalter_url": "https://time2win.at/event/1079"
+    "veranstalter_url": "https://www.tauernkrone-challenge.at"
   },
   {
     "land": "Österreich",
@@ -66421,7 +65885,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 16.0,
     "wettbewerb": "16 km",
-    "veranstalter_url": "https://time2win.at/event/1079"
+    "veranstalter_url": "https://www.tauernkrone-challenge.at"
   },
   {
     "land": "Österreich",
@@ -66435,7 +65899,7 @@
     "datum_ende": "2027-06-26",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1079"
+    "veranstalter_url": "https://www.tauernkrone-challenge.at"
   },
   {
     "land": "Schweiz",
@@ -68896,7 +68360,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 32.0,
     "wettbewerb": "32 km",
-    "veranstalter_url": "https://time2win.at/event/1087"
+    "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km"
   },
   {
     "land": "Österreich",
@@ -68910,7 +68374,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 24.0,
     "wettbewerb": "24 km",
-    "veranstalter_url": "https://time2win.at/event/1087"
+    "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km"
   },
   {
     "land": "Österreich",
@@ -68924,7 +68388,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 16.0,
     "wettbewerb": "16 km",
-    "veranstalter_url": "https://time2win.at/event/1087"
+    "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km"
   },
   {
     "land": "Österreich",
@@ -68938,7 +68402,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://time2win.at/event/1087"
+    "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km"
   },
   {
     "land": "Österreich",
@@ -73059,7 +72523,7 @@
     "datum_ende": "2027-08-20",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://time2win.at/event/1109"
+    "veranstalter_url": "https://www.koralmtrailrunningclub.at/"
   },
   {
     "land": "Österreich",
@@ -73073,7 +72537,7 @@
     "datum_ende": "2027-08-20",
     "laenge_km": 26.0,
     "wettbewerb": "26 km",
-    "veranstalter_url": "https://time2win.at/event/1109"
+    "veranstalter_url": "https://www.koralmtrailrunningclub.at/"
   },
   {
     "land": "Österreich",
@@ -73087,7 +72551,7 @@
     "datum_ende": "2027-08-20",
     "laenge_km": 51.0,
     "wettbewerb": "51 km",
-    "veranstalter_url": "https://time2win.at/event/1109"
+    "veranstalter_url": "https://www.koralmtrailrunningclub.at/"
   },
   {
     "land": "Schweiz",
@@ -74929,7 +74393,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 226.0,
     "wettbewerb": "226 km",
-    "veranstalter_url": "https://time2win.at/event/1098"
+    "veranstalter_url": "https://www.austria-triathlon.at"
   },
   {
     "land": "Österreich",
@@ -74943,7 +74407,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 111.0,
     "wettbewerb": "111 km",
-    "veranstalter_url": "https://time2win.at/event/1098"
+    "veranstalter_url": "https://www.austria-triathlon.at"
   },
   {
     "land": "Österreich",
@@ -74957,7 +74421,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
-    "veranstalter_url": "https://time2win.at/event/1098"
+    "veranstalter_url": "https://www.austria-triathlon.at"
   },
   {
     "land": "Österreich",
@@ -74971,7 +74435,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
-    "veranstalter_url": "https://time2win.at/event/1098"
+    "veranstalter_url": "https://www.austria-triathlon.at"
   },
   {
     "land": "Österreich",
@@ -74985,7 +74449,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 101.0,
     "wettbewerb": "101 km (Z101+), 7.600 hm, höchster Punkt 3.123 m",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -74999,7 +74463,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 70.0,
     "wettbewerb": "70 km (TUX070)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -75013,7 +74477,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 50.9,
     "wettbewerb": "50,9 km (RK50)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -75027,7 +74491,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 30.1,
     "wettbewerb": "30,1 km (MUZ30)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -75041,7 +74505,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 14.5,
     "wettbewerb": "14,5 km (MUZ14)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -75055,7 +74519,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 8.5,
     "wettbewerb": "8,5 km (Mountopolis Vertical)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Österreich",
@@ -75069,7 +74533,7 @@
     "datum_ende": "2027-09-03",
     "laenge_km": 7.0,
     "wettbewerb": "7 km (Sprint)",
-    "veranstalter_url": "https://time2win.at/event/1083"
+    "veranstalter_url": "http://mayrhofen.ultraks.com"
   },
   {
     "land": "Deutschland",
@@ -75181,7 +74645,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://time2win.at/event/1107"
+    "veranstalter_url": "https://www.ulc-gampern.at"
   },
   {
     "land": "Österreich",
@@ -75195,7 +74659,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://time2win.at/event/1107"
+    "veranstalter_url": "https://www.ulc-gampern.at"
   },
   {
     "land": "Schweiz",
@@ -75401,7 +74865,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 72.0,
     "wettbewerb": "72 km 3.900 Hm",
-    "veranstalter_url": "https://time2win.at/event/1092"
+    "veranstalter_url": "https://www.torlauf-dachstein.info"
   },
   {
     "land": "Österreich",
@@ -75415,7 +74879,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 42.0,
     "wettbewerb": "42 km 2.500 Hm",
-    "veranstalter_url": "https://time2win.at/event/1092"
+    "veranstalter_url": "https://www.torlauf-dachstein.info"
   },
   {
     "land": "Österreich",
@@ -75429,7 +74893,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 24.0,
     "wettbewerb": "24 km 2.220 Hm",
-    "veranstalter_url": "https://time2win.at/event/1092"
+    "veranstalter_url": "https://www.torlauf-dachstein.info"
   },
   {
     "land": "Österreich",
@@ -75443,7 +74907,7 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Teamwertung für Viererteams",
-    "veranstalter_url": "https://time2win.at/event/1092"
+    "veranstalter_url": "https://www.torlauf-dachstein.info"
   },
   {
     "land": "Schweiz",

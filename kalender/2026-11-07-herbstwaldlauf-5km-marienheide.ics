@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Herbstwaldlauf
 LOCATION:Marienheide\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/405072/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tv-rodt-mu
+ ellenbach.de/index.php/services/ski/herbstwaldlauf
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/405072/
+URL:https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldla
+ uf
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:Wiener Ärzt:innen-Lauf – 10 km Lauf
 LOCATION:Klosterneuburg\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.time-now-
- sports.at/wiener-aerztinnenlauf-2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.aerztinnen
+ lauf.at/
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/wiener-aerztinnenlauf-2026/
+URL:http://www.aerztinnenlauf.at/
 END:VEVENT
 END:VCALENDAR

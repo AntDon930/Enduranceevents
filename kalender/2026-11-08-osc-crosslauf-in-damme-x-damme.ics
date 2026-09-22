@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:OSC Crosslauf in Damme
 LOCATION:Damme\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.laufen-os.de/w
- ettkaempfe/16-osc-crosslauf-in-damme-2026
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.osc-damme.de
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/16-osc-crosslauf-in-damme-2026
+URL:https://www.osc-damme.de
 END:VEVENT
 END:VCALENDAR

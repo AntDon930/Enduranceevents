@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Schlösser Lauf – 10 km Hauptlauf
 LOCATION:Mining\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://time2win.at/e
- vent/1025
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.schloesser
+ lauf.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1025
+URL:http://www.schloesserlauf.at
 END:VEVENT
 END:VCALENDAR

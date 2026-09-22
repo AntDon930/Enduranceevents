@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270522
 DTEND;VALUE=DATE:20270525
 SUMMARY:BYU Lustenau
 LOCATION:Lustenau\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
- com/404981/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://lustenau.run
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/404981/
+URL:https://lustenau.run
 END:VEVENT
 END:VCALENDAR

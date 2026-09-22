@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:Run & Bike Groisbach – BTM Hafner Arenalauf - 6\,5 km
 LOCATION:Alland\, Österreich
-DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 6.5 km\nhttps://www.tim
- e-now-sports.at/run-bike-2027/
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 6.5 km\nhttps://www.ff-
+ groisbach.at/hillsiderun
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/run-bike-2027/
+URL:https://www.ff-groisbach.at/hillsiderun
 END:VEVENT
 END:VCALENDAR

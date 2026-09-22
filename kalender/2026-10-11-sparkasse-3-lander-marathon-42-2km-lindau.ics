@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Sparkasse 3-Länder-Marathon
 LOCATION:Lindau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.sparkass
- e-marathon.at
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.sparkas
+ se-3-laender-marathon.at/de/home/
 TRANSP:TRANSPARENT
-URL:http://www.sparkasse-marathon.at
+URL:https://www.sparkasse-3-laender-marathon.at/de/home/
 END:VEVENT
 END:VCALENDAR

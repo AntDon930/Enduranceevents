@@ -170,7 +170,9 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    nach"): raceresult, datasport, lanet3, racepedia, runtix, davengo,
    myracepartner, sas-online, maxx-timing, rennmeldung, time-and-voice,
    anmeldungs-service, laufmanager, triathlon-service, zeitgemaess,
-   sportstiming, laufauswertung, berlin-timing, dazu die Kalender ladv,
+   sportstiming, laufauswertung, berlin-timing, seit dem 22.09.2026
+   time2win, pentek, time-now-sports, katjas-laufzeit, softtiming,
+   chiplauf, dazu die Kalender ladv,
    laufen-os und strassenlauf.org – alle in `PORTAL_DOMAINS`.
    `rennmeldung.de` sperrt `/cgi-bin/` per robots.txt: eintragen ja,
    abrufen nie (das Skript achtet robots.txt selbst).
@@ -1762,7 +1764,68 @@ dem nächsten Datenlauf. Drei Dinge daraus:
    Seite ist „gefunden". Von Hand belegen heißt dann: Override mit
    Begründung, wie bei OTB und Borna (Punkt 2).
 
-### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
+### Sechzehnter Durchgang: der erste Lauf mit neun Quellen (22.09.2026)
+
+Der Datenlauf mit den fünf neuen Scrapern und den zwölf running.life-
+Kalendern (Run 9, 3 h 27 min, ohne Fehler): **3.861 → 5.643 Events**,
+danach 5.604 nach dem Nachziehen. Je Quelle: running.life 1.569 neu
+(2.799 Detailseiten, 2.798 mit Veranstalterseite), ÖLV 116 (119 von 125
+mit Homepage), laufen.de 102, lauftermine.ch 81 (180 Läufe ohne Ort im
+Namen übersprungen), endure 71 (807 von 817 mit Veranstalterseite; 19
+italienische Gran Fondos außerhalb Südtirols entfernt), planet-marathon 9,
+NWS 7, Sparkasse 6. Länder danach: DE 3.986, **AT 893, CH 763**, Südtirol 1.
+Fahrrad 49, Schwimmen 5 – die Lücke bleibt Fahrplan-Punkt 1.
+
+Was der Lauf gelehrt hat – nach Punkt 2 des Dreizehnten Durchgangs
+gezählt, nicht einzeln behandelt:
+
+- **Zwei Quellen, zwei Labels, eine Strecke.** Sobald mehrere Quellen
+  dieselbe Veranstaltung liefern, trägt dieselbe Strecke je Quelle ein
+  eigenes Label: „Marathon" (running.life) neben „42.2 km"
+  (lauftermine.ch), „10 km" neben „TopLauf", „8 km offen ab 14 Jahren"
+  neben „8 km , offen ab 14 Jahre, Cup-Wertung möglich". Der fünfte Weg
+  von `_same_name()` verlangte, dass höchstens EINE Seite ein Label
+  trägt – rund 30 Zeilen standen deshalb doppelt, der Halloween Run
+  Bremen fünffach. **Sechster Weg** (`_same_name()`, `_label_gattung()`):
+  gleicher Name, gleiche Sportart, beide Distanzen bekannt und unter
+  0,5 km auseinander, und die Labels unterscheiden sich in keiner
+  GATTUNG (Walking/Wandern, Staffel, Rad, Kinder/Jugend, Sprint/Volks/
+  Olympisch, Trail/Cross/Berg …). Am Bestand nachgezählt: 18 Gruppen,
+  alle geprüft echte Duplikate; die Gegenproben („10 km Walking" gegen
+  „10-km-Lauf", „Sprintdistanz" gegen „Volksdistanz", „12 km" gegen
+  „12,5 km" beim Seen-Lauf Tannheimer Tal) stehen in `test_duplikate`.
+- **Meter im Label sind eine Distanz.** „Mini Marathon mit 150 m, 300 m,
+  550 m und 900 m" (Traunsee Halbmarathon, ÖLV) fiel auf das Stichwort
+  „Marathon" zurück, der Halbmarathon-Bugfix machte 21,1 km daraus – ein
+  Kinderlauf stand als Halbmarathon da. `meter_km()` liest jetzt die
+  größte Meterangabe (nur im Label, nicht im Namen: „400-m-Bahn" ist
+  eine Runde; Mehrsport-Summen gehen vor), `clean_events.fix_meter_labels()`
+  zieht den Bestand nach (eine Zeile).
+- **Halbmarathon in anderen Sprachen.** „Half marathon" traf nur das
+  Teilwort „marathon" – der Grand Prix Winterthur stand mit 42,2 km da.
+  `KNOWN_DISTANCES_KM_LAUFEN` kennt jetzt half/semi/mezza/½ (21,1) und
+  „maratona" (42,2).
+- **Zeitnehmer aus Österreich und der Schweiz.** time2win.at (84
+  Zeilen!), pentek-payment.at, time-now-sports.at, katjas-laufzeit.de,
+  softtiming.ch, chiplauf.de standen als Veranstalterlink – jetzt in
+  `PORTAL_DOMAINS`; die time2win-Eventseite verlinkt den Veranstalter,
+  `veranstalter_links.py sammeln` fand ihn in 26 von 39 Fällen. Für die
+  80 neuen Portal-Veranstaltungen der anderen Quellen: 31 gefunden.
+  **Vor jeder Linkarbeit die Hostliste zählen** – ein Zeitnehmer, der in
+  keiner Liste steht, sieht aus wie ein Veranstalter.
+- **Meisterschaften im ÖLV-Kalender sind eigene Einträge.** Der Verband
+  führt „NÖLV-Straßenlauf-Meisterschaften … im Rahmen des Windpark Run"
+  neben dem Windpark Run; fünf solche Zeilen per Override (Meisterschaft-
+  im-Rahmen-Fall, Punkt 5 der Entscheidungen), dazu „10km Straßengehen"
+  als Gehen (`NICHT_AUSDAUER`). Beim nächsten Lauf lohnt ein Blick auf
+  jeden ÖLV-Namen mit „im Rahmen".
+- **Nicht gelöst**: `kalender/` kann zwei Wettbewerbe mit gleichem Namen,
+  Tag, Distanz und Ort nicht unterscheiden (Walking neben Lauf über
+  dieselbe Strecke, vier Fälle) – die zweite Zeile hat keine
+  Kalenderdatei. Und die running.life-Kalender Triathlon AT/CH, Trail AT
+  und Hindernis AT/CH lieferten 0 Einträge (Seiten antworten mit 200,
+  vermutlich leer) – beim nächsten Lauf prüfen.
+
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
 Fehler passieren. Die 13 gefundenen Fehler, danach sortiert, was beim

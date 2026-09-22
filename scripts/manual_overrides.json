@@ -3163,7 +3163,8 @@
   },
   "Deutsche Polizeimeisterschaften Crosslauf|2026-11-14": {
     "veranstalter_url": "https://dpsk.de/dpm/",
-    "_note": "Veranstalterseite statt laufen.de: https://dpsk.de/dpm/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (polizeimeisterschaften). Linkprüfung 2026-09-20."
+    "exclude": true,
+    "_note": "Veranstalterseite per Websuche (Linkprüfung 2026-09-20: dpsk.de/dpm). Ausgeschlossen am 22.09.2026: Polizeimeisterschaft, nur für Polizeiangehörige - nicht offen, wie der '2. Potsdamer Cross im Rahmen der 22. DPM' (Datenregel 18); der offene Lauf ist 'Crosslauf in den Ravensbergen'."
   },
   "Graal-Müritzer Schneckenlauf|2026-11-14": {
     "veranstalter_url": "http://www.schneckenlauf.de/",
@@ -6185,5 +6186,273 @@
   "Lauf Rund um das Schaubergwerk Röhrigschacht|2027-04-03|14": {
     "wettbewerb": "14 km Steigerschleife",
     "_note": "steigerschleife.de: Buschklepper 5,1 km, Steigerschleife 14 km (dazu Wilddieb 3 km, Grillensprung 2 km, Kinderläufe); die ladv-Zeile ‚Crosslauf' 5 km ist der Buschklepper - fällt (22.09.2026)."
+  },
+  "Social Business Nightrun|2026-09-24": {
+    "veranstalter_url": "https://steiermark.arbeitplus.at/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://steiermark.arbeitplus.at/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (social). Linkprüfung 2026-09-22."
+  },
+  "Justistal Marathon|2026-09-26": {
+    "veranstalter_url": "https://www.100marathonclub.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.100marathonclub.ch/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (justistal, datum). Linkprüfung 2026-09-22."
+  },
+  "Wörthersee Marathon (WRC F)|2026-09-27": {
+    "veranstalter_url": "https://www.woerthersee-marathon.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.woerthersee-marathon.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:woerthersee, datum). Linkprüfung 2026-09-22."
+  },
+  "Helvetia Backyard Ultra|2026-10-02": {
+    "veranstalter_url": "https://www.helvetiabackyard.ch",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.helvetiabackyard.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:helvetia). Linkprüfung 2026-09-22."
+  },
+  "Justizlauf|2026-10-03": {
+    "veranstalter_url": "https://www.zeitnehmung.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.zeitnehmung.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (justizlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Brienzerseelauf|2026-10-10": {
+    "veranstalter_url": "https://www.brienzerseelauf.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.brienzerseelauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:brienzerseelauf). Linkprüfung 2026-09-22."
+  },
+  "YB-Stadionlauf|2026-10-12": {
+    "veranstalter_url": "https://www.bscyb.ch/news?nid=15216",
+    "_note": "Veranstalterseite statt datasport.com: https://www.bscyb.ch/news?nid=15216 - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (stadionlauf). Linkprüfung 2026-09-22."
+  },
+  "100 MCS Green Marathon|2026-10-16": {
+    "veranstalter_url": "https://www.100marathonclub.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.100marathonclub.ch/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (green, datum). Linkprüfung 2026-09-22."
+  },
+  "Auenlauf Oberhofen|2026-10-16": {
+    "veranstalter_url": "http://www.sv-oberhofen.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.sv-oberhofen.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:oberhofen). Linkprüfung 2026-09-22."
+  },
+  "Austria Backyard Ultra - Seekirchen|2026-10-17": {
+    "veranstalter_url": "https://austriabackyardultra.com/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://austriabackyardultra.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:austria, datum). Linkprüfung 2026-09-22."
+  },
+  "Südsteirischen Terrassenlauf|2026-10-17": {
+    "veranstalter_url": "https://www.runningleibnitz.at/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.runningleibnitz.at/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (terrassenlauf). Linkprüfung 2026-09-22."
+  },
+  "Münchendorfer Family Run|2026-10-18": {
+    "veranstalter_url": "http://www.muenchendorf.gv.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.muenchendorf.gv.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (munchendorfer). Linkprüfung 2026-09-22."
+  },
+  "Niedernsiller Herbstlauf|2026-10-26": {
+    "veranstalter_url": "https://www.niedernsill.salzburg.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.niedernsill.salzburg.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (niedernsiller, datum). Linkprüfung 2026-09-22."
+  },
+  "Völkermarkter Crosslauf|2026-10-31": {
+    "veranstalter_url": "https://www.vstlaas.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.vstlaas.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (volkermarkter). Linkprüfung 2026-09-22."
+  },
+  "Herbstwaldlauf|2026-11-07": {
+    "veranstalter_url": "https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldlauf",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldlauf - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (herbstwaldlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Kyburglauf|2026-11-07": {
+    "veranstalter_url": "https://www.kyburglauf.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.kyburglauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:kyburglauf). Linkprüfung 2026-09-22."
+  },
+  "Martinslauf Hinterweidenthal|2026-11-08": {
+    "veranstalter_url": "http://www.tv-hinterweidenthal-04.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.tv-hinterweidenthal-04.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:hinterweidenthal). Linkprüfung 2026-09-22."
+  },
+  "OSC Crosslauf in Damme|2026-11-08": {
+    "veranstalter_url": "https://www.osc-damme.de",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.osc-damme.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:damme). Linkprüfung 2026-09-22."
+  },
+  "Crosslauf Denzlingen|2026-11-21": {
+    "veranstalter_url": "https://www.tvd-la.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tvd-la.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-22."
+  },
+  "Nachtwächterlauf in Ottweiler|2026-12-12": {
+    "veranstalter_url": "https://www.tvo-leichtathletik.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tvo-leichtathletik.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nachtwachterlauf). Linkprüfung 2026-09-22."
+  },
+  "Planoiras Volkslanglauf Lenzerheide|2027-01-17": {
+    "veranstalter_url": "https://arosalenzerheide.swiss/de/Lenzerheide/Top-Events/Sport/Planoiras-Volkslanglauf",
+    "_note": "Veranstalterseite statt datasport.com: https://arosalenzerheide.swiss/de/Lenzerheide/Top-Events/Sport/Planoiras-Volkslanglauf - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:lenzerheide). Linkprüfung 2026-09-22."
+  },
+  "Internationale Inferno-Skirennen|2027-01-20": {
+    "veranstalter_url": "https://www.inferno-muerren.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.inferno-muerren.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:inferno). Linkprüfung 2026-09-22."
+  },
+  "Steiralauf in Bad Mitterndorf|2027-01-29": {
+    "veranstalter_url": "https://www.steiralauf.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.steiralauf.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:steiralauf). Linkprüfung 2026-09-22."
+  },
+  "Gommerlauf|2027-02-27": {
+    "veranstalter_url": "https://www.goms.ch/gommerlauf/uebersicht",
+    "_note": "Veranstalterseite statt datasport.com: https://www.goms.ch/gommerlauf/uebersicht - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (gommerlauf). Linkprüfung 2026-09-22."
+  },
+  "Kerzerslauf|2027-03-20": {
+    "veranstalter_url": "https://kerzerslauf.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://kerzerslauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:kerzerslauf). Linkprüfung 2026-09-22."
+  },
+  "Maissauer Duathlon|2027-04-24": {
+    "veranstalter_url": "https://www.lurs.at",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lurs.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (maissauer). Linkprüfung 2026-09-22."
+  },
+  "Pfingstlauf Wohlen|2027-05-16": {
+    "veranstalter_url": "https://www.pfingstlauf.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.pfingstlauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:pfingstlauf). Linkprüfung 2026-09-22."
+  },
+  "BYU Lustenau|2027-05-22": {
+    "veranstalter_url": "https://lustenau.run",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://lustenau.run - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:lustenau). Linkprüfung 2026-09-22."
+  },
+  "Triathlon Frauenfeld|2027-05-23": {
+    "veranstalter_url": "http://www.triathlon-frauenfeld.ch",
+    "_note": "Veranstalterseite statt datasport.com: http://www.triathlon-frauenfeld.ch - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:frauenfeld). Linkprüfung 2026-09-22."
+  },
+  "Backyard Community Run|2027-06-05": {
+    "veranstalter_url": "https://www.helvetiabackyard.ch",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.helvetiabackyard.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (community). Linkprüfung 2026-09-22."
+  },
+  "Daily Grynd Run|2027-06-12": {
+    "veranstalter_url": "https://www.gryndperformance.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.gryndperformance.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:grynd). Linkprüfung 2026-09-22."
+  },
+  "NÖLV-Straßenlauf-Meisterschaften 10km - inkl. 5km U18 (WRC F)|2026-09-27": {
+    "exclude": true,
+    "_note": "Landesmeisterschaft IM RAHMEN des 8. EVN Windpark Run Tattendorf (steht in der Liste, windparkrun.at) - ÖLV-Kalender führt die Meisterschaft als eigene Veranstaltung. Meisterschaft-im-Rahmen-Fall wie die sieben vom 19.09.2026. 22.09.2026."
+  },
+  "OÖ U23, Landes- und Meisterschaften im Halbmarathon im Rahmen des Bad Ischler Halbmarathons|2026-09-27": {
+    "exclude": true,
+    "_note": "Meisterschaft IM RAHMEN des 25. Bad Ischler Kaiserlauf Halbmarathons (steht in der Liste, badischllaeuft.at). ÖLV-Kalender. 22.09.2026."
+  },
+  "WMS Straßenlauf 10km im Rahmen der ÖMS|2026-10-03": {
+    "exclude": true,
+    "_note": "Meisterschaft IM RAHMEN des WaldQuelle Laufs Kobersdorf (steht in der Liste); die 10-km-Zeile ist zudem '10km Straßengehen' (Gehen, vom Nutzer ausgeschlossen). ÖLV-Kalender. 22.09.2026."
+  },
+  "ÖSTM 10km (ÖM U 18: 5 km) im Rahmen des 5. Waldquellelaufes (WRC B)|2026-10-03": {
+    "exclude": true,
+    "_note": "Staatsmeisterschaft IM RAHMEN des WaldQuelle Laufs Kobersdorf (steht in der Liste). ÖLV-Kalender. 22.09.2026."
+  },
+  "5. Waldquellelauf + ÖLV Staatsmeisterschaften 5/10km|2026-10-03": {
+    "exclude": true,
+    "_note": "Derselbe Lauf wie 'WaldQuelle Lauf Kobersdorf' (5/10 km, lac-unlimited.at/waldquelle-lauf, steht in der Liste) - Duplikat unter zweitem Namen aus dem ÖLV-Kalender. 22.09.2026."
+  },
+  "Dreiländer-Lauf|2027-05-23|17.2": {
+    "laenge_km": 21.1,
+    "_note": "3laenderlauf.org (22.09.2026): '21,1 km - Halbmarathon' und '10 km-Lauf', 2027 kein Marathon mehr. Die Quelle nannte 17,2 km zum Label '½ Marathon' - falsch."
+  },
+  "Dreiländer-Lauf|2027-05-23|21.1": {
+    "laenge_km": 21.1,
+    "_note": "Zweiter Schlüssel für den Override oben (neue Distanz), damit er nach dem Umschreiben weiter greift."
+  },
+  "Sparkasse 3-Länder-Marathon|2026-10-11": {
+    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/",
+    "_note": "Zwei Zeilen (5 km, Halbmarathon) trugen lv-oelde.de/…/3-laender_marathon-2027 - die Seite eines Vereins über seine Reise zum Lauf (laufen.de-Weiterleitung), nicht der Veranstalter. Offizielle Seite laut den übrigen Zeilen und dem Sparkassen-Kalender. 22.09.2026."
+  },
+  "Wiener Ärzt:innen-Lauf|2026-09-26": {
+    "veranstalter_url": "http://www.aerztinnenlauf.at/",
+    "_note": "Veranstalterseite statt time-now-sports.at: http://www.aerztinnenlauf.at/ - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (host:innen). Linkprüfung 2026-09-22."
+  },
+  "Bad Ischler Kaiserlauf|2026-09-27": {
+    "veranstalter_url": "https://www.badischllaeuft.at/laufkaiserpaar",
+    "_note": "Veranstalterseite statt time2win.at: https://www.badischllaeuft.at/laufkaiserpaar - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (ischler). Linkprüfung 2026-09-22."
+  },
+  "Wachau Trail|2026-10-02": {
+    "veranstalter_url": "http://www.wachautrail.at",
+    "_note": "Veranstalterseite statt time2win.at: http://www.wachautrail.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:wachau). Linkprüfung 2026-09-22."
+  },
+  "Kirtagslauf Adlwang|2026-10-03": {
+    "veranstalter_url": "https://www.traunviertler-laufcup.at/",
+    "_note": "Veranstalterseite statt time2win.at: https://www.traunviertler-laufcup.at/ - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (kirtagslauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Rapidlauf in Hütteldorf|2026-10-04": {
+    "veranstalter_url": "https://www.skrapid.at/rapidlauf",
+    "_note": "Veranstalterseite statt time-now-sports.at: https://www.skrapid.at/rapidlauf - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (rapidlauf). Linkprüfung 2026-09-22."
+  },
+  "Schlösser Lauf|2026-10-04": {
+    "veranstalter_url": "http://www.schloesserlauf.at",
+    "_note": "Veranstalterseite statt time2win.at: http://www.schloesserlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:schloesser, datum). Linkprüfung 2026-09-22."
+  },
+  "WoidWetza|2026-10-10": {
+    "veranstalter_url": "https://www.woidwetza.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.woidwetza.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:woidwetza). Linkprüfung 2026-09-22."
+  },
+  "28. Klosterneuburger Adventlauf|2026-11-29": {
+    "veranstalter_url": "https://ulc-klosterneuburg.at/",
+    "_note": "Veranstalterseite statt time-now-sports.at: https://ulc-klosterneuburg.at/ - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (klosterneuburger). Linkprüfung 2026-09-22."
+  },
+  "Nordic Winter Opening|2026-12-06": {
+    "veranstalter_url": "https://www.nordic-opening.info",
+    "_note": "Veranstalterseite statt time2win.at: https://www.nordic-opening.info - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:opening, datum). Linkprüfung 2026-09-22."
+  },
+  "Floro Winterlaufcup Gmunden|2026-12-13": {
+    "veranstalter_url": "http://www.florosportevents.at",
+    "_note": "Veranstalterseite statt time2win.at: http://www.florosportevents.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:floro). Linkprüfung 2026-09-22."
+  },
+  "Winterlauf Linz|2026-12-20": {
+    "veranstalter_url": "https://alohasport.at",
+    "_note": "Veranstalterseite statt time2win.at: https://alohasport.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-22."
+  },
+  "Dachsteinlauf|2027-01-15": {
+    "veranstalter_url": "https://www.dachsteinlauf.at/de",
+    "_note": "Veranstalterseite statt time2win.at: https://www.dachsteinlauf.at/de - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:dachsteinlauf). Linkprüfung 2026-09-22."
+  },
+  "Donautrail|2027-03-12": {
+    "veranstalter_url": "http://donautrail.at",
+    "_note": "Veranstalterseite statt time2win.at: http://donautrail.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:donautrail). Linkprüfung 2026-09-22."
+  },
+  "Traunuferlauf|2027-03-13": {
+    "veranstalter_url": "http://www.traunuferlauf.at",
+    "_note": "Veranstalterseite statt time2win.at: http://www.traunuferlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:traunuferlauf). Linkprüfung 2026-09-22."
+  },
+  "Welser Halbmarathon|2027-03-20": {
+    "veranstalter_url": "https://www.welser-halbmarathon.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.welser-halbmarathon.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:welser). Linkprüfung 2026-09-22."
+  },
+  "Fuxnlauf - Gmunden|2027-04-02": {
+    "veranstalter_url": "http://www.fuxnlauf.at",
+    "_note": "Veranstalterseite statt time2win.at: http://www.fuxnlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:fuxnlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Run & Bike Groisbach|2027-05-15": {
+    "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun",
+    "_note": "Veranstalterseite statt time-now-sports.at: https://www.ff-groisbach.at/hillsiderun - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (host:groisbach). Linkprüfung 2026-09-22."
+  },
+  "Mondseer Lauftag|2027-05-29": {
+    "veranstalter_url": "https://www.mondseelauf.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.mondseelauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (mondseer). Linkprüfung 2026-09-22."
+  },
+  "Hochkönig Ultraks|2027-06-04": {
+    "veranstalter_url": "https://www.hochkoenig-ultraks.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.hochkoenig-ultraks.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:ultraks). Linkprüfung 2026-09-22."
+  },
+  "Lungauer Tauern Krone Challenge|2027-06-26": {
+    "veranstalter_url": "https://www.tauernkrone-challenge.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.tauernkrone-challenge.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:tauern). Linkprüfung 2026-09-22."
+  },
+  "Erzberg Dirtrun|2027-07-10": {
+    "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km",
+    "_note": "Veranstalterseite statt time2win.at: https://www.erzbergsport.at/dirtrun-fun-distanz-8km - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:erzberg, datum). Linkprüfung 2026-09-22."
+  },
+  "Koralm Trailrunning Event|2027-08-20": {
+    "veranstalter_url": "https://www.koralmtrailrunningclub.at/",
+    "_note": "Veranstalterseite statt time2win.at: https://www.koralmtrailrunningclub.at/ - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:koralm). Linkprüfung 2026-09-22."
+  },
+  "Austria Triathlon Podersdorf|2027-09-03": {
+    "veranstalter_url": "https://www.austria-triathlon.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.austria-triathlon.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:austria, datum). Linkprüfung 2026-09-22."
+  },
+  "Mayrhofen Ultraks Zillertal|2027-09-03": {
+    "veranstalter_url": "http://mayrhofen.ultraks.com",
+    "_note": "Veranstalterseite statt time2win.at: http://mayrhofen.ultraks.com - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:mayrhofen). Linkprüfung 2026-09-22."
+  },
+  "Gamperner Lauf|2027-09-04": {
+    "veranstalter_url": "https://www.ulc-gampern.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.ulc-gampern.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (gamperner). Linkprüfung 2026-09-22."
+  },
+  "Torlauf Dachstein|2027-09-04": {
+    "veranstalter_url": "https://www.torlauf-dachstein.info",
+    "_note": "Veranstalterseite statt time2win.at: https://www.torlauf-dachstein.info - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:torlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Apfelland Triathlon|2027-05-21|0.6": {
+    "exclude": true,
+    "_note": "Kids Aquathlon (Schüler, 0,55 km) - Kinderwettbewerb, keine Ausdauerveranstaltung für Erwachsene; Datenregel 5 gilt nur für Laufen, deshalb per Override wie beim Lipperland-Triathlon. 22.09.2026."
+  },
+  "Apfelland Triathlon|2027-05-21|1.1": {
+    "exclude": true,
+    "_note": "Kids Aquathlon (Schüler, 1,1 km) - Kinderwettbewerb, keine Ausdauerveranstaltung für Erwachsene; Datenregel 5 gilt nur für Laufen, deshalb per Override wie beim Lipperland-Triathlon. 22.09.2026."
   }
 }

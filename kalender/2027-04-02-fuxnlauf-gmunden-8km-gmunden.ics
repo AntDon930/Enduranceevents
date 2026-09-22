@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270402
 DTEND;VALUE=DATE:20270403
 SUMMARY:Fuxnlauf - Gmunden
 LOCATION:Gmunden\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://time2win.at/ev
- ent/1132
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttp://www.fuxnlauf.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1132
+URL:http://www.fuxnlauf.at
 END:VEVENT
 END:VCALENDAR

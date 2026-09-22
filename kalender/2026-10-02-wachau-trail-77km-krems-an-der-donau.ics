@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
 SUMMARY:Wachau Trail – 77 km : für erfahrene Trailteilnehmer.
 LOCATION:Krems an der Donau\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 77 km\nhttps://time2win.at/ev
- ent/874
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 77 km\nhttp://www.wachautrail
+ .at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/874
+URL:http://www.wachautrail.at
 END:VEVENT
 END:VCALENDAR

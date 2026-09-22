@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
 SUMMARY:Kirtagslauf Adlwang
 LOCATION:Adlwang\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://time2win.at/
- event/971
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.traunvie
+ rtler-laufcup.at/
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/971
+URL:https://www.traunviertler-laufcup.at/
 END:VEVENT
 END:VCALENDAR

@@ -82,6 +82,14 @@ def test_distanz() -> None:
     check("Marathon-Stichwort",
           guess_distance_km("20. Kassel Marathon", CONFIG), 42.2)
     check("ohne Angabe", guess_distance_km("Volkslauf", CONFIG), None)
+    # Andere Sprachen (22.09.2026): "Half marathon" traf nur das Teilwort
+    # "marathon", der Grand Prix Winterthur stand mit 42,2 km in der Liste.
+    check("Half marathon (EN)",
+          guess_distance_km("Half marathon (anspruchsvolle Strecke)", CONFIG), 21.1)
+    check("Semi-marathon (FR)", guess_distance_km("Semi-marathon de Lausanne", CONFIG), 21.1)
+    check("mezza maratona (IT)", guess_distance_km("Mezza Maratona di Merano", CONFIG), 21.1)
+    check("½ Marathon", guess_distance_km("½ Marathon", CONFIG), 21.1)
+    check("maratona (IT)", guess_distance_km("Maratona dles Dolomites", CONFIG), 42.2)
     # Echter Bug, derselbe Fehlertyp wie oben, nur vor dem Komma: Der
     # Vorkommateil war auf drei Stellen begrenzt, dadurch matchte aus
     # "2067 km" nur "067" - der Transeuropalauf (2067 km) stand mit 67 km
@@ -487,6 +495,37 @@ def test_duplikate() -> None:
     m2 = {"name": "MARATHON MÜNCHEN", "wettbewerb": "Marathon", "datum_start": D,
           "standort": S, "laenge_km": 42.2, "veranstalter_url": "https://marathonmuenchen.org/"}
     check("Wortstellung vertauscht", is_same_event(m1, m2), True)
+
+    # Sechster Weg (22.09.2026): zwei Quellen, zwei Labels für dieselbe
+    # Strecke - "Marathon" (running.life) neben "Splatterthon" bzw.
+    # "42.2 km" (lauftermine.ch). Der Halloween Run Bremen stand fünffach
+    # in der Liste. Die Gegenproben sind der wichtigere Teil: Gattung
+    # (Walking, Sprint/Volks) und eine halbe Kilometer Unterschied halten
+    # zwei Wettbewerbe auseinander.
+    hb = {"name": "Halloween Run Bremen", "wettbewerb": "Marathon", "datum_start": "2026-10-31",
+          "standort": "Bremen", "laenge_km": 42.2, "art1": "Laufen"}
+    check("zwei Labels ohne Gattung: Duplikat",
+          is_same_event(hb, dict(hb, name="Halloween-Run-Bremen", wettbewerb="Splatterthon")), True)
+    check("Label nur Maßzahl gegen Namen: Duplikat",
+          is_same_event(dict(hb, wettbewerb="42.2 km"), hb), True)
+    check("Runde in zwei Schreibweisen: Duplikat",
+          is_same_event(dict(hb, wettbewerb="Kürbislauf 13,333 K", laenge_km=13.3),
+                        dict(hb, wettbewerb="13 km", laenge_km=13.0)), True)
+    check("Walking gegen Lauf: getrennt",
+          is_same_event(dict(hb, wettbewerb="10 km Walking", laenge_km=10.0),
+                        dict(hb, wettbewerb="Stadtwerke 10-km-Lauf", laenge_km=10.0)), False)
+    check("Halbmarathon gegen Nordic Walking: getrennt",
+          is_same_event(dict(hb, wettbewerb="Halbmarathon", laenge_km=21.1),
+                        dict(hb, wettbewerb="Peri Power Nordic Walking", laenge_km=21.1)), False)
+    check("Sprint gegen Volksdistanz: getrennt",
+          is_same_event(dict(hb, wettbewerb="Sprintdistanz 28,8 km", laenge_km=28.8, art1="Triathlon"),
+                        dict(hb, wettbewerb="Volksdistanz 28,5 km", laenge_km=28.5, art1="Triathlon")), False)
+    check("halber Kilometer Unterschied: getrennt",
+          is_same_event(dict(hb, wettbewerb="12 km Seen-Lauf", laenge_km=12.0),
+                        dict(hb, wettbewerb="12,5 km Trailrun", laenge_km=12.5)), False)
+    check("Kinderlauf gegen Hauptlauf: getrennt",
+          is_same_event(dict(hb, wettbewerb="Mini Marathon", laenge_km=21.1),
+                        dict(hb, wettbewerb="21,097 km Generali Halbmarathon", laenge_km=21.1)), False)
 
     # Hier trägt der Wettbewerbs-Name das unterscheidende Wort, und die
     # kürzere Wortmenge steckt komplett in der längeren.

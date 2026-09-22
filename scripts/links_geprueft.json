@@ -16432,5 +16432,838 @@
     "quelle": "sportprogramme.org",
     "alt": "https://www.sportprogramme.org/cakespg/events/menue/5049",
     "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.laufzeit.online/, http://www.ips-regensburg.de, https://pettnerhof.de/shop/, http://www.ski-club-schwandorf.de/) - sportprogramme.org bleibt."
+  },
+  "Emsauen Rheine Ultramarathon|2026-09-22": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423109/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://ultra-uwe-unterwegs.de/bericht/hockendes-weib-klippenmarathon/) - my.raceresult.com bleibt."
+  },
+  "Ruller Bruch Marathon|2026-09-22": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424363/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Social Business Nightrun|2026-09-24": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "steiermark.arbeitplus.at",
+    "alt": "https://my.raceresult.com/405159/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://steiermark.arbeitplus.at/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (social). Linkprüfung 2026-09-22."
+  },
+  "Justistal Marathon|2026-09-26": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "100marathonclub.ch",
+    "alt": "https://my.raceresult.com/394526/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.100marathonclub.ch/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (justistal, datum). Linkprüfung 2026-09-22."
+  },
+  "Brucker Dorflauf|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/415676/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Course de l'Espoir|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/course-de-l-espoir-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://dev.visualwebsiteoptimizer.com, https://www.fourseasons.com/geneva/run-of-hope/) - datasport.com bleibt."
+  },
+  "Hennersdorfer Feuerwehrlauf|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/412436/",
+    "notiz": "Kontaktseite nennt https://www.facebook.com/events/1052070027797455 - Portal/Anmeldung/soziales Netz - my.raceresult.com bleibt."
+  },
+  "NÖLV-Straßenlauf-Meisterschaften 10km - inkl. 5km U18 (WRC F)|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "oelv.athmin.at",
+    "alt": "https://oelv.athmin.at/event-details.aspx?event=37173&int=&returnTo=L2V2ZW50cy5hc3B4",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://oelv-nosession.athmin.at) - oelv.athmin.at bleibt."
+  },
+  "Wörthersee Marathon (WRC F)|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "woerthersee-marathon.at",
+    "alt": "https://my.raceresult.com/418267/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.woerthersee-marathon.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:woerthersee, datum). Linkprüfung 2026-09-22."
+  },
+  "Cross Unil-EPFL|2026-09-28": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/cross-unil-epfl-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://dev.visualwebsiteoptimizer.com) - datasport.com bleibt."
+  },
+  "Nassiger Laufmeisterschaften|2026-09-30": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424620/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.svnassig.de) - my.raceresult.com bleibt."
+  },
+  "Helvetia Backyard Ultra|2026-10-02": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "helvetiabackyard.ch",
+    "alt": "https://my.raceresult.com/421980/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.helvetiabackyard.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:helvetia). Linkprüfung 2026-09-22."
+  },
+  "Bayerische Meisterschaft Cross Duathlon Deining|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "events.endure-cycling.com",
+    "alt": "https://events.endure-cycling.com/events/bm-crossduathlon-deining-2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://rsms.me/) - events.endure-cycling.com bleibt."
+  },
+  "Justizlauf|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "zeitnehmung.at",
+    "alt": "https://my.raceresult.com/396447/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.zeitnehmung.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (justizlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Sturmlauf Pyhra|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/402350/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "WMS Straßenlauf 10km im Rahmen der ÖMS|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "oelv.athmin.at",
+    "alt": "https://oelv.athmin.at/event-details.aspx?event=37210&int=&returnTo=L2V2ZW50cy5hc3B4",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://oelv-nosession.athmin.at) - oelv.athmin.at bleibt."
+  },
+  "ÖSTM 10km (ÖM U 18: 5 km) im Rahmen des 5. Waldquellelaufes (WRC B)|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "oelv.athmin.at",
+    "alt": "https://oelv.athmin.at/event-details.aspx?event=35707&int=&returnTo=L2V2ZW50cy5hc3B4",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://oelv-nosession.athmin.at) - oelv.athmin.at bleibt."
+  },
+  "Brienzerseelauf|2026-10-10": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "brienzerseelauf.ch",
+    "alt": "https://datasport.com/de/events/brienzerseelauf-2026",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.brienzerseelauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:brienzerseelauf). Linkprüfung 2026-09-22."
+  },
+  "Pustertaler Herbstlauf|2026-10-10": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/395184/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.su-leisach.com) - my.raceresult.com bleibt."
+  },
+  "Astberglauf|2026-10-11": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/401692/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "YB-Stadionlauf|2026-10-12": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "bscyb.ch",
+    "alt": "https://datasport.com/de/events/yb-stadionlauf-2026",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.bscyb.ch/news?nid=15216 - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (stadionlauf). Linkprüfung 2026-09-22."
+  },
+  "Ladbergen Ultramarathon|2026-10-14": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424619/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "100 MCS Green Marathon|2026-10-16": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "100marathonclub.ch",
+    "alt": "https://my.raceresult.com/422975/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.100marathonclub.ch/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (green, datum). Linkprüfung 2026-09-22."
+  },
+  "Auenlauf Oberhofen|2026-10-16": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-oberhofen.at",
+    "alt": "https://my.raceresult.com/418744/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.sv-oberhofen.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:oberhofen). Linkprüfung 2026-09-22."
+  },
+  "Austria Backyard Ultra - Seekirchen|2026-10-17": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "austriabackyardultra.com",
+    "alt": "https://my.raceresult.com/370815/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://austriabackyardultra.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:austria, datum). Linkprüfung 2026-09-22."
+  },
+  "Südsteirischen Terrassenlauf|2026-10-17": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "runningleibnitz.at",
+    "alt": "https://my.raceresult.com/399310/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.runningleibnitz.at/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (terrassenlauf). Linkprüfung 2026-09-22."
+  },
+  "Int. VLV Crosslauf-Meisterschaften|2026-10-18": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418981/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sv-lochau-leichtathletik.at/) - my.raceresult.com bleibt."
+  },
+  "Münchendorfer Family Run|2026-10-18": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "muenchendorf.gv.at",
+    "alt": "https://my.raceresult.com/416787/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.muenchendorf.gv.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (munchendorfer). Linkprüfung 2026-09-22."
+  },
+  "Niedernsiller Herbstlauf|2026-10-26": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "niedernsill.salzburg.at",
+    "alt": "https://my.raceresult.com/418246/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.niedernsill.salzburg.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (niedernsiller, datum). Linkprüfung 2026-09-22."
+  },
+  "Völkermarkter Crosslauf|2026-10-31": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "vstlaas.at",
+    "alt": "https://my.raceresult.com/397458/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.vstlaas.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (volkermarkter). Linkprüfung 2026-09-22."
+  },
+  "Alfstedter Herbstlauf|2026-11-01": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49310/49.-Alfstedter-Herbstlauf-Alfstedt.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-11-04": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423143/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-11-04": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/45793/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Herbstwaldlauf|2026-11-07": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-rodt-muellenbach.de",
+    "alt": "https://my.raceresult.com/405072/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tv-rodt-muellenbach.de/index.php/services/ski/herbstwaldlauf - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (herbstwaldlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Kyburglauf|2026-11-07": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "kyburglauf.ch",
+    "alt": "https://datasport.com/de/events/kyburglauf-2026",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.kyburglauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:kyburglauf). Linkprüfung 2026-09-22."
+  },
+  "Int. Martinslauf|2026-11-08": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419555/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.tv-losheim.de) - my.raceresult.com bleibt."
+  },
+  "Martinslauf Hinterweidenthal|2026-11-08": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-hinterweidenthal-04.de",
+    "alt": "https://my.raceresult.com/381870/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.tv-hinterweidenthal-04.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:hinterweidenthal). Linkprüfung 2026-09-22."
+  },
+  "NÖLV-Crosslauf-Meisterschaften (AK-U14, Masters)|2026-11-08": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "oelv.athmin.at",
+    "alt": "https://oelv.athmin.at/event-details.aspx?event=36011&int=&returnTo=L2V2ZW50cy5hc3B4",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://oelv-nosession.athmin.at) - oelv.athmin.at bleibt."
+  },
+  "OSC Crosslauf in Damme|2026-11-08": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "osc-damme.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/16-osc-crosslauf-in-damme-2026",
+    "notiz": "Veranstalterseite statt laufen-os.de: https://www.osc-damme.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (host:damme). Linkprüfung 2026-09-22."
+  },
+  "RuG Marathon|2026-11-14": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414832/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Crosslauf Denzlingen|2026-11-21": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "tvd-la.de",
+    "alt": "https://my.raceresult.com/424510/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tvd-la.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-22."
+  },
+  "Gensberg Loop|2026-12-12": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/375690/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Nachtwächterlauf in Ottweiler|2026-12-12": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "tvo-leichtathletik.de",
+    "alt": "https://my.raceresult.com/424101/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tvo-leichtathletik.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nachtwachterlauf). Linkprüfung 2026-09-22."
+  },
+  "Fun & Erlebnis Marathons|2026-12-16": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424305/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Rheine Kloster/Schloss Bentlage Marathon|2026-12-19": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423444/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Rund um Fehmarn Ultra|2026-12-31": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423242/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Gäu-Marathon|2027-01-09": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414833/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Course de la Bonne Résolution|2027-01-17": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/course-de-la-bonne-resolution-2027",
+    "notiz": "Mehrere Seiten nennen den Lauf, keine eindeutig: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, http://www.labr.ch/accueil - datasport.com bleibt."
+  },
+  "Planoiras Volkslanglauf Lenzerheide|2027-01-17": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "arosalenzerheide.swiss",
+    "alt": "https://datasport.com/de/events/planoiras-volkslanglauf-lenzerheide-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://arosalenzerheide.swiss/de/Lenzerheide/Top-Events/Sport/Planoiras-Volkslanglauf - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:lenzerheide). Linkprüfung 2026-09-22."
+  },
+  "Internationale Inferno-Skirennen|2027-01-20": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "inferno-muerren.ch",
+    "alt": "https://datasport.com/de/events/internationale-inferno-rennen-muerren-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.inferno-muerren.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:inferno). Linkprüfung 2026-09-22."
+  },
+  "Elbwasserwerk Kaltehofe Marathon|2027-01-24": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423983/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Steiralauf in Bad Mitterndorf|2027-01-29": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "steiralauf.at",
+    "alt": "https://my.raceresult.com/382039/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.steiralauf.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:steiralauf). Linkprüfung 2026-09-22."
+  },
+  "39 Meilen Teuto Challenge|2027-02-21": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422571/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Gommerlauf|2027-02-27": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "goms.ch",
+    "alt": "https://datasport.com/de/events/gommerlauf-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.goms.ch/gommerlauf/uebersicht - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (gommerlauf). Linkprüfung 2026-09-22."
+  },
+  "3 Mountains Marathon|2027-03-06": {
+    "am": "2026-09-22",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414836/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Stadtwerke-Lauf Flensburg|2027-03-14": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424618/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.triple-sportevents.de) - my.raceresult.com bleibt."
+  },
+  "Kerzerslauf|2027-03-20": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "kerzerslauf.ch",
+    "alt": "https://datasport.com/de/events/49-kerzerslauf-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://kerzerslauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:kerzerslauf). Linkprüfung 2026-09-22."
+  },
+  "Maissauer Duathlon|2027-04-24": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "lurs.at",
+    "alt": "https://my.raceresult.com/423293/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.lurs.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (maissauer). Linkprüfung 2026-09-22."
+  },
+  "Charity-Triathlon Risk Man|2027-05-08": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/399301/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.hoteljakob.at) - my.raceresult.com bleibt."
+  },
+  "Clarholzer Volkslauf|2027-05-08": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419717/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.volldampf-clarholz.de) - my.raceresult.com bleibt."
+  },
+  "Pfingstlauf Wohlen|2027-05-16": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "pfingstlauf.ch",
+    "alt": "https://datasport.com/de/events/pfingstlauf-wohlen-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://www.pfingstlauf.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:pfingstlauf). Linkprüfung 2026-09-22."
+  },
+  "BYU Lustenau|2027-05-22": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "lustenau.run",
+    "alt": "https://my.raceresult.com/404981/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://lustenau.run - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:lustenau). Linkprüfung 2026-09-22."
+  },
+  "Bergedorfer Citylauf|2027-05-23": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423426/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bergedorfer-citylauf.de) - my.raceresult.com bleibt."
+  },
+  "Triathlon Frauenfeld|2027-05-23": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-frauenfeld.ch",
+    "alt": "https://datasport.com/de/events/triathlon-frauenfeld-2027",
+    "notiz": "Veranstalterseite statt datasport.com: http://www.triathlon-frauenfeld.ch - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:frauenfeld). Linkprüfung 2026-09-22."
+  },
+  "Fyne Terra|2027-05-29": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/403759/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.fyne-terra.ch) - my.raceresult.com bleibt."
+  },
+  "Backyard Community Run|2027-06-05": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "helvetiabackyard.ch",
+    "alt": "https://my.raceresult.com/418299/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.helvetiabackyard.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (community). Linkprüfung 2026-09-22."
+  },
+  "Daily Grynd Run|2027-06-12": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "gryndperformance.de",
+    "alt": "https://my.raceresult.com/423533/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.gryndperformance.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:grynd). Linkprüfung 2026-09-22."
+  },
+  "24h Spendenlauf - Backyard for Charity|2027-06-19": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/417493/",
+    "notiz": "Kontaktseite nicht ladbar (429) - my.raceresult.com bleibt."
+  },
+  "Aarauer Altstadtlauf|2027-06-19": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/408161/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Neuenbürger Schloss-Park-Run|2027-06-26": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419659/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Stanserhorn Berglauf|2027-07-04": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410071/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Meßkircher Stadtlauf|2027-07-10": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424286/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "StrongAthlon|2027-08-14": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/419193/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Berglaufcup Züri Oberland|2027-08-16": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/417544/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Infinite Trails Gastein|2027-09-04": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/416679/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Powerman Zofingen|2027-09-04": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/powerman-world-championships-zofingen-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://dev.visualwebsiteoptimizer.com, http://www.powerman.ch/de) - datasport.com bleibt."
+  },
+  "Crux Lauf Villach|2027-09-11": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/413122/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Radln & Renna - Der Altenberger Cross Duathlon|2027-09-11": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/422946/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Valkyrie Trailrun|2027-09-18": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/418569/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Leithamarathon|2027-09-26": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/414758/",
+    "notiz": "Kontaktseite nicht ladbar (404) - my.raceresult.com bleibt."
+  },
+  "Wiener Ärzt:innen-Lauf|2026-09-26": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "aerztinnenlauf.at",
+    "alt": "https://www.time-now-sports.at/wiener-aerztinnenlauf-2026/",
+    "notiz": "Veranstalterseite statt time-now-sports.at: http://www.aerztinnenlauf.at/ - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (host:innen). Linkprüfung 2026-09-22."
+  },
+  "Bad Ischler Kaiserlauf|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "badischllaeuft.at",
+    "alt": "https://time2win.at/event/1096",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.badischllaeuft.at/laufkaiserpaar - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (ischler). Linkprüfung 2026-09-22."
+  },
+  "Critérium de Céligny|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "softtiming.ch",
+    "alt": "https://www.softtiming.ch/index.php/inscriptions?idCourse=1865",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=ABeeZee:regular,italic&amp;subset=latin) - softtiming.ch bleibt."
+  },
+  "Sparkassen Ennsbrückenlauf|2026-09-27": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "pentek-payment.at",
+    "alt": "https://www.pentek-payment.at/ppay.php?p=1724&s_p=1",
+    "notiz": "Seite nicht ladbar (robots) - pentek-payment.at bleibt."
+  },
+  "Kindberger Herbstabendlauf|2026-10-02": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "pentek-payment.at",
+    "alt": "https://www.pentek-payment.at/ppay.php?p=1727&s_p=1",
+    "notiz": "Seite nicht ladbar (robots) - pentek-payment.at bleibt."
+  },
+  "The Circuit - Wien|2026-10-02": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1106",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) - time2win.at bleibt."
+  },
+  "Wachau Trail|2026-10-02": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "wachautrail.at",
+    "alt": "https://time2win.at/event/874",
+    "notiz": "Veranstalterseite statt time2win.at: http://www.wachautrail.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:wachau). Linkprüfung 2026-09-22."
+  },
+  "Kirtagslauf Adlwang|2026-10-03": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "traunviertler-laufcup.at",
+    "alt": "https://time2win.at/event/971",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.traunviertler-laufcup.at/ - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (kirtagslauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Rapidlauf in Hütteldorf|2026-10-04": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "skrapid.at",
+    "alt": "https://www.time-now-sports.at/rapidlauf-2026/",
+    "notiz": "Veranstalterseite statt time-now-sports.at: https://www.skrapid.at/rapidlauf - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (rapidlauf). Linkprüfung 2026-09-22."
+  },
+  "Schlösser Lauf|2026-10-04": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "schloesserlauf.at",
+    "alt": "https://time2win.at/event/1025",
+    "notiz": "Veranstalterseite statt time2win.at: http://www.schloesserlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:schloesser, datum). Linkprüfung 2026-09-22."
+  },
+  "Berglauf auf den Feuerkogel|2026-10-10": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1078",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "WoidWetza|2026-10-10": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "woidwetza.at",
+    "alt": "https://time2win.at/event/981",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.woidwetza.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:woidwetza). Linkprüfung 2026-09-22."
+  },
+  "FIT For BRAIN RUN|2026-10-17": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time-now-sports.at",
+    "alt": "https://www.time-now-sports.at/fit-for-brain-run-2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gmpg.org/xfn/11, https://www.fitforbrainrun.at/, https://www.derrotefaden.at/) - time-now-sports.at bleibt."
+  },
+  "Kürnberg Trail Run|2026-11-07": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1002",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "Alt-Attnanger Martinilauf|2026-11-08": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1005",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "28. Klosterneuburger Adventlauf|2026-11-29": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "ulc-klosterneuburg.at",
+    "alt": "https://time-now-sports.at/28-klosterneuburger-adventlauf-2026",
+    "notiz": "Veranstalterseite statt time-now-sports.at: https://ulc-klosterneuburg.at/ - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (klosterneuburger). Linkprüfung 2026-09-22."
+  },
+  "Nordic Winter Opening|2026-12-06": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "nordic-opening.info",
+    "alt": "https://time2win.at/event/978",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.nordic-opening.info - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:opening, datum). Linkprüfung 2026-09-22."
+  },
+  "Floro Winterlaufcup Gmunden|2026-12-13": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "florosportevents.at",
+    "alt": "https://time2win.at/event/1011",
+    "notiz": "Veranstalterseite statt time2win.at: http://www.florosportevents.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:floro). Linkprüfung 2026-09-22."
+  },
+  "Winterlauf Linz|2026-12-20": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "alohasport.at",
+    "alt": "https://time2win.at/event/1111",
+    "notiz": "Veranstalterseite statt time2win.at: https://alohasport.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-22."
+  },
+  "Dachsteinlauf|2027-01-15": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "dachsteinlauf.at",
+    "alt": "https://time2win.at/event/1077",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.dachsteinlauf.at/de - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:dachsteinlauf). Linkprüfung 2026-09-22."
+  },
+  "24 H Burgenland Extrem|2027-01-21": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "pentek-payment.at",
+    "alt": "https://www.pentek-payment.at/ppay.php?p=1722&s_p=1",
+    "notiz": "Seite nicht ladbar (robots) - pentek-payment.at bleibt."
+  },
+  "Donautrail|2027-03-12": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "donautrail.at",
+    "alt": "https://time2win.at/event/1023",
+    "notiz": "Veranstalterseite statt time2win.at: http://donautrail.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:donautrail). Linkprüfung 2026-09-22."
+  },
+  "Traunuferlauf|2027-03-13": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "traunuferlauf.at",
+    "alt": "https://time2win.at/event/1117",
+    "notiz": "Veranstalterseite statt time2win.at: http://www.traunuferlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:traunuferlauf). Linkprüfung 2026-09-22."
+  },
+  "Welser Halbmarathon|2027-03-20": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "welser-halbmarathon.at",
+    "alt": "https://time2win.at/event/1026",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.welser-halbmarathon.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:welser). Linkprüfung 2026-09-22."
+  },
+  "Fuxnlauf - Gmunden|2027-04-02": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "fuxnlauf.at",
+    "alt": "https://time2win.at/event/1132",
+    "notiz": "Veranstalterseite statt time2win.at: http://www.fuxnlauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:fuxnlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Linzer 3-Brückenlauf|2027-04-25": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1050",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "Run & Bike Groisbach|2027-05-15": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "ff-groisbach.at",
+    "alt": "https://www.time-now-sports.at/run-bike-2027/",
+    "notiz": "Veranstalterseite statt time-now-sports.at: https://www.ff-groisbach.at/hillsiderun - auf der time-now-sports.at-Seite verlinkt, Zielseite nennt den Lauf (host:groisbach). Linkprüfung 2026-09-22."
+  },
+  "Mondseer Lauftag|2027-05-29": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "mondseelauf.at",
+    "alt": "https://time2win.at/event/1108",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.mondseelauf.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (mondseer). Linkprüfung 2026-09-22."
+  },
+  "Hochkönig Ultraks|2027-06-04": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "hochkoenig-ultraks.at",
+    "alt": "https://time2win.at/event/1080",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.hochkoenig-ultraks.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:ultraks). Linkprüfung 2026-09-22."
+  },
+  "Lungauer Tauern Krone Challenge|2027-06-26": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "tauernkrone-challenge.at",
+    "alt": "https://time2win.at/event/1079",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.tauernkrone-challenge.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:tauern). Linkprüfung 2026-09-22."
+  },
+  "Aloha Tri Linz|2027-07-03": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1084",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "Erzberg Dirtrun|2027-07-10": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "erzbergsport.at",
+    "alt": "https://time2win.at/event/1087",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.erzbergsport.at/dirtrun-fun-distanz-8km - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:erzberg, datum). Linkprüfung 2026-09-22."
+  },
+  "Koralm Trailrunning Event|2027-08-20": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "koralmtrailrunningclub.at",
+    "alt": "https://time2win.at/event/1109",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.koralmtrailrunningclub.at/ - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:koralm). Linkprüfung 2026-09-22."
+  },
+  "Zillertaler Steinbocklauf|2027-08-21": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "pentek-payment.at",
+    "alt": "https://www.pentek-payment.at/ppay.php?p=1736&s_p=1",
+    "notiz": "Seite nicht ladbar (robots) - pentek-payment.at bleibt."
+  },
+  "Austria Triathlon Podersdorf|2027-09-03": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "austria-triathlon.at",
+    "alt": "https://time2win.at/event/1098",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.austria-triathlon.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:austria, datum). Linkprüfung 2026-09-22."
+  },
+  "Mayrhofen Ultraks Zillertal|2027-09-03": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "mayrhofen.ultraks.com",
+    "alt": "https://time2win.at/event/1083",
+    "notiz": "Veranstalterseite statt time2win.at: http://mayrhofen.ultraks.com - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:mayrhofen). Linkprüfung 2026-09-22."
+  },
+  "Gamperner Lauf|2027-09-04": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "ulc-gampern.at",
+    "alt": "https://time2win.at/event/1107",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.ulc-gampern.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (gamperner). Linkprüfung 2026-09-22."
+  },
+  "Torlauf Dachstein|2027-09-04": {
+    "am": "2026-09-22",
+    "ergebnis": "korrigiert",
+    "quelle": "torlauf-dachstein.info",
+    "alt": "https://time2win.at/event/1092",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.torlauf-dachstein.info - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:torlauf, datum). Linkprüfung 2026-09-22."
+  },
+  "Aloha Tri Mondseeland|2027-09-05": {
+    "am": "2026-09-22",
+    "ergebnis": "unklar",
+    "quelle": "time2win.at",
+    "alt": "https://time2win.at/event/1105",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
   }
 }

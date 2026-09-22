@@ -87,6 +87,7 @@ from scraper_lib import (  # noqa: E402
     guess_land,
     is_portal_link,
     is_same_event,
+    meter_km,
     is_same_race,
     find_override,
     ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
@@ -955,6 +956,32 @@ def fix_halbmarathon_distance(events: list[dict]) -> list[str]:
     return changed
 
 
+def fix_meter_labels(events: list[dict]) -> list[str]:
+    """Nennt das Wettbewerbs-Label die Strecke nur in METERN ("Mini
+    Marathon mit 150 m, 300 m, 550 m und 900 m", "Hauptlauf 7.900 m"),
+    ist die größte Meterangabe die Distanz - `scraper_lib.meter_km()`
+    liest sie seit dem 22.09.2026 beim Einsammeln. Dieser Schritt zieht
+    den Bestand nach: Der "Mini Marathon" des Traunsee Halbmarathons (ein
+    Kinderlauf bis 900 m, ÖLV-Kalender) stand mit 21,1 km in der Liste,
+    weil das Label auf das Stichwort "Marathon" zurückfiel und der
+    Halbmarathon-Bugfix daraus 21,1 machte. Mit 0,9 km fällt er dann über
+    die Mindestdistanz heraus. Am Bestand nachgezählt (5.643 Zeilen):
+    genau diese eine Zeile; Rundungsunterschiede bis 0,1 km ("9.350 m"
+    neben 9,4 km) bleiben unangetastet. Idempotent."""
+    changed: list[str] = []
+    for event in events:
+        label = event.get("wettbewerb") or ""
+        km = event.get("laenge_km")
+        if not label or km is None:
+            continue
+        mk = meter_km(label)
+        if mk is None or abs(mk - km) <= 0.1:
+            continue
+        changed.append(f"{event.get('name')} ({label[:40]}): laenge_km {km:g} -> {mk:g}")
+        event["laenge_km"] = mk
+    return changed
+
+
 def round_distances(events: list[dict]) -> list[str]:
     """Rundet alle Längenangaben auf eine Nachkommastelle.
 
@@ -1761,6 +1788,7 @@ def main() -> None:
     charity_changes = fix_charity(events)
     art2_changes = refresh_art2(events)
     distance_fixes = fix_halbmarathon_distance(events)
+    meter_fixes = fix_meter_labels(events)
     rounding_fixes = round_distances(events)
     label_fixes = drop_contradicting_wettbewerb(events)
     land_fixes = fix_land(events, geocoder)
@@ -1829,6 +1857,7 @@ def main() -> None:
     section("Charity-Merkmal gesetzt", charity_changes)
     section("Kategorie (art2) korrigiert", art2_changes)
     section("Distanz korrigiert (Halbmarathon-Bugfix)", distance_fixes)
+    section("Distanz aus dem Meter-Label (Kinderläufe, Meterangaben)", meter_fixes)
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)

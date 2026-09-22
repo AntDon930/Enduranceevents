@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270313
 SUMMARY:Donautrail – LINZ55
 LOCATION:Linz\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 55 km\nhttps://time2win.at/ev
- ent/1023
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 55 km\nhttp://donautrail.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1023
+URL:http://donautrail.at
 END:VEVENT
 END:VCALENDAR

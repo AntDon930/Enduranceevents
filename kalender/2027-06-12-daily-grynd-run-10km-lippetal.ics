@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:Daily Grynd Run – 10 km - 20 €
 LOCATION:Lippetal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/423533/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.gryndperf
+ ormance.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/423533/
+URL:https://www.gryndperformance.de
 END:VEVENT
 END:VCALENDAR

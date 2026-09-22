@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261012
 SUMMARY:Brienzerseelauf – 10 km Abendlauf (am Samstag)
 LOCATION:Brienz\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://datasport.com
- /de/events/brienzerseelauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.brienzers
+ eelauf.ch/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/brienzerseelauf-2026
+URL:https://www.brienzerseelauf.ch/
 END:VEVENT
 END:VCALENDAR

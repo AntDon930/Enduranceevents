@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270131
 SUMMARY:Steiralauf in Bad Mitterndorf
 LOCATION:Bad Mitterndorf\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://my.raceresult
- .com/382039/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://www.steiralau
+ f.at
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/382039/
+URL:https://www.steiralauf.at
 END:VEVENT
 END:VCALENDAR

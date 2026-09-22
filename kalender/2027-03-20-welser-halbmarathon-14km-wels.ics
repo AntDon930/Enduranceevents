@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:Welser Halbmarathon – 14 Km Lauf
 LOCATION:Wels\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://time2win.at/e
- vent/1026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.welser-ha
+ lbmarathon.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1026
+URL:https://www.welser-halbmarathon.at
 END:VEVENT
 END:VCALENDAR

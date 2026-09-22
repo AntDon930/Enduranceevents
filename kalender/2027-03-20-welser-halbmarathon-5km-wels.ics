@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:Welser Halbmarathon – 5 Km POWER-Run
 LOCATION:Wels\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://time2win.at/ev
- ent/1026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.welser-hal
+ bmarathon.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1026
+URL:https://www.welser-halbmarathon.at
 END:VEVENT
 END:VCALENDAR

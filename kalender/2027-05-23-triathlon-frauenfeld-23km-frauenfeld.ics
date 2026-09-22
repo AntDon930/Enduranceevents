@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:Triathlon Frauenfeld
 LOCATION:Frauenfeld\, Schweiz
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 23 km\nhttps://datasport.
- com/de/events/triathlon-frauenfeld-2027
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 23 km\nhttp://www.triathl
+ on-frauenfeld.ch
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/triathlon-frauenfeld-2027
+URL:http://www.triathlon-frauenfeld.ch
 END:VEVENT
 END:VCALENDAR

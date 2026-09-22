@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:Martinslauf Hinterweidenthal
 LOCATION:Hinterweidenthal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/381870/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tv-hinterw
+ eidenthal-04.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/381870/
+URL:http://www.tv-hinterweidenthal-04.de
 END:VEVENT
 END:VCALENDAR

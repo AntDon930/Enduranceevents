@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:Kerzerslauf – 15 km Run
 LOCATION:Kerzers\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://datasport.com
- /de/events/49-kerzerslauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://kerzerslauf.c
+ h/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/49-kerzerslauf-2027
+URL:https://kerzerslauf.ch/
 END:VEVENT
 END:VCALENDAR

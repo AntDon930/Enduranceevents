@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:Run & Bike Groisbach – Challenge Lauf - 13 km
 LOCATION:Alland\, Österreich
-DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13 km\nhttps://www.time
- -now-sports.at/run-bike-2027/
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13 km\nhttps://www.ff-g
+ roisbach.at/hillsiderun
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/run-bike-2027/
+URL:https://www.ff-groisbach.at/hillsiderun
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Rapidlauf in Hütteldorf – Hauptlauf 5 km
 LOCATION:Hütteldorf\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.time-now-s
- ports.at/rapidlauf-2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.skrapid.at
+ /rapidlauf
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/rapidlauf-2026/
+URL:https://www.skrapid.at/rapidlauf
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:Dachsteinlauf
 LOCATION:Ramsau am Dachstein\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 40 km\nhttps://time2win.at/e
- vent/1077
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 40 km\nhttps://www.dachstein
+ lauf.at/de
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1077
+URL:https://www.dachsteinlauf.at/de
 END:VEVENT
 END:VCALENDAR

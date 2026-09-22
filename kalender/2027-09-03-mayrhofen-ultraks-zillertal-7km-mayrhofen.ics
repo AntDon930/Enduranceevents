@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270903
 DTEND;VALUE=DATE:20270904
 SUMMARY:Mayrhofen Ultraks Zillertal – 7 km (Sprint)
 LOCATION:Mayrhofen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://time2win.at/ev
- ent/1083
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://mayrhofen.ultra
+ ks.com
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1083
+URL:http://mayrhofen.ultraks.com
 END:VEVENT
 END:VCALENDAR

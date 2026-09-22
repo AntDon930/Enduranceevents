@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:Winterlauf Linz
 LOCATION:Linz\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://time2win.at/ev
- ent/1111
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://alohasport.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1111
+URL:https://alohasport.at
 END:VEVENT
 END:VCALENDAR

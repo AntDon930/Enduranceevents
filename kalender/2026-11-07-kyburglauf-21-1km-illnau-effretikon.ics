@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Kyburglauf – Halbmarathon
 LOCATION:Illnau-Effretikon\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://datasport.c
- om/de/events/kyburglauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.kyburgl
+ auf.ch/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/kyburglauf-2026
+URL:https://www.kyburglauf.ch/
 END:VEVENT
 END:VCALENDAR

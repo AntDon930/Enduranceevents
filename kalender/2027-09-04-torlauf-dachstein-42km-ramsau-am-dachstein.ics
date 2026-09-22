@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270904
 DTEND;VALUE=DATE:20270905
 SUMMARY:Torlauf Dachstein – 42 km 2.500 Hm
 LOCATION:Ramsau am Dachstein\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://time2win.at/ev
- ent/1092
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://www.torlauf-da
+ chstein.info
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1092
+URL:https://www.torlauf-dachstein.info
 END:VEVENT
 END:VCALENDAR

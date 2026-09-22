@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270627
 SUMMARY:Lungauer Tauern Krone Challenge
 LOCATION:Tamsweg\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 37 km\nhttps://time2win.at/e
- vent/1079
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 37 km\nhttps://www.tauernkro
+ ne-challenge.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1079
+URL:https://www.tauernkrone-challenge.at
 END:VEVENT
 END:VCALENDAR

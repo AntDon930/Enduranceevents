@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:Floro Winterlaufcup Gmunden
 LOCATION:Gmunden\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://time2win.at/
- event/1011
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttp://www.florospor
+ tevents.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1011
+URL:http://www.florosportevents.at
 END:VEVENT
 END:VCALENDAR

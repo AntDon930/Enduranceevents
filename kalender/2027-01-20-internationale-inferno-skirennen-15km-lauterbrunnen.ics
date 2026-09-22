@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270124
 SUMMARY:Internationale Inferno-Skirennen
 LOCATION:Lauterbrunnen\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://datasport.com
- /de/events/internationale-inferno-rennen-muerren-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.inferno-m
+ uerren.ch/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/internationale-inferno-rennen-muerren-
- 2027
+URL:https://www.inferno-muerren.ch/
 END:VEVENT
 END:VCALENDAR

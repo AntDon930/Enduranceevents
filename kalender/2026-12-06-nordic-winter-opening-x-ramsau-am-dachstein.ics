@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Nordic Winter Opening
 LOCATION:Ramsau am Dachstein\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://time2win.at/event
- /978
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.nordic-openin
+ g.info
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/978
+URL:https://www.nordic-opening.info
 END:VEVENT
 END:VCALENDAR

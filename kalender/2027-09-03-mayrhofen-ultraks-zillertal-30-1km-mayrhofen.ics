@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270903
 DTEND;VALUE=DATE:20270904
 SUMMARY:Mayrhofen Ultraks Zillertal – 30\,1 km (MUZ30)
 LOCATION:Mayrhofen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30.1 km\nhttps://time2win.at
- /event/1083
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30.1 km\nhttp://mayrhofen.ul
+ traks.com
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1083
+URL:http://mayrhofen.ultraks.com
 END:VEVENT
 END:VCALENDAR

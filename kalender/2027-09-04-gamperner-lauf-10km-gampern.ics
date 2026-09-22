@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270904
 DTEND;VALUE=DATE:20270905
 SUMMARY:Gamperner Lauf
 LOCATION:Gampern\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://time2win.at/e
- vent/1107
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ulc-gampe
+ rn.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1107
+URL:https://www.ulc-gampern.at
 END:VEVENT
 END:VCALENDAR
