@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-mayrhofen-ultraks-zillertal-101km-mayrhofen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Mayrhofen Ultraks Zillertal – 101 km (Z101+)\, 7.600 hm\, höchster
+  Punkt 3.123 m
+LOCATION:Mayrhofen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 101 km\nhttps://time2win.at/e
+ vent/1083
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1083
+END:VEVENT
+END:VCALENDAR

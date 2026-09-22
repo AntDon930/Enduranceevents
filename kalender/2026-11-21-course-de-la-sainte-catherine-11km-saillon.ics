@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-course-de-la-sainte-catherine-11km-saillon@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Course de la Sainte-Catherine
+LOCATION:Saillon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.coursesai
+ ntecatherine.ch/
+TRANSP:TRANSPARENT
+URL:https://www.coursesaintecatherine.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-30-eschliker-silvesterlauf-10km-eschlikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:Eschliker Silvesterlauf
+LOCATION:Eschlikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://silvesterlauf
+ .tveschlikon.ch/
+TRANSP:TRANSPARENT
+URL:https://silvesterlauf.tveschlikon.ch/
+END:VEVENT
+END:VCALENDAR

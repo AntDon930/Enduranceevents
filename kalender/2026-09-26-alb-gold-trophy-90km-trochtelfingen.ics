@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-alb-gold-trophy-90km-trochtelfingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:ALB-GOLD Trophy – Radmarathon 90 km
+LOCATION:Trochtelfingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 90 km\nhttps://www.alb-gold
+ .de/aktiv/trophy.html
+TRANSP:TRANSPARENT
+URL:https://www.alb-gold.de/aktiv/trophy.html
+END:VEVENT
+END:VCALENDAR

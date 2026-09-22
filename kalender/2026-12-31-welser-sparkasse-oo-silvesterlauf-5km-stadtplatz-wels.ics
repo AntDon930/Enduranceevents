@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-welser-sparkasse-oo-silvesterlauf-5km-stadtplatz-wels@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Welser Sparkasse OÖ Silvesterlauf
+LOCATION:Stadtplatz Wels\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://welser-silvest
+ erlauf.at
+TRANSP:TRANSPARENT
+URL:https://welser-silvesterlauf.at
+END:VEVENT
+END:VCALENDAR

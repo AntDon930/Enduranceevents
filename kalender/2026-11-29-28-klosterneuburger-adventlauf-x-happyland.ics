@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-28-klosterneuburger-adventlauf-x-happyland@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:28. Klosterneuburger Adventlauf
+LOCATION:Happyland\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://time-now-sports.a
+ t/28-klosterneuburger-adventlauf-2026
+TRANSP:TRANSPARENT
+URL:https://time-now-sports.at/28-klosterneuburger-adventlauf-2026
+END:VEVENT
+END:VCALENDAR

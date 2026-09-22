@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-berglauf-rinderberg-zweisimmen-12-8km-zweisimmen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Berglauf Rinderberg Zweisimmen – 12.8 km / 1111 hm
+LOCATION:Zweisimmen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.8 km\nhttps://guide.swiss-
+ running.ch/de/events/5802
+TRANSP:TRANSPARENT
+URL:https://guide.swiss-running.ch/de/events/5802
+END:VEVENT
+END:VCALENDAR

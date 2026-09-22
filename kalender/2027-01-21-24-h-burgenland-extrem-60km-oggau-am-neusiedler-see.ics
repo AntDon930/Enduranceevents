@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-21-24-h-burgenland-extrem-60km-oggau-am-neusiedler-see@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270123
+SUMMARY:24 H Burgenland Extrem
+LOCATION:Oggau am Neusiedler See\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 60 km\nhttps://www.pentek-pa
+ yment.at/ppay.php?p=1722&s_p=1
+TRANSP:TRANSPARENT
+URL:https://www.pentek-payment.at/ppay.php?p=1722&s_p=1
+END:VEVENT
+END:VCALENDAR

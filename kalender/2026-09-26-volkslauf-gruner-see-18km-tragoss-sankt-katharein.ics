@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-volkslauf-gruner-see-18km-tragoss-sankt-katharein@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Volkslauf Grüner See
+LOCATION:Tragöß-Sankt Katharein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://ergebnisliste
+ .at/Event/1241
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1241
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-78-int-wiener-hohenstrassenlauf-14km-wien@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:78. Int. Wiener Höhenstraßenlauf
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttp://www.hoehenstra
+ ssenlauf.com
+TRANSP:TRANSPARENT
+URL:http://www.hoehenstrassenlauf.com
+END:VEVENT
+END:VCALENDAR

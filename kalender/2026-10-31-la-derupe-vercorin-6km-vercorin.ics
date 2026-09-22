@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-la-derupe-vercorin-6km-vercorin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:La Derupe Vercorin – 6 km / 800 hm
+LOCATION:Vercorin\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.laderupe.ch
+TRANSP:TRANSPARENT
+URL:https://www.laderupe.ch
+END:VEVENT
+END:VCALENDAR

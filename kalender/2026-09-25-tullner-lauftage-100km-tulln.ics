@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-tullner-lauftage-100km-tulln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Tullner Lauftage
+LOCATION:Tulln\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttp://www.ultralauf
+ teamtulln.at
+TRANSP:TRANSPARENT
+URL:http://www.ultralaufteamtulln.at
+END:VEVENT
+END:VCALENDAR

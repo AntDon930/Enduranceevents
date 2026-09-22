@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-dreilander-lauf-17-2km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Dreiländer-Lauf – ½ Marathon
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.2 km\nhttps://3laenderlau
+ f.org/
+TRANSP:TRANSPARENT
+URL:https://3laenderlauf.org/
+END:VEVENT
+END:VCALENDAR

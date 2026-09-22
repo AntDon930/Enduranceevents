@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-26-easter-backyard-ultra-x-kappel-am-albis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:Easter Backyard Ultra
+LOCATION:Kappel am Albis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://easterbac
+ kyardultra.ch/
+TRANSP:TRANSPARENT
+URL:https://easterbackyardultra.ch/
+END:VEVENT
+END:VCALENDAR

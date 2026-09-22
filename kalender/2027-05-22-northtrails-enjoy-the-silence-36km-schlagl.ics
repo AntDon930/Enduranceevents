@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-northtrails-enjoy-the-silence-36km-schlagl@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Northtrails - Enjoy the Silence
+LOCATION:Schlägl\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 36 km\nhttps://www.northtrail
+ s.run/
+TRANSP:TRANSPARENT
+URL:https://www.northtrails.run/
+END:VEVENT
+END:VCALENDAR

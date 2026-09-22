@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-tullner-lauftage-42-2km-tulln-an-der-donau@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260928
+SUMMARY:Tullner Lauftage – Marathon
+LOCATION:Tulln an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.ultrala
+ ufteamtulln.at/
+TRANSP:TRANSPARENT
+URL:https://www.ultralaufteamtulln.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-leimentaler-langstreckenlauf-8km-oberwil@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Leimentaler Langstreckenlauf – 8 km (Kategorien Fun-Run und Walkin
+ g)
+LOCATION:Oberwil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.tvoberwil.
+ ch/leimentalerlauf
+TRANSP:TRANSPARENT
+URL:https://www.tvoberwil.ch/leimentalerlauf
+END:VEVENT
+END:VCALENDAR

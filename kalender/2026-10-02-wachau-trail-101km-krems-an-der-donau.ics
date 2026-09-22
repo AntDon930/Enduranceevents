@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-wachau-trail-101km-krems-an-der-donau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Wachau Trail – 101 km : eine Ultra‑Distanz für lange Anstrengungen
+ .
+LOCATION:Krems an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 101 km\nhttps://time2win.at/e
+ vent/874
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/874
+END:VEVENT
+END:VCALENDAR

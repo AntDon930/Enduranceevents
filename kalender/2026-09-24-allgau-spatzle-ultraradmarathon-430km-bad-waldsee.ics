@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-allgau-spatzle-ultraradmarathon-430km-bad-waldsee@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260927
+SUMMARY:Allgäu & Spätzle Ultraradmarathon – Radmarathon 430 km
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 430 km\nhttps://www.allgaeu
+ -spaetzle.de/en
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-spaetzle.de/en
+END:VEVENT
+END:VCALENDAR

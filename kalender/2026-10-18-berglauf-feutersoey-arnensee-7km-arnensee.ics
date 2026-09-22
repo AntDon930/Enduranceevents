@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-berglauf-feutersoey-arnensee-7km-arnensee@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Berglauf Feutersoey - Arnensee – 7.0 km / 397 hm
+LOCATION:Arnensee\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.berglauf-ar
+ nensee.ch
+TRANSP:TRANSPARENT
+URL:https://www.berglauf-arnensee.ch
+END:VEVENT
+END:VCALENDAR

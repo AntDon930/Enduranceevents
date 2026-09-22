@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-lake-lucerne-ultra-125km-luzern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261004
+SUMMARY:Lake Lucerne Ultra
+LOCATION:Luzern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 125 km\nhttps://raceid.com/e
+ n/races/14917/about
+TRANSP:TRANSPARENT
+URL:https://raceid.com/en/races/14917/about
+END:VEVENT
+END:VCALENDAR

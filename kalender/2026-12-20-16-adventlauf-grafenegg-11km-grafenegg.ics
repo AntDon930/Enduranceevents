@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-16-adventlauf-grafenegg-11km-grafenegg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:16. Adventlauf Grafenegg
+LOCATION:Grafenegg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.adventlauf
+ -grafenegg.at
+TRANSP:TRANSPARENT
+URL:http://www.adventlauf-grafenegg.at
+END:VEVENT
+END:VCALENDAR

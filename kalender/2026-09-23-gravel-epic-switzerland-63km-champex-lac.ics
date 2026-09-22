@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-23-gravel-epic-switzerland-63km-champex-lac@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260923
+DTEND;VALUE=DATE:20260926
+SUMMARY:Gravel Epic Switzerland – Gravel 63 km
+LOCATION:Champex-Lac\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 63 km\nhttps://www.gravelep
+ ic.com/epic-switzerland
+TRANSP:TRANSPARENT
+URL:https://www.gravelepic.com/epic-switzerland
+END:VEVENT
+END:VCALENDAR

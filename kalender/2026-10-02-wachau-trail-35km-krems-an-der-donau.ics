@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-wachau-trail-35km-krems-an-der-donau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Wachau Trail – 35 km : für längere Strecken.
+LOCATION:Krems an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://time2win.at/ev
+ ent/874
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/874
+END:VEVENT
+END:VCALENDAR

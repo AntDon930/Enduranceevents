@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-veitscher-skytrail-20-3km-sankt-barbara-im-murztal@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270704
+SUMMARY:Veitscher Skytrail – Skyrace
+LOCATION:Sankt Barbara im Mürztal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20.3 km\nhttps://www.veitsche
+ rskytrail.run/
+TRANSP:TRANSPARENT
+URL:https://www.veitscherskytrail.run/
+END:VEVENT
+END:VCALENDAR

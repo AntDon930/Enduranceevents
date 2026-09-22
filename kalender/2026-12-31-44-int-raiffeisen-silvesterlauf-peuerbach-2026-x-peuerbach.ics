@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-int-raiffeisen-silvesterlauf-peuerbach-2026-x-peuerbach@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Int. Raiffeisen Silvesterlauf Peuerbach 2026
+LOCATION:Peuerbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.silvesterlauf.
+ at
+TRANSP:TRANSPARENT
+URL:http://www.silvesterlauf.at
+END:VEVENT
+END:VCALENDAR

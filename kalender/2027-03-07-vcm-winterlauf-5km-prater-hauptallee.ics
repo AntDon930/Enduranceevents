@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-vcm-winterlauf-5km-prater-hauptallee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:VCM Winterlauf
+LOCATION:Prater Hauptallee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.vienna-mara
+ thon.com
+TRANSP:TRANSPARENT
+URL:http://www.vienna-marathon.com
+END:VEVENT
+END:VCALENDAR

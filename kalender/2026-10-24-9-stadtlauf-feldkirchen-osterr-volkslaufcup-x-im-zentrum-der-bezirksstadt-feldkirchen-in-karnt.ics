@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-9-stadtlauf-feldkirchen-osterr-volkslaufcup-x-im-zentrum-de
+ r-bezirksstadt-feldkirchen-in-karnt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:9. Stadtlauf Feldkirchen ( Österr. Volkslaufcup )
+LOCATION:Im Zentrum der Bezirksstadt Feldkirchen in Kärnten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.internationale
+ r-kaernten-marathon.at
+TRANSP:TRANSPARENT
+URL:http://www.internationaler-kaernten-marathon.at
+END:VEVENT
+END:VCALENDAR

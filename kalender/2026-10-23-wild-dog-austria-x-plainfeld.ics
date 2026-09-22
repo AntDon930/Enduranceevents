@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-23-wild-dog-austria-x-plainfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261026
+SUMMARY:Wild Dog Austria
+LOCATION:Plainfeld\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://wild-dog.at/
+TRANSP:TRANSPARENT
+URL:https://wild-dog.at/
+END:VEVENT
+END:VCALENDAR

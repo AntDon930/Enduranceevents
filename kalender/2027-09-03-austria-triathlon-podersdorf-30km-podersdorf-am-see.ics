@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-austria-triathlon-podersdorf-30km-podersdorf-am-see@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Austria Triathlon Podersdorf
+LOCATION:Podersdorf am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30 km\nhttps://time2win.a
+ t/event/1098
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1098
+END:VEVENT
+END:VCALENDAR

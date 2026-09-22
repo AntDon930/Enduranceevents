@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-9-internationaler-karnten-marathon-marathon-cari-42-2km-lan
+ dschaftslauf-zw-feldkirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:9. Internationaler Kärnten Marathon " Marathon Carinzia/Koroska " 
+ ( Österr. Volkslaufcup) )
+LOCATION:Landschaftslauf zw. Feldkirchen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.internat
+ ionaler-kaernten-marathon.at
+TRANSP:TRANSPARENT
+URL:http://www.internationaler-kaernten-marathon.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-stoppelfeld-ultra-201km-kerpen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:Stoppelfeld-Ultra
+LOCATION:Kerpen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 201 km\nhttps://www.svblatzh
+ eim.de/events/stoppelfeld-ultra-2027/
+TRANSP:TRANSPARENT
+URL:https://www.svblatzheim.de/events/stoppelfeld-ultra-2027/
+END:VEVENT
+END:VCALENDAR

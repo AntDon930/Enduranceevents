@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-kindberger-herbstabendlauf-x-kindberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Kindberger Herbstabendlauf
+LOCATION:Kindberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.pentek-paymen
+ t.at/ppay.php?p=1727&s_p=1
+TRANSP:TRANSPARENT
+URL:https://www.pentek-payment.at/ppay.php?p=1727&s_p=1
+END:VEVENT
+END:VCALENDAR

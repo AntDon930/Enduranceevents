@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-king-of-the-lake-47km-attersee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:King of the Lake – Zeitfahren 47 km
+LOCATION:Attersee\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 47 km\nhttps://www.kotl
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.kotl.at
+END:VEVENT
+END:VCALENDAR

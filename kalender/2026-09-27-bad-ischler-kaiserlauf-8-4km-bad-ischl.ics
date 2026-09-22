@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-bad-ischler-kaiserlauf-8-4km-bad-ischl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Bad Ischler Kaiserlauf – 8\,44 Km FunRun
+LOCATION:Bad Ischl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://time2win.at/
+ event/1096
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1096
+END:VEVENT
+END:VCALENDAR

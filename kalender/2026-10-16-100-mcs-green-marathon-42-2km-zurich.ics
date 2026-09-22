@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-16-100-mcs-green-marathon-42-2km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:100 MCS Green Marathon – Marathon
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/422975/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/422975/
+END:VEVENT
+END:VCALENDAR

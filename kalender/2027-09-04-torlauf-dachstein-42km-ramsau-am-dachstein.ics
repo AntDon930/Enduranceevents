@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-torlauf-dachstein-42km-ramsau-am-dachstein@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Torlauf Dachstein – 42 km 2.500 Hm
+LOCATION:Ramsau am Dachstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://time2win.at/ev
+ ent/1092
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1092
+END:VEVENT
+END:VCALENDAR

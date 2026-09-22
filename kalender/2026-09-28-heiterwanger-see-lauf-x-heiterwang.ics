@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-28-heiterwanger-see-lauf-x-heiterwang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+SUMMARY:Heiterwanger-See-Lauf
+LOCATION:Heiterwang\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://heiterwangerseelau
+ f.at/start
+TRANSP:TRANSPARENT
+URL:http://heiterwangerseelauf.at/start
+END:VEVENT
+END:VCALENDAR

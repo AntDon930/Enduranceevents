@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-course-des-paves-la-neuveville-7-5km-la-neuveville@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Course des Pavés La Neuveville
+LOCATION:La Neuveville\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.course-d
+ es-paves.ch
+TRANSP:TRANSPARENT
+URL:https://www.course-des-paves.ch
+END:VEVENT
+END:VCALENDAR

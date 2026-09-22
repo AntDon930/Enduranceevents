@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-schafberglauf-8km-sankt-wolfgang-im-salzkammergut@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Schafberglauf
+LOCATION:Sankt Wolfgang im Salzkammergut\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.lg-st-wolfg
+ ang.at/index.php/schafberglauf/
+TRANSP:TRANSPARENT
+URL:https://www.lg-st-wolfgang.at/index.php/schafberglauf/
+END:VEVENT
+END:VCALENDAR

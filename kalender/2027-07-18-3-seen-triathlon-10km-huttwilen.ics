@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-3-seen-triathlon-10km-huttwilen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:3-Seen-Triathlon
+LOCATION:Hüttwilen\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 10 km\nhttps://www.3-seen
+ -triathlon.ch/
+TRANSP:TRANSPARENT
+URL:https://www.3-seen-triathlon.ch/
+END:VEVENT
+END:VCALENDAR

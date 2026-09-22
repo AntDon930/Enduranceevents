@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-25-bad-ischler-re-max-kaiserlauf-halbmarathon-21-1km-bad-is
+ chl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:25. Bad Ischler RE/MAX KAISERLAUF Halbmarathon
+LOCATION:Bad Ischl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.badischl
+ laeuft.at
+TRANSP:TRANSPARENT
+URL:http://www.badischllaeuft.at
+END:VEVENT
+END:VCALENDAR

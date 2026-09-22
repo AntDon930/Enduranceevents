@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-triathlon-kitzbuhel-x-kitzbuhel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270614
+SUMMARY:Triathlon Kitzbühel
+LOCATION:Kitzbühel\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.triathlon-
+ kitzbuehel.com/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-kitzbuehel.com/
+END:VEVENT
+END:VCALENDAR

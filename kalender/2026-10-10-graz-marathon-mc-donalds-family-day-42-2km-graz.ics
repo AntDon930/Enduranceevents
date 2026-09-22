@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-graz-marathon-mc-donalds-family-day-42-2km-graz@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Graz Marathon - Mc Donalds Family Day
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.grazmara
+ thon.at
+TRANSP:TRANSPARENT
+URL:http://www.grazmarathon.at
+END:VEVENT
+END:VCALENDAR

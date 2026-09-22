@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-hochkonig-ultraks-34km-maria-alm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Hochkönig Ultraks
+LOCATION:Maria Alm\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 34 km\nhttps://time2win.at/e
+ vent/1080
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1080
+END:VEVENT
+END:VCALENDAR

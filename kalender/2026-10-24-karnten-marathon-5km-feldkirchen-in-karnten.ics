@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-karnten-marathon-5km-feldkirchen-in-karnten@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:Kärnten Marathon
+LOCATION:Feldkirchen in Kärnten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://internationale
+ r-kaernten-marathon.at/
+TRANSP:TRANSPARENT
+URL:https://internationaler-kaernten-marathon.at/
+END:VEVENT
+END:VCALENDAR

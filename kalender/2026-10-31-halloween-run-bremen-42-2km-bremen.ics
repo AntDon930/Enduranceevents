@@ -8,11 +8,11 @@ UID:2026-10-31-halloween-run-bremen-42-2km-bremen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
-SUMMARY:Halloween-Run-Bremen – Splatterthon
+SUMMARY:Halloween Run Bremen – Marathon
 LOCATION:Bremen\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://halloween-r
- un-bremen.de/
+ un-bremen.de
 TRANSP:TRANSPARENT
-URL:https://halloween-run-bremen.de/
+URL:https://halloween-run-bremen.de
 END:VEVENT
 END:VCALENDAR

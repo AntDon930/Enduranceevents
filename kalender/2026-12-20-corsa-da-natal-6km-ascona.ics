@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-corsa-da-natal-6km-ascona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Corsa da Natal
+LOCATION:Ascona\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.usascona.c
+ h/corsa-da-natal/
+TRANSP:TRANSPARENT
+URL:https://www.usascona.ch/corsa-da-natal/
+END:VEVENT
+END:VCALENDAR

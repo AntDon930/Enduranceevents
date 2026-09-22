@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-trail-du-jura-bernois-67km-tramelan@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Trail du Jura Bernois – 67 km La Grandiose
+LOCATION:Tramelan\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 67 km\nhttps://utjb.ch
+TRANSP:TRANSPARENT
+URL:https://utjb.ch
+END:VEVENT
+END:VCALENDAR

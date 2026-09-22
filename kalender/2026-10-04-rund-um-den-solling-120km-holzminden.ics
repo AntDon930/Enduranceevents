@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-rund-um-den-solling-120km-holzminden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Rund um den Solling – Radmarathon 120 km
+LOCATION:Holzminden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://www.rund-um
+ -den-solling.de/
+TRANSP:TRANSPARENT
+URL:https://www.rund-um-den-solling.de/
+END:VEVENT
+END:VCALENDAR

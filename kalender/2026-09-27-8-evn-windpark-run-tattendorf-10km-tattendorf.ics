@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-8-evn-windpark-run-tattendorf-10km-tattendorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:8. EVN Windpark Run Tattendorf
+LOCATION:Tattendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://windparkrun.a
+ t/
+TRANSP:TRANSPARENT
+URL:https://windparkrun.at/
+END:VEVENT
+END:VCALENDAR

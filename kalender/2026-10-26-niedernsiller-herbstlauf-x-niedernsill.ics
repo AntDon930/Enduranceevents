@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-niedernsiller-herbstlauf-x-niedernsill@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Niedernsiller Herbstlauf
+LOCATION:Niedernsill\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /418246/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/418246/
+END:VEVENT
+END:VCALENDAR

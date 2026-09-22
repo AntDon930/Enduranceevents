@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-wwf-lauf-zurich-x-oberengstringen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:WWF-Lauf Zürich
+LOCATION:Oberengstringen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wwf-zh.ch/das
+ -koennen-sie-tun/wwf-laeufe/laufen-als-privatperson
+TRANSP:TRANSPARENT
+URL:https://www.wwf-zh.ch/das-koennen-sie-tun/wwf-laeufe/laufen-als-privat
+ person
+END:VEVENT
+END:VCALENDAR

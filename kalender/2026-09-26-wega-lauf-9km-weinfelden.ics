@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-wega-lauf-9km-weinfelden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Wega Lauf
+LOCATION:Weinfelden\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://wegalauf.ch/
+TRANSP:TRANSPARENT
+URL:https://wegalauf.ch/
+END:VEVENT
+END:VCALENDAR

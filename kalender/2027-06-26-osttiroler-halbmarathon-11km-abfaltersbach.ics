@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-osttiroler-halbmarathon-11km-abfaltersbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Osttiroler Halbmarathon
+LOCATION:Abfaltersbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://ac-runners.at
+ /
+TRANSP:TRANSPARENT
+URL:https://ac-runners.at/
+END:VEVENT
+END:VCALENDAR

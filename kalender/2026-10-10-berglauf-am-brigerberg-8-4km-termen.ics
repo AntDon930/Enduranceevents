@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-berglauf-am-brigerberg-8-4km-termen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Berglauf am Brigerberg – 36er+
+LOCATION:Termen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttps://36er.ch/
+TRANSP:TRANSPARENT
+URL:https://36er.ch/
+END:VEVENT
+END:VCALENDAR

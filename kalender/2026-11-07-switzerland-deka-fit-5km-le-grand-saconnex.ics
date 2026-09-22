@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-switzerland-deka-fit-5km-le-grand-saconnex@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:Switzerland DEKA FIT
+LOCATION:Le Grand-Saconnex\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://de.spartan.com
+ /de/race/detail/10980/overview
+TRANSP:TRANSPARENT
+URL:https://de.spartan.com/de/race/detail/10980/overview
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-zillertaler-steinbocklauf-30km-mayrhofen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Zillertaler Steinbocklauf
+LOCATION:Mayrhofen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.pentek-pa
+ yment.at/ppay.php?p=1736&s_p=1
+TRANSP:TRANSPARENT
+URL:https://www.pentek-payment.at/ppay.php?p=1736&s_p=1
+END:VEVENT
+END:VCALENDAR

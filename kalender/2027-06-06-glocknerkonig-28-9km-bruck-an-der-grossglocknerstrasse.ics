@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-glocknerkonig-28-9km-bruck-an-der-grossglocknerstrasse@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Glocknerkönig – Berg 28.9 km
+LOCATION:Bruck an der Großglocknerstraße\, Österreich
+DESCRIPTION:Sportart: Fahrrad\nLänge: 28.9 km\nhttps://www.glocknerkoenig.
+ com
+TRANSP:TRANSPARENT
+URL:https://www.glocknerkoenig.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-blaufrankischland-marathon-42-2km-deutschkreutz@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Blaufränkischland Marathon
+LOCATION:Deutschkreutz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.burgenl
+ and.info/blaufraenkischland-marathon-burgenland
+TRANSP:TRANSPARENT
+URL:https://www.burgenland.info/blaufraenkischland-marathon-burgenland
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-27-gommerlauf-42-2km-obergoms-vs@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270301
+SUMMARY:Gommerlauf – Marathon
+LOCATION:Obergoms VS\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://datasport.c
+ om/de/events/gommerlauf-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/gommerlauf-2027
+END:VEVENT
+END:VCALENDAR

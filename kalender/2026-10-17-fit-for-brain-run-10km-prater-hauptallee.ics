@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-fit-for-brain-run-10km-prater-hauptallee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:FIT For BRAIN RUN
+LOCATION:Prater Hauptallee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lcc-wien.
+ at
+TRANSP:TRANSPARENT
+URL:https://www.lcc-wien.at
+END:VEVENT
+END:VCALENDAR

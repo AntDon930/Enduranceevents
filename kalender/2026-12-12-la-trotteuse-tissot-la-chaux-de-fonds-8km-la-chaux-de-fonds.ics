@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-la-trotteuse-tissot-la-chaux-de-fonds-8km-la-chaux-de-fonds
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:La Trotteuse-Tissot La Chaux-de-Fonds
+LOCATION:La Chaux-de-Fonds\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.latrotteus
+ etissot.ch
+TRANSP:TRANSPARENT
+URL:https://www.latrotteusetissot.ch
+END:VEVENT
+END:VCALENDAR

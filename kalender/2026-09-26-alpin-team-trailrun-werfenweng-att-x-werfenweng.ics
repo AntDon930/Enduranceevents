@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-alpin-team-trailrun-werfenweng-att-x-werfenweng@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Alpin Team Trailrun Werfenweng (ATT)
+LOCATION:Werfenweng\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.alpinteamtrail.
+ at
+TRANSP:TRANSPARENT
+URL:http://www.alpinteamtrail.at
+END:VEVENT
+END:VCALENDAR

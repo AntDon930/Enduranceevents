@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-pfingstlauf-wohlen-5km-wohlen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Pfingstlauf Wohlen – 5 km Kurzstrecke
+LOCATION:Wohlen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://datasport.com/
+ de/events/pfingstlauf-wohlen-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/pfingstlauf-wohlen-2027
+END:VEVENT
+END:VCALENDAR

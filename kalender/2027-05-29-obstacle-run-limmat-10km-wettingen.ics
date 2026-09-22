@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-obstacle-run-limmat-10km-wettingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Obstacle Run Limmat
+LOCATION:Wettingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10 km\nhttps://www.obstac
+ lerun.ch/limmat/
+TRANSP:TRANSPARENT
+URL:https://www.obstaclerun.ch/limmat/
+END:VEVENT
+END:VCALENDAR

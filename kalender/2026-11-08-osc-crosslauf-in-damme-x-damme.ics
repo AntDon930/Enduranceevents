@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-osc-crosslauf-in-damme-x-damme@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:OSC Crosslauf in Damme
+LOCATION:Damme\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.laufen-os.de/w
+ ettkaempfe/16-osc-crosslauf-in-damme-2026
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/16-osc-crosslauf-in-damme-2026
+END:VEVENT
+END:VCALENDAR

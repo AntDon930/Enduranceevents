@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Chemnitzer Silvesterlauf
 LOCATION:Chemnitz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.1 km\nhttps://baer-service
- .de/veranstaltung/CSL/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.1 km\nhttps://www.triathlo
+ nchemnitz.de/veranstaltungen/silvesterlauf/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/CSL/
+URL:https://www.triathlonchemnitz.de/veranstaltungen/silvesterlauf/
 END:VEVENT
 END:VCALENDAR

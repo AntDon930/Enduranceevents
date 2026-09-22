@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-09-paznaun-ischgl-ultra-trail-piut-30km-ischgl@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270711
+SUMMARY:Paznaun Ischgl Ultra Trail (PIUT)
+LOCATION:Ischgl\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://www.paznaun-is
+ chgl.com/piut
+TRANSP:TRANSPARENT
+URL:https://www.paznaun-ischgl.com/piut
+END:VEVENT
+END:VCALENDAR

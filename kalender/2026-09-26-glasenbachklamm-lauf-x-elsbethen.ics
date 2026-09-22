@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-glasenbachklamm-lauf-x-elsbethen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Glasenbachklamm-Lauf
+LOCATION:Elsbethen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.skiclubelsbet
+ hen.at/
+TRANSP:TRANSPARENT
+URL:https://www.skiclubelsbethen.at/
+END:VEVENT
+END:VCALENDAR

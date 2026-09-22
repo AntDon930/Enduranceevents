@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-la-reine-strictly-female-cycling-festival-freibu-135km-frei
+ burg-im-breisgau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:La Reine – Strictly Female Cycling Festival Freiburg – Gran Fondo 
+ 135 km
+LOCATION:Freiburg im Breisgau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 135 km\nhttps://www.lareine
+ .cc/
+TRANSP:TRANSPARENT
+URL:https://www.lareine.cc/
+END:VEVENT
+END:VCALENDAR

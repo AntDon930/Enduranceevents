@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-course-pedestre-villeret-chasseral-villeret-25-6km-villeret
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Course pédestre Villeret-Chasseral-Villeret – Le chamois 25\,6 km
+LOCATION:Villeret\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25.6 km\nhttps://coursevcv.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://coursevcv.ch/
+END:VEVENT
+END:VCALENDAR

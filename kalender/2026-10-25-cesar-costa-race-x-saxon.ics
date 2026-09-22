@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-cesar-costa-race-x-saxon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:César Costa Race
+LOCATION:Saxon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vs-timing.ch/
+ de-CH/Home/Event/248?fromResult=False
+TRANSP:TRANSPARENT
+URL:https://www.vs-timing.ch/de-CH/Home/Event/248?fromResult=False
+END:VEVENT
+END:VCALENDAR

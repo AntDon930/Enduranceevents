@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-herzlauf-niederosterreich-8-7km-purkersdorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Herzlauf Niederösterreich
+LOCATION:Purkersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.7 km\nhttps://www.herzlauf
+ .at/niederoesterreich
+TRANSP:TRANSPARENT
+URL:https://www.herzlauf.at/niederoesterreich
+END:VEVENT
+END:VCALENDAR

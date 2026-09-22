@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-montreux-les-rochers-de-naye-9km-montreux@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Montreux - Les Rochers-de-Naye
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.montreuxle
+ srochersdenaye.ch/de/
+TRANSP:TRANSPARENT
+URL:https://www.montreuxlesrochersdenaye.ch/de/
+END:VEVENT
+END:VCALENDAR

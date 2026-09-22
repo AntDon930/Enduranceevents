@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-ostm-10km-om-u-18-5-km-im-rahmen-des-5-waldquell-10km-kober
+ sdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:ÖSTM 10km (ÖM U 18: 5 km) im Rahmen des 5. Waldquellelaufes (WRC B
+ ) – 10km Straßenlauf
+LOCATION:Kobersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://oelv.athmin.a
+ t/event-details.aspx?event=35707&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=35707&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

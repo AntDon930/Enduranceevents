@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-adventlauf-tulln-42-2km-tulln-an-der-donau@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Adventlauf Tulln – Marathon
+LOCATION:Tulln an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.ultrala
+ ufteamtulln.at/4.-adventlauf-tulln-2026/
+TRANSP:TRANSPARENT
+URL:https://www.ultralaufteamtulln.at/4.-adventlauf-tulln-2026/
+END:VEVENT
+END:VCALENDAR

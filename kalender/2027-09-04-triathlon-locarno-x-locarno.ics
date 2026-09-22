@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-triathlon-locarno-x-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:Triathlon Locarno
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.3locarno.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://www.3locarno.ch/
+END:VEVENT
+END:VCALENDAR

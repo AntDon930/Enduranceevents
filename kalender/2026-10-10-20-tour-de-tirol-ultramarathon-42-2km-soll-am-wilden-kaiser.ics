@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-20-tour-de-tirol-ultramarathon-42-2km-soll-am-wilden-kaiser
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:20. Tour de Tirol - Ultramarathon
+LOCATION:Söll am Wilden Kaiser\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.tourdeti
+ rol.com
+TRANSP:TRANSPARENT
+URL:http://www.tourdetirol.com
+END:VEVENT
+END:VCALENDAR

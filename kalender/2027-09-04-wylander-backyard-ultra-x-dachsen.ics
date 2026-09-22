@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-wylander-backyard-ultra-x-dachsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Wyländer Backyard Ultra
+LOCATION:Dachsen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://www.badi-
+ dachsen.ch/backyardultra
+TRANSP:TRANSPARENT
+URL:https://www.badi-dachsen.ch/backyardultra
+END:VEVENT
+END:VCALENDAR

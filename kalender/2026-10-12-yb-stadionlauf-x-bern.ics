@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-12-yb-stadionlauf-x-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+SUMMARY:YB-Stadionlauf
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://datasport.com/de/
+ events/yb-stadionlauf-2026
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/yb-stadionlauf-2026
+END:VEVENT
+END:VCALENDAR

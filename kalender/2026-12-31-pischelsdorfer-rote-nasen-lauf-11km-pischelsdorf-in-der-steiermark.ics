@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-pischelsdorfer-rote-nasen-lauf-11km-pischelsdorf-in-der-ste
+ iermark@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Pischelsdorfer Rote Nasen Lauf – Laufen schnell
+LOCATION:Pischelsdorf in der Steiermark\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.kulmx.at/
+ rote-nasen-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.kulmx.at/rote-nasen-lauf/
+END:VEVENT
+END:VCALENDAR

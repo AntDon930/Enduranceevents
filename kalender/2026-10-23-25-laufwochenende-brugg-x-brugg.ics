@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-23-25-laufwochenende-brugg-x-brugg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:-25. Laufwochenende Brugg
+LOCATION:Brugg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laufwochenend
+ e-brugg.ch
+TRANSP:TRANSPARENT
+URL:https://www.laufwochenende-brugg.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-christmas-midnight-run-lausanne-7-5km-lausanne@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Christmas Midnight Run Lausanne
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.christma
+ srun.ch
+TRANSP:TRANSPARENT
+URL:https://www.christmasrun.ch
+END:VEVENT
+END:VCALENDAR

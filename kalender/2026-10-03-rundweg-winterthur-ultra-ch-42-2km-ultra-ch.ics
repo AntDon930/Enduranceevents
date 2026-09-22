@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-rundweg-winterthur-ultra-ch-42-2km-ultra-ch@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Rundweg Winterthur Ultra.ch
+LOCATION:Ultra.ch\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://rundweg-win
+ terthur-ultra.ch
+TRANSP:TRANSPARENT
+URL:https://rundweg-winterthur-ultra.ch
+END:VEVENT
+END:VCALENDAR

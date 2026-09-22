@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-mommsen-lauf-zum-veneterstein-8km-mauthen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Mommsen Lauf zum Veneterstein
+LOCATION:Mauthen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.oeav-oberg
+ ailtal.at/2024/02/06/gailbergmoor-gelaendelauf-und-walking/
+TRANSP:TRANSPARENT
+URL:https://www.oeav-obergailtal.at/2024/02/06/gailbergmoor-gelaendelauf-u
+ nd-walking/
+END:VEVENT
+END:VCALENDAR

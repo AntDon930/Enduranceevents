@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-wms-strassenlauf-10km-im-rahmen-der-oms-10km-kobersdorf@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:WMS Straßenlauf 10km im Rahmen der ÖMS – 10km Straßengehen
+LOCATION:Kobersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://oelv.athmin.a
+ t/event-details.aspx?event=37210&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=37210&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

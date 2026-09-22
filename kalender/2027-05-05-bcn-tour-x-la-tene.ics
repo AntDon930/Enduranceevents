@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-bcn-tour-x-la-tene@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:BCN Tour
+LOCATION:La Tène\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
+ ents.php?id=1238
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=1238
+END:VEVENT
+END:VCALENDAR

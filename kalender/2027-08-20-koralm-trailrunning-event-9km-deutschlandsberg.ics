@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-koralm-trailrunning-event-9km-deutschlandsberg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270821
+SUMMARY:Koralm Trailrunning Event
+LOCATION:Deutschlandsberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://time2win.at/eve
+ nt/1109
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1109
+END:VEVENT
+END:VCALENDAR

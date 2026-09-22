@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-semmering-trailrun-8km-semmering-kurort@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Semmering Trailrun
+LOCATION:Semmering-Kurort\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.adventureru
+ ns.at/adventure_trailrun
+TRANSP:TRANSPARENT
+URL:https://www.adventureruns.at/adventure_trailrun
+END:VEVENT
+END:VCALENDAR

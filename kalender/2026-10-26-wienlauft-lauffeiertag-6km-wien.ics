@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-wienlauft-lauffeiertag-6km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Wienläuft Lauffeiertag
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.wienlaeuft
+ .at/de/veranstaltungen-bewerbe/eventdbshow-wienlaeuft-lauffeiertag-26.10.
+ 2026?flat
+TRANSP:TRANSPARENT
+URL:https://www.wienlaeuft.at/de/veranstaltungen-bewerbe/eventdbshow-wienl
+ aeuft-lauffeiertag-26.10.2026?flat
+END:VEVENT
+END:VCALENDAR

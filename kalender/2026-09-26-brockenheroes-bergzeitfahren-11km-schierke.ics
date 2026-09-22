@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-brockenheroes-bergzeitfahren-11km-schierke@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Brockenheroes Bergzeitfahren – Zeitfahren 11 km
+LOCATION:Schierke\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 11 km\nhttps://brockenh
+ eroes.de/
+TRANSP:TRANSPARENT
+URL:https://brockenheroes.de/
+END:VEVENT
+END:VCALENDAR

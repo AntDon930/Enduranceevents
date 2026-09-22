@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-sparkassen-munsterland-giro-jedermann-100km-borken@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Sparkassen Münsterland Giro – Jedermann – Gran Fondo 100 km
+LOCATION:Borken\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://muensterlan
+ d-giro.de
+TRANSP:TRANSPARENT
+URL:https://muensterland-giro.de
+END:VEVENT
+END:VCALENDAR

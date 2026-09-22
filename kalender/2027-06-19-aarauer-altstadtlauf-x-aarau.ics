@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-aarauer-altstadtlauf-x-aarau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Aarauer Altstadtlauf
+LOCATION:Aarau\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /408161/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/408161/
+END:VEVENT
+END:VCALENDAR

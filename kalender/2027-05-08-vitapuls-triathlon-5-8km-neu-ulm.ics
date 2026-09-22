@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-vitapuls-triathlon-5-8km-neu-ulm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:VITAPULS Triathlon
+LOCATION:Neu-Ulm\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: 5.8 km\nhttps://www.vitap
+ uls-triathlon-ulm.de/vitapuls-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.vitapuls-triathlon-ulm.de/vitapuls-triathlon/
+END:VEVENT
+END:VCALENDAR

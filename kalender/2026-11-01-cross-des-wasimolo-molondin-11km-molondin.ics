@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-cross-des-wasimolo-molondin-11km-molondin@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Cross des Wasimolo Molondin
+LOCATION:Molondin\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://www.wasimolo.c
+ h
+TRANSP:TRANSPARENT
+URL:https://www.wasimolo.ch
+END:VEVENT
+END:VCALENDAR

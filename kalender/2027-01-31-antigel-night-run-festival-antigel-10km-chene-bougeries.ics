@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-antigel-night-run-festival-antigel-10km-chene-bougeries@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Antigel Night Run – Festival Antigel
+LOCATION:Chêne-Bougeries\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://antigel.ch/ev
+ ent/antigel-run/
+TRANSP:TRANSPARENT
+URL:https://antigel.ch/event/antigel-run/
+END:VEVENT
+END:VCALENDAR

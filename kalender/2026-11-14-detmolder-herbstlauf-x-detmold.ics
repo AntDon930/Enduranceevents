@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-detmolder-herbstlauf-x-detmold@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Detmolder Herbstlauf
+LOCATION:Detmold\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sv-diestelbru
+ ch-mosebeck.de/detmolder-herbstlauf/
+TRANSP:TRANSPARENT
+URL:https://www.sv-diestelbruch-mosebeck.de/detmolder-herbstlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-witiker-backyard-ultra-x-maur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270510
+SUMMARY:Witiker Backyard Ultra
+LOCATION:Maur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://backyardu
+ ltra.ch/
+TRANSP:TRANSPARENT
+URL:https://backyardultra.ch/
+END:VEVENT
+END:VCALENDAR

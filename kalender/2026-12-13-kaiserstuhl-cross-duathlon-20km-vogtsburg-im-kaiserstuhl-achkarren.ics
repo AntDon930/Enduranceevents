@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-kaiserstuhl-cross-duathlon-20km-vogtsburg-im-kaiserstuhl-ac
+ hkarren@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Kaiserstuhl Cross-Duathlon
+LOCATION:Vogtsburg im Kaiserstuhl-Achkarren\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 20 km\nhttps://www.mrtu
+ rner61.de/kaiserstuhl-cross-duathlon-2026/
+TRANSP:TRANSPARENT
+URL:https://www.mrturner61.de/kaiserstuhl-cross-duathlon-2026/
+END:VEVENT
+END:VCALENDAR

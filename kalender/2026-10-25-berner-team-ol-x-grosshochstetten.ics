@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-berner-team-ol-x-grosshochstetten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Berner Team OL
+LOCATION:Grosshöchstetten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://bernerteamol.ch/
+TRANSP:TRANSPARENT
+URL:https://bernerteamol.ch/
+END:VEVENT
+END:VCALENDAR

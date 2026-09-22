@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-klamm-run-5km-donnersbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Klamm Run – 5 km Runde durch die Klamm und zur Schlosskirche\, 190
+  Hm.
+LOCATION:Donnersbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.klamm-run.a
+ t/
+TRANSP:TRANSPARENT
+URL:https://www.klamm-run.at/
+END:VEVENT
+END:VCALENDAR

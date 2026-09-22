@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-verticale-hauterive-9-7km-saint-blaise@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Verticale Hauterive – La Diagonale
+LOCATION:Saint-Blaise\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://verticale-ha
+ uterive.ch/
+TRANSP:TRANSPARENT
+URL:https://verticale-hauterive.ch/
+END:VEVENT
+END:VCALENDAR

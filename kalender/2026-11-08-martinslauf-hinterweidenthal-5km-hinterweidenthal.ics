@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-martinslauf-hinterweidenthal-5km-hinterweidenthal@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Martinslauf Hinterweidenthal
+LOCATION:Hinterweidenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/381870/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/381870/
+END:VEVENT
+END:VCALENDAR

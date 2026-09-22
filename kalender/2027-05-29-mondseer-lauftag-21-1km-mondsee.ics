@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-mondseer-lauftag-21-1km-mondsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Mondseer Lauftag – 21\,1 km Halbmarathon (45. Int. BWT Halbmaratho
+ n)
+LOCATION:Mondsee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://time2win.at
+ /event/1108
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1108
+END:VEVENT
+END:VCALENDAR

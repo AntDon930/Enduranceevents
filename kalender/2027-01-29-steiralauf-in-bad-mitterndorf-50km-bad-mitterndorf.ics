@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-29-steiralauf-in-bad-mitterndorf-50km-bad-mitterndorf@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270131
+SUMMARY:Steiralauf in Bad Mitterndorf
+LOCATION:Bad Mitterndorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
+ .com/382039/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/382039/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-08-gravel-n-grostl-kaiserwinkl-540km-walchsee-kaiserwinkl@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261012
+SUMMARY:Gravel 'n' Gröstl – Kaiserwinkl – Gravel 540 km
+LOCATION:Walchsee\, Kaiserwinkl\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 540 km\nhttps://gravelngroe
+ stl.com/
+TRANSP:TRANSPARENT
+URL:https://gravelngroestl.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-20-st-moritz-running-festival-6km-sankt-moritz@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270823
+SUMMARY:St. Moritz Running Festival
+LOCATION:Sankt Moritz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.stmoritzru
+ nningfestival.ch/
+TRANSP:TRANSPARENT
+URL:https://www.stmoritzrunningfestival.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bad-waldsee-radmarathon-80km-bad-waldsee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Bad Waldsee Radmarathon – Radmarathon 80 km
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 80 km\nhttps://www.badwalds
+ ee-radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.badwaldsee-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

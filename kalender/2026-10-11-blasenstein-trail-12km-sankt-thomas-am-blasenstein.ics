@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-blasenstein-trail-12km-sankt-thomas-am-blasenstein@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Blasenstein Trail
+LOCATION:Sankt Thomas am Blasenstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://www.blasenstei
+ n-trail.at/
+TRANSP:TRANSPARENT
+URL:https://www.blasenstein-trail.at/
+END:VEVENT
+END:VCALENDAR

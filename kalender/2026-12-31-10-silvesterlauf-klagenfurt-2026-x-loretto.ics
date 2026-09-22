@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-10-silvesterlauf-klagenfurt-2026-x-loretto@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:10. Silvesterlauf Klagenfurt 2026
+LOCATION:Loretto\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.trispoat-even
+ ts.at/silvesterlauf-klagenfurt/
+TRANSP:TRANSPARENT
+URL:https://www.trispoat-events.at/silvesterlauf-klagenfurt/
+END:VEVENT
+END:VCALENDAR

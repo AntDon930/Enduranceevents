@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-tour-de-tirol-10km-soll@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Tour de Tirol
+LOCATION:Söll\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://tourdetirol.at
+TRANSP:TRANSPARENT
+URL:http://tourdetirol.at
+END:VEVENT
+END:VCALENDAR

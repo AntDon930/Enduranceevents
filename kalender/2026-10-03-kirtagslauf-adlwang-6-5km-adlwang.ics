@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kirtagslauf-adlwang-6-5km-adlwang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kirtagslauf Adlwang
+LOCATION:Adlwang\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://time2win.at/
+ event/971
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/971
+END:VEVENT
+END:VCALENDAR

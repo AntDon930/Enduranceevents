@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-traunuferlauf-8-3km-lambach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Traunuferlauf
+LOCATION:Lambach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.3 km\nhttps://time2win.at/
+ event/1117
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1117
+END:VEVENT
+END:VCALENDAR

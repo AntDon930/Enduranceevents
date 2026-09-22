@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-sparkasse-3-lander-marathon-nachwuchslaufe-42-2km-bregenz@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Sparkasse 3-Länder-Marathon - Nachwuchsläufe
+LOCATION:Bregenz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.sparkas
+ se-3-laender-marathon.at/de/kindermarathon
+TRANSP:TRANSPARENT
+URL:https://www.sparkasse-3-laender-marathon.at/de/kindermarathon
+END:VEVENT
+END:VCALENDAR

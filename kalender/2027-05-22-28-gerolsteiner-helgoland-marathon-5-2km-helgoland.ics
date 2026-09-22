@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-28-gerolsteiner-helgoland-marathon-5-2km-helgoland@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:28. Gerolsteiner Helgoland Marathon – Marathon
+LOCATION:Helgoland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.2 km\nhttps://www.helgolan
+ d-marathon.com/
+TRANSP:TRANSPARENT
+URL:https://www.helgoland-marathon.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-social-business-night-run-walk-5km-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:Social Business Night Run/Walk
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://steiermark.arb
+ eitplus.at/arbeit-plus-steiermark/social-business-night-run.html
+TRANSP:TRANSPARENT
+URL:https://steiermark.arbeitplus.at/arbeit-plus-steiermark/social-busines
+ s-night-run.html
+END:VEVENT
+END:VCALENDAR

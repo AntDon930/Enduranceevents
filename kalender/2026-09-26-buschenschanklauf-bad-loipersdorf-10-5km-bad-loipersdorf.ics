@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-buschenschanklauf-bad-loipersdorf-10-5km-bad-loipersdorf@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Buschenschanklauf Bad Loipersdorf – 10\,5 km Volkslauf
+LOCATION:Bad Loipersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.loipers
+ dorf.at/bad-loipersdorfer-buschenschanklauf-genusswanderung-mit-buschensc
+ hankfest_2256_5.htm
+TRANSP:TRANSPARENT
+URL:https://www.loipersdorf.at/bad-loipersdorfer-buschenschanklauf-genussw
+ anderung-mit-buschenschankfest_2256_5.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-luchower-stunde-1h-luchow-dannenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Lüchower Stunde
+LOCATION:Lüchow-Dannenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.sc-luechow.
+ de/de/sportangebot/sportangebote-und-abteilungen/leichtathletik/sportkale
+ nder/
+TRANSP:TRANSPARENT
+URL:https://www.sc-luechow.de/de/sportangebot/sportangebote-und-abteilunge
+ n/leichtathletik/sportkalender/
+END:VEVENT
+END:VCALENDAR

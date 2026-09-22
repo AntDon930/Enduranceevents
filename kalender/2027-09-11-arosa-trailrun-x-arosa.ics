@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-arosa-trailrun-x-arosa@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Arosa Trailrun
+LOCATION:Arosa\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://arosa-trailrun.ch/
+TRANSP:TRANSPARENT
+URL:https://arosa-trailrun.ch/
+END:VEVENT
+END:VCALENDAR

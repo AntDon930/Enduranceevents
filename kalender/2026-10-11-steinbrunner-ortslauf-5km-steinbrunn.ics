@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-steinbrunner-ortslauf-5km-steinbrunn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Steinbrunner Ortslauf – 5 km Hauptlauf Altersklassen 3 Runden
+LOCATION:Steinbrunn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lvsteinbrunn.w
+ ordpress.com/
+TRANSP:TRANSPARENT
+URL:https://lvsteinbrunn.wordpress.com/
+END:VEVENT
+END:VCALENDAR

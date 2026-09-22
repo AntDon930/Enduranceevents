@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-17-wolfgangsee-junior-marathon-42-2km-strobl@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:17. Wolfgangsee Junior-Marathon
+LOCATION:Strobl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.wolfgang
+ seelauf.at
+TRANSP:TRANSPARENT
+URL:http://www.wolfgangseelauf.at
+END:VEVENT
+END:VCALENDAR
