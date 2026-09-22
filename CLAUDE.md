@@ -1740,10 +1740,12 @@ dem nächsten Datenlauf. Drei Dinge daraus:
    (Frauenlauf Bremen 8,5 statt 10 km, Ratzeburger Adventslauf 7,5 km
    statt 7,3 und 8, Remseck 8 statt 7,5 km, Burgdorf ohne 11 km), den
    Double Ultra Triathlon Lensahn (452 km, fehlte), acht 2027-Prognosen
-   (Datenregel 19) – und **zwei falsche Links der Regel**: Der Ort im
+   (Datenregel 19) – und **drei falsche Links der Regel**: Der Ort im
    Hostnamen (`ort_im_host`) hat bei `falkensteinlauf.de` einen anderen
-   Falkenstein-Lauf und bei `tsg-leutkirch.de/…/volkslauf/` den
-   Juli-Volkslauf statt der Stadtmeisterschaft belegt. Beide zurück auf
+   Falkenstein-Lauf, bei `tsg-leutkirch.de/…/volkslauf/` den
+   Juli-Volkslauf statt der Stadtmeisterschaft und bei `tv-albig.de` den
+   Verein statt des privaten Doppelzwölfers (2 × 12 h, die „6 km" waren
+   die Runde) belegt. Alle zurück auf
    raceresult – **direkt in `events.json`**: Ein gelöschter Override
    nimmt nichts zurück, und ein Override darf keinen Portallink über
    einen Veranstalter-Link setzen (`apply_overrides()` blockt das).
