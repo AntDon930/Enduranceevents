@@ -3262,6 +3262,22 @@
       "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)",
       "_quelle": "https://www.havelman-brandenburg.de/ausschreibung-1/",
       "_note": "Stadt Brandenburg (stadt-brandenburg.de/sport/termin/87): „2. Triathlon HavelMan“ am 12.06.2027, Regattastrecke, Havelsport Brandenburg e.V. Distanzen laut Ausschreibung der Erstauflage 2026 (die 2027er ist noch nicht veröffentlicht): WB2 Sprint 0,75 km Schwimmen / 20 km Rad / 5 km Laufen, WB3 Kurz/Olympisch 1,5 / 40 / 10 km; WB1 (Einsteiger/Kinder 0,2 / 5 / 1 km) nicht aufgenommen. Staffeln zu 2-3 Personen daneben (Datenregel 16). Summen nach Datenregel 15. Geprüft 2026-09-21."
+    },
+    {
+      "land": "Deutschland",
+      "name": "Triple Ultra Triathlon Lensahn",
+      "standort": "Ostholstein",
+      "lat": 54.1320096,
+      "lon": 10.6138943,
+      "art1": "Triathlon",
+      "art2": "Straße",
+      "datum_start": "2027-07-30",
+      "datum_ende": "2027-08-01",
+      "laenge_km": 452.0,
+      "wettbewerb": "Double Ultra Triathlon 452 km (7,6 km Schwimmen / 360 km Rad / 84,4 km Laufen)",
+      "veranstalter_url": "https://www.triathlonlensahn.de/",
+      "_quelle": "https://www.triathlonlensahn.de/registration/tender-double",
+      "_note": "triathlonlensahn.de: 30.07.-01.08.2027 (Start Freitag 12 Uhr, Siegerehrung Sonntag), Triple 11,4 / 540 / 126,6 km = 678 km; dazu der 6. Int. Double Ultra Triathlon 7,6 / 360 / 84,4 km = 452 km (Seitenabgleich 2026-09-21)."
     }
   ]
 }

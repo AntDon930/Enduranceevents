@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-09-26-6-remsecker-waldlauf-7-5km-remseck@antdon930.github.io
+UID:2026-09-26-6-remsecker-waldlauf-8km-remseck@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
-SUMMARY:6. Remsecker Waldlauf
+SUMMARY:6. Remsecker Waldlauf – 8 km Langstrecke
 LOCATION:Remseck\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://remsecker-wa
- ldlauf.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://remsecker-wald
+ lauf.de/
 TRANSP:TRANSPARENT
 URL:https://remsecker-waldlauf.de/
 END:VEVENT

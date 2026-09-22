@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-23-frauenlauf-bremen-10km-bremen@antdon930.github.io
+UID:2027-05-23-frauenlauf-bremen-8-5km-bremen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:Frauenlauf Bremen
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://frauenlauf-br
- emen.de/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.5 km\nhttps://frauenlauf-b
+ remen.de/
 TRANSP:TRANSPARENT
 URL:https://frauenlauf-bremen.de/
 END:VEVENT

@@ -353,8 +353,9 @@
   "Triple Ultra Triathlon Lensahn|2027-07-30": {
     "laenge_km": 678.0,
     "dauer_h": null,
-    "_note": "Streckenbasiert, KEIN 24-Stunden-Rennen: 11,4 km Schwimmen (228 Bahnen im Lensahner Hallenbad) + 540 km Rad (68 Runden) + 126,6 km Laufen (98 Runden) = 678 km, also die dreifache Ironman-Distanz. Quelle: triathlonlensahn.de und Wikipedia. Die gespeicherten 24 h waren vermutlich eine Karenzzeit. Geprüft 2026-09-18. | Veranstalterseite statt portal.run-timing.de: https://www.triathlonlensahn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:lensahn). Linkprüfung 2026-09-21.",
-    "veranstalter_url": "https://www.triathlonlensahn.de/"
+    "_note": "triathlonlensahn.de: 30.07.-01.08.2027 (Start Freitag 12 Uhr, Siegerehrung Sonntag), Triple 11,4 / 540 / 126,6 km = 678 km; dazu der 6. Int. Double Ultra Triathlon 7,6 / 360 / 84,4 km = 452 km (Seitenabgleich 2026-09-21).",
+    "veranstalter_url": "https://www.triathlonlensahn.de/",
+    "datum_ende": "2027-08-01"
   },
   "Indoor-Triathlon Aschersleben|2027-01-23": {
     "dauer_h": null,
@@ -5828,10 +5829,6 @@
     "veranstalter_url": "https://www.studernheim.net/",
     "_note": "Veranstalterseite statt runtix.com: https://www.studernheim.net/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (studernheimer, datum). Linkprüfung 2026-09-21."
   },
-  "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
-    "veranstalter_url": "https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:leutkirch). Linkprüfung 2026-09-21."
-  },
   "Leipziger Citytrail|2026-10-03": {
     "veranstalter_url": "https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/",
     "_note": "Veranstalterseite statt baer-service.de: https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (leipziger). Linkprüfung 2026-09-21."
@@ -5839,10 +5836,6 @@
   "Litermont Trail Run|2026-10-03": {
     "veranstalter_url": "https://www.tv-nalbach.de/",
     "_note": "Veranstalterseite statt my.raceresult.com: https://www.tv-nalbach.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nalbach). Linkprüfung 2026-09-21."
-  },
-  "Marathon Rund um den Falkenstein|2026-10-03": {
-    "veranstalter_url": "https://www.falkensteinlauf.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.falkensteinlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:falkenstein). Linkprüfung 2026-09-21."
   },
   "Waldlauf TSV Altenau|2026-10-03": {
     "veranstalter_url": "http://ski-altenau.tzsports.de/waldlauf",
@@ -5942,7 +5935,8 @@
   },
   "Volkslauf im Volkspark Langendreer|2027-04-25": {
     "veranstalter_url": "https://www.svlangendreer04.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.svlangendreer04.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:langendreer). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.svlangendreer04.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:langendreer). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): svlangendreer04.de nennt 2027 nicht (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Lauf in den Frühling - Freital|2027-05-02": {
     "veranstalter_url": "https://www.laufindenfruehling.de/",
@@ -5950,11 +5944,13 @@
   },
   "Neuenkirchener Abendlauf|2027-05-07": {
     "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421",
-    "_note": "Veranstalterseite statt ladv.de: https://www.eintracht-neuenkirchen.de/index.php?id=421 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:neuenkirchen, neuenkirchener). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt ladv.de: https://www.eintracht-neuenkirchen.de/index.php?id=421 - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:neuenkirchen, neuenkirchener). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): eintracht-neuenkirchen.de nennt nur 2026 (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "VFL Ahaus Stadtfestlauf|2027-05-21": {
     "veranstalter_url": "https://www.vflahaus.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.vflahaus.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ahaus, host:ahaus). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.vflahaus.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:ahaus, host:ahaus). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): vflahaus.de nennt 2027 nicht (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Frauenlauf Bremen|2027-05-23": {
     "veranstalter_url": "https://frauenlauf-bremen.de/",
@@ -5962,11 +5958,13 @@
   },
   "Nesselwanger Seenlauf|2027-06-13": {
     "veranstalter_url": "https://www.skiklub-nesselwang.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.skiklub-nesselwang.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nesselwang, nesselwanger). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.skiklub-nesselwang.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:nesselwang, nesselwanger). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): skiklub-nesselwang.de zeigt den 1. Seenlauf 2026 (14.06.2026) (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Möckmühler Stadtlauf|2027-06-20": {
     "veranstalter_url": "https://www.moeckmuehl.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.moeckmuehl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:moeckmuehl, mockmuhler). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.moeckmuehl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:moeckmuehl, mockmuhler). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): moeckmuehl.de nennt 2027 nicht (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Midsummerrun Hamburg|2027-06-25": {
     "veranstalter_url": "https://www.lauftreff-alstertal.de/midsummerrun",
@@ -5974,7 +5972,8 @@
   },
   "Festungslauf in Königstein|2027-08-13": {
     "veranstalter_url": "https://www.festungslauf.de/",
-    "_note": "Veranstalterseite statt baer-service.de: https://www.festungslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:festungslauf, datum). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt baer-service.de: https://www.festungslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:festungslauf, datum). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): festungslauf.de zeigt den 22. Lauf am 07.08.2026, 2027 nicht ausgeschrieben (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Wurzener Ringelnatzlauf|2027-08-29": {
     "veranstalter_url": "https://www.ringelnatzlauf.de/",
@@ -5990,7 +5989,8 @@
   },
   "Bremer Brückenlauf|2027-07-03": {
     "veranstalter_url": "https://bremer-brueckenlauf.de/",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://bremer-brueckenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremer). Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt my.raceresult.com: https://bremer-brueckenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bremer). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): bremer-brueckenlauf.de zeigt 04.07.2026 (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Borsig Halbmarathon|2027-09-05": {
     "veranstalter_url": "https://borsighalbmarathon.de/",
@@ -6066,7 +6066,8 @@
   },
   "Borna Halbmarathon|2027-04-11": {
     "veranstalter_url": "https://www.neuseensport.de/borna-running/borna-half",
-    "_note": "Veranstalterseite statt baer-service.de: https://www.neuseensport.de/borna-running/borna-half - per Websuche gefunden, von Hand geprüft: der Borna Half wird von NeuseenSport e.V. mit VSV77 Borna, LAT Borna und Laufshop Haas ausgerichtet (Kontakt office@neuseensport.de); die Seite ist ohne JavaScript leer, deshalb konnte die Regel sie nicht belegen. Linkprüfung 2026-09-21."
+    "_note": "Veranstalterseite statt baer-service.de: https://www.neuseensport.de/borna-running/borna-half - per Websuche gefunden, von Hand geprüft: der Borna Half wird von NeuseenSport e.V. mit VSV77 Borna, LAT Borna und Laufshop Haas ausgerichtet (Kontakt office@neuseensport.de); die Seite ist ohne JavaScript leer, deshalb konnte die Regel sie nicht belegen. Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): neuseensport.de zeigt den Borna Half 2026 (11./12.04.2026) (Seitenabgleich 2026-09-21).",
+    "datum_vorlaeufig": true
   },
   "Sloopsteener Seenrunden Ultramarathon|2026-12-27": {
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
@@ -6075,5 +6076,56 @@
   "Rund um Detmold|2027-07-24": {
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
     "_note": "Veranstalterseite statt raceresult: Uwe Laigs eigene Terminseite ‚Uwes Laufangebote' nennt ‚7. Rund um Detmold' unter 2027 (‚Detmold' steht dort als eigene Zeile, die Regel las es nicht als Namenswort). Linkprüfung 2026-09-21."
+  },
+  "Frauenlauf Bremen|2027-05-23|10": {
+    "laenge_km": 8.5,
+    "wettbewerb": "8,5 km",
+    "_note": "Frauenlauf Bremen 2027 bietet 8,5 km und 5 km (je Lauf oder Walk), 2,5 km Inklusionslauf und Kinderläufe - keine 10 km (frauenlauf-bremen.de, Seitenabgleich 2026-09-21)."
+  },
+  "Frauenlauf Bremen|2027-05-23|8.5": {
+    "wettbewerb": "8,5 km",
+    "_note": "Frauenlauf Bremen 2027 bietet 8,5 km und 5 km (je Lauf oder Walk), 2,5 km Inklusionslauf und Kinderläufe - keine 10 km (frauenlauf-bremen.de, Seitenabgleich 2026-09-21)."
+  },
+  "36. Ratzeburger Adventslauf|2026-11-29|7.3": {
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km um den Küchensee",
+    "_note": "adventslauf.de nennt 26 km um den Ratzeburger See, 7,5 km um den Küchensee und 1,5 km Kinderlauf - die Zeilen 7,3 km und 8 km sind dieselbe 7,5-km-Strecke (Seitenabgleich 2026-09-21)."
+  },
+  "36. Ratzeburger Adventslauf|2026-11-29|7.5": {
+    "wettbewerb": "7,5 km um den Küchensee",
+    "_note": "adventslauf.de nennt 26 km um den Ratzeburger See, 7,5 km um den Küchensee und 1,5 km Kinderlauf - die Zeilen 7,3 km und 8 km sind dieselbe 7,5-km-Strecke (Seitenabgleich 2026-09-21)."
+  },
+  "36. Ratzeburger Adventslauf|2026-11-29|8": {
+    "exclude": true,
+    "_note": "adventslauf.de nennt 26 km um den Ratzeburger See, 7,5 km um den Küchensee und 1,5 km Kinderlauf - die Zeilen 7,3 km und 8 km sind dieselbe 7,5-km-Strecke (Seitenabgleich 2026-09-21)."
+  },
+  "6. Remsecker Waldlauf|2026-09-26|7.5": {
+    "laenge_km": 8.0,
+    "wettbewerb": "8 km Langstrecke",
+    "_note": "remsecker-waldlauf.de: Mittelstrecke rund 5 km, Seitel-Langstrecke 8 km (nicht 7,5), Kurzstrecke 3 km (Seitenabgleich 2026-09-21)."
+  },
+  "6. Remsecker Waldlauf|2026-09-26|8": {
+    "wettbewerb": "8 km Langstrecke",
+    "_note": "remsecker-waldlauf.de: Mittelstrecke rund 5 km, Seitel-Langstrecke 8 km (nicht 7,5), Kurzstrecke 3 km (Seitenabgleich 2026-09-21)."
+  },
+  "Burgdorfer Spargel-Lauf|2026-10-04|11": {
+    "exclude": true,
+    "_note": "vvvburgdorf.de: 2,5 / 5 / 10 km Lauf, 5 km Nordic Walking, 660 m Kinderlauf - keine 11 km (Seitenabgleich 2026-09-21)."
+  },
+  "Triple Ultra Triathlon Lensahn|2027-07-30|678": {
+    "wettbewerb": "Triple Ultra Triathlon 678 km (11,4 km Schwimmen / 540 km Rad / 126,6 km Laufen)",
+    "_note": "triathlonlensahn.de: 30.07.-01.08.2027 (Start Freitag 12 Uhr, Siegerehrung Sonntag), Triple 11,4 / 540 / 126,6 km = 678 km; dazu der 6. Int. Double Ultra Triathlon 7,6 / 360 / 84,4 km = 452 km (Seitenabgleich 2026-09-21)."
+  },
+  "Marathon Rund um den Falkenstein|2026-10-03": {
+    "veranstalter_url": "https://my.raceresult.com/413192/",
+    "_note": "Zurück auf raceresult: falkensteinlauf.de (Websuche 21.09.) ist ein anderer Lauf (Halbmarathon + 7,21 km im Juli, anderer Falkenstein); unser Marathon in Inzell wird laut raceresult-Kontaktseite privat von Gerd Junker (Wallenhorst) veranstaltet, ohne Website. Der Override ist nötig, weil der falsche Link schon in events.json stand."
+  },
+  "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
+    "veranstalter_url": "https://my.raceresult.com/412923/",
+    "_note": "Zurück auf raceresult: die Volkslauf-Seite der TSG Leutkirch (Websuche 21.09.) beschreibt den Allgäu Volkslauf im Juli, nicht die Stadtmeisterschaft über 10.000/5.000 m am 30.09.; Veranstalter laut raceresult ist die TSG 1847 Skiläuferzunft Leutkirch (skilaeuferzunft.de, aus der Sandbox nicht abrufbar). Der Override ist nötig, weil der falsche Link schon in events.json stand."
+  },
+  "36. Ratzeburger Adventslauf|2026-11-29|26": {
+    "wettbewerb": "26 km um den Ratzeburger See",
+    "_note": "Zwei 26-km-Zeilen (Label ‚26km' und ‚26 km um den Ratzeburger See') sind dieselbe Strecke - gleiches Label, damit sie verschmelzen (adventslauf.de, Seitenabgleich 2026-09-21)."
   }
 }

@@ -8,10 +8,11 @@ UID:2027-07-03-bremer-bruckenlauf-10km-bremen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
-SUMMARY:Bremer Brückenlauf
+SUMMARY:Bremer Brückenlauf (Termin vorläufig)
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://bremer-brueck
- enlauf.de/
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10 km\nhttps
+ ://bremer-brueckenlauf.de/
 TRANSP:TRANSPARENT
 URL:https://bremer-brueckenlauf.de/
 END:VEVENT

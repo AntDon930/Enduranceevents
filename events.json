@@ -1,19 +1,6 @@
 [
   {
     "land": "Deutschland",
-    "name": "Mönchengladbacher Firmenlauf RUN & FUN",
-    "standort": "Mönchengladbach",
-    "lat": 51.1941686,
-    "lon": 6.4315392,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-21",
-    "datum_ende": "2026-09-21",
-    "veranstalter_url": "https://www.santander-run-fun-mg.de/",
-    "laenge_km": 5.0
-  },
-  {
-    "land": "Deutschland",
     "name": "15. Flugfeld Firmenlauf Tage",
     "standort": "Böblingen",
     "lat": 48.684969,
@@ -683,8 +670,9 @@
     "art2": "Straße",
     "datum_start": "2026-09-26",
     "datum_ende": "2026-09-26",
-    "laenge_km": 7.5,
-    "veranstalter_url": "https://remsecker-waldlauf.de/"
+    "laenge_km": 8.0,
+    "veranstalter_url": "https://remsecker-waldlauf.de/",
+    "wettbewerb": "8 km Langstrecke"
   },
   {
     "land": "Deutschland",
@@ -8190,20 +8178,6 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://vvvburgdorf.de/arbeitskreise/spargel-lauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Burgdorfer Spargel-Lauf",
-    "standort": "Burgdorf",
-    "lat": 52.4470203,
-    "lon": 10.005624,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-04",
-    "datum_ende": "2026-10-04",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
     "veranstalter_url": "https://vvvburgdorf.de/arbeitskreise/spargel-lauf/"
   },
   {
@@ -22886,7 +22860,7 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 26.0,
     "veranstalter_url": "https://www.adventslauf.de/",
-    "wettbewerb": "26km"
+    "wettbewerb": "26 km um den Ratzeburger See"
   },
   {
     "land": "Deutschland",
@@ -22898,36 +22872,8 @@
     "art2": "Straße",
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
-    "laenge_km": 7.3,
-    "wettbewerb": "7,3km",
-    "veranstalter_url": "https://www.adventslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "36. Ratzeburger Adventslauf",
-    "standort": "Ratzeburg",
-    "lat": 53.6989627,
-    "lon": 10.7710605,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.adventslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "36. Ratzeburger Adventslauf",
-    "standort": "Ratzeburg",
-    "lat": 53.6989627,
-    "lon": 10.7710605,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "laenge_km": 26.0,
-    "wettbewerb": "26 km um den Ratzeburger See",
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km um den Küchensee",
     "veranstalter_url": "https://www.adventslauf.de/"
   },
   {
@@ -35551,7 +35497,8 @@
     "datum_ende": "2027-04-11",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.neuseensport.de/borna-running/borna-half"
+    "veranstalter_url": "https://www.neuseensport.de/borna-running/borna-half",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -37951,7 +37898,8 @@
     "art2": "Straße",
     "datum_start": "2027-04-25",
     "datum_ende": "2027-04-25",
-    "veranstalter_url": "https://www.svlangendreer04.de/"
+    "veranstalter_url": "https://www.svlangendreer04.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -39143,7 +39091,8 @@
     "datum_ende": "2027-05-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Straße für Jugend, Aktive und Masters",
-    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421"
+    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -39157,7 +39106,8 @@
     "datum_ende": "2027-05-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Straße für Jugend, Aktive und Masters",
-    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421"
+    "veranstalter_url": "https://www.eintracht-neuenkirchen.de/index.php?id=421",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -41045,7 +40995,8 @@
     "art2": "Straße",
     "datum_start": "2027-05-21",
     "datum_ende": "2027-05-21",
-    "veranstalter_url": "https://www.vflahaus.de/"
+    "veranstalter_url": "https://www.vflahaus.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -41473,7 +41424,8 @@
     "datum_start": "2027-05-23",
     "datum_ende": "2027-05-23",
     "veranstalter_url": "https://frauenlauf-bremen.de/",
-    "laenge_km": 10.0
+    "laenge_km": 8.5,
+    "wettbewerb": "8,5 km"
   },
   {
     "land": "Deutschland",
@@ -45250,7 +45202,8 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
-    "veranstalter_url": "https://www.skiklub-nesselwang.de/"
+    "veranstalter_url": "https://www.skiklub-nesselwang.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -46315,7 +46268,8 @@
     "datum_ende": "2027-06-20",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://www.moeckmuehl.de/"
+    "veranstalter_url": "https://www.moeckmuehl.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -46329,7 +46283,8 @@
     "datum_ende": "2027-06-20",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://www.moeckmuehl.de/"
+    "veranstalter_url": "https://www.moeckmuehl.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -47653,7 +47608,8 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://bremer-brueckenlauf.de/"
+    "veranstalter_url": "https://bremer-brueckenlauf.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -47667,7 +47623,8 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://bremer-brueckenlauf.de/"
+    "veranstalter_url": "https://bremer-brueckenlauf.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -47681,7 +47638,8 @@
     "datum_ende": "2027-07-03",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://bremer-brueckenlauf.de/"
+    "veranstalter_url": "https://bremer-brueckenlauf.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -49874,10 +49832,25 @@
     "art1": "Triathlon",
     "art2": "Straße",
     "datum_start": "2027-07-30",
-    "datum_ende": "2027-07-30",
+    "datum_ende": "2027-08-01",
     "veranstalter_url": "https://www.triathlonlensahn.de/",
     "dauer_h": null,
-    "laenge_km": 678.0
+    "laenge_km": 678.0,
+    "wettbewerb": "Triple Ultra Triathlon 678 km (11,4 km Schwimmen / 540 km Rad / 126,6 km Laufen)"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Triple Ultra Triathlon Lensahn",
+    "standort": "Ostholstein",
+    "lat": 54.1320096,
+    "lon": 10.6138943,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-30",
+    "datum_ende": "2027-08-01",
+    "laenge_km": 452.0,
+    "wettbewerb": "Double Ultra Triathlon 452 km (7,6 km Schwimmen / 360 km Rad / 84,4 km Laufen)",
+    "veranstalter_url": "https://www.triathlonlensahn.de/"
   },
   {
     "land": "Deutschland",
@@ -50594,7 +50567,8 @@
     "datum_ende": "2027-08-13",
     "laenge_km": 9.4,
     "wettbewerb": "9,4 km Lauf",
-    "veranstalter_url": "https://www.festungslauf.de/"
+    "veranstalter_url": "https://www.festungslauf.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -50608,7 +50582,8 @@
     "datum_ende": "2027-08-13",
     "laenge_km": 7.7,
     "wettbewerb": "7,7 km Lauf",
-    "veranstalter_url": "https://www.festungslauf.de/"
+    "veranstalter_url": "https://www.festungslauf.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",

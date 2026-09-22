@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-07-30-triple-ultra-triathlon-lensahn-678km-ostholstein@antdon930.
+UID:2027-07-30-triple-ultra-triathlon-lensahn-452km-ostholstein@antdon930.
  github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270730
 DTEND;VALUE=DATE:20270802
-SUMMARY:Triple Ultra Triathlon Lensahn – Triple Ultra Triathlon 678 km (11
- \,4 km Schwimmen / 540 km Rad / 126\,6 km Laufen)
+SUMMARY:Triple Ultra Triathlon Lensahn – Double Ultra Triathlon 452 km (7\
+ ,6 km Schwimmen / 360 km Rad / 84\,4 km Laufen)
 LOCATION:Ostholstein\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 678 km\nhttps://www.triat
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 452 km\nhttps://www.triat
  hlonlensahn.de/
 TRANSP:TRANSPARENT
 URL:https://www.triathlonlensahn.de/

@@ -79,10 +79,10 @@
     "notiz": "226 km stimmen."
   },
   "Triple Ultra Triathlon Lensahn|2027-07-30": {
-    "am": "2026-09-18",
-    "ergebnis": "quelle_ok",
-    "quelle": "portal.run-timing.de/1027, triathlonlensahn.de",
-    "notiz": "Die 678 km stimmen: Ein Triple Ultra ist die dreifache Langdistanz - 11,4 km Schwimmen, 540 km Rad, 126,6 km Laufen = 678 km. Termin '30. Juli - 01. August 2027', Veranstalter TSV Lensahn von 1924. Der Bericht meldet die Zahl nur, weil sie zu keinem der vier Standardformate passt."
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonlensahn.de",
+    "notiz": "triathlonlensahn.de: 30.07.-01.08.2027 (Start Freitag 12 Uhr, Siegerehrung Sonntag), Triple 11,4 / 540 / 126,6 km = 678 km; dazu der 6. Int. Double Ultra Triathlon 7,6 / 360 / 84,4 km = 452 km (Seitenabgleich 2026-09-21)."
   },
   "Indoor-Triathlon Aschersleben|2027-01-23": {
     "am": "2026-09-21",
@@ -5421,9 +5421,9 @@
   },
   "Burgdorfer Spargel-Lauf|2026-10-04": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/404930/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "korrigiert",
+    "quelle": "vvvburgdorf.de",
+    "notiz": "vvvburgdorf.de: 2,5 / 5 / 10 km Lauf, 5 km Nordic Walking, 660 m Kinderlauf - keine 11 km (Seitenabgleich 2026-09-21)."
   },
   "Burgenpatt Ultramarathon|2026-10-04": {
     "am": "2026-09-21",
@@ -5607,9 +5607,9 @@
   },
   "36. Ratzeburger Adventslauf|2026-11-29": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/374255/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "korrigiert",
+    "quelle": "adventslauf.de",
+    "notiz": "adventslauf.de nennt 26 km um den Ratzeburger See, 7,5 km um den Küchensee und 1,5 km Kinderlauf - die Zeilen 7,3 km und 8 km sind dieselbe 7,5-km-Strecke (Seitenabgleich 2026-09-21)."
   },
   "Hohe Ward - Werse Ultramarathon|2026-11-29": {
     "am": "2026-09-21",
@@ -5877,9 +5877,9 @@
   },
   "Volkslauf im Volkspark Langendreer|2027-04-25": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/409928/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "unklar",
+    "quelle": "svlangendreer04.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (svlangendreer04.de nennt 2027 nicht)."
   },
   "Dyckerhoff Steinbruch Marathon|2027-05-02": {
     "am": "2026-09-21",
@@ -5931,15 +5931,15 @@
   },
   "VFL Ahaus Stadtfestlauf|2027-05-21": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/406973/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "unklar",
+    "quelle": "vflahaus.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (vflahaus.de nennt 2027 nicht)."
   },
   "Frauenlauf Bremen|2027-05-23": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/400106/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "korrigiert",
+    "quelle": "frauenlauf-bremen.de",
+    "notiz": "Frauenlauf Bremen 2027 bietet 8,5 km und 5 km (je Lauf oder Walk), 2,5 km Inklusionslauf und Kinderläufe - keine 10 km (frauenlauf-bremen.de, Seitenabgleich 2026-09-21)."
   },
   "Sponsorenlauf Brustkrebshilfe Dorsten|2027-05-23": {
     "am": "2026-09-21",
@@ -5961,9 +5961,9 @@
   },
   "Nesselwanger Seenlauf|2027-06-13": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/404129/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "unklar",
+    "quelle": "skiklub-nesselwang.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (skiklub-nesselwang.de zeigt den 1. Seenlauf 2026 (14.06.2026))."
   },
   "Podbielski Lauf|2027-06-19": {
     "am": "2026-09-21",
@@ -5973,9 +5973,9 @@
   },
   "Möckmühler Stadtlauf|2027-06-20": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://my.raceresult.com/412457/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "ergebnis": "unklar",
+    "quelle": "moeckmuehl.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (moeckmuehl.de nennt 2027 nicht)."
   },
   "Midsummerrun Hamburg|2027-06-25": {
     "am": "2026-09-21",
@@ -6040,8 +6040,8 @@
   "Bremer Brückenlauf|2027-07-03": {
     "am": "2026-09-21",
     "ergebnis": "unklar",
-    "quelle": "https://my.raceresult.com/410016/",
-    "notiz": "raceresult-Seite leitet im Kreis weiter (https ↔ http), aus der Sandbox nicht lesbar"
+    "quelle": "bremer-brueckenlauf.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (bremer-brueckenlauf.de zeigt 04.07.2026)."
   },
   "Neustadter Altstadtlauf|2026-09-25": {
     "am": "2026-09-21",
@@ -6213,9 +6213,9 @@
   },
   "Borna Halbmarathon|2027-04-11": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://baer-service.de/veranstaltung/BHM/",
-    "notiz": "Anmeldeportal abgerufen (robots.txt beachtet): 2. Borna Half: 21,095 km Einzel und Staffel; Datum nicht im Text"
+    "ergebnis": "unklar",
+    "quelle": "neuseensport.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (neuseensport.de zeigt den Borna Half 2026 (11./12.04.2026))."
   },
   "Turm zu Turm Lauf|2027-04-17": {
     "am": "2026-09-21",
@@ -6231,9 +6231,9 @@
   },
   "Neuenkirchener Abendlauf|2027-05-07": {
     "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "https://ladv.de/ausschreibung/detail/48860/VR-Bank-Abendlauf-Neuenkirchen-bei-Bramsche.htm",
-    "notiz": "ladv-Ausschreibung VR-Bank Abendlauf 2027: 5 km und 10 km Straße, Jugend 2.000 m"
+    "ergebnis": "unklar",
+    "quelle": "eintracht-neuenkirchen.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (eintracht-neuenkirchen.de nennt nur 2026)."
   },
   "Bruch Ultra Kettenkamp|2027-05-15": {
     "am": "2026-09-21",
@@ -6267,9 +6267,9 @@
   },
   "Festungslauf in Königstein|2027-08-13": {
     "am": "2026-09-21",
-    "ergebnis": "korrigiert",
-    "quelle": "https://baer-service.de/veranstaltung/FLK/",
-    "notiz": "baer-service.de/veranstaltung/FLK (23. Festungslauf): 9,4 km Lauf, 7,7 km Lauf (auch Walking), 1,2 km Mini-/Inklusionslauf; 470 hm; Datum nicht im Text; 9 → 9,4, 8 → 7,7"
+    "ergebnis": "unklar",
+    "quelle": "festungslauf.de",
+    "notiz": "Seite zeigt 2026, 2027 nicht ausgeschrieben - als vorläufig markiert (festungslauf.de zeigt den 22. Lauf am 07.08.2026, 2027 nicht ausgeschrieben)."
   },
   "Wurzener Ringelnatzlauf|2027-08-29": {
     "am": "2026-09-21",
@@ -7464,5 +7464,11 @@
     "ergebnis": "quelle_ok",
     "quelle": "sparkasse-3-laender-marathon.at",
     "notiz": "Bericht ‚gleiche Seite, gleiche Distanz‘: Viertelmarathon 10,9 km und 11 km Nordic Walking sind zwei Wettbewerbe, kein Duplikat"
+  },
+  "6. Remsecker Waldlauf|2026-09-26": {
+    "am": "2026-09-21",
+    "ergebnis": "korrigiert",
+    "quelle": "remsecker-waldlauf.de",
+    "notiz": "remsecker-waldlauf.de: Mittelstrecke rund 5 km, Seitel-Langstrecke 8 km (nicht 7,5), Kurzstrecke 3 km (Seitenabgleich 2026-09-21)."
   }
 }

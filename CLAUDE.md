@@ -1734,6 +1734,20 @@ dem nächsten Datenlauf. Drei Dinge daraus:
 3. **Nebenbefund**: „Cross im Grund" (Erfurt) ist laut Veranstalter
    (OCR-Squad) ein 13-km-Lauf mit rund 30 Hindernissen – Kategorie
    Hindernis statt Trail, per Override.
+4. **Nach jeder Linkrunde `seitenabgleich.py` über die neuen Seiten**
+   (über einen vorbesetzten Bericht mit `--fortsetzen`, ~2 s je Seite –
+   die 74 Seiten des Tages in 90 s). Das fand vier Datenfehler
+   (Frauenlauf Bremen 8,5 statt 10 km, Ratzeburger Adventslauf 7,5 km
+   statt 7,3 und 8, Remseck 8 statt 7,5 km, Burgdorf ohne 11 km), den
+   Double Ultra Triathlon Lensahn (452 km, fehlte), acht 2027-Prognosen
+   (Datenregel 19) – und **zwei falsche Links der Regel**: Der Ort im
+   Hostnamen (`ort_im_host`) hat bei `falkensteinlauf.de` einen anderen
+   Falkenstein-Lauf und bei `tsg-leutkirch.de/…/volkslauf/` den
+   Juli-Volkslauf statt der Stadtmeisterschaft belegt. Beide zurück auf
+   raceresult (per Override, weil der falsche Link schon in
+   `events.json` stand – ein gelöschter Override nimmt nichts zurück).
+   Der Ort im Host ist ein Beleg für den VEREIN, nicht für den Lauf;
+   bei Vereinen mit mehreren Läufen die Unterseite prüfen.
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 
