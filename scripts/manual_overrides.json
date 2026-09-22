@@ -6117,12 +6117,10 @@
     "_note": "triathlonlensahn.de: 30.07.-01.08.2027 (Start Freitag 12 Uhr, Siegerehrung Sonntag), Triple 11,4 / 540 / 126,6 km = 678 km; dazu der 6. Int. Double Ultra Triathlon 7,6 / 360 / 84,4 km = 452 km (Seitenabgleich 2026-09-21)."
   },
   "Marathon Rund um den Falkenstein|2026-10-03": {
-    "veranstalter_url": "https://my.raceresult.com/413192/",
-    "_note": "Zurück auf raceresult: falkensteinlauf.de (Websuche 21.09.) ist ein anderer Lauf (Halbmarathon + 7,21 km im Juli, anderer Falkenstein); unser Marathon in Inzell wird laut raceresult-Kontaktseite privat von Gerd Junker (Wallenhorst) veranstaltet, ohne Website. Der Override ist nötig, weil der falsche Link schon in events.json stand."
+    "_note": "Zurück auf raceresult: falkensteinlauf.de (Websuche 21.09.) ist ein anderer Lauf (Halbmarathon + 7,21 km im Juli, anderer Falkenstein); unser Marathon in Inzell wird laut raceresult-Kontaktseite privat von Gerd Junker (Wallenhorst) veranstaltet, ohne Website. Direkt in events.json zurückgesetzt: ein Override darf keinen Portallink über einen Veranstalter-Link setzen (apply_overrides), und ohne Override kommt der falsche Link nicht wieder."
   },
   "Leutkircher Langstrecken-Stadtmeisterschaft|2026-09-30": {
-    "veranstalter_url": "https://my.raceresult.com/412923/",
-    "_note": "Zurück auf raceresult: die Volkslauf-Seite der TSG Leutkirch (Websuche 21.09.) beschreibt den Allgäu Volkslauf im Juli, nicht die Stadtmeisterschaft über 10.000/5.000 m am 30.09.; Veranstalter laut raceresult ist die TSG 1847 Skiläuferzunft Leutkirch (skilaeuferzunft.de, aus der Sandbox nicht abrufbar). Der Override ist nötig, weil der falsche Link schon in events.json stand."
+    "_note": "Zurück auf raceresult: die Volkslauf-Seite der TSG Leutkirch (Websuche 21.09.) beschreibt den Allgäu Volkslauf im Juli, nicht die Stadtmeisterschaft über 10.000/5.000 m am 30.09.; Veranstalter laut raceresult ist die TSG 1847 Skiläuferzunft Leutkirch (skilaeuferzunft.de, aus der Sandbox nicht abrufbar). Direkt in events.json zurückgesetzt: ein Override darf keinen Portallink über einen Veranstalter-Link setzen (apply_overrides), und ohne Override kommt der falsche Link nicht wieder."
   },
   "36. Ratzeburger Adventslauf|2026-11-29|26": {
     "wettbewerb": "26 km um den Ratzeburger See",

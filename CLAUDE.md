@@ -1744,8 +1744,9 @@ dem nächsten Datenlauf. Drei Dinge daraus:
    Hostnamen (`ort_im_host`) hat bei `falkensteinlauf.de` einen anderen
    Falkenstein-Lauf und bei `tsg-leutkirch.de/…/volkslauf/` den
    Juli-Volkslauf statt der Stadtmeisterschaft belegt. Beide zurück auf
-   raceresult (per Override, weil der falsche Link schon in
-   `events.json` stand – ein gelöschter Override nimmt nichts zurück).
+   raceresult – **direkt in `events.json`**: Ein gelöschter Override
+   nimmt nichts zurück, und ein Override darf keinen Portallink über
+   einen Veranstalter-Link setzen (`apply_overrides()` blockt das).
    Der Ort im Host ist ein Beleg für den VEREIN, nicht für den Lauf;
    bei Vereinen mit mehreren Läufen die Unterseite prüfen.
 
