@@ -1748,7 +1748,12 @@ dem nächsten Datenlauf. Drei Dinge daraus:
    nimmt nichts zurück, und ein Override darf keinen Portallink über
    einen Veranstalter-Link setzen (`apply_overrides()` blockt das).
    Der Ort im Host ist ein Beleg für den VEREIN, nicht für den Lauf;
-   bei Vereinen mit mehreren Läufen die Unterseite prüfen.
+   bei Vereinen mit mehreren Läufen die Unterseite prüfen. **Seit dem
+   22.09.2026 heißt dieser Treffer `ort:` statt `host:`, und
+   `verifizieren` legt einen reinen Orts-Treffer als `unklar` zur
+   Handprüfung vor** – erst Ort im Host PLUS Name oder Datum auf der
+   Seite ist „gefunden". Von Hand belegen heißt dann: Override mit
+   Begründung, wie bei OTB und Borna (Punkt 2).
 
 ### Was davon den großen Datenlauf überlebt (ehrliche Bilanz)
 

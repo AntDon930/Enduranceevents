@@ -2411,13 +2411,20 @@ def test_veranstalter_links() -> None:
     assert vl.nennt_den_lauf("<p>Ausschreibung</p>", "http://www.djk-herzogenrath.de/seite/ausschreibung.html",
                              ["46. Internationaler Halbmarathon, 56. Internationaler Volkslauf"],
                              ["2026-10-24"], ["Herzogenrath"]) == []
+    # Seit dem 22.09.2026 heißt der Treffer „ort:", nicht „host:": `verifizieren` nimmt
+    # einen reinen Orts-Treffer nur noch als `unklar` (falkensteinlauf.de war ein anderer
+    # Falkenstein-Lauf, tsg-leutkirch.de der Juli-Volkslauf statt der Stadtmeisterschaft).
     assert vl.nennt_den_lauf("<p>Ausschreibung</p>", "http://www.djk-herzogenrath.de/seite/ausschreibung.html",
                              ["46. Internationaler Halbmarathon, 56. Internationaler Volkslauf"],
-                             ["2026-10-24"], ["Herzogenrath"], ort_im_host=True) == ["host:herzogenrath"]
+                             ["2026-10-24"], ["Herzogenrath"], ort_im_host=True) == ["ort:herzogenrath"]
+    # Ort im Host PLUS Datum auf der Seite bleibt ein voller Beleg.
+    assert vl.nennt_den_lauf("<p>Start am 24.10.2026</p>", "http://www.djk-herzogenrath.de/",
+                             ["46. Internationaler Volkslauf"], ["2026-10-24"], ["Herzogenrath"],
+                             ort_im_host=True) == ["ort:herzogenrath", "datum"]
     # Ergebnisdienste, Karten und Datenschutzseiten sind keine Veranstalter.
     assert vl.kandidaten_url_normalisieren("https://www.sportstiming.dk/event/17605") is None
     assert vl.kandidaten_url_normalisieren("https://example.de/datenschutz") is None
-    print("✓ Veranstalterseiten-Prüfung (Umlaut-Hosts, Ortswort, Allgemeinwörter, Datum, Fremd-Hosts)")
+    print("✓ Veranstalterseiten-Prüfung (Umlaut-Hosts, Ortswort, ort:-Treffer, Allgemeinwörter, Datum, Fremd-Hosts)")
 
 
 def main() -> int:

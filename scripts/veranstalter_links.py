@@ -250,10 +250,16 @@ def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
                 treffer.append(w)
                 break
     if ort_im_host:
+        # Als „ort:" markiert, nicht „host:": Der Ort im Hostnamen belegt
+        # den VEREIN, nicht den Lauf - falkensteinlauf.de war ein anderer
+        # Falkenstein-Lauf, tsg-leutkirch.de/…/volkslauf/ der Juli-Volkslauf
+        # statt der Stadtmeisterschaft (Seitenabgleich 21.09.2026).
+        # `verifizieren` nimmt einen reinen Orts-Treffer deshalb nicht mehr
+        # als „gefunden", sondern legt ihn als `unklar` zur Handprüfung vor.
         for o in orte:
             hit = next((w for w in host_woerter(o) if len(w) >= 5 and w in hostn), None)
             if hit:
-                treffer.insert(0, "host:" + hit)
+                treffer.insert(0, "ort:" + hit)
                 break
     for d in daten:
         tag, monat, jahr = int(d[8:10]), int(d[5:7]), d[:4]
@@ -530,8 +536,12 @@ def verifizieren(args) -> None:
             treffer = nennt_den_lauf(body, k, sorted(g["namen"]), sorted(g["daten"]), sorted(g["orte"]),
                                      ort_im_host=True) if status == 200 else []
             eintrag["kandidaten"].append({"url": k, "status": status or body, "treffer": treffer})
-            if treffer:
+            if treffer and any(not t.startswith("ort:") for t in treffer):
                 eintrag["ergebnis"], eintrag["ziel"], eintrag["treffer"] = "gefunden", k, treffer
+            elif treffer:
+                eintrag["treffer"] = treffer
+                eintrag["notiz"] = (f"Websuche nannte {k}; nur der Ort steht im Hostnamen ({', '.join(treffer)}), "
+                                    "Name und Datum des Laufs fehlen auf der Seite - von Hand prüfen (Vereinsseite mit mehreren Läufen?)")
             else:
                 eintrag["notiz"] = f"Websuche nannte {k}, Seite nennt den Lauf nicht erkennbar (Status {status or body})"
         bericht[schluessel] = eintrag
