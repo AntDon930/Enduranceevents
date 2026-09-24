@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-pink-5k-run-koln-5km-fuhlinger-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Pink 5K Run Köln
+LOCATION:Fühlinger See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://pink-5k.de/koe
+ ln/
+TRANSP:TRANSPARENT
+URL:https://pink-5k.de/koeln/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-staufenlauf-dornbirn-x-dornbirn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Staufenlauf Dornbirn
+LOCATION:Dornbirn\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://staufenlauf.com/
+TRANSP:TRANSPARENT
+URL:https://staufenlauf.com/
+END:VEVENT
+END:VCALENDAR

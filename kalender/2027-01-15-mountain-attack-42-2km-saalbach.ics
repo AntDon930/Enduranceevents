@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-15-mountain-attack-42-2km-saalbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:Mountain Attack – Marathon
+LOCATION:Saalbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.mountai
+ n-attack.at/de/
+TRANSP:TRANSPARENT
+URL:https://www.mountain-attack.at/de/
+END:VEVENT
+END:VCALENDAR

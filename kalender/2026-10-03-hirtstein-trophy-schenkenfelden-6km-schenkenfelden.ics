@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-hirtstein-trophy-schenkenfelden-6km-schenkenfelden@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Hirtstein-Trophy Schenkenfelden – Bike
+LOCATION:Schenkenfelden\, Österreich
+DESCRIPTION:Sportart: Triathlon / Trail\nLänge: 6 km\nhttps://www.sportuni
+ on-schenkenfelden.at/?page_id=13418#INFOS
+TRANSP:TRANSPARENT
+URL:https://www.sportunion-schenkenfelden.at/?page_id=13418#INFOS
+END:VEVENT
+END:VCALENDAR

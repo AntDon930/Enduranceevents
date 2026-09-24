@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-01-runners-festival-klouster-12km-rinchnach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261019
+SUMMARY:Runners Festival Klouster – Hauptlauf
+LOCATION:Rinchnach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://runners-festiv
+ al.de/
+TRANSP:TRANSPARENT
+URL:https://runners-festival.de/
+END:VEVENT
+END:VCALENDAR

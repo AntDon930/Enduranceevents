@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-27-crosslauf-durch-das-backumer-tal-6-6km-herten-disteln@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:27. Crosslauf durch das Backumer Tal
+LOCATION:Herten-Disteln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.6 km\nhttps://la-herten.de/
+ veranstaltungen/
+TRANSP:TRANSPARENT
+URL:https://la-herten.de/veranstaltungen/
+END:VEVENT
+END:VCALENDAR

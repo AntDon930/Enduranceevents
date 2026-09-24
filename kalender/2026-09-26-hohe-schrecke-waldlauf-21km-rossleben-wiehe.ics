@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-hohe-schrecke-waldlauf-21km-rossleben-wiehe@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Hohe Schrecke Waldlauf – Halbmarathon (ca. 21 km )
+LOCATION:Roßleben-Wiehe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.hohe-schr
+ ecke-waldlauf.com/
+TRANSP:TRANSPARENT
+URL:https://www.hohe-schrecke-waldlauf.com/
+END:VEVENT
+END:VCALENDAR

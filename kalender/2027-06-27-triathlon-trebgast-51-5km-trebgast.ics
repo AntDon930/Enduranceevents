@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-triathlon-trebgast-51-5km-trebgast@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Triathlon Trebgast – Olympische Distanz 51\,5 km (1\,5 km Schwimme
+ n / 40 km Rad / 10 km Laufen)
+LOCATION:Trebgast\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://triathlo
+ n-trebgast.de/
+TRANSP:TRANSPARENT
+URL:https://triathlon-trebgast.de/
+END:VEVENT
+END:VCALENDAR

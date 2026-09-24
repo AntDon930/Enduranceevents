@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolauslauf-der-tsg-dulmen-10km-dulmen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolauslauf der TSG Dülmen
+LOCATION:Dülmen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-duelm
+ en.de/de/sport/leichtathletik/termine--ausschreibungen/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-duelmen.de/de/sport/leichtathletik/termine--ausschreib
+ ungen/
+END:VEVENT
+END:VCALENDAR

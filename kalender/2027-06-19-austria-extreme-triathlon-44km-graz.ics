@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-austria-extreme-triathlon-44km-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Austria eXtreme Triathlon
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 44 km\nhttps://www.autxtr
+ i.com/
+TRANSP:TRANSPARENT
+URL:https://www.autxtri.com/
+END:VEVENT
+END:VCALENDAR

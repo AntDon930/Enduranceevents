@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-16-auenlauf-oberhofen-x-oberhofen-im-inntal@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:Auenlauf Oberhofen
+LOCATION:Oberhofen im Inntal\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.sv-oberhofen.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.sv-oberhofen.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-29-crosslauf-in-dormagen-straberg-7-5km-dormagen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:29. Crosslauf in Dormagen-Straberg (Termin vorläufig)
+LOCATION:Dormagen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Trail\nLänge: 7.5 km\nhttp:
+ //www.fc-straberg.de
+TRANSP:TRANSPARENT
+URL:http://www.fc-straberg.de
+END:VEVENT
+END:VCALENDAR

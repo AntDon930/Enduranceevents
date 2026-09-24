@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-black-forest-trailrun-masters-92km-elzach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261005
+SUMMARY:Black Forest Trailrun Masters
+LOCATION:Elzach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 92 km\nhttps://trailrun-maste
+ rs.de/
+TRANSP:TRANSPARENT
+URL:https://trailrun-masters.de/
+END:VEVENT
+END:VCALENDAR

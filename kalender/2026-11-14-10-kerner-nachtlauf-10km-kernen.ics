@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-10-kerner-nachtlauf-10km-kernen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:10. Kerner Nachtlauf
+LOCATION:Kernen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.spvgg-rom
+ melshausen.de/leichtathletik/ankuendigungen/nachtlauf
+TRANSP:TRANSPARENT
+URL:https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nacht
+ lauf
+END:VEVENT
+END:VCALENDAR

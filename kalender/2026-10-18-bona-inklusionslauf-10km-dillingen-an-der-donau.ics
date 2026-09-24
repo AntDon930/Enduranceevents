@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-bona-inklusionslauf-10km-dillingen-an-der-donau@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Bona-Inklusionslauf – 10 km Stadtlauf\, in zwei Runden à 5 km
+LOCATION:Dillingen an der Donau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://bona-inklusio
+ nslauf.de/
+TRANSP:TRANSPARENT
+URL:https://bona-inklusionslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-maare-mosel-lauf-21-1km-saxler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Maare-Mosel-Lauf – Halbmarathon
+LOCATION:Saxler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.maaremo
+ sellauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.maaremosellauf.de/
+END:VEVENT
+END:VCALENDAR

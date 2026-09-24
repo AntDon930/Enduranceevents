@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-36er-trail-ried-brig-8-5km-ried-brig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:36er Trail Ried-Brig – 8.5 km / 1576 hm
+LOCATION:Ried-Brig\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.5 km\nhttps://36er.ch
+TRANSP:TRANSPARENT
+URL:https://36er.ch
+END:VEVENT
+END:VCALENDAR

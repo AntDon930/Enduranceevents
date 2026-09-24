@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-stadtwerkelauf-delitzsch-6km-delitzsch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Stadtwerkelauf Delitzsch
+LOCATION:Delitzsch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://stadtwerkelauf
+ -delitzsch.de/
+TRANSP:TRANSPARENT
+URL:https://stadtwerkelauf-delitzsch.de/
+END:VEVENT
+END:VCALENDAR

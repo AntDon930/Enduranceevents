@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-24h-spaichingen-aldingen-24h-spaichingen-aldingen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261109
+SUMMARY:24h Spaichingen-Aldingen
+LOCATION:Spaichingen-Aldingen\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttps://spaichingen
+ -aldingen.dlrg.de/24h-schwimmen/
+TRANSP:TRANSPARENT
+URL:https://spaichingen-aldingen.dlrg.de/24h-schwimmen/
+END:VEVENT
+END:VCALENDAR

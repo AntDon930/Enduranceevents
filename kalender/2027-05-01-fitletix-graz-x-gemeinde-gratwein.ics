@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-fitletix-graz-x-gemeinde-gratwein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Fitletix - Graz
+LOCATION:Gemeinde Gratwein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://fitletix.at/graz/
+TRANSP:TRANSPARENT
+URL:https://fitletix.at/graz/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-25-volkslauf-mit-walking-um-den-awb-see-10-8km-altwarmbuche
+ n-isernhagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:25. Volkslauf mit Walking um den AWB See
+LOCATION:Altwarmbüchen (Isernhagen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttp://xn--tus-altw
+ armbchen-uzb.de/
+TRANSP:TRANSPARENT
+URL:http://xn--tus-altwarmbchen-uzb.de/
+END:VEVENT
+END:VCALENDAR

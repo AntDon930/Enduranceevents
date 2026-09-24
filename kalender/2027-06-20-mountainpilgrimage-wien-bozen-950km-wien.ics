@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mountainpilgrimage-wien-bozen-950km-wien@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:MountainPilgrimage Wien - Bozen – Ultracycling 950 km
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 950 km\nhttps://mountainpil
+ grimage.de/
+TRANSP:TRANSPARENT
+URL:https://mountainpilgrimage.de/
+END:VEVENT
+END:VCALENDAR

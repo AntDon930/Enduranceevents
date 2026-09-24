@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-asvo-raiffeisen-granitmarathon-x-kleinzell-im-muhlkreis@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:ASVÖ-Raiffeisen Granitmarathon – Cycling 4 All\, Marathon
+LOCATION:Kleinzell im Mühlkreis\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.sk-kle
+ inzell.at/
+TRANSP:TRANSPARENT
+URL:https://www.sk-kleinzell.at/
+END:VEVENT
+END:VCALENDAR

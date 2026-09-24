@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-28-gruntal-winterultra-50km-freudenstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:Grüntal-Winterultra
+LOCATION:Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.neckarlau
+ f.com/gr%C3%BCntal-winterultra.html
+TRANSP:TRANSPARENT
+URL:https://www.neckarlauf.com/gr%C3%BCntal-winterultra.html
+END:VEVENT
+END:VCALENDAR

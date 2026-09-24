@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-draisinenlauf-asparn-grafensulz-weinviertler-rai-x-asparn-a
+ n-der-zaya-bahnhof@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Draisinenlauf Asparn-Grafensulz (Weinviertler Raiffeisen Laufcup)
+LOCATION:Asparn an der Zaya Bahnhof\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.weinviertlerl
+ aufcup.at
+TRANSP:TRANSPARENT
+URL:https://www.weinviertlerlaufcup.at
+END:VEVENT
+END:VCALENDAR

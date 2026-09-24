@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-montafon-arlberg-marathon-15km-silbertal@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Montafon Arlberg Marathon – 15 km Panoramatrail\, Start und Ziel S
+ t. Anton am Arlberg
+LOCATION:Silbertal\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 15 km\nhttps://www.montafon.a
+ t/montafon-arlberg-marathon/de
+TRANSP:TRANSPARENT
+URL:https://www.montafon.at/montafon-arlberg-marathon/de
+END:VEVENT
+END:VCALENDAR

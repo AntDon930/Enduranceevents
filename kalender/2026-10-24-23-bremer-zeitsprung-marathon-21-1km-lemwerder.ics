@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-23-bremer-zeitsprung-marathon-21-1km-lemwerder@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:23. Bremer Zeitsprung-Marathon – Halbmarathon (Termin vorläufig)
+LOCATION:Lemwerder\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.1 km\nhtt
+ ps://my.raceresult.com/374167/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/374167/
+END:VEVENT
+END:VCALENDAR

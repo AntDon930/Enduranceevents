@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-frauenfelder-halb-marathon-wil-21-1km-wil@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Frauenfelder (Halb-)Marathon Wil
+LOCATION:Wil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.derfrau
+ enfelder.ch
+TRANSP:TRANSPARENT
+URL:https://www.derfrauenfelder.ch
+END:VEVENT
+END:VCALENDAR

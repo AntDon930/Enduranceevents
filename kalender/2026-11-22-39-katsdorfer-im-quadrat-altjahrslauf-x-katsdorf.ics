@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-39-katsdorfer-im-quadrat-altjahrslauf-x-katsdorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:39. Katsdorfer "Im Quadrat" Altjahrslauf
+LOCATION:Katsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.katsdorfer-alt
+ jahrslauf.at
+TRANSP:TRANSPARENT
+URL:http://www.katsdorfer-altjahrslauf.at
+END:VEVENT
+END:VCALENDAR

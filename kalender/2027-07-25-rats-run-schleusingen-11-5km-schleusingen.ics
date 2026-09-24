@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-rats-run-schleusingen-11-5km-schleusingen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Rats-Run - Schleusingen – 11.500+ m\, 25+ Hindernisse
+LOCATION:Schleusingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 11.5 km\nhttps://v2.rats-
+ runners.de/schleusingen-event/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/schleusingen-event/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-mtb-fahrtechnikkurs-pumptrack-nurnberg-x-nurnberg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:MTB-Fahrtechnikkurs "Pumptrack"\, Nürnberg – MTB
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.facebo
+ ok.com/bikeactivities
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/bikeactivities
+END:VEVENT
+END:VCALENDAR

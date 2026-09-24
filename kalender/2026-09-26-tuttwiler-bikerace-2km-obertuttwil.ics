@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-tuttwiler-bikerace-2km-obertuttwil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Tuttwiler Bikerace – Cross-Country 2 km
+LOCATION:Obertuttwil\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 2 km\nhttps://sc-tutt
+ wilerberg.ch/bike-race/
+TRANSP:TRANSPARENT
+URL:https://sc-tuttwilerberg.ch/bike-race/
+END:VEVENT
+END:VCALENDAR

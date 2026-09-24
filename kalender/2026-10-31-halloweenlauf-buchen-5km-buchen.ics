@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloweenlauf-buchen-5km-buchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloweenlauf Buchen – 5 km Straße für U16\, U18\, M30\, M40\, M50
+ \, W30\, W40\, W50
+LOCATION:Buchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsv-buchen
+ .de/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-buchen.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-8-silvester-gravelride-32km-hannover@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:8. Silvester Gravelride – Gravel Tour 32 km
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 32 km\nhttps://radsportgeme
+ inschaft-hannover.de/events/silvester-ctf-2025-2/
+TRANSP:TRANSPARENT
+URL:https://radsportgemeinschaft-hannover.de/events/silvester-ctf-2025-2/
+END:VEVENT
+END:VCALENDAR

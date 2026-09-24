@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-28-generali-koln-marathon-21-1km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:28. Generali Köln Marathon – Halbmarathon 95€
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://generali-ko
+ eln-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://generali-koeln-marathon.de/
+END:VEVENT
+END:VCALENDAR

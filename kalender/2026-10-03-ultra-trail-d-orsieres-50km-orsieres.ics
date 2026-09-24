@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-ultra-trail-d-orsieres-50km-orsieres@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Ultra-Trail d'Orsières
+LOCATION:Orsières\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://www.runthrough
+ trails.com/ultra-dorsieres
+TRANSP:TRANSPARENT
+URL:https://www.runthroughtrails.com/ultra-dorsieres
+END:VEVENT
+END:VCALENDAR

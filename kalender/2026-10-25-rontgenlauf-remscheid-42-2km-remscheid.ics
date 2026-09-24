@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-rontgenlauf-remscheid-42-2km-remscheid@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Röntgenlauf Remscheid – Marathon (42\,195 km)
+LOCATION:Remscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.roentge
+ nlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.roentgenlauf.de/
+END:VEVENT
+END:VCALENDAR

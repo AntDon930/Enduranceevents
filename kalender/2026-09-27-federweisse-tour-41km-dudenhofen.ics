@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-federweisse-tour-41km-dudenhofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Federweiße-Tour – RTF 41 km
+LOCATION:Dudenhofen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 41 km\nhttps://www.rv08.de
+TRANSP:TRANSPARENT
+URL:https://www.rv08.de
+END:VEVENT
+END:VCALENDAR

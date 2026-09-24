@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-9-diezer-stadtlauf-mit-10-km-regionsmeisterschaf-5km-diez@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:9. Diezer Stadtlauf mit 10 km (Regionsmeisterschaft) – 5 km Walkin
+ g\, Nordic-Walking und Gehen für Jedermann
+LOCATION:Diez\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/26V13000496150000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V13000496150000
+END:VEVENT
+END:VCALENDAR

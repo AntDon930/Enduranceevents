@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-mtv-fichte-winsen-aller-6-4km-winsen-aller@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf MTV "Fichte" Winsen (Aller) – Walking 6\,4 km
+LOCATION:Winsen (Aller)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.mtv-fich
+ te.de/
+TRANSP:TRANSPARENT
+URL:https://www.mtv-fichte.de/
+END:VEVENT
+END:VCALENDAR

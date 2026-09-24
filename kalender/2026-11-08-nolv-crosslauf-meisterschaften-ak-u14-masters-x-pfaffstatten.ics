@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-nolv-crosslauf-meisterschaften-ak-u14-masters-x-pfaffstatte
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:NÖLV-Crosslauf-Meisterschaften (AK-U14\, Masters)
+LOCATION:Pfaffstätten\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://oelv.athmin.at/eve
+ nt-details.aspx?event=36011&int=&returnTo=L2V2ZW50cy5hc3B4
+TRANSP:TRANSPARENT
+URL:https://oelv.athmin.at/event-details.aspx?event=36011&int=&returnTo=L2
+ V2ZW50cy5hc3B4
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-monaco-di-baviera-lite-ii-850km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270611
+SUMMARY:Monaco di Baviera Lite II – Basisroute 850 km (bis 1.050 km\, 136 
+ Stunden)
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 850 km\nhttps://ultracyclin
+ gchallenges.com/de/monaco-di-baviera-lite-ii
+TRANSP:TRANSPARENT
+URL:https://ultracyclingchallenges.com/de/monaco-di-baviera-lite-ii
+END:VEVENT
+END:VCALENDAR

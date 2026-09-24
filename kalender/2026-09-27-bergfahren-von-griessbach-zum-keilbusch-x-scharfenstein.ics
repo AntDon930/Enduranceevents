@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-bergfahren-von-griessbach-zum-keilbusch-x-scharfenstein@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Bergfahren von Grießbach zum Keilbusch – Bergzeitfahren
+LOCATION:Scharfenstein\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://www.rsv54.de
+ /erz-cycling/
+TRANSP:TRANSPARENT
+URL:https://www.rsv54.de/erz-cycling/
+END:VEVENT
+END:VCALENDAR

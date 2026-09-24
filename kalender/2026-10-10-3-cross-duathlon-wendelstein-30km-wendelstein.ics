@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-3-cross-duathlon-wendelstein-30km-wendelstein@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:3. Cross Duathlon Wendelstein
+LOCATION:Wendelstein\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 30 km\nhttp://teamoptim
+ um.de/
+TRANSP:TRANSPARENT
+URL:http://teamoptimum.de/
+END:VEVENT
+END:VCALENDAR

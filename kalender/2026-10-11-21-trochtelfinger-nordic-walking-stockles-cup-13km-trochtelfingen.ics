@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-21-trochtelfinger-nordic-walking-stockles-cup-13km-trochtel
+ fingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:21. Trochtelfinger Nordic Walking Stöckles-Cup
+LOCATION:Trochtelfingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://stoeckles-cup
+ .jimdofree.com/
+TRANSP:TRANSPARENT
+URL:https://stoeckles-cup.jimdofree.com/
+END:VEVENT
+END:VCALENDAR

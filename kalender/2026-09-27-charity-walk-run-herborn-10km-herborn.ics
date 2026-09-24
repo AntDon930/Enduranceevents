@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-charity-walk-run-herborn-10km-herborn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Charity Walk & Run - Herborn
+LOCATION:Herborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 10 km\nhttps://cha
+ rity-walk.de/veranstaltungsorte/herborn/
+TRANSP:TRANSPARENT
+URL:https://charity-walk.de/veranstaltungsorte/herborn/
+END:VEVENT
+END:VCALENDAR

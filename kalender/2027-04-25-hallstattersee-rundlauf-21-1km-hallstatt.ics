@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-hallstattersee-rundlauf-21-1km-hallstatt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Hallstättersee Rundlauf – Halbmarathon
+LOCATION:Hallstatt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://hallstatt-s
+ eerundlauf.at/
+TRANSP:TRANSPARENT
+URL:https://hallstatt-seerundlauf.at/
+END:VEVENT
+END:VCALENDAR

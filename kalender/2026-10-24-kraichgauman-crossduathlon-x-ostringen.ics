@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-kraichgauman-crossduathlon-x-ostringen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Kraichgauman Crossduathlon – Cross-Duathlon
+LOCATION:Östringen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttp://www.kraichgau
+ man.de/
+TRANSP:TRANSPARENT
+URL:http://www.kraichgauman.de/
+END:VEVENT
+END:VCALENDAR

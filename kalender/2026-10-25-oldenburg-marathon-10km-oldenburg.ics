@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-oldenburg-marathon-10km-oldenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Oldenburg Marathon – 10 km (Citylauf)
+LOCATION:Oldenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://oldenburg-mar
+ athon.de/
+TRANSP:TRANSPARENT
+URL:https://oldenburg-marathon.de/
+END:VEVENT
+END:VCALENDAR

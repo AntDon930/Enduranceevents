@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-crosslauf-friedrichsruh-mit-kreismeisterschaft-5km-geestlan
+ d@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Crosslauf Friedrichsruh mit Kreismeisterschaft – 5km Kreismeisters
+ chaft
+LOCATION:Geestland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://laufen.de/laufk
+ alender/details/26V09000512150000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V09000512150000
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,463 @@
+/* Die Filter-Bedienelemente von events.html UND karte.html: die
+   Filterknöpfe (.col-filter-btn) und das schwebende Panel mit seinen
+   Inhalten (Häkchenlisten, Umkreis-Regler, Ortssuche, Standort-Hilfe,
+   Distanz-Tabs, Zeitraum-Knöpfe, Datums-Baum).
+
+   Eine eigene Datei, weil die Karte dieselben Knöpfe zeigt - siehe
+   filter-ui.js. Zwei Kopien desselben CSS wären beim nächsten Umbau
+   auseinandergelaufen.
+
+   Gebraucht werden die Farbvariablen der Seite: --panel, --panel-2,
+   --border, --border-strong, --text, --text-muted, --accent,
+   --on-accent, --accent-bg, --bg und --row-hover. Seit dem Umbau vom
+   21.09.2026 (Vorlage des Nutzers: dunkle Fläche, helle Pillen) ist
+   --accent die HELLE Hervorhebung und --on-accent die Schrift darauf;
+   ein festes #fff auf einer Akzentfläche wäre unsichtbar. */
+
+.col-filter-btn {
+  list-style: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: transparent;
+  user-select: none;
+  flex-shrink: 0;
+}
+.col-filter-btn.open,
+.col-filter-btn.has-filter {
+  color: var(--accent);
+  border-color: var(--border-strong, var(--accent));
+  background: var(--accent-bg);
+}
+/* Die Knopfreihe (Liste, Karte, Abo-Dialog): Pillen mit Beschriftung,
+   gesetztem Wert und Pfeil - "Sportart: Laufen ▾". Eine gesetzte Pille
+   ist heller umrandet, damit man auf einen Blick sieht, welche Filter
+   greifen. */
+.filter-btn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-btn-bar .col-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 11px;
+  height: 44px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.filter-btn-bar .col-filter-btn:hover { border-color: var(--border-strong, var(--text-muted)); }
+/* Gesetzt oder offen: im Hellen Marine mit weißer Schrift (Vorlage der
+   Karte, 21.09.2026), im Dunkeln eine leise Fläche - die drei Variablen
+   stehen in site.css. */
+.filter-btn-bar .col-filter-btn.has-filter {
+  color: var(--pill-active-fg, var(--text));
+  border-color: var(--pill-active-border, var(--border-strong, var(--accent)));
+  background: var(--pill-active-bg, var(--accent-bg));
+  font-weight: 600;
+}
+/* Geöffnet, aber nichts gesetzt: weiß mit 2 px Akzentrand (Guide:
+   "leer, gewählt, geöffnet"). Ein Pixel mehr Rand, ein Pixel weniger
+   Innenabstand - die Pille bleibt gleich hoch und gleich breit. */
+.filter-btn-bar .col-filter-btn.open:not(.has-filter) {
+  border: 2px solid var(--accent);
+  padding: 0 10px;
+}
+.filter-btn-bar .fb-label { color: var(--text-muted); font-weight: 500; }
+/* Gesetzt: der Name in voller Farbe. Kein Doppelpunkt, kein Wert - die
+   Pille sagt nur, DASS gefiltert ist; WAS, sagt die Chip-Zeile (vom
+   Nutzer am 21.09.2026 so entschieden, siehe buildButtonBar). */
+.filter-btn-bar .col-filter-btn.has-filter .fb-label { color: inherit; }
+.filter-btn-bar .fb-caret { display: inline-flex; color: var(--text-muted); margin-left: 2px; }
+/* Im Abo-Dialog ist weniger Platz: kompaktere Pillen. */
+.abo-filter-bar .col-filter-btn { height: 36px; padding: 0 11px; font-size: 0.82rem; border-radius: 10px; }
+
+.filter-panel {
+  position: fixed;
+  color: var(--text);
+  /* Über den Leaflet-Bedienelementen der Karte (die liegen bei 800) und
+     unter dem Anmelde-Fenster (2000) und der Kurzmeldung (3000). Mit den
+     früheren 100 verschwand das Panel auf der Karte hinter den
+     Zoom-Knöpfen und den Markern. */
+  z-index: 1000;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow, 0 12px 36px rgba(0, 0, 0, 0.45));
+  padding: 12px;
+  min-width: 240px;
+  max-width: 300px;
+  font-weight: normal;
+  white-space: normal;
+  font-size: 0.86rem;
+}
+.filter-panel[hidden] { display: none; }
+.filter-panel .fp-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  margin-bottom: 6px;
+}
+.filter-panel .fp-actions a {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+.filter-list {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.filter-list label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.filter-panel .fp-empty {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.filter-panel .range-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.filter-panel .range-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.filter-panel input[type="date"],
+.filter-panel input[type="number"],
+.filter-panel input[type="text"] {
+  padding: 5px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  width: 100%;
+}
+.radius-section .radius-title {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+/* Umkreis-Regler: 1-200 km */
+.radius-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.radius-slider-row .radius-value {
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.radius-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.radius-slider-row.disabled .radius-value { color: var(--text-muted); }
+.radius-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+/* Ortssuche (places.json): Eingabefeld + Trefferliste */
+.place-search { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.place-results {
+  max-height: 190px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+.place-result {
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+.place-result:hover,
+.place-result:focus { background: var(--accent-bg); border-color: var(--accent); }
+.place-result .place-meta {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.place-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.origin-clear {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.72rem;
+  padding: 0;
+  margin-bottom: 6px;
+}
+.geo-btn {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+.geo-btn:hover { background: var(--accent-bg); }
+.radius-status {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  min-height: 1.1em;
+}
+.geo-help {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  line-height: 1.35;
+}
+.geo-help ol {
+  margin: 0 0 4px;
+  padding-left: 1.1em;
+}
+.geo-help li { margin-bottom: 3px; }
+.geo-help .geo-help-fallback { display: block; margin-top: 4px; }
+.filter-panel select {
+  width: 100%;
+  padding: 5px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+
+/* Länge-Filter: Sportart-Tabs + Distanzkategorien */
+.distance-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.distance-tab {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.distance-tab.active {
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  border-color: var(--accent);
+}
+.distance-categories {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Datum-Baum (Jahr > Monat > Tag) */
+.date-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.date-preset {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.date-preset:hover { background: var(--row-hover); }
+.date-preset.active { background: var(--accent); color: var(--on-accent, #fff); border-color: var(--accent); }
+
+.date-tree {
+  max-height: 240px;
+  overflow-y: auto;
+}
+.tree-node { margin-bottom: 2px; }
+.tree-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tree-toggle {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  width: 14px;
+  flex-shrink: 0;
+  padding: 0;
+}
+.tree-spacer {
+  width: 14px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.tree-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.tree-children { margin-left: 18px; }
+
+/* ---------- Die Mastersuche ----------
+   EIN Feld über Eventname, Wettbewerb und Ort (state.suche, siehe
+   filters.js), mit ✕ und Vorschlagsliste. Steht in der Liste ganz links
+   in der Werkzeugleiste und auf der Karte ganz links in der Filterleiste
+   - dasselbe Feld an derselben Stelle (vom Nutzer für die Karte
+   nachgefordert, 19.09.2026). Gebaut von filter-ui.js (buildSearch). */
+/* Die Mastersuche: EIN Feld über Eventname, Wettbewerb und Ort. Sie
+   steht ganz links in der Werkzeugleiste, vor der Trefferzahl - das
+   ist die Stelle, an der man sie sucht, und die Zahl daneben sagt
+   sofort, was die Eingabe gebracht hat. Die Spaltenfilter bleiben
+   daneben bestehen: Sie sind das genaue Werkzeug, das hier ist das
+   schnelle. */
+.master-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 1 280px;
+  min-width: 170px;
+}
+.master-search svg {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.master-search input {
+  width: 100%;
+  height: 44px;
+  padding: 0 34px 0 40px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  /* `type="search"` bringt in WebKit eine eigene Optik mit (eckige
+     Ecken in Safari) - abschalten, sonst sieht das Feld auf dem iPhone
+     anders aus als überall sonst. */
+  appearance: none;
+  -webkit-appearance: none;
+}
+/* ... und ein eigenes ✕. Ohne das standen ZWEI Kreuze im Feld: das
+   von WebKit und unseres. Unseres bleibt, weil es auch den Filter
+   zurücksetzt und in jedem Browser gleich aussieht. */
+.master-search input::-webkit-search-cancel-button,
+.master-search input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+/* Die Vorschlagsliste hängt am Feld (position: relative am
+   .master-search). z-index 1000 wie das Filter-Panel: über den
+   Tabellenköpfen, unter den Dialogen (2000). */
+.search-suggest {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ctl, 10px);
+  box-shadow: var(--shadow, 0 12px 36px rgba(0, 0, 0, 0.45));
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.search-suggest[hidden] { display: none; }
+.search-suggest li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.search-suggest li[aria-selected="true"],
+.search-suggest li:hover { background: var(--row-hover, rgba(0, 0, 0, 0.06)); }
+.search-suggest .vs-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.search-suggest .vs-anzahl {
+  flex: none;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+}
+.master-search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+/* Das ✕ erscheint nur, wenn etwas im Feld steht - ein dauerhaft
+   sichtbares Kreuz an einem leeren Feld sieht nach Fehler aus. */
+.master-search input::placeholder { color: var(--text-muted); }
+.master-search button {
+  position: absolute;
+  right: 10px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+.master-search button[hidden] { display: none; }
+.master-search button:hover { color: var(--text); }

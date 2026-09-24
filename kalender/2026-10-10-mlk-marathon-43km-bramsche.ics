@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-mlk-marathon-43km-bramsche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:MLK-Marathon
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://lg-lottehalen
+ .jimdofree.com/mlk-marathon-10-10/
+TRANSP:TRANSPARENT
+URL:https://lg-lottehalen.jimdofree.com/mlk-marathon-10-10/
+END:VEVENT
+END:VCALENDAR

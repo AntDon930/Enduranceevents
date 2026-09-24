@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-schnauf-der-schonwalder-lauf-5km-schonwalde-glien@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Schnauf - Der Schönwalder Lauf
+LOCATION:Schönwalde-Glien\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://schnauf-lauf.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://schnauf-lauf.de/
+END:VEVENT
+END:VCALENDAR

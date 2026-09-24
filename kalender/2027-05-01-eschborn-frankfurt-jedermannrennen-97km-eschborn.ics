@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-eschborn-frankfurt-jedermannrennen-97km-eschborn@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Eschborn–Frankfurt Jedermannrennen – Radmarathon 97 km
+LOCATION:Eschborn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 97 km\nhttps://www.eschborn
+ -frankfurt.de
+TRANSP:TRANSPARENT
+URL:https://www.eschborn-frankfurt.de
+END:VEVENT
+END:VCALENDAR

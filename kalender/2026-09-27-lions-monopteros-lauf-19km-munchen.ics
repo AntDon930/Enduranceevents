@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-lions-monopteros-lauf-19km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Lions-Monopteros-Lauf – 19 km (14 + 5 km)
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 19 km\nhttps://muenchen-alt-
+ schwabing.lions.de/monopteroslauf
+TRANSP:TRANSPARENT
+URL:https://muenchen-alt-schwabing.lions.de/monopteroslauf
+END:VEVENT
+END:VCALENDAR

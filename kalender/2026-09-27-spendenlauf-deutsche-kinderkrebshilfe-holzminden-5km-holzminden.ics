@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-spendenlauf-deutsche-kinderkrebshilfe-holzminden-5km-holzmi
+ nden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Spendenlauf Deutsche KinderKrebshilfe Holzminden
+LOCATION:Holzminden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://www.
+ psv-holzminden.de/psv-leichtathletik/laufen-fuer-den-guten-zweck-am-27-09
+ -2026/
+TRANSP:TRANSPARENT
+URL:https://www.psv-holzminden.de/psv-leichtathletik/laufen-fuer-den-guten
+ -zweck-am-27-09-2026/
+END:VEVENT
+END:VCALENDAR

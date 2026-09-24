@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-belgenbachtrail-46km-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Belgenbachtrail – 46 km Ultra Trail (BUT) - ±1400 Hm\, Startgeld 4
+ 2€
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 46 km\nhttps://belgenbachtrai
+ l.de/belgenbachtrail
+TRANSP:TRANSPARENT
+URL:https://belgenbachtrail.de/belgenbachtrail
+END:VEVENT
+END:VCALENDAR

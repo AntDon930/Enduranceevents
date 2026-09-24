@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-kyffhauser-berglauf-27km-bad-frankenhausen-kyffhauser@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Kyffhäuser Berglauf – Kombiwertung 27 km (Run 6 km + Bike 21 km)
+LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 27 km\nhttps://runtix.c
+ om/sts/10021/3168
+TRANSP:TRANSPARENT
+URL:https://runtix.com/sts/10021/3168
+END:VEVENT
+END:VCALENDAR

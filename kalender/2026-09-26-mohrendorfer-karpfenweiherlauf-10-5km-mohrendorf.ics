@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-mohrendorfer-karpfenweiherlauf-10-5km-mohrendorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260928
+SUMMARY:Möhrendorfer Karpfenweiherlauf – 10\,5 km („SPARKASSEN-Lauf“): Ein
+ e Runde.
+LOCATION:Möhrendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://tria-fit.de
+ /veranstaltungen/landschaftslauf-aktuell
+TRANSP:TRANSPARENT
+URL:https://tria-fit.de/veranstaltungen/landschaftslauf-aktuell
+END:VEVENT
+END:VCALENDAR

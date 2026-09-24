@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-altstadtfestlauf-in-lauf-5km-lauf-an-der-pegnitz@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Altstadtfestlauf in Lauf
+LOCATION:Lauf an der Pegnitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://skiclub-lauf.d
+ e/ausdauersport/altstadtfestlauf/
+TRANSP:TRANSPARENT
+URL:https://skiclub-lauf.de/ausdauersport/altstadtfestlauf/
+END:VEVENT
+END:VCALENDAR

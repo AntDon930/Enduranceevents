@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-43-country-cross-21km-syke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:43. Country Cross – 21 km Halbmarathon \, m/w\, Jahrgang 2008 und 
+ älter (Termin vorläufig)
+LOCATION:Syke\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Trail\nLänge: 21 km\nhttps:
+ //www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/
+TRANSP:TRANSPARENT
+URL:https://www.tussyke.de/Veranstaltung/crosslauf-42-country-cross/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-viennathlon-beat-the-city-x-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Viennathlon - Beat the City
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: -\nhttps://beatthecity.at
+ /viennathlon/
+TRANSP:TRANSPARENT
+URL:https://beatthecity.at/viennathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kronberger-bike-run-13-2km-kronberg-im-taunus@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kronberger Bike+Run – 13\,2 km (offene Klasse ab 14\; Zweierteam m
+ it einem Rad)
+LOCATION:Kronberg im Taunus\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 13.2 km\nhttps://kronbe
+ rger-bikeandrun.de/
+TRANSP:TRANSPARENT
+URL:https://kronberger-bikeandrun.de/
+END:VEVENT
+END:VCALENDAR

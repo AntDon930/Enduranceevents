@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-jag-de-wuidsau-cross-duathlon-burglengenfeld-32km-burglenge
+ nfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Jag de Wuidsau – Cross Duathlon Burglengenfeld
+LOCATION:Burglengenfeld\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 32 km\nhttps://jagdewui
+ dsau.de/
+TRANSP:TRANSPARENT
+URL:https://jagdewuidsau.de/
+END:VEVENT
+END:VCALENDAR

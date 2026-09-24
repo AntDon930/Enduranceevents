@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-alpbachtal360-14km-alpbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Alpbachtal360
+LOCATION:Alpbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 14 km\nhttps://www.alpbachtal
+ .at/de/alpbachtal360
+TRANSP:TRANSPARENT
+URL:https://www.alpbachtal.at/de/alpbachtal360
+END:VEVENT
+END:VCALENDAR

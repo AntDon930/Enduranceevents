@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-19-rietberger-adventslauf-5km-rietberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:19. Rietberger Adventslauf – 5 km offen für alle ab Jahrgang 2016
+LOCATION:Rietberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.viktoria-r
+ ietberg.de/adventslauf-rietberg/
+TRANSP:TRANSPARENT
+URL:https://www.viktoria-rietberg.de/adventslauf-rietberg/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-2much4you-das-harteste-24h-mtb-rennen-deutschlan-5km-oybin-
+ hain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:2much4you - Das härteste 24h MTB Rennen Deutschlands – 24-Stunden-
+ Rennen 5 km
+LOCATION:Oybin/Hain\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 5 km\nhttp://www.2muc
+ h4you.de/
+TRANSP:TRANSPARENT
+URL:http://www.2much4you.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-worthsee-triathlon-x-worthsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Wörthsee-Triathlon – Triathlon
+LOCATION:Wörthsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://woerthseetriat
+ hlon.de
+TRANSP:TRANSPARENT
+URL:https://woerthseetriathlon.de
+END:VEVENT
+END:VCALENDAR

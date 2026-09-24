@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-lautertal-bikemarathon-27-6km-spiegelberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Lautertal Bikemarathon – Radmarathon 27.6 km
+LOCATION:Spiegelberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 27.6 km\nhttps://www.
+ lautertal-bikemarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.lautertal-bikemarathon.de/
+END:VEVENT
+END:VCALENDAR

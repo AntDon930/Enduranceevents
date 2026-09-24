@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-spreewaldmarathon-radtouren-burg-50km-burg-spreewald@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Spreewaldmarathon Radtouren Burg – 50 km Radtour
+LOCATION:Burg (Spreewald)\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 50 km\nhttps://spreewaldmar
+ athon.de/wpswm/radeln/
+TRANSP:TRANSPARENT
+URL:https://spreewaldmarathon.de/wpswm/radeln/
+END:VEVENT
+END:VCALENDAR

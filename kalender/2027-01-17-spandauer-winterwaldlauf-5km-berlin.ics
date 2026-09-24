@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-17-spandauer-winterwaldlauf-5km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270117
+DTEND;VALUE=DATE:20270118
+SUMMARY:Spandauer Winterwaldlauf
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.vfv-spanda
+ u.de/sportarten/leichtathletik/termine-veranstaltungen/winterwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.vfv-spandau.de/sportarten/leichtathletik/termine-veranstal
+ tungen/winterwaldlauf/
+END:VEVENT
+END:VCALENDAR

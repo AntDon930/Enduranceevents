@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-sparkassen-ennsbruckenlauf-8km-ennsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Sparkassen Ennsbrückenlauf
+LOCATION:Ennsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.pentek-pay
+ ment.at/ppay.php?p=1724&s_p=1
+TRANSP:TRANSPARENT
+URL:https://www.pentek-payment.at/ppay.php?p=1724&s_p=1
+END:VEVENT
+END:VCALENDAR

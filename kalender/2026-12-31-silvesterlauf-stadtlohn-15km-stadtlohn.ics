@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-stadtlohn-15km-stadtlohn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Stadtlohn
+LOCATION:Stadtlohn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://www.sus-laufab
+ teilung.de
+TRANSP:TRANSPARENT
+URL:http://www.sus-laufabteilung.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-wilscher-geburtstags-etappen-marathon-42-2km-gifhorn@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Wilscher Geburtstags-Etappen-Marathon – 42\,195 km Marathon
+LOCATION:Gifhorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.vfr-wil
+ sche-neubokel.de/geburtstags-etappen-marathon
+TRANSP:TRANSPARENT
+URL:https://www.vfr-wilsche-neubokel.de/geburtstags-etappen-marathon
+END:VEVENT
+END:VCALENDAR

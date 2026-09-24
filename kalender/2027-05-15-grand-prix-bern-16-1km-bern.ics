@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-grand-prix-bern-16-1km-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Grand Prix Bern – Original Grand Prix
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.1 km\nhttps://gpbern.ch/
+TRANSP:TRANSPARENT
+URL:https://gpbern.ch/
+END:VEVENT
+END:VCALENDAR

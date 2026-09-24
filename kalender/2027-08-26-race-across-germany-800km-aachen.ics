@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-26-race-across-germany-800km-aachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270826
+DTEND;VALUE=DATE:20270830
+SUMMARY:Race across Germany – Ultracycling 800 km
+LOCATION:Aachen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 800 km\nhttp://www.raceacro
+ ssgermany.de/
+TRANSP:TRANSPARENT
+URL:http://www.raceacrossgermany.de/
+END:VEVENT
+END:VCALENDAR

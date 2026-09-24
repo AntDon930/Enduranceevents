@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-mai-bike-65km-ettlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Mai.Bike – CTF 65 km
+LOCATION:Ettlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 65 km\nhttps://mai.bi
+ ke/
+TRANSP:TRANSPARENT
+URL:https://mai.bike/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-alpin-team-trail-10km-werfenweng@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260927
+SUMMARY:Alpin Team Trail
+LOCATION:Werfenweng\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.alpinteamt
+ rail.at/
+TRANSP:TRANSPARENT
+URL:https://www.alpinteamtrail.at/
+END:VEVENT
+END:VCALENDAR

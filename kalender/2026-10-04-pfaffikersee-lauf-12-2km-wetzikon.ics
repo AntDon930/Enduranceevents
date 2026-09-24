@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-pfaffikersee-lauf-12-2km-wetzikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Pfäffikersee-Lauf – 12\,2 km (Hauptlauf und Walking/Nordic Walking
+ )
+LOCATION:Wetzikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.2 km\nhttps://www.zuerila
+ ufcup.ch/12-laeufe/pfaeffikersee-lauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe/pfaeffikersee-lauf
+END:VEVENT
+END:VCALENDAR

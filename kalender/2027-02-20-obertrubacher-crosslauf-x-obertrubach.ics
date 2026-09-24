@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-obertrubacher-crosslauf-x-obertrubach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Obertrubacher Crosslauf
+LOCATION:Obertrubach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/48852/Obertrubacher-Crosslauf-Obertrubach.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/48852/Obertrubacher-Crosslauf-Obe
+ rtrubach.htm
+END:VEVENT
+END:VCALENDAR

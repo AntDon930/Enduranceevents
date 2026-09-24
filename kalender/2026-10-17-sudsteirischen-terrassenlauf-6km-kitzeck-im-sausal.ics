@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-sudsteirischen-terrassenlauf-6km-kitzeck-im-sausal@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Südsteirischen Terrassenlauf
+LOCATION:Kitzeck im Sausal\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.runninglei
+ bnitz.at/
+TRANSP:TRANSPARENT
+URL:https://www.runningleibnitz.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-37-eper-michaelislauf-10km-gronau-epe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:37. Eper Michaelislauf
+LOCATION:Gronau-Epe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv-westfa
+ lia07epe.de/
+TRANSP:TRANSPARENT
+URL:https://www.tv-westfalia07epe.de/
+END:VEVENT
+END:VCALENDAR

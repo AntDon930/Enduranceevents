@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-volkermarkter-crosslauf-5km-volkermarkt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Völkermarkter Crosslauf
+LOCATION:Völkermarkt\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.vstlaas.at
+TRANSP:TRANSPARENT
+URL:https://www.vstlaas.at
+END:VEVENT
+END:VCALENDAR

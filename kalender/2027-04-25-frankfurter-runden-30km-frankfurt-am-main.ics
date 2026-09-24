@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-frankfurter-runden-30km-frankfurt-am-main@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Frankfurter Runden
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.frankfurt
+ er-runden.de/
+TRANSP:TRANSPARENT
+URL:https://www.frankfurter-runden.de/
+END:VEVENT
+END:VCALENDAR

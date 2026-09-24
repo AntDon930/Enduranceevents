@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-10-emmertinger-herbstfestlauf-10km-emmerting@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:10. Emmertinger Herbstfestlauf – 10 km Erwachsene\, zwei Runden au
+ f befestigten Schotterwegen.
+LOCATION:Emmerting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://djk-emmerting
+ .de/
+TRANSP:TRANSPARENT
+URL:https://djk-emmerting.de/
+END:VEVENT
+END:VCALENDAR

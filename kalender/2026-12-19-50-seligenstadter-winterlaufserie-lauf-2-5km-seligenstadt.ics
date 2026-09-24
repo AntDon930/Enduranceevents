@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-50-seligenstadter-winterlaufserie-lauf-2-5km-seligenstadt@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:50. Seligenstädter Winterlaufserie\, Lauf 2
+LOCATION:Seligenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tria-selig
+ enstadt.de/wls26/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:https://www.tria-seligenstadt.de/wls26/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

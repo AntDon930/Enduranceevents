@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-49-nat-nikolaus-volkslauf-10km-mingolsheim-bad-schonborn@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:49. Nat. Nikolaus Volkslauf
+LOCATION:Mingolsheim (Bad Schönborn)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.br-timing
+ .de
+TRANSP:TRANSPARENT
+URL:https://www.br-timing.de
+END:VEVENT
+END:VCALENDAR

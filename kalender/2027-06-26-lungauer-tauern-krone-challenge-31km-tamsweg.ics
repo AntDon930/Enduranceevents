@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-lungauer-tauern-krone-challenge-31km-tamsweg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Lungauer Tauern Krone Challenge
+LOCATION:Tamsweg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 31 km\nhttps://www.tauernkro
+ ne-challenge.at
+TRANSP:TRANSPARENT
+URL:https://www.tauernkrone-challenge.at
+END:VEVENT
+END:VCALENDAR

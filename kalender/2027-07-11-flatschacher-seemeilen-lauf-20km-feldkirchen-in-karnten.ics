@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-flatschacher-seemeilen-lauf-20km-feldkirchen-in-karnten@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Flatschacher Seemeilen Lauf
+LOCATION:Feldkirchen in Kärnten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://flatschachers
+ ee-lauf.at/
+TRANSP:TRANSPARENT
+URL:https://flatschachersee-lauf.at/
+END:VEVENT
+END:VCALENDAR

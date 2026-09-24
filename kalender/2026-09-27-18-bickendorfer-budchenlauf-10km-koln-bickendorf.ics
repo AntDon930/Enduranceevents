@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-18-bickendorfer-budchenlauf-10km-koln-bickendorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:18. Bickendorfer Büdchenlauf – 10 km Hauptlauf M/W U16 bis M/W 80
+LOCATION:Köln-Bickendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.bickendor
+ ferbuedchenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.bickendorferbuedchenlauf.de/
+END:VEVENT
+END:VCALENDAR

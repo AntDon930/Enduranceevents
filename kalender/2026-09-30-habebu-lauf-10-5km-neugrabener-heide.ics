@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-30-habebu-lauf-10-5km-neugrabener-heide@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:HaBeBu Lauf – Langstrecke (ca. 10\,5 km)
+LOCATION:Neugrabener Heide\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://athleticon.
+ bsvhh.de/public/
+TRANSP:TRANSPARENT
+URL:https://athleticon.bsvhh.de/public/
+END:VEVENT
+END:VCALENDAR

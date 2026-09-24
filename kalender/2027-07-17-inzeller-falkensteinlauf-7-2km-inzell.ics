@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-inzeller-falkensteinlauf-7-2km-inzell@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Inzeller Falkensteinlauf – Falkenstein Sprint 7\,21 km
+LOCATION:Inzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://www.falkenst
+ einlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.falkensteinlauf.de
+END:VEVENT
+END:VCALENDAR

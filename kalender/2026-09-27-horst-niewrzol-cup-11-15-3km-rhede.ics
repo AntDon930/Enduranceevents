@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-horst-niewrzol-cup-11-15-3km-rhede@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Horst-Niewrzol-Cup #11 – Einzelzeitfahren 15.3 km
+LOCATION:Rhede\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 15.3 km\nhttps://horst-
+ niewrzol-cup.de
+TRANSP:TRANSPARENT
+URL:https://horst-niewrzol-cup.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-terra-rhona-11km-perly-certoux@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Terra Rhona
+LOCATION:Perly-Certoux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://terra-rhona.c
+ h/accueil/
+TRANSP:TRANSPARENT
+URL:https://terra-rhona.ch/accueil/
+END:VEVENT
+END:VCALENDAR

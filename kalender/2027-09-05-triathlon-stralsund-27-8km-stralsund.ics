@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-triathlon-stralsund-27-8km-stralsund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Triathlon Stralsund – Jedermann-Triathlon 27\,8 km (750 m Schwimme
+ n / 22 km Rad / 5 km Laufen)
+LOCATION:Stralsund\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.8 km\nhttps://stralsun
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://stralsund-triathlon.de/
+END:VEVENT
+END:VCALENDAR

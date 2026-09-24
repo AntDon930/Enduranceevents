@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-criterium-de-celigny-21-1km-celigny@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Critérium de Céligny – Halbmarathon
+LOCATION:Céligny\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.softtim
+ ing.ch/index.php/inscriptions?idCourse=1865
+TRANSP:TRANSPARENT
+URL:https://www.softtiming.ch/index.php/inscriptions?idCourse=1865
+END:VEVENT
+END:VCALENDAR

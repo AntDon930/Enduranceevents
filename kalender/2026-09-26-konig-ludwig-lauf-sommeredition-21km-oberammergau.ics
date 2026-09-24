@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-konig-ludwig-lauf-sommeredition-21km-oberammergau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:König Ludwig Lauf - Sommeredition
+LOCATION:Oberammergau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://www.ammergauer
+ -alpen.de/aktiv/koenig-ludwig-lauf
+TRANSP:TRANSPARENT
+URL:https://www.ammergauer-alpen.de/aktiv/koenig-ludwig-lauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-heidegravel-100km-taura@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270906
+SUMMARY:HeideGravel – Gravel Race 100 km
+LOCATION:Taura\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 100 km\nhttps://heide-grave
+ l.de/
+TRANSP:TRANSPARENT
+URL:https://heide-gravel.de/
+END:VEVENT
+END:VCALENDAR

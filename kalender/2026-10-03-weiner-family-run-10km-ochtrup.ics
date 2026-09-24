@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-weiner-family-run-10km-ochtrup@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Weiner Family Run – 10 km Lauf
+LOCATION:Ochtrup\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fcsww.de/lauf
+ treff
+TRANSP:TRANSPARENT
+URL:https://fcsww.de/lauftreff
+END:VEVENT
+END:VCALENDAR

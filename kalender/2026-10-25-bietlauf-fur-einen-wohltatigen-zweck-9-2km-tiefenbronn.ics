@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-bietlauf-fur-einen-wohltatigen-zweck-9-2km-tiefenbronn@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Bietlauf für einen Wohltätigen Zweck – 9\,2 km Crosslauf (Hauptlau
+ f)
+LOCATION:Tiefenbronn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail · Charity\nLänge: 9.2 km\nhttps://www
+ .lvbiet.de/
+TRANSP:TRANSPARENT
+URL:https://www.lvbiet.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-grenzganger-marathon-28km-mauthen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Grenzgänger Marathon
+LOCATION:Mauthen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28 km\nhttps://www.oeav-ober
+ gailtal.at/2024/02/06/grenzgaenger-marathon/
+TRANSP:TRANSPARENT
+URL:https://www.oeav-obergailtal.at/2024/02/06/grenzgaenger-marathon/
+END:VEVENT
+END:VCALENDAR

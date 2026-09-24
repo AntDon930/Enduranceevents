@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-sokolsky-beh-republiky-curych-5km-adliswil@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Sokolský běh republiky – Curych – 5 km - Männer
+LOCATION:Adliswil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.behrepubli
+ ky.cz/propozice/curych
+TRANSP:TRANSPARENT
+URL:https://www.behrepubliky.cz/propozice/curych
+END:VEVENT
+END:VCALENDAR

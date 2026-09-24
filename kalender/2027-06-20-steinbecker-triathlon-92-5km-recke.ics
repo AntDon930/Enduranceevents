@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-steinbecker-triathlon-92-5km-recke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Steinbecker Triathlon – SteelMan (Mitteldistanz) 92\,5 km (1\,5 km
+  Schwimmen / 70 km Rad / 21 km Laufen)
+LOCATION:Recke\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 92.5 km\nhttps://www.stei
+ nbeck-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.steinbeck-triathlon.de/
+END:VEVENT
+END:VCALENDAR

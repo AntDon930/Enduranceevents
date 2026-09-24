@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-ostufer-fischhallen-lauf-10km-kiel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Ostufer Fischhallen-Lauf – 10 km Hauptlauf mit Verlosung
+LOCATION:Kiel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ltvkiel-o
+ st.de/fischhallen-lauf
+TRANSP:TRANSPARENT
+URL:https://www.ltvkiel-ost.de/fischhallen-lauf
+END:VEVENT
+END:VCALENDAR

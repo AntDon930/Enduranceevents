@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-basler-frauenlauf-10-4km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Basler Frauenlauf
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://w3-sports.c
+ om/basler-frauenlauf/
+TRANSP:TRANSPARENT
+URL:https://w3-sports.com/basler-frauenlauf/
+END:VEVENT
+END:VCALENDAR

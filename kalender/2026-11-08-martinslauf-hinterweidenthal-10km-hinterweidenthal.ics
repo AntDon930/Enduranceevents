@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-martinslauf-hinterweidenthal-10km-hinterweidenthal@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Martinslauf Hinterweidenthal
+LOCATION:Hinterweidenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tv-hinterw
+ eidenthal-04.de
+TRANSP:TRANSPARENT
+URL:http://www.tv-hinterweidenthal-04.de
+END:VEVENT
+END:VCALENDAR

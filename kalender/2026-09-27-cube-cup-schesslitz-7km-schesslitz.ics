@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-cube-cup-schesslitz-7km-schesslitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Cube Cup - Scheßlitz – Cross-Country 7 km
+LOCATION:Schesslitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 7 km\nhttps://tsv-sch
+ esslitz.de/cross-country-finale-in-schesslitz/
+TRANSP:TRANSPARENT
+URL:https://tsv-schesslitz.de/cross-country-finale-in-schesslitz/
+END:VEVENT
+END:VCALENDAR

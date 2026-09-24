@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-kasekross-17km-gera@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:KäseKross – KäseKross (17+ km)
+LOCATION:Gera\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://kaesekross.de
+ /
+TRANSP:TRANSPARENT
+URL:https://kaesekross.de/
+END:VEVENT
+END:VCALENDAR

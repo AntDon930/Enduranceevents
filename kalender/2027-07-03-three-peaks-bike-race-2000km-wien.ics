@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-three-peaks-bike-race-2000km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Three Peaks Bike Race
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 2000 km\nhttps://www.advent
+ urebikeracing.com/threepeaksbikerace/
+TRANSP:TRANSPARENT
+URL:https://www.adventurebikeracing.com/threepeaksbikerace/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-stundenlauf-der-lebenshilfe-vorarlberg-lustenau-1h-lustenau
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Stundenlauf der Lebenshilfe Vorarlberg - Lustenau
+LOCATION:Lustenau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.lebenshilfe
+ -vorarlberg.at/service/veranstaltungskalender/stundenlauf_2026
+TRANSP:TRANSPARENT
+URL:https://www.lebenshilfe-vorarlberg.at/service/veranstaltungskalender/s
+ tundenlauf_2026
+END:VEVENT
+END:VCALENDAR

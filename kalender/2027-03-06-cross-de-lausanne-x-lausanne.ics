@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-cross-de-lausanne-x-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Cross de Lausanne
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.cross-lausanne
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://www.cross-lausanne.ch/
+END:VEVENT
+END:VCALENDAR

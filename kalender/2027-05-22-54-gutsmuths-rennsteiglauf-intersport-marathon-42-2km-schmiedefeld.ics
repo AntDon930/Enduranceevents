@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-54-gutsmuths-rennsteiglauf-intersport-marathon-42-2km-schmi
+ edefeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:54. GutsMuths Rennsteiglauf Intersport-Marathon
+LOCATION:Schmiedefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.rennstei
+ glauf.de
+TRANSP:TRANSPARENT
+URL:http://www.rennsteiglauf.de
+END:VEVENT
+END:VCALENDAR

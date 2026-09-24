@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-worthersee-marathon-wrc-f-42-2km-klagenfurt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Wörthersee Marathon (WRC F)
+LOCATION:Klagenfurt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.woerthe
+ rsee-marathon.at
+TRANSP:TRANSPARENT
+URL:https://www.woerthersee-marathon.at
+END:VEVENT
+END:VCALENDAR

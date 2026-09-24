@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-seen-lauf-tannheimer-tal-26-5km-tannheim@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270530
+SUMMARY:Seen-Lauf Tannheimer Tal – 26\,5 km Seen‑Lauf rund um den Vilsalps
+ ee (neu für 2027)
+LOCATION:Tannheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26.5 km\nhttps://www.seen-la
+ uf.com/
+TRANSP:TRANSPARENT
+URL:https://www.seen-lauf.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-lauf-rund-um-das-loosdorfer-gipfelkreuz-6km-loosdorf@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Lauf rund um das Loosdorfer Gipfelkreuz
+LOCATION:Loosdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.ask-mcdonal
+ ds-loosdorf.at/veranstaltungen/lauf-rund-um-das-loosdorfer-gipfelkreuz/
+TRANSP:TRANSPARENT
+URL:https://www.ask-mcdonalds-loosdorf.at/veranstaltungen/lauf-rund-um-das
+ -loosdorfer-gipfelkreuz/
+END:VEVENT
+END:VCALENDAR

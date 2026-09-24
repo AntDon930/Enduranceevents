@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-essener-silvesterlauf-2026-5km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Essener-Silvesterlauf 2026 – 5 km Jedermannlauf
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.team-essen
+ 99.de/veranstaltungen/der-silvesterlauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.team-essen99.de/veranstaltungen/der-silvesterlauf/ausschre
+ ibung/
+END:VEVENT
+END:VCALENDAR

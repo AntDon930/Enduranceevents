@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-allgau-spatzle-350km-bad-waldsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260927
+SUMMARY:Allgäu & Spätzle – Bikepacking 350 km
+LOCATION:Bad Waldsee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 350 km\nhttps://www.allgaeu
+ -spaetzle.de
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-spaetzle.de
+END:VEVENT
+END:VCALENDAR

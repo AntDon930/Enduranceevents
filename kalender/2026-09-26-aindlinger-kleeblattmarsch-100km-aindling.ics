@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-aindlinger-kleeblattmarsch-100km-aindling@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Aindlinger Kleeblattmarsch
+LOCATION:Aindling\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.aindling
+ -bewegt-sich.de/?kleeblatt=
+TRANSP:TRANSPARENT
+URL:https://www.aindling-bewegt-sich.de/?kleeblatt=
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-niederrhein-gravel-nrg-300km-kalkar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Niederrhein Gravel NRG – Gravel Tour 300 km
+LOCATION:Kalkar\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 300 km\nhttp://www.niederrh
+ ein-gravel.de
+TRANSP:TRANSPARENT
+URL:http://www.niederrhein-gravel.de
+END:VEVENT
+END:VCALENDAR

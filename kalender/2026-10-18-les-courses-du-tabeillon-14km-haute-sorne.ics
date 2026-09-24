@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-les-courses-du-tabeillon-14km-haute-sorne@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Les Courses du Tabeillon
+LOCATION:Haute-Sorne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://letabeillon.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://letabeillon.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-grosser-fritz-neuser-preis-60km-schwabach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Großer Fritz Neuser Preis – Lizenzklasse 60 km
+LOCATION:Schwabach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 60 km\nhttps://rcherpersdor
+ f.de/veranstaltungen/stadtparkrennen-schwabach/
+TRANSP:TRANSPARENT
+URL:https://rcherpersdorf.de/veranstaltungen/stadtparkrennen-schwabach/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-wake-up-and-run-delemont-5km-delsberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Wake Up and Run - Delémont
+LOCATION:Delsberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.wake-up-an
+ d-run.ch/villes/delemont
+TRANSP:TRANSPARENT
+URL:https://www.wake-up-and-run.ch/villes/delemont
+END:VEVENT
+END:VCALENDAR

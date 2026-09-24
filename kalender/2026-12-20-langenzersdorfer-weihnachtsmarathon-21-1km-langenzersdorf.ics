@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-langenzersdorfer-weihnachtsmarathon-21-1km-langenzersdorf@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Langenzersdorfer Weihnachtsmarathon – Halbmarathon 22 Runden
+LOCATION:Langenzersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://weihnachtsm
+ arathon.at/
+TRANSP:TRANSPARENT
+URL:https://weihnachtsmarathon.at/
+END:VEVENT
+END:VCALENDAR

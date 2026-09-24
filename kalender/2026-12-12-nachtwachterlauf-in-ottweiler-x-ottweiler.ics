@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-nachtwachterlauf-in-ottweiler-x-ottweiler@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Nachtwächterlauf in Ottweiler
+LOCATION:Ottweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tvo-leichtath
+ letik.de
+TRANSP:TRANSPARENT
+URL:https://www.tvo-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-volkslauf-im-volkspark-langendreer-x-bochum@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Volkslauf im Volkspark Langendreer (Termin vorläufig)
+LOCATION:Bochum\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: -\nhttps://w
+ ww.svlangendreer04.de/
+TRANSP:TRANSPARENT
+URL:https://www.svlangendreer04.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-8-friedrichshaller-runde-5-7km-bad-friedrichshall@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:8. Friedrichshaller Runde
+LOCATION:Bad Friedrichshall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://www.friedric
+ hshall-tourismus.de/fuehrungen-veranstaltungen/veranstaltungen/friedrichs
+ haller-runde.html
+TRANSP:TRANSPARENT
+URL:https://www.friedrichshall-tourismus.de/fuehrungen-veranstaltungen/ver
+ anstaltungen/friedrichshaller-runde.html
+END:VEVENT
+END:VCALENDAR

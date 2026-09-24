@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-2-gravelride-ds-vfl-stade-78km-stade@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:2. Gravelride ds VFL Stade – Gravel Tour 78 km
+LOCATION:Stade\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 78 km\nhttps://
+TRANSP:TRANSPARENT
+URL:https://
+END:VEVENT
+END:VCALENDAR

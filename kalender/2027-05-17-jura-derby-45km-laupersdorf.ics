@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-jura-derby-45km-laupersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:Jura Derby – CTF 45 km
+LOCATION:Laupersdorf\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 45 km\nhttps://www.ju
+ ra-derby.ch
+TRANSP:TRANSPARENT
+URL:https://www.jura-derby.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-bergstrasse-odenwald-50-20km-weinheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Bergstraße-Odenwald 50
+LOCATION:Weinheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://bo50.de/cms/i
+ webs/default.aspx?mmid=6547&smid=10476#33959
+TRANSP:TRANSPARENT
+URL:https://bo50.de/cms/iwebs/default.aspx?mmid=6547&smid=10476#33959
+END:VEVENT
+END:VCALENDAR

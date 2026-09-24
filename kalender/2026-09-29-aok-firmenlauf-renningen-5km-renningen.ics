@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-29-aok-firmenlauf-renningen-5km-renningen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+SUMMARY:AOK Firmenlauf Renningen
+LOCATION:Renningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://renningen.bw-r
+ unning.de/home
+TRANSP:TRANSPARENT
+URL:https://renningen.bw-running.de/home
+END:VEVENT
+END:VCALENDAR

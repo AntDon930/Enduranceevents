@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-04-kettwiger-gravelride-und-gravelfondo-113km-essen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:04. Kettwiger Gravelride und Gravelfondo – Gravel Tour 113 km
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 113 km\nhttps://www.rsc-ess
+ en-kettwig.org
+TRANSP:TRANSPARENT
+URL:https://www.rsc-essen-kettwig.org
+END:VEVENT
+END:VCALENDAR

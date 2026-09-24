@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-sterntaler-spendenlauf-x-mannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Sterntaler Spendenlauf
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://www.kin
+ derhospiz-sterntaler.de/termine/13-sterntaler-spendenlauf-am-26-september
+ -2026/
+TRANSP:TRANSPARENT
+URL:https://www.kinderhospiz-sterntaler.de/termine/13-sterntaler-spendenla
+ uf-am-26-september-2026/
+END:VEVENT
+END:VCALENDAR

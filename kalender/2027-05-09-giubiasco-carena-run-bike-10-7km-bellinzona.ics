@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-giubiasco-carena-run-bike-10-7km-bellinzona@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Giubiasco-Carena Run & Bike – Run
+LOCATION:Bellinzona\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 10.7 km\nhttps://fitfor
+ mevent.ch/it/giubiasco-carena
+TRANSP:TRANSPARENT
+URL:https://fitformevent.ch/it/giubiasco-carena
+END:VEVENT
+END:VCALENDAR

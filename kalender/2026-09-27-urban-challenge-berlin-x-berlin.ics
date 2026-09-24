@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-urban-challenge-berlin-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Urban Challenge Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: -\nhttp://www.berlin-swi
+ mrun.de
+TRANSP:TRANSPARENT
+URL:http://www.berlin-swimrun.de
+END:VEVENT
+END:VCALENDAR

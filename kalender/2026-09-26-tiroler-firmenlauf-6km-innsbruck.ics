@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-tiroler-firmenlauf-6km-innsbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Tiroler Firmenlauf
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tirolerfir
+ menlauf.at/teilnahmeinfo/
+TRANSP:TRANSPARENT
+URL:https://www.tirolerfirmenlauf.at/teilnahmeinfo/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-brucker-dorflauf-x-bruck-an-der-grossglocknerstrasse@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Brucker Dorflauf
+LOCATION:Bruck an der Großglocknerstraße\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /415676/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/415676/
+END:VEVENT
+END:VCALENDAR

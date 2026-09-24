@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-kettwiger-hugeltour-79km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Kettwiger Hügeltour – RTF 79 km
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 79 km\nhttps://rsc-essen-ke
+ ttwig.org/kettwiger-huegeltour/
+TRANSP:TRANSPARENT
+URL:https://rsc-essen-kettwig.org/kettwiger-huegeltour/
+END:VEVENT
+END:VCALENDAR

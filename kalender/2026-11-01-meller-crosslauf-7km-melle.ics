@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-meller-crosslauf-7km-melle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Meller Crosslauf
+LOCATION:Melle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.leichtathle
+ tik.scmelle.de/veranstaltungen/meller-crosslauf
+TRANSP:TRANSPARENT
+URL:https://www.leichtathletik.scmelle.de/veranstaltungen/meller-crosslauf
+END:VEVENT
+END:VCALENDAR

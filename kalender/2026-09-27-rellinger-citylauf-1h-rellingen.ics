@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-rellinger-citylauf-1h-rellingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Rellinger Citylauf – Stundenlauf 60 Minuten \, ab Jahrgang 2016 un
+ d älter
+LOCATION:Rellingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttp://citylauf.wetzsto
+ pp.de/
+TRANSP:TRANSPARENT
+URL:http://citylauf.wetzstopp.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-18-solvay-lauf-5km-bernburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:18. Solvay Lauf
+LOCATION:Bernburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lauf.psv-bernb
+ urg.de/solvay-lauf/
+TRANSP:TRANSPARENT
+URL:https://lauf.psv-bernburg.de/solvay-lauf/
+END:VEVENT
+END:VCALENDAR

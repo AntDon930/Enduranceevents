@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-mooshamer-waldlauf-8km-geretsried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Mooshamer Waldlauf
+LOCATION:Geretsried\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.scmoosham.
+ de/mooshamer-waldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.scmoosham.de/mooshamer-waldlauf/
+END:VEVENT
+END:VCALENDAR

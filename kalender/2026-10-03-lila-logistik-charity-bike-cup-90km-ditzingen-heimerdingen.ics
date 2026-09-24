@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-lila-logistik-charity-bike-cup-90km-ditzingen-heimerdingen@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:LILA LOGISTIK Charity Bike Cup – Jedermannrennen 90 km
+LOCATION:Ditzingen-Heimerdingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße · Charity\nLänge: 90 km\nhttp://www
+ .charity-bike-cup.de
+TRANSP:TRANSPARENT
+URL:http://www.charity-bike-cup.de
+END:VEVENT
+END:VCALENDAR

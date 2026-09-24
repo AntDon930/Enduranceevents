@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-otillo-engadin-switzerland-7km-silvaplana@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:ÖTILLÖ Engadin Switzerland
+LOCATION:Silvaplana\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 7 km\nhttps://otilloswimr
+ un.com/races/engadin-switzerland/
+TRANSP:TRANSPARENT
+URL:https://otilloswimrun.com/races/engadin-switzerland/
+END:VEVENT
+END:VCALENDAR

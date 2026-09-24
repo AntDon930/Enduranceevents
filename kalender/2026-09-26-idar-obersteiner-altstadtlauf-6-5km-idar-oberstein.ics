@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-idar-obersteiner-altstadtlauf-6-5km-idar-oberstein@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Idar-Obersteiner Altstadtlauf – ca. 6\,5 km Hauptlauf
+LOCATION:Idar-Oberstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.idar-obe
+ rstein.de/politik-verwaltung/aktuelles/pressemitteilungen/2026/juli/auswe
+ ichtermin-fuer-den-altstadtlauf-steht/
+TRANSP:TRANSPARENT
+URL:https://www.idar-oberstein.de/politik-verwaltung/aktuelles/pressemitte
+ ilungen/2026/juli/ausweichtermin-fuer-den-altstadtlauf-steht/
+END:VEVENT
+END:VCALENDAR

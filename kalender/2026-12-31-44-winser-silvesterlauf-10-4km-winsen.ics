@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-winser-silvesterlauf-10-4km-winsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Winser Silvesterlauf
+LOCATION:Winsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://mtv-fichte.
+ de/aktuelles/ansicht/42-silvesterlauf-des-mtv-fichte-winsen-aller-ev
+TRANSP:TRANSPARENT
+URL:https://mtv-fichte.de/aktuelles/ansicht/42-silvesterlauf-des-mtv-ficht
+ e-winsen-aller-ev
+END:VEVENT
+END:VCALENDAR

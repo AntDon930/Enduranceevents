@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-jedenspeigener-rote-nasen-lauf-x-jedenspeigen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Jedenspeigener Rote Nasen Lauf
+LOCATION:Jedenspeigen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.rotenasenlauf
+ .at/lauf/jedenspeigener-rote-nasen-lauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.rotenasenlauf.at/lauf/jedenspeigener-rote-nasen-lauf-2026
+END:VEVENT
+END:VCALENDAR

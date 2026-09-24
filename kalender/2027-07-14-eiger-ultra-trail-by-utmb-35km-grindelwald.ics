@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-14-eiger-ultra-trail-by-utmb-35km-grindelwald@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270714
+DTEND;VALUE=DATE:20270719
+SUMMARY:Eiger Ultra Trail by UTMB – E35
+LOCATION:Grindelwald\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://eiger.utmb.wor
+ ld
+TRANSP:TRANSPARENT
+URL:https://eiger.utmb.world
+END:VEVENT
+END:VCALENDAR

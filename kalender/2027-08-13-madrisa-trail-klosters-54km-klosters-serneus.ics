@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-madrisa-trail-klosters-54km-klosters-serneus@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270815
+SUMMARY:Madrisa Trail Klosters – T54
+LOCATION:Klosters-Serneus\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 54 km\nhttps://www.madrisatra
+ il.ch/
+TRANSP:TRANSPARENT
+URL:https://www.madrisatrail.ch/
+END:VEVENT
+END:VCALENDAR

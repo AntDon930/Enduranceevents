@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-murauer-stadtlauf-5-3km-murau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Murauer Stadtlauf – Nordic Walking 5\,27 km
+LOCATION:Murau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttps://www.murauers
+ tadtlauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.murauerstadtlauf.at/
+END:VEVENT
+END:VCALENDAR

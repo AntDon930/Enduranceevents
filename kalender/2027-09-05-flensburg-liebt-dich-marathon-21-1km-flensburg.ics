@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-flensburg-liebt-dich-marathon-21-1km-flensburg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Flensburg Liebt Dich Marathon – Halbmarathon (Termin vorläufig)
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.1 km\nhtt
+ ps://flensburg-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://flensburg-marathon.de/
+END:VEVENT
+END:VCALENDAR

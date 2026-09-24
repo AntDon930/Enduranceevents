@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-l-hivernale-sierre-zinal-9km-anniviers@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:L'Hivernale Sierre-Zinal
+LOCATION:Anniviers\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.sierre-zin
+ al.com/fr/sierre-zinal-hivernale-2867.html
+TRANSP:TRANSPARENT
+URL:https://www.sierre-zinal.com/fr/sierre-zinal-hivernale-2867.html
+END:VEVENT
+END:VCALENDAR

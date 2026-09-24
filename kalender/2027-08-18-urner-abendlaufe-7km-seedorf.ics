@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-18-urner-abendlaufe-7km-seedorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270818
+DTEND;VALUE=DATE:20270902
+SUMMARY:Urner Abendläufe
+LOCATION:Seedorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.abendlauf.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://www.abendlauf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-ahmadiyya-charity-walk-ellwangen-x-ellwangen-jagst@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Ahmadiyya Charity Walk Ellwangen
+LOCATION:Ellwangen (Jagst)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://charity
+ walk.de/events/3-ahmadiyya-charity-walk-ellwangen
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/3-ahmadiyya-charity-walk-ellwangen
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-weinviertler-draisinenlauf-8km-mistelbach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Weinviertler Draisinenlauf
+LOCATION:Mistelbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.kfc-runnin
+ g.at/draisinenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.kfc-running.at/draisinenlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-rund-um-fehmarn-ultra-54km-fehmarn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Rund um Fehmarn Ultra
+LOCATION:Fehmarn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 54 km\nhttps://my.raceresult
+ .com/423242/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/423242/
+END:VEVENT
+END:VCALENDAR

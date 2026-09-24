@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-45-muhlenkreis-radtourenfahrt-74km-stemwede-wehdem@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:45. Mühlenkreis Radtourenfahrt – RTF 74 km
+LOCATION:Stemwede-Wehdem\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 74 km\nhttp://rsc-niedermeh
+ nen.de/
+TRANSP:TRANSPARENT
+URL:http://rsc-niedermehnen.de/
+END:VEVENT
+END:VCALENDAR

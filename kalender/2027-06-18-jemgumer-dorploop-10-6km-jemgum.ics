@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-jemgumer-dorploop-10-6km-jemgum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:Jemgumer Dörploop (Termin vorläufig)
+LOCATION:Jemgum\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10.6 km\nhtt
+ ps://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/
+TRANSP:TRANSPARENT
+URL:https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/
+END:VEVENT
+END:VCALENDAR

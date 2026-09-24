@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-6-0-shades-of-speed-culinary-ride-festival-200km-bad-feilnb
+ ach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:6. 0 Shades of Speed - Culinary.RIDE.Festival – Radmarathon 200 km
+LOCATION:Bad Feilnbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.shades-
+ of-speed.eu
+TRANSP:TRANSPARENT
+URL:https://www.shades-of-speed.eu
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-founex-run-10km-founex@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Founex Run – 10 km zwei Runden
+LOCATION:Founex\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://equinoxesport
+ .ch/founex-run/
+TRANSP:TRANSPARENT
+URL:https://equinoxesport.ch/founex-run/
+END:VEVENT
+END:VCALENDAR

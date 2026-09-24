@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-stadtwerke-halbmarathon-bochum-21-1km-bochum@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Stadtwerke Halbmarathon Bochum – Halbmarathon (Termin vorläufig)
+LOCATION:Bochum\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.1 km\nhtt
+ ps://stadtwerke-halbmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://stadtwerke-halbmarathon.de/
+END:VEVENT
+END:VCALENDAR

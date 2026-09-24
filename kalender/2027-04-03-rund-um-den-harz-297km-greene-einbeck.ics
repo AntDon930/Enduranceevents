@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-rund-um-den-harz-297km-greene-einbeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:Rund um den Harz – 297 km / 2.650 hm
+LOCATION:Greene (Einbeck)\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 297 km\nhttps://rundumdenha
+ rz.com/
+TRANSP:TRANSPARENT
+URL:https://rundumdenharz.com/
+END:VEVENT
+END:VCALENDAR

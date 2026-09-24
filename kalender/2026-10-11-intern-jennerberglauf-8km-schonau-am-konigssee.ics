@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-intern-jennerberglauf-8km-schonau-am-konigssee@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Intern. Jennerberglauf
+LOCATION:Schönau am Königssee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.skberchtesg
+ aden.de/cdn/uploads/ausschreibung-2026.pdf
+TRANSP:TRANSPARENT
+URL:https://www.skberchtesgaden.de/cdn/uploads/ausschreibung-2026.pdf
+END:VEVENT
+END:VCALENDAR

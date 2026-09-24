@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-holytrail-mariazell-20km-mariazell@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Holytrail Mariazell – 20 km Frein an der Mürz → Mariazell\, letzte
+  Pilgeretappe
+LOCATION:Mariazell\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20 km\nhttps://www.holytrail.
+ at/
+TRANSP:TRANSPARENT
+URL:https://www.holytrail.at/
+END:VEVENT
+END:VCALENDAR

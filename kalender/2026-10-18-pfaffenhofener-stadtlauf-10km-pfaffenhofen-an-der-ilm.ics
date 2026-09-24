@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-pfaffenhofener-stadtlauf-10km-pfaffenhofen-an-der-ilm@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Pfaffenhofener Stadtlauf
+LOCATION:Pfaffenhofen an der Ilm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ausdauersport
+ -paf.de/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://ausdauersport-paf.de/stadtlauf/
+END:VEVENT
+END:VCALENDAR

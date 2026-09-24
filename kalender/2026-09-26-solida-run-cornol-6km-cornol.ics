@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-solida-run-cornol-6km-cornol@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Solida'Run - Cornol
+LOCATION:Cornol\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.mso.swiss/
+ events/2562-solida'run
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2562-solida'run
+END:VEVENT
+END:VCALENDAR

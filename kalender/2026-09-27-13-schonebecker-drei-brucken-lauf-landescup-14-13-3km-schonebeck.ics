@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-13-schonebecker-drei-brucken-lauf-landescup-14-13-3km-schon
+ ebeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:13. Schönebecker Drei-Brücken-Lauf - Landescup 14
+LOCATION:Schönebeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.3 km\nhttp://xn--drei-brc
+ ken-lauf-pzb.de/
+TRANSP:TRANSPARENT
+URL:http://xn--drei-brcken-lauf-pzb.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-mulsengrundlauf-5km-mulsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Mülsengrundlauf – 5 km ab Jugend U16 (ab Jg. 2012) Startgeld 8\,00
+  €
+LOCATION:Mülsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://motor-thurm.de/
+ index.php/muelsengrundlauf.html
+TRANSP:TRANSPARENT
+URL:http://motor-thurm.de/index.php/muelsengrundlauf.html
+END:VEVENT
+END:VCALENDAR

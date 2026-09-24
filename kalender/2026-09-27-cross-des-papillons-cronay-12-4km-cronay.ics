@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-cross-des-papillons-cronay-12-4km-cronay@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Cross des Papillons Cronay
+LOCATION:Cronay\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.4 km\nhttps://www.crossdes
+ papillons.ch
+TRANSP:TRANSPARENT
+URL:https://www.crossdespapillons.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-lg-marienfeld-winterlaufserie-5km-harsewinkel@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:LG Marienfeld – Winterlaufserie
+LOCATION:Harsewinkel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sw-marienf
+ eld.de/freiluftsport/lg-marienfeld/laufveranstaltungen/winterlaufserie.ht
+ ml
+TRANSP:TRANSPARENT
+URL:https://www.sw-marienfeld.de/freiluftsport/lg-marienfeld/laufveranstal
+ tungen/winterlaufserie.html
+END:VEVENT
+END:VCALENDAR

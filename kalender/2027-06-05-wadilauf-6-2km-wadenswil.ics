@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-wadilauf-6-2km-wadenswil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:WädiLauf – 6.15 km und 4.35 km Du & Ich Teams\, zwei Abschnitte
+LOCATION:Wädenswil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.2 km\nhttps://waedilauf.ch
+ /
+TRANSP:TRANSPARENT
+URL:https://waedilauf.ch/
+END:VEVENT
+END:VCALENDAR

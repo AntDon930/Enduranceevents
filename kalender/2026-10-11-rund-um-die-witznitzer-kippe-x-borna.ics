@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-rund-um-die-witznitzer-kippe-x-borna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Rund um die Witznitzer Kippe – Cyclocross
+LOCATION:Borna\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://rsvborna.de
+TRANSP:TRANSPARENT
+URL:https://rsvborna.de
+END:VEVENT
+END:VCALENDAR

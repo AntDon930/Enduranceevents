@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-stevens-cyclo-cross-cup-1-0-5h-neu-duvenstedt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Stevens Cyclo-Cross-Cup #1 – Cyclocross 0.5 h
+LOCATION:Neu Duvenstedt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttp://cc.athlet
+ ico-buedelsdorf.de/
+TRANSP:TRANSPARENT
+URL:http://cc.athletico-buedelsdorf.de/
+END:VEVENT
+END:VCALENDAR

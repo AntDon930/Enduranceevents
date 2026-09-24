@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-weinland-panorama-tour-50km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Weinland-Panorama-Tour – Gravel Tour 50 km
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 50 km\nhttps://www.1rv-stut
+ tgardia.de/events/weinlandtour-rennrad
+TRANSP:TRANSPARENT
+URL:https://www.1rv-stuttgardia.de/events/weinlandtour-rennrad
+END:VEVENT
+END:VCALENDAR

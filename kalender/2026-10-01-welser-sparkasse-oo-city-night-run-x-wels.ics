@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-01-welser-sparkasse-oo-city-night-run-x-wels@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:Welser Sparkasse OÖ City Night Run
+LOCATION:Wels\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://citynightrun.at/w
+ els
+TRANSP:TRANSPARENT
+URL:https://citynightrun.at/wels
+END:VEVENT
+END:VCALENDAR

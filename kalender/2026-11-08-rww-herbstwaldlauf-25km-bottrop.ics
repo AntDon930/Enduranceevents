@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-rww-herbstwaldlauf-25km-bottrop@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:RWW Herbstwaldlauf
+LOCATION:Bottrop\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://www.adler-lan
+ glauf.de/herbstwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.adler-langlauf.de/herbstwaldlauf/
+END:VEVENT
+END:VCALENDAR

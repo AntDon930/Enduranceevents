@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-27-theodor-heuss-lauf-5km-brackenheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:27. Theodor-Heuss-Lauf – 5 km weitere Erwachsenenstrecke
+LOCATION:Brackenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.theodor-he
+ uss-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.theodor-heuss-lauf.de/
+END:VEVENT
+END:VCALENDAR

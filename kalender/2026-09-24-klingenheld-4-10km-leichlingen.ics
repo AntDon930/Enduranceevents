@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-klingenheld-4-10km-leichlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:Klingenheld #4 – Bergzeitfahren 10 km
+LOCATION:Leichlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 10 km\nhttps://www.velo
+ solingen.de
+TRANSP:TRANSPARENT
+URL:https://www.velosolingen.de
+END:VEVENT
+END:VCALENDAR

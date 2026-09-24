@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-trailrun-graubunda-26km-lantsch-lenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Trailrun Graubünda
+LOCATION:Lantsch/Lenz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://graubuenda.run
+TRANSP:TRANSPARENT
+URL:https://graubuenda.run
+END:VEVENT
+END:VCALENDAR

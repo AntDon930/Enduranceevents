@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-grossglockner-mountain-run-13km-heiligenblut@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270705
+SUMMARY:Grossglockner Mountain Run
+LOCATION:Heiligenblut\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://grossglockner-
+ mountainrun.at/
+TRANSP:TRANSPARENT
+URL:https://grossglockner-mountainrun.at/
+END:VEVENT
+END:VCALENDAR

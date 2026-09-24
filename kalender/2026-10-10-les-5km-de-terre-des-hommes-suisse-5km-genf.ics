@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-les-5km-de-terre-des-hommes-suisse-5km-genf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Les 5km de Terre des Hommes Suisse
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.marchedele
+ spoir.ch/course/
+TRANSP:TRANSPARENT
+URL:https://www.marchedelespoir.ch/course/
+END:VEVENT
+END:VCALENDAR

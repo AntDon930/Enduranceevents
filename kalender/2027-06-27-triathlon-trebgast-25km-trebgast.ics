@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-triathlon-trebgast-25km-trebgast@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Triathlon Trebgast – Volksdistanz 25 km (500 m Schwimmen / 20 km R
+ ad / 4\,5 km Laufen)
+LOCATION:Trebgast\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25 km\nhttps://triathlon-
+ trebgast.de/
+TRANSP:TRANSPARENT
+URL:https://triathlon-trebgast.de/
+END:VEVENT
+END:VCALENDAR

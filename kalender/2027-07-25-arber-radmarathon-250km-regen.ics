@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-arber-radmarathon-250km-regen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Arber Radmarathon – Radmarathon 250 km
+LOCATION:Regen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 250 km\nhttps://www.arberra
+ dmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.arberradmarathon.de/
+END:VEVENT
+END:VCALENDAR

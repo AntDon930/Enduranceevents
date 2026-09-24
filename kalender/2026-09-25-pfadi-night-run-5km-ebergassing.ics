@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-25-pfadi-night-run-5km-ebergassing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:Pfadi Night Run
+LOCATION:Ebergassing\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.ebergassin
+ g.at/PFADI_NIGHT_RUN_2026
+TRANSP:TRANSPARENT
+URL:https://www.ebergassing.at/PFADI_NIGHT_RUN_2026
+END:VEVENT
+END:VCALENDAR

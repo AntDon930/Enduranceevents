@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-lauf-fur-die-krebsforschung-x-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Lauf für die Krebsforschung
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wienlaeuft.at
+ /de/veranstaltungen-bewerbe/eventdbshow-19.-lauf-fuer-die-krebsforschung-
+ 10.10.2026?flat
+TRANSP:TRANSPARENT
+URL:https://www.wienlaeuft.at/de/veranstaltungen-bewerbe/eventdbshow-19.-l
+ auf-fuer-die-krebsforschung-10.10.2026?flat
+END:VEVENT
+END:VCALENDAR

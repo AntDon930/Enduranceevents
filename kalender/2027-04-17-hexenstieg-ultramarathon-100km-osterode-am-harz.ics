@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-hexenstieg-ultramarathon-100km-osterode-am-harz@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270419
+SUMMARY:Hexenstieg-Ultramarathon
+LOCATION:Osterode am Harz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.feinerla
+ uf.de/hexenstieg-ultramarathon-17-19-04-2026/
+TRANSP:TRANSPARENT
+URL:https://www.feinerlauf.de/hexenstieg-ultramarathon-17-19-04-2026/
+END:VEVENT
+END:VCALENDAR

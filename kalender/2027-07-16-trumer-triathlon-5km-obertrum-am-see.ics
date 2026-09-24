@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-trumer-triathlon-5km-obertrum-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270719
+SUMMARY:Trumer Triathlon
+LOCATION:Obertrum am See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 5 km\nhttps://trumer-tria
+ thlon.at/de/
+TRANSP:TRANSPARENT
+URL:https://trumer-triathlon.at/de/
+END:VEVENT
+END:VCALENDAR

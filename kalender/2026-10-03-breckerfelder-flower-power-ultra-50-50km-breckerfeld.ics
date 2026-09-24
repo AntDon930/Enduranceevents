@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-breckerfelder-flower-power-ultra-50-50km-breckerfeld@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Breckerfelder Flower Power Ultra 50
+LOCATION:Breckerfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://laufenamwenge
+ berg.com/breckerfelder-flower-power-ultra/
+TRANSP:TRANSPARENT
+URL:https://laufenamwengeberg.com/breckerfelder-flower-power-ultra/
+END:VEVENT
+END:VCALENDAR

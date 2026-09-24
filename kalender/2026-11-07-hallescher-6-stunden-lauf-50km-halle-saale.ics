@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-hallescher-6-stunden-lauf-50km-halle-saale@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Hallescher 6-Stunden-Lauf
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.lav-halen
+ sia.de/cms/index.php/6-stunden-lauf/ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.lav-halensia.de/cms/index.php/6-stunden-lauf/ausschreibung
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-12-weezer-crosslauf-5km-weeze@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:12. Weezer Crosslauf (Termin vorläufig)
+LOCATION:Weeze\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Trail\nLänge: 5 km\nhttp://
+ www.tsv-weeze-leichtathletik.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-weeze-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

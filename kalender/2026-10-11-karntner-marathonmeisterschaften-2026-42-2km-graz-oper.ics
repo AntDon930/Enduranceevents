@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-karntner-marathonmeisterschaften-2026-42-2km-graz-oper@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Kärntner Marathonmeisterschaften 2026 – Marathon
+LOCATION:Graz Oper\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.k-lv.co
+ m/
+TRANSP:TRANSPARENT
+URL:https://www.k-lv.com/
+END:VEVENT
+END:VCALENDAR

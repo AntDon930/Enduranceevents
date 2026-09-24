@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-mtb-marathon-dresden-73km-dresden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:MTB Marathon Dresden – MTB-Marathon 73 km
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 73 km\nhttp://www.mtb
+ -marathon-dresden.de
+TRANSP:TRANSPARENT
+URL:http://www.mtb-marathon-dresden.de
+END:VEVENT
+END:VCALENDAR

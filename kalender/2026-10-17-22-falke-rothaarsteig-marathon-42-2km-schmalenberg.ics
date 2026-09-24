@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-22-falke-rothaarsteig-marathon-42-2km-schmalenberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:22. FALKE Rothaarsteig-Marathon
+LOCATION:Schmalenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.Rothaars
+ teig-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.Rothaarsteig-marathon.de
+END:VEVENT
+END:VCALENDAR

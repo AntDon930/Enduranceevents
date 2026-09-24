@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-26-krautsander-insellauf-5-6km-drochtersen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:26. Krautsander Insellauf – 5\,555 km (Nordic-)Walking
+LOCATION:Drochtersen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://laufen.de/la
+ ufkalender/details/26V09000551060000
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V09000551060000
+END:VEVENT
+END:VCALENDAR

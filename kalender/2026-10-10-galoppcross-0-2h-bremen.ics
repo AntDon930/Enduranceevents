@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-galoppcross-0-2h-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:GaloppCross – Cyclocross 0.2 h
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.2 h\nhttps://www.rads
+ port-hb.de/veranstaltungen/2885369/2026/10/10/galoppcross-5.0-cyclocross-
+ bundesliega.html
+TRANSP:TRANSPARENT
+URL:https://www.radsport-hb.de/veranstaltungen/2885369/2026/10/10/galoppcr
+ oss-5.0-cyclocross-bundesliega.html
+END:VEVENT
+END:VCALENDAR

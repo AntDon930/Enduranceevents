@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-43-styrumer-strassenlauf-rund-um-die-neustadtstr-5km-mulhei
+ m-an-der-ruhr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:43. Styrumer Straßenlauf "Rund um die Neustadtstraße"
+LOCATION:Mülheim an der Ruhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.styrumertv
+ .de/strassenlauf/styrumer-strassenlauf-2026/ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.styrumertv.de/strassenlauf/styrumer-strassenlauf-2026/auss
+ chreibung
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-barenlochbikeherrieden-40km-herrieden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:BärenlochBIKEHerrieden – Cross-Country 40 km
+LOCATION:Herrieden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 40 km\nhttps://www.bä
+ renlochbikeherrieden.de/
+TRANSP:TRANSPARENT
+URL:https://www.bärenlochbikeherrieden.de/
+END:VEVENT
+END:VCALENDAR

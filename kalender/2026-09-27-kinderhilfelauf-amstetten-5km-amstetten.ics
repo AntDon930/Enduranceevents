@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-kinderhilfelauf-amstetten-5km-amstetten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Kinderhilfelauf Amstetten – Hauptlauf 5 km
+LOCATION:Amstetten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://kinderhilfelau
+ f.at/
+TRANSP:TRANSPARENT
+URL:https://kinderhilfelauf.at/
+END:VEVENT
+END:VCALENDAR

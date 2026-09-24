@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-losheimer-trailfest-51km-losheim-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:Losheimer Trailfest – T 50 (51 km\, 1.665 hm)
+LOCATION:Losheim am See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 51 km\nhttps://trailfest.de/
+TRANSP:TRANSPARENT
+URL:https://trailfest.de/
+END:VEVENT
+END:VCALENDAR

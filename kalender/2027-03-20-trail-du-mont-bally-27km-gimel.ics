@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-trail-du-mont-bally-27km-gimel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270322
+SUMMARY:Trail du Mont Bally
+LOCATION:Gimel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27 km\nhttps://traildumontbal
+ ly.ch
+TRANSP:TRANSPARENT
+URL:https://traildumontbally.ch
+END:VEVENT
+END:VCALENDAR

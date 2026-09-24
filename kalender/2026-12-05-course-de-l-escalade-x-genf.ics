@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-course-de-l-escalade-x-genf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261207
+SUMMARY:Course de l'Escalade
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://escalade.ch/
+TRANSP:TRANSPARENT
+URL:https://escalade.ch/
+END:VEVENT
+END:VCALENDAR

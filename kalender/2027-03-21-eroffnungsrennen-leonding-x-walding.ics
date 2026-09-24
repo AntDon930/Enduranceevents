@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-eroffnungsrennen-leonding-x-walding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Eröffnungsrennen Leonding – Straßenrennen
+LOCATION:Walding\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-radsport
+ verband.at
+TRANSP:TRANSPARENT
+URL:https://www.ooe-radsportverband.at
+END:VEVENT
+END:VCALENDAR

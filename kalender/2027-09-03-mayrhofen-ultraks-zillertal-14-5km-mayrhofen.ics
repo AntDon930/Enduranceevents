@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-mayrhofen-ultraks-zillertal-14-5km-mayrhofen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Mayrhofen Ultraks Zillertal – 14\,5 km (MUZ14)
+LOCATION:Mayrhofen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.5 km\nhttp://mayrhofen.ul
+ traks.com
+TRANSP:TRANSPARENT
+URL:http://mayrhofen.ultraks.com
+END:VEVENT
+END:VCALENDAR

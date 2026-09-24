@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-6-bergzeitlauf-brockenheroes-2026-11-2km-schierke@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:6. Bergzeitlauf Brockenheroes 2026
+LOCATION:Schierke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.2 km\nhttp://brockenheroe
+ s.de/anmeldung
+TRANSP:TRANSPARENT
+URL:http://brockenheroes.de/anmeldung
+END:VEVENT
+END:VCALENDAR

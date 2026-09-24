@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-murzer-oberland-naturpark-duathlon-30km-neuberg-an-der-murz
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Mürzer Oberland Naturpark Duathlon
+LOCATION:Neuberg an der Mürz\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 30 km\nhttps://www.fun-
+ sports.at
+TRANSP:TRANSPARENT
+URL:https://www.fun-sports.at
+END:VEVENT
+END:VCALENDAR

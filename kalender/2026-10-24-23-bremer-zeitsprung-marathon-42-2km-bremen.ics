@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-23-bremer-zeitsprung-marathon-42-2km-bremen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:23. Bremer Zeitsprung-Marathon – Marathon (Termin vorläufig)
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 42.2 km\nhtt
+ ps://my.raceresult.com/315501
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/315501
+END:VEVENT
+END:VCALENDAR

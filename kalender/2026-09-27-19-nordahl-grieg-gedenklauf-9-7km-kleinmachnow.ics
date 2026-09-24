@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-19-nordahl-grieg-gedenklauf-9-7km-kleinmachnow@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:19. Nordahl Grieg Gedenklauf – 9\,7 km für Läufer (3 x Rundkurs\, 
+ Hauptlauf)
+LOCATION:Kleinmachnow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.7 km\nhttps://maxim-gorki-
+ gesamtschule.kleinmachnow.de/Nordahl-Grieg-Gedenklauf
+TRANSP:TRANSPARENT
+URL:https://maxim-gorki-gesamtschule.kleinmachnow.de/Nordahl-Grieg-Gedenkl
+ auf
+END:VEVENT
+END:VCALENDAR

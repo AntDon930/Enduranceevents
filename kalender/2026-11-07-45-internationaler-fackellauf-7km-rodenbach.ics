@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-45-internationaler-fackellauf-7km-rodenbach@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:45. Internationaler Fackellauf
+LOCATION:Rodenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.tv-rodenbac
+ h.de/?event=37-int-fackellauf-des-tv-rodenbach
+TRANSP:TRANSPARENT
+URL:http://www.tv-rodenbach.de/?event=37-int-fackellauf-des-tv-rodenbach
+END:VEVENT
+END:VCALENDAR

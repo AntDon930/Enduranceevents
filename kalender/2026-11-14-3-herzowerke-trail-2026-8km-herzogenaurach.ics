@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-3-herzowerke-trail-2026-8km-herzogenaurach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:3. Herzowerke-Trail 2026 – Speed-Trail 8 km (eine Runde)
+LOCATION:Herzogenaurach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.tsherzogena
+ urach.de/own_pages/view/275
+TRANSP:TRANSPARENT
+URL:https://www.tsherzogenaurach.de/own_pages/view/275
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-8-stadtwerke-night-run-6km-sindelfingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:8. Stadtwerke Night Run
+LOCATION:Sindelfingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.eventservi
+ ce-stahl.de/veranstaltungen/stadtwerke-night-run/
+TRANSP:TRANSPARENT
+URL:https://www.eventservice-stahl.de/veranstaltungen/stadtwerke-night-run
+ /
+END:VEVENT
+END:VCALENDAR

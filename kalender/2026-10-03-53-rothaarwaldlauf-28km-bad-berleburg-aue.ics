@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-53-rothaarwaldlauf-28km-bad-berleburg-aue@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:53. Rothaarwaldlauf
+LOCATION:Bad Berleburg - Aue\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28 km\nhttps://www.rothaar-w
+ aldlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.rothaar-waldlauf.de/
+END:VEVENT
+END:VCALENDAR

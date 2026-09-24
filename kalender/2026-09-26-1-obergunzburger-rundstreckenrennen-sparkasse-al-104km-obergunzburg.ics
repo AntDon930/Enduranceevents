@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-1-obergunzburger-rundstreckenrennen-sparkasse-al-104km-ober
+ gunzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:1. Obergünzburger Rundstreckenrennen -Sparkasse Allgäu-Willi Kolle
+ r´s Rad-Boutique Cup – Lizenzklasse 104 km
+LOCATION:Obergünzburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 104 km\nhttps://turbo-sport
+ .eu/events/augsburg
+TRANSP:TRANSPARENT
+URL:https://turbo-sport.eu/events/augsburg
+END:VEVENT
+END:VCALENDAR

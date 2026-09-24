@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-39-10km-lauf-neuhutten-5-5km-neuhutten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:39. 10km Lauf Neuhütten
+LOCATION:Neuhütten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://www.lgneu.de
+ /anmeldung-vl/
+TRANSP:TRANSPARENT
+URL:https://www.lgneu.de/anmeldung-vl/
+END:VEVENT
+END:VCALENDAR

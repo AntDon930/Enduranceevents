@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-rimsinger-tuniberg-panoramalauf-x-breisach-am-rhein@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Rimsinger Tuniberg-Panoramalauf
+LOCATION:Breisach am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sv-oberrimsin
+ gen.de/
+TRANSP:TRANSPARENT
+URL:https://www.sv-oberrimsingen.de/
+END:VEVENT
+END:VCALENDAR

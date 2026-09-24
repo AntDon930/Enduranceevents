@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-schwedter-herbstlauf-5km-schwedt-oder@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Schwedter Herbstlauf
+LOCATION:Schwedt/Oder\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tsv-blauweiss6
+ 5schwedt.de/?cat=7
+TRANSP:TRANSPARENT
+URL:https://tsv-blauweiss65schwedt.de/?cat=7
+END:VEVENT
+END:VCALENDAR

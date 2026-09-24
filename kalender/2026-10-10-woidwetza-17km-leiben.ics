@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-woidwetza-17km-leiben@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:WoidWetza
+LOCATION:Leiben\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://www.woidwetza
+ .at
+TRANSP:TRANSPARENT
+URL:https://www.woidwetza.at
+END:VEVENT
+END:VCALENDAR

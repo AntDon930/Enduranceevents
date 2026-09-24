@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-bike-or-run-maria-neustift-5km-maria-neustift@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Bike or Run - Maria Neustift
+LOCATION:Maria Neustift\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.union-mari
+ aneustift.at/bewegung/bike-or-run/
+TRANSP:TRANSPARENT
+URL:https://www.union-marianeustift.at/bewegung/bike-or-run/
+END:VEVENT
+END:VCALENDAR

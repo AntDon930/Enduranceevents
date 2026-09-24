@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-bremen-555-777km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270621
+SUMMARY:Bremen 555 – Bikepacking 777 km
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 777 km\nhttp://www.bremen55
+ 5.de
+TRANSP:TRANSPARENT
+URL:http://www.bremen555.de
+END:VEVENT
+END:VCALENDAR

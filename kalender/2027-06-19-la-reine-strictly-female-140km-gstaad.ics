@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-la-reine-strictly-female-140km-gstaad@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:La Reine | Strictly Female – Jedermannrennen 140 km
+LOCATION:Gstaad\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 140 km\nhttps://www.lareine
+ .cc
+TRANSP:TRANSPARENT
+URL:https://www.lareine.cc
+END:VEVENT
+END:VCALENDAR

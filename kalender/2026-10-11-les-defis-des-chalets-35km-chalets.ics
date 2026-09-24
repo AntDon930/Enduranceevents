@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-les-defis-des-chalets-35km-chalets@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Les Défis des Chalets – 35 km / max. 2530 hm
+LOCATION:Chalets\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://www.lesdefis.c
+ h
+TRANSP:TRANSPARENT
+URL:https://www.lesdefis.ch
+END:VEVENT
+END:VCALENDAR

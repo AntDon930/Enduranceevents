@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-03-nordic-chase-berlin-to-copenhagen-727km-berlin@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270609
+SUMMARY:Nordic Chase - Berlin to Copenhagen – Ultracycling Road 727 km
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 727 km\nhttps://nordicchase
+ .com
+TRANSP:TRANSPARENT
+URL:https://nordicchase.com
+END:VEVENT
+END:VCALENDAR

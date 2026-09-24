@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-int-raiffeisenbank-silvesterlauf-krems-x-krems-an-der-do
+ nau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Int. Raiffeisenbank Silvesterlauf Krems
+LOCATION:Krems an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.silvesterlaufk
+ rems.at
+TRANSP:TRANSPARENT
+URL:http://www.silvesterlaufkrems.at
+END:VEVENT
+END:VCALENDAR

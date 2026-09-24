@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-lausanne-marathon-10km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Lausanne Marathon
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://fr.lausanne-m
+ arathon.com/
+TRANSP:TRANSPARENT
+URL:https://fr.lausanne-marathon.com/
+END:VEVENT
+END:VCALENDAR

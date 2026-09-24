@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-trail-d-halloween-x-chatel-saint-denis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Trail d'Halloween
+LOCATION:Châtel-Saint-Denis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://sptiming.ch/trail-
+ dhalloween-running-dead/
+TRANSP:TRANSPARENT
+URL:https://sptiming.ch/trail-dhalloween-running-dead/
+END:VEVENT
+END:VCALENDAR

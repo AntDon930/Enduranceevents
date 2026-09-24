@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-6h-klostersee-lauf-spendenlauf-6h-triefenstein@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:6h Klostersee-Lauf - Spendenlauf
+LOCATION:Triefenstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 6 h\nhttps://ricky
+ ssporttreff.de/
+TRANSP:TRANSPARENT
+URL:https://rickyssporttreff.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-25-groupe-e-tour-x-siviriez@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270825
+DTEND;VALUE=DATE:20270826
+SUMMARY:Groupe E Tour
+LOCATION:Siviriez\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
+ ents.php?id=1254
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=1254
+END:VEVENT
+END:VCALENDAR

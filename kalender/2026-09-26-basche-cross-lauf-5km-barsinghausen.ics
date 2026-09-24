@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-basche-cross-lauf-5km-barsinghausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Basche Cross Lauf – 5 km Lauf \, Kosten 10 €
+LOCATION:Barsinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.tsv-egestor
+ f.de/veranstaltungen/basche-cross-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-egestorf.de/veranstaltungen/basche-cross-lauf/
+END:VEVENT
+END:VCALENDAR

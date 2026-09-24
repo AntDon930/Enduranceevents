@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-zurich-city-triathlon-x-kilchberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270628
+SUMMARY:Zurich City Triathlon
+LOCATION:Kilchberg\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://zurichcitytria
+ thlon.ch/en/
+TRANSP:TRANSPARENT
+URL:https://zurichcitytriathlon.ch/en/
+END:VEVENT
+END:VCALENDAR

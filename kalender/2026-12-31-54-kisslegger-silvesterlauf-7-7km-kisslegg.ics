@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-54-kisslegger-silvesterlauf-7-7km-kisslegg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:54. Kißlegger Silvesterlauf – Hauptlauf
+LOCATION:Kisslegg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://sg-kisslegg-
+ de.jimdofree.com/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://sg-kisslegg-de.jimdofree.com/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rintelner-volksbank-lauf-x-rinteln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Rintelner Volksbank-Lauf
+LOCATION:Rinteln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vt-rinteln.de
+ /volksbanklauf/
+TRANSP:TRANSPARENT
+URL:https://www.vt-rinteln.de/volksbanklauf/
+END:VEVENT
+END:VCALENDAR

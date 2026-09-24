@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-innsbruck-stadt-x-innsbruck@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Innsbruck Stadt
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wingsforlifew
+ orldrun.com/en/locations/innsbruck-stadt
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/innsbruck-stadt
+END:VEVENT
+END:VCALENDAR

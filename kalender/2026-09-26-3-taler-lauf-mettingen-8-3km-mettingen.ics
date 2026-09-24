@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-3-taler-lauf-mettingen-8-3km-mettingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:3-Täler-Lauf Mettingen – 8\,3 km 2-Täler-Lauf und Nordic Walking
+LOCATION:Mettingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.3 km\nhttps://www.tvmettin
+ gen.de/sportgruppen/gesundheitssport-lauftreff/3-taeler-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.tvmettingen.de/sportgruppen/gesundheitssport-lauftreff/3-t
+ aeler-lauf/
+END:VEVENT
+END:VCALENDAR

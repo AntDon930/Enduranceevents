@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-23-schottener-stauseelauf-21-1km-schotten@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:23. Schottener Stauseelauf
+LOCATION:Schotten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tgv-sch
+ otten.de/aktuelles-termine/2026/23-schottener-stauseelauf-sa-26092026/
+TRANSP:TRANSPARENT
+URL:https://www.tgv-schotten.de/aktuelles-termine/2026/23-schottener-staus
+ eelauf-sa-26092026/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-22-gravel-rallye-rhine-valley-self-supported-guided-333km-frei
+ burg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270426
+SUMMARY:Gravel Rallye Rhine Valley Self-Supported / Guided – Bikepacking 3
+ 33 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 333 km\nhttps://gravel-rall
+ ye.com/rhine-valley/
+TRANSP:TRANSPARENT
+URL:https://gravel-rallye.com/rhine-valley/
+END:VEVENT
+END:VCALENDAR

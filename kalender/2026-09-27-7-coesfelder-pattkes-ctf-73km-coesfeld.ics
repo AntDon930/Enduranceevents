@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-7-coesfelder-pattkes-ctf-73km-coesfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:7. Coesfelder Pättkes CTF – RTF 73 km
+LOCATION:Coesfeld\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 73 km\nhttps://www.radsport
+ verein-coesfeld.de/
+TRANSP:TRANSPARENT
+URL:https://www.radsportverein-coesfeld.de/
+END:VEVENT
+END:VCALENDAR

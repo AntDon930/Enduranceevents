@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-sonneberger-radsportabend-40km-sonneberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Sonneberger Radsportabend – Hobbyrennen 40 km
+LOCATION:Sonneberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 40 km\nhttps://www.radsport
+ -sonneberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-sonneberg.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-gempen-grinder-40km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Gempen Grinder – Gravel Race 40 km
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 40 km\nhttps://gempengrinde
+ r.com/
+TRANSP:TRANSPARENT
+URL:https://gempengrinder.com/
+END:VEVENT
+END:VCALENDAR

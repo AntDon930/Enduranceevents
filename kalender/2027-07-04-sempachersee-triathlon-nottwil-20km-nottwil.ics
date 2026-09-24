@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-sempachersee-triathlon-nottwil-20km-nottwil@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Sempachersee-Triathlon\, Nottwil – 20 km Radfahren
+LOCATION:Nottwil\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://www.sempac
+ herseetri.ch/
+TRANSP:TRANSPARENT
+URL:https://www.sempacherseetri.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-butterkuchenlauf-12km-jork@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Butterkuchenlauf – 12 km (Einzel oder Staffel)
+LOCATION:Jork\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.butterkuc
+ henlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.butterkuchenlauf.de/
+END:VEVENT
+END:VCALENDAR

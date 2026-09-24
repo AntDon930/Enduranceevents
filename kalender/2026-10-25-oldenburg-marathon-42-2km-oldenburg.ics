@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-oldenburg-marathon-42-2km-oldenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Oldenburg Marathon – Marathon (EWE Marathon)
+LOCATION:Oldenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.oldenbur
+ g-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.oldenburg-marathon.de
+END:VEVENT
+END:VCALENDAR

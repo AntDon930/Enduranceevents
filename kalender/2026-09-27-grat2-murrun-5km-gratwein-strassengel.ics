@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-grat2-murrun-5km-gratwein-strassengel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Grat2 Murrun – 5 km Lauf\, 5 000 m\, Gebühr 12\,00 € bis 25.09.202
+ 6
+LOCATION:Gratwein-Straßengel\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ergebnisliste.
+ at/Event/1235
+TRANSP:TRANSPARENT
+URL:https://ergebnisliste.at/Event/1235
+END:VEVENT
+END:VCALENDAR

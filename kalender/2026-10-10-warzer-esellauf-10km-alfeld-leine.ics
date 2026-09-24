@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-warzer-esellauf-10km-alfeld-leine@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Warzer Esellauf – 10 km Lauf ab Jahrgang 2010
+LOCATION:Alfeld (Leine)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tsv-warzen.de
+ /2026/06/esellauf2026/
+TRANSP:TRANSPARENT
+URL:https://tsv-warzen.de/2026/06/esellauf2026/
+END:VEVENT
+END:VCALENDAR

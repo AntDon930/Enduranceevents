@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-23-kammerstein-berglauf-ioblc-x-perchtoldsdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:23. Kammerstein-Berglauf (IÖBLC)
+LOCATION:Perchtoldsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://avlp.at
+TRANSP:TRANSPARENT
+URL:https://avlp.at
+END:VEVENT
+END:VCALENDAR

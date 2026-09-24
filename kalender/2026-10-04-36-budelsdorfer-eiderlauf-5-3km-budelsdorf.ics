@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-36-budelsdorfer-eiderlauf-5-3km-budelsdorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:36. Büdelsdorfer Eiderlauf – 5\,3 km Jedermann-Lauf (ab 8 Jahren\;
+  Jahrgang 2018 und älter)
+LOCATION:Büdelsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.3 km\nhttp://eiderlauf.ath
+ letico-buedelsdorf.de/
+TRANSP:TRANSPARENT
+URL:http://eiderlauf.athletico-buedelsdorf.de/
+END:VEVENT
+END:VCALENDAR

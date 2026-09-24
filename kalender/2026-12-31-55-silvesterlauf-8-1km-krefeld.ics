@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-55-silvesterlauf-8-1km-krefeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:55. Silvesterlauf
+LOCATION:Krefeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.1 km\nhttp://www.djk-vfl-f
+ orstwald.de
+TRANSP:TRANSPARENT
+URL:http://www.djk-vfl-forstwald.de
+END:VEVENT
+END:VCALENDAR

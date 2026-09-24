@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-44-adventslauf-10-2km-salzgitter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:44. Adventslauf
+LOCATION:Salzgitter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttp://ch.olbrich@g
+ mx.de
+TRANSP:TRANSPARENT
+URL:http://ch.olbrich@gmx.de
+END:VEVENT
+END:VCALENDAR

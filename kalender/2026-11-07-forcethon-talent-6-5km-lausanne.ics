@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-forcethon-talent-6-5km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Forcethon Talent – Freizeitlauf
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://force-fondat
+ ion.ch/forcethon/
+TRANSP:TRANSPARENT
+URL:https://force-fondation.ch/forcethon/
+END:VEVENT
+END:VCALENDAR

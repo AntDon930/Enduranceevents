@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-klagenfurter-kreuzbergllauf-16km-klagenfurt-am-worthersee@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Klagenfurter Kreuzbergllauf
+LOCATION:Klagenfurt am Wörthersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://klagenfurt.na
+ turfreunde.at/kreuzbergl-lauf/kreuzbergl-lauf
+TRANSP:TRANSPARENT
+URL:https://klagenfurt.naturfreunde.at/kreuzbergl-lauf/kreuzbergl-lauf
+END:VEVENT
+END:VCALENDAR

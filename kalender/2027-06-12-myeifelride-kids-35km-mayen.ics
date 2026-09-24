@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-myeifelride-kids-35km-mayen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:MyEifelRide Kids – RTF 35 km (Termin vorläufig)
+LOCATION:Mayen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Fahrrad / Straße\nLänge: 35 km\nhttp
+ ://www.rsc-mayen.de/
+TRANSP:TRANSPARENT
+URL:http://www.rsc-mayen.de/
+END:VEVENT
+END:VCALENDAR

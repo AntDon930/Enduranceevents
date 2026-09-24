@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-deininger-schuler-jugend-junioren-cross-duathlon-x-deining@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Deininger Schüler/Jugend/Junioren Cross Duathlon – Cross-Duathlon
+LOCATION:Deining\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttp://www.crazyspor
+ ts.de/
+TRANSP:TRANSPARENT
+URL:http://www.crazysports.de/
+END:VEVENT
+END:VCALENDAR

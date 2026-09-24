@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-blasenstein-trail-5km-sankt-thomas-am-blasenstein@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Blasenstein Trail – 5 km FUN-TRAIL\, kürzere Strecke\, Landschaft 
+ genießen.
+LOCATION:Sankt Thomas am Blasenstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.blasenstein
+ -trail.at/
+TRANSP:TRANSPARENT
+URL:https://www.blasenstein-trail.at/
+END:VEVENT
+END:VCALENDAR

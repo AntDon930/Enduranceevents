@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-saerbecker-triathlon-25-4km-saerbeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Saerbecker Triathlon – Volkstriathlon (Saerbeck Classic) 25\,4 km 
+ (700 m Schwimmen / 20 km Rad / 4\,7 km Laufen)
+LOCATION:Saerbeck\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.4 km\nhttps://www.wass
+ er-freizeit.de/veranstaltungen/saerbecker-triathlon
+TRANSP:TRANSPARENT
+URL:https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon
+END:VEVENT
+END:VCALENDAR

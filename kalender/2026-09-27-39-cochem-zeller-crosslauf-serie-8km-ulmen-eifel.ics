@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-39-cochem-zeller-crosslauf-serie-8km-ulmen-eifel@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:39. Cochem Zeller Crosslauf Serie
+LOCATION:Ulmen (Eifel)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.fortuna-ulme
+ n.de
+TRANSP:TRANSPARENT
+URL:http://www.fortuna-ulmen.de
+END:VEVENT
+END:VCALENDAR

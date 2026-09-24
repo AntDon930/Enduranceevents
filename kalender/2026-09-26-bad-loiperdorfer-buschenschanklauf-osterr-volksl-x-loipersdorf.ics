@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bad-loiperdorfer-buschenschanklauf-osterr-volksl-x-loipersd
+ orf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Bad Loiperdorfer Buschenschanklauf (Österr. Volkslauf-\, Thermen- 
+ & Vulkanland Steiermark Laufucp)
+LOCATION:Loipersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.buschenschankl
+ auf.com
+TRANSP:TRANSPARENT
+URL:http://www.buschenschanklauf.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-swiss-highlands-trail-25km-saanen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Swiss Highlands Trail – Highlander Family 25
+LOCATION:Saanen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 25 km\nhttps://www.swiss-high
+ lands.ch/
+TRANSP:TRANSPARENT
+URL:https://www.swiss-highlands.ch/
+END:VEVENT
+END:VCALENDAR

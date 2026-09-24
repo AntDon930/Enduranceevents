@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-jedermannlauf-wrc-f-x-volksgarten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Jedermannlauf (WRC F)
+LOCATION:Volksgarten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://jedermannlauf.at/
+TRANSP:TRANSPARENT
+URL:https://jedermannlauf.at/
+END:VEVENT
+END:VCALENDAR

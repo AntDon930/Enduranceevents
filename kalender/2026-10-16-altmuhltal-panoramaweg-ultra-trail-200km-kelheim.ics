@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-16-altmuhltal-panoramaweg-ultra-trail-200km-kelheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261018
+SUMMARY:Altmühltal-Panoramaweg-Ultra-Trail
+LOCATION:Kelheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 200 km\nhttps://altmuehltal.w
+ ixsite.com/altmuehltaltrail/blank
+TRANSP:TRANSPARENT
+URL:https://altmuehltal.wixsite.com/altmuehltaltrail/blank
+END:VEVENT
+END:VCALENDAR

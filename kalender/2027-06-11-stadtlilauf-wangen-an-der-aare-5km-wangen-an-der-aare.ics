@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-stadtlilauf-wangen-an-der-aare-5km-wangen-an-der-aare@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Städtlilauf Wangen an der Aare – 5 km (Kurzstrecke)
+LOCATION:Wangen an der Aare\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.xn--stdtli
+ lauf-r5a.ch/
+TRANSP:TRANSPARENT
+URL:https://www.xn--stdtlilauf-r5a.ch/
+END:VEVENT
+END:VCALENDAR

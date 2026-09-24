@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-wald-marathon-wilgartswiesen-42-2km-wilgartswiesen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Wald-Marathon Wilgartswiesen – Marathon
+LOCATION:Wilgartswiesen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.wald-ma
+ rathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.wald-marathon.de/
+END:VEVENT
+END:VCALENDAR

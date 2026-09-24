@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-frankfurt-city-triathlon-17-4km-frankfurt-am-main@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Frankfurt City Triathlon – Jedermann Distanz
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 17.4 km\nhttps://www.fran
+ kfurt-city-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.frankfurt-city-triathlon.de/
+END:VEVENT
+END:VCALENDAR

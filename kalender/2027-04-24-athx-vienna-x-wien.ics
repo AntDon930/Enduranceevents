@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-athx-vienna-x-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:ATHX Vienna
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://athxgames.com/eve
+ nts/01krwy752qn8epq15qbfn1kjnm
+TRANSP:TRANSPARENT
+URL:https://athxgames.com/events/01krwy752qn8epq15qbfn1kjnm
+END:VEVENT
+END:VCALENDAR

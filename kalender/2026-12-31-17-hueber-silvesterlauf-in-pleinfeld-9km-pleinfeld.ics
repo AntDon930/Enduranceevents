@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-17-hueber-silvesterlauf-in-pleinfeld-9km-pleinfeld@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:17. Hueber-Silvesterlauf in Pleinfeld
+LOCATION:Pleinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://arriba-goepper
+ sdorf.de/silvesterlauf_ausschreibung-und-startliste/
+TRANSP:TRANSPARENT
+URL:https://arriba-goeppersdorf.de/silvesterlauf_ausschreibung-und-startli
+ ste/
+END:VEVENT
+END:VCALENDAR

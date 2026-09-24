@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-ramsthaler-wein-berg-lauf-10-4km-ramsthal@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Ramsthaler Wein-Berg-Lauf
+LOCATION:Ramsthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://www.saaleta
+ l-marathon.de/weinberglauf
+TRANSP:TRANSPARENT
+URL:https://www.saaletal-marathon.de/weinberglauf
+END:VEVENT
+END:VCALENDAR

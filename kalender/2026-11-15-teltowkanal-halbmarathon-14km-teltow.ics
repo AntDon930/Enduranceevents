@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-teltowkanal-halbmarathon-14km-teltow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Teltowkanal Halbmarathon – 14 km Teltowklassik: zwei Runden auf de
+ rselben Strecke.
+LOCATION:Teltow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.sc-potsda
+ m.de/leichtathletik/teltowkanal-halbmarathon-2026/
+TRANSP:TRANSPARENT
+URL:https://www.sc-potsdam.de/leichtathletik/teltowkanal-halbmarathon-2026
+ /
+END:VEVENT
+END:VCALENDAR

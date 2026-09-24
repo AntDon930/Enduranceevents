@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-brittnauer-ironbike-85km-brittnau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Brittnauer Ironbike – MTB-Marathon 85 km
+LOCATION:Brittnau\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 85 km\nhttps://www.ir
+ onbike.ch/
+TRANSP:TRANSPARENT
+URL:https://www.ironbike.ch/
+END:VEVENT
+END:VCALENDAR

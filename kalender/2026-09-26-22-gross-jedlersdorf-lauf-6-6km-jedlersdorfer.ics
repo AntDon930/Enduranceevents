@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-22-gross-jedlersdorf-lauf-6-6km-jedlersdorfer@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:22. Groß Jedlersdorf Lauf
+LOCATION:Jedlersdorfer\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttp://grossjedlersd
+ orf.wat.at
+TRANSP:TRANSPARENT
+URL:http://grossjedlersdorf.wat.at
+END:VEVENT
+END:VCALENDAR

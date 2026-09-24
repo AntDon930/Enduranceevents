@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-wadilauf-10-5km-wadenswil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:WädiLauf – 10.5 km Klassiker
+LOCATION:Wädenswil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://waedilauf.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://waedilauf.ch/
+END:VEVENT
+END:VCALENDAR

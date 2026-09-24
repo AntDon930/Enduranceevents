@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-viking-triathlon-113km-bollingstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Viking Triathlon
+LOCATION:Bollingstedt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 113 km\nhttps://viking-tr
+ iathlon.de/
+TRANSP:TRANSPARENT
+URL:https://viking-triathlon.de/
+END:VEVENT
+END:VCALENDAR

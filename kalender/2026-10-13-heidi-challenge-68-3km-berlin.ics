@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-13-heidi-challenge-68-3km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261013
+DTEND;VALUE=DATE:20261014
+SUMMARY:Heidi-Challenge – Tour Havel Nord 68\,3 km
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 68.3 km\nhttps://heidichalle
+ nge.run
+TRANSP:TRANSPARENT
+URL:https://heidichallenge.run
+END:VEVENT
+END:VCALENDAR

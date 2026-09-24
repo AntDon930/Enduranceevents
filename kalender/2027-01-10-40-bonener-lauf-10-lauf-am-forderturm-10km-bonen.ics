@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-40-bonener-lauf-10-lauf-am-forderturm-10km-bonen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:40. Bönener Lauf - 10. Lauf am Förderturm (Termin vorläufig)
+LOCATION:Bönen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10 km\nhttp:
+ //www.lauffreundeboenen.de
+TRANSP:TRANSPARENT
+URL:http://www.lauffreundeboenen.de
+END:VEVENT
+END:VCALENDAR

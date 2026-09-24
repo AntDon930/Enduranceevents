@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-waginger-langstreckenschwimmen-5km-waging-am-see@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Waginger Langstreckenschwimmen – Cupstrecke ca. 5 km (neue Strecke
+  in Planung) (Termin vorläufig)
+LOCATION:Waging am See\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Schwimmen / Freiwasser\nLänge: 5 km\
+ nhttps://www.wagingersee-langstreckenschwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://www.wagingersee-langstreckenschwimmen.de/
+END:VEVENT
+END:VCALENDAR

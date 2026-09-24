@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-alfstedter-herbstlauf-x-alfstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Alfstedter Herbstlauf
+LOCATION:Alfstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/49310/49.-Alfstedter-Herbstlauf-Alfstedt.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49310/49.-Alfstedter-Herbstlauf-A
+ lfstedt.htm
+END:VEVENT
+END:VCALENDAR

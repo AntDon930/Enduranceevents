@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-rodheimer-volkslauf-21-1km-rosbach-vor-der-hohe@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Rodheimer Volkslauf – Halbmarathon als längste Distanz\, Wertung i
+ m Main-Lauf-Cup
+LOCATION:Rosbach vor der Höhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sgrodhe
+ im.de/leichtathletik/rodheimer-volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.sgrodheim.de/leichtathletik/rodheimer-volkslauf/
+END:VEVENT
+END:VCALENDAR

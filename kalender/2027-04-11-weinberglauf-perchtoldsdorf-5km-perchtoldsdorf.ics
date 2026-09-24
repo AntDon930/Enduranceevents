@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-weinberglauf-perchtoldsdorf-5km-perchtoldsdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Weinberglauf Perchtoldsdorf – 5 km Nordic Walking (1 Runde)
+LOCATION:Perchtoldsdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://weinberglauf.at
+ /
+TRANSP:TRANSPARENT
+URL:https://weinberglauf.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-vr-bank-mitte-herbstlauf-21-1km-dingelstadt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:VR-Bank Mitte Herbstlauf – Halbmarathon durch den Küllstedter Tunn
+ el
+LOCATION:Dingelstädt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.vr-bank
+ mitte-herbstlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.vr-bankmitte-herbstlauf.de/
+END:VEVENT
+END:VCALENDAR

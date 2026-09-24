@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-11-engadin-nachtlauf-17km-sils-im-engadin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270311
+DTEND;VALUE=DATE:20270312
+SUMMARY:Engadin Nachtlauf
+LOCATION:Sils im Engadin\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://engadin-skima
+ rathon.ch/rennen/engadin-nachtlauf
+TRANSP:TRANSPARENT
+URL:https://engadin-skimarathon.ch/rennen/engadin-nachtlauf
+END:VEVENT
+END:VCALENDAR

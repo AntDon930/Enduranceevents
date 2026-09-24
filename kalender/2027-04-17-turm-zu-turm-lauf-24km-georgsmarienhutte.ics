@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-turm-zu-turm-lauf-24km-georgsmarienhutte@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Turm zu Turm Lauf
+LOCATION:Georgsmarienhütte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 km\nhttps://www.laufen-os
+ .de/wettkaempfe/22-turm-zu-turm-lauf-2027
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/wettkaempfe/22-turm-zu-turm-lauf-2027
+END:VEVENT
+END:VCALENDAR

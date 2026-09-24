@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-12-adac-charity-treppenlauf-x-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:ADAC Charity Treppenlauf
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail · Charity\nLänge: -\nhttps://sportund
+ kulturverein.net/veranstaltung/10-adac-treppenlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://sportundkulturverein.net/veranstaltung/10-adac-treppenlauf-202
+ 6/
+END:VEVENT
+END:VCALENDAR

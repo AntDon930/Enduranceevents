@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-rbb-lauf-potsdam-10km-potsdam@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:RBB Lauf Potsdam
+LOCATION:Potsdam\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://rbb-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://rbb-lauf.de/
+END:VEVENT
+END:VCALENDAR

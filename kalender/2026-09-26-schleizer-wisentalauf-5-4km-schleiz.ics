@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-schleizer-wisentalauf-5-4km-schleiz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Schleizer Wisentalauf – 5\,4 km (2 Runden\, ab Geburtsjahr 2011)
+LOCATION:Schleiz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://www.sv-saale
+ -orla-08.de/schleizer-wisentalauf/
+TRANSP:TRANSPARENT
+URL:https://www.sv-saale-orla-08.de/schleizer-wisentalauf/
+END:VEVENT
+END:VCALENDAR

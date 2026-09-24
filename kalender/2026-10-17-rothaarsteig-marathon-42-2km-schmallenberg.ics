@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-rothaarsteig-marathon-42-2km-schmallenberg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Rothaarsteig-Marathon – 42\,195 km Marathon\, ca. 838 Höhenmeter
+LOCATION:Schmallenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://rothaarsteig
+ -marathon.de/
+TRANSP:TRANSPARENT
+URL:https://rothaarsteig-marathon.de/
+END:VEVENT
+END:VCALENDAR

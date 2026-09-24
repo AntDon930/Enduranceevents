@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-01-oberaudorf-trail-festival-100km-oberaudorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261005
+SUMMARY:Oberaudorf Trail Festival
+LOCATION:Oberaudorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 100 km\nhttps://www.oberaudor
+ ftrailfestival.com
+TRANSP:TRANSPARENT
+URL:https://www.oberaudorftrailfestival.com
+END:VEVENT
+END:VCALENDAR

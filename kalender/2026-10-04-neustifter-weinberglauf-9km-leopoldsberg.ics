@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-neustifter-weinberglauf-9km-leopoldsberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Neustifter Weinberglauf – Laufen lang
+LOCATION:Leopoldsberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://www.neustiftamw
+ alde.net/wbg/start.html
+TRANSP:TRANSPARENT
+URL:https://www.neustiftamwalde.net/wbg/start.html
+END:VEVENT
+END:VCALENDAR

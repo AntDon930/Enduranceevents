@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-bad-windsheimer-weinturmlauf-10km-bad-windsheim@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Bad Windsheimer Weinturmlauf
+LOCATION:Bad Windsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://weinturmlauf.
+ org/
+TRANSP:TRANSPARENT
+URL:https://weinturmlauf.org/
+END:VEVENT
+END:VCALENDAR

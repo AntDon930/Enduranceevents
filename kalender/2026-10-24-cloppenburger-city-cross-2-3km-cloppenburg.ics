@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-cloppenburger-city-cross-2-3km-cloppenburg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Cloppenburger City Cross – Cyclocross 2.3 km
+LOCATION:Cloppenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 2.3 km\nhttps://www.dse
+ rgebnis.de/9-cloppenburger-city-cross-2026/
+TRANSP:TRANSPARENT
+URL:https://www.dsergebnis.de/9-cloppenburger-city-cross-2026/
+END:VEVENT
+END:VCALENDAR

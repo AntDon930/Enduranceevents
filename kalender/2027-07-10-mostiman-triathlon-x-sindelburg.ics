@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-mostiman-triathlon-x-sindelburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Mostiman Triathlon
+LOCATION:Sindelburg\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://mosti-man.at/
+TRANSP:TRANSPARENT
+URL:https://mosti-man.at/
+END:VEVENT
+END:VCALENDAR

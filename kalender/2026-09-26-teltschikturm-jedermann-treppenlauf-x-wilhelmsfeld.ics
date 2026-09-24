@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-teltschikturm-jedermann-treppenlauf-x-wilhelmsfeld@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Teltschikturm-Jedermann-Treppenlauf
+LOCATION:Wilhelmsfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://feuerwehr-wilhelms
+ feld.de/teltschikturmfest
+TRANSP:TRANSPARENT
+URL:https://feuerwehr-wilhelmsfeld.de/teltschikturmfest
+END:VEVENT
+END:VCALENDAR

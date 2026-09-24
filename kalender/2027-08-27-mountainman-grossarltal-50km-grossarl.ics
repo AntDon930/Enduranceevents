@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-mountainman-grossarltal-50km-grossarl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270829
+SUMMARY:Mountainman Grossarltal – 50 km 2.700+ hm\, 7 Verpflegungspunkte
+LOCATION:Großarl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://mountainman.d
+ e/trailrunning-events/alps/grossarltal/
+TRANSP:TRANSPARENT
+URL:https://mountainman.de/trailrunning-events/alps/grossarltal/
+END:VEVENT
+END:VCALENDAR

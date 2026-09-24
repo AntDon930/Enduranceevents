@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-viking-bike-winterchallenge-gtf-55km-schleswig@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Viking Bike Winterchallenge GTF – CTF 55 km
+LOCATION:Schleswig\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 55 km\nhttps://www.rv
+ -schleswig.de
+TRANSP:TRANSPARENT
+URL:https://www.rv-schleswig.de
+END:VEVENT
+END:VCALENDAR

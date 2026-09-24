@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-internationaler-allgau-volkslauf-10km-leutkirch-im-allgau@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Internationaler Allgäu Volkslauf – 10 km Hauptlauf
+LOCATION:Leutkirch im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-leutk
+ irch.de/skilaeuferzunft/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-leutkirch.de/skilaeuferzunft/volkslauf/
+END:VEVENT
+END:VCALENDAR

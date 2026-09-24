@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-uno-urban-cross-lauf-5km-saarbrucken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Uno Urban Cross Lauf
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.uno-urban-c
+ ross.de
+TRANSP:TRANSPARENT
+URL:https://www.uno-urban-cross.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-rotary-charity-schwimmen-24h-freising-24h-freising@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270712
+SUMMARY:Rotary Charity-Schwimmen (24h Freising)
+LOCATION:Freising\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken · Charity\nLänge: 24 h\nhttps://r
+ otary-schwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://rotary-schwimmen.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-winti-sola-83km-winterthur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Winti-SOLA
+LOCATION:Winterthur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 83 km\nhttps://www.wintisola
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://www.wintisola.ch/
+END:VEVENT
+END:VCALENDAR

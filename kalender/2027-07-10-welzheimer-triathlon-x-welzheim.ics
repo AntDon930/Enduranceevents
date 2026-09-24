@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-welzheimer-triathlon-x-welzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Welzheimer-Triathlon – Triathlon
+LOCATION:Welzheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.tsfwelzhei
+ m.de/abteilungen/welzheimer-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.tsfwelzheim.de/abteilungen/welzheimer-triathlon/
+END:VEVENT
+END:VCALENDAR

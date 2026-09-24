@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-40-haseder-silvesterlauf-10km-giesen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:40. Haseder Silvesterlauf – 10\,0 km Lauf
+LOCATION:Giesen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tushasede.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.tushasede.de
+END:VEVENT
+END:VCALENDAR

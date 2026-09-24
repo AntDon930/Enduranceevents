@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-28-cross-unil-epfl-6km-ecublens-vd@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+SUMMARY:Cross Unil-EPFL
+LOCATION:Ecublens (VD)\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://datasport.com/d
+ e/events/cross-unil-epfl-2026
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/cross-unil-epfl-2026
+END:VEVENT
+END:VCALENDAR

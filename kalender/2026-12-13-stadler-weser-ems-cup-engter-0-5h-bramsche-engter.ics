@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-stadler-weser-ems-cup-engter-0-5h-bramsche-engter@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Stadler Weser-Ems-Cup - Engter – Cyclocross 0.5 h
+LOCATION:Bramsche-Engter\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.rads
+ port-weser-ems.de/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-weser-ems.de/
+END:VEVENT
+END:VCALENDAR

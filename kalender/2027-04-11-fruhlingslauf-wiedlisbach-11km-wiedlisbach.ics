@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-fruhlingslauf-wiedlisbach-11km-wiedlisbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Frühlingslauf Wiedlisbach
+LOCATION:Wiedlisbach\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.fruehlings
+ lauf-wiedlisbach.ch
+TRANSP:TRANSPARENT
+URL:http://www.fruehlingslauf-wiedlisbach.ch
+END:VEVENT
+END:VCALENDAR

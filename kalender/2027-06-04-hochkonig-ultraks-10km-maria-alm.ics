@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-hochkonig-ultraks-10km-maria-alm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Hochkönig Ultraks
+LOCATION:Maria Alm\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hochkoeni
+ g-ultraks.at
+TRANSP:TRANSPARENT
+URL:https://www.hochkoenig-ultraks.at
+END:VEVENT
+END:VCALENDAR

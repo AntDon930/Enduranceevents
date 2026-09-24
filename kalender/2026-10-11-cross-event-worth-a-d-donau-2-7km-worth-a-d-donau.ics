@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-cross-event-worth-a-d-donau-2-7km-worth-a-d-donau@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Cross-Event Wörth a. d. Donau – Cyclocross 2.7 km
+LOCATION:Wörth a.d. Donau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 2.7 km\nhttps://www.tsv
+ -woerth.de/cross-event-2026/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-woerth.de/cross-event-2026/
+END:VEVENT
+END:VCALENDAR

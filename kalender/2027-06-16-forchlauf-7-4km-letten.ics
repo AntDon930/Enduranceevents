@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-16-forchlauf-7-4km-letten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270616
+DTEND;VALUE=DATE:20270617
+SUMMARY:Forchlauf
+LOCATION:Letten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.4 km\nhttps://www.asvz.ch/
+ event/59391-forchlauf
+TRANSP:TRANSPARENT
+URL:https://www.asvz.ch/event/59391-forchlauf
+END:VEVENT
+END:VCALENDAR

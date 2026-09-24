@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-buchener-triathlon-26-5km-buchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Büchener Triathlon – Sprinttriathlon
+LOCATION:Büchen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26.5 km\nhttps://www.esv-
+ buechen.de/seite/545246/triathlon.html
+TRANSP:TRANSPARENT
+URL:https://www.esv-buechen.de/seite/545246/triathlon.html
+END:VEVENT
+END:VCALENDAR

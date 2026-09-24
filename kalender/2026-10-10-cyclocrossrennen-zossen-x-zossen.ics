@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-cyclocrossrennen-zossen-x-zossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Cyclocrossrennen Zossen – Cyclocross
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://zpn-timing.d
+ e/a/861
+TRANSP:TRANSPARENT
+URL:https://zpn-timing.de/a/861
+END:VEVENT
+END:VCALENDAR

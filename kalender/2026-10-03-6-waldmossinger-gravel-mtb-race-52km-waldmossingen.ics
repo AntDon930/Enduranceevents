@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-6-waldmossinger-gravel-mtb-race-52km-waldmossingen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:6. Waldmössinger Gravel-MTB-Race – Gravel Race 52 km
+LOCATION:Waldmössingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 52 km\nhttps://rv-waldmoess
+ ingen.de/gravel-rennen/
+TRANSP:TRANSPARENT
+URL:https://rv-waldmoessingen.de/gravel-rennen/
+END:VEVENT
+END:VCALENDAR

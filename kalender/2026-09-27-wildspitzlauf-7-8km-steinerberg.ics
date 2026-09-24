@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-wildspitzlauf-7-8km-steinerberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Wildspitzlauf
+LOCATION:Steinerberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.8 km\nhttps://www.ktvsteine
+ rberg.com/wildspitzlauf
+TRANSP:TRANSPARENT
+URL:https://www.ktvsteinerberg.com/wildspitzlauf
+END:VEVENT
+END:VCALENDAR

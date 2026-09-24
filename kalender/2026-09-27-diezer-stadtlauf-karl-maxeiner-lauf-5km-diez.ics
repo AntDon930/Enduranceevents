@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-diezer-stadtlauf-karl-maxeiner-lauf-5km-diez@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Diezer Stadtlauf - Karl Maxeiner Lauf
+LOCATION:Diez\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sv-diez-fr
+ eiendiez.com/Events-2026/Diezer-Stadtlauf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.sv-diez-freiendiez.com/Events-2026/Diezer-Stadtlauf-2026/
+END:VEVENT
+END:VCALENDAR

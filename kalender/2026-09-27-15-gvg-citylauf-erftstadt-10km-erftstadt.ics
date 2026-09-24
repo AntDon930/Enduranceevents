@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-15-gvg-citylauf-erftstadt-10km-erftstadt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:15. GVG Citylauf Erftstadt – 10 km Hauptlauf (vier Runden à 2.500 
+ m)
+LOCATION:Erftstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.citylauf-
+ erftstadt.de/
+TRANSP:TRANSPARENT
+URL:https://www.citylauf-erftstadt.de/
+END:VEVENT
+END:VCALENDAR

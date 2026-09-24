@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-gantrisch-trail-ruggisberg-35km-ruggisberg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Gantrisch Trail Rüggisberg
+LOCATION:Rüggisberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 35 km\nhttps://www.gantrischt
+ rail.com
+TRANSP:TRANSPARENT
+URL:https://www.gantrischtrail.com
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-mountainpilgrimage-mont-ventoux-santiago-de-comp-950km-bedo
+ in@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:MountainPilgrimage Mont Ventoux - Santiago de Compostela – Bikepac
+ king 950 km
+LOCATION:Bedoin\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 950 km\nhttps://mountainpil
+ grimage.de/
+TRANSP:TRANSPARENT
+URL:https://mountainpilgrimage.de/
+END:VEVENT
+END:VCALENDAR

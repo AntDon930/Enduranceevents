@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kurparklauf-bad-freienwalde-7-5km-bad-freienwalde-oder@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kurparklauf - Bad Freienwalde – 7\,5 km Lauf
+LOCATION:Bad Freienwalde (Oder)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://athleticon19
+ 97.de/kurparklauf.php
+TRANSP:TRANSPARENT
+URL:https://athleticon1997.de/kurparklauf.php
+END:VEVENT
+END:VCALENDAR

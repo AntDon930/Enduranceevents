@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-24-10-km-fliegerhorstlauf-schortens-10km-schortens@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:10 km Fliegerhorstlauf Schortens
+LOCATION:Schortens\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufmanag
+ er.net/Anmeldung/Onlineportal20.php?Type=Ausschreibung&Stat=Ja&ID=Veranst
+ altung/Jahr2026/Fliegerhorstlauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufmanager.net/Anmeldung/Onlineportal20.php?Type=Ausschre
+ ibung&Stat=Ja&ID=Veranstaltung/Jahr2026/Fliegerhorstlauf/
+END:VEVENT
+END:VCALENDAR

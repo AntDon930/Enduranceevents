@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-07-firmenlauf-amberg-sulzbach-6km-amberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270707
+DTEND;VALUE=DATE:20270708
+SUMMARY:Firmenlauf Amberg-Sulzbach
+LOCATION:Amberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://firmenlauf.bay
+ ern/firmenlauf-amberg-sulzbach/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf.bayern/firmenlauf-amberg-sulzbach/
+END:VEVENT
+END:VCALENDAR

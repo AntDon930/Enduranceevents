@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-b-run-la-corrida-hivernale-de-la-grande-beroche-8km-la-gran
+ de-beroche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:B'RUN - La Corrida hivernale de La Grande Béroche
+LOCATION:La Grande Béroche\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.b-run.ch/
+TRANSP:TRANSPARENT
+URL:https://www.b-run.ch/
+END:VEVENT
+END:VCALENDAR
