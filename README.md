@@ -1260,9 +1260,9 @@ danach noch ein Portallink ist, geht durch `scripts/veranstalter_links.py`.
 | `schwimmverband.nrw`, `norddeutscherschwimmverband.de`, `dsv.de` | – | Verbandsseiten: Meisterschaften und Verbandstermine, keine Jedermann-Kalender (DSV-Kalender bleibt gesperrt, siehe oben) |
 | `event.com.de/schwimm-events-…` | robots.txt frei | SEO-Textseite ohne Termine |
 | `laufevent.at`, `trophyrunners.de/.com` | aus der Sandbox nicht erreichbar (Verbindung abgebrochen / Proxy-Fehler) | offen – vom Rechner aus prüfen |
-| `turbo-sport.eu` = BRV Timing (Zeitnahme des Bayerischen Radsportverbands; vom Nutzer am 24.09.2026 verlinkt: „sehr gut für lokale Rennen") | robots.txt 404 (= frei), Impressum nur mit allgemeinem Urheberrechtshinweis, Datenschutz ohne Verbot | **`turbosport_scraper.py`**: eine TYPO3-Seite je Rennen mit Ausschreibungstabelle (Kategorie / Wettbewerb Lizenzklasse–Hobbyklasse–Jedermann / Runden / Distanz); übernommen werden **nur Jedermann- und Hobbyklassen** (Lizenzrennen sind nicht offen), der Ort kommt aus dem Namen, dem Pfad oder dem Hostnamen der Veranstalterseite gegen `places.json` (Bayern). Nach dem Rennen zeigt die Seite Ergebnisse statt Ausschreibung – dann liefert sie nichts, richtig so. Im September 2026 ein Rennen (Großer Fritz Neuser Preis, Schwabach); die Saison 2027 steht ab dem Frühjahr drin |
+| `turbo-sport.eu` = BRV Timing (Zeitnahme des Bayerischen Radsportverbands; vom Nutzer am 24.09.2026 verlinkt: „sehr gut für lokale Rennen") | robots.txt 404 (= frei), Impressum nur mit allgemeinem Urheberrechtshinweis, Datenschutz ohne Verbot | **`turbosport_scraper.py`**: eine TYPO3-Seite je Rennen mit Ausschreibungstabelle (Kategorie / Wettbewerb Lizenzklasse–Hobbyklasse–Jedermann / Runden / Distanz); übernommen werden **alle Klassen, auch die Lizenzklassen** (vom Nutzer am 24.09.2026 entschieden: „Bitte auch die mit BDR Lizenz aufnehmen"; eine Zeile je Distanz, das Label nennt die Klassen – „Lizenzklasse / Jedermann 30 km"; `KLASSEN_FILTER = OFFENE_KLASSEN` liefert wieder nur Jedermann/Hobby), der Ort kommt aus dem Namen, dem Pfad oder dem Hostnamen der Veranstalterseite gegen `places.json` (Bayern). Nach dem Rennen zeigt die Seite Ergebnisse statt Ausschreibung – dann liefert sie nichts, richtig so. Im September 2026 zwei Rennen (Obergünzburger Rundstreckenrennen 26.09., Großer Fritz Neuser Preis Schwabach 03.10.); die Saison 2027 steht ab dem Frühjahr drin |
 | `ultracyclingchallenges.com` (vom Nutzer am 24.09.2026 verlinkt) | robots.txt frei, Impressum/AGB ohne Verbot | **kein Scraper**: ein Veranstalter (München) mit sechs selbstversorgten Ultracycling-Challenges 2027; die vier mit Start in München stehen in `manual_events.json` (Sprint 650 km 15.05., Lite II 850 km 05.06., Classic IV 1.350 km 19.06., Great Crossing Epic II 2.050 km 17.07.), Holy (Shit) Alps Conquest startet in Girona, Reinu d'Asturies in Gijón – nicht im Gebiet |
-| `radsport-events.de` (auch `jedermanntermine.de`, `rad-events.net` leiten dorthin) – RTF, Jedermann, Radmarathon, Gravel, 246 Rennrad-Events | **am 24.09.2026 erneut geprüft**: robots.txt jetzt `Allow: /` (nur Nutzerbereiche gesperrt), Impressum (GSK-IT UG, Isernhagen) ohne Verbot, Nutzungsbedingungen/AGB gibt es nicht (404); React-Anwendung mit JSON-API (`api.radsport-events.de/api/v1/events/<id>`: Datum, Strecken, Startort, **Veranstalter-Seite**) | **Kandidat** – die beste deutsche Radsport-Quelle, aber am 21.09.2026 auf Wunsch des Nutzers ausgeschlossen; 108 der 145 deutschen Rad-Einträge seines PDFs zeigen dorthin. Kein Scraper ohne sein Ja |
+| `radsport-events.de` (auch `jedermanntermine.de`, `rad-events.net` leiten dorthin) – RTF, Jedermann, Radmarathon, Gravel, 246 Rennrad-Events | **am 24.09.2026 erneut geprüft**: robots.txt jetzt `Allow: /` (nur Nutzerbereiche gesperrt), Impressum (GSK-IT UG, Isernhagen) ohne Verbot, Nutzungsbedingungen/AGB gibt es nicht (404); React-Anwendung mit JSON-API (`api.radsport-events.de/api/v1/events/<id>`: Datum, Strecken, Startort, **Veranstalter-Seite**) | **`radsportevents_scraper.py`** (seit dem 24.09.2026, vom Nutzer freigegeben: „Ja, radsport-events.de als Quelle nutzen"; vorher am 21.09.2026 auf seinen Wunsch ausgeschlossen): liest die JSON-API je Kategorie (ROAD/MTB/GRAVEL) und Land (DE/AT/CH/IT), Italien nur Südtirol über die Koordinaten; übersprungen werden abgesagte, virtuelle RTF, Camps, geführte Etappentouren und Mannschaftszeitfahren; Rundenlängen sind keine Distanz, Minuten werden zur Dauer, Mehrsport-Summe nur bei beschrifteten Teilstrecken. Erster Lauf: 646 neue Events (Fahrrad 124 → 742). 108 der 145 deutschen Rad-Einträge des PDFs zeigen dorthin |
 | `radmarathon.at` (600 Termine Rennrad/MTB Mitteleuropa) | Impressum: „Eine Wiedergabe, Massenvervielfältigung oder Veröffentlichung der auf der Website befindlichen Informationen ist nicht gestattet" | **verboten** – nicht gelesen |
 | `sport-oesterreich.at` (Austria Swim Open) | antwortet mit 403 | nicht lesbar; `austria-swimopen.com` aus der Sandbox nicht erreichbar |
 | `nordcup-radmarathon.de/events-2027/` (NordCup Schleswig-Holstein) | robots.txt frei | **Kandidat**: nennt die 9 Radmarathons 2027 mit Datum und Veranstalterlink (Ostholstein Extrem, Nordsee Radmarathon Husum, Holsteiner Pfeil, RTF Stade, Bike Challenge Mittelholstein, Viking Bike Challenge, Wellenritt, Kanalfahrt, Marathon to Hell) – Strecken und Startorte stehen nur beim Veranstalter (Nortorf nachgetragen) |
@@ -1281,8 +1281,8 @@ hdsports.org, datasport.com, rad-net.de,
 swiss-cycling.ch, ahotu.com. (`schwimmkalender.de` und
 `alpen-open-watercup.de` standen hier bis zum 24.09.2026 – beide sind
 erreichbar und verbieten nichts, siehe die Tabelle oben; `radsport-events.de`
-stand hier ebenfalls und ist seit dem 24.09.2026 als Kandidat in der Tabelle,
-weil robots.txt und Impressum inzwischen nichts verbieten.)
+stand hier ebenfalls, robots.txt und Impressum verbieten inzwischen nichts,
+und seit dem 24.09.2026 gibt es dafür mit dem Ja des Nutzers einen Scraper.)
 
 ### Die Eventliste des Nutzers (PDF vom 24.09.2026)
 
@@ -1303,8 +1303,9 @@ steht in **`scripts/eventliste_pdf_geprueft.json`**. In Zahlen:
 Lehre daraus: Eine per Websuche erzeugte Liste ist ein Wegweiser, keine
 Datenquelle – nichts davon wurde ohne die Veranstalterseite übernommen
 (Datenregel 2). Für Bayern liefert künftig `turbosport_scraper.py` die
-lokalen Straßenrennen; für die übrigen Länder sind `radsport-events.de`
-(Ja des Nutzers nötig), der NordCup und die Landesverbände die Kandidaten.
+lokalen Straßenrennen und `radsportevents_scraper.py` (seit dem 24.09.2026)
+RTF, Radmarathons und Gravel in allen vier Regionen; der NordCup und die
+Landesverbände bleiben Kandidaten.
 
 Je Quelle vor dem Bau: Nutzungsbedingungen/Impressum auf ein
 Scraping-Verbot durchsehen, Detailseiten auf Veranstalter-Link und

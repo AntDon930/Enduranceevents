@@ -3471,28 +3471,39 @@ turbo-sport.eu ist **BRV Timing**, die Transponder-Zeitnahme des
 Bayerischen Radsportverbands: eine TYPO3-Seite je Rennen mit der
 Ausschreibungstabelle (Kategorie / Wettbewerb / Runden / Distanz), robots.txt
 404, Impressum ohne Verbot. Gebaut ist **`turbosport_scraper.py`** – drei
-Entscheidungen darin, alle im Modul begründet: (1) **nur Jedermann- und
-Hobbyklassen** – ein Lizenzrennen braucht die BDR-Lizenz und ist nicht
-„für jeden" (`OFFENE_KLASSEN`; umkehrbar, aber dann stehen Elite-,
-Amateur- und U17-Rennen in der Liste); (2) **der Ort steht nicht auf der
+Entscheidungen darin, alle im Modul begründet: (1) **alle Klassen, auch
+die Lizenzklassen** – die erste Fassung nahm nur Jedermann und Hobby (eine
+BDR-Lizenz ist nicht „für jeden"), der Nutzer hat es am selben Tag
+umgedreht („Bitte auch die mit BDR Lizenz aufnehmen"). **Eine Zeile je
+Distanz**, das Label nennt die Klassen („Lizenzklasse / Jedermann 30 km"):
+Zwei Zeilen für Lizenz und Jedermann über dieselbe Distanz gehen nicht,
+weil `dedupe_key()` (Name + Datum + Distanz) und der Kalender-Dateiname
+kein Label kennen – die zweite Zeile fiele beim Einsammeln weg. Umkehrbar
+über `KLASSEN_FILTER = OFFENE_KLASSEN`; (2) **der Ort steht nicht auf der
 Seite** – er kommt aus dem Namen („Obergünzburger" → Obergünzburg, mit
 Adjektivendung), dem Pfad der Rennseite (`/events/schwabacher-…`) oder dem
 Hostnamen der Veranstalterseite (`rfv-prien.de`), jeweils gegen die
 bayerischen Orte in `places.json` (Koordinaten gleich mit, kein Nominatim);
 ein mehrdeutiger Name („Schönberger") zählt nicht, ohne Ort kein Eintrag;
 (3) **vergangene Rennen liefern nichts**, weil die Seite dann Ergebnislisten
-statt der Ausschreibung zeigt – im September 2026 blieb genau ein Rennen
-(Großer Fritz Neuser Preis, Schwabach, 03.10.2026, Jedermann 30 km), die
-Saison 2027 erscheint im Frühjahr. Die Donnerstagsrennen-Serie (München,
+statt der Ausschreibung zeigt – im September 2026 blieben zwei Rennen
+(Obergünzburger Rundstreckenrennen 26.09., nur Lizenz; Großer Fritz Neuser
+Preis Schwabach 03.10., vier Distanzen), die Saison 2027 erscheint im
+Frühjahr. Die Donnerstagsrennen-Serie (München,
 Hobbyklasse) hat keine Rennseite je Termin und wird gemeldet, nicht
 geraten. `turbo-sport.eu` steht in `PORTAL_DOMAINS`; `test_turbosport`
 hält Navigation, Tabelle, Klassenfilter und Ortserkennung fest.
 **Weitere Kalender „für andere Städte"** (gesucht, im README-Abschnitt
 „Quellen für den großen Datenlauf" mit Rechtslage): `radsport-events.de`
 ist inzwischen frei (robots.txt `Allow: /`, Impressum ohne Verbot, JSON-API
-mit Veranstalterlink) und wäre die beste deutsche Radquelle – der Nutzer
-hatte sie am 21.09.2026 ausgeschlossen, **ohne sein Ja bleibt sie
-Kandidat**; NordCup (9 Radmarathons 2027 in SH), Radsportverband SH,
+mit Veranstalterlink) – am 21.09.2026 vom Nutzer ausgeschlossen, **am
+24.09.2026 freigegeben** („Ja, radsport-events.de als Quelle nutzen"):
+`radsportevents_scraper.py` liest die API je Kategorie (Straße, MTB,
+Gravel) und Land, Italien nur Südtirol über `in_suedtirol()`, überspringt
+Abgesagtes, virtuelle RTF, Camps, Etappentouren und
+Mannschaftszeitfahren, nimmt Rundenlängen nicht als Distanz und Minuten
+als Dauer; erster Lauf 646 neue Events (Fahrrad 124 → 742), `test_radsportevents`.
+NordCup (9 Radmarathons 2027 in SH), Radsportverband SH,
 RTF-Listen in BW sind Kandidaten; `radmarathon.at` verbietet die
 Wiedergabe, `sport-oesterreich.at` antwortet 403, `mueritzquerung.de` ist
 veraltet. Aus der Prüfung heraus: `_LABEL_GATTUNG_RE` kennt jetzt „gravel"
@@ -3800,17 +3811,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
    Organizer-URL.
 
-21. **Aus der Radrennen-Prüfung vom 24.09.2026** – je ein Ja/Nein:
-   - **`radsport-events.de` als Scraper-Quelle?** Am 21.09.2026 auf
-     Wunsch des Nutzers ausgeschlossen; am 24.09.2026 erneut geprüft:
-     robots.txt `Allow: /`, Impressum ohne Verbot, keine AGB, JSON-API
-     mit Datum, Strecken, Startort und Veranstalterseite je Event
-     (246 Rennrad-Events). Das PDF des Nutzers verweist 108-mal dorthin.
-     Mit Ja: `radsportevents_scraper.py` nach dem Muster von endure.
-   - **Lizenzrennen** (BRV Timing): heute draußen, nur Jedermann/Hobby.
-     Soll ein Rennen mit Lizenz- UND Jedermannklassen auch seine
-     Lizenzklassen zeigen, oder reine Lizenzrennen dazu? Eine Zeile in
-     `turbosport_scraper.py` (`OFFENE_KLASSEN`).
+21. **Aus der Radrennen-Prüfung vom 24.09.2026**:
+   - ~~`radsport-events.de` als Scraper-Quelle?~~ **entschieden**
+     (24.09.2026: „Ja, radsport-events.de als Quelle nutzen") –
+     `radsportevents_scraper.py`, siehe „Quellen".
+   - ~~Lizenzrennen (BRV Timing)?~~ **entschieden** (24.09.2026: „Bitte
+     auch die mit BDR Lizenz aufnehmen") – alle Klassen, eine Zeile je
+     Distanz mit den Klassen im Label; siehe „Quellen".
    - **Die 72 „existiert, Termin offen"-Einträge** des PDFs (Protokoll
      `scripts/eventliste_pdf_geprueft.json`) im Frühjahr 2027 erneut
      prüfen – viele davon kommen dann über endure/running.life von

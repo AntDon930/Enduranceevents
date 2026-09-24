@@ -2812,7 +2812,7 @@ def test_turbosport() -> None:
     assert ts.events_aus_rennseite(seite4, "https://turbo-sport.eu/events/kampenkoenig", None, ts.CONFIG, orte) == ([], "Ort nicht erkennbar")
     from scraper_lib import is_portal_link
     assert is_portal_link("https://turbo-sport.eu/events/augsburg")
-    print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, alle Klassen (Lizenz eigene Zeile), Ort aus Name/Pfad/Host")
+    print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, alle Klassen (eine Zeile je Distanz), Ort aus Name/Pfad/Host")
 
 
 def test_radsportevents() -> None:
