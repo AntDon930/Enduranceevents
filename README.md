@@ -1260,14 +1260,51 @@ danach noch ein Portallink ist, geht durch `scripts/veranstalter_links.py`.
 | `schwimmverband.nrw`, `norddeutscherschwimmverband.de`, `dsv.de` | – | Verbandsseiten: Meisterschaften und Verbandstermine, keine Jedermann-Kalender (DSV-Kalender bleibt gesperrt, siehe oben) |
 | `event.com.de/schwimm-events-…` | robots.txt frei | SEO-Textseite ohne Termine |
 | `laufevent.at`, `trophyrunners.de/.com` | aus der Sandbox nicht erreichbar (Verbindung abgebrochen / Proxy-Fehler) | offen – vom Rechner aus prüfen |
+| `turbo-sport.eu` = BRV Timing (Zeitnahme des Bayerischen Radsportverbands; vom Nutzer am 24.09.2026 verlinkt: „sehr gut für lokale Rennen") | robots.txt 404 (= frei), Impressum nur mit allgemeinem Urheberrechtshinweis, Datenschutz ohne Verbot | **`turbosport_scraper.py`**: eine TYPO3-Seite je Rennen mit Ausschreibungstabelle (Kategorie / Wettbewerb Lizenzklasse–Hobbyklasse–Jedermann / Runden / Distanz); übernommen werden **nur Jedermann- und Hobbyklassen** (Lizenzrennen sind nicht offen), der Ort kommt aus dem Namen, dem Pfad oder dem Hostnamen der Veranstalterseite gegen `places.json` (Bayern). Nach dem Rennen zeigt die Seite Ergebnisse statt Ausschreibung – dann liefert sie nichts, richtig so. Im September 2026 ein Rennen (Großer Fritz Neuser Preis, Schwabach); die Saison 2027 steht ab dem Frühjahr drin |
+| `ultracyclingchallenges.com` (vom Nutzer am 24.09.2026 verlinkt) | robots.txt frei, Impressum/AGB ohne Verbot | **kein Scraper**: ein Veranstalter (München) mit sechs selbstversorgten Ultracycling-Challenges 2027; die vier mit Start in München stehen in `manual_events.json` (Sprint 650 km 15.05., Lite II 850 km 05.06., Classic IV 1.350 km 19.06., Great Crossing Epic II 2.050 km 17.07.), Holy (Shit) Alps Conquest startet in Girona, Reinu d'Asturies in Gijón – nicht im Gebiet |
+| `radsport-events.de` (auch `jedermanntermine.de`, `rad-events.net` leiten dorthin) – RTF, Jedermann, Radmarathon, Gravel, 246 Rennrad-Events | **am 24.09.2026 erneut geprüft**: robots.txt jetzt `Allow: /` (nur Nutzerbereiche gesperrt), Impressum (GSK-IT UG, Isernhagen) ohne Verbot, Nutzungsbedingungen/AGB gibt es nicht (404); React-Anwendung mit JSON-API (`api.radsport-events.de/api/v1/events/<id>`: Datum, Strecken, Startort, **Veranstalter-Seite**) | **Kandidat** – die beste deutsche Radsport-Quelle, aber am 21.09.2026 auf Wunsch des Nutzers ausgeschlossen; 108 der 145 deutschen Rad-Einträge seines PDFs zeigen dorthin. Kein Scraper ohne sein Ja |
+| `radmarathon.at` (600 Termine Rennrad/MTB Mitteleuropa) | Impressum: „Eine Wiedergabe, Massenvervielfältigung oder Veröffentlichung der auf der Website befindlichen Informationen ist nicht gestattet" | **verboten** – nicht gelesen |
+| `sport-oesterreich.at` (Austria Swim Open) | antwortet mit 403 | nicht lesbar; `austria-swimopen.com` aus der Sandbox nicht erreichbar |
+| `nordcup-radmarathon.de/events-2027/` (NordCup Schleswig-Holstein) | robots.txt frei | **Kandidat**: nennt die 9 Radmarathons 2027 mit Datum und Veranstalterlink (Ostholstein Extrem, Nordsee Radmarathon Husum, Holsteiner Pfeil, RTF Stade, Bike Challenge Mittelholstein, Viking Bike Challenge, Wellenritt, Kanalfahrt, Marathon to Hell) – Strecken und Startorte stehen nur beim Veranstalter (Nortorf nachgetragen) |
+| `radsport-sh.de/termine` (Radsportverband Schleswig-Holstein) | keine robots.txt, Impressum ohne Verbot | **Kandidat**: Verbandskalender mit Zeitfahren, Cyclocross, RTF/CTF, Gravel (Lizenz- und Hobbyfahrer), Monatsansicht |
+| `radsportnachrichten.com/rennrad-termine-fuer-hessen/` (Hessen) | Impressum: „Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet" | redaktionelle Liste mit Vorbehalt – nicht gelesen |
+| `radsport-news.com/kalender/kalender_HOB.htm` (Jedermannrennen) | robots.txt frei | **leer**: Kalender endet 2018, für 2026/2027 „keine Termine" |
+| `bikeboard.at/termine` (Österreich, 38 Termine) | robots.txt: `ClaudeBot` mit `Crawl-delay: 30`, Nutzungsregeln im Forum | Termine mit Ort und Kategorie; klein, Radmarathons stehen ohnehin über endure – offen |
+| `bosch-radsportgruppe.de/rtf-kalender/`, `rtc-stuttgart.de/termine/rtf-ctf-gravel-termine/` (RTF Baden-Württemberg) | robots.txt frei | Vereinslisten (Termin, Veranstaltung, Kategorie, Startort) – Kandidaten für die RTF-Lücke in BW |
+| `mueritzquerung.de` (Freiwasserschwimmen MV) | robots.txt frei | **veraltet**: Infoportal mit den Terminen 2024/2025, keine Veranstalterlinks; die neun Schwimmen (Müritz, Malchow, Tollensesee, Ahlbeck, Warin, Sund, Bodden, Schwerin, Peene) sind echt, ihre 2027-Termine stehen aber nur beim jeweiligen Veranstalter |
+| `alpen-open-watercup.de/veranstaltungen-2/` | siehe oben | die neun Rennen 2027 stehen seit dem 24.09.2026 in `manual_events.json` (von Hand, kein Scraper) |
 
 Vorher geprüft und ausgeschlossen (sperren den Abruf oder verbieten
 ihn ausdrücklich; auf Wunsch des Nutzers nicht in der Liste):
-radsport-events.de, tri2b.com, triafreunde.com,
+tri2b.com, triafreunde.com,
 hdsports.org, datasport.com, rad-net.de,
 swiss-cycling.ch, ahotu.com. (`schwimmkalender.de` und
 `alpen-open-watercup.de` standen hier bis zum 24.09.2026 – beide sind
-erreichbar und verbieten nichts, siehe die Tabelle oben.)
+erreichbar und verbieten nichts, siehe die Tabelle oben; `radsport-events.de`
+stand hier ebenfalls und ist seit dem 24.09.2026 als Kandidat in der Tabelle,
+weil robots.txt und Impressum inzwischen nichts verbieten.)
+
+### Die Eventliste des Nutzers (PDF vom 24.09.2026)
+
+Der Nutzer hat eine PDF-Liste „Ausdauer-Events in der DACH-Region" geschickt
+(Jedermann-Radrennen und Freiwasser-Schwimmen, Deutschland und Österreich je
+Bundesland, 247 Einträge) und um Prüfung gebeten. Das Ergebnis je Eintrag
+steht in **`scripts/eventliste_pdf_geprueft.json`**. In Zahlen:
+
+| Ergebnis | Einträge |
+|---|---|
+| nachgetragen (Termin 2027 bzw. Rest 2026 auf der Veranstalterseite belegt) | 32 Einträge → 90 Zeilen in `manual_events.json` (Rad: Allgäu, Jura, Spreewald, Rund um Köln, Rad am Ring, Neuseen Classics, Fichtelberg, Beast of Bramsche, Radtourentag Odenwald, Erkelenzer RTF, Rund um den Harz, Harzer Radmarathon, Burning Roads, Flugfeld Giro, Charity Bike Cup, ONE TWENTY, Nortorf; AT: Neusiedler See, Kärnten, Wachau, Race Around NÖ, Mondsee, Tannheimer Tal, Imst, Arlberg Giro; Schwimmen: die neun Rennen des Alpen Open Water Cups, Starnberger See, Atterseeüberquerung, Boddenschwimmen, Seestadt Open Water) |
+| im Bestand | 15 |
+| existiert, nächster Termin noch nicht ausgeschrieben | 72 (im Frühjahr 2027 erneut prüfen – die meisten Veranstalterseiten zeigen noch 2026) |
+| nicht gefunden | 98 – das PDF nennt selbst „begrenztes Zeitbudget"; die Bundesland-Listen sind zu großen Teilen generische Platzhalter („Ravensburger RTF", „Heckengäu Radmarathon", „Kieler RTF"), und viele Domains existieren nicht (zollernkoenig.de, bodensee-radmarathon.de, charitybikecup.de, onetwenty808.com, 24h-rennen-kelheim.de, sixdays-bremen.de, nockalmbike.at, oetscher-extrem-trophy.at, openwaterstubenbergsee.at …) |
+| kein Wettkampf / kein Rennen / kein Jedermann / Meisterschaft | 13 (Trainingsangebote, Fahrraddemo, Messe, Sixdays, Freiwassermeisterschaften) |
+| verwechselt, doppelt, eingestellt, abgesagt, ausgesetzt, außerhalb | 12 (Backwaterman und Aquadays sind eingestellt, VeloCity Berlin ausgesetzt, Moselschwimmen 2026 abgesagt, M3 Montafon pausiert 2027) |
+
+Lehre daraus: Eine per Websuche erzeugte Liste ist ein Wegweiser, keine
+Datenquelle – nichts davon wurde ohne die Veranstalterseite übernommen
+(Datenregel 2). Für Bayern liefert künftig `turbosport_scraper.py` die
+lokalen Straßenrennen; für die übrigen Länder sind `radsport-events.de`
+(Ja des Nutzers nötig), der NordCup und die Landesverbände die Kandidaten.
 
 Je Quelle vor dem Bau: Nutzungsbedingungen/Impressum auf ein
 Scraping-Verbot durchsehen, Detailseiten auf Veranstalter-Link und

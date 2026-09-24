@@ -523,6 +523,10 @@ def test_duplikate() -> None:
     check("halber Kilometer Unterschied: getrennt",
           is_same_event(dict(hb, wettbewerb="12 km Seen-Lauf", laenge_km=12.0),
                         dict(hb, wettbewerb="12,5 km Trailrun", laenge_km=12.5)), False)
+    # Gravel neben Straße über dieselbe Länge sind zwei Wettbewerbe (Erkelenzer RTF, 24.09.2026).
+    check("'RTF 110 km' und 'Gravel Ride 110 km' bleiben zwei Zeilen",
+          is_same_event(dict(hb, art1="Fahrrad", wettbewerb="RTF 110 km", laenge_km=110.0),
+                        dict(hb, art1="Fahrrad", wettbewerb="Gravel Ride 110 km", laenge_km=110.0)), False)
     check("Kinderlauf gegen Hauptlauf: getrennt",
           is_same_event(dict(hb, wettbewerb="Mini Marathon", laenge_km=21.1),
                         dict(hb, wettbewerb="21,097 km Generali Halbmarathon", laenge_km=21.1)), False)
@@ -2735,6 +2739,66 @@ def test_neue_quellen() -> None:
     print("  ✓ neue Quellen: Orte, Zeiträume, Kalender-Skript, Portallinks")
 
 
+def test_turbosport() -> None:
+    """Der Scraper für turbo-sport.eu / BRV Timing (24.09.2026): Navigation,
+    Rennseite mit Ausschreibungstabelle, nur offene Klassen, Ort aus Name,
+    Pfad oder Hostname - ohne Netz."""
+    print("\nturbo-sport.eu (BRV Timing):")
+    import turbosport_scraper as ts
+    nav = ('<nav><ul class="subnav-nav"><li><a href="/veranstaltungen/donnerstagsrennen" class="subnav-link" '
+           'title="2026 Donnerstagsrennen Serie">x</a></li><li><a href="/events/augsburg" class="subnav-link" '
+           'title="26.09.26 Obergünzburger RR">x</a></li><li><a href="/events/augsburg" class="subnav-link" '
+           'title="26.09.26 Obergünzburger RR">x</a></li></ul></nav>')
+    liste = ts.parse_events_liste(nav)
+    assert [e["datum"] for e in liste] == [None, "2026-09-26"], liste
+    assert liste[1]["url"] == "https://turbo-sport.eu/events/augsburg"
+    seite_html = (
+        '<main><h2 class="element-header"><span>Großer Fritz Neuser Preis am Samstag, 3. Oktober 2026</span></h2>'
+        '<p><a href="https://www.rad-net.de/x">Link zur Ausschreibung auf rad-net.de</a></p>'
+        '<p><a href="https://rcherpersdorf.de/veranstaltungen/stadtparkrennen-schwabach/">Link zur Event Website</a></p>'
+        '<p><a href="https://www.datasport.de/anmeldeservice/x">Link zur Anmeldung bei Datasport Germany</a></p>'
+        '<table><tr><th>Kategorie:</th><th>JG von:</th><th>JG bis:</th><th>Wettbewerb:</th><th>Runden:</th>'
+        '<th>Distanz:</th><th>Nenngeld:</th><th>Startzeit:</th></tr>'
+        '<tr><td>R.4.1 | 4.5 Amateure</td><td>1987</td><td>2007</td><td>Lizenzklasse</td><td>40</td><td>60 km</td><td>21,00 EUR</td><td>12:45:00</td></tr>'
+        '<tr><td>R.6.1 | Jedermann (männlich)</td><td>vor</td><td>2008</td><td>Jedermann</td><td>20</td><td>30 km</td><td>25,00 EUR</td><td>9:00:00</td></tr>'
+        '<tr><td>R.6.2 | Jedermann (weiblich)</td><td>vor</td><td>2008</td><td>Jedermann</td><td>20</td><td>30 km</td><td>25,00 EUR</td><td>9:00:00</td></tr>'
+        '<tr><td>R.1.1 | 4.27 Hobby Männer</td><td>vor</td><td>2009</td><td>Hobbyklasse</td><td>15</td><td>20.2 km</td><td>18,00 EUR</td><td>18:02:55</td></tr>'
+        '</table></main>')
+    seite = ts.parse_rennseite(seite_html)
+    assert seite["name"] == "Großer Fritz Neuser Preis" and seite["datum"] == "2026-10-03", seite
+    assert seite["veranstalter_url"] == "https://rcherpersdorf.de/veranstaltungen/stadtparkrennen-schwabach/"
+    assert seite["lizenzklassen"] == 1 and [k["km"] for k in seite["klassen"]] == [30.0, 30.0, 20.2]
+    orte = {"schwabach": [("Schwabach", 49.331, 11.024)], "prien am chiemsee": [("Prien am Chiemsee", 47.856, 12.346)],
+            "obergünzburg": [("Obergünzburg", 47.846, 10.418)], "burggen": [("Burggen", 47.777, 10.817)],
+            "schönberg": [("Schönberg", 1.0, 1.0), ("Schönberg", 2.0, 2.0)], "landshut": [("Landshut", 48.538, 12.146)]}
+    # Der Name nennt keinen Ort - der Pfad der Rennseite tut es.
+    evs, grund = ts.events_aus_rennseite(seite, "https://turbo-sport.eu/events/schwabacher-stadtparkrennen", None, ts.CONFIG, orte)
+    assert grund is None and len(evs) == 2, (grund, evs)
+    assert {(e.standort, e.laenge_km, e.wettbewerb, e.art2) for e in evs} == {
+        ("Schwabach", 30.0, "Jedermann 30 km", "Straße"), ("Schwabach", 20.2, "Hobbyklasse 20,2 km".replace(",", "."), "Straße")}, evs
+    assert evs[0].lat == 49.331 and evs[0].datum_start == "2026-10-03"
+    # Nur Lizenzklassen -> kein Eintrag, mit Grund; Ergebnisseite (keine Tabelle) ebenso.
+    seite2 = dict(seite, klassen=[], lizenzklassen=3)
+    assert ts.events_aus_rennseite(seite2, "https://turbo-sport.eu/events/x", None, ts.CONFIG, orte) == ([], "nur Lizenzklassen")
+    seite3 = dict(seite, klassen=[], lizenzklassen=0)
+    assert ts.events_aus_rennseite(seite3, "https://turbo-sport.eu/events/x", None, ts.CONFIG, orte)[1].startswith("keine Ausschreibungstabelle")
+    # Ort aus dem Namen: Adjektivendung, laufende Nummer, Mehrdeutigkeit, Hostname.
+    assert ts.ort_aus_name("1.Obergünzburger Rundstreckenrennen", orte)[0] == "Obergünzburg"
+    assert ts.ort_aus_name("37. Burggener Straßenpreis", orte)[0] == "Burggen"
+    assert ts.ort_aus_name("11. Inklusiver Landshuter Straßenpreis", orte)[0] == "Landshut"
+    assert ts.ort_aus_name("5. Schönberger Pfingstradrennen", orte) is None   # zwei Schönberg in Bayern
+    assert ts.ort_aus_name("Kampenkönig", orte) is None
+    assert ts.ort_aus_host("https://rfv-prien.de/aktivitaeten/kampenkoenig/", orte)[0] == "Prien am Chiemsee"
+    assert ts.ort_aus_host("https://www.rad-net.de/x", orte) is None
+    assert ts.ort_aus_slug("https://turbo-sport.eu/events/schwabacher-stadtparkrennen", orte)[0] == "Schwabach"
+    # Ohne Ort kein Eintrag - geraten wird nie.
+    seite4 = dict(seite, name="Kampenkönig", veranstalter_url=None)
+    assert ts.events_aus_rennseite(seite4, "https://turbo-sport.eu/events/kampenkoenig", None, ts.CONFIG, orte) == ([], "Ort nicht erkennbar")
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://turbo-sport.eu/events/augsburg")
+    print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, offene Klassen, Ort aus Name/Pfad/Host")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -2748,7 +2812,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender,
+                 test_schwimmen_regeln, test_schwimmkalender, test_turbosport,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

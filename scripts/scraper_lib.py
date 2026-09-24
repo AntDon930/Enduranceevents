@@ -1910,7 +1910,9 @@ _LABEL_GATTUNG_RE = re.compile(
     r"handbike|inline|skat|kinder|\bkids?\b|schüler|schueler|jugend|youth|"
     r"junior|bambini|mini|\bu\s?\d{2}\b|sprint|volks|jedermann|olymp|"
     r"kurz(?:distanz|strecke)|mittel(?:distanz|strecke)|lang(?:distanz|strecke)|"
-    r"ultra|cross|trail|berg", re.I)
+    # Gravel neben Straße (24.09.2026): Der Erkelenzer RTF hat "RTF 110 km"
+    # UND "Gravel Ride 110 km" - zwei Wettbewerbe über dieselbe Länge.
+    r"ultra|cross|trail|berg|gravel|schotter|\brtf\b", re.I)
 
 
 def _label_gattung(label: str) -> frozenset:
@@ -2648,6 +2650,9 @@ PORTAL_DOMAINS = (
     # Ihre Detailseiten bleiben nur stehen, wo die Quelle keine
     # Veranstalterseite nennt - und werden ersetzt, sobald eine bekannt ist.
     "events.endure-cycling.com", "oelv.athmin.at", "sparkasse.at",
+    # BRV Timing (Bayerischer Radsportverband): Zeitnahme, kein Veranstalter
+    # - die Rennseite nennt die Veranstalterseite selbst (24.09.2026).
+    "turbo-sport.eu", "brv-timing.de",
     "laufkalender-nws.ch", "lauftermine.ch",
     # radsport-events.de: Kalender- und Anmeldeportal für Radrennen
     # (endure-cycling verweist bei manchen Rennen dorthin statt auf den

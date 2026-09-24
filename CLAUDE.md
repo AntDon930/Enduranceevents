@@ -51,6 +51,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
 | `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
+| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 32 nachgetragen, 15 im Bestand, 72 „existiert, Termin offen" (im Frühjahr 2027 erneut prüfen), 98 nicht gefunden; siehe README („Die Eventliste des Nutzers") |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
@@ -3463,6 +3464,43 @@ und der SwimRun-Kalender von swimrun-advice.com; swim-emotions.ch (Swiss
 OpenWater-Cup) war aus der Sandbox nicht erreichbar. **Kein Scraper ohne
 sein Ja.**
 
+**Radrennen lokal (24.09.2026)**: Der Nutzer hat `turbo-sport.eu/events`
+verlinkt („sehr gut für lokale Rennen") und `ultracyclingchallenges.com`,
+dazu die PDF-Liste (siehe `scripts/eventliste_pdf_geprueft.json`).
+turbo-sport.eu ist **BRV Timing**, die Transponder-Zeitnahme des
+Bayerischen Radsportverbands: eine TYPO3-Seite je Rennen mit der
+Ausschreibungstabelle (Kategorie / Wettbewerb / Runden / Distanz), robots.txt
+404, Impressum ohne Verbot. Gebaut ist **`turbosport_scraper.py`** – drei
+Entscheidungen darin, alle im Modul begründet: (1) **nur Jedermann- und
+Hobbyklassen** – ein Lizenzrennen braucht die BDR-Lizenz und ist nicht
+„für jeden" (`OFFENE_KLASSEN`; umkehrbar, aber dann stehen Elite-,
+Amateur- und U17-Rennen in der Liste); (2) **der Ort steht nicht auf der
+Seite** – er kommt aus dem Namen („Obergünzburger" → Obergünzburg, mit
+Adjektivendung), dem Pfad der Rennseite (`/events/schwabacher-…`) oder dem
+Hostnamen der Veranstalterseite (`rfv-prien.de`), jeweils gegen die
+bayerischen Orte in `places.json` (Koordinaten gleich mit, kein Nominatim);
+ein mehrdeutiger Name („Schönberger") zählt nicht, ohne Ort kein Eintrag;
+(3) **vergangene Rennen liefern nichts**, weil die Seite dann Ergebnislisten
+statt der Ausschreibung zeigt – im September 2026 blieb genau ein Rennen
+(Großer Fritz Neuser Preis, Schwabach, 03.10.2026, Jedermann 30 km), die
+Saison 2027 erscheint im Frühjahr. Die Donnerstagsrennen-Serie (München,
+Hobbyklasse) hat keine Rennseite je Termin und wird gemeldet, nicht
+geraten. `turbo-sport.eu` steht in `PORTAL_DOMAINS`; `test_turbosport`
+hält Navigation, Tabelle, Klassenfilter und Ortserkennung fest.
+**Weitere Kalender „für andere Städte"** (gesucht, im README-Abschnitt
+„Quellen für den großen Datenlauf" mit Rechtslage): `radsport-events.de`
+ist inzwischen frei (robots.txt `Allow: /`, Impressum ohne Verbot, JSON-API
+mit Veranstalterlink) und wäre die beste deutsche Radquelle – der Nutzer
+hatte sie am 21.09.2026 ausgeschlossen, **ohne sein Ja bleibt sie
+Kandidat**; NordCup (9 Radmarathons 2027 in SH), Radsportverband SH,
+RTF-Listen in BW sind Kandidaten; `radmarathon.at` verbietet die
+Wiedergabe, `sport-oesterreich.at` antwortet 403, `mueritzquerung.de` ist
+veraltet. Aus der Prüfung heraus: `_LABEL_GATTUNG_RE` kennt jetzt „gravel"
+und „rtf" (Gravel neben Straße über dieselbe Länge sind zwei
+Wettbewerbe), und die Gravel-Zeilen des Erkelenzer RTF tragen einen
+eigenen Namen, weil die Teilmengen-Regel von `_same_name()` „Erkelenzer
+RTF" + „Gravel Ride 110 km" sonst in der Straßenzeile aufgehen lässt.
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -3761,6 +3799,24 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Crosslauf Jüchen ausschließen? Und `raceresult_kontakt.py` (Punkt 10)
    lohnt sich: Von 47 Kontaktseiten nannten 24 eine brauchbare
    Organizer-URL.
+
+21. **Aus der Radrennen-Prüfung vom 24.09.2026** – je ein Ja/Nein:
+   - **`radsport-events.de` als Scraper-Quelle?** Am 21.09.2026 auf
+     Wunsch des Nutzers ausgeschlossen; am 24.09.2026 erneut geprüft:
+     robots.txt `Allow: /`, Impressum ohne Verbot, keine AGB, JSON-API
+     mit Datum, Strecken, Startort und Veranstalterseite je Event
+     (246 Rennrad-Events). Das PDF des Nutzers verweist 108-mal dorthin.
+     Mit Ja: `radsportevents_scraper.py` nach dem Muster von endure.
+   - **Lizenzrennen** (BRV Timing): heute draußen, nur Jedermann/Hobby.
+     Soll ein Rennen mit Lizenz- UND Jedermannklassen auch seine
+     Lizenzklassen zeigen, oder reine Lizenzrennen dazu? Eine Zeile in
+     `turbosport_scraper.py` (`OFFENE_KLASSEN`).
+   - **Die 72 „existiert, Termin offen"-Einträge** des PDFs (Protokoll
+     `scripts/eventliste_pdf_geprueft.json`) im Frühjahr 2027 erneut
+     prüfen – viele davon kommen dann über endure/running.life von
+     selbst; wer das früher will, braucht die Quelle aus dem ersten Punkt.
+   - **NordCup 2027** (9 Termine mit Veranstalterlink): einzeln beim
+     Veranstalter nachziehen, sobald Strecken und Startorte stehen.
 
 20. **Farbschema und Pillen (21.09.2026, aus dem Kartenumbau)** – drei
    Kleinigkeiten, die ein Ja/Nein brauchen:

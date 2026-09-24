@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-vollmondschwimmen-im-chiemsee-2km-prien-am-chiemsee@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Vollmondschwimmen im Chiemsee – Cupstrecke 2 km
+LOCATION:Prien am Chiemsee\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2 km\nhttps://www.vol
+ lmondschwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://www.vollmondschwimmen.de/
+END:VEVENT
+END:VCALENDAR

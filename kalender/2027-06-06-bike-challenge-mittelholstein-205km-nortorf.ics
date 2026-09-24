@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-bike-challenge-mittelholstein-205km-nortorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Bike Challenge Mittelholstein – Radmarathon 205 km (NordCup)
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 205 km\nhttps://www.nortorf
+ .bike/
+TRANSP:TRANSPARENT
+URL:https://www.nortorf.bike/
+END:VEVENT
+END:VCALENDAR

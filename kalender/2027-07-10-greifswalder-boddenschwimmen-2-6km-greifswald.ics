@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-greifswalder-boddenschwimmen-2-6km-greifswald@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Greifswalder Boddenschwimmen – Boddenquerung Dänische Wiek 2\,6 km
+LOCATION:Greifswald\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2.6 km\nhttps://www.b
+ oddenschwimmen.de/
+TRANSP:TRANSPARENT
+URL:https://www.boddenschwimmen.de/
+END:VEVENT
+END:VCALENDAR

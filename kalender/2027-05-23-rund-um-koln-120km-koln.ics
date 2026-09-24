@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rund-um-koln-120km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Rund um Köln – Velodom 120 (Granfondo)
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://www.rundumk
+ oeln.de/
+TRANSP:TRANSPARENT
+URL:https://www.rundumkoeln.de/
+END:VEVENT
+END:VCALENDAR
