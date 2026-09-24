@@ -3054,6 +3054,17 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   öffnet das Blatt nicht, der Teilen-Knopf war unsichtbar. Jetzt die
   erste EINZELNE Strecke (`tr[data-idx]:not([data-klapp])`), wie in den
   anderen Prüfungen. **Kein fester Zeilenindex in den Prüfungen.**
+  Die fünfte (24.09.2026), gleich dreifach: Nach dem Schwimm-Commit
+  lag in Zeile eins die zweitägige „Gravel Epic Switzerland" mit zwei
+  Strecken – `pruefe_teilen()` (Kopieren ohne Teilen-Dialog) und
+  `pruefe_tastatur()` (Melde-Dialog) klickten `.first`, und
+  `pruefe_kacheln()` maß „die Liste bleibt, wo sie war" an einer Kachel,
+  die jetzt teils unter dem Bildrand lag: Beim Klick auf ein
+  fokussierbares Element holt der BROWSER es ins Bild (46 px) – kein
+  Fehler der Seite; die Kachel wird vorher per
+  `scroll_into_view_if_needed()` ins Bild geholt. Beim Beheben einer
+  solchen Stelle **alle Klicks aller Prüfungen** durchsehen
+  (`grep 'tbody tr[^"]*")\.\(first\|nth\)'` findet sie).
 
 - **Texte immer in DE und EN** (`I18N`-Objekte, oben in der Datei).
 

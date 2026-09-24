@@ -255,8 +255,16 @@ def pruefe_kacheln(ctx, basis):
            "die Spaltenköpfe sind Sortier-Pillen unter „Sortieren“ (%d)" % stand["pillen"])
 
     # Tippen auf eine Kachel öffnet das Blatt - ohne die Seite zu scrollen.
+    # Die Kachel vorher ganz ins Bild holen: Liegt sie teils unter dem
+    # unteren Rand, scrollt der BROWSER sie beim Klick auf ein
+    # fokussierbares Element selbst nach oben (24.09.2026: 46 px, als die
+    # erste einzelne Strecke hinter einer zweizeiligen Veranstaltung lag).
+    # Gemessen wird das Verhalten der Seite, nicht das des Browsers.
+    kachel = seite.locator("tbody tr[data-idx]:not([data-klapp])").first
+    kachel.scroll_into_view_if_needed()
+    seite.wait_for_timeout(200)
     y_vorher = seite.evaluate("() => scrollY")
-    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    kachel.click()
     seite.wait_for_timeout(500)
     blatt = seite.evaluate("""() => {
         const b = document.getElementById('detail-panel').getBoundingClientRect();
@@ -1173,7 +1181,10 @@ def pruefe_teilen(ctx, basis):
     seite.goto(basis + "/events.html", wait_until="domcontentloaded")
     seite.wait_for_selector("tbody tr[data-idx]", timeout=30000)
     seite.wait_for_timeout(400)
-    seite.locator("tbody tr[data-idx]").first.click()
+    # Auch hier eine EINZELNE Strecke (siehe oben): Am 24.09.2026 lag in
+    # Zeile eins eine Veranstaltung mit mehreren Strecken, und die CI war
+    # aus demselben Grund rot wie zwei Tage zuvor.
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
     seite.wait_for_timeout(700)
     seite.locator("#detail-panel .event-share-btn").click()
     seite.wait_for_timeout(700)
@@ -1347,7 +1358,10 @@ def pruefe_tastatur(ctx, basis):
     # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück.
     # Enter oben hat auf Handybreite das Blatt geöffnet - erst zu.
     schliesse_blatt(seite)
-    seite.locator("tbody tr").first.click()
+    # Eine EINZELNE Strecke - eine aufklappbare Veranstaltung klappt nur
+    # auf und öffnet auf Handybreite kein Blatt (24.09.2026, dieselbe
+    # Fehlerklasse wie in pruefe_teilen).
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
     seite.wait_for_timeout(900)
     melden = seite.locator("#detail-panel .report-open-btn")
     if melden.count():
