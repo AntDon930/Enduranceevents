@@ -4,16 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-13-ironman-karnten-klagenfurt-austria-226km-klagenfurt-am-wort
- hersee@antdon930.github.io
+UID:2027-06-13-ironman-karnten-klagenfurt-austria-x-klagenfurt-am-worthers
+ ee@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270613
 DTEND;VALUE=DATE:20270614
-SUMMARY:IRONMAN Kärnten – Klagenfurt-Austria
+SUMMARY:IRONMAN Kärnten – Klagenfurt-Austria – Langdistanz
 LOCATION:Klagenfurt am Wörthersee\, Österreich
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttps://www.ironm
- an.com/races/im-austria
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.ironman.co
+ m/im-austria
 TRANSP:TRANSPARENT
-URL:https://www.ironman.com/races/im-austria
+URL:https://www.ironman.com/im-austria
 END:VEVENT
 END:VCALENDAR

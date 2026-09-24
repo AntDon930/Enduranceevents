@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-schwingshandl-cycle-race-42km-holzhausen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Schwingshandl Cycle Race – Kriterium 42 km
+LOCATION:Holzhausen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 42 km\nhttps://schwingshand
+ l-cycling.com/
+TRANSP:TRANSPARENT
+URL:https://schwingshandl-cycling.com/
+END:VEVENT
+END:VCALENDAR

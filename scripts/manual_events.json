@@ -4779,6 +4779,22 @@
       "veranstalter_url": "https://burningroads.de/",
       "_quelle": "https://burningroads.de/",
       "_note": "burningroads.de: '20 Jahre Burning Roads am 26.6.2027!', der Ochtruper Radmarathon in Brevet-Form (Kurs nicht ausgeschildert, nach StVO), Tickets 210 km und 330 km, Einschreibung 25./26.06.2027 in Ochtrup. aus der Eventliste des Nutzers (PDF, 24.09.2026) an der Veranstalterseite geprüft."
+    },
+    {
+      "land": "Schweiz",
+      "name": "Stadtzürcher Seeüberquerung",
+      "standort": "Zürich",
+      "lat": 47.38,
+      "lon": 8.536,
+      "art1": "Schwimmen",
+      "art2": "Freiwasser",
+      "datum_start": "2027-07-07",
+      "datum_ende": "2027-07-07",
+      "laenge_km": 1.5,
+      "wettbewerb": null,
+      "veranstalter_url": "https://www.seeueberquerung.ch/",
+      "_quelle": "https://www.seeueberquerung.ch/",
+      "_note": "seeueberquerung.ch (24.09.2026): 'Die nächste Stadtzürcher Seeüberquerung findet am Mittwoch, 7. Juli 2027, statt. Verschiebedaten sind der 14. Juli und 25. August 2027.' Strecke 1'500 m vom Strandbad Mythenquai ins Strandbad Tiefenbrunnen, 'kein Wettkampf', Volksschwimmen mit 9'000 Plätzen. Aus der Linkliste des Nutzers (24.09.2026); swimsports.ch führt erst den Termin 2026. Koordinaten Zürich aus places.json."
     }
   ]
 }

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-alpentour-schladming-dachstein-x-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270621
+SUMMARY:Alpentour Schladming Dachstein – Etappenrennen
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.alpen-tour.a
+ t
+TRANSP:TRANSPARENT
+URL:https://www.alpen-tour.at
+END:VEVENT
+END:VCALENDAR

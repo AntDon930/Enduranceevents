@@ -4,11 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-19-triathlon-bregenz-55-5km-lochau@antdon930.github.io
+UID:2027-06-19-raiffeisen-triathlon-bregenz-55-5km-lochau@antdon930.github
+ .io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270619
 DTEND;VALUE=DATE:20270621
-SUMMARY:Triathlon Bregenz – Olympische Distanz
+SUMMARY:Raiffeisen Triathlon Bregenz – Olympische Distanz
 LOCATION:Lochau\, Österreich
 DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 55.5 km\nhttps://www.tria
  thlon-bregenz.at/

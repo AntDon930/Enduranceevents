@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261116
 SUMMARY:Tage des Querfeldeinsports GP Ternitz – Cyclocross 0.7 h
 LOCATION:Ternitz\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://radsport
- -events.de/events/27656
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://www.rcnk
+ .at
 TRANSP:TRANSPARENT
-URL:https://radsport-events.de/events/27656
+URL:https://www.rcnk.at
 END:VEVENT
 END:VCALENDAR

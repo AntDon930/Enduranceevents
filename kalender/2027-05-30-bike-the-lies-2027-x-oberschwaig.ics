@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-bike-the-lies-2027-x-oberschwaig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Bike The Lies 2027 – Einzelzeitfahren
+LOCATION:Oberschwaig\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: -\nhttps://rfv-weibern.
+ at
+TRANSP:TRANSPARENT
+URL:https://rfv-weibern.at
+END:VEVENT
+END:VCALENDAR

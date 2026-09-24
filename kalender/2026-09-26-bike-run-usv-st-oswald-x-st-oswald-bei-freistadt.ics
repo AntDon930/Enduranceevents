@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-bike-run-usv-st-oswald-x-st-oswald-bei-freistadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Bike & Run USV St. Oswald – Duathlon (Termin vorläufig)
+LOCATION:St. Oswald bei Freistadt\, Österreich
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Triathlon / Duathlon\nLänge: -\nhttp
+ s://www.facebook.com/bikerunstoswald
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/bikerunstoswald
+END:VEVENT
+END:VCALENDAR

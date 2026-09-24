@@ -1596,6 +1596,20 @@
     "veranstalter_url": "https://bergweg100.ch"
   },
   {
+    "land": "Österreich",
+    "name": "Bike & Run USV St. Oswald",
+    "standort": "St. Oswald bei Freistadt",
+    "lat": 48.5005571,
+    "lon": 14.5877251,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "wettbewerb": "Duathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.facebook.com/bikerunstoswald"
+  },
+  {
     "land": "Deutschland",
     "name": "Bokeler Straßenlauf",
     "standort": "Beverstedt",
@@ -3759,6 +3773,19 @@
     "laenge_km": 8.5,
     "wettbewerb": "Einzelzeitfahren Mountainbike 8.5 km",
     "veranstalter_url": "https://www.sportunion-sankt-peter.at"
+  },
+  {
+    "land": "Österreich",
+    "name": "Teufelsfahrt ( MTB )",
+    "standort": "Sankt Peter am Wimberg",
+    "lat": 48.5024482,
+    "lon": 14.0809255,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-09-26",
+    "datum_ende": "2026-09-26",
+    "wettbewerb": "Cycling 4 All",
+    "veranstalter_url": "https://www.velocrew.at/"
   },
   {
     "land": "Österreich",
@@ -7477,6 +7504,19 @@
     "veranstalter_url": "https://schusterlauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Schwalben Eliminator",
+    "standort": "Innsbruck",
+    "lat": 47.2654296,
+    "lon": 11.3927685,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-09-27",
+    "datum_ende": "2026-09-27",
+    "wettbewerb": "Eliminator",
+    "veranstalter_url": "https://www.innsbrucker-schwalben.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Sonneberger Radsportabend",
     "standort": "Sonneberg",
@@ -10338,6 +10378,19 @@
     "veranstalter_url": "https://www.sportunion-schenkenfelden.at/?page_id=13418#INFOS"
   },
   {
+    "land": "Österreich",
+    "name": "Hirtstein-Trophy Schenkenfelden",
+    "standort": "Schenkenfelden",
+    "lat": 48.503,
+    "lon": 14.362,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "wettbewerb": "Duathlon",
+    "veranstalter_url": "http://hirtsteintrophy.sportunion-schenkenfelden.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Idstedt Marathon",
     "standort": "Idstedt",
@@ -11926,6 +11979,76 @@
     "veranstalter_url": "http://forstlauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Schwingshandl Cycle Race",
+    "standort": "Holzhausen",
+    "lat": 48.2230119,
+    "lon": 14.0968764,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 31.0,
+    "wettbewerb": "Kriterium 31 km",
+    "veranstalter_url": "https://schwingshandl-cycling.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Schwingshandl Cycle Race",
+    "standort": "Holzhausen",
+    "lat": 48.2230119,
+    "lon": 14.0968764,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 0.7,
+    "wettbewerb": "Cycling 4 All 0.7 km",
+    "veranstalter_url": "https://schwingshandl-cycling.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Schwingshandl Cycle Race",
+    "standort": "Holzhausen",
+    "lat": 48.2230119,
+    "lon": 14.0968764,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 1.7,
+    "wettbewerb": "Cycling 4 All 1.7 km",
+    "veranstalter_url": "https://schwingshandl-cycling.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Schwingshandl Cycle Race",
+    "standort": "Holzhausen",
+    "lat": 48.2230119,
+    "lon": 14.0968764,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 15.0,
+    "wettbewerb": "Cycling 4 All 15 km",
+    "veranstalter_url": "https://schwingshandl-cycling.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Schwingshandl Cycle Race",
+    "standort": "Holzhausen",
+    "lat": 48.2230119,
+    "lon": 14.0968764,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 42.0,
+    "wettbewerb": "Kriterium 42 km",
+    "veranstalter_url": "https://schwingshandl-cycling.com/"
+  },
+  {
     "land": "Deutschland",
     "name": "Schyren-Lauf",
     "standort": "Scheyern",
@@ -12646,6 +12769,19 @@
     "laenge_km": 15.3,
     "wettbewerb": "Wanderroute , 15,3 km, 1000 - 1250 hm",
     "veranstalter_url": "https://www.wildschoenau.com/de/aktivitaeten/wandern/hoehenwegtrophy"
+  },
+  {
+    "land": "Österreich",
+    "name": "XCC Graz/Stattegg",
+    "standort": "Stattegg",
+    "lat": 47.1377347,
+    "lon": 15.4195952,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "wettbewerb": "Short-Track",
+    "veranstalter_url": "https://www.bike09.at"
   },
   {
     "land": "Deutschland",
@@ -13899,6 +14035,20 @@
     "veranstalter_url": "https://www.zuerilaufcup.ch/12-laeufe/pfaeffikersee-lauf"
   },
   {
+    "land": "Österreich",
+    "name": "Quer durch's Stadion",
+    "standort": "Neusiedl",
+    "lat": 47.0808286,
+    "lon": 16.1758702,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "dauer_h": 0.7,
+    "wettbewerb": "Cyclocross 40 min",
+    "veranstalter_url": "https://www.radclub-pernitz.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Race4All 2h-Team-Rennen",
     "standort": "Neckartenzlingen",
@@ -14709,6 +14859,19 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm"
+  },
+  {
+    "land": "Österreich",
+    "name": "Lake.Bike Enduro Festival - Cycling 4 All",
+    "standort": "Ligist",
+    "lat": 46.9786907,
+    "lon": 15.183455,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-10-09",
+    "datum_ende": "2026-10-11",
+    "wettbewerb": "Cycling 4 All",
+    "veranstalter_url": "https://www.mountainsport.at"
   },
   {
     "land": "Deutschland",
@@ -17411,6 +17574,34 @@
   },
   {
     "land": "Österreich",
+    "name": "11. King & Queen of Seeschlacht p.b. CUBE STORE - Wien Nord, dein BikeStore",
+    "standort": "Langenzersdorf",
+    "lat": 48.3081842,
+    "lon": 16.3643817,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 15.0,
+    "wettbewerb": "Cycling 4 All 15 km",
+    "veranstalter_url": "https://www.free-eagle.at"
+  },
+  {
+    "land": "Österreich",
+    "name": "11. King & Queen of Seeschlacht p.b. CUBE STORE - Wien Nord, dein BikeStore",
+    "standort": "Langenzersdorf",
+    "lat": 48.3081842,
+    "lon": 16.3643817,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "dauer_h": 0.7,
+    "wettbewerb": "Cyclocross 40 min",
+    "veranstalter_url": "https://www.free-eagle.at"
+  },
+  {
+    "land": "Österreich",
     "name": "12. Marchtrenker stadtgrandprix",
     "standort": "Stadtplatz Marchtrenk",
     "art1": "Laufen",
@@ -17980,6 +18171,20 @@
   },
   {
     "land": "Österreich",
+    "name": "BIKE TEAM GINNER Bergzeitfahren",
+    "standort": "Waidhofen",
+    "lat": 47.9609716,
+    "lon": 14.7747171,
+    "art1": "Fahrrad",
+    "art2": "Zeitfahren",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 2.4,
+    "wettbewerb": "Cycling 4 All 2.4 km",
+    "veranstalter_url": "https://www.bike-team-ginner.com"
+  },
+  {
+    "land": "Österreich",
     "name": "Blasenstein Trail",
     "standort": "Sankt Thomas am Blasenstein",
     "lat": 48.3168344,
@@ -18228,6 +18433,34 @@
     "laenge_km": 8.0,
     "wettbewerb": "Cyclocross 8 km",
     "veranstalter_url": "https://www.tsv-woerth.de/cross-event-2026/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Cycling Cup Thaur",
+    "standort": "Thaur",
+    "lat": 47.29282,
+    "lon": 11.4738309,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 53.5,
+    "wettbewerb": "Straßenrennen 53.5 km",
+    "veranstalter_url": "https://www.innsbrucker-schwalben.at"
+  },
+  {
+    "land": "Österreich",
+    "name": "Cycling Cup Thaur",
+    "standort": "Thaur",
+    "lat": 47.29282,
+    "lon": 11.4738309,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 68.0,
+    "wettbewerb": "Straßenrennen 68 km",
+    "veranstalter_url": "https://www.innsbrucker-schwalben.at"
   },
   {
     "land": "Deutschland",
@@ -21862,6 +22095,19 @@
   },
   {
     "land": "Österreich",
+    "name": "Swim & Run Amstetten",
+    "standort": "Amstetten",
+    "lat": 48.123,
+    "lon": 14.872,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "wettbewerb": "Aquathlon",
+    "veranstalter_url": "https://www.mostiman.at/"
+  },
+  {
+    "land": "Österreich",
     "name": "Südsteirischen Terrassenlauf",
     "standort": "Kitzeck im Sausal",
     "lat": 46.7823836,
@@ -23359,6 +23605,20 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 9.0,
     "veranstalter_url": "https://www.skyline-run.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "St.Pöltner Querfeldein im Kaiserwald",
+    "standort": "St.Pölten",
+    "lat": 48.2043985,
+    "lon": 15.6229118,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "dauer_h": 1.0,
+    "wettbewerb": "Cyclocross 60 min",
+    "veranstalter_url": "https://rcarboestp.blogspot.com"
   },
   {
     "land": "Deutschland",
@@ -25082,6 +25342,19 @@
   },
   {
     "land": "Österreich",
+    "name": "Wienenergie Cyclocross",
+    "standort": "Landegg",
+    "lat": 47.8993676,
+    "lon": 16.3976248,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rc-awr.at"
+  },
+  {
+    "land": "Österreich",
     "name": "Windischgarstner Marktlauf",
     "standort": "Windischgarsten",
     "lat": 47.7215859,
@@ -26653,6 +26926,19 @@
     "veranstalter_url": "https://www.radrenngemeinschaft-osnabrueck.de/rennsport/querfeldein/cross-os-bornheide/"
   },
   {
+    "land": "Österreich",
+    "name": "Wienenergie Cyclocross",
+    "standort": "Landegg",
+    "lat": 47.8993676,
+    "lon": 16.3976248,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rc-awr.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Wiesent Challenge",
     "standort": "Waischenfeld",
@@ -28005,6 +28291,19 @@
     "laenge_km": 7.5,
     "wettbewerb": "7.5 km",
     "veranstalter_url": "https://www.marchethon-fribourg.ch"
+  },
+  {
+    "land": "Österreich",
+    "name": "MUD MASTER CYCLOCROSS Mittelkärnten",
+    "standort": "St. Veit an der Glan",
+    "lat": 46.7672814,
+    "lon": 14.3576981,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.mountainsport.at"
   },
   {
     "land": "Deutschland",
@@ -30822,6 +31121,19 @@
     "wettbewerb": "10,0 km (4 Runden) ab M/W U16"
   },
   {
+    "land": "Österreich",
+    "name": "DWH - dachwelten Cross powered by RCO BOA Wels",
+    "standort": "Wels",
+    "lat": 48.1565472,
+    "lon": 14.0243752,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-08",
+    "datum_ende": "2026-11-08",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rc-ovilava-wels.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Elmshorner Cross",
     "standort": "Elmshorn",
@@ -32905,7 +33217,7 @@
     "datum_ende": "2026-11-15",
     "dauer_h": 0.7,
     "wettbewerb": "Cyclocross 0.7 h",
-    "veranstalter_url": "https://radsport-events.de/events/27656"
+    "veranstalter_url": "https://www.rcnk.at"
   },
   {
     "land": "Deutschland",
@@ -33575,6 +33887,19 @@
     "veranstalter_url": "https://stonebreaktrail.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Tage des Querfeldeinsports GP Ternitz um die Preise des ARBÖ Querfeldein",
+    "standort": "Ternitz",
+    "lat": 47.7066007,
+    "lon": 16.0194688,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-15",
+    "datum_ende": "2026-11-15",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rcnk.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Teltowkanal Halbmarathon",
     "standort": "Teltow",
@@ -34230,6 +34555,19 @@
     "veranstalter_url": "https://www.b-run.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "Bad Ischler Radquerfeldein",
+    "standort": "Bad Ischl",
+    "lat": 47.7115299,
+    "lon": 13.6239333,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-22",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=933C8E7302AD4722BEDA126F2772341F&filter=page=2"
+  },
+  {
     "land": "Deutschland",
     "name": "Berliner Mannschaftslauf",
     "standort": "Berlin",
@@ -34744,6 +35082,19 @@
     "wettbewerb": "7,6 km"
   },
   {
+    "land": "Österreich",
+    "name": "5. Querfeldein GP UCI C2 Gunskirchen um das Sportzentrum",
+    "standort": "Gunskirchen",
+    "lat": 48.1334587,
+    "lon": 13.9427447,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-22",
+    "datum_ende": "2026-11-22",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rc-lambach.com"
+  },
+  {
     "land": "Deutschland",
     "name": "Bramscher Königstannen-Kanal-Cross",
     "standort": "Bramsche",
@@ -34991,6 +35342,19 @@
     "laenge_km": 5.4,
     "wettbewerb": "5.4 km",
     "veranstalter_url": "https://www.santarunbern.ch"
+  },
+  {
+    "land": "Österreich",
+    "name": "2. Erlauftal Cross",
+    "standort": "Purgstall",
+    "lat": 48.0576733,
+    "lon": 15.1352003,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-28",
+    "datum_ende": "2026-11-28",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.rcpurgstall.at"
   },
   {
     "land": "Deutschland",
@@ -35875,6 +36239,19 @@
     "laenge_km": 67.0,
     "wettbewerb": "CTF 67 km",
     "veranstalter_url": "https://"
+  },
+  {
+    "land": "Österreich",
+    "name": "Park-Cross Böheimkirchen",
+    "standort": "Böheimkirchen",
+    "lat": 48.1979315,
+    "lon": 15.7624204,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=0A88CA3BF8024068885453D9D7C2D774&filter=page=2"
   },
   {
     "land": "Österreich",
@@ -38677,6 +39054,17 @@
     "dauer_h": 0.7,
     "wettbewerb": "Cyclocross 0.7 h",
     "veranstalter_url": "https://team-bikestore.sportunion.at/cross-rennen/"
+  },
+  {
+    "land": "Österreich",
+    "name": "CX-MAS Cross Vol.4",
+    "standort": "Marktgrafneusiedl",
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-13",
+    "datum_ende": "2026-12-13",
+    "wettbewerb": "Cycling 4 All, Cyclocross",
+    "veranstalter_url": "https://www.team-bikestore.sportunion.at"
   },
   {
     "land": "Österreich",
@@ -43365,6 +43753,19 @@
     "veranstalter_url": "http://schnelsener-moorlauf.aghamburgwest.de/"
   },
   {
+    "land": "Österreich",
+    "name": "3KöniXcrosS St.Pölten",
+    "standort": "St. Pölten",
+    "lat": 48.2043985,
+    "lon": 15.6229118,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-06",
+    "datum_ende": "2027-01-06",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.radsportunion.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Degerlocher 3-Königslauf",
     "standort": "Stuttgart",
@@ -43736,6 +44137,19 @@
     "laenge_km": 40.0,
     "wettbewerb": "40 km",
     "veranstalter_url": "https://www.laufsportladen.de/buehlauer-winterlaufserie/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Gut Aiderbichl Cyclocross Race \"Über Stock und SChwein\"",
+    "standort": "Henndorf am Wallersee",
+    "lat": 47.8994623,
+    "lon": 13.1882214,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-09",
+    "datum_ende": "2027-01-09",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.lrv-salzburg.at"
   },
   {
     "land": "Schweiz",
@@ -44379,6 +44793,19 @@
     "laenge_km": 20.0,
     "wettbewerb": "4 Runden - ca. 20 km",
     "veranstalter_url": "https://www.winterlaufserie-wilhelmsburg.de"
+  },
+  {
+    "land": "Österreich",
+    "name": "Österreichische Meisterschaft und Österreichische Staatsmeisterschaft Cyclocross",
+    "standort": "Henndorf am Wallersee",
+    "lat": 47.8994623,
+    "lon": 13.1882214,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-10",
+    "datum_ende": "2027-01-10",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.lrv-salzburg.at"
   },
   {
     "land": "Österreich",
@@ -50890,6 +51317,19 @@
     "veranstalter_url": "https://traine-gourdins.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "Eröffnungsrennen Leonding",
+    "standort": "Walding",
+    "lat": 48.3513494,
+    "lon": 14.161397,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "wettbewerb": "Straßenrennen",
+    "veranstalter_url": "https://www.ooe-radsportverband.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Frankfurter Halbmarathon",
     "standort": "Frankfurt am Main",
@@ -51890,6 +52330,19 @@
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km",
     "veranstalter_url": "https://www.innsbrucklaeuft.com/laeufe/fruehlingslauf/"
+  },
+  {
+    "land": "Österreich",
+    "name": "35. KTM Kamptal Trophy - UCI XCO C1",
+    "standort": "Zöbing",
+    "lat": 48.4897078,
+    "lon": 15.6924909,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-04-04",
+    "datum_ende": "2027-04-04",
+    "wettbewerb": "Cross-Country, Cycling 4 All",
+    "veranstalter_url": "https://www.urc-langenlois.at"
   },
   {
     "land": "Deutschland",
@@ -53370,6 +53823,19 @@
     "wettbewerb": "Hobbylauf 6,5 km ohne Altersklassenwertung",
     "veranstalter_url": "https://www.tsv-guentersleben.de/seite/748569",
     "datum_vorlaeufig": true
+  },
+  {
+    "land": "Österreich",
+    "name": "Straßenrennen St. Marein-Feistritz",
+    "standort": "Sankt Marein-Feistritz",
+    "lat": 47.3078141,
+    "lon": 14.8595719,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-04-11",
+    "datum_ende": "2027-04-11",
+    "wettbewerb": "Straßenrennen",
+    "veranstalter_url": "https://www.team-rapso.at"
   },
   {
     "land": "Deutschland",
@@ -56722,6 +57188,19 @@
     "veranstalter_url": "https://www.100km-duathlon.de"
   },
   {
+    "land": "Österreich",
+    "name": "16. GP Vorarlberg p/b RadHaus Rankweil UCI 1.2",
+    "standort": "Nenzing",
+    "lat": 47.183198,
+    "lon": 9.6995419,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-05-01",
+    "datum_ende": "2027-05-01",
+    "wettbewerb": "Straßenrennen",
+    "veranstalter_url": "https://www.team-vorarlberg.at"
+  },
+  {
     "land": "Deutschland",
     "name": "ADAC Velotour Eschborn–Frankfurt",
     "standort": "Eschborn",
@@ -58865,6 +59344,19 @@
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
     "veranstalter_url": "https://www.woerthersee-trail.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "8. Wilder Kaiser MTB Race",
+    "standort": "Scheffau am Wilden Kaiser",
+    "lat": 47.5284373,
+    "lon": 12.2507041,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-05-08",
+    "datum_ende": "2027-05-09",
+    "wettbewerb": "Cross-Country, Cycling 4 All, Short-Track",
+    "veranstalter_url": "https://www.rvscheffau.at"
   },
   {
     "land": "Deutschland",
@@ -61478,6 +61970,19 @@
     "veranstalter_url": "https://www.amrumer-mukolauf.de"
   },
   {
+    "land": "Österreich",
+    "name": "ASVÖ JUNIOR Granit Challenge + Techniksprint - Kleinzell",
+    "standort": "Kleinzell im Mühlkreis",
+    "lat": 48.4558421,
+    "lon": 13.9914787,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-05-15",
+    "datum_ende": "2027-05-15",
+    "wettbewerb": "Cross-Country, Cycling 4 All",
+    "veranstalter_url": "https://www.sk-kleinzell.at/"
+  },
+  {
     "land": "Deutschland",
     "name": "Backyard Ultra Lüneburg",
     "standort": "Embsen",
@@ -61770,6 +62275,19 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.traunviertler-laufcup.at/laufe/vorchdorfer-pfingstlauf/"
+  },
+  {
+    "land": "Österreich",
+    "name": "ASVÖ-Raiffeisen Granitmarathon",
+    "standort": "Kleinzell im Mühlkreis",
+    "lat": 48.4558421,
+    "lon": 13.9914787,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-05-16",
+    "datum_ende": "2027-05-16",
+    "wettbewerb": "Cycling 4 All, Marathon",
+    "veranstalter_url": "https://www.sk-kleinzell.at/"
   },
   {
     "land": "Deutschland",
@@ -63115,6 +63633,19 @@
   },
   {
     "land": "Österreich",
+    "name": "Mosttour",
+    "standort": "Kürnberg",
+    "lat": 48.2944931,
+    "lon": 14.2215723,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-05-22",
+    "datum_ende": "2027-05-22",
+    "wettbewerb": "Marathon",
+    "veranstalter_url": "https://www.sv-kuernberg.at"
+  },
+  {
+    "land": "Österreich",
     "name": "Northtrails - Enjoy the Silence",
     "standort": "Schlägl",
     "lat": 48.6365753,
@@ -63568,6 +64099,19 @@
     "veranstalter_url": "https://otilloswimrun.com/races/rugen-germany/"
   },
   {
+    "land": "Österreich",
+    "name": "41. Waidhofner Radmarathon 2027",
+    "standort": "Waidhofen",
+    "lat": 47.9609716,
+    "lon": 14.7747171,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "wettbewerb": "Cycling 4 All",
+    "veranstalter_url": "https://www.askoewaidhofen.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Bergedorfer Citylauf",
     "standort": "Hamburg",
@@ -63801,6 +64345,19 @@
     "laenge_km": 113.0,
     "wettbewerb": "113 km",
     "veranstalter_url": "https://www.ironman.com/races/im703-st-poelten"
+  },
+  {
+    "land": "Österreich",
+    "name": "IRONMAN 70.3 St. Pölten",
+    "standort": "St. Pölten",
+    "lat": 48.2,
+    "lon": 15.633,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "wettbewerb": "Mitteldistanz",
+    "veranstalter_url": "https://www.ironman.com/im703-st-poelten"
   },
   {
     "land": "Deutschland",
@@ -64337,6 +64894,32 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.sternchenlauf.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "17. Int. Oberösterreich Rundfahrt",
+    "standort": "Walding",
+    "lat": 48.3513494,
+    "lon": 14.161397,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-05-27",
+    "datum_ende": "2027-05-30",
+    "wettbewerb": "Etappenrennen",
+    "veranstalter_url": "https://www.ooe-radsportverband.at"
+  },
+  {
+    "land": "Österreich",
+    "name": "4. Pöstlingberg Classics",
+    "standort": "Walding",
+    "lat": 48.3513494,
+    "lon": 14.161397,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-05-27",
+    "datum_ende": "2027-05-27",
+    "wettbewerb": "Bergrennen",
+    "veranstalter_url": "https://www.ooe-radsportverband.at"
   },
   {
     "land": "Deutschland",
@@ -65001,6 +65584,19 @@
     "veranstalter_url": "https://www.team-challenge-halle.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Zanzenbergrennen",
+    "standort": "Dornbirn",
+    "lat": 47.4136351,
+    "lon": 9.7423762,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-05-28",
+    "datum_ende": "2027-05-29",
+    "wettbewerb": "Cross-Country",
+    "veranstalter_url": "https://www.rv-dornbirn.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Abendlauf - Stocksee",
     "standort": "Stocksee",
@@ -65262,6 +65858,19 @@
     "datum_ende": "2027-05-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.keltenman.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Keltenman",
+    "standort": "Mitterkirchen",
+    "lat": 48.188,
+    "lon": 14.696,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-05-29",
+    "datum_ende": "2027-05-29",
+    "wettbewerb": "Sprint",
     "veranstalter_url": "https://www.keltenman.at/"
   },
   {
@@ -65741,6 +66350,19 @@
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
     "veranstalter_url": "https://www.castlesandgo.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Bike The Lies 2027",
+    "standort": "Oberschwaig",
+    "lat": 48.0959385,
+    "lon": 13.8310007,
+    "art1": "Fahrrad",
+    "art2": "Zeitfahren",
+    "datum_start": "2027-05-30",
+    "datum_ende": "2027-05-30",
+    "wettbewerb": "Einzelzeitfahren",
+    "veranstalter_url": "https://rfv-weibern.at"
   },
   {
     "land": "Schweiz",
@@ -66312,6 +66934,19 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://www1.tu-ilmenau.de/kickelhahn-berglauf/index.html"
+  },
+  {
+    "land": "Österreich",
+    "name": "women Tour",
+    "standort": "St.Pölten",
+    "lat": 48.2043985,
+    "lon": 15.6229118,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-02",
+    "datum_ende": "2027-06-06",
+    "wettbewerb": "Etappenrennen",
+    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=E4E5A13363D04E588C2BCA4A53B5CEDC&filter=page=3"
   },
   {
     "land": "Schweiz",
@@ -67284,6 +67919,19 @@
     "veranstalter_url": "https://mozart.utmb.world"
   },
   {
+    "land": "Österreich",
+    "name": "MTB/E-Bike - NOCKBIKE Trophy Feld am See 2027",
+    "standort": "Feld am See",
+    "lat": 46.776339,
+    "lon": 13.7477023,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-06-05",
+    "datum_ende": "2027-06-05",
+    "wettbewerb": "Hillclimb",
+    "veranstalter_url": "https://www.rc-feldamsee.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Muddy Angel Run - Leipzig",
     "standort": "Leipzig",
@@ -67798,6 +68446,19 @@
   },
   {
     "land": "Österreich",
+    "name": "ARBÖ Kärnten Radmarathon",
+    "standort": "Bad Kleinkirchheim",
+    "lat": 46.8144214,
+    "lon": 13.7983599,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "wettbewerb": "Cycling 4 All",
+    "veranstalter_url": "https://www.rc-feldamsee.at"
+  },
+  {
+    "land": "Österreich",
     "name": "ARBÖ Radmarathon",
     "standort": "Bad Kleinkirchheim",
     "lat": 46.8224412,
@@ -67823,6 +68484,19 @@
     "laenge_km": 106.0,
     "wettbewerb": "Jedermannrennen 106 km",
     "veranstalter_url": "https://www.kaernten-radmarathon.at"
+  },
+  {
+    "land": "Österreich",
+    "name": "ASVÖ 3 Täler Classic Marathon Mühlviertel",
+    "standort": "Windhaag bei Perg",
+    "lat": 48.2840594,
+    "lon": 14.6815075,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "wettbewerb": "Marathon",
+    "veranstalter_url": "https://www.mtb-windhaag.com"
   },
   {
     "land": "Deutschland",
@@ -70506,7 +71180,7 @@
   },
   {
     "land": "Österreich",
-    "name": "Ironman Kärnten-Klagenfurt, Austria",
+    "name": "IRONMAN Kärnten – Klagenfurt-Austria",
     "standort": "Klagenfurt am Wörthersee",
     "lat": 46.6364598,
     "lon": 14.3122246,
@@ -70517,6 +71191,19 @@
     "laenge_km": 226.0,
     "wettbewerb": "226 km",
     "veranstalter_url": "https://www.ironman.com/races/im-austria"
+  },
+  {
+    "land": "Österreich",
+    "name": "IRONMAN Kärnten – Klagenfurt-Austria",
+    "standort": "Klagenfurt am Wörthersee",
+    "lat": 46.625,
+    "lon": 14.305,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "wettbewerb": "Langdistanz",
+    "veranstalter_url": "https://www.ironman.com/im-austria"
   },
   {
     "land": "Deutschland",
@@ -71222,6 +71909,19 @@
     "veranstalter_url": "https://www.asvz.ch/event/59391-forchlauf"
   },
   {
+    "land": "Österreich",
+    "name": "Alpentour Schladming Dachstein",
+    "standort": "Graz",
+    "lat": 47.0708678,
+    "lon": 15.4382786,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-17",
+    "datum_ende": "2027-06-20",
+    "wettbewerb": "Etappenrennen",
+    "veranstalter_url": "https://www.alpen-tour.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Bremen 555",
     "standort": "Bremen",
@@ -71305,6 +72005,19 @@
     "laenge_km": 167.0,
     "wettbewerb": "ZUT100 (167 km)",
     "veranstalter_url": "https://zugspitz.utmb.world/"
+  },
+  {
+    "land": "Österreich",
+    "name": "12. Austria eXtreme Triathlon (autXtri)",
+    "standort": "Feldkirchen bei Graz",
+    "lat": 47.017,
+    "lon": 15.45,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-18",
+    "datum_ende": "2027-06-20",
+    "wettbewerb": "Langdistanz",
+    "veranstalter_url": "https://www.autxtri.com/"
   },
   {
     "land": "Schweiz",
@@ -71656,6 +72369,19 @@
     "veranstalter_url": "http://www.planetenweg.at/planetenlauf"
   },
   {
+    "land": "Österreich",
+    "name": "22. Interregionaler Triathlon Langau",
+    "standort": "Langau",
+    "lat": 48.339,
+    "lon": 15.423,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "wettbewerb": "Olympisch",
+    "veranstalter_url": "https://www.triathlon-langau.at/"
+  },
+  {
     "land": "Deutschland",
     "name": "24h Spendenlauf - Backyard for Charity",
     "standort": "Seekirch",
@@ -71711,6 +72437,19 @@
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
     "veranstalter_url": "https://www.aarauer-altstadtlauf.ch/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Arlberg Giro Kriterium",
+    "standort": "St. Anton am Arlberg",
+    "lat": 47.1288996,
+    "lon": 10.2663669,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "wettbewerb": "Kriterium",
+    "veranstalter_url": "https://www.team-vorarlberg.at"
   },
   {
     "land": "Deutschland",
@@ -72130,6 +72869,19 @@
   },
   {
     "land": "Österreich",
+    "name": "Neufeld Triathlon",
+    "standort": "Neufeld an der Leitha",
+    "lat": 47.866,
+    "lon": 16.379,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-20",
+    "wettbewerb": "Olympisch",
+    "veranstalter_url": "https://www.neufeld-triathlon.at/"
+  },
+  {
+    "land": "Österreich",
     "name": "OCR Challenge Hohenems",
     "standort": "Hohenems",
     "lat": 47.3608313,
@@ -72225,6 +72977,20 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://atv-andorf.com/pram-at-race/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Raiffeisen Triathlon Bregenz",
+    "standort": "Lochau",
+    "lat": 47.5296789,
+    "lon": 9.751304,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-20",
+    "laenge_km": 55.5,
+    "wettbewerb": "Olympische Distanz",
+    "veranstalter_url": "https://www.triathlon-bregenz.at/"
   },
   {
     "land": "Österreich",
@@ -72335,20 +73101,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5,0 km OMNi-BiOTiC 5K Sun-Run",
     "veranstalter_url": "https://www.traunsee-halbmarathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Triathlon Bregenz",
-    "standort": "Lochau",
-    "lat": 47.5296789,
-    "lon": 9.751304,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-19",
-    "datum_ende": "2027-06-20",
-    "laenge_km": 55.5,
-    "wettbewerb": "Olympische Distanz",
-    "veranstalter_url": "https://www.triathlon-bregenz.at/"
   },
   {
     "land": "Deutschland",
@@ -73475,6 +74227,19 @@
     "veranstalter_url": "https://2x200.dubraquet.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "ASVÖ Steeltownman Outdoor (+ OÖ Firmentriathlon)",
+    "standort": "Linz",
+    "lat": 48.306,
+    "lon": 14.286,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Sprint",
+    "veranstalter_url": "https://outdoor.steeltownman.com/"
+  },
+  {
     "land": "Deutschland",
     "name": "Besenbinder Lauf - Rund um Hainrode",
     "standort": "Südharz",
@@ -73557,6 +74322,19 @@
     "laenge_km": 330.0,
     "wettbewerb": "Radmarathon 330 km in Brevet-Form",
     "veranstalter_url": "https://burningroads.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Challenge Kaiserwinkl-Walchsee",
+    "standort": "Walchsee",
+    "lat": 47.652,
+    "lon": 12.319,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-27",
+    "wettbewerb": "Mitteldistanz",
+    "veranstalter_url": "https://challenge-walchsee.com/"
   },
   {
     "land": "Deutschland",
@@ -75840,6 +76618,19 @@
     "veranstalter_url": "https://www.laufteam-kolsass-weer.at/h%C3%A4ngebr%C3%BCckentrail/"
   },
   {
+    "land": "Österreich",
+    "name": "Int. Radkriterium \"Rund um den Liebfrauenberg\" Rankweil",
+    "standort": "Rankweil",
+    "lat": 47.2731056,
+    "lon": 9.6315094,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-03",
+    "wettbewerb": "Kriterium",
+    "veranstalter_url": "https://www.team-vorarlberg.at"
+  },
+  {
     "land": "Schweiz",
     "name": "Kaister Waldlauf",
     "standort": "Kaisten",
@@ -76300,6 +77091,19 @@
   },
   {
     "land": "Österreich",
+    "name": "4 Ländermeisterschaft U23 - Straße",
+    "standort": "Wien",
+    "lat": 48.2083537,
+    "lon": 16.3725042,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "wettbewerb": "Straßenrennen",
+    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=8C97485C89064D7BB629E7627FAAF7A7&filter=page=3"
+  },
+  {
+    "land": "Österreich",
     "name": "Achensee Langstreckenschwimmen",
     "standort": "Maurach",
     "lat": 47.421,
@@ -76311,6 +77115,19 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km Seedurchquerung",
     "veranstalter_url": "https://achensee-langstreckenschwimmen.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "ALOHA TRI Linz",
+    "standort": "Linz",
+    "lat": 48.306,
+    "lon": 14.286,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "wettbewerb": "Olympisch",
+    "veranstalter_url": "https://alohasport.at/event/aloha-tri-linz"
   },
   {
     "land": "Deutschland",
@@ -76771,6 +77588,20 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://firmenlauf.bayern/firmenlauf-amberg-sulzbach/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Stadtzürcher Seeüberquerung",
+    "standort": "Zürich",
+    "lat": 47.38,
+    "lon": 8.536,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-07-07",
+    "datum_ende": "2027-07-07",
+    "laenge_km": 1.5,
+    "wettbewerb": null,
+    "veranstalter_url": "https://www.seeueberquerung.ch/"
   },
   {
     "land": "Deutschland",
@@ -77801,6 +78632,19 @@
     "laenge_km": 51.5,
     "wettbewerb": "Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.triathlon-verl.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Kirchschlager Schlossberg XC & Marathon light",
+    "standort": "Kirchschlag",
+    "lat": 48.4130943,
+    "lon": 14.2764418,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "wettbewerb": "Cross-Country, Cycling 4 All",
+    "veranstalter_url": "https://www.mtb-team-bucklige-welt.at"
   },
   {
     "land": "Deutschland",
@@ -79294,6 +80138,19 @@
     "veranstalter_url": "https://www.3kings-3hills.com/"
   },
   {
+    "land": "Österreich",
+    "name": "52. Int. Junioren Rundfahrt",
+    "standort": "Walding",
+    "lat": 48.3513494,
+    "lon": 14.161397,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-25",
+    "wettbewerb": "Etappenrennen",
+    "veranstalter_url": "https://www.ooe-radsportverband.at"
+  },
+  {
     "land": "Deutschland",
     "name": "6. 0 Shades of Speed - Culinary.RIDE.Festival",
     "standort": "Bad Feilnbach",
@@ -79642,6 +80499,19 @@
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
     "veranstalter_url": "https://www.aegeriseelauf.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Altstadt Kriterium Graz",
+    "standort": "Graz",
+    "lat": 47.0708678,
+    "lon": 15.4382786,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "wettbewerb": "Kriterium",
+    "veranstalter_url": "https://www.lrvsteiermark.at"
   },
   {
     "land": "Deutschland",
@@ -81204,6 +82074,19 @@
     "veranstalter_url": "https://triathlon-traun.at/"
   },
   {
+    "land": "Österreich",
+    "name": "Cuprennen Alpenarena Villach 1&2",
+    "standort": "Villach-Lind",
+    "lat": 46.6252383,
+    "lon": 13.8376822,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-08-07",
+    "datum_ende": "2027-08-08",
+    "wettbewerb": "Straßenrennen",
+    "veranstalter_url": "https://www.rc-kac.at"
+  },
+  {
     "land": "Deutschland",
     "name": "Die 24 Stunden van Halen",
     "standort": "Lotte",
@@ -81608,6 +82491,19 @@
     "veranstalter_url": "https://nordseeman.de/"
   },
   {
+    "land": "Schweiz",
+    "name": "Rhyschwümme 2026",
+    "standort": "Stein am Rhein",
+    "lat": 47.6597323,
+    "lon": 8.8596823,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-08-08",
+    "datum_ende": "2027-08-08",
+    "laenge_km": 11.0,
+    "veranstalter_url": "https://rhyschwuemme.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "SKODA Velorace Dresden",
     "standort": "Dresden",
@@ -81785,6 +82681,19 @@
     "laenge_km": 560.0,
     "wettbewerb": "Ultracycling 560 km",
     "veranstalter_url": "https://www.racearoundaustria.at/challenge/das-rennen"
+  },
+  {
+    "land": "Österreich",
+    "name": "8. internationale Alpe Adria Tour",
+    "standort": "Villach-Lind",
+    "lat": 46.6252383,
+    "lon": 13.8376822,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-08-12",
+    "datum_ende": "2027-08-15",
+    "wettbewerb": "Etappenrennen",
+    "veranstalter_url": "https://www.rc-kac.at"
   },
   {
     "land": "Deutschland",
@@ -83632,6 +84541,19 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 Kilometer",
     "veranstalter_url": "https://arlberger-wadlbeisser.at/at"
+  },
+  {
+    "land": "Österreich",
+    "name": "Bike the bugles XCO Race",
+    "standort": "Krumbach",
+    "lat": 47.4828907,
+    "lon": 9.9354306,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "wettbewerb": "Cross-Country",
+    "veranstalter_url": "https://www.bikethebugles.at"
   },
   {
     "land": "Deutschland",
@@ -85748,6 +86670,19 @@
     "veranstalter_url": "https://zehnfreunde-triathlon.de/triathlon-darmstadt"
   },
   {
+    "land": "Österreich",
+    "name": "ÖES Einzelzeitfahren",
+    "standort": "Weichstetten",
+    "lat": 48.121181,
+    "lon": 14.3204479,
+    "art1": "Fahrrad",
+    "art2": "Zeitfahren",
+    "datum_start": "2027-09-05",
+    "datum_ende": "2027-09-05",
+    "wettbewerb": "Cycling 4 All",
+    "veranstalter_url": "https://www.esv-linz.net"
+  },
+  {
     "land": "Deutschland",
     "name": "Stundenlauf mit Musik - Schwerin",
     "standort": "Schwerin",
@@ -86019,6 +86954,19 @@
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
     "veranstalter_url": "https://www.ironman.com/races/5150-erkner"
+  },
+  {
+    "land": "Österreich",
+    "name": "MTB Zone Bikepark Petzen Trophy XCC",
+    "standort": "St. Michael",
+    "lat": 47.1277657,
+    "lon": 16.2696536,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-09-11",
+    "datum_ende": "2027-09-11",
+    "wettbewerb": "Short-Track",
+    "veranstalter_url": "https://www.facebook.com/rcpetzen"
   },
   {
     "land": "Deutschland",
@@ -86491,6 +87439,19 @@
     "veranstalter_url": "https://www.kiellauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "MTB Zone Bikepark Petzen Trophy XCO",
+    "standort": "St. Michael",
+    "lat": 47.1277657,
+    "lon": 16.2696536,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2027-09-12",
+    "datum_ende": "2027-09-12",
+    "wettbewerb": "Cross-Country",
+    "veranstalter_url": "https://www.facebook.com/rcpetzen"
+  },
+  {
     "land": "Deutschland",
     "name": "Othaler Gutshof Lauf",
     "standort": "Beyernaumburg",
@@ -86797,6 +87758,19 @@
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://lauf.psv-bernburg.de/hm/",
     "datum_vorlaeufig": true
+  },
+  {
+    "land": "Österreich",
+    "name": "Dirndltal Race Gravel & MTB",
+    "standort": "St. Pölten",
+    "lat": 48.2043985,
+    "lon": 15.6229118,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "wettbewerb": "Cross-Country, Gravel, Marathon",
+    "veranstalter_url": "https://www.rcpurgstall.at"
   },
   {
     "land": "Schweiz",

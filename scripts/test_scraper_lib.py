@@ -2815,6 +2815,159 @@ def test_turbosport() -> None:
     print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, alle Klassen (eine Zeile je Distanz), Ort aus Name/Pfad/Host")
 
 
+def test_cyclingaustria() -> None:
+    """Der Scraper für den ÖRV-Rennkalender (24.09.2026): Listenkarten,
+    Rennseite mit Rennen-Blöcken, Distanz oder Renndauer, ausgeschlossene
+    Disziplinen und Nachwuchsklassen, PLZ vor dem Ort - ohne Netz."""
+    print("\ncyclingaustria.at (ÖRV-Rennkalender):")
+    import cyclingaustria_scraper as ca
+    liste = ('<div data-disziplin="Cycling 4 All" data-date="2026-09-26" class="filter"><a class="om_card" '
+             'href="/index.php?option=com_events&amp;view=event&amp;id=66A5150B9B5D4BABB3DD1C836E78761B">'
+             '<h3 class="el-title">Teufelsfahrt 2026</h3></a></div>'
+             '<div data-disziplin="Enduro, Unlizenziert Kinder" data-date="2026-09-26"><a href="/index.php?option=com_events&amp;view=event&amp;id=1DB0BEFF77C644F09483583293A91C56"><h3>Wexl Kids</h3></a></div>')
+    karten = ca.parse_liste(liste)
+    assert [k["id"] for k in karten] == ["66A5150B9B5D4BABB3DD1C836E78761B", "1DB0BEFF77C644F09483583293A91C56"], karten
+    assert karten[0]["url"].endswith("view=event&id=66A5150B9B5D4BABB3DD1C836E78761B") and karten[0]["datum"] == "2026-09-26"
+
+    def block(nr, klassen, disziplin, distanz=None, dauer=None):
+        felder = f'<h3 class="uk-h5">Disziplin</h3><div class="uk-panel">{disziplin}</div>'
+        if distanz:
+            felder += f'<h3 class="uk-h5">Distanz</h3><div class="uk-panel">{distanz}</div>'
+        if dauer:
+            felder += f'<h3 class="uk-h5">Renndauer</h3><div class="uk-panel">{dauer}</div>'
+        return (f'<div class="uk-card uk-card-default"><div class="uk-heading-small">Rennen {nr}</div>'
+                f'<h2 class="uk-h3">{klassen}</h2>{felder}</div>')
+    seite_html = (
+        '<main><h1 class="uk-h2">Quer durch\'s Stadion</h1>'
+        '<h2 class="uk-h5">Start/Ziel</h2><div class="uk-panel">2763 Neusiedl</div>'
+        '<h2 class="uk-h5">Datum</h2><div class="uk-panel">Sa, 21. November 2026–So, 22. November 2026</div>'
+        '<h2 class="uk-h5">Sparte</h2><div><ul><li><a href="/kalender?sparten=cyclocross">Cyclocross</a></li></ul></div>'
+        '<h2 class="uk-h5">Disziplin</h2><div><ul><li>Unlizenziert Kinder, Cycling 4 All, Cyclocross</li></ul></div>'
+        + block(1, "U11 männlich, U11 weiblich, Member Card männlich Jugend", "Touristik", dauer="00:10 (H:min)")
+        + block(2, "U13 männlich, U17 weiblich", "Cyclocross", dauer="00:20 (H:min)")
+        + block(3, "AMATEURE HERREN, MEN ELITE, MEN MASTERS I", "Cyclocross", dauer="00:40 (H:min)")
+        + block(4, "WOMEN ELITE, WOMEN MASTERS", "Cyclocross", dauer="00:40 (H:min)")
+        + block(5, "MEN ELITE", "Einzelzeitfahren", distanz="47.2 km")
+        + block(6, "Sonderform", "Mannschaftszeitfahren", distanz="47.2 km")
+        + '<p><strong>RC Pernitz</strong></p><a class="uk-button" target="_blank" href="https://www.radclub-pernitz.at"> zur Website</a></main>')
+    seite = ca.parse_rennseite(seite_html)
+    assert seite["name"] == "Quer durch's Stadion" and seite["ort"] == "2763 Neusiedl", seite
+    assert (seite["datum_start"], seite["datum_ende"]) == ("2026-11-21", "2026-11-22"), seite
+    assert seite["sparte"] == "Cyclocross" and seite["veranstalter_url"] == "https://www.radclub-pernitz.at"
+    assert len(seite["rennen"]) == 6 and seite["rennen"][2]["Renndauer"] == "00:40 (H:min)"
+    evs, grund = ca.events_aus_rennseite(seite, "https://www.cyclingaustria.at/x", None, ca.CONFIG)
+    assert grund is None, grund
+    # Kinder- und Jugendrennen (U11/U13/U17), das Mannschaftszeitfahren fallen;
+    # 40 min zweimal ist EINE Zeile; das Einzelzeitfahren hat Kilometer.
+    assert [(e.standort, e.laenge_km, e.dauer_h, e.wettbewerb, e.art2) for e in evs] == [
+        ("Neusiedl", None, 0.67, "Cyclocross 40 min", "Cyclecross"),
+        ("Neusiedl", 47.2, None, "Einzelzeitfahren 47.2 km", "Zeitfahren")], evs
+    assert evs[0].datum_ende == "2026-11-22" and evs[0].land == "Österreich" and evs[0].art1 == "Fahrrad"
+    # Ohne Rennen-Blöcke: eine Zeile ohne Maß, Disziplin als Label, PLZ weg auch bei "Sankt".
+    seite2 = dict(seite, rennen=[], ort="4171 Sankt Peter am Wimberg", sparte="Straße", disziplin="Cycling 4 All",
+                  veranstalter_url=None)
+    evs2, _ = ca.events_aus_rennseite(seite2, "https://www.cyclingaustria.at/x", None, ca.CONFIG)
+    assert [(e.standort, e.laenge_km, e.wettbewerb, e.art2, e.veranstalter_url) for e in evs2] == [
+        ("Sankt Peter am Wimberg", None, "Cycling 4 All", "Straße", "https://www.cyclingaustria.at/x")], evs2
+    # Nur ausgeschlossene Disziplinen -> kein Eintrag, mit Grund.
+    seite3 = dict(seite, rennen=[], disziplin="Enduro, Unlizenziert Kinder")
+    assert ca.events_aus_rennseite(seite3, "u", None, ca.CONFIG)[1].startswith("Disziplin nicht übernommen")
+    seite4 = dict(seite, rennen=[], disziplin="Kunstrad 1er, Radball")
+    assert ca.events_aus_rennseite(seite4, "u", None, ca.CONFIG)[0] == []
+    seite5 = dict(seite, rennen=[], name="Youngster Grand Prix Windhaag", disziplin="Cross-Country")
+    assert ca.events_aus_rennseite(seite5, "u", None, ca.CONFIG) == ([], "Nachwuchsrennen (laut Name)")
+    # "https://-" ist kein Veranstalterlink; die Verbandsseite auch nicht.
+    kein = seite_html.replace("https://www.radclub-pernitz.at", "https://-")
+    assert ca.parse_rennseite(kein)["veranstalter_url"] is None
+    kein = seite_html.replace("https://www.radclub-pernitz.at", "https://www.cyclingaustria.at")
+    assert ca.parse_rennseite(kein)["veranstalter_url"] is None
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=1")
+    print("  ✓ cyclingaustria.at: Karten, Rennseite, Rennen-Blöcke, Ausschlüsse, Ort ohne PLZ")
+
+
+def test_swimsports() -> None:
+    """Der Scraper für den Schwimmkalender Schweiz (24.09.2026): Liste,
+    Detailfelder, Distanzen ohne SUP, Absagen, Kantonskürzel - ohne Netz."""
+    print("\nswimsports.ch (Schwimmkalender Schweiz):")
+    import swimsports_scraper as sw
+    liste = ('<article class="swimming-calendar"><h2><a href="/node/2300" hreflang="de">56. Hallwilerseeschwimmen</a></h2>'
+             '<time datetime="2026-09-05T12:00:00Z">05.09.2026</time>'
+             '<div class="field field--name-field-calendar-location field--item">Beinwil am See</div></article>'
+             '<article class="swimming-calendar"><h2><a href="/node/2063">Escape Leman</a></h2></article>'
+             '<article class="swimming-calendar"><h2><a href="/node/2076" hreflang="de">Rhyschwümme 2026 - Abgesagt - Das nächste Schwimmen findet am 08.08.2027 statt</a></h2>'
+             '<time datetime="2027-08-08T12:00:00Z">08.08.2027</time>'
+             '<div class="field field--name-field-calendar-location field--item">Stein am Rhein</div></article>')
+    eintraege = sw.parse_liste(liste)
+    assert [(e["datum"], e["ort"]) for e in eintraege] == [("2026-09-05", "Beinwil am See"), ("2027-08-08", "Stein am Rhein")], eintraege
+    detail = ('<article class="swimming-calendar full"><div class="field field--name-field-calendar-location field--item">Beinwil am See</div>'
+              '<div class="field field--name-field-distance"><div class="field--label">Distanz</div><div class="field--item">2 km</div></div>'
+              '<div class="field field--name-field-water"><div class="field--item">Hallwilersee</div></div>'
+              '<div class="field field--name-field-home-page"><div class="field--item"><a href="https://slrghallwilersee.ch/hallwilerseeschwimmen/">Homepage</a></div></div></article>')
+    d = sw.parse_detail(detail)
+    assert d["distanz"] == "2 km" and d["homepage"] == "https://slrghallwilersee.ch/hallwilerseeschwimmen/" and d["gewaesser"] == "Hallwilersee", d
+    evs, grund = sw.events_aus_eintrag(eintraege[0], d, sw.CONFIG)
+    assert grund is None and [(e.name, e.standort, e.land, e.art1, e.art2, e.laenge_km, e.wettbewerb, e.veranstalter_url) for e in evs] == [
+        ("56. Hallwilerseeschwimmen", "Beinwil am See", "Schweiz", "Schwimmen", "Freiwasser", 2.0, None, "https://slrghallwilersee.ch/hallwilerseeschwimmen/")], evs
+    # Distanzen: SUP zählt nicht, mehrere Angaben sind mehrere Zeilen, "Libre" keine.
+    assert sw.distanzen_aus_text("Schwimmen 1.1 km/SUP Fun 1.5 km/SUP Longdistance 8.0 km") == [1.1]
+    assert sw.distanzen_aus_text("500 m, 1500 m oder 3000 m") == [0.5, 1.5, 3.0]
+    assert sw.distanzen_aus_text("Libre") == [] and sw.distanzen_aus_text("Ca. 11 km, Schwimmdauer ca. 1 ½ Stunden.") == [11.0]
+    assert sw.distanzen_aus_text("111 Meter oder länger") == [0.11]
+    evs3, _ = sw.events_aus_eintrag(eintraege[0], dict(d, distanz="1 km / 2.5 km"), sw.CONFIG)
+    assert [(e.laenge_km, e.wettbewerb) for e in evs3] == [(1.0, "1 km"), (2.5, "2.5 km")], evs3
+    # Absage: weg - außer der Name nennt den eigenen (nächsten) Termin.
+    assert sw.bereinige_name("Zuger-Seeüberquerung - Abgesagt", "2026-08-23") is None
+    assert sw.bereinige_name(eintraege[1]["name"], "2027-08-08") == "Rhyschwümme 2026"
+    evs2, _ = sw.events_aus_eintrag(eintraege[1], dict(d, ort=None, distanz="Ca. 11 km", homepage=None), sw.CONFIG)
+    assert evs2[0].standort == "Stein am Rhein" and evs2[0].laenge_km == 11.0 and evs2[0].veranstalter_url == "https://www.swimsports.ch/node/2076"
+    # Kantonskürzel und Zusätze fallen aus dem Ort.
+    for text, ort in [("Greppen/LU", "Greppen"), ("Rapperswil SG", "Rapperswil"), ("Zürich, Strandbad Mythenquai", "Zürich"),
+                      ("Küsnacht - Kilchberg", "Küsnacht")]:
+        e, _ = sw.events_aus_eintrag(dict(eintraege[0], ort=text), dict(d, ort=None), sw.CONFIG)
+        assert e[0].standort == ort, (text, e[0].standort)
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://www.swimsports.ch/node/2300")
+    print("  ✓ swimsports.ch: Liste, Detailfelder, Distanzen ohne SUP, Absage, Kanton")
+
+
+def test_fsieben() -> None:
+    """Der Scraper für den Triathlon-Kalender Österreich von fsieben.at
+    (24.09.2026): JSON in der Seite, nur datierte Bewerbe, ein Eintrag je
+    Format, Ort über places.json je Bundesland, unbestätigt = vorläufig."""
+    print("\nfsieben.at (Triathlon-Kalender Österreich):")
+    import fsieben_scraper as fs
+    html = ('<pre id="f7-ev-data" style="display:none">[{"n":"18. Mostiman Triathlon","s":"2027","d":"Samstag, 10. Juli 2027",'
+            '"o":"Wallsee an der Donau","b":"Niederösterreich","t":["Olympisch","Sprint","Kids","Staffel"],"u":"https://mosti-man.at/",'
+            '"st":"bestätigt","so":"2027-07-10"},'
+            '{"n":"ALOHA TRI Linz","d":"Sonntag, 4. Juli 2027","o":"Pleschingersee, Linz","b":"Oberösterreich",'
+            '"t":["Olympisch","Cross","Duathlon"],"u":"https://alohasport.at/event/aloha-tri-linz","st":"unbestätigt","so":"2027-07-04"},'
+            '{"n":"40. Neufeld Triathlon","d":"19.–20. Juni 2027","o":"Neufeld an der Leitha","b":"Burgenland","t":["Sprint"],"u":"","st":"bestätigt","so":"2027-06-19"},'
+            '{"n":"11. Vienna Triathlon","d":"Termin folgt","o":"Wien, Donauinsel","b":"Wien","t":["Sprint"],"u":"https://www.vienna-triathlon.at/","st":"erwartet","so":"9999-12-31"},'
+            '{"n":"Bundesschulmeisterschaften Aquathlon","d":"23.–25. Juni 2027","o":"Ort noch offen","b":"Oberösterreich","t":["Aquathlon"],"u":"","st":"bestätigt (Ort offen)","so":"2027-06-23"}]</pre>')
+    arr = fs.parse_kalender(html)
+    assert len(arr) == 5
+    evs, grund = fs.events_aus_eintrag(arr[0])
+    assert grund is None and [(e.standort, e.lat, e.wettbewerb, e.art2, e.datum_vorlaeufig) for e in evs] == [
+        ("Wallsee", 48.167, "Olympisch", "Straße", None), ("Wallsee", 48.167, "Sprint", "Straße", None)], evs
+    assert evs[0].art1 == "Triathlon" and evs[0].land == "Österreich" and evs[0].veranstalter_url == "https://mosti-man.at/"
+    # "Pleschingersee, Linz": der See ist kein Ort, Linz schon - und mit dem
+    # Bundesland eindeutig (es gibt auch ein Linz in Kärnten). Unbestätigt = vorläufig.
+    evs, _ = fs.events_aus_eintrag(arr[1])
+    assert [(e.standort, e.wettbewerb, e.art2, e.datum_vorlaeufig) for e in evs] == [
+        ("Linz", "Olympisch", "Straße", True), ("Linz", "Cross-Triathlon", "Cross", True), ("Linz", "Duathlon", "Duathlon", True)], evs
+    assert evs[0].lat == 48.306, evs[0].lat
+    # Zwei Tage, ohne Event-Seite -> Portallink der Liste.
+    evs, _ = fs.events_aus_eintrag(arr[2])
+    assert (evs[0].datum_start, evs[0].datum_ende, evs[0].veranstalter_url) == ("2027-06-19", "2027-06-20", fs.LISTE_URL), evs
+    # "Termin folgt" hat kein Datum - kein Eintrag (Datenregel 19); Schulmeisterschaft nicht offen.
+    assert fs.events_aus_eintrag(arr[3]) == ([], "Termin folgt")
+    assert fs.events_aus_eintrag(arr[4]) == ([], "nicht für jeden offen")
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://www.fsieben.at/tools/triathlon-kalender-oesterreich/") and is_portal_link("https://www.triathlon-austria.at/de/service-termine")
+    print("  ✓ fsieben.at: JSON, datierte Bewerbe, Formate, Ort je Bundesland, vorläufig")
+
+
 def test_radsportevents() -> None:
     """Der Scraper für die JSON-API von radsport-events.de (24.09.2026):
     Strecken, Rundenlängen, Dauern, Mehrsport-Summen, Ausschlüsse."""
@@ -2875,6 +3028,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
+                 test_cyclingaustria, test_swimsports, test_fsieben,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

@@ -2658,7 +2658,46 @@ PORTAL_DOMAINS = (
     # (endure-cycling verweist bei manchen Rennen dorthin statt auf den
     # Veranstalter); selbst nicht gelesen (robots.txt sperrt).
     "radsport-events.de",
+    # Verbands- und Vereinskalender (24.09.2026, Linkliste des Nutzers):
+    # cyclingaustria.at (ÖRV) nennt je Rennen die Veranstalterseite,
+    # swimsports.ch (Schwimmkalender Schweiz) die Homepage des Anlasses,
+    # fsieben.at (Triathlon-Kalender Österreich) die Event-Seite;
+    # triathlon-austria.at ist der ÖTRV-Verbandskalender, den fsieben bei
+    # Veranstaltungen ohne eigene Seite verlinkt.
+    "cyclingaustria.at", "swimsports.ch", "fsieben.at", "triathlon-austria.at",
 )
+
+
+_ORTE_PLACES_CACHE: dict = {}
+
+
+def orte_aus_places(land: str | None = None, region: str | None = None,
+                    pfad: Path | None = None) -> dict[str, list[tuple[str, float, float]]]:
+    """Ortsnamen (klein) -> [(Name, lat, lon), …] aus places.json, wahlweise
+    auf ein Land oder eine Region begrenzt. Ein Name mit mehreren Treffern
+    ist mehrdeutig - wer ihn benutzt, muss das entscheiden (siehe
+    turbosport_scraper.ort_aus_name). Für Scraper, deren Quelle den Ort
+    nur als Teil einer Angabe nennt ("Pichlingersee, Linz"): Welcher Teil
+    ein Ort ist, sagt places.json, nicht Nominatim."""
+    pfad = pfad or Path(__file__).resolve().parent.parent / "places.json"
+    # places.json führt die Länder als Kürzel (DE/AT/CH/IT), events.json
+    # als Namen - beides wird angenommen.
+    land = {"Deutschland": "DE", "Österreich": "AT", "Schweiz": "CH", SUEDTIROL: "IT"}.get(land, land)
+    schluessel = (str(pfad), land, region)
+    if schluessel in _ORTE_PLACES_CACHE:
+        return _ORTE_PLACES_CACHE[schluessel]
+    daten = json.loads(pfad.read_text(encoding="utf-8"))
+    land_idx = daten["laender"].index(land) if land else None
+    region_idx = daten["regionen"].index(region) if region else None
+    orte: dict[str, list[tuple[str, float, float]]] = {}
+    for eintrag in daten["orte"]:
+        if land_idx is not None and eintrag[1] != land_idx:
+            continue
+        if region_idx is not None and eintrag[2] != region_idx:
+            continue
+        orte.setdefault(eintrag[0].lower(), []).append((eintrag[0], eintrag[3], eintrag[4]))
+    _ORTE_PLACES_CACHE[schluessel] = orte
+    return orte
 
 
 def is_portal_link(url: str | None) -> bool:

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-52-int-junioren-rundfahrt-x-walding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270726
+SUMMARY:52. Int. Junioren Rundfahrt – Etappenrennen
+LOCATION:Walding\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-radsport
+ verband.at
+TRANSP:TRANSPARENT
+URL:https://www.ooe-radsportverband.at
+END:VEVENT
+END:VCALENDAR

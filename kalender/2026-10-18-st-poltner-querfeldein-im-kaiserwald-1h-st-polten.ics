@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-st-poltner-querfeldein-im-kaiserwald-1h-st-polten@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:St.Pöltner Querfeldein im Kaiserwald – Cyclocross 60 min
+LOCATION:St.Pölten\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://rcarboestp
+ .blogspot.com
+TRANSP:TRANSPARENT
+URL:https://rcarboestp.blogspot.com
+END:VEVENT
+END:VCALENDAR
