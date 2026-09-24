@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-teufelsfahrt-mtb-8-5km-auberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Teufelsfahrt ( MTB ) – Einzelzeitfahren Mountainbike 8.5 km
+LOCATION:Auberg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 8.5 km\nhttps://www.spo
+ rtunion-sankt-peter.at
+TRANSP:TRANSPARENT
+URL:https://www.sportunion-sankt-peter.at
+END:VEVENT
+END:VCALENDAR

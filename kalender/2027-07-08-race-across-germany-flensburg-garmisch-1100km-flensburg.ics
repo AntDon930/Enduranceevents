@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-08-race-across-germany-flensburg-garmisch-1100km-flensburg@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270712
+SUMMARY:Race across Germany Flensburg-Garmisch
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 1100 km\nhttp://www.raceacr
+ ossgermany.de/
+TRANSP:TRANSPARENT
+URL:http://www.raceacrossgermany.de/
+END:VEVENT
+END:VCALENDAR

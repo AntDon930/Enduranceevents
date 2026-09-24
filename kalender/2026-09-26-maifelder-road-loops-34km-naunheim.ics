@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-maifelder-road-loops-34km-naunheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Maifelder Road Loops – RTF 34 km
+LOCATION:Naunheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 34 km\nhttps://maifelder-lo
+ ops.pages.dev
+TRANSP:TRANSPARENT
+URL:https://maifelder-loops.pages.dev
+END:VEVENT
+END:VCALENDAR

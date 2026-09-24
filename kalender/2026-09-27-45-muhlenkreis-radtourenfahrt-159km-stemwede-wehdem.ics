@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-45-muhlenkreis-radtourenfahrt-159km-stemwede-wehdem@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:45. Mühlenkreis Radtourenfahrt – RTF 159 km
+LOCATION:Stemwede-Wehdem\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 159 km\nhttp://rsc-niederme
+ hnen.de/
+TRANSP:TRANSPARENT
+URL:http://rsc-niedermehnen.de/
+END:VEVENT
+END:VCALENDAR

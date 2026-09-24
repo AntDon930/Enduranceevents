@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-rund-um-stuttgart-203km-stuttgart@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Rund um Stuttgart – Radmarathon 203 km
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 203 km\nhttp://www.rtc-stut
+ tgart.de/
+TRANSP:TRANSPARENT
+URL:http://www.rtc-stuttgart.de/
+END:VEVENT
+END:VCALENDAR

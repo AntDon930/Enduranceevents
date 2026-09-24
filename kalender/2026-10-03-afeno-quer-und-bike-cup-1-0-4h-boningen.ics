@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-afeno-quer-und-bike-cup-1-0-4h-boningen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Afeno Quer und Bike Cup #1 – Cyclocross 0.4 h
+LOCATION:Boningen\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.4 h\nhttps://qubcup.j
+ imdofree.com/
+TRANSP:TRANSPARENT
+URL:https://qubcup.jimdofree.com/
+END:VEVENT
+END:VCALENDAR

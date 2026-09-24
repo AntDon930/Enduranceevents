@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-spreewald-rtf-30km-burg-spreewald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Spreewald RTF – RTF 30 km
+LOCATION:Burg (Spreewald)\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 30 km\nhttps://spreewaldmar
+ athon.de/
+TRANSP:TRANSPARENT
+URL:https://spreewaldmarathon.de/
+END:VEVENT
+END:VCALENDAR

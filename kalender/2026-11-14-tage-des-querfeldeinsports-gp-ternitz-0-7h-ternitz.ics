@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-tage-des-querfeldeinsports-gp-ternitz-0-7h-ternitz@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:Tage des Querfeldeinsports GP Ternitz – Cyclocross 0.7 h
+LOCATION:Ternitz\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://radsport
+ -events.de/events/27656
+TRANSP:TRANSPARENT
+URL:https://radsport-events.de/events/27656
+END:VEVENT
+END:VCALENDAR

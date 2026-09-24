@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-25-paderborner-windpark-rtf-151km-paderborn@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:25. Paderborner Windpark-RTF – RTF 151 km
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 151 km\nhttp://www.rg-pader
+ born.de/veranstaltungen/windpark-rtf/
+TRANSP:TRANSPARENT
+URL:http://www.rg-paderborn.de/veranstaltungen/windpark-rtf/
+END:VEVENT
+END:VCALENDAR

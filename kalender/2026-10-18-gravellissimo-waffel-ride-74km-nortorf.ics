@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-gravellissimo-waffel-ride-74km-nortorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Gravellissimo Waffel Ride – Gravel Tour 74 km
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 74 km\nhttps://www.nortorf.
+ bike
+TRANSP:TRANSPARENT
+URL:https://www.nortorf.bike
+END:VEVENT
+END:VCALENDAR

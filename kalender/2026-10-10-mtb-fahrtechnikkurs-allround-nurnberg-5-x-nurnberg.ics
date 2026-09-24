@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-mtb-fahrtechnikkurs-allround-nurnberg-5-x-nurnberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:MTB-Fahrtechnikkurs "Allround"\, Nürnberg #5 – MTB
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.franke
+ nradar.de/events/mtb-fahrtechnikkurs-allround-nuernberg-nuernberg
+TRANSP:TRANSPARENT
+URL:https://www.frankenradar.de/events/mtb-fahrtechnikkurs-allround-nuernb
+ erg-nuernberg
+END:VEVENT
+END:VCALENDAR

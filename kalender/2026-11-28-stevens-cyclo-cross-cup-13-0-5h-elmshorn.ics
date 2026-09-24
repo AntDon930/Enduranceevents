@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-stevens-cyclo-cross-cup-13-0-5h-elmshorn@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Stevens Cyclo-Cross-Cup #13 – Cyclocross 0.5 h
+LOCATION:Elmshorn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.rg-u
+ ni-hamburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.rg-uni-hamburg.de/
+END:VEVENT
+END:VCALENDAR

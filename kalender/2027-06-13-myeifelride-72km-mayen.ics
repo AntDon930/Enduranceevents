@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-myeifelride-72km-mayen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:MyEifelRide – Radmarathon 72 km (Termin vorläufig)
+LOCATION:Mayen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Fahrrad / Straße\nLänge: 72 km\nhttp
+ s://www.myeifelride.de/
+TRANSP:TRANSPARENT
+URL:https://www.myeifelride.de/
+END:VEVENT
+END:VCALENDAR

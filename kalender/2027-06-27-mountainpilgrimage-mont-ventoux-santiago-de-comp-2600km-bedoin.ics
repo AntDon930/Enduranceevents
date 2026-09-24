@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-mountainpilgrimage-mont-ventoux-santiago-de-comp-2600km-bed
+ oin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:MountainPilgrimage Mont Ventoux - Santiago de Compostela
+LOCATION:Bedoin\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 2600 km\nhttps://mountainpi
+ lgrimage.de/
+TRANSP:TRANSPARENT
+URL:https://mountainpilgrimage.de/
+END:VEVENT
+END:VCALENDAR

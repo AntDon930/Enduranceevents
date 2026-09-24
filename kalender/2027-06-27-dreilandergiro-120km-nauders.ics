@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-dreilandergiro-120km-nauders@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Dreiländergiro – Jedermannrennen 120 km
+LOCATION:Nauders\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://www.dreilae
+ ndergiro.at/
+TRANSP:TRANSPARENT
+URL:https://www.dreilaendergiro.at/
+END:VEVENT
+END:VCALENDAR

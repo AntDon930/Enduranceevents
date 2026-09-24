@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-mtb-fahrtechnikkurs-allround-nurnberg-6-x-nurnberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:MTB-Fahrtechnikkurs "Allround"\, Nürnberg #6 – MTB
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.facebo
+ ok.com/bikeactivities
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/bikeactivities
+END:VEVENT
+END:VCALENDAR

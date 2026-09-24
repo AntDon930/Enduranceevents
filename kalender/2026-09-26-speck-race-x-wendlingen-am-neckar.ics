@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-speck-race-x-wendlingen-am-neckar@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Speck Race – Duathlon
+LOCATION:Wendlingen am Neckar\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttp://www.speck-rac
+ e.de
+TRANSP:TRANSPARENT
+URL:http://www.speck-race.de
+END:VEVENT
+END:VCALENDAR

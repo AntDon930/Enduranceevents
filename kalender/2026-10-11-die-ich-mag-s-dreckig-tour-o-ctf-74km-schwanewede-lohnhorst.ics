@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-die-ich-mag-s-dreckig-tour-o-ctf-74km-schwanewede-lohnhorst
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Die ich mag's dreckig Tour - O-CTF – CTF 74 km
+LOCATION:Schwanewede-Löhnhorst\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 74 km\nhttps://www.rs
+ c-rot-gold.de
+TRANSP:TRANSPARENT
+URL:https://www.rsc-rot-gold.de
+END:VEVENT
+END:VCALENDAR

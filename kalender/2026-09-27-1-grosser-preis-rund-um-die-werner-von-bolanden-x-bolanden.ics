@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-1-grosser-preis-rund-um-die-werner-von-bolanden-x-bolanden@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:1. Großer Preis Rund um die Werner von Bolanden Halle
+LOCATION:Bolanden\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://rv-bolanden.de/
+TRANSP:TRANSPARENT
+URL:https://rv-bolanden.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-asvo-king-of-the-lake-am-attersee-2km-schorfling-am-atterse
+ e@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:Asvö King of the Lake am Attersee – Einzelzeitfahren 2 km
+LOCATION:Schörfling am Attersee\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 2 km\nhttp://www.kotl.a
+ t
+TRANSP:TRANSPARENT
+URL:http://www.kotl.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-monaco-di-baviera-lite-ii-840km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Monaco di Baviera Lite II – Ultracycling 840 km
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 840 km\nhttps://ultracyclin
+ gchallenges.com
+TRANSP:TRANSPARENT
+URL:https://ultracyclingchallenges.com
+END:VEVENT
+END:VCALENDAR

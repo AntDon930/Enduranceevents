@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-26-la-reine-women-s-gran-fondo-100km-freiburg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:La Reine Women's Gran Fondo – RTF 100 km
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttps://www.lareine
+ .cc
+TRANSP:TRANSPARENT
+URL:https://www.lareine.cc
+END:VEVENT
+END:VCALENDAR

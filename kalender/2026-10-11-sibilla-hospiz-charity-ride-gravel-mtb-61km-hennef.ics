@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-sibilla-hospiz-charity-ride-gravel-mtb-61km-hennef@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Sibilla Hospiz - Charity Ride Gravel MTB – CTF 61 km
+LOCATION:Hennef\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike · Charity\nLänge: 61 km\nhttp
+ ://www.radclub-cito-hennef.de
+TRANSP:TRANSPARENT
+URL:http://www.radclub-cito-hennef.de
+END:VEVENT
+END:VCALENDAR

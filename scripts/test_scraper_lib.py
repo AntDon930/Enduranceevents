@@ -2799,6 +2799,52 @@ def test_turbosport() -> None:
     print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, offene Klassen, Ort aus Name/Pfad/Host")
 
 
+def test_radsportevents() -> None:
+    """Der Scraper für die JSON-API von radsport-events.de (24.09.2026):
+    Strecken, Rundenlängen, Dauern, Mehrsport-Summen, Ausschlüsse."""
+    print("\nradsport-events.de:")
+    import radsportevents_scraper as rs
+    basis = {"id": 48, "title": "Spreewaldmarathon", "eventDate": "2027-04-24", "endDate": None,
+             "city": "Lübbenau", "country": "DE", "latitude": 51.868, "longitude": 13.969,
+             "category": "ROAD", "eventType": "RADMARATHON", "organizerUrl": "http://www.spreewaldmarathon.de/",
+             "tentative": False, "cancelled": False, "status": "PUBLISHED",
+             "distances": [{"distanceKm": 70.0, "durationMinutes": None, "label": None},
+                           {"distanceKm": 200.0, "durationMinutes": None, "label": None}]}
+    evs = rs.parse_item(basis, rs.CONFIG)
+    assert [(e.laenge_km, e.wettbewerb, e.art1, e.art2, e.land, e.standort) for e in evs] == [
+        (70.0, "Radmarathon 70 km", "Fahrrad", "Straße", "Deutschland", "Lübbenau"),
+        (200.0, "Radmarathon 200 km", "Fahrrad", "Straße", "Deutschland", "Lübbenau")], evs
+    assert evs[0].lat == 51.868 and evs[0].veranstalter_url == "http://www.spreewaldmarathon.de/"
+    # Rundenlänge fällt weg, 24h-Rennen bekommt 24 h; Dauer in Minuten -> Stunden.
+    e24 = rs.parse_item(dict(basis, eventType="RENNEN_24H", distances=[{"distanceKm": 17.0, "label": "Runde"}]), rs.CONFIG)
+    assert len(e24) == 1 and e24[0].laenge_km is None and e24[0].dauer_h == 24.0 and e24[0].wettbewerb == "24-Stunden-Rennen 24 h", e24
+    ecx = rs.parse_item(dict(basis, category="MTB", eventType="CYCLOCROSS", distances=[{"distanceKm": 0.0, "durationMinutes": 40}]), rs.CONFIG)
+    assert ecx[0].art2 == "Cyclecross" and ecx[0].dauer_h == 0.7 and ecx[0].laenge_km is None, ecx
+    # Zeitfahren, Gravel, vorläufiger Termin, Portallink ohne organizerUrl.
+    ezf = rs.parse_item(dict(basis, eventType="BERGZEITFAHREN", tentative=True, organizerUrl=None,
+                             distances=[{"distanceKm": 10.0}]), rs.CONFIG)
+    assert ezf[0].art2 == "Zeitfahren" and ezf[0].datum_vorlaeufig is True
+    assert ezf[0].veranstalter_url == "https://radsport-events.de/events/48"
+    assert rs.parse_item(dict(basis, category="GRAVEL", eventType="GRAVEL_RACE"), rs.CONFIG)[0].art2 == "Gravel"
+    # Mehrsport: Summe nur bei beschrifteten Teilstrecken, sonst ohne Länge.
+    edu = rs.parse_item(dict(basis, category="MTB", eventType="DUATHLON_CROSS", distances=[
+        {"distanceKm": 4.6, "label": "Lauf"}, {"distanceKm": 20.0, "label": "Rad"}, {"distanceKm": 5.0, "label": "Lauf"}]), rs.CONFIG)
+    assert len(edu) == 1 and edu[0].art1 == "Triathlon" and edu[0].art2 == "Duathlon" and edu[0].laenge_km == 29.6, edu
+    assert edu[0].wettbewerb.startswith("Cross-Duathlon 29.6 km (")
+    edu2 = rs.parse_item(dict(basis, eventType="DUATHLON", distances=[{"distanceKm": 3.0}, {"distanceKm": 14.0}]), rs.CONFIG)
+    assert len(edu2) == 1 and edu2[0].laenge_km is None and edu2[0].wettbewerb == "Duathlon", edu2
+    # Ausschlüsse: abgesagt, virtuell, Camp, Mannschaftszeitfahren, Italien außerhalb Südtirols.
+    assert rs.parse_item(dict(basis, cancelled=True), rs.CONFIG) == []
+    for typ in ("VIRTUELLE_RTF", "GRAVEL_CAMP", "MANNSCHAFTSZEITFAHREN", "ETAPPENTOUR"):
+        assert rs.parse_item(dict(basis, eventType=typ), rs.CONFIG) == [], typ
+    assert rs.parse_item(dict(basis, country="IT", latitude=45.69, longitude=9.67), rs.CONFIG) == []   # Bergamo
+    bozen = rs.parse_item(dict(basis, country="IT", latitude=46.498, longitude=11.354), rs.CONFIG)   # Bozen
+    assert bozen and bozen[0].land == "Italien", bozen  # Südtirol setzt filter_dach() über die Koordinaten
+    from scraper_lib import is_portal_link
+    assert is_portal_link("https://radsport-events.de/events/48")
+    print("  ✓ radsport-events.de: Strecken, Runde/Dauer, Zeitfahren/Gravel/Cyclocross, Mehrsport-Summe, Ausschlüsse")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -2812,7 +2858,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
-                 test_schwimmen_regeln, test_schwimmkalender, test_turbosport,
+                 test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

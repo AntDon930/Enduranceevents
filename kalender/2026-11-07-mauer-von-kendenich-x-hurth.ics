@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-mauer-von-kendenich-x-hurth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Mauer von Kendenich – Cyclocross
+LOCATION:Hürth\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://race-hub.io/
+ events/3135789b-5589-48d1-b87f-bfc6c00506ec/info
+TRANSP:TRANSPARENT
+URL:https://race-hub.io/events/3135789b-5589-48d1-b87f-bfc6c00506ec/info
+END:VEVENT
+END:VCALENDAR

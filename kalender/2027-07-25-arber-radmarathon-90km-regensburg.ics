@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-arber-radmarathon-90km-regensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Arber Radmarathon – Radmarathon 90 km
+LOCATION:Regensburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 90 km\nhttp://www.arb
+ erradmarathon.de/
+TRANSP:TRANSPARENT
+URL:http://www.arberradmarathon.de/
+END:VEVENT
+END:VCALENDAR

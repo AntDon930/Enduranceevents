@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-stevens-cyclo-cross-cup-15-0-5h-hamburg-harburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Stevens Cyclo-Cross-Cup #15 – Cyclocross 0.5 h
+LOCATION:Hamburg-Harburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://harburge
+ r-rg.de/
+TRANSP:TRANSPARENT
+URL:https://harburger-rg.de/
+END:VEVENT
+END:VCALENDAR

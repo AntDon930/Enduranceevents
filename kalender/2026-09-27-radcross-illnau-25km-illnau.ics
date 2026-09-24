@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-27-radcross-illnau-25km-illnau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260927
+DTEND;VALUE=DATE:20260928
+SUMMARY:Radcross Illnau – Cyclocross 25 km
+LOCATION:Illnau\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 25 km\nhttps://www.radc
+ rossillnau.ch
+TRANSP:TRANSPARENT
+URL:https://www.radcrossillnau.ch
+END:VEVENT
+END:VCALENDAR

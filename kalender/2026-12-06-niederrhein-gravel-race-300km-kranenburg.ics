@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-niederrhein-gravel-race-300km-kranenburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Niederrhein Gravel Race – Gravel Race 300 km
+LOCATION:Kranenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 300 km\nhttp://www.niederrh
+ ein-gravel.de
+TRANSP:TRANSPARENT
+URL:http://www.niederrhein-gravel.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-kronplatzking-49km-st-vigil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:KronplatzKing – MTB-Marathon 49 km
+LOCATION:St. Vigil\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 49 km\nhttps://www.kr
+ onplatzevents.com/en/events/kronplatz-king/
+TRANSP:TRANSPARENT
+URL:https://www.kronplatzevents.com/en/events/kronplatz-king/
+END:VEVENT
+END:VCALENDAR

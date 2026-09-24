@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-vr-bank-triathlon-heilbronn-powered-by-audi-x-heilbronn@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:VR Bank Triathlon Heilbronn powered by Audi – Triathlon
+LOCATION:Heilbronn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.triathlon-
+ heilbronn.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-heilbronn.de/
+END:VEVENT
+END:VCALENDAR

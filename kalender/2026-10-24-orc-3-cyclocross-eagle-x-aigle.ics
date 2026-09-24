@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-orc-3-cyclocross-eagle-x-aigle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:ORC 3 - Cyclocross Eagle – Cyclocross
+LOCATION:Aigle\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.cyclocro
+ ssdiablerets.ch
+TRANSP:TRANSPARENT
+URL:https://www.cyclocrossdiablerets.ch
+END:VEVENT
+END:VCALENDAR

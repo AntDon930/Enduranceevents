@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-glocknerkonig-27-3km-bruck-an-der-glocknerstrasse@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Glocknerkönig – Jedermannrennen Glocknerkönig Classic 27.3 km
+LOCATION:Bruck an der Glocknerstraße\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 27.3 km\nhttps://www.glockn
+ erkoenig.com/
+TRANSP:TRANSPARENT
+URL:https://www.glocknerkoenig.com/
+END:VEVENT
+END:VCALENDAR

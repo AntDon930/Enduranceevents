@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-maratona-dles-dolomites-138km-la-villa@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Maratona dles Dolomites – Jedermannrennen 138 km
+LOCATION:La Villa\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 138 km\nhttps://www.maraton
+ a.it
+TRANSP:TRANSPARENT
+URL:https://www.maratona.it
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-dead-ends-dolci-500km-bellinzona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261005
+SUMMARY:Dead Ends & Dolci – Bikepacking 500 km
+LOCATION:Bellinzona\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 500 km\nhttps://www.deadend
+ sedolci.ch
+TRANSP:TRANSPARENT
+URL:https://www.deadendsedolci.ch
+END:VEVENT
+END:VCALENDAR
