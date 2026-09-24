@@ -3512,6 +3512,35 @@ Wettbewerbe), und die Gravel-Zeilen des Erkelenzer RTF tragen einen
 eigenen Namen, weil die Teilmengen-Regel von `_same_name()` „Erkelenzer
 RTF" + „Gravel Ride 110 km" sonst in der Straßenzeile aufgehen lässt.
 
+**Die Linkliste des Nutzers (24.09.2026)**: 125 Adressen, 91 Domains, jede
+auf robots.txt, Impressum/AGB und Struktur geprüft – die ganze Bilanz im
+README („Die Linkliste des Nutzers"). Daraus drei weitere Scraper, alle
+mit Test: **`cyclingaustria_scraper.py`** (ÖRV-Rennkalender, Joomla;
+Rennseite mit Start/Ziel, Datum, Sparte, „Rennen N"-Blöcken und
+Veranstalterlink; alle Klassen, auch Lizenz – dieselbe Entscheidung wie
+bei BRV Timing; **nicht** Kunstrad/Radball, Downhill/Enduro/E-MTB,
+Madison/Mannschaftszeitfahren, Nachwuchs; ein Cyclocross ohne Kilometer
+ist ein Zeitrennen „40 min"; 62 Events), **`swimsports_scraper.py`**
+(Schwimmkalender Schweiz, Drupal; **Adresse ohne `/de/`**, mit Präfix
+„Zugriff verweigert"; Distanzen ohne SUP-Teile; Absagen fallen, außer
+der Name nennt den nächsten Termin; im September nur 2 künftige
+Anlässe) und **`fsieben_scraper.py`** (Triathlon-Kalender Österreich,
+JSON in der Seite; **52 von 94 Bewerben ohne Datum** – „Termin folgt"
+wird nicht geraten; je Format eine Zeile ohne Kilometer, „unbestätigt"
+= vorläufig; Ort über `orte_aus_places()` je Bundesland, weil
+„Pichlingersee, Linz" den See vor den Ort stellt und „Linz" auch in
+Kärnten liegt). `orte_aus_places(land, region)` in `scraper_lib.py` ist
+dafür neu (generisch, `places.json` kennt die Länder als DE/AT/CH/IT).
+Die Stadtzürcher Seeüberquerung 2027 steht in `manual_events.json`
+(seeueberquerung.ch nennt den Termin, swimsports erst 2026). **Kandidaten
+ohne Ja**: `datasport.com` (robots.txt erlaubt ClaudeBot, Impressum ohne
+Verbot, 107 Termine auf einer Seite – am 21.09.2026 vom Nutzer
+ausgeschlossen), `swisstriathlon.ch` (Liste nicht im HTML),
+`dealgrid.de`/`gravel-club.com`/`808project.de` (Gravel), NordCup.
+**Verboten**: radmarathon.at, rad-net.de, hdsports, suedtirol.info,
+tour-/bike-magazin, DTU, tri2b, triafreunde, mission-triathlon,
+finishers, veloplus u. a. (Liste im README).
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -3824,6 +3853,24 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      selbst; wer das früher will, braucht die Quelle aus dem ersten Punkt.
    - **NordCup 2027** (9 Termine mit Veranstalterlink): einzeln beim
      Veranstalter nachziehen, sobald Strecken und Startorte stehen.
+
+22. **Aus der Linkliste vom 24.09.2026** – je ein Ja/Nein:
+   - **`datasport.com` als Quelle?** Der Nutzer hat sie am 21.09.2026
+     ausgeschlossen (Zeitnehmer); die Liste vom 24.09. nennt sie zweimal
+     (Radmarathon, Sportevents Schweiz). robots.txt erlaubt ClaudeBot
+     (außer `/api/`, Crawl-delay 10), Impressum ohne Verbot, 107
+     Termine auf einer Seite – wäre die größte Schweizer Quelle. Mit Ja:
+     Struktur der Eventseiten prüfen (Veranstalterlink?), dann Scraper.
+   - **Gravel-Listen** (`dealgrid.de` mit 53 JSON-LD-Events,
+     `gravel-club.com`, `808project.de`): Affiliate- bzw.
+     Community-Seiten, international; lohnend nur, wenn die
+     Veranstalterlinks stimmen. Rein?
+   - **fsieben „Termin folgt"** (52 Bewerbe): Sollen sie mit dem
+     Vorjahrestermin als **vorläufig** („Juni 2027*") aufgenommen werden?
+     Heute nicht – Datenregel 19 lässt die Prognose nur per Override zu,
+     und der Vorjahrestermin ist keine Aussage über 2027. Die Alternative
+     ist, im Frühjahr 2027 zu warten; der wöchentliche Lauf holt jeden
+     nachgetragenen Termin.
 
 20. **Farbschema und Pillen (21.09.2026, aus dem Kartenumbau)** – drei
    Kleinigkeiten, die ein Ja/Nein brauchen:
