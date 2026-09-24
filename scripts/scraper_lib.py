@@ -513,6 +513,11 @@ class SiteConfig:
     # Wettbewerbe). `max_details = 0` bedeutet "alle".
     fetch_details: bool = True
     max_details: int = 0
+    # Von run_scraper_cli() aus --no-geocoding gesetzt, für `custom_fetch`-
+    # Funktionen, die selbst geocodieren müssen - etwa weil die Quelle
+    # ein Bundesland nennt, das den Ort erst eindeutig macht ("Freiberg,
+    # Baden-Württemberg" statt Freiberg in Sachsen; schwimmkalender.de).
+    geocoding: bool = True
 
 
 # --------------------------------------------------------------------------
@@ -2125,6 +2130,20 @@ MANUAL_OVERRIDES_PATH = REPO_ROOT / "scripts" / "manual_overrides.json"
 #     schwimmen sind eine ernsthafte Distanz, ein 3,5-km-Lauf nicht.
 MIN_DISTANCE_KM = 5.0
 MIN_DISTANCE_ART1 = "Laufen"
+# Seit dem 24.09.2026 gilt auch fürs SCHWIMMEN eine Untergrenze (vom
+# Nutzer entschieden: "Schwimm events sollten erst ab 500m aufgenommen
+# werden. Also reine Schwimmevents. Bei einem Triathlon kann es auch
+# weniger sein als 500m."): 500 m sind die kürzeste Freiwasser-Strecke,
+# die ein Erwachsener als Wettkampf schwimmt; darunter liegen Kinder-
+# und Schnupperstrecken sowie Beckenwettkämpfe über 50/100/200 m. Die
+# Regel hängt an `art1` - der 300-m-Schwimmteil eines Super-Sprint-
+# Triathlons ist keine Schwimmveranstaltung und bleibt. Wie beim Laufen:
+# ohne bekannte Distanz greift sie nicht, ein Zeitrennen (24-Stunden-
+# Schwimmen) ist nie "zu kurz".
+MIN_DISTANCE_BY_ART1: dict[str, float] = {
+    MIN_DISTANCE_ART1: MIN_DISTANCE_KM,
+    "Schwimmen": 0.5,
+}
 
 # Nur ein sauberes YYYY-MM-DD gilt als vergleichbares Datum (siehe
 # filter_past()); Datumsstrings in ISO-Form lassen sich direkt als Text
@@ -2389,6 +2408,44 @@ def filter_staffeln(events: list["Event"]) -> tuple[list["Event"], int]:
     return kept, len(events) - len(kept)
 
 
+# Schwimm-Wettkämpfe, für die man sich nicht als Jedermann anmelden kann
+# (vom Nutzer am 24.09.2026 entschieden: "Ich möchte keine Schwimm Events
+# aufnehmen, die nicht für jeden sind, also 50m deutsche Meisterschaft
+# etc.. Es soll sich jeder anmelden können, wie beim laufen und Rennrad
+# auch."). Beim Schwimmen ist eine Meisterschaft der Regelfall eines
+# geschlossenen Wettkampfs: Startrecht nur mit Verbandslizenz und
+# Pflichtzeit, nach Jahrgängen ausgeschrieben. Deshalb hier - anders als
+# bei den Läufen (Datenregel 18: "Meisterschaften bleiben, wenn jeder
+# starten kann") - eine REGEL statt Einzelfallpflege: Jede Schwimm-Zeile,
+# deren Name oder Label eine Meisterschaft nennt, fliegt. Nur fürs
+# Schwimmen (`art1`), nur mit dem Wort selbst und den gängigen Kürzeln;
+# ein "Jedermann-Schwimmen" neben einer Meisterschaft ist eine eigene
+# Zeile und bleibt. Ein Cup oder eine Serie ist keine Meisterschaft.
+NICHT_OFFEN_SCHWIMMEN = re.compile(
+    r"meisterschaft|championship|"
+    r"\b(?:dm|dms|djm|dkm|dsm|ldm|lm|jem|em|wm)\b", re.I)
+
+
+def ist_nicht_offen_schwimmen(art1: str | None, name: str | None,
+                              wettbewerb: str | None = None) -> str | None:
+    """Der Grund, warum diese Schwimm-Zeile nicht offen für alle ist -
+    sonst None. Für jede andere Sportart immer None."""
+    if art1 != "Schwimmen":
+        return None
+    text = f"{name or ''} {wettbewerb or ''}"
+    m = NICHT_OFFEN_SCHWIMMEN.search(text)
+    if not m:
+        return None
+    return f"Meisterschaft (\"{m.group(0)}\") - nicht für jeden offen"
+
+
+def filter_nicht_offen_schwimmen(events: list["Event"]) -> tuple[list["Event"], int]:
+    """Wirft Schwimm-Meisterschaften heraus (NICHT_OFFEN_SCHWIMMEN)."""
+    kept = [e for e in events
+            if not ist_nicht_offen_schwimmen(e.art1, e.name, e.wettbewerb)]
+    return kept, len(events) - len(kept)
+
+
 def ist_nicht_ausdauer(text: str | None) -> str | None:
     """Der Grund, warum dieses Event nicht in die Liste gehört - sonst None."""
     for muster, grund in NICHT_AUSDAUER:
@@ -2404,13 +2461,35 @@ def filter_nicht_ausdauer(events: list[Event]) -> tuple[list[Event], int]:
     return kept, len(events) - len(kept)
 
 
-def filter_min_distance(events: list[Event], min_km: float = MIN_DISTANCE_KM) -> tuple[list[Event], int]:
-    kept = [
-        e for e in events
-        if e.laenge_km is None
-        or e.art1 != MIN_DISTANCE_ART1
-        or e.laenge_km >= min_km
-    ]
+def min_distance_km(art1: str | None) -> float | None:
+    """Die Mindestdistanz der Sportart (MIN_DISTANCE_BY_ART1) - None,
+    wenn es für sie keine gibt (Fahrrad, Triathlon)."""
+    return MIN_DISTANCE_BY_ART1.get(art1 or "")
+
+
+def ist_zu_kurz(art1: str | None, laenge_km: float | None, dauer_h: float | None = None) -> bool:
+    """Liegt eine BEKANNTE Distanz unter der Mindestdistanz ihrer
+    Sportart? Ein Zeitrennen ist nie zu kurz (die Rundenlänge ist keine
+    Wettkampfdistanz), eine unbekannte Distanz auch nicht."""
+    grenze = min_distance_km(art1)
+    if grenze is None or laenge_km is None or dauer_h is not None:
+        return False
+    return laenge_km < grenze
+
+
+def filter_min_distance(events: list[Event], min_km: float | None = None) -> tuple[list[Event], int]:
+    """Wirft Zeilen unter der Mindestdistanz ihrer Sportart heraus
+    (Laufen 5 km, Schwimmen 500 m). `min_km` überschreibt die Grenze
+    fürs Laufen - so riefen ältere Aufrufer die Funktion."""
+    if min_km is None:
+        kept = [e for e in events if not ist_zu_kurz(e.art1, e.laenge_km, e.dauer_h)]
+    else:
+        kept = [
+            e for e in events
+            if e.laenge_km is None
+            or e.art1 != MIN_DISTANCE_ART1
+            or e.laenge_km >= min_km
+        ]
     skipped = len(events) - len(kept)
     return kept, skipped
 
@@ -2676,6 +2755,7 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     # (siehe SiteConfig.fetch_details).
     config.fetch_details = not args.no_details
     config.max_details = args.max_details
+    config.geocoding = not args.no_geocoding
 
     if config.note:
         print(f"ℹ {config.note}\n")
@@ -2723,9 +2803,15 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     if staffel_skipped:
         print(f"  ({staffel_skipped} Staffel-Zeile(n) übersprungen - erst einmal "
               f"keine Staffeln, siehe ist_staffel.)")
+    events_to_use, nicht_offen_skipped = filter_nicht_offen_schwimmen(events_to_use)
+    if nicht_offen_skipped:
+        print(f"  ({nicht_offen_skipped} Schwimm-Meisterschaft(en) übersprungen - "
+              f"nicht für jeden offen, siehe NICHT_OFFEN_SCHWIMMEN.)")
     events_to_use, too_short_skipped = filter_min_distance(events_to_use)
     if too_short_skipped:
-        print(f"  ({too_short_skipped} Event(s) unter {MIN_DISTANCE_KM:g} km übersprungen.)")
+        print(f"  ({too_short_skipped} Event(s) unter der Mindestdistanz übersprungen "
+              f"(Laufen {MIN_DISTANCE_KM:g} km, Schwimmen "
+              f"{MIN_DISTANCE_BY_ART1['Schwimmen']:g} km).)")
 
     events_to_use, past_skipped = filter_past(events_to_use)
     if past_skipped:

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-24h-wuppertal-24h-wuppertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270118
+SUMMARY:24h Wuppertal
+LOCATION:Wuppertal\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://www.schwimmv
+ erband-wuppertal.de
+TRANSP:TRANSPARENT
+URL:http://www.schwimmverband-wuppertal.de
+END:VEVENT
+END:VCALENDAR

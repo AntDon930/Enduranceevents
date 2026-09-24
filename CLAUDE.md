@@ -46,7 +46,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
-| `scripts/*_scraper.py` | ein Skript pro Quelle |
+| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, siehe „Quellen") |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
@@ -202,6 +202,16 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    italienisch, wie GeoNames sie führt), Region „Südtirol".
 5. **5-km-Mindestdistanz nur für `art1 == "Laufen"`** und nur bei *bekannter*
    Distanz. 3,5 km Freiwasserschwimmen ist eine ernsthafte Distanz.
+   **Seit dem 24.09.2026 hat auch das SCHWIMMEN eine Grenze: 500 m**
+   (vom Nutzer entschieden: „Schwimm events sollten erst ab 500m
+   aufgenommen werden. Also reine Schwimmevents. Bei einem Triathlon
+   kann es auch weniger sein als 500m."). `MIN_DISTANCE_BY_ART1` in
+   `scraper_lib.py` trägt beide Grenzen (`ist_zu_kurz()`,
+   `filter_min_distance()`, `clean_events.drop_too_short()`); Fahrrad
+   und Triathlon haben keine – der 300-m-Schwimmteil eines Super-Sprints
+   ist keine Schwimmveranstaltung. Ohne bekannte Distanz greift sie
+   nicht, ein Zeitrennen (24-Stunden-Schwimmen) ist nie zu kurz.
+   `test_schwimmen_regeln` hält alle Gegenproben fest.
    **Die Grenze ist hart** (vom Nutzer am 19.09.2026 entschieden: „Die
    Läufe unter 5km nicht aufnehmen"): Eine als „5 km" beworbene Strecke
    mit 4,80 km (Sedus Firmenlauf), eine 4,66-km-Runde (Bramfelder
@@ -756,6 +766,25 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    `test_triathlon_format_kopie` vergleicht beide Fassungen Zeile für
    Zeile UND prüft an jeder Triathlon-Zeile des Bestands, dass der Filter
    genau die Kategorie trifft, die die Spalte anzeigt.
+
+22. **Schwimm-Meisterschaften fliegen – per Regel, nicht per Override**
+   (vom Nutzer am 24.09.2026 entschieden: „Ich möchte keine Schwimm
+   Events aufnehmen, die nicht für jeden sind, also 50m deutsche
+   Meisterschaft etc.. Es soll sich jeder anmelden können, wie beim
+   laufen und Rennrad auch."). Anders als bei den Läufen (Datenregel 18:
+   Meisterschaften bleiben, wenn jeder starten kann) ist eine
+   Meisterschaft beim Schwimmen der Regelfall des GESCHLOSSENEN
+   Wettkampfs: Startrecht nur mit Verbandslizenz und Pflichtzeit.
+   `NICHT_OFFEN_SCHWIMMEN` (`scraper_lib.py`) trifft „Meisterschaft",
+   „Championship" und die Kürzel DM/DMS/DJM/LM/EM/WM – nur bei
+   `art1 == "Schwimmen"`, in Name und Label; `filter_nicht_offen_schwimmen()`
+   beim Einsammeln, `clean_events.drop_nicht_offen_schwimmen()`
+   rückwirkend (mit Bericht). Ein Cup oder eine Serie ist keine
+   Meisterschaft; die „Offenen Sächsischen Freiwassermeisterschaften /
+   Pöhl-Cup" fallen trotzdem – wer den Jedermann-Teil (500–5.000 m)
+   haben will, trägt ihn unter seinem eigenen Namen in
+   `manual_events.json` nach. Im Bestand traf die Regel am 24.09.2026
+   keine Zeile (fünf Schwimm-Events, alle Bodensee Openwater).
 
 ### Die wichtigste Lektion
 
@@ -3390,6 +3419,38 @@ Kalender, ohne Details): 104 neue Events, davon die ersten Schweizer
 überhaupt. **Der nächste Datenlauf bringt sie** – Workflow auslösen,
 nicht im Chat warten (Laufzeit steigt um grob eine Stunde, das
 `timeout-minutes: 300` reicht).
+
+**Schwimmen (24.09.2026)**: Der Nutzer hat drei Links geschickt
+(schwimmkalender.de, openwaterschwimmen.com, swimevents.de) und um weitere
+Schwimm-Kalender gebeten. Gebaut ist **`schwimmkalender_scraper.py`**
+(Freiwasser, 24h-Schwimmen, Winterschwimmen, SwimRun → Triathlon/Swimrun).
+Die Seite bindet ihre **Sitzung an die IP-Adresse** – aus der Sandbox,
+deren Ausgangs-IP je Verbindung wechselt, sah das früher wie eine Sperre
+aus („sperrt den Abruf"); über EINE `requests.Session` (Keep-Alive) und
+GET-Aufrufe geht es, in GitHub Actions ist die IP ohnehin fest. Das
+Skript beginnt bei verlorener Sitzung einmal neu. Im September 2026
+stehen dort nur 21 künftige Termine (die Saison 2027 kommt im Frühjahr),
+davon 18 „24h Halle" (Zeitrennen, `dauer_h` 24/25, Kategorie Becken).
+Die Detailseite nennt Bezeichnung mit Distanz in Klammern („(3k)"),
+Datum, Bundesland/Staat und die Veranstalterseite – **keinen Ort**: Der
+kommt aus der Bezeichnung (hinter dem Komma, hinter „24h", sonst das
+letzte Wort samt Vorsilbe; endet der Name auf ein Schwimmwort, gilt bei
+Stadtstaaten das Land, sonst fällt der Eintrag). **Geocodiert wird MIT
+dem Bundesland** (`SiteConfig.geocoding`, von `--no-geocoding` gesetzt):
+„Freiberg" liegt in Sachsen UND in Baden-Württemberg, „Handorf" in
+Niedersachsen UND in Nordrhein-Westfalen – ohne den Zusatz nahm Nominatim
+beide Male den falschen (Lektion 3 der Einzelprüfung: Koordinaten sind
+Daten). Die Quelle selbst hat Fehler: „24h Friedberg" (Hessen) verlinkt
+`sv-freiberg.de` – so übernommen, Datenregel 2 verbietet das Raten.
+openwaterschwimmen.com
+ist seit 2021 tot, swimevents.de die Seite eines Bochumer Zeitnehmers
+mit Meisterschaften – beide keine Quelle. Was die Websuche sonst fand,
+steht im README („Quellen für den großen Datenlauf", Zeilen vom
+24.09.2026): **Kandidaten** sind der arena Alpen Open Water Cup (eine
+Seite, 9 Rennen 2027 mit Veranstalterlinks), der Freiwassercup Bayern
+und der SwimRun-Kalender von swimrun-advice.com; swim-emotions.ch (Swiss
+OpenWater-Cup) war aus der Sandbox nicht erreichbar. **Kein Scraper ohne
+sein Ja.**
 
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage

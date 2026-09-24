@@ -2524,6 +2524,160 @@ def test_veranstalter_links() -> None:
     print("✓ Veranstalterseiten-Prüfung (Umlaut-Hosts, Ortswort, ort:-Treffer, Allgemeinwörter, Datum, Fremd-Hosts)")
 
 
+def test_schwimmen_regeln() -> None:
+    """Reine Schwimm-Events erst ab 500 m, und keine Meisterschaften
+    (vom Nutzer am 24.09.2026 entschieden: "Schwimm events sollten erst
+    ab 500m aufgenommen werden. Also reine Schwimmevents. Bei einem
+    Triathlon kann es auch weniger sein als 500m. Ich möchte keine
+    Schwimm Events aufnehmen, die nicht für jeden sind, also 50m
+    deutsche Meisterschaft etc.").
+
+    Die Gegenproben sind der wichtigere Teil: Der 300-m-Schwimmteil
+    eines Super-Sprint-Triathlons bleibt, ein 3,5-km-Lauf fällt weiter,
+    ein Zeitrennen ist nie zu kurz, und eine LAUF-Meisterschaft bleibt
+    (Datenregel 18 - dort entscheidet der Einzelfall)."""
+    print("\nSchwimmen: 500-m-Grenze und Meisterschaften:")
+    from scraper_lib import (Event, MIN_DISTANCE_BY_ART1, filter_min_distance,
+                             filter_nicht_offen_schwimmen, ist_nicht_offen_schwimmen,
+                             ist_zu_kurz)
+    from clean_events import drop_nicht_offen_schwimmen, drop_too_short
+
+    check("Schwimmen hat 0,5 km", MIN_DISTANCE_BY_ART1.get("Schwimmen"), 0.5)
+    check("Laufen hat 5 km", MIN_DISTANCE_BY_ART1.get("Laufen"), 5.0)
+    check("400 m Schwimmen ist zu kurz", ist_zu_kurz("Schwimmen", 0.4), True)
+    check("500 m Schwimmen bleibt", ist_zu_kurz("Schwimmen", 0.5), False)
+    check("3,5 km Lauf ist zu kurz", ist_zu_kurz("Laufen", 3.5), True)
+    check("Triathlon kennt keine Grenze", ist_zu_kurz("Triathlon", 0.3), False)
+    check("Fahrrad kennt keine Grenze", ist_zu_kurz("Fahrrad", 3.0), False)
+    check("unbekannte Distanz ist nie zu kurz", ist_zu_kurz("Schwimmen", None), False)
+    check("Zeitrennen ist nie zu kurz", ist_zu_kurz("Schwimmen", 0.1, 24.0), False)
+
+    ev = [Event(art1="Schwimmen", name="Seeschwimmen", laenge_km=0.25),
+          Event(art1="Schwimmen", name="Seeschwimmen", laenge_km=0.5),
+          Event(art1="Triathlon", name="Weinstadt Triathlon", laenge_km=23.6),
+          Event(art1="Laufen", name="Kinderlauf", laenge_km=2.0),
+          Event(art1="Schwimmen", name="24h Schwimmen", laenge_km=0.05, dauer_h=24.0)]
+    kept, skipped = filter_min_distance(ev)
+    check("filter_min_distance wirft 250 m Schwimmen und 2-km-Lauf", skipped, 2)
+    check("… und behält 500 m, Triathlon und Zeitrennen", len(kept), 3)
+    # Ältere Aufrufer mit ausdrücklicher Grenze: nur Laufen, wie vorher.
+    kept, skipped = filter_min_distance(ev, 5.0)
+    check("filter_min_distance(min_km) bleibt eine Lauf-Regel", skipped, 1)
+    kept, dropped = drop_too_short([
+        {"name": "Seeschwimmen", "art1": "Schwimmen", "laenge_km": 0.4},
+        {"name": "Seeschwimmen", "art1": "Schwimmen", "laenge_km": 1.0},
+        {"name": "Triathlon", "art1": "Triathlon", "laenge_km": 0.3},
+        {"name": "24h Halle", "art1": "Schwimmen", "laenge_km": 0.05, "dauer_h": 24}])
+    check("clean_events.drop_too_short ebenso", (len(kept), len(dropped)), (3, 1))
+
+    for name in ("Deutsche Meisterschaften Freiwasser", "Bayerische Freiwassermeisterschaft",
+                 "DM Kurzbahn Wuppertal", "Landesmeisterschaften Schwimmen",
+                 "Open Water Championships Zürich", "Offene Sächsische Freiwassermeisterschaften"):
+        check(f"{name!r} ist nicht offen", bool(ist_nicht_offen_schwimmen("Schwimmen", name)), True)
+    for name in ("Bodensee Openwater Konstanz", "Alpen Open Water Cup Simssee",
+                 "Hafenschwimmen Wilhelmshaven", "24h Friedberg", "Wörthersee Swim",
+                 "Jedermann-Schwimmen am Pöhl-Cup"):
+        check(f"{name!r} bleibt", ist_nicht_offen_schwimmen("Schwimmen", name), None)
+    check("Lauf-Meisterschaft ist nicht betroffen",
+          ist_nicht_offen_schwimmen("Laufen", "Bayerische Halbmarathon-Meisterschaften"), None)
+    check("Label zählt mit",
+          bool(ist_nicht_offen_schwimmen("Schwimmen", "Seefest Wörthsee", "Meisterschaft 1500 m")), True)
+    kept, skipped = filter_nicht_offen_schwimmen([
+        Event(art1="Schwimmen", name="DM Freiwasser"), Event(art1="Schwimmen", name="Seeschwimmen"),
+        Event(art1="Laufen", name="Deutsche Meisterschaft 10 km")])
+    check("filter_nicht_offen_schwimmen", (len(kept), skipped), (2, 1))
+    kept, entfernt = drop_nicht_offen_schwimmen([
+        {"name": "DM Freiwasser", "art1": "Schwimmen", "datum_start": "2027-06-01"},
+        {"name": "Seeschwimmen", "art1": "Schwimmen"}])
+    check("clean_events.drop_nicht_offen_schwimmen", (len(kept), len(entfernt)), (1, 1))
+    # Am Bestand: Keine Schwimm-Zeile darf dadurch fallen, ohne dass
+    # es gemeldet wird - hier zählen wir nur, was gemeldet würde.
+    import json as _json
+    from scraper_lib import EVENTS_JSON_PATH
+    bestand = _json.loads(EVENTS_JSON_PATH.read_text(encoding="utf-8"))
+    schwimmen = [e for e in bestand if e.get("art1") == "Schwimmen"]
+    zu_kurz = [e for e in schwimmen if ist_zu_kurz("Schwimmen", e.get("laenge_km"), e.get("dauer_h"))]
+    check("Bestand: keine Schwimm-Zeile unter 500 m", len(zu_kurz), 0)
+
+
+def test_schwimmkalender() -> None:
+    """Der Scraper für schwimmkalender.de (24.09.2026): Listenzeile,
+    Detailseite, Distanz/Dauer/Ort aus der Bezeichnung - ohne Netz."""
+    print("\nschwimmkalender.de:")
+    import schwimmkalender_scraper as sk
+    liste = ("<table id='example'><tr><td width='15%' Title='25.09.2026 '>25.09.2026</td>"
+             "<td width='60%'><a href='../main/main.php?d=0&Action=views/lstuserevents.php"
+             "&fOK=update|userevents|7275&id=185021732606602137475479552159275218493' class='kat64'"
+             "   onclick=\"DoScroll2QueryString(event)\" target='_blank'>24h Friedberg</a></td>"
+             "<td width='20%'>Hessen</td></tr><tr><td width='15%' Title='03.10.2026 '>03.10.2026</td>"
+             "<td width='60%'><a href='../main/main.php?d=0&Action=views/lstuserevents.php"
+             "&fOK=update|userevents|7055&id=1' class='kat63' target='_blank'>"
+             "Hafenschwimmen, Wilhelmshaven (3k)</a></td><td width='20%'>Niedersachsen</td></tr>"
+             "</table>Freiwasser: 2 Einträge gefunden<input type='hidden' name='id' "
+             "value='12339903260660213953077955215927521849352' id = 'id'>")
+    zeilen = sk.parse_liste(liste)
+    check("zwei Listenzeilen", len(zeilen), 2)
+    check("Zeile: Nummer, Kategorie, Name, Land",
+          (zeilen[1]["nr"], zeilen[1]["kategorie"], zeilen[1]["name"], zeilen[1]["land"]),
+          (7055, 63, "Hafenschwimmen, Wilhelmshaven (3k)", "Niedersachsen"))
+    check("Sitzungsnummer", sk.sitzungs_id(liste), "12339903260660213953077955215927521849352")
+    check("Liste erkannt", sk.ist_liste(liste), True)
+    check("Startseite ist keine Liste", sk.ist_liste("<p>Liebe Schwimmerinnen</p>"), False)
+    detail = ("<div id='iKategorieNr'>Freiwasser</div><div class='showastext' id='iBezeichnung' >"
+              "Hafenschwimmen, Wilhelmshaven (3k)</div><div id='iDatum' >03.10.2026</div>"
+              "<div id='iEndDatum' >-</div><div id='iLandNr' >Niedersachsen</div>"
+              "<div id='textarea' ><p><a href=\"http://www.hafenschwimmen.de/\" target=\"_blank\">"
+              "Hafenschwimmen</a></p></div><div id='simpletextarea' ></div>")
+    d = sk.parse_detail(detail)
+    check("Detail: Felder", (d["name"], d["datum_start"], d["datum_ende"], d["land"], d["links"]),
+          ("Hafenschwimmen, Wilhelmshaven (3k)", "2026-10-03", None, "Niedersachsen",
+           ["http://www.hafenschwimmen.de/"]))
+    ev = sk.build_events(d, 63, sk.CONFIG)
+    check("eine Zeile mit 3 km, Schwimmen/Freiwasser, Ort und Link",
+          [(e.name, e.standort, e.land, e.art1, e.art2, e.laenge_km, e.veranstalter_url) for e in ev],
+          [("Hafenschwimmen Wilhelmshaven", "Wilhelmshaven", "Deutschland", "Schwimmen", "Freiwasser",
+            3.0, "http://www.hafenschwimmen.de/")])
+    check("Distanzen aus der Klammer", sk.distanzen_aus_name("Seeschwimmen, Waging am See (2k/5k)"), [2.0, 5.0])
+    check("Komma-Dezimale", sk.distanzen_aus_name("Hechtsee X-Treme, Kufstein (3,8k)"), [3.8])
+    check("Meter in der Klammer", sk.distanzen_aus_name("Spreeschwimmen (750m)"), [0.75])
+    check("Zahl im Namen ist keine Distanz", sk.distanzen_aus_name("100 x 100 Hamburg"), [])
+    check("Dauer aus dem Namen", (sk.dauer_aus_name("24h Friedberg"), sk.dauer_aus_name("25h Handorf"),
+                                  sk.dauer_aus_name("Hafenschwimmen (3k)")), (24.0, 25.0, None))
+    for name, land, ort in (("Hafenschwimmen, Wilhelmshaven (3k)", "Niedersachsen", "Wilhelmshaven"),
+                            ("24h Spaichingen-Aldingen", "Baden-Württemberg", "Spaichingen-Aldingen"),
+                            ("25h Schwarzenbach a. Wald", "Bayern", "Schwarzenbach a. Wald"),
+                            ("Seeschwimmen Waging am See (5k)", "Bayern", "Waging am See"),
+                            ("Urban Challenge Berlin", "Berlin", "Berlin"),
+                            ("100 x 100 Hamburg", "Hamburg", "Hamburg"),
+                            ("Rotary Charity-Schwimmen (24h Freising)", "Bayern", "Freising"),
+                            ("Berliner Spreeschwimmen (1k)", "Berlin", "Berlin"),
+                            ("Seeschwimmen (2k)", "Bayern", None),
+                            ("Vollmondschwimmen (2k)", "Bayern", None)):
+        check(f"Ort aus {name!r}", sk.ort_aus_name(name, land), ort)
+    check("Name ohne Distanz und Komma", sk.name_ohne_zusatz("Hafenschwimmen, Wilhelmshaven (3k)"),
+          "Hafenschwimmen Wilhelmshaven")
+    check("Klammer ohne Distanz bleibt", sk.name_ohne_zusatz("Rotary Charity-Schwimmen (24h Freising)"),
+          "Rotary Charity-Schwimmen (24h Freising)")
+    check("Bundesland → Deutschland", sk.land_aus_feld("Hessen"), "Deutschland")
+    check("Staat bleibt", (sk.land_aus_feld("Österreich"), sk.land_aus_feld("Italien")), ("Österreich", "Italien"))
+    d24 = {"name": "24h Friedberg", "datum_start": "2026-09-25", "datum_ende": "2026-09-26",
+           "land": "Hessen", "links": []}
+    ev = sk.build_events(d24, 64, sk.CONFIG)
+    check("24h Halle ist ein Zeitrennen im Becken",
+          [(e.name, e.standort, e.art1, e.art2, e.dauer_h, e.laenge_km, e.datum_ende) for e in ev],
+          [("24h Friedberg", "Friedberg", "Schwimmen", "Becken", 24.0, None, "2026-09-26")])
+    dsr = {"name": "Urban Challenge Berlin", "datum_start": "2026-09-27", "datum_ende": None,
+           "land": "Berlin", "links": ["https://www.urban-challenge.de/"]}
+    ev = sk.build_events(dsr, 69, sk.CONFIG)
+    check("SwimRun ist Triathlon/Swimrun", [(e.art1, e.art2, e.standort) for e in ev],
+          [("Triathlon", "Swimrun", "Berlin")])
+    ev = sk.build_events({"name": "Seeschwimmen (2k)", "datum_start": "2027-06-01", "datum_ende": None,
+                          "land": "Bayern", "links": []}, 63, sk.CONFIG)
+    check("ohne erkennbaren Ort keine Zeile", ev, [])
+    check("Kategorie-URL", sk.kategorie_url(63, "1"),
+          "https://www.schwimmkalender.de/sk_kalender/main/main.php?d=0&Action=views/start.php&fOK=userevents|63|63|63|63&id=1")
+
+
 def test_neue_quellen() -> None:
     """Die Scraper vom 22.09.2026 (endure-cycling, ÖLV, Sparkasse Running,
     Laufkalender NWS, lauftermine.ch): die Parser, die am Bestand der
@@ -2594,6 +2748,7 @@ def main() -> int:
                  test_zwei_sportarten_im_namen, test_audit_pruefungen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
+                 test_schwimmen_regeln, test_schwimmkalender,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

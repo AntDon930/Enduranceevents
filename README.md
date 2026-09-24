@@ -1247,14 +1247,27 @@ danach noch ein Portallink ist, geht durch `scripts/veranstalter_links.py`.
 | `laufkalender-schweiz.ch` | keine robots.txt, Impressum ohne Verbot | **keine Daten**: die Seite lädt über `/api/events?filter=…`, die Antwort ist bei jedem Filter leer (Kalender offenbar nicht mehr gepflegt) |
 | `wlv.or.at` Laufkalender | robots.txt frei | Kalender leer („Es konnten keine passenden Einträge gefunden werden“), regional; der ÖLV-Kalender deckt Wien ab |
 | `triathlon-austria.at` Termine | robots.txt frei | nur drei Verbandstermine; Österreichs Triathlons kommen über endure und running.life |
-| `openwaterschwimmen.com` | robots.txt frei (`Crawl-delay: 10`) | **veraltet**: „Veranstaltungen 2021 kommen in Kürze!“ |
+| `openwaterschwimmen.com` | robots.txt frei (`Crawl-delay: 10`) | **veraltet**: „Veranstaltungen 2021 kommen in Kürze!“ – am 24.09.2026 erneut geprüft (vom Nutzer verlinkt): die Event-Seiten DE/AT sind leer („Events 2021 Coming soon“), die Schweiz-Seite hinter einem Bot-Check, „Cups & Serien“ nennt nur die NAMEN der Serien (Alpen Open Water Cup, Freiwassercup Bayern, Allrounder-MV, Austria Swim Open, Alpen Adria Swim Cup, Bodensee Open Water Cup, Austrian Open Water Majors, Swiss OpenWater-Cup) – als Wegweiser zu den Serien brauchbar, als Datenquelle nicht |
+| `schwimmkalender.de` (Freiwasser, 24h-Schwimmen, Winterschwimmen, SwimRun) | robots.txt frei (kein `Disallow`), Datenschutz: „privat, unkommerziell … zum Zwecke der Verbreitung von Terminen“, kein Verbot | **`schwimmkalender_scraper.py`** (24.09.2026, vom Nutzer verlinkt). Früher als „sperrt den Abruf“ abgelegt – tatsächlich bindet die Seite ihre Sitzung an die IP-Adresse, und die Sandbox wechselt sie je Verbindung; über EINE Verbindung und GET-Aufrufe geht es (Modul-Doku). Im September 2026 nur 21 künftige Termine (2 Freiwasser, 18 24h-Halle, 1 SwimRun) – die Saison 2027 kommt erst im Frühjahr |
+| `swimevents.de` | robots.txt frei | **kein Kalender**: die Seite des Zeitnehmers/Ausrichters SG Ruhr (Jan Wybrands) mit ihren fünf Bochumer Becken-Wettkämpfen (Stadtmeisterschaften, XMAS-Race, Bochum-Cup, arenameet) – Meisterschaften und DSV-Wettkämpfe, nichts für Jedermann; nicht gelesen |
+| `alpen-open-watercup.de/veranstaltungen-2/` (arena Alpen Open Water Cup, 9 Rennen DE/AT) | robots.txt frei; Impressum: „Downloads und Kopien … nur für den privaten, nicht kommerziellen Gebrauch“, kein Scraping-Verbot | **Kandidat** (24.09.2026): eine Seite mit allen Rennen 2027 – Ort, Cupstrecke, Termin, Veranstalterseite je Rennen (Simssee 4 km, Waginger See ~5 km, Tegernsee 5 km, Achensee 9 km, Trumer See 3 km, Burghausen 3,8 km, Chiemsee Vollmond 2 km, Hechtsee Kufstein 3,8 km, Chiemsee 4,5 km). Die Rennen haben je eine eigene Seite mit weiteren Strecken. Kein Scraper ohne Ja des Nutzers |
+| `bayerischer-schwimmverband.de/…/freiwassercup/` (Freiwassercup Bayern, „Schwimmen für Jedermann“) | robots.txt frei | **Kandidat**: zwei Durchgänge im Jahr (2026: Lieblsee Parkstetten 06.06., Wöhrsee Burghausen 25.07.; 2,5/3,8/5/7,5 km), Termine 2027 noch nicht drin; die Durchgänge sind zugleich „Int. Bayerische Meisterschaften“ – der Jedermann-Cup läuft daneben |
+| `bodensee-openwater.com` | robots.txt frei | die drei Bodensee-Termine 2027 stehen schon in `events.json` (Seed-Links) |
+| `openwaterserie.com` (Austrian Open Water Cup / Majors) | robots.txt frei, `Crawl-Delay: 5` | **veraltet**: Stand „Saison 2024“, „Save the date 2025“ |
+| `swim-emotions.ch` (Swiss OpenWater-Cup, laut Websuche „alle Seeschwimmen der Schweiz außerhalb von Swiss Swimming“) | – | aus der Sandbox nicht erreichbar (Proxy 502) – vom Rechner aus prüfen |
+| `open-water-swims.com/de/` (Karte, „281 Rennen in 39 Ländern“) | robots.txt frei | Nuxt-Anwendung ohne lesbaren Inhalt, Nutzungsbedingungen nicht gefunden – nur mit API-Analyse lesbar, offen |
+| `swimrun-advice.com/swimrun-calendar-europe-2027.html` (SwimRun-Kalender Europa, englisch) | robots.txt frei (nur `/cgi-bin/`) | **Kandidat** für SwimRun (= Triathlon/Swimrun): nennt ÖTILLÖ Rügen und Engadin, Backwaterman, Rheinsberg, Arendsee, Urban Challenge Berlin/Düsseldorf, Hof, Riverthlon – redaktionelle Liste, Termine oft „TBC“ |
+| `schwimmverband.nrw`, `norddeutscherschwimmverband.de`, `dsv.de` | – | Verbandsseiten: Meisterschaften und Verbandstermine, keine Jedermann-Kalender (DSV-Kalender bleibt gesperrt, siehe oben) |
+| `event.com.de/schwimm-events-…` | robots.txt frei | SEO-Textseite ohne Termine |
 | `laufevent.at`, `trophyrunners.de/.com` | aus der Sandbox nicht erreichbar (Verbindung abgebrochen / Proxy-Fehler) | offen – vom Rechner aus prüfen |
 
 Vorher geprüft und ausgeschlossen (sperren den Abruf oder verbieten
 ihn ausdrücklich; auf Wunsch des Nutzers nicht in der Liste):
-radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
-hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
-swiss-cycling.ch, ahotu.com.
+radsport-events.de, tri2b.com, triafreunde.com,
+hdsports.org, datasport.com, rad-net.de,
+swiss-cycling.ch, ahotu.com. (`schwimmkalender.de` und
+`alpen-open-watercup.de` standen hier bis zum 24.09.2026 – beide sind
+erreichbar und verbieten nichts, siehe die Tabelle oben.)
 
 Je Quelle vor dem Bau: Nutzungsbedingungen/Impressum auf ein
 Scraping-Verbot durchsehen, Detailseiten auf Veranstalter-Link und

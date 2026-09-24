@@ -77,13 +77,15 @@ from scraper_lib import (  # noqa: E402
     ENRICHABLE_FIELDS,
     EVENTS_JSON_PATH,
     GEOCODE_CACHE_PATH,
-    MIN_DISTANCE_ART1,
+    MIN_DISTANCE_BY_ART1,
     MIN_DISTANCE_KM,
     Geocoder,
     SiteConfig,
     guess_art1,
     guess_art2,
     ist_charity,
+    ist_nicht_offen_schwimmen,
+    ist_zu_kurz,
     guess_land,
     is_portal_link,
     is_same_event,
@@ -1328,25 +1330,43 @@ def clear_backyard_lap_km(events: list[dict]) -> tuple[list[str], list[str]]:
 
 
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
-    """Entfernt zu kurze LAUF-Events. Andere Sportarten sind bewusst
-    ausgenommen: 3,5 km Freiwasserschwimmen sind eine ernsthafte Distanz,
-    ein 3,5-km-Lauf nicht (siehe MIN_DISTANCE_ART1 in scraper_lib.py)."""
+    """Entfernt Zeilen unter der Mindestdistanz ihrer Sportart
+    (MIN_DISTANCE_BY_ART1: Laufen 5 km, seit dem 24.09.2026 Schwimmen
+    500 m). Fahrrad und Triathlon haben keine: 3,5 km Freiwasserschwimmen
+    sind eine ernsthafte Distanz, und der 300-m-Schwimmteil eines
+    Super-Sprints ist keine Schwimmveranstaltung. Ein Zeitrennen ist nie
+    "zu kurz": beim 24-Stunden-Lauf auf einer 1-km-Runde ist die
+    Rundenlänge keine Wettkampfdistanz (`scraper_lib.ist_zu_kurz`)."""
     kept, dropped = [], []
     for event in events:
         km = event.get("laenge_km")
         too_short = (
             isinstance(km, (int, float))
-            and km < MIN_DISTANCE_KM
-            and event.get("art1") == MIN_DISTANCE_ART1
-            # Ein Zeitrennen ist nie "zu kurz": beim 24-Stunden-Lauf auf
-            # einer 1-km-Runde ist die Rundenlänge keine Wettkampfdistanz.
-            and event.get("dauer_h") is None
+            and ist_zu_kurz(event.get("art1"), km, event.get("dauer_h"))
         )
         if too_short:
-            dropped.append(f"{event.get('name')} ({km} km)")
+            dropped.append(f"{event.get('name')} ({km} km, {event.get('art1')})")
         else:
             kept.append(event)
     return kept, dropped
+
+
+def drop_nicht_offen_schwimmen(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Entfernt Schwimm-Meisterschaften - das Gegenstück zu
+    `scraper_lib.filter_nicht_offen_schwimmen()` für den Bestand (vom
+    Nutzer am 24.09.2026 entschieden: nur Schwimm-Events, für die sich
+    jeder anmelden kann). Nur `art1 == "Schwimmen"`, jede Zeile wird
+    gemeldet."""
+    kept: list[dict] = []
+    entfernt: list[str] = []
+    for event in events:
+        grund = ist_nicht_offen_schwimmen(event.get("art1"), event.get("name"),
+                                          event.get("wettbewerb"))
+        if grund:
+            entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
+        else:
+            kept.append(event)
+    return kept, entfernt
 
 
 # Distanzen, die ein Veranstaltungsname selbst ankündigt. Steht das Wort im
@@ -1776,6 +1796,7 @@ def main() -> None:
     # verpassen.
     events, nicht_ausdauer = drop_nicht_ausdauer(events)
     events, staffeln = drop_staffeln(events)
+    events, nicht_offen = drop_nicht_offen_schwimmen(events)
     multisport_fixes = fix_multisport_art1(events)
     # Nach fix_multisport_art1: Ein Triathlon ist zuerst ein Triathlon;
     # erst danach ist ein "Rad 50 km" bei einer LAUFveranstaltung ein
@@ -1849,6 +1870,7 @@ def main() -> None:
     section("Per Override ausgeschlossen", excluded)
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Staffeln entfernt (erst einmal keine Staffeln)", staffeln)
+    section("Schwimm-Meisterschaften entfernt (nicht für jeden offen)", nicht_offen)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Sportart korrigiert (Label nennt eine andere Sportart)",
             fremde_sportart)
@@ -1864,7 +1886,9 @@ def main() -> None:
     section("Backyard: Rundenlänge aus der Distanz entfernt", backyard_cleared)
     section("⚠ Backyard mit großer Distanzangabe (nur Hinweis)", backyard_check)
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
-    section(f"Unter {MIN_DISTANCE_KM:g} km entfernt ({MIN_DISTANCE_ART1})", too_short)
+    section("Unter der Mindestdistanz entfernt (Laufen "
+            f"{MIN_DISTANCE_KM:g} km, Schwimmen {MIN_DISTANCE_BY_ART1['Schwimmen']:g} km)",
+            too_short)
     section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
     section("⚠ Gleicher Tag, Ort und Distanz unter anderem Namen (nur Hinweis)",
