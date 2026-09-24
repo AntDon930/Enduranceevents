@@ -43,13 +43,19 @@ die Serie („2026 Donnerstagsrennen Serie") ohne Datum. Die Rennseite
 
 Was daraus wird
 ---------------
-* **Nur Jedermann- und Hobbyklassen.** Ein Lizenzrennen ist nicht
-  offen: „Es soll jeder die Chance haben sich anzumelden" (Nutzer,
-  21.09.2026, zu Läufen; hier genauso). Ein Rennen, das NUR Lizenz-
-  klassen ausschreibt (Obergünzburger Rundstreckenrennen), fällt
-  weg - mit Meldung. Wer das umdrehen will: `OFFENE_KLASSEN`.
-* Je verschiedener Distanz der offenen Klassen EIN Eintrag (Datenregel
-  1); das Label ist die Klasse samt Distanz („Jedermann 30 km").
+* **Alle Klassen, auch die Lizenzklassen** (vom Nutzer am 24.09.2026
+  entschieden: „Bitte auch die mit BDR Lizenz aufnehmen"). Die erste
+  Fassung nahm nur Jedermann- und Hobbyklassen, weil ein Lizenzrennen
+  die BDR-Lizenz verlangt; der Nutzer will sie trotzdem in der Liste -
+  wer eine Lizenz hat, sucht sein Rennen genauso. Die Klasse steht im
+  Label („Lizenzklasse 60 km"), damit man es sieht. Wer das umdrehen
+  will: `KLASSEN_FILTER` auf `OFFENE_KLASSEN` setzen.
+* Je verschiedener Distanz EIN Eintrag (Datenregel 1); das Label nennt
+  die Klassen, die über diese Distanz fahren, samt Distanz („Lizenzklasse
+  / Jedermann 30 km"). Zwei Zeilen für Lizenz und Jedermann über dieselbe
+  Distanz gehen nicht: `dedupe_key()` (Name + Datum + Distanz) und der
+  Kalender-Dateiname kennen kein Label, die zweite Zeile fiele beim
+  Einsammeln weg bzw. hätte dieselbe `.ics`-Datei.
 * **Der Ort steht nicht auf der Seite.** Er kommt aus dem NAMEN
   („Obergünzburger", „Schwabacher Stadtparkrennen", „Dachau") - ein
   Wort des Namens, notfalls ohne die Adjektivendung (-er, -ener), muss
@@ -102,8 +108,12 @@ EVENTS_URL = f"{BASE_URL}/events"
 PLACES_PATH = Path(__file__).resolve().parent.parent / "places.json"
 REGION = "Bayern"
 
-# Spalte "Wettbewerb": wer starten darf. Lizenzklassen sind nicht offen.
+# Spalte "Wettbewerb": wer starten darf. Lizenzklassen brauchen die
+# BDR-Lizenz; seit dem 24.09.2026 kommen sie trotzdem mit (Entscheidung
+# des Nutzers). KLASSEN_FILTER = OFFENE_KLASSEN liefert wieder nur
+# Jedermann und Hobby.
 OFFENE_KLASSEN = re.compile(r"jedermann|hobby", re.I)
+KLASSEN_FILTER: "re.Pattern | None" = None
 
 # Linktexte, hinter denen die Veranstalterseite steht (nicht rad-net,
 # nicht Datasport, nicht Komoot).
@@ -261,40 +271,55 @@ def parse_rennseite(html: str) -> dict:
             km = round_km(float(mk.group(1).replace(",", "."))) if mk else None
             if not OFFENE_KLASSEN.search(zellen[iw]):
                 lizenz += 1
-                continue
+                if KLASSEN_FILTER is not None and not KLASSEN_FILTER.search(zellen[iw]):
+                    continue
             klassen.append({"klasse": zellen[iw], "kategorie": zellen[ikat], "km": km})
     return {"name": name, "datum": datum, "veranstalter_url": veranstalter_url,
             "klassen": klassen, "lizenzklassen": lizenz}
 
 
+KLASSEN_REIHENFOLGE = ["Lizenzklasse", "Jedermann", "Hobbyklasse"]
+
+
+def klassen_name(wettbewerb: str) -> str:
+    """Die Spalte „Wettbewerb" auf drei Werte gebracht: Hobbyklasse, Jedermann, sonst Lizenzklasse."""
+    if re.search(r"hobby", wettbewerb, re.I):
+        return "Hobbyklasse"
+    if re.search(r"jedermann", wettbewerb, re.I):
+        return "Jedermann"
+    return "Lizenzklasse"
+
+
 def events_aus_rennseite(seite: dict, url: str, datum_nav: str | None,
                          config: SiteConfig, orte: dict | None = None) -> tuple[list[Event], str | None]:
-    """Ein Event je verschiedener Distanz der offenen Klassen - oder ([], Grund)."""
+    """Ein Event je Klasse und Distanz - oder ([], Grund)."""
     name = seite.get("name")
     datum = seite.get("datum") or datum_nav
     if not name or not datum:
         return [], "kein Name/Datum"
     if not seite["klassen"]:
-        return [], ("nur Lizenzklassen" if seite["lizenzklassen"] else "keine Ausschreibungstabelle (vorbei?)")
+        return [], ("nur Lizenzklassen (ausgefiltert)" if seite["lizenzklassen"] else "keine Ausschreibungstabelle (vorbei?)")
     ort = (ort_aus_name(name, orte) or ort_aus_slug(url, orte)
            or ort_aus_host(seite.get("veranstalter_url"), orte))
     if not ort:
         return [], "Ort nicht erkennbar"
     standort, lat, lon = ort
     events: list[Event] = []
-    gesehen: set = set()
+    je_km: dict = {}
     for k in seite["klassen"]:
-        schluessel = k["km"]
-        if schluessel in gesehen:
-            continue
-        gesehen.add(schluessel)
-        klasse = "Hobbyklasse" if re.search(r"hobby", k["klasse"], re.I) else "Jedermann"
-        label = f"{klasse} {k['km']:g} km" if k["km"] else klasse
+        eintrag = je_km.setdefault(k["km"], {"klassen": [], "kategorien": []})
+        klasse = klassen_name(k["klasse"])
+        if klasse not in eintrag["klassen"]:
+            eintrag["klassen"].append(klasse)
+        eintrag["kategorien"].append(k["kategorie"])
+    for km, eintrag in je_km.items():
+        klassen = " / ".join(sorted(eintrag["klassen"], key=KLASSEN_REIHENFOLGE.index))
+        label = f"{klassen} {km:g} km" if km else klassen
         ev = Event(land="Deutschland", name=name, standort=standort, lat=lat, lon=lon,
                    art1="Fahrrad", datum_start=datum, datum_ende=datum,
-                   laenge_km=k["km"], wettbewerb=label,
+                   laenge_km=km, wettbewerb=label,
                    veranstalter_url=seite.get("veranstalter_url") or url)
-        ev.art2 = guess_art2(f"{name} {k['kategorie']}", config, "Fahrrad") or "Straße"
+        ev.art2 = guess_art2(f"{name} {' '.join(eintrag['kategorien'])}", config, "Fahrrad") or "Straße"
         events.append(ev)
     return events, None
 
@@ -327,7 +352,7 @@ def fetch_turbosport_events(session, config, delay, max_pages, render_js) -> lis
         print(f"\n  Übersprungen ({len(uebersprungen)}):")
         for zeile in uebersprungen:
             print(f"   - {zeile}")
-    print(f"\n→ {len(events)} offene Wettbewerbe aus {len(liste)} Rennseiten.")
+    print(f"\n→ {len(events)} Wettbewerbe aus {len(liste)} Rennseiten.")
     return events
 
 

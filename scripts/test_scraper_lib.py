@@ -2767,19 +2767,35 @@ def test_turbosport() -> None:
     seite = ts.parse_rennseite(seite_html)
     assert seite["name"] == "Großer Fritz Neuser Preis" and seite["datum"] == "2026-10-03", seite
     assert seite["veranstalter_url"] == "https://rcherpersdorf.de/veranstaltungen/stadtparkrennen-schwabach/"
-    assert seite["lizenzklassen"] == 1 and [k["km"] for k in seite["klassen"]] == [30.0, 30.0, 20.2]
+    # Seit dem 24.09.2026 kommen die Lizenzklassen mit ("Bitte auch die mit BDR Lizenz aufnehmen").
+    assert seite["lizenzklassen"] == 1 and [k["km"] for k in seite["klassen"]] == [60.0, 30.0, 30.0, 20.2]
     orte = {"schwabach": [("Schwabach", 49.331, 11.024)], "prien am chiemsee": [("Prien am Chiemsee", 47.856, 12.346)],
             "obergünzburg": [("Obergünzburg", 47.846, 10.418)], "burggen": [("Burggen", 47.777, 10.817)],
             "schönberg": [("Schönberg", 1.0, 1.0), ("Schönberg", 2.0, 2.0)], "landshut": [("Landshut", 48.538, 12.146)]}
     # Der Name nennt keinen Ort - der Pfad der Rennseite tut es.
     evs, grund = ts.events_aus_rennseite(seite, "https://turbo-sport.eu/events/schwabacher-stadtparkrennen", None, ts.CONFIG, orte)
-    assert grund is None and len(evs) == 2, (grund, evs)
+    assert grund is None and len(evs) == 3, (grund, evs)
     assert {(e.standort, e.laenge_km, e.wettbewerb, e.art2) for e in evs} == {
-        ("Schwabach", 30.0, "Jedermann 30 km", "Straße"), ("Schwabach", 20.2, "Hobbyklasse 20,2 km".replace(",", "."), "Straße")}, evs
+        ("Schwabach", 60.0, "Lizenzklasse 60 km", "Straße"),
+        ("Schwabach", 30.0, "Jedermann 30 km", "Straße"), ("Schwabach", 20.2, "Hobbyklasse 20.2 km", "Straße")}, evs
     assert evs[0].lat == 49.331 and evs[0].datum_start == "2026-10-03"
-    # Nur Lizenzklassen -> kein Eintrag, mit Grund; Ergebnisseite (keine Tabelle) ebenso.
-    seite2 = dict(seite, klassen=[], lizenzklassen=3)
-    assert ts.events_aus_rennseite(seite2, "https://turbo-sport.eu/events/x", None, ts.CONFIG, orte) == ([], "nur Lizenzklassen")
+    # Lizenz und Jedermann über DIESELBE Distanz: eine Zeile, das Label nennt beide
+    # (dedupe_key und ICS-Dateiname kennen kein Label).
+    seite_gleich = dict(seite, klassen=[{"klasse": "Lizenzklasse", "kategorie": "U17", "km": 30.0},
+                                        {"klasse": "Jedermann", "kategorie": "Jedermann", "km": 30.0},
+                                        {"klasse": "Hobbyklasse", "kategorie": "Hobby", "km": 30.0}])
+    evs_gleich, _ = ts.events_aus_rennseite(seite_gleich, "https://turbo-sport.eu/events/schwabacher-stadtparkrennen", None, ts.CONFIG, orte)
+    assert [e.wettbewerb for e in evs_gleich] == ["Lizenzklasse / Jedermann / Hobbyklasse 30 km"], evs_gleich
+    # Mit KLASSEN_FILTER = OFFENE_KLASSEN bleibt es beim alten Verhalten (umkehrbar).
+    ts.KLASSEN_FILTER = ts.OFFENE_KLASSEN
+    try:
+        nur_offen = ts.parse_rennseite(seite_html)
+        assert [k["km"] for k in nur_offen["klassen"]] == [30.0, 30.0, 20.2] and nur_offen["lizenzklassen"] == 1
+        seite2 = dict(seite, klassen=[], lizenzklassen=3)
+        assert ts.events_aus_rennseite(seite2, "https://turbo-sport.eu/events/x", None, ts.CONFIG, orte) == ([], "nur Lizenzklassen (ausgefiltert)")
+    finally:
+        ts.KLASSEN_FILTER = None
+    # Ergebnisseite (keine Tabelle) liefert nichts.
     seite3 = dict(seite, klassen=[], lizenzklassen=0)
     assert ts.events_aus_rennseite(seite3, "https://turbo-sport.eu/events/x", None, ts.CONFIG, orte)[1].startswith("keine Ausschreibungstabelle")
     # Ort aus dem Namen: Adjektivendung, laufende Nummer, Mehrdeutigkeit, Hostname.
@@ -2796,7 +2812,7 @@ def test_turbosport() -> None:
     assert ts.events_aus_rennseite(seite4, "https://turbo-sport.eu/events/kampenkoenig", None, ts.CONFIG, orte) == ([], "Ort nicht erkennbar")
     from scraper_lib import is_portal_link
     assert is_portal_link("https://turbo-sport.eu/events/augsburg")
-    print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, offene Klassen, Ort aus Name/Pfad/Host")
+    print("  ✓ turbo-sport.eu: Navigation, Ausschreibungstabelle, alle Klassen (Lizenz eigene Zeile), Ort aus Name/Pfad/Host")
 
 
 def test_radsportevents() -> None:
