@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-24-apfellauf-der-kelterei-heil-10km-weilmunster-laubuseschb
+ ach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:24. Apfellauf der Kelterei Heil
+LOCATION:Weilmünster-Laubuseschbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.kelterei-h
+ eil.de
+TRANSP:TRANSPARENT
+URL:http://www.kelterei-heil.de
+END:VEVENT
+END:VCALENDAR

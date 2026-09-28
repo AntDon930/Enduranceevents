@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-stadtwerke-dusseldorf-familientriathlon-30km-dusseldorf@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Stadtwerke Düsseldorf Familientriathlon – Sprintdistanz 30 km
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30 km\nhttps://swd-famili
+ entriathlon.de
+TRANSP:TRANSPARENT
+URL:https://swd-familientriathlon.de
+END:VEVENT
+END:VCALENDAR

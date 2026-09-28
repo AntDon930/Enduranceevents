@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-wachtelrun-volkslauf-mit-hauptlauf-und-schulerla-10km-liede
+ rbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Wachtelrun - Volkslauf mit Hauptlauf und Schülerläufen & Nordic Wa
+ lking
+LOCATION:Liederbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-niede
+ rhofheim.de/wachtel-run
+TRANSP:TRANSPARENT
+URL:https://www.tsg-niederhofheim.de/wachtel-run
+END:VEVENT
+END:VCALENDAR

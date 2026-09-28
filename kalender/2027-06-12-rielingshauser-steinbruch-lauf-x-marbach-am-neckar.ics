@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-rielingshauser-steinbruch-lauf-x-marbach-am-neckar@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Rielingshäuser Steinbruch-Lauf
+LOCATION:Marbach am Neckar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
+ /421388/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/421388/
+END:VEVENT
+END:VCALENDAR

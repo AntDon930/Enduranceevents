@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-rheinland-pfalz-meisterschaften-5km-u16-5km-fohren@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Rheinland-Pfalz Meisterschaften 5km U16
+LOCATION:Föhren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/rheinland-pfalz-meisterschaften-5km-u16
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften
+ -5km-u16
+END:VEVENT
+END:VCALENDAR

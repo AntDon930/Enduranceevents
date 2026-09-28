@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-crosslaufserie-vulkaneifel-2027-lauf-1-8-8km-mehren@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Crosslaufserie Vulkaneifel 2027 (Lauf 1)
+LOCATION:Mehren\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.8 km\nhttps://lauf-anmeldun
+ g.de/anmeldung/anmeldung.php?vname=MehrenCross27
+TRANSP:TRANSPARENT
+URL:https://lauf-anmeldung.de/anmeldung/anmeldung.php?vname=MehrenCross27
+END:VEVENT
+END:VCALENDAR

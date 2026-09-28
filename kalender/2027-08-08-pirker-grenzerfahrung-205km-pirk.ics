@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-pirker-grenzerfahrung-205km-pirk@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Pirker GRENZErfahrung – Radmarathon 205 km
+LOCATION:Pirk\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 205 km\nhttp://grenzerfahru
+ ng.vcc-pirk.de/
+TRANSP:TRANSPARENT
+URL:http://grenzerfahrung.vcc-pirk.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-altenmunster-halbmarathon-21-1km-altenmunster@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Altenmünster Halbmarathon
+LOCATION:Altenmünster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sc-alte
+ nmuenster.com/halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.sc-altenmuenster.com/halbmarathon/
+END:VEVENT
+END:VCALENDAR

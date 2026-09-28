@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-crossmania-1-prutzke-0-5h-kloster-lehnin-prutzke@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Crossmania #1 - Prützke – Cyclocross 0.5 h
+LOCATION:Kloster Lehnin-Prützke\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://crossman
+ ia.de/1crossmania
+TRANSP:TRANSPARENT
+URL:https://crossmania.de/1crossmania
+END:VEVENT
+END:VCALENDAR

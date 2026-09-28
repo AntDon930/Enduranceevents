@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-gravelrennen-des-rc-1886-villingen-40km-monchweiler@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Gravelrennen des RC 1886 Villingen – Gravel Race 40 km
+LOCATION:Mönchweiler\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 40 km\nhttps://rc-villingen
+ .eu/2026/09/07/lets-gravel/
+TRANSP:TRANSPARENT
+URL:https://rc-villingen.eu/2026/09/07/lets-gravel/
+END:VEVENT
+END:VCALENDAR

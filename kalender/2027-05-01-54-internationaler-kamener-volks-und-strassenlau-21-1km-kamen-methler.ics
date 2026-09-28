@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-54-internationaler-kamener-volks-und-strassenlau-21-1km-kam
+ en-methler@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:54. Internationaler Kamener Volks- und Straßenlauf
+LOCATION:Kamen-Methler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.tvg-kais
+ erau.de
+TRANSP:TRANSPARENT
+URL:http://www.tvg-kaiserau.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-30-blankenburger-regensteinlauf-139km-blankenburg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:30. Blankenburger Regensteinlauf
+LOCATION:Blankenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 139 km\nhttp://leichtathleti
+ k-blankenburg.de
+TRANSP:TRANSPARENT
+URL:http://leichtathletik-blankenburg.de
+END:VEVENT
+END:VCALENDAR

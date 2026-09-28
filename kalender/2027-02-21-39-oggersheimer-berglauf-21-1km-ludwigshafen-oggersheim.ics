@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-39-oggersheimer-berglauf-21-1km-ludwigshafen-oggersheim@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:39. Oggersheimer Berglauf – Halbmarathon
+LOCATION:Ludwigshafen-Oggersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://laufen.de/la
+ ufkalender/details/39-oggersheimer-berglauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/39-oggersheimer-berglauf
+END:VEVENT
+END:VCALENDAR

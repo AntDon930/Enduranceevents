@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-feldbergfestlauf-6-3km-schmitten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270621
+SUMMARY:Feldbergfestlauf
+LOCATION:Schmitten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.3 km\nhttps://feldbergfest
+ .de/
+TRANSP:TRANSPARENT
+URL:https://feldbergfest.de/
+END:VEVENT
+END:VCALENDAR

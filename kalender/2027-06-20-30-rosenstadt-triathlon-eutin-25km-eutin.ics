@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-30-rosenstadt-triathlon-eutin-25km-eutin@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:30. Rosenstadt-Triathlon Eutin – Sprintdistanz 25 km
+LOCATION:Eutin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25 km\nhttps://rosenstadt
+ -triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://rosenstadt-triathlon.de/
+END:VEVENT
+END:VCALENDAR

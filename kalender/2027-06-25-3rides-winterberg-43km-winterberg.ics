@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-3rides-winterberg-43km-winterberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270628
+SUMMARY:3RIDES Winterberg – Gravel 43 km
+LOCATION:Winterberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 43 km\nhttps://winterberg.3
+ rides.de
+TRANSP:TRANSPARENT
+URL:https://winterberg.3rides.de
+END:VEVENT
+END:VCALENDAR

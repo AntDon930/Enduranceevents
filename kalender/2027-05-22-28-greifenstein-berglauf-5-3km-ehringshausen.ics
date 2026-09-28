@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-28-greifenstein-berglauf-5-3km-ehringshausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:28. Greifenstein Berglauf
+LOCATION:Ehringshausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.3 km\nhttps://www.berglauf-
+ greifenstein.de/
+TRANSP:TRANSPARENT
+URL:https://www.berglauf-greifenstein.de/
+END:VEVENT
+END:VCALENDAR

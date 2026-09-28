@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-9-wybelsumer-polderlauf-10km-emden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:9. Wybelsumer Polderlauf – 10 km Lauf
+LOCATION:Emden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/9-wybelsumer-polderlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/9-wybelsumer-polderlauf
+END:VEVENT
+END:VCALENDAR

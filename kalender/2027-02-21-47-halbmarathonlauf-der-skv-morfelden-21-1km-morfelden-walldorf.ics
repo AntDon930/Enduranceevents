@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-47-halbmarathonlauf-der-skv-morfelden-21-1km-morfelden-wall
+ dorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:47. Halbmarathonlauf der SKV Mörfelden
+LOCATION:Mörfelden-Walldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.lg-mw.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-mw.de
+END:VEVENT
+END:VCALENDAR

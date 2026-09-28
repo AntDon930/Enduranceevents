@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-44-fischbachtal-lauf-12-6km-fischbachtal-odw@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:44. Fischbachtal-Lauf
+LOCATION:Fischbachtal/Odw.\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.6 km\nhttps://fc-niedernh
+ ausen.de/fischbachtallauf/
+TRANSP:TRANSPARENT
+URL:https://fc-niedernhausen.de/fischbachtallauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-37-hamelner-cross-winterlaufserie-5km-hameln@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:37. Hamelner Cross-Winterlaufserie
+LOCATION:Hameln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.esv-eintrac
+ ht-hameln.de/
+TRANSP:TRANSPARENT
+URL:https://www.esv-eintracht-hameln.de/
+END:VEVENT
+END:VCALENDAR

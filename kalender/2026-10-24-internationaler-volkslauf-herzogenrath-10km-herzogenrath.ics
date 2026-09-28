@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-internationaler-volkslauf-herzogenrath-10km-herzogenrath@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Internationaler Volkslauf Herzogenrath – 10 km Volks- und Straßenl
+ auf
+LOCATION:Herzogenrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.djk-herzog
+ enrath.de/news/1/1287732/nachrichten/volkslauf-2026-am-24.-oktober.html
+TRANSP:TRANSPARENT
+URL:http://www.djk-herzogenrath.de/news/1/1287732/nachrichten/volkslauf-20
+ 26-am-24.-oktober.html
+END:VEVENT
+END:VCALENDAR

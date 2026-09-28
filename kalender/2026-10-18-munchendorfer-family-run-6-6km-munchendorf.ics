@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-munchendorfer-family-run-6-6km-munchendorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Münchendorfer Family Run
+LOCATION:Münchendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttp://www.muenchend
+ orf.gv.at
+TRANSP:TRANSPARENT
+URL:http://www.muenchendorf.gv.at
+END:VEVENT
+END:VCALENDAR

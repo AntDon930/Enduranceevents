@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-31-michelsmarktlauf-9-6km-reichelsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:31. Michelsmarktlauf
+LOCATION:Reichelsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttps://laufen.de/la
+ ufkalender/details/31-michelsmarktlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/31-michelsmarktlauf
+END:VEVENT
+END:VCALENDAR

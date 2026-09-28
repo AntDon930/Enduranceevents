@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-11-hochkippenlauf-5km-profen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:11. Hochkippenlauf
+LOCATION:Profen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/11-hochkippenlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/11-hochkippenlauf
+END:VEVENT
+END:VCALENDAR

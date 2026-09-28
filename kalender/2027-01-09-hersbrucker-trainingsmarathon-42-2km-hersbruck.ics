@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-hersbrucker-trainingsmarathon-42-2km-hersbruck@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Hersbrucker Trainingsmarathon
+LOCATION:Hersbruck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://mtp-hersbruc
+ k.de/
+TRANSP:TRANSPARENT
+URL:http://mtp-hersbruck.de/
+END:VEVENT
+END:VCALENDAR

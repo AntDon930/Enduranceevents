@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-havelberg-triathlon-x-havelberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Havelberg Triathlon
+LOCATION:Havelberg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.havelbergt
+ riathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.havelbergtriathlon.de
+END:VEVENT
+END:VCALENDAR

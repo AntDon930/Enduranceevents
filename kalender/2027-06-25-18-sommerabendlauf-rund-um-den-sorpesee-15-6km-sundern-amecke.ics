@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-18-sommerabendlauf-rund-um-den-sorpesee-15-6km-sundern-amec
+ ke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:18. Sommerabendlauf "Rund um den Sorpesee"
+LOCATION:Sundern-Amecke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.6 km\nhttp://www.susgwame
+ cke.de
+TRANSP:TRANSPARENT
+URL:http://www.susgwamecke.de
+END:VEVENT
+END:VCALENDAR

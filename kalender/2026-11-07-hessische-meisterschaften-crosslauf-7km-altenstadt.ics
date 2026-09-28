@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-hessische-meisterschaften-crosslauf-7km-altenstadt@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Hessische Meisterschaften Crosslauf
+LOCATION:Altenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://laufen.de/laufk
+ alender/details/hessische-meisterschaften-crosslauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/hessische-meisterschaften-cross
+ lauf
+END:VEVENT
+END:VCALENDAR

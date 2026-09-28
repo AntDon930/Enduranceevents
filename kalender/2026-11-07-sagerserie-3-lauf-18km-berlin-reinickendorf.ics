@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-sagerserie-3-lauf-18km-berlin-reinickendorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Sägerserie - 3. Lauf
+LOCATION:Berlin-Reinickendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://saegerserie-b
+ erlin.de/
+TRANSP:TRANSPARENT
+URL:https://saegerserie-berlin.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-dm-marathon-42-2km-hannover@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:DM Marathon
+LOCATION:Hannover\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://laufen.de/l
+ aufkalender/details/dm-marathon
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/dm-marathon
+END:VEVENT
+END:VCALENDAR

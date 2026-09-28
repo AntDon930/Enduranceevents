@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-waldkater-cross-21km-weyhe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Waldkater Cross – Country Cross (20.12.2026)
+LOCATION:Weyhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://sv-weyhe.de/sp
+ ortangebote/leichtathletik-ausdauer/syke-weyher-crosslauf
+TRANSP:TRANSPARENT
+URL:https://sv-weyhe.de/sportangebote/leichtathletik-ausdauer/syke-weyher-
+ crosslauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-robert-hannemann-volkslauf-2026-10-1km-minden@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Robert-Hannemann-Volkslauf 2026
+LOCATION:Minden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.1 km\nhttp://www.sv1860mi
+ nden.de
+TRANSP:TRANSPARENT
+URL:http://www.sv1860minden.de
+END:VEVENT
+END:VCALENDAR

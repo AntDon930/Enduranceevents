@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-40-brunnenlauf-20-5km-bad-driburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:40. Brunnenlauf
+LOCATION:Bad Driburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.5 km\nhttps://www.tv-jahn
+ -bad-driburg.de/index.php
+TRANSP:TRANSPARENT
+URL:https://www.tv-jahn-bad-driburg.de/index.php
+END:VEVENT
+END:VCALENDAR

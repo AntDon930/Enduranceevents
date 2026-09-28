@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-obermain-marathon-12-5km-bad-staffelstein@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Obermain-Marathon – ABERIO-12\,5-km-Lauf
+LOCATION:Bad Staffelstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.sas-onl
+ ine.net/eventportal_bs/826/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/826/
+END:VEVENT
+END:VCALENDAR

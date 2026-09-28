@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-amberger-fruhlingslauf-mit-halbmarathon-und-10-k-21-1km-amb
+ erg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Amberger Frühlingslauf mit Halbmarathon und 10 Km
+LOCATION:Amberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
+ aufkalender/details/amberger-frühlingslauf-mit-halbmarathon-und-10-km
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/amberger-frühlingslauf-mit-halb
+ marathon-und-10-km
+END:VEVENT
+END:VCALENDAR

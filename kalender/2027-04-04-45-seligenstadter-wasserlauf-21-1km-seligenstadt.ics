@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-45-seligenstadter-wasserlauf-21-1km-seligenstadt@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:45. Seligenstädter Wasserlauf
+LOCATION:Seligenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.seligens
+ tadt-wasserlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.seligenstadt-wasserlauf.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-09-28-5k-move-it-5km-schwabisch-hall@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260928
+DTEND;VALUE=DATE:20260929
+SUMMARY:5k MOVE IT – 5\,0 km MOVE IT meets 3koenigslauf.de
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/5k-move-it
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/5k-move-it
+END:VEVENT
+END:VCALENDAR
