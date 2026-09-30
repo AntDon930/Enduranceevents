@@ -530,6 +530,14 @@ def test_duplikate() -> None:
     check("Kinderlauf gegen Hauptlauf: getrennt",
           is_same_event(dict(hb, wettbewerb="Mini Marathon", laenge_km=21.1),
                         dict(hb, wettbewerb="21,097 km Generali Halbmarathon", laenge_km=21.1)), False)
+    # "Jedermannrennen N km" (radsport-events) gegen den Wettbewerbsnamen
+    # einer anderen Quelle (datasport, 30.09.2026): dieselbe Strecke.
+    check("'Jedermannrennen 106 km' und '106 KM - Corso Medio': Duplikat",
+          is_same_event(dict(hb, art1="Fahrrad", wettbewerb="Jedermannrennen 106 km", laenge_km=106.0),
+                        dict(hb, art1="Fahrrad", wettbewerb="106 KM - Corso Medio", laenge_km=106.0)), True)
+    check("'Jedermanntriathlon' und '11 km': Duplikat",
+          is_same_event(dict(hb, art1="Triathlon", wettbewerb="Jedermanntriathlon", laenge_km=11.0),
+                        dict(hb, art1="Triathlon", wettbewerb="11 km", laenge_km=11.0)), True)
 
     # Hier trägt der Wettbewerbs-Name das unterscheidende Wort, und die
     # kürzere Wortmenge steckt komplett in der längeren.
@@ -3077,6 +3085,10 @@ def test_datasport() -> None:
         contest("Kurz", "Triathlon", "Andere", [("Run", 5000), ("Bike", 20000), ("Run", 2500)]),
         contest("Sprint", "Triathlon", "Andere", [("Swim", 750), ("Run", 5000)])]), dsp.CONFIG)
     assert [(e.art2, e.laenge_km) for e in du] == [("Duathlon", 27.5), ("Aquathlon", 5.8)], du
+    # Powerman Zofingen führt "Duathlon" als eigene Sportart - Mehrsport-Schublade (Datenregel 11).
+    pm = dsp.events_aus_objekt(dict(obj, contests=[
+        contest("Long Distance - OPEN", "Duathlon", "ITU Langdistanz", [("Run", 10000), ("Bike", 150000), ("Run", 30000)])]), dsp.CONFIG)
+    assert [(e.art1, e.art2, e.laenge_km) for e in pm] == [("Triathlon", "Duathlon", 190.0)], pm
     print("  ✓ datasport.com: sitemap, Flight-Objekt, Wettbewerbe, Mehrsport-Summe, Ausschlüsse, Namen")
 
 

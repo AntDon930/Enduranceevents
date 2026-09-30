@@ -58,9 +58,9 @@ Ausgabe (`_event_objekt()` schneidet es heraus):
 Was daraus wird
 ---------------
 * **Sportart aus `sportType`** (`SPORTART`), nicht aus dem Namen: Lauf →
-  Laufen, Rennrad/MTB/Bike → Fahrrad, Triathlon → Triathlon, Schwimmen →
-  Schwimmen. Andere Sportarten (Langlauf, Inline, Ski) werden übersprungen
-  und gezählt.
+  Laufen, Rennrad/MTB/Bike → Fahrrad, Triathlon und Duathlon → Triathlon
+  (Kategorie Duathlon), Schwimmen → Schwimmen. Andere Sportarten
+  (Langlauf, Ski & Snowboard, Hyathlon) werden übersprungen und gezählt.
 * **Je Wettbewerb ein Eintrag** (Datenregel 1), Länge = Summe der
   Teilstrecken (bei Mehrsport Datenregel 15; das Label nennt die
   Aufteilung: „Short Distance 22,9 km (0,5 km Schwimmen / 17 km Rad /
@@ -70,8 +70,11 @@ Was daraus wird
   Wettbewerbe (alle Altersklassen bis 17 Jahre oder ein Nachwuchswort im
   Namen: Kids, U12, Junior, Pfüderi …), Team-Formate (Staffel, Team
   Trophy, Couples, Gruppen, Firmen-Challenge - Datenregel 16), E-Bike-
-  Klassen, Wettbewerbe ohne jede Angabe zur Strecke UND ohne Namen, sowie
-  Italien außerhalb Südtirols (über die Koordinaten).
+  Klassen, Wettbewerbe ohne Strecke, die nur eine Anmeldeart sind
+  („Voranmeldung", „Warteliste"), Serien mit mehreren Orten im Ortsfeld
+  („Andorra / Selva Val Gardena / Riva del Garda" - eine Koordinate für
+  vier Länder), Länder außerhalb der vier Regionen (Liechtenstein,
+  Luxemburg) sowie Italien außerhalb Südtirols (über die Koordinaten).
 * **Walking-Wettbewerbe bleiben als Laufen** mit dem Zusatz im Label -
   dieselbe (offene) Linie wie bei den 145 Walking-Zeilen der Laufkalender
   (CLAUDE.md, offene Punkte 19).
@@ -123,8 +126,10 @@ MINDEST_PAUSE = 10.0
 # (die sitemap kippt nach den kommenden Ausgaben in die Vergangenheit).
 ABBRUCH_NACH_VERGANGENEN = 5
 
+# `sportType.name.de` → unsere Sportart. Duathlon ist die Mehrsport-Schublade
+# (Datenregel 11): Powerman Zofingen führt ihn als eigene Sportart.
 SPORTART = {"lauf": "Laufen", "rennrad": "Fahrrad", "mtb": "Fahrrad", "bike": "Fahrrad",
-            "triathlon": "Triathlon", "schwimmen": "Schwimmen"}
+            "triathlon": "Triathlon", "duathlon": "Triathlon", "schwimmen": "Schwimmen"}
 # Rückfall für die Kategorie, wenn Name und Disziplin nichts hergeben.
 SPORTTYP_ART2 = {"rennrad": "Straße", "mtb": "Mountainbike", "bike": "Mountainbike"}
 # Bezeichnungen der Teilstrecken (sections[].name) → Disziplin im Label.
@@ -135,13 +140,21 @@ TEILSTRECKE = [
     (re.compile(r"run|lauf|course|corsa|trail", re.I), "Laufen"),
 ]
 _NACHWUCHS_NAME = re.compile(
-    r"\bkids?\b|kinder|jugend|schüler|scolar|pfüderi|junior|\bu\s?(?:8|10|12|14|16|18)\b|"
+    r"\bkids?\b|\bkind\b|kinder|jugend|schüler|scolar|pfüderi|junior|\bu\s?(?:[6-9]|1[0-8])\b|"
     r"mini\b|bambini|enfants|ragazzi", re.I)
 _TEAM_NAME = re.compile(
-    r"staffel|relay|team|couples?|\bduo\b|gruppen|inter-?entreprises?|inter-?clubs?|"
+    r"staffel|stafette|relay|relais|team|couples?|\bduo\b|gruppen|group|inter-?entreprises?|inter-?clubs?|"
     r"entreprises?|firmen|betrieb|"
     r"famigros|family|familie|famille|\d\s*(?:personnes|personen|persone)", re.I)
 _EBIKE = re.compile(r"e-?bike|e-?mtb|ebike", re.I)
+# Ein „Wettbewerb", der nur eine Anmeldeart ist (Voranmeldung, Warteliste) -
+# zählt nur, wenn er keine Strecke nennt.
+_KEIN_WETTBEWERB = re.compile(r"anmeldung|iscrizion|registration|inscription|warteliste|waiting|ticket", re.I)
+# Serien an mehreren Orten („Andorra / Selva Val Gardena / Riva del Garda")
+# tragen EINE Koordinate für alle Rennen - nicht verortbar.
+_MEHRERE_ORTE = re.compile(r"\s/\s")
+_PROVINZ = re.compile(r"\s*\((?:[A-Z]{2}|[A-Z]{1,3}-\d+)\)\s*$")
+LAND_CODE = {"CHE": "Schweiz", "DEU": "Deutschland", "AUT": "Österreich", "ITA": "Italien"}
 _TESTSEITE = re.compile(r"test-flag", re.I)
 _JAHR = re.compile(r"\b(20\d\d)\b")
 _SLUG_JAHR = re.compile(r"(?<!\d)(20\d\d)(?!\d)")
@@ -369,13 +382,21 @@ def events_aus_objekt(obj: dict, config: SiteConfig,
     name = name_ohne_jahr(_de(obj.get("name")))
     start_ausgabe = _datum(obj.get("editionFrom"))
     ende_ausgabe = _datum(obj.get("editionTo")) or start_ausgabe
-    ort = _de(obj.get("town"))
+    ort = _PROVINZ.sub("", _de(obj.get("town")))   # „Badia (BZ)" → „Badia"
     if not name or not start_ausgabe or not ort:
         zaehle("ohne Name/Datum/Ort")
         return []
+    if _MEHRERE_ORTE.search(ort):
+        zaehle("Serie an mehreren Orten")
+        return []
     regionen = [r for r in (obj.get("regions") or []) if isinstance(r, dict)]
     code = (regionen[0].get("countryCode") or "").upper() if regionen else ""
-    land = {"CHE": "Schweiz", "DEU": "Deutschland", "AUT": "Österreich", "ITA": "Italien"}.get(code)
+    land = LAND_CODE.get(code)
+    if code and land is None:
+        # Liechtenstein, Luxemburg, Frankreich: die Seite kennt das Land,
+        # es gehört nur nicht zu unseren vier Regionen.
+        zaehle(f"Land {code}")
+        return []
     lage = obj.get("preciseLocation") or {}
     lat = lage.get("latitude") if isinstance(lage, dict) else None
     lon = lage.get("longitude") if isinstance(lage, dict) else None
@@ -419,12 +440,13 @@ def events_aus_objekt(obj: dict, config: SiteConfig,
                 zahlen = _KM_IM_NAMEN.findall(cname)
                 if len(zahlen) == 1:
                     km = round_km(float(zahlen[0].replace(",", ".")))
-        if km is None and stunden is None and not cname:
-            zaehle("ohne Name und Strecke")
+        if km is None and stunden is None and (not cname or _KEIN_WETTBEWERB.search(cname)):
+            zaehle("ohne Strecke (Anmeldeart oder ohne Namen)")
             continue
         mehrsport = art1 == "Triathlon"
         if mehrsport:
-            art2 = _mehrsport_art2(f"{cname} {name}", teile, config)
+            art2 = ("Duathlon" if sporttyp == "duathlon"
+                    else _mehrsport_art2(f"{cname} {name}", teile, config))
         else:
             art2 = (guess_art2(f"{cname} {disz_name}", config, art1)
                     or guess_art2(name, config, art1)

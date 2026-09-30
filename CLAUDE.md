@@ -3566,8 +3566,28 @@ raus, Jahreszahl aus dem Namen, und **ein Lauf in einer Veranstaltung mit
 Mehrsport-Namen heißt nach seinem Wettbewerb** („Inferno Halbmarathon",
 „Inferno Trail") – sonst machte `fix_multisport_art1()` daraus einen
 Triathlon, weil es nur den Namen liest. `test_datasport` hält sitemap,
-Flight-Objekt, Wettbewerbe, Summen, Ausschlüsse und Namen fest. Erster
-Lauf am 30.09.2026 (Zahlen im Datencommit desselben Tages). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
+Flight-Objekt, Wettbewerbe, Summen, Ausschlüsse und Namen fest. **Der
+erste Lauf hat fünf Lücken gezeigt** (nach Punkt 2 des Dreizehnten
+Durchgangs gezählt, dann als Regel gebaut, dann der Lauf wiederholt):
+Serien mit vier Ländern unter EINER Koordinate („HERO UCI Marathon World
+Cup", Ortsfeld „Andorra / Selva Val Gardena / Riva del Garda / …" –
+Ortsfeld mit „ / " → ganze Ausgabe raus), Liechtenstein und Luxemburg
+(bekannter Ländercode außerhalb der vier Regionen → raus; nur OHNE Code
+bleibt das Land offen fürs Reverse-Geocoding), „Stafette"/„Relais"/
+„inscription groupée" als Team, „1 Erw. & 1 Kind U6" als Nachwuchs
+(`\bkind\b`, U6–U18), „Pre-iscrizione / Voranmeldung" als Wettbewerb
+ohne Strecke (Anmeldeart, raus), Provinzkürzel im Ort („Badia (BZ)").
+Dazu zwei Änderungen in `scraper_lib.py`: **„Stafette"** (Schweizer
+Schreibweise) steht in `STAFFEL_LABEL` und `_LABEL_GATTUNG_RE`, und
+**„jedermann" ist keine Label-Gattung mehr** – radsport-events.de
+beschriftet jede Strecke „Jedermannrennen N km", datasport/endure nennen
+den Wettbewerb („106 KM - Corso Medio", „Gran Fondo 138 km"); am Bestand
+nachgezählt trennte das Wort genau vier echte Duplikatpaare (ARBÖ
+Radmarathon ×2, Maratona dles Dolomites, Vredener Triathlon) und kein
+einziges echtes Paar verschiedener Wettbewerbe – die Radquellen führen
+ohnehin EINE Zeile je Distanz, egal ob Lizenz oder Jedermann.
+`test_duplikate` hält beide Paare fest. Erster Lauf am 30.09.2026
+(Zahlen im Datencommit desselben Tages). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
 ausdrücklich (`Disallow: /`) – wie ironman.com nicht als Quelle;
 raceresult sperrt `/RREvents/` (die öffentliche Liste), pentek alles,
 sportident ist eine JS-Anwendung, swiss-cycling.ch sperrt ClaudeBot,

@@ -1905,10 +1905,17 @@ def _compatible_distance(a: dict, b: dict) -> bool:
 
 # Wörter, die im Wettbewerbs-Label eine GATTUNG nennen - zwei Labels,
 # die sich darin unterscheiden, sind zwei Wettbewerbe (siehe _same_name).
+# "jedermann" steht seit dem 30.09.2026 NICHT mehr hier: radsport-events.de
+# beschriftet jede Strecke "Jedermannrennen N km", datasport und endure
+# nennen den Wettbewerb ("106 KM - Corso Medio", "Gran Fondo 138 km") -
+# vier Paare im Bestand (ARBÖ Radmarathon, Maratona dles Dolomites,
+# Vredener Triathlon) standen deshalb doppelt, ein Gegenbeispiel gab es
+# nicht. Die Radquellen führen ohnehin EINE Zeile je Distanz, egal ob
+# Lizenz- oder Jedermannklasse (turbo-sport, cyclingaustria).
 _LABEL_GATTUNG_RE = re.compile(
-    r"walk|wander|\bgehen\b|geher|staffel|relay|\bteam|bike|\brad|mtb|velo|"
+    r"walk|wander|\bgehen\b|geher|staffel|stafette|relay|\bteam|bike|\brad|mtb|velo|"
     r"handbike|inline|skat|kinder|\bkids?\b|schüler|schueler|jugend|youth|"
-    r"junior|bambini|mini|\bu\s?\d{2}\b|sprint|volks|jedermann|olymp|"
+    r"junior|bambini|mini|\bu\s?\d{2}\b|sprint|volks|olymp|"
     r"kurz(?:distanz|strecke)|mittel(?:distanz|strecke)|lang(?:distanz|strecke)|"
     # Gravel neben Straße (24.09.2026): Der Erkelenzer RTF hat "RTF 110 km"
     # UND "Gravel Ride 110 km" - zwei Wettbewerbe über dieselbe Länge.
@@ -2385,7 +2392,8 @@ def nicht_ausdauer_text(name, wettbewerb, standort=None) -> str:
 #      "GVG-Winterstaffel Pulheim" ist eine Staffel MIT Einzelstrecken
 #      (5, 10, 21,1, 42,2 km - Seite geprüft), die "Meckenheimer
 #      Apfelstaffel" bietet "Einzelläufe und Staffeln" - beide bleiben.
-STAFFEL_LABEL = re.compile(r"staffel|relay|ekiden|\bduo\b|for two", re.I)
+# "Stafette" ist die Schweizer Schreibweise (3-Seen-Triathlon, datasport 30.09.2026).
+STAFFEL_LABEL = re.compile(r"staffel|stafette|relay|ekiden|\bduo\b|for two", re.I)
 STAFFEL_LABEL_MIT_EINZEL = re.compile(
     r"einzel|solo|\boder\b|\bund\b|auch|ebenfalls|möglich", re.I)
 STAFFEL_NAME = re.compile(
