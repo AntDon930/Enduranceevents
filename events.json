@@ -67,7 +67,7 @@
     "datum_ende": "2026-09-30",
     "laenge_km": 46.0,
     "wettbewerb": "46 km",
-    "veranstalter_url": "https://my.raceresult.com/423777/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
   },
   {
     "land": "Deutschland",
@@ -81,7 +81,7 @@
     "datum_ende": "2026-09-30",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://my.raceresult.com/423777/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/"
   },
   {
     "land": "Deutschland",
@@ -4103,7 +4103,7 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46180/21.-Stimberg-Haard-Lauf-Oer-Erkenschwick.htm"
+    "veranstalter_url": "https://tus09e.de/leichtathletik/haardlauf/"
   },
   {
     "land": "Österreich",
@@ -6236,7 +6236,7 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 5.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften-5km-u16"
+    "veranstalter_url": "https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/"
   },
   {
     "land": "Deutschland",
@@ -6529,7 +6529,7 @@
     "datum_start": "2026-10-04",
     "datum_ende": "2026-10-04",
     "laenge_km": 8.9,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/tvm-volksbank-gehrenberglauf-2026"
+    "veranstalter_url": "https://www.tv-markdorf.de/"
   },
   {
     "land": "Deutschland",
@@ -7940,7 +7940,7 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://zpn-timing.de/a/861"
+    "veranstalter_url": "https://www.rad-net.de/rad-net-portal/rad-net-ausschreibungen.htm?url=%2Fmodules.php%3Fname%3DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3Dascr_detail&url_hash=0PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA"
   },
   {
     "land": "Deutschland",
@@ -8978,19 +8978,6 @@
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
     "veranstalter_url": "https://lg-lottehalen.jimdofree.com/mlk-marathon-10-10/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MTB-Fahrtechnikkurs \"Allround\", Nürnberg #5",
-    "standort": "Nürnberg",
-    "lat": 49.3909403,
-    "lon": 11.109463,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "wettbewerb": "MTB",
-    "veranstalter_url": "https://www.frankenradar.de/events/mtb-fahrtechnikkurs-allround-nuernberg-nuernberg"
   },
   {
     "land": "Deutschland",
@@ -11843,19 +11830,6 @@
     "veranstalter_url": "https://maudach.de/kerwe-lauf.html"
   },
   {
-    "land": "Deutschland",
-    "name": "MTB-Fahrtechnikkurs \"Bikepark\", Osternohe",
-    "standort": "Schnaittach / Osternohe",
-    "lat": 49.5882527,
-    "lon": 11.3716074,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "wettbewerb": "MTB",
-    "veranstalter_url": "https://www.facebook.com/bikeactivities"
-  },
-  {
     "land": "Schweiz",
     "name": "Napf-Marathon Trubschachen",
     "standort": "Trubschachen",
@@ -13214,7 +13188,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 6.0,
     "wettbewerb": "6 km Mittelstrecke",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/65-volks-crosslauf-des-tusli"
+    "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -13228,7 +13202,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Hauptlauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/65-volks-crosslauf-des-tusli"
+    "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -13514,7 +13488,7 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 100.0,
     "wettbewerb": "100 km",
-    "veranstalter_url": "https://my.raceresult.com/381672/"
+    "veranstalter_url": "https://chiemgauer100.de/"
   },
   {
     "land": "Deutschland",
@@ -14079,19 +14053,6 @@
     "dauer_h": 0.7,
     "wettbewerb": "Cross-Country Jedermann m/w 0.7 h",
     "veranstalter_url": "https://rsverding.de/mtb-isar-cup-2026/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "MTB-Fahrtechnikkurs \"Allround\", Nürnberg #6",
-    "standort": "Nürnberg",
-    "lat": 49.3887812,
-    "lon": 11.1109573,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "wettbewerb": "MTB",
-    "veranstalter_url": "https://www.facebook.com/bikeactivities"
   },
   {
     "land": "Deutschland",
@@ -15323,7 +15284,7 @@
     "art2": "Mountainbike",
     "datum_start": "2026-10-18",
     "datum_ende": "2026-10-18",
-    "veranstalter_url": "https://www.swisscycling-fricktal.ch/kalender"
+    "veranstalter_url": "http://www.swisscyclingaargau.ch"
   },
   {
     "land": "Deutschland",
@@ -15989,19 +15950,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "MTB-Fahrtechnikkurs \"Pumptrack\", Nürnberg",
-    "standort": "Nürnberg",
-    "lat": 49.423388,
-    "lon": 11.0476694,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "wettbewerb": "MTB",
-    "veranstalter_url": "https://www.facebook.com/bikeactivities"
-  },
-  {
-    "land": "Deutschland",
     "name": "Müggelsee-Halbmarathon",
     "standort": "Berlin",
     "lat": 52.5200066,
@@ -16495,19 +16443,6 @@
     "laenge_km": 24.7,
     "wettbewerb": "24,7 km - 1.000 hm",
     "veranstalter_url": "https://viennatrailrun.at/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "WEC Cross Bad Essen / Preußisch Oldendorf",
-    "standort": "Bad Essen",
-    "lat": 52.318,
-    "lon": 8.413,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -17164,20 +17099,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Cloppenburger City Cross",
-    "standort": "Cloppenburg",
-    "lat": 52.8430519,
-    "lon": 8.0642444,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 2.3,
-    "wettbewerb": "Cyclocross 2.3 km",
-    "veranstalter_url": "https://www.dsergebnis.de/9-cloppenburger-city-cross-2026/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Cross the Pfaff",
     "standort": "Plate",
     "lat": 53.551,
@@ -17188,7 +17109,7 @@
     "datum_ende": "2026-10-24",
     "anmeldeschluss": "2026-10-17",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #06",
-    "veranstalter_url": "https://my.raceresult.com/411507/"
+    "veranstalter_url": "https://rundumdenpfaffenteich.de/"
   },
   {
     "land": "Deutschland",
@@ -18105,7 +18026,7 @@
     "datum_ende": "2026-10-24",
     "dauer_h": 0.5,
     "wettbewerb": "Cyclocross 0.5 h",
-    "veranstalter_url": "https://www.stevenscup.de"
+    "veranstalter_url": "https://www.athletico-buedelsdorf.de/"
   },
   {
     "land": "Schweiz",
@@ -18276,7 +18197,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "WEC Cross Cloppenburg",
+    "name": "Weser-Ems-Cup Cloppenburg",
     "standort": "Cloppenburg",
     "lat": 52.847,
     "lon": 8.045,
@@ -18284,7 +18205,7 @@
     "art2": "Cyclecross",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
@@ -20112,19 +20033,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "WEC Cross Osnabrück - Bornheide",
-    "standort": "Osnabrück",
-    "lat": 52.271,
-    "lon": 8.037,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Weser-Ems-Cup Osnabrück",
     "standort": "Osnabrück-Gretesch",
     "lat": 52.2782745,
@@ -21740,20 +21648,6 @@
     "veranstalter_url": "https://www.penzberger-teamtrail.de/"
   },
   {
-    "name": "RM Crosslauf - Stadtpark-Cross",
-    "standort": "Reichenbach",
-    "lat": 50.6200492,
-    "lon": 12.2992696,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Crosslauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/rm-crosslauf-stadtpark-cross",
-    "land": "Deutschland"
-  },
-  {
     "land": "Deutschland",
     "name": "Rund um den Auensee",
     "standort": "Granschütz",
@@ -22532,7 +22426,7 @@
     "datum_ende": "2026-11-01",
     "laenge_km": 30.0,
     "wettbewerb": "Cyclocross 30 km",
-    "veranstalter_url": "https://my.raceresult.com/391335/info"
+    "veranstalter_url": "http://www.igaswendland.de"
   },
   {
     "land": "Deutschland",
@@ -24215,7 +24109,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14"
+    "veranstalter_url": "https://psvlehrte.de/sportarten/laufen"
   },
   {
     "land": "Deutschland",
@@ -24228,7 +24122,7 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 7.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14"
+    "veranstalter_url": "https://psvlehrte.de/sportarten/laufen"
   },
   {
     "land": "Deutschland",
@@ -24242,7 +24136,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14"
+    "veranstalter_url": "https://psvlehrte.de/sportarten/laufen"
   },
   {
     "land": "Deutschland",
@@ -24256,7 +24150,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14"
+    "veranstalter_url": "https://psvlehrte.de/sportarten/laufen"
   },
   {
     "land": "Deutschland",
@@ -26002,19 +25896,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Viking Bike Winterchallenge GTF",
-    "standort": "Schleswig",
-    "lat": 54.4975998,
-    "lon": 9.5263041,
-    "art1": "Fahrrad",
-    "art2": "Gravel",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "wettbewerb": "Gravel Tour 70 km",
-    "veranstalter_url": "https://www.rv-schleswig.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Viking Bike Winterchallenge, O-CTF und Gravelride 70 km",
     "standort": "Schleswig",
     "lat": 54.522,
@@ -26067,19 +25948,6 @@
     "laenge_km": 21.0,
     "wettbewerb": "Country Cross (20.12.2026)",
     "veranstalter_url": "https://sv-weyhe.de/sportangebote/leichtathletik-ausdauer/syke-weyher-crosslauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "WEC Cross Rheine - Elte",
-    "standort": "Rheine",
-    "lat": 52.277,
-    "lon": 7.44,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -26636,7 +26504,7 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirchen.htm"
+    "veranstalter_url": "https://www.klv-se.de/veranstaltungen"
   },
   {
     "land": "Deutschland",
@@ -28157,7 +28025,7 @@
     "datum_ende": "2026-11-18",
     "laenge_km": 43.0,
     "wettbewerb": "43 km",
-    "veranstalter_url": "https://my.raceresult.com/421945/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -28171,7 +28039,7 @@
     "datum_ende": "2026-11-18",
     "laenge_km": 26.0,
     "wettbewerb": "26 km",
-    "veranstalter_url": "https://my.raceresult.com/421945/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -29792,7 +29660,7 @@
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
     "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #12",
-    "veranstalter_url": "https://my.raceresult.com/404095/"
+    "veranstalter_url": "https://kieler-rv.de/index.php"
   },
   {
     "land": "Deutschland",
@@ -31439,7 +31307,7 @@
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-05",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/37-hamelner-winterlaufserie"
+    "veranstalter_url": "https://www.esv-eintracht-hameln.de/"
   },
   {
     "land": "Deutschland",
@@ -32696,7 +32564,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 7.9,
     "wettbewerb": "Langstrecke 7940m",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/59-nikolauslauf-des-ahrensburger-tsv"
+    "veranstalter_url": "https://www.meinatsv.de/"
   },
   {
     "land": "Deutschland",
@@ -32774,7 +32642,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://my.raceresult.com/424009/"
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de"
   },
   {
     "land": "Deutschland",
@@ -33023,7 +32891,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=986"
+    "veranstalter_url": "http://www.lc-michendorf.de"
   },
   {
     "land": "Deutschland",
@@ -33037,7 +32905,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=986"
+    "veranstalter_url": "http://www.lc-michendorf.de"
   },
   {
     "land": "Deutschland",
@@ -33359,19 +33227,6 @@
     "veranstalter_url": "https://www.lg-telis-finanz.de/"
   },
   {
-    "land": "Deutschland",
-    "name": "WEC und LVM NS Osnabrück - Schinkel",
-    "standort": "Osnabrück",
-    "lat": 52.271,
-    "lon": 8.037,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
-  },
-  {
     "land": "Schweiz",
     "name": "Weihnachtslauf Lachen",
     "standort": "Lachen",
@@ -33384,6 +33239,19 @@
     "laenge_km": 5.4,
     "wettbewerb": "5.36 km",
     "veranstalter_url": "https://www.tvlachen.ch"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Weser-Ems-Cup Osnabrück",
+    "standort": "Osnabrück",
+    "lat": 52.271,
+    "lon": 8.037,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -34446,7 +34314,7 @@
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "laenge_km": 13.0,
-    "veranstalter_url": "https://winterlaufserie.net/",
+    "veranstalter_url": "https://winterlaufserie.net",
     "wettbewerb": "13 km"
   },
   {
@@ -34461,7 +34329,7 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 17.0,
     "wettbewerb": "17.000 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/840/"
+    "veranstalter_url": "https://winterlaufserie.net"
   },
   {
     "land": "Deutschland",
@@ -34475,7 +34343,7 @@
     "datum_ende": "2027-02-21",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon 21.100 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/840/"
+    "veranstalter_url": "https://winterlaufserie.net"
   },
   {
     "land": "Deutschland",
@@ -34654,19 +34522,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.ucsr-lev.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "WEC Cross Bramsche (Engter)",
-    "standort": "Bramsche",
-    "lat": 52.409,
-    "lon": 7.973,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2026-12-13",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -37404,7 +37259,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.5,
     "wettbewerb": "5,5 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/BSL/"
+    "veranstalter_url": "http://www.Rot-Weiss90.de"
   },
   {
     "land": "Deutschland",
@@ -37418,7 +37273,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://baer-service.de/veranstaltung/BSL/"
+    "veranstalter_url": "http://www.Rot-Weiss90.de"
   },
   {
     "land": "Deutschland",
@@ -39002,19 +38857,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km Silvesterlauf",
     "veranstalter_url": "https://www.silvesterlauf.nrw/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "WEC Cross Melle",
-    "standort": "Melle",
-    "lat": 52.199,
-    "lon": 8.346,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
-    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Österreich",
@@ -42542,7 +42384,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "WEC Cross Endlauf Bad Essen / Preußisch Oldendorf",
+    "name": "Weser-Ems-Cup Bad Essen",
     "standort": "Bad Essen",
     "lat": 52.318,
     "lon": 8.413,
@@ -42550,7 +42392,7 @@
     "art2": "Cyclecross",
     "datum_start": "2027-01-24",
     "datum_ende": "2027-01-24",
-    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
@@ -52233,7 +52075,7 @@
     "datum_ende": "2027-04-11",
     "laenge_km": 12.5,
     "wettbewerb": "ABERIO-12,5-km-Lauf",
-    "veranstalter_url": "https://www.sas-online.net/eventportal_bs/826/"
+    "veranstalter_url": "https://www.obermain-marathon.de"
   },
   {
     "land": "Deutschland",
@@ -54541,7 +54383,7 @@
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-24",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/30-int-laubacher-volkslauf"
+    "veranstalter_url": "https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf"
   },
   {
     "land": "Deutschland",
@@ -61549,7 +61391,7 @@
     "datum_ende": "2027-05-14",
     "laenge_km": 5.0,
     "wettbewerb": "Ausdauer Lauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/18-langeneicker-pfingstlauf-2027"
+    "veranstalter_url": "https://www.pfingstlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -61561,7 +61403,7 @@
     "datum_ende": "2027-05-14",
     "laenge_km": 10.0,
     "wettbewerb": "Ausdauer Lauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/18-langeneicker-pfingstlauf-2027"
+    "veranstalter_url": "https://www.pfingstlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -67948,7 +67790,7 @@
     "datum_start": "2027-06-02",
     "datum_ende": "2027-06-06",
     "wettbewerb": "Etappenrennen",
-    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=E4E5A13363D04E588C2BCA4A53B5CEDC&filter=page=3"
+    "veranstalter_url": "http://www.uci.ch/"
   },
   {
     "land": "Schweiz",
@@ -68554,7 +68396,7 @@
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-05",
     "laenge_km": 18.5,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/37-wolfhager-volkslauf-rund-um-den-graner-berg"
+    "veranstalter_url": "https://www.laufteam-woh.de/"
   },
   {
     "land": "Deutschland",
@@ -70970,7 +70812,7 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 5.4,
     "wettbewerb": "5,4 km (Nordic-)Walking",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/14-voxtruper-volkslauf"
+    "veranstalter_url": "http://www.vfr-voxtrup.de"
   },
   {
     "land": "Deutschland",
@@ -72175,7 +72017,7 @@
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
     "laenge_km": 21.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/himmelgeister-brückenlauf"
+    "veranstalter_url": "https://www.brueckenlauf-duesseldorf.de/"
   },
   {
     "land": "Deutschland",
@@ -78760,7 +78602,7 @@
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
     "laenge_km": 18.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/20-dahlenburger-moorlauf"
+    "veranstalter_url": "http://www.moorlauf.wetzstopp.de/"
   },
   {
     "land": "Deutschland",
@@ -82053,7 +81895,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Nordic Walking",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/9-wybelsumer-polderlauf"
+    "veranstalter_url": "https://www.polderlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -82067,7 +81909,7 @@
     "datum_ende": "2027-07-10",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/9-wybelsumer-polderlauf"
+    "veranstalter_url": "https://www.polderlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -86345,7 +86187,7 @@
     "art2": "Straße",
     "datum_start": "2027-07-31",
     "datum_ende": "2027-07-31",
-    "veranstalter_url": "https://time2win.at/event/1094"
+    "veranstalter_url": "https://triathlon-traun.at/"
   },
   {
     "land": "Österreich",
@@ -88927,7 +88769,7 @@
     "datum_start": "2027-08-15",
     "datum_ende": "2027-08-15",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/9-sv02-kerwelauf-der-sv02-lässts-laufen"
+    "veranstalter_url": "http://www.kerwelauf.de"
   },
   {
     "land": "Deutschland",
@@ -90914,7 +90756,7 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 114.0,
     "wettbewerb": "114 km",
-    "veranstalter_url": "https://datasport.com/de/events/4-triathlon-basel-2027"
+    "veranstalter_url": "https://triathlonbasel.ch/"
   },
   {
     "land": "Schweiz",
@@ -94583,7 +94425,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 23.0,
     "wettbewerb": "23 km",
-    "veranstalter_url": "https://www.triathlonvreden.de/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94597,7 +94439,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
-    "veranstalter_url": "https://www.triathlonvreden.de/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94611,7 +94453,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
-    "veranstalter_url": "https://www.triathlonvreden.de/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94625,7 +94467,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
-    "veranstalter_url": "https://www.triathlonvreden.de/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94639,7 +94481,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 22.7,
     "wettbewerb": "Sprinttriathlon",
-    "veranstalter_url": "https://my.raceresult.com/424668/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94653,7 +94495,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 5.5,
     "wettbewerb": "NRW Meisterschaften Schüler B",
-    "veranstalter_url": "https://my.raceresult.com/424668/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94667,7 +94509,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 0.5,
     "wettbewerb": "Schüler C Swim‑Run",
-    "veranstalter_url": "https://my.raceresult.com/424668/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -94681,7 +94523,7 @@
     "datum_ende": "2027-09-11",
     "laenge_km": 22.9,
     "wettbewerb": "NRW Meisterschaften Jugend und Junioren",
-    "veranstalter_url": "https://my.raceresult.com/424668/"
+    "veranstalter_url": "https://www.triathlonvreden.de"
   },
   {
     "land": "Deutschland",
@@ -96155,7 +95997,7 @@
     "datum_ende": "2027-09-26",
     "laenge_km": 21.1,
     "wettbewerb": "21,09 Km Halbmarathon",
-    "veranstalter_url": "https://time2win.at/event/1096"
+    "veranstalter_url": "https://www.badischllaeuft.at/laufkaiserpaar"
   },
   {
     "land": "Österreich",
@@ -96169,7 +96011,7 @@
     "datum_ende": "2027-09-26",
     "laenge_km": 8.4,
     "wettbewerb": "8,44 Km FunRun",
-    "veranstalter_url": "https://time2win.at/event/1096"
+    "veranstalter_url": "https://www.badischllaeuft.at/laufkaiserpaar"
   },
   {
     "land": "Österreich",

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:Hörner Bruch Ultramarathon
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://my.raceresult
- .com/423777/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 46 km\nhttps://ultra-uwe-unt
+ erwegs.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/423777/
+URL:https://ultra-uwe-unterwegs.de/
 END:VEVENT
 END:VCALENDAR

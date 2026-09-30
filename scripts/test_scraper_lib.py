@@ -3142,6 +3142,8 @@ def test_radsportevents() -> None:
     # Rundenlänge fällt weg, 24h-Rennen bekommt 24 h; Dauer in Minuten -> Stunden.
     e24 = rs.parse_item(dict(basis, eventType="RENNEN_24H", distances=[{"distanceKm": 17.0, "label": "Runde"}]), rs.CONFIG)
     assert len(e24) == 1 and e24[0].laenge_km is None and e24[0].dauer_h == 24.0 and e24[0].wettbewerb == "24-Stunden-Rennen 24 h", e24
+    kurs = rs.parse_item(dict(basis, title="MTB-Fahrtechnikkurs \"Allround\", Nürnberg #5", category="MTB", eventType="MTB"), rs.CONFIG)
+    check("radsport-events: ein Fahrtechnikkurs ist kein Rennen", kurs, [])
     ecx = rs.parse_item(dict(basis, category="MTB", eventType="CYCLOCROSS", distances=[{"distanceKm": 0.0, "durationMinutes": 40}]), rs.CONFIG)
     assert ecx[0].art2 == "Cyclecross" and ecx[0].dauer_h == 0.7 and ecx[0].laenge_km is None, ecx
     # Zeitfahren, Gravel, vorläufiger Termin, Portallink ohne organizerUrl.
@@ -3297,10 +3299,10 @@ def test_kleine_radquellen() -> None:
                               '<p>06.12.2026  WEC u. <strong>LVM NS</strong> Os - Schinkel</p><p>13.12.2026  WEC Cross Engter</p><p>Hier die Termine</p>')
     ok("weserems: drei Zeilen", len(zeilen) == 3, f"{zeilen}")
     evs = [we.event_aus_zeile(z, orte_we)[0] for z in zeilen]
-    ok("weserems: erster Ort bei zwei Orten, Kürzel ausgeschrieben",
-          [(e.standort, e.name) for e in evs] == [("Bad Essen", "WEC Cross Bad Essen / Preußisch Oldendorf"),
-                                                  ("Osnabrück", "WEC und LVM NS Osnabrück - Schinkel"),
-                                                  ("Bramsche", "WEC Cross Bramsche (Engter)")], f"{[(e.standort, e.name) for e in evs]}")
+    ok("weserems: erster Ort bei zwei Orten, Name wie bei radsport-events.de, Label schlicht",
+          [(e.standort, e.name, e.wettbewerb) for e in evs] == [("Bad Essen", "Weser-Ems-Cup Bad Essen", "Cyclocross"),
+                                                  ("Osnabrück", "Weser-Ems-Cup Osnabrück", "Cyclocross"),
+                                                  ("Bramsche", "Weser-Ems-Cup Bramsche", "Cyclocross")], f"{[(e.standort, e.name, e.wettbewerb) for e in evs]}")
 
     import boe_scraper as boe
     html = ('<h2>BOE-Strassenmeisterschaft</h2><div class="cc-m-download-title">13.05.  -  Einzelzeitfahren Langnau-Zäziwil</div>'

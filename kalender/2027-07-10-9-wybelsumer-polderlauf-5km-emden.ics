@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270710
 DTEND;VALUE=DATE:20270711
 SUMMARY:9. Wybelsumer Polderlauf – 5 km Nordic Walking
 LOCATION:Emden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/9-wybelsumer-polderlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.polderlauf
+ .de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/9-wybelsumer-polderlauf
+URL:https://www.polderlauf.de/
 END:VEVENT
 END:VCALENDAR

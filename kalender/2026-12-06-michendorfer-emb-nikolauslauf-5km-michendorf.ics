@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Michendorfer EMB Nikolauslauf
 LOCATION:Michendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.strassenla
- uf.org/va_details.php?id=986
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.lc-michendo
+ rf.de
 TRANSP:TRANSPARENT
-URL:https://www.strassenlauf.org/va_details.php?id=986
+URL:http://www.lc-michendorf.de
 END:VEVENT
 END:VCALENDAR

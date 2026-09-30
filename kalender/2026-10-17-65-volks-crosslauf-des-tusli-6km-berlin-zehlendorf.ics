@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:65. Volks-Crosslauf des TuSLi – 6 km Mittelstrecke
 LOCATION:Berlin-Zehlendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://laufen.de/laufk
- alender/details/65-volks-crosslauf-des-tusli
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://tusli.de/leicht
+ athletik
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/65-volks-crosslauf-des-tusli
+URL:https://tusli.de/leichtathletik
 END:VEVENT
 END:VCALENDAR

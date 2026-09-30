@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261019
 SUMMARY:Chiemgauer100 Stundenrunden
 LOCATION:Bergen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://my.raceresul
- t.com/381672/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://chiemgauer10
+ 0.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/381672/
+URL:https://chiemgauer100.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Bautzener Silvesterlauf
 LOCATION:Bautzen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://baer-service
- .de/veranstaltung/BSL/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttp://www.Rot-Weiss
+ 90.de
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/BSL/
+URL:http://www.Rot-Weiss90.de
 END:VEVENT
 END:VCALENDAR

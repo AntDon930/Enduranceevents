@@ -4,12 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-12-13-wec-cross-bramsche-engter-x-bramsche@antdon930.github.io
+UID:2026-10-24-weser-ems-cup-cloppenburg-x-cloppenburg@antdon930.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261213
-DTEND;VALUE=DATE:20261214
-SUMMARY:WEC Cross Bramsche (Engter) – Cyclocross\, Weser-Ems-Cup
-LOCATION:Bramsche\, Deutschland
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Weser-Ems-Cup Cloppenburg – Cyclocross
+LOCATION:Cloppenburg\, Deutschland
 DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radsport
  -weser-ems.de/termine/
 TRANSP:TRANSPARENT

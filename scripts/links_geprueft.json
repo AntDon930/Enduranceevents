@@ -17265,5 +17265,1069 @@
     "quelle": "time2win.at",
     "alt": "https://time2win.at/event/1105",
     "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext, https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css, https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css, https://unpkg.com/leaflet@1.3.4/dist/leaflet.css) - time2win.at bleibt."
+  },
+  "Hörner Bruch Ultramarathon|2026-09-30": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/423777/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (horner). Linkprüfung 2026-09-30."
+  },
+  "Fläming-Race|2026-10-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-events.de",
+    "alt": "https://radsport-events.de/events/26776",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - radsport-events.de bleibt."
+  },
+  "Hessische Meisterschaften Straßenlauf|2026-10-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/hessische-meisterschaften-straßenlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "Korschenbroicher Waldlauf|2026-10-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/373270/",
+    "notiz": "citylauf-korschenbroich.com (Geschwisterzeile) nennt den Waldlauf nicht - nur der Ort im Host und das Ortsadjektiv trafen; Regel seitdem enger. raceresult-Kontaktseite ohne Organizer-URL."
+  },
+  "Stimberg-Haardlauf|2026-10-03": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "tus09e.de",
+    "alt": "https://ladv.de/ausschreibung/detail/46180/21.-Stimberg-Haard-Lauf-Oer-Erkenschwick.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://tus09e.de/leichtathletik/haardlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (stimberg). Linkprüfung 2026-09-30."
+  },
+  "16. Neuhäuser Burglauf (Laufcup WOB-GF)|2026-10-04": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/16-neuhäuser-burglauf-laufcup-wob-gf",
+    "notiz": "Seite nicht ladbar (fehler:ConnectionError) - laufen.de bleibt."
+  },
+  "Rheinland-Pfalz Meisterschaften 5km U16|2026-10-04": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-meulenwald-foehren.de",
+    "alt": "https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften-5km-u16",
+    "notiz": "Veranstalterseite statt laufen.de: https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/ - auf der laufen.de-Seite verlinkt, Zielseite nennt den Lauf (rheinland). Linkprüfung 2026-09-30."
+  },
+  "TVM Volksbank Gehrenberglauf 2026|2026-10-04": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "tv-markdorf.de",
+    "alt": "https://laufen.de/laufkalender/details/tvm-volksbank-gehrenberglauf-2026",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.tv-markdorf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:markdorf, gehrenberglauf). Linkprüfung 2026-09-30."
+  },
+  "Cyclocrossrennen Zossen|2026-10-10": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "rad-net.de",
+    "alt": "https://zpn-timing.de/a/861",
+    "notiz": "Veranstalterseite statt zpn-timing.de: https://www.rad-net.de/rad-net-portal/rad-net-ausschreibungen.htm?url=%2Fmodules.php%3Fname%3DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3Dascr_detail&url_hash=0PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA - auf der zpn-timing.de-Seite verlinkt, Zielseite nennt den Lauf (cyclocrossrennen, datum). Linkprüfung 2026-09-30."
+  },
+  "Propain Bike Day|2026-10-10": {
+    "am": "2026-09-30",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/410095/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "18. Elektronikbob Hesselberglauf mit Mfr. Berglauf-Meisterschaft|2026-10-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/18-elektronikbob-hesselberglauf-mit-mfr-berglauf-meisterschaft",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "41. Int. Jenner-Berglauf|2026-10-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/41-int-jenner-berglauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "SLB Meisterschaften Marathon|2026-10-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/slb-meisterschaften-marathon",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "65. Volks-Crosslauf des TuSLi|2026-10-17": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "tusli.de",
+    "alt": "https://laufen.de/laufkalender/details/65-volks-crosslauf-des-tusli",
+    "notiz": "Veranstalterseite statt laufen.de: https://tusli.de/leichtathletik - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:tusli). Linkprüfung 2026-09-30."
+  },
+  "Chiemgauer100 Stundenrunden|2026-10-17": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "chiemgauer100.de",
+    "alt": "https://my.raceresult.com/381672/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://chiemgauer100.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:chiemgauer). Linkprüfung 2026-09-30."
+  },
+  "Pyramidenkogel Hero|2026-10-17": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/406473/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.mountainsport.at) - my.raceresult.com bleibt."
+  },
+  "Bikerennen Wittnau - 38. Raiffeisen Fricktaler Cup 2026|2026-10-18": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "swisscyclingaargau.ch",
+    "alt": "https://www.swisscycling-fricktal.ch/kalender",
+    "notiz": "Veranstalterseite statt swisscycling-fricktal.ch: http://www.swisscyclingaargau.ch - auf der swisscycling-fricktal.ch-Seite verlinkt, Zielseite nennt den Lauf (bikerennen). Linkprüfung 2026-09-30."
+  },
+  "WEC Cross Bad Essen / Preußisch Oldendorf|2026-10-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Weser-Ems-Cup Bad Essen|2026-10-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-events.de",
+    "alt": "https://radsport-events.de/events/27771",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - radsport-events.de bleibt."
+  },
+  "1. Lauf der Crossserie des BLV-Kreises Ansbach|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/1-lauf-der-crossserie-des-blv-kreises-ansbach",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Cloppenburger City Cross|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/9-cloppenburger-city-cross-2026/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "Cross the Pfaff|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "rundumdenpfaffenteich.de",
+    "alt": "https://my.raceresult.com/411507/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://rundumdenpfaffenteich.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:pfaff). Linkprüfung 2026-09-30."
+  },
+  "Stevens Cyclo-Cross-Cup #6|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "athletico-buedelsdorf.de",
+    "alt": "https://www.stevenscup.de",
+    "notiz": "Veranstalterseite statt stevenscup.de: https://www.athletico-buedelsdorf.de/ - auf der stevenscup.de-Seite verlinkt, Zielseite nennt den Lauf (stevens). Linkprüfung 2026-09-30."
+  },
+  "WEC Cross Cloppenburg|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Wuhlheider 12 Stundenlauf|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/365972/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "WEC Cross Osnabrück - Bornheide|2026-10-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "RM Crosslauf - Stadtpark-Cross|2026-10-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/rm-crosslauf-stadtpark-cross",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Stadtpark-Cross Reichenbach|2026-10-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49343/RM-Crosslauf--Stadtpark-Cross-Reichenbach-%28Vogtland%29.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Wald- und Crosslaufmeisterschaften 2026|2026-10-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/wald-und-crosslaufmeisterschaften-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Stevens-Cyclo-Cross-Cup|2026-11-01": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "igaswendland.de",
+    "alt": "https://my.raceresult.com/391335/info",
+    "notiz": "Veranstalterseite statt my.raceresult.com: http://www.igaswendland.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (stevens, datum). Linkprüfung 2026-09-30."
+  },
+  "Treburer Crosslauf 2026|2026-11-01": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/treburer-crosslauf-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "Hessische Meisterschaften Crosslauf|2026-11-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/hessische-meisterschaften-crosslauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "Kreismeisterschaften Crosslauf|2026-11-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/kreismeisterschaften-crosslauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Offene Stadtmeisterschaften Crosslauf Leipzig|2026-11-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49322/Offene-SM-Cross-Leipzig.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Thür. LM Cross|2026-11-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/thür-lm-cross",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Winterserie PSV Rot-Gold Lehrte 26/27|2026-11-07": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "psvlehrte.de",
+    "alt": "https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14",
+    "notiz": "Veranstalterseite statt laufen.de: https://psvlehrte.de/sportarten/laufen - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:lehrte, host:lehrte). Linkprüfung 2026-09-30."
+  },
+  "9. Sankt-Martins Crosslauf mit Kreismeisterschaften Wetterau|2026-11-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/9-sankt-martins-crosslauf-mit-kreismeisterschaften-wetterau",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "Kreismeisterschaften Crosslauf|2026-11-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/kreismeisterschaften-crosslauf-2",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Landesmeisterschaft Cross M-V 2026|2026-11-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/landesmeisterschaft-cross-m-v-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "WEC Cross Rheine - Elte|2026-11-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Weser-Ems-Cup Rheine|2026-11-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-11-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423146/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "BL Cyclo Cross Stahnsdorf|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "Berlin-Brandenburgische Crossmeisterschaften|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ladv.de",
+    "alt": "https://ladv.de/ausschreibung/detail/49367/BBM-BM-BB-Cross-Berlin.htm",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - ladv.de bleibt."
+  },
+  "Crosslauf des KLV Segeberg|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "klv-se.de",
+    "alt": "https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirchen.htm",
+    "notiz": "Veranstalterseite statt ladv.de: https://www.klv-se.de/veranstaltungen - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (segeberg). Linkprüfung 2026-09-30."
+  },
+  "Nordrhein Meisterschaften 2026 Crosslauf|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/nordrhein-meisterschaften-2026-crosslauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "Rheinland-Pfalz Meisterschaft 10km|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaft-10km",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Rheinland-Pfalz-Meisterschaften 2026 Crosslauf|2026-11-15": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften-2026-crosslauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Bergbaurundweg Witten Marathon|2026-11-18": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/421945/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (bergbaurundweg). Linkprüfung 2026-09-30."
+  },
+  "Fun & Erlebnis Marathons|2026-11-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423147/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Bad Ischler Radquerfeldein|2026-11-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "cyclingaustria.at",
+    "alt": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=933C8E7302AD4722BEDA126F2772341F&filter=page=2",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bikeguideaustria.at/, http://www.uec.ch/, http://www.uci.ch/) - cyclingaustria.at bleibt."
+  },
+  "FLVW Crossmeisterschaften|2026-11-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/flvw-crossmeisterschaften",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap, https://rsms.me/inter/inter.css?v=6) - laufen.de bleibt."
+  },
+  "GUNSHA Crosscup Frankenhain|2026-11-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "crosscup.org",
+    "alt": "https://crosscup.org/rennen/frankenhain/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gmpg.org/xfn/11, https://secure.gravatar.com, https://v0.wordpress.com, https://widgets.wp.com) - crosscup.org bleibt."
+  },
+  "Nordrhein Meisterschaften 2026 10km Straße|2026-11-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/nordrhein-meisterschaften-2026-10km-straße",
+    "notiz": "Seite nicht ladbar (500) - laufen.de bleibt."
+  },
+  "Stevens Cyclo-Cross Cup Kiel|2026-11-22": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "kieler-rv.de",
+    "alt": "https://my.raceresult.com/404095/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://kieler-rv.de/index.php - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (stevens). Linkprüfung 2026-09-30."
+  },
+  "Fun & Erlebnis Marathons|2026-11-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423148/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Urbachallenge Orbe|2026-11-28": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "softtiming.ch",
+    "alt": "https://www.softtiming.ch/index.php/inscriptions?idCourse=1876",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=ABeeZee:regular,italic&amp;subset=latin) - softtiming.ch bleibt."
+  },
+  "Adventslauf Lauftreff Salmtal|2026-11-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/adventslauf-lauftreff-salmtal",
+    "notiz": "Websuche nannte https://www.adventslauf.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - laufen.de bleibt."
+  },
+  "GUNSHA Crosscup Lutherstadt Wittenberg|2026-11-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "crosscup.org",
+    "alt": "https://crosscup.org/rennen/wittenberg/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://gmpg.org/xfn/11, https://secure.gravatar.com, https://v0.wordpress.com, https://widgets.wp.com) - crosscup.org bleibt."
+  },
+  "Run and Walk for Help|2026-11-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen-os.de",
+    "alt": "https://www.laufen-os.de/wettkaempfe/24-run-and-walk-for-help-2026",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.s4acw.de/, https://www.vpak.de/vpak.html, https://www.sparkasse-osnabrueck.de/de/home/ihre-sparkasse/ihre-sparkasse-vor-ort.html?n=true&stref=hnav, https://www.pzn24.de) - laufen-os.de bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-12-02": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423151/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "37. Hamelner Winterlaufserie|2026-12-05": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "esv-eintracht-hameln.de",
+    "alt": "https://laufen.de/laufkalender/details/37-hamelner-winterlaufserie",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.esv-eintracht-hameln.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:hameln, hamelner). Linkprüfung 2026-09-30."
+  },
+  "59. Nikolauslauf des Ahrensburger TSV|2026-12-06": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "meinatsv.de",
+    "alt": "https://laufen.de/laufkalender/details/59-nikolauslauf-des-ahrensburger-tsv",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.meinatsv.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ahrensburger). Linkprüfung 2026-09-30."
+  },
+  "Bergbaurundweg Witten Marathon|2026-12-06": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ultra-uwe-unterwegs.de",
+    "alt": "https://my.raceresult.com/424009/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (bergbaurundweg). Linkprüfung 2026-09-30."
+  },
+  "Michendorfer EMB Nikolauslauf|2026-12-06": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "lc-michendorf.de",
+    "alt": "https://www.strassenlauf.org/va_details.php?id=986",
+    "notiz": "Veranstalterseite statt strassenlauf.org: http://www.lc-michendorf.de - auf der strassenlauf.org-Seite verlinkt, Zielseite nennt den Lauf (michendorfer). Linkprüfung 2026-09-30."
+  },
+  "WEC und LVM NS Osnabrück - Schinkel|2026-12-06": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-12-09": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423152/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Ismaninger Winterlaufserie|2026-12-13": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "winterlaufserie.net",
+    "alt": "https://www.sas-online.net/eventportal_bs/840/",
+    "notiz": "Veranstalterseite statt sas-online.net: https://winterlaufserie.net - auf der sas-online.net-Seite verlinkt, Zielseite nennt den Lauf (datum). Linkprüfung 2026-09-30."
+  },
+  "Stadler Weser-Ems-Cup - Engter|2026-12-13": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "WEC Cross Bramsche (Engter)|2026-12-13": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Haddorfer Seen Marathon|2026-12-20": {
+    "am": "2026-09-30",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423451/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "Fun & Erlebnis Marathons|2026-12-23": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/424292/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://teichwiesen.myblog.de) - my.raceresult.com bleibt."
+  },
+  "Bautzener Silvesterlauf|2026-12-31": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "rot-weiss90.de",
+    "alt": "https://baer-service.de/veranstaltung/BSL/",
+    "notiz": "Veranstalterseite statt baer-service.de: http://www.Rot-Weiss90.de - auf der baer-service.de-Seite verlinkt, Zielseite nennt den Lauf (bautzener). Linkprüfung 2026-09-30."
+  },
+  "Silvestercross Melle|2026-12-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "WEC Cross Melle|2026-12-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Finale BL Rund um das Vechtaer Reiterwaldstadion|2027-01-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "54. Winterlaufserie|2027-01-10": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/54-winterlaufserie",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "47. Lümmellauf|2027-01-17": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/47-lümmellauf",
+    "notiz": "Websuche nannte https://ssc-hagen-ahrensburg.de/luemmellauf/, Seite nennt den Lauf nicht erkennbar (Status fehler:SSLError) - laufen.de bleibt."
+  },
+  "54. Winterlaufserie|2027-01-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/54-winterlaufserie-2",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "WEC Cross Endlauf Bad Essen / Preußisch Oldendorf|2027-01-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "54. Winterlaufserie|2027-02-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/54-winterlaufserie-3",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "39. Oggersheimer Berglauf|2027-02-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/39-oggersheimer-berglauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "54. Winterlaufserie|2027-02-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/54-winterlaufserie-4",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Bayerische Cross Meisterschaft 2027|2027-02-28": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/bayerische-cross-meisterschaft-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "2. Buun löppt|2027-03-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/2-buun-löppt",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "54. Winterlaufserie|2027-03-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/54-winterlaufserie-5",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "DM 10km Straße|2027-03-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/dm-10km-straße",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Herforder Frühjahrspreis|2027-03-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "DM Halbmarathon|2027-03-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/dm-halbmarathon",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.ticket-onlineshop.com/ols/dlv/, https://leichtathletik-shop.info/, https://natugena.de/Startseite.aspx, https://www.gls-pakete.de/privat-versenden?utm_source=dlv-web&utm_medium=banner&utm_campaign=dlv_generic&utm_content=paketversand-schnelligkeit-3_2025) - laufen.de bleibt."
+  },
+  "51. Osterlauf Ruppichteroth|2027-03-27": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/51-osterlauf-ruppichteroth",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Int. Zeppelinlauf Mülheim an der Mosel|2027-04-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/int-zeppelinlauf-mülheim-an-der-mosel",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "DM Marathon|2027-04-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/dm-marathon",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.ticket-onlineshop.com/ols/dlv/, https://leichtathletik-shop.info/, https://natugena.de/Startseite.aspx, https://www.gls-pakete.de/privat-versenden?utm_source=dlv-web&utm_medium=banner&utm_campaign=dlv_generic&utm_content=paketversand-schnelligkeit-3_2025) - laufen.de bleibt."
+  },
+  "Obermain-Marathon|2027-04-11": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "obermain-marathon.de",
+    "alt": "https://www.sas-online.net/eventportal_bs/826/",
+    "notiz": "Veranstalterseite statt sas-online.net: https://www.obermain-marathon.de - auf der sas-online.net-Seite verlinkt, Zielseite nennt den Lauf (host:obermain, datum). Linkprüfung 2026-09-30."
+  },
+  "Amberger Frühlingslauf mit Halbmarathon und 10 Km|2027-04-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/amberger-frühlingslauf-mit-halbmarathon-und-10-km",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Solidaritätslauf Aktiv gegen Brustkrebs|2027-04-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/solidaritätslauf-aktiv-gegen-brustkrebs",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Wichtelhäuser Volkslauf|2027-04-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/wichtelhäuser-volkslauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "30. Int. LAUBACHER VOLKSLAUF|2027-04-24": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "sv1874laubach.de",
+    "alt": "https://laufen.de/laufkalender/details/30-int-laubacher-volkslauf",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:laubach, laubacher). Linkprüfung 2026-09-30."
+  },
+  "38. Hildesheimer Wedekindlauf|2027-04-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/38-hildesheimer-wedekindlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "39. Volkslauf im Volkspark|2027-04-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/39-volkslauf-im-volkspark",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "43. Überherrner Straßenrennen auf dem Wallerfanger Saargau|2027-04-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "Großer Preis der Sparkasse Neuss|2027-05-01": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "16. Leipziger Volksbank Frauenlauf|2027-05-02": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/16-leipziger-volksbank-frauenlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "34. Scharnhorstlauf|2027-05-02": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/34-scharnhorstlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "9. Bugginger Feierabendlauf|2027-05-05": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/9-bugginger-feierabendlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "VR-Bank Abendlauf|2027-05-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/vr-bank-abendlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.sparkassen-cup.com/news/1/1287512/nachrichten/teilnehmerrekord-beim-13.-alfhausener-volkslauf.html, https://www.picdrop.com/norbertdulle/rfsEoBKc6F, https://www.flickr.com/photos/164993698@N08/albums/72177720335606944/, http://www.handanhand.de) - laufen.de bleibt."
+  },
+  "Breitscheider Nacht|2027-05-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/breitscheider-nacht",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Meerlauf|2027-05-08": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/meerlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "10. Efzewiesenlauf Homberg|2027-05-09": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/10-efzewiesenlauf-homberg",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "18. Langeneicker Pfingstlauf 2027|2027-05-14": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "pfingstlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/18-langeneicker-pfingstlauf-2027",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.pfingstlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:pfingstlauf). Linkprüfung 2026-09-30."
+  },
+  "25, Gerstewitzer Mühlentaglauf|2027-05-17": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/25-gerstewitzer-mühlentaglauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "42. Michelstädter Stadtlauf|2027-05-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/42-michelstädter-stadtlauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "5. Sponsorenlauf Brustkrebshilfe Dorsten 2027|2027-05-23": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/5-sponsorenlauf-brustkrebshilfe-dorsten-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "32. Stockseeer Abendlauf|2027-05-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/32-stockseeer-abendlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "women Tour|2027-06-02": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "uci.ch",
+    "alt": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=E4E5A13363D04E588C2BCA4A53B5CEDC&filter=page=3",
+    "notiz": "Veranstalterseite statt cyclingaustria.at: http://www.uci.ch/ - auf der cyclingaustria.at-Seite verlinkt, Zielseite nennt den Lauf (women). Linkprüfung 2026-09-30."
+  },
+  "42. Döhrener Abendlauf|2027-06-04": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/42-döhrener-abendlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "37. Wolfhager Volkslauf Rund um den Graner Berg|2027-06-05": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "laufteam-woh.de",
+    "alt": "https://laufen.de/laufkalender/details/37-wolfhager-volkslauf-rund-um-den-graner-berg",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.laufteam-woh.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (wolfhager). Linkprüfung 2026-09-30."
+  },
+  "Maritn Dufter|2027-06-05": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/maritn-dufter",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "7. GP von Trier|2027-06-06": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "14. Voxtruper Volkslauf|2027-06-11": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "vfr-voxtrup.de",
+    "alt": "https://laufen.de/laufkalender/details/14-voxtruper-volkslauf",
+    "notiz": "Veranstalterseite statt laufen.de: http://www.vfr-voxtrup.de - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (voxtruper). Linkprüfung 2026-09-30."
+  },
+  "41. Internationaler Brüder-Grimn-Lauf|2027-06-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/41-internationaler-brüder-grimn-lauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "4. Hohenlimburger Lennelauf|2027-06-12": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/4-hohenlimburger-lennelauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Himmelgeister Brückenlauf|2027-06-12": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "brueckenlauf-duesseldorf.de",
+    "alt": "https://laufen.de/laufkalender/details/himmelgeister-brückenlauf",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.brueckenlauf-duesseldorf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:duesseldorf, host:brueckenlauf). Linkprüfung 2026-09-30."
+  },
+  "Rielingshäuser Steinbruch-Lauf|2027-06-12": {
+    "am": "2026-09-30",
+    "ergebnis": "link_ok",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/421388/",
+    "notiz": "Kontaktseite: Organizer-URL leer oder Platzhalter - my.raceresult.com bleibt."
+  },
+  "31. Kurt-Roth Lauf|2027-06-13": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/31-kurt-roth-lauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Firmenlauf Neumarkt|2027-06-15": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "my.raceresult.com",
+    "alt": "https://my.raceresult.com/423446/",
+    "notiz": "Websuche nannte https://firmenlauf.bayern/firmenlauf-neumarkt/, Seite nennt den Lauf nicht erkennbar (Status 200) - my.raceresult.com bleibt."
+  },
+  "BriggYard Staffel-Run|2027-06-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/briggyard-staffel-run",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "40. Burg-Lauf Eppstein|2027-06-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/40-burg-lauf-eppstein",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Aletsch Halbmarathon|2027-06-26": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/aletsch-halbmarathon-2027",
+    "notiz": "Mehrere Seiten nennen den Lauf, keine eindeutig: https://www.aletscharena.ch/naturphaenomen/unesco/, https://www.aletsch-halbmarathon.ch/de - datasport.com bleibt."
+  },
+  "10. Benefizlauf Lions Club Alvesloe|2027-06-27": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/10-benefizlauf-lions-club-alvesloe",
+    "notiz": "Websuche nannte https://www.benefizlauf.de/, Seite nennt den Lauf nicht erkennbar (Status 200) - laufen.de bleibt."
+  },
+  "20. Dahlenburger Moorlauf|2027-06-27": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "moorlauf.wetzstopp.de",
+    "alt": "https://laufen.de/laufkalender/details/20-dahlenburger-moorlauf",
+    "notiz": "Veranstalterseite statt laufen.de: http://www.moorlauf.wetzstopp.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:moorlauf). Linkprüfung 2026-09-30."
+  },
+  "100 Jahre Rund in Serrig|2027-07-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "11. Hochkippenlauf|2027-07-03": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/11-hochkippenlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "4 Ländermeisterschaft U23 - Straße|2027-07-04": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "cyclingaustria.at",
+    "alt": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=8C97485C89064D7BB629E7627FAAF7A7&filter=page=3",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bikeguideaustria.at/, http://www.uec.ch/, http://www.uci.ch/) - cyclingaustria.at bleibt."
+  },
+  "9. Wybelsumer Polderlauf|2027-07-10": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "polderlauf.de",
+    "alt": "https://laufen.de/laufkalender/details/9-wybelsumer-polderlauf",
+    "notiz": "Veranstalterseite statt laufen.de: https://www.polderlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:polderlauf). Linkprüfung 2026-09-30."
+  },
+  "Gr. Preis der Stadt Troisdorf|2027-07-10": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "21. Bokeler Windmühlenlauf|2027-07-23": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/21-bokeler-windmühlenlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "34. Funlauf \"Durch den Wewerschen Wald\"|2027-07-23": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/34-funlauf-durch-den-wewerschen-wald",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "5. Markttagelauf|2027-07-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/5-markttagelauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "Aloha Tri Traun|2027-07-31": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-traun.at",
+    "alt": "https://time2win.at/event/1094",
+    "notiz": "Veranstalterseite statt time2win.at: https://triathlon-traun.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:traun, host:traun). Linkprüfung 2026-09-30."
+  },
+  "Lindauer Seequerung|2027-08-01": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "bsv-schwaben.de",
+    "alt": "https://www.bsv-schwaben.de/index.php/termine/termine-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.swimcharts.de, http://www.freepik.com/, http://www.flaticon.com/) - bsv-schwaben.de bleibt."
+  },
+  "39. CJ Schmidt Hafentagelauf|2027-08-07": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/39-cj-schmidt-hafentagelauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "9. SV02 Kerwelauf - Der SV02 lässts LAUFen|2027-08-15": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "kerwelauf.de",
+    "alt": "https://laufen.de/laufkalender/details/9-sv02-kerwelauf-der-sv02-lässts-laufen",
+    "notiz": "Veranstalterseite statt laufen.de: http://www.kerwelauf.de - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kerwelauf). Linkprüfung 2026-09-30."
+  },
+  "St. Moritz Running Festival|2027-08-20": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/engadin-sommerlauf-2027",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://dev.visualwebsiteoptimizer.com, https://www.engadin-sommerlauf.ch) - datasport.com bleibt."
+  },
+  "31. Michelsmarktlauf|2027-08-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/31-michelsmarktlauf",
+    "notiz": "Seite nicht ladbar (404) - laufen.de bleibt."
+  },
+  "Baselbieter Bike Challenge|2027-08-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-events.de",
+    "alt": "https://radsport-events.de/events/27650",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - radsport-events.de bleibt."
+  },
+  "10. Sparkassen-Abendlauf|2027-08-27": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/10-sparkassen-abendlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "33. Zeitzer Stadtlauf|2027-08-28": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "laufen.de",
+    "alt": "https://laufen.de/laufkalender/details/33-zeitzer-stadtlauf",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - laufen.de bleibt."
+  },
+  "4. Triathlon Basel|2027-08-28": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonbasel.ch",
+    "alt": "https://datasport.com/de/events/4-triathlon-basel-2027",
+    "notiz": "Veranstalterseite statt datasport.com: https://triathlonbasel.ch/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (host:basel). Linkprüfung 2026-09-30."
+  },
+  "36. Spee-Cup in Genthin|2027-08-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "dsergebnis.de",
+    "alt": "https://www.dsergebnis.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - dsergebnis.de bleibt."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonvreden.de",
+    "alt": "https://my.raceresult.com/424668/",
+    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.triathlonvreden.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (vredener, datum). Linkprüfung 2026-09-30."
+  },
+  "Black Forest ULTRA Trail Run|2027-09-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "datasport.com",
+    "alt": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027",
+    "notiz": "Mehrere Seiten nennen den Lauf, keine eindeutig: https://cdn.cookie-script.com/s/b8f39a0ad9282c2f1b176fab7fef7d78.js, https://www.ultra-trailrun.de/ - datasport.com bleibt."
+  },
+  "Bad Ischler Kaiserlauf|2027-09-26": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "badischllaeuft.at",
+    "alt": "https://time2win.at/event/1096",
+    "notiz": "Veranstalterseite statt time2win.at: https://www.badischllaeuft.at/laufkaiserpaar - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (ischler). Linkprüfung 2026-09-30."
   }
 }

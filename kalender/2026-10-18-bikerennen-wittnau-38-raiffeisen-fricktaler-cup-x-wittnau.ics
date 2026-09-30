@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Bikerennen Wittnau - 38. Raiffeisen Fricktaler Cup 2026
 LOCATION:Wittnau\, Schweiz
-DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.swissc
- ycling-fricktal.ch/kalender
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.swisscy
+ clingaargau.ch
 TRANSP:TRANSPARENT
-URL:https://www.swisscycling-fricktal.ch/kalender
+URL:http://www.swisscyclingaargau.ch
 END:VEVENT
 END:VCALENDAR

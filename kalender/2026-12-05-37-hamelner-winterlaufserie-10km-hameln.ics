@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:37. Hamelner Winterlaufserie
 LOCATION:Hameln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/37-hamelner-winterlaufserie
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.esv-eintr
+ acht-hameln.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/37-hamelner-winterlaufserie
+URL:https://www.esv-eintracht-hameln.de/
 END:VEVENT
 END:VCALENDAR

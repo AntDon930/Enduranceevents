@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:Rheinland-Pfalz Meisterschaften 5km U16
 LOCATION:Föhren\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/rheinland-pfalz-meisterschaften-5km-u16
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lg-meulenwald-
+ foehren.de/IRT-L%C3%A4ufermeeting/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften
- -5km-u16
+URL:https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/
 END:VEVENT
 END:VCALENDAR

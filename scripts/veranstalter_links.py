@@ -246,7 +246,10 @@ def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
             treffer.insert(0, "host:" + host_hit)
             continue
         for w in namens_woerter(nm):
-            if w in txt and w not in ortswoerter:
+            # Das Ortsadjektiv („korschenbroicher", „hamelner") ist kein
+            # Namenswort: citylauf-korschenbroich.com nennt den Ort auf
+            # jeder Seite und den Waldlauf nirgends (30.09.2026).
+            if w in txt and w not in ortswoerter and not any(w.startswith(o) for o in ortswoerter if len(o) >= 5):
                 treffer.append(w)
                 break
     if ort_im_host:

@@ -4,13 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-25-wec-cross-osnabruck-bornheide-x-osnabruck@antdon930.github.
- io
+UID:2027-01-24-weser-ems-cup-bad-essen-x-bad-essen@antdon930.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:WEC Cross Osnabrück - Bornheide – Cyclocross\, Weser-Ems-Cup
-LOCATION:Osnabrück\, Deutschland
+DTSTART;VALUE=DATE:20270124
+DTEND;VALUE=DATE:20270125
+SUMMARY:Weser-Ems-Cup Bad Essen – Cyclocross
+LOCATION:Bad Essen\, Deutschland
 DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radsport
  -weser-ems.de/termine/
 TRANSP:TRANSPARENT

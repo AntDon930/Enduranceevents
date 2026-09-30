@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270815
 DTEND;VALUE=DATE:20270816
 SUMMARY:9. SV02 Kerwelauf - Der SV02 lässts LAUFen
 LOCATION:Schönau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/9-sv02-kerwelauf-der-sv02-lässts-laufen
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.kerwelauf.
+ de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/9-sv02-kerwelauf-der-sv02-lässt
- s-laufen
+URL:http://www.kerwelauf.de
 END:VEVENT
 END:VCALENDAR

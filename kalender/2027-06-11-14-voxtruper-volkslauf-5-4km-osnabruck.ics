@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270611
 DTEND;VALUE=DATE:20270612
 SUMMARY:14. Voxtruper Volkslauf – 5\,4 km (Nordic-)Walking
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://laufen.de/la
- ufkalender/details/14-voxtruper-volkslauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttp://www.vfr-voxtr
+ up.de
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/14-voxtruper-volkslauf
+URL:http://www.vfr-voxtrup.de
 END:VEVENT
 END:VCALENDAR

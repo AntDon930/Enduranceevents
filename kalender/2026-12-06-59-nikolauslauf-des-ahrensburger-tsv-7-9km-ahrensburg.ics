@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:59. Nikolauslauf des Ahrensburger TSV – Langstrecke 7940m
 LOCATION:Ahrensburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.9 km\nhttps://laufen.de/la
- ufkalender/details/59-nikolauslauf-des-ahrensburger-tsv
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.9 km\nhttps://www.meinatsv
+ .de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/59-nikolauslauf-des-ahrensburge
- r-tsv
+URL:https://www.meinatsv.de/
 END:VEVENT
 END:VCALENDAR

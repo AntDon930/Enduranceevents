@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:Himmelgeister Brückenlauf
 LOCATION:Düsseldorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/himmelgeister-brückenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.bruecke
+ nlauf-duesseldorf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/himmelgeister-brückenlauf
+URL:https://www.brueckenlauf-duesseldorf.de/
 END:VEVENT
 END:VCALENDAR

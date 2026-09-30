@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270514
 DTEND;VALUE=DATE:20270515
 SUMMARY:18. Langeneicker Pfingstlauf 2027 – Ausdauer Lauf
 LOCATION:Geseke- Langeneicke\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/18-langeneicker-pfingstlauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.pfingstla
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/18-langeneicker-pfingstlauf-202
- 7
+URL:https://www.pfingstlauf.de/
 END:VEVENT
 END:VCALENDAR

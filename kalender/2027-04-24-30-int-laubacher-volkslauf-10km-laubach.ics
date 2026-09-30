@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270424
 DTEND;VALUE=DATE:20270425
 SUMMARY:30. Int. LAUBACHER VOLKSLAUF
 LOCATION:Laubach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/30-int-laubacher-volkslauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sv1874lau
+ bach.de/index.php/lauftreff/ramsberglauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/30-int-laubacher-volkslauf
+URL:https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf
 END:VEVENT
 END:VCALENDAR

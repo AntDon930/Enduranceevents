@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:TVM Volksbank Gehrenberglauf 2026
 LOCATION:Markdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.9 km\nhttps://laufen.de/lau
- fkalender/details/tvm-volksbank-gehrenberglauf-2026
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.9 km\nhttps://www.tv-markdo
+ rf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/tvm-volksbank-gehrenberglauf-20
- 26
+URL:https://www.tv-markdorf.de/
 END:VEVENT
 END:VCALENDAR

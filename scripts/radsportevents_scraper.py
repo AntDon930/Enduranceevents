@@ -106,6 +106,10 @@ SEITENGROESSE = 200
 # Veranstaltungstypen, die keine Veranstaltung mit Startlinie sind
 # (oder nach den Datenregeln nicht in die Liste gehören).
 UEBERSPRINGEN = {"VIRTUELLE_RTF", "GRAVEL_CAMP", "ETAPPENTOUR", "MANNSCHAFTSZEITFAHREN"}
+# Kurse und Trainings tragen den Typ ihres Untergrunds ("MTB") - der
+# "MTB-Fahrtechnikkurs Allround, Nürnberg" stand als Rennen in der Liste
+# (Linkprüfung 30.09.2026, vier Zeilen). Ein Kurs hat keine Startlinie.
+KEIN_RENNEN = re.compile(r"fahrtechnik|\bkurs\b|kurse\b|training|workshop|\bcamp\b|schnupper", re.I)
 MEHRSPORT = {"TRIATHLON": "Triathlon", "DUATHLON": "Duathlon", "DUATHLON_CROSS": "Duathlon"}
 ZEITFAHREN = {"EINZELZEITFAHREN", "BERGZEITFAHREN", "HILLCLIMB"}
 
@@ -163,7 +167,7 @@ def parse_item(item: dict, config: SiteConfig) -> list[Event]:
         return []
     name = (item.get("title") or "").strip()
     start = parse_flexible_date(str(item.get("eventDate") or ""))
-    if not name or not start:
+    if not name or not start or KEIN_RENNEN.search(name):
         return []
     ende = parse_flexible_date(str(item.get("endDate") or "")) or start
     kategorie = item.get("category") or "ROAD"

@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270605
 DTEND;VALUE=DATE:20270606
 SUMMARY:37. Wolfhager Volkslauf Rund um den Graner Berg
 LOCATION:Wolfhagen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.5 km\nhttps://laufen.de/l
- aufkalender/details/37-wolfhager-volkslauf-rund-um-den-graner-berg
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.5 km\nhttps://www.lauftea
+ m-woh.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/37-wolfhager-volkslauf-rund-um-
- den-graner-berg
+URL:https://www.laufteam-woh.de/
 END:VEVENT
 END:VCALENDAR

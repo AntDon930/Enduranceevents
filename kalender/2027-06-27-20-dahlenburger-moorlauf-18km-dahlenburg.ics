@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270627
 DTEND;VALUE=DATE:20270628
 SUMMARY:20. Dahlenburger Moorlauf
 LOCATION:Dahlenburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://laufen.de/lau
- fkalender/details/20-dahlenburger-moorlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttp://www.moorlauf.w
+ etzstopp.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/20-dahlenburger-moorlauf
+URL:http://www.moorlauf.wetzstopp.de/
 END:VEVENT
 END:VCALENDAR

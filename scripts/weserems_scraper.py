@@ -98,8 +98,17 @@ def event_aus_zeile(z: dict, orte: dict | None = None) -> tuple[Event | None, st
     if not ort:
         return None, "kein Ort in der Zeile"
     standort, lat, lon = ort
+    # Der Name heißt wie bei radsport-events.de („Weser-Ems-Cup Rheine"),
+    # das dieselben Rennen mit Renndauer und Veranstalterlink führt: „WEC
+    # Cross Rheine - Elte" hatte mit „Weser-Ems-Cup Rheine" kein gemeinsames
+    # Wort, und jedes Rennen stand zweimal in der Liste (Linkprüfung
+    # 30.09.2026). Das Label bleibt schlicht „Cyclocross", damit die Zeile in
+    # der reicheren („Cyclocross Hobby 0.5 h") aufgeht - ein Stadtteil im
+    # Label hätte sie wieder getrennt.
+    name = f"{CUP} {standort}"
     ev = Event(land="Deutschland", name=name, standort=standort, lat=lat, lon=lon, art1="Fahrrad",
-               datum_start=z["datum"], datum_ende=z["datum"], wettbewerb=f"Cyclocross, {CUP}",
+               datum_start=z["datum"], datum_ende=z["datum"],
+               wettbewerb="Cyclocross",
                veranstalter_url=TERMINE_URL)
     ev.art2 = "Cyclecross"
     return ev, None

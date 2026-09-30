@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Winterserie PSV Rot-Gold Lehrte 26/27
 LOCATION:Lehrte\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/winterserie-psv-rot-gold-lehrte-26-27-14
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://psvlehrte.de/s
+ portarten/laufen
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte
- -26-27-14
+URL:https://psvlehrte.de/sportarten/laufen
 END:VEVENT
 END:VCALENDAR

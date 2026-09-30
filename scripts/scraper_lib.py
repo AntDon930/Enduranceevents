@@ -2712,7 +2712,20 @@ PORTAL_DOMAINS = (
     # Cross-Cups, Bezirks-/Regionalverbände und der Zeitnehmer DS
     # Ergebnisdienst führen Kalender, keine Veranstalterseiten; die
     # Anmeldung läuft über gregorhoops.de bzw. zpn-timing.de.
-    "stevenscup.de", "cyclocrosscup.de", "bsv-schwaben.de", "crosscup.org", "dsergebnis.de",
+    "stevenscup.de", "cyclocrosscup.de", "bsv-schwaben.de",
+    # Linkprüfung 30.09.2026 („nicht auf Sammelwebseiten verlinken"):
+    # Zeitnehmer und Anmeldeportale (ergebnisliste.de = Sport-Service
+    # Volker Kram, ergebnisliste.at = Hightech Timing, sportchrono.ch,
+    # vs-timing.ch, sptiming.ch, performance-timing.ch, br-/taf-/
+    # ssf-timing, lauf-anmeldung.de = Volxlauf, sportanmeldung.de),
+    # Verbandsportale (Athleticon des BSV Hamburg, OÖ Radsportverband,
+    # Kärntner LV, Bayerischer Schwimmverband, Swiss Running LaufGuide),
+    # das Lausitzer Sportportal und das Schwimm-Magazin swim.de.
+    "sportchrono.ch", "athleticon.bsvhh.de", "ooe-radsportverband.at", "k-lv.com",
+    "guide.swiss-running.ch", "lausitzer-sportevents.de", "ergebnisliste.at",
+    "ergebnisliste.de", "vs-timing.ch", "sptiming.ch", "performance-timing.ch",
+    "br-timing.de", "taf-timing.de", "ssf-timing.de", "raceresult.de",
+    "lauf-anmeldung.de", "sportanmeldung.de", "swim.de", "bayerischer-schwimmverband.de", "crosscup.org", "dsergebnis.de",
     "radsport-weser-ems.de", "swiss-cycling-boe.ch", "swisscycling-fricktal.ch",
     "radsport-sh.de", "gregorhoops.de", "zpn-timing.de",
 )

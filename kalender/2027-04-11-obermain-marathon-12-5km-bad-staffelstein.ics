@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
 SUMMARY:Obermain-Marathon – ABERIO-12\,5-km-Lauf
 LOCATION:Bad Staffelstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.sas-onl
- ine.net/eventportal_bs/826/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.obermai
+ n-marathon.de
 TRANSP:TRANSPARENT
-URL:https://www.sas-online.net/eventportal_bs/826/
+URL:https://www.obermain-marathon.de
 END:VEVENT
 END:VCALENDAR

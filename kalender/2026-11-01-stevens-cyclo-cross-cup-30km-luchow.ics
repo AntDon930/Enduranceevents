@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Stevens-Cyclo-Cross-Cup – Cyclocross 30 km
 LOCATION:Lüchow\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttps://my.racer
- esult.com/391335/info
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttp://www.igasw
+ endland.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/391335/info
+URL:http://www.igaswendland.de
 END:VEVENT
 END:VCALENDAR
