@@ -4795,6 +4795,22 @@
       "veranstalter_url": "https://www.seeueberquerung.ch/",
       "_quelle": "https://www.seeueberquerung.ch/",
       "_note": "seeueberquerung.ch (24.09.2026): 'Die nächste Stadtzürcher Seeüberquerung findet am Mittwoch, 7. Juli 2027, statt. Verschiebedaten sind der 14. Juli und 25. August 2027.' Strecke 1'500 m vom Strandbad Mythenquai ins Strandbad Tiefenbrunnen, 'kein Wettkampf', Volksschwimmen mit 9'000 Plätzen. Aus der Linkliste des Nutzers (24.09.2026); swimsports.ch führt erst den Termin 2026. Koordinaten Zürich aus places.json."
+    },
+    {
+      "land": "Deutschland",
+      "name": "Lindauer Seequerung",
+      "standort": "Lindau (Bodensee)",
+      "lat": 47.55,
+      "lon": 9.709,
+      "art1": "Schwimmen",
+      "art2": "Freiwasser",
+      "datum_start": "2027-08-01",
+      "datum_ende": "2027-08-01",
+      "laenge_km": 2.3,
+      "wettbewerb": null,
+      "veranstalter_url": "https://www.bsv-schwaben.de/index.php/termine/termine-2027",
+      "_quelle": "https://www.bsv-schwaben.de/index.php/termine/termine-2027",
+      "_note": "Terminliste 2027 des Bayerischen Schwimmverbands, Bezirk Schwaben (30.09.2026): '01.08. | 23. Lindauer Seequerung | Lindau'. Veranstalter TSV 1850 Lindau (Schwimmabteilung) mit der Wasserwacht; Strecke laut Presseberichten der Vorjahre rund 2,3 km von der Insel nach Bad Schachen. Eigene Veranstalterseite nicht gefunden - der Verbandskalender bleibt als Portallink. Aus der zweiten Quellensuche des Nutzers (README, 'Rad und Schwimmen'). Koordinaten Lindau aus places.json."
     }
   ]
 }

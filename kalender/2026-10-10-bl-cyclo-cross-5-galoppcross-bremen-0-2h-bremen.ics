@@ -4,11 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-10-galoppcross-0-2h-bremen@antdon930.github.io
+UID:2026-10-10-bl-cyclo-cross-5-galoppcross-bremen-0-2h-bremen@antdon930.g
+ ithub.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
-SUMMARY:GaloppCross – Cyclocross 0.2 h
+SUMMARY:BL Cyclo Cross 5. Galoppcross Bremen – Cyclocross 0.2 h
 LOCATION:Bremen\, Deutschland
 DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.2 h\nhttps://www.rads
  port-hb.de/veranstaltungen/2885369/2026/10/10/galoppcross-5.0-cyclocross-

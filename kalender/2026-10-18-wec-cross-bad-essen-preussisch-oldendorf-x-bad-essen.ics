@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-wec-cross-bad-essen-preussisch-oldendorf-x-bad-essen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:WEC Cross Bad Essen / Preußisch Oldendorf – Cyclocross\, Weser-Ems
+ -Cup
+LOCATION:Bad Essen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radsport
+ -weser-ems.de/termine/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-weser-ems.de/termine/
+END:VEVENT
+END:VCALENDAR

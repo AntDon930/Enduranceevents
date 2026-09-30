@@ -3622,6 +3622,44 @@ Veranstalterlink) und wären Kandidaten. Österreichs LVs verlinken den
 lokalen deutschen Rennen stehen nur bei rad-net.de** (403 + Verbot) –
 Punkt 1 des Plans bleibt der einzige Weg, ebenso für den DSV.
 
+**Zweite Quellensuche, acht kleine Radquellen (30.09.2026)**: Auf
+„neue Webseiten finden … kleine lokale Rennradrennen" hin rund 60 Domains
+gesichtet (README, „Neue Kalender für Rad und Schwimmen, zweite Suche")
+und auf „bitte alle die es erlauben einbauen" hin **acht Scraper**
+gebaut, je Domain ein Modul (weil `check_robots()` je `base_url` prüft),
+alle Fahrrad, alle in `test_kleine_radquellen`: `stevenscup_scraper.py`
+(Stevens Cyclo-Cross Cup, Norddeutschland; Ort aus der PLZ-Adresse, der
+Cup-Ort „Mölln" fährt in Grambek), `cyclocrosscup_scraper.py` (Cyclocross
+Cup Baden-Württemberg; **eine Zeile je Renndauer** aus dem Zeitplan,
+Nachwuchs und Brumath/F fallen), `crosscup_scraper.py` (GUNSHA Crosscup,
+Mitteldeutschland; Koordinaten und Veranstalterseite aus der Rennseite,
+die „Streckenlänge" ist die Runde), `dsergebnis_scraper.py` (Zeitnehmer
+DS Ergebnisdienst; nur Datum + Name, der Ort kommt aus dem Namen, ohne
+eindeutigen Ort kein Eintrag), `weserems_scraper.py` (Weser-Ems-Cup;
+Kürzel „Os", „Pr. Oldendorf", „Engter" ausgeschrieben), `boe_scraper.py`
+(Swiss Cycling BOE; Kalender des laufenden und des nächsten Jahres, 2027
+noch 404), `fricktal_scraper.py` (Fricktaler Cup, MTB) und
+`radsportsh_scraper.py` (Radsportverband SH: RTF/CTF/Gravelride, Ort aus
+Name oder Hostnamen der Veranstalterseite). Erster Lauf: 6.975 → 7.028
+Events, 57 neue Zeilen (Fahrrad 824 → 876). Drei Dinge daraus, alle in
+`scraper_lib.py`: **`ort_im_text(text, orte, ausnahmen, mehrdeutig_ok)`**
+ist der gemeinsame Ortsfinder für Quellen, die den Ort nur im Namen
+nennen (Zweiwort vor Einwort, Adjektiv nur vor Rennwort, Artikel sperrt,
+Bindestrich-Teile nur hinter Rennwort, mehrdeutig nur mit Flagge –
+Gegenproben „Kometen Schmitter Nacht", „Die Mauer von Kendenich",
+„Main-Spessart Rundfahrt" im Test); **`dedupe_key()` zählt ohne Distanz
+die Dauer mit** (die 30-/40-/60-Minuten-Rennen eines Cyclocross fielen
+sonst beim Einsammeln zusammen – Datenregel 8 galt in `is_same_event()`,
+nicht im Schlüssel); `\bctf\b` ist Mountainbike. **Nicht gebaut**:
+`jedermannmasterradcup.at` (kein Ort; die Rennen stehen über ÖRV/endure
+drin) und `radsport-hh.de` (nur Name + Datum; die Cross-Rennen kommen über
+den Stevens Cup). **Vorbehalt, nicht gelesen**: `zpn-timing.de`
+(Privat-Klausel – die beste Struktur der Suche, eine Anfrage des Nutzers
+wäre der Weg), `s-r-b.de`, `swiss-cyclocross.ch`, `bikeboard.at`. Die
+Lindauer Seequerung (01.08.2027, BSV-Schwaben-Kalender) steht in
+`manual_events.json`. Im Frühjahr 2027 lohnt ein Blick: BOE, Fricktal
+und dsergebnis tragen dann die Saison ein.
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -3941,10 +3979,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - ~~**`datasport.com` als Quelle?**~~ **entschieden** (30.09.2026: „du
      hast meine Erlaubnis für Punkt 3, datasport.com") –
      `datasport_scraper.py`, siehe „Quellen".
-   - **Hamburg und Schleswig-Holstein** (`radsport-hh.de`, `radsport-sh.de`,
-     30.09.2026): die einzigen Landesverbände mit frei lesbarer Liste –
-     dünn (Name + Datum, SH mit Veranstalterlink; Cyclocross-Cup, RTF/CTF).
-     Scraper bauen? Ohne Ja nicht.
+   - ~~Hamburg und Schleswig-Holstein~~ **entschieden** (30.09.2026:
+     „bitte alle die es erlauben einbauen") – `radsportsh_scraper.py`
+     gebaut; Hamburg nicht (nur Name + Datum, die Rennen kommen über den
+     Stevens Cup). Dazu die sieben anderen Quellen der zweiten Suche,
+     siehe „Quellen". Offen bleibt **zpn-timing.de** (Privat-Klausel im
+     Impressum): Eine Anfrage des Betreibers durch den Nutzer wäre der
+     Weg zu den ostdeutschen Cross-Cups und MTB-Marathons.
    - **Gravel-Listen** (`dealgrid.de` mit 53 JSON-LD-Events,
      `gravel-club.com`, `808project.de`): Affiliate- bzw.
      Community-Seiten, international; lohnend nur, wenn die

@@ -3169,6 +3169,189 @@ def test_radsportevents() -> None:
     print("  ✓ radsport-events.de: Strecken, Runde/Dauer, Zeitfahren/Gravel/Cyclocross, Mehrsport-Summe, Ausschlüsse")
 
 
+def test_kleine_radquellen() -> None:
+    """Die acht Scraper der zweiten Quellensuche (30.09.2026): Stevens Cup,
+    Cyclocross Cup BW, GUNSHA Crosscup, DS Ergebnisdienst, Weser-Ems-Cup,
+    Swiss Cycling BOE, Fricktaler Cup, Radsportverband SH - samt
+    `ort_im_text()`, ohne Netz."""
+    print("\nKleine Radquellen (zweite Suche):")
+
+    def ok(label, bedingung, detail=""):
+        check(label if bedingung else f"{label} [{detail}]", bool(bedingung), True)
+
+    from scraper_lib import ort_im_text, orte_aus_places
+    de = orte_aus_places("Deutschland")
+    be = orte_aus_places("Schweiz", region="Canton de Berne")
+    # ort_im_text: Zweiwort-Ort vor Einwort, Adjektiv nur vor Rennwort,
+    # Artikel sperrt das Hauptwort, Bindestrich nur hinter Rennwort,
+    # mehrdeutig nur mit Flagge.
+    faelle = [
+        ("WEC Cross Bad Essen / Pr. Oldendorf", de, "Bad Essen"),
+        ("Herforder Frühjahrspreis", de, "Herford"),
+        ("Finale BL Rund um das Vechtaer Reiterwaldstadion", de, "Vechta"),
+        ("Kometen Schmitter Nacht", de, None),
+        ("NRW Cross Cup Die Mauer von Kendenich", de, None),
+        ("38. Main-Spessart Rundfahrt", de, None),
+        ("35. GP von Buchholz", de, None),
+        ("Bergrennen Stettlen-Bantiger", be, "Stettlen"),
+        ("Einzelzeitfahren Langnau-Zäziwil", be, "Zäziwil"),
+        ("Strassenrennen in Deisswil b. Münchenbuchsee", be, "Münchenbuchsee"),
+        ("King of Elsigen", be, None),
+    ]
+    for text, orte, erwartet in faelle:
+        t = ort_im_text(text, orte)
+        ok(f"ort_im_text: {text!r} -> {erwartet}", (t[0] if t else None) == erwartet, f"{t}")
+    t = ort_im_text("35. GP von Buchholz", de, mehrdeutig_ok=True)
+    ok("ort_im_text: mehrdeutig nur mit Flagge, dann ohne Koordinaten",
+          t is not None and t[1] is None, f"{t}")
+    t = ort_im_text("WEC Cross Os - Bornheide", de, ausnahmen={"Os": "Osnabrück"})
+    ok("ort_im_text: Kürzel über ausnahmen", t and t[0] == "Osnabrück", f"{t}")
+
+    import stevenscup_scraper as st
+    html = ('<div class="mod_eventlist"><div class="event upcoming"><h1>&#35;04 - Mölln</h1>'
+            '<h3>„King of Pirates“</h3><p class="info"><time datetime="2026-10-17">Samstag</time></p>'
+            '<p class="location"><strong>Adresse:</strong> Motocrossstrecke | Vor dem Bockholt, 23883 Grambek</p>'
+            '<div class="racedata"><p><strong>Ausrichter:</strong> <a href="https://www.pirate-hamburg.de/">MC Pirate</a></p>'
+            '<p><strong>Meldeschluss:</strong> 11.10.2026</p></div>'
+            '<p class="apply_link"><a class="btn" href="https://my.raceresult.com/387088/">Anmelden</a></p></div>'
+            '<div class="event"><h1>&#35;09 - Bad Oldesloe</h1><p class="info"><time datetime="2026-11-08">So</time></p>'
+            '<p class="location"><strong>Adresse:</strong> Sportplatz, Bad Oldesloe</p>'
+            '<div class="racedata"><p><strong>Ausrichter:</strong> RV Trave</p></div>'
+            '<p class="apply_link"><a class="btn" href="https://my.raceresult.com/1/">Anmelden</a></p></div></div>')
+    rennen = st.parse_rennen(html)
+    ok("stevenscup: zwei Blöcke, kommend/vergangen", [r["vergangen"] for r in rennen] == [False, True], f"{rennen}")
+    ev, grund = st.event_aus_rennen(rennen[0], de)
+    ok("stevenscup: Ort aus der Adresse (Grambek, nicht Mölln)", ev and ev.standort == "Grambek" and ev.lat, f"{ev} {grund}")
+    ok("stevenscup: Name, Ausrichter-Link, Meldeschluss, Cyclecross",
+          ev and ev.name == "King of Pirates" and ev.veranstalter_url == "https://www.pirate-hamburg.de/"
+          and ev.anmeldeschluss == "2026-10-11" and ev.art2 == "Cyclecross" and ev.laenge_km is None, f"{ev}")
+    ev2, _ = st.event_aus_rennen(rennen[1], de)
+    ok("stevenscup: ohne h3 heißt es nach dem Cup, ohne Ausrichter-Link die Anmeldung",
+          ev2 and ev2.name == "Stevens Cyclo-Cross Cup Bad Oldesloe" and ev2.standort == "Bad Oldesloe"
+          and ev2.veranstalter_url == "https://my.raceresult.com/1/", f"{ev2}")
+
+    import cyclocrosscup_scraper as cc
+    html = ('<div class="entry-content"><h2>1. Lauf – Brumath</h2><h3>Brumath Bike Festival am 03.10.2026 in Brumath (Frankreich)</h3>'
+            '<h2>2. Lauf – Baiersbronn</h2><h3>12. Cross im Park am 18.10.2026 in Baiersbronn</h3>'
+            '<p>Veranstalter: TV Baiersbronn</p><p>Informationen: <a href="http://www.cross-im-park.com/">x</a></p>'
+            '<p>Navi &amp; Parken: Schwimmbadweg, Baiersbronn</p>'
+            '<table><tr><td>Uhrzeit</td><td>Klasse</td><td>Renndauer</td><td>Lizenz</td></tr>'
+            '<tr><td>10:00</td><td>Hobby m U40/Ü40 (JG 87+)</td><td>30 min</td><td>ohne</td></tr>'
+            '<tr><td></td><td>Hobby Frauen</td><td>30 min</td><td>ohne</td></tr>'
+            '<tr><td>11:00</td><td>Masters 2, Masters 3, Masters 4</td><td>40 min</td><td>Lizenz</td></tr>'
+            '<tr><td>14:30</td><td>U13 m/w</td><td>15 min Rad</td><td>mit/ohne</td></tr>'
+            '<tr><td>17:15</td><td>Frauen Elite + Juniorinnen</td><td>40 min</td><td>Lizenz</td></tr>'
+            '<tr><td>17:50</td><td>Männer Elite</td><td>50 min</td><td>Lizenz</td></tr>'
+            '<tr><td></td><td>U19 m</td><td>40 min</td><td>Lizenz</td></tr>'
+            '<tr><td></td><td>Siegerehrung</td><td></td><td></td></tr></table>'
+            '<h2>4. Lauf – Heidelberg</h2><h2><strong>5. Heidelberger Crossrennen 21.11.2026</strong></h2>'
+            '<p>Informationen: <a href="http://www.rsv-heidelberg.de">x</a></p><h2></h2></div>')
+    rennen = cc.parse_rennen(html)
+    ok("cyclocrosscup: drei Läufe, leere h2 stört nicht", [r["lauf"][:7] for r in rennen] == ["1. Lauf", "2. Lauf", "4. Lauf"], f"{[r['lauf'] for r in rennen]}")
+    evs, grund = cc.events_aus_rennen(rennen[0], de)
+    ok("cyclocrosscup: Frankreich fällt weg", not evs and "außerhalb" in (grund or ""), f"{grund}")
+    evs, grund = cc.events_aus_rennen(rennen[1], de)
+    ok("cyclocrosscup: eine Zeile je Renndauer, Nachwuchs raus",
+          [(e.dauer_h, e.wettbewerb) for e in evs] == [(0.5, "Hobby 30 min (Cyclocross Cup Baden-Württemberg)"),
+                                                       (0.67, "Masters, Elite 40 min (Cyclocross Cup Baden-Württemberg)"),
+                                                       (0.83, "Elite 50 min (Cyclocross Cup Baden-Württemberg)")],
+          f"{[(e.dauer_h, e.wettbewerb) for e in evs]} {grund}")
+    ok("cyclocrosscup: Ort, Link, Cyclecross", evs and evs[0].standort == "Baiersbronn"
+          and evs[0].veranstalter_url == "http://www.cross-im-park.com/" and evs[0].art2 == "Cyclecross", f"{evs[0] if evs else grund}")
+    evs, grund = cc.events_aus_rennen(rennen[2], de)
+    ok("cyclocrosscup: Titel als zweite h2, Ort aus der Lauf-Überschrift",
+          evs and evs[0].name == "5. Heidelberger Crossrennen" and evs[0].datum_start == "2026-11-21"
+          and evs[0].standort == "Heidelberg" and evs[0].dauer_h is None, f"{evs} {grund}")
+
+    import crosscup_scraper as cr
+    ok("crosscup: Rennlinks aus dem Menü",
+          cr.parse_rennen_links('<a href="https://crosscup.org/rennen/borna/">11.10. – Borna</a><a href="/rennen/dornburg/#a">08.11. – Jena</a><a href="/rennen/">z</a>')
+          == [("https://crosscup.org/rennen/borna/", "Borna"), ("https://crosscup.org/rennen/dornburg/", "Jena")])
+    ev, grund = cr.event_aus_rennseite({"datum": "2026-11-29", "ort": "Volkspark Piesteritz"}, "u", de, "Wittenberg")
+    ok("crosscup: Ort aus dem Menü, wenn die Rennseite nur den Park nennt", ev and ev.standort == "Lutherstadt Wittenberg", f"{ev} {grund}")
+    seite = cr.parse_rennseite('<html><head><meta property="og:description" content="Termin : 25.10.26 / 10 Uhr Ort : Mühlhäuser Radibor '
+                               'GPS-Daten : 51.246088, 14.394373 Umkleidelokal : Sportplatz Streckenlänge : 2,2 km '
+                               'Internetseite des Veranstalters : www.rsv-bautzen.de Ausschreibung: rad-net"></head><body></body></html>')
+    ev, grund = cr.event_aus_rennseite(seite, "https://crosscup.org/rennen/radibor/", de)
+    ok("crosscup: Termin mit zweistelligem Jahr, Koordinaten der Strecke, Rundenlänge keine Distanz, Link ohne Schema",
+          ev and ev.datum_start == "2026-10-25" and ev.standort == "Radibor" and ev.lat == 51.246088
+          and ev.laenge_km is None and ev.veranstalter_url == "https://www.rsv-bautzen.de" and ev.name == "GUNSHA Crosscup Radibor", f"{ev} {grund}")
+
+    import dsergebnis_scraper as ds
+    html = ('<h1>Termine 2027</h1><p>14.03.2027 Herforder Frühjahrspreis</p><p>03./04.07.2027 100 Jahre Rund in Serrig</p>'
+            '<p>24.07.2026 43. Uni-Radrennen</p><p>31.07.2027 Radrennen in Offenbach</p><p>11.09.2027 Termin reserviert</p>'
+            '<p>10.10.2027 BL Cyclo Cross 5. Galoppcross Bremen</p><p>35. GP von Buchholz</p>')
+    zeilen = ds.parse_termine(html)
+    ok("dsergebnis: sechs Terminzeilen, Doppeltermin mit Enddatum", len(zeilen) == 6 and zeilen[1]["datum_ende"] == "2027-07-04", f"{zeilen}")
+    ergebnisse = [ds.event_aus_zeile(z, de) for z in zeilen]
+    ok("dsergebnis: Herford aus dem Adjektiv, Straße", ergebnisse[0][0] and ergebnisse[0][0].standort == "Herford" and ergebnisse[0][0].art2 == "Straße", f"{ergebnisse[0]}")
+    ok("dsergebnis: Serrig", ergebnisse[1][0] and ergebnisse[1][0].standort == "Serrig", f"{ergebnisse[1]}")
+    ok("dsergebnis: falsches Jahr ist ein Tippfehler der Seite, kein Eintrag", ergebnisse[2][0] is None and "Tippfehler" in ergebnisse[2][1], f"{ergebnisse[2]}")
+    ok("dsergebnis: Offenbach nicht eindeutig", ergebnisse[3][0] is None and "Offenbach" in ergebnisse[3][1], f"{ergebnisse[3]}")
+    ok("dsergebnis: Termin reserviert ist kein Rennen", ergebnisse[4][0] is None, f"{ergebnisse[4]}")
+    ok("dsergebnis: Cross ist Cyclecross", ergebnisse[5][0] and ergebnisse[5][0].art2 == "Cyclecross" and ergebnisse[5][0].standort == "Bremen", f"{ergebnisse[5]}")
+
+    import weserems_scraper as we
+    orte_we = we.orte_weser_ems()
+    zeilen = we.parse_termine('<p><span>18.10.2026  WEC Cross Bad Essen / Pr. Oldendorf</span></p>'
+                              '<p>06.12.2026  WEC u. <strong>LVM NS</strong> Os - Schinkel</p><p>13.12.2026  WEC Cross Engter</p><p>Hier die Termine</p>')
+    ok("weserems: drei Zeilen", len(zeilen) == 3, f"{zeilen}")
+    evs = [we.event_aus_zeile(z, orte_we)[0] for z in zeilen]
+    ok("weserems: erster Ort bei zwei Orten, Kürzel ausgeschrieben",
+          [(e.standort, e.name) for e in evs] == [("Bad Essen", "WEC Cross Bad Essen / Preußisch Oldendorf"),
+                                                  ("Osnabrück", "WEC und LVM NS Osnabrück - Schinkel"),
+                                                  ("Bramsche", "WEC Cross Bramsche (Engter)")], f"{[(e.standort, e.name) for e in evs]}")
+
+    import boe_scraper as boe
+    html = ('<h2>BOE-Strassenmeisterschaft</h2><div class="cc-m-download-title">13.05.  -  Einzelzeitfahren Langnau-Zäziwil</div>'
+            '<div class="cc-m-download-description">Organisation: VC Bärau</div>'
+            '<div class="cc-m-download-title">20.09.  -  King of Elsigen</div><div class="cc-m-download-description">Organisation: OK</div>'
+            '<h2>BOE-Bikemeisterschaft</h2><div class="cc-m-download-title">17.06. - Bike-Rennen Burgdorf (Fänstu)</div>'
+            '<div class="cc-m-download-description">Organisation: RV Ersigen</div>'
+            '<div class="cc-m-download-title">21.06. - Bärenried Enduro MTB Race (nur Kids)</div>')
+    rennen = boe.parse_kalender(html, 2027)
+    ok("boe: vier Termine mit Jahr aus der Adresse", [r["datum"] for r in rennen] == ["2027-05-13", "2027-09-20", "2027-06-17", "2027-06-21"], f"{rennen}")
+    ergebnisse = [boe.event_aus_rennen(r, "u", be) for r in rennen]
+    ok("boe: Zeitfahren Zäziwil", ergebnisse[0][0] and ergebnisse[0][0].standort == "Zäziwil" and ergebnisse[0][0].art2 == "Zeitfahren", f"{ergebnisse[0]}")
+    ok("boe: Berg ist kein Ort", ergebnisse[1][0] is None, f"{ergebnisse[1]}")
+    ok("boe: Bikemeisterschaft ist Mountainbike, Organisation gelesen", ergebnisse[2][0] and ergebnisse[2][0].art2 == "Mountainbike"
+          and rennen[2]["organisation"] == "RV Ersigen", f"{ergebnisse[2]}")
+    ok("boe: nur Kids fällt weg", ergebnisse[3][0] is None, f"{ergebnisse[3]}")
+
+    import fricktal_scraper as fr
+    html = ('<div class="event-list"><h3>Sonntag 18.10.2026</h3><div class="cd-tile-h-box"><div class="cd-tile-h-main-heading">'
+            'Bikerennen Wittnau - 38. Raiffeisen Fricktaler Cup 2026</div><ul><li><div class="cd-tile-h-detail-label">Ort</div>'
+            '<div class="cd-tile-h-detail-value">Turnhalle Wittnau</div></li></ul></div>'
+            '<h3>Freitag 06.11.2026</h3><div class="cd-tile-h-box"><div class="cd-tile-h-main-heading">Absenden/Preisverteilung - Cup</div></div></div>')
+    eintraege = fr.parse_kalender(html)
+    ag = orte_aus_places("Schweiz", region="Kanton Aargau")
+    ev, grund = fr.event_aus_eintrag(eintraege[0], ag, orte_aus_places("Schweiz"))
+    ok("fricktal: Wittnau im Aargau (nicht das badische), Mountainbike", ev and ev.standort == "Wittnau" and 47.4 < ev.lat < 47.6
+          and ev.art2 == "Mountainbike" and ev.datum_start == "2026-10-18", f"{ev} {grund}")
+    ok("fricktal: Absenden ist kein Rennen", fr.event_aus_eintrag(eintraege[1], ag, ag)[0] is None)
+
+    import radsportsh_scraper as sh
+    orte_sh = sh.orte_sh()
+    seite = sh.parse_terminseite('<h1>LTV Almabtrieb (RTF)</h1><div class="news-text-wrap"><p><a href="https://www.ltvkiel-ost.de">x</a></p></div>'
+                                 '<div class="-datum ms-2">Samstag, 03.10.2026</div>')
+    ev, grund = sh.event_aus_terminseite(seite, "u", orte_sh)
+    ok("radsport-sh: Ort aus dem Hostnamen, RTF ist Straße, Format im Label",
+          ev and ev.standort == "Kiel" and ev.art2 == "Straße" and ev.wettbewerb == "RTF" and ev.name == "LTV Almabtrieb"
+          and ev.veranstalter_url == "https://www.ltvkiel-ost.de", f"{ev} {grund}")
+    seite = sh.parse_terminseite('<h1>Sparkasse Mittelholstein AG O-CTF in Westensee (CTF)</h1><div class="-datum">Sonntag, 08.11.2026</div>')
+    ev, grund = sh.event_aus_terminseite(seite, "https://www.radsport-sh.de/termin/x", orte_sh)
+    ok("radsport-sh: Ort aus dem Namen, CTF ist Mountainbike, ohne Link die Terminseite",
+          ev and ev.standort == "Westensee" and ev.art2 == "Mountainbike" and ev.veranstalter_url == "https://www.radsport-sh.de/termin/x", f"{ev} {grund}")
+    ev, grund = sh.event_aus_terminseite({"name": "Fachwartetag der Radwanderer", "datum": "2026-11-01"}, "u", orte_sh)
+    ok("radsport-sh: Verbandstermin ohne Format fällt weg", ev is None, f"{ev}")
+    ev, grund = sh.event_aus_terminseite({"name": "Waffel Ride Kiel 70 km (Gravelride)", "datum": "2027-01-10"}, "u", orte_sh)
+    ok("radsport-sh: eine Kilometerzahl im Namen wird die Länge", ev and ev.laenge_km == 70 and ev.standort == "Kiel" and ev.art2 == "Gravel", f"{ev} {grund}")
+    ev, grund = sh.event_aus_terminseite({"name": "Viking Bike Winterchallenge, O-CTF und Gravelride 70 km", "datum": "2027-01-10",
+                                          "veranstalter_url": "https://www.rv-schleswig.de"}, "u", orte_sh)
+    ok("radsport-sh: zwei Formate im Namen - die Kilometer gehören nur zu einem, Länge leer; Ort aus dem Host",
+       ev and ev.laenge_km is None and ev.standort == "Schleswig", f"{ev} {grund}")
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -3183,7 +3366,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

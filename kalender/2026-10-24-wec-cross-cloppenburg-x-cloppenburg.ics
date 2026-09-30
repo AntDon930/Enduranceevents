@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-wec-cross-cloppenburg-x-cloppenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:WEC Cross Cloppenburg – Cyclocross\, Weser-Ems-Cup
+LOCATION:Cloppenburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.radsport
+ -weser-ems.de/termine/
+TRANSP:TRANSPARENT
+URL:https://www.radsport-weser-ems.de/termine/
+END:VEVENT
+END:VCALENDAR

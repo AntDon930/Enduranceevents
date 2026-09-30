@@ -1633,6 +1633,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Cyclocross Hannover City mit Bezirksmeisterschaft",
+    "standort": "Hannover",
+    "lat": 52.376,
+    "lon": 9.746,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "anmeldeschluss": "2026-09-30",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #02",
+    "veranstalter_url": "https://radsportgemeinschaft-hannover.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Deininger Schüler/Jugend/Junioren Cross Duathlon",
     "standort": "Deining",
     "lat": 49.2139166,
@@ -5754,6 +5768,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Kurstadt Cross der Nordharzer RSG Bad Harzburg",
+    "standort": "Bad Harzburg",
+    "lat": 51.883,
+    "lon": 10.562,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "anmeldeschluss": "2026-09-27",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #03",
+    "veranstalter_url": "https://nrsg.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "Luftschifflauf Mülheim",
     "standort": "Mülheim an der Ruhr",
     "lat": 51.4272925,
@@ -7737,6 +7765,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "BL Cyclo Cross 5. Galoppcross Bremen",
+    "standort": "Bremen",
+    "lat": 53.0726279,
+    "lon": 8.8899031,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "dauer_h": 0.2,
+    "wettbewerb": "Cyclocross 0.2 h",
+    "veranstalter_url": "https://www.radsport-hb.de/veranstaltungen/2885369/2026/10/10/galoppcross-5.0-cyclocross-bundesliega.html"
+  },
+  {
+    "land": "Deutschland",
     "name": "Brakelsieker Volkslauf",
     "standort": "Schieder-Schwalenberg",
     "lat": 51.8980505,
@@ -8233,20 +8275,6 @@
     "laenge_km": 50.0,
     "wettbewerb": "50 km",
     "veranstalter_url": "https://my.raceresult.com/373996/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "GaloppCross",
-    "standort": "Bremen",
-    "lat": 53.0726279,
-    "lon": 8.8899031,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "dauer_h": 0.2,
-    "wettbewerb": "Cyclocross 0.2 h",
-    "veranstalter_url": "https://www.radsport-hb.de/veranstaltungen/2885369/2026/10/10/galoppcross-5.0-cyclocross-bundesliega.html"
   },
   {
     "land": "Österreich",
@@ -11061,6 +11089,19 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "veranstalter_url": "https://berlin-laeuft.de/great10k/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "GUNSHA Crosscup Borna",
+    "standort": "Borna",
+    "lat": 51.13386715,
+    "lon": 12.4962859,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://rsvborna.de"
   },
   {
     "land": "Deutschland",
@@ -13900,6 +13941,20 @@
     "veranstalter_url": "https://www.kernberglauf.de/"
   },
   {
+    "land": "Deutschland",
+    "name": "King of Pirates",
+    "standort": "Grambek",
+    "lat": 53.574,
+    "lon": 10.681,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "anmeldeschluss": "2026-10-11",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #04",
+    "veranstalter_url": "https://www.pirate-hamburg.de/"
+  },
+  {
     "land": "Österreich",
     "name": "Königstetter Herbstlauf",
     "standort": "Königstetten",
@@ -14747,6 +14802,76 @@
     "veranstalter_url": "https://www.wolfgangseelauf.at/"
   },
   {
+    "land": "Deutschland",
+    "name": "12. Cross im Park",
+    "standort": "Baiersbronn",
+    "lat": 48.5260959,
+    "lon": 8.4015244,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "wettbewerb": "Cyclocross",
+    "veranstalter_url": "http://www.cross-im-park.com/",
+    "dauer_h": 0.3
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Cross im Park",
+    "standort": "Baiersbronn",
+    "lat": 48.503,
+    "lon": 8.377,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "dauer_h": 0.5,
+    "wettbewerb": "Hobby, Masters 30 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.cross-im-park.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Cross im Park",
+    "standort": "Baiersbronn",
+    "lat": 48.503,
+    "lon": 8.377,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "dauer_h": 0.7,
+    "wettbewerb": "Masters 40 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.cross-im-park.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Cross im Park",
+    "standort": "Baiersbronn",
+    "lat": 48.503,
+    "lon": 8.377,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "dauer_h": 0.8,
+    "wettbewerb": "Elite 45 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.cross-im-park.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Cross im Park",
+    "standort": "Baiersbronn",
+    "lat": 48.503,
+    "lon": 8.377,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite 60 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.cross-im-park.com/"
+  },
+  {
     "land": "Schweiz",
     "name": "14. Muttenzer Herbstlauf",
     "standort": "Muttenz",
@@ -14786,6 +14911,20 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.tsg-ausdauersport.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "17. CycloCross-Rennen des RV Germania Hamburg in Norderstedt",
+    "standort": "Norderstedt",
+    "lat": 53.696,
+    "lon": 10.005,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "anmeldeschluss": "2026-10-16",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #05",
+    "veranstalter_url": "https://www.rvgermania.de/"
   },
   {
     "land": "Deutschland",
@@ -15175,6 +15314,18 @@
     "veranstalter_url": "https://biberacher-geniesserlauf.de/"
   },
   {
+    "land": "Schweiz",
+    "name": "Bikerennen Wittnau - 38. Raiffeisen Fricktaler Cup 2026",
+    "standort": "Wittnau",
+    "lat": 47.477,
+    "lon": 7.966,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "veranstalter_url": "https://www.swisscycling-fricktal.ch/kalender"
+  },
+  {
     "land": "Deutschland",
     "name": "Bona-Inklusionslauf",
     "standort": "Dillingen an der Donau",
@@ -15243,19 +15394,6 @@
     "laenge_km": 14.3,
     "wettbewerb": "14.3 km",
     "veranstalter_url": "https://www.letabeillon.ch"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Cross im Park",
-    "standort": "Baiersbronn",
-    "lat": 48.5260959,
-    "lon": 8.4015244,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://cyclocrosscup.de"
   },
   {
     "land": "Schweiz",
@@ -15465,6 +15603,19 @@
     "datum_ende": "2026-10-18",
     "laenge_km": 95.0,
     "wettbewerb": "Gravel Tour 95 km",
+    "veranstalter_url": "https://www.nortorf.bike"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravellissimo Waffel Ride",
+    "standort": "Nortorf",
+    "lat": 54.042,
+    "lon": 9.586,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "wettbewerb": "Gravelride",
     "veranstalter_url": "https://www.nortorf.bike"
   },
   {
@@ -16347,6 +16498,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "WEC Cross Bad Essen / Preußisch Oldendorf",
+    "standort": "Bad Essen",
+    "lat": 52.318,
+    "lon": 8.413,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Werner-Seelenbinder-Gedenklauf",
     "standort": "Gröden",
     "lat": 51.4039954,
@@ -17011,6 +17175,20 @@
     "laenge_km": 2.3,
     "wettbewerb": "Cyclocross 2.3 km",
     "veranstalter_url": "https://www.dsergebnis.de/9-cloppenburger-city-cross-2026/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Cross the Pfaff",
+    "standort": "Plate",
+    "lat": 53.551,
+    "lon": 11.509,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "anmeldeschluss": "2026-10-17",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #06",
+    "veranstalter_url": "https://my.raceresult.com/411507/"
   },
   {
     "land": "Deutschland",
@@ -18097,6 +18275,19 @@
     "veranstalter_url": "https://www.trophee-de-la-suze.ch"
   },
   {
+    "land": "Deutschland",
+    "name": "WEC Cross Cloppenburg",
+    "standort": "Cloppenburg",
+    "lat": 52.847,
+    "lon": 8.045,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
+  },
+  {
     "land": "Österreich",
     "name": "Wienenergie Cyclocross",
     "standort": "Landegg",
@@ -18229,6 +18420,20 @@
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
     "veranstalter_url": "http://www.trailrunning-festival.at"
+  },
+  {
+    "land": "Deutschland",
+    "name": "19. Cross im Park des RSC Kattenberg",
+    "standort": "Kaltenkirchen",
+    "lat": 53.833,
+    "lon": 9.958,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "anmeldeschluss": "2026-10-18",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #07",
+    "veranstalter_url": "https://www.rsc-kattenberg.de/"
   },
   {
     "land": "Deutschland",
@@ -18943,6 +19148,19 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km gemeinsamer Lauf (ab Jahrgang 2012)",
     "veranstalter_url": "https://leichtathletik.sv-germering.de/stadtlauf/germeringer-cewe-stadtlauf.html"
+  },
+  {
+    "land": "Deutschland",
+    "name": "GUNSHA Crosscup Radibor",
+    "standort": "Radibor",
+    "lat": 51.246088,
+    "lon": 14.394373,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://www.rsv-bautzen.de"
   },
   {
     "land": "Schweiz",
@@ -19891,6 +20109,19 @@
     "datum_start": "2026-10-25",
     "datum_ende": "2026-10-25",
     "veranstalter_url": "https://rickyssporttreff.de/wpa-events/vollmond-community-run-walk-25-10/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "WEC Cross Osnabrück - Bornheide",
+    "standort": "Osnabrück",
+    "lat": 52.271,
+    "lon": 8.037,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -21798,6 +22029,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "2. CycloCross-Rennen der IGAS Wendland",
+    "standort": "Bösel",
+    "lat": 53.0,
+    "lon": 7.95,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-01",
+    "datum_ende": "2026-11-01",
+    "anmeldeschluss": "2026-10-25",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #08",
+    "veranstalter_url": "https://www.igaswendland.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "2. Erlangen Marathon",
     "standort": "Erlangen",
     "lat": 49.5891571,
@@ -22112,6 +22357,19 @@
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
     "veranstalter_url": "https://www.gantrischtrail.com"
+  },
+  {
+    "land": "Deutschland",
+    "name": "GUNSHA Crosscup Granschütz",
+    "standort": "Granschütz",
+    "lat": 51.186727,
+    "lon": 12.050284,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-01",
+    "datum_ende": "2026-11-01",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://www.white-rock.de"
   },
   {
     "land": "Deutschland",
@@ -23281,6 +23539,19 @@
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "veranstalter_url": "https://www.grindgames.ch/de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "GUNSHA Crosscup Erfurt",
+    "standort": "Erfurt",
+    "lat": 50.988,
+    "lon": 11.027,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://gutelaunesport.de/crossrennen-erfurt-2025/"
   },
   {
     "land": "Deutschland",
@@ -24699,6 +24970,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "GUNSHA Crosscup Großlöbichau",
+    "standort": "Großlöbichau",
+    "lat": 50.93465,
+    "lon": 11.68739,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-08",
+    "datum_ende": "2026-11-08",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://www.radclub-jena.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "Hegau-Bodensee Crosslaufserie - Meersburg",
     "standort": "Meersburg",
     "lat": 47.6954836,
@@ -25479,7 +25763,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #9",
+    "name": "Stevens Cyclo-Cross Cup Bad Oldesloe",
     "standort": "Bad Oldesloe",
     "lat": 53.8126183,
     "lon": 10.3489395,
@@ -25489,7 +25773,8 @@
     "datum_ende": "2026-11-08",
     "dauer_h": 0.5,
     "wettbewerb": "Cyclocross 0.5 h",
-    "veranstalter_url": "https://www.rv-trave.de/"
+    "veranstalter_url": "https://www.rv-trave.de/",
+    "anmeldeschluss": "2026-11-01"
   },
   {
     "land": "Deutschland",
@@ -25725,8 +26010,20 @@
     "art2": "Gravel",
     "datum_start": "2026-11-08",
     "datum_ende": "2026-11-08",
-    "laenge_km": 70.0,
     "wettbewerb": "Gravel Tour 70 km",
+    "veranstalter_url": "https://www.rv-schleswig.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Viking Bike Winterchallenge, O-CTF und Gravelride 70 km",
+    "standort": "Schleswig",
+    "lat": 54.522,
+    "lon": 9.559,
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "datum_start": "2026-11-08",
+    "datum_ende": "2026-11-08",
+    "wettbewerb": "O-CTF",
     "veranstalter_url": "https://www.rv-schleswig.de"
   },
   {
@@ -25770,6 +26067,19 @@
     "laenge_km": 21.0,
     "wettbewerb": "Country Cross (20.12.2026)",
     "veranstalter_url": "https://sv-weyhe.de/sportangebote/leichtathletik-ausdauer/syke-weyher-crosslauf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "WEC Cross Rheine - Elte",
+    "standort": "Rheine",
+    "lat": 52.277,
+    "lon": 7.44,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-08",
+    "datum_ende": "2026-11-08",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -26287,6 +26597,18 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.sued-cup.de/biegerparklauf/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "BL Cyclo Cross Stahnsdorf",
+    "standort": "Stahnsdorf",
+    "lat": 52.383,
+    "lon": 13.217,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Schweiz",
@@ -26951,7 +27273,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #10",
+    "name": "Stevens Cyclo-Cross Cup Bad Doberan",
     "standort": "Bad Doberan",
     "lat": 54.1057027,
     "lon": 11.8821042,
@@ -27681,7 +28003,8 @@
     "datum_ende": "2026-11-15",
     "laenge_km": 30.0,
     "wettbewerb": "Cyclocross 30 km",
-    "veranstalter_url": "https://radsportbaddoberan.de/"
+    "veranstalter_url": "https://radsportbaddoberan.de/",
+    "anmeldeschluss": "2026-11-08"
   },
   {
     "land": "Deutschland",
@@ -28301,6 +28624,76 @@
   },
   {
     "land": "Deutschland",
+    "name": "5. Heidelberger Crossrennen",
+    "standort": "Heidelberg",
+    "lat": 49.4031539,
+    "lon": 8.652988,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "dauer_h": 0.6,
+    "wettbewerb": "Cyclocross Hobbyklasse 0.6 h",
+    "veranstalter_url": "https://www.rsv-heidelberg.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Heidelberger Crossrennen",
+    "standort": "Heidelberg",
+    "lat": 49.407,
+    "lon": 8.691,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "dauer_h": 0.5,
+    "wettbewerb": "Masters 30 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.rsv-heidelberg.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Heidelberger Crossrennen",
+    "standort": "Heidelberg",
+    "lat": 49.407,
+    "lon": 8.691,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "dauer_h": 0.7,
+    "wettbewerb": "Masters 40 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.rsv-heidelberg.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Heidelberger Crossrennen",
+    "standort": "Heidelberg",
+    "lat": 49.407,
+    "lon": 8.691,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "dauer_h": 0.8,
+    "wettbewerb": "Elite 45 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.rsv-heidelberg.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Heidelberger Crossrennen",
+    "standort": "Heidelberg",
+    "lat": 49.407,
+    "lon": 8.691,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite 60 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "http://www.rsv-heidelberg.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "50. Bad Gandersheimer See-Park-Lauf",
     "standort": "Bad Gandersheim",
     "lat": 51.8704732,
@@ -28707,6 +29100,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "GUNSHA Crosscup Frankenhain",
+    "standort": "Frankenhain",
+    "lat": 50.7558064,
+    "lon": 10.7878724,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://crosscup.org/rennen/frankenhain/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Heartbeat Ultra",
     "standort": "Fulda",
     "lat": 50.5558095,
@@ -28718,20 +29124,6 @@
     "laenge_km": 112.0,
     "wettbewerb": "Bis zu 112 km als maximal mögliche Distanz.",
     "veranstalter_url": "https://www.heartbeat-ultra.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heidelberger Crossrennen",
-    "standort": "Heidelberg",
-    "lat": 49.4031539,
-    "lon": 8.652988,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-21",
-    "datum_ende": "2026-11-21",
-    "dauer_h": 0.6,
-    "wettbewerb": "Cyclocross Hobbyklasse 0.6 h",
-    "veranstalter_url": "https://www.rsv-heidelberg.de"
   },
   {
     "land": "Deutschland",
@@ -29391,6 +29783,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "Stevens Cyclo-Cross Cup Kiel",
+    "standort": "Kiel",
+    "lat": 54.331,
+    "lon": 10.129,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-22",
+    "datum_ende": "2026-11-22",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #12",
+    "veranstalter_url": "https://my.raceresult.com/404095/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Süßener Stadtlauf",
     "standort": "Süßen",
     "lat": 48.6798451,
@@ -29949,6 +30354,76 @@
   },
   {
     "land": "Deutschland",
+    "name": "12. Rheinzaberner Cyclocross",
+    "standort": "Rheinzabern",
+    "lat": 49.1114132,
+    "lon": 8.292035,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "dauer_h": 0.5,
+    "wettbewerb": "Cyclocross Hobbyklasse 0.5 h",
+    "veranstalter_url": "http://www.rsv-rheinzabern.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Rheinzaberner Cyclocross",
+    "standort": "Rheinzabern",
+    "lat": 49.118,
+    "lon": 8.278,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "dauer_h": 0.5,
+    "wettbewerb": "Hobby, Masters 30 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=27"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Rheinzaberner Cyclocross",
+    "standort": "Rheinzabern",
+    "lat": 49.118,
+    "lon": 8.278,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "dauer_h": 0.7,
+    "wettbewerb": "Masters 40 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=27"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Rheinzaberner Cyclocross",
+    "standort": "Rheinzabern",
+    "lat": 49.118,
+    "lon": 8.278,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "dauer_h": 0.8,
+    "wettbewerb": "Elite 45 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=27"
+  },
+  {
+    "land": "Deutschland",
+    "name": "12. Rheinzaberner Cyclocross",
+    "standort": "Rheinzabern",
+    "lat": 49.118,
+    "lon": 8.278,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite 60 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/?page_id=27"
+  },
+  {
+    "land": "Deutschland",
     "name": "127. Bertlicher Straßenläufe",
     "standort": "Herten",
     "lat": 51.5942009,
@@ -30119,6 +30594,20 @@
     "datum_ende": "2026-11-29",
     "laenge_km": 10.2,
     "veranstalter_url": "http://ch.olbrich@gmx.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "5. Ulli Langbehn Radcross der RG Wedel",
+    "standort": "Wedel",
+    "lat": 53.584,
+    "lon": 9.698,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "anmeldeschluss": "2026-11-22",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #14",
+    "veranstalter_url": "http://www.radgemeinschaft-wedel.de/"
   },
   {
     "land": "Deutschland",
@@ -30426,6 +30915,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "GUNSHA Crosscup Lutherstadt Wittenberg",
+    "standort": "Lutherstadt Wittenberg",
+    "lat": 51.881516,
+    "lon": 12.595176,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-11-29",
+    "datum_ende": "2026-11-29",
+    "wettbewerb": "Cyclocross, GUNSHA Crosscup",
+    "veranstalter_url": "https://crosscup.org/rennen/wittenberg/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Herbstwaldlauf - Berlins ältester Crosslauf",
     "standort": "Berlin-Reinickendorf",
     "lat": 52.6048469,
@@ -30573,20 +31075,6 @@
     "datum_start": "2026-11-29",
     "datum_ende": "2026-11-29",
     "veranstalter_url": "https://www.altstadtadventlauf.at"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rheinzaberner Cyclocross",
-    "standort": "Rheinzabern",
-    "lat": 49.1114132,
-    "lon": 8.292035,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2026-11-29",
-    "dauer_h": 0.5,
-    "wettbewerb": "Cyclocross Hobbyklasse 0.5 h",
-    "veranstalter_url": "http://www.rsv-rheinzabern.de"
   },
   {
     "land": "Deutschland",
@@ -32871,6 +33359,19 @@
     "veranstalter_url": "https://www.lg-telis-finanz.de/"
   },
   {
+    "land": "Deutschland",
+    "name": "WEC und LVM NS Osnabrück - Schinkel",
+    "standort": "Osnabrück",
+    "lat": 52.271,
+    "lon": 8.037,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
+  },
+  {
     "land": "Schweiz",
     "name": "Weihnachtslauf Lachen",
     "standort": "Lachen",
@@ -33606,6 +34107,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "47. Harburger Weihnachtscross",
+    "standort": "Hamburg",
+    "lat": 53.572,
+    "lon": 10.015,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-13",
+    "datum_ende": "2026-12-13",
+    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #15",
+    "veranstalter_url": "https://harburger-rg.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "63. Winterlauf",
     "standort": "Aachen",
     "lat": 50.776351,
@@ -34140,6 +34654,19 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.ucsr-lev.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "WEC Cross Bramsche (Engter)",
+    "standort": "Bramsche",
+    "lat": 52.409,
+    "lon": 7.973,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-13",
+    "datum_ende": "2026-12-13",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -38477,6 +39004,19 @@
     "veranstalter_url": "https://www.silvesterlauf.nrw/"
   },
   {
+    "land": "Deutschland",
+    "name": "WEC Cross Melle",
+    "standort": "Melle",
+    "lat": 52.199,
+    "lon": 8.346,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
+  },
+  {
     "land": "Österreich",
     "name": "Welser Silvesterlauf",
     "standort": "Wels",
@@ -38893,6 +39433,18 @@
     "laenge_km": 30.0,
     "wettbewerb": "30 km (zwei Runden)",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Finale BL Rund um das Vechtaer Reiterwaldstadion",
+    "standort": "Vechta",
+    "lat": 52.726,
+    "lon": 8.286,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-01-03",
+    "datum_ende": "2027-01-03",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Deutschland",
@@ -40543,6 +41095,48 @@
   },
   {
     "land": "Deutschland",
+    "name": "Rund um die Radrennbahn",
+    "standort": "Mannheim",
+    "lat": 49.496,
+    "lon": 8.481,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-16",
+    "datum_ende": "2027-01-16",
+    "dauer_h": 0.7,
+    "wettbewerb": "Masters 40 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rrc-endspurt-mannheim.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rund um die Radrennbahn",
+    "standort": "Mannheim",
+    "lat": 49.496,
+    "lon": 8.481,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-16",
+    "datum_ende": "2027-01-16",
+    "dauer_h": 0.8,
+    "wettbewerb": "Elite 45 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rrc-endspurt-mannheim.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Rund um die Radrennbahn",
+    "standort": "Mannheim",
+    "lat": 49.496,
+    "lon": 8.481,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-16",
+    "datum_ende": "2027-01-16",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite 60 min (Cyclocross Cup Baden-Württemberg)",
+    "veranstalter_url": "https://www.rrc-endspurt-mannheim.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Winterserie PSV Rot-Gold Lehrte 26/27",
     "standort": "Lehrte",
     "lat": 52.3749334,
@@ -40974,7 +41568,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "Stevens Cyclo-Cross-Cup #16",
+    "name": "Stevens Cyclo-Cross Cup Buchholz (Finale)",
     "standort": "Buchholz in der Nordheide",
     "lat": 53.3202943,
     "lon": 9.8586727,
@@ -41945,6 +42539,19 @@
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km Halbmarathon",
     "veranstalter_url": "https://www.vienna-marathon.com/?go=winterrun-2"
+  },
+  {
+    "land": "Deutschland",
+    "name": "WEC Cross Endlauf Bad Essen / Preußisch Oldendorf",
+    "standort": "Bad Essen",
+    "lat": 52.318,
+    "lon": 8.413,
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2027-01-24",
+    "datum_ende": "2027-01-24",
+    "wettbewerb": "Cyclocross, Weser-Ems-Cup",
+    "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
   },
   {
     "land": "Deutschland",
@@ -46983,6 +47590,18 @@
     "datum_ende": "2027-03-14",
     "laenge_km": 10.0,
     "veranstalter_url": "http://heini-langlotz-lauf.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Herforder Frühjahrspreis",
+    "standort": "Herford",
+    "lat": 52.12,
+    "lon": 8.67,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-03-14",
+    "datum_ende": "2027-03-14",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Deutschland",
@@ -54899,6 +55518,18 @@
   },
   {
     "land": "Deutschland",
+    "name": "43. Überherrner Straßenrennen auf dem Wallerfanger Saargau",
+    "standort": "Überherrn",
+    "lat": 49.242,
+    "lon": 6.698,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-04-25",
+    "datum_ende": "2027-04-25",
+    "veranstalter_url": "https://www.dsergebnis.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "46. Gommeraner Seenlauf",
     "standort": "Gommern",
     "lat": 52.0739555,
@@ -55939,6 +56570,18 @@
     "datum_start": "2027-05-01",
     "datum_ende": "2027-05-01",
     "veranstalter_url": "https://fitletix.at/graz/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Großer Preis der Sparkasse Neuss",
+    "standort": "Neuss",
+    "lat": 51.186,
+    "lon": 6.697,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-05-01",
+    "datum_ende": "2027-05-01",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Deutschland",
@@ -69278,6 +69921,18 @@
     "veranstalter_url": "http://www.tus-hohnstorf.de"
   },
   {
+    "land": "Deutschland",
+    "name": "7. GP von Trier",
+    "standort": "Trier",
+    "lat": 49.753,
+    "lon": 6.637,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "veranstalter_url": "https://www.dsergebnis.de/"
+  },
+  {
     "land": "Österreich",
     "name": "ARBÖ Kärnten Radmarathon",
     "standort": "Bad Kleinkirchheim",
@@ -79201,6 +79856,18 @@
   },
   {
     "land": "Deutschland",
+    "name": "100 Jahre Rund in Serrig",
+    "standort": "Serrig",
+    "lat": 49.575,
+    "lon": 6.574,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-04",
+    "veranstalter_url": "https://www.dsergebnis.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "11. Hochkippenlauf",
     "standort": "Profen",
     "lat": 51.1273522,
@@ -81471,6 +82138,18 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://www.erzbergsport.at/dirtrun-fun-distanz-8km"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gr. Preis der Stadt Troisdorf",
+    "standort": "Troisdorf",
+    "lat": 50.812,
+    "lon": 7.139,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-10",
+    "datum_ende": "2027-07-10",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Deutschland",
@@ -86199,6 +86878,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Lindauer Seequerung",
+    "standort": "Lindau (Bodensee)",
+    "lat": 47.55,
+    "lon": 9.709,
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-08-01",
+    "datum_ende": "2027-08-01",
+    "laenge_km": 2.3,
+    "wettbewerb": null,
+    "veranstalter_url": "https://www.bsv-schwaben.de/index.php/termine/termine-2027"
+  },
+  {
+    "land": "Deutschland",
     "name": "OstseeMan Triathlon Glücksburg",
     "standort": "Glücksburg",
     "lat": 54.8333,
@@ -90877,6 +91570,18 @@
     "laenge_km": 18.0,
     "wettbewerb": "X-treme Distanz",
     "veranstalter_url": "https://www.xletix.com/events/nrw-2027/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "36. Spee-Cup in Genthin",
+    "standort": "Genthin",
+    "lat": 52.407,
+    "lon": 12.159,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "veranstalter_url": "https://www.dsergebnis.de/"
   },
   {
     "land": "Schweiz",

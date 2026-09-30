@@ -398,7 +398,7 @@ DEFAULT_ART2_TRIATHLON = "Straße"
 # Talsperren Marathons). Vollständig wird sie mit Fahrplan Punkt 1;
 # die Werte müssen zu ART2_BY_ART1['Fahrrad'] in filter-ui.js passen.
 ART2_KEYWORDS_FAHRRAD: list[tuple[re.Pattern, str]] = [
-    (re.compile(r"mountainbike|\bmtb\b|\bxc\b", re.I), "Mountainbike"),
+    (re.compile(r"mountainbike|\bmtb\b|\bxc\b|\bctf\b|country.?tourenfahrt", re.I), "Mountainbike"),
     (re.compile(r"gravel|schotter", re.I), "Gravel"),
     (re.compile(r"cyclo.?cross|cyclecross|querfeldein", re.I), "Cyclecross"),
     (re.compile(r"zeitfahren|\bitt\b|einzelzeitfahren", re.I), "Zeitfahren"),
@@ -2115,8 +2115,9 @@ def is_same_race(a: dict, b: dict) -> bool:
 
 
 def dedupe_key(
-    name: str | None, datum_start: str | None, laenge_km: float | None = None
-) -> tuple[str, str, float | None] | None:
+    name: str | None, datum_start: str | None, laenge_km: float | None = None,
+    dauer_h: float | None = None,
+) -> tuple[str, str, float | None, float | None] | None:
     """Eindeutiger Schlüssel für ein Event: Name + Startdatum + (gerundete)
     Distanz. Die Distanz ist bewusst Teil des Schlüssels: viele Veranstalter
     bieten unter demselben Namen am selben Tag mehrere Distanzen an (z. B.
@@ -2126,11 +2127,19 @@ def dedupe_key(
     stelle gerundet, damit winzige Formatierungsunterschiede zwischen
     Quellen (z. B. 42.2 vs. 42.195) nicht als unterschiedliche Distanzen
     gezählt werden.
+
+    Ohne Distanz zählt die DAUER mit (Datenregel 8: zwei Dauern sind zwei
+    Wettbewerbe) - die Hobby-, Masters- und Elite-Rennen eines Cyclocross
+    über 30, 40 und 60 Minuten fielen sonst auf eine Zeile zusammen
+    (Cyclocross Cup Baden-Württemberg, 30.09.2026). Gerundet wie
+    `Event.to_dict()` (eine Nachkommastelle), damit der Schlüssel eines
+    frischen Events zu dem seiner gespeicherten Zeile passt.
     """
     if not name or not datum_start:
         return None
     rounded_km = round(laenge_km, 1) if isinstance(laenge_km, (int, float)) else None
-    return (name.strip().casefold(), datum_start, rounded_km)
+    dauer = round(dauer_h, 1) if rounded_km is None and isinstance(dauer_h, (int, float)) else None
+    return (name.strip().casefold(), datum_start, rounded_km, dauer)
 
 
 def filter_dach(events: list[Event], include_all: bool) -> tuple[list[Event], int]:
@@ -2570,7 +2579,7 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
     merged = list(existing)
     by_key: dict[tuple, dict] = {}
     for e in merged:
-        key = dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km"))
+        key = dedupe_key(e.get("name"), e.get("datum_start"), e.get("laenge_km"), e.get("dauer_h"))
         if key is not None:
             by_key.setdefault(key, e)
 
@@ -2586,7 +2595,7 @@ def merge_events(existing: list[dict], new_events: Iterable[Event]) -> tuple[lis
             skipped += 1
             continue
         candidate = event.to_dict()
-        key = dedupe_key(event.name, event.datum_start, event.laenge_km)
+        key = dedupe_key(event.name, event.datum_start, event.laenge_km, event.dauer_h)
         if key is None:
             skipped += 1
             continue
@@ -2699,6 +2708,13 @@ PORTAL_DOMAINS = (
     # triathlon-austria.at ist der ÖTRV-Verbandskalender, den fsieben bei
     # Veranstaltungen ohne eigene Seite verlinkt.
     "cyclingaustria.at", "swimsports.ch", "fsieben.at", "triathlon-austria.at",
+    # Zweite Quellensuche (30.09.2026, "alle die es erlauben einbauen"):
+    # Cross-Cups, Bezirks-/Regionalverbände und der Zeitnehmer DS
+    # Ergebnisdienst führen Kalender, keine Veranstalterseiten; die
+    # Anmeldung läuft über gregorhoops.de bzw. zpn-timing.de.
+    "stevenscup.de", "cyclocrosscup.de", "bsv-schwaben.de", "crosscup.org", "dsergebnis.de",
+    "radsport-weser-ems.de", "swiss-cycling-boe.ch", "swisscycling-fricktal.ch",
+    "radsport-sh.de", "gregorhoops.de", "zpn-timing.de",
 )
 
 
@@ -2732,6 +2748,75 @@ def orte_aus_places(land: str | None = None, region: str | None = None,
         orte.setdefault(eintrag[0].lower(), []).append((eintrag[0], eintrag[3], eintrag[4]))
     _ORTE_PLACES_CACHE[schluessel] = orte
     return orte
+
+
+_ORT_WORT = re.compile(r"[A-ZÄÖÜ][\wäöüß'-]+(?:\s+(?:am|an|im|bei|ob|vor|an der|in der)\s+[A-ZÄÖÜ][\wäöüß-]+)?")
+_ORT_BIGRAMM = re.compile(r"(?=([A-ZÄÖÜ][\wäöüß'.]+\s+[A-ZÄÖÜ][\wäöüß']+))")
+# Ein Adjektiv ("Herforder", "Vechtaer") zählt nur VOR einem Rennwort -
+# "Kometen Schmitter Nacht" nennt den Sponsor, nicht den Ort Schmitt.
+_ORT_ADJEKTIV_FOLGT = re.compile(
+    r"^[\wäöüß-]*(?:frühjahrs|preis|rennen|straßenrennen|strassenrennen|sprint|ortsschild|cross|cup|"
+    r"rundfahrt|stadion|kriterium|classic|radmarathon|marathon|lauf|volkslauf|city|stadt)", re.I)
+
+
+_ORT_ARTIKEL = {"die", "der", "das", "den", "dem", "des", "eine", "einer", "einem", "einen"}
+_ORT_RENNWORT_DAVOR = re.compile(r"(?:rennen|zeitfahren|fahren|cross|fahrt|preis|sprint|marathon|lauf|tour|cup|strecke|etappe)$", re.I)
+
+
+def ort_im_text(text: str | None, orte: dict, ausnahmen: dict | None = None,
+                mehrdeutig_ok: bool = False) -> tuple[str, float | None, float | None] | None:
+    """Der Ort, den ein Rennname oder eine Terminzeile nennt - gegen die
+    Ortsnamen aus `orte_aus_places()` geprüft, nicht geraten.
+
+    Kalender kleiner Rennserien nennen den Ort nur im Namen ("WEC Cross
+    Oldenburg", "Herforder Frühjahrspreis", "Bikerennen Wittnau - 38.
+    Fricktaler Cup"). Kandidaten sind Zweiwort-Namen ("Bad Essen" vor
+    "Essen"), großgeschriebene Wörter samt "am/an/bei"-Zusatz, die Teile
+    von Bindestrich-Namen ("Stettlen-Bantiger") und die Adjektivform
+    ("Herforder" → Herford, "Vechtaer" → Vechta) - die aber nur vor einem
+    Rennwort, sonst würde "Kometen Schmitter Nacht" zum Ort Schmitt.
+    `ausnahmen` bildet Kürzel ab ("Os" → Osnabrück, "Pr. Oldendorf" →
+    Preußisch Oldendorf). Ein Name mit mehreren Treffern in `orte`
+    (Buchholz, Langnau) zählt nur mit `mehrdeutig_ok` - dann ohne
+    Koordinaten, damit die Umkreissuche nichts Falsches zeigt. Rückgabe
+    (Name, lat, lon) oder None."""
+    if not text:
+        return None
+    text = text.replace("–", "-").replace("/", " / ")
+    for kurz, lang in (ausnahmen or {}).items():
+        text = re.sub(r"(?<![\wäöüß])" + re.escape(kurz) + r"(?![\wäöüß])", lang, text)
+    kandidaten: list[str] = [m.group(1).strip() for m in _ORT_BIGRAMM.finditer(text)]
+    for m in _ORT_WORT.finditer(text):
+        wort = m.group(0).strip()
+        davor = text[:m.start()].rstrip().split()
+        davor = davor[-1].lower() if davor else ""
+        # „Die Mauer von Kendenich": ein Wort hinter einem Artikel ist ein
+        # Hauptwort, kein Ort - auch wenn es einen Ort dieses Namens gibt.
+        erstes = wort.split()[0]
+        if davor not in _ORT_ARTIKEL:
+            kandidaten.append(wort)
+            if erstes != wort:
+                kandidaten.append(erstes)
+        # Die Teile eines Bindestrich-Namens sind eine STRECKE („Bergrennen
+        # Stettlen-Bantiger", „Einzelzeitfahren Langnau-Zäziwil") - aber
+        # nur hinter einem Rennwort; „Main-Spessart Rundfahrt" nennt die
+        # Region, und Spessart ist auch ein Ort in der Eifel.
+        if "-" in erstes and _ORT_RENNWORT_DAVOR.search(davor):
+            kandidaten.extend(t for t in erstes.split("-") if len(t) > 3)
+        rest = text[m.end():].lstrip()
+        if _ORT_ADJEKTIV_FOLGT.match(rest):
+            for endung, ersatz in (("aer", "a"), ("ner", "n"), ("er", "")):
+                if erstes.lower().endswith(endung) and len(erstes) > len(endung) + 3:
+                    kandidaten.append(erstes[:-len(endung)] + ersatz)
+    for k in sorted(dict.fromkeys(kandidaten), key=lambda x: (-len(x.split()), -len(x))):
+        treffer = orte.get(k.lower())
+        if not treffer:
+            continue
+        if len(treffer) == 1:
+            return treffer[0]
+        if mehrdeutig_ok:
+            return (treffer[0][0], None, None)
+    return None
 
 
 def is_portal_link(url: str | None) -> bool:

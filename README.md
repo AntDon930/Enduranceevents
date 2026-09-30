@@ -1394,8 +1394,9 @@ verwendet wurden, für Fahrrad und Schwimmen – mehr auf Stadtrennen
 schauen, also Rennen, wo unter 500 Leute mitmachen, kleine lokale
 Rennradrennen". Rund 60 Domains gesichtet, davon ~35 neu (nicht in den
 Tabellen oben); für jede Kandidatin robots.txt und Impressum gelesen.
-**Nichts davon ist gebaut – kein Scraper ohne sein Ja.** Die Bilanz
-vorweg: Die kleinen Rennen stehen nicht auf Portalen, sondern bei den
+**Am selben Tag vom Nutzer freigegeben („bitte alle die es erlauben
+einbauen") – acht Scraper sind gebaut, siehe „Gebaut nach dem Ja"
+unter den Tabellen.** Die Bilanz vorweg: Die kleinen Rennen stehen nicht auf Portalen, sondern bei den
 **Serien** (Cross-Cups, Hobby-Cups, Regionalverbände) und bei den
 **Zeitnehmern** – und die sind klein, regional und teils nur ein
 Lauf-Sommer lang gepflegt.
@@ -1467,6 +1468,40 @@ liegen bei DLRG-Ortsgruppen, Wasserwachten und Vereinen je einzeln.
 4. **Schwimmen**: keine neue Kalenderquelle. Was es gibt, ist Handarbeit
    (MV-Liste, Lindau) oder gesperrt (DSV) – die DSV-Anfrage aus Punkt 1
    des Plans vom 30.09.2026 bleibt der Weg.
+
+**Gebaut nach dem Ja des Nutzers (30.09.2026, „bitte alle die es erlauben
+einbauen")** – je Quelle ein Modul, weil `check_robots()` je Domain
+prüft; alle mit Test (`test_kleine_radquellen`), alle Fahrrad:
+
+| Modul | Quelle | Was daraus wird | Erster Lauf |
+|---|---|---|---|
+| `stevenscup_scraper.py` | Stevens Cyclo-Cross Cup (`div.event`: Nummer/Ort, Name, `time`, Adresse, Ausrichter-Link, Meldeschluss, raceresult) | eine Zeile je Rennen, Cyclecross ohne Länge; **Ort aus der Adresse** („#04 - Mölln" fährt in Grambek) gegen `places.json`; Ausrichter-Link als Veranstalterseite, sonst raceresult | 15 kommende Rennen, **13 neu**, 2 in den Bestand (radsport-events) gemergt |
+| `cyclocrosscup_scraper.py` | Cyclocross Cup Baden-Württemberg (`h2` „N. Lauf – Ort", `h3` „Name am Datum in Ort", Zeitplan-Tabelle Klasse/Renndauer) | **eine Zeile je Renndauer** (Datenregel 8, `dauer_h`), Label nennt die Klassen („Hobby, Masters 30 min"), Nachwuchsklassen (U11–U19) fallen, Brumath (Frankreich) fällt; Ort aus dem Titel, notfalls aus der Lauf-Überschrift (Heidelberg trägt seinen Titel als zweite `h2`); Herxheim ist zweimal in RLP → gemeldet, nicht geraten | 19 Zeilen, **15 neu** (Baiersbronn, Heidelberg, Rheinzabern, Mannheim; Darmstadt ohne Zeitplan) |
+| `crosscup_scraper.py` | GUNSHA Crosscup (Menü → Rennseite: „Termin: 11.10.26", „Ort:", „GPS-Daten:", „Internetseite des Veranstalters:") | Koordinaten der Strecke selbst, „Streckenlänge 2,4 km" ist die Runde (keine Distanz), Veranstalterseite aus dem Text; Menü-Beschriftung als zweiter Ortskandidat („Volkspark Piesteritz" → Lutherstadt Wittenberg) | **7 neu** |
+| `dsergebnis_scraper.py` | DS Ergebnisdienst (Textblock „Termine 2027", je Zeile Datum + Name) | Straße (Cross → Cyclecross), **Ort aus dem Namen** (`ort_im_text`); ohne eindeutigen Ort kein Eintrag (Buchholz ×5, Südliche Weinstrasse, Schmitter Nacht, Offenbach in `NICHT_EINDEUTIG`); Jahreszahl ≠ Überschrift = Tippfehler der Seite, gemeldet | 28 Zeilen (2026 + 2027), **10 neu**, 12 gemeldet |
+| `weserems_scraper.py` | Weser-Ems-Cup (Zeilen „DD.MM.YYYY WEC Cross Ort") | Cyclecross, Ort aus der Zeile gegen Niedersachsen/NRW/Bremen; `KUERZEL` schreibt „Os" (Osnabrück), „Pr. Oldendorf", „Engter" (Bramsche) aus; bei zwei Orten der erste (Start) | 11 Termine, **8 neu** (2 vergangen, „BL Lohne" ohne eindeutigen Ort) |
+| `boe_scraper.py` | Swiss Cycling BOE (`/rennkalender-<Jahr>/`, Download-Module „13.05. - Name" + „Organisation: X") | Straße/Zeitfahren, Abschnitt „Bikemeisterschaft" → Mountainbike; Ort aus dem Titel gegen den Kanton Bern; „Absage", „nur Kids" fallen; liest laufendes UND nächstes Jahr | 19 Termine 2026, **alle vergangen**, 2027 noch 404 – Wert kommt im Winter |
+| `fricktal_scraper.py` | Raiffeisen Fricktaler Cup (ClubDesk `div.event-list`) | Mountainbike, nur Kacheln mit Rennwort (Absenden/GV fallen), Ort aus der Ort-Zeile gegen den Aargau (Wittnau AG, nicht Wittnau im Breisgau) | **1 neu** (Finale Wittnau) |
+| `radsportsh_scraper.py` | Radsportverband Schleswig-Holstein (`/termine` → `/termin/<slug>`: `h1`, Veranstalterlink, `.-datum`) | RTF → Straße, CTF → Mountainbike (neues Stichwort `ctf`), Gravelride → Gravel; Ort aus dem Namen oder dem **Hostnamen** der Veranstalterseite (`ltvkiel-ost.de` → Kiel, `rst-luebeck.de` → Lübeck mit ue); Verbandstermine ohne Format fallen; zwei Formate in einem Namen → keine Länge | 6 Termine, **2 neu**, 4 schon über radsport-events.de im Bestand |
+
+Dazu **`scraper_lib.ort_im_text()`** als gemeinsamer Ortsfinder (Zweiwort-
+Orte vor Einwort, Adjektivform nur vor einem Rennwort – „Herforder
+Frühjahrspreis" ja, „Kometen Schmitter Nacht" nein –, ein Wort hinter
+einem Artikel ist kein Ort – „Die Mauer von Kendenich" –, Bindestrich-
+Teile nur hinter einem Rennwort – „Bergrennen Stettlen-Bantiger" ja,
+„Main-Spessart Rundfahrt" nein –, Mehrdeutiges nur mit Flagge und ohne
+Koordinaten) und **`dedupe_key()` zählt ohne Distanz die Dauer mit**:
+Die 30-, 40- und 60-Minuten-Rennen eines Cyclocross fielen sonst beim
+Einsammeln auf eine Zeile zusammen (Datenregel 8 galt schon in
+`is_same_event()`, nur nicht im schnellen Schlüssel). Nicht gebaut:
+`jedermannmasterradcup.at` (Tabelle ohne Ort, die sechs Rennen stehen
+über ÖRV/endure im Bestand) und `radsport-hh.de` (nur Name + Datum, die
+Cross-Rennen kommen über den Stevens Cup). Mit Vorbehalt und deshalb
+nicht gelesen: `zpn-timing.de`, `s-r-b.de`, `swiss-cyclocross.ch`,
+`bikeboard.at`. Die **Lindauer Seequerung** (01.08.2027) steht in
+`manual_events.json`. **Bilanz: 6.975 → 7.028 Events** (Fahrrad 824 →
+876, Schwimmen 42 → 43); nächster Blick im Frühjahr 2027, wenn BOE,
+Fricktal und dsergebnis die Saison eintragen.
 
 ### Laufzeit
 

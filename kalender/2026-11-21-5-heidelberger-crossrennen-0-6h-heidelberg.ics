@@ -4,12 +4,12 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-21-heidelberger-crossrennen-0-6h-heidelberg@antdon930.github.i
- o
+UID:2026-11-21-5-heidelberger-crossrennen-0-6h-heidelberg@antdon930.github
+ .io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
-SUMMARY:Heidelberger Crossrennen – Cyclocross Hobbyklasse 0.6 h
+SUMMARY:5. Heidelberger Crossrennen – Cyclocross Hobbyklasse 0.6 h
 LOCATION:Heidelberg\, Deutschland
 DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.6 h\nhttps://www.rsv-
  heidelberg.de

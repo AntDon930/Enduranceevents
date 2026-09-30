@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-stevens-cyclo-cross-cup-kiel-x-kiel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Stevens Cyclo-Cross Cup Kiel – Cyclocross\, Stevens Cyclo-Cross Cu
+ p #12
+LOCATION:Kiel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://my.raceresul
+ t.com/404095/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/404095/
+END:VEVENT
+END:VCALENDAR
