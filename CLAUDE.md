@@ -2071,6 +2071,21 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   gemeldet** („kein waagerechter Überlauf der Seite (124 px)") – die
   Prüfung ist keine Formalie.
 
+- **Die Melde-Box oben in der rechten Spalte der Liste** („Dein Event
+  fehlt? Schick uns die Originalseite", `.fehlt-box` in `events.html`,
+  vom Nutzer am 30.09.2026 gewünscht: „Das ist am Anfang schon sehr
+  wichtig") führt in denselben Dialog wie die Leiste in der Fußzeile und
+  die Null-Treffer-Box (`openSuggestModal`) – ein Weg, drei Zugänge. Auf
+  dem Handy ist sie im Blatt ausgeblendet, dort bleibt die Fußzeile.
+  Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
+- **„Mehr erfahren" auf der Startseite ist ein Link** (`<a
+  class="scroll-hint" href="#mehr">`, `scroll-behavior: smooth`) – der
+  Nutzer las den Hinweis als Knopf (30.09.2026).
+- **Die Startseite zählt VERANSTALTUNGEN, nicht Strecken** (vom Nutzer
+  am 30.09.2026 gemeldet: „Triathlon wär 281 anstatt 500"): über
+  `EF.groupKey` (Name + Tag + Ort), das dafür von `event-detail.js` nach
+  `filters.js` umgezogen ist – `EED.groupKey` ruft es nur noch. Dieselbe
+  Zahl wie die Liste beim Zusammenfassen.
 - **Die Startseite zählt die Events je Sportart** (vom Nutzer am
   21.09.2026 gewünscht). Gezählt wird nach `EF.dropPastEvents()`, also
   mit derselben Grenze, die `events.html` beim Laden zieht – sonst

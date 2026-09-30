@@ -756,6 +756,17 @@
   // ein mehrtägiges Rennen bleibt bis zu seinem letzten Tag; ein Event
   // ohne verwertbares Datum bleibt drin (nicht auf Unsicherheit hin
   // ausblenden).
+  // Der Schlüssel einer VERANSTALTUNG: Name + Starttag + Ort, klein
+  // geschrieben. Die Liste fasst damit ihre Zeilen zusammen, die Karte
+  // setzt je Schlüssel EINEN Punkt, die Box sucht damit ihre
+  // Strecken-Pillen - und die Startseite zählt damit Veranstaltungen statt
+  // Strecken (vom Nutzer am 30.09.2026 gemeldet: "Triathlon wär 281
+  // anstatt 500"). Seit dem Tag hier statt in event-detail.js, weil die
+  // Startseite nur filters.js lädt; EED.groupKey ruft diese Fassung.
+  function groupKey(e) {
+    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+  }
+
   function dropPastEvents(list) {
     const today = todayIso();
     return list.filter(e => {
@@ -1250,6 +1261,7 @@
     hasFilters,
     haversineKm,
     dropPastEvents,
+    groupKey,
     decodeWebData,
     loadEvents,
     distanceFromOrigin,

@@ -127,6 +127,51 @@
     top: 16px;
   }
   .side-panel .detail-panel { width: 100%; }
+  /* Die Melde-Box (siehe Markup): Akzentrand in der Signalfarbe, damit
+     sie neben der ruhigen Detail-Box auffällt, ohne zu schreien. */
+  .fehlt-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--brand);
+    border-left-width: 4px;
+    border-radius: 12px;
+    background: var(--brand-bg, var(--panel));
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  .fehlt-box-plus {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .fehlt-box-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .fehlt-box-text strong { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
+  .fehlt-box-text span { color: var(--text-muted); font-size: 0.84rem; }
+  .fehlt-box-btn {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-radius: var(--radius-ctl, 10px);
+    border: 1px solid var(--brand);
+    background: var(--brand);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .fehlt-box-btn:hover, .fehlt-box-btn:focus-visible { filter: brightness(1.08); }
+  @media (max-width: 1299px) {
+    .fehlt-box { flex-wrap: wrap; }
+    .fehlt-box-btn { margin-left: 42px; }
+  }
 
   .table-wrap {
     background: var(--panel);
@@ -714,6 +759,9 @@
       box-shadow: var(--shadow);
     }
     body.detail-offen .side-panel { display: flex; }
+    /* Im Blatt hat die Melde-Box keinen Platz - auf dem Handy bleibt die
+       Leiste in der Fußzeile der Weg. */
+    .side-panel .fehlt-box { display: none; }
     body.detail-offen { overflow: hidden; }
     body.detail-offen::after {
       content: "";
@@ -871,6 +919,20 @@
     </table>
   </div>
   <div class="side-panel">
+    <!-- Die Melde-Box: "Dein Event fehlt?" prominent oben in der rechten
+         Spalte, unter dem Teilen-Knopf der Kopfzeile (vom Nutzer am
+         30.09.2026 gewünscht: im ersten Jahr ist jede Meldung eines
+         fehlenden Events der Weg zur Originalseite). Führt in denselben
+         Dialog wie die Leiste in der Fußzeile und die Null-Treffer-Box -
+         EIN Weg, an dem ein Hinweis entsteht (openSuggestModal). -->
+    <div class="fehlt-box" id="fehlt-box">
+      <span class="fehlt-box-plus" aria-hidden="true">+</span>
+      <div class="fehlt-box-text">
+        <strong id="fehlt-box-titel"></strong>
+        <span id="fehlt-box-text"></span>
+      </div>
+      <button type="button" class="fehlt-box-btn" id="fehlt-box-btn"></button>
+    </div>
     <!-- tabindex="-1": Enter auf einer Zeile springt hierher (siehe
          Tastaturbedienung), ein eigener Tab-Stopp ist es aber nicht. -->
     <div class="detail-panel" id="detail-panel" tabindex="-1"></div>
@@ -916,9 +978,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=2380c892"></script>
+<script src="filters.js?v=141139bd"></script>
 <script src="filter-ui.js?v=84bd77d8"></script>
-<script src="event-detail.js?v=ddf7318e"></script>
+<script src="event-detail.js?v=26f01a13"></script>
 
 <script>
 (async function () {
@@ -1041,6 +1103,8 @@
       notify_fehlt: 'Oder fehlt die Veranstaltung bei uns? Dann sag uns Bescheid.',
       fehlt_bar_text: 'Eine Veranstaltung fehlt in der Liste?',
       fehlt_open: 'Event melden',
+      fehlt_box_titel: 'Dein Event fehlt?',
+      fehlt_box_text: 'Schick uns die Originalseite – wir tragen es ein.',
       fehlt_titel: 'Wir haben dein Event nicht?',
       fehlt_intro: 'Schick uns die Adresse der offiziellen Seite – alles Weitere (Datum, Strecken, Ort) holen wir uns von dort. Abtippen musst du nichts.',
       fehlt_url_label: 'Adresse der offiziellen Seite',
@@ -1136,6 +1200,8 @@
       notify_fehlt: 'Or is the event missing from our list? Then let us know.',
       fehlt_bar_text: 'An event missing from the list?',
       fehlt_open: 'Report an event',
+      fehlt_box_titel: 'Missing an event?',
+      fehlt_box_text: 'Send us the official page – we will add it.',
       fehlt_titel: 'Is your event missing?',
       fehlt_intro: 'Send us the address of the official website – we will take everything else (date, distances, location) from there. No need to type it in.',
       fehlt_url_label: 'Address of the official website',
@@ -1747,6 +1813,11 @@
     const fehltKnopf = document.getElementById('fehlt-open-btn');
     fehltKnopf.textContent = t('fehlt_open');
     fehltKnopf.title = t('fehlt_titel');
+    document.getElementById('fehlt-box-titel').textContent = t('fehlt_box_titel');
+    document.getElementById('fehlt-box-text').textContent = t('fehlt_box_text');
+    const fehltBoxKnopf = document.getElementById('fehlt-box-btn');
+    fehltBoxKnopf.textContent = t('fehlt_open');
+    fehltBoxKnopf.title = t('fehlt_titel');
     // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
@@ -3209,6 +3280,7 @@
     if (evt.target === suggestOverlay) closeSuggestModal();
   });
   document.getElementById('fehlt-open-btn').addEventListener('click', openSuggestModal);
+  document.getElementById('fehlt-box-btn').addEventListener('click', openSuggestModal);
 
   function closeSuggestModal() {
     suggestOverlay.hidden = true;

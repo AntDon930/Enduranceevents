@@ -740,7 +740,11 @@
   // "eine Veranstaltung soll auch immer ein Punkt sein auf der Karte"),
   // und die Box sucht damit ihre Strecken-Pillen (siblings). EIN
   // Schlüssel für alle drei - sonst zählte die Karte anders als die Liste.
+  // Die Regel selbst wohnt seit dem 30.09.2026 in filters.js (EF.groupKey),
+  // weil auch die Startseite damit zählt; hier bleibt der Name für Liste
+  // und Karte. Ohne EF (alter Cache-Stand) dieselbe Formel als Rückfall.
   function groupKey(e) {
+    if (EF && EF.groupKey) return EF.groupKey(e);
     return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
   }
 
