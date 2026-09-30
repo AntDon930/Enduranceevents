@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-the-north-face-grossglockner-ultra-trail-16km-kaprun@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270724
+SUMMARY:THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL – Kaprun Scenic Trail 16 
+ km
+LOCATION:Kaprun\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://www.ultratrail
+ .at/
+TRANSP:TRANSPARENT
+URL:https://www.ultratrail.at/
+END:VEVENT
+END:VCALENDAR

@@ -1927,6 +1927,27 @@ def _label_gattung(label: str) -> frozenset:
     return frozenset(m.group(0).lower().strip() for m in _LABEL_GATTUNG_RE.finditer(label or ""))
 
 
+# Gattungswörter, die die KATEGORIE der Zeile schon sagt: Tragen beide
+# Zeilen art2 "Mountainbike", unterscheidet "MTB-Marathon 64 km" (radsport-
+# events.de) nichts von "64km KINGMarathon" (datasport) - das Wort wiederholt
+# nur die Kategorie. Am Bestand nachgezählt (30.09.2026): sechs Paare, alle
+# echte Duplikate (KronplatzKing ×2, Innsbruck Alpine Trailrun Festival ×4:
+# "Trailmarathon" gegen "43 km"), kein Gegenbeispiel. Nur bei GLEICHER
+# Kategorie: "MTB 40 km" gegen "Rennrad 40 km" haben verschiedene art2 und
+# bleiben zwei Zeilen.
+_GATTUNG_AUS_KATEGORIE = {
+    "Mountainbike": frozenset({"mtb", "bike"}),
+    "Gravel": frozenset({"gravel", "schotter"}),
+    "Trail": frozenset({"trail", "cross", "berg"}),
+    "Cyclecross": frozenset({"cross"}),
+}
+
+
+def _unterscheidende_gattung(label: str, art2: str | None) -> frozenset:
+    """Die Gattungswörter des Labels ohne die, die die Kategorie ohnehin nennt."""
+    return _label_gattung(label) - _GATTUNG_AUS_KATEGORIE.get(art2 or "", frozenset())
+
+
 def _same_name(a: dict, b: dict) -> bool:
     """Entscheidet, ob zwei Event-Namen dieselbe Veranstaltung bezeichnen.
 
@@ -2018,11 +2039,16 @@ def _same_name(a: dict, b: dict) -> bool:
     #   Trailrun" (Seen-Lauf Tannheimer Tal) sind zwei Strecken. Enger als
     #   die 5 % von _compatible_distance, mit Absicht.
     # - Dieselbe Sportart, wie beim fünften Weg.
+    # - Ein Gattungswort, das nur die gemeinsame Kategorie wiederholt, zählt
+    #   nicht (_GATTUNG_AUS_KATEGORIE, 30.09.2026): "MTB-Marathon 64 km"
+    #   gegen "64km KINGMarathon", beide art2 "Mountainbike".
     ka, kb = a.get("laenge_km"), b.get("laenge_km")
+    gemeinsame_art2 = a.get("art2") if a.get("art2") == b.get("art2") else None
     if (bare and bare == _bare_name_tokens(b) and wb_a and wb_b
             and a.get("art1") == b.get("art1")
             and ka is not None and kb is not None and abs(ka - kb) < 0.5
-            and _label_gattung(wb_a) == _label_gattung(wb_b)):
+            and _unterscheidende_gattung(wb_a, gemeinsame_art2)
+            == _unterscheidende_gattung(wb_b, gemeinsame_art2)):
         return True
     shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
     if len(shorter) >= 2 and shorter <= longer:

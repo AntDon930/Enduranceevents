@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
 SUMMARY:Black Forest ULTRA Trail Run
 LOCATION:Kirchzarten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 105 km\nhttps://datasport.com
- /de/events/black-forest-ultra-trail-run-2027
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 105 km\nhttps://www.ultra-tra
+ ilrun.de/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/black-forest-ultra-trail-run-2027
+URL:https://www.ultra-trailrun.de/
 END:VEVENT
 END:VCALENDAR

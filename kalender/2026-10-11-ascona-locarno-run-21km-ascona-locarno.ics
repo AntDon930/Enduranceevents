@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-ascona-locarno-run-21km-ascona-locarno@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Ascona-Locarno Run – 21 km Half Marathon
+LOCATION:Ascona-Locarno\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.ascona-lo
+ carno-run.ch/
+TRANSP:TRANSPARENT
+URL:https://www.ascona-locarno-run.ch/
+END:VEVENT
+END:VCALENDAR

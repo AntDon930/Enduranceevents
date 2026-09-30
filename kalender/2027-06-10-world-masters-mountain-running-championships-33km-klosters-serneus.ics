@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270610
 DTEND;VALUE=DATE:20270613
 SUMMARY:World Masters Mountain Running Championships
 LOCATION:Klosters-Serneus\, Schweiz
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33 km\nhttps://datasport.com/
- de/events/world-masters-mountain-running-championships-2027
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33 km\nhttps://www.wmmrc2027-
+ klosters.com/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/world-masters-mountain-running-champio
- nships-2027
+URL:https://www.wmmrc2027-klosters.com/
 END:VEVENT
 END:VCALENDAR

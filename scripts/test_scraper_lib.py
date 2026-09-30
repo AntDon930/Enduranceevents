@@ -538,6 +538,20 @@ def test_duplikate() -> None:
     check("'Jedermanntriathlon' und '11 km': Duplikat",
           is_same_event(dict(hb, art1="Triathlon", wettbewerb="Jedermanntriathlon", laenge_km=11.0),
                         dict(hb, art1="Triathlon", wettbewerb="11 km", laenge_km=11.0)), True)
+    # Ein Gattungswort, das nur die gemeinsame Kategorie wiederholt (30.09.2026):
+    # KronplatzKing "MTB-Marathon 64 km" (radsport-events) = "64km KINGMarathon" (datasport).
+    check("'MTB-Marathon 64 km' und '64km KINGMarathon' bei art2 Mountainbike: Duplikat",
+          is_same_event(dict(hb, art1="Fahrrad", art2="Mountainbike", wettbewerb="MTB-Marathon 64 km", laenge_km=64.0),
+                        dict(hb, art1="Fahrrad", art2="Mountainbike", wettbewerb="64km KINGMarathon", laenge_km=64.0)), True)
+    check("'Trailmarathon' und '43 km' bei art2 Trail: Duplikat",
+          is_same_event(dict(hb, art2="Trail", wettbewerb="Trailmarathon", laenge_km=43.0),
+                        dict(hb, art2="Trail", wettbewerb="43 km", laenge_km=43.0)), True)
+    check("'MTB 40 km' und 'Rennrad 40 km' mit verschiedenen Kategorien: getrennt",
+          is_same_event(dict(hb, art1="Fahrrad", art2="Mountainbike", wettbewerb="MTB 40 km", laenge_km=40.0),
+                        dict(hb, art1="Fahrrad", art2="Straße", wettbewerb="Rennrad 40 km", laenge_km=40.0)), False)
+    check("'Trailrun 10 km' und '10-km-Stadtlauf' mit verschiedenen Kategorien: getrennt",
+          is_same_event(dict(hb, art2="Trail", wettbewerb="Trailrun 10 km", laenge_km=10.0),
+                        dict(hb, art2="Straße", wettbewerb="Stadtwerke 10-km-Stadtlauf", laenge_km=10.0)), False)
 
     # Hier trägt der Wettbewerbs-Name das unterscheidende Wort, und die
     # kürzere Wortmenge steckt komplett in der längeren.
@@ -3053,8 +3067,25 @@ def test_datasport() -> None:
     # Abgesagt, ohne Ort, Italien (Südtirol entscheidet filter_dach über die Koordinaten).
     assert dsp.events_aus_objekt(dict(obj, cancelled=True), dsp.CONFIG) == []
     assert dsp.events_aus_objekt(dict(obj, town=None), dsp.CONFIG) == []
-    it = dsp.events_aus_objekt(dict(obj, regions=[{"countryCode": "ITA", "name": {"de": "Trentino-Südtirol"}}]), dsp.CONFIG)
+    bozen = {"latitude": 46.498, "longitude": 11.354}
+    it = dsp.events_aus_objekt(dict(obj, regions=[{"countryCode": "ITA", "name": {"de": "Trentino-Südtirol"}}],
+                                    preciseLocation=bozen), dsp.CONFIG)
     assert it and it[0].land == "Italien"
+    # Italien außerhalb Südtirols (Riva del Garda), fremdes Land, Serie an mehreren Orten, Anmeldearten.
+    b2: dict = {}
+    assert dsp.events_aus_objekt(dict(obj, regions=[{"countryCode": "ITA", "name": {"de": "Trentino"}}],
+                                      preciseLocation={"latitude": 45.886, "longitude": 10.841}), dsp.CONFIG, b2) == []
+    assert dsp.events_aus_objekt(dict(obj, regions=[{"countryCode": "LIE", "name": {"de": "Liechtenstein"}}]), dsp.CONFIG, b2) == []
+    assert dsp.events_aus_objekt(dict(obj, town={"de": "Andorra / Selva Val Gardena / Riva del Garda"}), dsp.CONFIG, b2) == []
+    assert b2 == {"Italien außerhalb Südtirols": 1, "Land LIE": 1, "Serie an mehreren Orten": 1}, b2
+    warte = dsp.events_aus_objekt(dict(obj, contests=[
+        contest("Warte Liste Sprint Einzel", "Triathlon", "Andere", []),
+        contest("Pre-iscrizione / pre-registration / Voranmeldung", "Rennrad", "Strassenrennen", []),
+        contest("Triathlon Stafette", "Triathlon", "Andere", [("Swim", 1500), ("Bike", 38200), ("Run", 10500)]),
+        contest("1 Erw. & 1 Kind U6 weiblich", "Lauf", "Volkslauf", [("", 1000)], ages=((1, 100),)),
+    ]), dsp.CONFIG, b2)
+    assert warte == [] and b2["ohne Strecke (Anmeldeart oder ohne Namen)"] == 2 and b2["Team/Staffel"] == 1 and b2["Nachwuchs"] == 1, b2
+    assert dsp.events_aus_objekt(dict(obj, town={"de": "Badia (BZ)"}), dsp.CONFIG)[0].standort == "Badia"
     # Ohne organizerLink bleibt die datasport-Seite als Portallink stehen.
     ohne = dsp.events_aus_objekt(dict(obj, organizerLink=""), dsp.CONFIG)
     assert ohne[0].veranstalter_url == "https://datasport.com/de/events/gurtenclassic-2026"

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Langenthaler Stadtlauf
 LOCATION:Langenthal\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://datasport.com/
- de/events/langenthaler-stadtlauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.langenthal
+ er-stadtlauf.ch/faqs
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/langenthaler-stadtlauf-2026
+URL:https://www.langenthaler-stadtlauf.ch/faqs
 END:VEVENT
 END:VCALENDAR

@@ -112,6 +112,7 @@ from scraper_lib import (  # noqa: E402
     fetch_page,
     guess_art1,
     guess_art2,
+    in_suedtirol,
     parse_duration_h,
     round_km,
     run_scraper_cli,
@@ -149,7 +150,7 @@ _TEAM_NAME = re.compile(
 _EBIKE = re.compile(r"e-?bike|e-?mtb|ebike", re.I)
 # Ein „Wettbewerb", der nur eine Anmeldeart ist (Voranmeldung, Warteliste) -
 # zählt nur, wenn er keine Strecke nennt.
-_KEIN_WETTBEWERB = re.compile(r"anmeldung|iscrizion|registration|inscription|warteliste|waiting|ticket", re.I)
+_KEIN_WETTBEWERB = re.compile(r"anmeldung|iscrizion|registration|inscription|warte\s*liste|waiting|ticket", re.I)
 # Serien an mehreren Orten („Andorra / Selva Val Gardena / Riva del Garda")
 # tragen EINE Koordinate für alle Rennen - nicht verortbar.
 _MEHRERE_ORTE = re.compile(r"\s/\s")
@@ -393,13 +394,19 @@ def events_aus_objekt(obj: dict, config: SiteConfig,
     code = (regionen[0].get("countryCode") or "").upper() if regionen else ""
     land = LAND_CODE.get(code)
     if code and land is None:
-        # Liechtenstein, Luxemburg, Frankreich: die Seite kennt das Land,
+        # Liechtenstein, Luxemburg, Norwegen: die Seite kennt das Land,
         # es gehört nur nicht zu unseren vier Regionen.
         zaehle(f"Land {code}")
         return []
     lage = obj.get("preciseLocation") or {}
     lat = lage.get("latitude") if isinstance(lage, dict) else None
     lon = lage.get("longitude") if isinstance(lage, dict) else None
+    if land == "Italien" and lat is not None and lon is not None and not in_suedtirol(lat, lon):
+        # Trentino, Gardasee, Dolomiti di Brenta: Italien, aber nicht
+        # Südtirol (Datenregel 4) - sonst räumt clean_events.py die Zeilen
+        # jede Woche wieder heraus (zehn im ersten Lauf).
+        zaehle("Italien außerhalb Südtirols")
+        return []
     url = veranstalter_link(obj.get("organizerLink"), slug)
     name_sagt = guess_art1(name, config)   # nennt der NAME eine andere Sportart?
 

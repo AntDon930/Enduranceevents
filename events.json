@@ -1,73 +1,6 @@
 [
   {
     "land": "Deutschland",
-    "name": "5k MOVE IT",
-    "standort": "Schwäbisch Hall",
-    "lat": 49.1124305,
-    "lon": 9.7371246,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-28",
-    "datum_ende": "2026-09-28",
-    "laenge_km": 5.0,
-    "wettbewerb": "5,0 km MOVE IT meets 3koenigslauf.de",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/5k-move-it"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Cross Unil-EPFL",
-    "standort": "Ecublens (VD)",
-    "lat": 46.5296363,
-    "lon": 6.5615252,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-09-28",
-    "datum_ende": "2026-09-28",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://datasport.com/de/events/cross-unil-epfl-2026"
-  },
-  {
-    "land": "Österreich",
-    "name": "Heiterwanger-See-Lauf",
-    "standort": "Heiterwang",
-    "lat": 47.4458377,
-    "lon": 10.7458918,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-28",
-    "datum_ende": "2026-09-28",
-    "veranstalter_url": "http://heiterwangerseelauf.at/start"
-  },
-  {
-    "land": "Deutschland",
-    "name": "AOK Firmenlauf Renningen",
-    "standort": "Renningen",
-    "lat": 48.7716629,
-    "lon": 8.9343957,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-29",
-    "datum_ende": "2026-09-29",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://renningen.bw-running.de/home"
-  },
-  {
-    "land": "Deutschland",
-    "name": "AOK Firmenlauf Renningen",
-    "standort": "Renningen",
-    "lat": 48.7648163,
-    "lon": 8.9347008,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-09-29",
-    "datum_ende": "2026-09-29",
-    "laenge_km": 5.7,
-    "veranstalter_url": "http://www.bw-running.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "15. AOK Firmenlauf Ludwigsburg",
     "standort": "Ludwigsburg",
     "lat": 48.8953937,
@@ -707,7 +640,8 @@
     "datum_ende": "2026-10-03",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://gemeinsam-sind-wir-pink.de/"
+    "veranstalter_url": "https://gemeinsam-sind-wir-pink.de/",
+    "charity": true
   },
   {
     "land": "Deutschland",
@@ -5407,7 +5341,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "Claro Pizzo",
+    "name": "Claro Pizzo - 13° Edizione",
     "standort": "Bellinzona",
     "lat": 46.1636142,
     "lon": 9.0052405,
@@ -5417,6 +5351,19 @@
     "datum_ende": "2026-10-04",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
+    "veranstalter_url": "https://www.claropizzo.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Claro Pizzo - 13° Edizione",
+    "standort": "Claro",
+    "lat": 46.253626,
+    "lon": 9.022638,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "wettbewerb": "Claro Pizzo Vertical - 2500 Plus Donne",
     "veranstalter_url": "https://www.claropizzo.ch/"
   },
   {
@@ -5874,6 +5821,42 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
     "veranstalter_url": "https://www.magdeburg-marathon.eu/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Morat-Fribourg",
+    "standort": "Murten",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 9.7,
+    "wettbewerb": "Courtepin-Fribourg 9.7 km",
+    "veranstalter_url": "https://www.morat-fribourg.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Morat-Fribourg",
+    "standort": "Murten",
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 26.0,
+    "wettbewerb": "Trail Moitié-Moitié 26 km",
+    "veranstalter_url": "https://www.morat-fribourg.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Morat-Fribourg",
+    "standort": "Murten",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-04",
+    "datum_ende": "2026-10-04",
+    "laenge_km": 17.2,
+    "wettbewerb": "Morat-Fribourg Walking/Nordic Walking 17.2 km",
+    "veranstalter_url": "https://www.morat-fribourg.ch/"
   },
   {
     "land": "Deutschland",
@@ -10292,6 +10275,30 @@
     "charity": true
   },
   {
+    "land": "Schweiz",
+    "name": "Ascona-Locarno Run",
+    "standort": "Ascona-Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 21.0,
+    "wettbewerb": "21 km Half Marathon",
+    "veranstalter_url": "https://www.ascona-locarno-run.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Ascona-Locarno Run",
+    "standort": "Ascona-Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km Run",
+    "veranstalter_url": "https://www.ascona-locarno-run.ch/"
+  },
+  {
     "land": "Österreich",
     "name": "Astberglauf",
     "standort": "Going am Wilden Kaiser",
@@ -10890,7 +10897,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "Enfile Tes Baskets - Onex",
+    "name": "Enfile tes baskets",
     "standort": "Onex",
     "lat": 46.183541,
     "lon": 6.1002345,
@@ -10900,6 +10907,20 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
+    "veranstalter_url": "https://enfiletesbaskets.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Enfile tes baskets",
+    "standort": "Onex",
+    "lat": 46.187924,
+    "lon": 6.087402,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "dauer_h": 3.0,
+    "wettbewerb": "Le Défi 3h",
     "veranstalter_url": "https://enfiletesbaskets.ch/"
   },
   {
@@ -13521,19 +13542,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Ensinger Laufcup",
-    "standort": "Vaihingen an der Enz",
-    "lat": 48.9321398,
-    "lon": 8.9568316,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 24.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V20000215060000"
-  },
-  {
-    "land": "Deutschland",
     "name": "FichtelUltra",
     "standort": "Bischofsgrün",
     "lat": 50.0524398,
@@ -16076,6 +16084,20 @@
     "veranstalter_url": "https://www.schlosslauf.ch"
   },
   {
+    "land": "Schweiz",
+    "name": "Schlosslauf Rapperswil-Jona",
+    "standort": "Rapperswil-Jona",
+    "lat": 47.226821,
+    "lon": 8.817883,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "laenge_km": 5.4,
+    "wettbewerb": "Kurzdistanz 5.4 km",
+    "veranstalter_url": "https://schlosslauf.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "Schönower Herbstcross",
     "standort": "Schwedt/Oder",
@@ -17097,7 +17119,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "veranstalter_url": "https://glarnerstadtlauf.ch/"
+    "veranstalter_url": "https://glarnerstadtlauf.ch/",
+    "laenge_km": 7.9
   },
   {
     "land": "Deutschland",
@@ -17960,6 +17983,48 @@
     "datum_ende": "2026-10-24",
     "laenge_km": 14.4,
     "veranstalter_url": "https://saegerserie-berlin.de/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
+    "standort": "Thusis",
+    "lat": 46.774111,
+    "lon": 9.204611,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 42.2,
+    "wettbewerb": "Transruinaulta maraton 42.2 km",
+    "veranstalter_url": "https://www.transviamala.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
+    "standort": "Thusis",
+    "lat": 46.774111,
+    "lon": 9.204611,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 35.5,
+    "wettbewerb": "Schluchtenprinz/essin 35.5 km",
+    "veranstalter_url": "https://www.transviamala.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
+    "standort": "Thusis",
+    "lat": 46.774111,
+    "lon": 9.204611,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 61.0,
+    "wettbewerb": "Schluchtenkönig/in 61 km",
+    "veranstalter_url": "https://www.transviamala.ch"
   },
   {
     "land": "Schweiz",
@@ -18908,6 +18973,34 @@
     "veranstalter_url": "https://www.gurtenclassic.ch"
   },
   {
+    "land": "Schweiz",
+    "name": "GurtenClassic",
+    "standort": "Wabern",
+    "lat": 46.919043,
+    "lon": 7.440898,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 9.0,
+    "wettbewerb": "Classic Run direkt 9 km",
+    "veranstalter_url": "https://www.gurtenclassic.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "GurtenClassic",
+    "standort": "Wabern",
+    "lat": 46.919043,
+    "lon": 7.440898,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 10.0,
+    "wettbewerb": "Classic Walking/Nordic Walking 10 km",
+    "veranstalter_url": "https://www.gurtenclassic.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "Gütersloher DJK Halbmarathon",
     "standort": "Gütersloh",
@@ -19125,6 +19218,41 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://fr.lausanne-marathon.com/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Lausanne Marathon",
+    "standort": "Lausanne",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 42.2,
+    "wettbewerb": "42.2km Marathon",
+    "veranstalter_url": "https://www.lausanne-marathon.com"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Lausanne Marathon",
+    "standort": "Lausanne",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 21.1,
+    "wettbewerb": "21.1km Semi-marathon",
+    "veranstalter_url": "https://www.lausanne-marathon.com"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Lausanne Marathon",
+    "standort": "Lausanne",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Equipes Marathon",
+    "veranstalter_url": "https://www.lausanne-marathon.com"
   },
   {
     "land": "Deutschland",
@@ -19655,6 +19783,75 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.swisscitymarathon.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Trail by Buchs Challenge",
+    "standort": "Cernier",
+    "lat": 47.059036,
+    "lon": 6.900876,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 30.0,
+    "wettbewerb": "30 km",
+    "veranstalter_url": "https://buchs-challenge.procsvr.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Trail by Buchs Challenge",
+    "standort": "Cernier",
+    "lat": 47.059036,
+    "lon": 6.900876,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 14.0,
+    "wettbewerb": "14 km",
+    "veranstalter_url": "https://buchs-challenge.procsvr.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Trail by Buchs Challenge",
+    "standort": "Cernier",
+    "lat": 47.059036,
+    "lon": 6.900876,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "UNIFIED (adapté aux PMR)",
+    "veranstalter_url": "https://buchs-challenge.procsvr.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
+    "standort": "Thusis",
+    "lat": 46.774111,
+    "lon": 9.204611,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 19.0,
+    "wettbewerb": "Transviamala trail 19 km",
+    "veranstalter_url": "https://www.transviamala.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
+    "standort": "Thusis",
+    "lat": 46.774111,
+    "lon": 9.204611,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 11.5,
+    "wettbewerb": "Transviamala curta 11.5 km",
+    "veranstalter_url": "https://www.transviamala.ch"
   },
   {
     "land": "Deutschland",
@@ -20265,6 +20462,19 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
+    "veranstalter_url": "https://nightrunmorges.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Night Run Morges",
+    "standort": "Morges VD",
+    "lat": 46.506478,
+    "lon": 6.494756,
+    "art1": "Laufen",
+    "art2": "Backyard Ultra",
+    "datum_start": "2026-10-30",
+    "datum_ende": "2026-10-30",
+    "wettbewerb": "BACKYARD NIGHT RUN",
     "veranstalter_url": "https://nightrunmorges.ch/"
   },
   {
@@ -22137,6 +22347,34 @@
   },
   {
     "land": "Schweiz",
+    "name": "Walliseller Lauf",
+    "standort": "Wallisellen",
+    "lat": 47.4167,
+    "lon": 8.591709,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-01",
+    "datum_ende": "2026-11-01",
+    "laenge_km": 7.0,
+    "wettbewerb": "Nordic Walking 7 km",
+    "veranstalter_url": "https://www.wallisellerlauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Walliseller Lauf",
+    "standort": "Wallisellen",
+    "lat": 47.4167,
+    "lon": 8.591709,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-01",
+    "datum_ende": "2026-11-01",
+    "laenge_km": 5.0,
+    "wettbewerb": "Kurzlauf 5 km",
+    "veranstalter_url": "https://www.wallisellerlauf.ch/"
+  },
+  {
+    "land": "Schweiz",
     "name": "Züri rännt Trails",
     "standort": "Zürich",
     "lat": 47.4138487,
@@ -23170,11 +23408,35 @@
     "lat": 47.4272822,
     "lon": 8.6903753,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
+    "veranstalter_url": "https://www.kyburglauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Kyburglauf",
+    "standort": "Kyburg",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
+    "laenge_km": 5.7,
+    "wettbewerb": "Nordic Walking 5.7 km",
+    "veranstalter_url": "https://www.kyburglauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Kyburglauf",
+    "standort": "Kyburg",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
+    "laenge_km": 10.2,
+    "wettbewerb": "Hauptrennen 10.2 km",
     "veranstalter_url": "https://www.kyburglauf.ch/"
   },
   {
@@ -23216,7 +23478,7 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://datasport.com/de/events/langenthaler-stadtlauf-2026"
+    "veranstalter_url": "https://www.langenthaler-stadtlauf.ch/faqs"
   },
   {
     "land": "Deutschland",
@@ -25646,20 +25908,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "10. Kerner Nachtlauf",
-    "standort": "Kernen im Remstal",
-    "lat": 48.814019,
-    "lon": 9.3182543,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "100 x 100 Hamburg",
     "standort": "Hamburg",
     "lat": 53.5909051,
@@ -25709,20 +25957,6 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 42.2,
     "veranstalter_url": "https://gustav-eberlein.de/marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "2. Potsdamer Cross im Rahmen der 22. DPM",
-    "standort": "Potsdam",
-    "lat": 52.4009309,
-    "lon": 13.0591397,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 5.5,
-    "wettbewerb": "Cross",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/26V04005402760000"
   },
   {
     "land": "Deutschland",
@@ -27997,6 +28231,19 @@
     "veranstalter_url": "http://www.baslerstadtlauf.ch/"
   },
   {
+    "land": "Schweiz",
+    "name": "43. Basler Stadtlauf",
+    "standort": "Basel",
+    "lat": 47.556592,
+    "lon": 7.591606,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "wettbewerb": "Regionalkader Männer U20",
+    "veranstalter_url": "http://www.stadtlauf.ch"
+  },
+  {
     "land": "Deutschland",
     "name": "44. Lindenseelaufserie",
     "standort": "Rüsselsheim am Main",
@@ -28285,7 +28532,49 @@
   },
   {
     "land": "Schweiz",
-    "name": "Course de la Sainte-Catherine",
+    "name": "Corrida Bulloise, Bulle",
+    "standort": "Bulle",
+    "lat": 46.617895,
+    "lon": 7.057306,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "laenge_km": 8.1,
+    "wettbewerb": "Elites Hommes 8.13km",
+    "veranstalter_url": "https://www.corrida-bulloise.ch/home"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Corrida Bulloise, Bulle",
+    "standort": "Bulle",
+    "lat": 46.617895,
+    "lon": 7.057306,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "laenge_km": 6.3,
+    "wettbewerb": "Course 6.1km",
+    "veranstalter_url": "https://www.corrida-bulloise.ch/home"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Corrida Bulloise, Bulle",
+    "standort": "Bulle",
+    "lat": 46.617895,
+    "lon": 7.057306,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "laenge_km": 8.0,
+    "wettbewerb": "Walking 8 km",
+    "veranstalter_url": "https://www.corrida-bulloise.ch/home"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course Sainte Catherine",
     "standort": "Saillon",
     "lat": 46.1707092,
     "lon": 7.1858418,
@@ -28295,6 +28584,20 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 11.0,
     "wettbewerb": "11 km",
+    "veranstalter_url": "https://www.coursesaintecatherine.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course Sainte Catherine",
+    "standort": "Saillon",
+    "lat": 46.1707,
+    "lon": 7.1858,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-21",
+    "datum_ende": "2026-11-21",
+    "laenge_km": 5.5,
+    "wettbewerb": "1 Tour & Cadets 5.5 km",
     "veranstalter_url": "https://www.coursesaintecatherine.ch/"
   },
   {
@@ -31028,6 +31331,21 @@
     "art2": "Straße",
     "datum_start": "2026-12-05",
     "datum_ende": "2026-12-06",
+    "veranstalter_url": "https://escalade.ch/",
+    "laenge_km": 9.0
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de l'Escalade",
+    "standort": "Genf",
+    "lat": 46.198859,
+    "lon": 6.14395,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-05",
+    "datum_ende": "2026-12-05",
+    "laenge_km": 7.3,
+    "wettbewerb": "Blocs d'allure 3 tours 7.3 km",
     "veranstalter_url": "https://escalade.ch/"
   },
   {
@@ -31112,6 +31430,19 @@
     "datum_ende": "2026-12-05",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.weihnachtslauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Gossauer Weihnachtslauf",
+    "standort": "Gossau SG",
+    "lat": 47.414074,
+    "lon": 9.252164,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-05",
+    "datum_ende": "2026-12-05",
+    "wettbewerb": "Generationenpreis",
     "veranstalter_url": "https://www.weihnachtslauf.ch/"
   },
   {
@@ -31908,6 +32239,30 @@
     "veranstalter_url": "https://tglage.de/laufen.html"
   },
   {
+    "land": "Schweiz",
+    "name": "Allschwiler Klausenlauf",
+    "standort": "Allschwil",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "laenge_km": 10.0,
+    "wettbewerb": "10.0 km Hauptlauf",
+    "veranstalter_url": "https://www.allschwiler-klausenlauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Allschwiler Klausenlauf",
+    "standort": "Allschwil",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "laenge_km": 6.6,
+    "wettbewerb": "6.6 km Kurzlauf",
+    "veranstalter_url": "https://www.allschwiler-klausenlauf.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "Barbara-Runde mit Sparkassen-Firmenlauf",
     "standort": "Bergkamen",
@@ -31960,6 +32315,33 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.bonner-nikolauslauf.de/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de l'Escalade",
+    "standort": "Genf",
+    "lat": 46.198859,
+    "lon": 6.14395,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "laenge_km": 7.3,
+    "wettbewerb": "Escaladélite Femmes 7.3 km",
+    "veranstalter_url": "https://escalade.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de l'Escalade",
+    "standort": "Genf",
+    "lat": 46.198859,
+    "lon": 6.14395,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "wettbewerb": "FlexiMix (1, 2 ou 3 tours)",
+    "veranstalter_url": "https://escalade.ch/"
   },
   {
     "land": "Deutschland",
@@ -32790,7 +33172,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "Christmas Run Lausanne",
+    "name": "Christmas Run, Lausanne",
     "standort": "Lausanne",
     "lat": 46.5196535,
     "lon": 6.6322734,
@@ -32801,6 +33183,20 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://christmasrun.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Christmas Run, Lausanne",
+    "standort": "Lausanne",
+    "lat": 46.520668,
+    "lon": 6.630615,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "laenge_km": 7.0,
+    "wettbewerb": "Femmes et hommes 7km",
+    "veranstalter_url": "https://www.christmasrun.ch"
   },
   {
     "land": "Schweiz",
@@ -32827,6 +33223,62 @@
     "datum_ende": "2026-12-12",
     "laenge_km": 8.0,
     "veranstalter_url": "https://coupedenoelesta.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de Noël et Trail des Châteaux , Sion",
+    "standort": "Sion",
+    "lat": 46.2331221,
+    "lon": 7.360626,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "laenge_km": 32.0,
+    "wettbewerb": "32 km",
+    "veranstalter_url": "https://www.traildeschateaux.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de Noël et Trail des Châteaux , Sion",
+    "standort": "Sion",
+    "lat": 46.2331221,
+    "lon": 7.360626,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "laenge_km": 14.0,
+    "wettbewerb": "14 km",
+    "veranstalter_url": "https://www.traildeschateaux.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de Noël et Trail des Châteaux , Sion",
+    "standort": "Sion",
+    "lat": 46.233177,
+    "lon": 7.35825,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "laenge_km": 5.0,
+    "wettbewerb": "Course Dames 5 km",
+    "veranstalter_url": "https://www.coursedenoel.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Course de Noël et Trail des Châteaux , Sion",
+    "standort": "Sion",
+    "lat": 46.233177,
+    "lon": 7.35825,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-12-12",
+    "datum_ende": "2026-12-12",
+    "laenge_km": 7.0,
+    "wettbewerb": "Course Hommes 7 km",
+    "veranstalter_url": "https://www.coursedenoel.ch/"
   },
   {
     "land": "Schweiz",
@@ -33046,34 +33498,6 @@
     "laenge_km": 26.0,
     "wettbewerb": "26 km",
     "veranstalter_url": "https://naswut.prospectum.com/2026_06_raeuberweglauf"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Trail des Châteaux - Sion",
-    "standort": "Sion",
-    "lat": 46.2331221,
-    "lon": 7.360626,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-12",
-    "datum_ende": "2026-12-12",
-    "laenge_km": 32.0,
-    "wettbewerb": "32 km",
-    "veranstalter_url": "https://www.traildeschateaux.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Trail des Châteaux - Sion",
-    "standort": "Sion",
-    "lat": 46.2331221,
-    "lon": 7.360626,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-12",
-    "datum_ende": "2026-12-12",
-    "laenge_km": 14.0,
-    "wettbewerb": "14 km",
-    "veranstalter_url": "https://www.traildeschateaux.ch/"
   },
   {
     "land": "Österreich",
@@ -34062,6 +34486,19 @@
     "datum_ende": "2026-12-13",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.silvesterlauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Zürcher Silvesterlauf",
+    "standort": "Zürich",
+    "lat": 47.369453,
+    "lon": 8.543519,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-13",
+    "datum_ende": "2026-12-13",
+    "wettbewerb": "Schulklassen",
     "veranstalter_url": "https://www.silvesterlauf.ch/"
   },
   {
@@ -40266,7 +40703,7 @@
     "datum_ende": "2027-01-17",
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
-    "veranstalter_url": "https://datasport.com/de/events/course-de-la-bonne-resolution-2027"
+    "veranstalter_url": "http://www.labr.ch/accueil"
   },
   {
     "land": "Schweiz",
@@ -42455,19 +42892,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "HKK-Winterlaufserie",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-07",
-    "datum_ende": "2027-02-07",
-    "laenge_km": 20.0,
-    "veranstalter_url": "https://bremer-winterlaufserie.com/anmeldung"
-  },
-  {
-    "land": "Deutschland",
     "name": "Nürnberger Winterlaufserie",
     "standort": "Nürnberg",
     "lat": 49.4521018,
@@ -44279,6 +44703,19 @@
     "veranstalter_url": "https://semidurhone.ch/"
   },
   {
+    "land": "Schweiz",
+    "name": "Semi du Rhône",
+    "standort": "Bramois",
+    "lat": 46.235596,
+    "lon": 7.394789,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "wettbewerb": "10K",
+    "veranstalter_url": "https://semidurhone.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "Winterlauf Amelinghausen",
     "standort": "Amelinghausen",
@@ -44538,6 +44975,42 @@
     "laenge_km": 47.0,
     "wettbewerb": "47 km",
     "veranstalter_url": "https://www.seefeld.com/de/ganghoferlauf.html"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Generali Run The Sun Ascona-Locarno Marathon",
+    "standort": "Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-06",
+    "datum_ende": "2027-03-06",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km",
+    "veranstalter_url": "https://www.generalirunthesun.com/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Generali Run The Sun Ascona-Locarno Marathon",
+    "standort": "Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-06",
+    "datum_ende": "2027-03-06",
+    "laenge_km": 21.0,
+    "wettbewerb": "21km half marathon",
+    "veranstalter_url": "https://www.generalirunthesun.com/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Generali Run The Sun Ascona-Locarno Marathon",
+    "standort": "Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-06",
+    "datum_ende": "2027-03-06",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Grand Prix Città Vecchia",
+    "veranstalter_url": "https://www.generalirunthesun.com/"
   },
   {
     "land": "Deutschland",
@@ -45199,6 +45672,18 @@
     "veranstalter_url": "https://engadin-skimarathon.ch/rennen/engadin-frauenlauf"
   },
   {
+    "land": "Schweiz",
+    "name": "Generali Run The Sun Ascona-Locarno Marathon",
+    "standort": "Locarno",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-07",
+    "datum_ende": "2027-03-07",
+    "laenge_km": 42.0,
+    "wettbewerb": "42km marathon",
+    "veranstalter_url": "https://www.generalirunthesun.com/"
+  },
+  {
     "land": "Deutschland",
     "name": "HKK-Winterlaufserie",
     "standort": "Bremen",
@@ -45639,6 +46124,48 @@
     "datum_ende": "2027-03-13",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.ergebnisliste.de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-13",
+    "datum_ende": "2027-03-13",
+    "laenge_km": 15.0,
+    "wettbewerb": "15km Vorlauf",
+    "veranstalter_url": "https://kerzerslauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-13",
+    "datum_ende": "2027-03-13",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km  Vorlauf",
+    "veranstalter_url": "https://kerzerslauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-13",
+    "datum_ende": "2027-03-13",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km  Vorlauf",
+    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Deutschland",
@@ -46248,19 +46775,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://bienwald-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
   },
   {
     "land": "Deutschland",
@@ -47018,6 +47532,48 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.saelzerlauf.de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-20",
+    "datum_ende": "2027-03-20",
+    "laenge_km": 15.0,
+    "wettbewerb": "15km Walk",
+    "veranstalter_url": "https://kerzerslauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-20",
+    "datum_ende": "2027-03-20",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km Walk",
+    "veranstalter_url": "https://kerzerslauf.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "49. Kerzerslauf",
+    "standort": "Kerzers",
+    "lat": 46.975956,
+    "lon": 7.198997,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-20",
+    "datum_ende": "2027-03-20",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km Walk",
+    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Deutschland",
@@ -57078,62 +57634,6 @@
     "veranstalter_url": "https://www.innsbruckalpine.at/"
   },
   {
-    "land": "Österreich",
-    "name": "Innsbruck Alpine Trailrun Festival",
-    "standort": "Innsbruck",
-    "lat": 47.2692124,
-    "lon": 11.4041024,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-05",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 43.0,
-    "wettbewerb": "43 km",
-    "veranstalter_url": "https://www.innsbruckalpine.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Innsbruck Alpine Trailrun Festival",
-    "standort": "Innsbruck",
-    "lat": 47.2692124,
-    "lon": 11.4041024,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-05",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 27.0,
-    "wettbewerb": "27 km",
-    "veranstalter_url": "https://www.innsbruckalpine.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Innsbruck Alpine Trailrun Festival",
-    "standort": "Innsbruck",
-    "lat": 47.2692124,
-    "lon": 11.4041024,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-05",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 24.0,
-    "wettbewerb": "24 km",
-    "veranstalter_url": "https://www.innsbruckalpine.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Innsbruck Alpine Trailrun Festival",
-    "standort": "Innsbruck",
-    "lat": 47.2692124,
-    "lon": 11.4041024,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-05",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.innsbruckalpine.at/"
-  },
-  {
     "land": "Deutschland",
     "name": "Keibellauf Huchenfeld",
     "standort": "Pforzheim",
@@ -64069,6 +64569,20 @@
     "veranstalter_url": "http://www.triathlon-frauenfeld.ch"
   },
   {
+    "land": "Schweiz",
+    "name": "Triathlon Frauenfeld",
+    "standort": "Frauenfeld",
+    "lat": 47.551616,
+    "lon": 8.896003,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "laenge_km": 42.0,
+    "wettbewerb": "Long Distance 42 km (0.8 km Schwimmen / 34 km Rad / 7.2 km Laufen)",
+    "veranstalter_url": "http://www.triathlon-frauenfeld.ch"
+  },
+  {
     "land": "Deutschland",
     "name": "Vogelsanger Mailauf",
     "standort": "Köln",
@@ -67844,6 +68358,20 @@
   },
   {
     "land": "Österreich",
+    "name": "Glocknerkönig, Bruck-Fusch (A)",
+    "standort": "Bruck-Fusch",
+    "lat": 47.286767,
+    "lon": 12.824157,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-05",
+    "datum_ende": "2027-06-05",
+    "laenge_km": 2.7,
+    "wettbewerb": "Volkshilfe Charity-Bergzeit-Fahren 2.7 km",
+    "veranstalter_url": "https://www.glocknerkoenig.com"
+  },
+  {
+    "land": "Österreich",
     "name": "Grazathlon - Beat the City",
     "standort": "Graz",
     "lat": 47.070714,
@@ -69055,6 +69583,20 @@
     "veranstalter_url": "https://www.glocknerkoenig.com/"
   },
   {
+    "land": "Österreich",
+    "name": "Glocknerkönig",
+    "standort": "Bruck-Fusch",
+    "lat": 47.286767,
+    "lon": 12.824157,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-06",
+    "datum_ende": "2027-06-06",
+    "laenge_km": 28.9,
+    "wettbewerb": "Glocknerkönig Ultra 28.9 km",
+    "veranstalter_url": "https://www.glocknerkoenig.com"
+  },
+  {
     "land": "Deutschland",
     "name": "Harzgeröder Klippenlauf",
     "standort": "Harzgerode",
@@ -69746,7 +70288,7 @@
     "datum_ende": "2027-06-12",
     "laenge_km": 33.0,
     "wettbewerb": "33 km",
-    "veranstalter_url": "https://datasport.com/de/events/world-masters-mountain-running-championships-2027"
+    "veranstalter_url": "https://www.wmmrc2027-klosters.com/"
   },
   {
     "land": "Deutschland",
@@ -69895,6 +70437,20 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon (21,1 km)",
     "veranstalter_url": "https://100km.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Bieler Lauftage",
+    "standort": "Biel/Bienne",
+    "lat": 47.155404,
+    "lon": 7.282348,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-11",
+    "datum_ende": "2027-06-12",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km fun & walking",
+    "veranstalter_url": "https://www.100km.ch"
   },
   {
     "land": "Deutschland",
@@ -71393,19 +71949,6 @@
     "land": "Deutschland",
     "name": "Schloss-Triathlon Moritzburg",
     "standort": "Moritzburg",
-    "lat": 51.1592018,
-    "lon": 13.6819406,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-12",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.schloss-triathlon-moritzburg.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schloss-Triathlon Moritzburg",
-    "standort": "Moritzburg",
     "lat": 51.1583087,
     "lon": 13.6814347,
     "art1": "Triathlon",
@@ -71523,6 +72066,17 @@
     "datum_start": "2027-06-12",
     "datum_ende": "2027-06-12",
     "veranstalter_url": "https://www.swisstrailrun.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Säntis Classic",
+    "standort": "Weinfelden",
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-12",
+    "wettbewerb": "Gravel-Ride Thurgau",
+    "veranstalter_url": "https://www.saentis-classic.ch/"
   },
   {
     "land": "Schweiz",
@@ -72758,6 +73312,30 @@
     "datum_ende": "2027-06-13",
     "laenge_km": 200.0,
     "wettbewerb": "RTF 200 km",
+    "veranstalter_url": "https://www.saentis-classic.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Säntis-Classic",
+    "standort": "Weinfelden",
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 130.0,
+    "wettbewerb": "Classic-Tour mit Trikot 130 km",
+    "veranstalter_url": "https://www.saentis-classic.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Säntis-Classic",
+    "standort": "Weinfelden",
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-13",
+    "datum_ende": "2027-06-13",
+    "laenge_km": 40.0,
+    "wettbewerb": "Öpfel-Tour 40 km",
     "veranstalter_url": "https://www.saentis-classic.ch/"
   },
   {
@@ -75361,6 +75939,19 @@
     "veranstalter_url": "https://mountainpilgrimage.de/"
   },
   {
+    "land": "Österreich",
+    "name": "MYTRANSALP",
+    "standort": "Lienz",
+    "lat": 1,
+    "lon": 2,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-20",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Full Solo",
+    "veranstalter_url": "https://www.mytransalp.com"
+  },
+  {
     "land": "Deutschland",
     "name": "Möckmühler Stadtlauf",
     "standort": "Möckmühl",
@@ -75720,6 +76311,19 @@
     "datum_ende": "2027-06-23",
     "laenge_km": 5.0,
     "veranstalter_url": "http://www.darmstadt-laeuft.de"
+  },
+  {
+    "land": "Österreich",
+    "name": "MYTRANSALP",
+    "standort": "Lienz",
+    "lat": 1,
+    "lon": 2,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-06-23",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Short Solo 4 Days",
+    "veranstalter_url": "https://www.mytransalp.com"
   },
   {
     "land": "Deutschland",
@@ -77574,6 +78178,20 @@
     "veranstalter_url": "https://albextrem.de/"
   },
   {
+    "land": "Schweiz",
+    "name": "Aletsch-Halbmarathon",
+    "standort": "Aletscharena",
+    "lat": 46.357944,
+    "lon": 8.047414,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 21.1,
+    "wettbewerb": "Aletsch-Halbmarathon Walking 21.1 km",
+    "veranstalter_url": "https://www.aletsch-halbmarathon.ch/de"
+  },
+  {
     "land": "Deutschland",
     "name": "Berliner Volkstriathlon",
     "standort": "Teltow",
@@ -78140,6 +78758,34 @@
     "laenge_km": 101.9,
     "wettbewerb": "Mitteldistanz 101,9 km (1,9 km Schwimmen / 80 km Rad / 20 km Laufen)",
     "veranstalter_url": "https://triathlon.de/pages/triathlon-de-cup-muenchen-2026"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Zurich City Triathlon",
+    "standort": "Zürich",
+    "lat": 47.349778,
+    "lon": 8.536426,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympisch 51.5 km (1.5 km Schwimmen / 40 km Rad / 10 km Laufen)",
+    "veranstalter_url": "https://zurichcitytriathlon.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Zurich City Triathlon",
+    "standort": "Zürich",
+    "lat": 47.349778,
+    "lon": 8.536426,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-27",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 25.8,
+    "wettbewerb": "PREMIUM Sprint 25.8 km (0.8 km Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://zurichcitytriathlon.ch/"
   },
   {
     "land": "Deutschland",
@@ -78926,6 +79572,62 @@
     "veranstalter_url": "https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=7&cHash=a8dfe42764aa0e15b7c0fe6f59ea80e6"
   },
   {
+    "land": "Schweiz",
+    "name": "Gornergrat Zermatt Marathon",
+    "standort": "Zermatt",
+    "lat": 46.019197,
+    "lon": 7.759038,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-03",
+    "laenge_km": 42.2,
+    "wettbewerb": "Marathon 42.2 km",
+    "veranstalter_url": "http://www.zermattmarathon.ch/index.php?id=163"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Gornergrat Zermatt Marathon",
+    "standort": "Zermatt",
+    "lat": 46.019197,
+    "lon": 7.759038,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-03",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon 21.1 km",
+    "veranstalter_url": "http://www.zermattmarathon.ch/index.php?id=163"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Gornergrat Zermatt Marathon",
+    "standort": "Zermatt",
+    "lat": 46.019197,
+    "lon": 7.759038,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-03",
+    "laenge_km": 45.8,
+    "wettbewerb": "Ultra Marathon 45.8 km",
+    "veranstalter_url": "http://www.zermattmarathon.ch/index.php?id=163"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Gornergrat Zermatt Marathon",
+    "standort": "Zermatt",
+    "lat": 46.019197,
+    "lon": 7.759038,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-03",
+    "datum_ende": "2027-07-03",
+    "laenge_km": 22.0,
+    "wettbewerb": "TOP20RUN 22 km",
+    "veranstalter_url": "http://www.zermattmarathon.ch/index.php?id=163"
+  },
+  {
     "land": "Deutschland",
     "name": "Heuchelberg Trail",
     "standort": "Leingarten",
@@ -79634,6 +80336,48 @@
     "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=8C97485C89064D7BB629E7627FAAF7A7&filter=page=3"
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "40. Maratona dles Dolomites - Enel",
+    "standort": "Corvara",
+    "lat": 46.5497,
+    "lon": 11.876,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "laenge_km": 138.0,
+    "wettbewerb": "Gran Fondo 138 km",
+    "veranstalter_url": "https://www.maratona.it/en/"
+  },
+  {
+    "land": "Italien (Südtirol)",
+    "name": "40. Maratona dles Dolomites - Enel",
+    "standort": "La Villa",
+    "lat": 46.5817533,
+    "lon": 11.8970259,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "laenge_km": 55.0,
+    "wettbewerb": "Jedermannrennen 55 km",
+    "veranstalter_url": "https://www.maratona.it"
+  },
+  {
+    "land": "Italien (Südtirol)",
+    "name": "40. Maratona dles Dolomites - Enel",
+    "standort": "La Villa",
+    "lat": 46.5817533,
+    "lon": 11.8970259,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "laenge_km": 106.0,
+    "wettbewerb": "Jedermannrennen 106 km",
+    "veranstalter_url": "https://www.maratona.it"
+  },
+  {
     "land": "Deutschland",
     "name": "45. VR-Bank-Lauf - Rund um die Veste Coburg",
     "standort": "Coburg",
@@ -79865,62 +80609,6 @@
     "laenge_km": 51.0,
     "wettbewerb": "51 km",
     "veranstalter_url": "https://www.kulturstadttriathlon.de/"
-  },
-  {
-    "land": "Italien (Südtirol)",
-    "name": "Maratona dles Dolomites",
-    "standort": "Corvara",
-    "lat": 46.5497,
-    "lon": 11.876,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-04",
-    "datum_ende": "2027-07-04",
-    "laenge_km": 138.0,
-    "wettbewerb": "Gran Fondo 138 km",
-    "veranstalter_url": "https://www.maratona.it/en/"
-  },
-  {
-    "land": "Italien (Südtirol)",
-    "name": "Maratona dles Dolomites",
-    "standort": "La Villa",
-    "lat": 46.5817533,
-    "lon": 11.8970259,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-04",
-    "datum_ende": "2027-07-04",
-    "laenge_km": 55.0,
-    "wettbewerb": "Jedermannrennen 55 km",
-    "veranstalter_url": "https://www.maratona.it"
-  },
-  {
-    "land": "Italien (Südtirol)",
-    "name": "Maratona dles Dolomites",
-    "standort": "La Villa",
-    "lat": 46.5817533,
-    "lon": 11.8970259,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-04",
-    "datum_ende": "2027-07-04",
-    "laenge_km": 106.0,
-    "wettbewerb": "Jedermannrennen 106 km",
-    "veranstalter_url": "https://www.maratona.it"
-  },
-  {
-    "land": "Italien (Südtirol)",
-    "name": "Maratona dles Dolomites",
-    "standort": "La Villa",
-    "lat": 46.5817533,
-    "lon": 11.8970259,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-04",
-    "datum_ende": "2027-07-04",
-    "laenge_km": 138.0,
-    "wettbewerb": "Jedermannrennen 138 km",
-    "veranstalter_url": "https://www.maratona.it"
   },
   {
     "land": "Deutschland",
@@ -80842,7 +81530,7 @@
   },
   {
     "land": "Italien (Südtirol)",
-    "name": "KronplatzKing",
+    "name": "KronplatzKing MTB Marathon",
     "standort": "St. Vigil",
     "lat": 46.5417498,
     "lon": 11.541481,
@@ -80856,7 +81544,7 @@
   },
   {
     "land": "Italien (Südtirol)",
-    "name": "KronplatzKing",
+    "name": "KronplatzKing MTB Marathon",
     "standort": "St. Vigil",
     "lat": 46.5417498,
     "lon": 11.541481,
@@ -82760,6 +83448,34 @@
     "veranstalter_url": "https://www.3-seen-triathlon.ch/"
   },
   {
+    "land": "Schweiz",
+    "name": "3-Seen-Triathlon",
+    "standort": "Hüttwilen",
+    "lat": 47.609378,
+    "lon": 8.848397,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "laenge_km": 27.3,
+    "wettbewerb": "Short Distance 27.3 km (0.5 km Schwimmen / 20.6 km Rad / 6.2 km Laufen)",
+    "veranstalter_url": "https://www.3-seen-triathlon.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "3-Seen-Triathlon",
+    "standort": "Hüttwilen",
+    "lat": 47.609378,
+    "lon": 8.848397,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "laenge_km": 50.2,
+    "wettbewerb": "Olympic Distance 50.2 km (1.5 km Schwimmen / 38.2 km Rad / 10.5 km Laufen)",
+    "veranstalter_url": "https://www.3-seen-triathlon.ch"
+  },
+  {
     "land": "Deutschland",
     "name": "Internationaler Allgäu Volkslauf",
     "standort": "Leutkirch im Allgäu",
@@ -83734,6 +84450,48 @@
     "wettbewerb": "Hauptlauf 9.000 m"
   },
   {
+    "land": "Österreich",
+    "name": "THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL",
+    "standort": "Kaprun",
+    "lat": 47.271098,
+    "lon": 12.757991,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-23",
+    "laenge_km": 37.0,
+    "wettbewerb": "Weißsee Gletscherwelt Trail 37 km",
+    "veranstalter_url": "https://www.ultratrail.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL",
+    "standort": "Kaprun",
+    "lat": 47.271098,
+    "lon": 12.757991,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-23",
+    "laenge_km": 110.0,
+    "wettbewerb": "Großglockner Ultra-Trail 110 km",
+    "veranstalter_url": "https://www.ultratrail.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL",
+    "standort": "Kaprun",
+    "lat": 47.271098,
+    "lon": 12.757991,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-23",
+    "laenge_km": 16.0,
+    "wettbewerb": "Kaprun Scenic Trail 16 km",
+    "veranstalter_url": "https://www.ultratrail.at/"
+  },
+  {
     "land": "Deutschland",
     "name": "Waldlauf Renquishausen",
     "standort": "Renquishausen",
@@ -83774,6 +84532,20 @@
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
     "veranstalter_url": "https://www.aegeriseelauf.com/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Ägeriseelauf",
+    "standort": "Oberägeri",
+    "lat": 47.134646,
+    "lon": 8.6091,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-23",
+    "wettbewerb": "Paarlauf 2",
+    "veranstalter_url": "https://www.aegeriseelauf.com",
+    "laenge_km": 7.0
   },
   {
     "land": "Österreich",
@@ -83885,6 +84657,62 @@
     "laenge_km": 8.0,
     "wettbewerb": "Mini Trail",
     "veranstalter_url": "https://www.crazyrunners-frankenwaldtrail.de/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Davos X-Trails",
+    "standort": "Davos",
+    "lat": 46.79781,
+    "lon": 9.82675,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 68.0,
+    "wettbewerb": "Diamond (68km)",
+    "veranstalter_url": "https://www.davos-xtrails.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Davos X-Trails",
+    "standort": "Davos",
+    "lat": 46.79781,
+    "lon": 9.82675,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 23.0,
+    "wettbewerb": "Silver (23km)",
+    "veranstalter_url": "https://www.davos-xtrails.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Davos X-Trails",
+    "standort": "Davos",
+    "lat": 46.79781,
+    "lon": 9.82675,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 10.0,
+    "wettbewerb": "Bronze (10km)",
+    "veranstalter_url": "https://www.davos-xtrails.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Davos X-Trails",
+    "standort": "Davos",
+    "lat": 46.79781,
+    "lon": 9.82675,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 43.0,
+    "wettbewerb": "Gold (43km)",
+    "veranstalter_url": "https://www.davos-xtrails.ch/"
   },
   {
     "land": "Deutschland",
@@ -84163,6 +84991,34 @@
     "datum_ende": "2027-07-24",
     "laenge_km": 1337.0,
     "veranstalter_url": "https://swiss-bikeadventure.com"
+  },
+  {
+    "land": "Österreich",
+    "name": "THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL",
+    "standort": "Kaprun",
+    "lat": 47.271098,
+    "lon": 12.757991,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 84.0,
+    "wettbewerb": "Osttirol Trail 84 km",
+    "veranstalter_url": "https://www.ultratrail.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL",
+    "standort": "Kaprun",
+    "lat": 47.271098,
+    "lon": 12.757991,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "laenge_km": 57.0,
+    "wettbewerb": "Großglockner Trail 57 km",
+    "veranstalter_url": "https://www.ultratrail.at/"
   },
   {
     "land": "Deutschland",
@@ -86750,7 +87606,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "Madrisa Trail Klosters",
+    "name": "MADRISA TRAIL KLOSTERS presented by LOWA",
     "standort": "Klosters-Serneus",
     "lat": 46.889989,
     "lon": 9.838752,
@@ -86761,6 +87617,20 @@
     "laenge_km": 54.0,
     "wettbewerb": "T54",
     "veranstalter_url": "https://www.madrisatrail.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "MADRISA TRAIL KLOSTERS presented by LOWA",
+    "standort": "Klosters",
+    "lat": 46.869252,
+    "lon": 9.881239,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-08-13",
+    "datum_ende": "2027-08-13",
+    "laenge_km": 11.0,
+    "wettbewerb": "T11 Trail 11 km",
+    "veranstalter_url": "http://www.madrisatrail.ch/"
   },
   {
     "land": "Deutschland",
@@ -87023,6 +87893,48 @@
     "laenge_km": 3.8,
     "wettbewerb": "Cupstrecke 3,8 km",
     "veranstalter_url": "https://www.tri-x-kufstein.at/unsere-events/hechtsee-x-treme"
+  },
+  {
+    "land": "Schweiz",
+    "name": "MADRISA TRAIL KLOSTERS presented by LOWA",
+    "standort": "Klosters",
+    "lat": 46.869252,
+    "lon": 9.881239,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "laenge_km": 54.0,
+    "wettbewerb": "T54 Trail 54 km",
+    "veranstalter_url": "http://www.madrisatrail.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "MADRISA TRAIL KLOSTERS presented by LOWA",
+    "standort": "Klosters",
+    "lat": 46.869252,
+    "lon": 9.881239,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "laenge_km": 24.0,
+    "wettbewerb": "T24 Trail 24 km",
+    "veranstalter_url": "http://www.madrisatrail.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "MADRISA TRAIL KLOSTERS presented by LOWA",
+    "standort": "Klosters",
+    "lat": 46.869252,
+    "lon": 9.881239,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "laenge_km": 33.0,
+    "wettbewerb": "T33 Trail 33 km",
+    "veranstalter_url": "http://www.madrisatrail.ch/"
   },
   {
     "land": "Deutschland",
@@ -87841,6 +88753,20 @@
     "veranstalter_url": "https://datasport.com/de/events/engadin-sommerlauf-2027"
   },
   {
+    "land": "Schweiz",
+    "name": "TORTOUR",
+    "standort": "Schaffhausen",
+    "lat": 47.705796,
+    "lon": 8.623058,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-08-20",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 50.0,
+    "wettbewerb": "TORTOUR Myself 50 50 km",
+    "veranstalter_url": "https://www.tortour.com/"
+  },
+  {
     "land": "Deutschland",
     "name": "VSB Dresdner Nachtlauf",
     "standort": "Dresden",
@@ -88505,6 +89431,48 @@
     "laenge_km": 106.0,
     "wettbewerb": "106 km",
     "veranstalter_url": "https://808project.de/allgaeutriathlon"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Engadin Sommerlauf",
+    "standort": "St. Moritz",
+    "lat": 46.488439,
+    "lon": 9.836868,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 22.9,
+    "wettbewerb": "Engadin Sommerlauf 22.9 km",
+    "veranstalter_url": "https://www.engadin-sommerlauf.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Engadin Sommerlauf",
+    "standort": "St. Moritz",
+    "lat": 46.488439,
+    "lon": 9.836868,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 10.4,
+    "wettbewerb": "Run Pontresina 10.4 km",
+    "veranstalter_url": "https://www.engadin-sommerlauf.ch"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Engadin Sommerlauf",
+    "standort": "St. Moritz",
+    "lat": 46.488439,
+    "lon": 9.836868,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "laenge_km": 6.0,
+    "wettbewerb": "Run S 6 km",
+    "veranstalter_url": "https://www.engadin-sommerlauf.ch"
   },
   {
     "land": "Schweiz",
@@ -89256,6 +90224,20 @@
     "veranstalter_url": "https://datasport.com/de/events/4-triathlon-basel-2027"
   },
   {
+    "land": "Schweiz",
+    "name": "4. Triathlon Basel",
+    "standort": "Basel",
+    "lat": 47.55833,
+    "lon": 7.580462,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "laenge_km": 21.8,
+    "wettbewerb": "Sprint 21.8 km (0.8 km Schwimmen / 16 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://triathlonbasel.ch/"
+  },
+  {
     "land": "Deutschland",
     "name": "9. Bottroper Ultralauf Festival (BUF)",
     "standort": "Bottrop",
@@ -89895,6 +90877,20 @@
     "laenge_km": 18.0,
     "wettbewerb": "X-treme Distanz",
     "veranstalter_url": "https://www.xletix.com/events/nrw-2027/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "4. Triathlon Basel",
+    "standort": "Basel",
+    "lat": 47.55833,
+    "lon": 7.580462,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 114.0,
+    "wettbewerb": "Mitteldistanz 114 km (3 km Schwimmen / 90 km Rad / 21 km Laufen)",
+    "veranstalter_url": "https://triathlonbasel.ch/"
   },
   {
     "land": "Deutschland",
@@ -91938,6 +92934,34 @@
     "veranstalter_url": "https://kitzbueheler-radmarathon.at"
   },
   {
+    "land": "Schweiz",
+    "name": "Powerman World Championships Zofingen",
+    "standort": "Zofingen",
+    "lat": 47.288999,
+    "lon": 7.948188,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-09-05",
+    "datum_ende": "2027-09-05",
+    "laenge_km": 65.0,
+    "wettbewerb": "Short Distance 65 km (10 km Laufen / 50 km Rad / 5 km Laufen)",
+    "veranstalter_url": "http://www.powerman.ch/de"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Powerman World Championships Zofingen",
+    "standort": "Zofingen",
+    "lat": 47.288999,
+    "lon": 7.948188,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-09-05",
+    "datum_ende": "2027-09-05",
+    "laenge_km": 190.0,
+    "wettbewerb": "Long Distance - OPEN 190 km (10 km Laufen / 150 km Rad / 30 km Laufen)",
+    "veranstalter_url": "http://www.powerman.ch/de"
+  },
+  {
     "land": "Deutschland",
     "name": "Rats-Run - Auhausen",
     "standort": "Auhausen",
@@ -92908,20 +93932,6 @@
     "art2": "Straße",
     "datum_start": "2027-09-11",
     "datum_ende": "2027-09-11",
-    "laenge_km": 11.3,
-    "wettbewerb": "Jedermanntriathlon",
-    "veranstalter_url": "https://my.raceresult.com/424668/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Vredener Sparkassen Triathlon",
-    "standort": "Vreden",
-    "lat": 52.0353944,
-    "lon": 6.8245487,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
     "laenge_km": 22.7,
     "wettbewerb": "Sprinttriathlon",
     "veranstalter_url": "https://my.raceresult.com/424668/"
@@ -93663,7 +94673,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 105.0,
     "wettbewerb": "105 km",
-    "veranstalter_url": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027"
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
   },
   {
     "land": "Deutschland",
@@ -93677,7 +94687,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 80.0,
     "wettbewerb": "80 km",
-    "veranstalter_url": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027"
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
   },
   {
     "land": "Deutschland",
@@ -93691,7 +94701,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 53.0,
     "wettbewerb": "53 km",
-    "veranstalter_url": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027"
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
   },
   {
     "land": "Deutschland",
@@ -93705,7 +94715,7 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 33.0,
     "wettbewerb": "33 km",
-    "veranstalter_url": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027"
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
   },
   {
     "land": "Deutschland",
@@ -93720,6 +94730,34 @@
     "laenge_km": 13.0,
     "wettbewerb": "13 km",
     "veranstalter_url": "https://datasport.com/de/events/black-forest-ultra-trail-run-2027"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Black Forest ULTRA Trail Run",
+    "standort": "Kirchzarten",
+    "lat": 47.95782,
+    "lon": 7.956414,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "laenge_km": 10.0,
+    "wettbewerb": "BFUTR 10-15 10 km",
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Black Forest ULTRA Trail Run",
+    "standort": "Kirchzarten",
+    "lat": 47.95782,
+    "lon": 7.956414,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "laenge_km": 19.5,
+    "wettbewerb": "BFUTR 18-23 19.5 km",
+    "veranstalter_url": "https://www.ultra-trailrun.de/"
   },
   {
     "land": "Deutschland",
