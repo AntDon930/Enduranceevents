@@ -1282,12 +1282,14 @@ danach noch ein Portallink ist, geht durch `scripts/veranstalter_links.py`.
 Vorher geprüft und ausgeschlossen (sperren den Abruf oder verbieten
 ihn ausdrücklich; auf Wunsch des Nutzers nicht in der Liste):
 tri2b.com, triafreunde.com,
-hdsports.org, datasport.com, rad-net.de,
+hdsports.org, rad-net.de,
 swiss-cycling.ch, ahotu.com. (`schwimmkalender.de` und
 `alpen-open-watercup.de` standen hier bis zum 24.09.2026 – beide sind
 erreichbar und verbieten nichts, siehe die Tabelle oben; `radsport-events.de`
 stand hier ebenfalls, robots.txt und Impressum verbieten inzwischen nichts,
-und seit dem 24.09.2026 gibt es dafür mit dem Ja des Nutzers einen Scraper.)
+und seit dem 24.09.2026 gibt es dafür mit dem Ja des Nutzers einen Scraper;
+`datasport.com` stand hier bis zum 30.09.2026 – seit dem Ja des Nutzers
+gibt es `datasport_scraper.py`, siehe „Landesverbände und Zeitnehmer".)
 
 ### Die Eventliste des Nutzers (PDF vom 24.09.2026)
 
@@ -1329,7 +1331,7 @@ trägt die Quellen mit Scraper). Bilanz:
 | **Scraper gebaut** (24.09.2026) | `turbo-sport.eu` (BRV Timing), `radsport-events.de` (mit dem Ja des Nutzers), `cyclingaustria.at`, `swimsports.ch`, `fsieben.at` |
 | **schon Quelle** | `running.life` (drei Triathlon-Kalender in der Liste), `schwimmkalender.de` |
 | **einzelne Veranstalter** – keine Kalender, die Veranstaltung selbst steht über das PDF bzw. `manual_events.json` im Bestand oder ist im Frühjahr 2027 zu prüfen | `bayern-rundfahrt.com`, `munichbikestars.de` (Donnerstagsrennen, siehe BRV Timing), `chiemsee-langstreckenschwimmen.de`, `wasserwacht-ammerland.de/seeueberquerung`, `starnbergersee-schwimmen.de`, `schwimmen-muenchen.de`, `bodensee-openwater.com`, `atterseeueberquerung.com`, `woerthersee.com` (Wörthersee Swim), `alpenadriaswimcup.at`, `achensee-langstreckenschwimmen.com`, `tegernsee-langstreckenschwimmen.de`, `wagingersee-langstreckenschwimmen.de`, `kalterersee-triathlon.com` (2026 vorbei, 2027 offen), `seeueberquerung.ch` (eingetragen), `alpen-open-watercup.de` (neun Rennen 2027 aus dem PDF eingetragen), `bergcup.it` (Südtirol.Berg.Cup: nur 2026, drei Rennen – im Frühjahr 2027 nachsehen) |
-| **Kandidaten, nicht gebaut** | `datasport.com` (robots.txt erlaubt ClaudeBot außer `/api/`, Crawl-delay 10, Impressum ohne Verbot; 107 Termine auf einer Seite, vermutlich die größte Schweizer Quelle – **aber am 21.09.2026 auf Wunsch des Nutzers ausgeschlossen, braucht sein Ja**), `swisstriathlon.ch/race-calendar` (WordPress mit Events-Manager/MEC-Plugins, die Liste steht nicht im HTML – Struktur offen), `dealgrid.de` (Gravel DE 2026/2027, 53 JSON-LD-Events; Affiliate-Seite), `gravel-club.com` (WP Events Manager, international), `808project.de` (Gravel, Wix), `mountainbiker.ch/events/all` (Drupal, 2026 fast vorbei), `bikeboard.at/termine` (robots.txt nennt ClaudeBot – siehe oben), `swisscyclingaargau.ch` (Kantonalverband, ein Termin), `breitensport.rad-net.de` (42 Termine – aber `rad-net.de` sperrt und verbietet, siehe unten), NordCup und Landesverbände SH/NRW/BW (siehe oben) |
+| **Kandidaten, nicht gebaut** | ~~`datasport.com`~~ (**seit dem 30.09.2026 gebaut**, siehe „Landesverbände und Zeitnehmer"), `swisstriathlon.ch/race-calendar` (WordPress mit Events-Manager/MEC-Plugins, die Liste steht nicht im HTML – Struktur offen), `dealgrid.de` (Gravel DE 2026/2027, 53 JSON-LD-Events; Affiliate-Seite), `gravel-club.com` (WP Events Manager, international), `808project.de` (Gravel, Wix), `mountainbiker.ch/events/all` (Drupal, 2026 fast vorbei), `bikeboard.at/termine` (robots.txt nennt ClaudeBot – siehe oben), `swisscyclingaargau.ch` (Kantonalverband, ein Termin), `breitensport.rad-net.de` (42 Termine – aber `rad-net.de` sperrt und verbietet, siehe unten), NordCup und Landesverbände SH/NRW/BW (siehe oben) |
 | **verboten oder mit Vorbehalt** – nicht gelesen | `radmarathon.at` („Wiedergabe … nicht gestattet"), `rad-net.de`/`mtb.rad-net.de` (403 „Making sure you're not a bot", Impressum-Vorbehalt), `bike-x.de` (nur private Nutzung), `hdsports.at/.de/.org` (Verwendung in anderen elektronischen Medien untersagt), `suedtirol.info` („systematische oder automatisierte Datensammlungen" untersagt), `bikehotels.it`, `tour-magazin.de`/`bike-magazin.de` („Übernahme von Inhalten auf anderen Webseiten … nur nach schriftlicher Zustimmung"), `alpecincycling.com` (UCI Gravel World Series, redaktionell), `team-warmduscher.de`, `swim.de` (Verlagsseite), `bayerischer-schwimmverband.de` (Freiwassercup, Nutzung „ohne … Zustimmung" untersagt), `shsv.de`, `triathlondeutschland.de` (DTU, Verwertung nur mit Zustimmung), `tri2b.com`, `triafreunde.com`, `mission-triathlon.de`, `hannes-hawaii-tours.de` (Reiseveranstalter), `spized.com` (Shop, „Verwendung automatisierter Mittel" untersagt), `finishers.com` (Terms gegen „robots, spiders"), `veloplus.ch`, `woche-pass.ch` (Shop), `ahotu.com` (Cloudflare 403) |
 | **leer, tot oder kein Kalender** | `radsporttermine.de` (404), `radrennen.tirol`, `dynamicbiketeam.it`, `wem-triathlon.eu`, `freiwasserschwimmen-losheim.de`, `velojournal.ch` (nicht erreichbar), `thueringer-sv.de` (404), `tri-x-kufstein.at` (404), `openwaterschwimmen.com` (seit 2021 tot), `openwaterserie.com` (veraltet), `backwaterman.at` (eingestellt), `wrsv.de`/`radsportverband-nrw.de`/`bayerischer-radsportverband.de` (Terminkalender leer bzw. nur PDF), `ispc-sport.de` (Verbandsmeisterschaften), `vss.bz.it` (leer), `members.federciclismo.it`/`federciclismo.it` (Lizenzkalender IT), `nuotoitalia.it`/`italianopenwatertour.com` (kein Südtirol), `lrv-tirol.at`, `tirol.at`, `sttrv.at`, `triathlon-kaernten.at` (ÖTRV-Kalender, siehe triathlon-austria), `villa-postillion.at`, `swimhohlic.ch`, `swiss-cycling.ch` (Verband, kein Rennkalender im HTML), `triathlon.de` (Shop-Kalender ohne Veranstalterlinks) |
 
@@ -1340,6 +1342,50 @@ wöchentliche Lauf holt sie). Und **Freiwasserschwimmen ist eine
 Sommersache**: Im September sind fast alle Kalender leer (swimsports 2
 künftige Anlässe, schwimmkalender.de 21) – der Blick lohnt im Frühjahr
 2027 erneut, auch auf die Einzelveranstalter oben.
+
+### Landesverbände und Zeitnehmer (30.09.2026): der Weg zu den lokalen Radrennen
+
+Der Nutzer vermisst die lokalen Jedermann-Radrennen („Die ganzen
+Stadtmeisterschaften etc.") und die Schwimm-Events. Die einzige
+vollständige Quelle für den deutschen Radsport ist der BDR-Kalender auf
+`rad-net.de` – und der sperrt automatische Abrufe (403 „Making sure you're
+not a bot") und verbietet die Übernahme im Impressum. Deshalb am 30.09.2026
+der Umweg über die **Landesverbände** (BDR 17, ÖRV 9, Swiss Cycling
+Regionen) und die öffentlichen Eventlisten der **Zeitnehmer** – jede Seite
+auf robots.txt, Impressum und Struktur geprüft (Wegwerf-Skript, Ergebnis
+nicht im Repo). Dazu, mit dem Ja des Nutzers („du hast meine Erlaubnis für
+Punkt 3"), der Scraper für `datasport.com`.
+
+| Quelle | Rechtslage (30.09.2026) | Ergebnis |
+|---|---|---|
+| **`datasport.com`** (Datasport AG, Zeitnahme und Anmeldung CH; dazu DE/AT/Südtirol) | robots.txt `*`: `Allow: /`, `Disallow: /api/`; die KI-Crawler-Gruppe (GPTBot, ClaudeBot, CCBot …) dasselbe plus `Crawl-delay: 10`; Impressum ohne Verbot | **`datasport_scraper.py`**: Die Listenseite `/de/events` liefert serverseitig nur 20 Einträge und ignoriert Parameter, die Fortsetzung läuft über `/api/` (gesperrt). Die Liste ist deshalb die **`sitemap.xml`** (~1.450 `/de/events/<slug>`), und die ist sortiert – erst die kommenden Ausgaben chronologisch, dann die vergangenen absteigend; der Scraper hört nach fünf vergangenen Seiten in Folge auf (~100 Abrufe statt 1.450, **10 s Pause** wie von der Seite für KI-Crawler gewünscht). Jede Seite trägt in den Next.js-Flight-Daten das komplette Objekt der Ausgabe: `organizerLink` (Veranstalterseite), `town`, `regions[].countryCode`, `preciseLocation` (Koordinaten), `contests[]` mit `sportType`/`discipline`, Altersklassen, Tag und Teilstrecken in Metern. Je Wettbewerb eine Zeile, Länge = Summe der Teilstrecken (Triathlon mit Aufteilung im Label), Nachwuchs (Altersklassen bis 17 oder Kids/Junior/U16 im Namen), Teams (Staffel, Couples, Interentreprise, Famigros), E-Bike, Langlauf/Inline/Hyathlon fallen. Der Name verliert die Jahreszahl („gurtenCLASSIC 2026" → „gurtenCLASSIC"); ein Lauf in einer Veranstaltung mit Mehrsport-Namen („Inferno Triathlon + Halbmarathon") heißt nach seinem Wettbewerb („Inferno Halbmarathon"), sonst machte `fix_multisport_art1()` einen Triathlon daraus. **Erster Lauf am 30.09.2026 – Zahlen im Datencommit desselben Tages** |
+| `time2win.at` (Zeitnehmer AT, 84 Zeilen im Bestand verlinken ihn) | robots.txt: `User-agent: ClaudeBot` → `Disallow: /` (ausdrücklich, wie bei ironman.com und swiss-cycling.ch) | **nicht als Quelle** – dieselbe Linie wie bei ironman.com; die Liste `/events` lädt ohnehin per JavaScript von `/General/EventList/SearchEvents` (antwortet 302), ein Impressum gibt es unter den üblichen Adressen nicht (404) |
+| `my.raceresult.com` | robots.txt sperrt `/RREvents/` – genau die öffentliche Eventliste | **nicht als Quelle**; die Kontaktseiten einzelner Anmeldungen bleiben der Weg zur Veranstalterseite (`veranstalter_links.py sammeln`) |
+| `pentek-payment.at` | robots.txt `Disallow: /` | nicht gelesen |
+| `sportident.com` | robots.txt 404, Seite ist eine reine JavaScript-Anwendung; Schwerpunkt Orientierungslauf | nichts zu holen |
+| `swiss-cycling.ch/de/veranstaltungen` | robots.txt sperrt ClaudeBot, Claude-SearchBot und Claude-User ausdrücklich | **nicht als Quelle**; die Schweizer Rennen kommen über datasport |
+| `computerauswertung.at` (Zeitnahme/Anmeldung OÖ/NÖ, Markus Lindinger) | robots.txt leer (= frei), Impressum ohne Verbot | **kein Scraper**: die Liste nennt nur Name und Datum, die Detailseite nur Nennungslinks und die „Ausschreibung Cycling Austria" – jedes Rennen dort steht im ÖRV-Kalender (`cyclingaustria_scraper.py`) |
+| **Landesverbände DE** – `hessen-radsport.de` (WordPress, robots.txt frei, Impressum ohne Verbot) | – | **kein Kalender**: die Disziplin-Seiten (`/disziplinen/strasse/#termine`) sind Nachrichtenlisten mit Ausschreibungen als PDF; Termine stehen nur in den PDFs und bei rad-net |
+| `radsport-hh.de` (Hamburg; WordPress, robots.txt frei, Impressum mit dem üblichen Urheberrechtshinweis) | – | **dünn**: Events-Plugin (`/events/<slug>`) mit Name und Datum, ohne Ort und Veranstalterlink (Stevens Cyclocross Cup, Kaperfahrt, GP Volksdorf, Gravel to Hell); Kandidat, wenn der Nutzer will |
+| `radsport-sh.de` (Schleswig-Holstein; TYPO3, robots.txt frei, Impressum ohne Verbot) | – | **dünn**: `/termine` und `/termin/<slug>` mit Datum, Uhrzeit und dem Link auf den Veranstalter („Veranstalter … findet ihr unter: www.rbc-1894.de"); acht RTF/CTF/Gravel-Termine Oktober–November, die als RTF/CTF schon über radsport-events.de kommen; Kandidat |
+| `radsport-mv.de` (Mecklenburg-Vorpommern) | robots.txt: ClaudeBot `Crawl-delay: 10`; Impressum: Nachnutzung untersagt | nicht gelesen; die Liste ist ohnehin fast nur Verbandsarbeit (Landespokal, Kommission, Winterfestmachung) – zwei Rennen (GP Greifswald 01.05.2027, Ostthüringen-Tour) |
+| `srb-saar.de` (Saarland; WordPress, robots.txt frei, Impressum ohne Verbot) | – | `/termineveranstaltungen/`: rad-net-Einbettung plus PDFs, zwei Datumsangaben – nichts Eigenes |
+| `radsport-rlp.de`, `radsport-thueringen.de` | robots.txt frei | **kein Kalender** auf der Seite (Sitemaps: nur Kontakt, Dokumente, News) |
+| `wrsv.de`, `badischer-radsportverband.de`, `bayerischer-radsportverband.de`, `radsportverband-nrw.de` | Vorbehalte im Impressum („Jede Verwertung bedarf der schriftlichen Zustimmung", NRW: „Speicherung in Datenbanken" untersagt); Kalender als rad-net-Einbettung bzw. PDF | nicht gelesen (Bayern deckt BRV Timing ab) |
+| `radsport-brandenburg.de`, `rvn-online.de` (Niedersachsen), `rvsa.de` (Sachsen-Anhalt) | **403** für automatische Abrufe | nicht umgangen |
+| Berlin, Bremen, Sachsen | keine Domain gefunden (18 Schreibweisen durchprobiert, Websuche und DOSB-Wissensnetz ohne Adresse) | offen – ihre Rennen stehen nur bei rad-net |
+| **Landesverbände AT** – `cyclingaustria.at` (`radsportverband.at` leitet dorthin) | siehe Linkliste | **schon Quelle**; die Landesverbände verlinken diesen Kalender |
+| `lrv-noe.at` (robots.txt frei, Impressum ohne Verbot) | – | `/aktuelles-infos/termine-noe`: Querfeldein-Trainingsrennen und Kinderrennen Oktober–November mit Ort, verlinkt auf cyclingaustria – redundant |
+| `lrv-salzburg.at`, `lrv-burgenland.at` | Impressum: Vervielfältigung „nur mit vorheriger Zustimmung" bzw. „nur mit Genehmigung" | nicht gelesen (Salzburgs „offizieller Radsport-Kalender" ist der ÖRV-Kalender; Burgenland verlinkt computerauswertung.at) |
+| `lrv-kaernten.at` (PDF-Ausschreibungen), `lrv-wien.at` (kein Kalender), `ooe-radsportverband.at` („Vervielfältigung nur mit Genehmigung"), `lrv-tirol.at` (kein Kalender), `radsport-vorarlberg.at` (leer, „nur für nichtkommerzielle Informationszwecke"), `lrv-steiermark.at` (Verbindung abgebrochen) | – | nichts zu holen; der ÖRV-Kalender deckt alle neun Bundesländer ab |
+| **Swiss Cycling Regionen** – `swisscyclingaargau.ch` (Vorbehalt), Bern/Zürich/Ostschweiz/Nordwestschweiz (keine Domain gefunden) | – | offen; die Schweizer Rennen stehen bei datasport |
+
+Was bleibt: Für die deutschen Lizenz- und Jedermannrennen unterhalb der
+großen Serien gibt es **keinen frei lesbaren Kalender** – die
+Landesverbände verweisen auf `rad-net.de`, und das sperrt. Der Weg dorthin
+ist eine Anfrage an den BDR (rad-net) um Erlaubnis oder einen Export, für
+das Schwimmen dieselbe Anfrage an den DSV (`dsvdaten.dsv.de`, `Disallow: /`)
+– Punkt 1 des Plans vom 30.09.2026, den nur der Nutzer gehen kann.
 
 ### Laufzeit
 

@@ -46,7 +46,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
-| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, siehe „Quellen") |
+| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
@@ -3533,13 +3533,55 @@ Kärnten liegt). `orte_aus_places(land, region)` in `scraper_lib.py` ist
 dafür neu (generisch, `places.json` kennt die Länder als DE/AT/CH/IT).
 Die Stadtzürcher Seeüberquerung 2027 steht in `manual_events.json`
 (seeueberquerung.ch nennt den Termin, swimsports erst 2026). **Kandidaten
-ohne Ja**: `datasport.com` (robots.txt erlaubt ClaudeBot, Impressum ohne
-Verbot, 107 Termine auf einer Seite – am 21.09.2026 vom Nutzer
-ausgeschlossen), `swisstriathlon.ch` (Liste nicht im HTML),
-`dealgrid.de`/`gravel-club.com`/`808project.de` (Gravel), NordCup.
-**Verboten**: radmarathon.at, rad-net.de, hdsports, suedtirol.info,
+ohne Ja**: `swisstriathlon.ch` (Liste nicht im HTML),
+`dealgrid.de`/`gravel-club.com`/`808project.de` (Gravel), NordCup
+(`datasport.com` stand hier bis zum 30.09.2026 – seit dem Ja des Nutzers
+gibt es den Scraper, siehe unten). **Verboten**: radmarathon.at, rad-net.de, hdsports, suedtirol.info,
 tour-/bike-magazin, DTU, tri2b, triafreunde, mission-triathlon,
 finishers, veloplus u. a. (Liste im README).
+
+**Landesverbände, Zeitnehmer und datasport (30.09.2026)**: Der Nutzer
+vermisst die lokalen Jedermann-Radrennen („Die ganzen Stadtmeisterschaften
+etc.") und die Schwimm-Events; auf seine Frage „Wie müssen wir hier weiter
+vorgehen?" gab es einen Fünf-Punkte-Plan (1 Anfragen an BDR/rad-net und
+DSV – nur der Nutzer; 2 Landesverbände und Zeitnehmer durchsehen; 3
+datasport.com; 4 im März 2027 alles erneut laufen lassen; 5 „Wir haben dein
+Event nicht?"). Sein Auftrag: „Punkt 2 bitte durchführen und du hast meine
+Erlaubnis für Punkt 3, datasport.com." Ergebnis (Tabelle im README,
+„Landesverbände und Zeitnehmer"): **`datasport_scraper.py`** – die
+Listenseite ist Next.js und holt alles über `/api/` (gesperrt), deshalb ist
+die **`sitemap.xml` die Liste**; sie ist sortiert (kommende Ausgaben
+zuerst, dann die vergangenen absteigend), der Scraper hört nach fünf
+vergangenen Seiten in Folge auf (~100 Abrufe, **10 s Pause** – die
+KI-Crawler-Gruppe in robots.txt wünscht sie, auch wenn unser User-Agent
+unter `*` fällt). Jede Seite trägt in den Flight-Daten
+(`self.__next_f.push`) das Objekt der Ausgabe mit `organizerLink`, `town`,
+`regions[].countryCode`, `preciseLocation`, `contests[]` (sportType,
+Disziplin, Altersklassen, Tag, Teilstrecken in Metern). Sportart aus
+`sportType` (Lauf, Rennrad, MTB, Triathlon, Schwimmen; Langlauf, Inline,
+Hyathlon fallen), je Wettbewerb eine Zeile, Länge = Summe der
+Teilstrecken, Nachwuchs (alle Altersklassen bis 17 oder Kids/Junior/U16
+im Namen), Teams (Staffel, Couples, Interentreprise, Famigros) und E-Bike
+raus, Jahreszahl aus dem Namen, und **ein Lauf in einer Veranstaltung mit
+Mehrsport-Namen heißt nach seinem Wettbewerb** („Inferno Halbmarathon",
+„Inferno Trail") – sonst machte `fix_multisport_art1()` daraus einen
+Triathlon, weil es nur den Namen liest. `test_datasport` hält sitemap,
+Flight-Objekt, Wettbewerbe, Summen, Ausschlüsse und Namen fest. Erster
+Lauf am 30.09.2026 (Zahlen im Datencommit desselben Tages). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
+ausdrücklich (`Disallow: /`) – wie ironman.com nicht als Quelle;
+raceresult sperrt `/RREvents/` (die öffentliche Liste), pentek alles,
+sportident ist eine JS-Anwendung, swiss-cycling.ch sperrt ClaudeBot,
+`computerauswertung.at` (OÖ/NÖ) nennt nur Name und Datum und verlinkt die
+ÖRV-Ausschreibung. **Landesverbände**: kein einziger deutscher LV hat
+einen frei lesbaren, strukturierten Rennkalender – Hessen/RLP/Thüringen/
+Saarland keinen oder nur PDFs, WRSV/Baden/NRW/MV mit Vorbehalt,
+Brandenburg/Niedersachsen/Sachsen-Anhalt 403, Berlin/Bremen/Sachsen ohne
+auffindbare Domain; Hamburg (`radsport-hh.de`) und Schleswig-Holstein
+(`radsport-sh.de`) haben dünne Listen (Name + Datum, SH mit
+Veranstalterlink) und wären Kandidaten. Österreichs LVs verlinken den
+ÖRV-Kalender (schon Quelle), die Schweiz kommt über datasport. **Die
+lokalen deutschen Rennen stehen nur bei rad-net.de** (403 + Verbot) –
+Punkt 1 des Plans bleibt der einzige Weg, ebenso für den DSV.
 
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
@@ -3818,7 +3860,9 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    Gesperrte Quellen stehen auf Wunsch des Nutzers nicht in der Liste
    (radsport-events.de, schwimmkalender.de, tri2b.com, triafreunde.com,
    hdsports.org, datasport.com, alpen-open-watercup.de, rad-net.de,
-   swiss-cycling.ch, ahotu.com). Der Nutzer sieht die Liste durch; kein
+   swiss-cycling.ch, ahotu.com – radsport-events.de, schwimmkalender.de,
+   alpen-open-watercup.de und datasport.com sind seit dem 24./30.09.2026
+   mit seinem Ja Quellen). Der Nutzer sieht die Liste durch; kein
    Scraper ohne sein Ja.
 9. ~~Backyard Ultra TRIATHLON – eigene Kategorie „Backyard"?~~
    **entschieden** (19.09.2026): Laufen und Triathlon tragen denselben
@@ -3855,12 +3899,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Veranstalter nachziehen, sobald Strecken und Startorte stehen.
 
 22. **Aus der Linkliste vom 24.09.2026** – je ein Ja/Nein:
-   - **`datasport.com` als Quelle?** Der Nutzer hat sie am 21.09.2026
-     ausgeschlossen (Zeitnehmer); die Liste vom 24.09. nennt sie zweimal
-     (Radmarathon, Sportevents Schweiz). robots.txt erlaubt ClaudeBot
-     (außer `/api/`, Crawl-delay 10), Impressum ohne Verbot, 107
-     Termine auf einer Seite – wäre die größte Schweizer Quelle. Mit Ja:
-     Struktur der Eventseiten prüfen (Veranstalterlink?), dann Scraper.
+   - ~~**`datasport.com` als Quelle?**~~ **entschieden** (30.09.2026: „du
+     hast meine Erlaubnis für Punkt 3, datasport.com") –
+     `datasport_scraper.py`, siehe „Quellen".
+   - **Hamburg und Schleswig-Holstein** (`radsport-hh.de`, `radsport-sh.de`,
+     30.09.2026): die einzigen Landesverbände mit frei lesbarer Liste –
+     dünn (Name + Datum, SH mit Veranstalterlink; Cyclocross-Cup, RTF/CTF).
+     Scraper bauen? Ohne Ja nicht.
    - **Gravel-Listen** (`dealgrid.de` mit 53 JSON-LD-Events,
      `gravel-club.com`, `808project.de`): Affiliate- bzw.
      Community-Seiten, international; lohnend nur, wenn die

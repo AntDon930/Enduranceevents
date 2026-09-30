@@ -2968,6 +2968,118 @@ def test_fsieben() -> None:
     print("  ✓ fsieben.at: JSON, datierte Bewerbe, Formate, Ort je Bundesland, vorläufig")
 
 
+def test_datasport() -> None:
+    """Der Scraper für datasport.com (30.09.2026): sitemap als Liste,
+    das Ausgabe-Objekt aus den Next.js-Flight-Daten, je Wettbewerb eine
+    Zeile, Mehrsport-Summe, Ausschlüsse (Nachwuchs, Team, E-Bike, fremde
+    Sportart), Name ohne Jahr, Veranstalterlink mit Schema."""
+    print("\ndatasport.com:")
+    import json as _json
+    import datasport_scraper as dsp
+    from scraper_lib import is_portal_link
+
+    sitemap = ("<urlset><url><loc>https://datasport.com/de/events/morat-fribourg-2026</loc></url>"
+               "<url><loc>https://datasport.com/en/events/morat-fribourg-2026</loc></url>"
+               "<url><loc>https://datasport.com/de/results/morat-fribourg-2026</loc></url>"
+               "<url><loc>https://datasport.com/de/events/gurtenclassic-2026</loc></url>"
+               "<url><loc>https://datasport.com/de/events/test-flag</loc></url>"
+               "<url><loc>https://datasport.com/de/events/gurtenclassic-2025</loc></url></urlset>")
+    assert dsp.slugs_aus_sitemap(sitemap) == ["morat-fribourg-2026", "gurtenclassic-2026", "test-flag", "gurtenclassic-2025"]
+    assert dsp.slug_jahr("gurtenclassic-2026") == 2026 and dsp.slug_jahr("bike-revolution-gruyere") is None
+    assert dsp.slug_jahr("les-5km-de-terre-des-hommes-suisse2025") == 2025
+
+    def contest(name, sport, disziplin, sections, ages=((18, 100),), tag="2026-10-25"):
+        return {"id": 1, "name": name, "shortName": name[:6],
+                "discipline": {"id": 3, "name": {"de": disziplin}, "sportType": {"id": 1, "name": {"de": sport}}},
+                "from": f"{tag}T00:00:00", "to": f"{tag}T23:59:59",
+                "categories": [{"id": i, "name": f"K{i}", "ageFrom": a, "ageTo": b} for i, (a, b) in enumerate(ages)],
+                "sections": [{"id": i, "name": n, "distance": m} for i, (n, m) in enumerate(sections)]}
+
+    obj = {"id": 3638, "name": "gurtenCLASSIC 2026", "slug": "gurtenclassic-2026",
+           "editionFrom": "2026-10-25", "editionTo": "2026-10-25",
+           "organizerLink": "www.gurtenclassic.ch/", "cancelled": False, "visible": True,
+           "regions": [{"id": 7, "countryCode": "CHE", "name": {"de": "Kanton Bern"}}],
+           "town": {"de": "Wabern", "fr": "Wabern"},
+           "preciseLocation": {"latitude": 46.919043, "longitude": 7.440898},
+           "contests": [
+               contest("Rennvelo-Rundfahrt", "Rennrad", "Strassenrennen", [("Rennvelo-Rundfahrt", 40000)]),
+               contest("Classic Run", "Lauf", "Volkslauf", [("Classic Run", 15000)]),
+               contest("Gurten Kids Run - 2 Runden", "Lauf", "Volkslauf", [("Kids Run", 1800)], ages=((10, 11),)),
+               contest("Firmenstaffel", "Lauf", "Volkslauf", [("", 15000)]),
+               contest("Classic Walking/Nordic Walking", "Lauf", "Walking / Nordic Walking", [("", 10000)]),
+               contest("49km PRINCEClassic E-Bike", "MTB", "Bike Marathon", [("49ebike", 49000)]),
+               contest("Short Distance", "Triathlon", "Andere", [("Swim", 500), ("Bike", 17000), ("Run", 5400)]),
+               contest("Marathon", "Langlauf", "Freie Technik (Skating)", [("Marathon", 42000)]),
+               contest("12 km Nordic Walking und Walking", "Lauf", "Walking / Nordic Walking", [("", None)]),
+               contest("6 Stunden Lauf", "Lauf", "Volkslauf", [("Runde", 1000)]),
+               contest("Bergtrail", "Lauf", "Trail Run", [("", 12000)], tag="2026-10-24"),
+               contest("Jedermann", "MTB", "Cross Country", [("", 30000)], ages=((16, None),)),
+               contest("Classic Run direkt", "Lauf", "Volkslauf", [("", 15000)]),
+           ]}
+    chunk = _json.dumps({"queries": [{"state": {"data": obj}}]})
+    html = ('<html><script>self.__next_f.push([1,"a:[1,2]"])</script>'
+            '<script>self.__next_f.push([1,' + _json.dumps("2b:" + chunk) + '])</script></html>')
+    gelesen = dsp.event_objekt(html, "gurtenclassic-2026")
+    assert gelesen and gelesen["slug"] == "gurtenclassic-2026" and len(gelesen["contests"]) == 13
+    assert dsp.event_objekt("<html><script>self.__next_f.push([1,\"x\"])</script></html>") is None
+
+    bericht: dict = {}
+    evs = dsp.events_aus_objekt(gelesen, dsp.CONFIG, bericht)
+    zeilen = [(e.art1, e.art2, e.laenge_km, e.dauer_h, e.wettbewerb, e.datum_start) for e in evs]
+    assert zeilen == [
+        ("Fahrrad", "Straße", 40.0, None, "Rennvelo-Rundfahrt 40 km", "2026-10-25"),
+        ("Laufen", "Straße", 15.0, None, "Classic Run 15 km", "2026-10-25"),
+        ("Laufen", "Straße", 10.0, None, "Classic Walking/Nordic Walking 10 km", "2026-10-25"),
+        ("Triathlon", "Straße", 22.9, None,
+         "Short Distance 22.9 km (0.5 km Schwimmen / 17 km Rad / 5.4 km Laufen)", "2026-10-25"),
+        ("Laufen", "Straße", 12.0, None, "12 km Nordic Walking und Walking", "2026-10-25"),
+        ("Laufen", "Straße", None, 6.0, "6 Stunden Lauf", "2026-10-25"),
+        ("Laufen", "Trail", 12.0, None, "Bergtrail 12 km", "2026-10-24"),
+        ("Fahrrad", "Mountainbike", 30.0, None, "Jedermann 30 km", "2026-10-25"),
+    ], zeilen
+    assert bericht == {"Nachwuchs": 1, "Team/Staffel": 1, "E-Bike": 1, "Sportart langlauf": 1,
+                       "gleiche Strecke doppelt": 1}, bericht
+    e0 = evs[0]
+    assert (e0.name, e0.standort, e0.land, e0.lat, e0.lon, e0.veranstalter_url) == (
+        "gurtenCLASSIC", "Wabern", "Schweiz", 46.919043, 7.440898, "https://www.gurtenclassic.ch/"), e0
+    # Abgesagt, ohne Ort, Italien (Südtirol entscheidet filter_dach über die Koordinaten).
+    assert dsp.events_aus_objekt(dict(obj, cancelled=True), dsp.CONFIG) == []
+    assert dsp.events_aus_objekt(dict(obj, town=None), dsp.CONFIG) == []
+    it = dsp.events_aus_objekt(dict(obj, regions=[{"countryCode": "ITA", "name": {"de": "Trentino-Südtirol"}}]), dsp.CONFIG)
+    assert it and it[0].land == "Italien"
+    # Ohne organizerLink bleibt die datasport-Seite als Portallink stehen.
+    ohne = dsp.events_aus_objekt(dict(obj, organizerLink=""), dsp.CONFIG)
+    assert ohne[0].veranstalter_url == "https://datasport.com/de/events/gurtenclassic-2026"
+    assert is_portal_link(ohne[0].veranstalter_url)
+    assert dsp.veranstalter_link("http://www.triathlon-frauenfeld.ch", "x") == "http://www.triathlon-frauenfeld.ch"
+    assert dsp.veranstalter_link("-", "x") == "https://datasport.com/de/events/x"
+    # Name ohne Jahr, Nachwuchs über Name oder Altersklassen.
+    assert dsp.name_ohne_jahr("Claro Pizzo 2026 - 13° Edizione") == "Claro Pizzo - 13° Edizione"
+    assert dsp.name_ohne_jahr("2027 HERO UCI Marathon World Cup") == "HERO UCI Marathon World Cup"
+    assert dsp.ist_nachwuchs({"name": "U20 Junior Trail Series", "categories": [{"ageFrom": 18, "ageTo": 19}]})
+    assert dsp.ist_nachwuchs({"name": "Jugend", "categories": [{"ageFrom": 14, "ageTo": 17}]})
+    assert not dsp.ist_nachwuchs({"name": "Classic Run", "categories": [{"ageFrom": 14, "ageTo": 15}, {"ageFrom": 16, "ageTo": None}]})
+    # Ein Lauf in einer Veranstaltung mit Mehrsport-Namen bekommt den Namen
+    # seines Wettbewerbs - sonst machte fix_multisport_art1() einen Triathlon daraus.
+    inferno = dict(obj, name="Inferno Triathlon + Halbmarathon 2026", slug="inferno-2026", contests=[
+        contest("Inferno Halbmarathon", "Lauf", "Berglauf", [("", 21097)], tag="2026-08-15"),
+        contest("Trail", "Lauf", "Trail Run", [("", 8400)], tag="2026-08-16"),
+        contest("Inferno Triathlon", "Triathlon", "Andere",
+                [("Swim", 3100), ("Road Bike", 97000), ("Mountain Bike", 30000), ("Run", 25000)], tag="2026-08-15"),
+    ])
+    inf = dsp.events_aus_objekt(inferno, dsp.CONFIG)
+    assert [(e.name, e.art1, e.art2, e.laenge_km) for e in inf] == [
+        ("Inferno Halbmarathon", "Laufen", "Trail", 21.1), ("Inferno Trail", "Laufen", "Trail", 8.4),
+        ("Inferno Triathlon + Halbmarathon", "Triathlon", "Straße", 155.1)], inf
+    assert inf[2].wettbewerb == "Inferno Triathlon 155.1 km (3.1 km Schwimmen / 97 km Rad / 30 km MTB / 25 km Laufen)"
+    # Duathlon/Aquathlon aus den Teilstrecken, wenn der Name nichts sagt.
+    du = dsp.events_aus_objekt(dict(obj, contests=[
+        contest("Kurz", "Triathlon", "Andere", [("Run", 5000), ("Bike", 20000), ("Run", 2500)]),
+        contest("Sprint", "Triathlon", "Andere", [("Swim", 750), ("Run", 5000)])]), dsp.CONFIG)
+    assert [(e.art2, e.laenge_km) for e in du] == [("Duathlon", 27.5), ("Aquathlon", 5.8)], du
+    print("  ✓ datasport.com: sitemap, Flight-Objekt, Wettbewerbe, Mehrsport-Summe, Ausschlüsse, Namen")
+
+
 def test_radsportevents() -> None:
     """Der Scraper für die JSON-API von radsport-events.de (24.09.2026):
     Strecken, Rundenlängen, Dauern, Mehrsport-Summen, Ausschlüsse."""
@@ -3028,7 +3140,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,
