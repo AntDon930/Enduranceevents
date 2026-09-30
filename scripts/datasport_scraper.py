@@ -485,11 +485,26 @@ def events_aus_objekt(obj: dict, config: SiteConfig,
 # Abruf
 # --------------------------------------------------------------------------
 
+def _lade_sitemap(session, pause: float) -> str | None:
+    """Die sitemap.xml (8 MB) - mit längerer Frist als fetch_page() und
+    einem zweiten Versuch: Am 30.09.2026 brach ein Lauf am Lesetimeout
+    des Proxys ab, bevor er eine einzige Seite gesehen hatte."""
+    for versuch in (1, 2):
+        try:
+            resp = session.get(SITEMAP_URL, timeout=90)
+            resp.raise_for_status()
+            return resp.text
+        except Exception as exc:  # noqa: BLE001 - jeder Fehler wird gemeldet
+            print(f"  ⚠ sitemap.xml, Versuch {versuch}: {exc}")
+            time.sleep(pause)
+    return None
+
+
 def fetch_datasport(session, config, delay, max_pages, render_js) -> list[Event]:
     pause = max(float(delay or 0), MINDEST_PAUSE)
     heute = date.today().isoformat()
     print(f"→ Lade {SITEMAP_URL} ...")
-    xml = fetch_page(session, SITEMAP_URL, False)
+    xml = _lade_sitemap(session, pause)
     if not xml:
         return []
     slugs = slugs_aus_sitemap(xml)
@@ -500,6 +515,7 @@ def fetch_datasport(session, config, delay, max_pages, render_js) -> list[Event]
     vergangen_folge = 0
     uebersprungen_jahr = 0
     ausgaben = 0
+    fehler = 0
     for slug in slugs:
         if _TESTSEITE.search(slug):
             continue
@@ -514,6 +530,12 @@ def fetch_datasport(session, config, delay, max_pages, render_js) -> list[Event]
         abgerufen += 1
         html = fetch_page(session, EVENT_URL.format(slug=slug), render_js)
         if not html:
+            # Ein Lesefehler (Timeout am Proxy, kurzer Aussetzer) darf keine
+            # Ausgabe kosten - einmal nach der Pause erneut versuchen.
+            time.sleep(pause)
+            html = fetch_page(session, EVENT_URL.format(slug=slug), render_js)
+        if not html:
+            fehler += 1
             continue
         obj = event_objekt(html, slug)
         if not obj:
@@ -533,7 +555,8 @@ def fetch_datasport(session, config, delay, max_pages, render_js) -> list[Event]
         print(f"  {slug}: {len(neu)} Strecke(n)")
         events.extend(neu)
     print(f"\n→ {abgerufen} Seiten abgerufen ({uebersprungen_jahr} Slugs mit altem Jahr "
-          f"übersprungen), {ausgaben} kommende Ausgaben, {len(events)} Strecken-Einträge.")
+          f"übersprungen, {fehler} nicht ladbar), {ausgaben} kommende Ausgaben, "
+          f"{len(events)} Strecken-Einträge.")
     if bericht:
         print("  Übersprungen/Hinweise: " + ", ".join(f"{k}: {v}" for k, v in sorted(bericht.items())))
     return events

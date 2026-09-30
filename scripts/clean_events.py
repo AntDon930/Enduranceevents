@@ -1848,9 +1848,33 @@ def main() -> None:
     name_fixes: list[str] = []
     for _ in range(MAX_MERGE_PASSES):
         events, pass_dups = merge_duplicates(events)
+        namen_vorher = {id(e): e.get("name") for e in events}
         pass_names = unify_event_names(events)
         dup_report += pass_dups
         name_fixes += pass_names
+        # Ein vereinheitlichter Name kann einen Override TREFFEN, der vorher
+        # ins Leere lief (der Schlüssel beginnt mit dem Namen): „53.
+        # Königsforst-Marathon Bensberg" wurde zu „Königsforst-Marathon",
+        # und erst damit griff „Königsforst-Marathon|2027-03-14|42.2" mit den
+        # richtigen Koordinaten - im NÄCHSTEN Lauf, wo die Zeile dann mit
+        # ihrer Schwester verschmolz. Die CI meldete das am 30.09.2026 als
+        # „nicht idempotent". Deshalb die Overrides hier NUR auf die gerade
+        # umbenannten Zeilen anwenden - nicht auf alle: Ein allgemeiner
+        # Schlüssel „<Name>|<Datum>" träfe sonst die nachgetragenen Zeilen
+        # aus manual_events.json (die ASV-Duisburg-Falle, siehe oben; ein
+        # Versuch mit allen Zeilen nahm 98 Events heraus). Greift etwas,
+        # läuft die Schleife weiter (Zusammenführen mit neuen Koordinaten).
+        umbenannt = [e for e in events if e.get("name") != namen_vorher.get(id(e))]
+        if umbenannt:
+            behalten, spaet_excluded, spaet_changes = apply_overrides(umbenannt)
+            if spaet_excluded:
+                behalten_ids = {id(e) for e in behalten}
+                umbenannt_ids = {id(e) for e in umbenannt}
+                events = [e for e in events if id(e) not in umbenannt_ids or id(e) in behalten_ids]
+            excluded += spaet_excluded
+            override_changes += spaet_changes
+            if spaet_excluded or spaet_changes:
+                continue
         if not pass_dups and not pass_names:
             break
     else:
