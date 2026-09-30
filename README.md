@@ -1503,6 +1503,72 @@ nicht gelesen: `zpn-timing.de`, `s-r-b.de`, `swiss-cyclocross.ch`,
 876, Schwimmen 42 → 43); nächster Blick im Frühjahr 2027, wenn BOE,
 Fricktal und dsergebnis die Saison eintragen.
 
+### Dritte Suche und Linkprüfung (30.09.2026, abends): „nicht auf Sammelwebseiten verlinken"
+
+Auftrag des Nutzers: noch einmal nach allen Webseiten schauen, in Ruhe
+je Land und Bundesland; überall prüfen, ob `veranstalter_url` auf die
+Originalseite zeigt und nicht auf eine Sammelseite; unkritische Quellen
+gleich einbauen. Was dabei herauskam:
+
+**Linkprüfung.** Erst die Hosts gezählt: 2.750 verschiedene, 520
+Portalzeilen. Unter den Hosts mit vielen Veranstaltungen, die NICHT in
+`PORTAL_DOMAINS` standen, waren Zeitnehmer und Verbandsportale versteckt
+– jetzt drin: `ergebnisliste.de` (Sport-Service Kram), `ergebnisliste.at`
+(Hightech Timing), `sportchrono.ch`, `vs-timing.ch`, `sptiming.ch`,
+`performance-timing.ch`, `br-`/`taf-`/`ssf-timing`, `raceresult.de`,
+`lauf-anmeldung.de`, `sportanmeldung.de`, `athleticon.bsvhh.de` (BSV
+Hamburg), `ooe-radsportverband.at`, `k-lv.com` (Kärntner LV),
+`bayerischer-schwimmverband.de`, `guide.swiss-running.ch`,
+`lausitzer-sportevents.de`, `swim.de`. Serien- und Agenturseiten
+(w3-sports, 808project, runningconcepts, Troia, Seenland, Uwe Laig) sind
+dagegen die Veranstalter. Dann `veranstalter_links.py sammeln` über die
+152 Portal-Veranstaltungen ohne Protokoll (19 gefunden) und die 40 neu
+als Portal erkannten (11), dazu 17 aus **Geschwisterzeilen** derselben
+Serie oder desselben Orts (die Winterserie Lehrte hängt an psvlehrte.de,
+die Hamelner Winterlaufserie an esv-eintracht-hameln.de – verifiziert,
+nicht geraten). **47 Veranstaltungen** haben damit ihre Originalseite.
+Zwei Lehren: Das **Ortsadjektiv ist kein Beleg** („korschenbroicher" auf
+citylauf-korschenbroich.com, die den Waldlauf nirgends nennt – Regel
+enger), und eine Vereinsseite mit mehreren Rennen braucht die richtige
+Unterseite (ooe-classics.at: Startseite statt `/eroeffnungsrennen`).
+Nebenbei: **12 Meisterschaften im Rahmen eines Volkslaufs** als
+Duplikate ausgeschlossen (DM Marathon = Marathon Hannover, DM
+Halbmarathon = Frankfurter Halbmarathon, SLB-Marathon = SAARathon,
+RLP-Cross = Rennbahncross Herxheim, U23-Ländermeisterschaft,
+Junioren-Rundfahrt …, Datenregel 18), vier MTB-Fahrtechnikkurse raus
+(radsport-events überspringt Kurse jetzt), und der Weser-Ems-Cup stand
+doppelt, weil radsport-events.de ihn schon führte – `weserems_scraper.py`
+benennt seine Zeilen jetzt gleich. Die Websuche je Einzelfall lohnt
+nicht mehr: Für kleine Vereinsläufe liefert sie nur Portale und
+Wanderführer; die 129 übrigen `unklar` sind private Serien, tote
+laufen.de-Einträge und Läufe ohne Netzauftritt.
+
+**Quellensuche.** Österreich zuerst: `laufkalender.at` (Startseite
+„bald"), `laufcup.at` (Domain zu verkaufen), `laufevents.at` (leer),
+`laufevent.at` (nicht erreichbar); die Landesverbände STLV, TLV, BLV,
+OÖLV und der NÖTRV verlinken alle den ÖLV-Kalender (`oelv.athmin.at`,
+schon Quelle) oder führen nur Verbandstermine – OÖLV und der Berglaufcup
+mit Vorbehalt („nur mit Genehmigung"); `weinviertlerlaufcup.at` und
+`steiermark-laeuft.at` sind Serien, deren Läufe der ÖLV-Kalender schon
+hat (Poysdorfer Winzerlauf, Winter Run Graz …). Jede Suche endet bei
+hdsports/runme (verboten). Deutschland je Bundesland: dieselben Portale
+(runme/myraceland = RUNME, hdsports, finishers, laufpix mit Cloudflare,
+trophyrunners ohne TLS, mylauf.de mit AGB-Vorbehalt, your-run.com nur
+App, gotrail.run = running.life). Neu und frei: **`kilometerliebe.de`**
+(gebaut, siehe unten), **`lv-pfalz.de`** (Volkslauf-Terminliste des
+LV Pfalz mit Veranstalterlinks, gebaut), `laufkalendersachsen.de` (MEC,
+zwölf Termine, Hälfte im Bestand – nicht gebaut), `laufkalender-mv.de`
+(leer). Schweiz: `swiss-running.ch` sperrt ClaudeBot, `laufkalender-
+schweiz.ch` antwortet 500. Südtirol: **`lck.it`** (Läuferclub Kaltern,
+gebaut). Schwimmen und Rad: keine neue Kalenderquelle – die Suche
+bestätigt den Befund vom Vormittag.
+
+| Modul | Quelle | Was daraus wird | Erster Lauf |
+|---|---|---|---|
+| `kilometerliebe_scraper.py` | Kilometerliebe (Astro, statisch; Monatsseiten `/2026/oktober/` mit `<time>` + Link je Karte, Eventseite mit JSON-LD `SportsEvent`, Faktenliste Distanzen/Kategorie/Status, Knopf „Event-Website") | Laufen und Triathlon, je Distanz eine Zeile, „6 h" als Zeitrennen, Triathlon je Format; **Wandern (Megamarsch) fällt weg**; Koordinaten aus dem JSON-LD; Veranstalterlink vom Knopf. Latin-1-Mojibake repariert (kein Zeichensatz im Header). robots `Allow: /`, Impressum üblich | Probelauf über 501 Eventseiten lief beim Commit noch (rund 2 Zeilen je Seite, die Hälfte davon Duplikate zum Bestand); die Zahlen des ersten echten Laufs folgen im nächsten Commit |
+| `lvpfalz_scraper.py` | LV Pfalz, Terminliste Volksläufe (Contao, schema.org Event: Name, Datum, „Veranstalter: TSG Maxdorf", Strecken mit Semikolon, Link) | Laufen, je Strecke eine Zeile; **Ort aus dem Vereinsnamen** (TSG Maxdorf → Maxdorf) oder dem Laufnamen; ohne Ort kein Eintrag (LG Ohmbachsee, TV Offenbach) | 14 Läufe, **2 neu** (Holzland-Crosslauf, Silvesterlauf Schifferstadt), 8 im Bestand |
+| `lck_scraper.py` | Läuferclub Kaltern, Südtirol (`inc_kalender.php?id=`: Fenster von vier Terminen um jede Seitenleisten-Id; Kategorie, Datum, „Distanz: 15km (230hm)", Text, Link) | Laufen, Südtirol, je Distanz eine Zeile; **Ort aus Name oder Text** gegen die 750 Südtiroler Orte – Trentiner Läufe (Fiemme Ultra Sky, Trento Half Marathon) haben keinen und fallen weg | 21 Termine, 12 Trentino, **8 neu** (Radlsee Hüttenlauf, Dorflauf Niederdorf, Latsch–St. Martin, Muterlauf, Crosslauf Kaltern, Tiefrastenlauf, Ahrntaler Sunnsatlauf) – Südtirol 19 → 27 Events |
+
 ### Laufzeit
 
 Ein **vollständiger Lauf dauert rund zwei Stunden**: laufen.de und

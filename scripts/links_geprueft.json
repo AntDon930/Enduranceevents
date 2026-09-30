@@ -18329,5 +18329,285 @@
     "quelle": "badischllaeuft.at",
     "alt": "https://time2win.at/event/1096",
     "notiz": "Veranstalterseite statt time2win.at: https://www.badischllaeuft.at/laufkaiserpaar - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (ischler). Linkprüfung 2026-09-30."
+  },
+  "Gloggnitzer Stadtlauf|2026-10-04": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.at",
+    "alt": "https://ergebnisliste.at/Event/1247",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.skorpiona.at) - ergebnisliste.at bleibt."
+  },
+  "Berglauf Rinderberg Zweisimmen|2026-10-11": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "zweisimmen.ch",
+    "alt": "https://guide.swiss-running.ch/de/events/5802",
+    "notiz": "Veranstalterseite statt guide.swiss-running.ch: https://www.zweisimmen.ch/berglauf-rinderberg - auf der guide.swiss-running.ch-Seite verlinkt, Zielseite nennt den Lauf (host:zweisimmen). Linkprüfung 2026-09-30."
+  },
+  "Kärntner Marathonmeisterschaften 2026|2026-10-11": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "k-lv.com",
+    "alt": "https://www.k-lv.com/",
+    "notiz": "Mehrere Seiten nennen den Lauf, keine eindeutig: http://www.kelag.at/, http://www.kaerntensport.net/ - k-lv.com bleibt."
+  },
+  "Kärntner Crossmeisterschaften|2026-10-18": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "k-lv.com",
+    "alt": "https://www.k-lv.com/",
+    "notiz": "Mehrere Seiten nennen den Lauf, keine eindeutig: http://www.kelag.at/, http://www.kaerntensport.net/ - k-lv.com bleibt."
+  },
+  "Verticale Espacité|2026-10-19": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=955",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.chaux-de-fonds.ch/sports/manifestations/verticale-espacite) - sportchrono.ch bleibt."
+  },
+  "Charity Run - Graz|2026-10-23": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.at",
+    "alt": "https://ergebnisliste.at/Event/1256",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://stepbystepgraz.com/eventdaten, http://www.skorpiona.at) - ergebnisliste.at bleibt."
+  },
+  "Weser-Ems-Cup Cloppenburg|2026-10-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "César Costa Race|2026-10-25": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "vs-timing.ch",
+    "alt": "https://www.vs-timing.ch/de-CH/Home/Event/248?fromResult=False",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - vs-timing.ch bleibt."
+  },
+  "Trail d'Halloween|2026-10-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sptiming.ch",
+    "alt": "https://sptiming.ch/trail-dhalloween-running-dead/",
+    "notiz": "Seite nicht ladbar (202) - sptiming.ch bleibt."
+  },
+  "100 x 100 Hamburg|2026-11-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "swim.de",
+    "alt": "https://swim.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.googletagmanager.com, https://i0.wp.com, https://cdn-jdeof.nitrocdn.com, https://spomedis.de/collections/swim) - swim.de bleibt."
+  },
+  "Katzelsdorfer Fun Run|2026-11-15": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.at",
+    "alt": "https://ergebnisliste.at/Event/1255",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.katzelsdorf.gv.at/Katzelsdorfer_FUN_RUN, http://www.skorpiona.at) - ergebnisliste.at bleibt."
+  },
+  "Weser-Ems-Cup Osnabrück|2026-12-06": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "Crosslaufserie Vulkaneifel 2027 (Lauf 1)|2027-01-10": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "lauf-anmeldung.de",
+    "alt": "https://lauf-anmeldung.de/anmeldung/anmeldung.php?vname=MehrenCross27",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - lauf-anmeldung.de bleibt."
+  },
+  "Weser-Ems-Cup Bad Essen|2027-01-24": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "radsport-weser-ems.de",
+    "alt": "https://www.radsport-weser-ems.de/termine/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://u.jimcdn.com/, https://assets.jimstatic.com/, https://image.jimcdn.com, https://fonts.jimstatic.com) - radsport-weser-ems.de bleibt."
+  },
+  "8. Xantener Sparkassen Stadioncross|2027-02-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "taf-timing.de",
+    "alt": "https://www.taf-timing.de",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.sterkrade-nord.de/nikolauslauf, https://www.enni.de/freizeit/top-events-der-enni/enni-laufserie/, https://www.alemanniakamp-leichtathletik.de/nrz-kloster-lauf, http://drupal.org) - taf-timing.de bleibt."
+  },
+  "43. Urmitzer Volkslauf|2027-03-13": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.de",
+    "alt": "http://www.ergebnisliste.de",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://artzt.eu, https://outlet-montabaur.de/marken/asics, https://www.lvrheinland.de/laufkalender/2026/LaufkalenderRLP2026.html, https://www.lv-rr.de/breitensport/laufveranstaltungen) - ergebnisliste.de bleibt."
+  },
+  "Windener Landschaftslauf|2027-03-20": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.de",
+    "alt": "https://www.ergebnisliste.de/anmeldeseiten/winden-anmeldeseite",
+    "notiz": "Seite nicht ladbar (404) - ergebnisliste.de bleibt."
+  },
+  "Eröffnungsrennen Leonding|2027-03-21": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ooe-classics.at",
+    "alt": "https://www.ooe-radsportverband.at",
+    "notiz": "Veranstalterseite statt ooe-radsportverband.at: https://www.ooe-classics.at/eroeffnungsrennen - auf der ooe-radsportverband.at-Seite verlinkt, Zielseite nennt den Lauf (eroffnungsrennen). Linkprüfung 2026-09-30."
+  },
+  "11. Schinderhanneslauf|2027-04-04": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ergebnisliste.de",
+    "alt": "https://www.ergebnisliste.de/laufveranstaltungen/schinderhanneslauf-miehlen",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://tus-miehlen.de/, https://connect.garmin.com/modern/activity/18220773448) - ergebnisliste.de bleibt."
+  },
+  "BCN Tour|2027-04-21": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "BCN Tour|2027-04-28": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "BCN Tour|2027-05-05": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "BCN Tour|2027-05-12": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "BCN Tour|2027-05-19": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "Gambarogno Trail|2027-05-22": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "gambarognotrail.ch",
+    "alt": "https://www.performance-timing.ch/race-info/421589",
+    "notiz": "Veranstalterseite statt performance-timing.ch: https://www.gambarognotrail.ch/ - auf der performance-timing.ch-Seite verlinkt, Zielseite nennt den Lauf (host:gambarogno). Linkprüfung 2026-09-30."
+  },
+  "BCN Tour|2027-05-26": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1238",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://www.bcn-tour.ch) - sportchrono.ch bleibt."
+  },
+  "17. Int. Oberösterreich Rundfahrt|2027-05-27": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ooe-classics.at",
+    "alt": "https://www.ooe-radsportverband.at",
+    "notiz": "ooe-classics.at (Startseite), siehe Override."
+  },
+  "4. Pöstlingberg Classics|2027-05-27": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ooe-classics.at",
+    "alt": "https://www.ooe-radsportverband.at",
+    "notiz": "ooe-classics.at (Startseite), siehe Override."
+  },
+  "47. Leegebrucher Straßenlauf am 29.05.2027|2027-05-29": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "ssf-timing.de",
+    "alt": "http://www.ssf-timing.de",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,800,800italic) - ssf-timing.de bleibt."
+  },
+  "9. ADAC-Tine-Flugplatzlauf|2027-05-30": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "raceresult.de",
+    "alt": "https://raceresult.de",
+    "notiz": "Seite nicht ladbar (fehler:SSLError) - raceresult.de bleibt."
+  },
+  "Fitletix - Salzburg|2027-06-06": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportanmeldung.de",
+    "alt": "https://sportanmeldung.de/r/regist.php?vid=232",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://gmpg.org/xfn/11, https://wiki.selfhtml.org/wiki/Browser/JavaScript_aktivieren, https://www.functional-fit.at/) - sportanmeldung.de bleibt."
+  },
+  "Course de Montagne Neirivue-Moléson|2027-06-20": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "sportchrono.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1253",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.neirivue-moleson.ch/) - sportchrono.ch bleibt."
+  },
+  "52. Int. Junioren Rundfahrt|2027-07-23": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "ooe-classics.at",
+    "alt": "https://www.ooe-radsportverband.at",
+    "notiz": "Nachwuchsrennen, per Override ausgeschlossen."
+  },
+  "Freiwassercup Burghausen|2027-07-31": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "bayerischer-schwimmverband.de",
+    "alt": "https://www.bayerischer-schwimmverband.de/",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (geprüft: http://www.bayerische-sportstiftung.de, https://www.dsv.de/schwimmen/) - bayerischer-schwimmverband.de bleibt."
+  },
+  "Trail des Planets|2027-08-14": {
+    "am": "2026-09-30",
+    "ergebnis": "unklar",
+    "quelle": "vs-timing.ch",
+    "alt": "https://www.vs-timing.ch/de-CH/Home/Event/249?fromResult=False",
+    "notiz": "Keine verlinkte Seite nennt den Lauf (keine externen Links) - vs-timing.ch bleibt."
+  },
+  "Groupe E Tour|2027-08-18": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "groupe-e-tour.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1254",
+    "notiz": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-08-25": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "groupe-e-tour.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1254",
+    "notiz": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-01": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "groupe-e-tour.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1254",
+    "notiz": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-08": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "groupe-e-tour.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1254",
+    "notiz": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-15": {
+    "am": "2026-09-30",
+    "ergebnis": "korrigiert",
+    "quelle": "groupe-e-tour.ch",
+    "alt": "https://sportchrono.ch/events.php?id=1254",
+    "notiz": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
   }
 }

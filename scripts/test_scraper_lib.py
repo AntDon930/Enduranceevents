@@ -3354,6 +3354,90 @@ def test_kleine_radquellen() -> None:
        ev and ev.laenge_km is None and ev.standort == "Schleswig", f"{ev} {grund}")
 
 
+def test_kilometerliebe() -> None:
+    """Der Scraper für kilometerliebe.de (30.09.2026): Monatsseite (Datum +
+    Link je Karte, vergangene weg), Eventseite (JSON-LD, Faktenliste,
+    Event-Website), Distanzen, Zeitrennen, Triathlon-Formate, Wandern raus,
+    Latin-1-Mojibake - ohne Netz."""
+    print("\nkilometerliebe.de:")
+    import kilometerliebe_scraper as kl
+    monat = ('<nav><a href="/events/map">Karte</a></nav>'
+             '<article><time datetime="2026-10-03T00:00:00">3. Okt</time><a href="/events/kap-arkona-lauf/">Kap-Arkona-Lauf</a></article>'
+             '<article><time datetime="2026-10-01">1. Okt</time><a href="/events/alt-2026/">Alt</a></article>'
+             '<article><time datetime="2026-10-03">3. Okt</time><a href="https://www.kilometerliebe.de/events/kap-arkona-lauf/">nochmal</a></article>')
+    links = kl.event_links(monat, ab="2026-10-02")
+    check("kilometerliebe: Karten mit Datum, vergangene und doppelte weg, Karte-Link nicht",
+          links, [("2026-10-03", "Kap-Arkona-Lauf", "https://www.kilometerliebe.de/events/kap-arkona-lauf/")])
+    seite = ('<html><head><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SportsEvent",'
+             '"name":"13. Belgenbach-Trail","description":"13. Belgenbach-Trail am 7. März 2027 in Monschau. Angebotene Distanzen: 5 km, 9,5 km, 18 km.",'
+             '"startDate":"2027-03-07","endDate":"2027-03-07","location":{"@type":"Place","name":"Monschau","address":{"addressLocality":"Monschau",'
+             '"addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"},"geo":{"latitude":50.55,"longitude":6.24}},"eventStatus":"https://schema.org/EventScheduled"}]}</script></head>'
+             '<body><dl><dt>Termin</dt><dd>So, 07.03.2027</dd><dt>Distanzen</dt><dd>5 km, 9,5 km, 18 km</dd><dt>Kategorie</dt><dd>Trail</dd><dt>Status</dt><dd>Geplant</dd></dl>'
+             '<a href="data:text/calendar" download="x.ics" class="ev-bib__action">Kalender</a>'
+             '<a href="https://belgenbachtrail.de/" class="ev-bib__action">Event-Website</a></body></html>')
+    e = kl.parse_eventseite(seite)
+    check("kilometerliebe: Eventseite gelesen", (e.get("name"), e.get("datum_start"), e.get("ort"), e.get("kategorie"), e.get("distanzen"), e.get("veranstalter_url")),
+          ("13. Belgenbach-Trail", "2027-03-07", "Monschau", "Trail", "5 km, 9,5 km, 18 km", "https://belgenbachtrail.de/"))
+    evs, grund = kl.events_aus_seite(e, "https://www.kilometerliebe.de/events/x/", kl.CONFIG)
+    check("kilometerliebe: je Distanz eine Zeile, Trail, Koordinaten, Veranstalterseite",
+          [(x.laenge_km, x.art2, x.lat, x.veranstalter_url) for x in evs],
+          [(5.0, "Trail", 50.55, "https://belgenbachtrail.de/"), (9.5, "Trail", 50.55, "https://belgenbachtrail.de/"), (18.0, "Trail", 50.55, "https://belgenbachtrail.de/")])
+    e2 = dict(e, name="Drehwurm", distanzen="6 h", kategorie="Lauf", veranstalter_url=None)
+    evs, _ = kl.events_aus_seite(e2, "https://www.kilometerliebe.de/events/y/", kl.CONFIG)
+    check("kilometerliebe: 6 h ist ein Zeitrennen, ohne Event-Website die Kalenderseite",
+          [(x.laenge_km, x.dauer_h, x.veranstalter_url) for x in evs], [(None, 6.0, "https://www.kilometerliebe.de/events/y/")])
+    e3 = dict(e, name="1. Friedberger Triathlon", kategorie="Triathlon", distanzen=None,
+              beschreibung="1. Friedberger Triathlon am 19. September 2027 in Friedberg. Angebotene Wertungen: Olympische Distanz (Schwimmen – Radfahren – Laufen), Mitteldistanz (…).")
+    evs, _ = kl.events_aus_seite(e3, "u", kl.CONFIG)
+    check("kilometerliebe: Triathlon je Format eine Zeile", [(x.art1, x.wettbewerb, x.art2) for x in evs],
+          [("Triathlon", "Olympisch", "Straße"), ("Triathlon", "Mitteldistanz", "Straße")])
+    e4 = dict(e, name="Mammutmarsch Hamburg", kategorie="Wandern")
+    check("kilometerliebe: Wandern fällt weg", kl.events_aus_seite(e4, "u", kl.CONFIG), ([], "Wandern"))
+    e5 = dict(e, status_text="Abgesagt")
+    check("kilometerliebe: abgesagt fällt weg", kl.events_aus_seite(e5, "u", kl.CONFIG)[1], "abgesagt")
+    check("kilometerliebe: Latin-1-Mojibake repariert", kl._utf8("KÃ¶ln Marathon"), "Köln Marathon")
+
+
+def test_lvpfalz_lck() -> None:
+    """LV-Pfalz-Terminliste und Kaltern-Kalender (30.09.2026), ohne Netz."""
+    print("\nLV Pfalz und Läuferclub Kaltern:")
+    import lvpfalz_scraper as lp
+    import lck_scraper as lck
+    from scraper_lib import orte_aus_places, SUEDTIROL
+    html = ('<div class="event"><h2 itemprop="name">44. Gemüselauf</h2><p class="time"><time datetime="2026-10-03T15:00:00+02:00">03.10.2026</time></p>'
+            '<div><p>Veranstalter: TSG Maxdorf</p><p>10 km Gemüselauf; 0,8 km Junges Gemüse</p><p><a href="mailto:x">x</a></p>'
+            '<p><a href="http://www.tsg-maxdorf.de">http://www.tsg-maxdorf.de</a></p></div></div>'
+            '<div class="event"><h2 itemprop="name">Holzland-Crosslauf</h2><p class="time"><time datetime="2026-10-03">03.10.2026</time></p>'
+            '<div><p>Veranstalter: TuS Heltersberg</p><p>Crosslauf; Crosslauf lang</p><p><a href="https://tus06heltersberg.de/">x</a></p></div></div>')
+    laeufe = lp.parse_liste(html)
+    check("lvpfalz: zwei Läufe mit Veranstalter, Strecken und Link",
+          [(l["name"], l["datum"], l["veranstalter"], l["strecken"], l["url"]) for l in laeufe],
+          [("44. Gemüselauf", "2026-10-03", "TSG Maxdorf", "10 km Gemüselauf; 0,8 km Junges Gemüse", "http://www.tsg-maxdorf.de"),
+           ("Holzland-Crosslauf", "2026-10-03", "TuS Heltersberg", "Crosslauf; Crosslauf lang", "https://tus06heltersberg.de/")])
+    rlp = orte_aus_places("Deutschland", region="Rheinland-Pfalz")
+    evs, grund = lp.events_aus_lauf(laeufe[0], lp.CONFIG, rlp)
+    check("lvpfalz: Ort aus dem Verein, je Strecke eine Zeile", [(e.standort, e.laenge_km) for e in evs], [("Maxdorf", 10.0), ("Maxdorf", 0.8)])
+    evs, grund = lp.events_aus_lauf(laeufe[1], lp.CONFIG, rlp)
+    check("lvpfalz: Crosslauf ohne Kilometer bleibt eine Zeile, Trail", [(e.standort, e.laenge_km, e.art2) for e in evs][:1], [("Heltersberg", None, "Trail")])
+    frag = ('<h5>Berglauf, Trail</h5><div class="sm:flex"><div>ausgetragen</div><p class="my-3">Samstag, 03.10.2026</p><h2>Radlsee Hüttenlauf</h2>'
+            '<p><strong>Distanz: 5,1km (874m)</strong></p><p class="mt-2">Berglauf zur Radlseehütte vom Garner Wetterkreuz / Feldthurns.</p></div>'
+            '<h5>VSS - Dorflauf, Kinder- und Jugendlauf</h5><div class="sm:flex"><p>Samstag, 03.10.2026</p><h2>Dorflauf Niederdorf</h2><p><strong>Distanz: 5km - 10km</strong></p>'
+            '<p>x</p><a href="http://www.vss.bz.it/x">vss</a></div>'
+            '<h5>Berglauf, Trail</h5><div class="sm:flex"><p>Samstag, 03.10.2026</p><h2>Fiemme Ultra Sky</h2><p><strong>Distanz: 120km - 80km</strong></p><p>Trentino</p><a href="https://www.fiemmeultrasky.com/">x</a></div>')
+    eintraege = lck.parse_fragment(frag)
+    check("lck: drei Einträge gelesen", [(e["name"], e["datum"], e.get("distanz"), e["kategorie"]) for e in eintraege],
+          [("Radlsee Hüttenlauf", "2026-10-03", "5,1km (874m)", "Berglauf, Trail"), ("Dorflauf Niederdorf", "2026-10-03", "5km - 10km", "VSS - Dorflauf, Kinder- und Jugendlauf"),
+           ("Fiemme Ultra Sky", "2026-10-03", "120km - 80km", "Berglauf, Trail")])
+    st = orte_aus_places(SUEDTIROL)
+    evs, _ = lck.events_aus_eintrag(eintraege[0], st)
+    check("lck: Ort aus dem Text (Feldthurns), Höhenmeter keine Distanz, Trail", [(e.standort, e.laenge_km, e.art2, e.land) for e in evs], [("Feldthurns", 5.1, "Trail", SUEDTIROL)])
+    evs, _ = lck.events_aus_eintrag(eintraege[1], st)
+    check("lck: Dorflauf mit zwei Distanzen, Ort aus dem Namen, VSS-Link", [(e.standort, e.laenge_km, e.veranstalter_url) for e in evs],
+          [("Niederdorf", 5.0, "http://www.vss.bz.it/x"), ("Niederdorf", 10.0, "http://www.vss.bz.it/x")])
+    check("lck: Trentiner Lauf ohne Südtiroler Ort fällt weg", lck.events_aus_eintrag(eintraege[2], st), ([], "kein Südtiroler Ort"))
+    check("lck: Seitenleisten-Ids", lck.sidebar_ids('<a href=?id=15&kategorie=>x</a><a href=?id=9&kategorie=>y</a><a href=?id=15&kategorie=>z</a>'), [9, 15])
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -3368,7 +3452,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

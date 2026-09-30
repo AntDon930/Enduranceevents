@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:Eröffnungsrennen Leonding – Straßenrennen
 LOCATION:Walding\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-radsport
- verband.at
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-classics
+ .at/eroeffnungsrennen
 TRANSP:TRANSPARENT
-URL:https://www.ooe-radsportverband.at
+URL:https://www.ooe-classics.at/eroeffnungsrennen
 END:VEVENT
 END:VCALENDAR

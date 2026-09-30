@@ -6650,5 +6650,81 @@
   "9. SV02 Kerwelauf - Der SV02 lässts LAUFen|2027-08-15": {
     "veranstalter_url": "http://www.kerwelauf.de",
     "_note": "Veranstalterseite statt laufen.de: http://www.kerwelauf.de - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kerwelauf). Linkprüfung 2026-09-30."
+  },
+  "Berglauf Rinderberg Zweisimmen|2026-10-11": {
+    "veranstalter_url": "https://www.zweisimmen.ch/berglauf-rinderberg",
+    "_note": "Veranstalterseite statt guide.swiss-running.ch: https://www.zweisimmen.ch/berglauf-rinderberg - auf der guide.swiss-running.ch-Seite verlinkt, Zielseite nennt den Lauf (host:zweisimmen). Linkprüfung 2026-09-30."
+  },
+  "Eröffnungsrennen Leonding|2027-03-21": {
+    "veranstalter_url": "https://www.ooe-classics.at/eroeffnungsrennen",
+    "_note": "Veranstalterseite statt ooe-radsportverband.at: https://www.ooe-classics.at/eroeffnungsrennen - auf der ooe-radsportverband.at-Seite verlinkt, Zielseite nennt den Lauf (eroffnungsrennen). Linkprüfung 2026-09-30."
+  },
+  "Gambarogno Trail|2027-05-22": {
+    "veranstalter_url": "https://www.gambarognotrail.ch/",
+    "_note": "Veranstalterseite statt performance-timing.ch: https://www.gambarognotrail.ch/ - auf der performance-timing.ch-Seite verlinkt, Zielseite nennt den Lauf (host:gambarogno). Linkprüfung 2026-09-30."
+  },
+  "17. Int. Oberösterreich Rundfahrt|2027-05-27": {
+    "veranstalter_url": "https://www.ooe-classics.at/",
+    "_note": "Oberösterreich Classics (ooe-classics.at, OÖ Landesradsportverband): Startseite führt OÖ Rundfahrt, Pöstlingberg Classic, Eröffnungsrennen und Junioren Rundfahrt unter einem Dach; die Unterseite /eroeffnungsrennen war die falsche Veranstaltung derselben Seite. Linkprüfung 30.09.2026."
+  },
+  "4. Pöstlingberg Classics|2027-05-27": {
+    "veranstalter_url": "https://www.ooe-classics.at/",
+    "_note": "Oberösterreich Classics (ooe-classics.at, OÖ Landesradsportverband): Startseite führt OÖ Rundfahrt, Pöstlingberg Classic, Eröffnungsrennen und Junioren Rundfahrt unter einem Dach; die Unterseite /eroeffnungsrennen war die falsche Veranstaltung derselben Seite. Linkprüfung 30.09.2026."
+  },
+  "52. Int. Junioren Rundfahrt|2027-07-23": {
+    "exclude": true,
+    "_note": "Junioren Rundfahrt (U19-Etappenrennen der Oberösterreich Classics, ooe-classics.at) - Nachwuchsrennen, nicht für jeden offen. Linkprüfung 30.09.2026."
+  },
+  "Groupe E Tour|2027-08-18": {
+    "veranstalter_url": "https://groupe-e-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-08-25": {
+    "veranstalter_url": "https://groupe-e-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-01": {
+    "veranstalter_url": "https://groupe-e-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-08": {
+    "veranstalter_url": "https://groupe-e-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Groupe E Tour|2027-09-15": {
+    "veranstalter_url": "https://groupe-e-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://groupe-e-tour.ch/ - auf der sportchrono.ch-Seite verlinkt, Zielseite nennt den Lauf (host:groupe). Linkprüfung 2026-09-30."
+  },
+  "Wald- und Crosslaufmeisterschaften 2026|2026-10-31": {
+    "exclude": true,
+    "_note": "Doppelt zu 'Cross- und Waldlaufmeisterschaften' (31.10.2026, Ibbenbüren-Dickenberg, ladv.de) - laufen.de führt dieselbe Kreismeisterschaft unter umgestelltem Namen. Linkprüfung 30.09.2026."
+  },
+  "Offene Stadtmeisterschaften Crosslauf Leipzig|2026-11-07": {
+    "exclude": true,
+    "_note": "Doppelt zu 'Offene SM Cross' (07.11.2026, Leipzig, mogono-leichtathletik.de) - dieselbe Stadtmeisterschaft, dort mit Veranstalterseite. Linkprüfung 30.09.2026."
+  },
+  "Kreismeisterschaften Crosslauf|2026-11-08": {
+    "exclude": true,
+    "_note": "Doppelt zu 'Cross Kreismeisterschaft KLV Stormarn' (08.11.2026, Großhansdorf, klv-stormarn.de). Linkprüfung 30.09.2026."
+  },
+  "Rheinland-Pfalz-Meisterschaften 2026 Crosslauf|2026-11-15": {
+    "exclude": true,
+    "_note": "Meisterschaft im Rahmen des 'Rennbahncross in Herxheim' (15.11.2026, 5/9 km, tv-herxheim.de) - Datenregel 18, wie die sieben anderen Meisterschaft-im-Rahmen-Fälle. Linkprüfung 30.09.2026."
+  },
+  "DM Halbmarathon|2027-03-21": {
+    "exclude": true,
+    "_note": "Deutsche Meisterschaft im Rahmen des 'Frankfurter Halbmarathon' (21.03.2027, frankfurter-halbmarathon.de) - Datenregel 18. Linkprüfung 30.09.2026."
+  },
+  "4 Ländermeisterschaft U23 - Straße|2027-07-04": {
+    "exclude": true,
+    "_note": "U23-Meisterschaft (Nachwuchs, Verbandsauswahl) - nicht für jeden offen. Linkprüfung 30.09.2026."
+  },
+  "DM Marathon|2027-04-11": {
+    "exclude": true,
+    "_note": "Deutsche Meisterschaft im Rahmen des 'Marathon Hannover' (11.04.2027, 42,2 km steht dort, marathon-hannover.de) - Datenregel 18. Linkprüfung 30.09.2026."
+  },
+  "SLB Meisterschaften Marathon|2026-10-11": {
+    "exclude": true,
+    "_note": "Saarländische Meisterschaft im Rahmen des 'SAARathon' (11.10.2026, 42,195 km Weltkulturerbe-Marathon, westspangenlauf.de) - Datenregel 18. Linkprüfung 30.09.2026."
   }
 }

@@ -3675,6 +3675,44 @@ Lindauer Seequerung (01.08.2027, BSV-Schwaben-Kalender) steht in
 `manual_events.json`. Im Frühjahr 2027 lohnt ein Blick: BOE, Fricktal
 und dsergebnis tragen dann die Saison ein.
 
+**Dritte Suche und Linkprüfung (30.09.2026, abends)**: Auf „noch einmal
+nach allen Webseiten schauen … Detailsuche in Ruhe für Österreich und
+jedes Bundesland … nicht auf Sammelwebseiten verlinken" hin (Bilanz im
+README, „Dritte Suche und Linkprüfung"). Drei neue Scraper, alle mit
+Test: **`kilometerliebe_scraper.py`** (Laufkalender Kilometerliebe,
+Deutschland – Monatsseiten mit `<time>` + Link je Karte, weil das JSON-LD
+`ItemList` bei 50 kappt; Eventseite mit JSON-LD `SportsEvent`, Faktenliste
+und dem Knopf „Event-Website"; Wandern/Megamarsch fällt weg; die Seite
+schickt UTF-8 ohne Zeichensatz, `_utf8()` repariert das Mojibake von
+`fetch_page`; ~500 Eventseiten je Lauf, `--max-details`),
+**`lvpfalz_scraper.py`** (Volkslauf-Terminliste des LV Pfalz, Contao, mit
+Veranstalterlink – der Ort kommt aus dem Vereinsnamen, „TSG Maxdorf" →
+Maxdorf) und **`lck_scraper.py`** (Laufkalender des Läuferclubs Kaltern,
+Südtirol – `inc_kalender.php?id=` liefert ein Fenster von vier Terminen
+um jede Seitenleisten-Id; Ort aus Name oder Text gegen die Südtiroler
+Orte, Trentiner Läufe fallen so weg). Nicht gebaut: `laufkalendersachsen.de`
+(zwölf Termine, MEC), `laufkalender-mv.de` (leer); die Landesverbände
+Österreichs verlinken alle den ÖLV-Kalender. **Sammelseiten**: 19 weitere
+Zeitnehmer, Anmelde- und Verbandsportale in `PORTAL_DOMAINS` (ergebnisliste,
+sportchrono, vs-/sp-/performance-timing, lauf-anmeldung, sportanmeldung,
+Athleticon BSV Hamburg, OÖ Radsportverband, KLV, Bayerischer
+Schwimmverband, Swiss Running LaufGuide, Lausitzer Sportevents, swim.de,
+kilometerliebe, lck, lv-pfalz, vss.bz.it). Vor jeder Linkarbeit die
+Hostliste zählen (`is_portal_link` je Host mit ≥ 4 Veranstaltungen) –
+ein Zeitnehmer, der in keiner Liste steht, sieht aus wie ein Veranstalter.
+**Geschwisterzeilen** derselben Serie oder desselben Orts sind die beste
+Kandidatenquelle für `verifizieren` (17 Treffer), die Websuche je
+Vereinslauf liefert nur Portale. In `nennt_den_lauf()` zählt das
+**Ortsadjektiv** („korschenbroicher") nicht mehr als Namenswort. **Zwölf
+Meisterschaften im Rahmen eines Volkslaufs** (DM Marathon = Marathon
+Hannover, DM Halbmarathon = Frankfurter Halbmarathon, SLB-Marathon =
+SAARathon, RLP-Cross = Rennbahncross Herxheim, Nachwuchs: U23-Länder-
+meisterschaft, Junioren-Rundfahrt) per Override ausgeschlossen
+(Datenregel 18). `radsportevents_scraper.py` überspringt Kurse
+(`KEIN_RENNEN`: Fahrtechnikkurs, Training, Camp). `weserems_scraper.py`
+benennt seine Zeilen wie radsport-events.de („Weser-Ems-Cup Rheine",
+Label schlicht „Cyclocross"), sonst stand der Cup doppelt.
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -4001,6 +4039,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      siehe „Quellen". Offen bleibt **zpn-timing.de** (Privat-Klausel im
      Impressum): Eine Anfrage des Betreibers durch den Nutzer wäre der
      Weg zu den ostdeutschen Cross-Cups und MTB-Marathons.
+   - **slowUp** (12 Zeilen, `slowup.ch`): autofreie Erlebnistage in der
+     Schweiz – Rad, Inline, zu Fuß, ohne Wettkampf und Anmeldung. Rein
+     oder raus? Heute drin (Fahrrad). Und **IMEXrun** (Frankfurt, im
+     Rahmen der Messe IMEX) – wahrscheinlich nur für Messebesucher.
+   - **UCI-Rennen** wie die Oberösterreich Rundfahrt (2.2) stehen als
+     Fahrrad in der Liste; dort kann sich niemand einzeln anmelden
+     (Teams). „Auch mit BDR-Lizenz aufnehmen" deckt das nicht ganz.
    - **Gravel-Listen** (`dealgrid.de` mit 53 JSON-LD-Events,
      `gravel-club.com`, `808project.de`): Affiliate- bzw.
      Community-Seiten, international; lohnend nur, wenn die

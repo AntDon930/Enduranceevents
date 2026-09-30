@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270915
 DTEND;VALUE=DATE:20270916
 SUMMARY:Groupe E Tour
 LOCATION:Siviriez\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
- ents.php?id=1254
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://groupe-e-tour.ch/
 TRANSP:TRANSPARENT
-URL:https://sportchrono.ch/events.php?id=1254
+URL:https://groupe-e-tour.ch/
 END:VEVENT
 END:VCALENDAR

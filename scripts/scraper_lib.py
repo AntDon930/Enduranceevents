@@ -2725,7 +2725,8 @@ PORTAL_DOMAINS = (
     "guide.swiss-running.ch", "lausitzer-sportevents.de", "ergebnisliste.at",
     "ergebnisliste.de", "vs-timing.ch", "sptiming.ch", "performance-timing.ch",
     "br-timing.de", "taf-timing.de", "ssf-timing.de", "raceresult.de",
-    "lauf-anmeldung.de", "sportanmeldung.de", "swim.de", "bayerischer-schwimmverband.de", "crosscup.org", "dsergebnis.de",
+    "lauf-anmeldung.de", "sportanmeldung.de", "swim.de", "bayerischer-schwimmverband.de",
+    "kilometerliebe.de", "lck.it", "lv-pfalz.de", "vss.bz.it", "crosscup.org", "dsergebnis.de",
     "radsport-weser-ems.de", "swiss-cycling-boe.ch", "swisscycling-fricktal.ch",
     "radsport-sh.de", "gregorhoops.de", "zpn-timing.de",
 )

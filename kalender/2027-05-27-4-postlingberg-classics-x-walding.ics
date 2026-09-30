@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270527
 DTEND;VALUE=DATE:20270528
 SUMMARY:4. Pöstlingberg Classics – Bergrennen
 LOCATION:Walding\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-radsport
- verband.at
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.ooe-classics
+ .at/
 TRANSP:TRANSPARENT
-URL:https://www.ooe-radsportverband.at
+URL:https://www.ooe-classics.at/
 END:VEVENT
 END:VCALENDAR

@@ -1659,6 +1659,34 @@
     "veranstalter_url": "http://www.crazysports.de/"
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "Dorflauf Niederdorf",
+    "standort": "Niederdorf",
+    "lat": 46.738,
+    "lon": 12.173,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 5.0,
+    "wettbewerb": "5km",
+    "veranstalter_url": "http://www.vss.bz.it/sportprogramme/leichathletik/terminkalender/"
+  },
+  {
+    "land": "Italien (Südtirol)",
+    "name": "Dorflauf Niederdorf",
+    "standort": "Niederdorf",
+    "lat": 46.738,
+    "lon": 12.173,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 10.0,
+    "wettbewerb": "10km",
+    "veranstalter_url": "http://www.vss.bz.it/sportprogramme/leichathletik/terminkalender/"
+  },
+  {
     "land": "Deutschland",
     "name": "E2H10K Ultratrail Calw 100",
     "standort": "Calw",
@@ -2237,6 +2265,18 @@
     "laenge_km": 1.0,
     "wettbewerb": "Kinderläufe",
     "veranstalter_url": "https://www.sportunion-schenkenfelden.at/?page_id=13418#INFOS"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Holzland-Crosslauf",
+    "standort": "Heltersberg",
+    "lat": 49.317,
+    "lon": 7.717,
+    "art1": "Laufen",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "veranstalter_url": "https://tus06heltersberg.de/",
+    "art2": "Trail"
   },
   {
     "land": "Deutschland",
@@ -3593,6 +3633,20 @@
     "laenge_km": 216.0,
     "wettbewerb": "Radmarathon 216 km",
     "veranstalter_url": "http://www.huegelmarathon.de/"
+  },
+  {
+    "land": "Italien (Südtirol)",
+    "name": "Radlsee Hüttenlauf",
+    "standort": "Feldthurns",
+    "lat": 46.667,
+    "lon": 11.597,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-03",
+    "datum_ende": "2026-10-03",
+    "laenge_km": 5.1,
+    "wettbewerb": "5,1km",
+    "veranstalter_url": "https://www.lck.it/Kalender.php"
   },
   {
     "land": "Deutschland",
@@ -7624,6 +7678,20 @@
     "charity": true
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "Ahrntaler Sunnsatlauf",
+    "standort": "Ahrntal",
+    "lat": 46.776,
+    "lon": 11.938,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 22.0,
+    "wettbewerb": "22km",
+    "veranstalter_url": "https://www.lck.it/Kalender.php"
+  },
+  {
     "land": "Deutschland",
     "name": "Ansorge Branchenlauf",
     "standort": "Biessenhofen",
@@ -10406,7 +10474,7 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 12.8,
     "wettbewerb": "12.8 km / 1111 hm",
-    "veranstalter_url": "https://guide.swiss-running.ch/de/events/5802"
+    "veranstalter_url": "https://www.zweisimmen.ch/berglauf-rinderberg"
   },
   {
     "land": "Deutschland",
@@ -11830,6 +11898,20 @@
     "veranstalter_url": "https://maudach.de/kerwe-lauf.html"
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "Muterlauf (Dorf Tirol - Hochmuth)",
+    "standort": "Tirol",
+    "lat": 46.646,
+    "lon": 11.17,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 5.7,
+    "wettbewerb": "5,65km",
+    "veranstalter_url": "http://www.muterlauf.it/"
+  },
+  {
     "land": "Schweiz",
     "name": "Napf-Marathon Trubschachen",
     "standort": "Trubschachen",
@@ -12230,19 +12312,6 @@
     "wettbewerb": "CTF 61 km",
     "veranstalter_url": "http://www.radclub-cito-hennef.de",
     "charity": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "SLB Meisterschaften Marathon",
-    "standort": "Saarbrücken",
-    "lat": 49.234362,
-    "lon": 6.996379,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/slb-meisterschaften-marathon"
   },
   {
     "land": "Deutschland",
@@ -15357,6 +15426,20 @@
     "veranstalter_url": "https://www.letabeillon.ch"
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "Crosslauf Kaltern",
+    "standort": "Kaltern",
+    "lat": 46.413,
+    "lon": 11.246,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-18",
+    "datum_ende": "2026-10-18",
+    "laenge_km": 5.7,
+    "wettbewerb": "5,7km",
+    "veranstalter_url": "https://www.lck.it/Kalender.php"
+  },
+  {
     "land": "Schweiz",
     "name": "Cyclotour du Léman",
     "standort": "Lausanne",
@@ -18084,6 +18167,20 @@
     "veranstalter_url": "https://saegerserie-berlin.de/"
   },
   {
+    "land": "Italien (Südtirol)",
+    "name": "Tiefrastenlauf",
+    "standort": "Terenten",
+    "lat": 46.83,
+    "lon": 11.783,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-24",
+    "laenge_km": 5.5,
+    "wettbewerb": "5,5km",
+    "veranstalter_url": "https://www.lck.it/Kalender.php"
+  },
+  {
     "land": "Schweiz",
     "name": "Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat",
     "standort": "Thusis",
@@ -19330,6 +19427,20 @@
     "datum_ende": "2026-10-25",
     "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://www.radsport-krapf.ch"
+  },
+  {
+    "land": "Italien (Südtirol)",
+    "name": "Latsch - St.Martin am Kofel",
+    "standort": "Latsch",
+    "lat": 46.616,
+    "lon": 10.857,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 6.2,
+    "wettbewerb": "6,2km",
+    "veranstalter_url": "http://www.asvlatsch.com/"
   },
   {
     "land": "Deutschland",
@@ -21811,20 +21922,6 @@
     "veranstalter_url": "https://www.vstlaas.at"
   },
   {
-    "land": "Deutschland",
-    "name": "Wald- und Crosslaufmeisterschaften 2026",
-    "standort": "Ibbenbüren/Dickenberg",
-    "lat": 52.3137103,
-    "lon": 7.6718056,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 9.7,
-    "wettbewerb": "Crosslauf - Langstrecke",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/wald-und-crosslaufmeisterschaften-2026"
-  },
-  {
     "land": "Schweiz",
     "name": "Wiler-Herbstlauf",
     "standort": "Wil",
@@ -23687,34 +23784,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Offene Stadtmeisterschaften Crosslauf Leipzig",
-    "standort": "Leipzig",
-    "lat": 51.3396955,
-    "lon": 12.3730747,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 9.8,
-    "wettbewerb": "ca. 9,8 km (Männer, mehrere große Runden plus eine kleine)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49322/Offene-SM-Cross-Leipzig.htm"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Offene Stadtmeisterschaften Crosslauf Leipzig",
-    "standort": "Leipzig",
-    "lat": 51.3396955,
-    "lon": 12.3730747,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 6.7,
-    "wettbewerb": "ca. 6,7 km (Frauen, Kombination kleine und große Runde)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49322/Offene-SM-Cross-Leipzig.htm"
-  },
-  {
-    "land": "Deutschland",
     "name": "Open Firefighter Night Run",
     "standort": "Lübeck",
     "lat": 53.8654673,
@@ -25040,19 +25109,6 @@
     "datum_ende": "2026-11-08",
     "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://www.radsport-krapf.ch"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Kreismeisterschaften Crosslauf",
-    "standort": "Großhansdorf",
-    "lat": 53.6635561,
-    "lon": 10.2835977,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 5.1,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/kreismeisterschaften-crosslauf-2"
   },
   {
     "land": "Deutschland",
@@ -27817,19 +27873,6 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
     "veranstalter_url": "https://www.tv-herxheim.de/veranstaltungen/rennbahncross/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rheinland-Pfalz-Meisterschaften 2026 Crosslauf",
-    "standort": "Herxheim",
-    "lat": 49.1463456,
-    "lon": 8.2156228,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-15",
-    "datum_ende": "2026-11-15",
-    "laenge_km": 9.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/rheinland-pfalz-meisterschaften-2026-crosslauf"
   },
   {
     "land": "Österreich",
@@ -36869,6 +36912,20 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
+    "veranstalter_url": "http://www.lc-schifferstadt.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "44. Silvesterlauf Schifferstadt",
+    "standort": "Schifferstadt",
+    "lat": 49.384,
+    "lon": 8.377,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km Hauptlauf",
     "veranstalter_url": "http://www.lc-schifferstadt.de"
   },
   {
@@ -49189,18 +49246,6 @@
     "veranstalter_url": "https://traine-gourdins.ch/"
   },
   {
-    "name": "DM Halbmarathon",
-    "standort": "Frankfurt",
-    "lat": 50.1106444,
-    "lon": 8.6820917,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-21",
-    "datum_ende": "2027-03-21",
-    "veranstalter_url": "https://laufen.de/laufkalender/details/dm-halbmarathon",
-    "land": "Deutschland"
-  },
-  {
     "land": "Österreich",
     "name": "Eröffnungsrennen Leonding",
     "standort": "Walding",
@@ -49211,7 +49256,7 @@
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
     "wettbewerb": "Straßenrennen",
-    "veranstalter_url": "https://www.ooe-radsportverband.at"
+    "veranstalter_url": "https://www.ooe-classics.at/eroeffnungsrennen"
   },
   {
     "land": "Deutschland",
@@ -51660,19 +51705,6 @@
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.neuseensport.de/borna-running/borna-half",
     "datum_vorlaeufig": true
-  },
-  {
-    "name": "DM Marathon",
-    "standort": "Hannover",
-    "lat": 52.3744779,
-    "lon": 9.7385532,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-11",
-    "datum_ende": "2027-04-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/dm-marathon",
-    "land": "Deutschland"
   },
   {
     "land": "Deutschland",
@@ -63422,7 +63454,7 @@
     "datum_ende": "2027-05-22",
     "laenge_km": 35.0,
     "wettbewerb": "35 km",
-    "veranstalter_url": "https://www.performance-timing.ch/race-info/421589"
+    "veranstalter_url": "https://www.gambarognotrail.ch/"
   },
   {
     "land": "Schweiz",
@@ -63436,7 +63468,7 @@
     "datum_ende": "2027-05-22",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.performance-timing.ch/race-info/421589"
+    "veranstalter_url": "https://www.gambarognotrail.ch/"
   },
   {
     "land": "Schweiz",
@@ -65266,7 +65298,7 @@
     "datum_start": "2027-05-27",
     "datum_ende": "2027-05-30",
     "wettbewerb": "Etappenrennen",
-    "veranstalter_url": "https://www.ooe-radsportverband.at"
+    "veranstalter_url": "https://www.ooe-classics.at/"
   },
   {
     "land": "Deutschland",
@@ -65292,7 +65324,7 @@
     "datum_start": "2027-05-27",
     "datum_ende": "2027-05-27",
     "wettbewerb": "Bergrennen",
-    "veranstalter_url": "https://www.ooe-radsportverband.at"
+    "veranstalter_url": "https://www.ooe-classics.at/"
   },
   {
     "land": "Deutschland",
@@ -80832,19 +80864,6 @@
     "veranstalter_url": "http://www.kerwelauf.de"
   },
   {
-    "land": "Österreich",
-    "name": "4 Ländermeisterschaft U23 - Straße",
-    "standort": "Wien",
-    "lat": 48.2083537,
-    "lon": 16.3725042,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-04",
-    "datum_ende": "2027-07-04",
-    "wettbewerb": "Straßenrennen",
-    "veranstalter_url": "https://www.cyclingaustria.at/index.php?option=com_events&view=event&id=8C97485C89064D7BB629E7627FAAF7A7&filter=page=3"
-  },
-  {
     "land": "Italien (Südtirol)",
     "name": "40. Maratona dles Dolomites - Enel",
     "standort": "Corvara",
@@ -84606,19 +84625,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "Traily (5 km)",
     "veranstalter_url": "https://www.3kings-3hills.com/"
-  },
-  {
-    "land": "Österreich",
-    "name": "52. Int. Junioren Rundfahrt",
-    "standort": "Walding",
-    "lat": 48.3513494,
-    "lon": 14.161397,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-07-23",
-    "datum_ende": "2027-07-25",
-    "wettbewerb": "Etappenrennen",
-    "veranstalter_url": "https://www.ooe-radsportverband.at"
   },
   {
     "land": "Deutschland",
@@ -89037,7 +89043,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-18",
     "datum_ende": "2027-08-18",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=1254"
+    "veranstalter_url": "https://groupe-e-tour.ch/"
   },
   {
     "land": "Schweiz",
@@ -90338,7 +90344,7 @@
     "art2": "Straße",
     "datum_start": "2027-08-25",
     "datum_ende": "2027-08-25",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=1254"
+    "veranstalter_url": "https://groupe-e-tour.ch/"
   },
   {
     "land": "Schweiz",
@@ -92229,7 +92235,7 @@
     "art2": "Straße",
     "datum_start": "2027-09-01",
     "datum_ende": "2027-09-01",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=1254"
+    "veranstalter_url": "https://groupe-e-tour.ch/"
   },
   {
     "land": "Schweiz",
@@ -93750,7 +93756,7 @@
     "art2": "Straße",
     "datum_start": "2027-09-08",
     "datum_ende": "2027-09-08",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=1254"
+    "veranstalter_url": "https://groupe-e-tour.ch/"
   },
   {
     "land": "Deutschland",
@@ -95022,7 +95028,7 @@
     "art2": "Straße",
     "datum_start": "2027-09-15",
     "datum_ende": "2027-09-15",
-    "veranstalter_url": "https://sportchrono.ch/events.php?id=1254"
+    "veranstalter_url": "https://groupe-e-tour.ch/"
   },
   {
     "land": "Österreich",
