@@ -1387,6 +1387,87 @@ ist eine Anfrage an den BDR (rad-net) um Erlaubnis oder einen Export, für
 das Schwimmen dieselbe Anfrage an den DSV (`dsvdaten.dsv.de`, `Disallow: /`)
 – Punkt 1 des Plans vom 30.09.2026, den nur der Nutzer gehen kann.
 
+### Neue Kalender für Rad und Schwimmen, zweite Suche (30.09.2026): Stadtrennen und kleine Serien
+
+Auftrag des Nutzers: „neue Webseiten finden, die bisher noch nicht
+verwendet wurden, für Fahrrad und Schwimmen – mehr auf Stadtrennen
+schauen, also Rennen, wo unter 500 Leute mitmachen, kleine lokale
+Rennradrennen". Rund 60 Domains gesichtet, davon ~35 neu (nicht in den
+Tabellen oben); für jede Kandidatin robots.txt und Impressum gelesen.
+**Nichts davon ist gebaut – kein Scraper ohne sein Ja.** Die Bilanz
+vorweg: Die kleinen Rennen stehen nicht auf Portalen, sondern bei den
+**Serien** (Cross-Cups, Hobby-Cups, Regionalverbände) und bei den
+**Zeitnehmern** – und die sind klein, regional und teils nur ein
+Lauf-Sommer lang gepflegt.
+
+**Brauchbar, robots.txt frei, Impressum ohne Verbot (Rad):**
+
+| Quelle | Was drinsteht | Struktur | Anmerkung |
+|---|---|---|---|
+| `stevenscup.de/rennen` – STEVENS Cyclo-Cross-Cup, „größte Cross-Serie Deutschlands" (Nord: HH/SH/MV/NDS) | **16 Rennen 2026/27** (Neu Duvenstedt, Hannover, Bad Harzburg, Grambek, Norderstedt, Plate, Kaltenkirchen, Lüchow, Bad Oldesloe, Bad Doberan, Rostock, Kiel, Elmshorn, Wedel, Hamburg-Harburg, Buchholz), Lizenz UND Hobby offen | Tabelle: Datum, Name, Ort, Veranstalter, Link (Anmeldung über raceresult) | Contao; Betreiber Stevens Vertriebs GmbH, Impressum ohne Verbot – **erste Wahl** |
+| `cyclocrosscup.de/rennen` – 360° Cyclocross Cup Rhein-Neckar (BW/RLP/HE, ein Rennen in Brumath/F) | 7 Rennen 2026/27 (Baiersbronn, Herxheim, Heidelberg, Rheinzabern, Darmstadt, Mannheim), drei Hobbyklassen, MTB/Gravel erlaubt | Liste mit Veranstalter je Rennen; Anmeldung `gregorhoops.de` (nur Login, keine Liste) | WordPress, robots frei, Impressum (Privatperson, Heidelberg) ohne Verbot |
+| `crosscup.org` – GUNSHA Cross Challenge, „Mitteldeutschlands Cyclo-Crossserie" (SN/ST/TH) | 7 Rennen 2026 (Borna, Radibor, Granschütz, Erfurt, Jena, Frankenhain, Wittenberg) | Termine im Fließtext; Anmeldung über zpn-timing (siehe unten – dort stehen dieselben Rennen strukturiert) | WordPress, robots frei |
+| `dsergebnis.de` – DS Ergebnisdienst (Zeitnehmer, Cloppenburg; West/Saar/Mitte) | **18 Termine 2027**, lauter kleine Straßenrennen und Kriterien (Herforder Frühjahrspreis, Überherrner Straßenrennen, GP Sparkasse Neuss, GP Buchholz, Erzgebirgs-Rundfahrt, Main-Spessart Rundfahrt, GP Trier, Nievenheimer Ortsschildsprint, Rund in Serrig, Troisdorf, Uni-Radrennen, Offenbach, Gießen Stadttheater, Spee-Cup Genthin …) | nur Datum + Name, **kein Ort, kein Link** (der Ort steckt meist im Namen) | Jimdo, `Crawl-Delay: 5`, Impressum ohne Verbot – genau die gesuchte Rennklasse, aber dünn: eher **Hinweisliste** für die Einzelprüfung als Scraper-Quelle; die Veranstalterseite müsste `veranstalter_links.py` suchen |
+| `radsport-weser-ems.de/termine` – Radsportbezirk Weser-Ems | Weser-Ems-Cup Cross: 11 Termine 2026/27 (Oldenburg, Syke, Lohne, Bad Essen, Cloppenburg, Osnabrück ×2, Rheine-Elte, Engter, Melle), Hobby + U11/U13 | Liste Datum + Ort, keine Links | Jimdo, `Crawl-Delay: 5`; Impressum nicht gefunden (kein Link, nicht in der Sitemap) |
+| `swiss-cycling-boe.ch/rennkalender-2026` – Regionalverband Berner Oberland/Emmental | **19 Rennen 2026, alle klein**: vier Frühlingsrennen Hindelbank, Einzelzeitfahren Langnau/Krauchthal/Thun/Bleienbach, Straßenrennen Deisswil/Mühlethurnen, Bergrennen Bantiger/Axalp/Gunten, King of Elsigen; Hobby-Kategorie zählt zur BOE-Meisterschaft | Tabelle: Datum, Name, Ort, Disziplin, PDF-Ausschreibung; Veranstalterlink nur bei einem | Jimdo, `Crawl-Delay: 5`; Impressum nicht gefunden. Datasport (schon Quelle) deckt einen Teil ab – abgleichen, bevor man baut |
+| `swisscycling-fricktal.ch/kalender` – Regionalverband Fricktal (AG) | Fricktaler Cup: 5 Rennen im Jahr (Laufenburg, Kaisten, Gansingen Bergzeitfahren, Wittnau …), Ende September nur noch das Finale sichtbar | ClubDesk-Kalender | robots sperrt `.ics` und Aktions-URLs, die Seiten selbst frei; im Frühjahr 2027 erneut ansehen |
+| `jedermannmasterradcup.at/veranstaltungen` – Macherhammer Jedermann Rad-Cup (Salzburg/OÖ/NÖ/Kärnten) | 6 Wertungsrennen 2026 (Waidhofner Frühlings-Radmarathon, ARBÖ Kärnten Radmarathon, Zeitfahren + Straßenrennen am Salzburgring, Gainfeld Classic Bergrennen Bischofshofen, Sauwald Giro) | Tabelle mit Datum, Ort, Distanz | robots frei, kein Impressum-Link (nur `/kontakt`); die Rennen stehen vermutlich schon über den ÖRV-Kalender/endure im Bestand – prüfen |
+
+**Vorbehalt oder verboten (Rad):**
+
+| Quelle | Befund |
+|---|---|
+| `zpn-timing.de/events` – Zeitnehmer für Sachsen/Thüringen/Brandenburg/Sachsen-Anhalt (auch Berlin, Bayern, Hessen, Niedersachsen) | **Die beste Struktur der ganzen Suche**: `event-card-new` je Event mit Datum, Titel, Untertitel (Serie), Ort und INFO-Link zur Veranstalterseite (Fläming-Race, Cyclocrosscup Brandenburg, GUNSHA-Läufe, F60-MTB-Marathon, Harz-Querung, Spessartritt …); 19 kommende + 208 vergangene Events, robots `Allow: /`. **Aber** Impressum (Privatperson, Bad Vilbel): „Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet" – dieselbe Klausel, die bei `bike-x.de` als Vorbehalt galt. Entscheidung des Nutzers; eine E-Mail-Anfrage an den Betreiber wäre der saubere Weg |
+| `s-r-b.de/wettkaempfe-und-events` – Sächsischer Radfahrer-Bund | Tabelle Datum/Veranstaltung/Ort/Disziplin mit Links (Kohlhau-Mountain-Cup, Radcross Borna/Grimma, Rund um die Chemnitzer Radrennbahn) – **Impressum verbietet** „Speicherung in Datenbanken" ausdrücklich → nicht lesen |
+| `swiss-cyclocross.ch/kalender` – alle Schweizer Radquers (Illnau, Steinmaur, Schneisingen, Mettmenstetten, Hittnau, SM Dielsdorf; Afeno-Cup, ORC-Rennen) | Tabelle mit Veranstalterlinks – **Impressum verbietet** Reproduktion „ausgenommen für den privaten, persönlichen und nicht kommerziellen Gebrauch" (crossroads Event und Kommunikation GmbH) → nicht lesen |
+| `bikeboard.at/termine/rennrad` (Thermenregion-Cup, Attersee Night Sprint, Kriterium Trumau …) | robots.txt nennt ClaudeBot (nur `/_uploads/` gesperrt, die Termine wären frei) – Impressum/Vorbehalt vom 22.09.2026 gilt weiter |
+| `radsportmanager.com/termine.php`, `rad-net-regista.de` (BDR-Anmeldeplattform), `gregorhoops.de` | Anmeldeportale: Liste leer bzw. erst nach Login/JavaScript – nichts zu holen |
+| `radsportverband-niedersachsen.de/veranstaltungen` (zweite Domain des RVN, WordPress „The Events Calendar", robots frei) | nur zwei Dauer-Gravel-Touren, sonst Verweis auf den rad-net-Breitensportkalender |
+| `iamcycling.de/veranstaltungskalender` | WordPress-Kalender, international, nur Großveranstaltungen (Münsterland Giro, L'Etape) – nicht die gesuchte Klasse |
+| `battistrada.com` (NL, weltweit, Gran Fondos/Cyclosportives), `radsportaktuell.de` (Cross-Bundesliga-News), `cyclocross24.com` (robots sperrt `?`-URLs; UCI-Rennen), `speed-ville.de`, `alpecincycling.com`, `meinbezirk.at` (Bergpreis-Berichte) | nur Großveranstaltungen oder Journalismus |
+| `nrw-cup-or.de`, `fun-cup-austria.blogspot.com`, `hobbycup.at` | **Modellautorennen** (RC-Buggys) – Namensverwechslung, der „Hobby Cup" ist keiner |
+| `radsporttermine.de` (404), `marathon-cup.at` (503), `hobbycup.at` (DNS), `germancyclingcup.de` (Verbindung abgebrochen) | nicht erreichbar |
+
+**Schwimmen** – die Suche bestätigt den Befund vom 24.09.: Es gibt
+**keinen** neuen Jedermann-Freiwasserkalender; die Landesschwimmverbände
+führen Meisterschaften und Beckenwettkämpfe, die Jedermann-Seeschwimmen
+liegen bei DLRG-Ortsgruppen, Wasserwachten und Vereinen je einzeln.
+
+| Quelle | Befund |
+|---|---|
+| `mueritzquerung.de/freiwasserschwimmen.html` | **Liste von 10 Freiwasserschwimmen in Mecklenburg-Vorpommern** mit Ort, Distanz und Unterseite (Müritzschwimmen 1.950 m / Müritzman 3.800 m Waren, Malchower Inselschwimmen 825 m, Tollenseseeschwimmen Neubrandenburg, Kaiserbäder Seebrückenschwimmen Ahlbeck, Wariner See 1.600 m, Sundschwimmen Stralsund 2.315 m (DLRG), Greifswalder Boddenschwimmen 2.600 m, Schweriner Schlossschwimmen 2–10 km, Peeneschwimmen Anklam 1.600 m) – **aber Termine von 2024/2025**, kein Veranstalterlink; Contao, robots frei. Als Liste für `manual_events.json` im Frühjahr 2027 brauchbar, nicht als Scraper |
+| `bsv-schwaben.de/…/termine-2027` (Bayerischer Schwimmverband, Bezirk Schwaben) | Terminkalender 2027 (Joomla, robots frei), darin **ein** Freiwasser-Termin: 23. Lindauer Seequerung 01.08.2027 – `manual_events.json` |
+| `hamburg-schwimmt.de` (Infoportal, Kalender auf `kalender.digital`) | nur DM Masters Freiwasser und Norddeutsche Freiwassermeisterschaft (Datenregel 22); Wandsbeker Seeschwimmen 2026 abgesagt |
+| `schwimmen.berlin/veranstaltungen` (ZIDI Allsports UG für den Berliner Schwimmverband), `lsv-brandenburg.de/schwimmen/wettkaempfe`, `hessischer-schwimm-verband.de/veranstaltungen`, `lsvsa.de/events`, `lsn-info.de` | nur Becken, Meisterschaften, Kampfrichter-Lehrgänge – **kein Jedermann-Freiwasser** |
+| `freiwasser.schwimm-service.de` | leitet auf die EasyWk-Ergebnisübersicht der Hessischen Freiwassermeisterschaften 2026 – ein Wettkampf, kein Kalender |
+| `dsv.de/…/freiwasserschwimmen/wettkampf/kalender` | robots erlaubt `/_my_media/Calendar/`, der Kalender lädt aber per JavaScript aus `dsvdaten.dsv.de` (`Disallow: /`) – bleibt gesperrt |
+| `schwimmverband.at` (ÖSV) – `/schwimmen/rundschreiben-2` | Open-Water-Rundschreiben als PDF-Archiv, keine Terminliste; `schwimmverband-tirol.at/lsvt-openwater`: „Aktuell sind keine Termine vorhanden", verlinkt Alpen Open Water Cup, Austrian Swim Open, openwaterserie |
+| `slrg.ch/de/1x-quer-ueber-den-see` | nur Tipps; verweist für die Seeüberquerungen auf swimsports.ch (schon Quelle) |
+| `directory.openwaterswimming.com` (WOWSA) | 403 |
+| `lsv-sachsen.de` (Pöhl-Cup) | 429 Too Many Requests; die Meisterschaft fällt ohnehin unter Datenregel 22 |
+| `swim.de` (spomedis GmbH, robots frei) | kein Kalender, nur Artikel („8 Freiwasser-Events zum Mitschwimmen"); dieselben Veranstalter wie beim Alpen Open Water Cup |
+| `germanaquatics.de` (Eisschwimmtage 2027) | Eisschwimmen, Vereinsanmeldung – nicht die Liste |
+
+**Was daraus folgt:**
+
+1. **Cross-Cups sind die ergiebigste Klasse** für Stadtrennen mit
+   Hobbyklassen: Stevens (16), Rhein-Neckar (7), GUNSHA (7), Weser-Ems
+   (11), Cyclocrosscup Brandenburg (über zpn) – zusammen rund 50
+   Rennen je Winter, fast alle mit Veranstalter, keins im Bestand.
+   `stevenscup.de` und `cyclocrosscup.de` sind ohne Vorbehalt lesbar.
+2. **Die Zeitnehmer bleiben der Schlüssel zu den Straßenrennen** – wie
+   BRV Timing für Bayern: `dsergebnis.de` (West) und `zpn-timing.de`
+   (Ost) kennen genau die Kriterien und Rundstreckenrennen unter 500
+   Startern, die sonst nur bei rad-net stehen. dsergebnis ist dünn,
+   zpn trägt die Privat-Klausel.
+3. **Schweizer Regionalverbände** (BOE, Fricktal; Aargau stand schon
+   oben) führen die kleinsten Rennen überhaupt (Frühlingsrennen,
+   Dorf-Zeitfahren, Bergrennen); Jimdo/ClubDesk, kleine Listen –
+   lohnend, aber je ein eigener Parser für 5–20 Rennen.
+4. **Schwimmen**: keine neue Kalenderquelle. Was es gibt, ist Handarbeit
+   (MV-Liste, Lindau) oder gesperrt (DSV) – die DSV-Anfrage aus Punkt 1
+   des Plans vom 30.09.2026 bleibt der Weg.
+
 ### Laufzeit
 
 Ein **vollständiger Lauf dauert rund zwei Stunden**: laufen.de und
