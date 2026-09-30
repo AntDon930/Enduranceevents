@@ -3586,8 +3586,27 @@ nachgezählt trennte das Wort genau vier echte Duplikatpaare (ARBÖ
 Radmarathon ×2, Maratona dles Dolomites, Vredener Triathlon) und kein
 einziges echtes Paar verschiedener Wettbewerbe – die Radquellen führen
 ohnehin EINE Zeile je Distanz, egal ob Lizenz oder Jedermann.
-`test_duplikate` hält beide Paare fest. Erster Lauf am 30.09.2026
-(Zahlen im Datencommit desselben Tages). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
+Nach dem zweiten Lauf kamen dazu: „Warte Liste" in zwei Wörtern
+(Anmeldeart), Italien außerhalb Südtirols schon im Scraper über
+`in_suedtirol()` (sonst räumte clean_events zehn Trentino-Zeilen jede
+Woche wieder heraus) – und **ein Gattungswort, das nur die gemeinsame
+Kategorie wiederholt, trennt nicht mehr** (`_GATTUNG_AUS_KATEGORIE` in
+`_same_name()`: „MTB-Marathon 64 km" gegen „64km KINGMarathon", beide
+art2 Mountainbike; am Bestand sechs Paare, alle echt – KronplatzKing ×2,
+Innsbruck Alpine Trailrun Festival ×4 „Trailmarathon" gegen „43 km" –,
+kein Gegenbeispiel; bei verschiedenem art2 bleibt „MTB 40 km" von
+„Rennrad 40 km" getrennt). `test_duplikate` hält alle Fälle fest.
+**Erster Lauf (30.09.2026)**: 98 Seiten, 92 kommende Ausgaben, 232 Zeilen,
+106 neu in 46 Veranstaltungen (90 CH, 9 AT, 5 Südtirol, 2 DE; 86 Laufen,
+11 Fahrrad, 9 Triathlon), 6.885 → 6.975 Events. Ein Lauf dauert ~18
+Minuten (98 × 10 s), der wöchentliche Workflow wächst entsprechend.
+**Nebenbefund für die CI**: Der Datenlauf vom 28.09. hatte
+`clean_events.py` nicht idempotent gemacht – ein in Durchgang 1
+vereinheitlichter Name traf erst in Durchgang 2 seinen Override
+(„Königsforst-Marathon|2027-03-14|42.2", Koordinaten); jetzt werden die
+Overrides in der Fixpunkt-Schleife auf die gerade UMBENANNTEN Zeilen
+angewendet – nur auf die, ein Versuch mit allen Zeilen traf die
+nachgetragenen aus `manual_events.json` (ASV-Duisburg-Falle, −98 Events). **Zeitnehmer**: `time2win.at` sperrt ClaudeBot
 ausdrücklich (`Disallow: /`) – wie ironman.com nicht als Quelle;
 raceresult sperrt `/RREvents/` (die öffentliche Liste), pentek alles,
 sportident ist eine JS-Anwendung, swiss-cycling.ch sperrt ClaudeBot,
