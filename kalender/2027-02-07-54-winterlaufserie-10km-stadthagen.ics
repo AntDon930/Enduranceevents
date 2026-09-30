@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-07-54-winterlaufserie-10km-stadthagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:54. Winterlaufserie – 10 km (Nordic-)Walking
+LOCATION:Stadthagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/54-winterlaufserie-3
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/54-winterlaufserie-3
+END:VEVENT
+END:VCALENDAR

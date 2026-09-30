@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-seaside-ride-gravel-rerik-130km-ostseebad-rerik@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270628
+SUMMARY:Seaside Ride Gravel Rerik – Gravel 130 km
+LOCATION:Ostseebad Rerik\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 130 km\nhttps://seasideride
+ .de
+TRANSP:TRANSPARENT
+URL:https://seasideride.de
+END:VEVENT
+END:VCALENDAR

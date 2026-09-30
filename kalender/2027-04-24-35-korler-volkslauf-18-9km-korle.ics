@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-35-korler-volkslauf-18-9km-korle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:35. Körler Volkslauf
+LOCATION:Körle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.9 km\nhttps://lauftreff.t
+ sv-koerle.de/
+TRANSP:TRANSPARENT
+URL:https://lauftreff.tsv-koerle.de/
+END:VEVENT
+END:VCALENDAR

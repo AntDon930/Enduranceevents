@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-einsiedeln-triathlon-28km-hofe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Einsiedeln Triathlon
+LOCATION:Höfe\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 28 km\nhttps://mumagesi-t
+ riathlon.ch/einsiedeln-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/einsiedeln-triathlon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-37-wolfhager-volkslauf-rund-um-den-graner-berg-18-5km-wolfh
+ agen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:37. Wolfhager Volkslauf Rund um den Graner Berg
+LOCATION:Wolfhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.5 km\nhttps://laufen.de/l
+ aufkalender/details/37-wolfhager-volkslauf-rund-um-den-graner-berg
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/37-wolfhager-volkslauf-rund-um-
+ den-graner-berg
+END:VEVENT
+END:VCALENDAR

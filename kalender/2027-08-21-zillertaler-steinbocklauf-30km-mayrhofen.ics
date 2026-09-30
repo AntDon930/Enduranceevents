@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270821
 DTEND;VALUE=DATE:20270822
 SUMMARY:Zillertaler Steinbocklauf
 LOCATION:Mayrhofen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.pentek-pa
- yment.at/ppay.php?p=1736&s_p=1
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://www.zillertal
+ er-steinbockmarsch.com/
 TRANSP:TRANSPARENT
-URL:https://www.pentek-payment.at/ppay.php?p=1736&s_p=1
+URL:https://www.zillertaler-steinbockmarsch.com/
 END:VEVENT
 END:VCALENDAR

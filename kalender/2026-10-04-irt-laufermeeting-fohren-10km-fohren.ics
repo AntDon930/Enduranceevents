@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261004
 DTEND;VALUE=DATE:20261005
 SUMMARY:IRT-Läufermeeting Föhren
 LOCATION:Föhren\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.chiplauf.
- de/de/events/14-irt-laeufermeeting-foehren-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-meulenwald
+ -foehren.de
 TRANSP:TRANSPARENT
-URL:https://www.chiplauf.de/de/events/14-irt-laeufermeeting-foehren-2026
+URL:https://lg-meulenwald-foehren.de
 END:VEVENT
 END:VCALENDAR

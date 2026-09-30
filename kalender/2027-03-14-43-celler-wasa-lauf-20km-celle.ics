@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-43-celler-wasa-lauf-20km-celle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:43. Celler Wasa-Lauf
+LOCATION:Celle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://www.celler-wa
+ sa-lauf.de/cgi-bin/wasa/auschreibung.pl?action=direkt&stichwort=meldung
+TRANSP:TRANSPARENT
+URL:https://www.celler-wasa-lauf.de/cgi-bin/wasa/auschreibung.pl?action=di
+ rekt&stichwort=meldung
+END:VEVENT
+END:VCALENDAR

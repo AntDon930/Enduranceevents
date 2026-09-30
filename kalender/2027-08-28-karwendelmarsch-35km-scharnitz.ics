@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-karwendelmarsch-35km-scharnitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Karwendelmarsch
+LOCATION:Scharnitz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 35 km\nhttps://www.karwendel
+ marsch.info/
+TRANSP:TRANSPARENT
+URL:https://www.karwendelmarsch.info/
+END:VEVENT
+END:VCALENDAR

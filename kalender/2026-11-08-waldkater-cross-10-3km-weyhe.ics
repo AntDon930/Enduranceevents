@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-waldkater-cross-10-3km-weyhe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Waldkater Cross – Friedeholz Cross (29.11.2026)
+LOCATION:Weyhe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.3 km\nhttps://sv-weyhe.de/
+ sportangebote/leichtathletik-ausdauer/syke-weyher-crosslauf
+TRANSP:TRANSPARENT
+URL:https://sv-weyhe.de/sportangebote/leichtathletik-ausdauer/syke-weyher-
+ crosslauf
+END:VEVENT
+END:VCALENDAR

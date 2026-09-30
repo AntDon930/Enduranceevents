@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-08-world-triathlon-championship-finals-hamburg-51km-hamburg@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270908
+DTEND;VALUE=DATE:20270913
+SUMMARY:World Triathlon Championship Finals Hamburg
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://hamburg.tr
+ iathlon.org
+TRANSP:TRANSPARENT
+URL:https://hamburg.triathlon.org
+END:VEVENT
+END:VCALENDAR

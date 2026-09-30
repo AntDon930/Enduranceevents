@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-39-weser-werre-volkslauf-20km-bad-oeynhausen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:39. Weser-Werre-Volkslauf
+LOCATION:Bad Oeynhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttp://www.tg-werste.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.tg-werste.de
+END:VEVENT
+END:VCALENDAR

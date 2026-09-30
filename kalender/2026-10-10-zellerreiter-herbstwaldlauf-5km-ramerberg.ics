@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-zellerreiter-herbstwaldlauf-5km-ramerberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Zellerreiter Herbstwaldlauf – 5000 m Jugend\, Fitnesslauf und Walk
+ ing (2 Runden)
+LOCATION:Ramerberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://wsv-zellerreit
+ .de/zellerreiter-herbstwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://wsv-zellerreit.de/zellerreiter-herbstwaldlauf/
+END:VEVENT
+END:VCALENDAR

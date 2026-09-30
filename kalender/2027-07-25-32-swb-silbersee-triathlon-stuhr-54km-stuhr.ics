@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-32-swb-silbersee-triathlon-stuhr-54km-stuhr@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:32. swb Silbersee-Triathlon Stuhr
+LOCATION:Stuhr\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 54 km\nhttps://silbersee-
+ triathlon.com
+TRANSP:TRANSPARENT
+URL:https://silbersee-triathlon.com
+END:VEVENT
+END:VCALENDAR

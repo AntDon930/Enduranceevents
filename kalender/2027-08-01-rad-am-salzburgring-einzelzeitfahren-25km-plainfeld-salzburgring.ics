@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-rad-am-salzburgring-einzelzeitfahren-25km-plainfeld-salzbur
+ gring@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Rad am Salzburgring – Einzelzeitfahren – Zeitfahren 25 km
+LOCATION:Plainfeld – Salzburgring\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 25 km\nhttps://www.radt
+ eamsalzburg.at/rad-am-salzburgring
+TRANSP:TRANSPARENT
+URL:https://www.radteamsalzburg.at/rad-am-salzburgring
+END:VEVENT
+END:VCALENDAR

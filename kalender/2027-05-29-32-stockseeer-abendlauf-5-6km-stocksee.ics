@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-32-stockseeer-abendlauf-5-6km-stocksee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:32. Stockseeer Abendlauf – 5\,6km Lauf
+LOCATION:Stocksee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://laufen.de/la
+ ufkalender/details/32-stockseeer-abendlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/32-stockseeer-abendlauf
+END:VEVENT
+END:VCALENDAR

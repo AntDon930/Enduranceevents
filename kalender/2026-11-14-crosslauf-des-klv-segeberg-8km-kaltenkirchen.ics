@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-crosslauf-des-klv-segeberg-8km-kaltenkirchen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Crosslauf des KLV Segeberg
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://ladv.de/ausschr
+ eibung/detail/47556/Landesoffener-Crosslauf-des-KLV-Segeberg-Kaltenkirche
+ n.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/47556/Landesoffener-Crosslauf-des
+ -KLV-Segeberg-Kaltenkirchen.htm
+END:VEVENT
+END:VCALENDAR

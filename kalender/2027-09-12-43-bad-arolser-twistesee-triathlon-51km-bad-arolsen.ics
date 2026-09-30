@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-43-bad-arolser-twistesee-triathlon-51km-bad-arolsen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:43. Bad Arolser Twistesee-Triathlon
+LOCATION:Bad Arolsen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://www.twiste
+ see-triathlon.com/
+TRANSP:TRANSPARENT
+URL:https://www.twistesee-triathlon.com/
+END:VEVENT
+END:VCALENDAR

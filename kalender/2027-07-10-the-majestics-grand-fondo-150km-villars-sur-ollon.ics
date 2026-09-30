@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-the-majestics-grand-fondo-150km-villars-sur-ollon@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:The Majestics Grand Fondo – Jedermannrennen 150 km
+LOCATION:Villars-sur-Ollon\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 150 km\nhttps://themajestic
+ s.ch/
+TRANSP:TRANSPARENT
+URL:https://themajestics.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-ahmadiyya-charity-walk-freudenstadt-5km-landkreis-freudenst
+ adt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Ahmadiyya Charity Walk Freudenstadt
+LOCATION:Landkreis Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://char
+ itywalk.de/events/3-ahmadiyya-charity-walk-freudenstadt
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/3-ahmadiyya-charity-walk-freudenstadt
+END:VEVENT
+END:VCALENDAR

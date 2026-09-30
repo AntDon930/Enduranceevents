@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-winterserie-psv-rot-gold-lehrte-26-27-15km-lehrte@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Winterserie PSV Rot-Gold Lehrte 26/27
+LOCATION:Lehrte\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufen.de/lau
+ fkalender/details/winterserie-psv-rot-gold-lehrte-26-27-14
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/winterserie-psv-rot-gold-lehrte
+ -26-27-14
+END:VEVENT
+END:VCALENDAR

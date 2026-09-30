@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-ahmadiyya-charity-walk-berlin-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Ahmadiyya Charity Walk Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://charity
+ walk.de/events/4-ahmadiyya-charity-walk-berlin
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/4-ahmadiyya-charity-walk-berlin
+END:VEVENT
+END:VCALENDAR

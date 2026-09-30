@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-38-hildesheimer-wedekindlauf-5-5km-hildesheim@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:38. Hildesheimer Wedekindlauf – 5\,5 km Lauf
+LOCATION:Hildesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://laufen.de/la
+ ufkalender/details/38-hildesheimer-wedekindlauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/38-hildesheimer-wedekindlauf
+END:VEVENT
+END:VCALENDAR

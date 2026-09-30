@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-raffinerielauf-salzbergen-5km-salzbergen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Raffinerielauf Salzbergen – 5 km Jedermannslauf (ab 9 Jahren)\, Te
+ amwertung
+LOCATION:Salzbergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sva-salzbe
+ rgen.de/sportarten/raffinerielauf/
+TRANSP:TRANSPARENT
+URL:https://www.sva-salzbergen.de/sportarten/raffinerielauf/
+END:VEVENT
+END:VCALENDAR

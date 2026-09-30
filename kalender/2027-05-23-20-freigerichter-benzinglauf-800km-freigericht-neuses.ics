@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-20-freigerichter-benzinglauf-800km-freigericht-neuses@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:20. Freigerichter Benzinglauf
+LOCATION:Freigericht-Neuses\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 800 km\nhttps://www.lauftref
+ f-freigericht.com/Lauf-Event-2027/
+TRANSP:TRANSPARENT
+URL:https://www.lauftreff-freigericht.com/Lauf-Event-2027/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-1-lauf-der-39-djk-winterlaufserie-10km-goppingen@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:1. Lauf der 39. DJK Winterlaufserie
+LOCATION:Göppingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.djk-winter
+ laufserie.de
+TRANSP:TRANSPARENT
+URL:http://www.djk-winterlaufserie.de
+END:VEVENT
+END:VCALENDAR

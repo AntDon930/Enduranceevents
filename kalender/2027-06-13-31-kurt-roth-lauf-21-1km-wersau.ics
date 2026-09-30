@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-31-kurt-roth-lauf-21-1km-wersau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:31. Kurt-Roth Lauf
+LOCATION:Wersau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
+ aufkalender/details/31-kurt-roth-lauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/31-kurt-roth-lauf
+END:VEVENT
+END:VCALENDAR

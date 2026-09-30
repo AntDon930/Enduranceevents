@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-10-world-masters-mountain-running-championships-33km-klosters-
+ serneus@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270613
+SUMMARY:World Masters Mountain Running Championships
+LOCATION:Klosters-Serneus\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33 km\nhttps://datasport.com/
+ de/events/world-masters-mountain-running-championships-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/world-masters-mountain-running-champio
+ nships-2027
+END:VEVENT
+END:VCALENDAR

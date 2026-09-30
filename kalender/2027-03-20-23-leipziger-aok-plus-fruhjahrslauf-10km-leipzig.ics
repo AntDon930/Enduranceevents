@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-23-leipziger-aok-plus-fruhjahrslauf-10km-leipzig@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:23. Leipziger AOK PLUS Frühjahrslauf
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.bsv-aok.de
+TRANSP:TRANSPARENT
+URL:http://www.bsv-aok.de
+END:VEVENT
+END:VCALENDAR

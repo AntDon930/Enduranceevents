@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-15-gravel-rallye-black-forest-180km-feldberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270719
+SUMMARY:Gravel Rallye Black Forest – Gravel 180 km
+LOCATION:Feldberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 180 km\nhttps://gravel-rall
+ ye.com/black-forest
+TRANSP:TRANSPARENT
+URL:https://gravel-rallye.com/black-forest
+END:VEVENT
+END:VCALENDAR

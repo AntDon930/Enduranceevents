@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-steinheimer-geologenlauf-7km-steinheim-am-albuch@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Steinheimer Geologenlauf – 7 km Walking / Nordic Walking ab 12 Jah
+ ren
+LOCATION:Steinheim am Albuch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.geologenla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://www.geologenlauf.de/
+END:VEVENT
+END:VCALENDAR

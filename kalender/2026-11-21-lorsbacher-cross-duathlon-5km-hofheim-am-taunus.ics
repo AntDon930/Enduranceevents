@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-lorsbacher-cross-duathlon-5km-hofheim-am-taunus@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Lorsbacher Cross-Duathlon – 5 km Laufen
+LOCATION:Hofheim am Taunus\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 5 km\nhttps://tvlorsbac
+ h.de/lorsbacher-cross-duathlon/
+TRANSP:TRANSPARENT
+URL:https://tvlorsbach.de/lorsbacher-cross-duathlon/
+END:VEVENT
+END:VCALENDAR

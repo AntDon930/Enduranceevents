@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-briggyard-staffel-run-42km-nottuln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:BriggYard Staffel-Run
+LOCATION:Nottuln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://laufen.de/lau
+ fkalender/details/briggyard-staffel-run
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/briggyard-staffel-run
+END:VEVENT
+END:VCALENDAR

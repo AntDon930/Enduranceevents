@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-weser-ems-cup-bad-essen-0-5h-pr-oldendorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Weser-Ems-Cup Bad Essen – Cyclocross Hobby 0.5 h
+LOCATION:Pr. Oldendorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://radsport
+ -events.de/events/27771
+TRANSP:TRANSPARENT
+URL:https://radsport-events.de/events/27771
+END:VEVENT
+END:VCALENDAR

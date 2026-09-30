@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-46-winterlaufserie-rodgau-jugesheim-4-10km-rodgau-jugesheim
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:46. Winterlaufserie Rodgau Jügesheim (4)
+LOCATION:Rodgau-Jügesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.troialauf
+ events.de/
+TRANSP:TRANSPARENT
+URL:https://www.troialaufevents.de/
+END:VEVENT
+END:VCALENDAR

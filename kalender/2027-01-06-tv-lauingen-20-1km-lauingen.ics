@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-tv-lauingen-20-1km-lauingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:TV Lauingen
+LOCATION:Lauingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20.1 km\nhttps://www.triathl
+ on.tvl.de
+TRANSP:TRANSPARENT
+URL:https://www.triathlon.tvl.de
+END:VEVENT
+END:VCALENDAR

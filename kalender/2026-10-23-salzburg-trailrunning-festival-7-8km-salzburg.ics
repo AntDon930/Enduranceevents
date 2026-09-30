@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-23-salzburg-trailrunning-festival-7-8km-salzburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:Salzburg Trailrunning Festival
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.8 km\nhttp://www.trailrunni
+ ng-festival.at
+TRANSP:TRANSPARENT
+URL:http://www.trailrunning-festival.at
+END:VEVENT
+END:VCALENDAR
