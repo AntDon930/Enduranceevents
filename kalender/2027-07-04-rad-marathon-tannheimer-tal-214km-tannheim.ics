@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-rad-marathon-tannheimer-tal-214km-tannheim@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Rad-Marathon Tannheimer Tal – Strecke 214 km
+LOCATION:Tannheim\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 214 km\nhttps://www.rad-mar
+ athon.at/
+TRANSP:TRANSPARENT
+URL:https://www.rad-marathon.at/
+END:VEVENT
+END:VCALENDAR

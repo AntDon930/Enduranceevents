@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-cuprennen-alpenarena-villach-1-2-x-villach-lind@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270809
+SUMMARY:Cuprennen Alpenarena Villach 1&2 – Straßenrennen
+LOCATION:Villach-Lind\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rc-kac.at
+TRANSP:TRANSPARENT
+URL:https://www.rc-kac.at
+END:VEVENT
+END:VCALENDAR

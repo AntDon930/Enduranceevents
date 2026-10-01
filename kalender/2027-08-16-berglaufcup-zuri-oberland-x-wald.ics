@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-16-berglaufcup-zuri-oberland-x-wald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270822
+SUMMARY:Berglaufcup Züri Oberland
+LOCATION:Wald\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 417544/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/417544/
+END:VEVENT
+END:VCALENDAR

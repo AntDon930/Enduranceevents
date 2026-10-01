@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-12-05-bremer-bergmarathon-51-8km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271205
+DTEND;VALUE=DATE:20271206
+SUMMARY:Bremer Bergmarathon – 51\,750 km (Ultralauf)
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 51.8 km\nhttps://my.raceresul
+ t.com/382692/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/382692/
+END:VEVENT
+END:VCALENDAR

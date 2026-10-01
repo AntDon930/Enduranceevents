@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-la-cassya-run-8km-yverdon-les-bains@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:La Cassya Run – 8 km Lauf
+LOCATION:Yverdon-les-Bains\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.mso.swiss/
+ events/2535-la-cassya-run
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2535-la-cassya-run
+END:VEVENT
+END:VCALENDAR

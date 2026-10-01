@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-the-north-face-grossglockner-ultra-trail-110km-kaprun@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270724
+SUMMARY:THE NORTH FACE GROSSGLOCKNER ULTRA-TRAIL – Großglockner Ultra-Trai
+ l 110 km
+LOCATION:Kaprun\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 110 km\nhttps://www.ultratrai
+ l.at/
+TRANSP:TRANSPARENT
+URL:https://www.ultratrail.at/
+END:VEVENT
+END:VCALENDAR

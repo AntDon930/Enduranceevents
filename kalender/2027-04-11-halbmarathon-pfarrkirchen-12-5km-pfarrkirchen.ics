@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-halbmarathon-pfarrkirchen-12-5km-pfarrkirchen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Halbmarathon Pfarrkirchen – Freies Walking / Nordic Walking 12\,5 
+ km mit Zeitnahme
+LOCATION:Pfarrkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://halbmaratho
+ n.tus-pfarrkirchen.de/
+TRANSP:TRANSPARENT
+URL:https://halbmarathon.tus-pfarrkirchen.de/
+END:VEVENT
+END:VCALENDAR

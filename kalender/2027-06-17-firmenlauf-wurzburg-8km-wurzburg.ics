@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-firmenlauf-wurzburg-8km-wurzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270618
+SUMMARY:Firmenlauf Würzburg (Termin vorläufig)
+LOCATION:Würzburg\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 8 km\nhttps:
+ //www.wvv.de/energie-b2c/firmenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.wvv.de/energie-b2c/firmenlauf/
+END:VEVENT
+END:VCALENDAR

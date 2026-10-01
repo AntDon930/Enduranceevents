@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-mossinger-apfellauf-21km-mossingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Mössinger Apfellauf – Dreifürstensteig\, ca. Halbmarathon
+LOCATION:Mössingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttp://www.lgsz.de
+TRANSP:TRANSPARENT
+URL:http://www.lgsz.de
+END:VEVENT
+END:VCALENDAR

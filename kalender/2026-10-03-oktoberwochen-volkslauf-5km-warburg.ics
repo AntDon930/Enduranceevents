@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-oktoberwochen-volkslauf-5km-warburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Oktoberwochen Volkslauf
+LOCATION:Warburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.warburgers
+ v.de/veranstaltungen/42-warburger-oktoberwochenlauf-2018
+TRANSP:TRANSPARENT
+URL:https://www.warburgersv.de/veranstaltungen/42-warburger-oktoberwochenl
+ auf-2018
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-18-nussdorflauf-6-6km-eberdingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:18. Nussdorflauf – 6\,6 km Einsteigerlauf und Nordic Walking
+LOCATION:Eberdingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.6 km\nhttps://nussdorf-lau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://nussdorf-lauf.de/
+END:VEVENT
+END:VCALENDAR

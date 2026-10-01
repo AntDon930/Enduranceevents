@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-sparkassen-lunecross-8km-luneburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Sparkassen-LüneCross – 8 km Hauptlauf
+LOCATION:Lüneburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://luenecross.de/
+TRANSP:TRANSPARENT
+URL:https://luenecross.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-radquer-mettmenstetten-0-5h-mettmenstetten@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Radquer Mettmenstetten – Cyclocross 0.5 h
+LOCATION:Mettmenstetten\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.radq
+ uermettmenstetten.ch/
+TRANSP:TRANSPARENT
+URL:https://www.radquermettmenstetten.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-frauenkopf-marathon-stuttgart-42-2km-stuttgart@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Frauenkopf Marathon Stuttgart
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.100-mar
+ athon-club.de/index.php/de/node/1157
+TRANSP:TRANSPARENT
+URL:https://www.100-marathon-club.de/index.php/de/node/1157
+END:VEVENT
+END:VCALENDAR

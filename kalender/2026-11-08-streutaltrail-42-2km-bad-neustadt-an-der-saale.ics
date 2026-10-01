@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-streutaltrail-42-2km-bad-neustadt-an-der-saale@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:StreutalTrail – Marathon
+LOCATION:Bad Neustadt an der Saale\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://streutaltrai
+ l.de/
+TRANSP:TRANSPARENT
+URL:https://streutaltrail.de/
+END:VEVENT
+END:VCALENDAR

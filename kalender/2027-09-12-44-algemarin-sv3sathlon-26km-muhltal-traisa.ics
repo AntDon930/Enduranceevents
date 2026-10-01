@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-44-algemarin-sv3sathlon-26km-muhltal-traisa@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:44. algemarin SV3sathlon – Sprintdistanz 26 km
+LOCATION:Mühltal-Traisa\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26 km\nhttps://sv3sathlon
+ .de/
+TRANSP:TRANSPARENT
+URL:https://sv3sathlon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-32-johannesbad-thermen-marathon-42-2km-bad-fussing@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:32. Johannesbad Thermen-Marathon – Marathon
+LOCATION:Bad Füssing\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.thermen-
+ marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.thermen-marathon.de
+END:VEVENT
+END:VCALENDAR

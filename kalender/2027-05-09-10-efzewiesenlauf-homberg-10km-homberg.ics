@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-10-efzewiesenlauf-homberg-10km-homberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:10. Efzewiesenlauf Homberg
+LOCATION:Homberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/10-efzewiesenlauf-homberg
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/10-efzewiesenlauf-homberg
+END:VEVENT
+END:VCALENDAR

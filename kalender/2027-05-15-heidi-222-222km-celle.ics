@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-heidi-222-222km-celle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Heidi 222
+LOCATION:Celle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 222 km\nhttps://www.kilomete
+ rliebe.de/events/heidi-222
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/heidi-222
+END:VEVENT
+END:VCALENDAR

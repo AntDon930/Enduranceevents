@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-maintal-bike-marathon-7-5km-guntersleben@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Maintal Bike Marathon – MTB-Marathon 7.5 km
+LOCATION:Güntersleben\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 7.5 km\nhttp://www.mt
+ b-guentersleben.de
+TRANSP:TRANSPARENT
+URL:http://www.mtb-guentersleben.de
+END:VEVENT
+END:VCALENDAR

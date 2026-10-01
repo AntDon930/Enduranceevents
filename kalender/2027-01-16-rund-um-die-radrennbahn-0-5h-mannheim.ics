@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-16-rund-um-die-radrennbahn-0-5h-mannheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Rund um die Radrennbahn – Cyclocross Hobbyklasse 0.5 h
+LOCATION:Mannheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.rrc-
+ endspurt-mannheim.de/
+TRANSP:TRANSPARENT
+URL:https://www.rrc-endspurt-mannheim.de/
+END:VEVENT
+END:VCALENDAR

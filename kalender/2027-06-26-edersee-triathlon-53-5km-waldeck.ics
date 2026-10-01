@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-edersee-triathlon-53-5km-waldeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Edersee-Triathlon – Olympische Distanz 53\,5 km (1\,5 km Schwimmen
+  / 42 km Rad / 10 km Laufen)
+LOCATION:Waldeck\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 53.5 km\nhttps://edersee-
+ triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://edersee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

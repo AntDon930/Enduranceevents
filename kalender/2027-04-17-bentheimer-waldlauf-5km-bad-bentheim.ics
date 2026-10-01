@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-bentheimer-waldlauf-5km-bad-bentheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Bentheimer Waldlauf – 5 km Runde
+LOCATION:Bad Bentheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://bentheimer-wal
+ dlauf.de/
+TRANSP:TRANSPARENT
+URL:https://bentheimer-waldlauf.de/
+END:VEVENT
+END:VCALENDAR

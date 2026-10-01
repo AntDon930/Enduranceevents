@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-black-forest-ultra-bike-marathon-118km-kirchzarten@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Black Forest ULTRA Bike Marathon – MTB-Marathon 118 km
+LOCATION:Kirchzarten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 118 km\nhttps://www.u
+ ltra-bike.de/
+TRANSP:TRANSPARENT
+URL:https://www.ultra-bike.de/
+END:VEVENT
+END:VCALENDAR

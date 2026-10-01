@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-the-brain-bikerace-usedom-85km-krummin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:The Brain Bikerace Usedom – Hobbyrennen 85 km
+LOCATION:Krummin\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 85 km\nhttps://waterkant-gr
+ avel.de
+TRANSP:TRANSPARENT
+URL:https://waterkant-gravel.de
+END:VEVENT
+END:VCALENDAR

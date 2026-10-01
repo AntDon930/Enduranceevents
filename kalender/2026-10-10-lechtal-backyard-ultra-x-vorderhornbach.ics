@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-lechtal-backyard-ultra-x-vorderhornbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Lechtal Backyard Ultra
+LOCATION:Vorderhornbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://www.hornb
+ acher-sv.at/backyard
+TRANSP:TRANSPARENT
+URL:https://www.hornbacher-sv.at/backyard
+END:VEVENT
+END:VCALENDAR

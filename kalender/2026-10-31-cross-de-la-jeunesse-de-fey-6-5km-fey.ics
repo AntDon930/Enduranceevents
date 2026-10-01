@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-cross-de-la-jeunesse-de-fey-6-5km-fey@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Cross de la Jeunesse de Fey – 6\,5 km : Nordic Walking\; gemischte
+ s Podium.
+LOCATION:Fey\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.5 km\nhttps://jeunessefey.w
+ ixsite.com/jeunessedefey
+TRANSP:TRANSPARENT
+URL:https://jeunessefey.wixsite.com/jeunessedefey
+END:VEVENT
+END:VCALENDAR

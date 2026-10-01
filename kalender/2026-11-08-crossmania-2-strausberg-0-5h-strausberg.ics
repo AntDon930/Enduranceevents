@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-crossmania-2-strausberg-0-5h-strausberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Crossmania #2 - Strausberg – Cyclocross Jedermann bis 39 / ab 40 0
+ .5 h
+LOCATION:Strausberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.cros
+ smania.de
+TRANSP:TRANSPARENT
+URL:https://www.crossmania.de
+END:VEVENT
+END:VCALENDAR

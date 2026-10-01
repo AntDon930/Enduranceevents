@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-33-nikolauslauf-10km-reichenbach-lahr-schwarzwald@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:33. Nikolauslauf
+LOCATION:Reichenbach (Lahr/Schwarzwald)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lg-gerold
+ seck-lahr.com/
+TRANSP:TRANSPARENT
+URL:https://www.lg-geroldseck-lahr.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-lauchringer-triathlon-nacht-24-4km-lauchringen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:Lauchringer Triathlon-Nacht
+LOCATION:Lauchringen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24.4 km\nhttps://www.tria
+ thlon-lauchringen.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-lauchringen.de/
+END:VEVENT
+END:VCALENDAR

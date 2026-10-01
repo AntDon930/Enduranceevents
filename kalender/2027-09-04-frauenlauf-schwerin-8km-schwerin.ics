@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-frauenlauf-schwerin-8km-schwerin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Frauenlauf Schwerin
+LOCATION:Schwerin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.fuenf-seen
+ -lauf.de/ueber-uns/laufkalender/details?tx_news_pi1%5Baction%5D=detail&tx
+ _news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=8&cHash=72c6c061ec9f
+ a1e5d6b96db761b9d68c
+TRANSP:TRANSPARENT
+URL:https://www.fuenf-seen-lauf.de/ueber-uns/laufkalender/details?tx_news_
+ pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnew
+ s%5D=8&cHash=72c6c061ec9fa1e5d6b96db761b9d68c
+END:VEVENT
+END:VCALENDAR

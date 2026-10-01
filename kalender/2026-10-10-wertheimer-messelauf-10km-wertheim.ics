@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-wertheimer-messelauf-10km-wertheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Wertheimer Messelauf – 10 km Kurtz Ersa Lauf
+LOCATION:Wertheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.messelauf
+ -svn.de/
+TRANSP:TRANSPARENT
+URL:https://www.messelauf-svn.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-14-muttenzer-herbstlauf-5-6km-muttenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:14. Muttenzer Herbstlauf – Lauf 5\,6 km
+LOCATION:Muttenz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttp://www.muttenzer
+ herbstlauf.ch/
+TRANSP:TRANSPARENT
+URL:http://www.muttenzerherbstlauf.ch/
+END:VEVENT
+END:VCALENDAR

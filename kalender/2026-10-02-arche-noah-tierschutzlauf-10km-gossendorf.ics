@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-arche-noah-tierschutzlauf-10km-gossendorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261005
+SUMMARY:Arche Noah Tierschutzlauf – 10 Kilometer
+LOCATION:Gössendorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.aktiverti
+ erschutz.at/tierschutzlauf/
+TRANSP:TRANSPARENT
+URL:https://www.aktivertierschutz.at/tierschutzlauf/
+END:VEVENT
+END:VCALENDAR

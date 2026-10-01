@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-mtb-zone-bikepark-petzen-trophy-xcc-x-st-michael@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:MTB Zone Bikepark Petzen Trophy XCC – Short-Track
+LOCATION:St. Michael\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.facebo
+ ok.com/rcpetzen
+TRANSP:TRANSPARENT
+URL:https://www.facebook.com/rcpetzen
+END:VEVENT
+END:VCALENDAR

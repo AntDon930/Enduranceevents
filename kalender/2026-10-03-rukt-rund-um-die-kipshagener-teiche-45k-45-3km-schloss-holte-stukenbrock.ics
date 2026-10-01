@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-rukt-rund-um-die-kipshagener-teiche-45k-45-3km-schloss-holt
+ e-stukenbrock@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:RuKT Rund um die Kipshagener Teiche 45K – 45\,30 km (GPS-/laufradv
+ ermessen)
+LOCATION:Schloß Holte-Stukenbrock\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45.3 km\nhttps://my.raceresu
+ lt.com/390497/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/390497/
+END:VEVENT
+END:VCALENDAR

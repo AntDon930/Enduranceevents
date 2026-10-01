@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-allgau-triathlon-2027-x-immenstadt-im-allgau@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Allgäu Triathlon 2027 – Olympisch
+LOCATION:Immenstadt im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.808project
+ .de/allgaeutriathlon
+TRANSP:TRANSPARENT
+URL:https://www.808project.de/allgaeutriathlon
+END:VEVENT
+END:VCALENDAR

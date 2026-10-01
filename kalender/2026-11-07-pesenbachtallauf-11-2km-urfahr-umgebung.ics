@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-pesenbachtallauf-11-2km-urfahr-umgebung@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Pesenbachtallauf
+LOCATION:Urfahr-Umgebung\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.2 km\nhttps://unionfeldki
+ rchen.at/laufen/pesenbachtallauf/
+TRANSP:TRANSPARENT
+URL:https://unionfeldkirchen.at/laufen/pesenbachtallauf/
+END:VEVENT
+END:VCALENDAR

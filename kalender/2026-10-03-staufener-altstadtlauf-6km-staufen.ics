@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-staufener-altstadtlauf-6km-staufen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Staufener Altstadtlauf
+LOCATION:Staufen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.athletics-
+ web.info/mvc/uebersicht.htm
+TRANSP:TRANSPARENT
+URL:https://www.athletics-web.info/mvc/uebersicht.htm
+END:VEVENT
+END:VCALENDAR

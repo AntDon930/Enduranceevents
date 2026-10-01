@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-luftschifflauf-mulheim-10km-mulheim-an-der-ruhr@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Luftschifflauf Mülheim – Ausdauer Lauf/10 km
+LOCATION:Mülheim an der Ruhr\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://luftschifflau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://luftschifflauf.de/
+END:VEVENT
+END:VCALENDAR

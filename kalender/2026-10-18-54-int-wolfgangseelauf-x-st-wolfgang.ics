@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-54-int-wolfgangseelauf-x-st-wolfgang@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:54. Int. Wolfgangseelauf
+LOCATION:St. Wolfgang\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.wolfgangseelau
+ f.at
+TRANSP:TRANSPARENT
+URL:http://www.wolfgangseelauf.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-aschaffenburger-halbmarathon-21-1km-aschaffenburg@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Aschaffenburger Halbmarathon – Halbmarathon
+LOCATION:Aschaffenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://hm-ab.de
+TRANSP:TRANSPARENT
+URL:https://hm-ab.de
+END:VEVENT
+END:VCALENDAR

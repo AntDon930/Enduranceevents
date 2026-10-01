@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-gunzburger-alkoholfrei-cross-triathlon-31-4km-gunzburg@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Günzburger Alkoholfrei Cross Triathlon – Cross-Triathlon 31\,4 km 
+ (400 m Schwimmen / 26 km MTB / 5 km Laufen)
+LOCATION:Günzburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 31.4 km\nhttps://www.tri-g
+ z.de/g%C3%BCnzburger-alkoholfrei-cross-triathlon-2027/
+TRANSP:TRANSPARENT
+URL:https://www.tri-gz.de/g%C3%BCnzburger-alkoholfrei-cross-triathlon-2027
+ /
+END:VEVENT
+END:VCALENDAR

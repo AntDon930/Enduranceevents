@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-holzland-crosslauf-x-heltersberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Holzland-Crosslauf
+LOCATION:Heltersberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://tus06heltersberg.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://tus06heltersberg.de/
+END:VEVENT
+END:VCALENDAR

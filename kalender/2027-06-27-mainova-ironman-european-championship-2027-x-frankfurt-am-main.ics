@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-mainova-ironman-european-championship-2027-x-frankfurt-am-m
+ ain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270628
+SUMMARY:Mainova IRONMAN European Championship 2027 – Langdistanz
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.ironman.co
+ m/races/im-frankfurt
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im-frankfurt
+END:VEVENT
+END:VCALENDAR

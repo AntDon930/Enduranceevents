@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-18-ith-hennesee-triathlon-meschede-51km-meschede@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:18. ITH Hennesee Triathlon Meschede
+LOCATION:Meschede\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://www.trifun
+ hennesee.de/ith-hennesee-triathlon/
+TRANSP:TRANSPARENT
+URL:https://www.trifunhennesee.de/ith-hennesee-triathlon/
+END:VEVENT
+END:VCALENDAR

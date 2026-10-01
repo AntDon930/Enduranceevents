@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-57-melsunger-adventslauf-rund-um-die-koppe-10km-melsungen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:57. Melsunger Adventslauf Rund um die Koppe
+LOCATION:Melsungen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://lauftreff-mels
+ ungen.de
+TRANSP:TRANSPARENT
+URL:http://lauftreff-melsungen.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-unterberg-duathlon-8-8km-kossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:Unterberg Duathlon – Cross-Duathlon 8.8 km (3.4 km Laufstrecke / 5
+ .4 km Radstrecke)
+LOCATION:Kössen\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 8.8 km\nhttps://www.unt
+ erberg-duathlon.at
+TRANSP:TRANSPARENT
+URL:https://www.unterberg-duathlon.at
+END:VEVENT
+END:VCALENDAR

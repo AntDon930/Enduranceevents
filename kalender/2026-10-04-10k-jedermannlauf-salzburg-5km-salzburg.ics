@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-10k-jedermannlauf-salzburg-5km-salzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:10K - Jedermannlauf Salzburg
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://salzburg-marat
+ hon.at/de/jedermannlauf/
+TRANSP:TRANSPARENT
+URL:https://salzburg-marathon.at/de/jedermannlauf/
+END:VEVENT
+END:VCALENDAR

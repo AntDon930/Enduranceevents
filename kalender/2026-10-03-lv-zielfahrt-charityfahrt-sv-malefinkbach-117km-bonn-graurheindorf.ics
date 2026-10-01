@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-lv-zielfahrt-charityfahrt-sv-malefinkbach-117km-bonn-graurh
+ eindorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:LV-Zielfahrt - Charityfahrt SV Malefinkbach – Brevet 117 km
+LOCATION:Bonn-Graurheindorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße · Charity\nLänge: 117 km\nhttps://w
+ ww.svmalefinkbach.de/spendentour/
+TRANSP:TRANSPARENT
+URL:https://www.svmalefinkbach.de/spendentour/
+END:VEVENT
+END:VCALENDAR

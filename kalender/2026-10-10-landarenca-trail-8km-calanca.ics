@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-landarenca-trail-8km-calanca@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261012
+SUMMARY:Landarenca Trail
+LOCATION:Calanca\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.landarenca-
+ trail.ch
+TRANSP:TRANSPARENT
+URL:https://www.landarenca-trail.ch
+END:VEVENT
+END:VCALENDAR

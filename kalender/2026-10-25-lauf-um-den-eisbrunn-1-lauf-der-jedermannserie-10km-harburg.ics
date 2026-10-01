@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-lauf-um-den-eisbrunn-1-lauf-der-jedermannserie-10km-harburg
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Lauf um den Eisbrunn - 1. Lauf der Jedermannserie
+LOCATION:Harburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-donau-ries.de
+END:VEVENT
+END:VCALENDAR

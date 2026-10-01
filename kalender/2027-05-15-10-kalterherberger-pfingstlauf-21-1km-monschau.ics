@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-10-kalterherberger-pfingstlauf-21-1km-monschau@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:10. Kalterherberger Pfingstlauf
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.sv-kalte
+ rherberg.de
+TRANSP:TRANSPARENT
+URL:http://www.sv-kalterherberg.de
+END:VEVENT
+END:VCALENDAR

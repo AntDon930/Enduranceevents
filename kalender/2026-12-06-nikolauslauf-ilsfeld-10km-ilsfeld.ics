@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-nikolauslauf-ilsfeld-10km-ilsfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Nikolauslauf Ilsfeld – 10 km (Therapie & Reha Zentrum Siegele Lauf
+ )
+LOCATION:Ilsfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sc-ilsfeld.de
+ /nikolauslauf/
+TRANSP:TRANSPARENT
+URL:https://sc-ilsfeld.de/nikolauslauf/
+END:VEVENT
+END:VCALENDAR

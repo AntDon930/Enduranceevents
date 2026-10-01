@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-austria-backyard-ultra-loosdorf-trail-7km-albrechtsberg-an-
+ der-pielach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270531
+SUMMARY:Austria Backyard Ultra - Loosdorf Trail
+LOCATION:Albrechtsberg an der Pielach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.austriaback
+ yardultra.com/en/loosdorf
+TRANSP:TRANSPARENT
+URL:https://www.austriabackyardultra.com/en/loosdorf
+END:VEVENT
+END:VCALENDAR

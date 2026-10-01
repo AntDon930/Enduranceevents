@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-25-sebastian-fredrich-gedenklauf-lm-lc-nlc-10km-lubmin@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)
+LOCATION:Lubmin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tri-hgwaii
+ .de
+TRANSP:TRANSPARENT
+URL:http://www.tri-hgwaii.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-39-volkslauf-im-volkspark-10km-bochum-langendreer@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:39. Volkslauf im Volkspark – Lauf
+LOCATION:Bochum Langendreer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
+ fkalender/details/39-volkslauf-im-volkspark
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/39-volkslauf-im-volkspark
+END:VEVENT
+END:VCALENDAR

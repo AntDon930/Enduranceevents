@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-6-stunden-lauf-morfelden-2-8km-morfelden-walldorf@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:6-Stunden-Lauf Mörfelden
+LOCATION:Mörfelden-Walldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 2.8 km\nhttps://lg-mw.de/6-stu
+ ndenlauf/
+TRANSP:TRANSPARENT
+URL:https://lg-mw.de/6-stundenlauf/
+END:VEVENT
+END:VCALENDAR

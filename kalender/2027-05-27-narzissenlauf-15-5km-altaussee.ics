@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-narzissenlauf-15-5km-altaussee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Narzissenlauf
+LOCATION:Altaussee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.5 km\nhttps://www.wsv-alt
+ aussee.at/narzissenlauf
+TRANSP:TRANSPARENT
+URL:https://www.wsv-altaussee.at/narzissenlauf
+END:VEVENT
+END:VCALENDAR

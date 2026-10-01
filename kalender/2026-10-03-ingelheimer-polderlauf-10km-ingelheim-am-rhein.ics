@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-ingelheimer-polderlauf-10km-ingelheim-am-rhein@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Ingelheimer Polderlauf – 10 km Lauf
+LOCATION:Ingelheim am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.polderlau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://www.polderlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-34-soester-stadtlauf-10km-soest@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:34. Soester Stadtlauf
+LOCATION:Soest\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.volksbank
+ -hellweg.de/meine-bank/veranstaltungen/soester-stadtlauf.html
+TRANSP:TRANSPARENT
+URL:https://www.volksbank-hellweg.de/meine-bank/veranstaltungen/soester-st
+ adtlauf.html
+END:VEVENT
+END:VCALENDAR

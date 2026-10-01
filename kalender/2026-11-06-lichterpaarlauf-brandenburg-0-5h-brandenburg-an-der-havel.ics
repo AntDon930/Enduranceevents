@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-lichterpaarlauf-brandenburg-0-5h-brandenburg-an-der-havel@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:Lichterpaarlauf Brandenburg – Paarlauf 30 Minuten (400-m-Runde)
+LOCATION:Brandenburg an der Havel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 0.5 h\nhttps://vfl-brandenburg
+ .de/lichterpaarlauf/
+TRANSP:TRANSPARENT
+URL:https://vfl-brandenburg.de/lichterpaarlauf/
+END:VEVENT
+END:VCALENDAR

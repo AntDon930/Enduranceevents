@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-xterra-trail-de-la-vallee-de-joux-58km-le-chenit@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261012
+SUMMARY:XTERRA Trail de la Vallée de Joux
+LOCATION:Le Chenit\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: 58 km\nhttps://trailvallee
+ dejoux.ch/
+TRANSP:TRANSPARENT
+URL:https://trailvalleedejoux.ch/
+END:VEVENT
+END:VCALENDAR

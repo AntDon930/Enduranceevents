@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-3-osterbeck-marathon-marathon-serie-der-lg-lotte-42-2km-wes
+ terkappeln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:3. Osterbeck Marathon / Marathon-Serie der LG Lotte/Halen
+LOCATION:Westerkappeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://lg-lottehal
+ en.jimdofree.com
+TRANSP:TRANSPARENT
+URL:https://lg-lottehalen.jimdofree.com
+END:VEVENT
+END:VCALENDAR

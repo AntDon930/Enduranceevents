@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-novemberlauf-freudenstadt-50km-freudenstadt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Novemberlauf Freudenstadt
+LOCATION:Freudenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://neckarlauf.co
+ m/jubil-umslauf-sch-nebeck.html
+TRANSP:TRANSPARENT
+URL:https://neckarlauf.com/jubil-umslauf-sch-nebeck.html
+END:VEVENT
+END:VCALENDAR

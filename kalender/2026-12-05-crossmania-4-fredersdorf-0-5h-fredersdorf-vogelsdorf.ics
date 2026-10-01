@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-crossmania-4-fredersdorf-0-5h-fredersdorf-vogelsdorf@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Crossmania #4 - Fredersdorf – Cyclocross 0.5 h
+LOCATION:Fredersdorf-Vogelsdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://crossman
+ ia.de/1crossmania
+TRANSP:TRANSPARENT
+URL:https://crossmania.de/1crossmania
+END:VEVENT
+END:VCALENDAR

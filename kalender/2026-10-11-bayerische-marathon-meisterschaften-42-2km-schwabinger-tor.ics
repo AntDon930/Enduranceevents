@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-bayerische-marathon-meisterschaften-42-2km-schwabinger-tor@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Bayerische Marathon Meisterschaften
+LOCATION:Schwabinger Tor\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://ladv.de/aus
+ schreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.
+ htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meister
+ schaften-M%C3%BCnchen.htm
+END:VEVENT
+END:VCALENDAR

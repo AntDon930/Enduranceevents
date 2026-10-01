@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-43-int-volkslauf-und-wandertag-20km-preuss-oldendorf@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:43. Int. Volkslauf und Wandertag
+LOCATION:Preuß. Oldendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://otsv.de/leich
+ tathletik/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://otsv.de/leichtathletik/volkslauf/
+END:VEVENT
+END:VCALENDAR

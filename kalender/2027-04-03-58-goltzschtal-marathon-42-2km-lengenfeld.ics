@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-58-goltzschtal-marathon-42-2km-lengenfeld@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:58. Göltzschtal-Marathon
+LOCATION:Lengenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.goeltzsc
+ htallauf.de
+TRANSP:TRANSPARENT
+URL:http://www.goeltzschtallauf.de
+END:VEVENT
+END:VCALENDAR

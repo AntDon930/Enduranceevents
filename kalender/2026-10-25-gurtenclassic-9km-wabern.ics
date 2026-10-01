@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-gurtenclassic-9km-wabern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:GurtenClassic – Classic Run direkt 9 km
+LOCATION:Wabern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.gurtenclas
+ sic.ch/
+TRANSP:TRANSPARENT
+URL:https://www.gurtenclassic.ch/
+END:VEVENT
+END:VCALENDAR

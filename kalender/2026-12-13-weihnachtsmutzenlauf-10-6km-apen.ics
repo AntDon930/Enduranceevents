@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-weihnachtsmutzenlauf-10-6km-apen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Weihnachtsmützenlauf – 10\,6 km Hauptlauf mit offizieller Zeitmess
+ ung
+LOCATION:Apen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.6 km\nhttps://www.wmla.de
+ /
+TRANSP:TRANSPARENT
+URL:https://www.wmla.de/
+END:VEVENT
+END:VCALENDAR

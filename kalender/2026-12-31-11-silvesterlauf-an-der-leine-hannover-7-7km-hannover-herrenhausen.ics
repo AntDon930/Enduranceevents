@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-11-silvesterlauf-an-der-leine-hannover-7-7km-hannover-herre
+ nhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:11. Silvesterlauf an der Leine Hannover
+LOCATION:Hannover-Herrenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.7 km\nhttps://www.silveste
+ rlauf-an-der-leine.de/
+TRANSP:TRANSPARENT
+URL:https://www.silvesterlauf-an-der-leine.de/
+END:VEVENT
+END:VCALENDAR

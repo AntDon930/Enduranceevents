@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-rund-um-die-steinbachtalsperre-x-euskirchen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Rund um die Steinbachtalsperre
+LOCATION:Euskirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lc-euskirchen
+ .de/seite/742722/silvesterlauf-2025.html
+TRANSP:TRANSPARENT
+URL:https://www.lc-euskirchen.de/seite/742722/silvesterlauf-2025.html
+END:VEVENT
+END:VCALENDAR

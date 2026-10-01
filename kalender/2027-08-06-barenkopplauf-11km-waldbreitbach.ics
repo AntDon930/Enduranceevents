@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-06-barenkopplauf-11km-waldbreitbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270807
+SUMMARY:Bärenkopplauf
+LOCATION:Waldbreitbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://baerenkopplau
+ f.de
+TRANSP:TRANSPARENT
+URL:https://baerenkopplauf.de
+END:VEVENT
+END:VCALENDAR

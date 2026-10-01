@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-25-asdorflauf-wehbach-10km-kirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:25. Asdorflauf Wehbach
+LOCATION:Kirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ausdauer-
+ shop.de/ausdauer-cup.html
+TRANSP:TRANSPARENT
+URL:https://www.ausdauer-shop.de/ausdauer-cup.html
+END:VEVENT
+END:VCALENDAR

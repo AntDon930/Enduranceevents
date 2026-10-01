@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-valser-herbstlauf-12km-vals@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Valser Herbstlauf
+LOCATION:Vals\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttp://www.valser-her
+ bstlauf.ch/
+TRANSP:TRANSPARENT
+URL:http://www.valser-herbstlauf.ch/
+END:VEVENT
+END:VCALENDAR

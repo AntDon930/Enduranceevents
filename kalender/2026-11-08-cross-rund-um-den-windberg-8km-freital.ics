@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-cross-rund-um-den-windberg-8km-freital@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Cross Rund um den Windberg
+LOCATION:Freital\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.windberglau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://www.windberglauf.de/
+END:VEVENT
+END:VCALENDAR

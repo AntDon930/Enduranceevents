@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-02-35-busumer-volkslauf-10km-busum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270702
+DTEND;VALUE=DATE:20270703
+SUMMARY:35. Büsumer Volkslauf
+LOCATION:Büsum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tsv-buesum
+ .de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-buesum.de
+END:VEVENT
+END:VCALENDAR

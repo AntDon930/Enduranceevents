@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-crossmania-series-5-berlin-karlshorst-0-5h-berlin-karlshors
+ t@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Crossmania Series #5 - Berlin Karlshorst – Cyclocross 0.5 h
+LOCATION:Berlin-Karlshorst\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://crossman
+ ia.de/5crossmania
+TRANSP:TRANSPARENT
+URL:https://crossmania.de/5crossmania
+END:VEVENT
+END:VCALENDAR

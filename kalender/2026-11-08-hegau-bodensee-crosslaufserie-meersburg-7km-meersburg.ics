@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-hegau-bodensee-crosslaufserie-meersburg-7km-meersburg@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Hegau-Bodensee Crosslaufserie - Meersburg
+LOCATION:Meersburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://hegau-bodensee-
+ cross.de/serie/meersburg/
+TRANSP:TRANSPARENT
+URL:https://hegau-bodensee-cross.de/serie/meersburg/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-wachau-trail-10km-krems-an-der-donau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Wachau Trail – 10 km : für Einsteiger und Genusswanderer.
+LOCATION:Krems an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttp://www.wachautrail
+ .at
+TRANSP:TRANSPARENT
+URL:http://www.wachautrail.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-niesen-treppenlauf-12km-reichenbach-im-kandertal@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270613
+SUMMARY:Niesen-Treppenlauf
+LOCATION:Reichenbach im Kandertal\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://www.niesen.ch/
+ treppenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.niesen.ch/treppenlauf/
+END:VEVENT
+END:VCALENDAR

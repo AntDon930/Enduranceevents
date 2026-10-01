@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-keibellauf-huchenfeld-9-2km-pforzheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:Keibellauf Huchenfeld – Keibellauf
+LOCATION:Pforzheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttps://keibellauf.d
+ e/
+TRANSP:TRANSPARENT
+URL:https://keibellauf.de/
+END:VEVENT
+END:VCALENDAR

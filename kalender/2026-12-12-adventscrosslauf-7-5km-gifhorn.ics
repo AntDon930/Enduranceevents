@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-adventscrosslauf-7-5km-gifhorn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Adventscrosslauf – 7\,5 km Lauf
+LOCATION:Gifhorn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.vfr-wilsc
+ he-neubokel.de/advents-crosslauf
+TRANSP:TRANSPARENT
+URL:https://www.vfr-wilsche-neubokel.de/advents-crosslauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-35-ismaninger-winterlaufserie-21-1km-ismaning@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:35. Ismaninger Winterlaufserie – Halbmarathon 21.100 m \, Einzelst
+ art\, Preis 29\,00 €
+LOCATION:Ismaning\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://winterlaufs
+ erie.net
+TRANSP:TRANSPARENT
+URL:https://winterlaufserie.net
+END:VEVENT
+END:VCALENDAR

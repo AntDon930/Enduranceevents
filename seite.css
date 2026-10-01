@@ -1,0 +1,157 @@
+/* Textseiten (Impressum, Datenschutz) - Kopf, Fußzeile, Typografie.
+ *
+ * Eine gemeinsame Datei statt zweier Kopien: Zwei Kopien laufen
+ * auseinander (hier geändert, dort vergessen) - dieselbe Begründung wie
+ * bei filter-ui.css.
+ *
+ * Bewusst OHNE ?v=-Stempel (siehe stamp_assets.py): Der Stempel sichert
+ * das Zusammenspiel von Inline-Skript und nachgeladenem JS ab - fehlt
+ * dort eine Funktion, bleibt die Seite LEER. Hier geht es nur um das
+ * Aussehen zweier Textseiten; ein zehn Minuten alter Stand heißt
+ * schlimmstenfalls unformatierter, aber vollständig lesbarer Text.
+ */
+
+/* Farben nach dem Style Guide (Design-System v1, 21.09.2026): Kreide,
+   Weiß, Linie, Tinte, Grau, Nacht - dieselben Werte wie in site.css.
+   Diese Seiten folgen der Systemeinstellung (kein Umschalter, keine
+   Skripte). */
+:root {
+  color-scheme: light dark;
+  --bg: #f4f2ed;
+  --panel: #ffffff;
+  --border: #e2ded5;
+  --text: #0f1b20;
+  --text-muted: #66707f;
+  --accent: #163b6b;
+  --accent-bg: #edf1f7;
+  --hero-gradient: linear-gradient(135deg, #0b1b33 0%, #163b6b 100%);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1b33;
+    --panel: #13233d;
+    --border: #2a3a56;
+    --text: #edf1f7;
+    --text-muted: #9aa6b8;
+    --accent: #8fb3e6;
+    --accent-bg: #1c2c48;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: 'Barlow Condensed', 'Barlow', system-ui, sans-serif; letter-spacing: 0; }
+
+/* Kopfzeile wie auf den anderen Seiten: der blaue Kasten mit den
+   Knöpfen rechts. */
+.top-bar {
+  background: var(--hero-gradient);
+  color: #fff;
+  padding: 18px 20px;
+  border-radius: 0 0 14px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.top-bar h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  flex: 1;
+  min-width: 0;
+}
+.top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+.top-actions a,
+.top-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.top-actions a:hover,
+.top-actions button:hover { background: rgba(255,255,255,0.24); }
+.lang-btn.active { background: #fff; color: var(--accent); border-color: #fff; }
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.karte {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+h2 {
+  font-size: 1.05rem;
+  margin: 28px 0 8px;
+  padding-top: 4px;
+}
+h2:first-of-type { margin-top: 0; }
+h3 { font-size: 0.95rem; margin: 18px 0 6px; }
+p, ul, dl { margin: 0 0 12px; }
+ul { padding-left: 20px; }
+li { margin-bottom: 4px; }
+a { color: var(--accent); }
+address { font-style: normal; }
+
+/* Die Stellen, die noch mit echten Angaben zu füllen sind. Sichtbar
+   markiert, damit keine Vorlage versehentlich live geht. */
+.platzhalter {
+  background: #fff3cd;
+  color: #664d03;
+  border: 1px dashed #b58a00;
+  border-radius: 6px;
+  padding: 0 6px;
+  font-weight: 600;
+}
+@media (prefers-color-scheme: dark) {
+  .platzhalter { background: #3a2f05; color: #ffe08a; border-color: #8a6d00; }
+}
+
+.hinweis {
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+}
+
+.stand { color: var(--text-muted); font-size: 0.85rem; margin-top: 24px; }
+
+footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+footer a { color: inherit; }

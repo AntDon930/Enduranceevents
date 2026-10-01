@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-weihnachtscrosslauf-borgholzhausen-5km-borgholzhausen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Weihnachtscrosslauf Borgholzhausen – 5 km - Crosslauf für Einsteig
+ er und Hobbyläufer
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://rsv-borgholzhau
+ sen.de/weihnachtscross
+TRANSP:TRANSPARENT
+URL:https://rsv-borgholzhausen.de/weihnachtscross
+END:VEVENT
+END:VCALENDAR

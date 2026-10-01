@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-transruinaulta-trailmarathon-transviamala-ilanz-61km-thusis
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:Transruinaulta Trailmarathon / Transviamala Ilanz-Thusis-Donat – S
+ chluchtenkönig/in 61 km
+LOCATION:Thusis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 61 km\nhttps://www.transviama
+ la.ch
+TRANSP:TRANSPARENT
+URL:https://www.transviamala.ch
+END:VEVENT
+END:VCALENDAR

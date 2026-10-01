@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-27-sommerlaufcup-wien-7km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270627
+DTEND;VALUE=DATE:20270816
+SUMMARY:Sommerlaufcup Wien – Juni 2027
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.sommerlaufc
+ up.at/
+TRANSP:TRANSPARENT
+URL:http://www.sommerlaufcup.at/
+END:VEVENT
+END:VCALENDAR

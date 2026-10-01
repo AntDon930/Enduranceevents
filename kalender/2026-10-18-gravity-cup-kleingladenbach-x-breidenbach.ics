@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-gravity-cup-kleingladenbach-x-breidenbach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Gravity Cup Kleingladenbach – Downhill
+LOCATION:Breidenbach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://super-grav
+ ity-cup.de
+TRANSP:TRANSPARENT
+URL:https://super-gravity-cup.de
+END:VEVENT
+END:VCALENDAR

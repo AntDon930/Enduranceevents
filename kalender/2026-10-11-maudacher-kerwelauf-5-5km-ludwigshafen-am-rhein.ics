@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-maudacher-kerwelauf-5-5km-ludwigshafen-am-rhein@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Maudacher Kerwelauf – 5\,5 km Hauptlauf (Einsteigerlauf)
+LOCATION:Ludwigshafen am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttps://maudach.de/k
+ erwe-lauf.html
+TRANSP:TRANSPARENT
+URL:https://maudach.de/kerwe-lauf.html
+END:VEVENT
+END:VCALENDAR

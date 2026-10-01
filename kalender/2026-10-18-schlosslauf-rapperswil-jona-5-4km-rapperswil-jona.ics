@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-schlosslauf-rapperswil-jona-5-4km-rapperswil-jona@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Schlosslauf Rapperswil-Jona – Kurzdistanz 5.4 km
+LOCATION:Rapperswil-Jona\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://schlosslauf.
+ ch/
+TRANSP:TRANSPARENT
+URL:https://schlosslauf.ch/
+END:VEVENT
+END:VCALENDAR

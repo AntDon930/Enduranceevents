@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-bismarck-gedenklauf-6-5km-schonhausen-elbe@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Bismarck-Gedenklauf – 6\,5 km für Altersklassen ab U16\, auch als 
+ Walking
+LOCATION:Schönhausen (Elbe)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.elbe-ohr
+ e-cup.de/veranstaltungen/bismarck-gedenklauf/
+TRANSP:TRANSPARENT
+URL:https://www.elbe-ohre-cup.de/veranstaltungen/bismarck-gedenklauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-caputher-seelauf-5km-schwielowsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Caputher Seelauf – 5 km Lauf
+LOCATION:Schwielowsee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.caputher-s
+ v.de/caputher-seelauf-2027/
+TRANSP:TRANSPARENT
+URL:https://www.caputher-sv.de/caputher-seelauf-2027/
+END:VEVENT
+END:VCALENDAR

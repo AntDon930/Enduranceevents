@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-ratinger-neujahrslauf-5km-ratingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Ratinger Neujahrslauf
+LOCATION:Ratingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://asc-ratingen.d
+ e/neujahrslauf/
+TRANSP:TRANSPARENT
+URL:https://asc-ratingen.de/neujahrslauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-25h-schwarzenbach-a-wald-25h-schwarzenbach-a-wald@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:25h Schwarzenbach a. Wald
+LOCATION:Schwarzenbach a. Wald\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 25 h\nhttp://www.schwarze
+ nbach-wald.de
+TRANSP:TRANSPARENT
+URL:http://www.schwarzenbach-wald.de
+END:VEVENT
+END:VCALENDAR

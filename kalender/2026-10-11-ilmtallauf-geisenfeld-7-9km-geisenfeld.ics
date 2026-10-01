@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-ilmtallauf-geisenfeld-7-9km-geisenfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Ilmtallauf Geisenfeld – Hauptlauf 7.900 m
+LOCATION:Geisenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.9 km\nhttps://sport-in-blo
+ g.de/2026/01/07/ilmtallauf-geisenfeld-3/
+TRANSP:TRANSPARENT
+URL:https://sport-in-blog.de/2026/01/07/ilmtallauf-geisenfeld-3/
+END:VEVENT
+END:VCALENDAR

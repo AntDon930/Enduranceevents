@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-huy-burgen-lauf-55km-huy@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:Huy-Burgen-Lauf
+LOCATION:Huy\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 55 km\nhttp://www.huy-burgen
+ -lauf.de/huy-burgen-lauf/willkommen/
+TRANSP:TRANSPARENT
+URL:http://www.huy-burgen-lauf.de/huy-burgen-lauf/willkommen/
+END:VEVENT
+END:VCALENDAR

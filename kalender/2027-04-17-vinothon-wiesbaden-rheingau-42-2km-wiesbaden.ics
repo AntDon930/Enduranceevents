@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-vinothon-wiesbaden-rheingau-42-2km-wiesbaden@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Vinothon Wiesbaden-Rheingau – 42\,2 km Marathon
+LOCATION:Wiesbaden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://vinothon-ge
+ nussmarathon.de/en/
+TRANSP:TRANSPARENT
+URL:https://vinothon-genussmarathon.de/en/
+END:VEVENT
+END:VCALENDAR

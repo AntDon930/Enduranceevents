@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-schorfheide24-hike-run-50km-friedrichswalde@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270509
+SUMMARY:Schorfheide24 Hike & Run – 50 Kilometer Rund um die halbe Schorfhe
+ ide
+LOCATION:Friedrichswalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://schorfheide-2
+ 4.de/
+TRANSP:TRANSPARENT
+URL:https://schorfheide-24.de/
+END:VEVENT
+END:VCALENDAR

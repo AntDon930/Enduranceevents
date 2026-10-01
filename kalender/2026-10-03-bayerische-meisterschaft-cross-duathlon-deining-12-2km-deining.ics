@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-bayerische-meisterschaft-cross-duathlon-deining-12-2km-dein
+ ing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Bayerische Meisterschaft Cross Duathlon Deining
+LOCATION:Deining\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 12.2 km\nhttps://www.cr
+ azysports.de
+TRANSP:TRANSPARENT
+URL:https://www.crazysports.de
+END:VEVENT
+END:VCALENDAR

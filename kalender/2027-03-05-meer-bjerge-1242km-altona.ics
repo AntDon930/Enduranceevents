@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-05-meer-bjerge-1242km-altona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270305
+DTEND;VALUE=DATE:20270306
+SUMMARY:Meer Bjerge
+LOCATION:Altona\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 1242 km\nhttps://buchstaben
+ fahrt.wordpress.com/meer-bjerge/
+TRANSP:TRANSPARENT
+URL:https://buchstabenfahrt.wordpress.com/meer-bjerge/
+END:VEVENT
+END:VCALENDAR

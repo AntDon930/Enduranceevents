@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-baren-run-12km-floh-seligenthal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Bären Run – 12 km Super Bären\, 2 Runden
+LOCATION:Floh-Seligenthal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.baeren-ru
+ n.de/
+TRANSP:TRANSPARENT
+URL:https://www.baeren-run.de/
+END:VEVENT
+END:VCALENDAR

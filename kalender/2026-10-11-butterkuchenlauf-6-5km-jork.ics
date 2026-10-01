@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-butterkuchenlauf-6-5km-jork@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Butterkuchenlauf – 6\,5 km (Laufen\, Walken\, Dogging\, Staffel mö
+ glich)
+LOCATION:Jork\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.butterku
+ chenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.butterkuchenlauf.de/
+END:VEVENT
+END:VCALENDAR

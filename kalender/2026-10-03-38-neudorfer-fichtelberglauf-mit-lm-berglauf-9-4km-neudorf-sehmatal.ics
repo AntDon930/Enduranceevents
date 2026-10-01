@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-38-neudorfer-fichtelberglauf-mit-lm-berglauf-9-4km-neudorf-
+ sehmatal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:38. Neudorfer Fichtelberglauf mit LM Berglauf
+LOCATION:Neudorf (Sehmatal)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9.4 km\nhttps://fichtelbergla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://fichtelberglauf.de/
+END:VEVENT
+END:VCALENDAR

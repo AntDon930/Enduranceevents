@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-kleine-zeitung-graz-marathon-hervis-halbmarathon-21-1km-gra
+ z@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Kleine Zeitung Graz Marathon / Hervis Halbmarathon / Energie Steie
+ rmark Viertelmarathon (WRC F)
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.grazmara
+ thon.at
+TRANSP:TRANSPARENT
+URL:http://www.grazmarathon.at
+END:VEVENT
+END:VCALENDAR

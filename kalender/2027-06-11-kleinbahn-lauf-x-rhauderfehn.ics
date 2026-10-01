@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-kleinbahn-lauf-x-rhauderfehn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Kleinbahn-Lauf (Termin vorläufig)
+LOCATION:Rhauderfehn\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Bahn\nLänge: -\nhttps://www
+ .tura07.de/neuigkeiten/19-kleinbahn-lauf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.tura07.de/neuigkeiten/19-kleinbahn-lauf-2026/
+END:VEVENT
+END:VCALENDAR

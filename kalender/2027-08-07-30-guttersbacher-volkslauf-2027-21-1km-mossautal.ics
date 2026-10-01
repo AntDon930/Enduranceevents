@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-30-guttersbacher-volkslauf-2027-21-1km-mossautal@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:30. Güttersbacher Volkslauf 2027
+LOCATION:Mossautal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.sc-guett
+ ersbach.de
+TRANSP:TRANSPARENT
+URL:http://www.sc-guettersbach.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-lindkogel-trail-10km-bad-voslau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Lindkogel Trail – 10 km \, 370 hm
+LOCATION:Bad Vöslau\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://lindkogeltrail
+ .at/
+TRANSP:TRANSPARENT
+URL:https://lindkogeltrail.at/
+END:VEVENT
+END:VCALENDAR

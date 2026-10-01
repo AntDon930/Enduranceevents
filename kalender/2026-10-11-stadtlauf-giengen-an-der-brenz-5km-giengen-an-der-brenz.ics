@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-stadtlauf-giengen-an-der-brenz-5km-giengen-an-der-brenz@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Stadtlauf Giengen an der Brenz – 5.000 m Kreissparkassen-Stadtlauf
+ \, Startgebühr 12\,00 €
+LOCATION:Giengen an der Brenz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tsg-gienge
+ n.de/de/Stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-giengen.de/de/Stadtlauf/
+END:VEVENT
+END:VCALENDAR

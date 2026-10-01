@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-09-gronauer-firmenlauf-5km-gronau-westfalen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270709
+DTEND;VALUE=DATE:20270710
+SUMMARY:Gronauer Firmenlauf
+LOCATION:Gronau (Westfalen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.firmenlauf
+ gronau.de/
+TRANSP:TRANSPARENT
+URL:https://www.firmenlaufgronau.de/
+END:VEVENT
+END:VCALENDAR

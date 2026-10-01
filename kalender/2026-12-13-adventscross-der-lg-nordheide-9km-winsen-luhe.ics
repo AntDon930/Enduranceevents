@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-adventscross-der-lg-nordheide-9km-winsen-luhe@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:Adventscross der LG Nordheide
+LOCATION:Winsen (Luhe)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://ladv.de/ausschr
+ eibung/detail/47339/Sparkassen-Advents-Cross-der-LG-Nordheide-Winsen-%28L
+ uhe%29.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/47339/Sparkassen-Advents-Cross-de
+ r-LG-Nordheide-Winsen-%28Luhe%29.htm
+END:VEVENT
+END:VCALENDAR

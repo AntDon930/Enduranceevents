@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-world-run-krems-an-der-donau-x-krems-an-der-
+ donau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life World Run Krems an der Donau
+LOCATION:Krems an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.wingsforlifew
+ orldrun.com/en/locations/krems-an-der-donau-krems
+TRANSP:TRANSPARENT
+URL:https://www.wingsforlifeworldrun.com/en/locations/krems-an-der-donau-k
+ rems
+END:VEVENT
+END:VCALENDAR

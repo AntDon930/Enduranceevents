@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-stadtwerke-dinslaken-energyrun-2027-10km-dinslaken@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Stadtwerke Dinslaken Energyrun 2027
+LOCATION:Dinslaken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sus09.de
+TRANSP:TRANSPARENT
+URL:http://www.sus09.de
+END:VEVENT
+END:VCALENDAR

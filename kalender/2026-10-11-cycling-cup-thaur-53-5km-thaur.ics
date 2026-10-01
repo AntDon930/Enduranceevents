@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-cycling-cup-thaur-53-5km-thaur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Cycling Cup Thaur – Straßenrennen 53.5 km
+LOCATION:Thaur\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 53.5 km\nhttps://www.
+ innsbrucker-schwalben.at
+TRANSP:TRANSPARENT
+URL:https://www.innsbrucker-schwalben.at
+END:VEVENT
+END:VCALENDAR

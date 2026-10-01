@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-klewenalp-trail-43km-beckenried@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Klewenalp Trail – T43
+LOCATION:Beckenried\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 43 km\nhttps://klewenalptrail
+ .ch/
+TRANSP:TRANSPARENT
+URL:https://klewenalptrail.ch/
+END:VEVENT
+END:VCALENDAR

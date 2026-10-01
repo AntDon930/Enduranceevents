@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-cyclotour-du-leman-112km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Cyclotour du Léman – Gran Fondo 112 km
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 112 km\nhttps://cyclotour.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://cyclotour.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-hardy-s-stadtlauf-landsberg-10km-landsberg-am-lech@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Hardy's Stadtlauf Landsberg
+LOCATION:Landsberg am Lech\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hardys-fr
+ eizeit.de/hardys-stadtlauf-landsberg-2026
+TRANSP:TRANSPARENT
+URL:https://www.hardys-freizeit.de/hardys-stadtlauf-landsberg-2026
+END:VEVENT
+END:VCALENDAR

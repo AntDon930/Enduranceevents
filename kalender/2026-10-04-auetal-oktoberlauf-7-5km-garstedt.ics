@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-auetal-oktoberlauf-7-5km-garstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Auetal-Oktoberlauf – 7\,5 km Nordic Walking
+LOCATION:Garstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.tsvaueta
+ l.de/auetal-oktoberlauf
+TRANSP:TRANSPARENT
+URL:https://www.tsvauetal.de/auetal-oktoberlauf
+END:VEVENT
+END:VCALENDAR

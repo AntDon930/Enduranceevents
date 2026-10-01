@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-3-halener-bahnmarathon-42-2km-lotte@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:3. Halener Bahnmarathon – 42\,195 km 106 Platzrunden\, maximal 40 
+ Teilnehmer (Termin vorläufig)
+LOCATION:Lotte\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Bahn\nLänge: 42.2 km\nhttps
+ ://my.raceresult.com/340929
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/340929
+END:VEVENT
+END:VCALENDAR

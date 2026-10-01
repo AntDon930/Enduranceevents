@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-rhon-grabfeld-cup-bad-konigshofen-10-5km-bad-konigshofen-im
+ -grabfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261019
+SUMMARY:Rhön-Grabfeld-Cup – Bad Königshofen – Hauptlauf ca. 10\,5 km
+LOCATION:Bad Königshofen im Grabfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.5 km\nhttps://rhoengrabfel
+ dcup.de/event/bad-koenigshofen/
+TRANSP:TRANSPARENT
+URL:https://rhoengrabfeldcup.de/event/bad-koenigshofen/
+END:VEVENT
+END:VCALENDAR

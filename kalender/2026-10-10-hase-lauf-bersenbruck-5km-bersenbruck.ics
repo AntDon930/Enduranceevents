@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-hase-lauf-bersenbruck-5km-bersenbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Hase - Lauf Bersenbrück
+LOCATION:Bersenbrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.tus-bersenb
+ rück.de
+TRANSP:TRANSPARENT
+URL:http://www.tus-bersenbrück.de
+END:VEVENT
+END:VCALENDAR

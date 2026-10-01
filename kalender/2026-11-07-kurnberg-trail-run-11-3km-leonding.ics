@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-kurnberg-trail-run-11-3km-leonding@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Kürnberg Trail Run
+LOCATION:Leonding\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11.3 km\nhttps://kuernberglau
+ f.at
+TRANSP:TRANSPARENT
+URL:https://kuernberglauf.at
+END:VEVENT
+END:VCALENDAR

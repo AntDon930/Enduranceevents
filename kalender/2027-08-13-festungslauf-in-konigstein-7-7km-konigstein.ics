@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-13-festungslauf-in-konigstein-7-7km-konigstein@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:Festungslauf in Königstein – 7\,7 km Lauf (Termin vorläufig)
+LOCATION:Königstein\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 7.7 km\nhttp
+ s://www.festungslauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.festungslauf.de/
+END:VEVENT
+END:VCALENDAR

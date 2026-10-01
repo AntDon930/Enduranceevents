@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-marathon-wurzburg-21-1km-wurzburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Marathon Würzburg – Halbmarathon (21\,1 km)
+LOCATION:Würzburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.wuerzbu
+ rg-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.wuerzburg-marathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-dinkelsbuhler-wald-und-crosslauf-mit-kreismeiste-11km-dinke
+ lsbuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Dinkelsbühler Wald- und Crosslauf mit Kreismeisterschaften
+LOCATION:Dinkelsbühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttps://my.raceresult.
+ com/362493/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/362493/
+END:VEVENT
+END:VCALENDAR

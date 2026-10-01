@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-03-holger-anders-flutlicht-paarlauf-x-laage@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+SUMMARY:Holger Anders Flutlicht Paarlauf
+LOCATION:Laage\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sportclub-laa
+ ge.de/
+TRANSP:TRANSPARENT
+URL:https://www.sportclub-laage.de/
+END:VEVENT
+END:VCALENDAR

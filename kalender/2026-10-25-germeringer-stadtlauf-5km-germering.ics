@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-germeringer-stadtlauf-5km-germering@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Germeringer Stadtlauf – 5 km gemeinsamer Lauf (ab Jahrgang 2012)
+LOCATION:Germering\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://leichtathletik
+ .sv-germering.de/stadtlauf/germeringer-cewe-stadtlauf.html
+TRANSP:TRANSPARENT
+URL:https://leichtathletik.sv-germering.de/stadtlauf/germeringer-cewe-stad
+ tlauf.html
+END:VEVENT
+END:VCALENDAR

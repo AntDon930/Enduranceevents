@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-heavy24-24h-chemnitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270621
+SUMMARY:Heavy24 – 24-Stunden-Rennen 24 h
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 24 h\nhttp://www.mtb-
+ chemnitz.de/
+TRANSP:TRANSPARENT
+URL:http://www.mtb-chemnitz.de/
+END:VEVENT
+END:VCALENDAR

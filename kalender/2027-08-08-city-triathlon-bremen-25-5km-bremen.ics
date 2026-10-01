@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-city-triathlon-bremen-25-5km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:City Triathlon Bremen – Volkstriathlon 25\,5 km (500 m Schwimmen /
+  20 km Rad / 5 km Laufen)
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://citytria
+ thlonbremen.de/start/
+TRANSP:TRANSPARENT
+URL:https://citytriathlonbremen.de/start/
+END:VEVENT
+END:VCALENDAR

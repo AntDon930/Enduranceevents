@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-07-biberacher-herbstwaldlauf-2026-5km-biberach-riss@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:Biberacher Herbstwaldlauf 2026 – 5 km Waldlauf
+LOCATION:Biberach/Riß\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ladv.de/aussch
+ reibung/detail/49094/Biberacher-Herbstwaldlauf-2026-Biberach-Ri%C3%9F.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49094/Biberacher-Herbstwaldlauf-2
+ 026-Biberach-Ri%C3%9F.htm
+END:VEVENT
+END:VCALENDAR

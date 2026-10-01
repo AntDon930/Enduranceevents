@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-5-heidelberger-crossrennen-0-8h-heidelberg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:5. Heidelberger Crossrennen – Elite 45 min (Cyclocross Cup Baden-W
+ ürttemberg)
+LOCATION:Heidelberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.8 h\nhttp://www.rsv-h
+ eidelberg.de
+TRANSP:TRANSPARENT
+URL:http://www.rsv-heidelberg.de
+END:VEVENT
+END:VCALENDAR

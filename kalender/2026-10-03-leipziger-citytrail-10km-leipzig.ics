@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-leipziger-citytrail-10km-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Leipziger Citytrail
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://scdhfk-laufspo
+ rt.de/veranstaltung/leipziger-citytrail-des-sc-dhfk-leipzig/
+TRANSP:TRANSPARENT
+URL:https://scdhfk-laufsport.de/veranstaltung/leipziger-citytrail-des-sc-d
+ hfk-leipzig/
+END:VEVENT
+END:VCALENDAR

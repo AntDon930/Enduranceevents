@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-meerhardt-extreme-2027-10km-gummersbach-dieringhausen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Meerhardt Extreme 2027
+LOCATION:Gummersbach Dieringhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.meerhardte
+ xtreme.de
+TRANSP:TRANSPARENT
+URL:http://www.meerhardtextreme.de
+END:VEVENT
+END:VCALENDAR

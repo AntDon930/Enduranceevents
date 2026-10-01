@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-1-lauf-der-36-winterlaufserie-der-lg-dornburg-10km-dornburg
+ -frickhofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:1. Lauf der 36. Winterlaufserie der LG Dornburg
+LOCATION:Dornburg-Frickhofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-dornbur
+ g.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-dornburg.de
+END:VEVENT
+END:VCALENDAR

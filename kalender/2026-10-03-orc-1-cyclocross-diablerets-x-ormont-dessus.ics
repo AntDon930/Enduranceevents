@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-orc-1-cyclocross-diablerets-x-ormont-dessus@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:ORC 1 - Cyclocross Diablerets – Cyclocross
+LOCATION:Ormont-Dessus\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.cyclocro
+ ssdiablerets.ch
+TRANSP:TRANSPARENT
+URL:https://www.cyclocrossdiablerets.ch
+END:VEVENT
+END:VCALENDAR

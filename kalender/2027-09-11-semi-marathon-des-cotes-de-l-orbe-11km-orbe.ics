@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-semi-marathon-des-cotes-de-l-orbe-11km-orbe@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Semi-marathon des Côtes de l'Orbe
+LOCATION:Orbe\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.semi-mara
+ thon-des-cotes-de-l-orbe.ch/
+TRANSP:TRANSPARENT
+URL:https://www.semi-marathon-des-cotes-de-l-orbe.ch/
+END:VEVENT
+END:VCALENDAR

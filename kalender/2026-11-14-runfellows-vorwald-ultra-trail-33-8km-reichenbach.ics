@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-runfellows-vorwald-ultra-trail-33-8km-reichenbach@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Runfellows vorWald Ultra Trail – 33\,8 km – 720 HM
+LOCATION:Reichenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 33.8 km\nhttps://rwut.runfell
+ ows.com/
+TRANSP:TRANSPARENT
+URL:https://rwut.runfellows.com/
+END:VEVENT
+END:VCALENDAR

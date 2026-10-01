@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-05-20-riesenbecker-sixdays-125km-horstel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280520
+DTEND;VALUE=DATE:20280526
+SUMMARY:Riesenbecker Sixdays
+LOCATION:Hörstel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 125 km\nhttps://www.riesenbe
+ ckersixdays.de/
+TRANSP:TRANSPARENT
+URL:https://www.riesenbeckersixdays.de/
+END:VEVENT
+END:VCALENDAR

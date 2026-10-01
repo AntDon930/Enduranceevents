@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-legauer-naturlauf-6-5km-legau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Legauer Naturlauf – 6\,5 km Volkslauf
+LOCATION:Legau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://time2win.at/
+ event/1095
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1095
+END:VEVENT
+END:VCALENDAR

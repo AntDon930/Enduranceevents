@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-int-wiener-herbstmarathon-des-lcc-wien-wrc-f-42-2km-prater-
+ hauptalle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Int. Wiener Herbstmarathon des LCC-Wien (WRC F)
+LOCATION:Prater Hauptalle\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.lcc-wie
+ n.at/
+TRANSP:TRANSPARENT
+URL:https://www.lcc-wien.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-zunzger-waldlauf-8-8km-zunzgen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Zunzger Waldlauf – 8.8 km Walking-Runde
+LOCATION:Zunzgen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://www.tvzunzge
+ n.ch/events/waldlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tvzunzgen.ch/events/waldlauf/
+END:VEVENT
+END:VCALENDAR

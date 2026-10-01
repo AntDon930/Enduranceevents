@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kirchertlauf-nurtingen-10km-rossdorf-nurtingen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kirchertlauf Nürtingen
+LOCATION:Roßdorf (Nürtingen)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://kirchertlauf-
+ nt.de/
+TRANSP:TRANSPARENT
+URL:https://kirchertlauf-nt.de/
+END:VEVENT
+END:VCALENDAR

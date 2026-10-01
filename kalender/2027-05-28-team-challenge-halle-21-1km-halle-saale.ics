@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-team-challenge-halle-21-1km-halle-saale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270529
+SUMMARY:Team Challenge Halle – Halbmarathon
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.team-ch
+ allenge-halle.de/
+TRANSP:TRANSPARENT
+URL:https://www.team-challenge-halle.de/
+END:VEVENT
+END:VCALENDAR

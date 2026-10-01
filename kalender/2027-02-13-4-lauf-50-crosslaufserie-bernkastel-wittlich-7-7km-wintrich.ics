@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-13-4-lauf-50-crosslaufserie-bernkastel-wittlich-7-7km-wintrich
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:4. Lauf 50.Crosslaufserie Bernkastel-Wittlich
+LOCATION:Wintrich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.7 km\nhttps://lg-bernkastel
+ -wittlich.de/crossanmeldung/
+TRANSP:TRANSPARENT
+URL:https://lg-bernkastel-wittlich.de/crossanmeldung/
+END:VEVENT
+END:VCALENDAR

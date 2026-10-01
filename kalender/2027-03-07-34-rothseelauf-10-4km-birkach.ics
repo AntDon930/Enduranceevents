@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-34-rothseelauf-10-4km-birkach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:34. Rothseelauf
+LOCATION:Birkach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttp://www.runningc
+ oncepts.de
+TRANSP:TRANSPARENT
+URL:http://www.runningconcepts.de
+END:VEVENT
+END:VCALENDAR

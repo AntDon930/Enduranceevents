@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-kreuzganglauf-feuchtwangen-10km-feuchtwangen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Kreuzganglauf Feuchtwangen
+LOCATION:Feuchtwangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.kreuzgang
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.kreuzganglauf.de/
+END:VEVENT
+END:VCALENDAR

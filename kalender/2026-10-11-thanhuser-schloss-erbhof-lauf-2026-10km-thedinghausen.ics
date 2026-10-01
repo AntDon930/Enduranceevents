@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-thanhuser-schloss-erbhof-lauf-2026-10km-thedinghausen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Thänhuser Schloss Erbhof-Lauf 2026 – 10 km Straßenlauf als zwei Ru
+ nden des 5 km Rundlaufs
+LOCATION:Thedinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tsv-thedingha
+ usen.de/erbhoflauf-2026
+TRANSP:TRANSPARENT
+URL:https://tsv-thedinghausen.de/erbhoflauf-2026
+END:VEVENT
+END:VCALENDAR

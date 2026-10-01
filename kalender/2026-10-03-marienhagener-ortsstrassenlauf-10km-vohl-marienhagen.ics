@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-marienhagener-ortsstrassenlauf-10km-vohl-marienhagen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Marienhagener Ortsstraßenlauf
+LOCATION:Vöhl-Marienhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tv-marien
+ hagen.de/ortsstra%C3%9Fenlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tv-marienhagen.de/ortsstra%C3%9Fenlauf/
+END:VEVENT
+END:VCALENDAR

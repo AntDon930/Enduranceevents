@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-01-night-run-wiener-neustadt-5km-wiener-neustadt@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:Night Run Wiener Neustadt
+LOCATION:Wiener Neustadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.nightrun-w
+ n.at/
+TRANSP:TRANSPARENT
+URL:https://www.nightrun-wn.at/
+END:VEVENT
+END:VCALENDAR

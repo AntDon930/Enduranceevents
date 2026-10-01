@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-13-triathlon-de-cup-munchen-2027-x-oberschleissheim@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:13. triathlon.de CUP München 2027 – Sprint
+LOCATION:Oberschleißheim\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://events.triathl
+ on.de/pages/triathlon-de-cup-ausschreibung
+TRANSP:TRANSPARENT
+URL:https://events.triathlon.de/pages/triathlon-de-cup-ausschreibung
+END:VEVENT
+END:VCALENDAR

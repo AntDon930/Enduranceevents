@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-23-salzburg-trailrunning-festival-24-6km-salzburg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261026
+SUMMARY:Salzburg Trailrunning Festival – 24.6 km \, 1.280 Hm\, Salomon Gai
+ sbergtrail
+LOCATION:Salzburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 24.6 km\nhttps://www.trailrun
+ ning-festival.at/de/
+TRANSP:TRANSPARENT
+URL:https://www.trailrunning-festival.at/de/
+END:VEVENT
+END:VCALENDAR

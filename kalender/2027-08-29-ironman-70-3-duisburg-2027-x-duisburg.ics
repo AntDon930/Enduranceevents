@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-ironman-70-3-duisburg-2027-x-duisburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:IRONMAN 70.3 Duisburg 2027 – Mitteldistanz
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.ironman.co
+ m/races/im703-duisburg
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im703-duisburg
+END:VEVENT
+END:VCALENDAR

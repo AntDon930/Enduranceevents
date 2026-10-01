@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-steinhart500-14km-steinfurt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Steinhart500
+LOCATION:Steinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14 km\nhttps://www.tb-burgst
+ einfurt.de/steinhart500/start/
+TRANSP:TRANSPARENT
+URL:https://www.tb-burgsteinfurt.de/steinhart500/start/
+END:VEVENT
+END:VCALENDAR

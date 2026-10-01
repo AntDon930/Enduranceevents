@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-50-kolner-silvesterlauf-10km-koln-hohenberg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:50. Kölner Silvesterlauf – 10 km Hauptlauf (ab Jahrgang 2013)
+LOCATION:Köln-Höhenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tuskoeln.
+ de/silvesterlauf
+TRANSP:TRANSPARENT
+URL:https://www.tuskoeln.de/silvesterlauf
+END:VEVENT
+END:VCALENDAR

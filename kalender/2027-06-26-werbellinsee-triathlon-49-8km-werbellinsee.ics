@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-werbellinsee-triathlon-49-8km-werbellinsee@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Werbellinsee Triathlon – Olympische Distanz 49\,8 km (1\,5 km Schw
+ immen / 39 km Rad / 9\,3 km Laufen)
+LOCATION:Werbellinsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 49.8 km\nhttps://werbelli
+ nseetriathlon.de/
+TRANSP:TRANSPARENT
+URL:https://werbellinseetriathlon.de/
+END:VEVENT
+END:VCALENDAR

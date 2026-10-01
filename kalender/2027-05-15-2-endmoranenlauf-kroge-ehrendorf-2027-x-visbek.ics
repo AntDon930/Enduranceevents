@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-2-endmoranenlauf-kroge-ehrendorf-2027-x-visbek@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:2. Endmoränenlauf Kroge-Ehrendorf 2027
+LOCATION:Visbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laufen-os.de/
+ volksbanken-laufcup
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/volksbanken-laufcup
+END:VEVENT
+END:VCALENDAR

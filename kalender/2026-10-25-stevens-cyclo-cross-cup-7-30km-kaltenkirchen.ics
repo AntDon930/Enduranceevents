@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-stevens-cyclo-cross-cup-7-30km-kaltenkirchen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Stevens Cyclo-Cross-Cup #7 – Cyclocross 30 km
+LOCATION:Kaltenkirchen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttps://www.rsc-
+ kattenberg.de/
+TRANSP:TRANSPARENT
+URL:https://www.rsc-kattenberg.de/
+END:VEVENT
+END:VCALENDAR

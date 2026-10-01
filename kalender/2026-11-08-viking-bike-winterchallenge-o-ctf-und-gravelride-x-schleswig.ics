@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-viking-bike-winterchallenge-o-ctf-und-gravelride-x-schleswi
+ g@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Viking Bike Winterchallenge\, O-CTF und Gravelride 70 km – O-CTF
+LOCATION:Schleswig\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.rv-sch
+ leswig.de
+TRANSP:TRANSPARENT
+URL:https://www.rv-schleswig.de
+END:VEVENT
+END:VCALENDAR

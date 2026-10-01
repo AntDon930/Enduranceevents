@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-tierschutzlauf-wien-10km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Tierschutzlauf Wien – 10 km für Erwachsene
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.wienlaeuf
+ t.at/de/veranstaltungen-bewerbe/eventdbshow-tierschutzlauf-04.10.2026?fla
+ t
+TRANSP:TRANSPARENT
+URL:https://www.wienlaeuft.at/de/veranstaltungen-bewerbe/eventdbshow-tiers
+ chutzlauf-04.10.2026?flat
+END:VEVENT
+END:VCALENDAR

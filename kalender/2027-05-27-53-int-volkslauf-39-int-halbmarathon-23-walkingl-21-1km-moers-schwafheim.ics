@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-53-int-volkslauf-39-int-halbmarathon-23-walkingl-21-1km-moe
+ rs-schwafheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:53. Int. Volkslauf\, 39. Int. Halbmarathon\, 23. Walkinglauf
+LOCATION:Moers-Schwafheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://tv-schwafhei
+ m.de/events/volkslauf/
+TRANSP:TRANSPARENT
+URL:http://tv-schwafheim.de/events/volkslauf/
+END:VEVENT
+END:VCALENDAR

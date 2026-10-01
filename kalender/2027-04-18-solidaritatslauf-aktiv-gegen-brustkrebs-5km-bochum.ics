@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-solidaritatslauf-aktiv-gegen-brustkrebs-5km-bochum@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Solidaritätslauf Aktiv gegen Brustkrebs – Ausdauer Lauf
+LOCATION:Bochum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
+ kalender/details/solidaritätslauf-aktiv-gegen-brustkrebs
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/solidaritätslauf-aktiv-gegen-br
+ ustkrebs
+END:VEVENT
+END:VCALENDAR

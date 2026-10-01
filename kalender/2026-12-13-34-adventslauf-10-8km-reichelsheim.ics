@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-34-adventslauf-10-8km-reichelsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:34. Adventslauf – Lauf
+LOCATION:Reichelsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://laufen.de/l
+ aufkalender/details/26V07000097860002
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26V07000097860002
+END:VEVENT
+END:VCALENDAR

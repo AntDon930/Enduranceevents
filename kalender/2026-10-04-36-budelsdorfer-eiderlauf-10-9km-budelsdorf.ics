@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-36-budelsdorfer-eiderlauf-10-9km-budelsdorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:36. Büdelsdorfer Eiderlauf – 10\,95 km Hauptlauf (ab 16 Jahren\; J
+ ahrgang 2010 und älter)
+LOCATION:Büdelsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.9 km\nhttp://eiderlauf.at
+ hletico-buedelsdorf.de/
+TRANSP:TRANSPARENT
+URL:http://eiderlauf.athletico-buedelsdorf.de/
+END:VEVENT
+END:VCALENDAR

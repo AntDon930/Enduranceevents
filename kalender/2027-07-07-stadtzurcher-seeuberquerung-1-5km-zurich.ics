@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-07-stadtzurcher-seeuberquerung-1-5km-zurich@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270707
+DTEND;VALUE=DATE:20270708
+SUMMARY:Stadtzürcher Seeüberquerung
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 1.5 km\nhttps://www.s
+ eeueberquerung.ch/
+TRANSP:TRANSPARENT
+URL:https://www.seeueberquerung.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-steinbecker-triathlon-53-5km-recke@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Steinbecker Triathlon – Olympische Distanz 53\,5 km (1\,5 km Schwi
+ mmen / 42 km Rad / 10 km Laufen)
+LOCATION:Recke\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 53.5 km\nhttps://www.stei
+ nbeck-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.steinbeck-triathlon.de/
+END:VEVENT
+END:VCALENDAR

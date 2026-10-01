@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-backyard-ultra-luneburg-x-embsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Backyard Ultra Lüneburg
+LOCATION:Embsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://my.racere
+ sult.com/409511/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/409511/
+END:VEVENT
+END:VCALENDAR

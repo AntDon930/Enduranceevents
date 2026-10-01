@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-muterlauf-dorf-tirol-hochmuth-5-7km-tirol@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Muterlauf (Dorf Tirol - Hochmuth)
+LOCATION:Tirol\, Italien (Südtirol)
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.7 km\nhttp://www.muterlauf.
+ it/
+TRANSP:TRANSPARENT
+URL:http://www.muterlauf.it/
+END:VEVENT
+END:VCALENDAR

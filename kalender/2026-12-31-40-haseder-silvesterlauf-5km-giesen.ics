@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-40-haseder-silvesterlauf-5km-giesen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:40. Haseder Silvesterlauf – 5\,0 km Volkslauf/Walking
+LOCATION:Giesen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/414673/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/414673/
+END:VEVENT
+END:VCALENDAR

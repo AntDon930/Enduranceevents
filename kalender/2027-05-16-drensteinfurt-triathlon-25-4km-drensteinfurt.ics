@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-16-drensteinfurt-triathlon-25-4km-drensteinfurt@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Drensteinfurt Triathlon – Jedermann Sprint 25\,4 km (400 m Schwimm
+ en / 20 km Rad / 5 km Laufen)
+LOCATION:Drensteinfurt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.4 km\nhttps://drenstei
+ nfurt-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://drensteinfurt-triathlon.de/
+END:VEVENT
+END:VCALENDAR

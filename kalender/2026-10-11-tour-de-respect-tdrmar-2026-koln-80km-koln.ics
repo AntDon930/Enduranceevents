@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-tour-de-respect-tdrmar-2026-koln-80km-koln@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Tour de Respect / TdRMAR 2026 Köln – RTF 80 km
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 80 km\nhttps://www.tourdere
+ spect.org/MitdemRennradgegenAntisemitismusundgegenHassjeglicherArt
+TRANSP:TRANSPARENT
+URL:https://www.tourderespect.org/MitdemRennradgegenAntisemitismusundgegen
+ HassjeglicherArt
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-o-see-triathlon-uelzen-27-1km-uelzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:O-See-Triathlon Uelzen – Sprint 27\,1 km (750 m Schwimmen / 22 km 
+ Rad / 4\,4 km Laufen)
+LOCATION:Uelzen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.1 km\nhttps://post-sv-
+ uelzen.de/oseetriathlon
+TRANSP:TRANSPARENT
+URL:https://post-sv-uelzen.de/oseetriathlon
+END:VEVENT
+END:VCALENDAR

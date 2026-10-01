@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-rhoner-volkslauf-11km-kaltennordheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:Rhöner Volkslauf – 11 km Lauf bzw. Wanderstrecke
+LOCATION:Kaltennordheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://rhoener-wsv.d
+ e/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://rhoener-wsv.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

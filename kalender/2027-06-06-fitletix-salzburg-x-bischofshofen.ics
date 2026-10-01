@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-fitletix-salzburg-x-bischofshofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Fitletix - Salzburg
+LOCATION:Bischofshofen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportanmeldung.de
+ /r/regist.php?vid=232
+TRANSP:TRANSPARENT
+URL:https://sportanmeldung.de/r/regist.php?vid=232
+END:VEVENT
+END:VCALENDAR

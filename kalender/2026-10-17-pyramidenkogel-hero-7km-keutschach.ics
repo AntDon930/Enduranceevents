@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-pyramidenkogel-hero-7km-keutschach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Pyramidenkogel Hero – Jedermannrennen 7 km
+LOCATION:Keutschach\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 7 km\nhttps://my.raceresult
+ .com/406473/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/406473/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-3-chiemgauer100-stundenrundenlauf-2026-24h-bergen-chiemgau@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:3. Chiemgauer100 StundenRundenLauf 2026
+LOCATION:Bergen (Chiemgau)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: 24 h\nhttps://chiemg
+ auer100.de/
+TRANSP:TRANSPARENT
+URL:https://chiemgauer100.de/
+END:VEVENT
+END:VCALENDAR

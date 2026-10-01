@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-reiling-harsewinkel-triathlon-25-5km-harsewinkel@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Reiling - Harsewinkel Triathlon – Volksdistanz 25\,5 km (500 m Sch
+ wimmen / 20 km Rad / 5 km Laufen)
+LOCATION:Harsewinkel\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttp://trispeed.
+ de/triathlon/
+TRANSP:TRANSPARENT
+URL:http://trispeed.de/triathlon/
+END:VEVENT
+END:VCALENDAR

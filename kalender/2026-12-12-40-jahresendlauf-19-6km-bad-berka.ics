@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-40-jahresendlauf-19-6km-bad-berka@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:40. Jahresendlauf (Termin vorläufig)
+LOCATION:Bad Berka\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 19.6 km\nhtt
+ ps://sv-badberka.de
+TRANSP:TRANSPARENT
+URL:https://sv-badberka.de
+END:VEVENT
+END:VCALENDAR

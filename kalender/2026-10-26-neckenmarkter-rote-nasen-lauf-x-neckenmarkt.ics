@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-neckenmarkter-rote-nasen-lauf-x-neckenmarkt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Neckenmarkter Rote Nasen Lauf
+LOCATION:Neckenmarkt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.rotenasenlauf
+ .at/lauf/neckenmarkter-rote-nasen-lauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.rotenasenlauf.at/lauf/neckenmarkter-rote-nasen-lauf-2026
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-therme-geinberg-lauf-10km-geinberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Therme Geinberg Lauf
+LOCATION:Geinberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lcgeinberg.co
+ m/anmeldung/
+TRANSP:TRANSPARENT
+URL:https://lcgeinberg.com/anmeldung/
+END:VEVENT
+END:VCALENDAR

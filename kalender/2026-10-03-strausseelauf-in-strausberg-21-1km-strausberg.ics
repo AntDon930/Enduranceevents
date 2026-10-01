@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-strausseelauf-in-strausberg-21-1km-strausberg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Strausseelauf in Strausberg – Halbmarathon
+LOCATION:Strausberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.strauss
+ eelauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.strausseelauf.de/
+END:VEVENT
+END:VCALENDAR

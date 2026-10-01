@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-01-hulftegg-stafette-25km-hornli@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Hulftegg Stafette
+LOCATION:Hörnli\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 25 km\nhttps://sc-hulftegg.c
+ h/hulftegg-stafette/
+TRANSP:TRANSPARENT
+URL:https://sc-hulftegg.ch/hulftegg-stafette/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-salzkammergut-gravel-marathon-93km-bad-ischl-bad-goisern@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Salzkammergut Gravel-Marathon – Gravel 93 km
+LOCATION:Bad Ischl – Bad Goisern\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 93 km\nhttps://www.salzkamm
+ ergut-trophy.at/gravel-marathon-pid2133
+TRANSP:TRANSPARENT
+URL:https://www.salzkammergut-trophy.at/gravel-marathon-pid2133
+END:VEVENT
+END:VCALENDAR

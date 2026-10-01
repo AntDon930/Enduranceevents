@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-19-nassau-rundfahrt-162km-idstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:19. Nassau-Rundfahrt – RTF 162 km
+LOCATION:Idstein\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 162 km\nhttps://rsv-idstein
+ .org/2026/09/19-nassau-rtf-2026/
+TRANSP:TRANSPARENT
+URL:https://rsv-idstein.org/2026/09/19-nassau-rtf-2026/
+END:VEVENT
+END:VCALENDAR

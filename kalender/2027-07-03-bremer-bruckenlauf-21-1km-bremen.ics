@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-bremer-bruckenlauf-21-1km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Bremer Brückenlauf – Halbmarathon (Termin vorläufig)
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.1 km\nhtt
+ ps://bremer-brueckenlauf.de/
+TRANSP:TRANSPARENT
+URL:https://bremer-brueckenlauf.de/
+END:VEVENT
+END:VCALENDAR

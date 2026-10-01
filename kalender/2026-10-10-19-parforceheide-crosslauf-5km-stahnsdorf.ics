@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-19-parforceheide-crosslauf-5km-stahnsdorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:19. Parforceheide Crosslauf – 5 km Hauptlauf
+LOCATION:Stahnsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://anmeldung.laufa
+ uswertung.com/Anmeldung/index.php?VID=2B39E8C869
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=2B39E8C86
+ 9
+END:VEVENT
+END:VCALENDAR

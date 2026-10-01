@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-23-3-berge-lauf-26-2km-haina-dodenhausen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:23. 3 Berge Lauf
+LOCATION:Haina-Dodenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26.2 km\nhttp://www.la.sv-do
+ denhausen.de
+TRANSP:TRANSPARENT
+URL:http://www.la.sv-dodenhausen.de
+END:VEVENT
+END:VCALENDAR

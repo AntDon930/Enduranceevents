@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-04-lothar-fricke-winterlaufserie-x-quedlinburg@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:Lothar Fricke-Winterlaufserie
+LOCATION:Quedlinburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
+ bung/detail/45793/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.
+ htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/45793/21.Lothar-Fricke-Winterlauf
+ serie-2026-2027-Quedlinburg.htm
+END:VEVENT
+END:VCALENDAR

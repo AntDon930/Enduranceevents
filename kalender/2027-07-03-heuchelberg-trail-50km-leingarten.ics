@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-heuchelberg-trail-50km-leingarten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Heuchelberg Trail (Termin vorläufig)
+LOCATION:Leingarten\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Trail\nLänge: 50 km\nhttps:
+ //www.heuchelbergtrail.de/
+TRANSP:TRANSPARENT
+URL:https://www.heuchelbergtrail.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-20-welser-businessrun-x-wels@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Welser Businessrun
+LOCATION:Wels\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.welser-busine
+ ssrun.at/
+TRANSP:TRANSPARENT
+URL:https://www.welser-businessrun.at/
+END:VEVENT
+END:VCALENDAR

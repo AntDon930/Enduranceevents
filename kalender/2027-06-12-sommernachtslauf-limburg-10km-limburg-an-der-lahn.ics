@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-sommernachtslauf-limburg-10km-limburg-an-der-lahn@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Sommernachtslauf Limburg – 10.000 m lange Distanz
+LOCATION:Limburg an der Lahn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.sommernac
+ htslauf-limburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.sommernachtslauf-limburg.de/
+END:VEVENT
+END:VCALENDAR

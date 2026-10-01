@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-fittes-waldviertel-x-zwettl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Fittes Waldviertel
+LOCATION:Zwettl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.fittes-waldvi
+ ertel.at/
+TRANSP:TRANSPARENT
+URL:https://www.fittes-waldviertel.at/
+END:VEVENT
+END:VCALENDAR

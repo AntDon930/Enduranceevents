@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-radln-renna-der-altenberger-cross-duathlon-16km-altenberg-b
+ ei-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Radln & Renna - Der Altenberger Cross Duathlon – Radln & Renna
+LOCATION:Altenberg bei Linz\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 16 km\nhttps://my.racer
+ esult.com/422946/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/422946/
+END:VEVENT
+END:VCALENDAR

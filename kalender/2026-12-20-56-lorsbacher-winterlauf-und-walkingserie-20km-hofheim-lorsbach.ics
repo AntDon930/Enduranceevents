@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-56-lorsbacher-winterlauf-und-walkingserie-20km-hofheim-lors
+ bach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:56. Lorsbacher Winterlauf- und Walkingserie
+LOCATION:Hofheim-Lorsbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://tvlorsbach.de
+ /lorsbacher-winterlaufserie/
+TRANSP:TRANSPARENT
+URL:https://tvlorsbach.de/lorsbacher-winterlaufserie/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-wienenergie-cyclocross-x-landegg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Wienenergie Cyclocross – Cyclocross
+LOCATION:Landegg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.rc-awr.a
+ t
+TRANSP:TRANSPARENT
+URL:https://www.rc-awr.at
+END:VEVENT
+END:VCALENDAR

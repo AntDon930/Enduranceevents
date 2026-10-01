@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-28-chlauslauf-harkingen-10-3km-harkingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:Chlauslauf Härkingen
+LOCATION:Härkingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.3 km\nhttps://www.lsgolte
+ n.ch/Chlauslauf
+TRANSP:TRANSPARENT
+URL:https://www.lsgolten.ch/Chlauslauf
+END:VEVENT
+END:VCALENDAR

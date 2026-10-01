@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-mockmuhler-stadtlauf-5km-mockmuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:Möckmühler Stadtlauf – 5 km Lauf (Termin vorläufig)
+LOCATION:Möckmühl\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 5 km\nhttps:
+ //www.moeckmuehl.de/
+TRANSP:TRANSPARENT
+URL:https://www.moeckmuehl.de/
+END:VEVENT
+END:VCALENDAR

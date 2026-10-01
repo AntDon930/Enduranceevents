@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-querfeldein-in-radibor-x-radibor@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Querfeldein in Radibor – Cyclocross
+LOCATION:Radibor\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttp://www.rsv-bautz
+ en.de/
+TRANSP:TRANSPARENT
+URL:http://www.rsv-bautzen.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-crosslauf-des-rc-tegel-5km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Crosslauf des RC Tegel
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.kilometerli
+ ebe.de/events/crosslauf-des-rc-tegel
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/crosslauf-des-rc-tegel
+END:VEVENT
+END:VCALENDAR

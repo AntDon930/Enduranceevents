@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-34-treiser-volkslauf-21-1km-staufenberg-treis@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:34. Treiser Volkslauf – Halbmarathon
+LOCATION:Staufenberg-Treis\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufundwalk
+ ingtreff-treis.de/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://laufundwalkingtreff-treis.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

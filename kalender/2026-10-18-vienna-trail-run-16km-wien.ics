@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-vienna-trail-run-16km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Vienna Trail Run – 16 km - 550 hm
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://viennatrailrun
+ .at/
+TRANSP:TRANSPARENT
+URL:https://viennatrailrun.at/
+END:VEVENT
+END:VCALENDAR

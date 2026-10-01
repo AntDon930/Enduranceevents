@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-triathlon-tubingen-27-4km-tubingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Triathlon Tübingen – Sprintdistanz 27\,4 km (750 m Schwimmen / 22 
+ km Rad / 4\,7 km Laufen)
+LOCATION:Tübingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.4 km\nhttps://www.mey-
+ generalbau-triathlon.com/
+TRANSP:TRANSPARENT
+URL:https://www.mey-generalbau-triathlon.com/
+END:VEVENT
+END:VCALENDAR

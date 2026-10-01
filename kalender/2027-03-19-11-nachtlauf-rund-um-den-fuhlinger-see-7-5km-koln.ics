@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-19-11-nachtlauf-rund-um-den-fuhlinger-see-7-5km-koln@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270320
+SUMMARY:11. Nachtlauf rund um den Fühlinger See
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttp://www.llg80nord
+ parkkoeln.de/?page_id=7006
+TRANSP:TRANSPARENT
+URL:http://www.llg80nordparkkoeln.de/?page_id=7006
+END:VEVENT
+END:VCALENDAR

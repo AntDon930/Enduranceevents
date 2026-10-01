@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-2-cyclocross-rennen-der-igas-wendland-x-bosel@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:2. CycloCross-Rennen der IGAS Wendland – Cyclocross\, Stevens Cycl
+ o-Cross Cup #08
+LOCATION:Bösel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.igaswend
+ land.de
+TRANSP:TRANSPARENT
+URL:https://www.igaswendland.de
+END:VEVENT
+END:VCALENDAR

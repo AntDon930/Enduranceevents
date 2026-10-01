@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-hirtstein-trophy-schenkenfelden-19-9km-schenkenfelden@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Hirtstein-Trophy Schenkenfelden – Run&Bike 19\,9 km (7\,9 km Laufe
+ n / 12 km Rad)
+LOCATION:Schenkenfelden\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 19.9 km\nhttps://www.sp
+ ortunion-schenkenfelden.at/?page_id=13418#INFOS
+TRANSP:TRANSPARENT
+URL:https://www.sportunion-schenkenfelden.at/?page_id=13418#INFOS
+END:VEVENT
+END:VCALENDAR

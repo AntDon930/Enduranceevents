@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-nappersdorfer-herbst-run-x-nappersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Nappersdorfer Herbst-Run
+LOCATION:Nappersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.nappersdorf-k
+ ammersdorf.gv.at/Nappersdorfer_Herbst-Run
+TRANSP:TRANSPARENT
+URL:https://www.nappersdorf-kammersdorf.gv.at/Nappersdorfer_Herbst-Run
+END:VEVENT
+END:VCALENDAR

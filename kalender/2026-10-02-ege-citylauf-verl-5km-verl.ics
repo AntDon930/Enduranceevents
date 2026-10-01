@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-ege-citylauf-verl-5km-verl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:EGE-Citylauf Verl
+LOCATION:Verl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.citylauf-ve
+ rl.de/
+TRANSP:TRANSPARENT
+URL:http://www.citylauf-verl.de/
+END:VEVENT
+END:VCALENDAR

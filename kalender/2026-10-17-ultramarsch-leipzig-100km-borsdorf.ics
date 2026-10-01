@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-ultramarsch-leipzig-100km-borsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261019
+SUMMARY:Ultramarsch Leipzig
+LOCATION:Borsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttps://www.ultramar
+ sch.de/p/2026-ticket-ultramarsch-leipzig
+TRANSP:TRANSPARENT
+URL:https://www.ultramarsch.de/p/2026-ticket-ultramarsch-leipzig
+END:VEVENT
+END:VCALENDAR

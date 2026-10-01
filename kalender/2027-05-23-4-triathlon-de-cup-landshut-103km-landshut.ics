@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-4-triathlon-de-cup-landshut-103km-landshut@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:4. triathlon.de CUP Landshut
+LOCATION:Landshut\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 103 km\nhttps://triathlon
+ .de/pages/triathlon-de-cup-landshut
+TRANSP:TRANSPARENT
+URL:https://triathlon.de/pages/triathlon-de-cup-landshut
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kurparklauf-bad-freienwalde-15km-bad-freienwalde-oder@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kurparklauf - Bad Freienwalde – 15 km Lauf\, zwei Runden
+LOCATION:Bad Freienwalde (Oder)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://athleticon199
+ 7.de/kurparklauf.php
+TRANSP:TRANSPARENT
+URL:https://athleticon1997.de/kurparklauf.php
+END:VEVENT
+END:VCALENDAR

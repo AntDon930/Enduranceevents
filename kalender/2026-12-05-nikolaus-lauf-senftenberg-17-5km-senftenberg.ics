@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolaus-lauf-senftenberg-17-5km-senftenberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolaus-Lauf Senftenberg – 17\,5 km Lauf um den Senftenberger See
+ \; Startberechtigte
+LOCATION:Senftenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17.5 km\nhttps://www.lausitz
+ er-sportevents.de/anmeldung/anm.php?N=2026121
+TRANSP:TRANSPARENT
+URL:https://www.lausitzer-sportevents.de/anmeldung/anm.php?N=2026121
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-beast-of-bramsche-240km-bramsche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Beast of Bramsche – Beast 240 km / 2.400 hm
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 240 km\nhttps://beastofbram
+ sche.de/
+TRANSP:TRANSPARENT
+URL:https://beastofbramsche.de/
+END:VEVENT
+END:VCALENDAR

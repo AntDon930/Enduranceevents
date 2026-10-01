@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-triathlon-ingolstadt-107-9km-ingolstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Triathlon Ingolstadt – Mitteldistanz 107\,9 km (1\,9 km Schwimmen 
+ / 86 km Rad / 20 km Laufen)
+LOCATION:Ingolstadt\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 107.9 km\nhttps://triathl
+ on-ingolstadt.de/
+TRANSP:TRANSPARENT
+URL:https://triathlon-ingolstadt.de/
+END:VEVENT
+END:VCALENDAR

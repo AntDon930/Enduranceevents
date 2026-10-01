@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-28-bayerische-cross-meisterschaft-2027-5km-zenting@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:Bayerische Cross Meisterschaft 2027
+LOCATION:Zenting\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://ladv.de/ausschr
+ eibung/detail/49321/Bayerische-Cross-Meisterschaft-2027-Zenting.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49321/Bayerische-Cross-Meistersch
+ aft-2027-Zenting.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-rund-ums-waldstadion-0-5h-herxheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Rund ums Waldstadion – Cyclocross 0.5 h
+LOCATION:Herxheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttp://www.rsv-h
+ erxheim.de/
+TRANSP:TRANSPARENT
+URL:http://www.rsv-herxheim.de/
+END:VEVENT
+END:VCALENDAR

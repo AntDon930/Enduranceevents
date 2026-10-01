@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-stoffel-race-24h-mtb-challenge-4-2km-enspel@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:Stöffel-Race 24h MTB Challenge – 24-Stunden-Rennen 4.2 km
+LOCATION:Enspel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 4.2 km\nhttp://www.st
+ oeffel-race.de
+TRANSP:TRANSPARENT
+URL:http://www.stoeffel-race.de
+END:VEVENT
+END:VCALENDAR

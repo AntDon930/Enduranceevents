@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-bamberg-weltkulturerbelauf-11km-bamberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Bamberg Weltkulturerbelauf
+LOCATION:Bamberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.weltkultu
+ rerbelauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.weltkulturerbelauf.de/
+END:VEVENT
+END:VCALENDAR

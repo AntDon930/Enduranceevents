@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-13-firmenlauf-mangfalltal-6km-bad-aibling@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270513
+DTEND;VALUE=DATE:20270514
+SUMMARY:Firmenlauf Mangfalltal
+LOCATION:Bad Aibling\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://firmenlauf.bay
+ ern/firmenlauf-mangfalltal/
+TRANSP:TRANSPARENT
+URL:https://firmenlauf.bayern/firmenlauf-mangfalltal/
+END:VEVENT
+END:VCALENDAR

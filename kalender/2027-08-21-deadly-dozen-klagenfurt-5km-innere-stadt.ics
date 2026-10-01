@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-21-deadly-dozen-klagenfurt-5km-innere-stadt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:Deadly Dozen Klagenfurt
+LOCATION:Innere Stadt\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.deadlydoze
+ n.de/event/klagenfurt
+TRANSP:TRANSPARENT
+URL:https://www.deadlydozen.de/event/klagenfurt
+END:VEVENT
+END:VCALENDAR

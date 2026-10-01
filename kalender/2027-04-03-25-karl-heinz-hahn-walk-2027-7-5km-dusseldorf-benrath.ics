@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-03-25-karl-heinz-hahn-walk-2027-7-5km-dusseldorf-benrath@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:25. Karl-Heinz-Hahn Walk 2027
+LOCATION:Düsseldorf-Benrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.lt-duess
+ eldorf-sued.de
+TRANSP:TRANSPARENT
+URL:https://www.lt-duesseldorf-sued.de
+END:VEVENT
+END:VCALENDAR

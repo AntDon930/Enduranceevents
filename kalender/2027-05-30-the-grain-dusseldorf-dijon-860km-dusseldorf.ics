@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-the-grain-dusseldorf-dijon-860km-dusseldorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270605
+SUMMARY:The Grain Düsseldorf - Dijon – Bikepacking 860 km
+LOCATION:Düsseldorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 860 km\nhttps://www.thegrai
+ n.cc/de
+TRANSP:TRANSPARENT
+URL:https://www.thegrain.cc/de
+END:VEVENT
+END:VCALENDAR

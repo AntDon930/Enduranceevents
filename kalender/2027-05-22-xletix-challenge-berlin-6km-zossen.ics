@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-xletix-challenge-berlin-6km-zossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270524
+SUMMARY:Xletix Challenge - Berlin – 6 km mit 15 Hindernissen (Fun Distanz)
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 6 km\nhttps://www.xletix.
+ com/events/berlin-2027/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/berlin-2027/
+END:VEVENT
+END:VCALENDAR

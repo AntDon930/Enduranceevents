@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-stonebreaktrail-meltewitz-5km-lossatal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:StoneBreakTrail Meltewitz
+LOCATION:Lossatal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://stonebreaktrail
+ .de/
+TRANSP:TRANSPARENT
+URL:https://stonebreaktrail.de/
+END:VEVENT
+END:VCALENDAR

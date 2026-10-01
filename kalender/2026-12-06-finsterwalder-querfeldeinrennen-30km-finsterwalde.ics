@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-finsterwalder-querfeldeinrennen-30km-finsterwalde@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Finsterwalder Querfeldeinrennen – Cyclocross 30 km
+LOCATION:Finsterwalde\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttps://www.rsv-
+ finsterwalde.de/
+TRANSP:TRANSPARENT
+URL:https://www.rsv-finsterwalde.de/
+END:VEVENT
+END:VCALENDAR

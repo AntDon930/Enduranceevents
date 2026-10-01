@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-5-klosterlauf-aurachtal-10km-aurachtal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:5. Klosterlauf Aurachtal – 10km Hauptlauf
+LOCATION:Aurachtal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://sc-muenchaura
+ ch.de/4-klosterlauf-aurachtal/
+TRANSP:TRANSPARENT
+URL:https://sc-muenchaurach.de/4-klosterlauf-aurachtal/
+END:VEVENT
+END:VCALENDAR

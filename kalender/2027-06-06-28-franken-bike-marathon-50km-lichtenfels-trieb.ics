@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-28-franken-bike-marathon-50km-lichtenfels-trieb@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:28. Franken-Bike-Marathon – MTB-Marathon 50 km
+LOCATION:Lichtenfels-Trieb\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 50 km\nhttps://www.fr
+ ankenbikemarathon.de
+TRANSP:TRANSPARENT
+URL:https://www.frankenbikemarathon.de
+END:VEVENT
+END:VCALENDAR

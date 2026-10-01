@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-18-offener-vereinscrosslauf-6km-geyer@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Offener Vereinscrosslauf – 6 km Bergrunde
+LOCATION:Geyer\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://wsgwildenau.de/
+ wettkampf/vereinscrosslauf/
+TRANSP:TRANSPARENT
+URL:https://wsgwildenau.de/wettkampf/vereinscrosslauf/
+END:VEVENT
+END:VCALENDAR

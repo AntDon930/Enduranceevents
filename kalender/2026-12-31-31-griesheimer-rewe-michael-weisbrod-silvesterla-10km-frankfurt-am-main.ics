@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-31-griesheimer-rewe-michael-weisbrod-silvesterla-10km-frank
+ furt-am-main@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:31. Griesheimer REWE/Michael Weisbrod-Silvesterlauf
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.spiridon-
+ silvesterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.spiridon-silvesterlauf.de/
+END:VEVENT
+END:VCALENDAR

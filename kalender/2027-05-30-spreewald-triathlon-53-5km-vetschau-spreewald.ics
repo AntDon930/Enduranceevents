@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-spreewald-triathlon-53-5km-vetschau-spreewald@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Spreewald Triathlon – Olympische Distanz 53\,5 km (1\,5 km Schwimm
+ en / 42 km Rad / 10 km Laufen)
+LOCATION:Vetschau/Spreewald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 53.5 km\nhttps://spreewal
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://spreewald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

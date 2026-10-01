@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-50-neuburger-silvesterlauf-6km-neuburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:50. Neuburger Silvesterlauf
+LOCATION:Neuburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.tsv1862-ne
+ uburg.de/abteilungen/leichtathletik/ausschreibungen/
+TRANSP:TRANSPARENT
+URL:https://www.tsv1862-neuburg.de/abteilungen/leichtathletik/ausschreibun
+ gen/
+END:VEVENT
+END:VCALENDAR

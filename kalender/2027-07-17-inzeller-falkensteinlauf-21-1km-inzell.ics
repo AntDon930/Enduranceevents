@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-inzeller-falkensteinlauf-21-1km-inzell@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Inzeller Falkensteinlauf – Halbmarathon 21\,095 km\, Einzel und St
+ affel
+LOCATION:Inzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.falkens
+ teinlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.falkensteinlauf.de
+END:VEVENT
+END:VCALENDAR

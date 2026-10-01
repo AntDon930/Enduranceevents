@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-12-cross-im-park-1h-baiersbronn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:12. Cross im Park – Elite 60 min (Cyclocross Cup Baden-Württemberg
+ )
+LOCATION:Baiersbronn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttp://www.cross-i
+ m-park.com/
+TRANSP:TRANSPARENT
+URL:http://www.cross-im-park.com/
+END:VEVENT
+END:VCALENDAR

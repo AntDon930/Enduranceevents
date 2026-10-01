@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-2-burgerlauf-visbek-2027-x-visbek@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:2. Bürgerlauf Visbek 2027
+LOCATION:Visbek\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laufen-os.de/
+ volksbanken-laufcup
+TRANSP:TRANSPARENT
+URL:https://www.laufen-os.de/volksbanken-laufcup
+END:VEVENT
+END:VCALENDAR

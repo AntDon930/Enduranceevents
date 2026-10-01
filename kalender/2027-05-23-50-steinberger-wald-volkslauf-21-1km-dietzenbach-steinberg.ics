@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-50-steinberger-wald-volkslauf-21-1km-dietzenbach-steinberg@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:50. Steinberger Wald-Volkslauf
+LOCATION:Dietzenbach-Steinberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.sc-stein
+ berg-langlauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.sc-steinberg-langlauf.de/
+END:VEVENT
+END:VCALENDAR

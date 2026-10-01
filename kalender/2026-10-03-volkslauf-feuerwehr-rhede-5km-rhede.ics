@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-volkslauf-feuerwehr-rhede-5km-rhede@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Volkslauf Feuerwehr Rhede
+LOCATION:Rhede\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://feuerwehr-rhed
+ e.de/wir-brennen-fuer-rhede-volkslauf/
+TRANSP:TRANSPARENT
+URL:https://feuerwehr-rhede.de/wir-brennen-fuer-rhede-volkslauf/
+END:VEVENT
+END:VCALENDAR

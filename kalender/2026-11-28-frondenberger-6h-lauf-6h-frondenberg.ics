@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-frondenberger-6h-lauf-6h-frondenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Fröndenberger 6h Lauf
+LOCATION:Fröndenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.kilometerli
+ ebe.de/events/froendenberger-6h-lauf
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/froendenberger-6h-lauf
+END:VEVENT
+END:VCALENDAR

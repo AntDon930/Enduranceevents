@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-kuckucks-trail-damscheid-21km-damscheid@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Kuckucks-Trail Damscheid – 21 km Extended\, Frauen\, Männer
+LOCATION:Damscheid\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://kuckuckstrail.
+ de/
+TRANSP:TRANSPARENT
+URL:https://kuckuckstrail.de/
+END:VEVENT
+END:VCALENDAR

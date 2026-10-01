@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-wanzleber-sparkassen-triathlon-28km-wanzleben-borde@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Wanzleber Sparkassen Triathlon – Volkstriathlon 28 km (500 m Schwi
+ mmen / 23 km Rad / 4\,5 km Laufen)
+LOCATION:Wanzleben-Börde\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 28 km\nhttps://www.triath
+ lon-wanzleben.de/
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-wanzleben.de/
+END:VEVENT
+END:VCALENDAR

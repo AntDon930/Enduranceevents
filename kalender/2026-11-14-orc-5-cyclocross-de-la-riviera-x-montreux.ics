@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-orc-5-cyclocross-de-la-riviera-x-montreux@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:ORC 5 - Cyclocross de la Riviera – Cyclocross
+LOCATION:Montreux\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.omniumro
+ mand.com
+TRANSP:TRANSPARENT
+URL:https://www.omniumromand.com
+END:VEVENT
+END:VCALENDAR

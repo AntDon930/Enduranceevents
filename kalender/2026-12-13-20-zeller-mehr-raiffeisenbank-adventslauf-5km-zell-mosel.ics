@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-13-20-zeller-mehr-raiffeisenbank-adventslauf-5km-zell-mosel@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:20. Zeller MEHR Raiffeisenbank-Adventslauf
+LOCATION:Zell (Mosel)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.chiplauf.d
+ e/de/events/20-zeller-raiffeisenbank-adventslauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.chiplauf.de/de/events/20-zeller-raiffeisenbank-adventslauf
+ -2026
+END:VEVENT
+END:VCALENDAR

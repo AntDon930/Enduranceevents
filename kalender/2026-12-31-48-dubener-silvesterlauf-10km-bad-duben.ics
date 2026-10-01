@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-48-dubener-silvesterlauf-10km-bad-duben@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:48. Dübener Silvesterlauf
+LOCATION:Bad Düben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-bad-due
+ ben.de
+TRANSP:TRANSPARENT
+URL:http://www.sv-bad-dueben.de
+END:VEVENT
+END:VCALENDAR

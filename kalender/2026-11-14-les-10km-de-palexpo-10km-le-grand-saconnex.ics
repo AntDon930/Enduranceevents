@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-les-10km-de-palexpo-10km-le-grand-saconnex@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Les 10km de Palexpo
+LOCATION:Le Grand-Saconnex\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://automnales.ch
+ /10-km-de-palexpo/
+TRANSP:TRANSPARENT
+URL:https://automnales.ch/10-km-de-palexpo/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-schneekopflauf-11km-suhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Schneekopflauf – 11 km Schneekopfwanderung für Nordic Walker und W
+ anderer
+LOCATION:Suhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://schneekopflau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://schneekopflauf.de/
+END:VEVENT
+END:VCALENDAR

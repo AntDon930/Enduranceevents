@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-zytturm-triathlon-zug-52km-zug@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270614
+SUMMARY:Zytturm Triathlon Zug
+LOCATION:Zug\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://zytturmtri
+ athlon.ch/
+TRANSP:TRANSPARENT
+URL:https://zytturmtriathlon.ch/
+END:VEVENT
+END:VCALENDAR

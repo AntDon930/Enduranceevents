@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-32-bismarckturmlauf-6-5km-neustadt-an-der-orla@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:32. Bismarckturmlauf
+LOCATION:Neustadt an der Orla\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.bismarck
+ turmlauf-neustadt.de/
+TRANSP:TRANSPARENT
+URL:https://www.bismarckturmlauf-neustadt.de/
+END:VEVENT
+END:VCALENDAR

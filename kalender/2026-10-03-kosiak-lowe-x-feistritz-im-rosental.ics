@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-kosiak-lowe-x-feistritz-im-rosental@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Kosiak Löwe – Cross-Duathlon
+LOCATION:Feistritz im Rosental\, Österreich
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.lcsuetsc
+ hach.at/
+TRANSP:TRANSPARENT
+URL:https://www.lcsuetschach.at/
+END:VEVENT
+END:VCALENDAR

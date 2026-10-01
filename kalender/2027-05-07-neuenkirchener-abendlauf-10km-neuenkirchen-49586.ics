@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-neuenkirchener-abendlauf-10km-neuenkirchen-49586@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Neuenkirchener Abendlauf – 10 km Straße für Jugend\, Aktive und Ma
+ sters (Termin vorläufig)
+LOCATION:Neuenkirchen\, 49586\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 10 km\nhttps
+ ://www.eintracht-neuenkirchen.de/index.php?id=421
+TRANSP:TRANSPARENT
+URL:https://www.eintracht-neuenkirchen.de/index.php?id=421
+END:VEVENT
+END:VCALENDAR

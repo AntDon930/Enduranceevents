@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-ottermeerlauf-wiesmoor-x-wiesmoor@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Ottermeerlauf Wiesmoor
+LOCATION:Wiesmoor\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ottermeerlauf.de/
+TRANSP:TRANSPARENT
+URL:https://ottermeerlauf.de/
+END:VEVENT
+END:VCALENDAR

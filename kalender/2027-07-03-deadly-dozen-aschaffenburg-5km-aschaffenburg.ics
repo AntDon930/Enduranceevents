@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-deadly-dozen-aschaffenburg-5km-aschaffenburg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Deadly Dozen Aschaffenburg
+LOCATION:Aschaffenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.deadlydoze
+ n.de/event/aschaffenburg
+TRANSP:TRANSPARENT
+URL:https://www.deadlydozen.de/event/aschaffenburg
+END:VEVENT
+END:VCALENDAR

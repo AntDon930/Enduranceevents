@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-benediktbeurer-kirta-lauf-x-benediktbeuern@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Benediktbeurer Kirta Lauf
+LOCATION:Benediktbeuern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://home.skiclub-bb.c
+ om/aktuell/eventuebersicht.html
+TRANSP:TRANSPARENT
+URL:https://home.skiclub-bb.com/aktuell/eventuebersicht.html
+END:VEVENT
+END:VCALENDAR

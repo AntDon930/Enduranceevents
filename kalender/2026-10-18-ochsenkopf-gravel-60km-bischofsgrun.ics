@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-ochsenkopf-gravel-60km-bischofsgrun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Ochsenkopf Gravel – Gravel Race 60 km
+LOCATION:Bischofsgrün\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttps://ochsenkopf-g
+ ravel.de/
+TRANSP:TRANSPARENT
+URL:https://ochsenkopf-gravel.de/
+END:VEVENT
+END:VCALENDAR

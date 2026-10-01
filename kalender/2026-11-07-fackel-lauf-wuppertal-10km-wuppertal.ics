@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-fackel-lauf-wuppertal-10km-wuppertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Fackel-Lauf Wuppertal
+LOCATION:Wuppertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://schwebebahn-l
+ auf.de/fackel-lauf/
+TRANSP:TRANSPARENT
+URL:https://schwebebahn-lauf.de/fackel-lauf/
+END:VEVENT
+END:VCALENDAR

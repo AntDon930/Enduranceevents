@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-34-treiser-volkslauf-10km-staufenberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:34. Treiser Volkslauf
+LOCATION:Staufenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufundwalkin
+ gtreff-treis.de/volkslauf/
+TRANSP:TRANSPARENT
+URL:https://laufundwalkingtreff-treis.de/volkslauf/
+END:VEVENT
+END:VCALENDAR

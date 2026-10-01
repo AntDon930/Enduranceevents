@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-trail-des-planets-6-5km-salvan@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Trail des Planets – 6.5 km – 804 m d+ / 385 m d
+LOCATION:Salvan\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.5 km\nhttps://www.vs-timing
+ .ch/de-CH/Home/Event/249?fromResult=False
+TRANSP:TRANSPARENT
+URL:https://www.vs-timing.ch/de-CH/Home/Event/249?fromResult=False
+END:VEVENT
+END:VCALENDAR

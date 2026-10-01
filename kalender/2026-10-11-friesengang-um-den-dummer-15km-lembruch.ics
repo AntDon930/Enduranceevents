@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-friesengang-um-den-dummer-15km-lembruch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Friesengang um den Dümmer
+LOCATION:Lembruch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://svlembruch.blo
+ gspot.com/
+TRANSP:TRANSPARENT
+URL:http://svlembruch.blogspot.com/
+END:VEVENT
+END:VCALENDAR

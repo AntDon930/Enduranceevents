@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-33-saerbecker-kirmeslauf-5km-saerbeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:33. Saerbecker Kirmeslauf
+LOCATION:Saerbeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://falkesaerbeck.
+ de/leichtathletik/kirmeslauf/
+TRANSP:TRANSPARENT
+URL:https://falkesaerbeck.de/leichtathletik/kirmeslauf/
+END:VEVENT
+END:VCALENDAR

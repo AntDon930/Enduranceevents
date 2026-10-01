@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-alois-andritzki-lauf-6km-radibor@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Alois-Andritzki-Lauf
+LOCATION:Radibor\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://baer-service.d
+ e/veranstaltung/AAL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/AAL/
+END:VEVENT
+END:VCALENDAR

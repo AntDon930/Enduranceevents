@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-thyrower-waldlauf-5km-trebbin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Thyrower Waldlauf
+LOCATION:Trebbin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sachselauf
+ .de/thyrow.html
+TRANSP:TRANSPARENT
+URL:https://www.sachselauf.de/thyrow.html
+END:VEVENT
+END:VCALENDAR

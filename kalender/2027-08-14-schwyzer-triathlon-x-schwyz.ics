@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-schwyzer-triathlon-x-schwyz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:Schwyzer Triathlon
+LOCATION:Schwyz\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://schwyzertriath
+ lon.ch/
+TRANSP:TRANSPARENT
+URL:https://schwyzertriathlon.ch/
+END:VEVENT
+END:VCALENDAR

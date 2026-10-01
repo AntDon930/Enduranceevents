@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-brandenburger-beetzseelauf-10km-brandenburg-an-der-havel@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Brandenburger Beetzseelauf
+LOCATION:Brandenburg an der Havel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://vfl-brandenbu
+ rg.de/beetzseelauf/
+TRANSP:TRANSPARENT
+URL:https://vfl-brandenburg.de/beetzseelauf/
+END:VEVENT
+END:VCALENDAR

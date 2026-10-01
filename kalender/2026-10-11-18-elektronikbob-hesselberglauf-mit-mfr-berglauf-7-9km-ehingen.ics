@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-18-elektronikbob-hesselberglauf-mit-mfr-berglauf-7-9km-ehin
+ gen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:18. Elektronikbob Hesselberglauf mit Mfr. Berglauf-Meisterschaft
+LOCATION:Ehingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.9 km\nhttps://laufen.de/lau
+ fkalender/details/18-elektronikbob-hesselberglauf-mit-mfr-berglauf-meiste
+ rschaft
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/18-elektronikbob-hesselberglauf
+ -mit-mfr-berglauf-meisterschaft
+END:VEVENT
+END:VCALENDAR

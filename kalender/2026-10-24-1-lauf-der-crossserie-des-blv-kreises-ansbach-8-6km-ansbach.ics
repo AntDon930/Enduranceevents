@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-1-lauf-der-crossserie-des-blv-kreises-ansbach-8-6km-ansbach
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:1. Lauf der Crossserie des BLV-Kreises Ansbach
+LOCATION:Ansbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.6 km\nhttps://laufen.de/la
+ ufkalender/details/1-lauf-der-crossserie-des-blv-kreises-ansbach
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/1-lauf-der-crossserie-des-blv-k
+ reises-ansbach
+END:VEVENT
+END:VCALENDAR

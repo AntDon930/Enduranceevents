@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-erkelenzer-rtf-75km-erkelenz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Erkelenzer RTF – RTF 75 km
+LOCATION:Erkelenz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 75 km\nhttps://erc-ev.de/te
+ rmine/rtf
+TRANSP:TRANSPARENT
+URL:https://erc-ev.de/termine/rtf
+END:VEVENT
+END:VCALENDAR

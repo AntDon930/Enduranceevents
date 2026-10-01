@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-39-glauchauer-herbstlauf-10km-glauchau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:39. Glauchauer Herbstlauf
+LOCATION:Glauchau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.glauchaue
+ r-herbstlauf.de/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.glauchauer-herbstlauf.de/ausschreibung/
+END:VEVENT
+END:VCALENDAR

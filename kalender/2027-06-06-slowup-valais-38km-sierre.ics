@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-slowup-valais-38km-sierre@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:slowUp Valais – Volksradfahren 38 km
+LOCATION:Sierre\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 38 km\nhttps://www.sl
+ owup.ch/valais/de
+TRANSP:TRANSPARENT
+URL:https://www.slowup.ch/valais/de
+END:VEVENT
+END:VCALENDAR

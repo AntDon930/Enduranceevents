@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-38-wallenstein-halbmarathon-21-1km-altdorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:38. Wallenstein-Halbmarathon
+LOCATION:Altdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://tv1881altdo
+ rf.de/wallenstein-halbmarathon
+TRANSP:TRANSPARENT
+URL:https://tv1881altdorf.de/wallenstein-halbmarathon
+END:VEVENT
+END:VCALENDAR

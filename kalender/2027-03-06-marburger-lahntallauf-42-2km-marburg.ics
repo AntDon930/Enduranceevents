@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-marburger-lahntallauf-42-2km-marburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Marburger Lahntallauf – Marathon
+LOCATION:Marburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://ultra-marbu
+ rg.de/lahntallauf/
+TRANSP:TRANSPARENT
+URL:https://ultra-marburg.de/lahntallauf/
+END:VEVENT
+END:VCALENDAR

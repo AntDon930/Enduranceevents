@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-riespanoramalauf-3-lauf-der-jedermannlaufserie-10km-nordlin
+ gen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Riespanoramalauf - 3. Lauf der Jedermannlaufserie
+LOCATION:Nördlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lg-donau-
+ ries.de/
+TRANSP:TRANSPARENT
+URL:https://www.lg-donau-ries.de/
+END:VEVENT
+END:VCALENDAR

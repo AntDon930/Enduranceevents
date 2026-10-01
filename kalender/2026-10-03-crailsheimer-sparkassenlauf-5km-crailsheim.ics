@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-crailsheimer-sparkassenlauf-5km-crailsheim@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Crailsheimer Sparkassenlauf – 5 km Gesundheitslauf
+LOCATION:Crailsheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sparkassenlauf
+ -crailsheim.de/
+TRANSP:TRANSPARENT
+URL:https://sparkassenlauf-crailsheim.de/
+END:VEVENT
+END:VCALENDAR

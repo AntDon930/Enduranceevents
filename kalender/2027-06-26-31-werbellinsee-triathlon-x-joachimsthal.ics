@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-31-werbellinsee-triathlon-x-joachimsthal@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:31. Werbellinsee Triathlon – Sprint
+LOCATION:Joachimsthal\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.werbellins
+ eetriathlon.de/wettkampf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.werbellinseetriathlon.de/wettkampf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

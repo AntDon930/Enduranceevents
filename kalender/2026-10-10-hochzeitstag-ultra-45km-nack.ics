@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-hochzeitstag-ultra-45km-nack@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Hochzeitstag-Ultra
+LOCATION:Nack\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://my.raceresult
+ .com/416506/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/416506/
+END:VEVENT
+END:VCALENDAR

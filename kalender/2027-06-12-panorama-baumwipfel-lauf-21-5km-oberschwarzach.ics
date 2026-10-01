@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-panorama-baumwipfel-lauf-21-5km-oberschwarzach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Panorama-Baumwipfel-Lauf – 21\,5 km Panoramalauf / Halbmarathon (T
+ ermin vorläufig)
+LOCATION:Oberschwarzach\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 21.5 km\nhtt
+ ps://panorama-baumwipfel-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://panorama-baumwipfel-lauf.de/
+END:VEVENT
+END:VCALENDAR

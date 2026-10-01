@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-xletix-challenge-berlin-18km-zossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270524
+SUMMARY:Xletix Challenge - Berlin – 18 km mit 35 Hindernissen (X-treme Dis
+ tanz)
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 18 km\nhttps://www.xletix
+ .com/events/berlin-2027/
+TRANSP:TRANSPARENT
+URL:https://www.xletix.com/events/berlin-2027/
+END:VEVENT
+END:VCALENDAR

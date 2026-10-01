@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-aloha-tri-linz-x-plesching@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Aloha Tri Linz
+LOCATION:Plesching\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://time2win.at/ev
+ ent/1084
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1084
+END:VEVENT
+END:VCALENDAR

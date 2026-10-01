@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-26-hawei-by-night-10km-ubstadt-weiher@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+SUMMARY:HaWei by night
+LOCATION:Ubstadt-Weiher\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lsg-weihe
+ r.de/hawei-by-night
+TRANSP:TRANSPARENT
+URL:https://www.lsg-weiher.de/hawei-by-night
+END:VEVENT
+END:VCALENDAR

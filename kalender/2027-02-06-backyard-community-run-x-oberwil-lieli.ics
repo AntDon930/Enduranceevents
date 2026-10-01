@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-06-backyard-community-run-x-oberwil-lieli@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:Backyard Community Run
+LOCATION:Oberwil-Lieli\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://helvetiab
+ ackyard.ch/community-run/
+TRANSP:TRANSPARENT
+URL:https://helvetiabackyard.ch/community-run/
+END:VEVENT
+END:VCALENDAR

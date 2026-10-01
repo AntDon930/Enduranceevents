@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-dyckerhoff-steinbruch-marathon-43km-lengerich@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Dyckerhoff Steinbruch Marathon
+LOCATION:Lengerich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 43 km\nhttps://ultra-uwe-unt
+ erwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

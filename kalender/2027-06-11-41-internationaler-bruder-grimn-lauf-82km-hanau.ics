@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-41-internationaler-bruder-grimn-lauf-82km-hanau@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:41. Internationaler Brüder-Grimn-Lauf
+LOCATION:Hanau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 82 km\nhttps://laufen.de/lau
+ fkalender/details/41-internationaler-brüder-grimn-lauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/41-internationaler-brüder-grimn
+ -lauf
+END:VEVENT
+END:VCALENDAR

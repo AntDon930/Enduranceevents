@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-neujahrs-ctf-50km-luneburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Neujahrs CTF – CTF 50 km
+LOCATION:Lüneburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 50 km\nhttps://radspo
+ rt-lueneburg.de
+TRANSP:TRANSPARENT
+URL:https://radsport-lueneburg.de
+END:VEVENT
+END:VCALENDAR

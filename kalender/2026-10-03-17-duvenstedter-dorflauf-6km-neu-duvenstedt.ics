@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-17-duvenstedter-dorflauf-6km-neu-duvenstedt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:17. Duvenstedter Dorflauf
+LOCATION:Neu Duvenstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.duvenstedt
+ er-dorflauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.duvenstedter-dorflauf.de/
+END:VEVENT
+END:VCALENDAR

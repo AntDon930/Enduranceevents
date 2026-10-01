@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-in-velo-veritas-210km-marchegg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:In Velo Veritas – Vintage-Tour 210 km
+LOCATION:Marchegg\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 210 km\nhttps://www.invelov
+ eritas.at/
+TRANSP:TRANSPARENT
+URL:https://www.inveloveritas.at/
+END:VEVENT
+END:VCALENDAR

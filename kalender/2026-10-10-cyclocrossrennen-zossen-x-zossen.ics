@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-cyclocrossrennen-zossen-x-zossen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Cyclocrossrennen Zossen – Cyclocross
+LOCATION:Zossen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.rad-net.
+ de/rad-net-portal/rad-net-ausschreibungen.htm?url=%2Fmodules.php%3Fname%3
+ DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3Dascr_detail&url_hash=0
+ PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA
+TRANSP:TRANSPARENT
+URL:https://www.rad-net.de/rad-net-portal/rad-net-ausschreibungen.htm?url=
+ %2Fmodules.php%3Fname%3DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3
+ Dascr_detail&url_hash=0PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA
+END:VEVENT
+END:VCALENDAR

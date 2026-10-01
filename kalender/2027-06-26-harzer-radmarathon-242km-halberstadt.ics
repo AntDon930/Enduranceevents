@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-harzer-radmarathon-242km-halberstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Harzer Radmarathon – Tour B – 242 km Harzumrundung kurz
+LOCATION:Halberstadt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 242 km\nhttps://harz-radmar
+ athon.de/
+TRANSP:TRANSPARENT
+URL:https://harz-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

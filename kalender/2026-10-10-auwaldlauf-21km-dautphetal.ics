@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-auwaldlauf-21km-dautphetal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Auwaldlauf – 21 km Halbmarathon
+LOCATION:Dautphetal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://www.ssvhommer
+ tshausen.de/auwaldlauf
+TRANSP:TRANSPARENT
+URL:https://www.ssvhommertshausen.de/auwaldlauf
+END:VEVENT
+END:VCALENDAR

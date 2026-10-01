@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2028-04-02-15-marathon-deutsche-weinstrasse-42-2km-bockenheim@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20280402
+DTEND;VALUE=DATE:20280403
+SUMMARY:15. Marathon Deutsche Weinstrasse
+LOCATION:Bockenheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.marathon
+ -deutsche-weinstrasse.de
+TRANSP:TRANSPARENT
+URL:http://www.marathon-deutsche-weinstrasse.de
+END:VEVENT
+END:VCALENDAR

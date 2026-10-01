@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-13-ibbenburener-klippenlauf-12-4km-ibbenburen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:13. Ibbenbürener Klippenlauf – 12\,4 km Jedermannlauf\, ca. 240 m 
+ Höhendifferenz\, 4 Anstiege (Termin vorläufig)
+LOCATION:Ibbenbüren\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 12.4 km\nhtt
+ ps://www.ibbenbuerener-klippenlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.ibbenbuerener-klippenlauf.de
+END:VEVENT
+END:VCALENDAR

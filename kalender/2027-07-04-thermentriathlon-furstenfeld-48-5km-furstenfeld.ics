@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-thermentriathlon-furstenfeld-48-5km-furstenfeld@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Thermentriathlon Fürstenfeld
+LOCATION:Fürstenfeld\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 48.5 km\nhttps://wp.therm
+ entriathlon.at
+TRANSP:TRANSPARENT
+URL:https://wp.thermentriathlon.at
+END:VEVENT
+END:VCALENDAR

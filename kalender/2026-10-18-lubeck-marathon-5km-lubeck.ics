@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-lubeck-marathon-5km-lubeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Lübeck Marathon – 5 km Lauf (DAK-Gesundheit)
+LOCATION:Lübeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://swhl-marathon.
+ de
+TRANSP:TRANSPARENT
+URL:https://swhl-marathon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-austria-backyard-ultra-amstetten-54km-amstetten@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:Austria Backyard Ultra - Amstetten
+LOCATION:Amstetten\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: 54 km\nhttps://www.a
+ ustriabackyardultra.com/amstetten
+TRANSP:TRANSPARENT
+URL:https://www.austriabackyardultra.com/amstetten
+END:VEVENT
+END:VCALENDAR

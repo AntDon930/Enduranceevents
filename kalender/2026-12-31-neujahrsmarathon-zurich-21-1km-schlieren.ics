@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-neujahrsmarathon-zurich-21-1km-schlieren@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270102
+SUMMARY:Neujahrsmarathon Zürich – Halbmarathon
+LOCATION:Schlieren\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.neujahr
+ smarathon.ch/information-de/
+TRANSP:TRANSPARENT
+URL:https://www.neujahrsmarathon.ch/information-de/
+END:VEVENT
+END:VCALENDAR

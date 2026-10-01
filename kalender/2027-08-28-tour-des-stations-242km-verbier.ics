@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-tour-des-stations-242km-verbier@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Tour des Stations – Gran Fondo 242 km
+LOCATION:Verbier\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 242 km\nhttps://tourdesstat
+ ions.ch/en/
+TRANSP:TRANSPARENT
+URL:https://tourdesstations.ch/en/
+END:VEVENT
+END:VCALENDAR

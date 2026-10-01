@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-essener-seelauf-2026-14-2km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Essener Seelauf 2026
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.2 km\nhttps://www.team-es
+ sen99.de/veranstaltungen/der-seelauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.team-essen99.de/veranstaltungen/der-seelauf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

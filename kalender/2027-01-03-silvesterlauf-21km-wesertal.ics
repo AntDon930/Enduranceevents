@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-silvesterlauf-21km-wesertal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Silvesterlauf
+LOCATION:Wesertal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://mtv-vernawahl
+ shausen.de/category/sparten/leichtathletik/
+TRANSP:TRANSPARENT
+URL:https://mtv-vernawahlshausen.de/category/sparten/leichtathletik/
+END:VEVENT
+END:VCALENDAR

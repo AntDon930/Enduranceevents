@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-19-solstice-ultra-42-2km-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:Solstice Ultra
+LOCATION:Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Bahn\nLänge: 42.2 km\nhttps://solsticeultra
+ .com/
+TRANSP:TRANSPARENT
+URL:https://solsticeultra.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-niederbipper-waffenlauf-12-5km-niederbipp@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Niederbipper Waffenlauf – 12.5 km Kurzlauf\, eine Runde im Wald
+LOCATION:Niederbipp\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.5 km\nhttps://www.niederb
+ ipper-waffenlauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.niederbipper-waffenlauf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-liepnitzseelauf-15-3km-utzdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Liepnitzseelauf – 15\,3 km Lauf ab Jugend U18
+LOCATION:Ützdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.3 km\nhttps://bernauer-la
+ uffreunde.de/
+TRANSP:TRANSPARENT
+URL:https://bernauer-lauffreunde.de/
+END:VEVENT
+END:VCALENDAR

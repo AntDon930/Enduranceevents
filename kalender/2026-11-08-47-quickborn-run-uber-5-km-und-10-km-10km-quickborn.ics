@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-47-quickborn-run-uber-5-km-und-10-km-10km-quickborn@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:47. Quickborn Run über 5 km und 10 km
+LOCATION:Quickborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.quickbo-r
+ un.de/quickborn-run/
+TRANSP:TRANSPARENT
+URL:https://www.quickbo-run.de/quickborn-run/
+END:VEVENT
+END:VCALENDAR

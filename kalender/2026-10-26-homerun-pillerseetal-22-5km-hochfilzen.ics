@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-homerun-pillerseetal-22-5km-hochfilzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:HOMERUN Pillerseetal – Halbmarathon
+LOCATION:Hochfilzen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22.5 km\nhttps://fkk.tirol/h
+ omerun/
+TRANSP:TRANSPARENT
+URL:https://fkk.tirol/homerun/
+END:VEVENT
+END:VCALENDAR

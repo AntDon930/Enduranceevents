@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-campuslauf-hochschule-wismar-10-5km-wismar@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Campuslauf Hochschule Wismar – 10\,5 km Lauf\, 3 Runden à 3\,5 km 
+ (ab 12 Jahren\, 5 €)
+LOCATION:Wismar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://myracepartn
+ er.com/veranstaltung/?event-id=522924
+TRANSP:TRANSPARENT
+URL:https://myracepartner.com/veranstaltung/?event-id=522924
+END:VEVENT
+END:VCALENDAR

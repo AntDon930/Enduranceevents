@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-gesmolder-bifurkationslauf-9-9km-melle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Gesmolder Bifurkationslauf – 9\,94 km Hauptlauf rund um die Bifurk
+ ation (Termin vorläufig)
+LOCATION:Melle\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 9.9 km\nhttp
+ s://www.sv-viktoria-gesmold.de/
+TRANSP:TRANSPARENT
+URL:https://www.sv-viktoria-gesmold.de/
+END:VEVENT
+END:VCALENDAR

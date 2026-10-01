@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-01-sternsteintrail-winterchallenge-46km-linz@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20270301
+SUMMARY:Sternsteintrail - Winterchallenge
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 46 km\nhttps://sternsteintrai
+ l.at/winterchallenge/
+TRANSP:TRANSPARENT
+URL:https://sternsteintrail.at/winterchallenge/
+END:VEVENT
+END:VCALENDAR

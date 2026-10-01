@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-stolberger-schloss-lauf-10km-sudharz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Stolberger Schloss-Lauf
+LOCATION:Südharz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.stolberge
+ r-schloss-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.stolberger-schloss-lauf.de/
+END:VEVENT
+END:VCALENDAR

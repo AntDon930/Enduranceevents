@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-04-paarlauf-des-abc-zentrum-berlin-x-berlin@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Paarlauf des ABC-Zentrum Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.abczb.de/paar
+ lauf/
+TRANSP:TRANSPARENT
+URL:https://www.abczb.de/paarlauf/
+END:VEVENT
+END:VCALENDAR

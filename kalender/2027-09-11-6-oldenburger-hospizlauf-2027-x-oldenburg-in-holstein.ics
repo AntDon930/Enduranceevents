@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-6-oldenburger-hospizlauf-2027-x-oldenburg-in-holstein@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:6. Oldenburger Hospizlauf 2027
+LOCATION:Oldenburg in Holstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://oldenburger-hospi
+ zlauf.de/
+TRANSP:TRANSPARENT
+URL:https://oldenburger-hospizlauf.de/
+END:VEVENT
+END:VCALENDAR

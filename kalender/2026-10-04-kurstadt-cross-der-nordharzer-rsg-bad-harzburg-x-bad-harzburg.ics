@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-kurstadt-cross-der-nordharzer-rsg-bad-harzburg-x-bad-harzbu
+ rg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Kurstadt Cross der Nordharzer RSG Bad Harzburg – Cyclocross\, Stev
+ ens Cyclo-Cross Cup #03
+LOCATION:Bad Harzburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://nrsg.de
+TRANSP:TRANSPARENT
+URL:https://nrsg.de
+END:VEVENT
+END:VCALENDAR

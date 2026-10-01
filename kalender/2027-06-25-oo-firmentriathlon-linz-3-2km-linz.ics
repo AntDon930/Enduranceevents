@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-oo-firmentriathlon-linz-3-2km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+SUMMARY:OÖ Firmentriathlon - Linz
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 3.2 km\nhttps://www.firme
+ ntriathlon.at/
+TRANSP:TRANSPARENT
+URL:https://www.firmentriathlon.at/
+END:VEVENT
+END:VCALENDAR

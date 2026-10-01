@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-glaubitzer-waldlauf-5-1km-glaubitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Glaubitzer-Waldlauf – 5\,1 km - für mU16\; M70 bis M85+\; wU16\; w
+ U18/20\; W55 bis W75+
+LOCATION:Glaubitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://www.rezoa.de
+ /glaubitzer-waldlauf
+TRANSP:TRANSPARENT
+URL:https://www.rezoa.de/glaubitzer-waldlauf
+END:VEVENT
+END:VCALENDAR

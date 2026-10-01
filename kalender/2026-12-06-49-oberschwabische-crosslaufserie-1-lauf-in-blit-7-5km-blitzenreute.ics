@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-49-oberschwabische-crosslaufserie-1-lauf-in-blit-7-5km-blit
+ zenreute@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute (Termin
+  vorläufig)
+LOCATION:Blitzenreute\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Trail\nLänge: 7.5 km\nhttp:
+ //www.crosslaufserie-oberschwaben.de
+TRANSP:TRANSPARENT
+URL:http://www.crosslaufserie-oberschwaben.de
+END:VEVENT
+END:VCALENDAR

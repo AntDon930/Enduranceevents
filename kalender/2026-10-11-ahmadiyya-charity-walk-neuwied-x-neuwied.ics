@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-ahmadiyya-charity-walk-neuwied-x-neuwied@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Ahmadiyya Charity Walk Neuwied
+LOCATION:Neuwied\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://charity
+ walk.de/events/12-ahmadiyya-charity-walk-neuwied
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/12-ahmadiyya-charity-walk-neuwied
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-langeooger-sanddornlauf-2026-10km-langeoog@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Langeooger Sanddornlauf 2026 – 10 km Sanddornlauf
+LOCATION:Langeoog\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.langeoog.
+ de/veranstaltungen/langeooger-sanddornlauf
+TRANSP:TRANSPARENT
+URL:https://www.langeoog.de/veranstaltungen/langeooger-sanddornlauf
+END:VEVENT
+END:VCALENDAR

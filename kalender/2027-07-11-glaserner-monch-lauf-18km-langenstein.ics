@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-glaserner-monch-lauf-18km-langenstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Gläserner Mönch Lauf – 18 km Mönchlauf Runde 3 ab AK 16 (Termin vo
+ rläufig)
+LOCATION:Langenstein\, Deutschland
+DESCRIPTION:Termin noch nicht veröffentlicht – Datum laut Vorjahr\, bitte 
+ beim Veranstalter prüfen.\nSportart: Laufen / Straße\nLänge: 18 km\nhttps
+ ://glaeserner-moench-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://glaeserner-moench-lauf.de/
+END:VEVENT
+END:VCALENDAR

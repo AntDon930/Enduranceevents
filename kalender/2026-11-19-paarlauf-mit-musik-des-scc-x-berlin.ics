@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-19-paarlauf-mit-musik-des-scc-x-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:Paarlauf mit Musik des SCC
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.scc-berlin-le
+ ichtathletik.de/events/scc-wettkaempfe?view=article&id=4082%3Apaarlauf-au
+ sschreibung-1827&catid=41
+TRANSP:TRANSPARENT
+URL:https://www.scc-berlin-leichtathletik.de/events/scc-wettkaempfe?view=a
+ rticle&id=4082%3Apaarlauf-ausschreibung-1827&catid=41
+END:VEVENT
+END:VCALENDAR

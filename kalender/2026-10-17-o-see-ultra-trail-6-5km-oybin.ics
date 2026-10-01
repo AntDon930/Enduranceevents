@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-o-see-ultra-trail-6-5km-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:O-SEE Ultra Trail – O-SEE Canicross 6k\, 6\,5 km\, 256 m Höhenmete
+ r\, ab 16
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.5 km\nhttps://www.o-see-spo
+ rts.de/veranstaltungen/o-see-ultra-trail
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail
+END:VEVENT
+END:VCALENDAR

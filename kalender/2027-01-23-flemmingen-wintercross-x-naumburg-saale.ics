@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-flemmingen-wintercross-x-naumburg-saale@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:Flemmingen Wintercross
+LOCATION:Naumburg (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lg-rudelsburg
+ .de/flemmingen-wintercross/
+TRANSP:TRANSPARENT
+URL:https://www.lg-rudelsburg.de/flemmingen-wintercross/
+END:VEVENT
+END:VCALENDAR

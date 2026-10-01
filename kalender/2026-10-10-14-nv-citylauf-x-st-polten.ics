@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-14-nv-citylauf-x-st-polten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:14. NV Citylauf
+LOCATION:St.Pölten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ustp-la.sportunio
+ n.at/nv-citylauf
+TRANSP:TRANSPARENT
+URL:https://ustp-la.sportunion.at/nv-citylauf
+END:VEVENT
+END:VCALENDAR

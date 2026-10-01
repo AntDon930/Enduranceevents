@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-02-eickendorfer-feldmarklauf-13km-bordeland@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
+SUMMARY:Eickendorfer Feldmarklauf
+LOCATION:Bördeland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://laufgruppe.bs
+ v-eickendorf.com/eickendorfer-feldmarklauf/
+TRANSP:TRANSPARENT
+URL:https://laufgruppe.bsv-eickendorf.com/eickendorfer-feldmarklauf/
+END:VEVENT
+END:VCALENDAR

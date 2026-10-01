@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-03-prenzlauer-hugelmarathon-73km-prenzlau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+SUMMARY:Prenzlauer Hügelmarathon – Radmarathon 73 km
+LOCATION:Prenzlau\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 73 km\nhttps://www.huegelma
+ rathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.huegelmarathon.de/
+END:VEVENT
+END:VCALENDAR

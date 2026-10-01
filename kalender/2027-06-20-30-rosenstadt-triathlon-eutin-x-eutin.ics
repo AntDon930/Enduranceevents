@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-20-30-rosenstadt-triathlon-eutin-x-eutin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+SUMMARY:30. Rosenstadt-Triathlon Eutin – Sprint
+LOCATION:Eutin\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttp://www.rosenstadt-
+ triathlon.de
+TRANSP:TRANSPARENT
+URL:http://www.rosenstadt-triathlon.de
+END:VEVENT
+END:VCALENDAR

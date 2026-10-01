@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-generali-geneve-marathon-10km-genf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:Generali Genève Marathon – 10 km mit Ziel am Quai Gustave-Ador ent
+ lang des Sees.
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.generalig
+ enevemarathon.com/
+TRANSP:TRANSPARENT
+URL:https://www.generaligenevemarathon.com/
+END:VEVENT
+END:VCALENDAR

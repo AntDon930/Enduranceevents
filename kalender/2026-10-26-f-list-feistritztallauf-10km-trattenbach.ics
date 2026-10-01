@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-f-list-feistritztallauf-10km-trattenbach@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:F/LIST Feistritztallauf – 10 km Lauf (Strecke durch das Feistritzt
+ al)
+LOCATION:Trattenbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.feistritz
+ tallauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.feistritztallauf.at/
+END:VEVENT
+END:VCALENDAR

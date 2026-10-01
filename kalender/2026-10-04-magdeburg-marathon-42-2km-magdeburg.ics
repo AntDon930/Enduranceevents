@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-04-magdeburg-marathon-42-2km-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:Magdeburg Marathon – Marathon
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.magdebu
+ rg-marathon.eu/
+TRANSP:TRANSPARENT
+URL:https://www.magdeburg-marathon.eu/
+END:VEVENT
+END:VCALENDAR

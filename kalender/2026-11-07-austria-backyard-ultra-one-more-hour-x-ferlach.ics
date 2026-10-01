@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-austria-backyard-ultra-one-more-hour-x-ferlach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Austria Backyard Ultra - One More Hour
+LOCATION:Ferlach\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://www.austr
+ iabackyardultra.com/onemorehour
+TRANSP:TRANSPARENT
+URL:https://www.austriabackyardultra.com/onemorehour
+END:VEVENT
+END:VCALENDAR

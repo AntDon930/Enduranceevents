@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-burgwald-triathlon-25-5km-burgwald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Burgwald Triathlon – Sprintdistanz 25\,5 km (500 m Schwimmen / 20 
+ km Rad / 5 km Laufen)
+LOCATION:Burgwald\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.5 km\nhttps://www.burg
+ wald-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.burgwald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

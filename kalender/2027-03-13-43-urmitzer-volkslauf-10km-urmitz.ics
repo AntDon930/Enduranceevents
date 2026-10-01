@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-43-urmitzer-volkslauf-10km-urmitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:43. Urmitzer Volkslauf
+LOCATION:Urmitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.ergebnisli
+ ste.de
+TRANSP:TRANSPARENT
+URL:http://www.ergebnisliste.de
+END:VEVENT
+END:VCALENDAR

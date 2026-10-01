@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-14-women-s-journey-frankfurt-5km-frankfurt-am-main@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:Women's Journey Frankfurt
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://women-journey.
+ com/
+TRANSP:TRANSPARENT
+URL:https://women-journey.com/
+END:VEVENT
+END:VCALENDAR
