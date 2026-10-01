@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-rur-rheingold-ultrarace-1062km-remagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:RUR Rheingold Ultrarace
+LOCATION:Remagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1062 km\nhttps://www.kilomet
+ erliebe.de/events/rur-rheingold-ultrarace-555
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/rur-rheingold-ultrarace-555
+END:VEVENT
+END:VCALENDAR

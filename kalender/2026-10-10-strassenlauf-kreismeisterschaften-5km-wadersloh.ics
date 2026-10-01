@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-strassenlauf-kreismeisterschaften-5km-wadersloh@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Straßenlauf-Kreismeisterschaften
+LOCATION:Wadersloh\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.kilometerl
+ iebe.de/events/strassenlauf-kreismeisterschaften-10
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/strassenlauf-kreismeisterschaften
+ -10
+END:VEVENT
+END:VCALENDAR

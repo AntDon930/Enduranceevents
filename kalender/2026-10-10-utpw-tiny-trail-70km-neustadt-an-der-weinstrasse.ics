@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-utpw-tiny-trail-70km-neustadt-an-der-weinstrasse@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:UTPW Tiny Trail
+LOCATION:Neustadt an der Weinstraße\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 70 km\nhttps://www.kilometerl
+ iebe.de/events/utpw-tiny-trail
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/utpw-tiny-trail
+END:VEVENT
+END:VCALENDAR

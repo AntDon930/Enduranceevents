@@ -1838,6 +1838,8 @@ def normalize_event_name(name: str | None) -> str:
         return ""
     s = unicodedata.normalize("NFKD", name.lower()).replace("ß", "ss")
     s = "".join(c for c in s if not unicodedata.combining(c))
+    # "Runner's Festival" und "Runners Festival" sind ein Name (30.09.2026).
+    s = s.replace("'", "").replace("’", "")
     s = re.sub(r"^\s*\d+\s*\.?\s*", "", s)
     s = re.sub(r"[^a-z0-9]+", " ", s)
     return " ".join(t for t in s.split() if t and t not in _NAME_STOPWORDS and not t.isdigit())
@@ -2053,9 +2055,60 @@ def _same_name(a: dict, b: dict) -> bool:
     shorter, longer = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
     if len(shorter) >= 2 and shorter <= longer:
         return True
-    return difflib.SequenceMatcher(
-        None, " ".join(sorted(ta)), " ".join(sorted(tb))
-    ).ratio() >= 0.88
+    if difflib.SequenceMatcher(None, " ".join(sorted(ta)), " ".join(sorted(tb))).ratio() >= 0.88:
+        return True
+    # Siebter Weg (30.09.2026, nach dem ersten Kilometerliebe-Lauf): Der
+    # NAME einer Seite ist der Kern des Namens der anderen - der Rest ist
+    # Sponsor, Auflage, Jahr oder der Ort. "SAARathon" gegen
+    # "Sparkassen-SAARathon", "Frauenlauf Berlin" gegen "Vitamin Well
+    # Frauenlauf Berlin 2027", "Marathon Bonn" gegen "24. Deutsche Post
+    # Marathon Bonn", "Trollinger Marathon" gegen "Heilbronner
+    # Trollinger-Marathon 2027": 48 Paare standen nach dem Lauf doppelt,
+    # weil Sponsor und Wettbewerbs-Label die Wortmengen auseinanderzogen.
+    # Ort und Ortsadjektiv ("heilbronner") zählen nicht; dafür muss der
+    # STANDORT beider Zeilen derselbe sein (nicht nur 30 km nah) - sonst
+    # wären zwei "Nikolauslauf" in Nachbarorten am selben Tag eins. Die
+    # Labels dürfen sich nicht in einer Gattung unterscheiden, und die
+    # Distanz muss auf beiden Seiten stehen oder auf einer fehlen (wie
+    # Weg fünf und sechs). "Alstervorland parkrun" gegen "Krupunder See
+    # parkrun" (kein Kern des anderen), "Hamburg Halbmarathon" gegen
+    # "Alstertallauf Hamburg" und "Bergische 5" gegen "Die Bergischen 5"
+    # bleiben getrennt.
+    ka_, kb_ = _kern_tokens(a), _kern_tokens(b)
+    if ka_ and kb_ and a.get("art1") == b.get("art1") and _gleicher_standort(a, b):
+        kurz, lang = (ka_, kb_) if len(ka_) <= len(kb_) else (kb_, ka_)
+        if kurz <= lang:
+            if not (wb_a and wb_b):
+                return True
+            if (ka is not None and kb is not None and abs(ka - kb) < 0.5
+                    and _unterscheidende_gattung(wb_a, gemeinsame_art2)
+                    == _unterscheidende_gattung(wb_b, gemeinsame_art2)):
+                return True
+    return False
+
+
+_JAHR = re.compile(r"^(?:19|20)\d{2}$")
+
+
+def _kern_tokens(event: dict) -> frozenset:
+    """Der Kern des Veranstaltungsnamens: ohne Auflage, Jahr, Ort und
+    Ortsadjektiv ("heilbronner", "bottroper")."""
+    ort = normalize_event_name(event.get("standort") or "").split()
+    ortsformen = set(ort) | {o + "er" for o in ort} | {o[:-1] + "er" for o in ort if o.endswith("e")} \
+        | {o + "r" for o in ort if o.endswith("e")} | {o + "n" for o in ort} \
+        | {o[:-2] + "er" for o in ort if o.endswith("en")}  # Ditzingen -> ditzinger
+    return frozenset(t for t in _bare_name_tokens(event) if not _JAHR.match(t) and t not in ortsformen)
+
+
+def _gleicher_standort(a: dict, b: dict) -> bool:
+    """Derselbe Ort - als WORTMENGE verglichen („Giengen" in „Giengen an der
+    Brenz"), nicht als Zeichenkette: „essen" steckt in „giessen", und der
+    Essener Silvesterlauf wäre der Gießener gewesen (30.09.2026)."""
+    sa, sb = set(normalize_event_name(a.get("standort")).split()), set(normalize_event_name(b.get("standort")).split())
+    if sa and sb and (sa <= sb or sb <= sa):
+        return True
+    coords = (a.get("lat"), a.get("lon"), b.get("lat"), b.get("lon"))
+    return all(isinstance(c, (int, float)) for c in coords) and _haversine_km(*coords) <= 3
 
 
 def _name_tokens(event: dict) -> frozenset:

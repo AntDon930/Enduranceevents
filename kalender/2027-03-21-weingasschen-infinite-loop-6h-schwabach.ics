@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-weingasschen-infinite-loop-6h-schwabach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Weingäßchen Infinite Loop
+LOCATION:Schwabach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.kilometerli
+ ebe.de/events/12h-weingaesschen-infinite-loop
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/12h-weingaesschen-infinite-loop
+END:VEVENT
+END:VCALENDAR

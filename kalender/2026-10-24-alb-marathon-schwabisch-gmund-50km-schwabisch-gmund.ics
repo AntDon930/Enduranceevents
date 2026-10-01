@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-alb-marathon-schwabisch-gmund-50km-schwabisch-gmund@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Alb Marathon Schwäbisch Gmünd
+LOCATION:Schwäbisch Gmünd\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.albmarath
+ on.de/
+TRANSP:TRANSPARENT
+URL:https://www.albmarathon.de/
+END:VEVENT
+END:VCALENDAR

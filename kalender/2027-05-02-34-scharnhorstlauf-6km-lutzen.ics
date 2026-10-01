@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:34. Scharnhorstlauf – 6\,0 km Lauf
 LOCATION:Lützen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://laufen.de/lauf
- kalender/details/34-scharnhorstlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.lvsa.de/in
+ dex.php/index.php?article_id=1452
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/34-scharnhorstlauf
+URL:https://www.lvsa.de/index.php/index.php?article_id=1452
 END:VEVENT
 END:VCALENDAR

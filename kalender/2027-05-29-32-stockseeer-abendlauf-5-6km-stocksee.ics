@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20270529
 DTEND;VALUE=DATE:20270530
 SUMMARY:32. Stockseeer Abendlauf – 5\,6km Lauf
 LOCATION:Stocksee\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://laufen.de/la
- ufkalender/details/32-stockseeer-abendlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://www.tsv-stoc
+ ksee.de/veranstaltungen/2913579/2027/05/29/32.-abendlauf-in-stocksee.html
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/32-stockseeer-abendlauf
+URL:https://www.tsv-stocksee.de/veranstaltungen/2913579/2027/05/29/32.-abe
+ ndlauf-in-stocksee.html
 END:VEVENT
 END:VCALENDAR

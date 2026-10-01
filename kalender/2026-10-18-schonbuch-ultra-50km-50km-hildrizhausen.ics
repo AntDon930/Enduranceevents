@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-schonbuch-ultra-50km-50km-hildrizhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Schönbuch Ultra 50km
+LOCATION:Hildrizhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.kilometer
+ liebe.de/events/schoenbuch-ultra-50km
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/schoenbuch-ultra-50km
+END:VEVENT
+END:VCALENDAR

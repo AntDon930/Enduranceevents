@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-42-asv-duisburg-winterlaufserie-7-5km-duisburg@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:42. ASV Duisburg Winterlaufserie
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.asv-wint
+ erlaufserie.de/
+TRANSP:TRANSPARENT
+URL:https://www.asv-winterlaufserie.de/
+END:VEVENT
+END:VCALENDAR

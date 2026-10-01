@@ -2387,8 +2387,10 @@
     "_note": "Zeitnehmer-Link (https://www.berlin-timing.de/Kallinchen-Triathlon) durch die dort genannte Veranstalterseite ersetzt. Vom Nutzer gemeldet: berlin-timing schreibt 'Informationen zur Veranstaltung entnehmen Sie bitte der Veranstalterseite: Kallinchen Triathlon'. Zielseite abgerufen, nennt den Kallinchen Triathlon. Linkprüfung 2026-09-19 (berlin-timing.de)."
   },
   "29. Kölner Nikolauslauf|2026-12-06": {
-    "veranstalter_url": "https://koelner-nikolauslauf.de/",
-    "_note": "Der gespeicherte Link bonner-nikolauslauf.de ist der BONNER Nikolauslauf (7. Ausgabe, Rheinaue, derselbe Veranstalter pulsschlag) - ein anderes Rennen. koelner-nikolauslauf.de: '29. Kölner Nikolauslauf - Sonntag, 06. Dezember 2026', Stadtwald, TopLauf 10 km / FunLauf / KidsLauf. Linkprüfung 2026-09-19."
+    "standort": "Köln",
+    "lat": 50.9375,
+    "lon": 6.9603,
+    "_note": "koelner-nikolauslauf.de: der Lauf findet in Köln statt; die Quelle hatte ihn nach Bonn verortet, und mit dem Bonner Nikolauslauf (gleicher Tag, 7 km) wäre er seit dem siebten Weg der Namensregel eine Zeile. Linkprüfung 30.09.2026."
   },
   "41. Pegnitztallauf 2026|2026-10-10": {
     "veranstalter_url": "https://ski-club-artelshofen.jimdoweb.com/",

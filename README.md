@@ -1565,9 +1565,30 @@ bestätigt den Befund vom Vormittag.
 
 | Modul | Quelle | Was daraus wird | Erster Lauf |
 |---|---|---|---|
-| `kilometerliebe_scraper.py` | Kilometerliebe (Astro, statisch; Monatsseiten `/2026/oktober/` mit `<time>` + Link je Karte, Eventseite mit JSON-LD `SportsEvent`, Faktenliste Distanzen/Kategorie/Status, Knopf „Event-Website") | Laufen und Triathlon, je Distanz eine Zeile, „6 h" als Zeitrennen, Triathlon je Format; **Wandern (Megamarsch) fällt weg**; Koordinaten aus dem JSON-LD; Veranstalterlink vom Knopf. Latin-1-Mojibake repariert (kein Zeichensatz im Header). robots `Allow: /`, Impressum üblich | Probelauf über 501 Eventseiten lief beim Commit noch (rund 2 Zeilen je Seite, die Hälfte davon Duplikate zum Bestand); die Zahlen des ersten echten Laufs folgen im nächsten Commit |
+| `kilometerliebe_scraper.py` | Kilometerliebe (Astro, statisch; Monatsseiten `/2026/oktober/` mit `<time>` + Link je Karte, Eventseite mit JSON-LD `SportsEvent`, Faktenliste Distanzen/Kategorie/Status, Knopf „Event-Website") | Laufen und Triathlon, je Distanz eine Zeile, „6 h" als Zeitrennen, Triathlon je Format; **Wandern (Megamarsch) fällt weg**; Koordinaten aus dem JSON-LD; Veranstalterlink vom Knopf. Latin-1-Mojibake repariert (kein Zeichensatz im Header). robots `Allow: /`, Impressum üblich | 501 Eventseiten ab dem 30.09.2026 (14 Monatsseiten), 884 Zeilen (45 Wander-Events weg), **336 neu**, 468 im Bestand; nach dem Aufräumen 7.016 → 7.194 Events (Laufen 5.609 → 5.738, Triathlon 500 → 552). Der Lauf hat die Namensregel um den **siebten Weg** erweitert (siehe unten) |
 | `lvpfalz_scraper.py` | LV Pfalz, Terminliste Volksläufe (Contao, schema.org Event: Name, Datum, „Veranstalter: TSG Maxdorf", Strecken mit Semikolon, Link) | Laufen, je Strecke eine Zeile; **Ort aus dem Vereinsnamen** (TSG Maxdorf → Maxdorf) oder dem Laufnamen; ohne Ort kein Eintrag (LG Ohmbachsee, TV Offenbach) | 14 Läufe, **2 neu** (Holzland-Crosslauf, Silvesterlauf Schifferstadt), 8 im Bestand |
 | `lck_scraper.py` | Läuferclub Kaltern, Südtirol (`inc_kalender.php?id=`: Fenster von vier Terminen um jede Seitenleisten-Id; Kategorie, Datum, „Distanz: 15km (230hm)", Text, Link) | Laufen, Südtirol, je Distanz eine Zeile; **Ort aus Name oder Text** gegen die 750 Südtiroler Orte – Trentiner Läufe (Fiemme Ultra Sky, Trento Half Marathon) haben keinen und fallen weg | 21 Termine, 12 Trentino, **8 neu** (Radlsee Hüttenlauf, Dorflauf Niederdorf, Latsch–St. Martin, Muterlauf, Crosslauf Kaltern, Tiefrastenlauf, Ahrntaler Sunnsatlauf) – Südtirol 19 → 27 Events |
+
+**Der siebte Weg der Namensregel** (`_same_name()`, 30.09.2026): Nach dem
+Kilometerliebe-Lauf standen 48 Paare doppelt, weil der Kalender Sponsor,
+Auflage, Jahr oder den Ort in den Namen schreibt – „Sparkassen-SAARathon"
+neben „SAARathon", „Vitamin Well Frauenlauf Berlin 2027" neben „Frauenlauf
+Berlin", „24. Deutsche Post Marathon Bonn" neben „Marathon Bonn",
+„Heilbronner Trollinger-Marathon 2027" neben „Trollinger Marathon". Die
+Teilmengen-Regel sah das nicht, weil die Wettbewerbs-Labels mit in die
+Wortmenge gehen. Jetzt gilt: Ist der **Kern** des einen Namens (ohne
+Auflage, Jahr, Ort und Ortsadjektiv) eine Teilmenge des anderen, bei
+gleicher Sportart, **demselben Standort** (Wortmenge, nicht 30 km –
+„essen" steckt in „giessen") und Labels ohne unterscheidende Gattung, ist
+es eine Zeile. Am Bestand nachgezählt: 96 Paare, alle durchgesehen –
+darunter auch Altlasten wie „Allschwiler Klausenlauf"/„Klausenlauf
+Allschwil", „42. Silvesterlauf"/„Silvesterlauf Mörschied", „4. Eckernförder
+Winterlaufserie"/„Winterlaufserie Eckernförde"; der eine Fehltreffer war
+der „29. Kölner Nikolauslauf", den die Quelle nach Bonn verortet hatte (per
+Override nach Köln). Gegenproben im Test: zwei parkruns in Hamburg, „Hamburg
+Halbmarathon" gegen „Alstertallauf Hamburg", Walking gegen Lauf, Essen
+gegen Gießen. Die Meldung „Gleicher Tag, Ort und Distanz unter anderem
+Namen" fällt damit von 120 auf 47.
 
 ### Laufzeit
 

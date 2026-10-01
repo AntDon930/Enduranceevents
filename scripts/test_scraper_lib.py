@@ -3398,6 +3398,30 @@ def test_kilometerliebe() -> None:
     check("kilometerliebe: Latin-1-Mojibake repariert", kl._utf8("KÃ¶ln Marathon"), "Köln Marathon")
 
 
+def test_siebter_weg() -> None:
+    """Siebter Weg von _same_name (30.09.2026): Sponsor, Auflage, Jahr und
+    Ortsadjektiv im Namen - samt Gegenproben."""
+    print("\nNamensregel, siebter Weg (Sponsor/Ort im Namen):")
+    from scraper_lib import is_same_event
+    def e(name, standort, km=None, wb=None, art1="Laufen", lat=None, lon=None):
+        return dict(name=name, standort=standort, laenge_km=km, wettbewerb=wb, art1=art1, datum_start="2027-01-01", lat=lat, lon=lon)
+    faelle = [
+        ("SAARathon", "Saarbrücken", 5, "5 km Lauf für alle", "Sparkassen-SAARathon", "Saarbrücken", 5, "5 km", True),
+        ("Frauenlauf Berlin", "Berlin", 10, "10 km Lauf", "Vitamin Well Frauenlauf Berlin 2027", "Berlin", 10, "10 km", True),
+        ("Marathon Bonn", "Bonn", 21.1, "Halbmarathon", "24. Deutsche Post Marathon Bonn", "Bonn", 21.1, "21,1 km", True),
+        ("Trollinger Marathon", "Heilbronn", 21.1, "Halbmarathon", "Heilbronner Trollinger-Marathon 2027", "Heilbronn", 21.1, "21,1 km", True),
+        ("Keltenlauf Ditzingen", "Ditzingen", 13, "13 km", "2. Ditzinger Keltenlauf", "Ditzingen", 13, "13 km", True),
+        ("Runners Festival Klouster", "Rinchnach", 12, "Hauptlauf", "4. Runner's Festival Klouster", "Rinchnach", 12, "12 km", True),
+        ("Alstervorland parkrun Hamburg", "Hamburg", 5, "5 km", "Krupunder See parkrun Hamburg", "Hamburg", 5, "5 km", False),
+        ("Hamburg Halbmarathon", "Hamburg", 21.1, "Halbmarathon", "Alstertallauf Hamburg", "Hamburg", 21.1, "21,1 km", False),
+        ("Frauenlauf Berlin", "Berlin", 10, "10 km Walking", "Vitamin Well Frauenlauf Berlin 2027", "Berlin", 10, "10 km Lauf", False),
+        ("Essener-Silvesterlauf 2026", "Essen", 5, "5 km Jedermannlauf", "Silvesterlauf Gießen", "Gießen", 5, "5 km Lauf", False),
+        ("Stadtlauf Erding", "Erding", 10, "10 km", "Stadtlauf Erding", "Erding", 5, "5 km", False),
+    ]
+    for n1, o1, k1, w1, n2, o2, k2, w2, erwartet in faelle:
+        check(f"{n1!r} <> {n2!r}", is_same_event(e(n1, o1, k1, w1), e(n2, o2, k2, w2)), erwartet)
+
+
 def test_lvpfalz_lck() -> None:
     """LV-Pfalz-Terminliste und Kaltern-Kalender (30.09.2026), ohne Netz."""
     print("\nLV Pfalz und Läuferclub Kaltern:")
@@ -3452,7 +3476,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

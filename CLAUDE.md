@@ -257,6 +257,23 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Wettbewerb, ist das Label das Unterscheidende („10 km Lauf" vs.
    „10 km Nordic Walking"), und Lauf vs. Wandern über dieselbe Strecke
    sind zwei Einträge.
+   **Siebter Weg (30.09.2026, nach dem ersten Kilometerliebe-Lauf)**:
+   Der KERN des einen Namens (ohne Auflage, Jahr, Ort und Ortsadjektiv,
+   `_kern_tokens()`) ist Teilmenge des anderen – „SAARathon" in
+   „Sparkassen-SAARathon", „Frauenlauf Berlin" in „Vitamin Well Frauenlauf
+   Berlin 2027", „Keltenlauf Ditzingen" in „2. Ditzinger Keltenlauf".
+   Bedingungen: gleiche `art1`, **derselbe Standort als Wortmenge**
+   (`_gleicher_standort()`, nicht die 30 km – sonst wären zwei
+   „Nikolauslauf" in Nachbarorten eins; und als Wortmenge, nicht als
+   Zeichenkette: „essen" steckt in „giessen"), und die Labels wie beim
+   fünften/sechsten Weg (höchstens eines, oder gleiche Distanz ohne
+   unterscheidende Gattung). 96 Paare am Bestand, alle durchgesehen, ein
+   Fehltreffer (Kölner Nikolauslauf, von der Quelle nach Bonn verortet –
+   Override). `normalize_event_name()` wirft seitdem Apostrophe weg
+   („Runner's" = „Runners"). `test_siebter_weg` hält Treffer und
+   Gegenproben fest. **Der erste Durchlauf von `clean_events.py` konvergiert
+   nicht vollständig** – der zweite merged noch einmal rund 50 Gruppen,
+   der dritte ist stabil; die CI vergleicht Lauf 2 mit Lauf 3.
    **Was das Dedupe NICHT erkennt**: Zwei Schreibweisen ohne ein
    gemeinsames Wort. „13. Fichtelgebirgstrailrun" und „Fichtellauf"
    (19.09.2026, Gefrees, beide 21 km) sind dieselbe Veranstaltung – der
@@ -3673,7 +3690,9 @@ den Stevens Cup). **Vorbehalt, nicht gelesen**: `zpn-timing.de`
 wäre der Weg), `s-r-b.de`, `swiss-cyclocross.ch`, `bikeboard.at`. Die
 Lindauer Seequerung (01.08.2027, BSV-Schwaben-Kalender) steht in
 `manual_events.json`. Im Frühjahr 2027 lohnt ein Blick: BOE, Fricktal
-und dsergebnis tragen dann die Saison ein.
+und dsergebnis tragen dann die Saison ein. **Erster Kilometerliebe-Lauf**:
+501 Eventseiten, 336 neue Zeilen, 7.016 → 7.194 Events – und der siebte
+Weg der Namensregel (Datenregel 7).
 
 **Dritte Suche und Linkprüfung (30.09.2026, abends)**: Auf „noch einmal
 nach allen Webseiten schauen … Detailsuche in Ruhe für Österreich und

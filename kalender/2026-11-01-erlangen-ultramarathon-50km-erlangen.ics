@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-erlangen-ultramarathon-50km-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Erlangen Ultramarathon
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.kilometer
+ liebe.de/events/erlangen-ultramarathon-2026-11
+TRANSP:TRANSPARENT
+URL:https://www.kilometerliebe.de/events/erlangen-ultramarathon-2026-11
+END:VEVENT
+END:VCALENDAR
