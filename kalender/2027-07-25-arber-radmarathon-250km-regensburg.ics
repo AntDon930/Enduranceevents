@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-07-25-arber-radmarathon-100km-regensburg@antdon930.github.io
+UID:2027-07-25-arber-radmarathon-250km-regensburg@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270725
 DTEND;VALUE=DATE:20270726
-SUMMARY:Arber Radmarathon – Radmarathon 100 km
+SUMMARY:Arber Radmarathon – Radmarathon 250 km
 LOCATION:Regensburg\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 100 km\nhttp://www.arberrad
- marathon.de/
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 250 km\nhttps://www.arberra
+ dmarathon.de/
 TRANSP:TRANSPARENT
-URL:http://www.arberradmarathon.de/
+URL:https://www.arberradmarathon.de/
 END:VEVENT
 END:VCALENDAR

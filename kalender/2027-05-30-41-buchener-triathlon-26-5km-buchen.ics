@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-05-30-41-buchener-triathlon-53km-buchen@antdon930.github.io
+UID:2027-05-30-41-buchener-triathlon-26-5km-buchen@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
-SUMMARY:41. Büchener Triathlon – Olympische Distanz
+SUMMARY:41. Büchener Triathlon – Sprinttriathlon
 LOCATION:Büchen\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 53 km\nhttps://www.esv-bu
- echen.de/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26.5 km\nhttp://www.esv-b
+ uechen.de
 TRANSP:TRANSPARENT
-URL:https://www.esv-buechen.de/
+URL:http://www.esv-buechen.de
 END:VEVENT
 END:VCALENDAR

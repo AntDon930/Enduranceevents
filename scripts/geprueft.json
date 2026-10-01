@@ -409,10 +409,10 @@
     "notiz": "10 km am 31.01.2027 bestätigt (Jahnstadion Hamm-Ost, amtlich vermessen)"
   },
   "Lindensee Laufserie|2026-10-10": {
-    "am": "2026-09-18",
+    "am": "2026-10-01",
     "ergebnis": "korrigiert",
     "quelle": "lc-ruesselsheim.de",
-    "notiz": "Zwei Termine: 10.10.2026 mit 5 und 10 km, 21.11.2026 mit 5 und 15 km. Die 15-km-Zeile lag auf dem Oktober-Termin und spannte bis November. FEHLT weiterhin: der 5-km-Lauf am 21.11. - ein Override kann keine Zeile hinzufuegen."
+    "notiz": "Duplikat '44. Lindenseelaufserie' 10 km am 10.10. ausgeschlossen."
   },
   "Runners Festival Klouster|2026-10-01": {
     "am": "2026-09-21",
@@ -1482,10 +1482,10 @@
     "notiz": "30.09.2026 bestätigt (Kurz/Lang, 63 Meldungen am 18.09.); Distanz dort nicht ausgeschrieben, Label 'ca. 10,5 km' bleibt."
   },
   "Women's Journey Frankfurt|2026-10-14": {
-    "am": "2026-09-19",
-    "ergebnis": "quelle_ok",
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
     "quelle": "women-journey.com",
-    "notiz": "'14.10. 2026', Deutsche Bank Park: 5 km (und 2,3 km, unter der Grenze)."
+    "notiz": "Duplikat 'Women Journey Frauenlauf' ausgeschlossen."
   },
   "Offener Vereinscrosslauf|2026-11-18": {
     "am": "2026-09-19",
@@ -2184,10 +2184,10 @@
     "notiz": "Frameset-Seite, nur Ergebnislinks bis 2025; 2027 nicht genannt. | 21.09.2026: als vorläufig markiert (datum_vorlaeufig)"
   },
   "Chemnitzer Indoor Triathlon|2027-03-20": {
-    "am": "2026-09-21",
+    "am": "2026-10-01",
     "ergebnis": "korrigiert",
-    "quelle": "https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon",
-    "notiz": "Super Super Sprint 6,2 km (0,2/5/1) beschriftet, beide kurzen Zeilen auf Kategorie Indoor; Super Sprint (12 km) und Sprint (26 km) ohne belegte Teilstrecken gelassen."
+    "quelle": "indoortriathlon-chemnitz.de (Wix, nicht lesbar); Labels der Quelle",
+    "notiz": "Drei Formate trugen die Radstrecke als Laenge (20/10/5 statt 25,8/12,4/6,2 km), zwei Schuelerbewerbe raus, '12 km' Duplikat des Super Sprint. Veranstalterseite aus der Sandbox nicht lesbar (Wix) - entschieden an den Teilstrecken im Label."
   },
   "Sulzburger Frühlingslauf|2027-03-20": {
     "am": "2026-09-19",
@@ -3044,10 +3044,10 @@
     "notiz": "Sa 21.11.2026: Halbmarathon, Viertelmarathon (bei uns 11 km) und 3,7-km-Lauf."
   },
   "Lorsbacher Cross-Duathlon|2026-11-21": {
-    "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
-    "quelle": "tvlorsbach.de",
-    "notiz": "Sa 21.11.2026, '5 km Laufen - 20 km Radfahren - 3 km Laufen' = 28 km bestätigt."
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "tvlorsbach.de/lorsbacher-cross-duathlon",
+    "notiz": "Eine Distanz 5/20/3 km = 28 km; drei Teilstrecken standen als eigene Zeilen, dazu eine Zeile ohne Laenge."
   },
   "Riespanoramalauf - 3. Lauf der Jedermannlaufserie|2026-11-22": {
     "am": "2026-09-21",
@@ -7470,5 +7470,479 @@
     "ergebnis": "korrigiert",
     "quelle": "remsecker-waldlauf.de",
     "notiz": "remsecker-waldlauf.de: Mittelstrecke rund 5 km, Seitel-Langstrecke 8 km (nicht 7,5), Kurzstrecke 3 km (Seitenabgleich 2026-09-21)."
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sportunion-schenkenfelden.at",
+    "notiz": "Run&Bike = 7,9 km Laufen + 12 km Rad (Einzel/Team), RUN 7,9 km eigener Bewerb, Walking 5,7 km, Kinder 1.000 m. Bei uns stand der Radteil (12 km) und die Bike-Runde (6 km) als Strecke, der Lauf als Triathlon."
+  },
+  "Giubiasco-Carena Run & Bike|2027-05-09": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "fitformevent.ch/it/giubiasco-carena",
+    "notiz": "Zwei getrennte Rennen (Run 10,7 km, Bike 11,7 km), bei uns beide als Duathlon-Teilstrecken."
+  },
+  "Einhorn Triathlon|2027-06-13": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlon-club-bremen.de/einhorn-triathlon-blog",
+    "notiz": "Vier Teilstrecken-Zeilen -> zwei Formate mit Summe (25,5 / 25,8 km)."
+  },
+  "Sempachersee-Triathlon, Nottwil|2027-07-04": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sempacherseetri.ch",
+    "notiz": "Teilstrecken als Zeilen; ein Format (Short Distance 26 km), identisch mit 'CKW Sempachersee Triathlon'."
+  },
+  "Herzlauf Oberösterreich|2026-10-04": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "herzlauf.at/oberoesterreich",
+    "notiz": "Koordinaten der 5-km-Zeile zeigten zum Traunsee statt nach Traun bei Linz."
+  },
+  "27. Donautal Halbmarathon und Volkslauf|2026-10-26": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "lwa.untermuehl.com/lauf-walking",
+    "notiz": "Koordinaten der 21,1-km-Zeile im Burgenland statt an der Donau; Halbmarathon 21,0975 km und Volkslauf 7,2 km bestaetigt."
+  },
+  "GutsMuths-Rennsteiglauf|2027-05-22": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "rennsteiglauf.de",
+    "notiz": "Zwei Standorte (Suhl, Schmiedefeld bei Neuhaus) -> Zielort Schmiedefeld am Rennsteig; Marathon stand doppelt; Supermarathon unter zweitem Namen."
+  },
+  "Arber Radmarathon|2027-07-25": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "arberradmarathon.de",
+    "notiz": "Start Regensburg (nicht Regen); 100 km ist Rennrad, nicht Gravel; Gravel Tour K 95 km fehlte (manual_events)."
+  },
+  "RUR Rheingold Ultrarace|2026-10-10": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "kilometerliebe.de (einzige Quelle), Websuche",
+    "notiz": "201/570/1062 km an einem Tag, nur auf Kilometerliebe, Text wirkt generiert; per exclude heraus, bis eine Ausschreibung belegt, dass es den Lauf gibt."
+  },
+  "20. Freigerichter Benzinglauf|2027-05-23": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "lauftreff-freigericht.com/Benzinglauf",
+    "notiz": "800 km -> keine Laenge (die Seite nennt drei Strecken ohne Zahl), Link auf die Benzinglauf-Seite."
+  },
+  "Monaco di Baviera Lite II|2027-06-05": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "ultracyclingchallenges.com",
+    "notiz": "Zweite Zeile (840 km, Gravel, nur ein Tag) war ein Duplikat."
+  },
+  "Monaco di Baviera Classic IV|2027-06-19": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "ultracyclingchallenges.com",
+    "notiz": "Zweite Zeile (1.537 km, Gravel, nur ein Tag) war ein Duplikat."
+  },
+  "Tour de Tirol|2026-10-09": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "tourdetirol.com",
+    "notiz": "Sieben Strecken bestaetigt; drei Duplikat-Zeilen unter '20. Tour de Tirol - …' ausgeschlossen."
+  },
+  "18. Langeneicker Pfingstlauf 2027|2027-05-14": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "runnersworld.de/laufkalender/langeneicker-pfingstlauf, Websuche",
+    "notiz": "Link zeigte auf den Emlichheimer Pfingstlauf; geloescht. Keine Koordinaten -> Geseke."
+  },
+  "CANYON Rhein-Hunsrück Bike Marathon|2027-06-05": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "mtb-rhens.de",
+    "notiz": "Zwei Namen, zwoelf Zeilen mit falschen Gattungen -> acht Strecken (MTB 25/42/57/80, Gravel 38/76, RTF 70/110) unter dem offiziellen Namen in manual_events.json."
+  },
+  "Hamburg Halbmarathon|2026-10-25": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "hamburg-halbmarathon.de",
+    "notiz": "Der hella hamburg halbmarathon 2026 wurde vom Juni auf den 25.10.2026 verschoben - kein Duplikat des Alstertallaufs am selben Tag."
+  },
+  "Linneser Cross-Country Tag CTF|2026-10-11": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "rv-kleinlinden.de",
+    "notiz": "CTF (30/50/60 km) und Gravel (50/80 km) sind zwei Angebote desselben Tages - kein Duplikat."
+  },
+  "Spreewaldmarathon Radmarathon|2027-04-24": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "spreewaldmarathon.de/wpswm/radeln",
+    "notiz": "70 km ab Luebbenau und 70 km ab Burg sind zwei Startorte - kein Duplikat; 'Spreewald RTF' (zweiter Name fuer die Burger Touren) ausgeschlossen."
+  },
+  "24 H Burgenland Extrem|2027-01-21": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "24stundenburgenland.com",
+    "notiz": "Lauf-/Wandertour 120 km und 'Bike 224 Meilen' (Gravel Brevet 120/360 km) sind zwei Veranstaltungen desselben Veranstalters - kein Duplikat."
+  },
+  "Napf-Marathon Trubschachen|2026-10-11": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "napf-marathon.ch",
+    "notiz": "Marathon 42 km, Halbmarathon 20 km (stand mit 21 und als 'Berglauf' 20 km doppelt), Team-Lauf 20+22 km ist eine Zweier-Staffel (raus)."
+  },
+  "Kap-Arkona-Lauf|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "kap-arkona-lauf.de",
+    "notiz": "Zweiter Name 'Kap Arkona Lauf' mit Koordinaten mitten auf Ruegen ausgeschlossen."
+  },
+  "Adelsberger Bike Marathon|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "adelsberger-bike-marathon.de",
+    "notiz": "Labels zweier Quellen angeglichen (MTB-Marathon 20/40 km)."
+  },
+  "Berglauf am Brigerberg|2026-10-10": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "36er.ch",
+    "notiz": "Duplikat '36er Trail Ried-Brig' (8,5 km) ausgeschlossen."
+  },
+  "Löwenlauf Hachenburg|2026-10-17": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "loewenlauf-hachenburg.de",
+    "notiz": "Duplikat 'Hachenburg Loewen Marathon' (gerundete Distanzen) ausgeschlossen."
+  },
+  "Gantrisch Trail|2026-11-01": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "gantrischtrail.com",
+    "notiz": "Duplikat 'Gantrisch Trail Rueggisberg' (falsche Koordinaten) ausgeschlossen."
+  },
+  "Viking Bike Winterchallenge GTF|2026-11-08": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "rv-schleswig.de",
+    "notiz": "CTF-Labels einer zweiten Quelle auf Gravel Tour gesetzt (GTF)."
+  },
+  "88. Friedeholz Cross|2026-11-29": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sv-weyhe.de",
+    "notiz": "Zwei Labels derselben Langstrecke angeglichen."
+  },
+  "Herbstwaldlauf / Gunni-Sachs-Gedenklauf|2026-11-29": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "herbstwaldlauf-berlin.de",
+    "notiz": "Koordinaten nach Reinickendorf, Duplikat unter zweitem Namen ausgeschlossen."
+  },
+  "Christmas Run, Lausanne|2026-12-12": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "christmasrun.ch",
+    "notiz": "Duplikat 'Christmas Midnight Run Lausanne' (7,5 km) ausgeschlossen."
+  },
+  "Rund um Köln|2027-05-23": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "rundumkoeln.de",
+    "notiz": "Labels zweier Quellen fuer die 120 km angeglichen."
+  },
+  "Innsbruck Alpine Trailrun Festival|2027-05-05": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "innsbruckalpine.at",
+    "notiz": "69/87 km einer zweiten Quelle auf die Labels des Veranstalters (68,9 / 86,8 km) angeglichen."
+  },
+  "Glocknerkönig|2027-06-06": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "glocknerkoenig.com",
+    "notiz": "Labels zweier Quellen angeglichen (Classic 27,3 / Ultra 28,9 km)."
+  },
+  "Sella Ronda Bike Day|2027-06-05": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sellarondabikeday.com",
+    "notiz": "Labels zweier Quellen fuer die 53 km angeglichen."
+  },
+  "Säntis-Classic|2027-06-13": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "saentis-classic.ch",
+    "notiz": "Labels zweier Quellen angeglichen (Oepfel-Tour 40, Classic-Tour 130, 200 km)."
+  },
+  "MountainPilgrimage Wien - Bozen|2027-06-20": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "mountainpilgrimage.de",
+    "notiz": "Labels angeglichen (950 km); 2.600/5.000 km ohne Label raus; Schwesterfahrt Mont Ventoux-Santiago liegt ausserhalb."
+  },
+  "Belchen³|2027-07-04": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "hirsch-sprung.com",
+    "notiz": "Labels zweier Quellen fuer die 320 km angeglichen."
+  },
+  "6. 0 Shades of Speed - Culinary.RIDE.Festival|2027-07-23": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "shades-of-speed.eu",
+    "notiz": "Labels zweier Quellen fuer die 306 km angeglichen."
+  },
+  "Herbolzheimer Gänslauf|2027-07-25": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "gaenslauf.de",
+    "notiz": "Duplikat '19. Gaenslauf Herbolzheim' (Herbolzheim im Breisgau statt an der Jagst) ausgeschlossen."
+  },
+  "Kraichgau Energie Summertime Triathlon powered|2027-08-08": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "summertime-triathlon.de",
+    "notiz": "'52 km' auf Olympische Distanz 51,5 km angeglichen."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "triathlonvreden.de",
+    "notiz": "'23 km' = Sprinttriathlon 22,7 km; drei Nachwuchszeilen raus."
+  },
+  "10-Teiche-Marathon|2027-09-11": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "hahnenklee.de",
+    "notiz": "'6 km' = Mini-Marathon 5,5 km."
+  },
+  "La Trans'Onésienne|2026-11-21": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "transo.ch",
+    "notiz": "Duplikat 'Trans Onesienne Onex' ausgeschlossen."
+  },
+  "Course de Noël et Trail des Châteaux , Sion|2026-12-12": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "coursedenoel.ch",
+    "notiz": "Duplikat 'Course Titze de Noel Sion' (7 km) ausgeschlossen."
+  },
+  "Halbmarathon Mörfelden|2027-02-21": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-mw.de/halbmarathon",
+    "notiz": "Duplikat '47. Halbmarathonlauf der SKV Moerfelden' ausgeschlossen."
+  },
+  "Osnabrücker PiesBERG-Ultra-Marathon (PUM)|2027-04-10": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "piesbergultra.de",
+    "notiz": "Duplikat 'PUMelchen 2027' (49 km) ausgeschlossen."
+  },
+  "Raesfelder Volkslauf|2027-05-28": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "tsv-raesfeld.de",
+    "notiz": "Duplikat '39. Raesfelder Mai-Lauf' ausgeschlossen."
+  },
+  "RACA North-South|2027-06-08": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "raceacrossaustria.com",
+    "notiz": "Duplikat 'Race Across Austria (RACA)' 1.000 km ausgeschlossen."
+  },
+  "Ettlingen Altstadtlauf|2027-06-11": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "ettlinger-altstadtlauf.de",
+    "notiz": "Duplikat 'Volksbank Ettlinger Altstadt-Lauf' ausgeschlossen."
+  },
+  "Gravel Festival Bern|2026-10-17": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "ridegravel.ch/bern",
+    "notiz": "Duplikat 'Gravel Ride & Race Bern' ausgeschlossen."
+  },
+  "Wadersloher Volkslauf|2026-10-10": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "tus-wadersloh.de",
+    "notiz": "Kreismeisterschaft im Rahmen (Kilometerliebe-Zeile) ausgeschlossen."
+  },
+  "34. Int. DEULUX-Lauf|2026-11-14": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "deulux-lauf.de",
+    "notiz": "RLP-Meisterschaft 10 km im Rahmen (laufen.de-Zeile) ausgeschlossen."
+  },
+  "IRT-Läufermeeting Föhren|2026-10-04": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "lg-meulenwald-foehren.de",
+    "notiz": "RLP-Meisterschaft 5 km U16 im Rahmen ausgeschlossen."
+  },
+  "SZ Fahrradfest|2026-10-04": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sz-fahrradfest.de, velotour-radmarathon.de",
+    "notiz": "206-km-Zeile war die VeloTour Dresden-Berlin (eigene Zeile)."
+  },
+  "Keltenlauf Ditzingen|2026-10-18": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "keltenlauf.de",
+    "notiz": "Labels ohne 'Erwachsene und Jugendliche', damit die Zeilen mit '2. Ditzinger Keltenlauf' zusammenfallen."
+  },
+  "Robert-Hannemann-Volkslauf 2026|2026-11-08": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sv1860minden.de",
+    "notiz": "Duplikat des Gedaechtnislaufs ausgeschlossen."
+  },
+  "47. NOSPA Winterstraßenlaufserie|2027-01-10": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "sportinhusum.de",
+    "notiz": "Drei 21,1-km-Zeilen ohne Label (je Termin) ausgeschlossen - die Serie steht als 'Winterlaufserie Drelsdorf' richtig."
+  },
+  "4. WiedtalUltraTrail (WUT)|2027-03-13": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "mut-zum-wut.de",
+    "notiz": "Duplikat des 'Wiedtal Ultra Trail' ausgeschlossen."
+  },
+  "41. Büchener Triathlon|2027-05-30": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "esv-buechen.de",
+    "notiz": "Zweiter Name an die Zeilen des 'Buechener Triathlon' angeglichen (Sprint 26,5 / Olympisch 53 km)."
+  },
+  "Enni-Triathlon Moers|2027-06-06": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "enni-triathlon.de",
+    "notiz": "Duplikat der Kurzdistanz ausgeschlossen."
+  },
+  "NRZ Kloster Lauf|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "alemanniakamp-leichtathletik.de",
+    "notiz": "Schreibweise mit Leerzeichen (5000 m) ausgeschlossen."
+  },
+  "Schönbuch Ultra 50km|2026-10-18": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "schoenbuchlauf.de",
+    "notiz": "Kilometerliebe-Zeile mit Distanz im Namen ausgeschlossen (50 km steht beim Schoenbuchlauf)."
+  },
+  "UltraSteinhart666|2026-11-08": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "tb-burgsteinfurt.de",
+    "notiz": "Kilometerliebe-Zeile ausgeschlossen (56 km steht beim Steinhart500)."
+  },
+  "Hessische Meisterschaften Straßenlauf|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "laufen.de",
+    "notiz": "Meisterschaft im Rahmen des Rodenbacher Lauftags ausgeschlossen."
+  },
+  "F/LIST Feistritztallauf|2026-10-26": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "feistritztallauf.at",
+    "notiz": "Halbmarathon 21,1 km, 10 km, 5 km bestaetigt - die 21,1-km-Zeile ohne Label (zweite Quelle) ist echt."
+  },
+  "Flensburger Adventslauf|2026-12-13": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "flensburger-lauftreff.de/adventlauf",
+    "notiz": "Tannenbaumlauf 7, Adventlauf 10,5, Jubilaeumslauf 14 km; '10 km' der zweiten Quelle auf 10,5 angeglichen."
+  },
+  "CVJM Silvesterlauf|2026-12-31": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "cvjm-silvesterlauf.de",
+    "notiz": "Halbmarathon 21,1 km, 10 km, 5 km (1,5 km Schueler) bestaetigt; die letzten beiden Ausgaben fielen witterungsbedingt aus - 2026 ausgeschrieben."
+  },
+  "Tour de Presinge|2027-03-21": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "tourpresinge.ch",
+    "notiz": "10 km (Defi Rive Gauche), 7 km, 5 km bestaetigt."
+  },
+  "Itzehoer Störlauf|2027-05-22": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "stoerlauf.de",
+    "notiz": "5 km, 10 km, Halbmarathon bestaetigt."
+  },
+  "Grömitzer Sun-Run|2027-05-23": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "sun-run.de",
+    "notiz": "23.05.2027: 10 km, 21,1 km Halbmarathon, 5 km Walking bestaetigt."
+  },
+  "Trail du Grand Genève|2027-05-29": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "traildugrandgeneve.com",
+    "notiz": "40 km (auch Duo/Relais), 25 km, 12 km, 8 km Walking bestaetigt."
+  },
+  "Swiss Irontrail|2027-08-14": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "irontrail.ch",
+    "notiz": "T78 Savognin 78,0 km, T55 55,0 km, T22 Bivio 21,6 km, T20 20,2 km bestaetigt."
+  },
+  "Generali Genève Marathon|2027-05-08": {
+    "am": "2026-10-01",
+    "ergebnis": "quelle_ok",
+    "quelle": "generaligenevemarathon.com",
+    "notiz": "Marathon, Halbmarathon, 10 km, 5 km - bekannte Strecken des Genfer Marathons; 21,1 km ohne Label ist echt."
+  },
+  "Tortour|2027-08-19": {
+    "am": "2026-10-01",
+    "ergebnis": "korrigiert",
+    "quelle": "tortour.ch",
+    "notiz": "1.000 km ist die Hauptstrecke der Tortour (Ultracycling, 19.-22.08.2027); Duplikat 'TORTOUR' Myself 50 ausgeschlossen."
+  },
+  "32. Bismarckturmlauf|2026-10-03": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "bismarckturmlauf-neustadt.de (nicht erreichbar)",
+    "notiz": "21,4-km-Zeile ohne Label (zweite Quelle) neben 6,5 und 11,3 km - Seite am 01.10.2026 nicht erreichbar, nicht entscheidbar."
+  },
+  "Bad Windsheimer Weinturmlauf|2027-03-14": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "weinturmlauf.org",
+    "notiz": "21,1-km-Zeile ohne Label neben 6 und 10 km; die Seite nennt die Strecken 2026 nicht im Text ('Details & Strecken 2026 (NEU)' als Link)."
+  },
+  "Volkslauf Rund um den Winterstein|2027-03-14": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "wintersteinlauf.de (nicht erreichbar)",
+    "notiz": "42,2-km-Zeile ohne Label neben 5/10/30 km - Seite am 01.10.2026 nicht erreichbar."
+  },
+  "Andechs Trail|2027-04-17": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "andechs-trail.de (nicht erreichbar)",
+    "notiz": "15,8-km-Zeile ohne Label neben 'Expert Trail' 15 km - wahrscheinlich dieselbe Strecke, Seite nicht erreichbar."
+  },
+  "Finnelauf|2027-04-24": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "finnelauf.de",
+    "notiz": "21,1-km-Zeile ohne Label neben 6/12/13 km; die Seite nennt im Text keine Strecken."
+  },
+  "Norderney - Meine Insel Lauf|2027-07-24": {
+    "am": "2026-10-01",
+    "ergebnis": "unklar",
+    "quelle": "meine-insel-lauf-norderney.de (403)",
+    "notiz": "21,1-km-Zeile ohne Label neben 5 und 10 km; Seite sperrt den Abruf."
   }
 }

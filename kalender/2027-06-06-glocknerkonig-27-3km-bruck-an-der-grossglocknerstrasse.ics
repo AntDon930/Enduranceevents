@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-06-glocknerkonig-28-9km-bruck-an-der-grossglocknerstrasse@antd
+UID:2027-06-06-glocknerkonig-27-3km-bruck-an-der-grossglocknerstrasse@antd
  on930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
-SUMMARY:Glocknerkönig – Glocknerkönig Ultra 28\,9 km
+SUMMARY:Glocknerkönig – Glocknerkönig Classic 27\,3 km
 LOCATION:Bruck an der Großglocknerstraße\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 28.9 km\nhttps://www.glockn
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 27.3 km\nhttps://www.glockn
  erkoenig.com
 TRANSP:TRANSPARENT
 URL:https://www.glocknerkoenig.com

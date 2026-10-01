@@ -1590,6 +1590,32 @@ Halbmarathon" gegen „Alstertallauf Hamburg", Walking gegen Lauf, Essen
 gegen Gießen. Die Meldung „Gleicher Tag, Ort und Distanz unter anderem
 Namen" fällt damit von 120 auf 47.
 
+### Die Berichte nach dem Kilometerliebe-Lauf (01.10.2026)
+
+Nach dem ersten Kilometerliebe-Lauf wurden die `⚠`-Berichte von
+`clean_events.py` abgearbeitet, jeder Fall an der Veranstalterseite
+geprüft: 123 Overrides, 70 Protokolleinträge in `geprueft.json`, neun
+nachgetragene Zeilen (CANYON Rhein-Hunsrück Bike Marathon mit seinen
+acht Strecken, Arber Radmarathon Gravel 95 km). 7.194 → 7.086 Events (Laufen 5.692, Fahrrad 829, Triathlon 522, Schwimmen 43; DE 5.090, AT 1.027, CH 942, Südtirol 26).
+
+| Bericht | vorher | nachher |
+|---|---|---|
+| Mehrsport: Zeile sieht nach Teilstrecke aus | 16 | 4 (Aquabike/Swim&Run, echt) |
+| Dieselbe Veranstaltung an zwei weit entfernten Punkten | 4 | 0 |
+| Unplausible Laufdistanz an einem Tag | 3 | 0 |
+| Gleicher Tag, Ort und Distanz, anderer Name | 47 | 12 (geprüft, keine Duplikate) |
+| Gleiche Veranstalter-Seite, gleiche Distanz, anderer Name | 110 | 57 |
+
+Die Fehlerklassen: Teilstrecken eines Triathlons als eigene Zeilen
+(Lorsbach, Einhorn, Sempachersee, Chemnitz), Kilometerliebe-Zeilen mit
+der Distanz im Namen („PUMelchen", „Schönbuch Ultra 50km"), zwei Labels
+derselben Strecke aus zwei Quellen (20 Paare, per gleichem Label
+zusammengeführt), gleichnamige Orte (Regen/Regensburg, zwei Herbolzheim,
+Riggisberg/„Rüggisberg", Traun/Traunsee) und Meisterschaften im Rahmen
+eines Volkslaufs (Datenregel 18). Ausführlich in `CLAUDE.md`
+(„Siebzehnter Durchgang").
+
+
 ### Laufzeit
 
 Ein **vollständiger Lauf dauert rund zwei Stunden**: laufen.de und

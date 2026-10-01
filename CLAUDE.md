@@ -1874,6 +1874,85 @@ gezählt, nicht einzeln behandelt:
   vermutlich leer) – beim nächsten Lauf prüfen.
 
 
+### Siebzehnter Durchgang: die Berichte nach dem Kilometerliebe-Lauf (01.10.2026, ohne den Nutzer)
+
+Nach dem ersten Kilometerliebe-Lauf (336 neue Zeilen) die `⚠`-Berichte von
+`clean_events.py` abgearbeitet – jeder Fall an der Veranstalterseite
+(`veranstalter_links.Abrufer`, robots.txt wird beachtet), Protokoll in
+`geprueft.json` (`am` = 2026-10-01, 70 Einträge), 123 Overrides, neun
+Zeilen in `manual_events.json`. 7.194 → **7.086 Events (Laufen 5.692, Fahrrad 829, Triathlon 522, Schwimmen 43; DE 5.090, AT 1.027, CH 942, Südtirol 26)**. Die Berichte danach:
+Teilstrecke 16 → 4 (die vier sind Aquabike/Swim&Run, echt), weit
+entfernte Punkte 4 → 0, unplausible Distanz 3 → 0, gleicher Tag/Ort/
+Distanz 47 → 12 (alle geprüft: zwei Veranstaltungen am selben Tag,
+Walking neben Lauf, parkruns), gleiche Seite 110 → 57.
+
+Was dabei als KLASSE sichtbar wurde (Punkt 2 des Dreizehnten Durchgangs):
+
+- **Zwei Quellen, zwei Labels, dieselbe Strecke – und ein Gattungswort
+  trennt sie.** „Radmarathon 130 km" / „Classic-Tour mit Trikot 130 km",
+  „Velodom 120 (Granfondo)" / „Gran Fondo 120 km", „RTF 306" / „Radmarathon
+  306", „CTF 35" / „Gravel Tour 35" (GTF = Gravel-Touren-Fahrt), „69 km" /
+  „Panorama Ultra Trail", „13 km" / „13 km für Erwachsene und Jugendliche",
+  „Sprintdistanz 26 km" / „Sprintdistanz 26 km (… / 20 km **Rad** / …)".
+  Der sechste Weg sieht ein Gattungswort auf einer Seite und hält die
+  Zeilen auseinander – zu Recht als Regel (Datenregel 7), hier aber 20
+  Paare, die einzeln mit **gleichem Label per Override** zusammengeführt
+  wurden. Die Lehre für neue Labels: **die Klammer mit den Teilstrecken
+  eines Triathlons enthält „Rad"** und zählt damit als Gattung; wer zwei
+  Zeilen derselben Veranstaltung zusammenbringen will, gibt beiden
+  dasselbe Label.
+- **Kilometerliebe zerlegt Veranstaltungen in Strecken mit eigenem
+  Namen** („PUMelchen 2027", „Schönbuch Ultra 50km", „UltraSteinhart666",
+  „Straßenlauf-Kreismeisterschaften") – dieselbe Klasse wie der Gaudilauf
+  (Dreizehnter Durchgang): `exclude`, die Strecke steht beim Hauptlauf.
+  Und **generierte Texte**: Der „RUR Rheingold Ultrarace" (201/570/1062 km
+  an einem Tag, „Startnummer KL-REM-2026", „Noch 11 Tage. Das schaffst du.")
+  existiert außer dort nirgends – per `exclude`, umkehrbar. Eine Quelle
+  mit generierten Seiten ist für Distanzen nur so gut wie ihr
+  Veranstalterlink.
+- **Teilstrecken als Zeilen** (Datenregel 15, Bestandsfall): Lorsbacher
+  Cross-Duathlon (5/20/3 km als drei Zeilen neben den 28 km), Einhorn
+  Triathlon, Sempachersee, Chemnitzer Indoor (Radstrecke als Länge),
+  Hirtstein-Trophy (die Bike-RUNDE 6 km als Strecke). Bei **Giubiasco-
+  Carena Run & Bike** sind Run (10,7 km) und Bike (11,7 km) dagegen ZWEI
+  Rennen mit getrennter Anmeldung – der Lauf ist ein Lauf, das Rennen ein
+  Radrennen; „Run & Bike" im Namen heißt nicht Duathlon.
+- **Falsch verortet, dritte Begegnung**: Arber Radmarathon startet in
+  **Regensburg** (VCR-Regensburg), nicht in Regen; Gänslauf in Herbolzheim
+  **an der Jagst**, nicht im Breisgau; Gantrisch Trail in Riggisberg, nicht
+  „Rüggisberg" (Appenzell); Herzlauf OÖ in Traun bei Linz, nicht am
+  Traunsee; Donautal-Halbmarathon an der Donau, nicht im Burgenland;
+  Rennsteiglauf: alle Strecken am **Zielort Schmiedefeld am Rennsteig**
+  (Starts in Eisenach/Neuhaus/Oberhof) – vorher zwei Standorte, deshalb
+  stand der Marathon doppelt. Gleichnamige Orte sind die häufigste
+  Ursache; `report_widerspruechliche_koordinaten()` findet sie nur, wenn
+  die Veranstaltung ZWEI Zeilen hat.
+- **Ein allgemeiner Schlüssel braucht distanzgenaue Gegenschlüssel.**
+  Hirtstein-Trophy: Die Zeile ohne Länge („Duathlon") ist nur über den
+  allgemeinen Schlüssel erreichbar; der setzt 19,9 km, Label und `art2`
+  Duathlon an JEDE Zeile – die Lauf- und Walking-Zeilen brauchten deshalb
+  eigene Schlüssel, die `laenge_km`, `wettbewerb` UND `art2` wiederholen
+  (die erste Fassung vergaß `art2`: „Laufen/Duathlon"). Genauso beim
+  41. Büchener Triathlon.
+- **Der Ort im Hostnamen, vierter Fall**: `pfingstlauf.de` ist der
+  Emlichheimer Pfingstlauf – die Linkprüfung hatte ihn dem Langeneicker
+  Pfingstlauf (Geseke) gegeben (`host:pfingstlauf`). Link gelöscht
+  (`veranstalter_url: null`), `links_geprueft.json` auf `unklar`.
+- **mtb-rhens.de**: Beide Quellen hatten alle acht Strecken des CANYON
+  Rhein-Hunsrück Bike Marathons falsch beschriftet („Gravel Race" bzw.
+  „RTF" für MTB 25/42/57/80, Gravel 38/76, RTF 70/110) und die Veranstaltung
+  unter zwei Namen. Zwölf Zeilen per `exclude`, acht neu in
+  `manual_events.json` unter dem offiziellen Namen – der einzige Weg, wenn
+  Name UND Labels beider Quellen falsch sind.
+
+Offen geblieben (`unklar`, Seiten nicht erreichbar oder ohne Streckentext):
+Bismarckturmlauf 21,4 km, Weinturmlauf 21,1 km, Winterstein 42,2 km,
+Andechs Trail 15,8 km, Finnelauf 21,1 km, Norderney 21,1 km – je eine
+Zeile ohne Label aus einer zweiten Quelle neben den Strecken des
+Veranstalters. Und vier Backyards mit großer Distanz (80/47/54/161 km),
+wie bisher nur gemeldet.
+
+
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
 Fehler passieren. Die 13 gefundenen Fehler, danach sortiert, was beim
 nächsten Lauf wirklich geschieht:

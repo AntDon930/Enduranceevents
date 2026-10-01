@@ -2784,8 +2784,8 @@
     "_note": "Veranstalterseite statt runtix.com: https://www.polderlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ingelheimer). Linkprüfung 2026-09-19."
   },
   "Kap Arkona Lauf|2026-10-03": {
-    "veranstalter_url": "https://kap-arkona-lauf.de/",
-    "_note": "Veranstalterseite statt davengo.com: https://kap-arkona-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:arkona, datum). Linkprüfung 2026-09-19."
+    "exclude": true,
+    "_note": "Veranstalterseite statt davengo.com: https://kap-arkona-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:arkona, datum). Linkprüfung 2026-09-19. | 01.10.2026: Duplikat von 'Kap-Arkona-Lauf' (kap-arkona-lauf.de, 03.10.2026, 10 und 21 km); diese Zeilen lagen zudem auf 'Ruegen' mitten auf der Insel statt in Putgarten am Kap."
   },
   "Maxdorfer Gemüselauf|2026-10-03": {
     "veranstalter_url": "https://www.tsg-maxdorf.de/",
@@ -5439,7 +5439,8 @@
   },
   "Chemnitzer Indoor Triathlon|2027-03-20|12": {
     "art2": "Indoor",
-    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Hallen-Triathlon (Sportforum Chemnitz: 50-m-Becken, Ergometer, Tartanoval) - Kategorie Indoor wie die 26-km-Zeile; Super Sprint und Sprint sind ohne genaue Zahlen ausgeschrieben. Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon"
+    "exclude": true,
+    "_note": "Gegenpruefung der Triathlon-Zeilen unter 20 km (Nutzer 21.09.2026: 'alle Triathlons checken'). Hallen-Triathlon (Sportforum Chemnitz: 50-m-Becken, Ergometer, Tartanoval) - Kategorie Indoor wie die 26-km-Zeile; Super Sprint und Sprint sind ohne genaue Zahlen ausgeschrieben. Quelle: https://www.triathlonchemnitz.de/veranstaltungen/chemnitzer-indoor-triathlon | 01.10.2026: '12 km' (zweite Quelle) ist der Super Sprint (400 m / 10 km / 2 km = 12,4 km), der mit Aufteilung in der Liste steht - Duplikat."
   },
   "63. Winterlauf|2026-12-13|16": {
     "laenge_km": 18.0,
@@ -6502,8 +6503,8 @@
     "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (horner). Linkprüfung 2026-09-30."
   },
   "Rheinland-Pfalz Meisterschaften 5km U16|2026-10-04": {
-    "veranstalter_url": "https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/",
-    "_note": "Veranstalterseite statt laufen.de: https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/ - auf der laufen.de-Seite verlinkt, Zielseite nennt den Lauf (rheinland). Linkprüfung 2026-09-30."
+    "exclude": true,
+    "_note": "Veranstalterseite statt laufen.de: https://lg-meulenwald-foehren.de/IRT-L%C3%A4ufermeeting/ - auf der laufen.de-Seite verlinkt, Zielseite nennt den Lauf (rheinland). Linkprüfung 2026-09-30. | 01.10.2026: Nachwuchs-Meisterschaft im Rahmen des IRT-Laeufermeetings Foehren (gleicher Tag, Ort, 5 km) - Datenregel 18, nicht offen."
   },
   "Cyclocrossrennen Zossen|2026-10-10": {
     "veranstalter_url": "https://www.rad-net.de/rad-net-portal/rad-net-ausschreibungen.htm?url=%2Fmodules.php%3Fname%3DAusschreibung%26ID_Veranstaltung%3D43002%26mode%3Dascr_detail&url_hash=0PKX6uyY5-Eic3KxOE5CiYgM04FDNX8MyvNiWjysmuA",
@@ -6622,8 +6623,10 @@
     "_note": "Veranstalterseite statt laufen.de: https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:laubach, laubacher). Linkprüfung 2026-09-30."
   },
   "18. Langeneicker Pfingstlauf 2027|2027-05-14": {
-    "veranstalter_url": "https://www.pfingstlauf.de/",
-    "_note": "Veranstalterseite statt laufen.de: https://www.pfingstlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:pfingstlauf). Linkprüfung 2026-09-30."
+    "veranstalter_url": null,
+    "lat": 51.641,
+    "lon": 8.511,
+    "_note": "Veranstalterseite statt laufen.de: https://www.pfingstlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:pfingstlauf). Linkprüfung 2026-09-30. | 01.10.2026: pfingstlauf.de ist die Seite des EMLICHHEIMER Pfingstlaufs (Grafschaft Bentheim) - fuer den Langeneicker Pfingstlauf (Sportplatz Langeneicke, Geseke; runnersworld.de) ein falscher Link. Eigene Seite nicht gefunden, Link geloescht statt geraten; Koordinaten Geseke (places.json), die Zeile hatte keine."
   },
   "37. Wolfhager Volkslauf Rund um den Graner Berg|2027-06-05": {
     "veranstalter_url": "https://www.laufteam-woh.de/",
@@ -6728,5 +6731,563 @@
   "SLB Meisterschaften Marathon|2026-10-11": {
     "exclude": true,
     "_note": "Saarländische Meisterschaft im Rahmen des 'SAARathon' (11.10.2026, 42,195 km Weltkulturerbe-Marathon, westspangenlauf.de) - Datenregel 18. Linkprüfung 30.09.2026."
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03": {
+    "laenge_km": 19.9,
+    "wettbewerb": "Run&Bike 19,9 km (7,9 km Laufen / 12 km Rad)",
+    "art2": "Duathlon",
+    "_note": "sportunion-schenkenfelden.at: 'RUN&BIKE (7,9km + 12,0km)' - Einzel und Team, die Bike-Strecke sind 2 Runden a 6 km. Der allgemeine Schluessel trifft die Zeile ohne Laenge ('Duathlon', zweite Quelle) und die Run&Bike-Zeile (12 km = nur die Radstrecke); die anderen Strecken haben eigene Schluessel. Berichte 'Teilstrecke' und 'Triathlon mit Laufkategorie' vom 01.10.2026."
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03|6": {
+    "exclude": true,
+    "_note": "Die 6 km sind die Bike-RUNDE (2x6 km = 12 km Radteil des Run&Bike), kein Wettbewerb - sportunion-schenkenfelden.at, 01.10.2026."
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03|7.9": {
+    "laenge_km": 7.9,
+    "wettbewerb": "Laufstrecke 7,9 km",
+    "art1": "Laufen",
+    "_note": "Der RUN (7,9 km, 110 Hm) ist ein eigener Einzelbewerb (sportunion-schenkenfelden.at) - Laufen, nicht Triathlon. laenge_km wiederholt den Wert nur, damit der allgemeine Schluessel ihn nicht ueberschreibt. art2 Strasse, weil der allgemeine Schluessel sonst 'Duathlon' an den Lauf schreibt.",
+    "art2": "Straße"
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03|5.7": {
+    "laenge_km": 5.7,
+    "wettbewerb": "Walking 5,7 km",
+    "art1": "Laufen",
+    "_note": "Walking-Strecke 5,7 km (70 Hm) - wie die Walking-Zeilen der Volkslaeufe unter Laufen, nicht Triathlon. laenge_km wiederholt den Wert wegen des allgemeinen Schluessels. art2 Strasse, weil der allgemeine Schluessel sonst 'Duathlon' an den Lauf schreibt.",
+    "art2": "Straße"
+  },
+  "Hirtstein-Trophy Schenkenfelden|2026-10-03|1": {
+    "exclude": true,
+    "_note": "Kinderlaeufe (U6-U14, 1.000 m) - Nachwuchs, kein offener Bewerb. Zusaetzlich wuerde der allgemeine Schluessel sonst 19,9 km an die Zeile schreiben."
+  },
+  "Lorsbacher Cross-Duathlon|2026-11-21": {
+    "laenge_km": 28.0,
+    "wettbewerb": "Duathlon 28 km (5 km Laufen / 20 km Rad / 3 km Laufen)",
+    "art2": "Duathlon",
+    "_note": "tvlorsbach.de: EINE Distanz '5 km Laufen - 20 km Radfahren - 3 km Laufen' (plus Staffel ueber dieselbe Strecke). Trifft die 28-km-Zeile und die Kilometerliebe-Zeile ohne Laenge ('Sprint')."
+  },
+  "Lorsbacher Cross-Duathlon|2026-11-21|5": {
+    "exclude": true,
+    "_note": "'5 km Laufen' ist eine Teilstrecke des Cross-Duathlons (5/20/3 = 28 km), kein eigener Wettbewerb - tvlorsbach.de, 01.10.2026."
+  },
+  "Lorsbacher Cross-Duathlon|2026-11-21|20": {
+    "exclude": true,
+    "_note": "'20 km Radfahren' ist eine Teilstrecke des Cross-Duathlons (5/20/3 = 28 km), kein eigener Wettbewerb - tvlorsbach.de, 01.10.2026."
+  },
+  "Lorsbacher Cross-Duathlon|2026-11-21|3": {
+    "exclude": true,
+    "_note": "'3 km Laufen' ist eine Teilstrecke des Cross-Duathlons (5/20/3 = 28 km), kein eigener Wettbewerb - tvlorsbach.de, 01.10.2026."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|20": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Non Stop Sprint Tri 25,8 km (800 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Label 'Non Stop Sprint Tri …/…/…' nannte die drei Teilstrecken, gespeichert war die RADSTRECKE (20 km) - Datenregel 15, Summe eingetragen. Beide Schluessel (alte und neue Distanz), siehe 'Die wichtigste Lektion'."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|25.8": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Non Stop Sprint Tri 25,8 km (800 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Label 'Non Stop Sprint Tri …/…/…' nannte die drei Teilstrecken, gespeichert war die RADSTRECKE (20 km) - Datenregel 15, Summe eingetragen. Beide Schluessel (alte und neue Distanz), siehe 'Die wichtigste Lektion'."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|10": {
+    "laenge_km": 12.4,
+    "wettbewerb": "Super Sprint 12,4 km (400 m Schwimmen / 10 km Rad / 2 km Laufen)",
+    "_note": "Label 'Super Sprint …/…/…' nannte die drei Teilstrecken, gespeichert war die RADSTRECKE (10 km) - Datenregel 15, Summe eingetragen. Beide Schluessel (alte und neue Distanz), siehe 'Die wichtigste Lektion'."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|12.4": {
+    "laenge_km": 12.4,
+    "wettbewerb": "Super Sprint 12,4 km (400 m Schwimmen / 10 km Rad / 2 km Laufen)",
+    "_note": "Label 'Super Sprint …/…/…' nannte die drei Teilstrecken, gespeichert war die RADSTRECKE (10 km) - Datenregel 15, Summe eingetragen. Beide Schluessel (alte und neue Distanz), siehe 'Die wichtigste Lektion'."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|5": {
+    "laenge_km": 6.2,
+    "wettbewerb": "Super Super Sprint 6,2 km (200 m Schwimmen / 5 km Rad / 1 km Laufen)",
+    "_note": "Label 'Super Super Sprint …/…/…' nannte die drei Teilstrecken, gespeichert war die RADSTRECKE (5 km) - Datenregel 15, Summe eingetragen. Beide Schluessel (alte und neue Distanz), siehe 'Die wichtigste Lektion'."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|0.2": {
+    "exclude": true,
+    "_note": "'Swim & Run Schueler D 50m / 200m' - Nachwuchs, kein offener Bewerb."
+  },
+  "Chemnitzer Indoor Triathlon|2027-03-20|1": {
+    "exclude": true,
+    "_note": "'Swim & Run Schueler B 200m / 1000m' - Nachwuchs, kein offener Bewerb."
+  },
+  "Giubiasco-Carena Run & Bike|2027-05-09|10.7": {
+    "art1": "Laufen",
+    "wettbewerb": "Run 10,7 km",
+    "_note": "fitformevent.ch: 'Gara RUN Distanza 10.7 Km' und 'Gara BIKE Distanza 11.7 Km' sind ZWEI Rennen am selben Tag (Start 9:00 bzw. 10:30, getrennte Anmeldung), die 'Combinata' addiert nur die Zeiten. Der Lauf ist ein Lauf."
+  },
+  "Giubiasco-Carena Run & Bike|2027-05-09|11.7": {
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "wettbewerb": "Bike 11,7 km",
+    "_note": "fitformevent.ch: eigenstaendiges Bergrennen Giubiasco-Carena auf der Strasse (Record 28:57), getrennte Anmeldung - Fahrrad, nicht Triathlon."
+  },
+  "Einhorn Triathlon|2027-06-13|0.5": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volkstriathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "triathlon-club-bremen.de: Volkstriathlon 500 m, Sprint 750 m Schwimmen, je ca. 20 km Rad und 5 km Laufen. Gespeichert war nur die Schwimmstrecke; Summe eingetragen, beide Schluessel."
+  },
+  "Einhorn Triathlon|2027-06-13|25.5": {
+    "laenge_km": 25.5,
+    "wettbewerb": "Volkstriathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "triathlon-club-bremen.de: Volkstriathlon 500 m, Sprint 750 m Schwimmen, je ca. 20 km Rad und 5 km Laufen. Gespeichert war nur die Schwimmstrecke; Summe eingetragen, beide Schluessel."
+  },
+  "Einhorn Triathlon|2027-06-13|0.8": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprinttriathlon 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "triathlon-club-bremen.de: Volkstriathlon 500 m, Sprint 750 m Schwimmen, je ca. 20 km Rad und 5 km Laufen. Gespeichert war nur die Schwimmstrecke; Summe eingetragen, beide Schluessel."
+  },
+  "Einhorn Triathlon|2027-06-13|25.8": {
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprinttriathlon 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "triathlon-club-bremen.de: Volkstriathlon 500 m, Sprint 750 m Schwimmen, je ca. 20 km Rad und 5 km Laufen. Gespeichert war nur die Schwimmstrecke; Summe eingetragen, beide Schluessel."
+  },
+  "Einhorn Triathlon|2027-06-13|20": {
+    "exclude": true,
+    "_note": "'ca. 20 km Radfahren' ist die Radstrecke beider Formate, kein Wettbewerb."
+  },
+  "Einhorn Triathlon|2027-06-13|5": {
+    "exclude": true,
+    "_note": "'ca. 5 km Laufen' ist die Laufstrecke beider Formate, kein Wettbewerb."
+  },
+  "Sempachersee-Triathlon, Nottwil|2027-07-04|0.8": {
+    "laenge_km": 26.0,
+    "wettbewerb": "Sprintdistanz 26 km (500/750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "sempacherseetri.ch: Short Distance (Volkstriathlon) 500m/750m Schwimmen, 20 km Rad, 5 km Laufen. Gespeichert waren drei Teilstrecken. Summe als 26 km wie die Zeile 'CKW Sempachersee Triathlon' (zweite Quelle, gleiche Veranstaltung), damit beide zusammenfallen."
+  },
+  "Sempachersee-Triathlon, Nottwil|2027-07-04|26": {
+    "laenge_km": 26.0,
+    "wettbewerb": "Sprintdistanz 26 km (500/750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "sempacherseetri.ch: Short Distance (Volkstriathlon) 500m/750m Schwimmen, 20 km Rad, 5 km Laufen. Gespeichert waren drei Teilstrecken. Summe als 26 km wie die Zeile 'CKW Sempachersee Triathlon' (zweite Quelle, gleiche Veranstaltung), damit beide zusammenfallen."
+  },
+  "Sempachersee-Triathlon, Nottwil|2027-07-04|20": {
+    "exclude": true,
+    "_note": "'20 km Radfahren' ist die Radstrecke, kein Wettbewerb (sempacherseetri.ch)."
+  },
+  "Sempachersee-Triathlon, Nottwil|2027-07-04|5": {
+    "exclude": true,
+    "_note": "'5 km Laufen' ist die Laufstrecke, kein Wettbewerb (sempacherseetri.ch)."
+  },
+  "Herzlauf Oberösterreich|2026-10-04|5": {
+    "lat": 48.2211299,
+    "lon": 14.2368043,
+    "_note": "herzlauf.at/oberoesterreich: 'Sportzentrum Traun', Stadtmarketing Traun (bei Linz). Die 5-km-Zeile lag auf 47.92/13.80 (Traunsee), die 10-km-Zeile richtig - Bericht 'zwei weit entfernte Punkte'."
+  },
+  "27. Donautal Halbmarathon und Volkslauf|2026-10-26|21.1": {
+    "lat": 48.42531,
+    "lon": 13.98115,
+    "_note": "lwa.untermuehl.com: Start/Ziel Bootshaus Untermuehl an der Donau (Gemeinde St. Martin im Muehlkreis). Die Halbmarathon-Zeile lag auf 47.16/16.21 (Burgenland, 218 km entfernt)."
+  },
+  "GutsMuths-Rennsteiglauf|2027-05-22": {
+    "standort": "Schmiedefeld am Rennsteig",
+    "lat": 50.609,
+    "lon": 10.813,
+    "art2": "Trail",
+    "_note": "rennsteiglauf.de: Zielort aller Strecken ist Schmiedefeld am Rennsteig (Suhl, OT Schmiedefeld a. R.); Starts in Eisenach (Supermarathon 73,9 km), Neuhaus (Marathon), Oberhof (Halbmarathon). Die Zeilen lagen in Suhl-Stadt und in Schmiedefeld bei Neuhaus (50.53/11.22, 38 km auseinander) - deshalb stand der Marathon doppelt. 'Groesster Crosslauf Europas' -> Trail. Koordinaten aus places.json (GeoNames)."
+  },
+  "GutsMuths-Rennsteig Supermarathon|2027-05-22|74": {
+    "exclude": true,
+    "_note": "Dieselbe 74-km-Strecke steht als 'GutsMuths-Rennsteiglauf' (74 km, rennsteiglauf.de) in der Liste; unter dem zweiten Namen waere die Veranstaltung geteilt. Start Eisenach, Ziel Schmiedefeld wie alle Strecken."
+  },
+  "Arber Radmarathon|2027-07-25|250": {
+    "standort": "Regensburg",
+    "lat": 49.0351481,
+    "lon": 12.0980395,
+    "_note": "arberradmarathon.de: Veranstalter VCR-Regensburg e.V., Start und Ziel in Regensburg (Familientour E 'von Regensburg ueber Kiefenholz und zurueck'). Die Zeilen 250/56 km lagen in Regen (77 km entfernt) - Bericht 'zwei weit entfernte Punkte'."
+  },
+  "Arber Radmarathon|2027-07-25|56": {
+    "standort": "Regensburg",
+    "lat": 49.0351481,
+    "lon": 12.0980395,
+    "_note": "arberradmarathon.de: Veranstalter VCR-Regensburg e.V., Start und Ziel in Regensburg (Familientour E 'von Regensburg ueber Kiefenholz und zurueck'). Die Zeilen 250/56 km lagen in Regen (77 km entfernt) - Bericht 'zwei weit entfernte Punkte'."
+  },
+  "Arber Radmarathon|2027-07-25|100": {
+    "art2": "Straße",
+    "_note": "arberradmarathon.de: Tour D (100 km) ist eine RENNRAD-Tour (A-E Rennrad, F-I Mountainbike, J-K Gravel); stand als Gravel."
+  },
+  "RUR Rheingold Ultrarace|2026-10-10|201": {
+    "exclude": true,
+    "_note": "Einzige Quelle ist die Kilometerliebe-Seite (Portallink) mit generiertem Text ('Startnummer KL-REM-2026', 'Noch 11 Tage. Das schaffst du.'); ein 1.062-km-Lauf an einem Tag rund um Remagen ist unbelegt, Websuche am 01.10.2026 ohne jeden Treffer, keine Veranstalterseite. Umkehrbar, sobald eine Ausschreibung auftaucht."
+  },
+  "RUR Rheingold Ultrarace|2026-10-10|570": {
+    "exclude": true,
+    "_note": "Einzige Quelle ist die Kilometerliebe-Seite (Portallink) mit generiertem Text ('Startnummer KL-REM-2026', 'Noch 11 Tage. Das schaffst du.'); ein 1.062-km-Lauf an einem Tag rund um Remagen ist unbelegt, Websuche am 01.10.2026 ohne jeden Treffer, keine Veranstalterseite. Umkehrbar, sobald eine Ausschreibung auftaucht."
+  },
+  "RUR Rheingold Ultrarace|2026-10-10|1062": {
+    "exclude": true,
+    "_note": "Einzige Quelle ist die Kilometerliebe-Seite (Portallink) mit generiertem Text ('Startnummer KL-REM-2026', 'Noch 11 Tage. Das schaffst du.'); ein 1.062-km-Lauf an einem Tag rund um Remagen ist unbelegt, Websuche am 01.10.2026 ohne jeden Treffer, keine Veranstalterseite. Umkehrbar, sobald eine Ausschreibung auftaucht."
+  },
+  "20. Freigerichter Benzinglauf|2027-05-23|800": {
+    "laenge_km": null,
+    "wettbewerb": null,
+    "veranstalter_url": "https://www.lauftreff-freigericht.com/Benzinglauf/",
+    "_note": "'800 km' ist unmoeglich (Meter als Kilometer). lauftreff-freigericht.com/Benzinglauf: 'drei verschiedene Strecken' ohne Zahl (19. Lauf am 31.05.2026, 20. im Mai 2027 angekuendigt) - Laenge geloescht statt geraten; der gespeicherte Link '/Lauf-Event-2027/' war 404."
+  },
+  "Monaco di Baviera Lite II|2027-06-05|840": {
+    "exclude": true,
+    "_note": "Duplikat der Veranstalter-Zeile 'Basisroute 850 km (bis 1.050 km, 136 Stunden)' mit vollem Datum 05.-10.06.2027 (ultracyclingchallenges.com/de/monaco-di-baviera-lite-ii); 840 km und 'Gravel' stammen aus einer zweiten Quelle - 99 % Asphalt."
+  },
+  "Monaco di Baviera Classic IV|2027-06-19|1537": {
+    "exclude": true,
+    "_note": "Duplikat der Veranstalter-Zeile (Basisroute 1.350 km, bis 1.600 km, 200 Stunden, 19.-27.06.2027, ultracyclingchallenges.com); 1.537 km und 'Gravel' aus einer zweiten Quelle."
+  },
+  "SZ Fahrradfest|2026-10-04|206": {
+    "exclude": true,
+    "_note": "Die 206 km sind die 'VeloTour Dresden-Berlin' (eigene Zeile, velotour-radmarathon.de), die am SZ-Fahrradfest startet; das Fahrradfest selbst hat 5-80 km."
+  },
+  "20. Tour de Tirol - Kaisermarathon|2026-10-10": {
+    "exclude": true,
+    "_note": "Die Tour de Tirol (tourdetirol.com, 09.-11.10.2026, Soell) steht mit allen sieben Strecken als 'Tour de Tirol' in der Liste (10/18/23/42/75/77/110 km); diese Zeile der zweiten Quelle ohne Koordinaten und ohne Strecken ist ein Duplikat ('Ultramarathon' mit 42,2 km war zudem falsch - der Kaisermarathon Ultra hat 77 km)."
+  },
+  "20. Tour de Tirol - Ultramarathon|2026-10-10": {
+    "exclude": true,
+    "_note": "Die Tour de Tirol (tourdetirol.com, 09.-11.10.2026, Soell) steht mit allen sieben Strecken als 'Tour de Tirol' in der Liste (10/18/23/42/75/77/110 km); diese Zeile der zweiten Quelle ohne Koordinaten und ohne Strecken ist ein Duplikat ('Ultramarathon' mit 42,2 km war zudem falsch - der Kaisermarathon Ultra hat 77 km)."
+  },
+  "20. Tour de Tirol - Pölven Trail und Nachwuchsbewerbe|2026-10-11": {
+    "exclude": true,
+    "_note": "Die Tour de Tirol (tourdetirol.com, 09.-11.10.2026, Soell) steht mit allen sieben Strecken als 'Tour de Tirol' in der Liste (10/18/23/42/75/77/110 km); diese Zeile der zweiten Quelle ohne Koordinaten und ohne Strecken ist ein Duplikat ('Ultramarathon' mit 42,2 km war zudem falsch - der Kaisermarathon Ultra hat 77 km)."
+  },
+  "Straßenlauf-Kreismeisterschaften|2026-10-10": {
+    "exclude": true,
+    "_note": "Kreismeisterschaft im Rahmen des Wadersloher Volkslaufs (gleicher Tag, Ort, 5 km; Kilometerliebe-Zeile) - Datenregel 18, der Volkslauf steht in der Liste."
+  },
+  "Gravel Ride & Race Bern|2026-10-17|50": {
+    "exclude": true,
+    "_note": "Dieselbe Veranstaltung wie 'Gravel Festival Bern' (ridegravel.ch/bern, 17.10.2026, 50 km) - zweiter Name aus einer zweiten Quelle."
+  },
+  "Rheinland-Pfalz Meisterschaft 10km|2026-11-14": {
+    "exclude": true,
+    "_note": "Landesmeisterschaft im Rahmen des 34. Int. DEULUX-Laufs Langsur (gleicher Tag, Ort, 10 km; laufen.de-Zeile) - Datenregel 18."
+  },
+  "Trans Onesienne Onex|2026-11-21|11": {
+    "exclude": true,
+    "_note": "Zweite Schreibweise von \"La Trans'Onesienne\" (transo.ch, 21.11.2026, 11 km) - Duplikat."
+  },
+  "Course Titzé de Noel Sion|2026-12-12|7": {
+    "exclude": true,
+    "_note": "Duplikat der 'Course Hommes 7 km' der Course de Noel Sion (coursedenoel.ch) - zweiter Name aus einer zweiten Quelle."
+  },
+  "47. Halbmarathonlauf der SKV Mörfelden|2027-02-21": {
+    "exclude": true,
+    "_note": "Duplikat von 'Halbmarathon Moerfelden' (lg-mw.de/halbmarathon, 21.02.2027, 21,1 km) - zweiter Name ohne Label aus einer zweiten Quelle."
+  },
+  "PUMelchen 2027|2027-04-10|49": {
+    "exclude": true,
+    "_note": "Das PUMelchen ist die 49-km-Strecke des Osnabruecker PiesBERG-Ultra-Marathons (piesbergultra.de), die dort als '49 km' steht; Kilometerliebe fuehrt sie als eigene Veranstaltung."
+  },
+  "Spreewald RTF|2027-04-24": {
+    "exclude": true,
+    "_note": "Dieselben vier Touren (30/50/70/150 km ab Burg) stehen als 'Spreewaldmarathon Radtouren Burg' (spreewaldmarathon.de/wpswm/radeln) in der Liste - zweiter Name aus einer zweiten Quelle."
+  },
+  "39. Raesfelder Mai-Lauf|2027-05-28": {
+    "exclude": true,
+    "_note": "Duplikat von 'Raesfelder Volkslauf' (tsv-raesfeld.de/leichtathletik/raesfelder-mai-lauf, 28.05.2027, 5 und 10 km) - Zeile ohne Label und ohne Strecken."
+  },
+  "Race Across Austria (RACA)|2027-06-08|1000": {
+    "exclude": true,
+    "_note": "Duplikat von 'RACA North-South' 1.000 km (raceacrossaustria.com/raca1000ns, 08.06.2027, Linz) - Sammelname aus einer zweiten Quelle."
+  },
+  "Volksbank Ettlinger Altstadt-Lauf|2027-06-11": {
+    "exclude": true,
+    "_note": "Duplikat von 'Ettlingen Altstadtlauf' (ettlinger-altstadtlauf.de, 11.06.2027, 10 km) - zweiter Name aus einer zweiten Quelle."
+  },
+  "Adelsberger Bike Marathon|2026-10-03|20": {
+    "wettbewerb": "MTB-Marathon 20 km",
+    "art2": "Mountainbike",
+    "_note": "Zwei Quellen, zwei Labels ('MTB-Marathon N km' / 'Radmarathon N km') fuer dieselbe Strecke eines MTB-Marathons (adelsberger-bike-marathon.de); gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Adelsberger Bike Marathon|2026-10-03|40": {
+    "wettbewerb": "MTB-Marathon 40 km",
+    "art2": "Mountainbike",
+    "_note": "Zwei Quellen, zwei Labels ('MTB-Marathon N km' / 'Radmarathon N km') fuer dieselbe Strecke eines MTB-Marathons (adelsberger-bike-marathon.de); gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "36er Trail Ried-Brig|2026-10-10|8.5": {
+    "exclude": true,
+    "_note": "Duplikat des '36er+' (8,4 km) von 'Berglauf am Brigerberg' (36er.ch, 10.10.2026) - zweiter Name aus einer zweiten Quelle."
+  },
+  "Napf-Marathon Trubschachen|2026-10-11|22": {
+    "exclude": true,
+    "_note": "'Team Trail' / 'Teamlauf mit einer Etappe von 20 km und einer von 22 km' ist der Zweier-Staffellauf ('Dinner for two 1 x 20 km und 1 x 22 km', napf-marathon.ch) - Datenregel 16."
+  },
+  "Napf-Marathon Trubschachen|2026-10-11|21": {
+    "laenge_km": 20.0,
+    "wettbewerb": "Halbmarathon 20 km",
+    "_note": "napf-marathon.ch: 'Die halbe Portion … 20 km' - der Napf-Halbmarathon ist 20 km lang; stand mit 21 km neben einer 20-km-Zeile 'Berglauf' derselben Strecke."
+  },
+  "Napf-Marathon Trubschachen|2026-10-11|20": {
+    "wettbewerb": "Halbmarathon 20 km",
+    "_note": "napf-marathon.ch: 20 km = Halbmarathon ('Die halbe Portion'); gleiches Label wie die korrigierte 21-km-Zeile, damit beide zusammenfallen."
+  },
+  "Hachenburg Löwen Marathon|2026-10-17": {
+    "exclude": true,
+    "_note": "Duplikat von 'Loewenlauf Hachenburg' (loewenlauf-hachenburg.de, 17.10.2026: Halbmarathon, 10,5 km, 6,3 km Teamlauf) - zweiter Name mit gerundeten Distanzen aus einer zweiten Quelle."
+  },
+  "Gantrisch Trail Rüggisberg|2026-11-01": {
+    "exclude": true,
+    "_note": "Duplikat von 'Gantrisch Trail' (gantrischtrail.com, 01.11.2026, 11/23/35 km); 'Rueggisberg' statt Riggisberg und die Koordinaten lagen im Appenzellerland (47.49/9.37)."
+  },
+  "Viking Bike Winterchallenge GTF|2026-11-08|35": {
+    "wettbewerb": "Gravel Tour 35 km",
+    "art2": "Gravel",
+    "_note": "GTF = Gravel-Touren-Fahrt (rv-schleswig.de); eine zweite Quelle nannte dieselben Touren 'CTF N km'. Gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Viking Bike Winterchallenge GTF|2026-11-08|55": {
+    "wettbewerb": "Gravel Tour 55 km",
+    "art2": "Gravel",
+    "_note": "GTF = Gravel-Touren-Fahrt (rv-schleswig.de); eine zweite Quelle nannte dieselben Touren 'CTF N km'. Gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "88. Friedeholz Cross|2026-11-29|10.3": {
+    "wettbewerb": "10,3 km Langstrecke (U20 und älter)",
+    "_note": "Zwei Quellen, zwei Labels ('Jahrgaenge ab 2008' / 'U20 und aelter') fuer dieselbe Langstrecke (sv-weyhe.de) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Herbstwaldlauf / Gunni-Sachs-Gedenklauf|2026-11-29": {
+    "standort": "Berlin-Reinickendorf",
+    "lat": 52.6048469,
+    "lon": 13.2881415,
+    "art2": "Trail",
+    "_note": "herbstwaldlauf-berlin.de: Berlins aeltester Crosslauf im Tegeler Forst (Reinickendorf); die Zeilen lagen auf dem Berliner Stadtmittelpunkt. Koordinaten von der Duplikat-Zeile 'Herbstwaldlauf - Berlins aeltester Crosslauf' uebernommen."
+  },
+  "Herbstwaldlauf - Berlins ältester Crosslauf|2026-11-29|11.1": {
+    "exclude": true,
+    "_note": "Duplikat von 'Herbstwaldlauf / Gunni-Sachs-Gedenklauf' (herbstwaldlauf-berlin.de, 29.11.2026, 6 und 11 km) - zweiter Name aus einer zweiten Quelle."
+  },
+  "Christmas Midnight Run Lausanne|2026-12-12|7.5": {
+    "exclude": true,
+    "_note": "Duplikat von 'Christmas Run, Lausanne' (christmasrun.ch, 12.12.2026, 5 km und 7 km) - zweiter Name aus einer zweiten Quelle."
+  },
+  "Rund um Köln|2027-05-23|120": {
+    "wettbewerb": "Gran Fondo 120 km (Velodom 120)",
+    "_note": "Zwei Quellen ('Velodom 120 (Granfondo)' / 'Gran Fondo 120 km') fuer dieselbe Strecke (rundumkoeln.de) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Innsbruck Alpine Trailrun Festival|2027-05-05|69": {
+    "laenge_km": 68.9,
+    "wettbewerb": "Panorama Ultra Trail 68,9 km",
+    "_note": "innsbruckalpine.at: dieselbe Strecke aus zwei Quellen ('69 km' / 'Panorama Ultra Trail' bzw. '87 km' / 'Heart of the Alps Ultra'); gleiches Label und Distanz, damit die Zeilen zusammenfallen. Beide Schluessel."
+  },
+  "Innsbruck Alpine Trailrun Festival|2027-05-05|68.9": {
+    "wettbewerb": "Panorama Ultra Trail 68,9 km",
+    "_note": "innsbruckalpine.at: dieselbe Strecke aus zwei Quellen ('69 km' / 'Panorama Ultra Trail' bzw. '87 km' / 'Heart of the Alps Ultra'); gleiches Label und Distanz, damit die Zeilen zusammenfallen. Beide Schluessel."
+  },
+  "Innsbruck Alpine Trailrun Festival|2027-05-05|87": {
+    "laenge_km": 86.8,
+    "wettbewerb": "Heart of the Alps Ultra 86,8 km",
+    "_note": "innsbruckalpine.at: dieselbe Strecke aus zwei Quellen ('69 km' / 'Panorama Ultra Trail' bzw. '87 km' / 'Heart of the Alps Ultra'); gleiches Label und Distanz, damit die Zeilen zusammenfallen. Beide Schluessel."
+  },
+  "Innsbruck Alpine Trailrun Festival|2027-05-05|86.8": {
+    "wettbewerb": "Heart of the Alps Ultra 86,8 km",
+    "_note": "innsbruckalpine.at: dieselbe Strecke aus zwei Quellen ('69 km' / 'Panorama Ultra Trail' bzw. '87 km' / 'Heart of the Alps Ultra'); gleiches Label und Distanz, damit die Zeilen zusammenfallen. Beide Schluessel."
+  },
+  "Glocknerkönig|2027-06-06|27": {
+    "laenge_km": 27.3,
+    "wettbewerb": "Glocknerkönig Classic 27,3 km",
+    "art2": "Straße",
+    "_note": "glocknerkoenig.com: Glocknerkoenig Classic 27,3 km und Ultra 28,9 km; eine zweite Quelle nannte sie 'Berg 27 km' / 'Berg 28.9 km' (einmal ohne Kategorie). Gleiche Labels, damit die Zeilen zusammenfallen."
+  },
+  "Glocknerkönig|2027-06-06|27.3": {
+    "wettbewerb": "Glocknerkönig Classic 27,3 km",
+    "art2": "Straße",
+    "_note": "glocknerkoenig.com: Glocknerkoenig Classic 27,3 km und Ultra 28,9 km; eine zweite Quelle nannte sie 'Berg 27 km' / 'Berg 28.9 km' (einmal ohne Kategorie). Gleiche Labels, damit die Zeilen zusammenfallen."
+  },
+  "Glocknerkönig|2027-06-06|28.9": {
+    "wettbewerb": "Glocknerkönig Ultra 28,9 km",
+    "art2": "Straße",
+    "_note": "glocknerkoenig.com: Glocknerkoenig Classic 27,3 km und Ultra 28,9 km; eine zweite Quelle nannte sie 'Berg 27 km' / 'Berg 28.9 km' (einmal ohne Kategorie). Gleiche Labels, damit die Zeilen zusammenfallen."
+  },
+  "Sella Ronda Bike Day|2027-06-05|53": {
+    "wettbewerb": "Sella Ronda Bike Day 53 km",
+    "_note": "Zwei Quellen ('Volksradfahren 53 km' / 'RTF 53 km', Wolkenstein = Selva di Val Gardena) fuer dieselbe autofreie Runde (sellarondabikeday.com) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Säntis-Classic|2027-06-13|40": {
+    "wettbewerb": "Öpfel-Tour 40 km",
+    "_note": "saentis-classic.ch: drei Touren (Oepfel-Tour 40, Classic-Tour 130, 200 km); eine zweite Quelle nannte alle 'Radmarathon N km' bzw. 'RTF 200 km'. Gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Säntis-Classic|2027-06-13|130": {
+    "wettbewerb": "Classic-Tour 130 km",
+    "_note": "saentis-classic.ch: drei Touren (Oepfel-Tour 40, Classic-Tour 130, 200 km); eine zweite Quelle nannte alle 'Radmarathon N km' bzw. 'RTF 200 km'. Gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Säntis-Classic|2027-06-13|200": {
+    "wettbewerb": "Säntis-Classic 200 km",
+    "_note": "saentis-classic.ch: drei Touren (Oepfel-Tour 40, Classic-Tour 130, 200 km); eine zweite Quelle nannte alle 'Radmarathon N km' bzw. 'RTF 200 km'. Gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "Säntis Classic|2027-06-12": {
+    "lat": 47.5668807,
+    "lon": 9.1112515,
+    "_note": "Gravel-Ride Thurgau am Samstag vor der Saentis-Classic, Weinfelden (saentis-classic.ch) - Zeile ohne Koordinaten; Koordinaten der Hauptveranstaltung uebernommen."
+  },
+  "MountainPilgrimage Wien - Bozen|2027-06-20|950": {
+    "wettbewerb": "Bikepacking 950 km",
+    "_note": "Zwei Quellen ('Ultracycling 950 km' / 'Bikepacking 950 km') fuer dieselbe Fahrt (mountainpilgrimage.de) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "MountainPilgrimage Wien - Bozen|2027-06-20|2600": {
+    "exclude": true,
+    "_note": "2600 km ohne Label - die Pilgerfahrt Wien-Bozen hat 950 km (mountainpilgrimage.de); die Zahl ist keine Strecke dieser Veranstaltung (vermutlich Gesamtkilometer anderer Routen)."
+  },
+  "MountainPilgrimage Wien - Bozen|2027-06-20|5000": {
+    "exclude": true,
+    "_note": "5000 km ohne Label - die Pilgerfahrt Wien-Bozen hat 950 km (mountainpilgrimage.de); die Zahl ist keine Strecke dieser Veranstaltung (vermutlich Gesamtkilometer anderer Routen)."
+  },
+  "MountainPilgrimage Mont Ventoux - Santiago de Compostela|2027-06-27": {
+    "exclude": true,
+    "_note": "Start Bedoin (Frankreich), Ziel Santiago de Compostela (Spanien) - ausserhalb der vier Regionen; die Zeilen trugen die Wiener Koordinaten und 'Oesterreich' von der Schwesterveranstaltung."
+  },
+  "Belchen³|2027-07-04|320": {
+    "wettbewerb": "Gran Fondo 320 km",
+    "_note": "Zwei Quellen ('Radmarathon 320 km' / 'Gran Fondo 320 km') fuer dieselbe Strecke (hirsch-sprung.com) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "6. 0 Shades of Speed - Culinary.RIDE.Festival|2027-07-23|306": {
+    "wettbewerb": "Radmarathon 306 km",
+    "_note": "Zwei Quellen ('RTF 306 km' / 'Radmarathon 306 km') fuer dieselbe Strecke (shades-of-speed.eu) - gleiches Label, damit die Zeilen zusammenfallen."
+  },
+  "19. Gänslauf Herbolzheim|2027-07-25": {
+    "exclude": true,
+    "_note": "Duplikat von 'Herbolzheimer Gaenslauf' (gaenslauf.de: Neudenau-Herbolzheim an der Jagst, 10 und 5 km); diese Zeile lag in Herbolzheim im Breisgau (48.22/7.78, 190 km entfernt)."
+  },
+  "Kraichgau Energie Summertime Triathlon powered|2027-08-08|52": {
+    "laenge_km": 51.5,
+    "wettbewerb": "Olympische Distanz",
+    "_note": "summertime-triathlon.de: Olympische Distanz (51,5 km); die zweite Quelle nannte '52 km'. Angeglichen, damit die Zeilen zusammenfallen."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11|23": {
+    "laenge_km": 22.7,
+    "wettbewerb": "Sprinttriathlon",
+    "_note": "triathlonvreden.de: Sprinttriathlon 22,7 km; die zweite Quelle nannte '23 km'. Angeglichen, damit die Zeilen zusammenfallen."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11|22.9": {
+    "exclude": true,
+    "_note": "'NRW Meisterschaften Jugend und Junioren' - Nachwuchs-Meisterschaft, nicht offen (Datenregel 18)."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11|5.5": {
+    "exclude": true,
+    "_note": "'NRW Meisterschaften Schueler B' - Nachwuchs."
+  },
+  "Vredener Sparkassen Triathlon|2027-09-11|0.5": {
+    "exclude": true,
+    "_note": "'Schueler C Swim-Run' - Nachwuchs."
+  },
+  "10-Teiche-Marathon|2027-09-11|6": {
+    "laenge_km": 5.5,
+    "wettbewerb": "Mini-Marathon 5,5 km",
+    "art2": "Trail",
+    "_note": "hahnenklee.de: 'Der Mini-Marathon ist 5,5 Kilometer lang'; die zweite Quelle nannte '6 km'. Angeglichen, damit die Zeilen zusammenfallen."
+  },
+  "10-Teiche-Marathon|2027-09-11|5.5": {
+    "wettbewerb": "Mini-Marathon 5,5 km",
+    "art2": "Trail",
+    "_note": "hahnenklee.de: Mini-Marathon 5,5 km ('viele Trails'); gleiches Label wie die angeglichene 6-km-Zeile."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|25": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|42": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|57": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|70": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|80": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "Canyon Rhein Hunsrück Gravel Marathon|2027-06-05|110": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Beide Quellen hatten alle sechs Zahlen als 'Gravel Race' bzw. 'RTF' beschriftet und die Veranstaltung unter zwei Namen. Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json (offizieller Name)."
+  },
+  "CANYON-Rhein-Hundsrück-Bike-Marathon|2027-06-05": {
+    "exclude": true,
+    "_note": "mtb-rhens.de: 8 Strecken - MTB 80/57/42/25 km, GRAVEL 76/38 km, ROAD (RTF) 110/70 km. Diese Zeilen nannten alle sechs Zahlen 'RTF' (Tippfehler 'Hundsrueck' im Namen). Ersetzt durch 'CANYON Rhein-Hunsrück Bike Marathon' in manual_events.json."
+  },
+  "CKW Sempachersee Triathlon|2027-07-04|26": {
+    "wettbewerb": "Sprintdistanz 26 km (500/750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "_note": "Dieselbe Veranstaltung wie 'Sempachersee-Triathlon, Nottwil' (sempacherseetri.ch, 04.07.2027); gleiches Label, damit die beiden Namen zusammenfallen - das 'Rad' in der Klammer zaehlt sonst als unterscheidende Gattung."
+  },
+  "44. Lindenseelaufserie|2026-10-10|10": {
+    "exclude": true,
+    "_note": "Duplikat der 10-km-Zeile 'Lindensee Laufserie' am 10.10.2026 (lc-ruesselsheim.de); der Serienname mit Auflage steht fuer den 21.11. - zweite Quelle ohne Label."
+  },
+  "Women Journey Frauenlauf|2026-10-14": {
+    "exclude": true,
+    "_note": "Duplikat von \"Women's Journey Frankfurt\" (women-journey.com, 14.10.2026, 5 km) - zweite Schreibweise; der Apostroph-Unterschied ('womens' vs 'women') entgeht der Namensregel."
+  },
+  "Keltenlauf Ditzingen|2026-10-18|13": {
+    "wettbewerb": "13 km",
+    "_note": "Label '13 km fuer Erwachsene und Jugendliche' - das Wort 'Jugendliche' zaehlt als unterscheidende Gattung und hielt die Zeile von '2. Ditzinger Keltenlauf' (13 km) getrennt; ohne den Zusatz fallen beide zusammen (keltenlauf.de)."
+  },
+  "Keltenlauf Ditzingen|2026-10-18|6.7": {
+    "wettbewerb": "6,7 km",
+    "_note": "Label '6,7 km fuer Erwachsene und Jugendliche' - Zusatz entfernt wie bei der 13-km-Zeile (keltenlauf.de)."
+  },
+  "Robert-Hannemann-Volkslauf 2026|2026-11-08": {
+    "exclude": true,
+    "_note": "Duplikat von 'Robert Hannemann Gedaechtnislauf' (sv1860minden.de, 08.11.2026, Cross lang 10,06 km / Cross mittel 5,03 km) - zweiter Name ohne Label."
+  },
+  "47. NOSPA Winterstraßenlaufserie|2027-01-10": {
+    "exclude": true,
+    "_note": "Die Winterlaufserie Drelsdorf (sportinhusum.de) steht mit ihren echten Strecken je Termin in der Liste (10.01. 10/5 km, 24.01. 15/10/5 km, 07.02. 21,1/15/5 km, Einzelpruefung 2026-09); diese Zeile der zweiten Quelle traegt an jedem Termin 21,1 km ohne Label - an zwei Terminen falsch, am dritten ein Duplikat."
+  },
+  "47. NOSPA Winterstraßenlaufserie|2027-01-24": {
+    "exclude": true,
+    "_note": "Die Winterlaufserie Drelsdorf (sportinhusum.de) steht mit ihren echten Strecken je Termin in der Liste (10.01. 10/5 km, 24.01. 15/10/5 km, 07.02. 21,1/15/5 km, Einzelpruefung 2026-09); diese Zeile der zweiten Quelle traegt an jedem Termin 21,1 km ohne Label - an zwei Terminen falsch, am dritten ein Duplikat."
+  },
+  "47. NOSPA Winterstraßenlaufserie|2027-02-07": {
+    "exclude": true,
+    "_note": "Die Winterlaufserie Drelsdorf (sportinhusum.de) steht mit ihren echten Strecken je Termin in der Liste (10.01. 10/5 km, 24.01. 15/10/5 km, 07.02. 21,1/15/5 km, Einzelpruefung 2026-09); diese Zeile der zweiten Quelle traegt an jedem Termin 21,1 km ohne Label - an zwei Terminen falsch, am dritten ein Duplikat."
+  },
+  "4. WiedtalUltraTrail (WUT)|2027-03-13|65": {
+    "exclude": true,
+    "_note": "Duplikat von 'Wiedtal Ultra Trail' (mut-zum-wut.de, 13.03.2027, 65 km und Marathon) - zweiter Name ohne Label."
+  },
+  "41. Büchener Triathlon|2027-05-30": {
+    "laenge_km": 26.5,
+    "wettbewerb": "Sprinttriathlon",
+    "_note": "esv-buechen.de: Sprint 26,5 km und Olympische Distanz 53 km (Einzelpruefung 2026-09, 'Buechener Triathlon'). Diese Zeile der zweiten Quelle ('Sprint', ohne Laenge) bekommt dieselben Werte wie die Sprint-Zeile, damit beide Namen zusammenfallen; der distanzgenaue Schluessel |53 setzt die olympische Zeile."
+  },
+  "41. Büchener Triathlon|2027-05-30|53": {
+    "laenge_km": 53.0,
+    "wettbewerb": "Olympische Distanz",
+    "_note": "Gleiches Label wie 'Buechener Triathlon' 53 km (Olympische Distanz, esv-buechen.de), damit die Zeilen zusammenfallen; laenge_km wiederholt den Wert, weil der allgemeine Schluessel 26,5 setzt."
+  },
+  "Enni-Triathlon Moers|2027-06-06|48": {
+    "exclude": true,
+    "_note": "Duplikat der Kurzdistanz 48 km des 'Enni-Triathlon' (enni-triathlon.de, 06.06.2027) - zweiter Name aus einer zweiten Quelle."
+  },
+  "NRZ Kloster Lauf|2026-10-03": {
+    "exclude": true,
+    "_note": "Duplikat der 5-km-Zeile von 'NRZ Klosterlauf' (alemanniakamp-leichtathletik.de, 03.10.2026) - Schreibweise mit Leerzeichen aus einer zweiten Quelle."
+  },
+  "Schönbuch Ultra 50km|2026-10-18|50": {
+    "exclude": true,
+    "_note": "Der Schoenbuch-Ultra ist die 50-km-Strecke des 'Naturpark Schoenbuchlauf' (schoenbuchlauf.de, 18.10.2026), die dort steht; Kilometerliebe fuehrt sie als eigene Veranstaltung mit der Distanz im Namen."
+  },
+  "UltraSteinhart666|2026-11-08|56": {
+    "exclude": true,
+    "_note": "Der UltraSteinhart ist die 56-km-Strecke des 'Steinhart500' (tb-burgsteinfurt.de, 08.11.2026), die dort steht; Kilometerliebe fuehrt sie als eigene Veranstaltung."
+  },
+  "Hessische Meisterschaften Straßenlauf|2026-10-03": {
+    "exclude": true,
+    "_note": "Landesmeisterschaft im Rahmen des Rodenbacher Lauftags (03.10.2026, 10 km; laufen.de-Zeile) - Datenregel 18."
+  },
+  "Flensburger Adventslauf|2026-12-13|10": {
+    "laenge_km": 10.5,
+    "wettbewerb": "Adventlauf 10,5 km",
+    "_note": "flensburger-lauftreff.de/adventlauf: Adventlauf 10,5 km (dazu Tannenbaumlauf 7 km, Jubilaeumslauf 14 km) - die '10 km' der zweiten Quelle sind gerundet; angeglichen, damit die Zeilen zusammenfallen. Beide Schluessel."
+  },
+  "Flensburger Adventslauf|2026-12-13|10.5": {
+    "wettbewerb": "Adventlauf 10,5 km",
+    "_note": "flensburger-lauftreff.de/adventlauf: gleiches Label wie die angeglichene 10-km-Zeile."
+  },
+  "Flensburger Adventslauf|2026-12-13|14": {
+    "wettbewerb": "Jubiläumslauf 14 km",
+    "_note": "flensburger-lauftreff.de/adventlauf: '40. Adventlauf … zusaetzlicher Jubilaeumslauf ueber 14 km' - die Zeile ohne Label aus der zweiten Quelle ist echt (Bericht 'Verdaechtige Distanz')."
+  },
+  "TORTOUR|2027-08-20|50": {
+    "exclude": true,
+    "_note": "Duplikat von 'Tortour' 50 km ('Ultracycling 50 km', tortour.ch, 19.-22.08.2027) - Schreibweise in Grossbuchstaben aus einer zweiten Quelle."
   }
 }
