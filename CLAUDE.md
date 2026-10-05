@@ -4535,26 +4535,37 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    origin/claude/website-access-9d9tg1 -- .github/workflows/update-events.yml`
    ist leer). Bei der nächsten Änderung an der Datei wieder so: Freigabe
    des Nutzers einholen, dann ein Commit auf `main` mit nur dieser Datei.
-2. **Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
-   Extension „Trigger Email" mit SMTP einrichten (Befehle im Kopf von
-   `functions/index.js` und im README). Erst dann verschicken die Abos
-   E-Mails. **Stand 05.10.2026, abends**: Teil A (Blaze), Teil B (Deploy
-   aus der Google Cloud Shell auf dem iPad, Function-URL
+2. ~~**Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
+   Extension „Trigger Email" mit SMTP einrichten.~~ **erledigt**
+   (05.10.2026, abends, alle vier Teile): A Blaze; B Deploy aus der
+   Google Cloud Shell auf dem iPad (`firebase login --no-localhost`,
+   Secret per `--data-file`), Function-URL
    `https://europe-west1-endurance-5177a.cloudfunctions.net/checkNewEvents`,
-   dazu `unsubscribe`) und Teil C (GitHub-Secrets `NOTIFY_WEBHOOK_URL`
-   und `NOTIFY_WEBHOOK_SECRET`) sind **erledigt**. Offen ist nur Teil D,
-   der E-Mail-Versand: Absender soll `info@endurance-events.de` (IONOS,
-   `smtp.ionos.de:465`) werden, das Postfach legt der Nutzer an.
+   dazu `unsubscribe`; C GitHub-Secrets `NOTIFY_WEBHOOK_URL` und
+   `NOTIFY_WEBHOOK_SECRET`; D Extension
+   `firebase/firestore-send-email@0.2.10` installiert (Cloud Functions
+   `europe-west1`, Firestore `(default)` in `europe-west3`, Auth
+   Username/Passwort, SMTP-URI
+   `smtps://info%40endurance-events.de@smtp.ionos.de:465`, Sammlung
+   `mail`, Absender `Endurance Events <info@endurance-events.de>` – das
+   Postfach liegt bei IONOS). **Die erste Installation scheiterte** an
+   „Permission denied while using the Eventarc Service Agent" (das
+   Dienstkonto war gerade erst angelegt); „Installieren wiederholen" nach
+   fünf Minuten ging durch. Testmail über ein Dokument in `mail` (`to`,
+   `message.subject`, `message.text`): `delivery.state SUCCESS`,
+   „250 Requested", Mail angekommen. Der Versand der Abos läuft damit
+   end-to-end.
    **ACHTUNG: Firebase Extensions werden am 31.03.2027 eingestellt**
    (Hinweis in der Konsole: danach keine Installation und keine
    Bearbeitung mehr; Google empfiehlt „selbstverwaltete Funktions-Kits").
    Der Nutzer will das frühzeitig auf dem Schirm haben – Routine
    `trig_013AV7Nn2GVq1m3LgxL3ukcq` erinnert am 11.01.2027 (Push + E-Mail).
-   Empfehlung: die Extension gar nicht erst installieren, sondern den
-   Versand als eigene Cloud Function in `functions/index.js` bauen
-   (Firestore-Trigger auf `mail`, nodemailer über IONOS-SMTP, Passwort als
-   Secret `SMTP_PASSWORD`; das Dokumentformat von `checkNewEvents` bleibt).
-   Dann ist nur ein weiteres `firebase deploy --only functions` nötig.
+   Dann: den Versand als eigene Cloud Function in `functions/index.js`
+   bauen (Firestore-Trigger auf `mail`, nodemailer über IONOS-SMTP,
+   Passwort als Secret `SMTP_PASSWORD`; das Dokumentformat von
+   `checkNewEvents` bleibt), deployen, danach die Extension
+   deinstallieren. Ein weiteres `firebase deploy --only functions`
+   aus der Cloud Shell reicht dafür.
 3. **Service-Account-Key** (Firebase-Konsole → Projekteinstellungen →
    Dienstkonten) für `review_reports.py fetch/suggestions`; dabei die
    Testmeldung vom 16.09.2026 („TEST - bitte verwerfen") mit `reject`
@@ -4967,10 +4978,11 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Datenlauf", 21.09.2026, ohne die gesperrten Quellen) – der Nutzer
      sieht sie durch; kein Scraper ohne sein Ja.
 
-Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: die zwei
-Blaze-Schritte für den E-Mail-Versand, `og:image` sobald die Domain
-steht, und die Testmeldung in `errorReports` verwerfen. (Die
-E-Mail-Adresse für Impressum/Datenschutz steht seit dem 05.10.2026.)
+Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: `og:image`
+sobald die Domain steht, und die Testmeldung in `errorReports`
+verwerfen. (Die E-Mail-Adresse für Impressum/Datenschutz steht seit dem
+05.10.2026, der E-Mail-Versand läuft seit demselben Abend – siehe
+To-do-Liste, Punkt 2.)
 
 
 - ~~`og:image` nachtragen~~ **erledigt** (21.09.2026): `og-image.png`
@@ -4982,13 +4994,14 @@ E-Mail-Adresse für Impressum/Datenschutz steht seit dem 05.10.2026.)
   Lizenzen", zusammen mit OpenStreetMap, Leaflet und dem
   Firebase-SDK; `footer_places` ist aus `index.html` entfernt. Nicht
   löschen – CC BY 4.0 verlangt die Nennung mit Link.
-- **E-Mail-Versand für „Benachrichtige mich" braucht Blaze** – vom Nutzer
-  bewusst zurückgestellt. Login und Firestore laufen (Projekt
-  `endurance-5177a`, Spark-Tarif), Abos landen korrekt in
-  `filterSubscriptions`. Es fehlen nur die zwei Blaze-Schritte: Cloud
-  Function `checkNewEvents` deployen und die Extension „Trigger Email"
-  plus SMTP einrichten.
-  **Code-seitig ist alles vorbereitet**: `firebase.json` und `.firebaserc`
+- ~~**E-Mail-Versand für „Benachrichtige mich" braucht Blaze**~~
+  **läuft seit dem 05.10.2026** (Blaze, `checkNewEvents` und
+  `unsubscribe` deployt in `europe-west1`, Extension „Trigger Email"
+  mit IONOS-SMTP, Testmail angekommen – Einzelheiten in der To-do-Liste
+  des Nutzers, Punkt 2; die Extension endet am 31.03.2027, Erinnerung
+  steht). Login und Firestore laufen (Projekt `endurance-5177a`), Abos
+  landen in `filterSubscriptions`.
+  **Code-seitig**: `firebase.json` und `.firebaserc`
   liegen im Repo (`firebase init` also nicht nötig), das Shared Secret
   läuft über `defineSecret`, und ohne gesetztes `NOTIFY_WEBHOOK_SECRET`
   antwortet die Function mit 503 statt offen zu stehen. Deploy-Befehle im
