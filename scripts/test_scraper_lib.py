@@ -3546,6 +3546,8 @@ def test_gedaechtnis() -> None:
           vs.schluessel_von(z("Munich Triathlon", "2026-07-26", 25.5)))
     check("Name ohne Jahr", (vs.name_ohne_jahr("Munich Triathlon 2027"), vs.name_ohne_jahr("Winterlaufserie 2026/2027"), vs.name_ohne_jahr("Lauf 2027 - Nord")),
           ("Munich Triathlon", "Winterlaufserie", "Lauf - Nord"))
+    check("Name ohne Auflage vorn", (vs.name_ohne_jahr("6. Appelhülsener Landlauf"), vs.name_ohne_jahr("Lauf zum 4. Advent")),
+          ("Appelhülsener Landlauf", "Lauf zum 4. Advent"))
     ged = vs.Gedaechtnis({})
     alt = [z("Munich Triathlon", "2026-07-26", 25.5, "Sprint 25,5 km"), z("Munich Triathlon", "2026-07-26", 51.5, "Kurzdistanz 51,5 km")]
     vs.lernen(alt, ged, overrides={})
@@ -3691,7 +3693,11 @@ def test_gedaechtnis() -> None:
     v = {"url": "https://lauf.de/2026/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "override"}
     r, fund = vs.pruefe_eintrag("k", v, FakeAbrufer({"https://lauf.de/2026/ausschreibung": (404, ""), "https://lauf.de/": (200, seite)}), "2026-10-05")
     check("tote Unterseite: Startseite nennt den Lauf -> Adresse umgezogen, Termin gefunden",
-          (v["url"], r["flag"], fund[2] if fund else None, sorted(fund[4]) if fund else None), ("https://lauf.de/", "NEU", "2027-10-03", [5.0, 10.0]))
+          (v["url"], r.get("umgezogen"), r.get("kandidaten"), r.get("seiten_km")), ("https://lauf.de/", "https://lauf.de/", ["2027-10-03"], [5.0, 10.0]))
+    vl = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    rl, fl = vs.pruefe_eintrag("k", vl, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite)}), "2026-10-05")
+    check("lebende Seite des Laufs nennt den Termin -> NEU mit geprüften Strecken", (rl["flag"], fl[2], sorted(fl[4])), ("NEU", "2027-10-03", [5.0, 10.0]))
+    check("tote Unterseite: der Termin von der Startseite ist nur ein Hinweis (NEU?)", (r["flag"], fund, "grund" in r), ("NEU?", None, True))
     v2 = {"url": "https://alt.de/lauf", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
     r, fund = vs.pruefe_eintrag("k", v2, FakeAbrufer({"https://alt.de/lauf": (200, seite)}, {"https://alt.de/lauf": "https://neu.de/seelauf/"}), "2026-10-05")
     check("Weiterleitung auf eine neue Domain: das Gedächtnis merkt sich die neue Adresse", (v2["url"], r.get("umgezogen")), ("https://neu.de/seelauf/", "https://neu.de/seelauf/"))

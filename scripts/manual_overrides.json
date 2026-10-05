@@ -1961,8 +1961,7 @@
   "40. Weiterstädter Nikolauslauf|2026-12-06": {
     "veranstalter_url": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/",
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/. Seite abgerufen, sie nennt den Lauf (weiterstadter). Linkprüfung 2026-09-19.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den Lauf 2025 (07.12.2025, 5/10 km); 2026 noch nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "51. Winterlaufserie 2026/2027, 1. Wertungslauf|2026-11-01": {
     "veranstalter_url": "http://www.sportverein-weimar.de",
@@ -2095,8 +2094,7 @@
   "MB Brandschutz-Nachtwächterlauf|2026-12-12": {
     "veranstalter_url": "http://www.tvo-leichtathletik.de",
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.tvo-leichtathletik.de. Seite abgerufen, sie nennt den Lauf (nachtwachterlauf). Linkprüfung 2026-09-19.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den Lauf 2025 (13.12.2025); 2026 noch nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "Freundschaftslauf Wustweiler|2026-11-07": {
     "veranstalter_url": "https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/",
@@ -2171,8 +2169,7 @@
   "49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute|2026-12-06": {
     "veranstalter_url": "http://www.crosslaufserie-oberschwaben.de",
     "_note": "laufen.de-Detaillink leitet (302) auf den Veranstalter-Link des DLV-Kalenders weiter: http://www.crosslaufserie-oberschwaben.de. Seite abgerufen, sie nennt den Lauf (oberschwabische). Linkprüfung 2026-09-19.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt die Serie 2025/26 (1. Lauf Blitzenreute 07.12.2025); 2026/27 noch nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "37. Käppelelauf 2026|2026-11-01": {
     "veranstalter_url": "https://www.kaeppelelauf.de",
@@ -2715,8 +2712,7 @@
   "13. Ibbenbürener Klippenlauf|2027-03-20": {
     "veranstalter_url": "https://www.ibbenbuerener-klippenlauf.de",
     "_note": "Veranstalterseite statt laufen-os.de: https://www.ibbenbuerener-klippenlauf.de - auf der laufen-os.de-Seite verlinkt, Zielseite nennt den Lauf (ibbenburener). Linkprüfung 2026-09-19.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Hauptlauf 24,7 km und Kurzstrecke 12,4 km bestätigt; Termin 2027 nicht genannt – „in der Regel am letzten Wochenende im). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "Sonthofer Frühlingslauf|2027-03-21": {
     "veranstalter_url": "http://www.sonthofer-fruehlingslauf.de/",
@@ -3358,8 +3354,7 @@
   "Panorama-Baumwipfel-Lauf|2027-06-12": {
     "veranstalter_url": "https://panorama-baumwipfel-lauf.de/",
     "_note": "Veranstalterseite statt my.raceresult.com: https://panorama-baumwipfel-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:panorama). Linkprüfung 2026-09-20.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt die 10. Ausgabe am 13.06.2026 mit genau unseren Strecken (6 / 12,7 / 21,5 km); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "Jemgumer Dörploop|2027-06-18": {
     "veranstalter_url": "https://lauftreff-sv-ems-jemgum.de/jemgumer-doerploop/",
@@ -3434,8 +3429,7 @@
   "Flensburg Liebt Dich Marathon|2027-09-05": {
     "veranstalter_url": "https://flensburg-marathon.de/",
     "_note": "Veranstalterseite statt davengo.com: https://flensburg-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:flensburg). Linkprüfung 2026-09-20.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt 2026 (06.09.2026: Marathon, Halbmarathon, Staffel, 10 km, 5 km); 2027 nicht ausgeschrieben). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "Rostocker Frauenlauf|2027-09-05": {
     "veranstalter_url": "https://rostocker-frauenlauf.de/",
@@ -3504,8 +3498,7 @@
   "Firmenlauf Lörrach|2027-06-03": {
     "veranstalter_url": "https://www.dhbf.de/better-move/firmenlauf/",
     "_note": "Veranstalterseite statt my.raceresult.com: https://www.dhbf.de/better-move/firmenlauf/ - per Websuche gefunden, von Hand geprüft: Veranstalterseite der direct help better future gGmbH ('better move Firmenlauf'), nennt Lörrach im Text (die Regel zählt den Ort nur im Hostnamen, deshalb von Hand). Linkprüfung 2026-09-20.",
-    "datum_vorlaeufig": true,
-    "_note_vorlaeufig": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt 2026 (07.05.2026, ca. 5 km im Grütt-Park); 2027 nicht ausgeschrieben, Zeile ohne Distanz bleibt). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "42. Winterserie des LSV Porz 1. Lauf|2027-01-24": {
     "veranstalter_url": "http://www.helmuturbach.de/winterlaufserie.html",
@@ -5017,10 +5010,11 @@
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt 2026 (09.05.2026): Halbmarathon, FitnessRun&Fun, Staffeln – ohne km. Bei uns steht nur eine 5-km-Zeile, der). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
   },
   "Triathlon Offenburg|2027-05-08": {
-    "datum_vorlaeufig": true,
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: „Save the Date 2027“ ohne Datum im Text; 2026 war der 16./17.05. – unser 08.05.2027 ist nicht belegt; Distanzen nicht au). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen. | Triathlon ohne Laenge (Nutzer 21.09.2026: 'alle Triathlons checken und die Laenge ausfuellen'). Ausschreibung 2026: Sprint Einzel 0,5 km Schwimmen / 22 km Rad (3 Runden) / 5 km Laufen (3 Runden) = 27,5 km; daneben nur Schueler/Jugend und Staffeln. Quelle: https://triathlon-offenburg.de/ausschreibung-to-2026",
     "laenge_km": 27.5,
-    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)"
+    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)",
+    "datum_ende": "2027-05-09",
+    "_note_termin": "triathlon-offenburg.de (05.10.2026): „Sprintdistanz | 08./09. Mai 2027“ - zwei Tage, Termin bestätigt, Sternchen weg."
   },
   "Ahnataler Abendvolkslauf|2027-05-14": {
     "datum_vorlaeufig": true,
@@ -5046,10 +5040,6 @@
     "datum_vorlaeufig": true,
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: 27. Lauf war am Samstag, 27.06.2026; unser Termin Sonntag, 11.07.2027 ist nicht belegt, Distanzen 2027 nicht genannt). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
   },
-  "Firmenlauf Neumarkt|2027-07-15": {
-    "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt 2026 (Live-Lauf 16.07.2026, dazu hybrid); 2027 nicht ausgeschrieben, 6 km nicht prüfbar). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
-  },
   "LST Super Sunday|2027-08-22": {
     "datum_vorlaeufig": true,
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt den Lauf am 26.04.2026 (5 / 10 km, Kempten); 2027 nicht ausgeschrieben – unser 22.08.2027 ist nicht belegt). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
@@ -5065,10 +5055,6 @@
   "Karpiner Herbstcross|2026-10-24": {
     "datum_vorlaeufig": true,
     "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Verlinkt ist die Ausschreibung 2025 (11.10.2025: 1,3 / 2,6 / 3 / 3,9 / 5,2 / 10,4 km); 2026 nicht belegt, die 6,3 km ste). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
-  },
-  "ALB-GOLD FunRun|2027-06-24": {
-    "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: 24.06.2027 vorläufig (Bestätigung im November 2026); 2026 Runde 3,8 km, 1–2 Runden – unsere 8 km wären 2 Runden (7,6 km)). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
   },
   "23. Bremer Zeitsprung-Marathon|2026-10-24": {
     "datum_vorlaeufig": true,
@@ -5979,7 +5965,7 @@
   "Festungslauf in Königstein|2027-08-13": {
     "veranstalter_url": "https://www.festungslauf.de/",
     "_note": "Veranstalterseite statt baer-service.de: https://www.festungslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:festungslauf, datum). Linkprüfung 2026-09-21. Termin vorläufig (Kalenderprognose): festungslauf.de zeigt den 22. Lauf am 07.08.2026, 2027 nicht ausgeschrieben (Seitenabgleich 2026-09-21).",
-    "datum_vorlaeufig": true
+    "_note_bestaetigt": "Die Veranstalterseite nennt den Termin (05.10.2026, Abgleich der vorläufigen Termine) - Sternchen weg."
   },
   "Wurzener Ringelnatzlauf|2027-08-29": {
     "veranstalter_url": "https://www.ringelnatzlauf.de/",
@@ -8164,5 +8150,18 @@
     "art1": "Laufen",
     "art2": "Trail",
     "_note": "Reines Trailrun-Event (trailvalleedejoux.ch: 'Le plus beau Trail du Jura', 7/12/22/36/58 km zu Fuß), kein Triathlon - vom Nutzer am 05.10.2026 gemeldet. XTERRA richtet auch Trailläufe aus; guess_art1() kennt das seitdem."
+  },
+  "Firmenlauf Neumarkt|2027-07-15": {
+    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Seite zeigt 2026 (Live-Lauf 16.07.2026, dazu hybrid); 2027 nicht ausgeschrieben, 6 km nicht prüfbar). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen.",
+    "datum_start": "2027-07-22",
+    "datum_ende": "2027-07-22",
+    "_note_termin": "firmenlauf.bayern/firmenlauf-neumarkt (05.10.2026): „Live-Event: 22. Juli 2027 an den Jurahallen Neumarkt“ - der Kalender hatte den 15.07. vorgetragen. Beide Schlüssel (alter und neuer Tag), siehe „Die wichtigste Lektion“."
+  },
+  "Firmenlauf Neumarkt|2027-07-22": {
+    "_note_termin": "firmenlauf.bayern/firmenlauf-neumarkt (05.10.2026): „Live-Event: 22. Juli 2027 an den Jurahallen Neumarkt“ - der Kalender hatte den 15.07. vorgetragen. Beide Schlüssel (alter und neuer Tag), siehe „Die wichtigste Lektion“."
+  },
+  "Firmenlauf Neumarkt|2027-06-15": {
+    "exclude": true,
+    "_note": "firmenlauf.bayern (05.10.2026): Die Zeile 15.06.-15.07.2027 ohne Distanz ist die HYBRID-Phase (virtuell, „22. Juni - 21. Juli 2027“), kein Lauf an einem Ort - virtuelle Läufe bleiben draußen (Datenregel 14)."
   }
 }

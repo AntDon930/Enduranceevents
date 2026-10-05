@@ -872,13 +872,19 @@ def spanne(termine: list[str]) -> tuple[str, str] | None:
 
 
 _JAHR_IM_NAMEN = re.compile(r"\s*\b(?:19|20)\d{2}(?:/(?:19|20)?\d{2})?\b")
+_AUFLAGE_VORN = re.compile(r"^\s*\d{1,3}\.\s+")
 
 
 def name_ohne_jahr(name: str) -> str:
     """„Munich Triathlon 2027" -> „Munich Triathlon", „Winterlaufserie 2026/2027"
-    -> „Winterlaufserie". Die Auflage („49.") bleibt - ob sie im nächsten
-    Jahr „50." heißt, weiß niemand; `unify_event_names` räumt das auf."""
-    return re.sub(r"\s{2,}", " ", _JAHR_IM_NAMEN.sub("", name or "")).strip(" -–")
+    -> „Winterlaufserie", „6. Appelhülsener Landlauf" -> „Appelhülsener
+    Landlauf". Die Auflage vorn fällt seit dem 05.10.2026 ebenfalls: Die
+    nächste Ausgabe heißt „7.", und eine falsche Zahl ist schlechter als
+    keine (im ersten vollen Lauf stand die „6." neben der „7." aus dem
+    Kalender). Eine Auflage mitten im Namen bleibt."""
+    ohne = _JAHR_IM_NAMEN.sub("", name or "")
+    ohne = _AUFLAGE_VORN.sub("", ohne)
+    return re.sub(r"\s{2,}", " ", ohne).strip(" -–")
 
 
 def manual_events_aus(eintrag: dict, start: str, ende: str, heute: str,
@@ -1057,6 +1063,7 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
         wurzel = _wurzel(url)
     # Tote Unterseite oder eine Seite, die den Lauf nicht (mehr) nennt:
     # die Startseite versuchen.
+    von_startseite = False
     if not _gleiche_adresse(url, wurzel) and (tot or (status == 200 and not belegt)):
         st2, body2 = ab.hole(wurzel)
         belegt2 = nennt_den_lauf(body2, wurzel, namen, [], orte) if st2 == 200 else []
@@ -1066,6 +1073,7 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
                 r["umgezogen"] = wurzel
                 v["url"] = url = wurzel
             status, body, belegt, txt, tot = st2, body2, belegt2, text_von(body2), False
+            von_startseite = True
     if tot:
         v["tot_zaehler"] = int(v.get("tot_zaehler") or 0) + 1
         if v["tot_zaehler"] >= TOT_NACH_PRUEFUNGEN:
@@ -1093,6 +1101,7 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
             if kand:
                 r["termin_von"] = wurzel
                 txt = txt + " " + txt2
+                von_startseite = True
     r["kuenftige_termine"] = sorted(d for d in daten if d > heute)[:10]
     r["kandidaten"] = kand
     r["textlaenge"] = len(txt)
@@ -1101,11 +1110,18 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
     if seiten_km:
         r["seiten_km"] = seiten_km[:40]
     sp = spanne(kand)
-    if kand and sp and belegt:
+    if kand and sp and belegt and not von_startseite:
         r["flag"] = "NEU"
         return r, (k, v, sp[0], sp[1], set(seiten_km))
     if kand:
         r["flag"] = "NEU?"
+        if sp and belegt and von_startseite:
+            # Der Termin stammt von der STARTSEITE, nicht von der Seite des
+            # Laufs: Die nennt auch die anderen Veranstaltungen desselben
+            # Veranstalters. Beim ersten vollen Lauf (05.10.2026) hätte der
+            # „GENERALI 5K" so den Termin des Berlin-Marathons bekommen
+            # (Sonntag statt Samstag). Deshalb nur zur Handprüfung.
+            r["grund"] = "Termin von der Startseite, nicht von der Seite des Laufs"
     elif len(txt) < 300:
         r["flag"] = "LEER"
     else:
