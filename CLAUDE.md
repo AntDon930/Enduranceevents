@@ -58,6 +58,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang" |
 | `scripts/seitenabgleich.py` | hält jede Veranstaltung mit eigener Seite gegen den **Seitentext** (Datum da? Distanzen da?) und meldet DATUM/DISTANZ/LEER/FEHLER – nur Bericht, siehe „Elfter Durchgang" |
+| `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -814,7 +815,9 @@ Masters) – die Streckenlisten der Quellen sind nicht verlässlich vollständig
 Solche Fälle daher nur **melden** (`report_suspicious_distances()`), einzeln
 per Websuche prüfen und bestätigte Fehler mit `"exclude": true` in
 `manual_overrides.json` eintragen. Schlüssel dort:
-`"<Name>|<Datum>|<km>"` (distanzgenau) oder `"<Name>|<Datum>"`.
+`"<Name>|<Datum>|<km>"` (distanzgenau), `"<Name>|<Datum>|@<Wettbewerb>"`
+(eine Strecke OHNE Distanz, seit 05.10.2026) oder `"<Name>|<Datum>"`
+(alle Strecken).
 
 **Die Distanz im Schlüssel wird mit `:g` formatiert** – also `|21`, nicht
 `|21.0`. Ein Schlüssel in der falschen Schreibweise wird

@@ -184,7 +184,7 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
     changed: list[str] = []
     for event in events:
         override = find_override(overrides, event.get("name"), event.get("datum_start"),
-                                 event.get("laenge_km"))
+                                 event.get("laenge_km"), event.get("wettbewerb"))
         if override:
             if override.get("exclude"):
                 excluded.append(
@@ -289,7 +289,7 @@ def fix_charity(events: list[dict]) -> list[str]:
     changed: list[str] = []
     for event in events:
         own = find_override(overrides, event.get("name"), event.get("datum_start"),
-                            event.get("laenge_km"))
+                            event.get("laenge_km"), event.get("wettbewerb"))
         war_kategorie = event.get("art2") == "Charity"
         if war_kategorie:
             event["art2"] = None
@@ -314,7 +314,7 @@ def refresh_art2(events: list[dict]) -> list[str]:
     changed: list[str] = []
     for event in events:
         own = find_override(overrides, event.get("name"), event.get("datum_start"),
-                            event.get("laenge_km"))
+                            event.get("laenge_km"), event.get("wettbewerb"))
         if own and "art2" in own:
             continue  # manuell gesetzte Kategorie nicht überschreiben
         if event.get("art1") != "Laufen":
@@ -451,7 +451,7 @@ def fill_art2_andere_sportarten(events: list[dict]) -> list[str]:
         if event.get("art2") is not None:
             continue
         own = find_override(overrides, event.get("name"), event.get("datum_start"),
-                            event.get("laenge_km"))
+                            event.get("laenge_km"), event.get("wettbewerb"))
         if own and "art2" in own:
             continue
         text = f"{event.get('wettbewerb') or ''} {event.get('name') or ''}"
@@ -487,7 +487,7 @@ def fix_multisport_art1(events: list[dict]) -> list[str]:
         if event.get("art1") != "Laufen":
             continue
         own = find_override(overrides, event.get("name"), event.get("datum_start"),
-                            event.get("laenge_km"))
+                            event.get("laenge_km"), event.get("wettbewerb"))
         if own and "art1" in own:
             continue
         name = event.get("name") or ""
@@ -612,7 +612,7 @@ def fix_fremde_sportart_im_wettbewerb(events: list[dict]) -> list[str]:
         if _ist_mehrsport_veranstaltung(gruppe):
             continue
         own = find_override(overrides, event.get("name"), event.get("datum_start"),
-                            event.get("laenge_km"))
+                            event.get("laenge_km"), event.get("wettbewerb"))
         if own and "art1" in own:
             continue
         neu = treffer[0]
@@ -1572,7 +1572,7 @@ def unify_event_names(events: list[dict]) -> list[str]:
             if len(set(names)) < 2:
                 continue
             if any(find_override(overrides, e.get("name"), e.get("datum_start"),
-                                 e.get("laenge_km")) for e in cluster):
+                                 e.get("laenge_km"), e.get("wettbewerb")) for e in cluster):
                 continue  # Override-Schlüssel nicht zerstören
             # Zuerst Formatierung reparieren - dadurch fallen Kandidaten
             # zusammen, die sich nur darin unterschieden.
