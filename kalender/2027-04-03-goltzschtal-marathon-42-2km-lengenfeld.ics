@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Göltzschtal Marathon
 LOCATION:Lengenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.goeltzsc
- htallauf.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.goeltzs
+ chtalmarathon.de/
 TRANSP:TRANSPARENT
-URL:http://www.goeltzschtallauf.de
+URL:https://www.goeltzschtalmarathon.de/
 END:VEVENT
 END:VCALENDAR

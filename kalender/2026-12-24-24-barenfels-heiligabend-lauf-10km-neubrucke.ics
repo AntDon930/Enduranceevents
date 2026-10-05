@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261224
 DTEND;VALUE=DATE:20261225
 SUMMARY:24. Bärenfels Heiligabend-Lauf
 LOCATION:Neubrücke\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.kilometer
- liebe.de/events/24-baerenfels-heiligabend-lauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.baerenfel
+ slauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/24-baerenfels-heiligabend-lauf
+URL:https://www.baerenfelslauf.de/
 END:VEVENT
 END:VCALENDAR

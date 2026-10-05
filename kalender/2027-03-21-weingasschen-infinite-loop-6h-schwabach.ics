@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:Weingäßchen Infinite Loop
 LOCATION:Schwabach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.kilometerli
- ebe.de/events/12h-weingaesschen-infinite-loop
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.goldenemeil
+ enrunning.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/12h-weingaesschen-infinite-loop
+URL:https://www.goldenemeilenrunning.de/
 END:VEVENT
 END:VCALENDAR

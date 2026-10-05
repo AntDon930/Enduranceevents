@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270529
 DTEND;VALUE=DATE:20270530
 SUMMARY:Fyne Terra
 LOCATION:Yverdon-les-Bains\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /403759/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.fyne-terra.ch
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/403759/
+URL:https://www.fyne-terra.ch
 END:VEVENT
 END:VCALENDAR

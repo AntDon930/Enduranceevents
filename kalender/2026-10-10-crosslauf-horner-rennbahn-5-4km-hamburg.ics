@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Crosslauf Horner Rennbahn
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.4 km\nhttps://athleticon.bs
- vhh.de/public/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.4 km\nhttps://www.bsv-hambu
+ rg.de/
 TRANSP:TRANSPARENT
-URL:https://athleticon.bsvhh.de/public/
+URL:https://www.bsv-hamburg.de/
 END:VEVENT
 END:VCALENDAR

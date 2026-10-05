@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:Welver Crosslauf – 8000 m und 13000 m
 LOCATION:Welver\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://my.raceresult.
- com/424667/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://welvercrosslau
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/424667/
+URL:https://welvercrosslauf.de/
 END:VEVENT
 END:VCALENDAR

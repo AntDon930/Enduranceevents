@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270828
 DTEND;VALUE=DATE:20270830
 SUMMARY:SUNSET Wattenmeer
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /425686/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sunset-series
+ .de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/425686/
+URL:https://www.sunset-series.de
 END:VEVENT
 END:VCALENDAR

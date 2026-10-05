@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Misburger Volkslauf
 LOCATION:Hannover\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
- bung/detail/48529/30.-Misburger-Volkslauf-Hannover.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://volkslauf.sgmisbur
+ g.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/48529/30.-Misburger-Volkslauf-Han
- nover.htm
+URL:http://volkslauf.sgmisburg.de/
 END:VEVENT
 END:VCALENDAR

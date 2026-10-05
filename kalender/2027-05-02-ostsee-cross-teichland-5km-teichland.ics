@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:Ostsee Cross Teichland – 5 km Lauf
 LOCATION:Teichland\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.berlin-timi
- ng.de/Ostsee-Cross-Teichland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.teichlandra
+ dler.de/RTF.html
 TRANSP:TRANSPARENT
-URL:https://www.berlin-timing.de/Ostsee-Cross-Teichland
+URL:https://www.teichlandradler.de/RTF.html
 END:VEVENT
 END:VCALENDAR

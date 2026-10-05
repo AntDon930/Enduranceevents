@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270506
 DTEND;VALUE=DATE:20270507
 SUMMARY:Flughafenlauf
 LOCATION:Opfikon\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://datasport.com/
- de/events/flughafenlauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.lsv-kb.ch/
+ flughafenlauf.html
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/flughafenlauf-2027
+URL:https://www.lsv-kb.ch/flughafenlauf.html
 END:VEVENT
 END:VCALENDAR

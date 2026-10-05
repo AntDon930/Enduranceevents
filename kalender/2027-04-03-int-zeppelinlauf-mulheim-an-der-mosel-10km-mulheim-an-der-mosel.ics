@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Int. Zeppelinlauf Mülheim an der Mosel
 LOCATION:Mülheim an der Mosel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/int-zeppelinlauf-mülheim-an-der-mosel
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.zeppelinl
+ auf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/int-zeppelinlauf-mülheim-an-der
- -mosel
+URL:https://www.zeppelinlauf.de/
 END:VEVENT
 END:VCALENDAR

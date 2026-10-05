@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270705
 SUMMARY:100 Jahre Rund in Serrig
 LOCATION:Serrig\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.dsergebnis.d
- e/
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://rv-serrig.de/eve
+ nt/nationales-strassenradrennen-rund-in-serrig/
 TRANSP:TRANSPARENT
-URL:https://www.dsergebnis.de/
+URL:https://rv-serrig.de/event/nationales-strassenradrennen-rund-in-serrig
+ /
 END:VEVENT
 END:VCALENDAR

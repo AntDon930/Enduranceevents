@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:Chiemgauer100 StundenRunden - 100mi
 LOCATION:Bergen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://www.kilometerl
- iebe.de/events/chiemgauer100-stundenrunden-100mi
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 24 h\nhttps://chiemgauer100.
+ de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/chiemgauer100-stundenrunden-100mi
+URL:https://chiemgauer100.de/
 END:VEVENT
 END:VCALENDAR

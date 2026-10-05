@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:Urbachallenge Orbe
 LOCATION:Orbe\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://www.softtimi
- ng.ch/index.php/inscriptions?idCourse=1876
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.4 km\nhttps://vcorbe.ch/ur
+ bachallenge/
 TRANSP:TRANSPARENT
-URL:https://www.softtiming.ch/index.php/inscriptions?idCourse=1876
+URL:https://vcorbe.ch/urbachallenge/
 END:VEVENT
 END:VCALENDAR

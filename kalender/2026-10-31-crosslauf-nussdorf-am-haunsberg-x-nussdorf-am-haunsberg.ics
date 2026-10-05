@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Crosslauf Nußdorf am Haunsberg
 LOCATION:Nußdorf am Haunsberg\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 410160/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://lauftreffnussdorf.
+ at/cms/veranstaltungen/nussdorfer-crosslauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/410160/
+URL:https://lauftreffnussdorf.at/cms/veranstaltungen/nussdorfer-crosslauf/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:Johannesbad Thermen-Marathon – Marathon
 LOCATION:Bad Füssing\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.thermen-
- marathon.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.thermen
+ -marathon.de/
 TRANSP:TRANSPARENT
-URL:http://www.thermen-marathon.de
+URL:https://www.thermen-marathon.de/
 END:VEVENT
 END:VCALENDAR

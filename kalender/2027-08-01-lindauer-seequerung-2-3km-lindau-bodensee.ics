@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270801
 DTEND;VALUE=DATE:20270802
 SUMMARY:Lindauer Seequerung
 LOCATION:Lindau (Bodensee)\, Deutschland
-DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2.3 km\nhttps://www.b
- sv-schwaben.de/index.php/termine/termine-2027
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 2.3 km\nhttps://www.l
+ indauerschwimmer.de/events/seedurchquerung/
 TRANSP:TRANSPARENT
-URL:https://www.bsv-schwaben.de/index.php/termine/termine-2027
+URL:https://www.lindauerschwimmer.de/events/seedurchquerung/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:11. Hochkippenlauf
 LOCATION:Profen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/11-hochkippenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sveintrach
+ tprofen.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/11-hochkippenlauf
+URL:https://www.sveintrachtprofen.de/
 END:VEVENT
 END:VCALENDAR

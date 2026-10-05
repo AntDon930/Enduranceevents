@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Potsdamer Silvesterlauf
 LOCATION:Potsdam\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
- com/426192/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.potsdamer-
+ laufclub.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/426192/
+URL:https://www.potsdamer-laufclub.de/
 END:VEVENT
 END:VCALENDAR

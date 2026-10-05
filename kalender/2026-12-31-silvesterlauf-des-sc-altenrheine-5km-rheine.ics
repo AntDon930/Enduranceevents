@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Silvesterlauf des SC Altenrheine
 LOCATION:Rheine\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/423904/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.sc-altenrh
+ eine.de/ausdauer/silvesterlauf
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/423904/
+URL:https://www.sc-altenrheine.de/ausdauer/silvesterlauf
 END:VEVENT
 END:VCALENDAR

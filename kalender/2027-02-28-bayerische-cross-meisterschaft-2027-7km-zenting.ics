@@ -11,9 +11,8 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Bayerische Cross Meisterschaft 2027
 LOCATION:Zenting\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttp://www.sv-zenting.d
- e
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://sv-zenting.de/
 TRANSP:TRANSPARENT
-URL:http://www.sv-zenting.de
+URL:https://sv-zenting.de/
 END:VEVENT
 END:VCALENDAR

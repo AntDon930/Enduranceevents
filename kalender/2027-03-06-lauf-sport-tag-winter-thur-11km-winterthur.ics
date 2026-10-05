@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
 SUMMARY:Lauf­sport­tag Winter­thur
 LOCATION:Winterthur\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://datasport.com
- /de/events/laufsporttag-winterthur-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.laufsport
+ tag.ch/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/laufsporttag-winterthur-2027
+URL:https://www.laufsporttag.ch/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:8. Xantener Sparkassen Stadioncross
 LOCATION:Xanten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttps://www.taf-timi
- ng.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttp://www.leichtath
+ letik.tus-xanten.de/
 TRANSP:TRANSPARENT
-URL:https://www.taf-timing.de
+URL:http://www.leichtathletik.tus-xanten.de/
 END:VEVENT
 END:VCALENDAR

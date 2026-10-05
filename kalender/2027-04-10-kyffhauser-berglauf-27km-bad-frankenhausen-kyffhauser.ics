@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:Kyffhäuser Berglauf – Kombiwertung 27 km (Run 6 km + Bike 21 km)
 LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 27 km\nhttps://runtix.c
- om/sts/10021/3168
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 27 km\nhttp://www.kyffh
+ aeuser-berglauf.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3168
+URL:http://www.kyffhaeuser-berglauf.de/
 END:VEVENT
 END:VCALENDAR

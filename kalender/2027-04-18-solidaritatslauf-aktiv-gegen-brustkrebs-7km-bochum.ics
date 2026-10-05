@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Solidaritätslauf Aktiv gegen Brustkrebs – Walking
 LOCATION:Bochum\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/solidaritätslauf-aktiv-gegen-brustkrebs
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://aktivgegenbrus
+ tkrebs.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/solidaritätslauf-aktiv-gegen-br
- ustkrebs
+URL:https://aktivgegenbrustkrebs.de/
 END:VEVENT
 END:VCALENDAR

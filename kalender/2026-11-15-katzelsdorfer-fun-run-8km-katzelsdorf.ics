@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:Katzelsdorfer Fun Run
 LOCATION:Katzelsdorf\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://ergebnisliste.
- at/Event/1255
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.katzelsdor
+ f.gv.at/
 TRANSP:TRANSPARENT
-URL:https://ergebnisliste.at/Event/1255
+URL:https://www.katzelsdorf.gv.at/
 END:VEVENT
 END:VCALENDAR

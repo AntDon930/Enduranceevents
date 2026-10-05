@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:3 Bremen - Sankt Pauli 100mi
 LOCATION:Bremen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.kilometerlieb
- e.de/events/3-bremen-sankt-pauli-100mi
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.bremensanktpa
+ uli.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/3-bremen-sankt-pauli-100mi
+URL:https://www.bremensanktpauli.de/
 END:VEVENT
 END:VCALENDAR

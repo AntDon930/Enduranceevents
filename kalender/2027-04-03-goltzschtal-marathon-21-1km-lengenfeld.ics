@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:Göltzschtal Marathon – Halbmarathon
 LOCATION:Lengenfeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://baer-servic
- e.de/veranstaltung/GTM/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.goeltzs
+ chtalmarathon.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/GTM/
+URL:https://www.goeltzschtalmarathon.de/
 END:VEVENT
 END:VCALENDAR

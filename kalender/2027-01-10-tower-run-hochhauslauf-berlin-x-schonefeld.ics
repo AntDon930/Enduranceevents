@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Tower-Run Hochhauslauf Berlin
 LOCATION:Schönefeld\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://anmeldung.laufausw
- ertung.com/Anmeldung/index.php?VID=199ED82D5A
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.tus-neukoelln.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=199ED82D5
- A
+URL:http://www.tus-neukoelln.de/
 END:VEVENT
 END:VCALENDAR

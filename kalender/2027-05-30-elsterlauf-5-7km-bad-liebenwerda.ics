@@ -11,8 +11,8 @@ DTEND;VALUE=DATE:20270531
 SUMMARY:Elsterlauf – 5\,7 km Gesundheitslauf mit Teamwertung
 LOCATION:Bad Liebenwerda\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.7 km\nhttps://www.elsterla
- uf.de/elsterlauf-ablauf/
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://www.elsterlauf.de/elsterlauf-ablauf/
+URL:https://www.elsterlauf.de/
 END:VEVENT
 END:VCALENDAR

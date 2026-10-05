@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270327
 DTEND;VALUE=DATE:20270328
 SUMMARY:51. Osterlauf Ruppichteroth
 LOCATION:Ruppichteroth\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/51-osterlauf-ruppichteroth
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://tv-ruppichter
+ oth.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/51-osterlauf-ruppichteroth
+URL:https://tv-ruppichteroth.de/
 END:VEVENT
 END:VCALENDAR

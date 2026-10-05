@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Uchter Wald- und Crosslauf
 LOCATION:Uchte\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://portal.run-ti
- ming.de/1037/registration
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.scuchte.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://portal.run-timing.de/1037/registration
+URL:https://www.scuchte.de/
 END:VEVENT
 END:VCALENDAR

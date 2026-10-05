@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:Sälzerlauf 2027
 LOCATION:Salzkotten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.kilometerl
- iebe.de/events/slzerlauf-2027-03
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.saelzerlau
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/slzerlauf-2027-03
+URL:https://www.saelzerlauf.de/
 END:VEVENT
 END:VCALENDAR

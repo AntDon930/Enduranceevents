@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270620
 DTEND;VALUE=DATE:20270621
 SUMMARY:Course de Montagne Neirivue-Moléson
 LOCATION:Haut-Intyamon\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://sportchrono.c
- h/events.php?id=1253
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://www.neirivue-m
+ oleson.ch/
 TRANSP:TRANSPARENT
-URL:https://sportchrono.ch/events.php?id=1253
+URL:http://www.neirivue-moleson.ch/
 END:VEVENT
 END:VCALENDAR

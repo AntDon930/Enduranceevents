@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270612
 DTEND;VALUE=DATE:20270613
 SUMMARY:4. Hohenlimburger Lennelauf
 LOCATION:Hagen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://laufen.de/l
- aufkalender/details/4-hohenlimburger-lennelauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://www.elseyer
+ -turnverein.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/4-hohenlimburger-lennelauf
+URL:https://www.elseyer-turnverein.de/
 END:VEVENT
 END:VCALENDAR

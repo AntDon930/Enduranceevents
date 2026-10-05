@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:43. Überherrner Straßenrennen auf dem Wallerfanger Saargau
 LOCATION:Überherrn\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.dsergebnis.d
- e/
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.rsc-ueberher
+ rn.de/
 TRANSP:TRANSPARENT
-URL:https://www.dsergebnis.de/
+URL:https://www.rsc-ueberherrn.de/
 END:VEVENT
 END:VCALENDAR

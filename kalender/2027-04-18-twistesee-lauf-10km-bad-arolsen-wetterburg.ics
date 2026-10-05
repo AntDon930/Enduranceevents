@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Twistesee-Lauf
 LOCATION:Bad Arolsen-Wetterburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.twistesee-
- lauf.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.twistesee
+ -lauf.de/
 TRANSP:TRANSPARENT
-URL:http://www.twistesee-lauf.de
+URL:https://www.twistesee-lauf.de/
 END:VEVENT
 END:VCALENDAR

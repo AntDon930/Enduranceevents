@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:Stadtpark-Cross Reichenbach
 LOCATION:Reichenbach im Vogtland\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://ladv.de/ausschr
- eibung/detail/49343/RM-Crosslauf--Stadtpark-Cross-Reichenbach-%28Vogtland
- %29.htm
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://lav-reichenbach
+ .de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49343/RM-Crosslauf--Stadtpark-Cro
- ss-Reichenbach-%28Vogtland%29.htm
+URL:https://lav-reichenbach.de/
 END:VEVENT
 END:VCALENDAR

@@ -1590,6 +1590,47 @@ Halbmarathon" gegen „Alstertallauf Hamburg", Walking gegen Lauf, Essen
 gegen Gießen. Die Meldung „Gleicher Tag, Ort und Distanz unter anderem
 Namen" fällt damit von 120 auf 47.
 
+
+### Achtzehnter Durchgang: alle Portallinks noch einmal (05.10.2026)
+
+Der Nutzer wollte bei **allen Veranstaltungen, deren Link kein
+Veranstalter ist** (Zeitnehmer, Anmeldeportale, Kalender), noch einmal
+nach der originalen Seite suchen – „lass dir Zeit und check alles noch
+einmal". 403 Veranstaltungen an 49 Hosts, davon 156 bei my.raceresult.com.
+
+Drei Wege nacheinander, alle über `scripts/veranstalter_links.py`:
+
+| Schritt | Werkzeug | Ergebnis |
+|---|---|---|
+| raceresult-Kontaktseiten erneut lesen (`sammeln --nur-host my.raceresult.com --auch-geprueft --pause 8`) | JSON-LD `organizer.url`, dazu neu der Veranstalter-NAME | **28** Veranstalter hatten seit September eine URL nachgetragen |
+| die übrigen Portalseiten erneut lesen (`sammeln --ohne-host my.raceresult.com --auch-geprueft`) | externe Links der Portalseite | 24 Treffer, 5 davon bei der Durchsicht verworfen (Verbandskalender, Sponsor, Gemeindekalender, Tourismus-Seite) |
+| Websuche je Veranstaltung (200 Suchen) und `verifizieren` | Namensregel | 88 angenommen |
+| Handbelege (`begruendung` im Bericht) | Veranstalter aus Kontaktseite/Ausschreibung bekannt, Seite nennt den Lauf nur im Menü, als PDF oder gar nicht lesbar | 70 |
+
+**194 Veranstaltungen (327 Zeilen) zeigen jetzt auf ihre Veranstalterseite;
+204 Veranstaltungen behalten den Portallink** – private Zählmarathon-Serien
+(Fun & Erlebnis Marathons, die Bremer Marathons, SOBVL, Speck-weg,
+Northeim), Verbandsmeisterschaften, Vereine ohne Netzauftritt. 14 davon
+sind `link_ok`: Der „Zeitnehmer" ist dort selbst der Veranstalter
+(Lauflust-Events, Katjas Laufzeit, Lausitzer Sportevents, crosscup.org,
+SWIM 100x100, der Radsport-Bezirk Weser-Ems bei seinem Cup).
+
+Zwei technische Dinge aus dem Lauf: **raceresult drosselt** nach etwa 45
+Abrufen im 2-Sekunden-Takt (HTTP 429, danach 404 für jede Kontaktseite) –
+8 Sekunden Pause laufen durch, und ein Bericht mit 429/404-Zeilen gehört
+weggeworfen, nicht fortgesetzt. Und die **Kontaktseite nennt den
+Veranstalter-Namen auch ohne URL** („Veranstalter: Propain Bicycles GmbH,
+Ausrichter: KJC Ravensburg e.V.") – `organizer_name_aus_jsonld()` schreibt
+ihn als `veranstalter_name` in den Bericht, und `anwenden` trägt ihn in
+die `unklar`-Notiz ein. Das ist für die nächste Websuche der halbe Weg.
+
+Nebenbei gefunden: fünf FITLETIX-Termine (Fitness-Challenge mit
+Kraftstationen, als „Laufen" in der Liste) und der BriggYard Staffel-Run –
+per Override ausgeschlossen, Entscheidung des Nutzers in CLAUDE.md
+(Punkt 23); ein Duplikat unter zwei Namen (Nikolaus Volkslauf Mingolsheim
+= Nikolauslauf Bad Schönborn), zwei Tippfehler im Namen aus laufen.de
+(„Maritn Dufter", „Brüder-Grimn-Lauf").
+
 ### Die Berichte nach dem Kilometerliebe-Lauf (01.10.2026)
 
 Nach dem ersten Kilometerliebe-Lauf wurden die `⚠`-Berichte von

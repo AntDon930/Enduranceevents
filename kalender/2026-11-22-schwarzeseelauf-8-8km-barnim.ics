@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Schwärzeseelauf – 8\,8 km Lauf
 LOCATION:Barnim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://anmeldung.la
- ufauswertung.com/Anmeldung/index.php?VID=E92B89B7F7
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttp://www.barnimer-
+ sparkassen-lauf-cup.de/laeufe.php
 TRANSP:TRANSPARENT
-URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=E92B89B7F
- 7
+URL:http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php
 END:VEVENT
 END:VCALENDAR

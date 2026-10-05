@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:38. Hildesheimer Wedekindlauf – 9\,8 km Lauf
 LOCATION:Hildesheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.8 km\nhttps://laufen.de/la
- ufkalender/details/38-hildesheimer-wedekindlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.8 km\nhttps://www.wedekind
+ lauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/38-hildesheimer-wedekindlauf
+URL:https://www.wedekindlauf.de/
 END:VEVENT
 END:VCALENDAR

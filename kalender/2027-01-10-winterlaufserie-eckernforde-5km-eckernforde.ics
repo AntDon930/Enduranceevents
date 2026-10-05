@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270208
 SUMMARY:Winterlaufserie Eckernförde
 LOCATION:Eckernförde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/401813/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.winterlaufs
+ erieeckernfoerde.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/401813/
+URL:http://www.winterlaufserieeckernfoerde.de/
 END:VEVENT
 END:VCALENDAR

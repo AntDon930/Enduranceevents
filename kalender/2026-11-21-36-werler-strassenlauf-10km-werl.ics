@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:36. Werler Straßenlauf
 LOCATION:Werl\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://djk-werl.de/l
- eichtathletik/wettkaempfe-events/strassenlauf/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.djk-werl.
+ de/
 TRANSP:TRANSPARENT
-URL:https://djk-werl.de/leichtathletik/wettkaempfe-events/strassenlauf/
+URL:https://www.djk-werl.de/
 END:VEVENT
 END:VCALENDAR

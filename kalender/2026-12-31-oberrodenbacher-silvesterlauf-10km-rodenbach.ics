@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Oberrodenbacher Silvesterlauf
 LOCATION:Rodenbach\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://my.raceresult
- .com/409357/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.turnverei
+ n-oberrodenbach.de/ig-veranstaltungen/ig-silvesterlauf.html
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/409357/
+URL:https://www.turnverein-oberrodenbach.de/ig-veranstaltungen/ig-silveste
+ rlauf.html
 END:VEVENT
 END:VCALENDAR

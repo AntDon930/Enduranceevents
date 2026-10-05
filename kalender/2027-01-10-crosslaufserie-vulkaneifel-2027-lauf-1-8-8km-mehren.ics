@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Crosslaufserie Vulkaneifel 2027 (Lauf 1)
 LOCATION:Mehren\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.8 km\nhttps://lauf-anmeldun
- g.de/anmeldung/anmeldung.php?vname=MehrenCross27
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.8 km\nhttps://www.sv-mehren
+ .de/
 TRANSP:TRANSPARENT
-URL:https://lauf-anmeldung.de/anmeldung/anmeldung.php?vname=MehrenCross27
+URL:https://www.sv-mehren.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Emder Silvesterlauf
 LOCATION:Emden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://portal.run-ti
- ming.de/1038/registration
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://www.emdersilv
+ esterlauf.de/
 TRANSP:TRANSPARENT
-URL:https://portal.run-timing.de/1038/registration
+URL:https://www.emdersilvesterlauf.de/
 END:VEVENT
 END:VCALENDAR

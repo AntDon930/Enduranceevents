@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:Windener Landschaftslauf
 LOCATION:Winden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.ergebnisl
- iste.de/anmeldeseiten/winden-anmeldeseite
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.wir-in-wi
+ nden.de/
 TRANSP:TRANSPARENT
-URL:https://www.ergebnisliste.de/anmeldeseiten/winden-anmeldeseite
+URL:https://www.wir-in-winden.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:Heidi 222
 LOCATION:Celle\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 222 km\nhttps://www.kilomete
- rliebe.de/events/heidi-222
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 222 km\nhttps://www.feinerla
+ uf.de/der-heidi-222-lauf/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/heidi-222
+URL:https://www.feinerlauf.de/der-heidi-222-lauf/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270505
 DTEND;VALUE=DATE:20270506
 SUMMARY:9. Bugginger Feierabendlauf – 5 Km Genusslauf
 LOCATION:Buggingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/9-bugginger-feierabendlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lg-buggingen.d
+ e/bugginger-feierabendlauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/9-bugginger-feierabendlauf
+URL:https://lg-buggingen.de/bugginger-feierabendlauf/
 END:VEVENT
 END:VCALENDAR

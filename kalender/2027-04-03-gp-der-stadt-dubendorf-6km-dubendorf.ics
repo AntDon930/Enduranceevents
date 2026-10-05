@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
 SUMMARY:GP der Stadt Dübendorf
 LOCATION:Dübendorf\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://datasport.com/
- de/events/gp-der-stadt-duebendorf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.gpduebendo
+ rf.ch/
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/gp-der-stadt-duebendorf-2027
+URL:https://www.gpduebendorf.ch/
 END:VEVENT
 END:VCALENDAR

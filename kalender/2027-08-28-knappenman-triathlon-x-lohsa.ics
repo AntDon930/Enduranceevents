@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270828
 DTEND;VALUE=DATE:20270830
 SUMMARY:KnappenMan Triathlon
 LOCATION:Lohsa\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://baer-service.d
- e/veranstaltung/KNA/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.knappenman
+ .com/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/KNA/
+URL:https://www.knappenman.com/
 END:VEVENT
 END:VCALENDAR

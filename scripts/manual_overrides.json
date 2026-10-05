@@ -5076,7 +5076,8 @@
   },
   "3. Halener Bahnmarathon|2027-07-17": {
     "datum_vorlaeufig": true,
-    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 is). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen."
+    "_note": "Termin ist eine Kalenderprognose (Einzelprüfung 21.09.2026: Der hinterlegte raceresult-Link (340929) ist die Ausgabe 2026 („2. Halener Bahnmarathon“, 09.05.2026); der 17.07.2027 is). Anzeige „Monat Jahr*“ mit Fußnote (Nutzer 21.09.2026: kein konkretes Datum, wenn kein Tag veröffentlicht ist). Entfällt von selbst, sobald der Datenlauf einen anderen Tag bringt; meldet seitenabgleich.py BESTAETIGT, diesen Eintrag löschen. | Veranstalterseite statt my.raceresult.com: https://lg-lottehalen.jimdofree.com/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (halener). Linkprüfung 2026-10-05.",
+    "veranstalter_url": "https://lg-lottehalen.jimdofree.com/"
   },
   "Hugenotten-Duathlon|2026-11-01": {
     "laenge_km": 29.6,
@@ -7297,5 +7298,801 @@
   "neuseenMAN Ferropolis|2027-05-28|113": {
     "exclude": true,
     "_note": "Duplikat der Mitteldistanz 113 km von 'mo.pla neuseenMAN' (gleicher Tag, gleicher Ort Graefenhainichen/Ferropolis, gleiche Anmeldung maximalpuls). Gepruft 05.10.2026."
+  },
+  "GK Knollenlauf und Halbmarathon|2026-10-11": {
+    "veranstalter_url": "https://www.djk-gillrath.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.djk-gillrath.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-10-05."
+  },
+  "Töwerland Herbstlauf|2026-10-22": {
+    "veranstalter_url": "https://www.juist.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.juist.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (towerland). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf Nußdorf am Haunsberg|2026-10-31": {
+    "veranstalter_url": "https://lauftreffnussdorf.at/cms/veranstaltungen/nussdorfer-crosslauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://lauftreffnussdorf.at/cms/veranstaltungen/nussdorfer-crosslauf/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:nussdorf). Linkprüfung 2026-10-05."
+  },
+  "Offene Regionalmeisterschaft Crosslauf|2026-11-08": {
+    "veranstalter_url": "http://www.blau-weiss-leichtathletik.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.blau-weiss-leichtathletik.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (regionalmeisterschaft, datum). Linkprüfung 2026-10-05."
+  },
+  "Nebelseelauf|2026-11-14": {
+    "veranstalter_url": "https://www.seehotel-ichlim.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.seehotel-ichlim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nebelseelauf, datum). Linkprüfung 2026-10-05."
+  },
+  "Barbara-Runde mit Sparkassen-Firmenlauf|2026-12-06": {
+    "veranstalter_url": "https://leichtathletik.susoberaden.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://leichtathletik.susoberaden.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (barbara). Linkprüfung 2026-10-05."
+  },
+  "Erzsteig über Hüggel-Gipfel UltraTrail|2026-12-30": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (erzsteig). Linkprüfung 2026-10-05."
+  },
+  "Brogginger Spendenlauf|2027-01-03": {
+    "veranstalter_url": "https://www.pascal-schucker.de/Brogginger-Spendenlauf",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.pascal-schucker.de/Brogginger-Spendenlauf - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (brogginger). Linkprüfung 2026-10-05."
+  },
+  "Welver Crosslauf|2027-01-24": {
+    "veranstalter_url": "https://welvercrosslauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://welvercrosslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:welver, host:welver). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf Galgenen|2027-01-31": {
+    "veranstalter_url": "http://www.tsv-galgenen.ch/anlaesse/crosslauf",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.tsv-galgenen.ch/anlaesse/crosslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:galgenen). Linkprüfung 2026-10-05."
+  },
+  "Glashauslauf|2027-02-14": {
+    "veranstalter_url": "https://www.glashauslauf.net/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.glashauslauf.net/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:glashauslauf). Linkprüfung 2026-10-05."
+  },
+  "Twistesee-Lauf|2027-04-18": {
+    "veranstalter_url": "https://www.twistesee-lauf.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.twistesee-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:twistesee). Linkprüfung 2026-10-05."
+  },
+  "Weinathlon|2027-05-08": {
+    "veranstalter_url": "https://www.sport-im-geiseltal.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sport-im-geiseltal.de/ - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (weinathlon). Linkprüfung 2026-10-05."
+  },
+  "Tergaster Volkslauf|2027-05-17": {
+    "veranstalter_url": "https://www.svtergast.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.svtergast.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (tergaster). Linkprüfung 2026-10-05."
+  },
+  "Fyne Terra|2027-05-29": {
+    "veranstalter_url": "https://www.fyne-terra.ch",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.fyne-terra.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:terra). Linkprüfung 2026-10-05."
+  },
+  "Jenaer Backyard Ultra|2027-06-05": {
+    "veranstalter_url": "https://jenaerbackyardultra.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://jenaerbackyardultra.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:jenaer, datum). Linkprüfung 2026-10-05."
+  },
+  "Bad Wildbader Stäffeleslauf|2027-06-11": {
+    "veranstalter_url": "https://www.tsvwildbad.de.com",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tsvwildbad.de.com - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (staffeleslauf). Linkprüfung 2026-10-05."
+  },
+  "Podbielski Lauf|2027-06-19": {
+    "veranstalter_url": "https://podbielskilauf.wixsite.com/home",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://podbielskilauf.wixsite.com/home - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:podbielski). Linkprüfung 2026-10-05."
+  },
+  "Gütersloh Läuft|2027-07-07": {
+    "veranstalter_url": "https://www.guetersloh-laeuft.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.guetersloh-laeuft.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:guetersloh). Linkprüfung 2026-10-05."
+  },
+  "Sunset Hamburg|2027-07-14": {
+    "veranstalter_url": "https://www.sunset-series.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sunset-series.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:sunset). Linkprüfung 2026-10-05."
+  },
+  "Berglaufcup Züri Oberland|2027-08-16": {
+    "veranstalter_url": "https://www.5tage.ch",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.5tage.ch - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (berglaufcup). Linkprüfung 2026-10-05."
+  },
+  "SUNSET Wattenmeer|2027-08-28": {
+    "veranstalter_url": "https://www.sunset-series.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sunset-series.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:sunset). Linkprüfung 2026-10-05."
+  },
+  "Alsterlauf Hamburg|2027-09-05": {
+    "veranstalter_url": "https://www.alsterlauf-hamburg.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.alsterlauf-hamburg.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:alsterlauf). Linkprüfung 2026-10-05."
+  },
+  "Eberbacher Jedermann- und Sprint-Triathlon|2027-09-05": {
+    "veranstalter_url": "http://www.triathlon-eberbach.de",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.triathlon-eberbach.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (sprint, datum). Linkprüfung 2026-10-05."
+  },
+  "Crux Lauf Villach|2027-09-11": {
+    "veranstalter_url": "https://www.crux-lauf.com",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.crux-lauf.com - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (datum). Linkprüfung 2026-10-05."
+  },
+  "Radln & Renna - Der Altenberger Cross Duathlon|2027-09-11": {
+    "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.union-altenberg.at/radln-und-renna - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (radln, datum). Linkprüfung 2026-10-05."
+  },
+  "Sri Chinmoy Peace-Mile 6-Stunden-Lauf|2027-09-11": {
+    "veranstalter_url": "https://de.srichinmoyraces.org/6-stunden-lauf-muenchen",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://de.srichinmoyraces.org/6-stunden-lauf-muenchen - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:chinmoy). Linkprüfung 2026-10-05."
+  },
+  "Anifer Gemeinde FIT-TAG|2026-10-26": {
+    "veranstalter_url": "https://www.anif.salzburg.at",
+    "_note": "Veranstalterseite statt time2win.at: https://www.anif.salzburg.at - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (anifer, datum). Linkprüfung 2026-10-05."
+  },
+  "Herbstwaldlauf – Dresdner Heide mit Hofewiese-Trail|2026-11-08": {
+    "veranstalter_url": "https://herbstwaldlauf.com/",
+    "_note": "Veranstalterseite statt baer-service.de: https://herbstwaldlauf.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:herbstwaldlauf). Linkprüfung 2026-10-05."
+  },
+  "Nikolauslauf Bad Schönborn|2026-12-06": {
+    "veranstalter_url": "http://www.sg-badschoenborn.de/",
+    "_note": "Veranstalterseite statt runtix.com: http://www.sg-badschoenborn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:schoenborn, host:schoenborn). Linkprüfung 2026-10-05."
+  },
+  "Emder Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.emdersilvesterlauf.de/",
+    "_note": "Veranstalterseite statt portal.run-timing.de: https://www.emdersilvesterlauf.de/ - auf der portal.run-timing.de-Seite verlinkt, Zielseite nennt den Lauf (host:emder). Linkprüfung 2026-10-05."
+  },
+  "Dietiker Neu­jahrs­lauf|2027-01-09": {
+    "veranstalter_url": "https://www.zuerilaufcup.ch/12-laeufe/dietiker-neujahrslauf",
+    "_note": "Veranstalterseite statt datasport.com: https://www.zuerilaufcup.ch/12-laeufe/dietiker-neujahrslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (dietiker). Linkprüfung 2026-10-05."
+  },
+  "Leipziger Brückenlauf|2027-01-10": {
+    "veranstalter_url": "https://www.wasser-stadt-leipzig.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.wasser-stadt-leipzig.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:leipzig, bruckenlauf). Linkprüfung 2026-10-05."
+  },
+  "Tower-Run Hochhauslauf Berlin|2027-01-10": {
+    "veranstalter_url": "http://www.tus-neukoelln.de/",
+    "_note": "Veranstalterseite statt anmeldung.laufauswertung.com: http://www.tus-neukoelln.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (tower). Linkprüfung 2026-10-05."
+  },
+  "Course de la Bonne Résolution|2027-01-17": {
+    "veranstalter_url": "http://www.labr.ch/accueil",
+    "_note": "Veranstalterseite statt datasport.com: http://www.labr.ch/accueil - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (course). Linkprüfung 2026-10-05."
+  },
+  "Lauf­sport­tag Winter­thur|2027-03-06": {
+    "veranstalter_url": "https://www.laufsporttag.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.laufsporttag.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufsporttags (LV Winterthur), Domain = Veranstaltungsname; LaufGuide nennt sie. Linkprüfung 2026-10-05."
+  },
+  "Göltzschtal Marathon|2027-04-03": {
+    "veranstalter_url": "https://www.goeltzschtalmarathon.de/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.goeltzschtalmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:goeltzschtal). Linkprüfung 2026-10-05."
+  },
+  "Ostsee Cross Teichland|2027-05-02": {
+    "veranstalter_url": "https://www.teichlandradler.de/RTF.html",
+    "_note": "Veranstalterseite statt berlin-timing.de: https://www.teichlandradler.de/RTF.html - auf der berlin-timing.de-Seite verlinkt, Zielseite nennt den Lauf (host:teichland). Linkprüfung 2026-10-05."
+  },
+  "Abend-Kanallauf Rethmar|2027-06-05": {
+    "veranstalter_url": "https://www.kanallauf.de",
+    "_note": "Veranstalterseite statt ladv.de: https://www.kanallauf.de - auf der ladv.de-Seite verlinkt, Zielseite nennt den Lauf (host:kanallauf). Linkprüfung 2026-10-05."
+  },
+  "OstseeMan Triathlon Glücksburg|2027-07-31": {
+    "veranstalter_url": "http://www.ostseeman.de",
+    "_note": "Veranstalterseite statt time2win.at: http://www.ostseeman.de - auf der time2win.at-Seite verlinkt, Zielseite nennt den Lauf (host:ostseeman). Linkprüfung 2026-10-05."
+  },
+  "Schlosstriathlon Kossenblatt|2027-08-21": {
+    "veranstalter_url": "https://multisport-los.de/ausschreibung-cross-triathlon-kossenblatt/",
+    "_note": "Veranstalterseite statt berlin-timing.de: https://multisport-los.de/ausschreibung-cross-triathlon-kossenblatt/ - auf der berlin-timing.de-Seite verlinkt, Zielseite nennt den Lauf (kossenblatt, datum). Linkprüfung 2026-10-05."
+  },
+  "KnappenMan Triathlon|2027-08-28": {
+    "veranstalter_url": "https://www.knappenman.com/",
+    "_note": "Veranstalterseite statt baer-service.de: https://www.knappenman.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:knappenman). Linkprüfung 2026-10-05."
+  },
+  "Gesmolder Kirmeslauf|2027-09-17": {
+    "veranstalter_url": "https://www.sv-viktoria-gesmold.de/der-verein/vereinsleben/kirmeslauf/",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.sv-viktoria-gesmold.de/der-verein/vereinsleben/kirmeslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (gesmolder). Linkprüfung 2026-10-05."
+  },
+  "Black Forest ULTRA Trail Run|2027-09-18": {
+    "veranstalter_url": "https://www.ultra-trailrun.de/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.ultra-trailrun.de/ - auf der datasport.com-Seite verlinkt, Zielseite nennt den Lauf (black). Linkprüfung 2026-10-05."
+  },
+  "Grat2 Murrun|2027-09-26": {
+    "veranstalter_url": "http://www.grat2event.at",
+    "_note": "Veranstalterseite statt ergebnisliste.at: http://www.grat2event.at - auf der ergebnisliste.at-Seite verlinkt, Zielseite nennt den Lauf (murrun, datum). Linkprüfung 2026-10-05."
+  },
+  "Herforder Frühjahrspreis|2027-03-14": {
+    "veranstalter_url": "https://www.endspurt-herford.de/events/herforder-fruehjahrspreis",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://www.endspurt-herford.de/events/herforder-fruehjahrspreis - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:herford, fruhjahrspreis). Linkprüfung 2026-10-05."
+  },
+  "100 Jahre Rund in Serrig|2027-07-03": {
+    "veranstalter_url": "https://rv-serrig.de/event/nationales-strassenradrennen-rund-in-serrig/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://rv-serrig.de/event/nationales-strassenradrennen-rund-in-serrig/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:serrig, host:serrig). Linkprüfung 2026-10-05."
+  },
+  "BL Cyclo Cross Stahnsdorf|2026-11-14": {
+    "veranstalter_url": "https://rsv-eintracht1949.de/sportarten/triathlon/bundesliga-cyclocross/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://rsv-eintracht1949.de/sportarten/triathlon/bundesliga-cyclocross/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (cyclo). Linkprüfung 2026-10-05."
+  },
+  "Finale BL Rund um das Vechtaer Reiterwaldstadion|2027-01-03": {
+    "veranstalter_url": "https://rsg-lohne-vechta.de/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://rsg-lohne-vechta.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:vechta, reiterwaldstadion). Linkprüfung 2026-10-05."
+  },
+  "43. Überherrner Straßenrennen auf dem Wallerfanger Saargau|2027-04-25": {
+    "veranstalter_url": "https://www.rsc-ueberherrn.de/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://www.rsc-ueberherrn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:ueberherrn, strassenrennen). Linkprüfung 2026-10-05."
+  },
+  "Gr. Preis der Stadt Troisdorf|2027-07-10": {
+    "veranstalter_url": "https://www.rvblitzspich.de/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://www.rvblitzspich.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (preis). Linkprüfung 2026-10-05."
+  },
+  "2. Endmoränenlauf Kroge-Ehrendorf 2027|2027-05-15": {
+    "veranstalter_url": "https://www.svkroge-ehrendorf.de/",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.svkroge-ehrendorf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kroge). Linkprüfung 2026-10-05."
+  },
+  "GP der Stadt Dübendorf|2027-04-03": {
+    "veranstalter_url": "https://www.gpduebendorf.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://www.gpduebendorf.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:duebendorf, host:duebendorf). Linkprüfung 2026-10-05."
+  },
+  "Flughafenlauf|2027-05-06": {
+    "veranstalter_url": "https://www.lsv-kb.ch/flughafenlauf.html",
+    "_note": "Veranstalterseite statt datasport.com: https://www.lsv-kb.ch/flughafenlauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (flughafenlauf). Linkprüfung 2026-10-05."
+  },
+  "St. Moritz Running Festival|2027-08-20": {
+    "veranstalter_url": "https://stmoritzrunningfestival.ch/",
+    "_note": "Veranstalterseite statt datasport.com: https://stmoritzrunningfestival.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:moritz, host:moritz). Linkprüfung 2026-10-05."
+  },
+  "Teufelssteinlauf Gehren|2027-03-07": {
+    "veranstalter_url": "https://www.luckauer-laeuferbund.de/events/32-teufelssteinlauf-in-den-gehrener-bergen",
+    "_note": "Veranstalterseite statt lausitzer-sportevents.de: https://www.luckauer-laeuferbund.de/events/32-teufelssteinlauf-in-den-gehrener-bergen - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (teufelssteinlauf). Linkprüfung 2026-10-05."
+  },
+  "Propain Bike Day|2026-10-10": {
+    "veranstalter_url": "https://www.propain-bikes.com/en/propain-bike-days/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.propain-bikes.com/en/propain-bike-days/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:propain). Linkprüfung 2026-10-05."
+  },
+  "Böheimkirchner Marktlauf|2026-10-24": {
+    "veranstalter_url": "https://boeheimkirchen.sportunion.at/news/2026/09/25/marktlauf-24-10-2026/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://boeheimkirchen.sportunion.at/news/2026/09/25/marktlauf-24-10-2026/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:boeheimkirchen, marktlauf). Linkprüfung 2026-10-05."
+  },
+  "Härtsfeld Panoramalauf|2026-10-11": {
+    "veranstalter_url": "https://www.sdz-medien.de/events/haertsfelder-panoramalauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sdz-medien.de/events/haertsfelder-panoramalauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hartsfeld, datum). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf Horner Rennbahn|2026-10-10": {
+    "veranstalter_url": "https://www.bsv-hamburg.de/",
+    "_note": "Veranstalterseite statt athleticon.bsvhh.de: https://www.bsv-hamburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:hamburg, datum). Linkprüfung 2026-10-05."
+  },
+  "Wald- und Crosslaufserie Hamburg|2026-10-10": {
+    "veranstalter_url": "https://www.bsv-hamburg.de/",
+    "_note": "Veranstalterseite statt athleticon.bsvhh.de: https://www.bsv-hamburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:hamburg, host:hamburg). Linkprüfung 2026-10-05."
+  },
+  "Course de Montagne Neirivue-Moléson|2027-06-20": {
+    "veranstalter_url": "http://www.neirivue-moleson.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: http://www.neirivue-moleson.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:neirivue). Linkprüfung 2026-10-05."
+  },
+  "Silvesterlauf des SC Altenrheine|2026-12-31": {
+    "veranstalter_url": "https://www.sc-altenrheine.de/ausdauer/silvesterlauf",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sc-altenrheine.de/ausdauer/silvesterlauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:rheine, host:altenrheine). Linkprüfung 2026-10-05."
+  },
+  "Winterlaufserie Eckernförde|2027-01-10": {
+    "veranstalter_url": "http://www.winterlaufserieeckernfoerde.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.winterlaufserieeckernfoerde.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:eckernfoerde, host:eckernfoerde). Linkprüfung 2026-10-05."
+  },
+  "Speicherstadtlauf|2026-10-24": {
+    "veranstalter_url": "https://www.bsv-hamburg.de/",
+    "_note": "Veranstalterseite statt athleticon.bsvhh.de: https://www.bsv-hamburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:hamburg, speicherstadtlauf). Linkprüfung 2026-10-05."
+  },
+  "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)|2026-10-11": {
+    "veranstalter_url": "https://www.hsguni-greifswald.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.hsguni-greifswald.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (sebastian, datum). Linkprüfung 2026-10-05."
+  },
+  "41. Int. Jenner-Berglauf|2026-10-11": {
+    "veranstalter_url": "https://www.skberchtesgaden.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.skberchtesgaden.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (jenner). Linkprüfung 2026-10-05."
+  },
+  "Süwag Urmensch Ultralauf|2026-10-18": {
+    "veranstalter_url": "https://www.bottwartal-marathon.de/strecke/suewag-urmensch-ultra/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.bottwartal-marathon.de/strecke/suewag-urmensch-ultra/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (suwag, datum). Linkprüfung 2026-10-05."
+  },
+  "39. Glauchauer Herbstlauf|2026-10-25": {
+    "veranstalter_url": "https://www.glauchauer-herbstlauf.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.glauchauer-herbstlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:glauchau, host:glauchauer). Linkprüfung 2026-10-05."
+  },
+  "Stadtpark-Cross Reichenbach|2026-10-31": {
+    "veranstalter_url": "https://lav-reichenbach.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://lav-reichenbach.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:reichenbach, host:reichenbach). Linkprüfung 2026-10-05."
+  },
+  "Erlangen Ultramarathon|2026-11-01": {
+    "veranstalter_url": "https://www.erlangenmarathon.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.erlangenmarathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:erlangen, host:erlangen). Linkprüfung 2026-10-05."
+  },
+  "Treburer Crosslauf 2026|2026-11-01": {
+    "veranstalter_url": "http://www.treburer-crosslauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: http://www.treburer-crosslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:trebur, host:treburer). Linkprüfung 2026-10-05."
+  },
+  "Lothar Fricke-Winterlaufserie|2026-11-04": {
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:quedlinburg, lothar). Linkprüfung 2026-10-05."
+  },
+  "Kürnberg Trail Run|2026-11-07": {
+    "veranstalter_url": "https://kuernberglauf.at/",
+    "_note": "Veranstalterseite statt time2win.at: https://kuernberglauf.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:kuernberg, datum). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf des RC Tegel|2026-11-08": {
+    "veranstalter_url": "https://www.rctegel.de/crosslauf/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.rctegel.de/crosslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:tegel, datum). Linkprüfung 2026-10-05."
+  },
+  "36. Werler Straßenlauf|2026-11-21": {
+    "veranstalter_url": "https://www.djk-werl.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.djk-werl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (werler). Linkprüfung 2026-10-05."
+  },
+  "Schwärzeseelauf|2026-11-22": {
+    "veranstalter_url": "http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php",
+    "_note": "Veranstalterseite statt anmeldung.laufauswertung.com: http://www.barnimer-sparkassen-lauf-cup.de/laeufe.php - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:barnim, schwarzeseelauf). Linkprüfung 2026-10-05."
+  },
+  "Urbachallenge Orbe|2026-11-28": {
+    "veranstalter_url": "https://vcorbe.ch/urbachallenge/",
+    "_note": "Veranstalterseite statt softtiming.ch: https://vcorbe.ch/urbachallenge/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (urbachallenge). Linkprüfung 2026-10-05."
+  },
+  "Elsterlauf|2027-05-30": {
+    "veranstalter_url": "https://www.elsterlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.elsterlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:elsterlauf, datum). Linkprüfung 2026-10-05."
+  },
+  "Aloha Tri Linz|2027-07-03": {
+    "veranstalter_url": "https://www.alohasport.at/",
+    "_note": "Veranstalterseite statt time2win.at: https://www.alohasport.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:aloha, datum). Linkprüfung 2026-10-05."
+  },
+  "49. Nat. Nikolaus Volkslauf|2026-12-06": {
+    "veranstalter_url": "http://www.sg-badschoenborn.de/",
+    "_note": "Veranstalterseite statt br-timing.de: http://www.sg-badschoenborn.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:schoenborn, nikolaus). Linkprüfung 2026-10-05."
+  },
+  "56. Geraer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.1-sv-gera.de/silvesterlauf.html",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.1-sv-gera.de/silvesterlauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (geraer). Linkprüfung 2026-10-05."
+  },
+  "BAU Binnenalsterultra|2027-01-01": {
+    "veranstalter_url": "https://www.binnenalsterultra.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.binnenalsterultra.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:binnenalsterultra, datum). Linkprüfung 2026-10-05."
+  },
+  "Crosslaufserie Vulkaneifel 2027 (Lauf 1)|2027-01-10": {
+    "veranstalter_url": "https://www.sv-mehren.de/",
+    "_note": "Veranstalterseite statt lauf-anmeldung.de: https://www.sv-mehren.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:mehren, vulkaneifel). Linkprüfung 2026-10-05."
+  },
+  "Windener Landschaftslauf|2027-03-20": {
+    "veranstalter_url": "https://www.wir-in-winden.de/",
+    "_note": "Veranstalterseite statt ergebnisliste.de: https://www.wir-in-winden.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:winden, landschaftslauf). Linkprüfung 2026-10-05."
+  },
+  "Weingäßchen Infinite Loop|2027-03-21": {
+    "veranstalter_url": "https://www.goldenemeilenrunning.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.goldenemeilenrunning.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (weingasschen). Linkprüfung 2026-10-05."
+  },
+  "51. Osterlauf Ruppichteroth|2027-03-27": {
+    "veranstalter_url": "https://tv-ruppichteroth.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://tv-ruppichteroth.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:ruppichteroth, host:ruppichteroth). Linkprüfung 2026-10-05."
+  },
+  "Int. Zeppelinlauf Mülheim an der Mosel|2027-04-03": {
+    "veranstalter_url": "https://www.zeppelinlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.zeppelinlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:zeppelinlauf). Linkprüfung 2026-10-05."
+  },
+  "Amberger Frühlingslauf mit Halbmarathon und 10 Km|2027-04-18": {
+    "veranstalter_url": "https://www.cis-amberg.de/fruehlingslauf",
+    "_note": "Veranstalterseite statt laufen.de: https://www.cis-amberg.de/fruehlingslauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:amberg, fruhlingslauf). Linkprüfung 2026-10-05."
+  },
+  "Solidaritätslauf Aktiv gegen Brustkrebs|2027-04-18": {
+    "veranstalter_url": "https://aktivgegenbrustkrebs.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://aktivgegenbrustkrebs.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:aktiv). Linkprüfung 2026-10-05."
+  },
+  "38. Hildesheimer Wedekindlauf|2027-04-25": {
+    "veranstalter_url": "https://www.wedekindlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.wedekindlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:wedekindlauf). Linkprüfung 2026-10-05."
+  },
+  "Linzer 3-Brückenlauf|2027-04-25": {
+    "veranstalter_url": "https://www.3-brueckenlauf.at/",
+    "_note": "Veranstalterseite statt time2win.at: https://www.3-brueckenlauf.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:brueckenlauf). Linkprüfung 2026-10-05."
+  },
+  "9. Bugginger Feierabendlauf|2027-05-05": {
+    "veranstalter_url": "https://lg-buggingen.de/bugginger-feierabendlauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://lg-buggingen.de/bugginger-feierabendlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:buggingen, bugginger). Linkprüfung 2026-10-05."
+  },
+  "3. Riesenbecker 6 Stundenlauf|2027-05-08": {
+    "veranstalter_url": "https://riesenbecker-6stundenlauf.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://riesenbecker-6stundenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:riesenbecker, datum). Linkprüfung 2026-10-05."
+  },
+  "Breitscheider Nacht|2027-05-08": {
+    "veranstalter_url": "https://www.tus-breitscheid.de/breitscheider-nacht/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.tus-breitscheid.de/breitscheider-nacht/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (breitscheider). Linkprüfung 2026-10-05."
+  },
+  "Meerlauf|2027-05-08": {
+    "veranstalter_url": "https://www.meerlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.meerlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:meerlauf). Linkprüfung 2026-10-05."
+  },
+  "10. Efzewiesenlauf Homberg|2027-05-09": {
+    "veranstalter_url": "http://www.efzewiesenlauf-homberg.de/",
+    "_note": "Veranstalterseite statt laufen.de: http://www.efzewiesenlauf-homberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:homberg, host:efzewiesenlauf). Linkprüfung 2026-10-05."
+  },
+  "3 Bremen - Sankt Pauli 100mi|2027-05-15": {
+    "veranstalter_url": "https://www.bremensanktpauli.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.bremensanktpauli.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:bremen, host:bremen). Linkprüfung 2026-10-05."
+  },
+  "Heidi 222|2027-05-15": {
+    "veranstalter_url": "https://www.feinerlauf.de/der-heidi-222-lauf/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.feinerlauf.de/der-heidi-222-lauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (heidi, datum). Linkprüfung 2026-10-05."
+  },
+  "Chiemgauer100 StundenRunden - 100mi|2026-10-17": {
+    "veranstalter_url": "https://chiemgauer100.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://chiemgauer100.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:chiemgauer). Linkprüfung 2026-10-05."
+  },
+  "Potsdamer Lichterpaarlauf|2026-12-03": {
+    "veranstalter_url": "https://www.potsdamer-laufclub.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.potsdamer-laufclub.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:potsdam, host:potsdamer). Linkprüfung 2026-10-05."
+  },
+  "Potsdamer Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.potsdamer-laufclub.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.potsdamer-laufclub.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:potsdam, host:potsdamer). Linkprüfung 2026-10-05."
+  },
+  "9. ADAC-Tine-Flugplatzlauf|2027-05-30": {
+    "veranstalter_url": "https://acnf.de/Veranstaltungen/Lauf-veranstaltungen",
+    "_note": "Veranstalterseite statt raceresult.de: https://acnf.de/Veranstaltungen/Lauf-veranstaltungen - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (flugplatzlauf). Linkprüfung 2026-10-05."
+  },
+  "42. Döhrener Abendlauf|2027-06-04": {
+    "veranstalter_url": "http://www.doehrener-abendlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: http://www.doehrener-abendlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:doehrener). Linkprüfung 2026-10-05."
+  },
+  "41. Internationaler Brüder-Grimn-Lauf|2027-06-11": {
+    "veranstalter_url": "https://www.mkk.de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html",
+    "_note": "Veranstalterseite statt laufen.de: https://www.mkk.de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bruder). Linkprüfung 2026-10-05."
+  },
+  "4. Hohenlimburger Lennelauf|2027-06-12": {
+    "veranstalter_url": "https://www.elseyer-turnverein.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.elseyer-turnverein.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (hohenlimburger). Linkprüfung 2026-10-05."
+  },
+  "40. Burg-Lauf Eppstein|2027-06-25": {
+    "veranstalter_url": "https://eppsteiner-burglauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://eppsteiner-burglauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:eppstein, host:eppstein). Linkprüfung 2026-10-05."
+  },
+  "11. Hochkippenlauf|2027-07-03": {
+    "veranstalter_url": "https://www.sveintrachtprofen.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.sveintrachtprofen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:profen, hochkippenlauf). Linkprüfung 2026-10-05."
+  },
+  "21. Bokeler Windmühlenlauf|2027-07-23": {
+    "veranstalter_url": "http://www.windmuehlenlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: http://www.windmuehlenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:windmuehlenlauf). Linkprüfung 2026-10-05."
+  },
+  "5. Markttagelauf|2027-07-31": {
+    "veranstalter_url": "https://www.unser-bredstedt.de/hgv-markttage-lauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.unser-bredstedt.de/hgv-markttage-lauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:bredstedt, markttagelauf). Linkprüfung 2026-10-05."
+  },
+  "Lindauer Seequerung|2027-08-01": {
+    "veranstalter_url": "https://www.lindauerschwimmer.de/events/seedurchquerung/",
+    "_note": "Veranstalterseite statt bsv-schwaben.de: https://www.lindauerschwimmer.de/events/seedurchquerung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:lindau, host:lindauer). Linkprüfung 2026-10-05."
+  },
+  "39. CJ Schmidt Hafentagelauf|2027-08-07": {
+    "veranstalter_url": "https://sportinhusum.de/sportangebot/outdoor/lav/veranstaltungen/hafentagelauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://sportinhusum.de/sportangebot/outdoor/lav/veranstaltungen/hafentagelauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:husum, schmidt). Linkprüfung 2026-10-05."
+  },
+  "Gerasdorf Triathlon|2027-08-08": {
+    "veranstalter_url": "http://www.gerasdorf-triathlon.at/",
+    "_note": "Veranstalterseite statt pentek-payment.at: http://www.gerasdorf-triathlon.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:gerasdorf, host:gerasdorf). Linkprüfung 2026-10-05."
+  },
+  "Trail des Planets|2027-08-14": {
+    "veranstalter_url": "https://www.scsalentin.ch/trail-des-planets",
+    "_note": "Veranstalterseite statt vs-timing.ch: https://www.scsalentin.ch/trail-des-planets - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (planets). Linkprüfung 2026-10-05."
+  },
+  "31. Michelsmarktlauf|2027-08-21": {
+    "veranstalter_url": "https://ksv-reichelsheim.de/abteilung-leichtathletik/michelsmarktlauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://ksv-reichelsheim.de/abteilung-leichtathletik/michelsmarktlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (ort:reichelsheim, michelsmarktlauf). Linkprüfung 2026-10-05."
+  },
+  "Die Bergischen 5 Etappe 2|2027-05-06": {
+    "veranstalter_url": "https://bergische5.run/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://bergische5.run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bergischen). Linkprüfung 2026-10-05."
+  },
+  "Die Bergischen 5 Etappe 3|2027-05-07": {
+    "veranstalter_url": "https://bergische5.run/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://bergische5.run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bergischen). Linkprüfung 2026-10-05."
+  },
+  "Die Bergischen 5 Etappe 4|2027-05-08": {
+    "veranstalter_url": "https://bergische5.run/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://bergische5.run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bergischen). Linkprüfung 2026-10-05."
+  },
+  "Die Bergischen 5 Etappe 5|2027-05-09": {
+    "veranstalter_url": "https://bergische5.run/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://bergische5.run/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (bergischen). Linkprüfung 2026-10-05."
+  },
+  "7. GP von Trier|2027-06-06": {
+    "veranstalter_url": "https://www.radsport-trier.de/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://www.radsport-trier.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: RV Schwalbe Trier richtet den Großen Preis der Stadt Trier aus, die Seite kündigt ihn an (Websuche 05.10.2026). Linkprüfung 2026-10-05."
+  },
+  "5. Lohner Crosslauf 2027|2027-03-21": {
+    "veranstalter_url": "https://leichtathletik-bwlohne.de/crosslauf/",
+    "_note": "Veranstalterseite statt laufen-os.de: https://leichtathletik-bwlohne.de/crosslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Seite der Leichtathletik des TuS Blau-Weiß Lohne, Unterseite /crosslauf/ (Ausrichter laut laufen-os.de). Linkprüfung 2026-10-05."
+  },
+  "Steinfelder Sommerlauf 2027|2027-07-30": {
+    "veranstalter_url": "https://svfalkesteinfeld.de/",
+    "_note": "Veranstalterseite statt laufen-os.de: https://svfalkesteinfeld.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: SV Falke Steinfeld ist Veranstalter (Falken-Stadion), Seite trägt die Sommerlauf-Meldungen 2022/2023. Linkprüfung 2026-10-05."
+  },
+  "Run and Walk for Help|2026-11-29": {
+    "veranstalter_url": "http://www.s4acw.de/",
+    "_note": "Veranstalterseite statt laufen-os.de: http://www.s4acw.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Sportler 4 a childrens world e.V. ist Veranstalter (laufen-os.de, Vereinsseite 2025); Seite derzeit Wartungsseite. Linkprüfung 2026-10-05."
+  },
+  "Tharandter-Wald-Lauf|2027-08-29": {
+    "veranstalter_url": "https://www.tharandterwald-lauf.de/",
+    "_note": "Veranstalterseite statt lausitzer-sportevents.de: https://www.tharandterwald-lauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufs (Post SV Dresden), Domain = Veranstaltungsname; laufkalender nennen sie. Linkprüfung 2026-10-05."
+  },
+  "Pyramidenkogel Hero|2026-10-17": {
+    "veranstalter_url": "https://www.mountainsport.at/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.mountainsport.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Mountainsport Union Klagenfurt ist Veranstalter (raceresult-Kontaktseite, Ausschreibung), Seite führt den Pyramidenkogelhero. Linkprüfung 2026-10-05."
+  },
+  "Int. VLV Crosslauf-Meisterschaften|2026-10-18": {
+    "veranstalter_url": "https://www.sv-lochau-leichtathletik.at/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sv-lochau-leichtathletik.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: SV Lochau Leichtathletik ist Ausrichter (raceresult-Kontaktseite), Fotos der Meisterschaft 2024 auf der Seite. Linkprüfung 2026-10-05."
+  },
+  "Crosslauf Sülldorf|2026-11-14": {
+    "veranstalter_url": "https://www.bsv-hamburg.de/",
+    "_note": "Veranstalterseite statt athleticon.bsvhh.de: https://www.bsv-hamburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Lauf der BSV Wald- und Crosslaufserie; Veranstalter BSV Hamburg (Ausschreibung), athleticon ist nur das Meldeportal. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-04-21": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027; „BCN\" ist für die Namensregel zu kurz. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-04-28": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-05-05": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-05-12": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-05-19": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027. Linkprüfung 2026-10-05."
+  },
+  "BCN Tour|2027-05-26": {
+    "veranstalter_url": "https://www.bcn-tour.ch/",
+    "_note": "Veranstalterseite statt sportchrono.ch: https://www.bcn-tour.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite der Laufserie (Sport Plus), nennt die Etappen 21.4.–26.5.2027. Linkprüfung 2026-10-05."
+  },
+  "Britzinger Silvesterlauf|2026-12-13": {
+    "veranstalter_url": "http://www.silvesterlauf-britzingen.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.silvesterlauf-britzingen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des TV Britzingen für den Silvesterlauf, Domain = Veranstaltungsname (laufen.de, Websuche). Linkprüfung 2026-10-05."
+  },
+  "Gensberg Loop|2026-12-12": {
+    "veranstalter_url": "https://www.lauflust.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lauflust.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Lauflust-Events (René Leuenberger) ist Veranstalter laut raceresult-Kontaktseite; lauflust.ch ist seine Seite. Linkprüfung 2026-10-05."
+  },
+  "RuG Marathon|2026-11-14": {
+    "veranstalter_url": "https://www.lauflust.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lauflust.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Lauflust-Events ist Veranstalter laut raceresult-Kontaktseite; lauflust.ch ist seine Seite. Linkprüfung 2026-10-05."
+  },
+  "Gäu-Marathon|2027-01-09": {
+    "veranstalter_url": "https://www.lauflust.ch/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.lauflust.ch/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Lauflust-Events ist Veranstalter (raceresult, Websuche); lauflust.ch ist seine Seite. Linkprüfung 2026-10-05."
+  },
+  "Wuppertaler Löwenlauf|2026-11-14": {
+    "veranstalter_url": "https://www.psv-wuppertal-leichtathletik.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.psv-wuppertal-leichtathletik.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Polizei-SV Wuppertal, Abt. Leichtathletik ist Veranstalter laut raceresult-Kontaktseite. Linkprüfung 2026-10-05."
+  },
+  "40. Haseder Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.tushasede.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.tushasede.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TuS Hasede: Menüpunkt Silvesterlauf, Meldung „Silvesterlauf 2026 – Anmeldung freigeschaltet\" mit Link auf dieselbe raceresult-Nr. 414673. Linkprüfung 2026-10-05."
+  },
+  "Oberrodenbacher Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://www.turnverein-oberrodenbach.de/ig-veranstaltungen/ig-silvesterlauf.html",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.turnverein-oberrodenbach.de/ig-veranstaltungen/ig-silvesterlauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Unterseite „Silvesterlauf\" des TV Oberrodenbach. Linkprüfung 2026-10-05."
+  },
+  "12. Mergelstetter Silvesterlauf|2026-12-31": {
+    "veranstalter_url": "https://outdoor.svmergelstetten.de/ausschreibung/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://outdoor.svmergelstetten.de/ausschreibung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Ausschreibungsseite des Silvesterlaufs beim SV Mergelstetten 1879 e.V.. Linkprüfung 2026-10-05."
+  },
+  "PSV-Winterlaufserie|2026-11-14": {
+    "veranstalter_url": "https://www.psv-holzminden.de/psv-winterlauf/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.psv-holzminden.de/psv-winterlauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Seite der PSV-Winterlaufserie des Postsportvereins Holzminden (Termine Nov.–Dez. 2026). Linkprüfung 2026-10-05."
+  },
+  "Dinkelsbühler Wald- und Crosslauf mit Kreismeisterschaften|2026-12-12": {
+    "veranstalter_url": "https://xn--tsv-dinkelsbhl-rsb.de/crosslauf-anmeldung/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://xn--tsv-dinkelsbhl-rsb.de/crosslauf-anmeldung/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Crosslauf-Seite des TSV 1860 Dinkelsbühl (Ausrichter laut raceresult-Kontaktseite). Linkprüfung 2026-10-05."
+  },
+  "SLC Weihnachtslauf|2026-12-13": {
+    "veranstalter_url": "https://strandlaufcup.wordpress.com/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://strandlaufcup.wordpress.com/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite des Strandlaufcups (SLC) Wismar, der den Weihnachtslauf ausrichtet. Linkprüfung 2026-10-05."
+  },
+  "FIT For BRAIN RUN|2026-10-17": {
+    "veranstalter_url": "https://www.fitforbrainrun.at/",
+    "_note": "Veranstalterseite statt time-now-sports.at: https://www.fitforbrainrun.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufs (Österreichische Schlaganfall-Gesellschaft), Domain = Veranstaltungsname; sperrt Bots (403). Linkprüfung 2026-10-05."
+  },
+  "Tiefrastenlauf|2026-10-24": {
+    "veranstalter_url": "https://terenten.alpenverein.it/veranstaltung/id-f29ae3f3-b8f1-40dc-a890-c930b842764f/",
+    "_note": "Veranstalterseite statt lck.it: https://terenten.alpenverein.it/veranstaltung/id-f29ae3f3-b8f1-40dc-a890-c930b842764f/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Veranstaltungsseite der AVS-Ortsstelle Terenten (Veranstalter mit AVS Vintl). Linkprüfung 2026-10-05."
+  },
+  "29. Köstritzer Parklauf|2026-10-31": {
+    "veranstalter_url": "https://www.my-lav.de/cms/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.my-lav.de/cms/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: LAV Elstertal Bad Köstritz ist Veranstalter laut ladv-Ausschreibung; my-lav.de ist die Vereinsseite. Linkprüfung 2026-10-05."
+  },
+  "Hessische Meisterschaften Crosslauf|2026-11-07": {
+    "veranstalter_url": "https://www.vfl-altenstadt.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.vfl-altenstadt.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: VfL Altenstadt richtet den St.-Martins-Crosslauf mit den Meisterschaften aus (Menü „St. Martins Crosslauf\"). Linkprüfung 2026-10-05."
+  },
+  "9. Sankt-Martins Crosslauf mit Kreismeisterschaften Wetterau|2026-11-08": {
+    "veranstalter_url": "https://www.vfl-altenstadt.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.vfl-altenstadt.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: VfL Altenstadt ist Veranstalter (laufen.de), Menüpunkt „St. Martins Crosslauf\". Linkprüfung 2026-10-05."
+  },
+  "Quedlinburger Waldlauf|2027-05-09": {
+    "veranstalter_url": "https://www.leichtathletik-quedlinburg.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.leichtathletik-quedlinburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSG GutsMuths Quedlinburg, Abt. Leichtathletik: eigener Menüpunkt „Quedlinburger Waldlauf\". Linkprüfung 2026-10-05."
+  },
+  "Uchter Wald- und Crosslauf|2026-11-14": {
+    "veranstalter_url": "https://www.scuchte.de/",
+    "_note": "Veranstalterseite statt portal.run-timing.de: https://www.scuchte.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: SC Uchte ist Veranstalter (Ausschreibung 2024); die Seite nennt den „Uchter Volkslauf\" am 14.11.2026 – derselbe Tag. Linkprüfung 2026-10-05."
+  },
+  "Katzelsdorfer Fun Run|2026-11-15": {
+    "veranstalter_url": "https://www.katzelsdorf.gv.at/",
+    "_note": "Veranstalterseite statt ergebnisliste.at: https://www.katzelsdorf.gv.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Gemeinde Katzelsdorf (mit Pro Katzelsdorf) ist Veranstalter; Seiten „Fun Run 2023/2024\" auf der Gemeindeseite. Linkprüfung 2026-10-05."
+  },
+  "26. Lorsbacher Cross-Duathlon|2026-11-21": {
+    "veranstalter_url": "https://tvlorsbach.de/lorsbacher-cross-duathlon/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://tvlorsbach.de/lorsbacher-cross-duathlon/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Unterseite des TV 1885 Lorsbach „26. Lorsbacher Cross-Duathlon am 21. November 2026\". Linkprüfung 2026-10-05."
+  },
+  "Bad Ischler Radquerfeldein|2026-11-21": {
+    "veranstalter_url": "http://www.rsc-badischl.at/",
+    "_note": "Veranstalterseite statt cyclingaustria.at: http://www.rsc-badischl.at/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: RSC Exmanco ÖAMTC Bad Ischl ist Veranstalter laut ÖRV-Kalender; rsc-badischl.at ist die Vereinsseite. Linkprüfung 2026-10-05."
+  },
+  "Fröndenberger 6h Lauf|2026-11-28": {
+    "veranstalter_url": "https://vfl-froendenberg.de/ausschreibung-bahnmarathon/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://vfl-froendenberg.de/ausschreibung-bahnmarathon/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Ausschreibung des VfL Fröndenberg (Bahnmarathon mit 6-Stunden-Lauf, 28.11.2026). Linkprüfung 2026-10-05."
+  },
+  "Ronsberger Sparkassen-Crosslauf|2026-11-08": {
+    "veranstalter_url": "https://www.sc1919ronsberg.de/",
+    "_note": "Veranstalterseite statt anmeldungs-service.de: https://www.sc1919ronsberg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: SC Ronsberg: Banner „Crosslauf-Voranmeldung 2026\" mit Ausschreibung (41crosslauf2026.pdf). Linkprüfung 2026-10-05."
+  },
+  "47. Lümmellauf|2027-01-17": {
+    "veranstalter_url": "https://ssc-hagen-ahrensburg.de/luemmellauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://ssc-hagen-ahrensburg.de/luemmellauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Unterseite /luemmellauf/ des SSC Hagen Ahrensburg. Linkprüfung 2026-10-05."
+  },
+  "10. Alstätter Sandhasenlauf|2027-03-07": {
+    "veranstalter_url": "https://www.alstaetter-sandhasenlauf.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.alstaetter-sandhasenlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufs, Domain = Veranstaltungsname. Linkprüfung 2026-10-05."
+  },
+  "Kyffhäuser Berglauf|2027-04-10": {
+    "veranstalter_url": "http://www.kyffhaeuser-berglauf.de/",
+    "_note": "Veranstalterseite statt runtix.com: http://www.kyffhaeuser-berglauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufs, Domain = Veranstaltungsname. Linkprüfung 2026-10-05."
+  },
+  "Turm zu Turm Lauf|2027-04-17": {
+    "veranstalter_url": "https://www.tvg-sport.de/sportangebot/laufsport-triathlon/turm-zu-turmlauf.html",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.tvg-sport.de/sportangebot/laufsport-triathlon/turm-zu-turmlauf.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Unterseite des TV Georgsmarienhütte zum Turm-zu-Turm-Lauf (22. Auflage 2027 angekündigt). Linkprüfung 2026-10-05."
+  },
+  "Haster Volkslauf|2027-05-30": {
+    "veranstalter_url": "https://www.tushaste01.de/",
+    "_note": "Veranstalterseite statt laufen-os.de: https://www.tushaste01.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TuS Haste 01 ist Veranstalter (laufen-os.de), tushaste01.de ist die Vereinsseite. Linkprüfung 2026-10-05."
+  },
+  "Bayerische Marathon Meisterschaften|2026-10-11": {
+    "veranstalter_url": "https://marathonmuenchen.org/",
+    "_note": "Veranstalterseite statt ladv.de: https://marathonmuenchen.org/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: die Meisterschaft läuft im Rahmen des München Marathon (marathonmuenchen.org kündigt es an). Linkprüfung 2026-10-05."
+  },
+  "34. Adventslauf|2026-12-13": {
+    "veranstalter_url": "https://www.ksv-reichelsheim.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.ksv-reichelsheim.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: KSV Reichelsheim, Abt. Leichtathletik ist Veranstalter (laufen.de); Vereinsseite. Linkprüfung 2026-10-05."
+  },
+  "Adventscross der LG Nordheide|2026-12-13": {
+    "veranstalter_url": "https://www.lg-nordheide.de/",
+    "_note": "Veranstalterseite statt ladv.de: https://www.lg-nordheide.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: LG Nordheide steht im Veranstaltungsnamen; lg-nordheide.de ist ihre Seite. Linkprüfung 2026-10-05."
+  },
+  "Elm-Halbmarathon|2026-12-06": {
+    "veranstalter_url": "https://tsvlelm.de/",
+    "_note": "Veranstalterseite statt portal.run-timing.de: https://tsvlelm.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Lelm: „Anmeldung zum 14. ELM-Advents-Halbmarathon ab sofort möglich\". Linkprüfung 2026-10-05."
+  },
+  "20. Zeller MEHR Raiffeisenbank-Adventslauf|2026-12-13": {
+    "veranstalter_url": "http://www.adventslauf.net/",
+    "_note": "Veranstalterseite statt chiplauf.de: http://www.adventslauf.net/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Seite des Zeller Adventslaufs (TSV Bullay-Alf / RV Zell) laut ladv-Ausschreibung. Linkprüfung 2026-10-05."
+  },
+  "24. Bärenfels Heiligabend-Lauf|2026-12-24": {
+    "veranstalter_url": "https://www.baerenfelslauf.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.baerenfelslauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Bärenfels-Teams, Domain = Veranstaltungsname. Linkprüfung 2026-10-05."
+  },
+  "54. Winterlaufserie|2027-01-10": {
+    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Eintracht Bückeberge ist Veranstalter (laufen.de), Winterlaufserie auf der Lauftreff-Seite. Linkprüfung 2026-10-05."
+  },
+  "54. Winterlaufserie|2027-01-24": {
+    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Eintracht Bückeberge ist Veranstalter (laufen.de). Linkprüfung 2026-10-05."
+  },
+  "54. Winterlaufserie|2027-02-07": {
+    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Eintracht Bückeberge ist Veranstalter (laufen.de). Linkprüfung 2026-10-05."
+  },
+  "54. Winterlaufserie|2027-02-21": {
+    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Eintracht Bückeberge ist Veranstalter (laufen.de). Linkprüfung 2026-10-05."
+  },
+  "54. Winterlaufserie|2027-03-07": {
+    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Eintracht Bückeberge ist Veranstalter (laufen.de). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf der Arnstorfer LG|2027-01-17": {
+    "veranstalter_url": "https://info-arnstorfer-lg.jimdofree.com/crosslauf/",
+    "_note": "Veranstalterseite statt ladv.de: https://info-arnstorfer-lg.jimdofree.com/crosslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Crosslauf-Seite der Arnstorfer LG (Veranstalter steht im Namen). Linkprüfung 2026-10-05."
+  },
+  "Johannesbad Thermen-Marathon|2027-01-31": {
+    "veranstalter_url": "https://www.thermen-marathon.de/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://www.thermen-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: offizielle Seite des Thermen-Marathons (Johannesbad), nennt den 31.01.2027. Linkprüfung 2026-10-05."
+  },
+  "39. Oggersheimer Berglauf|2027-02-21": {
+    "veranstalter_url": "https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf",
+    "_note": "Veranstalterseite statt laufen.de: https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Berglauf-Seite der TG Oggersheim 1880 (Veranstalter laut lv-pfalz.de). Linkprüfung 2026-10-05."
+  },
+  "8. Xantener Sparkassen Stadioncross|2027-02-21": {
+    "veranstalter_url": "http://www.leichtathletik.tus-xanten.de/",
+    "_note": "Veranstalterseite statt taf-timing.de: http://www.leichtathletik.tus-xanten.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TuS Xanten Leichtathletik ist Veranstalter (LV Nordrhein, laufen.de). Linkprüfung 2026-10-05."
+  },
+  "43. Urmitzer Volkslauf|2027-03-13": {
+    "veranstalter_url": "http://www.volkslauf.svurmitz.de/",
+    "_note": "Veranstalterseite statt ergebnisliste.de: http://www.volkslauf.svurmitz.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Volkslauf-Seite des SV Urmitz (ladv-Ausschreibung). Linkprüfung 2026-10-05."
+  },
+  "Sälzerlauf 2027|2027-03-20": {
+    "veranstalter_url": "https://www.saelzerlauf.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.saelzerlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Laufs (VfB Salzkotten), Domain = Veranstaltungsname. Linkprüfung 2026-10-05."
+  },
+  "11. Schinderhanneslauf|2027-04-04": {
+    "veranstalter_url": "https://tus-miehlen.de/",
+    "_note": "Veranstalterseite statt ergebnisliste.de: https://tus-miehlen.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TuS Miehlen ist Veranstalter (ergebnisliste.de: „Schinderhanneslauf des TuS Miehlen\"). Linkprüfung 2026-10-05."
+  },
+  "BiMa 100 HTN|2027-04-10": {
+    "veranstalter_url": "https://www.bilstein-marathon.de/",
+    "_note": "Veranstalterseite statt kilometerliebe.de: https://www.bilstein-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: BiMa = Bilstein-Marathon; Sport4you e.V. (Gerno Semmelroth) richtet beide aus. Linkprüfung 2026-10-05."
+  },
+  "Misburger Volkslauf|2027-04-18": {
+    "veranstalter_url": "http://volkslauf.sgmisburg.de/",
+    "_note": "Veranstalterseite statt ladv.de: http://volkslauf.sgmisburg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Volkslauf-Seite der SG Misburg (ladv-Ausschreibung). Linkprüfung 2026-10-05."
+  },
+  "Wichtelhäuser Volkslauf|2027-04-18": {
+    "veranstalter_url": "http://www.tv06-gossfelden.de/",
+    "_note": "Veranstalterseite statt laufen.de: http://www.tv06-gossfelden.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TV 1906 Goßfelden ist Veranstalter (laufen.de); Vereinsseite. Linkprüfung 2026-10-05."
+  },
+  "42. Michelstädter Stadtlauf|2027-05-21": {
+    "veranstalter_url": "https://tsv-wg.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://tsv-wg.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TSV Weiten-Gesäß ist Veranstalter (laufen.de: stadtlauf@tsv-wg.de). Linkprüfung 2026-10-05."
+  },
+  "Bayerische Cross Meisterschaft 2027|2027-02-28": {
+    "veranstalter_url": "https://sv-zenting.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://sv-zenting.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: SV Zenting richtet die Bayerischen Crosslauf-Meisterschaften in Zenting aus (2022 ebenso). Linkprüfung 2026-10-05."
+  },
+  "2. Buun löppt|2027-03-07": {
+    "veranstalter_url": "https://www.tv-bunde.de/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.tv-bunde.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TV Bunde ist Veranstalter („Buun löppt\" auf der Vereinsseite). Linkprüfung 2026-10-05."
+  },
+  "32. Stockseeer Abendlauf|2027-05-29": {
+    "veranstalter_url": "https://abendlauf.me/",
+    "_note": "Veranstalterseite statt laufen.de: https://abendlauf.me/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: eigene Seite des Abendlaufs Stocksee (TSV Stocksee). Linkprüfung 2026-10-05."
+  },
+  "47. Leegebrucher Straßenlauf am 29.05.2027|2027-05-29": {
+    "veranstalter_url": "http://www.bruchpiloten-leegebruch.de/",
+    "_note": "Veranstalterseite statt ssf-timing.de: http://www.bruchpiloten-leegebruch.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Bruchpiloten Leegebruch e.V. sind Veranstalter (laufen.de, Ausschreibung auf der Seite). Linkprüfung 2026-10-05."
+  },
+  "31. Kurt-Roth Lauf|2027-06-13": {
+    "veranstalter_url": "https://www.tv-wersau.de/volkslauf/",
+    "_note": "Veranstalterseite statt laufen.de: https://www.tv-wersau.de/volkslauf/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Unterseite „Kurt-Roth-Lauf\" des TV 1908 Wersau. Linkprüfung 2026-10-05."
+  },
+  "VR-Triathlon Lauingen|2027-06-13": {
+    "veranstalter_url": "https://triathlon.tvl.de/",
+    "_note": "Veranstalterseite statt zeitgemaess.info: https://triathlon.tvl.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Triathlon-Seite des TV Lauingen mit Ausschreibung des VR-Triathlons. Linkprüfung 2026-10-05."
+  },
+  "Ladbergen Ultramarathon|2026-10-14": {
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Uwe Laig ist Veranstalter (raceresult-Kontaktseite); seine Terminseite wie bei den anderen Läufen der Serie. Linkprüfung 2026-10-05."
+  },
+  "9. Cloppenburger City Cross|2026-10-24": {
+    "veranstalter_url": "https://www.radsport-weser-ems.de/",
+    "_note": "Veranstalterseite statt dsergebnis.de: https://www.radsport-weser-ems.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: Veranstalter ist der Radsport-Bezirk Weser-Ems (mit der Stadt Cloppenburg); dsergebnis.de ist der Zeitnehmer. Linkprüfung 2026-10-05."
+  },
+  "Inselmarathon auf Wilhelmstein|2027-04-24": {
+    "veranstalter_url": "https://www.steinhuder-meer.de/",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://www.steinhuder-meer.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: raceresult-Kontaktseite nennt als Veranstalter „Steinhuder Meer Tourismus https://www.steinhuder-meer.de\" (Adresse im Namensfeld statt im URL-Feld). Linkprüfung 2026-10-05."
+  },
+  "Crosslauf Kaltern|2026-10-18": {
+    "veranstalter_url": "https://www.lck.it/Crosslauf.php",
+    "_note": "Veranstalterseite statt lck.it: https://www.lck.it/Crosslauf.php - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: der Amateur-Läuferclub Kaltern veranstaltet den Crosslauf selbst (Ausschreibung auf lck.it). Linkprüfung 2026-10-05."
+  },
+  "Raedbox Challenge by FITLETIX|2027-04-17": {
+    "exclude": true,
+    "_note": "FITLETIX ist eine Fitness-Challenge mit Kraftstationen (fitletix.at: funktionelles Training, High-Intensity-Intervalle, Kraftausdauer), keine Laufveranstaltung - dieselbe Klasse wie HYROX (Datenregel 14). Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "Fitletix - Graz|2027-05-01": {
+    "exclude": true,
+    "_note": "FITLETIX ist eine Fitness-Challenge mit Kraftstationen (fitletix.at), keine Laufveranstaltung - HYROX-Klasse (Datenregel 14). Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "Fitletix - Salzburg|2027-06-06": {
+    "exclude": true,
+    "_note": "FITLETIX ist eine Fitness-Challenge mit Kraftstationen (fitletix.at), keine Laufveranstaltung - HYROX-Klasse (Datenregel 14). Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "Fitletix - Eisenstadt|2027-06-12": {
+    "exclude": true,
+    "_note": "FITLETIX ist eine Fitness-Challenge mit Kraftstationen (fitletix.at), keine Laufveranstaltung - HYROX-Klasse (Datenregel 14). Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "LakeSide Challenge by FITLETIX|2027-06-27": {
+    "exclude": true,
+    "_note": "FITLETIX-Format (Fitness-Challenge mit Kraftstationen), keine Laufveranstaltung - HYROX-Klasse (Datenregel 14). Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "BriggYard Staffel-Run|2027-06-18": {
+    "exclude": true,
+    "_note": "Staffel-Veranstaltung (Name), die 42 km sind die Team-Gesamtstrecke - Datenregel 16 (erst einmal keine Staffeln); ist_staffel() kennt die Schreibweise Staffel-Run nicht. Linkprüfung 05.10.2026, umkehrbar."
   }
 }

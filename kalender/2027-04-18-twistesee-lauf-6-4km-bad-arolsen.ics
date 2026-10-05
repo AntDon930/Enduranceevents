@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Twistesee-Lauf
 LOCATION:Bad Arolsen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://my.raceresul
- t.com/425784/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.4 km\nhttps://www.twistese
+ e-lauf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/425784/
+URL:https://www.twistesee-lauf.de/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270611
 DTEND;VALUE=DATE:20270612
 SUMMARY:Bad Wildbader Stäffeleslauf
 LOCATION:Bad Wildbad\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 407534/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.tsvwildbad.de.
+ com
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/407534/
+URL:https://www.tsvwildbad.de.com
 END:VEVENT
 END:VCALENDAR

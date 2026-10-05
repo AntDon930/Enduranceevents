@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
 SUMMARY:Treburer Crosslauf 2026
 LOCATION:Trebur\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.6 km\nhttps://laufen.de/lau
- fkalender/details/treburer-crosslauf-2026
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.6 km\nhttp://www.treburer-c
+ rosslauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/treburer-crosslauf-2026
+URL:http://www.treburer-crosslauf.de/
 END:VEVENT
 END:VCALENDAR

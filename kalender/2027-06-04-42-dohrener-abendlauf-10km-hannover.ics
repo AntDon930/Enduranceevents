@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270604
 DTEND;VALUE=DATE:20270605
 SUMMARY:42. Döhrener Abendlauf
 LOCATION:Hannover\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/42-döhrener-abendlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.doehrener-
+ abendlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/42-döhrener-abendlauf
+URL:http://www.doehrener-abendlauf.de/
 END:VEVENT
 END:VCALENDAR

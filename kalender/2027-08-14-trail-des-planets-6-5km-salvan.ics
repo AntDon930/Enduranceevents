@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270814
 DTEND;VALUE=DATE:20270815
 SUMMARY:Trail des Planets – 6.5 km – 804 m d+ / 385 m d
 LOCATION:Salvan\, Schweiz
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.5 km\nhttps://www.vs-timing
- .ch/de-CH/Home/Event/249?fromResult=False
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.5 km\nhttps://www.scsalenti
+ n.ch/trail-des-planets
 TRANSP:TRANSPARENT
-URL:https://www.vs-timing.ch/de-CH/Home/Event/249?fromResult=False
+URL:https://www.scsalentin.ch/trail-des-planets
 END:VEVENT
 END:VCALENDAR

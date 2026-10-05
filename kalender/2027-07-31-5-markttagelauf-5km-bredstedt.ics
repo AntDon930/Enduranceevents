@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:5. Markttagelauf – 5km-Markttage-Lauf
 LOCATION:Bredstedt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/5-markttagelauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.unser-bred
+ stedt.de/hgv-markttage-lauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/5-markttagelauf
+URL:https://www.unser-bredstedt.de/hgv-markttage-lauf/
 END:VEVENT
 END:VCALENDAR

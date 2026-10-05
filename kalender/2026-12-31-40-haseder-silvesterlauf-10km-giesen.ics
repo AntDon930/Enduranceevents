@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:40. Haseder Silvesterlauf – 10\,0 km Lauf
 LOCATION:Giesen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tushasede.
- de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tushasede
+ .de/
 TRANSP:TRANSPARENT
-URL:http://www.tushasede.de
+URL:https://www.tushasede.de/
 END:VEVENT
 END:VCALENDAR

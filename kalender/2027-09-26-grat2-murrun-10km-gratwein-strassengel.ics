@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270927
 SUMMARY:Grat2 Murrun
 LOCATION:Gratwein-Straßengel\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ergebnisliste
- .at/Event/1259
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.grat2event
+ .at
 TRANSP:TRANSPARENT
-URL:https://ergebnisliste.at/Event/1259
+URL:http://www.grat2event.at
 END:VEVENT
 END:VCALENDAR

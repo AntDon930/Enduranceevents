@@ -56,7 +56,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
-| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang" |
+| `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang"; `sammeln --ohne-host`, `veranstalter_name` aus der raceresult-Kontaktseite und die Berichtsfelder `begruendung`/`protokoll` für Handbelege seit dem „Achtzehnten Durchgang" |
 | `scripts/seitenabgleich.py` | hält jede Veranstaltung mit eigener Seite gegen den **Seitentext** (Datum da? Distanzen da?) und meldet DATUM/DISTANZ/LEER/FEHLER – nur Bericht, siehe „Elfter Durchgang" |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
@@ -2000,6 +2000,93 @@ Andechs Trail 15,8 km, Finnelauf 21,1 km, Norderney 21,1 km – je eine
 Zeile ohne Label aus einer zweiten Quelle neben den Strecken des
 Veranstalters. Und vier Backyards mit großer Distanz (80/47/54/161 km),
 wie bisher nur gemeldet.
+
+
+### Achtzehnter Durchgang: alle Portallinks noch einmal (05.10.2026)
+
+Auf Wunsch des Nutzers („bei allen Webseiten, die nicht Veranstalter
+sind, noch einmal ordentlich schauen, ob es nicht die originale Webseite
+gibt – lass dir Zeit"). Ausgangslage: **403 Veranstaltungen mit
+Portallink** (49 Hosts; raceresult 156, laufen.de 66, kilometerliebe 33,
+ladv 22, datasport 15, time2win 10, dsergebnis 10, laufen-os 10 …).
+Drei Wege, alle über `veranstalter_links.py`:
+
+1. **`sammeln --auch-geprueft`** über ALLE Portal-Veranstaltungen (neue
+   Option `--ohne-host`, damit raceresult getrennt und langsamer laufen
+   kann): raceresult-Kontaktseiten erneut gelesen – seit September
+   hatten **28** Veranstalter dort eine Organizer-URL nachgetragen
+   (Glashauslauf, Weinathlon, Tergaster Volkslauf, Jenaer Backyard,
+   Stäffeleslauf, Gütersloh Läuft, Sunset-Serie, Alsterlauf …); bei den
+   anderen Portalen 24 Treffer über die externen Links.
+   **raceresult drosselt ab ~45 Abrufen in 2 s Takt (429, danach 404)** –
+   mit `--pause 8` und `--fortsetzen` läuft es durch; die 429/404-Zeilen
+   des ersten Anlaufs waren Müll und wurden verworfen.
+   Die Kontaktseite trägt den **Veranstalter-NAMEN** auch dann, wenn die
+   URL leer ist (`organizer_name_aus_jsonld()`, steht jetzt als
+   `veranstalter_name` im Bericht) – das ist der Suchbegriff für die
+   Websuche nach der Vereinsseite.
+2. **Websuche** (200 Suchen, das ganze Budget) für die ~330 übrigen,
+   Kandidaten in fünf Runden über `verifizieren` geprüft: 88 nahm die
+   Namensregel an.
+3. **Handbelege** für die Fälle, die die Regel strukturell nicht sehen
+   kann (`begruendung` im Bericht, `anwenden` schreibt sie statt
+   „Zielseite nennt den Lauf" in die Notiz): Ortsadjektiv plus
+   Allgemeinwort („Haseder Silvesterlauf" – alle Namenswörter sind
+   entweder Ort oder `ALLGEMEIN`), zu kurze Namen („BCN Tour", „RuG
+   Marathon"), Bot-Sperren (fitforbrainrun.at), Vereinsseiten, die den
+   Lauf nur im Menü oder als PDF-Banner führen (TuS Hasede, SC
+   Ronsberg). Jeder Handbeleg nennt, woher der Veranstalter bekannt ist
+   (raceresult-Kontaktseite, ladv-/laufen.de-Ausschreibung, Websuche).
+
+**Ergebnis: 194 Veranstaltungen (327 Zeilen) haben jetzt ihre
+Veranstalterseite, die Portalzeilen fallen von 403 auf 204
+Veranstaltungen.** 14 Portallinks sind als `link_ok` protokolliert,
+weil der „Zeitnehmer" dort selbst Veranstalter ist (Lauflust-Events,
+Katjas Laufzeit beim Mäschder Drehwurm und Westerwälder Backyard Ultra,
+Lausitzer Sportevents beim Weinlauf Ortrand, crosscup.org, SWIM 100x100,
+der Radsport-Bezirk Weser-Ems bei seinem Cup) – der Bericht
+`protokoll: link_ok` setzt das von Hand. 191 bleiben `unklar`, die
+Notiz trägt jetzt „erneut geprüft 05.10.2026" samt Veranstalternamen.
+
+Was ohne Seite bleibt, in Klassen: **private Zählmarathons** (Fun &
+Erlebnis Marathons, Bremer Marathons von Olaf Häsler, „Wir wollen doch
+nur laufen", Speck-weg, Northeim, Witzenhausen, SOBVL, Hochzeitstag-
+Ultra, Rund um Fehmarn Ultra – ~45 Zeilen), **Meisterschaften**, deren
+Ausrichter nur der Verband nennt (Kreis-/Landes-/Nordrhein-/FLVW-
+Crossmeisterschaften, ~15), **Vereine ohne Netzauftritt** (Spee-Cup
+Genthin/GRC, SFG Nellschütz, Alfstedt, Scharnhorst Großgörschen), und
+**Veranstalter, deren Seite den Lauf nicht nennt** (Insel-Apotheke CUP/
+Poeler SV, Nospa Fischteiche Cross/SV Enge-Sande, Hesselberglauf/TSV
+Dinkelsbühl).
+
+Fünf Lehren, alle im Code oder in den Notizen:
+
+- **Die Kontaktseite lohnt den zweiten Blick.** 28 von 156 hatten seit
+  dem Neunten Durchgang eine URL bekommen – Veranstalter tragen sie nach,
+  wenn die Ausschreibung des nächsten Jahres steht. Nach jedem Datenlauf
+  `sammeln --nur-host my.raceresult.com --auch-geprueft --pause 8`.
+- **Automatische Treffer gegenlesen.** Fünf von 52 waren falsch:
+  `kaerntensport.net` (Kalender des Landessportverbands, Treffer
+  „kärntner"), `vbvisbek.de` (die Volksbank als Sponsor, Treffer „visbek"
+  im Host), `hartberg.at` und `ruestorf.at` (Gemeindekalender), die
+  Tourismus-Seite ahrntal.com mit der Ausgabe 2023. Der Ort im Host und
+  ein Landesname sind keine Belege – `REJECT` im Wegwerf-Skript.
+- **Der Portallink kann der Veranstalter sein.** Kleine Zeitnehmer
+  richten eigene Läufe aus (Katjas Laufzeit, Lauflust-Events); dann ist
+  `PORTAL_DOMAINS` für diese Zeile falsch, und das Protokoll sagt es
+  (`link_ok`). Nicht aus der Liste nehmen – für die anderen Läufe
+  derselben Firma stimmt sie.
+- **Dieselbe Veranstaltung unter zwei Namen fällt beim Verlinken auf**:
+  „49. Nat. Nikolaus Volkslauf" (Mingolsheim) und „Nikolauslauf Bad
+  Schönborn" (06.12.2026) zeigen jetzt beide auf sg-badschoenborn.de –
+  `report_gleiche_seite_gleiche_distanz()` meldet sie (70 statt 57).
+- **FITLETIX ist HYROX** (Fitness-Challenge mit Kraftstationen, fitletix.at;
+  Graz, Salzburg, Eisenstadt, Raedbox Challenge, LakeSide Challenge –
+  fünf Zeilen, als „Laufen" in der Liste): per Override `exclude`,
+  umkehrbar, wie THE ROX/Deadly Dozen/ATHX; eine `NICHT_AUSDAUER`-Zeile
+  braucht das Ja des Nutzers. Dazu der **BriggYard Staffel-Run** (42 km
+  Team-Gesamtstrecke) per Override – `ist_staffel()` kennt „Staffel-Run"
+  nicht. Beides steht bei den Entscheidungen (Punkt 23).
 
 
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
@@ -4261,6 +4348,33 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      und der Vorjahrestermin ist keine Aussage über 2027. Die Alternative
      ist, im Frühjahr 2027 zu warten; der wöchentliche Lauf holt jeden
      nachgetragenen Termin.
+
+23. **Aus der Linkprüfung vom 05.10.2026 (Achtzehnter Durchgang)** – je ein Ja/Nein:
+   - **FITLETIX** (Graz, Salzburg, Eisenstadt, Raedbox Challenge, LakeSide
+     Challenge) steht per Override draußen (Fitness-Challenge mit
+     Kraftstationen). In `NICHT_AUSDAUER` aufnehmen (`fitletix`)? Dann
+     bleiben neue Termine von selbst draußen. Gleiche Frage für
+     **StrongAthlon** (Enge-Sande, 14.08.2027, 6 km, Fri Ööwingsfloose
+     e.V.) – der Name klingt nach Kraft plus Lauf, geprüft ist es nicht.
+   - **BriggYard Staffel-Run** (Nottuln, 18.06.2027) per Override draußen
+     (Staffel, Datenregel 16). Soll `ist_staffel()` „Staffel-Run"/„Staffel
+     Run" lernen?
+   - **Meisterschaft im Rahmen** (Punkt 5): „Bayerische Marathon
+     Meisterschaften" (11.10.2026) läuft im München Marathon, „DM 10km
+     Straße" (07.03.2027, Tübingen) in einem Tübinger Lauf – beide stehen
+     als eigene Zeilen, jetzt mit dem Link der Hauptveranstaltung
+     (marathonmuenchen.org) bzw. weiter laufen.de.
+   - **Duplikat unter zwei Namen**: „49. Nat. Nikolaus Volkslauf"
+     (Mingolsheim) = „Nikolauslauf Bad Schönborn" (06.12.2026, beide
+     sg-badschoenborn.de); „Uchter Wald- und Crosslauf" (14.11.2026) heißt
+     beim SC Uchte „Uchter Volkslauf" am selben Tag.
+   - **Tippfehler aus laufen.de im Namen**: „Maritn Dufter" (Bad
+     Reichenhall, 05.06.2027 – was ist das?), „41. Internationaler
+     Brüder-Grimn-Lauf" (Hanau, Etappenlauf über drei Tage).
+   - **Firmenläufe nur für Teams** (Punkt 19 weiter): Wismarer Firmenlauf,
+     Firmenlauf Neumarkt, Rostocker Firmenlauf stehen mit Agentur-Veranstalter
+     auf raceresult; „4. Backnanger Kindercrossduathlon" ist ein
+     Kinderrennen ohne Distanz (kilometerliebe) – raus?
 
 20. **Farbschema und Pillen (21.09.2026, aus dem Kartenumbau)** – drei
    Kleinigkeiten, die ein Ja/Nein brauchen:

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:Crosslauf des RC Tegel
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.kilometerl
- iebe.de/events/crosslauf-des-rc-tegel
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.rctegel.de
+ /crosslauf/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/crosslauf-des-rc-tegel
+URL:https://www.rctegel.de/crosslauf/
 END:VEVENT
 END:VCALENDAR

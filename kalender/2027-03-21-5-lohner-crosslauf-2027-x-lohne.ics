@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:5. Lohner Crosslauf 2027
 LOCATION:Lohne\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.laufen-os.de/v
- olksbanken-laufcup
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://leichtathletik-bwl
+ ohne.de/crosslauf/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/volksbanken-laufcup
+URL:https://leichtathletik-bwlohne.de/crosslauf/
 END:VEVENT
 END:VCALENDAR

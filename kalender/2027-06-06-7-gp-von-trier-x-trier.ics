@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:7. GP von Trier
 LOCATION:Trier\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.dsergebnis.d
- e/
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.radsport-tri
+ er.de/
 TRANSP:TRANSPARENT
-URL:https://www.dsergebnis.de/
+URL:https://www.radsport-trier.de/
 END:VEVENT
 END:VCALENDAR

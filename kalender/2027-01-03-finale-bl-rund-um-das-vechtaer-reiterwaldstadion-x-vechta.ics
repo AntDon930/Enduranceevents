@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:Finale BL Rund um das Vechtaer Reiterwaldstadion
 LOCATION:Vechta\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.dsergebnis.d
- e/
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://rsg-lohne-vechta
+ .de/
 TRANSP:TRANSPARENT
-URL:https://www.dsergebnis.de/
+URL:https://rsg-lohne-vechta.de/
 END:VEVENT
 END:VCALENDAR

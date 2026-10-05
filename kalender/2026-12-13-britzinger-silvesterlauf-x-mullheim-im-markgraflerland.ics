@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20270101
 SUMMARY:Britzinger Silvesterlauf
 LOCATION:Müllheim im Markgräflerland\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /377493/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.silvesterlauf-
+ britzingen.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/377493/
+URL:http://www.silvesterlauf-britzingen.de/
 END:VEVENT
 END:VCALENDAR

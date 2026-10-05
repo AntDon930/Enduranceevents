@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:29. Köstritzer Parklauf
 LOCATION:Bad Köstritz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.kilomet
- erliebe.de/events/29-koestritzer-parklauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.my-lav.
+ de/cms/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/29-koestritzer-parklauf
+URL:https://www.my-lav.de/cms/
 END:VEVENT
 END:VCALENDAR

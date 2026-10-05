@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:2. Buun löppt – 5\,1 km Walking
 LOCATION:Bunde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://laufen.de/la
- ufkalender/details/2-buun-löppt
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.1 km\nhttps://www.tv-bunde
+ .de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/2-buun-löppt
+URL:https://www.tv-bunde.de/
 END:VEVENT
 END:VCALENDAR

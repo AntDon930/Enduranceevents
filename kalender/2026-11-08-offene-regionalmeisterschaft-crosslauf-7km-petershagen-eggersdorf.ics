@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:Offene Regionalmeisterschaft Crosslauf
 LOCATION:Petershagen/Eggersdorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://my.raceresult.c
- om/386295/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttp://www.blau-weiss-l
+ eichtathletik.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/386295/
+URL:http://www.blau-weiss-leichtathletik.de/
 END:VEVENT
 END:VCALENDAR

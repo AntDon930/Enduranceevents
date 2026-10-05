@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270816
 DTEND;VALUE=DATE:20270822
 SUMMARY:Berglaufcup Züri Oberland
 LOCATION:Wald\, Schweiz
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 417544/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.5tage.ch
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/417544/
+URL:https://www.5tage.ch
 END:VEVENT
 END:VCALENDAR

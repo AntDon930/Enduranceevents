@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
 SUMMARY:9. Sankt-Martins Crosslauf mit Kreismeisterschaften Wetterau
 LOCATION:Altenstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://laufen.de/laufk
- alender/details/9-sankt-martins-crosslauf-mit-kreismeisterschaften-wetter
- au
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://www.vfl-altenst
+ adt.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/9-sankt-martins-crosslauf-mit-k
- reismeisterschaften-wetterau
+URL:https://www.vfl-altenstadt.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270911
 DTEND;VALUE=DATE:20270912
 SUMMARY:Crux Lauf Villach
 LOCATION:Villach\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /413122/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.crux-lauf.com
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/413122/
+URL:https://www.crux-lauf.com
 END:VEVENT
 END:VCALENDAR

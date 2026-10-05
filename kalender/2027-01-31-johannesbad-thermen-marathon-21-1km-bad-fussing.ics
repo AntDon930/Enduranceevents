@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:Johannesbad Thermen-Marathon – Halbmarathon
 LOCATION:Bad Füssing\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.zeitgem
- aess.info/event.php?ACCESSCODE=202701311
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.thermen
+ -marathon.de/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202701311
+URL:https://www.thermen-marathon.de/
 END:VEVENT
 END:VCALENDAR

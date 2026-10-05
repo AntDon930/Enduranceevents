@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Bayerische Marathon Meisterschaften
 LOCATION:Schwabinger Tor\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
- hreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.ht
- m
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://marathonmuenc
+ hen.org/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meister
- schaften-M%C3%BCnchen.htm
+URL:https://marathonmuenchen.org/
 END:VEVENT
 END:VCALENDAR

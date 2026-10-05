@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:56. Geraer Silvesterlauf
 LOCATION:Gera\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.kilometer
- liebe.de/events/56-geraer-silvesterlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.1-sv-gera
+ .de/silvesterlauf.html
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/56-geraer-silvesterlauf
+URL:https://www.1-sv-gera.de/silvesterlauf.html
 END:VEVENT
 END:VCALENDAR

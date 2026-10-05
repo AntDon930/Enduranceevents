@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:Kyffhäuser Berglauf – Kyffhäuser-Bergmarathon (42\,2 km)
 LOCATION:Bad Frankenhausen/Kyffhäuser\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttps://runtix.com/s
- ts/10021/3168
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42.2 km\nhttp://www.kyffhaeus
+ er-berglauf.de/
 TRANSP:TRANSPARENT
-URL:https://runtix.com/sts/10021/3168
+URL:http://www.kyffhaeuser-berglauf.de/
 END:VEVENT
 END:VCALENDAR

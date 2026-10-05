@@ -11,10 +11,8 @@ DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Bayerische Cross Meisterschaft 2027 – Lauf 4
 LOCATION:Zenting\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://laufen.de/laufk
- alender/details/bayerische-cross-meisterschaft-2027
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://sv-zenting.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/bayerische-cross-meisterschaft-
- 2027
+URL:https://sv-zenting.de/
 END:VEVENT
 END:VCALENDAR

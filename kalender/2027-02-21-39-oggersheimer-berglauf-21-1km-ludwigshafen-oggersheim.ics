@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:39. Oggersheimer Berglauf – Halbmarathon
 LOCATION:Ludwigshafen-Oggersheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://laufen.de/la
- ufkalender/details/39-oggersheimer-berglauf
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.1 km\nhttps://www.tgo1880.
+ de/index.php/leichtathletik/tgo-berglauf
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/39-oggersheimer-berglauf
+URL:https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf
 END:VEVENT
 END:VCALENDAR

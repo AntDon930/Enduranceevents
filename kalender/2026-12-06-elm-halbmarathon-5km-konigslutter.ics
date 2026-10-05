@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Elm-Halbmarathon
 LOCATION:Königslutter\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://portal.run-tim
- ing.de/1024/registration
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://tsvlelm.de/
 TRANSP:TRANSPARENT
-URL:https://portal.run-timing.de/1024/registration
+URL:https://tsvlelm.de/
 END:VEVENT
 END:VCALENDAR

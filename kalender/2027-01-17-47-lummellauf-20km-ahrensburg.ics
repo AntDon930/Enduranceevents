@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:47. Lümmellauf – Lauf
 LOCATION:Ahrensburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://laufen.de/lau
- fkalender/details/47-lümmellauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://ssc-hagen-ahr
+ ensburg.de/luemmellauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/47-lümmellauf
+URL:https://ssc-hagen-ahrensburg.de/luemmellauf/
 END:VEVENT
 END:VCALENDAR

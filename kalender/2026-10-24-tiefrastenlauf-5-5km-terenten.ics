@@ -10,9 +10,10 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Tiefrastenlauf
 LOCATION:Terenten\, Italien (Südtirol)
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.5 km\nhttps://www.lck.it/Ka
- lender.php
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.5 km\nhttps://terenten.alpe
+ nverein.it/veranstaltung/id-f29ae3f3-b8f1-40dc-a890-c930b842764f/
 TRANSP:TRANSPARENT
-URL:https://www.lck.it/Kalender.php
+URL:https://terenten.alpenverein.it/veranstaltung/id-f29ae3f3-b8f1-40dc-a8
+ 90-c930b842764f/
 END:VEVENT
 END:VCALENDAR

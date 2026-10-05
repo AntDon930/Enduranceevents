@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:FIT For BRAIN RUN
 LOCATION:Wien\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.time-now-s
- ports.at/fit-for-brain-run-2026/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.fitforbrai
+ nrun.at/
 TRANSP:TRANSPARENT
-URL:https://www.time-now-sports.at/fit-for-brain-run-2026/
+URL:https://www.fitforbrainrun.at/
 END:VEVENT
 END:VCALENDAR

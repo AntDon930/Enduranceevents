@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270829
 DTEND;VALUE=DATE:20270830
 SUMMARY:Tharandter-Wald-Lauf
 LOCATION:Tharandt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lausitzer-spor
- tevents.de/anmeldung/anm.php?N=2027092
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tharandter
+ wald-lauf.de/
 TRANSP:TRANSPARENT
-URL:https://lausitzer-sportevents.de/anmeldung/anm.php?N=2027092
+URL:https://www.tharandterwald-lauf.de/
 END:VEVENT
 END:VCALENDAR

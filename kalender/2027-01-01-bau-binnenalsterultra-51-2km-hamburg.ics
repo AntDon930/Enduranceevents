@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:BAU Binnenalsterultra
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 51.2 km\nhttps://www.kilomet
- erliebe.de/events/bau-binnenalsterultra
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 51.2 km\nhttps://www.binnena
+ lsterultra.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/bau-binnenalsterultra
+URL:https://www.binnenalsterultra.de/
 END:VEVENT
 END:VCALENDAR

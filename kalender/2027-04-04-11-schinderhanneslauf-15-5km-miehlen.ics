@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:11. Schinderhanneslauf
 LOCATION:Miehlen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.5 km\nhttps://www.ergebni
- sliste.de/laufveranstaltungen/schinderhanneslauf-miehlen
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.5 km\nhttps://tus-miehlen
+ .de/
 TRANSP:TRANSPARENT
-URL:https://www.ergebnisliste.de/laufveranstaltungen/schinderhanneslauf-mi
- ehlen
+URL:https://tus-miehlen.de/
 END:VEVENT
 END:VCALENDAR

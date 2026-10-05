@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270905
 DTEND;VALUE=DATE:20270906
 SUMMARY:Eberbacher Jedermann- und Sprint-Triathlon
 LOCATION:Eberbach\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 6 km\nhttps://my.raceresu
- lt.com/419858/
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 6 km\nhttp://www.triathlo
+ n-eberbach.de
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/419858/
+URL:http://www.triathlon-eberbach.de
 END:VEVENT
 END:VCALENDAR

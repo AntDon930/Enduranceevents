@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Leipziger Brückenlauf
 LOCATION:Leipzig\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.6 km\nhttps://baer-servic
- e.de/veranstaltung/LBL/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.6 km\nhttps://www.wasser-
+ stadt-leipzig.de/
 TRANSP:TRANSPARENT
-URL:https://baer-service.de/veranstaltung/LBL/
+URL:https://www.wasser-stadt-leipzig.de/
 END:VEVENT
 END:VCALENDAR

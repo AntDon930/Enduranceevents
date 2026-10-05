@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:Wuppertaler Löwenlauf
 LOCATION:Wuppertal\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /396315/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.psv-wuppertal
+ -leichtathletik.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/396315/
+URL:https://www.psv-wuppertal-leichtathletik.de/
 END:VEVENT
 END:VCALENDAR

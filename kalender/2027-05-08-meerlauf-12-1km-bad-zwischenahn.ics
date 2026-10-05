@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:Meerlauf – 12\,1 km Spendenlauf (Nordic-)Walking
 LOCATION:Bad Zwischenahn\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.1 km\nhttps://laufen.de/l
- aufkalender/details/meerlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.1 km\nhttps://www.meerlau
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/meerlauf
+URL:https://www.meerlauf.de/
 END:VEVENT
 END:VCALENDAR

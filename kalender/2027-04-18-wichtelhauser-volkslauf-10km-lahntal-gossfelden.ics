@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:Wichtelhäuser Volkslauf
 LOCATION:Lahntal Goßfelden\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/wichtelhäuser-volkslauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tv06-gossf
+ elden.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/wichtelhäuser-volkslauf
+URL:http://www.tv06-gossfelden.de/
 END:VEVENT
 END:VCALENDAR

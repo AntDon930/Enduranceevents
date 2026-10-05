@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:Die Bergischen 5 Etappe 5
 LOCATION:Wermelskirchen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://www.kilometer
- liebe.de/events/die-bergischen-5-etappe-5
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45 km\nhttps://bergische5.ru
+ n/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/die-bergischen-5-etappe-5
+URL:https://bergische5.run/
 END:VEVENT
 END:VCALENDAR

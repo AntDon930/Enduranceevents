@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270808
 DTEND;VALUE=DATE:20270809
 SUMMARY:Gerasdorf Triathlon – King/Queen
 LOCATION:Gerasdorf bei Wien\, Österreich
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 40 km\nhttps://www.pentek
- -payment.at/ppay.php?p=1743&s_p=1
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 40 km\nhttp://www.gerasdo
+ rf-triathlon.at/
 TRANSP:TRANSPARENT
-URL:https://www.pentek-payment.at/ppay.php?p=1743&s_p=1
+URL:http://www.gerasdorf-triathlon.at/
 END:VEVENT
 END:VCALENDAR

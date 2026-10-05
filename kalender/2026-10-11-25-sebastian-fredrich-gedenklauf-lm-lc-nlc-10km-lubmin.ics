@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)
 LOCATION:Lubmin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tri-hgwaii
- .de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.hsguni-gr
+ eifswald.de/
 TRANSP:TRANSPARENT
-URL:http://www.tri-hgwaii.de
+URL:https://www.hsguni-greifswald.de/
 END:VEVENT
 END:VCALENDAR

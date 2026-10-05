@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:43. Urmitzer Volkslauf
 LOCATION:Urmitz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.ergebnisli
- ste.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.volkslauf.
+ svurmitz.de/
 TRANSP:TRANSPARENT
-URL:http://www.ergebnisliste.de
+URL:http://www.volkslauf.svurmitz.de/
 END:VEVENT
 END:VCALENDAR

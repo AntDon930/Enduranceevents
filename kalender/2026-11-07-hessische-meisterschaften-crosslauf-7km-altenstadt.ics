@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Hessische Meisterschaften Crosslauf
 LOCATION:Altenstadt\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://laufen.de/laufk
- alender/details/hessische-meisterschaften-crosslauf
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.vfl-altenst
+ adt.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/hessische-meisterschaften-cross
- lauf
+URL:https://www.vfl-altenstadt.de/
 END:VEVENT
 END:VCALENDAR

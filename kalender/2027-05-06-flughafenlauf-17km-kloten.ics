@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270506
 DTEND;VALUE=DATE:20270507
 SUMMARY:Flughafenlauf – ZKB Zürilauf Cup Hauptkategorie 17km
 LOCATION:Kloten\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://www.zuerilauf
- cup.ch/11-laeufe-2022/flughafenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://www.lsv-kb.ch
+ /flughafenlauf.html
 TRANSP:TRANSPARENT
-URL:https://www.zuerilaufcup.ch/11-laeufe-2022/flughafenlauf
+URL:https://www.lsv-kb.ch/flughafenlauf.html
 END:VEVENT
 END:VCALENDAR

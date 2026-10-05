@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:Crosslauf Galgenen
 LOCATION:Schübelbach\, Schweiz
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 425189/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.tsv-galgenen.ch
+ /anlaesse/crosslauf
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/425189/
+URL:http://www.tsv-galgenen.ch/anlaesse/crosslauf
 END:VEVENT
 END:VCALENDAR

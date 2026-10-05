@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
 SUMMARY:Bayerische Marathon Meisterschaften – Halbmarathon
 LOCATION:Schwabinger Tor\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://ladv.de/aus
- schreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.
- htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://marathonmue
+ nchen.org/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meister
- schaften-M%C3%BCnchen.htm
+URL:https://marathonmuenchen.org/
 END:VEVENT
 END:VCALENDAR

@@ -10,11 +10,9 @@ DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261123
 SUMMARY:Bad Ischler Radquerfeldein – Cyclocross
 LOCATION:Bad Ischl\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.cyclinga
- ustria.at/index.php?option=com_events&view=event&id=933C8E7302AD4722BEDA1
- 26F2772341F&filter=page=2
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttp://www.rsc-badis
+ chl.at/
 TRANSP:TRANSPARENT
-URL:https://www.cyclingaustria.at/index.php?option=com_events&view=event&i
- d=933C8E7302AD4722BEDA126F2772341F&filter=page=2
+URL:http://www.rsc-badischl.at/
 END:VEVENT
 END:VCALENDAR

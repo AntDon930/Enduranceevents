@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:Crosslauf Kaltern
 LOCATION:Kaltern\, Italien (Südtirol)
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.7 km\nhttps://www.lck.it/Ka
- lender.php
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.7 km\nhttps://www.lck.it/Cr
+ osslauf.php
 TRANSP:TRANSPARENT
-URL:https://www.lck.it/Kalender.php
+URL:https://www.lck.it/Crosslauf.php
 END:VEVENT
 END:VCALENDAR

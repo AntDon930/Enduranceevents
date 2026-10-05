@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:3. Riesenbecker 6 Stundenlauf
 LOCATION:Rheine\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://www.kilometerli
- ebe.de/events/riesenbecker-6-stundenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://riesenbecker-6s
+ tundenlauf.de/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/riesenbecker-6-stundenlauf
+URL:https://riesenbecker-6stundenlauf.de/
 END:VEVENT
 END:VCALENDAR

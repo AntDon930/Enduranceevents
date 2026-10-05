@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
 SUMMARY:2. Endmoränenlauf Kroge-Ehrendorf 2027
 LOCATION:Visbek\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laufen-os.de/
- volksbanken-laufcup
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.svkroge-ehren
+ dorf.de/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/volksbanken-laufcup
+URL:https://www.svkroge-ehrendorf.de/
 END:VEVENT
 END:VCALENDAR

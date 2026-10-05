@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270703
 DTEND;VALUE=DATE:20270704
 SUMMARY:Aloha Tri Linz
 LOCATION:Plesching\, Österreich
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24 km\nhttps://alohasport
- .at/event/aloha-tri-linz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 24 km\nhttps://www.alohas
+ port.at/
 TRANSP:TRANSPARENT
-URL:https://alohasport.at/event/aloha-tri-linz
+URL:https://www.alohasport.at/
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
 SUMMARY:Anifer Gemeinde FIT-TAG – Laufen
 LOCATION:Anif\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://time2win.at/
- event/1137
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://www.anif.sal
+ zburg.at
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1137
+URL:https://www.anif.salzburg.at
 END:VEVENT
 END:VCALENDAR

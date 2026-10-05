@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:2. Buun löppt – 10\,2 km Volkslauf
 LOCATION:Bunde\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://laufen.de/l
- aufkalender/details/2-buun-löppt
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.2 km\nhttps://www.tv-bund
+ e.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/2-buun-löppt
+URL:https://www.tv-bunde.de/
 END:VEVENT
 END:VCALENDAR

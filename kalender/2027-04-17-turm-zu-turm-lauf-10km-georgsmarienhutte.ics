@@ -11,9 +11,10 @@ DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
 SUMMARY:Turm zu Turm Lauf
 LOCATION:Georgsmarienhütte\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufen-os
- .de/wettkaempfe/22-turm-zu-turm-lauf-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tvg-sport
+ .de/sportangebot/laufsport-triathlon/turm-zu-turmlauf.html
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/22-turm-zu-turm-lauf-2027
+URL:https://www.tvg-sport.de/sportangebot/laufsport-triathlon/turm-zu-turm
+ lauf.html
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270529
 DTEND;VALUE=DATE:20270530
 SUMMARY:32. Stockseeer Abendlauf
 LOCATION:Stocksee\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://laufen.de/lauf
- kalender/details/32-stockseeer-abendlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://abendlauf.me/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/32-stockseeer-abendlauf
+URL:https://abendlauf.me/
 END:VEVENT
 END:VCALENDAR

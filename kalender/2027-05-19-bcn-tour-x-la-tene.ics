@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20270519
 DTEND;VALUE=DATE:20270520
 SUMMARY:BCN Tour
 LOCATION:La Tène\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
- ents.php?id=1238
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.bcn-tour.ch/
 TRANSP:TRANSPARENT
-URL:https://sportchrono.ch/events.php?id=1238
+URL:https://www.bcn-tour.ch/
 END:VEVENT
 END:VCALENDAR

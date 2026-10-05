@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:Course de la Bonne Résolution
 LOCATION:Yverdon-les-Bains\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://datasport.com/
- de/events/course-de-la-bonne-resolution-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.labr.ch/acc
+ ueil
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/course-de-la-bonne-resolution-2027
+URL:http://www.labr.ch/accueil
 END:VEVENT
 END:VCALENDAR

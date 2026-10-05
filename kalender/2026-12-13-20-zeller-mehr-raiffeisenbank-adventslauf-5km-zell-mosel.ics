@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:20. Zeller MEHR Raiffeisenbank-Adventslauf
 LOCATION:Zell (Mosel)\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.chiplauf.d
- e/de/events/20-zeller-raiffeisenbank-adventslauf-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.adventslauf
+ .net/
 TRANSP:TRANSPARENT
-URL:https://www.chiplauf.de/de/events/20-zeller-raiffeisenbank-adventslauf
- -2026
+URL:http://www.adventslauf.net/
 END:VEVENT
 END:VCALENDAR

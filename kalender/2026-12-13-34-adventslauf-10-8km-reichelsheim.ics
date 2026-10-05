@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:34. Adventslauf – Lauf
 LOCATION:Reichelsheim\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://laufen.de/l
- aufkalender/details/26V07000097860002
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://www.ksv-rei
+ chelsheim.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/26V07000097860002
+URL:https://www.ksv-reichelsheim.de/
 END:VEVENT
 END:VCALENDAR

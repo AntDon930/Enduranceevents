@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270613
 DTEND;VALUE=DATE:20270614
 SUMMARY:31. Kurt-Roth Lauf
 LOCATION:Wersau\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://laufen.de/l
- aufkalender/details/31-kurt-roth-lauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tv-wers
+ au.de/volkslauf/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/31-kurt-roth-lauf
+URL:https://www.tv-wersau.de/volkslauf/
 END:VEVENT
 END:VCALENDAR

@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:OstseeMan Triathlon Glücksburg
 LOCATION:Glücksburg (Ostsee)\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttps://time2win.
- at/event/1082
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttp://www.ostsee
+ man.de
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1082
+URL:http://www.ostseeman.de
 END:VEVENT
 END:VCALENDAR

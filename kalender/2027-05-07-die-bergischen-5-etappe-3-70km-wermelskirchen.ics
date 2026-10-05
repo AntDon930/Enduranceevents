@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270507
 DTEND;VALUE=DATE:20270508
 SUMMARY:Die Bergischen 5 Etappe 3
 LOCATION:Wermelskirchen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 70 km\nhttps://www.kilometer
- liebe.de/events/die-bergischen-5-etappe-3
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 70 km\nhttps://bergische5.ru
+ n/
 TRANSP:TRANSPARENT
-URL:https://www.kilometerliebe.de/events/die-bergischen-5-etappe-3
+URL:https://bergische5.run/
 END:VEVENT
 END:VCALENDAR

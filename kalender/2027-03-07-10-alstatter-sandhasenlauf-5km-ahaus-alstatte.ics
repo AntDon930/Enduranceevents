@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:10. Alstätter Sandhasenlauf – Ausdauer Lauf
 LOCATION:Ahaus-Alstätte\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://laufen.de/lauf
- kalender/details/27L19000394360001
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.alstaetter
+ -sandhasenlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/27L19000394360001
+URL:https://www.alstaetter-sandhasenlauf.de/
 END:VEVENT
 END:VCALENDAR

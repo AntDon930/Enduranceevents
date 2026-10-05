@@ -10,9 +10,8 @@ DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Run and Walk for Help – ca. 7 km Walking- und Laufrunde
 LOCATION:Osnabrück\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.laufen-os.
- de/wettkaempfe/24-run-and-walk-for-help-2026
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttp://www.s4acw.de/
 TRANSP:TRANSPARENT
-URL:https://www.laufen-os.de/wettkaempfe/24-run-and-walk-for-help-2026
+URL:http://www.s4acw.de/
 END:VEVENT
 END:VCALENDAR

@@ -10,10 +10,9 @@ DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:Quedlinburger Waldlauf
 LOCATION:Quedlinburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
- bung/detail/49448/46.-Quedlinburger-Waldlauf-Quedlinburg.htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.leichtathleti
+ k-quedlinburg.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/49448/46.-Quedlinburger-Waldlauf-
- Quedlinburg.htm
+URL:https://www.leichtathletik-quedlinburg.de/
 END:VEVENT
 END:VCALENDAR

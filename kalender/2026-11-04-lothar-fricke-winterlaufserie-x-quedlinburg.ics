@@ -11,11 +11,9 @@ DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:Lothar Fricke-Winterlaufserie
 LOCATION:Quedlinburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://ladv.de/ausschrei
- bung/detail/45793/21.Lothar-Fricke-Winterlaufserie-2026-2027-Quedlinburg.
- htm
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.leichtathleti
+ k-quedlinburg.de/
 TRANSP:TRANSPARENT
-URL:https://ladv.de/ausschreibung/detail/45793/21.Lothar-Fricke-Winterlauf
- serie-2026-2027-Quedlinburg.htm
+URL:https://www.leichtathletik-quedlinburg.de/
 END:VEVENT
 END:VCALENDAR

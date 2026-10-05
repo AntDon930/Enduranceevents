@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Linzer 3-Brückenlauf
 LOCATION:Linz\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://time2win.at/ev
- ent/1050
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.3-bruecken
+ lauf.at/
 TRANSP:TRANSPARENT
-URL:https://time2win.at/event/1050
+URL:https://www.3-brueckenlauf.at/
 END:VEVENT
 END:VCALENDAR

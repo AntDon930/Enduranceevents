@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:FIT For BRAIN RUN
 LOCATION:Prater Hauptallee\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.lcc-wien.
- at
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.fitforbra
+ inrun.at/
 TRANSP:TRANSPARENT
-URL:https://www.lcc-wien.at
+URL:https://www.fitforbrainrun.at/
 END:VEVENT
 END:VCALENDAR

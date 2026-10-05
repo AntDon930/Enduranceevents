@@ -11,8 +11,8 @@ DTEND;VALUE=DATE:20270531
 SUMMARY:Elsterlauf – 11 km Sparkasse Elbe-Elster-Lauf
 LOCATION:Bad Liebenwerda\, Deutschland
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.elsterlau
- f.de/elsterlauf-ablauf/
+ f.de/
 TRANSP:TRANSPARENT
-URL:https://www.elsterlauf.de/elsterlauf-ablauf/
+URL:https://www.elsterlauf.de/
 END:VEVENT
 END:VCALENDAR

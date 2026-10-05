@@ -273,6 +273,21 @@ def nennt_den_lauf(html: str, ziel: str, namen: list[str], daten: list[str],
     return treffer
 
 
+def organizer_name_aus_jsonld(html: str) -> str | None:
+    """Der Veranstalter-NAME aus dem JSON-LD der raceresult-Kontaktseite.
+    Er steht auch dann da, wenn die Organizer-URL leer ist („Veranstalter:
+    Propain Bicycles GmbH / Ausrichter: KJC Ravensburg e.V.") - und ist
+    dann der Suchbegriff für die Websuche nach der Vereinsseite."""
+    m = re.search(r'"organizer"\s*:\s*\{[^}]*"name"\s*:\s*"((?:[^"\\]|\\.)*)"', html)
+    if not m:
+        return None
+    try:
+        name = json.loads('"' + m.group(1) + '"')
+    except json.JSONDecodeError:
+        name = m.group(1)
+    return re.sub(r"\s+", " ", name).strip() or None
+
+
 def organizer_url_aus_jsonld(html: str) -> str | None:
     for block in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', html, re.S | re.I):
         try:
@@ -338,6 +353,8 @@ def sammeln(args) -> None:
             continue
         if args.nur_host and host_von(url) != args.nur_host:
             continue
+        if args.ohne_host and host_von(url) in args.ohne_host:
+            continue
         g = gruppen.setdefault(schluessel, {"name": e.get("name"), "datum": e.get("datum_start"),
                                             "urls": [], "namen": set(), "daten": set(), "orte": set()})
         if url not in g["urls"]:
@@ -371,6 +388,9 @@ def sammeln(args) -> None:
                     eintrag["notiz"] = f"Kontaktseite nicht ladbar ({status or body})"
                     continue
                 org = organizer_url_aus_jsonld(body)
+                vname = organizer_name_aus_jsonld(body)
+                if vname:
+                    eintrag["veranstalter_name"] = vname
                 if not org or "Geben Sie hier" in org:
                     eintrag["notiz"] = "Kontaktseite: Organizer-URL leer oder Platzhalter"
                     continue
@@ -430,11 +450,19 @@ def anwenden(args) -> None:
         alt_host = host_von(b["alt"])
         if b["ergebnis"] == "gefunden":
             eintrag = overrides.get(schluessel, OrderedDict())
+            # `begruendung` steht in einem Bericht, den jemand von Hand
+            # ergänzt hat (Linkprüfung 05.10.2026): Die Seite ist als die
+            # des Veranstalters belegt, auch wenn `nennt_den_lauf()` sie
+            # nicht erkennt (Ortsadjektiv + Allgemeinwort, Bot-Sperre,
+            # Seite ohne JavaScript leer). Die Begründung ersetzt dann den
+            # Satz „Zielseite nennt den Lauf".
+            beleg = (f"von Hand belegt: {b['begruendung']}" if b.get("begruendung")
+                     else f"Zielseite nennt den Lauf ({', '.join(b['treffer'][:2])})")
             note = (f"Veranstalterseite statt {alt_host}: {b['ziel']} - "
                     + ("per Websuche gefunden (nicht auf der Portalseite verlinkt)" if b.get("quelle") == "websuche"
                        else "von der raceresult-Kontaktseite (Organizer-URL)" if alt_host == "my.raceresult.com"
                        else f"auf der {alt_host}-Seite verlinkt")
-                    + f", Zielseite nennt den Lauf ({', '.join(b['treffer'][:2])}). Linkprüfung {HEUTE}.")
+                    + f", {beleg}. Linkprüfung {HEUTE}.")
             eintrag["veranstalter_url"] = b["ziel"]
             eintrag["_note"] = (eintrag["_note"] + " | " + note) if eintrag.get("_note") else note
             overrides[schluessel] = eintrag
@@ -448,7 +476,16 @@ def anwenden(args) -> None:
             neu_unklar += 1
         else:
             kand = [c["url"] for c in b["kandidaten"]]
-            if b["notiz"] and ("leer" in b["notiz"] or "Platzhalter" in b["notiz"] or "Portal" in b["notiz"]):
+            if b.get("protokoll") in ("link_ok", "unklar"):
+                # Ergebnis von Hand festgelegt (z. B. „der Portallink IST
+                # die Veranstalterseite": Lauflust-Events, Katjas Laufzeit,
+                # Lausitzer Sportevents richten ihre Läufe selbst aus).
+                erg, notiz = b["protokoll"], b["notiz"]
+                if erg == "link_ok":
+                    neu_ok += 1
+                else:
+                    neu_unklar += 1
+            elif b["notiz"] and ("leer" in b["notiz"] or "Platzhalter" in b["notiz"] or "Portal" in b["notiz"]):
                 erg, notiz = "link_ok", b["notiz"] + f" - {alt_host} bleibt."
                 neu_ok += 1
             else:
@@ -561,6 +598,7 @@ def main() -> int:
     s.add_argument("--pause", type=float, default=2.0, help="Sekunden zwischen zwei Abrufen desselben Hosts")
     s.add_argument("--max", type=int, default=0, help="nur die ersten N Veranstaltungen")
     s.add_argument("--nur-host", default=None, help="nur Links dieses Hosts (z. B. my.raceresult.com)")
+    s.add_argument("--ohne-host", action="append", default=[], help="Links dieses Hosts auslassen (mehrfach möglich)")
     s.add_argument("--auch-geprueft", action="store_true", help="auch Veranstaltungen, die schon in links_geprueft.json stehen")
     s.add_argument("--fortsetzen", action="store_true", help="vorhandenen Bericht weiterführen statt neu beginnen")
     s.set_defaults(fn=sammeln)

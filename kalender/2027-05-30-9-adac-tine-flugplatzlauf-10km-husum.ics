@@ -10,8 +10,9 @@ DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
 SUMMARY:9. ADAC-Tine-Flugplatzlauf
 LOCATION:Husum\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://raceresult.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://acnf.de/Veran
+ staltungen/Lauf-veranstaltungen
 TRANSP:TRANSPARENT
-URL:https://raceresult.de
+URL:https://acnf.de/Veranstaltungen/Lauf-veranstaltungen
 END:VEVENT
 END:VCALENDAR

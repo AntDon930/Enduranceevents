@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270625
 DTEND;VALUE=DATE:20270626
 SUMMARY:40. Burg-Lauf Eppstein
 LOCATION:Eppstein\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://laufen.de/la
- ufkalender/details/40-burg-lauf-eppstein
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.8 km\nhttps://eppsteiner-b
+ urglauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/40-burg-lauf-eppstein
+URL:https://eppsteiner-burglauf.de/
 END:VEVENT
 END:VCALENDAR

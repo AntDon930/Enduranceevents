@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270613
 DTEND;VALUE=DATE:20270614
 SUMMARY:VR-Triathlon Lauingen
 LOCATION:Lauingen\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.zeitgemaes
- s.info/event.php?ACCESSCODE=202706131
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://triathlon.tvl.
+ de/
 TRANSP:TRANSPARENT
-URL:https://www.zeitgemaess.info/event.php?ACCESSCODE=202706131
+URL:https://triathlon.tvl.de/
 END:VEVENT
 END:VCALENDAR

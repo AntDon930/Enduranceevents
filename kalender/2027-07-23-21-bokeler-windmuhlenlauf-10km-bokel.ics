@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270723
 DTEND;VALUE=DATE:20270724
 SUMMARY:21. Bokeler Windmühlenlauf
 LOCATION:Bokel\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/21-bokeler-windmühlenlauf
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.windmuehle
+ nlauf.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/21-bokeler-windmühlenlauf
+URL:http://www.windmuehlenlauf.de/
 END:VEVENT
 END:VCALENDAR

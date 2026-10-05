@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
 SUMMARY:Breitscheider Nacht
 LOCATION:Ratingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/breitscheider-nacht
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tus-breit
+ scheid.de/breitscheider-nacht/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/breitscheider-nacht
+URL:https://www.tus-breitscheid.de/breitscheider-nacht/
 END:VEVENT
 END:VCALENDAR

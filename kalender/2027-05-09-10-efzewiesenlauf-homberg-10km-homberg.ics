@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
 SUMMARY:10. Efzewiesenlauf Homberg
 LOCATION:Homberg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/10-efzewiesenlauf-homberg
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.efzewiesen
+ lauf-homberg.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/10-efzewiesenlauf-homberg
+URL:http://www.efzewiesenlauf-homberg.de/
 END:VEVENT
 END:VCALENDAR
