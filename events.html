@@ -919,10 +919,14 @@
     </table>
   </div>
   <div class="side-panel">
-    <!-- Die Melde-Box: "Dein Event fehlt?" prominent oben in der rechten
-         Spalte, unter dem Teilen-Knopf der Kopfzeile (vom Nutzer am
-         30.09.2026 gewünscht: im ersten Jahr ist jede Meldung eines
-         fehlenden Events der Weg zur Originalseite). Führt in denselben
+    <!-- tabindex="-1": Enter auf einer Zeile springt hierher (siehe
+         Tastaturbedienung), ein eigener Tab-Stopp ist es aber nicht. -->
+    <div class="detail-panel" id="detail-panel" tabindex="-1"></div>
+    <!-- Die Melde-Box: "Dein Event fehlt?" in der rechten Spalte UNTER
+         der Detail-Box (vom Nutzer am 30.09.2026 gewünscht: im ersten
+         Jahr ist jede Meldung eines fehlenden Events der Weg zur
+         Originalseite; am 05.10.2026 nach unten gesetzt - oben stand
+         sie vor den Angaben zum gewählten Event). Führt in denselben
          Dialog wie die Leiste in der Fußzeile und die Null-Treffer-Box -
          EIN Weg, an dem ein Hinweis entsteht (openSuggestModal). -->
     <div class="fehlt-box" id="fehlt-box">
@@ -933,9 +937,6 @@
       </div>
       <button type="button" class="fehlt-box-btn" id="fehlt-box-btn"></button>
     </div>
-    <!-- tabindex="-1": Enter auf einer Zeile springt hierher (siehe
-         Tastaturbedienung), ein eigener Tab-Stopp ist es aber nicht. -->
-    <div class="detail-panel" id="detail-panel" tabindex="-1"></div>
   </div>
 </div>
 

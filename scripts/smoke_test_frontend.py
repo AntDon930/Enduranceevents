@@ -1532,10 +1532,22 @@ def pruefe_kartenrahmen(seite):
     Herauszoomen-Knopf muss irgendwann abschalten - sonst landet man
     wieder bei der ganzen Welt).
     """
-    for _ in range(9):
+    # Herausklicken, bis der Knopf abschaltet - und je Klick die
+    # Zoom-Animation abwarten (Leaflet schluckt einen Klick, der mitten
+    # in die Animation fällt). Eine feste Zahl von Klicken (vorher neun im
+    # 160-ms-Takt) hängt davon ab, wie tief der Bündel-Klick davor
+    # hineingezoomt hat - und das hängt an den Daten: Nach dem Datenlauf
+    # vom 05.10.2026 reichten die neun nicht mehr, ohne dass sich an der
+    # Karte etwas geändert hatte (sechste Begegnung mit dieser
+    # Fehlerklasse, siehe CLAUDE.md "Der Rauchtest zählt die Strecken …").
+    for _ in range(25):
+        if seite.evaluate("() => !!document.querySelector('.leaflet-control-zoom-out.leaflet-disabled')"):
+            break
         seite.evaluate("""() => { const b = document.querySelector('.leaflet-control-zoom-out');
             if (b) b.click(); }""")
-        seite.wait_for_timeout(160)
+        seite.wait_for_function(
+            "() => !document.querySelector('#map.leaflet-zoom-anim')", timeout=3000)
+        seite.wait_for_timeout(120)
     seite.wait_for_timeout(900)
     stand = seite.evaluate("""() => ({
         ende: !!document.querySelector('.leaflet-control-zoom-out.leaflet-disabled'),

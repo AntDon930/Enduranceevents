@@ -1685,21 +1685,13 @@ Home-Button einen „Anmelden"-Button (siehe `auth.js`). Er nutzt
 **Firebase Authentication** (Google + E-Mail/Passwort mit Bestätigungs-
 E-Mail).
 
-„Mit Apple anmelden" ist **ausgeblendet**: Apple Sign-In erfordert ein
-Apple-Developer-Konto für 99 $ im Jahr. Das Projekt soll vorerst ohne
-laufende Kosten auskommen – und ein dauerhaft ausgegrauter Button war
-nur Ballast im Dialog.
-
-`SHOW_APPLE_SIGNIN = true` in `auth.js` allein genügt dafür **nicht**.
-Vorhanden ist bisher nur die Hülle: das Button-Markup (fest auf
-`disabled`, ohne Klick-Behandlung) und das Icon. Eine
-`signInWithApple()` gibt es nicht. Wer den Login wirklich will, braucht
-drei Schritte: das Developer-Konto samt Service ID, Key und Team ID in
-der Firebase-Konsole; eine `signInWithApple()` analog zu
-`signInWithGoogle()` (`new firebase.auth.OAuthProvider('apple.com')`
-statt `GoogleAuthProvider` – Popup, Weiterleitungs-Fallback und
-`handleRedirectResult()` gelten unverändert); und das Entfernen des
-`disabled` samt Verdrahtung des Buttons.
+Einen Apple-Login gibt es nicht. Die Hülle dafür (ausgeblendeter Button,
+Icon, Schalter `SHOW_APPLE_SIGNIN`) stand bis zum 05.10.2026 in `auth.js`
+und ist auf Wunsch des Nutzers gelöscht („Apple-Login bitte löschen").
+Wer ihn je will, baut ihn neu: Apple-Developer-Konto (99 $ im Jahr) mit
+Service ID, Key und Team ID in der Firebase-Konsole, dazu eine
+`signInWithApple()` analog zu `signInWithGoogle()`
+(`new firebase.auth.OAuthProvider('apple.com')`).
 
 **Ohne Konfiguration ist der Button bereits jetzt sichtbar und öffnet
 das fertige Modal**, zeigt darin aber einen Hinweis „Login ist in dieser

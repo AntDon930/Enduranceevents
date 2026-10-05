@@ -2167,10 +2167,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   gemeldet** („kein waagerechter Überlauf der Seite (124 px)") – die
   Prüfung ist keine Formalie.
 
-- **Die Melde-Box oben in der rechten Spalte der Liste** („Dein Event
-  fehlt? Schick uns die Originalseite", `.fehlt-box` in `events.html`,
-  vom Nutzer am 30.09.2026 gewünscht: „Das ist am Anfang schon sehr
-  wichtig") führt in denselben Dialog wie die Leiste in der Fußzeile und
+- **Die Melde-Box in der rechten Spalte der Liste, UNTER der Detail-Box**
+  („Dein Event fehlt? Schick uns die Originalseite", `.fehlt-box` in
+  `events.html`, vom Nutzer am 30.09.2026 gewünscht: „Das ist am Anfang
+  schon sehr wichtig"; am 05.10.2026 unter die Box mit „Wähle eine Zeile
+  aus" gesetzt – oben verdrängte sie die Angaben zum gewählten Event)
+  führt in denselben Dialog wie die Leiste in der Fußzeile und
   die Null-Treffer-Box (`openSuggestModal`) – ein Weg, drei Zugänge. Auf
   dem Handy ist sie im Blatt ausgeblendet, dort bleibt die Fußzeile.
   Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
@@ -4409,15 +4411,12 @@ Testmeldung in `errorReports` verwerfen.
   Vorhandene Abos bleiben mit `notified: false` gültig, werden aber
   **nicht rückwirkend** gegen die schon vorhandenen Events geprüft – die
   Function sieht nur, was `update_events.py` ihr als neu meldet.
-- **Apple-Login**: per `SHOW_APPLE_SIGNIN = false` in `auth.js`
-  ausgeblendet. Vom Nutzer **bewusst zurückgestellt** – Apple verlangt
-  99 $ im Jahr, und das Projekt soll vorerst ohne laufende Kosten
-  auskommen. Nicht ohne Rückfrage angehen.
-  Zu beachten: `true` allein reicht nicht, es gibt nur die Hülle
-  (Button-Markup, fest `disabled`, ohne Klick-Behandlung). Eine
-  `signInWithApple()` existiert **nicht** – der Kommentar dort
-  behauptete das früher. Was tatsächlich nötig wäre, steht jetzt im
-  Kommentar bei `SHOW_APPLE_SIGNIN` und im README.
+- **Apple-Login: gelöscht** (05.10.2026, vom Nutzer: „Apple-Login bitte
+  löschen"). Bis dahin stand in `auth.js` nur eine ausgeblendete Hülle
+  (Button fest `disabled`, Icon, Schalter `SHOW_APPLE_SIGNIN`), nie eine
+  `signInWithApple()`. Jetzt ist nichts mehr davon da – auch keine
+  I18N-Texte. Wer ihn je will: Developer-Konto (99 $/Jahr) und eine
+  `signInWithApple()` analog zu `signInWithGoogle()`, siehe README.
 - ~~Popup-Fallback für den Google-Login~~ **erledigt**: `signInWithPopup`
   schaltet bei blockiertem Popup auf `signInWithRedirect` um,
   `handleRedirectResult()` wertet die Rückkehr aus. In-App-Browser
