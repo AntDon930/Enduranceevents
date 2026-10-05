@@ -4340,11 +4340,10 @@ das Skript den Index NIE anfassen.**
 Commit nimmt `scripts/veranstalter_seiten.json`,
 `scripts/veranstalter_seiten_pruefung.json` und
 `scripts/manual_events.json` mit – `git diff --quiet` und `git add` in
-`update-events.yml` nennen sie. **Auf `main` steht noch die alte
-Fassung** – das ist seit dem 05.10.2026 (abends) nachgelesen unschädlich:
-`stage_kalender()` staget die drei Dateien in Actions, und der Commit
-auf `main` committet den Index, sobald `events.json` sich geändert hat
-(jede Woche). Nachziehen bleibt sauberer.
+`update-events.yml` nennen sie. **Seit dem 05.10.2026 (abends) steht
+dieselbe Fassung auf `main`** (Commit `d5c5618`, vom Nutzer freigegeben).
+Davor war es unschädlich: `stage_kalender()` staget die drei Dateien in
+Actions, und der Commit committet den Index.
 
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle
@@ -4529,15 +4528,13 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
 
 **A. Technik und Konten (nur der Nutzer hat Zugang)**
 
-1. **`main`: `.github/workflows/update-events.yml` auf den Stand des
-   Entwicklungs-Branches bringen.** Unterschied (05.10.2026): `git diff
-   --quiet` und `git add` nennen zusätzlich
-   `scripts/veranstalter_seiten.json`,
-   `scripts/veranstalter_seiten_pruefung.json`,
-   `scripts/manual_events.json`. Weg: Datei auf
-   `claude/website-access-9d9tg1` roh kopieren, auf `main` einfügen,
-   committen (GitHub-Weboberfläche genügt). Danach `git diff
-   origin/main HEAD -- .github/workflows/update-events.yml` muss leer sein.
+1. ~~**`main`: `.github/workflows/update-events.yml` auf den Stand des
+   Entwicklungs-Branches bringen.**~~ **erledigt** (05.10.2026, abends,
+   vom Nutzer freigegeben: „Ja, auf main pushen" – Commit `d5c5618` auf
+   `main`, nur diese eine Datei; `git diff origin/main
+   origin/claude/website-access-9d9tg1 -- .github/workflows/update-events.yml`
+   ist leer). Bei der nächsten Änderung an der Datei wieder so: Freigabe
+   des Nutzers einholen, dann ein Commit auf `main` mit nur dieser Datei.
 2. **Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
    Extension „Trigger Email" mit SMTP einrichten (Befehle im Kopf von
    `functions/index.js` und im README). Erst dann verschicken die Abos
