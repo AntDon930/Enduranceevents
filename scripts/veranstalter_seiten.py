@@ -1144,7 +1144,15 @@ def cmd_pruefen(args) -> None:
     ab = Abrufer(pause=args.pause)
     t0 = time.time()
     funde: list[tuple] = []
+    abgebrochen = 0
     for i, (k, v) in enumerate(offen, 1):
+        if args.zeitlimit and time.time() - t0 > args.zeitlimit:
+            # Sauber aufhören, nicht von außen abgeschossen werden: Dann
+            # gingen die Funde dieses Laufs und `geprueft_am` verloren, und
+            # dieselben Seiten kämen nächste Woche als Erste wieder dran.
+            abgebrochen = len(offen) - i + 1
+            print(f"  Zeitlimit von {args.zeitlimit} s erreicht - {abgebrochen} Seiten bleiben für den nächsten Lauf.", flush=True)
+            break
         r, fund = pruefe_eintrag(k, v, ab, heute)
         if fund:
             funde.append(fund)
@@ -1201,6 +1209,8 @@ def main() -> int:
     pr.add_argument("--uebernehmen", action="store_true",
                     help="eindeutige Funde als neue Ausgabe nach manual_events.json schreiben")
     pr.add_argument("--heute", default=None, help="Stichtag (nur für Tests)")
+    pr.add_argument("--zeitlimit", type=int, default=0,
+                    help="nach so vielen Sekunden keine weitere Seite mehr abrufen, Funde trotzdem übernehmen und speichern")
     args = p.parse_args()
     {"aufbauen": cmd_aufbauen, "zeigen": cmd_zeigen, "pruefen": cmd_pruefen}[args.cmd](args)
     return 0

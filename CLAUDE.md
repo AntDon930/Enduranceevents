@@ -2268,9 +2268,47 @@ greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
   Handprüfung. Name ohne Jahreszahl (`name_ohne_jahr`). Probelauf:
   12 Seiten in 33 s, 11 NICHTS (Seiten zeigen noch das alte Jahr).
 - **Der Datenlauf committet** `veranstalter_seiten.json`,
-  `veranstalter_seiten_pruefung.json` und `manual_events.json` mit
-  (`stage_kalender()` staget sie, `update-events.yml` listet sie) – **die
-  Fassung auf `main` muss der Nutzer nachziehen**, siehe „Automatik".
+  `veranstalter_seiten_pruefung.json` und `manual_events.json` mit –
+  **auch mit der alten Workflow-Fassung auf `main`** (nachgelesen am
+  05.10.2026, abends): `stage_kalender()` legt die drei Dateien in
+  GitHub Actions in den Index, und `git commit` committet den Index;
+  die Fassung auf `main` fragt nur `git diff --quiet -- events.json
+  kalender`, und `events.json` ändert sich jede Woche (vergangene Events
+  fallen). Die Fassung hier listet die Dateien ausdrücklich; sie auf
+  `main` nachzuziehen bleibt sauberer, ist aber nicht mehr nötig, damit
+  das Gedächtnis überlebt.
+
+**Die Wochenstruktur** (vom Nutzer am 05.10.2026 verlangt: „eine klare
+Struktur, die wöchentlich wiederholt wird, um alle Events neu und
+wiederholt sicher zu veröffentlichen"), alles in `update_events.py`, vom
+`schedule` auf `main` montags 05:00 UTC angestoßen:
+
+1. **Alle Scraper** lesen ihre Kalender und ergänzen `events.json`
+   (`merge_events`, Duplikate über `dedupe_key` und `is_same_event`).
+2. **`veranstalter_seiten.py pruefen --uebernehmen`**
+   (`run_naechste_ausgaben`): Jede Veranstaltung des Gedächtnisses, die
+   KEINE Zeile mehr in `events.json` hat, deren Seite also noch von keiner
+   Quelle für die nächste Ausgabe geliefert wurde, wird auf ihrer
+   Veranstalterseite nach dem nächsten Termin gefragt – höchstens 600
+   Seiten und 40 Minuten je Lauf (`--zeitlimit`: das Skript hört selbst
+   auf, übernimmt und speichert; der harte Timeout von 50 Minuten ist nur
+   die Notbremse), jede Seite höchstens alle 21 Tage, die am längsten
+   ungeprüften zuerst. Eindeutige Funde landen in `manual_events.json`
+   mit den Strecken des Vorjahrs, die die Seite noch nennt.
+3. **`clean_events.py`**: nimmt die Funde auf (`add_manual_events`, zieht
+   dabei Vorjahreskopien zurück, die eine Quelle inzwischen liefert),
+   gibt neuen Ausgaben mit Portallink die gemerkte Seite (`anwenden`),
+   lernt die jüngsten Ausgaben (`lernen`), wirft Vergangenes heraus.
+4. **`build_ics.py`** und der Commit von `events.json`, `kalender/`,
+   Gedächtnis, Prüfbericht und `manual_events.json`; der Push auf den
+   Branch löst `pages.yml` aus – damit ist der Stand veröffentlicht.
+
+Gerechnet: Jede der ~4.400 Veranstaltungen ist irgendwann vergangen und
+wartet auf ihren Termin; bei 21 Tagen Abstand sind das ~1.500 Seiten je
+Woche, mit 600 je Lauf kommt jede Seite etwa alle sieben Wochen dran.
+Reicht das nicht, ist `NAECHSTE_AUSGABEN_MAX` die Stellschraube (eine
+Seite kostet ~4 s), oder ein eigener Workflow nur für `pruefen` (der
+Zeitplan müsste auf `main` stehen).
 - `test_gedaechtnis` hält alles fest: Schlüssel ohne Jahr, Rangfolge,
   Vereinigung, Zurückziehen, nie dieselbe/spätere Ausgabe, Abgleich,
   `kandidaten_termine`, `spanne`, `manual_events_aus`, `uebernehmen`,
@@ -4266,9 +4304,10 @@ Commit nimmt `scripts/veranstalter_seiten.json`,
 `scripts/veranstalter_seiten_pruefung.json` und
 `scripts/manual_events.json` mit – `git diff --quiet` und `git add` in
 `update-events.yml` nennen sie. **Auf `main` steht noch die alte
-Fassung**: Bis der Nutzer sie nachzieht, läuft `pruefen` dort zwar, aber
-Gedächtnis und Funde werden nicht committet (jede Woche von vorn).
-`stage_kalender()` staget die drei Dateien zusätzlich – in Actions.
+Fassung** – das ist seit dem 05.10.2026 (abends) nachgelesen unschädlich:
+`stage_kalender()` staget die drei Dateien in Actions, und der Commit
+auf `main` committet den Index, sobald `events.json` sich geändert hat
+(jede Woche). Nachziehen bleibt sauberer.
 
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle

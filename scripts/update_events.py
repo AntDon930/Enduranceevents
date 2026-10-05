@@ -216,8 +216,9 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
     Veranstaltungen nach dem nächsten Termin (scripts/veranstalter_seiten.py
     pruefen) und trägt eindeutige Funde in manual_events.json ein, die
     clean_events.py gleich danach aufnimmt. Höchstens NAECHSTE_AUSGABEN_MAX
-    Seiten je Lauf, jede Seite höchstens alle drei Wochen - so kommt der
-    ganze Bestand im Lauf einiger Wochen an die Reihe. Vom Nutzer am
+    Seiten und NAECHSTE_AUSGABEN_ZEITLIMIT Sekunden je Lauf, jede Seite
+    höchstens alle drei Wochen, die am längsten ungeprüften zuerst - so
+    kommt der ganze Bestand im Lauf einiger Wochen an die Reihe. Vom Nutzer am
     05.10.2026 gewünscht: „auf den Webseiten in der Vergangenheit soll
     auch ab und zu gecheckt werden, ob das neue Event schon rausgekommen
     ist". Ein Fehlschlag hält den Datenlauf nicht auf."""
@@ -227,7 +228,8 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
     print(f"\n{'=' * 70}\nNächste Ausgaben: Seiten vergangener Veranstaltungen prüfen\n{'=' * 70}")
     cmd = [sys.executable, str(script), "--events-json", str(events_json), "pruefen",
            "--bericht", str(SCRIPTS_DIR / "veranstalter_seiten_pruefung.json"), "--fortsetzen",
-           "--max", str(NAECHSTE_AUSGABEN_MAX), "--uebernehmen"]
+           "--max", str(NAECHSTE_AUSGABEN_MAX), "--zeitlimit", str(NAECHSTE_AUSGABEN_ZEITLIMIT),
+           "--uebernehmen"]
     try:
         result = subprocess.run(cmd, cwd=REPO_ROOT, timeout=NAECHSTE_AUSGABEN_TIMEOUT)
     except subprocess.TimeoutExpired:
@@ -241,8 +243,20 @@ def run_naechste_ausgaben(events_json: Path) -> bool:
     return result.returncode == 0
 
 
-NAECHSTE_AUSGABEN_MAX = 150
-NAECHSTE_AUSGABEN_TIMEOUT = 40 * 60
+# Wie viele Seiten je Wochenlauf, und wie lange. Gerechnet (05.10.2026):
+# Jede Veranstaltung des Gedächtnisses ist irgendwann vergangen und wartet
+# auf ihren nächsten Termin - bei 4.400 Veranstaltungen und einer Prüfung
+# alle 21 Tage (PRUEF_ABSTAND_TAGE) sind das rund 1.500 Seiten je Woche.
+# Mit 150 je Lauf (die erste Fassung) käme jede Seite nur alle sieben
+# Monate dran. Eine Seite kostet mit 2 s Pause rund 4 s; 600 Seiten sind
+# ~40 Minuten. Das ZEITLIMIT ist die eigentliche Grenze: Das Skript hört
+# dann selbst auf, übernimmt die Funde und speichert - der harte TIMEOUT
+# darunter ist nur noch die Notbremse gegen eine hängende Seite, und er
+# verlöre alles, was dieser Lauf gefunden hat. Der Wochenlauf hat 300
+# Minuten (update-events.yml), die Scraper brauchen ~210.
+NAECHSTE_AUSGABEN_MAX = 600
+NAECHSTE_AUSGABEN_ZEITLIMIT = 40 * 60
+NAECHSTE_AUSGABEN_TIMEOUT = 50 * 60
 
 
 def run_cleanup(events_json: Path) -> bool:
