@@ -36,29 +36,15 @@ from pathlib import Path
 sys.path.insert(0, "scripts")
 from veranstalter_links import Abrufer, text_von, kein_veranstalter, host_von
 from scraper_lib import is_portal_link
-from veranstalter_seiten import daten_aus  # noqa: E402
+from veranstalter_seiten import daten_aus, distanzen_aus, km_passt as passt  # noqa: E402
 
 BERICHT = Path(sys.argv[1]); FORTSETZEN = "--fortsetzen" in sys.argv
 MAX = int(sys.argv[sys.argv.index("--max")+1]) if "--max" in sys.argv else 0
-# daten_aus()/MONATE wohnen seit dem 05.10.2026 in veranstalter_seiten.py
-# (das Gedächtnis je Veranstaltung braucht dieselbe Erkennung) - EINE Fassung.
-
-def distanzen_aus(txt):
-    out=set()
-    for z in re.findall(r"\b(\d{1,3}(?:[.,]\d{1,3})?)\s?(?:km|kilometer)\b", txt):
-        try: out.add(round(float(z.replace(",", ".")),1))
-        except ValueError: pass
-    for z in re.findall(r"\b(\d{3,5})\s?(?:m|meter)\b", txt):
-        v=int(z)
-        if 300<=v<=5000: out.add(round(v/1000,1))
-    if re.search(r"\bhalbmarathon|\bhalf marathon|\b21[.,]1\b|\b21[.,]0975", txt): out.add(21.1)
-    if re.search(r"(?<!halb)(?<!half )marathon", txt): out.add(42.2)
-    return out
+# daten_aus()/MONATE und distanzen_aus()/km_passt() wohnen seit dem 05.10.2026 in
+# veranstalter_seiten.py (das Gedächtnis je Veranstaltung braucht dieselbe
+# Erkennung) - EINE Fassung.
 
 ABGESAGT_RE = re.compile(r"abgesagt|absage\b|findet nicht statt|f[aä]llt (?:in diesem jahr |dieses jahr |\d{4} )?aus|muss(?:te)? (?:\w+ ){0,3}ausfallen|cancell?ed|wird nicht mehr durchgeführt", re.I)
-
-def passt(km, gefunden):
-    return any(abs(km-g) <= 0.15 or (abs(km-g) < 0.6 and abs(round(km)-round(g)) == 0) for g in gefunden)
 
 events=json.load(open("events.json"))
 gruppen=OrderedDict()

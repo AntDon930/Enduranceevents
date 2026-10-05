@@ -1764,6 +1764,35 @@ python3 scripts/veranstalter_seiten.py zeigen Nikolauslauf
 python3 scripts/veranstalter_seiten.py pruefen --bericht /tmp/p.json --max 20
 ```
 
+### Was das Gedächtnis aushält (05.10.2026, abends)
+
+Der Nutzer hat gefragt, ob es „einwandfrei funktioniert … auch wenn im
+nächsten Jahr die Webseite leicht geändert oder neu aufgesetzt wurde,
+oder aus einem 10 km ein Halbmarathon wurde". Die ehrliche Antwort war:
+noch nicht. Fünf Lücken, alle am selben Tag geschlossen und in
+`test_gedaechtnis` festgehalten:
+
+| Fall | vorher | jetzt |
+|---|---|---|
+| **Sponsorwechsel im Namen** („Sparkassen-SAARathon" → „SAARathon", „Vitamin Well Frauenlauf" → „Frauenlauf") | neuer Schlüssel, zweiter Eintrag ohne Seite und ohne Vorjahr | ein Kern, der im anderen steckt, findet den Eintrag (wie der siebte Weg der Duplikat-Erkennung) – nur mit unterscheidendem Wort, passendem Ort, gleicher Sportart und **einem Jahr Abstand**; Zahlen und Sportwörter im Unterschied sperren („Ironman 5150" neben „Ironman 70.3", „Vienna Triathlon" neben „Run Vienna"). Am Bestand: 5 echte Paare, 0 falsche |
+| **Neue Domain** nach Umbau | ein per Override belegter Link der Ausgabe 2026 schlug die neue Seite, die der Scraper für 2027 lieferte – 2028 bekäme die tote Adresse | die **jüngere Ausgabe gewinnt**, der Rang entscheidet nur bei derselben Ausgabe |
+| **Tote Unterseite** (1.520 gemerkte Adressen zeigen auf Unterseiten, 164 mit Jahreszahl im Pfad) | FEHLER, jede Woche wieder | `pruefen` ruft die Startseite ab; nennt sie den Lauf, tritt sie an die Stelle der toten Adresse. Eine Weiterleitung auf einen anderen Host wird übernommen |
+| **Tote Seite** | wurde für immer an jede neue Ausgabe weitergegeben | nach zwei Prüfungen (≥ 3 Wochen auseinander) mit 404/410 oder ohne Host: `quelle` tot, `url` leer, die Adresse in `url_tot`; die nächste eigene Seite einer Quelle ersetzt sie. 403/429/5xx und Zeitüberschreitungen zählen nicht |
+| **Aus 10 km wurde ein Halbmarathon** | `--uebernehmen` schrieb die Strecken des Vorjahrs blind in die neue Ausgabe; kam die Quelle später mit 21,1 km, standen beide | drei Sicherungen: (1) nennt die Seite Kilometer, kommen nur die Strecken mit, die dort noch stehen (`distanzen_aus`, jetzt EINE Fassung mit `seitenabgleich.py`); was die Seite zusätzlich nennt, steht in Notiz und Bericht, wird aber nie angelegt; (2) jede so angelegte Zeile trägt **`gedaechtnis: true`** in events.json – `clean_events.zurueckziehen_vorjahreskopien()` nimmt sie zurück, sobald eine Quelle die Ausgabe (±10 Tage) liefert, und `update_existing_event()`/`merge_duplicates()` nehmen nur die Markierung weg, wenn eine Quelle dieselbe Strecke bestätigt; (3) das Gedächtnis lernt seine eigene Kopie nicht als Bestand zurück (`strecken_uebernommen`) |
+
+Dazu liest `daten_aus()` jetzt auch „12.10.27", „12/10/2027", Englisch,
+Französisch und Italienisch („12 octobre 2027", „12 ottobre 2027" – die
+Romandie, das Tessin und Südtirol schreiben so), und `uebernehmen()`
+räumt vergangene Vorjahreskopien aus `manual_events.json`. Probelauf an
+14 echten Seiten: 13 NICHTS (die Seiten zeigen noch 2026), 1
+Zeitüberschreitung, kein falscher Fund.
+
+**Was bleibt**: Eine Seite, die den Lauf nicht beim Namen nennt (nur
+Allerweltswörter wie „Seelauf", „Silvesterlauf"), kann nie „NEU" werden –
+sie landet als „NEU?" im Bericht für die Handprüfung. Und Strecken, die
+nur auf einer Unterseite stehen, prüft `pruefen` nicht; dann gilt das
+Vorjahr, und die Zeile sagt es in ihrer Notiz.
+
 ## Login/Anmeldung einrichten
 
 `index.html`, `events.html` und `karte.html` haben rechts neben dem

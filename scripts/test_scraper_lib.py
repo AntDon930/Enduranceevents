@@ -3623,6 +3623,124 @@ def test_gedaechtnis() -> None:
     vs.lernen(albig, g3, overrides={})
     vs.anwenden(albig_ohne, g3, overrides={})
     check("anwenden: nie auf dieselbe Ausgabe", albig_ohne[0]["veranstalter_url"], "https://my.raceresult.com/421768/")
+    # ---- Seit dem 05.10.2026 (Frage des Nutzers: „auch wenn im nächsten
+    # Jahr die Webseite leicht geändert oder neu aufgesetzt wurde, oder aus
+    # einem 10 km ein Halbmarathon wurde") ------------------------------
+    # Sponsorwechsel im Namen: derselbe Eintrag, wenn der Kern im anderen
+    # steckt, der Ort passt und ein Jahr dazwischenliegt.
+    g4 = vs.Gedaechtnis({})
+    saar = [z("Sparkassen-SAARathon", "2026-10-11", 42.2, url="https://saarathon.de/", standort="Saarbrücken", lat=49.23, lon=6.99)]
+    g4.lerne(saar[0], "quelle"); g4.lerne_ausgabe(vs.schluessel_von(saar[0]), saar)
+    saar27 = [z("SAARathon 2027", "2027-10-10", 42.2, url="https://my.raceresult.com/9/", standort="Saarbrücken", lat=49.23, lon=6.99)]
+    vs.anwenden(saar27, g4, overrides={})
+    check("Sponsorwechsel: SAARathon bekommt die Seite von Sparkassen-SAARathon", saar27[0]["veranstalter_url"], "https://saarathon.de/")
+    vs.lernen(saar27, g4, overrides={})
+    check("Sponsorwechsel: EIN Eintrag, Schlüssel auf den kleineren Kern umgezogen", (len(g4), list(g4.daten)), (1, ["saarathon|saarbrucken"]))
+    geschwister = [z("Ironman 70.3 Erkner", "2027-09-12", 113, url="https://my.raceresult.com/8/", standort="Erkner", lat=52.42, lon=13.75)]
+    g5 = vs.Gedaechtnis({})
+    g5.lerne(z("Ironman 5150 Erkner Berlin-Brandenburg", "2027-09-11", 51.5, url="https://ironman5150.de/", standort="Erkner", lat=52.42, lon=13.75), "quelle")
+    vs.anwenden(geschwister, g5, overrides={})
+    check("Gegenprobe: Geschwister einer Serie am Folgetag sind kein Sponsorwechsel", geschwister[0]["veranstalter_url"], "https://my.raceresult.com/8/")
+    g6 = vs.Gedaechtnis({})
+    g6.lerne(z("Vienna Triathlon", "2026-09-12", 51.5, url="https://vienna-triathlon.at/", standort="Wien", lat=48.2, lon=16.37), "quelle")
+    lauf = [z("Run Vienna", "2027-09-11", 10, url="https://my.raceresult.com/7/", standort="Wien", lat=48.2, lon=16.37)]
+    lauf[0]["art1"] = "Laufen"
+    vs.anwenden(lauf, g6, overrides={})
+    check("Gegenprobe: andere Sportart, Sportwort im Unterschied - kein Treffer", lauf[0]["veranstalter_url"], "https://my.raceresult.com/7/")
+    # Neu aufgesetzte Seite: die JÜNGERE Ausgabe gewinnt auch gegen einen Override-Link.
+    g7 = vs.Gedaechtnis({})
+    g7.lerne(z("Ruhr Trail Run", "2026-06-06", 21.1, url="https://brooks-ruhr-trail-run.de/", standort="Essen"), "override")
+    g7.lerne(z("Ruhr Trail Run", "2027-06-05", 21.1, url="https://altra-ruhr-trail-run.de/", standort="Essen"), "quelle")
+    check("neue Domain für die neue Ausgabe schlägt den Override-Link der alten", g7.finde(z("Ruhr Trail Run", "2028-06-03", 21.1, standort="Essen"))["url"], "https://altra-ruhr-trail-run.de/")
+    g7.lerne(z("Ruhr Trail Run", "2027-06-05", 21.1, url="https://verein-essen.de/", standort="Essen"), "quelle")
+    check("… dieselbe Ausgabe, gleicher Rang, anderer Host: Konflikt", g7.finde(z("Ruhr Trail Run", "2028-06-03", 21.1, standort="Essen")).get("konflikt") is not None, True)
+    # Datumsangaben in vier Sprachen, zweistelliges Jahr, Schrägstrich.
+    from veranstalter_links import norm as _norm
+    for text, erwartet in [("Sonntag, 12. Oktober 2027", "2027-10-12"), ("am 12.10.27 um 9 uhr", "2027-10-12"),
+                           ("12/10/2027", "2027-10-12"), ("dimanche 12 octobre 2027", "2027-10-12"),
+                           ("domenica 12 ottobre 2027", "2027-10-12"), ("October 12, 2027", "2027-10-12"),
+                           ("12 October 2027", "2027-10-12"), ("24. März 2027", "2027-03-24")]:
+        check(f"daten_aus: {text!r}", vs.daten_aus(_norm(text)), {erwartet})
+    check("daten_aus: keine Versionsnummer und keine Uhrzeit", vs.daten_aus(_norm("Version 1.2.27. und 12.10.27.30")), set())
+    check("distanzen_aus: km, Meter, Halbmarathon, Marathon, Italienisch",
+          vs.distanzen_aus(_norm("Halbmarathon, 10 km und 5.000 m, Mezza Maratona, 1500 m")), {21.1, 10.0, 5.0, 1.5})
+    check("distanzen_aus: Mezza Maratona ist kein Marathon", 42.2 in vs.distanzen_aus(_norm("Mezza Maratona")), False)
+    # Strecken gegen die Seite: aus 10 km wurde ein Halbmarathon.
+    e10 = {"url": "https://lauf.de/", "name": "Seelauf", "standort": "Erding", "lat": 48.3, "lon": 11.9, "datum": "2026-10-03",
+           "art1": "Laufen", "land": "Deutschland",
+           "strecken": [{"laenge_km": 10.0, "dauer_h": None, "wettbewerb": "10 km", "art2": "Straße"},
+                        {"laenge_km": 5.0, "dauer_h": None, "wettbewerb": "5 km", "art2": "Straße"},
+                        {"laenge_km": None, "dauer_h": 1.0, "wettbewerb": "Stundenlauf", "art2": "Straße"}]}
+    zl = vs.manual_events_aus(e10, "2027-10-02", "2027-10-02", "2026-10-05", seiten_km={21.1, 5.0})
+    check("Streckenprüfung: 10 km fällt (Seite nennt 21,1 und 5), 5 km und das Zeitrennen bleiben",
+          [(r.get("laenge_km"), r.get("dauer_h")) for r in zl], [(5.0, None), (None, 1.0)])
+    check("Streckenprüfung: die Notiz nennt das Weggefallene und das Neue", ("10 km" in zl[0]["_note"], "21.1 km" in zl[0]["_note"]), (True, True))
+    check("Streckenprüfung: jede Zeile trägt gedaechtnis", all(r.get("gedaechtnis") is True for r in zl), True)
+    zl2 = vs.manual_events_aus(e10, "2027-10-02", "2027-10-02", "2026-10-05", seiten_km={21.1})
+    check("Streckenprüfung: nichts passt mehr - eine Zeile ohne Maßzahl statt erfundener Strecken",
+          [(r.get("laenge_km"), r.get("dauer_h")) for r in zl2], [(None, 1.0)])
+    zl3 = vs.manual_events_aus(e10, "2027-10-02", "2027-10-02", "2026-10-05", seiten_km=set())
+    check("Streckenprüfung: Seite ohne Kilometer - Vorjahr unverändert", len(zl3), 3)
+    # Die Prüfung einer Seite: Weiterleitung, tote Unterseite, tote Seite.
+    class FakeAbrufer:
+        def __init__(self, antworten, umleitung=None):
+            self.antworten, self.endadresse = antworten, dict(umleitung or {})
+        def hole(self, url):
+            return self.antworten.get(url, (404, ""))
+    seite = "<html><body>Fuchsburglauf Erding - nächster Termin: Sonntag, 3. Oktober 2027. Strecken: 10 km, 5 km</body></html>"
+    v = {"url": "https://lauf.de/2026/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "override"}
+    r, fund = vs.pruefe_eintrag("k", v, FakeAbrufer({"https://lauf.de/2026/ausschreibung": (404, ""), "https://lauf.de/": (200, seite)}), "2026-10-05")
+    check("tote Unterseite: Startseite nennt den Lauf -> Adresse umgezogen, Termin gefunden",
+          (v["url"], r["flag"], fund[2] if fund else None, sorted(fund[4]) if fund else None), ("https://lauf.de/", "NEU", "2027-10-03", [5.0, 10.0]))
+    v2 = {"url": "https://alt.de/lauf", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    r, fund = vs.pruefe_eintrag("k", v2, FakeAbrufer({"https://alt.de/lauf": (200, seite)}, {"https://alt.de/lauf": "https://neu.de/seelauf/"}), "2026-10-05")
+    check("Weiterleitung auf eine neue Domain: das Gedächtnis merkt sich die neue Adresse", (v2["url"], r.get("umgezogen")), ("https://neu.de/seelauf/", "https://neu.de/seelauf/"))
+    v3 = {"url": "https://weg.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    tot = FakeAbrufer({"https://weg.de/": (None, "fehler:ConnectionError")})
+    r1, _ = vs.pruefe_eintrag("k", v3, tot, "2026-10-05")
+    check("tote Seite: beim ersten Mal nur FEHLER und Zähler", (r1["flag"], v3.get("tot_zaehler"), v3["url"]), ("FEHLER", 1, "https://weg.de/"))
+    r2, _ = vs.pruefe_eintrag("k", v3, tot, "2026-10-26")
+    check("tote Seite: beim zweiten Mal tot - url leer, Adresse in url_tot", (r2["flag"], v3["url"], v3["url_tot"], v3["quelle"]), ("TOT", None, "https://weg.de/", "tot"))
+    g8 = vs.Gedaechtnis({"fuchsburglauf|erding": v3})
+    neu_seite = [z("Fuchsburglauf Erding", "2027-10-02", 10, url="https://neue-seite.de/", standort="Erding")]
+    check("tote Seite: anwenden gibt nichts weiter", vs.anwenden([z("Fuchsburglauf Erding", "2027-10-02", 10, url="https://my.raceresult.com/5/", standort="Erding")], g8, overrides={}), [])
+    vs.lernen(neu_seite, g8, overrides={})
+    check("tote Seite: die erste eigene Seite einer Quelle ersetzt sie", (g8.daten["fuchsburglauf|erding"]["url"], g8.daten["fuchsburglauf|erding"]["quelle"]), ("https://neue-seite.de/", "quelle"))
+    v4 = {"url": "https://bot.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    vs.pruefe_eintrag("k", v4, FakeAbrufer({"https://bot.de/": (403, "")}), "2026-10-05")
+    check("403 ist eine Bot-Sperre, keine tote Seite", (v4.get("tot_zaehler"), v4["url"]), (None, "https://bot.de/"))
+    # Übernahme: Vorjahreskopien räumt uebernehmen() wieder weg, wenn sie vorbei sind.
+    with tempfile.TemporaryDirectory() as tmp:
+        pfad = Path(tmp) / "manual_events.json"
+        pfad.write_text(_json.dumps({"events": [{"name": "Alt", "datum_start": "2026-01-01", "datum_ende": "2026-01-01", "gedaechtnis": True},
+                                                {"name": "Hand", "datum_start": "2026-01-01", "datum_ende": "2026-01-01"}]}), encoding="utf-8")
+        b = vs.uebernehmen([("k", e10, "2027-10-02", "2027-10-02", {21.1, 5.0})], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        check("uebernehmen: vergangene Kopie weg, Handeintrag bleibt, neue Ausgabe mit geprüften Strecken",
+              ([e["name"] for e in roh["events"]], len(b)), (["Hand", "Seelauf", "Seelauf"], 2))
+    # Beim Lernen zählt die eigene Vorjahreskopie nur, solange keine Quelle liefert.
+    g9 = vs.Gedaechtnis({})
+    kopie = z("Seelauf", "2027-10-02", 10, "10 km", url="https://lauf.de/", standort="Erding"); kopie["gedaechtnis"] = True
+    g9.lerne_ausgabe("seelauf|erding", [kopie])
+    check("lerne_ausgabe: Kopie gelernt, als übernommen markiert", (g9.daten["seelauf|erding"]["strecken_uebernommen"], [s["laenge_km"] for s in g9.daten["seelauf|erding"]["strecken"]]), (True, [10]))
+    g9.lerne_ausgabe("seelauf|erding", [z("Seelauf", "2027-10-02", 21.1, "Halbmarathon", url="https://lauf.de/", standort="Erding")])
+    check("lerne_ausgabe: die Quelle ersetzt die Kopie (keine Vereinigung mit 10 km)",
+          ([s["laenge_km"] for s in g9.daten["seelauf|erding"]["strecken"]], g9.daten["seelauf|erding"].get("strecken_uebernommen")), ([21.1], None))
+    # clean_events: Vorjahreskopien verschwinden, sobald eine Quelle die Ausgabe liefert.
+    from clean_events import zurueckziehen_vorjahreskopien, merge_duplicates
+    from scraper_lib import update_existing_event
+    kopie10 = dict(kopie)
+    quelle21 = z("Seelauf Erding 2027", "2027-10-03", 21.1, "Halbmarathon", url="https://lauf.de/", standort="Erding")
+    ev, man, ber = zurueckziehen_vorjahreskopien([kopie10, quelle21], [dict(kopie10)])
+    check("Vorjahreskopie zurückgezogen: Quelle liefert die Ausgabe (einen Tag daneben, anderer Name)",
+          ([e["laenge_km"] for e in ev], man, len(ber)), ([21.1], [], 1))
+    ev, man, ber = zurueckziehen_vorjahreskopien([kopie10], [dict(kopie10)])
+    check("Vorjahreskopie bleibt, solange keine Quelle liefert", ([e["laenge_km"] for e in ev], len(man)), ([10], 1))
+    bestaetigt = dict(kopie10); update_existing_event(bestaetigt, z("Seelauf", "2027-10-02", 10, "10 km", url="https://lauf.de/", standort="Erding"))
+    check("update_existing_event: eine Quelle bestätigt die Strecke - Markierung weg", "gedaechtnis" in bestaetigt, False)
+    prim = dict(kopie10); prim["veranstalter_url"] = "https://lauf.de/"
+    res, _ = merge_duplicates([prim, z("Seelauf", "2027-10-02", 10, "10 km", url="https://my.raceresult.com/1/", standort="Erding")])
+    check("merge_duplicates: bestätigt durch eine zweite Zeile - Markierung weg, eine Zeile", (len(res), "gedaechtnis" in res[0]), (1, False))
     # Die Datei im Repo: jeder Eintrag trägt Schlüssel in der erwarteten Form.
     if vs.PFAD.exists():
         d = _json.loads(vs.PFAD.read_text(encoding="utf-8"))

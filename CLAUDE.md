@@ -2276,6 +2276,65 @@ greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
   `kandidaten_termine`, `spanne`, `manual_events_aus`, `uebernehmen`,
   Speichern/Laden und die Repo-Datei.
 
+**Seit dem 05.10.2026 (abends) hält das Gedächtnis fünf Fälle aus**, nach
+denen der Nutzer gefragt hat („auch wenn im nächsten Jahr die Webseite
+leicht geändert oder neu aufgesetzt wurde, oder aus einem 10 km ein
+Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
+
+- **Sponsorwechsel im Namen**: `_kandidaten()` findet den Eintrag auch,
+  wenn der Kern des einen Namens im anderen steckt – nur mit
+  unterscheidendem Wort, passendem Ort, gleicher `art1`, **einem Jahr
+  Abstand** (`_jahresabstand`) und ohne Zahl oder Sportwort
+  (`_FORMATWOERTER`) im Unterschied. Ohne den Jahresabstand hätte die
+  Regel „Ironman 5150 Erkner" mit „Ironman 70.3 Erkner" (Folgetag)
+  verschmolzen. `schluessel_fuer()` lernt unter dem gefundenen Schlüssel
+  und zieht den Eintrag auf den **kleineren** Kern um („saarathon" bleibt
+  stabil). Am Bestand nachgezählt: 5 Paare, alle echt.
+- **Jüngere Ausgabe gewinnt vor dem Rang** (`lerne()`): Ein Override-Link
+  der Ausgabe 2026 blockierte sonst die neue Domain, die der Scraper für
+  2027 liefert. Bei DERSELBEN Ausgabe schlägt der Override weiter die
+  Quelle, bei gleichem Rang bleibt es beim Konflikt.
+- **`pruefe_eintrag()`** (die Prüfung EINER Seite, aus `cmd_pruefen`
+  herausgelöst, testbar mit einem Fake-Abrufer): Weiterleitung auf einen
+  anderen Host → neue Adresse gemerkt (`Abrufer.endadresse`; derselbe Host
+  zählt nicht – velosolingen.de leitet auf `/adm_program/index.php`);
+  tote Unterseite (404/410, Host weg) → Startseite abrufen, nennt sie den
+  Lauf, ersetzt sie die Adresse; Unterseite ohne passenden Termin →
+  Startseite dazulesen; **tot nach zwei Prüfungen** (`TOT_NACH_PRUEFUNGEN`,
+  mindestens drei Wochen auseinander): `quelle` tot, `url` leer, `url_tot`
+  – `anwenden()` gibt nichts mehr weiter, `lerne()` nimmt die nächste
+  eigene Seite einer Quelle. **403/429/5xx und Zeitüberschreitungen sind
+  keine Beweise** (Bot-Sperren).
+- **Strecken gegen die Seite** (`manual_events_aus(…, seiten_km)`): Nennt
+  die Seite Kilometer (`distanzen_aus`, aus `seitenabgleich.py`
+  hierhergezogen – EINE Fassung), kommen nur die Vorjahresstrecken mit,
+  die dort noch stehen; bleibt keine, eine Zeile ohne Maßzahl. Was die
+  Seite zusätzlich nennt, steht in `_note` und Bericht (`seiten_km`),
+  wird aber **nie angelegt**. Ohne Kilometer auf der Seite gilt das
+  Vorjahr.
+- **`gedaechtnis: true` an jeder so angelegten Zeile** – das Feld landet
+  in events.json (die Seite ignoriert es) und heißt: Vorjahreskopie,
+  von keiner Quelle bestätigt. `clean_events.zurueckziehen_vorjahreskopien()`
+  (in `add_manual_events()`) nimmt die Kopien zurück und lässt den
+  Eintrag in `manual_events.json` aus, sobald eine Zeile derselben
+  Veranstaltung ohne Markierung im Abstand von höchstens zehn Tagen da
+  ist; `update_existing_event()` (Einsammeln) und `merge_duplicates()`
+  nehmen NUR die Markierung weg, wenn eine Quelle dieselbe Strecke
+  bestätigt – die Zeile bleibt. `lerne_ausgabe()` lernt Kopien nur,
+  solange keine Quelle liefert (`strecken_uebernommen`), und ersetzt sie
+  dann statt zu vereinigen. Das ist keine Löschregel auf Heuristik-Basis:
+  Entfernt wird nur, was wir selbst abgeschrieben haben. `uebernehmen()`
+  räumt vergangene Kopien aus `manual_events.json`.
+- `daten_aus()` liest jetzt auch „12.10.27" (nur 2020–2039, keine Ziffer
+  oder Punkt dahinter), „12/10/2027", englische, französische und
+  italienische Monatsnamen – Romandie, Tessin und Südtirol.
+
+**Was es weiter nicht kann**: Eine Seite, die den Lauf nicht beim Namen
+nennt (Allerweltswörter – „Seelauf", „Silvesterlauf" stehen in
+`ALLGEMEIN`), wird nie „NEU", nur „NEU?" für die Handprüfung. Strecken
+auf Unterseiten liest `pruefen` nicht (dann gilt das Vorjahr, die Notiz
+sagt es).
+
 ## Frontend-Fallen (events.html)
 
 - **Handy: Kacheln statt Tabelle (unter 700 px).** Vom Nutzer am

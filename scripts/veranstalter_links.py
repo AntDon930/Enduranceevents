@@ -168,6 +168,9 @@ class Abrufer:
         self.zuletzt: dict[str, float] = {}
         self.robots: dict[str, RobotFileParser | None] = {}
         self.cache: dict[str, tuple[int | None, str]] = {}
+        # Die Adresse, bei der der Abruf nach Weiterleitungen ankam - das
+        # Gedächtnis je Veranstaltung lernt daraus eine umgezogene Seite.
+        self.endadresse: dict[str, str] = {}
 
     def erlaubt(self, url: str) -> bool:
         host = urlparse(url).netloc.lower()
@@ -210,6 +213,8 @@ class Abrufer:
             r.close()
             r._content = b"".join(teile)
             ergebnis = (r.status_code, r.text if r.status_code < 400 else "")
+            if r.url:
+                self.endadresse[url] = r.url
         except requests.RequestException as exc:
             ergebnis = (None, f"fehler:{type(exc).__name__}")
         self.zuletzt[host] = time.time()

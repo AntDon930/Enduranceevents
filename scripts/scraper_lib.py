@@ -2982,6 +2982,12 @@ def update_existing_event(target: dict, source: dict) -> None:
         if target.get(field_name) is None and source.get(field_name) is not None:
             target[field_name] = source[field_name]
 
+    # Eine Zeile, die das Gedächtnis je Veranstaltung als Vorjahreskopie
+    # angelegt hat (`gedaechtnis`, veranstalter_seiten.py), ist jetzt von
+    # einer Quelle bestätigt - die Markierung fällt, die Zeile bleibt.
+    if not source.get("gedaechtnis"):
+        target.pop("gedaechtnis", None)
+
     new_url, old_url = source.get("veranstalter_url"), target.get("veranstalter_url")
     if new_url and not is_portal_link(new_url) and is_portal_link(old_url):
         target["veranstalter_url"] = new_url

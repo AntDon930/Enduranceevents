@@ -89,6 +89,7 @@ from scraper_lib import (  # noqa: E402
     guess_land,
     is_portal_link,
     is_same_event,
+    normalize_event_name,
     meter_km,
     is_same_race,
     find_override,
@@ -165,7 +166,7 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
     manuell = load_manual_events()
     if not manuell:
         return events, []
-    hinzu: list[str] = []
+    events, manuell, hinzu = zurueckziehen_vorjahreskopien(events, manuell)
     for kandidat in manuell:
         if any(is_same_event(vorhanden, kandidat) for vorhanden in events):
             continue
@@ -177,6 +178,77 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
             + f") - {kandidat.get('standort')}"
         )
     return events, hinzu
+
+
+def zurueckziehen_vorjahreskopien(events: list[dict], manuell: list[dict]) -> tuple[list[dict], list[dict], list[str]]:
+    """Die Ausgaben, die das Gedächtnis je Veranstaltung selbst angelegt
+    hat (`gedaechtnis: true` an der Zeile - `veranstalter_seiten.py pruefen
+    --uebernehmen` hat auf der Veranstalterseite den nächsten Termin
+    gefunden und die STRECKEN DES VORJAHRS dazugestellt), gelten nur,
+    solange keine Quelle diese Ausgabe liefert. Sobald eine Zeile derselben
+    Veranstaltung im Abstand von höchstens zehn Tagen OHNE die Markierung
+    da ist, kennt eine Quelle die Ausgabe - dann verschwinden die
+    Vorjahreskopien, und der Eintrag in manual_events.json wird nicht mehr
+    aufgenommen. Aus einem 10-km-Lauf kann ein Halbmarathon geworden sein:
+    Die 10-km-Kopie stünde sonst neben dem echten Halbmarathon, und
+    niemand sähe ihr an, dass sie erfunden ist (vom Nutzer am 05.10.2026
+    gefragt: „Oder aus einem 10km ein Halbmarathon wurde").
+
+    Eine Kopie, die eine Quelle BESTÄTIGT hat, trägt die Markierung nicht
+    mehr (`update_existing_event()` beim Einsammeln, `merge_duplicates()`
+    hier) und bleibt. Das ist keine Löschregel auf Heuristik-Basis: Entfernt
+    wird nur, was wir selbst aus dem Vorjahr abgeschrieben haben, und nur,
+    wenn eine Quelle die Ausgabe tatsächlich beschreibt."""
+    kopien = [m for m in manuell if m.get("gedaechtnis")]
+    if not kopien:
+        return events, manuell, []
+    from datetime import date
+    bericht: list[str] = []
+
+    def tage(a: str | None, b: str | None) -> int | None:
+        try:
+            return abs((date.fromisoformat(a or "") - date.fromisoformat(b or "")).days)
+        except ValueError:
+            return None
+
+    # Ein Gedächtnis nur aus den Zeilen, die KEINE Kopie sind - derselbe
+    # Schlüssel und dieselbe unscharfe Suche wie in veranstalter_seiten.py.
+    echte = veranstalter_seiten.Gedaechtnis({})
+    for e in events:
+        if e.get("gedaechtnis"):
+            continue
+        k = veranstalter_seiten.schluessel_von(e)
+        if not k:
+            continue
+        eintrag = echte.daten.setdefault(k, {"name": e.get("name"), "standort": e.get("standort"),
+                                             "lat": e.get("lat"), "lon": e.get("lon"), "art1": e.get("art1"),
+                                             "daten": set()})
+        eintrag["daten"].add(e.get("datum_start") or "")
+    echte._index = None
+
+    def quelle_liefert(kopie: dict) -> bool:
+        for k in echte._kandidaten(kopie) or [veranstalter_seiten.schluessel_von(kopie)]:
+            eintrag = echte.daten.get(k)
+            if eintrag and any((tage(d, kopie.get("datum_start")) or 99) <= 10 for d in eintrag["daten"]):
+                return True
+        return False
+
+    erledigt: set[tuple] = set()
+    for kopie in kopien:
+        if quelle_liefert(kopie):
+            erledigt.add((normalize_event_name(kopie.get("name")), kopie.get("datum_start")))
+    if not erledigt:
+        return events, manuell, []
+    behalten: list[dict] = []
+    for e in events:
+        if e.get("gedaechtnis") and (normalize_event_name(e.get("name")), e.get("datum_start")) in erledigt:
+            bericht.append(f"{e.get('name')} ({e.get('datum_start')}, {e.get('standort')}): Vorjahreskopie "
+                           f"{e.get('laenge_km') if e.get('laenge_km') is not None else '-'} km zurückgezogen - "
+                           "eine Quelle liefert die Ausgabe")
+            continue
+        behalten.append(e)
+    manuell = [m for m in manuell if not (m.get("gedaechtnis") and (normalize_event_name(m.get("name")), m.get("datum_start")) in erledigt)]
+    return behalten, manuell, bericht
 
 
 # Die Felder, die EINE Strecke beschreiben (siehe apply_overrides).
@@ -1786,6 +1858,12 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
             for other in cluster:
                 if other is primary:
                     continue
+                # Eine Vorjahreskopie des Gedächtnisses (`gedaechtnis`) ist
+                # bestätigt, sobald eine andere Zeile derselben Strecke
+                # ohne die Markierung dazukommt (siehe
+                # zurueckziehen_vorjahreskopien).
+                if not other.get("gedaechtnis"):
+                    primary.pop("gedaechtnis", None)
                 for field in ENRICHABLE_FIELDS:
                     if primary.get(field) is None and other.get(field) is not None:
                         primary[field] = other[field]

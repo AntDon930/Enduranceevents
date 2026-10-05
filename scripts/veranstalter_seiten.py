@@ -19,16 +19,20 @@ Was die Datei `scripts/veranstalter_seiten.json` enthält:
       "name": "49. Nat. Nikolaus Volkslauf",   der zuletzt gesehene Name
       "standort": "Bad Schönborn", "lat": …, "lon": …,
       "datum": "2026-12-06",         die jüngste Ausgabe, von der gelernt wurde
-      "quelle": "override" | "quelle" | "zurueckgezogen",
-                                     Einzelprüfung, vom Scraper geliefert, oder
-                                     die Seite wurde für diese Ausgabe entfernt (url null)
+      "quelle": "override" | "quelle" | "zurueckgezogen" | "tot",
+                                     Einzelprüfung, vom Scraper geliefert, die Seite wurde
+                                     für diese Ausgabe entfernt (url null), oder `pruefen`
+                                     hat sie zweimal als tot vorgefunden (url null, url_tot)
       "konflikt": ["…", "…"],        statt url: zwei Seiten, keine entscheidbar
       "fest": true,                  von Hand gesetzt - lernen() fasst es nicht an
       "art1": "Laufen", "land": "Deutschland",
       "strecken": [ {"laenge_km": 10, "dauer_h": null, "wettbewerb": "10 km", "art2": "Straße"}, … ],
       "strecken_datum": "2026-12-06",  die Strecken der jüngsten Ausgabe und ihr Starttag (05.10.2026)
       "geprueft_am": "2027-03-02",   wann `pruefen` die Seite zuletzt abgerufen hat
-      "uebernommen": "2027-06-13"    welche Ausgabe `pruefen --uebernehmen` angelegt hat
+      "uebernommen": "2027-06-13",   welche Ausgabe `pruefen --uebernehmen` angelegt hat
+      "strecken_uebernommen": true,  die Strecken sind die eigene Vorjahreskopie (keine Quelle)
+      "tot_zaehler": 1,              so oft in Folge war die Seite weg (404/410, Host weg)
+      "url_tot": "https://…"         bei `quelle` tot: die Adresse, die es nicht mehr gibt
     }
 
 Seit dem 05.10.2026 steht JEDE Veranstaltung im Gedächtnis, auch eine
@@ -151,35 +155,103 @@ README = ("Gedächtnis je Veranstaltung OHNE Datum (scripts/veranstalter_seiten.
           "Schlüssel '<Kern des Namens>|<Ort als Wortmenge>', Wert die Veranstalterseite. "
           "Geschrieben von clean_events.py (lernen), gelesen von clean_events.py (anwenden): "
           "Eine neue Ausgabe mit Portallink bekommt die Seite der vorigen. "
-          "'quelle' = override (Einzelprüfung), quelle (vom Scraper geliefert) oder zurueckgezogen (die Ausgabe trägt die Seite nicht mehr, url leer); 'konflikt' statt 'url' = "
+          "'quelle' = override (Einzelprüfung), quelle (vom Scraper geliefert), zurueckgezogen (die Ausgabe trägt die Seite nicht mehr, url leer) oder tot (pruefen fand sie zweimal nicht, url leer, alte Adresse in url_tot); 'konflikt' statt 'url' = "
           "zwei Seiten, keine entscheidbar, nichts wird angewendet; 'fest': true = von Hand gesetzt, lernen() lässt den Eintrag in Ruhe. "
           "'strecken'/'art1'/'land' = die jüngste Ausgabe ('strecken_datum' ihr Starttag), gelernt auch ohne Seite; "
           "'geprueft_am'/'uebernommen' setzt `pruefen` (Suche nach der nächsten Ausgabe auf der Veranstalterseite). "
           "Die Einträge sind nach Schlüssel sortiert, damit der Diff je Lauf klein bleibt.")
 
 # Monatsnamen für Datumsangaben im Seitentext (auch von seitenabgleich.py
-# genutzt - EINE Tabelle für beide).
+# genutzt - EINE Tabelle für beide). Deutsch, Englisch, Französisch und
+# Italienisch: Die Schweizer Seiten (Romandie, Tessin) und die Südtiroler
+# schreiben „12 octobre 2027" bzw. „12 ottobre 2027" - bis zum
+# 05.10.2026 las die Prüfung dort kein einziges Datum (NICHTS statt NEU).
 MONATE = {m: i + 1 for i, m in enumerate(
     ["januar", "februar", "marz", "april", "mai", "juni", "juli", "august",
      "september", "oktober", "november", "dezember"])}
+MONATE.update({m: i + 1 for i, m in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july", "august",
+     "september", "october", "november", "december"])})
+MONATE.update({m: i + 1 for i, m in enumerate(
+    ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout",
+     "septembre", "octobre", "novembre", "decembre"])})
+MONATE.update({m: i + 1 for i, m in enumerate(
+    ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
+     "settembre", "ottobre", "novembre", "dicembre"])})
 MONATE.update({"jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6, "jul": 7, "aug": 8,
-               "sep": 9, "sept": 9, "okt": 10, "nov": 11, "dez": 12})
+               "sep": 9, "sept": 9, "okt": 10, "oct": 10, "nov": 11, "dez": 12, "dec": 12,
+               "maerz": 3, "fevr": 2, "juil": 7, "dic": 12, "gen": 1, "mag": 5, "giu": 6,
+               "lug": 7, "ago": 8, "set": 9, "ott": 10, "dic.": 12})
+
+
+def _datum(j: str, m: int, t: str) -> str | None:
+    if 1 <= m <= 12 and 1 <= int(t) <= 31:
+        return f"{j}-{m:02d}-{int(t):02d}"
+    return None
 
 
 def daten_aus(txt: str) -> set[str]:
     """Alle Datumsangaben im (normalisierten) Seitentext als ISO-Daten:
-    „12.10.2026", „12. Oktober 2026", „2026-10-12"."""
+    „12.10.2026", „12.10.26", „12/10/2026", „12. Oktober 2026",
+    „12 octobre 2026", „12 ottobre 2026", „October 12, 2026", „2026-10-12".
+
+    Das zweistellige Jahr („12.10.26") zählt nur ohne weitere Ziffer oder
+    Punkt dahinter - „12.10.26.“ und „1.2.26 Uhr“ wären sonst Daten; und
+    nur 2020–2039, damit „1.2.03" keine Jahresangabe wird."""
     out = set()
-    for t, m, j in re.findall(r"\b(\d{1,2})\.\s?(\d{1,2})\.\s?(20\d{2})\b", txt):
-        if 1 <= int(m) <= 12 and 1 <= int(t) <= 31:
-            out.add(f"{j}-{int(m):02d}-{int(t):02d}")
-    for t, m, j in re.findall(r"\b(\d{1,2})\.\s?([a-z]{3,9})\.?\s?(20\d{2})\b", txt):
-        if m in MONATE and 1 <= int(t) <= 31:
-            out.add(f"{j}-{MONATE[m]:02d}-{int(t):02d}")
+    for t, m, j in re.findall(r"\b(\d{1,2})[./]\s?(\d{1,2})[./]\s?(20\d{2})\b", txt):
+        d = _datum(j, int(m), t)
+        if d:
+            out.add(d)
+    for t, m, j in re.findall(r"\b(\d{1,2})\.(\d{1,2})\.([23]\d)\b(?![.:\d])", txt):
+        d = _datum("20" + j, int(m), t)
+        if d:
+            out.add(d)
+    for t, m, j in re.findall(r"\b(\d{1,2})\.?\s?([a-z]{3,9})\.?\s?(20\d{2})\b", txt):
+        if m in MONATE:
+            d = _datum(j, MONATE[m], t)
+            if d:
+                out.add(d)
+    for m, t, j in re.findall(r"\b([a-z]{3,9})\.?\s(\d{1,2})(?:st|nd|rd|th)?,?\s(20\d{2})\b", txt):
+        if m in MONATE:
+            d = _datum(j, MONATE[m], t)
+            if d:
+                out.add(d)
     for j, m, t in re.findall(r"\b(20\d{2})-(\d{2})-(\d{2})\b", txt):
-        if 1 <= int(m) <= 12 and 1 <= int(t) <= 31:
-            out.add(f"{j}-{m}-{t}")
+        d = _datum(j, int(m), t)
+        if d:
+            out.add(d)
     return out
+
+
+def distanzen_aus(txt: str) -> set[float]:
+    """Alle Kilometerangaben im (normalisierten) Seitentext, gerundet auf
+    eine Stelle: „10 km", „21,1 km", „1500 m" (300–5000 m als Kilometer),
+    dazu 21,1 für „Halbmarathon" und 42,2 für „Marathon" (nicht hinter
+    „Halb"). Seit dem 05.10.2026 hier und nicht mehr in seitenabgleich.py -
+    das Gedächtnis prüft damit, ob die Strecken des Vorjahrs auf der Seite
+    noch stehen (ein 10-km-Lauf kann ein Halbmarathon geworden sein)."""
+    out: set[float] = set()
+    for z in re.findall(r"\b(\d{1,3}(?:[.,]\d{1,3})?)\s?(?:km|kilometer)\b", txt):
+        try:
+            out.add(round(float(z.replace(",", ".")), 1))
+        except ValueError:
+            pass
+    for z in re.findall(r"\b(\d{1,2}\.\d{3}|\d{3,5})\s?(?:m|meter)\b", txt):
+        v = int(z.replace(".", ""))
+        if 300 <= v <= 5000:
+            out.add(round(v / 1000, 1))
+    if re.search(r"\bhalbmarathon|\bhalf marathon|\bsemi-?marathon|\bmezza maratona|\b21[.,]1\b|\b21[.,]0975", txt):
+        out.add(21.1)
+    if re.search(r"(?<!halb)(?<!half )(?<!semi-)(?<!semi )marathon|(?<!mezza )\bmaratona\b", txt):
+        out.add(42.2)
+    return out
+
+
+def km_passt(km: float, gefunden) -> bool:
+    """Steht `km` unter den gefundenen Angaben? ±0,15 km, oder gleiche
+    gerundete Zahl bei weniger als 0,6 km Abstand („10,5" zu „10")."""
+    return any(abs(km - g) <= 0.15 or (abs(km - g) < 0.6 and abs(round(km) - round(g)) == 0) for g in gefunden)
 
 
 # --------------------------------------------------------------------------
@@ -202,12 +274,33 @@ def ort_von(event: dict) -> frozenset:
     return frozenset(normalize_event_name(event.get("standort") or "").split())
 
 
+# Wörter, die eine andere VERANSTALTUNG anzeigen, wenn sie nur auf einer
+# Seite stehen - ein Sponsor heißt nie so. Für die unscharfe Suche nach
+# dem Schlüssel (`Gedaechtnis._kandidaten`).
+_FORMATWOERTER = {
+    "triathlon", "duathlon", "aquathlon", "swimrun", "quadrathlon", "marathon",
+    "halbmarathon", "ultra", "ultralauf", "ultramarathon", "ultratrail", "trail",
+    "trailrun", "cross", "crosslauf", "berglauf", "staffel", "staffellauf", "walking",
+    "nordic", "wandern", "wanderung", "kinderlauf", "schuelerlauf", "jugendlauf",
+    "backyard", "gravel", "mtb", "mountainbike", "rennrad", "rtf", "ctf", "radmarathon",
+    "schwimmen", "freiwasser", "winterloop", "probelauf", "nachtlauf", "sprint",
+    "kids", "junior", "mini", "bambini", "firmenlauf", "frauenlauf",
+}
+
+
+def _unterscheidend(wort: str) -> bool:
+    """Ein Wort, das eine Veranstaltung von anderen am selben Ort
+    unterscheidet: kein Allerweltswort (`ALLGEMEIN`), mindestens vier
+    Buchstaben, keine Zahl."""
+    return len(wort) >= 4 and wort not in ALLGEMEIN and not wort.isdigit()
+
+
 def generisch(kern: str) -> bool:
     """Ein Kern nur aus Allerweltswörtern („crosslauf", „silvesterlauf
     volkslauf") unterscheidet Veranstaltungen nicht - dann zählt der Ort
     wörtlich, nicht als Teilmenge (siehe Modulkopf)."""
     woerter = kern.split()
-    return not woerter or all(w in ALLGEMEIN or len(w) < 4 for w in woerter)
+    return not woerter or not any(_unterscheidend(w) for w in woerter)
 
 
 def schluessel_von(event: dict) -> str | None:
@@ -226,6 +319,17 @@ def _ort_passt(a: frozenset, b: frozenset, streng: bool) -> bool:
 def _koordinaten_nah(event: dict, eintrag: dict) -> bool:
     c = (event.get("lat"), event.get("lon"), eintrag.get("lat"), eintrag.get("lon"))
     return all(isinstance(x, (int, float)) for x in c) and _haversine_km(*c) <= 3
+
+
+def _jahresabstand(a: str | None, b: str | None) -> bool:
+    """Liegen die beiden Tage etwa ganze Jahre auseinander (mindestens
+    eines, je ±65 Tage um das Vielfache von 365)?"""
+    from datetime import date
+    try:
+        d = abs((date.fromisoformat(a or "") - date.fromisoformat(b or "")).days)
+    except ValueError:
+        return False
+    return d >= FENSTER_TAGE[0] and (d % 365 <= 65 or d % 365 >= 300)
 
 
 def _rang(quelle: str) -> int:
@@ -272,6 +376,7 @@ class Gedaechtnis:
     def __init__(self, daten: dict | None = None):
         self.daten: dict[str, dict] = {k: v for k, v in (daten or {}).items() if k != "_readme"}
         self._index: dict[str, list[tuple[str, frozenset]]] | None = None
+        self._wort_index: dict[str, list[str]] = {}
 
     # -- Datei ------------------------------------------------------------
     @classmethod
@@ -296,15 +401,35 @@ class Gedaechtnis:
     def _idx(self) -> dict[str, list[tuple[str, frozenset]]]:
         if self._index is None:
             idx: dict[str, list[tuple[str, frozenset]]] = {}
+            woerter: dict[str, list[str]] = {}
             for k in self.daten:
                 kern, _, ort = k.partition("|")
                 idx.setdefault(kern, []).append((k, frozenset(ort.split())))
+                for w in kern.split():
+                    if _unterscheidend(w):
+                        woerter.setdefault(w, []).append(k)
             self._index = idx
+            self._wort_index = woerter
         return self._index
 
     def _kandidaten(self, event: dict) -> list[str]:
-        """Die Schlüssel, die zu dieser Zeile passen (gleicher Kern,
-        passender Ort oder Koordinaten ≤ 3 km)."""
+        """Die Schlüssel, die zu dieser Zeile passen: gleicher Kern und
+        passender Ort (oder Koordinaten ≤ 3 km). Findet das nichts, zählt
+        auch ein Kern, der im anderen ENTHALTEN ist - derselbe Gedanke wie
+        der siebte Weg der Duplikat-Erkennung (Datenregel 7): „SAARathon"
+        in „Sparkassen-SAARathon", „Frauenlauf" in „Vitamin Well
+        Frauenlauf". Ein Sponsorwechsel oder ein neu aufgesetzter Kalender
+        ändert den Namen, nicht die Veranstaltung; bis zum 05.10.2026 war
+        das ein zweiter Eintrag ohne Seite und ohne Vorjahr. Drei
+        Bedingungen: die kleinere Wortmenge enthält mindestens ein
+        unterscheidendes Wort (kein Allerweltswort, `_unterscheidend`), der
+        Ort passt wie sonst auch, und die Zeile liegt etwa GANZE JAHRE von
+        der gemerkten Ausgabe entfernt (`_jahresabstand`). Ohne die dritte
+        Bedingung hätte die Regel am Bestand den „Ironman 5150 Erkner" mit
+        dem „Ironman 70.3 Erkner" am Folgetag, die „Crossmania Series #3"
+        mit „#5" und den „itdesign-Nikolauslauf" mit seinem Probelauf
+        verschmolzen - Geschwister einer Serie liegen Tage auseinander, die
+        nächste Ausgabe ein Jahr."""
         kern = kern_von(event)
         if not kern:
             return []
@@ -314,7 +439,58 @@ class Gedaechtnis:
         for k, ort_k in self._idx().get(kern, []):
             if _ort_passt(ort, ort_k, streng) or (not streng and _koordinaten_nah(event, self.daten[k])):
                 treffer.append(k)
+        if treffer:
+            return treffer
+        woerter = frozenset(kern.split())
+        gesehen: set[str] = set()
+        for w in woerter:
+            for k in self._wort_index.get(w, []):
+                if k in gesehen:
+                    continue
+                gesehen.add(k)
+                kern_k, _, ort_k = k.partition("|")
+                menge_k = frozenset(kern_k.split())
+                kleiner = menge_k if menge_k < woerter else woerter if woerter < menge_k else None
+                if kleiner is None or not any(_unterscheidend(x) for x in kleiner):
+                    continue
+                unterschied = menge_k ^ woerter
+                if any(x.isdigit() or x in _FORMATWOERTER for x in unterschied):
+                    # Eine Zahl oder ein Sportwort im Unterschied ist eine
+                    # Serie oder ein anderes Format („Ironman 5150", „Vienna
+                    # Triathlon" neben „Run Vienna"), kein Sponsor.
+                    continue
+                art1_k = self.daten[k].get("art1")
+                if art1_k and event.get("art1") and art1_k != event.get("art1"):
+                    continue
+                if not _jahresabstand(event.get("datum_start"), self.daten[k].get("datum")):
+                    continue
+                if _ort_passt(ort, frozenset(ort_k.split()), False) or _koordinaten_nah(event, self.daten[k]):
+                    treffer.append(k)
         return treffer
+
+    def schluessel_fuer(self, event: dict) -> str | None:
+        """Der Schlüssel, unter dem diese Zeile GELERNT wird: der eigene,
+        wenn er schon dasteht oder nichts anderes passt; sonst der eine
+        Eintrag, dessen Kern im Namen steckt (oder umgekehrt). Ist der
+        Kern der Zeile der KLEINERE, wandert der Eintrag auf ihn um:
+        „saarathon" bleibt stabil, „sparkassen saarathon" nicht - der
+        nächste Sponsor hieße sonst wieder anders."""
+        k = schluessel_von(event)
+        if not k:
+            return None
+        if k in self.daten:
+            return k
+        kand = self._kandidaten(event)
+        if len(kand) != 1:
+            return k
+        alt = kand[0]
+        kern, _, _ = k.partition("|")
+        kern_alt, _, _ = alt.partition("|")
+        if frozenset(kern.split()) < frozenset(kern_alt.split()):
+            self.daten[k] = self.daten.pop(alt)
+            self._index = None
+            return k
+        return alt
 
     def finde(self, event: dict) -> dict | None:
         """Der Eintrag zu dieser Zeile - oder None, wenn keiner passt oder
@@ -342,6 +518,12 @@ class Gedaechtnis:
             neu = False
             if datum < (alt.get("datum") or ""):
                 return None
+        # Zeilen, die das Gedächtnis selbst angelegt hat (`gedaechtnis`,
+        # Strecken des Vorjahrs), zählen nur, solange keine Quelle die
+        # Ausgabe liefert - sonst lernte es seine eigene Kopie zurück.
+        echte = [z for z in zeilen if not z.get("gedaechtnis")]
+        uebernommen = not echte
+        zeilen = echte or zeilen
         # Schlüssel ist die STRECKE (Länge, Dauer, Label), nicht der ganze
         # Eintrag: Korrigiert ein Override nur die Kategorie einer Strecke,
         # ersetzt die neue Angabe die alte, statt neben ihr zu stehen (am
@@ -352,18 +534,25 @@ class Gedaechtnis:
                               ensure_ascii=False)
         gesammelt = {strecken_key(strecke_von(z)): strecke_von(z) for z in zeilen}
         if (not neu and datum == alt.get("strecken_datum")
-                and alt.get("art1") == zeilen[0].get("art1")):
+                and alt.get("art1") == zeilen[0].get("art1")
+                and not (alt.get("strecken_uebernommen") and not uebernommen)):
             # Dieselbe Ausgabe noch einmal (zweiter Durchgang, Teilmenge der
             # Zeilen): Strecken VEREINIGEN, nicht ersetzen - sonst nähme ein
             # Aufruf mit einer Zeile der Veranstaltung alle anderen weg.
             # Verglichen wird mit `strecken_datum`, nicht mit `datum`: Das
             # hat lerne() für eine Zeile mit Seite schon auf die neue
             # Ausgabe gesetzt, die Strecken gehören aber noch zur alten.
+            # AUSSER die gemerkten Strecken waren die eigene Vorjahreskopie
+            # und jetzt liefert eine Quelle die Ausgabe: dann ersetzen.
             for st in alt.get("strecken") or []:
                 gesammelt.setdefault(strecken_key(st), st)
         strecken = _strecken_sortiert(gesammelt.values())
         geaendert = neu or alt.get("strecken") != strecken or alt.get("art1") != zeilen[0].get("art1")
         alt["strecken_datum"] = datum
+        if uebernommen:
+            alt["strecken_uebernommen"] = True
+        else:
+            alt.pop("strecken_uebernommen", None)
         alt["art1"] = zeilen[0].get("art1")
         alt["land"] = zeilen[0].get("land")
         alt["strecken"] = strecken
@@ -386,7 +575,7 @@ class Gedaechtnis:
         url = (event.get("veranstalter_url") or "").strip()
         if not eigene_seite(url):
             return None
-        k = schluessel_von(event)
+        k = self.schluessel_fuer(event)
         if not k:
             return None
         datum = event.get("datum_start") or ""
@@ -402,6 +591,11 @@ class Gedaechtnis:
             return None
         alt_datum, alt_quelle = alt.get("datum") or "", alt.get("quelle") or "quelle"
         alt_url = alt.get("url")
+        if alt.get("quelle") == "tot" and alt.get("url_tot") and host_von(alt["url_tot"]) == host_von(url):
+            # Die tote Seite ist wieder da (eine Quelle liefert sie für die
+            # jüngste Ausgabe): dann gilt sie wieder.
+            self.daten[k] = neu
+            return f"{event.get('name')}: Seite wieder da ({host_von(url)})"
         if alt_url and host_von(alt_url) == host_von(url):
             # Gleicher Host: Adresse, Name, Ausgabe und Rang nachziehen -
             # bei GLEICHER Ausgabe und gleichem Rang aber nur, wenn die
@@ -416,12 +610,20 @@ class Gedaechtnis:
                 alt.update(neu)
                 return (f"{event.get('name')}: Adresse aktualisiert ({url})" if geaendert else None)
             return None
-        # Verschiedener Host (oder bisher Konflikt): Rang, dann Ausgabe.
-        if (_rang(quelle), datum) > (_rang(alt_quelle), alt_datum):
-            alt_host = host_von(alt_url) if alt_url else "Konflikt"
+        # Verschiedener Host (oder bisher Konflikt, oder tot): die JÜNGERE
+        # Ausgabe gewinnt, bei derselben Ausgabe der Override. Bis zum
+        # 05.10.2026 stand der Rang vorn - ein per Override belegter Link
+        # der Ausgabe 2026 hätte dann die neu aufgesetzte Seite, die der
+        # Scraper für 2027 liefert, nie zur Kenntnis genommen, und 2028
+        # bekäme die tote Adresse. Was events.json für die jüngste Ausgabe
+        # zeigt, zeigt auch das Gedächtnis; wer die Seite 2027 per Override
+        # korrigiert, überschreibt sie damit wieder.
+        if (datum, _rang(quelle)) > (alt_datum, _rang(alt_quelle)) or alt_quelle == "tot":
+            alt_host = host_von(alt_url) if alt_url else ("Konflikt" if alt.get("konflikt") else
+                                                          host_von(alt.get("url_tot") or "") or "keine")
             self.daten[k] = neu
             return f"{event.get('name')}: Seite ersetzt ({alt_host} -> {host_von(url)})"
-        if (_rang(quelle), datum) < (_rang(alt_quelle), alt_datum):
+        if (datum, _rang(quelle)) < (alt_datum, _rang(alt_quelle)):
             return None
         # Gleicher Rang, gleiche Ausgabe, anderer Host: nicht entscheidbar.
         konflikt = sorted(set((alt.get("konflikt") or []) + ([alt_url] if alt_url else []) + [url]))
@@ -459,7 +661,7 @@ class Gedaechtnis:
         SEITE - nicht den Eintrag: Strecken, Lage und Ausgabe bleiben
         (lerne_ausgabe legt ihn sonst gleich wieder an, und der Bericht
         meldete bei jedem Lauf „vergessen" und „gemerkt" im Wechsel)."""
-        k = schluessel_von(event)
+        k = self.schluessel_fuer(event)
         alt = self.daten.get(k) if k else None
         if alt is None or alt.get("fest") or not (alt.get("url") or alt.get("konflikt")):
             return None
@@ -467,7 +669,6 @@ class Gedaechtnis:
         alt.pop("konflikt", None)
         alt["quelle"] = "override"
         return f"{event.get('name')} ({event.get('standort')}): Seite vergessen (Override: kein Link)"
-        return None
 
 
 # --------------------------------------------------------------------------
@@ -497,7 +698,7 @@ def lernen(events: list[dict], ged: Gedaechtnis, overrides: dict | None = None) 
         url = e.get("veranstalter_url")
         if not eigene_seite(url):
             continue
-        marke = (schluessel_von(e), url)
+        marke = (ged.schluessel_fuer(e), url)
         if marke in gesehen:
             continue  # die Schwesterstrecken derselben Veranstaltung
         gesehen.add(marke)
@@ -507,7 +708,7 @@ def lernen(events: list[dict], ged: Gedaechtnis, overrides: dict | None = None) 
             bericht.append(z)
     # Dann die Ausgabe selbst: Strecken, Sportart, Ort - für JEDE
     # Veranstaltung, auch ohne Seite.
-    for k, zeilen in _ausgaben(events).items():
+    for k, zeilen in _ausgaben(events, ged).items():
         z = ged.ziehe_zurueck(k, zeilen, overrides)
         if z:
             bericht.append(z)
@@ -517,11 +718,13 @@ def lernen(events: list[dict], ged: Gedaechtnis, overrides: dict | None = None) 
     return bericht
 
 
-def _ausgaben(events: list[dict]) -> dict[str, list[dict]]:
-    """Je Schlüssel die Zeilen der JÜNGSTEN Ausgabe in `events`."""
+def _ausgaben(events: list[dict], ged: "Gedaechtnis | None" = None) -> dict[str, list[dict]]:
+    """Je Schlüssel die Zeilen der JÜNGSTEN Ausgabe in `events` - mit
+    `ged` unter dem Schlüssel, unter dem das Gedächtnis die Zeile führt
+    (auch nach einem Sponsorwechsel im Namen)."""
     gruppen: dict[str, dict[str, list[dict]]] = {}
     for e in events:
-        k = schluessel_von(e)
+        k = ged.schluessel_fuer(e) if ged is not None else schluessel_von(e)
         if k:
             gruppen.setdefault(k, {}).setdefault(e.get("datum_start") or "", []).append(e)
     return {k: tage[max(tage)] for k, tage in gruppen.items()}
@@ -532,7 +735,7 @@ def abgleich_vorjahr(events: list[dict], ged: Gedaechtnis) -> list[str]:
     Bericht - Strecken ändern sich, und eine Zeile wird nie geraten.
     VOR lernen() aufrufen."""
     bericht: list[str] = []
-    for k, zeilen in _ausgaben(events).items():
+    for k, zeilen in _ausgaben(events, ged).items():
         alt = ged.daten.get(k)
         if not alt or not alt.get("strecken"):
             continue
@@ -678,10 +881,51 @@ def name_ohne_jahr(name: str) -> str:
     return re.sub(r"\s{2,}", " ", _JAHR_IM_NAMEN.sub("", name or "")).strip(" -–")
 
 
-def manual_events_aus(eintrag: dict, start: str, ende: str, heute: str) -> list[OrderedDict]:
+def manual_events_aus(eintrag: dict, start: str, ende: str, heute: str,
+                      seiten_km=None) -> list[OrderedDict]:
     """Die Zeilen der neuen Ausgabe für manual_events.json: je gemerkter
-    Strecke eine, ohne Strecken eine Zeile ohne Maßzahl."""
+    Strecke eine, ohne Strecken eine Zeile ohne Maßzahl.
+
+    `seiten_km` sind die Kilometerangaben, die die Veranstalterseite JETZT
+    nennt (`distanzen_aus`). Nennt sie welche, kommt nur mit, was dort
+    noch steht: Aus einem 10-km-Lauf kann ein Halbmarathon geworden sein,
+    und eine 10-km-Zeile aus dem Vorjahr wäre dann eine erfundene Strecke
+    - die unangenehmere Sorte Fehler, weil sie aussieht wie eine Angabe.
+    Was die Seite zusätzlich nennt, wird NICHT angelegt (geraten wird
+    nie), sondern steht in der Notiz und im Bericht. Bleibt keine Strecke
+    übrig, trägt die Ausgabe eine Zeile ohne Maßzahl. Nennt die Seite gar
+    keine Kilometer (die Strecken stehen oft nur auf einer Unterseite),
+    gilt das Vorjahr unverändert. Zeitrennen (`dauer_h`) und Zeilen ohne
+    Maßzahl bleiben immer.
+
+    Jede Zeile trägt `gedaechtnis: true` - das Feld landet in events.json
+    und sagt: Diese Strecke ist aus dem Vorjahr übernommen, keine Quelle
+    hat sie für diese Ausgabe bestätigt. `clean_events.add_manual_events()`
+    zieht solche Zeilen zurück, sobald eine Quelle die Ausgabe liefert, und
+    `update_existing_event()`/`merge_duplicates()` nehmen die Markierung
+    weg, sobald eine Quelle dieselbe Strecke bestätigt."""
     strecken = eintrag.get("strecken") or [OrderedDict((f, None) for f in STRECKEN_FELDER)]
+    weggefallen: list[dict] = []
+    if seiten_km:
+        bleibt = []
+        for st in strecken:
+            km = st.get("laenge_km")
+            if isinstance(km, (int, float)) and not km_passt(km, seiten_km):
+                weggefallen.append(st)
+            else:
+                bleibt.append(st)
+        strecken = bleibt or [OrderedDict((f, None) for f in STRECKEN_FELDER)]
+    bekannt = {_masszahl_schluessel(st) for st in (eintrag.get("strecken") or [])}
+    neu_auf_seite = sorted(g for g in (seiten_km or []) if g >= 1 and ("km", round(g, 1)) not in bekannt
+                           and not km_passt(g, [st["laenge_km"] for st in (eintrag.get("strecken") or [])
+                                                if isinstance(st.get("laenge_km"), (int, float))]))
+    hinweis = ""
+    if weggefallen:
+        hinweis += (" Nicht übernommen, weil die Seite sie nicht mehr nennt: "
+                    + ", ".join(masszahl(st) for st in weggefallen) + ".")
+    if neu_auf_seite:
+        hinweis += (" Die Seite nennt außerdem: " + ", ".join(f"{g:g} km" for g in neu_auf_seite[:8])
+                    + " - prüfen, ob das neue Strecken sind.")
     zeilen = []
     for st in strecken:
         z = OrderedDict([("land", eintrag.get("land")), ("name", name_ohne_jahr(eintrag.get("name"))),
@@ -690,35 +934,183 @@ def manual_events_aus(eintrag: dict, start: str, ende: str, heute: str) -> list[
                          ("datum_start", start), ("datum_ende", ende),
                          ("laenge_km", st.get("laenge_km")), ("dauer_h", st.get("dauer_h")),
                          ("wettbewerb", st.get("wettbewerb")), ("veranstalter_url", eintrag.get("url")),
+                         ("gedaechtnis", True),
                          ("_quelle", eintrag.get("url")),
                          ("_note", f"Gedächtnis je Veranstaltung ({heute}): Die Veranstalterseite nennt den Termin "
                                    f"{start}" + (f" bis {ende}" if ende != start else "") +
                                    f"; Strecken aus der Ausgabe {eintrag.get('datum')} übernommen "
-                                   "(veranstalter_seiten.py pruefen --uebernehmen). Bei der nächsten Prüfung: "
-                                   "stimmen die Strecken noch?")])
+                                   "(veranstalter_seiten.py pruefen --uebernehmen)." + hinweis +
+                                   " Die Zeile verschwindet von selbst, sobald eine Quelle die Ausgabe liefert.")])
         zeilen.append(OrderedDict((k, v) for k, v in z.items() if v is not None or k in ("laenge_km", "dauer_h")))
     return zeilen
 
 
-def uebernehmen(eintraege: list[tuple[str, dict, str, str]], heute: str, pfad: Path = MANUAL_EVENTS) -> list[str]:
+def _vergangen(eintrag: dict, heute: str) -> bool:
+    return (eintrag.get("datum_ende") or eintrag.get("datum_start") or "") < heute
+
+
+def uebernehmen(eintraege: list[tuple], heute: str, pfad: Path = MANUAL_EVENTS) -> list[str]:
     """Schreibt die gefundenen Ausgaben nach manual_events.json (an das
-    Ende der Liste; was dort schon unter Name und Datum steht, bleibt)."""
+    Ende der Liste; was dort schon unter Name und Datum steht, bleibt).
+    Jeder Eintrag ist (Schlüssel, Gedächtnis-Eintrag, Start, Ende) und
+    optional dahinter die Kilometer, die die Seite nennt (`seiten_km`).
+    Räumt dabei die vergangenen Ausgaben weg, die das Gedächtnis selbst
+    angelegt hat (`gedaechtnis: true`) - sonst wüchse die Datei mit jedem
+    Jahr um Zeilen, die drop_past_events() ohnehin nie mehr aufnimmt."""
     roh = json.loads(pfad.read_text(encoding="utf-8"), object_pairs_hook=OrderedDict) if pfad.exists() \
         else OrderedDict([("events", [])])
     liste = roh.setdefault("events", []) if isinstance(roh, OrderedDict) else roh
+    geraeumt = [e for e in liste if e.get("gedaechtnis") and _vergangen(e, heute)]
+    if geraeumt:
+        liste[:] = [e for e in liste if not (e.get("gedaechtnis") and _vergangen(e, heute))]
     vorhanden = {(normalize_event_name(e.get("name")), e.get("datum_start")) for e in liste}
     bericht = []
-    for k, eintrag, start, ende in eintraege:
-        zeilen = manual_events_aus(eintrag, start, ende, heute)
+    for tupel in eintraege:
+        k, eintrag, start, ende = tupel[:4]
+        seiten_km = tupel[4] if len(tupel) > 4 else None
+        zeilen = manual_events_aus(eintrag, start, ende, heute, seiten_km)
         if (normalize_event_name(zeilen[0]["name"]), start) in vorhanden:
             continue
         liste.extend(zeilen)
         vorhanden.add((normalize_event_name(zeilen[0]["name"]), start))
         bericht.append(f"{zeilen[0]['name']} ({eintrag.get('standort')}): Ausgabe {start} mit "
-                       f"{len(zeilen)} Strecke(n) nach manual_events.json - {eintrag.get('url')}")
-    if bericht:
+                       f"{len(zeilen)} Strecke(n) nach manual_events.json - {eintrag.get('url')}"
+                       + (" (Strecken gegen die Seite geprüft)" if seiten_km else ""))
+    if bericht or geraeumt:
         pfad.write_text(json.dumps(roh, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if geraeumt:
+        bericht.append(f"{len(geraeumt)} vergangene Zeile(n) des Gedächtnisses aus manual_events.json entfernt")
     return bericht
+
+
+# Was als „tot" zählt: Die Seite gibt es nicht mehr (404/410) oder den
+# Host nicht mehr (DNS/Verbindung). 403, 429, 5xx und Zeitüberschreitungen
+# sind Bot-Sperren oder Wackler, keine Beweise.
+TOT_STATUS = {404, 410}
+TOT_NACH_PRUEFUNGEN = 2
+
+
+def _ist_tot(status: int | None, body: str) -> bool:
+    return status in TOT_STATUS or (status is None and body.startswith("fehler:Connection"))
+
+
+def _wurzel(url: str) -> str:
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    return f"{u.scheme}://{u.netloc}/"
+
+
+def _gleiche_adresse(a: str, b: str) -> bool:
+    return a.rstrip("/").lower().replace("http://", "https://") == b.rstrip("/").lower().replace("http://", "https://")
+
+
+def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple | None]:
+    """Ruft die gemerkte Seite EINER vergangenen Veranstaltung ab und sucht
+    den nächsten Termin. Gibt (Berichtszeile, Fund-oder-None) zurück und
+    schreibt in `v`: `geprueft_am`, eine umgezogene Adresse, eine tote
+    Seite (`quelle` tot, `url_tot`). Was die Prüfung aushält (seit dem
+    05.10.2026, Frage des Nutzers: „auch wenn die Webseite leicht geändert
+    oder neu aufgesetzt wurde"):
+
+    - **Weiterleitung**: Kommt der Abruf auf einer anderen Adresse an (neue
+      Domain nach Sponsorwechsel, neuer Pfad nach Umbau) und die Seite
+      dort nennt den Lauf, merkt sich das Gedächtnis die neue Adresse.
+    - **Tote Unterseite**: 1.520 der 4.154 gemerkten Adressen zeigen auf
+      Unterseiten, 164 tragen eine Jahreszahl im Pfad - nach einem Umbau
+      ist die Unterseite weg, die Startseite nicht. Dann wird die
+      Startseite abgerufen; nennt sie den Lauf, tritt sie an die Stelle
+      der toten Adresse (und liefert den Termin, wenn er dort steht).
+    - **Tote Seite**: Antwortet auch die Startseite bei zwei Prüfungen
+      hintereinander (mindestens drei Wochen auseinander) mit 404/410
+      oder ist der Host weg, gilt die Seite als tot: `url` leer, die alte
+      Adresse in `url_tot`, `quelle` tot. anwenden() gibt sie dann nicht
+      mehr an die nächste Ausgabe weiter, und lerne() nimmt die erste
+      eigene Seite, die eine Quelle für eine neue Ausgabe liefert. Eine
+      lebende Antwort setzt den Zähler zurück.
+    - **Startseite ohne Termin**: Nennt die gemerkte Unterseite den Lauf,
+      aber keinen passenden Termin, wird zusätzlich die Startseite
+      gelesen (nur wenn sie den Lauf nennt) - Veranstalter kündigen die
+      nächste Ausgabe oft zuerst dort an.
+    - **Strecken**: Nennt die Seite Kilometer, gehen in die neue Ausgabe
+      nur die Strecken des Vorjahrs, die dort noch stehen
+      (`manual_events_aus`)."""
+    from veranstalter_links import text_von, nennt_den_lauf
+    url = v["url"]
+    status, body = ab.hole(url)
+    r = OrderedDict(name=v.get("name"), ort=v.get("standort"), url=url,
+                    letzte_ausgabe=v.get("datum"), geprueft_am=heute,
+                    status=status if status is not None else body)
+    v["geprueft_am"] = heute
+    namen, orte = [v.get("name") or ""], [v.get("standort") or ""]
+    belegt = nennt_den_lauf(body, url, namen, [], orte) if status == 200 else []
+    txt = text_von(body) if status == 200 else ""
+    wurzel = _wurzel(url)
+    tot = _ist_tot(status, body)
+    # Weiterleitung auf einen ANDEREN Host (und eine eigene Seite): Die
+    # Seite ist umgezogen. Ein neuer Pfad auf demselben Host zählt nicht -
+    # velosolingen.de leitet seine Startseite auf /adm_program/index.php,
+    # das ist der Einstieg des CMS, keine neue Adresse (Probelauf 05.10.2026).
+    ende = getattr(ab, "endadresse", {}).get(url)
+    if status == 200 and ende and host_von(ende) != host_von(url) and eigene_seite(ende) and belegt:
+        r["umgezogen"] = ende
+        v["url"] = url = ende
+        wurzel = _wurzel(url)
+    # Tote Unterseite oder eine Seite, die den Lauf nicht (mehr) nennt:
+    # die Startseite versuchen.
+    if not _gleiche_adresse(url, wurzel) and (tot or (status == 200 and not belegt)):
+        st2, body2 = ab.hole(wurzel)
+        belegt2 = nennt_den_lauf(body2, wurzel, namen, [], orte) if st2 == 200 else []
+        r["startseite"] = st2 if st2 is not None else body2
+        if st2 == 200 and belegt2:
+            if tot:
+                r["umgezogen"] = wurzel
+                v["url"] = url = wurzel
+            status, body, belegt, txt, tot = st2, body2, belegt2, text_von(body2), False
+    if tot:
+        v["tot_zaehler"] = int(v.get("tot_zaehler") or 0) + 1
+        if v["tot_zaehler"] >= TOT_NACH_PRUEFUNGEN:
+            v["url_tot"], v["url"] = url, None
+            v["quelle"] = "tot"
+            v.pop("tot_zaehler", None)
+            r["flag"] = "TOT"
+            return r, None
+        r["flag"] = "FEHLER"
+        return r, None
+    v.pop("tot_zaehler", None)
+    if status != 200:
+        r["flag"] = "FEHLER"
+        return r, None
+    daten = daten_aus(txt)
+    kand = kandidaten_termine(daten, v.get("datum"), heute)
+    if not kand and belegt and not _gleiche_adresse(url, wurzel):
+        # Die Unterseite nennt den Lauf, aber keinen passenden Termin:
+        # die Startseite dazulesen, wenn sie den Lauf ebenfalls nennt.
+        st2, body2 = ab.hole(wurzel)
+        if st2 == 200 and nennt_den_lauf(body2, wurzel, namen, [], orte):
+            txt2 = text_von(body2)
+            daten |= daten_aus(txt2)
+            kand = kandidaten_termine(daten, v.get("datum"), heute)
+            if kand:
+                r["termin_von"] = wurzel
+                txt = txt + " " + txt2
+    r["kuenftige_termine"] = sorted(d for d in daten if d > heute)[:10]
+    r["kandidaten"] = kand
+    r["textlaenge"] = len(txt)
+    r["nennt_den_lauf"] = belegt
+    seiten_km = sorted(g for g in distanzen_aus(txt) if g >= 1)
+    if seiten_km:
+        r["seiten_km"] = seiten_km[:40]
+    sp = spanne(kand)
+    if kand and sp and belegt:
+        r["flag"] = "NEU"
+        return r, (k, v, sp[0], sp[1], set(seiten_km))
+    if kand:
+        r["flag"] = "NEU?"
+    elif len(txt) < 300:
+        r["flag"] = "LEER"
+    else:
+        r["flag"] = "NICHTS"
+    return r, None
 
 
 def cmd_pruefen(args) -> None:
@@ -726,7 +1118,7 @@ def cmd_pruefen(args) -> None:
     nächsten Termin? Bericht - und mit --uebernehmen die eindeutigen
     Funde nach manual_events.json."""
     from datetime import date, timedelta
-    from veranstalter_links import Abrufer, text_von, nennt_den_lauf
+    from veranstalter_links import Abrufer
 
     ged = Gedaechtnis.laden()
     events = _lade_events(args.events_json)
@@ -751,33 +1143,11 @@ def cmd_pruefen(args) -> None:
           f"(nächste Ausgabe unbekannt, zuletzt vor mehr als {PRUEF_ABSTAND_TAGE} Tagen geprüft)", flush=True)
     ab = Abrufer(pause=args.pause)
     t0 = time.time()
-    funde: list[tuple[str, dict, str, str]] = []
+    funde: list[tuple] = []
     for i, (k, v) in enumerate(offen, 1):
-        status, body = ab.hole(v["url"])
-        r = OrderedDict(name=v.get("name"), ort=v.get("standort"), url=v["url"],
-                        letzte_ausgabe=v.get("datum"), geprueft_am=heute,
-                        status=status if status is not None else body)
-        v["geprueft_am"] = heute
-        if status == 200:
-            txt = text_von(body)
-            kand = kandidaten_termine(daten_aus(txt), v.get("datum"), heute)
-            r["kuenftige_termine"] = sorted(d for d in daten_aus(txt) if d > heute)[:10]
-            r["kandidaten"] = kand
-            r["textlaenge"] = len(txt)
-            belegt = nennt_den_lauf(body, v["url"], [v.get("name") or ""], [], [v.get("standort") or ""])
-            r["nennt_den_lauf"] = belegt
-            sp = spanne(kand)
-            if kand and sp and belegt:
-                r["flag"] = "NEU"
-                funde.append((k, v, sp[0], sp[1]))
-            elif kand:
-                r["flag"] = "NEU?"
-            elif len(txt) < 300:
-                r["flag"] = "LEER"
-            else:
-                r["flag"] = "NICHTS"
-        else:
-            r["flag"] = "FEHLER"
+        r, fund = pruefe_eintrag(k, v, ab, heute)
+        if fund:
+            funde.append(fund)
         bericht[k] = r
         if i % 25 == 0 or i == len(offen):
             zaehler: dict[str, int] = {}
@@ -791,10 +1161,20 @@ def cmd_pruefen(args) -> None:
     for b in neu:
         print(f"  - [{b['flag']}] {b['name']} ({b['ort']}, zuletzt {b['letzte_ausgabe']}): "
               f"{', '.join(b['kandidaten'][:4])} - {b['url']}")
+    umgezogen = [b for b in bericht.values() if b.get("umgezogen")]
+    tot = [b for b in bericht.values() if b.get("flag") == "TOT"]
+    if umgezogen:
+        print(f"\nAdresse umgezogen ({len(umgezogen)}):")
+        for b in umgezogen:
+            print(f"  - {b['name']} ({b['ort']}): {b['url']} -> {b['umgezogen']}")
+    if tot:
+        print(f"\nSeite tot - wird nicht mehr weitergegeben ({len(tot)}):")
+        for b in tot:
+            print(f"  - {b['name']} ({b['ort']}): {b['url']}")
     if args.uebernehmen and funde:
         z = uebernehmen(funde, heute)
-        for k, v, start, _ in funde:
-            v["uebernommen"] = start
+        for fund in funde:
+            fund[1]["uebernommen"] = fund[2]
         print(f"\nNach manual_events.json übernommen ({len(z)}):")
         for zeile in z:
             print("  -", zeile)
