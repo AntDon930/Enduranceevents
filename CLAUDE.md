@@ -4590,7 +4590,13 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    – die nächste Ausgabe trägt denselben Fehler, wenn niemand die Seite
    liest.
 4. **Impressum und Datenschutzerklärung prüfen (lassen)** – Voraussetzung
-   für den Livegang; keine Rechtsberatung von Claude.
+   für den Livegang; keine Rechtsberatung von Claude. **Seit dem
+   05.10.2026 nennt die Datenschutzerklärung den E-Mail-Versand** (Abschnitt
+   „E-Mail-Abos": Cloud Function in Belgien, Versand über
+   `info@endurance-events.de` bei IONOS SE, Montabaur; DE und EN, „Stand"
+   5. Oktober 2026) – der frühere Satz „Der E-Mail-Versand ist derzeit noch
+   nicht aktiv" ist weg. Wer am Versand etwas ändert (eigene Mail-Function
+   nach dem Ende der Extensions), zieht den Abschnitt nach.
 5. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
    Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
    deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen Cross-Cups.
