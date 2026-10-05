@@ -61,7 +61,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
-| `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift steht – **es fehlt nur die E-Mail-Adresse** (gelb markiert); von jeder Seite aus verlinkt |
+| `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift und Kontaktadresse (`impressum@endurance-events.de`, seit dem 05.10.2026) stehen; von jeder Seite aus verlinkt |
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
@@ -115,8 +115,8 @@ Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
 `navigator.share` geht und der Rückweg über den geteilten Link),
-Impressum und Datenschutz (erreichbar von jeder Seite, Platzhalter
-sichtbar, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
+Impressum und Datenschutz (erreichbar von jeder Seite, keine
+Platzhalter mehr, Name und Kontaktadresse da, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
 Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
 (vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
 sie mit), die **Detail-Box auf der Karte** (Marker „2" öffnet direkt
@@ -3455,22 +3455,23 @@ Datenschutzerklärung auch nicht erklären.
   abgewiesen): alle Seiten laden vollständig, Bündelung und
   Anmelde-Knopf stehen.
 
-## Impressum und Datenschutz (es fehlt nur die E-Mail-Adresse)
+## Impressum und Datenschutz (vollständig seit dem 05.10.2026)
 
 `impressum.html` und `datenschutz.html` sind gebaut. **Name und
 Anschrift stehen seit dem 17.09.2026 drin** (Anton Donauer,
-Christophstraße 3, 80538 München, Deutschland) – offen ist **nur noch
-die E-Mail-Adresse**: Der Nutzer richtet dafür eine eigene Adresse ein
-(seine private soll nicht öffentlich stehen). Sie ist auf beiden Seiten
-gelb markiert (`.platzhalter`), und oben steht ein Kasten „Es fehlt noch
-die Kontaktadresse". Der Rauchtest prüft, dass die Platzhalter sichtbar
-sind: So kann die Seite nicht unbemerkt mit fehlender Kontaktangabe
-online gehen. **Wenn die Adresse eingetragen wird**, müssen beide
-Hinweiskästen weg (HTML + `vorlage_titel`/`vorlage_text` in beiden
-`I18N`-Blöcken) – und der Rauchtest muss sich umdrehen: statt
-„Platzhalter sichtbar" dann „keine Platzhalter mehr, Name und Kontakt
-vorhanden" (`smoke_test_frontend.py`, die Prüfung bei
-`stand["platzhalter"]`).
+Christophstraße 3, 80538 München, Deutschland), **die Kontaktadresse
+seit dem 05.10.2026**: `impressum@endurance-events.de` (vom Nutzer
+eingerichtet und genannt – seine private Adresse steht bewusst nicht
+öffentlich), als `mailto:`-Link im Impressum unter „Kontakt" und in der
+Datenschutzerklärung beim Verantwortlichen. Die gelben Platzhalter
+(`.platzhalter`) und die Hinweiskästen „Es fehlt noch die
+Kontaktadresse" samt `vorlage_titel`/`vorlage_text` sind weg, der
+Platzhalter-Stil aus `seite.css` auch. **Der Rauchtest prüft seitdem
+umgekehrt**: kein `.platzhalter` und kein `.hinweis` mehr, und Name
+und `mailto:`-Link stehen auf beiden Seiten (`smoke_test_frontend.py`,
+die Prüfung bei `stand["platzhalter"]`). Die Adresse steht an genau
+diesen vier Stellen (zwei Seiten, Rauchtest, hier) – ändert sie sich,
+alle vier nachziehen.
 
 - **Die Seite ist ein privates Angebot ohne Gewinnerzielungsabsicht**
   (so vom Nutzer am 17.09.2026 gesagt). Die Überschrift im Impressum
@@ -3988,8 +3989,8 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
      Konsole.
 4. **Design** – der Nutzer findet die Seite „noch nicht
    professionell". Reihenfolge nach seiner Wahl (17.09.2026):
-   **Impressum + Datenschutz zuerst** (erledigt, siehe oben – es
-   fehlt nur noch die E-Mail-Adresse).
+   **Impressum + Datenschutz zuerst** (erledigt, siehe oben – seit dem
+   05.10.2026 samt Kontaktadresse).
 
    Am 18.09.2026 sind daraus die Punkte erledigt, die der Nutzer selbst
    gemeldet hat (siehe Frontend-Fallen): Knöpfe wieder rechts und in
@@ -4050,9 +4051,11 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
      „Beispielprojekt" kommen in sichtbaren Texten nicht mehr vor
      (nur noch in Code-Kommentaren, geprüft 21.09.2026).
 5. **Live schalten** – GitHub Pages läuft, die CI schützt seit dem
-   16.09. davor, dass etwas Kaputtes deployt. Einziger Blocker ist noch
-   die **E-Mail-Adresse** für Impressum und Datenschutz (der Nutzer
-   richtet sie ein) – Name und Anschrift stehen seit dem 17.09.2026.
+   16.09. davor, dass etwas Kaputtes deployt. Impressum und Datenschutz
+   sind seit dem 05.10.2026 vollständig (Name, Anschrift,
+   `impressum@endurance-events.de`) – von dieser Seite aus steht dem
+   Livegang nichts mehr im Weg; die Texte selbst muss der Nutzer vor dem
+   Start noch prüfen (lassen), das ist keine Rechtsberatung.
 
 ## Offene Punkte / To-dos
 
@@ -4382,10 +4385,10 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Datenlauf", 21.09.2026, ohne die gesperrten Quellen) – der Nutzer
      sieht sie durch; kein Scraper ohne sein Ja.
 
-Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: E-Mail-Adresse
-für Impressum/Datenschutz (nur der Nutzer), die zwei Blaze-Schritte für
-den E-Mail-Versand, `og:image` sobald die Domain steht, und die
-Testmeldung in `errorReports` verwerfen.
+Dazu die Punkte, die kein Ja brauchen, aber Arbeit sind: die zwei
+Blaze-Schritte für den E-Mail-Versand, `og:image` sobald die Domain
+steht, und die Testmeldung in `errorReports` verwerfen. (Die
+E-Mail-Adresse für Impressum/Datenschutz steht seit dem 05.10.2026.)
 
 
 - ~~`og:image` nachtragen~~ **erledigt** (21.09.2026): `og-image.png`

@@ -28,17 +28,6 @@
 </div>
 
 <main>
-  <!-- Dieser Kasten verschwindet, sobald die E-Mail-Adresse eingetragen
-       ist. Er steht hier, damit die Seite nicht mit einer fehlenden
-       Kontaktangabe online geht. -->
-  <div class="hinweis" id="vorlage-hinweis">
-    <strong data-i="vorlage_titel">Es fehlt noch die Kontaktadresse.</strong>
-    <span data-i="vorlage_text">Name und Anschrift stehen; die gelb
-    markierte E-Mail-Adresse wird noch eingerichtet und muss vor dem
-    Livegang eingetragen werden. Diese Seite ist keine Rechtsberatung –
-    bitte vor dem Livegang prüfen (lassen).</span>
-  </div>
-
   <div class="karte">
     <h2 data-i="h_anbieter">Anbieterkennzeichnung nach § 18 Abs. 1 MStV</h2>
     <p data-i="t_anbieter">Diese Seite ist ein privates Angebot ohne
@@ -55,7 +44,7 @@
     <h3 data-i="h_kontakt">Kontakt</h3>
     <p>
       <span data-i="l_mail">E-Mail:</span>
-      <span class="platzhalter" data-i="ph_mail">[E-Mail-Adresse – wird noch eingerichtet]</span>
+      <a href="mailto:impressum@endurance-events.de">impressum@endurance-events.de</a>
     </p>
 
     <h3 data-i="h_verantwortlich">Verantwortlich für den Inhalt</h3>
@@ -130,15 +119,13 @@
   const I18N = {
     de: {
       titel: 'Impressum', home: 'Startseite', list: 'Events', privacy: 'Datenschutz',
-      vorlage_titel: 'Es fehlt noch die Kontaktadresse.',
-      vorlage_text: 'Name und Anschrift stehen; die gelb markierte E-Mail-Adresse wird noch eingerichtet und muss vor dem Livegang eingetragen werden. Diese Seite ist keine Rechtsberatung – bitte vor dem Livegang prüfen (lassen).',
       h_anbieter: 'Anbieterkennzeichnung nach § 18 Abs. 1 MStV',
       t_anbieter: 'Diese Seite ist ein privates Angebot ohne Gewinnerzielungsabsicht. Sie dient nicht ausschließlich persönlichen oder familiären Zwecken; Name und Anschrift stehen deshalb hier.',
       a_name: 'Anton Donauer',
       a_strasse: 'Christophstraße 3',
       a_ort: '80538 München',
       a_land: 'Deutschland',
-      h_kontakt: 'Kontakt', l_mail: 'E-Mail:', ph_mail: '[E-Mail-Adresse – wird noch eingerichtet]',
+      h_kontakt: 'Kontakt', l_mail: 'E-Mail:',
       h_verantwortlich: 'Verantwortlich für den Inhalt',
       t_verantwortlich: 'Verantwortlich für journalistisch-redaktionelle Inhalte nach § 18 Abs. 2 MStV ist die oben genannte Person.',
       h_haftung: 'Haftung für Inhalte',
@@ -159,15 +146,13 @@
     },
     en: {
       titel: 'Legal notice', home: 'Home', list: 'Events', privacy: 'Privacy',
-      vorlage_titel: 'The contact address is still missing.',
-      vorlage_text: 'Name and address are in place; the highlighted e-mail address is still being set up and must be filled in before going live. This page is not legal advice – please have it reviewed before going live.',
       h_anbieter: 'Provider details (§ 18 (1) MStV, Germany)',
       t_anbieter: 'This is a private site run without any intention to make a profit. It does not serve exclusively personal or family purposes, which is why the name and address are given here.',
       a_name: 'Anton Donauer',
       a_strasse: 'Christophstraße 3',
       a_ort: '80538 Munich',
       a_land: 'Germany',
-      h_kontakt: 'Contact', l_mail: 'E-mail:', ph_mail: '[e-mail address – being set up]',
+      h_kontakt: 'Contact', l_mail: 'E-mail:',
       h_verantwortlich: 'Responsible for the content',
       t_verantwortlich: 'Responsible for journalistic and editorial content under § 18 (2) MStV is the person named above.',
       h_haftung: 'Liability for content',

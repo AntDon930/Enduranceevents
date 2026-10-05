@@ -1060,9 +1060,11 @@ def pruefe_rechtsseiten(ctx, basis):
 
     Beide müssen von JEDER Seite aus unmittelbar erreichbar sein
     (§ 5 DDG) - geprüft wird deshalb der Link auf allen drei
-    Hauptseiten, nicht nur die Seite selbst. Und die gelb markierten
-    Platzhalter müssen sichtbar sein, damit die Vorlage nicht
-    versehentlich als fertiges Impressum live geht.
+    Hauptseiten, nicht nur die Seite selbst. Seit dem 05.10.2026 steht
+    die Kontaktadresse (impressum@endurance-events.de) drin - geprüft
+    wird deshalb umgekehrt: KEIN gelber Platzhalter mehr, und Name und
+    Adresse sind da (bis dahin mussten die Platzhalter sichtbar sein,
+    damit die Vorlage nicht als fertiges Impressum live geht).
     """
     print("\nImpressum und Datenschutz")
     for seite_name, kopf in (("impressum.html", "Impressum"),
@@ -1072,15 +1074,20 @@ def pruefe_rechtsseiten(ctx, basis):
                % (seite_name, probleme[0] if probleme else "keine"))
         stand = seite.evaluate("""() => ({
             titel: document.querySelector('.top-bar h1').textContent.trim(),
-            platzhalter: document.querySelectorAll('.platzhalter').length,
+            platzhalter: document.querySelectorAll('.platzhalter, .hinweis').length,
+            name: /Anton Donauer/.test(document.querySelector('.karte').textContent),
+            mail: !!document.querySelector('.karte a[href="mailto:impressum@endurance-events.de"]'),
             ueberschriften: document.querySelectorAll('.karte h2').length,
             ueberlauf: document.documentElement.scrollWidth - innerWidth
         })""")
         pruefe(stand["titel"] == kopf, "%s trägt den richtigen Kopf (%s)"
                % (seite_name, stand["titel"]))
-        pruefe(stand["platzhalter"] > 0,
-               "%s: die offenen Angaben sind markiert (%d Platzhalter)"
+        pruefe(stand["platzhalter"] == 0,
+               "%s: keine Platzhalter und kein Hinweiskasten mehr (%d)"
                % (seite_name, stand["platzhalter"]))
+        pruefe(stand["name"] and stand["mail"],
+               "%s: Name und Kontaktadresse stehen (Name %s, mailto %s)"
+               % (seite_name, stand["name"], stand["mail"]))
         pruefe(stand["ueberschriften"] >= 5, "%s: %d Abschnitte"
                % (seite_name, stand["ueberschriften"]))
         pruefe(stand["ueberlauf"] <= 0, "%s: kein waagerechter Überlauf (%+d px)"

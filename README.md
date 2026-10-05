@@ -2105,16 +2105,14 @@ halben Stand mischen.
 ## Impressum und Datenschutzerklärung
 
 `impressum.html` und `datenschutz.html` sind gebaut und von **jeder**
-Seite aus verlinkt (§ 5 DDG verlangt „unmittelbar erreichbar"). Beide
-sind **noch Vorlagen**: Jede offene Stelle ist gelb markiert
-(`.platzhalter`), und oben steht ein Kasten „Diese Seite ist noch eine
-Vorlage". Der Rauchtest prüft, dass diese Markierungen sichtbar sind –
-so kann die Vorlage nicht unbemerkt als fertiges Impressum live gehen.
-
-**Was noch eingetragen werden muss** (alles im Impressum bzw. im
-Abschnitt „Verantwortlicher" der Datenschutzerklärung): Name bzw.
-Firma, Anschrift, E-Mail-Adresse, optional Telefon, und das Datum
-unter „Stand". Nichts davon kann aus dem Projekt kommen.
+Seite aus verlinkt (§ 5 DDG verlangt „unmittelbar erreichbar"). Seit dem
+05.10.2026 sind beide **vollständig**: Name und Anschrift (Anton Donauer,
+Christophstraße 3, 80538 München) und die Kontaktadresse
+`impressum@endurance-events.de` als `mailto:`-Link. Die gelben
+Platzhalter und der Kasten „Es fehlt noch die Kontaktadresse" sind weg;
+der Rauchtest prüft seitdem umgekehrt, dass kein Platzhalter mehr da ist
+und Name und Adresse stehen – so fällt es auf, wenn eine Vorlage
+zurückkäme.
 
 Die **Datenschutzerklärung beschreibt den tatsächlichen Stand** der
 Seite, nicht eine Wunschvorstellung:

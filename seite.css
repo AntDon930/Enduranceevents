@@ -120,20 +120,6 @@ li { margin-bottom: 4px; }
 a { color: var(--accent); }
 address { font-style: normal; }
 
-/* Die Stellen, die noch mit echten Angaben zu füllen sind. Sichtbar
-   markiert, damit keine Vorlage versehentlich live geht. */
-.platzhalter {
-  background: #fff3cd;
-  color: #664d03;
-  border: 1px dashed #b58a00;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-weight: 600;
-}
-@media (prefers-color-scheme: dark) {
-  .platzhalter { background: #3a2f05; color: #ffe08a; border-color: #8a6d00; }
-}
-
 .hinweis {
   background: var(--accent-bg);
   border: 1px solid var(--border);
