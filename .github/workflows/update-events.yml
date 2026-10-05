@@ -101,16 +101,23 @@ jobs:
           # (scripts/build_ics.py). Sie ändern sich, wenn Events dazu-
           # kommen oder wegfallen - auch wenn events.json selbst gleich
           # bliebe, dürfen sie nicht liegen bleiben.
-          if git diff --quiet -- events.json kalender && \
+          # scripts/veranstalter_seiten.json zählt seit dem 05.10.2026 mit:
+          # das Gedächtnis je Veranstaltung (Seite, Strecken, Ort - ohne
+          # Datum), das clean_events.py bei jedem Lauf fortschreibt; dazu
+          # der Prüfbericht der nächsten Ausgaben und manual_events.json,
+          # in das `pruefen --uebernehmen` gefundene Termine einträgt.
+          if git diff --quiet -- events.json kalender scripts/veranstalter_seiten.json \
+               scripts/veranstalter_seiten_pruefung.json scripts/manual_events.json && \
              [ -z "$(git status --porcelain -- kalender)" ]; then
-            echo "Keine Änderungen an events.json oder kalender/ – kein Commit nötig."
+            echo "Keine Änderungen an events.json, kalender/ oder veranstalter_seiten.json – kein Commit nötig."
             exit 0
           fi
 
           AFTER=$(python3 -c 'import json; print(len(json.load(open("events.json"))))')
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add events.json kalender
+          git add events.json kalender scripts/veranstalter_seiten.json \
+                  scripts/veranstalter_seiten_pruefung.json scripts/manual_events.json
           git commit -m "Automatisches Events-Update: ${{ steps.before.outputs.count }} -> ${AFTER} Events" \
                      -m "Ausgeführt vom wöchentlichen update-events-Workflow (scripts/update_events.py)."
 

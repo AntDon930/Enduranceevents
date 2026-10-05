@@ -3525,6 +3525,110 @@ def test_lvpfalz_lck() -> None:
     check("lck: Seitenleisten-Ids", lck.sidebar_ids('<a href=?id=15&kategorie=>x</a><a href=?id=9&kategorie=>y</a><a href=?id=15&kategorie=>z</a>'), [9, 15])
 
 
+def test_gedaechtnis() -> None:
+    """Gedächtnis je Veranstaltung ohne Datum (veranstalter_seiten.py,
+    05.10.2026): Schlüssel ohne Jahr/Auflage, Seite und Strecken merken,
+    Seite/Koordinaten auf die neue Ausgabe anwenden, Abgleich mit dem
+    Vorjahr, plausible nächste Termine, Übernahme nach manual_events."""
+    print("\nGedächtnis je Veranstaltung (veranstalter_seiten.py):")
+    import json as _json
+    import tempfile
+    import veranstalter_seiten as vs
+
+    def z(name, datum, km, wb="", url="https://www.munich-triathlon.com/", lat=48.14, lon=11.58, standort="München"):
+        return dict(name=name, standort=standort, land="Deutschland", lat=lat, lon=lon, art1="Triathlon",
+                    art2="Straße", datum_start=datum, datum_ende=datum, laenge_km=km, dauer_h=None,
+                    wettbewerb=wb, veranstalter_url=url)
+    check("Schlüssel ohne Jahr und Auflage", vs.schluessel_von(z("49. Munich Triathlon 2027", "2027-07-25", 25.5)),
+          vs.schluessel_von(z("Munich Triathlon", "2026-07-26", 25.5)))
+    check("Name ohne Jahr", (vs.name_ohne_jahr("Munich Triathlon 2027"), vs.name_ohne_jahr("Winterlaufserie 2026/2027"), vs.name_ohne_jahr("Lauf 2027 - Nord")),
+          ("Munich Triathlon", "Winterlaufserie", "Lauf - Nord"))
+    ged = vs.Gedaechtnis({})
+    alt = [z("Munich Triathlon", "2026-07-26", 25.5, "Sprint 25,5 km"), z("Munich Triathlon", "2026-07-26", 51.5, "Kurzdistanz 51,5 km")]
+    vs.lernen(alt, ged, overrides={})
+    e = ged.finde(alt[0])
+    check("Ausgabe 2026 gelernt: Seite und zwei Strecken", (e["url"], [s["laenge_km"] for s in e["strecken"]], e["datum"]),
+          ("https://www.munich-triathlon.com/", [25.5, 51.5], "2026-07-26"))
+    zweimal = vs.lernen([z("Munich Triathlon", "2026-07-26", 25.5, "Sprint 25,5 km", url="https://munich-triathlon.com/")], ged, overrides={})
+    check("gleiche Seite in zweiter Schreibweise: nichts hin und her", (zweimal, e["url"]), ([], "https://www.munich-triathlon.com/"))
+    # Eine Veranstaltung OHNE eigene Seite steht trotzdem im Gedächtnis.
+    ohne = [z("Stadtlauf Erding", "2026-10-03", 10.0, "10 km", url="https://my.raceresult.com/1/", standort="Erding")]
+    vs.lernen(ohne, ged, overrides={})
+    e2 = ged.finde(ohne[0])
+    check("ohne Seite: Eintrag mit Strecken, url leer", (e2 is not None and e2.get("url"), [s["laenge_km"] for s in e2["strecken"]]), (None, [10.0]))
+    # Die neue Ausgabe kommt mit Portallink und ohne Koordinaten.
+    neu = [z("Munich Triathlon 2027", "2027-07-25", None, "Sprint", url="https://www.kilometerliebe.de/x", lat=None, lon=None)]
+    vergleich = vs.abgleich_vorjahr(neu, ged)
+    check("Abgleich: Vorjahr hatte Strecken, neue Ausgabe ohne Maßzahl", len(vergleich) == 1 and "25.5 km" in vergleich[0] and "51.5 km" in vergleich[0], True)
+    angewendet = vs.anwenden(neu, ged, overrides={})
+    check("anwenden: Seite und Koordinaten der vorigen Ausgabe", (neu[0]["veranstalter_url"], neu[0]["lat"], len(angewendet)),
+          ("https://www.munich-triathlon.com/", 48.14, 2))
+    frueher = [z("Munich Triathlon", "2026-05-01", 25.5, url="https://my.raceresult.com/2/")]
+    vs.anwenden(frueher, ged, overrides={})
+    check("anwenden: nie von einer SPÄTEREN Ausgabe (Serie)", frueher[0]["veranstalter_url"], "https://my.raceresult.com/2/")
+    eigene = [z("Munich Triathlon 2027", "2027-07-25", 25.5, url="https://neue-seite.de/")]
+    vs.anwenden(eigene, ged, overrides={})
+    check("anwenden: eine eigene Seite wird nie überschrieben", eigene[0]["veranstalter_url"], "https://neue-seite.de/")
+    vs.lernen(neu, ged, overrides={})
+    check("lernen: die neue Ausgabe gilt", ged.finde(alt[0])["datum"], "2027-07-25")
+    vs.lernen(alt, ged, overrides={})
+    check("lernen: die ältere Ausgabe überschreibt die jüngere nicht", (ged.finde(alt[0])["datum"], [s["laenge_km"] for s in ged.finde(alt[0])["strecken"]]), ("2027-07-25", [None]))
+    # Plausible nächste Termine: 10-14 Monate nach der vorigen Ausgabe.
+    daten = {"2026-11-01", "2027-07-24", "2027-07-25", "2028-07-23", "2027-01-15"}
+    check("kandidaten_termine: nur das Fenster 10-14 Monate", vs.kandidaten_termine(daten, "2026-07-26", "2026-10-05"), ["2027-07-24", "2027-07-25"])
+    check("kandidaten_termine: ohne vorige Ausgabe alles Künftige bis 14 Monate", vs.kandidaten_termine(daten, None, "2026-10-05"),
+          ["2026-11-01", "2027-01-15", "2027-07-24", "2027-07-25"])
+    check("spanne: zwei Tage sind eine Ausgabe", vs.spanne(["2027-07-25", "2027-07-24"]), ("2027-07-24", "2027-07-25"))
+    check("spanne: zwei Termine im Abstand von Wochen sind mehrdeutig", vs.spanne(["2027-06-01", "2027-07-25"]), None)
+    check("spanne: ein Termin", vs.spanne(["2027-07-25"]), ("2027-07-25", "2027-07-25"))
+    # Übernahme nach manual_events.json: je Strecke eine Zeile, ohne Jahr im Namen.
+    ged2 = vs.Gedaechtnis({})
+    vs.lernen(alt, ged2, overrides={})
+    eintrag = ged2.finde(alt[0])
+    zeilen = vs.manual_events_aus(eintrag, "2027-07-25", "2027-07-25", "2026-10-05")
+    check("manual_events_aus: zwei Strecken, Datum, Seite, Quelle, Notiz",
+          ([(r["name"], r["datum_start"], r["laenge_km"], r["veranstalter_url"]) for r in zeilen], zeilen[0]["_quelle"], "Gedächtnis" in zeilen[0]["_note"]),
+          ([("Munich Triathlon", "2027-07-25", 25.5, "https://www.munich-triathlon.com/"), ("Munich Triathlon", "2027-07-25", 51.5, "https://www.munich-triathlon.com/")],
+           "https://www.munich-triathlon.com/", True))
+    with tempfile.TemporaryDirectory() as tmp:
+        pfad = Path(tmp) / "manual_events.json"
+        pfad.write_text(_json.dumps({"_readme": "x", "events": []}), encoding="utf-8")
+        b1 = vs.uebernehmen([("k", eintrag, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
+        b2 = vs.uebernehmen([("k", eintrag, "2027-07-25", "2027-07-25")], "2026-10-05", pfad)
+        roh = _json.loads(pfad.read_text(encoding="utf-8"))
+        check("uebernehmen: einmal angelegt, beim zweiten Mal übersprungen", (len(b1), len(b2), len(roh["events"]), roh["_readme"]), (1, 0, 2, "x"))
+        g = Path(tmp) / "ged.json"
+        ged2.speichern(g)
+        check("speichern/laden: gültiges JSON, Eintrag unverändert", vs.Gedaechtnis.laden(g).finde(alt[0]), eintrag)
+    # Zurückgezogen: Dieselbe Ausgabe trägt die gemerkte Seite nicht mehr
+    # (jemand hat sie entfernt - tv-albig.de war der Verein, nicht der
+    # Lauf). Dann darf sie nicht an die nächste Ausgabe weitergehen.
+    g2 = vs.Gedaechtnis({})
+    albig = [z("Albiger Doppelzwölfer", "2026-10-24", None, "12 h", url="https://tv-albig.de/", standort="Albig")]
+    vs.lernen(albig, g2, overrides={})
+    check("zurückgezogen: Seite zunächst gemerkt", g2.finde(albig[0])["url"], "https://tv-albig.de/")
+    albig_ohne = [z("Albiger Doppelzwölfer", "2026-10-24", None, "12 h", url="https://my.raceresult.com/421768/", standort="Albig")]
+    rueck = vs.lernen(albig_ohne, g2, overrides={})
+    e3 = g2.finde(albig_ohne[0])
+    check("zurückgezogen: url leer, quelle zurueckgezogen", (e3["url"], e3["quelle"], any("zurückgezogen" in r for r in rueck)), (None, "zurueckgezogen", True))
+    albig_2027 = [z("Albiger Doppelzwölfer", "2027-10-23", None, "12 h", url="https://my.raceresult.com/5/", standort="Albig")]
+    vs.anwenden(albig_2027, g2, overrides={})
+    check("zurückgezogen: die nächste Ausgabe bekommt sie nicht", albig_2027[0]["veranstalter_url"], "https://my.raceresult.com/5/")
+    # ... und dieselbe Ausgabe ohne Seite bekommt sie nie zurück (die
+    # Seite der Ausgabe 2026 gilt erst ab 2027).
+    g3 = vs.Gedaechtnis({})
+    vs.lernen(albig, g3, overrides={})
+    vs.anwenden(albig_ohne, g3, overrides={})
+    check("anwenden: nie auf dieselbe Ausgabe", albig_ohne[0]["veranstalter_url"], "https://my.raceresult.com/421768/")
+    # Die Datei im Repo: jeder Eintrag trägt Schlüssel in der erwarteten Form.
+    if vs.PFAD.exists():
+        d = _json.loads(vs.PFAD.read_text(encoding="utf-8"))
+        d.pop("_readme", None)
+        check("veranstalter_seiten.json: alle Schlüssel '<kern>|<ort>'", [k for k in d if "|" not in k][:3], [])
+        check("veranstalter_seiten.json: jede Seite ist eine eigene (kein Portal)",
+              [v["url"] for v in d.values() if v.get("url") and not vs.eigene_seite(v["url"])][:3], [])
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -3539,7 +3643,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

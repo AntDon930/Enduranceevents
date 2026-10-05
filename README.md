@@ -1719,6 +1719,51 @@ großen `events.json`-Diff pro Tag; ein Veranstaltungskalender ändert sich
 ohnehin nicht stündlich. Für einen Lauf zwischendurch genügt der
 "Run workflow"-Button. Zurück auf täglich: `- cron: '0 5 * * *'`.
 
+## Gedächtnis je Veranstaltung: Seiten und Strecken über den Jahreswechsel
+
+Seit dem 05.10.2026 merkt sich `scripts/veranstalter_seiten.py` jede
+Veranstaltung **ohne Datum** – unter dem Kern ihres Namens (ohne Auflage,
+Jahr und Ort) plus Ort: „49. Nat. Nikolaus Volkslauf 2026" und „50. Nat.
+Nikolaus Volkslauf 2027" in Bad Schönborn sind ein Eintrag. Gemerkt
+werden Veranstalterseite, Koordinaten, Sportart, Land und die Strecken der
+jüngsten Ausgabe (`scripts/veranstalter_seiten.json`, ~2 MB, 4.371
+Veranstaltungen, 4.151 mit Seite).
+
+Warum: Ein Override hängt an `<Name>|<Datum>`. Kommt die nächste Ausgabe
+mit neuem Datum und Portallink, greift er nicht mehr, und die Linkarbeit
+des Vorjahrs ist verloren – am 05.10.2026 zeigten 194 von 894
+Link-Overrides auf vergangene Termine. Der Nutzer hat das Gedächtnis
+deshalb gewünscht: „Der Sinn ist, dass wir irgendwann eine Liste mit allen
+Events haben … Also müssen wir immer nur schauen, ob die alten Events am
+nächsten Jahr wieder stattfinden."
+
+Was `clean_events.py` damit tut (nach den Overrides, vor dem Entfernen
+vergangener Events):
+
+1. **Abgleich**: Welche Strecken der vorigen Ausgabe fehlen der neuen?
+   Nur ein Bericht.
+2. **Anwenden**: Eine neue Ausgabe mit Portallink (oder ohne Koordinaten)
+   bekommt Seite und Lage der VORIGEN Ausgabe – nie von derselben, nie
+   von einer späteren. Eine Seite, die für die bekannte Ausgabe bewusst
+   entfernt wurde, gilt als zurückgezogen und wandert nicht weiter.
+3. **Lernen**: Jede Zeile mit eigener Seite und jede Ausgabe mit ihren
+   Strecken schreibt sich ins Gedächtnis (Override vor Scraper, jüngere
+   Ausgabe vor älterer).
+
+Und einmal pro Woche (`update_events.py`, vor dem Aufräumen) **prüft
+`pruefen` die Seiten vergangener Veranstaltungen**, die in keiner Quelle
+mehr stehen: Nennt die Seite einen Termin 10 bis 14 Monate nach der
+letzten Ausgabe und den Lauf beim Namen, wird er als neue Ausgabe mit den
+Strecken der vorigen in `scripts/manual_events.json` eingetragen
+(`--uebernehmen`); Mehrdeutiges bleibt im Bericht
+`scripts/veranstalter_seiten_pruefung.json`. Je Lauf höchstens 150
+Seiten, jede Seite höchstens alle drei Wochen. Nachschlagen:
+
+```bash
+python3 scripts/veranstalter_seiten.py zeigen Nikolauslauf
+python3 scripts/veranstalter_seiten.py pruefen --bericht /tmp/p.json --max 20
+```
+
 ## Login/Anmeldung einrichten
 
 `index.html`, `events.html` und `karte.html` haben rechts neben dem

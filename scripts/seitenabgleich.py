@@ -36,21 +36,12 @@ from pathlib import Path
 sys.path.insert(0, "scripts")
 from veranstalter_links import Abrufer, text_von, kein_veranstalter, host_von
 from scraper_lib import is_portal_link
+from veranstalter_seiten import daten_aus  # noqa: E402
 
 BERICHT = Path(sys.argv[1]); FORTSETZEN = "--fortsetzen" in sys.argv
 MAX = int(sys.argv[sys.argv.index("--max")+1]) if "--max" in sys.argv else 0
-MONATE = {m: i+1 for i, m in enumerate(["januar","februar","marz","april","mai","juni","juli","august","september","oktober","november","dezember"])}
-MONATE.update({"jan":1,"feb":2,"mar":3,"apr":4,"jun":6,"jul":7,"aug":8,"sep":9,"sept":9,"okt":10,"nov":11,"dez":12})
-
-def daten_aus(txt):
-    out=set()
-    for t,m,j in re.findall(r"\b(\d{1,2})\.\s?(\d{1,2})\.\s?(20\d{2})\b", txt):
-        if 1<=int(m)<=12 and 1<=int(t)<=31: out.add(f"{j}-{int(m):02d}-{int(t):02d}")
-    for t,m,j in re.findall(r"\b(\d{1,2})\.\s?([a-z]{3,9})\.?\s?(20\d{2})\b", txt):
-        if m in MONATE and 1<=int(t)<=31: out.add(f"{j}-{MONATE[m]:02d}-{int(t):02d}")
-    for j,m,t in re.findall(r"\b(20\d{2})-(\d{2})-(\d{2})\b", txt):
-        if 1<=int(m)<=12: out.add(f"{j}-{m}-{t}")
-    return out
+# daten_aus()/MONATE wohnen seit dem 05.10.2026 in veranstalter_seiten.py
+# (das Gedächtnis je Veranstaltung braucht dieselbe Erkennung) - EINE Fassung.
 
 def distanzen_aus(txt):
     out=set()

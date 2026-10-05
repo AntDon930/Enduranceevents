@@ -58,6 +58,9 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
 | `scripts/veranstalter_links.py` | sucht für Zeitnehmer-/Anmelde-/Portallinks die **Veranstalterseite** – `sammeln` (raceresult-Kontaktseite, externe Links der Portalseite), `verifizieren` (Adressen aus einer Websuche), `pruefen` (eigene Seiten: tot? nennt den Lauf?), `anwenden` (Overrides + Protokoll); jede Kandidatenseite muss den Lauf am Namen nennen (bei `verifizieren` zählt auch der Ort im Hostnamen), siehe „Neunter/Zehnter Durchgang"; `sammeln --ohne-host`, `veranstalter_name` aus der raceresult-Kontaktseite und die Berichtsfelder `begruendung`/`protokoll` für Handbelege seit dem „Achtzehnten Durchgang" |
 | `scripts/seitenabgleich.py` | hält jede Veranstaltung mit eigener Seite gegen den **Seitentext** (Datum da? Distanzen da?) und meldet DATUM/DISTANZ/LEER/FEHLER – nur Bericht, siehe „Elfter Durchgang" |
+| `scripts/veranstalter_seiten.py` | **Gedächtnis je Veranstaltung OHNE Datum** (seit 05.10.2026, vom Nutzer gewünscht): Schlüssel `<Kern des Namens>\|<Ort>`, merkt Veranstalterseite, Koordinaten, Sportart und Strecken der jüngsten Ausgabe; `lernen`/`anwenden`/`abgleich_vorjahr` laufen in `clean_events.py`, `pruefen` ruft die Seiten VERGANGENER Veranstaltungen ab und sucht die nächste Ausgabe (wöchentlich in `update_events.py`, `--uebernehmen` schreibt eindeutige Funde nach `manual_events.json`); siehe „Gedächtnis je Veranstaltung" |
+| `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
+| `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
 | `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
@@ -2203,6 +2206,73 @@ ansehen, jede einzeln per Websuche gegen die offizielle Ausschreibung
 prüfen, Vorschlag anlegen, **vom Nutzer bestätigen lassen** – nicht
 selbst durchwinken. Details im README („Fehler zu diesem Event melden").
 
+## Gedächtnis je Veranstaltung (seit 05.10.2026)
+
+Vom Nutzer so entschieden: „Ja, bau ein Gedächtnis je Veranstaltung,
+aber ohne das Datum! Und damit werden dann die alten Daten mit den neuen
+abgeglichen und auf den Webseiten in der Vergangenheit soll auch ab und
+zu gecheckt werden, ob denn das neue Event schon rausgekommen ist. Der
+Sinn ist, dass wir irgendwann eine Liste mit allen Events haben … Also
+müssen wir immer nur schauen, ob die alten Events am nächsten Jahr
+wieder stattfinden. … Außerdem schaue ich gerade bei vielen Events nach
+den Original-Seiten, das ist viel manuelle Arbeit von meiner Seite, also
+wäre das sehr schade, wenn diese Informationen verloren gehen würden!"
+
+Das Problem dahinter: Ein Override hängt am Schlüssel `<Name>|<Datum>`.
+Die Ausgabe 2027 kommt mit neuem Datum und Portallink, der Override
+greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
+05.10.2026 zeigten 194 von 894 Link-Overrides schon ins Leere.
+
+`scripts/veranstalter_seiten.py` (Doku im Modul-Docstring, Datei
+`scripts/veranstalter_seiten.json`). Was man wissen muss:
+
+- **Schlüssel ohne Datum**: Kern des Namens (`_kern_tokens()`, ohne
+  Auflage, Jahr, Ort, Ortsadjektiv) + Ort als Wortmenge. Allerwelts-Kerne
+  („Crosslauf", „Silvesterlauf") brauchen den Ort wörtlich.
+- **JEDE Veranstaltung steht drin**, auch ohne Seite – mit Strecken,
+  Sportart, Land, Koordinaten der jüngsten Ausgabe (`strecken_datum`).
+  Die erste Füllung kam aus fünf älteren Ständen von `events.json`
+  (`aufbauen --alt`).
+- **Reihenfolge in `clean_events.py`**: nach `add_manual_events()`, vor
+  `drop_past_events()`: `abgleich_vorjahr` (Bericht: welche Strecken der
+  vorigen Ausgabe fehlen) → `anwenden` → `lernen`; ein zweites `lernen`
+  nach dem Vereinheitlichen der Namen; `speichern()` am Ende. **`anwenden`
+  VOR `lernen`** ist Absicht: `lernen` zieht den Eintrag auf die neue
+  Ausgabe, danach wäre die vorige nicht mehr erkennbar.
+- **Eine Seite gilt nur für eine SPÄTERE Ausgabe.** Beim Probelauf
+  brachte das Gedächtnis elf Links zurück, die für DIESELBE Ausgabe
+  bewusst entfernt worden waren (tv-albig.de = der Verein, nicht der
+  Doppelzwölfer; die Wylandlauf-Unterseite für den ganzen Zürilauf Cup).
+  Jetzt: Trägt die bekannte Ausgabe auf keiner Zeile mehr eine eigene
+  Seite und kein Override setzt eine, wird die Seite **zurückgezogen**
+  (`quelle: "zurueckgezogen"`, `url: null`) und nicht weitergegeben.
+  Sieben Einträge am 05.10.2026. Ein Override `veranstalter_url: null`
+  nimmt dem Eintrag ebenfalls nur die Seite, nie die Strecken.
+- **Gleiche Ausgabe zweimal gelernt = Vereinigung der Strecken**, nicht
+  Ersatz (das zweite `lernen` sieht nach dem Zusammenführen weniger
+  Zeilen). Erst eine jüngere Ausgabe ersetzt sie.
+- **`pruefen`** (wöchentlich aus `update_events.py`, vor dem Aufräumen,
+  höchstens 150 Seiten je Lauf, 40 Minuten): ruft die Seiten der
+  Veranstaltungen ab, die KEINE Zeile mehr in `events.json` haben, sucht
+  einen Termin 10–14 Monate nach der letzten Ausgabe
+  (`kandidaten_termine`, `daten_aus` – dieselbe Datumserkennung wie
+  `seitenabgleich.py`, dort seit dem Tag importiert), prüft
+  `nennt_den_lauf()`, jede Seite höchstens alle 21 Tage. Ein EINDEUTIGER
+  Fund (ein Termin oder eine Spanne bis 3 Tage) geht mit `--uebernehmen`
+  als neue Ausgabe mit den Strecken der vorigen nach `manual_events.json`
+  (`uebernommen` am Eintrag, `_quelle` die Seite); „NEU?" bleibt im
+  Bericht `scripts/veranstalter_seiten_pruefung.json` für die
+  Handprüfung. Name ohne Jahreszahl (`name_ohne_jahr`). Probelauf:
+  12 Seiten in 33 s, 11 NICHTS (Seiten zeigen noch das alte Jahr).
+- **Der Datenlauf committet** `veranstalter_seiten.json`,
+  `veranstalter_seiten_pruefung.json` und `manual_events.json` mit
+  (`stage_kalender()` staget sie, `update-events.yml` listet sie) – **die
+  Fassung auf `main` muss der Nutzer nachziehen**, siehe „Automatik".
+- `test_gedaechtnis` hält alles fest: Schlüssel ohne Jahr, Rangfolge,
+  Vereinigung, Zurückziehen, nie dieselbe/spätere Ausgabe, Abgleich,
+  `kandidaten_termine`, `spanne`, `manual_events_aus`, `uebernehmen`,
+  Speichern/Laden und die Repo-Datei.
+
 ## Frontend-Fallen (events.html)
 
 - **Handy: Kacheln statt Tabelle (unter 700 px).** Vom Nutzer am
@@ -4111,6 +4181,17 @@ was dort gestaget ist, geht also mit, auch wenn eine Workflow-Datei das
 Fassung (`git add events.json kalender`) ist der Aufruf ein No-op.
 `test_kalender_staging` hält vor allem die Gegenprobe fest: **lokal darf
 das Skript den Index NIE anfassen.**
+
+**Seit dem 05.10.2026 läuft im Datenlauf vor dem Aufräumen
+`veranstalter_seiten.py pruefen`** (`run_naechste_ausgaben()` in
+`update_events.py`: 150 Seiten, 40 Minuten, `--uebernehmen`), und der
+Commit nimmt `scripts/veranstalter_seiten.json`,
+`scripts/veranstalter_seiten_pruefung.json` und
+`scripts/manual_events.json` mit – `git diff --quiet` und `git add` in
+`update-events.yml` nennen sie. **Auf `main` steht noch die alte
+Fassung**: Bis der Nutzer sie nachzieht, läuft `pruefen` dort zwar, aber
+Gedächtnis und Funde werden nicht committet (jede Woche von vorn).
+`stage_kalender()` staget die drei Dateien zusätzlich – in Actions.
 
 **Die Einzelprüfung geht über mehrere Sitzungen**, deshalb gibt es
 `scripts/geprueft.json`: Wer dort steht, wurde gegen die offizielle

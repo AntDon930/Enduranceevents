@@ -192,14 +192,57 @@ def stage_kalender() -> None:
     kalender = REPO_ROOT / "kalender"
     if not kalender.exists():
         return
+    # Seit dem 05.10.2026 auch das Gedächtnis je Veranstaltung
+    # (scripts/veranstalter_seiten.json): clean_events.py schreibt es bei
+    # jedem Lauf fort, und was dort steht, muss den Datenlauf überleben -
+    # sonst ist mit der vergangenen Zeile auch ihre Seite weg.
+    pfade = ["kalender"]
+    for rel in ("scripts/veranstalter_seiten.json", "scripts/veranstalter_seiten_pruefung.json",
+                "scripts/manual_events.json"):
+        if (REPO_ROOT / rel).exists():
+            pfade.append(rel)
     try:
-        subprocess.run(["git", "add", "kalender"], cwd=REPO_ROOT, check=True,
+        subprocess.run(["git", "add", *pfade], cwd=REPO_ROOT, check=True,
                        capture_output=True)
     except (OSError, subprocess.CalledProcessError) as exc:
-        print(f"⚠ 'git add kalender' fehlgeschlagen ({exc}) – die .ics-Dateien "
+        print(f"⚠ 'git add {' '.join(pfade)}' fehlgeschlagen ({exc}) – die Dateien "
               "müssen dann von Hand committet werden.")
         return
-    print("  (kalender/ für den Commit vorgemerkt – siehe stage_kalender().)")
+    print(f"  ({', '.join(pfade)} für den Commit vorgemerkt – siehe stage_kalender().)")
+
+
+def run_naechste_ausgaben(events_json: Path) -> bool:
+    """Das Gedächtnis je Veranstaltung fragt die Seiten vergangener
+    Veranstaltungen nach dem nächsten Termin (scripts/veranstalter_seiten.py
+    pruefen) und trägt eindeutige Funde in manual_events.json ein, die
+    clean_events.py gleich danach aufnimmt. Höchstens NAECHSTE_AUSGABEN_MAX
+    Seiten je Lauf, jede Seite höchstens alle drei Wochen - so kommt der
+    ganze Bestand im Lauf einiger Wochen an die Reihe. Vom Nutzer am
+    05.10.2026 gewünscht: „auf den Webseiten in der Vergangenheit soll
+    auch ab und zu gecheckt werden, ob das neue Event schon rausgekommen
+    ist". Ein Fehlschlag hält den Datenlauf nicht auf."""
+    script = SCRIPTS_DIR / "veranstalter_seiten.py"
+    if not script.exists():
+        return True
+    print(f"\n{'=' * 70}\nNächste Ausgaben: Seiten vergangener Veranstaltungen prüfen\n{'=' * 70}")
+    cmd = [sys.executable, str(script), "--events-json", str(events_json), "pruefen",
+           "--bericht", str(SCRIPTS_DIR / "veranstalter_seiten_pruefung.json"), "--fortsetzen",
+           "--max", str(NAECHSTE_AUSGABEN_MAX), "--uebernehmen"]
+    try:
+        result = subprocess.run(cmd, cwd=REPO_ROOT, timeout=NAECHSTE_AUSGABEN_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        print("⚠ Die Prüfung der nächsten Ausgaben hat zu lange gedauert - abgebrochen, der Datenlauf geht weiter.")
+        return False
+    except OSError as exc:
+        print(f"⚠ Die Prüfung der nächsten Ausgaben ließ sich nicht starten ({exc}).")
+        return False
+    if result.returncode != 0:
+        print(f"⚠ Die Prüfung der nächsten Ausgaben endete mit Rückgabewert {result.returncode}.")
+    return result.returncode == 0
+
+
+NAECHSTE_AUSGABEN_MAX = 150
+NAECHSTE_AUSGABEN_TIMEOUT = 40 * 60
 
 
 def run_cleanup(events_json: Path) -> bool:
@@ -318,6 +361,9 @@ def main():
         results[script.name] = run_script(script, args.events_json, args.dry_run, extra_args)
 
     if not args.dry_run:
+        # Erst die nächsten Ausgaben vergangener Veranstaltungen (schreibt
+        # manual_events.json), dann das Aufräumen, das sie aufnimmt.
+        run_naechste_ausgaben(args.events_json)
         # Aufräumen VOR dem Vorher-/Nachher-Vergleich: sonst würden Events
         # gemeldet, die die Duplikat-Zusammenführung gleich wieder entfernt.
         run_cleanup(args.events_json)

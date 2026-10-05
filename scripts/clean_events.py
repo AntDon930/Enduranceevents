@@ -101,6 +101,7 @@ from scraper_lib import (  # noqa: E402
     load_manual_overrides,
     round_km,
 )
+import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
 
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
 # Laufen genutzt (siehe ART2_KEYWORDS_LAUFEN in scraper_lib.py).
@@ -1826,6 +1827,22 @@ def main() -> None:
     # Nachgetragene Zeilen sind ohnehin schon einzeln geprüft und
     # brauchen keinen Override.
     events, manuell_ergaenzt = add_manual_events(events)
+    # Das Gedächtnis je Veranstaltung (veranstalter_seiten.py): NACH den
+    # Overrides (ein per Override belegter Link zählt dort mehr als ein
+    # vom Scraper gelieferter) und VOR drop_past_events() - die vergangene
+    # Ausgabe bringt dem Gedächtnis ihre Seite bei, bevor sie geht, und die
+    # neue Ausgabe mit Portallink bekommt sie gleich hier. Ein zweites
+    # lernen() steht nach dem Vereinheitlichen der Namen (unten).
+    gedaechtnis = veranstalter_seiten.Gedaechtnis.laden()
+    # Erst der Abgleich mit der vorigen Ausgabe (welche Strecken fehlen
+    # der neuen?), DANN lernen - sonst kennt das Gedächtnis die neue
+    # Ausgabe schon und hat nichts mehr zu vergleichen.
+    vorjahr = veranstalter_seiten.abgleich_vorjahr(events, gedaechtnis)
+    # Dann ANWENDEN, dann lernen: anwenden() gibt die Seite nur an eine
+    # SPÄTERE Ausgabe weiter; lernen() zöge den gemerkten Stand erst auf
+    # die neue Ausgabe und nähme ihr damit die Vorige weg.
+    aus_gedaechtnis = veranstalter_seiten.anwenden(events, gedaechtnis)
+    gemerkt = veranstalter_seiten.lernen(events, gedaechtnis)
     # VOR refresh_art2: Das holt die Kategorie aus der Lauf-Liste und
     # würde einem noch als "Laufen" geführten Triathlon "Trail"
     # verpassen.
@@ -1917,6 +1934,10 @@ def main() -> None:
               f"{MAX_MERGE_PASSES} Durchläufen noch nicht stabil.")
 
     events.sort(key=lambda e: (e.get("datum_start") or "", (e.get("name") or "").casefold()))
+    # Noch einmal lernen, jetzt mit den vereinheitlichten Namen und den
+    # zusammengeführten Zeilen (der Schlüssel des Gedächtnisses verträgt
+    # Auflage und Jahr, aber nicht jede Schreibvariante einer Quelle).
+    gemerkt += veranstalter_seiten.lernen(events, gedaechtnis)
 
     def section(title: str, lines: list[str]) -> None:
         print(f"\n{title}: {len(lines)}")
@@ -1927,6 +1948,9 @@ def main() -> None:
     section("Manuelle Korrekturen angewendet", override_changes)
     section("Einzeln recherchiert nachgetragen (manual_events.json)", manuell_ergaenzt)
     section("Per Override ausgeschlossen", excluded)
+    section("Veranstalterseite/Koordinaten aus dem Gedächtnis (vorige Ausgabe)", aus_gedaechtnis)
+    section("⚠ Gedächtnis: Strecken der vorigen Ausgabe, die der neuen fehlen", vorjahr)
+    section("Gedächtnis je Veranstaltung: Seiten gemerkt/aktualisiert", gemerkt)
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Staffeln entfernt (erst einmal keine Staffeln)", staffeln)
     section("Schwimm-Meisterschaften entfernt (nicht für jeden offen)", nicht_offen)
@@ -1975,6 +1999,7 @@ def main() -> None:
         print("--dry-run aktiv: events.json wurde NICHT verändert.")
         return
 
+    gedaechtnis.speichern()
     args.events_json.write_text(
         json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
