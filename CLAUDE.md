@@ -484,6 +484,9 @@ laden Leaflet und Firebase (das Skript setzt es schon).
        „Laufen" zurück, wenn der Name ein Laufwort trägt
        (`LAUF_IM_TRIATHLONKALENDER`: trail, marathon, lauf, run, ultra)
        und KEIN Mehrsport-Stichwort – die `ART1_KEYWORDS` laufen vorher,
+       („xterra" zählt dort seit dem 05.10.2026 nur OHNE Trail/Run/Lauf
+       dahinter – XTERRA hat auch eine Trailrun-Serie, der „XTERRA Trail
+       de la Vallée de Joux" stand als Triathlon da),
        „XTERRA", „Cross Triathlon Trail Edition" und „Swimrun" bleiben
        Triathlon. Nur im Triathlon-Kalender: Im Laufkalender ändert sich
        nichts, im Radkalender bleibt ein „MTB Trail Marathon" Rad.
@@ -2421,6 +2424,13 @@ greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
   die Null-Treffer-Box (`openSuggestModal`) – ein Weg, drei Zugänge. Auf
   dem Handy ist sie im Blatt ausgeblendet, dort bleibt die Fußzeile.
   Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
+- **Keine Entfernungs-Spalte mehr** (vom Nutzer am 05.10.2026: „nicht
+  nützlich und verwirrt nur mit der Länge der Strecke"). `activeColumns()`
+  ist nur noch `TABLE_ORDER`, ein Ausgangspunkt filtert (Umkreis), schaltet
+  aber weder Spalte noch Sortierung zu; `sort=entfernung` aus alten Links
+  wird verworfen. Die Detail-Box nennt die Entfernung weiter, beschriftet
+  („Entfernung: 14 km von deinem Standort"). Was weiter unten über die
+  Entfernungs-Spalte steht, ist Geschichte.
 - **Bei null Treffern verschwindet die Liste** (vom Nutzer am 05.10.2026:
   „Wenn keine Events angezeigt werden … brauchen wir die Liste nicht"):
   `renderNotifyPrompt()` setzt `body.null-treffer`, das blendet `.layout`

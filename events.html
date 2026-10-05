@@ -1353,11 +1353,6 @@
     }
   };
 
-  // Die Entfernungs-Spalte gibt es nur mit Ausgangspunkt - ohne einen
-  // wäre sie eine Spalte voller Striche. Sie steht direkt hinter
-  // Stadt/Ort, weil sie dieselbe Frage beantwortet ("wie weit weg?").
-  const DISTANCE_COLUMN = { key: 'entfernung', labelKey: 'col_entfernung', type: 'none' };
-
   // Beim Zusammenfassen steht ganz vorn, aus wie vielen Zeilen eine
   // Veranstaltung besteht - eine einzelne Strecke zeigt "1". Die Spalte
   // ist nicht sortierbar (SORT_KEYS kennt sie nicht): sortiert werden
@@ -1379,9 +1374,11 @@
   const FILTER_ORDER = ['datum', 'art1', 'art2', 'laenge_km', 'standort', 'land', 'name'];
 
   function activeColumns() {
-    const cols = TABLE_ORDER.map(key => COLUMNS.find(c => c.key === key)).filter(Boolean);
-    if (state.origin) cols.splice(cols.findIndex(c => c.key === 'standort') + 1, 0, DISTANCE_COLUMN);
-    return cols;
+    // Keine Entfernungs-Spalte mehr, auch nicht mit Ausgangspunkt (vom
+    // Nutzer am 05.10.2026: "nicht nützlich und verwirrt nur mit der
+    // Länge der Strecke" - zwei km-Spalten nebeneinander). Der Umkreis
+    // filtert weiter, die Detail-Box nennt die Entfernung mit Beschriftung.
+    return TABLE_ORDER.map(key => COLUMNS.find(c => c.key === key)).filter(Boolean);
   }
 
   function distanceFromOrigin(e) {
@@ -1883,13 +1880,10 @@
   // Spalte und mit ihr die Sortierung. Die Filter-Panels rufen das über
   // den setOrigin-Haken (siehe EFU.create oben).
   function setOrigin(origin) {
-    const hatteOrigin = !!state.origin;
     EF.setOriginPlain(state, origin);
-    if (origin && !hatteOrigin && state.sortKey === 'datum') {
-      state.sortKey = 'entfernung';
-      state.sortDir = 'asc';
-    }
-    if (!origin && state.sortKey === 'entfernung') {
+    // Ohne Entfernungs-Spalte gibt es auch keine Sortierung danach -
+    // eine unsichtbare Sortierung wäre rätselhaft.
+    if (state.sortKey === 'entfernung') {
       state.sortKey = 'datum';
       state.sortDir = 'asc';
     }
@@ -2341,7 +2335,6 @@
     countEl.textContent = t('result_count', EF.formatInt(filtered.length, currentLang));
 
     const cols = activeColumns();
-    tableEl.classList.toggle('with-distance', !!state.origin);
 
     gruppenAktuell = [];
     idxZuGruppe.clear();
@@ -2763,7 +2756,7 @@
       // gibt es die Spalte nicht, und die Liste stünde ohne sichtbare
       // Sortierung da. Kommt so aus der Karte zurück, wenn dort der
       // Umkreis entfernt wurde (oder aus einem von Hand gekürzten Link).
-      if (SORT_KEYS[key] && (key !== 'entfernung' || state.origin)) {
+      if (SORT_KEYS[key] && key !== 'entfernung') {
         state.sortKey = key;
         state.sortDir = dir === 'desc' ? 'desc' : 'asc';
       }

@@ -8159,5 +8159,10 @@
   "Purgstaller Marktlauf|2026-10-10": {
     "exclude": true,
     "_note": "Duplikat von '6. Purgstaller Marktlauf (Moststraße Laufcup)' (gleicher Tag, gleicher Veranstalter SU Purgstall) - die vom Nutzer am 05.10.2026 korrigierte Zeile bleibt."
+  },
+  "XTERRA Trail de la Vallée de Joux|2026-10-10": {
+    "art1": "Laufen",
+    "art2": "Trail",
+    "_note": "Reines Trailrun-Event (trailvalleedejoux.ch: 'Le plus beau Trail du Jura', 7/12/22/36/58 km zu Fuß), kein Triathlon - vom Nutzer am 05.10.2026 gemeldet. XTERRA richtet auch Trailläufe aus; guess_art1() kennt das seitdem."
   }
 }

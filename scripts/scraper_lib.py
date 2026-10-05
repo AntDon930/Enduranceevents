@@ -350,7 +350,12 @@ ART1_KEYWORDS: list[tuple[re.Pattern, str]] = [
     # "ironman" deckt auch "Ironman 70.3 …" und "Ironman 5150 …" ab - die
     # Marken-Kürzel brauchen keine eigene Zeile und wären ohne den
     # Markennamen zu riskant ("70.3" könnte eine Distanz sein).
-    (re.compile(r"triathlon|ironman|challenge roth|xterra|"
+    # "xterra" nur OHNE Laufwort dahinter: XTERRA richtet neben den
+    # Cross-Triathlons auch eine Trailrun-Serie aus ("XTERRA Trail de la
+    # Vallée de Joux" - 7 bis 58 km zu Fuß, vom Nutzer am 05.10.2026
+    # gemeldet: "ein Trail Lauf Event und kein Triathlon").
+    (re.compile(r"triathlon|ironman|challenge roth|"
+                r"xterra(?!.*\b(?:trail|run|running|lauf)\b)|"
                 r"duathlon|aquathlon|quadrathlon|" + _ZWEI_SPORTARTEN, re.I),
      "Triathlon"),
 ]

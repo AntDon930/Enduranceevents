@@ -342,9 +342,17 @@ class Gedaechtnis:
             neu = False
             if datum < (alt.get("datum") or ""):
                 return None
-        gesammelt = {json.dumps(strecke_von(z), ensure_ascii=False, sort_keys=True): strecke_von(z)
-                     for z in zeilen}
-        if not neu and datum == alt.get("strecken_datum"):
+        # Schlüssel ist die STRECKE (Länge, Dauer, Label), nicht der ganze
+        # Eintrag: Korrigiert ein Override nur die Kategorie einer Strecke,
+        # ersetzt die neue Angabe die alte, statt neben ihr zu stehen (am
+        # XTERRA Trail de la Vallée de Joux, 05.10.2026: jede Strecke
+        # zweimal, einmal "Cross", einmal "Trail").
+        def strecken_key(st):
+            return json.dumps([st.get("laenge_km"), st.get("dauer_h"), st.get("wettbewerb")],
+                              ensure_ascii=False)
+        gesammelt = {strecken_key(strecke_von(z)): strecke_von(z) for z in zeilen}
+        if (not neu and datum == alt.get("strecken_datum")
+                and alt.get("art1") == zeilen[0].get("art1")):
             # Dieselbe Ausgabe noch einmal (zweiter Durchgang, Teilmenge der
             # Zeilen): Strecken VEREINIGEN, nicht ersetzen - sonst nähme ein
             # Aufruf mit einer Zeile der Veranstaltung alle anderen weg.
@@ -352,7 +360,7 @@ class Gedaechtnis:
             # hat lerne() für eine Zeile mit Seite schon auf die neue
             # Ausgabe gesetzt, die Strecken gehören aber noch zur alten.
             for st in alt.get("strecken") or []:
-                gesammelt.setdefault(json.dumps(st, ensure_ascii=False, sort_keys=True), st)
+                gesammelt.setdefault(strecken_key(st), st)
         strecken = _strecken_sortiert(gesammelt.values())
         geaendert = neu or alt.get("strecken") != strecken or alt.get("art1") != zeilen[0].get("art1")
         alt["strecken_datum"] = datum
