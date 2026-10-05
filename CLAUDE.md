@@ -4566,7 +4566,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    `checkNewEvents` bleibt), deployen, danach die Extension
    deinstallieren. Ein weiteres `firebase deploy --only functions`
    aus der Cloud Shell reicht dafür.
-3. **Fehlermeldungen lesen, Testmeldung verwerfen.** KEIN
+3. ~~**Fehlermeldungen lesen, Testmeldung verwerfen.**~~ **erledigt**
+   (05.10.2026, 23:42: beide Dokumente in `errorReports` gelöscht, die
+   Sammlung ist leer – eine neue Meldung fällt sofort auf). KEIN
    Service-Account-Key nötig (am 05.10.2026 so entschieden: ein Schlüssel
    wäre ein Geheimnis, das auf dem iPad herumliegt): In der Google Cloud
    Shell ist der Nutzer als Projektinhaber angemeldet, `firestore.Client()`
