@@ -19,3 +19,8 @@ functions/.env.*
 # Erzeugt von scripts/build_web_data.py - im Pages-Workflow und im Rauchtest,
 # nie committet (2-MB-Klotz, der sich mit jedem Event komplett ändert).
 events.web.json
+
+# Korrekturlisten (scripts/korrekturliste.py) - gehen per Chat hin und her,
+# nicht ins Repo.
+korrekturliste*.xlsx
+Korrekturliste*.xlsx

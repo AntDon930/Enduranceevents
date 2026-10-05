@@ -1154,7 +1154,12 @@ def test_override_schluessel() -> None:
             continue
         teile = key.split("|")
         if len(teile) not in (2, 3):
-            falsch.append(f"{key}: weder '<Name>|<Datum>' noch '<Name>|<Datum>|<km>'")
+            falsch.append(f"{key}: weder '<Name>|<Datum>' noch '<Name>|<Datum>|<km>'"
+                          f" noch '<Name>|<Datum>|@<Wettbewerb>'")
+            continue
+        if len(teile) == 3 and teile[2].startswith("@"):
+            if override_keys(teile[0], teile[1], None, teile[2][1:])[0] != key:
+                falsch.append(f"{key}: Wettbewerb mit Leerzeichen am Rand")
             continue
         if len(teile) == 3:
             try:
@@ -1216,6 +1221,16 @@ def test_override_schluessel() -> None:
           nur_allgemein, {"veranstalter_url": "https://testlauf.de/", "art2": "Straße"})
     check("kein Eintrag -> None", find_override(ov, "Anderer Lauf", "2026-10-03", 10.0), None)
     check("die Datei selbst bleibt unverändert", "wettbewerb" in ov["Testlauf|2026-10-03"], False)
+
+    # Eine Strecke OHNE Distanz über ihren Wettbewerb (Korrekturliste,
+    # 05.10.2026): Die nachgetragene Distanz darf nur sie treffen.
+    ov["Testlauf|2026-10-03|@Hauptlauf"] = {"laenge_km": 15.0}
+    check("Strecke ohne Distanz über den Wettbewerb gefunden",
+          find_override(ov, "Testlauf", "2026-10-03", None, "Hauptlauf").get("laenge_km"), 15.0)
+    check("andere Strecke ohne Distanz bleibt unberührt",
+          "laenge_km" in find_override(ov, "Testlauf", "2026-10-03", None, "Bambini"), False)
+    check("der distanzgenaue Eintrag schlägt den Wettbewerb",
+          find_override(ov, "Testlauf", "2026-10-03", 21.0, "Hauptlauf").get("art2"), "Trail")
 
 
 def test_suche_uebersetzungen() -> None:

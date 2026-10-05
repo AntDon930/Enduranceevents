@@ -2328,29 +2328,41 @@ OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "datum_start", "datum_ende", "datum_vorlaeufig", "charity")
 
 
-def override_keys(name: str | None, datum_start: str | None, laenge_km=None) -> list[str]:
+def override_keys(name: str | None, datum_start: str | None, laenge_km=None,
+                  wettbewerb: str | None = None) -> list[str]:
     """Die Schlüssel, unter denen ein Event in manual_overrides.json stehen
     kann - vom spezifischsten zum allgemeinsten:
 
-        "<Name>|<Datum>|<km>"   nur diese eine Strecke
-        "<Name>|<Datum>"        alle Strecken dieser Veranstaltung
+        "<Name>|<Datum>|<km>"           nur diese eine Strecke
+        "<Name>|<Datum>|@<Wettbewerb>"  nur diese eine Strecke (ohne Distanz)
+        "<Name>|<Datum>"                alle Strecken dieser Veranstaltung
 
     Die Variante mit Distanz ist nötig, seit jede Strecke einer
     Veranstaltung ein eigener Eintrag ist: "Stadtlauf Tribsees|2026-09-19"
     würde sonst ALLE vier Strecken treffen, obwohl nur die (falsche)
     42,2-km-Zeile gemeint ist.
+
+    Die Variante mit Wettbewerb kam am 05.10.2026 mit der Korrekturliste
+    (`korrekturliste.py`) dazu: Eine Strecke OHNE Distanz ließ sich vorher
+    nur über den allgemeinen Schlüssel ansprechen - und eine nachgetragene
+    Distanz hätte dann auch alle anderen Strecken überschrieben (124
+    Zeilen betroffen).
     """
     base = f"{(name or '').strip()}|{datum_start}"
+    keys = []
     if isinstance(laenge_km, (int, float)):
-        return [f"{base}|{round(float(laenge_km), 1):g}", base]
-    return [base]
+        keys.append(f"{base}|{round(float(laenge_km), 1):g}")
+    if (wettbewerb or "").strip():
+        keys.append(f"{base}|@{wettbewerb.strip()}")
+    return keys + [base]
 
 
 def find_override(overrides: dict, name: str | None, datum_start: str | None,
-                  laenge_km=None) -> dict | None:
+                  laenge_km=None, wettbewerb: str | None = None) -> dict | None:
     """Sucht die Override-Einträge zu einem Event (siehe override_keys())
     und legt sie ÜBEREINANDER: erst der allgemeine Schlüssel
-    "<Name>|<Datum>", darüber der distanzgenaue "<Name>|<Datum>|<km>".
+    "<Name>|<Datum>", darüber der streckengenaue "<Name>|<Datum>|@<Wettbewerb>",
+    zuoberst der distanzgenaue "<Name>|<Datum>|<km>".
 
     Früher gewann der erste Treffer allein - und ein allgemeiner Eintrag
     war damit für jede Strecke unsichtbar, die einen eigenen
@@ -2365,7 +2377,7 @@ def find_override(overrides: dict, name: str | None, datum_start: str | None,
     merged: dict = {}
     # override_keys() liefert spezifisch -> allgemein; umgekehrt auflegen,
     # damit der spezifische Eintrag zuletzt schreibt und gewinnt.
-    for key in reversed(override_keys(name, datum_start, laenge_km)):
+    for key in reversed(override_keys(name, datum_start, laenge_km, wettbewerb)):
         hit = lookup.get(key.casefold())
         if hit is not None:
             merged.update(hit)
@@ -2387,7 +2399,8 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
     result: list[Event] = []
     excluded = 0
     for event in events:
-        override = find_override(overrides, event.name, event.datum_start, event.laenge_km)
+        override = find_override(overrides, event.name, event.datum_start, event.laenge_km,
+                                 event.wettbewerb)
         if override:
             if override.get("exclude"):
                 excluded += 1
