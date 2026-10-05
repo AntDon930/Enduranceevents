@@ -4566,10 +4566,20 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    `checkNewEvents` bleibt), deployen, danach die Extension
    deinstallieren. Ein weiteres `firebase deploy --only functions`
    aus der Cloud Shell reicht dafür.
-3. **Service-Account-Key** (Firebase-Konsole → Projekteinstellungen →
-   Dienstkonten) für `review_reports.py fetch/suggestions`; dabei die
-   Testmeldung vom 16.09.2026 („TEST - bitte verwerfen") mit `reject`
-   verwerfen.
+3. **Fehlermeldungen lesen, Testmeldung verwerfen.** KEIN
+   Service-Account-Key nötig (am 05.10.2026 so entschieden: ein Schlüssel
+   wäre ein Geheimnis, das auf dem iPad herumliegt): In der Google Cloud
+   Shell ist der Nutzer als Projektinhaber angemeldet, `firestore.Client()`
+   nimmt diese Anmeldung (`gcloud config set project endurance-5177a`,
+   `pip install google-cloud-firestore`, Repo klonen, dann
+   `review_reports.py fetch` / `show` / `suggestions`). Die Testmeldung
+   `KPuTLNNXVeY7tYoNzokF` („TEST - bitte verwerfen", 16.09.2026) löscht
+   der Nutzer direkt in der Firestore-Konsole (Dokument → Drei-Punkte-Menü
+   → Dokument löschen) – `reject` im Skript verwirft nur VORSCHLÄGE, keine
+   Meldungen; für Meldungen gibt es `mark-done --report-id <id> --status
+   …`. **Am 05.10.2026 lag ein zweites Dokument in `errorReports`
+   (`UOScp4BLcPI1su0ghcbE`)** – nach Einschätzung des Nutzers eine echte
+   Meldung; wird an der Quelle geprüft (siehe „Nutzer-Fehlermeldungen").
 4. **Impressum und Datenschutzerklärung prüfen (lassen)** – Voraussetzung
    für den Livegang; keine Rechtsberatung von Claude.
 5. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
