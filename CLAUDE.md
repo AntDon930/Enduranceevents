@@ -4597,9 +4597,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    5. Oktober 2026) – der frühere Satz „Der E-Mail-Versand ist derzeit noch
    nicht aktiv" ist weg. Wer am Versand etwas ändert (eigene Mail-Function
    nach dem Ende der Extensions), zieht den Abschnitt nach.
-5. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
-   Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
-   deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen Cross-Cups.
+5. ~~Anfragen an rad-net.de (BDR), DSV und zpn-timing.de~~ **vom Nutzer
+   am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
+   nicht") – jetzt Punkt 30.
 
 **B. Datenprüfung (Handarbeit des Nutzers)**
 
@@ -4648,6 +4648,11 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
 28. Die große Linkliste für die 20.000+ Events liefern (je Quelle
     robots.txt und Nutzungsbedingungen, kein Scraper ohne Ja).
 29. Livegang freigeben, nachdem Punkt 4 erledigt ist.
+30. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
+    Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
+    deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen
+    Cross-Cups. Bewusst zuletzt (Entscheidung des Nutzers vom 05.10.2026);
+    Mailvorlagen schreibt Claude, wenn es so weit ist.
 
 
 ### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)
