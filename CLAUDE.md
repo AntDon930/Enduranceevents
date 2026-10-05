@@ -2199,8 +2199,9 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Auf der Karte suchen), drei Kennzahlen aus den Daten (Events,
   Orte, 4 Regionen – `[data-fact]`, gefüllt in `zeigeZahlen()`), dann
   Leiste mit drei Fakten, **vier Foto-Kacheln je Sportart** (Link in die
-  gefilterte Liste, Zähler `.sport-count`), „In drei Schritten am
-  Start", Navy-Band mit Schlussknopf. Fotos selbst gehostet als WebP
+  gefilterte Liste, Zähler `.sport-count`), Navy-Band mit
+  Schlussknopf. Den Abschnitt „In drei Schritten am Start" hat der
+  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. Fotos selbst gehostet als WebP
   (`bilder/`, Lizenzen siehe Dateitabelle) – kein fremder Server, wie
   bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
   damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt

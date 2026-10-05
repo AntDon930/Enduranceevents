@@ -317,9 +317,9 @@
   .sports {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 64px 24px 32px;
+    padding: 64px 24px 72px;
   }
-  .sports h2, .steps h2 {
+  .sports h2 {
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.4vw, 2.75rem);
@@ -327,7 +327,7 @@
     margin: 0 0 8px;
     color: var(--text);
   }
-  .sports p.sub, .steps p.sub {
+  .sports p.sub {
     text-align: center;
     color: var(--text-muted);
     margin: 0 0 36px;
@@ -414,44 +414,6 @@
     transition: background 0.15s ease, transform 0.15s ease;
   }
   .sport-card:hover .go { background: var(--sport); transform: translateX(2px); }
-
-  /* ---------- Drei Schritte ---------- */
-  .steps {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 24px 72px;
-  }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 760px) { .steps-grid { grid-template-columns: 1fr; } }
-  .step {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 22px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .step-num {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--accent);
-    color: var(--on-accent);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.4rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .step h3 { margin: 2px 0 6px; font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--text); }
-  .step p { margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
   /* ---------- Schluss-CTA: Navy-Band ---------- */
   .final-cta {
@@ -620,25 +582,6 @@
   </div>
 </div>
 
-<div class="steps">
-  <h2 data-i="stepsTitle">In drei Schritten am Start</h2>
-  <p class="sub" data-i="stepsSub">Keine Konten, keine Umwege – die Anmeldung läuft direkt beim Veranstalter.</p>
-  <div class="steps-grid">
-    <div class="step">
-      <span class="step-num" aria-hidden="true">1</span>
-      <div><h3 data-i="step1t">Filtern</h3><p data-i="step1d">Sportart, Strecke, Datum, Umkreis um deinen Ort – oder einfach Suchbegriff eintippen.</p></div>
-    </div>
-    <div class="step">
-      <span class="step-num" aria-hidden="true">2</span>
-      <div><h3 data-i="step2t">Aussuchen</h3><p data-i="step2d">Alle Strecken einer Veranstaltung auf einen Blick, mit Kalender-Eintrag und Teilen-Link.</p></div>
-    </div>
-    <div class="step">
-      <span class="step-num" aria-hidden="true">3</span>
-      <div><h3 data-i="step3t">Anmelden</h3><p data-i="step3d">Ein Klick führt zur offiziellen Veranstalterseite – nie zu einem Zwischenhändler.</p></div>
-    </div>
-  </div>
-</div>
-
 <div class="final-cta">
   <h2 data-i="finalTitle">Bereit für den Startschuss?</h2>
   <p data-i="finalLead">Dein nächstes Rennen steht schon in der Liste. Such es dir aus.</p>
@@ -711,11 +654,6 @@
       sportRun: 'Laufen', sportBike: 'Rad', sportSwim: 'Schwimmen', sportTri: 'Triathlon',
       sportCount: (n) => `${n} Events`,
       sportCount1: '1 Event',
-      stepsTitle: 'In drei Schritten am Start',
-      stepsSub: 'Keine Konten, keine Umwege – die Anmeldung läuft direkt beim Veranstalter.',
-      step1t: 'Filtern', step1d: 'Sportart, Strecke, Datum, Umkreis um deinen Ort – oder einfach Suchbegriff eintippen.',
-      step2t: 'Aussuchen', step2d: 'Alle Strecken einer Veranstaltung auf einen Blick, mit Kalender-Eintrag und Teilen-Link.',
-      step3t: 'Anmelden', step3d: 'Ein Klick führt zur offiziellen Veranstalterseite – nie zu einem Zwischenhändler.',
       footer: 'Endurance Events – Ausdauersport im deutschsprachigen Raum',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz'
@@ -741,11 +679,6 @@
       sportRun: 'Running', sportBike: 'Cycling', sportSwim: 'Swimming', sportTri: 'Triathlon',
       sportCount: (n) => `${n} events`,
       sportCount1: '1 event',
-      stepsTitle: 'At the start in three steps',
-      stepsSub: 'No accounts, no detours – registration happens directly with the organiser.',
-      step1t: 'Filter', step1d: 'Sport, distance, date, radius around your town – or just type a search term.',
-      step2t: 'Choose', step2d: 'Every distance of an event at a glance, with calendar entry and share link.',
-      step3t: 'Sign up', step3d: 'One click takes you to the official organiser page – never to a middleman.',
       footer: 'Endurance Events – endurance sport in the German-speaking region',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy'
