@@ -114,6 +114,7 @@ Gedächtnis ihre Seite bei, bevor sie geht):
     python3 scripts/veranstalter_seiten.py aufbauen [--alt alter-stand.json …]
     python3 scripts/veranstalter_seiten.py pruefen --bericht bericht.json [--fortsetzen] [--max N] [--uebernehmen]
     python3 scripts/veranstalter_seiten.py zeigen <Suchwort>
+    python3 scripts/veranstalter_seiten.py handpruefung      die NEU?- und TOT-Fälle des Berichts
 
 `aufbauen` lernt aus events.json und zusätzlich aus älteren Ständen der
 Datei (`git show <commit>:events.json > alt.json`) - so kamen am
@@ -412,7 +413,7 @@ class Gedaechtnis:
             self._wort_index = woerter
         return self._index
 
-    def _kandidaten(self, event: dict) -> list[str]:
+    def _kandidaten(self, event: dict, auch_unscharf: bool = False) -> list[str]:
         """Die Schlüssel, die zu dieser Zeile passen: gleicher Kern und
         passender Ort (oder Koordinaten ≤ 3 km). Findet das nichts, zählt
         auch ein Kern, der im anderen ENTHALTEN ist - derselbe Gedanke wie
@@ -424,7 +425,12 @@ class Gedaechtnis:
         Bedingungen: die kleinere Wortmenge enthält mindestens ein
         unterscheidendes Wort (kein Allerweltswort, `_unterscheidend`), der
         Ort passt wie sonst auch, und die Zeile liegt etwa GANZE JAHRE von
-        der gemerkten Ausgabe entfernt (`_jahresabstand`). Ohne die dritte
+        der gemerkten Ausgabe entfernt (`_jahresabstand`). Mit
+        `auch_unscharf` kommen die unscharfen Treffer ZU den genauen dazu
+        (für `pruefen`: „King of the Lake" 2027 steht in events.json, also
+        ist auch „Asvö King of the Lake am Attersee" 2026 nicht mehr
+        fällig); sonst zählen sie nur, wenn kein genauer Treffer da ist -
+        `finde()` braucht genau einen Eintrag. Ohne die dritte
         Bedingung hätte die Regel am Bestand den „Ironman 5150 Erkner" mit
         dem „Ironman 70.3 Erkner" am Folgetag, die „Crossmania Series #3"
         mit „#5" und den „itdesign-Nikolauslauf" mit seinem Probelauf
@@ -439,8 +445,9 @@ class Gedaechtnis:
         for k, ort_k in self._idx().get(kern, []):
             if _ort_passt(ort, ort_k, streng) or (not streng and _koordinaten_nah(event, self.daten[k])):
                 treffer.append(k)
-        if treffer:
+        if treffer and not auch_unscharf:
             return treffer
+        genau = list(treffer)
         woerter = frozenset(kern.split())
         gesehen: set[str] = set()
         for w in woerter:
@@ -465,7 +472,8 @@ class Gedaechtnis:
                 if not _jahresabstand(event.get("datum_start"), self.daten[k].get("datum")):
                     continue
                 if _ort_passt(ort, frozenset(ort_k.split()), False) or _koordinaten_nah(event, self.daten[k]):
-                    treffer.append(k)
+                    if k not in genau:
+                        treffer.append(k)
         return treffer
 
     def schluessel_fuer(self, event: dict) -> str | None:
@@ -1140,7 +1148,7 @@ def cmd_pruefen(args) -> None:
     events = _lade_events(args.events_json)
     aktuell: set[str] = set()
     for e in events:
-        for k in ged._kandidaten(e):
+        for k in ged._kandidaten(e, auch_unscharf=True):
             aktuell.add(k)
     heute = args.heute or time.strftime("%Y-%m-%d")
     grenze = (date.fromisoformat(heute) - timedelta(days=PRUEF_ABSTAND_TAGE)).isoformat()
@@ -1207,6 +1215,30 @@ def cmd_pruefen(args) -> None:
     ged.speichern()
 
 
+def cmd_handpruefung(args) -> None:
+    """Die Fälle aus dem Prüfbericht, die ein Mensch ansehen muss: NEU?
+    (mehrdeutige Termine, Termin von der Startseite, Seite nennt den Lauf
+    nicht beim Namen) und TOT. Wer einen Termin bestätigt, trägt ihn mit
+    den Strecken in manual_events.json ein - wie jede andere einzeln
+    geprüfte Veranstaltung."""
+    bericht_pfad = Path(args.bericht) if args.bericht else PRUEFUNG
+    if not bericht_pfad.exists():
+        print(f"Kein Bericht unter {bericht_pfad}.")
+        return
+    b = json.loads(bericht_pfad.read_text(encoding="utf-8"))
+    offen = [(k, r) for k, r in b.items() if r.get("flag") in ("NEU?", "TOT")]
+    offen.sort(key=lambda kr: (kr[1].get("flag"), (kr[1].get("kandidaten") or [""])[0], kr[1].get("name") or ""))
+    print(f"{len(offen)} Fälle zur Handprüfung (Bericht {bericht_pfad.name}, {len(b)} geprüfte Seiten)\n")
+    for k, r in offen:
+        if r["flag"] == "TOT":
+            print(f"TOT   {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe')}): {r.get('url')} - Seite weg; neue Adresse suchen")
+            continue
+        grund = r.get("grund") or ("Seite nennt den Lauf nicht beim Namen" if not r.get("nennt_den_lauf") else "mehrere Termine")
+        print(f"NEU?  {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe')}): "
+              f"{', '.join(r.get('kandidaten') or [])} - {grund}\n      {r.get('url')}"
+              + (f"  [km auf der Seite: {', '.join(f'{x:g}' for x in r['seiten_km'][:10])}]" if r.get("seiten_km") else ""))
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--events-json", type=Path, default=EVENTS)
@@ -1227,8 +1259,10 @@ def main() -> int:
     pr.add_argument("--heute", default=None, help="Stichtag (nur für Tests)")
     pr.add_argument("--zeitlimit", type=int, default=0,
                     help="nach so vielen Sekunden keine weitere Seite mehr abrufen, Funde trotzdem übernehmen und speichern")
+    h = sub.add_parser("handpruefung", help="die Fälle aus dem Prüfbericht, die ein Mensch ansehen muss (NEU?, TOT)")
+    h.add_argument("--bericht", default=None)
     args = p.parse_args()
-    {"aufbauen": cmd_aufbauen, "zeigen": cmd_zeigen, "pruefen": cmd_pruefen}[args.cmd](args)
+    {"aufbauen": cmd_aufbauen, "zeigen": cmd_zeigen, "pruefen": cmd_pruefen, "handpruefung": cmd_handpruefung}[args.cmd](args)
     return 0
 
 

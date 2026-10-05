@@ -2366,6 +2366,24 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
 - `daten_aus()` liest jetzt auch „12.10.27" (nur 2020–2039, keine Ziffer
   oder Punkt dahinter), „12/10/2027", englische, französische und
   italienische Monatsnamen – Romandie, Tessin und Südtirol.
+- **Ein Termin von der STARTSEITE ist nur ein Hinweis (NEU?)**, nie ein
+  Fund: Die Startseite nennt auch die anderen Veranstaltungen desselben
+  Veranstalters – im ersten vollen Lauf (05.10.2026, 637 Seiten) hätte
+  der „GENERALI 5K" sonst den Termin des Berlin-Marathons bekommen
+  (Sonntag statt Samstag). `pruefe_eintrag()` merkt sich
+  `von_startseite`, der Bericht trägt `grund`.
+- **`python3 scripts/veranstalter_seiten.py handpruefung`** listet die
+  NEU?- und TOT-Fälle des Berichts für den Nutzer (Termin, Grund, Seite,
+  Kilometer auf der Seite). Wer einen Termin bestätigt, trägt ihn wie
+  jede einzeln geprüfte Veranstaltung in `manual_events.json` ein.
+- `name_ohne_jahr()` lässt auch die Auflage vorn weg („6. Appelhülsener
+  Landlauf" → „Appelhülsener Landlauf"): die nächste Ausgabe heißt „7.".
+- `_kandidaten(e, auch_unscharf=True)` gibt genaue UND unscharfe Treffer
+  – `pruefen` zählt damit auch die Sponsor-Variante als „aktuell", wenn
+  die nächste Ausgabe unter dem anderen Namen schon in `events.json`
+  steht („King of the Lake" 2027 neben „Asvö King of the Lake" 2026);
+  solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
+  im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
 
 **Was es weiter nicht kann**: Eine Seite, die den Lauf nicht beim Namen
 nennt (Allerweltswörter – „Seelauf", „Silvesterlauf" stehen in

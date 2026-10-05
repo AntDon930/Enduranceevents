@@ -3638,6 +3638,15 @@ def test_gedaechtnis() -> None:
     check("Sponsorwechsel: SAARathon bekommt die Seite von Sparkassen-SAARathon", saar27[0]["veranstalter_url"], "https://saarathon.de/")
     vs.lernen(saar27, g4, overrides={})
     check("Sponsorwechsel: EIN Eintrag, Schlüssel auf den kleineren Kern umgezogen", (len(g4), list(g4.daten)), (1, ["saarathon|saarbrucken"]))
+    # Zwei Einträge aus der Zeit vor der unscharfen Suche (Sponsor-Variante
+    # unter eigenem Schlüssel) - lernen() legte so etwas bis zum 05.10.2026 an.
+    g4b = vs.Gedaechtnis({"asvo king lake of the|attersee": {"url": "https://kotl.at/", "name": "Asvö King of the Lake am Attersee", "standort": "Attersee",
+                                                              "lat": 47.87, "lon": 13.55, "datum": "2026-09-26", "quelle": "quelle", "art1": "Fahrrad"},
+                          "king lake of the|attersee": {"url": "https://kotl.at/", "name": "King of the Lake", "standort": "Attersee",
+                                                         "lat": 47.87, "lon": 13.55, "datum": "2027-09-18", "quelle": "quelle", "art1": "Fahrrad"}})
+    kotl = z("King of the Lake", "2027-09-18", 47.2, standort="Attersee", lat=47.87, lon=13.55); kotl["art1"] = "Fahrrad"
+    check("auch_unscharf: der genaue UND der unscharfe Eintrag (für die Fälligkeit in pruefen)",
+          (len(g4b._kandidaten(kotl)), len(g4b._kandidaten(kotl, auch_unscharf=True))), (1, 2))
     geschwister = [z("Ironman 70.3 Erkner", "2027-09-12", 113, url="https://my.raceresult.com/8/", standort="Erkner", lat=52.42, lon=13.75)]
     g5 = vs.Gedaechtnis({})
     g5.lerne(z("Ironman 5150 Erkner Berlin-Brandenburg", "2027-09-11", 51.5, url="https://ironman5150.de/", standort="Erkner", lat=52.42, lon=13.75), "quelle")
