@@ -999,6 +999,10 @@ def uebernehmen(eintraege: list[tuple], heute: str, pfad: Path = MANUAL_EVENTS) 
     for tupel in eintraege:
         k, eintrag, start, ende = tupel[:4]
         seiten_km = tupel[4] if len(tupel) > 4 else None
+        if not eintrag.get("art1") or not eintrag.get("url"):
+            bericht.append(f"{eintrag.get('name')} ({eintrag.get('standort')}): NICHT übernommen - "
+                           f"{'Sportart' if not eintrag.get('art1') else 'Seite'} im Gedächtnis unbekannt")
+            continue
         zeilen = manual_events_aus(eintrag, start, ende, heute, seiten_km)
         if (normalize_event_name(zeilen[0]["name"]), start) in vorhanden:
             continue
@@ -1150,12 +1154,18 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
     # Termin gehört zu etwas anderem auf der Seite (oder die Spanne wurde
     # nur halb gelesen). Dann nur zur Handprüfung.
     wochentag_ok = sp is None or _gleicher_wochentag(sp[0], v.get("datum"))
-    if kand and sp and belegt and not von_startseite and wochentag_ok:
+    # Ohne Sportart lässt sich keine Zeile anlegen (jede Zeile braucht
+    # `art1`; der erste volle Lauf fand drei solche Einträge aus alten
+    # Ständen) - dann nur zur Handprüfung.
+    vollstaendig = bool(v.get("art1")) and bool(v.get("url"))
+    if kand and sp and belegt and not von_startseite and wochentag_ok and vollstaendig:
         r["flag"] = "NEU"
         return r, (k, v, sp[0], sp[1], set(seiten_km))
     if kand:
         r["flag"] = "NEU?"
-        if sp and belegt and not wochentag_ok:
+        if sp and belegt and not vollstaendig:
+            r["grund"] = "Sportart oder Seite im Gedächtnis unbekannt"
+        elif sp and belegt and not wochentag_ok:
             r["grund"] = "anderer Wochentag als die vorige Ausgabe"
         elif sp and belegt and von_startseite:
             # Der Termin stammt von der STARTSEITE, nicht von der Seite des
