@@ -1787,6 +1787,15 @@ räumt vergangene Vorjahreskopien aus `manual_events.json`. Probelauf an
 14 echten Seiten: 13 NICHTS (die Seiten zeigen noch 2026), 1
 Zeitüberschreitung, kein falscher Fund.
 
+Aus dem ersten vollen Lauf (05.10.2026, 637 Seiten) kamen drei weitere
+Sicherungen: Ein Termin von der **Startseite** (tote Unterseite, oder die
+Unterseite nennt keinen) ist nur ein Hinweis („NEU?") – der GENERALI 5K
+hätte sonst den Termin des Berlin-Marathons bekommen; ein Termin auf
+einem **anderen Wochentag** als die vorige Ausgabe ebenfalls;
+**Tagesspannen** („24.–26. September 2027", „08./09. Mai 2027") ergeben
+Start und Ende, nicht nur den letzten Tag. Die Fälle für die
+Handprüfung listet `python3 scripts/veranstalter_seiten.py handpruefung`.
+
 **Was bleibt**: Eine Seite, die den Lauf nicht beim Namen nennt (nur
 Allerweltswörter wie „Seelauf", „Silvesterlauf"), kann nie „NEU" werden –
 sie landet als „NEU?" im Bericht für die Handprüfung. Und Strecken, die
