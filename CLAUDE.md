@@ -4538,7 +4538,23 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
 2. **Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
    Extension „Trigger Email" mit SMTP einrichten (Befehle im Kopf von
    `functions/index.js` und im README). Erst dann verschicken die Abos
-   E-Mails.
+   E-Mails. **Stand 05.10.2026, abends**: Teil A (Blaze), Teil B (Deploy
+   aus der Google Cloud Shell auf dem iPad, Function-URL
+   `https://europe-west1-endurance-5177a.cloudfunctions.net/checkNewEvents`,
+   dazu `unsubscribe`) und Teil C (GitHub-Secrets `NOTIFY_WEBHOOK_URL`
+   und `NOTIFY_WEBHOOK_SECRET`) sind **erledigt**. Offen ist nur Teil D,
+   der E-Mail-Versand: Absender soll `info@endurance-events.de` (IONOS,
+   `smtp.ionos.de:465`) werden, das Postfach legt der Nutzer an.
+   **ACHTUNG: Firebase Extensions werden am 31.03.2027 eingestellt**
+   (Hinweis in der Konsole: danach keine Installation und keine
+   Bearbeitung mehr; Google empfiehlt „selbstverwaltete Funktions-Kits").
+   Der Nutzer will das frühzeitig auf dem Schirm haben – Routine
+   `trig_013AV7Nn2GVq1m3LgxL3ukcq` erinnert am 11.01.2027 (Push + E-Mail).
+   Empfehlung: die Extension gar nicht erst installieren, sondern den
+   Versand als eigene Cloud Function in `functions/index.js` bauen
+   (Firestore-Trigger auf `mail`, nodemailer über IONOS-SMTP, Passwort als
+   Secret `SMTP_PASSWORD`; das Dokumentformat von `checkNewEvents` bleibt).
+   Dann ist nur ein weiteres `firebase deploy --only functions` nötig.
 3. **Service-Account-Key** (Firebase-Konsole → Projekteinstellungen →
    Dienstkonten) für `review_reports.py fetch/suggestions`; dabei die
    Testmeldung vom 16.09.2026 („TEST - bitte verwerfen") mit `reject`
