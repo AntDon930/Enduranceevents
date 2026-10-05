@@ -7289,5 +7289,13 @@
   "TORTOUR|2027-08-20|50": {
     "exclude": true,
     "_note": "Duplikat von 'Tortour' 50 km ('Ultracycling 50 km', tortour.ch, 19.-22.08.2027) - Schreibweise in Grossbuchstaben aus einer zweiten Quelle."
+  },
+  "neuseenMAN|2027-05-28": {
+    "exclude": true,
+    "_note": "Duplikat ohne Laenge: Die Veranstaltung steht als 'mo.pla neuseenMAN' mit allen drei Strecken (Sprint 25,8 / Olympisch 51,5 / Mitteldistanz 113 km) in der Liste; diese Zeile aus dem Triathlon-Kalender nennt nur 'Triathlon' ohne Kilometer. Gepruft 05.10.2026 (neuseenman.de, maximalpuls-Anmeldung)."
+  },
+  "neuseenMAN Ferropolis|2027-05-28|113": {
+    "exclude": true,
+    "_note": "Duplikat der Mitteldistanz 113 km von 'mo.pla neuseenMAN' (gleicher Tag, gleicher Ort Graefenhainichen/Ferropolis, gleiche Anmeldung maximalpuls). Gepruft 05.10.2026."
   }
 }

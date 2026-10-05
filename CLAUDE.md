@@ -273,7 +273,31 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Fehltreffer (Kölner Nikolauslauf, von der Quelle nach Bonn verortet –
    Override). `normalize_event_name()` wirft seitdem Apostrophe weg
    („Runner's" = „Runners"). `test_siebter_weg` hält Treffer und
-   Gegenproben fest. **Der erste Durchlauf von `clean_events.py` konvergiert
+   Gegenproben fest.
+   **Achter Fall (05.10.2026, am „Munich Triathlon" vom Nutzer gemeldet:
+   „Warum ist der 2x drinnen?")**: Nur EINE Seite kennt die Distanz, und
+   beide Labels nennen dasselbe FORMAT. Kilometerliebe liefert Triathlons
+   als „Munich Triathlon 2027" mit dem Label „Sprint" und ohne
+   Kilometer; die Veranstalterseite steht als „Munich Triathlon" mit
+   „Sprintdistanz 25,5 km (…)" in der Liste. Der siebte Weg sah den
+   Namen, verlangte aber zwei Distanzen – also zwei Zeilen für eine
+   Strecke. Jetzt ersetzt das Gattungswort die fehlende Zahl: gleiche,
+   NICHT LEERE Gattung auf beiden Seiten (Sprint, Olympisch,
+   Mitteldistanz …) → eine Strecke; „Sprint" gegen „Kurzdistanz 51,5 km"
+   bleiben zwei, „Hauptlauf" gegen „10 km" (keine Gattung) auch.
+   **„Super-Sprint" ist dafür eine eigene Gattung** (vor „sprint" in
+   `_LABEL_GATTUNG_RE`), sonst wäre die Super-Sprint-Zeile von
+   Kilometerliebe mit der Sprintdistanz des Triathlon Tübingen
+   verschmolzen. Und **die Teilstrecken-Klammer zählt nicht mehr als
+   Gattung** (`_TEILSTRECKEN_KLAMMER` in `_label_gattung()`): Das „Rad"
+   in „(500 m Schwimmen / 20 km Rad / 5 km Laufen)" ist kein Radrennen –
+   bis dahin trennte genau dieses Wort „Sprintdistanz 26 km" von
+   „Sprintdistanz 26 km (…)" (Siebzehnter Durchgang, 20 Paare per
+   Override). Am Bestand nachgezählt: elf Paare neu zusammengeführt, alle
+   Triathlons, alle geprüft, kein Paar verloren; die Gegenproben stehen
+   in `test_siebter_weg`. **Dabei kam der Umweg der allgemeinen
+   Override-Schlüssel ans Licht** (siehe „Die wichtigste Lektion").
+   **Der erste Durchlauf von `clean_events.py` konvergiert
    nicht vollständig** – der zweite merged noch einmal rund 50 Gruppen,
    der dritte ist stabil; die CI vergleicht Lauf 2 mit Lauf 3.
    **Was das Dedupe NICHT erkennt**: Zwei Schreibweisen ohne ein
@@ -847,6 +871,25 @@ real aufgetreten:
 Vorher gewann der erste Treffer allein, und ein `veranstalter_url` im
 allgemeinen Eintrag war für jede Strecke mit eigenem Eintrag unsichtbar
 (sechs Fälle, siehe „Zehnter Durchgang“).
+
+**Ein allgemeiner Schlüssel mit `laenge_km` beschreibt EINE Strecke –
+seit dem 05.10.2026 auch im Code.** Er entsteht, wenn die Zeile beim
+Eintragen keine Länge hatte (41 Triathlons im Zwölften Durchgang,
+Hasenmelker, Poggenhagen …); die weiteren Strecken kommen aus
+`manual_events.json`. Bis dahin setzte der Override beim nächsten Lauf
+die Länge an ALLE Zeilen der Veranstaltung (77 je Lauf), sie
+verschmolzen zu einer, und `add_manual_events()` legte die anderen
+wieder an – „idempotent, aber ein Umweg". Der Umweg brach, als die
+Namensregel (Datenregel 7, achter Fall) eine Kilometerliebe-Zeile
+„Olympisch" ohne Länge für die nachgetragene Olymp-Strecke des Allgäu
+Triathlons hielt: `add_manual_events()` übersprang sie, die 57,5 km
+waren weg, die Zeile ohne Länge blieb. Jetzt lässt `apply_overrides()`
+bei einer Zeile mit ANDERER Distanz `laenge_km`, `wettbewerb` und
+`dauer_h` in Ruhe (`STRECKEN_FELDER`) und setzt nur den Rest (Link,
+Koordinaten, Charity, vorläufig); ein distanzgenauer Schlüssel
+korrigiert weiterhin jede Distanz. Am Bestand nachgerechnet: alter und
+neuer Lauf liefern dieselben Zeilen, bis auf die elf Paare des achten
+Falls. `test_override_schluessel` hält es fest.
 
 Deshalb: **`laenge_km` und `art1` nie im selben Override ändern.** Wo
 eine Zeile eigentlich eine andere Veranstaltung ist (ein Volkslauf im
@@ -1566,6 +1609,9 @@ Sieben Lektionen, alle im Code oder in den Notizen festgehalten:
   trifft er beim nächsten Lauf auch die nachgetragene 5-km-Zeile,
   verschmilzt sie, und `add_manual_events()` legt sie danach wieder an.
   Idempotent, aber ein Umweg – wo es geht, distanzgenaue Schlüssel.
+  **Seit dem 05.10.2026 gibt es den Umweg nicht mehr**: Der allgemeine
+  Schlüssel lässt Zeilen mit anderer Distanz in Ruhe (siehe „Die
+  wichtigste Lektion").
 - **Veranstalterseiten zeigen oft noch das Vorjahr.** Fast alle 180
   `unklar` heißen „Seite zeigt 2026, 2027 nicht ausgeschrieben". Solche
   Zeilen sind Kalenderprognosen; die Zählung im Namen verrät sie
@@ -1617,6 +1663,8 @@ Vier Dinge daraus:
   Override alle Zeilen der Veranstaltung, sie verschmelzen, und
   `add_manual_events()` legt die weiteren wieder an – idempotent (CI
   prüft es), aber ein Umweg (siehe Elfter Durchgang, Hasenmelker).
+  **Seit dem 05.10.2026 abgestellt** – der allgemeine Schlüssel trifft
+  nur noch die Zeile ohne Länge (siehe „Die wichtigste Lektion").
 - **`report_triathlon_distanzen()` meldet jetzt 35 statt 31 Fälle** –
   erwartbar, weil deutsche Veranstaltungen von 25,75/51,5/113/226 km
   abweichen (Tübingen 27,4/54,2, Heilbronn 27,8/57/106,4, Bonn 84,2 km).
@@ -1901,10 +1949,10 @@ Was dabei als KLASSE sichtbar wurde (Punkt 2 des Dreizehnten Durchgangs):
   Der sechste Weg sieht ein Gattungswort auf einer Seite und hält die
   Zeilen auseinander – zu Recht als Regel (Datenregel 7), hier aber 20
   Paare, die einzeln mit **gleichem Label per Override** zusammengeführt
-  wurden. Die Lehre für neue Labels: **die Klammer mit den Teilstrecken
-  eines Triathlons enthält „Rad"** und zählt damit als Gattung; wer zwei
-  Zeilen derselben Veranstaltung zusammenbringen will, gibt beiden
-  dasselbe Label.
+  wurden. Die Lehre für neue Labels war: **die Klammer mit den
+  Teilstrecken eines Triathlons enthält „Rad"** und zählt damit als
+  Gattung – **seit dem 05.10.2026 nicht mehr** (`_TEILSTRECKEN_KLAMMER`,
+  Datenregel 7, achter Fall); die 20 Overrides bleiben als No-op stehen.
 - **Kilometerliebe zerlegt Veranstaltungen in Strecken mit eigenem
   Namen** („PUMelchen 2027", „Schönbuch Ultra 50km", „UltraSteinhart666",
   „Straßenlauf-Kreismeisterschaften") – dieselbe Klasse wie der Gaudilauf
@@ -2204,7 +2252,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Leiste mit drei Fakten, **vier Foto-Kacheln je Sportart** (Link in die
   gefilterte Liste, Zähler `.sport-count`), Navy-Band mit
   Schlussknopf. Den Abschnitt „In drei Schritten am Start" hat der
-  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. Fotos selbst gehostet als WebP
+  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. **Bildregel des Nutzers (05.10.2026, nach dem ersten Satz Fotos):
+  keine Einzelpersonen, keine Bilder, auf denen man Gesichter genau
+  sieht** – Gruppen von hinten, von oben oder im Wasser. Deshalb Laufen
+  = Rhein-Ruhr-Marathon kurz nach dem Start (Läufer von hinten),
+  Triathlon = Schwimmstart Weiswampach; die ersten beiden Fassungen
+  (Läuferin im Ziel, Athletin mit Sonnenbrille) sind deshalb raus. Fotos selbst gehostet als WebP
   (`bilder/`, Lizenzen siehe Dateitabelle) – kein fremder Server, wie
   bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
   damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt

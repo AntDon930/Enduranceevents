@@ -1917,16 +1917,32 @@ def _compatible_distance(a: dict, b: dict) -> bool:
 _LABEL_GATTUNG_RE = re.compile(
     r"walk|wander|\bgehen\b|geher|staffel|stafette|relay|\bteam|bike|\brad|mtb|velo|"
     r"handbike|inline|skat|kinder|\bkids?\b|schüler|schueler|jugend|youth|"
-    r"junior|bambini|mini|\bu\s?\d{2}\b|sprint|volks|olymp|"
+    # Super-Sprint VOR Sprint (05.10.2026): sonst wäre "Super-Sprint" nur
+    # ein "sprint", und die Super-Sprint-Zeile von Kilometerliebe wäre mit
+    # der Sprintdistanz (27,4 km) des Triathlon Tübingen verschmolzen.
+    r"junior|bambini|mini|\bu\s?\d{2}\b|super.?sprint|sprint|volks|olymp|"
     r"kurz(?:distanz|strecke)|mittel(?:distanz|strecke)|lang(?:distanz|strecke)|"
     # Gravel neben Straße (24.09.2026): Der Erkelenzer RTF hat "RTF 110 km"
     # UND "Gravel Ride 110 km" - zwei Wettbewerbe über dieselbe Länge.
     r"ultra|cross|trail|berg|gravel|schotter|\brtf\b", re.I)
 
 
+# Die Teilstrecken-Klammer eines Mehrsport-Labels - "Sprintdistanz 25,5 km
+# (500 m Schwimmen / 20 km Rad / 5 km Laufen)" - zählt NICHT als Gattung:
+# Das "Rad" darin ist kein Radrennen, es beschreibt dieselbe Strecke. Bis
+# zum 05.10.2026 trennte genau dieses Wort "Sprintdistanz 26 km" von
+# "Sprintdistanz 26 km (… / 20 km Rad / …)" (Siebzehnter Durchgang: 20
+# Paare per gleichem Label von Hand zusammengeführt). Erkannt wird die
+# Klammer an einer Maßzahl, einem Sportwort und dem Schrägstrich.
+_TEILSTRECKEN_KLAMMER = re.compile(
+    r"\((?=[^)]*\d)(?=[^)]*(?:schwimm|swim|\brad\b|bike|lauf|run))[^)]*/[^)]*\)", re.I)
+
+
 def _label_gattung(label: str) -> frozenset:
-    """Die Gattungswörter eines Wettbewerbs-Labels (klein, ohne Maßzahlen)."""
-    return frozenset(m.group(0).lower().strip() for m in _LABEL_GATTUNG_RE.finditer(label or ""))
+    """Die Gattungswörter eines Wettbewerbs-Labels (klein, ohne Maßzahlen,
+    ohne die Teilstrecken-Klammer eines Triathlons)."""
+    label = _TEILSTRECKEN_KLAMMER.sub(" ", label or "")
+    return frozenset(m.group(0).lower().strip() for m in _LABEL_GATTUNG_RE.finditer(label))
 
 
 # Gattungswörter, die die KATEGORIE der Zeile schon sagt: Tragen beide
@@ -2080,9 +2096,21 @@ def _same_name(a: dict, b: dict) -> bool:
         if kurz <= lang:
             if not (wb_a and wb_b):
                 return True
-            if (ka is not None and kb is not None and abs(ka - kb) < 0.5
-                    and _unterscheidende_gattung(wb_a, gemeinsame_art2)
-                    == _unterscheidende_gattung(wb_b, gemeinsame_art2)):
+            ga, gb = _unterscheidende_gattung(wb_a, gemeinsame_art2), _unterscheidende_gattung(wb_b, gemeinsame_art2)
+            if ka is not None and kb is not None and abs(ka - kb) < 0.5 and ga == gb:
+                return True
+            # Nur EINE Seite kennt die Distanz (05.10.2026, am "Munich
+            # Triathlon" vom Nutzer gemeldet): Kilometerliebe liefert
+            # Triathlons als "Munich Triathlon 2027" mit dem Label "Sprint"
+            # und ohne Kilometer, die Veranstalterseite steht als "Munich
+            # Triathlon" mit "Sprintdistanz 25,5 km (…)" in der Liste -
+            # zwei Zeilen für eine Strecke. Dieselbe Strecke ist es, wenn
+            # BEIDE Labels dasselbe Format nennen (Sprint, Olympisch,
+            # Kurzdistanz …) - das Gattungswort ersetzt die fehlende Zahl.
+            # Ohne Gattungswort ("Hauptlauf" gegen "10 km") bleibt es bei
+            # zwei Zeilen, und "Sprint" gegen "Kurzdistanz 51,5 km" sind
+            # zwei Strecken. Am Bestand: vier Paare, alle Triathlons.
+            if (ka is None) != (kb is None) and ga and ga == gb:
                 return True
     return False
 

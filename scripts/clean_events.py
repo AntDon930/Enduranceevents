@@ -92,6 +92,7 @@ from scraper_lib import (  # noqa: E402
     meter_km,
     is_same_race,
     find_override,
+    override_keys,
     ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
     ART2_LISTEN,
     _haversine_km,
@@ -177,6 +178,17 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
     return events, hinzu
 
 
+# Die Felder, die EINE Strecke beschreiben (siehe apply_overrides).
+STRECKEN_FELDER = ("laenge_km", "wettbewerb", "dauer_h")
+
+
+def _hat_distanzgenauen_schluessel(overrides: dict, event: dict) -> bool:
+    """True, wenn zu dieser Zeile ein Eintrag "<Name>|<Datum>|<km>" steht."""
+    keys = override_keys(event.get("name"), event.get("datum_start"), event.get("laenge_km"))
+    lookup = {k.casefold() for k in overrides}
+    return len(keys) > 1 and keys[0].casefold() in lookup
+
+
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:
     overrides = load_manual_overrides()
     kept: list[dict] = []
@@ -186,6 +198,29 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
         override = find_override(overrides, event.get("name"), event.get("datum_start"),
                                  event.get("laenge_km"), event.get("wettbewerb"))
         if override:
+            # Ein ALLGEMEINER Schlüssel ("<Name>|<Datum>"), der eine Länge
+            # setzt, beschreibt EINE Strecke - die, die beim Eintragen ohne
+            # Länge dastand. Trifft er eine Zeile, die schon eine ANDERE
+            # Distanz trägt, ist das eine andere Strecke derselben
+            # Veranstaltung (meist aus manual_events.json nachgetragen):
+            # Länge, Label und Dauer bleiben dann unangetastet, der Rest
+            # (Link, Koordinaten, Charity, vorläufig) gilt weiter. Bis zum
+            # 05.10.2026 setzte der Override die Länge an ALLE Strecken, sie
+            # verschmolzen zu einer, und add_manual_events() legte die
+            # anderen wieder an (der "Umweg" aus dem Zwölften Durchgang, 77
+            # Zeilen je Lauf) - idempotent, bis die Namensregel eine
+            # Kilometerliebe-Zeile ohne Länge für die nachgetragene Strecke
+            # hielt und die 57,5 km des Allgäu Triathlons verloren gingen.
+            # Ein distanzgenauer Schlüssel ("…|<km>") korrigiert weiterhin
+            # jede Distanz.
+            strecke_schuetzen = (
+                isinstance(event.get("laenge_km"), (int, float))
+                and isinstance(override.get("laenge_km"), (int, float))
+                and abs(event["laenge_km"] - override["laenge_km"]) >= 0.05
+                and not _hat_distanzgenauen_schluessel(overrides, event)
+            )
+            if strecke_schuetzen:
+                override = {k: v for k, v in override.items() if k not in STRECKEN_FELDER}
             if override.get("exclude"):
                 excluded.append(
                     f"{event.get('name')} ({event.get('datum_start')}"

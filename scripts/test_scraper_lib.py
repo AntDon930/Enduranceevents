@@ -1173,6 +1173,32 @@ def test_override_schluessel() -> None:
                 falsch.append(f"{key}: müsste {erwartet!r} heißen")
     check("alle Schlüssel in der Form, die find_override sucht", falsch, [])
 
+    # Ein allgemeiner Schlüssel mit Länge beschreibt EINE Strecke
+    # (05.10.2026): Eine Schwesterzeile mit ANDERER Distanz behält Länge,
+    # Label und Dauer, bekommt aber Link und Koordinaten - vorher setzte
+    # der Override 77 nachgetragene Strecken je Lauf auf die falsche
+    # Länge, und erst add_manual_events() legte sie wieder an. Ein
+    # distanzgenauer Schlüssel korrigiert weiterhin jede Distanz.
+    from clean_events import apply_overrides as _apply
+    import clean_events as _ce
+    _alt = _ce.load_manual_overrides
+    _ce.load_manual_overrides = lambda: {
+        "Testtriathlon|2027-07-25": {"laenge_km": 25.5, "wettbewerb": "Sprint 25,5 km", "veranstalter_url": "https://test-tri.de/"},
+        "Testlauf|2027-07-25|11": {"laenge_km": 10.5, "wettbewerb": "10,5 km"},
+    }
+    try:
+        rows = [
+            {"name": "Testtriathlon", "datum_start": "2027-07-25", "laenge_km": None, "wettbewerb": "Triathlon"},
+            {"name": "Testtriathlon", "datum_start": "2027-07-25", "laenge_km": 51.5, "wettbewerb": "Olympisch 51,5 km"},
+            {"name": "Testlauf", "datum_start": "2027-07-25", "laenge_km": 11.0, "wettbewerb": "11 km"},
+        ]
+        kept, _, _ = _apply(rows)
+    finally:
+        _ce.load_manual_overrides = _alt
+    check("allgemeiner Schlüssel füllt die Zeile ohne Länge", (kept[0]["laenge_km"], kept[0]["wettbewerb"], kept[0].get("veranstalter_url")), (25.5, "Sprint 25,5 km", "https://test-tri.de/"))
+    check("… lässt die Schwesterstrecke in Ruhe, Link kommt trotzdem", (kept[1]["laenge_km"], kept[1]["wettbewerb"], kept[1].get("veranstalter_url")), (51.5, "Olympisch 51,5 km", "https://test-tri.de/"))
+    check("distanzgenauer Schlüssel korrigiert die Distanz weiterhin", (kept[2]["laenge_km"], kept[2]["wettbewerb"]), (10.5, "10,5 km"))
+
     # Allgemeiner und distanzgenauer Eintrag liegen ÜBEREINANDER - der
     # allgemeine (z. B. veranstalter_url für alle Strecken) darf nicht
     # unsichtbar werden, nur weil EINE Strecke einen eigenen Eintrag hat.
@@ -3432,9 +3458,24 @@ def test_siebter_weg() -> None:
         ("Frauenlauf Berlin", "Berlin", 10, "10 km Walking", "Vitamin Well Frauenlauf Berlin 2027", "Berlin", 10, "10 km Lauf", False),
         ("Essener-Silvesterlauf 2026", "Essen", 5, "5 km Jedermannlauf", "Silvesterlauf Gießen", "Gießen", 5, "5 km Lauf", False),
         ("Stadtlauf Erding", "Erding", 10, "10 km", "Stadtlauf Erding", "Erding", 5, "5 km", False),
+        # Eine Seite ohne Distanz, beide Labels nennen dasselbe Format
+        # (05.10.2026, Munich Triathlon / Kilometerliebe) - samt Gegenproben.
+        ("Munich Triathlon", "München", 25.5, "Sprintdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)", "Munich Triathlon 2027", "München", None, "Sprint", True),
+        ("Munich Triathlon", "München", 51.5, "Kurzdistanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)", "Munich Triathlon 2027", "München", None, "Sprint", False),
+        ("Allgäu Triathlon", "Immenstadt im Allgäu", 57.5, "Olymp 57,5 km (1,5 km Schwimmen / 46 km Rad / 10 km Laufen)", "Allgäu Triathlon 2027", "Immenstadt im Allgäu", None, "Olympisch", True),
+        ("Triathlon Tübingen", "Tübingen", 27.4, "Sprintdistanz 27,4 km (750 m Schwimmen / 22 km Rad / 4,7 km Laufen)", "Mey Generalbau Triathlon Tübingen 2027", "Tübingen", None, "Super-Sprint", False),
+        ("Stadtlauf Erding", "Erding", 10, "10 km Hauptlauf", "Stadtlauf Erding 2027", "Erding", None, "Nachtlauf", False),
+        # Die Teilstrecken-Klammer zählt nicht als Gattung: "Rad" darin ist
+        # kein Radrennen (Siebzehnter Durchgang, bis dahin per Override).
+        ("Sprint Triathlon Hof", "Hof", 26, "Sprintdistanz 26 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)", "Sprint Triathlon Hof", "Hof", 26, "Sprintdistanz 26 km", True),
     ]
     for n1, o1, k1, w1, n2, o2, k2, w2, erwartet in faelle:
-        check(f"{n1!r} <> {n2!r}", is_same_event(e(n1, o1, k1, w1), e(n2, o2, k2, w2)), erwartet)
+        art1 = "Triathlon" if "Triathlon" in n1 else "Laufen"
+        check(f"{n1!r} <> {n2!r}", is_same_event(e(n1, o1, k1, w1, art1), e(n2, o2, k2, w2, art1)), erwartet)
+    from scraper_lib import _label_gattung
+    check("Gattung: Teilstrecken-Klammer zählt nicht", _label_gattung("Sprintdistanz 26 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"), frozenset({"sprint"}))
+    check("Gattung: Super-Sprint ist nicht Sprint", _label_gattung("Super-Sprint"), frozenset({"super-sprint"}))
+    check("Gattung: Staffel-Klammer bleibt", _label_gattung("Staffel (4 x 10 km)"), frozenset({"staffel"}))
 
 
 def test_lvpfalz_lck() -> None:
