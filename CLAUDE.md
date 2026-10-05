@@ -4603,6 +4603,69 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
+**Stand am Abend des 05.10.2026 (23:45) – MORGEN WEITER BEI PUNKT 4.**
+Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
+morgen genau merken"). Punkte 1–3 sind erledigt, Punkt 5 steht als
+Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
+
+- **Punkt 4** (bei ihm): `impressum.html` und `datenschutz.html` einmal
+  als Besucher lesen, Testmail an `impressum@endurance-events.de`,
+  entscheiden, ob jemand gegenliest. Der Text ist aktuell (Versand seit
+  heute drin). Claude gibt keine Rechtsberatung.
+- **Punkt 6**: Die 34 NEU?-Fälle hat Claude am 05.10.2026 schon alle an
+  den Veranstalterseiten gelesen (Skript über `veranstalter_links.Abrufer`,
+  Sätze mit 2027-Datum). **Es fehlt nur noch das Ja des Nutzers** zu
+  diesen 18, die die Seite mit Lauf UND Termin ausdrücklich nennt – dann
+  je Fall über `veranstalter_seiten.manual_events_aus()` mit den Strecken
+  der Ausgabe 2026 und `gedaechtnis: true` nach `manual_events.json`,
+  `clean_events.py --no-geocoding`, `build_ics.py`, Tests, Push:
+
+  | Veranstaltung (Gedächtnis-Ort) | Termin 2027 | Beleg |
+  |---|---|---|
+  | Asvö King of the Lake am Attersee (zwei Einträge: Attersee / Schörfling, EINE Ausgabe) | Sa 18.09. | „Termin 2027: voraussichtlich 18.09.2027" → `datum_vorlaeufig` |
+  | S3-T Triathlon (Visp) | Sa 25.09. | „S3-T Triathlon Samstag, 25.09.2027 Brigerbad" |
+  | La Reine Women's Gran Fondo (Freiburg; Sportart im Gedächtnis fehlt → Fahrrad) | 24.–25.09. | „Women's Gran Fondo 24 to 25 September 2027" |
+  | Rheinhöhenlauf (Vettelschoß) | 24.–26.09. | „Der Termin steht fest: 24.–26. September 2027" |
+  | 46. → 47. Altkönig-Lauf (zwei Einträge: Kronberg / Kronberg im Taunus) | So 26.09. | „am Sonntag den 26. September 2027 den 47. Altkönig-Lauf" |
+  | Stolpener Basalt-Lauf (10.) | So 26.09. | „10. Stolpener Basalt-Lauf am Sonntag, 26. September 2027" |
+  | 25. Bad Ischler RE/MAX KAISERLAUF Halbmarathon | So 26.09. | „Kaiserlauf So, 26. September 2027" |
+  | Kettwiger Hügeltour (22., Fahrrad; Sportart im Gedächtnis fehlt) | So 26.09. | „am 26.09.2027 … die 22. Kettwiger Hügeltour" |
+  | Lions-Monopteros-Lauf (München; Sportart fehlt → Laufen) | So 26.09. | „am letzten Sonntag im September, also am 26.09.2027" |
+  | Radcross Illnau (15.; Sportart fehlt → Fahrrad) | So 26.09. | „Save the date Sonntag, 26. September 2027" |
+  | Kulmbach Trails | So 26.09. | „Kulmbach Trails 26. September 2027" |
+  | Welser Sparkasse OÖ City Night Run / OÖ City Night Run Wels (zwei Einträge, EINE Ausgabe) | Do 30.09. | „30. September 2027 … Start 20:30" |
+  | Wachau Trail (Krems) | Sa 02.10. | „Samstag 2. Oktober 2027" |
+  | Morat-Fribourg (Freiburg CH) | 02.–03.10. | „rendez-vous du 2 au 3 oct. 2027" |
+  | 39. 10km Lauf Neuhütten | So 03.10. | „am 03. Oktober 2027 ist es soweit" |
+  | Osterfeiner SgH-Dümmerlauf (14., Damme) | So 03.10. | „14. Osterfeiner SgH Dümmerlauf 03.10.2027" |
+  | Trailrun21 Zell am Harmersbach | So 03.10. | „Termin vormerken: 3. Oktober 2027" |
+  | The Quest – Auwald (Elchingen) | So 17.10. | „Termin: Sonntag 17. Oktober 2027" |
+
+  **Nicht übernehmen** (Claude-Vorschlag, der Nutzer kann widersprechen):
+  ohne 2027-Termin auf der Seite – Bärmesener Päädellauf, 8. Bondorflauf,
+  Oberholzer Volkssportlauf, 16. Labertal-Lauf, Bergstraße-Odenwald 50,
+  22. BKK Walking am Baldeneysee, 16. Köhlbrandbrückenlauf (Seite listet
+  nur fremde Hamburger Läufe), Spreewald RTF (2028 nicht angekündigt);
+  Seite zeigt eine ANDERE Veranstaltung – Kosiak Löwe (Karawanken Löwen
+  Trail 30.07.–01.08.2027), VeloTour Dresden-Berlin („Rund um Berlin"
+  02.10.2027); nicht für jeden – R5K Tour Finale Berlin (Kids & Youth),
+  ÖM Obstaclerun im Viennathlon (Meisterschaft im Rahmen); unsicher –
+  GENERALI 5K Berlin (Seite nennt nur den Marathon am 26.09.2027, der 5K
+  liefe am Sa 25.09., Name/Sponsor wechseln 2027 → weglassen, der Scraper
+  bringt ihn). Die Rohdaten (Sätze je Seite) lagen nur im Scratchpad und
+  sind nach dem Clear weg – die Tabelle hier ist die Quelle.
+- **Danach Punkt 7** (Korrekturliste) usw. in der Reihenfolge der Liste.
+- **CI**: Routine `trig_01SoYT5iDpwc8zfsJYDSftaY` prüft um 22:00 UTC die
+  Läufe zu `d1d5376`; die heutigen Commits bis `db3a853` (und dieser)
+  laufen danach ebenfalls durch die CI – morgen einmal nachsehen, ob
+  alles grün ist (am Abend des 05.10. gab es eine GitHub-Runner-Störung,
+  Jobs brachen nach 15 Minuten ohne Log ab).
+- **Heute erledigt, zum Nachlesen**: Punkt 2 komplett (Teil D: Extension
+  nach einem Eventarc-Fehlversuch installiert, Testmail SUCCESS); Punkt 3
+  (echte Nutzer-Meldung zum Schnebelhorn Panoramatrail → Ausgabe 2027
+  nachgetragen, `errorReports` geleert); Datenschutzerklärung nennt den
+  Versand (IONOS, Cloud Function); Punkt 5 → Punkt 30.
+
 **B. Datenprüfung (Handarbeit des Nutzers)**
 
 6. **Die 34 NEU?-Fälle** der Gedächtnis-Prüfung durchgehen
