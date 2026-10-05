@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-03-ottersleber-stundenlauf-0-5h-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270903
+DTEND;VALUE=DATE:20270904
+SUMMARY:Ottersleber Stundenlauf – Halbstundenlauf
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 0.5 h\nhttp://www.otterslebe
+ r-stundenlauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.ottersleber-stundenlauf.de/
+END:VEVENT
+END:VCALENDAR

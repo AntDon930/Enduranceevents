@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-09-hallwilerseelauf-21-1km-beinwil-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271009
+DTEND;VALUE=DATE:20271010
+SUMMARY:Hallwilerseelauf – Erlebnislauf 21.1 km
+LOCATION:Beinwil am See\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://hallwilersee
+ lauf.ch/
+TRANSP:TRANSPARENT
+URL:http://hallwilerseelauf.ch/
+END:VEVENT
+END:VCALENDAR

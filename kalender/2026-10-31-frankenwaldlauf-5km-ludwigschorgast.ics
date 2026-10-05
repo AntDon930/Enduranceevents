@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-frankenwaldlauf-5km-ludwigschorgast@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Frankenwaldlauf – 5 km Kulmbacher Steinie-Funlauf
+LOCATION:Ludwigschorgast\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.lg-ludwigs
+ chorgast.de/frankenwaldlauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.lg-ludwigschorgast.de/frankenwaldlauf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

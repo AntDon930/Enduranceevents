@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-24h-bietigheim-bissingen-24h-bietigheim-bissingen@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261116
+SUMMARY:24h Bietigheim-Bissingen
+LOCATION:Bietigheim-Bissingen\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://www.schwimmv
+ erein-bietigheim.de
+TRANSP:TRANSPARENT
+URL:http://www.schwimmverein-bietigheim.de
+END:VEVENT
+END:VCALENDAR

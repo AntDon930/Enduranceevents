@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-lauf-sport-tag-winter-thur-11km-winterthur@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:Lauf­sport­tag Winter­thur
+LOCATION:Winterthur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://datasport.com
+ /de/events/laufsporttag-winterthur-2027
+TRANSP:TRANSPARENT
+URL:https://datasport.com/de/events/laufsporttag-winterthur-2027
+END:VEVENT
+END:VCALENDAR

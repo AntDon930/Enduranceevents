@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-muglitztal-wanderung-15km-dohna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:Müglitztal-Wanderung
+LOCATION:Dohna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.msv-meuse
+ gast.de/veranstaltungen/stadtfestwanderung/
+TRANSP:TRANSPARENT
+URL:https://www.msv-meusegast.de/veranstaltungen/stadtfestwanderung/
+END:VEVENT
+END:VCALENDAR

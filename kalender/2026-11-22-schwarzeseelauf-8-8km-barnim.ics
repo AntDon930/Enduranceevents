@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-schwarzeseelauf-8-8km-barnim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Schwärzeseelauf – 8\,8 km Lauf
+LOCATION:Barnim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://anmeldung.la
+ ufauswertung.com/Anmeldung/index.php?VID=E92B89B7F7
+TRANSP:TRANSPARENT
+URL:https://anmeldung.laufauswertung.com/Anmeldung/index.php?VID=E92B89B7F
+ 7
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-zwentendorfer-charity-donaulauf-5-3km-zwentendorf-an-der-do
+ nau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Zwentendorfer Charity-Donaulauf – Volkslauf 5.286 m
+LOCATION:Zwentendorf an der Donau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5.3 km\nhttps://ww
+ w.zwentendorf.at/donaulauf
+TRANSP:TRANSPARENT
+URL:https://www.zwentendorf.at/donaulauf
+END:VEVENT
+END:VCALENDAR

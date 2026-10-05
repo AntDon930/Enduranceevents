@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-rustorfer-gesunde-gemeinde-lauf-7-1km-rustorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Rüstorfer Gesunde Gemeinde Lauf – 7\,1 km (Allgemeiner Lauf)
+LOCATION:Rüstorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.1 km\nhttps://time2win.at/
+ event/1139
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1139
+END:VEVENT
+END:VCALENDAR

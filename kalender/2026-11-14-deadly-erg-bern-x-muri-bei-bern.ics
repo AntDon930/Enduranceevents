@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-deadly-erg-bern-x-muri-bei-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Deadly Erg Bern
+LOCATION:Muri bei Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.deadlydozen.d
+ e/event/bern-gym-race
+TRANSP:TRANSPARENT
+URL:https://www.deadlydozen.de/event/bern-gym-race
+END:VEVENT
+END:VCALENDAR

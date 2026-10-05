@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-zumiker-lauf-6-5km-zumikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Zumiker Lauf – Walking/Nordic Walking 6.5km
+LOCATION:Zumikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.5 km\nhttps://www.zuerilau
+ fcup.ch/12-laeufe/zumiker_lauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe/zumiker_lauf
+END:VEVENT
+END:VCALENDAR

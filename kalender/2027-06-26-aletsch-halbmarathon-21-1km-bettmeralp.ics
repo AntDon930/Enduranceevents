@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270626
 DTEND;VALUE=DATE:20270628
 SUMMARY:Aletsch Halbmarathon – Halbmarathon
 LOCATION:Bettmeralp\, Schweiz
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://datasport.c
- om/de/events/aletsch-halbmarathon-2027
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.aletsch
+ -halbmarathon.ch/de
 TRANSP:TRANSPARENT
-URL:https://datasport.com/de/events/aletsch-halbmarathon-2027
+URL:https://www.aletsch-halbmarathon.ch/de
 END:VEVENT
 END:VCALENDAR

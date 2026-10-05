@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-erlen-triathlon-29-6km-dielsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Erlen Triathlon – 29\,6 km Rad (Ambitious und Duathlon\, 2 Runden)
+LOCATION:Dielsdorf\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 29.6 km\nhttps://mumage
+ si-triathlon.ch/erlen-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/erlen-triathlon/
+END:VEVENT
+END:VCALENDAR

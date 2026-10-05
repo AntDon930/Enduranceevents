@@ -10,8 +10,8 @@ DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Sägerserie
 LOCATION:Berlin\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.sctf-event
- s.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://www.sctf-events
+ .de
 TRANSP:TRANSPARENT
 URL:https://www.sctf-events.de
 END:VEVENT

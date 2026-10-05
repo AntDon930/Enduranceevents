@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-napf-marathon-22km-trubschachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Napf-Marathon – Teamlauf mit einer Etappe von 20 km und einer von 
+ 22 km
+LOCATION:Trubschachen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttps://www.napf-mara
+ thon.ch
+TRANSP:TRANSPARENT
+URL:https://www.napf-marathon.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-aloha-tri-mondseeland-110km-mondsee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Aloha Tri Mondseeland
+LOCATION:Mondsee\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 110 km\nhttps://alohaspor
+ t.at/event/aloha-tri-mondseeland
+TRANSP:TRANSPARENT
+URL:https://alohasport.at/event/aloha-tri-mondseeland
+END:VEVENT
+END:VCALENDAR

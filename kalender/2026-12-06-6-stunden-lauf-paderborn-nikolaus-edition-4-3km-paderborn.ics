@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-6-stunden-lauf-paderborn-nikolaus-edition-4-3km-paderborn@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:6-Stunden-Lauf Paderborn Nikolaus Edition
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 4.3 km\nhttps://my.raceresul
+ t.com/375152/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/375152/
+END:VEVENT
+END:VCALENDAR

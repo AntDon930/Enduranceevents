@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-abend-kanallauf-rethmar-10km-sehnde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Abend-Kanallauf Rethmar – 10 km Straße
+LOCATION:Sehnde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ladv.de/aussc
+ hreibung/detail/49357/4.-Abend-Kanallauf-Rethmar-Sehnde.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49357/4.-Abend-Kanallauf-Rethmar-
+ Sehnde.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-linz-marathon-nikolo-run-42-2km-linz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Linz Marathon Nikolo Run
+LOCATION:Linz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.linzmar
+ athon.at/de/events/details/event.nikolo-run?appointment=182
+TRANSP:TRANSPARENT
+URL:https://www.linzmarathon.at/de/events/details/event.nikolo-run?appoint
+ ment=182
+END:VEVENT
+END:VCALENDAR

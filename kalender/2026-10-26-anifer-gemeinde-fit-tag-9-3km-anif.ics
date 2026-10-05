@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-anifer-gemeinde-fit-tag-9-3km-anif@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Anifer Gemeinde FIT-TAG – Laufen
+LOCATION:Anif\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://time2win.at/
+ event/1137
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1137
+END:VEVENT
+END:VCALENDAR

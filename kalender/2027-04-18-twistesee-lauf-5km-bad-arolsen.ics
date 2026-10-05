@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-twistesee-lauf-5km-bad-arolsen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Twistesee-Lauf – 5 Km \, Lauf\, ab Jahrgang 2014 und älter
+LOCATION:Bad Arolsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
+ com/425784/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/425784/
+END:VEVENT
+END:VCALENDAR

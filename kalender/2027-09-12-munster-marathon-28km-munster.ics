@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-munster-marathon-28km-munster@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Münster Marathon – Wecker‑28 (28 km)
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 28 km\nhttps://www.volksbank
+ -muenster-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.volksbank-muenster-marathon.de/
+END:VEVENT
+END:VCALENDAR

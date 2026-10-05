@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-offene-regionalmeisterschaft-crosslauf-7km-petershagen-egge
+ rsdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Offene Regionalmeisterschaft Crosslauf
+LOCATION:Petershagen/Eggersdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7 km\nhttps://my.raceresult.c
+ om/386295/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/386295/
+END:VEVENT
+END:VCALENDAR

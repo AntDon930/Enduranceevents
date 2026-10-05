@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-weiterstadter-nikolauslauf-5km-weiterstadt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Weiterstädter Nikolauslauf – 5 km Volkslauf
+LOCATION:Weiterstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tusgrieshe
+ im.de/de/vereinssport/sportarten/triathlon/triathlon-die-tus-events/nikol
+ auslauf/ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/triat
+ hlon-die-tus-events/nikolauslauf/ausschreibung/
+END:VEVENT
+END:VCALENDAR

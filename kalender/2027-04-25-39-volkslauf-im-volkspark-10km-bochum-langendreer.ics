@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:39. Volkslauf im Volkspark – Lauf
 LOCATION:Bochum Langendreer\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://laufen.de/lau
- fkalender/details/39-volkslauf-im-volkspark
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.svlangend
+ reer04.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/39-volkslauf-im-volkspark
+URL:https://www.svlangendreer04.de/
 END:VEVENT
 END:VCALENDAR

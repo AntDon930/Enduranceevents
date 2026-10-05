@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-www-lauf-inzersdorf-10-7km-inzersdorf-ob-der-traisen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:WWW Lauf Inzersdorf – 10\,7 km mit 240 Höhenmeter
+LOCATION:Inzersdorf ob der Traisen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.7 km\nhttps://www.inzersdo
+ rf-getzersdorf.gv.at/10_WWW-Lauf_Wald-Wein-Wiesenlauf_vom_Lauftreff_Inzer
+ sdorf
+TRANSP:TRANSPARENT
+URL:https://www.inzersdorf-getzersdorf.gv.at/10_WWW-Lauf_Wald-Wein-Wiesenl
+ auf_vom_Lauftreff_Inzersdorf
+END:VEVENT
+END:VCALENDAR

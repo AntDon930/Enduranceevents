@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-hildener-winterlaufserie-5km-hilden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:Hildener Winterlaufserie – Walking-Serie
+LOCATION:Hilden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.hildenspor
+ t.de/de/startseite-winterlaufserie/
+TRANSP:TRANSPARENT
+URL:https://www.hildensport.de/de/startseite-winterlaufserie/
+END:VEVENT
+END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:Charity Run - Graz
 LOCATION:Graz\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5.4 km\nhttps://er
- gebnisliste.at/Event/1256
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5.4 km\nhttps://st
+ epbystepgraz.com/eventdaten/
 TRANSP:TRANSPARENT
-URL:https://ergebnisliste.at/Event/1256
+URL:https://stepbystepgraz.com/eventdaten/
 END:VEVENT
 END:VCALENDAR

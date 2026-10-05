@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
 SUMMARY:Stadtwerke-Lauf Flensburg
 LOCATION:Flensburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://my.raceresult.
- com/424618/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://stadtwerke-lau
+ f-flensburg.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/424618/
+URL:https://stadtwerke-lauf-flensburg.de/
 END:VEVENT
 END:VCALENDAR

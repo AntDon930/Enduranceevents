@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-rann-de-uetliberg-6-9km-uitikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Ränn de Uetliberg – Run for Fun 6.9km
+LOCATION:Uitikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.9 km\nhttps://www.zuerilau
+ fcup.ch/12-laeufe/raenn_de_uetliberg
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe/raenn_de_uetliberg
+END:VEVENT
+END:VCALENDAR

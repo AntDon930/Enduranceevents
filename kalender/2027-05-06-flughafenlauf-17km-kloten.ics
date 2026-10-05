@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-06-flughafenlauf-17km-kloten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+SUMMARY:Flughafenlauf – ZKB Zürilauf Cup Hauptkategorie 17km
+LOCATION:Kloten\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 17 km\nhttps://www.zuerilauf
+ cup.ch/11-laeufe-2022/flughafenlauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/11-laeufe-2022/flughafenlauf
+END:VEVENT
+END:VCALENDAR

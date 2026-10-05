@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-gerasdorf-triathlon-20km-gerasdorf-bei-wien@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Gerasdorf Triathlon – Sprint Distanz (Einzel und Staffel)
+LOCATION:Gerasdorf bei Wien\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 20 km\nhttps://www.pentek
+ -payment.at/ppay.php?p=1743&s_p=1
+TRANSP:TRANSPARENT
+URL:https://www.pentek-payment.at/ppay.php?p=1743&s_p=1
+END:VEVENT
+END:VCALENDAR
