@@ -19772,7 +19772,7 @@
     "laenge_km": 5.0,
     "dauer_h": null,
     "wettbewerb": "Cross mittel (5.030 m)",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/46315/Robert-Hannemann-Volkslauf-2026-Minden.htm"
+    "veranstalter_url": "https://sv1860minden.de/sportarten/leichtathletik/aktuelle-infos/1422-robert-hannemann-gedaechtnislauf-2026"
   },
   {
     "land": "Deutschland",
@@ -20451,20 +20451,6 @@
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf",
     "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "10. Kerner Nachtlauf",
-    "standort": "Kernen im Remstal",
-    "lat": 48.814019,
-    "lon": 9.3182543,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 4.5,
-    "wettbewerb": "1 Runde (ca. 4,5 km)",
-    "veranstalter_url": "https://www.spvgg-rommelshausen.de/leichtathletik/ankuendigungen/nachtlauf"
   },
   {
     "land": "Deutschland",
@@ -43457,19 +43443,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bad Windsheimer Weinturmlauf",
     "standort": "Bad Windsheim",
     "lat": 49.5031221,
@@ -63310,46 +63283,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "neuseenMAN",
-    "standort": "Gräfenhainichen",
-    "lat": 51.7303449,
-    "lon": 12.4674212,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-28",
-    "datum_ende": "2027-05-30",
-    "wettbewerb": "Triathlon",
-    "veranstalter_url": "http://www.neuseenman.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "neuseenMAN 2027",
-    "standort": "Gräfenhainichen",
-    "lat": 51.7309112,
-    "lon": 12.4588675,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-28",
-    "datum_ende": "2027-05-28",
-    "wettbewerb": "Olympisch",
-    "veranstalter_url": "https://neuseenman.maximalpuls.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "neuseenMAN Ferropolis",
-    "standort": "Gräfenhainichen – Ferropolis",
-    "lat": 51.7221,
-    "lon": 12.4314,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-28",
-    "datum_ende": "2027-05-30",
-    "laenge_km": 113.0,
-    "wettbewerb": "113 km",
-    "veranstalter_url": "https://neuseenman.maximalpuls.com"
-  },
-  {
-    "land": "Deutschland",
     "name": "PAUL150 - Panoramasteig Ultra 150 Meilen",
     "standort": "Lindlar",
     "lat": 51.0186197,
@@ -67248,19 +67181,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "2. Enni Triathlon Moers",
-    "standort": "Moers",
-    "lat": 51.451283,
-    "lon": 6.62843,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-06",
-    "datum_ende": "2027-06-06",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.enni-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "28. Franken-Bike-Marathon",
     "standort": "Lichtenfels-Trieb",
     "lat": 50.1445118,
@@ -67513,9 +67433,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
-    "veranstalter_url": "https://www.enni-triathlon.de/",
-    "laenge_km": 48.0,
-    "wettbewerb": "Kurzdistanz 48 km (1 km Schwimmen / 37 km Rad / 10 km Laufen)"
+    "laenge_km": 24.5,
+    "wettbewerb": "Sprintdistanz 24,5 km (500 m Schwimmen / 19 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.enni-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -67527,9 +67447,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-06",
     "datum_ende": "2027-06-06",
-    "laenge_km": 24.5,
-    "wettbewerb": "Sprintdistanz 24,5 km (500 m Schwimmen / 19 km Rad / 5 km Laufen)",
-    "veranstalter_url": "https://www.enni-triathlon.de/"
+    "veranstalter_url": "https://www.enni-triathlon.de/",
+    "laenge_km": 48.0,
+    "wettbewerb": "Kurzdistanz 48 km (1 km Schwimmen / 37 km Rad / 10 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -69509,19 +69429,6 @@
     "wettbewerb": "Sprint 25,8 km (0,75 km Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   {
-    "land": "Deutschland",
-    "name": "HavelMan Triathlon Brandenburg 2027",
-    "standort": "Brandenburg an der Havel",
-    "lat": 52.4108261,
-    "lon": 12.5497933,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-12",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.havelman-brandenburg.de/"
-  },
-  {
     "land": "Schweiz",
     "name": "Heida-Panoramalauf",
     "standort": "Visperterminen",
@@ -70558,19 +70465,6 @@
     "laenge_km": 112.0,
     "wettbewerb": "Mitteldistanz 112 km (2 km Schwimmen / 90 km Rad / 20 km Laufen)",
     "veranstalter_url": "https://www.aasee-triathlon.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Aasee Triathlon Bocholt 2027",
-    "standort": "Bocholt",
-    "lat": 51.8382715,
-    "lon": 6.6148669,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-13",
-    "datum_ende": "2027-06-13",
-    "wettbewerb": "Mitteldistanz",
-    "veranstalter_url": "https://www.aasee-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -73046,19 +72940,6 @@
     "art2": "Duathlon",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-20",
-    "wettbewerb": "Olympisch",
-    "veranstalter_url": "https://www.neufeld-triathlon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Neufeld Triathlon",
-    "standort": "Neufeld an der Leitha",
-    "lat": 47.866,
-    "lon": 16.379,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-06-19",
-    "datum_ende": "2027-06-20",
     "wettbewerb": "Duathlon",
     "veranstalter_url": "https://www.neufeld-triathlon.at/"
   },
@@ -73605,19 +73486,6 @@
     "laenge_km": 25.0,
     "wettbewerb": "Sprintdistanz 25 km",
     "veranstalter_url": "https://rosenstadt-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "30. Rosenstadt-Triathlon Eutin",
-    "standort": "Eutin",
-    "lat": 54.137,
-    "lon": 10.619,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-20",
-    "datum_ende": "2027-06-20",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "http://www.rosenstadt-triathlon.de"
   },
   {
     "land": "Deutschland",
@@ -75185,19 +75053,6 @@
     "veranstalter_url": "https://www.aletsch-halbmarathon.ch/de"
   },
   {
-    "land": "Österreich",
-    "name": "ASVÖ Steeltownman Outdoor (+ OÖ Firmentriathlon)",
-    "standort": "Linz",
-    "lat": 48.306,
-    "lon": 14.286,
-    "art1": "Triathlon",
-    "art2": "Aquathlon",
-    "datum_start": "2027-06-26",
-    "datum_ende": "2027-06-26",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://outdoor.steeltownman.com/"
-  },
-  {
     "land": "Deutschland",
     "name": "Besenbinder Lauf - Rund um Hainrode",
     "standort": "Südharz",
@@ -75218,7 +75073,7 @@
     "lat": 51.524436,
     "lon": 11.0199629,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
     "veranstalter_url": "https://besenbinderlauf.de/",
@@ -84021,19 +83876,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Munich Triathlon 2027",
-    "standort": "München",
-    "lat": 48.1371079,
-    "lon": 11.5753822,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-07-25",
-    "datum_ende": "2027-07-25",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://munich-triathlon.com/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Pobershauer Schwarzwassertallauf",
     "standort": "Marienberg",
     "lat": 50.6503661,
@@ -88547,19 +88389,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Allgäu Triathlon 2027",
-    "standort": "Immenstadt im Allgäu",
-    "lat": 47.5713422,
-    "lon": 10.1888003,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-22",
-    "datum_ende": "2027-08-22",
-    "wettbewerb": "Olympisch",
-    "veranstalter_url": "https://www.808project.de/allgaeutriathlon"
-  },
-  {
-    "land": "Deutschland",
     "name": "Allgäu Triathlon Immenstadt",
     "standort": "Immenstadt im Allgäu",
     "lat": 47.5657,
@@ -90098,19 +89927,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "43. Moret Triathlon 2027",
-    "standort": "Babenhausen",
-    "lat": 49.9562183,
-    "lon": 8.9460279,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-29",
-    "datum_ende": "2027-08-29",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.maxx-timing.de/events/displaylist/triathlon"
-  },
-  {
-    "land": "Deutschland",
     "name": "Blankeneser Heldenlauf",
     "standort": "Hamburg",
     "lat": 53.5488282,
@@ -90492,6 +90308,21 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
+    "laenge_km": 25.8,
+    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
+    "datum_vorlaeufig": true
+  },
+  {
+    "land": "Deutschland",
+    "name": "Moret Triathlon",
+    "standort": "Babenhausen",
+    "lat": 49.9593613,
+    "lon": 8.9588974,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
     "datum_vorlaeufig": true,
     "laenge_km": 107.1,
@@ -90509,21 +90340,8 @@
     "datum_ende": "2027-08-29",
     "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
-    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Moret Triathlon",
-    "standort": "Babenhausen",
-    "lat": 49.9593613,
-    "lon": 8.9588974,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-29",
-    "datum_ende": "2027-08-29",
-    "laenge_km": 25.8,
-    "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
-    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/"
+    "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -94332,7 +94150,7 @@
     "lat": 51.3670777,
     "lon": 7.4632841,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2027-09-12",
     "datum_ende": "2027-09-12",
     "veranstalter_url": "https://altra-ruhr-trail-run.de/",
@@ -95407,19 +95225,6 @@
     "laenge_km": 27.0,
     "wettbewerb": "Sprintdistanz 27 km",
     "veranstalter_url": "https://www.triathlon-alzenau.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "31. Alzenauer Triathlon",
-    "standort": "Alzenau",
-    "lat": 50.085868,
-    "lon": 9.0813749,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-19",
-    "datum_ende": "2027-09-19",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.triathlon-alzenau.de/"
   },
   {
     "land": "Deutschland",
