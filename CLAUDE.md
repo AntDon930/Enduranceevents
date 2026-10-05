@@ -2378,6 +2378,25 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   jede einzeln geprüfte Veranstaltung in `manual_events.json` ein.
 - `name_ohne_jahr()` lässt auch die Auflage vorn weg („6. Appelhülsener
   Landlauf" → „Appelhülsener Landlauf"): die nächste Ausgabe heißt „7.".
+- **Der erste volle Prüflauf (05.10.2026, 637 Seiten, 40 Minuten)**:
+  39 NEU, 34 NEU?, 32 FEHLER, 17 LEER, 515 NICHTS – 35 Ausgaben mit 58
+  Strecken in `manual_events.json`, 7.012 → 7.067 Events. Vier Lehren,
+  alle im Code: (1) **523 vergangene Einträge kannten keine Strecken** –
+  ihre Zeilen waren weg, bevor das Strecken-Lernen gebaut war; aus vier
+  älteren Ständen von `events.json` nachgeladen (`aufbauen --alt`, 4.374
+  → 4.451 Einträge, 50 ohne Strecken). Beim nächsten Umbau des
+  Gedächtnisses zuerst zählen, welche Felder die VERGANGENEN Einträge
+  haben. (2) **Feiertage**: Ein Lauf am 3. Oktober hängt am Kalendertag;
+  `_gleicher_wochentag()` lässt denselben Kalendertag nur an den festen
+  Tagen in `_FESTE_TAGE` gelten. (3) **Die Startseite als Ersatzadresse
+  bleibt eine Startseite** (`seite_ist_startseite`): Termine von dort
+  sind nur Hinweise, bis eine Quelle wieder die Seite des Laufs liefert.
+  (4) **Ohne `art1` oder Seite im Gedächtnis keine Zeile** – `uebernehmen()`
+  meldet und überspringt; `test_manuelle_events` verlangt beides an jeder
+  Zeile. Zwei Fälle, die nur die Handprüfung lösen kann: Veranstaltungen,
+  die auf der Seite eines größeren Events stehen (GENERALI 5K beim
+  Berlin-Marathon), und Serien mit mehreren Terminen auf einer Seite
+  (Altkönig-Lauf, Köhlbrandbrückenlauf).
 - `_kandidaten(e, auch_unscharf=True)` gibt genaue UND unscharfe Treffer
   – `pruefen` zählt damit auch die Sponsor-Variante als „aktuell", wenn
   die nächste Ausgabe unter dem anderen Namen schon in `events.json`
