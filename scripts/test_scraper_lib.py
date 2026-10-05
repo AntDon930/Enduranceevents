@@ -2482,6 +2482,13 @@ def test_triathlon_format_kopie() -> None:
     web = block((wurzel / "filters.js").read_text(encoding="utf-8"))
     fn = block((wurzel / "functions" / "index.js").read_text(encoding="utf-8"))
     check("filters.js und functions/index.js: dieselbe Regel", fn == web, True)
+    # Dritte Kopie (05.10.2026): audit_events.TRIATHLON_FORMAT_IM_LABEL
+    # entscheidet, ob eine Zeile ohne Kilometer "Distanz fehlt" meldet.
+    import re as _re
+    from audit_events import TRIATHLON_FORMAT_IM_LABEL as _py_fmt
+    js_fmt = _re.findall(r"\[/(.+?)/i, '(\w+)'\]", web)
+    py_fmt = [(m.pattern, k) for m, k in _py_fmt]
+    check("audit_events.py: dieselben Format-Muster wie filters.js", py_fmt, js_fmt)
     if fn != web:
         import difflib
         for d in list(difflib.unified_diff(web.splitlines(), fn.splitlines(), lineterm=""))[:12]:

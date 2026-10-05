@@ -2474,10 +2474,10 @@
     "notiz": "03.10.2026 bestätigt; Strecken heißen kleine/mittlere/große Runde ohne km - 8 km nicht belegbar."
   },
   "22. BKK Walking am Baldeneysee mit Mini-Marathon|2026-10-10": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "baldeneysee.ruhr",
-    "notiz": "Seite zu lang für die Sandbox; Seitentext nennt 4,5/8,5/14 km und Marathon-Wort, unsere 7 km nicht - prüfen."
+    "am": "2026-10-05",
+    "ergebnis": "entfernt",
+    "quelle": "https://www.baldeneysee.ruhr/walking-day-essen/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Wald- und Heidelauf Kremperheide|2026-10-03": {
     "am": "2026-09-21",
@@ -2540,16 +2540,16 @@
     "notiz": "'17. Bersenbrücker Hase-Lauf am Samstag, 10. Oktober' bestätigt; Distanzen nennt die Seite nicht."
   },
   "79. Viersener Herbstwaldlauf Rund um den Bismarckturm|2026-10-10": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "lgviersen.de",
-    "notiz": "Seite nennt 'Samstag, 10. Oktober' für den 79. Lauf, aber Jahr und Distanz nicht eindeutig; 7,2 km nicht belegbar."
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf",
+    "notiz": "Korrekturliste des Nutzers: es gibt ein 10km lauf und 5km lauf, Webseite ist neu, 10 Oktober 2026"
   },
   "25. Volkslauf mit Walking um den AWB See|2026-10-10": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "tus-altwarmbüchen.de",
-    "notiz": "Seite antwortet mit 503; vermutlich dieselbe Veranstaltung wie 'Volkslauf Altwarmbüchen' (10.10.2026, 7/11 km) unter zweitem Namen - Duplikat für den Nutzer (Punkt 12)."
+    "am": "2026-10-05",
+    "ergebnis": "entfernt",
+    "quelle": "http://xn--tus-altwarmbchen-uzb.de/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Volkslauf Altwarmbüchen|2026-10-10": {
     "am": "2026-09-21",
@@ -7944,5 +7944,59 @@
     "ergebnis": "unklar",
     "quelle": "meine-insel-lauf-norderney.de (403)",
     "notiz": "21,1-km-Zeile ohne Label neben 5 und 10 km; Seite sperrt den Abruf."
+  },
+  "Gravel 'n' Gröstl|2026-10-08": {
+    "am": "2026-10-05",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://gravelngroestl.com/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Nocturne des Evaux|2026-10-08": {
+    "am": "2026-10-05",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://nocturnedesevaux.ch",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "2 Pfälzer Weinsteig UTPW 170|2026-10-09": {
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.ultratrail-pfaelzer-weinsteig.de/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Lake.Bike Enduro Festival - Cycling 4 All|2026-10-09": {
+    "am": "2026-10-05",
+    "ergebnis": "entfernt",
+    "quelle": "https://www.mountainsport.at",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Sugar Gravel Stuttgart|2026-10-09": {
+    "am": "2026-10-05",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://sugar-gravel.jimdosite.com",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "14. NV Citylauf|2026-10-10": {
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "https://ustp-la.sportunion.at/nv-citylauf",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "3. Cross Duathlon Wendelstein|2026-10-10": {
+    "am": "2026-10-05",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.teamoptimum.de",
+    "notiz": "Korrekturliste des Nutzers: Die Länge ist doch schon gegeben mit Olympisch"
+  },
+  "43. Poysdorfer Winzerlauf (Weinviertler Raiffeisen Laufcup)|2026-10-10": {
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.winzerlauf.at",
+    "notiz": "Korrekturliste des Nutzers: Man muss auf Anmeldung klicken dann stand da 10km"
+  },
+  "6. Purgstaller Marktlauf (Moststraße Laufcup)|2026-10-10": {
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "https://purgstall.sportunion.at/marktlauf-2026/",
+    "notiz": "Korrekturliste des Nutzers"
   }
 }

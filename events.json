@@ -208,20 +208,6 @@
     "veranstalter_url": "https://nocturnedesevaux.ch"
   },
   {
-    "land": "Deutschland",
-    "name": "2 Pfälzer Weinsteig UTPW 170",
-    "standort": "Schweigen-Rechtenbach",
-    "lat": 49.0545613,
-    "lon": 7.9560342,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-09",
-    "datum_ende": "2026-10-09",
-    "laenge_km": 173.0,
-    "wettbewerb": "173 km",
-    "veranstalter_url": "https://www.kilometerliebe.de/events/2-pfaelzer-weinsteig-utpw-170"
-  },
-  {
     "land": "Österreich",
     "name": "Graz Marathon",
     "standort": "Graz",
@@ -276,19 +262,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://ladv.de/ausschreibung/detail/49154/L%C3%A4uferabend-Helmstedt.htm"
-  },
-  {
-    "land": "Österreich",
-    "name": "Lake.Bike Enduro Festival - Cycling 4 All",
-    "standort": "Ligist",
-    "lat": 46.9786907,
-    "lon": 15.183455,
-    "art1": "Fahrrad",
-    "art2": "Mountainbike",
-    "datum_start": "2026-10-09",
-    "datum_ende": "2026-10-11",
-    "wettbewerb": "Cycling 4 All",
-    "veranstalter_url": "https://www.mountainsport.at"
   },
   {
     "land": "Deutschland",
@@ -474,29 +447,15 @@
   {
     "land": "Deutschland",
     "name": "Ultratrail Pfälzer Weinsteig",
-    "standort": "Bockenheim an der Weinstraße",
-    "lat": 49.6065008,
-    "lon": 8.1831118,
+    "standort": "Schweigen-Rechtenbach",
+    "lat": 49.0545613,
+    "lon": 7.9560342,
     "art1": "Laufen",
     "art2": "Trail",
     "datum_start": "2026-10-09",
     "datum_ende": "2026-10-10",
     "laenge_km": 173.0,
     "wettbewerb": "173 km mit 6000 Höhenmetern nonstop",
-    "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ultratrail Pfälzer Weinsteig",
-    "standort": "Bockenheim an der Weinstraße",
-    "lat": 49.6065008,
-    "lon": 8.1831118,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-09",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 70.0,
-    "wettbewerb": "70 km mit knapp 2100 Höhenmetern nonstop",
     "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/"
   },
   {
@@ -537,7 +496,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "veranstalter_url": "https://ustp-la.sportunion.at/nv-citylauf"
+    "veranstalter_url": "https://ustp-la.sportunion.at/nv-citylauf",
+    "laenge_km": 10.0
   },
   {
     "land": "Deutschland",
@@ -651,19 +611,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "22. BKK Walking am Baldeneysee mit Mini-Marathon",
-    "standort": "Essen",
-    "lat": 51.4582235,
-    "lon": 7.0158171,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 7.0,
-    "veranstalter_url": "https://www.baldeneysee.ruhr/walking-day-essen/"
-  },
-  {
-    "land": "Deutschland",
     "name": "24h Helpup",
     "standort": "Helpup",
     "lat": 51.9700683,
@@ -701,19 +648,6 @@
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.lfv-schutterwald.de/herbstlauf.html",
     "wettbewerb": "10 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "25. Volkslauf mit Walking um den AWB See",
-    "standort": "Altwarmbüchen (Isernhagen)",
-    "lat": 52.4225594,
-    "lon": 9.8413095,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 10.8,
-    "veranstalter_url": "http://xn--tus-altwarmbchen-uzb.de/"
   },
   {
     "land": "Deutschland",
@@ -861,7 +795,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "veranstalter_url": "http://www.winzerlauf.at"
+    "veranstalter_url": "http://www.winzerlauf.at",
+    "laenge_km": 10.0
   },
   {
     "land": "Deutschland",
@@ -922,12 +857,15 @@
   {
     "land": "Österreich",
     "name": "6. Purgstaller Marktlauf (Moststraße Laufcup)",
-    "standort": "Straßenlauf im Ortskern von Purgstall",
+    "standort": "Purgstall an der Erlauf",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "veranstalter_url": "http://www.union-purgstall.at"
+    "veranstalter_url": "https://purgstall.sportunion.at/marktlauf-2026/",
+    "laenge_km": 5.1,
+    "lat": 48.0575699,
+    "lon": 15.140182
   },
   {
     "land": "Deutschland",
@@ -939,8 +877,22 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "laenge_km": 7.2,
-    "veranstalter_url": "https://lgviersen.de/"
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "79. Viersener Herbstwaldlauf Rund um den Bismarckturm",
+    "standort": "Viersen",
+    "lat": 51.2562118,
+    "lon": 6.3905476,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf"
   },
   {
     "land": "Schweiz",
@@ -2510,18 +2462,6 @@
   },
   {
     "land": "Österreich",
-    "name": "Purgstaller Marktlauf",
-    "standort": "Purgstall an der Erlauf",
-    "lat": 48.0575699,
-    "lon": 15.140182,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "veranstalter_url": "https://purgstall.sportunion.at/marktlauf/"
-  },
-  {
-    "land": "Österreich",
     "name": "Pustertaler Herbstlauf",
     "standort": "Lienz",
     "lat": 46.82769,
@@ -2851,7 +2791,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "UTPW Tiny Trail",
+    "name": "Ultratrail Pfälzer Weinsteig",
     "standort": "Neustadt an der Weinstraße",
     "lat": 49.3539802,
     "lon": 8.1350021,
@@ -2860,8 +2800,8 @@
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
     "laenge_km": 70.0,
-    "wettbewerb": "70 km",
-    "veranstalter_url": "https://www.kilometerliebe.de/events/utpw-tiny-trail"
+    "wettbewerb": "70 km mit knapp 2100 Höhenmetern nonstop",
+    "veranstalter_url": "https://www.ultratrail-pfaelzer-weinsteig.de/"
   },
   {
     "land": "Schweiz",

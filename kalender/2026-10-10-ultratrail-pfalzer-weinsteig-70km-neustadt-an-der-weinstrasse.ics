@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-09-ultratrail-pfalzer-weinsteig-70km-bockenheim-an-der-weinstr
- asse@antdon930.github.io
+UID:2026-10-10-ultratrail-pfalzer-weinsteig-70km-neustadt-an-der-weinstras
+ se@antdon930.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261009
+DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:Ultratrail Pfälzer Weinsteig – 70 km mit knapp 2100 Höhenmetern no
  nstop
-LOCATION:Bockenheim an der Weinstraße\, Deutschland
+LOCATION:Neustadt an der Weinstraße\, Deutschland
 DESCRIPTION:Sportart: Laufen / Trail\nLänge: 70 km\nhttps://www.ultratrail
  -pfaelzer-weinsteig.de/
 TRANSP:TRANSPARENT

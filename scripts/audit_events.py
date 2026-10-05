@@ -138,6 +138,34 @@ WERKTAG_AUSNAHMEN = re.compile(
     r"wandertage|mai\b|pfingst|oster", re.I)
 
 
+# Die Formate eines Triathlons/Duathlons im Label - dieselbe Liste wie
+# TRIATHLON_FORMAT_IM_LABEL in filters.js (test_triathlon_format_kopie
+# vergleicht beide). Steht ein Format im Label, ZEIGT die Seite es als
+# Länge an und filtert danach - die Zeile hat also eine Maßzahl, auch
+# ohne Kilometer. Vom Nutzer am 05.10.2026 in der Korrekturliste am
+# "3. Cross Duathlon Wendelstein" gemeldet ("Die Länge ist doch schon
+# gegeben mit Sprint"; "Bei dem Duathlon sind die Distanzen immer
+# ähnlich wie beim Triathlon"). Am Bestand: 45 Zeilen weniger Fehlalarm.
+TRIATHLON_FORMAT_IM_LABEL = [
+    (re.compile(r"ultra|double|doppel|triple|dreifach|\bdeca\b|quintuple", re.I), "ultra"),
+    (re.compile(r"140[.,]6|langdist|langstreck|lange\s*distanz|\blang\b|long\s*dist|volldist|full\s*dist|ironman[\s-]*dist", re.I), "lang"),
+    (re.compile(r"70[.,]3|mitteldist|\bmittel\b|middle|halbdist|half[\s-]*dist|halb-?ironman", re.I), "mittel"),
+    (re.compile(r"olymp|standard[\s-]*dist|kurzdist|kurz-?distanz|\bkurz\b|short[\s-]*dist", re.I), "olympisch"),
+    (re.compile(r"super[\s-]*sprint", re.I), "supersprint"),
+    (re.compile(r"sprint", re.I), "sprint"),
+]
+
+
+def triathlon_format_im_label(event: dict) -> str | None:
+    """Das Format, das die Seite aus dem Label liest (nur Triathlon-Familie)."""
+    if event.get("art1") != "Triathlon":
+        return None
+    for muster, schluessel in TRIATHLON_FORMAT_IM_LABEL:
+        if muster.search(event.get("wettbewerb") or ""):
+            return schluessel
+    return None
+
+
 def _label(event: dict) -> str:
     """Das Wettbewerbs-Label - ersatzweise der Veranstaltungsname.
 
@@ -257,7 +285,11 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
                     melde("Zahl im Label weicht von laenge_km ab",
                           f"Label {label_km:g}, Feld {km:g}")
 
-        if km > 130 or (0 < km < 4.9 and event.get("art1") == "Laufen"):
+        # Über 130 km nur beim LAUFEN auffällig: Ein Gravel-Rennen über
+        # 540 km oder eine Langdistanz über 226 km ist normal (vom Nutzer
+        # am 05.10.2026 in der Korrekturliste so bestätigt - Gravel 'n'
+        # Gröstl, Sugar Gravel; 200 Zeilen Fehlalarm bei Rad/Triathlon).
+        if event.get("art1") == "Laufen" and (km > 130 or 0 < km < 4.9):
             melde("auffällige Distanz", f"{km:g} km")
 
         if ZEITRENNEN_IM_NAMEN_RE.search(f"{name} {wb}"):
@@ -293,7 +325,7 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
         melde("kein Ort")
     if not event.get("land"):
         melde("kein Land")
-    if km is None and event.get("dauer_h") is None:
+    if km is None and event.get("dauer_h") is None and not triathlon_format_im_label(event):
         melde("weder Distanz noch Dauer")
     if km is not None and event.get("dauer_h") is not None:
         melde("Distanz UND Dauer gesetzt", f"{km:g} km / {event['dauer_h']:g} h")
@@ -308,7 +340,15 @@ def pruefe_event(event: dict) -> list[tuple[str, str]]:
                 melde("Ende liegt vor dem Start")
             elif tage > 6:
                 melde("Veranstaltung dauert über eine Woche", f"{tage + 1} Tage")
-        if start_d.weekday() < 4 and not WERKTAG_AUSNAHMEN.search(text):
+        # Ein mehrtägiges Event, das bis ins Wochenende reicht (Do-So),
+        # beginnt eben am Donnerstag - vom Nutzer am 05.10.2026 an
+        # Gravel 'n' Gröstl bestätigt, 140 Zeilen weniger Fehlalarm.
+        bis_wochenende = False
+        if ende and ende != datum:
+            ende_d = datetime.date.fromisoformat(ende)
+            bis_wochenende = ende_d > start_d and ende_d.weekday() >= 4
+        if (start_d.weekday() < 4 and not bis_wochenende
+                and not WERKTAG_AUSNAHMEN.search(text)):
             melde("Wochentag Mo-Do", ["Mo", "Di", "Mi", "Do"][start_d.weekday()])
     except ValueError:
         melde("Datum unlesbar")

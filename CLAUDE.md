@@ -2092,6 +2092,42 @@ Fünf Lehren, alle im Code oder in den Notizen:
   nicht. Beides steht bei den Entscheidungen (Punkt 23).
 
 
+### Neunzehnter Durchgang: die erste Korrekturliste des Nutzers (05.10.2026)
+
+Der Nutzer hat die ersten 24 Zeilen der Excel-Liste (`korrekturliste.py`)
+geprüft und zurückgeschickt („Falls du aus meinen Korrekturen lernen
+kannst, dann mach das bitte"). Eingelesen: 5 Korrekturen, 3 Löschungen,
+15 bestätigt. Was daraus als KLASSE folgte (Dreizehnter Durchgang, Punkt 2):
+
+- **Ein Format im Label IST die Länge** – auch beim Duathlon („Bei dem
+  Duathlon sind die Distanzen immer ähnlich wie beim Triathlon"). Die
+  Seite zeigt und filtert „Sprint"/„Olympisch" längst aus dem Label
+  (`triathlonFormat()`), nur `audit_events.py` meldete „weder Distanz noch
+  Dauer" – 45 Fehlalarme. Jetzt `TRIATHLON_FORMAT_IM_LABEL` als dritte
+  Kopie dort (`test_triathlon_format_kopie` vergleicht sie mit filters.js).
+  Schreibt der Nutzer „Sprint" in die Distanz-Spalte, macht der Import
+  daraus das Label, nicht eine Zahl.
+- **Werktag-Hinweis nicht bei mehrtägigen Events bis ins Wochenende**
+  (Gravel 'n' Gröstl Do–So, „Stimmt so") – 140 Zeilen weniger.
+- **„Auffällige Distanz" über 130 km nur beim Laufen** – Gravel 540 km und
+  Langdistanzen sind normal, 200 Zeilen weniger.
+- **PLZ im Ort** („3251 Purgstall"): Der Import trennt sie ab und sucht
+  den Ort über die PLZ in `places.json` – nur Orte MIT Einwohnern, denn
+  GeoNames führt einen Weiler „Purgstall" (0 Einwohner) unter fremden PLZ,
+  40 km daneben.
+- **Andere Tabellen-Apps** speichern `<family val="18"/>` im Stylesheet,
+  openpyxl verweigert dann die ganze Datei – `lade_mappe()` repariert eine
+  Kopie.
+- **Kilometerliebe-Duplikate zum dritten Mal**: „2 Pfälzer Weinsteig UTPW
+  170" und „UTPW Tiny Trail" sind die Strecken des „Ultratrail Pfälzer
+  Weinsteig" – ausgeschlossen; dabei kam heraus, dass das Original beide
+  Strecken falsch hatte (173 km startet am 09.10. in Schweigen-Rechtenbach,
+  70 km am 10.10. in Neustadt, nicht beide in Bockenheim). Ebenso zwei
+  Zeilen für den Purgstaller Marktlauf.
+- **Eine Anmerkung kann eine fehlende Strecke sein** („es gibt ein 10km
+  lauf und 5km lauf") – die liest der Import nicht, sie gehört von Hand in
+  `manual_events.json` (Viersener Herbstwaldlauf 5 km).
+
 Der Nutzer hat gefragt, ob bei den erwarteten 20.000+ Events weniger
 Fehler passieren. Die 13 gefundenen Fehler, danach sortiert, was beim
 nächsten Lauf wirklich geschieht:

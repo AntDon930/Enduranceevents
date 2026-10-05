@@ -4955,6 +4955,22 @@
       "veranstalter_url": "https://www.arberradmarathon.de/",
       "_quelle": "https://www.arberradmarathon.de/",
       "_note": "arberradmarathon.de (01.10.2026): 'Gravel Tour J (65 km), Tour K (95 km)' - die 95 km fehlten in der Liste. Start Regensburg (VCR-Regensburg e.V.)."
+    },
+    {
+      "land": "Deutschland",
+      "name": "79. Viersener Herbstwaldlauf Rund um den Bismarckturm",
+      "standort": "Viersen",
+      "lat": 51.2562118,
+      "lon": 6.3905476,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-10-10",
+      "datum_ende": "2026-10-10",
+      "laenge_km": 5.0,
+      "wettbewerb": "5 km",
+      "veranstalter_url": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf",
+      "_quelle": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf",
+      "_note": "Korrekturliste des Nutzers (05.10.2026): 'es gibt ein 10km lauf und 5km lauf, Webseite ist neu, 10 Oktober 2026'."
     }
   ]
 }

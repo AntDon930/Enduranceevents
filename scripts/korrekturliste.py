@@ -45,7 +45,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from audit_events import ist_geprueft, lade_geprueft, pruefe_event, GEPRUEFT_PATH  # noqa: E402
+from audit_events import (GEPRUEFT_PATH, TRIATHLON_FORMAT_IM_LABEL,  # noqa: E402
+                          ist_geprueft, lade_geprueft, pruefe_event,
+                          triathlon_format_im_label)
 from scraper_lib import (EVENTS_JSON_PATH, MANUAL_OVERRIDES_PATH,  # noqa: E402
                          orte_aus_places, override_keys)
 
@@ -444,10 +446,45 @@ def gleich(feld: str, a, b) -> bool:
     return a == b
 
 
+# "3251 Purgstall", "Purgstall 3251", "D-80331 München": Die PLZ trägt der
+# Nutzer gern mit ein (05.10.2026, erste Korrekturliste) - und die Quellen
+# liefern sie manchmal so. Sie macht einen mehrdeutigen Ortsnamen eindeutig,
+# gehört aber nicht in `standort` (der Ort steht dort ohne PLZ).
+PLZ_IM_ORT = re.compile(r"^\s*(?:[A-Z]{1,2}-)?(\d{4,5})\s+(.+?)\s*$|^\s*(.+?)\s+(\d{4,5})\s*$")
+
+
+def plz_und_ort(standort: str) -> tuple[str | None, str]:
+    m = PLZ_IM_ORT.match(standort or "")
+    if not m:
+        return None, (standort or "").strip()
+    return (m[1], m[2]) if m[1] else (m[4], m[3])
+
+
+def ort_ueber_plz(plz: str, name: str) -> tuple[str, float, float] | None:
+    """Ort mit dieser PLZ aus places.json, dessen Name zum eingetragenen passt
+    (Anfang genügt: "Purgstall" -> "Purgstall an der Erlauf")."""
+    daten = json.loads((REPO / "places.json").read_text(encoding="utf-8"))
+    # Nur Orte mit Einwohnerzahl: GeoNames führt Weiler ohne Einwohner unter
+    # fremden PLZ - "Purgstall" (0 Einwohner, PLZ 2813 3251 3752) liegt 40 km
+    # von Purgstall an der Erlauf entfernt (erste Korrekturliste, 05.10.2026).
+    kandidaten = [o for o in daten["orte"]
+                  if len(o) > 6 and plz in (o[6] or "").split() and (o[5] or 0) > 0]
+    passend = [o for o in kandidaten if o[0].lower() == name.lower()] or [
+        o for o in kandidaten if o[0].lower().startswith(name.lower())]
+    if len({(round(o[3], 2), round(o[4], 2)) for o in passend}) == 1:
+        return passend[0][0], passend[0][3], passend[0][4]
+    return None
+
+
 def koordinaten(standort: str, land: str | None) -> tuple[float, float] | None:
     """Ort -> Koordinaten aus places.json, nur bei eindeutigem Treffer."""
     if not standort:
         return None
+    plz, standort = plz_und_ort(standort)
+    if plz:
+        treffer_plz = ort_ueber_plz(plz, standort)
+        if treffer_plz:
+            return treffer_plz[1], treffer_plz[2]
     try:
         orte = orte_aus_places(land if land in LAENDER else None)
     except (ValueError, KeyError):
@@ -460,8 +497,30 @@ def koordinaten(standort: str, land: str | None) -> tuple[float, float] | None:
     return None
 
 
+def lade_mappe(quelle: Path):
+    """Lädt die Excel-Datei - auch, wenn eine andere Tabellen-App sie
+    gespeichert hat. Die erste Rückgabe des Nutzers (05.10.2026) kam mit
+    `<family val="18"/>` im Stylesheet; openpyxl kennt nur 0-14 und
+    verweigert die ganze Datei. Die Schriftfamilie ist reine Optik, also
+    wird sie für den Import aus einer Kopie entfernt."""
+    try:
+        return load_workbook(quelle)
+    except ValueError:
+        import io
+        import zipfile
+        puffer = io.BytesIO()
+        with zipfile.ZipFile(quelle) as z, zipfile.ZipFile(puffer, "w", zipfile.ZIP_DEFLATED) as o:
+            for n in z.namelist():
+                d = z.read(n)
+                if n == "xl/styles.xml":
+                    d = re.sub(rb'<family val="\d+"\s*/>', b"", d)
+                o.writestr(n, d)
+        puffer.seek(0)
+        return load_workbook(puffer)
+
+
 def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
-    wb = load_workbook(quelle)
+    wb = lade_mappe(quelle)
     if BLATT not in wb.sheetnames or BLATT_ORIGINAL not in wb.sheetnames:
         print(f"Blatt '{BLATT}' oder '{BLATT_ORIGINAL}' fehlt - ist das die Korrekturliste?")
         return 1
@@ -509,6 +568,20 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         anmerkung = str(anmerkung).strip()
         bez = f"Nr {nr} {alt['name']!r} {alt['datum_start']}"
 
+        # Ein Format statt einer Zahl in der Distanz-Spalte ("Sprint",
+        # "Olympisch") - bei Triathlon UND Duathlon ist das die Länge
+        # (vom Nutzer am 05.10.2026: "Bei dem Duathlon sind die Distanzen
+        # immer ähnlich wie beim Triathlon"). Die Seite liest das Format aus
+        # dem Wettbewerbs-Label; steht es dort schon, ist nichts zu tun,
+        # sonst wandert das Wort ins Label. Kilometer bleiben leer.
+        km_zelle = wert["laenge_km"]
+        if (isinstance(km_zelle, str) and not re.search(r"\d", km_zelle)
+                and (wert["art1"] or alt.get("art1")) == "Triathlon"
+                and any(m.search(km_zelle) for m, _ in TRIATHLON_FORMAT_IM_LABEL)):
+            wert["laenge_km"] = alt.get("laenge_km")
+            if not triathlon_format_im_label({"art1": "Triathlon", "wettbewerb": wert["wettbewerb"] or ""}):
+                wert["wettbewerb"] = f"{km_zelle.strip()} {wert['wettbewerb'] or ''}".strip()
+
         neu: dict = {}
         zeilen_fehler = False
         for f in AENDERBAR:
@@ -523,6 +596,18 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         if zeilen_fehler:
             continue
 
+        # Eine PLZ im Ort ("3251 Purgstall") macht den Ort eindeutig, gehört
+        # aber nicht in `standort`: Name aus places.json, Koordinaten dazu.
+        ort_jetzt = neu.get("standort", alt.get("standort")) or ""
+        plz, ohne_plz = plz_und_ort(ort_jetzt)
+        if plz and (neu or status or anmerkung):
+            treffer_plz = ort_ueber_plz(plz, ohne_plz)
+            if treffer_plz:
+                neu["standort"] = treffer_plz[0]
+                if "lat" not in neu and (alt.get("lat") is None or "standort" in neu):
+                    neu["lat"], neu["lon"] = treffer_plz[1], treffer_plz[2]
+            else:
+                neu["standort"] = ohne_plz
         # Ort geändert, Koordinaten nicht: aus places.json nachziehen.
         if "standort" in neu and "lat" not in neu and "lon" not in neu:
             pos = koordinaten(neu["standort"], neu.get("land", alt.get("land")))
@@ -582,6 +667,8 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
                     "korrigiert": "korrigiert"}.get(status.lower())
         if ergebnis is None and neu:
             ergebnis = "korrigiert"
+        if ergebnis == "korrigiert" and not neu:
+            ergebnis = "quelle_ok"  # "Korrigiert" gewählt, aber nichts geändert
         if ergebnis:
             status_zaehler[ergebnis] = status_zaehler.get(ergebnis, 0) + 1
             pkey = f"{alt['name'].strip()}|{neu.get('datum_start', alt['datum_start'])}"

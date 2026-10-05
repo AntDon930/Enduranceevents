@@ -8094,5 +8094,70 @@
   "BriggYard Staffel-Run|2027-06-18": {
     "exclude": true,
     "_note": "Staffel-Veranstaltung (Name), die 42 km sind die Team-Gesamtstrecke - Datenregel 16 (erst einmal keine Staffeln); ist_staffel() kennt die Schreibweise Staffel-Run nicht. Linkprüfung 05.10.2026, umkehrbar."
+  },
+  "2 Pfälzer Weinsteig UTPW 170|2026-10-09|173": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers (05.10.2026): Link auf ultratrail-pfaelzer-weinsteig.de gesetzt - damit ist die Kilometerliebe-Zeile ein Duplikat von 'Ultratrail Pfälzer Weinsteig' 173 km (Veranstalterseite: 'Anmeldeschluss für die 173km', Überschrift gerundet '170 Kilometer'). Ausgeschlossen, Start und Ort beim Original korrigiert."
+  },
+  "Lake.Bike Enduro Festival - Cycling 4 All|2026-10-09|@Cycling 4 All": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "14. NV Citylauf|2026-10-10": {
+    "laenge_km": 10.0,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "22. BKK Walking am Baldeneysee mit Mini-Marathon|2026-10-10|7": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "25. Volkslauf mit Walking um den AWB See|2026-10-10|10.8": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "43. Poysdorfer Winzerlauf (Weinviertler Raiffeisen Laufcup)|2026-10-10": {
+    "laenge_km": 10.0,
+    "_note": "Korrekturliste des Nutzers: Man muss auf Anmeldung klicken dann stand da 10km"
+  },
+  "6. Purgstaller Marktlauf (Moststraße Laufcup)|2026-10-10": {
+    "laenge_km": 5.1,
+    "standort": "Purgstall an der Erlauf",
+    "veranstalter_url": "https://purgstall.sportunion.at/marktlauf-2026/",
+    "_note": "Korrekturliste des Nutzers (5,1 km, Seite marktlauf-2026); Ort/Koordinaten von der zweiten Zeile 'Purgstaller Marktlauf' übernommen.",
+    "lat": 48.0575699,
+    "lon": 15.140182
+  },
+  "79. Viersener Herbstwaldlauf Rund um den Bismarckturm|2026-10-10|7.2": {
+    "laenge_km": 10.0,
+    "veranstalter_url": "https://lgviersen.de/wp-content/uploads/2026/09/261010-Herbstwaldlauf.pdf",
+    "_note": "Korrekturliste des Nutzers: es gibt ein 10km lauf und 5km lauf, Webseite ist neu, 10 Oktober 2026"
+  },
+  "UTPW Tiny Trail|2026-10-10|70": {
+    "exclude": true,
+    "_note": "Duplikat der 70-km-Strecke von 'Ultratrail Pfälzer Weinsteig' (Kilometerliebe zerlegt die Veranstaltung in Strecken mit eigenem Namen). Geprüft 05.10.2026 an https://www.ultratrail-pfaelzer-weinsteig.de/"
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-09|173": {
+    "standort": "Schweigen-Rechtenbach",
+    "lat": 49.0545613,
+    "lon": 7.9560342,
+    "_note": "Veranstalterseite (05.10.2026): '173km 6000Hm', 'Start: am 09.10.26 um 9 Uhr in Schweigen-Rechtenbach' - nicht Bockenheim (das ist das Ziel)."
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-09|70": {
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "standort": "Neustadt an der Weinstraße",
+    "lat": 49.3539802,
+    "lon": 8.1350021,
+    "_note": "Veranstalterseite (05.10.2026): 'Anmeldeschluss für die 70km … Start: am 10.10.26 um 8 Uhr in Neustadt an der Weinstrasse'."
+  },
+  "Ultratrail Pfälzer Weinsteig|2026-10-10|70": {
+    "standort": "Neustadt an der Weinstraße",
+    "lat": 49.3539802,
+    "lon": 8.1350021,
+    "_note": "Gegenschlüssel zum Datums-Override (neuer Termin), siehe '…|2026-10-09|70'."
+  },
+  "Purgstaller Marktlauf|2026-10-10": {
+    "exclude": true,
+    "_note": "Duplikat von '6. Purgstaller Marktlauf (Moststraße Laufcup)' (gleicher Tag, gleicher Veranstalter SU Purgstall) - die vom Nutzer am 05.10.2026 korrigierte Zeile bleibt."
   }
 }
