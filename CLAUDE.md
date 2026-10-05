@@ -2421,6 +2421,14 @@ greift nicht mehr, die alte Zeile ist als vergangen gelöscht – am
   die Null-Treffer-Box (`openSuggestModal`) – ein Weg, drei Zugänge. Auf
   dem Handy ist sie im Blatt ausgeblendet, dort bleibt die Fußzeile.
   Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
+- **Bei null Treffern verschwindet die Liste** (vom Nutzer am 05.10.2026:
+  „Wenn keine Events angezeigt werden … brauchen wir die Liste nicht"):
+  `renderNotifyPrompt()` setzt `body.null-treffer`, das blendet `.layout`
+  (Tabelle UND Detail-Box) aus; `#notify-box` zeigt dann groß die blaue
+  Karte (Überschrift, Text, E-Mail-Abo) und darunter die rote „Dein Event
+  fehlt?" (`#notify-fehlt-btn`, dieselben `.fehlt-box`-Klassen, derselbe
+  Dialog). `removeNotifyPrompt()` nimmt die Klasse wieder weg. Ab 901 px
+  hält `margin-bottom: auto` die Fußzeile unten.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (`<a
   class="scroll-hint" href="#mehr">`, `scroll-behavior: smooth`) – der
   Nutzer las den Hinweis als Knopf (30.09.2026). **Seit dem 05.10.2026

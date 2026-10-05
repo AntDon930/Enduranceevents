@@ -75,34 +75,63 @@
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
      in site.css (geteilt mit Karte und Startseite); hier nur, was allein
      die Liste hat: Tabelle, Detailbereich, Dialoge. */
+  /* Null Treffer (vom Nutzer am 05.10.2026 gewünscht: "Wenn keine
+     Events angezeigt werden, brauchen wir die Liste nicht"): Tabelle und
+     Detail-Box verschwinden (body.null-treffer), stattdessen steht die
+     blaue Abo-Box groß da und darunter die rote "Dein Event fehlt?". */
   .notify-box {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin: 0 var(--seite-rand) 12px;
-    background: var(--accent-bg);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-ctl, 10px);
-    padding: 12px 16px;
-    font-size: 0.86rem;
+    flex-direction: column;
+    gap: 14px;
+    width: auto;
+    max-width: 760px;
+    margin: 8px auto 24px;
+    padding: 0 var(--seite-rand);
   }
   .notify-box[hidden] { display: none; }
-  .notify-box p { margin: 0; flex: 1; min-width: 200px; color: var(--text); }
-  .notify-box button {
-    padding: 9px 16px;
-    border-radius: 10px;
+  body.null-treffer .layout { display: none; }
+  .notify-card {
+    background: var(--accent-bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 28px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .notify-card h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    line-height: 1.15;
+    color: var(--text);
+  }
+  .notify-card p { margin: 0; color: var(--text); font-size: 1rem; line-height: 1.5; }
+  .notify-card button {
+    margin-top: 6px;
+    padding: 11px 20px;
+    border-radius: var(--radius-ctl, 10px);
     border: none;
     background: var(--accent);
     color: var(--on-accent);
     cursor: pointer;
     font: inherit;
-    font-size: 0.84rem;
+    font-size: 0.95rem;
     font-weight: 700;
     white-space: nowrap;
   }
-  .notify-box button:hover { opacity: 0.9; }
-  .notify-box .notify-status { font-size: 0.8rem; color: var(--text-muted); }
+  .notify-card button:hover { opacity: 0.9; }
+  .notify-box .fehlt-box { display: flex; }
+  /* Ab 901 px ist der body fensterhoch und eine Flex-Spalte (siehe
+     unten) - ohne Tabelle stünde die Fußzeile sonst in der Bildmitte. */
+  body.null-treffer .notify-box { margin-bottom: auto; padding-bottom: 24px; }
+  /* In der 760 px breiten Spalte hat der Knopf neben dem Text Platz -
+     der Umbruch unter 1300 px gilt nur für die schmale rechte Spalte. */
+  @media (min-width: 600px) {
+    .notify-box .fehlt-box { flex-wrap: nowrap; }
+    .notify-box .fehlt-box-btn { margin-left: 0; }
+  }
 
   /* ---------- Tabelle und Detailbereich ---------- */
   .layout {
@@ -1106,12 +1135,12 @@
       report_cat_abgesagt: 'Event findet nicht statt / ist abgesagt',
       report_cat_sonstiges: 'Sonstiges',
       empty_events: 'Keine Events gefunden.',
-      notify_text: 'Kein Event entspricht deinen Filtern? Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
+      notify_text: 'Zu deinen Filtern gibt es gerade kein Event. Lass dich per E-Mail benachrichtigen, sobald ein passendes Event hinzugefügt wird.',
       // "Wir haben dein Event nicht?" - der zweite Weg bei null Treffern.
       // Ein Abo hilft nur, wenn das Event NOCH NICHT stattfindet; unsere
       // Liste kann aber auch einfach unvollständig sein. Dann soll man
       // uns die Veranstaltung nennen können.
-      notify_fehlt: 'Oder fehlt die Veranstaltung bei uns? Dann sag uns Bescheid.',
+      notify_titel: 'Keine passenden Events',
       fehlt_bar_text: 'Eine Veranstaltung fehlt in der Liste?',
       fehlt_open: 'Event melden',
       fehlt_box_titel: 'Dein Event fehlt?',
@@ -1207,8 +1236,8 @@
       report_cat_abgesagt: 'Event is cancelled / not happening',
       report_cat_sonstiges: 'Something else',
       empty_events: 'No events found.',
-      notify_text: 'No event matches your filters? Get notified by email as soon as a matching event is added.',
-      notify_fehlt: 'Or is the event missing from our list? Then let us know.',
+      notify_text: 'There is no event for your filters right now. Get notified by email as soon as a matching event is added.',
+      notify_titel: 'No matching events',
       fehlt_bar_text: 'An event missing from the list?',
       fehlt_open: 'Report an event',
       fehlt_box_titel: 'Missing an event?',
@@ -3006,7 +3035,7 @@
   });
 
   function renderNotifyPrompt() {
-    if (!window.EndauranceAuth) { notifyBoxEl.hidden = true; return; }
+    if (!window.EndauranceAuth) { removeNotifyPrompt(); return; }
     notifyBoxEl.hidden = false;
     // Wie im Melde-Dialog: Firestore schon jetzt nachladen lassen.
     if (window.EndauranceAuth.prepareFirestore) window.EndauranceAuth.prepareFirestore();
@@ -3019,10 +3048,21 @@
     // statt, steht aber nicht in unserer Liste. Der zweite Fall war
     // vorher gar nicht vorgesehen.
     notifyBoxEl.innerHTML = `
-      <p>${escapeHtml(t('notify_text'))}<br><span class="notify-status">${escapeHtml(t('notify_fehlt'))}</span></p>
-      <button type="button" id="notify-open-btn">${escapeHtml(t('abo_open'))}</button>
-      <button type="button" class="fehlt-btn" id="notify-fehlt-btn">${escapeHtml(t('fehlt_open'))}</button>
+      <div class="notify-card">
+        <h2>${escapeHtml(t('notify_titel'))}</h2>
+        <p>${escapeHtml(t('notify_text'))}</p>
+        <button type="button" id="notify-open-btn">${escapeHtml(t('abo_open'))}</button>
+      </div>
+      <div class="fehlt-box">
+        <span class="fehlt-box-plus" aria-hidden="true">+</span>
+        <div class="fehlt-box-text">
+          <strong>${escapeHtml(t('fehlt_box_titel'))}</strong>
+          <span>${escapeHtml(t('fehlt_box_text'))}</span>
+        </div>
+        <button type="button" class="fehlt-box-btn" id="notify-fehlt-btn">${escapeHtml(t('fehlt_open'))}</button>
+      </div>
     `;
+    document.body.classList.add('null-treffer');
     notifyBoxEl.querySelector('#notify-open-btn')
       .addEventListener('click', oeffneAboDialog);
     notifyBoxEl.querySelector('#notify-fehlt-btn')
@@ -3031,6 +3071,7 @@
 
   function removeNotifyPrompt() {
     notifyBoxEl.hidden = true;
+    document.body.classList.remove('null-treffer');
   }
 
   // Die Box selbst baut event-detail.js (Liste UND Karte, dieselbe
