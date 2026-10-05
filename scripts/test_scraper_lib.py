@@ -3673,6 +3673,9 @@ def test_gedaechtnis() -> None:
                            ("12 October 2027", "2027-10-12"), ("24. März 2027", "2027-03-24")]:
         check(f"daten_aus: {text!r}", vs.daten_aus(_norm(text)), {erwartet})
     check("daten_aus: keine Versionsnummer und keine Uhrzeit", vs.daten_aus(_norm("Version 1.2.27. und 12.10.27.30")), set())
+    check("daten_aus: Tagesspanne mit Gedankenstrich (fällt in norm weg)", vs.daten_aus(_norm("Der Termin steht fest: 24.–26. September 2027")), {"2027-09-24", "2027-09-26"})
+    check("daten_aus: Tagesspanne mit Schrägstrich und numerisch", vs.daten_aus(_norm("08./09. Mai 2027 und 24.-26.09.2027")), {"2027-05-08", "2027-05-09", "2027-09-24", "2027-09-26"})
+    check("daten_aus: 12.10.2027 bleibt EIN Tag", vs.daten_aus(_norm("am 12.10.2027")), {"2027-10-12"})
     check("distanzen_aus: km, Meter, Halbmarathon, Marathon, Italienisch",
           vs.distanzen_aus(_norm("Halbmarathon, 10 km und 5.000 m, Mezza Maratona, 1500 m")), {21.1, 10.0, 5.0, 1.5})
     check("distanzen_aus: Mezza Maratona ist kein Marathon", 42.2 in vs.distanzen_aus(_norm("Mezza Maratona")), False)
@@ -3699,18 +3702,22 @@ def test_gedaechtnis() -> None:
         def hole(self, url):
             return self.antworten.get(url, (404, ""))
     seite = "<html><body>Fuchsburglauf Erding - nächster Termin: Sonntag, 3. Oktober 2027. Strecken: 10 km, 5 km</body></html>"
-    v = {"url": "https://lauf.de/2026/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "override"}
+    v = {"url": "https://lauf.de/2026/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "override"}
     r, fund = vs.pruefe_eintrag("k", v, FakeAbrufer({"https://lauf.de/2026/ausschreibung": (404, ""), "https://lauf.de/": (200, seite)}), "2026-10-05")
     check("tote Unterseite: Startseite nennt den Lauf -> Adresse umgezogen, Termin gefunden",
           (v["url"], r.get("umgezogen"), r.get("kandidaten"), r.get("seiten_km")), ("https://lauf.de/", "https://lauf.de/", ["2027-10-03"], [5.0, 10.0]))
-    vl = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    vl = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
     rl, fl = vs.pruefe_eintrag("k", vl, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite)}), "2026-10-05")
     check("lebende Seite des Laufs nennt den Termin -> NEU mit geprüften Strecken", (rl["flag"], fl[2], sorted(fl[4])), ("NEU", "2027-10-03", [5.0, 10.0]))
+    seite_mo = seite.replace("Sonntag, 3. Oktober 2027", "Montag, 4. Oktober 2027")
+    vm = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
+    rm, fm = vs.pruefe_eintrag("k", vm, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite_mo)}), "2026-10-05")
+    check("anderer Wochentag als die vorige Ausgabe -> nur NEU?", (rm["flag"], fm, rm.get("grund")), ("NEU?", None, "anderer Wochentag als die vorige Ausgabe"))
     check("tote Unterseite: der Termin von der Startseite ist nur ein Hinweis (NEU?)", (r["flag"], fund, "grund" in r), ("NEU?", None, True))
-    v2 = {"url": "https://alt.de/lauf", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    v2 = {"url": "https://alt.de/lauf", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
     r, fund = vs.pruefe_eintrag("k", v2, FakeAbrufer({"https://alt.de/lauf": (200, seite)}, {"https://alt.de/lauf": "https://neu.de/seelauf/"}), "2026-10-05")
     check("Weiterleitung auf eine neue Domain: das Gedächtnis merkt sich die neue Adresse", (v2["url"], r.get("umgezogen")), ("https://neu.de/seelauf/", "https://neu.de/seelauf/"))
-    v3 = {"url": "https://weg.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    v3 = {"url": "https://weg.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
     tot = FakeAbrufer({"https://weg.de/": (None, "fehler:ConnectionError")})
     r1, _ = vs.pruefe_eintrag("k", v3, tot, "2026-10-05")
     check("tote Seite: beim ersten Mal nur FEHLER und Zähler", (r1["flag"], v3.get("tot_zaehler"), v3["url"]), ("FEHLER", 1, "https://weg.de/"))
@@ -3721,7 +3728,7 @@ def test_gedaechtnis() -> None:
     check("tote Seite: anwenden gibt nichts weiter", vs.anwenden([z("Fuchsburglauf Erding", "2027-10-02", 10, url="https://my.raceresult.com/5/", standort="Erding")], g8, overrides={}), [])
     vs.lernen(neu_seite, g8, overrides={})
     check("tote Seite: die erste eigene Seite einer Quelle ersetzt sie", (g8.daten["fuchsburglauf|erding"]["url"], g8.daten["fuchsburglauf|erding"]["quelle"]), ("https://neue-seite.de/", "quelle"))
-    v4 = {"url": "https://bot.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-03", "quelle": "quelle"}
+    v4 = {"url": "https://bot.de/", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle"}
     vs.pruefe_eintrag("k", v4, FakeAbrufer({"https://bot.de/": (403, "")}), "2026-10-05")
     check("403 ist eine Bot-Sperre, keine tote Seite", (v4.get("tot_zaehler"), v4["url"]), (None, "https://bot.de/"))
     # Übernahme: Vorjahreskopien räumt uebernehmen() wieder weg, wenn sie vorbei sind.

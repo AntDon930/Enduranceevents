@@ -222,6 +222,23 @@ def daten_aus(txt: str) -> set[str]:
         d = _datum(j, int(m), t)
         if d:
             out.add(d)
+    # Tagesspannen: „24.–26. September 2027", „08./09. Mai 2027",
+    # „24.-26.09.2027". Der Gedankenstrich überlebt `norm()` nicht (kein
+    # ASCII), im Text steht dann „24.26. september 2027" - deshalb ist der
+    # Strich optional. Vor einem MonatsNAMEN kann „24.26." nur eine Spanne
+    # sein (ein Monat als Zahl vor dem Monatsnamen ergibt keinen Sinn);
+    # der Rheinhöhenlauf („24.–26. September 2027") bekam sonst nur seinen
+    # letzten Tag (05.10.2026).
+    for t1, t2, m, j in re.findall(r"\b(\d{1,2})(?:\.\s?[-/]?\s?|\s?[-/]\s?)(\d{1,2})\.\s?([a-z]{3,9})\.?\s?(20\d{2})\b", txt):
+        if m in MONATE and int(t1) < int(t2):
+            d = _datum(j, MONATE[m], t1)
+            if d:
+                out.add(d)
+    for t1, t2, m, j in re.findall(r"\b(\d{1,2})(?:\.\s?[-/]?\s?|\s?[-/]\s?)(\d{1,2})\.\s?(\d{1,2})\.\s?(20\d{2})\b", txt):
+        if int(t1) < int(t2):
+            d = _datum(j, int(m), t1)
+            if d:
+                out.add(d)
     return out
 
 
@@ -1014,6 +1031,16 @@ def _wurzel(url: str) -> str:
     return f"{u.scheme}://{u.netloc}/"
 
 
+def _gleicher_wochentag(a: str | None, b: str | None) -> bool:
+    """True, wenn beide Tage auf denselben Wochentag fallen - oder einer
+    der beiden fehlt bzw. unlesbar ist (dann sperrt die Regel nicht)."""
+    from datetime import date
+    try:
+        return date.fromisoformat(a or "").weekday() == date.fromisoformat(b or "").weekday()
+    except ValueError:
+        return True
+
+
 def _gleiche_adresse(a: str, b: str) -> bool:
     return a.rstrip("/").lower().replace("http://", "https://") == b.rstrip("/").lower().replace("http://", "https://")
 
@@ -1118,12 +1145,19 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
     if seiten_km:
         r["seiten_km"] = seiten_km[:40]
     sp = spanne(kand)
-    if kand and sp and belegt and not von_startseite:
+    # Derselbe Wochentag wie die vorige Ausgabe? Ein Samstagslauf bleibt
+    # fast immer ein Samstagslauf; ein anderer Wochentag heißt meist: der
+    # Termin gehört zu etwas anderem auf der Seite (oder die Spanne wurde
+    # nur halb gelesen). Dann nur zur Handprüfung.
+    wochentag_ok = sp is None or _gleicher_wochentag(sp[0], v.get("datum"))
+    if kand and sp and belegt and not von_startseite and wochentag_ok:
         r["flag"] = "NEU"
         return r, (k, v, sp[0], sp[1], set(seiten_km))
     if kand:
         r["flag"] = "NEU?"
-        if sp and belegt and von_startseite:
+        if sp and belegt and not wochentag_ok:
+            r["grund"] = "anderer Wochentag als die vorige Ausgabe"
+        elif sp and belegt and von_startseite:
             # Der Termin stammt von der STARTSEITE, nicht von der Seite des
             # Laufs: Die nennt auch die anderen Veranstaltungen desselben
             # Veranstalters. Beim ersten vollen Lauf (05.10.2026) hätte der
