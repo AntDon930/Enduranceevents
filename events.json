@@ -94260,6 +94260,36 @@
     "veranstalter_url": "https://www.lh-lauf.de"
   },
   {
+    "land": "Schweiz",
+    "name": "11. Schnebelhorn Panoramatrail",
+    "standort": "Mosnang",
+    "lat": 47.359,
+    "lon": 9.039,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "dauer_h": null,
+    "veranstalter_url": "https://panoramatrail.ch/",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon 21,1 km (989 hm, Schnebelhorn 1291 m)"
+  },
+  {
+    "land": "Schweiz",
+    "name": "11. Schnebelhorn Panoramatrail",
+    "standort": "Mosnang",
+    "lat": 47.359,
+    "lon": 9.039,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-09-18",
+    "datum_ende": "2027-09-18",
+    "dauer_h": null,
+    "veranstalter_url": "https://panoramatrail.ch/",
+    "laenge_km": 8.5,
+    "wettbewerb": "Moslig 8000, 8,5 km (Jogger und Walker)"
+  },
+  {
     "land": "Deutschland",
     "name": "24h Mad Chicken Run",
     "standort": "Kolkwitz",

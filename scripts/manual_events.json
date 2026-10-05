@@ -6006,6 +6006,40 @@
       "gedaechtnis": true,
       "_quelle": "https://www.ochsenweiherlauf.de/",
       "_note": "Gedächtnis je Veranstaltung (2026-10-05): Die Veranstalterseite nennt den Termin 2027-10-03; Strecken aus der Ausgabe 2026-10-03 übernommen (veranstalter_seiten.py pruefen --uebernehmen). Die Zeile verschwindet von selbst, sobald eine Quelle die Ausgabe liefert."
+    },
+    {
+      "land": "Schweiz",
+      "name": "11. Schnebelhorn Panoramatrail",
+      "standort": "Mosnang",
+      "lat": 47.359,
+      "lon": 9.039,
+      "art1": "Laufen",
+      "art2": "Trail",
+      "datum_start": "2027-09-18",
+      "datum_ende": "2027-09-18",
+      "dauer_h": null,
+      "veranstalter_url": "https://panoramatrail.ch/",
+      "_quelle": "https://panoramatrail.ch/",
+      "_note": "Nutzer-Fehlermeldung vom 18.09.2026 (errorReports UOScp4BLcPI1su0ghcbE, 'nein das stimmt n…') zur Ausgabe 2026: Bei uns stand die 8,5-km-Zeile am Freitag 18.09.2026 – laut panoramatrail.ch/renntag/ war der Freitag der Kindertag, Halbmarathon und Moslig 8000 liefen am Samstag 19.09.2026, der Halbmarathon fehlte ganz. Die Ausgabe 2026 ist vorbei; hier die 11. Ausgabe nach der Startseite (Stand 05.10.2026): Samstag 18.09.2027 Halbmarathon und Moslig 8000, Anmeldung ab 01.01.2027. Strecken von /halbmarathon/ (21,1 km, +/- 989 m) und /8k/ (8,5 km, +/- 229 m). Kinderläufe und Plauschstafette (Freitag 17.09.2027) bewusst nicht.",
+      "laenge_km": 21.1,
+      "wettbewerb": "Halbmarathon 21,1 km (989 hm, Schnebelhorn 1291 m)"
+    },
+    {
+      "land": "Schweiz",
+      "name": "11. Schnebelhorn Panoramatrail",
+      "standort": "Mosnang",
+      "lat": 47.359,
+      "lon": 9.039,
+      "art1": "Laufen",
+      "art2": "Trail",
+      "datum_start": "2027-09-18",
+      "datum_ende": "2027-09-18",
+      "dauer_h": null,
+      "veranstalter_url": "https://panoramatrail.ch/",
+      "_quelle": "https://panoramatrail.ch/",
+      "_note": "Nutzer-Fehlermeldung vom 18.09.2026 (errorReports UOScp4BLcPI1su0ghcbE, 'nein das stimmt n…') zur Ausgabe 2026: Bei uns stand die 8,5-km-Zeile am Freitag 18.09.2026 – laut panoramatrail.ch/renntag/ war der Freitag der Kindertag, Halbmarathon und Moslig 8000 liefen am Samstag 19.09.2026, der Halbmarathon fehlte ganz. Die Ausgabe 2026 ist vorbei; hier die 11. Ausgabe nach der Startseite (Stand 05.10.2026): Samstag 18.09.2027 Halbmarathon und Moslig 8000, Anmeldung ab 01.01.2027. Strecken von /halbmarathon/ (21,1 km, +/- 989 m) und /8k/ (8,5 km, +/- 229 m). Kinderläufe und Plauschstafette (Freitag 17.09.2027) bewusst nicht.",
+      "laenge_km": 8.5,
+      "wettbewerb": "Moslig 8000, 8,5 km (Jogger und Walker)"
     }
   ]
 }

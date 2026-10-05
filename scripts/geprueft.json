@@ -7998,5 +7998,11 @@
     "ergebnis": "korrigiert",
     "quelle": "https://purgstall.sportunion.at/marktlauf-2026/",
     "notiz": "Korrekturliste des Nutzers"
+  },
+  "10. Schnebelhorn Panoramatrail|2026-09-18": {
+    "am": "2026-10-05",
+    "ergebnis": "korrigiert",
+    "quelle": "https://panoramatrail.ch/renntag/",
+    "notiz": "Nutzer-Fehlermeldung (errorReports UOScp4BLcPI1su0ghcbE, 18.09.2026): Hauptlauf war am Sa 19.09.2026, nicht Fr 18.09.; Halbmarathon fehlte. Ausgabe vorbei – 2027 (Sa 18.09.2027, 21,1 und 8,5 km) in manual_events.json nachgetragen."
   }
 }

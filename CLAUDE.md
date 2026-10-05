@@ -4578,8 +4578,17 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    → Dokument löschen) – `reject` im Skript verwirft nur VORSCHLÄGE, keine
    Meldungen; für Meldungen gibt es `mark-done --report-id <id> --status
    …`. **Am 05.10.2026 lag ein zweites Dokument in `errorReports`
-   (`UOScp4BLcPI1su0ghcbE`)** – nach Einschätzung des Nutzers eine echte
-   Meldung; wird an der Quelle geprüft (siehe „Nutzer-Fehlermeldungen").
+   (`UOScp4BLcPI1su0ghcbE`, 18.09.2026, „nein das stimmt n…") zum
+   „10. Schnebelhorn Panoramatrail" (Mosnang, 18.09.2026, 8,5 km)** –
+   an panoramatrail.ch/renntag/ geprüft: Der Freitag war der Kindertag,
+   Halbmarathon und Moslig 8000 liefen am Samstag 19.09.2026, der
+   Halbmarathon fehlte ganz. Die Ausgabe war vorbei; die 11. Ausgabe
+   (Sa 18.09.2027, 21,1 und 8,5 km, Trail) steht seit dem 05.10.2026 in
+   `manual_events.json`, Protokoll in `geprueft.json`. Beide Dokumente in
+   `errorReports` kann der Nutzer danach löschen. **Lehre**: Eine Meldung
+   zu einer vergangenen Ausgabe ist nicht erledigt, wenn die Zeile weg ist
+   – die nächste Ausgabe trägt denselben Fehler, wenn niemand die Seite
+   liest.
 4. **Impressum und Datenschutzerklärung prüfen (lassen)** – Voraussetzung
    für den Livegang; keine Rechtsberatung von Claude.
 5. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
