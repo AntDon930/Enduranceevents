@@ -4521,6 +4521,86 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 
 ## Offene Punkte / To-dos
 
+### To-do-Liste des Nutzers (05.10.2026, abends – „merke dir alle Punkte ganz genau")
+
+Der Nutzer arbeitet diese Liste **eins nach dem anderen** ab und fragt
+je Punkt nach einer genauen Anleitung. Wer einen Punkt erledigt, streicht
+ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
+
+**A. Technik und Konten (nur der Nutzer hat Zugang)**
+
+1. **`main`: `.github/workflows/update-events.yml` auf den Stand des
+   Entwicklungs-Branches bringen.** Unterschied (05.10.2026): `git diff
+   --quiet` und `git add` nennen zusätzlich
+   `scripts/veranstalter_seiten.json`,
+   `scripts/veranstalter_seiten_pruefung.json`,
+   `scripts/manual_events.json`. Weg: Datei auf
+   `claude/website-access-9d9tg1` roh kopieren, auf `main` einfügen,
+   committen (GitHub-Weboberfläche genügt). Danach `git diff
+   origin/main HEAD -- .github/workflows/update-events.yml` muss leer sein.
+2. **Firebase auf Blaze**: Cloud Function `checkNewEvents` deployen,
+   Extension „Trigger Email" mit SMTP einrichten (Befehle im Kopf von
+   `functions/index.js` und im README). Erst dann verschicken die Abos
+   E-Mails.
+3. **Service-Account-Key** (Firebase-Konsole → Projekteinstellungen →
+   Dienstkonten) für `review_reports.py fetch/suggestions`; dabei die
+   Testmeldung vom 16.09.2026 („TEST - bitte verwerfen") mit `reject`
+   verwerfen.
+4. **Impressum und Datenschutzerklärung prüfen (lassen)** – Voraussetzung
+   für den Livegang; keine Rechtsberatung von Claude.
+5. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
+   Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
+   deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen Cross-Cups.
+
+**B. Datenprüfung (Handarbeit des Nutzers)**
+
+6. **Die 34 NEU?-Fälle** der Gedächtnis-Prüfung durchgehen
+   (`python3 scripts/veranstalter_seiten.py handpruefung`) und Claude
+   sagen, welche Termine stimmen → `manual_events.json`.
+7. **Korrekturliste weiter** (`korrekturliste.py export` → ausfüllen →
+   `import`); die ersten 24 Zeilen sind durch.
+8. **Walking-Zeilen in Volksläufen** (145 Zeilen „Nordic Walking", als
+   Laufen in der Liste): rein oder raus?
+
+**C. Entscheidungen Ja/Nein (je eine Zeile Code)**
+
+9. FITLETIX, THE ROX, Deadly Dozen, ATHX in `NICHT_AUSDAUER`? (heute nur
+   per Override draußen); StrongAthlon ungeprüft.
+10. „Staffel-Run" als Staffelwort in `ist_staffel()`?
+11. Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.
+12. Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?
+13. slowUp (12 Zeilen, kein Wettkampf) rein oder raus?
+14. IMEXrun Frankfurt (nur Messebesucher?) raus?
+15. UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?
+16. Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?
+17. fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
+    vorläufig oder bis Frühjahr 2027 warten?
+18. Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?
+19. Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
+    Mingolsheim = Nikolauslauf Bad Schönborn; Uchter Wald- und Crosslauf =
+    Uchter Volkslauf.
+20. Tippfehler-Namen aus laufen.de: „Maritn Dufter" (Bad Reichenhall),
+    „Brüder-Grimn-Lauf" (Hanau) – was ist das, wie heißt es richtig?
+21. „4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?
+22. Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?
+23. Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?
+24. Pille „Name" in der Filterleiste behalten oder weg?
+
+**D. Später (Frühjahr 2027)**
+
+25. Die 72 „existiert, Termin offen"-Einträge der PDF-Liste erneut prüfen
+    (`scripts/eventliste_pdf_geprueft.json`).
+26. NordCup 2027 (9 Radmarathons SH) beim Veranstalter nachziehen.
+27. BOE, Fricktaler Cup, dsergebnis, swimsports, BRV Timing tragen die
+    Saison 2027 erst im Frühjahr ein – der Wochenlauf holt sie.
+
+**E. Zum Schluss**
+
+28. Die große Linkliste für die 20.000+ Events liefern (je Quelle
+    robots.txt und Nutzungsbedingungen, kein Scraper ohne Ja).
+29. Livegang freigeben, nachdem Punkt 4 erledigt ist.
+
+
 ### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)
 
 Gesammelt aus der Einzelprüfung und dem Design-Durchgang. **Jeder Punkt
