@@ -2249,7 +2249,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Leiste mit drei Fakten, **vier Foto-Kacheln je Sportart** (Link in die
   gefilterte Liste, Zähler `.sport-count`), Navy-Band mit
   Schlussknopf. Den Abschnitt „In drei Schritten am Start" hat der
-  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. Fotos selbst gehostet als WebP
+  Nutzer am 05.10.2026 herausnehmen lassen – nicht wieder einbauen. **Bildregel des Nutzers (05.10.2026, nach dem ersten Satz Fotos):
+  keine Einzelpersonen, keine Bilder, auf denen man Gesichter genau
+  sieht** – Gruppen von hinten, von oben oder im Wasser. Deshalb Laufen
+  = Rhein-Ruhr-Marathon kurz nach dem Start (Läufer von hinten),
+  Triathlon = Schwimmstart Weiswampach; die ersten beiden Fassungen
+  (Läuferin im Ziel, Athletin mit Sonnenbrille) sind deshalb raus. Fotos selbst gehostet als WebP
   (`bilder/`, Lizenzen siehe Dateitabelle) – kein fremder Server, wie
   bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
   damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt
