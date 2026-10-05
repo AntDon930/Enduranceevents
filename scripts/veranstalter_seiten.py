@@ -32,6 +32,8 @@ Was die Datei `scripts/veranstalter_seiten.json` enthält:
       "uebernommen": "2027-06-13",   welche Ausgabe `pruefen --uebernehmen` angelegt hat
       "strecken_uebernommen": true,  die Strecken sind die eigene Vorjahreskopie (keine Quelle)
       "tot_zaehler": 1,              so oft in Folge war die Seite weg (404/410, Host weg)
+      "seite_ist_startseite": true,  die Adresse ist nur die Startseite (die Seite des Laufs war tot) -
+                                     Termine von dort bleiben Hinweise (NEU?)
       "url_tot": "https://…"         bei `quelle` tot: die Adresse, die es nicht mehr gibt
     }
 
@@ -1036,13 +1038,26 @@ def _wurzel(url: str) -> str:
 
 
 def _gleicher_wochentag(a: str | None, b: str | None) -> bool:
-    """True, wenn beide Tage auf denselben Wochentag fallen - oder einer
-    der beiden fehlt bzw. unlesbar ist (dann sperrt die Regel nicht)."""
+    """True, wenn beide Tage auf denselben Wochentag fallen - oder auf
+    denselben KALENDERTAG: Ein Lauf am 3. Oktober, 1. Mai oder Silvester
+    hängt am Feiertag, nicht am Wochentag (im ersten vollen Lauf standen
+    sechs solche Veranstaltungen zu Unrecht in der Handprüfung). Fehlt
+    einer der beiden Tage oder ist er unlesbar, sperrt die Regel nicht."""
     from datetime import date
     try:
-        return date.fromisoformat(a or "").weekday() == date.fromisoformat(b or "").weekday()
+        da, db = date.fromisoformat(a or ""), date.fromisoformat(b or "")
     except ValueError:
         return True
+    return da.weekday() == db.weekday() or ((da.month, da.day) == (db.month, db.day) and (da.month, da.day) in _FESTE_TAGE)
+
+
+# Feste Kalendertage, an denen Läufe hängen (Feiertage in DE/AT/CH und die
+# Tage um den Jahreswechsel). Nur hier ersetzt der gleiche Kalendertag den
+# gleichen Wochentag - jeder beliebige Tag wäre zu oft Zufall (1 von 7):
+# Der GENERALI 5K (Samstag) bekam so den Marathon-Sonntag desselben
+# Datums im Folgejahr.
+_FESTE_TAGE = {(1, 1), (1, 6), (5, 1), (8, 1), (8, 15), (10, 3), (10, 26), (11, 1), (11, 11),
+               (12, 24), (12, 25), (12, 26), (12, 31)}
 
 
 def _gleiche_adresse(a: str, b: str) -> bool:
@@ -1102,7 +1117,11 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
         wurzel = _wurzel(url)
     # Tote Unterseite oder eine Seite, die den Lauf nicht (mehr) nennt:
     # die Startseite versuchen.
-    von_startseite = False
+    # Ist die gemerkte Adresse selbst nur die Startseite (weil die Seite des
+    # Laufs einmal tot war), bleibt jeder Termin von dort ein Hinweis -
+    # bis eine Quelle wieder eine eigene Seite des Laufs liefert (lerne()
+    # ersetzt den Eintrag dann samt Markierung).
+    von_startseite = bool(v.get("seite_ist_startseite"))
     if not _gleiche_adresse(url, wurzel) and (tot or (status == 200 and not belegt)):
         st2, body2 = ab.hole(wurzel)
         belegt2 = nennt_den_lauf(body2, wurzel, namen, [], orte) if st2 == 200 else []
@@ -1111,6 +1130,7 @@ def pruefe_eintrag(k: str, v: dict, ab, heute: str) -> tuple[OrderedDict, tuple 
             if tot:
                 r["umgezogen"] = wurzel
                 v["url"] = url = wurzel
+                v["seite_ist_startseite"] = True
             status, body, belegt, txt, tot = st2, body2, belegt2, text_von(body2), False
             von_startseite = True
     if tot:

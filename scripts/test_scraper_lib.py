@@ -3709,11 +3709,15 @@ def test_gedaechtnis() -> None:
     vl = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle", "art1": "Laufen"}
     rl, fl = vs.pruefe_eintrag("k", vl, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite)}), "2026-10-05")
     check("lebende Seite des Laufs nennt den Termin -> NEU mit geprüften Strecken", (rl["flag"], fl[2], sorted(fl[4])), ("NEU", "2027-10-03", [5.0, 10.0]))
-    seite_mo = seite.replace("Sonntag, 3. Oktober 2027", "Montag, 4. Oktober 2027")
+    seite_mo = seite.replace("Sonntag, 3. Oktober 2027", "Montag, 11. Oktober 2027")
     vm = {"url": "https://lauf.de/ausschreibung", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle", "art1": "Laufen"}
     rm, fm = vs.pruefe_eintrag("k", vm, FakeAbrufer({"https://lauf.de/ausschreibung": (200, seite_mo)}), "2026-10-05")
     check("anderer Wochentag als die vorige Ausgabe -> nur NEU?", (rm["flag"], fm, rm.get("grund")), ("NEU?", None, "anderer Wochentag als die vorige Ausgabe"))
-    check("tote Unterseite: der Termin von der Startseite ist nur ein Hinweis (NEU?)", (r["flag"], fund, "grund" in r), ("NEU?", None, True))
+    check("Feiertag: derselbe Kalendertag zählt wie derselbe Wochentag - nur an festen Tagen",
+          (vs._gleicher_wochentag("2027-10-03", "2026-10-03"), vs._gleicher_wochentag("2027-10-02", "2026-10-04"), vs._gleicher_wochentag("2027-09-26", "2026-09-26")), (True, False, False))
+    check("tote Unterseite: der Termin von der Startseite ist nur ein Hinweis (NEU?)", (r["flag"], fund, "grund" in r, v.get("seite_ist_startseite")), ("NEU?", None, True, True))
+    r_s, fund_s = vs.pruefe_eintrag("k", v, FakeAbrufer({"https://lauf.de/": (200, seite)}), "2026-10-26")
+    check("… und bleibt es bei der nächsten Prüfung der Startseite", (r_s["flag"], fund_s), ("NEU?", None))
     v2 = {"url": "https://alt.de/lauf", "name": "Fuchsburglauf Erding", "standort": "Erding", "datum": "2026-10-04", "quelle": "quelle", "art1": "Laufen"}
     r, fund = vs.pruefe_eintrag("k", v2, FakeAbrufer({"https://alt.de/lauf": (200, seite)}, {"https://alt.de/lauf": "https://neu.de/seelauf/"}), "2026-10-05")
     check("Weiterleitung auf eine neue Domain: das Gedächtnis merkt sich die neue Adresse", (v2["url"], r.get("umgezogen")), ("https://neu.de/seelauf/", "https://neu.de/seelauf/"))

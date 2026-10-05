@@ -473,9 +473,11 @@
   "geprueft_am": "2026-10-05",
   "status": 200,
   "kuenftige_termine": [
+   "2027-09-24",
    "2027-09-26"
   ],
   "kandidaten": [
+   "2027-09-24",
    "2027-09-26"
   ],
   "textlaenge": 3993,
@@ -490,18 +492,15 @@
    21.1,
    50.0
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "5k generali|berlin": {
   "name": "GENERALI 5K",
   "ort": "Berlin",
-  "url": "https://www.bmw-berlin-marathon.com/anmelden/generali-5k",
+  "url": "https://www.bmw-berlin-marathon.com/",
   "letzte_ausgabe": "2026-09-26",
   "geprueft_am": "2026-10-05",
-  "status": 404,
-  "startseite": 200,
-  "umgezogen": "https://www.bmw-berlin-marathon.com/",
+  "status": 200,
   "kuenftige_termine": [
    "2027-09-26"
   ],
@@ -516,7 +515,7 @@
    42.2
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "ag night spitzmuller|gengenbach": {
   "name": "Spitzmüller AG Night Run",
@@ -2656,9 +2655,11 @@
   "geprueft_am": "2026-10-05",
   "status": 200,
   "kuenftige_termine": [
+   "2027-09-24",
    "2027-09-26"
   ],
   "kandidaten": [
+   "2027-09-24",
    "2027-09-26"
   ],
   "textlaenge": 3993,
@@ -2674,7 +2675,7 @@
    50.0
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "rodheimer volkslauf|hohe rosbach vor": {
   "name": "Rodheimer Volkslauf",
@@ -3471,7 +3472,7 @@
    13.0
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "bergfahren griessbach keilbusch|scharfenstein": {
   "name": "Bergfahren von Grießbach zum Keilbusch",
@@ -5992,7 +5993,7 @@
    5.0
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "city night oo|wels": {
   "name": "OÖ City Night Run Wels",
@@ -6216,7 +6217,7 @@
    17.2
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "lake lucerne ultra|luzern": {
   "name": "Lake Lucerne Ultra",
@@ -6279,7 +6280,7 @@
    161.0
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "viola|wien": {
   "name": "Viola Run",
@@ -6320,8 +6321,7 @@
    5.6,
    10.0
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "10km|neuhutten": {
   "name": "39. 10km Lauf Neuhütten",
@@ -6564,7 +6564,7 @@
    1.5
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "au|mureck": {
   "name": "Murecker Au-Lauf",
@@ -6788,8 +6788,7 @@
    19.1,
    57.3
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "bike charity cup lila logistik|ditzingen heimerdingen": {
   "name": "LILA LOGISTIK Charity Bike Cup",
@@ -6813,8 +6812,7 @@
    19.1,
    57.3
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "bike maintal marathon|guntersleben": {
   "name": "Maintal Bike Marathon",
@@ -8321,7 +8319,7 @@
    "kosiak"
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "kranichlauf|hohwacht ostsee": {
   "name": "Kranichlauf",
@@ -8705,8 +8703,7 @@
   "nennt_den_lauf": [
    "neustadter"
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "nurnberg pace race|see wohrder": {
   "name": "Pace Race Nürnberg",
@@ -8739,8 +8736,7 @@
   "nennt_den_lauf": [
    "host:ochsenweiherlauf"
   ],
-  "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "flag": "NEU"
  },
  "oktoberwochen volkslauf|warburg": {
   "name": "Oktoberwochen Volkslauf",
@@ -9344,7 +9340,7 @@
    206.0
   ],
   "flag": "NEU?",
-  "grund": "anderer Wochentag als die vorige Ausgabe (Nachbereitung 05.10.2026)"
+  "grund": "anderer Wochentag als die vorige Ausgabe"
  },
  "bike or|maria neustift": {
   "name": "Bike or Run - Maria Neustift",
