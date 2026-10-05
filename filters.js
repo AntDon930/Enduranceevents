@@ -166,6 +166,12 @@
   // "Rundet nach oben": z. B. ein 4-km-Lauf erscheint unter der 5-km-Kategorie.
   // Halbmarathon/Marathon sind nur die offiziellen Distanzen (mit kleiner Toleranz
   // für Rundungsunterschiede in den Daten), Ultramarathon ist alles darüber.
+  // Die Reihenfolge der Sportarten überall auf der Seite (vom Nutzer am
+  // 05.10.2026 festgelegt: "immer die Reihenfolge Laufen, Rad, Schwimmen,
+  // und dann Triathlon"): das Sportart-Panel, der Abo-Dialog, die
+  // Legende der Karte und die Kacheln der Startseite lesen sie hier.
+  const SPORTARTEN = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'];
+
   const DISTANCE_CATEGORIES = {
     'Laufen': [
       { key: '5k', test: km => km > 0 && km <= 5 },
@@ -1235,6 +1241,7 @@
     I18N,
     VALUE_TRANSLATIONS,
     LAENDER,
+    SPORTARTEN,
     DISTANCE_CATEGORIES,
     DISTANCE_CATEGORY_LABELS,
     DATE_PRESETS,

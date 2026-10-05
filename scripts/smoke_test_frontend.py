@@ -1703,19 +1703,22 @@ def ort_mit_zwei_veranstaltungen() -> str | None:
 def pruefe_karten_details(ctx, basis):
     """Die Detail-Box auf der Karte (vom Nutzer am 19.09.2026 gewünscht).
 
-    Ein Marker mit einer oder zwei VERANSTALTUNGEN öffnet deren Boxen
-    DIREKT oben rechts - dieselbe Box wie in der Liste (event-detail.js),
-    die Strecken als Pillen darin. Erst ab drei Veranstaltungen listet
-    das Popup sie (je Veranstaltung ein Eintrag), ein Klick öffnet die Box.
-    Höchstens zwei zugleich, die neueste oben, ein ✕ schließt; "Fehler
-    melden" führt in die Liste und öffnet dort den Melde-Dialog.
+    Ein Marker mit EINER Veranstaltung öffnet ihre Box DIREKT oben rechts
+    - dieselbe Box wie in der Liste (event-detail.js), die Strecken als
+    Pillen darin. Ab zwei Veranstaltungen listet das Popup sie (je
+    Veranstaltung ein Eintrag), ein Klick öffnet die Box. Genau EINE Box
+    zugleich (seit dem 05.10.2026 - vorher zwei, die sich auf dem iPad
+    mit dem Popup überschnitten), ein weiteres Event ersetzt sie; ein ✕
+    schließt; "Fehler melden" führt in die Liste und öffnet dort den
+    Melde-Dialog.
     """
     print("\nDetail-Box auf der Karte")
-    # Ein Ort mit genau zwei Veranstaltungen: der Marker "2" öffnet beide
-    # Boxen. Der Ort wird aus events.json gesucht, nicht fest eingetragen:
-    # Der frühere Ort (Mosnang, Schnebelhorn Panoramatrail) fiel am
-    # 19.09.2026 als vergangenes Event aus der Liste, und die Prüfung lief
-    # ins Leere.
+    # Ein Ort mit genau zwei Veranstaltungen: der Marker "2" zeigt das
+    # Popup mit beiden, ein Klick darin öffnet die Box, der zweite Klick
+    # ersetzt sie. Der Ort wird aus events.json gesucht, nicht fest
+    # eingetragen: Der frühere Ort (Mosnang, Schnebelhorn Panoramatrail)
+    # fiel am 19.09.2026 als vergangenes Event aus der Liste, und die
+    # Prüfung lief ins Leere.
     ort = ort_mit_zwei_veranstaltungen()
     if ort is None:
         pruefe(False, "kein Ort mit genau zwei künftigen Veranstaltungen in events.json")
@@ -1724,16 +1727,25 @@ def pruefe_karten_details(ctx, basis):
     seite.wait_for_timeout(2800)
     seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
         if (m) m.click(); }""")
-    seite.wait_for_timeout(600)
+    seite.wait_for_timeout(700)
     namen = lambda: seite.evaluate("""() => [...document.querySelectorAll('#map-details .detail-panel h2')]
         .map(h => h.textContent)""")
+    eintraege = seite.locator(".leaflet-popup .popup-event")
+    if not pruefe(eintraege.count() == 2 and len(namen()) == 0,
+                  "Marker „2\u201c zeigt das Popup mit zwei Veranstaltungen, keine Box (%d Einträge, %d Boxen)"
+                  % (eintraege.count(), len(namen()))):
+        seite.close()
+        return
+    erster = eintraege.nth(0).locator(".pe-name").text_content()
+    zweiter = eintraege.nth(1).locator(".pe-name").text_content()
+    eintraege.nth(0).evaluate("b => b.click()")
+    seite.wait_for_timeout(600)
     box = seite.evaluate("""() => {
         const b = [...document.querySelectorAll('#map-details .detail-panel')];
         const wrap = document.querySelector('.map-wrap').getBoundingClientRect();
         const r = b[0] ? b[0].getBoundingClientRect() : null;
         return {
           anzahl: b.length,
-          popup: !!document.querySelector('.leaflet-popup'),
           felder: b[0] ? b[0].querySelectorAll('.detail-grid dt').length : 0,
           ics: b[0] ? !!b[0].querySelector('a.cal-ics[href^="kalender/"]') : false,
           teilen: b[0] ? !!b[0].querySelector('.event-share-btn') : false,
@@ -1741,8 +1753,8 @@ def pruefe_karten_details(ctx, basis):
           schliessen: b[0] ? !!b[0].querySelector('.detail-close') : false,
           obenRechts: r ? (r.top - wrap.top < 100 && wrap.right - r.right < 40) : false
         }; }""")
-    if not pruefe(box["anzahl"] == 2 and not box["popup"],
-                  "Marker „2\u201c öffnet direkt zwei Boxen, ohne Popup (%d Boxen)" % box["anzahl"]):
+    if not pruefe(box["anzahl"] == 1 and namen()[0] == erster,
+                  "ein Klick im Popup öffnet genau eine Box (%d Boxen)" % box["anzahl"]):
         seite.close()
         return
     # Vier Fakten mit Symbol (Ort, Strecke, Kategorie, Veranstalter) seit
@@ -1750,11 +1762,24 @@ def pruefe_karten_details(ctx, basis):
     pruefe(box["felder"] >= 4, "dieselbe Struktur wie in der Liste (%d Felder)" % box["felder"])
     pruefe(box["ics"] and box["teilen"] and box["melden"] and box["schliessen"],
            "Kalenderdatei, Teilen, Fehler melden und ✕ sind da")
-    pruefe(box["obenRechts"], "die Boxen stehen oben rechts über der Karte")
+    pruefe(box["obenRechts"], "die Box steht oben rechts über der Karte")
     pruefe(not probleme, "ohne Skriptfehler (%s)" % (probleme[0] if probleme else "keine"))
+    # Das zweite Event ersetzt das erste - es bleibt EINE Box. Das Popup
+    # ist noch offen (die Box liegt auf Handybreite darüber, deshalb der
+    # Klick per JavaScript).
+    seite.evaluate("""() => { const k = document.querySelectorAll('.leaflet-popup .popup-event')[1];
+        if (k) k.click(); }""")
+    seite.wait_for_timeout(500)
+    zwei = namen()
+    pruefe(len(zwei) == 1 and zwei[0] == zweiter,
+           "das zweite Event ersetzt das erste - es bleibt eine Box (%s)" % (zwei or [''])[0])
     seite.locator("#map-details .detail-close").first.click()
     seite.wait_for_timeout(300)
-    pruefe(len(namen()) == 1, "das ✕ schließt eine Box")
+    pruefe(len(namen()) == 0, "das ✕ schließt die Box")
+    # Für "Fehler melden" die Box noch einmal öffnen.
+    seite.evaluate("""() => { const k = document.querySelector('.leaflet-popup .popup-event');
+        if (k) k.click(); }""")
+    seite.wait_for_timeout(500)
 
     # "Fehler melden" führt in die Liste und öffnet dort den Dialog.
     seite.locator("#map-details .report-open-btn").first.click()
@@ -1771,7 +1796,7 @@ def pruefe_karten_details(ctx, basis):
     seite.close()
 
     # Ein Ort mit vielen Events: das Popup listet sie, ein Klick öffnet
-    # die Box, die zweite kommt obenauf, die dritte verdrängt die älteste.
+    # die Box, jedes weitere Event ersetzt sie - es bleibt eine.
     seite, _ = seite_oeffnen(ctx, basis + "/karte.html?standort=Berlin", ".filter-bar")
     seite.wait_for_timeout(2800)
     seite.evaluate("""() => { const m = document.querySelector('.leaflet-marker-icon');
@@ -1794,10 +1819,10 @@ def pruefe_karten_details(ctx, basis):
     klick(1)
     seite.wait_for_timeout(400)
     zwei = namen()
-    pruefe(len(zwei) == 2 and zwei[0] == zweiter, "das zweite Event kommt als zweite Box obenauf")
+    pruefe(len(zwei) == 1 and zwei[0] == zweiter, "das zweite Event ersetzt die Box (eine Box)")
     klick(2)
     seite.wait_for_timeout(400)
-    pruefe(len(namen()) == 2, "ein drittes Event verdrängt das älteste - es bleiben zwei")
+    pruefe(len(namen()) == 1, "auch ein drittes Event - es bleibt genau eine Box")
     seite.close()
 
 

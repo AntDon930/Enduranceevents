@@ -198,7 +198,7 @@
   // garantiert null Treffer liefert, ist dort nur Ballast.
   const BEKANNTE_WERTE = {
     land: EF.LAENDER,
-    art1: Object.keys(EF.DISTANCE_CATEGORIES)
+    art1: EF.SPORTARTEN
   };
 
   const DISTANCE_CATEGORIES = EF.DISTANCE_CATEGORIES;
@@ -273,10 +273,17 @@
     function columnOptions(colKey) {
       if (colKey === 'art2') return availableArt2Options();
       const vorhanden = getEvents().map(e => e[colKey]);
-      if (alleWerte && BEKANNTE_WERTE[colKey]) {
-        return uniqueSorted(vorhanden.concat(BEKANNTE_WERTE[colKey]));
+      const werte = (alleWerte && BEKANNTE_WERTE[colKey])
+        ? uniqueSorted(vorhanden.concat(BEKANNTE_WERTE[colKey]))
+        : uniqueSorted(vorhanden);
+      // Die Sportarten nicht alphabetisch, sondern in der festen
+      // Reihenfolge Laufen, Rad, Schwimmen, Triathlon (EF.SPORTARTEN, vom
+      // Nutzer am 05.10.2026 festgelegt) - alles andere bleibt sortiert.
+      if (colKey === 'art1') {
+        return EF.SPORTARTEN.filter(a => werte.includes(a))
+          .concat(werte.filter(a => !EF.SPORTARTEN.includes(a)));
       }
-      return uniqueSorted(vorhanden);
+      return werte;
     }
 
     // Filtert diese Spalte gerade? Färbt ihren Knopf.
@@ -983,7 +990,7 @@
       // auch im Sportart-Filter ausgewählt sind (ist dort nichts gewählt,
       // stehen alle zur Wahl). Ist nur eine Sportart relevant, brauchen wir
       // keine Tabs - dann direkt deren Kategorien zeigen.
-      const allSports = Object.keys(DISTANCE_CATEGORIES);
+      const allSports = EF.SPORTARTEN;
       const visibleSports = state.art1.size > 0
         ? allSports.filter(s => state.art1.has(s))
         : allSports;

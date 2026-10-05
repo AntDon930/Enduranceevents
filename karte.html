@@ -44,11 +44,11 @@
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
      nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
      absolute Adresse, und die Domain steht noch nicht fest. -->
-<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta name="description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Endurance Events">
 <meta property="og:title" content="Endurance Events – die Karte">
-<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://antdon930.github.io/Enduranceevents/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -308,8 +308,9 @@
     padding: 16px;
     box-shadow: var(--shadow);
   }
-  /* Breite Karte: zwei Boxen NEBENEINANDER, die neueste rechts außen -
-     übereinander passten zwei nicht in die Kartenhöhe. */
+  /* Breite Karte: die Box hängt rechts oben, Breite nach Inhalt (seit dem
+     05.10.2026 nur noch EINE Box - MAX_DETAILS; das row-reverse stammt aus
+     der Zeit mit zweien und schadet bei einer nicht). */
   @media (min-width: 900px) {
     .map-details {
       flex-direction: row-reverse;
@@ -433,8 +434,8 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=141139bd"></script>
-<script src="filter-ui.js?v=84bd77d8"></script>
+<script src="filters.js?v=7bd45046"></script>
+<script src="filter-ui.js?v=05e06e2d"></script>
 <script src="event-detail.js?v=26f01a13"></script>
 
 <script>
@@ -1129,21 +1130,25 @@
     });
   }
 
-  // ---------- Detail-Boxen oben rechts ----------
+  // ---------- Die Detail-Box oben rechts ----------
   //
-  // Ein Klick auf einen Marker mit einem oder zwei Events öffnet deren
-  // Boxen über der Karte, bei mehr Events listet das Popup sie und ein
-  // Klick auf einen Eintrag öffnet die Box - dieselbe Box wie in der
-  // Liste (event-detail.js: Datum, Land, Ort, Sportart, Kategorie,
-  // Länge, Veranstalter-Link, Kalender, Teilen). Höchstens ZWEI
-  // zugleich, die neueste oben; die dritte verdrängt die älteste (so vom
-  // Nutzer gewünscht: "maximal bis 2"). Jede Box hat ein ✕. Ein zweiter
-  // Klick auf ein schon offenes Event hebt es nur nach oben.
+  // Ein Klick auf einen Marker mit EINER Veranstaltung öffnet ihre Box
+  // über der Karte; bei mehreren listet das Popup sie, und ein Klick auf
+  // einen Eintrag öffnet die Box - dieselbe Box wie in der Liste
+  // (event-detail.js: Datum, Ort, Strecke, Kategorie, Veranstalter,
+  // Kalender, Teilen). Seit dem 05.10.2026 genau EINE Box: Bis dahin
+  // waren es zwei nebeneinander ("maximal bis 2", 19.09.2026), die sich
+  // auf dem iPad mit dem Popup der Auswahlliste überschnitten - der
+  // Nutzer hat es zurückgenommen ("wieder zurück auf den Ursprung, dass
+  // man immer nur ein Event rechts hat, das reicht aus"). Ein weiteres
+  // Event ersetzt das offene. MAX_DETAILS entscheidet beides: wie viele
+  // Boxen, und ab wie vielen Veranstaltungen der Marker das Popup
+  // zeigt statt die Box direkt zu öffnen.
   //
   // "Fehler melden" führt in die LISTE (?event=…&melden=1): Der
   // Melde-Dialog mit seiner Firestore-Anbindung lebt nur dort, und eine
   // zweite Kopie liefe auseinander.
-  const MAX_DETAILS = 2;
+  const MAX_DETAILS = 1;
   const detailsEl = document.getElementById('map-details');
   let offeneDetails = [];   // Events, neueste zuerst
 
@@ -1203,9 +1208,10 @@
     zeichneDetails();
   }
 
-  // Alle Events eines Ortes auf einmal (Marker mit 1 oder 2): Sie
-  // ersetzen, was offen war - der Klick auf den Marker ist die Frage
-  // "was ist hier?", und die Antwort sind genau diese Boxen.
+  // Alle Events eines Ortes auf einmal (Marker mit höchstens MAX_DETAILS
+  // Veranstaltungen, also einer): Sie ersetzen, was offen war - der Klick
+  // auf den Marker ist die Frage "was ist hier?", und die Antwort ist
+  // genau diese Box.
   function zeigeDetails(liste) {
     offeneDetails = liste.slice(0, MAX_DETAILS);
     zeichneDetails();
@@ -1303,11 +1309,11 @@
       // diesem Moment.
       //
       // Hat der Ort höchstens so viele Veranstaltungen, wie Boxen Platz
-      // haben (zwei), öffnet der Klick auf den Marker die Boxen DIREKT -
-      // ohne Popup (vom Nutzer am 19.09.2026 so gewünscht: "wenn ich auf
-      // die 1 klicke, soll sich rechts oben einfach die Info öffnen;
-      // zeigt der Punkt 2, werden rechts zwei Events angezeigt"). Erst
-      // ab drei Veranstaltungen bleibt das Popup mit der Auswahlliste -
+      // haben (seit dem 05.10.2026: eine), öffnet der Klick auf den
+      // Marker die Box DIREKT - ohne Popup (vom Nutzer am 19.09.2026 so
+      // gewünscht: "wenn ich auf die 1 klicke, soll sich rechts oben
+      // einfach die Info öffnen"). Ab zwei Veranstaltungen bleibt das
+      // Popup mit der Auswahlliste -
       // je Veranstaltung EIN Eintrag mit der Spanne ihrer Strecken
       // ("5–42,2 km · 4 Strecken"); ein Klick dort öffnet die Box
       // (zeigeDetail) mit den Strecken als Pillen. data-idx ist die

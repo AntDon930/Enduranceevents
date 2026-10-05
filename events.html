@@ -45,11 +45,11 @@
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
      nur die nackte Adresse. Ein og:image fehlt bewusst: es braucht eine
      absolute Adresse, und die Domain steht noch nicht fest. -->
-<meta name="description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta name="description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Endurance Events">
 <meta property="og:title" content="Endurance Events – die Liste">
-<meta property="og:description" content="Laufen, Schwimmen, Radfahren und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
+<meta property="og:description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://antdon930.github.io/Enduranceevents/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -189,9 +189,19 @@
      Detailbereich dort UNTER der Tabelle steht (zeigeDetailbereich). */
   @media (min-width: 901px) {
     html { height: 100%; }
+    /* 100dvh statt 100vh: Auf dem iPad (Safari, Chrome) ist 100vh die
+       Höhe OHNE die Browserleisten - die Fußzeile mit Impressum und
+       Datenschutz lag damit unter dem Bildrand, und weil body
+       `overflow: hidden` hatte, kam man auch durch Scrollen nicht hin
+       (vom Nutzer am 05.10.2026 gemeldet: "Für mich ist das Impressum
+       nicht erreichbar"). dvh ist die wirklich sichtbare Höhe; und
+       overflow-y: auto statt hidden, damit die Seite notfalls doch
+       scrollt (ohne Überlauf gibt es keinen Scrollbalken - die Liste
+       scrollt weiter in sich). */
     body {
       height: 100vh;
-      overflow: hidden;
+      height: 100dvh;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
     }
@@ -979,8 +989,8 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=141139bd"></script>
-<script src="filter-ui.js?v=84bd77d8"></script>
+<script src="filters.js?v=7bd45046"></script>
+<script src="filter-ui.js?v=05e06e2d"></script>
 <script src="event-detail.js?v=26f01a13"></script>
 
 <script>
@@ -1024,7 +1034,7 @@
       // steht jetzt, WAS die Liste ist und wie aktuell sie ist.
       // Kurz halten: Die Länder stehen schon in der Überschrift, und
       // jede Zeile mehr macht den blauen Kasten höher.
-      subtitle: 'Laufen, Schwimmen, Fahrrad und Triathlon – jede Woche neu eingesammelt.',
+      subtitle: 'Laufen, Rad, Schwimmen und Triathlon – jede Woche neu eingesammelt.',
       reset: 'Filter löschen',
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
@@ -1105,7 +1115,7 @@
       fehlt_bar_text: 'Eine Veranstaltung fehlt in der Liste?',
       fehlt_open: 'Event melden',
       fehlt_box_titel: 'Dein Event fehlt?',
-      fehlt_box_text: 'Schick uns die Originalseite – wir tragen es ein.',
+      fehlt_box_text: 'Schick uns die Informationen – wir tragen es ein.',
       fehlt_titel: 'Wir haben dein Event nicht?',
       fehlt_intro: 'Schick uns die Adresse der offiziellen Seite – alles Weitere (Datum, Strecken, Ort) holen wir uns von dort. Abtippen musst du nichts.',
       fehlt_url_label: 'Adresse der offiziellen Seite',
@@ -1133,7 +1143,7 @@
       title: 'Endurance Events',
       nav_events: 'Events',
       stand: (d) => `Updated: ${d}`,
-      subtitle: 'Running, swimming, cycling and triathlon – refreshed every week.',
+      subtitle: 'Running, cycling, swimming and triathlon – refreshed every week.',
       reset: 'Clear filters',
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
@@ -1202,7 +1212,7 @@
       fehlt_bar_text: 'An event missing from the list?',
       fehlt_open: 'Report an event',
       fehlt_box_titel: 'Missing an event?',
-      fehlt_box_text: 'Send us the official page – we will add it.',
+      fehlt_box_text: 'Send us the details – we will add it.',
       fehlt_titel: 'Is your event missing?',
       fehlt_intro: 'Send us the address of the official website – we will take everything else (date, distances, location) from there. No need to type it in.',
       fehlt_url_label: 'Address of the official website',

@@ -2549,9 +2549,13 @@ kein Abruf von Google-Servern, dieselbe Linie wie bei Leaflet und
 Firebase. Radius 10 px für Bedienelemente, 14–16 px für Karten; Primär
 ist Navy, das Orange (Sonne `#F97316`) bleibt dem Hero-CTA vorbehalten;
 Klickflächen mindestens 40 px. Die Startseite trägt die Kopfzeile auf
-Navy und statt eines Stockfotos eine Illustration (Bergketten in drei
-Navy-Tönen, Route mit Pins in den Sportfarben, die Sonne als Ziel – ein
-Inline-SVG). Alle Werte stehen in `site.css` und in CLAUDE.md
+Navy und seit dem 05.10.2026 Fotos: ein Marathonfeld als Hero unter
+einem Navy-Verlauf und vier Sport-Kacheln (Laufen, Rad, Schwimmen,
+Triathlon – immer in dieser Reihenfolge, `EF.SPORTARTEN`), alle von
+Wikimedia Commons unter freien Lizenzen, selbst gehostet als WebP in
+`bilder/` (Quellen in `bilder/QUELLEN.md`, Namensnennung im Impressum).
+Überschrift „Finde jetzt deine nächste Herausforderung!“; die frühere
+Bergketten-Illustration ist weg. Alle Werte stehen in `site.css` und in CLAUDE.md
 (Frontend-Fallen, „Der Style Guide des Nutzers gilt").
 
 ## Zwei Farbschemata: hell und dunkel

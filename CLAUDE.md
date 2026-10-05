@@ -34,13 +34,14 @@ nur einen sieht, sieht trotzdem alles.
 | `laender.json` | **73 KB**, Umrisse von DE/AT/CH und Südtirol für die Maske und die Landfläche der Karte – und für `scraper_lib.in_suedtirol()` |
 | `scripts/build_laender.py` | baut `laender.json` aus Natural Earth (Staaten aus admin_0, Südtirol als Provinz IT-BZ aus admin_1); läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames (`TEILGEBIET`: Italien nur admin2 „BZ"); läuft nicht im Workflow mit |
+| `bilder/` | die **fünf Fotos der Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht beide nach |
 | `favicon.svg`, `apple-touch-icon.png` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
-| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, bis zu zwei) zeigen dieselbe |
+| `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, genau eine) zeigen dieselbe |
 | `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sechs geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
@@ -119,10 +120,10 @@ Impressum und Datenschutz (erreichbar von jeder Seite, keine
 Platzhalter mehr, Name und Kontaktadresse da, Sprachumschalter), **Enter im Namens-Panel** (schließt es,
 Filter bleibt, Fokus zurück am Knopf), die **Suche auf der Karte**
 (vor den Filterknöpfen, filtert Marker, `?s=`, Chip, Listen-Knopf nimmt
-sie mit), die **Detail-Box auf der Karte** (Marker „2" öffnet direkt
-zwei Boxen oben rechts, ab drei Events listet das Popup, Klick öffnet
-die Box, zwei Boxen, Verdrängen, ✕, „Fehler melden" führt in die Liste
-und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
+sie mit), die **Detail-Box auf der Karte** (Marker „2" öffnet das
+Popup mit zwei Veranstaltungen, ein Klick darin genau EINE Box oben
+rechts, das zweite Event ersetzt sie, ✕, „Fehler melden" führt in die
+Liste und öffnet den Dialog), der Abo-Dialog (Knopf, Zusammenfassung,
 drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
@@ -2178,7 +2179,52 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   Signalfarbe als Rand, damit sie neben der ruhigen Detail-Box auffällt.
 - **„Mehr erfahren" auf der Startseite ist ein Link** (`<a
   class="scroll-hint" href="#mehr">`, `scroll-behavior: smooth`) – der
-  Nutzer las den Hinweis als Knopf (30.09.2026).
+  Nutzer las den Hinweis als Knopf (30.09.2026). **Seit dem 05.10.2026
+  ist der Pfeil ein 44-px-Kreis INNERHALB des Links** (`.chev-btn`),
+  denn der Nutzer tippte auf den Pfeil und nichts geschah („sollte man
+  auch auf den Pfeil klicken können") – Wort und Pfeil sind ein Ziel.
+- **Die Startseite ist seit dem 05.10.2026 mit FOTOS gebaut** (vom
+  Nutzer: „das Hintergrundbild … noch ziemlich einfach und nicht wirklich
+  ansprechend … es soll modern sein und auch motivieren und nicht
+  wirklich Natur. Können wir hier keine Bilder verwenden und die
+  Startseite noch einmal neu aufbauen vom Design her?"). Aufbau:
+  Hero mit Foto (`bilder/hero.webp`, Marathonfeld von oben) unter einem
+  Navy-Verlauf (`.hero-overlay`, Text bleibt lesbar, Farben bleiben die
+  des Guides – „das blau und die Farben gefallen mir sehr gut"), Zeile
+  „Laufen · Rad · Schwimmen · Triathlon", Überschrift **„Finde jetzt
+  deine nächste Herausforderung!"** (Wunsch des Nutzers; „Wo Ausdauer
+  beginnt" war ihm „ein bisschen langweilig" – die Seite soll
+  „dynamischer und aktiver" wirken, deshalb Imperative: Finde, Wähle,
+  Bereit für den Startschuss?), zwei Knöpfe (Events entdecken /
+  Auf der Karte suchen), drei Kennzahlen aus den Daten (Events,
+  Orte, 4 Regionen – `[data-fact]`, gefüllt in `zeigeZahlen()`), dann
+  Leiste mit drei Fakten, **vier Foto-Kacheln je Sportart** (Link in die
+  gefilterte Liste, Zähler `.sport-count`), „In drei Schritten am
+  Start", Navy-Band mit Schlussknopf. Fotos selbst gehostet als WebP
+  (`bilder/`, Lizenzen siehe Dateitabelle) – kein fremder Server, wie
+  bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
+  damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt
+  gegangen.
+- **Die Reihenfolge der Sportarten ist IMMER Laufen, Rad, Schwimmen,
+  Triathlon** (vom Nutzer am 05.10.2026: „Bitte immer die Reihenfolge
+  … nehmen"). Sie steht EINMAL in `filters.js` (`EF.SPORTARTEN`);
+  `filter-ui.js` sortiert das Sportart-Panel danach (`columnOptions`,
+  unbekannte Werte dahinter) und nimmt sie für `BEKANNTE_WERTE`, die
+  Startseite ordnet Kacheln und Texte so, die Legende der Karte und
+  die Untertitel nennen sie so. Alphabetisch (Fahrrad, Laufen, …) war
+  die alte Reihenfolge des Panels – nicht zurückdrehen.
+- **Die Fußzeile der Liste muss auf dem iPad erreichbar sein** (vom
+  Nutzer am 05.10.2026 mit Foto gemeldet: „Ich kann nicht zu Impressum
+  runterscrollen"). Ab 901 px ist der `body` fensterhoch (siehe unten,
+  „nur die Liste scrollt"); Safari auf dem iPad rechnet `100vh` aber mit
+  eingeblendeter Werkzeugleiste, die Fußzeile lag darunter, und
+  `overflow: hidden` ließ niemanden hinscrollen. Jetzt `height: 100dvh`
+  (mit `100vh` als Rückfall davor) und `overflow-y: auto`: Am Rechner
+  ändert sich nichts (die Seite passt, nichts scrollt), auf dem iPad
+  stimmt die Höhe, und falls doch etwas übersteht, scrollt die Seite.
+- **Die Melde-Box sagt „Schick uns die Informationen – wir tragen es
+  ein."** (Wortlaut des Nutzers, 05.10.2026; vorher „Schick uns die
+  Originalseite").
 - **Die Startseite zählt VERANSTALTUNGEN, nicht Strecken** (vom Nutzer
   am 30.09.2026 gemeldet: „Triathlon wär 281 anstatt 500"): über
   `EF.groupKey` (Name + Tag + Ort), das dafür von `event-detail.js` nach
@@ -2248,14 +2294,12 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Fußzeile ist Navy** in beiden Schemata (`--footer-bg`), die
     Kopfzeile der Startseite auch; Liste und Karte tragen die helle
     Kopfzeile (`--header-bg`).
-  - **Bildsprache**: Illustration statt Stockfoto – der Hero der
-    Startseite ist ein Inline-SVG (~4 KB): drei Bergketten in Navy-Tönen,
-    Höhenlinien, die Route als helles Band mit gestrichelter Signal-Linie,
-    Pins in den Sportfarben, die Sonne als Ziel; unten ausgerichtet
-    (`xMidYMax slice`), der Text steht links, Sonne und Pins rechts
-    davon. Fotos sind laut Guide ein optionaler zweiter Schritt (unter
-    einer Navy-Fläche mit 55–65 % Deckung, selbst gehostet als WebP) –
-    nicht gebaut.
+  - **Bildsprache**: seit dem 05.10.2026 **Fotos** (der im Guide
+    genannte zweite Schritt: unter einer Navy-Fläche, selbst gehostet
+    als WebP in `bilder/`) – Hero und vier Sport-Kacheln, Sportszenen
+    statt Natur, auf Wunsch des Nutzers. Die frühere Illustration
+    (Bergketten-SVG) ist weg. Siehe „Die Startseite ist seit dem
+    05.10.2026 mit FOTOS gebaut".
   - Die beiden Textseiten (`seite.css`) tragen dieselben Farben und
     Schriften, folgen aber weiter der Systemeinstellung (kein Knopf).
   - **Die Seite nennt sich „Ausdauersport im deutschsprachigen Raum"**
@@ -2733,21 +2777,25 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   `window.EnduranceDetail` = `EED`).** `EED.render(container, e, { t,
   tv, lang, onReport, onClose })` baut sie – in der Liste in
   `#detail-panel` (mit `onReport` → Melde-Dialog, ohne `onClose`), auf
-  der Karte in `#map-details` **oben rechts über der Karte, bis zu zwei
-  Boxen, die neueste oben, die dritte verdrängt die älteste** (vom
-  Nutzer am 19.09.2026 so gewünscht: „genau gleiche Struktur wie wenn
-  man auf eins von der Liste klickt"). **Ein Marker mit 1 oder 2
-  Events öffnet die Boxen direkt beim Klick, ohne Popup**
-  (`zeigeDetails(loc.events)`; „wenn ich auf die 1 klicke, soll sich
-  rechts oben einfach die Info öffnen"). Erst ab drei Events listet das
-  **Popup des Ortes seine Events** (`.popup-event`, `data-idx`); ein
-  Klick öffnet die Box (`zeigeDetail`), EIN Zuhörer am Kartencontainer,
-  weil Leaflet den Popup-Inhalt bei jedem Öffnen neu baut. `MAX_DETAILS`
+  der Karte in `#map-details` **oben rechts über der Karte, genau EINE
+  Box – das nächste Event ersetzt sie** (vom Nutzer am 19.09.2026
+  gewünscht: „genau gleiche Struktur wie wenn man auf eins von der
+  Liste klickt"; bis zum 05.10.2026 waren es zwei Boxen nebeneinander,
+  die sich mit dem Popup überschnitten – „wieder zurück auf den
+  Ursprung, dass man immer nur ein Event rechts hat, das reicht aus").
+  **Ein Marker mit EINER Veranstaltung öffnet die Box direkt beim
+  Klick, ohne Popup** (`zeigeDetails(loc.events)`; „wenn ich auf die 1
+  klicke, soll sich rechts oben einfach die Info öffnen"). Ab zwei
+  Veranstaltungen listet das **Popup des Ortes seine Events**
+  (`.popup-event`, `data-idx`); ein Klick öffnet die Box
+  (`zeigeDetail`), EIN Zuhörer am Kartencontainer, weil Leaflet den
+  Popup-Inhalt bei jedem Öffnen neu baut. `MAX_DETAILS` (= 1)
   entscheidet beides. Vier Dinge daran:
   - **Keine Ids in der Box, nur Klassen** (`.event-share-btn`,
     `.report-open-btn`, `.cal-open-btn`, `.cal-menu`, `.cal-ics`, …):
-    auf der Karte stehen zwei Boxen zugleich. Der Rauchtest sucht
-    entsprechend `#detail-panel .event-share-btn`.
+    das Modul läuft in Liste und Karte, und `MAX_DETAILS` darf wieder
+    wachsen. Der Rauchtest sucht entsprechend `#detail-panel
+    .event-share-btn`.
   - **„Fehler melden" auf der Karte führt in die Liste**
     (`EED.eventLink(e) + '&melden=1'`): Der Melde-Dialog mit Firestore
     lebt nur dort, `readUrlState()` liest `melden=1` (`deepMelden`) und
@@ -2756,10 +2804,10 @@ selbst durchwinken. Details im README („Fehler zu diesem Event melden").
   - **Der Toast (`EED.showToast`) erzeugt sein Element selbst** – kein
     `#toast` mehr im Markup; `events.html` ruft ihn über den Wrapper
     `showToast()` auch für „Suche teilen".
-  - **Ab 900 px stehen die zwei Boxen NEBENEINANDER** (`row-reverse`,
-    die neueste rechts außen) – übereinander passten zwei nicht in die
-    Kartenhöhe, die zweite war abgeschnitten. Unter 600 px beginnt der
-    Stapel bei 84 px, unter Zoom-Knöpfen und Kopfzeile der Karte.
+  - **Ab 900 px hängt die Box rechts oben mit Breite nach Inhalt**
+    (`row-reverse` aus der Zeit mit zwei Boxen, schadet bei einer
+    nicht). Unter 600 px beginnt sie bei 84 px, unter Zoom-Knöpfen und
+    Kopfzeile der Karte.
   - **Die Popup-Einträge haben feste Farben**, nicht die Seitenvariablen:
     Das Leaflet-Popup ist immer weiß, im Dunkelmodus waren die hellen
     Seitenfarben darauf unlesbar.
