@@ -4,13 +4,13 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2027-06-13-wurzburg-triathlon-27-6km-wurzburg@antdon930.github.io
+UID:2027-06-13-18-wurzburg-triathlon-27-6km-erlabrunn@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270613
 DTEND;VALUE=DATE:20270614
-SUMMARY:Würzburg Triathlon – Jedermann Distanz 27\,6 km (600 m Schwimmen /
-  22 km Rad / 5 km Laufen)
-LOCATION:Würzburg\, Deutschland
+SUMMARY:18. Würzburg Triathlon – Jedermann Distanz 27\,6 km (600 m Schwimm
+ en / 22 km Rad / 5 km Laufen)
+LOCATION:Erlabrunn\, Deutschland
 DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 27.6 km\nhttps://www.wuer
  zburg-triathlon.de/
 TRANSP:TRANSPARENT

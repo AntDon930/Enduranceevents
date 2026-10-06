@@ -14555,17 +14555,17 @@
   },
   {
     "land": "Deutschland",
-    "name": "Halloween-Run-Rotenburg",
+    "name": "1. Halloween-Run-Rotenburg",
     "standort": "Rotenburg (Wümme)",
-    "lat": 53.1035076,
-    "lon": 9.3970716,
+    "lat": 53.1108906,
+    "lon": 9.4049292,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-30",
     "datum_ende": "2026-10-30",
     "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://halloween-run-rotenburg.de/"
+    "wettbewerb": "Horror-Zehn 10 K",
+    "veranstalter_url": "https://halloween-run-rotenburg.de"
   },
   {
     "land": "Schweiz",
@@ -17441,20 +17441,6 @@
     "veranstalter_url": "https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/"
   },
   {
-    "land": "Deutschland",
-    "name": "Geilenkirchener Crosslauf",
-    "standort": "Geilenkirchen",
-    "lat": 50.967168,
-    "lon": 6.1174584,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.atvgeilenkirchen.de/index.php/me-cross"
-  },
-  {
     "land": "Schweiz",
     "name": "Gravelodux",
     "standort": "Estavayer-le-Lac",
@@ -19919,7 +19905,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Fitnesslauf ab 10 Jahren",
-    "veranstalter_url": "https://www.geologenlauf.de/"
+    "veranstalter_url": "https://www.geologenlauf.de"
   },
   {
     "land": "Deutschland",
@@ -19933,7 +19919,7 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 7.0,
     "wettbewerb": "7 km Walking / Nordic Walking ab 12 Jahren",
-    "veranstalter_url": "https://www.geologenlauf.de/"
+    "veranstalter_url": "https://www.geologenlauf.de"
   },
   {
     "land": "Deutschland",
@@ -20454,8 +20440,9 @@
     "art2": "Duathlon",
     "datum_start": "2026-11-14",
     "datum_ende": "2026-11-14",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.ruesselcross.de"
+    "wettbewerb": "RüsselCross Classic 27,5 km (5 km Laufen / 20 km MTB / 2,5 km Laufen)",
+    "veranstalter_url": "https://www.ruesselcross.de",
+    "laenge_km": 27.5
   },
   {
     "land": "Deutschland",
@@ -21440,20 +21427,6 @@
     "laenge_km": 16.8,
     "wettbewerb": "16,8 km – 350 HM",
     "veranstalter_url": "https://rwut.runfellows.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rüsselcross Duathlon",
-    "standort": "Rüsselsheim am Main",
-    "lat": 49.9887497,
-    "lon": 8.4216976,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "veranstalter_url": "https://www.tg-tria-ruesselsheim.de/ruesselcross-start/",
-    "laenge_km": 27.5,
-    "wettbewerb": "RüsselCross Classic 27,5 km (5 km Laufen / 20 km MTB / 2,5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -25550,35 +25523,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-29",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 20.0,
-    "wettbewerb": "20 km",
-    "veranstalter_url": "https://www.graz-winterrun.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Winter Run Serie Graz",
-    "standort": "Graz",
-    "lat": 47.070714,
-    "lon": 15.439504,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.graz-winterrun.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Winter Run Serie Graz",
-    "standort": "Graz",
-    "lat": 47.070714,
-    "lon": 15.439504,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-29",
-    "datum_ende": "2027-02-28",
+    "datum_ende": "2026-11-29",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.graz-winterrun.at/"
@@ -25592,7 +25537,7 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-29",
-    "datum_ende": "2027-02-28",
+    "datum_ende": "2026-11-29",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.graz-winterrun.at/"
@@ -26696,20 +26641,6 @@
     "laenge_km": 15,
     "veranstalter_url": "https://www.laufwinter.de",
     "wettbewerb": "Nikolauslauf 15 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Winterlaufserie München",
-    "standort": "Schwabinger Tor",
-    "lat": 48.1713933,
-    "lon": 11.5866412,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2027-02-13",
-    "laenge_km": 20.0,
-    "wettbewerb": "20 km",
-    "veranstalter_url": "https://laufwinter.de/"
   },
   {
     "land": "Deutschland",
@@ -27904,7 +27835,7 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Volkslauf",
-    "veranstalter_url": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/triathlon-die-tus-events/nikolauslauf/ausschreibung/"
+    "veranstalter_url": "https://www.tusgriesheim.de/de/vereinssport/sportarten/triathlon/Nikolauslauf/"
   },
   {
     "land": "Deutschland",
@@ -29022,34 +28953,6 @@
     "laenge_km": 13.0,
     "veranstalter_url": "https://winterlaufserie.net",
     "wettbewerb": "13 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ismaninger Winterlaufserie",
-    "standort": "Ismaning",
-    "lat": 48.2258973,
-    "lon": 11.6742738,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 17.0,
-    "wettbewerb": "17.000 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://winterlaufserie.net"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ismaninger Winterlaufserie",
-    "standort": "Ismaning",
-    "lat": 48.2258973,
-    "lon": 11.6742738,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-13",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon 21.100 m , Einzelstart, Preis 29,00 €",
-    "veranstalter_url": "https://winterlaufserie.net"
   },
   {
     "land": "Deutschland",
@@ -31937,7 +31840,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 7.6,
     "wettbewerb": "7,6 km",
-    "veranstalter_url": "http://www.hgl-la.de/"
+    "veranstalter_url": "https://harz-gebirgslauf.de/event/49-wernigeroeder-silvesterlauf.html"
   },
   {
     "land": "Deutschland",
@@ -32210,7 +32113,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Straßenlauf, bestenlistenfähig.",
-    "veranstalter_url": "https://www.lsf-muenster.de/eigene-veranstaltungen/active-laufshop-silvesterlauf/"
+    "veranstalter_url": "https://www.silvesterlauf-muenster.de"
   },
   {
     "land": "Deutschland",
@@ -32954,7 +32857,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 15.0,
     "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.svg-poenitz.de/de/volkslauf/silvesterlauf-2024/"
+    "veranstalter_url": "http://www.svg-poenitz.de"
   },
   {
     "land": "Deutschland",
@@ -32968,7 +32871,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.svg-poenitz.de/de/volkslauf/silvesterlauf-2024/"
+    "veranstalter_url": "http://www.svg-poenitz.de"
   },
   {
     "land": "Deutschland",
@@ -34169,7 +34072,7 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 8.1,
     "wettbewerb": "langer Lauf",
-    "veranstalter_url": "https://tuspo-ziegenhain.de/angebote/silvesterlauf/"
+    "veranstalter_url": "https://tuspo-ziegenhain.de/"
   },
   {
     "land": "Deutschland",
@@ -35128,6 +35031,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Winterlaufserie München",
+    "standort": "Schwabinger Tor",
+    "lat": 48.1713933,
+    "lon": 11.5866412,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-06",
+    "datum_ende": "2027-01-06",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km (Dreikönigslauf)",
+    "veranstalter_url": "https://laufwinter.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "37. Hamelner Winterlaufserie",
     "standort": "Hameln",
     "lat": 52.1039941,
@@ -35591,34 +35508,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "47. hkk-Winterlaufserie",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-10",
-    "datum_ende": "2027-01-10",
-    "laenge_km": 15.0,
-    "wettbewerb": "15-km-Lauf (7. Februar, 7. März)",
-    "veranstalter_url": "https://bremer-winterlaufserie.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "47. hkk-Winterlaufserie",
-    "standort": "Bremen",
-    "lat": 53.0758196,
-    "lon": 8.8071646,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-10",
-    "datum_ende": "2027-01-10",
-    "laenge_km": 20.0,
-    "wettbewerb": "20-km-Lauf (7. März)",
-    "veranstalter_url": "https://bremer-winterlaufserie.com/"
-  },
-  {
-    "land": "Deutschland",
     "name": "47. Ratinger Neujahrslauf",
     "standort": "Ratingen Innenstadt",
     "art1": "Laufen",
@@ -35939,15 +35828,15 @@
     "land": "Deutschland",
     "name": "Ratinger Neujahrslauf",
     "standort": "Ratingen",
-    "lat": 51.2964148,
-    "lon": 6.8401844,
+    "lat": 51.2973261,
+    "lon": 6.8493503,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-01-10",
     "datum_ende": "2027-01-10",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://asc-ratingen.de/neujahrslauf/"
+    "veranstalter_url": "http://www.asc-ratingen.de"
   },
   {
     "land": "Deutschland",
@@ -37237,48 +37126,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "42. ASV Duisburg Winterlaufserie",
-    "standort": "Duisburg",
-    "lat": 51.434999,
-    "lon": 6.759562,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-23",
-    "datum_ende": "2027-01-23",
-    "laenge_km": 21.1,
-    "wettbewerb": "21,1 km",
-    "veranstalter_url": "https://www.asv-winterlaufserie.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "42. ASV Duisburg Winterlaufserie",
-    "standort": "Duisburg",
-    "lat": 51.434999,
-    "lon": 6.759562,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-23",
-    "datum_ende": "2027-01-23",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km",
-    "veranstalter_url": "https://www.asv-winterlaufserie.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "42. ASV Duisburg Winterlaufserie",
-    "standort": "Duisburg",
-    "lat": 51.434999,
-    "lon": 6.759562,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-23",
-    "datum_ende": "2027-01-23",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km",
-    "veranstalter_url": "https://www.asv-winterlaufserie.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "46. Alten-Busecker Winterlaufserie - 3. Event",
     "standort": "Buseck/Alten-Buseck",
     "lat": 50.624167,
@@ -38027,6 +37874,48 @@
     "datum_ende": "2027-01-24",
     "wettbewerb": "Cyclocross",
     "veranstalter_url": "https://www.radsport-weser-ems.de/termine/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-24",
+    "datum_ende": "2027-01-24",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-24",
+    "datum_ende": "2027-01-24",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-01-24",
+    "datum_ende": "2027-01-24",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
   },
   {
     "land": "Deutschland",
@@ -41086,6 +40975,62 @@
     "veranstalter_url": "https://semidurhone.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "laenge_km": 20.0,
+    "wettbewerb": "20 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Winter Run Serie Graz",
+    "standort": "Graz",
+    "lat": 47.070714,
+    "lon": 15.439504,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km",
+    "veranstalter_url": "https://www.graz-winterrun.at/"
+  },
+  {
     "land": "Deutschland",
     "name": "Winterlauf Amelinghausen",
     "standort": "Amelinghausen",
@@ -42605,20 +42550,6 @@
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
     "veranstalter_url": "http://donautrail.at"
-  },
-  {
-    "land": "Deutschland",
-    "name": "14. WiedtalUltraTrail (WUT)",
-    "standort": "Waldbreitbach",
-    "lat": 50.5520464,
-    "lon": 7.4177638,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-03-13",
-    "datum_ende": "2027-03-13",
-    "laenge_km": 65.0,
-    "wettbewerb": "65 km",
-    "veranstalter_url": "https://www.mut-zum-wut.de/"
   },
   {
     "land": "Deutschland",
@@ -59283,8 +59214,9 @@
     "art2": "Straße",
     "datum_start": "2027-05-16",
     "datum_ende": "2027-05-16",
-    "wettbewerb": "Mitteldistanz",
-    "veranstalter_url": "https://drensteinfurt-triathlon.de/ausschreibung"
+    "wettbewerb": "Jedermann Sprint 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://drensteinfurt-triathlon.de/ausschreibung",
+    "laenge_km": 25.4
   },
   {
     "land": "Deutschland",
@@ -59352,20 +59284,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km Zwei Runden des 5-km-Kurses",
     "veranstalter_url": "https://www.brueckenlauf-duesseldorf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Drensteinfurt Triathlon",
-    "standort": "Drensteinfurt",
-    "lat": 51.7941523,
-    "lon": 7.7354791,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-16",
-    "datum_ende": "2027-05-16",
-    "veranstalter_url": "https://drensteinfurt-triathlon.de/",
-    "laenge_km": 25.4,
-    "wettbewerb": "Jedermann Sprint 25,4 km (400 m Schwimmen / 20 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -66956,19 +66874,6 @@
     "art2": "Straße",
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-05",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://usedom.de/usedom-beach-marathon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Usedom Beach Marathon",
-    "standort": "Heringsdorf",
-    "lat": 53.9406282,
-    "lon": 14.1874733,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
     "laenge_km": 21.1,
     "veranstalter_url": "https://usedom.de/usedom-beach-marathon"
   },
@@ -70232,8 +70137,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-13",
     "datum_ende": "2027-06-13",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.wuerzburg-triathlon.de/"
+    "wettbewerb": "Jedermann Distanz 27,6 km (600 m Schwimmen / 22 km Rad / 5 km Laufen)",
+    "veranstalter_url": "https://www.wuerzburg-triathlon.de/",
+    "laenge_km": 27.6
   },
   {
     "land": "Deutschland",
@@ -71347,20 +71253,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://womensrun-hamburg.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Würzburg Triathlon",
-    "standort": "Würzburg",
-    "lat": 49.7913044,
-    "lon": 9.9533548,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-13",
-    "datum_ende": "2027-06-13",
-    "veranstalter_url": "https://www.wuerzburg-triathlon.de/",
-    "laenge_km": 27.6,
-    "wettbewerb": "Jedermann Distanz 27,6 km (600 m Schwimmen / 22 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -74862,8 +74754,9 @@
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
-    "wettbewerb": "Sprint",
-    "veranstalter_url": "https://www.werbellinseetriathlon.de/wettkampf/ausschreibung/"
+    "wettbewerb": "Olympische Distanz 49,8 km (1,5 km Schwimmen / 39 km Rad / 9,3 km Laufen)",
+    "veranstalter_url": "https://www.werbellinseetriathlon.de/wettkampf/ausschreibung/",
+    "laenge_km": 49.8
   },
   {
     "land": "Deutschland",
@@ -76071,20 +75964,6 @@
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
-    "veranstalter_url": "https://werbellinseetriathlon.de/",
-    "laenge_km": 49.8,
-    "wettbewerb": "Olympische Distanz 49,8 km (1,5 km Schwimmen / 39 km Rad / 9,3 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Werbellinsee Triathlon",
-    "standort": "Werbellinsee",
-    "lat": 52.9240948,
-    "lon": 13.7139476,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-26",
-    "datum_ende": "2027-06-26",
     "laenge_km": 24.4,
     "wettbewerb": "Sprinttriathlon 24,4 km (700 m Schwimmen / 19 km Rad / 4,8 km Laufen)",
     "veranstalter_url": "https://werbellinseetriathlon.de/"
@@ -76817,9 +76696,9 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-27",
-    "datum_ende": "2027-08-15",
+    "datum_ende": "2027-06-27",
     "laenge_km": 7.0,
-    "wettbewerb": "Juni 2027",
+    "wettbewerb": "7 km (Prater)",
     "veranstalter_url": "http://www.sommerlaufcup.at/"
   },
   {
@@ -76831,9 +76710,9 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-27",
-    "datum_ende": "2027-08-15",
-    "laenge_km": 10.0,
-    "wettbewerb": "Juli 2027",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon (Prater)",
     "veranstalter_url": "http://www.sommerlaufcup.at/"
   },
   {
@@ -79338,7 +79217,8 @@
     "datum_start": "2027-07-09",
     "datum_ende": "2027-07-09",
     "laenge_km": 86.4,
-    "veranstalter_url": "https://24stundenlaufdorsten.de/"
+    "veranstalter_url": "https://24stundenlaufdorsten.de/",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -81933,6 +81813,20 @@
     "laenge_km": 11.5,
     "wettbewerb": "Zeitfahren 11.5 km",
     "veranstalter_url": "https://www.schauinslandkoenig.de"
+  },
+  {
+    "land": "Österreich",
+    "name": "Sommerlaufcup Wien",
+    "standort": "Wien",
+    "lat": 48.2081664,
+    "lon": 16.3718643,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km (Donaupark)",
+    "veranstalter_url": "http://www.sommerlaufcup.at/"
   },
   {
     "land": "Deutschland",
@@ -84851,6 +84745,34 @@
     "veranstalter_url": "https://scharmuetzelsee-triathlon.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Sommerlaufcup Wien",
+    "standort": "Wien",
+    "lat": 48.2081664,
+    "lon": 16.3718643,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-01",
+    "datum_ende": "2027-08-01",
+    "laenge_km": 7.0,
+    "wettbewerb": "7 km (Prater)",
+    "veranstalter_url": "http://www.sommerlaufcup.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Sommerlaufcup Wien",
+    "standort": "Wien",
+    "lat": 48.2081664,
+    "lon": 16.3718643,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-01",
+    "datum_ende": "2027-08-01",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon (Prater)",
+    "veranstalter_url": "http://www.sommerlaufcup.at/"
+  },
+  {
     "land": "Deutschland",
     "name": "Starnberger See Schwimmen",
     "standort": "Pöcking",
@@ -87184,6 +87106,20 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://www.tsv-bederkesa.de/home-tsv-bederkesa/volkslauf-3/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Sommerlaufcup Wien",
+    "standort": "Wien",
+    "lat": 48.2081664,
+    "lon": 16.3718643,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-08-15",
+    "datum_ende": "2027-08-15",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km (Donaupark)",
+    "veranstalter_url": "http://www.sommerlaufcup.at/"
   },
   {
     "land": "Schweiz",
@@ -95458,7 +95394,7 @@
     "laenge_km": 5.0,
     "dauer_h": null,
     "wettbewerb": "5,0 km Kleiner Landlauf M/W 14-95",
-    "veranstalter_url": "https://www.appelhuelsener-landlauf.de",
+    "veranstalter_url": "http://www.appelhuelsener-landlauf.de",
     "gedaechtnis": true
   },
   {

@@ -2362,6 +2362,56 @@ def override_keys(name: str | None, datum_start: str | None, laenge_km=None,
     return keys + [base]
 
 
+# Die Auflage vorn im Namen ("35. Ismaninger Winterlaufserie") ist eine
+# Schreibweise, keine Eigenschaft der Veranstaltung - und sie wechselt mit
+# der Quelle: unify_event_names() lässt die Quellenmehrheit entscheiden,
+# ob sie steht. Ein Override-Schlüssel, der sie trägt (oder nicht), muss
+# die Zeile trotzdem treffen. Real passiert (06.10.2026): Der Override
+# "35. Ismaninger Winterlaufserie|2026-12-13|21.1" (Halbmarathon gehört
+# zum 21.02.) stand seit dem 18.09. in der Datei; am 30.09. lieferte eine
+# zweite Quelle dieselbe Serienzeile als "Ismaninger Winterlaufserie" -
+# der Override traf sie nicht, und die Veranstaltung stand wieder als
+# "13.12.-21.02." in der Liste. Dieselbe Klasse wie der "|21.0"-Schlüssel:
+# ein Override, der nichts tut, fällt niemandem auf.
+_AUFLAGE_VORN_RE = re.compile(r"^\s*\d{1,3}\.\s+")
+
+
+def _schluessel_ohne_auflage(key: str) -> str:
+    """"35. Lauf|2026-12-13|21.1" -> "lauf|2026-12-13|21.1" (casefold)."""
+    name, sep, rest = key.partition("|")
+    return _AUFLAGE_VORN_RE.sub("", name).casefold() + sep + rest.casefold()
+
+
+def _override_index(overrides: dict) -> tuple[dict, dict]:
+    """Zwei Nachschlagetabellen über die Override-Schlüssel: exakt
+    (casefold) und ohne Auflage vorn. Beim zweiten gewinnt bei zwei
+    Kandidaten der zuerst eingetragene - in der Praxis gibt es nur einen."""
+    exakt: dict = {}
+    ohne_auflage: dict = {}
+    for k, v in overrides.items():
+        if k == "_readme":
+            continue
+        exakt[k.casefold()] = v
+        ohne_auflage.setdefault(_schluessel_ohne_auflage(k), v)
+    return exakt, ohne_auflage
+
+
+def _override_treffer(exakt: dict, ohne_auflage: dict, key: str):
+    """Der Override zu EINEM Schlüssel: exakt zuerst, sonst ohne Auflage."""
+    hit = exakt.get(key.casefold())
+    if hit is None:
+        hit = ohne_auflage.get(_schluessel_ohne_auflage(key))
+    return hit
+
+
+def hat_override_schluessel(overrides: dict, key: str) -> bool:
+    """True, wenn genau dieser Schlüssel (exakt oder ohne Auflage vorn)
+    in manual_overrides.json steht - für clean_events, das wissen muss,
+    ob eine Zeile einen DISTANZGENAUEN Eintrag hat."""
+    exakt, ohne_auflage = _override_index(overrides)
+    return _override_treffer(exakt, ohne_auflage, key) is not None
+
+
 def find_override(overrides: dict, name: str | None, datum_start: str | None,
                   laenge_km=None, wettbewerb: str | None = None) -> dict | None:
     """Sucht die Override-Einträge zu einem Event (siehe override_keys())
@@ -2377,13 +2427,18 @@ def find_override(overrides: dict, name: str | None, datum_start: str | None,
     behielt den Portallink, obwohl der Override richtig in der Datei
     stand (sechs Zeilen am 20.09.2026). Felder des distanzgenauen
     Eintrags haben Vorrang; `_`-Felder (Notizen) werden mitgeführt.
+
+    Die Auflage vorn im Namen wird überlesen (seit dem 06.10.2026, siehe
+    `_AUFLAGE_VORN_RE`): "35. Ismaninger Winterlaufserie|…" trifft auch
+    "Ismaninger Winterlaufserie|…" und umgekehrt - gleicher Tag, gleiche
+    Strecke, dieselbe Veranstaltung. Ein exakter Schlüssel gewinnt.
     """
-    lookup = {k.casefold(): v for k, v in overrides.items() if k != "_readme"}
+    exakt, ohne_auflage = _override_index(overrides)
     merged: dict = {}
     # override_keys() liefert spezifisch -> allgemein; umgekehrt auflegen,
     # damit der spezifische Eintrag zuletzt schreibt und gewinnt.
     for key in reversed(override_keys(name, datum_start, laenge_km, wettbewerb)):
-        hit = lookup.get(key.casefold())
+        hit = _override_treffer(exakt, ohne_auflage, key)
         if hit is not None:
             merged.update(hit)
     return merged or None

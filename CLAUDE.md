@@ -878,6 +878,19 @@ Vorher gewann der erste Treffer allein, und ein `veranstalter_url` im
 allgemeinen Eintrag war für jede Strecke mit eigenem Eintrag unsichtbar
 (sechs Fälle, siehe „Zehnter Durchgang“).
 
+**Die Auflage vorn im Namen wird seit dem 06.10.2026 überlesen**:
+„35. Ismaninger Winterlaufserie|2026-12-13|21.1" trifft auch die Zeile
+„Ismaninger Winterlaufserie" und umgekehrt (`_AUFLAGE_VORN_RE` in
+`find_override()`, ein exakter Schlüssel gewinnt; eine Nummer MITTEN im
+Namen bleibt unterscheidend). Ob die Nummer dasteht, entscheidet
+`unify_event_names()` nach der Quellenmehrheit – sie wechselt also mit
+jedem Datenlauf, der eine neue Quelle bringt. Genau so lief der
+Halbmarathon-Override vom 18.09. ins Leere: Am 30.09. lieferte eine
+zweite Quelle dieselbe Serienzeile ohne „35.", und die Veranstaltung
+stand wieder als „13.12.–21.02." in der Liste (vom Nutzer am 06.10.2026
+gemeldet). Dieselbe Klasse wie der `|21.0`-Schlüssel.
+`test_override_schluessel` hält beide Richtungen und die Gegenproben fest.
+
 **Ein allgemeiner Schlüssel mit `laenge_km` beschreibt EINE Strecke –
 seit dem 05.10.2026 auch im Code.** Er entsteht, wenn die Zeile beim
 Eintragen keine Länge hatte (41 Triathlons im Zwölften Durchgang,
@@ -2177,6 +2190,31 @@ Der wirksamste Hebel für den großen Lauf ist deshalb **nicht** noch
 eine Regel, sondern: nach dem Datenlauf `audit_events.py` laufen
 lassen, die scharfen Kategorien durchgehen (nicht die Portallinks) und
 die bestätigten Fälle als Override eintragen.
+
+### Zwanzigster Durchgang: Laufserien als EINE Spanne (06.10.2026)
+
+Vom Nutzer an der Ismaninger Winterlaufserie gemeldet („3 Events an 3
+Tagen, nicht 13.12.–21.02."; winterlaufserie.net: 13.12.2026 = 13 km,
+17.01.2027 = 17 km, 21.02.2027 = Halbmarathon). Die Klasse dahinter ist
+Muster 3 des Dritten Durchgangs: Kalender führen eine Serie als EINE
+Zeile vom ersten bis zum letzten Termin, mit allen Distanzen daran. Am
+Bestand gezählt (Spanne über 14 Tage): zwölf Veranstaltungen, davon
+**fünf Serien** – vier an ihrer Veranstalterseite aufgelöst (Override
+setzt jede Distanz auf ihren Tag, fehlende Strecken in
+`manual_events.json`): Ismaning (3 Termine), Winterlaufserie München
+(laufwinter.de: 05.12. Nikolauslauf 15 km, 06.01. 15 km, 13.02. 20 km),
+Winter Run Serie Graz (29.11.: 5/10 km, 24.01.: 5/10/15 km, 28.02.:
+5/10/15/20 km) und Sommerlaufcup Wien (27.06. 7 km/HM Prater, 18.07.
+10 km Donaupark, 01.08. 7 km/HM, 15.08. 10 km). Eckernförde bleibt
+`unklar` (Seite zeigt nur 2026). **Keine Regel**: Welche Distanz an
+welchem Tag läuft, steht nur auf der Veranstalterseite;
+`audit_events.py` meldet die Spannen („Veranstaltung dauert über eine
+Woche"), entschieden wird einzeln. Die Sternsteintrail-Winterchallenge
+ist dagegen eine ECHTE Spanne (freier Startzeitpunkt zwischen 01.12. und
+28.02.) – ob so etwas in die Liste gehört, steht bei den Entscheidungen
+(Punkt 31). Nebenbefund: Der Override traf die Serienzeile nicht, weil
+die zweite Quelle den Namen ohne „35." lieferte – seitdem überliest
+`find_override()` die Auflage (siehe „Die wichtigste Lektion").
 
 ### Nutzer-Fehlermeldungen
 
@@ -4718,6 +4756,10 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen
     Cross-Cups. Bewusst zuletzt (Entscheidung des Nutzers vom 05.10.2026);
     Mailvorlagen schreibt Claude, wenn es so weit ist.
+31. **Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
+    Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
+    Termin – rein (als Spanne, wie heute) oder raus (wie virtuelle
+    Läufe)? Siehe „Zwanzigster Durchgang".
 
 
 ### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)

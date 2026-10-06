@@ -8163,5 +8163,51 @@
   "Firmenlauf Neumarkt|2027-06-15": {
     "exclude": true,
     "_note": "firmenlauf.bayern (05.10.2026): Die Zeile 15.06.-15.07.2027 ohne Distanz ist die HYBRID-Phase (virtuell, „22. Juni - 21. Juli 2027“), kein Lauf an einem Ort - virtuelle Läufe bleiben draußen (Datenregel 14)."
+  },
+  "Ismaninger Winterlaufserie|2026-12-13|17": {
+    "datum_start": "2027-01-17",
+    "datum_ende": "2027-01-17",
+    "wettbewerb": "17 km",
+    "_note": "winterlaufserie.net (Stand 06.10.2026): 'WINTERLAUF-SERIE 26/27 – 13.12.2026: 13 km Lauf / 17.01.2027: 17 km Lauf / 21.02.2027: Halbmarathon' – drei Läufe an drei Tagen, je EINE Hauptstrecke (Schüler-/Speedläufe 1–2 km bewusst nicht). Die Serienzeile 13.12.2026–21.02.2027 kam am 30.09.2026 aus einer zweiten Quelle unter dem Namen OHNE '35.', der Override vom 18.09. ('35. …') traf sie deshalb nicht; seit dem 06.10.2026 überliest find_override() die Auflage. Vom Nutzer am 06.10.2026 gemeldet."
+  },
+  "Ismaninger Winterlaufserie|2026-12-13|21.1": {
+    "datum_start": "2027-02-21",
+    "datum_ende": "2027-02-21",
+    "wettbewerb": "Halbmarathon",
+    "_note": "winterlaufserie.net (Stand 06.10.2026): 'WINTERLAUF-SERIE 26/27 – 13.12.2026: 13 km Lauf / 17.01.2027: 17 km Lauf / 21.02.2027: Halbmarathon' – drei Läufe an drei Tagen, je EINE Hauptstrecke (Schüler-/Speedläufe 1–2 km bewusst nicht). Die Serienzeile 13.12.2026–21.02.2027 kam am 30.09.2026 aus einer zweiten Quelle unter dem Namen OHNE '35.', der Override vom 18.09. ('35. …') traf sie deshalb nicht; seit dem 06.10.2026 überliest find_override() die Auflage. Vom Nutzer am 06.10.2026 gemeldet."
+  },
+  "Winterlaufserie München|2026-12-05|20": {
+    "datum_start": "2027-02-13",
+    "datum_ende": "2027-02-13",
+    "_note": "laufwinter.de (Stand 06.10.2026): 'Winterlaufserie München 2026 / 2027 – Nikolauslauf 05.12.2026 15h, 15 km Lauf 06.01.2027 11h und 20 km Lauf 13.02.2027 11h'. Drei Läufe an drei Tagen; die 20-km-Serienzeile spannte vom 05.12. bis 13.02. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Winter Run Serie Graz|2026-11-29|5": {
+    "datum_ende": "2026-11-29",
+    "_note": "graz-winterrun.at (Stand 06.10.2026), 'BEWERBE & TERMINE': '1. WINTER RUN GRAZ 29.11.2026, Distanzen: 5km & 10km / 2. WINTER RUN GRAZ 24.01.2027, Distanzen: 5km, 10km & 15km / 3. WINTER RUN GRAZ 28.02.2027, Distanzen: 5km, 10km, 15km & 20km' (5-km-Runde, Distanz wird beim Rennen gewählt). Die Quelle hatte alle vier Distanzen als EINE Spanne 29.11.2026–28.02.2027. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Winter Run Serie Graz|2026-11-29|10": {
+    "datum_ende": "2026-11-29",
+    "_note": "graz-winterrun.at (Stand 06.10.2026), 'BEWERBE & TERMINE': '1. WINTER RUN GRAZ 29.11.2026, Distanzen: 5km & 10km / 2. WINTER RUN GRAZ 24.01.2027, Distanzen: 5km, 10km & 15km / 3. WINTER RUN GRAZ 28.02.2027, Distanzen: 5km, 10km, 15km & 20km' (5-km-Runde, Distanz wird beim Rennen gewählt). Die Quelle hatte alle vier Distanzen als EINE Spanne 29.11.2026–28.02.2027. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Winter Run Serie Graz|2026-11-29|15": {
+    "datum_start": "2027-01-24",
+    "datum_ende": "2027-01-24",
+    "_note": "graz-winterrun.at (Stand 06.10.2026), 'BEWERBE & TERMINE': '1. WINTER RUN GRAZ 29.11.2026, Distanzen: 5km & 10km / 2. WINTER RUN GRAZ 24.01.2027, Distanzen: 5km, 10km & 15km / 3. WINTER RUN GRAZ 28.02.2027, Distanzen: 5km, 10km, 15km & 20km' (5-km-Runde, Distanz wird beim Rennen gewählt). Die Quelle hatte alle vier Distanzen als EINE Spanne 29.11.2026–28.02.2027. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Winter Run Serie Graz|2026-11-29|20": {
+    "datum_start": "2027-02-28",
+    "datum_ende": "2027-02-28",
+    "_note": "graz-winterrun.at (Stand 06.10.2026), 'BEWERBE & TERMINE': '1. WINTER RUN GRAZ 29.11.2026, Distanzen: 5km & 10km / 2. WINTER RUN GRAZ 24.01.2027, Distanzen: 5km, 10km & 15km / 3. WINTER RUN GRAZ 28.02.2027, Distanzen: 5km, 10km, 15km & 20km' (5-km-Runde, Distanz wird beim Rennen gewählt). Die Quelle hatte alle vier Distanzen als EINE Spanne 29.11.2026–28.02.2027. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Sommerlaufcup Wien|2027-06-27|7": {
+    "datum_ende": "2027-06-27",
+    "wettbewerb": "7 km (Prater)",
+    "_note": "sommerlaufcup.at (Stand 06.10.2026): '27. Juni 2027: 3 km Spendenlauf, 7 km oder Halbmarathon im Wiener Prater / 18. Juli 2027: 3,8 km oder 10 km im Wiener Donaupark / 1. August 2027: 7 km oder Halbmarathon im Wiener Prater / 15. August 2027: 3,8 km oder 10 km im Wiener Donaupark'. Vier Läufe an vier Tagen; die Quelle hatte '7 km' und '10 km' als Spanne 27.06.–15.08.2027 mit den Labels 'Juni 2027'/'Juli 2027'. 3 und 3,8 km liegen unter der 5-km-Grenze. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
+  },
+  "Sommerlaufcup Wien|2027-06-27|10": {
+    "datum_start": "2027-07-18",
+    "datum_ende": "2027-07-18",
+    "wettbewerb": "10 km (Donaupark)",
+    "_note": "sommerlaufcup.at (Stand 06.10.2026): '27. Juni 2027: 3 km Spendenlauf, 7 km oder Halbmarathon im Wiener Prater / 18. Juli 2027: 3,8 km oder 10 km im Wiener Donaupark / 1. August 2027: 7 km oder Halbmarathon im Wiener Prater / 15. August 2027: 3,8 km oder 10 km im Wiener Donaupark'. Vier Läufe an vier Tagen; die Quelle hatte '7 km' und '10 km' als Spanne 27.06.–15.08.2027 mit den Labels 'Juni 2027'/'Juli 2027'. 3 und 3,8 km liegen unter der 5-km-Grenze. Dieselbe Klasse wie die Ismaninger Winterlaufserie (Nutzer-Meldung 06.10.2026)."
   }
 }

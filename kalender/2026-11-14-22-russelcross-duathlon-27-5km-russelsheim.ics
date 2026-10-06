@@ -4,14 +4,16 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-14-22-russelcross-duathlon-x-russelsheim@antdon930.github.io
+UID:2026-11-14-22-russelcross-duathlon-27-5km-russelsheim@antdon930.github
+ .io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
-SUMMARY:22. RüsselCross Duathlon – Sprint
+SUMMARY:22. RüsselCross Duathlon – RüsselCross Classic 27\,5 km (5 km Lauf
+ en / 20 km MTB / 2\,5 km Laufen)
 LOCATION:Rüsselsheim\, Deutschland
-DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: -\nhttps://www.ruesselc
- ross.de
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 27.5 km\nhttps://www.ru
+ esselcross.de
 TRANSP:TRANSPARENT
 URL:https://www.ruesselcross.de
 END:VEVENT

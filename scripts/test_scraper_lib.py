@@ -1199,6 +1199,30 @@ def test_override_schluessel() -> None:
     check("… lässt die Schwesterstrecke in Ruhe, Link kommt trotzdem", (kept[1]["laenge_km"], kept[1]["wettbewerb"], kept[1].get("veranstalter_url")), (51.5, "Olympisch 51,5 km", "https://test-tri.de/"))
     check("distanzgenauer Schlüssel korrigiert die Distanz weiterhin", (kept[2]["laenge_km"], kept[2]["wettbewerb"]), (10.5, "10,5 km"))
 
+    # Die Auflage vorn im Namen wird überlesen (06.10.2026): Der Override
+    # "35. Ismaninger Winterlaufserie|2026-12-13|21.1" traf die Zeile
+    # "Ismaninger Winterlaufserie" einer zweiten Quelle nicht, und der
+    # Halbmarathon stand wieder als "13.12.-21.02." da. Gleicher Tag,
+    # gleiche Strecke - dieselbe Veranstaltung, mit oder ohne Nummer.
+    from scraper_lib import find_override as _find
+    _ov = {
+        "35. Testserie|2026-12-13|21.1": {"datum_start": "2027-02-21"},
+        "Testcross|2026-11-01": {"art2": "Trail"},
+        "7. Testcross|2026-11-01": {"art2": "Hindernis"},
+    }
+    check("Override mit Auflage trifft den Namen ohne Auflage",
+          _find(_ov, "Testserie", "2026-12-13", 21.1), {"datum_start": "2027-02-21"})
+    check("… und umgekehrt (Override ohne, Zeile mit Auflage)",
+          _find(_ov, "12. Testcross", "2026-11-01", 5.0), {"art2": "Trail"})
+    check("ein exakter Schlüssel gewinnt vor dem ohne Auflage",
+          _find(_ov, "7. Testcross", "2026-11-01", 5.0), {"art2": "Hindernis"})
+    check("anderer Tag trifft nicht",
+          _find(_ov, "Testserie", "2027-01-17", 21.1), None)
+    check("eine Nummer MITTEN im Namen bleibt unterscheidend",
+          _find(_ov, "Testserie 35.", "2026-12-13", 21.1), None)
+    check("andere Distanz trifft den distanzgenauen Schlüssel nicht",
+          _find(_ov, "Testserie", "2026-12-13", 17.0), None)
+
     # Allgemeiner und distanzgenauer Eintrag liegen ÜBEREINANDER - der
     # allgemeine (z. B. veranstalter_url für alle Strecken) darf nicht
     # unsichtbar werden, nur weil EINE Strecke einen eigenen Eintrag hat.

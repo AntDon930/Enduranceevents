@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-12-05-winterlaufserie-munchen-20km-schwabinger-tor@antdon930.gith
+UID:2027-01-06-winterlaufserie-munchen-15km-schwabinger-tor@antdon930.gith
  ub.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261205
-DTEND;VALUE=DATE:20270214
-SUMMARY:Winterlaufserie München
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Winterlaufserie München – 15 km (Dreikönigslauf)
 LOCATION:Schwabinger Tor\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://laufwinter.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://laufwinter.de
  /
 TRANSP:TRANSPARENT
 URL:https://laufwinter.de/

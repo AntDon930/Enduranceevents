@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:48. Wernigeröder Silvesterlauf
 LOCATION:Wernigerode\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttp://www.hgl-la.de
- /
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.6 km\nhttps://harz-gebirgs
+ lauf.de/event/49-wernigeroeder-silvesterlauf.html
 TRANSP:TRANSPARENT
-URL:http://www.hgl-la.de/
+URL:https://harz-gebirgslauf.de/event/49-wernigeroeder-silvesterlauf.html
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270925
 DTEND;VALUE=DATE:20270926
 SUMMARY:Appelhülsener Landlauf – 5\,0 km Kleiner Landlauf M/W 14-95
 LOCATION:Nottuln\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.appelhuels
- ener-landlauf.de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.appelhuelse
+ ner-landlauf.de
 TRANSP:TRANSPARENT
-URL:https://www.appelhuelsener-landlauf.de
+URL:http://www.appelhuelsener-landlauf.de
 END:VEVENT
 END:VCALENDAR

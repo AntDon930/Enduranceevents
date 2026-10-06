@@ -93,6 +93,7 @@ from scraper_lib import (  # noqa: E402
     meter_km,
     is_same_race,
     find_override,
+    hat_override_schluessel,
     override_keys,
     ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
     ART2_LISTEN,
@@ -258,8 +259,7 @@ STRECKEN_FELDER = ("laenge_km", "wettbewerb", "dauer_h")
 def _hat_distanzgenauen_schluessel(overrides: dict, event: dict) -> bool:
     """True, wenn zu dieser Zeile ein Eintrag "<Name>|<Datum>|<km>" steht."""
     keys = override_keys(event.get("name"), event.get("datum_start"), event.get("laenge_km"))
-    lookup = {k.casefold() for k in overrides}
-    return len(keys) > 1 and keys[0].casefold() in lookup
+    return len(keys) > 1 and hat_override_schluessel(overrides, keys[0])
 
 
 def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str]]:

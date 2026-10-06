@@ -487,10 +487,10 @@
     "notiz": "Drei Wettbewerbe (Marathon 5 Runden, 10 Meilen = 16,2 km, Hauptlauf 8,5 km), gespeichert war nur der Marathon. Zwei Strecken nachgetragen, offizielle Seite statt Portallink."
   },
   "Winterlaufserie Eckernförde|2027-01-10": {
-    "am": "2026-09-18",
+    "am": "2026-10-06",
     "ergebnis": "unklar",
-    "quelle": "my.raceresult.com/401813, running.life, runme.de",
-    "notiz": "Die vier Strecken (5, 10, 15, 21,1 km) sind plausibel, der ZEITRAUM nicht: Gespeichert ist 10.01.-07.02.2027 als EIN Event. Die 2. Auflage lief vom 12.01. bis 09.02.2025, es ist also eine Serie mit mehreren Terminen. running.life sagt ausdruecklich, die 2027er Termine seien eine Vorhersage aus dem Vorjahr und die Anmeldung noch nicht offen - der Veranstalter hat sie noch nicht veroeffentlicht. Ohne Ausschreibung nichts geaendert. ALLGEMEIN ZU PRUEFEN: Wie viele unserer Termine in 2027/2028 sind solche Vorhersagen der Quelle und keine angekuendigten Daten?"
+    "quelle": "http://www.winterlaufserieeckernfoerde.de/",
+    "notiz": "Serie an mehreren Terminen (bei uns als Spanne 10.01.–07.02.2027 mit 5/10/15/21,1 km). Die Seite leitet auf my.raceresult.com und zeigt nur die 3. Serie 2026 (11.01.–08.02.2026); die Termine 2027 sind nicht ausgeschrieben, je Termin lässt sich nichts zuordnen. Nach dem Datenlauf erneut prüfen. Vorher (18.09.2026, my.raceresult.com/401813, running.life, runme.de): Die vier Strecken (5, 10, 15, 21,1 km) sind plausibel, der ZEITRAUM nicht: Gespeichert ist 10.01.-07.02.2027 als EIN Event. Die 2. Auflage lief vom 12.01. bis 09.02.2025, es ist also eine Serie mit mehreren Terminen. running.life sagt ausdruecklich, die 2027er Termine seien eine Vorhersage aus dem Vorjahr und die Anmeldung noch nicht offen - der Veranstalter hat sie noch nicht veroeffentlicht. Ohne Ausschreibung nichts geaendert."
   },
   "TESTVERANSTALTUNG Neujahrslauf|2030-01-02": {
     "am": "2026-09-18",
@@ -3128,10 +3128,10 @@
     "notiz": "Seite nennt den Termin 2026 nicht (2025 war So 07.12.); 5,1 km aus der Ausschreibung 2025."
   },
   "Winterlaufserie München|2026-12-05": {
-    "am": "2026-09-21",
+    "am": "2026-10-06",
     "ergebnis": "korrigiert",
-    "quelle": "https://www.laufwinter.de",
-    "notiz": "10 km → 15 km (Nikolauslauf); 06.01.2027 15 km und 13.02.2027 20 km fehlen bei uns (Serie ohne Quellenzeile)"
+    "quelle": "https://laufwinter.de/",
+    "notiz": "Drei Termine: 05.12.2026 Nikolauslauf 15 km, 06.01.2027 15 km (fehlte, in manual_events.json), 13.02.2027 20 km. Die 20-km-Serienzeile (05.12.–13.02.) per Override auf den 13.02. gesetzt. Die 15-km-Zeile am 13.02. (Faschingslauf 2026 lief am selben Tag wie der 20-km-Lauf) nicht angefasst. Vorher (21.09.2026, laufwinter.de): 10 km → 15 km (Nikolauslauf); 06.01.2027 15 km und 13.02.2027 20 km fehlten (Serie ohne Quellenzeile)."
   },
   "5/10k Rainbow Run 2026|2026-12-05": {
     "am": "2026-09-21",
@@ -8004,5 +8004,29 @@
     "ergebnis": "korrigiert",
     "quelle": "https://panoramatrail.ch/renntag/",
     "notiz": "Nutzer-Fehlermeldung (errorReports UOScp4BLcPI1su0ghcbE, 18.09.2026): Hauptlauf war am Sa 19.09.2026, nicht Fr 18.09.; Halbmarathon fehlte. Ausgabe vorbei – 2027 (Sa 18.09.2027, 21,1 und 8,5 km) in manual_events.json nachgetragen."
+  },
+  "Ismaninger Winterlaufserie|2026-12-13": {
+    "am": "2026-10-06",
+    "ergebnis": "korrigiert",
+    "quelle": "https://winterlaufserie.net/",
+    "notiz": "Nutzer-Meldung 06.10.2026: drei Läufe an drei Tagen (13.12. = 13 km, 17.01. = 17 km, 21.02. = Halbmarathon), nicht 13.12.–21.02. Die 17-km- und Halbmarathon-Serienzeilen per Override auf ihren Tag gesetzt; sie verschmelzen dort mit den vorhandenen Zeilen."
+  },
+  "Winter Run Serie Graz|2026-11-29": {
+    "am": "2026-10-06",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.graz-winterrun.at/",
+    "notiz": "Drei Termine: 29.11.2026 (5/10 km), 24.01.2027 (5/10/15 km), 28.02.2027 (5/10/15/20 km). Spanne per Override aufgelöst (5/10 km bleiben am 29.11., 15 km → 24.01., 20 km → 28.02.), die übrigen fünf Strecken in manual_events.json."
+  },
+  "Sommerlaufcup Wien|2027-06-27": {
+    "am": "2026-10-06",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.sommerlaufcup.at/",
+    "notiz": "Vier Termine (27.06. 7 km/HM, 18.07. 10 km, 01.08. 7 km/HM, 15.08. 10 km). Spanne per Override aufgelöst, vier fehlende Strecken in manual_events.json."
+  },
+  "Sternsteintrail - Winterchallenge|2026-12-01": {
+    "am": "2026-10-06",
+    "ergebnis": "unklar",
+    "quelle": "https://sternsteintrail.at/winterchallenge/",
+    "notiz": "Echte Zeitspanne, keine Serie: 'Die Challenge findet von 1. Dezember 2026 – 28. Februar 2027 statt. Du entscheidest über den genauen Startzeitpunkt.' Freie Startzeit über drei Monate – ob das in eine Liste mit festen Terminen gehört (vgl. virtuelle Läufe, Datenregel 14), entscheidet der Nutzer."
   }
 }

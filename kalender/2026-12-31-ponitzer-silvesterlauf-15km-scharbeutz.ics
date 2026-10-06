@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Pönitzer Silvesterlauf
 LOCATION:Scharbeutz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.svg-poeni
- tz.de/de/volkslauf/silvesterlauf-2024/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://www.svg-poenit
+ z.de
 TRANSP:TRANSPARENT
-URL:https://www.svg-poenitz.de/de/volkslauf/silvesterlauf-2024/
+URL:http://www.svg-poenitz.de
 END:VEVENT
 END:VCALENDAR

@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:Ratinger Neujahrslauf
 LOCATION:Ratingen\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://asc-ratingen.d
- e/neujahrslauf/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.asc-ratinge
+ n.de
 TRANSP:TRANSPARENT
-URL:https://asc-ratingen.de/neujahrslauf/
+URL:http://www.asc-ratingen.de
 END:VEVENT
 END:VCALENDAR
