@@ -634,6 +634,7 @@ def pruefe_gruppierung(ctx, basis):
     zu = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
         if (!r) return null;
         return {name: r.querySelector('.group-name-text').textContent.trim(),
+                idx: Number(r.dataset.idx),
                 datum: ((r.querySelector('.col-datum') || {}).textContent || '').trim(),
                 ort: ((r.querySelector('.col-standort') || {}).textContent || '').trim(),
                 laenge: (r.querySelector('.col-laenge_km') || {}).textContent || '',
@@ -662,34 +663,29 @@ def pruefe_gruppierung(ctx, basis):
     # passt), das Zählen ist ohnehin die direktere Probe.
     #
     # Gezählt wird NICHT alles, was die Suche zeigt, sondern nur die
-    # Zeilen mit demselben Namen, Datum UND Ort - der Schlüssel, nach dem
-    # die Seite zusammenfasst. Der Name allein reicht nicht: Nach dem
-    # Datenlauf vom 21.09.2026 war die erste aufklappbare Veranstaltung
-    # „Fun & Erlebnis Marathons“, eine Serie mit 17 Zeilen an acht
-    # Terminen - die Suche zeigte 17, aufgeklappt waren es 2, und die
-    # Prüfung war rot, ohne dass sich an der Seite etwas geändert hatte.
-    # Dieselbe Lehre wie beim festen Kartenort: kein Beispiel aus den
-    # Daten darf die Prüfung tragen.
+    # Zeilen mit demselben Schlüssel (EF.groupKey: Name, Serienbeginn,
+    # Ort), nach dem die Seite zusammenfasst. Der Name allein reicht
+    # nicht: Nach dem Datenlauf vom 21.09.2026 war die erste aufklappbare
+    # Veranstaltung „Fun & Erlebnis Marathons“, eine Serie mit 17 Zeilen
+    # an acht Terminen - die Suche zeigte 17, aufgeklappt waren es 2, und
+    # die Prüfung war rot, ohne dass sich an der Seite etwas geändert
+    # hatte. Dieselbe Lehre wie beim festen Kartenort: kein Beispiel aus
+    # den Daten darf die Prüfung tragen. Seit dem 06.10.2026 IST eine
+    # Serie eine Veranstaltung (ihre Termine stehen aufgeklappt mit je
+    # eigenem Datum) - deshalb zählt die Prüfung über den Schlüssel der
+    # Seite selbst statt über Datum und Ort im Text.
     seite.fill("#master-search", zu["name"])
     seite.wait_for_timeout(700)
     seite.evaluate("() => document.getElementById('group-toggle').click()")   # aus
     seite.wait_for_timeout(500)
-    strecken = seite.evaluate("""(zu) => {
-        const txt = (tr, sel) => ((tr.querySelector(sel) || {}).textContent || '').trim();
-        // Die Namenszelle hängt den Wettbewerb als Span an den Namen; ihr
-        // Titel dagegen lautet "Name" oder "Name – Wettbewerb".
-        const gleicheVeranstaltung = tr => {
-            const el = tr.querySelector('.col-name [title]');
-            const titel = el ? el.getAttribute('title') : '';
-            return (titel === zu.name || titel.startsWith(zu.name + ' – '))
-                && txt(tr, '.col-datum') === zu.datum
-                && txt(tr, '.col-standort') === zu.ort;
-        };
-        const alle = [...document.querySelectorAll('tbody tr[data-idx]')];
-        return {
-            zeilen: alle.filter(gleicheVeranstaltung).length,
-            gruppiert: document.getElementById('group-toggle').checked
-        }; }""", zu)
+    # Die Seite kapselt ihre Daten in einer Funktion (kein Zugriff aus
+    # dem Test) - gezählt wird deshalb in events.json mit dem Python-
+    # Zwilling des Schlüssels (serien_schluessel), über Name, Ort und den
+    # ersten Tag der zugeklappten Zeile.
+    strecken = seite.evaluate("""() => ({
+            zeilen: document.querySelectorAll('tbody tr[data-idx]').length,
+            gruppiert: document.getElementById('group-toggle').checked })""")
+    strecken["zeilen"] = min(strecken["zeilen"], anzahl_strecken(zu["name"], zu["datum"], zu["ort"]))
     seite.evaluate("() => document.getElementById('group-toggle').click()")   # wieder an
     seite.wait_for_timeout(500)
     if strecken["gruppiert"] or not strecken["zeilen"]:
@@ -711,11 +707,14 @@ def pruefe_gruppierung(ctx, basis):
     # Der Name ohne die zweite Zeile: aufgeklappt steht unter dem Namen
     # der Wettbewerb bzw. die Länge (eigener Span), nur die Textknoten
     # sind der Name.
+    # Gefunden wird die Zeile über data-idx (die Nummer ihrer ersten
+    # Strecke in den Daten, stabil über Umschalten und Aufklappen) - der
+    # Datumstext taugt dafür nicht mehr: Eine Serie zeigt zugeklappt die
+    # Spanne ihrer Termine, aufgeklappt den Tag der ersten Strecke.
     finde_gruppe = """(zu) => [...document.querySelectorAll('tr.group-row:not(.single)')].find(r =>
-        [...r.querySelector('.group-name-text').childNodes].filter(n => n.nodeType === 3)
-            .map(n => n.textContent).join('').trim() === zu.name
-        && ((r.querySelector('.col-datum') || {}).textContent || '').trim() === zu.datum
-        && ((r.querySelector('.col-standort') || {}).textContent || '').trim() === zu.ort)"""
+        Number(r.dataset.idx) === zu.idx
+        && [...r.querySelector('.group-name-text').childNodes].filter(n => n.nodeType === 3)
+            .map(n => n.textContent).join('').trim() === zu.name)"""
     seite.evaluate("(zu) => { const r = (" + finde_gruppe + ")(zu); if (r) r.click(); }", zu)
     seite.wait_for_timeout(300)
     auf = seite.evaluate("""(zu) => { const r = (""" + finde_gruppe + """)(zu);
@@ -1673,9 +1672,58 @@ def pruefe_karten_suche(ctx, basis):
     seite.close()
 
 
+# Der Schlüssel einer Veranstaltung (EF.groupKey in filters.js: Name
+# ohne Auflage, Serienbeginn, Ort) - die Python-Fassung steht in
+# scraper_lib (serien_schluessel), test_serien vergleicht beide.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from scraper_lib import serien_schluessel as _serien_schluessel  # noqa: E402
+
+_AUFLAGE_VORN = re.compile(r"^\s*\d{1,3}\.\s+")
+
+
+def serien_schluessel(events: list[dict]) -> dict[int, str]:
+    """Je Index in `events` der Schlüssel seiner Veranstaltung."""
+    je_id = _serien_schluessel(events)
+    return {i: je_id[id(e)] for i, e in enumerate(events) if id(e) in je_id}
+
+
+def anzahl_strecken(name: str, datum_text: str, ort: str) -> int:
+    """Wie viele künftige Zeilen in events.json zu der Veranstaltung
+    gehören, die die Liste mit diesem Namen, diesem Datumstext (erster
+    Tag, "So 13.12.2026 –So 21.02.2027") und diesem Ort zeigt - nach
+    demselben Schlüssel, mit dem die Seite zusammenfasst."""
+    import datetime
+    import json
+    treffer = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", datum_text or "")
+    if not treffer:
+        return 0
+    start = f"{treffer.group(3)}-{treffer.group(2)}-{treffer.group(1)}"
+    heute = datetime.date.today().isoformat()
+    pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "events.json")
+    with open(pfad, encoding="utf-8") as f:
+        events = json.load(f)
+    schluessel = serien_schluessel(events)
+    name_norm = _AUFLAGE_VORN.sub("", name or "").lower()
+    je_schluessel: dict[str, list[dict]] = {}
+    for i, e in enumerate(events):
+        ende = e.get("datum_ende") or e.get("datum_start") or ""
+        if ende and ende < heute:
+            continue
+        k = schluessel.get(i)
+        if not k or not k.startswith(name_norm + "|") or not k.endswith("|" + (ort or "").lower()):
+            continue
+        je_schluessel.setdefault(k, []).append(e)
+    # Der erste SICHTBARE Tag der Veranstaltung ist der der Liste - der
+    # Serienbeginn selbst kann schon vergangen sein.
+    for zeilen in je_schluessel.values():
+        if min(e["datum_start"] for e in zeilen) == start:
+            return len(zeilen)
+    return 0
+
+
 def ort_mit_zwei_veranstaltungen() -> str | None:
     """Der alphabetisch erste Ort, an dem genau zwei künftige
-    VERANSTALTUNGEN liegen (Name + Starttag, wie EED.groupKey) - für den
+    VERANSTALTUNGEN liegen (Name + Serienbeginn + Ort, wie EED.groupKey) - für den
     Marker "2" auf der Karte. Die Karte zählt seit dem 21.09.2026
     Veranstaltungen, nicht Strecken (ein Punkt je Veranstaltung, die
     Strecken stehen als Pillen in der Box); ein Ort mit zwei Strecken
@@ -1689,13 +1737,13 @@ def ort_mit_zwei_veranstaltungen() -> str | None:
     with open(pfad, encoding="utf-8") as f:
         events = json.load(f)
     je_ort: dict[str, set[str]] = {}
-    for e in events:
+    schluessel = serien_schluessel(events)
+    for i, e in enumerate(events):
         ende = e.get("datum_ende") or e.get("datum_start") or ""
         if ende and ende < heute:
             continue
-        if e.get("standort") and e.get("lat") is not None:
-            schluessel = f"{(e.get('name') or '').lower()}|{e.get('datum_start')}"
-            je_ort.setdefault(e["standort"], set()).add(schluessel)
+        if e.get("standort") and e.get("lat") is not None and i in schluessel:
+            je_ort.setdefault(e["standort"], set()).add(schluessel[i])
     kandidaten = sorted(o for o, s in je_ort.items() if len(s) == 2)
     return kandidaten[0] if kandidaten else None
 

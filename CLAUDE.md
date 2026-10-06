@@ -2209,7 +2209,12 @@ Winter Run Serie Graz (29.11.: 5/10 km, 24.01.: 5/10/15 km, 28.02.:
 `unklar` (Seite zeigt nur 2026). **Keine Regel**: Welche Distanz an
 welchem Tag läuft, steht nur auf der Veranstalterseite;
 `audit_events.py` meldet die Spannen („Veranstaltung dauert über eine
-Woche"), entschieden wird einzeln. Die Sternsteintrail-Winterchallenge
+Woche"), entschieden wird einzeln. **Und die Anzeige fasst eine Serie
+seitdem zu EINER Veranstaltung zusammen** (zweite Entscheidung des
+Nutzers am selben Tag, siehe Frontend-Fallen „Eine Laufserie ist EINE
+Veranstaltung"); `unify_auflage_in_serien()` gibt dabei allen Terminen
+einer Serie dieselbe Auflage im Namen (25 Serien am Bestand standen „mit
+und ohne Nummer", 45 Zeilen umbenannt). Die Sternsteintrail-Winterchallenge
 ist dagegen eine ECHTE Spanne (freier Startzeitpunkt zwischen 01.12. und
 28.02.) – ob so etwas in die Liste gehört, steht bei den Entscheidungen
 (Punkt 31). Nebenbefund: Der Override traf die Serienzeile nicht, weil
@@ -2645,6 +2650,36 @@ sagt es).
   bei Schriften und Leaflet. Die Illustration (Bergketten-SVG) ist
   damit weg; der Guide nannte Fotos als zweiten Schritt, der ist jetzt
   gegangen.
+- **Eine Laufserie ist EINE Veranstaltung** (vom Nutzer am 06.10.2026
+  an der Ismaninger Winterlaufserie entschieden: „wenn Event
+  zusammenfassen an ist, dann soll es ein Event sein mit 3 Distanzen,
+  und beim Aufklappen 3 Events mit 3 unterschiedlichen Daten und 3
+  unterschiedlichen Längen"). Der Gruppenschlüssel `EF.groupKey` nimmt
+  seitdem den SERIENBEGINN statt des Starttags und den Namen OHNE Auflage
+  vorn: `EF.markSerien()` (in `EF.loadEvents()`, also auf allen drei
+  Seiten) setzt an jede Zeile `serie_start` – Zeilen mit gleichem Namen
+  (ohne „35. ") am gleichen Ort gehören zusammen, solange zwischen zwei
+  aufeinanderfolgenden Starttagen höchstens **100 Tage**
+  (`SERIE_MAX_LUECKE_TAGE`) liegen. Die Lücke trennt die Ausgabe 2027
+  von der 2026 (365 Tage) und zwei Ausgaben desselben Laufs im Jahr (ab
+  112 Tagen im Bestand) von einer Serie (Pausen bis ~90 Tage);
+  mehrtägige Rennen (Freitag Kinder, Samstag Hauptlauf) und „1. Lauf /
+  2. Lauf"-Namen fallen damit ebenfalls zusammen – so gemeint. Am
+  Bestand: 4.047 → 3.835 Veranstaltungen. Was daran hängt: Die
+  zusammengefasste Zeile zeigt die SPANNE der Termine
+  (`EED.formatGroupDateHtml`, zwei Zeilen wie ein mehrtägiges Rennen),
+  aufgeklappt trägt jede Strecke ihren Tag (in der Kachelansicht bleibt
+  das Datum der Unterzeile über `tr.sub-row.serie` sichtbar), die
+  Strecken-Pillen der Box tragen das Datum vor der Länge („13.12. ·
+  13km", nach Datum sortiert), das Karten-Popup nennt die Spanne
+  (`EED.formatGroupDate`). `serie_start` lebt nur im Browser –
+  `events.json` bleibt eine Zeile je Strecke und Termin. **Python-
+  Zwilling** `scraper_lib.serien_cluster()`/`serien_schluessel()`
+  (Rauchtest, `clean_events.unify_auflage_in_serien()` gleicht die
+  Auflage innerhalb einer Serie an); `test_serien` vergleicht beide
+  Fassungen über den ganzen Bestand und die Konstante. Der Rauchtest
+  findet die Gruppenzeile über `data-idx`, nicht über den Datumstext.
+
 - **Die Reihenfolge der Sportarten ist IMMER Laufen, Rad, Schwimmen,
   Triathlon** (vom Nutzer am 05.10.2026: „Bitte immer die Reihenfolge
   … nehmen"). Sie steht EINMAL in `filters.js` (`EF.SPORTARTEN`);

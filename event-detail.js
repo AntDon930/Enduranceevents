@@ -748,6 +748,53 @@
     return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
   }
 
+  // ---------- Serien: eine Veranstaltung, mehrere Termine ----------
+  //
+  // Seit dem 06.10.2026 fasst EF.groupKey eine Laufserie (gleicher Name
+  // und Ort, Termine höchstens 100 Tage auseinander, siehe EF.markSerien)
+  // zu EINER Veranstaltung zusammen - die Ismaninger Winterlaufserie mit
+  // 13 km, 17 km und Halbmarathon an drei Sonntagen. Dann zeigt die
+  // zusammengefasste Zeile die SPANNE der Termine, die Pillen in der Box
+  // tragen das Datum vor der Länge, und das Popup der Karte nennt
+  // ebenfalls die Spanne.
+  function istSerie(rows) {
+    const tage = new Set();
+    rows.forEach(e => { if (e.datum_start) tage.add(e.datum_start); });
+    return tage.size > 1;
+  }
+  function serienSpanne(rows) {
+    let start = null, ende = null;
+    rows.forEach(e => {
+      if (e.datum_start && (!start || e.datum_start < start)) start = e.datum_start;
+      const bis = e.datum_ende || e.datum_start;
+      if (bis && (!ende || bis > ende)) ende = bis;
+    });
+    return { start, ende };
+  }
+  // Die zusammengefasste Zeile der Liste: zwei Zeilen wie bei einem
+  // mehrtägigen Rennen ("So 13.12.2026 –" / "So 21.02.2027"); ohne Serie
+  // das Datum der ersten Zeile wie bisher.
+  function formatGroupDateHtml(rows, lang, weekday) {
+    if (!istSerie(rows)) return formatEventRangeHtml(rows[0], lang, weekday);
+    const { start, ende } = serienSpanne(rows);
+    return formatRangeHtml(start, ende, lang, weekday);
+  }
+  // Dasselbe als Text (Popup der Karte).
+  function formatGroupDate(rows, lang) {
+    if (!istSerie(rows)) return EF.formatEventDate(rows[0], lang);
+    const { start, ende } = serienSpanne(rows);
+    return `${formatDate(start, lang)} – ${formatDate(ende, lang)}`;
+  }
+  // "13.12." / "13 Dec" - vor der Länge auf der Pille einer Serie.
+  function kurzDatum(iso, lang) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    if (lang === 'en') {
+      return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+    }
+    return `${String(d).padStart(2, '0')}.${String(m).padStart(2, '0')}.`;
+  }
+
   // Die Spanne der Längen einer Veranstaltung ("5–42,2km") für die
   // zusammengefasste Zeile der Liste und das Popup der Karte: Distanzen
   // haben Vorrang, sonst die Dauern der Zeitrennen (Datenregel 8). Ohne
@@ -806,19 +853,29 @@
     if (geschwister.length < 2) return '';
     const wert = x => x.e.laenge_km != null ? [0, Number(x.e.laenge_km)]
                     : x.e.dauer_h != null ? [1, Number(x.e.dauer_h)] : [2, 0];
-    geschwister.sort((a, b) => { const va = wert(a), vb = wert(b); return va[0] - vb[0] || va[1] - vb[1]; });
+    // Bei einer Serie (mehrere Termine, siehe istSerie) erst nach Datum,
+    // dann nach Länge - und das Datum steht vor der Länge auf der Pille,
+    // sonst wären "5km" am 29.11. und "5km" am 24.01. nicht zu
+    // unterscheiden.
+    const serie = istSerie(geschwister.map(x => x.e));
+    geschwister.sort((a, b) => {
+      if (serie && a.e.datum_start !== b.e.datum_start) return a.e.datum_start < b.e.datum_start ? -1 : 1;
+      const va = wert(a), vb = wert(b);
+      return va[0] - vb[0] || va[1] - vb[1];
+    });
     const t = ctx.t;
     // Zwei Strecken mit demselben Format (Jedermann 500/20/5 und Sprint
     // 750/20/5 sind beide "Sprint") bekommen die Kilometer dazu - sonst
     // stünden zwei gleiche Pillen nebeneinander.
-    const namen = geschwister.map(x => formatLength(x.e, ctx.lang));
+    const mitDatum = (x, text) => serie ? `${kurzDatum(x.e.datum_start, ctx.lang)} · ${text}` : text;
+    const namen = geschwister.map(x => mitDatum(x, formatLength(x.e, ctx.lang)));
     const doppelt = new Set(namen.filter((n, i) => namen.indexOf(n) !== i));
     return `<div class="detail-section-title">${escapeHtml(t('detail_strecken_titel'))}</div>`
       + '<div class="detail-strecken" role="group">'
       + geschwister.map((x, i) => {
           const aktiv = x.e === e;
           const wb = displayWettbewerb(x.e);
-          const beschriftung = doppelt.has(namen[i]) ? formatLength(x.e, ctx.lang, { mitKm: true }) : namen[i];
+          const beschriftung = doppelt.has(namen[i]) ? mitDatum(x, formatLength(x.e, ctx.lang, { mitKm: true })) : namen[i];
           return `<button type="button" class="strecke-pill${aktiv ? ' active' : ''}" data-idx="${x.idx}"`
             + `${aktiv ? ' aria-pressed="true"' : ''}${wb ? ` title="${escapeHtml(wb)}"` : ''}>${escapeHtml(beschriftung)}</button>`;
         }).join('')
@@ -962,6 +1019,9 @@
     charityIcon,
     hostVon,
     groupKey,
+    istSerie,
+    formatGroupDateHtml,
+    formatGroupDate,
     formatLengthSpan
   };
 })(typeof window !== 'undefined' ? window : globalThis);

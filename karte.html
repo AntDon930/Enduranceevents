@@ -434,9 +434,9 @@
 
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
-<script src="filters.js?v=7bd45046"></script>
+<script src="filters.js?v=b8f59dd3"></script>
 <script src="filter-ui.js?v=05e06e2d"></script>
-<script src="event-detail.js?v=26f01a13"></script>
+<script src="event-detail.js?v=6ae2f9b2"></script>
 
 <script>
 (async function () {
@@ -1252,7 +1252,8 @@
     overlayLayer.clearLayers();
     const passend = events.filter(e => EF.matchEvent(state, e));
 
-    // EIN Punkt je VERANSTALTUNG (EED.groupKey: Name + Tag + Ort), nicht
+    // EIN Punkt je VERANSTALTUNG (EED.groupKey: Name + Tag + Ort; seit dem
+    // 06.10.2026 der Serienbeginn statt des Tags, EF.markSerien), nicht
     // je Strecke - vom Nutzer am 21.09.2026 so gewünscht: "auf der Karte
     // gibt es nur die zusammengefassten Events; wenn man draufklickt,
     // sieht man, welche Distanzen möglich sind". Die Strecken zeigt die
@@ -1331,7 +1332,7 @@
         `<ul class="popup-events">` + loc.gruppen.map(g => {
           return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(g.e)}">`
             + `<span class="pe-name">${escapeHtml(g.e.name)}</span>`
-            + `<span class="pe-meta">${escapeHtml(EF.formatEventDate(g.e, currentLang))}`
+            + `<span class="pe-meta">${escapeHtml(EED.formatGroupDate(g.rows, currentLang))}`
             + ` · ${escapeHtml(EED.formatLengthSpan(g.rows, currentLang))}`
             + (g.rows.length > 1 ? ` · ${escapeHtml(t('popup_strecken', g.rows.length))}` : '') + `</span>`
             + `</button></li>`;

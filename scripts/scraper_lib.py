@@ -2404,6 +2404,57 @@ def _override_treffer(exakt: dict, ohne_auflage: dict, key: str):
     return hit
 
 
+# ---------- Laufserien: ein Name, ein Ort, mehrere Termine ----------
+#
+# Python-Zwilling von EF.markSerien() in filters.js (dort steht die
+# Begründung): gleicher Name ohne Auflage vorn, gleicher Ort, und zwischen
+# zwei aufeinanderfolgenden Starttagen höchstens SERIE_MAX_LUECKE_TAGE.
+# Die Seite fasst damit die Ismaninger Winterlaufserie (13 km, 17 km,
+# Halbmarathon an drei Sonntagen) zu EINER Veranstaltung zusammen;
+# clean_events gleicht innerhalb einer Serie die Auflage im Namen an,
+# der Rauchtest zählt damit Veranstaltungen je Ort. `test_serien`
+# vergleicht die Schlüssel beider Fassungen über den ganzen Bestand.
+SERIE_MAX_LUECKE_TAGE = 100
+
+
+def serien_name(name: str | None) -> str:
+    return _AUFLAGE_VORN_RE.sub("", name or "").lower()
+
+
+def serien_cluster(events: list[dict]) -> list[list[dict]]:
+    """Die Veranstaltungen (Serien) des Bestands: je Liste die Zeilen, die
+    die Seite zusammenfasst - in der Reihenfolge Name, Ort, Datum. Zeilen
+    ohne lesbares Datum fehlen."""
+    reihe = []
+    for i, e in enumerate(events):
+        datum = e.get("datum_start") or ""
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", datum):
+            continue
+        reihe.append((serien_name(e.get("name")), (e.get("standort") or "").lower(), datum, i))
+    reihe.sort()
+    cluster: list[list[dict]] = []
+    vorher = None
+    for name, ort, datum, i in reihe:
+        tag = date.fromisoformat(datum)
+        if (vorher is None or vorher[0] != name or vorher[1] != ort
+                or (tag - vorher[2]).days > SERIE_MAX_LUECKE_TAGE):
+            cluster.append([])
+        cluster[-1].append(events[i])
+        vorher = (name, ort, tag)
+    return cluster
+
+
+def serien_schluessel(events: list[dict]) -> dict[int, str]:
+    """Je `id()` einer Zeile ihr Schlüssel "<name>|<serienbeginn>|<ort>" -
+    dieselbe Zeichenkette wie EF.groupKey() im Browser."""
+    schluessel: dict[int, str] = {}
+    for zeilen in serien_cluster(events):
+        start = zeilen[0]["datum_start"]
+        for e in zeilen:
+            schluessel[id(e)] = f"{serien_name(e.get('name'))}|{start}|{(e.get('standort') or '').lower()}"
+    return schluessel
+
+
 def hat_override_schluessel(overrides: dict, key: str) -> bool:
     """True, wenn genau dieser Schlüssel (exakt oder ohne Auflage vorn)
     in manual_overrides.json steht - für clean_events, das wissen muss,

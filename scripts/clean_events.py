@@ -94,6 +94,7 @@ from scraper_lib import (  # noqa: E402
     is_same_race,
     find_override,
     hat_override_schluessel,
+    serien_cluster,
     override_keys,
     ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
     ART2_LISTEN,
@@ -317,6 +318,47 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
                 event[field] = override[field]
         kept.append(event)
     return kept, excluded, changed
+
+
+_AUFLAGE_VORN = re.compile(r"^\s*(\d{1,3})\.\s+")
+
+
+def unify_auflage_in_serien(events: list[dict]) -> list[str]:
+    """Innerhalb EINER Serie (serien_cluster: Name ohne Auflage, Ort,
+    Termine höchstens 100 Tage auseinander) tragen alle Zeilen dieselbe
+    Auflage vorn im Namen.
+
+    Die Ismaninger Winterlaufserie stand am 06.10.2026 als "Ismaninger
+    Winterlaufserie" (13 km, 13.12.) neben "35. Ismaninger Winterlaufserie"
+    (17 km am 17.01., Halbmarathon am 21.02.) - zwei Quellen, eine nennt
+    die Auflage, eine nicht. unify_event_names() sieht das nicht: Es
+    arbeitet je Starttag, die drei Läufe liegen an drei Tagen. Seit die
+    Seite eine Serie als EINE Veranstaltung zeigt, stehen die drei Namen
+    untereinander. Am Bestand gezählt: 33 Serien mit verschiedenen Namen,
+    davon 25 "mit und ohne Nummer".
+
+    Bewusst eng: Nur wenn die Namen ohne Auflage ZEICHENGLEICH sind und
+    alle genannten Nummern dieselbe ist, bekommen die Zeilen ohne Nummer
+    die Nummer dazu (sie ist die zusätzliche Information). "36." neben
+    "37." (Hamelner Winterlaufserie) bleibt stehen - welche Zahl stimmt,
+    weiß die Regel nicht. Ein Override-Schlüssel überlebt das Umbenennen,
+    weil find_override() die Auflage überliest (scraper_lib).
+    """
+    changed: list[str] = []
+    for zeilen in serien_cluster(events):
+        namen = {e.get("name") or "" for e in zeilen}
+        if len(namen) < 2:
+            continue
+        ohne = {_AUFLAGE_VORN.sub("", n) for n in namen}
+        nummern = {m.group(1) for n in namen if (m := _AUFLAGE_VORN.match(n))}
+        if len(ohne) != 1 or len(nummern) != 1:
+            continue
+        mit_nummer = next(n for n in namen if _AUFLAGE_VORN.match(n))
+        for e in zeilen:
+            if e.get("name") != mit_nummer:
+                changed.append(f"{e.get('datum_start')} {e.get('name')!r} -> {mit_nummer!r} (Serie)")
+                e["name"] = mit_nummer
+    return changed
 
 
 # Alte Kategorien, die heute eine einzige sind - je Sportart, denn "Cross"
@@ -1980,6 +2022,8 @@ def main() -> None:
         events, pass_dups = merge_duplicates(events)
         namen_vorher = {id(e): e.get("name") for e in events}
         pass_names = unify_event_names(events)
+        # Dieselbe Auflage für alle Termine einer Serie (siehe dort).
+        pass_names += unify_auflage_in_serien(events)
         dup_report += pass_dups
         name_fixes += pass_names
         # Ein vereinheitlichter Name kann einen Override TREFFEN, der vorher

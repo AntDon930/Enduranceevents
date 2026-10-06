@@ -1388,6 +1388,70 @@ def test_keine_fremden_dateien() -> None:
     check("alle vendor-Dateien liegen im Repo", fehlend, [])
 
 
+def test_serien() -> None:
+    """Laufserien (06.10.2026): gleicher Name ohne Auflage, gleicher Ort,
+    Termine höchstens SERIE_MAX_LUECKE_TAGE auseinander = EINE
+    Veranstaltung. Die Regel steht zweimal - EF.markSerien/EF.groupKey in
+    filters.js (Liste, Karte, Box, Startseite) und serien_cluster in
+    scraper_lib (clean_events, Rauchtest). Hier beide gegeneinander, am
+    ganzen Bestand, plus die Gegenproben."""
+    import json as _json
+    import subprocess as _sp
+
+    print("\nLaufserien (eine Veranstaltung, mehrere Termine):")
+    from scraper_lib import SERIE_MAX_LUECKE_TAGE, serien_cluster, serien_schluessel
+    from clean_events import unify_auflage_in_serien
+
+    def z(name, datum, ort="Ismaning", km=10.0):
+        return {"name": name, "datum_start": datum, "datum_ende": datum, "standort": ort, "laenge_km": km}
+
+    rows = [z("35. Ismaninger Winterlaufserie", "2027-01-17", km=17), z("Ismaninger Winterlaufserie", "2026-12-13", km=13),
+            z("35. Ismaninger Winterlaufserie", "2027-02-21", km=21.1),
+            z("Stadtlauf", "2026-10-10", "Lauf"), z("Stadtlauf", "2027-10-09", "Lauf"),
+            z("1. Lauf Winterserie", "2027-01-10", "Hameln"), z("2. Lauf Winterserie", "2027-01-24", "Hameln"),
+            z("Nikolauslauf", "2026-12-06", "Ulm"), z("Nikolauslauf", "2026-12-06", "Ulm", 5.0),
+            z("Frühjahrslauf", "2027-03-01", "Köln"), z("Frühjahrslauf", "2027-06-10", "Köln")]   # 101 Tage
+    cl = serien_cluster(rows)
+    groessen = sorted(len(c) for c in cl)
+    check("Ismaning: drei Termine, mit und ohne Auflage, eine Serie",
+          [sorted(e["datum_start"] for e in c) for c in cl if c[0]["standort"] == "Ismaning"],
+          [["2026-12-13", "2027-01-17", "2027-02-21"]])
+    check("Ausgabe 2026 und 2027 (365 Tage) sind zwei Veranstaltungen",
+          sum(1 for c in cl if c[0]["standort"] == "Lauf"), 2)
+    check("'1. Lauf' und '2. Lauf' derselben Serie sind eine", sum(1 for c in cl if c[0]["standort"] == "Hameln"), 1)
+    check("zwei Strecken am selben Tag bleiben eine Veranstaltung", sum(1 for c in cl if c[0]["standort"] == "Ulm"), 1)
+    check(f"{SERIE_MAX_LUECKE_TAGE + 1} Tage Lücke trennen", sum(1 for c in cl if c[0]["standort"] == "Köln"), 2)
+    check("Größen der Cluster", groessen, [1, 1, 1, 1, 2, 2, 3])
+
+    geaendert = unify_auflage_in_serien(rows)
+    check("Auflage innerhalb der Serie angeglichen (ohne -> mit Nummer)",
+          sorted({e["name"] for e in rows if e["standort"] == "Ismaning"}), ["35. Ismaninger Winterlaufserie"])
+    check("… genau eine Zeile umbenannt", len(geaendert), 1)
+    check("… idempotent", unify_auflage_in_serien(rows), [])
+    zwei = [z("36. Hamelner Winterlaufserie", "2026-11-22", "Hameln"), z("37. Hamelner Winterlaufserie", "2026-12-05", "Hameln")]
+    check("zwei verschiedene Nummern bleiben stehen", (unify_auflage_in_serien(zwei), sorted(e["name"] for e in zwei)),
+          ([], ["36. Hamelner Winterlaufserie", "37. Hamelner Winterlaufserie"]))
+
+    # Beide Fassungen am ganzen Bestand: dieselben Schlüssel.
+    wurzel = Path(__file__).resolve().parent.parent
+    events = _json.loads((wurzel / "events.json").read_text(encoding="utf-8"))
+    py = serien_schluessel(events)
+    py_keys = sorted(py[id(e)] for e in events if id(e) in py)
+    skript = (
+        "const fs=require('fs');const window={};"
+        f"new Function('window', fs.readFileSync({str(wurzel / 'filters.js')!r},'utf8'))(window);"
+        "const EF=window.EnduranceFilters;"
+        f"const ev=JSON.parse(fs.readFileSync({str(wurzel / 'events.json')!r},'utf8'));"
+        "EF.markSerien(ev);"
+        "process.stdout.write(JSON.stringify({luecke: EF.SERIE_MAX_LUECKE_TAGE, keys: ev.map(EF.groupKey).sort()}));"
+    )
+    aus = _sp.run(["node", "-e", skript], capture_output=True, text=True, check=True)
+    js = _json.loads(aus.stdout)
+    check("SERIE_MAX_LUECKE_TAGE ist in filters.js und scraper_lib gleich", js["luecke"], SERIE_MAX_LUECKE_TAGE)
+    check(f"EF.groupKey und serien_schluessel liefern am Bestand dieselben Schlüssel ({len(set(py_keys))} Veranstaltungen)",
+          js["keys"] == py_keys, True)
+
+
 def test_laender_maske() -> None:
     """laender.json - die Umrisse für die graue Maske auf karte.html.
 
@@ -3817,7 +3881,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

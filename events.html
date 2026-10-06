@@ -753,6 +753,15 @@
     tbody tr.sub-row .col-datum, tbody tr.sub-row .col-standort,
     tbody tr.sub-row .col-land, tbody tr.sub-row .col-entfernung,
     tbody tr.sub-row .col-art1 { display: none; }
+    /* Bei einer Serie (mehrere Termine) ist das Datum gerade das, was
+       die Strecken unterscheidet - es bleibt in der Kachel stehen. */
+    tbody tr.sub-row.serie {
+      grid-template-areas:
+        "datum datum"
+        "name name"
+        "art2 laenge";
+    }
+    tbody tr.sub-row.serie .col-datum { display: block; padding-left: 32px; font-size: 0.95rem; }
     tbody tr.sub-row.letzte {
       border-bottom: 2px solid var(--frame);
       border-radius: 0 0 14px 14px;
@@ -1018,9 +1027,9 @@
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
-<script src="filters.js?v=7bd45046"></script>
+<script src="filters.js?v=b8f59dd3"></script>
 <script src="filter-ui.js?v=05e06e2d"></script>
-<script src="event-detail.js?v=26f01a13"></script>
+<script src="event-detail.js?v=6ae2f9b2"></script>
 
 <script>
 (async function () {
@@ -2062,7 +2071,10 @@
 
   // Schlüssel einer Veranstaltung: Name + Datum + Ort. Genau die drei
   // Felder machen aus mehreren Strecken eine Veranstaltung - die Distanz
-  // ist gerade das, was sie unterscheidet.
+  // ist gerade das, was sie unterscheidet. Seit dem 06.10.2026 ist das
+  // Datum der SERIENBEGINN (EF.markSerien): Eine Laufserie mit drei
+  // Terminen ist eine Veranstaltung mit drei Strecken, aufgeklappt drei
+  // Zeilen mit je eigenem Tag und eigener Länge (so vom Nutzer gewünscht).
   // Der Schlüssel steht in event-detail.js: Die Karte setzt damit je
   // Veranstaltung EINEN Punkt, die Box sucht damit ihre Strecken.
   function groupKey(e) {
@@ -2131,8 +2143,14 @@
       const k = r.art2 ? tv('art2', r.art2) : null;
       if (k && !kategorien.includes(k)) kategorien.push(k);
     });
+    // Eine Serie (mehrere Termine, EED.istSerie) zeigt zugeklappt die
+    // SPANNE ihrer Termine; aufgeklappt steht an jeder Strecke ihr Tag.
+    const serie = EED.istSerie(g.rows.map(r => r.e));
     return cols.map(col => {
       switch (col.key) {
+        case 'datum':
+          if (offen || !serie) return cellHtml(col, e);
+          return `<td class="col-datum"><div class="cell-clamp">${EED.formatGroupDateHtml(g.rows.map(r => r.e), currentLang, true)}</div></td>`;
         case 'name':
           // Statt des Pfeils ein gleich breiter Platzhalter: sonst
           // beginnen die Namen einzelner Strecken weiter links als die
@@ -2220,7 +2238,10 @@
       // "zugeklappt", ohne dass es etwas zu öffnen gäbe.
       // Wie in groupRowHtml: eine Strecke genügt.
       const charity = g.rows.some(({ e: r }) => r.charity);
-      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}${charity ? ' charity-row' : ''}"`
+      // `serie`: mehrere Termine - die Kachelansicht zeigt dann an jeder
+      // Strecke ihr Datum (sonst wiederholte es nur die Zeile darüber).
+      const serie = EED.istSerie(g.rows.map(r => r.e));
+      teile.push(`<tr class="group-row${einzeln ? ' single' : ''}${offen ? ' open' : ''}${aktiv ? ' active' : ''}${charity ? ' charity-row' : ''}${serie ? ' serie' : ''}"`
         + ` data-g="${nr}" data-idx="${g.rows[0].idx}" tabindex="-1"`
         + (einzeln ? '' : ` data-klapp="1" aria-expanded="${offen ? 'true' : 'false'}"`)
         + `>${groupRowHtml(g, cols)}</tr>`);
@@ -2307,8 +2328,9 @@
   // Tabelle ist genau an dieser Stelle auf Tempo gebaut.
   function subRowsHtml(g, cols) {
     const unter = g.rows.slice(1);
+    const serie = EED.istSerie(g.rows.map(r => r.e));
     return unter.map(({ e, idx }, i) =>
-      `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}`
+      `<tr class="sub-row${i === unter.length - 1 ? ' letzte' : ''}${serie ? ' serie' : ''}`
       + `${idx === selectedIndex ? ' active' : ''}${e.charity ? ' charity-row' : ''}"`
       + ` data-idx="${idx}" tabindex="-1">`
       + cols.map(col => cellHtml(col, e)).join('')

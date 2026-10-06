@@ -769,8 +769,79 @@
   // Strecken (vom Nutzer am 30.09.2026 gemeldet: "Triathlon wär 281
   // anstatt 500"). Seit dem Tag hier statt in event-detail.js, weil die
   // Startseite nur filters.js lädt; EED.groupKey ruft diese Fassung.
+  //
+  // Seit dem 06.10.2026 kennt der Schlüssel den SERIENBEGINN statt des
+  // Starttags (`serie_start`, gesetzt von markSerien) und den Namen OHNE
+  // Auflage vorn - siehe markSerien(). Ohne Markierung (eine Zeile, die
+  // nicht über loadEvents kam) gilt der Starttag wie bisher.
   function groupKey(e) {
-    return `${(e.name || '').toLowerCase()}|${e.datum_start}|${(e.standort || '').toLowerCase()}`;
+    return `${serienName(e)}|${e.serie_start || e.datum_start}|${(e.standort || '').toLowerCase()}`;
+  }
+
+  // ---------- Laufserien: ein Name, ein Ort, mehrere Termine ----------
+  //
+  // Die Ismaninger Winterlaufserie sind drei Läufe an drei Sonntagen
+  // (13 km, 17 km, Halbmarathon). Vom Nutzer am 06.10.2026 entschieden:
+  // "wenn Event zusammenfassen an ist, dann soll es ein Event sein mit 3
+  // Distanzen, und beim Aufklappen 3 Events mit 3 unterschiedlichen Daten
+  // und 3 unterschiedlichen Längen". Deshalb trägt jede Zeile nach dem
+  // Laden `serie_start` - den ersten Starttag ihrer Serie -, und
+  // groupKey() nimmt ihn statt datum_start: Liste, Karte, Box und
+  // Startseite zählen damit EINE Veranstaltung.
+  //
+  // Was eine Serie ist: gleicher Name (ohne Auflage vorn - "35.
+  // Ismaninger Winterlaufserie" und "Ismaninger Winterlaufserie" sind
+  // eine) am gleichen Ort, und zwischen zwei aufeinanderfolgenden
+  // Starttagen liegen höchstens SERIE_MAX_LUECKE_TAGE. Die Lücke ist der
+  // ganze Trick: Die Liste reicht zwei Jahre voraus, und die Ausgabe 2027
+  // eines Laufs steht oft neben der von 2026 - 365 Tage auseinander,
+  // zwei Veranstaltungen. Am Bestand gezählt (06.10.2026, 98 Name+Ort-
+  // Paare mit mehreren Terminen): Serien pausieren höchstens ~90 Tage
+  // (Rodgauer Winterlaufserie 63, Hamelner Cross-Winterlaufserie 70),
+  // zwei Ausgaben desselben Laufs in einem Jahr liegen ab 112 Tagen
+  // auseinander (Silberaulauf, Backyard Community Run, Stundenlauf mit
+  // Musik) - 100 Tage trennen beides. Mehrtägige Rennen (Freitag Kinder,
+  // Samstag Hauptlauf) fallen damit ebenfalls zu einer Veranstaltung
+  // zusammen - so ist es gemeint: ein Event, mehrere Termine.
+  //
+  // Eine reine Anzeigeregel: events.json bleibt eine Zeile je Strecke
+  // und Termin (Datenregel 1), `serie_start` lebt nur im Browser.
+  // Derselbe Schlüssel steht als Python-Zwilling im Rauchtest
+  // (smoke_test_frontend.py, serien_schluessel) - läuft er auseinander,
+  // findet der Test keinen Ort mit genau zwei Veranstaltungen mehr.
+  const SERIE_MAX_LUECKE_TAGE = 100;
+  const AUFLAGE_VORN = /^\s*\d{1,3}\.\s+/;
+  function serienName(e) {
+    return (e.name || '').replace(AUFLAGE_VORN, '').toLowerCase();
+  }
+  function tagNummer(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return Math.round(Date.UTC(y, m - 1, d) / 86400000);
+  }
+  function markSerien(list) {
+    const gueltig = /^\d{4}-\d{2}-\d{2}$/;
+    const reihe = [];
+    list.forEach(e => { if (gueltig.test(e.datum_start || '')) reihe.push(e); });
+    reihe.sort((a, b) => {
+      const na = serienName(a), nb = serienName(b);
+      if (na !== nb) return na < nb ? -1 : 1;
+      const oa = (a.standort || '').toLowerCase(), ob = (b.standort || '').toLowerCase();
+      if (oa !== ob) return oa < ob ? -1 : 1;
+      return a.datum_start < b.datum_start ? -1 : a.datum_start > b.datum_start ? 1 : 0;
+    });
+    let vorher = null;
+    let start = null;
+    reihe.forEach(e => {
+      const n = serienName(e);
+      const o = (e.standort || '').toLowerCase();
+      if (!vorher || vorher.n !== n || vorher.o !== o
+          || tagNummer(e.datum_start) - tagNummer(vorher.d) > SERIE_MAX_LUECKE_TAGE) {
+        start = e.datum_start;
+      }
+      e.serie_start = start;
+      vorher = { n, o, d: e.datum_start };
+    });
+    return list;
   }
 
   function dropPastEvents(list) {
@@ -832,12 +903,12 @@
       const res = await fetch(web);
       if (res.ok) {
         const d = await res.json();
-        return { events: decodeWebData(d), stand: d.stand || standAusHeader(res), quelle: web };
+        return { events: markSerien(decodeWebData(d)), stand: d.stand || standAusHeader(res), quelle: web };
       }
     } catch (e) { /* Rückfall auf events.json */ }
     const res = await fetch(json);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    return { events: await res.json(), stand: standAusHeader(res), quelle: json };
+    return { events: markSerien(await res.json()), stand: standAusHeader(res), quelle: json };
   }
 
   function distanceFromOrigin(state, e) {
@@ -1269,6 +1340,8 @@
     haversineKm,
     dropPastEvents,
     groupKey,
+    markSerien,
+    SERIE_MAX_LUECKE_TAGE,
     decodeWebData,
     loadEvents,
     distanceFromOrigin,
