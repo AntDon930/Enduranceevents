@@ -7946,10 +7946,10 @@
     "notiz": "21,1-km-Zeile ohne Label neben 5 und 10 km; Seite sperrt den Abruf."
   },
   "Gravel 'n' Gröstl|2026-10-08": {
-    "am": "2026-10-05",
-    "ergebnis": "quelle_ok",
+    "am": "2026-10-06",
+    "ergebnis": "korrigiert",
     "quelle": "https://gravelngroestl.com/",
-    "notiz": "Korrekturliste des Nutzers"
+    "notiz": "Nutzer-Meldung 06.10.2026: Die 540-km-Zeile ist 'bis zu 540 km' = Summe aller neun Routen (20-100 km), keine Strecke - per Override ausgeschlossen. Vorher (05.10.2026, Korrekturliste des Nutzers): quelle_ok."
   },
   "Nocturne des Evaux|2026-10-08": {
     "am": "2026-10-05",

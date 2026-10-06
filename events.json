@@ -56,20 +56,6 @@
   {
     "land": "Österreich",
     "name": "Gravel 'n' Gröstl",
-    "standort": "Walchsee, Kaiserwinkl",
-    "lat": 47.6543,
-    "lon": 12.3308,
-    "art1": "Fahrrad",
-    "art2": "Gravel",
-    "datum_start": "2026-10-08",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 540.0,
-    "wettbewerb": "Gravel 540 km",
-    "veranstalter_url": "https://gravelngroestl.com/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Gravel 'n' Gröstl",
     "standort": "Walchsee",
     "lat": 47.637105,
     "lon": 12.3092102,

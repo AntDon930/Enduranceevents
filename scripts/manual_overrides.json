@@ -8213,5 +8213,9 @@
   "35. Ismaninger Winterlaufserie|2027-02-21|21.1": {
     "wettbewerb": "Halbmarathon",
     "_note": "winterlaufserie.net: '21.02.2027: Halbmarathon'. Das Quell-Label 'Halbmarathon 21.100 m , Einzelstart, Preis 29,00 €' (Anmeldeportal) nennt Startart und Preis, keine Strecke - nur der Wettbewerb bleibt. 06.10.2026."
+  },
+  "Gravel 'n' Gröstl|2026-10-08|540": {
+    "exclude": true,
+    "_note": "gravelngroestl.com: '9 Routen - 20 bis 100 km, bis zu 540 km | 11 000 hm'. Die 540 km sind die SUMME aller neun Routen (20+30+…+100), keine Strecke, die jemand fährt; die neun Routen stehen einzeln in der Liste. Vom Nutzer am 06.10.2026 gemeldet. Am Bestand nachgezählt: Eine Zeile, deren Distanz die Summe der übrigen Strecken ist, gibt es sonst nur zweimal, beide echte Strecken (Velorace Dresden 102 km, Spreewald-Radtour 150 km) - deshalb Override, keine Regel."
   }
 }
