@@ -56998,20 +56998,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "IMEXrun",
-    "standort": "Frankfurt am Main",
-    "lat": 50.1109221,
-    "lon": 8.6821267,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-12",
-    "datum_ende": "2027-05-12",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://frankfurt.imexevents.com/newfront/imexrun"
-  },
-  {
-    "land": "Deutschland",
     "name": "Kölner Leselauf",
     "standort": "Köln",
     "lat": 50.937531,

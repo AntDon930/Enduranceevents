@@ -4810,9 +4810,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–13 erledigt (8 und 9–13 in
+**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–14 erledigt (8 und 9–14 in
 zwei parallelen Sitzungen), Punkt 7 ans Ende verschoben (jetzt
-Punkt 32), WEITER BEI PUNKT 14.**
+Punkt 32), WEITER BEI PUNKT 15.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4988,7 +4988,14 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Anmeldung braucht. **Nicht** über eine spätere Regel wie „kein
     Wettkampf" oder „ohne Distanz" herausfallen lassen – wer so eine Regel
     baut, nimmt slowUp als Gegenprobe in den Test.
-14. IMEXrun Frankfurt (nur Messebesucher?) raus?
+14. ~~IMEXrun Frankfurt (nur Messebesucher?) raus?~~ **erledigt**
+    (07.10.2026, vom Nutzer: „wenn nicht jeder sich anmelden kann, sondern
+    nur Messebesucher dann bitte rausnehmen"): Die Seite sagt „Open to all
+    IMEX participants" – Programmpunkt der Fachmesse, nur für registrierte
+    Teilnehmer. Per Override raus (Datenregel 18), 6.981 → 6.980. Lehre
+    für neue Fälle: Ein Lauf im Programm einer Messe oder Tagung ist
+    nicht öffentlich, solange die Seite nicht ausdrücklich „für alle"
+    sagt.
 15. UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?
 16. Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?
 17. fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als

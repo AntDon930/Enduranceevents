@@ -8233,5 +8233,9 @@
   "Löwenlauf Hachenburg|2026-10-17|6.3": {
     "wettbewerb": "6,3 km Jedermannslauf",
     "_note": "Die Seite nennt den 6,3-km-Jedermannslauf, 'auch als Teamlauf' - jeder läuft die ganze Strecke, also ein Einzellauf (Regel des Nutzers vom 07.10.2026). Label 'Teamlauf' der Quelle ersetzt (loewenlauf-hachenburg.de, 07.10.2026)."
+  },
+  "IMEXrun|2027-05-12": {
+    "exclude": true,
+    "_note": "Nicht öffentlich: 'Open to all IMEX participants' - 5-km-Lauf am Main als Programmpunkt der Fachmesse IMEX Frankfurt, nur für registrierte Messeteilnehmer (frankfurt.imexevents.com/newfront/imexrun, 07.10.2026). Datenregel 18 / To-do Punkt 14, vom Nutzer entschieden: nur Messebesucher -> raus."
   }
 }
