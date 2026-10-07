@@ -860,15 +860,21 @@ def report_gleiche_seite_gleiche_distanz(events: list[dict]) -> list[str]:
     kommt hier nicht heran: als Wortmengen haben „hornle/berglauf" und
     „hornlelauf" zu wenig gemeinsam.
 
-    Warum das NICHT automatisch zusammengeführt wird: Die Regel wurde
-    über den ganzen Bestand durchgerechnet und hätte 48 Paare
+    Warum das lange NICHT automatisch zusammengeführt wurde: Die Regel
+    wurde über den ganzen Bestand durchgerechnet und hätte 48 Paare
     verschmolzen - darunter echte, verschiedene Wettbewerbe derselben
     Veranstaltung: den Marathon des "24h Mad Chicken Run" mit dem
     24-Stunden-Rennen, den "Kolberger Berglauf" mit der Wanderung über
     dieselbe Strecke, und bei der "Heidi-Challenge" die "Tour Werder
     61,8 km" mit der "Tour City Berlin 63,0 km". Genau davor warnt die
-    wichtigste Lektion im README. Also: melden, einzeln prüfen,
-    bestätigte Fälle nach manual_overrides.json.
+    wichtigste Lektion im README. **Seit dem 07.10.2026 führt
+    `scraper_lib._gleiche_seite_und_strecke()` den ENGEN Fall zusammen**
+    (derselbe Ort ≤ 3 km, beide Maßzahlen bekannt, gleiche Kategorie,
+    keine Gattung im Label verschieden - alle drei alten Gegenbeispiele
+    fallen damit heraus); was hier noch gemeldet wird, ist der Rest:
+    Nachbarorte über 3 km, ein Gattungswort auf einer Seite („50 km Lauf
+    und Staffel"), eine Zeile ohne Maßzahl. Einzeln prüfen, bestätigte
+    Fälle nach manual_overrides.json.
 
     Die VOLLSTÄNDIGE Adresse ist Bedingung, nicht die Domain: Unter
     einer Domain liegen mehrere Rennen eines Veranstalters (deshalb ist
@@ -1907,12 +1913,17 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
                 result.append(cluster[0])
                 continue
             # Primär = vollständigster Eintrag; bei Gleichstand der mit
-            # bekannter Distanz, dann der mit dem längeren (aussagekräftigeren) Namen.
+            # bekannter Distanz, dann der, dessen Name KEINE Meisterschaft
+            # nennt (die „Bayerischen Marathon Meisterschaften" laufen im
+            # Marathon München - der Volkslauf ist die Veranstaltung, die
+            # Meisterschaft ihre Wertung, Datenregel 18), dann der mit dem
+            # längeren (aussagekräftigeren) Namen.
             primary = max(
                 cluster,
                 key=lambda e: (
                     completeness(e),
                     e.get("laenge_km") is not None,
+                    "meisterschaft" not in (e.get("name") or "").lower(),
                     len(e.get("name") or ""),
                 ),
             )

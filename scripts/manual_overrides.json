@@ -7932,8 +7932,8 @@
     "_note": "Veranstalterseite statt laufen-os.de: https://www.tushaste01.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: TuS Haste 01 ist Veranstalter (laufen-os.de), tushaste01.de ist die Vereinsseite. Linkprüfung 2026-10-05."
   },
   "Bayerische Marathon Meisterschaften|2026-10-11": {
-    "veranstalter_url": "https://marathonmuenchen.org/",
-    "_note": "Veranstalterseite statt ladv.de: https://marathonmuenchen.org/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), von Hand belegt: die Meisterschaft läuft im Rahmen des München Marathon (marathonmuenchen.org kündigt es an). Linkprüfung 2026-10-05."
+    "exclude": true,
+    "_note": "Vom Nutzer am 07.10.2026 gemeldet: „Das ist der Brooks Marathon einfach … Beide verlinken auf den gleichen Link, haben das gleiche Datum, die gleichen Distanzen.“ Meisterschaft im Rahmen des Marathon München by Brooks (marathonmuenchen.org, 11.10.2026, 42,2/21,1/10 km) – Datenregel 18, der Volkslauf steht in der Liste. Die Zeilen standen zudem mit Ort „Schwabinger Tor“ 3,9 km neben dem Marathon-Marker, knapp außerhalb der 3 km des achten Wegs."
   },
   "34. Adventslauf|2026-12-13": {
     "veranstalter_url": "https://www.ksv-reichelsheim.de/",
@@ -8243,5 +8243,35 @@
   "8. internationale Alpe Adria Tour|2027-08-12": {
     "exclude": true,
     "_note": "Internationales Etappenrennen für Nachwuchs-Teams (U13, U15, U17, Junioren; Nationalteams am Start, meinbezirk.at zur 4. Ausgabe), Ausschreibung 2027 noch nicht online (rc-kac.at, 07.10.2026). Nachwuchs und Teamstart - To-do Punkt 15."
+  },
+  "22. FALKE Rothaarsteig-Marathon|2026-10-17|42.2": {
+    "standort": "Schmallenberg-Fleckenberg",
+    "lat": 51.1469176,
+    "lon": 8.2700774,
+    "_note": "Falsch verortet (07.10.2026, Lektion 3): Die Quelle schrieb „Schmalenberg“ (ein l), der Geocoder fand Schmalenberg in der Pfalz (49,33/7,73), 205 km vom Rothaarsteig. Richtig: Schmallenberg-Fleckenberg, Koordinaten der Schwesterzeile „23. Falke-Rothaarsteigmarathon“ (rothaarsteig-marathon.de). Mit dem richtigen Ort führt der achte Weg beide zusammen."
+  },
+  "41. Pönitzer Silvesterlauf|2026-12-31|15": {
+    "standort": "Scharbeutz",
+    "lat": 54.0224961,
+    "lon": 10.7544158,
+    "_note": "Falsch verortet (07.10.2026, Lektion 3, gleichnamiger Ort): „Pönitz“ lag auf Pönitz in Sachsen (50,86/12,42), 369 km vom Pönitzer Silvesterlauf des SVG Pönitz in Scharbeutz (Ostholstein, svg-poenitz.de). Koordinaten der Schwesterzeile „Pönitzer Silvesterlauf“ (Scharbeutz); mit dem richtigen Ort führt der achte Weg die 15-km-Zeilen zusammen, die 7,5-km-Zeile bleibt neben den 8 km stehen (0,5 km Unterschied – auf der Seite prüfen)."
+  },
+  "41. Pönitzer Silvesterlauf|2026-12-31|7.5": {
+    "standort": "Scharbeutz",
+    "lat": 54.0224961,
+    "lon": 10.7544158,
+    "_note": "Falsch verortet (07.10.2026, Lektion 3, gleichnamiger Ort): „Pönitz“ lag auf Pönitz in Sachsen (50,86/12,42), 369 km vom Pönitzer Silvesterlauf des SVG Pönitz in Scharbeutz (Ostholstein, svg-poenitz.de). Koordinaten der Schwesterzeile „Pönitzer Silvesterlauf“ (Scharbeutz); mit dem richtigen Ort führt der achte Weg die 15-km-Zeilen zusammen, die 7,5-km-Zeile bleibt neben den 8 km stehen (0,5 km Unterschied – auf der Seite prüfen)."
+  },
+  "Silvesterlauf Stadtlohn|2026-12-31|10": {
+    "exclude": true,
+    "_note": "07.10.2026 (Klasse „gleiche Seite, gleicher Tag, gleiche Distanz, zwei Namen“): Die 10-km- und 5-km-Zeilen „Silvesterlauf Stadtlohn“ liegen auf dem Bocholter Marker mit dem Link des Bocholter WSV (bocholter-wsv.de) – das ist der Silvesterlauf Bocholt unter falschem Namen (eine Quelle hat zwei Läufe vermengt). Der Bocholter Lauf steht als „Silvesterlauf Bocholt“ (10 km Volkslauf) in der Liste, der Stadtlohner mit seinen 15 und 8 km in Stadtlohn. Der achte Weg hätte sonst den Bocholter Lauf unter den Namen Stadtlohn gestellt."
+  },
+  "Silvesterlauf Stadtlohn|2026-12-31|5": {
+    "exclude": true,
+    "_note": "Siehe „Silvesterlauf Stadtlohn|2026-12-31|10“: Zeile am Bocholter Marker mit Bocholter Link, falscher Name; ob der Bocholter Silvesterlauf 5 km anbietet, nennt bocholter-wsv.de nicht lesbar – nicht belegt, also nicht unter irgendeinem Namen stehen lassen."
+  },
+  "31. Griesheimer REWE/Michael Weisbrod-Silvesterlauf|2026-12-31|10": {
+    "exclude": true,
+    "_note": "07.10.2026: Diese 10-km-Zeile liegt in Frankfurt am Main auf dem Marker des Spiridon Mainova Silvesterlaufs mit dessen Seite (spiridon-silvesterlauf.de, „Hauptlauf über 10 km“, 31.12.2026) – das ist der Spiridon-Lauf, nicht der Griesheimer (der liegt in Griesheim bei Darmstadt; seine 5-km-Zeile steht dort). Ohne den Override führte der achte Weg beide zusammen und behielt den falschen Namen."
   }
 }

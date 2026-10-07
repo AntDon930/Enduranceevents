@@ -1929,7 +1929,9 @@ _LABEL_GATTUNG_RE = re.compile(
     r"kurz(?:distanz|strecke)|mittel(?:distanz|strecke)|lang(?:distanz|strecke)|"
     # Gravel neben Straße (24.09.2026): Der Erkelenzer RTF hat "RTF 110 km"
     # UND "Gravel Ride 110 km" - zwei Wettbewerbe über dieselbe Länge.
-    r"ultra|cross|trail|berg|gravel|schotter|\brtf\b", re.I)
+    # CTF (Country-Touren-Fahrt = MTB) neben Gravel (07.10.2026): Der
+    # Linneser Cross-Country-Tag hat "CTF 50 km" UND "Gravel Tour 50 km".
+    r"ultra|cross|trail|berg|gravel|schotter|\brtf\b|\bctf\b", re.I)
 
 
 # Die Teilstrecken-Klammer eines Mehrsport-Labels - "Sprintdistanz 25,5 km
@@ -2155,6 +2157,77 @@ def _bare_name_tokens(event: dict) -> frozenset:
     return frozenset(normalize_event_name(event.get("name") or "").split())
 
 
+# Gattungswörter, die nur das FORMAT einer Strecke nennen - bei bekannter,
+# gleicher Distanz auf beiden Seiten sagen sie nichts Eigenes mehr
+# ("Olympische Distanz 51,5 km" gegen "51 km" ist dieselbe Strecke).
+_FORMAT_GATTUNG = frozenset({
+    "sprint", "super-sprint", "supersprint", "super sprint", "olymp", "volks",
+    "kurzdistanz", "kurzstrecke", "mitteldistanz", "mittelstrecke",
+    "langdistanz", "langstrecke"})
+
+
+def _gleiche_seite_und_strecke(a: dict, b: dict) -> bool:
+    """Der achte Weg der Duplikat-Erkennung (07.10.2026, vom Nutzer an den
+    „Bayerischen Marathon Meisterschaften" gemeldet: „Beide verlinken auf
+    den gleichen Link, haben das gleiche Datum, die gleichen Distanzen. Es
+    ist ja offensichtlich das es das gleiche Event ist."): Zwei Zeilen
+    OHNE gemeinsames Namenswort sind dieselbe Strecke, wenn ALLES andere
+    übereinstimmt - dieselbe vollständige Veranstalterseite (kein
+    Portallink), derselbe Ort im engen Sinn (`_gleicher_standort`: Wortmenge
+    oder ≤ 3 km, NICHT die 30 km von `_same_place` - der Spreewaldmarathon
+    hat „70 km Radtour" ab Lübbenau UND ab Burg, 13 km auseinander, auf
+    derselben Seite), dieselbe Sportart und Kategorie, auf BEIDEN Seiten
+    eine bekannte Maßzahl (Distanz oder Dauer - eine Zeile ohne Maßzahl
+    passt zu allem), und Labels, die sich in keiner Gattung unterscheiden
+    (CTF gegen Gravel, RTF gegen Gravel Ride, Schülerlauf gegen Hauptlauf
+    bleiben zwei) - außer in einem reinen Formatwort (`_FORMAT_GATTUNG`),
+    das bei gleicher Distanz nichts Eigenes sagt.
+
+    Am Bestand (6.985 Zeilen) nachgezählt: 14 Paare, alle an der Seite
+    geprüft echte Duplikate (SAARathon, Auwaldlauf, Chiemgauer100,
+    Wurzelweglauf, Höglwörther Seelauf, Alten-Buseck, Nikolauslauf Bad
+    Schönborn, …); Gegenproben: Spreewald (Ort), parkrun (eine Seite für
+    alle Standorte, Orte hunderte km auseinander), Linneser CTF/Gravel und
+    Erkelenzer RTF/Gravel Ride (Gattung), Black Forest Ultra Bike/Gravel
+    (Kategorie). Die Veranstalterseite als DOMAIN bleibt kein Kriterium
+    (Lektion 4 der Einzelprüfung) - nur die vollständige Adresse.
+    """
+    ua = (a.get("veranstalter_url") or "").strip().lower().rstrip("/")
+    ub = (b.get("veranstalter_url") or "").strip().lower().rstrip("/")
+    if not ua or ua != ub or is_portal_link(ua):
+        return False
+    if a.get("art1") != b.get("art1"):
+        return False
+    if a.get("art2") and b.get("art2") and a["art2"] != b["art2"]:
+        return False
+    if not _gleicher_standort(a, b):
+        return False
+    # Beide Maßzahlen bekannt: Distanz gegen Distanz oder Dauer gegen Dauer.
+    if (a.get("laenge_km") is None) != (b.get("laenge_km") is None):
+        return False
+    if a.get("laenge_km") is None and (a.get("dauer_h") is None or b.get("dauer_h") is None):
+        return False
+    if not _compatible_distance(a, b):
+        return False
+    # Distanzen höchstens 0,5 km auseinander - wie beim sechsten Weg, NICHT
+    # die 5 % von `_compatible_distance()`: Beim Gornergrat Zermatt Marathon
+    # wären sonst „TOP20RUN 22 km" und „Halbmarathon 21,1 km" eins.
+    ka, kb = a.get("laenge_km"), b.get("laenge_km")
+    if ka is not None and abs(ka - kb) > 0.5:
+        return False
+    ga = _unterscheidende_gattung(a.get("wettbewerb") or "", a.get("art2"))
+    gb = _unterscheidende_gattung(b.get("wettbewerb") or "", b.get("art2"))
+    nur_a, nur_b = ga - gb, gb - ga
+    # Ein Formatwort auf EINER Seite sagt bei gleicher Distanz nichts
+    # Eigenes („Olympische Distanz 51,5 km" gegen „51 km"). Auf BEIDEN
+    # Seiten je ein anderes Formatwort sind zwei Wettbewerbe:
+    # „Sprintdistanz 28,8 km" gegen „Volksdistanz 28,5 km" (Silbersee-
+    # Triathlon, 750 m gegen 500 m Schwimmen).
+    if nur_a and nur_b:
+        return False
+    return (nur_a | nur_b) <= _FORMAT_GATTUNG
+
+
 def is_same_event(a: dict, b: dict) -> bool:
     """True, wenn zwei Event-Dicts dasselbe real existierende Event beschreiben.
     Nötig, weil dieselbe Veranstaltung von mehreren Quellen unter abweichenden
@@ -2167,7 +2240,7 @@ def is_same_event(a: dict, b: dict) -> bool:
         return False
     if not _same_place(a, b) or not _compatible_distance(a, b):
         return False
-    return _same_name(a, b)
+    return _same_name(a, b) or _gleiche_seite_und_strecke(a, b)
 
 
 def is_same_race(a: dict, b: dict) -> bool:

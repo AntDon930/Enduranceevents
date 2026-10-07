@@ -300,6 +300,51 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Triathlons, alle geprüft, kein Paar verloren; die Gegenproben stehen
    in `test_siebter_weg`. **Dabei kam der Umweg der allgemeinen
    Override-Schlüssel ans Licht** (siehe „Die wichtigste Lektion").
+   **Achter Weg (07.10.2026, vom Nutzer an den „Bayerischen Marathon
+   Meisterschaften" gemeldet: „Beide verlinken auf den gleichen Link,
+   haben das gleiche Datum, die gleichen Distanzen. Es ist ja
+   offensichtlich das es das gleiche Event ist.")**: Zwei Zeilen OHNE
+   gemeinsames Namenswort sind dieselbe Strecke, wenn ALLES andere
+   stimmt – `_gleiche_seite_und_strecke()` in `is_same_event()`:
+   dieselbe VOLLSTÄNDIGE Veranstalterseite (kein Portallink, nicht die
+   Domain), `_gleicher_standort()` (Wortmenge oder ≤ 3 km – NICHT die
+   30 km: der Spreewaldmarathon hat „70 km Radtour" ab Lübbenau UND ab
+   Burg, 13 km auseinander, auf einer Seite), gleiche `art1`, gleiche
+   `art2` (wenn beide gesetzt: Black Forest Ultra Bike ≠ Ultra Gravel),
+   auf BEIDEN Seiten eine Maßzahl, Distanzen höchstens 0,5 km
+   auseinander (nicht die 5 % von `_compatible_distance()`: TOP20RUN
+   22 km ≠ Halbmarathon 21,1 km in Zermatt), und Labels ohne
+   verschiedene Gattung – „CTF" ist seit dem Tag ein Gattungswort
+   (Linneser Cross-Country-Tag: CTF 50 km neben Gravel Tour 50 km),
+   „Schülerlauf 5 km" ≠ „5 km Hauptlauf". Einzige Ausnahme: ein
+   FORMATWORT auf nur EINER Seite (`_FORMAT_GATTUNG`: sprint, olymp,
+   volks, kurz-/mittel-/langdistanz …) trennt nicht – „Olympische
+   Distanz 51,5 km" gegen „51 km" ist dieselbe Strecke; zwei
+   verschiedene Formatwörter dagegen schon („Sprintdistanz 28,8" gegen
+   „Volksdistanz 28,5", Silbersee-Triathlon, 750 gegen 500 m Schwimmen).
+   Am Bestand (6.985 Zeilen) nachgezählt: 24 Zusammenführungen, alle
+   durchgesehen, alle echt (SAARathon, Auwaldlauf, Rothaarsteig ×3,
+   TuSLi, Wurzelweg, Alten-Buseck, Nikolauslauf Bad Schönborn, Pönitz,
+   neun Triathlons mit Sponsor-Namen …); die Gegenproben Spreewald,
+   parkrun (eine Seite für alle Standorte, hunderte km auseinander),
+   Linneser, Erkelenzer RTF/Gravel Ride, Black Forest, Silbersee,
+   Zermatt stehen in `test_duplikate`. Lektion 4 der Einzelprüfung
+   („dieselbe Seite ist keine Regel") gilt damit nur noch für die
+   DOMAIN und für den weiten Fall; ihre drei Gegenbeispiele (Mad Chicken
+   Marathon/24 h, Kolberger Berglauf/Wanderung, Heidi-Challenge 61,8/
+   63,0 km) fallen alle durch die engen Bedingungen. Drei Nebenbefunde
+   derselben Klasse per Override: Zeilen eines Laufs unter dem Namen
+   eines ANDEREN („Silvesterlauf Stadtlohn" 10/5 km am Bocholter Marker,
+   „Griesheimer Silvesterlauf" 10 km am Spiridon-Marker) – dort hätte
+   der achte Weg den falschen Namen behalten; und zwei falsch verortete
+   Zeilen (Rothaarsteig in „Schmalenberg"/Pfalz, 205 km; Pönitz in
+   Sachsen, 369 km – Lektion 3), erst mit richtigen Koordinaten greift
+   der Weg. `merge_duplicates()` bevorzugt seitdem bei Gleichstand den
+   Namen OHNE „Meisterschaft" (Datenregel 18: der Volkslauf ist die
+   Veranstaltung). `report_gleiche_seite_gleiche_distanz()` meldet
+   weiter, was übrig bleibt (31: Nachbarorte über 3 km wie Braunsteich,
+   Riesenbeck, Brüder-Grimm; „50 km Lauf und Staffel"; RTF-Labels bei
+   Sella Ronda und Shades of Speed) – einzeln prüfen.
    **Der erste Durchlauf von `clean_events.py` konvergiert
    nicht vollständig** – der zweite merged noch einmal rund 50 Gruppen,
    der dritte ist stabil; die CI vergleicht Lauf 2 mit Lauf 3.
@@ -1105,7 +1150,9 @@ alle sind behoben. Wichtiger als die sieben sind vier Lektionen:
      **Streckenlisten der Quellen sind nicht verlässlich vollständig.**
 
 4. **Dieselbe Veranstalter-SEITE ist ein starkes Signal - und trotzdem
-   keine Regel.** „45. Hörnle Berglauf Bad Kohlgrub" und „Hörnlelauf
+   keine Regel** (seit dem 07.10.2026 im ENGEN Fall doch eine: Datenregel
+   7, achter Weg – gleicher Ort ≤ 3 km, beide Maßzahlen, ≤ 0,5 km, keine
+   Gattung verschieden; der weite Fall unten bleibt gemeldet). „45. Hörnle Berglauf Bad Kohlgrub" und „Hörnlelauf
    Bad Kohlgrub" tragen dieselbe vollständige Adresse
    (`…veranstaltungen.php?id=94`), dasselbe Datum, dieselben 7 km - ein
    Rennen. Durchgerechnet über den ganzen Bestand hätte diese Regel aber
@@ -5175,11 +5222,13 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **BriggYard Staffel-Run** (Nottuln, 18.06.2027) per Override draußen
      (Staffel, Datenregel 16). Soll `ist_staffel()` „Staffel-Run"/„Staffel
      Run" lernen?
-   - **Meisterschaft im Rahmen** (Punkt 5): „Bayerische Marathon
-     Meisterschaften" (11.10.2026) läuft im München Marathon, „DM 10km
-     Straße" (07.03.2027, Tübingen) in einem Tübinger Lauf – beide stehen
-     als eigene Zeilen, jetzt mit dem Link der Hauptveranstaltung
-     (marathonmuenchen.org) bzw. weiter laufen.de.
+   - **Meisterschaft im Rahmen** (Punkt 5): ~~„Bayerische Marathon
+     Meisterschaften" (11.10.2026) läuft im München Marathon~~ **raus**
+     (07.10.2026, vom Nutzer: „Das ist der Brooks Marathon einfach" –
+     Override, Datenregel 18; daraus wurde der achte Weg der
+     Duplikat-Erkennung, Datenregel 7); „DM 10km
+     Straße" (07.03.2027, Tübingen) in einem Tübinger Lauf steht weiter
+     als eigene Zeile mit laufen.de-Link.
    - **Duplikat unter zwei Namen**: „49. Nat. Nikolaus Volkslauf"
      (Mingolsheim) = „Nikolauslauf Bad Schönborn" (06.12.2026, beide
      sg-badschoenborn.de); „Uchter Wald- und Crosslauf" (14.11.2026) heißt
