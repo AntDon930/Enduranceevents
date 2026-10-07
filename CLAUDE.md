@@ -4716,7 +4716,8 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, WEITER BEI PUNKT 7.**
+**Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, Punkt 7 ans Ende
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4778,7 +4779,11 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
   liefe am Sa 25.09., Name/Sponsor wechseln 2027 → weglassen, der Scraper
   bringt ihn). Die Rohdaten (Sätze je Seite) lagen nur im Scratchpad und
   sind nach dem Clear weg – die Tabelle hier ist die Quelle.
-- **Danach Punkt 7** (Korrekturliste) usw. in der Reihenfolge der Liste.
+- ~~**Danach Punkt 7** (Korrekturliste)~~ – **vom Nutzer am 07.10.2026 ans
+  Ende gestellt** („Punkt 7 würde ich gerne auch ganz am Schluss machen,
+  weil nachdem die Liste korrekt ist würde ich die Webseite dann auf
+  endurance-events.de veröffentlichen"), jetzt Punkt 32; weiter mit
+  Punkt 8.
 - **CI**: Routine `trig_01SoYT5iDpwc8zfsJYDSftaY` prüft um 22:00 UTC die
   Läufe zu `d1d5376`; die heutigen Commits bis `db3a853` (und dieser)
   laufen danach ebenfalls durch die CI – morgen einmal nachsehen, ob
@@ -4798,10 +4803,42 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
    (07.10.2026: 13 Veranstaltungen / 32 Zeilen übernommen, 5 waren schon
    da, 16 abgelehnt – Einzelheiten im Stand-Block oben). Die nächste
    `handpruefung` bringt neue NEU?-Fälle nach dem nächsten Datenlauf.
-7. **Korrekturliste weiter** (`korrekturliste.py export` → ausfüllen →
-   `import`); die ersten 24 Zeilen sind durch.
-8. **Walking-Zeilen in Volksläufen** (145 Zeilen „Nordic Walking", als
-   Laufen in der Liste): rein oder raus?
+7. ~~**Korrekturliste weiter**~~ **ans Ende verschoben** (07.10.2026, vom
+   Nutzer: erst wenn die Liste korrekt ist, geht die Seite auf
+   `endurance-events.de` live – die Korrekturliste ist der letzte Schritt
+   davor), jetzt Punkt 32.
+8. **Walking-Zeilen in Volksläufen**: rein oder raus? **Am 07.10.2026
+   am Bestand (7.095 Zeilen) nachgezählt** – die „145 Zeilen" von
+   früher waren nur das Stichwort „Nordic Walking", die Klasse ist
+   größer und hat drei Sorten, die verschieden zu behandeln sind:
+   - **A) 96 Zeilen, deren Label NUR Walking/Wandern/Marsch nennt**
+     („7,5 km Walking", „Nordic Walking 5,7 km", „25 km Wandern / Nordic
+     Walking", „Walking Große Schleife"). Das sind eigene
+     Walking-Wettbewerbe neben dem Lauf derselben Veranstaltung; nur
+     bei **7 Veranstaltungen** (Biberacher Genießerlauf, Allschwiler
+     Klausenlauf, Silvesterlauf Bremen, Waldreiterlauf, Enzenbüschlauf,
+     Bieler Lauftage, Schweizer Frauenlauf Bern) steht KEINE Laufzeile
+     daneben – dort hat die Quelle offenbar nur die Walking-Strecke
+     geliefert, der Lauf fehlt (Nachtragen, nicht Löschen).
+   - **B) 64 Zeilen, deren Label Lauf UND Walking nennt** („10 km Lauf
+     und Nordic Walking", „5 km für Läufer und Walker"): dieselbe
+     Strecke für beide – das IST der Lauf, bleibt in jedem Fall.
+   - **C) 75 Zeilen mit Walking nur im Namen**: zum Teil Serien mit
+     Lauf („Lorsbacher Winterlauf- und Walkingserie" 10 Zeilen,
+     „Winterlauf-/Wanderserie Jaderberg" 10, „Run & Walk"), zum Teil
+     **reine Wander-/Marschveranstaltungen ohne Lauf** (Bödefelder
+     Hollenmarsch 8 Strecken bis 101 km, Ultra Walk Magdeburg 10–100 km,
+     Ultramarsch Leipzig, Karwendelmarsch, TeutoMarsch, Walk the Lake,
+     Müglitztal-Wanderung, Schaumburger Wandertag, Karl-Heinz-Hahn Walk,
+     Trochtelfinger Nordic-Walking-Cup) und die **8 „Ahmadiyya Charity
+     Walk"** (Charity-Markierung, 5–7 km).
+   Eine Regel „Walking → raus" braucht deshalb die Verbform wie bei
+   Datenregel 12: Label ohne Laufwort (A) fällt, Label mit Laufwort (B)
+   bleibt; für C entscheidet der Name (Wander-/Marsch-/Walk-Wörter OHNE
+   Laufwort). `displayWettbewerb()` zeigt bei A heute „Walking" unter dem
+   Namen – die Zeilen sind also als Walking erkennbar. Was der Nutzer
+   entscheidet, wird in `scraper_lib.py` als Regel gebaut (Einsammeln +
+   `clean_events`, mit Gegenproben B im Test), nicht per Override.
 
 **C. Entscheidungen Ja/Nein (je eine Zeile Code)**
 
@@ -4839,12 +4876,19 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 
 28. Die große Linkliste für die 20.000+ Events liefern (je Quelle
     robots.txt und Nutzungsbedingungen, kein Scraper ohne Ja).
-29. Livegang freigeben, nachdem Punkt 4 erledigt ist.
+29. Livegang freigeben, nachdem Punkt 4 erledigt ist (erledigt) **und
+    Punkt 32 durch ist** – die Seite geht dann auf `endurance-events.de`
+    (eigene Domain; dann `og:image`-Adresse und `UNSUBSCRIBE_URL`
+    nachziehen, siehe `og-image.png` und `functions/index.js`).
 30. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
     Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
     deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen
     Cross-Cups. Bewusst zuletzt (Entscheidung des Nutzers vom 05.10.2026);
     Mailvorlagen schreibt Claude, wenn es so weit ist.
+32. **Korrekturliste zu Ende** (`korrekturliste.py export` → ausfüllen →
+    `import`; die ersten 24 Zeilen sind durch) – vom Nutzer am 07.10.2026
+    hierher gestellt: der letzte Schritt vor dem Livegang auf
+    `endurance-events.de` (Punkt 29).
 31. **Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein (als Spanne, wie heute) oder raus (wie virtuelle
