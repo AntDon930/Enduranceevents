@@ -634,7 +634,8 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    fällt bewusst NICHT jedes „Staffel" im Namen; Orte (Staffelsee, Bad
    Staffelstein). `filter_staffeln()` beim Einsammeln,
    `clean_events.drop_staffeln()` rückwirkend, `test_staffeln` hält beide
-   Seiten fest. Wer Staffeln zurückwill, nimmt die beiden Aufrufe heraus.
+   Seiten fest. **Seit dem 07.10.2026 auch Stafette, SOLA, Staffel-Run, Paarläufe und
+   Team-Etappen** (To-do Punkt 10, „Nur Einzelläufe"). Wer Staffeln zurückwill, nimmt die beiden Aufrufe heraus.
 
 17. **Charity ist eine MARKIERUNG, keine Kategorie** – und der Weg
    dorthin ist die Lehre. Am 21.09.2026 wollte der Nutzer „eine neue
@@ -4720,7 +4721,7 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    nicht") – jetzt Punkt 30.
 
 **Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkt 9 am 07.10.2026 vorgezogen und erledigt, danach Punkt 10.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkte 9–11 am 07.10.2026 vorgezogen und erledigt, danach Punkt 12.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4855,8 +4856,25 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
    drin**, dazu StrongAthlon: 9 Zeilen raus, 7.095 → 7.086. Gegenproben
    („Roxheimer", „Strong Viking", „Dozen Hills") in `test_nicht_ausdauer`.
    Die alten Overrides bleiben als No-op stehen.
-10. „Staffel-Run" als Staffelwort in `ist_staffel()`?
-11. Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.
+10. ~~„Staffel-Run" als Staffelwort in `ist_staffel()`?~~ **erledigt**
+    (07.10.2026, vom Nutzer: „Keine Staffelläufe einfach rein. Nur
+    Einzelläufe. Staffel kommt irgendwann noch einmal dazu. Wir brauchen
+    erst einmal eine gute Datenlage für die ganzen normalen Läufe."):
+    `ist_staffel()` kennt jetzt „Staffel-Run"/„Staffelrennen", die
+    Schweizer „Stafette" und „SOLA" (= Stafettenlauf) im Namen,
+    **Paarläufe** (zwei Läufer wechseln sich ab – damit ist Punkt 11
+    gleich mit entschieden) und ein Label, das ein Team
+    über Etappen/Abschnitte schickt (Napf-Marathon, WädiLauf „Du & Ich").
+    Gegenproben: Etappenrennen ohne Team, „Einzel- und Teamwertung",
+    „Solarlauf". 14 Zeilen raus, 7.086 → 7.072. **Nicht** mitgenommen
+    (offen, falls „nur Einzelläufe" auch Teams meint): „Teamlauf" ohne
+    Etappe (Löwenlauf Hachenburg 6,3 km – laut Seite der Jedermannslauf
+    „auch als Teamlauf", Remstal-Lauf 25 km), Team Challenge Halle
+    (Firmen- und Behördenmarathon), Berner Team OL, Firmenläufe als
+    Teamwettbewerb.
+11. ~~Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.~~
+    **erledigt** mit Punkt 10 (07.10.2026, „Nur Einzelläufe"): sieben
+    Paarlauf-Zeilen raus.
 12. Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?
 13. slowUp (12 Zeilen, kein Wettkampf) rein oder raus?
 14. IMEXrun Frankfurt (nur Messebesucher?) raus?

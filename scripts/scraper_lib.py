@@ -2648,11 +2648,26 @@ def nicht_ausdauer_text(name, wettbewerb, standort=None) -> str:
 #      (5, 10, 21,1, 42,2 km - Seite geprüft), die "Meckenheimer
 #      Apfelstaffel" bietet "Einzelläufe und Staffeln" - beide bleiben.
 # "Stafette" ist die Schweizer Schreibweise (3-Seen-Triathlon, datasport 30.09.2026).
-STAFFEL_LABEL = re.compile(r"staffel|stafette|relay|ekiden|\bduo\b|for two", re.I)
+#
+# Erweitert am 07.10.2026 (To-do Punkt 10, vom Nutzer: "Keine
+# Staffelläufe einfach rein. Nur Einzelläufe. Staffel kommt irgendwann
+# noch einmal dazu."): "Staffel-Run" (BriggYard), die Schweizer
+# "Stafette" und "SOLA" (= Stafettenlauf: SOLA-Stafette, Winti-SOLA) im
+# Namen, PAARLÄUFE (zwei Läufer wechseln sich ab - Lichterpaarlauf,
+# Paarlauf mit Musik; beim Ägeriseelauf ist "Paarlauf 1" eine Staffel,
+# "Paarlauf 2" die Begleitung der zweiten Hälfte) und ein Label, das ein
+# TEAM über Etappen/Abschnitte schickt ("Teamlauf mit einer Etappe von
+# 20 km und einer von 22 km", "Du & Ich Teams, zwei Abschnitte"). Eine
+# Etappe allein ist KEINE Staffel (Etappenrennen, "Bergische 5 Etappe 3"),
+# eine Teamwertung neben der Einzelwertung auch nicht.
+STAFFEL_LABEL = re.compile(r"staffel|stafette|relay|ekiden|\bduo\b|for two|paarlauf", re.I)
+STAFFEL_TEAM_ETAPPEN = re.compile(
+    r"\bteam\w*\b.*\b(?:etappe|abschnitt)|\b(?:etappe|abschnitt)\w*\b.*\bteam", re.I)
 STAFFEL_LABEL_MIT_EINZEL = re.compile(
     r"einzel|solo|\boder\b|\bund\b|auch|ebenfalls|möglich", re.I)
 STAFFEL_NAME = re.compile(
-    r"staffel[ -]?(?:lauf|marathon|mix)|(?:firmen|team|marathon)staffel", re.I)
+    r"staffel[ -]?(?:lauf|marathon|mix|run|rennen)|(?:firmen|team|marathon)staffel|"
+    r"stafette|\bsola\b|paarlauf", re.I)
 STAFFEL_NAME_NEBENBEI = re.compile(r"\bmit\b.*staffel|und staffel|/\s*\w*staffel", re.I)
 
 
@@ -2661,6 +2676,8 @@ def ist_staffel(name: str | None, wettbewerb: str | None) -> str | None:
     wb = wettbewerb or ""
     if STAFFEL_LABEL.search(wb) and not STAFFEL_LABEL_MIT_EINZEL.search(wb):
         return f"Staffel-Wettbewerb ({wb.strip()})"
+    if STAFFEL_TEAM_ETAPPEN.search(wb):
+        return f"Team-Staffel ({wb.strip()})"
     n = name or ""
     if STAFFEL_NAME.search(n) and not STAFFEL_NAME_NEBENBEI.search(n):
         return "Staffelveranstaltung (Name)"

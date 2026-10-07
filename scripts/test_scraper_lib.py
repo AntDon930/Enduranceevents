@@ -2240,7 +2240,16 @@ def test_staffeln() -> None:
                      ("Stadtpark-Staffel-Marathon", "Marathon"),
                      ("Marathonstaffel Mörfelden", "Marathon"),
                      ("Staffel-Mix-Marathon", None),
-                     ("Stralsunder Firmenstaffellauf", "12 km")):
+                     ("Stralsunder Firmenstaffellauf", "12 km"),
+                     # erweitert 07.10.2026 (Nutzer: "Nur Einzelläufe")
+                     ("BriggYard Staffel-Run", "42 km"),
+                     ("SOLA-Stafette", "115 km"), ("Winti-SOLA", "83 km"),
+                     ("Grüntenstafette", None), ("Hulftegg Stafette", "25 km"),
+                     ("Lichterpaarlauf Brandenburg", "Paarlauf 60 Minuten (400-m-Runde)"),
+                     ("Paarlauf mit Musik des SCC", None),
+                     ("Ägeriseelauf", "Paarlauf 2"),
+                     ("Napf-Marathon", "Teamlauf mit einer Etappe von 20 km und einer von 22 km"),
+                     ("WädiLauf", "6.15 km und 4.35 km Du & Ich Teams, zwei Abschnitte")):
         check(f"{name!r} / {wb!r} fällt", bool(ist_staffel(name, wb)), True)
     for name, wb in (("#ZeroHungerRun Bonn", "10 km Lauf und Staffel"),
                      ("Butterkuchenlauf", "12 km (Einzel oder Staffel)"),
@@ -2253,7 +2262,13 @@ def test_staffeln() -> None:
                      ("Volks- und Staffeltriathlon TuS Wasserstraße", None),
                      ("Staffelsee Panoramalauf", "5 km"),
                      ("21. Obermain-Marathon Bad Staffelstein", "Sparkassen-Marathon"),
-                     ("Rund um den Kellerskopf", "21 km Halbmarathon (2 x 10,5 km Runde)")):
+                     ("Rund um den Kellerskopf", "21 km Halbmarathon (2 x 10,5 km Runde)"),
+                     # Etappe ohne Team, Teamwertung neben der Einzelwertung
+                     ("Die Bergischen 5 Etappe 3", "45 km"),
+                     ("Giro delle Dolomiti", "Etappenrennen 124 km"),
+                     ("Deutschlandlauf Flensburg - Lörrach", "21 Tagesetappen"),
+                     ("Werdauer Waldlauf", "Halbmarathon (Einzelwertung und Teamwertung)"),
+                     ("Ägeriseelauf", "14 km"), ("Solarlauf Bocholt", "10 km")):
         check(f"{name!r} / {wb!r} bleibt", ist_staffel(name, wb), None)
 
     zeilen = [Event(name="Lübeck Marathon", wettbewerb="Marathon", laenge_km=42.2),

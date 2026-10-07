@@ -5424,20 +5424,6 @@
   },
   {
     "land": "Schweiz",
-    "name": "Napf-Marathon",
-    "standort": "Trubschachen",
-    "lat": 46.9231499,
-    "lon": 7.8444901,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 22.0,
-    "wettbewerb": "Teamlauf mit einer Etappe von 20 km und einer von 22 km",
-    "veranstalter_url": "https://www.napf-marathon.ch"
-  },
-  {
-    "land": "Schweiz",
     "name": "Napf-Marathon Trubschachen",
     "standort": "Trubschachen",
     "lat": 46.9228891,
@@ -16711,35 +16697,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Lichterpaarlauf Brandenburg",
-    "standort": "Brandenburg an der Havel",
-    "lat": 52.4125287,
-    "lon": 12.5316444,
-    "art1": "Laufen",
-    "art2": "Bahn",
-    "datum_start": "2026-11-06",
-    "datum_ende": "2026-11-06",
-    "veranstalter_url": "https://vfl-brandenburg.de/lichterpaarlauf/",
-    "dauer_h": 1,
-    "wettbewerb": "Paarlauf 60 Minuten (400-m-Runde)"
-  },
-  {
-    "land": "Deutschland",
-    "standort": "Brandenburg an der Havel",
-    "lat": 52.4125287,
-    "lon": 12.5316444,
-    "art1": "Laufen",
-    "art2": "Bahn",
-    "name": "Lichterpaarlauf Brandenburg",
-    "datum_start": "2026-11-06",
-    "datum_ende": "2026-11-06",
-    "laenge_km": null,
-    "dauer_h": 0.5,
-    "wettbewerb": "Paarlauf 30 Minuten (400-m-Runde)",
-    "veranstalter_url": "https://vfl-brandenburg.de/lichterpaarlauf/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Paderborner Martinslauf",
     "standort": "Paderborn",
     "lat": 51.7189205,
@@ -22513,18 +22470,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Paarlauf mit Musik des SCC",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-19",
-    "datum_ende": "2026-11-19",
-    "veranstalter_url": "https://www.scc-berlin-leichtathletik.de/events/scc-wettkaempfe?view=article&id=4082%3Apaarlauf-ausschreibung-1827&catid=41"
-  },
-  {
-    "land": "Deutschland",
     "name": "24h Bedburg",
     "standort": "Bedburg",
     "lat": 50.9972161,
@@ -25652,30 +25597,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Holger Anders Flutlicht Paarlauf",
-    "standort": "Laage",
-    "lat": 53.9286632,
-    "lon": 12.3456629,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-03",
-    "datum_ende": "2026-12-03",
-    "veranstalter_url": "https://www.sportclub-laage.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Potsdamer Lichterpaarlauf",
-    "standort": "Potsdam",
-    "lat": 52.3905689,
-    "lon": 13.0644729,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-03",
-    "datum_ende": "2026-12-03",
-    "veranstalter_url": "https://www.potsdamer-laufclub.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "34. Wiedenbrücker Christkindllauf",
     "standort": "Rheda-Wiedenbrück",
     "lat": 51.8428202,
@@ -25698,18 +25619,6 @@
     "datum_start": "2026-12-04",
     "datum_ende": "2026-12-04",
     "veranstalter_url": "https://www.course-a-travers-avenches.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Paarlauf des ABC-Zentrum Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-04",
-    "datum_ende": "2026-12-04",
-    "veranstalter_url": "https://www.abczb.de/paarlauf/"
   },
   {
     "land": "Schweiz",
@@ -41060,18 +40969,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Grüntenstafette",
-    "standort": "Burgberg im Allgäu",
-    "lat": 47.5376846,
-    "lon": 10.2850734,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-01",
-    "datum_ende": "2027-05-31",
-    "veranstalter_url": "https://www.808project.de/gruentenstafette"
-  },
-  {
-    "land": "Deutschland",
     "name": "Meer Bjerge",
     "standort": "Altona",
     "lat": 53.565155,
@@ -42259,18 +42156,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "Mittelstreckenlauf - 5 km",
     "veranstalter_url": "https://my.raceresult.com/425743/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Unterlandstafette",
-    "standort": "Bülach",
-    "lat": 47.5160671,
-    "lon": 8.5419603,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
-    "veranstalter_url": "https://www.unterlandstafette.ch/"
   },
   {
     "land": "Österreich",
@@ -53165,20 +53050,6 @@
     "veranstalter_url": "https://www.herz-kreislauf-essen.de/"
   },
   {
-    "land": "Schweiz",
-    "name": "Hulftegg Stafette",
-    "standort": "Hörnli",
-    "lat": 47.3709,
-    "lon": 8.94192,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-01",
-    "datum_ende": "2027-05-01",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km",
-    "veranstalter_url": "https://sc-hulftegg.ch/hulftegg-stafette/"
-  },
-  {
     "land": "Österreich",
     "name": "Kapfenberger Stadtlauf",
     "standort": "Kapfenberg",
@@ -60953,20 +60824,6 @@
   },
   {
     "land": "Schweiz",
-    "name": "SOLA-Stafette",
-    "standort": "Letten",
-    "lat": 47.3873635,
-    "lon": 8.5334876,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-22",
-    "datum_ende": "2027-05-22",
-    "laenge_km": 115.0,
-    "wettbewerb": "115 km",
-    "veranstalter_url": "https://asvz.ch/sola"
-  },
-  {
-    "land": "Schweiz",
     "name": "Sponsorenlauf „Gemeinsam gegen Kinderkrebs“",
     "standort": "Zürich",
     "lat": 47.4138487,
@@ -66864,20 +66721,6 @@
     "datum_ende": "2027-06-06",
     "laenge_km": 10.5,
     "wettbewerb": "10.5 km Klassiker",
-    "veranstalter_url": "https://waedilauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "WädiLauf",
-    "standort": "Wädenswil",
-    "lat": 47.2296871,
-    "lon": 8.6718189,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-06",
-    "laenge_km": 6.2,
-    "wettbewerb": "6.15 km und 4.35 km Du & Ich Teams, zwei Abschnitte",
     "veranstalter_url": "https://waedilauf.ch/"
   },
   {
@@ -82753,20 +82596,6 @@
     "veranstalter_url": "https://www.aegeriseelauf.com/"
   },
   {
-    "land": "Schweiz",
-    "name": "Ägeriseelauf",
-    "standort": "Oberägeri",
-    "lat": 47.134646,
-    "lon": 8.6091,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-23",
-    "datum_ende": "2027-07-23",
-    "wettbewerb": "Paarlauf 2",
-    "veranstalter_url": "https://www.aegeriseelauf.com",
-    "laenge_km": 7.0
-  },
-  {
     "land": "Österreich",
     "name": "Altstadt Kriterium Graz",
     "standort": "Graz",
@@ -95723,22 +95552,6 @@
     "laenge_km": 10.4,
     "dauer_h": null,
     "veranstalter_url": "https://www.waldlauf-inzlingen.de/",
-    "gedaechtnis": true
-  },
-  {
-    "land": "Schweiz",
-    "name": "Winti-SOLA",
-    "standort": "Winterthur",
-    "lat": 47.4855243,
-    "lon": 8.7034023,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-09-25",
-    "datum_ende": "2027-09-25",
-    "laenge_km": 83.0,
-    "dauer_h": null,
-    "wettbewerb": "83 km",
-    "veranstalter_url": "https://www.wintisola.ch/",
     "gedaechtnis": true
   },
   {
