@@ -47495,18 +47495,6 @@
     "veranstalter_url": "http://www.lg-kaufungen.de"
   },
   {
-    "land": "Schweiz",
-    "name": "ATHX St Gallen",
-    "standort": "St. Gallen",
-    "lat": 47.4244818,
-    "lon": 9.3767173,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-10",
-    "datum_ende": "2027-04-10",
-    "veranstalter_url": "https://athxgames.com/events/01krwy682mdagrw81v49eryjfh"
-  },
-  {
     "land": "Deutschland",
     "name": "Bilstein-Marathon",
     "standort": "Witzenhausen",
@@ -51001,18 +50989,6 @@
   },
   {
     "land": "Österreich",
-    "name": "ATHX Vienna",
-    "standort": "Wien",
-    "lat": 48.2081664,
-    "lon": 16.3718643,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-24",
-    "datum_ende": "2027-04-24",
-    "veranstalter_url": "https://athxgames.com/events/01krwy752qn8epq15qbfn1kjnm"
-  },
-  {
-    "land": "Österreich",
     "name": "Austria Backyard Ultra - Amstetten",
     "standort": "Amstetten",
     "lat": 48.12502,
@@ -51080,20 +51056,6 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://www.darss-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deadly Dozen Köln",
-    "standort": "Köln",
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-24",
-    "datum_ende": "2027-04-24",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/koeln"
   },
   {
     "land": "Deutschland",
@@ -53105,20 +53067,6 @@
     "datum_ende": "2027-05-01",
     "veranstalter_url": "https://chaesitzer-louf.ch/",
     "laenge_km": 12.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deadly Dozen Leipzig",
-    "standort": "Leipzig",
-    "lat": 51.3396955,
-    "lon": 12.3730747,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-01",
-    "datum_ende": "2027-05-01",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/leipzig"
   },
   {
     "land": "Deutschland",
@@ -77528,20 +77476,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Deadly Dozen Aschaffenburg",
-    "standort": "Aschaffenburg",
-    "lat": 49.9806625,
-    "lon": 9.1355554,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-03",
-    "datum_ende": "2027-07-03",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/aschaffenburg"
-  },
-  {
-    "land": "Deutschland",
     "name": "DragonRun Schnaittach",
     "standort": "Schnaittach",
     "lat": 49.5574631,
@@ -86396,20 +86330,6 @@
   },
   {
     "land": "Schweiz",
-    "name": "Deadly Dozen Davos",
-    "standort": "Davos",
-    "lat": 46.8027453,
-    "lon": 9.8359701,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-14",
-    "datum_ende": "2027-08-14",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/davos"
-  },
-  {
-    "land": "Schweiz",
     "name": "Eiger Bike-Challenge",
     "standort": "Grindelwald",
     "lat": 46.6245,
@@ -86713,20 +86633,6 @@
     "laenge_km": 25.0,
     "wettbewerb": "25 km",
     "veranstalter_url": "https://www.ssv-borken.de/veranstaltungen/2959010/2027/08/14/stadtwerke-borken-triathlon.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "StrongAthlon",
-    "standort": "Enge-Sande",
-    "lat": 54.726671,
-    "lon": 8.9967266,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-14",
-    "datum_ende": "2027-08-15",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "https://my.raceresult.com/419193/"
   },
   {
     "land": "Schweiz",
@@ -87749,20 +87655,6 @@
     "laenge_km": 42.0,
     "wettbewerb": "Marathon 42 km",
     "veranstalter_url": "https://www.course-du-mandement.ch/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Deadly Dozen Klagenfurt",
-    "standort": "Innere Stadt",
-    "lat": 46.6239712,
-    "lon": 14.3088486,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-21",
-    "datum_ende": "2027-08-21",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/klagenfurt"
   },
   {
     "land": "Deutschland",
@@ -89092,20 +88984,6 @@
     "laenge_km": 100.0,
     "wettbewerb": "RTF 100 km",
     "veranstalter_url": "https://cycling-paradise.com"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Deadly Dozen Fürth",
-    "standort": "Fürth",
-    "lat": 49.4771169,
-    "lon": 10.988667,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-28",
-    "datum_ende": "2027-08-28",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.deadlydozen.de/event/fuerth"
   },
   {
     "land": "Österreich",

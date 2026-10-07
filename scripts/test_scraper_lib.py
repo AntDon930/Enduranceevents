@@ -2145,6 +2145,10 @@ def test_nicht_ausdauer() -> None:
                  "Gymrace Airport Weeze", "Decathlon Hybrid Series - Plochingen",
                  # Nachzügler, vom Nutzer am 21.09.2026 bestätigt
                  "Runworx", "Black Forest Team Battle",
+                 # weitere Marken, vom Nutzer am 07.10.2026 bestätigt
+                 "Fitletix - Graz", "Raedbox Challenge by FITLETIX", "The Rox",
+                 "Deadly Dozen Köln", "Deadly Sprint im Glaspalast", "Deadly Gross Fürth",
+                 "ATHX St Gallen", "ATHX Vienna", "StrongAthlon", "4. Strong Athlon",
                  # Gehen und Skilanglauf (Nutzer, 21.09.2026)
                  "Lusatian Race Walking", "Internationaler Kammlauf (Skilanglauf)",
                  "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
@@ -2155,6 +2159,9 @@ def test_nicht_ausdauer() -> None:
                  "Family-CrossDeLuxe Leipzig", "Muddy Angel Run - Berlin",
                  "Tough Mudder Hamburg", "Fitnesslauf Bochum", "Hindernislauf Kiel",
                  "Decathlon Stadtlauf Plochingen", "Hybrid Trail Harz",
+                 # "Rox", "Dozen" und "Strong" allein sind keine Marke
+                 "Roxheimer Volkslauf", "Dozen Hills Trail", "Strong Viking Run",
+                 "Athlon Triathlon", "Deadline Lauf",
                  # Walking-Strecken bleiben (offene Frage an den Nutzer),
                  # "Langläufer" ist kein Langlauf, ein Bergläufer kein Geher.
                  "21. Trochtelfinger Nordic Walking Stöckles-Cup", "Ahmadiyya Charity Walk",

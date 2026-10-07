@@ -563,6 +563,9 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      Skilanglauf nicht aufnehmen"); **virtuelle Läufe** („Virtuelle
      Läufe rausnehmen" – geprüft wird auch der ORT, die XMAS-Challenge
      des Blauen Landes trug „virtuell" nur dort, `nicht_ausdauer_text()`).
+     **Seit dem 07.10.2026 auch FITLETIX, THE ROX, Deadly Dozen, ATHX und
+     StrongAthlon** (To-do-Liste, Punkt 9) – vorher nur per Override, und
+     ein Override trifft nur seinen einen Termin.
      **Nicht** darunter fallen die Walking-/Nordic-Walking-Strecken
      innerhalb eines Volkslaufs (145 Zeilen) – das ist eine offene
      Frage an den Nutzer, siehe unten.
@@ -4717,7 +4720,7 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    nicht") – jetzt Punkt 30.
 
 **Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkt 9 am 07.10.2026 vorgezogen und erledigt, danach Punkt 10.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4842,8 +4845,16 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 
 **C. Entscheidungen Ja/Nein (je eine Zeile Code)**
 
-9. FITLETIX, THE ROX, Deadly Dozen, ATHX in `NICHT_AUSDAUER`? (heute nur
-   per Override draußen); StrongAthlon ungeprüft.
+9. ~~FITLETIX, THE ROX, Deadly Dozen, ATHX in `NICHT_AUSDAUER`? (heute nur
+   per Override draußen); StrongAthlon ungeprüft.~~ **erledigt**
+   (07.10.2026, „Ja bitte für alle 5"): alle fünf Marken in
+   `NICHT_AUSDAUER` (Deadly Dozen samt Deadly Sprint/Gross; StrongAthlon
+   laut running.life Zweierteams, Laufen im Wechsel mit Kraftübungen).
+   Die Overrides hatten nur ihre Termine erwischt – **acht neue Termine
+   (ATHX St. Gallen/Wien, sechsmal Deadly Dozen) standen schon wieder
+   drin**, dazu StrongAthlon: 9 Zeilen raus, 7.095 → 7.086. Gegenproben
+   („Roxheimer", „Strong Viking", „Dozen Hills") in `test_nicht_ausdauer`.
+   Die alten Overrides bleiben als No-op stehen.
 10. „Staffel-Run" als Staffelwort in `ist_staffel()`?
 11. Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.
 12. Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?

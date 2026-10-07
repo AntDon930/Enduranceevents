@@ -2566,6 +2566,21 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\brunworx\b", re.I), "Runworx (Hindernislauf + Kraft-WOD)"),
     (re.compile(r"black\s+forest\s+team\s+battle", re.I),
      "Black Forest Team Battle (Laufen + Kraftstationen)"),
+    # Weitere Marken derselben Klasse, erst per Override ausgeschlossen
+    # (Vierzehnter/Achtzehnter Durchgang) und vom Nutzer am 07.10.2026 in
+    # die Liste übernommen ("Ja bitte für alle 5"): Ein Override gilt nur
+    # für einen Termin, acht neue Termine standen schon wieder drin.
+    # FITLETIX und THE ROX: Fitness-Challenges mit Kraftstationen;
+    # Deadly Dozen ("Ultimativer Fitness-Wettkampf", auch Deadly Sprint
+    # und Deadly Gross); ATHX ("Real Hybrid Fitness", Kraft- und
+    # Ausdauerzonen); StrongAthlon (Zweierteams, Laufen im Wechsel mit
+    # Kraftübungen). "Rox" allein ist kein Beleg, nur "The Rox".
+    (re.compile(r"\bfitletix\b", re.I), "FITLETIX (Fitness-Challenge mit Kraftstationen)"),
+    (re.compile(r"\bthe\s+rox\b", re.I), "THE ROX (Fitness-Rennen mit Kraftstationen)"),
+    (re.compile(r"\bdeadly\s+(?:dozen|sprint|gross)\b", re.I),
+     "Deadly Dozen (Fitness-Wettkampf)"),
+    (re.compile(r"\bathx\b", re.I), "ATHX Games (Hybrid-Fitness-Wettkampf)"),
+    (re.compile(r"\bstrong\s*athlon\b", re.I), "StrongAthlon (Laufen + Kraftübungen im Team)"),
     # Gehen und Skilanglauf sind keine Laufveranstaltungen (vom Nutzer am
     # 21.09.2026 entschieden: "Gehen und Skilanglauf nicht aufnehmen").
     # "Race Walking" ist die Leichtathletik-Disziplin Gehen (Lusatian Race
