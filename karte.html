@@ -436,7 +436,7 @@
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=b8f59dd3"></script>
 <script src="filter-ui.js?v=05e06e2d"></script>
-<script src="event-detail.js?v=6ae2f9b2"></script>
+<script src="event-detail.js?v=6c93c62b"></script>
 
 <script>
 (async function () {
@@ -1014,7 +1014,7 @@
     baueReferenzOrte();
     const fussnote = document.getElementById('datum-fussnote');
     fussnote.textContent = t('datum_fussnote');
-    fussnote.hidden = !events.some(e => e.datum_vorlaeufig);
+    fussnote.hidden = !events.some(e => e.datum_vorlaeufig || e.gedaechtnis);
     // Fußzeile: Impressum und Datenschutz (auf jeder Seite, § 5 DDG).
     document.getElementById('footer-impressum').textContent = t('footer_imprint');
     document.getElementById('footer-datenschutz').textContent = t('footer_privacy');
@@ -1333,7 +1333,7 @@
           return `<li><button type="button" class="popup-event" data-idx="${events.indexOf(g.e)}">`
             + `<span class="pe-name">${escapeHtml(g.e.name)}</span>`
             + `<span class="pe-meta">${escapeHtml(EED.formatGroupDate(g.rows, currentLang))}`
-            + ` · ${escapeHtml(EED.formatLengthSpan(g.rows, currentLang))}`
+            + ` · ${EED.formatLengthSpanHtml(g.rows, currentLang)}`
             + (g.rows.length > 1 ? ` · ${escapeHtml(t('popup_strecken', g.rows.length))}` : '') + `</span>`
             + `</button></li>`;
         }).join('') + `</ul>` +
@@ -1431,7 +1431,7 @@
 </script>
 
 <footer class="site-footer">
-  <!-- Fußnote zu "Juni 2027*" (vorläufige Termine), siehe events.html. -->
+  <!-- Fußnote zum Sternchen (vorläufige Termine, Strecken aus dem Vorjahr), siehe events.html. -->
   <span class="fussnote" id="datum-fussnote" hidden></span>
   <div class="seiten-footer">
     <a id="footer-impressum" href="impressum.html">Impressum</a>

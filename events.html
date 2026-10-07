@@ -1029,7 +1029,7 @@
      dieselben Events zeigen. -->
 <script src="filters.js?v=b8f59dd3"></script>
 <script src="filter-ui.js?v=05e06e2d"></script>
-<script src="event-detail.js?v=6ae2f9b2"></script>
+<script src="event-detail.js?v=6c93c62b"></script>
 
 <script>
 (async function () {
@@ -1844,7 +1844,7 @@
     standEl.textContent = datenStand ? t('stand', EF.formatDateWeekday(datenStand, lang, true)) : '';
     const fussnote = document.getElementById('datum-fussnote');
     fussnote.textContent = t('datum_fussnote');
-    fussnote.hidden = !events.some(e => e.datum_vorlaeufig);
+    fussnote.hidden = !events.some(e => e.datum_vorlaeufig || e.gedaechtnis);
     document.getElementById('stand-box').hidden = !datenStand;
     // Die Filterpillen tragen die Spaltennamen - neu bauen, sonst bleibt
     // "Ort & Umkreis" auf Englisch stehen. Reihenfolge der Vorlage.
@@ -2063,7 +2063,7 @@
       case 'entfernung': return td(`<div class="cell-clamp"><span class="kachel-label">${escapeHtml(t('col_entfernung'))}: </span>${escapeHtml(formatDistance(e))}</div>`);
       case 'art1': return td(`<div class="cell-clamp sport-cell ${EED.sportClass(e.art1)}">${EED.sportIcon(e.art1)}<span>${escapeHtml(tv('art1', e.art1))}</span></div>`);
       case 'art2': return td(`<div class="cell-clamp">${e.art2 ? escapeHtml(tv('art2', e.art2)) : '–'}${charityMarke(e)}</div>`);
-      case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${formatLength(e)}</div>`);
+      case 'laenge_km': return td(`<div class="cell-clamp${EED.triathlonFormat(e) ? ' format' : ''}">${EED.formatLengthHtml(e, currentLang)}</div>`);
       default: return td('');
     }
   }
@@ -2170,7 +2170,7 @@
                + `${charityMarke({ charity })}</div></td>`;
         case 'laenge_km':
           if (offen) return cellHtml(col, e);
-          return `<td class="col-laenge_km"><div class="cell-clamp${g.rows.every(r => r.e.art1 === 'Triathlon') ? ' format' : ''}">${escapeHtml(laengeSpanne(g))}</div></td>`;
+          return `<td class="col-laenge_km"><div class="cell-clamp${g.rows.every(r => r.e.art1 === 'Triathlon') ? ' format' : ''}">${EED.formatLengthSpanHtml(g.rows.map(r => r.e), currentLang)}</div></td>`;
         default:
           return cellHtml(col, e);
       }
@@ -3521,8 +3521,9 @@
     <span id="fehlt-bar-text"></span>
     <button type="button" class="fehlt-btn" id="fehlt-open-btn"></button>
   </div>
-  <!-- Fußnote zu "Juni 2027*": nur sichtbar, wenn die Liste vorläufige
-       Termine enthält (datum_vorlaeufig). -->
+  <!-- Fußnote zum Sternchen: nur sichtbar, wenn die Liste vorläufige
+       Termine (datum_vorlaeufig) oder Strecken aus dem Vorjahr
+       (gedaechtnis) enthält. -->
   <span class="fussnote" id="datum-fussnote" hidden></span>
   <div class="seiten-footer">
     <a id="footer-impressum" href="impressum.html">Impressum</a>

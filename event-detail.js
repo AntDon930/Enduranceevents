@@ -47,7 +47,14 @@
       // Liste und Karte zeigen denselben Text, und der Tooltip am
       // Sternchen selbst (formatEventRangeHtml) braucht ihn auch.
       datum_vorlaeufig_kurz: 'Termin noch nicht veröffentlicht – der Monat ist der des Vorjahres',
-      datum_fussnote: '* Termin noch nicht veröffentlicht – Monat laut Vorjahr',
+      // Dasselbe Sternchen an einer STRECKE, die aus dem Vorjahr
+      // abgeschrieben ist (gedaechtnis: true, siehe veranstalter_seiten.py):
+      // Die Veranstalterseite nennt schon den Termin, aber noch keine
+      // Strecken - die Zahl ist eine Schätzung nach dem Vorjahr (vom
+      // Nutzer am 07.10.2026 so gewünscht, eine Fußnote für beides).
+      strecke_vorlaeufig_kurz: 'Strecke noch nicht bestätigt – Angabe aus dem Vorjahr',
+      detail_strecke_vorlaeufig: 'Strecken noch nicht bestätigt – Angaben aus dem Vorjahr',
+      datum_fussnote: '* noch nicht bestätigt – Termin bzw. Strecke sind Schätzungen aus dem Vorjahr',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
@@ -79,7 +86,9 @@
       charity: 'Charity',
       charity_titel: 'Charity event: this race runs for a good cause.',
       datum_vorlaeufig_kurz: 'Date not yet published – the month is the one from last year',
-      datum_fussnote: '* exact date not yet published – month as in the previous year',
+      strecke_vorlaeufig_kurz: 'Distance still to be confirmed – taken from the previous year',
+      detail_strecke_vorlaeufig: 'Distances still to be confirmed – taken from the previous year',
+      datum_fussnote: '* still to be confirmed – date or distance are estimates from the previous year',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       share_fail: 'Could not copy – please use the address bar',
@@ -111,8 +120,13 @@
   // und auf dem Handy scrollt man erst an vierhundert Zeilen vorbei.
   // Die Erklärung gehört an das Zeichen selbst. Die Fußzeile behält sie
   // trotzdem: Ein `title` ist auf einem Touchgerät nicht zu sehen.
-  function vorlaeufigStern(lang) {
-    return `<abbr class="vorlaeufig-stern" title="${escapeHtml(txt(lang, 'datum_vorlaeufig_kurz'))}">*</abbr>`;
+  function vorlaeufigStern(lang, key) {
+    return `<abbr class="vorlaeufig-stern" title="${escapeHtml(txt(lang, key || 'datum_vorlaeufig_kurz'))}">*</abbr>`;
+  }
+  // Das Sternchen an einer Strecke aus dem Vorjahr (gedaechtnis: true) -
+  // leer, wenn die Strecke von einer Quelle bestätigt ist.
+  function streckeStern(e, lang) {
+    return e && e.gedaechtnis ? vorlaeufigStern(lang, 'strecke_vorlaeufig_kurz') : '';
   }
 
   // ---------- Wettbewerbs-Label ----------
@@ -356,6 +370,13 @@
     return EF.formatKm(null, lang);
   }
 
+  // Dasselbe als HTML, mit dem Sternchen einer Vorjahres-Strecke - für
+  // Tabelle, Box und Pillen. Wer den Text escapen muss (Teilen,
+  // Kalender), nimmt formatLength() und die Zeile detail_strecke_vorlaeufig.
+  function formatLengthHtml(e, lang, opts) {
+    return escapeHtml(formatLength(e, lang, opts)) + streckeStern(e, lang);
+  }
+
   // ---------- Die Kennung eines Events ----------
 
   // Dateiname der fertigen .ics-Datei. **Muss mit ics_dateiname() in
@@ -515,6 +536,7 @@
     ];
     const wb = displayWettbewerb(e);
     if (wb) zeilen.splice(2, 0, wb);
+    if (e.gedaechtnis) zeilen.push(ctx.t('detail_strecke_vorlaeufig'));
     return zeilen.join('\n');
   }
 
@@ -562,6 +584,7 @@
       `${t('detail_laenge')}: ${formatLength(e, lang, { mitKm: true })}`
     ];
     if (e.datum_vorlaeufig) zeilen.unshift(t('detail_vorlaeufig'));
+    if (e.gedaechtnis) zeilen.push(t('detail_strecke_vorlaeufig'));
     if (e.veranstalter_url) zeilen.push(e.veranstalter_url);
     return {
       titel,
@@ -845,6 +868,12 @@
     const bis = zahl(Math.max.apply(null, werte));
     return von === bis ? `${von}${einheit}` : `${von}–${bis}${einheit}`;
   }
+  // Die Spanne als HTML: EIN Sternchen, sobald eine der Strecken aus
+  // dem Vorjahr stammt (zusammengefasste Zeile, Karten-Popup).
+  function formatLengthSpanHtml(rows, lang) {
+    const stern = rows.some(e => e && e.gedaechtnis) ? vorlaeufigStern(lang, 'strecke_vorlaeufig_kurz') : '';
+    return escapeHtml(formatLengthSpan(rows, lang)) + stern;
+  }
 
   // Die Strecken einer Veranstaltung als Pillen: nach Länge sortiert,
   // Zeitrennen dahinter, die gewählte hervorgehoben.
@@ -877,7 +906,7 @@
           const wb = displayWettbewerb(x.e);
           const beschriftung = doppelt.has(namen[i]) ? mitDatum(x, formatLength(x.e, ctx.lang, { mitKm: true })) : namen[i];
           return `<button type="button" class="strecke-pill${aktiv ? ' active' : ''}" data-idx="${x.idx}"`
-            + `${aktiv ? ' aria-pressed="true"' : ''}${wb ? ` title="${escapeHtml(wb)}"` : ''}>${escapeHtml(beschriftung)}</button>`;
+            + `${aktiv ? ' aria-pressed="true"' : ''}${wb ? ` title="${escapeHtml(wb)}"` : ''}>${escapeHtml(beschriftung)}${streckeStern(x.e, ctx.lang)}</button>`;
         }).join('')
       + '</div>';
   }
@@ -955,7 +984,7 @@
       ${streckenPillen(e, ctx)}
       <dl class="detail-grid">
         <div class="fact">${factIcon('ort')}<div><dt>${escapeHtml(t('detail_ort'))}</dt><dd>${escapeHtml(tv('standort', e.standort))},<br>${escapeHtml(tv('land', e.land))}</dd></div></div>
-        <div class="fact">${factIcon('strecke')}<div><dt>${escapeHtml(t('detail_strecke'))}</dt><dd>${escapeHtml(strecke)}</dd></div></div>
+        <div class="fact">${factIcon('strecke')}<div><dt>${escapeHtml(t('detail_strecke'))}</dt><dd>${escapeHtml(strecke)}${streckeStern(e, lang)}</dd></div></div>
         <div class="fact">${factIcon('kategorie')}<div><dt>${escapeHtml(t('detail_kategorie'))}</dt><dd>${escapeHtml(kategorie)}</dd></div></div>
         ${ctx.distanceText
           ? `<div class="fact">${factIcon('entfernung')}<div><dt>${escapeHtml(t('detail_entfernung'))}</dt><dd>${escapeHtml(t('detail_entfernung_von', ctx.distanceText))}</dd></div></div>`
@@ -1022,6 +1051,9 @@
     istSerie,
     formatGroupDateHtml,
     formatGroupDate,
-    formatLengthSpan
+    formatLengthSpan,
+    formatLengthSpanHtml,
+    formatLengthHtml,
+    streckeStern
   };
 })(typeof window !== 'undefined' ? window : globalThis);

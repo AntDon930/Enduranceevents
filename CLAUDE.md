@@ -2569,6 +2569,44 @@ sagt es).
   **Die allgemeine Lehre**: Eine Erklärung gehört an die Stelle, an der
   die Frage entsteht, nicht dorthin, wo Platz ist.
 
+  **Seit dem 07.10.2026 trägt auch eine STRECKE das Sternchen** (vom
+  Nutzer bei Punkt 6 der To-do-Liste verlangt: „bei den Strecken wieder
+  einen * machen … die Fußnote so anpassen, dass sie für Datum und
+  Strecke passt"). Gemeint sind die Zeilen mit `gedaechtnis: true` –
+  Vorjahreskopien aus dem Gedächtnis, deren Strecken noch keine Quelle
+  für die neue Ausgabe bestätigt hat. Wie es gebaut ist, alles in
+  `event-detail.js`:
+  - `vorlaeufigStern(lang, key)` nimmt jetzt einen Textschlüssel;
+    `streckeStern(e, lang)` gibt das Sternchen mit
+    `strecke_vorlaeufig_kurz` („Strecke noch nicht bestätigt – Angabe
+    aus dem Vorjahr") zurück, wenn `e.gedaechtnis` gesetzt ist, sonst
+    nichts. Dieselbe Klasse `.vorlaeufig-stern`, dieselbe Farbe – ein
+    Zeichen, zwei Fälle, der `title` sagt, welcher.
+  - **`formatLengthHtml(e, lang)` und `formatLengthSpanHtml(rows, lang)`**
+    sind die HTML-Fassungen von `formatLength`/`formatLengthSpan`
+    (escaped plus Sternchen; die Spanne trägt es, sobald EINE Zeile der
+    Veranstaltung eine Vorjahreskopie ist). Die Länge-Spalte der Liste,
+    die zusammengefasste Zeile, die Strecken-Pillen, der Fakt „Strecke"
+    in der Box und das Karten-Popup rufen sie. **Die Textfassungen
+    bleiben** für Teilen-Text, Kalender-Beschreibung und Melde-Dialog –
+    dort steht stattdessen der Satz `detail_strecke_vorlaeufig` als
+    eigene Zeile, und `functions/index.js` hängt denselben Hinweis an
+    die Zeile in der Abo-Mail (`eventKurz` reicht `gedaechtnis` durch).
+  - **EINE Fußnote für beides**: `datum_fussnote` heißt jetzt „* noch
+    nicht bestätigt – Termin bzw. Strecke sind Schätzungen aus dem
+    Vorjahr" (EN: „still to be confirmed – date or distance are
+    estimates from the previous year"), und `events.html`/`karte.html`
+    blenden `#datum-fussnote` ein, sobald eine Zeile `datum_vorlaeufig`
+    ODER `gedaechtnis` trägt.
+  - **Nicht geändert**: der Titel der Kalenderdatei (`build_ics.py`
+    schreibt „(Termin vorläufig)" nur bei `datum_vorlaeufig`) und
+    `events.json` selbst – `gedaechtnis` stand dort schon, die Seite
+    hat es bis dahin nur ignoriert. `events.web.json` nimmt jedes Feld
+    mit, also auch dieses.
+  - Das Sternchen verschwindet von selbst: Sobald eine Quelle die
+    Strecke bestätigt, nimmt `update_existing_event()`/`merge_duplicates()`
+    die Markierung weg (siehe „Gedächtnis je Veranstaltung").
+
 - **Die Detail-Box hat auch in der Liste ein ✕.** Die Karte hatte es von
   Anfang an, die Liste nicht (`onClose` war optional und wurde dort nicht
   übergeben) – bis der Nutzer es am 21.09.2026 auch hier wollte. Drei
@@ -4678,8 +4716,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4 erledigt, WEITER BEI PUNKT 6.**
-(Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45.)
+**Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, WEITER BEI PUNKT 7.**
+(Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
+07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
 morgen genau merken"). Punkte 1–3 sind erledigt, Punkt 5 steht als
 Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
@@ -4688,13 +4727,22 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
   als Besucher lesen, Testmail an `impressum@endurance-events.de`,
   entscheiden, ob jemand gegenliest. Der Text ist aktuell (Versand seit
   heute drin). Claude gibt keine Rechtsberatung.
-- **Punkt 6**: Die 34 NEU?-Fälle hat Claude am 05.10.2026 schon alle an
-  den Veranstalterseiten gelesen (Skript über `veranstalter_links.Abrufer`,
-  Sätze mit 2027-Datum). **Es fehlt nur noch das Ja des Nutzers** zu
-  diesen 18, die die Seite mit Lauf UND Termin ausdrücklich nennt – dann
-  je Fall über `veranstalter_seiten.manual_events_aus()` mit den Strecken
-  der Ausgabe 2026 und `gedaechtnis: true` nach `manual_events.json`,
-  `clean_events.py --no-geocoding`, `build_ics.py`, Tests, Push:
+- ~~**Punkt 6**~~ **erledigt** (07.10.2026, vom Nutzer freigegeben: „Ja
+  die 18 übernehmen, aber bei den Strecken wieder einen * machen"). Die
+  34 NEU?-Fälle hatte Claude am 05.10.2026 an den Veranstalterseiten
+  gelesen (Skript über `veranstalter_links.Abrufer`, Sätze mit
+  2027-Datum); 18 nannten Lauf UND Termin ausdrücklich. **Ergebnis**:
+  **13 Veranstaltungen mit 32 Zeilen** in `manual_events.json`
+  (`gedaechtnis: true`, Strecken der Ausgabe 2026, `_note` nennt den
+  Beleg-Satz), 7.063 → 7.095 Events. **Fünf der 18 standen schon für
+  2027 in `events.json`** (King of the Lake über eine Quelle, La Reine,
+  S3-T Triathlon, Bad Ischler Kaiserlauf, Lions-Monopteros-Lauf) – vor
+  dem Eintragen immer `events.json` nach dem Namen fragen, der Datenlauf
+  und die Parallel-Sitzung sind schneller als die Handprüfung. Bei
+  Rheinhöhenlauf (50-km-Zeile da) und Neuhütten (10-km-Zeile da) nur die
+  fehlenden Strecken ergänzt. **Vorjahresstrecken tragen seitdem ein
+  Sternchen** – siehe Frontend-Fallen, „Das Sternchen erklärt sich
+  selbst" (zweiter Absatz). Die Tabelle bleibt als Protokoll stehen:
 
   | Veranstaltung (Gedächtnis-Ort) | Termin 2027 | Beleg |
   |---|---|---|
@@ -4744,9 +4792,12 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 
 **B. Datenprüfung (Handarbeit des Nutzers)**
 
-6. **Die 34 NEU?-Fälle** der Gedächtnis-Prüfung durchgehen
+6. ~~**Die 34 NEU?-Fälle** der Gedächtnis-Prüfung durchgehen
    (`python3 scripts/veranstalter_seiten.py handpruefung`) und Claude
-   sagen, welche Termine stimmen → `manual_events.json`.
+   sagen, welche Termine stimmen → `manual_events.json`.~~ **erledigt**
+   (07.10.2026: 13 Veranstaltungen / 32 Zeilen übernommen, 5 waren schon
+   da, 16 abgelehnt – Einzelheiten im Stand-Block oben). Die nächste
+   `handpruefung` bringt neue NEU?-Fälle nach dem nächsten Datenlauf.
 7. **Korrekturliste weiter** (`korrekturliste.py export` → ausfüllen →
    `import`); die ersten 24 Zeilen sind durch.
 8. **Walking-Zeilen in Volksläufen** (145 Zeilen „Nordic Walking", als

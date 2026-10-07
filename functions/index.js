@@ -435,6 +435,7 @@ function eventKurz(event) {
     art2: event.art2 || null,
     charity: event.charity === true,
     laenge_km: event.laenge_km != null ? event.laenge_km : null,
+    gedaechtnis: event.gedaechtnis === true,
     dauer_h: event.dauer_h != null ? event.dauer_h : null,
     veranstalter_url: event.veranstalter_url || null,
   };
@@ -479,7 +480,8 @@ function eventEmailHtml(event) {
   return (
     `<h2>${event.name}</h2>` +
     `<p>${event.standort || ""}, ${event.land || ""}<br>` +
-    `${datumText(event)}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}</p>` +
+    `${datumText(event)}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}` +
+    `${event.gedaechtnis ? " (Strecke noch nicht bestätigt – Angabe aus dem Vorjahr)" : ""}</p>` +
     link
   );
 }
