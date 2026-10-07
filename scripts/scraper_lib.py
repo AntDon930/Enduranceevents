@@ -2690,6 +2690,99 @@ def filter_staffeln(events: list["Event"]) -> tuple[list["Event"], int]:
     return kept, len(events) - len(kept)
 
 
+# --------------------------------------------------------------------------
+# Walking-Wettbewerbe: raus (vom Nutzer am 07.10.2026 entschieden)
+# --------------------------------------------------------------------------
+#
+# Fast jeder Volkslauf bietet neben dem Lauf eine Walking-/Nordic-Walking-
+# Strecke an, und die Quellen liefern sie als eigene Zeile - bei uns stand
+# sie als LAUF in der Liste ("7,5 km Walking" unter Laufen, 7,5 km). Am
+# Bestand vom 07.10.2026 (7.095 Zeilen) gezählt: 96 solche Zeilen, dazu 64
+# Zeilen "Lauf und Walking" und 75 mit Walking nur im Namen. Entscheidung
+# des Nutzers ("Nur A raus"): Nur die Zeile fällt, deren LABEL
+# ausschließlich einen Walking-, Wander- oder Marsch-Wettbewerb nennt.
+# Was bleibt, mit Begründung:
+#
+#   - "10 km Lauf und Nordic Walking", "5 km für Läufer und Walker",
+#     "5 km Running oder (Nordic) Walking", "6,5 km (Laufen, Walken, …)":
+#     dieselbe Strecke für beide - das IST der Lauf. Ein Laufwort im
+#     Label genügt (LAUF_IM_LABEL; "Hobby" ist die Hobbylauf-Klasse:
+#     "5,5 km Hobby, U18, Walking/Wandern").
+#   - "ca. 6 km Seerunde und Nordic Walking", "36er und 36er Walk",
+#     "10km fun & walking": zwei Wettbewerbe in einem Label, der erste
+#     ist der Lauf - ein mit und/oder/&/Schrägstrich abgetrennter Teil
+#     OHNE Walking-Wort und mit eigenem Text hält die Zeile. Nicht die
+#     Kommas: "6 km Nordic Walker, offen für alle" ist eine Walking-Zeile.
+#   - "6 km auch als Nordic Walking", "5,2 km …, auch als
+#     Nordic-Walking-Bewerb": die Hauptform ist der Lauf.
+#   - Walking nur im NAMEN ("Bödefelder Hollenmarsch", "Ultra Walk",
+#     "Karwendelmarsch", "Ahmadiyya Charity Walk", "Winterlauf- und
+#     Walkingserie"): bleibt - vom Nutzer ausdrücklich so entschieden
+#     ("C ist ein Ultra, der wird nicht nur gelaufen sondern viele gehen
+#     auch beim Ultra. Deshalb bitte C drinnenlassen.").
+#   - Nur `art1 == "Laufen"`: Beim Triathlon ist "Walk" kein Thema, und
+#     ein Radrennen heißt nie Walking.
+#   - Wiederholt das Label VORN den Veranstaltungsnamen
+#     ("Aletsch-Halbmarathon Walking 21.1 km"), zählt das Laufwort darin
+#     nicht - das ist die Walking-Kategorie des Halbmarathons. Nur als
+#     Präfix: Bei "Schliersee Lauf | 10,0 km Lauf und Walk" steht "Lauf"
+#     mitten im Label und bleibt ein Laufwort.
+# Zwei Stellen wie bei den Staffeln: beim Einsammeln (filter_walking) und
+# rückwirkend (clean_events.drop_walking). `test_walking` hält Treffer und
+# Gegenproben fest. Die „(Nordic) Walking"-Zeilen des Sportlichen Gehens
+# (Race Walking, "Geher") fallen unabhängig davon über NICHT_AUSDAUER.
+WALKING_LABEL = re.compile(r"walk|wander|marsch", re.I)
+LAUF_IM_LABEL = re.compile(
+    r"lauf|läuf|laeuf|\brun(?:ning|s)?\b|funrun|jogg|marathon|trail|cross|"
+    r"hobby|auch als", re.I)
+_WALKING_TEILE = re.compile(r"\s+(?:und|oder|&|\+|/)\s+|/", re.I)
+
+
+def _ohne_namenspraefix(label: str, name: str | None) -> str:
+    """Das Label ohne den vorangestellten Veranstaltungsnamen
+    ("Aletsch-Halbmarathon Walking 21.1 km" -> "walking 21.1 km";
+    kleingeschrieben, die Muster darauf sind ohnehin case-insensitive)."""
+    if not name:
+        return label
+    def norm(t: str) -> str:
+        return re.sub(r"[\s\-–]+", " ", t).strip().lower()
+    n, l = norm(name), norm(label)
+    if n and l.startswith(n + " "):
+        return l[len(n):].strip()
+    return label
+
+
+def ist_walking(art1: str | None, wettbewerb: str | None,
+                name: str | None = None) -> str | None:
+    """Der Grund, warum diese Zeile ein reiner Walking-Wettbewerb ist -
+    sonst None. Nur für Laufen; entschieden wird am LABEL - der Name
+    dient nur dazu, seine Wiederholung vorn im Label zu überlesen."""
+    if art1 != "Laufen":
+        return None
+    wb = (wettbewerb or "").strip()
+    if not wb or not WALKING_LABEL.search(wb):
+        return None
+    kern = _ohne_namenspraefix(wb, name)
+    if LAUF_IM_LABEL.search(kern):
+        return None
+    # Zwei Wettbewerbe in einem Label: Hat ein abgetrennter Teil eigenen
+    # Text (mindestens zwei Buchstaben - "36er" ja, das "W" aus "M/W"
+    # nicht), aber kein Walking-Wort, ist er der Lauf ("36er und 36er
+    # Walk", "ca. 6 km Seerunde und Nordic Walking").
+    for teil in _WALKING_TEILE.split(kern):
+        teil = teil.strip()
+        if (teil and not WALKING_LABEL.search(teil)
+                and re.search(r"[A-Za-zÄÖÜäöüß]{2,}", teil)):
+            return None
+    return f"Walking-Wettbewerb ({wb})"
+
+
+def filter_walking(events: list["Event"]) -> tuple[list["Event"], int]:
+    """Wirft reine Walking-Wettbewerbe heraus (siehe ist_walking)."""
+    kept = [e for e in events if not ist_walking(e.art1, e.wettbewerb, e.name)]
+    return kept, len(events) - len(kept)
+
+
 # Schwimm-Wettkämpfe, für die man sich nicht als Jedermann anmelden kann
 # (vom Nutzer am 24.09.2026 entschieden: "Ich möchte keine Schwimm Events
 # aufnehmen, die nicht für jeden sind, also 50m deutsche Meisterschaft
@@ -3223,6 +3316,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     if staffel_skipped:
         print(f"  ({staffel_skipped} Staffel-Zeile(n) übersprungen - erst einmal "
               f"keine Staffeln, siehe ist_staffel.)")
+    events_to_use, walking_skipped = filter_walking(events_to_use)
+    if walking_skipped:
+        print(f"  ({walking_skipped} Walking-Zeile(n) übersprungen - reine "
+              f"Walking-Wettbewerbe, siehe ist_walking.)")
     events_to_use, nicht_offen_skipped = filter_nicht_offen_schwimmen(events_to_use)
     if nicht_offen_skipped:
         print(f"  ({nicht_offen_skipped} Schwimm-Meisterschaft(en) übersprungen - "

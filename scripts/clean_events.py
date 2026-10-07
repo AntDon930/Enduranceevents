@@ -96,7 +96,7 @@ from scraper_lib import (  # noqa: E402
     hat_override_schluessel,
     serien_cluster,
     override_keys,
-    ist_nicht_ausdauer, ist_staffel, nicht_ausdauer_text,
+    ist_nicht_ausdauer, ist_staffel, ist_walking, nicht_ausdauer_text,
     ART2_LISTEN,
     _haversine_km,
     OVERRIDE_FIELDS,
@@ -571,6 +571,25 @@ def drop_staffeln(events: list[dict]) -> tuple[list[dict], list[str]]:
     entfernt: list[str] = []
     for event in events:
         grund = ist_staffel(event.get("name"), event.get("wettbewerb"))
+        if grund:
+            entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
+        else:
+            kept.append(event)
+    return kept, entfernt
+
+
+def drop_walking(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Entfernt reine Walking-Wettbewerbe - das Gegenstück zu
+    `scraper_lib.filter_walking()` für den Bestand. Vom Nutzer am
+    07.10.2026 entschieden („Nur A raus": nur die Zeile, deren Label
+    ausschließlich Walking/Wandern/Marsch nennt; „Lauf und Walking" und
+    Walking im Namen bleiben); die Regel samt Gegenproben steht bei
+    `ist_walking()` in scraper_lib.py. Jeder Ausschluss wird gemeldet.
+    """
+    kept: list[dict] = []
+    entfernt: list[str] = []
+    for event in events:
+        grund = ist_walking(event.get("art1"), event.get("wettbewerb"), event.get("name"))
         if grund:
             entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
         else:
@@ -1946,6 +1965,13 @@ def main() -> None:
     # 5-km-Zeile auf 10 km gesetzt und damit zum Duplikat gemacht.
     # Nachgetragene Zeilen sind ohnehin schon einzeln geprüft und
     # brauchen keinen Override.
+    # VOR add_manual_events: Eine Walking-Zeile ("Lauf 6,6 km" neben
+    # "6.6 km (Nordic) Walking", Allschwiler Klausenlauf) hält
+    # is_same_event() sonst für dieselbe Strecke wie der nachgetragene
+    # Lauf, der Lauf wird übersprungen, die Walking-Zeile danach
+    # gelöscht - und erst der NÄCHSTE Durchlauf trägt den Lauf nach
+    # (nicht idempotent, am 07.10.2026 so passiert).
+    events, walking = drop_walking(events)
     events, manuell_ergaenzt = add_manual_events(events)
     # Das Gedächtnis je Veranstaltung (veranstalter_seiten.py): NACH den
     # Overrides (ein per Override belegter Link zählt dort mehr als ein
@@ -2075,6 +2101,7 @@ def main() -> None:
     section("Gedächtnis je Veranstaltung: Seiten gemerkt/aktualisiert", gemerkt)
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Staffeln entfernt (erst einmal keine Staffeln)", staffeln)
+    section("Walking-Wettbewerbe entfernt (Label nennt nur Walking)", walking)
     section("Schwimm-Meisterschaften entfernt (nicht für jeden offen)", nicht_offen)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Sportart korrigiert (Label nennt eine andere Sportart)",
