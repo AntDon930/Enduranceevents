@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-10-brocken-marathon-6km-wernigerode@antdon930.github.io
+UID:2026-10-10-harz-gebirgslauf-brocken-marathon-6km-wernigerode@antdon930
+ .github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
-SUMMARY:Brocken Marathon
+SUMMARY:Harz-Gebirgslauf (Brocken-Marathon)
 LOCATION:Wernigerode\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.harz-gebirg
- slauf.de
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttp://www.harz-gebirgs
+ lauf.de
 TRANSP:TRANSPARENT
 URL:http://www.harz-gebirgslauf.de
 END:VEVENT

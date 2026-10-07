@@ -417,20 +417,6 @@
     "veranstalter_url": "https://www.tourdetirol.com/"
   },
   {
-    "land": "Österreich",
-    "name": "Tour de Tirol",
-    "standort": "Söll",
-    "lat": 47.5038387,
-    "lon": 12.1923691,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-09",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 18.0,
-    "wettbewerb": "18 km Hohe Salve Gipfelmarsch, 1.494 hm",
-    "veranstalter_url": "https://www.tourdetirol.com/"
-  },
-  {
     "land": "Deutschland",
     "name": "Ultratrail Pfälzer Weinsteig",
     "standort": "Schweigen-Rechtenbach",
@@ -796,20 +782,6 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 5.0,
     "wettbewerb": "5-km-Lauf",
-    "veranstalter_url": "https://www.schwarzwaldmarathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "58. Int. Schwarzwald-Marathon",
-    "standort": "Bräunlingen",
-    "lat": 47.9300645,
-    "lon": 8.448329,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Nordic Walking/Walking",
     "veranstalter_url": "https://www.schwarzwaldmarathon.de/"
   },
   {
@@ -1191,48 +1163,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Brocken Marathon",
-    "standort": "Wernigerode",
-    "lat": 51.8344172,
-    "lon": 10.7862526,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 42.2,
-    "wettbewerb": "42.195 km",
-    "veranstalter_url": "http://www.harz-gebirgslauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brocken Marathon",
-    "standort": "Wernigerode",
-    "lat": 51.8344172,
-    "lon": 10.7862526,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
-    "veranstalter_url": "http://www.harz-gebirgslauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Brocken Marathon",
-    "standort": "Wernigerode",
-    "lat": 51.8344172,
-    "lon": 10.7862526,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 21.1,
-    "wettbewerb": "21,1 km",
-    "veranstalter_url": "https://harz-gebirgslauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Burgunderlauf",
     "standort": "Waldkirch",
     "lat": 48.0939396,
@@ -1558,20 +1488,6 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Nordic Walking (auf der Straße)",
-    "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=981"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Fläminglauf TF-Ergas-Cup",
-    "standort": "Jüterbog",
-    "lat": 51.9964734,
-    "lon": 13.0756312,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
     "dauer_h": 1.0,
     "wettbewerb": "60 min Stundenlauf (Wertungslauf ab U18)",
     "veranstalter_url": "https://www.strassenlauf.org/va_details.php?id=981"
@@ -1630,20 +1546,6 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 11.0,
     "wettbewerb": "7 km, 7,5 km, 8 km, 9 km, 10 km, 11 km",
-    "veranstalter_url": "https://www.slb-saarland.com/zahlen-daten-fakten/termine/newsdetail-termine?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14734&cHash=efbf42cd2e9388e26b5286fbbdba339e"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Freundschaftslauf Marpingen",
-    "standort": "Marpingen",
-    "lat": 49.4516231,
-    "lon": 7.0574135,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 6.0,
-    "wettbewerb": "Walking",
     "veranstalter_url": "https://www.slb-saarland.com/zahlen-daten-fakten/termine/newsdetail-termine?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14734&cHash=efbf42cd2e9388e26b5286fbbdba339e"
   },
   {
@@ -1800,7 +1702,35 @@
   },
   {
     "land": "Deutschland",
-    "name": "Harz-Gebirgslauf",
+    "name": "Harz-Gebirgslauf (Brocken-Marathon)",
+    "standort": "Wernigerode",
+    "lat": 51.8344172,
+    "lon": 10.7862526,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 42.2,
+    "wettbewerb": "42.195 km",
+    "veranstalter_url": "http://www.harz-gebirgslauf.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Harz-Gebirgslauf (Brocken-Marathon)",
+    "standort": "Wernigerode",
+    "lat": 51.8344172,
+    "lon": 10.7862526,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 6.0,
+    "wettbewerb": "6 km",
+    "veranstalter_url": "http://www.harz-gebirgslauf.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Harz-Gebirgslauf (Brocken-Marathon)",
     "standort": "Wernigerode",
     "lat": 51.8344172,
     "lon": 10.7862526,
@@ -1811,34 +1741,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "21,1 km",
     "veranstalter_url": "https://harz-gebirgslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Harz-Gebirgslauf",
-    "standort": "Wernigerode",
-    "lat": 51.8344172,
-    "lon": 10.7862526,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 42.2,
-    "wettbewerb": "42,2 km",
-    "veranstalter_url": "https://harz-gebirgslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Harz-Gebirgslauf (Brocken-Marathon)",
-    "standort": "Wernigerode",
-    "lat": 51.8368113,
-    "lon": 10.7844266,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km Wandern / Nordic Walking",
-    "veranstalter_url": "https://harz-gebirgslauf.de/event/48-harz-gebirgslauf.html"
   },
   {
     "land": "Deutschland",
@@ -3023,20 +2925,6 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Nordic-Walking",
-    "veranstalter_url": "https://willibaldslauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Willibalds-Lauf",
-    "standort": "Eichstätt",
-    "lat": 48.8910779,
-    "lon": 11.185239,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
     "laenge_km": 8.5,
     "wettbewerb": "8,5 km Hauptlauf",
     "veranstalter_url": "https://willibaldslauf.de/"
@@ -3438,20 +3326,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "25. Salzachbrückenlauf",
-    "standort": "Burghausen",
-    "lat": 48.1725613,
-    "lon": 12.8310753,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 5.5,
-    "wettbewerb": "5,5 km Walkingwettbewerb",
-    "veranstalter_url": "https://www.salzach-brueckenlauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)",
     "standort": "Lubmin",
     "lat": 54.1322013,
@@ -3645,20 +3519,6 @@
     "land": "Deutschland",
     "name": "5. Klosterlauf Aurachtal",
     "standort": "Aurachtal",
-    "lat": 49.5842851,
-    "lon": 10.8070277,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 5.0,
-    "wettbewerb": "5km Walking/Nordic Walking",
-    "veranstalter_url": "https://sc-muenchaurach.de/4-klosterlauf-aurachtal/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "5. Klosterlauf Aurachtal",
-    "standort": "Aurachtal",
     "lat": 49.5752417,
     "lon": 10.8223486,
     "art1": "Laufen",
@@ -3764,34 +3624,6 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 5.0,
     "wettbewerb": "FunRun",
-    "veranstalter_url": "https://westenergie-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "64. Westenergie Marathon",
-    "standort": "Essen",
-    "lat": 51.4582235,
-    "lon": 7.0158171,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 7.5,
-    "wettbewerb": "Walking Kleine Schleife",
-    "veranstalter_url": "https://westenergie-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "64. Westenergie Marathon",
-    "standort": "Essen",
-    "lat": 51.4582235,
-    "lon": 7.0158171,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 10.5,
-    "wettbewerb": "Walking Große Schleife",
     "veranstalter_url": "https://westenergie-marathon.de/"
   },
   {
@@ -4947,20 +4779,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Laubacher Ramsberglauf",
-    "standort": "Laubach",
-    "lat": 50.5434524,
-    "lon": 8.9867837,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km Walking",
-    "veranstalter_url": "https://www.sv1874laubach.de/index.php/lauftreff/ramsberglauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "Lautertal Bikemarathon",
     "standort": "Spiegelberg",
     "lat": 49.031,
@@ -5804,20 +5622,6 @@
     "datum_ende": "2026-10-11",
     "laenge_km": 10.9,
     "wettbewerb": "vkw Viertelmarathon",
-    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Sparkasse 3-Länder-Marathon",
-    "standort": "Bregenz",
-    "lat": 47.5025779,
-    "lon": 9.7472924,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km Nordic Walking",
     "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
   },
   {
@@ -8935,20 +8739,6 @@
     "wettbewerb": "BKK VerbundPlus Halbmarathon"
   },
   {
-    "land": "Deutschland",
-    "name": "Biberacher Genießerlauf",
-    "standort": "Biberach an der Riß",
-    "lat": 48.0951473,
-    "lon": 9.7901525,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 6.0,
-    "wettbewerb": "REWE Engel Genuss Walk (Nordic Walking, knapp 6 km)",
-    "veranstalter_url": "https://biberacher-geniesserlauf.de/"
-  },
-  {
     "land": "Schweiz",
     "name": "Bikerennen Wittnau - 38. Raiffeisen Fricktaler Cup 2026",
     "standort": "Wittnau",
@@ -9335,20 +9125,6 @@
     "laenge_km": 15.0,
     "veranstalter_url": "https://www.kreissportbund-opr.de",
     "wettbewerb": "15 km Lauf (ab Altersklasse u16)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hubertuslauf Neuruppin",
-    "standort": "Neuruppin",
-    "lat": 52.9211097,
-    "lon": 12.8002556,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-18",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km Walking (ab Altersklasse u14)",
-    "veranstalter_url": "https://www.kreissportbund-opr.de"
   },
   {
     "land": "Deutschland",
@@ -13000,20 +12776,6 @@
     "veranstalter_url": "https://www.gurtenclassic.ch/"
   },
   {
-    "land": "Schweiz",
-    "name": "GurtenClassic",
-    "standort": "Wabern",
-    "lat": 46.919043,
-    "lon": 7.440898,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 10.0,
-    "wettbewerb": "Classic Walking/Nordic Walking 10 km",
-    "veranstalter_url": "https://www.gurtenclassic.ch/"
-  },
-  {
     "land": "Deutschland",
     "name": "Gütersloher DJK Halbmarathon",
     "standort": "Gütersloh",
@@ -14208,20 +13970,6 @@
     "art2": "Straße",
     "datum_start": "2026-10-26",
     "datum_ende": "2026-10-26",
-    "laenge_km": 5.3,
-    "wettbewerb": "Nordic Walking 5,27 km",
-    "veranstalter_url": "https://www.murauerstadtlauf.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Murauer Stadtlauf",
-    "standort": "Murau",
-    "lat": 47.11304,
-    "lon": 14.16904,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-26",
-    "datum_ende": "2026-10-26",
     "laenge_km": 5.2,
     "wettbewerb": "Achtelmarathon 5,2 km (1 Runde)",
     "veranstalter_url": "https://www.murauerstadtlauf.at/"
@@ -14775,20 +14523,6 @@
     "veranstalter_url": "https://jeunessefey.wixsite.com/jeunessedefey"
   },
   {
-    "land": "Schweiz",
-    "name": "Cross de la Jeunesse de Fey",
-    "standort": "Fey",
-    "lat": 46.67606,
-    "lon": 6.68168,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 6.5,
-    "wettbewerb": "6,5 km : Nordic Walking; gemischtes Podium.",
-    "veranstalter_url": "https://jeunessefey.wixsite.com/jeunessedefey"
-  },
-  {
     "land": "Deutschland",
     "name": "Cross- und Waldlaufmeisterschaften",
     "standort": "Ibbenbüren",
@@ -14969,20 +14703,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Frankenwaldlauf",
-    "standort": "Ludwigschorgast",
-    "lat": 50.126202,
-    "lon": 11.5595875,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 8.4,
-    "wettbewerb": "8,4 km Sparkassen Nordic-Walking",
-    "veranstalter_url": "https://www.lg-ludwigschorgast.de/frankenwaldlauf/ausschreibung/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Gut Sutthausen Ultramarathon",
     "standort": "Osnabrück",
     "lat": 52.2799112,
@@ -15049,20 +14769,6 @@
     "datum_ende": "2026-10-31",
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.bergische-lauflegenden.de/about"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Halloween Run - Hückeswagen",
-    "standort": "Hückeswagen",
-    "lat": 51.1490386,
-    "lon": 7.3293896,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 5.0,
-    "wettbewerb": "5-km-Walk",
     "veranstalter_url": "https://www.bergische-lauflegenden.de/about"
   },
   {
@@ -16582,20 +16288,6 @@
     "art2": "Straße",
     "datum_start": "2026-11-01",
     "datum_ende": "2026-11-01",
-    "laenge_km": 7.0,
-    "wettbewerb": "Nordic Walking 7 km",
-    "veranstalter_url": "https://www.wallisellerlauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Walliseller Lauf",
-    "standort": "Wallisellen",
-    "lat": 47.4167,
-    "lon": 8.591709,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-01",
-    "datum_ende": "2026-11-01",
     "laenge_km": 5.0,
     "wettbewerb": "Kurzlauf 5 km",
     "veranstalter_url": "https://www.wallisellerlauf.ch/"
@@ -17663,20 +17355,6 @@
     "art2": "Straße",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
-    "laenge_km": 5.7,
-    "wettbewerb": "Nordic Walking 5.7 km",
-    "veranstalter_url": "https://www.kyburglauf.ch/",
-    "lat": 47.4570858,
-    "lon": 8.744344
-  },
-  {
-    "land": "Schweiz",
-    "name": "Kyburglauf",
-    "standort": "Kyburg",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
     "laenge_km": 10.2,
     "wettbewerb": "Hauptrennen 10.2 km",
     "veranstalter_url": "https://www.kyburglauf.ch/",
@@ -18390,20 +18068,6 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Fitnesslauf ab 10 Jahren",
-    "veranstalter_url": "https://www.geologenlauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "36. Steinheimer Geologenlauf",
-    "standort": "Steinheim am Albuch",
-    "lat": 48.6917903,
-    "lon": 10.0638942,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 7.0,
-    "wettbewerb": "7 km Walking / Nordic Walking ab 12 Jahren",
     "veranstalter_url": "https://www.geologenlauf.de"
   },
   {
@@ -19177,20 +18841,6 @@
     "datum_ende": "2026-11-08",
     "laenge_km": 13.5,
     "wettbewerb": "13,5 km Hauptklassen",
-    "veranstalter_url": "https://herbstwaldlauf.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Herbstwaldlauf – Dresdner Heide mit Hofewiese-Trail",
-    "standort": "Dresden",
-    "lat": 51.0504088,
-    "lon": 13.7372621,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 8.7,
-    "wettbewerb": "8,7 km Nordic Walking",
     "veranstalter_url": "https://herbstwaldlauf.com/"
   },
   {
@@ -20444,20 +20094,6 @@
     "land": "Deutschland",
     "name": "25. Steverlauf",
     "standort": "Senden",
-    "lat": 51.8588,
-    "lon": 7.4826,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 7.0,
-    "wettbewerb": "Walking",
-    "veranstalter_url": "https://www.asv-senden.de/steverlauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "25. Steverlauf",
-    "standort": "Senden",
     "lat": 51.8587626,
     "lon": 7.4826357,
     "art1": "Laufen",
@@ -21570,20 +21206,6 @@
     "datum_ende": "2026-11-14",
     "laenge_km": 21.1,
     "wettbewerb": "Fränkische Halbmarathon",
-    "veranstalter_url": "https://zeiler-waldmarathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Zeiler Waldmarathon",
-    "standort": "Zeil am Main",
-    "lat": 50.011546,
-    "lon": 10.5922117,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 7.5,
-    "wettbewerb": "Zaundirekt Walking und Nordic Walking",
     "veranstalter_url": "https://zeiler-waldmarathon.de/"
   },
   {
@@ -23135,20 +22757,6 @@
     "datum_ende": "2026-11-21",
     "laenge_km": 6.3,
     "wettbewerb": "Course 6.1km",
-    "veranstalter_url": "https://www.corrida-bulloise.ch/home"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Corrida Bulloise, Bulle",
-    "standort": "Bulle",
-    "lat": 46.617895,
-    "lon": 7.057306,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-21",
-    "datum_ende": "2026-11-21",
-    "laenge_km": 8.0,
-    "wettbewerb": "Walking 8 km",
     "veranstalter_url": "https://www.corrida-bulloise.ch/home"
   },
   {
@@ -26208,20 +25816,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Mountainman Nikolaus-Trail Pommelsbrunn",
-    "standort": "Pommelsbrunn",
-    "lat": 49.5046751,
-    "lon": 11.5091898,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-05",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 5.0,
-    "wettbewerb": "Family 5 km 130 hm Erlebniswandern mit Lama Farm",
-    "veranstalter_url": "https://mountainman.de/trailrunning-events/hills/nikolaustrail-pommelsbrunn/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Mönchguter Brennereilauf",
     "standort": "Mönchgut",
     "lat": 54.3087765,
@@ -27014,20 +26608,6 @@
     "veranstalter_url": "https://tglage.de/laufen.html"
   },
   {
-    "land": "Schweiz",
-    "name": "Allschwiler Klausenlauf",
-    "standort": "Allschwil",
-    "lat": 47.550069,
-    "lon": 7.544625,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 6.6,
-    "wettbewerb": "6.6 km (Nordic) Walking",
-    "veranstalter_url": "https://www.allschwiler-klausenlauf.ch/"
-  },
-  {
     "land": "Deutschland",
     "name": "Barbara-Runde mit Sparkassen-Firmenlauf",
     "standort": "Bergkamen",
@@ -27496,20 +27076,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://tvimmenstadt-triathlon.de/aktuelles/NIkOLAUSLAUF_2026.php"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Nikolauslauf Landsberg a. Lech",
-    "standort": "Landsberg am Lech",
-    "lat": 48.0464144,
-    "lon": 10.8718015,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Nordic Walking",
-    "veranstalter_url": "https://www.ftjahn-landsberg.de/"
   },
   {
     "land": "Deutschland",
@@ -32694,34 +32260,6 @@
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
-    "laenge_km": 6.0,
-    "wettbewerb": "Nordic Walking langsam",
-    "veranstalter_url": "https://www.kulmx.at/rote-nasen-lauf/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Pischelsdorfer Rote Nasen Lauf",
-    "standort": "Pischelsdorf in der Steiermark",
-    "lat": 47.1750311,
-    "lon": 15.8042941,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 7.0,
-    "wettbewerb": "Nordic Walking normal",
-    "veranstalter_url": "https://www.kulmx.at/rote-nasen-lauf/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Pischelsdorfer Rote Nasen Lauf",
-    "standort": "Pischelsdorf in der Steiermark",
-    "lat": 47.1750311,
-    "lon": 15.8042941,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
     "laenge_km": 8.0,
     "wettbewerb": "Laufen normal",
     "veranstalter_url": "https://www.kulmx.at/rote-nasen-lauf/"
@@ -33047,6 +32585,19 @@
   {
     "land": "Deutschland",
     "name": "Silvesterlauf Bremen",
+    "standort": "Fahrenhorst",
+    "lat": 52.9526205,
+    "lon": 8.7137477,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "laenge_km": 8.5,
+    "veranstalter_url": "http://www.lc-hansa-stuhr.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Silvesterlauf Bremen",
     "standort": "Bremen",
     "lat": 53.0758196,
     "lon": 8.8071646,
@@ -33055,8 +32606,9 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 10.0,
-    "veranstalter_url": "https://silvesterlauf-bremen.de/",
-    "wettbewerb": "10 km Walking/Nordic Walking"
+    "dauer_h": null,
+    "wettbewerb": "10 Kilometer Lauf",
+    "veranstalter_url": "https://silvesterlauf-bremen.de/"
   },
   {
     "land": "Deutschland",
@@ -33069,21 +32621,9 @@
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
-    "wettbewerb": "5 km Walking/Nordic Walking",
+    "dauer_h": null,
+    "wettbewerb": "5 Kilometer Lauf",
     "veranstalter_url": "https://silvesterlauf-bremen.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Silvesterlauf Bremen",
-    "standort": "Fahrenhorst",
-    "lat": 52.9526205,
-    "lon": 8.7137477,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 8.5,
-    "veranstalter_url": "http://www.lc-hansa-stuhr.de"
   },
   {
     "land": "Deutschland",
@@ -33346,20 +32886,6 @@
     "datum_ende": "2026-12-31",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.mtv-fichte.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Silvesterlauf MTV \"Fichte\" Winsen (Aller)",
-    "standort": "Winsen (Aller)",
-    "lat": 52.683228,
-    "lon": 9.9120249,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 6.4,
-    "wettbewerb": "Walking 6,4 km",
     "veranstalter_url": "https://www.mtv-fichte.de/"
   },
   {
@@ -33899,20 +33425,6 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://silvesterlauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tus Iserlohn Silvesterlauf „Rund um den Danzturm“",
-    "standort": "Iserlohn",
-    "lat": 51.3765096,
-    "lon": 7.6960842,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Walking",
-    "veranstalter_url": "https://www.silvesterlauf.nrw/"
   },
   {
     "land": "Deutschland",
@@ -35426,48 +34938,6 @@
     "datum_ende": "2027-01-10",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.sportverein-weimar.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-10",
-    "datum_ende": "2027-01-10",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-10",
-    "datum_ende": "2027-01-10",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-10",
-    "datum_ende": "2027-01-10",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
   },
   {
     "land": "Deutschland",
@@ -37463,48 +36933,6 @@
     "art2": "Straße",
     "datum_start": "2027-01-24",
     "datum_ende": "2027-01-24",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-24",
-    "datum_ende": "2027-01-24",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-24",
-    "datum_ende": "2027-01-24",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-01-24",
-    "datum_ende": "2027-01-24",
     "laenge_km": 21.0,
     "wettbewerb": "21 km Lauf",
     "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
@@ -38763,48 +38191,6 @@
     "art2": "Straße",
     "datum_start": "2027-02-07",
     "datum_ende": "2027-02-07",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-07",
-    "datum_ende": "2027-02-07",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-07",
-    "datum_ende": "2027-02-07",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-07",
-    "datum_ende": "2027-02-07",
     "laenge_km": 21.0,
     "wettbewerb": "21 km Lauf",
     "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
@@ -39434,20 +38820,6 @@
     "art2": "Straße",
     "datum_start": "2027-02-14",
     "datum_ende": "2027-02-14",
-    "laenge_km": 5.0,
-    "wettbewerb": "Walking-Serie",
-    "veranstalter_url": "https://www.hildensport.de/de/startseite-winterlaufserie/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Hildener Winterlaufserie",
-    "standort": "Hilden",
-    "lat": 51.1678567,
-    "lon": 6.9352253,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-14",
-    "datum_ende": "2027-02-14",
     "laenge_km": 15.0,
     "wettbewerb": "Große Serie",
     "veranstalter_url": "https://www.hildensport.de/de/startseite-winterlaufserie/"
@@ -39772,20 +39144,6 @@
     "art2": "Trail",
     "datum_start": "2027-02-21",
     "datum_ende": "2027-02-21",
-    "laenge_km": 7.0,
-    "wettbewerb": "Walking",
-    "veranstalter_url": "https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "39. Oggersheimer Berglauf",
-    "standort": "Ludwigshafen-Oggersheim",
-    "lat": 49.4944321,
-    "lon": 8.373791,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-02-21",
-    "datum_ende": "2027-02-21",
     "laenge_km": 10.5,
     "wettbewerb": "Berglauf",
     "veranstalter_url": "https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf"
@@ -39803,48 +39161,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.tgo1880.de/index.php/leichtathletik/tgo-berglauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-21",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-21",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-21",
-    "datum_ende": "2027-02-21",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
   },
   {
     "land": "Deutschland",
@@ -41702,20 +41018,6 @@
     "art2": "Straße",
     "datum_start": "2027-03-07",
     "datum_ende": "2027-03-07",
-    "laenge_km": 5.1,
-    "wettbewerb": "5,1 km Walking",
-    "veranstalter_url": "https://www.tv-bunde.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "2. Buun löppt",
-    "standort": "Bunde",
-    "lat": 53.184017,
-    "lon": 7.2695448,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
     "laenge_km": 10.2,
     "wettbewerb": "10,2 km Volkslauf",
     "veranstalter_url": "https://www.tv-bunde.de/"
@@ -41837,48 +41139,6 @@
     "datum_ende": "2027-03-07",
     "laenge_km": 21.0,
     "veranstalter_url": "http://www.lcsolbad.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "54. Winterlaufserie",
-    "standort": "Stadthagen",
-    "lat": 52.3289688,
-    "lon": 9.2053496,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-07",
-    "datum_ende": "2027-03-07",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km (Nordic-)Walking",
-    "veranstalter_url": "https://tsv-eintracht-bueckeberge.de/lauf-und-walkingtreff/"
   },
   {
     "land": "Deutschland",
@@ -43841,20 +43101,6 @@
     "art2": "Straße",
     "datum_start": "2027-03-19",
     "datum_ende": "2027-03-21",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km Wanderung",
-    "veranstalter_url": "https://schneeglocke.de/ortrand/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schneeglöckchen-Lauf",
-    "standort": "Ortrand",
-    "lat": 51.3756454,
-    "lon": 13.7611107,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-19",
-    "datum_ende": "2027-03-21",
     "laenge_km": 30.0,
     "veranstalter_url": "https://schneeglocke.de/ortrand/"
   },
@@ -44049,48 +43295,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 Km POWER-Run",
     "veranstalter_url": "https://www.welser-halbmarathon.at"
-  },
-  {
-    "land": "Schweiz",
-    "name": "49. Kerzerslauf",
-    "standort": "Kerzers",
-    "lat": 46.975956,
-    "lon": 7.198997,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 15.0,
-    "wettbewerb": "15km Walk",
-    "veranstalter_url": "https://kerzerslauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "49. Kerzerslauf",
-    "standort": "Kerzers",
-    "lat": 46.975956,
-    "lon": 7.198997,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 10.0,
-    "wettbewerb": "10km Walk",
-    "veranstalter_url": "https://kerzerslauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "49. Kerzerslauf",
-    "standort": "Kerzers",
-    "lat": 46.975956,
-    "lon": 7.198997,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 5.0,
-    "wettbewerb": "5km Walk",
-    "veranstalter_url": "https://kerzerslauf.ch/"
   },
   {
     "land": "Schweiz",
@@ -44683,20 +43887,6 @@
     "datum_ende": "2027-03-20",
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km Einsteigerlauf",
-    "veranstalter_url": "https://www.tv-stetten.de/volkslauf-in-stetten/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Stettener Volkslauf",
-    "standort": "Kernen im Remstal",
-    "lat": 48.814019,
-    "lon": 9.3182543,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-20",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km Nordic Walking",
     "veranstalter_url": "https://www.tv-stetten.de/volkslauf-in-stetten/"
   },
   {
@@ -45620,20 +44810,6 @@
     "veranstalter_url": "https://tourpresinge.ch/"
   },
   {
-    "land": "Schweiz",
-    "name": "Tour de Presinge",
-    "standort": "Presinge",
-    "lat": 46.218603,
-    "lon": 6.2535283,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-21",
-    "datum_ende": "2027-03-21",
-    "laenge_km": 7.2,
-    "wettbewerb": "7200 m für Walking",
-    "veranstalter_url": "https://tourpresinge.ch/"
-  },
-  {
     "land": "Deutschland",
     "name": "Weingäßchen Infinite Loop",
     "standort": "Schwabach",
@@ -45895,34 +45071,6 @@
     "datum_ende": "2027-03-27",
     "laenge_km": 5.8,
     "wettbewerb": "5,85 km Hasenlauf",
-    "veranstalter_url": "https://osterlauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Osterlauf Eiken",
-    "standort": "Eiken",
-    "lat": 47.5331075,
-    "lon": 7.9871358,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-27",
-    "datum_ende": "2027-03-27",
-    "laenge_km": 10.8,
-    "wettbewerb": "10,80 km Walking",
-    "veranstalter_url": "https://osterlauf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Osterlauf Eiken",
-    "standort": "Eiken",
-    "lat": 47.5331075,
-    "lon": 7.9871358,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-27",
-    "datum_ende": "2027-03-27",
-    "laenge_km": 6.8,
-    "wettbewerb": "6,80 km Walking",
     "veranstalter_url": "https://osterlauf.ch/"
   },
   {
@@ -46343,20 +45491,6 @@
     "datum_ende": "2027-04-03",
     "laenge_km": 10.0,
     "wettbewerb": "ZKB Zürilauf Cup Hauptkategorie 10km",
-    "veranstalter_url": "https://www.gpduebendorf.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "GP der Stadt Dübendorf",
-    "standort": "Dübendorf",
-    "lat": 47.389831,
-    "lon": 8.627833,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-03",
-    "datum_ende": "2027-04-03",
-    "laenge_km": 6.2,
-    "wettbewerb": "Walking/Nordic Walking 6.2km",
     "veranstalter_url": "https://www.gpduebendorf.ch/"
   },
   {
@@ -47058,20 +46192,6 @@
     "datum_ende": "2027-04-04",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://www.seligenstadt-wasserlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Seligenstädter Wasserlauf",
-    "standort": "Seligenstadt",
-    "lat": 50.0437013,
-    "lon": 8.9711343,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-04",
-    "datum_ende": "2027-04-04",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km Walking",
     "veranstalter_url": "https://www.seligenstadt-wasserlauf.de/"
   },
   {
@@ -48035,20 +47155,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Halbmarathon Pfarrkirchen",
-    "standort": "Pfarrkirchen",
-    "lat": 48.4319231,
-    "lon": 12.9378735,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-11",
-    "datum_ende": "2027-04-11",
-    "laenge_km": 12.5,
-    "wettbewerb": "Freies Walking / Nordic Walking 12,5 km mit Zeitnahme",
-    "veranstalter_url": "https://halbmarathon.tus-pfarrkirchen.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Hammer Lauf Hamburg",
     "standort": "Hamburg",
     "lat": 53.5488282,
@@ -48479,20 +47585,6 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://www.tsvschwaigern.de/ull"
-  },
-  {
-    "land": "Österreich",
-    "name": "Weinberglauf Perchtoldsdorf",
-    "standort": "Perchtoldsdorf",
-    "lat": 48.1205386,
-    "lon": 16.2692452,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-04-11",
-    "datum_ende": "2027-04-11",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Nordic Walking (1 Runde)",
-    "veranstalter_url": "https://weinberglauf.at/"
   },
   {
     "land": "Österreich",
@@ -50139,20 +49231,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Solidaritätslauf Aktiv gegen Brustkrebs",
-    "standort": "Bochum",
-    "lat": 51.4818111,
-    "lon": 7.2196635,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-18",
-    "datum_ende": "2027-04-18",
-    "laenge_km": 7.0,
-    "wettbewerb": "Walking",
-    "veranstalter_url": "https://aktivgegenbrustkrebs.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Stadtwerke Dinslaken Energyrun 2027",
     "standort": "Dinslaken",
     "lat": 51.5623618,
@@ -50369,20 +49447,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Werdauer Waldlauf",
-    "standort": "Werdau",
-    "lat": 50.7288716,
-    "lon": 12.3751839,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-18",
-    "datum_ende": "2027-04-18",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Walking/Wandern (nur Zeitnahme)",
-    "veranstalter_url": "https://www.werdauer-waldlauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Wichtelhäuser Volkslauf",
     "standort": "Lahntal Goßfelden",
     "lat": 50.871099,
@@ -50560,20 +49624,6 @@
     "datum_ende": "2027-04-25",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf",
-    "veranstalter_url": "https://spreewaldmarathon.de/wpswm/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Spreewald-Marathon",
-    "standort": "Burg (Spreewald)",
-    "lat": 51.8355459,
-    "lon": 14.1450251,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-22",
-    "datum_ende": "2027-04-25",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Lübbenauer Nachtwalken",
     "veranstalter_url": "https://spreewaldmarathon.de/wpswm/"
   },
   {
@@ -52467,20 +51517,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Trollinger Marathon",
-    "standort": "Heilbronn",
-    "lat": 49.1426929,
-    "lon": 9.210879,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-25",
-    "datum_ende": "2027-04-25",
-    "laenge_km": 8.7,
-    "wettbewerb": "Walking / Nordic Walking (8,7 km)",
-    "veranstalter_url": "https://www.trollinger-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Volkslauf im Volkspark Langendreer",
     "standort": "Bochum",
     "lat": 51.4818445,
@@ -53883,20 +52919,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Lauf in den Frühling - Freital",
-    "standort": "Freital",
-    "lat": 51.0008667,
-    "lon": 13.6512413,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Walking / Nordic Walking, Altersklassen M/W",
-    "veranstalter_url": "https://www.laufindenfruehling.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Lausitzer Blütenlauf Kamenz",
     "standort": "Kamenz",
     "lat": 51.2749068,
@@ -53949,20 +52971,6 @@
     "datum_ende": "2027-05-02",
     "veranstalter_url": "https://www.maisels-funrun.de/",
     "laenge_km": 21.1
-  },
-  {
-    "land": "Deutschland",
-    "name": "Neiße Adventure Race Rothenburg",
-    "standort": "Rothenburg/Oberlausitz",
-    "lat": 51.3357091,
-    "lon": 14.9665253,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 35.0,
-    "wettbewerb": "NAR Walk 35 km (Wanderung)",
-    "veranstalter_url": "https://www.neisse-adventure-race.online"
   },
   {
     "land": "Deutschland",
@@ -54174,20 +53182,6 @@
     "veranstalter_url": "https://sport-praxenthaler.com/pages/traunsteiner-halbmarathon"
   },
   {
-    "land": "Deutschland",
-    "name": "Waldreiterlauf",
-    "standort": "Großhansdorf",
-    "lat": 53.651326,
-    "lon": 10.2730016,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 6.0,
-    "wettbewerb": "Walkingrunde",
-    "veranstalter_url": "https://my.raceresult.com/419664/"
-  },
-  {
     "land": "Schweiz",
     "name": "Zunzger Waldlauf",
     "standort": "Zunzgen",
@@ -54199,20 +53193,6 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 7.0,
     "wettbewerb": "7 km Laufstrecke",
-    "veranstalter_url": "https://www.tvzunzgen.ch/events/waldlauf/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Zunzger Waldlauf",
-    "standort": "Zunzgen",
-    "lat": 47.4517957,
-    "lon": 7.8077705,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-02",
-    "datum_ende": "2027-05-02",
-    "laenge_km": 8.8,
-    "wettbewerb": "8.8 km Walking-Runde",
     "veranstalter_url": "https://www.tvzunzgen.ch/events/waldlauf/"
   },
   {
@@ -55323,20 +54303,6 @@
     "veranstalter_url": "https://www.juratoptour.ch/de/wertungslaeufe/wengi-berglauf"
   },
   {
-    "land": "Schweiz",
-    "name": "Wengi-Berglauf",
-    "standort": "Matzendorf",
-    "lat": 47.3072865,
-    "lon": 7.6284177,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-07",
-    "datum_ende": "2027-05-07",
-    "laenge_km": 7.2,
-    "wettbewerb": "Walking+",
-    "veranstalter_url": "https://www.juratoptour.ch/de/wertungslaeufe/wengi-berglauf"
-  },
-  {
     "land": "Deutschland",
     "name": "Westerwälder Backyard Ultra",
     "standort": "Höchstenbach",
@@ -56105,20 +55071,6 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 5.0,
     "wettbewerb": "5 km Lauf",
-    "veranstalter_url": "https://my.raceresult.com/422872/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Niedermeiserer Dorflauf",
-    "standort": "Liebenau",
-    "lat": 51.4973299,
-    "lon": 9.2814945,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-08",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 8.5,
-    "wettbewerb": "8,5 km Walking / Nordic Walking",
     "veranstalter_url": "https://my.raceresult.com/422872/"
   },
   {
@@ -60306,7 +59258,8 @@
     "datum_start": "2027-05-22",
     "datum_ende": "2027-05-22",
     "laenge_km": 10.6,
-    "wettbewerb": "Walking/Nordic Walking - 10,6 km",
+    "dauer_h": null,
+    "wettbewerb": "Hauptlauf 10,6 km",
     "veranstalter_url": "https://www.svneroth.de/enzenbueschlauf/"
   },
   {
@@ -61178,21 +60131,6 @@
     "datum_ende": "2027-05-23",
     "wettbewerb": "Cycling 4 All",
     "veranstalter_url": "https://www.askoewaidhofen.at"
-  },
-  {
-    "land": "Deutschland",
-    "name": "5. Sponsorenlauf Brustkrebshilfe Dorsten 2027",
-    "standort": "Dorsten",
-    "lat": 51.6559681,
-    "lon": 6.9642606,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-23",
-    "datum_ende": "2027-05-23",
-    "laenge_km": 5.0,
-    "wettbewerb": "5,0 km Walking für alle Jahrgänge, Startgeld mindestens 20 €",
-    "veranstalter_url": "https://brustkrebshilfe-dorsten.de/",
-    "charity": true
   },
   {
     "land": "Deutschland",
@@ -63710,20 +62648,6 @@
     "art2": "Trail",
     "datum_start": "2027-05-29",
     "datum_ende": "2027-05-30",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km Walking",
-    "veranstalter_url": "https://traildugrandgeneve.com"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Trail du Grand Genève",
-    "standort": "Genf",
-    "lat": 46.2043907,
-    "lon": 6.1431577,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-05-29",
-    "datum_ende": "2027-05-30",
     "laenge_km": 12.0,
     "wettbewerb": "12 km",
     "veranstalter_url": "https://traildugrandgeneve.com"
@@ -64186,20 +63110,6 @@
     "datum_ende": "2027-05-30",
     "laenge_km": 30.0,
     "wettbewerb": "Rad",
-    "veranstalter_url": "https://www.elsterlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Elsterlauf",
-    "standort": "Bad Liebenwerda",
-    "lat": 51.5178252,
-    "lon": 13.4009404,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-30",
-    "datum_ende": "2027-05-30",
-    "laenge_km": 21.5,
-    "wettbewerb": "Walking",
     "veranstalter_url": "https://www.elsterlauf.de/"
   },
   {
@@ -66682,20 +65592,6 @@
     "veranstalter_url": "https://www.tghuetten.ch/zumiker-lauf/"
   },
   {
-    "land": "Schweiz",
-    "name": "Zumiker Lauf",
-    "standort": "Zumikon",
-    "lat": 47.333553,
-    "lon": 8.624185,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
-    "laenge_km": 6.5,
-    "wettbewerb": "Walking/Nordic Walking 6.5km",
-    "veranstalter_url": "https://www.zuerilaufcup.ch/12-laeufe/zumiker_lauf"
-  },
-  {
     "land": "Deutschland",
     "name": "19. Benrather Schlosslauf 2027",
     "standort": "Düsseldorf-Benrath",
@@ -67765,20 +66661,6 @@
     "art2": "Straße",
     "datum_start": "2027-06-10",
     "datum_ende": "2027-06-10",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Nordic Walker, offen für alle",
-    "veranstalter_url": "https://www.funrunsuedwest.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "SüdwestPark FunRun",
-    "standort": "Nürnberg",
-    "lat": 49.4521018,
-    "lon": 11.0766654,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-10",
-    "datum_ende": "2027-06-10",
     "laenge_km": 8.8,
     "wettbewerb": "8,8 km Läufer, offen für alle",
     "veranstalter_url": "https://www.funrunsuedwest.de/"
@@ -67809,20 +66691,6 @@
     "datum_ende": "2027-06-11",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.citylauf-grevenbroich.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "14. Voxtruper Volkslauf",
-    "standort": "Osnabrück",
-    "lat": 52.2719595,
-    "lon": 8.047635,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-11",
-    "datum_ende": "2027-06-11",
-    "laenge_km": 5.4,
-    "wettbewerb": "5,4 km (Nordic-)Walking",
-    "veranstalter_url": "http://www.vfr-voxtrup.de"
   },
   {
     "land": "Deutschland",
@@ -70194,20 +69062,6 @@
     "laenge_km": 25.5,
     "wettbewerb": "Volkstriathlon 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://triathlon-club-bremen.de/einhorn-triathlon-blog/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Eschathlon Halbmarathon",
-    "standort": "Eschborn",
-    "lat": 50.1467469,
-    "lon": 8.5614555,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-13",
-    "datum_ende": "2027-06-13",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Walking fit",
-    "veranstalter_url": "https://www.eschathlon.de"
   },
   {
     "land": "Deutschland",
@@ -75970,11 +74824,12 @@
     "lat": 46.357944,
     "lon": 8.047414,
     "art1": "Laufen",
-    "art2": "Straße",
+    "art2": "Trail",
     "datum_start": "2027-06-27",
     "datum_ende": "2027-06-27",
     "laenge_km": 21.1,
-    "wettbewerb": "Aletsch-Halbmarathon Walking 21.1 km",
+    "dauer_h": null,
+    "wettbewerb": "Aletsch-Halbmarathon 21,1 km",
     "veranstalter_url": "https://www.aletsch-halbmarathon.ch/de"
   },
   {
@@ -77733,20 +76588,6 @@
     "art2": "Straße",
     "datum_start": "2027-07-03",
     "datum_ende": "2027-07-03",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km Schneekopfwanderung für Nordic Walker und Wanderer",
-    "veranstalter_url": "https://schneekopflauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schneekopflauf",
-    "standort": "Suhl",
-    "lat": 50.6076846,
-    "lon": 10.6881255,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-03",
-    "datum_ende": "2027-07-03",
     "laenge_km": 12.7,
     "wettbewerb": "12,7 km Lauf",
     "veranstalter_url": "https://schneekopflauf.de/"
@@ -79288,20 +78129,6 @@
     "laenge_km": 28.0,
     "wettbewerb": "Sprintdistanz 28 km",
     "veranstalter_url": "https://www.ifl-hof.de/page-3/gealan-triathlon"
-  },
-  {
-    "land": "Deutschland",
-    "name": "9. Wybelsumer Polderlauf",
-    "standort": "Emden",
-    "lat": 53.3670541,
-    "lon": 7.2058304,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-10",
-    "datum_ende": "2027-07-10",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Nordic Walking",
-    "veranstalter_url": "https://www.polderlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -94763,20 +93590,6 @@
     "art2": "Trail",
     "datum_start": "2027-09-19",
     "datum_ende": "2027-09-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Nordic Walking",
-    "veranstalter_url": "https://www.miteinander-gegen-krebs.de/cross-against-cancer"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Cross Against Cancer - Homburg",
-    "standort": "Homburg",
-    "lat": 49.3295827,
-    "lon": 7.3398428,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-09-19",
-    "datum_ende": "2027-09-19",
     "laenge_km": 10.0,
     "wettbewerb": "10 km Laufen",
     "veranstalter_url": "https://www.miteinander-gegen-krebs.de/cross-against-cancer"
@@ -96374,22 +95187,6 @@
     "art2": "Trail",
     "datum_start": "2027-10-02",
     "datum_ende": "2027-10-02",
-    "laenge_km": 15.3,
-    "dauer_h": null,
-    "wettbewerb": "Wanderroute , 15,3 km, 1000 - 1250 hm",
-    "veranstalter_url": "https://www.wildschoenau.com/de/aktivitaeten/wandern/hoehenwegtrophy",
-    "gedaechtnis": true
-  },
-  {
-    "land": "Österreich",
-    "name": "Wildschönauer Höhenweg Trophy",
-    "standort": "Niederau",
-    "lat": 47.4491382,
-    "lon": 12.0890257,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-10-02",
-    "datum_ende": "2027-10-02",
     "laenge_km": 19.7,
     "dauer_h": null,
     "wettbewerb": "Power Trail , 19,7 km, 1000 - 1300 hm",
@@ -96650,20 +95447,6 @@
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.ochsenweiherlauf.de/",
     "gedaechtnis": true
-  },
-  {
-    "land": "Schweiz",
-    "name": "Pfäffikersee-Lauf",
-    "standort": "Wetzikon",
-    "lat": 47.332401,
-    "lon": 8.795676,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-10-03",
-    "datum_ende": "2027-10-03",
-    "laenge_km": 12.2,
-    "wettbewerb": "Walking/Nordic Walking 12.2km",
-    "veranstalter_url": "https://www.zuerilaufcup.ch/12-laeufe/pfaeffikersee-lauf"
   },
   {
     "land": "Schweiz",

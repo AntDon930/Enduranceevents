@@ -1170,10 +1170,10 @@
     "notiz": "Der gemeldete Halbmarathon ist echt; Label ergaenzt."
   },
   "Biberacher Genießerlauf|2026-10-18": {
-    "am": "2026-09-21",
+    "am": "2026-10-07",
     "ergebnis": "korrigiert",
-    "quelle": "biberacher-geniesserlauf.de",
-    "notiz": "So 18.10.2026: Halbmarathon, 2x8-km-Staffel (16-km-Zeile umbenannt), 6 km Nordic Walking (umbenannt)."
+    "quelle": "https://biberacher-geniesserlauf.de/",
+    "notiz": "To-do Punkt 8 (Walking-Regel): Die Quelle lieferte nur den 6-km-Walk; Halbmarathon 21,1 km nachgetragen (manual_events.json), Staffel bleibt draußen. Zwei Zeilen mit verschiedener Ortsschreibweise (Biberach/Riß, Biberach an der Riß) fallen als Walking."
   },
   "Canyon Run Mühlheim|2027-09-05": {
     "am": "2026-09-18",
@@ -5888,10 +5888,10 @@
     "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
   },
   "Waldreiterlauf|2027-05-02": {
-    "am": "2026-09-21",
-    "ergebnis": "quelle_ok",
+    "am": "2026-10-07",
+    "ergebnis": "unklar",
     "quelle": "https://my.raceresult.com/419664/",
-    "notiz": "Datum laut raceresult-Veranstaltungsseite bestätigt; Wettbewerbe/Distanzen werden dort dynamisch geladen und sind aus der Sandbox nicht lesbar"
+    "notiz": "To-do Punkt 8: Die einzige Zeile ist „Walkingrunde“ (6 km) und fällt mit der Walking-Regel; die Laufstrecken stehen nur auf der raceresult-Seite (dynamisch, aus der Sandbox nicht lesbar), Websuche ohne Veranstalterseite. Beim nächsten Datenlauf prüfen, ob eine Quelle den Lauf liefert."
   },
   "Spendenlauf für Glücksmomente|2027-05-07": {
     "am": "2026-09-21",
@@ -7544,10 +7544,10 @@
     "notiz": "Zweite Zeile (1.537 km, Gravel, nur ein Tag) war ein Duplikat."
   },
   "Tour de Tirol|2026-10-09": {
-    "am": "2026-10-01",
+    "am": "2026-10-07",
     "ergebnis": "quelle_ok",
-    "quelle": "tourdetirol.com",
-    "notiz": "Sieben Strecken bestaetigt; drei Duplikat-Zeilen unter '20. Tour de Tirol - …' ausgeschlossen."
+    "quelle": "https://www.tirol.at/aktivitaeten/sport/trailrunning/routen/tour-de-tirol-gipfelmarsch-hohe-salve",
+    "notiz": "To-do Punkt 8: „18 km Hohe Salve Gipfelmarsch“ ist laut tirol.at eine Wanderung (7:30 h, „für Wanderbegeisterte, Genusswanderer“) – fällt zu Recht als Walking; die Laufstrecken (Pölven Trail, Kaisermarathon, Ultra) bleiben."
   },
   "18. Langeneicker Pfingstlauf 2027|2027-05-14": {
     "am": "2026-10-01",
@@ -8028,5 +8028,35 @@
     "ergebnis": "unklar",
     "quelle": "https://sternsteintrail.at/winterchallenge/",
     "notiz": "Echte Zeitspanne, keine Serie: 'Die Challenge findet von 1. Dezember 2026 – 28. Februar 2027 statt. Du entscheidest über den genauen Startzeitpunkt.' Freie Startzeit über drei Monate – ob das in eine Liste mit festen Terminen gehört (vgl. virtuelle Läufe, Datenregel 14), entscheidet der Nutzer."
+  },
+  "Allschwiler Klausenlauf|2026-12-06": {
+    "am": "2026-10-07",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.allschwiler-klausenlauf.ch/",
+    "notiz": "To-do Punkt 8: Die Zeile „6.6 km (Nordic) Walking“ fällt mit der Walking-Regel – und war ohnehin ein Duplikat unter zweitem Namen: Die Läufe (Lauf 6,6 km, Lauf 10 km; Seite: 47. Austragung Sonntag, 6. Dezember 2026) stehen als „Klausenlauf Allschwil“ in der Liste. Nichts nachzutragen."
+  },
+  "Silvesterlauf Bremen|2026-12-31": {
+    "am": "2026-10-07",
+    "ergebnis": "korrigiert",
+    "quelle": "https://silvesterlauf-bremen.de/",
+    "notiz": "To-do Punkt 8: nur die Walking-Starts (5/10 km) geliefert; 10 km Lauf und 5 km Lauf nachgetragen, 2,5 km zu kurz. Die dritte Zeile (Fahrenhorst, 8,5 km, lc-hansa-stuhr.de) ist ein anderer Silvesterlauf unter demselben Namen – nicht angefasst."
+  },
+  "Enzenbüschlauf|2027-05-22": {
+    "am": "2026-10-07",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.svneroth.de/enzenbueschlauf/",
+    "notiz": "To-do Punkt 8: nur „Walking/Nordic Walking - 10,6 km“ geliefert; Hauptlauf 10,6 km nachgetragen (Jedermannslauf 4,8 km unter 5 km, TeamRun = Team)."
+  },
+  "Aletsch-Halbmarathon|2027-06-27": {
+    "am": "2026-10-07",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.aletsch-halbmarathon.ch/de",
+    "notiz": "To-do Punkt 8: Die einzige Zeile war die Walking-Kategorie („Aletsch-Halbmarathon Walking 21.1 km“); der Halbmarathon selbst (So 27.06.2027, 21,1 km, Berglauf → Trail) nachgetragen."
+  },
+  "Meerlauf|2027-05-08": {
+    "am": "2026-10-07",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.meerlauf.de/",
+    "notiz": "To-do Punkt 8: „12,1 km Spendenlauf (Nordic-)Walking“ ist der Lauf selbst, der auch gewalkt werden darf (Seite: „der 12 Kilometer lange Weg“); bleibt. Termin 2027 auf der Seite noch nicht genannt."
   }
 }

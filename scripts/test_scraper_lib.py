@@ -2284,6 +2284,70 @@ def test_staffeln() -> None:
     check("und meldet den Ausschluss", len(entfernt), 1)
 
 
+def test_walking() -> None:
+    """Reine Walking-Wettbewerbe raus (Nutzer, 07.10.2026: "Nur A raus").
+
+    Nur die Zeile fällt, deren LABEL ausschließlich Walking/Wandern/Marsch
+    nennt. Die Gegenproben sind der wichtigere Teil, alle am Bestand
+    gezählt: "Lauf und Walking" ist der Lauf, zwei Wettbewerbe in einem
+    Label halten die Zeile, "auch als Nordic Walking" ist ein Lauf, und
+    Walking im NAMEN (Hollenmarsch, Ultra Walk, Charity Walk) bleibt -
+    "der wird nicht nur gelaufen, viele gehen auch beim Ultra".
+    """
+    print("\nWalking (ist_walking):")
+    from scraper_lib import ist_walking, filter_walking, Event
+    from clean_events import drop_walking
+
+    for name, wb in (("Laubacher Ramsberglauf", "7,5 km Walking"),
+                     ("Kyburglauf", "Nordic Walking 5.7 km"),
+                     ("58. Int. Schwarzwald-Marathon", "10 km Nordic Walking/Walking"),
+                     ("Harz-Gebirgslauf", "25 km Wandern / Nordic Walking"),
+                     ("64. Westenergie Marathon", "Walking Große Schleife"),
+                     ("Halloween Run - Hückeswagen", "5-km-Walk"),
+                     ("54. Winterlaufserie", "16 km (Nordic-)Walking"),
+                     ("Zeiler Waldmarathon", "Zaundirekt Walking und Nordic Walking"),
+                     ("SüdwestPark FunRun", "6 km Nordic Walker, offen für alle"),
+                     ("Lauf in den Frühling - Freital", "5 km Walking / Nordic Walking, Altersklassen M/W"),
+                     ("Schneekopflauf", "11 km Schneekopfwanderung für Nordic Walker und Wanderer"),
+                     ("Tour de Tirol", "18 km Hohe Salve Gipfelmarsch, 1.494 hm"),
+                     ("Schneeglöckchen-Lauf", "15 km Wanderung"),
+                     ("Freundschaftslauf Marpingen", "Walking"),
+                     ("Aletsch-Halbmarathon", "Aletsch-Halbmarathon Walking 21.1 km")):
+        check(f"{name!r} / {wb!r} fällt", bool(ist_walking("Laufen", wb, name)), True)
+    for name, wb in (("MedeRun", "10 km Lauf und Nordic Walking"),
+                     ("Zachower Crosslauf", "5 km für Läufer und Walker"),
+                     ("Schweizer Frauenlauf Bern", "5 km Running oder (Nordic) Walking"),
+                     ("Butterkuchenlauf", "6,5 km (Laufen, Walken, Dogging, Staffel möglich)"),
+                     ("Halloween Run Duisburg", "5 km Run/Walk"),
+                     ("Rhön-Grabfeld-Cup – Wollbach", "5,5 km Hobby, U18, Walking/Wandern"),
+                     ("Berglauf am Brigerberg", "36er und 36er Walk"),
+                     ("Martinslauf Düsseldorf", "ca. 6 km Seerunde und Nordic Walking"),
+                     ("Bieler Lauftage", "10km fun & walking"),
+                     ("Külsheimer TrailRun", "6 km auch als Nordic Walking"),
+                     ("Schliersee Lauf", "10,0 km Lauf und Walk"),
+                     ("Trail Run Evasion Rhône", "9 km Trail / Walking"),
+                     ("Meerlauf", "12,1 km Spendenlauf (Nordic-)Walking"),
+                     ("Bödefelder Hollenmarsch", "101 km (Paket XL)"),
+                     ("Ultra Walk", "100 km"),
+                     ("Ahmadiyya Charity Walk Wetzlar", "7 km"),
+                     ("Karwendelmarsch", None),
+                     ("Stadtlauf", "10 km")):
+        check(f"{name!r} / {wb!r} bleibt", ist_walking("Laufen", wb, name), None)
+    check("nur für Laufen", ist_walking("Fahrrad", "7,5 km Walking", "Radtour"), None)
+
+    zeilen = [Event(name="Stettener Volkslauf", wettbewerb="10 km", laenge_km=10.0, art1="Laufen"),
+              Event(name="Stettener Volkslauf", wettbewerb="7,5 km Nordic Walking", laenge_km=7.5, art1="Laufen")]
+    behalten, n = filter_walking(zeilen)
+    check("filter_walking nimmt nur die Walking-Zeile", [e.wettbewerb for e in behalten], ["10 km"])
+    check("und zählt sie", n, 1)
+    behalten, entfernt = drop_walking([
+        {"name": "Kerzerslauf", "datum_start": "2027-03-20", "art1": "Laufen", "wettbewerb": "15km Walk"},
+        {"name": "Kerzerslauf", "datum_start": "2027-03-20", "art1": "Laufen", "wettbewerb": "15km"},
+    ])
+    check("drop_walking behält den Lauf", [e["wettbewerb"] for e in behalten], ["15km"])
+    check("und meldet den Ausschluss", len(entfernt), 1)
+
+
 def test_serientermin_im_label() -> None:
     """Ein Serientermin, der MITTEN im Wettbewerbs-Label steht.
 
@@ -3899,7 +3963,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

@@ -860,6 +860,56 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    `manual_events.json` nach. Im Bestand traf die Regel am 24.09.2026
    keine Zeile (fünf Schwimm-Events, alle Bodensee Openwater).
 
+23. **Reine Walking-Wettbewerbe fliegen – nur die, deren LABEL nichts
+   als Walking nennt** (vom Nutzer am 07.10.2026 entschieden, To-do
+   Punkt 8: „Nur A raus … C ist ein Ultra, der wird nicht nur gelaufen
+   sondern viele gehen auch beim Ultra. Deshalb bitte C drinnenlassen.").
+   Am Bestand (7.095 Zeilen) vorher gezählt, drei Sorten:
+   - **A, 96 Zeilen, Label nur Walking/Wandern/Marsch** („7,5 km
+     Walking", „Nordic Walking 5,7 km", „25 km Wandern / Nordic Walking",
+     „18 km Hohe Salve Gipfelmarsch" – laut tirol.at eine Wanderung):
+     **raus**. `ist_walking(art1, wettbewerb, name)` in `scraper_lib.py`
+     (`WALKING_LABEL`, `LAUF_IM_LABEL`), `filter_walking()` beim
+     Einsammeln, `clean_events.drop_walking()` rückwirkend (mit Bericht),
+     nur `art1 == "Laufen"`.
+   - **B, 64 Zeilen, Label nennt Lauf UND Walking** („10 km Lauf und
+     Nordic Walking", „5 km für Läufer und Walker", „5 km Run/Walk",
+     „6,5 km (Laufen, Walken, …)", „Running oder (Nordic) Walking",
+     „5,5 km Hobby, U18, Walking/Wandern" – Hobby ist die Hobbylauf-
+     Klasse): **bleibt**, das IST der Lauf. Dazu zwei Wettbewerbe in
+     einem Label, deren erster der Lauf ist („36er und 36er Walk", „ca.
+     6 km Seerunde und Nordic Walking", „10km fun & walking" – ein mit
+     und/oder/&/Schrägstrich abgetrennter Teil mit eigenem Text ohne
+     Walking-Wort; Kommas trennen NICHT: „6 km Nordic Walker, offen für
+     alle" ist Walking) und „auch als Nordic Walking".
+   - **C, 75 Zeilen, Walking nur im NAMEN** (Bödefelder Hollenmarsch
+     7,5–101 km, Ultra Walk Magdeburg, Ultramarsch Leipzig,
+     Karwendelmarsch, TeutoMarsch, Ahmadiyya Charity Walk, „Winterlauf-
+     und Walkingserie"): **bleibt** – der Name entscheidet nie.
+   - **Wiederholt das Label VORN den Namen, zählt das Laufwort darin
+     nicht**: „Aletsch-Halbmarathon Walking 21.1 km" ist die
+     Walking-Kategorie des Halbmarathons (`_ohne_namenspraefix()`); nur
+     als Präfix – bei „Schliersee Lauf | 10,0 km Lauf und Walk" bleibt
+     das „Lauf" mitten im Label ein Laufwort.
+   - **`drop_walking()` läuft VOR `add_manual_events()`**: Eine
+     Walking-Zeile hält `is_same_event()` sonst für dieselbe Strecke wie
+     der nachgetragene Lauf gleicher Länge (Allschwil 6,6 km), der Lauf
+     wird übersprungen, die Walking-Zeile danach gelöscht, und erst der
+     nächste Durchlauf trägt den Lauf nach – nicht idempotent, beim Bau
+     so passiert.
+   - **Eine Walking-Zeile verbirgt oft den Lauf**: Bei sieben
+     Veranstaltungen war sie die EINZIGE Zeile; fünf an der
+     Veranstalterseite geprüft und den Lauf in `manual_events.json`
+     nachgetragen (Biberacher Genießerlauf HM, Silvesterlauf Bremen 5/10
+     km, Enzenbüschlauf 10,6 km, Aletsch-Halbmarathon 21,1 km; Allschwil
+     stand als „Klausenlauf Allschwil" schon drin), Waldreiterlauf
+     `unklar` (nur raceresult). Die drei reinen Walking-Einträge in
+     `manual_events.json` (Lohelauf Wentorf, Zweitalsperrenlauf,
+     Wildschönauer Wanderroute) sind entfernt. Ergebnis: 87 Zeilen raus,
+     7.095 → 7.008 Events. `test_walking` hält Treffer und Gegenproben
+     fest. Sportliches Gehen (Race Walking, „Geher") fällt unabhängig
+     davon über `NICHT_AUSDAUER` (Datenregel 14).
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die
@@ -4760,8 +4810,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkte 9–12 am 07.10.2026 vorgezogen und erledigt, danach Punkt 13.**
+**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–12 erledigt (8 und 9–12 in
+zwei parallelen Sitzungen), Punkt 7 ans Ende verschoben (jetzt
+Punkt 32), WEITER BEI PUNKT 13.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4851,7 +4902,10 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
    Nutzer: erst wenn die Liste korrekt ist, geht die Seite auf
    `endurance-events.de` live – die Korrekturliste ist der letzte Schritt
    davor), jetzt Punkt 32.
-8. **Walking-Zeilen in Volksläufen**: rein oder raus? **Am 07.10.2026
+8. ~~**Walking-Zeilen in Volksläufen**: rein oder raus?~~ **entschieden
+   und gebaut** (07.10.2026: „Nur A raus … C drinnenlassen" – Datenregel
+   23, `ist_walking()`, 87 Zeilen raus). Die Zählung von vorher bleibt
+   als Protokoll stehen. **Am 07.10.2026
    am Bestand (7.095 Zeilen) nachgezählt** – die „145 Zeilen" von
    früher waren nur das Stichwort „Nordic Walking", die Klasse ist
    größer und hat drei Sorten, die verschieden zu behandeln sind:
@@ -5264,7 +5318,9 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Gehen, keine Laufveranstaltung – dieselbe Frage wie beim Kammlauf.
 
 19. **Stand nach den Entscheidungen vom 21.09.2026 – was offen bleibt:**
-   - **Walking-Strecken innerhalb von Volksläufen** (145 Zeilen, „5 km
+   - ~~**Walking-Strecken innerhalb von Volksläufen**~~ **entschieden**
+     (07.10.2026, Datenregel 23: Label nur Walking → raus, „Lauf und
+     Walking" und Walking im Namen bleiben). Ursprünglich: (145 Zeilen, „5 km
      Nordic Walking" neben dem Hauptlauf) und reine Wanderformate: Der
      Nutzer hat Gehen (Race Walking) und Skilanglauf ausgeschlossen;
      ob Nordic Walking dazugehört, ist nicht entschieden. Die Walking-
