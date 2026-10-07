@@ -4664,8 +4664,10 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    zu einer vergangenen Ausgabe ist nicht erledigt, wenn die Zeile weg ist
    – die nächste Ausgabe trägt denselben Fehler, wenn niemand die Seite
    liest.
-4. **Impressum und Datenschutzerklärung prüfen (lassen)** – Voraussetzung
-   für den Livegang; keine Rechtsberatung von Claude. **Seit dem
+4. ~~**Impressum und Datenschutzerklärung prüfen (lassen)**~~ **erledigt**
+   (07.10.2026, vom Nutzer: „Punkt 4 erledigt" – er hat beide Seiten
+   gelesen; Voraussetzung für den Livegang, Punkt 29, ist damit erfüllt).
+   Keine Rechtsberatung von Claude. **Seit dem
    05.10.2026 nennt die Datenschutzerklärung den E-Mail-Versand** (Abschnitt
    „E-Mail-Abos": Cloud Function in Belgien, Versand über
    `info@endurance-events.de` bei IONOS SE, Montabaur; DE und EN, „Stand"
@@ -4676,7 +4678,8 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am Abend des 05.10.2026 (23:45) – MORGEN WEITER BEI PUNKT 4.**
+**Stand am 07.10.2026 – Punkte 1–4 erledigt, WEITER BEI PUNKT 6.**
+(Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
 morgen genau merken"). Punkte 1–3 sind erledigt, Punkt 5 steht als
 Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
