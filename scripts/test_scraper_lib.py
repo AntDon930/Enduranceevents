@@ -2149,6 +2149,9 @@ def test_nicht_ausdauer() -> None:
                  "Fitletix - Graz", "Raedbox Challenge by FITLETIX", "The Rox",
                  "Deadly Dozen Köln", "Deadly Sprint im Glaspalast", "Deadly Gross Fürth",
                  "ATHX St Gallen", "ATHX Vienna", "StrongAthlon", "4. Strong Athlon",
+                 # UCI-Teamrennen 1.x/2.x (Nutzer, 07.10.2026)
+                 "16. GP Vorarlberg p/b RadHaus Rankweil UCI 1.2",
+                 "Oberösterreich Rundfahrt (UCI Kat. 2.2)", "Tour of Austria UCI 2.Pro",
                  # Gehen und Skilanglauf (Nutzer, 21.09.2026)
                  "Lusatian Race Walking", "Internationaler Kammlauf (Skilanglauf)",
                  "König-Ludwig-Langlauf", "Gehermeeting: Gehertag Naumburg",
@@ -2162,6 +2165,9 @@ def test_nicht_ausdauer() -> None:
                  # "Rox", "Dozen" und "Strong" allein sind keine Marke
                  "Roxheimer Volkslauf", "Dozen Hills Trail", "Strong Viking Run",
                  "Athlon Triathlon", "Deadline Lauf",
+                 # UCI C1/C2 und Gran Fondo: jeder meldet sich selbst an
+                 "5. Querfeldein GP UCI C2 Gunskirchen", "35. KTM Kamptal Trophy - UCI XCO C1",
+                 "UCI Gran Fondo World Series Ötztal", "Säntis Classic 2.2 km",
                  # Walking-Strecken bleiben (offene Frage an den Nutzer),
                  # "Langläufer" ist kein Langlauf, ein Bergläufer kein Geher.
                  "21. Trochtelfinger Nordic Walking Stöckles-Cup", "Ahmadiyya Charity Walk",

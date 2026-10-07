@@ -2581,6 +2581,16 @@ NICHT_AUSDAUER: list[tuple[re.Pattern, str]] = [
      "Deadly Dozen (Fitness-Wettkampf)"),
     (re.compile(r"\bathx\b", re.I), "ATHX Games (Hybrid-Fitness-Wettkampf)"),
     (re.compile(r"\bstrong\s*athlon\b", re.I), "StrongAthlon (Laufen + Kraftübungen im Team)"),
+    # UCI-Straßenrennen der Klassen 1.x/2.x (Eintages- und Etappenrennen)
+    # starten nur eingeladene UCI-Teams - keine Einzelanmeldung (vom
+    # Nutzer am 07.10.2026 entschieden, To-do Punkt 15: "Wenn sich jeder
+    # anmelden kann, dann bitte drinnen lassen"). Nur die Klasse im Namen
+    # ("GP Vorarlberg UCI 1.2"); UCI C1/C2 (Cross, XCO - jeder Lizenzfahrer
+    # meldet sich selbst) und die UCI Gran Fondo World Series (Amateure)
+    # bleiben. Kein Ausdauer-Problem, aber dieselbe Ausschlussliste, damit
+    # es beim Einsammeln UND rückwirkend greift.
+    (re.compile(r"\buci\s*(?:kat\.?\s*)?[12]\.(?:1|2|pro|hc|uwt|wwt|ncup)\b", re.I),
+     "UCI-Teamrennen (nur eingeladene Teams)"),
     # Gehen und Skilanglauf sind keine Laufveranstaltungen (vom Nutzer am
     # 21.09.2026 entschieden: "Gehen und Skilanglauf nicht aufnehmen").
     # "Race Walking" ist die Leichtathletik-Disziplin Gehen (Lusatian Race

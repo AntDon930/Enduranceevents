@@ -6657,7 +6657,9 @@
   },
   "17. Int. Oberösterreich Rundfahrt|2027-05-27": {
     "veranstalter_url": "https://www.ooe-classics.at/",
-    "_note": "Oberösterreich Classics (ooe-classics.at, OÖ Landesradsportverband): Startseite führt OÖ Rundfahrt, Pöstlingberg Classic, Eröffnungsrennen und Junioren Rundfahrt unter einem Dach; die Unterseite /eroeffnungsrennen war die falsche Veranstaltung derselben Seite. Linkprüfung 30.09.2026."
+    "_note": "Oberösterreich Classics (ooe-classics.at, OÖ Landesradsportverband): Startseite führt OÖ Rundfahrt, Pöstlingberg Classic, Eröffnungsrennen und Junioren Rundfahrt unter einem Dach; die Unterseite /eroeffnungsrennen war die falsche Veranstaltung derselben Seite. Linkprüfung 30.09.2026.",
+    "exclude": true,
+    "_note_ausschluss": "UCI-Teamrennen: 'Die Oberösterreich Rundfahrt (UCI Kat. 2.2) ist nach der Tour of Austria das wichtigste Etappenrennen in Österreich' (ooe-classics.at, 07.10.2026) - nur eingeladene Teams. To-do Punkt 15, vom Nutzer: nur was jeder buchen kann. Das Jedermannrennen 'Pöstlingberg Classics' desselben Veranstalters bleibt."
   },
   "4. Pöstlingberg Classics|2027-05-27": {
     "veranstalter_url": "https://www.ooe-classics.at/",
@@ -8237,5 +8239,9 @@
   "IMEXrun|2027-05-12": {
     "exclude": true,
     "_note": "Nicht öffentlich: 'Open to all IMEX participants' - 5-km-Lauf am Main als Programmpunkt der Fachmesse IMEX Frankfurt, nur für registrierte Messeteilnehmer (frankfurt.imexevents.com/newfront/imexrun, 07.10.2026). Datenregel 18 / To-do Punkt 14, vom Nutzer entschieden: nur Messebesucher -> raus."
+  },
+  "8. internationale Alpe Adria Tour|2027-08-12": {
+    "exclude": true,
+    "_note": "Internationales Etappenrennen für Nachwuchs-Teams (U13, U15, U17, Junioren; Nationalteams am Start, meinbezirk.at zur 4. Ausgabe), Ausschreibung 2027 noch nicht online (rc-kac.at, 07.10.2026). Nachwuchs und Teamstart - To-do Punkt 15."
   }
 }

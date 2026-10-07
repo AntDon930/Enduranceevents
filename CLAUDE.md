@@ -4810,9 +4810,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–14 erledigt (8 und 9–14 in
+**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–15 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen), Punkt 7 ans Ende verschoben (jetzt
-Punkt 32), WEITER BEI PUNKT 15.**
+Punkt 32), WEITER BEI PUNKT 16.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4996,7 +4996,28 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     für neue Fälle: Ein Lauf im Programm einer Messe oder Tagung ist
     nicht öffentlich, solange die Seite nicht ausdrücklich „für alle"
     sagt.
-15. UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?
+15. ~~UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?~~
+    **erledigt** (07.10.2026, vom Nutzer: „Ja die UCI Rennen dann bitte
+    raus … Wenn sich jeder anmelden kann, dann bitte drinnen lassen, auch
+    wenn es ein Teamevent ist."). **Die allgemeine Regel dahinter: Es
+    bleibt, wofür sich jeder selbst anmelden kann** (mit Lizenz, wo die
+    Klasse eine verlangt – Datenregel „alle Klassen, auch Lizenz" aus dem
+    BRV-/ÖRV-Scraper gilt weiter); raus, wofür man eingeladen werden oder
+    sich qualifizieren muss. Umsetzung: UCI-Klasse 1.x/2.x im Namen steht
+    in `NICHT_AUSDAUER` (GP Vorarlberg UCI 1.2); per Override mit Beleg
+    die Oberösterreich Rundfahrt (UCI 2.2 laut ooe-classics.at) und die
+    Alpe Adria Tour (Nachwuchs-Etappenrennen für Teams). 6.980 → 6.977.
+    **Bleiben**: UCI C1/C2 (Querfeldein GP Gunskirchen, KTM Kamptal Trophy
+    XCO – jeder Lizenzfahrer meldet selbst), UCI Gran Fondo World Series,
+    Pöstlingberg Classics (Jedermann, „für lizenzierte und unlizenzierte"),
+    Kriterien (Lizenzrennen), offene MTB-Etappenrennen (Alpentour,
+    Dunkelwald, Swiss Epic, RiderMan). **Offen**: „women Tour" (St. Pölten,
+    02.–06.06.2027, ÖRV-Kalender) – keine eigene Seite gefunden, der
+    uci.ch-Link stammt nur aus unserer Linkprüfung (Wort „women" auf der
+    Startseite) und ist kein Beleg; nicht geraten, bleibt bis zur Klärung.
+    Die Österreichische Cyclocross-Meisterschaft (10.01.2027) steht noch
+    drin – Meisterschaft, Startrecht nach Nation/Lizenz, beim nächsten
+    Blick prüfen.
 16. Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?
 17. fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
     vorläufig oder bis Frühjahr 2027 warten?

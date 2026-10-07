@@ -51774,19 +51774,6 @@
     "veranstalter_url": "https://www.100km-duathlon.de"
   },
   {
-    "land": "Österreich",
-    "name": "16. GP Vorarlberg p/b RadHaus Rankweil UCI 1.2",
-    "standort": "Nenzing",
-    "lat": 47.183198,
-    "lon": 9.6995419,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-05-01",
-    "datum_ende": "2027-05-01",
-    "wettbewerb": "Straßenrennen",
-    "veranstalter_url": "https://www.team-vorarlberg.at"
-  },
-  {
     "land": "Deutschland",
     "name": "21. Angeraner Krepe - Cross",
     "standort": "Angern",
@@ -61161,19 +61148,6 @@
     "datum_ende": "2027-05-27",
     "laenge_km": 10.0,
     "veranstalter_url": "https://www.tsg-leihgestern.de/sportangebot/laufen-walken"
-  },
-  {
-    "land": "Österreich",
-    "name": "17. Int. Oberösterreich Rundfahrt",
-    "standort": "Walding",
-    "lat": 48.3513494,
-    "lon": 14.161397,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-05-27",
-    "datum_ende": "2027-05-30",
-    "wettbewerb": "Etappenrennen",
-    "veranstalter_url": "https://www.ooe-classics.at/"
   },
   {
     "land": "Deutschland",
@@ -84666,19 +84640,6 @@
     "laenge_km": 560.0,
     "wettbewerb": "Ultracycling 560 km",
     "veranstalter_url": "https://www.racearoundaustria.at/challenge/das-rennen"
-  },
-  {
-    "land": "Österreich",
-    "name": "8. internationale Alpe Adria Tour",
-    "standort": "Villach-Lind",
-    "lat": 46.6252383,
-    "lon": 13.8376822,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-08-12",
-    "datum_ende": "2027-08-15",
-    "wettbewerb": "Etappenrennen",
-    "veranstalter_url": "https://www.rc-kac.at"
   },
   {
     "land": "Deutschland",
