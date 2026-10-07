@@ -7724,7 +7724,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 6.3,
-    "wettbewerb": "6,3 km Teamlauf",
+    "wettbewerb": "6,3 km Jedermannslauf",
     "veranstalter_url": "https://www.loewenlauf-hachenburg.de/"
   },
   {
@@ -50027,20 +50027,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Remstal-Lauf",
-    "standort": "Winterbach",
-    "lat": 48.7996065,
-    "lon": 9.4792107,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-18",
-    "datum_ende": "2027-04-18",
-    "laenge_km": 25.0,
-    "wettbewerb": "25 km Teamlauf",
-    "veranstalter_url": "https://www.remstal-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Ruhrseen-Halbmarathon",
     "standort": "Hagen",
     "lat": 51.3670777,
@@ -60035,20 +60021,6 @@
   },
   {
     "land": "Österreich",
-    "name": "Salzburger Firmen-Triathlon",
-    "standort": "Salzachseen, Salzburg-Liefering",
-    "lat": 47.8311,
-    "lon": 13.0014,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-05-21",
-    "datum_ende": "2027-05-21",
-    "laenge_km": 11.4,
-    "wettbewerb": "Sprintdistanz 11.4 km",
-    "veranstalter_url": "https://www.firmen-triathlon.eu"
-  },
-  {
-    "land": "Österreich",
     "name": "Salzburger Frauenlauf",
     "standort": "Salzburg",
     "lat": 47.80949,
@@ -63042,34 +63014,6 @@
     "laenge_km": 26.5,
     "wettbewerb": "26,5 km Seen‑Lauf rund um den Vilsalpsee (neu für 2027)",
     "veranstalter_url": "https://www.seen-lauf.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Team Challenge Halle",
-    "standort": "Halle (Saale)",
-    "lat": 51.4953567,
-    "lon": 11.9662371,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-28",
-    "datum_ende": "2027-05-28",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://www.team-challenge-halle.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Team Challenge Halle",
-    "standort": "Halle (Saale)",
-    "lat": 51.4953567,
-    "lon": 11.9662371,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-28",
-    "datum_ende": "2027-05-28",
-    "laenge_km": 42.2,
-    "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.team-challenge-halle.de/"
   },
   {
     "land": "Österreich",

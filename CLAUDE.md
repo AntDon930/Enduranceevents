@@ -615,7 +615,27 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    - Jeder Ausschluss wird **gemeldet**, nicht stillschweigend gemacht.
 
 16. **Erst einmal keine Staffeln** (vom Nutzer am 21.09.2026
-   entschieden). Eine Staffel ist ein Team-Wettbewerb; im Bestand stand
+   entschieden).
+
+   **DIE UNIVERSALE REGEL (vom Nutzer am 07.10.2026):** „Ich möchte erst
+   einmal nur Einzelläufe aufnehmen. … Wenn man den Firmenlauf von 5km
+   alle 5km alleine laufen muss, dann kann das event gerne aufgenommen
+   werden. Aber wenn man von einer 10km Strecke, die Strecke durch 4
+   Leute teilen muss, dann bitte nicht aufnehmen. Das soll die universale
+   Regel sein." Also: **Läuft jede Person die GANZE Strecke selbst, bleibt
+   die Zeile** – auch wenn man sich nur als Team anmelden kann, im Team
+   gewertet wird oder gemeinsam läuft (Firmenläufe, Zehn Freunde Team
+   Triathlon, Penzberger TeamTrail, Teamwertung). **Wird die Strecke auf
+   mehrere Personen AUFGETEILT, fliegt sie** (Staffel, Stafette, SOLA,
+   Paarlauf, Team-Etappen, Staffel-Triathlon). Eine „Team-Strecke", die
+   nur die SUMME der Einzelstrecken ist (Remstal-Lauf „25 km Teamlauf" =
+   5 × 5 km Jedermannlauf), ist keine eigene Strecke und fliegt ebenfalls.
+   Gilt für alle Sportarten. Was die Regel `ist_staffel()` nicht sieht,
+   per Override mit Beleg (Team Challenge Halle, Salzburger
+   Firmen-Triathlon). **Staffel-, Team- und Firmenformate sind eine
+   Reserve** – siehe „Wo das Projekt gerade steht".
+
+   Eine Staffel ist ein Team-Wettbewerb; im Bestand stand
    mal die Team-Gesamtstrecke, mal die Teilstrecke. `ist_staffel()` in
    `scraper_lib.py` entscheidet in zwei Stufen, beide **am Bestand
    gezählt** (49 Zeilen mit „Staffel", 29 entfernt): Ein **Label**, das
@@ -4515,6 +4535,26 @@ selbst, nicht an den Daten – also sparsam mit Tokens umgehen: keine
 Scraper-Läufe „zur Kontrolle", `events.json` nicht lesen, für Daten-
 Änderungen den Workflow auslösen statt im Chat zu warten.
 
+**Bewusst ausgeschlossen – die Reserve für „mehr Events" (vom Nutzer am
+07.10.2026: „Bitte die Staffelläufe oder Teamläufe im Hinterkopf
+behalten, falls ich mal frage wie wir mehr Events noch bekommen oder
+welche Events noch fehlen, dann mir bitte sagen.")** Fragt der Nutzer,
+wie wir an mehr Events kommen oder was noch fehlt, IMMER diese Liste
+nennen – sie ist Absicht, keine Lücke, aber zurückholbar:
+- **Staffeln und geteilte Strecken** (Datenregel 16: Staffel, Stafette,
+  SOLA, Paarlauf, Team-Etappen, Staffel-Triathlon) – `filter_staffeln()`
+  beim Einsammeln und `clean_events.drop_staffeln()` herausnehmen; die
+  Overrides mit „geteilte Strecke" im `_note` (Team Challenge Halle,
+  Salzburger Firmen-Triathlon) löschen.
+- **Teamläufe und Firmenläufe mit geteilter Strecke** (dieselbe Regel).
+  Firmenläufe, bei denen jeder die ganze Strecke läuft, sind schon drin.
+- **Hybrid-Fitness** (HYROX, FITLETIX, THE ROX, Deadly Dozen, ATHX,
+  StrongAthlon …, Datenregel 14), **Gehen/Skilanglauf**, **virtuelle
+  Läufe**, **Schwimm-Meisterschaften** (Datenregel 22), **Läufe unter
+  5 km / Schwimmen unter 500 m** (Datenregel 5).
+- Die **gesperrten Quellen** (siehe „Quellen" und README) – nur mit Ja
+  des Betreibers.
+
 **Geplant zum Schluss**: Der Nutzer liefert eine größere Menge Links, aus
 denen dann alle Events herausgesucht werden – erwartet werden **über
 20.000 Events**. Das ist der Moment für einen großen Datenlauf; bis dahin
@@ -4721,7 +4761,7 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    nicht") – jetzt Punkt 30.
 
 **Stand am 07.10.2026 – Punkte 1–4 und 6 erledigt, Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkte 9–11 am 07.10.2026 vorgezogen und erledigt, danach Punkt 12.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 8 (offen, Entscheidung des Nutzers); Punkte 9–12 am 07.10.2026 vorgezogen und erledigt, danach Punkt 13.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4875,7 +4915,19 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 11. ~~Paarläufe (Zweier-Teams, 30/60 min) als Staffel → raus? Drei im Bestand.~~
     **erledigt** mit Punkt 10 (07.10.2026, „Nur Einzelläufe"): sieben
     Paarlauf-Zeilen raus.
-12. Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?
+12. ~~Firmenläufe nur für Teams (Ratingen, Wismar, Neumarkt, Rostock) raus?~~
+    **erledigt** (07.10.2026) – mit der **universalen Regel** des Nutzers
+    (Datenregel 16): jeder läuft die ganze Strecke → bleibt, geteilte
+    Strecke → raus. Damit bleiben alle Firmenläufe (dort läuft jeder die
+    5–8 km selbst), Zehn Freunde Team Triathlon (jeder 380 m / 18 km /
+    4,2 km), Penzberger TeamTrail und UNIQA Team Challenge (gemeinsam),
+    Berner Team OL. Raus per Override (Beleg im `_note`): Team Challenge
+    Halle (Sechser-Staffel), Salzburger Firmen-Triathlon
+    (Staffel-Triathlon), Remstal-Lauf „25 km Teamlauf" (= Summe von
+    5 × 5 km Jedermannlauf); Löwenlauf Hachenburg „6,3 km Teamlauf" heißt
+    jetzt „6,3 km Jedermannslauf". 7.072 → 7.068. **Offen**: OÖ
+    Firmentriathlon Linz (Seite nur per JavaScript, Format nicht lesbar,
+    die Zeile steht mit 3,2 km – beim nächsten Blick klären).
 13. slowUp (12 Zeilen, kein Wettkampf) rein oder raus?
 14. IMEXrun Frankfurt (nur Messebesucher?) raus?
 15. UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?

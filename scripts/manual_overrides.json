@@ -8217,5 +8217,21 @@
   "Gravel 'n' Gröstl|2026-10-08|540": {
     "exclude": true,
     "_note": "gravelngroestl.com: '9 Routen - 20 bis 100 km, bis zu 540 km | 11 000 hm'. Die 540 km sind die SUMME aller neun Routen (20+30+…+100), keine Strecke, die jemand fährt; die neun Routen stehen einzeln in der Liste. Vom Nutzer am 06.10.2026 gemeldet. Am Bestand nachgezählt: Eine Zeile, deren Distanz die Summe der übrigen Strecken ist, gibt es sonst nur zweimal, beide echte Strecken (Velorace Dresden 102 km, Spreewald-Radtour 150 km) - deshalb Override, keine Regel."
+  },
+  "Team Challenge Halle|2027-05-28": {
+    "exclude": true,
+    "_note": "Staffel: 'Sechs Läuferinnen oder Läufer bilden eine Staffel … absolvieren … mit Wechselpunkt am Waldkater gemeinsam die Marathon- oder Halbmarathondistanz' (team-challenge-halle.de, 07.10.2026). Regel des Nutzers vom 07.10.2026: wird die Strecke geteilt, nicht aufnehmen."
+  },
+  "Salzburger Firmen-Triathlon|2027-05-21": {
+    "exclude": true,
+    "_note": "Staffel-Triathlon ('Salzburger Firmen Duathlon Staffel-Triathlon mit kurzen Distanzen', Bewerbe 'Triathlon-Staffel'/'Duathlon-Staffel', firmen-triathlon.eu, 07.10.2026). Regel des Nutzers vom 07.10.2026: geteilte Strecke -> nicht aufnehmen."
+  },
+  "Remstal-Lauf|2027-04-18|25": {
+    "exclude": true,
+    "_note": "Keine eigene Strecke: 'Jedes Team besteht aus fünf Teilnehmern, die gemeinsam beim Jedermannlauf über 5 km starten und so in Summe 25 km absolvieren' (remstal-lauf.de, Strecke Teamlauf, 07.10.2026). Jeder läuft die 5 km, die als eigene Zeile da sind; die 25 km sind die Teamsumme."
+  },
+  "Löwenlauf Hachenburg|2026-10-17|6.3": {
+    "wettbewerb": "6,3 km Jedermannslauf",
+    "_note": "Die Seite nennt den 6,3-km-Jedermannslauf, 'auch als Teamlauf' - jeder läuft die ganze Strecke, also ein Einzellauf (Regel des Nutzers vom 07.10.2026). Label 'Teamlauf' der Quelle ersetzt (loewenlauf-hachenburg.de, 07.10.2026)."
   }
 }
