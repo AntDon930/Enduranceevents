@@ -4810,9 +4810,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–12 erledigt (8 und 9–12 in
+**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–13 erledigt (8 und 9–13 in
 zwei parallelen Sitzungen), Punkt 7 ans Ende verschoben (jetzt
-Punkt 32), WEITER BEI PUNKT 13.**
+Punkt 32), WEITER BEI PUNKT 14.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -4982,7 +4982,12 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     jetzt „6,3 km Jedermannslauf". 7.072 → 7.068. **Offen**: OÖ
     Firmentriathlon Linz (Seite nur per JavaScript, Format nicht lesbar,
     die Zeile steht mit 3,2 km – beim nächsten Blick klären).
-13. slowUp (12 Zeilen, kein Wettkampf) rein oder raus?
+13. ~~slowUp (12 Zeilen, kein Wettkampf) rein oder raus?~~ **entschieden**
+    (07.10.2026, vom Nutzer: „Ja das bleibt drinnen. Das mag ich."):
+    slowUp bleibt (Fahrrad), obwohl es kein Wettkampf ist und keine
+    Anmeldung braucht. **Nicht** über eine spätere Regel wie „kein
+    Wettkampf" oder „ohne Distanz" herausfallen lassen – wer so eine Regel
+    baut, nimmt slowUp als Gegenprobe in den Test.
 14. IMEXrun Frankfurt (nur Messebesucher?) raus?
 15. UCI-Teamrennen (Oberösterreich Rundfahrt, keine Einzelanmeldung) raus?
 16. Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?
@@ -5115,7 +5120,8 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      Weg zu den ostdeutschen Cross-Cups und MTB-Marathons.
    - **slowUp** (12 Zeilen, `slowup.ch`): autofreie Erlebnistage in der
      Schweiz – Rad, Inline, zu Fuß, ohne Wettkampf und Anmeldung. Rein
-     oder raus? Heute drin (Fahrrad). Und **IMEXrun** (Frankfurt, im
+     oder raus? Heute drin (Fahrrad). **Entschieden 07.10.2026: bleibt**
+     (To-do Punkt 13). Und **IMEXrun** (Frankfurt, im
      Rahmen der Messe IMEX) – wahrscheinlich nur für Messebesucher.
    - **UCI-Rennen** wie die Oberösterreich Rundfahrt (2.2) stehen als
      Fahrrad in der Liste; dort kann sich niemand einzeln anmelden
