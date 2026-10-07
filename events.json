@@ -473,19 +473,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "15. Auwald-Lauf",
-    "standort": "Dautphetal",
-    "lat": 50.8417001,
-    "lon": 8.554163,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 21.1,
-    "veranstalter_url": "https://www.ssvhommertshausen.de/auwaldlauf"
-  },
-  {
-    "land": "Deutschland",
     "name": "16. Kuppinger Mondfängerlauf",
     "standort": "Herrenberg",
     "lat": 48.5963819,
@@ -975,6 +962,20 @@
     "art2": "Straße",
     "datum_start": "2026-10-10",
     "datum_ende": "2026-10-10",
+    "laenge_km": 21.0,
+    "wettbewerb": "21 km Halbmarathon",
+    "veranstalter_url": "https://www.ssvhommertshausen.de/auwaldlauf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Auwaldlauf",
+    "standort": "Dautphetal",
+    "lat": 50.8344412,
+    "lon": 8.556263,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.ssvhommertshausen.de/auwaldlauf"
@@ -991,20 +992,6 @@
     "datum_ende": "2026-10-10",
     "laenge_km": 14.0,
     "wettbewerb": "14 km",
-    "veranstalter_url": "https://www.ssvhommertshausen.de/auwaldlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Auwaldlauf",
-    "standort": "Dautphetal",
-    "lat": 50.8344412,
-    "lon": 8.556263,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km Halbmarathon",
     "veranstalter_url": "https://www.ssvhommertshausen.de/auwaldlauf"
   },
   {
@@ -3395,19 +3382,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "3. SAARathon Weltkulturerbe-Marathon (37. Westspangenlauf)",
-    "standort": "Saarbrücken",
-    "lat": 49.234362,
-    "lon": 6.996379,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://www.westspangenlauf.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "34. Kreuzberglauf mit Ufr. Meisterschaften",
     "standort": "Schönau an der Brend",
     "lat": 50.3813344,
@@ -3749,47 +3723,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://lollslauf.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bayerische Marathon Meisterschaften",
-    "standort": "Schwabinger Tor",
-    "lat": 48.1713933,
-    "lon": 11.5866412,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://marathonmuenchen.org/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bayerische Marathon Meisterschaften",
-    "standort": "Schwabinger Tor",
-    "lat": 48.1713933,
-    "lon": 11.5866412,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://marathonmuenchen.org/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Bayerische Marathon Meisterschaften",
-    "standort": "Schwabinger Tor",
-    "lat": 48.1713933,
-    "lon": 11.5866412,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 21.1,
-    "wettbewerb": "Halbmarathon",
-    "veranstalter_url": "https://marathonmuenchen.org/"
   },
   {
     "land": "Schweiz",
@@ -6398,32 +6331,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "22. FALKE Rothaarsteig-Marathon",
-    "standort": "Schmalenberg",
-    "lat": 49.3338914,
-    "lon": 7.7299367,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.Rothaarsteig-marathon.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "23. Falke-Rothaarsteigmarathon",
-    "standort": "Schmallenberg-Fleckenberg",
-    "lat": 51.1469176,
-    "lon": 8.2700774,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.rothaarsteig-marathon.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "24. Panoramalauf Niedenstein",
     "standort": "Niedenstein",
     "lat": 51.2152682,
@@ -6626,34 +6533,6 @@
     "datum_ende": "2026-10-17",
     "veranstalter_url": "http://www.wolfgangseelauf.at",
     "laenge_km": 27.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "65. Volks-Crosslauf des TuSLi",
-    "standort": "Berlin-Zehlendorf",
-    "lat": 52.4310735,
-    "lon": 13.2585888,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km Mittelstrecke",
-    "veranstalter_url": "https://tusli.de/leichtathletik"
-  },
-  {
-    "land": "Deutschland",
-    "name": "65. Volks-Crosslauf des TuSLi",
-    "standort": "Berlin-Zehlendorf",
-    "lat": 52.4310735,
-    "lon": 13.2585888,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km Hauptlauf",
-    "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
     "land": "Deutschland",
@@ -7044,8 +6923,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 21.0,
-    "wettbewerb": "21 km",
+    "laenge_km": 42.0,
+    "wettbewerb": "42 km",
     "veranstalter_url": "https://www.rothaarsteig-marathon.de"
   },
   {
@@ -7058,9 +6937,37 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 42.0,
-    "wettbewerb": "42 km",
+    "laenge_km": 21.0,
+    "wettbewerb": "21 km",
     "veranstalter_url": "https://www.rothaarsteig-marathon.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "FALKE Rothaarsteig-Marathon",
+    "standort": "Schmallenberg",
+    "lat": 51.1526332,
+    "lon": 8.2907901,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "laenge_km": 22.6,
+    "wettbewerb": "22,600 km Halbmarathon, ca. 421 Höhenmeter",
+    "veranstalter_url": "https://rothaarsteig-marathon.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "FALKE Rothaarsteig-Marathon",
+    "standort": "Schmallenberg",
+    "lat": 51.1526332,
+    "lon": 8.2907901,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "laenge_km": 12.5,
+    "wettbewerb": "12,500 km AOK‑Lauf, ca. 320 Höhenmeter",
+    "veranstalter_url": "https://rothaarsteig-marathon.de/"
   },
   {
     "land": "Deutschland",
@@ -7922,34 +7829,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Rothaarsteig-Marathon",
-    "standort": "Schmallenberg",
-    "lat": 51.1526332,
-    "lon": 8.2907901,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 22.6,
-    "wettbewerb": "22,600 km Halbmarathon, ca. 421 Höhenmeter",
-    "veranstalter_url": "https://rothaarsteig-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rothaarsteig-Marathon",
-    "standort": "Schmallenberg",
-    "lat": 51.1526332,
-    "lon": 8.2907901,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "laenge_km": 12.5,
-    "wettbewerb": "12,500 km AOK‑Lauf, ca. 320 Höhenmeter",
-    "veranstalter_url": "https://rothaarsteig-marathon.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Schechener Kirtalauf",
     "standort": "Schechen",
     "lat": 47.9272009,
@@ -8165,8 +8044,8 @@
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
+    "laenge_km": 6.0,
+    "wettbewerb": "6 km",
     "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
@@ -8179,8 +8058,8 @@
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 6.0,
-    "wettbewerb": "6 km",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
     "veranstalter_url": "https://tusli.de/leichtathletik"
   },
   {
@@ -16633,19 +16512,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "50. Internationaler Wurzelweg-Lauf",
-    "standort": "Konz",
-    "lat": 49.6984949,
-    "lon": 6.5736454,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 15.0,
-    "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
-  },
-  {
-    "land": "Deutschland",
     "name": "50. Limes- Winterlaufserie - 1. Lauf über 10 km",
     "standort": "Pohlheim, Watzenborn- Steinberg",
     "lat": 50.5342922,
@@ -17237,6 +17103,20 @@
     "art2": "Straße",
     "datum_start": "2026-11-07",
     "datum_ende": "2026-11-07",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km Schuhe und Sport Holbach Lauf",
+    "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Internationaler Wurzelweglauf",
+    "standort": "Konz",
+    "lat": 49.6993563,
+    "lon": 6.5726813,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
     "laenge_km": 5.0,
     "wettbewerb": "5 km TNA Energie Jedermann Lauf",
     "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
@@ -17253,20 +17133,6 @@
     "datum_ende": "2026-11-07",
     "laenge_km": 10.0,
     "wettbewerb": "10 km VOLVO Wurzelweg Lauf",
-    "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Internationaler Wurzelweglauf",
-    "standort": "Konz",
-    "lat": 49.6993563,
-    "lon": 6.5726813,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-07",
-    "datum_ende": "2026-11-07",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km Schuhe und Sport Holbach Lauf",
     "veranstalter_url": "https://lauftreff.tgkonz.de/wurzelweglauf/ausschreibung/"
   },
   {
@@ -18803,20 +18669,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Hegau-Bodensee Crosslaufserie - Meersburg",
-    "standort": "Meersburg",
-    "lat": 47.6954836,
-    "lon": 9.2720915,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "laenge_km": 6.5,
-    "wettbewerb": "Hauptlauf ca. 6.500 m (drei Runden)",
-    "veranstalter_url": "https://hegau-bodensee-cross.de/serie/meersburg/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Herbstwaldlauf – Dresdner Heide mit Hofewiese-Trail",
     "standort": "Dresden",
     "lat": 51.0504088,
@@ -20159,19 +20011,6 @@
     "laenge_km": 8.2,
     "veranstalter_url": "https://www.tusglanmuenchweiler.de/potzberglauf/",
     "wettbewerb": "8 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "46. Alten-Busecker Winterlaufserie - 1. Event",
-    "standort": "Buseck/Alten-Buseck",
-    "lat": 50.624167,
-    "lon": 8.7515145,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://www.tsg-alten-buseck.com"
   },
   {
     "land": "Deutschland",
@@ -26387,19 +26226,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "49. Nat. Nikolaus Volkslauf",
-    "standort": "Mingolsheim (Bad Schönborn)",
-    "lat": 49.2229119,
-    "lon": 8.6462638,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 10.0,
-    "veranstalter_url": "http://www.sg-badschoenborn.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "49. Oberschwäbische Crosslaufserie 1. Lauf in Blitzenreute",
     "standort": "Blitzenreute",
     "lat": 47.862642,
@@ -26535,20 +26361,6 @@
     "datum_ende": "2026-12-06",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.meinatsv.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "59. Nikolauslauf des Ahrensburger TSV",
-    "standort": "Ahrensburg",
-    "lat": 53.6764136,
-    "lon": 10.2378854,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
     "veranstalter_url": "https://www.meinatsv.de/"
   },
   {
@@ -30767,20 +30579,6 @@
   {
     "land": "Deutschland",
     "name": "31. Griesheimer REWE/Michael Weisbrod-Silvesterlauf",
-    "standort": "Frankfurt am Main",
-    "lat": 50.1109221,
-    "lon": 8.6821267,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://www.spiridon-silvesterlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "31. Griesheimer REWE/Michael Weisbrod-Silvesterlauf",
     "standort": "Flörsheim-Weilbach",
     "lat": 50.0421522,
     "lon": 8.4459078,
@@ -31065,15 +30863,30 @@
   {
     "land": "Deutschland",
     "name": "41. Pönitzer Silvesterlauf",
-    "standort": "Pönitz",
-    "lat": 50.8568858,
-    "lon": 12.4229372,
+    "standort": "Scharbeutz",
+    "lat": 54.0224961,
+    "lon": 10.7544158,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-12-31",
     "datum_ende": "2026-12-31",
     "laenge_km": 15.0,
+    "wettbewerb": "15 km",
     "veranstalter_url": "http://www.svg-poenitz.de"
+  },
+  {
+    "name": "41. Pönitzer Silvesterlauf",
+    "datum_start": "2026-12-31",
+    "datum_ende": "2026-12-31",
+    "standort": "Scharbeutz",
+    "land": "Deutschland",
+    "art1": "Laufen",
+    "art2": "Straße",
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km",
+    "veranstalter_url": "http://www.svg-poenitz.de",
+    "lat": 54.0224961,
+    "lon": 10.7544158
   },
   {
     "name": "41. Pönitzer Silvesterlauf",
@@ -32294,34 +32107,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Pönitzer Silvesterlauf",
-    "standort": "Scharbeutz",
-    "lat": 54.0224961,
-    "lon": 10.7544158,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km",
-    "veranstalter_url": "http://www.svg-poenitz.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Pönitzer Silvesterlauf",
-    "standort": "Scharbeutz",
-    "lat": 54.0224961,
-    "lon": 10.7544158,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "http://www.svg-poenitz.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Rhader Silvesterlauf",
     "standort": "Dorsten",
     "lat": 51.6559681,
@@ -33106,34 +32891,6 @@
     "laenge_km": 8.0,
     "wettbewerb": "8 km",
     "veranstalter_url": "https://my.raceresult.com/421745/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Silvesterlauf Stadtlohn",
-    "standort": "Bocholt",
-    "lat": 51.8384277,
-    "lon": 6.6150917,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 10.0,
-    "wettbewerb": "10 km",
-    "veranstalter_url": "https://bocholter-wsv.de/index.php?option=com_sppagebuilder&view=page&id=724"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Silvesterlauf Stadtlohn",
-    "standort": "Bocholt",
-    "lat": 51.8384277,
-    "lon": 6.6150917,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://bocholter-wsv.de/index.php?option=com_sppagebuilder&view=page&id=724"
   },
   {
     "land": "Deutschland",
@@ -53868,20 +53625,6 @@
     "veranstalter_url": "https://www.lsv-kb.ch/flughafenlauf.html"
   },
   {
-    "land": "Schweiz",
-    "name": "Flughafenlauf",
-    "standort": "Opfikon",
-    "lat": 47.4336788,
-    "lon": 8.5659181,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-06",
-    "datum_ende": "2027-05-06",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://www.lsv-kb.ch/flughafenlauf.html"
-  },
-  {
     "land": "Deutschland",
     "name": "Grüntalultra",
     "standort": "Freudenstadt",
@@ -64018,20 +63761,6 @@
     "art2": "Straße",
     "datum_start": "2027-06-04",
     "datum_ende": "2027-06-05",
-    "veranstalter_url": "https://www.koberbachtal-triathlon.de/",
-    "laenge_km": 47.5,
-    "wettbewerb": "Olympische Distanz 47,5 km (1,5 km Schwimmen / 36 km Rad / 10 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Koberbachtal-Triathlon",
-    "standort": "Werdau",
-    "lat": 50.7288716,
-    "lon": 12.3751839,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-04",
-    "datum_ende": "2027-06-05",
     "laenge_km": 25.8,
     "wettbewerb": "Jedermann 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.koberbachtal-triathlon.de/"
@@ -69749,20 +69478,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Triathlon Heilbronn",
-    "standort": "Heilbronn",
-    "lat": 49.1426929,
-    "lon": 9.210879,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-13",
-    "datum_ende": "2027-06-13",
-    "laenge_km": 106.4,
-    "wettbewerb": "Mitteldistanz 106,4 km (1,9 km Schwimmen / 83 km Rad / 21,5 km Laufen)",
-    "veranstalter_url": "https://www.triathlon-heilbronn.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "VR Bank Triathlon Heilbronn powered by Audi",
     "standort": "Heilbronn",
     "lat": 49.1390423,
@@ -72129,20 +71844,6 @@
     "land": "Deutschland",
     "name": "Indeland Triathlon",
     "standort": "Eschweiler",
-    "lat": 50.82,
-    "lon": 6.32,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-20",
-    "datum_ende": "2027-06-20",
-    "laenge_km": 110.0,
-    "wettbewerb": "110 km",
-    "veranstalter_url": "https://www.indeland-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Indeland Triathlon",
-    "standort": "Eschweiler",
     "lat": 50.8175029,
     "lon": 6.2630894,
     "art1": "Triathlon",
@@ -72512,20 +72213,6 @@
     "veranstalter_url": "https://muenster-triathlon.de/",
     "laenge_km": 25.5,
     "wettbewerb": "Volksdistanz 25,5 km (500 m Schwimmen / 20 km Rad / 5 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Münster City Triathlon",
-    "standort": "Münster",
-    "lat": 51.9606649,
-    "lon": 7.6261347,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-20",
-    "datum_ende": "2027-06-20",
-    "laenge_km": 51.4,
-    "wettbewerb": "Olympische Distanz 51,4 km (1,4 km Schwimmen / 40 km Rad / 10 km Laufen)",
-    "veranstalter_url": "https://muenster-triathlon.de/"
   },
   {
     "land": "Deutschland",
@@ -74941,20 +74628,6 @@
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
     "veranstalter_url": "https://www.heinerman.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heinerman Triathlon",
-    "standort": "Darmstadt",
-    "lat": 49.8728253,
-    "lon": 8.6511929,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-06-27",
-    "datum_ende": "2027-06-27",
-    "laenge_km": 26.0,
-    "wettbewerb": "26 km",
-    "veranstalter_url": "http://www.heinerman.de/"
   },
   {
     "land": "Deutschland",
@@ -80358,20 +80031,6 @@
     "art2": "Straße",
     "datum_start": "2027-07-18",
     "datum_ende": "2027-07-18",
-    "veranstalter_url": "https://www.mey-generalbau-triathlon.com/",
-    "laenge_km": 54.2,
-    "wettbewerb": "Kurzdistanz 54,2 km (1,5 km Schwimmen / 43 km Rad / 9,7 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Triathlon Tübingen",
-    "standort": "Tübingen",
-    "lat": 48.5216364,
-    "lon": 9.0576448,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-07-18",
-    "datum_ende": "2027-07-18",
     "laenge_km": 27.4,
     "wettbewerb": "Sprintdistanz 27,4 km (750 m Schwimmen / 22 km Rad / 4,7 km Laufen)",
     "veranstalter_url": "https://www.mey-generalbau-triathlon.com/"
@@ -82822,20 +82481,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Mainfrankentriathlon",
-    "standort": "Kitzingen",
-    "lat": 49.744,
-    "lon": 10.191,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-07-31",
-    "datum_ende": "2027-07-31",
-    "laenge_km": 52.0,
-    "wettbewerb": "52 km",
-    "veranstalter_url": "https://www.mainfrankentriathlon.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Marathon Nacht Rostock",
     "standort": "Rostock",
     "lat": 54.0924406,
@@ -83235,20 +82880,6 @@
     "veranstalter_url": "https://scharmuetzelsee-triathlon.de/",
     "laenge_km": 25.8,
     "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Scharmützelsee Triathlon",
-    "standort": "Bad Saarow",
-    "lat": 52.2742962,
-    "lon": 14.0546568,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-01",
-    "datum_ende": "2027-08-01",
-    "laenge_km": 49.5,
-    "wettbewerb": "Olympische Distanz 49,5 km (1,5 km Schwimmen / 38 km Rad / 10 km Laufen)",
-    "veranstalter_url": "https://scharmuetzelsee-triathlon.de/"
   },
   {
     "land": "Österreich",
@@ -88594,20 +88225,6 @@
     "art2": "Straße",
     "datum_start": "2027-08-29",
     "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://www.muldental-triathlon.de/",
-    "laenge_km": 51.6,
-    "wettbewerb": "Olympische Distanz 51,6 km (1,5 km Schwimmen / 40,1 km Rad / 10 km Laufen)"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Muldental-Triathlon",
-    "standort": "Grimma",
-    "lat": 51.2364426,
-    "lon": 12.7202313,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-08-29",
-    "datum_ende": "2027-08-29",
     "laenge_km": 25.8,
     "wettbewerb": "Sprint 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.muldental-triathlon.de/"
@@ -89717,20 +89334,6 @@
     "datum_ende": "2027-09-04",
     "laenge_km": 25.5,
     "wettbewerb": "Sprint-Triathlon",
-    "veranstalter_url": "https://www.sebamed-islandman.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "ISLANDMAN Norderney",
-    "standort": "Norderney",
-    "lat": 53.7078132,
-    "lon": 7.143055,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-04",
-    "datum_ende": "2027-09-04",
-    "laenge_km": 51.5,
-    "wettbewerb": "Olympischer Triathlon",
     "veranstalter_url": "https://www.sebamed-islandman.de/"
   },
   {
@@ -91306,20 +90909,6 @@
     "laenge_km": 51.0,
     "wettbewerb": "51 km",
     "veranstalter_url": "https://www.bergwitztriathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "5150 Erkner",
-    "standort": "Erkner",
-    "lat": 52.4316,
-    "lon": 13.7528,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
-    "laenge_km": 51.5,
-    "wettbewerb": "Olympische Distanz 51.5 km",
-    "veranstalter_url": "https://www.ironman.com/races/5150-erkner"
   },
   {
     "land": "Deutschland",
@@ -93451,21 +93040,6 @@
     "datum_ende": "2027-09-18",
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
-    "veranstalter_url": "https://www.zwentendorf.at/donaulauf",
-    "charity": true
-  },
-  {
-    "land": "Österreich",
-    "name": "Zwentendorfer Charity-Donaulauf",
-    "standort": "Zwentendorf an der Donau",
-    "lat": 48.3442178,
-    "lon": 15.9105663,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-09-18",
-    "datum_ende": "2027-09-18",
-    "laenge_km": 5.3,
-    "wettbewerb": "Volkslauf 5.286 m",
     "veranstalter_url": "https://www.zwentendorf.at/donaulauf",
     "charity": true
   },

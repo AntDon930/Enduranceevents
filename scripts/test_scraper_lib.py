@@ -468,6 +468,64 @@ def test_duplikate() -> None:
     hm = dict(a, laenge_km=21.1)
     check("Marathon vs. Halbmarathon getrennt", is_same_event(a, hm), False)
 
+    # Achter Weg (07.10.2026): dieselbe Veranstalterseite, derselbe Ort,
+    # dieselbe Strecke - ohne ein gemeinsames Namenswort. Die Gegenproben
+    # sind der wichtigere Teil, alle am Bestand gezählt.
+    print("  achter Weg (gleiche Seite, gleicher Ort, gleiche Strecke):")
+    seite = "https://marathonmuenchen.org"
+    m1 = {"name": "Bayerische Marathon Meisterschaften", "datum_start": "2026-10-11",
+          "standort": "Schwabinger Tor", "lat": 48.1714, "lon": 11.5866, "art1": "Laufen",
+          "art2": "Straße", "laenge_km": 10.0, "wettbewerb": "10 km", "veranstalter_url": seite}
+    m2 = {"name": "Marathon München by Brooks", "datum_start": "2026-10-11",
+          "standort": "München", "lat": 48.16, "lon": 11.58, "art1": "Laufen",
+          "art2": "Straße", "laenge_km": 10.0, "wettbewerb": "10 km", "veranstalter_url": seite}
+    check("gleiche Seite, gleicher Ort (≤ 3 km), gleiche Strecke -> eins", is_same_event(m1, m2), True)
+    check("Olympische Distanz gegen 51 km auf derselben Seite -> eins",
+          is_same_event(dict(m1, name="Münster City Triathlon", art1="Triathlon", art2=None, laenge_km=51.4,
+                             wettbewerb="Olympische Distanz 51,5 km"),
+                        dict(m2, name="Sparda Münster City Triathlon", art1="Triathlon", art2=None,
+                             laenge_km=51.4, wettbewerb="51 km")), True)
+    check("Sprintdistanz gegen Volksdistanz auf derselben Seite -> zwei (zwei Formatwörter)",
+          is_same_event(dict(m1, name="Silbersee-Triathlon", art1="Triathlon", art2=None, laenge_km=28.8,
+                             wettbewerb="Sprintdistanz 28,8 km (750 m Schwimmen / 23 km Rad / 5 km Laufen)"),
+                        dict(m2, name="32. swb Silbersee-Triathlon Stuhr", art1="Triathlon", art2=None,
+                             laenge_km=28.5, wettbewerb="Volksdistanz 28,5 km (500 m Schwimmen / 23 km Rad / 5 km Laufen)")), False)
+    check("22 km gegen 21,1 km (TOP20RUN gegen Halbmarathon) -> zwei (über 0,5 km)",
+          is_same_event(dict(m1, name="Gornergrat Zermatt Marathon", laenge_km=22.0, wettbewerb="TOP20RUN"),
+                        dict(m2, name="Zermatt Marathon", laenge_km=21.1, wettbewerb="Halbmarathon")), False)
+    check("Dauer gegen Dauer (24 h) -> eins",
+          is_same_event(dict(m1, name="3. Chiemgauer100 StundenRundenLauf", laenge_km=None, dauer_h=24, wettbewerb=None),
+                        dict(m2, name="Chiemgauer100 StundenRunden - 100mi", laenge_km=None, dauer_h=24, wettbewerb="24 h")), True)
+    check("13 km auseinander (Spreewald: Radtour ab Lübbenau UND ab Burg) -> zwei",
+          is_same_event(dict(m1, name="Spreewaldmarathon Radmarathon", standort="Lübbenau/Spreewald",
+                             lat=51.863, lon=13.961, art1="Fahrrad", art2=None, laenge_km=70.0, wettbewerb="70 km Radtour"),
+                        dict(m2, name="Spreewaldmarathon Radtouren Burg", standort="Burg (Spreewald)",
+                             lat=51.833, lon=14.15, art1="Fahrrad", art2=None, laenge_km=70.0, wettbewerb="70 km Radtour")), False)
+    check("eine Seite für alle parkruns, Orte 300 km auseinander -> zwei",
+          is_same_event(dict(m1, name="Englischer Garten parkrun München", laenge_km=5.0, wettbewerb="5 km",
+                             veranstalter_url="https://www.parkrun.com.de"),
+                        dict(m2, name="Niddapark parkrun Frankfurt", standort="Frankfurt am Main", lat=50.11, lon=8.68,
+                             laenge_km=5.0, wettbewerb="5 km", veranstalter_url="https://www.parkrun.com.de")), False)
+    check("CTF gegen Gravel Tour über 50 km -> zwei (Gattung)",
+          is_same_event(dict(m1, name="Linneser Cross-Country Tag CTF", art1="Fahrrad", art2="Mountainbike",
+                             laenge_km=50.0, wettbewerb="CTF 50 km", standort="Gießen", lat=50.58, lon=8.67),
+                        dict(m2, name="Linneser Cross-Country-Tag (GRAVEL)", art1="Fahrrad", art2="Gravel",
+                             laenge_km=50.0, wettbewerb="Gravel Tour 50 km", standort="Gießen", lat=50.58, lon=8.67)), False)
+    check("Schülerlauf gegen Hauptlauf über 5 km -> zwei (Gattung)",
+          is_same_event(dict(m1, name="Stadtlauf", laenge_km=5.0, wettbewerb="5 km Schülerlauf"),
+                        dict(m2, name="City-Run", laenge_km=5.0, wettbewerb="5 km Hauptlauf")), False)
+    check("Zeile ohne Maßzahl -> zwei (passt zu allem)",
+          is_same_event(dict(m1, name="Stadtlauf", laenge_km=None, wettbewerb=None),
+                        dict(m2, name="City-Run", laenge_km=10.0)), False)
+    check("Portallink (raceresult) zählt nicht als Seite",
+          is_same_event(dict(m1, name="Stadtlauf", veranstalter_url="https://my.raceresult.com/1/"),
+                        dict(m2, name="City-Run", veranstalter_url="https://my.raceresult.com/1/")), False)
+    check("verschiedene Kategorie (Bike Marathon gegen Gravel) -> zwei",
+          is_same_event(dict(m1, name="Black Forest Ultra Bike Marathon", art1="Fahrrad", art2="Mountainbike",
+                             laenge_km=118.0, wettbewerb="Radmarathon 118 km"),
+                        dict(m2, name="Black Forest Ultra Gravel", art1="Fahrrad", art2="Gravel",
+                             laenge_km=118.0, wettbewerb="Gravel 120 km")), False)
+
     # Zeitrennen: Stundenlauf und Halbstundenlauf derselben Veranstaltung
     # sind zwei Wettbewerbe (Döbelner Fackellauf); dieselbe Dauer bleibt
     # ein Duplikat, und eine fehlende Dauer schließt nichts aus.

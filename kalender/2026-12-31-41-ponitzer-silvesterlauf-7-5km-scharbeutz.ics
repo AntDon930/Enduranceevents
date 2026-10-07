@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-12-31-ponitzer-silvesterlauf-8km-scharbeutz@antdon930.github.io
+UID:2026-12-31-41-ponitzer-silvesterlauf-7-5km-scharbeutz@antdon930.github
+ .io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
-SUMMARY:Pönitzer Silvesterlauf
+SUMMARY:41. Pönitzer Silvesterlauf
 LOCATION:Scharbeutz\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttp://www.svg-poenitz
- .de
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.5 km\nhttp://www.svg-poeni
+ tz.de
 TRANSP:TRANSPARENT
 URL:http://www.svg-poenitz.de
 END:VEVENT

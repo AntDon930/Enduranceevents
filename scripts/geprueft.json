@@ -3446,10 +3446,10 @@
     "notiz": "Distanz nachgetragen: Hauptlauf 8,2 km (stand ohne Maßzahl)"
   },
   "41. Pönitzer Silvesterlauf|2026-12-31": {
-    "am": "2026-09-21",
+    "am": "2026-10-07",
     "ergebnis": "korrigiert",
-    "quelle": "https://svg-poenitz.de/de/volkslauf/silvesterlauf-2024/",
-    "notiz": "41. Pönitzer Silvesterlauf 2026, Start 9 Uhr über 7,5 km und 15 km – 7,5 km nachgetragen"
+    "quelle": "http://www.svg-poenitz.de",
+    "notiz": "Falsch verortet: Pönitz in Sachsen statt Pönitz/Scharbeutz (Ostholstein), 369 km. Koordinaten per Override; 15 km = Duplikat der Zeile „Pönitzer Silvesterlauf“ (Scharbeutz). 7,5 km gegen 8 km: Seite nennt den genauen Wert nicht lesbar – offen."
   },
   "41. Burgwedeler Silvesterlauf|2026-12-31": {
     "am": "2026-09-21",
@@ -6098,10 +6098,10 @@
     "notiz": "ladv-Ausschreibung: 10 km Straße (Männer/Frauen bis M65), 5 km (ab M70, U16/U14), Kinder 800 m / 2,5 km; Datum im Text nicht lesbar"
   },
   "Bayerische Marathon Meisterschaften|2026-10-11": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "https://ladv.de/ausschreibung/detail/45739/Bayerische-Marathon-Meisterschaften-M%C3%BCnchen.htm",
-    "notiz": "ladv-Ausschreibung ohne lesbare Angaben; wahrscheinlich Meisterschaft IM RAHMEN des München Marathons (11.10.2026) – Punkt 5"
+    "am": "2026-10-07",
+    "ergebnis": "korrigiert",
+    "quelle": "https://marathonmuenchen.org",
+    "notiz": "Nutzer-Meldung: Meisterschaft im Rahmen des Marathon München by Brooks, gleicher Link, Tag und Distanzen – per Override ausgeschlossen (Datenregel 18). Aus der Klasse (29 Gruppen gleiche Seite/Tag/Sportart/Maßzahl unter zwei Namen) wurde der achte Weg der Duplikat-Erkennung (_gleiche_seite_und_strecke)."
   },
   "Bewegung die bleibt - Lauf fürs Leben|2026-10-11": {
     "am": "2026-09-21",
@@ -8058,5 +8058,11 @@
     "ergebnis": "quelle_ok",
     "quelle": "https://www.meerlauf.de/",
     "notiz": "To-do Punkt 8: „12,1 km Spendenlauf (Nordic-)Walking“ ist der Lauf selbst, der auch gewalkt werden darf (Seite: „der 12 Kilometer lange Weg“); bleibt. Termin 2027 auf der Seite noch nicht genannt."
+  },
+  "22. FALKE Rothaarsteig-Marathon|2026-10-17": {
+    "am": "2026-10-07",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.rothaarsteig-marathon.de",
+    "notiz": "Falsch verortet: „Schmalenberg“ (Pfalz) statt Schmallenberg-Fleckenberg, 205 km. Koordinaten per Override; Duplikat der Zeile „23. Falke-Rothaarsteigmarathon“."
   }
 }
