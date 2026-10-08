@@ -8273,5 +8273,21 @@
   "31. Griesheimer REWE/Michael Weisbrod-Silvesterlauf|2026-12-31|10": {
     "exclude": true,
     "_note": "07.10.2026: Diese 10-km-Zeile liegt in Frankfurt am Main auf dem Marker des Spiridon Mainova Silvesterlaufs mit dessen Seite (spiridon-silvesterlauf.de, „Hauptlauf über 10 km“, 31.12.2026) – das ist der Spiridon-Lauf, nicht der Griesheimer (der liegt in Griesheim bei Darmstadt; seine 5-km-Zeile steht dort). Ohne den Override führte der achte Weg beide zusammen und behielt den falschen Namen."
+  },
+  "Hessische Meisterschaften Marathon|2026-10-25|42.2": {
+    "exclude": true,
+    "_note": "08.10.2026 (To-do Punkt 18, vom Nutzer: Meisterschaften im Rahmen eines Volkslaufs draußen lassen, „sonst haben wir es wieder 2x drinnen“, Datenregel 18): läuft im 43. Mainova Frankfurt Marathon am selben Tag (Link frankfurt-marathon.com); der Marathon steht als eigene Zeile."
+  },
+  "Schwindegger 6 Stundenlauf - DUV Meisterschaft|2026-10-17": {
+    "exclude": true,
+    "_note": "08.10.2026 (To-do Punkt 18, vom Nutzer: Meisterschaften im Rahmen eines Volkslaufs draußen lassen, „sonst haben wir es wieder 2x drinnen“, Datenregel 18): Kilometerliebe-Zeile; die Deutsche Meisterschaft der DUV im 6-Stunden-Lauf IST der SV Schwindegg Ultralauf (6-Stunden-Lauf, gleicher Tag und Ort), der steht als eigene Zeile."
+  },
+  "Panoramatrail Waischenfeld mit Bezirksmeisterschaften|2026-10-25|18": {
+    "exclude": true,
+    "_note": "08.10.2026 (To-do Punkt 18, vom Nutzer: Meisterschaften im Rahmen eines Volkslaufs draußen lassen, „sonst haben wir es wieder 2x drinnen“, Datenregel 18): wiesent-challenge.de: „Auf der Strecke des Panoramatrails finden am 25. Oktober 2026 die Oberfränkischen Meisterschaften im Trail-Lauf statt“ – das ist der 14-km-Panoramatrail der Wiesent Challenge (eigene Zeile); 18 km nennt die Seite nicht."
+  },
+  "Kärntner Marathonmeisterschaften 2026|2026-10-11|42.2": {
+    "exclude": true,
+    "_note": "08.10.2026 (To-do Punkt 18, vom Nutzer: Meisterschaften im Rahmen eines Volkslaufs draußen lassen, „sonst haben wir es wieder 2x drinnen“, Datenregel 18): Start an der Grazer Oper am Tag des Graz Marathon – die Kärntner Meisterschaft läuft im Marathon des Kleine Zeitung Graz Marathon (grazmarathon.at nennt Marathon, Halbmarathon, Viertelmarathon). Der Marathon fehlte dort und ist in manual_events.json nachgetragen."
   }
 }

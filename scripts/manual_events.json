@@ -6792,6 +6792,23 @@
       "veranstalter_url": "https://www.aletsch-halbmarathon.ch/de",
       "_quelle": "https://www.aletsch-halbmarathon.ch/de",
       "_note": "Nachgetragen 2026-10-07 (To-do Punkt 8, Walking-Regel): Die Quelle hatte zu dieser Veranstaltung NUR die Walking-Strecke geliefert; mit der Regel „Label nennt nur Walking → raus“ (ist_walking) wäre die Veranstaltung aus der Liste verschwunden. Der Lauf steht auf der Veranstalterseite: „40. Aletsch Halbmarathon 26. und 27. Juni 2027 … Minirun Samstag, 26. Juni 2027, Aletsch-Halbmarathon Sonntag, 27. Juni 2027“; „Die 21.1 km lange, anspruchsvolle Laufstrecke … schönsten Berglauf Europas“ – Berglauf, also Trail (Datenregel 6). Die vorhandene Zeile war nur die Walking-Kategorie."
+    },
+    {
+      "land": "Österreich",
+      "name": "Kleine Zeitung Graz Marathon / Hervis Halbmarathon / Energie Steiermark Viertelmarathon (WRC F)",
+      "standort": "Graz",
+      "lat": 47.0708678,
+      "lon": 15.4382786,
+      "art1": "Laufen",
+      "art2": "Straße",
+      "datum_start": "2026-10-11",
+      "datum_ende": "2026-10-11",
+      "laenge_km": 42.2,
+      "dauer_h": null,
+      "wettbewerb": "Marathon",
+      "veranstalter_url": "http://www.grazmarathon.at",
+      "_quelle": "https://www.grazmarathon.at/",
+      "_note": "Nachgetragen 2026-10-08 (To-do Punkt 18): Die Veranstaltung stand nur mit 21,1 km in der Liste; der Marathon kam bisher allein über die Zeile „Kärntner Marathonmeisterschaften 2026“ (42,2 km, Start Grazer Oper), die als Meisterschaft im Rahmen jetzt draußen ist. grazmarathon.at führt unter Bewerbe: Marathon, Halbmarathon, Viertelmarathon."
     }
   ]
 }

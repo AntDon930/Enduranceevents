@@ -4630,17 +4630,18 @@
   },
   {
     "land": "Österreich",
-    "name": "Kärntner Marathonmeisterschaften 2026",
-    "standort": "Graz Oper",
-    "lat": 47.0685045,
-    "lon": 15.4458339,
+    "name": "Kleine Zeitung Graz Marathon / Hervis Halbmarathon / Energie Steiermark Viertelmarathon (WRC F)",
+    "standort": "Graz",
+    "lat": 47.0708678,
+    "lon": 15.4382786,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
     "laenge_km": 42.2,
+    "dauer_h": null,
     "wettbewerb": "Marathon",
-    "veranstalter_url": "https://www.k-lv.com/"
+    "veranstalter_url": "http://www.grazmarathon.at"
   },
   {
     "land": "Schweiz",
@@ -7868,20 +7869,6 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.sv-schechen.de/kirtalauf/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Schwindegger 6 Stundenlauf - DUV Meisterschaft",
-    "standort": "Schwindegg",
-    "lat": 48.2720696,
-    "lon": 12.2611725,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "dauer_h": 6.0,
-    "wettbewerb": "6 h",
-    "veranstalter_url": "https://www.kilometerliebe.de/events/schwindegger-6-stundenlauf-duv-meisterschaft"
   },
   {
     "land": "Deutschland",
@@ -12822,19 +12809,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Hessische Meisterschaften Marathon",
-    "standort": "Frankfurt am Main",
-    "lat": 50.1106444,
-    "lon": 8.6820917,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://www.frankfurt-marathon.com/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Holzkirchner Marktlauf",
     "standort": "Holzkirchen",
     "lat": 49.7816986,
@@ -13081,19 +13055,6 @@
     "laenge_km": 40.0,
     "wettbewerb": "Gravel 40 km",
     "veranstalter_url": "https://www.pannonia-gravel.com"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Panoramatrail Waischenfeld mit Bezirksmeisterschaften",
-    "standort": "Waischenfeld",
-    "lat": 49.8412597,
-    "lon": 11.3259211,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 18.0,
-    "veranstalter_url": "https://wiesent-challenge.de/anmeldung-2026/"
   },
   {
     "land": "Deutschland",

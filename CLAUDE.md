@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–17 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–18 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 18.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 19.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5107,7 +5107,22 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     vom Nutzer: „Ja aufnehmen, und in den Stern halt noch schreiben das es
     to be confirmed noch sein muss. Aber dann können die Leute sich drauf
     vorbereiten") – Datenregel 19, Absatz „Geschätzt aus dem Vorjahr".
-18. Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?
+18. ~~Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?~~
+    **entschieden** (08.10.2026, vom Nutzer: „Ja … draußen lassen. Sonst
+    haben wir es wieder 2x drinnen" – Datenregel 18). Am Bestand
+    nachgesehen (Meisterschaft im Namen + andere Veranstaltung am selben
+    Tag ≤ 15 km): vier weitere Fälle per Override raus – Hessische
+    Meisterschaften Marathon (= Frankfurt Marathon), Schwindegger 6
+    Stundenlauf DUV (= SV Schwindegg Ultralauf), Panoramatrail Waischenfeld
+    18 km (= 14-km-Panoramatrail der Wiesent Challenge), Kärntner
+    Marathonmeisterschaften (= Marathon des Graz Marathon, der dort fehlte
+    und in `manual_events.json` nachgetragen ist). **Bleiben**: eigenständige
+    Meisterschaften ohne Volkslauf daneben (Kreis-/Landes-Crossläufe – wer
+    startberechtigt ist, meldet sich dort an). **Offen**, Seite nicht
+    lesbar: „Nordrhein Meisterschaften 10km Straße" (Essen, 21.11.2026,
+    gleicher Tag wie der Blumensaatlauf) und „DM 10km Straße" (Tübingen,
+    07.03.2027, Ausrichterlauf nicht gefunden). Neue Fälle kommen mit jedem
+    Datenlauf; dieselbe Suche lohnt nach jedem großen Lauf.
 19. Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
     Mingolsheim = Nikolauslauf Bad Schönborn; Uchter Wald- und Crosslauf =
     Uchter Volkslauf.
