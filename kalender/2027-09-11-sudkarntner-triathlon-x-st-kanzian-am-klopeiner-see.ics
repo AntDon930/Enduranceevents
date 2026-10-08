@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-sudkarntner-triathlon-x-st-kanzian-am-klopeiner-see@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270913
+SUMMARY:Südkärntner Triathlon – Mitteldistanz (Termin vorläufig)
+LOCATION:St. Kanzian am Klopeiner See\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Straße\nLänge: -\nhttps://www.suedkaerntner-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://www.suedkaerntner-triathlon.at/
+END:VEVENT
+END:VCALENDAR

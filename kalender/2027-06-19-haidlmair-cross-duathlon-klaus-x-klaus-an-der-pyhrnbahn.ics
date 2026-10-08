@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-haidlmair-cross-duathlon-klaus-x-klaus-an-der-pyhrnbahn@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Haidlmair Cross Duathlon Klaus – Cross-Triathlon (Termin vorläufig
+ )
+LOCATION:Klaus an der Pyhrnbahn\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Cross\nLänge: -\nhttp://www.triathlon-klaus.at/
+TRANSP:TRANSPARENT
+URL:http://www.triathlon-klaus.at/
+END:VEVENT
+END:VCALENDAR

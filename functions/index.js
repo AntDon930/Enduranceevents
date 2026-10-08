@@ -470,7 +470,7 @@ const MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
 function datumText(event) {
   const iso = event.datum_start || "";
   if (!event.datum_vorlaeufig || !/^\d{4}-\d{2}/.test(iso)) return iso;
-  return `${MONATE[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)} (Termin noch nicht veröffentlicht)`;
+  return `${MONATE[Number(iso.slice(5, 7)) - 1]} ${iso.slice(0, 4)} (Termin noch zu bestätigen – to be confirmed)`;
 }
 
 function eventEmailHtml(event) {
@@ -481,7 +481,7 @@ function eventEmailHtml(event) {
     `<h2>${event.name}</h2>` +
     `<p>${event.standort || ""}, ${event.land || ""}<br>` +
     `${datumText(event)}${event.laenge_km ? " · " + event.laenge_km + " km" : ""}` +
-    `${event.gedaechtnis ? " (Strecke noch nicht bestätigt – Angabe aus dem Vorjahr)" : ""}</p>` +
+    `${event.gedaechtnis ? " (Strecke noch zu bestätigen – Angabe aus dem Vorjahr)" : ""}</p>` +
     link
   );
 }

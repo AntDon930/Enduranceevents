@@ -38,7 +38,7 @@
       detail_list: 'In der Liste',
       detail_entfernung: 'Entfernung',
       detail_entfernung_von: (d) => `${d} von deinem Standort`,
-      detail_vorlaeufig: 'Termin noch nicht veröffentlicht',
+      detail_vorlaeufig: 'Termin noch zu bestätigen (to be confirmed)',
       cal_vorlaeufig: '(Termin vorläufig)',
       detail_close: 'Schließen',
       charity: 'Charity',
@@ -46,15 +46,15 @@
       // Die Fußnote zum Sternchen steht hier statt in beiden Seiten:
       // Liste und Karte zeigen denselben Text, und der Tooltip am
       // Sternchen selbst (formatEventRangeHtml) braucht ihn auch.
-      datum_vorlaeufig_kurz: 'Termin noch nicht veröffentlicht – der Monat ist der des Vorjahres',
+      datum_vorlaeufig_kurz: 'Termin noch zu bestätigen (to be confirmed) – geschätzt aus dem Termin des Vorjahres',
       // Dasselbe Sternchen an einer STRECKE, die aus dem Vorjahr
       // abgeschrieben ist (gedaechtnis: true, siehe veranstalter_seiten.py):
       // Die Veranstalterseite nennt schon den Termin, aber noch keine
       // Strecken - die Zahl ist eine Schätzung nach dem Vorjahr (vom
       // Nutzer am 07.10.2026 so gewünscht, eine Fußnote für beides).
-      strecke_vorlaeufig_kurz: 'Strecke noch nicht bestätigt – Angabe aus dem Vorjahr',
-      detail_strecke_vorlaeufig: 'Strecken noch nicht bestätigt – Angaben aus dem Vorjahr',
-      datum_fussnote: '* noch nicht bestätigt – Termin bzw. Strecke sind Schätzungen aus dem Vorjahr',
+      strecke_vorlaeufig_kurz: 'Strecke noch zu bestätigen (to be confirmed) – Angabe aus dem Vorjahr',
+      detail_strecke_vorlaeufig: 'Strecken noch zu bestätigen (to be confirmed) – Angaben aus dem Vorjahr',
+      datum_fussnote: '* noch zu bestätigen (to be confirmed) – Termin bzw. Strecke sind Schätzungen aus dem Vorjahr',
       share_event: 'Dieses Event teilen',
       share_event_done: 'Event kopiert!',
       share_fail: 'Kopieren nicht möglich – bitte die Adresszeile verwenden',
@@ -80,15 +80,15 @@
       detail_list: 'In the list',
       detail_entfernung: 'Distance',
       detail_entfernung_von: (d) => `${d} from your location`,
-      detail_vorlaeufig: 'Date not yet published',
+      detail_vorlaeufig: 'Date to be confirmed',
       cal_vorlaeufig: '(date provisional)',
       detail_close: 'Close',
       charity: 'Charity',
       charity_titel: 'Charity event: this race runs for a good cause.',
-      datum_vorlaeufig_kurz: 'Date not yet published – the month is the one from last year',
-      strecke_vorlaeufig_kurz: 'Distance still to be confirmed – taken from the previous year',
-      detail_strecke_vorlaeufig: 'Distances still to be confirmed – taken from the previous year',
-      datum_fussnote: '* still to be confirmed – date or distance are estimates from the previous year',
+      datum_vorlaeufig_kurz: 'Date to be confirmed – estimated from last year’s date',
+      strecke_vorlaeufig_kurz: 'Distance to be confirmed – taken from the previous year',
+      detail_strecke_vorlaeufig: 'Distances to be confirmed – taken from the previous year',
+      datum_fussnote: '* to be confirmed – date or distance are estimates from the previous year',
       share_event: 'Share this event',
       share_event_done: 'Event copied!',
       share_fail: 'Could not copy – please use the address bar',

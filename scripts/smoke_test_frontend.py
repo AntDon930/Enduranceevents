@@ -1423,14 +1423,23 @@ def pruefe_cluster(seite):
     pruefe(zahlen["events"] == erwartet,
            "Summe der Bündel-Zahlen = Events der Kopfzeile (%d / %d)"
            % (zahlen["events"], erwartet))
-    # Ein Klick auf ein Bündel zoomt hinein: danach stehen mehr Zeichen
-    # auf der Karte als vorher.
+    # Ein Klick auf ein Bündel zoomt hinein: danach steht ein ANDERES Bild
+    # auf der Karte - geprüft an den Zahlen der Zeichen, nicht an ihrer
+    # Anzahl. Am 07.10.2026 enthielt das erste Bündel 9 Veranstaltungen,
+    # und aufgeklappt waren es 2 Bündel + 7 Orte = wieder 9 Zeichen; die
+    # alte Prüfung „mehr Zeichen als vorher" war rot, obwohl die Karte
+    # richtig hineinzoomte (fünfte Begegnung mit „ein festes Beispiel
+    # trifft die Daten von heute nicht", siehe CLAUDE.md).
+    bild = """() => Array.from(document.querySelectorAll('.cluster-badge, .marker-badge'))
+        .map(el => el.textContent).sort().join(',')"""
+    vorher_bild = seite.evaluate(bild)
     vorher = zahlen["buendel"] + zahlen["orte"]
     seite.locator(".cluster-badge").first.click()
     seite.wait_for_timeout(1500)
     nachher = (seite.locator(".cluster-badge").count()
                + seite.locator(".marker-badge").count())
-    pruefe(nachher > vorher, "Klick auf ein Bündel klappt es auf (%d → %d)"
+    pruefe(seite.evaluate(bild) != vorher_bild,
+           "Klick auf ein Bündel klappt es auf (%d → %d Zeichen, andere Zahlen)"
            % (vorher, nachher))
 
 

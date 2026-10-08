@@ -169,6 +169,8 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
     if not manuell:
         return events, []
     events, manuell, hinzu = zurueckziehen_vorjahreskopien(events, manuell)
+    events, prognosen = zurueckziehen_prognosen(events, manuell)
+    hinzu += prognosen
     for kandidat in manuell:
         if any(is_same_event(vorhanden, kandidat) for vorhanden in events):
             continue
@@ -180,6 +182,76 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
             + f") - {kandidat.get('standort')}"
         )
     return events, hinzu
+
+
+# Wörter, die allein keine Veranstaltung benennen: „Vienna Triathlon" und
+# „Gerasdorf Triathlon" (Gerasdorf bei Wien) teilten sonst den Kern
+# „triathlon" (am 08.10.2026 beim ersten Lauf so passiert).
+_PROGNOSE_ALLGEMEIN = frozenset({
+    "triathlon", "duathlon", "aquathlon", "swimrun", "swim", "run", "bike", "lauf", "marathon",
+    "cross", "sprint", "int", "internationaler", "internationale", "international", "tri"})
+
+
+def _gleicher_name_kern(a: dict, b: dict) -> bool:
+    """Ein Name steckt im anderen - als ganze Wortmenge („Gerasdorf
+    Triathlon" in „Gerasdorf (Marchfeld) Triathlon") oder über den Kern
+    ohne Ort und Auflage, wenn der kleinere Kern ein eigenes Wort trägt
+    („Indoor Aquathlon Linz" = „ASVÖ Steeltownman Indoor Aquathlon" über
+    „indoor"; „Vienna Triathlon" ≠ „Gerasdorf Triathlon", weil vom
+    kleineren Kern nur „triathlon" bleibt). „Int." und
+    „Internationaler" zählen nicht."""
+    from scraper_lib import _bare_name_tokens, _kern_tokens
+    ohne = lambda m: frozenset(w for w in m if w not in {"int", "internationaler", "internationale", "international"})  # noqa: E731
+    na, nb = ohne(_bare_name_tokens(a)), ohne(_bare_name_tokens(b))
+    if na and nb and (na <= nb or nb <= na):
+        return True
+    ka, kb = ohne(_kern_tokens(a)), ohne(_kern_tokens(b))
+    klein = ka if len(ka) <= len(kb) else kb
+    return bool(ka and kb and (ka <= kb or kb <= ka) and klein - _PROGNOSE_ALLGEMEIN)
+
+
+def zurueckziehen_prognosen(events: list[dict], manuell: list[dict]) -> tuple[list[dict], list[str]]:
+    """Termine, die ein SCRAPER aus dem Vorjahr geschätzt hat (`gedaechtnis`
+    UND `datum_vorlaeufig`, z. B. fsieben „Termin folgt": Vorjahrestermin
+    am selben Wochentag, vom Nutzer am 08.10.2026 so gewünscht - „Aber dann
+    können die Leute sich drauf vorbereiten"), gelten nur, bis eine Quelle
+    den echten Termin liefert. Liegt eine Zeile derselben Veranstaltung
+    (gleiche Sportart, gleicher Ort, ein Namenskern im anderen) OHNE die
+    Markierung höchstens 60 Tage daneben, verschwindet die Schätzung -
+    sonst stünde der Triathlon zweimal da, einmal am geschätzten und einmal
+    am echten Tag. 60 statt der 10 Tage von zurueckziehen_vorjahreskopien():
+    Ein Veranstalter verschiebt sein Rennen gern um ein, zwei Wochenenden,
+    und hier steht kein Tag auf einer Veranstalterseite dahinter.
+
+    Die Kopien aus manual_events.json (gleicher Name und Tag) bleiben
+    zurueckziehen_vorjahreskopien() überlassen. Entfernt wird nur, was wir
+    selbst geschätzt haben."""
+    from datetime import date
+    from scraper_lib import _gleicher_standort
+    manuell_keys = {(normalize_event_name(m.get("name")), m.get("datum_start")) for m in manuell}
+
+    def tag(e: dict):
+        try:
+            return date.fromisoformat(e.get("datum_start") or "")
+        except ValueError:
+            return None
+
+    echte = [e for e in events if not e.get("gedaechtnis")]
+    behalten: list[dict] = []
+    bericht: list[str] = []
+    for e in events:
+        if (e.get("gedaechtnis") and e.get("datum_vorlaeufig")
+                and (normalize_event_name(e.get("name")), e.get("datum_start")) not in manuell_keys):
+            t = tag(e)
+            treffer = next((x for x in echte if x.get("art1") == e.get("art1") and t and tag(x)
+                            and abs((tag(x) - t).days) <= 60 and _gleicher_standort(x, e)
+                            and _gleicher_name_kern(x, e)), None)
+            if treffer:
+                bericht.append(f"{e.get('name')} ({e.get('datum_start')}, {e.get('standort')}): geschätzter Termin "
+                               f"zurückgezogen - eine Quelle nennt {treffer.get('datum_start')} ({treffer.get('name')})")
+                continue
+        behalten.append(e)
+    return behalten, bericht
 
 
 def zurueckziehen_vorjahreskopien(events: list[dict], manuell: list[dict]) -> tuple[list[dict], list[dict], list[str]]:

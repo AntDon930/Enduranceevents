@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-skinfit-luschnouar-ironmannli-x-lustenau@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Skinfit Luschnouar Ironmännli – Sprint (Termin vorläufig)
+LOCATION:Lustenau\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Aquathlon\nLänge: -\nhttps://www.triteam.at/
+TRANSP:TRANSPARENT
+URL:https://www.triteam.at/
+END:VEVENT
+END:VCALENDAR

@@ -30,8 +30,17 @@ Langdistanz, Cross, Duathlon, Aquathlon, Kids, Staffel), `u`
 (Event-Seite), `st` (Status: bestätigt, unbestätigt, erwartet), `hi`
 („zuletzt 22.08.2026" bei „Termin folgt"). Im September 2026: 94
 Bewerbe, davon **52 „erwartet"** mit `so` = 9999-12-31 - die haben
-keinen Termin und werden nicht übernommen (Datenregel 19: ein Datum
-wird nicht geraten), 19 datierte künftige Bewerbe, 15 davon schon im
+keinen Termin. **Seit dem 08.10.2026 kommen sie mit einem geschätzten
+Termin** (vom Nutzer entschieden: „Ja aufnehmen, und in den Stern halt noch
+schreiben das es to be confirmed noch sein muss. Aber dann können die
+Leute sich drauf vorbereiten"): `hi` nennt den letzten Termin, die neue
+Ausgabe liegt am selben Wochentag ein Jahr später (`naechster_termin`).
+Solche Zeilen tragen `datum_vorlaeufig` (Anzeige „Aug. 2027*", „Termin noch
+zu bestätigen") UND `gedaechtnis` (die Formate sind die des Vorjahrs);
+`clean_events.zurueckziehen_prognosen()` nimmt sie heraus, sobald eine
+Quelle den echten Termin liefert (auch fsieben selbst). Nur Bewerbe mit
+einem Einzelformat (nicht nur Kids/Staffel) und ohne „Kids" im Namen.
+19 datierte künftige Bewerbe, 15 davon schon im
 Bestand (running.life, endure). Die Ausbeute ist klein; der Scraper
 läuft trotzdem wöchentlich mit, damit ein nachgetragener Termin
 automatisch ankommt.
@@ -134,9 +143,48 @@ def datum_ende(eintrag: dict) -> str:
     return start
 
 
-def events_aus_eintrag(eintrag: dict, orte: dict | None = None) -> tuple[list[Event], str | None]:
+_ZULETZT = re.compile(r"(\d{1,2})\.(?:\s*[–-]\s*(\d{1,2})\.)?(\d{1,2})\.(\d{4})")
+
+
+def naechster_termin(hi: str | None, heute: date | None = None) -> tuple[str, str] | None:
+    """„zuletzt 22.08.2026" -> (2027-08-21, 2027-08-21): derselbe Wochentag
+    ein Jahr später, dem Kalenderdatum am nächsten (52 Wochen, notfalls
+    53). „zuletzt 12.–13.09.2026" behält die Dauer. Liegt das Ergebnis
+    nicht in der Zukunft, nichts."""
+    m = _ZULETZT.search(hi or "")
+    if not m:
+        return None
+    t1, t2, monat, jahr = m.group(1), m.group(2), int(m.group(3)), int(m.group(4))
+    try:
+        start = date(jahr, monat, int(t1))
+        ende = date(jahr, monat, int(t2)) if t2 else start
+        jahrestag = date(jahr + 1, monat, int(t1))
+    except ValueError:
+        return None
+    if ende < start:
+        return None
+    neu = start + timedelta(weeks=52)
+    if (jahrestag - neu).days > 3:
+        neu += timedelta(weeks=1)
+    if neu <= (heute or date.today()):
+        return None
+    return neu.isoformat(), (neu + (ende - start)).isoformat()
+
+
+def events_aus_eintrag(eintrag: dict, orte: dict | None = None,
+                       heute: date | None = None) -> tuple[list[Event], str | None]:
+    prognose = False
     if not eintrag.get("so") or eintrag["so"] >= "9999":
-        return [], "Termin folgt"
+        termin = naechster_termin(eintrag.get("hi"), heute)
+        if not termin:
+            return [], "Termin folgt"
+        if re.search(r"\bkids?\b", eintrag.get("n") or "", re.I):
+            return [], "Termin folgt"
+        if not [f for f in eintrag.get("t") or [] if f in FORMATE]:
+            return [], "Termin folgt"
+        eintrag = dict(eintrag, so=termin[0], d="")
+        prognose_ende = termin[1]
+        prognose = True
     name = (eintrag.get("n") or "").strip()
     if not name:
         return [], "kein Name"
@@ -158,6 +206,10 @@ def events_aus_eintrag(eintrag: dict, orte: dict | None = None) -> tuple[list[Ev
                  art1="Triathlon", datum_start=eintrag["so"], datum_ende=datum_ende(eintrag),
                  veranstalter_url=(eintrag.get("u") or "").strip() or LISTE_URL,
                  datum_vorlaeufig=True if status.startswith("unbest") else None)
+    if prognose:
+        # Die Auflage des Vorjahrs („11. Kraigerseetriathlon") wäre falsch.
+        basis.update(name=re.sub(r"^\d{1,3}\.\s*", "", name), datum_ende=prognose_ende,
+                     datum_vorlaeufig=True, gedaechtnis=True)
     formate = [f for f in eintrag.get("t") or [] if f in FORMATE]
     if not formate:
         ev = Event(**basis)

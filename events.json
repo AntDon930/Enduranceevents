@@ -34606,6 +34606,21 @@
     "veranstalter_url": "http://mtp-hersbruck.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Nacht-Wintertriathlon Mürzer & Joglland",
+    "standort": "St. Jakob im Walde",
+    "lat": 47.4660432,
+    "lon": 15.786947,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-01-09",
+    "datum_ende": "2027-01-09",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://fun-sports.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Neujahrsberglauf in Falkenstein",
     "standort": "Ellefeld",
@@ -44708,6 +44723,21 @@
     "veranstalter_url": "http://www.sonthofer-fruehlingslauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "SWIM/RUN powered by Skinfit",
+    "standort": "Maria Enzersdorf",
+    "lat": 48.1,
+    "lon": 16.283,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.time-now-sports.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Syltlauf",
     "standort": "Sylt",
@@ -49293,6 +49323,21 @@
   },
   {
     "land": "Österreich",
+    "name": "UTTB Duathlon",
+    "standort": "Schützen am Gebirge",
+    "lat": 47.852,
+    "lon": 16.623,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-04-18",
+    "datum_ende": "2027-04-18",
+    "wettbewerb": "Duathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://uttb.at/duathlon/",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
     "name": "Vienna City Marathon",
     "standort": "Wien",
     "lat": 48.2081664,
@@ -51696,6 +51741,21 @@
     "laenge_km": null,
     "veranstalter_url": "https://treppenmarathon.de/",
     "dauer_h": 24.0
+  },
+  {
+    "land": "Österreich",
+    "name": "Stadttriathlon Knittelfeld",
+    "standort": "Knittelfeld",
+    "lat": 47.217,
+    "lon": 14.817,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-04-30",
+    "datum_ende": "2027-04-30",
+    "wettbewerb": "Olympisch",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triathlon-austria.at/de/service-termine",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -54815,6 +54875,21 @@
     "datum_ende": "2027-05-08",
     "laenge_km": 21.0,
     "veranstalter_url": "https://tglage.de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Int. Run-Bike-Run Tri Team Klagenfurt",
+    "standort": "Alpenarena Villach",
+    "lat": 46.6046328,
+    "lon": 13.8091027,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-05-08",
+    "datum_ende": "2027-05-08",
+    "wettbewerb": "Duathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://triteamklagenfurt.sportunion.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -58495,6 +58570,21 @@
   },
   {
     "land": "Österreich",
+    "name": "Parndorfer Speedworld Supersprint Duathlon",
+    "standort": "Parndorf",
+    "lat": 47.9973956,
+    "lon": 16.8608307,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-05-17",
+    "datum_ende": "2027-05-17",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.burgenland-triathlon.at/termine/supersprint-duathlon",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
     "name": "Pfandler Dammlauf",
     "standort": "Bad Ischl",
     "lat": 47.7123805,
@@ -60940,6 +61030,21 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://salzburg-marathon.at/de/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Schwarzataler Triathlon",
+    "standort": "Ternitz",
+    "lat": 47.716,
+    "lon": 16.036,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-05-23",
+    "datum_ende": "2027-05-23",
+    "wettbewerb": "Olympisch",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.atsv-ternitz.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -65349,6 +65454,21 @@
     "laenge_km": 53.0,
     "wettbewerb": "RTF 53 km",
     "veranstalter_url": "https://www.sellarondabikeday.com/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Skinfit Luschnouar Ironmännli",
+    "standort": "Lustenau",
+    "lat": 47.426,
+    "lon": 9.659,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-05",
+    "datum_ende": "2027-06-05",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triteam.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Schweiz",
@@ -71018,6 +71138,21 @@
     "veranstalter_url": "https://www.horremer-abendlauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Haidlmair Cross Duathlon Klaus",
+    "standort": "Klaus an der Pyhrnbahn",
+    "lat": 47.831,
+    "lon": 14.157,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-06-19",
+    "datum_ende": "2027-06-19",
+    "wettbewerb": "Cross-Triathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "http://www.triathlon-klaus.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Höllenberg Trail-Trophy",
     "standort": "Spirkelbach",
@@ -72768,6 +72903,21 @@
     "veranstalter_url": "https://linthathlon.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "Volksbank Stadttriathlon Amstetten",
+    "standort": "Amstetten",
+    "lat": 48.123,
+    "lon": 14.872,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-06-20",
+    "datum_ende": "2027-06-20",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triateamnoewest.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Schweiz",
     "name": "Winterthurer Frauenlauf",
     "standort": "Winterthur",
@@ -73434,6 +73584,19 @@
     "veranstalter_url": "https://www.aletsch-halbmarathon.ch/de"
   },
   {
+    "land": "Österreich",
+    "name": "ASVÖ Steeltownman Outdoor (+ OÖ Firmentriathlon)",
+    "standort": "Linz",
+    "lat": 48.306,
+    "lon": 14.286,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Aquathlon",
+    "veranstalter_url": "https://outdoor.steeltownman.com/"
+  },
+  {
     "land": "Deutschland",
     "name": "Besenbinder Lauf - Rund um Hainrode",
     "standort": "Südharz",
@@ -74066,6 +74229,21 @@
   },
   {
     "land": "Österreich",
+    "name": "Mistelbacher Aquathlon",
+    "standort": "Mistelbach",
+    "lat": 48.618,
+    "lon": 15.755,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triathlon-austria.at/de/service-termine",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
     "name": "Montafon Arlberg Marathon",
     "standort": "Silbertal",
     "lat": 47.0950648,
@@ -74118,6 +74296,21 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.muddyangelrun.com/events/duisburg-2027/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Mürzer Oberland Naturpark Triathlon",
+    "standort": "Neuberg",
+    "lat": 46.783,
+    "lon": 15.2,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "wettbewerb": "Olympisch",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://fun-sports.at/events/",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -81932,6 +82125,21 @@
     "veranstalter_url": "https://www.stockhorn-halbmarathon.ch/"
   },
   {
+    "land": "Österreich",
+    "name": "SV See Cross Triathlon",
+    "standort": "St. Marein bei Neumarkt",
+    "lat": 47.0663045,
+    "lon": 14.4270444,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triathlon-austria.at/de/service-termine",
+    "gedaechtnis": true
+  },
+  {
     "land": "Schweiz",
     "name": "Swiss Bike-Adventure",
     "standort": "Andermatt",
@@ -83080,6 +83288,21 @@
     "veranstalter_url": "http://www.ostseeman.de"
   },
   {
+    "land": "Österreich",
+    "name": "Pöttschinger Triathlon",
+    "standort": "Pöttsching",
+    "lat": 47.804,
+    "lon": 16.371,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-07-31",
+    "datum_ende": "2027-07-31",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triathlon-poettsching.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Rooted Secrets",
     "standort": "Magdeburg",
@@ -83997,6 +84220,21 @@
     "veranstalter_url": "https://www.ebm-united.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Ferlach Aquathlon",
+    "standort": "Ferlach",
+    "lat": 46.527,
+    "lon": 14.302,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-08-07",
+    "datum_ende": "2027-08-07",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.ferlach-aquathlon.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Frontrun - Janus Queer Games 2027",
     "standort": "Köln",
@@ -84734,6 +84972,21 @@
     "veranstalter_url": "https://lauftreff-schweich.de/stefan-andres-freundschaftslauf/"
   },
   {
+    "land": "Österreich",
+    "name": "STEIRAMAN – Styrian X-treme Triathlon",
+    "standort": "St. Margarethen bei Knittelfeld",
+    "lat": 47.227227,
+    "lon": 14.9451136,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-08-08",
+    "datum_ende": "2027-08-08",
+    "wettbewerb": "Cross-Triathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.steiraman.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Schweiz",
     "name": "Bärner Bärgloufcup",
     "standort": "Köniz",
@@ -85285,6 +85538,21 @@
     "laenge_km": 32.2,
     "wettbewerb": "O-SEE Reduced 32,2 km (0,75 km Schwimmen / 26 km MTB / 5,4 km Laufen)",
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
+  },
+  {
+    "land": "Österreich",
+    "name": "Riverthlon – Swim & Run Waidhofen/Ybbs",
+    "standort": "Waidhofen an der Ybbs",
+    "lat": 47.96,
+    "lon": 14.774,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-08-14",
+    "datum_ende": "2027-08-14",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.riverthlon.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Schweiz",
@@ -86404,6 +86672,21 @@
     "veranstalter_url": "https://jedermann-triathlon.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Kraigerseetriathlon",
+    "standort": "Frauenstein",
+    "lat": 46.814,
+    "lon": 14.294,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-21",
+    "datum_ende": "2027-08-21",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.kraigerseetriathlon.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Mops-Ultra Night Edition",
     "standort": "Schloß Holte-Stukenbrock",
@@ -86761,6 +87044,21 @@
     "laenge_km": 106.0,
     "wettbewerb": "106 km",
     "veranstalter_url": "https://808project.de/allgaeutriathlon"
+  },
+  {
+    "land": "Österreich",
+    "name": "AQUADAYS Langenzersdorf",
+    "standort": "Langenzersdorf",
+    "lat": 48.304,
+    "lon": 16.361,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-08-22",
+    "datum_ende": "2027-08-22",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.aquadays.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Schweiz",
@@ -87512,6 +87810,36 @@
     "veranstalter_url": "https://sparkassen-tauchscher-stadtlauf.de/"
   },
   {
+    "land": "Österreich",
+    "name": "ULTRA TRIATHLON Bad Radkersburg",
+    "standort": "Bad Radkersburg",
+    "lat": 46.688,
+    "lon": 15.988,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-27",
+    "datum_ende": "2027-08-30",
+    "wettbewerb": "Langdistanz",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.ultratriathlon.at/",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
+    "name": "XTERRA Austria",
+    "standort": "Altaussee",
+    "lat": 47.638,
+    "lon": 13.763,
+    "art1": "Triathlon",
+    "art2": "Cross",
+    "datum_start": "2027-08-27",
+    "datum_ende": "2027-08-28",
+    "wettbewerb": "Sprint",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.xterraplanet.com/event/xterra-austria",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "33. Zeitzer Stadtlauf",
     "standort": "Zeitz",
@@ -87913,6 +88241,21 @@
     "veranstalter_url": "https://my.raceresult.com/364127/"
   },
   {
+    "land": "Österreich",
+    "name": "Pöttschinger Aquathlon",
+    "standort": "Pöttsching",
+    "lat": 47.804,
+    "lon": 16.371,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.triathlon-poettsching.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Italien (Südtirol)",
     "name": "Radtag-Stilfserjoch",
     "standort": "Prad am Stilfserjoch",
@@ -88261,6 +88604,21 @@
     "veranstalter_url": "https://www.xletix.com/events/nrw-2027/"
   },
   {
+    "land": "Österreich",
+    "name": "Zugspitz Arena Gravel Triathlon",
+    "standort": "Heiterwang",
+    "lat": 47.45,
+    "lon": 10.75,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-08-28",
+    "datum_ende": "2027-08-28",
+    "wettbewerb": "Mitteldistanz",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://zugspitz-triathlon.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "36. Spee-Cup in Genthin",
     "standort": "Genthin",
@@ -88505,6 +88863,21 @@
     "laenge_km": 113.0,
     "wettbewerb": "113 km",
     "veranstalter_url": "https://www.ironman.com/races/im703-zell-am-see"
+  },
+  {
+    "land": "Österreich",
+    "name": "Ironman 70.3 Zell am See-Kaprun",
+    "standort": "Kaprun",
+    "lat": 47.272,
+    "lon": 12.76,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-08-29",
+    "datum_ende": "2027-08-29",
+    "wettbewerb": "Mitteldistanz",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.ironman.com/im703-zell-am-see",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -91739,6 +92112,21 @@
     "veranstalter_url": "https://stadtlaufbautzen.de/"
   },
   {
+    "land": "Österreich",
+    "name": "Südkärntner Triathlon",
+    "standort": "St. Kanzian am Klopeiner See",
+    "lat": 46.604,
+    "lon": 14.573,
+    "art1": "Triathlon",
+    "art2": "Straße",
+    "datum_start": "2027-09-11",
+    "datum_ende": "2027-09-12",
+    "wettbewerb": "Mitteldistanz",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.suedkaerntner-triathlon.at/",
+    "gedaechtnis": true
+  },
+  {
     "land": "Deutschland",
     "name": "Tierparklauf Berlin",
     "standort": "Berlin",
@@ -94002,6 +94390,21 @@
   },
   {
     "land": "Österreich",
+    "name": "IKB Baggersee Aquathlon Innsbruck",
+    "standort": "Innsbruck",
+    "lat": 47.263,
+    "lon": 11.394,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-09-25",
+    "datum_ende": "2027-09-25",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.ttci.at/",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
     "name": "KalkkögelTrail",
     "standort": "Telfes im Stubai",
     "lat": 47.16391,
@@ -94162,6 +94565,21 @@
     "laenge_km": null,
     "dauer_h": null,
     "veranstalter_url": "https://beatthecity.at/",
+    "gedaechtnis": true
+  },
+  {
+    "land": "Österreich",
+    "name": "Mürzer Oberland Naturpark Duathlon",
+    "standort": "Neuberg",
+    "lat": 46.783,
+    "lon": 15.2,
+    "art1": "Triathlon",
+    "art2": "Duathlon",
+    "datum_start": "2027-09-25",
+    "datum_ende": "2027-09-25",
+    "wettbewerb": "Duathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://fun-sports.at/events/",
     "gedaechtnis": true
   },
   {
@@ -95813,6 +96231,21 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km Run",
     "veranstalter_url": "https://longevity-health-club.de/running-festival-mannheim"
+  },
+  {
+    "land": "Österreich",
+    "name": "Swim & Run Amstetten",
+    "standort": "Amstetten",
+    "lat": 48.123,
+    "lon": 14.872,
+    "art1": "Triathlon",
+    "art2": "Aquathlon",
+    "datum_start": "2027-10-16",
+    "datum_ende": "2027-10-16",
+    "wettbewerb": "Aquathlon",
+    "datum_vorlaeufig": true,
+    "veranstalter_url": "https://www.mostiman.at/",
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",

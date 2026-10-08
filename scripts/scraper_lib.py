@@ -564,6 +564,12 @@ class Event:
     # weglässt, solange es nicht gesetzt ist.
     charity: bool | None = None
     veranstalter_url: str | None = None
+    # Vom Vorjahr abgeschrieben, von keiner Quelle bestätigt (Strecken des
+    # Gedächtnisses, veranstalter_seiten.py; Termine, die ein Scraper aus dem
+    # Vorjahrestermin schätzt, fsieben_scraper.py). Die Seite zeigt dafür
+    # das Sternchen; clean_events.zurueckziehen_prognosen() räumt sie weg,
+    # sobald eine Quelle den echten Termin liefert. None statt False.
+    gedaechtnis: bool | None = None
 
     def is_valid(self) -> bool:
         return bool(self.name and self.datum_start and self.standort)

@@ -795,6 +795,27 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      unterscheiden. 56 Veranstaltungen (94 Zeilen) sind markiert –
      die `unklar`-Fälle des Elften Durchgangs ohne Silvester-/
      Neujahrsläufe (der Tag ist dort durch den Kalender fest).
+   - **Geschätzt aus dem Vorjahr – die eine Ausnahme von „nur per
+     Override"** (vom Nutzer am 08.10.2026 für fsieben entschieden: „Ja
+     aufnehmen, und in den Stern halt noch schreiben das es to be
+     confirmed noch sein muss. Aber dann können die Leute sich drauf
+     vorbereiten"): Nennt eine QUELLE den letzten Termin ausdrücklich
+     („zuletzt 22.08.2026") und sagt „Termin folgt", legt der Scraper die
+     neue Ausgabe am selben Wochentag ein Jahr später an
+     (`fsieben_scraper.naechster_termin`: +52 Wochen, +53, wenn der
+     Kalendertag mehr als drei Tage danach läge), mit `datum_vorlaeufig`
+     UND `gedaechtnis`, Auflage vorn weg. Die Seite zeigt „Aug. 2027*"
+     und Stern/Fußnote sagen seitdem **„noch zu bestätigen (to be
+     confirmed)"** (DE und EN, `event-detail.js`, `functions/index.js`,
+     `build_ics.py`). **`clean_events.zurueckziehen_prognosen()`** nimmt
+     eine solche Zeile heraus, sobald eine Zeile derselben Veranstaltung
+     ohne Markierung (gleiche `art1`, `_gleicher_standort`, ein
+     Namenskern im anderen) höchstens 60 Tage daneben liegt – auch die
+     echte Ausgabe aus fsieben selbst; Kopien aus `manual_events.json`
+     bleiben der 10-Tage-Regel überlassen. `Event` hat dafür das Feld
+     `gedaechtnis` bekommen. Nicht geschätzt wird ohne Einzelformat (nur
+     Kids/Staffel) und mit „Kids" im Namen. `test_fsieben` hält es fest.
+     Für eine weitere Quelle gilt dasselbe nur mit Ja des Nutzers.
    - **Der Override hängt am vorläufigen Datum**: Bringt der Datenlauf
      einen anderen Tag, greift er nicht mehr, das Sternchen verschwindet
      von selbst. Bringt er denselben Tag, bleibt es – deshalb meldet
@@ -4868,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–16 erledigt (8 und 9–15 in
-zwei parallelen Sitzungen, 16 am 08.10.), Punkt 7 ans Ende verschoben
-(jetzt Punkt 32), WEITER BEI PUNKT 17.**
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–17 erledigt (8 und 9–15 in
+zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 18.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5081,8 +5102,11 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     siehe „Quellen" (Gravel-Kalender). gravel-club.com und 808project.de
     bleiben draußen (international bzw. Wix, wenig Neues für unsere
     Regionen – Empfehlung, vom Nutzer so übernommen).
-17. fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
-    vorläufig oder bis Frühjahr 2027 warten?
+17. ~~fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
+    vorläufig oder bis Frühjahr 2027 warten?~~ **erledigt** (08.10.2026,
+    vom Nutzer: „Ja aufnehmen, und in den Stern halt noch schreiben das es
+    to be confirmed noch sein muss. Aber dann können die Leute sich drauf
+    vorbereiten") – Datenregel 19, Absatz „Geschätzt aus dem Vorjahr".
 18. Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?
 19. Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
     Mingolsheim = Nikolauslauf Bad Schönborn; Uchter Wald- und Crosslauf =
@@ -5218,12 +5242,8 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
      (Teams). „Auch mit BDR-Lizenz aufnehmen" deckt das nicht ganz.
    - ~~**Gravel-Listen**~~ **entschieden** (08.10.2026): nur `dealgrid.de`
      (`dealgrid_scraper.py`), gravel-club.com und 808project.de nicht.
-   - **fsieben „Termin folgt"** (52 Bewerbe): Sollen sie mit dem
-     Vorjahrestermin als **vorläufig** („Juni 2027*") aufgenommen werden?
-     Heute nicht – Datenregel 19 lässt die Prognose nur per Override zu,
-     und der Vorjahrestermin ist keine Aussage über 2027. Die Alternative
-     ist, im Frühjahr 2027 zu warten; der wöchentliche Lauf holt jeden
-     nachgetragenen Termin.
+   - ~~**fsieben „Termin folgt"**~~ **entschieden** (08.10.2026): mit
+     geschätztem Termin aufnehmen, siehe Datenregel 19.
 
 23. **Aus der Linkprüfung vom 05.10.2026 (Achtzehnter Durchgang)** – je ein Ja/Nein:
    - **FITLETIX** (Graz, Salzburg, Eisenstadt, Raedbox Challenge, LakeSide

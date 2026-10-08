@@ -2271,7 +2271,7 @@ def test_datum_vorlaeufig() -> None:
     ics = build_ics.build_ics(e.to_dict(), "20260101T000000Z")
     check("Kalenderdatei nennt den vorläufigen Termin im Titel",
           "SUMMARY:Borkener Citylauf (Termin vorläufig)" in ics, True)
-    check("und in der Beschreibung", "Termin noch nicht veröffentlicht" in ics, True)
+    check("und in der Beschreibung", "Termin noch zu bestätigen (to be confirmed)" in ics, True)
     ics_ohne = build_ics.build_ics(Event(name="Stadtlauf", datum_start="2027-06-07",
                                          datum_ende="2027-06-07", standort="X").to_dict(),
                                    "20260101T000000Z")
@@ -3271,8 +3271,44 @@ def test_fsieben() -> None:
     # Zwei Tage, ohne Event-Seite -> Portallink der Liste.
     evs, _ = fs.events_aus_eintrag(arr[2])
     assert (evs[0].datum_start, evs[0].datum_ende, evs[0].veranstalter_url) == ("2027-06-19", "2027-06-20", fs.LISTE_URL), evs
-    # "Termin folgt" hat kein Datum - kein Eintrag (Datenregel 19); Schulmeisterschaft nicht offen.
+    # "Termin folgt" ohne "zuletzt" - kein Eintrag; Schulmeisterschaft nicht offen.
     assert fs.events_aus_eintrag(arr[3]) == ([], "Termin folgt")
+    # Mit "zuletzt" (08.10.2026, vom Nutzer gewünscht): derselbe Wochentag ein
+    # Jahr später, vorläufig UND gedaechtnis, Auflage weg, Dauer bleibt.
+    from datetime import date as _d
+    heute = _d(2026, 10, 8)
+    check("fsieben: Vorjahrestermin -> gleicher Wochentag (Sa 22.08.2026 -> Sa 21.08.2027)",
+          fs.naechster_termin("zuletzt 22.08.2026", heute), ("2027-08-21", "2027-08-21"))
+    check("fsieben: mehrtägig behält die Dauer, auch über den Jahreswechsel",
+          (fs.naechster_termin("zuletzt 12.–13.09.2026", heute), fs.naechster_termin("zuletzt 03.01.2026", heute)),
+          (("2027-09-11", "2027-09-12"), ("2027-01-02", "2027-01-02")))
+    check("fsieben: Schätzung in der Vergangenheit oder ohne Datum - nichts",
+          (fs.naechster_termin("zuletzt 01.01.2025", heute), fs.naechster_termin("", heute)), (None, None))
+    progn = dict(arr[3], hi="zuletzt 12.–13.09.2026")
+    evs, grund = fs.events_aus_eintrag(progn, heute=heute)
+    check("fsieben: geschätzter Termin, Name ohne Auflage, markiert",
+          [(e.name, e.datum_start, e.datum_ende, e.datum_vorlaeufig, e.gedaechtnis, e.wettbewerb) for e in evs],
+          [("Vienna Triathlon", "2027-09-11", "2027-09-12", True, True, "Sprint")])
+    check("fsieben: nur Kids/Staffel oder „Kids“ im Namen - keine Schätzung",
+          (fs.events_aus_eintrag(dict(progn, t=["Kids", "Staffel"]), heute=heute)[1],
+           fs.events_aus_eintrag(dict(progn, n="TRI KIDS Aquathlon"), heute=heute)[1]), ("Termin folgt", "Termin folgt"))
+    import clean_events as ce
+    schaetzung = evs[0].to_dict()
+    echt = dict(schaetzung, name="12. Vienna Triathlon", datum_start="2027-09-18", datum_ende="2027-09-19")
+    echt.pop("gedaechtnis"); echt.pop("datum_vorlaeufig")
+    check("zurueckziehen_prognosen: echte Ausgabe da -> Schätzung weg",
+          [e["datum_start"] for e in ce.zurueckziehen_prognosen([schaetzung, echt], [])[0]], ["2027-09-18"])
+    check("zurueckziehen_prognosen: ohne echte Ausgabe, oder anderer Ort, bleibt sie",
+          (len(ce.zurueckziehen_prognosen([schaetzung], [])[0]),
+           len(ce.zurueckziehen_prognosen([schaetzung, dict(echt, standort="Graz", lat=47.07, lon=15.44)], [])[0])), (1, 2))
+    gerasdorf = dict(echt, name="Gerasdorf Triathlon", standort="Gerasdorf bei Wien", lat=48.29, lon=16.47, datum_start="2027-08-08")
+    check("zurueckziehen_prognosen: „Triathlon“ allein ist kein gemeinsamer Name (Vienna ≠ Gerasdorf bei Wien)",
+          len(ce.zurueckziehen_prognosen([schaetzung, gerasdorf], [])[0]), 2)
+    check("zurueckziehen_prognosen: „Int.“ = „Internationaler“, Ort im Namen zählt mit",
+          ce._gleicher_name_kern({"name": "Int. Thiersee Triathlon", "standort": "Thiersee"},
+                                 {"name": "Internationaler Thiersee Triathlon", "standort": "Thiersee"}), True)
+    check("zurueckziehen_prognosen: Kopie aus manual_events.json bleibt der anderen Regel",
+          len(ce.zurueckziehen_prognosen([schaetzung, echt], [dict(schaetzung)])[0]), 2)
     assert fs.events_aus_eintrag(arr[4]) == ([], "nicht für jeden offen")
     from scraper_lib import is_portal_link
     assert is_portal_link("https://www.fsieben.at/tools/triathlon-kalender-oesterreich/") and is_portal_link("https://www.triathlon-austria.at/de/service-termine")

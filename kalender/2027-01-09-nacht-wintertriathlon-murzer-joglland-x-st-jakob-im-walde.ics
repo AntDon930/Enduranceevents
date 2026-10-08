@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-nacht-wintertriathlon-murzer-joglland-x-st-jakob-im-walde@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Nacht-Wintertriathlon Mürzer & Joglland – Sprint (Termin vorläufig
+ )
+LOCATION:St. Jakob im Walde\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Cross\nLänge: -\nhttps://fun-sports.at/
+TRANSP:TRANSPARENT
+URL:https://fun-sports.at/
+END:VEVENT
+END:VCALENDAR
