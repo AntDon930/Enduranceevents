@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-gravelride-stade-99km-stade@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Gravelride Stade
+LOCATION:Stade\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 99 km\nhttps://radsport.unt
+ erelbe.net/termine/gravelride-2026/
+TRANSP:TRANSPARENT
+URL:https://radsport.unterelbe.net/termine/gravelride-2026/
+END:VEVENT
+END:VCALENDAR

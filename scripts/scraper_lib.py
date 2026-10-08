@@ -3141,7 +3141,7 @@ PORTAL_DOMAINS = (
     "lauf-anmeldung.de", "sportanmeldung.de", "swim.de", "bayerischer-schwimmverband.de",
     "kilometerliebe.de", "lck.it", "lv-pfalz.de", "vss.bz.it", "crosscup.org", "dsergebnis.de",
     "radsport-weser-ems.de", "swiss-cycling-boe.ch", "swisscycling-fricktal.ch",
-    "radsport-sh.de", "gregorhoops.de", "zpn-timing.de",
+    "radsport-sh.de", "gregorhoops.de", "zpn-timing.de", "dealgrid.de",
 )
 
 

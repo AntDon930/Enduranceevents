@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-08-race-across-germany-nord-sud-1100km-flensburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270712
+SUMMARY:Race Across Germany Nord–Süd
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 1100 km\nhttps://raceacross
+ germany.de/nord-sued
+TRANSP:TRANSPARENT
+URL:https://raceacrossgermany.de/nord-sued
+END:VEVENT
+END:VCALENDAR

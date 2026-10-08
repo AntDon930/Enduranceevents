@@ -3643,6 +3643,62 @@ def test_kleine_radquellen() -> None:
        ev and ev.laenge_km is None and ev.standort == "Schleswig", f"{ev} {grund}")
 
 
+def test_dealgrid() -> None:
+    """Der Scraper für den Gravel-Kalender von dealgrid.de (08.10.2026):
+    JSON-LD plus Listenzeile, Strecken aus der Meta-Zeile (Preise,
+    Spannen, Runden, Vorjahreswerte), Ort gegen places.json, Camps,
+    Serien und Ausland raus - ohne Netz."""
+    print("\ndealgrid.de:")
+    import dealgrid_scraper as dg
+    s = dg.strecken_aus_meta
+    check("dealgrid: Zahlen ohne Einheit zählen erst mit km, Preise nicht",
+          [k for k, _ in s("Waltrop, NRW · 43 · 67 · 101 km · 8 · 10 €")], [43, 67, 101])
+    check("dealgrid: Label-Wörter, CTF-Spanne nicht",
+          s("Paderborn, NRW · 48 km Gravel · CTF bis 63 km · 6–10 €"), [(48, "Gravel 48 km")])
+    check("dealgrid: Spanne fällt, die Zahl davor bleibt",
+          [k for k, _ in s("Kiel, SH · 65 · 100–120 km")], [65])
+    check("dealgrid: Runden ergeben die Renndistanz, Kinderstrecke raus",
+          [k for k, _ in s("Rheinzabern, RLP · 10 × 5,8 km · 20 €")] + [k for k, _ in s("Sonnewalde, BB · 30 · 55 km · Kids 3,5 km")],
+          [58, 30, 55])
+    check("dealgrid: Vorjahreswerte und Rundenlänge nicht",
+          [s("Gamlitz, Stmk · Strecken 2027 folgen (2026: 40 · 96 · 126 km)"),
+           s("Bad Feilnbach, BY · Gravel 56 · 94 km (Stand 2026) · 139 €"),
+           s("X, DE · 17,7-km-Runde, jede Stunde neu"), s("X, DE · 9 Routen, 20 bis 100 km")], [[], [], [], []])
+    check("dealgrid: Tausenderpunkt, „oder“, Höhenmeter",
+          [k for k, _ in s("Pfalz, RLP · 1.120 km · 22.500 hm")] + [k for k, _ in s("Ibbenbüren, NRW · Gravel 46, 80 oder 115 km · 10 €")],
+          [1120, 46, 80, 115])
+    html = ('<script type="application/ld+json">{"@context":"https://schema.org","@graph":['
+            '{"@type":"SportsEvent","name":"Rad am Ring, Gravel-Rennen","startDate":"2027-07-24","endDate":"2027-07-24",'
+            '"eventStatus":"https://schema.org/EventScheduled","location":{"address":{"addressLocality":"Nürburgring","addressCountry":"DE"},'
+            '"geo":{"latitude":50.335,"longitude":6.947}},"url":"https://radamring.de/"},'
+            '{"@type":"SportsEvent","name":"Riedgravel-Camp","startDate":"2027-08-27","location":{"address":{"addressLocality":"Riedstadt","addressCountry":"DE"}},"url":"https://x.de/"},'
+            '{"@type":"SportsEvent","name":"Elsass Gravel","startDate":"2027-07-04","location":{"address":{"addressLocality":"Wangenbourg","addressCountry":"FR"}},"url":"https://y.fr/"},'
+            '{"@type":"SportsEvent","name":"Rund um den Harz","startDate":"2027-04-03","location":{"address":{"addressLocality":"Harz","addressCountry":"DE"},"geo":{"latitude":51.7,"longitude":10.6}},"url":"https://z.de/"}'
+            ']}</script><ul>'
+            '<li class="dgkal-row" id="termin-50"><span class="dgkal-kicker-s">Rennen</span><a class="dgkal-name" href="https://radamring.de/">Rad am Ring, Gravel-Rennen</a>'
+            '<span class="dgkal-meta">Nürburgring, Rheinland-Pfalz · 50 · 100 km · 65 €</span></li>'
+            '<li class="dgkal-row" id="termin-51"><span class="dgkal-kicker-s">Camp</span><a class="dgkal-name" href="https://x.de/">Riedgravel-Camp</a>'
+            '<span class="dgkal-meta">Riedstadt, Hessen · 60 km</span></li></ul>')
+    termine = dg.parse_kalender(html)
+    check("dealgrid: vier Termine aus dem JSON-LD", [t["name"] for t in termine],
+          ["Rad am Ring, Gravel-Rennen", "Riedgravel-Camp", "Elsass Gravel", "Rund um den Harz"])
+    evs, grund = dg.events_aus_termin(termine[0])
+    check("dealgrid: Name ohne „, Gravel-Rennen“, Gattung im Label, Ort mit Koordinaten der Quelle",
+          [(e.name, e.standort, e.laenge_km, e.wettbewerb, e.art2, e.veranstalter_url, e.lat) for e in evs],
+          [("Rad am Ring", "Nürburgring", 50, "Gravel-Rennen 50 km", "Gravel", "https://radamring.de/", 50.335),
+           ("Rad am Ring", "Nürburgring", 100, "Gravel-Rennen 100 km", "Gravel", "https://radamring.de/", 50.335)])
+    check("dealgrid: Camp, Ausland und Gegend fallen",
+          [dg.events_aus_termin(t)[1][:12] for t in termine[1:]], ["kein Renntermin"[:12], "außerhalb de", "Ort nicht ei"])
+    orte = {"freiburg im breisgau": [("Freiburg im Breisgau", 47.999, 7.839)],
+            "wald": [("Wald", 47.933, 9.167)], "stuttgart": [("Stuttgart", 48.78, 9.18)]}
+    check("dealgrid: Ortsname kürzer als in places.json, nur mit Koordinaten",
+          (dg.standort_finden("Freiburg", 47.99, 7.85, orte), dg.standort_finden("Freiburg", None, None, orte)),
+          (("Freiburg im Breisgau", 47.99, 7.85), None))
+    check("dealgrid: „Bayerischer Wald“ ist nicht der Ort Wald, Ortsteil zählt als Ort",
+          (dg.standort_finden("Bayerischer Wald", 49.1, 12.9, orte), dg.standort_finden("Stuttgart-Wangen", 48.778, 9.241, orte)),
+          (None, ("Stuttgart", 48.778, 9.241)))
+
+
 def test_kilometerliebe() -> None:
     """Der Scraper für kilometerliebe.de (30.09.2026): Monatsseite (Datum +
     Link je Karte, vergangene weg), Eventseite (JSON-LD, Faktenliste,
@@ -4031,7 +4087,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

@@ -1,59 +1,5 @@
 [
   {
-    "land": "Deutschland",
-    "name": "Biberacher Herbstwaldlauf 2026",
-    "standort": "Biberach/Riß",
-    "lat": 48.101927,
-    "lon": 9.7931144,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-07",
-    "datum_ende": "2026-10-07",
-    "laenge_km": 10.0,
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49094/Biberacher-Herbstwaldlauf-2026-Biberach-Ri%C3%9F.htm",
-    "wettbewerb": "10 km Waldlauf"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Biberacher Herbstwaldlauf 2026",
-    "standort": "Biberach/Riß",
-    "lat": 48.101927,
-    "lon": 9.7931144,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-07",
-    "datum_ende": "2026-10-07",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km Waldlauf",
-    "veranstalter_url": "https://ladv.de/ausschreibung/detail/49094/Biberacher-Herbstwaldlauf-2026-Biberach-Ri%C3%9F.htm"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Warburger Stundenlauf",
-    "standort": "Warburg",
-    "lat": 51.4899078,
-    "lon": 9.14519,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-07",
-    "datum_ende": "2026-10-07",
-    "veranstalter_url": "https://www.warburgersv.de/veranstaltungen/archiv/29-warburger-stundenlauf-2019",
-    "dauer_h": 1.0
-  },
-  {
-    "land": "Deutschland",
-    "name": "Zwickauer Halb- und Stundenlauf",
-    "standort": "Zwickau",
-    "lat": 50.7069243,
-    "lon": 12.4591138,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-07",
-    "datum_ende": "2026-10-07",
-    "veranstalter_url": "https://sv-vorwaerts-zwickau.de/",
-    "dauer_h": 1.0
-  },
-  {
     "land": "Österreich",
     "name": "Gravel 'n' Gröstl",
     "standort": "Walchsee",
@@ -1202,6 +1148,20 @@
     "laenge_km": 5.9,
     "wettbewerb": "5.9 km",
     "veranstalter_url": "https://www.chupia.ch"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Continental Gravel Club Tour, Finale",
+    "standort": "Wietze",
+    "lat": 52.65,
+    "lon": 9.833,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-10",
+    "datum_ende": "2026-10-10",
+    "laenge_km": 80.0,
+    "wettbewerb": "80 km",
+    "veranstalter_url": "https://gravel-club.com/2026/03/13/gravel-club-tour-2026/"
   },
   {
     "land": "Deutschland",
@@ -4059,6 +4019,20 @@
     "veranstalter_url": "https://www.tsv-woerth.de/cross-event-2026/"
   },
   {
+    "land": "Deutschland",
+    "name": "CTF und Gravel-Tour Westensee",
+    "standort": "Westensee",
+    "lat": 54.275651,
+    "lon": 9.902108,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "laenge_km": 90.0,
+    "wettbewerb": "Gravel-Tour 90 km",
+    "veranstalter_url": "https://www.rbc-1894.de/rbc-ctf-2026/"
+  },
+  {
     "land": "Österreich",
     "name": "Cycling Cup Thaur",
     "standort": "Thaur",
@@ -5364,6 +5338,18 @@
     "laenge_km": 25.0,
     "wettbewerb": "POWERMAN Sprint",
     "veranstalter_url": "https://mc-eschweiler.de/veranstaltungen/powerman-wuerselen/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Propain Gravel Day",
+    "standort": "Vogt",
+    "lat": 47.776645,
+    "lon": 9.766194,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-11",
+    "datum_ende": "2026-10-11",
+    "veranstalter_url": "https://www.propain-bikes.com/en/propain-bike-days/"
   },
   {
     "land": "Deutschland",
@@ -7136,6 +7122,34 @@
     "veranstalter_url": "https://ridegravel.ch/bern/"
   },
   {
+    "land": "Schweiz",
+    "name": "Gravel Festival Bern",
+    "standort": "Bern",
+    "lat": 46.948474,
+    "lon": 7.452175,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "laenge_km": 60.0,
+    "wettbewerb": "Race 60 km",
+    "veranstalter_url": "https://ridegravel.ch/bern/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Gravel Festival Bern",
+    "standort": "Bern",
+    "lat": 46.948474,
+    "lon": 7.452175,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "laenge_km": 25.0,
+    "wettbewerb": "Ride 25 km",
+    "veranstalter_url": "https://ridegravel.ch/bern/"
+  },
+  {
     "land": "Deutschland",
     "name": "Gütersloher Gravelday",
     "standort": "Gütersloh",
@@ -7994,7 +8008,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "The Brain Bikerace Usedom",
+    "name": "The Brain Bike Race Usedom",
     "standort": "Krummin",
     "lat": 54.0468428,
     "lon": 13.8480328,
@@ -12601,6 +12615,48 @@
   },
   {
     "land": "Deutschland",
+    "name": "Goitzsche Gravelride, 47. Bitterfelder CTF",
+    "standort": "Bitterfeld-Wolfen",
+    "lat": 51.642503,
+    "lon": 12.307633,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 40.0,
+    "wettbewerb": "40 km",
+    "veranstalter_url": "http://www.esv-bitterfeld.de/blog-2/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Goitzsche Gravelride, 47. Bitterfelder CTF",
+    "standort": "Bitterfeld-Wolfen",
+    "lat": 51.642503,
+    "lon": 12.307633,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 60.0,
+    "wettbewerb": "60 km",
+    "veranstalter_url": "http://www.esv-bitterfeld.de/blog-2/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Goitzsche Gravelride, 47. Bitterfelder CTF",
+    "standort": "Bitterfeld-Wolfen",
+    "lat": 51.642503,
+    "lon": 12.307633,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 80.0,
+    "wettbewerb": "80 km",
+    "veranstalter_url": "http://www.esv-bitterfeld.de/blog-2/"
+  },
+  {
+    "land": "Deutschland",
     "name": "GUNSHA Crosscup Radibor",
     "standort": "Radibor",
     "lat": 51.246088,
@@ -14635,6 +14691,34 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.eintracht-munster.de/index.php/sparten/leichtathletik"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Halloween Gravel Tour, Rund um Hannover",
+    "standort": "Langenhagen",
+    "lat": 52.443118,
+    "lon": 9.738994,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 42.0,
+    "wettbewerb": "42 km",
+    "veranstalter_url": "https://blau-gelb-langenhagen.de/langenhagener-ctf/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Halloween Gravel Tour, Rund um Hannover",
+    "standort": "Langenhagen",
+    "lat": 52.443118,
+    "lon": 9.738994,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-10-31",
+    "datum_ende": "2026-10-31",
+    "laenge_km": 72.0,
+    "wettbewerb": "72 km",
+    "veranstalter_url": "https://blau-gelb-langenhagen.de/langenhagener-ctf/"
   },
   {
     "land": "Deutschland",
@@ -17374,6 +17458,20 @@
     "laenge_km": 13.0,
     "wettbewerb": "13 km",
     "veranstalter_url": "https://www.racetafari.com/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "RCV Gravel Cross Race Mönchweiler",
+    "standort": "Mönchweiler",
+    "lat": 48.099343,
+    "lon": 8.426761,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-11-07",
+    "datum_ende": "2026-11-07",
+    "laenge_km": 40.8,
+    "wettbewerb": "40,8 km (6 Runden à 6,8 km)",
+    "veranstalter_url": "https://rc-villingen.eu/gravel-crossrennen/"
   },
   {
     "land": "Deutschland",
@@ -20513,6 +20611,20 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "http://www.schneckenlauf.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravelride Stade",
+    "standort": "Stade",
+    "lat": 53.599794,
+    "lon": 9.475438,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-11-14",
+    "datum_ende": "2026-11-14",
+    "laenge_km": 99.0,
+    "wettbewerb": "99 km",
+    "veranstalter_url": "https://radsport.unterelbe.net/termine/gravelride-2026/"
   },
   {
     "land": "Deutschland",
@@ -24005,6 +24117,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Rheinzaberner Gravelrennen",
+    "standort": "Rheinzabern",
+    "lat": 49.118509,
+    "lon": 8.275594,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-11-28",
+    "datum_ende": "2026-11-28",
+    "laenge_km": 58.0,
+    "wettbewerb": "58 km (10 × 5,8 km)",
+    "veranstalter_url": "https://www.rsv-rheinzabern.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Stevens Cyclo-Cross-Cup #13",
     "standort": "Elmshorn",
     "lat": 53.728805,
@@ -26804,6 +26930,20 @@
     "laenge_km": 300.0,
     "wettbewerb": "Gravel Race 300 km",
     "veranstalter_url": "http://www.niederrhein-gravel.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Niederrhein Gravel Race",
+    "standort": "Kranenburg",
+    "lat": 51.78663,
+    "lon": 6.006386,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2026-12-06",
+    "datum_ende": "2026-12-06",
+    "laenge_km": 45.0,
+    "wettbewerb": "45 km",
+    "veranstalter_url": "https://www.niederrhein-gravel.de/ausschreibung_nrg_race/"
   },
   {
     "land": "Deutschland",
@@ -44275,6 +44415,62 @@
   },
   {
     "land": "Deutschland",
+    "name": "NEULAND HAMBACH Gravelride „Auf der Sophienhöhe“",
+    "standort": "Niederzier",
+    "lat": 50.8833,
+    "lon": 6.46667,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "laenge_km": 22.0,
+    "wettbewerb": "22 km",
+    "veranstalter_url": "https://www.gravelride-sophienhoehe.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NEULAND HAMBACH Gravelride „Auf der Sophienhöhe“",
+    "standort": "Niederzier",
+    "lat": 50.8833,
+    "lon": 6.46667,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "laenge_km": 45.0,
+    "wettbewerb": "45 km",
+    "veranstalter_url": "https://www.gravelride-sophienhoehe.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NEULAND HAMBACH Gravelride „Auf der Sophienhöhe“",
+    "standort": "Niederzier",
+    "lat": 50.8833,
+    "lon": 6.46667,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "laenge_km": 58.0,
+    "wettbewerb": "58 km",
+    "veranstalter_url": "https://www.gravelride-sophienhoehe.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "NEULAND HAMBACH Gravelride „Auf der Sophienhöhe“",
+    "standort": "Niederzier",
+    "lat": 50.8833,
+    "lon": 6.46667,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "laenge_km": 76.0,
+    "wettbewerb": "76 km",
+    "veranstalter_url": "https://www.gravelride-sophienhoehe.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Ostseelauf Timmendorfer Strand",
     "standort": "Timmendorfer Strand",
     "lat": 53.9920636,
@@ -47497,6 +47693,34 @@
   },
   {
     "land": "Deutschland",
+    "name": "HarzGravel",
+    "standort": "Wernigerode",
+    "lat": 51.834417,
+    "lon": 10.786253,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-04-16",
+    "datum_ende": "2027-04-18",
+    "laenge_km": 66.0,
+    "wettbewerb": "66 km",
+    "veranstalter_url": "https://harz-gravel.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "HarzGravel",
+    "standort": "Wernigerode",
+    "lat": 51.834417,
+    "lon": 10.786253,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-04-16",
+    "datum_ende": "2027-04-18",
+    "laenge_km": 100.0,
+    "wettbewerb": "100 km",
+    "veranstalter_url": "https://harz-gravel.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Hexenstieg-Ultramarathon",
     "standort": "Osterode",
     "lat": 51.9667,
@@ -50135,6 +50359,18 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://www.bad-griesbach.de/rottaler-volksmarathon"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Schönbuch Trophy Gravel Race",
+    "standort": "Herrenberg",
+    "lat": 48.596382,
+    "lon": 8.870237,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-04-24",
+    "datum_ende": "2027-04-24",
+    "veranstalter_url": "https://www.eventservice-stahl.de/veranstaltungen/sch%C3%B6nbuch-trophy/"
   },
   {
     "land": "Deutschland",
@@ -53833,6 +54069,20 @@
     "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://backyardultra.ch/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "ALB-PACKA",
+    "standort": "Lenningen",
+    "lat": 48.539588,
+    "lon": 9.53233,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-07",
+    "datum_ende": "2027-05-09",
+    "laenge_km": 480.0,
+    "wettbewerb": "480 km",
+    "veranstalter_url": "https://alb-packa.de/"
   },
   {
     "land": "Deutschland",
@@ -57612,6 +57862,20 @@
     "veranstalter_url": "https://www.bremensanktpauli.de/infos"
   },
   {
+    "land": "Deutschland",
+    "name": "Thüringen erfahren",
+    "standort": "Neuengönna",
+    "lat": 50.987356,
+    "lon": 11.647925,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-15",
+    "datum_ende": "2027-05-15",
+    "laenge_km": 300.0,
+    "wettbewerb": "Gravel 300 km",
+    "veranstalter_url": "https://bueltge.de/thueringen-erfahren/"
+  },
+  {
     "land": "Österreich",
     "name": "Vorchdorfer Pfingstlauf",
     "standort": "Vorchdorf",
@@ -59019,6 +59283,48 @@
     "laenge_km": 9.0,
     "wettbewerb": "9 km",
     "veranstalter_url": "https://www.gamperney-berglauf.ch/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravelgrinder Tecklenburger Höhen",
+    "standort": "Ibbenbüren",
+    "lat": 52.277477,
+    "lon": 7.715142,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-22",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 46.0,
+    "wettbewerb": "Gravel 46 km",
+    "veranstalter_url": "https://www.marathon-ibbenbueren.de/rtf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravelgrinder Tecklenburger Höhen",
+    "standort": "Ibbenbüren",
+    "lat": 52.277477,
+    "lon": 7.715142,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-22",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 80.0,
+    "wettbewerb": "Gravel 80 km",
+    "veranstalter_url": "https://www.marathon-ibbenbueren.de/rtf"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravelgrinder Tecklenburger Höhen",
+    "standort": "Ibbenbüren",
+    "lat": 52.277477,
+    "lon": 7.715142,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-22",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 115.0,
+    "wettbewerb": "Gravel 115 km",
+    "veranstalter_url": "https://www.marathon-ibbenbueren.de/rtf"
   },
   {
     "land": "Deutschland",
@@ -62301,6 +62607,18 @@
   },
   {
     "land": "Deutschland",
+    "name": "Rebound Germany (Dirty Palatinate)",
+    "standort": "Bockenheim an der Weinstraße",
+    "lat": 49.610027,
+    "lon": 8.19506,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-05-29",
+    "datum_ende": "2027-05-30",
+    "veranstalter_url": "https://www.nibelungen-gravel.de/dirtypalatinate"
+  },
+  {
+    "land": "Deutschland",
     "name": "Rund um Schloß Holte",
     "standort": "Schloß Holte-Stukenbrock",
     "lat": 51.9027288,
@@ -63261,7 +63579,7 @@
   },
   {
     "land": "Deutschland",
-    "name": "The Grain Düsseldorf - Dijon",
+    "name": "The Grain, Düsseldorf nach Dijon",
     "standort": "Düsseldorf",
     "lat": 51.2219275,
     "lon": 6.7850672,
@@ -63766,6 +64084,20 @@
     "laenge_km": 21.1,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://lodrino-lavertezzo.ch/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Nordic Chase BER–CPH",
+    "standort": "Berlin",
+    "lat": 52.503379,
+    "lon": 13.338652,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-04",
+    "datum_ende": "2027-06-08",
+    "laenge_km": 740.0,
+    "wettbewerb": "Gravel 740 km",
+    "veranstalter_url": "https://nordicchase.com/ber-cph"
   },
   {
     "land": "Schweiz",
@@ -67477,6 +67809,33 @@
   },
   {
     "land": "Deutschland",
+    "name": "Hackenpedder Route",
+    "standort": "Kiel",
+    "lat": 54.331,
+    "lon": 10.129,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-12",
+    "laenge_km": 670.0,
+    "wettbewerb": "670 km",
+    "veranstalter_url": "https://hackenpedder-bikepacking.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Hackenpedder Route",
+    "standort": "Kiel",
+    "lat": 54.331,
+    "lon": 10.129,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-12",
+    "laenge_km": 1000.0,
+    "veranstalter_url": "https://hackenpedder-bikepacking.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Havelman Brandenburg",
     "standort": "Brandenburg an der Havel",
     "lat": 52.4125287,
@@ -67739,6 +68098,18 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.muddyangelrun.com/events/offenbach-2027/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "MyEifelRide Gravel",
+    "standort": "Mayen",
+    "lat": 50.328354,
+    "lon": 7.221513,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-13",
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -72901,6 +73272,34 @@
   },
   {
     "land": "Deutschland",
+    "name": "SEASIDERIDE",
+    "standort": "Rerik",
+    "lat": 54.106765,
+    "lon": 11.617117,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-25",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 60.0,
+    "wettbewerb": "60 km",
+    "veranstalter_url": "https://seasideride.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "SEASIDERIDE",
+    "standort": "Rerik",
+    "lat": 54.106765,
+    "lon": 11.617117,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-25",
+    "datum_ende": "2027-06-27",
+    "laenge_km": 100.0,
+    "wettbewerb": "100 km",
+    "veranstalter_url": "https://seasideride.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Wiesengrundlauf",
     "standort": "Haselbachtal",
     "lat": 51.240734,
@@ -73743,6 +74142,18 @@
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
     "veranstalter_url": "https://treppenhauslauf.neuwoges.de/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "Octopus Gravel Andermatt",
+    "standort": "Andermatt",
+    "lat": 46.63405,
+    "lon": 8.594815,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-06-26",
+    "datum_ende": "2027-06-26",
+    "veranstalter_url": "https://epicos.cc/events/octopus/"
   },
   {
     "land": "Österreich",
@@ -75132,6 +75543,18 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://firmenlauf.bayern/firmenlauf-bamberg/"
+  },
+  {
+    "land": "Österreich",
+    "name": "into the wold",
+    "standort": "Mellau",
+    "lat": 47.336457,
+    "lon": 9.866963,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-01",
+    "datum_ende": "2027-07-04",
+    "veranstalter_url": "https://www.intothewold.at/"
   },
   {
     "land": "Deutschland",
@@ -77308,6 +77731,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Waldmünchner Radrundfahrt",
+    "standort": "Waldmünchen",
+    "lat": 49.377573,
+    "lon": 12.706213,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-04",
+    "datum_ende": "2027-07-04",
+    "laenge_km": 65.0,
+    "wettbewerb": "Gravel 65 km",
+    "veranstalter_url": "https://waldmuenchner-radrundfahrt.de/strecken/gravelbike-tour/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Firmenlauf Amberg-Sulzbach",
     "standort": "Amberg",
     "lat": 49.4403198,
@@ -77374,6 +77811,19 @@
     "datum_ende": "2027-07-11",
     "laenge_km": 1100.0,
     "veranstalter_url": "http://www.raceacrossgermany.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Race Across Germany Nord–Süd",
+    "standort": "Flensburg",
+    "lat": 54.783302,
+    "lon": 9.433326,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-07-08",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 1100.0,
+    "veranstalter_url": "https://raceacrossgermany.de/nord-sued"
   },
   {
     "land": "Österreich",
@@ -77623,6 +78073,34 @@
     "datum_ende": "2027-07-09",
     "veranstalter_url": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html",
     "datum_vorlaeufig": true
+  },
+  {
+    "land": "Schweiz",
+    "name": "The Majestics",
+    "standort": "Villars-sur-Ollon",
+    "lat": 46.297764,
+    "lon": 7.055331,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-09",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 70.0,
+    "wettbewerb": "70 km",
+    "veranstalter_url": "https://themajestics.ch/"
+  },
+  {
+    "land": "Schweiz",
+    "name": "The Majestics",
+    "standort": "Villars-sur-Ollon",
+    "lat": 46.297764,
+    "lon": 7.055331,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-09",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 105.0,
+    "wettbewerb": "105 km",
+    "veranstalter_url": "https://themajestics.ch/"
   },
   {
     "land": "Schweiz",
@@ -80191,6 +80669,18 @@
   },
   {
     "land": "Deutschland",
+    "name": "Bundes-Radsport-Treffen 2027",
+    "standort": "Mindelheim",
+    "lat": 48.046416,
+    "lon": 10.48825,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-22",
+    "datum_ende": "2027-07-25",
+    "veranstalter_url": "https://brt27.de/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Firmenlauf Neumarkt",
     "standort": "Neumarkt in der Oberpfalz",
     "lat": 49.2772606,
@@ -80889,6 +81379,18 @@
   },
   {
     "land": "Deutschland",
+    "name": "Shades of Speed, Shades of Gravel",
+    "standort": "Bad Feilnbach",
+    "lat": 47.774586,
+    "lon": 12.00708,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-23",
+    "datum_ende": "2027-07-25",
+    "veranstalter_url": "https://www.shades-of-speed.eu/"
+  },
+  {
+    "land": "Deutschland",
     "name": "Sparkassen-ADAM-RIESE Nachtlauf",
     "standort": "Bad Staffelstein",
     "lat": 50.1039212,
@@ -81039,6 +81541,18 @@
     "laenge_km": 10.2,
     "wettbewerb": "Blüomatt Skyrun",
     "veranstalter_url": "https://barrhorn.ch/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Black Forest ULTRA Gravel",
+    "standort": "Kirchzarten",
+    "lat": 47.962626,
+    "lon": 7.954201,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-07-24",
+    "datum_ende": "2027-07-24",
+    "veranstalter_url": "https://www.ultra-gravel.de/"
   },
   {
     "land": "Deutschland",
@@ -86651,6 +87165,20 @@
   },
   {
     "land": "Deutschland",
+    "name": "Race Across Germany West–Ost",
+    "standort": "Aachen",
+    "lat": 50.776351,
+    "lon": 6.083862,
+    "art1": "Fahrrad",
+    "art2": "Straße",
+    "datum_start": "2027-08-26",
+    "datum_ende": "2027-08-29",
+    "laenge_km": 800.0,
+    "wettbewerb": "800 km",
+    "veranstalter_url": "https://raceacrossgermany.de/west-ost"
+  },
+  {
+    "land": "Deutschland",
     "name": "Race Across Germany – Aachen–Görlitz",
     "standort": "Aachen",
     "lat": 50.7770788,
@@ -88740,6 +89268,18 @@
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
     "veranstalter_url": "https://www.austria-triathlon.at"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Gravel Weekender",
+    "standort": "Wesenberg",
+    "lat": 53.28191,
+    "lon": 12.96948,
+    "art1": "Fahrrad",
+    "art2": "Gravel",
+    "datum_start": "2027-09-03",
+    "datum_ende": "2027-09-05",
+    "veranstalter_url": "https://gravel-weekender.de/"
   },
   {
     "land": "Schweiz",

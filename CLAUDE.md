@@ -4496,6 +4496,17 @@ meisterschaft, Junioren-Rundfahrt) per Override ausgeschlossen
 benennt seine Zeilen wie radsport-events.de („Weser-Ems-Cup Rheine",
 Label schlicht „Cyclocross"), sonst stand der Cup doppelt.
 
+**Gravel-Kalender DealGrid (08.10.2026, To-do Punkt 16, „Ja für
+dealgrid")**: `dealgrid_scraper.py` liest die eine Kalenderseite (JSON-LD
+plus Listenzeile), je Distanz eine Zeile, Veranstalterlink je Termin
+(`dealgrid.de` ist Affiliate-Seite und steht in `PORTAL_DOMAINS`).
+Spannen, Rundenlängen, Kinderstrecken und Vorjahreswerte werden nicht
+geraten; Camps, die ganzjährige ORBIT360-Serie, Ausland und Gegenden statt
+Orten („Harz", „Bayerischer Wald" – `ort_im_text` hätte daraus den Ort
+„Wald" gemacht, deshalb hier nur ganzer Name, Teil vor dem Bindestrich
+oder längere/kürzere Form MIT Koordinaten ≤ 15 km) fallen. Erster Lauf:
+80 Termine, 46 neue Zeilen, 6.946 → 6.986 Events. `test_dealgrid`.
+
 **Vier übersprungen** – die Skripte brechen selbst mit `sys.exit(0)` ab und
 rufen die Seite *nicht* ab. Diese Entscheidungen nicht ohne Rückfrage
 umdrehen:
@@ -4857,9 +4868,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 07.10.2026 – Punkte 1–4, 6 und 8–15 erledigt (8 und 9–15 in
-zwei parallelen Sitzungen), Punkt 7 ans Ende verschoben (jetzt
-Punkt 32), WEITER BEI PUNKT 16.**
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–16 erledigt (8 und 9–15 in
+zwei parallelen Sitzungen, 16 am 08.10.), Punkt 7 ans Ende verschoben
+(jetzt Punkt 32), WEITER BEI PUNKT 17.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5065,7 +5076,11 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Die Österreichische Cyclocross-Meisterschaft (10.01.2027) steht noch
     drin – Meisterschaft, Startrecht nach Nation/Lizenz, beim nächsten
     Blick prüfen.
-16. Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?
+16. ~~Gravel-Listen (dealgrid.de, gravel-club.com, 808project.de) als Quelle?~~
+    **erledigt** (08.10.2026, „Ja für dealgrid"): `dealgrid_scraper.py`,
+    siehe „Quellen" (Gravel-Kalender). gravel-club.com und 808project.de
+    bleiben draußen (international bzw. Wix, wenig Neues für unsere
+    Regionen – Empfehlung, vom Nutzer so übernommen).
 17. fsieben „Termin folgt" (52 Bewerbe): mit Vorjahrestermin als
     vorläufig oder bis Frühjahr 2027 warten?
 18. Meisterschaften im Rahmen eines Volkslaufs weiter draußen lassen?
@@ -5201,10 +5216,8 @@ allein. Die Belege stehen in `scripts/geprueft.json` (Ergebnis `unklar`).
    - **UCI-Rennen** wie die Oberösterreich Rundfahrt (2.2) stehen als
      Fahrrad in der Liste; dort kann sich niemand einzeln anmelden
      (Teams). „Auch mit BDR-Lizenz aufnehmen" deckt das nicht ganz.
-   - **Gravel-Listen** (`dealgrid.de` mit 53 JSON-LD-Events,
-     `gravel-club.com`, `808project.de`): Affiliate- bzw.
-     Community-Seiten, international; lohnend nur, wenn die
-     Veranstalterlinks stimmen. Rein?
+   - ~~**Gravel-Listen**~~ **entschieden** (08.10.2026): nur `dealgrid.de`
+     (`dealgrid_scraper.py`), gravel-club.com und 808project.de nicht.
    - **fsieben „Termin folgt"** (52 Bewerbe): Sollen sie mit dem
      Vorjahrestermin als **vorläufig** („Juni 2027*") aufgenommen werden?
      Heute nicht – Datenregel 19 lässt die Prognose nur per Override zu,

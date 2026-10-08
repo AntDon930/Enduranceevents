@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-goitzsche-gravelride-47-bitterfelder-ctf-60km-bitterfeld-wo
+ lfen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Goitzsche Gravelride\, 47. Bitterfelder CTF
+LOCATION:Bitterfeld-Wolfen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 60 km\nhttp://www.esv-bitte
+ rfeld.de/blog-2/
+TRANSP:TRANSPARENT
+URL:http://www.esv-bitterfeld.de/blog-2/
+END:VEVENT
+END:VCALENDAR
