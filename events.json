@@ -24862,32 +24862,6 @@
     "veranstalter_url": "https://gruenweiss-piesteritz.de/abteilungen/radsport/"
   },
   {
-    "land": "Österreich",
-    "name": "Sternsteintrail - Winterchallenge",
-    "standort": "Linz",
-    "lat": 48.30694,
-    "lon": 14.28583,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-01",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 35.5,
-    "veranstalter_url": "https://sternsteintrail.at/winterchallenge/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Sternsteintrail - Winterchallenge",
-    "standort": "Linz",
-    "lat": 48.30694,
-    "lon": 14.28583,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-12-01",
-    "datum_ende": "2027-02-28",
-    "laenge_km": 46.0,
-    "veranstalter_url": "https://sternsteintrail.at/winterchallenge/"
-  },
-  {
     "land": "Deutschland",
     "name": "Fun & Erlebnis Marathons",
     "standort": "Hamburg",

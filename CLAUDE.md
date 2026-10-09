@@ -2382,7 +2382,7 @@ einer Serie dieselbe Auflage im Namen (25 Serien am Bestand standen „mit
 und ohne Nummer", 45 Zeilen umbenannt). Die Sternsteintrail-Winterchallenge
 ist dagegen eine ECHTE Spanne (freier Startzeitpunkt zwischen 01.12. und
 28.02.) – ob so etwas in die Liste gehört, steht bei den Entscheidungen
-(Punkt 31). Nebenbefund: Der Override traf die Serienzeile nicht, weil
+(Punkt 31; am 09.10.2026 entschieden: raus). Nebenbefund: Der Override traf die Serienzeile nicht, weil
 die zweite Quelle den Namen ohne „35." lieferte – seitdem überliest
 `find_override()` die Auflage (siehe „Die wichtigste Lektion").
 
@@ -5240,10 +5240,12 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     `import`; die ersten 24 Zeilen sind durch) – vom Nutzer am 07.10.2026
     hierher gestellt: der letzte Schritt vor dem Livegang auf
     `endurance-events.de` (Punkt 29).
-31. **Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
+31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
-    Termin – rein (als Spanne, wie heute) oder raus (wie virtuelle
-    Läufe)? Siehe „Zwanzigster Durchgang".
+    Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne
+    rausnehmen den Sternsteintrail"): per Override raus, wie virtuelle
+    Läufe – eine Challenge mit freiem Startzeitpunkt über Wochen ist kein
+    Termin. 6.978 → 6.976 Events.
 
 
 ### Was der Nutzer noch entscheiden muss (Stand 19.09.2026)
