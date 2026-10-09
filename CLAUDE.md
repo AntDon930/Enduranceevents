@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–23 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 24.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – vorher nichts Dringendes aus C offen; offen bleibt die Frage nach einer Regel für reine Kinderrennen, siehe Punkt 21).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5175,7 +5175,12 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     **entschieden** (09.10.2026, „Systemeinstellung"): bleibt wie gebaut –
     ohne gespeicherte Wahl folgt die Seite `prefers-color-scheme`, der
     Knopf überschreibt dauerhaft. Nicht auf ein festes Schema umstellen.
-24. Pille „Name" in der Filterleiste behalten oder weg?
+24. ~~Pille „Name" in der Filterleiste behalten oder weg?~~
+    **entschieden** (09.10.2026, „Behalten. Vielleicht später umbauen.
+    Merken wir uns mal"): Die Pille bleibt. **Merkposten**: Der Nutzer
+    will sie eventuell später umbauen – wie, ist offen (Vorschlag damals:
+    weg, weil die Mastersuche Name UND Ort abdeckt). Bei der nächsten
+    Design-Runde an der Filterleiste ansprechen.
 
 **D. Später (Frühjahr 2027)**
 
