@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–18 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–19 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 19.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 20.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5123,9 +5123,24 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     gleicher Tag wie der Blumensaatlauf) und „DM 10km Straße" (Tübingen,
     07.03.2027, Ausrichterlauf nicht gefunden). Neue Fälle kommen mit jedem
     Datenlauf; dieselbe Suche lohnt nach jedem großen Lauf.
-19. Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
+19. ~~Duplikate unter zwei Namen zusammenführen: Nikolaus Volkslauf
     Mingolsheim = Nikolauslauf Bad Schönborn; Uchter Wald- und Crosslauf =
-    Uchter Volkslauf.
+    Uchter Volkslauf.~~ **erledigt** (09.10.2026, „Ja weiter mit Punkt
+    19"): Bad Schönborn hatte der achte Weg (Datenregel 7) schon
+    zusammengeführt; Uchte nicht, weil die eine Quelle `http://scuchte.de`,
+    die andere `https://www.scuchte.de/` lieferte. **Als Klasse gezählt**:
+    `_seite_vergleichbar()` vergleicht die Seite jetzt ohne Schema und
+    „www." – am Bestand genau sechs neue Paare, alle an der Seite geprüft
+    und echt (Uchte, Geilenkirchen/Kartoffellauf, Kärnten Marathon ×2,
+    Marchethon Fribourg ×2), Gegenprobe „anderer Pfad = zwei" in
+    `test_duplikate`. Per Override die falschen Zeilen raus bzw.
+    korrigiert, damit beim Zusammenführen nicht die falsche Zahl bleibt:
+    Kärnten Marathon lief bei uns komplett am Samstag – laut Seite nur der
+    City Run (6 statt 5 km), alles andere am Sonntag 25.10., Kombi 16,5
+    statt 15,5 km über beide Tage; die Zweitquelle „Kärnten Marathon" und
+    der alte laufen.de-Eintrag „9. Internationaler …" raus. Marchethon:
+    die Zeilen mit 8/15 km raus (Seite: 7,5/14,5 km). Geilenkirchen: die
+    „47./34."-Zeile raus (Seite: 46. Kartoffellauf, 33. Halbmarathon).
 20. Tippfehler-Namen aus laufen.de: „Maritn Dufter" (Bad Reichenhall),
     „Brüder-Grimn-Lauf" (Hanau) – was ist das, wie heißt es richtig?
 21. „4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?

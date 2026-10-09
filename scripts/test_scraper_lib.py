@@ -480,6 +480,12 @@ def test_duplikate() -> None:
           "standort": "München", "lat": 48.16, "lon": 11.58, "art1": "Laufen",
           "art2": "Straße", "laenge_km": 10.0, "wettbewerb": "10 km", "veranstalter_url": seite}
     check("gleiche Seite, gleicher Ort (≤ 3 km), gleiche Strecke -> eins", is_same_event(m1, m2), True)
+    check("http://scuchte.de gegen https://www.scuchte.de/ -> dieselbe Seite, eins",
+          is_same_event(dict(m1, name="Uchter Volks- und Crosslauf", veranstalter_url="http://scuchte.de"),
+                        dict(m2, name="Uchter Wald- und Crosslauf", veranstalter_url="https://www.scuchte.de/")), True)
+    check("anderer Pfad auf derselben Domain -> zwei",
+          is_same_event(dict(m1, name="Uchter Volks- und Crosslauf", veranstalter_url="https://scuchte.de/volkslauf"),
+                        dict(m2, name="Uchter Wald- und Crosslauf", veranstalter_url="https://scuchte.de/crosslauf")), False)
     check("Olympische Distanz gegen 51 km auf derselben Seite -> eins",
           is_same_event(dict(m1, name="Münster City Triathlon", art1="Triathlon", art2=None, laenge_km=51.4,
                              wettbewerb="Olympische Distanz 51,5 km"),

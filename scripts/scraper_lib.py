@@ -2172,6 +2172,18 @@ _FORMAT_GATTUNG = frozenset({
     "langdistanz", "langstrecke"})
 
 
+def _seite_vergleichbar(url: str | None) -> str:
+    """Die Veranstalterseite in einer Form, in der zwei Schreibweisen
+    derselben Adresse gleich sind: ohne Schema, ohne „www.", ohne
+    Schrägstrich am Ende, klein. Zwei Quellen liefern dieselbe Seite oft
+    einmal als „http://scuchte.de" und einmal als „https://www.scuchte.de/"
+    (To-do Punkt 19, 09.10.2026: Uchte, Kärnten Marathon, Marchethon
+    Fribourg, Geilenkirchen – sechs Paare am Bestand, alle echt). Der Pfad
+    bleibt Teil der Adresse – nur die vollständige Seite zählt."""
+    u = (url or "").strip().lower().rstrip("/")
+    return re.sub(r"^https?://(www\.)?", "", u)
+
+
 def _gleiche_seite_und_strecke(a: dict, b: dict) -> bool:
     """Der achte Weg der Duplikat-Erkennung (07.10.2026, vom Nutzer an den
     „Bayerischen Marathon Meisterschaften" gemeldet: „Beide verlinken auf
@@ -2198,9 +2210,9 @@ def _gleiche_seite_und_strecke(a: dict, b: dict) -> bool:
     (Kategorie). Die Veranstalterseite als DOMAIN bleibt kein Kriterium
     (Lektion 4 der Einzelprüfung) - nur die vollständige Adresse.
     """
-    ua = (a.get("veranstalter_url") or "").strip().lower().rstrip("/")
-    ub = (b.get("veranstalter_url") or "").strip().lower().rstrip("/")
-    if not ua or ua != ub or is_portal_link(ua):
+    ua = _seite_vergleichbar(a.get("veranstalter_url"))
+    ub = _seite_vergleichbar(b.get("veranstalter_url"))
+    if not ua or ua != ub or is_portal_link(a.get("veranstalter_url") or ""):
         return False
     if a.get("art1") != b.get("art1"):
         return False

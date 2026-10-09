@@ -4,14 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-24-internationaler-karnten-marathon-10-5km-feldkirchen@antdon9
+UID:2026-10-24-internationaler-karnten-marathon-16-5km-feldkirchen@antdon9
  30.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261025
-SUMMARY:Internationaler Kärnten Marathon – Viertelmarathon
+DTEND;VALUE=DATE:20261026
+SUMMARY:Internationaler Kärnten Marathon – Kombi (City Run Samstag + Viert
+ elmarathon Sonntag)
 LOCATION:Feldkirchen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.interna
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16.5 km\nhttps://www.interna
  tionaler-kaernten-marathon.at/
 TRANSP:TRANSPARENT
 URL:https://www.internationaler-kaernten-marathon.at/

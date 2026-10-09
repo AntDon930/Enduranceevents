@@ -8289,5 +8289,69 @@
   "Kärntner Marathonmeisterschaften 2026|2026-10-11|42.2": {
     "exclude": true,
     "_note": "08.10.2026 (To-do Punkt 18, vom Nutzer: Meisterschaften im Rahmen eines Volkslaufs draußen lassen, „sonst haben wir es wieder 2x drinnen“, Datenregel 18): Start an der Grazer Oper am Tag des Graz Marathon – die Kärntner Meisterschaft läuft im Marathon des Kleine Zeitung Graz Marathon (grazmarathon.at nennt Marathon, Halbmarathon, Viertelmarathon). Der Marathon fehlte dort und ist in manual_events.json nachgetragen."
+  },
+  "Uchter Volks- und Crosslauf|2026-11-14|10": {
+    "exclude": true,
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Zweiter Name für den 10-km-Lauf des „Uchter Wald- und Crosslauf“ (gleicher Tag, Ort, Distanz; Link http://scuchte.de = https://www.scuchte.de/). scuchte.de nennt die Veranstaltung „Uchter Volkslauf … Am Samstag, den 14. November“ – sie steht mit 5/7,5/10 km unter dem anderen Namen."
+  },
+  "47. Geilenkirchener Volkslauf und 34. Halbmarathon|2026-10-11|21.1": {
+    "exclude": true,
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Zweiter Name für den Halbmarathon des „GK Knollenlauf und Halbmarathon“ (gleicher Tag, Distanz, Seite djk-gillrath.de mit/ohne www). djk-gillrath.de: „Am Sonntag, 11. Oktober 2026, startet unser 46. Geilenkirchener Kartoffellauf mit dem 33. …“ – die Zählung 47./34. ist ohnehin falsch."
+  },
+  "Marchethon de Fribourg|2026-10-31": {
+    "exclude": true,
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Zweiter Name des „marCHethon Fribourg Givisiez“ mit falschen Distanzen (8/15 km). marchethon-fribourg.ch: „Samedi 31 octobre 2026 … trois parcours 2,5 km 7,5 km 14,5 km“ – die 7,5 und 14,5 km stehen unter dem anderen Namen."
+  },
+  "Kärnten Marathon|2026-10-24": {
+    "exclude": true,
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Zweite Quelle für den Internationalen Kärnten Marathon (50/16/11 km, alle am Samstag) – die Strecken stehen unter „Internationaler Kärnten Marathon“, korrigiert nach internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "9. Internationaler Kärnten Marathon \" Marathon Carinzia/Koroska \" ( Österr. Volkslaufcup) )|2026-10-25|42.2": {
+    "exclude": true,
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Alter laufen.de-Eintrag („9.“, Volkslaufcup) für den Ossiacher See Marathon am 25.10.2026 – der steht unter „Internationaler Kärnten Marathon“. internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|50": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Termin ist der Sonntag, nicht der Samstag. internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|42.2": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Termin ist der Sonntag, nicht der Samstag. internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|21.1": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Termin ist der Sonntag, nicht der Samstag. internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|10.5": {
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Termin ist der Sonntag, nicht der Samstag. internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|5": {
+    "laenge_km": 6.0,
+    "wettbewerb": "Sparkasse City Run",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): City Run ist 6 km, nicht 5 (beide Schlüssel, Lektion „Override ändert laenge_km“). internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|6": {
+    "laenge_km": 6.0,
+    "wettbewerb": "Sparkasse City Run",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): City Run ist 6 km, nicht 5 (beide Schlüssel, Lektion „Override ändert laenge_km“). internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|15.5": {
+    "laenge_km": 16.5,
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Kombi (City Run Samstag + Viertelmarathon Sonntag)",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Kombi ist 16,5 km (6 + 10,5) über zwei Tage (beide Schlüssel). internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Internationaler Kärnten Marathon|2026-10-24|16.5": {
+    "laenge_km": 16.5,
+    "datum_start": "2026-10-24",
+    "datum_ende": "2026-10-25",
+    "wettbewerb": "Kombi (City Run Samstag + Viertelmarathon Sonntag)",
+    "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Kombi ist 16,5 km (6 + 10,5) über zwei Tage (beide Schlüssel). internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
   }
 }

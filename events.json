@@ -126,20 +126,6 @@
     "veranstalter_url": "https://gravelngroestl.com"
   },
   {
-    "land": "Schweiz",
-    "name": "Nocturne des Evaux",
-    "standort": "Evaux",
-    "lat": 46.1887643,
-    "lon": 6.088842,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-08",
-    "datum_ende": "2026-10-08",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km",
-    "veranstalter_url": "https://nocturnedesevaux.ch"
-  },
-  {
     "land": "Österreich",
     "name": "Graz Marathon",
     "standort": "Graz",
@@ -3421,19 +3407,6 @@
     "laenge_km": 5.0,
     "veranstalter_url": "https://www.styrumertv.de/strassenlauf/styrumer-strassenlauf-2026/ausschreibung",
     "wettbewerb": "5 km"
-  },
-  {
-    "land": "Deutschland",
-    "name": "47. Geilenkirchener Volkslauf und 34. Halbmarathon",
-    "standort": "Geilenkirchen - Gillrath",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 21.1,
-    "veranstalter_url": "http://www.djk-gillrath.de",
-    "lat": 50.9818378,
-    "lon": 6.075201
   },
   {
     "land": "Deutschland",
@@ -10778,20 +10751,6 @@
     "veranstalter_url": "https://www.herbstlaufwila.ch"
   },
   {
-    "name": "Internationaler Kärnten Marathon",
-    "standort": "Feldkirchen",
-    "lat": 46.7284183,
-    "lon": 14.0906473,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 50.0,
-    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/",
-    "land": "Österreich",
-    "wettbewerb": "Dominik Pacher Super Marathon"
-  },
-  {
     "land": "Österreich",
     "name": "Internationaler Kärnten Marathon",
     "standort": "Feldkirchen",
@@ -10800,9 +10759,9 @@
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 15.5,
-    "wettbewerb": "Kombilauf (City Run & Viertelmarathon)",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 16.5,
+    "wettbewerb": "Kombi (City Run Samstag + Viertelmarathon Sonntag)",
     "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
@@ -10815,50 +10774,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 5.0,
+    "laenge_km": 6.0,
     "wettbewerb": "Sparkasse City Run",
-    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Internationaler Kärnten Marathon",
-    "standort": "Feldkirchen",
-    "lat": 46.7284183,
-    "lon": 14.0906473,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 42.2,
-    "wettbewerb": "Ossiacher See Marathon",
-    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Internationaler Kärnten Marathon",
-    "standort": "Feldkirchen",
-    "lat": 46.7284183,
-    "lon": 14.0906473,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 10.5,
-    "wettbewerb": "Viertelmarathon",
-    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Internationaler Kärnten Marathon",
-    "standort": "Feldkirchen",
-    "lat": 46.7284183,
-    "lon": 14.0906473,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
-    "laenge_km": 21.1,
-    "wettbewerb": "Intersport Pilz Halbmarathon",
     "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
@@ -11015,48 +10932,6 @@
     "laenge_km": 17.0,
     "wettbewerb": "17 km",
     "veranstalter_url": "https://www.kraichgauman.de/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Kärnten Marathon",
-    "standort": "Feldkirchen in Kärnten",
-    "lat": 46.7267407,
-    "lon": 14.0888806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 50.0,
-    "wettbewerb": "50 km",
-    "veranstalter_url": "https://internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Kärnten Marathon",
-    "standort": "Feldkirchen in Kärnten",
-    "lat": 46.7267407,
-    "lon": 14.0888806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 16.0,
-    "wettbewerb": "16 km",
-    "veranstalter_url": "https://internationaler-kaernten-marathon.at/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Kärnten Marathon",
-    "standort": "Feldkirchen in Kärnten",
-    "lat": 46.7267407,
-    "lon": 14.0888806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 11.0,
-    "wettbewerb": "11 km",
-    "veranstalter_url": "https://internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Schweiz",
@@ -12216,17 +12091,6 @@
     "veranstalter_url": "https://www.tv-friedrichstal.de/index.php?option=com_content&view=article&id=879&catid=4&Itemid=128"
   },
   {
-    "land": "Österreich",
-    "name": "9. Internationaler Kärnten Marathon \" Marathon Carinzia/Koroska \" ( Österr. Volkslaufcup) )",
-    "standort": "Landschaftslauf zw. Feldkirchen",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-25",
-    "datum_ende": "2026-10-25",
-    "laenge_km": 42.2,
-    "veranstalter_url": "http://www.internationaler-kaernten-marathon.at"
-  },
-  {
     "land": "Deutschland",
     "name": "Ahmadiyya Charity Walk Wetzlar",
     "standort": "Wetzlar",
@@ -12834,6 +12698,62 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.rslc-holzkirchen.de/marktlauf"
+  },
+  {
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 50.0,
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/",
+    "land": "Österreich",
+    "wettbewerb": "Dominik Pacher Super Marathon"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 42.2,
+    "wettbewerb": "Ossiacher See Marathon",
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 10.5,
+    "wettbewerb": "Viertelmarathon",
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
+  },
+  {
+    "land": "Österreich",
+    "name": "Internationaler Kärnten Marathon",
+    "standort": "Feldkirchen",
+    "lat": 46.7284183,
+    "lon": 14.0906473,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-25",
+    "datum_ende": "2026-10-25",
+    "laenge_km": 21.1,
+    "wettbewerb": "Intersport Pilz Halbmarathon",
+    "veranstalter_url": "https://www.internationaler-kaernten-marathon.at/"
   },
   {
     "land": "Deutschland",
@@ -15141,34 +15061,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.marchethon-bern.ch"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Marchethon de Fribourg",
-    "standort": "Givisiez",
-    "lat": 46.8128615,
-    "lon": 7.1316578,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 8.0,
-    "wettbewerb": "8 km",
-    "veranstalter_url": "https://marchethon-fribourg.ch/"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Marchethon de Fribourg",
-    "standort": "Givisiez",
-    "lat": 46.8128615,
-    "lon": 7.1316578,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-31",
-    "datum_ende": "2026-10-31",
-    "laenge_km": 15.0,
-    "wettbewerb": "15 km",
-    "veranstalter_url": "https://marchethon-fribourg.ch/"
   },
   {
     "land": "Schweiz",
@@ -21001,19 +20893,6 @@
     "dauer_h": 1.0,
     "wettbewerb": "Cyclocross 60 min",
     "veranstalter_url": "https://www.rcnk.at"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Uchter Volks- und Crosslauf",
-    "standort": "Uchte",
-    "lat": 52.4987441,
-    "lon": 8.9067906,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-11-14",
-    "datum_ende": "2026-11-14",
-    "laenge_km": 10.0,
-    "veranstalter_url": "http://scuchte.de"
   },
   {
     "land": "Deutschland",

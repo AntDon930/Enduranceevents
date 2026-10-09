@@ -4,11 +4,11 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-24-internationaler-karnten-marathon-50km-feldkirchen@antdon930
+UID:2026-10-25-internationaler-karnten-marathon-50km-feldkirchen@antdon930
  .github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261025
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
 SUMMARY:Internationaler Kärnten Marathon – Dominik Pacher Super Marathon
 LOCATION:Feldkirchen\, Österreich
 DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://www.internati

@@ -4,14 +4,14 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-24-internationaler-karnten-marathon-21-1km-feldkirchen@antdon9
+UID:2026-10-25-internationaler-karnten-marathon-42-2km-feldkirchen@antdon9
  30.github.io
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261025
-SUMMARY:Internationaler Kärnten Marathon – Intersport Pilz Halbmarathon
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Internationaler Kärnten Marathon – Ossiacher See Marathon
 LOCATION:Feldkirchen\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.interna
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.interna
  tionaler-kaernten-marathon.at/
 TRANSP:TRANSPARENT
 URL:https://www.internationaler-kaernten-marathon.at/
