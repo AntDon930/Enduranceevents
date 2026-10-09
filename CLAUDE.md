@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–22 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–23 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 23.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 24.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5171,7 +5171,10 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 22. ~~Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?~~
     **entschieden** (09.10.2026, „Ja das kann so bleiben"): Die Overrides
     mit `charity: true` bleiben.
-23. Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?
+23. ~~Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?~~
+    **entschieden** (09.10.2026, „Systemeinstellung"): bleibt wie gebaut –
+    ohne gespeicherte Wahl folgt die Seite `prefers-color-scheme`, der
+    Knopf überschreibt dauerhaft. Nicht auf ein festes Schema umstellen.
 24. Pille „Name" in der Filterleiste behalten oder weg?
 
 **D. Später (Frühjahr 2027)**
