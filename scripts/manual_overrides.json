@@ -8368,5 +8368,9 @@
     "lon": 8.9169797,
     "wettbewerb": "Gesamtlauf 82 km (5 Etappen)",
     "_note": "To-do Punkt 20 (09.10.2026): laut mkk.de startet der Lauf in Hanau ('Von Hanau … über ca. 82 km nach Steinau', 5 Etappen in 3 Tagen) – stand in Bad Orb (Etappenort)."
+  },
+  "4. Backnanger Kindercrossduathlon|2026-10-17": {
+    "exclude": true,
+    "_note": "To-do Punkt 21 (09.10.2026, vom Nutzer: 'Ja rausnehmen bitte'): reines Kinderrennen ohne Distanz (Quelle kilometerliebe) – nicht für jeden anmeldbar."
   }
 }

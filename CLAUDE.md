@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–20 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–21 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 21.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 22.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5154,7 +5154,20 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Start in Hanau. Lehre: Eine Zeile mit Personennamen oder Tippfehler
     im Namen ist bei laufen.de fast immer ein Zweiteintrag – erst nach
     derselben Veranstaltung am selben Tag suchen.
-21. „4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?
+21. ~~„4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?~~
+    **erledigt** (09.10.2026, „Ja rausnehmen bitte"): per Override raus.
+    **Die Klasse ist größer** (gezählt am Bestand, noch nicht entschieden):
+    reine Kinder-/Jugendwettbewerbe stehen vor allem bei Triathlon und
+    Fahrrad drin, weil die 5-km-Grenze nur fürs Laufen gilt – Dirty Kids
+    Cross 1 km, Sparefroh Kids Run 300 m, Swim & Run Schüler/Kids,
+    TriZell Kinderbewerb, O-SEE X'Kids, Finteler Schülertriathlon,
+    Altenberger Cross Duathlon (Kinder U6–U12, Jugendlauf U14–U18),
+    YOKI Kidsrun, NÖ Kinder- und Jugendlauf Strasshof, Kidstrail
+    Salzburg. Eine Regel „Label nennt nur Kinder/Jugend/Schüler/U-Klasse,
+    kein Erwachsenenwort“ (Gegenproben: „Jugend und Erwachsene“, „ab
+    Jugend U14“, „pro kids Lauf mit 5km Jedermannlauf“, „MyEifelRide
+    Kids“ mit 209 km) wäre der nächste Schritt – braucht das Ja des
+    Nutzers.
 22. Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?
 23. Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?
 24. Pille „Name" in der Filterleiste behalten oder weg?

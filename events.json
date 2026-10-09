@@ -6415,18 +6415,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "4. Backnanger Kindercrossduathlon",
-    "standort": "Backnang",
-    "lat": 48.9468454,
-    "lon": 9.4303638,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://www.kilometerliebe.de/events/4-backnanger-kindercrossduathlon"
-  },
-  {
-    "land": "Deutschland",
     "name": "40. Oberwaldlauf",
     "standort": "Karlsruhe",
     "lat": 49.0068705,
