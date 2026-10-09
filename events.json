@@ -433,20 +433,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "16. Kuppinger Mondfängerlauf",
-    "standort": "Herrenberg",
-    "lat": 48.5950369,
-    "lon": 8.8671577,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-10",
-    "datum_ende": "2026-10-10",
-    "laenge_km": 6.6,
-    "wettbewerb": "Schüler",
-    "veranstalter_url": "https://www.schoenbuch-cup.de/kuppingen"
-  },
-  {
-    "land": "Deutschland",
     "name": "18. Solvay Lauf",
     "standort": "Bernburg",
     "lat": 51.7939656,
@@ -5499,20 +5485,6 @@
     "art2": "Straße",
     "datum_start": "2026-10-11",
     "datum_ende": "2026-10-11",
-    "laenge_km": 5.0,
-    "wettbewerb": "spark7 youth run",
-    "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Sparkasse 3-Länder-Marathon",
-    "standort": "Bregenz",
-    "lat": 47.5025779,
-    "lon": 9.7472924,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
     "laenge_km": 10.9,
     "wettbewerb": "vkw Viertelmarathon",
     "veranstalter_url": "https://www.sparkasse-3-laender-marathon.at/de/home/"
@@ -5737,20 +5709,6 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km Lauf Gesamtwertung 6 Runden",
     "veranstalter_url": "https://lvsteinbrunn.wordpress.com/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Südwestzipfel Lauf",
-    "standort": "Grenzach-Wyhlen",
-    "lat": 47.5523554,
-    "lon": 7.6580881,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-11",
-    "datum_ende": "2026-10-11",
-    "laenge_km": 5.6,
-    "wettbewerb": "Jugendlauf, 5,6 km , U14 & U16 (Jg. 2011–2014)",
-    "veranstalter_url": "https://suedwestzipfellauf.de"
   },
   {
     "land": "Deutschland",
@@ -6179,18 +6137,6 @@
     "laenge_km": 9.0,
     "wettbewerb": "Kurzstrecke circa 9 km",
     "veranstalter_url": "https://www.altmuehltrail.de/"
-  },
-  {
-    "land": "Österreich",
-    "name": "13. NÖ Kinder- und Jugendlauf Strasshof",
-    "standort": "Strasshof an der Nordbahn",
-    "lat": 48.3189487,
-    "lon": 16.6429437,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "http://www.laufclub-strasshof.at"
   },
   {
     "land": "Deutschland",
@@ -8051,20 +7997,6 @@
     "laenge_km": 7.0,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://vortexrace.ch/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Wolfgangseelauf",
-    "standort": "Sankt Wolfgang im Salzkammergut",
-    "lat": 47.7418278,
-    "lon": 13.4397113,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-18",
-    "laenge_km": 42.2,
-    "wettbewerb": "Junior-Marathon, Strobl",
-    "veranstalter_url": "https://www.wolfgangseelauf.at/"
   },
   {
     "land": "Österreich",
@@ -37201,20 +37133,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Dirty Race",
-    "standort": "Murr",
-    "lat": 48.9609405,
-    "lon": 9.2523179,
-    "art1": "Triathlon",
-    "art2": "Cross",
-    "datum_start": "2027-01-30",
-    "datum_ende": "2027-01-30",
-    "laenge_km": 1.0,
-    "wettbewerb": "Dirty Kids Cross",
-    "veranstalter_url": "https://sillahopp.squarespace.com/dirty-race"
-  },
-  {
-    "land": "Deutschland",
     "name": "DSW Swim & Run",
     "standort": "Darmstadt",
     "lat": 49.8728253,
@@ -41698,20 +41616,6 @@
     "veranstalter_url": "https://www.winterwaldlauf.de/"
   },
   {
-    "land": "Deutschland",
-    "name": "Erlanger Winterwaldlauf",
-    "standort": "Erlangen",
-    "lat": 49.5896744,
-    "lon": 11.0119611,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-13",
-    "datum_ende": "2027-03-13",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km , Jugendlauf (Jg. 2007–2012), 1 €",
-    "veranstalter_url": "https://www.winterwaldlauf.de/"
-  },
-  {
     "land": "Schweiz",
     "name": "Huebener Frühlingslauf",
     "standort": "Frauenfeld",
@@ -43186,20 +43090,6 @@
     "datum_ende": "2027-03-21",
     "laenge_km": 12.4,
     "wettbewerb": "Super Sprint 12,4 km (400 m Schwimmen / 10 km Rad / 2 km Laufen)",
-    "veranstalter_url": "http://www.indoortriathlon-chemnitz.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Chemnitzer Indoor Triathlon",
-    "standort": "Chemnitz",
-    "lat": 50.8282222,
-    "lon": 12.9208547,
-    "art1": "Triathlon",
-    "art2": "Swimrun",
-    "datum_start": "2027-03-20",
-    "datum_ende": "2027-03-21",
-    "laenge_km": 0.4,
-    "wettbewerb": "Swim & Run Schüler C 100m / 400m",
     "veranstalter_url": "http://www.indoortriathlon-chemnitz.de"
   },
   {
@@ -46062,20 +45952,6 @@
     "veranstalter_url": "https://solitudelauf.de/"
   },
   {
-    "land": "Deutschland",
-    "name": "Solitudelauf",
-    "standort": "Gerlingen",
-    "lat": 48.7989751,
-    "lon": 9.0657713,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-04-04",
-    "datum_ende": "2027-04-04",
-    "laenge_km": 42.2,
-    "wettbewerb": "WLV-Kids-Marathon",
-    "veranstalter_url": "https://solitudelauf.de/"
-  },
-  {
     "land": "Österreich",
     "name": "Wienerwaldkraxler",
     "standort": "Purkersdorf",
@@ -46214,20 +46090,6 @@
     "laenge_km": 21.5,
     "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://my.raceresult.com/400258/"
-  },
-  {
-    "land": "Österreich",
-    "name": "Kärnten Therme Indoor Triathlon",
-    "standort": "Villach",
-    "lat": 46.60856,
-    "lon": 13.85062,
-    "art1": "Triathlon",
-    "art2": "Indoor",
-    "datum_start": "2027-04-09",
-    "datum_ende": "2027-04-11",
-    "laenge_km": 2.5,
-    "wettbewerb": "Juniors",
-    "veranstalter_url": "https://indoortriathlon.kaerntentherme.com/home"
   },
   {
     "land": "Österreich",
@@ -57720,20 +57582,6 @@
     "datum_ende": "2027-05-15",
     "laenge_km": 13.0,
     "wettbewerb": "Challenge Lauf - 13 km",
-    "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun"
-  },
-  {
-    "land": "Österreich",
-    "name": "Run & Bike Groisbach",
-    "standort": "Alland",
-    "lat": 48.0565685,
-    "lon": 16.0781371,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-05-15",
-    "datum_ende": "2027-05-15",
-    "laenge_km": 0.3,
-    "wettbewerb": "Sparefroh Kids Run I - 300 m (Jg. 2021 und jünger)",
     "veranstalter_url": "https://www.ff-groisbach.at/hillsiderun"
   },
   {
@@ -73663,20 +73511,6 @@
     "art2": "Straße",
     "datum_start": "2027-06-26",
     "datum_ende": "2027-06-26",
-    "laenge_km": 5.0,
-    "wettbewerb": "YOKI AHORN Kidsrun",
-    "veranstalter_url": "https://gettingtough.de/oberhof"
-  },
-  {
-    "land": "Deutschland",
-    "name": "GettingTough 5 Elements Oberhof",
-    "standort": "Oberhof",
-    "lat": 50.7063007,
-    "lon": 10.7256946,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-26",
-    "datum_ende": "2027-06-26",
     "laenge_km": 9.0,
     "wettbewerb": "9 km Lauf",
     "veranstalter_url": "https://gettingtough.de/oberhof"
@@ -74524,20 +74358,6 @@
     "datum_ende": "2027-06-27",
     "laenge_km": 5.0,
     "wettbewerb": "Aquathlon",
-    "veranstalter_url": "https://www.zellamsee-kaprun.com/de/events/trizell"
-  },
-  {
-    "land": "Österreich",
-    "name": "TriZell: Internationaler Triathlon Zell am See-Kaprun",
-    "standort": "Zell am See",
-    "lat": 47.32352,
-    "lon": 12.79685,
-    "art1": "Triathlon",
-    "art2": "Aquathlon",
-    "datum_start": "2027-06-26",
-    "datum_ende": "2027-06-27",
-    "laenge_km": 3.8,
-    "wettbewerb": "Kinderbewerb (Aquathlon)",
     "veranstalter_url": "https://www.zellamsee-kaprun.com/de/events/trizell"
   },
   {
@@ -84969,20 +84789,6 @@
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
   },
   {
-    "land": "Deutschland",
-    "name": "O-SEE Challenge",
-    "standort": "Olbersdorfer See",
-    "lat": 50.8896193,
-    "lon": 14.7798625,
-    "art1": "Triathlon",
-    "art2": "Cross",
-    "datum_start": "2027-08-13",
-    "datum_ende": "2027-08-15",
-    "laenge_km": 6.3,
-    "wettbewerb": "Super Sprint Triathlon (O-SEE X'Kids Lang)",
-    "veranstalter_url": "https://www.xterraplanet.com/event/xterra-germany"
-  },
-  {
     "land": "Schweiz",
     "name": "Valais Triathlon Festival",
     "standort": "Sion – Domaine des Îles",
@@ -86559,20 +86365,6 @@
     "veranstalter_url": "https://rottenlauf.ch/"
   },
   {
-    "land": "Schweiz",
-    "name": "Rottenlauf",
-    "standort": "Obergoms VS",
-    "lat": 46.532881,
-    "lon": 8.3454764,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-21",
-    "datum_ende": "2027-08-21",
-    "laenge_km": 5.2,
-    "wettbewerb": "5.2 km für Jugendkategorien.",
-    "veranstalter_url": "https://rottenlauf.ch/"
-  },
-  {
     "land": "Deutschland",
     "name": "RP-Ultralauf 3-Türme-Lauf",
     "standort": "Bad Münder am Deister",
@@ -87582,20 +87374,6 @@
     "dauer_h": 48.0,
     "wettbewerb": "48-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)",
     "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Tauchscher Stadtlauf",
-    "standort": "Taucha",
-    "lat": 51.3798014,
-    "lon": 12.495054,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-27",
-    "datum_ende": "2027-08-27",
-    "laenge_km": 5.0,
-    "wettbewerb": "5 km für U14 und U16",
-    "veranstalter_url": "https://sparkassen-tauchscher-stadtlauf.de/"
   },
   {
     "land": "Deutschland",
@@ -90717,34 +90495,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Finteler Triathlon",
-    "standort": "Fintel",
-    "lat": 53.1707944,
-    "lon": 9.6695483,
-    "art1": "Triathlon",
-    "art2": "Straße",
-    "datum_start": "2027-09-05",
-    "datum_ende": "2027-09-05",
-    "laenge_km": 10.5,
-    "wettbewerb": "Schülertriathlon (Einzel)",
-    "veranstalter_url": "https://www.finteler-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Finteler Triathlon",
-    "standort": "Fintel",
-    "lat": 53.1707944,
-    "lon": 9.6695483,
-    "art1": "Triathlon",
-    "art2": "Swimrun",
-    "datum_start": "2027-09-05",
-    "datum_ende": "2027-09-05",
-    "laenge_km": 1.4,
-    "wettbewerb": "Swim & Run 1 (Kids)",
-    "veranstalter_url": "https://www.finteler-triathlon.de/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Flensburg Liebt Dich Marathon",
     "standort": "Flensburg",
     "lat": 54.7937431,
@@ -91755,64 +91505,8 @@
     "art2": "Duathlon",
     "datum_start": "2027-09-11",
     "datum_ende": "2027-09-11",
-    "laenge_km": 2.5,
-    "wettbewerb": "Jugendlauf U14",
-    "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna"
-  },
-  {
-    "land": "Österreich",
-    "name": "Radln & Renna - Der Altenberger Cross Duathlon",
-    "standort": "Altenberg bei Linz",
-    "lat": 48.3736086,
-    "lon": 14.3495882,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
-    "laenge_km": 5.0,
-    "wettbewerb": "Jugendlauf U16-U18",
-    "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna"
-  },
-  {
-    "land": "Österreich",
-    "name": "Radln & Renna - Der Altenberger Cross Duathlon",
-    "standort": "Altenberg bei Linz",
-    "lat": 48.3736086,
-    "lon": 14.3495882,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
     "laenge_km": 16.0,
     "wettbewerb": "Radln & Renna",
-    "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna"
-  },
-  {
-    "land": "Österreich",
-    "name": "Radln & Renna - Der Altenberger Cross Duathlon",
-    "standort": "Altenberg bei Linz",
-    "lat": 48.3736086,
-    "lon": 14.3495882,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
-    "laenge_km": 0.4,
-    "wettbewerb": "Kinder U6/U8",
-    "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna"
-  },
-  {
-    "land": "Österreich",
-    "name": "Radln & Renna - Der Altenberger Cross Duathlon",
-    "standort": "Altenberg bei Linz",
-    "lat": 48.3736086,
-    "lon": 14.3495882,
-    "art1": "Triathlon",
-    "art2": "Duathlon",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
-    "laenge_km": 1.2,
-    "wettbewerb": "Kinder U10/U12",
     "veranstalter_url": "https://www.union-altenberg.at/radln-und-renna"
   },
   {

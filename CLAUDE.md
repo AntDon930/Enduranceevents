@@ -976,6 +976,29 @@ laden Leaflet und Firebase (das Skript setzt es schon).
      fest. Sportliches Gehen (Race Walking, „Geher") fällt unabhängig
      davon über `NICHT_AUSDAUER` (Datenregel 14).
 
+24. **Reine Kinder- und Jugendwettbewerbe fliegen – für alle Sportarten**
+   (vom Nutzer am 09.10.2026 entschieden, To-do Punkt 21: „Ja
+   Kinderrennen raus"). Die 5-km-Grenze (Datenregel 5) gilt nur fürs
+   Laufen; bei Triathlon und Rad standen deshalb Kinderrennen von 300 m
+   bis 2,5 km in der Liste, dazu Jugendläufe über 5 km und „Kids-/
+   Junior-Marathons" mit 42,2 km. `ist_kinder(name, wettbewerb)` in
+   `scraper_lib.py` (`KINDER_WORT`, `ERWACHSENEN_WORT`),
+   `filter_kinder()` beim Einsammeln, `clean_events.drop_kinder()`
+   rückwirkend (mit Bericht, VOR `add_manual_events()` wie bei Walking).
+   Entschieden wird am LABEL: Kinderwort (Kinder, Kids, Schüler, Bambini,
+   Jugend, Junior, Youth, U4–U18) und KEIN Erwachsenenwort (Erwachsene,
+   Jedermann, Aktive, Masters, Frauen/Männer, Altersklassen, M30/W40,
+   „ab U14"/„ab Jugend", Freizeit, Fitness, Walking, Sprint, Olympisch,
+   Schnupper …). Ohne Label entscheidet der Name nur, wenn das Kinderwort
+   ein ganzes Rennen benennt und kein zweites Rennen übrig bleibt
+   („Kinder- und Jugendlauf Strasshof" fällt, „Pesenbachtallauf + …
+   Kinderlauf" bleibt). Gegenproben: eine WERTUNG („mit Schülerwertung")
+   ist kein Wettbewerb, „Mini" ist kein Kinderwort („Mini Trail 8 km",
+   „Lindwurm mini 24,5 km"), U20/U23 sind Erwachsene, „Kinderkrebs" ist
+   kein Kinderrennen. Am Bestand gezählt: 21 Treffer, alle durchgesehen;
+   dazu O-SEE X'Kids per Override (das Label nennt „Super Sprint").
+   `test_kinder` hält Treffer und Gegenproben fest.
+
 ### Die wichtigste Lektion
 
 **Keine automatische Löschregel auf Heuristik-Basis.** Eine Regel, die
@@ -4891,7 +4914,7 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
 
 **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – vorher nichts Dringendes aus C offen; offen bleibt die Frage nach einer Regel für reine Kinderrennen, siehe Punkt 21).**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5166,8 +5189,8 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Salzburg. Eine Regel „Label nennt nur Kinder/Jugend/Schüler/U-Klasse,
     kein Erwachsenenwort“ (Gegenproben: „Jugend und Erwachsene“, „ab
     Jugend U14“, „pro kids Lauf mit 5km Jedermannlauf“, „MyEifelRide
-    Kids“ mit 209 km) wäre der nächste Schritt – braucht das Ja des
-    Nutzers.
+    Kids“ mit 209 km) – **am selben Tag entschieden** („Ja Kinderrennen
+    raus") und als Regel gebaut: Datenregel 24.
 22. ~~Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?~~
     **entschieden** (09.10.2026, „Ja das kann so bleiben"): Die Overrides
     mit `charity: true` bleiben.

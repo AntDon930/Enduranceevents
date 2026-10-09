@@ -8372,5 +8372,9 @@
   "4. Backnanger Kindercrossduathlon|2026-10-17": {
     "exclude": true,
     "_note": "To-do Punkt 21 (09.10.2026, vom Nutzer: 'Ja rausnehmen bitte'): reines Kinderrennen ohne Distanz (Quelle kilometerliebe) – nicht für jeden anmeldbar."
+  },
+  "O-SEE Challenge|2027-08-13|6.3": {
+    "exclude": true,
+    "_note": "To-do Punkt 21 (09.10.2026, Kinderrennen raus): O-SEE X'Kids Lang ist ein Kinderrennen. Der alte Schlüssel '|6' greift nicht mehr, seit die Quelle 6,3 km liefert; ist_kinder() sieht die Zeile nicht, weil 'Super Sprint' im Label als Erwachsenenformat zählt."
   }
 }

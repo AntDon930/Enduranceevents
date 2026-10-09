@@ -96,7 +96,7 @@ from scraper_lib import (  # noqa: E402
     hat_override_schluessel,
     serien_cluster,
     override_keys,
-    ist_nicht_ausdauer, ist_staffel, ist_walking, nicht_ausdauer_text,
+    ist_nicht_ausdauer, ist_staffel, ist_walking, ist_kinder, nicht_ausdauer_text,
     ART2_LISTEN,
     _haversine_km,
     OVERRIDE_FIELDS,
@@ -662,6 +662,24 @@ def drop_walking(events: list[dict]) -> tuple[list[dict], list[str]]:
     entfernt: list[str] = []
     for event in events:
         grund = ist_walking(event.get("art1"), event.get("wettbewerb"), event.get("name"))
+        if grund:
+            entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
+        else:
+            kept.append(event)
+    return kept, entfernt
+
+
+def drop_kinder(events: list[dict]) -> tuple[list[dict], list[str]]:
+    """Entfernt reine Kinder- und Jugendwettbewerbe - das Gegenstück zu
+    `scraper_lib.filter_kinder()` für den Bestand. Vom Nutzer am
+    09.10.2026 entschieden („Ja Kinderrennen raus"); Regel und Gegenproben
+    stehen bei `ist_kinder()` in scraper_lib.py. Jeder Ausschluss wird
+    gemeldet.
+    """
+    kept: list[dict] = []
+    entfernt: list[str] = []
+    for event in events:
+        grund = ist_kinder(event.get("name"), event.get("wettbewerb"))
         if grund:
             entfernt.append(f"{event.get('name')} ({event.get('datum_start')}) - {grund}")
         else:
@@ -2055,6 +2073,10 @@ def main() -> None:
     # gelöscht - und erst der NÄCHSTE Durchlauf trägt den Lauf nach
     # (nicht idempotent, am 07.10.2026 so passiert).
     events, walking = drop_walking(events)
+    # Ebenfalls VOR add_manual_events, aus demselben Grund wie Walking:
+    # Eine Kinderzeile gleicher Länge hielte is_same_event() sonst für den
+    # nachgetragenen Lauf.
+    events, kinder = drop_kinder(events)
     events, manuell_ergaenzt = add_manual_events(events)
     # Das Gedächtnis je Veranstaltung (veranstalter_seiten.py): NACH den
     # Overrides (ein per Override belegter Link zählt dort mehr als ein
@@ -2185,6 +2207,7 @@ def main() -> None:
     section("Kein Ausdauer-Format, entfernt (NICHT_AUSDAUER)", nicht_ausdauer)
     section("Staffeln entfernt (erst einmal keine Staffeln)", staffeln)
     section("Walking-Wettbewerbe entfernt (Label nennt nur Walking)", walking)
+    section("Kinder-/Jugendwettbewerbe entfernt", kinder)
     section("Schwimm-Meisterschaften entfernt (nicht für jeden offen)", nicht_offen)
     section("Sportart korrigiert (Mehrsport statt Laufen)", multisport_fixes)
     section("Sportart korrigiert (Label nennt eine andere Sportart)",

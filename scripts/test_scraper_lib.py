@@ -2418,6 +2418,61 @@ def test_walking() -> None:
     check("und meldet den Ausschluss", len(entfernt), 1)
 
 
+def test_kinder() -> None:
+    """Reine Kinder-/Jugendwettbewerbe raus (Nutzer, 09.10.2026: „Ja
+    Kinderrennen raus"). Treffer und Gegenproben aus dem Bestand."""
+    print("\nKinderrennen (ist_kinder):")
+    from scraper_lib import ist_kinder, filter_kinder, Event
+    from clean_events import drop_kinder
+
+    for name, wb in (("Run & Bike Groisbach", "Sparefroh Kids Run I - 300 m (Jg. 2021 und jünger)"),
+                     ("Dirty Race", "Dirty Kids Cross"),
+                     ("Chemnitzer Indoor Triathlon", "Swim & Run Schüler C 100m / 400m"),
+                     ("Radln & Renna", "Kinder U6/U8"),
+                     ("Radln & Renna", "Jugendlauf U16-U18"),
+                     ("Finteler Triathlon", "Schülertriathlon (Einzel)"),
+                     ("TriZell", "Kinderbewerb (Aquathlon)"),
+                     ("Südwestzipfel Lauf", "Jugendlauf, 5,6 km , U14 & U16 (Jg. 2011–2014)"),
+                     ("Tauchscher Stadtlauf", "5 km für U14 und U16"),
+                     ("Wolfgangseelauf", "Junior-Marathon, Strobl"),
+                     ("Solitudelauf", "WLV-Kids-Marathon"),
+                     ("4. Backnanger Kindercrossduathlon", None),
+                     ("13. NÖ Kinder- und Jugendlauf Strasshof", None)):
+        check(f"{name!r} / {wb!r} fällt", bool(ist_kinder(name, wb)), True)
+    for name, wb in (("Legdener Mittsommernachtslauf", "5 km für Jugendliche und Erwachsene"),
+                     ("46. Krummenseelauf", "7,2 km Lauf für Jugend und Altersklassen"),
+                     ("Neuenkirchener Abendlauf", "5 km Straße für Jugend, Aktive und Masters"),
+                     ("Halloweenlauf Buchen", "5 km Straße für U16, U18, M30, M40, M50, W30, W40, W50"),
+                     ("Dortmunder Westfalenparklauf", "5,0 km (2 Runden) ab M/W U14"),
+                     ("Liepnitzseelauf", "8,6 km Lauf ab Jugend U14"),
+                     ("Kuckucks-Trail Damscheid", "9,5 km Best of Trail, Jugend ab 14 Jahre, Frauen, Männer"),
+                     ("Vogelsanger Mailauf", "5 km Freizeit- und Jugendlauf"),
+                     ("ISLANDMAN Norderney", "Schnupper- und Jugend-Triathlon"),
+                     ("Kraichgauman Crossduathlon", "Sprint und Jugend"),
+                     ("Ostufer Fischhallen-Lauf", "5 km Kurzlauf mit Schülerwertung"),
+                     ("Crazy Runners Frankenwald Trail", "Mini Trail"),
+                     ("Lindwurm", "Lindwurm mini (24,5 km, 550 hm)"),
+                     ("Männedörfler Waldlauf", "U20"),
+                     ("MyEifelRide Kids", "RTF 209 km"),
+                     ("39. Pesenbachtallauf + Wirt in Pesenbach Kinderlauf", None),
+                     ("15. Salzburg Trailrunning Festival - Kidstrail, Festungs- und Panoramatrail", None),
+                     ("15. pro kids Lauf mit 5km Jedermannlauf", None),
+                     ("Sponsorenlauf „Gemeinsam gegen Kinderkrebs“", None)):
+        check(f"{name!r} / {wb!r} bleibt", ist_kinder(name, wb), None)
+
+    zeilen = [Event(name="Dirty Race", wettbewerb="Sprint", art1="Triathlon"),
+              Event(name="Dirty Race", wettbewerb="Dirty Kids Cross", laenge_km=1.0, art1="Triathlon")]
+    behalten, n = filter_kinder(zeilen)
+    check("filter_kinder nimmt nur die Kinderzeile", [e.wettbewerb for e in behalten], ["Sprint"])
+    check("und zählt sie", n, 1)
+    behalten, entfernt = drop_kinder([
+        {"name": "Finteler Triathlon", "datum_start": "2027-09-05", "wettbewerb": "Swim & Run 1 (Kids)"},
+        {"name": "Finteler Triathlon", "datum_start": "2027-09-05", "wettbewerb": "Sprintdistanz"},
+    ])
+    check("drop_kinder behält das Erwachsenenrennen", [e["wettbewerb"] for e in behalten], ["Sprintdistanz"])
+    check("und meldet den Ausschluss", len(entfernt), 1)
+
+
 def test_serientermin_im_label() -> None:
     """Ein Serientermin, der MITTEN im Wettbewerbs-Label steht.
 
@@ -4125,7 +4180,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

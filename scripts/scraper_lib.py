@@ -2884,6 +2884,79 @@ def filter_walking(events: list["Event"]) -> tuple[list["Event"], int]:
     return kept, len(events) - len(kept)
 
 
+# Reine Kinder- und Jugendwettbewerbe fliegen (vom Nutzer am 09.10.2026
+# entschieden, To-do Punkt 21: „Ja Kinderrennen raus"). Die 5-km-Grenze
+# (Datenregel 5) gilt nur fürs Laufen - bei Triathlon und Rad standen
+# deshalb Kinderrennen von 300 m bis 2,5 km in der Liste (Sparefroh Kids
+# Run, Dirty Kids Cross, Swim & Run Schüler, Altenberger Cross Duathlon
+# Kinder U6-U12), dazu Jugendläufe über 5 km und „Kids-/Junior-Marathons"
+# mit 42,2 km (die Kinderstrecke, die nur nach Marathon heißt).
+# Entschieden wird wie bei ist_walking() am LABEL; der Name nur, wenn die
+# Zeile kein Label hat. Am Bestand (7.000 Zeilen) gezählt: 21 Treffer,
+# alle durchgesehen. Gegenproben, die bleiben müssen (alle aus dem
+# Bestand, `test_kinder`):
+#   - Ein Erwachsenenwort im Label hält die Zeile: „für Jugendliche und
+#     Erwachsene", „Jugend und Altersklassen", „Jugend, Aktive und
+#     Masters", „U16, U18, M30, M40", „ab M/W U16", „ab Jugend U14",
+#     „Jugend ab 14 Jahre, Frauen, Männer", „Freizeit- und Jugendlauf",
+#     „Jugend, Fitnesslauf und Walking", „Schnupper- und Jugend-Triathlon",
+#     „Sprint und Jugend" (das Format ist das Erwachsenenrennen).
+#   - Eine WERTUNG ist kein Wettbewerb: „5 km Kurzlauf mit Schülerwertung".
+#   - „Mini" ist KEIN Kinderwort: „Mini Trail 8 km", „Mini-Marathon 5,5 km",
+#     „Lindwurm mini 24,5 km" sind kurze Erwachsenenformate.
+#   - U20/U23 sind Erwachsenenklassen; Kinder sind bis U18.
+#   - Im Namen nur, wenn das Kinderwort ein ganzes Rennen benennt und
+#     danach kein zweites Rennen bleibt: „Kinder- und Jugendlauf
+#     Strasshof" fällt, „Pesenbachtallauf + … Kinderlauf", „Trailrunning
+#     Festival - Kidstrail, Festungs- und Panoramatrail", „pro kids Lauf
+#     mit 5km Jedermannlauf", „Sponsorenlauf gegen Kinderkrebs" bleiben;
+#     „MyEifelRide Kids" mit Labels „RTF 209 km" entscheidet das Label.
+# Zwei Stellen wie bei Walking und Staffeln: beim Einsammeln
+# (filter_kinder) und rückwirkend (clean_events.drop_kinder).
+KINDER_WORT = re.compile(
+    r"kinder(?!wagen|krebs|hilfe|garten|hospiz|herz|dorf|schutz|tafel)|"
+    r"\bkids?\b|kids|\bschüler(?!wertung)|schueler|bambini|"
+    r"jugend(?!wertung)|junior|youth|nachwuchs|\bu\s?(?:[4-9]|1[0-8])\b", re.I)
+ERWACHSENEN_WORT = re.compile(
+    r"erwachsen|jedermann|aktive|hauptlauf|masters?\b|senior|\bfrauen|"
+    r"\bmänner|damen|herren|altersklasse|\bak\b|"
+    r"\bab\s+(?:jugend|(?:m\s*/?\s*w\s*)?u\s?\d|\d+\s*j)|\b[mw]\s?[2-9]\d\b|"
+    r"und\s+älter|\bälter|fitness|freizeit|hobby|walk|volks|sprint|olymp|"
+    r"schnupper|elite|lizenz|offen|\balle\b|familie|eltern|einsteiger", re.I)
+_KINDER_IM_NAMEN = re.compile(
+    r"kinder[\s-]*(?:und|&)\s*jugend\w*|"
+    r"kinder\w*(?:lauf|läufe|cross|duathlon|triathlon|rennen|bewerb|run)\w*|"
+    r"kids?[\s-]*(?:run|race|trail|lauf|cross|cup)\w*|"
+    r"schüler\w*(?:lauf|läufe|triathlon|duathlon)\w*|bambini\w*|"
+    r"jugend\w*(?:lauf|läufe|triathlon)\w*", re.I)
+_RENNWORT = re.compile(
+    r"lauf|läuf|run\b|marathon|trail|cross|triathlon|duathlon|rennen|race|"
+    r"tour|rtf|ctf|gravel|schwimm|swim", re.I)
+
+
+def ist_kinder(name: str | None, wettbewerb: str | None) -> str | None:
+    """Der Grund, warum diese Zeile ein reiner Kinder-/Jugendwettbewerb
+    ist - sonst None. Für alle Sportarten; Begründung und Gegenproben
+    bei KINDER_WORT."""
+    wb = (wettbewerb or "").strip()
+    if wb:
+        if KINDER_WORT.search(wb) and not ERWACHSENEN_WORT.search(wb):
+            return f"Kinder-/Jugendwettbewerb ({wb})"
+        return None
+    n = name or ""
+    if not _KINDER_IM_NAMEN.search(n) or ERWACHSENEN_WORT.search(n):
+        return None
+    if _RENNWORT.search(_KINDER_IM_NAMEN.sub(" ", n)):
+        return None
+    return f"Kinder-/Jugendveranstaltung ({n})"
+
+
+def filter_kinder(events: list["Event"]) -> tuple[list["Event"], int]:
+    """Wirft reine Kinder-/Jugendwettbewerbe heraus (siehe ist_kinder)."""
+    kept = [e for e in events if not ist_kinder(e.name, e.wettbewerb)]
+    return kept, len(events) - len(kept)
+
+
 # Schwimm-Wettkämpfe, für die man sich nicht als Jedermann anmelden kann
 # (vom Nutzer am 24.09.2026 entschieden: "Ich möchte keine Schwimm Events
 # aufnehmen, die nicht für jeden sind, also 50m deutsche Meisterschaft
@@ -3421,6 +3494,10 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     if walking_skipped:
         print(f"  ({walking_skipped} Walking-Zeile(n) übersprungen - reine "
               f"Walking-Wettbewerbe, siehe ist_walking.)")
+    events_to_use, kinder_skipped = filter_kinder(events_to_use)
+    if kinder_skipped:
+        print(f"  ({kinder_skipped} Kinder-/Jugendwettbewerb(e) übersprungen - "
+              f"siehe ist_kinder.)")
     events_to_use, nicht_offen_skipped = filter_nicht_offen_schwimmen(events_to_use)
     if nicht_offen_skipped:
         print(f"  ({nicht_offen_skipped} Schwimm-Meisterschaft(en) übersprungen - "
