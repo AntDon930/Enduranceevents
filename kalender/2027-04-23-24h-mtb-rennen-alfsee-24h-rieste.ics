@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-24h-mtb-rennen-alfsee-24h-rieste@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270424
+SUMMARY:24H-MTB-Rennen Alfsee – 24-Stunden-Rennen 24 h
+LOCATION:Rieste\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 24 h\nhttps://24h-alf
+ see.de/
+TRANSP:TRANSPARENT
+URL:https://24h-alfsee.de/
+END:VEVENT
+END:VCALENDAR

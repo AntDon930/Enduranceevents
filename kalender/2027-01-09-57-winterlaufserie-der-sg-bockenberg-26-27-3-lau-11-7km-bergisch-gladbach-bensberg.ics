@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-57-winterlaufserie-der-sg-bockenberg-26-27-3-lau-11-7km-ber
+ gisch-gladbach-bensberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:57. Winterlaufserie der SG Bockenberg 26/27\, 3. Lauf
+LOCATION:Bergisch Gladbach-Bensberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.7 km\nhttp://sg-bockenber
+ g.de
+TRANSP:TRANSPARENT
+URL:http://sg-bockenberg.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-17-31-dortmunder-friedenslauf-21-1km-dortmund-kirchlinde@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:31. Dortmunder Friedenslauf
+LOCATION:Dortmund-Kirchlinde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tsvkirc
+ hlinde.de/friedenslauf
+TRANSP:TRANSPARENT
+URL:https://www.tsvkirchlinde.de/friedenslauf
+END:VEVENT
+END:VCALENDAR

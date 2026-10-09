@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-05-eberbacher-sprint-und-jedermanntriathlon-29km-eberbach@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+SUMMARY:Eberbacher Sprint- und Jedermanntriathlon – Sprintdistanz 29 km
+LOCATION:Eberbach\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 29 km\nhttps://www.triath
+ lon-eberbach.de
+TRANSP:TRANSPARENT
+URL:https://www.triathlon-eberbach.de
+END:VEVENT
+END:VCALENDAR

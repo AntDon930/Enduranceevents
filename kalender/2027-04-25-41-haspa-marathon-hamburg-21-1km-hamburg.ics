@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-41-haspa-marathon-hamburg-21-1km-hamburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:41. Haspa Marathon Hamburg – Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://haspa-marat
+ hon-hamburg.de/
+TRANSP:TRANSPARENT
+URL:https://haspa-marathon-hamburg.de/
+END:VEVENT
+END:VCALENDAR

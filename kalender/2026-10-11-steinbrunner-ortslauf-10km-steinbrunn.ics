@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-steinbrunner-ortslauf-10km-steinbrunn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Steinbrunner Ortslauf – 10 km Lauf Gesamtwertung 6 Runden
+LOCATION:Steinbrunn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lvsteinbrunn.
+ wordpress.com/
+TRANSP:TRANSPARENT
+URL:https://lvsteinbrunn.wordpress.com/
+END:VEVENT
+END:VCALENDAR

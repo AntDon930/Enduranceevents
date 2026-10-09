@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-wasgau-bike-marathon-25km-lemberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Wasgau-Bike-Marathon – MTB-Marathon 25 km
+LOCATION:Lemberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 25 km\nhttps://www.wa
+ sgau-bike-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.wasgau-bike-marathon.de/
+END:VEVENT
+END:VCALENDAR

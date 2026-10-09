@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-niederbipper-waffenlauf-21-1km-niederbipp@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Niederbipper Waffenlauf – 21.1 km Halbmarathon
+LOCATION:Niederbipp\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.niederb
+ ipper-waffenlauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.niederbipper-waffenlauf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-shakeout-run-by-the-runners-club-5km-luzern@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Shakeout Run by The Runners Club
+LOCATION:Luzern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.6weeks.ch/
+ mehr/news-events/event-detail/shakeout-run-by-the-runners-club/
+TRANSP:TRANSPARENT
+URL:https://www.6weeks.ch/mehr/news-events/event-detail/shakeout-run-by-th
+ e-runners-club/
+END:VEVENT
+END:VCALENDAR

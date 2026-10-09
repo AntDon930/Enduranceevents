@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-osnabrucker-piesberg-ultra-marathon-pum-60km-osnabruck@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Osnabrücker PiesBERG-Ultra-Marathon (PUM)
+LOCATION:Osnabrück\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 60 km\nhttps://www.piesbergu
+ ltra.de/
+TRANSP:TRANSPARENT
+URL:https://www.piesbergultra.de/
+END:VEVENT
+END:VCALENDAR

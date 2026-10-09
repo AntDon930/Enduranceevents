@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-kraichgauman-crossduathlon-9-5km-ostringen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Kraichgauman Crossduathlon – Sprint und Jugend
+LOCATION:Östringen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 9.5 km\nhttps://www.kra
+ ichgauman.de/
+TRANSP:TRANSPARENT
+URL:https://www.kraichgauman.de/
+END:VEVENT
+END:VCALENDAR

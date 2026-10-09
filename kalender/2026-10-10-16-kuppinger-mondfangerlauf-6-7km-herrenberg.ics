@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-16-kuppinger-mondfangerlauf-6-7km-herrenberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:16. Kuppinger Mondfängerlauf – ca. 6\,7 km Junior-Lauf und LOTTO J
+ edermann-Lauf (2 Runden)
+LOCATION:Herrenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6.7 km\nhttps://www.schoenbu
+ ch-cup.de/kuppingen
+TRANSP:TRANSPARENT
+URL:https://www.schoenbuch-cup.de/kuppingen
+END:VEVENT
+END:VCALENDAR

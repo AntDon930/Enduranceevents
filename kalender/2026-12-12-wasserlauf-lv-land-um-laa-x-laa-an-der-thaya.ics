@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-wasserlauf-lv-land-um-laa-x-laa-an-der-thaya@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:Wasserlauf LV Land um Laa
+LOCATION:Laa an der Thaya\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.laa.at/3_Wass
+ erlauf_LV_Land_um_Laa
+TRANSP:TRANSPARENT
+URL:https://www.laa.at/3_Wasserlauf_LV_Land_um_Laa
+END:VEVENT
+END:VCALENDAR

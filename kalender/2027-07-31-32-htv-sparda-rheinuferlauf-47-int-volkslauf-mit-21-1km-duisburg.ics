@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-31-32-htv-sparda-rheinuferlauf-47-int-volkslauf-mit-21-1km-dui
+ sburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:32. HTV-SPARDA-Rheinuferlauf\, 47. Int. Volkslauf mit HM
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.rheinufe
+ rlauf.de
+TRANSP:TRANSPARENT
+URL:http://www.rheinuferlauf.de
+END:VEVENT
+END:VCALENDAR

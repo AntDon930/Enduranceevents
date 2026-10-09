@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-weihnachtslauf-der-sportfreunde-ruckenwind-5km-ingelheim@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:Weihnachtslauf der Sportfreunde Rückenwind
+LOCATION:Ingelheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://sportfreunde-r
+ ueckenwind.de/
+TRANSP:TRANSPARENT
+URL:https://sportfreunde-rueckenwind.de/
+END:VEVENT
+END:VCALENDAR

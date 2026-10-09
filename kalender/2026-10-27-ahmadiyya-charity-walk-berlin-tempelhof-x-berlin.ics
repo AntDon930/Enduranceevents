@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-27-ahmadiyya-charity-walk-berlin-tempelhof-x-berlin@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:Ahmadiyya Charity Walk Berlin/Tempelhof
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: -\nhttps://charity
+ walk.de/events/1-ahmadiyya-charity-walk-berlin-tempelhof
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/1-ahmadiyya-charity-walk-berlin-tempelho
+ f
+END:VEVENT
+END:VCALENDAR

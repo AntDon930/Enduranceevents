@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-wudl-am-see-der-entscheidung-x-eslarn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:WUDL am See der Entscheidung
+LOCATION:Eslarn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.w-u-d-l.de/
+TRANSP:TRANSPARENT
+URL:https://www.w-u-d-l.de/
+END:VEVENT
+END:VCALENDAR

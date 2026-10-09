@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-wienerwaldkraxler-9-6km-purkersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Wienerwaldkraxler – WWK³ 9\,6 km
+LOCATION:Purkersdorf\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttps://www.wienerwa
+ ldkraxler.at/
+TRANSP:TRANSPARENT
+URL:https://www.wienerwaldkraxler.at/
+END:VEVENT
+END:VCALENDAR

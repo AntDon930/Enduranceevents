@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-zugspitz-arena-gravel-triathlon-x-heiterwang@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:Zugspitz Arena Gravel Triathlon – Mitteldistanz (Termin vorläufig)
+LOCATION:Heiterwang\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Duathlon\nLänge: -\nhttps://zugspitz-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://zugspitz-triathlon.at/
+END:VEVENT
+END:VCALENDAR

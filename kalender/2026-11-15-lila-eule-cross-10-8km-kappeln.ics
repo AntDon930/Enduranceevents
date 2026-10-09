@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-lila-eule-cross-10-8km-kappeln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Lila-Eule-Cross
+LOCATION:Kappeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.8 km\nhttps://www.stgk.de/
+ Veranstaltung_Detail.asp?Code=32
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=32
+END:VEVENT
+END:VCALENDAR

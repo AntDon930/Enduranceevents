@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-halbmarathon-morfelden-21-1km-morfelden-walldorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Halbmarathon Mörfelden – Halbmarathon
+LOCATION:Mörfelden-Walldorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lg-mw.de/ha
+ lbmarathon/
+TRANSP:TRANSPARENT
+URL:https://lg-mw.de/halbmarathon/
+END:VEVENT
+END:VCALENDAR

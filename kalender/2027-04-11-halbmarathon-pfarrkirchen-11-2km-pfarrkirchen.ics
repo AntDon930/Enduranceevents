@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-11-halbmarathon-pfarrkirchen-11-2km-pfarrkirchen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Halbmarathon Pfarrkirchen – Volkslauf 11\,2 km
+LOCATION:Pfarrkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.2 km\nhttps://halbmaratho
+ n.tus-pfarrkirchen.de/
+TRANSP:TRANSPARENT
+URL:https://halbmarathon.tus-pfarrkirchen.de/
+END:VEVENT
+END:VCALENDAR

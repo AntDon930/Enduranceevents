@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-12-21-buhlerzeller-winterlauf-10km-buhlerzell@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:21. Bühlerzeller Winterlauf
+LOCATION:Bühlerzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.buehlerze
+ ll.de/veranstaltungen/winterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.buehlerzell.de/veranstaltungen/winterlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-8-friedrichstaler-waldlauf-5km-stutensee@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:8. Friedrichstaler Waldlauf
+LOCATION:Stutensee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.tv-friedri
+ chstal.de/index.php?option=com_content&view=article&id=879&catid=4&Itemid
+ =128
+TRANSP:TRANSPARENT
+URL:https://www.tv-friedrichstal.de/index.php?option=com_content&view=arti
+ cle&id=879&catid=4&Itemid=128
+END:VEVENT
+END:VCALENDAR

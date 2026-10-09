@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-45-obersulmer-volkslauf-10km-willsbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:45. Obersulmer Volkslauf
+LOCATION:Willsbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsv-wills
+ bach.de/volkslauf/info/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-willsbach.de/volkslauf/info/
+END:VEVENT
+END:VCALENDAR

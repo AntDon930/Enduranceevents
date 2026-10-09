@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-flvw-crossmeisterschaften-5km-paderborn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:FLVW Crossmeisterschaften
+LOCATION:Paderborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lanet3.de/exte
+ rnal/dlv/register/12297
+TRANSP:TRANSPARENT
+URL:https://lanet3.de/external/dlv/register/12297
+END:VEVENT
+END:VCALENDAR

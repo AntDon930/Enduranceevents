@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-38-karlsbader-volkslauf-5km-karlsbad@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:38. Karlsbader Volkslauf
+LOCATION:Karlsbad\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.svl-leicht
+ athletik.de
+TRANSP:TRANSPARENT
+URL:https://www.svl-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

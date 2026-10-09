@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-trifun-pellworm-20km-pellworm@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Trifun Pellworm – ca. 20 km Radstrecke über die Insel
+LOCATION:Pellworm\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://www.pellworm-
+ trifun.de
+TRANSP:TRANSPARENT
+URL:https://www.pellworm-trifun.de
+END:VEVENT
+END:VCALENDAR

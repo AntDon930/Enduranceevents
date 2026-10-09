@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-zachower-crosslauf-10km-ketzin-havel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Zachower Crosslauf – 10 km für Läufer
+LOCATION:Ketzin/Havel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttp://ketzin-fischerm
+ an.de/6-zachower-crosslauf/
+TRANSP:TRANSPARENT
+URL:http://ketzin-fischerman.de/6-zachower-crosslauf/
+END:VEVENT
+END:VCALENDAR

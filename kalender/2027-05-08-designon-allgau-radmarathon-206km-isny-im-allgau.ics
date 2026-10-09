@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-designon-allgau-radmarathon-206km-isny-im-allgau@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:designOn Allgäu Radmarathon – Marathon-Runde (206 km)
+LOCATION:Isny im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 206 km\nhttps://www.allgaeu
+ -radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

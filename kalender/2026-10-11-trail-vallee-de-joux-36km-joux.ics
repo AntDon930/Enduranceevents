@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-trail-vallee-de-joux-36km-joux@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Trail Vallée de Joux – 36 km / 2700 / 1600 / 800 hm
+LOCATION:Joux\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 36 km\nhttps://www.trailvalle
+ edejoux.ch
+TRANSP:TRANSPARENT
+URL:https://www.trailvalleedejoux.ch
+END:VEVENT
+END:VCALENDAR

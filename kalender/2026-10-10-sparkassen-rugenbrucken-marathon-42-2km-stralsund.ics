@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-sparkassen-rugenbrucken-marathon-42-2km-stralsund@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Sparkassen Rügenbrücken-Marathon – Marathon
+LOCATION:Stralsund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.ruegenma
+ rathon.de
+TRANSP:TRANSPARENT
+URL:http://www.ruegenmarathon.de
+END:VEVENT
+END:VCALENDAR

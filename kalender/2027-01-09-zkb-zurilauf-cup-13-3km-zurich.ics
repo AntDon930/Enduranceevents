@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-zkb-zurilauf-cup-13-3km-zurich@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:ZKB Zürilauf Cup – Dietiker Neujahrslauf 2026
+LOCATION:Zürich\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13.3 km\nhttps://www.zuerila
+ ufcup.ch/12-laeufe-2023/dietiker-neujahrslauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe-2023/dietiker-neujahrslauf
+END:VEVENT
+END:VCALENDAR

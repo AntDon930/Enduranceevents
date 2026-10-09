@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-muddy-angel-run-offenbach-5km-offenbach-am-main@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Muddy Angel Run - Offenbach
+LOCATION:Offenbach am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 5 km\nhttps://www.muddyan
+ gelrun.com/events/offenbach-2027/
+TRANSP:TRANSPARENT
+URL:https://www.muddyangelrun.com/events/offenbach-2027/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-continental-gravel-club-tour-finale-80km-wietze@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Continental Gravel Club Tour\, Finale
+LOCATION:Wietze\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 80 km\nhttps://gravel-club.
+ com/2026/03/13/gravel-club-tour-2026/
+TRANSP:TRANSPARENT
+URL:https://gravel-club.com/2026/03/13/gravel-club-tour-2026/
+END:VEVENT
+END:VCALENDAR

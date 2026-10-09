@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-sellaronda-bike-day-september-53km-corvara@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Sellaronda Bike Day September – RTF 53 km
+LOCATION:Corvara\, Italien (Südtirol)
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 53 km\nhttps://www.altabadi
+ a.org/de/sommer/sport-aktivitaeten/radsport/sellaronda-bike-day.html
+TRANSP:TRANSPARENT
+URL:https://www.altabadia.org/de/sommer/sport-aktivitaeten/radsport/sellar
+ onda-bike-day.html
+END:VEVENT
+END:VCALENDAR

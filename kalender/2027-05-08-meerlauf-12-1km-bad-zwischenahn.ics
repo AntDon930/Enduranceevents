@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-meerlauf-12-1km-bad-zwischenahn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Meerlauf – 12\,1 km Spendenlauf (Nordic-)Walking
+LOCATION:Bad Zwischenahn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12.1 km\nhttps://www.meerlau
+ f.de/
+TRANSP:TRANSPARENT
+URL:https://www.meerlauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-erzhauser-heegbachlauf-6km-erzhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Erzhäuser Heegbachlauf
+LOCATION:Erzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.die-kaltdu
+ scher.de/heegbachlauf/
+TRANSP:TRANSPARENT
+URL:https://www.die-kaltduscher.de/heegbachlauf/
+END:VEVENT
+END:VCALENDAR

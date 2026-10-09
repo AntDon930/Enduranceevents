@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-gunsha-crosscup-frankenhain-x-frankenhain@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:GUNSHA Crosscup Frankenhain – Cyclocross\, GUNSHA Crosscup
+LOCATION:Frankenhain\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://crosscup.org
+ /rennen/frankenhain/
+TRANSP:TRANSPARENT
+URL:https://crosscup.org/rennen/frankenhain/
+END:VEVENT
+END:VCALENDAR

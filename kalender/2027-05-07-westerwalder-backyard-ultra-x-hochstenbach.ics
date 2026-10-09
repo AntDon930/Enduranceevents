@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-westerwalder-backyard-ultra-x-hochstenbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270511
+SUMMARY:Westerwälder Backyard Ultra
+LOCATION:Höchstenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://katjas-la
+ ufzeit.de/westerwaelder-backyard-ultra-2027-ausschreibung/
+TRANSP:TRANSPARENT
+URL:https://katjas-laufzeit.de/westerwaelder-backyard-ultra-2027-ausschrei
+ bung/
+END:VEVENT
+END:VCALENDAR

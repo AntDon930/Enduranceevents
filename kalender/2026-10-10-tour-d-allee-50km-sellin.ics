@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-tour-d-allee-50km-sellin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Tour d’Allée – RTF Start: 09:00 Uhr Alter Markt Stralsund 50 km
+LOCATION:Sellin\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 50 km\nhttps://ketterechts.
+ eu/etn/32-tour-d-allee-ruegen-radfahren-mit-prominenten/
+TRANSP:TRANSPARENT
+URL:https://ketterechts.eu/etn/32-tour-d-allee-ruegen-radfahren-mit-promin
+ enten/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-monschau-treppenlauf-18km-monschau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Monschau-Treppenlauf
+LOCATION:Monschau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 18 km\nhttps://belgenbachtrai
+ l.de/monschauer-treppenlauf
+TRANSP:TRANSPARENT
+URL:https://belgenbachtrail.de/monschauer-treppenlauf
+END:VEVENT
+END:VCALENDAR

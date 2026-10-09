@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-43-basler-stadtlauf-5-5km-basel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:43. Basler Stadtlauf – Lauf 5\,5 km
+LOCATION:Basel\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.5 km\nhttp://www.baslersta
+ dtlauf.ch/
+TRANSP:TRANSPARENT
+URL:http://www.baslerstadtlauf.ch/
+END:VEVENT
+END:VCALENDAR

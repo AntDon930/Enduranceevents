@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-25-sebastian-fredrich-gedenklauf-lm-lc-nlc-5km-lubmin@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:25. Sebastian Fredrich Gedenklauf (LM/LC/NLC)
+LOCATION:Lubmin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.hsguni-gre
+ ifswald.de/
+TRANSP:TRANSPARENT
+URL:https://www.hsguni-greifswald.de/
+END:VEVENT
+END:VCALENDAR

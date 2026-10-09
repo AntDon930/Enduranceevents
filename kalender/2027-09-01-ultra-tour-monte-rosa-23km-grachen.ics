@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-01-ultra-tour-monte-rosa-23km-grachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270905
+SUMMARY:Ultra Tour Monte Rosa – 23 km Berglauf\, Gesamtanstieg +/-1'400 m
+LOCATION:Grächen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 23 km\nhttps://www.ultratourm
+ onterosa.com/
+TRANSP:TRANSPARENT
+URL:https://www.ultratourmonterosa.com/
+END:VEVENT
+END:VCALENDAR

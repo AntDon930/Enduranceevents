@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-weser-ems-cup-osnabruck-0-5h-osnabruck-gretesch@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Weser-Ems-Cup Osnabrück – Cyclocross 0.5 h
+LOCATION:Osnabrück-Gretesch\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.5 h\nhttps://www.radr
+ enngemeinschaft-osnabrueck.de/rennsport/querfeldein/cross-os-bornheide/
+TRANSP:TRANSPARENT
+URL:https://www.radrenngemeinschaft-osnabrueck.de/rennsport/querfeldein/cr
+ oss-os-bornheide/
+END:VEVENT
+END:VCALENDAR

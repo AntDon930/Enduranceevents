@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-farnerensturm-8km-schupfheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Farnerensturm
+LOCATION:Schüpfheim\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.farnerenst
+ urm.com/
+TRANSP:TRANSPARENT
+URL:https://www.farnerensturm.com/
+END:VEVENT
+END:VCALENDAR

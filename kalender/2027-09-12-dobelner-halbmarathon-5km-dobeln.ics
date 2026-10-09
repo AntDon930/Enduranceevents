@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-dobelner-halbmarathon-5km-dobeln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Döbelner Halbmarathon – 5 km Lauf
+LOCATION:Döbeln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://neuelaufkultur
+ .de/
+TRANSP:TRANSPARENT
+URL:https://neuelaufkultur.de/
+END:VEVENT
+END:VCALENDAR

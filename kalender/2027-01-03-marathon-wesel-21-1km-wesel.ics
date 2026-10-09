@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-marathon-wesel-21-1km-wesel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Marathon Wesel – Halbmarathon
+LOCATION:Wesel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.maratho
+ n-wesel.de
+TRANSP:TRANSPARENT
+URL:https://www.marathon-wesel.de
+END:VEVENT
+END:VCALENDAR

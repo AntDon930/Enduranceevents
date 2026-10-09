@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-stadtlauf-giengen-an-der-brenz-10km-giengen-an-der-brenz@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Stadtlauf Giengen an der Brenz
+LOCATION:Giengen an der Brenz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.tsg-gieng
+ en.de/de/Stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsg-giengen.de/de/Stadtlauf/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-06-heininger-drei-konigs-lauf-10-4km-heiningen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:Heininger Drei-Königs-Lauf – 10\,4 km Hauptlauf
+LOCATION:Heiningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://tsv-heining
+ en.de/leichtathletik/vor-dem-dkl-2027/
+TRANSP:TRANSPARENT
+URL:https://tsv-heiningen.de/leichtathletik/vor-dem-dkl-2027/
+END:VEVENT
+END:VCALENDAR

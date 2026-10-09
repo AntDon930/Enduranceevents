@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-hallwilerseelauf-5km-beinwil-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Hallwilerseelauf – 5 km Kurzlauf
+LOCATION:Beinwil am See\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://hallwilerseela
+ uf.ch/
+TRANSP:TRANSPARENT
+URL:https://hallwilerseelauf.ch/
+END:VEVENT
+END:VCALENDAR

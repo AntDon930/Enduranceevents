@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-17-gsystems-koberbachtal-triathlon-48km-werdau@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270606
+SUMMARY:17. GSYSTEMS-Koberbachtal-Triathlon
+LOCATION:Werdau\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 48 km\nhttps://www.koberb
+ achtal-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://www.koberbachtal-triathlon.de/
+END:VEVENT
+END:VCALENDAR

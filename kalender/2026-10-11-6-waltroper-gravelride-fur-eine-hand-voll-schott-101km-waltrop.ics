@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-6-waltroper-gravelride-fur-eine-hand-voll-schott-101km-walt
+ rop@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:6. Waltroper Gravelride "Für eine Hand voll Schotter" – Gravel Tou
+ r 101 km
+LOCATION:Waltrop\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 101 km\nhttps://www.sprinte
+ r-waltrop.de
+TRANSP:TRANSPARENT
+URL:https://www.sprinter-waltrop.de
+END:VEVENT
+END:VCALENDAR

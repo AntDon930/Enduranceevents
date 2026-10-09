@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-linneser-cross-country-tag-gravel-80km-giessen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Linneser Cross-Country-Tag (GRAVEL) – Gravel Tour 80 km
+LOCATION:Gießen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 80 km\nhttps://www.rv-klein
+ linden.de
+TRANSP:TRANSPARENT
+URL:https://www.rv-kleinlinden.de
+END:VEVENT
+END:VCALENDAR

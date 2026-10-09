@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-gutersloher-gravelday-82km-gutersloh@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Gütersloher Gravelday – Gravel Ride 82 km
+LOCATION:Gütersloh\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 82 km\nhttps://www.rsv-guet
+ ersloh.de
+TRANSP:TRANSPARENT
+URL:https://www.rsv-guetersloh.de
+END:VEVENT
+END:VCALENDAR

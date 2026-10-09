@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-20-mountainbike-tour-des-rc-88-neustadt-aisch-35km-neustadt
+ -aisch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:20. Mountainbike-Tour des RC 88 Neustadt/Aisch – CTF 35 km
+LOCATION:Neustadt/Aisch\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 35 km\nhttps://www.rc
+ 88.de/galerie/58274/ctf.html
+TRANSP:TRANSPARENT
+URL:https://www.rc88.de/galerie/58274/ctf.html
+END:VEVENT
+END:VCALENDAR

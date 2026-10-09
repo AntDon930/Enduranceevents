@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-20km-de-lausanne-5km-lausanne@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:20km de Lausanne
+LOCATION:Lausanne\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.20km.ch/
+TRANSP:TRANSPARENT
+URL:https://www.20km.ch/
+END:VEVENT
+END:VCALENDAR

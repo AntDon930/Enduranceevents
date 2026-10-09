@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-rodewalder-eulenlauf-12km-rodewald@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Rodewalder Eulenlauf – 12 km Lauf\, Jahrgänge 2016 und älter\, Sta
+ rtgeld 7\,00 EUR
+LOCATION:Rodewald\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://ssv-rodewald.
+ de
+TRANSP:TRANSPARENT
+URL:https://ssv-rodewald.de
+END:VEVENT
+END:VCALENDAR

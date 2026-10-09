@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-stadtlauf-innsbruck-6km-innsbruck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Stadtlauf Innsbruck
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.innsbruckl
+ aeuft.com/laeufe/stadtlauf/
+TRANSP:TRANSPARENT
+URL:https://www.innsbrucklaeuft.com/laeufe/stadtlauf/
+END:VEVENT
+END:VCALENDAR

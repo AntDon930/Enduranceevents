@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-04-course-a-travers-cugy-10km-cugy-fr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270604
+DTEND;VALUE=DATE:20270605
+SUMMARY:Course A Travers Cugy
+LOCATION:Cugy (FR)\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://course.atrave
+ rscugy.ch/
+TRANSP:TRANSPARENT
+URL:https://course.atraverscugy.ch/
+END:VEVENT
+END:VCALENDAR

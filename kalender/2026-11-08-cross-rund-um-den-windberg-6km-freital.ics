@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-cross-rund-um-den-windberg-6km-freital@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Cross Rund um den Windberg
+LOCATION:Freital\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://tv1848bischofsw
+ erda.de/termin/75-crosslauf-rund-um-den-windberg-35-lm-und-35-offene-land
+ esmeisterschaften-cross/
+TRANSP:TRANSPARENT
+URL:https://tv1848bischofswerda.de/termin/75-crosslauf-rund-um-den-windber
+ g-35-lm-und-35-offene-landesmeisterschaften-cross/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-kulsheimer-12-stunden-mtb-rennen-12h-kulsheim@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Külsheimer 12-Stunden-MTB-Rennen
+LOCATION:Külsheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 12 h\nhttp://www.12St
+ undenrennen.de
+TRANSP:TRANSPARENT
+URL:http://www.12Stundenrennen.de
+END:VEVENT
+END:VCALENDAR

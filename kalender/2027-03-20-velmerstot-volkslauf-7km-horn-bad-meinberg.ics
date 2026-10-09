@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-velmerstot-volkslauf-7km-horn-bad-meinberg@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Velmerstot-Volkslauf
+LOCATION:Horn-Bad Meinberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.tsvleopold
+ stal.de/Laufen-Volkslauf/
+TRANSP:TRANSPARENT
+URL:https://www.tsvleopoldstal.de/Laufen-Volkslauf/
+END:VEVENT
+END:VCALENDAR

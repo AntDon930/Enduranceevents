@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-07-wengi-berglauf-8km-matzendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Wengi-Berglauf – Hauptlauf M/F 16-70
+LOCATION:Matzendorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://www.juratoptour
+ .ch/de/wertungslaeufe/wengi-berglauf
+TRANSP:TRANSPARENT
+URL:https://www.juratoptour.ch/de/wertungslaeufe/wengi-berglauf
+END:VEVENT
+END:VCALENDAR

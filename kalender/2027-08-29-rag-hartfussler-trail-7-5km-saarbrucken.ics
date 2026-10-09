@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-rag-hartfussler-trail-7-5km-saarbrucken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Rag Hartfüssler Trail – 7\,5 km - 194 Hm
+LOCATION:Saarbrücken\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.5 km\nhttps://www.hartfuess
+ lertrail.de/
+TRANSP:TRANSPARENT
+URL:https://www.hartfuesslertrail.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-willibalds-lauf-8-5km-eichstatt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Willibalds-Lauf – 8\,5 km Hauptlauf
+LOCATION:Eichstätt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.5 km\nhttps://willibaldsla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://willibaldslauf.de/
+END:VEVENT
+END:VCALENDAR

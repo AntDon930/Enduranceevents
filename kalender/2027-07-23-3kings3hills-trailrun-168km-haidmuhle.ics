@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-23-3kings3hills-trailrun-168km-haidmuhle@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270723
+DTEND;VALUE=DATE:20270725
+SUMMARY:3Kings3Hills Trailrun – 100 Miles (168 km\, 6.300 hm)
+LOCATION:Haidmühle\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 168 km\nhttps://www.3kings-3h
+ ills.com/
+TRANSP:TRANSPARENT
+URL:https://www.3kings-3hills.com/
+END:VEVENT
+END:VCALENDAR

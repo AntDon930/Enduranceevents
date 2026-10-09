@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-70-winterwaldlauf-9-6km-essen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:70. Winterwaldlauf
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.6 km\nhttp://www.tusem-lei
+ chtathletik.de/index.php/waldlaufserie.html
+TRANSP:TRANSPARENT
+URL:http://www.tusem-leichtathletik.de/index.php/waldlaufserie.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-ahmadiyya-charity-walk-heddesheim-5km-heddesheim@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Ahmadiyya Charity Walk Heddesheim
+LOCATION:Heddesheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 5 km\nhttps://char
+ itywalk.de/events/8-ahmadiyya-charity-walk-heddesheim
+TRANSP:TRANSPARENT
+URL:https://charitywalk.de/events/8-ahmadiyya-charity-walk-heddesheim
+END:VEVENT
+END:VCALENDAR

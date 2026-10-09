@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-25-race-across-the-alps-525km-nauders@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270627
+SUMMARY:Race Across The Alps – Ultracycling 525 km
+LOCATION:Nauders\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 525 km\nhttps://raceacrosst
+ healps.com/de
+TRANSP:TRANSPARENT
+URL:https://raceacrossthealps.com/de
+END:VEVENT
+END:VCALENDAR

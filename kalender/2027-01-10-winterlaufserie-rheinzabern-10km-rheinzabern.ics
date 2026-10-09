@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-winterlaufserie-rheinzabern-10km-rheinzabern@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Winterlaufserie Rheinzabern – 10 km - 13. Dezember 2026
+LOCATION:Rheinzabern\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://winterlauf.tv
+ -rheinzabern.de/
+TRANSP:TRANSPARENT
+URL:https://winterlauf.tv-rheinzabern.de/
+END:VEVENT
+END:VCALENDAR

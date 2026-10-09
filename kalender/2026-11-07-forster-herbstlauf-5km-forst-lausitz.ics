@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-forster-herbstlauf-5km-forst-lausitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Forster Herbstlauf
+LOCATION:Forst (Lausitz)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://ltsv.de/termine
+ /forster-herbstlauf/
+TRANSP:TRANSPARENT
+URL:http://ltsv.de/termine/forster-herbstlauf/
+END:VEVENT
+END:VCALENDAR

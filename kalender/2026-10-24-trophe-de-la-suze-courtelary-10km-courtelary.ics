@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-trophe-de-la-suze-courtelary-10km-courtelary@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Trophé de la Suze Courtelary
+LOCATION:Courtelary\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.trophee-d
+ e-la-suze.ch
+TRANSP:TRANSPARENT
+URL:https://www.trophee-de-la-suze.ch
+END:VEVENT
+END:VCALENDAR

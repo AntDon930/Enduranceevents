@@ -1,0 +1,96 @@
+"""Abgleich jeder Veranstaltung mit ihrer Veranstalterseite - nur Bericht.
+
+Für jede Veranstaltung (Name + Datum) mit eigener `veranstalter_url` (kein
+Portallink, siehe PORTAL_DOMAINS/KEIN_VERANSTALTER) wird die Seite einmal
+abgerufen (Abrufer aus veranstalter_links.py: robots.txt, 1 s Pause je
+Host, 30-s-Frist) und der Text gegen unsere Daten gehalten:
+
+    DATUM    unser datum_start steht nicht im Text, die Seite nennt aber
+             Termine im selben, vorigen oder nächsten Jahr
+    DISTANZ  mindestens eine unserer laenge_km fehlt im Text, obwohl die
+             Seite km-Angaben hat (±0,15 km bzw. gleiche gerundete Zahl)
+    ABGESAGT die Seite spricht von Absage/Ausfall (abgesagt, findet nicht
+             statt, fällt aus, cancelled) - seit dem 21.09.2026, weil der
+             Nutzer abgesagte Veranstaltungen nicht in der Liste will;
+             nur ein Hinweis (der Kohltagelauf wirbt neben der Absage
+             weiter mit "Melde dich jetzt an"), geprüft wird von Hand
+    BESTAETIGT die Zeile ist als vorläufig markiert (datum_vorlaeufig,
+             Kalenderprognose), die Seite nennt unser Datum aber jetzt -
+             der Override kann weg, das Sternchen auch (seit 21.09.2026)
+    LEER     unter 300 Zeichen Text (JS-Seite, Frames, Platzhalter)
+    FEHLER   Abruf gescheitert (Status, robots, Timeout)
+
+Nichts davon ist ein Fehler in den Daten - es sagt nur, wo man hinsehen
+sollte. Am 21.09.2026 (Elfter Durchgang, siehe CLAUDE.md): 1.849
+Veranstaltungen in ~65 Minuten, 1.154 ohne Befund; von den gemeldeten
+blieben nach dem Blick auf die Seite rund 150 echte Korrekturen.
+
+    python3 scripts/seitenabgleich.py bericht.json [--fortsetzen] [--max N]
+
+`--fortsetzen` führt einen unterbrochenen Bericht weiter (die Schlüssel
+sind "<Name>|<datum_start>"). events.json wird nie angefasst.
+"""
+import json, re, sys, time
+from collections import OrderedDict, Counter
+from pathlib import Path
+sys.path.insert(0, "scripts")
+from veranstalter_links import Abrufer, text_von, kein_veranstalter, host_von
+from scraper_lib import is_portal_link
+from veranstalter_seiten import daten_aus, distanzen_aus, km_passt as passt  # noqa: E402
+
+BERICHT = Path(sys.argv[1]); FORTSETZEN = "--fortsetzen" in sys.argv
+MAX = int(sys.argv[sys.argv.index("--max")+1]) if "--max" in sys.argv else 0
+# daten_aus()/MONATE und distanzen_aus()/km_passt() wohnen seit dem 05.10.2026 in
+# veranstalter_seiten.py (das Gedächtnis je Veranstaltung braucht dieselbe
+# Erkennung) - EINE Fassung.
+
+ABGESAGT_RE = re.compile(r"abgesagt|absage\b|findet nicht statt|f[aä]llt (?:in diesem jahr |dieses jahr |\d{4} )?aus|muss(?:te)? (?:\w+ ){0,3}ausfallen|cancell?ed|wird nicht mehr durchgeführt", re.I)
+
+events=json.load(open("events.json"))
+gruppen=OrderedDict()
+for e in sorted(events, key=lambda e:(e.get("datum_start") or "", e.get("name") or "")):
+    url=e.get("veranstalter_url") or ""
+    if not url or is_portal_link(url) or kein_veranstalter(url): continue
+    if "ironman.com" in url: continue
+    k=f"{e.get('name')}|{e.get('datum_start')}"
+    g=gruppen.setdefault(k,{"name":e.get("name"),"datum":e.get("datum_start"),"ende":e.get("datum_ende"),"url":url,"ort":e.get("standort"),"art1":e.get("art1"),"km":[],"dauer":[],"vorlaeufig":bool(e.get("datum_vorlaeufig"))})
+    if isinstance(e.get("laenge_km"),(int,float)): g["km"].append(e["laenge_km"])
+    if isinstance(e.get("dauer_h"),(int,float)): g["dauer"].append(e["dauer_h"])
+if MAX: gruppen=OrderedDict(list(gruppen.items())[:MAX])
+bericht=OrderedDict()
+if FORTSETZEN and BERICHT.exists(): bericht=json.load(open(BERICHT),object_pairs_hook=OrderedDict)
+print(len(gruppen),"Veranstaltungen mit eigener Seite;", len(bericht), "schon im Bericht", flush=True)
+ab=Abrufer(pause=1.0)
+t0=time.time()
+for i,(k,g) in enumerate(gruppen.items(),1):
+    if k in bericht: continue
+    status, body = ab.hole(g["url"])
+    r=OrderedDict(name=g["name"],datum=g["datum"],url=g["url"],ort=g["ort"],km=sorted(set(g["km"])),status=status if status is not None else body)
+    if status==200:
+        txt=text_von(body)
+        daten=daten_aus(txt); dist=distanzen_aus(txt)
+        jahr=g["datum"][:4]
+        nah=sorted(d for d in daten if d[:4] in (jahr, str(int(jahr)-1), str(int(jahr)+1)))
+        r["datum_ok"]=g["datum"] in daten
+        r["seiten_daten"]=nah[:40]
+        r["km_fehlt"]=[km for km in r["km"] if not passt(km,dist)]
+        r["seiten_km"]=sorted(x for x in dist if x>=1)[:40]
+        r["textlaenge"]=len(txt)
+        flags=[]
+        if not r["datum_ok"] and nah: flags.append("DATUM")
+        if g["vorlaeufig"] and r["datum_ok"]: flags.append("BESTAETIGT")
+        if r["km_fehlt"] and dist: flags.append("DISTANZ")
+        if len(txt)<300: flags.append("LEER")
+        m=ABGESAGT_RE.search(txt)
+        if m:
+            flags.append("ABGESAGT"); r["absage"]=txt[max(0,m.start()-80):m.end()+80].strip()
+        r["flags"]=flags
+    else:
+        r["flags"]=["FEHLER"]
+    bericht[k]=r
+    if i%25==0 or i==len(gruppen):
+        c=Counter(f for b in bericht.values() for f in (b.get("flags") or ["ok"]))
+        print(f"  … {i}/{len(gruppen)} ({int(time.time()-t0)} s): {dict(c)}", flush=True)
+        BERICHT.write_text(json.dumps(bericht,ensure_ascii=False,indent=1))
+BERICHT.write_text(json.dumps(bericht,ensure_ascii=False,indent=1))
+print("fertig", flush=True)

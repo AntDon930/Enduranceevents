@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-radquer-steinmaur-x-steinmaur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Radquer Steinmaur – Cyclocross
+LOCATION:Steinmaur\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.vcsteinm
+ aur.ch/de/radquer-steinmaur
+TRANSP:TRANSPARENT
+URL:https://www.vcsteinmaur.ch/de/radquer-steinmaur
+END:VEVENT
+END:VCALENDAR

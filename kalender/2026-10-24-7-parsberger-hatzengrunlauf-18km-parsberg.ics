@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-7-parsberger-hatzengrunlauf-18km-parsberg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:7. Parsberger Hatzengrünlauf
+LOCATION:Parsberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18 km\nhttps://www.tvparsber
+ g.de/abteilungen/breitensport/7-parsberger-hatzengruenlauf-2026
+TRANSP:TRANSPARENT
+URL:https://www.tvparsberg.de/abteilungen/breitensport/7-parsberger-hatzen
+ gruenlauf-2026
+END:VEVENT
+END:VCALENDAR

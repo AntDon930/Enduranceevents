@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-alpenstadt-city-trail-5-5km-bad-reichenhall@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Alpenstadt City&Trail – Klosterhof Citytrail
+LOCATION:Bad Reichenhall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.5 km\nhttps://www.bad-reich
+ enhall.de/veranstaltungen-tickets/alpenstadt-city-trail
+TRANSP:TRANSPARENT
+URL:https://www.bad-reichenhall.de/veranstaltungen-tickets/alpenstadt-city
+ -trail
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-hollenberg-trail-trophy-5km-spirkelbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Höllenberg Trail-Trophy – Teens MTB Race
+LOCATION:Spirkelbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://www.htt-spirkel
+ bach.de/
+TRANSP:TRANSPARENT
+URL:https://www.htt-spirkelbach.de/
+END:VEVENT
+END:VCALENDAR

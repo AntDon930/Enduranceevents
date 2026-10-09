@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-schwarzwalder-mtb-cup-8-x-ehrenstetten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Schwarzwälder MTB Cup #8 – Cross-Country
+LOCATION:Ehrenstetten\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.rmsv-eh
+ renkirchen.de
+TRANSP:TRANSPARENT
+URL:http://www.rmsv-ehrenkirchen.de
+END:VEVENT
+END:VCALENDAR

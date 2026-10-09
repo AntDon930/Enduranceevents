@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-hoglworther-seelauf-13km-teisendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Höglwörther Seelauf – 13 km \, Klassiker seit 37 Jahren in maleris
+ cher Kulisse
+LOCATION:Teisendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.seelauf-t
+ eisendorf.de/
+TRANSP:TRANSPARENT
+URL:https://www.seelauf-teisendorf.de/
+END:VEVENT
+END:VCALENDAR

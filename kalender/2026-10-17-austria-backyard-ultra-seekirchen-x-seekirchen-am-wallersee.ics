@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-austria-backyard-ultra-seekirchen-x-seekirchen-am-wallersee
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261020
+SUMMARY:Austria Backyard Ultra - Seekirchen
+LOCATION:Seekirchen am Wallersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://austriaba
+ ckyardultra.com/
+TRANSP:TRANSPARENT
+URL:https://austriabackyardultra.com/
+END:VEVENT
+END:VCALENDAR

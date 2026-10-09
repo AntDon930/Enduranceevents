@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-38-karlsbader-volkslauf-10km-langensteinbach-karlsbad@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:38. Karlsbader Volkslauf
+LOCATION:Langensteinbach (Karlsbad)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.svl-leich
+ tathletik.de
+TRANSP:TRANSPARENT
+URL:https://www.svl-leichtathletik.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-zollnersee-berglauf-9km-weidenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Zollnersee Berglauf
+LOCATION:Weidenburg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://www.oeav-oberga
+ iltal.at/2024/02/06/berglauf/
+TRANSP:TRANSPARENT
+URL:https://www.oeav-obergailtal.at/2024/02/06/berglauf/
+END:VEVENT
+END:VCALENDAR

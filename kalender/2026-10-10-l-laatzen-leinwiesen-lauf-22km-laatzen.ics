@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-l-laatzen-leinwiesen-lauf-22km-laatzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:L³-Laatzen-Leinwiesen-Lauf – 22 km Halbmarathon (Giftener-See-Rund
+ e)
+LOCATION:Laatzen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 22 km\nhttps://my.raceresult
+ .com/381133/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/381133/
+END:VEVENT
+END:VCALENDAR

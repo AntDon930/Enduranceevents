@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-kreismeisterschaften-crosslauf-harburg-land-lune-x-wulfsen@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Kreismeisterschaften Crosslauf Harburg-Land & Lüneburg
+LOCATION:Wulfsen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49250/Kreismeisterschaften-Crosslauf-Pattensen-%28Winsen%29.ht
+ m
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49250/Kreismeisterschaften-Crossl
+ auf-Pattensen-%28Winsen%29.htm
+END:VEVENT
+END:VCALENDAR

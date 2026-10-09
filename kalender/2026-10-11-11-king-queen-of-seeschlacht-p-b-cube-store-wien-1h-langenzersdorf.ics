@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-11-king-queen-of-seeschlacht-p-b-cube-store-wien-1h-langenz
+ ersdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:11. King & Queen of Seeschlacht p.b. CUBE STORE - Wien Nord\, dein
+  BikeStore – Cyclocross 60 min
+LOCATION:Langenzersdorf\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://www.free-e
+ agle.at
+TRANSP:TRANSPARENT
+URL:https://www.free-eagle.at
+END:VEVENT
+END:VCALENDAR

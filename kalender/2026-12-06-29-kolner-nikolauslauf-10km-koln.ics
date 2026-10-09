@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-29-kolner-nikolauslauf-10km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:29. Kölner Nikolauslauf
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://koelner-nikol
+ auslauf.de/
+TRANSP:TRANSPARENT
+URL:https://koelner-nikolauslauf.de/
+END:VEVENT
+END:VCALENDAR

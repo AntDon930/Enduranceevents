@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-sv-schwindegg-ultralauf-6h-schwindegg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:SV Schwindegg Ultralauf – 6-Stunden-Lauf (Deutsche Meisterschaft d
+ er DUV)
+LOCATION:Schwindegg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttps://ultralauf.sv-sc
+ hwindegg.de/2026-vr-bank-lauf-deutsche-meisterschaften-im-6h-lauf/
+TRANSP:TRANSPARENT
+URL:https://ultralauf.sv-schwindegg.de/2026-vr-bank-lauf-deutsche-meisters
+ chaften-im-6h-lauf/
+END:VEVENT
+END:VCALENDAR

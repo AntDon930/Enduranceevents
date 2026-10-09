@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-25-murzer-oberland-naturpark-duathlon-x-neuberg@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:Mürzer Oberland Naturpark Duathlon – Duathlon (Termin vorläufig)
+LOCATION:Neuberg\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Duathlon\nLänge: -\nhttps://fun-sports.at/events/
+TRANSP:TRANSPARENT
+URL:https://fun-sports.at/events/
+END:VEVENT
+END:VCALENDAR

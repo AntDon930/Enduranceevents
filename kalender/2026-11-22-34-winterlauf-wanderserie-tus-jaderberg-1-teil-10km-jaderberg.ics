@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-34-winterlauf-wanderserie-tus-jaderberg-1-teil-10km-jaderbe
+ rg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:34. Winterlauf-/Wanderserie TuS Jaderberg 1.Teil
+LOCATION:Jaderberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://tusjaderberg.d
+ e
+TRANSP:TRANSPARENT
+URL:http://tusjaderberg.de
+END:VEVENT
+END:VCALENDAR

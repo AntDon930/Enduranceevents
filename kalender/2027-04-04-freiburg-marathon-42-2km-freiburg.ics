@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-freiburg-marathon-42-2km-freiburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Freiburg Marathon – Marathon
+LOCATION:Freiburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.mein-fr
+ eiburgmarathon.de
+TRANSP:TRANSPARENT
+URL:https://www.mein-freiburgmarathon.de
+END:VEVENT
+END:VCALENDAR

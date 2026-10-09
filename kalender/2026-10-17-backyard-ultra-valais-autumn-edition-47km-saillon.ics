@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-backyard-ultra-valais-autumn-edition-47km-saillon@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261020
+SUMMARY:Backyard Ultra Valais Autumn Edition
+LOCATION:Saillon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: 47 km\nhttps://backy
+ ardultravalais.ch
+TRANSP:TRANSPARENT
+URL:https://backyardultravalais.ch
+END:VEVENT
+END:VCALENDAR

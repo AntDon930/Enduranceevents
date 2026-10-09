@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-58-internationaler-schwarzwald-marathon-21km-braunlingen@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:58. Internationaler Schwarzwald-Marathon
+LOCATION:Bräunlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttp://www.schwarzwal
+ d-marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.schwarzwald-marathon.de
+END:VEVENT
+END:VCALENDAR

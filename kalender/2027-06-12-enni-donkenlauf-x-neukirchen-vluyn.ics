@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-enni-donkenlauf-x-neukirchen-vluyn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Enni-Donkenlauf
+LOCATION:Neukirchen-Vluyn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://as-neukirchen-vlu
+ yn.de/sportgruppen/donkenlauf/
+TRANSP:TRANSPARENT
+URL:https://as-neukirchen-vluyn.de/sportgruppen/donkenlauf/
+END:VEVENT
+END:VCALENDAR

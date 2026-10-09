@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-21-bramfelder-winterlaufserie-9-3km-bramfelder-see@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:Bramfelder Winterlaufserie – 2 Runden (9\,3 km)
+LOCATION:Bramfelder See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.3 km\nhttps://www.winterla
+ ufserie-hamburg.de/infos/
+TRANSP:TRANSPARENT
+URL:https://www.winterlaufserie-hamburg.de/infos/
+END:VEVENT
+END:VCALENDAR

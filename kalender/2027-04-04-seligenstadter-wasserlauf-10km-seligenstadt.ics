@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-seligenstadter-wasserlauf-10km-seligenstadt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Seligenstädter Wasserlauf – 10 km Lauf
+LOCATION:Seligenstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.seligenst
+ adt-wasserlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.seligenstadt-wasserlauf.de/
+END:VEVENT
+END:VCALENDAR

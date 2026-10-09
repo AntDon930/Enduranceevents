@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-hohenbuschei-lauf-20km-dortmund@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Hohenbuschei-Lauf
+LOCATION:Dortmund\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttp://www.hohenbusch
+ ei.info
+TRANSP:TRANSPARENT
+URL:http://www.hohenbuschei.info
+END:VEVENT
+END:VCALENDAR

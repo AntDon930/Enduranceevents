@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-6h-am-breitbrunnen-7-5km-unterkirnach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:6h am Breitbrunnen – Stundenrennen 7.5 km
+LOCATION:Unterkirnach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 7.5 km\nhttps://6h-am
+ -breitbrunnen.de/
+TRANSP:TRANSPARENT
+URL:https://6h-am-breitbrunnen.de/
+END:VEVENT
+END:VCALENDAR

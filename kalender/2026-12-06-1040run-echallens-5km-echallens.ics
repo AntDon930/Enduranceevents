@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-1040run-echallens-5km-echallens@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:1040RUN Echallens – 5 km Lauf für Erwachsene
+LOCATION:Echallens\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://ace-echallens.
+ ch/2026/03/16/1040run/
+TRANSP:TRANSPARENT
+URL:https://ace-echallens.ch/2026/03/16/1040run/
+END:VEVENT
+END:VCALENDAR

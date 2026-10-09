@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-heartbeat-ultra-112km-fulda@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Heartbeat Ultra – Bis zu 112 km als maximal mögliche Distanz.
+LOCATION:Fulda\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 112 km\nhttps://www.heartbea
+ t-ultra.de
+TRANSP:TRANSPARENT
+URL:https://www.heartbeat-ultra.de
+END:VEVENT
+END:VCALENDAR

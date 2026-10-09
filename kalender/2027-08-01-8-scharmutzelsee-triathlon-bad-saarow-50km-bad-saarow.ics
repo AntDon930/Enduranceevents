@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-8-scharmutzelsee-triathlon-bad-saarow-50km-bad-saarow@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:8. Scharmützelsee-Triathlon Bad Saarow
+LOCATION:Bad Saarow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 50 km\nhttps://scharmuetz
+ elsee-triathlon.de
+TRANSP:TRANSPARENT
+URL:https://scharmuetzelsee-triathlon.de
+END:VEVENT
+END:VCALENDAR

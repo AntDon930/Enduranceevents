@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-memmert-rothsee-triathlon-x-hilpoltstein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:Memmert Rothsee Triathlon – Sprint
+LOCATION:Hilpoltstein\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://rothsee-triath
+ lon.de/
+TRANSP:TRANSPARENT
+URL:https://rothsee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

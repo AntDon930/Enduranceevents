@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-17-alpentour-trophy-200km-schladming@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270617
+DTEND;VALUE=DATE:20270621
+SUMMARY:Alpentour Trophy – Etappenrennen 200 km
+LOCATION:Schladming\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://alpen-tour.
+ at
+TRANSP:TRANSPARENT
+URL:https://alpen-tour.at
+END:VEVENT
+END:VCALENDAR

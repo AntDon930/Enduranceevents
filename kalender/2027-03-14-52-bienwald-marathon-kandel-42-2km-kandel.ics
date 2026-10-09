@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-52-bienwald-marathon-kandel-42-2km-kandel@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:52. Bienwald-Marathon Kandel – Marathon
+LOCATION:Kandel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://bienwald-ma
+ rathon.de
+TRANSP:TRANSPARENT
+URL:https://bienwald-marathon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-hansbergland-cross-x-sankt-veit-im-muhlkreis@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Hansbergland Cross
+LOCATION:Sankt Veit im Mühlkreis\, Österreich
+DESCRIPTION:Sportart: Triathlon / Cross\nLänge: -\nhttps://seefest.info/cr
+ oss/
+TRANSP:TRANSPARENT
+URL:https://seefest.info/cross/
+END:VEVENT
+END:VCALENDAR

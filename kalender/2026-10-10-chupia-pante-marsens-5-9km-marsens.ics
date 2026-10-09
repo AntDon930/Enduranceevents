@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-chupia-pante-marsens-5-9km-marsens@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Chupià Pantè Marsens
+LOCATION:Marsens\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.9 km\nhttps://www.chupia.c
+ h
+TRANSP:TRANSPARENT
+URL:https://www.chupia.ch
+END:VEVENT
+END:VCALENDAR

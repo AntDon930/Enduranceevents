@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-swiss-irontrail-21-6km-surses@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270816
+SUMMARY:Swiss Irontrail – 21\,6 km T22 Bivio\, Bivio nach Bivio\, +/- 1 22
+ 9 m
+LOCATION:Surses\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21.6 km\nhttps://www.irontrai
+ l.ch/
+TRANSP:TRANSPARENT
+URL:https://www.irontrail.ch/
+END:VEVENT
+END:VCALENDAR

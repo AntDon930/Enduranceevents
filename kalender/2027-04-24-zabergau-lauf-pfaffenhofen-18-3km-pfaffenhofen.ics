@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-zabergau-lauf-pfaffenhofen-18-3km-pfaffenhofen@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:Zabergäu-Lauf Pfaffenhofen – Dinosaurier Challenge (380 hm)
+LOCATION:Pfaffenhofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.3 km\nhttps://zabergaeula
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://zabergaeulauf.de/
+END:VEVENT
+END:VCALENDAR

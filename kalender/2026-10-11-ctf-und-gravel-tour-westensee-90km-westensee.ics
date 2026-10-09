@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-ctf-und-gravel-tour-westensee-90km-westensee@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:CTF und Gravel-Tour Westensee – Gravel-Tour 90 km
+LOCATION:Westensee\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 90 km\nhttps://www.rbc-1894
+ .de/rbc-ctf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.rbc-1894.de/rbc-ctf-2026/
+END:VEVENT
+END:VCALENDAR

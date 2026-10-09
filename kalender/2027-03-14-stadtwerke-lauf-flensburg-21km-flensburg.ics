@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-stadtwerke-lauf-flensburg-21km-flensburg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:Stadtwerke-Lauf Flensburg – Halbmarathon - 21 km
+LOCATION:Flensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttps://stadtwerke-la
+ uf-flensburg.de/
+TRANSP:TRANSPARENT
+URL:https://stadtwerke-lauf-flensburg.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-ride-or-run-zum-kemptener-naturfreundehaus-5-6km-immenstadt
+ -i-allgau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Ride or Run zum Kemptener Naturfreundehaus – Hillclimb 5.6 km
+LOCATION:Immenstadt i. Allgäu\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 5.6 km\nhttps://www.tvi
+ mmenstadt-triathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.tvimmenstadt-triathlon.de
+END:VEVENT
+END:VCALENDAR

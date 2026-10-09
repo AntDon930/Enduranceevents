@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-18-lauf-durchs-schone-gailachtal-10km-monheim-warching@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:Lauf durchs schöne Gailachtal
+LOCATION:Monheim / Warching\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.lg-donau-r
+ ies.de
+TRANSP:TRANSPARENT
+URL:http://www.lg-donau-ries.de
+END:VEVENT
+END:VCALENDAR

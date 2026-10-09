@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-lauf-gegen-krebs-x-erlangen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Lauf gegen Krebs
+LOCATION:Erlangen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.sas-online.ne
+ t/eventportal_bs/837/
+TRANSP:TRANSPARENT
+URL:https://www.sas-online.net/eventportal_bs/837/
+END:VEVENT
+END:VCALENDAR

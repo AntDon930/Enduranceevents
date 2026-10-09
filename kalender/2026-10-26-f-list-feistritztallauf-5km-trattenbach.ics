@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-f-list-feistritztallauf-5km-trattenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:F/LIST Feistritztallauf – 5 km Hobbylauf (für Einsteiger und Wiede
+ reinsteiger)
+LOCATION:Trattenbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.feistritzt
+ allauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.feistritztallauf.at/
+END:VEVENT
+END:VCALENDAR

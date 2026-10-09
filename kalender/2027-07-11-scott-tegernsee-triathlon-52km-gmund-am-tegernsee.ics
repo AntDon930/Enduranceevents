@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-scott-tegernsee-triathlon-52km-gmund-am-tegernsee@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:SCOTT Tegernsee Triathlon
+LOCATION:Gmund am Tegernsee\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttps://tegernsee-
+ triathlon.de
+TRANSP:TRANSPARENT
+URL:https://tegernsee-triathlon.de
+END:VEVENT
+END:VCALENDAR

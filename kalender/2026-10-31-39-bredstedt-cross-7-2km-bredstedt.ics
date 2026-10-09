@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-39-bredstedt-cross-7-2km-bredstedt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:39. Bredstedt-Cross – 7200m
+LOCATION:Bredstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 7.2 km\nhttps://www.bredstedt
+ er-tsv.de/
+TRANSP:TRANSPARENT
+URL:https://www.bredstedter-tsv.de/
+END:VEVENT
+END:VCALENDAR

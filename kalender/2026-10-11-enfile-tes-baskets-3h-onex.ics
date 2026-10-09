@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-enfile-tes-baskets-3h-onex@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Enfile tes baskets – Le Défi 3h
+LOCATION:Onex\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 3 h\nhttps://enfiletesbasket
+ s.ch/
+TRANSP:TRANSPARENT
+URL:https://enfiletesbaskets.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-mauerweglauf-berlin-161km-berlin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270816
+SUMMARY:Mauerweglauf Berlin
+LOCATION:Berlin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 161 km\nhttps://www.100meile
+ n.de/
+TRANSP:TRANSPARENT
+URL:https://www.100meilen.de/
+END:VEVENT
+END:VCALENDAR

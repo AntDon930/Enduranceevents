@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-22-drachenlauf-26km-konigswinter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:22. Drachenlauf
+LOCATION:Königswinter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 26 km\nhttps://drachenlauf.n
+ et/
+TRANSP:TRANSPARENT
+URL:https://drachenlauf.net/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-22-rst-lubeck-o-ctf-76km-ratzeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:22. RST Lübeck O-CTF – CTF 76 km
+LOCATION:Ratzeburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 76 km\nhttps://www.rs
+ t-luebeck.de
+TRANSP:TRANSPARENT
+URL:https://www.rst-luebeck.de
+END:VEVENT
+END:VCALENDAR

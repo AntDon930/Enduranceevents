@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-46-krummenseelauf-15km-krummensee-mittenwalde@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:46. Krummenseelauf – 15 km Lauf für Frauen und Männer nach Altersk
+ lassen
+LOCATION:Krummensee (Mittenwalde)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.leichtath
+ letik-kw.de/
+TRANSP:TRANSPARENT
+URL:https://www.leichtathletik-kw.de/
+END:VEVENT
+END:VCALENDAR

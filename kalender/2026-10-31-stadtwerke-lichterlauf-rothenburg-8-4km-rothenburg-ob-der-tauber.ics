@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-stadtwerke-lichterlauf-rothenburg-8-4km-rothenburg-ob-der-t
+ auber@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Stadtwerke Lichterlauf Rothenburg
+LOCATION:Rothenburg ob der Tauber\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.4 km\nhttps://www.rothenbu
+ rgerlichterlauf.de
+TRANSP:TRANSPARENT
+URL:https://www.rothenburgerlichterlauf.de
+END:VEVENT
+END:VCALENDAR

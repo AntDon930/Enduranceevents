@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-pfingstlauf-ruhrschleife-4-6km-arnsberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270517
+SUMMARY:Pfingstlauf Ruhrschleife
+LOCATION:Arnsberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 4.6 km\nhttps://ruhrschleife-
+ lauf.de/
+TRANSP:TRANSPARENT
+URL:https://ruhrschleife-lauf.de/
+END:VEVENT
+END:VCALENDAR

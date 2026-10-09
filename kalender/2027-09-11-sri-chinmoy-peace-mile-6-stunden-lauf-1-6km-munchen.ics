@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-11-sri-chinmoy-peace-mile-6-stunden-lauf-1-6km-munchen@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Sri Chinmoy Peace-Mile 6-Stunden-Lauf
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1.6 km\nhttps://de.srichinmo
+ yraces.org/6-stunden-lauf-muenchen
+TRANSP:TRANSPARENT
+URL:https://de.srichinmoyraces.org/6-stunden-lauf-muenchen
+END:VEVENT
+END:VCALENDAR

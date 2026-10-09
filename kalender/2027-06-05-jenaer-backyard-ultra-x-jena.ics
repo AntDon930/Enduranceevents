@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-jenaer-backyard-ultra-x-jena@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Jenaer Backyard Ultra
+LOCATION:Jena\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://jenaerbac
+ kyardultra.de
+TRANSP:TRANSPARENT
+URL:https://jenaerbackyardultra.de
+END:VEVENT
+END:VCALENDAR

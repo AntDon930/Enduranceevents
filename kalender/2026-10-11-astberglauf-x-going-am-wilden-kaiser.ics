@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-astberglauf-x-going-am-wilden-kaiser@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Astberglauf
+LOCATION:Going am Wilden Kaiser\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 401692/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/401692/
+END:VEVENT
+END:VCALENDAR

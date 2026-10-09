@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-leipziger-frauenlauf-10km-leipzig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Leipziger Frauenlauf – 10 km Lauf
+LOCATION:Leipzig\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://leipzigerfrau
+ enlauf.de/
+TRANSP:TRANSPARENT
+URL:https://leipzigerfrauenlauf.de/
+END:VEVENT
+END:VCALENDAR

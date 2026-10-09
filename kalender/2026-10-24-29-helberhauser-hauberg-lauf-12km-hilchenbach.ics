@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-29-helberhauser-hauberg-lauf-12km-hilchenbach@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:29. Helberhäuser HauBerg-Lauf
+LOCATION:Hilchenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://tsg-helberhau
+ sen.de/schlagworte/hauberg-lauf
+TRANSP:TRANSPARENT
+URL:https://tsg-helberhausen.de/schlagworte/hauberg-lauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-wiener-herbstmarathon-21-1km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Wiener Herbstmarathon – Halbmarathon
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lcc-wie
+ n.at/index.php?option=com_content&view=article&id=748
+TRANSP:TRANSPARENT
+URL:https://www.lcc-wien.at/index.php?option=com_content&view=article&id=7
+ 48
+END:VEVENT
+END:VCALENDAR

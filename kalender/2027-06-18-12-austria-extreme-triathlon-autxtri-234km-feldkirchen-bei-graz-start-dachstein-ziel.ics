@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-12-austria-extreme-triathlon-autxtri-234km-feldkirchen-bei-
+ graz-start-dachstein-ziel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270621
+SUMMARY:12. Austria eXtreme Triathlon (autXtri) – Langdistanz 234 km
+LOCATION:Feldkirchen bei Graz (Start) → Dachstein (Ziel)\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 234 km\nhttps://www.autxt
+ ri.com
+TRANSP:TRANSPARENT
+URL:https://www.autxtri.com
+END:VEVENT
+END:VCALENDAR

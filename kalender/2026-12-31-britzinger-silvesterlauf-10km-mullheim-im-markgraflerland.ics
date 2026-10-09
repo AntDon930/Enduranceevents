@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-britzinger-silvesterlauf-10km-mullheim-im-markgraflerland@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Britzinger Silvesterlauf
+LOCATION:Müllheim im Markgräflerland\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://silvesterlauf
+ -britzingen.de/
+TRANSP:TRANSPARENT
+URL:https://silvesterlauf-britzingen.de/
+END:VEVENT
+END:VCALENDAR

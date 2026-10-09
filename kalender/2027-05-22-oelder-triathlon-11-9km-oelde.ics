@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-oelder-triathlon-11-9km-oelde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Oelder Triathlon – Schnupperdistanz 11\,9 km (200 m Schwimmen / 10
+  km Rad / 1\,7 km Laufen)
+LOCATION:Oelde\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 11.9 km\nhttps://www.lv-o
+ elde.de/de/triathlon/volkstriathlon/
+TRANSP:TRANSPARENT
+URL:https://www.lv-oelde.de/de/triathlon/volkstriathlon/
+END:VEVENT
+END:VCALENDAR

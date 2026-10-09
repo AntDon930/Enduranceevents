@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-04-11-schinderhanneslauf-15-5km-miehlen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:11. Schinderhanneslauf
+LOCATION:Miehlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.5 km\nhttps://tus-miehlen
+ .de/
+TRANSP:TRANSPARENT
+URL:https://tus-miehlen.de/
+END:VEVENT
+END:VCALENDAR

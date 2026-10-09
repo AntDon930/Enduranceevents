@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-gevattersee-marathon-42-2km-buckeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Gevattersee-Marathon
+LOCATION:Bückeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://jobst-von-pa
+ lombini.webnode.com
+TRANSP:TRANSPARENT
+URL:http://jobst-von-palombini.webnode.com
+END:VEVENT
+END:VCALENDAR

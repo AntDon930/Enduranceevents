@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-matschfuss-kiel-100km-kiel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Matschfuss Kiel – Gravel Tour 100 km
+LOCATION:Kiel\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 100 km\nhttps://plattfuss-p
+ odcast.de/pages/matschfuss-kiel-das-original
+TRANSP:TRANSPARENT
+URL:https://plattfuss-podcast.de/pages/matschfuss-kiel-das-original
+END:VEVENT
+END:VCALENDAR

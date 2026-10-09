@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-nattheimer-maultaschenlauf-10-1km-nattheim@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Nattheimer Maultaschenlauf – 10\,1 km für ältere Jugend und Erwach
+ sene
+LOCATION:Nattheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.1 km\nhttps://www.tsg-nat
+ theim.de
+TRANSP:TRANSPARENT
+URL:https://www.tsg-nattheim.de
+END:VEVENT
+END:VCALENDAR

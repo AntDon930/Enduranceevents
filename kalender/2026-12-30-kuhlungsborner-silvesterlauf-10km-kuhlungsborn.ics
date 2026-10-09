@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-30-kuhlungsborner-silvesterlauf-10km-kuhlungsborn@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:Kühlungsborner SilvesterLauf
+LOCATION:Kühlungsborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.kuehlungs
+ born.de/silvesterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.kuehlungsborn.de/silvesterlauf/
+END:VEVENT
+END:VCALENDAR

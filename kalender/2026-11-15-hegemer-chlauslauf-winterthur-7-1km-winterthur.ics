@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-hegemer-chlauslauf-winterthur-7-1km-winterthur@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Hegemer-Chlauslauf Winterthur
+LOCATION:Winterthur\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.1 km\nhttps://hegemer-chla
+ uslauf.ch
+TRANSP:TRANSPARENT
+URL:https://hegemer-chlauslauf.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-ruhr-trail-run-9km-hagen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Ruhr Trail Run – Discovery Trail 9 km (ca. 255 hm)
+LOCATION:Hagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://altra-ruhr-trai
+ l-run.de/
+TRANSP:TRANSPARENT
+URL:https://altra-ruhr-trail-run.de/
+END:VEVENT
+END:VCALENDAR

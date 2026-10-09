@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-limbacher-marktlauf-5km-limbach-oberfrohna@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Limbacher Marktlauf – 5 Kilometer Lauf
+LOCATION:Limbach-Oberfrohna\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.limbach-ob
+ erfrohna.de/de/sportveranstaltungen-detail/limbacher-marktlauf-205-156406
+ 1835.html
+TRANSP:TRANSPARENT
+URL:https://www.limbach-oberfrohna.de/de/sportveranstaltungen-detail/limba
+ cher-marktlauf-205-1564061835.html
+END:VEVENT
+END:VCALENDAR

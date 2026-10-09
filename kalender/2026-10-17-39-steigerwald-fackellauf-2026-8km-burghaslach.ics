@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-39-steigerwald-fackellauf-2026-8km-burghaslach@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:39. Steigerwald - Fackellauf 2026
+LOCATION:Burghaslach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.tsv-burgha
+ slach.de/2026/04/17/39-burghaslacher-fackellauf-2026/
+TRANSP:TRANSPARENT
+URL:https://www.tsv-burghaslach.de/2026/04/17/39-burghaslacher-fackellauf-
+ 2026/
+END:VEVENT
+END:VCALENDAR

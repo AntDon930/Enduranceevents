@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-lippeultratrail-50km-horn-bad-meinberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:LippeUltraTrail
+LOCATION:Horn-Bad Meinberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 50 km\nhttps://tsvleopoldstal
+ .de/Velmerstot-Volkslauf/LippeTrail
+TRANSP:TRANSPARENT
+URL:https://tsvleopoldstal.de/Velmerstot-Volkslauf/LippeTrail
+END:VEVENT
+END:VCALENDAR

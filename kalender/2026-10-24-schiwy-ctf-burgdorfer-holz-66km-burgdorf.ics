@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-schiwy-ctf-burgdorfer-holz-66km-burgdorf@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Schiwy CTF- Burgdorfer Holz – CTF 66 km
+LOCATION:Burgdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 66 km\nhttps://www.st
+ rava.com/clubs/216269/group_events/3522496098259338554/occurrences/FQIW9J
+ SUt7riteJhHBTUHxQUFDAUFBQAFAAAHBaA8OPOrWgAAA==
+TRANSP:TRANSPARENT
+URL:https://www.strava.com/clubs/216269/group_events/3522496098259338554/o
+ ccurrences/FQIW9JSUt7riteJhHBTUHxQUFDAUFBQAFAAAHBaA8OPOrWgAAA==
+END:VEVENT
+END:VCALENDAR

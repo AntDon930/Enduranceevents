@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-bokeler-6-stunden-lauf-6h-bokel@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Bokeler 6-Stunden-Lauf
+LOCATION:Bokel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 h\nhttp://bokelultra.de/
+TRANSP:TRANSPARENT
+URL:http://bokelultra.de/
+END:VEVENT
+END:VCALENDAR

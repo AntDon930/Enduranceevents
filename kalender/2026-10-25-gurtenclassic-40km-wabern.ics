@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-gurtenclassic-40km-wabern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:GurtenClassic – Jedermannrennen 40 km
+LOCATION:Wabern\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 40 km\nhttps://www.gurtencl
+ assic.ch
+TRANSP:TRANSPARENT
+URL:https://www.gurtenclassic.ch
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-1000-lights-run-crans-montana-x-crans-montana@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:1000 Lights Run - Crans-Montana
+LOCATION:Crans-Montana\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.mso.swiss/eve
+ nts/2590-1000-lights-run-crans-montana
+TRANSP:TRANSPARENT
+URL:https://www.mso.swiss/events/2590-1000-lights-run-crans-montana
+END:VEVENT
+END:VCALENDAR

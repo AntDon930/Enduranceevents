@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-tour-de-tirol-77km-soll@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261012
+SUMMARY:Tour de Tirol – 77 km Kaisermarathon Ultra\, 3.492 hm
+LOCATION:Söll\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 77 km\nhttps://www.tourdetiro
+ l.com/
+TRANSP:TRANSPARENT
+URL:https://www.tourdetirol.com/
+END:VEVENT
+END:VCALENDAR

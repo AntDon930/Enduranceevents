@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-springe-deister-marathon-21-1km-springe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Springe-Deister-Marathon – Halbmarathon - zwei Runden des Rundkurs
+ es
+LOCATION:Springe\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://verein.caus
+ eitsfun.de/index.php
+TRANSP:TRANSPARENT
+URL:https://verein.causeitsfun.de/index.php
+END:VEVENT
+END:VCALENDAR

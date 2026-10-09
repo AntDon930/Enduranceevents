@@ -1,0 +1,2276 @@
+{
+ "_readme": "Prüfprotokoll der Eventliste, die der Nutzer am 24.09.2026 als PDF geschickt hat ('Ausdauer-Events in der DACH-Region', Rad und Freiwasser-Schwimmen DE/AT je Bundesland, 247 Einträge). Jeder Eintrag wurde gegen die Veranstalterseite bzw. per Websuche geprüft. Ergebnisse: 'nachgetragen' = mit Termin 2027 (oder Rest 2026) in scripts/manual_events.json; 'im Bestand' = stand schon in events.json; 'existiert' = Veranstaltung real, aber der nächste Termin ist auf der Veranstalterseite noch nicht ausgeschrieben (nach dem nächsten Datenlauf bzw. im Frühjahr 2027 erneut prüfen); 'nicht gefunden' = keine Veranstaltung dieses Namens auffindbar (das PDF nennt selbst 'begrenztes Zeitbudget' - viele Bundesland-Einträge sind generische Platzhalter wie 'Ravensburger RTF', 108 der 145 deutschen Rad-Einträge zeigen nur auf das Portal radsport-events.de); dazu 'verwechselt', 'doppelt', 'kein Rennen'/'kein Wettkampf'/'kein Jedermann', 'Meisterschaft', 'eingestellt', 'abgesagt', 'ausgesetzt', 'außerhalb'. Die Domains des PDFs sind oft erfunden (zollernkoenig.de, bodensee-radmarathon.de, charitybikecup.de, onetwenty808.com, 24h-rennen-kelheim.de, sixdays-bremen.de, nockalmbike.at, oetscher-extrem-trophy.at ... existieren nicht) - die echte Adresse steht in 'url' bzw. in der Notiz.",
+ "stand": "2026-09-24",
+ "eintraege": [
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Alb-Extrem",
+   "domain_pdf": "alb-extrem.de",
+   "ergebnis": "existiert",
+   "notiz": "albextrem.de (die PDF-Domain alb-extrem.de ist leer): 28.06.2026 in Ottenbach, 5 Strecken 105-305 km; 2027 (Kalender nennen 27.06.2027) noch nicht auf der Veranstalterseite",
+   "url": "https://albextrem.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Zollernkönig Radmarathon (Tübingen)",
+   "domain_pdf": "zollernkoenig.de",
+   "ergebnis": "existiert",
+   "notiz": "RV Pfeil Tübingen: Tübinger RTF Zollernblick / Zollernkönig 05.07.2026, 207 km / 2.780 hm; zollernkoenig.de existiert nicht; 2027 offen",
+   "url": "https://www.rvpfeil-tuebingen.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Schwarzwaldkönig (Waldkirch)",
+   "domain_pdf": "schwarzwaldkoenig.de",
+   "ergebnis": "existiert",
+   "notiz": "Bergzeitfahren Waldkirch 12 km / 950 hm, 12.07.2026; Seite aus der Sandbox nicht erreichbar (503); 2027 offen",
+   "url": "https://schwarzwaldkoenig.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Bodensee-Radmarathon (Meersburg/Konstanz)",
+   "domain_pdf": "bodensee-radmarathon.de",
+   "ergebnis": "existiert",
+   "notiz": "bodensee-radmarathon.ch (RV Altenrhein, CH; die PDF-Domain .de existiert nicht): 53. Auflage 12.09.2026 mit Startorten Meersburg, Kressbronn, Altenrhein, Tägerwilen, Stein am Rhein; 2027 offen",
+   "url": "https://bodensee-radmarathon.ch/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Bad Waldsee Radmarathon",
+   "domain_pdf": "radmarathon-bad-waldsee.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (26.09.2026, 80/205 km, badwaldsee-radmarathon.de; die PDF-Domain existiert nicht)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Flugfeld Giro (Böblingen)",
+   "domain_pdf": "flugfeld-giro.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "11.07.2027 (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Lila Logistik Charity Bike Cup (Ditzingen)",
+   "domain_pdf": "charitybikecup.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "03.10.2026 Ditzingen-Heimerdingen, 76 km Race / 57 km Tour, charity (manual_events.json); offizielle Domain charity-bike-cup.de, die PDF-Domain existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Bottwartal-Radmarathon",
+   "domain_pdf": "bottwartal-radmarathon.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Radmarathon dieses Namens auffindbar (der Bottwartal-Marathon ist ein Lauf); Domain existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Nuclearban Marathon (Bretten)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "nuclearban-tour.de (RSC Bretten): sportliche Demonstration im geschlossenen Verband, 300 km am 08.08.2026 (vorbei); 2027 offen",
+   "url": "https://nuclearban-tour.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Heckengäu Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Hohenlohe RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Kraichgau Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Möhringer Radmarathon (Stuttgart)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Strohgäu RTF (Ditzingen)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Zabergäu RTF (Brackenheim)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Ravensburger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Reutlinger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Freiburger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Öschelbronner RTF (Ölbronn-Dürrn)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs (bei 'Kraichgau' gibt es die RTF des RSV Victoria Rot 'Kraichgau-Stromberg-Heuchelberg-Rundfahrt', Ende Juni)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": null,
+   "name": "Deutschland Tour Jedermann (Heilbronn)",
+   "domain_pdf": "deutschland-tour.com",
+   "ergebnis": "existiert",
+   "notiz": "deutschland-tour.com: 2027 als 'ADAC Cycling Tour', Jedermannrennen dazu noch nicht ausgeschrieben",
+   "url": "https://www.deutschland-tour.com/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Arber-Radmarathon (Regensburg/Bayerischer Wald)",
+   "domain_pdf": "bayernbike.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (25.07.2027, 56/250 km, arberradmarathon.de); bayernbike.de ist ein Radwege-Portal, keine Veranstalterseite"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Jura-Radmarathon",
+   "domain_pdf": "bayernbike.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "20.06.2027 Lupburg (manual_events.json, ohne Länge)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Altmühltal-Radmarathon (Beilngries)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "altmuehltal-radmarathon.de: 16.05.2026 Beilngries, Straße ca. 120/150/200 km, Gravel 60/90/120 km; 2027 offen",
+   "url": "https://altmuehltal-radmarathon.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "designOn Allgäu-Radmarathon (Isny)",
+   "domain_pdf": "allgaeu-radmarathon.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "08.05.2027 Isny, 80/122/206 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "ONE TWENTY 808 (Sonthofen)",
+   "domain_pdf": "onetwenty808.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "RAD RACE ONE TWENTY 13.06.2027 Sonthofen, 126 km (manual_events.json); Domain 808project.de, onetwenty808.com existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Großer Preis von Eching",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "Großer Preis von Eching (Schranz 04 e.V.) 24.05.2026, Jedermann; 2027 offen; laut turbo-sport-Kalender kein BRV-Timing-Rennen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "24h-Rennen Kelheim",
+   "domain_pdf": "24h-rennen-kelheim.de",
+   "ergebnis": "existiert",
+   "notiz": "race-24.de (RSC Kelheim): 11./12.07.2026 vorbei; 2027 laut Stadt Kelheim/bayernbike 10./11.07.2027, auf der Veranstalterseite noch nicht (Anmeldung ab 01.12.2026) - offen",
+   "url": "https://www.race-24.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Further Land-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Radmarathon dieses Namens auffindbar"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Frankenhöhe RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag; die RSG Würzburg fährt die 'Franken-Tour RTF' (07.06.2026, Ochsenfurt)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Fichtelgebirgs-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "verwechselt",
+   "notiz": "gemeint ist wohl der Fichtelberg Radmarathon (Chemnitz, Sachsen) - nachgetragen unter Sachsen; einen Fichtelgebirgs-Radmarathon gibt es nicht (der 'Fichtelgebirgsmarathon' ist ein Lauf)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Chiemgau-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag (der 'Chiemgau-King' ist eine MTB-Tour ohne Termin, der Rosenheimer Radmarathon eine andere Veranstaltung)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Ammersee-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Würzburger Residenz-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Rund um den Hesselberg (Mittelfranken)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "Tour de Hesselberg (August, Wassertrüdingen): 82 km Rennen, 3 RTF-Strecken 30-90 km; 2027 offen",
+   "url": "https://www.tour-de-hesselberg.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Berchtesgadener Land RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Erlanger Bergrad-Marathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Nürnberger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Passauer Dreiflüsse-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Rennsteig-Radmarathon Grenzland (Oberfranken)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "verwechselt",
+   "notiz": "der Grenzland-Radmarathon liegt in Auerbach/Vogtland (Sachsen), die Domain grenzland-radmarathon.de ist inzwischen eine Spam-Seite; 2027 offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Tegernsee-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens - generischer Platzhalter des PDFs"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Berlin",
+   "name": "Rund um Berlin (BRV Radmarathon)",
+   "domain_pdf": "brv-breitensport.de",
+   "ergebnis": "nicht geprüft",
+   "notiz": "brv-breitensport.de verbietet die Übernahme (README) - nicht gelesen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Berlin",
+   "name": "VeloCity Berlin",
+   "domain_pdf": "radsport-rennrad.de",
+   "ergebnis": "ausgesetzt",
+   "notiz": "der Veranstalter SCC hat VeloCity 2025 und 2026 ausgesetzt",
+   "url": "https://velocity.berlin/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Berlin",
+   "name": "Sternfahrt Berlin (ADFC, Volksradfahren)",
+   "domain_pdf": "adfc-berlin.de",
+   "ergebnis": "kein Sportevent",
+   "notiz": "ADFC-Fahrraddemonstration, kein Ausdauer-Event"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Rund um Berlin (Start/Ziel oft in Brandenburg)",
+   "domain_pdf": "brv-breitensport.de",
+   "ergebnis": "nicht geprüft",
+   "notiz": "brv-breitensport.de verbietet die Übernahme (README) - nicht gelesen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Spreewald-Marathon (Lübbenau)",
+   "domain_pdf": "spreewaldmarathon.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "Radmarathon 200 km + Radtouren ab Lübbenau und Burg am 24.04.2027 (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Velotour Dresden–Berlin (Etappenziel)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Havelland-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Fläming-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Uckermark-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Potsdamer RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Barnim-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bremen",
+   "name": "GFNY Bremen",
+   "domain_pdf": "gfny.com/bremen",
+   "ergebnis": "nicht gefunden",
+   "notiz": "gfny.com/bremen ist 404 - kein GFNY in Bremen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bremen",
+   "name": "Offene Bremer Kriteriums-Meisterschaft (OBKM)",
+   "domain_pdf": "obkm.de",
+   "ergebnis": "existiert",
+   "notiz": "obkm.de: Trainingsrennen-Serie in Bremen (Jedermänner/Einsteiger), 2026 gelaufen; 2027 offen",
+   "url": "https://obkm.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Bremen",
+   "name": "Bremer Sechstagerennen (mit Jedermann-Rahmenprogramm)",
+   "domain_pdf": "sixdays-bremen.de",
+   "ergebnis": "kein Jedermann",
+   "notiz": "Sixdays Bremen 15.-18.01.2027 ist ein Bahnrennen für Profis (sixdays.de); ein Jedermann-Rahmenprogramm ist nicht ausgeschrieben; sixdays-bremen.de existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hamburg",
+   "name": "ADAC Cyclassics Hamburg (Jedermann-Distanzen)",
+   "domain_pdf": "cyclassics-hamburg.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (15.08.2027, 110 km)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hamburg",
+   "name": "Hamburg Skyline Cycle Tour",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Eschborn–Frankfurt (Jedermannlauf)",
+   "domain_pdf": "eschborn-frankfurt.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (Jedermannrennen 01.05.2027, 97 km)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Rhön-Radmarathon (Bimbach)",
+   "domain_pdf": "rhoen-radmarathon.de",
+   "ergebnis": "existiert",
+   "notiz": "rhoen-radmarathon.de: Pfingsten 23./24.05.2026, Touren 52-258 km; 2027 offen",
+   "url": "https://www.rhoen-radmarathon.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "ADAC Velotour Frankfurt",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "die Velotour ist das Jedermann-Rennen von Eschborn-Frankfurt (im Bestand); eigene Distanzen 2027 noch nicht ausgeschrieben"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Odenwald-Marathon (Rodgau)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "Radtourentag Odenwald (Sportfreunde Rodgau) 06.05.2027 (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Bonnet-Radmarathon (Wenigumstadt)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "rsv-wenigumstadt.de: BONNET-Radmarathon 214 km / 2.490 hm, Seite zeigt 2026; 2027 (Kalender: 30.05.2027) noch nicht auf der Veranstalterseite",
+   "url": "https://rsv-wenigumstadt.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Vogelsberg-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Taunus-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Marburger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Kasseler RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Wetterau-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Lahntal-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Spessart-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Bergstraßen-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Rostocker Jedermann-Radrennen",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "jedermann-radrennen.de: 1. Rostocker Jedermann Radrennen 19.04.2026 (45/63 km); 2027 offen",
+   "url": "https://www.jedermann-radrennen.de/rostock/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "OstSeenRoller Marathon (Schwerin)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Schweriner Jedermann-Radrennen",
+   "domain_pdf": "endure-cycling.com",
+   "ergebnis": "existiert",
+   "notiz": "jedermann-radrennen.de: 11. Schweriner Jedermann Radrennen 13.09.2026; 2027 offen",
+   "url": "https://www.jedermann-radrennen.de/schwerin/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Mecklenburger Seenrunde (Neubrandenburg)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "Websuche: 28.-29.05.2027, 300 km, Neubrandenburg; mecklenburger-seenrunde.de aus der Sandbox nicht erreichbar - nicht belegt"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Velotour Dresden-Berlin-Ostseeküste (Etappenziel)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Rügen-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "verwechselt",
+   "notiz": "Rügen Rund Tour (Sellin, 87/244 km): 05.06.2027 nur als Prognose (hdsports), Veranstalterseite nicht gefunden - offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Usedom-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Tour d'Energie (Göttingen)",
+   "domain_pdf": "tourdenergie.de",
+   "ergebnis": "existiert",
+   "notiz": "tourdenergie.de (Göttingen, 100 km / kurze Runde), Anmeldung jeweils ab 07.01.; 2027-Termin noch nicht auf der Seite",
+   "url": "https://www.tourdenergie.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "BEAST of Bramsche",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "12.06.2027 Bramsche, 240/120 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Lehrter RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Rund um den Harz (Greene)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "03.04.2027 Greene, 297/145 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Bremer Umland-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Wilhelmshavener RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Weserbergland-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Ostfriesland-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Heide-RTF (Lüneburger Heide)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Hannover-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Wolfsburger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Emsland-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Rund um Köln",
+   "domain_pdf": "rundumkoeln.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "23.05.2027, Velodom 120/60 (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "RTF Erkelenz",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "27.05.2027 (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Düsseldorf 300",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "Langstreckenformat (2023 belegt), kein 2027-Termin auffindbar"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Burning Roads (Ochtrup)",
+   "domain_pdf": "burningroads.de",
+   "ergebnis": "existiert",
+   "notiz": "burningroads.de: 20 Jahre Burning Roads am 26.06.2027 in Ochtrup, 210/330 km in Brevet-Form (Einschreibung 25./26.06.) - nachgetragen",
+   "url": "https://burningroads.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Bergisches Land-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Sauerland-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Eifel-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Münsterland-Giro",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (03.10.2026, 100 km Jedermann)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Ruhrgebiets-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Siegerland-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Teutoburger-Wald-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Aachener RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Bonn-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Dortmunder RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Wuppertaler Bergrad-Marathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Rad am Ring (Nürburgring)",
+   "domain_pdf": "radamring.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "23.-25.07.2027 Nürburgring: 24h, Jedermann 75 km, 22-km-Zeitfahren (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "GFNY Grand Ballon (Etappenanteil Grenzregion)",
+   "domain_pdf": "gfny.com",
+   "ergebnis": "außerhalb",
+   "notiz": "Frankreich (Vogesen), nicht im Gebiet"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Nahe-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Moseltal-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Pfälzerwald-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Hunsrück-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Rheinhessen-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Westerwald-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Eifel-Rundfahrt Jedermann (RLP-Teil)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Saarland",
+   "name": "Saarland-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Saarland",
+   "name": "Saarschleifen-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Saarland",
+   "name": "Bliesgau-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "PŸUR Neuseen Classics (Leipzig)",
+   "domain_pdf": "neuseenclassics.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "13.06.2027 Leipzig, 60/100 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Fichtelberg-Radmarathon (Chemnitz/Erzgebirge)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "06.06.2027 Chemnitz, ca. 90 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "VelOschatz Bikefestival (Oschatz)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "veloschatz.de: Bikefestival Pfingsten 21.-24.05.2026 (mit WUAC-EM Ultracycling); 2027 offen",
+   "url": "https://veloschatz.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Erzgebirgstour (Crottendorf)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "erzgebirgstour.de: 23.08.2026 Crottendorf, 90 km / 2.200 hm Eintagesrennen (dreijährige Serie ab 2026); 2027 offen",
+   "url": "https://www.erzgebirgstour.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Velotour Dresden–Berlin",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Dresdner RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Vogtland-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Leipziger RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Zittauer Gebirge-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Chemnitzer RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Rund um den Dom (Magdeburg)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "rundumdendom.de: 06.06.2026 Magdeburg, Hobby- und Jedermannrennen 15-46 km auf dem 1,9-km-Rundkurs; 2027 offen",
+   "url": "https://rundumdendom.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Harz-Radmarathon (Sachsen-Anhalt-Teil)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "Harzer Radmarathon 26.06.2027 Halberstadt, Touren 44-303 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Rund um den Sonnenstein (Jützenbach)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Saale-Unstrut-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Altmark-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Halberstädter RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Northern Light Road Ultra (Kaltenkirchen)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "nl-rg.de: Northern Light(s) Road Ultra Appetizer 500, 11.-13.09.2026 Kaltenkirchen, 500 km (vorbei); 2027 offen",
+   "url": "https://nl-rg.de/road/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Nordcup-Radmarathon",
+   "domain_pdf": "nordcup-radmarathon.de",
+   "ergebnis": "existiert",
+   "notiz": "nordcup-radmarathon.de nennt die Events 2027 (25.04. Ostholstein Extrem, 02.05. Nordsee Radmarathon Husum, 09.05. Holsteiner Pfeil XXL Malente, 23.05. RTF VfL Stade, 06.06. Bike Challenge Mittelholstein Nortorf, 27.06. Viking Bike Challenge Schleswig, 08.08. Holsteiner Wellenritt Kattenberg, 22.08. Kanalfahrt Rendsburg, 05.09. Marathon to Hell St. Pauli) - Nortorf nachgetragen, die anderen ohne Strecken/Startort beim Veranstalter noch nicht ausgeschrieben",
+   "url": "https://www.nordcup-radmarathon.de/events-2027/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Cycling Paradise Sylt (Wenningstedt)",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "kein Rennen",
+   "notiz": "cycling-paradise.com: Vintage-Ausfahrten ('keine Rennen, sondern gemeinsame Erlebnisse'), Inselumrundung 28.08.2027"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Lübecker RTF",
+   "domain_pdf": "rst-luebeck.de",
+   "ergebnis": "existiert",
+   "notiz": "RST Lübeck (rst-luebeck.de): RTF/CTF-Termine 2026, Ostholstein Extrem 25.04.2027 im Nordcup; Details 2027 offen",
+   "url": "https://rst-luebeck.de/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Kieler RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Holsteinische-Schweiz-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Fehmarn-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Schleizer Dreieck Jedermann (Rahmenprogramm)",
+   "domain_pdf": "schleizer-dreieck.de",
+   "ergebnis": "kein Jedermann",
+   "notiz": "Motorsport-Rennstrecke; ein Jedermann-Radrennen ist nicht ausgeschrieben"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Everesting Challenge Oberhof",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "existiert",
+   "notiz": "everesting.de: Premiere 07.06.2026 Oberhof (8.848 hm, auch Teilstrecken und Staffeln); 2027 'geplant für Juli', kein Datum",
+   "url": "https://everesting.de/everesting-challenge-oberhof/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Rennsteig-Radmarathon",
+   "domain_pdf": "rennsteig-radmarathon.de",
+   "ergebnis": "verwechselt",
+   "notiz": "rennsteig-radmarathon.de existiert nicht; gemeint ist wohl der RennsteigRide (MTB 16-100 km, Veranstalter des Rennsteiglaufs), 2027 offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Thüringer-Wald-RTF",
+   "domain_pdf": "thueringer-wald.com",
+   "ergebnis": "nicht gefunden",
+   "notiz": "thueringer-wald.com ist das Tourismusportal, keine RTF dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Erfurter RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Kyffhäuser-Radmarathon",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Saaletal-RTF",
+   "domain_pdf": "radsport-events.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "Websuche findet keine Veranstaltung dieses Namens"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Burgenland",
+   "name": "Neusiedlersee Radmarathon",
+   "domain_pdf": "neusiedlersee-radmarathon.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "25.04.2027 Mörbisch, 73 km + 40 km Gravel (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Burgenland",
+   "name": "Burgenland Extrem Radmarathon",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "auf radmarathon.at gelistet (radmarathon.at verbietet die Übernahme, README); 2027 offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "ARBÖ Kärnten Radmarathon (Bad Kleinkirchheim/Nockberge)",
+   "domain_pdf": "kaernten-radmarathon.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "06.06.2027 Bad Kleinkirchheim, 106/50 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Glocknerkönig (Großglockner Hochalpenstraße)",
+   "domain_pdf": "glocknerkoenig.com",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (06.06.2027)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Nockalmbike (Nockalmstraße)",
+   "domain_pdf": "nockalmbike.at",
+   "ergebnis": "verwechselt",
+   "notiz": "= ARBÖ Kärnten Radmarathon über die Nockalmstraße (nachgetragen); nockalmbike.at existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Jedermannradcup (RC Feld am See)",
+   "domain_pdf": "rc-feldamsee.at",
+   "ergebnis": "existiert",
+   "notiz": "Kärnten Sport Jedermannradcup (RC Feld am See, mehrere Bergpreise); Termine 2027 offen",
+   "url": "https://www.rc-feldamsee.at/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Wachau Radmarathon (Mautern)",
+   "domain_pdf": "wachau-radmarathon.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "18.07.2027 Mautern, 53,2/105/202 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Race Around Niederösterreich (RAN, Weitra)",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "28./29.05.2027 Weitra, 600 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Ötscher Extrem Trophy (MTB-Marathon)",
+   "domain_pdf": "oetscher-extrem-trophy.at",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein MTB-Marathon dieses Namens (der Ötscher Trail ist ein Lauf); Domain existiert nicht"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Voralpen Marathon (MTB, St. Veit a. d. Gölsen)",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "Voralpen MTB-Marathon St. Veit an der Gölsen laut radmarathon.at; 2027 offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Mondsee 5 Seen Radmarathon (Salzkammergut)",
+   "domain_pdf": "mondsee-radmarathon.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "20.06.2027, 200/140/75 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Granitmarathon (Kleinzell/Mühlviertel)",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "granitmarathon.at: MTB, Pfingsten (2026: 23./24.05.); 2027 offen",
+   "url": "https://www.granitmarathon.at/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Salzkammergut Trophy (MTB, mit Jedermann-Strecken)",
+   "domain_pdf": "salzkammergut-trophy.at",
+   "ergebnis": "existiert",
+   "notiz": "salzkammergut-trophy.at: Anmeldung 2027 offen, Termin auf der Seite nicht genannt (2026: 18.07.); MTB-Marathon",
+   "url": "https://www.salzkammergut-trophy.at/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Kufsteinerland Radmarathon (grenznah OÖ/Tirol)",
+   "domain_pdf": "kufsteinerland-radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "kufsteinerland-radmarathon.at: 10. Auflage 23.08.2026 (48/95/120 km); 2027 offen",
+   "url": "https://www.kufsteinerland-radmarathon.at/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Salzburg",
+   "name": "Rad am Salzburgring",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Salzburg",
+   "name": "Glocknerkönig (Großglockner Hochalpenstraße)",
+   "domain_pdf": "glocknerkoenig.com",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (06.06.2027)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Steiermark",
+   "name": "Planai Classic (Schladming)",
+   "domain_pdf": "planai.at",
+   "ergebnis": "nicht gefunden",
+   "notiz": "planai.at ist die Bergbahn; keine Veranstaltung dieses Namens auffindbar"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Steiermark",
+   "name": "Ultra Rad Challenge Oststeiermark",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "auf radmarathon.at gelistet; 2027 offen"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Steiermark",
+   "name": "Bike around the Lake (Maria Lankowitz)",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "crazy-cross-biker.at: Stundenrennen (1 h / 3 h) am Pibersteiner See, 18.04.2026; 2027 offen",
+   "url": "https://www.crazy-cross-biker.at/bikearoundthelake/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Ötztaler Radmarathon",
+   "domain_pdf": "oetztaler-radmarathon.at",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (29.08.2027, 227 km)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Race Across the Alps (Arlberg–Kühtai)",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "existiert",
+   "notiz": "kein 2027-Termin auffindbar"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Dolomitenradrundfahrt (Osttirol/Lienz)",
+   "domain_pdf": "dolomitenradrundfahrt.at",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (13.06.2027)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Kitzbüheler Radmarathon",
+   "domain_pdf": "kitzbueheler-radmarathon.at",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (05.09.2027, 216 km)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Rad-Marathon Tannheimer Tal",
+   "domain_pdf": "rad-marathon.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "04.07.2027, 66/103/138/214 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Imster Radmarathon",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "23.05.2027 Imst (manual_events.json, ohne Länge)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Bike Transalp (Etappe Lienz–Sillian, Osttirol)",
+   "domain_pdf": "biketransalp.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "biketransalp.de ist 404; kein 2027-Termin auffindbar"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Vorarlberg",
+   "name": "Arlberg Giro (St. Anton am Arlberg)",
+   "domain_pdf": "arlberg-giro.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "01.08.2027 St. Anton, 150 km (manual_events.json)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Vorarlberg",
+   "name": "Montafon Mountainbike Marathon",
+   "domain_pdf": "radmarathon.at",
+   "ergebnis": "eingestellt",
+   "notiz": "M3 Montafon Mountainbike Marathon macht 2027 Pause (letzte Ausgabe 01.08.2026)"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Wien",
+   "name": "Sophienalpen Classic",
+   "domain_pdf": "bikeboard.at",
+   "ergebnis": "existiert",
+   "notiz": "Premiere 11.09.2026 (Bergrennen Wien-Penzing), 2027 angekündigt ohne Datum",
+   "url": "https://www.on-fahrrad.at/sophienalpenclassic/"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Wien",
+   "name": "Tour durch Wien",
+   "domain_pdf": "tourdurchwien.at",
+   "ergebnis": "kein Rennen",
+   "notiz": "tourdurchwien.at: 3,5-wöchige Charity-Tour (450+ km), keine Tagesveranstaltung"
+  },
+  {
+   "sport": "Radfahren",
+   "land": "Österreich",
+   "bundesland": "Wien",
+   "name": "Bike Festival Wien",
+   "domain_pdf": "bikefestival.at",
+   "ergebnis": "kein Rennen",
+   "notiz": "Fahrradmesse am Rathausplatz 10./11.04.2027"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Bodensee-Wasserquerung Konstanz–Meersburg (Q5)",
+   "domain_pdf": "bodensee-openwater.com",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (Bodensee Openwater Konstanz 26.06.2027)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Bodensee-Wasserquerung Dingelsdorf–Überlingen (Q2,5)",
+   "domain_pdf": "bodensee-openwater.com",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (Bodensee Openwater Wallhausen 28.08.2027, 2,5/5 km)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Bodensee-Wasserquerung Friedrichshafen–Romanshorn",
+   "domain_pdf": "bodensee-openwater.com",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (Bodensee Openwater Friedrichshafen 31.07.2027, 11 km)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Seeschwimmen Iznang–Radolfzell",
+   "domain_pdf": "bodensee-openwater.com",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Bodensee-Openwater-Termin dieses Namens"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Neckar-Schwimmen Ludwigsburg",
+   "domain_pdf": "schwimmkalender.de",
+   "ergebnis": "existiert",
+   "notiz": "Schwimmverein Ludwigsburg (Sommer) bzw. DLRG-Neujahrsschwimmen; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Wien",
+   "name": "Freiwasserschwimmen Heddesheim",
+   "domain_pdf": "heddesheim-schwimmen.de",
+   "ergebnis": "existiert",
+   "notiz": "SG Heddesheim: Jedermannschwimmen im Rahmen der BW-/Süddeutschen Freiwassermeisterschaften 04./05.07.2026; 2027 offen",
+   "url": "https://heddesheim-schwimmen.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Chiemsee-Schwimmen (Übersee–Fraueninsel)",
+   "domain_pdf": "chiemsee-schwimmen.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "Chiemsee Langstreckenschwimmen 05.09.2027 Übersee, 4,5 km (manual_events.json); chiemsee-schwimmen.de steht zum Verkauf"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Starnberger See Schwimmen (Possenhofen–Leoni)",
+   "domain_pdf": "starnbergersee-schwimmen.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "01.08.2027, 2/4 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Starnberger See Längsquerung (Wasserwacht Ammerland)",
+   "domain_pdf": "wasserwacht-ammerland.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "wasserwacht-ammerland.de ist leer; keine Ausschreibung auffindbar"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Hans-Metzner-Schwimmen (Lindau, Bodensee)",
+   "domain_pdf": "schwimmkalender.de",
+   "ergebnis": "existiert",
+   "notiz": "Kreiswasserwacht Lindau, Sonntag im August; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Lindauer Seequerung",
+   "domain_pdf": "schwimmkalender.de",
+   "ergebnis": "existiert",
+   "notiz": "Lindauer Schwimmer: 2027 geplant, Termin offen",
+   "url": "https://www.lindauerschwimmer.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Alpseeschwimmen Immenstadt (Allgäu)",
+   "domain_pdf": "schwimmkalender.de",
+   "ergebnis": "existiert",
+   "notiz": "TV Immenstadt Triathlon: 950/1900/3800/7600 m, 2025 ausgefallen, 2026 in Planung; 2027 offen",
+   "url": "http://www.alpseeschwimmen.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Münchner Langstreckenschwimmen (Oberschleißheim)",
+   "domain_pdf": "svfw.net",
+   "ergebnis": "existiert",
+   "notiz": "schwimmen-muenchen.de (Active Concepts, Regattastrecke Oberschleißheim, 1/4 km): 29./30.08.2026 vorbei; 2027 offen; svfw.net ist der Verein Fürstenfeldbruck",
+   "url": "https://www.schwimmen-muenchen.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Bayerncup 1. Durchgang, Lieblsee Parkstetten",
+   "domain_pdf": "bayerischer-schwimmverband.de",
+   "ergebnis": "existiert",
+   "notiz": "Freiwassercup Bayern 1. Durchgang Lieblsee Parkstetten (2026: 06.06.); 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Bayerncup 2. Durchgang, Wöhrsee Burghausen",
+   "domain_pdf": "bayerischer-schwimmverband.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "Freiwassercup Burghausen 31.07.2027, 3,8 km (manual_events.json, Termin aus dem Alpen Open Water Cup)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bayern",
+   "name": "Ammersee-Schwimmen (3 km)",
+   "domain_pdf": "schwimmkalender.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "kein Eintrag (die Termine 2027 auf schwimmkalender.de kommen erst im Frühjahr)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Berlin",
+   "name": "Norddeutsche und Berliner Freiwassermeisterschaften",
+   "domain_pdf": "schwimmen.berlin",
+   "ergebnis": "Meisterschaft",
+   "notiz": "Norddeutsche/Berliner Freiwassermeisterschaften sind keine Jedermann-Veranstaltung (Datenregel 22)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Berlin",
+   "name": "Freiwasserschwimmen Gorinsee (Berlin/Brandenburg-Grenzgebiet)",
+   "domain_pdf": "personaltraining-berlin-katjawaechter.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "personaltraining-berlin-katjawaechter.de: Freiwasser-TRAININGS (90 Minuten, 49 Euro), kein Wettkampf"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Freiwasserschwimmen Senftenberger See",
+   "domain_pdf": "freiwasserschwimmen-senftenberg.de",
+   "ergebnis": "existiert",
+   "notiz": "2. Freiwasserschwimmen Senftenberger See 16.08.2026 (vorbei); 2027 offen",
+   "url": "https://freiwasserschwimmen-senftenberg.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Freiwasserschwimmen Liepnitzsee",
+   "domain_pdf": "personaltraining-berlin-katjawaechter.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "dito - Trainingsangebot"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Brandenburg",
+   "name": "Brückenschwimmen Brandenburg (Havel, DLRG)",
+   "domain_pdf": "sv-brandenburg.dlrg.de",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Brandenburg: 33. Brückenschwimmen 01.08.2026 (vorbei; 2025 ausgefallen); 2027 offen",
+   "url": "https://sv-brandenburg.dlrg.de/brueckenschwimmen/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Bremen",
+   "name": "Sparkasse Bremen Swim&Run; am Werdersee",
+   "domain_pdf": "werdersee-swim-run.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (Sparkasse Bremen Swim & Run am Werdersee 05.06.2027)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hamburg",
+   "name": "Freiwasserschwimmtraining an der Alster (Triabolos)",
+   "domain_pdf": "triabolos.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "Vereinstraining des Triabolos e.V., kein Event"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hamburg",
+   "name": "Freiwasserschwimmtraining an der Dove Elbe (Triabolos)",
+   "domain_pdf": "triabolos.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "Vereinstraining des Triabolos e.V., kein Event"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hamburg",
+   "name": "Freiwasser-Angebot Poseidon Hamburg",
+   "domain_pdf": "poseidon-hamburg.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "Vereinsangebot"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Neujahrsschwimmen am Edersee",
+   "domain_pdf": "edertal.de",
+   "ergebnis": "kein Wettkampf",
+   "notiz": "Neujahrs-Anbaden der Gemeinde Edertal"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Waldecker Edersee-Triathlon (mit Freiwasserstrecke)",
+   "domain_pdf": "edersee-triathlon.de",
+   "ergebnis": "im Bestand",
+   "notiz": "steht in events.json (26.06.2027)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Müritzschwimmen (Waren/Müritz)",
+   "domain_pdf": "mueritzschwimmen.de",
+   "ergebnis": "existiert",
+   "notiz": "waren.m-vp.de: erstes Augustwochenende, 1.950 m + Müritzman 3,8 km; 'Termine 2027 folgen' - offen",
+   "url": "https://www.waren.m-vp.de/veranstaltungen/mueritzschwimmen/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Müritzquerung / Müritz Extrem Langstreckenschwimmen",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "mueritzquerung.de ist ein Infoportal (Stand 2025), 'Müritz Extrem' dort nicht als Termin ausgeschrieben"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Malchower Inselschwimmen (Malchow)",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "Kultur- & Sportring Malchow, 825 m durch den Fleesensee (2025: 13.07.); nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Tollenseeseeschwimmen (Neubrandenburg)",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "DRK Wasserwacht Neubrandenburg, 2,6 km (2025: 28.06.); nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Kaiserbäder Seebrückenschwimmen (Ahlbeck)",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Brandenburg: 33. Brückenschwimmen 01.08.2026 (vorbei; 2025 ausgefallen); 2027 offen",
+   "url": "https://sv-brandenburg.dlrg.de/brueckenschwimmen/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Langstreckenschwimmen Wariner See",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Warin, 1.600 m (2025: 29.06.); nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Sundschwimmen (Stralsund)",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Stralsund, 2.315 m, 60. Auflage 05.07.2025; hansestadt-stralsund.de nennt keinen Termin 2027; nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Greifswalder Boddenschwimmen",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "10.07.2027, 2,6 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Schweriner Schlossschwimmen",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "2.000 m + 10 km (2025: 10.08.); nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Hessen",
+   "name": "Peeneschwimmen (Anklam)",
+   "domain_pdf": "mueritzquerung.de",
+   "ergebnis": "existiert",
+   "notiz": "DRK Wasserwacht Anklam, 400/800/1.600 m (2025: 16.08.); nur auf dem Portal mueritzquerung.de mit alten Terminen - 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Weserschwimmen Rinteln",
+   "domain_pdf": "team-warmduscher.de",
+   "ergebnis": "existiert",
+   "notiz": "Pro Rinteln e.V., Stadtfest-Schwimmen (Big Jump); team-warmduscher.de verbietet die Übernahme; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Ultraschwimmen Münster (Dortmund-Ems-Kanal)",
+   "domain_pdf": "ultraschwimmen.de",
+   "ergebnis": "existiert",
+   "notiz": "ultraschwimmen.de (Tri Finish Münster): 29.08.2026 vorbei; 2027 offen",
+   "url": "https://ultraschwimmen.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Hans-Fahrenhorst-Schwimmen im Möhnesee",
+   "domain_pdf": "openwaterschwimmen.com",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Soest: jedes Jahr am 1. Mai, 500/1.500 m mit und ohne Flossen (Möhnesee-Warmel); 2027 = 01.05.2027 nicht ausgeschrieben - offen",
+   "url": "https://soest.dlrg.de/hfs/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Rheinschwimmen Köln (DUC Köln)",
+   "domain_pdf": "duc.koeln",
+   "ergebnis": "existiert",
+   "notiz": "DUC Köln: an Christi Himmelfahrt (2026: 14.05.); 2027 offen",
+   "url": "https://duc.koeln/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Schwimmen im Rhein Düsseldorf",
+   "domain_pdf": "duesseldorf.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "duesseldorf.de ist die Stadtseite; keine Ausschreibung auffindbar"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Niedersachsen",
+   "name": "Moselschwimmen Koblenz (DLRG Koblenz)",
+   "domain_pdf": "koblenz.dlrg.de",
+   "ergebnis": "abgesagt",
+   "notiz": "DLRG Koblenz: 'ABSAGE Moselschwimmen 2026'",
+   "url": "https://koblenz.dlrg.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Saarland",
+   "name": "Langstreckenschwimmen im Stausee Losheim",
+   "domain_pdf": "freiwasserschwimmen-losheim.de",
+   "ergebnis": "existiert",
+   "notiz": "DLRG Trier-Zewen: 1,25/2,5/5/10 km im Stausee Losheim; Seite aus der Sandbox nicht erreichbar; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Offene Sächsische Freiwassermeisterschaften (Talsperre Pöhl)",
+   "domain_pdf": "lsv-sachsen.de",
+   "ergebnis": "Meisterschaft",
+   "notiz": "Norddeutsche/Berliner Freiwassermeisterschaften sind keine Jedermann-Veranstaltung (Datenregel 22)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Freiwasserschwimmen Senftenberger See (Grenzregion)",
+   "domain_pdf": "freiwasserschwimmen-senftenberg.de",
+   "ergebnis": "existiert",
+   "notiz": "2. Freiwasserschwimmen Senftenberger See 16.08.2026 (vorbei); 2027 offen",
+   "url": "https://freiwasserschwimmen-senftenberg.de/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Freiwasserschwimmen Sachsen-Anhalt (u.a. Geiseltalsee/Süßer See)",
+   "domain_pdf": "lsvsa.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "lsvsa.de nennt keine Jedermann-Freiwassertermine"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Sachsen",
+   "name": "Wakenitzmann (Lübeck)",
+   "domain_pdf": "team-warmduscher.de",
+   "ergebnis": "existiert",
+   "notiz": "Trisport Lübeck: Wakenitzman, ca. 14 km Rothenhusen-Lübeck; team-warmduscher.de verbietet die Übernahme; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Deutschland",
+   "bundesland": "Thüringen",
+   "name": "Thüringen-Cup Freiwasserschwimmen (mehrere Stationen)",
+   "domain_pdf": "thueringer-sv.de",
+   "ergebnis": "nicht gefunden",
+   "notiz": "thueringer-sv.de nennt keinen Freiwasser-Cup für Jedermann"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Burgenland",
+   "name": "Schwimmfestival Neusiedler See (Mörbisch/Illmitz)",
+   "domain_pdf": "neusiedlersee.com",
+   "ergebnis": "existiert",
+   "notiz": "schwimmfestival.at (ASVÖ Burgenland): Seequerung Mörbisch-Illmitz 3,1 km und Doppelquerung 6,2 km, September; 2027 offen",
+   "url": "https://www.schwimmfestival.at/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Burgenland",
+   "name": "Quer durch den Neusiedler See",
+   "domain_pdf": "burgenland.orf.at",
+   "ergebnis": "doppelt",
+   "notiz": "= Seequerung des Schwimmfestivals (ORF-Bericht)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Wörthersee Swim (Klagenfurt, 1,5–34 km)",
+   "domain_pdf": "woerthersee-swim.com",
+   "ergebnis": "existiert",
+   "notiz": "woerthersee-swim.com: Ergebnisse 2026, 2027-Termin nicht genannt; im Alpen Adria Swim Cup (17,5 km Crossing, 34 km Umrundung)",
+   "url": "https://woerthersee-swim.com/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Klopeiner See Swim Open (Austria Swim Open Serie)",
+   "domain_pdf": "sport-oesterreich.at",
+   "ergebnis": "existiert",
+   "notiz": "Austria Swim Open (sport-oesterreich.at antwortet 403, austria-swimopen.com nicht erreichbar); 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Alpen-Adria Swim Cup – Klopeiner See",
+   "domain_pdf": "alpenadriaswimcup.at",
+   "ergebnis": "existiert",
+   "notiz": "alpenadriaswimcup.at: 6 Events 2026 (23.05.-10.10.); 2027 offen",
+   "url": "https://alpenadriaswimcup.at/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Kärnten",
+   "name": "Millstätter See Schwimmen",
+   "domain_pdf": "bergfex.com",
+   "ergebnis": "nicht gefunden",
+   "notiz": "bergfex.com ist ein Tourenportal; keine Ausschreibung auffindbar"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Lunzer See Swim Open (Austria Swim Open Serie)",
+   "domain_pdf": "sport-oesterreich.at",
+   "ergebnis": "existiert",
+   "notiz": "Austria Swim Open-Serie; sport-oesterreich.at antwortet 403, 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Klosterneuburger Swim Open (Strandbad Klosterneuburg)",
+   "domain_pdf": "sport-oesterreich.at",
+   "ergebnis": "existiert",
+   "notiz": "Austria Swim Open-Serie; sport-oesterreich.at antwortet 403, 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Backwaterman (Ottensteiner Stausee)",
+   "domain_pdf": "backwaterman.at",
+   "ergebnis": "eingestellt",
+   "notiz": "backwaterman.at: 2026 war 'The Last ONE' - letzte Ausgabe"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Niederösterreich",
+   "name": "Aquadays (Langenzersdorf)",
+   "domain_pdf": "aquadays.at",
+   "ergebnis": "eingestellt",
+   "notiz": "aquadays.at: 7. Aquadays 2025 waren die letzten des bisherigen Veranstalters"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "ASVÖ Atterseeüberquerung (2,5 km)",
+   "domain_pdf": "atterseeueberquerung.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "31.07.2027, 2,52 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Gmundner See-Crossing (Traunsee)",
+   "domain_pdf": "openwaterschwimmen.com",
+   "ergebnis": "nicht gefunden",
+   "notiz": "nur auf dem toten Portal openwaterschwimmen.com; keine Ausschreibung auffindbar"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Oberösterreich",
+   "name": "Hallstättersee Schwimm Marathon (inkl. 7 km Seedurchquerung)",
+   "domain_pdf": "salzi.at",
+   "ergebnis": "existiert",
+   "notiz": "schwimmmarathon.at: 2,1/5/7 km, 25.07.2026; 2027 offen",
+   "url": "https://www.schwimmmarathon.at/"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Salzburg",
+   "name": "Zell am See Swim Open (Austria Swim Open Serie)",
+   "domain_pdf": "sport-oesterreich.at",
+   "ergebnis": "existiert",
+   "notiz": "Austria Swim Open-Serie; sport-oesterreich.at antwortet 403, 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Salzburg",
+   "name": "Trumer Seecrossing",
+   "domain_pdf": "alpen-open-watercup.de",
+   "ergebnis": "nachgetragen",
+   "notiz": "16.07.2027, 3 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Salzburg",
+   "name": "Fuschlseecrossing",
+   "domain_pdf": "hoteljakob.at",
+   "ergebnis": "existiert",
+   "notiz": "hoteljakob.at: 27.-31.08.2026 (Hotel-Event); 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Steiermark",
+   "name": "Open Water Stubenbergsee",
+   "domain_pdf": "openwaterstubenbergsee.at",
+   "ergebnis": "existiert",
+   "notiz": "openwaterstubenbergsee.at (aus der Sandbox nicht auflösbar), Saisonstart Steiermark im Mai; 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Steiermark",
+   "name": "Stubenbergsee (Austrian Open Water Cup)",
+   "domain_pdf": "openwaterserie.com",
+   "ergebnis": "doppelt",
+   "notiz": "= Open Water Stubenbergsee (openwaterserie.com ist veraltet)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Achensee Langstreckenschwimmen (9 km)",
+   "domain_pdf": "achensee-langstreckenschwimmen.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "04.07.2027, 9 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Tirol",
+   "name": "Hechtsee X-Treme (Kufstein, 3,8 km)",
+   "domain_pdf": "tri-x-kufstein.at",
+   "ergebnis": "nachgetragen",
+   "notiz": "14.08.2027, 3,8 km (manual_events.json)"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Wien",
+   "name": "Vienna Swim Open (Kaiserwasser/Neue Donau)",
+   "domain_pdf": "sport-oesterreich.at",
+   "ergebnis": "existiert",
+   "notiz": "Austria Swim Open-Serie; sport-oesterreich.at antwortet 403, 2027 offen"
+  },
+  {
+   "sport": "Freiwasser-Schwimmen",
+   "land": "Österreich",
+   "bundesland": "Wien",
+   "name": "Seestadt Open Water",
+   "domain_pdf": "openwaterserie.com",
+   "ergebnis": "nachgetragen",
+   "notiz": "26.05.2027, 750/1.500/3.800 m (manual_events.json)"
+  }
+ ]
+}

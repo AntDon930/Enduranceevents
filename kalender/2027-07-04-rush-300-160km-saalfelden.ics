@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-rush-300-160km-saalfelden@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Rush 300 – Radmarathon 160 km
+LOCATION:Saalfelden\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 160 km\nhttps://www.rush300
+ .at/
+TRANSP:TRANSPARENT
+URL:https://www.rush300.at/
+END:VEVENT
+END:VCALENDAR

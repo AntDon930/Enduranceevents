@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-neckarcross-ultra-race-59km-hirschhorn-neckar@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Neckarcross Ultra Race
+LOCATION:Hirschhorn (Neckar)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 59 km\nhttps://www.trailrunn
+ ing-neckarcross.de
+TRANSP:TRANSPARENT
+URL:https://www.trailrunning-neckarcross.de
+END:VEVENT
+END:VCALENDAR

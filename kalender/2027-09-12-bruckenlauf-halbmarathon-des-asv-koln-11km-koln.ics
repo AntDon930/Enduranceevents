@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-bruckenlauf-halbmarathon-des-asv-koln-11km-koln@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Brückenlauf Halbmarathon des ASV Köln
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.asv-koeln
+ .de/events/bruckenlauf/bruckenlauf-2026-halbmarathon
+TRANSP:TRANSPARENT
+URL:https://www.asv-koeln.de/events/bruckenlauf/bruckenlauf-2026-halbmarat
+ hon
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-kreuzegg-classic-15-1km-butschwil-ganterschwil@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Kreuzegg Classic – 15\,1 km \, 900 m Höhendifferenz
+LOCATION:Bütschwil-Ganterschwil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15.1 km\nhttps://www.kreuzeg
+ g.ch/
+TRANSP:TRANSPARENT
+URL:https://www.kreuzegg.ch/
+END:VEVENT
+END:VCALENDAR

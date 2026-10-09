@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-mozart-100-by-utmb-84km-fuschl-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:Mozart 100 by UTMB – mozart Ultra
+LOCATION:Fuschl am See\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 84 km\nhttps://mozart.utmb.w
+ orld
+TRANSP:TRANSPARENT
+URL:https://mozart.utmb.world
+END:VEVENT
+END:VCALENDAR

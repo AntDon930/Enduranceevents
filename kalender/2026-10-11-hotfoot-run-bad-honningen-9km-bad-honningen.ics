@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-hotfoot-run-bad-honningen-9km-bad-honningen@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Hotfoot Run Bad Hönningen – Hot-9 (10 Hindernisse)
+LOCATION:Bad Hönningen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 9 km\nhttps://hotfootrun.
+ de/runs/bad-hoenningen-2026
+TRANSP:TRANSPARENT
+URL:https://hotfootrun.de/runs/bad-hoenningen-2026
+END:VEVENT
+END:VCALENDAR

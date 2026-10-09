@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-diespecker-laufspecktakel-6km-diespeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:DieSPECKer LaufSPECKtakel – MiniSPECK
+LOCATION:Diespeck\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://laufspecktakel
+ .de/
+TRANSP:TRANSPARENT
+URL:https://laufspecktakel.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,298 @@
+/* Die Detail-Box eines Events (event-detail.js) - in der Liste neben der
+   Tabelle und auf der Karte oben rechts. Eine Datei, weil beide Seiten
+   dieselbe Box zeigen; wo sie STEHT, regelt jede Seite selbst
+   (.side-panel in events.html, .map-details in karte.html).
+
+   Aufbau seit dem 21.09.2026 nach der Vorlage des Nutzers: Datum groß
+   und zuerst, Abzeichen mit Sportart und Kategorie, Name, die Strecken
+   der Veranstaltung als Pillen, vier Fakten mit Symbol, dann die Knöpfe
+   klar gestuft (Veranstalterseite als heller Hauptknopf, Kalender und
+   Karte daneben, "Fehler melden" als leiser Link).
+
+   Gebraucht werden die Farbvariablen der Seite: --panel, --panel-2,
+   --border, --border-strong, --text, --text-muted, --accent, --on-accent,
+   --accent-bg, --bg, --row-hover, --brand und --brand-bg. */
+
+.detail-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  color: var(--text);
+}
+.detail-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 28px 8px;
+  font-size: 0.9rem;
+}
+/* Kopfzeile der Box: Datum links, Teilen-Knopf (und auf der Karte das ✕)
+   oben rechts. */
+.detail-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.detail-head-text { min-width: 0; flex: 1; }
+.detail-date {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+.detail-relative { color: var(--text-muted); font-size: 0.86rem; margin-top: 4px; }
+.detail-share {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0;
+}
+.detail-share:hover { color: var(--text); border-color: var(--border-strong, var(--accent)); }
+.detail-share:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Sportart und Kategorie als Tag in der Farbe der SPORTART: Tonfläche
+   und Textfarbe aus dem Style Guide (--sport-<art>-bg / -fg in site.css;
+   "Icon, Marker, Tag - nie als Textfarbe auf Weiß", deshalb die dunklere
+   Textfarbe auf der Tonfläche). Die Klasse sport-<art> setzt
+   event-detail.js (sportClass). */
+.detail-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--sport-laufen-bg, #fff1e8);
+  color: var(--sport-laufen-fg, #9a3b05);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.detail-badge .sport-icon { color: var(--sport-laufen, #e8590c); }
+.detail-badge.sport-fahrrad { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+.detail-badge.sport-fahrrad .sport-icon { color: var(--sport-fahrrad); }
+.detail-badge.sport-schwimmen { background: var(--sport-schwimmen-bg); color: var(--sport-schwimmen-fg); }
+.detail-badge.sport-schwimmen .sport-icon { color: var(--sport-schwimmen); }
+.detail-badge.sport-triathlon { background: var(--sport-triathlon-bg); color: var(--sport-triathlon-fg); }
+.detail-badge.sport-triathlon .sport-icon { color: var(--sport-triathlon); }
+.detail-badge .sport-icon { flex-shrink: 0; }
+/* Sport-Abzeichen und Charity-Abzeichen nebeneinander; auf schmalen
+   Boxen (die Karte stapelt zwei davon) darf umbrochen werden. Der
+   Außenabstand wandert dafür von den Abzeichen an die Reihe. */
+.detail-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; }
+.detail-badges .detail-badge { margin: 0; }
+.detail-badge--charity {
+  background: var(--charity-bg, #fff0f6);
+  color: var(--charity-fg, #a61e4d);
+}
+.detail-badge--charity .charity-icon { color: var(--charity, #d6336c); flex-shrink: 0; }
+.detail-panel h2 { margin: 0 0 16px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
+.detail-section-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+/* Die Strecken der Veranstaltung: ein Klick wechselt die Zeile
+   (onSelect), die gewählte ist hell gefüllt. */
+.detail-strecken {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.strecke-pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-2, var(--panel));
+  color: var(--text);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.strecke-pill:hover { border-color: var(--border-strong, var(--accent)); }
+.strecke-pill.active {
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  border-color: var(--accent);
+}
+/* Vier Fakten im Raster, je mit Symbol: Ort, Strecke, Kategorie und
+   Veranstalter - oder statt des Veranstalters die ENTFERNUNG, sobald ein
+   Ausgangspunkt gesetzt ist ("14 km von deinem Standort", Vorlage der
+   Karte). dt/dd bleiben (Screenreader, Rauchtest zählt die dt). */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 12px;
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+}
+.detail-grid .fact { display: flex; gap: 10px; align-items: flex-start; min-width: 0; }
+.detail-grid .fact > div { min-width: 0; }
+.fact-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--radius-ctl, 10px);
+  border: 1px solid var(--border);
+  background: var(--accent-bg, var(--panel));
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail-grid dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 3px 0 3px;
+}
+.detail-grid dd { margin: 0; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.detail-host { color: inherit; text-decoration: none; }
+.detail-host:hover { text-decoration: underline; }
+/* Der Hauptknopf: hell gefüllt, volle Breite. */
+.detail-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 13px 16px;
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  border-radius: var(--radius-ctl, 10px);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.detail-link:hover { opacity: 0.92; }
+.detail-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.detail-actions > :only-child { grid-column: 1 / -1; }
+.cal-box { position: relative; margin: 0; min-width: 0; }
+.cal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cal-btn:hover { border-color: var(--border-strong, var(--accent)); }
+.cal-btn svg { flex-shrink: 0; }
+/* Das Kalender-Menü klappt UNTER dem Knopf auf, über die ganze Breite
+   der Box - es liegt absolut, damit die zwei Knöpfe daneben nicht
+   verrutschen. */
+.cal-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 5;
+  min-width: 100%;
+  width: max-content;
+  max-width: 320px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ctl, 10px);
+  background: var(--panel);
+  box-shadow: var(--shadow, 0 12px 36px rgba(0,0,0,0.45));
+  overflow: hidden;
+}
+.cal-menu[hidden] { display: none; }
+.cal-menu a,
+.cal-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.86rem;
+  color: var(--text);
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.cal-menu a:hover,
+.cal-menu button:hover { background: var(--row-hover); }
+.cal-note {
+  padding: 8px 14px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  background: var(--bg);
+}
+
+/* "Fehler zu diesem Event melden" - ein leiser Link unter den Knöpfen:
+   auffindbar, aber ohne mit der Veranstalterseite zu konkurrieren. */
+.report-btn {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 4px 0 0;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  font-size: 0.82rem;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: center;
+}
+.report-btn:hover { color: var(--text); }
+
+/* Kurz aufpoppende Rückmeldung, mittig unten (showToast). pointer-events:
+   none, damit sie nie einen Klick abfängt. z-index 3000: über den
+   Dialogen (2000). */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 12px);
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 3000;
+  pointer-events: none;
+}
+.toast.visible { opacity: 1; transform: translate(-50%, 0); }
+.toast[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: none; }
+}

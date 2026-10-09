@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-30-night-run-morges-x-morges-vd@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Night Run Morges – BACKYARD NIGHT RUN
+LOCATION:Morges VD\, Schweiz
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://nightrunm
+ orges.ch/
+TRANSP:TRANSPARENT
+URL:https://nightrunmorges.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-stefan-andres-freundschaftslauf-8km-schweich@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Stefan Andres Freundschaftslauf
+LOCATION:Schweich\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://lauftreff-schw
+ eich.de/stefan-andres-freundschaftslauf/
+TRANSP:TRANSPARENT
+URL:https://lauftreff-schweich.de/stefan-andres-freundschaftslauf/
+END:VEVENT
+END:VCALENDAR

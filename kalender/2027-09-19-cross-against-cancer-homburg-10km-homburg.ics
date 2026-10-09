@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-cross-against-cancer-homburg-10km-homburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Cross Against Cancer - Homburg – 10 km Laufen
+LOCATION:Homburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10 km\nhttps://www.miteinande
+ r-gegen-krebs.de/cross-against-cancer
+TRANSP:TRANSPARENT
+URL:https://www.miteinander-gegen-krebs.de/cross-against-cancer
+END:VEVENT
+END:VCALENDAR

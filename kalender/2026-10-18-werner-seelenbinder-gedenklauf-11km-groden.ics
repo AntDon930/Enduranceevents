@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-werner-seelenbinder-gedenklauf-11km-groden@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Werner-Seelenbinder-Gedenklauf
+LOCATION:Gröden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.sv-merzdo
+ rf-groeden.de/werner-seelenbinder-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.sv-merzdorf-groeden.de/werner-seelenbinder-lauf/
+END:VEVENT
+END:VCALENDAR

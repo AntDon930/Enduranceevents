@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-22-lingelbacher-windmuhlenlauf-10km-alsfeld-lingelbach@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:22. Lingelbacher Windmühlenlauf
+LOCATION:Alsfeld-Lingelbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tsv-lingel
+ bach.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-lingelbach.de
+END:VEVENT
+END:VCALENDAR

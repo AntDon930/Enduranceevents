@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-donaulauf-ottensheim-21-1km-ottensheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Donaulauf Ottensheim – Kneidinger Center Halbmarathon
+LOCATION:Ottensheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.donaula
+ uf.ottensheim.at/
+TRANSP:TRANSPARENT
+URL:https://www.donaulauf.ottensheim.at/
+END:VEVENT
+END:VCALENDAR

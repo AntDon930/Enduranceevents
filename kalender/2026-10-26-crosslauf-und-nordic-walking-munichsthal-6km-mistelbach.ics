@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-crosslauf-und-nordic-walking-munichsthal-6km-mistelbach@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Crosslauf Und Nordic-Walking Münichsthal
+LOCATION:Mistelbach\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://www.crosslauf.a
+ t/
+TRANSP:TRANSPARENT
+URL:https://www.crosslauf.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-wylandlauf-7km-andelfingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:Wylandlauf – Run for Fun 7.15km
+LOCATION:Andelfingen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.zuerilaufc
+ up.ch/12-laeufe/wylandlauf
+TRANSP:TRANSPARENT
+URL:https://www.zuerilaufcup.ch/12-laeufe/wylandlauf
+END:VEVENT
+END:VCALENDAR

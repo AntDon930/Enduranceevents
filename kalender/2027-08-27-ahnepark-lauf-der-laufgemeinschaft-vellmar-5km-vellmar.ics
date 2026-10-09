@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-27-ahnepark-lauf-der-laufgemeinschaft-vellmar-5km-vellmar@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270827
+DTEND;VALUE=DATE:20270828
+SUMMARY:Ahnepark-Lauf der Laufgemeinschaft Vellmar
+LOCATION:Vellmar\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://lauftreff-hofg
+ eismar.de/termine/6-ahnepark-lauf-der-laufgemeinschaft-vellmar/
+TRANSP:TRANSPARENT
+URL:https://lauftreff-hofgeismar.de/termine/6-ahnepark-lauf-der-laufgemein
+ schaft-vellmar/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-24h-mad-chicken-run-24h-kolkwitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:24h Mad Chicken Run – 24h Solo\, 2 km MotoCross Runde\, 60 Hm pro 
+ Runde
+LOCATION:Kolkwitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 24 h\nhttp://www.Mad-Chicken-
+ Run.de
+TRANSP:TRANSPARENT
+URL:http://www.Mad-Chicken-Run.de
+END:VEVENT
+END:VCALENDAR

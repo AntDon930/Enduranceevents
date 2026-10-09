@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-allgau-gravel-ride-150km-isny-im-allgau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Allgäu Gravel Ride – Gravel 150 km
+LOCATION:Isny im Allgäu\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 150 km\nhttps://www.vecnum.
+ com/de/allgaeu-gravel-ride
+TRANSP:TRANSPARENT
+URL:https://www.vecnum.com/de/allgaeu-gravel-ride
+END:VEVENT
+END:VCALENDAR

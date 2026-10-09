@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-forcethon-verbier-11km-val-de-bagnes@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Forcethon Verbier
+LOCATION:Val de Bagnes\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://force-fondati
+ on.ch/forcethon/
+TRANSP:TRANSPARENT
+URL:https://force-fondation.ch/forcethon/
+END:VEVENT
+END:VCALENDAR

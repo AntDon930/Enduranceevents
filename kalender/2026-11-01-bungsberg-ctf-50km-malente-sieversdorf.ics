@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-bungsberg-ctf-50km-malente-sieversdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Bungsberg-CTF – CTF 50 km
+LOCATION:Malente-Sieversdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 50 km\nhttp://www.rad
+ sport-team-malente.de/
+TRANSP:TRANSPARENT
+URL:http://www.radsport-team-malente.de/
+END:VEVENT
+END:VCALENDAR

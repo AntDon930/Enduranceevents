@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-afeno-quer-und-bike-cup-2-0-4h-riken@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Afeno Quer und Bike Cup #2 – Cyclocross 0.4 h
+LOCATION:Riken\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.4 h\nhttps://qubcup.j
+ imdofree.com/
+TRANSP:TRANSPARENT
+URL:https://qubcup.jimdofree.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-02-women-tour-x-st-polten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270602
+DTEND;VALUE=DATE:20270607
+SUMMARY:women Tour – Etappenrennen
+LOCATION:St.Pölten\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttp://www.uci.ch/
+TRANSP:TRANSPARENT
+URL:http://www.uci.ch/
+END:VEVENT
+END:VCALENDAR

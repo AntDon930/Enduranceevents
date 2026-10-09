@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-26-strasshofer-herbstlauf-weinviertler-raiffeise-10km-stras
+ shof-an-der-nordbahn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:26. Strasshofer Herbstlauf (Weinviertler Raiffeisen Laufcup) – 10 
+ km Herbstlauf
+LOCATION:Strasshof an der Nordbahn\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.laufclub-
+ strasshof.at/herbstlauf/
+TRANSP:TRANSPARENT
+URL:https://www.laufclub-strasshof.at/herbstlauf/
+END:VEVENT
+END:VCALENDAR

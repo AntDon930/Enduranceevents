@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-philippi-road-runners-jubilaumslauf-6km-mucke@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Philippi Road Runners Jubiläumslauf – 6 km Lauf
+LOCATION:Mücke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.philippi-r
+ eisen.de/philippi-lauf/
+TRANSP:TRANSPARENT
+URL:https://www.philippi-reisen.de/philippi-lauf/
+END:VEVENT
+END:VCALENDAR

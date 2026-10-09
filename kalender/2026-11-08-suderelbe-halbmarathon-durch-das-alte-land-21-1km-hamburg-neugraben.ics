@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-suderelbe-halbmarathon-durch-das-alte-land-21-1km-hamburg-n
+ eugraben@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Süderelbe Halbmarathon durch das Alte Land – 21\,1 km Halbmarathon
+LOCATION:Hamburg Neugraben\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.hntonli
+ ne.de/suederelbe-halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.hntonline.de/suederelbe-halbmarathon/
+END:VEVENT
+END:VCALENDAR

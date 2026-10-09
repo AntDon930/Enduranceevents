@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-schloss-triathlon-moritzburg-218-8km-moritzburg@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270614
+SUMMARY:Schloss-Triathlon Moritzburg – BarockMan Langdistanz
+LOCATION:Moritzburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 218.8 km\nhttps://schloss
+ triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://schlosstriathlon.de/
+END:VEVENT
+END:VCALENDAR

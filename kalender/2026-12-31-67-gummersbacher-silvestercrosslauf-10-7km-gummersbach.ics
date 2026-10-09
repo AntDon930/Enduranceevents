@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-67-gummersbacher-silvestercrosslauf-10-7km-gummersbach@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:67. Gummersbacher Silvestercrosslauf
+LOCATION:Gummersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 10.7 km\nhttps://lg-gm.de/por
+ tfolio/67-silvestercrosslauf-2026/
+TRANSP:TRANSPARENT
+URL:https://lg-gm.de/portfolio/67-silvestercrosslauf-2026/
+END:VEVENT
+END:VCALENDAR

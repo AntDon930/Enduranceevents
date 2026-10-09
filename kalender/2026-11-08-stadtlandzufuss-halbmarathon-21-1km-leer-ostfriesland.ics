@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-stadtlandzufuss-halbmarathon-21-1km-leer-ostfriesland@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:StadtLandzuFuß Halbmarathon – Halbmarathon
+LOCATION:Leer (Ostfriesland)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.spass-m
+ it-sport.de/veranstaltungen/1-stadtlandzufuss-halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.spass-mit-sport.de/veranstaltungen/1-stadtlandzufuss-halbm
+ arathon/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-ocr-7-cyclocross-des-princes-eveques-x-porrentruy@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:OCR 7 - Cyclocross des Princes-Évêques – Cyclocross
+LOCATION:Porrentruy\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.omniumro
+ mand.com/
+TRANSP:TRANSPARENT
+URL:https://www.omniumromand.com/
+END:VEVENT
+END:VCALENDAR

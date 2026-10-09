@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-8-riehener-lauftag-5km-riehen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:8. Riehener Lauftag – Lauf 5\,0 km
+LOCATION:Riehen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.riehenerlau
+ ftag.ch/
+TRANSP:TRANSPARENT
+URL:http://www.riehenerlauftag.ch/
+END:VEVENT
+END:VCALENDAR

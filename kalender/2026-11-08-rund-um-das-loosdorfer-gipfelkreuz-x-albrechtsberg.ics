@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-rund-um-das-loosdorfer-gipfelkreuz-x-albrechtsberg@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Rund um das Loosdorfer Gipfelkreuz
+LOCATION:Albrechtsberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttp://www.ask-mcdonalds-l
+ oosdorf.at
+TRANSP:TRANSPARENT
+URL:http://www.ask-mcdonalds-loosdorf.at
+END:VEVENT
+END:VCALENDAR

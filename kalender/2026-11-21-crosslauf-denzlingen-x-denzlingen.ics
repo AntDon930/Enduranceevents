@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-crosslauf-denzlingen-x-denzlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Crosslauf Denzlingen
+LOCATION:Denzlingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.tvd-la.de/
+TRANSP:TRANSPARENT
+URL:https://www.tvd-la.de/
+END:VEVENT
+END:VCALENDAR

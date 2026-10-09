@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-tauern-circle-8km-schladming@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Tauern Circle
+LOCATION:Schladming\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.tauerncirc
+ le.at/
+TRANSP:TRANSPARENT
+URL:https://www.tauerncircle.at/
+END:VEVENT
+END:VCALENDAR

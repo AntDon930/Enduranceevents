@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-berglauf-schneelaufverein-geislingen-e-v-8km-geislingen-ste
+ ige@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Berglauf Schneelaufverein Geislingen e.V.
+LOCATION:Geislingen (Steige)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttp://www.schneelaufve
+ rein-geislingen.de
+TRANSP:TRANSPARENT
+URL:http://www.schneelaufverein-geislingen.de
+END:VEVENT
+END:VCALENDAR

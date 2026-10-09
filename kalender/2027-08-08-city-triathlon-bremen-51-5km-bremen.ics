@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-city-triathlon-bremen-51-5km-bremen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:City Triathlon Bremen – Olympic Triathlon 51\,5 km (1\,5 km Schwim
+ men / 40 km Rad / 10 km Laufen)
+LOCATION:Bremen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.5 km\nhttps://citytria
+ thlonbremen.de/start/
+TRANSP:TRANSPARENT
+URL:https://citytriathlonbremen.de/start/
+END:VEVENT
+END:VCALENDAR

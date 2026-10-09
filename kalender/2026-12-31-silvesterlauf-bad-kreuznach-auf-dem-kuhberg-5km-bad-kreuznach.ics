@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-bad-kreuznach-auf-dem-kuhberg-5km-bad-kreuzna
+ ch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Bad Kreuznach auf dem Kuhberg
+LOCATION:Bad Kreuznach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.laufclub-b
+ adkreuznach.de/
+TRANSP:TRANSPARENT
+URL:https://www.laufclub-badkreuznach.de/
+END:VEVENT
+END:VCALENDAR

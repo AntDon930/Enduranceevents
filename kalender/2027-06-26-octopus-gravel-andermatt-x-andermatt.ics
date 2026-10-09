@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-octopus-gravel-andermatt-x-andermatt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Octopus Gravel Andermatt
+LOCATION:Andermatt\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: -\nhttps://epicos.cc/events
+ /octopus/
+TRANSP:TRANSPARENT
+URL:https://epicos.cc/events/octopus/
+END:VEVENT
+END:VCALENDAR

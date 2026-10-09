@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-10-burenlauf-buren-an-der-aare-5km-buren-an-der-aare@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:Bürenlauf - Büren an der Aare
+LOCATION:Büren an der Aare\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://buerenlauf.ch/
+TRANSP:TRANSPARENT
+URL:https://buerenlauf.ch/
+END:VEVENT
+END:VCALENDAR

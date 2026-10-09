@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-foulees-de-l-arcom-bassecourt-5-4km-bassecourt@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:Foulées de l'ARCOM Bassecourt
+LOCATION:Bassecourt\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://www.fsgbasse
+ court.ch/les-foulees-de-larcom/
+TRANSP:TRANSPARENT
+URL:https://www.fsgbassecourt.ch/les-foulees-de-larcom/
+END:VEVENT
+END:VCALENDAR

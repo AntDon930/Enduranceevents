@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-30-bellinzona-castles-go-11km-bellinzona@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:Bellinzona Castles & Go
+LOCATION:Bellinzona\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttps://www.castlesan
+ dgo.com/
+TRANSP:TRANSPARENT
+URL:https://www.castlesandgo.com/
+END:VEVENT
+END:VCALENDAR

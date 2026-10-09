@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-vollmond-community-run-walk-marktheidenfeld-x-marktheidenfe
+ ld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Vollmond Community Run & Walk - Marktheidenfeld
+LOCATION:Marktheidenfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://rickyssporttreff.
+ de/wpa-events/vollmond-community-run-walk-25-10/
+TRANSP:TRANSPARENT
+URL:https://rickyssporttreff.de/wpa-events/vollmond-community-run-walk-25-
+ 10/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-46-krummenseelauf-7-2km-mittenwalde@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:46. Krummenseelauf – 7\,2 km Lauf für Jugend und Altersklassen
+LOCATION:Mittenwalde\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.2 km\nhttps://www.leichtat
+ hletik-kw.de/
+TRANSP:TRANSPARENT
+URL:https://www.leichtathletik-kw.de/
+END:VEVENT
+END:VCALENDAR

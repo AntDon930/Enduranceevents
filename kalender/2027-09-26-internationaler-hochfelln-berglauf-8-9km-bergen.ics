@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-internationaler-hochfelln-berglauf-8-9km-bergen@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Internationaler Hochfelln-Berglauf
+LOCATION:Bergen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.9 km\nhttps://www.hochfelln
+ berglauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.hochfellnberglauf.de/
+END:VEVENT
+END:VCALENDAR

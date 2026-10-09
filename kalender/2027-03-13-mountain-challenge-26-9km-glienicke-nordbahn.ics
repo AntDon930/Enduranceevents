@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-mountain-challenge-26-9km-glienicke-nordbahn@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Mountain Challenge – Cross-Duathlon 26\,9 km (5\,5 km Lauf / 18\,7
+  km Rad / 2\,7 km Lauf)
+LOCATION:Glienicke/Nordbahn\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 26.9 km\nhttps://teamwo
+ rk-berlin.eu/ausschreibung-2026/
+TRANSP:TRANSPARENT
+URL:https://teamwork-berlin.eu/ausschreibung-2026/
+END:VEVENT
+END:VCALENDAR

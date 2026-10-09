@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-sportscheck-run-nurnberg-21-1km-nurnberg@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:SportScheck Run Nürnberg – 21\,1 km RUN
+LOCATION:Nürnberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.sportsc
+ heck.com/run-nuernberg.html
+TRANSP:TRANSPARENT
+URL:https://www.sportscheck.com/run-nuernberg.html
+END:VEVENT
+END:VCALENDAR

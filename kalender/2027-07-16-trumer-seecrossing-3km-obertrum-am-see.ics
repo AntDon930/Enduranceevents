@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-trumer-seecrossing-3km-obertrum-am-see@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270717
+SUMMARY:Trumer Seecrossing – Seecrossing 3 km
+LOCATION:Obertrum am See\, Österreich
+DESCRIPTION:Sportart: Schwimmen / Freiwasser\nLänge: 3 km\nhttps://www.tru
+ mer-triathlon.at/
+TRANSP:TRANSPARENT
+URL:https://www.trumer-triathlon.at/
+END:VEVENT
+END:VCALENDAR

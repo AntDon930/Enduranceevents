@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-01-neujahrslauf-des-lsv-porz-5km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Neujahrslauf des LSV Porz – 5 km (laufen oder walken)
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttp://www.helmuturbac
+ h.de/neujahrslauf.html
+TRANSP:TRANSPARENT
+URL:http://www.helmuturbach.de/neujahrslauf.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-drei-brucken-lauf-bonn-15km-bonn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Drei-Brücken-Lauf Bonn
+LOCATION:Bonn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.drei-brue
+ cken-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.drei-bruecken-lauf.de/
+END:VEVENT
+END:VCALENDAR

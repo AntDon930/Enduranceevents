@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-baltic-x-backyard-ultra-x-binz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261026
+SUMMARY:Baltic X Backyard Ultra
+LOCATION:Binz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: -\nhttps://www.binze
+ r-bucht.de/
+TRANSP:TRANSPARENT
+URL:https://www.binzer-bucht.de/
+END:VEVENT
+END:VCALENDAR

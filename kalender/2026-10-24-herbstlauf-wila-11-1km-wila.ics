@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-herbstlauf-wila-11-1km-wila@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Herbstlauf Wila
+LOCATION:Wila\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11.1 km\nhttps://www.herbstl
+ aufwila.ch
+TRANSP:TRANSPARENT
+URL:https://www.herbstlaufwila.ch
+END:VEVENT
+END:VCALENDAR

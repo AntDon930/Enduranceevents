@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-lauf-um-die-himmelsschaukel-brundersen-2027-21-1km-wolfhage
+ n-brundersen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Lauf um die Himmelsschaukel Bründersen 2027
+LOCATION:Wolfhagen-Bründersen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.bruender
+ sen.de
+TRANSP:TRANSPARENT
+URL:http://www.bruendersen.de
+END:VEVENT
+END:VCALENDAR

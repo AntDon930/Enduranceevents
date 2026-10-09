@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-sudwestzipfel-lauf-10km-grenzach-wyhlen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Südwestzipfel Lauf – Hauptlauf\, 10 km \, Jg. 2010 und älter
+LOCATION:Grenzach-Wyhlen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://suedwestzipfe
+ llauf.de
+TRANSP:TRANSPARENT
+URL:https://suedwestzipfellauf.de
+END:VEVENT
+END:VCALENDAR

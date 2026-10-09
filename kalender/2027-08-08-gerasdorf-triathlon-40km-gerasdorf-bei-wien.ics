@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-08-gerasdorf-triathlon-40km-gerasdorf-bei-wien@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270808
+DTEND;VALUE=DATE:20270809
+SUMMARY:Gerasdorf Triathlon – King/Queen
+LOCATION:Gerasdorf bei Wien\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 40 km\nhttp://www.gerasdo
+ rf-triathlon.at/
+TRANSP:TRANSPARENT
+URL:http://www.gerasdorf-triathlon.at/
+END:VEVENT
+END:VCALENDAR

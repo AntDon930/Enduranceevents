@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-gutersloher-djk-halbmarathon-21-1km-gutersloh@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Gütersloher DJK Halbmarathon – Halbmarathon
+LOCATION:Gütersloh\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.djkguet
+ ersloh.de/events/gt-djk-halbmarathon/
+TRANSP:TRANSPARENT
+URL:https://www.djkguetersloh.de/events/gt-djk-halbmarathon/
+END:VEVENT
+END:VCALENDAR

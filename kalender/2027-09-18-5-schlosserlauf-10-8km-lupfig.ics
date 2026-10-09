@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-5-schlosserlauf-10-8km-lupfig@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:5 Schlösserlauf – 10\,8 km Mitteldistanz
+LOCATION:Lupfig\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://5schloesser
+ lauf.ch/
+TRANSP:TRANSPARENT
+URL:https://5schloesserlauf.ch/
+END:VEVENT
+END:VCALENDAR

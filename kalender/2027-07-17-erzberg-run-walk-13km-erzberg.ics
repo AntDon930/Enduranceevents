@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-erzberg-run-walk-13km-erzberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Erzberg Run & Walk
+LOCATION:Erzberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.erzbergsp
+ ort.at/erzberg-run
+TRANSP:TRANSPARENT
+URL:https://www.erzbergsport.at/erzberg-run
+END:VEVENT
+END:VCALENDAR

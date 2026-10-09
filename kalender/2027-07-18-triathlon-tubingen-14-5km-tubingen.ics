@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-triathlon-tubingen-14-5km-tubingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Triathlon Tübingen – Schnupperdistanz 14\,5 km (300 m Schwimmen / 
+ 11 km Rad / 3\,2 km Laufen)
+LOCATION:Tübingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 14.5 km\nhttps://www.mey-
+ generalbau-triathlon.com/
+TRANSP:TRANSPARENT
+URL:https://www.mey-generalbau-triathlon.com/
+END:VEVENT
+END:VCALENDAR

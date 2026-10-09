@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-09-soda-zitron-night-run-5km-kufstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:Soda Zitron Night Run
+LOCATION:Kufstein\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.soda-zitro
+ n-nightrun.at/
+TRANSP:TRANSPARENT
+URL:https://www.soda-zitron-nightrun.at/
+END:VEVENT
+END:VCALENDAR

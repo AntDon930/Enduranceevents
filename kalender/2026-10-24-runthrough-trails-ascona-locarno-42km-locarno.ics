@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-runthrough-trails-ascona-locarno-42km-locarno@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:RunThrough Trails Ascona-Locarno
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 42 km\nhttps://www.runthrough
+ .co.uk/event/runthrough-trails-ascona-locarno-2026
+TRANSP:TRANSPARENT
+URL:https://www.runthrough.co.uk/event/runthrough-trails-ascona-locarno-20
+ 26
+END:VEVENT
+END:VCALENDAR

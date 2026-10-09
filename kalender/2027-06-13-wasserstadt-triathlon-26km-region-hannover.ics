@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-wasserstadt-triathlon-26km-region-hannover@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:Wasserstadt Triathlon
+LOCATION:Region Hannover\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 26 km\nhttps://www.wasser
+ stadt-triathlon.de/ausschreibung.html
+TRANSP:TRANSPARENT
+URL:https://www.wasserstadt-triathlon.de/ausschreibung.html
+END:VEVENT
+END:VCALENDAR

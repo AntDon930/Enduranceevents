@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-offene-kreiswaldlaufmeisterschaften-schweinfurt-6km-schwein
+ furt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Offene Kreiswaldlaufmeisterschaften Schweinfurt
+LOCATION:Schweinfurt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://ladv.de/aussch
+ reibung/detail/49417/Offene-Kreiswaldlaufmeisterschaften-Schweinfurt.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49417/Offene-Kreiswaldlaufmeister
+ schaften-Schweinfurt.htm
+END:VEVENT
+END:VCALENDAR

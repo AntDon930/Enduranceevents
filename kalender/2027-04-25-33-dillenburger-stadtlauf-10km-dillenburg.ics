@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-33-dillenburger-stadtlauf-10km-dillenburg@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:33. Dillenburger Stadtlauf
+LOCATION:Dillenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://asc-dillenbur
+ g.de
+TRANSP:TRANSPARENT
+URL:https://asc-dillenburg.de
+END:VEVENT
+END:VCALENDAR

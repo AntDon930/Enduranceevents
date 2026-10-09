@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-41-int-jenner-berglauf-8-4km-schonau-am-konigssee@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:41. Int. Jenner-Berglauf – 8\,4 km Berglauf
+LOCATION:Schönau am Königssee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.4 km\nhttps://www.skberchte
+ sgaden.de/
+TRANSP:TRANSPARENT
+URL:https://www.skberchtesgaden.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-13-47-neuhofner-gelandecup-3-lauf-x-neuhofen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:47. Neuhofner Geländecup - 3. Lauf
+LOCATION:Neuhofen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://unionneuhofen.at/
+ leichtathletik/
+TRANSP:TRANSPARENT
+URL:https://unionneuhofen.at/leichtathletik/
+END:VEVENT
+END:VCALENDAR

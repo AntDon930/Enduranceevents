@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-04-the-grand-escape-germany-austria-500km-innsbruck@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270904
+DTEND;VALUE=DATE:20270905
+SUMMARY:The Grand Escape Germany/Austria – RTF 500 km
+LOCATION:Innsbruck\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 500 km\nhttps://thegrandesc
+ ape.cc/
+TRANSP:TRANSPARENT
+URL:https://thegrandescape.cc/
+END:VEVENT
+END:VCALENDAR

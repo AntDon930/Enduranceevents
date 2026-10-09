@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-weihnachtslauf-x-sankt-gilgen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Weihnachtslauf
+LOCATION:Sankt Gilgen\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://weihnachtslauf.at
+ /
+TRANSP:TRANSPARENT
+URL:https://weihnachtslauf.at/
+END:VEVENT
+END:VCALENDAR

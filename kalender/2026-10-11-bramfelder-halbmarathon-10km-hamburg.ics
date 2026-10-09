@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-bramfelder-halbmarathon-10km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Bramfelder Halbmarathon
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.bramfelde
+ r-halbmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.bramfelder-halbmarathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-41-burgwedeler-silvesterlauf-10km-burgwedel@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:41. Burgwedeler Silvesterlauf
+LOCATION:Burgwedel\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sv-burgwed
+ el.de
+TRANSP:TRANSPARENT
+URL:http://www.sv-burgwedel.de
+END:VEVENT
+END:VCALENDAR

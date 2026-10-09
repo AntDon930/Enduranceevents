@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-24-hetzner-yeti-trail-2027-x-pleinfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270124
+DTEND;VALUE=DATE:20270125
+SUMMARY:Hetzner YETI-TRAIL 2027
+LOCATION:Pleinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://yeti-trail.de/auss
+ schreibung/
+TRANSP:TRANSPARENT
+URL:https://yeti-trail.de/aussschreibung/
+END:VEVENT
+END:VCALENDAR

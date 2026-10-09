@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-19-brechener-strassenlauf-21-1km-brechen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:19. Brechener Straßenlauf
+LOCATION:Brechen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.lgbrech
+ en.de/
+TRANSP:TRANSPARENT
+URL:https://www.lgbrechen.de/
+END:VEVENT
+END:VCALENDAR

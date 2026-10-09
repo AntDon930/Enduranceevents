@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-montafoner-treppencup-montafoner-berglauf-x-partenen@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:Montafoner Treppencup & Montafoner Berglauf
+LOCATION:Partenen\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
+ 424661/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/424661/
+END:VEVENT
+END:VCALENDAR

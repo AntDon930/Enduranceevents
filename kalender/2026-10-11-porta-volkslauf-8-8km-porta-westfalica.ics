@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-11-porta-volkslauf-8-8km-porta-westfalica@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+SUMMARY:Porta-Volkslauf – 8\,8 km Mittelstrecke Erwachsene\, Jugend U16 U1
+ 8
+LOCATION:Porta Westfalica\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8.8 km\nhttps://www.scnammen
+ .de/index.php/veranstaltungen/volkslauf-porta
+TRANSP:TRANSPARENT
+URL:https://www.scnammen.de/index.php/veranstaltungen/volkslauf-porta
+END:VEVENT
+END:VCALENDAR
