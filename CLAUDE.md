@@ -5215,8 +5215,18 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 
 **E. Zum Schluss**
 
-28. Die große Linkliste für die 20.000+ Events liefern (je Quelle
-    robots.txt und Nutzungsbedingungen, kein Scraper ohne Ja).
+28. ~~Die große Linkliste für die 20.000+ Events liefern~~ **erledigt**
+    (09.10.2026, vom Nutzer: „das habe ich schon gemacht") – die Listen
+    vom 24.09. und 30.09.2026 waren es, daraus die Scraper der Abschnitte
+    „Quellen". Stand 09.10.2026: 6.978 Zeilen ≈ 4.000 Veranstaltungen
+    (DE 4.926, AT 1.052, CH 974, Südtirol 25). Die 20.000 waren eine
+    Schätzung vom 17.09.; warum es weniger sind: gesperrte Quellen
+    (rad-net, DSV, runme, finishers, time2win …), die Ausschlüsse
+    (Staffeln, Walking, Kinder, Hybrid, unter 5 km, Meisterschaften im
+    Rahmen, Duplikate) und vor allem das ZEITFENSTER – die Kalender
+    tragen 2027 erst nach und nach ein (Okt. 2026: 1.114 Zeilen, Sept.
+    2027: 422). Die Zahl wächst bis zum Frühjahr 2027 von selbst über den
+    Wochenlauf und das Gedächtnis.
 29. Livegang freigeben, nachdem Punkt 4 erledigt ist (erledigt) **und
     Punkt 32 durch ist** – die Seite geht dann auf `endurance-events.de`
     (eigene Domain; dann `og:image`-Adresse und `UNSUBSCRIBE_URL`
