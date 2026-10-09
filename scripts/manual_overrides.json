@@ -8353,5 +8353,20 @@
     "datum_ende": "2026-10-25",
     "wettbewerb": "Kombi (City Run Samstag + Viertelmarathon Sonntag)",
     "_note": "09.10.2026 (To-do Punkt 19, Duplikate unter zwei Namen): Kombi ist 16,5 km (6 + 10,5) über zwei Tage (beide Schlüssel). internationaler-kaernten-marathon.at (Wettbewerbe): „Dominik Pacher Super Marathon 50 km | Sonntag, 25.10. … Ossiacher See Marathon 42,2 km | Sonntag, 25.10. … Intersport Pilz Halbmarathon 21,1 km | Sonntag, 25.10. … Viertelmarathon Lauf 10,5 km | Sonntag, 25.10. … Sparkasse City Run 6 km | Samstag, 24.10. … Kombi 16,5 km | Stadtlauf und Viertelmarathon Sa. 24.10. … & So. 25.10.“"
+  },
+  "Maritn Dufter|2027-06-05|18": {
+    "exclude": true,
+    "_note": "To-do Punkt 20 (09.10.2026): laufen.de-Eintrag mit Personenname statt Veranstaltung (Tippfehler für 'Martin Dufter'), Weiterleitung auf time2win.at/envent/662 ist 404. Gleicher Tag und Ort wie die Alpenstadt City&Trail Bad Reichenhall, deren Hochstaufen-Trailrun in Kalendern mit 18 bzw. 19 km steht (runnersworld.de, gotrail.run) – Duplikat, die Veranstaltung steht unter ihrem Namen in der Liste."
+  },
+  "41. Internationaler Brüder-Grimn-Lauf|2027-06-11|82": {
+    "exclude": true,
+    "_note": "To-do Punkt 20 (09.10.2026): Tippfehler (Grimn) aus laufen.de, Duplikat von 'Brüder-Grimm-Lauf' (11.–13.06.2027, 82 km, gleiche mkk.de-Seite). mkk.de: 'Der 41. Internationale Brüder-Grimm-Lauf findet vom 11. - 13. Juni 2027 statt', 5 Etappen von Hanau nach Steinau."
+  },
+  "Brüder-Grimm-Lauf|2027-06-11|82": {
+    "standort": "Hanau",
+    "lat": 50.132881,
+    "lon": 8.9169797,
+    "wettbewerb": "Gesamtlauf 82 km (5 Etappen)",
+    "_note": "To-do Punkt 20 (09.10.2026): laut mkk.de startet der Lauf in Hanau ('Von Hanau … über ca. 82 km nach Steinau', 5 Etappen in 3 Tagen) – stand in Bad Orb (Etappenort)."
   }
 }

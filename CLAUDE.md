@@ -4889,9 +4889,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–19 erledigt (8 und 9–15 in
+**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–20 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
-verschoben (jetzt Punkt 32), WEITER BEI PUNKT 20.**
+verschoben (jetzt Punkt 32), WEITER BEI PUNKT 21.**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
 07.10.2026 abgeschlossen, siehe unten.)
 Der Nutzer hat die Sitzung beendet („Ich clear jetzt … bitte alles bis
@@ -5141,8 +5141,19 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     der alte laufen.de-Eintrag „9. Internationaler …" raus. Marchethon:
     die Zeilen mit 8/15 km raus (Seite: 7,5/14,5 km). Geilenkirchen: die
     „47./34."-Zeile raus (Seite: 46. Kartoffellauf, 33. Halbmarathon).
-20. Tippfehler-Namen aus laufen.de: „Maritn Dufter" (Bad Reichenhall),
-    „Brüder-Grimn-Lauf" (Hanau) – was ist das, wie heißt es richtig?
+20. ~~Tippfehler-Namen aus laufen.de: „Maritn Dufter" (Bad Reichenhall),
+    „Brüder-Grimn-Lauf" (Hanau) – was ist das, wie heißt es richtig?~~
+    **erledigt** (09.10.2026): Beide sind Duplikate, per Override raus.
+    „Maritn Dufter" (18 km, 05.06.2027) ist ein Personenname im
+    laufen.de-Feld für den Namen, die Weiterleitung führt auf eine tote
+    time2win-Seite; gleicher Tag und Ort wie die Alpenstadt City&Trail,
+    deren Hochstaufen-Trailrun in Kalendern mit 18/19 km steht. Der
+    „41. Internationaler Brüder-Grimn-Lauf" ist der Brüder-Grimm-Lauf
+    (11.–13.06.2027, 82 km, 5 Etappen Hanau → Steinau, mkk.de); die
+    verbleibende Zeile stand in Bad Orb (Etappenort) und steht jetzt am
+    Start in Hanau. Lehre: Eine Zeile mit Personennamen oder Tippfehler
+    im Namen ist bei laufen.de fast immer ein Zweiteintrag – erst nach
+    derselben Veranstaltung am selben Tag suchen.
 21. „4. Backnanger Kindercrossduathlon" (Kinderrennen ohne Distanz) raus?
 22. Wings for Life World Run mit Charity-Herz (23 Zeilen) so lassen?
 23. Farbschema-Voreinstellung: dunkel, hell oder Systemeinstellung?

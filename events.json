@@ -64868,19 +64868,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Maritn Dufter",
-    "standort": "Bad Reichenhall",
-    "lat": 47.7222676,
-    "lon": 12.8760923,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-05",
-    "datum_ende": "2027-06-05",
-    "laenge_km": 18.0,
-    "veranstalter_url": "https://laufen.de/laufkalender/details/maritn-dufter"
-  },
-  {
-    "land": "Deutschland",
     "name": "Monaco di Baviera Lite II",
     "standort": "München",
     "lat": 48.144,
@@ -66729,19 +66716,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "41. Internationaler Brüder-Grimn-Lauf",
-    "standort": "Hanau",
-    "lat": 50.132881,
-    "lon": 8.9169797,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-06-11",
-    "datum_ende": "2027-06-11",
-    "laenge_km": 82.0,
-    "veranstalter_url": "https://www.mkk.de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html"
-  },
-  {
-    "land": "Deutschland",
     "name": "AZ-Abendvolkslauf",
     "standort": "Uelzen",
     "lat": 52.9652883,
@@ -66853,15 +66827,15 @@
   {
     "land": "Deutschland",
     "name": "Brüder-Grimm-Lauf",
-    "standort": "Bad Orb",
-    "lat": 50.2277906,
-    "lon": 9.3483916,
+    "standort": "Hanau",
+    "lat": 50.132881,
+    "lon": 8.9169797,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-11",
     "datum_ende": "2027-06-13",
     "laenge_km": 82.0,
-    "wettbewerb": "82 km",
+    "wettbewerb": "Gesamtlauf 82 km (5 Etappen)",
     "veranstalter_url": "https://www.mkk.de/buergerservice/lebenslagen_1/sport_kultur_ehrenamt/40_sport/sportveranstaltungen/brueder_grimm_lauf/brueder_grimm_lauf.html"
   },
   {
