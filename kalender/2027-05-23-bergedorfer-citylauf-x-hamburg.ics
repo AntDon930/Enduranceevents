@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:Bergedorfer Citylauf
 LOCATION:Hamburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /423426/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.facebook.com/
+ bergedorfer.citylauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/423426/
+URL:https://www.facebook.com/bergedorfer.citylauf/
 END:VEVENT
 END:VCALENDAR

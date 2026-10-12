@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270925
 DTEND;VALUE=DATE:20270926
 SUMMARY:Seizer Herbstlauf
 LOCATION:Seiz\, Österreich
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /426472/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.ff-seiz.at/he
+ rbstlauf/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/426472/
+URL:https://www.ff-seiz.at/herbstlauf/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-braunauer-sprinttriathlon-6km-braunau-am-inn@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Braunauer Sprinttriathlon – 6 km Laufen
+LOCATION:Braunau am Inn\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 6 km\nhttps://time2win.at
+ /event/1147
+TRANSP:TRANSPARENT
+URL:https://time2win.at/event/1147
+END:VEVENT
+END:VCALENDAR

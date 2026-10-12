@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-30-kantonale-vs-crosstournee-monthey-x-monthey@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:Kantonale VS CrossTournee - Monthey
+LOCATION:Monthey\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vs-timing.ch/
+ de-CH/Home/Event/258?fromResult=False
+TRANSP:TRANSPARENT
+URL:https://www.vs-timing.ch/de-CH/Home/Event/258?fromResult=False
+END:VEVENT
+END:VCALENDAR

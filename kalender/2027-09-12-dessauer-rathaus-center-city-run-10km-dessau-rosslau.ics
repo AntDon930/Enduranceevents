@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-dessauer-rathaus-center-city-run-10km-dessau-rosslau@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:Dessauer Rathaus-Center City RUN
+LOCATION:Dessau-Roßlau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://anhalt-sport.
+ de/events/27-dessauer-rathaus-center-cityrun-2026.html
+TRANSP:TRANSPARENT
+URL:https://anhalt-sport.de/events/27-dessauer-rathaus-center-cityrun-2026
+ .html
+END:VEVENT
+END:VCALENDAR

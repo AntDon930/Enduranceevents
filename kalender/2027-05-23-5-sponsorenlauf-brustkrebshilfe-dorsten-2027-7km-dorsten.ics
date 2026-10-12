@@ -11,10 +11,9 @@ DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
 SUMMARY:5. Sponsorenlauf Brustkrebshilfe Dorsten 2027
 LOCATION:Dorsten\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 7 km\nhttps://lauf
- en.de/laufkalender/details/5-sponsorenlauf-brustkrebshilfe-dorsten-2027
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 7 km\nhttps://brus
+ tkrebshilfe-dorsten.de/
 TRANSP:TRANSPARENT
-URL:https://laufen.de/laufkalender/details/5-sponsorenlauf-brustkrebshilfe
- -dorsten-2027
+URL:https://brustkrebshilfe-dorsten.de/
 END:VEVENT
 END:VCALENDAR

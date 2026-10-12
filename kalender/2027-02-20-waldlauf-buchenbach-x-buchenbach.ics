@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-20-waldlauf-buchenbach-x-buchenbach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:Waldlauf Büchenbach
+LOCATION:Büchenbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.tv-buechenbac
+ h.de/abteilungen/leichtathletik
+TRANSP:TRANSPARENT
+URL:https://www.tv-buechenbach.de/abteilungen/leichtathletik
+END:VEVENT
+END:VCALENDAR

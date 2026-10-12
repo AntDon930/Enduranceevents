@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270920
 SUMMARY:Montafoner Treppencup & Montafoner Berglauf
 LOCATION:Partenen\, Österreich
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://my.raceresult.com/
- 424661/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.scspartenen.at
+ /
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/424661/
+URL:https://www.scspartenen.at/
 END:VEVENT
 END:VCALENDAR

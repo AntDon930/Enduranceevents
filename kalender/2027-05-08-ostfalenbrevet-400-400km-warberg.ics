@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-ostfalenbrevet-400-400km-warberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Ostfalenbrevet 400 – Brevet 400 km
+LOCATION:Warberg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 400 km\nhttps://www.ostfale
+ n-randonneure.de/index.php/sidemenu-brevets/400km
+TRANSP:TRANSPARENT
+URL:https://www.ostfalen-randonneure.de/index.php/sidemenu-brevets/400km
+END:VEVENT
+END:VCALENDAR

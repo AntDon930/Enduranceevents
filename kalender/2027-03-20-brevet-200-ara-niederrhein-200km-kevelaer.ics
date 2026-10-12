@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-brevet-200-ara-niederrhein-200km-kevelaer@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:Brevet 200 ARA-Niederrhein – Brevet 200 km
+LOCATION:Kevelaer\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 200 km\nhttps://www.audax-r
+ andonneure.de/startorte/niederrhein
+TRANSP:TRANSPARENT
+URL:https://www.audax-randonneure.de/startorte/niederrhein
+END:VEVENT
+END:VCALENDAR

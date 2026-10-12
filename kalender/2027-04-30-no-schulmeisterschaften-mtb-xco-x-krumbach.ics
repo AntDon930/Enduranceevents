@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-30-no-schulmeisterschaften-mtb-xco-x-krumbach@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:NÖ Schulmeisterschaften MTB XCO – Cross-Country\, Cycling 4 All
+LOCATION:Krumbach\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.biketh
+ ebugles.at
+TRANSP:TRANSPARENT
+URL:https://www.bikethebugles.at
+END:VEVENT
+END:VCALENDAR

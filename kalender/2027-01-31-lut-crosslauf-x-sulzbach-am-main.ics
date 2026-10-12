@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-lut-crosslauf-x-sulzbach-am-main@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:LuT-Crosslauf
+LOCATION:Sulzbach am Main\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://ladv.de/ausschreib
+ ung/detail/49459/22.-LuT-Crosslauf-Sulzbach-am-Main.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49459/22.-LuT-Crosslauf-Sulzbach-
+ am-Main.htm
+END:VEVENT
+END:VCALENDAR

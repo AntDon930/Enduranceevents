@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-02-14-lcc-eisbarlauf-ii-26-eisbarcup-x-prater-hauptallee-hohe-ein
+ mundung-marathonweg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:LCC-Eisbärlauf II (26. Eisbärcup)
+LOCATION:Prater Hauptallee Höhe Einmündung Marathonweg\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.lcc-wien.at/
+TRANSP:TRANSPARENT
+URL:https://www.lcc-wien.at/
+END:VEVENT
+END:VCALENDAR

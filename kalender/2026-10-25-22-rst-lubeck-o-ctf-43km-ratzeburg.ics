@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-22-rst-lubeck-o-ctf-43km-ratzeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:22. RST Lübeck O-CTF – CTF 43 km
+LOCATION:Ratzeburg\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 43 km\nhttps://rst-lu
+ ebeck.de/ctf/22-rst-luebeck-o-ctf-in-ratzeburg-am-25-oktober-2026/
+TRANSP:TRANSPARENT
+URL:https://rst-luebeck.de/ctf/22-rst-luebeck-o-ctf-in-ratzeburg-am-25-okt
+ ober-2026/
+END:VEVENT
+END:VCALENDAR

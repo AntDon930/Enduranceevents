@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-63-gottinger-cross-serie-2-lauf-5km-gottingen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:63. Göttinger Cross-Serie (2. Lauf)
+LOCATION:Göttingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5 km\nhttps://ladv.de/ausschr
+ eibung/detail/49466/63.-G%C3%B6ttinger-Cross-Serie-%282.-Lauf%29-G%C3%B6t
+ tingen.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/49466/63.-G%C3%B6ttinger-Cross-Se
+ rie-%282.-Lauf%29-G%C3%B6ttingen.htm
+END:VEVENT
+END:VCALENDAR

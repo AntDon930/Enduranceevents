@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-holzkirchner-marktlauf-16km-holzkirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Holzkirchner Marktlauf
+LOCATION:Holzkirchen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://my.raceresult
+ .com/369400/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/369400/
+END:VEVENT
+END:VCALENDAR

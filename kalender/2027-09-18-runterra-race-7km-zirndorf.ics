@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270918
 DTEND;VALUE=DATE:20270919
 SUMMARY:Runterra Race
 LOCATION:Zirndorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://my.raceresult.
- com/421492/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.runterra.d
+ e/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/421492/
+URL:https://www.runterra.de/
 END:VEVENT
 END:VCALENDAR

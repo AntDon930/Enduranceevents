@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-14-53-konigsforst-marathon-bensberg-42-2km-bensberg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:53. Königsforst-Marathon Bensberg
+LOCATION:Bensberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://koenigsfors
+ t-marathon.de
+TRANSP:TRANSPARENT
+URL:https://koenigsforst-marathon.de
+END:VEVENT
+END:VCALENDAR

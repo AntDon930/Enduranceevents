@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-41-attnanger-sparkassen-stadtlauf-mit-om-meile-2-x-attnang-
+ puchheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:41. Attnanger Sparkassen Stadtlauf mit ÖM Meile 2027
+LOCATION:Attnang-Puchheim\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.lcav-jodl.at
+TRANSP:TRANSPARENT
+URL:http://www.lcav-jodl.at
+END:VEVENT
+END:VCALENDAR

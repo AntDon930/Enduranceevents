@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-03-neujahrs-crosslauf-st-paul-stlv-und-klv-crosscup-x-st-paul@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Neujahrs Crosslauf St. Paul (STLV- und KLV-CrossCup 2026/27 - 5. L
+ auf)
+LOCATION:St.Paul\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://crosslaufcup.gknet
+ .at
+TRANSP:TRANSPARENT
+URL:https://crosslaufcup.gknet.at
+END:VEVENT
+END:VCALENDAR

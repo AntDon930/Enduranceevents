@@ -10,9 +10,9 @@ DTSTART;VALUE=DATE:20270616
 DTEND;VALUE=DATE:20270618
 SUMMARY:Rostocker Firmenlauf
 LOCATION:Rostock\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://my.raceresult.com
- /423333/
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://rostockerfirmenla
+ uf.de/
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/423333/
+URL:https://rostockerfirmenlauf.de/
 END:VEVENT
 END:VCALENDAR

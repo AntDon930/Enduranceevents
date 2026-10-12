@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-jedermannslaufserie-der-lg-donau-ries-10km-wemding@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Jedermannslaufserie der LG Donau-Ries
+LOCATION:Wemding\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://lg-donau-ries
+ .de/index.php/anmeldung-jedermannserie
+TRANSP:TRANSPARENT
+URL:https://lg-donau-ries.de/index.php/anmeldung-jedermannserie
+END:VEVENT
+END:VCALENDAR

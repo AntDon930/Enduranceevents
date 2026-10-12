@@ -11,9 +11,9 @@ DTSTART;VALUE=DATE:20270926
 DTEND;VALUE=DATE:20270927
 SUMMARY:7-Meilen-Trail - Kaiserslautern – 4 Meilen (6\,437 km)\, 185 HM
 LOCATION:Kaiserslautern\, Deutschland
-DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttps://my.raceresult
- .com/426485/
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6.4 km\nhttps://7meilentrail.
+ github.io
 TRANSP:TRANSPARENT
-URL:https://my.raceresult.com/426485/
+URL:https://7meilentrail.github.io
 END:VEVENT
 END:VCALENDAR
