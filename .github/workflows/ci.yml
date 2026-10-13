@@ -23,12 +23,21 @@ name: Tests
 # Durchgänge, zwei Fehler-Mails an den Nutzer (13.10.2026: "Außerdem
 # bekomme ich immer so viele von diesen E-Mails"). Die Push-Läufe
 # erscheinen als Checks am selben Commit auch im Pull Request.
+#
+# Seit dem 13.10.2026 ist diese Datei auch das DEPLOY-GATE: pages.yml ruft
+# sie als wiederverwendbaren Workflow (workflow_call) auf und deployt
+# erst, wenn beide Jobs grün sind. Der Entwicklungs-Branch
+# claude/endurance-events-website-v1wruf steht deshalb NICHT mehr unter
+# `push` - seine Tests laufen innerhalb von pages.yml (sonst liefen sie
+# je Push zweimal, und jede rote Runde brächte zwei Mails). Der zweite
+# Name desselben Stands (claude/website-access-9d9tg1) deployt nicht und
+# wird hier weiter direkt geprüft.
 on:
   push:
     branches:
-      - claude/endurance-events-website-v1wruf
       - claude/website-access-9d9tg1
       - main
+  workflow_call: {}
   workflow_dispatch: {}
 
 permissions:

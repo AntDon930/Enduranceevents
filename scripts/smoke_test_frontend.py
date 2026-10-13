@@ -65,8 +65,19 @@ def starte_server() -> tuple[socketserver.TCPServer, int]:
         def log_message(self, *args):   # noqa: A003 - Name kommt aus der Basisklasse
             pass
 
+    class Server(socketserver.TCPServer):
+        # Bricht der Browser einen Abruf ab (die Wartungs-Umleitung
+        # verlässt die Liste, während events.web.json noch läuft), wirft
+        # der Handler BrokenPipe - kein Fehler der Seite, nur Lärm im Log.
+        def handle_error(self, request, client_address):
+            import sys as _sys
+            typ = _sys.exc_info()[0]
+            if typ is not None and issubclass(typ, (BrokenPipeError, ConnectionResetError)):
+                return
+            super().handle_error(request, client_address)
+
     handler = functools.partial(Leise, directory=WURZEL)
-    srv = socketserver.TCPServer(("127.0.0.1", port), handler)
+    srv = Server(("127.0.0.1", port), handler)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv, port
 
@@ -1599,6 +1610,43 @@ def pruefe_farbschema(ctx, basis):
     seite.close()
 
 
+def pruefe_wartung(ctx, basis):
+    """Wartungsmodus (13.10.2026): Mit `aktiv: true` in wartung.json führt
+    die Liste nach wartung.html, die den Text aus derselben Datei zeigt
+    und Impressum/Datenschutz verlinkt; mit dem Stand im Repo (aus) bleibt
+    alles beim Alten. Der Schalter wird hier abgefangen (route), nicht in
+    der Datei umgelegt."""
+    print("\nWartungsmodus")
+    seite = ctx.new_page()
+    seite.route("**/wartung.json*", lambda route: route.fulfill(
+        status=200, content_type="application/json",
+        body='{"aktiv": true, "text_de": "Testwartung läuft", "text_en": "Test maintenance running"}'))
+    # Die Umleitung kann die laufende Navigation unterbrechen - dann wirft
+    # goto, obwohl alles richtig läuft. Entscheidend ist die Adresse danach.
+    try:
+        seite.goto(basis + "/events.html", wait_until="domcontentloaded")
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        seite.wait_for_url("**/wartung.html", timeout=15000)
+    except Exception:  # noqa: BLE001
+        pass
+    pruefe(seite.url.endswith("/wartung.html"), "aktiv: die Liste führt nach wartung.html (%s)" % seite.url.rsplit("/", 1)[-1])
+    try:
+        seite.wait_for_function("() => document.getElementById('wartung-text') && document.getElementById('wartung-text').textContent.indexOf('Testwartung') >= 0", timeout=10000)
+    except Exception:  # noqa: BLE001
+        pass
+    text = seite.evaluate("() => (document.getElementById('wartung-text') || {}).textContent || ''")
+    pruefe("Testwartung" in text, "… zeigt den Text aus wartung.json")
+    pruefe(seite.locator('a[href="impressum.html"]').count() == 1 and seite.locator('a[href="datenschutz.html"]').count() == 1,
+           "… und verlinkt Impressum und Datenschutz")
+    seite.close()
+    seite, probleme = seite_oeffnen(ctx, basis + "/index.html", ".hero, .top-bar")
+    pruefe(seite.url.endswith("/index.html") and not probleme,
+           "aus (Stand im Repo): Startseite bleibt stehen, keine Fehler (%s)" % ("; ".join(probleme) or "ok"))
+    seite.close()
+
+
 def pruefe_kartenrahmen(seite):
     """Die Welt genau EINMAL, und nicht weiter heraus als Europa.
 
@@ -2119,6 +2167,7 @@ def main() -> int:
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
                 pruefe_farbschema(ctx, basis)
+                pruefe_wartung(ctx, basis)
                 pruefe_datenrueckfall(ctx, basis, web_daten)
             finally:
                 browser.close()

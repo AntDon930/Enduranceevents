@@ -12,6 +12,22 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0b1220">
+<!-- Wartungsmodus (wartung.json, wartung.html, README „Wartungsmodus"):
+     Steht in wartung.json "aktiv": true, führt die Seite sofort nach
+     wartung.html. Die Datei wird immer frisch abgerufen (Zeitstempel in
+     der Adresse, kein Cache); schlägt der Abruf fehl, läuft die Seite
+     normal weiter. In den drei Seiten WORTGLEICH - test_scraper_lib.py
+     (test_wartung) vergleicht die Kopien. Nicht in Impressum, Datenschutz
+     und admin.html: Die bleiben in der Pause erreichbar. -->
+<script>
+(function () {
+  if (!window.fetch) return;
+  fetch('wartung.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (w) { if (w && w.aktiv === true) location.replace('wartung.html'); })
+    .catch(function () { /* ohne Datei oder ohne Netz: Seite läuft normal */ });
+})();
+</script>
 <!-- Farbschema hell/dunkel (siehe site.css). Läuft hier im Kopf, damit die
      Seite nicht erst im falschen Schema aufblitzt: gespeicherte Wahl
      (endurance-theme) vor der Systemeinstellung. Der Knopf .theme-btn in

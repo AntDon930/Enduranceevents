@@ -71,6 +71,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
 | `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift und Kontaktadresse (`impressum@endurance-events.de`, seit dem 05.10.2026) stehen; von jeder Seite aus verlinkt |
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
+| `wartung.json`, `wartung.html` | **Wartungsmodus** (seit 13.10.2026): `"aktiv": true` in der JSON-Datei schickt Startseite, Liste und Karte nach `wartung.html` (Impressum, Datenschutz, admin.html bleiben erreichbar); umschalten = Datei auf GitHub bearbeiten, der Deploy läuft dann ohne Tests in ~2 Minuten – siehe „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
@@ -4782,6 +4783,31 @@ Nominatim befragt) und die Frage, ob `kalender/` zu `events.json` passt – und 
 Chromium. Das Repository ist öffentlich, Actions-Minuten sind kostenlos.
 **Keine Scraper-Läufe in der CI** (Höflichkeit gegenüber den Quellen).
 
+**Deploy-Gate (seit 13.10.2026, vom Nutzer gewünscht: „die sicherste
+Methode, ohne dass die Webseite down gehen kann")**: `pages.yml` ruft
+`ci.yml` als wiederverwendbaren Workflow (`workflow_call`) und deployt
+erst, wenn Regressionstests UND Rauchtest grün sind – drei Jobs
+`aenderung` → `pruefung` → `deploy`. Rot heißt: alte Fassung bleibt
+live, CI-Mail sagt, was fehlschlug. `ci.yml` prüft den Deploy-Branch
+deshalb nicht mehr selbst unter `push` (sonst zweimal je Push, zwei
+Mails), nur noch `claude/website-access-9d9tg1` und `main`;
+`test_wartung` hält beides fest. Rollback: Actions → „Deploy GitHub
+Pages" → älterer grüner Lauf → „Re-run all jobs". **Der reine
+Wartungsschalter (nur `wartung.json` geändert) läuft OHNE Tests durch**
+– `aenderung` vergleicht `github.event.before` mit dem Push; im Zweifel
+(manueller Start, neuer Branch) wird geprüft. Einzelheiten im README
+(„Deploy-Gate und Wartungsmodus").
+
+**Ein Push des Datenlaufs löst KEINEN Deploy aus** (gefunden am
+13.10.2026: der Lauf vom 12.10. hatte keinen einzigen Folge-Lauf, weder
+Tests noch Deploy): GitHub unterdrückt Workflow-Läufe aus Pushes mit dem
+`GITHUB_TOKEN`. Bis dahin ging ein Datenlauf erst mit dem nächsten Push
+von Hand live. `update-events.yml` stößt `pages.yml` deshalb nach dem
+Push per `gh workflow run pages.yml --ref …` an (`actions: write`,
+workflow_dispatch ist die erlaubte Ausnahme) – **wirkt erst, wenn die
+Fassung auf `main` die Zeile trägt** (To-do-Liste, Punkt 7; Freigabe des
+Nutzers, ein Commit auf `main` mit nur dieser Datei).
+
 **Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
 diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
 Standard-Branch. `main` enthält deshalb genau zwei Dateien:
@@ -5208,6 +5234,15 @@ Verweise auf alte Nummern stehen in Klammern.
    Nutzer in der Cloud Shell: `cd Enduranceevents && git pull &&
    firebase deploy --only functions`. Das Dashboard zeigt dann den
    laufenden Tag erst am nächsten Morgen („Stand" = Mitternacht).
+7. **`main`: `update-events.yml` nachziehen** (neu 13.10.2026, braucht
+   die Freigabe des Nutzers wie beim letzten Mal): Die Fassung auf dem
+   Entwicklungs-Branch stößt nach dem Push den Pages-Deploy an
+   (`gh workflow run pages.yml`, `actions: write`) – ohne das geht der
+   Montags-Datenlauf erst mit dem nächsten Push von Hand live (siehe
+   „Automatik", „Ein Push des Datenlaufs löst KEINEN Deploy aus"). Nach
+   dem Ja: ein Commit auf `main` mit nur dieser Datei, dann ist
+   `git diff origin/main origin/claude/website-access-9d9tg1 --
+   .github/workflows/update-events.yml` wieder leer.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:

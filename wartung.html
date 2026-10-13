@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wartung – Endurance Events</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<!-- Die Wartungsseite gehört nicht in Suchergebnisse. -->
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="vendor/fonts/barlow.css">
+<link rel="stylesheet" href="seite.css">
+</head>
+<body>
+
+<!-- Wartungsmodus (siehe wartung.json und README „Wartungsmodus"): Steht
+     in wartung.json "aktiv": true, führen Startseite, Liste und Karte
+     hierher. Diese Seite liest den Text aus derselben Datei, fragt sie
+     jede Minute erneut ab und geht von selbst zur Startseite zurück,
+     sobald der Schalter wieder aus ist. Impressum und Datenschutz bleiben
+     verlinkt - die müssen auch in der Pause erreichbar sein. Kein
+     stats.js: In der Pause wird nicht gezählt. -->
+
+<div class="top-bar">
+  <h1 data-i="titel">Kurze Pause</h1>
+  <div class="top-actions">
+    <button type="button" class="lang-btn" data-lang="de">DE</button>
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<main>
+  <p id="wartung-text" data-i="text">Wir arbeiten gerade an der Seite und sind in Kürze zurück.</p>
+  <p data-i="hinweis">Die Seite prüft von selbst, ob es weitergeht – du musst nichts neu laden.</p>
+</main>
+
+<footer>
+  <a href="impressum.html" data-i="f_impressum">Impressum</a> ·
+  <a href="datenschutz.html" data-i="f_privacy">Datenschutzerklärung</a>
+</footer>
+
+<script>
+(function () {
+  const I18N = {
+    de: {
+      titel: 'Kurze Pause',
+      text: 'Wir arbeiten gerade an der Seite und sind in Kürze zurück.',
+      hinweis: 'Die Seite prüft von selbst, ob es weitergeht – du musst nichts neu laden.',
+      f_impressum: 'Impressum', f_privacy: 'Datenschutzerklärung'
+    },
+    en: {
+      titel: 'Back soon',
+      text: 'We are working on the site and will be back shortly.',
+      hinweis: 'This page checks by itself whether the site is back – no need to reload.',
+      f_impressum: 'Legal notice', f_privacy: 'Privacy policy'
+    }
+  };
+  // Der Text aus wartung.json ersetzt den Vorgabetext, sobald er da ist.
+  let texte = { de: null, en: null };
+
+  let lang = 'de';
+  try {
+    const gespeichert = localStorage.getItem('endurance-lang');
+    if (gespeichert === 'de' || gespeichert === 'en') lang = gespeichert;
+  } catch (e) { /* ignorieren */ }
+
+  function applyLang(l) {
+    lang = l;
+    try { localStorage.setItem('endurance-lang', l); } catch (e) { /* ignorieren */ }
+    document.documentElement.lang = l;
+    document.title = I18N[l].titel + ' – Endurance Events';
+    document.querySelectorAll('[data-i]').forEach(el => {
+      const key = el.getAttribute('data-i');
+      if (key === 'text' && texte[l]) el.textContent = texte[l];
+      else if (I18N[l][key] != null) el.textContent = I18N[l][key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.lang === l));
+  }
+
+  // Jede Minute nachsehen: Schalter aus -> zurück zur Startseite. Ein
+  // fehlgeschlagener Abruf ändert nichts (die Seite bleibt stehen).
+  function pruefen() {
+    fetch('wartung.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(r => (r.ok ? r.json() : null))
+      .then(w => {
+        if (!w) return;
+        if (w.aktiv !== true) { location.replace('index.html'); return; }
+        texte = { de: typeof w.text_de === 'string' && w.text_de ? w.text_de : null,
+                  en: typeof w.text_en === 'string' && w.text_en ? w.text_en : null };
+        applyLang(lang);
+      })
+      .catch(() => { /* ohne Netz: Vorgabetext bleibt */ });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+  applyLang(lang);
+  pruefen();
+  setInterval(pruefen, 60000);
+})();
+</script>
+</body>
+</html>

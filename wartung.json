@@ -1,0 +1,6 @@
+{
+  "_doku": "Wartungsmodus. \"aktiv\": true schickt Startseite, Liste und Karte nach wartung.html; Impressum und Datenschutz bleiben erreichbar. Umschalten: diese Datei auf GitHub bearbeiten (Stift), aktiv auf true oder false setzen, direkt auf den Branch claude/endurance-events-website-v1wruf committen - der Deploy läuft dann ohne Tests und wirkt nach etwa zwei Minuten. Siehe README, Abschnitt Wartungsmodus.",
+  "aktiv": false,
+  "text_de": "Wir arbeiten gerade an der Seite und sind in Kürze zurück.",
+  "text_en": "We are working on the site and will be back shortly."
+}

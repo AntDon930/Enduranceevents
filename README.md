@@ -1075,10 +1075,13 @@ Einträgen, die dadurch zwei Schreibweisen behalten.
 
 ### Tests bei jedem Push (GitHub Actions)
 
-`.github/workflows/ci.yml` prüft bei jedem Push und jedem Pull Request
-genau das, was vor einem Commit ohnehin laufen soll. Vorher lief beim
-Push nur der Pages-Deploy – eine kaputte `events.html` wäre unbemerkt
-live gegangen.
+`.github/workflows/ci.yml` prüft bei jedem Push genau das, was vor
+einem Commit ohnehin laufen soll. **Seit dem 13.10.2026 ist es das
+Deploy-Gate**: `pages.yml` ruft `ci.yml` als wiederverwendbaren Workflow
+auf und veröffentlicht erst, wenn beide Jobs grün sind (siehe
+„Deploy-Gate und Wartungsmodus" unten). Vorher liefen Tests und Deploy
+nebeneinander – eine kaputte `events.html` wäre live gegangen, bevor die
+CI rot wurde.
 
 Zwei Jobs, damit auf einen Blick zu sehen ist, *was* kaputt ist:
 
@@ -1103,6 +1106,67 @@ Zwei Jobs, damit auf einen Blick zu sehen ist, *was* kaputt ist:
 Push abgerufen werden (Höflichkeit und robots.txt); Daten aktualisiert
 allein `update-events.yml`. Das Repository ist öffentlich,
 Actions-Minuten sind dafür kostenlos.
+
+
+### Deploy-Gate und Wartungsmodus (seit 13.10.2026)
+
+Vom Nutzer gefragt, als die Seite live war: „Was ist die sicherste
+Methode, ohne dass die Webseite down gehen kann wegen einem Fehler im
+Code? Kann ich die Webseite auf Maintenance-Modus umschalten?" Zwei
+Antworten, beide gebaut.
+
+**Deploy-Gate.** `pages.yml` hat drei Jobs: `aenderung` sieht nach, ob
+der Push nur `wartung.json` ändert; `pruefung` ist `ci.yml`
+(Regressionstests und Rauchtest in Chromium, zusammen etwa fünf
+Minuten); `deploy` läuft nur, wenn `pruefung` grün ist oder beim reinen
+Wartungsschalter übersprungen wurde. Rot heißt: Nichts passiert, die
+alte Fassung bleibt live, die CI-Mail sagt, welcher Job fehlschlug. Der
+Deploy dauert damit fünf bis sieben Minuten statt zwei.
+
+**Rollback.** Unter Actions → „Deploy GitHub Pages" einen älteren grünen
+Lauf öffnen → „Re-run all jobs": Der Workflow checkt denselben Commit
+aus und veröffentlicht ihn wieder, nach zwei Minuten ist der alte Stand
+live. Kein Code nötig.
+
+**Datenlauf und Deploy.** Ein Push mit dem `GITHUB_TOKEN` löst keinen
+Workflow aus (GitHub unterdrückt das, damit Workflows sich nicht
+gegenseitig endlos anstoßen). Der wöchentliche Datenlauf ging deshalb
+erst mit dem nächsten Push von Hand live – der Lauf vom 12.10.2026
+hatte keinen einzigen Folge-Lauf. `update-events.yml` stößt `pages.yml`
+jetzt nach seinem Push selbst an (`gh workflow run`, die erlaubte
+Ausnahme); der Deploy läuft dann mit Tests davor. Das wirkt erst, wenn
+die Fassung auf `main` diese Zeile trägt (der Zeitplan läuft von dort).
+
+**Wartungsmodus.** `wartung.json` ist der Schalter:
+
+```json
+{ "aktiv": false, "text_de": "…", "text_en": "…" }
+```
+
+Startseite, Liste und Karte rufen die Datei im `<head>` ab (immer
+frisch, Zeitstempel in der Adresse) und leiten bei `"aktiv": true`
+sofort nach `wartung.html` um – eine ruhige Seite mit dem Text aus der
+Datei, DE/EN, Links auf Impressum und Datenschutz (die müssen auch in
+der Pause erreichbar sein, beide tragen den Schnipsel deshalb nicht,
+`admin.html` ebenfalls nicht). Die Wartungsseite fragt den Schalter
+jede Minute ab und geht von selbst zur Startseite zurück, sobald er
+aus ist. Schlägt der Abruf fehl, läuft die Seite normal weiter.
+
+Umschalten, auch vom iPad: auf github.com das Repository öffnen,
+Branch `claude/endurance-events-website-v1wruf`, Datei `wartung.json`,
+Stift („Edit"), `"aktiv": false` → `true` (oder zurück), optional den
+Text ändern, „Commit changes" direkt auf den Branch. Der Deploy läuft
+dann OHNE Tests (das Gate erkennt, dass nur diese Datei geändert wurde)
+und wirkt nach etwa zwei Minuten. Als allerletzte Notbremse bleibt in
+den Pages-Einstellungen „Unpublish site" – sofort, aber die Besucher
+sehen eine 404-Seite von GitHub.
+
+`test_wartung` (Regressionstests) hält die Form fest: Schnipsel
+wortgleich in den drei Seiten und nirgends sonst, Links auf den
+Wartungsseite, das Gate in den Workflow-Dateien. Nicht geprüft wird,
+ob der Schalter aus ist – sonst käme ein Commit mit `"aktiv": true`
+nie durch das Gate. Der Rauchtest fängt den Abruf ab und prüft die
+Umleitung samt Text (`pruefe_wartung`).
 
 ### Regressionstests: `test_scraper_lib.py`
 
@@ -3270,6 +3334,7 @@ Browser prüfen lässt.
 2. Unter **Build and deployment → Source** die Option **GitHub Actions**
    auswählen.
 3. Nach dem nächsten Push auf diesen Branch deployt der Workflow
-   automatisch, und die Seite ist unter der von GitHub angezeigten URL
-   erreichbar (üblicherweise
+   automatisch (seit dem 13.10.2026 erst nach grünen Tests, siehe
+   „Deploy-Gate und Wartungsmodus"), und die Seite ist unter der von
+   GitHub angezeigten URL erreichbar (üblicherweise
    `https://antdon930.github.io/Enduranceevents/`).
