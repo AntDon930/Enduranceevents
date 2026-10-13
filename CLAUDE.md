@@ -5180,6 +5180,23 @@ Verweise auf alte Nummern stehen in Klammern.
    zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
    Cloud Function bauen, dann `firebase deploy --only functions` aus der
    Cloud Shell (der Nutzer), Extension deinstallieren.
+6. **Statistik-Auswertung von stündlich auf täglich umstellen** (vom
+   Nutzer am 13.10.2026 entschieden: „Am Anfang lassen wir stündlich,
+   weil es interessant ist. Aber bitte als To-do aufnehmen, dass ich es
+   auf täglich umstelle."). Hintergrund: Die Auswertung kostet keine
+   Tokens, sondern Firestore-Lesezugriffe – jeder Lauf von
+   `aggregateStats` liest alle Treffer von heute UND gestern; stündlich
+   sind das 24 × 2 × Treffer je Tag, kostenlos bis ~1.000 Treffer/Tag
+   (grob 250 Besuche), täglich 2 × Treffer je Tag, kostenlos bis ~25.000.
+   Sobald die Seite mehrere hundert Besuche am Tag hat, oder wenn der
+   Nutzer es sagt: in `functions/index.js` den Zeitplan von
+   `aggregateStats` von `"7 * * * *"` auf `"7 0 * * *"` (00:07 Berlin)
+   setzen, in `admin.html` die Texte `sub` und `keine_daten` (DE und EN,
+   „stündlich" → „täglich"), dazu README („Besucherstatistik", drei
+   Stellen) und CLAUDE.md („Besucherstatistik") nachziehen; danach der
+   Nutzer in der Cloud Shell: `cd Enduranceevents && git pull &&
+   firebase deploy --only functions`. Das Dashboard zeigt dann den
+   laufenden Tag erst am nächsten Morgen („Stand" = Mitternacht).
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
