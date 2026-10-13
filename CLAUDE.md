@@ -5042,7 +5042,13 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 13.10.2026: Punkt 31 erledigt, Punkt 30 gestrichen, Punkt 32 läuft (Liste beim Nutzer).** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
+**Stand am 13.10.2026, abends: LIVE auf endurance-events.de (Punkt 29
+vorgezogen, siehe „Livegang"). Offen beim Nutzer: Punkt 32 (täglich
+~50 Zeilen der Korrekturliste – jede geprüfte Zeile wird sichtbar) und
+der neue Punkt 33 (Domain-Verifizierung, freiwillig); Punkt 30
+gestrichen, Punkt 31 erledigt; Punkte 25–27 warten auf das Frühjahr
+2027; die Erinnerung zum Ende der Firebase Extensions (Punkt 2) kommt
+am 11.01.2027.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
 verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
@@ -5416,6 +5422,21 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     (Datenregel 2), die fünf Links sind drin, der Import setzt das Flag
     künftig selbst. Und **Geschriebenstein bleibt** trotz Start in
     Ungarn („Ja aufnehmen", Datenregel 4).
+**F. Nach dem Livegang (13.10.2026)**
+
+33. **GitHub-Domain-Verifizierung** (kostenlos, freiwillig – vom Nutzer
+    am 13.10.2026 gewünscht: „wenn es umsonst ist"): schützt davor, dass
+    nach einem Löschen des Repositories jemand anderes die Domain auf
+    sein Pages-Projekt zeigen lässt. Drei Schritte: (1) github.com →
+    Profilbild → **Settings** (persönlich, nicht Repository) → links
+    **Pages** → „Add a domain" → `endurance-events.de` → GitHub zeigt
+    einen TXT-Eintrag (`_github-pages-challenge-AntDon930.endurance-events.de`
+    + Code); (2) IONOS → DNS → „Record hinzufügen" → Typ **TXT**,
+    Hostname nur `_github-pages-challenge-AntDon930` (IONOS hängt die
+    Domain an), Wert = der Code, keinen www-Eintrag dazu; (3) bei GitHub
+    „Verify", notfalls nach ein paar Minuten noch einmal. Der TXT-Eintrag
+    bleibt dauerhaft stehen.
+
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne
