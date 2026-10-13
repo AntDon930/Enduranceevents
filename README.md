@@ -2886,8 +2886,10 @@ als letzten Schritt (`mark_pruefung_offen`, Regel in
 (`EF.loadEvents` → `dropUnchecked`), und `update_events.py` meldet sie
 nicht per E-Mail. Die Zeilen bleiben in `events.json` und in `kalender/`;
 sobald der Nutzer eine Zeile über `korrekturliste.py import` prüft, fällt
-das Feld beim nächsten Aufräumen, und sie ist sichtbar. Beim Livegang
-waren 1.299 von 6.940 Zeilen ausgeblendet.
+das Feld beim nächsten Aufräumen, und sie ist sichtbar. Ein geschätzter
+Termin allein blendet nicht aus (Sternchen reicht,
+`audit_events.NUR_HINWEIS`). Beim Livegang waren 1.256 von 6.940 Zeilen
+ausgeblendet.
 
 ## Tempo der Seite
 

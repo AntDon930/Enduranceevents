@@ -4744,7 +4744,12 @@ Tage dann hinzu" – er prüft täglich ~50 Zeilen.
 - `clean_events.mark_pruefung_offen()` setzt an genau diese Zeilen
   **`pruefung_offen: true`** in `events.json` – als LETZTER Schritt des
   Aufräumens, nach allen Korrekturen – und nimmt es weg, sobald die Zeile
-  die Liste verlässt. Keine Löschregel: nichts wird entfernt, nur
+  die Liste verlässt. **Eine Ausnahme** (`audit_events.NUR_HINWEIS`,
+  `verbirgt()`): Ein geschätzter Termin ALLEIN blendet nicht aus – die
+  Zeile steht in der Liste, auf der Seite mit Sternchen (vom Nutzer
+  gleich nach dem Livegang entschieden: „Die 165 Zeilen können wir
+  zeigen"; davon haben 122 noch einen zweiten Grund und bleiben
+  ausgeblendet, 43 sind sichtbar). Keine Löschregel: nichts wird entfernt, nur
   markiert; `kalender/` enthält die Dateien weiter (nicht verlinkt).
 - `EF.loadEvents()` (`dropUnchecked`, `filters.js`) lädt markierte Zeilen
   nicht – Liste, Karte und die Zähler der Startseite laufen alle darüber,
@@ -4760,15 +4765,14 @@ Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
 Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
 
-**Stand beim Livegang**: 1.299 von 6.940 Zeilen ausgeblendet (sichtbar
-5.641); 1.008 von 4.026 Veranstaltungen haben mindestens eine offene
-Zeile. Die größten Gruppen: Distanz fehlt (496), Werktag (253), Portallink
-(216), vorläufiger Termin (165). **Folge, dem Nutzer gesagt**: Auch die
-vorläufigen Termine (Sternchen, Datenregel 19) und jede neue Zeile aus
-dem Wochenlauf, die eine Audit-Meldung trägt, bleiben unsichtbar, bis er
-sie geprüft hat – das ist gewollt („denen vertrau ich nicht"), aber
-die Liste wächst mit jedem Datenlauf; `korrekturliste.py export` nennt
-im Blatt „Anleitung", dass jede Zeile dort ausgeblendet ist.
+**Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
+5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
+fehlt (496), Werktag (253), Portallink (216). **Folge, dem Nutzer
+gesagt**: Jede neue Zeile aus dem Wochenlauf, die eine Audit-Meldung
+trägt, bleibt unsichtbar, bis er sie geprüft hat – das ist gewollt
+(„denen vertrau ich nicht"), aber die Liste wächst mit jedem Datenlauf;
+`korrekturliste.py export` nennt im Blatt „Anleitung", dass jede Zeile
+dort ausgeblendet ist (außer der Sternchen-Ausnahme).
 
 **Domain**: `og:image` in allen drei Seiten, `SITE_URL` in
 `functions/index.js` (Vorgabewert; wirkt erst nach `firebase deploy

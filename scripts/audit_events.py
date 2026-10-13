@@ -71,6 +71,20 @@ def ist_geprueft(protokoll: dict, event: dict) -> bool:
     return f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold() in protokoll
 
 
+# Gründe, die eine Zeile in die Korrekturliste bringen, sie aber NICHT
+# ausblenden: Ein geschätzter Termin trägt auf der Seite das Sternchen
+# (Datenregel 19) - vom Nutzer am 13.10.2026 nach dem Livegang so
+# entschieden ("Die 165 Zeilen können wir zeigen"). Eine Zeile mit NUR
+# diesem Grund bleibt sichtbar; kommt ein anderer dazu (Distanz fehlt,
+# Portallink …), ist sie ausgeblendet wie jede andere.
+NUR_HINWEIS = {"vorlaeufig"}
+
+
+def verbirgt(gruende: list[tuple[str, str]]) -> bool:
+    """True, wenn diese Gründe die Zeile auf der Seite ausblenden."""
+    return any(art not in NUR_HINWEIS for art, _ in gruende)
+
+
 def offene_pruefungen(events: list[dict], heute: str | None = None,
                       protokoll: dict | None = None) -> list[tuple[dict, list[tuple[str, str]]]]:
     """Die Zeilen, die noch keine Prüfung bestanden haben - EINE Regel für
@@ -85,8 +99,9 @@ def offene_pruefungen(events: list[dict], heute: str | None = None,
     rausnehmen. Ich würde dann jeden Tag ca. 50 Events checken und dann
     nach und nach auf der Webseite veröffentlichen." Deshalb ist die
     Mitgliedschaft in der Liste der Schalter: Wer in der Liste steht, ist
-    ausgeblendet; wer sie über `import` verlässt (Status in
-    geprueft.json), erscheint mit dem nächsten Aufräumen.
+    ausgeblendet (Ausnahme NUR_HINWEIS, siehe verbirgt()); wer sie über
+    `import` verlässt (Status in geprueft.json), erscheint mit dem
+    nächsten Aufräumen.
 
     Je Zeile die Gründe als (art, text): art "audit" (Kategorie von
     pruefe_event, nur ohne Eintrag in geprueft.json), "vorlaeufig"

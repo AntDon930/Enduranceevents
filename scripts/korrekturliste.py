@@ -303,7 +303,8 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
         ("Jede Zeile hier ist auf endurance-events.de AUSGEBLENDET, bis sie geprüft ist: "
          "Sobald du eine Zeile mit Status zurückschickst und ich sie einlese, erscheint sie "
          "auf der Seite (auch „Löschen“ und „Unklar“ nehmen sie aus der Liste - „Unklar“ bleibt "
-         "ausgeblendet, bis es geklärt ist).", None, f(size=10)),
+         "ausgeblendet, bis es geklärt ist). Einzige Ausnahme: Steht bei einer Zeile NUR „Termin "
+         "nur geschätzt“, ist sie sichtbar - mit Sternchen am Datum.", None, f(size=10)),
         None,
         ("So geht's", None, f(bold=True, size=11)),
         ("1.", "Im Blatt „Events prüfen“ die farbigen Zellen ansehen. Spalte „Was fehlt / was ist "

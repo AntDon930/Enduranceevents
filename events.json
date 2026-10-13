@@ -11314,8 +11314,7 @@
     "laenge_km": 40.0,
     "wettbewerb": "Gravel Tour 40 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.gravelodux.ch",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.gravelodux.ch"
   },
   {
     "land": "Schweiz",
@@ -11330,8 +11329,7 @@
     "laenge_km": 45.0,
     "wettbewerb": "Gravel Tour 45 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.gravelodux.ch",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.gravelodux.ch"
   },
   {
     "land": "Schweiz",
@@ -11346,8 +11344,7 @@
     "laenge_km": 60.0,
     "wettbewerb": "Gravel Tour 60 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.gravelodux.ch",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.gravelodux.ch"
   },
   {
     "land": "Deutschland",
@@ -30115,8 +30112,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://fun-sports.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -40217,8 +40213,7 @@
     "laenge_km": 13.9,
     "veranstalter_url": "http://leichtathletik-blankenburg.de",
     "wettbewerb": "Hauptstrecke 13,9 km",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -40234,8 +40229,7 @@
     "dauer_h": null,
     "wettbewerb": "9,5 km",
     "veranstalter_url": "http://leichtathletik-blankenburg.de",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Österreich",
@@ -46174,8 +46168,7 @@
     "laenge_km": 48.0,
     "wettbewerb": "Gravel Race 48 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.woerthersee-gravel.com",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.woerthersee-gravel.com"
   },
   {
     "land": "Österreich",
@@ -46190,8 +46183,7 @@
     "laenge_km": 96.0,
     "wettbewerb": "Gravel Race 96 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.woerthersee-gravel.com",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.woerthersee-gravel.com"
   },
   {
     "land": "Österreich",
@@ -52887,8 +52879,7 @@
     "veranstalter_url": "https://triathlon-offenburg.de/",
     "datum_vorlaeufig": true,
     "laenge_km": 27.5,
-    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)",
-    "pruefung_offen": true
+    "wettbewerb": "Sprint 27,5 km (500 m Schwimmen / 22 km Rad / 5 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -58916,8 +58907,7 @@
     "wettbewerb": "Olympisch",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.atsv-ternitz.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -60965,8 +60955,7 @@
     "laenge_km": 15.0,
     "wettbewerb": "MTB-Marathon 15 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.hahnenklee.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.hahnenklee.de/"
   },
   {
     "land": "Deutschland",
@@ -60981,8 +60970,7 @@
     "laenge_km": 24.0,
     "wettbewerb": "MTB-Marathon 24 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.hahnenklee.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.hahnenklee.de/"
   },
   {
     "land": "Deutschland",
@@ -60997,8 +60985,7 @@
     "laenge_km": 48.0,
     "wettbewerb": "MTB-Marathon 48 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.hahnenklee.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.hahnenklee.de/"
   },
   {
     "land": "Deutschland",
@@ -61013,8 +61000,7 @@
     "laenge_km": 72.0,
     "wettbewerb": "MTB-Marathon 72 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.hahnenklee.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.hahnenklee.de/"
   },
   {
     "land": "Deutschland",
@@ -61029,8 +61015,7 @@
     "laenge_km": 16.0,
     "wettbewerb": "MTB-Marathon 16 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.hahnenklee.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.hahnenklee.de/"
   },
   {
     "land": "Deutschland",
@@ -63675,8 +63660,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.triteam.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Schweiz",
@@ -64841,8 +64825,7 @@
     "laenge_km": 5.0,
     "wettbewerb": "Cupstrecke ca. 5 km (neue Strecke in Planung)",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.wagingersee-langstreckenschwimmen.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.wagingersee-langstreckenschwimmen.de/"
   },
   {
     "land": "Deutschland",
@@ -66575,8 +66558,7 @@
     "laenge_km": 6.0,
     "wettbewerb": "RTF 6 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "http://www.rsc-mayen.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.rsc-mayen.de/"
   },
   {
     "land": "Deutschland",
@@ -66591,8 +66573,7 @@
     "laenge_km": 20.0,
     "wettbewerb": "RTF 20 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "http://www.rsc-mayen.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.rsc-mayen.de/"
   },
   {
     "land": "Deutschland",
@@ -66607,8 +66588,7 @@
     "laenge_km": 25.0,
     "wettbewerb": "RTF 25 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "http://www.rsc-mayen.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.rsc-mayen.de/"
   },
   {
     "land": "Deutschland",
@@ -66623,8 +66603,7 @@
     "laenge_km": 35.0,
     "wettbewerb": "RTF 35 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "http://www.rsc-mayen.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "http://www.rsc-mayen.de/"
   },
   {
     "land": "Deutschland",
@@ -67756,8 +67735,7 @@
     "laenge_km": 72.0,
     "wettbewerb": "Radmarathon 72 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.myeifelride.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -67772,8 +67750,7 @@
     "laenge_km": 102.0,
     "wettbewerb": "Radmarathon 102 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.myeifelride.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -67788,8 +67765,7 @@
     "laenge_km": 137.0,
     "wettbewerb": "Radmarathon 137 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.myeifelride.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -67804,8 +67780,7 @@
     "laenge_km": 213.0,
     "wettbewerb": "Radmarathon 213 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.myeifelride.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -67820,8 +67795,7 @@
     "laenge_km": 245.0,
     "wettbewerb": "Radmarathon 245 km",
     "datum_vorlaeufig": true,
-    "veranstalter_url": "https://www.myeifelride.de/",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.myeifelride.de/"
   },
   {
     "land": "Deutschland",
@@ -71403,8 +71377,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.triateamnoewest.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Schweiz",
@@ -72871,8 +72844,7 @@
     "wettbewerb": "Olympisch",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://fun-sports.at/events/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -75524,8 +75496,7 @@
     "wettbewerb": "Stundenrennen",
     "datum_vorlaeufig": true,
     "veranstalter_url": "http://www.sportverein-machtolsheim.de",
-    "dauer_h": 1.0,
-    "pruefung_offen": true
+    "dauer_h": 1.0
   },
   {
     "land": "Deutschland",
@@ -76708,8 +76679,7 @@
     "datum_ende": "2027-07-09",
     "laenge_km": 86.4,
     "veranstalter_url": "https://24stundenlaufdorsten.de/",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -76723,8 +76693,7 @@
     "datum_ende": "2027-07-10",
     "veranstalter_url": "https://24stundenlaufdorsten.de/",
     "dauer_h": 24.0,
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -76933,8 +76902,7 @@
     "datum_start": "2027-07-09",
     "datum_ende": "2027-07-09",
     "veranstalter_url": "https://www.tsv-sonthofen.de/seite/829330/citylauf.html",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Schweiz",
@@ -79718,8 +79686,7 @@
     "laenge_km": 6.0,
     "wettbewerb": "6 km",
     "veranstalter_url": "https://firmenlauf.bayern/firmenlauf-neumarkt/",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Österreich",
@@ -82265,8 +82232,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.triathlon-poettsching.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -83204,8 +83170,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.ferlach-aquathlon.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -85743,8 +85708,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.kraigerseetriathlon.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -86947,8 +86911,7 @@
     "wettbewerb": "Sprint",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.xterraplanet.com/event/xterra-austria",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -87818,8 +87781,7 @@
     "wettbewerb": "Mitteldistanz",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://zugspitz-triathlon.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Österreich",
@@ -88109,8 +88071,7 @@
     "wettbewerb": "Mitteldistanz",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.ironman.com/im703-zell-am-see",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",
@@ -88278,8 +88239,7 @@
     "laenge_km": 25.8,
     "wettbewerb": "Sprintdistanz 25,8 km (750 m Schwimmen / 20 km Rad / 5 km Laufen)",
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -88294,8 +88254,7 @@
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
     "datum_vorlaeufig": true,
     "laenge_km": 107.1,
-    "wettbewerb": "Mitteldistanz 107,1 km (2 km Schwimmen / 84 km Rad / 21,1 km Laufen)",
-    "pruefung_offen": true
+    "wettbewerb": "Mitteldistanz 107,1 km (2 km Schwimmen / 84 km Rad / 21,1 km Laufen)"
   },
   {
     "land": "Deutschland",
@@ -88310,8 +88269,7 @@
     "laenge_km": 51.5,
     "wettbewerb": "Olympische Distanz 51,5 km (1,5 km Schwimmen / 40 km Rad / 10 km Laufen)",
     "veranstalter_url": "https://www.vfl-muenster.de/morettriathlon/ausschreibung/",
-    "datum_vorlaeufig": true,
-    "pruefung_offen": true
+    "datum_vorlaeufig": true
   },
   {
     "land": "Deutschland",
@@ -91580,8 +91538,7 @@
     "wettbewerb": "Mitteldistanz",
     "datum_vorlaeufig": true,
     "veranstalter_url": "https://www.suedkaerntner-triathlon.at/",
-    "gedaechtnis": true,
-    "pruefung_offen": true
+    "gedaechtnis": true
   },
   {
     "land": "Deutschland",

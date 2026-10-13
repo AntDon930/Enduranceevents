@@ -4300,9 +4300,14 @@ def test_pruefung_offen() -> None:
     _ae.lade_geprueft = lambda: protokoll
     try:
         markiert, frei = mark_pruefung_offen(rows, "2026-10-13")
-        check("markiert: fünf Zeilen (ohne Distanz, vorläufig, unklar, 2x doppelt)", len(markiert), 5)
+        # Ein geschätzter Termin ALLEIN blendet nicht aus (Sternchen reicht,
+        # Nutzer 13.10.2026) - die vier anderen schon.
+        check("markiert: vier Zeilen (ohne Distanz, unklar, 2x doppelt) - vorläufig nicht", len(markiert), 4)
         check("das Feld steht nur an offenen Zeilen",
-              [e.get("pruefung_offen") for e in rows], [None, True, None, True, True, None, True, True])
+              [e.get("pruefung_offen") for e in rows], [None, True, None, None, True, None, True, True])
+        vorlaeufig_ohne_km = dict(vorlaeufig, name="Prognoselauf ohne Distanz", laenge_km=None, wettbewerb=None)
+        mark_pruefung_offen(rows + [vorlaeufig_ohne_km], "2026-10-13")
+        check("vorläufig PLUS Distanz fehlt ist ausgeblendet", vorlaeufig_ohne_km.get("pruefung_offen"), True)
         ohne_km["laenge_km"] = 10.0; ohne_km["wettbewerb"] = "10 km"
         markiert, frei = mark_pruefung_offen(rows, "2026-10-13")
         check("Distanz nachgetragen - wieder sichtbar", (len(markiert), len(frei), "pruefung_offen" in ohne_km),

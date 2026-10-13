@@ -107,7 +107,7 @@ from scraper_lib import (  # noqa: E402
     round_km,
 )
 import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
-from audit_events import offene_pruefungen  # noqa: E402  (die Regel hinter der Korrekturliste)
+from audit_events import offene_pruefungen, verbirgt  # noqa: E402  (die Regel hinter der Korrekturliste)
 
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
 # Laufen genutzt (siehe ART2_KEYWORDS_LAUFEN in scraper_lib.py).
@@ -2090,7 +2090,9 @@ def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[l
     des Nutzers stünde (`audit_events.offene_pruefungen`: Audit-Meldung
     ohne Eintrag in geprueft.json, vorläufiger Termin, frühere Prüfung
     unklar, exakt doppelte Zeile) - und nimmt es wieder weg, sobald die
-    Zeile die Liste verlässt.
+    Zeile die Liste verlässt. Ausnahme: ein geschätzter Termin ALLEIN
+    blendet nicht aus (`audit_events.NUR_HINWEIS`, Sternchen reicht - vom
+    Nutzer am 13.10.2026 so entschieden).
 
     Seit dem Livegang (13.10.2026): Die Seite lädt diese Zeilen nicht
     (`EF.loadEvents()`), `update_events.py` meldet sie nicht per E-Mail.
@@ -2101,7 +2103,7 @@ def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[l
     LETZTER Schritt, nach allen Korrekturen, Umbenennungen und
     Zusammenführungen - vorher könnte eine Zeile markiert werden, die das
     Aufräumen gleich darauf repariert. Gibt (neu markiert, freigegeben)."""
-    offen = {id(e) for e, _ in offene_pruefungen(events, today)}
+    offen = {id(e) for e, gruende in offene_pruefungen(events, today) if verbirgt(gruende)}
     markiert: list[str] = []
     freigegeben: list[str] = []
     for e in events:
