@@ -5180,21 +5180,10 @@ Verweise auf alte Nummern stehen in Klammern.
    zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
    Cloud Function bauen, dann `firebase deploy --only functions` aus der
    Cloud Shell (der Nutzer), Extension deinstallieren.
-6. **Besucherstatistik deployen und freischalten** (neu 13.10.2026,
-   Anleitung im README „Besucherstatistik"): in der Cloud Shell `git pull`
-   und `firebase deploy --only functions,firestore:rules` (Parameter
-   `STATS_ORIGINS` mit Vorgabe bestätigen, Cloud Scheduler freischalten
-   lassen); dann `endurance-events.de/admin.html` öffnen, anmelden,
-   die angezeigte uid in Firestore als Dokument `admins/<uid>` anlegen,
-   Seite neu laden. Die erste Auswertung kommt zur nächsten vollen Stunde
-   plus sieben Minuten. **Der Deploy ist durch** (von hier geprüft am
-   13.10.2026, 21:05 UTC: `collect` antwortet mit erlaubtem Origin 204,
-   ohne Origin 403 – vorher wäre es eine 404 gewesen; die Seite zählt
-   also). Offen ist nur noch die Freischaltung des Dashboards:
-   `admins/<uid>` in Firestore anlegen, falls noch nicht geschehen.
 
-(Der frühere Punkt 7, die Datenschutzerklärung erneut lesen, ist seit dem
-13.10.2026 erledigt – Archiv, Punkt 34.)
+(Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
+Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
+Archiv, Punkte 35 und 34.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -5694,6 +5683,18 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Fehlermeldung nur mit der Kategorie gezählt wird (Markup, DE, EN;
     Commit 0d51635). Wer die Statistik ändert (neue Aktion, neues Feld),
     zieht den Abschnitt nach – siehe „Besucherstatistik".
+35. ~~**Besucherstatistik deployen und freischalten**~~ **erledigt**
+    (13.10.2026, abends): Deploy aus der Cloud Shell durch den Nutzer
+    (`firebase deploy --only functions,firestore:rules`; von hier geprüft:
+    `collect` antwortet mit erlaubtem Origin 204, ohne Origin 403),
+    `hits`, `stats_daily` und `stats_meta` lagen in Firestore, danach das
+    Dokument `admins/Z7lpnvkEmJbVOMifzRO0UdSulw92` (Feld `name`) in der
+    Konsole angelegt – per Bildschirmfoto begleitet: Projektverknüpfungen
+    → Firestore → Daten → „+ Sammlung erstellen" → `admins` → Dokument-ID
+    = die uid von `admin.html`. Das Dashboard zeigt seitdem Zahlen (erster
+    Tag: 7 Besucher, 10 Besuche, 13 Seitenaufrufe, Stand 23:07 – fast
+    alles eigene Aufrufe beim Einrichten). Wer ein zweites Konto
+    freischalten will: ein weiteres Dokument `admins/<uid>`, sonst nichts.
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
