@@ -388,7 +388,10 @@ def main():
 
     if not args.dry_run:
         before_identities = {event_identity(e) for e in before_events}
-        new_events = [e for e in after_events if event_identity(e) not in before_identities]
+        # Ausgeblendete Zeilen (pruefung_offen, siehe clean_events.py) sieht
+        # niemand auf der Seite - also auch keine E-Mail darüber.
+        new_events = [e for e in after_events
+                      if event_identity(e) not in before_identities and not e.get("pruefung_offen")]
         notify_webhook_of_new_events(new_events)
 
     print(f"\n{'=' * 70}\nZusammenfassung\n{'=' * 70}")

@@ -61,7 +61,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/veranstalter_seiten.py` | **Gedächtnis je Veranstaltung OHNE Datum** (seit 05.10.2026, vom Nutzer gewünscht): Schlüssel `<Kern des Namens>\|<Ort>`, merkt Veranstalterseite, Koordinaten, Sportart und Strecken der jüngsten Ausgabe; `lernen`/`anwenden`/`abgleich_vorjahr` laufen in `clean_events.py`, `pruefen` ruft die Seiten VERGANGENER Veranstaltungen ab und sucht die nächste Ausgabe (wöchentlich in `update_events.py`, `--uebernehmen` schreibt eindeutige Funde nach `manual_events.json`); siehe „Gedächtnis je Veranstaltung" |
 | `scripts/veranstalter_seiten.json` | **~2 MB, 4.371 Veranstaltungen (4.151 mit Seite) – nie komplett lesen**; eine Zeile je Eintrag, nach Schlüssel sortiert; geschrieben von `clean_events.py`, vom Datenlauf mitcommittet. Nachschlagen: `python3 scripts/veranstalter_seiten.py zeigen <Suchwort>` |
 | `scripts/veranstalter_seiten_pruefung.json` | Bericht von `pruefen` (je Veranstaltung Flag NEU/NEU?/LEER/NICHTS/FEHLER, gefundene Termine); entsteht im Datenlauf, wird mitcommittet |
-| `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet |
+| `scripts/korrekturliste.py` | **Excel-Korrekturliste für den Nutzer** (seit 05.10.2026): `export` schreibt alle Strecken mit fehlender/fraglicher Angabe (Audit-Meldungen ohne Eintrag in `geprueft.json`, vorläufige Termine, „unklar“-Fälle) als `.xlsx`, Zellen rot = fehlt, orange = fraglich; `import datei.xlsx [--dry-run]` liest die korrigierte Fassung zurück (Vergleich gegen das ausgeblendete Blatt `_original`), schreibt `manual_overrides.json` + `geprueft.json` und lässt `clean_events.py --no-geocoding` und `build_ics.py` laufen. Braucht `openpyxl`. Die `.xlsx` wird nicht committet. **Seit dem Livegang (13.10.2026) ist die Liste der Schalter: Jede Zeile, die in ihr steht, trägt in `events.json` `pruefung_offen: true` und ist auf der Seite ausgeblendet** (siehe „Livegang") |
 | `scripts/review_reports.py` | Nutzer-Fehlermeldungen bündeln → Vorschlag → Bestätigung; `suggestions` zeigt die Hinweise auf **fehlende** Events |
 | `scripts/pending_overrides.json` | Vorschläge, die auf die Bestätigung des Nutzers warten |
 | `scripts/test_scraper_lib.py` | Regressionstests, ohne Netzwerk |
@@ -4724,12 +4724,82 @@ Lauf nur Laufzeit und große events.json-Diffs): alle Scraper, dann
 also **keine Claude-Session nötig** – Workflow manuell auslösen reicht
 (Actions → „Events automatisch aktualisieren" → Run workflow).
 
+## Livegang auf endurance-events.de (13.10.2026)
+
+Vom Nutzer entschieden: „Ich will jetzt schon live gehen, weil es auch
+dauert, dass die Leute die Webseite kennen und dass man dann auch Input
+bekommt. Ich denke, wir müssen am Anfang noch nicht 100 % aller Läufe,
+Radrennen und Schwimmevents haben." Und: „Alle Events, die ich in der
+Excel-Liste noch nicht gecheckt habe, denen vertrau ich noch nicht so
+ganz … bitte alle einmal speichern, aber nicht in der Live-Version auf
+endurance-events.de zeigen. Wir fügen sie nach und nach die nächsten
+Tage dann hinzu" – er prüft täglich ~50 Zeilen.
+
+**Der Schalter ist die Korrekturliste selbst.** Eine Regel, drei Abnehmer:
+- `audit_events.offene_pruefungen(events, heute, protokoll)` sagt, welche
+  Zeilen noch keine Prüfung bestanden haben: Audit-Meldung ohne Eintrag
+  in `geprueft.json`, `datum_vorlaeufig`, frühere Prüfung `unklar`, exakt
+  doppelte Zeile – genau die Auswahl, die `korrekturliste.py export`
+  (`sammle()`) in die Excel-Liste schreibt.
+- `clean_events.mark_pruefung_offen()` setzt an genau diese Zeilen
+  **`pruefung_offen: true`** in `events.json` – als LETZTER Schritt des
+  Aufräumens, nach allen Korrekturen – und nimmt es weg, sobald die Zeile
+  die Liste verlässt. Keine Löschregel: nichts wird entfernt, nur
+  markiert; `kalender/` enthält die Dateien weiter (nicht verlinkt).
+- `EF.loadEvents()` (`dropUnchecked`, `filters.js`) lädt markierte Zeilen
+  nicht – Liste, Karte und die Zähler der Startseite laufen alle darüber,
+  auch der Rückfall auf `events.json`. `update_events.py` meldet sie
+  nicht an die Abo-Function. Die Rauchtest-Helfer, die Zeilen aus
+  `events.json` auswählen (`anzahl_strecken`, `ort_mit_zwei_veranstaltungen`),
+  übergehen sie ebenfalls. `test_pruefung_offen` hält alles fest.
+
+**Der Tagesablauf des Nutzers**: Excel-Zeilen prüfen → Datei
+zurückschicken → `korrekturliste.py import` (schreibt `geprueft.json`
+und Overrides, räumt auf) → Commit und Push → Pages-Deploy. Mit dem
+Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
+Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
+Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
+
+**Stand beim Livegang**: 1.299 von 6.940 Zeilen ausgeblendet (sichtbar
+5.641); 1.008 von 4.026 Veranstaltungen haben mindestens eine offene
+Zeile. Die größten Gruppen: Distanz fehlt (496), Werktag (253), Portallink
+(216), vorläufiger Termin (165). **Folge, dem Nutzer gesagt**: Auch die
+vorläufigen Termine (Sternchen, Datenregel 19) und jede neue Zeile aus
+dem Wochenlauf, die eine Audit-Meldung trägt, bleiben unsichtbar, bis er
+sie geprüft hat – das ist gewollt („denen vertrau ich nicht"), aber
+die Liste wächst mit jedem Datenlauf; `korrekturliste.py export` nennt
+im Blatt „Anleitung", dass jede Zeile dort ausgeblendet ist.
+
+**Domain**: `og:image` in allen drei Seiten, `SITE_URL` in
+`functions/index.js` (Vorgabewert; wirkt erst nach `firebase deploy
+--only functions`), der Hinweis in `firebase-config.js` und die
+User-Agent-Adressen der Scraper zeigen auf `https://endurance-events.de`.
+**Nicht geändert**: die `UID` in `build_ics.py`
+(`…@antdon930.github.io`) – sie ist nur eine Kennung, eine Änderung
+schriebe alle ~6.900 Kalenderdateien neu und bräche die Identität schon
+importierter Termine. `og-image.png` trägt keine Adresse im Bild, muss
+also nicht neu gerendert werden. GitHub Pages (Deploy per Actions aus
+`pages.yml`) braucht KEINE `CNAME`-Datei – bei einem Actions-Deploy wird
+sie ignoriert; die Domain steht in den Repo-Einstellungen (Settings →
+Pages → Custom domain), die alte Adresse `antdon930.github.io/Enduranceevents/`
+leitet danach automatisch um.
+
+**Was nur der Nutzer kann** (am 13.10.2026 als Anleitung geschickt):
+DNS bei IONOS (A-Records der Apex-Domain auf 185.199.108.153,
+185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME `www` →
+`antdon930.github.io`), die Custom Domain in den Pages-Einstellungen
+samt „Enforce HTTPS", Firebase Authentication → Autorisierte Domains
+(`endurance-events.de`, `www.endurance-events.de` – sonst
+`auth/unauthorized-domain` beim Login), und `firebase deploy --only
+functions` für `SITE_URL` in den Abo-Mails.
+
 ## Wo das Projekt gerade steht
 
-Die Seite ist **noch nicht live**. Gearbeitet wird derzeit an der Webseite
-selbst, nicht an den Daten – also sparsam mit Tokens umgehen: keine
-Scraper-Läufe „zur Kontrolle", `events.json` nicht lesen, für Daten-
-Änderungen den Workflow auslösen statt im Chat zu warten.
+Die Seite geht **am 13.10.2026 live** auf `endurance-events.de` (siehe
+„Livegang"); die DNS- und Firebase-Schritte liegen beim Nutzer. Sparsam
+mit Tokens umgehen: keine Scraper-Läufe „zur Kontrolle", `events.json`
+nicht lesen, für Daten-Änderungen den Workflow auslösen statt im Chat zu
+warten.
 
 **Bewusst ausgeschlossen – die Reserve für „mehr Events" (vom Nutzer am
 07.10.2026: „Bitte die Staffelläufe oder Teamläufe im Hinterkopf
@@ -5271,10 +5341,13 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     tragen 2027 erst nach und nach ein (Okt. 2026: 1.114 Zeilen, Sept.
     2027: 422). Die Zahl wächst bis zum Frühjahr 2027 von selbst über den
     Wochenlauf und das Gedächtnis.
-29. Livegang freigeben, nachdem Punkt 4 erledigt ist (erledigt) **und
-    Punkt 32 durch ist** – die Seite geht dann auf `endurance-events.de`
-    (eigene Domain; dann `og:image`-Adresse und `UNSUBSCRIBE_URL`
-    nachziehen, siehe `og-image.png` und `functions/index.js`).
+29. ~~Livegang freigeben, nachdem Punkt 4 erledigt ist (erledigt) **und
+    Punkt 32 durch ist**~~ **vorgezogen** (13.10.2026, vom Nutzer: „Ich
+    will jetzt schon live gehen" – statt auf Punkt 32 zu warten, sind
+    die ungeprüften Zeilen der Korrekturliste ausgeblendet, siehe
+    „Livegang auf endurance-events.de"). Domain-Verweise im Code
+    umgestellt (`og:image`, `SITE_URL`, User-Agent); DNS, Pages-Custom-
+    Domain, Firebase-Domains und Functions-Deploy macht der Nutzer.
 30. ~~**Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**~~ **gestrichen**
     (13.10.2026, vom Nutzer: „Punkt 30 machen wir nicht, die Webseite soll
     von sowas nicht abhängig sein, falls die es sich dann anders
@@ -5301,7 +5374,10 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     verkettet nicht mehr über eine Zeile ohne Distanz (Datenregel 7). 25
     geprüfte Fehlalarme (Ultra-Distanzen, lange Namen) als `label_ok` in
     `geprueft.json`. Die Liste ging als `korrekturliste.xlsx` an den
-    Nutzer; als Nächstes kommt sein `import`.
+    Nutzer; als Nächstes kommt sein `import`. **Seit dem Livegang ist
+    jede Zeile dieser Liste auf der Seite ausgeblendet, bis sie geprüft
+    ist** (`pruefung_offen`, siehe „Livegang") – Punkt 32 läuft damit
+    täglich weiter (~50 Zeilen), nicht mehr vor dem Livegang.
     **13.10.2026, abends: erste Rückgabe eingelesen** (27 Zeilen: 7
     Korrekturen, 5 Löschungen, Rest bestätigt). Von Hand, weil die Zelle
     keine Zahl war: Geschriebenstein 102/55/36/23/7 km (Start in Bozsok,

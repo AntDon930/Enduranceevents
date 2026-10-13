@@ -398,7 +398,7 @@ const MAX_WARTEND = 50;
 // `defineString` liest SITE_URL aus der Umgebung (oder nimmt den
 // Vorgabewert).
 const SITE_URL = defineString("SITE_URL", {
-  default: "https://antdon930.github.io/Enduranceevents",
+  default: "https://endurance-events.de",
 });
 
 function tageSeit(zeitstempel) {

@@ -69,7 +69,7 @@ GEOCODE_CACHE_PATH = REPO_ROOT / "scripts" / ".geocode_cache.json"
 
 USER_AGENT = (
     "EnduranceEventsBot/1.0 "
-    "(+https://antdon930.github.io/Enduranceevents/; "
+    "(+https://endurance-events.de/; "
     "privater, nicht-kommerzieller Kalenderabgleich; Kontakt siehe Repo)"
 )
 

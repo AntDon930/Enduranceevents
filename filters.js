@@ -908,6 +908,16 @@
     } catch (e) { return null; }
   }
 
+  // Zeilen mit `pruefung_offen` (gesetzt von clean_events.py: alles, was
+  // in der Korrekturliste des Nutzers steht und noch nicht geprüft ist)
+  // kommen gar nicht erst in die Seite - Liste, Karte und die Zähler der
+  // Startseite laden alle hierüber. Seit dem Livegang (13.10.2026, vom
+  // Nutzer so entschieden: "denen vertrau ich noch nicht so ganz"); die
+  // Zeilen bleiben in events.json und erscheinen, sobald er sie geprüft hat.
+  function dropUnchecked(events) {
+    return events.filter(e => !e.pruefung_offen);
+  }
+
   async function loadEvents(opts) {
     const web = (opts && opts.web) || 'events.web.json';
     const json = (opts && opts.json) || 'events.json';
@@ -915,12 +925,12 @@
       const res = await fetch(web);
       if (res.ok) {
         const d = await res.json();
-        return { events: markSerien(decodeWebData(d)), stand: d.stand || standAusHeader(res), quelle: web };
+        return { events: markSerien(dropUnchecked(decodeWebData(d))), stand: d.stand || standAusHeader(res), quelle: web };
       }
     } catch (e) { /* Rückfall auf events.json */ }
     const res = await fetch(json);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    return { events: markSerien(await res.json()), stand: standAusHeader(res), quelle: json };
+    return { events: markSerien(dropUnchecked(await res.json())), stand: standAusHeader(res), quelle: json };
   }
 
   function distanceFromOrigin(state, e) {
@@ -1341,6 +1351,7 @@
     formatKm,
     formatHours,
     minutenVon,
+    dropUnchecked,
     triathlonFormat,
     isoOf,
     todayIso,

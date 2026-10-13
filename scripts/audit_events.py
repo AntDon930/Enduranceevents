@@ -71,6 +71,65 @@ def ist_geprueft(protokoll: dict, event: dict) -> bool:
     return f"{(event.get('name') or '').strip()}|{event.get('datum_start')}".casefold() in protokoll
 
 
+def offene_pruefungen(events: list[dict], heute: str | None = None,
+                      protokoll: dict | None = None) -> list[tuple[dict, list[tuple[str, str]]]]:
+    """Die Zeilen, die noch keine Prüfung bestanden haben - EINE Regel für
+    zwei Abnehmer: `korrekturliste.py export` macht daraus die Excel-Liste
+    des Nutzers, `clean_events.mark_pruefung_offen()` setzt an genau diese
+    Zeilen `pruefung_offen: true`, und die Seite lädt sie nicht
+    (`EF.loadEvents()` in filters.js).
+
+    Hintergrund (13.10.2026, Livegang): "Alle Events die ich in der Excel
+    Liste noch nicht gecheckt habe, denen vertrau ich noch nicht so ganz,
+    und würde sie gerne für das Live gehen auf endurance-events.de
+    rausnehmen. Ich würde dann jeden Tag ca. 50 Events checken und dann
+    nach und nach auf der Webseite veröffentlichen." Deshalb ist die
+    Mitgliedschaft in der Liste der Schalter: Wer in der Liste steht, ist
+    ausgeblendet; wer sie über `import` verlässt (Status in
+    geprueft.json), erscheint mit dem nächsten Aufräumen.
+
+    Je Zeile die Gründe als (art, text): art "audit" (Kategorie von
+    pruefe_event, nur ohne Eintrag in geprueft.json), "vorlaeufig"
+    (datum_vorlaeufig), "unklar" (frühere Prüfung unklar, text = Notiz),
+    "doppelt" (zwei Zeilen mit Name, Tag, Distanz und Label gleich).
+    Vergangene Zeilen zählen nicht (vor `heute`, Vorgabe: heute)."""
+    heute = heute or datetime.date.today().isoformat()
+    protokoll = lade_geprueft() if protokoll is None else protokoll
+    unklar = {k: v for k, v in protokoll.items() if v.get("ergebnis") == "unklar"}
+    zeilen: list[tuple[dict, list[tuple[str, str]]]] = []
+    je_id: dict[int, list[tuple[str, str]]] = {}
+    for e in events:
+        if (e.get("datum_start") or "") < heute:
+            continue
+        gruende: list[tuple[str, str]] = []
+        if not ist_geprueft(protokoll, e):
+            gruende.extend(("audit", kategorie) for kategorie, _ in pruefe_event(e))
+        if e.get("datum_vorlaeufig"):
+            gruende.append(("vorlaeufig", "Termin nur geschätzt (Veranstalter nennt das Datum noch nicht)"))
+        eintrag = unklar.get(f"{(e.get('name') or '').strip()}|{e.get('datum_start')}".casefold())
+        if eintrag:
+            gruende.append(("unklar", eintrag.get("notiz") or "ohne Begründung"))
+        if gruende:
+            zeilen.append((e, gruende))
+            je_id[id(e)] = gruende
+
+    # Exakt doppelte Zeilen (wie pruefe_bestand): beide gehören in die Liste.
+    schluessel = lambda e: ((e.get("name") or "").casefold(), e.get("datum_start"),  # noqa: E731
+                            e.get("laenge_km"), (e.get("wettbewerb") or "").casefold())
+    anzahl: dict = {}
+    for e in events:
+        anzahl[schluessel(e)] = anzahl.get(schluessel(e), 0) + 1
+    for e in events:
+        if anzahl[schluessel(e)] > 1 and (e.get("datum_start") or "") >= heute:
+            hinweis = ("doppelt", "Zeile doppelt vorhanden - eine davon löschen")
+            if id(e) in je_id:
+                je_id[id(e)].append(hinweis)
+            else:
+                zeilen.append((e, [hinweis]))
+                je_id[id(e)] = zeilen[-1][1]
+    return zeilen
+
+
 def zaehle_unklar(protokoll: dict) -> int:
     """Wie viele Veranstaltungen im Protokoll als 'unklar' stehen.
 

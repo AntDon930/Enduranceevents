@@ -4264,6 +4264,60 @@ def test_gedaechtnis() -> None:
               [v["url"] for v in d.values() if v.get("url") and not vs.eigene_seite(v["url"])][:3], [])
 
 
+def test_pruefung_offen() -> None:
+    """Livegang (13.10.2026): Was in der Korrekturliste steht, ist auf der
+    Seite ausgeblendet - EINE Regel (audit_events.offene_pruefungen) für
+    die Excel-Liste, das Feld in events.json und den Loader der Seite."""
+    print("\nAusgeblendet bis geprüft (pruefung_offen):")
+    from audit_events import offene_pruefungen, pruefe_event
+    from clean_events import mark_pruefung_offen
+    wurzel = Path(__file__).resolve().parent.parent
+    sauber = {"name": "Testlauf Musterstadt", "datum_start": "2027-05-01", "datum_ende": "2027-05-01",
+              "laenge_km": 10.0, "wettbewerb": "10 km", "art1": "Laufen", "art2": "Straße",
+              "standort": "Musterstadt", "land": "Deutschland", "lat": 50.1, "lon": 8.6,
+              "veranstalter_url": "https://testlauf-musterstadt.de/"}
+    check("die saubere Zeile hat keine Audit-Meldung", pruefe_event(sauber), [])
+    ohne_km = dict(sauber, name="Lauf ohne Distanz", laenge_km=None, wettbewerb=None)
+    geprueft_ohne_km = dict(ohne_km, name="Geprüfter Lauf ohne Distanz")
+    vorlaeufig = dict(sauber, name="Prognoselauf", datum_vorlaeufig=True)
+    unklar = dict(sauber, name="Unklarer Lauf")
+    vergangen = dict(ohne_km, name="Vergangener Lauf", datum_start="2026-01-09", datum_ende="2026-01-09")
+    doppelt_a = dict(sauber, name="Doppellauf"); doppelt_b = dict(sauber, name="Doppellauf")
+    rows = [sauber, ohne_km, geprueft_ohne_km, vorlaeufig, unklar, vergangen, doppelt_a, doppelt_b]
+    protokoll = {"geprüfter lauf ohne distanz|2027-05-01": {"ergebnis": "quelle_ok"},
+                 "unklarer lauf|2027-05-01": {"ergebnis": "unklar", "notiz": "Seite tot"}}
+    offen = {e["name"]: [a for a, _ in g] for e, g in offene_pruefungen(rows, "2026-10-13", protokoll)}
+    check("sauber ist nicht offen", "Testlauf Musterstadt" in offen, False)
+    check("ohne Distanz ist offen (audit)", offen.get("Lauf ohne Distanz"), ["audit"])
+    check("geprüft ohne Distanz ist NICHT offen (geprueft.json)", "Geprüfter Lauf ohne Distanz" in offen, False)
+    check("vorläufiger Termin ist offen", offen.get("Prognoselauf"), ["vorlaeufig"])
+    check("frühere Prüfung unklar ist offen", offen.get("Unklarer Lauf"), ["unklar"])
+    check("vergangen zählt nicht", "Vergangener Lauf" in offen, False)
+    check("exakt doppelte Zeilen sind offen", offen.get("Doppellauf"), ["doppelt"])
+
+    import audit_events as _ae
+    _alt = _ae.lade_geprueft
+    _ae.lade_geprueft = lambda: protokoll
+    try:
+        markiert, frei = mark_pruefung_offen(rows, "2026-10-13")
+        check("markiert: fünf Zeilen (ohne Distanz, vorläufig, unklar, 2x doppelt)", len(markiert), 5)
+        check("das Feld steht nur an offenen Zeilen",
+              [e.get("pruefung_offen") for e in rows], [None, True, None, True, True, None, True, True])
+        ohne_km["laenge_km"] = 10.0; ohne_km["wettbewerb"] = "10 km"
+        markiert, frei = mark_pruefung_offen(rows, "2026-10-13")
+        check("Distanz nachgetragen - wieder sichtbar", (len(markiert), len(frei), "pruefung_offen" in ohne_km),
+              (0, 1, False))
+    finally:
+        _ae.lade_geprueft = _alt
+
+    # Der Loader der Seite filtert die Zeilen - alle drei Seiten laden darüber.
+    quelle = (wurzel / "filters.js").read_text(encoding="utf-8")
+    check("EF.loadEvents() wirft pruefung_offen weg (beide Wege)",
+          quelle.count("dropUnchecked(") >= 3 and "!e.pruefung_offen" in quelle, True)
+    check("update_events.py meldet ausgeblendete Zeilen nicht",
+          'not e.get("pruefung_offen")' in (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8"), True)
+
+
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
@@ -4274,7 +4328,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_pruefung_offen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

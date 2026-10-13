@@ -107,6 +107,7 @@ from scraper_lib import (  # noqa: E402
     round_km,
 )
 import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
+from audit_events import offene_pruefungen  # noqa: E402  (die Regel hinter der Korrekturliste)
 
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
 # Laufen genutzt (siehe ART2_KEYWORDS_LAUFEN in scraper_lib.py).
@@ -2084,6 +2085,38 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
     return result, report
 
 
+def mark_pruefung_offen(events: list[dict], today: str | None = None) -> tuple[list[str], list[str]]:
+    """Setzt `pruefung_offen: true` an jede Zeile, die in der Korrekturliste
+    des Nutzers stünde (`audit_events.offene_pruefungen`: Audit-Meldung
+    ohne Eintrag in geprueft.json, vorläufiger Termin, frühere Prüfung
+    unklar, exakt doppelte Zeile) - und nimmt es wieder weg, sobald die
+    Zeile die Liste verlässt.
+
+    Seit dem Livegang (13.10.2026): Die Seite lädt diese Zeilen nicht
+    (`EF.loadEvents()`), `update_events.py` meldet sie nicht per E-Mail.
+    Sie BLEIBEN in events.json und kalender/ - der Nutzer prüft täglich
+    ~50 Zeilen über die Korrekturliste, der `import` schreibt
+    geprueft.json, und mit dem nächsten Aufräumen sind sie sichtbar.
+    Keine Löschregel: Es wird nichts entfernt, nur markiert. Läuft als
+    LETZTER Schritt, nach allen Korrekturen, Umbenennungen und
+    Zusammenführungen - vorher könnte eine Zeile markiert werden, die das
+    Aufräumen gleich darauf repariert. Gibt (neu markiert, freigegeben)."""
+    offen = {id(e) for e, _ in offene_pruefungen(events, today)}
+    markiert: list[str] = []
+    freigegeben: list[str] = []
+    for e in events:
+        bez = f"{e.get('name')} ({e.get('datum_start')}" + (
+            f", {e['laenge_km']:g} km" if isinstance(e.get("laenge_km"), (int, float)) else "") + ")"
+        if id(e) in offen:
+            if not e.get("pruefung_offen"):
+                markiert.append(bez)
+            e["pruefung_offen"] = True
+        elif "pruefung_offen" in e:
+            del e["pruefung_offen"]
+            freigegeben.append(bez)
+    return markiert, freigegeben
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[3])
     parser.add_argument("--events-json", type=Path, default=EVENTS_JSON_PATH)
@@ -2293,6 +2326,16 @@ def main() -> None:
     section("Laufserie: Datum aus dem Termin-Label übernommen", series_fixes)
     section("Namens-Formatierung bereinigt", tidy_fixes)
     section("Namen innerhalb einer Veranstaltung vereinheitlicht", name_fixes)
+
+    # Ganz zum Schluss: Was noch in der Korrekturliste steht, bleibt auf
+    # der Seite ausgeblendet (pruefung_offen) - erst nach allen
+    # Korrekturen, sonst würde markiert, was gerade repariert wurde.
+    neu_offen, freigegeben = mark_pruefung_offen(events, args.today)
+    anzahl_offen = sum(1 for e in events if e.get("pruefung_offen"))
+    section("Auf der Seite ausgeblendet, bis geprüft (pruefung_offen) - neu markiert", neu_offen)
+    section("Prüfung erledigt - wieder sichtbar", freigegeben)
+    print(f"\nAusgeblendet insgesamt: {anzahl_offen} von {len(events)} Zeilen "
+          f"(sichtbar: {len(events) - anzahl_offen}).")
 
     print(f"\nevents.json: {before} -> {len(events)} Events "
           f"({len(events) - before:+d}).")

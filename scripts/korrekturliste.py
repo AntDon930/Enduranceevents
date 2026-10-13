@@ -46,8 +46,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audit_events import (GEPRUEFT_PATH, TRIATHLON_FORMAT_IM_LABEL,  # noqa: E402
-                          ist_geprueft, lade_geprueft, pruefe_event,
-                          triathlon_format_im_label)
+                          offene_pruefungen, triathlon_format_im_label)
 from scraper_lib import (EVENTS_JSON_PATH, MANUAL_OVERRIDES_PATH,  # noqa: E402
                          is_portal_link, orte_aus_places, override_keys)
 
@@ -158,43 +157,23 @@ KATEGORIE_FELDER: dict[str, tuple[tuple[str, ...], str, str]] = {
 # ---------------------------------------------------------------------------
 
 def sammle(events: list[dict], heute: str) -> list[tuple[dict, list[tuple[tuple[str, ...], str, str]]]]:
-    """Die Zeilen der Liste: (Event, [(Felder, Art, Text), …])."""
-    protokoll = lade_geprueft()
-    unklar = {k: v for k, v in protokoll.items() if v.get("ergebnis") == "unklar"}
+    """Die Zeilen der Liste: (Event, [(Felder, Art, Text), …]) - genau die
+    Zeilen, die `audit_events.offene_pruefungen()` nennt und die die Seite
+    seit dem Livegang (13.10.2026) als `pruefung_offen` ausblendet. Hier
+    wird nur übersetzt: Audit-Kategorie -> Felder, "fehlt"/"fraglich", Text."""
     zeilen = []
-    for e in events:
-        if (e.get("datum_start") or "") < heute:
-            continue
+    for e, gruende in offene_pruefungen(events, heute):
         funde: list[tuple[tuple[str, ...], str, str]] = []
-        if not ist_geprueft(protokoll, e):
-            for kategorie, _ in pruefe_event(e):
-                funde.append(KATEGORIE_FELDER.get(kategorie, (("name",), "fraglich", kategorie)))
-        if e.get("datum_vorlaeufig"):
-            funde.append((("datum_start", "datum_vorlaeufig"), "fraglich",
-                          "Termin nur geschätzt (Veranstalter nennt das Datum noch nicht)"))
-        eintrag = unklar.get(f"{(e.get('name') or '').strip()}|{e.get('datum_start')}".casefold())
-        if eintrag:
-            funde.append((("name",), "fraglich",
-                          f"Frühere Prüfung unklar: {eintrag.get('notiz') or 'ohne Begründung'}"))
-        if funde:
-            zeilen.append((e, funde))
-
-    # Exakt doppelte Zeilen (wie audit_events.pruefe_bestand)
-    schluessel = lambda e: ((e.get("name") or "").casefold(), e.get("datum_start"),  # noqa: E731
-                            e.get("laenge_km"), (e.get("wettbewerb") or "").casefold())
-    anzahl: dict = {}
-    for e in events:
-        anzahl[schluessel(e)] = anzahl.get(schluessel(e), 0) + 1
-    vorhanden = {id(e) for e, _ in zeilen}
-    for e in events:
-        if anzahl[schluessel(e)] > 1 and (e.get("datum_start") or "") >= heute:
-            hinweis = (("name",), "fraglich", "Zeile doppelt vorhanden - eine davon löschen")
-            if id(e) in vorhanden:
-                next(f for x, f in zeilen if x is e).append(hinweis)
+        for art, text in gruende:
+            if art == "audit":
+                funde.append(KATEGORIE_FELDER.get(text, (("name",), "fraglich", text)))
+            elif art == "vorlaeufig":
+                funde.append((("datum_start", "datum_vorlaeufig"), "fraglich", text))
+            elif art == "unklar":
+                funde.append((("name",), "fraglich", f"Frühere Prüfung unklar: {text}"))
             else:
-                zeilen.append((e, [hinweis]))
-                vorhanden.add(id(e))
-
+                funde.append((("name",), "fraglich", text))
+        zeilen.append((e, funde))
     zeilen.sort(key=lambda z: (z[0].get("datum_start") or "", (z[0].get("name") or "").casefold(),
                                z[0].get("laenge_km") or 0))
     return zeilen
@@ -321,6 +300,10 @@ def _anleitung(wb: Workbook, anzahl: int, letzte: int) -> None:
         ("Korrekturliste Endurance Events", None, f(bold=True, size=14)),
         (f"Stand {datetime.date.today():%d.%m.%Y} - {anzahl} Strecken, bei denen etwas fehlt "
          f"oder fraglich ist.", None, f(size=10)),
+        ("Jede Zeile hier ist auf endurance-events.de AUSGEBLENDET, bis sie geprüft ist: "
+         "Sobald du eine Zeile mit Status zurückschickst und ich sie einlese, erscheint sie "
+         "auf der Seite (auch „Löschen“ und „Unklar“ nehmen sie aus der Liste - „Unklar“ bleibt "
+         "ausgeblendet, bis es geklärt ist).", None, f(size=10)),
         None,
         ("So geht's", None, f(bold=True, size=11)),
         ("1.", "Im Blatt „Events prüfen“ die farbigen Zellen ansehen. Spalte „Was fehlt / was ist "

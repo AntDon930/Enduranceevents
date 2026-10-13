@@ -43,10 +43,10 @@
 </script>
 <!-- Vorschau beim Teilen ("Suche mit Freunden teilen" schickt einen Link
      auf events.html). Ohne diese Angaben zeigen WhatsApp, iMessage und Co.
-     nur die nackte Adresse. Das og:image (1200×630, og-image.png) trägt
-     die Adresse der GitHub-Pages-Seite; zieht die Seite auf eine eigene
-     Domain, muss die Adresse in allen drei Seiten mit (Open Graph
-     verlangt eine absolute). Erzeugt per Chromium-Screenshot aus einer
+     nur die nackte Adresse. Das og:image (1200×630, og-image.png) steht
+     unter der eigenen Domain endurance-events.de (seit dem Livegang am
+     13.10.2026; Open Graph verlangt eine absolute Adresse - bei einem
+     Domainwechsel in allen drei Seiten nachziehen). Erzeugt per Chromium-Screenshot aus einer
      HTML-Vorlage (Marke, Sportfarben, Barlow) - kein Foto, wie der
      Style Guide es vorsieht. -->
 <meta name="description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
@@ -55,7 +55,7 @@
 <meta property="og:title" content="Endurance Events – Ausdauersport im deutschsprachigen Raum">
 <meta property="og:description" content="Laufen, Radfahren, Schwimmen und Triathlon im deutschsprachigen Raum – Deutschland, Österreich, Schweiz und Südtirol – filterbar nach Datum, Ort, Sportart und Distanz, mit Umkreissuche, Karte und Kalender-Eintrag.">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://antdon930.github.io/Enduranceevents/og-image.png">
+<meta property="og:image" content="https://endurance-events.de/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Endurance Events – Ausdauersport im deutschsprachigen Raum">
@@ -626,7 +626,7 @@
      `defer` blockiert den Seitenaufbau nicht, und events.html, das diese
      Seite ohnehin per prefetch vorlädt, braucht die Datei danach sowieso:
      Der Abruf wärmt also den Cache für den nächsten Klick. -->
-<script defer src="filters.js?v=a5e37a08"></script>
+<script defer src="filters.js?v=8dbec59f"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
 

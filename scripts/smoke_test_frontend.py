@@ -1720,7 +1720,7 @@ def anzahl_strecken(name: str, datum_text: str, ort: str) -> int:
     je_schluessel: dict[str, list[dict]] = {}
     for i, e in enumerate(events):
         ende = e.get("datum_ende") or e.get("datum_start") or ""
-        if ende and ende < heute:
+        if ende and ende < heute or e.get("pruefung_offen"):
             continue
         k = schluessel.get(i)
         if not k or not k.startswith(name_norm + "|") or not k.endswith("|" + (ort or "").lower()):
@@ -1753,7 +1753,9 @@ def ort_mit_zwei_veranstaltungen() -> str | None:
     schluessel = serien_schluessel(events)
     for i, e in enumerate(events):
         ende = e.get("datum_ende") or e.get("datum_start") or ""
-        if ende and ende < heute:
+        # Ausgeblendete Zeilen (pruefung_offen) lädt die Seite nicht -
+        # ein Ort, dessen zweite Veranstaltung nur dort steht, hätte eine Nadel.
+        if ende and ende < heute or e.get("pruefung_offen"):
             continue
         if e.get("standort") and e.get("lat") is not None and i in schluessel:
             je_ort.setdefault(e["standort"], set()).add(schluessel[i])

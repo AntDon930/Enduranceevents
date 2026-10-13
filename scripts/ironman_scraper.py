@@ -131,7 +131,7 @@ CALENDAR_URL = "https://www.ironman.com/races?facet%5B0%5D=region%3AEurope"
 
 USER_AGENT = (
     "EnduranceEventsBot/1.0 "
-    "(+https://antdon930.github.io/Enduranceevents/; "
+    "(+https://endurance-events.de/; "
     "privater, nicht-kommerzieller Kalenderabgleich; Kontakt siehe Repo)"
 )
 

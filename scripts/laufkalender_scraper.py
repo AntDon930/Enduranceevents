@@ -120,7 +120,7 @@ DETAIL_PATH_PREFIX = "/laufkalender/details/"
 # dem Seitenbetreiber, uns bei Bedarf zu blockieren oder zu kontaktieren.
 USER_AGENT = (
     "EnduranceEventsBot/1.0 "
-    "(+https://antdon930.github.io/Enduranceevents/; "
+    "(+https://endurance-events.de/; "
     "privater, nicht-kommerzieller Kalenderabgleich; Kontakt siehe Repo)"
 )
 

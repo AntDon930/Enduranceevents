@@ -2869,8 +2869,25 @@ Angaben zeigen WhatsApp, iMessage und Co. nur die nackte Adresse. Seit
 dem 21.09.2026 gibt es auch ein `og:image` (`og-image.png`, 1200 × 630,
 per Chromium-Screenshot aus einer HTML-Vorlage mit Marke, Sportfarben und
 Barlow erzeugt – Illustration statt Foto, wie der Style Guide es
-vorsieht); es trägt die absolute Adresse der GitHub-Pages-Seite und muss
-bei einem Domainwechsel in allen drei Seiten mitziehen.
+vorsieht); die absolute Adresse im `og:image`-Tag zeigt seit dem Livegang
+auf `https://endurance-events.de/og-image.png` und muss bei einem
+Domainwechsel in allen drei Seiten mitziehen (das Bild selbst trägt
+keine Adresse).
+
+## Livegang und ausgeblendete Zeilen (`pruefung_offen`)
+
+Seit dem 13.10.2026 läuft die Seite auf `endurance-events.de`. Zeilen, die
+noch in der Korrekturliste des Nutzers stehen (`scripts/korrekturliste.py
+export`: Audit-Meldung ohne Eintrag in `geprueft.json`, vorläufiger
+Termin, frühere Prüfung „unklar", exakt doppelte Zeile), tragen in
+`events.json` das Feld `pruefung_offen: true`. `clean_events.py` setzt es
+als letzten Schritt (`mark_pruefung_offen`, Regel in
+`audit_events.offene_pruefungen`), die Seite lädt solche Zeilen nicht
+(`EF.loadEvents` → `dropUnchecked`), und `update_events.py` meldet sie
+nicht per E-Mail. Die Zeilen bleiben in `events.json` und in `kalender/`;
+sobald der Nutzer eine Zeile über `korrekturliste.py import` prüft, fällt
+das Feld beim nächsten Aufräumen, und sie ist sichtbar. Beim Livegang
+waren 1.299 von 6.940 Zeilen ausgeblendet.
 
 ## Tempo der Seite
 

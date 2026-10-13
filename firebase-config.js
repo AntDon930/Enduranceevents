@@ -13,9 +13,10 @@
 //      "E-Mail/Passwort" aktivieren. Bei Google wird eine Support-
 //      E-Mail verlangt - die eigene Adresse genügt.
 //   3. Authentication -> Einstellungen -> Autorisierte Domains:
-//      antdon930.github.io eintragen (sonst schlägt der Login auf der
-//      live GitHub-Pages-Seite mit "auth/unauthorized-domain" fehl,
-//      auch wenn er lokal funktioniert).
+//      endurance-events.de UND www.endurance-events.de eintragen (seit
+//      dem Livegang am 13.10.2026; antdon930.github.io bleibt für die
+//      alte Adresse) - sonst schlägt der Login auf der Live-Seite mit
+//      "auth/unauthorized-domain" fehl, auch wenn er lokal funktioniert.
 //   4. Linke Spalte -> "Datenbanken und Speicher" -> Firestore Database
 //      -> Datenbank erstellen. Dabei: Version "Standardversion" (nicht
 //      Enterprise), Datenbank-ID "(default)" lassen, Speicherort z. B.
