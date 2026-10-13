@@ -2595,6 +2595,22 @@ def find_override(overrides: dict, name: str | None, datum_start: str | None,
     return merged or None
 
 
+def portal_override_erlaubt(override: dict) -> bool:
+    """True, wenn dieser Override einen Portal-/Anmeldelink AUSDRÜCKLICH über
+    die Veranstalterseite setzen darf (`"portal_erlaubt": true`).
+
+    Datenregel 2 sagt "nie das Portal" - und apply_overrides() blockt einen
+    Portallink über einem Veranstalter-Link, weil die alten Einträge aus
+    der Zeit vor der Regel stammen. Der Nutzer hat am 13.10.2026 die
+    Ausnahme entschieden: Nennt die Vereinsseite den Lauf nicht mehr
+    (skiclub-bb.com zuletzt 2023, leichtathletik-kw.de, tsg-nattheim.de),
+    ist die Anmeldeseite die bessere Adresse ("Ja dann ist die
+    Anmeldeseite besser"). Das Flag ist Absicht, kein Versehen: Ohne es
+    gilt die Sperre weiter. `korrekturliste.py import` setzt es selbst,
+    wenn der Nutzer in der Liste einen solchen Link einträgt."""
+    return bool(override.get("portal_erlaubt"))
+
+
 def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
     """Wendet scripts/manual_overrides.json an: Quellen ohne verlässliche
     Distanz-/Link-Angabe (v. a. blv-sport.de) werden dort einzeln, per
@@ -2623,11 +2639,17 @@ def apply_manual_overrides(events: list[Event]) -> tuple[list[Event], int]:
                 # durch einen Portallink ersetzen: die älteren Einträge
                 # stammen aus der Zeit vor der Regel "immer die offizielle
                 # Seite" und enthalten teils einen Portal-Fallback, den die
-                # Scraper inzwischen übertreffen.
+                # Scraper inzwischen übertreffen. EINE Ausnahme, und die
+                # muss der Override ausdrücklich sagen (`portal_erlaubt`):
+                # Die Vereinsseite nennt den Lauf nicht mehr (zuletzt 2023),
+                # die Anmeldeseite ist die einzige Seite dieser Ausgabe -
+                # vom Nutzer am 13.10.2026 entschieden ("dann ist die
+                # Anmeldeseite besser"), siehe portal_override_erlaubt().
                 if (field == "veranstalter_url"
                         and is_portal_link(override[field])
                         and event.veranstalter_url
-                        and not is_portal_link(event.veranstalter_url)):
+                        and not is_portal_link(event.veranstalter_url)
+                        and not portal_override_erlaubt(override)):
                     continue
                 setattr(event, field, override[field])
         result.append(event)

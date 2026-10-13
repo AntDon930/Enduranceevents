@@ -182,6 +182,22 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    laufen-os und strassenlauf.org – alle in `PORTAL_DOMAINS`.
    `rennmeldung.de` sperrt `/cgi-bin/` per robots.txt: eintragen ja,
    abrufen nie (das Skript achtet robots.txt selbst).
+   **Die eine Ausnahme (13.10.2026): `"portal_erlaubt": true` im
+   Override.** Nennt die Vereinsseite den Lauf nicht mehr (skiclub-bb.com
+   zeigt zuletzt den Kirta-Lauf 2023, leichtathletik-kw.de und
+   tsg-nattheim.de nennen ihren Lauf 2026 nicht), ist die Anmeldeseite
+   die bessere Adresse – vom Nutzer so entschieden („Ja dann ist die
+   Anmeldeseite besser"). Ohne das Flag blockt `apply_overrides()` (beide
+   Fassungen) einen Portallink über einem Veranstalter-Link weiter;
+   `korrekturliste.py import` setzt es selbst, wenn der Nutzer in der
+   Liste einen Portallink über eine Vereinsseite schreibt, und trägt den
+   Fall als `link_ok` in `links_geprueft.json` ein (sonst suchte
+   `veranstalter_links.py sammeln` wieder nach der Vereinsseite).
+   **Grenze**: Der Override hängt am Datum – die Ausgabe 2027 bekommt
+   von der Quelle wieder die Vereinsseite, bis jemand sie prüft; das
+   Gedächtnis zieht die Vereinsseite für diese Ausgabe zurück
+   (`zurueckgezogen`) und gibt sie nicht weiter. `test_override_koordinaten`
+   hält Sperre und Ausnahme fest.
 3. **Distanzen immer auf eine Dezimalstelle** (`round_km()`): 42,195 → 42.2.
 4. **`land` nie aus dem Event-Namen raten.** Der „Fränkische-Schweiz-Marathon"
    liegt in Bayern. Quelle: Landesangabe der Seite (`(Schweiz)`, `(AUT)`) oder
@@ -206,6 +222,16 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    (bleibt „Italien"), Bozen/Sterzing (drin), Innsbruck/Trient (draußen)
    fest. Die Ortsauswahl kennt 750 Südtiroler Orte (deutsch UND
    italienisch, wie GeoNames sie führt), Region „Südtirol".
+   **Ein Start knapp außerhalb ist kein Ausschluss, wenn die Strecke
+   durch unsere Regionen führt – aber nur per Entscheidung des Nutzers,
+   keine Regel** (13.10.2026, Berglauf Geschriebenstein: Start in Bozsok
+   (Ungarn), die Strecken führen über Rechnitz und Lockenhaus durch das
+   Burgenland, Veranstalterseite `.at`, Teil des Internationalen
+   Österreichischen Berglaufcups – „Ja aufnehmen"). Die Zeile trägt
+   `land` Österreich und die Koordinaten des Günser Gebirges auf der
+   österreichischen Seite; `drop_ausserhalb()` sieht nur das Land-Feld.
+   Wer den nächsten Grenzfall findet, fragt – und schreibt die
+   Begründung in die `_note` des Overrides.
 5. **5-km-Mindestdistanz nur für `art1 == "Laufen"`** und nur bei *bekannter*
    Distanz. 3,5 km Freiwasserschwimmen ist eine ernsthafte Distanz.
    **Seit dem 24.09.2026 hat auch das SCHWIMMEN eine Grenze: 500 m**
@@ -5293,7 +5319,11 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Benediktbeurer Kirta Lauf und Nattheimer Maultaschenlauf →
     raceresult) – Datenregel 2, `apply_overrides()` blockt das; beim
     Nutzer nachgefragt. Die Vereinsseiten nennen den Lauf 2026 nicht
-    (skiclub-bb.com zeigt zuletzt 2023).
+    (skiclub-bb.com zeigt zuletzt 2023). **Antwort am selben Abend: „Ja
+    dann ist die Anmeldeseite besser"** → `portal_erlaubt` im Override
+    (Datenregel 2), die fünf Links sind drin, der Import setzt das Flag
+    künftig selbst. Und **Geschriebenstein bleibt** trotz Start in
+    Ungarn („Ja aufnehmen", Datenregel 4).
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

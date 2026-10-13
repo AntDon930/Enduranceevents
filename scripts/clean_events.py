@@ -89,6 +89,7 @@ from scraper_lib import (  # noqa: E402
     ist_zu_kurz,
     guess_land,
     is_portal_link,
+    portal_override_erlaubt,
     is_same_event,
     normalize_event_name,
     meter_km,
@@ -391,7 +392,8 @@ def apply_overrides(events: list[dict]) -> tuple[list[dict], list[str], list[str
                 if (field == "veranstalter_url"
                         and is_portal_link(override[field])
                         and event.get("veranstalter_url")
-                        and not is_portal_link(event["veranstalter_url"])):
+                        and not is_portal_link(event["veranstalter_url"])
+                        and not portal_override_erlaubt(override)):
                     continue
                 changed.append(
                     f"{event.get('name')}: {field} {event.get(field)!r} -> {override[field]!r}"

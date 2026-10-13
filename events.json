@@ -480,7 +480,7 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 15.0,
-    "veranstalter_url": "https://www.leichtathletik-kw.de/",
+    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf",
     "wettbewerb": "15 km Lauf für Frauen und Männer nach Altersklassen"
   },
   {
@@ -495,7 +495,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 7.2,
     "wettbewerb": "7,2 km Lauf für Jugend und Altersklassen",
-    "veranstalter_url": "https://www.leichtathletik-kw.de/"
+    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf"
   },
   {
     "land": "Österreich",
@@ -618,7 +618,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html"
+    "veranstalter_url": "https://my.raceresult.com/407802/info"
   },
   {
     "land": "Deutschland",
@@ -1527,7 +1527,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 5.3,
     "wettbewerb": "5,3 km für Jugend U14 sowie weitere Altersklassen",
-    "veranstalter_url": "https://www.tsg-nattheim.de"
+    "veranstalter_url": "https://my.raceresult.com/414318/info"
   },
   {
     "land": "Deutschland",
@@ -1541,7 +1541,7 @@
     "datum_ende": "2026-10-17",
     "laenge_km": 10.1,
     "wettbewerb": "10,1 km für ältere Jugend und Erwachsene",
-    "veranstalter_url": "https://www.tsg-nattheim.de"
+    "veranstalter_url": "https://my.raceresult.com/414318/info"
   },
   {
     "land": "Deutschland",

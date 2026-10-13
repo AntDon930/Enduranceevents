@@ -1849,6 +1849,36 @@ def test_override_koordinaten() -> None:
     check("und die Änderung wird berichtet",
           any("lat" in zeile for zeile in geaendert), True)
 
+    # Ein Portallink über einem Veranstalter-Link bleibt gesperrt - außer
+    # der Override sagt `portal_erlaubt` (Entscheidung des Nutzers vom
+    # 13.10.2026: Vereinsseite nennt den Lauf nicht mehr, "dann ist die
+    # Anmeldeseite besser"). Beide Fassungen (dict und Event) gleich.
+    import scraper_lib as _sl
+    _alt = clean_events.load_manual_overrides
+    _alt_sl = _sl.load_manual_overrides
+    fake = lambda: {
+        "Gesperrt|2026-10-17": {"veranstalter_url": "https://my.raceresult.com/1/info"},
+        "Erlaubt|2026-10-17": {"veranstalter_url": "https://my.raceresult.com/2/info",
+                               "portal_erlaubt": True},
+    }
+    clean_events.load_manual_overrides = fake
+    _sl.load_manual_overrides = fake
+    try:
+        rows = [{"name": "Gesperrt", "datum_start": "2026-10-17", "veranstalter_url": "https://verein-a.de/"},
+                {"name": "Erlaubt", "datum_start": "2026-10-17", "veranstalter_url": "https://verein-b.de/"}]
+        kept, _, _ = clean_events.apply_overrides(rows)
+        check("ohne Flag bleibt die Vereinsseite", kept[0]["veranstalter_url"], "https://verein-a.de/")
+        check("mit portal_erlaubt gilt die Anmeldeseite", kept[1]["veranstalter_url"],
+              "https://my.raceresult.com/2/info")
+        evs = [Event(name="Gesperrt", datum_start="2026-10-17", standort="x", veranstalter_url="https://verein-a.de/"),
+               Event(name="Erlaubt", datum_start="2026-10-17", standort="x", veranstalter_url="https://verein-b.de/")]
+        evs, _ = _sl.apply_manual_overrides(evs)
+        check("Einsammeln: ohne Flag gesperrt", evs[0].veranstalter_url, "https://verein-a.de/")
+        check("Einsammeln: mit Flag erlaubt", evs[1].veranstalter_url, "https://my.raceresult.com/2/info")
+    finally:
+        clean_events.load_manual_overrides = _alt
+        _sl.load_manual_overrides = _alt_sl
+
 
 def test_zwei_sportarten_im_namen() -> None:
     """"Swim&Run" und "Bike+Run" sind Mehrsport - "Decathlon" ist ein Laden.

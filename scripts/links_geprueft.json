@@ -4853,11 +4853,11 @@
     "notiz": "Zielseite (TV Fürstenwalde) abgerufen, nennt den Storkower See Lauf."
   },
   "46. Krummenseelauf|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "korrigiert",
-    "quelle": "berlin-timing.de -> https://www.leichtathletik-kw.de/",
-    "alt": "https://www.berlin-timing.de/Krummenseelauf",
-    "notiz": "berlin-timing nennt unter 'Veranstalter-Daten' die WSG 81 Königs Wusterhausen mit Internet leichtathletik-kw.de. Die Seite ist aus der Sandbox NICHT abrufbar (TLS-Handshake schlägt fehl, auch mit älteren Ciphern) - Link übernommen, weil der Zeitnehmer ihn ausdrücklich als Veranstalterseite nennt; bei Gelegenheit im Browser prüfen."
+    "am": "2026-10-13",
+    "ergebnis": "link_ok",
+    "quelle": "Korrekturliste",
+    "alt": "https://www.leichtathletik-kw.de/",
+    "notiz": "Nutzer hat die Anmeldeseite https://www.berlin-timing.de/Krummenseelauf gewählt - die Vereinsseite nennt den Lauf nicht mehr (portal_erlaubt im Override)."
   },
   "Freiberger Adventslauf|2026-11-28": {
     "am": "2026-09-19",
@@ -14073,11 +14073,11 @@
     "notiz": "Veranstalterseite statt runtix.com: http://www.djk-feudenheim.de/Herbstlauf - auf der runtix.com-Seite verlinkt, Zielseite nennt den Lauf (host:feudenheim, datum). Linkprüfung 2026-09-19."
   },
   "Benediktbeurer Kirta Lauf|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "korrigiert",
-    "quelle": "home.skiclub-bb.com",
-    "alt": "https://my.raceresult.com/407802/",
-    "notiz": "Veranstalterseite statt my.raceresult.com: https://home.skiclub-bb.com/aktuell/eventuebersicht.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (benediktbeurer). Linkprüfung 2026-09-19."
+    "am": "2026-10-13",
+    "ergebnis": "link_ok",
+    "quelle": "Korrekturliste",
+    "alt": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html",
+    "notiz": "Nutzer hat die Anmeldeseite https://my.raceresult.com/407802/info gewählt - die Vereinsseite nennt den Lauf nicht mehr (portal_erlaubt im Override)."
   },
   "Blaulichtlauf der Freiwilligen Feuerwehr Schwaan|2026-10-17": {
     "am": "2026-09-19",
@@ -14094,11 +14094,11 @@
     "notiz": "Veranstalterseite statt anmeldungs-service.de: https://www.bottwartal-marathon.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:bottwartal). Linkprüfung 2026-09-19."
   },
   "Nattheimer Maultaschenlauf|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "korrigiert",
-    "quelle": "tsg-nattheim.de",
-    "alt": "https://my.raceresult.com/414318/",
-    "notiz": "Veranstalterseite statt my.raceresult.com: https://www.tsg-nattheim.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (nattheimer). Linkprüfung 2026-09-19."
+    "am": "2026-10-13",
+    "ergebnis": "link_ok",
+    "quelle": "Korrekturliste",
+    "alt": "https://www.tsg-nattheim.de",
+    "notiz": "Nutzer hat die Anmeldeseite https://my.raceresult.com/414318/info gewählt - die Vereinsseite nennt den Lauf nicht mehr (portal_erlaubt im Override)."
   },
   "Rodewalder Eulenlauf|2026-10-17": {
     "am": "2026-09-19",

@@ -49,7 +49,12 @@ from audit_events import (GEPRUEFT_PATH, TRIATHLON_FORMAT_IM_LABEL,  # noqa: E40
                           ist_geprueft, lade_geprueft, pruefe_event,
                           triathlon_format_im_label)
 from scraper_lib import (EVENTS_JSON_PATH, MANUAL_OVERRIDES_PATH,  # noqa: E402
-                         orte_aus_places, override_keys)
+                         is_portal_link, orte_aus_places, override_keys)
+
+# Protokoll der Linkprüfung (veranstalter_links.py): Ein vom Nutzer
+# gewählter Anmeldelink steht dort als link_ok, sonst suchte `sammeln`
+# beim nächsten Durchgang wieder nach einer Vereinsseite.
+LINKS_GEPRUEFT_PATH = MANUAL_OVERRIDES_PATH.with_name("links_geprueft.json")
 
 try:
     from openpyxl import Workbook, load_workbook  # noqa: E402
@@ -548,6 +553,7 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
     fehler, aenderungen, geloescht, status_zaehler = [], [], [], {}
     neue_overrides: dict[str, dict] = {}
     neues_protokoll: dict[str, dict] = {}
+    neue_links: dict[str, dict] = {}
 
     for zeile in ws.iter_rows(min_row=2, values_only=True):
         if zeile[0] is None:
@@ -662,6 +668,23 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
         if neu or loeschen:
             notiz = "Korrekturliste des Nutzers" + (f": {anmerkung}" if anmerkung else "")
             neue_overrides[schluessel]["_note"] = notiz
+        # Der Nutzer setzt eine Anmelde-/Zeitnehmerseite über die
+        # Vereinsseite: Das ist seine Entscheidung vom 13.10.2026 ("die
+        # Vereinsseite nennt den Lauf nicht mehr - dann ist die Anmeldeseite
+        # besser"). apply_overrides() blockt einen Portallink über einem
+        # Veranstalter-Link, außer der Override sagt `portal_erlaubt`.
+        if (neu.get("veranstalter_url") and is_portal_link(neu["veranstalter_url"])
+                and alt.get("veranstalter_url") and not is_portal_link(alt["veranstalter_url"])):
+            neue_overrides[schluessel]["portal_erlaubt"] = True
+            neue_overrides[schluessel]["_note"] += (
+                " | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - "
+                "Entscheidung des Nutzers, portal_erlaubt")
+            neue_links[f"{alt['name'].strip()}|{alt['datum_start']}"] = {
+                "am": heute, "ergebnis": "link_ok", "quelle": "Korrekturliste",
+                "alt": alt["veranstalter_url"],
+                "notiz": f"Nutzer hat die Anmeldeseite {neu['veranstalter_url']} gewählt - "
+                         "die Vereinsseite nennt den Lauf nicht mehr (portal_erlaubt im Override).",
+            }
 
         ergebnis = {"löschen": "entfernt", "unklar": "unklar", "stimmt so": "quelle_ok",
                     "korrigiert": "korrigiert"}.get(status.lower())
@@ -713,8 +736,15 @@ def importiere(quelle: Path, dry_run: bool, aufraeumen: bool) -> int:
                                      encoding="utf-8")
     GEPRUEFT_PATH.write_text(json.dumps(protokoll, ensure_ascii=False, indent=2) + "\n",
                              encoding="utf-8")
+    if neue_links:
+        links = json.loads(LINKS_GEPRUEFT_PATH.read_text(encoding="utf-8"))
+        links.update(neue_links)
+        LINKS_GEPRUEFT_PATH.write_text(json.dumps(links, ensure_ascii=False, indent=2) + "\n",
+                                       encoding="utf-8")
     print(f"\n{len(neue_overrides)} Einträge in {MANUAL_OVERRIDES_PATH.name}, "
-          f"{len(neues_protokoll)} in {GEPRUEFT_PATH.name} geschrieben.")
+          f"{len(neues_protokoll)} in {GEPRUEFT_PATH.name}"
+          + (f", {len(neue_links)} in {LINKS_GEPRUEFT_PATH.name}" if neue_links else "")
+          + " geschrieben.")
 
     if aufraeumen and neue_overrides:
         # --no-geocoding: Ohne den Schalter fragt clean_events.py Nominatim

@@ -1,5 +1,5 @@
 {
-  "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, dauer_h, wettbewerb, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert (null löscht ihn); 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden.",
+  "_readme": "Manuelle Korrekturen/Ergänzungen einzelner Events: laenge_km, dauer_h, wettbewerb, art2, art1, land, standort, veranstalter_url überschreiben den gescrapten Wert (null löscht ihn); 'exclude': true entfernt das Event komplett (z. B. verifizierte Duplikate unter abweichendem Namen oder reine Kinderläufe ohne Erwachsenen-Hauptlauf). Schlüssel: '<roher gescrapter Name>|<datum_start>' (Name genau wie vom Scraper erzeugt, Abgleich nicht case-sensitiv). Angewendet von scraper_lib.apply_manual_overrides() bzw. der gleichnamigen Funktion in laufkalender_scraper.py, bevor die 5-km-Mindestdistanz-Filterung und das Dedupe laufen. HINTERGRUND der aktuellen Einträge: Sie stammen aus der Einzelrecherche (Websuche gegen die jeweils offizielle Ausschreibung, Stand 2026-09-14) der 40 Events, die blv-sport.de geliefert hatte, bevor diese Quelle wegen fehlender Distanz-/Link-Angaben aus dem automatischen Scraping genommen wurde (siehe README 'Datenqualität' und den Docstring in blvsport_scraper.py). Die Events bleiben dadurch mit vollständigen Daten in events.json erhalten; die Einträge greifen weiterhin, falls dieselben Events künftig über eine andere Quelle mit identischem Namen + Datum hereinkommen. Angaben können sich von Jahr zu Jahr ändern und sollten bei Bedarf neu geprüft werden. 'portal_erlaubt': true erlaubt AUSNAHMSWEISE einen Anmelde-/Zeitnehmerlink über der Veranstalterseite (sonst blockt apply_overrides das) - nur, wenn die Vereinsseite den Lauf nicht mehr nennt; Entscheidung des Nutzers vom 13.10.2026, korrekturliste.py import setzt es selbst.",
   "47. Gaißacher Berglauf|2026-09-05": {
     "laenge_km": 4.5,
     "art2": "Trail",
@@ -2857,8 +2857,9 @@
     "_note": "Veranstalterseite statt westbahnlauf-2026.racepedia.de: https://westbahnlauf.de/ - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (host:westbahnlauf). Linkprüfung 2026-09-19."
   },
   "Benediktbeurer Kirta Lauf|2026-10-17": {
-    "veranstalter_url": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://home.skiclub-bb.com/aktuell/eventuebersicht.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (benediktbeurer). Linkprüfung 2026-09-19."
+    "veranstalter_url": "https://my.raceresult.com/407802/info",
+    "_note": "Veranstalterseite statt my.raceresult.com: https://home.skiclub-bb.com/aktuell/eventuebersicht.html - per Websuche gefunden (nicht auf der Portalseite verlinkt), Zielseite nennt den Lauf (benediktbeurer). Linkprüfung 2026-09-19. | Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
+    "portal_erlaubt": true
   },
   "Blaulichtlauf der Freiwilligen Feuerwehr Schwaan|2026-10-17": {
     "veranstalter_url": "https://blaulicht-lauf.de/",
@@ -8628,7 +8629,7 @@
     "laenge_km": 102.0,
     "wettbewerb": "LIS Alpokalja Ultra 102 km",
     "standort": "Günser Gebirge",
-    "_note": "Korrekturliste des Nutzers 13.10.2026: irottkofutas.hu/de: 102 km (Ultra), 55 km, 36 km, 23 km, 7 km; die übrigen Strecken in manual_events.json. 102 km TEAM und Kids Run nicht aufgenommen. Start: Sportplatz Bozsok (Ungarn), die längeren Strecken führen über Rechnitz/Lockenhaus."
+    "_note": "Korrekturliste des Nutzers 13.10.2026: irottkofutas.hu/de: 102 km (Ultra), 55 km, 36 km, 23 km, 7 km; die übrigen Strecken in manual_events.json. 102 km TEAM und Kids Run nicht aufgenommen. Start: Sportplatz Bozsok (Ungarn), die längeren Strecken führen über Rechnitz/Lockenhaus. Start liegt in Bozsok (Ungarn), die Strecke führt durch Österreich (Rechnitz, Lockenhaus), Veranstalterseite .at, Teil des Internationalen Österreichischen Berglaufcups - vom Nutzer am 13.10.2026 so entschieden: \"Ja aufnehmen\". Keine Regel, nur dieser Fall."
   },
   "Deißlinger Gravel-Rennen|2026-10-17": {
     "laenge_km": 56.2,
@@ -8639,5 +8640,25 @@
     "hoehenmeter": 1000,
     "art2": "Trail",
     "_note": "Korrekturliste des Nutzers 13.10.2026: \"Bei Länge schreib einfach 1.000hm hin. Die geben da nur die Höhe an.\" staufenlauf.com: '1000 Höhenmeter', keine Distanz."
+  },
+  "46. Krummenseelauf|2026-10-17|7.2": {
+    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf",
+    "_note": "Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
+    "portal_erlaubt": true
+  },
+  "46. Krummenseelauf|2026-10-17|15": {
+    "veranstalter_url": "https://www.berlin-timing.de/Krummenseelauf",
+    "_note": "Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
+    "portal_erlaubt": true
+  },
+  "Nattheimer Maultaschenlauf|2026-10-17|5.3": {
+    "veranstalter_url": "https://my.raceresult.com/414318/info",
+    "_note": "Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
+    "portal_erlaubt": true
+  },
+  "Nattheimer Maultaschenlauf|2026-10-17|10.1": {
+    "veranstalter_url": "https://my.raceresult.com/414318/info",
+    "_note": "Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
+    "portal_erlaubt": true
   }
 }
