@@ -4777,6 +4777,36 @@ Aufräumen fällt das Feld an den geprüften Zeilen, sie sind live.
 Status „Unklar" lässt die Zeile ausgeblendet (sie steht weiter in der
 Liste); „Löschen" entfernt sie; „Stimmt so"/„Korrigiert" geben sie frei.
 
+**Der Rhythmus seit dem Livegang** (vom Nutzer am 13.10.2026 erbeten:
+„Was mach ich, was machst du genau?"):
+- *Täglich, Nutzer*: ~50 Zeilen der Excel-Korrekturliste prüfen
+  (Veranstalterseite ansehen, Zelle korrigieren, Status setzen), Datei
+  speichern und hier schicken.
+- *Täglich, Claude*: `korrekturliste.py import --dry-run`, dann `import`;
+  Zellen, die keine Zahl sind, von Hand (mehrere Distanzen, Runden,
+  Minuten, Höhenmeter); aus Korrekturen Klassen zählen und Regeln bauen
+  (Dreizehnter Durchgang); `clean_events` idempotent, `build_ics`,
+  Tests, Rauchtest bei Frontend-Änderungen; Commit + Push auf beide
+  Branches → Pages-Deploy → die Zeilen sind sichtbar. Rückmeldung: was
+  übernommen, was von Hand, was offen.
+- *Wöchentlich, automatisch (Montag 05:00 UTC)*: `update-events.yml` –
+  alle Scraper, Gedächtnis-Prüfung, `clean_events` (setzt
+  `pruefung_offen` an neue auffällige Zeilen), `build_ics`, Commit →
+  Deploy; saubere neue Zeilen sind sofort live, auffällige warten auf
+  die Liste; Abo-Mails über den Webhook.
+- *Wöchentlich, Claude (Montag/Dienstag)*: Lauf und CI prüfen,
+  `⚠`-Berichte und `audit_events.py` durchsehen,
+  `veranstalter_seiten.py handpruefung` (NEU?/TOT), **frische
+  Korrekturliste exportieren und schicken** (neue Zeilen aus dem Lauf
+  stehen nur dort; der Nutzer arbeitet dann in der neuen Datei weiter).
+- *Wöchentlich, Nutzer*: in der Firebase-Konsole nachsehen, ob in
+  `errorReports` oder `eventSuggestions` etwas Neues liegt (Claude kann
+  die Sammlungen nicht lesen – die Regeln sperren das), und es hier
+  melden; Claude prüft an der Quelle und schlägt vor, der Nutzer
+  bestätigt.
+- *Bei Bedarf*: Fällt dem Nutzer auf der Seite etwas auf, hier melden;
+  Claude prüft an der Quelle, zählt die Klasse, baut Regel oder Override.
+
 **Stand beim Livegang**: 1.256 von 6.940 Zeilen ausgeblendet (sichtbar
 5.684; vor der Sternchen-Ausnahme 1.299). Die größten Gruppen: Distanz
 fehlt (496), Werktag (253), Portallink (216). **Folge, dem Nutzer
