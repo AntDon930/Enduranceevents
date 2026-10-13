@@ -59,7 +59,8 @@
   .stat-card h3 small { font-family: var(--font-text); font-weight: 500; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
   /* Zugang */
-  /* Wartungsmodus-Karte (14.10.2026) */
+  /* Wartungsmodus-Karte (14.10.2026), ganz unten hinter einer Trennlinie */
+  .stat-trenner { border: 0; border-top: 2px solid var(--border-strong); margin: 32px 0 20px; }
   #wartung-card h3 small.w-an { color: var(--brand); }
   .w-felder { display: grid; gap: 8px; margin: 10px 0; }
   .w-felder label { display: grid; gap: 4px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
@@ -183,10 +184,6 @@
   <section class="stat-card gate" id="stat-gate" aria-live="polite"></section>
 
   <div id="stat-content" hidden>
-    <!-- Wartungsmodus: Schalter in Firestore (config/wartung), nur für
-         Admins schreibbar; die öffentlichen Seiten lesen ihn beim Laden. -->
-    <section class="stat-card" id="wartung-card"></section>
-
     <div class="stat-filters">
       <div class="stat-range" id="stat-range" role="group"></div>
       <div class="stat-meta">
@@ -220,6 +217,14 @@
     </div>
 
     <div id="stat-listen"></div>
+
+    <!-- Wartungsmodus: Schalter in Firestore (config/wartung), nur für
+         Admins schreibbar; die öffentlichen Seiten lesen ihn beim Laden.
+         Ganz unten, hinter einer Trennlinie (vom Nutzer am 14.10.2026 so
+         gewünscht: „Die Wartungsseite werde ich nicht oft brauchen und
+         die Analyse schon"). -->
+    <hr class="stat-trenner">
+    <section class="stat-card" id="wartung-card"></section>
   </div>
 </main>
 
