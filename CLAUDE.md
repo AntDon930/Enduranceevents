@@ -4976,11 +4976,18 @@ Firebase Authentication → Autorisierte Domains (`endurance-events.de`,
 der Cloud Shell (shell.cloud.google.com direkt, die eingebettete Shell
 der Firebase-Konsole hing beim Start; „Deploy complete!", `SITE_URL`
 gilt). Geprüft von hier: https 200 mit Titel, `www` → Apex, alte
-Adresse leitet um, ICS als `text/calendar`. Einziger Rest: Fastly
-hielt für `http://endurance-events.de/` (nur die Wurzel, nur http)
-noch die 404 von vor der Domain-Einstellung im Cache (PURGE nicht
-erlaubt) – läuft von selbst ab, und mit aktivem „Enforce HTTPS" leitet
-http ohnehin auf https.
+Adresse leitet um, ICS als `text/calendar`. Der letzte Rest kam
+gegen 18:00 UTC von selbst in Ordnung: Fastly hielt für
+`http://endurance-events.de/` (nur die Wurzel, nur http) eine Weile
+die 404 von vor der Domain-Einstellung im Cache (PURGE nicht erlaubt);
+danach stand die Seite unter http noch ohne Umleitung, obwohl „Enforce
+HTTPS" gesetzt war – GitHub prüfte die Domain gerade erneut („DNS Check
+in Progress" in den Pages-Einstellungen). Nach dem Ende der Prüfung
+leitet `http://endurance-events.de/` per 301 auf https um, `www` in
+zwei Schritten (http://www → http://apex → https). **Wer das nächste
+Mal eine Umleitung vermisst, schaut zuerst in Settings → Pages, ob
+dort ein DNS-Check läuft** – solange der läuft, greift „Enforce HTTPS"
+nicht, und es gibt nichts zu tun außer warten.
 
 ## Wo das Projekt gerade steht
 
