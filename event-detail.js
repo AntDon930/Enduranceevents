@@ -556,6 +556,7 @@
   function teileEvent(e, ctx) {
     const url = eventLink(e);
     const text = eventShareText(e, ctx);
+    if (global.EnduranceStats) global.EnduranceStats.event('teilen', { art: navigator.share ? 'dialog' : 'kopie' });
     if (navigator.share) {
       // Bricht jemand den Dialog ab, kommt ein AbortError - das ist
       // keine Panne und darf keine Meldung auslösen.
@@ -1045,6 +1046,20 @@
       });
     }
     setupCalendarBox(container, e, ctx);
+    // Besucherstatistik (stats.js): welche Veranstaltungen geöffnet werden
+    // und wohin die Knöpfe führen. Ohne stats.js (lokal, abgeschaltet)
+    // bleibt `stats` undefined, und nichts passiert.
+    const stats = global.EnduranceStats;
+    if (stats) {
+      stats.event('detail', { ev: e.name, sp: e.art1 });
+      container.querySelectorAll('.detail-link, .detail-host').forEach(a => {
+        a.addEventListener('click', () => stats.event('veranstalter', { ev: e.name, sp: e.art1 }));
+      });
+      [['.cal-ics', 'ics'], ['.cal-google', 'google'], ['.cal-outlook', 'outlook']].forEach(([sel, art]) => {
+        const a = container.querySelector(sel);
+        if (a) a.addEventListener('click', () => stats.event('kalender', { art }));
+      });
+    }
   }
 
   global.EnduranceDetail = {

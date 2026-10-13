@@ -1023,13 +1023,15 @@
 <script defer src="vendor/firebase-10.14.1/firebase-auth-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
+<!-- Besucherstatistik ohne Cookies (eigene Cloud Function, siehe stats.js). -->
+<script defer src="stats.js?v=1b3e9f10"></script>
 
 <!-- Filterzustand, Distanzkategorien und Filter-Chips: dieselbe Datei
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
 <script src="filters.js?v=8dbec59f"></script>
 <script src="filter-ui.js?v=05e06e2d"></script>
-<script src="event-detail.js?v=f244b91a"></script>
+<script src="event-detail.js?v=460584d6"></script>
 
 <script>
 (async function () {
@@ -2750,6 +2752,9 @@
         && eventSlug(events[selectedIndex]) === deepEventSlug) {
       p.set('event', deepEventSlug);
     }
+    // Besucherstatistik: stats.js meldet nur, was sich seit dem letzten
+    // Stand geändert hat (gesetzte Filter, Suchbegriffe) - nie Koordinaten.
+    if (window.EnduranceStats) window.EnduranceStats.filterParams(p.toString());
     const suffix = p.toString();
     const neu = window.location.pathname + (suffix ? '?' + suffix : '');
     if (neu !== window.location.pathname + window.location.search) {
@@ -3002,7 +3007,11 @@
           rhythmus: aboRhythmus,
           name: aboBeschreibung(filter)
         })
-          .then(() => { zeichneAboDialog({ art: 'ok', text: t('abo_gespeichert') }); ladeAboListe(); })
+          .then(() => {
+            if (window.EnduranceStats) window.EnduranceStats.event('abo', { rhythmus: aboRhythmus });
+            zeichneAboDialog({ art: 'ok', text: t('abo_gespeichert') });
+            ladeAboListe();
+          })
           .catch(() => {
             saveBtn.disabled = false;
             const st = aboBodyEl.querySelector('#abo-status');
@@ -3291,6 +3300,7 @@
       submitEl.textContent = t('report_sending');
       window.EndauranceAuth.reportEventError({ event: e, kategorie, beschreibung })
         .then(() => {
+          if (window.EnduranceStats) window.EnduranceStats.event('melden', { kategorie });
           setMsg(t('report_thanks'), 'success');
           // Formular nach dem Absenden entfernen, damit dieselbe Meldung
           // nicht versehentlich zweimal abgeschickt wird.
@@ -3429,6 +3439,7 @@
       submitEl.textContent = t('fehlt_sending');
       window.EndauranceAuth.suggestEvent({ url, name, hinweis })
         .then(() => {
+          if (window.EnduranceStats) window.EnduranceStats.event('fehlt');
           setMsg(t('fehlt_thanks'), 'success');
           form.querySelectorAll('.ee-field').forEach(el => el.remove());
           submitEl.remove();

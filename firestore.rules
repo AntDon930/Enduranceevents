@@ -131,5 +131,34 @@ service cloud.firestore {
       // Konsole (scripts/review_reports.py).
       allow read, update, delete: if false;
     }
+
+    // ---------- Besucherstatistik (seit 13.10.2026) ----------
+    // `hits` (Rohtreffer) schreibt NUR die Cloud Function `collect` mit dem
+    // Admin-SDK, `stats_daily` (Tageswerte) nur `aggregateStats`. Kein
+    // Client darf dort schreiben; lesen darf die Tageswerte nur, wer als
+    // Betreiber in `admins/<uid>` steht - das Dokument legt man einmal von
+    // Hand in der Konsole an (statistik.html zeigt die eigene uid, wenn
+    // der Eintrag fehlt). Keine E-Mail-Adresse in den Regeln: Das Repo ist
+    // öffentlich.
+    function istAdmin() {
+      return request.auth != null
+             && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+    match /admins/{uid} {
+      // Jede/r darf nur das eigene Dokument abfragen (gibt es mich?), nie
+      // die Liste; anlegen geht nur über die Konsole.
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, write: if false;
+    }
+    match /stats_daily/{tag} {
+      allow read: if istAdmin();
+      allow write: if false;
+    }
+    match /hits/{id} {
+      allow read, write: if false;
+    }
+    match /stats_meta/{id} {
+      allow read, write: if false;
+    }
   }
 }

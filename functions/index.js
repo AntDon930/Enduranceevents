@@ -701,3 +701,266 @@ exports.checkNewEvents = onRequest(
     });
   }
 );
+
+// ======================================================================
+// Besucherstatistik (seit dem 13.10.2026, vom Nutzer gewünscht: "ein
+// Analytics Dashboard … wie viele Leute meine Webseite besucht haben")
+// ======================================================================
+//
+// Zwei Functions, ein Modul:
+//
+//   collect        nimmt die Treffer von stats.js entgegen (POST, Text als
+//                  JSON), prüft sie streng, hängt Tag/Stunde (Europe/Berlin)
+//                  und die Besucher-Kennung des Tages an und schreibt sie
+//                  nach `hits`. Die Kennung ist ein HMAC aus IP-Adresse und
+//                  Browser-String mit einem Schlüssel, der jeden Tag neu
+//                  gewürfelt und dabei überschrieben wird (`stats_meta/salt`)
+//                  - die Adresse selbst wird nie gespeichert, und am
+//                  nächsten Tag ist dieselbe Person nicht wiedererkennbar.
+//                  Das ist das Verfahren von Plausible und Umami.
+//   aggregateStats läuft stündlich, rechnet heute und gestern (und Lücken
+//                  der letzten Woche) aus `hits` zu je EINEM Dokument in
+//                  `stats_daily` zusammen (stats_aggregate.js) und löscht
+//                  Rohtreffer, die älter als HITS_AUFBEWAHRUNG_TAGE sind.
+//
+// statistik.html liest nur `stats_daily` - und nur, wer in `admins/<uid>`
+// steht (firestore.rules). Die Herkunft der Treffer prüft `collect` über
+// den Origin-Header gegen STATS_ORIGINS; bei einem Domainwechsel die
+// neue Adresse dort eintragen (Parameter, kein Code):
+//
+//   firebase functions:config ist veraltet - beim Deploy fragt die CLI
+//   nach dem Wert, oder er steht in functions/.env (STATS_ORIGINS=…).
+//
+// Deploy wie gehabt: `firebase deploy --only functions` (der Zeitplan
+// braucht die Cloud-Scheduler-API; die CLI schaltet sie beim ersten
+// Deploy frei und fragt gegebenenfalls nach).
+
+const { onSchedule } = require("firebase-functions/v2/scheduler");
+const { Timestamp } = require("firebase-admin/firestore");
+const statsAgg = require("./stats_aggregate.js");
+
+const STATS_ORIGINS = defineString("STATS_ORIGINS", {
+  default: "https://antdon930.github.io,https://endurance-events.de,https://www.endurance-events.de",
+});
+
+// Kopie von EREIGNISSE in stats.js - test_statistik vergleicht beide.
+const STATS_EREIGNISSE = new Set(['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort']);
+// Jede Seite, die stats.js lädt (test_statistik prüft die Liste gegen
+// die HTML-Dateien).
+const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "statistik"]);
+// Zusatzangaben je Aktion: Feld -> Höchstlänge. Alles andere fliegt.
+const STATS_PROPS = {
+  detail: { ev: 120, sp: 20 },
+  veranstalter: { ev: 120, sp: 20 },
+  kalender: { art: 20 },
+  teilen: { art: 20 },
+  abo: { rhythmus: 20 },
+  melden: { kategorie: 20 },
+  suche: { q: 60 },
+  filter: { k: 20, w: 60 },
+};
+const STATS_BOT_RE = /bot|crawl|spider|slurp|headless|lighthouse|python-requests|python-urllib|curl\/|wget\/|go-http-client|java\//i;
+const HITS_AUFBEWAHRUNG_TAGE = 35;
+const HITS_LOESCHEN_JE_LAUF = 4000;
+
+function berlinTeile(date) {
+  const teile = {};
+  new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", hour12: false,
+  }).formatToParts(date).forEach((p) => { teile[p.type] = p.value; });
+  // "24" kommt bei manchen ICU-Versionen für Mitternacht.
+  const h = Number(teile.hour) % 24;
+  return { d: `${teile.year}-${teile.month}-${teile.day}`, h };
+}
+
+function tagMinus(tag, n) {
+  const [j, m, d] = tag.split("-").map(Number);
+  const dt = new Date(Date.UTC(j, m - 1, d - n));
+  return dt.toISOString().slice(0, 10);
+}
+
+function statsText(wert, max) {
+  return typeof wert === "string" ? wert.trim().slice(0, max) : "";
+}
+
+function statsWahl(wert, erlaubt, sonst) {
+  return erlaubt.includes(wert) ? wert : sonst;
+}
+
+// Aus dem, was der Browser schickt, wird genau das, was gespeichert wird -
+// nichts, was hier nicht steht, erreicht die Datenbank.
+function pruefeHit(body) {
+  if (!body || typeof body !== "object") return null;
+  const e = statsText(body.e, 20);
+  if (!STATS_EREIGNISSE.has(e)) return null;
+  const p = statsText(body.p, 20).toLowerCase();
+  if (!STATS_SEITEN.has(p)) return null;
+  const s = statsText(body.s, 32).toLowerCase();
+  if (!/^[0-9a-f]{8,32}$/.test(s)) return null;
+  const hit = { e, p, s };
+  if (e === "pv") {
+    hit.r = statsText(body.r, 100).toLowerCase().replace(/^www\./, "");
+    hit.q = statsText(body.q, 60).toLowerCase();
+    hit.m = statsText(body.m, 60).toLowerCase();
+    hit.c = statsText(body.c, 60).toLowerCase();
+    hit.la = statsText(body.la, 12);
+    hit.sl = statsWahl(body.sl, ["de", "en"], "de");
+    hit.th = statsWahl(body.th, ["dark", "light"], "dark");
+    hit.dv = statsWahl(body.dv, ["handy", "tablet", "rechner"], "rechner");
+    hit.br = statsText(body.br, 24) || "Sonstige";
+    hit.os = statsText(body.os, 24) || "Sonstige";
+    hit.n = body.n === true;
+    hit.ld = statsAgg.landAus(statsText(body.tz, 40), hit.la);
+    return hit;
+  }
+  const regeln = STATS_PROPS[e];
+  if (regeln && body.pr && typeof body.pr === "object") {
+    const pr = {};
+    Object.keys(regeln).forEach((feld) => {
+      const wert = statsText(body.pr[feld], regeln[feld]);
+      if (wert) pr[feld] = wert;
+    });
+    if (Object.keys(pr).length) hit.pr = pr;
+  }
+  return hit;
+}
+
+let statsSalt = { d: null, salt: null };
+
+// Der Tagesschlüssel: einmal je Tag gewürfelt, beim ersten Treffer des
+// neuen Tages ÜBERSCHRIEBEN - der alte ist damit weg, und die
+// Besucher-Kennungen von gestern lassen sich mit nichts mehr nachrechnen.
+async function tagesSchluessel(d) {
+  if (statsSalt.d === d && statsSalt.salt) return statsSalt.salt;
+  const ref = db.collection("stats_meta").doc("salt");
+  const salt = await db.runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const daten = snap.exists ? snap.data() : null;
+    if (daten && daten.d === d && typeof daten.salt === "string" && daten.salt.length >= 32) {
+      return daten.salt;
+    }
+    const neu = crypto.randomBytes(32).toString("hex");
+    tx.set(ref, { d, salt: neu, erneuert: FieldValue.serverTimestamp() });
+    return neu;
+  });
+  statsSalt = { d, salt };
+  return salt;
+}
+
+function besucherKennung(salt, ip, ua) {
+  return crypto.createHmac("sha256", salt).update(`${ip}|${ua}`).digest("hex").slice(0, 16);
+}
+
+function clientIp(req) {
+  const xff = req.headers["x-forwarded-for"];
+  if (typeof xff === "string" && xff) return xff.split(",")[0].trim();
+  return String(req.ip || "");
+}
+
+function erlaubteOrigins() {
+  return new Set(STATS_ORIGINS.value().split(",").map((s) => s.trim()).filter(Boolean));
+}
+
+exports.collect = onRequest(
+  { region: "europe-west1", cors: false, maxInstances: 5 },
+  async (req, res) => {
+    const origin = String(req.headers.origin || "");
+    if (!erlaubteOrigins().has(origin)) {
+      res.status(403).end();
+      return;
+    }
+    res.set("Access-Control-Allow-Origin", origin);
+    res.set("Vary", "Origin");
+    if (req.method === "OPTIONS") {
+      res.set("Access-Control-Allow-Methods", "POST");
+      res.set("Access-Control-Allow-Headers", "Content-Type");
+      res.set("Access-Control-Max-Age", "86400");
+      res.status(204).end();
+      return;
+    }
+    if (req.method !== "POST") {
+      res.status(405).end();
+      return;
+    }
+    const ua = String(req.headers["user-agent"] || "");
+    if (!ua || STATS_BOT_RE.test(ua)) {
+      res.status(204).end();           // still verwerfen, kein Hinweis nach außen
+      return;
+    }
+    let body;
+    try {
+      const roh = req.rawBody
+        ? req.rawBody.toString("utf8")
+        : (typeof req.body === "string" ? req.body : JSON.stringify(req.body || {}));
+      if (roh.length > 4096) throw new Error("zu groß");
+      body = JSON.parse(roh);
+    } catch (e) {
+      res.status(400).end();
+      return;
+    }
+    const hit = pruefeHit(body);
+    if (!hit) {
+      res.status(400).end();
+      return;
+    }
+    const jetzt = new Date();
+    const { d, h } = berlinTeile(jetzt);
+    hit.t = Timestamp.fromDate(jetzt);
+    hit.d = d;
+    hit.h = h;
+    hit.v = besucherKennung(await tagesSchluessel(d), clientIp(req), ua);
+    await db.collection("hits").add(hit);
+    res.status(204).end();
+  }
+);
+
+async function aggregiereTag(tag) {
+  const snap = await db.collection("hits").where("d", "==", tag).get();
+  if (snap.empty) return false;
+  const hits = snap.docs.map((doc) => {
+    const x = doc.data();
+    const t = x.t && typeof x.t.toMillis === "function" ? x.t.toMillis() : Number(x.t) || 0;
+    return Object.assign({}, x, { t });
+  });
+  const ergebnis = statsAgg.aggregiere(hits, tag);
+  ergebnis.aktualisiert = FieldValue.serverTimestamp();
+  await db.collection("stats_daily").doc(tag).set(ergebnis);
+  return true;
+}
+
+async function loescheAlteHits(grenze) {
+  let geloescht = 0;
+  while (geloescht < HITS_LOESCHEN_JE_LAUF) {
+    const snap = await db.collection("hits").where("d", "<", grenze).limit(400).get();
+    if (snap.empty) break;
+    const batch = db.batch();
+    snap.docs.forEach((doc) => batch.delete(doc.ref));
+    await batch.commit();
+    geloescht += snap.size;
+    if (snap.size < 400) break;
+  }
+  return geloescht;
+}
+
+exports.aggregateStats = onSchedule(
+  { schedule: "7 * * * *", timeZone: "Europe/Berlin", region: "europe-west1", timeoutSeconds: 300, memory: "512MiB" },
+  async () => {
+    const heute = berlinTeile(new Date()).d;
+    const tage = [heute, tagMinus(heute, 1)];
+    // Lücken der letzten Woche nachholen (ein verpasster Lauf, ein neues
+    // Deployment): Fehlt das Tagesdokument, obwohl es Treffer gibt,
+    // entsteht es hier.
+    for (let i = 2; i <= 7; i++) {
+      const tag = tagMinus(heute, i);
+      const vorhanden = await db.collection("stats_daily").doc(tag).get();
+      if (!vorhanden.exists) tage.push(tag);
+    }
+    let geschrieben = 0;
+    for (const tag of tage) {
+      if (await aggregiereTag(tag)) geschrieben++;
+    }
+    const geloescht = await loescheAlteHits(tagMinus(heute, HITS_AUFBEWAHRUNG_TAGE));
+    console.log(`aggregateStats: ${geschrieben} Tagesdokument(e) geschrieben, ${geloescht} alte Treffer gelöscht`);
+  }
+);

@@ -2227,6 +2227,82 @@ Prüfung im ersten Versuch gescheitert).
 ist der Pfad die Versionsangabe, und kein Browser-Cache kann einen
 halben Stand mischen.
 
+## Besucherstatistik: selbst gezählt, ohne Cookies (seit 13.10.2026)
+
+Der Nutzer wollte sehen, wie viele Leute die Seite besuchen – „und alle
+weiteren Daten tracken, die man so trackt". Ein fremder Zähldienst
+(Google Analytics, Plausible, Umami) hätte dafür bei jedem Aufruf die
+IP-Adresse jedes Besuchers an einen weiteren Server geschickt; Google
+Analytics bräuchte dazu ein Einwilligungsbanner. Beides passt nicht zur
+Linie der Seite (siehe „Nichts von fremden Servern"). Gebaut ist deshalb
+eine **eigene Zählung auf dem Firebase-Projekt, das es ohnehin gibt** –
+nach dem Verfahren von Plausible und Umami: keine Cookies, keine Kennung
+über den Tag hinaus, die IP-Adresse wird nie gespeichert.
+
+**Die Bausteine**
+
+| Baustein | tut |
+|---|---|
+| `stats.js` (alle sechs Seiten, `defer`, mit `?v=`-Stempel) | schickt beim Laden EINEN Seitenaufruf (Seite, Referrer-Host, utm-Parameter, Zeitzone, Browsersprache, Seitensprache, Farbschema, Gerätetyp, Browser, Betriebssystem, Tab-Sitzung) und danach einzelne **Aktionen**: Event geöffnet, Klick zur Veranstalterseite, Kalender (ics/Google/Outlook), Teilen, Abo, Fehlermeldung, Event vorgeschlagen, Suchbegriff, gesetzter Filter, Standort gesetzt. `sendBeacon` mit `text/plain`, also ohne Vorab-Anfrage |
+| `collect` (Cloud Function, `functions/index.js`) | prüft Herkunft (`Origin` gegen `STATS_ORIGINS`), verwirft Bots, prüft jedes Feld gegen eine geschlossene Liste mit Längen, hängt Tag und Stunde (Europe/Berlin) an und bildet die **Besucher-Kennung des Tages**: HMAC aus IP + Browser-String mit einem Schlüssel, der jeden Tag neu gewürfelt und dabei überschrieben wird (`stats_meta/salt`). Schreibt nach `hits` |
+| `aggregateStats` (Cloud Function, stündlich zur Minute 7) | rechnet heute und gestern (und Lücken der letzten Woche) aus `hits` zu je EINEM Dokument `stats_daily/<Tag>` zusammen (`functions/stats_aggregate.js`) und löscht Rohtreffer, die älter als 35 Tage sind |
+| `statistik.html` | das Dashboard: Zeitraum (7/30/90 Tage, Jahr, alles), sechs Kennzahlen mit Vergleich zum Zeitraum davor, Verlauf (Besucher und Seitenaufrufe je Tag, mit Tabelle und CSV), Tageszeit, und Listen für Seiten, Einstiegs-/Ausstiegsseiten, Referrer, Kampagnen, Region, Sprachen, Geräte, Browser, Betriebssysteme, Farbschema, Aktionen, geöffnete Events, Veranstalter-Klicks, Suchbegriffe, Filter. Nur mit Anmeldung UND Eintrag in `admins/<uid>` (Firestore-Regeln); nicht in der Navigation verlinkt |
+
+**Begriffe**: Seitenaufrufe = Treffer; Besucher = verschiedene Kennungen
+je Tag (über einen Zeitraum SUMMIERT, weil dieselbe Person am nächsten
+Tag absichtlich nicht wiedererkennbar ist); Besuch = Folge von Aufrufen
+einer Tab-Sitzung, eine Pause über 30 Minuten beginnt einen neuen;
+Absprung = Besuch mit einem Aufruf; Besuchsdauer = letzter minus erster
+Aufruf eines Besuchs mit mindestens zwei Aufrufen. Referrer und
+Kampagnen zählen je Besuch (am ersten Aufruf). Die Region kommt aus der
+Zeitzone des Browsers (Europe/Berlin = Deutschland, Vienna = Österreich,
+Zurich = Schweiz, Rome = Italien – Südtirol lässt sich so nicht trennen),
+nicht aus der IP-Adresse.
+
+**Was nie gesendet wird**: die Koordinaten der Umkreissuche, Suchbegriffe
+mit `@`, die volle Adresse der Seite (nur der Seitenname). Und gar nichts
+auf `localhost`/`127.0.0.1` (Rauchtest, lokaler Server), bei
+`navigator.webdriver`, bei Do Not Track oder Global Privacy Control, und
+nachdem jemand in der Datenschutzerklärung „Statistik für dieses Gerät
+abschalten" gedrückt hat (`localStorage` `endurance-stats` = `aus`).
+
+**Inbetriebnahme** (einmalig, in der Google Cloud Shell wie beim
+E-Mail-Versand):
+
+```bash
+git pull
+firebase deploy --only functions,firestore:rules
+```
+
+Die CLI fragt beim ersten Deploy nach dem Parameter `STATS_ORIGINS` –
+den Vorgabewert übernehmen (GitHub-Pages-Adresse plus
+`endurance-events.de` mit und ohne `www`) – und schaltet die
+Cloud-Scheduler-API frei. Danach `statistik.html` öffnen, anmelden: Die
+Seite zeigt die eigene `uid` und sagt, dass sie noch nicht freigeschaltet
+ist. In der Firebase-Konsole (Firestore) die Sammlung `admins` anlegen
+und darin ein Dokument mit genau dieser `uid` als Dokument-ID (Inhalt
+beliebig, z. B. ein Feld `name`). Seite neu laden. Die erste Auswertung
+erscheint zur nächsten vollen Stunde plus sieben Minuten.
+
+**Kosten**: Bei rund 1.000 Treffern am Tag bleibt alles im kostenlosen
+Rahmen von Firestore und Cloud Functions (ein Treffer = ein Schreibvorgang,
+die stündliche Auswertung liest die Treffer von heute und gestern);
+darüber sind es Cent-Beträge je Monat. Cloud Scheduler erlaubt drei
+Zeitpläne kostenlos, das ist der erste.
+
+**Grenzen, ehrlich**: Eine Stunde Verzug (die Auswertung läuft stündlich).
+Kein Verlauf einzelner Personen – das ist Absicht und der Grund, warum
+kein Banner nötig ist (Rechtsgrundlage berechtigtes Interesse, Art. 6
+Abs. 1 lit. f DSGVO; keine Rechtsberatung). Die Datenschutzerklärung hat
+seit dem 13.10.2026 den Abschnitt „Besucherstatistik" (DE und EN) samt
+Schalter; wer an der Zählung etwas ändert (neues Feld, neue Aktion),
+zieht ihn nach. `test_statistik` in `scripts/test_scraper_lib.py` hält
+die Kopien zusammen (Ereignisliste in `stats.js` und `functions/index.js`,
+Seitenliste, Abschalt-Eintrag, Regeln) und rechnet die Aggregation an
+einem Beispiel mit node nach; der Rauchtest prüft, dass `statistik.html`
+ohne Anmeldung verschlossen bleibt, `stats.js` lokal schweigt und der
+Schalter schaltet.
+
 ## Impressum und Datenschutzerklärung
 
 `impressum.html` und `datenschutz.html` sind gebaut und von **jeder**

@@ -42,10 +42,13 @@ nur einen sieht, sieht trotzdem alles.
 | `site.css` | **Farben (ZWEI Schemata: dunkel = `:root`, hell = `:root[data-theme="light"]`), Kopfzeile (Marke, Navigation, Hell/Dunkel-Knopf, DE/EN, Anmelden), Filterleiste, Werkzeugleiste, Fußzeile** – geteilt von Liste, Karte und Startseite; seit dem Umbau vom 21.09.2026 nach den Vorlagen des Nutzers (Liste dunkel, Karte hell) |
 | `filter-ui.js`, `filter-ui.css` | die Filterknöpfe (**Pillen mit gesetztem Wert**, `buildButtonBar` mit `order`) + das Panel + die **Mastersuche** (`buildSearch`) – beide Seiten bedienen dieselben |
 | `event-detail.js`, `event-detail.css` | die **Detail-Box** eines Events (Datum groß, Abzeichen, **Strecken-Pillen** über `siblings`/`onSelect`, vier Fakten mit Symbol, Kalender-Menü, Teilen, `eventSlug`/`icsFileName`, `sportIcon`, Toast) – Liste (neben der Tabelle) und Karte (oben rechts, genau eine) zeigen dieselbe |
-| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sechs geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`; **nach jeder Änderung daran laufen lassen**) |
+| `scripts/stamp_assets.py` | setzt die `?v=`-Stempel an den sieben geteilten Dateien (`site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`, `event-detail.js`, `event-detail.css`, `stats.js`; **nach jeder Änderung daran laufen lassen**) – in allen sechs Seiten |
 | `kalender/*.ics` | **~4.150 Dateien**, eine je Event, fertig für den Kalender (nie alle lesen) |
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
+| `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
+| `statistik.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt |
+| `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
@@ -93,7 +96,7 @@ python3 scripts/build_ics.py            # und die Dateien mitcommitten
 ```
 
 Wurde `site.css`, `filters.js`, `filter-ui.js`, `filter-ui.css`,
-`event-detail.js` oder `event-detail.css` angefasst, **vorher** stempeln
+`event-detail.js`, `event-detail.css` oder `stats.js` angefasst, **vorher** stempeln
 (der Test schlägt sonst fehl und sagt es auch):
 
 ```bash
@@ -4283,6 +4286,68 @@ Datenschutzerklärung auch nicht erklären.
   abgewiesen): alle Seiten laden vollständig, Bündelung und
   Anmelde-Knopf stehen.
 
+## Besucherstatistik (seit 13.10.2026)
+
+Vom Nutzer gewünscht („ein Analytics Dashboard … wie viele Leute meine
+Webseite besucht haben und alle weiteren Daten tracken, die man so
+trackt. Dafür können wir gerne das Impressum und
+Nutzungsbedingungen/Datenschutz anpassen"). Gebaut als **eigene Zählung
+auf dem vorhandenen Firebase-Projekt**, nicht als fremder Dienst – die
+Linie „nichts von fremden Servern" bleibt, und es braucht kein
+Einwilligungsbanner, weil nichts die Person wiedererkennt. Ausführlich
+im README („Besucherstatistik: selbst gezählt, ohne Cookies"). Was man
+beim Arbeiten wissen muss:
+
+- **Vier Teile**: `stats.js` (Browser) → Function `collect` (prüft,
+  hasht, schreibt `hits`) → Function `aggregateStats` (stündlich, Minute
+  7: `hits` eines Tages → EIN Dokument `stats_daily/<Tag>`, Regeln in
+  `functions/stats_aggregate.js`; löscht `hits` nach 35 Tagen) →
+  `statistik.html` (liest nur `stats_daily`).
+- **Keine IP, kein Cookie, kein Tag-übergreifendes Merkmal.** Die
+  Besucher-Kennung ist ein HMAC aus IP + Browser-String mit einem
+  Tagesschlüssel (`stats_meta/salt`), der beim ersten Treffer des neuen
+  Tages ÜBERSCHRIEBEN wird. „Besucher" über einen Zeitraum ist deshalb
+  die SUMME der Tageswerte – so beschriftet die Seite es auch. Nicht
+  „verbessern", indem man die Kennung stabil macht: Genau das wäre das
+  Profil, das die Datenschutzerklärung ausschließt.
+- **Was gezählt wird, steht an drei Stellen gleich**: Ereignisliste in
+  `stats.js` (`EREIGNISSE`) und `functions/index.js`
+  (`STATS_EREIGNISSE`), Seitenliste `STATS_SEITEN`, Zusatzfelder
+  `STATS_PROPS`/`PROP_LAENGE`. Was die Function nicht kennt, verwirft
+  sie STILL (400). `test_statistik` vergleicht die Kopien; eine neue
+  Aktion heißt: beide Listen, `STATS_PROPS`, `AKTIONS_DETAIL` in
+  `stats_aggregate.js`, die Liste in `statistik.html` (`ABSCHNITTE`,
+  `l_…`-Texte DE/EN) – und der Abschnitt „Besucherstatistik" in
+  `datenschutz.html` (DE und EN).
+- **Die Haken in den Seiten**: `EED.render()` meldet `detail` und hängt
+  Zuhörer an Veranstalter-Link und Kalender-Links, `teileEvent()`
+  meldet `teilen`; `events.html` meldet Abo/Meldung/Vorschlag nach dem
+  erfolgreichen Speichern und – wie `karte.html` – den Filterzustand aus
+  `writeUrlState()` (`EnduranceStats.filterParams(params)`; stats.js
+  schickt nur die DIFFERENZ je Schlüssel, nach 1,2 s Pause, nie `ort`
+  mit Koordinaten – daraus wird `standort` ohne Wert). Alle Aufrufe
+  stehen hinter `if (window.EnduranceStats)` – ohne die Datei läuft die
+  Seite unverändert.
+- **Lokal und im Rauchtest wird nichts gesendet** (`stumm()`:
+  localhost/127.0.0.1, `navigator.webdriver`, Bot-UA, DNT/GPC,
+  `localStorage` `endurance-stats` = `aus`). Der Schalter dafür steht in
+  der Datenschutzerklärung (`#stats-schalter`, derselbe Eintrag).
+- **Zugang zum Dashboard** über `admins/<uid>` in Firestore (Regel
+  `istAdmin()`), KEINE E-Mail-Adresse in den Regeln (Repo öffentlich);
+  `test_statistik` prüft das. Die Seite zeigt die eigene uid, wenn der
+  Eintrag fehlt.
+- **Deploy ist Handarbeit des Nutzers** (Cloud Shell): `firebase deploy
+  --only functions,firestore:rules`; der Parameter `STATS_ORIGINS`
+  (erlaubte Herkunft, Vorgabe: GitHub Pages + endurance-events.de) wird
+  beim ersten Deploy abgefragt. Die Function-Adresse in `stats.js`
+  (`ENDPOINT`) hängt am Projekt `endurance-5177a`, nicht an der Domain.
+- **Diagrammfarben** (`statistik.html`): zwei Reihen, mit dem
+  dataviz-Validator gegen beide Flächen geprüft – dunkel `#3d8fd9` +
+  Signal, hell `#1971c2` (Schwimmen-Blau) + Signal; Navy/Weiß fallen als
+  Reihenfarbe durch (zu wenig Chroma). Balken ≤ 24 px, oben gerundet,
+  Hairline-Raster, Legende mit Linienschlüsseln, Tooltip über Crosshair,
+  Tabelle und CSV als Zweitweg.
+
 ## Impressum und Datenschutz (vollständig seit dem 05.10.2026)
 
 `impressum.html` und `datenschutz.html` sind gebaut. **Name und
@@ -4326,6 +4391,14 @@ alle vier nachziehen.
   Fußzeile von `index.html` und steht jetzt im Impressum unter
   „Datenquellen und Lizenzen", zusammen mit OpenStreetMap (ODbL),
   Leaflet und dem Firebase-SDK. Nicht löschen – CC BY 4.0 verlangt sie.
+- **Seit dem 13.10.2026 hat die Datenschutzerklärung den Abschnitt
+  „Besucherstatistik"** (DE und EN, mit Schalter „Statistik für dieses
+  Gerät abschalten"), Kurzfassung und „Was diese Seite nicht tut" sagen
+  „kein Tracking durch Dritte", der Abschnitt „Speicherung im Browser"
+  nennt `endurance-theme`, `endurance-stats` und die Sitzungskennung;
+  „Stand" 13. Oktober 2026. Das Impressum brauchte nichts Neues (kein
+  neuer Dritter – die Zählung läuft auf dem Firebase-Projekt, das dort
+  schon steht).
 - Keine Rechtsberatung: Vor dem Livegang muss der Nutzer die Texte
   prüfen (lassen).
 
@@ -5089,6 +5162,19 @@ Verweise auf alte Nummern stehen in Klammern.
    zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
    Cloud Function bauen, dann `firebase deploy --only functions` aus der
    Cloud Shell (der Nutzer), Extension deinstallieren.
+6. **Besucherstatistik deployen und freischalten** (neu 13.10.2026,
+   Anleitung im README „Besucherstatistik"): in der Cloud Shell `git pull`
+   und `firebase deploy --only functions,firestore:rules` (Parameter
+   `STATS_ORIGINS` mit Vorgabe bestätigen, Cloud Scheduler freischalten
+   lassen); dann `endurance-events.de/statistik.html` öffnen, anmelden,
+   die angezeigte uid in Firestore als Dokument `admins/<uid>` anlegen,
+   Seite neu laden. Die erste Auswertung kommt zur nächsten vollen Stunde
+   plus sieben Minuten. **Bis zum Deploy sendet `stats.js` auf der
+   Live-Seite ins Leere** (die Function antwortet 404) – das stört die
+   Seite nicht, zählt aber auch nichts.
+7. **Datenschutzerklärung erneut lesen** (neu 13.10.2026): Abschnitt
+   „Besucherstatistik" (DE und EN) samt Schalter – die Seite ist live,
+   also zeitnah.
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),

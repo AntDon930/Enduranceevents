@@ -1082,7 +1082,7 @@ def test_ortsverzeichnis() -> None:
 # Alle HTML-Seiten des Projekts. Zwei Tests laufen darüber (JS-Syntax
 # und "keine fremden Dateien"); eine neue Seite hier eintragen, nicht an
 # zwei Stellen.
-SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html")
+SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "statistik.html")
 
 
 def test_js_syntax() -> None:
@@ -1139,8 +1139,8 @@ def test_js_syntax() -> None:
                                      capture_output=True, text=True)
                 check(f"{name}: Inline-Skript {nr} ist gültiges JS",
                       fehlerzeile(erg), "")
-        for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js",
-                     "firebase-config.js", "functions/index.js"):
+        for name in ("filters.js", "filter-ui.js", "event-detail.js", "auth.js", "stats.js",
+                     "firebase-config.js", "functions/index.js", "functions/stats_aggregate.js"):
             pfad = wurzel / name
             if not pfad.exists():
                 continue
@@ -1436,7 +1436,7 @@ def test_keine_fremden_dateien() -> None:
                    + _re.findall(r'<link\b[^>]*\shref="(https?://[^"]+)"', ohne)
                    if not any(ok in u for ok in erlaubt)]
         check(f"{name} lädt nichts von fremden Servern", treffer, [])
-    for name in ("auth.js", "filters.js", "filter-ui.js", "event-detail.js"):
+    for name in ("auth.js", "filters.js", "filter-ui.js", "event-detail.js", "stats.js"):
         quelle = (wurzel / name).read_text(encoding="utf-8")
         ohne = _re.sub(r"//[^\n]*", "", quelle)
         treffer = [u for u in _re.findall(r"['\"](https?://[^'\"]+\.js)['\"]", ohne)
@@ -1666,7 +1666,7 @@ def test_farbschema_skript() -> None:
     print("\nFarbschema-Skript (hell/dunkel) in den Seiten:")
     wurzel = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
     fassungen: dict[str, str | None] = {}
-    for name in ("index.html", "events.html", "karte.html"):
+    for name in ("index.html", "events.html", "karte.html", "statistik.html"):
         with open(os.path.join(wurzel, name), encoding="utf-8") as f:
             html = f.read()
         m = re.search(r"<script>\n\(function \(\) \{\n  var wahl = null;.*?</script>", html, re.S)
@@ -1675,7 +1675,7 @@ def test_farbschema_skript() -> None:
         check(f"{name}: Knopf .theme-btn in der Kopfzeile", 'class="icon-btn theme-btn"' in html, True)
         check(f"{name}: Skript steht VOR den Stylesheets",
               m is not None and m.start() < html.index("<link rel=\"stylesheet\""), True)
-    check("alle drei Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
+    check("alle vier Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
     with open(os.path.join(wurzel, "site.css"), encoding="utf-8") as f:
         css = f.read()
     check("site.css: helles Schema über :root[data-theme=\"light\"]", ':root[data-theme="light"]' in css, True)
@@ -4323,8 +4323,126 @@ def test_pruefung_offen() -> None:
           'not e.get("pruefung_offen")' in (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8"), True)
 
 
+def test_statistik() -> None:
+    """Besucherstatistik (13.10.2026): stats.js, die Cloud Functions
+    `collect`/`aggregateStats`, statistik.html und die Regeln.
+
+    Was hier festgehalten wird, läuft sonst still auseinander: die Liste
+    der Ereignisse steht in stats.js UND in functions/index.js (was dort
+    fehlt, verwirft die Function ohne Meldung), jede Seite mit stats.js
+    muss der Function als Seite bekannt sein, der Abschalt-Eintrag heißt
+    in stats.js und in der Datenschutzerklärung gleich - und die
+    Rechenregeln (Besuche, Absprung, Dauer, Besucher je Tag) werden an
+    einem festen Beispiel mit node nachgerechnet.
+    """
+    import json as _json
+    import re as _re
+    import shutil
+    import subprocess
+
+    print("\nBesucherstatistik (stats.js, Functions, statistik.html):")
+    wurzel = Path(__file__).resolve().parent.parent
+    stats_js = (wurzel / "stats.js").read_text(encoding="utf-8")
+    index_js = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
+
+    def liste(quelle, name):
+        m = _re.search(name + r"\s*=\s*(?:new Set\()?\[([^\]]*)\]", quelle)
+        return _re.findall(r"['\"]([a-z_]+)['\"]", m.group(1)) if m else None
+
+    ereignisse = liste(stats_js, "var EREIGNISSE")
+    check("Ereignisliste in stats.js und functions/index.js gleich",
+          liste(index_js, "const STATS_EREIGNISSE"), ereignisse)
+    check("Ereignisliste beginnt mit dem Seitenaufruf", ereignisse[:1] if ereignisse else None, ["pv"])
+    seiten_fn = liste(index_js, "const STATS_SEITEN")
+    fehlt = []
+    for name in SEITEN:
+        html = (wurzel / name).read_text(encoding="utf-8")
+        if 'src="stats.js?v=' not in html:
+            fehlt.append(f"{name}: lädt stats.js nicht")
+        if name[:-5] not in (seiten_fn or []):
+            fehlt.append(f"{name}: der Function unbekannt")
+    check("jede Seite lädt stats.js und ist der Function bekannt", fehlt, [])
+    check("die Function kennt keine Seite, die es nicht gibt",
+          sorted(set(seiten_fn or []) - {n[:-5] for n in SEITEN}), [])
+
+    projekt = _re.search(r'projectId:\s*"([^"]+)"', (wurzel / "firebase-config.js").read_text(encoding="utf-8")).group(1)
+    check("stats.js schickt an die Function des eigenen Projekts",
+          f"https://europe-west1-{projekt}.cloudfunctions.net/collect" in stats_js, True)
+    for stelle in ("'localhost'", "'127.0.0.1'", "navigator.webdriver", "globalPrivacyControl", "doNotTrack"):
+        check(f"stats.js schweigt bei {stelle}", stelle in stats_js, True)
+    ds = (wurzel / "datenschutz.html").read_text(encoding="utf-8")
+    check("Abschalt-Eintrag heißt in stats.js und Datenschutz gleich",
+          "var SPEICHER_AUS = 'endurance-stats'" in stats_js and "const SPEICHER_STATS = 'endurance-stats'" in ds, True)
+    check("Datenschutz nennt die Statistik in DE und EN",
+          ds.count("h_statistik"), 3)
+    check("Datenschutz hat den Schalter", 'id="stats-schalter"' in ds, True)
+
+    regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
+    check("Regeln: stats_daily nur für Admins lesbar",
+          _re.search(r"match /stats_daily/\{tag\} \{\s*allow read: if istAdmin\(\);\s*allow write: if false;", regeln) is not None, True)
+    check("Regeln: hits für Clients gesperrt",
+          _re.search(r"match /hits/\{id\} \{\s*allow read, write: if false;", regeln) is not None, True)
+    check("Regeln: admins nur das eigene Dokument",
+          "match /admins/{uid}" in regeln and "request.auth.uid == uid" in regeln, True)
+    check("Regeln: keine E-Mail-Adresse (das Repo ist öffentlich)", "@" in regeln.split("service cloud.firestore")[1], False)
+
+    from stamp_assets import ASSETS, HTML_FILES
+    check("stamp_assets.py stempelt stats.js", "stats.js" in ASSETS, True)
+    check("stamp_assets.py kennt alle Seiten", sorted(HTML_FILES), sorted(SEITEN))
+
+    node = shutil.which("node")
+    if not node:
+        print("  (node nicht vorhanden - Rechenprobe übersprungen)")
+        return
+    skript = r"""
+      const a = require(process.argv[1]);
+      const T = 1760000000000;
+      const pv = (t, h, p, v, s, extra) => Object.assign({ t, h, e: 'pv', p, v, s, r: '', ld: 'DE', la: 'de-DE', sl: 'de', th: 'dark', dv: 'handy', br: 'Safari', os: 'iOS' }, extra || {});
+      const hits = [
+        pv(T, 9, 'index', 'a', 's1', { r: 'google.com' }),
+        pv(T + 60000, 9, 'events', 'a', 's1'),
+        pv(T + 3 * 3600000, 12, 'karte', 'a', 's1'),         // 3 h Pause = neuer Besuch
+        pv(T + 100, 9, 'events', 'b', 's2', { ld: 'AT', dv: 'rechner' }),
+        { t: T + 200, e: 'detail', p: 'events', s: 's2', pr: { ev: 'Berlin Marathon', sp: 'Laufen' } },
+        { t: T + 300, e: 'filter', p: 'events', s: 's2', pr: { k: 'sportart', w: 'Laufen' } },
+        { t: T + 400, e: 'suche', p: 'events', s: 's2', pr: { q: 'marathon' } },
+        { t: T + 500, e: 'kalender', p: 'events', s: 's2', pr: { art: 'ics' } },
+      ];
+      const r = a.aggregiere(hits, '2026-10-13');
+      console.log(JSON.stringify({
+        pv: r.pv, besucher: r.besucher, besuche: r.besuche, absprung: r.absprung, dauer_sek: r.dauer_sek, dauer_n: r.dauer_n,
+        einstieg: r.einstieg, referrer: r.referrer, laender: r.laender, geraete: r.geraete, stunden: [r.stunden[9], r.stunden[12]],
+        aktionen: r.aktionen, events: r.events, filter: r.filter, suche: r.suche, kalender: r.kalender,
+        land: [a.landAus('Europe/Vienna', 'de-DE'), a.landAus('Europe/Berlin', 'de-AT'), a.landAus('', 'de-CH'),
+               a.landAus('America/New_York', 'en-US'), a.landAus('Europe/Oslo', 'nb'), a.landAus('Mars/Olympus', 'xx'), a.landAus(null, null)]
+      }));
+    """
+    erg = subprocess.run([node, "-e", skript, str(wurzel / "functions" / "stats_aggregate.js")],
+                         capture_output=True, text=True)
+    check("Rechenprobe läuft", erg.returncode, 0)
+    if erg.returncode != 0:
+        print("  " + erg.stderr.strip()[:300])
+        return
+    r = _json.loads(erg.stdout)
+    check("Seitenaufrufe", r["pv"], 4)
+    check("Besucher (verschiedene Kennungen)", r["besucher"], 2)
+    check("Besuche (Pause über 30 min trennt)", r["besuche"], 3)
+    check("Absprünge (Besuche mit einem Aufruf)", r["absprung"], 2)
+    check("Besuchsdauer nur aus Besuchen mit zwei Aufrufen", [r["dauer_sek"], r["dauer_n"]], [60, 1])
+    check("Einstiegsseiten je Besuch", r["einstieg"], [{"k": "events", "n": 1}, {"k": "index", "n": 1}, {"k": "karte", "n": 1}])
+    check("Referrer je Besuch, ohne Referrer = direkt", r["referrer"], [{"k": "(direkt)", "n": 2}, {"k": "google.com", "n": 1}])
+    check("Regionen und Geräte je Seitenaufruf", [r["laender"], r["geraete"]],
+          [[{"k": "DE", "n": 3}, {"k": "AT", "n": 1}], [{"k": "handy", "n": 3}, {"k": "rechner", "n": 1}]])
+    check("Stunden", r["stunden"], [3, 1])
+    check("Aktionen gezählt", r["aktionen"], [{"k": "detail", "n": 1}, {"k": "filter", "n": 1}, {"k": "kalender", "n": 1}, {"k": "suche", "n": 1}])
+    check("Zusatzangaben der Aktionen", [r["events"], r["filter"], r["suche"], r["kalender"]],
+          [[{"k": "Berlin Marathon", "n": 1}], [{"k": "sportart=Laufen", "n": 1}], [{"k": "marathon", "n": 1}], [{"k": "ics", "n": 1}]])
+    check("Region aus Zeitzone, sonst Sprache, sonst Erdteil",
+          r["land"], ["AT", "DE", "CH", "AM", "NO", "??", "??"])
+
+
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

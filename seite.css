@@ -141,3 +141,14 @@ footer {
   text-align: center;
 }
 footer a { color: inherit; }
+
+/* Der Schalter "Statistik für dieses Gerät abschalten" in der
+   Datenschutzerklärung (stats.js, localStorage endurance-stats). */
+.schalter {
+  font: inherit; font-weight: 600; font-size: 0.92rem;
+  padding: 9px 16px; min-height: 40px; border-radius: 10px;
+  border: 1px solid var(--border-strong, #c8c2b4);
+  background: var(--panel, #fff); color: inherit; cursor: pointer;
+}
+.schalter:hover { background: var(--accent-bg, #edf1f7); }
+.schalter-status { display: block; margin-top: 8px; font-size: 0.92rem; color: var(--text-muted, #66707f); }

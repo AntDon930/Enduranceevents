@@ -29,9 +29,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # Die Dateien, die mehrere Seiten gemeinsam nutzen. Nur bei denen kann ein
 # halber Cache-Stand die Seite zerlegen; die Inline-Skripte stecken in der
 # HTML-Datei selbst und sind damit immer passend.
-ASSETS = ("site.css", "filters.js", "filter-ui.js", "filter-ui.css", "event-detail.js", "event-detail.css")
+ASSETS = ("site.css", "filters.js", "filter-ui.js", "filter-ui.css", "event-detail.js", "event-detail.css", "stats.js")
 
-HTML_FILES = ("index.html", "events.html", "karte.html")
+# Alle Seiten, die eine der geteilten Dateien laden - die beiden Textseiten
+# und die Statistik nur stats.js bzw. site.css.
+HTML_FILES = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "statistik.html")
 
 
 def stempel(pfad: Path) -> str:

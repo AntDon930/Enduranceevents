@@ -344,7 +344,7 @@ def pruefe_kacheln(ctx, basis):
                "der Rahmen: 2 px oben an der Veranstaltung, 2 px unten an der letzten Strecke")
         pruefe(block["seiten"], "… und 2 px links und rechts an allen %d Kacheln des Blocks" % block["zeilen"])
         pruefe(block["luecke"], "die Kacheln des Blocks hängen ohne Lücke aneinander")
-        pruefe(block["ohneDatum"], "die Strecken wiederholen das Datum nicht")
+        pruefe(block["ohneDatum"], "die Strecken wiederholen das Datum nicht (Serien: je Termin)")
         pruefe(block["farben"] == 1, "der Block ist in EINEM Ton hinterlegt")
         # Tippen auf eine Strecke öffnet das Blatt mit dieser Strecke.
         seite.locator("tr.sub-row").first.click()
@@ -1117,6 +1117,56 @@ def pruefe_rechtsseiten(ctx, basis):
         pruefe(links["impressum"] and links["datenschutz"],
                "%s verlinkt Impressum und Datenschutz" % haupt)
         seite.close()
+
+
+def pruefe_statistik(ctx, basis):
+    """Besucherstatistik (13.10.2026): statistik.html lädt und bleibt ohne
+    Anmeldung verschlossen, stats.js sendet auf 127.0.0.1 nichts, und der
+    Schalter in der Datenschutzerklärung schaltet die Zählung je Gerät
+    ab und wieder an (derselbe localStorage-Eintrag, den stats.js liest).
+    """
+    print("\nStatistik-Seite und stats.js")
+    seite, probleme = seite_oeffnen(ctx, basis + "/statistik.html", ".top-bar")
+    seite.wait_for_timeout(1500)
+    pruefe(not probleme, "statistik.html lädt ohne Fehler (%s)"
+           % (probleme[0] if probleme else "keine"))
+    stand = seite.evaluate("""() => ({
+        titel: document.getElementById('stat-title').textContent.trim(),
+        gate: (document.getElementById('stat-gate').textContent || '').trim(),
+        verborgen: document.getElementById('stat-content').hidden,
+        theme: !!document.querySelector('.theme-btn'),
+        stumm: !!(window.EnduranceStats && window.EnduranceStats.aktiv() === false),
+        ueberlauf: document.documentElement.scrollWidth - innerWidth })""")
+    pruefe(stand["titel"] == "Statistik", "Kopf heißt Statistik (%s)" % stand["titel"])
+    pruefe(stand["verborgen"], "ohne Anmeldung bleibt der Inhalt verborgen")
+    pruefe(any(w in stand["gate"] for w in ("Betreiber", "Anmeldung", "eingerichtet")),
+           "Zugangshinweis steht (%s)" % stand["gate"][:60])
+    pruefe(stand["theme"], "Hell/Dunkel-Knopf in der Kopfzeile")
+    pruefe(stand["stumm"], "stats.js sendet auf 127.0.0.1 nichts (aktiv() == false)")
+    pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+    seite.click('.lang-btn[data-lang="en"]')
+    seite.wait_for_timeout(200)
+    en = seite.evaluate("() => document.getElementById('stat-title').textContent.trim()")
+    pruefe(en == "Statistics", "EN schaltet um (%s)" % en)
+    seite.click('.lang-btn[data-lang="de"]')
+    seite.close()
+
+    seite, probleme = seite_oeffnen(ctx, basis + "/datenschutz.html", ".karte")
+    seite.wait_for_timeout(500)
+    vorher = seite.evaluate("() => document.getElementById('stats-schalter').textContent")
+    seite.click('#stats-schalter')
+    seite.wait_for_timeout(200)
+    nachher = seite.evaluate("""() => ({
+        text: document.getElementById('stats-schalter').textContent,
+        wert: localStorage.getItem('endurance-stats'),
+        aus: !!(window.EnduranceStats && window.EnduranceStats.istAus()) })""")
+    pruefe(nachher["wert"] == "aus" and nachher["aus"] and nachher["text"] != vorher,
+           "Datenschutz: der Schalter schaltet die Statistik ab (%s)" % nachher["wert"])
+    seite.click('#stats-schalter')
+    seite.wait_for_timeout(200)
+    wieder = seite.evaluate("() => localStorage.getItem('endurance-stats')")
+    pruefe(wieder is None, "… und wieder an")
+    seite.close()
 
 
 def pruefe_teilen(ctx, basis):
@@ -2056,6 +2106,7 @@ def main() -> int:
                 pruefe_teilen(ctx, basis)
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
+                pruefe_statistik(ctx, basis)
                 pruefe_abo(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
