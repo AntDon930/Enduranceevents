@@ -1704,16 +1704,21 @@ def pruefe_farbschema(ctx, basis):
 
 
 def pruefe_wartung(ctx, basis):
-    """Wartungsmodus (13.10.2026): Mit `aktiv: true` in wartung.json führt
-    die Liste nach wartung.html, die den Text aus derselben Datei zeigt
-    und Impressum/Datenschutz verlinkt; mit dem Stand im Repo (aus) bleibt
-    alles beim Alten. Der Schalter wird hier abgefangen (route), nicht in
-    der Datei umgelegt."""
+    """Wartungsmodus (14.10.2026): Der Schalter ist das Firestore-Dokument
+    config/wartung. Mit aktiv == true führt die Liste nach wartung.html,
+    die den Text aus demselben Dokument zeigt und Impressum/Datenschutz
+    verlinkt; mit aktiv == false bleibt alles beim Alten. Die Abfrage
+    wird hier abgefangen (route) - der Test hängt so weder am Netz noch
+    am echten Schalter: Wäre der Wartungsmodus live an, würde das Gate
+    sonst jeden Deploy blockieren."""
     print("\nWartungsmodus")
+    def antwort(aktiv, text_de="Testwartung läuft", text_en="Test maintenance running"):
+        return ('{"name": "x", "fields": {"aktiv": {"booleanValue": %s}, '
+                '"text_de": {"stringValue": "%s"}, "text_en": {"stringValue": "%s"}}}'
+                % ("true" if aktiv else "false", text_de, text_en))
     seite = ctx.new_page()
-    seite.route("**/wartung.json*", lambda route: route.fulfill(
-        status=200, content_type="application/json",
-        body='{"aktiv": true, "text_de": "Testwartung läuft", "text_en": "Test maintenance running"}'))
+    seite.route("**/documents/config/wartung*", lambda route: route.fulfill(
+        status=200, content_type="application/json", body=antwort(True)))
     # Die Umleitung kann die laufende Navigation unterbrechen - dann wirft
     # goto, obwohl alles richtig läuft. Entscheidend ist die Adresse danach.
     try:
@@ -1730,15 +1735,24 @@ def pruefe_wartung(ctx, basis):
     except Exception:  # noqa: BLE001
         pass
     text = seite.evaluate("() => (document.getElementById('wartung-text') || {}).textContent || ''")
-    pruefe("Testwartung" in text, "… zeigt den Text aus wartung.json")
+    pruefe("Testwartung" in text, "… zeigt den Text aus dem Schalter-Dokument")
     pruefe(seite.locator('a[href="impressum.html"]').count() == 1 and seite.locator('a[href="datenschutz.html"]').count() == 1,
            "… und verlinkt Impressum und Datenschutz")
     seite.close()
-    seite, probleme = seite_oeffnen(ctx, basis + "/index.html", ".hero, .top-bar")
+    seite = ctx.new_page()
+    probleme: list[str] = []
+    seite.on("pageerror", lambda e: probleme.append("Skriptfehler: %s" % e))
+    seite.route("**/documents/config/wartung*", lambda route: route.fulfill(
+        status=200, content_type="application/json", body=antwort(False)))
+    seite.goto(basis + "/index.html", wait_until="domcontentloaded")
+    seite.wait_for_selector(".top-bar", timeout=30000)
+    seite.wait_for_timeout(800)
     pruefe(seite.url.endswith("/index.html") and not probleme,
-           "aus (Stand im Repo): Startseite bleibt stehen, keine Fehler (%s)" % ("; ".join(probleme) or "ok"))
+           "aus: Startseite bleibt stehen, keine Fehler (%s)" % ("; ".join(probleme) or "ok"))
+    seite.goto(basis + "/wartung.html?vorschau", wait_until="domcontentloaded")
+    seite.wait_for_timeout(800)
+    pruefe(seite.url.endswith("/wartung.html?vorschau"), "aus: wartung.html?vorschau bleibt zum Ansehen stehen")
     seite.close()
-
 
 def pruefe_kartenrahmen(seite):
     """Die Welt genau EINMAL, und nicht weiter heraus als Europa.

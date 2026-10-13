@@ -209,6 +209,15 @@
       <span class="schalter-status" id="stats-status"></span>
     </p>
 
+    <h2 data-i="h_wartung">Wartungsmodus</h2>
+    <p data-i="t_wartung">Beim Aufruf von Startseite, Liste und Karte
+      fragt der Browser bei <strong>Cloud Firestore</strong> (Google
+      Ireland Limited, Serverstandort Frankfurt) ein einzelnes, öffentlich
+      lesbares Dokument ab, das sagt, ob die Seite gerade im Wartungsmodus
+      ist. Dabei werden keine Angaben über dich übertragen; wie bei jedem
+      Abruf sieht der Server die IP-Adresse. Ist die Abfrage nicht
+      möglich, läuft die Seite normal weiter.</p>
+
     <h2 data-i="h_local">Speicherung im Browser</h2>
     <p data-i="t_local">Die Seite speichert im lokalen Speicher des
       Browsers zwei Einstellungen: die gewählte Sprache
@@ -292,6 +301,8 @@
       stats_an_btn: 'Statistik für dieses Gerät wieder einschalten',
       stats_status_aus: 'Die Statistik ist für dieses Gerät abgeschaltet (Eintrag „endurance-stats“ im lokalen Speicher des Browsers).',
       stats_status_an: 'Die Statistik ist für dieses Gerät eingeschaltet.',
+      h_wartung: 'Wartungsmodus',
+      t_wartung: 'Beim Aufruf von Startseite, Liste und Karte fragt der Browser bei Cloud Firestore (Google Ireland Limited, Serverstandort Frankfurt) ein einzelnes, öffentlich lesbares Dokument ab, das sagt, ob die Seite gerade im Wartungsmodus ist. Dabei werden keine Angaben über dich übertragen; wie bei jedem Abruf sieht der Server die IP-Adresse. Ist die Abfrage nicht möglich, läuft die Seite normal weiter.',
       h_local: 'Speicherung im Browser',
       t_local: 'Die Seite speichert im lokalen Speicher des Browsers Einstellungen zur Bedienung: die gewählte Sprache (endurance-lang), ob Veranstaltungen zusammengefasst angezeigt werden (endurance-gruppiert), das Farbschema (endurance-theme) und, falls abgeschaltet, den Verzicht auf die Besucherstatistik (endurance-stats). Die Sitzungskennung der Statistik (endurance-stats-sid) liegt im sessionStorage und endet mit dem Tab. Alles davon bleibt auf dem Gerät und dient allein der Bedienung – es sind keine Cookies im Sinne der Werbewirtschaft und keine Kennungen zur Wiedererkennung. Nach einer Anmeldung legt Firebase zusätzlich die Sitzung im Browser ab, damit man angemeldet bleibt. Alles davon lässt sich über die Browser-Einstellungen löschen.',
       h_rechte: 'Ihre Rechte',
@@ -301,7 +312,7 @@
       keine2: 'Keine Weitergabe oder Verkauf von Daten an Dritte.',
       keine3: 'Keine Schriftarten, Skripte oder Stile von fremden Servern (nur die Kartenbilder, siehe oben).',
       keine4: 'Keine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO.',
-      stand: 'Stand:', stand_datum: '13. Oktober 2026',
+      stand: 'Stand:', stand_datum: '14. Oktober 2026',
       f_home: 'Startseite', f_imprint: 'Impressum'
     },
     en: {
@@ -337,6 +348,8 @@
       stats_an_btn: 'Switch statistics for this device back on',
       stats_status_aus: 'Statistics are switched off for this device (entry “endurance-stats” in the browser’s local storage).',
       stats_status_an: 'Statistics are switched on for this device.',
+      h_wartung: 'Maintenance mode',
+      t_wartung: 'When the home page, the list or the map is opened, the browser asks Cloud Firestore (Google Ireland Limited, server location Frankfurt) for a single, publicly readable document that says whether the site is currently in maintenance mode. No information about you is transmitted; as with any request, the server sees the IP address. If the request fails, the site runs normally.',
       h_local: 'Storage in your browser',
       t_local: 'The site stores a few settings in the browser’s local storage: the chosen language (endurance-lang), whether events are shown grouped (endurance-gruppiert), the colour scheme (endurance-theme) and, if switched off, the opt-out from visitor statistics (endurance-stats). The statistics session identifier (endurance-stats-sid) lives in sessionStorage and ends with the tab. All of this stays on the device and serves operation only – these are not advertising cookies and not identifiers for recognising you. After signing in, Firebase additionally stores the session in the browser so that you stay signed in. All of it can be cleared in the browser settings.',
       h_rechte: 'Your rights',
@@ -346,7 +359,7 @@
       keine2: 'No sharing or selling of data to third parties.',
       keine3: 'No fonts, scripts or styles from third-party servers (only the map tiles, see above).',
       keine4: 'No automated decision-making within the meaning of Art. 22 GDPR.',
-      stand: 'Last updated:', stand_datum: '13 October 2026',
+      stand: 'Last updated:', stand_datum: '14 October 2026',
       f_home: 'Home', f_imprint: 'Legal notice'
     }
   };

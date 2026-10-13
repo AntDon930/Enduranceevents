@@ -71,7 +71,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
 | `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift und Kontaktadresse (`impressum@endurance-events.de`, seit dem 05.10.2026) stehen; von jeder Seite aus verlinkt |
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
-| `wartung.json`, `wartung.html` | **Wartungsmodus** (seit 13.10.2026): `"aktiv": true` in der JSON-Datei schickt Startseite, Liste und Karte nach `wartung.html` (Impressum, Datenschutz, admin.html bleiben erreichbar); umschalten = Datei auf GitHub bearbeiten, der Deploy läuft dann ohne Tests in ~2 Minuten – siehe „Deploy-Gate und Wartungsmodus". Bei ausgeschaltetem Schalter springt `wartung.html` sofort zur Startseite zurück – ansehen nur über `wartung.html?vorschau` (14.10.2026, Nutzer: „werde sofort weitergeleitet") |
+| `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln einmal deployen (Nutzer) – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
@@ -4869,11 +4869,21 @@ live, CI-Mail sagt, was fehlschlug. `ci.yml` prüft den Deploy-Branch
 deshalb nicht mehr selbst unter `push` (sonst zweimal je Push, zwei
 Mails), nur noch `claude/website-access-9d9tg1` und `main`;
 `test_wartung` hält beides fest. Rollback: Actions → „Deploy GitHub
-Pages" → älterer grüner Lauf → „Re-run all jobs". **Der reine
-Wartungsschalter (nur `wartung.json` geändert) läuft OHNE Tests durch**
-– `aenderung` vergleicht `github.event.before` mit dem Push; im Zweifel
-(manueller Start, neuer Branch) wird geprüft. Einzelheiten im README
+Pages" → älterer grüner Lauf → „Re-run all jobs". Einzelheiten im README
 („Deploy-Gate und Wartungsmodus").
+
+**Wartungsmodus (14.10.2026, zweite Fassung)**: Der Nutzer wollte einen
+Knopf („dann komme ich auf eine Seite wie admin.html und da gibt es
+einen Button") statt der Datei im Repo vom Vorabend. Ein Knopf im
+Browser kann nichts committen, also liegt der Schalter in Firestore
+(`config/wartung`, Regeln: lesen alle, schreiben nur Admins), die
+Seiten fragen ihn im `<head>` per REST ohne Anmeldung ab (Fail-open),
+`admin.html` legt ihn um. Folgen: eine Firestore-Abfrage je Seitenaufruf
+(kostenlos bis 50.000/Tag), ein Abschnitt in der Datenschutzerklärung,
+und der Rauchtest fängt die Abfrage ab (`route`), sonst blockierte ein
+eingeschalteter Wartungsmodus jeden Deploy. Die Regeln muss der Nutzer
+einmal deployen (`firebase deploy --only firestore:rules`).
+`test_wartung` hält alles fest.
 
 **Ein Push des Datenlaufs löst KEINEN Deploy aus** (gefunden am
 13.10.2026: der Lauf vom 12.10. hatte keinen einzigen Folge-Lauf, weder
@@ -5280,10 +5290,13 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   auf `main`, Commit `c7344d8`). Dazu gebaut: **Deploy-Gate**
   (`pages.yml` → `ci.yml` per `workflow_call`, Deploy nur bei grün; der
   erste Ernstfall war mein eigener Test mit `import yaml`, abgefangen)
-  und **Wartungsmodus** (`wartung.json`/`wartung.html`, live geprüft,
-  Umschalten = Datei auf GitHub bearbeiten, ~2 Minuten) – README
-  „Deploy-Gate und Wartungsmodus". Handprüfung zeigt erledigte Fälle
-  nicht mehr (35 → 19).
+  und **Wartungsmodus** – erst als Datei im Repo, dann (00:30, Wunsch
+  des Nutzers: ein Knopf) als Firestore-Schalter `config/wartung` mit
+  Karte in `admin.html`; `wartung.html?vorschau` zeigt die Pausenseite
+  ohne Rücksprung – README „Deploy-Gate und Wartungsmodus". **Offen beim
+  Nutzer: die Regeln deployen** (Punkt 7 der Liste), vorher meldet der
+  Knopf „Missing or insufficient permissions". Handprüfung zeigt
+  erledigte Fälle nicht mehr (35 → 19).
 - **Entschieden**: Statistik bleibt vorerst stündlich („weil es
   interessant ist"), Umstellung auf täglich ist Punkt 6 unten.
 - **Beobachtung in der Statistik (14.10., 00:15)**: 13.10. = 14
@@ -5356,10 +5369,19 @@ Verweise auf alte Nummern stehen in Klammern.
 
 (Der frühere Punkt 7 – `update-events.yml` auf `main` nachziehen – ist
 seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
+7. **Firestore-Regeln deployen** (neu 14.10.2026, nur der Nutzer): in
+   der Cloud Shell `cd Enduranceevents && git pull && firebase deploy
+   --only firestore:rules`. Erst danach funktioniert der Knopf
+   „Wartungsmodus" in `admin.html` (vorher: „Missing or insufficient
+   permissions"); die öffentlichen Seiten laufen so oder so normal.
+   Danach einmal probieren: einschalten → Startseite in einem anderen
+   Tab laden → Pausenseite; ausschalten → nach spätestens einer Minute
+   wieder die Startseite.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
-Archiv, Punkte 35 und 34.)
+Archiv, Punkte 35 und 34; der frühere Punkt 7 vom 13.10., die
+Workflow-Datei auf `main`, ist Archiv 36.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),

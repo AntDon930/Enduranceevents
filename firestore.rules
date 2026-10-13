@@ -150,6 +150,25 @@ service cloud.firestore {
       allow get: if request.auth != null && request.auth.uid == uid;
       allow list, write: if false;
     }
+    // Wartungsmodus (14.10.2026): EIN öffentlich lesbares Dokument. Die
+    // Seiten fragen es beim Laden über die REST-Schnittstelle ohne
+    // Anmeldung ab (siehe den Kopf-Schnipsel in index/events/karte.html)
+    // und leiten bei aktiv == true nach wartung.html um; umgelegt wird
+    // der Schalter im Dashboard (admin.html), also nur von Admins.
+    // Geschlossene Feldliste, Texte begrenzt, Zeitstempel vom Server.
+    match /config/wartung {
+      allow read: if true;
+      allow write: if istAdmin()
+                   && request.resource.data.keys().hasOnly(
+                        ['aktiv', 'text_de', 'text_en', 'geaendert', 'von'])
+                   && request.resource.data.aktiv is bool
+                   && request.resource.data.text_de is string
+                   && request.resource.data.text_de.size() <= 300
+                   && request.resource.data.text_en is string
+                   && request.resource.data.text_en.size() <= 300
+                   && request.resource.data.von == request.auth.uid
+                   && request.resource.data.geaendert == request.time;
+    }
     match /stats_daily/{tag} {
       allow read: if istAdmin();
       allow write: if false;

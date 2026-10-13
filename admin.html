@@ -59,6 +59,13 @@
   .stat-card h3 small { font-family: var(--font-text); font-weight: 500; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
   /* Zugang */
+  /* Wartungsmodus-Karte (14.10.2026) */
+  #wartung-card h3 small.w-an { color: var(--brand); }
+  .w-felder { display: grid; gap: 8px; margin: 10px 0; }
+  .w-felder label { display: grid; gap: 4px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .w-felder input { font: inherit; font-size: 0.95rem; text-transform: none; letter-spacing: 0; padding: 8px 10px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; }
+  .w-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
+  .w-knoepfe a.stat-btn { text-decoration: none; display: inline-flex; align-items: center; }
   .gate { max-width: 560px; }
   .gate p { margin: 8px 0; line-height: 1.5; }
   .gate .uid { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
@@ -176,6 +183,10 @@
   <section class="stat-card gate" id="stat-gate" aria-live="polite"></section>
 
   <div id="stat-content" hidden>
+    <!-- Wartungsmodus: Schalter in Firestore (config/wartung), nur für
+         Admins schreibbar; die öffentlichen Seiten lesen ihn beim Laden. -->
+    <section class="stat-card" id="wartung-card"></section>
+
     <div class="stat-filters">
       <div class="stat-range" id="stat-range" role="group"></div>
       <div class="stat-meta">
@@ -233,6 +244,21 @@
   const I18N = {
     de: {
       title: 'Statistik',
+      w_titel: 'Wartungsmodus',
+      w_status_an: 'AN – Besucher sehen die Pausenseite',
+      w_status_aus: 'aus',
+      w_erklaert_an: 'Startseite, Liste und Karte leiten gerade auf die Pausenseite um. Impressum, Datenschutz und dieses Dashboard bleiben erreichbar.',
+      w_erklaert_aus: 'Die Seite läuft normal. Einschalten leitet Startseite, Liste und Karte sofort auf die Pausenseite um; Impressum, Datenschutz und dieses Dashboard bleiben erreichbar.',
+      w_seit: 'Zuletzt geändert: ',
+      w_text_de: 'Text (Deutsch)',
+      w_text_en: 'Text (Englisch)',
+      w_an_btn: 'Wartungsmodus einschalten',
+      w_aus_btn: 'Wartungsmodus ausschalten',
+      w_speichern: 'Texte speichern',
+      w_vorschau: 'Pausenseite ansehen',
+      w_bestaetigen: 'Wartungsmodus wirklich einschalten? Besucher sehen dann nur noch die Pausenseite.',
+      w_fehler: 'Das hat nicht geklappt:',
+      w_regeln: 'Vermutlich sind die Firestore-Regeln noch nicht deployt (firebase deploy --only firestore:rules).',
       sub: 'Besucher der Seite – ohne Cookies, ohne fremden Dienst. Tageswerte, stündlich neu gerechnet.',
       nav_events: 'Events', nav_map: 'Karte',
       gate_laden: 'Anmeldung wird geprüft …',
@@ -280,6 +306,21 @@
     },
     en: {
       title: 'Statistics',
+      w_titel: 'Maintenance mode',
+      w_status_an: 'ON – visitors see the pause page',
+      w_status_aus: 'off',
+      w_erklaert_an: 'Home, list and map currently redirect to the pause page. Legal notice, privacy policy and this dashboard stay reachable.',
+      w_erklaert_aus: 'The site runs normally. Switching on redirects home, list and map to the pause page immediately; legal notice, privacy policy and this dashboard stay reachable.',
+      w_seit: 'Last changed: ',
+      w_text_de: 'Text (German)',
+      w_text_en: 'Text (English)',
+      w_an_btn: 'Switch maintenance mode on',
+      w_aus_btn: 'Switch maintenance mode off',
+      w_speichern: 'Save texts',
+      w_vorschau: 'View pause page',
+      w_bestaetigen: 'Really switch maintenance mode on? Visitors will only see the pause page.',
+      w_fehler: 'That did not work:',
+      w_regeln: 'Probably the Firestore rules are not deployed yet (firebase deploy --only firestore:rules).',
       sub: 'Visitors to the site – no cookies, no third-party service. Daily figures, recomputed every hour.',
       nav_events: 'Events', nav_map: 'Map',
       gate_laden: 'Checking sign-in …',
@@ -425,10 +466,96 @@
       geladenFuer = user.uid;
       gateEl.hidden = true;
       contentEl.hidden = false;
+      ladeWartung();
       await ladeUndZeichne();
     } catch (err) {
       gateFehler(err);
     }
+  }
+
+  // ---------- Wartungsmodus ----------
+  // Das Dokument config/wartung: aktiv, text_de, text_en, geaendert, von.
+  // Lesen dürfen alle (die öffentlichen Seiten fragen es im Kopf ab),
+  // schreiben nur Admins - firestore.rules.
+  const WARTUNG_VORGABE = {
+    text_de: 'Wir arbeiten gerade an der Seite und sind in Kürze zurück.',
+    text_en: 'We are working on the site and will be back shortly.'
+  };
+  let wartung = null;
+  let wartungFehler = null;
+
+  async function ladeWartung() {
+    try {
+      const snap = await db.collection('config').doc('wartung').get();
+      const d = snap.exists ? snap.data() : {};
+      wartung = {
+        aktiv: d.aktiv === true,
+        text_de: typeof d.text_de === 'string' && d.text_de ? d.text_de : WARTUNG_VORGABE.text_de,
+        text_en: typeof d.text_en === 'string' && d.text_en ? d.text_en : WARTUNG_VORGABE.text_en,
+        geaendert: d.geaendert && typeof d.geaendert.toDate === 'function' ? d.geaendert.toDate() : null
+      };
+      wartungFehler = null;
+    } catch (err) {
+      wartung = null;
+      wartungFehler = err;
+    }
+    zeichneWartung();
+  }
+
+  async function speichereWartung(aktiv) {
+    const card = document.getElementById('wartung-card');
+    const lies = (id, vorgabe) => {
+      const el = card.querySelector('#' + id);
+      const v = el ? el.value.trim().slice(0, 300) : '';
+      return v || vorgabe;
+    };
+    const daten = {
+      aktiv,
+      text_de: lies('wartung-de', WARTUNG_VORGABE.text_de),
+      text_en: lies('wartung-en', WARTUNG_VORGABE.text_en),
+      geaendert: firebase.firestore.FieldValue.serverTimestamp(),
+      von: geladenFuer
+    };
+    card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    try {
+      await db.collection('config').doc('wartung').set(daten);
+      wartungFehler = null;
+    } catch (err) {
+      wartungFehler = err;
+    }
+    await ladeWartung();
+  }
+
+  function zeichneWartung() {
+    const card = document.getElementById('wartung-card');
+    if (!card) return;
+    if (!wartung) {
+      card.innerHTML = `<h3><span>${escapeHtml(t('w_titel'))}</span></h3>
+        <p class="leer">${escapeHtml(wartungFehler ? t('w_fehler') + ' ' + (wartungFehler.message || wartungFehler) : t('gate_laden'))}</p>
+        ${wartungFehler ? `<p class="leer">${escapeHtml(t('w_regeln'))}</p>` : ''}`;
+      return;
+    }
+    const an = wartung.aktiv;
+    const seit = wartung.geaendert
+      ? ` ${escapeHtml(t('w_seit'))}${escapeHtml(wartung.geaendert.toLocaleString(lang === 'de' ? 'de-DE' : 'en-GB', { dateStyle: 'short', timeStyle: 'short' }))}.`
+      : '';
+    card.innerHTML = `<h3><span>${escapeHtml(t('w_titel'))}</span><small class="${an ? 'w-an' : 'w-aus'}">${escapeHtml(an ? t('w_status_an') : t('w_status_aus'))}</small></h3>
+      <p>${escapeHtml(an ? t('w_erklaert_an') : t('w_erklaert_aus'))}${seit}</p>
+      <div class="w-felder">
+        <label>${escapeHtml(t('w_text_de'))}<input id="wartung-de" maxlength="300" value="${escapeHtml(wartung.text_de)}"></label>
+        <label>${escapeHtml(t('w_text_en'))}<input id="wartung-en" maxlength="300" value="${escapeHtml(wartung.text_en)}"></label>
+      </div>
+      <p class="w-knoepfe">
+        <button type="button" class="stat-btn primary" id="wartung-toggle">${escapeHtml(an ? t('w_aus_btn') : t('w_an_btn'))}</button>
+        <button type="button" class="stat-btn" id="wartung-speichern">${escapeHtml(t('w_speichern'))}</button>
+        <a class="stat-btn" href="wartung.html?vorschau" target="_blank" rel="noopener">${escapeHtml(t('w_vorschau'))}</a>
+      </p>
+      ${wartungFehler ? `<p class="leer">${escapeHtml(t('w_fehler'))} ${escapeHtml(wartungFehler.message || String(wartungFehler))} ${escapeHtml(t('w_regeln'))}</p>` : ''}`;
+    card.querySelector('#wartung-toggle').addEventListener('click', () => {
+      if (!an && !window.confirm(t('w_bestaetigen'))) return;
+      speichereWartung(!an);
+    });
+    card.querySelector('#wartung-speichern').addEventListener('click', () => speichereWartung(an));
   }
 
   // ---------- Daten ----------
@@ -876,6 +1003,7 @@
       // Der Zugangshinweis trägt Text - neu zeichnen, je nach Zustand.
       if (geladenFuer === null && window.EndauranceAuth && !window.EndauranceAuth.getUser()) gateLogin();
     }
+    zeichneWartung();
   }
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));

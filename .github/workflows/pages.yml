@@ -4,20 +4,18 @@ name: Deploy GitHub Pages
 # dem 13.10.2026 aber erst, wenn die Tests grün sind (Deploy-Gate, vom
 # Nutzer gewünscht: „die sicherste Methode, ohne dass die Webseite down
 # gehen kann"). Vorher liefen Tests (ci.yml) und Deploy nebeneinander:
-# Eine kaputte Seite ging live, bevor die CI rot wurde. Drei Jobs:
+# Eine kaputte Seite ging live, bevor die CI rot wurde. Zwei Jobs:
 #
-#   aenderung - sieht nach, ob der Push NUR wartung.json ändert (der
-#               Wartungsschalter, siehe README „Wartungsmodus").
 #   pruefung  - ci.yml als wiederverwendbarer Workflow: Regressionstests
 #               und Rauchtest in Chromium, zusammen etwa fünf Minuten.
-#               Entfällt beim reinen Wartungsschalter - der soll in zwei
-#               Minuten wirken, nicht in sieben.
-#   deploy    - nur, wenn pruefung grün ist oder übersprungen wurde. Rot
-#               heißt: nichts passiert, die alte Fassung bleibt live, die
-#               CI-Mail sagt, welcher Job fehlschlug. Rollback: unter
-#               Actions einen älteren grünen Lauf dieses Workflows öffnen
-#               und „Re-run all jobs" - der alte Stand ist in zwei Minuten
-#               wieder da.
+#   deploy    - nur, wenn pruefung grün ist. Rot heißt: nichts passiert,
+#               die alte Fassung bleibt live, die CI-Mail sagt, welcher
+#               Job fehlschlug. Rollback: unter Actions einen älteren
+#               grünen Lauf dieses Workflows öffnen und „Re-run all jobs"
+#               - der alte Stand ist in zwei Minuten wieder da.
+#
+# Der Wartungsmodus braucht keinen Deploy: Sein Schalter liegt in
+# Firestore (config/wartung) und wird im Dashboard umgelegt.
 #
 # Ein Push des Datenlaufs (update-events.yml) löst diesen Workflow NICHT
 # aus: GitHub unterdrückt Workflow-Läufe, die ein Push mit dem eigenen
@@ -44,44 +42,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  aenderung:
-    name: Was hat sich geändert?
-    runs-on: ubuntu-latest
-    outputs:
-      nur_wartung: ${{ steps.a.outputs.nur_wartung }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      # github.event.before ist der Stand vor dem Push. Fehlt er (manueller
-      # Start, neuer Branch) oder ändert der Push noch etwas anderes, laufen
-      # die Tests - im Zweifel prüfen.
-      - name: Nur wartung.json?
-        id: a
-        env:
-          VORHER: ${{ github.event.before }}
-          EREIGNIS: ${{ github.event_name }}
-        run: |
-          nur=false
-          if [ "$EREIGNIS" = push ] && [ -n "$VORHER" ] && git cat-file -e "$VORHER" 2>/dev/null; then
-            dateien=$(git diff --name-only "$VORHER" "$GITHUB_SHA")
-            if [ "$dateien" = "wartung.json" ]; then nur=true; fi
-          fi
-          echo "nur_wartung=$nur" >> "$GITHUB_OUTPUT"
-          echo "Nur wartung.json geändert: $nur"
-
   pruefung:
     name: Tests vor dem Deploy
-    needs: aenderung
-    if: needs.aenderung.outputs.nur_wartung != 'true'
     uses: ./.github/workflows/ci.yml
 
   deploy:
-    needs: [aenderung, pruefung]
-    # Ohne diese Bedingung würde ein ÜBERSPRUNGENES pruefung (Wartungs-
-    # schalter) auch den Deploy überspringen; ein rotes oder abgebrochenes
-    # pruefung hält ihn weiter an.
-    if: ${{ !cancelled() && needs.aenderung.result == 'success' && (needs.pruefung.result == 'success' || needs.pruefung.result == 'skipped') }}
+    needs: pruefung
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -14,14 +14,15 @@
 </head>
 <body>
 
-<!-- Wartungsmodus (siehe wartung.json und README „Wartungsmodus"): Steht
-     in wartung.json "aktiv": true, führen Startseite, Liste und Karte
-     hierher. Diese Seite liest den Text aus derselben Datei, fragt sie
-     jede Minute erneut ab und geht von selbst zur Startseite zurück,
-     sobald der Schalter wieder aus ist. Impressum und Datenschutz bleiben
-     verlinkt - die müssen auch in der Pause erreichbar sein. Kein
-     stats.js: In der Pause wird nicht gezählt. Vorschau ohne Rücksprung:
-     wartung.html?vorschau -->
+<!-- Wartungsmodus (README „Deploy-Gate und Wartungsmodus"): Steht im
+     Firestore-Dokument config/wartung aktiv == true (Schalter im
+     Dashboard admin.html), führen Startseite, Liste und Karte hierher.
+     Diese Seite liest den Text aus demselben Dokument, fragt es jede
+     Minute erneut ab und geht von selbst zur Startseite zurück, sobald
+     der Schalter wieder aus ist. Vorschau ohne Rücksprung:
+     wartung.html?vorschau. Impressum und Datenschutz bleiben verlinkt -
+     die müssen auch in der Pause erreichbar sein. Kein stats.js: In der
+     Pause wird nicht gezählt. -->
 
 <div class="top-bar">
   <h1 data-i="titel">Kurze Pause</h1>
@@ -43,6 +44,7 @@
 
 <script>
 (function () {
+  const SCHALTER = 'https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung';
   const I18N = {
     de: {
       titel: 'Kurze Pause',
@@ -57,7 +59,7 @@
       f_impressum: 'Legal notice', f_privacy: 'Privacy policy'
     }
   };
-  // Der Text aus wartung.json ersetzt den Vorgabetext, sobald er da ist.
+  // Der Text aus dem Schalter-Dokument ersetzt den Vorgabetext, sobald er da ist.
   let texte = { de: null, en: null };
 
   let lang = 'de';
@@ -83,17 +85,24 @@
   // Jede Minute nachsehen: Schalter aus -> zurück zur Startseite. Ein
   // fehlgeschlagener Abruf ändert nichts (die Seite bleibt stehen).
   // Mit ?vorschau in der Adresse bleibt die Seite auch bei
-  // ausgeschaltetem Schalter stehen - zum Ansehen, bevor man ihn umlegt
-  // (vom Nutzer am 14.10.2026 gefragt: „werde sofort weitergeleitet").
+  // ausgeschaltetem Schalter stehen - zum Ansehen, bevor man ihn umlegt.
   const vorschau = /[?&]vorschau\b/.test(location.search);
+  function feld(d, name) {
+    const f = d && d.fields && d.fields[name];
+    if (!f) return null;
+    if (typeof f.booleanValue === 'boolean') return f.booleanValue;
+    if (typeof f.stringValue === 'string') return f.stringValue;
+    return null;
+  }
   function pruefen() {
-    fetch('wartung.json?t=' + Date.now(), { cache: 'no-store' })
+    fetch(SCHALTER, { cache: 'no-store' })
       .then(r => (r.ok ? r.json() : null))
-      .then(w => {
-        if (!w) return;
-        if (w.aktiv !== true && !vorschau) { location.replace('index.html'); return; }
-        texte = { de: typeof w.text_de === 'string' && w.text_de ? w.text_de : null,
-                  en: typeof w.text_en === 'string' && w.text_en ? w.text_en : null };
+      .then(d => {
+        if (!d) return;
+        const aktiv = feld(d, 'aktiv') === true;
+        if (!aktiv && !vorschau) { location.replace('index.html'); return; }
+        const de = feld(d, 'text_de'), en = feld(d, 'text_en');
+        texte = { de: typeof de === 'string' && de ? de : null, en: typeof en === 'string' && en ? en : null };
         applyLang(lang);
       })
       .catch(() => { /* ohne Netz: Vorgabetext bleibt */ });

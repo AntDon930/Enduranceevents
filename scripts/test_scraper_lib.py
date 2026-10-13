@@ -1650,24 +1650,22 @@ def test_asset_stempel() -> None:
 
 
 def test_wartung() -> None:
-    """Wartungsmodus (13.10.2026): wartung.json ist der Schalter, der
-    Kopf-Schnipsel in Startseite, Liste und Karte liest ihn und führt bei
-    `aktiv: true` nach wartung.html; Impressum, Datenschutz und admin.html
-    bleiben erreichbar. Geprüft wird die FORM - nicht, ob der Schalter aus
-    ist: Ein Commit mit `aktiv: true` muss durch das Deploy-Gate kommen,
-    sonst wäre der Wartungsmodus nie einschaltbar."""
-    import json as _json
+    """Wartungsmodus (13./14.10.2026): Der Schalter ist das Firestore-
+    Dokument config/wartung (öffentlich lesbar, nur Admins schreiben -
+    firestore.rules), umgelegt im Dashboard admin.html. Der Kopf-Schnipsel
+    in Startseite, Liste und Karte fragt es über die REST-Schnittstelle ab
+    und führt bei aktiv nach wartung.html; Impressum, Datenschutz und
+    admin.html bleiben erreichbar. Dazu das Deploy-Gate in pages.yml."""
     import re as _re
     import shutil
     import subprocess
     import tempfile
 
-    print("\nWartungsmodus (wartung.json, wartung.html, Kopf-Schnipsel):")
+    print("\nWartungsmodus (Firestore-Schalter, wartung.html, Kopf-Schnipsel) und Deploy-Gate:")
     wurzel = Path(__file__).resolve().parent.parent
-    w = _json.loads((wurzel / "wartung.json").read_text(encoding="utf-8"))
-    check("wartung.json: aktiv ist true oder false", isinstance(w.get("aktiv"), bool), True)
-    check("wartung.json: Texte in beiden Sprachen",
-          all(isinstance(w.get(k), str) and w[k].strip() for k in ("text_de", "text_en")), True)
+    projekt = _re.search(r'projectId:\s*"([^"]+)"', (wurzel / "firebase-config.js").read_text(encoding="utf-8")).group(1)
+    url = f"https://firestore.googleapis.com/v1/projects/{projekt}/databases/(default)/documents/config/wartung"
+    check("wartung.json gibt es nicht mehr (Schalter liegt in Firestore)", (wurzel / "wartung.json").exists(), False)
     muster = _re.compile(r"<script>\n\(function \(\) \{\n  if \(!window\.fetch\) return;.*?</script>", _re.S)
     fassungen = {}
     for name in ("index.html", "events.html", "karte.html"):
@@ -1675,6 +1673,7 @@ def test_wartung() -> None:
         m = muster.search(html)
         fassungen[name] = m.group(0) if m else None
         check(f"{name}: Wartungs-Schnipsel im Kopf", m is not None, True)
+        check(f"{name}: Schnipsel fragt das Dokument des eigenen Projekts ab", m is not None and url in m.group(0), True)
         check(f"{name}: Schnipsel steht VOR den Stylesheets",
               m is not None and m.start() < html.index('<link rel="stylesheet"'), True)
     check("alle drei Kopien sind wortgleich", len(set(v for v in fassungen.values() if v)), 1)
@@ -1682,10 +1681,11 @@ def test_wartung() -> None:
         html = (wurzel / name).read_text(encoding="utf-8")
         check(f"{name}: KEIN Schnipsel (bleibt in der Pause erreichbar)", muster.search(html) is None, True)
     seite = (wurzel / "wartung.html").read_text(encoding="utf-8")
+    check("wartung.html liest dasselbe Dokument", url in seite, True)
     check("wartung.html verlinkt Impressum und Datenschutz",
           'href="impressum.html"' in seite and 'href="datenschutz.html"' in seite, True)
-    check("wartung.html fragt den Schalter erneut ab und geht zurück",
-          "setInterval(pruefen" in seite and "location.replace('index.html')" in seite, True)
+    check("wartung.html fragt den Schalter erneut ab, geht zurück, kennt ?vorschau",
+          "setInterval(pruefen" in seite and "location.replace('index.html')" in seite and "vorschau" in seite, True)
     check("wartung.html: noindex, kein stats.js", 'name="robots" content="noindex"' in seite and 'src="stats.js' not in seite, True)
     ohne = _re.sub(r"<!--.*?-->", "", seite, flags=_re.S)
     check("wartung.html lädt nichts von fremden Servern",
@@ -1698,13 +1698,28 @@ def test_wartung() -> None:
                 datei.write_text(block, encoding="utf-8")
                 r = subprocess.run([node, "--check", str(datei)], capture_output=True, text=True)
                 check(f"wartung.html: Inline-Skript {nr} ist gültiges JavaScript", r.returncode, 0)
-    # Das Gate: pages.yml ruft ci.yml, und nur der reine Wartungsschalter
-    # darf ohne Tests durch.
+    # Regeln: genau dieses eine Dokument öffentlich lesbar, schreiben nur Admins.
+    regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
+    block = _re.search(r"match /config/wartung \{(.*?)\n    \}", regeln, _re.S)
+    check("Regeln: config/wartung hat einen eigenen Block", block is not None, True)
+    check("Regeln: lesen darf jeder, schreiben nur istAdmin()",
+          block is not None and "allow read: if true;" in block.group(1) and "allow write: if istAdmin()" in block.group(1), True)
+    check("Regeln: geschlossene Feldliste und Textgrenze",
+          block is not None and "hasOnly(" in block.group(1) and "text_de.size() <= 300" in block.group(1), True)
+    check("Regeln: kein offener Lesezugriff außerhalb von config/wartung",
+          regeln.count("allow read: if true;"), 1)
+    # Dashboard: die Karte mit dem Schalter.
+    admin = (wurzel / "admin.html").read_text(encoding="utf-8")
+    check("admin.html: Wartungs-Karte und Schreibzugriff auf config/wartung",
+          'id="wartung-card"' in admin and "collection('config').doc('wartung')" in admin, True)
+    check("admin.html: Texte in beiden Sprachen", admin.count("w_bestaetigen:"), 2)
+    ds = (wurzel / "datenschutz.html").read_text(encoding="utf-8")
+    check("Datenschutzerklärung nennt den Wartungs-Abruf (DE und EN)", ds.count("t_wartung:"), 2)
+    # Das Gate: pages.yml ruft ci.yml, der Deploy hängt daran.
     pages = (wurzel / ".github/workflows/pages.yml").read_text(encoding="utf-8")
     ci = (wurzel / ".github/workflows/ci.yml").read_text(encoding="utf-8")
     check("pages.yml: Deploy braucht die Prüfung (Gate)",
-          "uses: ./.github/workflows/ci.yml" in pages and "needs: [aenderung, pruefung]" in pages, True)
-    check("pages.yml: nur wartung.json darf ohne Tests durch", '"wartung.json"' in pages and "nur_wartung" in pages, True)
+          "uses: ./.github/workflows/ci.yml" in pages and "needs: pruefung" in pages, True)
     check("ci.yml ist aufrufbar (workflow_call)", "workflow_call:" in ci, True)
     # Ohne YAML-Bibliothek (PyYAML steht nicht in requirements.txt, und in
     # der CI fehlt sie - genau daran ist der erste Lauf des Gates
@@ -1716,7 +1731,6 @@ def test_wartung() -> None:
           on_block is not None and "claude/endurance-events-website-v1wruf" in on_block.group(1), False)
     check("ci.yml prüft den zweiten Branch weiter direkt",
           on_block is not None and "claude/website-access-9d9tg1" in on_block.group(1), True)
-
 
 def test_farbschema_skript() -> None:
     """Hell und Dunkel: das Skript im <head>, das `data-theme` setzt, steht

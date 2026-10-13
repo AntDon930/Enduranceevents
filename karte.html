@@ -13,20 +13,26 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0b1220">
-<!-- Wartungsmodus (wartung.json, wartung.html, README „Wartungsmodus"):
-     Steht in wartung.json "aktiv": true, führt die Seite sofort nach
-     wartung.html. Die Datei wird immer frisch abgerufen (Zeitstempel in
-     der Adresse, kein Cache); schlägt der Abruf fehl, läuft die Seite
-     normal weiter. In den drei Seiten WORTGLEICH - test_scraper_lib.py
-     (test_wartung) vergleicht die Kopien. Nicht in Impressum, Datenschutz
-     und admin.html: Die bleiben in der Pause erreichbar. -->
+<!-- Wartungsmodus (README „Deploy-Gate und Wartungsmodus"): Der Schalter
+     ist das Firestore-Dokument config/wartung, umgelegt im Dashboard
+     (admin.html). Die Seite fragt es beim Laden ohne Anmeldung über die
+     REST-Schnittstelle ab (firestore.rules erlaubt das Lesen genau dieses
+     einen Dokuments) und führt bei aktiv == true sofort nach wartung.html.
+     Schlägt der Abruf fehl (kein Netz, Regeln noch nicht deployt, Dokument
+     fehlt), läuft die Seite normal weiter. In den drei Seiten WORTGLEICH -
+     test_scraper_lib.py (test_wartung) vergleicht die Kopien. Nicht in
+     Impressum, Datenschutz und admin.html: Die bleiben in der Pause
+     erreichbar. -->
 <script>
 (function () {
   if (!window.fetch) return;
-  fetch('wartung.json?t=' + Date.now(), { cache: 'no-store' })
+  fetch('https://firestore.googleapis.com/v1/projects/endurance-5177a/databases/(default)/documents/config/wartung', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (w) { if (w && w.aktiv === true) location.replace('wartung.html'); })
-    .catch(function () { /* ohne Datei oder ohne Netz: Seite läuft normal */ });
+    .then(function (d) {
+      var f = d && d.fields && d.fields.aktiv;
+      if (f && f.booleanValue === true) location.replace('wartung.html');
+    })
+    .catch(function () { /* ohne Antwort läuft die Seite normal */ });
 })();
 </script>
 <!-- Farbschema hell/dunkel (siehe site.css). Läuft hier im Kopf, damit die

@@ -1137,38 +1137,45 @@ jetzt nach seinem Push selbst an (`gh workflow run`, die erlaubte
 Ausnahme); der Deploy läuft dann mit Tests davor. Das wirkt erst, wenn
 die Fassung auf `main` diese Zeile trägt (der Zeitplan läuft von dort).
 
-**Wartungsmodus.** `wartung.json` ist der Schalter:
+**Wartungsmodus.** Der Schalter ist das Firestore-Dokument
+`config/wartung` (`aktiv`, `text_de`, `text_en`, `geaendert`, `von`),
+umgelegt im Dashboard `admin.html` – Karte „Wartungsmodus" ganz oben,
+mit Knopf, Textfeldern DE/EN und „Pausenseite ansehen". Vom Nutzer am
+14.10.2026 so gewünscht („dann komme ich auf eine Seite wie admin.html
+und da gibt es einen Button"); die erste Fassung vom Vorabend mit einer
+Datei `wartung.json` im Repo (Umschalten per Commit, zwei Minuten
+Verzug) ist damit ersetzt.
 
-```json
-{ "aktiv": false, "text_de": "…", "text_en": "…" }
-```
+Startseite, Liste und Karte fragen das Dokument im `<head>` ohne
+Anmeldung über die REST-Schnittstelle ab (`firestore.rules` erlaubt das
+Lesen genau dieses einen Dokuments; schreiben dürfen nur Admins) und
+leiten bei `aktiv == true` sofort nach `wartung.html` um – eine ruhige
+Seite mit dem Text aus dem Dokument, DE/EN, Links auf Impressum und
+Datenschutz (die müssen auch in der Pause erreichbar sein, beide tragen
+den Schnipsel deshalb nicht, `admin.html` ebenfalls nicht). Die
+Wartungsseite fragt den Schalter jede Minute ab und geht von selbst zur
+Startseite zurück, sobald er aus ist – deshalb lässt sie sich bei
+ausgeschaltetem Schalter nur über `wartung.html?vorschau` ansehen.
+Schlägt die Abfrage fehl (kein Netz, Regeln nicht deployt, Dokument
+fehlt), läuft die Seite normal weiter. Die Wirkung ist sofort, ohne
+Deploy; die Datenschutzerklärung nennt den Abruf (Abschnitt
+„Wartungsmodus").
 
-Startseite, Liste und Karte rufen die Datei im `<head>` ab (immer
-frisch, Zeitstempel in der Adresse) und leiten bei `"aktiv": true`
-sofort nach `wartung.html` um – eine ruhige Seite mit dem Text aus der
-Datei, DE/EN, Links auf Impressum und Datenschutz (die müssen auch in
-der Pause erreichbar sein, beide tragen den Schnipsel deshalb nicht,
-`admin.html` ebenfalls nicht). Die Wartungsseite fragt den Schalter
-jede Minute ab und geht von selbst zur Startseite zurück, sobald er
-aus ist – deshalb lässt sie sich bei ausgeschaltetem Schalter nur über
-`wartung.html?vorschau` ansehen (ohne den Rücksprung). Schlägt der
-Abruf fehl, läuft die Seite normal weiter.
-
-Umschalten, auch vom iPad: auf github.com das Repository öffnen,
-Branch `claude/endurance-events-website-v1wruf`, Datei `wartung.json`,
-Stift („Edit"), `"aktiv": false` → `true` (oder zurück), optional den
-Text ändern, „Commit changes" direkt auf den Branch. Der Deploy läuft
-dann OHNE Tests (das Gate erkennt, dass nur diese Datei geändert wurde)
-und wirkt nach etwa zwei Minuten. Als allerletzte Notbremse bleibt in
-den Pages-Einstellungen „Unpublish site" – sofort, aber die Besucher
-sehen eine 404-Seite von GitHub.
+Einmalig nötig (Nutzer, Cloud Shell): `cd Enduranceevents && git pull
+&& firebase deploy --only firestore:rules`. Vorher antwortet das
+Dashboard beim Umlegen mit „Missing or insufficient permissions", und
+die Seiten laufen normal. Als allerletzte Notbremse bleibt in den
+Pages-Einstellungen „Unpublish site" – sofort, aber die Besucher sehen
+eine 404-Seite von GitHub.
 
 `test_wartung` (Regressionstests) hält die Form fest: Schnipsel
-wortgleich in den drei Seiten und nirgends sonst, Links auf den
-Wartungsseite, das Gate in den Workflow-Dateien. Nicht geprüft wird,
-ob der Schalter aus ist – sonst käme ein Commit mit `"aktiv": true`
-nie durch das Gate. Der Rauchtest fängt den Abruf ab und prüft die
-Umleitung samt Text (`pruefe_wartung`).
+wortgleich in den drei Seiten mit dem Dokument des eigenen Projekts und
+nirgends sonst, der Regel-Block (lesen alle, schreiben nur Admins,
+geschlossene Feldliste), die Karte im Dashboard, der Abschnitt in der
+Datenschutzerklärung, das Gate in den Workflow-Dateien. Der Rauchtest
+fängt die Abfrage ab und prüft Umleitung, Text und Vorschau
+(`pruefe_wartung`) – bewusst ohne den echten Schalter, sonst blockierte
+ein eingeschalteter Wartungsmodus jeden Deploy.
 
 ### Regressionstests: `test_scraper_lib.py`
 
