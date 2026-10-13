@@ -8064,5 +8064,149 @@
     "ergebnis": "korrigiert",
     "quelle": "http://www.rothaarsteig-marathon.de",
     "notiz": "Falsch verortet: „Schmalenberg“ (Pfalz) statt Schmallenberg-Fleckenberg, 205 km. Koordinaten per Override; Duplikat der Zeile „23. Falke-Rothaarsteigmarathon“."
+  },
+  "Ndb. und KR Passau Cross-Laufmeisterschaft im Rahmen des 5. intern. DJK Crosslauf in Passau|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Langer Name der Quelle, sonst unauffällig."
+  },
+  "Tage des Querfeldeinsports GP Ternitz um die Preise des ARBÖ Querfeldein|2026-11-14": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Langer Name der Quelle (ÖRV), sonst unauffällig."
+  },
+  "Tage des Querfeldeinsports GP Ternitz um die Preise des ARBÖ Querfeldein|2026-11-15": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Langer Name der Quelle (ÖRV), sonst unauffällig."
+  },
+  "47. Osterlauf des LC- Marathon 80 e.V.|2027-03-27": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: „Marathon“ ist der Vereinsname (LC Marathon 80), kein Wettbewerb."
+  },
+  "Bielersee (Ultra) Läufe|2027-05-05": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Ultra-Strecken 160/200 km stehen im Label."
+  },
+  "Heidi 222|2027-05-15": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 222-km-Ultra, Distanz im Namen."
+  },
+  "Dreiländer-Lauf|2027-05-23": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: „½ Marathon“ = 21,1 km, passt."
+  },
+  "Wachtelrun - Volkslauf mit Hauptlauf und Schülerläufen & Nordic Walking|2027-05-23": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Langer Name der Quelle, sonst unauffällig."
+  },
+  "Ötscher Trail|2027-06-04": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: „Marathon Trail“ über 51,5 km - Trail-Marathons sind oft länger."
+  },
+  "Gravallo|2027-06-19": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Distanz plus Zeitlimit (Bikepacking) - echte Zielvorgabe, keine Runde."
+  },
+  "Höllenberg Trail-Trophy|2027-06-19": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: „MTB Marathon (CTF)“ 48 km ist eine MTB-Strecke (seit 13.10.2026 Fahrrad per Override)."
+  },
+  "Gornergrat Zermatt Marathon|2027-07-02": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Ultra-Marathon 45,8 km, passt."
+  },
+  "Veitscher Skytrail|2027-07-02": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: „Marathon Trail“ über 54 km."
+  },
+  "Trail Verbier St Bernard by UTMB|2027-07-09": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Ultra-Trail 140 km im Label."
+  },
+  "Stoppelfeld-Ultra|2027-07-10": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 201-km-Ultra im Label."
+  },
+  "Eiger Ultra Trail by UTMB|2027-07-14": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: E250 = 261 km, Ultra-Trail."
+  },
+  "The Great Crossing Epic II|2027-07-17": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Mehrtägiges Ultracycling-Rennen (2.050 km) - die Spanne ist echt."
+  },
+  "Montreux Trail Festival|2027-07-24": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 390-km-Ultra im Label."
+  },
+  "KAT100 by UTMB|2027-08-05": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 100 Meilen = 169 km, Marathon Trail 51 km - Trail-Formate."
+  },
+  "Swiss Alps 100|2027-08-06": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 159-km-Ultra im Label."
+  },
+  "Germany 3000|2027-08-07": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Mehrtägiges Ultracycling (3.000 km) - die Spanne ist echt."
+  },
+  "Scenic 500|2027-08-07": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: Mehrtägiger Ultra (250/500 km) - Spanne und Distanzen echt."
+  },
+  "Highlands and Steel|2027-08-27": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 600 km mit 60-h-Zeitlimit - echte Zielvorgabe."
+  },
+  "Ultra Tour Monte Rosa|2027-09-01": {
+    "am": "2026-10-13",
+    "ergebnis": "label_ok",
+    "quelle": "Label/Name",
+    "notiz": "Korrekturliste-Durchsicht: 170-km-Ultra im Label."
   }
 }

@@ -2915,7 +2915,7 @@ def filter_walking(events: list["Event"]) -> tuple[list["Event"], int]:
 # (filter_kinder) und rückwirkend (clean_events.drop_kinder).
 KINDER_WORT = re.compile(
     r"kinder(?!wagen|krebs|hilfe|garten|hospiz|herz|dorf|schutz|tafel)|"
-    r"\bkids?\b|kids|\bschüler(?!wertung)|schueler|bambini|"
+    r"\bkids?\b|kids|\bteens?\b|\bschüler(?!wertung)|schueler|bambini|"
     r"jugend(?!wertung)|junior|youth|nachwuchs|\bu\s?(?:[4-9]|1[0-8])\b", re.I)
 ERWACHSENEN_WORT = re.compile(
     r"erwachsen|jedermann|aktive|hauptlauf|masters?\b|senior|\bfrauen|"

@@ -345,6 +345,13 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    weiter, was übrig bleibt (31: Nachbarorte über 3 km wie Braunsteich,
    Riesenbeck, Brüder-Grimm; „50 km Lauf und Staffel"; RTF-Labels bei
    Sella Ronda und Shades of Speed) – einzeln prüfen.
+   **`merge_duplicates()` verkettet nicht über eine Zeile ohne Distanz**
+   (13.10.2026): Sie gilt als kompatibel mit jeder Distanz, und der
+   Cluster wuchs über sie hinweg – eine Zeile ohne Angabe zog 7, 14 und
+   21,1 km des LCC Leopoldilaufs zu EINER Zeile zusammen. Eine Zeile kommt
+   jetzt nur in einen Cluster, wenn ihre Distanz/Dauer zu JEDEM Mitglied
+   passt (`_compatible_distance`). Am Bestand nachgerechnet: genau diese
+   zwei Strecken kommen zurück, sonst keine Änderung.
    **Der erste Durchlauf von `clean_events.py` konvergiert
    nicht vollständig** – der zweite merged noch einmal rund 50 Gruppen,
    der dritte ist stabil; die CI vergleicht Lauf 2 mit Lauf 3.
@@ -410,6 +417,13 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Halbmarathon" 5,3 km, „Helgoland Marathon" 5,2 km). Das Label
    verrät sie: Nennt es „N Runden à X km" und steht im Feld X statt
    N·X, ist die Runde gespeichert (`audit_events.RUNDEN_MAL_RE`).
+   **Neben einer Dauer ist eine Distanz bis 10 km die Runde**
+   (13.10.2026, `clean_events.clear_rundenlaenge_bei_zeitrennen()`): Weil
+   eine bekannte Distanz in der Anzeige Vorrang hat, stand beim
+   Wuhlheider 12-Stundenlauf „2km" in der Liste – neun Zeilen, alle
+   Runden. Darüber bleibt die Distanz (Gravallo 85 km in 6 h ist eine
+   Zielvorgabe mit Zeitlimit); `dauer_h` 0 fällt weg. Test:
+   `test_rundenlaenge_zeitrennen`.
    **Eine STAFFEL ist etwas anderes** (`STAFFEL_RE`): Bei „2x5 km
    Staffel" läuft man wirklich 5 km, und die Staffel ist ein eigener
    Wettbewerb. Ohne diese Unterscheidung meldete die Regel sechs
@@ -4912,7 +4926,7 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    am 05.10.2026 ganz nach hinten gestellt** („machen wir erst einmal
    nicht") – jetzt Punkt 30.
 
-**Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
+**Stand am 13.10.2026: Punkt 31 erledigt, Punkt 30 gestrichen, Punkt 32 läuft (Liste beim Nutzer).** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
 verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
@@ -5231,15 +5245,33 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Punkt 32 durch ist** – die Seite geht dann auf `endurance-events.de`
     (eigene Domain; dann `og:image`-Adresse und `UNSUBSCRIBE_URL`
     nachziehen, siehe `og-image.png` und `functions/index.js`).
-30. **Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**, ob ihre
-    Kalender genutzt werden dürfen – der einzige Weg zu den lokalen
-    deutschen Radrennen, Schwimmwettkämpfen und den ostdeutschen
-    Cross-Cups. Bewusst zuletzt (Entscheidung des Nutzers vom 05.10.2026);
-    Mailvorlagen schreibt Claude, wenn es so weit ist.
+30. ~~**Anfragen an rad-net.de (BDR), DSV und zpn-timing.de**~~ **gestrichen**
+    (13.10.2026, vom Nutzer: „Punkt 30 machen wir nicht, die Webseite soll
+    von sowas nicht abhängig sein, falls die es sich dann anders
+    überlegen."). Keine Quelle, die nur mit Erlaubnis des Betreibers
+    läuft – nicht wieder vorschlagen; die gesperrten Quellen bleiben
+    gesperrt.
 32. **Korrekturliste zu Ende** (`korrekturliste.py export` → ausfüllen →
     `import`; die ersten 24 Zeilen sind durch) – vom Nutzer am 07.10.2026
     hierher gestellt: der letzte Schritt vor dem Livegang auf
     `endurance-events.de` (Punkt 29).
+    **13.10.2026: vor dem Versand selbst durchgesehen** (der Nutzer: „bitte
+    die Liste noch einmal durchsehen und eine aktuelle schicken"): die
+    scharfen Kategorien abgearbeitet, 1.389 → 1.326 Zeilen. Korrigiert
+    per Override/`manual_events.json`: Regensteinlauf 139 → 13,9 km (+9,5 km),
+    SUNSET Wattenmeer (Team-Staffel) raus, Eifellauf Echternach (Luxemburg)
+    raus, Grand Prix Winterthur „Half marathon" mit 42,2 km raus,
+    MYTRANSALP mit Platzhalter-Koordinaten 1/2, Höllenberg MTB-Strecken als
+    Fahrrad, Pönitz zum dritten Mal in Sachsen (jetzt auch im Gedächtnis
+    korrigiert), Rhyschwümme „2026" am 08.08.2027, Morat-Fribourg doppelt
+    (Gedächtnis-Kopie unter Murten), 17 Zeilen ohne Kartenposition (Ort
+    als Adresse). Drei Regeln daraus: `clear_rundenlaenge_bei_zeitrennen()`
+    (Datenregel 8), Walking/Kinder auch in `add_manual_events()`
+    (Datenregel 23/24, „teens" ist Kinderwort) und `merge_duplicates()`
+    verkettet nicht mehr über eine Zeile ohne Distanz (Datenregel 7). 25
+    geprüfte Fehlalarme (Ultra-Distanzen, lange Namen) als `label_ok` in
+    `geprueft.json`. Die Liste ging als `korrekturliste.xlsx` an den
+    Nutzer; als Nächstes kommt sein `import`.
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

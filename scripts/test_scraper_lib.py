@@ -2418,6 +2418,59 @@ def test_walking() -> None:
     check("und meldet den Ausschluss", len(entfernt), 1)
 
 
+def test_rundenlaenge_zeitrennen() -> None:
+    """Distanz bis 10 km NEBEN einer Dauer ist die Runde (Korrekturliste
+    13.10.2026); eine echte Zielvorgabe mit Zeitlimit bleibt. Dazu: das
+    Gedächtnis übernimmt keine Walking- und Kinderzeilen mehr."""
+    print("\nRundenlänge bei Zeitrennen:")
+    from clean_events import clear_rundenlaenge_bei_zeitrennen
+    rows = [{"name": "Wuhlheider 12 Stundenlauf", "laenge_km": 2.0, "dauer_h": 12.0},
+            {"name": "2much4you", "laenge_km": 5.0, "dauer_h": 24.0},
+            {"name": "Gravallo", "laenge_km": 85.0, "dauer_h": 6.0},
+            {"name": "Brevet 200", "laenge_km": 200.0, "dauer_h": 0.0},
+            {"name": "Stundenlauf", "laenge_km": None, "dauer_h": 1.0},
+            {"name": "10 km", "laenge_km": 10.0, "dauer_h": None}]
+    geaendert = clear_rundenlaenge_bei_zeitrennen(rows)
+    check("Runde 2 km neben 12 h fällt", rows[0]["laenge_km"], None)
+    check("Runde 5 km neben 24 h fällt", rows[1]["laenge_km"], None)
+    check("85 km in 6 h bleibt", rows[2]["laenge_km"], 85.0)
+    check("Dauer 0 ist keine Angabe", (rows[3]["dauer_h"], rows[3]["laenge_km"]), (None, 200.0))
+    check("ohne Dauer unberührt", rows[5]["laenge_km"], 10.0)
+    check("drei Änderungen gemeldet", len(geaendert), 3)
+    check("idempotent", clear_rundenlaenge_bei_zeitrennen(rows), [])
+
+    import clean_events
+    alt = clean_events.load_manual_events
+    try:
+        clean_events.load_manual_events = lambda: [
+            {"name": "Morat-Fribourg", "datum_start": "2030-10-03", "datum_ende": "2030-10-03",
+             "art1": "Laufen", "laenge_km": 17.2, "wettbewerb": "Morat-Fribourg Walking/Nordic Walking 17.2 km",
+             "standort": "Murten", "land": "Schweiz"},
+            {"name": "Höllenberg Trail-Trophy", "datum_start": "2030-06-19", "datum_ende": "2030-06-19",
+             "art1": "Fahrrad", "laenge_km": 5.0, "wettbewerb": "Teens MTB Race",
+             "standort": "Spirkelbach", "land": "Deutschland"},
+            {"name": "Morat-Fribourg", "datum_start": "2030-10-03", "datum_ende": "2030-10-03",
+             "art1": "Laufen", "laenge_km": 9.7, "wettbewerb": "Courtepin-Fribourg 9.7 km",
+             "standort": "Murten", "land": "Schweiz"}]
+        ergebnis, _ = clean_events.add_manual_events([])
+    finally:
+        clean_events.load_manual_events = alt
+    check("manual_events: Walking und Teens fallen, der Lauf bleibt",
+          [e["wettbewerb"] for e in ergebnis], ["Courtepin-Fribourg 9.7 km"])
+
+    # merge_duplicates verkettet nicht über eine Zeile ohne Distanz
+    # (LCC Leopoldilauf: 14 und 21,1 km verschwanden, 13.10.2026).
+    from clean_events import merge_duplicates
+    basis = {"name": "LCC Leopoldilauf", "datum_start": "2030-11-08", "datum_ende": "2030-11-08",
+             "art1": "Laufen", "standort": "Wien", "land": "Österreich", "lat": 48.2075, "lon": 16.4205}
+    zeilen = [dict(basis), dict(basis, laenge_km=7.0, wettbewerb="7 km"),
+              dict(basis, laenge_km=14.0, wettbewerb="14 km"),
+              dict(basis, laenge_km=21.1, wettbewerb="Halbmarathon")]
+    zusammen, _ = merge_duplicates(zeilen)
+    check("Zeile ohne Distanz zieht nicht alle Strecken zusammen",
+          sorted(e.get("laenge_km") or 0 for e in zusammen), [7.0, 14.0, 21.1])
+
+
 def test_kinder() -> None:
     """Reine Kinder-/Jugendwettbewerbe raus (Nutzer, 09.10.2026: „Ja
     Kinderrennen raus"). Treffer und Gegenproben aus dem Bestand."""
@@ -4180,7 +4233,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

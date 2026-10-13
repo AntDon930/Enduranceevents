@@ -74,6 +74,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scraper_lib import (  # noqa: E402
+    _compatible_distance,
     ENRICHABLE_FIELDS,
     EVENTS_JSON_PATH,
     GEOCODE_CACHE_PATH,
@@ -172,6 +173,14 @@ def add_manual_events(events: list[dict]) -> tuple[list[dict], list[str]]:
     events, prognosen = zurueckziehen_prognosen(events, manuell)
     hinzu += prognosen
     for kandidat in manuell:
+        # Dieselben Ausschlüsse wie für den Bestand: drop_walking() und
+        # drop_kinder() laufen VOR diesem Schritt (Datenregel 23), und das
+        # Gedächtnis übernimmt Strecken der Vorjahresausgabe - darunter
+        # Walking-Zeilen, die aus der Zeit vor der Regel stammen (Morat-
+        # Fribourg „Walking/Nordic Walking 17.2 km", 12.10.2026).
+        if (ist_walking(kandidat.get("art1"), kandidat.get("wettbewerb"), kandidat.get("name"))
+                or ist_kinder(kandidat.get("name"), kandidat.get("wettbewerb"))):
+            continue
         if any(is_same_event(vorhanden, kandidat) for vorhanden in events):
             continue
         events = events + [dict(kandidat)]
@@ -1555,6 +1564,38 @@ def fill_duration(events: list[dict]) -> list[str]:
     return changed
 
 
+# Bis zu dieser Länge ist eine Distanz NEBEN einer Dauer die Runde, nicht
+# die Strecke: „Wuhlheider 12 Stundenlauf" 2 km, „6-Stunden-Lauf
+# Mörfelden" 2,8 km, „2much4you 24h MTB" 5 km. Darüber steht eine echte
+# Zielvorgabe mit Zeitlimit (Gravallo 85 km in 6 h, Highlands and Steel
+# 600 km in 60 h) - die bleibt.
+RUNDE_NEBEN_DAUER_MAX_KM = 10.0
+
+
+def clear_rundenlaenge_bei_zeitrennen(events: list[dict]) -> list[str]:
+    """Nimmt bei Zeitrennen die Rundenlänge aus `laenge_km` (Datenregel 8:
+    „Die Rundenlänge ist keine Renndistanz").
+
+    Hat eine Zeile `dauer_h` UND eine Distanz bis 10 km, ist die Distanz
+    die Runde - und weil eine bekannte Distanz in der Anzeige Vorrang hat,
+    stand bei einem 12-Stunden-Lauf „2km" in der Liste (Korrekturliste
+    vom 13.10.2026: neun Zeilen, alle Runden). Eine Dauer von 0 ist keine
+    Angabe (Brevet 200 ARA Leipzig) und fällt ebenfalls weg."""
+    changed: list[str] = []
+    for event in events:
+        dauer = event.get("dauer_h")
+        if isinstance(dauer, (int, float)) and dauer <= 0:
+            event["dauer_h"] = None
+            changed.append(f"{event.get('name')}: dauer_h 0 entfernt")
+            continue
+        km = event.get("laenge_km")
+        if (isinstance(dauer, (int, float)) and isinstance(km, (int, float))
+                and km <= RUNDE_NEBEN_DAUER_MAX_KM):
+            event["laenge_km"] = None
+            changed.append(f"{event.get('name')}: {km:g} km neben {dauer:g} h (Runde) entfernt")
+    return changed
+
+
 # Die klassische Backyard-Runde ist 4,167 Meilen = 6,706 km lang (so
 # gesetzt, dass 24 Runden 100 Meilen ergeben); die Quellen schreiben
 # 6,7 oder gerundet 7 km. Alles bis zu dieser Grenze ist auf einer
@@ -1992,7 +2033,14 @@ def merge_duplicates(events: list[dict]) -> tuple[list[dict], list[str]]:
         clusters: list[list[dict]] = []
         for event in group:
             for cluster in clusters:
-                if any(is_same_event(member, event) for member in cluster):
+                # Nicht über eine Zeile OHNE Distanz verketten: Sie gilt als
+                # kompatibel mit jeder Distanz, und so zog eine Zeile ohne
+                # Angabe 7, 14 und 21,1 km des LCC Leopoldilaufs in EINEN
+                # Cluster - zwei Strecken waren weg (13.10.2026). Eine Zeile
+                # kommt deshalb nur dazu, wenn ihre Distanz/Dauer zu JEDEM
+                # Mitglied passt.
+                if (any(is_same_event(member, event) for member in cluster)
+                        and all(_compatible_distance(member, event) for member in cluster)):
                     cluster.append(event)
                     break
             else:
@@ -2125,6 +2173,7 @@ def main() -> None:
             print(f"  - {zeile}")
     backyard_cleared, backyard_check = clear_backyard_lap_km(events)
     duration_fills = fill_duration(events)
+    runden_entfernt = clear_rundenlaenge_bei_zeitrennen(events)
     events, too_short = drop_too_short(events)
     events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
@@ -2224,6 +2273,7 @@ def main() -> None:
     section("Backyard: Rundenlänge aus der Distanz entfernt", backyard_cleared)
     section("⚠ Backyard mit großer Distanzangabe (nur Hinweis)", backyard_check)
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
+    section("Rundenlänge bei Zeitrennen entfernt", runden_entfernt)
     section("Unter der Mindestdistanz entfernt (Laufen "
             f"{MIN_DISTANCE_KM:g} km, Schwimmen {MIN_DISTANCE_BY_ART1['Schwimmen']:g} km)",
             too_short)

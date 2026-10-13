@@ -7373,7 +7373,8 @@
   },
   "SUNSET Wattenmeer|2027-08-28": {
     "veranstalter_url": "https://www.sunset-series.de",
-    "_note": "Veranstalterseite statt my.raceresult.com: https://www.sunset-series.de - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:sunset). Linkprüfung 2026-10-05."
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: sunset-series.de: 'ROAD Wattenmeer: 250 km. 10 or 5 Friends. 1 Sunset' - Team-Staffel Hamburg-St. Peter-Ording, die Strecke wird geteilt (Datenregel 16).",
+    "exclude": true
   },
   "Alsterlauf Hamburg|2027-09-05": {
     "veranstalter_url": "https://www.alsterlauf-hamburg.de",
@@ -8260,7 +8261,7 @@
     "standort": "Scharbeutz",
     "lat": 54.0224961,
     "lon": 10.7544158,
-    "_note": "Falsch verortet (07.10.2026, Lektion 3, gleichnamiger Ort): „Pönitz“ lag auf Pönitz in Sachsen (50,86/12,42), 369 km vom Pönitzer Silvesterlauf des SVG Pönitz in Scharbeutz (Ostholstein, svg-poenitz.de). Koordinaten der Schwesterzeile „Pönitzer Silvesterlauf“ (Scharbeutz); mit dem richtigen Ort führt der achte Weg die 15-km-Zeilen zusammen, die 7,5-km-Zeile bleibt neben den 8 km stehen (0,5 km Unterschied – auf der Seite prüfen)."
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Eine der beiden 7,5-km-Zeilen lag in Pönitz/Sachsen (Geocoder, 370 km daneben; Lektion 3). Pönitz ist Ortsteil von Scharbeutz (svg-poenitz.de) - danach eine Zeile."
   },
   "Silvesterlauf Stadtlohn|2026-12-31|10": {
     "exclude": true,
@@ -8380,5 +8381,189 @@
   "Sternsteintrail - Winterchallenge|2026-12-01": {
     "exclude": true,
     "_note": "To-do Punkt 31 (09.10.2026, vom Nutzer: 'Ne rausnehmen den Sternsteintrail'): freier Startzeitpunkt 01.12.2026–28.02.2027, kein fester Termin – wie virtuelle Läufe raus. Beide Strecken (35,5 und 46 km)."
+  },
+  "Grand Prix Winterthur|2027-05-09|42.2": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Zweite Zeile 'Half marathon' mit 42,2 km - die 21,1-km-Zeile steht daneben (gp-winterthur.ch: Halbmarathon, 10 km, 5 km)."
+  },
+  "42. Pönitzer Volkslauf|2027-07-11|21": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Zweitquelle des Pönitzer Volkslaufs (Halbmarathon 21,1 km steht beim 'Pönitzer Volkslauf'), Koordinaten in Sachsen."
+  },
+  "MYTRANSALP|2027-06-20": {
+    "standort": "Lienz",
+    "lat": 46.829,
+    "lon": 12.769,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Die Quelle lieferte Platzhalter-Koordinaten (1/2 = Golf von Guinea). Ort Lienz laut Quelle, Koordinaten aus places.json."
+  },
+  "MYTRANSALP|2027-06-23": {
+    "standort": "Lienz",
+    "lat": 46.829,
+    "lon": 12.769,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Die Quelle lieferte Platzhalter-Koordinaten (1/2 = Golf von Guinea). Ort Lienz laut Quelle, Koordinaten aus places.json."
+  },
+  "30. Blankenburger Regensteinlauf|2027-03-21|139": {
+    "laenge_km": 13.9,
+    "wettbewerb": "Hauptstrecke 13,9 km",
+    "datum_vorlaeufig": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: 139 km war ein Kommafehler: Hauptstrecke 13,9 km (leichtathletik-blankenburg.de, Siegerliste 'seit 2016: 13,9 km / 9,5 km', 2026 Thomas Kühlmann 48:56). Termin 2027 noch nicht veröffentlicht - vorläufig."
+  },
+  "30. Blankenburger Regensteinlauf|2027-03-21|13.9": {
+    "wettbewerb": "Hauptstrecke 13,9 km",
+    "datum_vorlaeufig": true,
+    "_note": "Gegenschlüssel zu '|139' (Override ändert laenge_km)."
+  },
+  "Höllenberg Trail-Trophy|2027-06-19|28": {
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: 'MTB Race' ist ein Mountainbike-Rennen, kein Lauf (htt-spirkelbach.de). fix_fremde_sportart greift nicht, weil 'Trail Run' als Verbform zählt."
+  },
+  "Höllenberg Trail-Trophy|2027-06-19|48": {
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: 'MTB Marathon (CTF)' ist eine Mountainbike-Strecke, kein Lauf."
+  },
+  "Höllenberg Trail-Trophy|2027-06-19|5": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: 'Teens MTB Race' - Jugendrennen (Datenregel 24); seitdem steht 'teens' in KINDER_WORT."
+  },
+  "Pfettrachtaler Lauf|2026-10-17|23": {
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: '23 km Mountainbike-Trail' ist die MTB-Strecke - dieselbe wie 'MTB-Marathon 23 km' (Fahrrad); als Lauf stand sie doppelt."
+  },
+  "Eifellauf Echternach|2026-10-17": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Echternach liegt in Luxemburg - außerhalb der vier Regionen (Land fehlte, deshalb griff drop_ausserhalb nicht)."
+  },
+  "3. Riesenbecker 6 Stundenlauf|2027-05-08|21.6": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: 6-Stunden-Lauf (riesenbecker-6stundenlauf.de); '21,6 km' ist keine Wettkampfstrecke - die Zeile mit 6 h steht daneben."
+  },
+  "3. Riesenbecker 6 Stundenlauf|2027-05-08|@6 h": {
+    "standort": "Hörstel",
+    "lat": 52.2973664,
+    "lon": 7.5862462,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Riesenbeck ist Ortsteil von Hörstel, nicht Rheine."
+  },
+  "Austria Backyard Ultra - Ternberg Trail|2027-05-06|7": {
+    "art2": "Backyard Ultra",
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Backyard-Format (austriabackyardultra.com); die 7 km sind die Runde - clear_backyard_lap_km nimmt sie danach heraus."
+  },
+  "Austria Backyard Ultra - Loosdorf Trail|2027-05-29|7": {
+    "art2": "Backyard Ultra",
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Backyard-Format (austriabackyardultra.com); die 7 km sind die Runde - clear_backyard_lap_km nimmt sie danach heraus."
+  },
+  "FEM Teichwiesen Marathon|2026-10-14": {
+    "standort": "Hamburg",
+    "lat": 53.572,
+    "lon": 10.015,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "9. Stadtlauf Feldkirchen ( Österr. Volkslaufcup )|2026-10-24": {
+    "standort": "Feldkirchen in Kärnten",
+    "lat": 46.724,
+    "lon": 14.096,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "LCC Leopoldilauf|2026-11-08": {
+    "standort": "Wien",
+    "lat": 48.2075,
+    "lon": 16.4205,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "CX-MAS Cross Vol.4|2026-12-13": {
+    "standort": "Markgrafneusiedl",
+    "lat": 48.267,
+    "lon": 16.633,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "2. Lauf der 36. Winterlaufserie der LG Dornburg|2027-02-13": {
+    "standort": "Dornburg",
+    "lat": 50.517,
+    "lon": 8.017,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "LCC-Eisbärlauf II (26. Eisbärcup)|2027-02-14": {
+    "standort": "Wien",
+    "lat": 48.205,
+    "lon": 16.416,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "Crosslauf Knittelfeld (8. Lauf STLV- & KLV-Crosslaufcup 2026/2027 - 7.Lauf)|2027-02-27": {
+    "standort": "Knittelfeld",
+    "lat": 47.217,
+    "lon": 14.817,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "23. 3 Berge Lauf|2027-04-03": {
+    "standort": "Haina (Kloster)",
+    "lat": 51.028,
+    "lon": 8.967,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "Lauf durchs schöne Gailachtal|2027-04-18": {
+    "standort": "Monheim",
+    "lat": 48.844,
+    "lon": 10.858,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "41. Lauf Zum Alten vom Müssenberg VB Sauerland Lauf Cup|2027-04-24": {
+    "standort": "Arnsberg",
+    "lat": 51.395,
+    "lon": 8.061,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "44. Fischbachtal-Lauf|2027-05-06": {
+    "standort": "Fischbachtal",
+    "lat": 49.765,
+    "lon": 8.785,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "43. Int. Volkslauf und Wandertag|2027-05-16": {
+    "standort": "Preußisch Oldendorf",
+    "lat": 52.341,
+    "lon": 8.525,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "22. Lingelbacher Windmühlenlauf|2027-06-05": {
+    "standort": "Alsfeld",
+    "lat": 50.752,
+    "lon": 9.271,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "17. Hellmonsödter Planetenlauf|2027-06-19": {
+    "standort": "Hellmonsödt",
+    "lat": 48.433,
+    "lon": 14.3,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "18. Sommerabendlauf \"Rund um den Sorpesee\"|2027-06-25": {
+    "standort": "Sundern",
+    "lat": 51.328,
+    "lon": 8.004,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "50. Waldlauf / .40 Volkslauf|2027-08-15": {
+    "standort": "Oberzent",
+    "lat": 49.569,
+    "lon": 8.974,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "Lauf um die Himmelsschaukel Bründersen 2027|2027-08-15": {
+    "standort": "Wolfhagen",
+    "lat": 51.326,
+    "lon": 9.17,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Kartenposition fehlte (Ortsangabe der Quelle war eine Adresse/Ortsteil-Schreibweise, die der Geocoder nicht fand). Ort aus der Angabe, Koordinaten aus places.json (Gemeinde)."
+  },
+  "Rhyschwümme 2026|2027-08-08": {
+    "exclude": true,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Ausgabe 2027 unter dem Namen 'Rhyschwümme 2026' - steht als 'Rhyschwümme' in manual_events.json."
+  },
+  "Morat-Fribourg|2027-10-03|9.7": {
+    "standort": "Freiburg",
+    "lat": 46.8064773,
+    "lon": 7.1619719,
+    "_note": "Korrekturliste-Durchsicht 13.10.2026: Die Gedächtnis-Kopie (Standort Murten, ohne Koordinaten) steht neben der Zeile aus der Handprüfung (Freiburg) - mit gleichem Ort eine Zeile."
   }
 }

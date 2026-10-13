@@ -77,32 +77,6 @@
     "lon": 13.404954,
     "art1": "Laufen",
     "art2": "Straße",
-    "datum_start": "2026-10-12",
-    "datum_ende": "2026-10-12",
-    "laenge_km": 63.0,
-    "wettbewerb": "Tour City Berlin 63,0 km",
-    "veranstalter_url": "https://heidichallenge.run"
-  },
-  {
-    "land": "Schweiz",
-    "name": "YB-Stadionlauf",
-    "standort": "Bern",
-    "lat": 46.9479739,
-    "lon": 7.4474468,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-12",
-    "datum_ende": "2026-10-12",
-    "veranstalter_url": "https://www.bscyb.ch/news?nid=15216"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heidi-Challenge",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
     "datum_start": "2026-10-13",
     "datum_ende": "2026-10-13",
     "laenge_km": 68.3,
@@ -112,13 +86,15 @@
   {
     "land": "Deutschland",
     "name": "FEM Teichwiesen Marathon",
-    "standort": "Hamburg-Teichwiesen",
+    "standort": "Hamburg",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-14",
     "datum_ende": "2026-10-14",
     "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/groups/62/"
+    "veranstalter_url": "https://my.raceresult.com/groups/62/",
+    "lat": 53.572,
+    "lon": 10.015
   },
   {
     "land": "Deutschland",
@@ -915,17 +891,6 @@
     "veranstalter_url": "https://radlerlust.eu/gravelrennen/"
   },
   {
-    "name": "Eifellauf Echternach",
-    "standort": "Echternach",
-    "lat": 49.8120961,
-    "lon": 6.4214859,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "http://www.Eifellauf.de"
-  },
-  {
     "land": "Deutschland",
     "name": "Ensinger Laufcup",
     "standort": "Vaihingen an der Enz",
@@ -1692,8 +1657,8 @@
     "standort": "Altdorf",
     "lat": 48.5561449,
     "lon": 12.109641,
-    "art1": "Laufen",
-    "art2": "Trail",
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "laenge_km": 23.0,
@@ -4103,7 +4068,7 @@
     "datum_ende": "2026-10-23",
     "veranstalter_url": "https://www.laufwochenende-brugg.ch",
     "art2": "Straße",
-    "laenge_km": 0.9,
+    "laenge_km": null,
     "dauer_h": 48.0
   },
   {
@@ -4391,12 +4356,14 @@
   {
     "land": "Österreich",
     "name": "9. Stadtlauf Feldkirchen ( Österr. Volkslaufcup )",
-    "standort": "Im Zentrum der Bezirksstadt Feldkirchen in Kärnten",
+    "standort": "Feldkirchen in Kärnten",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "veranstalter_url": "http://www.internationaler-kaernten-marathon.at"
+    "veranstalter_url": "http://www.internationaler-kaernten-marathon.at",
+    "lat": 46.724,
+    "lon": 14.096
   },
   {
     "land": "Schweiz",
@@ -5711,20 +5678,7 @@
     "art2": "Straße",
     "datum_start": "2026-10-24",
     "datum_ende": "2026-10-24",
-    "laenge_km": 2.0,
-    "dauer_h": 12.0,
-    "veranstalter_url": "https://my.raceresult.com/365972/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Wuhlheider 12 Stundenlauf",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-24",
-    "datum_ende": "2026-10-24",
+    "laenge_km": null,
     "dauer_h": 12.0,
     "veranstalter_url": "https://my.raceresult.com/365972/"
   },
@@ -13318,19 +13272,9 @@
   {
     "land": "Österreich",
     "name": "LCC Leopoldilauf",
-    "standort": "Ernst-Happel-Stadion LCC-Laufsportzentrum",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-11-08",
-    "datum_ende": "2026-11-08",
-    "veranstalter_url": "https://www.lcc-wien.at"
-  },
-  {
-    "land": "Österreich",
-    "name": "LCC Leopoldilauf",
     "standort": "Wien",
-    "lat": 48.2081664,
-    "lon": 16.3718643,
+    "lat": 48.2075,
+    "lon": 16.4205,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-08",
@@ -13343,8 +13287,8 @@
     "land": "Österreich",
     "name": "LCC Leopoldilauf",
     "standort": "Wien",
-    "lat": 48.2081664,
-    "lon": 16.3718643,
+    "lat": 48.2075,
+    "lon": 16.4205,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-08",
@@ -13357,8 +13301,8 @@
     "land": "Österreich",
     "name": "LCC Leopoldilauf",
     "standort": "Wien",
-    "lat": 48.2081664,
-    "lon": 16.3718643,
+    "lat": 48.2075,
+    "lon": 16.4205,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2026-11-08",
@@ -21140,20 +21084,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "6-Stunden-Lauf Paderborn Nikolaus Edition",
-    "standort": "Paderborn",
-    "lat": 51.7189205,
-    "lon": 8.7575093,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-12-06",
-    "datum_ende": "2026-12-06",
-    "laenge_km": 4.3,
-    "dauer_h": 6.0,
-    "veranstalter_url": "https://my.raceresult.com/375152/"
-  },
-  {
-    "land": "Deutschland",
     "name": "Adventslauf der TG Lage",
     "standort": "Lage",
     "lat": 51.9914084,
@@ -22887,37 +22817,43 @@
   {
     "land": "Österreich",
     "name": "CX-MAS Cross Vol.4",
-    "standort": "Marktgrafneusiedl",
+    "standort": "Markgrafneusiedl",
     "art1": "Fahrrad",
     "art2": "Cyclecross",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "wettbewerb": "Cycling 4 All, Cyclocross",
-    "veranstalter_url": "https://www.team-bikestore.sportunion.at"
+    "veranstalter_url": "https://www.team-bikestore.sportunion.at",
+    "lat": 48.267,
+    "lon": 16.633
   },
   {
     "land": "Österreich",
     "name": "CX-MAS Cross Vol.4",
-    "standort": "Marktgrafneusiedl",
+    "standort": "Markgrafneusiedl",
     "art1": "Fahrrad",
     "art2": "Cyclecross",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "dauer_h": 0.7,
     "wettbewerb": "Cyclocross 40 min",
-    "veranstalter_url": "https://www.team-bikestore.sportunion.at"
+    "veranstalter_url": "https://www.team-bikestore.sportunion.at",
+    "lat": 48.267,
+    "lon": 16.633
   },
   {
     "land": "Österreich",
     "name": "CX-MAS Cross Vol.4",
-    "standort": "Marktgrafneusiedl",
+    "standort": "Markgrafneusiedl",
     "art1": "Fahrrad",
     "art2": "Cyclecross",
     "datum_start": "2026-12-13",
     "datum_ende": "2026-12-13",
     "dauer_h": 1.0,
     "wettbewerb": "Cyclocross 60 min",
-    "veranstalter_url": "https://www.team-bikestore.sportunion.at"
+    "veranstalter_url": "https://www.team-bikestore.sportunion.at",
+    "lat": 48.267,
+    "lon": 16.633
   },
   {
     "land": "Deutschland",
@@ -25881,20 +25817,6 @@
     "veranstalter_url": "http://www.svg-poenitz.de",
     "lat": 54.0224961,
     "lon": 10.7544158
-  },
-  {
-    "name": "41. Pönitzer Silvesterlauf",
-    "datum_start": "2026-12-31",
-    "datum_ende": "2026-12-31",
-    "standort": "Pönitz",
-    "land": "Deutschland",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "laenge_km": 7.5,
-    "wettbewerb": "7,5 km",
-    "veranstalter_url": "http://www.svg-poenitz.de",
-    "lat": 50.8568858,
-    "lon": 12.4229372
   },
   {
     "land": "Deutschland",
@@ -33648,13 +33570,15 @@
   {
     "land": "Deutschland",
     "name": "2. Lauf der 36. Winterlaufserie der LG Dornburg",
-    "standort": "Dornburg-Langendernbach",
+    "standort": "Dornburg",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-02-13",
     "datum_ende": "2027-02-13",
     "laenge_km": 10.0,
-    "veranstalter_url": "http://www.lg-dornburg.de"
+    "veranstalter_url": "http://www.lg-dornburg.de",
+    "lat": 50.517,
+    "lon": 8.017
   },
   {
     "land": "Deutschland",
@@ -34074,16 +33998,6 @@
     "laenge_km": 42.2,
     "wettbewerb": "Marathon",
     "veranstalter_url": "https://www.triathlonverein-werratal.de/kristallmarathon/"
-  },
-  {
-    "land": "Österreich",
-    "name": "LCC-Eisbärlauf II (26. Eisbärcup)",
-    "standort": "Prater Hauptallee Höhe Einmündung Marathonweg",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-02-14",
-    "datum_ende": "2027-02-14",
-    "veranstalter_url": "https://www.lcc-wien.at/"
   },
   {
     "land": "Deutschland",
@@ -34777,12 +34691,14 @@
   {
     "land": "Österreich",
     "name": "Crosslauf Knittelfeld (8. Lauf STLV- & KLV-Crosslaufcup 2026/2027 - 7.Lauf)",
-    "standort": "Schwimmbad der Stadt Knittelfeld",
+    "standort": "Knittelfeld",
     "art1": "Laufen",
     "art2": "Trail",
     "datum_start": "2027-02-27",
     "datum_ende": "2027-02-27",
-    "veranstalter_url": "https://crosslaufcup.gknet.at/"
+    "veranstalter_url": "https://crosslaufcup.gknet.at/",
+    "lat": 47.217,
+    "lon": 14.817
   },
   {
     "land": "Schweiz",
@@ -37929,19 +37845,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "53. Königsforst-Marathon Bensberg",
-    "standort": "Bensberg",
-    "lat": 51.2323776,
-    "lon": 9.3541143,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-03-14",
-    "datum_ende": "2027-03-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://koenigsforst-marathon.de"
-  },
-  {
-    "land": "Deutschland",
     "name": "Bad Windsheimer Weinturmlauf",
     "standort": "Bad Windsheim",
     "lat": 49.5031221,
@@ -39738,8 +39641,26 @@
     "art2": "Straße",
     "datum_start": "2027-03-21",
     "datum_ende": "2027-03-21",
-    "laenge_km": 139.0,
-    "veranstalter_url": "http://leichtathletik-blankenburg.de"
+    "laenge_km": 13.9,
+    "veranstalter_url": "http://leichtathletik-blankenburg.de",
+    "wettbewerb": "Hauptstrecke 13,9 km",
+    "datum_vorlaeufig": true
+  },
+  {
+    "land": "Deutschland",
+    "name": "30. Blankenburger Regensteinlauf",
+    "standort": "Blankenburg",
+    "lat": 51.7902676,
+    "lon": 10.9551991,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2027-03-21",
+    "datum_ende": "2027-03-21",
+    "laenge_km": 9.5,
+    "dauer_h": null,
+    "wettbewerb": "9,5 km",
+    "veranstalter_url": "http://leichtathletik-blankenburg.de",
+    "datum_vorlaeufig": true
   },
   {
     "land": "Österreich",
@@ -41060,13 +40981,15 @@
   {
     "land": "Deutschland",
     "name": "23. 3 Berge Lauf",
-    "standort": "Haina-Dodenhausen",
+    "standort": "Haina (Kloster)",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-04-03",
     "datum_ende": "2027-04-03",
     "laenge_km": 26.2,
-    "veranstalter_url": "http://www.la.sv-dodenhausen.de"
+    "veranstalter_url": "http://www.la.sv-dodenhausen.de",
+    "lat": 51.028,
+    "lon": 8.967
   },
   {
     "land": "Deutschland",
@@ -43021,7 +42944,7 @@
     "art2": "Bahn",
     "datum_start": "2027-04-11",
     "datum_ende": "2027-04-11",
-    "laenge_km": 2.8,
+    "laenge_km": null,
     "dauer_h": 6.0,
     "veranstalter_url": "https://lg-mw.de/6-stundenlauf/"
   },
@@ -45065,13 +44988,15 @@
   {
     "land": "Deutschland",
     "name": "Lauf durchs schöne Gailachtal",
-    "standort": "Monheim / Warching",
+    "standort": "Monheim",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-04-18",
     "datum_ende": "2027-04-18",
     "laenge_km": 10.0,
-    "veranstalter_url": "http://www.lg-donau-ries.de"
+    "veranstalter_url": "http://www.lg-donau-ries.de",
+    "lat": 48.844,
+    "lon": 10.858
   },
   {
     "land": "Deutschland",
@@ -46061,13 +45986,15 @@
   {
     "land": "Deutschland",
     "name": "41. Lauf Zum Alten vom Müssenberg VB Sauerland Lauf Cup",
-    "standort": "Arnsberg-Herdringen",
+    "standort": "Arnsberg",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-24",
     "laenge_km": 10.0,
-    "veranstalter_url": "http://www.tv-herdringen.de"
+    "veranstalter_url": "http://www.tv-herdringen.de",
+    "lat": 51.395,
+    "lon": 8.061
   },
   {
     "land": "Österreich",
@@ -50432,13 +50359,15 @@
   {
     "land": "Deutschland",
     "name": "44. Fischbachtal-Lauf",
-    "standort": "Fischbachtal/Odw.",
+    "standort": "Fischbachtal",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-05-06",
     "datum_ende": "2027-05-06",
     "laenge_km": 12.6,
-    "veranstalter_url": "https://fc-niedernhausen.de/fischbachtallauf/"
+    "veranstalter_url": "https://fc-niedernhausen.de/fischbachtallauf/",
+    "lat": 49.765,
+    "lon": 8.785
   },
   {
     "land": "Österreich",
@@ -50459,10 +50388,10 @@
     "lat": 47.9450579,
     "lon": 14.3581886,
     "art1": "Laufen",
-    "art2": "Trail",
+    "art2": "Backyard Ultra",
     "datum_start": "2027-05-06",
     "datum_ende": "2027-05-06",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.austriabackyardultra.com/ternberg"
   },
@@ -51151,19 +51080,6 @@
     "standort": "Hörstel",
     "lat": 52.2973664,
     "lon": 7.5862462,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-08",
-    "datum_ende": "2027-05-08",
-    "laenge_km": 21.6,
-    "veranstalter_url": "https://riesenbecker-6stundenlauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "3. Riesenbecker 6 Stundenlauf",
-    "standort": "Rheine",
-    "lat": 52.2797707,
-    "lon": 7.4373615,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-05-08",
@@ -51933,19 +51849,6 @@
     "veranstalter_url": "https://www.seeferien.com/seeferien-erleben/veranstaltungen/pfahlbau-marathon"
   },
   {
-    "land": "Deutschland",
-    "name": "Riesenbecker 6h Lauf",
-    "standort": "Hörstel",
-    "lat": 52.2958863,
-    "lon": 7.5838639,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-08",
-    "datum_ende": "2027-05-08",
-    "veranstalter_url": "https://riesenbecker-6stundenlauf.de/",
-    "dauer_h": 6.0
-  },
-  {
     "land": "Österreich",
     "name": "Schafberglauf",
     "standort": "Sankt Wolfgang im Salzkammergut",
@@ -52469,20 +52372,6 @@
     "laenge_km": 11.7,
     "wettbewerb": "Bike 11,7 km",
     "veranstalter_url": "https://fitformevent.ch/it/giubiasco-carena"
-  },
-  {
-    "land": "Schweiz",
-    "name": "Grand Prix Winterthur",
-    "standort": "Winterthur",
-    "lat": 47.4855243,
-    "lon": 8.7034023,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-05-09",
-    "datum_ende": "2027-05-09",
-    "laenge_km": 42.2,
-    "wettbewerb": "Half marathon (anspruchsvolle Strecke)",
-    "veranstalter_url": "https://gp-winterthur.ch/en/home/"
   },
   {
     "land": "Schweiz",
@@ -54805,7 +54694,7 @@
     "art2": "Trail",
     "datum_start": "2027-05-15",
     "datum_ende": "2027-05-16",
-    "laenge_km": 4.6,
+    "laenge_km": null,
     "dauer_h": 24.0,
     "veranstalter_url": "https://ruhrschleife-lauf.de/"
   },
@@ -54951,13 +54840,15 @@
   {
     "land": "Deutschland",
     "name": "43. Int. Volkslauf und Wandertag",
-    "standort": "Preuß. Oldendorf",
+    "standort": "Preußisch Oldendorf",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-05-16",
     "datum_ende": "2027-05-16",
     "laenge_km": 20.0,
-    "veranstalter_url": "https://otsv.de/leichtathletik/volkslauf/"
+    "veranstalter_url": "https://otsv.de/leichtathletik/volkslauf/",
+    "lat": 52.341,
+    "lon": 8.525
   },
   {
     "land": "Deutschland",
@@ -59453,10 +59344,10 @@
     "lat": 48.21107,
     "lon": 15.39176,
     "art1": "Laufen",
-    "art2": "Trail",
+    "art2": "Backyard Ultra",
     "datum_start": "2027-05-29",
     "datum_ende": "2027-05-30",
-    "laenge_km": 7.0,
+    "laenge_km": null,
     "wettbewerb": "7 km",
     "veranstalter_url": "https://www.austriabackyardultra.com/en/loosdorf"
   },
@@ -61745,13 +61636,15 @@
   {
     "land": "Deutschland",
     "name": "22. Lingelbacher Windmühlenlauf",
-    "standort": "Alsfeld-Lingelbach",
+    "standort": "Alsfeld",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-05",
     "datum_ende": "2027-06-05",
     "laenge_km": 10.0,
-    "veranstalter_url": "http://www.tsv-lingelbach.de"
+    "veranstalter_url": "http://www.tsv-lingelbach.de",
+    "lat": 50.752,
+    "lon": 9.271
   },
   {
     "land": "Deutschland",
@@ -68181,12 +68074,14 @@
   {
     "land": "Österreich",
     "name": "17. Hellmonsödter Planetenlauf",
-    "standort": "Hellmonsödt Planetenstadion",
+    "standort": "Hellmonsödt",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
-    "veranstalter_url": "http://www.planetenweg.at/planetenlauf"
+    "veranstalter_url": "http://www.planetenweg.at/planetenlauf",
+    "lat": 48.433,
+    "lon": 14.3
   },
   {
     "land": "Deutschland",
@@ -68693,8 +68588,8 @@
     "standort": "Spirkelbach",
     "lat": 49.1979374,
     "lon": 7.8874873,
-    "art1": "Laufen",
-    "art2": "Trail",
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
     "laenge_km": 28.0,
@@ -68707,8 +68602,8 @@
     "standort": "Spirkelbach",
     "lat": 49.1979374,
     "lon": 7.8874873,
-    "art1": "Laufen",
-    "art2": "Trail",
+    "art1": "Fahrrad",
+    "art2": "Mountainbike",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-19",
     "laenge_km": 48.0,
@@ -68727,20 +68622,6 @@
     "datum_ende": "2027-06-19",
     "laenge_km": 10.0,
     "wettbewerb": "Trail Run",
-    "veranstalter_url": "https://www.htt-spirkelbach.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Höllenberg Trail-Trophy",
-    "standort": "Spirkelbach",
-    "lat": 49.1979374,
-    "lon": 7.8874873,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-06-19",
-    "datum_ende": "2027-06-19",
-    "laenge_km": 5.0,
-    "wettbewerb": "Teens MTB Race",
     "veranstalter_url": "https://www.htt-spirkelbach.de/"
   },
   {
@@ -70188,8 +70069,8 @@
     "land": "Österreich",
     "name": "MYTRANSALP",
     "standort": "Lienz",
-    "lat": 1,
-    "lon": 2,
+    "lat": 46.829,
+    "lon": 12.769,
     "art1": "Fahrrad",
     "art2": "Straße",
     "datum_start": "2027-06-20",
@@ -70575,8 +70456,8 @@
     "land": "Österreich",
     "name": "MYTRANSALP",
     "standort": "Lienz",
-    "lat": 1,
-    "lon": 2,
+    "lat": 46.829,
+    "lon": 12.769,
     "art1": "Fahrrad",
     "art2": "Straße",
     "datum_start": "2027-06-23",
@@ -70642,13 +70523,15 @@
   {
     "land": "Deutschland",
     "name": "18. Sommerabendlauf \"Rund um den Sorpesee\"",
-    "standort": "Sundern-Amecke",
+    "standort": "Sundern",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-06-25",
     "datum_ende": "2027-06-25",
     "laenge_km": 15.6,
-    "veranstalter_url": "http://www.susgwamecke.de"
+    "veranstalter_url": "http://www.susgwamecke.de",
+    "lat": 51.328,
+    "lon": 8.004
   },
   {
     "land": "Deutschland",
@@ -75046,7 +74929,7 @@
     "art2": "Mountainbike",
     "datum_start": "2027-07-04",
     "datum_ende": "2027-07-04",
-    "laenge_km": 7.5,
+    "laenge_km": null,
     "dauer_h": 6.0,
     "wettbewerb": "Stundenrennen 7.5 km",
     "veranstalter_url": "https://6h-am-breitbrunnen.de/"
@@ -76128,7 +76011,7 @@
     "art2": "Mountainbike",
     "datum_start": "2027-07-10",
     "datum_ende": "2027-07-11",
-    "laenge_km": 5.0,
+    "laenge_km": null,
     "wettbewerb": "24-Stunden-Rennen 5 km",
     "veranstalter_url": "http://www.2much4you.de/",
     "dauer_h": 24.0
@@ -76199,7 +76082,7 @@
     "datum_start": "2027-07-10",
     "datum_ende": "2027-07-10",
     "laenge_km": 200.0,
-    "dauer_h": 0.0,
+    "dauer_h": null,
     "wettbewerb": "Brevet 200 km",
     "veranstalter_url": "http://www.audax-sachsen.de/"
   },
@@ -76825,19 +76708,6 @@
     "laenge_km": 110.0,
     "wettbewerb": "Gravel Race 110 km",
     "veranstalter_url": "https://gravel.rsv-finsterwalde.de"
-  },
-  {
-    "land": "Deutschland",
-    "name": "42. Pönitzer Volkslauf",
-    "standort": "Pönitz",
-    "lat": 50.8568858,
-    "lon": 12.4229372,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-07-11",
-    "datum_ende": "2027-07-11",
-    "laenge_km": 21.0,
-    "veranstalter_url": "http://www.svg-poenitz.de"
   },
   {
     "land": "Deutschland",
@@ -82798,7 +82668,7 @@
   },
   {
     "land": "Schweiz",
-    "name": "Rhyschwümme 2026",
+    "name": "Rhyschwümme",
     "standort": "Stein am Rhein",
     "lat": 47.6597323,
     "lon": 8.8596823,
@@ -82807,6 +82677,8 @@
     "datum_start": "2027-08-08",
     "datum_ende": "2027-08-08",
     "laenge_km": 11.0,
+    "dauer_h": null,
+    "wettbewerb": "Stein am Rhein - Diessenhofen 11 km",
     "veranstalter_url": "https://rhyschwuemme.ch/"
   },
   {
@@ -83699,13 +83571,15 @@
   {
     "land": "Deutschland",
     "name": "50. Waldlauf / .40 Volkslauf",
-    "standort": "Oberzent-Hetzbach/Odw.",
+    "standort": "Oberzent",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-08-15",
     "datum_ende": "2027-08-15",
     "laenge_km": 21.5,
-    "veranstalter_url": "https://tv-hetzbach.de"
+    "veranstalter_url": "https://tv-hetzbach.de",
+    "lat": 49.569,
+    "lon": 8.974
   },
   {
     "land": "Deutschland",
@@ -83807,13 +83681,15 @@
   {
     "land": "Deutschland",
     "name": "Lauf um die Himmelsschaukel Bründersen 2027",
-    "standort": "Wolfhagen-Bründersen",
+    "standort": "Wolfhagen",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-08-15",
     "datum_ende": "2027-08-15",
     "laenge_km": 21.1,
-    "veranstalter_url": "http://www.bruendersen.de"
+    "veranstalter_url": "http://www.bruendersen.de",
+    "lat": 51.326,
+    "lon": 9.17
   },
   {
     "land": "Deutschland",
@@ -85857,21 +85733,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "Sommer24hLauf",
-    "standort": "Freudenstadt",
-    "lat": 48.4644796,
-    "lon": 8.4179988,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2027-08-27",
-    "datum_ende": "2027-08-29",
-    "laenge_km": 3.6,
-    "dauer_h": 48.0,
-    "wettbewerb": "48-Stunden-Lauf (Runde 3,6 km, ca. 70 hm)",
-    "veranstalter_url": "https://neckarlauf.com/sommer24hlauf.html"
-  },
-  {
-    "land": "Deutschland",
     "name": "Tauchscher Stadtlauf",
     "standort": "Taucha",
     "lat": 51.3798014,
@@ -86552,19 +86413,6 @@
     "laenge_km": 5.0,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.stolberger-schloss-lauf.de/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "SUNSET Wattenmeer",
-    "standort": "Hamburg",
-    "lat": 53.5488282,
-    "lon": 9.9871703,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-08-28",
-    "datum_ende": "2027-08-29",
-    "veranstalter_url": "https://www.sunset-series.de",
-    "laenge_km": 250.0
   },
   {
     "land": "Deutschland",
@@ -90453,20 +90301,7 @@
     "art2": "Straße",
     "datum_start": "2027-09-11",
     "datum_ende": "2027-09-11",
-    "laenge_km": 1.6,
-    "dauer_h": 6.0,
-    "veranstalter_url": "https://de.srichinmoyraces.org/6-stunden-lauf-muenchen"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Sri Chinmoy Peace-Mile 6-Stunden-Lauf",
-    "standort": "München",
-    "lat": 48.1351253,
-    "lon": 11.5819806,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2027-09-11",
-    "datum_ende": "2027-09-11",
+    "laenge_km": null,
     "dauer_h": 6.0,
     "veranstalter_url": "https://de.srichinmoyraces.org/6-stunden-lauf-muenchen"
   },
@@ -94847,7 +94682,7 @@
   {
     "land": "Schweiz",
     "name": "Morat-Fribourg",
-    "standort": "Murten",
+    "standort": "Freiburg",
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-03",
@@ -94856,19 +94691,23 @@
     "dauer_h": null,
     "wettbewerb": "Courtepin-Fribourg 9.7 km",
     "veranstalter_url": "https://www.morat-fribourg.ch/",
-    "gedaechtnis": true
+    "gedaechtnis": true,
+    "lat": 46.8064773,
+    "lon": 7.1619719
   },
   {
     "land": "Schweiz",
     "name": "Morat-Fribourg",
-    "standort": "Murten",
+    "standort": "Freiburg",
+    "lat": 46.8064773,
+    "lon": 7.1619719,
     "art1": "Laufen",
     "art2": "Straße",
     "datum_start": "2027-10-03",
     "datum_ende": "2027-10-03",
     "laenge_km": 17.2,
     "dauer_h": null,
-    "wettbewerb": "Morat-Fribourg Walking/Nordic Walking 17.2 km",
+    "wettbewerb": "Morat-Fribourg 17.2 km",
     "veranstalter_url": "https://www.morat-fribourg.ch/",
     "gedaechtnis": true
   },
