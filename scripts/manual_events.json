@@ -6966,6 +6966,57 @@
       "_note": "Korrekturliste des Nutzers 13.10.2026: Zweite Renndauer des Stevens Cyclo-Cross Cup #04 (Hobby M, Masters, Hobby/Masters Frauen 40 min, Elite Frauen/Juniorinnen 45 min).",
       "lat": 53.574,
       "lon": 10.681
+    },
+    {
+      "land": "Deutschland",
+      "name": "Malchower Inselschwimmen",
+      "standort": "Malchow",
+      "art1": "Schwimmen",
+      "art2": "Freiwasser",
+      "datum_start": "2027-07-11",
+      "datum_ende": "2027-07-11",
+      "laenge_km": 0.8,
+      "dauer_h": null,
+      "wettbewerb": "Traditionelle Strecke 825 m (Erddamm an der Klosterklause bis zur Drehbrücke)",
+      "veranstalter_url": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+      "_quelle": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+      "_note": "Websuche zur PDF-Liste (13.10.2026): Die Seite der Stadt Malchow (Veranstalter Kultur- und Sportring Malchow e.V., ohne eigene Seite) nennt: „Am 11.07.2027 um 10:15 Uhr startet das Malchower Inselschwimmen in die 27. Runde“ - 825 m, 2.000 m, Kinderschwimmen 400 m (nicht aufgenommen).",
+      "lat": 53.475,
+      "lon": 12.422
+    },
+    {
+      "land": "Deutschland",
+      "name": "Malchower Inselschwimmen",
+      "standort": "Malchow",
+      "art1": "Schwimmen",
+      "art2": "Freiwasser",
+      "datum_start": "2027-07-11",
+      "datum_ende": "2027-07-11",
+      "laenge_km": 2.0,
+      "dauer_h": null,
+      "wettbewerb": "Langstreckenschwimmen 2.000 m",
+      "veranstalter_url": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+      "_quelle": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+      "_note": "Websuche zur PDF-Liste (13.10.2026): siehe 825-m-Zeile; die Seite nennt „ein Langstreckenschwimmen mit 2.000 Metern“.",
+      "lat": 53.475,
+      "lon": 12.422
+    },
+    {
+      "land": "Deutschland",
+      "name": "DLRG-Winterschwimmen im Neckar",
+      "standort": "Remseck am Neckar",
+      "art1": "Schwimmen",
+      "art2": "Freiwasser",
+      "datum_start": "2027-01-10",
+      "datum_ende": "2027-01-10",
+      "laenge_km": 3.5,
+      "dauer_h": null,
+      "wettbewerb": "3,5 km vom Neckarstrand Remseck zum Wasserrettungszentrum Schießtal (ab 12 Jahren, max. 150 Teilnehmer)",
+      "veranstalter_url": "https://ludwigsburg-remseck.dlrg.de/die-ortsgruppe/winterschwimmen/",
+      "_quelle": "https://ludwigsburg-remseck.dlrg.de/news-detailseite/save-the-date-64-winterschwimmen-141852-n/",
+      "_note": "Websuche zur PDF-Liste (13.10.2026, dort „Neckar-Schwimmen Ludwigsburg“): DLRG Ortsgruppe Ludwigsburg/Remseck, „Save the Date: 64. Winterschwimmen - Termin: 10.01.2027, Ort: Wasserrettungszentrum Schießtal, Remseck am Neckar“ (jedes Jahr am zweiten Sonntag im Januar, Start 11:00 Uhr am Neckarstrand Remseck). Die 3,5 km, das Mindestalter 12 und die 150 Plätze stehen im Einladungsflyer des Veranstalters (Ausgabe 2019); Anmeldung „wird in Kürze freigeschaltet“.",
+      "lat": 48.878,
+      "lon": 9.267
     }
   ]
 }

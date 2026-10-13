@@ -52,7 +52,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
 | `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
-| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 32 nachgetragen, 15 im Bestand, 72 „existiert, Termin offen" (davon 45 mit Seite seit dem 13.10.2026 im Gedächtnis – der Wochenlauf fragt sie ab; die 28 ohne Seite im Frühjahr 2027 per Websuche), 98 nicht gefunden; siehe README („Die Eventliste des Nutzers") |
+| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 34 nachgetragen, 19 im Bestand, 67 „existiert, Termin offen" (53 davon mit Seite – im Gedächtnis, der Wochenlauf fragt sie ab –, 14 ohne auffindbare Seite), 98 nicht gefunden; Stand 13.10.2026 nach der Websuche zu den letzten 28 ohne Seite; siehe README („Die Eventliste des Nutzers") |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
@@ -2682,6 +2682,38 @@ anlegt: `schluessel_von({"name", "standort"})`, Koordinaten über
 `korrekturliste.koordinaten()`, speichern über `Gedaechtnis.speichern()`
 (eine Zeile je Eintrag).
 
+**Die 28 ohne Seite per Websuche (13.10.2026, „Ja, bitte die 28 ohne
+Seite jetzt schon googeln")**: je Eintrag Websuche, Kandidatenseite
+abgerufen, nur übernommen, was die Seite selbst sagt. Ergebnis: **drei
+schon in `events.json`** (ADAC Velotour 01.05.2027, Mecklenburger Seen
+Runde 28.05.2027, Race Across the Alps 25.06.2027 – der Wochenlauf war
+schneller als die PDF-Prüfung vom 24.09.), **eine als andere Zeile im
+Bestand** („Burgenland Extrem Radmarathon" = „Bike 224 Meilen", 360 km,
+21.01.2027, über dealgrid – beim Abgleich zuerst übersehen, weil der Name
+nicht „Burgenland" enthält; erst der Bericht „gleiche Seite, gleiche
+Distanz" hat die doppelte Zeile gemeldet. **Lehre: vor einem Nachtrag
+auch nach der Veranstalter-URL in `events.json` suchen, nicht nur nach
+dem Namen**), **zwei mit Termin 2027 auf der Seite nachgetragen**
+(Malchower Inselschwimmen 11.07.2027, 825 m / 2 km, Stadtseite
+visit-malchow.de; DLRG-Winterschwimmen im Neckar 10.01.2027, 3,5 km
+Remseck → Schießtal, aus „Neckar-Schwimmen Ludwigsburg"), **neun ins
+Gedächtnis** (Düsseldorf300 213/310/411 km; Sundschwimmen Stralsund
+2,3 km; Wariner Langstreckenschwimmen 800/1.600 m – der Menüpunkt liegt
+unter `/kinder-langstreckenschwimmen/`; WakenitzMan Lübeck;
+Fuschlseecrossing 4,2/2,1 km und Stausee Losheim – beide Seiten
+antworteten 503, kein 404, `pruefen` versucht es wöchentlich; Ultra Rad
+Challenge Kaindorf bei Hartberg – die Seite spricht von der abgelehnten
+Streckensperre 2026, Fortbestand unklar, Koordinaten von Hand, weil
+`places.json` nur Kaindorf an der Sulm kennt; Voralpen-Marathon St. Veit
+an der Gölsen über die Serienseite mountainbike-challenge.at; dazu der
+**Nebenfund Weserschwimmen Minden**, 15.08.2026 – festivalsindeutschland
+hatte weserschwimmen.de dem Rintelner Schwimmen zugeschrieben) und **14
+ohne auffindbare Seite** (Liste bei den To-dos). Das Protokoll
+`eventliste_pdf_geprueft.json` trägt je Eintrag die Notiz „Websuche
+13.10.2026: …". Was die Suche nicht leistet: Vereine ohne Netzauftritt
+(DRK-Wasserwachten, Kultur- und Sportring) und Serien ohne Seite
+(Austria Swim Open) – dort hilft nur „Wir haben dein Event nicht?".
+
 **Was es weiter nicht kann**: Eine Seite, die den Lauf nicht beim Namen
 nennt (Allerweltswörter – „Seelauf", „Silvesterlauf" stehen in
 `ALLGEMEIN`), wird nie „NEU", nur „NEU?" für die Handprüfung. Strecken
@@ -5045,19 +5077,15 @@ Verweise auf alte Nummern stehen in Klammern.
    Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
    keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
    paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
-3. **Frühjahr 2027** (alt 25): die „existiert, Termin offen"-Einträge
-   der PDF-Liste (`scripts/eventliste_pdf_geprueft.json`) – **seit dem
-   13.10.2026 nur noch die 28 OHNE Veranstalterseite** (Websuche, Arbeit
-   von Claude, der Nutzer gibt den Anstoß). Die 45 mit Seite stehen im
-   Gedächtnis (`herkunft` „PDF-Eventliste"; 31 neu, 9 waren schon da, 5
-   bewusst nicht: siehe „Gedächtnis je Veranstaltung", letzter Absatz) –
-   ihren nächsten Termin fragt der Wochenlauf von selbst auf der Seite ab.
-4. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
+3. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
    Veranstalter nachziehen.
-5. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
+4. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
    swimsports, BRV Timing tragen die Saison 2027 erst dann ein – der
-   Wochenlauf holt sie, nur nachsehen.
-6. **11.01.2027** (aus alt 2): Erinnerung `trig_013AV7Nn2GVq1m3LgxL3ukcq`
+   Wochenlauf holt sie, nur nachsehen. Dazu von Hand: der **Freiwassercup
+   Bayern** (Termine nur auf `bayerischer-schwimmverband.de`, Veranstalter
+   ist der Verband selbst, die Seite steht in `PORTAL_DOMAINS` – 2026:
+   06.06. Lieblsee Parkstetten, 25.07. Wöhrsee Burghausen).
+5. **11.01.2027** (aus alt 2): Erinnerung `trig_013AV7Nn2GVq1m3LgxL3ukcq`
    zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
    Cloud Function bauen, dann `firebase deploy --only functions` aus der
    Cloud Shell (der Nutzer), Extension deinstallieren.
@@ -5066,7 +5094,13 @@ Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
 „women Tour" St. Pölten und Österreichische Cyclocross-Meisterschaft
 (alt 15), „Nordrhein Meisterschaften 10km Straße" und „DM 10km Straße"
-(alt 18), Merkposten Pille „Name" (alt 24).
+(alt 18), Merkposten Pille „Name" (alt 24). Dazu die 14 PDF-Einträge
+ohne auffindbare Veranstalterseite (Websuche 13.10.2026, Notizen in
+`eventliste_pdf_geprueft.json`): Großer Preis von Eching, Hans-Metzner-
+Schwimmen Lindau, Müritz Extrem, Tollenseseeschwimmen, Schweriner
+Schlossschwimmen, Peeneschwimmen Anklam, Weserschwimmen Rinteln, Open
+Water Stubenbergsee und die fünf Austria Swim Open – kommen nur über eine
+Quelle oder „Wir haben dein Event nicht?" herein.
 
 ### Archiv: die To-do-Liste vom 05.10.2026 (alte Nummern)
 
@@ -5158,8 +5192,9 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    nicht") – jetzt Punkt 30.
 
 **Stand am 13.10.2026, abends: LIVE auf endurance-events.de (Punkt 29
-vorgezogen, siehe „Livegang"). Was offen blieb (25–27, 32, 33), steht
-oben in der neuen Liste als 3–5, 1, 2.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
+vorgezogen, siehe „Livegang"). Was offen blieb (26, 27, 32, 33), steht
+oben in der neuen Liste als 3, 4, 1, 2; 25 ist seit dem 13.10.2026
+erledigt.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
 verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
@@ -5455,12 +5490,14 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 **D. Später (Frühjahr 2027)**
 
 25. Die 72 „existiert, Termin offen"-Einträge der PDF-Liste erneut prüfen
-    (`scripts/eventliste_pdf_geprueft.json`). → **neue Liste, Punkt 3**
+    (`scripts/eventliste_pdf_geprueft.json`). → **erledigt 13.10.2026**
+    (die 45 mit Seite ins Gedächtnis, die 28 ohne Seite per Websuche –
+    siehe „Gedächtnis je Veranstaltung")
 26. NordCup 2027 (9 Radmarathons SH) beim Veranstalter nachziehen.
-    → **neue Liste, Punkt 4**
+    → **neue Liste, Punkt 3**
 27. BOE, Fricktaler Cup, dsergebnis, swimsports, BRV Timing tragen die
     Saison 2027 erst im Frühjahr ein – der Wochenlauf holt sie.
-    → **neue Liste, Punkt 5**
+    → **neue Liste, Punkt 4**
 
 **E. Zum Schluss**
 

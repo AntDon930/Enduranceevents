@@ -7580,10 +7580,10 @@
     "notiz": "70 km ab Luebbenau und 70 km ab Burg sind zwei Startorte - kein Duplikat; 'Spreewald RTF' (zweiter Name fuer die Burger Touren) ausgeschlossen."
   },
   "24 H Burgenland Extrem|2027-01-21": {
-    "am": "2026-10-01",
+    "am": "2026-10-13",
     "ergebnis": "quelle_ok",
     "quelle": "24stundenburgenland.com",
-    "notiz": "Lauf-/Wandertour 120 km und 'Bike 224 Meilen' (Gravel Brevet 120/360 km) sind zwei Veranstaltungen desselben Veranstalters - kein Duplikat."
+    "notiz": "Lauf-/Wandertour 120 km und 'Bike 224 Meilen' (Gravel Brevet 120/360 km) sind zwei Veranstaltungen desselben Veranstalters - kein Duplikat. | 2026-10-13: Tour-2027-Seite erneut gelesen: Freitag 22.01.2027 Original-Trail 120 km ab Oggau 4:30, Memorial 80 km ab Hegykö, Final 60 km ab Apetlon, Golden Walker 30 km ab Neusiedl; die Radstrecke BIKE 224 Meilen (360 km, Do 21.01.2027 8:00 ab Oggau) steht als eigene Zeile „Bike 224 Meilen\" (dealgrid) in events.json - Donnerstag/Freitag sind die echten Tage, kein Werktagsfehler."
   },
   "Napf-Marathon Trubschachen|2026-10-11": {
     "am": "2026-10-01",
@@ -8292,5 +8292,17 @@
     "ergebnis": "quelle_ok",
     "quelle": "https://staufenlauf.com/",
     "notiz": "Korrekturliste des Nutzers: Bei Länge schreib einfach \"1.000hm\" hin. Die geben da nur die Höhe an."
+  },
+  "Malchower Inselschwimmen|2027-07-11": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "visit-malchow.de",
+    "notiz": "Websuche zur PDF-Liste: Stadtseite nennt 11.07.2027, 10:15 Uhr, 825 m / 2.000 m (Kinder 400 m nicht aufgenommen); Veranstalter Kultur- und Sportring Malchow ohne eigene Seite."
+  },
+  "DLRG-Winterschwimmen im Neckar|2027-01-10": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "ludwigsburg-remseck.dlrg.de",
+    "notiz": "Websuche zur PDF-Liste: Veranstalterseite nennt 10.01.2027 (zweiter Sonntag im Januar, Start 11 Uhr Neckarstrand Remseck, Ziel Wasserrettungszentrum Schießtal); 3,5 km laut Einladungsflyer des Veranstalters, ab 12 Jahren, max. 150 Plätze."
   }
 }

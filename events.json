@@ -30518,6 +30518,21 @@
   },
   {
     "land": "Deutschland",
+    "name": "DLRG-Winterschwimmen im Neckar",
+    "standort": "Remseck am Neckar",
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-01-10",
+    "datum_ende": "2027-01-10",
+    "laenge_km": 3.5,
+    "dauer_h": null,
+    "wettbewerb": "3,5 km vom Neckarstrand Remseck zum Wasserrettungszentrum Schießtal (ab 12 Jahren, max. 150 Teilnehmer)",
+    "veranstalter_url": "https://ludwigsburg-remseck.dlrg.de/die-ortsgruppe/winterschwimmen/",
+    "lat": 48.878,
+    "lon": 9.267
+  },
+  {
+    "land": "Deutschland",
     "name": "HKK-Winterlaufserie",
     "standort": "Bremen",
     "lat": 53.0792962,
@@ -78043,6 +78058,36 @@
     "wettbewerb": "Cross-Country, Cycling 4 All",
     "veranstalter_url": "https://www.mtb-team-bucklige-welt.at",
     "pruefung_offen": true
+  },
+  {
+    "land": "Deutschland",
+    "name": "Malchower Inselschwimmen",
+    "standort": "Malchow",
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 0.8,
+    "dauer_h": null,
+    "wettbewerb": "Traditionelle Strecke 825 m (Erddamm an der Klosterklause bis zur Drehbrücke)",
+    "veranstalter_url": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+    "lat": 53.475,
+    "lon": 12.422
+  },
+  {
+    "land": "Deutschland",
+    "name": "Malchower Inselschwimmen",
+    "standort": "Malchow",
+    "art1": "Schwimmen",
+    "art2": "Freiwasser",
+    "datum_start": "2027-07-11",
+    "datum_ende": "2027-07-11",
+    "laenge_km": 2.0,
+    "dauer_h": null,
+    "wettbewerb": "Langstreckenschwimmen 2.000 m",
+    "veranstalter_url": "https://www.visit-malchow.de/themen/veranstaltungsh%C3%B6hepunkte/inselschwimmen",
+    "lat": 53.475,
+    "lon": 12.422
   },
   {
     "land": "Deutschland",
