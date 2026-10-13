@@ -5369,14 +5369,14 @@ Verweise auf alte Nummern stehen in Klammern.
 
 (Der frühere Punkt 7 – `update-events.yml` auf `main` nachziehen – ist
 seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
-7. **Firestore-Regeln deployen** (neu 14.10.2026, nur der Nutzer): in
-   der Cloud Shell `cd Enduranceevents && git pull && firebase deploy
-   --only firestore:rules`. Erst danach funktioniert der Knopf
-   „Wartungsmodus" in `admin.html` (vorher: „Missing or insufficient
-   permissions"); die öffentlichen Seiten laufen so oder so normal.
-   Danach einmal probieren: einschalten → Startseite in einem anderen
-   Tab laden → Pausenseite; ausschalten → nach spätestens einer Minute
-   wieder die Startseite.
+7. ~~**Firestore-Regeln deployen**~~ **erledigt** (14.10.2026, 00:50,
+   Cloud Shell: „released rules firestore.rules to cloud.firestore",
+   „Deploy complete!"; von hier geprüft: das Dokument `config/wartung`
+   antwortet ohne Anmeldung jetzt mit 404 NOT_FOUND statt 403 – lesen
+   erlaubt, Dokument entsteht beim ersten Umlegen). Offen nur noch die
+   Probe: Knopf im Dashboard einschalten → Startseite im zweiten Tab zeigt
+   die Pausenseite → ausschalten → der zweite Tab springt binnen einer
+   Minute zurück. Danach diesen Punkt streichen.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
