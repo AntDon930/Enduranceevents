@@ -23,6 +23,8 @@ on:
 
 permissions:
   contents: write
+  # actions: write für den Anstoß des Pages-Deploys nach dem Push (unten).
+  actions: write
 
 concurrency:
   group: update-events
@@ -130,3 +132,16 @@ jobs:
             git rebase origin/claude/endurance-events-website-v1wruf
             sleep $((2 ** i))
           done
+
+          # Ein Push mit GITHUB_TOKEN löst keinen Workflow aus - GitHub
+          # unterdrückt das, damit Workflows sich nicht gegenseitig endlos
+          # anstoßen. Der Pages-Deploy (pages.yml, mit Tests davor) muss
+          # deshalb ausdrücklich angestoßen werden; workflow_dispatch ist
+          # die erlaubte Ausnahme. Ohne diese Zeile ging ein Datenlauf erst
+          # mit dem nächsten Push von Hand live (so der Lauf vom
+          # 12.10.2026: kein einziger Folge-Lauf). Schlägt der Anstoß fehl,
+          # bleibt der Commit trotzdem stehen - der nächste Push holt ihn.
+          gh workflow run pages.yml --ref claude/endurance-events-website-v1wruf \
+            || echo "::warning::Pages-Deploy konnte nicht angestoßen werden - der nächste Push veröffentlicht den Stand."
+        env:
+          GH_TOKEN: ${{ github.token }}
