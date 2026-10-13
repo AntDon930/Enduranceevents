@@ -1120,15 +1120,15 @@ def pruefe_rechtsseiten(ctx, basis):
 
 
 def pruefe_statistik(ctx, basis):
-    """Besucherstatistik (13.10.2026): statistik.html lädt und bleibt ohne
+    """Besucherstatistik (13.10.2026): admin.html lädt und bleibt ohne
     Anmeldung verschlossen, stats.js sendet auf 127.0.0.1 nichts, und der
     Schalter in der Datenschutzerklärung schaltet die Zählung je Gerät
     ab und wieder an (derselbe localStorage-Eintrag, den stats.js liest).
     """
     print("\nStatistik-Seite und stats.js")
-    seite, probleme = seite_oeffnen(ctx, basis + "/statistik.html", ".top-bar")
+    seite, probleme = seite_oeffnen(ctx, basis + "/admin.html", ".top-bar")
     seite.wait_for_timeout(1500)
-    pruefe(not probleme, "statistik.html lädt ohne Fehler (%s)"
+    pruefe(not probleme, "admin.html lädt ohne Fehler (%s)"
            % (probleme[0] if probleme else "keine"))
     stand = seite.evaluate("""() => ({
         titel: document.getElementById('stat-title').textContent.trim(),

@@ -33,7 +33,7 @@ ASSETS = ("site.css", "filters.js", "filter-ui.js", "filter-ui.css", "event-deta
 
 # Alle Seiten, die eine der geteilten Dateien laden - die beiden Textseiten
 # und die Statistik nur stats.js bzw. site.css.
-HTML_FILES = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "statistik.html")
+HTML_FILES = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html")
 
 
 def stempel(pfad: Path) -> str:

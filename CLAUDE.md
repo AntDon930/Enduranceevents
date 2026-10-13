@@ -47,7 +47,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
-| `statistik.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt |
+| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt |
 | `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
@@ -4302,7 +4302,7 @@ beim Arbeiten wissen muss:
   hasht, schreibt `hits`) → Function `aggregateStats` (stündlich, Minute
   7: `hits` eines Tages → EIN Dokument `stats_daily/<Tag>`, Regeln in
   `functions/stats_aggregate.js`; löscht `hits` nach 35 Tagen) →
-  `statistik.html` (liest nur `stats_daily`).
+  `admin.html` (liest nur `stats_daily`).
 - **Keine IP, kein Cookie, kein Tag-übergreifendes Merkmal.** Die
   Besucher-Kennung ist ein HMAC aus IP + Browser-String mit einem
   Tagesschlüssel (`stats_meta/salt`), der beim ersten Treffer des neuen
@@ -4316,7 +4316,7 @@ beim Arbeiten wissen muss:
   `STATS_PROPS`/`PROP_LAENGE`. Was die Function nicht kennt, verwirft
   sie STILL (400). `test_statistik` vergleicht die Kopien; eine neue
   Aktion heißt: beide Listen, `STATS_PROPS`, `AKTIONS_DETAIL` in
-  `stats_aggregate.js`, die Liste in `statistik.html` (`ABSCHNITTE`,
+  `stats_aggregate.js`, die Liste in `admin.html` (`ABSCHNITTE`,
   `l_…`-Texte DE/EN) – und der Abschnitt „Besucherstatistik" in
   `datenschutz.html` (DE und EN).
 - **Die Haken in den Seiten**: `EED.render()` meldet `detail` und hängt
@@ -4341,7 +4341,7 @@ beim Arbeiten wissen muss:
   (erlaubte Herkunft, Vorgabe: GitHub Pages + endurance-events.de) wird
   beim ersten Deploy abgefragt. Die Function-Adresse in `stats.js`
   (`ENDPOINT`) hängt am Projekt `endurance-5177a`, nicht an der Domain.
-- **Diagrammfarben** (`statistik.html`): zwei Reihen, mit dem
+- **Diagrammfarben** (`admin.html`): zwei Reihen, mit dem
   dataviz-Validator gegen beide Flächen geprüft – dunkel `#3d8fd9` +
   Signal, hell `#1971c2` (Schwimmen-Blau) + Signal; Navy/Weiß fallen als
   Reihenfarbe durch (zu wenig Chroma). Balken ≤ 24 px, oben gerundet,
@@ -5166,7 +5166,7 @@ Verweise auf alte Nummern stehen in Klammern.
    Anleitung im README „Besucherstatistik"): in der Cloud Shell `git pull`
    und `firebase deploy --only functions,firestore:rules` (Parameter
    `STATS_ORIGINS` mit Vorgabe bestätigen, Cloud Scheduler freischalten
-   lassen); dann `endurance-events.de/statistik.html` öffnen, anmelden,
+   lassen); dann `endurance-events.de/admin.html` öffnen, anmelden,
    die angezeigte uid in Firestore als Dokument `admins/<uid>` anlegen,
    Seite neu laden. Die erste Auswertung kommt zur nächsten vollen Stunde
    plus sieben Minuten. **Bis zum Deploy sendet `stats.js` auf der

@@ -6,7 +6,7 @@
 // (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung,
 // Suchbegriff, gesetzter Filter) an die Cloud Function `collect`
 // (functions/index.js). Die zählt sie in Firestore (`hits`), rechnet sie
-// stündlich zu Tageswerten zusammen (`stats_daily`), und statistik.html
+// stündlich zu Tageswerten zusammen (`stats_daily`), und admin.html
 // zeigt sie - nur für den Betreiber.
 //
 // Was NICHT geschieht, und warum es hier steht, nicht nur in der

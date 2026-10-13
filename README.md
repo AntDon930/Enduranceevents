@@ -2246,7 +2246,7 @@ nach dem Verfahren von Plausible und Umami: keine Cookies, keine Kennung
 | `stats.js` (alle sechs Seiten, `defer`, mit `?v=`-Stempel) | schickt beim Laden EINEN Seitenaufruf (Seite, Referrer-Host, utm-Parameter, Zeitzone, Browsersprache, Seitensprache, Farbschema, Gerätetyp, Browser, Betriebssystem, Tab-Sitzung) und danach einzelne **Aktionen**: Event geöffnet, Klick zur Veranstalterseite, Kalender (ics/Google/Outlook), Teilen, Abo, Fehlermeldung, Event vorgeschlagen, Suchbegriff, gesetzter Filter, Standort gesetzt. `sendBeacon` mit `text/plain`, also ohne Vorab-Anfrage |
 | `collect` (Cloud Function, `functions/index.js`) | prüft Herkunft (`Origin` gegen `STATS_ORIGINS`), verwirft Bots, prüft jedes Feld gegen eine geschlossene Liste mit Längen, hängt Tag und Stunde (Europe/Berlin) an und bildet die **Besucher-Kennung des Tages**: HMAC aus IP + Browser-String mit einem Schlüssel, der jeden Tag neu gewürfelt und dabei überschrieben wird (`stats_meta/salt`). Schreibt nach `hits` |
 | `aggregateStats` (Cloud Function, stündlich zur Minute 7) | rechnet heute und gestern (und Lücken der letzten Woche) aus `hits` zu je EINEM Dokument `stats_daily/<Tag>` zusammen (`functions/stats_aggregate.js`) und löscht Rohtreffer, die älter als 35 Tage sind |
-| `statistik.html` | das Dashboard: Zeitraum (7/30/90 Tage, Jahr, alles), sechs Kennzahlen mit Vergleich zum Zeitraum davor, Verlauf (Besucher und Seitenaufrufe je Tag, mit Tabelle und CSV), Tageszeit, und Listen für Seiten, Einstiegs-/Ausstiegsseiten, Referrer, Kampagnen, Region, Sprachen, Geräte, Browser, Betriebssysteme, Farbschema, Aktionen, geöffnete Events, Veranstalter-Klicks, Suchbegriffe, Filter. Nur mit Anmeldung UND Eintrag in `admins/<uid>` (Firestore-Regeln); nicht in der Navigation verlinkt |
+| `admin.html` | das Dashboard: Zeitraum (7/30/90 Tage, Jahr, alles), sechs Kennzahlen mit Vergleich zum Zeitraum davor, Verlauf (Besucher und Seitenaufrufe je Tag, mit Tabelle und CSV), Tageszeit, und Listen für Seiten, Einstiegs-/Ausstiegsseiten, Referrer, Kampagnen, Region, Sprachen, Geräte, Browser, Betriebssysteme, Farbschema, Aktionen, geöffnete Events, Veranstalter-Klicks, Suchbegriffe, Filter. Nur mit Anmeldung UND Eintrag in `admins/<uid>` (Firestore-Regeln); nicht in der Navigation verlinkt |
 
 **Begriffe**: Seitenaufrufe = Treffer; Besucher = verschiedene Kennungen
 je Tag (über einen Zeitraum SUMMIERT, weil dieselbe Person am nächsten
@@ -2277,7 +2277,7 @@ firebase deploy --only functions,firestore:rules
 Die CLI fragt beim ersten Deploy nach dem Parameter `STATS_ORIGINS` –
 den Vorgabewert übernehmen (GitHub-Pages-Adresse plus
 `endurance-events.de` mit und ohne `www`) – und schaltet die
-Cloud-Scheduler-API frei. Danach `statistik.html` öffnen, anmelden: Die
+Cloud-Scheduler-API frei. Danach `admin.html` öffnen, anmelden: Die
 Seite zeigt die eigene `uid` und sagt, dass sie noch nicht freigeschaltet
 ist. In der Firebase-Konsole (Firestore) die Sammlung `admins` anlegen
 und darin ein Dokument mit genau dieser `uid` als Dokument-ID (Inhalt
@@ -2299,7 +2299,7 @@ Schalter; wer an der Zählung etwas ändert (neues Feld, neue Aktion),
 zieht ihn nach. `test_statistik` in `scripts/test_scraper_lib.py` hält
 die Kopien zusammen (Ereignisliste in `stats.js` und `functions/index.js`,
 Seitenliste, Abschalt-Eintrag, Regeln) und rechnet die Aggregation an
-einem Beispiel mit node nach; der Rauchtest prüft, dass `statistik.html`
+einem Beispiel mit node nach; der Rauchtest prüft, dass `admin.html`
 ohne Anmeldung verschlossen bleibt, `stats.js` lokal schweigt und der
 Schalter schaltet.
 

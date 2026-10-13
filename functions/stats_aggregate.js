@@ -7,7 +7,7 @@
  * test_statistik). Benutzt von `aggregateStats` in index.js: Die Function
  * liest die Rohtreffer eines Tages aus der Collection `hits` und schreibt
  * das Ergebnis von aggregiere() als EIN Dokument nach `stats_daily/<Tag>`.
- * Die Seite statistik.html liest nur diese Tagesdokumente.
+ * Die Seite admin.html liest nur diese Tagesdokumente.
  *
  * Was ein Rohtreffer enthält (Feldnamen kurz, es sind viele):
  *   t   Zeitpunkt in Millisekunden          h   Stunde 0-23 (Europe/Berlin)

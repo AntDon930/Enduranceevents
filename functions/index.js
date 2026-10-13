@@ -723,7 +723,7 @@ exports.checkNewEvents = onRequest(
 //                  `stats_daily` zusammen (stats_aggregate.js) und löscht
 //                  Rohtreffer, die älter als HITS_AUFBEWAHRUNG_TAGE sind.
 //
-// statistik.html liest nur `stats_daily` - und nur, wer in `admins/<uid>`
+// admin.html liest nur `stats_daily` - und nur, wer in `admins/<uid>`
 // steht (firestore.rules). Die Herkunft der Treffer prüft `collect` über
 // den Origin-Header gegen STATS_ORIGINS; bei einem Domainwechsel die
 // neue Adresse dort eintragen (Parameter, kein Code):
@@ -747,7 +747,7 @@ const STATS_ORIGINS = defineString("STATS_ORIGINS", {
 const STATS_EREIGNISSE = new Set(['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort']);
 // Jede Seite, die stats.js lädt (test_statistik prüft die Liste gegen
 // die HTML-Dateien).
-const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "statistik"]);
+const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "admin"]);
 // Zusatzangaben je Aktion: Feld -> Höchstlänge. Alles andere fliegt.
 const STATS_PROPS = {
   detail: { ev: 120, sp: 20 },

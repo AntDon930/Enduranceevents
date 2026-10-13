@@ -1082,7 +1082,7 @@ def test_ortsverzeichnis() -> None:
 # Alle HTML-Seiten des Projekts. Zwei Tests laufen darüber (JS-Syntax
 # und "keine fremden Dateien"); eine neue Seite hier eintragen, nicht an
 # zwei Stellen.
-SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "statistik.html")
+SEITEN = ("index.html", "events.html", "karte.html", "impressum.html", "datenschutz.html", "admin.html")
 
 
 def test_js_syntax() -> None:
@@ -1666,7 +1666,7 @@ def test_farbschema_skript() -> None:
     print("\nFarbschema-Skript (hell/dunkel) in den Seiten:")
     wurzel = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
     fassungen: dict[str, str | None] = {}
-    for name in ("index.html", "events.html", "karte.html", "statistik.html"):
+    for name in ("index.html", "events.html", "karte.html", "admin.html"):
         with open(os.path.join(wurzel, name), encoding="utf-8") as f:
             html = f.read()
         m = re.search(r"<script>\n\(function \(\) \{\n  var wahl = null;.*?</script>", html, re.S)
@@ -4325,7 +4325,7 @@ def test_pruefung_offen() -> None:
 
 def test_statistik() -> None:
     """Besucherstatistik (13.10.2026): stats.js, die Cloud Functions
-    `collect`/`aggregateStats`, statistik.html und die Regeln.
+    `collect`/`aggregateStats`, admin.html und die Regeln.
 
     Was hier festgehalten wird, läuft sonst still auseinander: die Liste
     der Ereignisse steht in stats.js UND in functions/index.js (was dort
@@ -4340,7 +4340,7 @@ def test_statistik() -> None:
     import shutil
     import subprocess
 
-    print("\nBesucherstatistik (stats.js, Functions, statistik.html):")
+    print("\nBesucherstatistik (stats.js, Functions, admin.html):")
     wurzel = Path(__file__).resolve().parent.parent
     stats_js = (wurzel / "stats.js").read_text(encoding="utf-8")
     index_js = (wurzel / "functions" / "index.js").read_text(encoding="utf-8")
