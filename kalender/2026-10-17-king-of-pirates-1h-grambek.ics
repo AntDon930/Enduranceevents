@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-17-king-of-pirates-x-grambek@antdon930.github.io
+UID:2026-10-17-king-of-pirates-1h-grambek@antdon930.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
-SUMMARY:King of Pirates – Cyclocross\, Stevens Cyclo-Cross Cup #04
+SUMMARY:King of Pirates – Elite Männer 60 min
 LOCATION:Grambek\, Deutschland
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.pirate-h
- amburg.de/
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 1 h\nhttps://www.pirate
+ -hamburg.de/events/scc/
 TRANSP:TRANSPARENT
-URL:https://www.pirate-hamburg.de/
+URL:https://www.pirate-hamburg.de/events/scc/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-berglauf-geschriebenstein-102km-gunser-gebirge@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Berglauf Geschriebenstein – LIS Alpokalja Ultra 102 km
+LOCATION:Günser Gebirge\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 102 km\nhttp://www.geschriebe
+ nsteinlauf.at
+TRANSP:TRANSPARENT
+URL:http://www.geschriebensteinlauf.at
+END:VEVENT
+END:VCALENDAR

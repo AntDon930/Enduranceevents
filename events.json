@@ -85,19 +85,6 @@
   },
   {
     "land": "Deutschland",
-    "name": "FEM Teichwiesen Marathon",
-    "standort": "Hamburg",
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-14",
-    "datum_ende": "2026-10-14",
-    "laenge_km": 42.2,
-    "veranstalter_url": "https://my.raceresult.com/groups/62/",
-    "lat": 53.572,
-    "lon": 10.015
-  },
-  {
-    "land": "Deutschland",
     "name": "Heidi-Challenge",
     "standort": "Berlin",
     "lat": 52.5200066,
@@ -120,50 +107,22 @@
     "art2": "Straße",
     "datum_start": "2026-10-14",
     "datum_ende": "2026-10-14",
-    "laenge_km": 44.0,
-    "wettbewerb": "44 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ladbergen Ultramarathon",
-    "standort": "Ladbergen",
-    "lat": 52.1376843,
-    "lon": 7.7411882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-14",
-    "datum_ende": "2026-10-14",
-    "laenge_km": 26.0,
-    "wettbewerb": "26 km",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ladbergen Ultramarathon",
-    "standort": "Ladbergen",
-    "lat": 52.1376843,
-    "lon": 7.7411882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-14",
-    "datum_ende": "2026-10-14",
-    "laenge_km": 8.7,
-    "wettbewerb": "Runde",
-    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Ladbergen Ultramarathon",
-    "standort": "Ladbergen",
-    "lat": 52.1376843,
-    "lon": 7.7411882,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-14",
-    "datum_ende": "2026-10-14",
-    "laenge_km": 42.8,
+    "laenge_km": 42.2,
     "wettbewerb": "Marathon",
+    "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ladbergen Ultramarathon",
+    "standort": "Ladbergen",
+    "lat": 52.1376843,
+    "lon": 7.7411882,
+    "art1": "Laufen",
+    "art2": "Straße",
+    "datum_start": "2026-10-14",
+    "datum_ende": "2026-10-14",
+    "laenge_km": 21.1,
+    "wettbewerb": "Halbmarathon",
     "veranstalter_url": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/"
   },
   {
@@ -218,7 +177,8 @@
     "art2": "Straße",
     "datum_start": "2026-10-16",
     "datum_ende": "2026-10-16",
-    "veranstalter_url": "http://www.sv-oberhofen.at"
+    "veranstalter_url": "http://www.sv-oberhofen.at",
+    "laenge_km": 5.0
   },
   {
     "land": "Deutschland",
@@ -593,18 +553,6 @@
     "veranstalter_url": "https://www.alpbachtal.at/de/alpbachtal360"
   },
   {
-    "land": "Deutschland",
-    "name": "ALTIMATE Treppenlauf Berlin",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Trail",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://www.altimate.run/"
-  },
-  {
     "land": "Österreich",
     "name": "Austria Backyard Ultra - Seekirchen",
     "standort": "Seekirchen am Wallersee",
@@ -628,9 +576,9 @@
     "art2": "Backyard Ultra",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-19",
-    "laenge_km": 47.0,
-    "wettbewerb": "47 km",
-    "veranstalter_url": "https://backyardultravalais.ch"
+    "laenge_km": null,
+    "veranstalter_url": "https://backyardultravalais.ch",
+    "dauer_h": 38.0
   },
   {
     "land": "Österreich",
@@ -715,14 +663,76 @@
   {
     "land": "Österreich",
     "name": "Berglauf Geschriebenstein",
-    "standort": "Günser -Gebirge",
+    "standort": "Günser Gebirge",
     "lat": 47.3218522,
     "lon": 16.3847443,
     "art1": "Laufen",
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "http://www.geschriebensteinlauf.at"
+    "veranstalter_url": "http://www.geschriebensteinlauf.at",
+    "laenge_km": 102.0,
+    "wettbewerb": "LIS Alpokalja Ultra 102 km"
+  },
+  {
+    "land": "Österreich",
+    "name": "Berglauf Geschriebenstein",
+    "standort": "Günser Gebirge",
+    "lat": 47.3218522,
+    "lon": 16.3847443,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "dauer_h": null,
+    "veranstalter_url": "http://www.geschriebensteinlauf.at",
+    "laenge_km": 55.0,
+    "wettbewerb": "Alpokalja Marathon+ 55 km"
+  },
+  {
+    "land": "Österreich",
+    "name": "Berglauf Geschriebenstein",
+    "standort": "Günser Gebirge",
+    "lat": 47.3218522,
+    "lon": 16.3847443,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "dauer_h": null,
+    "veranstalter_url": "http://www.geschriebensteinlauf.at",
+    "laenge_km": 36.0,
+    "wettbewerb": "Írottkő Trail 36 km"
+  },
+  {
+    "land": "Österreich",
+    "name": "Berglauf Geschriebenstein",
+    "standort": "Günser Gebirge",
+    "lat": 47.3218522,
+    "lon": 16.3847443,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "dauer_h": null,
+    "veranstalter_url": "http://www.geschriebensteinlauf.at",
+    "laenge_km": 23.0,
+    "wettbewerb": "Írottkő Half Marathon+ 23 km"
+  },
+  {
+    "land": "Österreich",
+    "name": "Berglauf Geschriebenstein",
+    "standort": "Günser Gebirge",
+    "lat": 47.3218522,
+    "lon": 16.3847443,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "dauer_h": null,
+    "veranstalter_url": "http://www.geschriebensteinlauf.at",
+    "laenge_km": 7.0,
+    "wettbewerb": "Bozsok Trail 7 km"
   },
   {
     "land": "Deutschland",
@@ -873,7 +883,7 @@
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "laenge_km": 5.0,
+    "laenge_km": 5.4,
     "wettbewerb": "5 km",
     "veranstalter_url": "https://www.turnverein-endingen.com/crosslaufseite/"
   },
@@ -887,8 +897,9 @@
     "art2": "Gravel",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "wettbewerb": "Gravel Race",
-    "veranstalter_url": "https://radlerlust.eu/gravelrennen/"
+    "veranstalter_url": "https://radlerlust.eu/gravelrennen/",
+    "laenge_km": 56.2,
+    "wettbewerb": "56,2 km (10 Runden à 5,62 km)"
   },
   {
     "land": "Deutschland",
@@ -1225,18 +1236,6 @@
     "veranstalter_url": "https://www.rsv-guetersloh.de"
   },
   {
-    "land": "Österreich",
-    "name": "Hartberg bewegt sich",
-    "standort": "Hartberg",
-    "lat": 47.2815,
-    "lon": 15.97302,
-    "art1": "Laufen",
-    "art2": "Straße",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://my.raceresult.com/416226/"
-  },
-  {
     "land": "Deutschland",
     "name": "Herbst Cross Lauf - Bechtsrieth",
     "standort": "Bechtsrieth",
@@ -1246,7 +1245,8 @@
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "http://www.tv-bechtsrieth.de"
+    "veranstalter_url": "http://www.tv-bechtsrieth.de",
+    "laenge_km": 6.0
   },
   {
     "land": "Schweiz",
@@ -1370,8 +1370,24 @@
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
     "anmeldeschluss": "2026-10-11",
-    "wettbewerb": "Cyclocross, Stevens Cyclo-Cross Cup #04",
-    "veranstalter_url": "https://www.pirate-hamburg.de/"
+    "wettbewerb": "Elite Männer 60 min",
+    "veranstalter_url": "https://www.pirate-hamburg.de/events/scc/",
+    "dauer_h": 1.0
+  },
+  {
+    "land": "Deutschland",
+    "name": "King of Pirates",
+    "standort": "Grambek",
+    "art1": "Fahrrad",
+    "art2": "Cyclecross",
+    "datum_start": "2026-10-17",
+    "datum_ende": "2026-10-17",
+    "laenge_km": null,
+    "dauer_h": 0.67,
+    "wettbewerb": "Hobby, Masters, Elite Frauen 40-45 min",
+    "veranstalter_url": "https://www.pirate-hamburg.de/events/scc/",
+    "lat": 53.574,
+    "lon": 10.681
   },
   {
     "land": "Österreich",
@@ -1637,19 +1653,6 @@
     "laenge_km": 6.5,
     "wettbewerb": "O-SEE Canicross 6k, 6,5 km, 256 m Höhenmeter, ab 16",
     "veranstalter_url": "https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail"
-  },
-  {
-    "land": "Schweiz",
-    "name": "ORC 2 - Ride for Life",
-    "standort": "Corbières",
-    "lat": 46.6594169,
-    "lon": 7.1085607,
-    "art1": "Fahrrad",
-    "art2": "Cyclecross",
-    "datum_start": "2026-10-17",
-    "datum_ende": "2026-10-17",
-    "wettbewerb": "Cyclocross",
-    "veranstalter_url": "https://www.omniumromand.com/"
   },
   {
     "land": "Deutschland",
@@ -1940,7 +1943,8 @@
     "art2": "Trail",
     "datum_start": "2026-10-17",
     "datum_ende": "2026-10-17",
-    "veranstalter_url": "https://staufenlauf.com/"
+    "veranstalter_url": "https://staufenlauf.com/",
+    "hoehenmeter": 1000
   },
   {
     "land": "Deutschland",
@@ -18118,7 +18122,7 @@
     "art2": "Backyard Ultra",
     "datum_start": "2026-11-22",
     "datum_ende": "2026-11-22",
-    "laenge_km": 100.0,
+    "laenge_km": null,
     "veranstalter_url": "https://www.laufschule-tatje.de"
   },
   {
@@ -43661,6 +43665,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "ALTIMATE Treppenlauf Berlin",
+    "standort": "Berlin",
+    "lat": 52.5200066,
+    "lon": 13.404954,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-04-15",
+    "datum_ende": "2027-04-15",
+    "veranstalter_url": "https://www.altimate.run/",
+    "datum_vorlaeufig": true
+  },
+  {
+    "land": "Deutschland",
     "name": "Geschers Volksbank Run",
     "standort": "Gescher",
     "lat": 51.9529389,
@@ -46043,7 +46060,7 @@
     "art2": "Backyard Ultra",
     "datum_start": "2027-04-24",
     "datum_ende": "2027-04-25",
-    "laenge_km": 54.0,
+    "laenge_km": null,
     "wettbewerb": "54 km",
     "veranstalter_url": "https://www.austriabackyardultra.com/amstetten"
   },
@@ -68200,23 +68217,8 @@
     "art2": "Backyard Ultra",
     "datum_start": "2027-06-19",
     "datum_ende": "2027-06-20",
-    "laenge_km": 161.0,
-    "wettbewerb": "161 km",
-    "veranstalter_url": "https://my.raceresult.com/417493/",
-    "charity": true
-  },
-  {
-    "land": "Deutschland",
-    "name": "24h Spendenlauf - Backyard for Charity",
-    "standort": "Seekirch",
-    "lat": 48.1061816,
-    "lon": 9.6422163,
-    "art1": "Laufen",
-    "art2": "Backyard Ultra",
-    "datum_start": "2027-06-19",
-    "datum_ende": "2027-06-20",
     "laenge_km": null,
-    "wettbewerb": "7 km",
+    "wettbewerb": "161 km",
     "veranstalter_url": "https://my.raceresult.com/417493/",
     "charity": true,
     "dauer_h": 24.0

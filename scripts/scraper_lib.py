@@ -570,6 +570,12 @@ class Event:
     # das Sternchen; clean_events.zurueckziehen_prognosen() räumt sie weg,
     # sobald eine Quelle den echten Termin liefert. None statt False.
     gedaechtnis: bool | None = None
+    # Höhenmeter eines Berglaufs, dessen Veranstalter KEINE Distanz nennt
+    # ("1000 Höhenmeter", Staufenlauf Dornbirn - vom Nutzer am 13.10.2026:
+    # "Bei Länge schreib einfach 1.000hm hin. Die geben da nur die Höhe
+    # an."). Nur per Override/manual_events; die Länge-Spalte zeigt es,
+    # wenn weder Distanz noch Dauer da ist (event-detail.js ohneMasszahl).
+    hoehenmeter: int | None = None
 
     def is_valid(self) -> bool:
         return bool(self.name and self.datum_start and self.standort)
@@ -581,7 +587,9 @@ class Event:
         if d.get("laenge_km") is not None:
             d["laenge_km"] = round_km(d["laenge_km"])
         if d.get("dauer_h") is not None:
-            d["dauer_h"] = round(float(d["dauer_h"]), 1)
+            # Zwei Stellen: 40 Minuten sind 0,67 h - auf eine Stelle
+            # gerundet stünden in der Liste 42min (siehe EF.minutenVon).
+            d["dauer_h"] = round(float(d["dauer_h"]), 2)
         return {k: v for k, v in d.items() if v is not None}
 
 
@@ -2421,7 +2429,8 @@ def load_manual_overrides() -> dict:
 # seitenabgleich.py BESTAETIGT, dann den Override löschen.
 OVERRIDE_FIELDS = ("laenge_km", "dauer_h", "wettbewerb", "art2", "art1",
                    "land", "standort", "veranstalter_url", "lat", "lon",
-                   "datum_start", "datum_ende", "datum_vorlaeufig", "charity")
+                   "datum_start", "datum_ende", "datum_vorlaeufig", "charity",
+                   "hoehenmeter")
 
 
 def override_keys(name: str | None, datum_start: str | None, laenge_km=None,

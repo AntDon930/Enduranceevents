@@ -434,8 +434,20 @@
   }
 
   // "24h" bzw. "1,5h" - Zeitrennen haben keine Distanz (Datenregel 8).
+  // Unter einer Stunde in Minuten ("40min"; Cyclocross, Halbstundenlauf -
+  // vom Nutzer am 13.10.2026 so gewünscht: "20 - 60min"), aber nur bei
+  // einem Vielfachen von fünf Minuten: Ältere Zeilen tragen die Dauer auf
+  // eine Stelle gerundet (0,7 statt 0,67), daraus würden falsche 42min.
+  function minutenVon(h) {
+    const n = Number(h);
+    if (!(n > 0) || n > 1) return null;
+    const min = Math.round(n * 60);
+    return Math.abs(n * 60 - min) < 0.5 && min % 5 === 0 ? min : null;
+  }
   function formatHours(h, lang) {
     if (h == null || Number.isNaN(Number(h))) return '–';
+    const min = Number(h) < 1 ? minutenVon(h) : null;
+    if (min != null) return `${min}min`;
     return `${formatNumber(h, lang, 1)}h`;
   }
 
@@ -1328,6 +1340,7 @@
     formatNumber,
     formatKm,
     formatHours,
+    minutenVon,
     triathlonFormat,
     isoOf,
     todayIso,

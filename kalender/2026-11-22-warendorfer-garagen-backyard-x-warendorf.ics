@@ -4,15 +4,15 @@ PRODID:-//Ausdauersport-Events//kalender//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-22-warendorfer-garagen-backyard-100km-warendorf@antdon930.gith
- ub.io
+UID:2026-11-22-warendorfer-garagen-backyard-x-warendorf@antdon930.github.i
+ o
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:Warendorfer Garagen-Backyard
 LOCATION:Warendorf\, Deutschland
-DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: 100 km\nhttps://www.
- laufschule-tatje.de
+DESCRIPTION:Sportart: Laufen / Backyard Ultra\nLänge: Open End\nhttps://ww
+ w.laufschule-tatje.de
 TRANSP:TRANSPARENT
 URL:https://www.laufschule-tatje.de
 END:VEVENT

@@ -1842,10 +1842,10 @@
     "notiz": "03.10.2026 bestätigt, Einzel- und Staffelläufe; Distanzen nur in Ausschreibung/Streckenplan auf raceresult (dynamisch). Veranstalter-Link nachgetragen."
   },
   "Herbst Cross Lauf - Bechtsrieth|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "sportprogramme.org (5046), tv-bechtsrieth.de",
-    "notiz": "17.10.2026 bestätigt, Distanzen nirgends genannt. Veranstalter-Link nachgetragen."
+    "am": "2026-10-13",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.tv-bechtsrieth.de",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Sägerserie|2026-10-10": {
     "am": "2026-09-19",
@@ -1884,10 +1884,10 @@
     "notiz": "Sa 03.10.2026 bestätigt (SSV Fortschritt Lichtenstein); LADV nennt nur 'Crs. Lauf' je Altersklasse, keine Meter."
   },
   "Crosslauf Endingen|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "turnverein-endingen.com/crosslaufseite",
-    "notiz": "'Der 11. Crosslauf 2026 findet am 17.10.2026 statt'; Distanzen hinter einem weiteren Link, nicht abgerufen."
+    "am": "2026-10-13",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.turnverein-endingen.com/crosslaufseite/",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Rimsinger Tuniberg-Panoramalauf|2026-10-18": {
     "am": "2026-09-19",
@@ -1926,10 +1926,10 @@
     "notiz": "Spaßformat ohne Distanz, bleibt (Nutzer 21.09.2026)"
   },
   "ALTIMATE Treppenlauf Berlin|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "altimate.run",
-    "notiz": "Stadion-Treppenlauf ('ALTIMATE beginnt 2026 in Köln, Berlin und Düsseldorf'); Berliner Termin/Details auf der Seite nicht genannt. Treppenlauf-Frage (Punkt 13)."
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.altimate.run/",
+    "notiz": "Korrekturliste des Nutzers: Termin ist noch nicht bekannt. Steht nur \"Frühling 2027\". Bitte auch so übernehmen mit dem Sternchen wieder."
   },
   "Feuerwehrlauf am Schönbuch Turm|2026-09-27": {
     "am": "2026-09-21",
@@ -1950,10 +1950,10 @@
     "notiz": "10.10.2026 bestätigt (SV Wonneberg); Organizer-URL nur Platzhalter."
   },
   "Benediktbeurer Kirta Lauf|2026-10-17": {
-    "am": "2026-09-19",
-    "ergebnis": "unklar",
-    "quelle": "my.raceresult.com/407802/contact",
-    "notiz": "17.10.2026 bestätigt (52. Kirta Lauf, TSV Benediktbeuern-Bichl); Organizer-URL leer."
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://home.skiclub-bb.com/aktuell/eventuebersicht.html",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Hörnlelauf|2026-10-18": {
     "am": "2026-09-19",
@@ -2630,10 +2630,10 @@
     "notiz": "17.10.2026 bestätigt; 12,4 km genannt, 7,8 km auf der Startseite nicht (Label nennt beide)."
   },
   "Nattheimer Maultaschenlauf|2026-10-17": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "tsg-nattheim.de",
-    "notiz": "Vereins-Startseite nennt den Lauf nicht; 17.10.2026 und 5,3/10,1 km nicht prüfbar."
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.tsg-nattheim.de",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Bottwartal-Marathon|2026-10-17": {
     "am": "2026-09-21",
@@ -4538,10 +4538,10 @@
     "notiz": "Veranstalterseite (Stand 2026): Volksdistanz 0,5 km / 20 km / 5 km, Olympische Distanz 1,5 / 40 / 10 km; Staffel weggelassen. Termin 2027 dort noch nicht genannt."
   },
   "46. Krummenseelauf|2026-10-17": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
     "quelle": "https://www.leichtathletik-kw.de/",
-    "notiz": "Seite aus der Sandbox nicht abrufbar (SSL-/Proxy-Fehler bzw. 503)"
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Leimüller Silvesterlauf|2026-12-31": {
     "am": "2026-09-21",
@@ -7232,10 +7232,10 @@
     "notiz": "Seite liefert aus der Sandbox nur den Kopf; die übrigen Charity Walks stehen mit 5 km"
   },
   "Ahmadiyya Charity Walk Ellwangen|2026-10-17": {
-    "am": "2026-09-21",
-    "ergebnis": "unklar",
-    "quelle": "charitywalk.de",
-    "notiz": "wie Neuwied"
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://charitywalk.de/events/3-ahmadiyya-charity-walk-ellwangen",
+    "notiz": "Korrekturliste des Nutzers"
   },
   "Dreikönigslauf Sperrfechter Freizeitpark|2027-01-06": {
     "am": "2026-09-21",
@@ -8208,5 +8208,89 @@
     "ergebnis": "label_ok",
     "quelle": "Label/Name",
     "notiz": "Korrekturliste-Durchsicht: 170-km-Ultra im Label."
+  },
+  "Heidi-Challenge|2026-10-13": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://heidichallenge.run",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "FEM Teichwiesen Marathon|2026-10-14": {
+    "am": "2026-10-13",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/groups/62/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Heidi-Challenge|2026-10-14": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://heidichallenge.run",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Ladbergen Ultramarathon|2026-10-14": {
+    "am": "2026-10-13",
+    "ergebnis": "entfernt",
+    "quelle": "https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/",
+    "notiz": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+  },
+  "Auenlauf Oberhofen|2026-10-16": {
+    "am": "2026-10-13",
+    "ergebnis": "korrigiert",
+    "quelle": "http://www.sv-oberhofen.at",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Austria Backyard Ultra - Seekirchen|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://austriabackyardultra.com/",
+    "notiz": "Korrekturliste des Nutzers: Datum bitte \"open end\" am Ende einstellen. Und es ist ein backyard ultra, also die Distanz kann unendlich sein. Die Runde ist immer 6,706km"
+  },
+  "Backyard Ultra Valais Autumn Edition|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "korrigiert",
+    "quelle": "https://backyardultravalais.ch",
+    "notiz": "Korrekturliste des Nutzers: Das Event geht 38 Stunden und ist auch ein Backyard Ultra, jede Stunde wird eine Route 6,706km gelaufen bis die 38 Stunden voll sind."
+  },
+  "Berglauf Geschriebenstein|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "http://www.geschriebensteinlauf.at",
+    "notiz": "Korrekturliste des Nutzers: Es gibt mehrere Distanzen die alle auf der Webseite stehen https://irottkofutas.hu/de/"
+  },
+  "Deißlinger Gravel-Rennen|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://radlerlust.eu/gravelrennen/",
+    "notiz": "Korrekturliste des Nutzers: Das Rennen geht 10 Runden (eine runde ist 5,62km) und das rennen endet sobald einer die 10 runden geschafft hat."
+  },
+  "Hartberg bewegt sich|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "entfernt",
+    "quelle": "https://my.raceresult.com/416226/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "King of Pirates|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "korrigiert",
+    "quelle": "https://www.pirate-hamburg.de/events/scc/",
+    "notiz": "Korrekturliste des Nutzers: es gibt viele Events. Ich würde einfach alle zusammenfassen und 20 - 60min schreiben bei der Dauer"
+  },
+  "ORC 2 - Ride for Life|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "entfernt",
+    "quelle": "https://www.omniumromand.com/",
+    "notiz": "Korrekturliste des Nutzers"
+  },
+  "Ranger Race|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://www.esv-nuernberg.de/radsport.html",
+    "notiz": "Korrekturliste des Nutzers: Steht nicht drinnen wie lange das geht- einfach leer lassen"
+  },
+  "Staufenlauf Dornbirn|2026-10-17": {
+    "am": "2026-10-13",
+    "ergebnis": "quelle_ok",
+    "quelle": "https://staufenlauf.com/",
+    "notiz": "Korrekturliste des Nutzers: Bei Länge schreib einfach \"1.000hm\" hin. Die geben da nur die Höhe an."
   }
 }

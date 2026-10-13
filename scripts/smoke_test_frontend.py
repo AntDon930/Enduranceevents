@@ -331,7 +331,11 @@ def pruefe_kacheln(ctx, basis):
           unten: px(cs(letzte).borderBottomWidth), untenFarbe: cs(letzte).borderBottomColor === frameRgb,
           luecke: zeilen.slice(1).every((z, i) =>
             Math.abs(z.getBoundingClientRect().top - zeilen[i].getBoundingClientRect().bottom) <= 1),
-          ohneDatum: zeilen.slice(1).every(z => cs(z.querySelector('td.col-datum')).display === 'none'),
+          // Eine SERIE zeigt das Datum je Termin (tr.sub-row.serie) - so
+          // gewollt; seit der Korrekturliste vom 13.10.2026 kann die erste
+          // aufklappbare Veranstaltung eine sein (kein fester Fall).
+          ohneDatum: zeilen.slice(1).filter(z => !z.classList.contains('serie'))
+                       .every(z => cs(z.querySelector('td.col-datum')).display === 'none'),
           farben: [...new Set(zeilen.map(z => cs(z).backgroundColor))].length
         }; }""")
     if pruefe(bool(block) and block["zeilen"] > 1, "eine Veranstaltung lässt sich aufklappen"):

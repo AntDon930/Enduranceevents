@@ -364,9 +364,22 @@
     if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) {
       return EF.formatHours(e.dauer_h, lang);
     }
-    // Backyard Ultra ohne Zeitbegrenzung: bewusst "–". Der Lauf endet,
-    // wenn nur noch eine Person weiterläuft - es gibt keine Länge, und
-    // die Rundenlänge ist keine (siehe clear_backyard_lap_km()).
+    return ohneMasszahl(e, lang);
+  }
+
+  // Was die Länge-Spalte ohne Distanz und Dauer zeigt:
+  // - Backyard Ultra ohne Zeitbegrenzung: "Open End" (vom Nutzer am
+  //   13.10.2026: "die Distanz kann unendlich sein"). Der Lauf endet, wenn
+  //   nur noch eine Person weiterläuft; die Runde (6,706 km) ist keine
+  //   Länge (siehe clear_backyard_lap_km()).
+  // - Ein Berglauf, dessen Veranstalter nur die Höhenmeter nennt
+  //   ("1.000hm", Staufenlauf Dornbirn): das Feld `hoehenmeter`.
+  // - sonst "–".
+  function ohneMasszahl(e, lang) {
+    if (e.art2 === 'Backyard Ultra') return 'Open End';
+    if (e.hoehenmeter != null && !Number.isNaN(Number(e.hoehenmeter))) {
+      return `${EF.formatInt(e.hoehenmeter, lang)}hm`;
+    }
     return EF.formatKm(null, lang);
   }
 
@@ -861,7 +874,16 @@
       else if (e.dauer_h != null && !Number.isNaN(Number(e.dauer_h))) stunden.push(Number(e.dauer_h));
     });
     const werte = km.length ? km : stunden;
-    if (!werte.length) return '–';
+    if (!werte.length) {
+      const ohne = rows.map(e => ohneMasszahl(e, lang)).filter(t => t !== '–');
+      return ohne.length && ohne.every(t => t === ohne[0]) ? ohne[0] : '–';
+    }
+    // Lauter Dauern bis eine Stunde in vollen fünf Minuten: "40–60min".
+    if (!km.length && werte.every(v => EF.minutenVon(v) != null)) {
+      const min = werte.map(EF.minutenVon);
+      const a = Math.min.apply(null, min), b = Math.max.apply(null, min);
+      return a === b ? `${a}min` : `${a}–${b}min`;
+    }
     const einheit = km.length ? 'km' : 'h';
     const zahl = (v) => EF.formatNumber(v, lang, 1);
     const von = zahl(Math.min.apply(null, werte));

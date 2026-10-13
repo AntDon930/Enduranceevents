@@ -335,7 +335,7 @@ def zurueckziehen_vorjahreskopien(events: list[dict], manuell: list[dict]) -> tu
 
 
 # Die Felder, die EINE Strecke beschreiben (siehe apply_overrides).
-STRECKEN_FELDER = ("laenge_km", "wettbewerb", "dauer_h")
+STRECKEN_FELDER = ("laenge_km", "wettbewerb", "dauer_h", "hoehenmeter")
 
 
 def _hat_distanzgenauen_schluessel(overrides: dict, event: dict) -> bool:
@@ -1604,35 +1604,30 @@ BACKYARD_LAP_MAX_KM = 10.0
 
 
 def clear_backyard_lap_km(events: list[dict]) -> tuple[list[str], list[str]]:
-    """Nimmt die Rundenlänge aus `laenge_km` von Backyard-Events heraus.
+    """Nimmt JEDE Distanz aus `laenge_km` von Backyard-Events heraus.
 
     Ein Backyard Ultra läuft dieselbe Runde zur gleichen Stunde, bis nur
     noch eine Person weiterläuft - die Runde ist keine Wettkampfdistanz.
-    In den Daten standen 18 solcher Events mit "7 km" bzw. "6,7 km" in
-    der Länge-Spalte; wer nach "5-10 km" filterte, fand dadurch Rennen,
-    bei denen man 200 km läuft. Die Länge zeigt danach "-" (oder die
-    Dauer, falls das Rennen auf z. B. 24 Stunden begrenzt ist).
-
-    Größere Angaben werden NICHT angetastet, sondern nur gemeldet: bei
-    "RET-Team Backyard | 80 km" oder "Murr BackYard 12h | 67 km" ist
-    unklar, ob das eine Zielvorgabe, eine Teamwertung oder doch eine
-    Runde ist - solche Fälle gehören einzeln geprüft (siehe README,
-    "Die wichtigste Lektion"). Gibt (geleert, zu prüfen) zurück."""
+    Bis zum 13.10.2026 wurden nur Angaben bis 10 km (die Runde) entfernt
+    und größere gemeldet ("RET-Team Backyard 80 km", Valais 47 km,
+    Amstetten 54 km, Seekirch 161 km). Der Nutzer hat die Frage dann
+    beantwortet: "es ist ein backyard ultra, also die Distanz kann
+    unendlich sein. Die Runde ist immer 6,706km" - eine Kilometerzahl an
+    einem Backyard ist also immer Runde, Rekord oder Zielvorgabe, nie die
+    Länge des Rennens. Die Spalte zeigt danach "Open End" bzw. die Dauer,
+    wenn das Rennen auf z. B. 24 oder 38 Stunden begrenzt ist.
+    Gibt (geleert, zu prüfen) zurück; die zweite Liste ist seitdem leer."""
     cleared: list[str] = []
-    to_check: list[str] = []
     for event in events:
         if event.get("art2") != "Backyard Ultra":
             continue
         km = event.get("laenge_km")
         if not isinstance(km, (int, float)):
             continue
-        if km <= BACKYARD_LAP_MAX_KM:
-            event["laenge_km"] = None
-            cleared.append(f"{event.get('name')}: {km:g} km (Runde) entfernt")
-        else:
-            to_check.append(f"{event.get('name')}: {km:g} km - Runde, "
-                            f"Zielvorgabe oder Teamwertung? bitte prüfen")
-    return cleared, to_check
+        event["laenge_km"] = None
+        art = "Runde" if km <= BACKYARD_LAP_MAX_KM else "keine Renndistanz"
+        cleared.append(f"{event.get('name')}: {km:g} km ({art}) entfernt")
+    return cleared, []
 
 
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
@@ -2270,7 +2265,7 @@ def main() -> None:
     section("Distanz auf eine Dezimalstelle gerundet", rounding_fixes)
     section("Widersprüchliches Wettbewerbs-Label entfernt", label_fixes)
     section("Land ergänzt/korrigiert", land_fixes)
-    section("Backyard: Rundenlänge aus der Distanz entfernt", backyard_cleared)
+    section("Backyard: Distanz entfernt (Runde oder Zielvorgabe)", backyard_cleared)
     section("⚠ Backyard mit großer Distanzangabe (nur Hinweis)", backyard_check)
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
     section("Rundenlänge bei Zeitrennen entfernt", runden_entfernt)

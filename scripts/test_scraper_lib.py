@@ -778,8 +778,7 @@ def test_zeitrennen() -> None:
           parse_duration_h("6,708 km pro Runde beim SWUB; 24 Stunden ergeben 100 Meilen."),
           None)
 
-    # Rundenlänge aus bestehenden Backyard-Einträgen herausnehmen; große
-    # Angaben bleiben stehen und werden nur gemeldet.
+    # Distanzen aus bestehenden Backyard-Einträgen herausnehmen.
     from clean_events import clear_backyard_lap_km  # lokaler Import
     rows = [
         {"name": "Hofer Backyard Ultra", "art2": "Backyard Ultra", "laenge_km": 7.0},
@@ -788,9 +787,11 @@ def test_zeitrennen() -> None:
         {"name": "Stadtlauf", "art2": "Straße", "laenge_km": 7.0},
     ]
     cleared, to_check = clear_backyard_lap_km(rows)
-    check("zwei Runden entfernt", len(cleared), 2)
-    check("Runde ist weg", [r["laenge_km"] for r in rows], [None, None, 80.0, 7.0])
-    check("große Angabe nur gemeldet", len(to_check), 1)
+    # Seit dem 13.10.2026 fällt JEDE Distanz an einem Backyard (vom
+    # Nutzer: "die Distanz kann unendlich sein") - auch die 80 km.
+    check("drei Distanzen entfernt", len(cleared), 3)
+    check("Distanz ist weg", [r["laenge_km"] for r in rows], [None, None, None, 7.0])
+    check("nichts mehr nur gemeldet", len(to_check), 0)
 
     # Die Laufen-Kategorie "Backyard Ultra" (bis 19.09.2026 "Backcountry
     # Ultra") ist das Last-Man-Standing-Format.
@@ -2424,6 +2425,16 @@ def test_rundenlaenge_zeitrennen() -> None:
     Gedächtnis übernimmt keine Walking- und Kinderzeilen mehr."""
     print("\nRundenlänge bei Zeitrennen:")
     from clean_events import clear_rundenlaenge_bei_zeitrennen
+    # Anzeige ohne Distanz (Korrekturliste 13.10.2026, Rückgabe des
+    # Nutzers): Minuten unter einer Stunde, "Open End" beim Backyard,
+    # Höhenmeter - die Kalenderdatei sagt dasselbe wie die Seite.
+    from build_ics import laenge_text
+    check("40 Minuten", laenge_text({"dauer_h": 0.67}), "40 min")
+    check("0,7 h bleibt Stunden (alte Rundung, wären 42 min)", laenge_text({"dauer_h": 0.7}), "0.7 h")
+    check("Backyard: Open End", laenge_text({"art2": "Backyard Ultra"}), "Open End")
+    check("Höhenmeter", laenge_text({"hoehenmeter": 1000}), "1000 hm")
+    check("Dauer auf zwei Stellen", Event(name="x", datum_start="2027-01-01", standort="y",
+                                           dauer_h=2 / 3).to_dict()["dauer_h"], 0.67)
     rows = [{"name": "Wuhlheider 12 Stundenlauf", "laenge_km": 2.0, "dauer_h": 12.0},
             {"name": "2much4you", "laenge_km": 5.0, "dauer_h": 24.0},
             {"name": "Gravallo", "laenge_km": 85.0, "dauer_h": 6.0},

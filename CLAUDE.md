@@ -463,13 +463,17 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Runde (klassisch 4,167 Meilen = 6,706 km, in den Quellen „6,7" oder
    „7 km") zur gleichen Stunde, bis nur noch eine Person weiterläuft.
    Deshalb:
-   - Länge-Spalte zeigt **„–"**, wenn das Rennen zeitlich offen ist, und
-     **„24 h"**, wenn es auf 24 Stunden begrenzt ist.
+   - Länge-Spalte zeigt **„Open End"**, wenn das Rennen zeitlich offen
+     ist (seit dem 13.10.2026, vorher „–"; `ohneMasszahl()` in
+     `event-detail.js`, gleich in `build_ics.laenge_text()`), und
+     **„24h"**, wenn es auf 24 Stunden begrenzt ist.
    - `clean_events.clear_backyard_lap_km()` nimmt bei Backyard-Ultra-
-     Einträgen eine Distanz **bis 10 km** heraus (das ist die Runde; 18
-     Einträge betroffen). Größere Angaben (34/67/80 km) bleiben stehen
-     und werden nur **gemeldet** – unklar, ob Zielvorgabe, Teamwertung
-     oder Runde.
+     Einträgen **jede** Distanz heraus. Bis zum 13.10.2026 nur bis 10 km
+     (die Runde), größere (47/54/80/161 km) wurden gemeldet; dann hat der
+     Nutzer es entschieden: „es ist ein backyard ultra, also die Distanz
+     kann unendlich sein. Die Runde ist immer 6,706km" – eine Zahl an
+     einem Backyard ist Runde, Rekord oder Zielvorgabe, nie die Länge.
+     Ein Zeitlimit gehört in `dauer_h` (Valais 38 h).
    - Ein Override darf jetzt auch `dauer_h` und `wettbewerb` setzen, und
      `null` löscht ein Feld – so wurde „Murr BackYard 12h" auf 12 h ohne
      Distanz gebracht (die beiden Zeilen mit 67/34 km sind dadurch zu
@@ -5272,6 +5276,24 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     geprüfte Fehlalarme (Ultra-Distanzen, lange Namen) als `label_ok` in
     `geprueft.json`. Die Liste ging als `korrekturliste.xlsx` an den
     Nutzer; als Nächstes kommt sein `import`.
+    **13.10.2026, abends: erste Rückgabe eingelesen** (27 Zeilen: 7
+    Korrekturen, 5 Löschungen, Rest bestätigt). Von Hand, weil die Zelle
+    keine Zahl war: Geschriebenstein 102/55/36/23/7 km (Start in Bozsok,
+    Ungarn – nachgefragt), Deißlingen „10 Runden à 5,62 km" = 56,2 km,
+    King of Pirates 40–45 und 60 min, ALTIMATE Berlin „Frühling 2027"
+    (vorläufig auf 15.04.2027), Staufenlauf Dornbirn „1.000hm". Daraus
+    gebaut: **„Open End"** für jeden Backyard und jede Backyard-Distanz
+    raus (Datenregel 9), **Minuten unter einer Stunde** („40–60min",
+    `EF.minutenVon`, nur bei vollen fünf Minuten; `Event.to_dict()` rundet
+    `dauer_h` seitdem auf zwei Stellen, sonst wären 40 min 0,7 h = 42 min),
+    und das Feld **`hoehenmeter`** (Override/manual_events; die
+    Länge-Spalte zeigt „1.000hm", wenn weder Distanz noch Dauer da ist).
+    **Zurückgehalten**: fünf Links, die der Nutzer auf eine Anmelde- bzw.
+    Zeitnehmerseite gesetzt hat (Krummenseelauf → berlin-timing,
+    Benediktbeurer Kirta Lauf und Nattheimer Maultaschenlauf →
+    raceresult) – Datenregel 2, `apply_overrides()` blockt das; beim
+    Nutzer nachgefragt. Die Vereinsseiten nennen den Lauf 2026 nicht
+    (skiclub-bb.com zeigt zuletzt 2023).
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne

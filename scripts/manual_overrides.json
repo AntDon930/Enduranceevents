@@ -1756,7 +1756,8 @@
   },
   "Herbst Cross Lauf - Bechtsrieth|2026-10-17": {
     "veranstalter_url": "http://www.tv-bechtsrieth.de",
-    "_note": "Veranstalter TV Bechtsrieth laut sportprogramme.org; die Vereinsseite nennt 'Am 17.10.2026 findet wieder unser bekannter Crosslauf statt'. Geprüft 2026-09-19."
+    "_note": "Veranstalter TV Bechtsrieth laut sportprogramme.org; die Vereinsseite nennt 'Am 17.10.2026 findet wieder unser bekannter Crosslauf statt'. Geprüft 2026-09-19. | Korrekturliste des Nutzers",
+    "laenge_km": 6.0
   },
   "Sägerserie|2026-10-10": {
     "veranstalter_url": "https://saegerserie-berlin.de/",
@@ -6211,7 +6212,8 @@
   },
   "Auenlauf Oberhofen|2026-10-16": {
     "veranstalter_url": "http://www.sv-oberhofen.at",
-    "_note": "Veranstalterseite statt my.raceresult.com: http://www.sv-oberhofen.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:oberhofen). Linkprüfung 2026-09-22."
+    "_note": "Veranstalterseite statt my.raceresult.com: http://www.sv-oberhofen.at - von der raceresult-Kontaktseite (Organizer-URL), Zielseite nennt den Lauf (host:oberhofen). Linkprüfung 2026-09-22. | Korrekturliste des Nutzers",
+    "laenge_km": 5.0
   },
   "Austria Backyard Ultra - Seekirchen|2026-10-17": {
     "veranstalter_url": "https://austriabackyardultra.com/",
@@ -8565,5 +8567,77 @@
     "lat": 46.8064773,
     "lon": 7.1619719,
     "_note": "Korrekturliste-Durchsicht 13.10.2026: Die Gedächtnis-Kopie (Standort Murten, ohne Koordinaten) steht neben der Zeile aus der Handprüfung (Freiburg) - mit gleichem Ort eine Zeile."
+  },
+  "FEM Teichwiesen Marathon|2026-10-14|42.2": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Ladbergen Ultramarathon|2026-10-14|8.7": {
+    "wettbewerb": "Halbmarathon",
+    "laenge_km": 21.1,
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+  },
+  "Ladbergen Ultramarathon|2026-10-14|26": {
+    "wettbewerb": "Marathon",
+    "laenge_km": 42.2,
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+  },
+  "Ladbergen Ultramarathon|2026-10-14|42.8": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+  },
+  "Ladbergen Ultramarathon|2026-10-14|44": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers: es gibt nur Halbmarathon und Marathon"
+  },
+  "Backyard Ultra Valais Autumn Edition|2026-10-17|47": {
+    "laenge_km": null,
+    "dauer_h": 38.0,
+    "_note": "Korrekturliste des Nutzers: Das Event geht 38 Stunden und ist auch ein Backyard Ultra, jede Stunde wird eine Route 6,706km gelaufen bis die 38 Stunden voll sind.",
+    "wettbewerb": null
+  },
+  "Crosslauf Endingen|2026-10-17|5": {
+    "laenge_km": 5.4,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "Hartberg bewegt sich|2026-10-17": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "King of Pirates|2026-10-17|@Cyclocross, Stevens Cyclo-Cross Cup #04": {
+    "veranstalter_url": "https://www.pirate-hamburg.de/events/scc/",
+    "_note": "Korrekturliste des Nutzers 13.10.2026: \"alle zusammenfassen und 20 - 60min\". Zeitplan pirate-hamburg.de/events/scc: Elite Männer 60 min, Hobby/Masters/Elite Frauen/Juniorinnen 40-45 min (zweite Zeile in manual_events.json); 10-30 min sind Schüler/Jugend (Datenregel 24), E-Bike nicht.",
+    "dauer_h": 1.0,
+    "wettbewerb": "Elite Männer 60 min"
+  },
+  "ORC 2 - Ride for Life|2026-10-17|@Cyclocross": {
+    "exclude": true,
+    "_note": "Korrekturliste des Nutzers"
+  },
+  "ALTIMATE Treppenlauf Berlin|2026-10-17": {
+    "datum_start": "2027-04-15",
+    "datum_ende": "2027-04-15",
+    "datum_vorlaeufig": true,
+    "_note": "Korrekturliste des Nutzers 13.10.2026: \"Termin ist noch nicht bekannt. Steht nur 'Frühling 2027'. Bitte auch so übernehmen mit dem Sternchen.\" altimate.run: 'Frühling 2027', 2026 nur Köln (16.05.2026). Tag geschätzt (Mitte April), die Seite zeigt 'Apr. 2027*'."
+  },
+  "ALTIMATE Treppenlauf Berlin|2027-04-15": {
+    "datum_vorlaeufig": true,
+    "_note": "Korrekturliste des Nutzers 13.10.2026: Gegenschlüssel zum verschobenen Termin (Frühling 2027, vorläufig)."
+  },
+  "Berglauf Geschriebenstein|2026-10-17": {
+    "laenge_km": 102.0,
+    "wettbewerb": "LIS Alpokalja Ultra 102 km",
+    "standort": "Günser Gebirge",
+    "_note": "Korrekturliste des Nutzers 13.10.2026: irottkofutas.hu/de: 102 km (Ultra), 55 km, 36 km, 23 km, 7 km; die übrigen Strecken in manual_events.json. 102 km TEAM und Kids Run nicht aufgenommen. Start: Sportplatz Bozsok (Ungarn), die längeren Strecken führen über Rechnitz/Lockenhaus."
+  },
+  "Deißlinger Gravel-Rennen|2026-10-17": {
+    "laenge_km": 56.2,
+    "wettbewerb": "56,2 km (10 Runden à 5,62 km)",
+    "_note": "Korrekturliste des Nutzers 13.10.2026: radlerlust.eu/gravelrennen: 'Das Rennen läuft über 10 Runden und endet, sobald der Erste die 10. Runde beendet' - Runde 5,62 km laut Nutzer."
+  },
+  "Staufenlauf Dornbirn|2026-10-17": {
+    "hoehenmeter": 1000,
+    "art2": "Trail",
+    "_note": "Korrekturliste des Nutzers 13.10.2026: \"Bei Länge schreib einfach 1.000hm hin. Die geben da nur die Höhe an.\" staufenlauf.com: '1000 Höhenmeter', keine Distanz."
   }
 }
