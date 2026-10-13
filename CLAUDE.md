@@ -5320,7 +5320,8 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
 - **Montag 19.10.2026**: Nach dem Datenlauf muss ein Lauf „Deploy GitHub
   Pages" mit Ereignis `workflow_dispatch` dastehen (Abfrage mit VOLLEM
   SHA). Fehlt er, den Anstoß in `update-events.yml` auf `main` prüfen.
-- **Nächste Schritte in Reihenfolge**: Punkt 1 (Korrekturliste – die
+- **Nächste Schritte in Reihenfolge**: zuerst Punkt 7 (Probe des
+  Wartungsmodus, morgen früh), dann Punkt 1 (Korrekturliste – die
   nächste Excel des Nutzers einlesen), Punkt 2 (Domain-Verifizierung,
   Anleitung steht beim Punkt), der Rest ist später.
 
@@ -5374,14 +5375,20 @@ Verweise auf alte Nummern stehen in Klammern.
 
 (Der frühere Punkt 7 – `update-events.yml` auf `main` nachziehen – ist
 seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
-7. ~~**Firestore-Regeln deployen**~~ **erledigt** (14.10.2026, 00:50,
-   Cloud Shell: „released rules firestore.rules to cloud.firestore",
-   „Deploy complete!"; von hier geprüft: das Dokument `config/wartung`
-   antwortet ohne Anmeldung jetzt mit 404 NOT_FOUND statt 403 – lesen
-   erlaubt, Dokument entsteht beim ersten Umlegen). Offen nur noch die
-   Probe: Knopf im Dashboard einschalten → Startseite im zweiten Tab zeigt
-   die Pausenseite → ausschalten → der zweite Tab springt binnen einer
-   Minute zurück. Danach diesen Punkt streichen.
+7. **Probe des Wartungsmodus – morgen früh (14.10.2026)**, vom Nutzer so
+   gesetzt („Wir machen morgen früh die Probe"). Die Regeln sind seit
+   00:50 deployt (Cloud Shell: „released rules firestore.rules to
+   cloud.firestore", „Deploy complete!"; von hier geprüft: das Dokument
+   `config/wartung` antwortet ohne Anmeldung mit 404 NOT_FOUND statt 403
+   – lesen erlaubt, das Dokument entsteht beim ersten Umlegen). Die Karte
+   „Wartungsmodus" steht in `admin.html` ganz unten hinter der Trennlinie
+   (live seit bcca143). Ablauf der Probe: (1) `admin.html` öffnen, ans
+   Ende scrollen, „Wartungsmodus einschalten", Rückfrage bestätigen –
+   Status „AN"; (2) zweiter Tab `endurance-events.de` → Pausenseite;
+   (3) im Dashboard „Wartungsmodus ausschalten"; (4) der zweite Tab
+   springt binnen einer Minute von selbst zur Startseite. Klappt alles,
+   diesen Punkt streichen; meldet der Knopf einen Fehler, den Wortlaut
+   hier melden.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
