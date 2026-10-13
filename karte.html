@@ -112,7 +112,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=fbb8ab3b">
+<link rel="stylesheet" href="site.css?v=a19eb795">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=161bee33">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -128,6 +128,10 @@
      Standort" unter den Zoom-Knöpfen. Alle Farben aus den Variablen in
      site.css, damit beide Farbschemata stimmen. */
   html, body { height: 100%; }
+  /* 100dvh wie in events.html: Safari auf dem iPhone rechnet 100 % mit
+     eingeblendeter Werkzeugleiste, Legende und Fußzeile lagen darunter
+     (vom Nutzer am 14.10.2026 mit Foto gemeldet). */
+  body { height: 100dvh; }
   body { display: flex; flex-direction: column; }
 
   .map-wrap {
@@ -359,8 +363,26 @@
      Legende über der Quellenangabe. */
   @media (max-width: 599px) {
     .map-details { top: 60px; max-height: calc(100% - 70px); }
-    .map-legend { bottom: 30px; padding: 6px 10px; gap: 6px 10px; font-size: 0.76rem; }
-    .map-legend .result-count { font-size: 0.9rem; }
+  }
+  /* Handy und Tablet hochkant: die Legende OBEN RECHTS auf der Karte -
+     unten lag sie unter der Werkzeugleiste von Safari und außer Sicht
+     (vom Nutzer am 14.10.2026: „da sieht man sie nicht. Eher bei der
+     Karte lieber weiter oben"). Zwei Zeilen: Zahl, darunter die vier
+     Sportarten; die Zoom-Knöpfe und „Mein Standort" bleiben links. */
+  @media (max-width: 900px) {
+    .map-legend {
+      top: 12px; right: 12px; bottom: auto; left: auto;
+      flex-direction: column; align-items: flex-start;
+      gap: 4px; padding: 8px 12px;
+      max-width: 230px;
+      font-size: 0.78rem;
+    }
+    .map-legend .result-count { font-size: 0.95rem; }
+    .map-legend .legend-sep { display: none; }
+    /* Die vier Sportarten als 2 x 2, schmal - die Legende liegt über der
+       Karte, und der Ausschnitt lässt ihr oben Platz (fitBounds mit
+       paddingTopLeft, siehe renderMarkers). */
+    .map-legend .legend-items { display: grid; grid-template-columns: auto auto; gap: 2px 12px; }
   }
   .map-details .detail-panel .detail-date { font-size: 1.3rem; }
   .map-details .detail-panel h2 { font-size: 1.15rem; }
@@ -428,19 +450,20 @@
       </svg>
       <span id="list-btn-text">Liste</span>
     </a>
-    <!-- "E-Mail-Abo": der Abo-Dialog lebt in der Liste (Firestore) -
-         der Knopf führt mit den aktuellen Filtern dorthin und öffnet
-         ihn (?abos=1), siehe render(). -->
-    <a class="bar-btn" href="events.html?abos=1" id="abo-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-           stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>
-      </svg>
-      <span id="abo-btn-text">E-Mail-Abo</span>
-    </a>
   </div>
   <button type="button" class="filter-sheet-fertig" id="filter-sheet-fertig"></button>
   </div>
+  <!-- "E-Mail-Abo": der Abo-Dialog lebt in der Liste (Firestore) - der
+       Knopf führt mit den aktuellen Filtern dorthin und öffnet ihn
+       (?abos=1), siehe render(). Nicht im Blatt, sondern in der Leiste
+       (Handy: zweite Zeile neben „Filter", siehe events.html). -->
+  <a class="bar-btn abo-btn" href="events.html?abos=1" id="abo-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+         stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>
+    </svg>
+    <span id="abo-btn-text">E-Mail-Abo</span>
+  </a>
 </div>
 <div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
 
@@ -1462,7 +1485,12 @@
       // standen dann als Briefmarke in der Mitte.
       // Höchstens Zoom 13 (Ortsebene): Bei einem einzelnen Ort zoomte
       // die Karte sonst bis auf die Hausnummer.
-      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.04), { maxZoom: 13 });
+      // Auf dem Handy liegt die Legende oben rechts auf der Karte - der
+      // Ausschnitt lässt ihr oben ~100 px frei, sonst verdeckt sie das
+      // nördlichste Bündel (Hamburg).
+      const handy = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.04),
+                    { maxZoom: 13, paddingTopLeft: [0, handy ? 100 : 0] });
     }
   }
 

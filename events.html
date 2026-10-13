@@ -90,7 +90,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=fbb8ab3b">
+<link rel="stylesheet" href="site.css?v=a19eb795">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=161bee33">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -965,18 +965,21 @@
       </svg>
       <span id="map-btn-label"></span>
     </a>
-    <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern. -->
-    <button type="button" class="bar-btn abo-btn" id="abo-open-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-           stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
-      </svg>
-      <span id="abo-open-label"></span>
-    </button>
   </div>
   <button type="button" class="filter-sheet-fertig" id="filter-sheet-fertig"></button>
   </div>
+  <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern - und NICHT
+       im Blatt (vom Nutzer am 14.10.2026: „sonst weiß keiner, wofür das
+       ist"): am Rechner rechts neben „Karte", auf dem Handy in der zweiten
+       Zeile der Leiste neben „Filter". -->
+  <button type="button" class="bar-btn abo-btn" id="abo-open-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+         stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+      <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+    </svg>
+    <span id="abo-open-label"></span>
+  </button>
 </div>
 <div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
 

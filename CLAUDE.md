@@ -113,7 +113,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 251 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 253 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (unter 700 px: Kacheln statt Tabelle, Sortier-Pillen,
 Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -2751,9 +2751,11 @@ sagt es).
   fang mit 1 und 2 an, mach aber den Rest auch"). Was gebaut ist:
   - **`EFU.filterSheet()`** (`filter-ui.js`): Bis 900 px bleibt in der
     Filterleiste nur das Suchfeld und ein Knopf **„Filter"** mit der
-    Zahl der gesetzten Filter (Chips ohne die Suche, `setBadge`); die
-    Pillen, „Karte"/„Liste" und „E-Mail-Abo" liegen in einem **Blatt von
-    unten** (`.filter-sheet`, `body.filter-sheet-offen`, Schleier
+    Zahl der gesetzten Filter (Chips ohne die Suche, `setBadge`),
+    darunter **„E-Mail-Abo"** (zweite Zeile der Leiste, beide je zur
+    Hälfte – das Abo stand kurz im Blatt, vom Nutzer am 14.10.2026
+    zurückgeholt: „sonst weiß keiner, wofür das ist"); die Pillen und
+    „Karte"/„Liste" liegen in einem **Blatt von unten** (`.filter-sheet`, `body.filter-sheet-offen`, Schleier
     `.filter-sheet-scrim`), mit Titel, „Filter löschen", ✕ und dem Knopf
     **„N Events anzeigen"** (`setTexts({ done })` aus `render()`). Am
     Rechner ist die Hülle `display: contents` – **dieselben Pillen,
@@ -2771,8 +2773,11 @@ sagt es).
     (`thead tr { flex-wrap: nowrap; overflow-x: auto }`), die
     Werkzeugleiste in zwei kurzen Zeilen (Zahl + Stand, Schalter, Chips;
     „Filter löschen" nur im Blatt). Ergebnis: erste Veranstaltung bei
-    ~326 px, auf der Karte Karte bis zum Fuß (`.map-wrap { min-height:
-    0 }`, Fußnote dort ausgeblendet, Fußzeile flach).
+    ~380 px, auf der Karte Karte bis zum Fuß (`.map-wrap { min-height:
+    0 }`, `body { height: 100dvh }` wie in der Liste, Fußnote dort
+    ausgeblendet, Fußzeile flach). **Die Legende steht auf dem Handy oben
+    rechts** auf der Karte (vom Nutzer am 14.10.2026 mit Foto: unten lag
+    sie unter der Werkzeugleiste von Safari, „da sieht man sie nicht").
   - **Zwei Fallen beim Bau, beide in Kommentaren festgehalten**: Die
     nicht umbrechende Pillenreihe machte die Tabelle 677 px breit, weil
     `.layout { grid-template-columns: 1fr }` die Spalte auf die

@@ -2267,9 +2267,10 @@ schließt Panel und Dialog und gibt den Fokus zurück.
 
 Auf dem Handy und auf dem Tablet hochkant (bis 900 px) stehen die
 Filterpillen nicht mehr in der Leiste, sondern in einem Blatt von unten:
-In der Leiste bleiben das Suchfeld und ein Knopf „Filter" mit der Zahl
-der gesetzten Filter; das Blatt trägt die Pillen, „Karte" bzw. „Liste",
-„E-Mail-Abo", „Filter löschen" und den Knopf „N Events anzeigen". Anlass
+In der Leiste bleiben das Suchfeld, ein Knopf „Filter" mit der Zahl
+der gesetzten Filter und daneben „E-Mail-Abo"; das Blatt trägt die
+Pillen, „Karte" bzw. „Liste", „Filter löschen" und den Knopf „N Events
+anzeigen". Die Legende der Karte steht auf dem Handy oben rechts. Anlass
 war eine Messung auf einem iPhone-Viewport: Die erste Veranstaltung lag
 bei 601 px, also unter dem Bildrand; jetzt beginnt sie bei rund 326 px,
 und die Karte füllt den Bildschirm bis zur Fußzeile. Am Rechner ist das

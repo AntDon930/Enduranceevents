@@ -270,13 +270,16 @@ def pruefe_kacheln(ctx, basis):
         const sichtbar = el => { if (!el) return false; const s = getComputedStyle(el);
             return s.display !== 'none' && s.visibility !== 'hidden' && el.getBoundingClientRect().height > 0; };
         const erste = document.querySelector('tbody tr[data-idx]');
+        const abo = document.getElementById('abo-open-btn');
         return { knopf: sichtbar(document.getElementById('filter-sheet-btn')),
+                 abo: sichtbar(abo) && !document.getElementById('filter-sheet').contains(abo),
                  pillenWeg: !sichtbar(document.querySelector('#filter-buttons .col-filter-btn')),
                  ersteTop: erste ? Math.round(erste.getBoundingClientRect().top) : null,
                  sortReihen: new Set([...document.querySelectorAll('thead .th-sort')]
                      .map(b => Math.round(b.getBoundingClientRect().top))).size }; }""")
     pruefe(blatt["knopf"] and blatt["pillenWeg"],
-           "die Filterpillen liegen im Blatt, in der Leiste steht nur der Knopf „Filter“")
+           "die Filterpillen liegen im Blatt, in der Leiste steht der Knopf „Filter“")
+    pruefe(blatt["abo"], "… und „E-Mail-Abo“ steht sichtbar in der Leiste, nicht im Blatt")
     pruefe(blatt["ersteTop"] is not None and blatt["ersteTop"] < 420,
            "die erste Veranstaltung beginnt im Bild (bei %s px)" % blatt["ersteTop"])
     pruefe(blatt["sortReihen"] == 1, "die Sortierpillen stehen in EINER Reihe (%d)" % blatt["sortReihen"])
@@ -974,7 +977,6 @@ def pruefe_abo(ctx, basis):
     if not pruefe(knopf.count() == 1, "der Abo-Knopf steht in der Werkzeugleiste"):
         seite.close()
         return
-    oeffne_filterblatt(seite)   # auf Handybreite steht er im Filter-Blatt
     knopf.scroll_into_view_if_needed()
     knopf.click()
     seite.wait_for_timeout(700)
@@ -1618,6 +1620,10 @@ def pruefe_karten_aufbau(seite):
           legende: !!legende && legende.contains(document.getElementById('map-hint')),
           sportarten: legende ? legende.querySelectorAll('.legend-item').length : 0,
           untenLinks: r ? (r.left - wrap.left < 40 && wrap.bottom - r.bottom < 60) : false,
+          // Handy (14.10.2026): oben rechts - unten lag sie unter der
+          // Werkzeugleiste von Safari.
+          obenRechts: r ? (wrap.right - r.right < 40 && r.top - wrap.top < 60) : false,
+          handy: matchMedia('(max-width: 900px)').matches,
           standort: !!document.querySelector('.standort-btn'),
           werkzeugleiste: !!document.getElementById('toolbar') && document.getElementById('toolbar').hidden,
           land: !!document.querySelector('path.land-pfad'),
@@ -1630,7 +1636,10 @@ def pruefe_karten_aufbau(seite):
         }; }""")
     pruefe(stand["legende"] and stand["sportarten"] == 4,
            "Legende mit Trefferzahl und vier Sportarten (%d)" % stand["sportarten"])
-    pruefe(stand["untenLinks"], "… sie steht unten links auf der Karte")
+    if stand["handy"]:
+        pruefe(stand["obenRechts"], "… sie steht auf dem Handy oben rechts auf der Karte")
+    else:
+        pruefe(stand["untenLinks"], "… sie steht unten links auf der Karte")
     pruefe(stand["standort"], "„Mein Standort“ steht auf der Karte")
     pruefe(stand["werkzeugleiste"], "ohne Filter ist die Werkzeugleiste (Chips) ausgeblendet")
     pruefe(stand["land"] and stand["landZ"] is not None and stand["landZ"] < 200,

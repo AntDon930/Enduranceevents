@@ -536,14 +536,23 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   .seiten-footer a, .fehlt-btn { display: inline-flex; align-items: center; min-height: 44px; }
   .result-count { font-size: 1.25rem; }
 
-  /* Die Filterleiste: nur noch Suchfeld + Knopf "Filter" in EINER Zeile. */
-  .filter-bar { flex-wrap: nowrap; gap: 10px; padding: 10px var(--seite-rand); }
-  .master-search { flex: 1 1 auto; min-width: 0; }
+  /* Die Filterleiste in zwei Zeilen: oben das Suchfeld, darunter "Filter"
+     und "E-Mail-Abo" je zur Hälfte. Das Abo stand kurz im Blatt - vom
+     Nutzer am 14.10.2026 zurück in die Leiste geholt („sonst weiß keiner,
+     wofür das ist"). */
+  .filter-bar { gap: 8px 10px; padding: 10px var(--seite-rand); }
+  /* Spezifischer als .master-search in filter-ui.css (flex: 0 1 280px),
+     sonst bleibt neben dem Feld Platz und "Filter" rutscht in die erste
+     Zeile, das Abo allein in die zweite. */
+  .filter-bar > .master-search { flex: 1 1 100%; max-width: none; min-width: 0; }
+  .filter-bar > .abo-btn { flex: 1 1 0; justify-content: center; min-width: 0; }
   .filter-sheet-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    flex: none;
+    flex: 1 1 0;
+    min-width: 0;
     height: 44px;
     padding: 0 14px;
     border-radius: var(--radius-ctl);
