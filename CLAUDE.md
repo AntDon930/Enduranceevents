@@ -5194,7 +5194,14 @@ Verweise auf alte Nummern stehen in Klammern.
    `admins/<uid>` in Firestore anlegen, falls noch nicht geschehen.
 7. **Datenschutzerklärung erneut lesen** (neu 13.10.2026): Abschnitt
    „Besucherstatistik" (DE und EN) samt Schalter – die Seite ist live,
-   also zeitnah.
+   also zeitnah. **Vorab von Claude gegen den Code gehalten (13.10.2026,
+   abends)**: Jede Angabe im Text stimmt mit `stats.js` und der Function
+   überein (Felder, Aktionen, @-Regel, keine Koordinaten, Tagesschlüssel,
+   35 Tage, Belgien/Frankfurt, DNT/GPC, Schalter). Eine Lücke geschlossen:
+   Der Hinweis auf ein fehlendes Event (`fehlt`) stand nicht im Text,
+   ebenso wenig, dass ein Abo nur mit dem Rhythmus und eine Fehlermeldung
+   nur mit der Kategorie gezählt wird – in Markup, DE- und EN-Text
+   ergänzt. Der Nutzer liest den Text danach selbst (keine Rechtsberatung).
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
