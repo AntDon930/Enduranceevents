@@ -20,7 +20,8 @@
      jede Minute erneut ab und geht von selbst zur Startseite zurück,
      sobald der Schalter wieder aus ist. Impressum und Datenschutz bleiben
      verlinkt - die müssen auch in der Pause erreichbar sein. Kein
-     stats.js: In der Pause wird nicht gezählt. -->
+     stats.js: In der Pause wird nicht gezählt. Vorschau ohne Rücksprung:
+     wartung.html?vorschau -->
 
 <div class="top-bar">
   <h1 data-i="titel">Kurze Pause</h1>
@@ -81,12 +82,16 @@
 
   // Jede Minute nachsehen: Schalter aus -> zurück zur Startseite. Ein
   // fehlgeschlagener Abruf ändert nichts (die Seite bleibt stehen).
+  // Mit ?vorschau in der Adresse bleibt die Seite auch bei
+  // ausgeschaltetem Schalter stehen - zum Ansehen, bevor man ihn umlegt
+  // (vom Nutzer am 14.10.2026 gefragt: „werde sofort weitergeleitet").
+  const vorschau = /[?&]vorschau\b/.test(location.search);
   function pruefen() {
     fetch('wartung.json?t=' + Date.now(), { cache: 'no-store' })
       .then(r => (r.ok ? r.json() : null))
       .then(w => {
         if (!w) return;
-        if (w.aktiv !== true) { location.replace('index.html'); return; }
+        if (w.aktiv !== true && !vorschau) { location.replace('index.html'); return; }
         texte = { de: typeof w.text_de === 'string' && w.text_de ? w.text_de : null,
                   en: typeof w.text_en === 'string' && w.text_en ? w.text_en : null };
         applyLang(lang);

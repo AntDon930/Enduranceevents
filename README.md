@@ -1150,7 +1150,9 @@ Datei, DE/EN, Links auf Impressum und Datenschutz (die müssen auch in
 der Pause erreichbar sein, beide tragen den Schnipsel deshalb nicht,
 `admin.html` ebenfalls nicht). Die Wartungsseite fragt den Schalter
 jede Minute ab und geht von selbst zur Startseite zurück, sobald er
-aus ist. Schlägt der Abruf fehl, läuft die Seite normal weiter.
+aus ist – deshalb lässt sie sich bei ausgeschaltetem Schalter nur über
+`wartung.html?vorschau` ansehen (ohne den Rücksprung). Schlägt der
+Abruf fehl, läuft die Seite normal weiter.
 
 Umschalten, auch vom iPad: auf github.com das Repository öffnen,
 Branch `claude/endurance-events-website-v1wruf`, Datei `wartung.json`,
