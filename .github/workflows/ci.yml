@@ -18,12 +18,17 @@ name: Tests
 # abgerufen werden (Höflichkeit und robots.txt), Daten aktualisiert
 # allein update-events.yml.
 
+# Nur `push`, kein `pull_request`: Der Entwicklungs-Branch hängt an
+# PR #1, und mit beiden Auslösern lief jeder Push ZWEIMAL - zwei
+# Durchgänge, zwei Fehler-Mails an den Nutzer (13.10.2026: "Außerdem
+# bekomme ich immer so viele von diesen E-Mails"). Die Push-Läufe
+# erscheinen als Checks am selben Commit auch im Pull Request.
 on:
   push:
     branches:
       - claude/endurance-events-website-v1wruf
+      - claude/website-access-9d9tg1
       - main
-  pull_request:
   workflow_dispatch: {}
 
 permissions:
@@ -117,6 +122,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      # Auch hier die Python-Abhängigkeiten: smoke_test_frontend.py
+      # importiert seit dem 06.10.2026 scraper_lib (serien_schluessel,
+      # der Python-Zwilling der Serien-Gruppierung), und scraper_lib
+      # importiert requests und bs4. Ohne diese Zeile brach der Rauchtest
+      # eine Woche lang nach 30 Sekunden mit "No module named 'requests'"
+      # ab - bei jedem Push eine Fehler-Mail, bis es am 13.10.2026 auffiel.
+      - name: Python-Abhängigkeiten
+        run: pip install --quiet -r scripts/requirements.txt
 
       - name: Playwright und Chromium
         run: |

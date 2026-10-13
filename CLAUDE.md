@@ -4717,6 +4717,18 @@ passt nicht", „Kinderlauf-Label mit Erwachsenendistanz", „Zahl im Label
 weicht ab", „Koordinaten passen nicht zum Land"); Portallinks und
 fehlende Distanzen sind keine Fehler.
 
+**Der Rauchtest-Job braucht `scripts/requirements.txt`** (seit dem
+13.10.2026 in `ci.yml`): `smoke_test_frontend.py` importiert seit dem
+06.10.2026 `scraper_lib.serien_schluessel`, und `scraper_lib` zieht
+`requests`/`bs4` – der Job installierte nur Playwright, und eine Woche
+lang brach er bei jedem Push nach 30 Sekunden mit „No module named
+'requests'" ab (lokal lief der Test, dort sind die Pakete da). Der
+Nutzer bekam zwei Fehler-Mails je Push, weil die CI außerdem auf
+`push` UND `pull_request` lief (PR #1 hängt am Entwicklungs-Branch);
+seitdem nur `push` auf den drei Branches. **Ein roter Rauchtest in
+der CI nach 30 Sekunden ist ein Umgebungsfehler, kein Seitenfehler** –
+erst das Log lesen, dann suchen.
+
 `.github/workflows/update-events.yml` läuft **wöchentlich montags 5:00 UTC**
 (vorher täglich – solange die Seite nicht live ist, bringt ein täglicher
 Lauf nur Laufzeit und große events.json-Diffs): alle Scraper, dann
@@ -4957,7 +4969,50 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 
 ## Offene Punkte / To-dos
 
-### To-do-Liste des Nutzers (05.10.2026, abends – „merke dir alle Punkte ganz genau")
+### To-do-Liste des Nutzers (Stand 13.10.2026, nach dem Livegang)
+
+**Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
+Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
+Datum in das Archiv darunter (die alte Liste vom 05.10.2026 – dort
+bleiben Begründungen und Entscheidungen stehen, die Nummern dort sind
+die ALTEN). Wird ein Punkt erledigt, die Liste hier neu durchnummerieren;
+Verweise auf alte Nummern stehen in Klammern.
+
+1. **Korrekturliste** (alt 32): täglich ~50 Zeilen in der Excel prüfen
+   und die Datei zurückschicken → `korrekturliste.py import` → Push.
+   Jede geprüfte Zeile wird damit auf endurance-events.de sichtbar
+   (`pruefung_offen`, siehe „Livegang"); 1.256 Zeilen warten.
+2. **GitHub-Domain-Verifizierung** (alt 33, kostenlos, freiwillig):
+   (1) github.com → Profilbild → **Settings** (persönlich) → **Pages** →
+   „Add a domain" → `endurance-events.de` → GitHub zeigt einen
+   TXT-Eintrag; (2) IONOS → DNS → „Record hinzufügen" → Typ **TXT**,
+   Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
+   keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
+   paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
+3. **Frühjahr 2027** (alt 25): die 72 „existiert, Termin offen"-Einträge
+   der PDF-Liste erneut prüfen (`scripts/eventliste_pdf_geprueft.json`)
+   – Arbeit von Claude, der Nutzer gibt den Anstoß.
+4. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
+   Veranstalter nachziehen.
+5. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
+   swimsports, BRV Timing tragen die Saison 2027 erst dann ein – der
+   Wochenlauf holt sie, nur nachsehen.
+6. **11.01.2027** (aus alt 2): Erinnerung `trig_013AV7Nn2GVq1m3LgxL3ukcq`
+   zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
+   Cloud Function bauen, dann `firebase deploy --only functions` aus der
+   Cloud Shell (der Nutzer), Extension deinstallieren.
+
+Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
+laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
+„women Tour" St. Pölten und Österreichische Cyclocross-Meisterschaft
+(alt 15), „Nordrhein Meisterschaften 10km Straße" und „DM 10km Straße"
+(alt 18), Merkposten Pille „Name" (alt 24).
+
+### Archiv: die To-do-Liste vom 05.10.2026 (alte Nummern)
+
+Vom Nutzer am 05.10.2026 abends diktiert („merke dir alle Punkte ganz
+genau"); seit dem 13.10.2026 nur noch Archiv – die offenen Punkte stehen
+oben mit neuen Nummern.
 
 Der Nutzer arbeitet diese Liste **eins nach dem anderen** ab und fragt
 je Punkt nach einer genauen Anleitung. Wer einen Punkt erledigt, streicht
@@ -5043,12 +5098,8 @@ ihn hier durch (~~…~~) mit Datum; die Reihenfolge nicht ändern.
    nicht") – jetzt Punkt 30.
 
 **Stand am 13.10.2026, abends: LIVE auf endurance-events.de (Punkt 29
-vorgezogen, siehe „Livegang"). Offen beim Nutzer: Punkt 32 (täglich
-~50 Zeilen der Korrekturliste – jede geprüfte Zeile wird sichtbar) und
-der neue Punkt 33 (Domain-Verifizierung, freiwillig); Punkt 30
-gestrichen, Punkt 31 erledigt; Punkte 25–27 warten auf das Frühjahr
-2027; die Erinnerung zum Ende der Firebase Extensions (Punkt 2) kommt
-am 11.01.2027.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
+vorgezogen, siehe „Livegang"). Was offen blieb (25–27, 32, 33), steht
+oben in der neuen Liste als 3–5, 1, 2.** **Stand am 08.10.2026 – Punkte 1–4, 6 und 8–24 erledigt (8 und 9–15 in
 zwei parallelen Sitzungen, 16 und 17 am 08.10.), Punkt 7 ans Ende
 verschoben (jetzt Punkt 32), WEITER BEI PUNKT 25 (Abschnitt D, Frühjahr 2027 – aus C ist nichts mehr offen).**
 (Ursprünglich am Abend des 05.10.2026 geschrieben, 23:45; Punkt 6 am
@@ -5344,10 +5395,12 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 **D. Später (Frühjahr 2027)**
 
 25. Die 72 „existiert, Termin offen"-Einträge der PDF-Liste erneut prüfen
-    (`scripts/eventliste_pdf_geprueft.json`).
+    (`scripts/eventliste_pdf_geprueft.json`). → **neue Liste, Punkt 3**
 26. NordCup 2027 (9 Radmarathons SH) beim Veranstalter nachziehen.
+    → **neue Liste, Punkt 4**
 27. BOE, Fricktaler Cup, dsergebnis, swimsports, BRV Timing tragen die
     Saison 2027 erst im Frühjahr ein – der Wochenlauf holt sie.
+    → **neue Liste, Punkt 5**
 
 **E. Zum Schluss**
 
@@ -5376,7 +5429,7 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     überlegen."). Keine Quelle, die nur mit Erlaubnis des Betreibers
     läuft – nicht wieder vorschlagen; die gesperrten Quellen bleiben
     gesperrt.
-32. **Korrekturliste zu Ende** (`korrekturliste.py export` → ausfüllen →
+32. **Korrekturliste zu Ende** → **neue Liste, Punkt 1** (`korrekturliste.py export` → ausfüllen →
     `import`; die ersten 24 Zeilen sind durch) – vom Nutzer am 07.10.2026
     hierher gestellt: der letzte Schritt vor dem Livegang auf
     `endurance-events.de` (Punkt 29).
@@ -5424,18 +5477,9 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Ungarn („Ja aufnehmen", Datenregel 4).
 **F. Nach dem Livegang (13.10.2026)**
 
-33. **GitHub-Domain-Verifizierung** (kostenlos, freiwillig – vom Nutzer
-    am 13.10.2026 gewünscht: „wenn es umsonst ist"): schützt davor, dass
-    nach einem Löschen des Repositories jemand anderes die Domain auf
-    sein Pages-Projekt zeigen lässt. Drei Schritte: (1) github.com →
-    Profilbild → **Settings** (persönlich, nicht Repository) → links
-    **Pages** → „Add a domain" → `endurance-events.de` → GitHub zeigt
-    einen TXT-Eintrag (`_github-pages-challenge-AntDon930.endurance-events.de`
-    + Code); (2) IONOS → DNS → „Record hinzufügen" → Typ **TXT**,
-    Hostname nur `_github-pages-challenge-AntDon930` (IONOS hängt die
-    Domain an), Wert = der Code, keinen www-Eintrag dazu; (3) bei GitHub
-    „Verify", notfalls nach ein paar Minuten noch einmal. Der TXT-Eintrag
-    bleibt dauerhaft stehen.
+33. GitHub-Domain-Verifizierung → **jetzt Punkt 2 der neuen Liste**
+    (schützt davor, dass nach einem Löschen des Repositories jemand
+    anderes die Domain auf sein Pages-Projekt zeigen lässt).
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
