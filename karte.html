@@ -11,6 +11,7 @@
      Ecken selbst, deshalb ist es randvoll). -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0b1220">
 <!-- Wartungsmodus (wartung.json, wartung.html, README „Wartungsmodus"):
      Steht in wartung.json "aktiv": true, führt die Seite sofort nach
@@ -105,9 +106,9 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=d4fd95e5">
+<link rel="stylesheet" href="site.css?v=fbb8ab3b">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
-<link rel="stylesheet" href="filter-ui.css?v=aed855c2">
+<link rel="stylesheet" href="filter-ui.css?v=161bee33">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
 <style>
   /* Farben, Kopfzeile, Filterleiste, Werkzeugleiste und Fußzeile stehen
@@ -128,6 +129,18 @@
     min-height: 60vh;
     position: relative;
     background: var(--map-bg);
+  }
+  /* Handy: die Karte bekommt, was Kopf, Suchzeile und Fuß übrig lassen
+     - ohne Mindesthöhe, die die Seite scrollen ließe (vorher 398 px
+     Karte bei 892 px Seite, 13.10.2026). Die Filter liegen im Blatt. */
+  @media (max-width: 900px) {
+    .map-wrap { min-height: 0; }
+    /* Die Fußzeile so flach wie möglich - jede Zeile dort geht der Karte
+       verloren. Die Sternchen-Fußnote bleibt der Liste (dort steht sie
+       unter den Kacheln); auf der Karte nennt die Detail-Box bei einem
+       vorläufigen Termin ohnehin "Termin noch nicht veröffentlicht". */
+    .site-footer { padding: 4px var(--seite-rand) 6px; }
+    .site-footer .fussnote { display: none; }
   }
   #map { position: absolute; inset: 0; }
   /* Die Fläche außerhalb der Länder: grau mit feinem Raster. Das Raster
@@ -384,6 +397,22 @@
      zurück in die Liste - MIT diesen Filtern (linkTo). -->
 <div class="filter-bar" id="filter-bar">
   <div class="master-search" id="master-search-box"></div>
+  <!-- Bis 900 px: die Pillen in einem Blatt von unten, hier nur der Knopf
+       "Filter" mit Zähler (siehe events.html, filter-ui.js filterSheet). -->
+  <button type="button" class="filter-sheet-btn" id="filter-sheet-btn" aria-expanded="false" aria-controls="filter-sheet">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+         stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="15" cy="7" r="2.5"/><circle cx="9" cy="17" r="2.5"/>
+    </svg>
+    <span class="fsb-label">Filter</span>
+    <span class="fsb-badge" hidden></span>
+  </button>
+  <div class="filter-sheet" id="filter-sheet">
+  <div class="filter-sheet-kopf">
+    <span class="filter-sheet-titel" id="filter-sheet-titel">Filter</span>
+    <button type="button" class="reset-btn filter-sheet-reset" id="filter-sheet-reset"></button>
+    <button type="button" class="icon-btn filter-sheet-close" id="filter-sheet-close" aria-label="Filter schließen">&#10005;</button>
+  </div>
   <div class="filter-btn-bar" id="filter-buttons"></div>
   <div class="filter-bar-actions">
     <a class="bar-btn" href="events.html" id="list-btn-label">
@@ -404,7 +433,10 @@
       <span id="abo-btn-text">E-Mail-Abo</span>
     </a>
   </div>
+  <button type="button" class="filter-sheet-fertig" id="filter-sheet-fertig"></button>
+  </div>
 </div>
+<div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
 
 <!-- Werkzeugleiste: Chips und "Filter löschen" - nur sichtbar, wenn ein
      Filter gesetzt ist (renderChips). Die Trefferzahl steht in der
@@ -453,7 +485,7 @@
 <!-- Gemeinsamer Filterzustand mit events.html: dieselben Parameter in der
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=8dbec59f"></script>
-<script src="filter-ui.js?v=05e06e2d"></script>
+<script src="filter-ui.js?v=9412bd03"></script>
 <script src="event-detail.js?v=460584d6"></script>
 
 <script>
@@ -961,13 +993,22 @@
   // Dieselben Filterknöpfe und Panels wie in der Liste (filter-ui.js).
   // Ein Filter, der hier gesetzt wird, gilt beim Wechsel in die Liste
   // weiter - beide Seiten schreiben ihn in dieselbe Adresse.
+  // Das Filter-Blatt auf dem Handy (bis 900 px), siehe events.html.
+  const filterSheet = EFU.filterSheet({
+    button: document.getElementById('filter-sheet-btn'),
+    sheet: document.getElementById('filter-sheet'),
+    scrim: document.getElementById('filter-sheet-scrim'),
+    closeBtn: document.getElementById('filter-sheet-close'),
+    doneBtn: document.getElementById('filter-sheet-fertig')
+  });
   const ui = EFU.create({
     state,
     getEvents: () => events,
     t,
     tv,
     getLang: () => currentLang,
-    onChange: () => render()
+    onChange: () => render(),
+    panelParent: () => (filterSheet.isOpen() ? filterSheet.el : document.body)
   });
   // Die Mastersuche: dasselbe Feld wie in der Liste (Name, Wettbewerb,
   // Ort, mit Vorschlägen). Gefiltert wird über EF.matchEvent, also
@@ -1004,6 +1045,9 @@
     const pille = filterButtonsEl.querySelector('.col-filter-btn[data-col="standort"]');
     const spalte = EFU.COLUMNS.find(c => c.key === 'standort');
     if (!pille || !spalte) return;
+    // Auf dem Handy liegt die Pille im Filter-Blatt - erst das öffnen,
+    // sonst hinge das Panel an einer unsichtbaren Pille.
+    if (filterSheet.aktiv()) filterSheet.open();
     ui.open(spalte, pille);
     const geo = document.querySelector('.filter-panel .geo-btn');
     if (geo) geo.click();
@@ -1021,6 +1065,8 @@
     navEventsEl.textContent = t('nav_events');
     document.getElementById('nav-map').textContent = t('title');
     resetBtnEl.textContent = t('reset');
+    document.getElementById('filter-sheet-reset').textContent = t('reset');
+    filterSheet.setTexts({ label: t('sheet_filter'), close: t('sheet_schliessen') });
     // Quellenangabe der Kacheln in der Sprache der Seite.
     if (attributionText) attributionControl.removeAttribution(attributionText);
     attributionText = t('attribution');
@@ -1093,6 +1139,7 @@
     });
     chipsEl.innerHTML = '';
     toolbarEl.hidden = chips.length === 0;
+    filterSheet.setBadge(chips.filter(c => c.col !== 'suche').length);
     chips.forEach(c => {
       const chip = document.createElement('span');
       chip.className = 'chip';
@@ -1107,12 +1154,14 @@
 
   // "Alle Filter zurücksetzen" - wie in der Liste, samt offenem Panel und
   // der Eingabe im Ortssuchfeld.
-  resetBtnEl.addEventListener('click', () => {
+  const filterLoeschen = () => {
     EF.clearFilters(state);
     ui.resetTransient();
     ui.close();
     render();
-  });
+  };
+  resetBtnEl.addEventListener('click', filterLoeschen);
+  document.getElementById('filter-sheet-reset').addEventListener('click', filterLoeschen);
 
   // ---------- Marker ----------
 
@@ -1310,6 +1359,7 @@
     hintEl.textContent = veranstaltungen === 0
       ? t('hint_empty')
       : t('hint', EF.formatInt(veranstaltungen, currentLang));
+    filterSheet.setTexts({ done: t('sheet_anzeigen', EF.formatInt(veranstaltungen, currentLang)) });
 
     const markers = [];
     byStandort.forEach(loc => {

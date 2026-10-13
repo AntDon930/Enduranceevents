@@ -110,17 +110,18 @@ def seite_oeffnen(ctx, url, warten=".top-bar"):
     return seite, probleme
 
 
-# Unter 700 px ist die Liste ein Stapel von Kacheln, und die Detail-Box
+# Bis 900 px (seit dem 13.10.2026; vorher bis 699) ist die Liste ein
+# Stapel von Kacheln, und die Detail-Box
 # liegt als Blatt ÜBER der Liste (body.detail-offen, mit Schleier). Auf
 # 390 px gilt das für jede Prüfung hier: Wer nach dem Tippen auf eine
 # Zeile noch etwas anderes anklicken will, muss das Blatt erst schließen
 # - der Schleier fängt den Klick sonst ab (und Playwright wartet auf ein
 # Element, das "pointer events" bekommt, bis zum Timeout).
-TABLET_BREITE = 820   # Tablet: die Tabelle (die Kacheln enden bei 699 px)
+TABLET_BREITE = 1024  # Tablet quer: die Tabelle (die Kacheln enden bei 900 px)
 
 
 def im_kachelmodus(seite) -> bool:
-    return bool(seite.evaluate("() => matchMedia('(max-width: 699px)').matches"))
+    return bool(seite.evaluate("() => matchMedia('(max-width: 900px)').matches"))
 
 
 def schliesse_blatt(seite) -> None:
@@ -129,6 +130,31 @@ def schliesse_blatt(seite) -> None:
         seite.evaluate("""() => { const x = document.querySelector('#detail-panel .detail-close');
             if (x) x.click(); }""")
         seite.wait_for_timeout(250)
+
+
+# Seit dem 13.10.2026 liegen die Filterpillen auf Handybreite im
+# Filter-Blatt (filter-ui.js filterSheet, site.css .filter-sheet): Wer
+# dort eine Pille anklicken will, öffnet erst das Blatt - und schließt
+# es danach, denn sein Schleier fängt jeden Klick auf die Seite ab. Am
+# Rechner gibt es den Knopf nicht, beide Helfer tun dann nichts.
+def im_filterblatt(seite) -> bool:
+    return bool(seite.evaluate("() => document.body.classList.contains('filter-sheet-offen')"))
+
+
+def oeffne_filterblatt(seite) -> None:
+    if not im_kachelmodus(seite) or im_filterblatt(seite):
+        return
+    seite.locator("#filter-sheet-btn").click()
+    seite.wait_for_timeout(350)
+
+
+def schliesse_filterblatt(seite) -> None:
+    if not im_filterblatt(seite):
+        return
+    # Programmatisch: ein offenes Panel könnte über dem ✕ liegen. Der
+    # Klick läuft bis zum Dokument und schließt das Panel gleich mit.
+    seite.evaluate("() => document.getElementById('filter-sheet-close').click()")
+    seite.wait_for_timeout(300)
 
 
 def pruefe_kopf(seite, name):
@@ -197,8 +223,10 @@ def pruefe_liste(ctx, basis):
         # Ohne download-Attribut - sonst reicht Safari die Datei nicht an den Kalender weiter.
         pruefe(not ics["download"], "Kalender-Link trägt kein download-Attribut")
 
-    # Filter-Panel auf Handybreite (das Blatt vorher zu, es liegt über allem)
+    # Filter-Panel auf Handybreite (das Blatt vorher zu, es liegt über allem;
+    # das Filter-Blatt dagegen auf - dort liegen die Pillen)
     schliesse_blatt(seite)
+    oeffne_filterblatt(seite)
     knopf = seite.locator('.col-filter-btn[data-col="standort"]')
     if knopf.count():
         knopf.scroll_into_view_if_needed()
@@ -212,6 +240,7 @@ def pruefe_liste(ctx, basis):
         seite.keyboard.press("Escape")
     else:
         ueberspringe("Filterknopf Stadt/Ort nicht gefunden")
+    schliesse_filterblatt(seite)
     seite.close()
 
 
@@ -231,9 +260,51 @@ def pruefe_kacheln(ctx, basis):
     seite, probleme = seite_oeffnen(ctx, basis + "/events.html?gruppiert=1", "tr.group-row")
     seite.wait_for_timeout(600)
     pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
-    if not pruefe(im_kachelmodus(seite), "unter 700 px gilt die Kachelansicht"):
+    if not pruefe(im_kachelmodus(seite), "bis 900 px gilt die Kachelansicht"):
         seite.close()
         return
+    # Das Filter-Blatt (13.10.2026): In der Leiste stehen nur Suchfeld und
+    # der Knopf "Filter", die Pillen liegen im Blatt, die erste Veranstaltung
+    # steht im Bild (vorher begann sie bei 601 px, unter dem Bildrand).
+    blatt = seite.evaluate("""() => {
+        const sichtbar = el => { if (!el) return false; const s = getComputedStyle(el);
+            return s.display !== 'none' && s.visibility !== 'hidden' && el.getBoundingClientRect().height > 0; };
+        const erste = document.querySelector('tbody tr[data-idx]');
+        return { knopf: sichtbar(document.getElementById('filter-sheet-btn')),
+                 pillenWeg: !sichtbar(document.querySelector('#filter-buttons .col-filter-btn')),
+                 ersteTop: erste ? Math.round(erste.getBoundingClientRect().top) : null,
+                 sortReihen: new Set([...document.querySelectorAll('thead .th-sort')]
+                     .map(b => Math.round(b.getBoundingClientRect().top))).size }; }""")
+    pruefe(blatt["knopf"] and blatt["pillenWeg"],
+           "die Filterpillen liegen im Blatt, in der Leiste steht nur der Knopf „Filter“")
+    pruefe(blatt["ersteTop"] is not None and blatt["ersteTop"] < 420,
+           "die erste Veranstaltung beginnt im Bild (bei %s px)" % blatt["ersteTop"])
+    pruefe(blatt["sortReihen"] == 1, "die Sortierpillen stehen in EINER Reihe (%d)" % blatt["sortReihen"])
+    seite.locator("#filter-sheet-btn").click()
+    seite.wait_for_timeout(450)
+    offen = seite.evaluate("""() => {
+        const p = document.querySelector('#filter-buttons .col-filter-btn');
+        const r = p.getBoundingClientRect();
+        return { klasse: document.body.classList.contains('filter-sheet-offen'),
+                 pille: getComputedStyle(p).visibility === 'visible' && r.top >= 0 && r.bottom <= innerHeight,
+                 fertig: (document.getElementById('filter-sheet-fertig').textContent || '').trim() }; }""")
+    pruefe(offen["klasse"] and offen["pille"], "der Knopf öffnet das Blatt mit den Pillen")
+    pruefe(any(ch.isdigit() for ch in offen["fertig"]),
+           "der Knopf unten im Blatt nennt die Trefferzahl (%s)" % offen["fertig"])
+    seite.locator('#filter-buttons .col-filter-btn[data-col="art1"]').click()
+    seite.wait_for_timeout(450)
+    panel = seite.evaluate("""() => { const p = document.querySelector('.filter-panel');
+        if (!p || p.hidden) return { offen: false };
+        const r = p.getBoundingClientRect();
+        return { offen: true, imBlatt: document.getElementById('filter-sheet').contains(p),
+                 imBild: r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1 }; }""")
+    pruefe(panel["offen"] and panel["imBlatt"] and panel["imBild"],
+           "eine Pille im Blatt öffnet ihr Panel ÜBER dem Blatt, im Bild")
+    seite.evaluate("() => document.getElementById('filter-sheet-fertig').click()")
+    seite.wait_for_timeout(400)
+    pruefe(seite.evaluate("""() => !document.body.classList.contains('filter-sheet-offen')
+               && !document.querySelector('.filter-panel:not([hidden])')"""),
+           "„Events anzeigen“ schließt Blatt und Panel")
     stand = seite.evaluate("""() => {
         const vw = document.documentElement.clientWidth;
         const zeilen = [...document.querySelectorAll('tbody tr[data-idx]')].slice(0, 30);
@@ -249,7 +320,10 @@ def pruefe_kacheln(ctx, basis):
           tabelle: getComputedStyle(document.querySelector('table')).display,
           breiten, raus, zellen: zellen.length, zellenRaus,
           pillen: pillen.length,
-          pillenBreite: pillen.every(b => b.getBoundingClientRect().right <= vw + 1),
+          // Seit dem 13.10.2026 EINE waagerecht scrollbare Reihe: die erste
+          // Pille im Bild, die Reihe selbst scrollt (overflow-x: auto).
+          pillenBreite: pillen.length > 0 && pillen[0].getBoundingClientRect().right <= vw + 1
+            && getComputedStyle(document.querySelector('thead tr')).overflowX === 'auto',
           beschriftung: getComputedStyle(document.querySelector('thead tr'), '::before').content,
           ueberlauf: document.documentElement.scrollWidth - vw,
           hoehen: [...new Set(zeilen.map(r => Math.round(r.getBoundingClientRect().height)))].length
@@ -263,7 +337,7 @@ def pruefe_kacheln(ctx, basis):
            "Länge, Sportart und Land stehen in jeder Kachel im Bild (%d Zellen)" % stand["zellen"])
     pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
     pruefe(stand["pillen"] >= 5 and stand["pillenBreite"] and "Sortieren" in stand["beschriftung"],
-           "die Spaltenköpfe sind Sortier-Pillen unter „Sortieren“ (%d)" % stand["pillen"])
+           "die Spaltenköpfe sind Sortier-Pillen unter „Sortieren“, in einer scrollbaren Reihe (%d)" % stand["pillen"])
 
     # Tippen auf eine Kachel öffnet das Blatt - ohne die Seite zu scrollen.
     # Die Kachel vorher ganz ins Bild holen: Liegt sie teils unter dem
@@ -484,6 +558,7 @@ def pruefe_mastersuche(ctx, basis):
     # Der Spaltenfilter "Name": Enter im Textfeld schließt das Panel und
     # behält den Filter (vom Nutzer gemeldet: der Filter griff, aber das
     # Fenster blieb stehen). Der Fokus geht zurück an den Knopf.
+    oeffne_filterblatt(seite)
     knopf = seite.locator('.col-filter-btn[data-col="name"]')
     if pruefe(knopf.count() == 1, "der Spaltenfilter „Name“ hat einen Knopf"):
         knopf.click()
@@ -504,6 +579,7 @@ def pruefe_mastersuche(ctx, basis):
         pruefe(nach_enter["filter"] and nach_enter["zeilen"] > 0,
                "… und der Filter bleibt gesetzt (q=marathon, %d Zeilen)" % nach_enter["zeilen"])
         pruefe(nach_enter["fokus"], "… der Fokus liegt wieder auf dem Knopf")
+    schliesse_filterblatt(seite)
     seite.close()
 
 
@@ -898,6 +974,7 @@ def pruefe_abo(ctx, basis):
     if not pruefe(knopf.count() == 1, "der Abo-Knopf steht in der Werkzeugleiste"):
         seite.close()
         return
+    oeffne_filterblatt(seite)   # auf Handybreite steht er im Filter-Blatt
     knopf.scroll_into_view_if_needed()
     knopf.click()
     seite.wait_for_timeout(700)
@@ -1405,6 +1482,8 @@ def pruefe_tastatur(ctx, basis):
         ueberspringe("keine aufklappbare Veranstaltung gefunden")
 
     # Filter-Panel: Enter öffnet, Escape schließt und gibt den Fokus zurück
+    schliesse_blatt(seite)
+    oeffne_filterblatt(seite)
     knopf = seite.locator('.col-filter-btn[data-col="land"]')
     if knopf.count():
         knopf.evaluate("el => el.focus()")
@@ -1425,6 +1504,7 @@ def pruefe_tastatur(ctx, basis):
         pruefe(zurueck, "Escape schließt das Panel und gibt den Fokus zurück")
     else:
         ueberspringe("Filterknopf Land nicht gefunden")
+    schliesse_filterblatt(seite)
 
     # Melde-Dialog: Fokus bleibt darin, Escape schließt und gibt zurück.
     # Enter oben hat auf Handybreite das Blatt geöffnet - erst zu.
@@ -1518,6 +1598,16 @@ def pruefe_karten_aufbau(seite):
     Ortsnamen, Orientierungsorte, "E-Mail-Abo" in die Liste - und beim
     Hineinzoomen kommen die Kacheln.
     """
+    # Handy (13.10.2026): Die Karte bekommt den Bildschirm unter Kopf und
+    # Suchzeile - vorher 398 px Karte bei 892 px Seite, die Filterpillen
+    # schoben sie nach unten. Jetzt liegen die Pillen im Blatt.
+    if im_kachelmodus(seite):
+        masse = seite.evaluate("""() => { const r = document.getElementById('map').getBoundingClientRect();
+            return { h: Math.round(r.height), vh: innerHeight, scroll: document.documentElement.scrollHeight }; }""")
+        pruefe(masse["h"] >= masse["vh"] * 0.5,
+               "auf dem Handy füllt die Karte mindestens die halbe Bildhöhe (%d von %d px)" % (masse["h"], masse["vh"]))
+        pruefe(masse["scroll"] <= masse["vh"] + 2,
+               "… und die Seite scrollt nicht hinter der Karte (%d/%d px)" % (masse["scroll"], masse["vh"]))
     stand = seite.evaluate("""() => {
         const legende = document.getElementById('map-legend');
         const wrap = document.querySelector('.map-wrap').getBoundingClientRect();
@@ -1557,6 +1647,9 @@ def pruefe_karten_aufbau(seite):
     panel = seite.evaluate("""() => { const p = document.querySelector('.filter-panel');
         return { offen: !!p && !p.hidden, geo: !!(p && p.querySelector('.geo-btn')) }; }""")
     pruefe(panel["offen"] and panel["geo"], "„Mein Standort“ öffnet das Ort-Panel mit dem Standort-Knopf")
+    # Auf Handybreite hat es dazu das Filter-Blatt geöffnet (die Pille
+    # liegt dort) - wieder zu, sonst fängt der Schleier den nächsten Klick.
+    schliesse_filterblatt(seite)
     seite.locator("#map-legend").click()
     seite.wait_for_timeout(300)
     # Hineinzoomen: ab Zoom 8 kommen die Kacheln.

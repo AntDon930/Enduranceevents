@@ -34,6 +34,10 @@
       vorschlag_liste: 'Vorschläge',
       vorschlag_serie: (n) => n === 1 ? '1 Veranstaltung' : n + ' Veranstaltungen',
       vorschlag_ort: (n) => n === 1 ? '1 Veranstaltung am Ort' : n + ' Veranstaltungen am Ort',
+      // Das Filter-Blatt auf dem Handy (filterSheet).
+      sheet_filter: 'Filter',
+      sheet_schliessen: 'Filter schließen',
+      sheet_anzeigen: (n) => n + ' Events anzeigen',
       col_datum: 'Datum',
       col_name: 'Name',
       col_sportart: 'Sportart',
@@ -87,6 +91,9 @@
       vorschlag_liste: 'Suggestions',
       vorschlag_serie: (n) => n === 1 ? '1 event' : n + ' events',
       vorschlag_ort: (n) => n === 1 ? '1 event in this place' : n + ' events in this place',
+      sheet_filter: 'Filters',
+      sheet_schliessen: 'Close filters',
+      sheet_anzeigen: (n) => 'Show ' + n + ' events',
       col_datum: 'Date',
       col_name: 'Name',
       col_sportart: 'Sport',
@@ -312,6 +319,23 @@
       return presentArt2.filter(a2 => allowed.has(a2));
     }
 
+    // Die Kategorien je Sportart, in der Reihenfolge von EF.SPORTARTEN;
+    // jede Kategorie nur einmal (unter der ersten Sportart, die sie
+    // kennt), der Rest ohne Überschrift am Ende. Siehe renderCheckboxPanel.
+    function art2Gruppen(options) {
+      const uebrig = options.slice();
+      const gruppen = [];
+      EF.SPORTARTEN.forEach(a1 => {
+        const bekannt = ART2_BY_ART1[a1] || [];
+        const werte = uebrig.filter(o => bekannt.includes(o));
+        if (!werte.length) return;
+        werte.forEach(w => uebrig.splice(uebrig.indexOf(w), 1));
+        gruppen.push([a1, werte]);
+      });
+      if (uebrig.length) gruppen.push([null, uebrig]);
+      return gruppen;
+    }
+
     function buildDateTreeNodes() {
       const byYear = {};
       getEvents().forEach(e => {
@@ -459,7 +483,29 @@
       } else {
         const list = document.createElement('div');
         list.className = 'filter-list';
-        options.forEach(opt => {
+        // Kategorie ohne (oder mit mehreren) gewählten Sportarten: nach
+        // Sportart gruppiert, in der Reihenfolge Laufen, Rad, Schwimmen,
+        // Triathlon. Vorher stand dort ein Alphabet quer durch alle
+        // Sportarten (Aquathlon, Backyard Ultra, Bahn, Becken, Charity,
+        // Cross, Cyclecross …) - auf dem Handy nicht zu überblicken
+        // (13.10.2026). Ein Wert, der zu mehreren Sportarten gehört
+        // (Charity, Straße), steht EINMAL, unter der ersten; das Häkchen
+        // gilt für alle. Was in keiner Liste steht, kommt ans Ende.
+        const gruppen = (col.key === 'art2' && state.art1.size !== 1)
+          ? art2Gruppen(options) : [[null, options]];
+        gruppen.forEach(([sportart, werte]) => {
+          if (sportart) {
+            const kopf = document.createElement('div');
+            kopf.className = 'fp-group';
+            kopf.textContent = tv('art1', sportart);
+            list.appendChild(kopf);
+          }
+          werte.forEach(opt => list.appendChild(baueOption(opt)));
+        });
+        panel.appendChild(list);
+      }
+
+      function baueOption(opt) {
           const label = document.createElement('label');
           const cb = document.createElement('input');
           cb.type = 'checkbox';
@@ -476,9 +522,7 @@
           });
           label.appendChild(cb);
           label.appendChild(document.createTextNode(tv(col.key, opt)));
-          list.appendChild(label);
-        });
-        panel.appendChild(list);
+          return label;
       }
 
       actions.querySelector('[data-act="all"]').addEventListener('click', () => {
@@ -1453,5 +1497,100 @@
     };
   }
 
-  global.EnduranceFilterUI = { I18N, COLUMNS, create };
+  // ---------- Das Filter-Blatt auf dem Handy ----------
+  //
+  // Unter 901 px stehen die Filterpillen nicht mehr in der Leiste, sondern
+  // in einem Blatt von unten (site.css, .filter-sheet). Anlass
+  // (13.10.2026, Messung auf einem iPhone-Viewport): Kopfzeile, Suchfeld,
+  // sieben Pillen, zwei Knöpfe, Trefferzeile und zwei Reihen Sortierpillen
+  // brauchten zusammen ~600 px - die erste Veranstaltung lag unter dem
+  // Bildrand, auf der Karte blieben 398 px Karte. In der Leiste bleiben
+  // Suchfeld und ein Knopf "Filter" mit der Zahl der gesetzten Filter.
+  //
+  // Am Rechner ist das Blatt `display: contents`: Die Pillen stehen wie
+  // bisher in der Leiste - DIESELBEN Knoten, kein zweites Markup, kein
+  // Umhängen im DOM. Das Filter-Panel wird, solange das Blatt offen ist,
+  // in das Blatt gehängt (panelParent in create()), damit es über dem
+  // Blatt liegt (Stapelkontext) - derselbe Weg wie im Abo-Dialog.
+  //
+  // opts: { button, sheet, scrim, closeBtn, doneBtn, mediaQuery, onToggle }
+  function filterSheet(opts) {
+    const button = opts.button;
+    const sheet = opts.sheet;
+    const scrim = opts.scrim || null;
+    const mq = opts.mediaQuery
+      || (global.matchMedia ? global.matchMedia('(max-width: 900px)') : null);
+    const aktiv = () => !!(mq && mq.matches);
+    let offen = false;
+
+    function setze() {
+      const o = offen && aktiv();
+      document.body.classList.toggle('filter-sheet-offen', o);
+      if (scrim) scrim.hidden = !o;
+      button.setAttribute('aria-expanded', o ? 'true' : 'false');
+      if (opts.onToggle) opts.onToggle(o);
+    }
+    function open() {
+      offen = true;
+      setze();
+      // Der Fokus geht in das Blatt (erste Pille), Escape und ✕ bringen
+      // ihn zurück auf den Knopf.
+      const erste = sheet.querySelector('.col-filter-btn');
+      if (erste) { try { erste.focus({ preventScroll: true }); } catch (e) { /* egal */ } }
+    }
+    function close(zurueckZumKnopf) {
+      if (!offen) return;
+      offen = false;
+      setze();
+      if (zurueckZumKnopf) { try { button.focus(); } catch (e) { /* egal */ } }
+    }
+    button.addEventListener('click', () => { if (offen) close(); else open(); });
+    if (opts.closeBtn) opts.closeBtn.addEventListener('click', () => close(true));
+    if (opts.doneBtn) opts.doneBtn.addEventListener('click', () => close(true));
+    if (scrim) scrim.addEventListener('click', () => close());
+    // Escape schließt das Blatt - aber nicht, solange ein Filter-Panel
+    // offen ist: Das hat seinen eigenen Escape (und stoppt ihn ohnehin).
+    document.addEventListener('keydown', (ev) => {
+      if ((ev.key !== 'Escape' && ev.key !== 'Esc') || !offen || !aktiv()) return;
+      if (document.querySelector('.filter-panel:not([hidden])')) return;
+      ev.preventDefault();
+      close(true);
+    });
+    // Wechselt das Fenster die Breite (Tablet gedreht), gilt die Klasse
+    // sofort oder gar nicht mehr - sonst bliebe am Rechner der
+    // Seiten-Scroll gesperrt.
+    if (mq) {
+      const beiWechsel = () => setze();
+      if (mq.addEventListener) mq.addEventListener('change', beiWechsel);
+      else if (mq.addListener) mq.addListener(beiWechsel);
+    }
+    const badge = button.querySelector('.fsb-badge');
+    return {
+      el: sheet,
+      open,
+      close,
+      isOpen: () => offen && aktiv(),
+      aktiv,
+      // Zahl der gesetzten Filter am Knopf (ohne die Suche - die steht
+      // daneben im Feld).
+      setBadge(n) {
+        if (!badge) return;
+        badge.textContent = n > 0 ? String(n) : '';
+        badge.hidden = !(n > 0);
+        button.classList.toggle('has-filter', n > 0);
+      },
+      // Beschriftungen je Sprache: Knopf, Titel, ✕, "N Events anzeigen".
+      setTexts(texte) {
+        const label = button.querySelector('.fsb-label');
+        if (label && texte.label != null) label.textContent = texte.label;
+        if (texte.label != null) button.setAttribute('aria-label', texte.label);
+        const titel = sheet.querySelector('.filter-sheet-titel');
+        if (titel && texte.label != null) titel.textContent = texte.label;
+        if (opts.closeBtn && texte.close != null) opts.closeBtn.setAttribute('aria-label', texte.close);
+        if (opts.doneBtn && texte.done != null) opts.doneBtn.textContent = texte.done;
+      }
+    };
+  }
+
+  global.EnduranceFilterUI = { I18N, COLUMNS, create, filterSheet };
 })(typeof window !== 'undefined' ? window : globalThis);

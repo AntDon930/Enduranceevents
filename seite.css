@@ -76,12 +76,16 @@ h1, h2, h3 { font-family: 'Barlow Condensed', 'Barlow', system-ui, sans-serif; l
   min-width: 0;
   max-width: 100%;
 }
+/* DE und EN bleiben ein Paar - auf dem Handy brach "EN" sonst allein in
+   eine zweite Zeile (13.10.2026). Mindesthöhe 44 px als Tippfläche. */
+.top-actions .sprache { display: inline-flex; gap: 8px; }
 .top-actions a,
 .top-actions button {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 12px;
+  min-height: 44px;
+  padding: 5px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.55);
   background: rgba(255,255,255,0.14);

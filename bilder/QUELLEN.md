@@ -1,10 +1,22 @@
 # Fotos der Startseite
 
 Alle fünf Bilder stammen von Wikimedia Commons, wurden zugeschnitten,
-verkleinert und als WebP gespeichert (Chromium-Canvas, es gibt in der
-Sandbox weder PIL noch cwebp). Die Namensnennung steht im Impressum
-unter „Datenquellen und Lizenzen“ – wer ein Bild tauscht, zieht beide
-Stellen nach.
+verkleinert und als WebP gespeichert (Chromium-Canvas; inzwischen geht
+auch `pip install pillow`, Pillow bringt WebP mit). Die Namensnennung
+steht im Impressum unter „Datenquellen und Lizenzen“ – wer ein Bild
+tauscht, zieht beide Stellen nach.
+
+**Seit dem 13.10.2026 liegt jedes Bild zusätzlich in halber Breite**
+(`hero-800.webp` 800×450, `laufen-480.webp` usw. 480×320, Pillow,
+Qualität 80): `index.html` bindet beide über `srcset` ein, das Handy
+lädt die kleine, der Rechner die große. Wer ein Bild tauscht, erzeugt
+die kleine Fassung mit:
+
+```python
+from PIL import Image
+im = Image.open("bilder/laufen.webp").convert("RGB")
+im.resize((480, 320), Image.LANCZOS).save("bilder/laufen-480.webp", "WEBP", quality=80, method=6)
+```
 
 | Datei | Original (Commons) | Urheber | Lizenz |
 |---|---|---|---|

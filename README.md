@@ -2256,6 +2256,24 @@ Der Rauchtest prüft die ganze Kette: ein Tab-Stopp, Pfeiltaste bewegt
 und wählt, End springt ans Ende, Enter landet im Detailbereich, Escape
 schließt Panel und Dialog und gibt den Fokus zurück.
 
+### Das Filter-Blatt auf dem Handy (13.10.2026)
+
+Auf dem Handy und auf dem Tablet hochkant (bis 900 px) stehen die
+Filterpillen nicht mehr in der Leiste, sondern in einem Blatt von unten:
+In der Leiste bleiben das Suchfeld und ein Knopf „Filter" mit der Zahl
+der gesetzten Filter; das Blatt trägt die Pillen, „Karte" bzw. „Liste",
+„E-Mail-Abo", „Filter löschen" und den Knopf „N Events anzeigen". Anlass
+war eine Messung auf einem iPhone-Viewport: Die erste Veranstaltung lag
+bei 601 px, also unter dem Bildrand; jetzt beginnt sie bei rund 326 px,
+und die Karte füllt den Bildschirm bis zur Fußzeile. Am Rechner ist das
+Blatt nur eine unsichtbare Hülle (`display: contents`) um dieselben
+Pillen – kein zweites Markup. Die Sortierpillen stehen auf dem Handy in
+einer waagerecht scrollbaren Reihe, alle Tippflächen sind mindestens
+44 px hoch, die Fotos der Startseite kommen in halber Breite
+(`srcset`), und ein Web-Manifest macht aus „Zum Home-Bildschirm" eine
+App mit Namen und Farbe. Einzelheiten in `CLAUDE.md` („Handy: das
+Filter-Blatt").
+
 ## Nichts von fremden Servern (`vendor/`)
 
 Leaflet, Leaflet.markercluster und die Firebase-SDKs liegen **im Repo**

@@ -506,19 +506,145 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
 .seiten-footer a:hover { color: #fff; text-decoration: underline; }
 .seiten-footer .trenner { display: none; }
 
-/* ---------- Handy ---------- */
+/* ---------- Das Filter-Blatt (Handy und Tablet hochkant) ----------
+   Am Rechner ist .filter-sheet nur eine Hülle ohne eigene Box
+   (display: contents): Pillen und Knöpfe liegen wie bisher in der
+   Filterleiste. Unter 901 px wird dieselbe Hülle zum Blatt von unten
+   (filter-ui.js, filterSheet) - siehe den Block unten. Der Knopf
+   "Filter", Kopf, "Fertig" und Schleier gibt es nur dort. */
+.filter-sheet { display: contents; }
+.filter-sheet-btn, .filter-sheet-kopf, .filter-sheet-fertig, .filter-sheet-scrim { display: none; }
+
+/* ---------- Handy und Tablet hochkant (bis 900 px) ----------
+   Dieselbe Grenze wie die Kacheln der Liste (events.html) und die
+   einspaltige Seite: Ab 901 px Tabelle und Pillen in der Leiste. */
 @media (max-width: 900px) {
   :root { --seite-rand: 16px; }
   .site-header { gap: 10px 18px; padding: 12px var(--seite-rand); }
   .brand-name { font-size: 1.15rem; }
   .brand-logo { width: 36px; height: 36px; border-radius: 10px; }
   .site-nav { gap: 18px; }
+  /* Tippflächen: 44 px (Apple) - die Navigation und DE/EN hatten 35,
+     "Filter löschen" 30, die Links im Fuß 21 (gemessen 13.10.2026). */
+  .nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
+  .lang-switch { padding: 2px; }
+  .lang-btn { min-height: 38px; padding: 7px 12px; }
+  .reset-btn { min-height: 44px; }
+  .chip { min-height: 40px; padding: 8px 12px; font-size: 0.88rem; }
+  .chip button { font-size: 1.05rem; padding: 8px; margin: -8px -4px -8px -2px; }
+  .seiten-footer { gap: 4px 20px; }
+  .seiten-footer a, .fehlt-btn { display: inline-flex; align-items: center; min-height: 44px; }
   .result-count { font-size: 1.25rem; }
-  .filter-bar { padding: 12px var(--seite-rand); }
-  .master-search { flex: 1 1 100%; }
-  .filter-bar-actions { margin-left: 0; }
-  .stand { margin-left: 0; flex-basis: 100%; }
-  .toolbar { padding: 12px var(--seite-rand) 10px; }
+
+  /* Die Filterleiste: nur noch Suchfeld + Knopf "Filter" in EINER Zeile. */
+  .filter-bar { flex-wrap: nowrap; gap: 10px; padding: 10px var(--seite-rand); }
+  .master-search { flex: 1 1 auto; min-width: 0; }
+  .filter-sheet-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: none;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: var(--radius-ctl);
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .filter-sheet-btn.has-filter { border-color: var(--pill-active-border); background: var(--pill-active-bg); color: var(--pill-active-fg); }
+  .filter-sheet-btn svg { flex-shrink: 0; }
+  .filter-sheet-btn .fsb-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .filter-sheet-btn .fsb-badge[hidden] { display: none; }
+
+  /* Das Blatt: unten angeschlagen, über allem außer den Dialogen (2000)
+     und dem Filter-Panel, das im offenen Blatt hängt. Unsichtbar per
+     visibility (dann sind die Pillen auch nicht per Tab erreichbar),
+     kein transform - ein fixed positioniertes Panel darin rechnete
+     sonst in den Koordinaten des Blattes statt des Fensters. */
+  .filter-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1400;
+    max-height: 86vh;
+    max-height: 86dvh;
+    overflow-y: auto;
+    padding: 10px var(--seite-rand) calc(16px + env(safe-area-inset-bottom, 0px));
+    background: var(--panel);
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    border-radius: 18px 18px 0 0;
+    box-shadow: var(--shadow);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.18s ease, visibility 0s linear 0.18s;
+  }
+  body.filter-sheet-offen .filter-sheet { visibility: visible; opacity: 1; transition: opacity 0.18s ease; }
+  body.filter-sheet-offen { overflow: hidden; }
+  .filter-sheet-scrim { display: block; position: fixed; inset: 0; z-index: 1390; background: rgba(5, 12, 24, 0.55); }
+  .filter-sheet-scrim[hidden] { display: none; }
+  .filter-sheet-kopf { display: flex; align-items: center; gap: 12px; }
+  .filter-sheet-kopf::before {
+    /* Der Griff, wie am Blatt der Detail-Box. */
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 40px;
+    height: 4px;
+    margin-left: -20px;
+    border-radius: 2px;
+    background: var(--border-strong);
+  }
+  .filter-sheet-titel { flex: 1; font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; padding-top: 6px; }
+  .filter-sheet-kopf .reset-btn { padding-top: 6px; }
+  .filter-sheet-close { font-size: 1.1rem; margin-top: 6px; }
+  .filter-sheet .filter-btn-bar { gap: 8px; }
+  .filter-sheet .filter-bar-actions { margin-left: 0; }
+  .filter-sheet-fertig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: 0;
+    border-radius: var(--radius-ctl);
+    background: var(--accent);
+    color: var(--on-accent);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* Die Werkzeugleiste in zwei kurzen Zeilen: Zahl und Stand oben, der
+     Schalter darunter, Chips danach. "Filter löschen" steht im Blatt;
+     jeder Chip hat sein ✕. */
+  .toolbar { padding: 10px var(--seite-rand) 8px; gap: 6px 12px; }
+  .toolbar .stand { order: 2; margin-left: auto; flex-basis: auto; font-size: 0.8rem; }
+  .toolbar .group-toggle { order: 3; flex-basis: 100%; }
+  .toolbar .active-chips { order: 4; flex-basis: 100%; }
+  .toolbar .reset-btn { display: none; }
 }
 
 /* Das Sternchen an einem vorläufigen Termin ("Juni 2027*"). Es ist ein

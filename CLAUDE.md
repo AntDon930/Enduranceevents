@@ -34,8 +34,8 @@ nur einen sieht, sieht trotzdem alles.
 | `laender.json` | **73 KB**, Umrisse von DE/AT/CH und Südtirol für die Maske und die Landfläche der Karte – und für `scraper_lib.in_suedtirol()` |
 | `scripts/build_laender.py` | baut `laender.json` aus Natural Earth (Staaten aus admin_0, Südtirol als Provinz IT-BZ aus admin_1); läuft nicht im Workflow mit |
 | `scripts/build_places.py` | baut `places.json` aus GeoNames (`TEILGEBIET`: Italien nur admin2 „BZ"); läuft nicht im Workflow mit |
-| `bilder/` | die **fünf Fotos der Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht beide nach |
-| `favicon.svg`, `apple-touch-icon.png` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); das PNG entsteht aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht |
+| `bilder/` | die **fünf Fotos der Startseite** als WebP (Hero 1600×900, vier Sport-Kacheln 960×640, seit dem 13.10.2026 je dazu die **halbe Breite** `hero-800.webp` / `*-480.webp` für das Handy, per `srcset` in `index.html`), alle von Wikimedia Commons unter CC0/CC BY/CC BY-SA – Quellen und das Pillow-Rezept für die kleinen Fassungen in `bilder/QUELLEN.md`, Namensnennung im Impressum („Datenquellen und Lizenzen"); wer ein Bild tauscht, zieht alle drei nach |
+| `favicon.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `manifest.webmanifest` | das Zeichen des Style Guides (Navy-Kachel, weiße Route, oranger Punkt); die PNGs entstehen aus dem SVG – neu erzeugen per Chromium-Screenshot (Playwright, 180 bzw. 192/512 px, randvoll ohne Rundung), `cairosvg` gibt es in der Sandbox nicht. Das **Manifest** (seit 13.10.2026, in allen sechs Seiten verlinkt) macht aus „Zum Home-Bildschirm" eine App mit Namen, Navy-Farbe und eigenem Fenster (`display: standalone`) |
 | `vendor/fonts/` | **Barlow und Barlow Condensed** als woff2 (SIL OFL, Lizenztexte daneben), eingebunden über `vendor/fonts/barlow.css` in allen fünf Seiten – selbst gehostet, nichts von Google-Servern; ohne Stempel wie alles in `vendor/` |
 | `karte.html` | Leaflet-Karte, ein Marker pro Standort, gebündelt (markercluster) – filtert wie die Liste |
 | `filters.js` | gemeinsamer Filterzustand von `events.html` und `karte.html` |
@@ -113,7 +113,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 238 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 251 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (unter 700 px: Kacheln statt Tabelle, Sortier-Pillen,
 Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -136,7 +136,11 @@ drei Rhythmen, `?abos=1`, Null-Treffer-Box, die Filterleiste darin –
 vorbelegt, Panel im Dialog und davor, Liste dahinter unberührt),
 Tastaturbedienung (ein Tab-Stopp, Pfeile,
 Enter **auch auf einer aufklappbaren Veranstaltung**, Leertaste,
-Escape, Fokusfessel der Dialoge), „Wir haben dein Event nicht?"
+Escape, Fokusfessel der Dialoge), das **Filter-Blatt auf dem Handy**
+(Pillen im Blatt, Knopf „Filter" in der Leiste, erste Veranstaltung im
+Bild, Sortierpillen in einer Reihe, Panel über dem Blatt, „Events
+anzeigen" schließt beides, Karte mindestens halbe Bildhöhe ohne
+Seiten-Scroll), „Wir haben dein Event nicht?"
 (Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
 Wege bei null Treffern), gleiche Zeilenhöhe aller Zeilen und das
 Dezimaltrennzeichen in DE und EN, die **Mastersuche** (Ort UND Name,
@@ -2737,7 +2741,67 @@ sagt es).
 
 ## Frontend-Fallen (events.html)
 
-- **Handy: Kacheln statt Tabelle (unter 700 px).** Vom Nutzer am
+- **Handy: das Filter-Blatt (bis 900 px, seit dem 13.10.2026).** Auf die
+  Frage des Nutzers „Ist das alles mobile optimiert, oder können wir da
+  noch mehr machen?" auf einem iPhone-Viewport gemessen: Kopfzeile,
+  Suchfeld, sieben Filterpillen, „Karte"/„E-Mail-Abo", Trefferzeile und
+  zwei Reihen Sortierpillen brauchten ~600 px – **die erste Veranstaltung
+  lag unter dem Bildrand** (601 von 664 px), auf der Karte blieben 398 px
+  Karte und die Seite scrollte dahinter. Vom Nutzer freigegeben („Ja,
+  fang mit 1 und 2 an, mach aber den Rest auch"). Was gebaut ist:
+  - **`EFU.filterSheet()`** (`filter-ui.js`): Bis 900 px bleibt in der
+    Filterleiste nur das Suchfeld und ein Knopf **„Filter"** mit der
+    Zahl der gesetzten Filter (Chips ohne die Suche, `setBadge`); die
+    Pillen, „Karte"/„Liste" und „E-Mail-Abo" liegen in einem **Blatt von
+    unten** (`.filter-sheet`, `body.filter-sheet-offen`, Schleier
+    `.filter-sheet-scrim`), mit Titel, „Filter löschen", ✕ und dem Knopf
+    **„N Events anzeigen"** (`setTexts({ done })` aus `render()`). Am
+    Rechner ist die Hülle `display: contents` – **dieselben Pillen,
+    kein zweites Markup, kein Umhängen im DOM**. Beide Seiten rufen es
+    vor `EFU.create()` und geben `panelParent: () => filterSheet.isOpen()
+    ? filterSheet.el : document.body` – das Panel hängt im offenen Blatt,
+    sonst läge es (z 1000) hinter dem Blatt (1400); derselbe Weg wie im
+    Abo-Dialog. **Kein `transform` am Blatt** (Ein-/Ausblenden über
+    `visibility`/`opacity`): Ein `fixed` positioniertes Panel darin
+    rechnete sonst in den Koordinaten des Blattes. Escape schließt erst
+    das Panel, dann das Blatt (der Detail-Escape in `events.html` lässt
+    das Blatt in Ruhe). Auf der Karte öffnet „Mein Standort" zuerst das
+    Blatt – die Pille liegt dort.
+  - **Die Sortierpillen stehen in EINER waagerecht scrollbaren Reihe**
+    (`thead tr { flex-wrap: nowrap; overflow-x: auto }`), die
+    Werkzeugleiste in zwei kurzen Zeilen (Zahl + Stand, Schalter, Chips;
+    „Filter löschen" nur im Blatt). Ergebnis: erste Veranstaltung bei
+    ~326 px, auf der Karte Karte bis zum Fuß (`.map-wrap { min-height:
+    0 }`, Fußnote dort ausgeblendet, Fußzeile flach).
+  - **Zwei Fallen beim Bau, beide in Kommentaren festgehalten**: Die
+    nicht umbrechende Pillenreihe machte die Tabelle 677 px breit, weil
+    `.layout { grid-template-columns: 1fr }` die Spalte auf die
+    Inhaltsbreite wachsen lässt – jetzt `minmax(0, 1fr)` wie am Rechner
+    und `table { width: 100% }` statt `auto`. Chrome (mobil) zog darauf
+    den Layout-Viewport in die Breite (694 px), das Blatt lag unter dem
+    Bildrand und sein Schleier fing JEDEN Klick ab – der Rauchtest
+    meldete es als „Überlauf 304 px" und als Timeout „scrim intercepts
+    pointer events". Ein waagerechter Überlauf ist auf dem Handy nie nur
+    kosmetisch.
+  - **Dieselbe Grenze überall: 900 px.** Kacheln, Blatt, einspaltige
+    Seite und Detail-Blatt gelten bis 900 px (`KACHEL_MQ`, vorher 699) –
+    auf dem **iPad hochkant** (768–820 px) schnitt die 900-px-Tabelle
+    genau die Spalte „Länge" ab. Der Rauchtest misst die Tabelle deshalb
+    bei `TABLET_BREITE = 1024` und öffnet vor jedem Klick auf eine Pille
+    das Blatt (`oeffne_filterblatt`/`schliesse_filterblatt` – der
+    Schleier fängt sonst den nächsten Klick).
+  - **Tippflächen 44 px** (Apple) in `site.css` bis 900 px: Navigation,
+    DE/EN, Sortierpillen, „Filter löschen", Chips mit größerem ✕, Links
+    im Fuß, „Event melden"; die Pillen der Textseiten ebenso
+    (`seite.css`), dort stehen DE/EN als Paar (`.sprache`), vorher brach
+    „EN" allein um.
+  - **Kategorie-Panel nach Sportart gruppiert** (`art2Gruppen()` in
+    `filter-ui.js`, Überschriften `.fp-group`), sobald keine oder
+    mehrere Sportarten gewählt sind – ein Wert, der zu mehreren gehört
+    (Charity, Straße), steht einmal unter der ersten.
+  - **Bilder je Breite** (`srcset`, siehe Dateitabelle): Startseite auf
+    dem Handy ~250 statt ~900 KB. **Web-Manifest** mit Icons.
+- **Handy: Kacheln statt Tabelle (bis 900 px; bis zum 13.10.2026 unter 700 px).** Vom Nutzer am
   22.09.2026 gefragt („Was genau passiert da bei der Handyansicht?") und
   freigegeben („Yes, bitte bauen"). Die Tabelle ist 900 px breit; auf
   dem Handy lagen Länge, Kategorie und Land außerhalb des Bildes, man
@@ -2791,7 +2855,8 @@ sagt es).
     `schliesse_blatt()`. Die Prüfungen, die Eigenschaften der TABELLE
     messen (52-px-Zeilen, box-shadow-Rahmen, Pfeil in der Namensspalte:
     `pruefe_datum_zweizeilig`, `pruefe_gruppierung`), laufen auf
-    `TABLET_BREITE` (820 px); `pruefe_kacheln` prüft die Kacheln.
+    `TABLET_BREITE` (1024 px, bis zum 13.10.2026 820); `pruefe_kacheln`
+    prüft die Kacheln und das Filter-Blatt.
 
 - **Weniger anzeigen ist eine Datenqualitäts-Entscheidung.** Der Nutzer
   hat das am 21.09.2026 in einem Satz begründet, der für die ganze Seite
