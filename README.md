@@ -1795,7 +1795,10 @@ hätte sonst den Termin des Berlin-Marathons bekommen; ein Termin auf
 einem **anderen Wochentag** als die vorige Ausgabe ebenfalls;
 **Tagesspannen** („24.–26. September 2027", „08./09. Mai 2027") ergeben
 Start und Ende, nicht nur den letzten Tag. Die Fälle für die
-Handprüfung listet `python3 scripts/veranstalter_seiten.py handpruefung`.
+Handprüfung listet `python3 scripts/veranstalter_seiten.py handpruefung` –
+ohne die Fälle, deren Veranstaltung schon wieder eine Zeile in
+`events.json` hat (von Hand übernommen oder von einer Quelle geliefert);
+der Bericht selbst behält sie.
 
 **Was bleibt**: Eine Seite, die den Lauf nicht beim Namen nennt (nur
 Allerweltswörter wie „Seelauf", „Silvesterlauf"), kann nie „NEU" werden –

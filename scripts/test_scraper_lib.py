@@ -4041,6 +4041,20 @@ def test_gedaechtnis() -> None:
           ("https://www.munich-triathlon.com/", [25.5, 51.5], "2026-07-26"))
     zweimal = vs.lernen([z("Munich Triathlon", "2026-07-26", 25.5, "Sprint 25,5 km", url="https://munich-triathlon.com/")], ged, overrides={})
     check("gleiche Seite in zweiter Schreibweise: nichts hin und her", (zweimal, e["url"]), ([], "https://www.munich-triathlon.com/"))
+    # handpruefung (13.10.2026): Fälle, deren Veranstaltung schon wieder in
+    # events.json steht, fallen aus der Liste - der Bericht vergisst nichts.
+    gh = vs.Gedaechtnis({})
+    vs.lernen([z("Munich Triathlon", "2026-07-26", 25.5, "Sprint"),
+               z("Stadtlauf Erding", "2026-10-03", 10.0, "10 km", url="https://sv-erding.de/", standort="Erding", lat=48.3, lon=11.9)], gh, overrides={})
+    k_m = vs.schluessel_von(z("Munich Triathlon", "2026-07-26", 25.5))
+    k_e = vs.schluessel_von(z("Stadtlauf Erding", "2026-10-03", 10.0, standort="Erding"))
+    bericht = {k_m: {"flag": "NEU?", "kandidaten": ["2027-07-24", "2027-07-25"], "name": "Munich Triathlon"},
+               k_e: {"flag": "NEU?", "kandidaten": ["2027-10-02"], "name": "Stadtlauf Erding"},
+               "nichts|x": {"flag": "NICHTS"}}
+    aktuell = vs.aktuelle_schluessel(gh, [z("Munich Triathlon 2027", "2027-07-25", 25.5, "Sprint")])
+    faelle, weg = vs.handpruefung_faelle(bericht, aktuell)
+    check("handpruefung: erledigter Fall (Zeile in events.json) fällt weg, offener bleibt",
+          ([k for k, _ in faelle], weg), ([k_e], 1))
     # Eine Veranstaltung OHNE eigene Seite steht trotzdem im Gedächtnis.
     ohne = [z("Stadtlauf Erding", "2026-10-03", 10.0, "10 km", url="https://my.raceresult.com/1/", standort="Erding")]
     vs.lernen(ohne, ged, overrides={})

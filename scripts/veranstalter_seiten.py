@@ -1214,10 +1214,7 @@ def cmd_pruefen(args) -> None:
 
     ged = Gedaechtnis.laden()
     events = _lade_events(args.events_json)
-    aktuell: set[str] = set()
-    for e in events:
-        for k in ged._kandidaten(e, auch_unscharf=True):
-            aktuell.add(k)
+    aktuell = aktuelle_schluessel(ged, events)
     heute = args.heute or time.strftime("%Y-%m-%d")
     grenze = (date.fromisoformat(heute) - timedelta(days=PRUEF_ABSTAND_TAGE)).isoformat()
     offen = [(k, v) for k, v in ged.daten.items()
@@ -1283,20 +1280,52 @@ def cmd_pruefen(args) -> None:
     ged.speichern()
 
 
+def aktuelle_schluessel(ged: "Gedaechtnis", events: list[dict]) -> set[str]:
+    """Die Gedächtnis-Schlüssel, zu denen events.json (noch) eine Zeile hat
+    - genau die Veranstaltungen, die `pruefen` NICHT abfragt, weil eine
+    Quelle oder eine Handprüfung die nächste Ausgabe schon geliefert hat.
+    Unscharf wie `pruefen` (siehe `_kandidaten`): „King of the Lake" 2027
+    in events.json heißt, dass auch „Asvö King of the Lake am Attersee"
+    2026 erledigt ist."""
+    aktuell: set[str] = set()
+    for e in events:
+        for k in ged._kandidaten(e, auch_unscharf=True):
+            aktuell.add(k)
+    return aktuell
+
+
+def handpruefung_faelle(bericht: dict, aktuell: set[str]) -> tuple[list[tuple[str, dict]], int]:
+    """Die NEU?- und TOT-Fälle des Berichts, die noch offen sind - OHNE
+    die, deren Veranstaltung inzwischen eine Zeile in events.json hat
+    (`aktuell`). Der Bericht wächst mit jedem Lauf und vergisst nichts:
+    Am 13.10.2026 standen dort noch die 13 Fälle vom 05.10., die am
+    07.10. von Hand übernommen worden waren (Kulmbach Trails, Altkönig-
+    Lauf, Rheinhöhenlauf …), dazu fünf, die eine Quelle inzwischen selbst
+    lieferte. Gibt die offenen Fälle sortiert und die Zahl der
+    übersprungenen zurück."""
+    alle = [(k, r) for k, r in bericht.items() if r.get("flag") in ("NEU?", "TOT")]
+    offen = [kr for kr in alle if kr[0] not in aktuell]
+    offen.sort(key=lambda kr: (kr[1].get("flag"), (kr[1].get("kandidaten") or [""])[0], kr[1].get("name") or ""))
+    return offen, len(alle) - len(offen)
+
+
 def cmd_handpruefung(args) -> None:
     """Die Fälle aus dem Prüfbericht, die ein Mensch ansehen muss: NEU?
     (mehrdeutige Termine, Termin von der Startseite, Seite nennt den Lauf
     nicht beim Namen) und TOT. Wer einen Termin bestätigt, trägt ihn mit
     den Strecken in manual_events.json ein - wie jede andere einzeln
-    geprüfte Veranstaltung."""
+    geprüfte Veranstaltung. Fälle, deren Veranstaltung schon wieder in
+    events.json steht (von Hand oder über eine Quelle), erscheinen nicht
+    mehr (`handpruefung_faelle`)."""
     bericht_pfad = Path(args.bericht) if args.bericht else PRUEFUNG
     if not bericht_pfad.exists():
         print(f"Kein Bericht unter {bericht_pfad}.")
         return
     b = json.loads(bericht_pfad.read_text(encoding="utf-8"))
-    offen = [(k, r) for k, r in b.items() if r.get("flag") in ("NEU?", "TOT")]
-    offen.sort(key=lambda kr: (kr[1].get("flag"), (kr[1].get("kandidaten") or [""])[0], kr[1].get("name") or ""))
-    print(f"{len(offen)} Fälle zur Handprüfung (Bericht {bericht_pfad.name}, {len(b)} geprüfte Seiten)\n")
+    aktuell = aktuelle_schluessel(Gedaechtnis.laden(), _lade_events(args.events_json))
+    offen, erledigt = handpruefung_faelle(b, aktuell)
+    print(f"{len(offen)} Fälle zur Handprüfung (Bericht {bericht_pfad.name}, {len(b)} geprüfte Seiten; "
+          f"{erledigt} weitere haben schon eine Zeile in events.json und sind erledigt)\n")
     for k, r in offen:
         if r["flag"] == "TOT":
             print(f"TOT   {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe') or 'unbekannt'}): {r.get('url')} - Seite weg; neue Adresse suchen")

@@ -2631,6 +2631,17 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   NEU?- und TOT-Fälle des Berichts für den Nutzer (Termin, Grund, Seite,
   Kilometer auf der Seite). Wer einen Termin bestätigt, trägt ihn wie
   jede einzeln geprüfte Veranstaltung in `manual_events.json` ein.
+  **Seit dem 13.10.2026 ohne die erledigten Fälle**: Der Bericht
+  vergisst nichts, und am 13.10. standen dort noch die 13 Fälle vom
+  05.10., die am 07.10. von Hand übernommen waren, dazu fünf, die eine
+  Quelle inzwischen selbst lieferte. `handpruefung_faelle()` lässt
+  jeden Fall weg, dessen Veranstaltung eine Zeile in `events.json` hat –
+  nach derselben Regel, nach der `pruefen` sie nicht mehr abfragt
+  (`aktuelle_schluessel()`, unscharf wie `_kandidaten`); 35 → 19 Fälle.
+  Was trotzdem stehen bleibt, sind Gedächtnis-Einträge mit ANDEREM Ort
+  als die neue Zeile (Rheinhöhenlauf unter Vettelschoß, die Zeile in
+  Linz am Rhein; S3-T Triathlon unter Visp, die Zeile in Brig-Glis) –
+  Nachbarorte über 3 km, zwei Einträge für eine Veranstaltung.
 - `name_ohne_jahr()` lässt auch die Auflage vorn weg („6. Appelhülsener
   Landlauf" → „Appelhülsener Landlauf"): die nächste Ausgabe heißt „7.".
 - **Der erste volle Prüflauf (05.10.2026, 637 Seiten, 40 Minuten)**:
@@ -5176,9 +5187,11 @@ Verweise auf alte Nummern stehen in Klammern.
    lassen); dann `endurance-events.de/admin.html` öffnen, anmelden,
    die angezeigte uid in Firestore als Dokument `admins/<uid>` anlegen,
    Seite neu laden. Die erste Auswertung kommt zur nächsten vollen Stunde
-   plus sieben Minuten. **Bis zum Deploy sendet `stats.js` auf der
-   Live-Seite ins Leere** (die Function antwortet 404) – das stört die
-   Seite nicht, zählt aber auch nichts.
+   plus sieben Minuten. **Der Deploy ist durch** (von hier geprüft am
+   13.10.2026, 21:05 UTC: `collect` antwortet mit erlaubtem Origin 204,
+   ohne Origin 403 – vorher wäre es eine 404 gewesen; die Seite zählt
+   also). Offen ist nur noch die Freischaltung des Dashboards:
+   `admins/<uid>` in Firestore anlegen, falls noch nicht geschehen.
 7. **Datenschutzerklärung erneut lesen** (neu 13.10.2026): Abschnitt
    „Besucherstatistik" (DE und EN) samt Schalter – die Seite ist live,
    also zeitnah.
