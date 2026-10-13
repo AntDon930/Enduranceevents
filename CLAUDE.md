@@ -5192,16 +5192,9 @@ Verweise auf alte Nummern stehen in Klammern.
    ohne Origin 403 – vorher wäre es eine 404 gewesen; die Seite zählt
    also). Offen ist nur noch die Freischaltung des Dashboards:
    `admins/<uid>` in Firestore anlegen, falls noch nicht geschehen.
-7. **Datenschutzerklärung erneut lesen** (neu 13.10.2026): Abschnitt
-   „Besucherstatistik" (DE und EN) samt Schalter – die Seite ist live,
-   also zeitnah. **Vorab von Claude gegen den Code gehalten (13.10.2026,
-   abends)**: Jede Angabe im Text stimmt mit `stats.js` und der Function
-   überein (Felder, Aktionen, @-Regel, keine Koordinaten, Tagesschlüssel,
-   35 Tage, Belgien/Frankfurt, DNT/GPC, Schalter). Eine Lücke geschlossen:
-   Der Hinweis auf ein fehlendes Event (`fehlt`) stand nicht im Text,
-   ebenso wenig, dass ein Abo nur mit dem Rhythmus und eine Fehlermeldung
-   nur mit der Kategorie gezählt wird – in Markup, DE- und EN-Text
-   ergänzt. Der Nutzer liest den Text danach selbst (keine Rechtsberatung).
+
+(Der frühere Punkt 7, die Datenschutzerklärung erneut lesen, ist seit dem
+13.10.2026 erledigt – Archiv, Punkt 34.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -5690,6 +5683,17 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
 33. GitHub-Domain-Verifizierung → **jetzt Punkt 2 der neuen Liste**
     (schützt davor, dass nach einem Löschen des Repositories jemand
     anderes die Domain auf sein Pages-Projekt zeigen lässt).
+34. ~~**Datenschutzerklärung erneut lesen** – Abschnitt „Besucherstatistik"
+    (DE und EN) samt Schalter.~~ **erledigt** (13.10.2026, vom Nutzer:
+    „Punkt 7 ist erledigt"). Vorab von Claude gegen den Code gehalten:
+    Jede Angabe stimmt mit `stats.js` und der Function überein (Felder,
+    Aktionen, @-Regel, keine Koordinaten, Tagesschlüssel, 35 Tage,
+    Belgien/Frankfurt, DNT/GPC, Schalter); eine Lücke geschlossen – der
+    Hinweis auf ein fehlendes Event (`fehlt`) fehlte in der Aufzählung,
+    dazu steht jetzt, dass ein Abo nur mit dem Rhythmus und eine
+    Fehlermeldung nur mit der Kategorie gezählt wird (Markup, DE, EN;
+    Commit 0d51635). Wer die Statistik ändert (neue Aktion, neues Feld),
+    zieht den Abschnitt nach – siehe „Besucherstatistik".
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
