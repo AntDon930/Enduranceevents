@@ -1573,15 +1573,23 @@ def pruefe_farbschema(ctx, basis):
     stand = seite.evaluate("""() => {
         const s = () => document.documentElement.getAttribute('data-theme');
         const bg = () => getComputedStyle(document.body).backgroundColor;
-        const vorher = { schema: s(), bg: bg() };
+        const kopf = () => getComputedStyle(document.querySelector('.site-header')).backgroundColor;
+        const vorher = { schema: s(), bg: bg(), kopf: kopf() };
         document.querySelector('.theme-btn').click();
-        const nachher = { schema: s(), bg: bg() };
+        const nachher = { schema: s(), bg: bg(), kopf: kopf() };
         let gespeichert = null;
         try { gespeichert = localStorage.getItem('endurance-theme'); } catch (e) { /* egal */ }
         return { vorher, nachher, gespeichert }; }""")
     pruefe(stand["vorher"]["schema"] in ("light", "dark") and stand["nachher"]["schema"] != stand["vorher"]["schema"],
            "der Knopf schaltet das Schema um (%s → %s)" % (stand["vorher"]["schema"], stand["nachher"]["schema"]))
     pruefe(stand["vorher"]["bg"] != stand["nachher"]["bg"], "… und die Seite wechselt die Farbe")
+    # 13.10.2026, vom Nutzer gemeldet: Auf der Startseite "merkt man da
+    # gar nichts" - der Hero ist in beiden Schemata dunkel, und die
+    # Kopfzeile war fest Navy. Jetzt muss sich die KOPFZEILE sichtbar
+    # ändern, sonst sieht der Knopf kaputt aus.
+    pruefe(stand["vorher"]["kopf"] != stand["nachher"]["kopf"],
+           "… und die Kopfzeile der Startseite wechselt sichtbar die Farbe (%s → %s)"
+           % (stand["vorher"]["kopf"], stand["nachher"]["kopf"]))
     pruefe(stand["gespeichert"] == stand["nachher"]["schema"], "die Wahl wird gespeichert (%s)" % stand["gespeichert"])
     seite.goto(basis + "/karte.html")
     seite.wait_for_selector(".filter-bar", timeout=30000)

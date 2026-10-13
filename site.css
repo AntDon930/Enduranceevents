@@ -207,8 +207,15 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
 }
 /* Die Startseite trägt die Kopfzeile auf Navy (Guide: "Nacht - Kopf der
    Startseite, Fußzeile"): dort die weiße Kachel mit Navy-Route. Die
-   Variablen werden nur INNERHALB der Kopfzeile umgebogen. */
-.site-header--navy {
+   Variablen werden nur INNERHALB der Kopfzeile umgebogen.
+   NUR IM DUNKLEN SCHEMA (seit 13.10.2026, vom Nutzer gemeldet: "Wenn ich
+   auf der Startseite wechsle zwischen Nacht- und Tagmodus, dann merkt man
+   da gar nichts" - der Hero ist in beiden Schemata dunkel, und mit einer
+   festen Navy-Kopfzeile sah der Knopf kaputt aus). Im hellen Schema fällt
+   die Startseite auf die normale weiße Kopfzeile von Liste und Karte
+   zurück (var(--header-bg), Navy-Kachel) - der Wechsel ist dann oben
+   sichtbar. Die Fußzeile bleibt in beiden Schemata Navy. */
+:root:not([data-theme="light"]) .site-header--navy {
   background: #0b1b33;
   border-bottom-color: rgba(255, 255, 255, 0.12);
   --text: #ffffff;

@@ -112,7 +112,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 223 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 238 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (unter 700 px: Kacheln statt Tabelle, Sortier-Pillen,
 Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -3085,9 +3085,19 @@ sagt es).
     auf Navy (Kopf der Startseite `.site-header--navy`, dunkles Schema)
     weiße Kachel mit Navy-Route, der Punkt bleibt orange
     (`--logo-bg/-fg/-dot`). Dasselbe Zeichen ist `favicon.svg`.
-  - **Fußzeile ist Navy** in beiden Schemata (`--footer-bg`), die
-    Kopfzeile der Startseite auch; Liste und Karte tragen die helle
-    Kopfzeile (`--header-bg`).
+  - **Fußzeile ist Navy** in beiden Schemata (`--footer-bg`); Liste und
+    Karte tragen die helle Kopfzeile (`--header-bg`). **Die Kopfzeile der
+    Startseite ist seit dem 13.10.2026 nur noch im DUNKLEN Schema Navy**
+    (`:root:not([data-theme="light"]) .site-header--navy` in `site.css`),
+    im hellen fällt sie auf die weiße Kopfzeile von Liste und Karte
+    zurück. Vom Nutzer gemeldet: „Wenn ich auf der Startseite wechsle
+    zwischen Nacht- und Tagmodus, dann merkt man da gar nichts … damit
+    die User nicht denken, dass der Button nicht funktioniert." Der Hero
+    (Foto unter Navy-Verlauf) bleibt in beiden Schemata dunkel – so
+    gewollt –, also war die Kopfzeile das Einzige im ersten Bild, das
+    den Wechsel zeigen kann. Der Rauchtest prüft seitdem, dass die
+    Kopfzeile der Startseite beim Umschalten die Farbe wechselt
+    (`pruefe_farbschema`, Weiß ↔ Navy).
   - **Bildsprache**: seit dem 05.10.2026 **Fotos** (der im Guide
     genannte zweite Schritt: unter einer Navy-Fläche, selbst gehostet
     als WebP in `bilder/`) – Hero und vier Sport-Kacheln, Sportszenen
@@ -3188,8 +3198,9 @@ sagt es).
     Kacheln leicht abgedunkelt; das Popup behält feste helle Farben
     (Leaflet-Popup ist immer weiß).
   - **Startseite**: dieselbe Kopfzeile über dem Hero (der `.events-btn`
-    ist der Navigationslink „Events“, links von der Anmeldung), Hero
-    dunkel mit orangem Schimmer, Fußzeile wie überall.
+    ist der Navigationslink „Events“, links von der Anmeldung; seit dem
+    13.10.2026 im hellen Schema weiß, im dunklen Navy – siehe „Fußzeile
+    ist Navy"), Hero dunkel mit orangem Schimmer, Fußzeile wie überall.
 
 - **Die Karte ist seit dem 21.09.2026 die zweite Vorlage des Nutzers**
   („Die Map bitte so gut wie möglich in dem Format darstellen"; ein
