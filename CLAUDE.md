@@ -4370,6 +4370,18 @@ beim Arbeiten wissen muss:
   Reihenfarbe durch (zu wenig Chroma). Balken ≤ 24 px, oben gerundet,
   Hairline-Raster, Legende mit Linienschlüsseln, Tooltip über Crosshair,
   Tabelle und CSV als Zweitweg.
+- **Was die Zahlen bedeuten (dem Nutzer am 14.10.2026 erklärt)**: Das
+  Balkendiagramm „Tageszeit" zählt SEITENAUFRUFE je Stunde, keine
+  Besucher. „Besucher" = Kombination IP + Browser je Tag – iCloud
+  Private Relay (wechselnde Apple-Adressen) lässt EIN Gerät mehrfach
+  zählen, ebenso jeder Browser- und Netzwechsel; die Zahl ist eine
+  Obergrenze, „Besuche" (Sitzungen) ist verlässlicher. „Region" kommt
+  aus der ZEITZONE des Browsers (`ld` aus `tz`), nicht aus der IP. Der
+  Bot-Filter in `stumm()` fängt nur, was sich selbst so nennt
+  (bot/crawl/spider/headless/lighthouse/preview …); Scanner mit
+  gewöhnlichem Browserkennzeichen zählen mit – am ersten Abend 6
+  Aufrufe „Amerika"/en-US. Erst mit einigen Tagen Daten entscheiden, ob
+  ein Muster gefiltert werden soll.
 
 ## Impressum und Datenschutz (vollständig seit dem 05.10.2026)
 
@@ -5191,7 +5203,43 @@ dieser Reihenfolge, mit Stand. **Nicht ohne Rückfrage umsortieren.**
 
 ## Offene Punkte / To-dos
 
-### To-do-Liste des Nutzers (Stand 13.10.2026, nach dem Livegang)
+### To-do-Liste des Nutzers (Stand 14.10.2026, 00:15 – nach dem Clear)
+
+**Stand beim Clear (14.10.2026, 00:15, Nutzer: „Merk dir alles. Ich
+clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
+
+- **Erledigt am 13.10.**: Punkt 6 (Besucherstatistik: Deploy durch den
+  Nutzer, `admins/Z7lpnvkEmJbVOMifzRO0UdSulw92` angelegt, Dashboard
+  zeigt Zahlen), Punkt 7 (Datenschutzerklärung gelesen, Text vorher gegen
+  den Code gehalten und um `fehlt` ergänzt), Punkt 7 neu (`update-events.yml`
+  auf `main`, Commit `c7344d8`). Dazu gebaut: **Deploy-Gate**
+  (`pages.yml` → `ci.yml` per `workflow_call`, Deploy nur bei grün; der
+  erste Ernstfall war mein eigener Test mit `import yaml`, abgefangen)
+  und **Wartungsmodus** (`wartung.json`/`wartung.html`, live geprüft,
+  Umschalten = Datei auf GitHub bearbeiten, ~2 Minuten) – README
+  „Deploy-Gate und Wartungsmodus". Handprüfung zeigt erledigte Fälle
+  nicht mehr (35 → 19).
+- **Entschieden**: Statistik bleibt vorerst stündlich („weil es
+  interessant ist"), Umstellung auf täglich ist Punkt 6 unten.
+- **Beobachtung in der Statistik (14.10., 00:15)**: 13.10. = 14
+  Besucher, 20 Besuche, 37 Seitenaufrufe; davon 6 Aufrufe mit
+  amerikanischer Zeitzone, 8 mit en-US, 2 Italien – nicht der Nutzer,
+  nicht Claude (lokaler Server/Testbrowser sind stumm). Erklärung an
+  den Nutzer: vermutlich Scanner nach dem neuen Zertifikat (CT-Logs),
+  die sich nicht „bot" nennen; echte Besucher nicht ausgeschlossen.
+  Dazu: **iCloud Private Relay** lässt ein Gerät mit wechselnder IP
+  mehrfach als Besucher zählen – „Besuche" ist der verlässlichere Wert.
+  Der Nutzer kann die Treffer selbst ansehen (Firestore `hits`, Filter
+  `ld` == `Amerika`: `br`, `os`, `dv`, `p`, `r`). **Nach ein paar
+  Tagen Daten prüfen**, ob ein Scanner-Muster bleibt (gleiche
+  Browser/OS-Kombination, kein Referrer, nur Startseite) – dann in
+  `stats.js`/`collect` filtern, nicht vorher.
+- **Montag 19.10.2026**: Nach dem Datenlauf muss ein Lauf „Deploy GitHub
+  Pages" mit Ereignis `workflow_dispatch` dastehen (Abfrage mit VOLLEM
+  SHA). Fehlt er, den Anstoß in `update-events.yml` auf `main` prüfen.
+- **Nächste Schritte in Reihenfolge**: Punkt 1 (Korrekturliste – die
+  nächste Excel des Nutzers einlesen), Punkt 2 (Domain-Verifizierung,
+  Anleitung steht beim Punkt), der Rest ist später.
 
 **Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
 Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
