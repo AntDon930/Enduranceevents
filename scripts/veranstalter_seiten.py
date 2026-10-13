@@ -970,9 +970,13 @@ def manual_events_aus(eintrag: dict, start: str, ende: str, heute: str,
                          ("gedaechtnis", True),
                          ("_quelle", eintrag.get("url")),
                          ("_note", f"Gedächtnis je Veranstaltung ({heute}): Die Veranstalterseite nennt den Termin "
-                                   f"{start}" + (f" bis {ende}" if ende != start else "") +
-                                   f"; Strecken aus der Ausgabe {eintrag.get('datum')} übernommen "
-                                   "(veranstalter_seiten.py pruefen --uebernehmen)." + hinweis +
+                                   f"{start}" + (f" bis {ende}" if ende != start else "")
+                                   + (f"; Strecken aus der Ausgabe {eintrag.get('datum')} übernommen "
+                                      if eintrag.get("datum") else
+                                      "; Strecken wie zuletzt auf der Seite genannt (vorige Ausgabe ohne Datum) "
+                                      if eintrag.get("strecken") else
+                                      "; vorige Ausgabe ohne Datum und ohne gemerkte Strecken ")
+                                   + "(veranstalter_seiten.py pruefen --uebernehmen)." + hinweis +
                                    " Die Zeile verschwindet von selbst, sobald eine Quelle die Ausgabe liefert.")])
         zeilen.append(OrderedDict((k, v) for k, v in z.items() if v is not None or k in ("laenge_km", "dauer_h")))
     return zeilen
@@ -1255,7 +1259,7 @@ def cmd_pruefen(args) -> None:
     neu = [b for b in bericht.values() if b.get("flag") in ("NEU", "NEU?")]
     print(f"\nNEU - die Seite nennt einen passenden künftigen Termin ({len(neu)}):")
     for b in neu:
-        print(f"  - [{b['flag']}] {b['name']} ({b['ort']}, zuletzt {b['letzte_ausgabe']}): "
+        print(f"  - [{b['flag']}] {b['name']} ({b['ort']}, zuletzt {b['letzte_ausgabe'] or 'unbekannt'}): "
               f"{', '.join(b['kandidaten'][:4])} - {b['url']}")
     umgezogen = [b for b in bericht.values() if b.get("umgezogen")]
     tot = [b for b in bericht.values() if b.get("flag") == "TOT"]
@@ -1295,10 +1299,10 @@ def cmd_handpruefung(args) -> None:
     print(f"{len(offen)} Fälle zur Handprüfung (Bericht {bericht_pfad.name}, {len(b)} geprüfte Seiten)\n")
     for k, r in offen:
         if r["flag"] == "TOT":
-            print(f"TOT   {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe')}): {r.get('url')} - Seite weg; neue Adresse suchen")
+            print(f"TOT   {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe') or 'unbekannt'}): {r.get('url')} - Seite weg; neue Adresse suchen")
             continue
         grund = r.get("grund") or ("Seite nennt den Lauf nicht beim Namen" if not r.get("nennt_den_lauf") else "mehrere Termine")
-        print(f"NEU?  {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe')}): "
+        print(f"NEU?  {r.get('name')} ({r.get('ort')}, zuletzt {r.get('letzte_ausgabe') or 'unbekannt'}): "
               f"{', '.join(r.get('kandidaten') or [])} - {grund}\n      {r.get('url')}"
               + (f"  [km auf der Seite: {', '.join(f'{x:g}' for x in r['seiten_km'][:10])}]" if r.get("seiten_km") else ""))
 

@@ -52,7 +52,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
 | `scripts/links_geprueft.json` | **Protokoll der Linkprüfung** (nur `veranstalter_url`, 500 Veranstaltungen am 19.09.2026) – bewusst getrennt von `geprueft.json`, damit die Datenprüfung diese Events nicht für „erledigt" hält |
-| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 32 nachgetragen, 15 im Bestand, 72 „existiert, Termin offen" (im Frühjahr 2027 erneut prüfen), 98 nicht gefunden; siehe README („Die Eventliste des Nutzers") |
+| `scripts/eventliste_pdf_geprueft.json` | **Prüfprotokoll der PDF-Eventliste des Nutzers** (24.09.2026, 247 Rad- und Schwimm-Einträge DE/AT je Bundesland): je Eintrag Ergebnis und Notiz – 32 nachgetragen, 15 im Bestand, 72 „existiert, Termin offen" (davon 45 mit Seite seit dem 13.10.2026 im Gedächtnis – der Wochenlauf fragt sie ab; die 28 ohne Seite im Frühjahr 2027 per Websuche), 98 nicht gefunden; siehe README („Die Eventliste des Nutzers") |
 | `scripts/update_events.py` | führt alle Scraper + Aufräumen aus (nutzt der Workflow) |
 | `scripts/manual_overrides.json` | einzeln recherchierte Korrekturen an **vorhandenen** Zeilen |
 | `scripts/manual_events.json` | einzeln recherchierte **fehlende** Strecken – ein Override kann keine Zeile anlegen |
@@ -2656,6 +2656,32 @@ Halbmarathon wurde") – Tabelle im README („Was das Gedächtnis aushält"):
   solche Doppel-Einträge aus der Zeit vor der unscharfen Suche bleiben
   im Gedächtnis stehen, `finde()` nimmt weiter nur den genauen.
 
+**Einträge von Hand – die PDF-Liste des Nutzers (13.10.2026, „Ja, bitte
+die 45 ins Gedächtnis aufnehmen")**: Von den 72 „existiert, Termin
+offen"-Einträgen in `eventliste_pdf_geprueft.json` haben 45 eine
+Veranstalterseite. Statt sie im Frühjahr 2027 von Hand abzufragen, stehen
+sie im Gedächtnis: `quelle` „override" (die Seite ist einzeln geprüft),
+dazu das Feld **`herkunft`** („PDF-Eventliste des Nutzers …"), damit man
+sie wiederfindet; `datum`/`strecken_datum` = die letzte auf der Seite
+genannte Ausgabe (meist 2026) oder `null`, wenn die Seite keinen Termin
+nannte – `kandidaten_termine()` nimmt dann jeden künftigen Termin bis 14
+Monate, `_gleicher_wochentag()` sperrt nicht; `strecken` nur, wo die
+Prüfnotiz einzelne Distanzen nennt (Zollernkönig 207 km, Hallstättersee
+2,1/5/7 km …), Spannen („15–46 km") bleiben leer – eine Zeile ohne Maßzahl
+landet dann in der Korrekturliste. 31 Einträge neu; 9 standen schon drin
+(Alb-Extrem, Bodensee-Radmarathon, Altmühltal, Burning Roads,
+Erzgebirgstour, Granitmarathon, Salzkammergut Trophy, Kufsteinerland,
+Lindauer Seequerung – alle schon mit Termin 2027 in `events.json`); 5
+bewusst nicht: Deutschland Tour Jedermann (Ort wechselt jährlich),
+Nordcup-Radmarathon (Serienseite, To-do Punkt 4), Jedermannradcup RC Feld
+am See (Cup, kein Rennen), Kaiserbäder Seebrückenschwimmen (im Protokoll
+versehentlich mit der Brandenburger URL), Senftenberg doppelt. Die
+`_note` einer Fund-Zeile sagt seitdem bei Einträgen ohne Datum „vorige
+Ausgabe ohne Datum" statt „Ausgabe None". Wer weitere Einträge von Hand
+anlegt: `schluessel_von({"name", "standort"})`, Koordinaten über
+`korrekturliste.koordinaten()`, speichern über `Gedaechtnis.speichern()`
+(eine Zeile je Eintrag).
+
 **Was es weiter nicht kann**: Eine Seite, die den Lauf nicht beim Namen
 nennt (Allerweltswörter – „Seelauf", „Silvesterlauf" stehen in
 `ALLGEMEIN`), wird nie „NEU", nur „NEU?" für die Handprüfung. Strecken
@@ -5019,9 +5045,13 @@ Verweise auf alte Nummern stehen in Klammern.
    Hostname nur `_github-pages-challenge-AntDon930`, Wert = der Code,
    keinen www-Eintrag dazu; (3) bei GitHub „Verify", notfalls nach ein
    paar Minuten noch einmal. Der TXT-Eintrag bleibt dauerhaft stehen.
-3. **Frühjahr 2027** (alt 25): die 72 „existiert, Termin offen"-Einträge
-   der PDF-Liste erneut prüfen (`scripts/eventliste_pdf_geprueft.json`)
-   – Arbeit von Claude, der Nutzer gibt den Anstoß.
+3. **Frühjahr 2027** (alt 25): die „existiert, Termin offen"-Einträge
+   der PDF-Liste (`scripts/eventliste_pdf_geprueft.json`) – **seit dem
+   13.10.2026 nur noch die 28 OHNE Veranstalterseite** (Websuche, Arbeit
+   von Claude, der Nutzer gibt den Anstoß). Die 45 mit Seite stehen im
+   Gedächtnis (`herkunft` „PDF-Eventliste"; 31 neu, 9 waren schon da, 5
+   bewusst nicht: siehe „Gedächtnis je Veranstaltung", letzter Absatz) –
+   ihren nächsten Termin fragt der Wochenlauf von selbst auf der Seite ab.
 4. **Frühjahr 2027** (alt 26): NordCup 2027 (9 Radmarathons SH) beim
    Veranstalter nachziehen.
 5. **Frühjahr 2027** (alt 27): BOE, Fricktaler Cup, dsergebnis,
