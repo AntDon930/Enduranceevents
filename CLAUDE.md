@@ -4804,9 +4804,15 @@ Tests noch Deploy): GitHub unterdrückt Workflow-Läufe aus Pushes mit dem
 `GITHUB_TOKEN`. Bis dahin ging ein Datenlauf erst mit dem nächsten Push
 von Hand live. `update-events.yml` stößt `pages.yml` deshalb nach dem
 Push per `gh workflow run pages.yml --ref …` an (`actions: write`,
-workflow_dispatch ist die erlaubte Ausnahme) – **wirkt erst, wenn die
-Fassung auf `main` die Zeile trägt** (To-do-Liste, Punkt 7; Freigabe des
-Nutzers, ein Commit auf `main` mit nur dieser Datei).
+workflow_dispatch ist die erlaubte Ausnahme) – **seit dem 13.10.2026
+auch auf `main`** (Commit `c7344d8`, vom Nutzer freigegeben). Beim
+ersten Montagslauf danach (19.10.2026) nachsehen, ob der
+`workflow_dispatch`-Lauf von „Deploy GitHub Pages" dasteht.
+**Workflow-Läufe zu einem Commit immer mit dem VOLLEN SHA abfragen**
+(`actions/runs?head_sha=<40 Zeichen>`): Mit sieben Zeichen liefert die
+API still null Treffer – so entstand am 13.10. erst eine falsche
+Beobachtung („keine Läufe"), die erst die zweite Abfrage mit vollem SHA
+bestätigte.
 
 **Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
 diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
@@ -5234,15 +5240,9 @@ Verweise auf alte Nummern stehen in Klammern.
    Nutzer in der Cloud Shell: `cd Enduranceevents && git pull &&
    firebase deploy --only functions`. Das Dashboard zeigt dann den
    laufenden Tag erst am nächsten Morgen („Stand" = Mitternacht).
-7. **`main`: `update-events.yml` nachziehen** (neu 13.10.2026, braucht
-   die Freigabe des Nutzers wie beim letzten Mal): Die Fassung auf dem
-   Entwicklungs-Branch stößt nach dem Push den Pages-Deploy an
-   (`gh workflow run pages.yml`, `actions: write`) – ohne das geht der
-   Montags-Datenlauf erst mit dem nächsten Push von Hand live (siehe
-   „Automatik", „Ein Push des Datenlaufs löst KEINEN Deploy aus"). Nach
-   dem Ja: ein Commit auf `main` mit nur dieser Datei, dann ist
-   `git diff origin/main origin/claude/website-access-9d9tg1 --
-   .github/workflows/update-events.yml` wieder leer.
+
+(Der frühere Punkt 7 – `update-events.yml` auf `main` nachziehen – ist
+seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
@@ -5758,6 +5758,20 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Tag: 7 Besucher, 10 Besuche, 13 Seitenaufrufe, Stand 23:07 – fast
     alles eigene Aufrufe beim Einrichten). Wer ein zweites Konto
     freischalten will: ein weiteres Dokument `admins/<uid>`, sonst nichts.
+36. ~~**`main`: `update-events.yml` nachziehen** (Pages-Deploy nach dem
+    Push anstoßen).~~ **erledigt** (13.10.2026, vom Nutzer: „Ja bitte auf
+    main pushen" – Commit `c7344d8` auf `main`, nur diese eine Datei;
+    `git diff origin/main origin/claude/website-access-9d9tg1 --
+    .github/workflows/update-events.yml` ist leer). Hintergrund: Ein Push
+    mit dem `GITHUB_TOKEN` löst keinen Workflow aus; der Datenlauf vom
+    12.10.2026 hatte deshalb keinen Deploy (mit dem vollen SHA nachgesehen:
+    nur ein `pull_request`-Lauf mit `action_required`, kein `push`-Lauf,
+    kein „Deploy GitHub Pages"). Jetzt stößt der Workflow `pages.yml` per
+    `gh workflow run` an, und der läuft durch das Deploy-Gate. Beim
+    nächsten Montagslauf (19.10.2026) prüfen: Nach dem Bot-Commit muss ein
+    Lauf „Deploy GitHub Pages" mit Ereignis `workflow_dispatch` stehen.
+    Bei der nächsten Änderung an der Datei wieder so: Freigabe einholen,
+    ein Commit auf `main` mit nur dieser Datei.
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester

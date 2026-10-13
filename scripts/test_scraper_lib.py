@@ -1706,12 +1706,16 @@ def test_wartung() -> None:
           "uses: ./.github/workflows/ci.yml" in pages and "needs: [aenderung, pruefung]" in pages, True)
     check("pages.yml: nur wartung.json darf ohne Tests durch", '"wartung.json"' in pages and "nur_wartung" in pages, True)
     check("ci.yml ist aufrufbar (workflow_call)", "workflow_call:" in ci, True)
-    import yaml
-    ci_yaml = yaml.safe_load(ci)
-    # `on:` wird von YAML als Schlüssel True gelesen.
-    push_branches = ((ci_yaml.get(True) or ci_yaml.get("on") or {}).get("push") or {}).get("branches") or []
+    # Ohne YAML-Bibliothek (PyYAML steht nicht in requirements.txt, und in
+    # der CI fehlt sie - genau daran ist der erste Lauf des Gates
+    # gescheitert): der `on:`-Block ist der Text von der Zeile `on:` bis
+    # zum nächsten Schlüssel ohne Einrückung, Kommentare abgezogen.
+    on_block = _re.search(r"^on:\n(.*?)^\S", _re.sub(r"#[^\n]*", "", ci), _re.S | _re.M)
+    check("ci.yml hat einen on:-Block", on_block is not None, True)
     check("ci.yml prüft den Deploy-Branch nicht noch einmal selbst (die Tests laufen in pages.yml)",
-          "claude/endurance-events-website-v1wruf" in push_branches, False)
+          on_block is not None and "claude/endurance-events-website-v1wruf" in on_block.group(1), False)
+    check("ci.yml prüft den zweiten Branch weiter direkt",
+          on_block is not None and "claude/website-access-9d9tg1" in on_block.group(1), True)
 
 
 def test_farbschema_skript() -> None:
