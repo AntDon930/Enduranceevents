@@ -4788,14 +4788,26 @@ sie ignoriert; die Domain steht in den Repo-Einstellungen (Settings →
 Pages → Custom domain), die alte Adresse `antdon930.github.io/Enduranceevents/`
 leitet danach automatisch um.
 
-**Was nur der Nutzer kann** (am 13.10.2026 als Anleitung geschickt):
-DNS bei IONOS (A-Records der Apex-Domain auf 185.199.108.153,
-185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME `www` →
-`antdon930.github.io`), die Custom Domain in den Pages-Einstellungen
-samt „Enforce HTTPS", Firebase Authentication → Autorisierte Domains
-(`endurance-events.de`, `www.endurance-events.de` – sonst
-`auth/unauthorized-domain` beim Login), und `firebase deploy --only
-functions` für `SITE_URL` in den Abo-Mails.
+**Was nur der Nutzer kann – alles am 13.10.2026 abends erledigt**
+(Schritt für Schritt per Bildschirmfoto begleitet): DNS bei IONOS (die
+„Default Site"-Einträge A/AAAA lassen sich nicht löschen, nur
+bearbeiten – der A-Record auf 185.199.108.153 geändert, der AAAA
+verschwand dabei von selbst; drei weitere A-Records `@` auf
+185.199.109–111.153, dabei jeweils „DNS-Record für www nicht
+hinzufügen" anklicken, sonst legt IONOS einen A-Record für `www` an,
+der mit dem CNAME kollidiert; CNAME `www` → `antdon930.github.io`;
+Mail-Einträge unangetastet), Custom Domain in den Pages-Einstellungen
+(Zertifikat kam nach ~15 Minuten, „Enforce HTTPS" war vorab gesetzt),
+Firebase Authentication → Autorisierte Domains (`endurance-events.de`,
+`www.endurance-events.de`), und `firebase deploy --only functions` aus
+der Cloud Shell (shell.cloud.google.com direkt, die eingebettete Shell
+der Firebase-Konsole hing beim Start; „Deploy complete!", `SITE_URL`
+gilt). Geprüft von hier: https 200 mit Titel, `www` → Apex, alte
+Adresse leitet um, ICS als `text/calendar`. Einziger Rest: Fastly
+hielt für `http://endurance-events.de/` (nur die Wurzel, nur http)
+noch die 404 von vor der Domain-Einstellung im Cache (PURGE nicht
+erlaubt) – läuft von selbst ab, und mit aktivem „Enforce HTTPS" leitet
+http ohnehin auf https.
 
 ## Wo das Projekt gerade steht
 
