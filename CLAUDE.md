@@ -5086,8 +5086,11 @@ bestätigte.
 
 **Der Zeitplan läuft aus der Fassung auf `main`, nicht aus der auf
 diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
-Standard-Branch. `main` enthält deshalb genau zwei Dateien:
-`.github/workflows/update-events.yml` und `README.md`. Die Skripte holt
+Standard-Branch. `main` enthält deshalb genau drei Dateien:
+`.github/workflows/update-events.yml`, `.github/workflows/instagram.yml`
+(seit dem 14.10.2026, Commit `7f6ab3d`, vom Nutzer freigegeben: „Ja, auf
+main pushen") und `README.md`. Kein `pages.yml` auf `main` – ein Push
+dorthin löst deshalb keinen Deploy aus. Die Skripte holt
 der Workflow vom Entwicklungs-Branch, den er ausdrücklich auscheckt
 (`ref: claude/endurance-events-website-v1wruf`).
 
@@ -5566,9 +5569,10 @@ Verweise auf alte Nummern stehen in Klammern.
    && git pull && firebase deploy --only functions` – der Deploy vom
    14.10., 12:41 (Archiv 37) war VOR der Instagram-Zählung in
    `aggregateStats`. Erst Reels als Artefakt ansehen, dann
-   Variable `INSTAGRAM_AUTOPOST=ja`. **`instagram.yml` muss auf `main`**,
-   sonst läuft kein Zeitplan (Freigabe des Nutzers wie bei
-   `update-events.yml`).
+   Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
+   14.10.2026 auf `main` (Commit `7f6ab3d`) – der Zeitplan läuft;
+   ändert sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
+   Profilbild: `marketing/instagram/profil/profilbild.png`.
 9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
 
