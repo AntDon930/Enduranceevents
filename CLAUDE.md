@@ -115,11 +115,11 @@ python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 
 Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 283 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
-**Kachelansicht** (unter 700 px: Kacheln statt Tabelle, der Knopf
+**Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
-Block, ab 700 px wieder die Tabelle), Aufklappen der
+Block, ab 901 px wieder die Tabelle), Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block – die
-Tabellenprüfungen laufen dafür auf 820 px), Filter-Panel, Kalenderdatei hinter dem
+Tabellenprüfungen laufen dafür auf 1024 px), Filter-Panel, Kalenderdatei hinter dem
 Knopf, Bündelung der Marker (Summe der Bündel-Zahlen = Kopfzeile),
 Ausgangspunkt ungebündelt, das Fenster der Tabelle (nur ein Schub im
 DOM, volle Trefferzahl, Knopf hängt nach), Teilen eines Events (was an
@@ -2898,7 +2898,7 @@ sagt es).
   freigegeben („Yes, bitte bauen"). Die Tabelle ist 900 px breit; auf
   dem Handy lagen Länge, Kategorie und Land außerhalb des Bildes, man
   musste waagerecht scrollen. Jetzt gilt in `events.html` ein
-  `@media (max-width: 699px)`-Block, der **dieselben `<tr>`/`<td>` als
+  `@media (max-width: 900px)`-Block (bis zum 13.10.2026 699 px), der **dieselben `<tr>`/`<td>` als
   Kacheln zeichnet** – kein zweites Markup, keine zweite Zeichenroutine:
   Sortierung, Fenster, Zusammenfassen, Auswahl und Tastatur laufen
   unverändert über dieselben Zeilen. Was daran nicht zurückgedreht

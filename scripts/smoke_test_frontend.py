@@ -204,7 +204,7 @@ def pruefe_liste(ctx, basis):
         .getBoundingClientRect();
         return {top: b.top, unten: b.bottom, vh: innerHeight, y: scrollY,
                 blatt: document.body.classList.contains('detail-offen'),
-                kachel: matchMedia('(max-width: 699px)').matches}; }""")
+                kachel: matchMedia('(max-width: 900px)').matches}; }""")
     if lage["kachel"]:
         pruefe(lage["blatt"] and lage["top"] >= 0 and lage["unten"] <= lage["vh"] + 1,
                "Tippen auf eine Kachel öffnet die Box als Blatt im Bild (oben %d, unten %d von %d)"
