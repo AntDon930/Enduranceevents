@@ -1,0 +1,102 @@
+name: Instagram-Reel
+
+# Täglich ein Reel für den Account „AusdauerMaschine" (scripts/insta_lauf.py,
+# README „Instagram"): planen → Video rendern → Caption → auf Wunsch
+# veröffentlichen. Das Video liegt danach IMMER als Artefakt am Lauf
+# (Actions → Lauf → „Artifacts"), auch wenn nicht gepostet wurde.
+#
+# WANN GEPOSTET WIRD:
+#   - Zeitplan: nur, wenn die Repository-Variable INSTAGRAM_AUTOPOST = ja
+#     ist (Settings → Secrets and variables → Actions → Variables) UND die
+#     Secrets IG_USER_ID / IG_ACCESS_TOKEN stehen. Sonst nur rendern -
+#     so lassen sich die ersten Wochen Reels ansehen und von Hand posten.
+#   - Von Hand („Run workflow"): Haken „posten".
+#
+# Der Zeitplan wirkt nur aus der Fassung auf `main` (GitHub liest
+# schedule-Trigger nur vom Standard-Branch, wie bei update-events.yml);
+# die Skripte kommen vom Entwicklungs-Branch. Wird diese Datei geändert,
+# muss sie auf `main` mit.
+#
+# 17:47 Uhr deutscher Zeit im Sommer (15:47 UTC), 16:47 im Winter -
+# Feierabend, die Zeit, in der Ausdauersportler auf Instagram sind.
+# Minute 47 statt 0: Läufe zur vollen Stunde verspäten sich bei GitHub.
+
+on:
+  schedule:
+    - cron: '47 15 * * *'
+  workflow_dispatch:
+    inputs:
+      datum:
+        description: 'Datum YYYY-MM-DD (leer = heute)'
+        required: false
+        default: ''
+      format:
+        description: 'Format erzwingen (leer = Wochenplan)'
+        required: false
+        default: ''
+        type: choice
+        options: ['', wochenvorschau, moment, spotlight, clip, wochenende, region]
+      posten:
+        description: 'Auf Instagram veröffentlichen'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: claude/endurance-events-website-v1wruf
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: ffmpeg und Pakete
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install --quiet requests pillow
+
+      # Pexels-Videos einmal laden, dann wiederverwenden.
+      - name: Video-Cache
+        uses: actions/cache@v4
+        with:
+          path: marketing/instagram/.cache
+          key: insta-cache-${{ github.run_id }}
+          restore-keys: insta-cache-
+
+      - name: Reel bauen (und veröffentlichen)
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_API_HOST: ${{ vars.IG_API_HOST }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          POSTEN: ${{ (github.event_name == 'schedule' && vars.INSTAGRAM_AUTOPOST == 'ja') || (github.event_name == 'workflow_dispatch' && inputs.posten) }}
+        run: |
+          ARGS="--ausgabe ausgabe"
+          [ -n "${{ inputs.datum }}" ] && ARGS="$ARGS --datum ${{ inputs.datum }}"
+          [ -n "${{ inputs.format }}" ] && ARGS="$ARGS --format ${{ inputs.format }}"
+          [ "$POSTEN" = "true" ] && ARGS="$ARGS --posten"
+          python3 scripts/insta_lauf.py $ARGS
+
+      - name: Reel als Artefakt ablegen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-${{ github.run_id }}
+          path: ausgabe/
+          retention-days: 14
+          if-no-files-found: ignore
