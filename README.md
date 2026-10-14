@@ -2553,8 +2553,9 @@ niemand gesehen hat.
 Enduranceevents && git pull && firebase deploy --only firestore:rules`),
 sonst antwortet die Karte mit „Missing or insufficient permissions" und der
 Abendlauf mit „Firestore antwortet 403 – ohne Autopost wird nur gerendert".
-Und `instagram.yml` muss auf `main` nachgezogen werden (zwei Zeitpläne,
-Freigabeprüfung) – Freigabe des Nutzers wie bei `update-events.yml`.
+`instagram.yml` steht seit dem 14.10.2026 abends mit beiden Zeitplänen und
+der Freigabeprüfung auf `main` (Commit `e3251fc1`, vom Nutzer freigegeben)
+– ändert sich die Datei, muss sie wieder mit, wie bei `update-events.yml`.
 
 Der Rauchtest spielt die Karte mit der Firebase-Attrappe durch (Zeilen aus
 `plan.json`, Freigeben, Sperren, Zurücknehmen); `test_insta_freigabe` hält

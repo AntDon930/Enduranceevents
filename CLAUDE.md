@@ -77,7 +77,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API, alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
-| `.github/workflows/instagram.yml` | täglich 15:47 UTC ein Reel; postet nur mit Variable `INSTAGRAM_AUTOPOST=ja` + Secrets; Zeitplan wirkt nur aus `main` |
+| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 14.10.2026 abends auf diesem Stand (Commit `e3251fc1`) |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -4654,8 +4654,10 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   rendern. Eine veraltete Kennung verfällt von selbst (Datenlauf, Moment
   korrigiert) und die Karte bittet um einen neuen Klick. `test_insta_freigabe`
   und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
-  set/delete) halten es fest. **Zweimal Handarbeit des Nutzers**: Regeln
-  deployen und `instagram.yml` auf `main` nachziehen (Freigabe nötig).
+  set/delete) halten es fest. **Handarbeit des Nutzers**: die Regeln
+  deployen; `instagram.yml` steht seit dem 14.10.2026 abends auf `main`
+  (Commit `e3251fc1`, vom Nutzer freigegeben: „Ja für instagram.yml auf
+  main").
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
@@ -5123,7 +5125,9 @@ diesem Branch.** GitHub liest `schedule`-Trigger nur aus dem
 Standard-Branch. `main` enthält deshalb genau drei Dateien:
 `.github/workflows/update-events.yml`, `.github/workflows/instagram.yml`
 (seit dem 14.10.2026, Commit `7f6ab3d`, vom Nutzer freigegeben: „Ja, auf
-main pushen") und `README.md`. Kein `pages.yml` auf `main` – ein Push
+main pushen"; die Fassung mit Vorschau-Lauf und Freigabeprüfung seit dem
+Abend desselben Tages, Commit `e3251fc1`, „Ja für instagram.yml auf
+main") und `README.md`. Kein `pages.yml` auf `main` – ein Push
 dorthin löst deshalb keinen Deploy aus. Die Skripte holt
 der Workflow vom Entwicklungs-Branch, den er ausdrücklich auscheckt
 (`ref: claude/endurance-events-website-v1wruf`).
@@ -5545,9 +5549,9 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
   „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
   „Freigabe mit einem Klick"). Offen und NUR beim Nutzer: Punkt 8
-  (Account, Meta-App, Token, Secrets; dazu Regeln deployen und das Ja zu
-  `instagram.yml` auf `main`). Ohne Token postet nichts – die Läufe
-  rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
+  (Account, Meta-App, Token, Secrets; dazu Regeln deployen). Das Ja zu
+  `instagram.yml` auf `main` kam noch am selben Abend (Commit
+  `e3251fc1`). Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
   der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
   – Fan- und Meme-Accounts laden fremdes Sendematerial hoch, die
   Rechteinhaber dulden es meist als Reichweite oder lassen über den
@@ -5623,15 +5627,18 @@ Verweise auf alte Nummern stehen in Klammern.
    14.10., 12:41 (Archiv 37) war VOR der Instagram-Zählung in
    `aggregateStats`. Erst Reels als Artefakt ansehen, dann
    Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
-   14.10.2026 auf `main` (Commit `7f6ab3d`) – der Zeitplan läuft;
-   ändert sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
+   14.10.2026 auf `main` (Commit `7f6ab3d`, abends `e3251fc1` mit
+   Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
+   sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
    Profilbild: `marketing/instagram/profil/profilbild.png`.
-   **Seit dem 14.10.2026 abends dazu, beides nur der Nutzer**: (a) `cd
+   **Seit dem 14.10.2026 abends dazu, nur der Nutzer**: `cd
    Enduranceevents && git pull && firebase deploy --only firestore:rules`
    für die Freigabe-Dokumente `insta_freigaben` (vorher meldet die Karte
-   „Missing or insufficient permissions"); (b) die neue Fassung von
-   `instagram.yml` (Vorschau-Lauf 08:47 + Freigabeprüfung) auf `main`
-   nachziehen – Claude macht den Commit nach seinem „Ja". Die Karte
+   „Missing or insufficient permissions" und der Abendlauf „Firestore
+   antwortet 403"). ~~Die neue Fassung von `instagram.yml` auf `main`~~
+   **erledigt** (14.10.2026 abends, „Ja für instagram.yml auf main",
+   Commit `e3251fc1`, nur diese eine Datei, Diff zum Entwicklungs-Branch
+   leer). Die Karte
    „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
    der nächste Pages-Deploy `plan.json` gebaut hat.
 9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
