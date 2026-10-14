@@ -4519,9 +4519,11 @@ beim Arbeiten wissen muss:
   - **Abos**: `aggregateStats` zählt `filterSubscriptions` per `count()`
     („alle minus `aktiv == false`", die ältesten Abos haben das Feld
     nicht) und schreibt `abos_aktiv`/`abos_rhythmus` ins Dokument von
-    HEUTE; `aboStand()` in `admin.html` nimmt den jüngsten Stand. **Wirkt
-    erst nach `firebase deploy --only functions`** (Nutzer, To-do Punkt
-    8) – bis dahin „–" mit Hinweis.
+    HEUTE; `aboStand()` in `admin.html` nimmt den jüngsten Stand. Die
+    Function ist seit dem 14.10.2026, 12:41 deployt (Archiv, Punkt 37);
+    bis zum ersten Lauf danach zeigte die Kachel „–" mit Hinweis, und so
+    zeigt sie es wieder, wenn das jüngste Tagesdokument das Feld nicht
+    trägt.
   - **Werbeplätze**: `EnduranceStats.anzeige(element, platz)` in
     `stats.js` (IntersectionObserver, halbe Fläche eine Sekunde, einmal
     je Seitenaufruf; Klick und mittlere Maustaste), Ereignisse
@@ -5228,8 +5230,8 @@ trägt, bleibt unsichtbar, bis er sie geprüft hat – das ist gewollt
 dort ausgeblendet ist (außer der Sternchen-Ausnahme).
 
 **Domain**: `og:image` in allen drei Seiten, `SITE_URL` in
-`functions/index.js` (Vorgabewert; wirkt erst nach `firebase deploy
---only functions`), der Hinweis in `firebase-config.js` und die
+`functions/index.js` (Vorgabewert; gilt seit dem Functions-Deploy vom
+13.10.2026), der Hinweis in `firebase-config.js` und die
 User-Agent-Adressen der Scraper zeigen auf `https://endurance-events.de`.
 **Nicht geändert**: die `UID` in `build_ics.py`
 (`…@antdon930.github.io`) – sie ist nur eine Kennung, eine Änderung
@@ -5524,16 +5526,7 @@ seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
    diesen Punkt streichen; meldet der Knopf einen Fehler, den Wortlaut
    hier melden.
 
-8. **Function deployen für die Abo-Kennzahl** (14.10.2026): In der Cloud
-   Shell `cd Enduranceevents && git pull && firebase deploy --only
-   functions`. Danach schreibt `aggregateStats` zur nächsten vollen
-   Stunde plus sieben Minuten den Stand der aktiven E-Mail-Abos ins
-   Tagesdokument, und die Kachel „Aktive E-Mail-Abos" im Dashboard zeigt
-   eine Zahl statt „–". Derselbe Deploy bringt `collect` die neuen
-   Felder bei (Event und Sportart an Kalender/Teilen für den Bericht je
-   Veranstaltung; die Werbeplatz-Ereignisse, die noch niemand sendet).
-   Kein `firestore:rules` nötig.
-9. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
+8. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
    `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
    erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
    „Besucherstatistik", Kennzahlen für Werbekunden.
@@ -5541,7 +5534,8 @@ seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
 Archiv, Punkte 35 und 34; der frühere Punkt 7 vom 13.10., die
-Workflow-Datei auf `main`, ist Archiv 36.)
+Workflow-Datei auf `main`, ist Archiv 36; der frühere Punkt 8 vom
+14.10., der Functions-Deploy für die Abo-Kennzahl, ist Archiv 37.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -6067,6 +6061,23 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Lauf „Deploy GitHub Pages" mit Ereignis `workflow_dispatch` stehen.
     Bei der nächsten Änderung an der Datei wieder so: Freigabe einholen,
     ein Commit auf `main` mit nur dieser Datei.
+37. ~~**Function deployen für die Abo-Kennzahl**~~ **erledigt**
+    (14.10.2026, 12:41, vom Nutzer in der Cloud Shell: `cd
+    ~/Enduranceevents && git pull && firebase deploy --only functions` –
+    alle vier Funktionen `collect`, `aggregateStats`, `checkNewEvents`,
+    `unsubscribe` mit „Successful update operation", „Deploy complete!").
+    Die CLI hat den Parameter `STATS_ORIGINS` NICHT erneut gefragt: Sie
+    liest ihn aus `functions/.env.endurance-5177a` im Klon der Cloud
+    Shell (`/home/anton_donauer/Enduranceevents`) – die Datei ist
+    gitignored und lebt nur dort; wer den Klon löscht, bekommt die Frage
+    wieder (Vorgabewert übernehmen). Seitdem schreibt `aggregateStats`
+    stündlich um Minute 7 den Stand der aktiven E-Mail-Abos ins
+    Tagesdokument, die Kachel „Aktive E-Mail-Abos" zeigt ab dem ersten
+    Lauf danach (13:07 Berlin) eine Zahl; `collect` kennt Event und
+    Sportart an Kalender/Teilen und die Werbeplatz-Ereignisse. Die
+    Function-Adressen stehen jetzt auch als `*.a.run.app` da – die
+    `cloudfunctions.net`-Adressen in `stats.js` (`ENDPOINT`) und in den
+    GitHub-Secrets gelten unverändert weiter.
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
