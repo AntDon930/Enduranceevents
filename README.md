@@ -1161,10 +1161,14 @@ fehlt), läuft die Seite normal weiter. Die Wirkung ist sofort, ohne
 Deploy; die Datenschutzerklärung nennt den Abruf (Abschnitt
 „Wartungsmodus").
 
-Einmalig nötig (Nutzer, Cloud Shell): `cd Enduranceevents && git pull
-&& firebase deploy --only firestore:rules`. Vorher antwortet das
-Dashboard beim Umlegen mit „Missing or insufficient permissions", und
-die Seiten laufen normal. Als allerletzte Notbremse bleibt in den
+Einmalig nötig war (Nutzer, Cloud Shell, 14.10.2026, 00:50): `cd
+Enduranceevents && git pull && firebase deploy --only firestore:rules`.
+Ohne die Regeln antwortet das Dashboard beim Umlegen mit „Missing or
+insufficient permissions", und die Seiten laufen normal. **Die Probe am
+14.10.2026 hat alle vier Schritte bestanden** (einschalten im Dashboard,
+Pausenseite im zweiten Tab, ausschalten, Rücksprung zur Startseite
+binnen einer Minute); das Dokument `config/wartung` steht seitdem in
+Firestore. Als allerletzte Notbremse bleibt in den
 Pages-Einstellungen „Unpublish site" – sofort, aber die Besucher sehen
 eine 404-Seite von GitHub.
 

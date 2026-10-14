@@ -71,7 +71,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/smoke_test_frontend.py` | Rauchtest der Seite in Chromium (lokaler Server, Handybreite) |
 | `impressum.html`, `datenschutz.html` | Pflichtseiten, Anschrift und Kontaktadresse (`impressum@endurance-events.de`, seit dem 05.10.2026) stehen; von jeder Seite aus verlinkt |
 | `seite.css` | Stile der beiden Textseiten (ohne `?v=`-Stempel, Begründung in der Datei) |
-| `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln einmal deployen (Nutzer) – siehe README „Deploy-Gate und Wartungsmodus" |
+| `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln deployt und Probe bestanden am 14.10.2026 – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API, alles in einem Aufruf – siehe „Instagram" |
@@ -5498,10 +5498,11 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
 - **Montag 19.10.2026**: Nach dem Datenlauf muss ein Lauf „Deploy GitHub
   Pages" mit Ereignis `workflow_dispatch` dastehen (Abfrage mit VOLLEM
   SHA). Fehlt er, den Anstoß in `update-events.yml` auf `main` prüfen.
-- **Nächste Schritte in Reihenfolge**: zuerst Punkt 7 (Probe des
-  Wartungsmodus, morgen früh), dann Punkt 1 (Korrekturliste – die
-  nächste Excel des Nutzers einlesen), Punkt 2 (Domain-Verifizierung,
-  Anleitung steht beim Punkt), der Rest ist später.
+- **Nächste Schritte in Reihenfolge** (Stand 14.10.2026, 16:00: Probe
+  des Wartungsmodus und Functions-Deploy sind durch): Punkt 1
+  (Korrekturliste – die nächste Excel des Nutzers einlesen), Punkt 2
+  (Domain-Verifizierung, Anleitung steht beim Punkt), der Rest ist
+  später.
 
 **Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
 Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
@@ -5551,47 +5552,30 @@ Verweise auf alte Nummern stehen in Klammern.
    firebase deploy --only functions`. Das Dashboard zeigt dann den
    laufenden Tag erst am nächsten Morgen („Stand" = Mitternacht).
 
-(Der frühere Punkt 7 – `update-events.yml` auf `main` nachziehen – ist
-seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
-7. **Probe des Wartungsmodus – morgen früh (14.10.2026)**, vom Nutzer so
-   gesetzt („Wir machen morgen früh die Probe"). Die Regeln sind seit
-   00:50 deployt (Cloud Shell: „released rules firestore.rules to
-   cloud.firestore", „Deploy complete!"; von hier geprüft: das Dokument
-   `config/wartung` antwortet ohne Anmeldung mit 404 NOT_FOUND statt 403
-   – lesen erlaubt, das Dokument entsteht beim ersten Umlegen). Die Karte
-   „Wartungsmodus" steht in `admin.html` ganz unten hinter der Trennlinie
-   (live seit bcca143). Ablauf der Probe: (1) `admin.html` öffnen, ans
-   Ende scrollen, „Wartungsmodus einschalten", Rückfrage bestätigen –
-   Status „AN"; (2) zweiter Tab `endurance-events.de` → Pausenseite;
-   (3) im Dashboard „Wartungsmodus ausschalten"; (4) der zweite Tab
-   springt binnen einer Minute von selbst zur Startseite. Klappt alles,
-   diesen Punkt streichen; meldet der Knopf einen Fehler, den Wortlaut
-   hier melden.
-
-8. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
+7. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
    `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
    erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
    „Besucherstatistik", Kennzahlen für Werbekunden.
-9. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
+8. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
    `ausdauermaschine` als professionelles Konto, Bio-Link
    `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
    (+ Impressum als zweiter Link), Facebook-Seite + Business-Portfolio +
    Meta-App + Systemnutzer-Token, dann Secrets `IG_USER_ID`,
    `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY` – Schritt für Schritt im
    README („Instagram", Einrichtung). Danach noch einmal `cd Enduranceevents
-   && git pull && firebase deploy --only functions` – der Deploy von Punkt
-   8 (14.10.) war VOR der Instagram-Zählung in `aggregateStats`. Erst Reels als Artefakt ansehen, dann
+   && git pull && firebase deploy --only functions` – der Deploy vom
+   14.10., 12:41 (Archiv 37) war VOR der Instagram-Zählung in
+   `aggregateStats`. Erst Reels als Artefakt ansehen, dann
    Variable `INSTAGRAM_AUTOPOST=ja`. **`instagram.yml` muss auf `main`**,
    sonst läuft kein Zeitplan (Freigabe des Nutzers wie bei
    `update-events.yml`).
-10. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
+9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
 
-(Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
-Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:
-Archiv, Punkte 35 und 34; der frühere Punkt 7 vom 13.10., die
-Workflow-Datei auf `main`, ist Archiv 36; der frühere Punkt 8 vom
-14.10., der Functions-Deploy für die Abo-Kennzahl, ist Archiv 37.)
+(Erledigt und im Archiv: Besucherstatistik freischalten (35),
+Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
+(36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
+Wartungsmodus (38) – alle 13./14.10.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -6134,6 +6118,16 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Function-Adressen stehen jetzt auch als `*.a.run.app` da – die
     `cloudfunctions.net`-Adressen in `stats.js` (`ENDPOINT`) und in den
     GitHub-Secrets gelten unverändert weiter.
+38. ~~**Probe des Wartungsmodus**~~ **erledigt** (14.10.2026, vom
+    Nutzer: „Ich hab den Wartungsmodus gecheckt. Er funktioniert." –
+    alle vier Schritte: einschalten im Dashboard, Pausenseite im zweiten
+    Tab, ausschalten, Rücksprung zur Startseite). Von hier per REST
+    nachgesehen: Das Dokument `config/wartung` existiert seitdem (`aktiv`
+    false, `geaendert` 14.10.2026 15:58 Berlin, `von` = die Admin-uid,
+    Vorgabetext DE). Die Regeln waren seit 00:50 deployt. Damit ist der
+    Wartungsmodus einsatzbereit: Knopf in `admin.html` ganz unten,
+    Wirkung binnen einer Minute auf Startseite, Liste und Karte, kein
+    Deploy nötig – siehe README „Deploy-Gate und Wartungsmodus".
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
