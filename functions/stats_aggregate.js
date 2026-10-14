@@ -38,6 +38,11 @@
  *                    messbare Dauer - wie bei Plausible/Matomo).
  *   Referrer/Kampagne zählen je BESUCH (am ersten Aufruf), nicht je Seite -
  *   sonst zählte ein Besucher mit fünf Seiten fünfmal für Google.
+ *   Kanal          = Referrer und Kampagne gebündelt (kanal(): instagram,
+ *                    suche, sozial, kampagne, verweis, direkt), ebenfalls
+ *                    je Besuch. `instagram` im Tagesdokument trägt Besucher,
+ *                    Besuche, Aufrufe, Absprung und Dauer NUR der Besuche
+ *                    aus Instagram, `instagram_aktionen` was sie taten.
  *
  * Aufschlüsselungen sind Listen `[{k, n}, …]` absteigend nach n, nicht
  * Maps: Firestore-Feldnamen dürfen keinen Punkt und kein `/` enthalten,
@@ -73,6 +78,35 @@ const AKTIONS_DETAIL = {
 // Listen, die mehr Einträge brauchen als MAX_EINTRAEGE (je Event, je
 // Suchbegriff - alles andere hat wenige verschiedene Werte).
 const LANGE_LISTEN = new Set(["events", "veranstalter", "events_kalender", "events_teilen", "suche", "filter"]);
+
+// Der KANAL eines Besuchs (14.10.2026, für den Instagram-Account
+// „AusdauerMaschine"): woher der Besuch kam, grob gebündelt. Entschieden
+// wird am ERSTEN Aufruf des Besuchs, wie bei Referrer und Kampagne.
+// Instagram erkennt drei Spuren - jede allein genügt:
+//   - utm_source "instagram"/"ig" (der Link in der Profilbeschreibung und
+//     die Story-Links tragen ihn, siehe README „Instagram"),
+//   - ein Referrer von instagram.com (auch l.instagram.com, der
+//     Weiterleiter für Links aus der App),
+//   - der eingebaute Browser der App (stats.js: br = "Instagram").
+const SUCHMASCHINEN_RE = /(^|\.)(google\.[a-z.]+|bing\.com|duckduckgo\.com|ecosia\.org|yahoo\.[a-z.]+|qwant\.com|startpage\.com|search\.brave\.com|yandex\.[a-z.]+)$/;
+const SOZIAL_RE = /(^|\.)(facebook\.com|fb\.me|t\.co|x\.com|twitter\.com|linkedin\.com|lnkd\.in|pinterest\.[a-z.]+|reddit\.com|tiktok\.com|youtube\.com|whatsapp\.com|wa\.me|t\.me|telegram\.org|strava\.com|threads\.net)$/;
+const KANAELE = ["instagram", "suche", "sozial", "kampagne", "verweis", "direkt"];
+
+function istInstagram(h) {
+  const q = String((h && h.q) || "").toLowerCase();
+  const r = String((h && h.r) || "").toLowerCase();
+  return q === "instagram" || q === "ig" || /(^|\.)instagram\.com$/.test(r) || (h && h.br === "Instagram");
+}
+
+function kanal(h) {
+  if (istInstagram(h)) return "instagram";
+  const r = String(h.r || "").toLowerCase();
+  if (r && SUCHMASCHINEN_RE.test(r)) return "suche";
+  if (r && SOZIAL_RE.test(r)) return "sozial";
+  if (h.q) return "kampagne";
+  if (r) return "verweis";
+  return "direkt";
+}
 
 function zaehle(map, key, n) {
   if (key == null || key === "") return;
@@ -136,6 +170,15 @@ function aggregiere(hits, tag) {
   const quellen = new Map();
   const medien = new Map();
   const kampagnen = new Map();
+  const kanaele = new Map();
+  // Instagram (14.10.2026): dieselben Kennzahlen wie oben, nur für die
+  // Besuche, die von Instagram kamen - dazu, was diese Besucher taten.
+  const ig = { besuche: 0, absprung: 0, pv: 0, dauer_sek: 0, dauer_n: 0 };
+  const igBesucher = new Set();
+  const igSitzungen = new Set();
+  const igMedien = new Map();
+  const igKampagnen = new Map();
+  const igEinstieg = new Map();
 
   function schliesseBesuch(folge) {
     if (!folge.length) return;
@@ -148,11 +191,28 @@ function aggregiere(hits, tag) {
     zaehle(quellen, erster.q);
     zaehle(medien, erster.m);
     zaehle(kampagnen, erster.c);
+    const k = kanal(erster);
+    zaehle(kanaele, k);
     if (folge.length === 1) {
       absprung++;
     } else {
       dauerSek += (Number(letzter.t) - Number(erster.t)) / 1000;
       dauerN++;
+    }
+    if (k === "instagram") {
+      ig.besuche++;
+      ig.pv += folge.length;
+      igBesucher.add(erster.v || erster.s || "?");
+      if (erster.s) igSitzungen.add(erster.s);
+      zaehle(igMedien, erster.m || "(ohne)");
+      zaehle(igKampagnen, erster.c);
+      zaehle(igEinstieg, erster.p);
+      if (folge.length === 1) {
+        ig.absprung++;
+      } else {
+        ig.dauer_sek += (Number(letzter.t) - Number(erster.t)) / 1000;
+        ig.dauer_n++;
+      }
     }
   }
 
@@ -178,9 +238,11 @@ function aggregiere(hits, tag) {
   // Zielgruppe: geöffnete Events je Sportart UND Region der Sitzung
   // ("Laufen|DE"). Ohne bekannte Region "??" - admin.html beschriftet es.
   const sportRegion = new Map();
+  const igAktionen = new Map();
   hits.forEach((h) => {
     if (!h || !h.e || h.e === "pv") return;
     zaehle(aktionen, h.e);
+    if (h.s && igSitzungen.has(h.s)) zaehle(igAktionen, h.e);
     const pr = h.pr && typeof h.pr === "object" ? h.pr : {};
     if (h.e === "filter") {
       if (pr.k) zaehle(filter, `${pr.k}=${pr.w == null ? "" : pr.w}`);
@@ -219,6 +281,19 @@ function aggregiere(hits, tag) {
     aktionen: top(aktionen),
     filter: top(filter, MAX_EINTRAEGE_LANG),
     sport_region: top(sportRegion),
+    kanaele: top(kanaele),
+    instagram: {
+      besucher: igBesucher.size,
+      besuche: ig.besuche,
+      pv: ig.pv,
+      absprung: ig.absprung,
+      dauer_sek: Math.round(ig.dauer_sek),
+      dauer_n: ig.dauer_n,
+    },
+    instagram_medien: top(igMedien),
+    instagram_kampagnen: top(igKampagnen),
+    instagram_einstieg: top(igEinstieg),
+    instagram_aktionen: top(igAktionen),
   };
   Object.keys(details).forEach((liste) => {
     ergebnis[liste] = top(details[liste], LANGE_LISTEN.has(liste) ? MAX_EINTRAEGE_LANG : MAX_EINTRAEGE);
@@ -263,6 +338,9 @@ function landAus(tz, la) {
 
 module.exports = {
   aggregiere,
+  kanal,
+  istInstagram,
+  KANAELE,
   landAus,
   top,
   SITZUNGS_LUECKE_MS,

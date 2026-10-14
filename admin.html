@@ -97,6 +97,11 @@
   .kpi .delta.up { color: var(--sport-fahrrad-fg, #2b8a3e); }
   .kpi .delta.down { color: var(--sport-laufen-fg, #9a3b05); }
   .kpi .hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+  .ig-card { margin-bottom: 14px; }
+  .ig-card .ig-kpis { margin: 10px 0 6px; }
+  .ig-card .kpi { background: var(--bg); }
+  .ig-hinweis { font-size: 0.8rem; color: var(--text-muted); margin: 8px 0 0; }
+  .ig-hinweis code { font-size: 0.78rem; word-break: break-all; }
 
   .stat-section { display: grid; gap: 14px; margin-bottom: 14px; }
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
@@ -217,6 +222,20 @@
 
     <div class="stat-kpis" id="stat-kpis"></div>
 
+    <!-- Instagram (14.10.2026, Account „AusdauerMaschine"): wie viele
+         Besucher über Instagram kommen - erkannt an utm_source=instagram
+         (Link in der Bio, Story-Links), am Referrer instagram.com und am
+         eingebauten Browser der App (stats_aggregate.js, kanal()). -->
+    <section class="stat-card ig-card" id="ig-card">
+      <h3><span id="h-ig"></span><small id="h-ig-sub"></small></h3>
+      <div class="stat-kpis ig-kpis" id="ig-kpis"></div>
+      <div class="chart-wrap" id="wrap-ig">
+        <svg id="chart-ig" role="img"></svg>
+        <div class="chart-tip" id="tip-ig"></div>
+      </div>
+      <p class="ig-hinweis" id="ig-hinweis"></p>
+    </section>
+
     <div class="stat-section">
       <section class="stat-card">
         <h3><span id="h-verlauf"></span></h3>
@@ -291,7 +310,7 @@
 <script defer src="vendor/firebase-10.14.1/firebase-firestore-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
-<script defer src="stats.js?v=586e06c3"></script>
+<script defer src="stats.js?v=b4dc168a"></script>
 <script>
 (function () {
   'use strict';
@@ -367,6 +386,18 @@
       l_aktionen: 'Aktionen', l_events: 'Geöffnete Events', l_veranstalter: 'Klicks zur Veranstalterseite',
       l_kalender: 'Kalender', l_teilen: 'Teilen', l_abo: 'E-Mail-Abos (Rhythmus)', l_melden: 'Fehlermeldungen (Kategorie)',
       l_suche: 'Suchbegriffe', l_filter: 'Gesetzte Filter',
+      l_kanaele: 'Kanäle', l_instagram_medien: 'Instagram: über welchen Link', l_instagram_kampagnen: 'Instagram: Kampagne (Story, Reel)',
+      l_instagram_einstieg: 'Instagram: Einstiegsseiten', l_instagram_aktionen: 'Instagram: was die Besucher tun',
+      s_instagram: 'Instagram im Detail',
+      kn_instagram: 'Instagram', kn_suche: 'Suchmaschinen', kn_sozial: 'Andere soziale Netze', kn_kampagne: 'Sonstige Kampagnen',
+      kn_verweis: 'Andere Webseiten', kn_direkt: 'Direkt / unbekannt',
+      igm_bio: 'Link in der Bio', igm_story: 'Story-Link', igm_reel: 'Reel', igm_post: 'Beitrag', igm_dm: 'Direktnachricht', 'igm_(ohne)': 'ohne Kennzeichnung (App-Browser, Referrer)',
+      ig_titel: 'Instagram', ig_sub: '@ausdauermaschine',
+      ig_besucher: 'Besucher über Instagram', ig_besuche: 'Besuche über Instagram', ig_anteil: 'Anteil an allen Besuchen',
+      ig_je_besuch: 'Seiten je Besuch', ig_events: 'Events geöffnet', ig_veranstalter: 'Klicks zum Veranstalter',
+      ig_reihe: 'Besuche über Instagram',
+      ig_hinweis: 'Gezählt wird ein Besuch, wenn er über einen Link mit utm_source=instagram kam, von instagram.com weitergeleitet wurde oder im Browser der Instagram-App lief. Link für die Profilbeschreibung:',
+      ig_leer: 'Noch keine Besuche über Instagram in diesem Zeitraum. Tage vor dem Deploy der Function zählen hier nicht mit.',
       direkt: 'Direkt / unbekannt',
       p_index: 'Startseite', p_events: 'Events', p_karte: 'Karte', p_impressum: 'Impressum', p_datenschutz: 'Datenschutz', p_admin: 'Statistik',
       dv_handy: 'Handy', dv_tablet: 'Tablet', dv_rechner: 'Rechner',
@@ -452,6 +483,18 @@
       l_aktionen: 'Actions', l_events: 'Events opened', l_veranstalter: 'Clicks to organiser sites',
       l_kalender: 'Calendar', l_teilen: 'Sharing', l_abo: 'E-mail subscriptions (frequency)', l_melden: 'Error reports (category)',
       l_suche: 'Search terms', l_filter: 'Filters applied',
+      l_kanaele: 'Channels', l_instagram_medien: 'Instagram: which link', l_instagram_kampagnen: 'Instagram: campaign (story, reel)',
+      l_instagram_einstieg: 'Instagram: entry pages', l_instagram_aktionen: 'Instagram: what visitors do',
+      s_instagram: 'Instagram in detail',
+      kn_instagram: 'Instagram', kn_suche: 'Search engines', kn_sozial: 'Other social networks', kn_kampagne: 'Other campaigns',
+      kn_verweis: 'Other websites', kn_direkt: 'Direct / unknown',
+      igm_bio: 'Link in bio', igm_story: 'Story link', igm_reel: 'Reel', igm_post: 'Post', igm_dm: 'Direct message', 'igm_(ohne)': 'untagged (in-app browser, referrer)',
+      ig_titel: 'Instagram', ig_sub: '@ausdauermaschine',
+      ig_besucher: 'Visitors via Instagram', ig_besuche: 'Visits via Instagram', ig_anteil: 'Share of all visits',
+      ig_je_besuch: 'Pages per visit', ig_events: 'Events opened', ig_veranstalter: 'Organiser clicks',
+      ig_reihe: 'Visits via Instagram',
+      ig_hinweis: 'A visit counts if it came through a link with utm_source=instagram, was forwarded by instagram.com or ran in the Instagram app browser. Link for the profile bio:',
+      ig_leer: 'No visits via Instagram in this period yet. Days before the function deploy are not counted here.',
       direkt: 'Direct / unknown',
       p_index: 'Home', p_events: 'Events', p_karte: 'Map', p_impressum: 'Legal notice', p_datenschutz: 'Privacy', p_admin: 'Statistics',
       dv_handy: 'Phone', dv_tablet: 'Tablet', dv_rechner: 'Desktop',
@@ -753,7 +796,11 @@
   // plus die festen Listen) - test_statistik vergleicht.
   const LISTEN_FELDER = ['seiten', 'einstieg', 'ausstieg', 'referrer', 'quellen', 'medien', 'kampagnen', 'laender', 'sprachen',
     'seitensprache', 'schema', 'geraete', 'browser', 'systeme', 'aktionen', 'events', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'suche', 'filter',
-    'sport_events', 'sport_veranstalter', 'sport_region', 'events_kalender', 'events_teilen', 'anzeige_sicht', 'anzeige_klick'];
+    'sport_events', 'sport_veranstalter', 'sport_region', 'events_kalender', 'events_teilen', 'anzeige_sicht', 'anzeige_klick',
+    'kanaele', 'instagram_medien', 'instagram_kampagnen', 'instagram_einstieg', 'instagram_aktionen'];
+  // Die Zahlen des Objekts `instagram` im Tagesdokument (stats_aggregate.js).
+  const IG_FELDER = ['besucher', 'besuche', 'pv', 'absprung', 'dauer_sek', 'dauer_n'];
+  const IG_LINK = 'https://endurance-events.de/?utm_source=instagram&utm_medium=bio';
 
   // Der jüngste Abo-Stand (abos_aktiv, von aggregateStats ins Dokument des
   // Tages geschrieben) bis zum Tag `bis`, auf Wunsch frühestens ab `von`;
@@ -768,7 +815,8 @@
   }
 
   function summiere(tage) {
-    const s = { pv: 0, besucher: 0, besuche: 0, absprung: 0, dauer_sek: 0, dauer_n: 0, stunden: new Array(24).fill(0), listen: {}, aktualisiert: null, tageMitDaten: 0 };
+    const s = { pv: 0, besucher: 0, besuche: 0, absprung: 0, dauer_sek: 0, dauer_n: 0, stunden: new Array(24).fill(0), listen: {}, aktualisiert: null, tageMitDaten: 0, ig: {} };
+    IG_FELDER.forEach(f => { s.ig[f] = 0; });
     LISTEN_FELDER.forEach(f => { s.listen[f] = new Map(); });
     tage.forEach(({ doc }) => {
       if (!doc) return;
@@ -776,6 +824,7 @@
       s.pv += doc.pv || 0; s.besucher += doc.besucher || 0; s.besuche += doc.besuche || 0;
       s.absprung += doc.absprung || 0; s.dauer_sek += doc.dauer_sek || 0; s.dauer_n += doc.dauer_n || 0;
       (doc.stunden || []).forEach((n, i) => { if (i < 24) s.stunden[i] += n || 0; });
+      if (doc.instagram) IG_FELDER.forEach(f => { s.ig[f] += doc.instagram[f] || 0; });
       LISTEN_FELDER.forEach(f => {
         (doc[f] || []).forEach(({ k, n }) => { if (k != null) s.listen[f].set(k, (s.listen[f].get(k) || 0) + (n || 0)); });
       });
@@ -807,6 +856,7 @@
     if (!aktuell) return;
     zeichneZeitraum();
     zeichneKpis();
+    zeichneInstagram();
     zeichneVerlauf();
     zeichneMonate();
     zeichneStunden();
@@ -905,6 +955,48 @@
       d = `<div class="delta ${diff > 0 ? 'up' : 'down'}">${diff > 0 ? '+' : '−'}${fmtInt(Math.abs(diff))} ${escapeHtml(t('abo_zuwachs'))}</div>`;
     }
     return { label: t('kpi_abos'), wert: fmtInt(stand.n), d, hint: t('abo_stand', fmtTag(stand.d)) };
+  }
+
+  // Instagram: Kennzahlen der Besuche aus Instagram und ihr Verlauf je Tag.
+  function zeichneInstagram() {
+    const s = aktuell.summe, v = aktuell.vergleich, ig = s.ig;
+    const akt = s.listen.instagram_aktionen || new Map();
+    const vAkt = v ? (v.listen.instagram_aktionen || new Map()) : null;
+    document.getElementById('h-ig').textContent = t('ig_titel');
+    document.getElementById('h-ig-sub').textContent = t('ig_sub');
+    const anteil = s.besuche ? ig.besuche / s.besuche : NaN;
+    const vAnteil = v && v.besuche ? v.ig.besuche / v.besuche : NaN;
+    const jeBesuch = ig.besuche ? ig.pv / ig.besuche : NaN;
+    const kacheln = [
+      { label: t('ig_besucher'), wert: fmtInt(ig.besucher), d: delta(ig.besucher, v ? v.ig.besucher : NaN), hint: t('kpi_besucher_hint') },
+      { label: t('ig_besuche'), wert: fmtInt(ig.besuche), d: delta(ig.besuche, v ? v.ig.besuche : NaN) },
+      { label: t('ig_anteil'), wert: fmtProzent(anteil), d: '' },
+      { label: t('ig_je_besuch'), wert: fmtDez(jeBesuch, 1), d: '' },
+      { label: t('ig_events'), wert: fmtInt(akt.get('detail') || 0), d: delta(akt.get('detail') || 0, vAkt ? (vAkt.get('detail') || 0) : NaN) },
+      { label: t('ig_veranstalter'), wert: fmtInt(akt.get('veranstalter') || 0), d: delta(akt.get('veranstalter') || 0, vAkt ? (vAkt.get('veranstalter') || 0) : NaN) }
+    ];
+    // Der Anteil vergleicht in Prozentpunkten - mehr ist hier gut, deshalb
+    // nicht delta(…, true) (das färbt ein Plus rot wie bei der Absprungrate).
+    if (Number.isFinite(anteil) && Number.isFinite(vAnteil)) {
+      const diff = (anteil - vAnteil) * 100;
+      kacheln[2].d = Math.abs(diff) < 0.05 ? `<div class="delta">± 0 ${escapeHtml(t('punkte'))}</div>`
+        : `<div class="delta ${diff > 0 ? 'up' : 'down'}">${diff > 0 ? '+' : '−'}${fmtDez(Math.abs(diff), 1)} ${escapeHtml(t('punkte'))}</div>`;
+    }
+    document.getElementById('ig-kpis').innerHTML = kacheln.map(k =>
+      `<div class="kpi"><div class="label">${escapeHtml(k.label)}</div><div class="value">${escapeHtml(k.wert)}</div>${k.d || '<div class="delta"></div>'}${k.hint ? `<div class="hint">${escapeHtml(k.hint)}</div>` : ''}</div>`
+    ).join('');
+    const hinweis = document.getElementById('ig-hinweis');
+    hinweis.innerHTML = `${ig.besuche ? '' : escapeHtml(t('ig_leer')) + ' '}${escapeHtml(t('ig_hinweis'))} <code>${escapeHtml(IG_LINK)}</code>`;
+    const tage = aktuell.tage;
+    const werte = tage.map(({ doc }) => (doc && doc.instagram && doc.instagram.besuche) || 0);
+    const schritt = Math.max(1, Math.ceil(tage.length / 8));
+    balkenDiagramm({
+      wrap: 'wrap-ig', svg: 'chart-ig', tip: 'tip-ig', hoehe: 160,
+      reihen: [{ werte, klasse: 'balken-2' }],
+      aria: `${t('ig_reihe')}: ${fmtInt(ig.besuche)}`,
+      achse: (i) => i % schritt === 0 ? fmtTag(tage[i].d, true) : null,
+      tipp: (i) => `<div class="tip-zeile"><span>${escapeHtml(fmtTag(tage[i].d))}</span><b>${fmtInt(werte[i])}</b></div>`
+    });
   }
 
   function svgEl(name, attrs) {
@@ -1200,7 +1292,8 @@
     { titel: 's_zielgruppe', listen: ['sport_events', 'sport_veranstalter'], extra: () => sportRegionHtml() },
     { titel: 's_kunden', listen: [], extra: () => berichtHtml() + werbungHtml() },
     { titel: 's_seiten', listen: ['seiten', 'einstieg', 'ausstieg'] },
-    { titel: 's_herkunft', listen: ['referrer', 'laender', 'sprachen', 'quellen', 'medien', 'kampagnen'] },
+    { titel: 's_instagram', listen: ['instagram_medien', 'instagram_einstieg', 'instagram_aktionen', 'instagram_kampagnen'] },
+    { titel: 's_herkunft', listen: ['kanaele', 'referrer', 'laender', 'sprachen', 'quellen', 'medien', 'kampagnen'] },
     { titel: 's_technik', listen: ['geraete', 'browser', 'systeme', 'seitensprache', 'schema'] },
     { titel: 's_aktionen', listen: ['aktionen', 'events', 'veranstalter', 'events_kalender', 'events_teilen', 'suche', 'filter', 'kalender', 'teilen', 'abo', 'melden'] }
   ];
@@ -1212,6 +1305,10 @@
     einstieg: (k) => BESCHRIFTUNG.seiten(k),
     ausstieg: (k) => BESCHRIFTUNG.seiten(k),
     referrer: (k) => k === '(direkt)' ? t('direkt') : k,
+    kanaele: (k) => t('kn_' + k) === 'kn_' + k ? k : t('kn_' + k),
+    instagram_medien: (k) => t('igm_' + k) === 'igm_' + k ? k : t('igm_' + k),
+    instagram_einstieg: (k) => BESCHRIFTUNG.seiten(k),
+    instagram_aktionen: (k) => BESCHRIFTUNG.aktionen(k),
     laender: (k) => I18N[lang].ld[k] || k,
     seitensprache: (k) => k.toUpperCase(),
     schema: (k) => t('schema_' + k) === 'schema_' + k ? k : t('schema_' + k),
@@ -1399,10 +1496,10 @@
   // ---------- CSV ----------
   document.getElementById('csv-btn').addEventListener('click', () => {
     if (!aktuell) return;
-    const zeilen = [[t('th_tag'), t('th_besucher'), t('th_besuche'), t('th_pv'), t('th_absprung'), t('th_dauer') + ' (s)', t('kpi_abos')]];
+    const zeilen = [[t('th_tag'), t('th_besucher'), t('th_besuche'), t('th_pv'), t('th_absprung'), t('th_dauer') + ' (s)', t('kpi_abos'), t('ig_besuche')]];
     aktuell.tage.filter(x => x.doc).forEach(({ d, doc }) => {
       zeilen.push([d, doc.besucher || 0, doc.besuche || 0, doc.pv || 0, doc.absprung || 0, doc.dauer_n ? Math.round(doc.dauer_sek / doc.dauer_n) : '',
-        typeof doc.abos_aktiv === 'number' ? doc.abos_aktiv : '']);
+        typeof doc.abos_aktiv === 'number' ? doc.abos_aktiv : '', (doc.instagram && doc.instagram.besuche) || 0]);
     });
     const csv = zeilen.map(z => z.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';')).join('\r\n');
     const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
@@ -1444,7 +1541,7 @@
   window.addEventListener('resize', () => {
     if (!aktuell) return;
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { zeichneVerlauf(); zeichneMonate(); zeichneStunden(); zeichneWochentage(); }, 150);
+    resizeTimer = setTimeout(() => { zeichneInstagram(); zeichneVerlauf(); zeichneMonate(); zeichneStunden(); zeichneWochentage(); }, 150);
   });
 
   // auth.js lädt mit defer und existiert hier noch nicht - deshalb über

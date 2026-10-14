@@ -1451,10 +1451,17 @@ FIREBASE_ATTRAPPE = r"""
       anzeige_sicht: [{ k: 'liste-oben', n: 9 }], anzeige_klick: [{ k: 'liste-oben', n: 1 }],
       kalender: [{ k: 'ics', n: 2 }], teilen: [{ k: 'dialog', n: 1 }], abo: [], melden: [], suche: [{ k: 'marathon', n: 3 }], filter: [],
       abos_aktiv: 10 + (TAGE - 1 - i), abos_rhythmus: [{ k: 'sofort', n: 10 }],
+      // Instagram (14.10.2026): je Tag (i % 3) Besuche aus Instagram.
+      kanaele: [{ k: 'direkt', n: 8 }, { k: 'suche', n: 4 }, { k: 'instagram', n: i % 3 }],
+      instagram: { besucher: i % 3, besuche: i % 3, pv: 2 * (i % 3), absprung: 0, dauer_sek: 60 * (i % 3), dauer_n: i % 3 },
+      instagram_medien: [{ k: 'bio', n: i % 3 }], instagram_kampagnen: [], instagram_einstieg: [{ k: 'index', n: i % 3 }],
+      instagram_aktionen: [{ k: 'detail', n: i % 3 }],
       aktualisiert: { toMillis: () => Date.now() }
     };
   }
-  window.__ATTRAPPE = { abosHeute: 10 + (TAGE - 1), topEvent: EVENTS[0], zweitesEvent: EVENTS[1], tage: TAGE };
+  // Instagram-Besuche der letzten 30 Tage (i = 0 … 29), wie oben je Tag i % 3.
+  let ig30 = 0; for (let i = 0; i < 30; i++) ig30 += i % 3;
+  window.__ATTRAPPE = { abosHeute: 10 + (TAGE - 1), topEvent: EVENTS[0], zweitesEvent: EVENTS[1], tage: TAGE, ig30 };
   const DOCS = { stats_daily, admins: { 'test-admin': { name: 'Test' } }, config: { wartung: { aktiv: false, text_de: 'Pause', text_en: 'Pause' } } };
   const snap = (id, data) => ({ id, exists: data !== undefined, data: () => data });
   function sammlung(name) {
@@ -1528,12 +1535,24 @@ def pruefe_statistik_dashboard(ctx, basis):
               berichtName: (document.querySelector('#bericht-card .bericht-name') || {}).textContent || '',
               berichtKpis: document.querySelectorAll('#bericht-card .bericht-kpis .kpi').length,
               werbung: werbung ? werbung.textContent : '',
+              igKpis: document.querySelectorAll('#ig-kpis .kpi').length,
+              igBesuche: (() => { const k = Array.from(document.querySelectorAll('#ig-kpis .kpi')).find(x => x.querySelector('.label').textContent === 'Besuche über Instagram'); return k ? k.querySelector('.value').textContent.trim() : null; })(),
+              igBalken: document.querySelectorAll('#chart-ig .balken').length,
+              igLink: (document.getElementById('ig-hinweis') || {}).textContent || '',
+              kanaele: (document.querySelector('section[data-liste="kanaele"]') || {}).textContent || '',
+              igMedien: (document.querySelector('section[data-liste="instagram_medien"]') || {}).textContent || '',
               zielgruppeVorSeiten: (() => { const t = Array.from(document.querySelectorAll('.stat-section-title')).map(x => x.textContent); return t.indexOf('Zielgruppe') >= 0 && t.indexOf('Zielgruppe') < t.indexOf('Seiten'); })(),
               erwartet: window.__ATTRAPPE,
               ueberlauf: document.documentElement.scrollWidth - innerWidth };
         }""")
         e = stand["erwartet"]
         pruefe(stand["kpis"] == 7, "sieben Kennzahlen, mit den E-Mail-Abos (%d)" % stand["kpis"])
+        pruefe(stand["igKpis"] == 6 and stand["igBesuche"] == str(e["ig30"]),
+               "Instagram-Karte: sechs Kennzahlen, Besuche der 30 Tage summiert (%s, erwartet %d)" % (stand["igBesuche"], e["ig30"]))
+        pruefe(stand["igBalken"] > 0 and "utm_source=instagram" in stand["igLink"],
+               "Instagram-Karte: Balken je Tag und der Link für die Bio (%d Balken)" % stand["igBalken"])
+        pruefe("Instagram" in stand["kanaele"] and "Suchmaschinen" in stand["kanaele"] and "Link in der Bio" in stand["igMedien"],
+               "Kanäle und Instagram-Links beschriftet")
         pruefe(stand["abo"] == str(e["abosHeute"]) and "Stand" in stand["aboHint"],
                "Abo-Kennzahl ist der jüngste Tagesstand (%s, %s)" % (stand["abo"], stand["aboHint"]))
         pruefe(stand["monateZeilen"] >= 2 and stand["monateBalken"] >= 2,
@@ -1592,7 +1611,9 @@ def pruefe_statistik_dashboard(ctx, basis):
         en = seite.evaluate("""() => ({
             monate: document.getElementById('h-monate').textContent,
             matrix: document.querySelector('section[data-liste="sport_region"] table').textContent,
-            abo: Array.from(document.querySelectorAll('#stat-kpis .label')).map(l => l.textContent).join(' ') })""")
+            abo: Array.from(document.querySelectorAll('#stat-kpis .label')).map(l => l.textContent).join(' '),
+            ig: Array.from(document.querySelectorAll('#ig-kpis .label')).map(l => l.textContent).join(' ') })""")
+        pruefe("Visits via Instagram" in en["ig"], "EN: Instagram-Karte übersetzt")
         pruefe(en["monate"] == "Months" and "Running" in en["matrix"] and "Germany" in en["matrix"]
                and "subscriptions" in en["abo"], "EN: Monate, Sportarten, Regionen und Abo-Kachel übersetzt")
         pruefe(not probleme, "keine Skriptfehler beim Umschalten (%s)"

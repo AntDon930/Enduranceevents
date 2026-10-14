@@ -160,7 +160,13 @@
     var ua = navigator.userAgent || '';
     var br = '', os = '';
     var uad = navigator.userAgentData;
-    if (uad && uad.brands && uad.brands.length) {
+    // Der eingebaute Browser der Instagram-App (14.10.2026, Marketing
+    // über den Account „AusdauerMaschine"): Er nennt sich im Browser-String
+    // "Instagram 3xx.x", schickt aber oft keinen Referrer. Als eigener
+    // „Browser" gezählt, ordnet stats_aggregate.js den Besuch dem Kanal
+    // Instagram zu, auch wenn der Link ohne utm_source geteilt wurde.
+    if (/\bInstagram\b/.test(ua)) br = 'Instagram';
+    else if (uad && uad.brands && uad.brands.length) {
       var marken = uad.brands.map(function (b) { return b.brand; }).join(' ');
       if (/Edge/i.test(marken)) br = 'Edge';
       else if (/Opera|OPR/i.test(marken)) br = 'Opera';

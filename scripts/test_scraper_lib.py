@@ -4591,6 +4591,41 @@ def test_statistik() -> None:
     check("Region aus Zeitzone, sonst Sprache, sonst Erdteil",
           r["land"], ["AT", "DE", "CH", "AM", "NO", "??", "??"])
 
+    # Kanal Instagram (14.10.2026): utm_source, Referrer instagram.com oder
+    # der Browser der App - je BESUCH am ersten Aufruf; dazu, was diese
+    # Besucher taten. Und admin.html muss die neuen Listen kennen.
+    skript = r"""
+      const a = require(process.argv[1]);
+      const T = 1760000000000;
+      const pv = (t, p, v, s, x) => Object.assign({ t, h: 9, e: 'pv', p, v, s, r: '', br: 'Safari' }, x || {});
+      const r = a.aggregiere([
+        pv(T, 'index', 'a', 's1', { q: 'instagram', m: 'bio' }), pv(T + 60000, 'events', 'a', 's1'),
+        { t: T + 70000, e: 'detail', p: 'events', s: 's1', pr: { ev: 'X', sp: 'Laufen' } },
+        pv(T, 'events', 'b', 's2', { r: 'l.instagram.com' }),
+        pv(T, 'index', 'c', 's3', { br: 'Instagram' }),
+        pv(T, 'index', 'd', 's4', { r: 'google.de' }), pv(T, 'index', 'e', 's5', { r: 'facebook.com' }),
+        pv(T, 'index', 'f', 's6', { q: 'newsletter' }), pv(T, 'index', 'g', 's7', { r: 'laufen.de' }), pv(T, 'index', 'h', 's8'),
+        pv(T, 'index', 'a', 's9', { q: 'IG' }),
+      ], '2026-10-14');
+      console.log(JSON.stringify({ k: r.kanaele, ig: r.instagram, m: r.instagram_medien, e: r.instagram_einstieg, a: r.instagram_aktionen }));
+    """
+    erg = subprocess.run([node, "-e", skript, str(wurzel / "functions" / "stats_aggregate.js")],
+                         capture_output=True, text=True)
+    check("Rechenprobe Instagram läuft", erg.returncode, 0)
+    if erg.returncode == 0:
+        r = _json.loads(erg.stdout)
+        check("Kanäle je Besuch", sorted((x["k"], x["n"]) for x in r["k"]),
+              [("direkt", 1), ("instagram", 4), ("kampagne", 1), ("sozial", 1), ("suche", 1), ("verweis", 1)])
+        check("Instagram: Besucher, Besuche, Aufrufe, Absprung, Dauer", r["ig"],
+              {"besucher": 3, "besuche": 4, "pv": 5, "absprung": 3, "dauer_sek": 60, "dauer_n": 1})
+        check("Instagram: Link (utm_medium) und Einstieg", [r["m"], r["e"]],
+              [[{"k": "(ohne)", "n": 3}, {"k": "bio", "n": 1}], [{"k": "index", "n": 3}, {"k": "events", "n": 1}]])
+        check("Instagram: Aktionen der Instagram-Sitzungen", r["a"], [{"k": "detail", "n": 1}])
+    fehlt = [l for l in ("kanaele", "instagram_medien", "instagram_kampagnen", "instagram_einstieg", "instagram_aktionen")
+             if f"'{l}'" not in admin_html or admin_html.count(f"l_{l}:") != 2]
+    check("admin.html kennt und beschriftet die Instagram-Listen (DE/EN)", fehlt, [])
+    check("stats.js erkennt den Browser der Instagram-App", "br = 'Instagram'" in stats_js, True)
+
 
 def main() -> int:
     for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik,
