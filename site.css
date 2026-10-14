@@ -236,7 +236,14 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 6px 0;
+  /* 44 px hoch wie die Symbolknöpfe daneben - auch am Rechner (Guide:
+     Klickflächen mindestens 40 px, Kopfzeile 44; gemessen waren es 35,
+     auf Windows-Laptops mit Touchscreen und Android-Tablets quer zu
+     wenig, 14.10.2026). Die Kopfzeile wird davon nicht höher. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
 }
 .nav-link:hover, .nav-link.active { color: var(--text); }
 .top-actions {
@@ -275,6 +282,7 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   flex-shrink: 0;
 }
 .lang-btn {
+  min-height: 36px;   /* + 2 x 3 px Rand der Gruppe = 44 wie die Knöpfe daneben */
   padding: 7px 11px;
   border-radius: 7px;
   border: none;
@@ -517,6 +525,19 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
 .filter-sheet { display: contents; }
 .sort-sheet, .filter-sheet-btn, .filter-sheet-kopf, .filter-sheet-fertig, .filter-sheet-scrim { display: none; }
 
+/* ---------- Laptop (bis 1366 px) ----------
+   20 statt 28 px Seitenrand. 1366 x 768 ist die häufigste Windows-Auflösung
+   (1280 x 720 bei 150 % Skalierung die zweite), und dort bekam die Liste
+   einen waagerechten Scrollbalken: die Tabelle braucht 900 px, die
+   Detail-Spalte nahm 440. Mit 20 px Rand und der Spaltenformel in
+   events.html (.layout) passt sie ab 1277 px ohne Scrollbalken - unter
+   Windows ist der nicht nur ein Schleier wie auf dem Mac, sondern ein
+   fester grauer Balken, und die Spalte "Länge" war abgeschnitten
+   (14.10.2026). */
+@media (max-width: 1366px) {
+  :root { --seite-rand: 20px; }
+}
+
 /* ---------- Handy und Tablet hochkant (bis 900 px) ----------
    Dieselbe Grenze wie die Kacheln der Liste (events.html) und die
    einspaltige Seite: Ab 901 px Tabelle und Pillen in der Leiste. */
@@ -531,6 +552,15 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   .nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
   .lang-switch { padding: 2px; }
   .lang-btn { min-height: 38px; padding: 7px 12px; }
+  /* 360 px ist die häufigste Android-Breite (Samsung Galaxy A/S): Teilen,
+     Hell/Dunkel, DE/EN und "Anmelden" brauchten 336 px, die Zeile hat 328
+     - "Anmelden" rutschte in eine DRITTE Kopfzeile, die erste Veranstaltung
+     lag damit 54 px tiefer als auf dem iPhone (393 px). Engere Lücken und
+     schmalere DE/EN-Knöpfe: 316 px, eine Reihe (14.10.2026). */
+  @media (max-width: 400px) {
+    .top-actions { gap: 6px; }
+    .lang-btn { padding: 7px 10px; }
+  }
   .reset-btn { min-height: 44px; }
   .chip { min-height: 40px; padding: 8px 12px; font-size: 0.88rem; }
   .chip button { font-size: 1.05rem; padding: 8px; margin: -8px -4px -8px -2px; }
@@ -608,6 +638,10 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
     max-height: 86vh;
     max-height: 86dvh;
     overflow-y: auto;
+    /* Am oberen Rand des Blattes weiterziehen löste in Chrome (Android)
+       das "Pull to Refresh" aus - die Seite lud neu, Filter und Blatt
+       waren weg (14.10.2026). contain hält den Scroll im Blatt. */
+    overscroll-behavior: contain;
     padding: 10px var(--seite-rand) calc(16px + env(safe-area-inset-bottom, 0px));
     background: var(--panel);
     color: var(--text);

@@ -95,7 +95,7 @@
 <!-- Farben, Kopfzeile und Fußzeile: geteilt mit Liste und Karte. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=66cb05c0">
+<link rel="stylesheet" href="site.css?v=daeec5bd">
 <style>
   /* Farben, Kopfzeile und Fußzeile stehen in site.css; hier nur, was
      allein die Startseite hat: Hero, Kennzahlen, Sportarten, Schritte. */
@@ -186,6 +186,24 @@
     color: rgba(255, 255, 255, 0.88);
     font-size: clamp(1.05rem, 1.6vw, 1.25rem);
     line-height: 1.5;
+  }
+  /* Niedrige Fenster am Rechner (14.10.2026): Auf einem Windows-Laptop mit
+     1366 x 768 bleiben dem Browser rund 640 px Höhe, bei 1280 x 720 und
+     150 % Skalierung 577 - und die Überschrift stand dort in drei Zeilen
+     zu 88 px, die beiden Knöpfe lagen unter dem Bildrand (gemessen:
+     Unterkante 660 px). Zwei Stufen: bis 700 px Höhe die Überschrift auf
+     zwei Zeilen (68 px bei 1366), bis 620 px noch etwas kleiner; Knöpfe
+     und Kennzahlen stehen dann im ersten Bild. Auf dem Handy (bis 900 px
+     Breite) gilt weiter die Regel oben. */
+  @media (min-width: 901px) and (max-height: 700px) {
+    .hero-content { padding: 40px var(--seite-rand) 72px; }
+    .hero-eyebrow { margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.25rem); }
+    .hero p.lead { margin-bottom: 22px; }
+  }
+  @media (min-width: 901px) and (max-height: 620px) {
+    .hero-content { padding: 32px var(--seite-rand) 56px; }
+    .hero h1 { font-size: clamp(2.4rem, 4.8vw, 3.6rem); }
   }
   /* Der Hero-CTA ist die EINE orange Fläche der Seite (Sonne, mit
      Navy-Text); alle anderen Knöpfe sind Navy bzw. hier auf dem Foto

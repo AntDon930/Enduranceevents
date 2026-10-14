@@ -113,7 +113,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 258 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 283 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (unter 700 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -2827,6 +2827,72 @@ sagt es).
     (Charity, Straße), steht einmal unter der ersten.
   - **Bilder je Breite** (`srcset`, siehe Dateitabelle): Startseite auf
     dem Handy ~250 statt ~900 KB. **Web-Manifest** mit Icons.
+- **Android, Windows, Linux (14.10.2026).** Auf die Frage des Nutzers
+  („checken ob die Webseite auch für Android, Linux und Windows gut ist"
+  – auf dem iPhone „jetzt schon sehr gut") in Chromium mit zehn
+  Geräteprofilen gemessen (Android 360/393/412 px und Tablet 800/1280,
+  Windows 1366×768, 1536×864 bei 125 %, 1280 bei 150 %, 1920×1080, Linux
+  1440×900; klassische Scrollbalken wie unter Windows, also OHNE
+  Playwrights `--hide-scrollbars`). Firefox gibt es in der Sandbox nicht –
+  dafür nur die statische Prüfung: kein `:has()`, kein `color-mix`, keine
+  neuen JS-APIs, `content-visibility` fällt in altem Firefox still weg.
+  Sechs Befunde, alle behoben, alle im Rauchtest (`pruefe_plattformen`):
+  - **Windows-Laptop 1366×768 (häufigste Auflösung) und 1280 bei 150 %**:
+    die Liste hatte einen festen waagerechten Scrollbalken, „Länge" war
+    abgeschnitten – die Tabelle braucht 900 px, die Detail-Spalte nahm
+    ab 1300 px 440. Jetzt `grid-template-columns: … clamp(300px,
+    calc(100vw − 993px), 440px)` (bis 1366 px −977, weil `--seite-rand`
+    dort 20 statt 28 px ist, `site.css`); ab 1277 px passt die Tabelle
+    ohne Balken, darunter (iPad quer) scrollt sie wie bisher. Bei
+    301–350 px Spalte stehen die vier Fakten und die zwei Knöpfe der Box
+    untereinander (`.side-panel .detail-grid`, 901–1330 px), sonst brach
+    „Deutschland" mitten im Wort. Die Melde-Box bricht bis 1432 px um.
+  - **Startseite auf niedrigen Fenstern** (1366×768 lässt dem Browser
+    ~640 px, 1280×720 bei 150 % 577): die Überschrift stand dreizeilig
+    zu 88 px, die Knöpfe lagen unter dem Bildrand. Zwei Stufen in
+    `index.html` (`max-height: 700px` / `620px`, nur ab 901 px Breite).
+  - **Android 360 px** (Samsung Galaxy, die häufigste Android-Breite –
+    das iPhone hat 390/393): Teilen, Hell/Dunkel, DE/EN und „Anmelden"
+    brauchten 336 px bei 328 Platz, „Anmelden" rutschte in eine DRITTE
+    Kopfzeile, die erste Veranstaltung lag 54 px tiefer. Bis 400 px:
+    `.top-actions { gap: 6px }`, DE/EN mit 10 px Innenabstand → 316 px.
+  - **Zurück-Taste schließt Detail-Blatt, Filter-Blatt und Sortier-Blatt** – auf Android
+    ist „Zurück" DER Weg, etwas zu schließen (vorher verließ sie die
+    Seite). Beim Öffnen `pushState` mit derselben Adresse
+    (`merkeBlattImVerlauf` in `events.html`, `merkeImVerlauf` in
+    `filter-ui.js filterSheet`), `popstate` schließt; schließt jemand über
+    ✕/Schleier/Escape/„Events anzeigen", nimmt `history.back()` den
+    Eintrag wieder heraus (Flagge `eigenesZurueck`), danach schreibt
+    `writeUrlState()` die Adresse des Eintrags nach, auf dem man landet
+    (`replaceState` trifft nur den aktuellen; die Seiten geben dem
+    Filter- und Sortier-Blatt dafür `onPop`). Ein geteilter Link (`?event=`) legt
+    KEINEN Eintrag an (`oeffneDetail({ ohneVerlauf: true })`) – wer von
+    WhatsApp kommt, soll mit „Zurück" dorthin zurück. Die Dialoge (Abo,
+    Melden, Vorschlag) haben das nicht.
+  - **Kein Pull-to-Refresh im Blatt**: `overscroll-behavior: contain` am
+    Detail-Blatt und am Filter-Blatt – Chrome (Android) lud sonst die
+    Seite neu, wenn man am oberen Rand des Blattes weiterzog.
+  - **Sortierknöpfe der Tabelle waren 15 px hoch** (der Innenabstand lag
+    an `.th-inner`, nicht am Knopf): jetzt 45 px, der ganze Spaltenkopf
+    ist die Klickfläche. Dazu Navigation und DE/EN am Rechner 44 px hoch
+    (Guide: Kopfzeile 44; gemessen waren es 35) – die Kopfzeile wird
+    nicht höher.
+  Dazu **`icon-192-maskable.png`/`icon-512-maskable.png`** im Manifest
+  (`purpose: maskable`): Android schneidet Home-Bildschirm-Symbole in
+  Kreis oder abgerundetes Quadrat; ohne maskierbares Symbol lag die
+  Navy-Kachel klein auf weißem Grund. Das Zeichen steht darin auf 50 %
+  (die sichere Zone ist der Kreis mit 80 % Durchmesser – das volle
+  Zeichen reicht bis 97 % und würde beschnitten); erzeugt per
+  Chromium-Screenshot wie die anderen PNGs. **Nicht behoben, nur
+  notiert**: die `:hover`-Regeln gelten auf Touch-Geräten nach dem Tippen
+  weiter („sticky hover", auch auf dem iPhone, bisher nicht störend –
+  Abhilfe wäre `@media (hover: hover)` um alle ~40 Regeln), Windows-
+  Kontrastmodus (`forced-colors`: der box-shadow-Rahmen um den
+  aufgeklappten Block verschwindet dort), und die Leaflet-Zoomknöpfe
+  bleiben 30 px (Pinch ist der Hauptweg). Ein sporadischer
+  Kartenfehler (einmal in 60 Läufen „Cannot set properties of null") war
+  der eigene Testserver (`TCPServer` ohne Threads, eine Datei nicht
+  geliefert → Notbremse), nicht die Seite.
 - **Handy: Kacheln statt Tabelle (bis 900 px; bis zum 13.10.2026 unter 700 px).** Vom Nutzer am
   22.09.2026 gefragt („Was genau passiert da bei der Handyansicht?") und
   freigegeben („Yes, bitte bauen"). Die Tabelle ist 900 px breit; auf

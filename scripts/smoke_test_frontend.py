@@ -504,6 +504,95 @@ def pruefe_kacheln(ctx, basis):
     seite.close()
 
 
+def pruefe_plattformen(ctx, basis):
+    """Android, Windows, Linux (14.10.2026): was auf dem iPhone schon stimmte,
+    aber auf den häufigsten anderen Geräten nicht.
+
+    - 360 px (Samsung Galaxy, häufigste Android-Breite): die Kopfzeile hat
+      zwei Reihen, nicht drei ("Anmelden" rutschte in eine dritte).
+    - Zurück-Taste (Android): schließt Detail-Blatt und Filter-Blatt
+      (history.pushState beim Öffnen, popstate schließt); ✕ nimmt den
+      Eintrag wieder aus dem Verlauf, und die Adresse stimmt danach.
+    - 1366 x 641 und 1280 x 577 (Windows-Laptops, 100 bzw. 150 %): die
+      Tabelle hat keinen waagerechten Scrollbalken (die Detail-Spalte
+      gibt nach), und auf der Startseite liegen die Hero-Knöpfe im Bild.
+    """
+    print("\nAndroid, Windows, Linux (360 px, Zurück-Taste, 1366/1280 px)")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr[data-idx]")
+    seite.set_viewport_size({"width": 360, "height": 740})
+    seite.wait_for_timeout(400)
+    kopf = seite.evaluate("""() => ({
+        h: Math.round(document.querySelector('.site-header').getBoundingClientRect().height),
+        breit: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth,
+        reihen: new Set([...document.querySelectorAll('.top-actions > *')].map(e => Math.round(e.getBoundingClientRect().top))).size })""")
+    pruefe(kopf["reihen"] == 1, "360 px: Teilen, Hell/Dunkel, DE/EN und Anmelden in EINER Reihe (%d)" % kopf["reihen"])
+    pruefe(kopf["h"] <= 130, "360 px: Kopfzeile höchstens zwei Reihen (%d px)" % kopf["h"])
+    pruefe(kopf["breit"] <= 0, "360 px: kein waagerechter Überlauf (%d px)" % kopf["breit"])
+
+    # Zurück-Taste: Detail-Blatt
+    seite.set_viewport_size({"width": 390, "height": 844})
+    seite.wait_for_timeout(300)
+    adresse_vorher = seite.evaluate("() => location.pathname + location.search")
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    seite.wait_for_timeout(400)
+    if pruefe(seite.evaluate("() => document.body.classList.contains('detail-offen')"), "Tippen öffnet das Detail-Blatt"):
+        pruefe(seite.evaluate("() => !!(history.state && history.state.eeDetailBlatt)"), "das offene Blatt steht als Eintrag im Verlauf")
+        # (?event= steht nur nach einem geteilten Link in der Adresse, nicht
+        # nach einem Tippen - siehe currentParams(); hier zählt nur, dass
+        # die Adresse nach dem Zurück wieder die von vorher ist.)
+        seite.go_back()
+        seite.wait_for_timeout(500)
+        pruefe(not seite.evaluate("() => document.body.classList.contains('detail-offen')"), "Zurück-Taste schließt das Detail-Blatt")
+        pruefe(seite.evaluate("() => location.pathname").endswith("/events.html"), "… und bleibt auf der Liste")
+        pruefe(seite.evaluate("() => location.pathname + location.search") == adresse_vorher,
+               "… die Adresse ist wieder die von vorher")
+    # ✕ nimmt den Eintrag wieder heraus
+    seite.locator("tbody tr[data-idx]:not([data-klapp])").first.click()
+    seite.wait_for_timeout(400)
+    schliesse_blatt(seite)
+    seite.wait_for_timeout(400)
+    pruefe(seite.evaluate("() => !(history.state && history.state.eeDetailBlatt)"), "✕ nimmt den Verlaufseintrag des Blattes wieder heraus")
+    pruefe(seite.evaluate("() => location.pathname + location.search") == adresse_vorher, "… und die Adresse stimmt danach")
+    # Zurück-Taste: Filter-Blatt
+    oeffne_filterblatt(seite)
+    if pruefe(im_filterblatt(seite), "der Knopf öffnet das Filter-Blatt"):
+        pruefe(seite.evaluate("() => !!(history.state && history.state.eeFilterBlatt)"), "das offene Filter-Blatt steht als Eintrag im Verlauf")
+        seite.go_back()
+        seite.wait_for_timeout(500)
+        pruefe(not im_filterblatt(seite), "Zurück-Taste schließt das Filter-Blatt")
+        pruefe(seite.evaluate("() => location.pathname").endswith("/events.html"), "… und bleibt auf der Liste")
+    oeffne_filterblatt(seite)
+    schliesse_filterblatt(seite)
+    pruefe(seite.evaluate("() => !(history.state && history.state.eeFilterBlatt)"), "✕ nimmt den Eintrag des Filter-Blatts wieder heraus")
+    # Zurück-Taste: Sortier-Blatt (dieselbe Mechanik, filterSheet mit bodyClass)
+    seite.locator("#sort-sheet-btn").click()
+    seite.wait_for_timeout(350)
+    if pruefe(seite.evaluate("() => document.body.classList.contains('sort-sheet-offen')"), "der Knopf öffnet das Sortier-Blatt"):
+        seite.go_back()
+        seite.wait_for_timeout(500)
+        pruefe(not seite.evaluate("() => document.body.classList.contains('sort-sheet-offen')"), "Zurück-Taste schließt das Sortier-Blatt")
+        pruefe(seite.evaluate("() => location.pathname").endswith("/events.html"), "… und bleibt auf der Liste")
+    pruefe(not probleme, "dabei keine Fehler (%s)" % (probleme[0] if probleme else "keine"))
+
+    # Windows-Laptops: Tabelle ohne waagerechten Scrollbalken, Hero im Bild
+    for breite, hoehe in ((1366, 641), (1280, 577)):
+        seite.set_viewport_size({"width": breite, "height": hoehe})
+        seite.wait_for_timeout(400)
+        tw = seite.evaluate("() => { const t = document.querySelector('.table-wrap'); return { w: t.clientWidth, s: t.scrollWidth, seite: document.documentElement.scrollHeight - innerHeight }; }")
+        pruefe(tw["s"] <= tw["w"] + 1, "%d x %d: die Tabelle hat keinen waagerechten Scrollbalken (%d von %d px)" % (breite, hoehe, tw["s"], tw["w"]))
+        pruefe(tw["seite"] <= 0, "%d x %d: die Seite selbst scrollt nicht (%d px Überhang)" % (breite, hoehe, tw["seite"]))
+    seite.close()
+    start = ctx.new_page()
+    for breite, hoehe in ((1366, 641), (1280, 577)):
+        start.set_viewport_size({"width": breite, "height": hoehe})
+        start.goto(basis + "/index.html", wait_until="domcontentloaded")
+        start.wait_for_selector(".cta-btn")
+        start.wait_for_timeout(300)
+        cta = start.evaluate("() => Math.round(document.querySelector('.cta-btn').getBoundingClientRect().bottom)")
+        pruefe(cta <= hoehe, "Startseite %d x %d: der Knopf 'Events entdecken' liegt im ersten Bild (Unterkante %d px)" % (breite, hoehe, cta))
+    start.close()
+
+
 def pruefe_startseite(ctx, basis):
     """Der Weg von der Startseite in die Liste - oben im Kopf und im Bild.
 
@@ -2316,6 +2405,7 @@ def main() -> int:
             try:
                 pruefe_liste(ctx, basis)
                 pruefe_kacheln(ctx, basis)
+                pruefe_plattformen(ctx, basis)
                 pruefe_startseite(ctx, basis)
                 pruefe_mastersuche(ctx, basis)
                 pruefe_such_vorschlaege(ctx, basis)

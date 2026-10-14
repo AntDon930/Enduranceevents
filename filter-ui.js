@@ -1538,9 +1538,46 @@
       button.setAttribute('aria-expanded', o ? 'true' : 'false');
       if (opts.onToggle) opts.onToggle(o);
     }
+    // Die Zurück-Taste schließt das Blatt (14.10.2026, für Android - dort
+    // ist "Zurück" DER Weg, etwas zu schließen). Beim Öffnen ein Eintrag
+    // im Verlauf (pushState, dieselbe Adresse), popstate schließt; wer
+    // über ✕, "Events anzeigen", Schleier oder Escape schließt, bekommt
+    // den Eintrag per history.back() wieder weggenommen, sonst führte das
+    // nächste "Zurück" ins Leere. Nach jedem Zurück ruft opts.onPop die
+    // Seite, damit sie ihre Adresse nachschreibt (replaceState in
+    // writeUrlState trifft nur den jeweils aktuellen Eintrag; ein Filter,
+    // der im Blatt gesetzt wurde, stünde sonst nicht in der Adresse).
+    // Dieselbe Mechanik hat das Detail-Blatt der Liste (events.html).
+    let imVerlauf = false;
+    let eigenesZurueck = false;
+    function merkeImVerlauf() {
+      if (imVerlauf || !aktiv() || !global.history || !global.history.pushState) return;
+      try {
+        global.history.pushState({ eeFilterBlatt: true }, '', global.location.href);
+        imVerlauf = true;
+      } catch (e) { /* ignorieren - dann schließt nur das ✕ */ }
+    }
+    function nimmAusVerlauf() {
+      if (!imVerlauf) return;
+      imVerlauf = false;
+      eigenesZurueck = true;
+      try { global.history.back(); } catch (e) { eigenesZurueck = false; }
+    }
+    global.addEventListener('popstate', () => {
+      if (eigenesZurueck) {
+        eigenesZurueck = false;
+        if (opts.onPop) opts.onPop();
+        return;
+      }
+      if (!imVerlauf) return;
+      imVerlauf = false;
+      if (offen) { offen = false; setze(); }
+      if (opts.onPop) opts.onPop();
+    });
     function open() {
       offen = true;
       setze();
+      merkeImVerlauf();
       // Der Fokus geht in das Blatt (erste Pille bzw. die gewählte
       // Sortierung), Escape und ✕ bringen ihn zurück auf den Knopf.
       const erste = sheet.querySelector(focusSelector);
@@ -1550,6 +1587,7 @@
       if (!offen) return;
       offen = false;
       setze();
+      nimmAusVerlauf();
       if (zurueckZumKnopf) { try { button.focus(); } catch (e) { /* egal */ } }
     }
     button.addEventListener('click', () => { if (offen) close(); else open(); });
