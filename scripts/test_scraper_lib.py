@@ -4627,8 +4627,148 @@ def test_statistik() -> None:
     check("stats.js erkennt den Browser der Instagram-App", "br = 'Instagram'" in stats_js, True)
 
 
+def test_instagram() -> None:
+    """Instagram-Account „AusdauerMaschine" (14.10.2026): Wochenplan,
+    Captions, Momente, Lizenzprüfung der Clips, der API-Ablauf beim Posten
+    (mit einer Attrappe, ohne Netz) und dass der Link in der Bio genau das
+    trägt, woran die Statistik Instagram erkennt."""
+    import datetime as _dt
+    import json as _json
+    import random as _random
+
+    print("\nInstagram (insta_inhalte, insta_video, insta_posten):")
+    import insta_inhalte as I
+    wurzel = Path(__file__).resolve().parent.parent
+    heute = _dt.date(2026, 10, 19)            # ein Montag
+    ev = []
+    for i in range(60):
+        tag = heute + _dt.timedelta(days=i % 14)
+        ev.append({"name": f"Testlauf {i}", "standort": "München", "land": "Deutschland", "art1": "Laufen",
+                   "art2": "Straße", "datum_start": tag.isoformat(), "datum_ende": tag.isoformat(),
+                   "lat": 48.14, "lon": 11.57, "laenge_km": 10.0, "veranstalter_url": "https://x.de"})
+    ev.append(dict(ev[0], name="Geheimer Lauf", pruefung_offen=True, laenge_km=42.195))
+    ev.append(dict(ev[0], name="Wolfgangsee Junior-Marathon", laenge_km=42.195))
+    momente = I.lade_momente()
+    formate = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["format"] for i in range(7)]
+    check("Wochenplan Mo-So (ohne Clips: Do = Moment)", formate,
+          ["wochenvorschau", "moment", "spotlight", "moment", "wochenende", "region", "moment"])
+    b = I.plane(heute, ev, momente=momente, clips=[])
+    namen = [e["name"] for f in b["folien"] for e in f.get("events", [])]
+    check("ausgeblendete Zeilen (pruefung_offen) kommen nie ins Reel", "Geheimer Lauf" in namen, False)
+    check("Junior-/Kinderläufe sind kein Highlight", "Wolfgangsee Junior-Marathon" in namen, False)
+    check("derselbe Tag ergibt denselben Beitrag", I.plane(heute, ev, momente=momente, clips=[]), b)
+    caps = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["caption"] for i in range(14)]
+    check("Captions: höchstens 2.200 Zeichen, 30 Hashtags, nennen die Seite",
+          all(len(c) <= 2200 and c.count("#") <= 30 and I.SEITE in c for c in caps), True)
+    check("Einzahl: 1 Radrennen / 1 Schwimm-Event / 2 Läufe",
+          [I.sport_anzahl(1, "Fahrrad"), I.sport_anzahl(1, "Schwimmen"), I.sport_anzahl(2, "Laufen")],
+          ["1 Radrennen", "1 Schwimm-Event", "2 Läufe"])
+    # Jahrestag: Kipchoge 12.10.2019 - 2027 ein Dienstag (ersetzt den
+    # Plan), 2026 ein Montag (Montag bleibt bei den Terminen).
+    b27 = I.plane(_dt.date(2027, 10, 12), ev, momente=momente, clips=[])
+    check("Jahrestag ersetzt den Plan (Di) und sagt „Heute vor 8 Jahren“",
+          [b27["format"], b27["folien"][0]["ueber"]], ["moment", "Heute vor 8 Jahren"])
+    mo_jahrestag = momente + [dict(momente[0], id="test-montag", datum="2000-10-19")]
+    check("Montag bleibt bei den Terminen, auch am Jahrestag",
+          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "wochenvorschau")
+
+    pflicht = ("id", "datum", "sport", "titel", "text", "quelle")
+    fehler = [m.get("id") for m in momente if any(not m.get(k) for k in pflicht)
+              or m["sport"] not in I.SPORTARTEN or not m["quelle"].startswith("https://")]
+    for m in momente:
+        try:
+            _dt.date.fromisoformat(m["datum"])
+        except ValueError:
+            fehler.append(m["id"])
+    check("momente.json: Pflichtfelder, Sportart, Quelle, Datum", fehler, [])
+    check("momente.json: Ids eindeutig", len({m["id"] for m in momente}), len(momente))
+    clips = _json.loads((wurzel / "marketing" / "instagram" / "clips.json").read_text(encoding="utf-8"))
+    check("clips.json ist eine Liste", isinstance(clips.get("clips"), list), True)
+
+    import insta_video as V
+    erlaubt, verboten = [], []
+    for lizenz in ("CC0", "CC BY 4.0", "CC BY-SA 3.0", "Pexels", "eigenes Material", "Genehmigung Veranstalter 12.10.2026"):
+        try:
+            V.pruefe_lizenz({"id": "t", "lizenz": lizenz, "urheber": "x"})
+            erlaubt.append(lizenz)
+        except V.LizenzFehler:
+            pass
+    for lizenz in ("CC BY-NC 4.0", "CC BY-ND 4.0", "ZDF", "YouTube", ""):
+        try:
+            V.pruefe_lizenz({"id": "t", "lizenz": lizenz, "urheber": "x"})
+        except V.LizenzFehler:
+            verboten.append(lizenz)
+    check("Lizenzprüfung: freie Lizenzen durch", len(erlaubt), 6)
+    check("Lizenzprüfung: NC/ND, Sender, ohne Lizenz abgewiesen", len(verboten), 5)
+    for c in clips.get("clips", []):
+        try:
+            V.pruefe_lizenz(c)
+        except V.LizenzFehler as e:
+            check(f"clips.json: {c.get('id')}", str(e), "freigegeben")
+    check("Emoji fliegen aus dem Videotext", V.ohne_emoji("🏃 12 Läufe 🇩🇪 in Deutschland"), "12 Läufe in Deutschland")
+    plan = V.zeitplan([{"typ": "titel"}, {"typ": "liste"}, {"typ": "cta"}], 15.0)
+    check("Zeitplan gestreckt auf die Clip-Länge", round(plan[-1][1], 6), 15.0)
+    check("letzte Folie bleibt stehen, erste blendet ein",
+          [V.sichtbarkeit(14.99, plan[-1][0], plan[-1][1], True)[0], V.sichtbarkeit(0.0, 0, 3, False)[0]], [1.0, 0.0])
+    bild = V.folie_bild(b["folien"][1], b["sport"])
+    check("Folie wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None], [(1080, 1920), True])
+
+    import insta_posten as P
+
+    class Antwort:
+        def __init__(self, daten, status=200):
+            self.status_code, self._d, self.text = status, daten, _json.dumps(daten)
+
+        def json(self):
+            return self._d
+
+    class Sitzung:
+        def __init__(self):
+            self.aufrufe, self.status = [], ["IN_PROGRESS", "FINISHED"]
+
+        def get(self, url, **kw):
+            self.aufrufe.append(("GET", url.split("/v23.0/")[-1]))
+            if "content_publishing_limit" in url:
+                return Antwort({"data": [{"quota_usage": 0}]})
+            if url.endswith("/m1"):
+                return Antwort({"permalink": "https://www.instagram.com/reel/abc/"})
+            return Antwort({"status_code": self.status.pop(0)})
+
+        def post(self, url, headers=None, data=None, **kw):
+            self.aufrufe.append(("POST", url.split("/v23.0/")[-1] if "graph" in url else "rupload"))
+            if url.endswith("/media"):
+                check("Container: REELS, resumable, Caption", [data["media_type"], data["upload_type"], data["caption"]],
+                      ["REELS", "resumable", "Hallo"])
+                return Antwort({"id": "c1", "uri": "https://rupload.facebook.com/ig-api-upload/v23.0/c1"})
+            if "rupload" in url:
+                check("Upload: offset 0, file_size = Dateigröße", [headers["offset"], headers["file_size"]], ["0", "4"])
+                return Antwort({"success": True})
+            if url.endswith("/media_publish"):
+                return Antwort({"id": "m1"})
+            return Antwort({"error": {"message": "unerwartet"}}, 400)
+
+    import tempfile as _tf
+    with _tf.TemporaryDirectory() as tmp:
+        vid = Path(tmp) / "r.mp4"
+        vid.write_bytes(b"1234")
+        s = Sitzung()
+        erg = P.poste_reel(vid, "Hallo", 2000, z={"uid": "17841", "token": "t", "host": "graph.facebook.com",
+                                                    "version": "v23.0"}, session=s, warten=lambda _s: None)
+        check("Posten: Ablauf Container → Upload → Status bis FINISHED → Veröffentlichen → Permalink",
+              [a for a in s.aufrufe if "limit" not in a[1]],
+              [("POST", "17841/media"), ("POST", "rupload"), ("GET", "c1"), ("GET", "c1"),
+               ("POST", "17841/media_publish"), ("GET", "m1")])
+        check("Posten: Ergebnis mit Permalink", erg["permalink"], "https://www.instagram.com/reel/abc/")
+
+    admin = (wurzel / "admin.html").read_text(encoding="utf-8")
+    agg = (wurzel / "functions" / "stats_aggregate.js").read_text(encoding="utf-8")
+    check("Bio-Link trägt utm_source=instagram (Statistik erkennt ihn) und steht so im Dashboard",
+          ["utm_source=instagram" in I.BIO_LINK, f"'{I.BIO_LINK}'" in admin, 'q === "instagram"' in agg],
+          [True, True, True])
+
+
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

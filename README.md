@@ -2427,6 +2427,136 @@ Der Rauchtest prüft das Dashboard seitdem mit einer **Firebase-Attrappe**
 das erfundene Tagesdokumente liefert und die Anmeldung durchwinkt) –
 alle Karten, Monatswechsel, Bericht-Wechsel, DE/EN.
 
+## Instagram: der Account „AusdauerMaschine" (seit 14.10.2026)
+
+Vom Nutzer gewünscht: ein Instagram-Account, der „so automatisiert wie
+möglich" Reels postet, mit `endurance-events.de` in der Profilbeschreibung,
+und im Dashboard sichtbar, wie viele Besucher über Instagram kommen.
+
+### Warum keine Fernsehausschnitte
+
+Die erste Idee waren geclippte „bekannte Sportmomente". Gebaut ist das
+**nicht** mit TV- oder Streamingbildern (Olympia, Ironman, Tour de France,
+Marathon-Majors): Diese Bilder gehören den Sendern und Veranstaltern,
+Instagram erkennt sie automatisch (Rights Manager), sperrt die Reels und
+löscht Accounts nach wiederholten Verstößen – und in Deutschland kommt die
+Abmahnung an die Anschrift aus dem Impressum. Stattdessen:
+
+- **Die Momente erzählen die FAKTEN** (`marketing/instagram/momente.json`,
+  27 Einträge mit Wikipedia-Quelle) über lizenzfreiem Hintergrund – Fakten
+  sind frei, Bilder nicht. Am Jahrestag („Heute vor 7 Jahren …") kommt
+  der passende Moment von selbst.
+- **Clips** gibt es trotzdem, aus `marketing/instagram/clips.json` – nur mit
+  Lizenz: eigene Aufnahmen, Veranstaltervideos mit Genehmigung, Wikimedia
+  Commons (CC0/CC BY/CC BY-SA), Pexels, Pixabay. Das Skript verweigert
+  alles andere. **Der beste Weg zu guten Clips sind die Veranstalter**:
+  Viele geben ihr Material gern für Werbung frei, die ihre Veranstaltung
+  zeigt – eine Mail mit „Dürfen wir 15 Sekunden aus eurem Video zeigen,
+  mit Nennung und Link?" genügt; die Antwort als `lizenz`
+  („Genehmigung Veranstalter 20.10.2026") eintragen.
+- **Die Hauptformate kommen aus den eigenen Daten** – die Termine, die es
+  nur bei uns gesammelt gibt. Sie bringen die Besucher.
+
+### Der Wochenplan (`scripts/insta_inhalte.py`)
+
+| Tag | Format | Inhalt |
+|---|---|---|
+| Mo | `wochenvorschau` | „141 Events diese Woche", je Sportart, fünf Höhepunkte |
+| Di | `moment` | ein großer Moment (Zahl groß, Text, Quelle in der Caption) |
+| Mi | `spotlight` | eine Sportart in einem Land, die nächsten 30 Tage |
+| Do | `clip` | ein lizenzierter Clip aus `clips.json` (leer → Moment) |
+| Fr | `wochenende` | Sa + So: wie viele wo, fünf Tipps |
+| Sa | `region` | rund um eine Großstadt (50 km), 24 Städte reihum |
+| So | `moment` | |
+
+Jahrestag eines Moments ersetzt Di–Do, Sa, So. Derselbe Tag ergibt immer
+denselben Beitrag (kein Gedächtnis nötig). Ausgeblendete Zeilen
+(`pruefung_offen`) und Kinder-/Junior-Läufe kommen nie ins Reel. Captions
+mit Einstieg, Liste, Frage für Kommentare, „Link in der Bio",
+höchstens zehn Hashtags, bei Fotos die Namensnennung.
+
+Ansehen ohne Video: `python3 scripts/insta_inhalte.py --tage 7`.
+
+### Das Video (`scripts/insta_video.py`)
+
+1080 × 1920, 30 Bilder/s, H.264/AAC, `faststart`, 13–16 s, ~5 MB. Hintergrund:
+ein Hochformat-Video von **Pexels** (wenn `PEXELS_API_KEY` gesetzt ist –
+kostenloser Schlüssel auf pexels.com/api; Lizenz erlaubt kommerzielle
+Nutzung), sonst ein langsamer Zoom über die Fotos der Startseite. Darauf
+Navy-Verlauf, Marke, Folien in Barlow (eingeblendet mit kleinem Hub),
+Fortschrittsbalken in Signal-Orange; Text nur in der sicheren Zone, die
+die Instagram-App nicht überdeckt. Bei Clips sucht `highlight()` das
+spannendste Fenster (Lautheit je Sekunde + Bildwechsel), Querformat
+steht über einem unscharfen Hintergrund. Musik: Stücke in
+`marketing/instagram/musik/` mit Lizenz in `musik.json`
+(`{"stuecke": [{"datei": "x.mp3", "lizenz": "…"}]}`) – ohne Stück ist das
+Reel stumm. **Die Musik aus der Instagram-Bibliothek kann die API nicht
+anhängen**; wer sie will, postet das Artefakt von Hand.
+
+```bash
+python3 scripts/insta_lauf.py --vorschau            # nur PNGs der Folien
+python3 scripts/insta_lauf.py --datum 2026-10-16    # Video nach marketing/instagram/ausgabe/
+```
+
+### Täglich automatisch (`.github/workflows/instagram.yml`)
+
+Jeden Tag 17:47 (Sommer) bzw. 16:47 (Winter): Reel bauen, als Artefakt
+ablegen (14 Tage), und **nur wenn die Variable `INSTAGRAM_AUTOPOST` = `ja`
+ist**, veröffentlichen. Die ersten Wochen empfiehlt sich: ohne Autopost
+laufen lassen, die Reels im Artefakt ansehen, gute von Hand posten (dann
+geht auch Instagram-Musik), danach Autopost einschalten. Von Hand: Actions
+→ „Instagram-Reel" → Run workflow (Datum, Format, Haken „posten").
+
+### Einrichtung (einmalig, nur der Nutzer)
+
+1. **Instagram-Account** `ausdauermaschine` anlegen → Einstellungen →
+   Kontotyp → **professionelles Konto** (Creator oder Unternehmen).
+2. **Profil**: Name „AusdauerMaschine", Kategorie Sport, Bio z. B.
+   „Alle Läufe, Radrennen, Triathlons & Schwimm-Events in DE · AT · CH ·
+   Südtirol 🏃🚴🏊 – jeden Tag neu". **Link**:
+   `https://endurance-events.de/?utm_source=instagram&utm_medium=bio` –
+   genau so, nur dann zählt das Dashboard den Besuch sicher als
+   Instagram. Als zweiten Link das Impressum
+   (`https://endurance-events.de/impressum.html`): Auch ein Profil braucht
+   eine leicht erreichbare Anbieterkennzeichnung. Story-Links mit
+   `utm_medium=story` und `utm_campaign=<name>` – das Dashboard zeigt beides.
+3. **Facebook-Seite** anlegen (nur als technische Brücke, darf leer
+   bleiben) und in der Meta Business Suite mit dem Instagram-Konto
+   verknüpfen.
+4. **business.facebook.com** → Unternehmensportfolio anlegen, Seite und
+   Instagram-Konto hinzufügen.
+5. **developers.facebook.com** → App erstellen → Typ „Business" → Produkt
+   „Instagram" (Variante *API-Einrichtung mit Facebook Login*);
+   Datenschutz-URL `https://endurance-events.de/datenschutz.html`.
+6. Im Business-Portfolio → Benutzer → **Systemnutzer** (Admin) anlegen →
+   Assets zuweisen (Seite, Instagram-Konto, App, jeweils volle Kontrolle)
+   → **Token generieren**: App wählen, Ablauf „Nie", Berechtigungen
+   `instagram_basic`, `instagram_content_publish`, `pages_show_list`,
+   `pages_read_engagement`, `business_management`.
+7. Die **Instagram-Konto-Id** holen:
+   `curl "https://graph.facebook.com/v23.0/me/accounts?fields=instagram_business_account{id,username}&access_token=<TOKEN>"`
+   – die Zahl bei `instagram_business_account.id`.
+8. GitHub → Settings → Secrets and variables → Actions:
+   Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY`;
+   Variable `INSTAGRAM_AUTOPOST` = `ja`, sobald gepostet werden soll.
+9. Probelauf: Actions → „Instagram-Reel" → Run workflow mit Haken
+   „posten". Schlägt er fehl, steht die Antwort von Meta im Log.
+
+### Im Dashboard
+
+`admin.html` hat die Karte **„Instagram"** unter den Kennzahlen (Besucher,
+Besuche, Anteil an allen Besuchen, Seiten je Besuch, geöffnete Events,
+Klicks zum Veranstalter, Balken je Tag) und den Abschnitt „Instagram im
+Detail" (über welchen Link, Einstiegsseite, Aktionen, Kampagne). Ein Besuch
+zählt als Instagram, wenn er `utm_source=instagram`/`ig` trägt, von
+`instagram.com` weitergeleitet wurde oder im Browser der Instagram-App lief
+(`stats.js` meldet ihn als Browser „Instagram"). Unter „Herkunft" stehen
+dazu alle **Kanäle** (Instagram, Suchmaschinen, andere soziale Netze,
+Kampagnen, Webseiten, direkt). **Wirkt erst nach** `firebase deploy --only
+functions` (die Auswertung steckt in `aggregateStats`); Tage davor zeigen 0.
+Keine neue Datenkategorie – Referrer, utm und Browser nennt die
+Datenschutzerklärung schon.
+
 ## Impressum und Datenschutzerklärung
 
 `impressum.html` und `datenschutz.html` sind gebaut und von **jeder**

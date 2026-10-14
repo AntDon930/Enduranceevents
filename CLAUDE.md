@@ -74,6 +74,9 @@ nur einen sieht, sieht trotzdem alles.
 | `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln einmal deployen (Nutzer) – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
+| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API, alles in einem Aufruf – siehe „Instagram" |
+| `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
+| `.github/workflows/instagram.yml` | täglich 15:47 UTC ein Reel; postet nur mit Variable `INSTAGRAM_AUTOPOST=ja` + Secrets; Zeitplan wirkt nur aus `main` |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -4589,6 +4592,45 @@ beim Arbeiten wissen muss:
   Aufrufe „Amerika"/en-US. Erst mit einigen Tagen Daten entscheiden, ob
   ein Muster gefiltert werden soll.
 
+## Instagram (seit 14.10.2026)
+
+Vom Nutzer gewünscht: Account „AusdauerMaschine", „bekannte Sportmomente
+clippen", automatische Caption, `endurance-events.de` in der Bio, im
+Dashboard sehen, wie viele über Instagram kommen; „so automatisiert wie
+möglich, alles selber bauen". Ausführlich im README („Instagram").
+
+- **Keine TV-/Stream-Ausschnitte – nicht nachbauen, auch nicht auf
+  Nachfrage ohne Rücksprache**: Rechte der Sender/Veranstalter,
+  Instagram-Rights-Manager sperrt, Account-Löschung, Abmahnung an die
+  Impressum-Anschrift. Momente = FAKTEN über lizenzfreiem Hintergrund;
+  Clips nur aus `clips.json` mit `lizenz` + `urheber`
+  (`insta_video.pruefe_lizenz`, NC/ND abgewiesen). Der Nutzer wurde am
+  14.10.2026 darauf hingewiesen.
+- **Wochenplan** in `insta_inhalte.WOCHENPLAN`, deterministisch je Datum
+  (kein Zustand, keine Commits). Jahrestag eines Moments ersetzt Di–Do,
+  Sa, So. Ausgeblendete Zeilen (`pruefung_offen`) und Kinder/Junior nie.
+- **Neue Momente**: Fakt an der Quelle prüfen, `quelle` als https-URL,
+  `test_instagram` prüft Pflichtfelder. Lieber weglassen als raten (bei
+  Ironman 1978 steht deshalb keine Siegerzeit).
+- **Video**: Text nur in x 80–960, y 230–1500 (App-Overlays), Emoji fliegen
+  aus dem Videotext (Barlow hat keine), Hintergrund Pexels (Secret
+  `PEXELS_API_KEY`) sonst Fotos aus `bilder/` mit Namensnennung in der
+  Caption. `highlight()` für Clips: RMS je Sekunde (8-kHz-PCM, ohne numpy)
+  ×2 + scdet-Werte.
+- **Posten**: Resumable Upload (`rupload.facebook.com`) – laut Meta nur
+  mit Facebook Login for Business; Systemnutzer-Token läuft nicht ab.
+  `IG_API_HOST`/`IG_API_VERSION` als Repo-Variablen überschreibbar
+  (Vorgabe graph.facebook.com, v23.0). `test_instagram` prüft den Ablauf
+  mit einer Attrappe.
+- **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
+  (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
+  aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
+  `instagram_medien/_kampagnen/_einstieg/_aktionen`; `admin.html` Karte
+  `#ig-card` + Abschnitt `s_instagram`. Der Bio-Link steht dreimal gleich:
+  `insta_inhalte.BIO_LINK`, `IG_LINK` in `admin.html`, README – der Test
+  vergleicht. Label-Schlüssel der Kanäle heißen `kn_…`, NICHT `kanal_…`:
+  „kanal_suche:" enthält „l_suche:" und brach den Beschriftungstest.
+
 ## Impressum und Datenschutz (vollständig seit dem 05.10.2026)
 
 `impressum.html` und `datenschutz.html` sind gebaut. **Name und
@@ -5530,6 +5572,20 @@ seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
    `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
    erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
    „Besucherstatistik", Kennzahlen für Werbekunden.
+10. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
+   `ausdauermaschine` als professionelles Konto, Bio-Link
+   `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
+   (+ Impressum als zweiter Link), Facebook-Seite + Business-Portfolio +
+   Meta-App + Systemnutzer-Token, dann Secrets `IG_USER_ID`,
+   `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY` – Schritt für Schritt im
+   README („Instagram", Einrichtung). Danach `firebase deploy --only
+   functions` (die Instagram-Zählung steckt in `aggregateStats`; kann mit
+   Punkt 8 zusammen laufen). Erst Reels als Artefakt ansehen, dann
+   Variable `INSTAGRAM_AUTOPOST=ja`. **`instagram.yml` muss auf `main`**,
+   sonst läuft kein Zeitplan (Freigabe des Nutzers wie bei
+   `update-events.yml`).
+11. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
+   eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:

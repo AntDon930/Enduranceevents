@@ -24,3 +24,9 @@ events.web.json
 # nicht ins Repo.
 korrekturliste*.xlsx
 Korrekturliste*.xlsx
+
+# Instagram (scripts/insta_lauf.py): gerenderte Reels und der Video-Cache
+# gehören nicht ins Repo - der Workflow legt sie als Artefakt ab.
+marketing/instagram/ausgabe/
+marketing/instagram/.cache/
+ausgabe/
