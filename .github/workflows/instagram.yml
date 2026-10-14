@@ -5,12 +5,18 @@ name: Instagram-Reel
 # veröffentlichen. Das Video liegt danach IMMER als Artefakt am Lauf
 # (Actions → Lauf → „Artifacts"), auch wenn nicht gepostet wurde.
 #
-# WANN GEPOSTET WIRD:
-#   - Zeitplan: nur, wenn die Repository-Variable INSTAGRAM_AUTOPOST = ja
-#     ist (Settings → Secrets and variables → Actions → Variables) UND die
-#     Secrets IG_USER_ID / IG_ACCESS_TOKEN stehen. Sonst nur rendern -
-#     so lassen sich die ersten Wochen Reels ansehen und von Hand posten.
-#   - Von Hand („Run workflow"): Haken „posten".
+# ZWEI LÄUFE AM TAG (seit 14.10.2026, Freigabe mit einem Klick):
+#   - 08:47 deutscher Zeit (06:47 UTC): VORSCHAU - nur rendern, das Reel
+#     liegt als Artefakt zum Ansehen. Nichts wird gepostet.
+#   - 17:47 deutscher Zeit (15:47 UTC): POSTEN - rendern und mit
+#     `--posten --freigabe` veröffentlichen, wenn der Tag im Dashboard
+#     freigegeben ist (admin.html, Karte „Instagram-Freigabe" → Firestore
+#     insta_freigaben/<Datum>, scripts/insta_freigabe.py) ODER die
+#     Repository-Variable INSTAGRAM_AUTOPOST = ja ist (Settings → Secrets
+#     and variables → Actions → Variables). „gesperrt" im Dashboard sperrt
+#     immer. Ohne Secrets IG_USER_ID / IG_ACCESS_TOKEN wird nur gerendert.
+#   - Von Hand („Run workflow"): Haken „posten" postet sofort, ohne
+#     Freigabeprüfung.
 #
 # Der Zeitplan wirkt nur aus der Fassung auf `main` (GitHub liest
 # schedule-Trigger nur vom Standard-Branch, wie bei update-events.yml);
@@ -23,6 +29,7 @@ name: Instagram-Reel
 
 on:
   schedule:
+    - cron: '47 6 * * *'
     - cron: '47 15 * * *'
   workflow_dispatch:
     inputs:
@@ -84,12 +91,17 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_API_HOST: ${{ vars.IG_API_HOST }}
           IG_API_VERSION: ${{ vars.IG_API_VERSION }}
-          POSTEN: ${{ (github.event_name == 'schedule' && vars.INSTAGRAM_AUTOPOST == 'ja') || (github.event_name == 'workflow_dispatch' && inputs.posten) }}
+          INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}
+          # Der Abendlauf postet mit Freigabeprüfung, der Handlauf mit
+          # Haken „posten" sofort; der Morgenlauf rendert nur.
+          ABENDLAUF: ${{ github.event_name == 'schedule' && github.event.schedule == '47 15 * * *' }}
+          HANDPOSTEN: ${{ github.event_name == 'workflow_dispatch' && inputs.posten }}
         run: |
           ARGS="--ausgabe ausgabe"
           [ -n "${{ inputs.datum }}" ] && ARGS="$ARGS --datum ${{ inputs.datum }}"
           [ -n "${{ inputs.format }}" ] && ARGS="$ARGS --format ${{ inputs.format }}"
-          [ "$POSTEN" = "true" ] && ARGS="$ARGS --posten"
+          [ "$ABENDLAUF" = "true" ] && ARGS="$ARGS --posten --freigabe"
+          [ "$HANDPOSTEN" = "true" ] && ARGS="$ARGS --posten"
           python3 scripts/insta_lauf.py $ARGS
 
       - name: Reel als Artefakt ablegen
