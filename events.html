@@ -90,7 +90,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=a19eb795">
+<link rel="stylesheet" href="site.css?v=66cb05c0">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=161bee33">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -647,61 +647,49 @@
       overflow: visible;
       max-height: none;
     }
-    table, thead, tbody { display: block; }
+    table, tbody { display: block; }
+    /* Die Spaltenköpfe sind weg: Sortiert wird über den Knopf
+       "Sortieren" in der Filterleiste und sein Blatt (#sort-sheet, vom
+       Nutzer am 14.10.2026 gewünscht). Bis dahin stand hier eine
+       waagerecht scrollbare Reihe Sortierpillen - ~56 px über der ersten
+       Veranstaltung. */
+    thead { display: none; }
     /* Auch table.with-distance (960 px mit Entfernungs-Spalte) - die
        Klassenregel schlüge das nackte `table` sonst. */
     /* width: 100 % statt auto: Als Block schrumpft die Tabelle sonst auf
-       ihren Inhalt - und die EINE nicht umbrechende Reihe Sortierpillen
-       machte sie 694 px breit. Chrome (mobil) zog darauf den ganzen
+       ihren Inhalt (13.10.2026: eine nicht umbrechende Reihe Pillen
+       machte sie 694 px breit, Chrome (mobil) zog darauf den ganzen
        Layout-Viewport in die Breite, das Filter-Blatt lag unter dem
-       Bildrand und sein Schleier fing jeden Klick ab (13.10.2026). */
+       Bildrand und sein Schleier fing jeden Klick ab). */
     table, table.with-distance { min-width: 0; width: 100%; font-size: 0.9rem; }
     /* Die Spaltenbreiten der Tabelle (.col-*, 13 % usw.) gelten hier
        nicht - [class] hebt die Spezifität über die Klassenregel. */
-    thead th[class], tbody td[class] { width: auto; }
-    /* Kopfzeile: "Sortieren" + eine Pille je sortierbare Spalte. */
-    thead { margin: 0 0 12px; }
-    thead tr {
+    tbody td[class] { width: auto; }
+    /* Das Sortier-Blatt: Hinweis, darunter eine Zeile je sortierbare
+       Spalte; die gewählte trägt Richtung und Füllung wie eine gesetzte
+       Pille. Das Blatt selbst (fest unten, Schleier) teilt die Regeln
+       des Filter-Blatts in site.css. */
+    .sort-sheet-hinweis { margin: 0; color: var(--text-muted); font-size: 0.88rem; }
+    .sort-sheet-liste { display: flex; flex-direction: column; gap: 6px; }
+    .sort-option {
       display: flex;
-      /* EINE Zeile, waagerecht scrollbar - zwei Reihen Pillen kosteten
-         70 px über der ersten Veranstaltung (13.10.2026). */
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
       align-items: center;
-      gap: 8px;
-      padding-bottom: 2px;
-    }
-    thead tr::-webkit-scrollbar { display: none; }
-    thead tr::before {
-      content: attr(data-label);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-right: 4px;
-      flex: none;
-    }
-    thead th { position: static; display: block; border: 0; background: none; flex: none; }
-    thead th:not(.sortierbar) { display: none; }
-    .th-inner { padding: 0; }
-    .th-sort {
-      flex: none;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;   /* Tippfläche */
+      padding: 0 14px;
       border: 1px solid var(--border-strong);
-      border-radius: 999px;
-      padding: 8px 14px;
+      border-radius: var(--radius-ctl);
       background: var(--panel);
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      min-height: 44px;   /* Tippfläche (13.10.2026) */
-      white-space: nowrap;
-    }
-    .th-sort.active {
-      border-color: var(--accent);
       color: var(--text);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
     }
+    .sort-option.active { border-color: var(--pill-active-border); background: var(--pill-active-bg); color: var(--pill-active-fg); }
+    .sort-option .sort-richtung { font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
     /* Die Kachel: Datum und Sportart oben, Name breit darunter, dann
        Ort und Land, dann Kategorie und - rechts groß - die Länge. */
     tbody tr {
@@ -968,10 +956,34 @@
   </div>
   <button type="button" class="filter-sheet-fertig" id="filter-sheet-fertig"></button>
   </div>
+  <!-- Sortieren (Handy und Tablet hochkant, bis 900 px): ein Knopf
+       zwischen „Filter" und „E-Mail-Abo" (vom Nutzer am 14.10.2026
+       gewünscht: „Filter – Sortieren – Abo") statt der Pillenreihe über
+       den Kacheln. Er öffnet ein Blatt von unten mit den sortierbaren
+       Spalten; buildHeader() füllt es, ein Tippen ruft denselben
+       toggleSort wie die Spaltenköpfe und schließt das Blatt. Am Rechner
+       sind Knopf und Blatt unsichtbar (site.css) - dort sortieren die
+       Spaltenköpfe der Tabelle. Dieselben Klassen wie das Filter-Blatt,
+       dieselbe Mechanik (filter-ui.js filterSheet mit bodyClass). -->
+  <button type="button" class="filter-sheet-btn sort-sheet-btn" id="sort-sheet-btn" aria-expanded="false" aria-controls="sort-sheet">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+         stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M8 4v16M8 20l-3.5-3.5M8 20l3.5-3.5M16 20V4M16 4l-3.5 3.5M16 4l3.5 3.5"/>
+    </svg>
+    <span class="fsb-label">Sortieren</span>
+  </button>
+  <div class="sort-sheet" id="sort-sheet">
+    <div class="filter-sheet-kopf">
+      <span class="filter-sheet-titel" id="sort-sheet-titel">Sortieren</span>
+      <button type="button" class="icon-btn filter-sheet-close" id="sort-sheet-close" aria-label="Sortierung schließen">&#10005;</button>
+    </div>
+    <p class="sort-sheet-hinweis" id="sort-sheet-hinweis"></p>
+    <div class="sort-sheet-liste" id="sort-sheet-liste"></div>
+  </div>
   <!-- Abo-Knopf: immer erreichbar, nicht nur bei null Treffern - und NICHT
        im Blatt (vom Nutzer am 14.10.2026: „sonst weiß keiner, wofür das
        ist"): am Rechner rechts neben „Karte", auf dem Handy in der zweiten
-       Zeile der Leiste neben „Filter". -->
+       Zeile der Leiste neben „Filter" und „Sortieren". -->
   <button type="button" class="bar-btn abo-btn" id="abo-open-btn">
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
          stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -982,6 +994,7 @@
   </button>
 </div>
 <div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
+<div class="filter-sheet-scrim" id="sort-sheet-scrim" hidden></div>
 
 <!-- Werkzeugleiste: Trefferzahl, der Schalter (verändert, wie die Zahl
      zu lesen ist), die gesetzten Filter als Chips, "Filter löschen" und
@@ -1102,7 +1115,7 @@
      nutzt karte.html, damit Liste und Karte unter denselben Filtern
      dieselben Events zeigen. -->
 <script src="filters.js?v=8dbec59f"></script>
-<script src="filter-ui.js?v=9412bd03"></script>
+<script src="filter-ui.js?v=b6a77d3e"></script>
 <script src="event-detail.js?v=460584d6"></script>
 
 <script>
@@ -1184,6 +1197,11 @@
       col_entfernung: 'Entfernung',
       sort_hint: 'Klicken zum Sortieren',
       sortieren_nach: 'Sortieren',
+      // Das Sortier-Blatt auf dem Handy.
+      sort_asc: 'aufsteigend',
+      sort_desc: 'absteigend',
+      sort_hinweis: 'Noch einmal antippen dreht die Richtung um.',
+      sort_sheet_schliessen: 'Sortierung schließen',
       group_toggle: 'Events zusammenfassen',
       // Kurz halten: Die deutsche Fassung brach sonst in eine zweite
       // Zeile um ("2472 Veranstaltungen (4344 Strecken) von 4344 Events"
@@ -1291,6 +1309,10 @@
       col_entfernung: 'Distance',
       sort_hint: 'Click to sort',
       sortieren_nach: 'Sort by',
+      sort_asc: 'ascending',
+      sort_desc: 'descending',
+      sort_hinweis: 'Tap again to reverse the order.',
+      sort_sheet_schliessen: 'Close sorting',
       group_toggle: 'Group by event',
       result_count_grouped: (g) => `${g} events`,
       share_search: 'Share this search',
@@ -1592,6 +1614,20 @@
     doneBtn: document.getElementById('filter-sheet-fertig'),
     mediaQuery: KACHEL_MQ
   });
+  // Das Sortier-Blatt daneben (Knopf "Sortieren" zwischen "Filter" und
+  // "E-Mail-Abo", bis 900 px): dieselbe Mechanik, eigene Körperklasse,
+  // der Fokus geht auf die gewählte Spalte. Gefüllt wird es in
+  // buildHeader(). Hier oben, weil buildHeader() es schon beim ersten
+  // setLanguage() braucht (Temporal Dead Zone).
+  const sortSheet = EFU.filterSheet({
+    button: document.getElementById('sort-sheet-btn'),
+    sheet: document.getElementById('sort-sheet'),
+    scrim: document.getElementById('sort-sheet-scrim'),
+    closeBtn: document.getElementById('sort-sheet-close'),
+    bodyClass: 'sort-sheet-offen',
+    focusSelector: '.sort-option.active',
+    mediaQuery: KACHEL_MQ
+  });
   const ui = EFU.create({
     state,
     getEvents: () => events,
@@ -1663,6 +1699,8 @@
   // Fenster.
   const wrapEl = tableEl.closest('.table-wrap');
   const headerRowEl = document.getElementById('header-row');
+  // Die Liste im Sortier-Blatt (Handy) - buildHeader() füllt beide.
+  const sortListeEl = document.getElementById('sort-sheet-liste');
   const countEl = document.getElementById('result-count');
   // Abo-Dialog ("Neue Events per E-Mail"). Hier oben und nicht beim
   // Dialog-Code: `?abos=1` öffnet ihn schon beim Laden, und ein `const`
@@ -1933,6 +1971,8 @@
     resetBtnEl.textContent = t('reset');
     document.getElementById('filter-sheet-reset').textContent = t('reset');
     filterSheet.setTexts({ label: t('sheet_filter'), close: t('sheet_schliessen') });
+    sortSheet.setTexts({ label: t('sortieren_nach'), close: t('sort_sheet_schliessen') });
+    document.getElementById('sort-sheet-hinweis').textContent = t('sort_hinweis');
     standEl.textContent = datenStand ? t('stand', EF.formatDateWeekday(datenStand, lang, true)) : '';
     const fussnote = document.getElementById('datum-fussnote');
     fussnote.textContent = t('datum_fussnote');
@@ -1994,8 +2034,6 @@
 
   function buildHeader() {
     headerRowEl.innerHTML = '';
-    // Die Beschriftung der Pillenreihe in der Kachelansicht ("Sortieren").
-    headerRowEl.dataset.label = t('sortieren_nach');
     activeColumns().forEach(col => {
       const th = document.createElement('th');
       // `sortierbar`: in der Kachelansicht werden nur diese Spalten zu
@@ -2036,6 +2074,38 @@
       th.appendChild(inner);
       headerRowEl.appendChild(th);
     });
+    buildSortSheet();
+  }
+
+  // Das Sortier-Blatt auf dem Handy (bis 900 px; dort sind die
+  // Spaltenköpfe ausgeblendet): dieselben sortierbaren Spalten als Liste
+  // untereinander, die gewählte mit Richtung. Ein Tippen sortiert
+  // (derselbe toggleSort: erste Wahl aufsteigend, noch einmal dreht die
+  // Richtung) und schließt das Blatt, damit man das Ergebnis sieht. Der
+  // Knopf "Sortieren" ist gefüllt, sobald nicht mehr nach Datum
+  // aufsteigend (der Voreinstellung) sortiert ist - wie "Filter" mit
+  // gesetztem Filter.
+  function buildSortSheet() {
+    sortListeEl.innerHTML = '';
+    activeColumns().filter(col => SORT_KEYS[col.key]).forEach(col => {
+      const name = t(col.headerKey || col.labelKey);
+      const aktiv = state.sortKey === col.key;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sort-option' + (aktiv ? ' active' : '');
+      b.dataset.key = col.key;
+      b.setAttribute('aria-pressed', aktiv ? 'true' : 'false');
+      b.innerHTML = `<span>${escapeHtml(name)}</span>`
+        + (aktiv
+             ? `<span class="sort-richtung">${state.sortDir === 'asc' ? '▲' : '▼'} ${escapeHtml(t(state.sortDir === 'asc' ? 'sort_asc' : 'sort_desc'))}</span>`
+             : '');
+      b.addEventListener('click', () => {
+        toggleSort(col.key);
+        sortSheet.close(true);
+      });
+      sortListeEl.appendChild(b);
+    });
+    sortSheet.setBadge(state.sortKey === 'datum' && state.sortDir === 'asc' ? 0 : 1);
   }
 
   // ---------- filtering / rendering ----------
@@ -2765,8 +2835,9 @@
   document.addEventListener('keydown', (ev) => {
     if (ev.key !== 'Escape' || ev.defaultPrevented || !detailOffen || !istKachelmodus()) return;
     if (document.querySelector('.ee-modal-overlay:not([hidden]), .filter-panel:not([hidden])')) return;
-    // Das Filter-Blatt schließt sich selbst (filter-ui.js filterSheet).
-    if (document.body.classList.contains('filter-sheet-offen')) return;
+    // Filter- und Sortier-Blatt schließen sich selbst (filter-ui.js filterSheet).
+    if (document.body.classList.contains('filter-sheet-offen')
+        || document.body.classList.contains('sort-sheet-offen')) return;
     schliesseDetail();
   });
 

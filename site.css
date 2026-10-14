@@ -511,9 +511,11 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
    (display: contents): Pillen und Knöpfe liegen wie bisher in der
    Filterleiste. Unter 901 px wird dieselbe Hülle zum Blatt von unten
    (filter-ui.js, filterSheet) - siehe den Block unten. Der Knopf
-   "Filter", Kopf, "Fertig" und Schleier gibt es nur dort. */
+   "Filter", Kopf, "Fertig" und Schleier gibt es nur dort - ebenso der
+   Knopf "Sortieren" samt Blatt (.sort-sheet, nur die Liste): Am Rechner
+   sortieren die Spaltenköpfe der Tabelle. */
 .filter-sheet { display: contents; }
-.filter-sheet-btn, .filter-sheet-kopf, .filter-sheet-fertig, .filter-sheet-scrim { display: none; }
+.sort-sheet, .filter-sheet-btn, .filter-sheet-kopf, .filter-sheet-fertig, .filter-sheet-scrim { display: none; }
 
 /* ---------- Handy und Tablet hochkant (bis 900 px) ----------
    Dieselbe Grenze wie die Kacheln der Liste (events.html) und die
@@ -536,10 +538,11 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   .seiten-footer a, .fehlt-btn { display: inline-flex; align-items: center; min-height: 44px; }
   .result-count { font-size: 1.25rem; }
 
-  /* Die Filterleiste in zwei Zeilen: oben das Suchfeld, darunter "Filter"
-     und "E-Mail-Abo" je zur Hälfte. Das Abo stand kurz im Blatt - vom
-     Nutzer am 14.10.2026 zurück in die Leiste geholt („sonst weiß keiner,
-     wofür das ist"). */
+  /* Die Filterleiste in zwei Zeilen: oben das Suchfeld, darunter "Filter",
+     "Sortieren" (nur die Liste) und "E-Mail-Abo" zu gleichen Teilen. Das
+     Abo stand kurz im Blatt - vom Nutzer am 14.10.2026 zurück in die
+     Leiste geholt („sonst weiß keiner, wofür das ist"); "Sortieren" kam
+     am selben Tag dazu („Filter – Sortieren – Abo"). */
   .filter-bar { gap: 8px 10px; padding: 10px var(--seite-rand); }
   /* Spezifischer als .master-search in filter-ui.css (flex: 0 1 280px),
      sonst bleibt neben dem Feld Platz und "Filter" rutscht in die erste
@@ -581,13 +584,19 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
     font-weight: 700;
   }
   .filter-sheet-btn .fsb-badge[hidden] { display: none; }
+  /* Drei Knöpfe in einer Zeile: Auf 320 px (iPhone SE der ersten
+     Generation) fehlten "E-Mail-Abo" mit 16 px Innenabstand 3 px -
+     gemessen 14.10.2026. */
+  @media (max-width: 380px) {
+    .filter-bar > .filter-sheet-btn, .filter-bar > .abo-btn { padding: 0 9px; gap: 6px; }
+  }
 
   /* Das Blatt: unten angeschlagen, über allem außer den Dialogen (2000)
      und dem Filter-Panel, das im offenen Blatt hängt. Unsichtbar per
      visibility (dann sind die Pillen auch nicht per Tab erreichbar),
      kein transform - ein fixed positioniertes Panel darin rechnete
      sonst in den Koordinaten des Blattes statt des Fensters. */
-  .filter-sheet {
+  .filter-sheet, .sort-sheet {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -609,8 +618,9 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
     opacity: 0;
     transition: opacity 0.18s ease, visibility 0s linear 0.18s;
   }
-  body.filter-sheet-offen .filter-sheet { visibility: visible; opacity: 1; transition: opacity 0.18s ease; }
-  body.filter-sheet-offen { overflow: hidden; }
+  body.filter-sheet-offen .filter-sheet,
+  body.sort-sheet-offen .sort-sheet { visibility: visible; opacity: 1; transition: opacity 0.18s ease; }
+  body.filter-sheet-offen, body.sort-sheet-offen { overflow: hidden; }
   .filter-sheet-scrim { display: block; position: fixed; inset: 0; z-index: 1390; background: rgba(5, 12, 24, 0.55); }
   .filter-sheet-scrim[hidden] { display: none; }
   .filter-sheet-kopf { display: flex; align-items: center; gap: 12px; }

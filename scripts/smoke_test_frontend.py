@@ -250,7 +250,7 @@ def pruefe_kacheln(ctx, basis):
     Die Tabelle ist 900 px breit; auf dem Handy lagen Länge, Kategorie
     und Land außerhalb des Bildes (vom Nutzer gefragt, 22.09.2026).
     Geprüft wird das ganze Muster: nichts steht außerhalb des Bildes,
-    die Sortier-Pillen, gleich breite Kacheln, das Blatt öffnet sich
+    der Knopf "Sortieren" und sein Blatt, gleich breite Kacheln, das Blatt öffnet sich
     beim Tippen (und NICHT beim Aufklappen), ✕, Schleier und Escape
     schließen es, der Rahmen um die aufgeklappte Veranstaltung, und ab
     700 px ist es wieder die Tabelle - ohne dass der Seiten-Scroll
@@ -271,18 +271,32 @@ def pruefe_kacheln(ctx, basis):
             return s.display !== 'none' && s.visibility !== 'hidden' && el.getBoundingClientRect().height > 0; };
         const erste = document.querySelector('tbody tr[data-idx]');
         const abo = document.getElementById('abo-open-btn');
+        // Die drei Knöpfe der zweiten Zeile: Filter – Sortieren – E-Mail-Abo
+        // (vom Nutzer am 14.10.2026 so gewünscht), in EINER Zeile, in
+        // dieser Reihenfolge, keiner abgeschnitten.
+        const knoepfe = ['filter-sheet-btn', 'sort-sheet-btn', 'abo-open-btn']
+          .map(id => document.getElementById(id)).map(el => ({
+            da: sichtbar(el), top: Math.round(el.getBoundingClientRect().top),
+            left: Math.round(el.getBoundingClientRect().left),
+            right: Math.round(el.getBoundingClientRect().right),
+            knapp: el.scrollWidth > el.clientWidth + 1 }));
         return { knopf: sichtbar(document.getElementById('filter-sheet-btn')),
                  abo: sichtbar(abo) && !document.getElementById('filter-sheet').contains(abo),
                  pillenWeg: !sichtbar(document.querySelector('#filter-buttons .col-filter-btn')),
                  ersteTop: erste ? Math.round(erste.getBoundingClientRect().top) : null,
-                 sortReihen: new Set([...document.querySelectorAll('thead .th-sort')]
-                     .map(b => Math.round(b.getBoundingClientRect().top))).size }; }""")
+                 theadWeg: getComputedStyle(document.querySelector('thead')).display === 'none',
+                 knoepfe, vw: document.documentElement.clientWidth }; }""")
     pruefe(blatt["knopf"] and blatt["pillenWeg"],
            "die Filterpillen liegen im Blatt, in der Leiste steht der Knopf „Filter“")
     pruefe(blatt["abo"], "… und „E-Mail-Abo“ steht sichtbar in der Leiste, nicht im Blatt")
     pruefe(blatt["ersteTop"] is not None and blatt["ersteTop"] < 420,
            "die erste Veranstaltung beginnt im Bild (bei %s px)" % blatt["ersteTop"])
-    pruefe(blatt["sortReihen"] == 1, "die Sortierpillen stehen in EINER Reihe (%d)" % blatt["sortReihen"])
+    k = blatt["knoepfe"]
+    pruefe(all(x["da"] for x in k) and len({x["top"] for x in k}) == 1
+           and k[0]["left"] < k[1]["left"] < k[2]["left"] and k[2]["right"] <= blatt["vw"] + 1
+           and not any(x["knapp"] for x in k),
+           "Filter – Sortieren – E-Mail-Abo stehen in dieser Reihenfolge in EINER Zeile, nichts abgeschnitten")
+    pruefe(blatt["theadWeg"], "die Spaltenköpfe (Sortierpillen) sind weg – sortiert wird über den Knopf")
     seite.locator("#filter-sheet-btn").click()
     seite.wait_for_timeout(450)
     offen = seite.evaluate("""() => {
@@ -316,18 +330,10 @@ def pruefe_kacheln(ctx, basis):
         // Länge und Sportart je Kachel: rechts im Bild, nicht abgeschnitten.
         const zellen = zeilen.flatMap(r => [...r.querySelectorAll('td.col-laenge_km, td.col-art1, td.col-land')]);
         const zellenRaus = zellen.filter(z => z.getBoundingClientRect().right > vw + 1).length;
-        const pillen = [...document.querySelectorAll('thead th.sortierbar .th-sort')]
-          .filter(b => b.getBoundingClientRect().width > 0);
         return {
           anzeige: getComputedStyle(zeilen[0]).display,
           tabelle: getComputedStyle(document.querySelector('table')).display,
           breiten, raus, zellen: zellen.length, zellenRaus,
-          pillen: pillen.length,
-          // Seit dem 13.10.2026 EINE waagerecht scrollbare Reihe: die erste
-          // Pille im Bild, die Reihe selbst scrollt (overflow-x: auto).
-          pillenBreite: pillen.length > 0 && pillen[0].getBoundingClientRect().right <= vw + 1
-            && getComputedStyle(document.querySelector('thead tr')).overflowX === 'auto',
-          beschriftung: getComputedStyle(document.querySelector('thead tr'), '::before').content,
           ueberlauf: document.documentElement.scrollWidth - vw,
           hoehen: [...new Set(zeilen.map(r => Math.round(r.getBoundingClientRect().height)))].length
         }; }""")
@@ -339,8 +345,49 @@ def pruefe_kacheln(ctx, basis):
     pruefe(stand["zellen"] > 0 and stand["zellenRaus"] == 0,
            "Länge, Sportart und Land stehen in jeder Kachel im Bild (%d Zellen)" % stand["zellen"])
     pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
-    pruefe(stand["pillen"] >= 5 and stand["pillenBreite"] and "Sortieren" in stand["beschriftung"],
-           "die Spaltenköpfe sind Sortier-Pillen unter „Sortieren“, in einer scrollbaren Reihe (%d)" % stand["pillen"])
+
+    # Das Sortier-Blatt (14.10.2026): "Sortieren" öffnet ein Blatt mit
+    # einer Zeile je sortierbare Spalte, die gewählte trägt die Richtung;
+    # ein Tippen sortiert (derselbe toggleSort wie die Spaltenköpfe) und
+    # schließt das Blatt, der Knopf ist dann gefüllt; Datum aufsteigend
+    # (die Voreinstellung) nimmt die Füllung wieder weg.
+    seite.locator("#sort-sheet-btn").click()
+    seite.wait_for_timeout(450)
+    sortiert = seite.evaluate("""() => {
+        const aktiv = document.querySelector('.sort-option.active');
+        const r = aktiv ? aktiv.getBoundingClientRect() : null;
+        return { offen: document.body.classList.contains('sort-sheet-offen'),
+                 optionen: document.querySelectorAll('#sort-sheet .sort-option').length,
+                 aktiv: aktiv ? aktiv.dataset.key : null,
+                 richtung: aktiv ? (aktiv.querySelector('.sort-richtung') || {}).textContent || '' : '',
+                 imBild: !!r && r.top >= 0 && r.bottom <= innerHeight + 1,
+                 fokus: document.activeElement === aktiv }; }""")
+    pruefe(sortiert["offen"] and sortiert["optionen"] >= 5 and sortiert["imBild"],
+           "„Sortieren“ öffnet das Blatt mit einer Zeile je Spalte (%d)" % sortiert["optionen"])
+    pruefe(sortiert["aktiv"] == "datum" and "▲" in sortiert["richtung"] and sortiert["fokus"],
+           "Datum ▲ ist gewählt und trägt den Fokus")
+    seite.locator('#sort-sheet .sort-option[data-key="name"]').click()
+    seite.wait_for_timeout(500)
+    nach_name = seite.evaluate("""() => {
+        const namen = [...document.querySelectorAll('tbody tr[data-idx] td.col-name')]
+          .slice(0, 8).map(td => td.innerText.trim());
+        return { zu: !document.body.classList.contains('sort-sheet-offen'),
+                 gefuellt: document.getElementById('sort-sheet-btn').classList.contains('has-filter'),
+                 fokus: document.activeElement.id,
+                 sortiert: namen.every((n, i) => i === 0 || namen[i - 1].localeCompare(n, 'de') <= 0),
+                 adresse: location.search }; }""")
+    pruefe(nach_name["zu"] and nach_name["fokus"] == "sort-sheet-btn",
+           "ein Tippen auf „Name“ schließt das Blatt, der Fokus steht wieder am Knopf")
+    pruefe(nach_name["sortiert"] and "sort=name" in nach_name["adresse"] and nach_name["gefuellt"],
+           "… die Liste ist nach Namen sortiert, die Adresse sagt es, der Knopf ist gefüllt")
+    seite.locator("#sort-sheet-btn").click()
+    seite.wait_for_timeout(300)
+    seite.locator('#sort-sheet .sort-option[data-key="datum"]').click()
+    seite.wait_for_timeout(500)
+    pruefe(seite.evaluate("""() => !document.body.classList.contains('sort-sheet-offen')
+               && !document.getElementById('sort-sheet-btn').classList.contains('has-filter')
+               && !location.search.includes('sort=')"""),
+           "zurück auf Datum ▲ (Voreinstellung): Knopf nicht mehr gefüllt, nichts in der Adresse")
 
     # Tippen auf eine Kachel öffnet das Blatt - ohne die Seite zu scrollen.
     # Die Kachel vorher ganz ins Bild holen: Liegt sie teils unter dem

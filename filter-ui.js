@@ -1513,11 +1513,19 @@
   // in das Blatt gehängt (panelParent in create()), damit es über dem
   // Blatt liegt (Stapelkontext) - derselbe Weg wie im Abo-Dialog.
   //
-  // opts: { button, sheet, scrim, closeBtn, doneBtn, mediaQuery, onToggle }
+  // Dieselbe Mechanik trägt seit dem 14.10.2026 auch das Sortier-Blatt
+  // der Liste (Knopf "Sortieren" zwischen "Filter" und "E-Mail-Abo"):
+  // `bodyClass` ist die Klasse am <body>, solange das Blatt offen ist,
+  // `focusSelector` das Element, das beim Öffnen den Fokus bekommt.
+  //
+  // opts: { button, sheet, scrim, closeBtn, doneBtn, mediaQuery, onToggle,
+  //         bodyClass = 'filter-sheet-offen', focusSelector = '.col-filter-btn' }
   function filterSheet(opts) {
     const button = opts.button;
     const sheet = opts.sheet;
     const scrim = opts.scrim || null;
+    const bodyClass = opts.bodyClass || 'filter-sheet-offen';
+    const focusSelector = opts.focusSelector || '.col-filter-btn';
     const mq = opts.mediaQuery
       || (global.matchMedia ? global.matchMedia('(max-width: 900px)') : null);
     const aktiv = () => !!(mq && mq.matches);
@@ -1525,7 +1533,7 @@
 
     function setze() {
       const o = offen && aktiv();
-      document.body.classList.toggle('filter-sheet-offen', o);
+      document.body.classList.toggle(bodyClass, o);
       if (scrim) scrim.hidden = !o;
       button.setAttribute('aria-expanded', o ? 'true' : 'false');
       if (opts.onToggle) opts.onToggle(o);
@@ -1533,9 +1541,9 @@
     function open() {
       offen = true;
       setze();
-      // Der Fokus geht in das Blatt (erste Pille), Escape und ✕ bringen
-      // ihn zurück auf den Knopf.
-      const erste = sheet.querySelector('.col-filter-btn');
+      // Der Fokus geht in das Blatt (erste Pille bzw. die gewählte
+      // Sortierung), Escape und ✕ bringen ihn zurück auf den Knopf.
+      const erste = sheet.querySelector(focusSelector);
       if (erste) { try { erste.focus({ preventScroll: true }); } catch (e) { /* egal */ } }
     }
     function close(zurueckZumKnopf) {
@@ -1572,12 +1580,13 @@
       isOpen: () => offen && aktiv(),
       aktiv,
       // Zahl der gesetzten Filter am Knopf (ohne die Suche - die steht
-      // daneben im Feld).
+      // daneben im Feld). Ohne .fsb-badge (Sortieren) wird der Knopf
+      // nur gefüllt.
       setBadge(n) {
+        button.classList.toggle('has-filter', n > 0);
         if (!badge) return;
         badge.textContent = n > 0 ? String(n) : '';
         badge.hidden = !(n > 0);
-        button.classList.toggle('has-filter', n > 0);
       },
       // Beschriftungen je Sprache: Knopf, Titel, ✕, "N Events anzeigen".
       setTexts(texte) {

@@ -2268,16 +2268,18 @@ schließt Panel und Dialog und gibt den Fokus zurück.
 Auf dem Handy und auf dem Tablet hochkant (bis 900 px) stehen die
 Filterpillen nicht mehr in der Leiste, sondern in einem Blatt von unten:
 In der Leiste bleiben das Suchfeld, ein Knopf „Filter" mit der Zahl
-der gesetzten Filter und daneben „E-Mail-Abo"; das Blatt trägt die
+der gesetzten Filter, daneben „Sortieren" (seit dem 14.10.2026: öffnet
+ein Blatt mit einer Zeile je Spalte, ein Tippen sortiert und schließt
+es) und „E-Mail-Abo"; das Blatt trägt die
 Pillen, „Karte" bzw. „Liste", „Filter löschen" und den Knopf „N Events
 anzeigen". Die Legende der Karte steht auf dem Handy oben rechts. Anlass
 war eine Messung auf einem iPhone-Viewport: Die erste Veranstaltung lag
 bei 601 px, also unter dem Bildrand; jetzt beginnt sie bei rund 326 px,
 und die Karte füllt den Bildschirm bis zur Fußzeile. Am Rechner ist das
 Blatt nur eine unsichtbare Hülle (`display: contents`) um dieselben
-Pillen – kein zweites Markup. Die Sortierpillen stehen auf dem Handy in
-einer waagerecht scrollbaren Reihe, alle Tippflächen sind mindestens
-44 px hoch, die Fotos der Startseite kommen in halber Breite
+Pillen – kein zweites Markup. Die Spaltenköpfe der Tabelle sind auf dem
+Handy ausgeblendet (die Sortierung steckt im Knopf), alle Tippflächen
+sind mindestens 44 px hoch, die Fotos der Startseite kommen in halber Breite
 (`srcset`), und ein Web-Manifest macht aus „Zum Home-Bildschirm" eine
 App mit Namen und Farbe. Einzelheiten in `CLAUDE.md` („Handy: das
 Filter-Blatt").

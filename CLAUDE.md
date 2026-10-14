@@ -113,10 +113,10 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 253 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 258 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
-**Kachelansicht** (unter 700 px: Kacheln statt Tabelle, Sortier-Pillen,
-Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
+**Kachelansicht** (unter 700 px: Kacheln statt Tabelle, der Knopf
+„Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
 Block, ab 700 px wieder die Tabelle), Aufklappen der
 zusammengefassten Veranstaltungen (samt Rahmen um den Block – die
 Tabellenprüfungen laufen dafür auf 820 px), Filter-Panel, Kalenderdatei hinter dem
@@ -138,7 +138,8 @@ Tastaturbedienung (ein Tab-Stopp, Pfeile,
 Enter **auch auf einer aufklappbaren Veranstaltung**, Leertaste,
 Escape, Fokusfessel der Dialoge), das **Filter-Blatt auf dem Handy**
 (Pillen im Blatt, Knopf „Filter" in der Leiste, erste Veranstaltung im
-Bild, Sortierpillen in einer Reihe, Panel über dem Blatt, „Events
+Bild, „Filter – Sortieren – E-Mail-Abo" in einer Zeile, das Sortier-Blatt
+sortiert und schließt sich, Panel über dem Blatt, „Events
 anzeigen" schließt beides, Karte mindestens halbe Bildhöhe ohne
 Seiten-Scroll), „Wir haben dein Event nicht?"
 (Knopf unter der Liste, die drei Felder, eigene Fehlermeldungen, beide
@@ -2769,11 +2770,31 @@ sagt es).
     das Panel, dann das Blatt (der Detail-Escape in `events.html` lässt
     das Blatt in Ruhe). Auf der Karte öffnet „Mein Standort" zuerst das
     Blatt – die Pille liegt dort.
-  - **Die Sortierpillen stehen in EINER waagerecht scrollbaren Reihe**
-    (`thead tr { flex-wrap: nowrap; overflow-x: auto }`), die
-    Werkzeugleiste in zwei kurzen Zeilen (Zahl + Stand, Schalter, Chips;
-    „Filter löschen" nur im Blatt). Ergebnis: erste Veranstaltung bei
-    ~380 px, auf der Karte Karte bis zum Fuß (`.map-wrap { min-height:
+  - **„Sortieren" ist ein Knopf zwischen „Filter" und „E-Mail-Abo"**
+    (vom Nutzer am 14.10.2026 mit Foto: „Filter – Sortieren – Abo"). Bis
+    dahin stand über den Kacheln eine waagerecht scrollbare Reihe
+    Sortierpillen (`thead tr`); jetzt ist `thead` bis 900 px
+    ausgeblendet, und der Knopf `#sort-sheet-btn` (dieselbe Klasse
+    `.filter-sheet-btn`, Icon mit zwei Pfeilen) öffnet das **Sortier-Blatt**
+    `#sort-sheet`: ein Hinweis („Noch einmal antippen dreht die Richtung
+    um.") und eine Zeile je sortierbare Spalte (`.sort-option`, gebaut
+    in `buildSortSheet()` aus `buildHeader()`, also bei jeder Sortierung
+    und jedem Sprachwechsel neu); die gewählte trägt „▲ aufsteigend"/„▼
+    absteigend" und die Füllung einer gesetzten Pille. Ein Tippen ruft
+    denselben `toggleSort` wie die Spaltenköpfe und **schließt das
+    Blatt**, der Fokus geht zurück auf den Knopf; der Knopf ist gefüllt
+    (`has-filter` über `setBadge(1)` ohne `.fsb-badge`), sobald nicht
+    mehr nach Datum ▲ sortiert ist. Dieselbe Mechanik wie das
+    Filter-Blatt: `EFU.filterSheet({ …, bodyClass: 'sort-sheet-offen',
+    focusSelector: '.sort-option.active' })`, eigener Schleier
+    `#sort-sheet-scrim`, die Box-Regeln in `site.css` gelten für
+    `.filter-sheet, .sort-sheet`; am Rechner ist `.sort-sheet` samt Knopf
+    `display: none`, dort sortieren die Spaltenköpfe. Unter 380 px
+    bekommen die drei Knöpfe 9 px Innenabstand (auf 320 px fehlten
+    „E-Mail-Abo" sonst 3 px). Die Werkzeugleiste steht in zwei kurzen
+    Zeilen (Zahl + Stand, Schalter, Chips; „Filter löschen" nur im
+    Blatt). Ergebnis: erste Veranstaltung bei ~320 px (vorher ~380), auf
+    der Karte Karte bis zum Fuß (`.map-wrap { min-height:
     0 }`, `body { height: 100dvh }` wie in der Liste, Fußnote dort
     ausgeblendet, Fußzeile flach). **Die Legende steht auf dem Handy oben
     rechts** auf der Karte (vom Nutzer am 14.10.2026 mit Foto: unten lag
@@ -2796,8 +2817,8 @@ sagt es).
     das Blatt (`oeffne_filterblatt`/`schliesse_filterblatt` – der
     Schleier fängt sonst den nächsten Klick).
   - **Tippflächen 44 px** (Apple) in `site.css` bis 900 px: Navigation,
-    DE/EN, Sortierpillen, „Filter löschen", Chips mit größerem ✕, Links
-    im Fuß, „Event melden"; die Pillen der Textseiten ebenso
+    DE/EN, die Zeilen des Sortier-Blatts (48 px), „Filter löschen",
+    Chips mit größerem ✕, Links im Fuß, „Event melden"; die Pillen der Textseiten ebenso
     (`seite.css`), dort stehen DE/EN als Paar (`.sprache`), vorher brach
     „EN" allein um.
   - **Kategorie-Panel nach Sportart gruppiert** (`art2Gruppen()` in
@@ -2828,10 +2849,10 @@ sagt es).
     verbreiterte darauf den ganzen Layout-Viewport auf 977 px, und der
     Abo-Dialog stand halb außerhalb – der Rauchtest hat es an der
     Abo-Prüfung gemeldet, nicht an der Liste.
-  - **Die Kopfzeile wird zu Sortier-Pillen** (`thead tr` als Flex-Reihe,
-    Beschriftung „Sortieren" aus `data-label`, gesetzt in
-    `buildHeader()`); nur Spalten mit Sortierschlüssel (`th.sortierbar`)
-    bleiben sichtbar.
+  - **Die Kopfzeile ist ausgeblendet** (`thead { display: none }`);
+    sortiert wird über den Knopf „Sortieren" und sein Blatt (seit dem
+    14.10.2026, siehe „Handy: das Filter-Blatt" – bis dahin war `thead
+    tr` eine Flex-Reihe aus Sortier-Pillen).
   - **Die Entfernung trägt in der Kachel eine Beschriftung**
     (`.kachel-label`, in der Tabelle ausgeblendet – dort sagt es der
     Spaltenkopf).
