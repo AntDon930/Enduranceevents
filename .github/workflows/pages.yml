@@ -72,6 +72,12 @@ jobs:
       - name: events.web.json erzeugen
         run: python3 scripts/build_web_data.py
 
+      # Der Freigabe-Plan für Instagram (die Beiträge der nächsten 14 Tage
+      # mit Kennung des Inhalts) - das Dashboard (admin.html, Karte
+      # „Instagram-Freigabe") liest ihn von hier; nie committet.
+      - name: Instagram-Plan erzeugen
+        run: python3 scripts/insta_inhalte.py --plan 14 --json marketing/instagram/plan.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -1508,12 +1508,18 @@ FIREBASE_ATTRAPPE = r"""
   // Instagram-Besuche der letzten 30 Tage (i = 0 … 29), wie oben je Tag i % 3.
   let ig30 = 0; for (let i = 0; i < 30; i++) ig30 += i % 3;
   window.__ATTRAPPE = { abosHeute: 10 + (TAGE - 1), topEvent: EVENTS[0], zweitesEvent: EVENTS[1], tage: TAGE, ig30 };
-  const DOCS = { stats_daily, admins: { 'test-admin': { name: 'Test' } }, config: { wartung: { aktiv: false, text_de: 'Pause', text_en: 'Pause' } } };
+  const DOCS = { stats_daily, admins: { 'test-admin': { name: 'Test' } }, config: { wartung: { aktiv: false, text_de: 'Pause', text_en: 'Pause' } },
+                 insta_freigaben: {} };
   const snap = (id, data) => ({ id, exists: data !== undefined, data: () => data });
   function sammlung(name) {
     return {
       filters: [],
-      doc: (id) => ({ get: async () => snap(id, (DOCS[name] || {})[id]), set: async () => {}, update: async () => {} }),
+      // set/delete schreiben wirklich (die Freigabe-Karte liest danach
+      // zurück), update bleibt ein No-op.
+      doc: (id) => ({ get: async () => snap(id, (DOCS[name] || {})[id]),
+                      set: async (d) => { (DOCS[name] = DOCS[name] || {})[id] = d; },
+                      update: async () => {},
+                      delete: async () => { if (DOCS[name]) delete DOCS[name][id]; } }),
       where: function (feld, op, wert) { const q = Object.assign({}, this); q.filters = this.filters.concat([[feld, op, wert]]); return q; },
       get: async function () {
         const ids = Object.keys(DOCS[name] || {}).sort().filter(id => this.filters.every(([f, op, w]) =>
@@ -1613,6 +1619,33 @@ def pruefe_statistik_dashboard(ctx, basis):
         pruefe("liste-oben" in stand["werbung"] and "%" in stand["werbung"],
                "Werbeplätze: Einblendungen, Klicks und Klickrate")
         pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+
+        # Instagram-Freigabe (14.10.2026): Zeilen aus plan.json, ein Klick
+        # schreibt das Dokument (die Attrappe speichert), Status wechselt;
+        # Sperren und Zurücknehmen ebenso.
+        seite.wait_for_selector("#insta-freigabe-card .frei-zeile", timeout=10000)
+        frei = seite.evaluate("""() => {
+            const z = document.querySelectorAll('#insta-freigabe-card .frei-zeile');
+            const erste = z[0];
+            return { zeilen: z.length,
+                     status: erste.querySelector('.frei-status').textContent,
+                     knoepfe: Array.from(erste.querySelectorAll('button')).map(b => b.textContent),
+                     caption: (erste.querySelector('pre') || {}).textContent || '',
+                     link: !!document.querySelector('#insta-freigabe-card a[href*="actions/workflows/instagram.yml"]') }; }""")
+        pruefe(frei["zeilen"] >= 7 and frei["status"] == "offen" and frei["knoepfe"] == ["Freigeben", "Sperren"],
+               "Freigabe-Karte: %d Tage aus plan.json, erste Zeile offen mit Freigeben/Sperren (%s)" % (frei["zeilen"], frei["knoepfe"]))
+        pruefe(len(frei["caption"]) > 40 and frei["link"], "… Caption aufklappbar, Link zu den Videos in GitHub Actions")
+        seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-frei]")
+        seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-frei')", timeout=5000)
+        nach = seite.evaluate("""() => { const e = document.querySelector('#insta-freigabe-card .frei-zeile');
+            return { status: e.querySelector('.frei-status').textContent, knoepfe: Array.from(e.querySelectorAll('button')).map(b => b.textContent) }; }""")
+        pruefe(nach["status"] == "freigegeben" and nach["knoepfe"] == ["Sperren", "Zurücknehmen"],
+               "ein Klick gibt frei: Status 'freigegeben', Knöpfe Sperren/Zurücknehmen (%s)" % nach["knoepfe"])
+        seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-sperren]")
+        seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-gesperrt')", timeout=5000)
+        seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-zurueck]")
+        seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-offen')", timeout=5000)
+        pruefe(True, "Sperren und Zurücknehmen wechseln den Status zurück auf offen")
 
         # Bericht: eine andere Veranstaltung wählen
         seite.fill("#bericht-suche", e["zweitesEvent"])
@@ -2658,6 +2691,11 @@ def main() -> int:
     web_daten_war_da = os.path.exists(web_daten)
     subprocess.run([sys.executable, os.path.join(WURZEL, "scripts", "build_web_data.py")],
                    check=True, capture_output=True)
+    # Dasselbe für den Instagram-Freigabe-Plan (Dashboard-Karte).
+    plan_datei = os.path.join(WURZEL, "marketing", "instagram", "plan.json")
+    plan_war_da = os.path.exists(plan_datei)
+    subprocess.run([sys.executable, os.path.join(WURZEL, "scripts", "insta_inhalte.py"),
+                    "--plan", "14", "--json", plan_datei], check=True, capture_output=True)
     srv, port = starte_server()
     basis = "http://127.0.0.1:%d" % port
     print("Rauchtest gegen %s (Handybreite 390 px)" % basis)
@@ -2703,6 +2741,8 @@ def main() -> int:
         srv.shutdown()
         if not web_daten_war_da and os.path.exists(web_daten):
             os.remove(web_daten)
+        if not plan_war_da and os.path.exists(plan_datei):
+            os.remove(plan_datei)
 
     schlecht = [t for ok, t in ergebnisse if not ok]
     print("\n%d Prüfungen, %d übersprungen" % (len(ergebnisse), len(uebersprungen)))

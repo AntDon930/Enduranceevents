@@ -2504,12 +2504,62 @@ python3 scripts/insta_lauf.py --datum 2026-10-16    # Video nach marketing/insta
 
 ### Täglich automatisch (`.github/workflows/instagram.yml`)
 
-Jeden Tag 17:47 (Sommer) bzw. 16:47 (Winter): Reel bauen, als Artefakt
-ablegen (14 Tage), und **nur wenn die Variable `INSTAGRAM_AUTOPOST` = `ja`
-ist**, veröffentlichen. Die ersten Wochen empfiehlt sich: ohne Autopost
-laufen lassen, die Reels im Artefakt ansehen, gute von Hand posten (dann
-geht auch Instagram-Musik), danach Autopost einschalten. Von Hand: Actions
-→ „Instagram-Reel" → Run workflow (Datum, Format, Haken „posten").
+Zwei Läufe am Tag, beide legen das Reel als Artefakt ab (14 Tage):
+
+| Uhrzeit (deutsche Zeit) | Lauf | tut |
+|---|---|---|
+| 08:47 (Sommer) / 07:47 (Winter) | Vorschau | rendert nur – das Video liegt zum Ansehen in Actions → Lauf → „Artifacts" |
+| 17:47 (Sommer) / 16:47 (Winter) | Posten | rendert und veröffentlicht, wenn der Tag **freigegeben** ist (nächster Abschnitt) oder die Variable `INSTAGRAM_AUTOPOST` = `ja` steht; „gesperrt" sperrt immer |
+
+Von Hand: Actions → „Instagram-Reel" → Run workflow (Datum, Format, Haken
+„posten" – der postet sofort, ohne Freigabeprüfung). Musik aus der
+Instagram-Bibliothek kann die API nicht anhängen; wer sie will, lädt das
+Artefakt von Hand in der App hoch.
+
+### Freigabe mit einem Klick (seit 14.10.2026)
+
+Vom Nutzer gewünscht: „die ersten Videos alle gerne vorher mit einem Klick
+einfach freigeben". Gebaut als Karte **„Instagram-Freigabe"** im Dashboard
+(`admin.html`, direkt unter der Instagram-Statistik):
+
+1. **Der Plan**: Beim Deploy der Seite schreibt `pages.yml`
+   `marketing/instagram/plan.json` – die Beiträge der nächsten 14 Tage
+   (`scripts/insta_inhalte.py --plan 14`), je Tag Datum, Format, Folien,
+   Caption und eine **Kennung des Inhalts** (`insta_inhalte.beitrag_hash`,
+   SHA-256 über Format, Folien und Caption, 16 Stellen). Nie committet, wie
+   `events.web.json`.
+2. **Die Karte** zeigt je Tag die erste Folie, das Format, die Caption
+   (aufklappbar) und den Status: *offen*, *freigegeben*, *gesperrt* oder
+   *Inhalt geändert – bitte erneut freigeben*. Drei Knöpfe: **Freigeben**,
+   **Sperren**, **Zurücknehmen**. Ein Klick schreibt
+   `insta_freigaben/<Datum>` in Firestore (`status`, `hash`, `format`,
+   `geaendert`) – lesen dürfen alle (nichts Persönliches), schreiben und
+   löschen nur Admins (`firestore.rules`). Der Link „Videos ansehen" führt
+   zu den Läufen in GitHub Actions, wo das Reel des Vorschau-Laufs liegt.
+3. **Der Abendlauf** ruft `insta_lauf.py --posten --freigabe`:
+   `scripts/insta_freigabe.py` liest das Dokument per REST (ohne
+   Anmeldung, wie den Wartungsschalter) und entscheidet – freigegeben UND
+   Kennung passt → posten; gesperrt → nie; `INSTAGRAM_AUTOPOST=ja` → posten,
+   außer gesperrt; sonst nur rendern. Der Grund steht im Log und in der
+   Zusammenfassung des Laufs (`beitrag.json`: `freigabe`).
+
+**Warum die Kennung**: Zwischen Freigabe und Abend kann ein Datenlauf neue
+Events bringen oder ein Moment korrigiert werden. Dann weicht der Inhalt
+von dem ab, den der Nutzer gesehen hat – die Freigabe verfällt von selbst,
+die Karte zeigt es und bittet um einen neuen Klick. Nichts geht raus, was
+niemand gesehen hat.
+
+**Was der Nutzer einmalig tun muss**: die Regeln deployen (`cd
+Enduranceevents && git pull && firebase deploy --only firestore:rules`),
+sonst antwortet die Karte mit „Missing or insufficient permissions" und der
+Abendlauf mit „Firestore antwortet 403 – ohne Autopost wird nur gerendert".
+Und `instagram.yml` muss auf `main` nachgezogen werden (zwei Zeitpläne,
+Freigabeprüfung) – Freigabe des Nutzers wie bei `update-events.yml`.
+
+Der Rauchtest spielt die Karte mit der Firebase-Attrappe durch (Zeilen aus
+`plan.json`, Freigeben, Sperren, Zurücknehmen); `test_insta_freigabe` hält
+Kennung, Plan, Entscheidungstabelle, Regeln, Workflow und Dashboard-Texte
+fest.
 
 ### Einrichtung (einmalig, nur der Nutzer)
 
@@ -2541,10 +2591,14 @@ geht auch Instagram-Musik), danach Autopost einschalten. Von Hand: Actions
    `curl "https://graph.facebook.com/v23.0/me/accounts?fields=instagram_business_account{id,username}&access_token=<TOKEN>"`
    – die Zahl bei `instagram_business_account.id`.
 8. GitHub → Settings → Secrets and variables → Actions:
-   Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY`;
-   Variable `INSTAGRAM_AUTOPOST` = `ja`, sobald gepostet werden soll.
+   Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY`.
+   Die Variable `INSTAGRAM_AUTOPOST` = `ja` erst, wenn ohne Freigabe
+   gepostet werden soll – bis dahin entscheidet die Karte
+   „Instagram-Freigabe" im Dashboard (siehe oben).
 9. Probelauf: Actions → „Instagram-Reel" → Run workflow mit Haken
    „posten". Schlägt er fehl, steht die Antwort von Meta im Log.
+10. Einmal `firebase deploy --only firestore:rules` (Cloud Shell), damit
+   die Freigabe-Dokumente geschrieben und gelesen werden dürfen.
 
 ### Im Dashboard
 

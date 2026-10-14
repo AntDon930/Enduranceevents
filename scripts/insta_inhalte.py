@@ -35,6 +35,7 @@ clips.json mit eingetragener Lizenz (insta_video.py prüft sie).
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import json
 import math
 import random
@@ -499,16 +500,69 @@ def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None 
     return beitrag
 
 
+# ---------------------------------------------------------- Freigabe-Plan
+
+def beitrag_hash(beitrag: dict) -> str:
+    """Kennung des INHALTS eines Beitrags (Format, Folien, Caption) - 16
+    Hex-Stellen SHA-256. Die Freigabe im Dashboard (admin.html, Karte
+    „Instagram-Freigabe") speichert diese Kennung; der Abendlauf postet
+    nur, wenn sein eigener Plan dieselbe ergibt. Ändert sich der Inhalt
+    zwischen Freigabe und Posten (ein Datenlauf bringt neue Events, ein
+    Moment wird korrigiert), verfällt die Freigabe von selbst, statt dass
+    etwas rausgeht, das niemand gesehen hat. Gerechnet VOR der
+    Namensnennung, die insta_lauf.py beim Rendern anhängt - sonst
+    stimmten plan.json und Abendlauf nie überein."""
+    kern = {"format": beitrag.get("format"), "caption": beitrag.get("caption"),
+            "folien": beitrag.get("folien")}
+    roh = json.dumps(kern, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(roh.encode("utf-8")).hexdigest()[:16]
+
+
+def plan_liste(start: dt.date, tage: int, events: list[dict] | None = None,
+               momente: list[dict] | None = None, clips: list[dict] | None = None) -> list[dict]:
+    """Die Beiträge der nächsten `tage` Tage ab `start` - was das Dashboard
+    zur Freigabe zeigt (marketing/instagram/plan.json, im Pages-Workflow
+    erzeugt, nie committet). Je Tag Datum, Wochentag, Format, Kennung,
+    Folien und Caption; Moment-/Clip-Id, wenn vorhanden."""
+    events = events if events is not None else lade_events()
+    momente = momente if momente is not None else lade_momente()
+    aus = []
+    for i in range(tage):
+        tag = start + dt.timedelta(days=i)
+        b = plane(tag, events, momente=momente, clips=clips)
+        eintrag = {"datum": b["datum"], "wochentag": WOCHENTAGE[tag.weekday()],
+                   "format": b["format"], "hash": beitrag_hash(b),
+                   "folien": b["folien"], "caption": b["caption"]}
+        if b.get("moment_id"):
+            eintrag["moment_id"] = b["moment_id"]
+        if b.get("clip"):
+            eintrag["clip_id"] = b["clip"].get("id")
+        aus.append(eintrag)
+    return aus
+
+
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(description="Instagram-Beitrag eines Tages planen (ohne Video).")
     ap.add_argument("--datum", default=None, help="YYYY-MM-DD, Vorgabe: heute (Europe/Berlin)")
     ap.add_argument("--format", choices=FORMATE, default=None)
     ap.add_argument("--tage", type=int, default=1, help="so viele Tage ab --datum zeigen")
+    ap.add_argument("--plan", type=int, default=0, metavar="TAGE",
+                    help="Freigabe-Plan für so viele Tage als JSON schreiben (--json)")
+    ap.add_argument("--json", default=None, metavar="PFAD",
+                    help="Zieldatei für --plan (Vorgabe: marketing/instagram/plan.json)")
     a = ap.parse_args()
     from zoneinfo import ZoneInfo
     start = dt.date.fromisoformat(a.datum) if a.datum else dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
     ev = lade_events()
+    if a.plan:
+        ziel = Path(a.json) if a.json else MARKETING / "plan.json"
+        plan = {"erzeugt": dt.datetime.now(ZoneInfo("Europe/Berlin")).isoformat(timespec="minutes"),
+                "von": start.isoformat(), "tage": a.plan, "beitraege": plan_liste(start, a.plan, ev)}
+        ziel.parent.mkdir(parents=True, exist_ok=True)
+        ziel.write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"{ziel}: {len(plan['beitraege'])} Beiträge ab {start}")
+        raise SystemExit(0)
     for i in range(a.tage):
         b = plane(start + dt.timedelta(days=i), ev, a.format)
         print(f"===== {b['datum']} ({WOCHENTAGE[dt.date.fromisoformat(b['datum']).weekday()]}) – {b['format']} =====")

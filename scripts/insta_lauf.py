@@ -63,11 +63,18 @@ def main() -> int:
     ap.add_argument("--ausgabe", type=Path, help="Zielordner, Vorgabe marketing/instagram/ausgabe/<datum>")
     ap.add_argument("--vorschau", action="store_true", help="nur die Folien als PNG, kein Video")
     ap.add_argument("--posten", action="store_true", help="nach dem Rendern veröffentlichen")
+    ap.add_argument("--freigabe", action="store_true",
+                    help="mit --posten: nur veröffentlichen, wenn der Tag im Dashboard freigegeben "
+                         "ist oder INSTAGRAM_AUTOPOST=ja gilt (insta_freigabe.py)")
     a = ap.parse_args()
 
     datum = dt.date.fromisoformat(a.datum) if a.datum else dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
     ziel = a.ausgabe or AUSGABE / datum.isoformat()
     beitrag = inhalte.plane(datum, format_=a.format)
+    # Kennung des Inhalts VOR dem Rendern (die Namensnennung des
+    # Hintergrunds kommt erst danach in die Caption) - dieselbe, die
+    # plan.json trägt und die das Dashboard mit der Freigabe speichert.
+    beitrag["hash"] = inhalte.beitrag_hash(beitrag)
     print(f"{datum} ({inhalte.WOCHENTAGE[datum.weekday()]}): Format {beitrag['format']}"
           + (f", Moment {beitrag['moment_id']}" if beitrag.get("moment_id") else "")
           + (f", Clip {beitrag['clip']['id']}" if beitrag.get("clip") else ""))
@@ -91,7 +98,16 @@ def main() -> int:
                     f"Video {meta['dauer_s']} s, Hintergrund: {meta['hintergrund']}\n\n"
                     f"```\n{beitrag['caption']}\n```\n")
 
-    if a.posten:
+    darf, grund = True, ""
+    if a.posten and a.freigabe:
+        import insta_freigabe as freigabe
+        darf, grund = freigabe.darf_posten(beitrag["datum"], beitrag["hash"])
+        print(f"  Freigabe: {'posten' if darf else 'NICHT posten'} - {grund}")
+        zusammenfassung(f"Freigabe: **{'posten' if darf else 'nicht posten'}** - {grund}\n")
+        beitrag["freigabe"] = {"posten": darf, "grund": grund}
+    if a.posten and not darf:
+        beitrag["veroeffentlicht"] = None
+    elif a.posten:
         import insta_posten as posten
         if not posten.zugang():
             print("  --posten: IG_USER_ID / IG_ACCESS_TOKEN fehlen – nur gerendert.")

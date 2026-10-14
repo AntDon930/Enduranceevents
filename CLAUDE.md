@@ -75,6 +75,7 @@ nur einen sieht, sieht trotzdem alles.
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API, alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
 | `.github/workflows/instagram.yml` | täglich 15:47 UTC ein Reel; postet nur mit Variable `INSTAGRAM_AUTOPOST=ja` + Secrets; Zeitplan wirkt nur aus `main` |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
@@ -4639,6 +4640,22 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   `IG_API_HOST`/`IG_API_VERSION` als Repo-Variablen überschreibbar
   (Vorgabe graph.facebook.com, v23.0). `test_instagram` prüft den Ablauf
   mit einer Attrappe.
+- **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
+  alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
+  Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
+  `--posten --freigabe`); `pages.yml` schreibt `marketing/instagram/plan.json`
+  (`insta_inhalte.py --plan 14`, gitignored); die Dashboard-Karte
+  `#insta-freigabe-card` zeigt die Tage und schreibt `insta_freigaben/<Datum>`
+  (`status` freigegeben/gesperrt, `hash`, `format`, `geaendert`; Regeln:
+  lesen alle, schreiben/löschen Admins); `insta_freigabe.entscheide()`:
+  gesperrt schlägt alles, dann Freigabe mit passender Kennung
+  (`beitrag_hash` = SHA-256 über Format/Folien/Caption, VOR der
+  Namensnennung gerechnet), dann `INSTAGRAM_AUTOPOST=ja`, sonst nur
+  rendern. Eine veraltete Kennung verfällt von selbst (Datenlauf, Moment
+  korrigiert) und die Karte bittet um einen neuen Klick. `test_insta_freigabe`
+  und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
+  set/delete) halten es fest. **Zweimal Handarbeit des Nutzers**: Regeln
+  deployen und `instagram.yml` auf `main` nachziehen (Freigabe nötig).
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
@@ -5523,6 +5540,25 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   (Korrekturliste – die nächste Excel des Nutzers einlesen), Punkt 2
   (Domain-Verifizierung, Anleitung steht beim Punkt), der Rest ist
   später.
+- **Stand beim zweiten Clear (14.10.2026, abends, Instagram)**: Der Nutzer
+  will „das mit Instagram fertig machen" und „die ersten Videos alle
+  gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
+  „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
+  „Freigabe mit einem Klick"). Offen und NUR beim Nutzer: Punkt 8
+  (Account, Meta-App, Token, Secrets; dazu Regeln deployen und das Ja zu
+  `instagram.yml` auf `main`). Ohne Token postet nichts – die Läufe
+  rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
+  der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
+  – Fan- und Meme-Accounts laden fremdes Sendematerial hoch, die
+  Rechteinhaber dulden es meist als Reichweite oder lassen über den
+  Rights Manager sperren; Athleten posten eigenes bzw. vom Veranstalter
+  freigegebenes Material. Für einen Account mit Impressum, Automatik
+  und Werbeabsicht ist das Risiko ein anderes (Sperre, Abmahnung an die
+  Anschrift). Was ohne Risiko geht: Beiträge der Athleten/Veranstalter
+  IN Instagram teilen (Story-Teilen, Remix, Collab – das erlaubt die
+  Plattform), Material mit Genehmigung, eigene Aufnahmen, Fakten über
+  lizenzfreiem Hintergrund. Nicht ohne Rücksprache nachbauen: Download
+  und Re-Upload fremder Clips.
 
 **Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
 Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
@@ -5590,6 +5626,14 @@ Verweise auf alte Nummern stehen in Klammern.
    14.10.2026 auf `main` (Commit `7f6ab3d`) – der Zeitplan läuft;
    ändert sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
    Profilbild: `marketing/instagram/profil/profilbild.png`.
+   **Seit dem 14.10.2026 abends dazu, beides nur der Nutzer**: (a) `cd
+   Enduranceevents && git pull && firebase deploy --only firestore:rules`
+   für die Freigabe-Dokumente `insta_freigaben` (vorher meldet die Karte
+   „Missing or insufficient permissions"); (b) die neue Fassung von
+   `instagram.yml` (Vorschau-Lauf 08:47 + Freigabeprüfung) auf `main`
+   nachziehen – Claude macht den Commit nach seinem „Ja". Die Karte
+   „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
+   der nächste Pages-Deploy `plan.json` gebaut hat.
 9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
 

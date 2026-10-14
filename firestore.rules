@@ -169,6 +169,26 @@ service cloud.firestore {
                    && request.resource.data.von == request.auth.uid
                    && request.resource.data.geaendert == request.time;
     }
+
+    // Instagram-Freigabe (14.10.2026): ein Dokument je Tag, gesetzt mit
+    // einem Klick im Dashboard (admin.html, Karte „Instagram-Freigabe");
+    // der Abendlauf des Instagram-Workflows liest es per REST ohne
+    // Anmeldung (scripts/insta_freigabe.py). Inhalt: nur Status, die
+    // Kennung des freigegebenen Inhalts und das Format - nichts
+    // Persönliches, deshalb lesen alle. Schreiben und löschen nur Admins.
+    match /insta_freigaben/{datum} {
+      allow read: if true;
+      allow create, update: if istAdmin()
+                   && datum.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+                   && request.resource.data.keys().hasOnly(['status', 'hash', 'format', 'geaendert'])
+                   && request.resource.data.status in ['freigegeben', 'gesperrt']
+                   && request.resource.data.hash is string
+                   && request.resource.data.hash.size() <= 64
+                   && request.resource.data.format is string
+                   && request.resource.data.format.size() <= 40
+                   && request.resource.data.geaendert == request.time;
+      allow delete: if istAdmin();
+    }
     match /stats_daily/{tag} {
       allow read: if istAdmin();
       allow write: if false;

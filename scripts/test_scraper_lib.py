@@ -1706,8 +1706,10 @@ def test_wartung() -> None:
           block is not None and "allow read: if true;" in block.group(1) and "allow write: if istAdmin()" in block.group(1), True)
     check("Regeln: geschlossene Feldliste und Textgrenze",
           block is not None and "hasOnly(" in block.group(1) and "text_de.size() <= 300" in block.group(1), True)
-    check("Regeln: kein offener Lesezugriff außerhalb von config/wartung",
-          regeln.count("allow read: if true;"), 1)
+    # Zwei offene Lesezugriffe, beide ohne Personenbezug: der
+    # Wartungsschalter und die Instagram-Freigabe (test_insta_freigabe).
+    check("Regeln: kein offener Lesezugriff außerhalb von config/wartung und insta_freigaben",
+          regeln.count("allow read: if true;"), 2)
     # Dashboard: die Karte mit dem Schalter.
     admin = (wurzel / "admin.html").read_text(encoding="utf-8")
     check("admin.html: Wartungs-Karte und Schreibzugriff auf config/wartung",
@@ -4627,6 +4629,102 @@ def test_statistik() -> None:
     check("stats.js erkennt den Browser der Instagram-App", "br = 'Instagram'" in stats_js, True)
 
 
+def test_insta_freigabe() -> None:
+    """Instagram-Freigabe mit einem Klick (14.10.2026): die Kennung des
+    Inhalts, der Freigabe-Plan, die Entscheidung des Abendlaufs mit einer
+    Firestore-Attrappe - und dass Workflow, Pages-Workflow, Regeln,
+    gitignore und Dashboard zusammenpassen."""
+    import datetime as _dt
+    import json as _json
+    import re as _re
+
+    print("\nInstagram-Freigabe (insta_freigabe, plan.json, Dashboard):")
+    import insta_inhalte as I
+    import insta_freigabe as F
+    wurzel = Path(__file__).resolve().parent.parent
+    heute = _dt.date(2026, 10, 19)
+    ev = []
+    for i in range(60):
+        tag = heute + _dt.timedelta(days=i % 14)
+        ev.append({"name": f"Testlauf {i}", "standort": "München", "land": "Deutschland", "art1": "Laufen",
+                   "art2": "Straße", "datum_start": tag.isoformat(), "datum_ende": tag.isoformat(),
+                   "lat": 48.14, "lon": 11.57, "laenge_km": 10.0, "veranstalter_url": "https://x.de"})
+    momente = I.lade_momente()
+    b = I.plane(heute, ev, momente=momente, clips=[])
+    h = I.beitrag_hash(b)
+    check("Kennung: 16 Hex-Stellen", bool(_re.fullmatch(r"[0-9a-f]{16}", h)), True)
+    check("Kennung: derselbe Beitrag, dieselbe Kennung", I.beitrag_hash(I.plane(heute, ev, momente=momente, clips=[])), h)
+    check("Kennung ändert sich mit der Caption", I.beitrag_hash(dict(b, caption=b["caption"] + " x")) == h, False)
+    check("Kennung ändert sich mit den Folien", I.beitrag_hash(dict(b, folien=b["folien"][1:])) == h, False)
+    check("Kennung ignoriert Felder außerhalb von Format/Folien/Caption",
+          I.beitrag_hash(dict(b, video={"x": 1}, veroeffentlicht=None)), h)
+
+    plan = I.plan_liste(heute, 14, ev, momente=momente, clips=[])
+    check("Plan: 14 Tage", len(plan), 14)
+    check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
+          ["caption", "datum", "folien", "format", "hash", "wochentag"])
+    check("Plan: erster Tag = Start, Montag, Wochenvorschau", (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]),
+          (heute.isoformat(), "Mo", "wochenvorschau"))
+    check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
+    check("Plan: ist JSON", bool(_json.dumps(plan, ensure_ascii=False)), True)
+
+    # Entscheidung des Abendlaufs
+    doc = lambda status, hash_: (200, _json.dumps({"fields": {"status": {"stringValue": status}, "hash": {"stringValue": hash_}}}))  # noqa: E731
+    check("REST: 404 = keine Freigabe", F.lese_freigabe("2026-10-19", lambda u: (404, "{}")), None)
+    check("REST: Dokument gelesen", F.lese_freigabe("2026-10-19", lambda u: doc("freigegeben", h)),
+          {"status": "freigegeben", "hash": h, "format": None})
+    check("REST: Serverfehler wird genannt", F.lese_freigabe("x", lambda u: (500, "")), {"fehler": "Firestore antwortet 500"})
+    check("URL zeigt auf insta_freigaben/<Datum> des Projekts",
+          F.url_fuer("2026-10-19").endswith("/documents/insta_freigaben/2026-10-19") and "endurance-5177a" in F.url_fuer("x"), True)
+    faelle = [
+        ("ohne Freigabe, ohne Autopost: nein", None, False, False),
+        ("ohne Freigabe, Autopost: ja", None, True, True),
+        ("freigegeben, Kennung passt: ja", {"status": "freigegeben", "hash": h}, False, True),
+        ("freigegeben, Kennung veraltet: nein", {"status": "freigegeben", "hash": "alt"}, False, False),
+        ("freigegeben, Kennung veraltet, Autopost: ja", {"status": "freigegeben", "hash": "alt"}, True, True),
+        ("gesperrt schlägt Autopost", {"status": "gesperrt", "hash": h}, True, False),
+        ("Fehler ohne Autopost: nein", {"fehler": "x"}, False, False),
+        ("Fehler mit Autopost: ja", {"fehler": "x"}, True, True),
+    ]
+    for label, frei, auto, erwartet in faelle:
+        ok, grund = F.entscheide(h, frei, auto)
+        check(f"Entscheidung: {label}", (ok, bool(grund)), (erwartet, True))
+    check("Autopost-Variable: ja/yes/true/1, Rest nein",
+          [F.autopost_aktiv({"INSTAGRAM_AUTOPOST": v}) for v in ("ja", " Ja ", "yes", "true", "1", "nein", "", "0")],
+          [True, True, True, True, True, False, False, False])
+    check("darf_posten reicht alles durch", F.darf_posten("2026-10-19", h, lambda u: doc("freigegeben", h), {})[0], True)
+
+    # Die Teile passen zusammen
+    wf = (wurzel / ".github" / "workflows" / "instagram.yml").read_text(encoding="utf-8")
+    check("instagram.yml: Morgen- und Abendlauf", ("cron: '47 6 * * *'" in wf, "cron: '47 15 * * *'" in wf), (True, True))
+    check("instagram.yml: Abendlauf postet mit --freigabe, Handlauf ohne",
+          ("--posten --freigabe" in wf, "ABENDLAUF" in wf, "HANDPOSTEN" in wf, "INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}" in wf),
+          (True, True, True, True))
+    pages = (wurzel / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    check("pages.yml erzeugt den Plan", "insta_inhalte.py --plan 14 --json marketing/instagram/plan.json" in pages, True)
+    check(".gitignore kennt plan.json", "marketing/instagram/plan.json" in (wurzel / ".gitignore").read_text(encoding="utf-8"), True)
+    regeln = (wurzel / "firestore.rules").read_text(encoding="utf-8")
+    # Bis zur delete-Regel schneiden - ein schlichtes "}" träfe die
+    # Klammern des Datumsmusters ([0-9]{4}).
+    start = regeln.index("match /insta_freigaben/{datum} {")
+    ende = regeln.index("allow delete: if istAdmin();", start)
+    block = regeln[start:ende + len("allow delete: if istAdmin();")]
+    check("Regeln: insta_freigaben lesen alle, schreiben Admins, Status begrenzt",
+          ("allow read: if true;" in block, "istAdmin()" in block, "['freigegeben', 'gesperrt']" in block,
+           "hasOnly(['status', 'hash', 'format', 'geaendert'])" in block, "allow delete: if istAdmin();" in block),
+          (True, True, True, True, True))
+    admin = (wurzel / "admin.html").read_text(encoding="utf-8")
+    check("Dashboard: Karte, Plan-Adresse, Sammlung", ('id="insta-freigabe-card"' in admin,
+          "'marketing/instagram/plan.json'" in admin, "collection('insta_freigaben')" in admin), (True, True, True))
+    for key in ("f_titel", "f_frei", "f_sperren", "f_zurueck", "f_s_veraltet", "f_kein_plan", "f_fmt_wochenvorschau"):
+        check(f"Dashboard: Text {key} in DE und EN", admin.count(f"      {key}:"), 2)
+    for fmt in I.FORMATE:
+        check(f"Dashboard: Formatname {fmt}", f"f_fmt_{fmt}:" in admin, True)
+    lauf = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
+    check("insta_lauf.py: --freigabe fragt insta_freigabe, Kennung vor dem Rendern",
+          ("--freigabe" in lauf, "freigabe.darf_posten(" in lauf, 'beitrag["hash"] = inhalte.beitrag_hash(beitrag)' in lauf), (True, True, True))
+
+
 def test_instagram() -> None:
     """Instagram-Account „AusdauerMaschine" (14.10.2026): Wochenplan,
     Captions, Momente, Lizenzprüfung der Clips, der API-Ablauf beim Posten
@@ -4768,7 +4866,7 @@ def test_instagram() -> None:
 
 
 def main() -> int:
-    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram,
+    for test in (test_distanz, test_rundung, test_kategorie, test_land, test_statistik, test_instagram, test_insta_freigabe,
                  test_wettbewerbe, test_hoehenprofil, test_offizieller_link,
                  test_duplikate, test_namensvereinheitlichung,
                  test_vergangene_events, test_zeitrennen, test_kalenderdateien, test_web_data,

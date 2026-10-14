@@ -67,6 +67,27 @@
   .w-felder input { font: inherit; font-size: 0.95rem; text-transform: none; letter-spacing: 0; padding: 8px 10px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; }
   .w-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; }
   .w-knoepfe a.stat-btn { text-decoration: none; display: inline-flex; align-items: center; }
+  /* Instagram-Freigabe (14.10.2026): eine Zeile je Tag aus plan.json,
+     Status aus Firestore, drei Knöpfe. */
+  .frei-liste { display: grid; gap: 10px; margin: 10px 0 0; }
+  .frei-zeile { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-ctl); background: var(--bg); }
+  .frei-zeile.ist-frei { border-color: var(--sport-fahrrad); }
+  .frei-zeile.ist-gesperrt { opacity: 0.7; }
+  .frei-kopf { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+  .frei-kopf b { font-family: var(--font-display); font-size: 1.05rem; }
+  .frei-format { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .frei-status { font-size: 0.78rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--accent-bg); color: var(--text-muted); }
+  .frei-status.frei { background: var(--sport-fahrrad-bg); color: var(--sport-fahrrad-fg); }
+  .frei-status.gesperrt { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+  .frei-status.veraltet { background: var(--sport-laufen-bg); color: var(--sport-laufen-fg); }
+  .frei-folien { margin: 4px 0 0; font-size: 0.92rem; line-height: 1.45; }
+  .frei-folien .fz { color: var(--text-muted); }
+  .frei-zeile details { grid-column: 1 / -1; font-size: 0.88rem; }
+  .frei-zeile details summary { cursor: pointer; color: var(--text-muted); }
+  .frei-zeile pre { white-space: pre-wrap; font: inherit; margin: 6px 0 0; padding: 8px 10px; border-radius: var(--radius-ctl); background: var(--panel); border: 1px solid var(--border); }
+  .frei-knoepfe { display: flex; flex-direction: column; gap: 6px; align-self: start; }
+  .frei-knoepfe .stat-btn { min-height: 36px; padding: 6px 12px; font-size: 0.85rem; white-space: nowrap; }
+  @media (max-width: 600px) { .frei-zeile { grid-template-columns: 1fr; } .frei-knoepfe { flex-direction: row; flex-wrap: wrap; } }
   .gate { max-width: 560px; }
   .gate p { margin: 8px 0; line-height: 1.5; }
   .gate .uid { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
@@ -236,6 +257,14 @@
       <p class="ig-hinweis" id="ig-hinweis"></p>
     </section>
 
+    <!-- Instagram-Freigabe (14.10.2026, vom Nutzer: „die ersten Videos alle
+         gerne vorher mit einem Klick einfach freigeben"): die Beiträge der
+         nächsten Tage aus marketing/instagram/plan.json (Pages-Workflow),
+         je Tag ein Klick → Firestore insta_freigaben/<Datum>; der
+         Abendlauf des Instagram-Workflows postet nur Freigegebenes
+         (scripts/insta_freigabe.py). -->
+    <section class="stat-card" id="insta-freigabe-card"></section>
+
     <div class="stat-section">
       <section class="stat-card">
         <h3><span id="h-verlauf"></span></h3>
@@ -333,6 +362,28 @@
       w_bestaetigen: 'Wartungsmodus wirklich einschalten? Besucher sehen dann nur noch die Pausenseite.',
       w_fehler: 'Das hat nicht geklappt:',
       w_regeln: 'Vermutlich sind die Firestore-Regeln noch nicht deployt (firebase deploy --only firestore:rules).',
+      f_titel: 'Instagram-Freigabe',
+      f_sub: 'die nächsten Tage',
+      f_erklaert: 'Jeden Abend um 17:47 Uhr postet der Instagram-Workflow den Beitrag des Tages – aber nur, wenn er hier freigegeben ist. Morgens um 08:47 Uhr liegt das fertige Video als Vorschau in GitHub Actions. Mit der Variable INSTAGRAM_AUTOPOST = ja geht alles raus, was nicht gesperrt ist.',
+      f_video: 'Videos ansehen (GitHub Actions)',
+      f_frei: 'Freigeben',
+      f_sperren: 'Sperren',
+      f_zurueck: 'Zurücknehmen',
+      f_s_frei: 'freigegeben',
+      f_s_gesperrt: 'gesperrt',
+      f_s_offen: 'offen',
+      f_s_veraltet: 'Inhalt geändert – bitte erneut freigeben',
+      f_caption: 'Caption',
+      f_kein_plan: 'Der Freigabe-Plan fehlt (marketing/instagram/plan.json). Er entsteht beim Deploy der Seite – nach dem nächsten Push ist er da.',
+      f_fehler: 'Das hat nicht geklappt:',
+      f_stand: 'Plan vom ',
+      f_mehr: 'Folien',
+      f_fmt_wochenvorschau: 'Wochenvorschau',
+      f_fmt_moment: 'Moment',
+      f_fmt_spotlight: 'Spotlight',
+      f_fmt_clip: 'Clip',
+      f_fmt_wochenende: 'Wochenende',
+      f_fmt_region: 'Region',
       sub: 'Besucher der Seite – ohne Cookies, ohne fremden Dienst. Tageswerte, stündlich neu gerechnet.',
       nav_events: 'Events', nav_map: 'Karte',
       gate_laden: 'Anmeldung wird geprüft …',
@@ -430,6 +481,28 @@
       w_bestaetigen: 'Really switch maintenance mode on? Visitors will only see the pause page.',
       w_fehler: 'That did not work:',
       w_regeln: 'Probably the Firestore rules are not deployed yet (firebase deploy --only firestore:rules).',
+      f_titel: 'Instagram approval',
+      f_sub: 'the next days',
+      f_erklaert: 'Every evening at 17:47 the Instagram workflow posts the day\'s reel – but only if it is approved here. At 08:47 in the morning the finished video is available as a preview in GitHub Actions. With the variable INSTAGRAM_AUTOPOST = ja everything that is not blocked goes out.',
+      f_video: 'Watch videos (GitHub Actions)',
+      f_frei: 'Approve',
+      f_sperren: 'Block',
+      f_zurueck: 'Undo',
+      f_s_frei: 'approved',
+      f_s_gesperrt: 'blocked',
+      f_s_offen: 'pending',
+      f_s_veraltet: 'content changed – please approve again',
+      f_caption: 'Caption',
+      f_kein_plan: 'The approval plan is missing (marketing/instagram/plan.json). It is built when the site is deployed – after the next push it will be there.',
+      f_fehler: 'That did not work:',
+      f_stand: 'Plan from ',
+      f_mehr: 'Slides',
+      f_fmt_wochenvorschau: 'Week preview',
+      f_fmt_moment: 'Moment',
+      f_fmt_spotlight: 'Spotlight',
+      f_fmt_clip: 'Clip',
+      f_fmt_wochenende: 'Weekend',
+      f_fmt_region: 'Region',
       sub: 'Visitors to the site – no cookies, no third-party service. Daily figures, recomputed every hour.',
       nav_events: 'Events', nav_map: 'Map',
       gate_laden: 'Checking sign-in …',
@@ -612,10 +685,129 @@
       gateEl.hidden = true;
       contentEl.hidden = false;
       ladeWartung();
+      ladeFreigaben();
       await ladeUndZeichne();
     } catch (err) {
       gateFehler(err);
     }
+  }
+
+  // ---------- Instagram-Freigabe ----------
+  // plan.json (Pages-Workflow: insta_inhalte.py --plan 14) nennt je Tag
+  // Format, Folien, Caption und die Kennung des Inhalts; Firestore
+  // insta_freigaben/<Datum> trägt status/hash/format/geaendert. Ein Klick
+  // schreibt das Dokument, der Abendlauf liest es per REST
+  // (scripts/insta_freigabe.py). Stimmt die gespeicherte Kennung nicht
+  // mehr mit dem Plan überein, ist die Freigabe verfallen - die Zeile
+  // sagt es und bittet um einen neuen Klick.
+  const FREIGABE_PLAN_URL = 'marketing/instagram/plan.json';
+  const FREIGABE_ACTIONS_URL = 'https://github.com/AntDon930/Enduranceevents/actions/workflows/instagram.yml';
+  let freigabePlan = null;        // { erzeugt, beitraege: [...] } oder null
+  let freigabeDocs = {};          // datum -> { status, hash }
+  let freigabeFehler = null;
+  let freigabePlanFehlt = false;
+
+  async function ladeFreigaben() {
+    freigabeFehler = null;
+    try {
+      const r = await fetch(FREIGABE_PLAN_URL, { cache: 'no-store' });
+      if (r.ok) { freigabePlan = await r.json(); freigabePlanFehlt = false; }
+      else { freigabePlan = null; freigabePlanFehlt = true; }
+    } catch (err) { freigabePlan = null; freigabePlanFehlt = true; }
+    try {
+      const heute = new Date();
+      const iso = `${heute.getFullYear()}-${String(heute.getMonth() + 1).padStart(2, '0')}-${String(heute.getDate()).padStart(2, '0')}`;
+      const snap = await db.collection('insta_freigaben')
+        .where(firebase.firestore.FieldPath.documentId(), '>=', iso).get();
+      const docs = {};
+      snap.forEach(d => { const x = d.data() || {}; docs[d.id] = { status: x.status, hash: x.hash }; });
+      freigabeDocs = docs;
+    } catch (err) {
+      freigabeFehler = err;
+    }
+    zeichneFreigaben();
+  }
+
+  async function setzeFreigabe(datum, status, beitrag) {
+    const card = document.getElementById('insta-freigabe-card');
+    card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    try {
+      const ref = db.collection('insta_freigaben').doc(datum);
+      if (!status) {
+        await ref.delete();
+      } else {
+        await ref.set({
+          status,
+          hash: beitrag.hash,
+          format: beitrag.format,
+          geaendert: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      }
+      freigabeFehler = null;
+    } catch (err) {
+      freigabeFehler = err;
+    }
+    await ladeFreigaben();
+  }
+
+  function freigabeStatus(beitrag) {
+    const doc = freigabeDocs[beitrag.datum];
+    if (!doc) return 'offen';
+    if (doc.status === 'gesperrt') return 'gesperrt';
+    if (doc.status === 'freigegeben') return doc.hash === beitrag.hash ? 'frei' : 'veraltet';
+    return 'offen';
+  }
+
+  function folienText(folien) {
+    // Die erste Folie als Kurzfassung: Überschrift groß, dazu bis zu drei Zeilen.
+    const f = (folien || [])[0] || {};
+    const teile = [];
+    if (f.ueber) teile.push(`<span class="fz">${escapeHtml(f.ueber)}</span>`);
+    const kopf = [f.zahl, f.titel].filter(Boolean).join(' – ');
+    if (kopf) teile.push(`<b>${escapeHtml(kopf)}</b>`);
+    const zeilen = (f.zeilen || []).slice(0, 3).map(z => escapeHtml(typeof z === 'string' ? z : (z.text || z.name || '')));
+    if (f.text) zeilen.unshift(escapeHtml(f.text));
+    if (zeilen.length) teile.push(zeilen.join('<br>'));
+    return teile.join('<br>');
+  }
+
+  function zeichneFreigaben() {
+    const card = document.getElementById('insta-freigabe-card');
+    if (!card) return;
+    const kopf = `<h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>
+      <p>${escapeHtml(t('f_erklaert'))} <a href="${FREIGABE_ACTIONS_URL}" target="_blank" rel="noopener">${escapeHtml(t('f_video'))}</a></p>`;
+    const fehler = freigabeFehler
+      ? `<p class="leer">${escapeHtml(t('f_fehler'))} ${escapeHtml(freigabeFehler.message || String(freigabeFehler))} ${escapeHtml(t('w_regeln'))}</p>` : '';
+    if (!freigabePlan || !Array.isArray(freigabePlan.beitraege)) {
+      card.innerHTML = kopf + `<p class="leer">${escapeHtml(freigabePlanFehlt ? t('f_kein_plan') : t('gate_laden'))}</p>` + fehler;
+      return;
+    }
+    const heute = new Date(); heute.setHours(0, 0, 0, 0);
+    const zeilen = freigabePlan.beitraege.filter(b => new Date(b.datum + 'T00:00:00') >= heute).map(b => {
+      const st = freigabeStatus(b);
+      const label = { frei: 'f_s_frei', gesperrt: 'f_s_gesperrt', veraltet: 'f_s_veraltet', offen: 'f_s_offen' }[st];
+      const d = new Date(b.datum + 'T00:00:00');
+      const datum = d.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { weekday: 'short', day: '2-digit', month: '2-digit' });
+      const fmt = t('f_fmt_' + b.format) || b.format;
+      const knoepfe = [];
+      if (st !== 'frei') knoepfe.push(`<button type="button" class="stat-btn primary" data-frei="${b.datum}">${escapeHtml(t('f_frei'))}</button>`);
+      if (st !== 'gesperrt') knoepfe.push(`<button type="button" class="stat-btn" data-sperren="${b.datum}">${escapeHtml(t('f_sperren'))}</button>`);
+      if (st !== 'offen') knoepfe.push(`<button type="button" class="stat-btn" data-zurueck="${b.datum}">${escapeHtml(t('f_zurueck'))}</button>`);
+      return `<div class="frei-zeile ist-${st}" data-datum="${b.datum}">
+        <div>
+          <div class="frei-kopf"><b>${escapeHtml(datum)}</b><span class="frei-format">${escapeHtml(fmt)}</span><span class="frei-status ${st}">${escapeHtml(t(label))}</span></div>
+          <p class="frei-folien">${folienText(b.folien)}</p>
+        </div>
+        <div class="frei-knoepfe">${knoepfe.join('')}</div>
+        <details><summary>${escapeHtml(t('f_caption'))}</summary><pre>${escapeHtml(b.caption || '')}</pre></details>
+      </div>`;
+    });
+    const stand = freigabePlan.erzeugt ? `<p class="leer">${escapeHtml(t('f_stand'))}${escapeHtml(String(freigabePlan.erzeugt).replace('T', ' ').slice(0, 16))}</p>` : '';
+    card.innerHTML = kopf + `<div class="frei-liste">${zeilen.join('')}</div>` + stand + fehler;
+    const beitragZu = (datum) => freigabePlan.beitraege.find(b => b.datum === datum);
+    card.querySelectorAll('[data-frei]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.frei, 'freigegeben', beitragZu(b.dataset.frei))));
+    card.querySelectorAll('[data-sperren]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.sperren, 'gesperrt', beitragZu(b.dataset.sperren))));
+    card.querySelectorAll('[data-zurueck]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.zurueck, null, beitragZu(b.dataset.zurueck))));
   }
 
   // ---------- Wartungsmodus ----------
@@ -1531,6 +1723,7 @@
       if (geladenFuer === null && window.EndauranceAuth && !window.EndauranceAuth.getUser()) gateLogin();
     }
     zeichneWartung();
+    zeichneFreigaben();
   }
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
