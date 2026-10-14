@@ -5572,19 +5572,19 @@ seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
    `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
    erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
    „Besucherstatistik", Kennzahlen für Werbekunden.
-10. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
+9. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
    `ausdauermaschine` als professionelles Konto, Bio-Link
    `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
    (+ Impressum als zweiter Link), Facebook-Seite + Business-Portfolio +
    Meta-App + Systemnutzer-Token, dann Secrets `IG_USER_ID`,
    `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY` – Schritt für Schritt im
-   README („Instagram", Einrichtung). Danach `firebase deploy --only
-   functions` (die Instagram-Zählung steckt in `aggregateStats`; kann mit
-   Punkt 8 zusammen laufen). Erst Reels als Artefakt ansehen, dann
+   README („Instagram", Einrichtung). Danach noch einmal `cd Enduranceevents
+   && git pull && firebase deploy --only functions` – der Deploy von Punkt
+   8 (14.10.) war VOR der Instagram-Zählung in `aggregateStats`. Erst Reels als Artefakt ansehen, dann
    Variable `INSTAGRAM_AUTOPOST=ja`. **`instagram.yml` muss auf `main`**,
    sonst läuft kein Zeitplan (Freigabe des Nutzers wie bei
    `update-events.yml`).
-11. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
+10. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
