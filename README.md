@@ -2342,8 +2342,8 @@ nach dem Verfahren von Plausible und Umami: keine Cookies, keine Kennung
 |---|---|
 | `stats.js` (alle sechs Seiten, `defer`, mit `?v=`-Stempel) | schickt beim Laden EINEN Seitenaufruf (Seite, Referrer-Host, utm-Parameter, Zeitzone, Browsersprache, Seitensprache, Farbschema, Gerätetyp, Browser, Betriebssystem, Tab-Sitzung) und danach einzelne **Aktionen**: Event geöffnet, Klick zur Veranstalterseite, Kalender (ics/Google/Outlook), Teilen, Abo, Fehlermeldung, Event vorgeschlagen, Suchbegriff, gesetzter Filter, Standort gesetzt. `sendBeacon` mit `text/plain`, also ohne Vorab-Anfrage |
 | `collect` (Cloud Function, `functions/index.js`) | prüft Herkunft (`Origin` gegen `STATS_ORIGINS`), verwirft Bots, prüft jedes Feld gegen eine geschlossene Liste mit Längen, hängt Tag und Stunde (Europe/Berlin) an und bildet die **Besucher-Kennung des Tages**: HMAC aus IP + Browser-String mit einem Schlüssel, der jeden Tag neu gewürfelt und dabei überschrieben wird (`stats_meta/salt`). Schreibt nach `hits` |
-| `aggregateStats` (Cloud Function, stündlich zur Minute 7) | rechnet heute und gestern (und Lücken der letzten Woche) aus `hits` zu je EINEM Dokument `stats_daily/<Tag>` zusammen (`functions/stats_aggregate.js`) und löscht Rohtreffer, die älter als 35 Tage sind |
-| `admin.html` | das Dashboard: Zeitraum (7/30/90 Tage, Jahr, alles), sechs Kennzahlen mit Vergleich zum Zeitraum davor, Verlauf (Besucher und Seitenaufrufe je Tag, mit Tabelle und CSV), Tageszeit, und Listen für Seiten, Einstiegs-/Ausstiegsseiten, Referrer, Kampagnen, Region, Sprachen, Geräte, Browser, Betriebssysteme, Farbschema, Aktionen, geöffnete Events, Veranstalter-Klicks, Suchbegriffe, Filter. Nur mit Anmeldung UND Eintrag in `admins/<uid>` (Firestore-Regeln); nicht in der Navigation verlinkt |
+| `aggregateStats` (Cloud Function, stündlich zur Minute 7) | rechnet heute und gestern (und Lücken der letzten Woche) aus `hits` zu je EINEM Dokument `stats_daily/<Tag>` zusammen (`functions/stats_aggregate.js`) und löscht Rohtreffer, die älter als 35 Tage sind; seit dem 14.10.2026 schreibt sie dazu den **Stand der aktiven E-Mail-Abos** (`abos_aktiv`, `abos_rhythmus`, per Zählabfrage – nie die Adressen) in das Dokument des Tages |
+| `admin.html` | das Dashboard: Zeitraum (7/30/90 Tage, **Monat mit ‹ ›**, Jahr, alles), sieben Kennzahlen mit Vergleich zum Zeitraum davor (seit 14.10.2026 auch die aktiven E-Mail-Abos), Verlauf (Besucher und Seitenaufrufe je Tag, mit Tabelle und CSV), **Monate** (zwölf Monate als Balken plus Tabelle = Mediadaten-Blatt), Tageszeit, **Wochentag**, **Zielgruppe** (Events und Veranstalter-Klicks je Sportart, Kreuztabelle Sportart je Region), **Bericht je Veranstaltung** (Geöffnet, Veranstalter-Klicks, Klickrate, Kalender, Geteilt, je Tag, als Text kopierbar), **Werbeplätze** (Einblendungen, Klicks, Klickrate je Platz), und Listen für Seiten, Einstiegs-/Ausstiegsseiten, Referrer, Kampagnen, Region, Sprachen, Geräte, Browser, Betriebssysteme, Farbschema, Aktionen, geöffnete Events, Veranstalter-Klicks, Kalender und Teilen je Event, Suchbegriffe, Filter. Nur mit Anmeldung UND Eintrag in `admins/<uid>` (Firestore-Regeln); nicht in der Navigation verlinkt |
 
 **Begriffe**: Seitenaufrufe = Treffer; Besucher = verschiedene Kennungen
 je Tag (über einen Zeitraum SUMMIERT, weil dieselbe Person am nächsten
@@ -2399,6 +2399,33 @@ Seitenliste, Abschalt-Eintrag, Regeln) und rechnet die Aggregation an
 einem Beispiel mit node nach; der Rauchtest prüft, dass `admin.html`
 ohne Anmeldung verschlossen bleibt, `stats.js` lokal schweigt und der
 Schalter schaltet.
+
+**Kennzahlen für Werbekunden (14.10.2026)**. Der Nutzer hat gefragt,
+welche Zahlen er braucht, falls er einmal Werbung verkauft („Was
+interessiert die Leute, damit ich denen sagen kann, dass es eine gute
+Webseite ist?"). Mediadaten im deutschsprachigen Raum nennen Visits und
+Seitenaufrufe je Monat, Verweildauer, Zielgruppe (Region, Gerät,
+Interessen), das eigene Publikum (Abonnenten) und Wachstum – und sobald
+Werbung läuft, Einblendungen und Klickrate je Platz. Sechs Punkte sind
+gebaut, **ohne Änderung an der Datenschutzerklärung** (so vom Nutzer
+entschieden), also ohne neue Datenerhebung über Personen:
+
+| Punkt | Wo | Was dahintersteckt |
+|---|---|---|
+| Zielgruppe nach Sportart | `stats_aggregate.js` → Listen `sport_events`, `sport_veranstalter`, `sport_region`; Karten „Zielgruppe" in `admin.html` | Die Sportart (`sp`) wurde bei „Event geöffnet" und Veranstalter-Klick schon immer mitgeschickt, nur nicht ausgewertet. Die Region je Sitzung kommt vom ersten Seitenaufruf derselben Tab-Sitzung (Aktionen tragen selbst keine) – ohne Seitenaufruf „Unbekannt" |
+| Kalendermonate | `admin.html`: Zeitraum „Monat" mit ‹ ›, Karte „Monate" | Vergleich ist der Vormonat über GLEICH VIELE Tage (der 14. Oktober gegen 1.–14. September). Die Monatstabelle zeigt Besucher, Besuche, Seitenaufrufe, Seiten je Besuch, Dauer und Abo-Stand zum Monatsende – das ist das Mediadaten-Blatt. Die letzten zwölf Monate werden beim Öffnen in EINER Abfrage geladen (~365 Dokumente), alles Weitere kommt aus dem Cache |
+| Aktive E-Mail-Abos | `aggregateStats` → `abos_aktiv`/`abos_rhythmus` im Tagesdokument; Kachel und Monatstabelle | Zählabfragen (`count()`), nie die Adressen; „alle minus abgemeldete", weil die ältesten Abos das Feld `aktiv` nicht tragen. **Braucht einen Deploy der Function** (`firebase deploy --only functions`); bis dahin zeigt die Kachel „–" und sagt es |
+| Wochentag | `admin.html`, Karte „Wochentag" | Ø Seitenaufrufe je Wochentag aus den Tagesdokumenten, Montag zuerst; keine neue Zählung |
+| Werbeplätze | `stats.js` `EnduranceStats.anzeige(element, platz)`, Ereignisse `anzeige_sicht`/`anzeige_klick`, Karte „Werbeplätze" | Einblendung = Element zur Hälfte eine Sekunde im Bild (IAB-Maß für „viewable"), einmal je Seitenaufruf; jeder Klick darauf. **Noch ruft es keine Seite** – vor dem ersten Werbeplatz den Abschnitt „Besucherstatistik" in `datenschutz.html` ergänzen (er zählt die Aktionen auf) |
+| Bericht je Veranstaltung | `admin.html`, Karte „Bericht je Veranstaltung"; Kalender und Teilen schicken seit dem Tag auch `ev`/`sp` (`event-detail.js`, `STATS_PROPS`) → Listen `events_kalender`, `events_teilen` | Geöffnet, Veranstalter-Klicks, Klickrate, Kalender, Geteilt für EIN Event über den Zeitraum, mit Tagen und „Bericht kopieren". Gerechnet aus den Tageslisten, die je Tag die 500 meistgenannten Events führen – ein winziges Event an einem riesigen Tag kann fehlen |
+
+Nicht gebaut, weil es eine Datenschutz-Entscheidung wäre: Unique Users
+je Monat (der Tagesschlüssel verhindert es absichtlich; Visits und
+Seitenaufrufe sind ohnehin die IVW-Währung) und wiederkehrende Besucher.
+Der Rauchtest prüft das Dashboard seitdem mit einer **Firebase-Attrappe**
+(`pruefe_statistik_dashboard`: die SDKs werden durch ein Skript ersetzt,
+das erfundene Tagesdokumente liefert und die Anmeldung durchwinkt) –
+alle Karten, Monatswechsel, Bericht-Wechsel, DE/EN.
 
 ## Impressum und Datenschutzerklärung
 

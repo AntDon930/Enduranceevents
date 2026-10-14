@@ -556,7 +556,7 @@
   function teileEvent(e, ctx) {
     const url = eventLink(e);
     const text = eventShareText(e, ctx);
-    if (global.EnduranceStats) global.EnduranceStats.event('teilen', { art: navigator.share ? 'dialog' : 'kopie' });
+    if (global.EnduranceStats) global.EnduranceStats.event('teilen', { art: navigator.share ? 'dialog' : 'kopie', ev: e.name, sp: e.art1 });
     if (navigator.share) {
       // Bricht jemand den Dialog ab, kommt ein AbortError - das ist
       // keine Panne und darf keine Meldung auslösen.
@@ -1057,7 +1057,7 @@
       });
       [['.cal-ics', 'ics'], ['.cal-google', 'google'], ['.cal-outlook', 'outlook']].forEach(([sel, art]) => {
         const a = container.querySelector(sel);
-        if (a) a.addEventListener('click', () => stats.event('kalender', { art }));
+        if (a) a.addEventListener('click', () => stats.event('kalender', { art, ev: e.name, sp: e.art1 }));
       });
     }
   }

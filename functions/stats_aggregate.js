@@ -20,7 +20,8 @@
  *   v   Besucher-Kennung des Tages (Hash aus IP + Browser + Tagesschlüssel,
  *       siehe index.js - die IP selbst wird nie gespeichert)
  *   s   Sitzungs-Kennung des Tabs (Zufallswert aus sessionStorage)
- *   pr  Zusatzangaben einer Aktion ({ev, sp}, {art}, {q}, {k, w} …)
+ *   pr  Zusatzangaben einer Aktion ({ev, sp}, {art, ev, sp}, {q}, {k, w},
+ *       {platz} …)
  *
  * Begriffe, wie sie die Seite zeigt:
  *   Seitenaufrufe  = Zahl der 'pv'-Treffer
@@ -48,18 +49,30 @@ const SITZUNGS_LUECKE_MS = 30 * 60 * 1000;
 const MAX_EINTRAEGE = 200;        // je Aufschlüsselung
 const MAX_EINTRAEGE_LANG = 500;   // Events, Veranstalter, Suchbegriffe, Filter
 
-// Welche Zusatzangabe einer Aktion gezählt wird (und unter welchem Namen
-// die Liste im Tagesdokument steht). Aktionen ohne Eintrag werden nur in
-// `aktionen` gezählt.
+// Welche Zusatzangaben einer Aktion gezählt werden (und unter welchem
+// Namen die Liste im Tagesdokument steht): je Aktion eine Liste von
+// [Feld, Listenname]. Aktionen ohne Eintrag werden nur in `aktionen`
+// gezählt. Seit dem 14.10.2026 (Werbekunden-Kennzahlen) zählen Event
+// geöffnet und Veranstalter-Klick auch je SPORTART (`sp`, die Zielgruppe:
+// wie viel Publikum hat Laufen, wie viel Rad), Kalender und Teilen auch
+// je EVENT (`ev`, für den Bericht je Veranstaltung in admin.html), und
+// die beiden Werbeplatz-Aktionen je Platz (`platz`, Einblendungen und
+// Klicks → Klickrate). Die Listennamen stehen als Kopie in admin.html
+// (LISTEN_FELDER) - test_statistik vergleicht.
 const AKTIONS_DETAIL = {
-  detail: ["ev", "events"],
-  veranstalter: ["ev", "veranstalter"],
-  kalender: ["art", "kalender"],
-  teilen: ["art", "teilen"],
-  abo: ["rhythmus", "abo"],
-  melden: ["kategorie", "melden"],
-  suche: ["q", "suche"],
+  detail: [["ev", "events"], ["sp", "sport_events"]],
+  veranstalter: [["ev", "veranstalter"], ["sp", "sport_veranstalter"]],
+  kalender: [["art", "kalender"], ["ev", "events_kalender"]],
+  teilen: [["art", "teilen"], ["ev", "events_teilen"]],
+  abo: [["rhythmus", "abo"]],
+  melden: [["kategorie", "melden"]],
+  suche: [["q", "suche"]],
+  anzeige_sicht: [["platz", "anzeige_sicht"]],
+  anzeige_klick: [["platz", "anzeige_klick"]],
 };
+// Listen, die mehr Einträge brauchen als MAX_EINTRAEGE (je Event, je
+// Suchbegriff - alles andere hat wenige verschiedene Werte).
+const LANGE_LISTEN = new Set(["events", "veranstalter", "events_kalender", "events_teilen", "suche", "filter"]);
 
 function zaehle(map, key, n) {
   if (key == null || key === "") return;
@@ -91,6 +104,9 @@ function aggregiere(hits, tag) {
   const browser = new Map();
   const systeme = new Map();
   const proSitzung = new Map();
+  // Region je Sitzung (vom ersten Seitenaufruf) - Aktionen tragen selbst
+  // keine Region, die Zielgruppe "Sportart je Region" braucht sie aber.
+  const sitzungRegion = new Map();
 
   pv.forEach((h) => {
     besucher.add(h.v || h.s || "?");
@@ -107,6 +123,7 @@ function aggregiere(hits, tag) {
     const schluessel = h.s || h.v || "?";
     if (!proSitzung.has(schluessel)) proSitzung.set(schluessel, []);
     proSitzung.get(schluessel).push(h);
+    if (h.s && h.ld && !sitzungRegion.has(h.s)) sitzungRegion.set(h.s, h.ld);
   });
 
   let besuche = 0;
@@ -154,8 +171,13 @@ function aggregiere(hits, tag) {
 
   const aktionen = new Map();
   const details = {};
-  Object.keys(AKTIONS_DETAIL).forEach((e) => { details[AKTIONS_DETAIL[e][1]] = new Map(); });
+  Object.keys(AKTIONS_DETAIL).forEach((e) => {
+    AKTIONS_DETAIL[e].forEach(([, liste]) => { details[liste] = new Map(); });
+  });
   const filter = new Map();
+  // Zielgruppe: geöffnete Events je Sportart UND Region der Sitzung
+  // ("Laufen|DE"). Ohne bekannte Region "??" - admin.html beschriftet es.
+  const sportRegion = new Map();
   hits.forEach((h) => {
     if (!h || !h.e || h.e === "pv") return;
     zaehle(aktionen, h.e);
@@ -164,11 +186,14 @@ function aggregiere(hits, tag) {
       if (pr.k) zaehle(filter, `${pr.k}=${pr.w == null ? "" : pr.w}`);
       return;
     }
-    const regel = AKTIONS_DETAIL[h.e];
-    if (regel) zaehle(details[regel[1]], pr[regel[0]]);
+    const regeln = AKTIONS_DETAIL[h.e];
+    if (regeln) regeln.forEach(([feld, liste]) => zaehle(details[liste], pr[feld]));
+    if (h.e === "detail" && pr.sp) {
+      zaehle(sportRegion, `${pr.sp}|${sitzungRegion.get(h.s) || "??"}`);
+    }
   });
 
-  return {
+  const ergebnis = {
     d: tag,
     pv: pv.length,
     besucher: besucher.size,
@@ -192,15 +217,13 @@ function aggregiere(hits, tag) {
     browser: top(browser),
     systeme: top(systeme),
     aktionen: top(aktionen),
-    events: top(details.events, MAX_EINTRAEGE_LANG),
-    veranstalter: top(details.veranstalter, MAX_EINTRAEGE_LANG),
-    kalender: top(details.kalender),
-    teilen: top(details.teilen),
-    abo: top(details.abo),
-    melden: top(details.melden),
-    suche: top(details.suche, MAX_EINTRAEGE_LANG),
     filter: top(filter, MAX_EINTRAEGE_LANG),
+    sport_region: top(sportRegion),
   };
+  Object.keys(details).forEach((liste) => {
+    ergebnis[liste] = top(details[liste], LANGE_LISTEN.has(liste) ? MAX_EINTRAEGE_LANG : MAX_EINTRAEGE);
+  });
+  return ergebnis;
 }
 
 // Die Region aus Zeitzone und Browsersprache - ohne IP-Ortung. Für den
@@ -246,4 +269,5 @@ module.exports = {
   MAX_EINTRAEGE,
   MAX_EINTRAEGE_LANG,
   AKTIONS_DETAIL,
+  LANGE_LISTEN,
 };

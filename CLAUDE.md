@@ -47,7 +47,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/build_ics.py` | erzeugt `kalender/` aus `events.json` und räumt verwaiste Dateien weg |
 | `auth.js`, `firebase-config.js`, `firestore.rules`, `functions/` | Login + „Benachrichtige mich" |
 | `stats.js` | **Besucherstatistik im Browser** (seit 13.10.2026): ein Seitenaufruf je Seite plus Aktionen (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung, Suche, Filter) an die Cloud Function `collect`; schweigt auf localhost, bei `webdriver`, DNT/GPC und nach dem Abschalten in der Datenschutzerklärung; alle sechs Seiten laden es mit `?v=`-Stempel |
-| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt |
+| `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze) |
 | `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
 | `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
@@ -4494,11 +4494,58 @@ beim Arbeiten wissen muss:
   `stats.js` (`EREIGNISSE`) und `functions/index.js`
   (`STATS_EREIGNISSE`), Seitenliste `STATS_SEITEN`, Zusatzfelder
   `STATS_PROPS`/`PROP_LAENGE`. Was die Function nicht kennt, verwirft
-  sie STILL (400). `test_statistik` vergleicht die Kopien; eine neue
-  Aktion heißt: beide Listen, `STATS_PROPS`, `AKTIONS_DETAIL` in
-  `stats_aggregate.js`, die Liste in `admin.html` (`ABSCHNITTE`,
-  `l_…`-Texte DE/EN) – und der Abschnitt „Besucherstatistik" in
+  sie STILL (400). `test_statistik` vergleicht die Kopien (seit dem
+  14.10.2026 auch `STATS_PROPS` gegen `PROP_LAENGE`, `AKTIONS_DETAIL`
+  gegen die Ereignisse und die Listennamen gegen `LISTEN_FELDER` in
+  `admin.html`); eine neue Aktion heißt: beide Listen, `STATS_PROPS`,
+  `AKTIONS_DETAIL` in `stats_aggregate.js` (je Aktion eine Liste von
+  `[Feld, Listenname]`), `LISTEN_FELDER` und `ABSCHNITTE` in `admin.html`
+  mit `l_…`-Texten DE/EN – und der Abschnitt „Besucherstatistik" in
   `datenschutz.html` (DE und EN).
+- **Kennzahlen für Werbekunden (14.10.2026, vom Nutzer: „Erst einmal die
+  6 Punkte einbauen. Wir ändern jetzt nicht die Datenschutzerklärung.")**
+  – Tabelle im README („Kennzahlen für Werbekunden"). Was man beim
+  Arbeiten wissen muss:
+  - **Zielgruppe**: `sport_events`/`sport_veranstalter` (je `sp`) und
+    `sport_region` („Laufen|DE", die Region kommt vom ersten Seitenaufruf
+    derselben Tab-Sitzung, sonst „??"); in `admin.html` die Karten
+    „Zielgruppe" mit Kreuztabelle (`sportRegionHtml`), Sportarten EN über
+    `I18N.en.sport`.
+  - **Monat**: Zeitraum `monat` mit ‹ › (`monat` = YYYY-MM), Vergleich
+    der Vormonat über gleich viele Tage (`vergleichArt`), Karte „Monate"
+    (zwölf Monate ab dem ersten mit Daten, Tabelle = Mediadaten). Beim
+    Öffnen lädt `ladeUndZeichne()` zuerst die letzten zwölf Monate in
+    EINER Abfrage, danach kommt fast alles aus `tageCache`.
+  - **Abos**: `aggregateStats` zählt `filterSubscriptions` per `count()`
+    („alle minus `aktiv == false`", die ältesten Abos haben das Feld
+    nicht) und schreibt `abos_aktiv`/`abos_rhythmus` ins Dokument von
+    HEUTE; `aboStand()` in `admin.html` nimmt den jüngsten Stand. **Wirkt
+    erst nach `firebase deploy --only functions`** (Nutzer, To-do Punkt
+    8) – bis dahin „–" mit Hinweis.
+  - **Werbeplätze**: `EnduranceStats.anzeige(element, platz)` in
+    `stats.js` (IntersectionObserver, halbe Fläche eine Sekunde, einmal
+    je Seitenaufruf; Klick und mittlere Maustaste), Ereignisse
+    `anzeige_sicht`/`anzeige_klick` mit `platz`, Karte „Werbeplätze" mit
+    Klickrate. **Noch ruft es keine Seite auf** – und bevor die erste
+    Seite es tut, MUSS der Abschnitt „Besucherstatistik" in
+    `datenschutz.html` die Werbeeinblendung nennen (die Erklärung zählt
+    die Aktionen auf; sie wurde am 14.10.2026 bewusst nicht geändert).
+  - **Bericht je Veranstaltung**: Kalender und Teilen schicken seit dem
+    Tag `ev`/`sp` mit (`event-detail.js`; dieselbe Angabe, die „Event
+    geöffnet" und der Veranstalter-Klick schon immer tragen) → Listen
+    `events_kalender`/`events_teilen`; die Karte (`berichtHtml`) rechnet
+    aus den Tageslisten, die je Tag 500 Events führen – ein winziges
+    Event an einem riesigen Tag kann fehlen. Die alte Function (vor dem
+    Deploy) verwirft die zwei Felder nur, kein 400.
+  - **Nicht gebaut** (Datenschutz-Entscheidung): Unique Users je Monat,
+    wiederkehrende Besucher.
+  - **Rauchtest mit Firebase-Attrappe** (`pruefe_statistik_dashboard`,
+    `FIREBASE_ATTRAPPE`): ersetzt die SDKs und `auth.js` per `route()`
+    in einem EIGENEN Browser-Kontext durch ein Skript, das erfundene
+    Tagesdokumente (alle Listen, `abos_aktiv`) liefert und die Anmeldung
+    über `EE_AUTH_QUEUE` durchwinkt – prüft Kennzahlen, Monatswechsel,
+    Wochentag, Kreuztabelle, Bericht-Wechsel, Werbeplätze, „Alles", EN.
+    Ändert sich ein Feldname in `aggregiere()`, dort nachziehen.
 - **Die Haken in den Seiten**: `EED.render()` meldet `detail` und hängt
   Zuhörer an Veranstalter-Link und Kalender-Links, `teileEvent()`
   meldet `teilen`; `events.html` meldet Abo/Meldung/Vorschlag nach dem
@@ -5476,6 +5523,20 @@ seit dem 13.10.2026 erledigt: Archiv, Punkt 36.)
    springt binnen einer Minute von selbst zur Startseite. Klappt alles,
    diesen Punkt streichen; meldet der Knopf einen Fehler, den Wortlaut
    hier melden.
+
+8. **Function deployen für die Abo-Kennzahl** (14.10.2026): In der Cloud
+   Shell `cd Enduranceevents && git pull && firebase deploy --only
+   functions`. Danach schreibt `aggregateStats` zur nächsten vollen
+   Stunde plus sieben Minuten den Stand der aktiven E-Mail-Abos ins
+   Tagesdokument, und die Kachel „Aktive E-Mail-Abos" im Dashboard zeigt
+   eine Zahl statt „–". Derselbe Deploy bringt `collect` die neuen
+   Felder bei (Event und Sportart an Kalender/Teilen für den Bericht je
+   Veranstaltung; die Werbeplatz-Ereignisse, die noch niemand sendet).
+   Kein `firestore:rules` nötig.
+9. **Vor dem ersten Werbeplatz**: Abschnitt „Besucherstatistik" in
+   `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
+   erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
+   „Besucherstatistik", Kennzahlen für Werbekunden.
 
 (Die früheren Punkte 6 und 7 – Besucherstatistik freischalten,
 Datenschutzerklärung erneut lesen – sind seit dem 13.10.2026 erledigt:

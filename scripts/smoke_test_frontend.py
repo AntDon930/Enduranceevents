@@ -24,6 +24,7 @@ nicht als Fehler - `--ignore-certificate-errors` ist deshalb gesetzt.
 
 from __future__ import annotations
 
+import datetime
 import functools
 import glob
 import http.server
@@ -62,10 +63,21 @@ def starte_server() -> tuple[socketserver.TCPServer, int]:
     class Leise(http.server.SimpleHTTPRequestHandler):
         """Wie SimpleHTTPRequestHandler, nur ohne Zeile je Abruf."""
 
+        # Chromium öffnet Verbindungen auf Vorrat und schickt darauf
+        # nichts - ohne Frist wartete der Handler ewig auf die erste Zeile.
+        timeout = 10
+
         def log_message(self, *args):   # noqa: A003 - Name kommt aus der Basisklasse
             pass
 
-    class Server(socketserver.TCPServer):
+    class Server(socketserver.ThreadingTCPServer):
+        # MEHRSPURIG (14.10.2026): Mit dem einspurigen TCPServer blockierte
+        # eine solche Vorrats-Verbindung den ganzen Server - der nächste
+        # Seitenaufruf (admin.html mit der Firebase-Attrappe) lief in den
+        # 30-Sekunden-Timeout, der Serverthread stand in rfile.readline().
+        # Jede Verbindung bekommt jetzt ihren eigenen Thread.
+        daemon_threads = True
+
         # Bricht der Browser einen Abruf ab (die Wartungs-Umleitung
         # verlässt die Liste, während events.web.json noch läuft), wirft
         # der Handler BrokenPipe - kein Fehler der Seite, nur Lärm im Log.
@@ -1395,6 +1407,201 @@ def pruefe_statistik(ctx, basis):
     seite.close()
 
 
+# Firebase-Attrappe für das Dashboard: statt der SDKs ein Skript, das
+# `firebase.firestore()` mit erfundenen Tagesdokumenten beantwortet und die
+# Anmeldung über EE_AUTH_QUEUE mit einem Admin-Konto durchwinkt. So lässt
+# sich die ganze Zeichenlogik von admin.html prüfen (Monate, Wochentag,
+# Zielgruppe, Bericht je Veranstaltung, Werbeplätze, Abo-Kennzahl), ohne
+# Netz und ohne Konto - mit echtem Firestore ginge das in der CI nicht.
+# Die Felder sind die aus functions/stats_aggregate.js (aggregiere) und
+# aggregateStats (abos_aktiv) - ändert sich dort ein Name, hier nachziehen.
+FIREBASE_ATTRAPPE = r"""
+(function () {
+  const heute = new Date();
+  const iso = (d) => d.toISOString().slice(0, 10);
+  const EVENTS = ['Berlin Marathon', 'Ötztaler Radmarathon', 'Bodensee Openwater'];
+  const SPORT = ['Laufen', 'Fahrrad', 'Schwimmen'];
+  const REGION = ['DE', 'AT', 'CH'];
+  const TAGE = 45;
+  const stats_daily = {};
+  for (let i = TAGE - 1; i >= 0; i--) {
+    const d = new Date(Date.UTC(heute.getFullYear(), heute.getMonth(), heute.getDate() - i));
+    const tag = iso(d);
+    // Wochenmuster plus Trend - sonst wären zwei Monate über gleich viele
+    // Tage exakt gleich, und kein Vergleich zeigte einen Text.
+    const n = 20 + (i % 7) * 3 + Math.floor((TAGE - 1 - i) / 4);
+    const stunden = new Array(24).fill(0); stunden[9] = n - 5; stunden[18] = 5;
+    const ev = EVENTS.map((k, j) => ({ k, n: 6 - 2 * j + (i % 2) }));
+    stats_daily[tag] = {
+      d: tag, pv: n, besucher: Math.round(n * 0.6), besuche: Math.round(n * 0.7), absprung: Math.round(n * 0.3),
+      dauer_sek: 900, dauer_n: 10, stunden,
+      seiten: [{ k: 'index', n: 10 }, { k: 'events', n: n - 10 }],
+      einstieg: [{ k: 'index', n: 10 }], ausstieg: [{ k: 'events', n: 10 }],
+      referrer: [{ k: '(direkt)', n: 8 }, { k: 'google.com', n: 4 }],
+      quellen: [], medien: [], kampagnen: [],
+      laender: REGION.map((k, j) => ({ k, n: 8 - 2 * j })), sprachen: [{ k: 'de-DE', n: n }],
+      seitensprache: [{ k: 'de', n: n }], schema: [{ k: 'dark', n: n }],
+      geraete: [{ k: 'handy', n: 12 }, { k: 'rechner', n: 8 }], browser: [{ k: 'Safari', n: n }], systeme: [{ k: 'iOS', n: n }],
+      aktionen: [{ k: 'detail', n: 12 }, { k: 'veranstalter', n: 4 }, { k: 'anzeige_sicht', n: 9 }, { k: 'anzeige_klick', n: 1 }],
+      events: ev, veranstalter: ev.map(x => ({ k: x.k, n: Math.ceil(x.n / 3) })),
+      events_kalender: [{ k: EVENTS[0], n: 2 }], events_teilen: [{ k: EVENTS[1], n: 1 }],
+      sport_events: SPORT.map((k, j) => ({ k, n: 6 - 2 * j })),
+      sport_veranstalter: [{ k: 'Laufen', n: 2 }],
+      sport_region: [{ k: 'Laufen|DE', n: 4 }, { k: 'Laufen|AT', n: 2 }, { k: 'Fahrrad|CH', n: 3 }, { k: 'Schwimmen|??', n: 1 }],
+      anzeige_sicht: [{ k: 'liste-oben', n: 9 }], anzeige_klick: [{ k: 'liste-oben', n: 1 }],
+      kalender: [{ k: 'ics', n: 2 }], teilen: [{ k: 'dialog', n: 1 }], abo: [], melden: [], suche: [{ k: 'marathon', n: 3 }], filter: [],
+      abos_aktiv: 10 + (TAGE - 1 - i), abos_rhythmus: [{ k: 'sofort', n: 10 }],
+      aktualisiert: { toMillis: () => Date.now() }
+    };
+  }
+  window.__ATTRAPPE = { abosHeute: 10 + (TAGE - 1), topEvent: EVENTS[0], zweitesEvent: EVENTS[1], tage: TAGE };
+  const DOCS = { stats_daily, admins: { 'test-admin': { name: 'Test' } }, config: { wartung: { aktiv: false, text_de: 'Pause', text_en: 'Pause' } } };
+  const snap = (id, data) => ({ id, exists: data !== undefined, data: () => data });
+  function sammlung(name) {
+    return {
+      filters: [],
+      doc: (id) => ({ get: async () => snap(id, (DOCS[name] || {})[id]), set: async () => {}, update: async () => {} }),
+      where: function (feld, op, wert) { const q = Object.assign({}, this); q.filters = this.filters.concat([[feld, op, wert]]); return q; },
+      get: async function () {
+        const ids = Object.keys(DOCS[name] || {}).sort().filter(id => this.filters.every(([f, op, w]) =>
+          f !== '__id__' ? true : op === '>=' ? id >= w : op === '<=' ? id <= w : true));
+        const docs = ids.map(id => snap(id, DOCS[name][id]));
+        return { empty: !docs.length, size: docs.length, docs, forEach: (fn) => docs.forEach(fn) };
+      },
+      add: async () => ({ id: 'neu' })
+    };
+  }
+  const firestore = () => ({ collection: sammlung });
+  firestore.FieldPath = { documentId: () => '__id__' };
+  firestore.FieldValue = { serverTimestamp: () => new Date() };
+  window.firebase = { firestore, initializeApp: () => ({}), apps: [], auth: () => ({}) };
+  window.FIREBASE_CONFIGURED = true;
+  window.EndauranceAuth = { getUser: () => ({ uid: 'test-admin' }), openModal: () => {}, onAuthChange: () => {} };
+  document.addEventListener('DOMContentLoaded', () => {
+    (window.EE_AUTH_QUEUE || []).forEach((fn) => fn({ uid: 'test-admin' }));
+  });
+})();
+"""
+
+
+def pruefe_statistik_dashboard(ctx, basis):
+    """Das Dashboard mit erfundenen Tagesdokumenten (14.10.2026): die sechs
+    Punkte für Werbekunden - Monatsansicht, Abo-Kennzahl, Wochentag,
+    Zielgruppe nach Sportart und Region, Bericht je Veranstaltung,
+    Werbeplätze - und dass alles in DE und EN zeichnet.
+    """
+    print("\nStatistik-Dashboard mit Firebase-Attrappe")
+    # Eigener Kontext: Die Umleitungen der SDKs dürfen die anderen
+    # Prüfungen (Abo-Dialog, Anmeldung) nicht treffen.
+    kontext = ctx.browser.new_context(viewport={"width": 390, "height": 844},
+                                      is_mobile=True, has_touch=True)
+    try:
+        def ersetze(route):
+            url = route.request.url
+            if url.endswith("firebase-app-compat.js"):
+                route.fulfill(body=FIREBASE_ATTRAPPE, content_type="application/javascript")
+            else:
+                route.fulfill(body="/* Attrappe */", content_type="application/javascript")
+        kontext.route("**/vendor/firebase-*/*.js", ersetze)
+        kontext.route("**/firebase-config.js", ersetze)
+        kontext.route("**/auth.js", ersetze)
+        seite, probleme = seite_oeffnen(kontext, basis + "/admin.html", ".top-bar")
+        seite.wait_for_selector("#stat-content:not([hidden])", timeout=15000)
+        seite.wait_for_timeout(600)
+        pruefe(not probleme, "admin.html zeichnet mit Daten ohne Fehler (%s)"
+               % (probleme[0] if probleme else "keine"))
+        stand = seite.evaluate("""() => {
+            const kpis = Array.from(document.querySelectorAll('#stat-kpis .kpi'));
+            const abo = kpis.find(k => k.querySelector('.label').textContent.includes('Abo'));
+            const tabelle = document.getElementById('tabelle-monate');
+            const matrix = document.querySelector('section[data-liste="sport_region"] table');
+            const werbung = document.querySelector('section[data-liste="anzeige"] table');
+            return {
+              kpis: kpis.length,
+              abo: abo ? abo.querySelector('.value').textContent.trim() : null,
+              aboHint: abo ? abo.querySelector('.hint').textContent : '',
+              monateZeilen: tabelle ? tabelle.querySelectorAll('tbody tr').length : -1,
+              monateBalken: document.querySelectorAll('#chart-monate .balken-2').length,
+              wochentagBalken: document.querySelectorAll('#chart-wochentage .balken').length,
+              wochentagAchse: Array.from(document.querySelectorAll('#chart-wochentage .axis text')).map(t => t.textContent).slice(-7).join(' '),
+              matrix: matrix ? matrix.textContent : '',
+              berichtName: (document.querySelector('#bericht-card .bericht-name') || {}).textContent || '',
+              berichtKpis: document.querySelectorAll('#bericht-card .bericht-kpis .kpi').length,
+              werbung: werbung ? werbung.textContent : '',
+              zielgruppeVorSeiten: (() => { const t = Array.from(document.querySelectorAll('.stat-section-title')).map(x => x.textContent); return t.indexOf('Zielgruppe') >= 0 && t.indexOf('Zielgruppe') < t.indexOf('Seiten'); })(),
+              erwartet: window.__ATTRAPPE,
+              ueberlauf: document.documentElement.scrollWidth - innerWidth };
+        }""")
+        e = stand["erwartet"]
+        pruefe(stand["kpis"] == 7, "sieben Kennzahlen, mit den E-Mail-Abos (%d)" % stand["kpis"])
+        pruefe(stand["abo"] == str(e["abosHeute"]) and "Stand" in stand["aboHint"],
+               "Abo-Kennzahl ist der jüngste Tagesstand (%s, %s)" % (stand["abo"], stand["aboHint"]))
+        pruefe(stand["monateZeilen"] >= 2 and stand["monateBalken"] >= 2,
+               "Monatstabelle und -balken (%d Zeilen, %d Balken)" % (stand["monateZeilen"], stand["monateBalken"]))
+        pruefe(stand["wochentagBalken"] == 7 and stand["wochentagAchse"].startswith("Mo"),
+               "Wochentag-Diagramm: sieben Balken, Montag zuerst (%s)" % stand["wochentagAchse"])
+        pruefe("Laufen" in stand["matrix"] and "Deutschland" in stand["matrix"] and "Unbekannt" in stand["matrix"],
+               "Zielgruppe: Sportart je Region als Kreuztabelle")
+        pruefe(stand["zielgruppeVorSeiten"], "Zielgruppe steht vor den Seiten-Listen")
+        pruefe(stand["berichtName"] == e["topEvent"] and stand["berichtKpis"] == 5,
+               "Bericht je Veranstaltung zeigt das meistgeöffnete Event (%s)" % stand["berichtName"])
+        pruefe("liste-oben" in stand["werbung"] and "%" in stand["werbung"],
+               "Werbeplätze: Einblendungen, Klicks und Klickrate")
+        pruefe(stand["ueberlauf"] <= 0, "kein waagerechter Überlauf (%+d px)" % stand["ueberlauf"])
+
+        # Bericht: eine andere Veranstaltung wählen
+        seite.fill("#bericht-suche", e["zweitesEvent"])
+        seite.dispatch_event("#bericht-suche", "change")
+        seite.wait_for_timeout(200)
+        name = seite.evaluate("() => document.querySelector('#bericht-card .bericht-name').textContent")
+        pruefe(name == e["zweitesEvent"], "Bericht wechselt die Veranstaltung (%s)" % name)
+        seite.fill("#bericht-suche", "Gibt es nicht")
+        seite.dispatch_event("#bericht-suche", "change")
+        seite.wait_for_timeout(200)
+        leer = seite.evaluate("() => (document.querySelector('#bericht-card .leer') || {}).textContent || ''")
+        pruefe("keine Zahlen" in leer, "Bericht sagt, wenn es keine Zahlen gibt")
+
+        # Monatsansicht: fester Monat mit ‹ ›, Vergleich mit dem Vormonat
+        seite.click('button[data-z="monat"]')
+        seite.wait_for_timeout(500)
+        monat = seite.evaluate("""() => ({
+            text: (document.querySelector('.stat-monat b') || {}).textContent || '',
+            vor: !!document.querySelector('.stat-monat button[data-m="1"]:disabled'),
+            delta: Array.from(document.querySelectorAll('#stat-kpis .delta')).map(d => d.textContent).join(' ') })""")
+        pruefe(str(datetime.date.today().year) in monat["text"] and monat["vor"],
+               "Monatsansicht zeigt den laufenden Monat, Folgemonat gesperrt (%s)" % monat["text"])
+        pruefe("Vormonat" in monat["delta"], "Vergleich gegen den Vormonat")
+        seite.click('.stat-monat button[data-m="-1"]')
+        seite.wait_for_timeout(500)
+        zurueck = seite.evaluate("""() => ({
+            text: document.querySelector('.stat-monat b').textContent,
+            vor: !!document.querySelector('.stat-monat button[data-m="1"]:disabled'),
+            pv: document.querySelectorAll('#stat-kpis .kpi')[2].querySelector('.value').textContent })""")
+        pruefe(zurueck["text"] != monat["text"] and not zurueck["vor"],
+               "‹ wechselt zum Vormonat, › wieder frei (%s)" % zurueck["text"])
+        seite.click('button[data-z="alles"]')
+        seite.wait_for_timeout(500)
+        alles = seite.evaluate("() => document.querySelector('#tabelle-verlauf tbody').querySelectorAll('tr').length")
+        pruefe(alles == e["tage"], "„Alles“ lädt alle Tage (%d)" % alles)
+        seite.click('button[data-z="30"]')
+        seite.wait_for_timeout(300)
+
+        # Englisch
+        seite.click('.lang-btn[data-lang="en"]')
+        seite.wait_for_timeout(300)
+        en = seite.evaluate("""() => ({
+            monate: document.getElementById('h-monate').textContent,
+            matrix: document.querySelector('section[data-liste="sport_region"] table').textContent,
+            abo: Array.from(document.querySelectorAll('#stat-kpis .label')).map(l => l.textContent).join(' ') })""")
+        pruefe(en["monate"] == "Months" and "Running" in en["matrix"] and "Germany" in en["matrix"]
+               and "subscriptions" in en["abo"], "EN: Monate, Sportarten, Regionen und Abo-Kachel übersetzt")
+        pruefe(not probleme, "keine Skriptfehler beim Umschalten (%s)"
+               % (probleme[0] if probleme else "keine"))
+        seite.close()
+    finally:
+        kontext.close()
+
+
 def pruefe_teilen(ctx, basis):
     """Ein einzelnes Event teilen: Knopf, Teilen-Dialog, geteilter Link.
 
@@ -2416,6 +2623,7 @@ def main() -> int:
                 pruefe_fehlendes_event(ctx, basis)
                 pruefe_rechtsseiten(ctx, basis)
                 pruefe_statistik(ctx, basis)
+                pruefe_statistik_dashboard(ctx, basis)
                 pruefe_abo(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)

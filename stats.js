@@ -4,7 +4,7 @@
 // überlebt, ohne fremden Dienst. Jede Seite lädt diese Datei (defer); sie
 // schickt beim Laden EINEN Seitenaufruf und danach einzelne Aktionen
 // (Event geöffnet, Veranstalter-Klick, Kalender, Teilen, Abo, Meldung,
-// Suchbegriff, gesetzter Filter) an die Cloud Function `collect`
+// Suchbegriff, gesetzter Filter, Werbeplatz) an die Cloud Function `collect`
 // (functions/index.js). Die zählt sie in Firestore (`hits`), rechnet sie
 // stündlich zu Tageswerten zusammen (`stats_daily`), und admin.html
 // zeigt sie - nur für den Betreiber.
@@ -32,6 +32,20 @@
 //   EnduranceStats.filterParams(string)    Filterzustand (EF.toParams) melden -
 //                                          geschickt wird nur, was sich
 //                                          gegenüber dem letzten Stand ändert
+//   EnduranceStats.anzeige(element, platz) einen WERBEPLATZ zählen: eine
+//                                          Einblendung, sobald das Element
+//                                          zur Hälfte eine Sekunde im Bild
+//                                          war (einmal je Seitenaufruf), und
+//                                          jeden Klick darauf - daraus
+//                                          rechnet admin.html die Klickrate.
+//                                          Gebaut am 14.10.2026, bevor es
+//                                          Werbung gibt; NOCH RUFT ES KEINE
+//                                          SEITE. Vor dem ersten Werbeplatz
+//                                          den Abschnitt „Besucherstatistik"
+//                                          in datenschutz.html ergänzen (er
+//                                          zählt die Aktionen auf) - die
+//                                          Datenschutzerklärung wurde am
+//                                          14.10.2026 bewusst NICHT geändert.
 //   EnduranceStats.aus() / .an() / .istAus()   Abschalten je Gerät
 //   EnduranceStats.aktiv()                 ob diese Seite gerade sendet
 //
@@ -46,9 +60,10 @@
   var SITZUNG_SCHLUESSEL = 'endurance-stats-sid';
   var MAX_JE_SEITE = 40;                      // mehr Treffer schickt eine Seite nicht
   var VERZOEGERUNG_MS = 1200;                 // Filter/Suche: erst nach einer Pause melden
-  var EREIGNISSE = ['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort'];
+  var EREIGNISSE = ['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort', 'anzeige_sicht', 'anzeige_klick'];
   // Welche Zusatzangabe wie lang sein darf - alles andere fliegt.
-  var PROP_LAENGE = { ev: 120, sp: 20, art: 20, rhythmus: 20, kategorie: 20, q: 60, k: 20, w: 60 };
+  var PROP_LAENGE = { ev: 120, sp: 20, art: 20, rhythmus: 20, kategorie: 20, q: 60, k: 20, w: 60, platz: 40 };
+  var ANZEIGE_SICHT_MS = 1000;                // so lange muss ein Werbeplatz im Bild sein
 
   var gesendet = 0;
   var sitzungImSpeicher = null;
@@ -326,9 +341,45 @@
     });
   }
 
+  // ---------- Werbeplätze ----------
+  // Eine Einblendung zählt, wenn mindestens die Hälfte des Elements eine
+  // Sekunde lang im Bild war (so misst es auch der IAB-Standard für
+  // „viewable impressions") - einmal je Seitenaufruf und Platz; ein
+  // Klick auf irgendetwas im Element zählt als Klick (auch mittlere
+  // Maustaste). Ohne IntersectionObserver (sehr alte Browser) zählt die
+  // Einblendung beim Einhängen.
+  var anzeigeGesehen = {};
+  function anzeige(element, platz) {
+    if (!element || typeof platz !== 'string' || !platz || stumm()) return;
+    var key = kurz(platz, PROP_LAENGE.platz);
+    function sicht() {
+      if (anzeigeGesehen[key]) return;
+      anzeigeGesehen[key] = true;
+      event('anzeige_sicht', { platz: key });
+    }
+    if (global.IntersectionObserver) {
+      var timer = null;
+      var beobachter = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (x) {
+          if (x.isIntersecting && x.intersectionRatio >= 0.5) {
+            if (!timer) timer = setTimeout(function () { sicht(); beobachter.disconnect(); }, ANZEIGE_SICHT_MS);
+          } else if (timer) {
+            clearTimeout(timer); timer = null;
+          }
+        });
+      }, { threshold: [0.5] });
+      beobachter.observe(element);
+    } else {
+      sicht();
+    }
+    element.addEventListener('click', function () { event('anzeige_klick', { platz: key }); });
+    element.addEventListener('auxclick', function (ev) { if (ev.button === 1) event('anzeige_klick', { platz: key }); });
+  }
+
   global.EnduranceStats = {
     event: event,
     filterParams: filterParams,
+    anzeige: anzeige,
     aus: function () { try { localStorage.setItem(SPEICHER_AUS, 'aus'); } catch (e) { /* ignorieren */ } },
     an: function () { try { localStorage.removeItem(SPEICHER_AUS); } catch (e) { /* ignorieren */ } },
     istAus: istAus,

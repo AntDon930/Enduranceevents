@@ -744,20 +744,29 @@ const STATS_ORIGINS = defineString("STATS_ORIGINS", {
 });
 
 // Kopie von EREIGNISSE in stats.js - test_statistik vergleicht beide.
-const STATS_EREIGNISSE = new Set(['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort']);
+// `anzeige_sicht`/`anzeige_klick` (14.10.2026) sind die Werbeplatz-Zahlen;
+// sie werden erst gesendet, wenn eine Seite EnduranceStats.anzeige() an
+// einen Werbeplatz hängt - VORHER gehört der Abschnitt „Besucherstatistik"
+// der Datenschutzerklärung ergänzt (siehe stats.js).
+const STATS_EREIGNISSE = new Set(['pv', 'detail', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'fehlt', 'suche', 'filter', 'standort', 'anzeige_sicht', 'anzeige_klick']);
 // Jede Seite, die stats.js lädt (test_statistik prüft die Liste gegen
 // die HTML-Dateien).
 const STATS_SEITEN = new Set(["index", "events", "karte", "impressum", "datenschutz", "admin"]);
 // Zusatzangaben je Aktion: Feld -> Höchstlänge. Alles andere fliegt.
+// Kalender und Teilen tragen seit dem 14.10.2026 auch Event und Sportart
+// (für den Bericht je Veranstaltung) - dieselbe Angabe, die „Event
+// geöffnet" und der Veranstalter-Klick schon immer mitschicken.
 const STATS_PROPS = {
   detail: { ev: 120, sp: 20 },
   veranstalter: { ev: 120, sp: 20 },
-  kalender: { art: 20 },
-  teilen: { art: 20 },
+  kalender: { art: 20, ev: 120, sp: 20 },
+  teilen: { art: 20, ev: 120, sp: 20 },
   abo: { rhythmus: 20 },
   melden: { kategorie: 20 },
   suche: { q: 60 },
   filter: { k: 20, w: 60 },
+  anzeige_sicht: { platz: 40 },
+  anzeige_klick: { platz: 40 },
 };
 const STATS_BOT_RE = /bot|crawl|spider|slurp|headless|lighthouse|python-requests|python-urllib|curl\/|wget\/|go-http-client|java\//i;
 const HITS_AUFBEWAHRUNG_TAGE = 35;
@@ -915,7 +924,7 @@ exports.collect = onRequest(
   }
 );
 
-async function aggregiereTag(tag) {
+async function aggregiereTag(tag, zusatz) {
   const snap = await db.collection("hits").where("d", "==", tag).get();
   if (snap.empty) return false;
   const hits = snap.docs.map((doc) => {
@@ -924,9 +933,29 @@ async function aggregiereTag(tag) {
     return Object.assign({}, x, { t });
   });
   const ergebnis = statsAgg.aggregiere(hits, tag);
+  if (zusatz) Object.assign(ergebnis, zusatz);
   ergebnis.aktualisiert = FieldValue.serverTimestamp();
   await db.collection("stats_daily").doc(tag).set(ergebnis);
   return true;
+}
+
+// Die aktiven E-Mail-Abos - als Tagesstand ins Dokument von HEUTE
+// (14.10.2026, Kennzahl für Werbekunden: das eigene Publikum, und über
+// die Tagesdokumente das Wachstum). Gezählt mit Zählabfragen (eine
+// Lesung je 1.000 Dokumente), nicht gelesen: Das Dashboard bekommt nur
+// die Zahl, nie die Adressen. `aktiv` fehlt an den ältesten Abos - ein
+// Abo ohne das Feld ist aktiv, deshalb „alle minus abgemeldete".
+async function zaehleAbos() {
+  const abos = db.collection("filterSubscriptions");
+  const zahl = async (q) => (await q.count().get()).data().count;
+  const gesamt = (await zahl(abos)) - (await zahl(abos.where("aktiv", "==", false)));
+  const rhythmus = [];
+  for (const r of ABO_RHYTHMEN) {
+    const n = (await zahl(abos.where("rhythmus", "==", r)))
+      - (await zahl(abos.where("rhythmus", "==", r).where("aktiv", "==", false)));
+    if (n > 0) rhythmus.push({ k: r, n });
+  }
+  return { abos_aktiv: gesamt, abos_rhythmus: rhythmus };
 }
 
 async function loescheAlteHits(grenze) {
@@ -956,9 +985,15 @@ exports.aggregateStats = onSchedule(
       const vorhanden = await db.collection("stats_daily").doc(tag).get();
       if (!vorhanden.exists) tage.push(tag);
     }
+    let abos = null;
+    try {
+      abos = await zaehleAbos();
+    } catch (e) {
+      console.warn("aggregateStats: Abos nicht gezählt:", e && e.message ? e.message : e);
+    }
     let geschrieben = 0;
     for (const tag of tage) {
-      if (await aggregiereTag(tag)) geschrieben++;
+      if (await aggregiereTag(tag, tag === heute ? abos : null)) geschrieben++;
     }
     const geloescht = await loescheAlteHits(tagMinus(heute, HITS_AUFBEWAHRUNG_TAGE));
     console.log(`aggregateStats: ${geschrieben} Tagesdokument(e) geschrieben, ${geloescht} alte Treffer gelöscht`);

@@ -82,9 +82,14 @@
   .stat-range button:hover { background: var(--accent-bg); }
   .stat-range button.active { background: var(--pill-active-bg, var(--accent)); color: var(--pill-active-fg, var(--on-accent)); border-color: var(--pill-active-border, var(--accent)); }
   .stat-meta { margin-left: auto; display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 0.85rem; }
+  /* Monatswahl neben den Zeitraum-Knöpfen (14.10.2026): ‹ Oktober 2026 › */
+  .stat-monat { display: inline-flex; align-items: center; gap: 4px; }
+  .stat-monat button { min-width: 40px; padding: 8px 10px; }
+  .stat-monat button:disabled { opacity: 0.4; cursor: default; }
+  .stat-monat b { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; min-width: 9ch; text-align: center; }
 
   /* Kennzahlen */
-  .stat-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 14px; }
+  .stat-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 14px; }  /* 150: sieben Kacheln passen in 1.180 px */
   .kpi { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 14px 16px; min-width: 0; }
   .kpi .label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
   .kpi .value { font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1.1; margin-top: 4px; }
@@ -96,6 +101,23 @@
   .stat-section { display: grid; gap: 14px; margin-bottom: 14px; }
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
   .stat-section-title { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 10px 0 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .stat-zwei { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .stat-card.breit { grid-column: 1 / -1; }
+  /* Tabellen in Karten (Monate, Sportart je Region, Werbeplätze, Bericht) */
+  table.matrix { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  table.matrix th, table.matrix td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  table.matrix th:first-child, table.matrix td:first-child { text-align: left; white-space: normal; }
+  table.matrix thead th { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  table.matrix tfoot td { font-weight: 600; border-bottom: 0; }
+  .matrix-wrap { overflow-x: auto; }
+  /* Bericht je Veranstaltung */
+  .bericht-suche { font: inherit; font-size: 0.95rem; padding: 9px 12px; border-radius: var(--radius-ctl); border: 1px solid var(--border-strong); background: var(--panel); color: var(--text); width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  .bericht-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 10px; }
+  .bericht-kpis .kpi { padding: 10px 12px; }
+  .bericht-kpis .kpi .value { font-size: 1.6rem; }
+  .bericht-name { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin: 0 0 8px; }
+  .bericht-fuss { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 10px; }
+  .bericht-fuss .hinweis { color: var(--text-muted); font-size: 0.82rem; flex: 1 1 240px; }
 
   /* Diagramme */
   .chart-wrap { position: relative; }
@@ -110,6 +132,7 @@
   .chart-wrap .punkt-2 { fill: var(--chart-2); stroke: var(--panel); stroke-width: 2; }
   .chart-wrap .cursor { stroke: var(--text-muted); stroke-width: 1; opacity: 0; }
   .chart-wrap .balken { fill: var(--chart-1); }
+  .chart-wrap .balken.balken-2 { fill: var(--chart-2); }
   .chart-wrap .balken.aktiv { opacity: 0.75; }
   .chart-wrap .fang { fill: transparent; }
   .chart-tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--border-strong); border-radius: 10px; padding: 8px 10px; font-size: 0.82rem; box-shadow: var(--shadow); min-width: 140px; z-index: 2; display: none; }
@@ -207,13 +230,40 @@
           <table id="tabelle-verlauf"></table>
         </details>
       </section>
+      <!-- Monate (14.10.2026): Werbung wird je Monat verkauft - die zwölf
+           Monate als Balken (Besuche, Seitenaufrufe) und als Tabelle, die
+           zugleich das Mediadaten-Blatt ist (Besucher, Besuche, Aufrufe,
+           Seiten je Besuch, Dauer, Abos zum Monatsende). -->
       <section class="stat-card">
-        <h3><span id="h-stunden"></span><small id="h-stunden-sub"></small></h3>
-        <div class="chart-wrap" id="wrap-stunden">
-          <svg id="chart-stunden" role="img"></svg>
-          <div class="chart-tip" id="tip-stunden"></div>
+        <h3><span id="h-monate"></span><small id="h-monate-sub"></small></h3>
+        <div class="chart-legend" id="legend-monate"></div>
+        <div class="chart-wrap" id="wrap-monate">
+          <svg id="chart-monate" role="img"></svg>
+          <div class="chart-tip" id="tip-monate"></div>
         </div>
+        <details class="tabelle" open>
+          <summary id="t-tabelle-monate"></summary>
+          <div class="matrix-wrap"><table class="matrix" id="tabelle-monate"></table></div>
+        </details>
       </section>
+      <div class="stat-zwei">
+        <section class="stat-card">
+          <h3><span id="h-stunden"></span><small id="h-stunden-sub"></small></h3>
+          <div class="chart-wrap" id="wrap-stunden">
+            <svg id="chart-stunden" role="img"></svg>
+            <div class="chart-tip" id="tip-stunden"></div>
+          </div>
+        </section>
+        <!-- Wochentag (14.10.2026): aus den Tagesdokumenten gerechnet,
+             keine neue Zählung - Ø Seitenaufrufe je Wochentag. -->
+        <section class="stat-card">
+          <h3><span id="h-wochentage"></span><small id="h-wochentage-sub"></small></h3>
+          <div class="chart-wrap" id="wrap-wochentage">
+            <svg id="chart-wochentage" role="img"></svg>
+            <div class="chart-tip" id="tip-wochentage"></div>
+          </div>
+        </section>
+      </div>
     </div>
 
     <div id="stat-listen"></div>
@@ -241,7 +291,7 @@
 <script defer src="vendor/firebase-10.14.1/firebase-firestore-compat.js"></script>
 <script defer src="firebase-config.js"></script>
 <script defer src="auth.js"></script>
-<script defer src="stats.js?v=34d8ba00"></script>
+<script defer src="stats.js?v=586e06c3"></script>
 <script>
 (function () {
   'use strict';
@@ -276,19 +326,40 @@
       gate_kopieren: 'Kopieren', kopiert: 'Kopiert',
       gate_fehler: 'Die Daten konnten nicht geladen werden.',
       gate_nicht_konfiguriert: 'Firebase ist auf dieser Seite nicht eingerichtet.',
-      z7: '7 Tage', z30: '30 Tage', z90: '90 Tage', zjahr: 'Dieses Jahr', zalles: 'Alles',
+      z7: '7 Tage', z30: '30 Tage', z90: '90 Tage', zmonat: 'Monat', zjahr: 'Dieses Jahr', zalles: 'Alles',
+      monat_zurueck: 'Vormonat', monat_vor: 'Folgemonat',
+      monate: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
       stand: 'Stand', csv: 'CSV herunterladen',
       kpi_besucher: 'Besucher', kpi_besucher_hint: 'je Tag eindeutig, über den Zeitraum summiert',
       kpi_besuche: 'Besuche', kpi_pv: 'Seitenaufrufe', kpi_je_besuch: 'Seiten je Besuch',
       kpi_absprung: 'Absprungrate', kpi_dauer: 'Ø Besuchsdauer',
+      kpi_abos: 'Aktive E-Mail-Abos', abo_stand: (d) => `Stand ${d}`, abo_zuwachs: 'im Zeitraum',
+      abo_kein_stand: 'erscheint nach dem nächsten Deploy der Function (firebase deploy --only functions)',
       vergleich: (n) => `gegenüber den ${n} Tagen davor`,
+      vergleich_monat: 'gegenüber dem Vormonat (gleiche Tage)',
       punkte: 'Prozentpunkte',
       verlauf: 'Verlauf', stunden: 'Tageszeit', stunden_sub: 'Seitenaufrufe je Stunde',
-      tabelle: 'Als Tabelle anzeigen',
+      wochentage_titel: 'Wochentag', wochentage_sub: 'Ø Seitenaufrufe je Tag', tage_n: 'Tage',
+      monate_titel: 'Monate', monate_sub: 'die letzten zwölf Monate', th_monat: 'Monat', th_je_besuch: 'Seiten je Besuch', th_abos: 'Abos (Monatsende)',
+      tabelle: 'Als Tabelle anzeigen', tabelle_monate: 'Monatswerte (Mediadaten)',
       th_tag: 'Tag', th_besucher: 'Besucher', th_besuche: 'Besuche', th_pv: 'Seitenaufrufe', th_absprung: 'Absprünge', th_dauer: 'Ø Dauer',
       keine_daten: 'Noch keine Daten in diesem Zeitraum. Die Auswertung läuft stündlich (Minute 7) – bis dahin bleibt es leer.',
       mehr: 'Mehr anzeigen', weniger: 'Weniger anzeigen', leer: 'Noch nichts',
+      s_zielgruppe: 'Zielgruppe', s_kunden: 'Für Veranstalter und Werbekunden',
       s_seiten: 'Seiten', s_herkunft: 'Herkunft', s_technik: 'Geräte und Browser', s_aktionen: 'Was Besucher tun',
+      l_sport_events: 'Geöffnete Events je Sportart', l_sport_veranstalter: 'Veranstalter-Klicks je Sportart',
+      l_sport_region: 'Sportart je Region', sport_region_sub: 'geöffnete Events', th_sport: 'Sportart', th_gesamt: 'Gesamt', sonstige: 'Sonstige',
+      l_events_kalender: 'Kalendereinträge je Event', l_events_teilen: 'Geteilt je Event',
+      bericht_titel: 'Bericht je Veranstaltung', bericht_sub: 'für Veranstalter',
+      bericht_platzhalter: 'Veranstaltung suchen …', bericht_leer: 'In diesem Zeitraum wurde noch kein Event geöffnet.',
+      bericht_unbekannt: 'Zu dieser Veranstaltung gibt es im Zeitraum keine Zahlen.',
+      b_geoeffnet: 'Geöffnet', b_veranstalter: 'Klicks zur Veranstalterseite', b_klickrate: 'Klickrate', b_kalender: 'Kalendereinträge', b_teilen: 'Geteilt',
+      bericht_kopieren: 'Bericht kopieren',
+      bericht_hinweis: 'Geöffnet zählt, wie oft Besucher das Event in Liste oder Karte angesehen haben (je Seitenaufruf einmal); Klickrate = Klicks zur Veranstalterseite je Öffnen.',
+      bericht_text: (name, zeitraum, g, v, p, k, s) => `${name}\n${zeitraum}\nGeöffnet: ${g} · Klicks zur Veranstalterseite: ${v} (${p}) · Kalendereinträge: ${k} · Geteilt: ${s}\nQuelle: endurance-events.de`,
+      werbung_titel: 'Werbeplätze', werbung_sub: 'Einblendungen und Klicks',
+      th_platz: 'Platz', th_sicht: 'Einblendungen', th_klicks: 'Klicks', th_ctr: 'Klickrate',
+      werbung_leer: 'Noch keine Werbeplätze. Sobald eine Seite EnduranceStats.anzeige(element, platz) an einen Werbeplatz hängt, stehen hier Einblendungen, Klicks und Klickrate je Platz – vorher die Datenschutzerklärung ergänzen.',
       l_seiten: 'Seiten', l_einstieg: 'Einstiegsseiten', l_ausstieg: 'Ausstiegsseiten',
       l_referrer: 'Referrer', l_quellen: 'Kampagnen: Quelle', l_medien: 'Kampagnen: Medium', l_kampagnen: 'Kampagnen: Name',
       l_laender: 'Region (nach Zeitzone)', l_sprachen: 'Browsersprache', l_seitensprache: 'Sprache der Seite', l_schema: 'Farbschema',
@@ -303,8 +374,10 @@
       akt_detail: 'Event geöffnet', akt_veranstalter: 'Veranstalterseite besucht', akt_kalender: 'Kalender', akt_teilen: 'Geteilt',
       akt_abo: 'Abo angelegt', akt_melden: 'Fehler gemeldet', akt_fehlt: 'Event vorgeschlagen', akt_suche: 'Gesucht',
       akt_filter: 'Filter gesetzt', akt_standort: 'Standort gesetzt',
+      akt_anzeige_sicht: 'Werbung eingeblendet', akt_anzeige_klick: 'Werbung geklickt',
       kal_ics: 'Kalenderdatei (.ics)', kal_google: 'Google Kalender', kal_outlook: 'Outlook',
       teilen_dialog: 'Teilen-Dialog', teilen_kopie: 'Link kopiert',
+      sport: {},
       ld: { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz', IT: 'Italien', LI: 'Liechtenstein', LU: 'Luxemburg', BE: 'Belgien', NL: 'Niederlande', FR: 'Frankreich', CZ: 'Tschechien', PL: 'Polen', DK: 'Dänemark', SE: 'Schweden', NO: 'Norwegen', FI: 'Finnland', GB: 'Vereinigtes Königreich', IE: 'Irland', ES: 'Spanien', PT: 'Portugal', HU: 'Ungarn', SI: 'Slowenien', HR: 'Kroatien', SK: 'Slowakei', GR: 'Griechenland', EU: 'Europa (sonstige)', AM: 'Amerika', AS: 'Asien', OC: 'Ozeanien', AF: 'Afrika', '??': 'Unbekannt' },
       wochentage: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
       uhr: 'Uhr'
@@ -338,19 +411,40 @@
       gate_kopieren: 'Copy', kopiert: 'Copied',
       gate_fehler: 'The data could not be loaded.',
       gate_nicht_konfiguriert: 'Firebase is not configured on this page.',
-      z7: '7 days', z30: '30 days', z90: '90 days', zjahr: 'This year', zalles: 'All time',
+      z7: '7 days', z30: '30 days', z90: '90 days', zmonat: 'Month', zjahr: 'This year', zalles: 'All time',
+      monat_zurueck: 'Previous month', monat_vor: 'Next month',
+      monate: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       stand: 'Updated', csv: 'Download CSV',
       kpi_besucher: 'Visitors', kpi_besucher_hint: 'unique per day, summed over the period',
       kpi_besuche: 'Visits', kpi_pv: 'Page views', kpi_je_besuch: 'Pages per visit',
       kpi_absprung: 'Bounce rate', kpi_dauer: 'Avg. visit duration',
+      kpi_abos: 'Active e-mail subscriptions', abo_stand: (d) => `as of ${d}`, abo_zuwachs: 'in this period',
+      abo_kein_stand: 'appears after the next deploy of the function (firebase deploy --only functions)',
       vergleich: (n) => `vs. the previous ${n} days`,
+      vergleich_monat: 'vs. the previous month (same days)',
       punkte: 'percentage points',
       verlauf: 'Over time', stunden: 'Time of day', stunden_sub: 'page views per hour',
-      tabelle: 'Show as table',
+      wochentage_titel: 'Weekday', wochentage_sub: 'avg. page views per day', tage_n: 'days',
+      monate_titel: 'Months', monate_sub: 'the last twelve months', th_monat: 'Month', th_je_besuch: 'Pages per visit', th_abos: 'Subscriptions (month end)',
+      tabelle: 'Show as table', tabelle_monate: 'Monthly figures (media kit)',
       th_tag: 'Day', th_besucher: 'Visitors', th_besuche: 'Visits', th_pv: 'Page views', th_absprung: 'Bounces', th_dauer: 'Avg. duration',
       keine_daten: 'No data in this period yet. Aggregation runs hourly (at minute 7) – until then this stays empty.',
       mehr: 'Show more', weniger: 'Show less', leer: 'Nothing yet',
+      s_zielgruppe: 'Audience', s_kunden: 'For organisers and advertisers',
       s_seiten: 'Pages', s_herkunft: 'Sources', s_technik: 'Devices and browsers', s_aktionen: 'What visitors do',
+      l_sport_events: 'Events opened by sport', l_sport_veranstalter: 'Organiser clicks by sport',
+      l_sport_region: 'Sport by region', sport_region_sub: 'events opened', th_sport: 'Sport', th_gesamt: 'Total', sonstige: 'Other',
+      l_events_kalender: 'Calendar entries by event', l_events_teilen: 'Shared by event',
+      bericht_titel: 'Report per event', bericht_sub: 'for organisers',
+      bericht_platzhalter: 'Search for an event …', bericht_leer: 'No event has been opened in this period yet.',
+      bericht_unbekannt: 'There are no figures for this event in the period.',
+      b_geoeffnet: 'Opened', b_veranstalter: 'Clicks to organiser site', b_klickrate: 'Click-through rate', b_kalender: 'Calendar entries', b_teilen: 'Shared',
+      bericht_kopieren: 'Copy report',
+      bericht_hinweis: 'Opened counts how often visitors viewed the event in the list or on the map (once per page view); click-through rate = organiser clicks per opening.',
+      bericht_text: (name, zeitraum, g, v, p, k, s) => `${name}\n${zeitraum}\nOpened: ${g} · Clicks to organiser site: ${v} (${p}) · Calendar entries: ${k} · Shared: ${s}\nSource: endurance-events.de`,
+      werbung_titel: 'Ad placements', werbung_sub: 'impressions and clicks',
+      th_platz: 'Placement', th_sicht: 'Impressions', th_klicks: 'Clicks', th_ctr: 'CTR',
+      werbung_leer: 'No ad placements yet. As soon as a page attaches EnduranceStats.anzeige(element, placement) to an ad slot, impressions, clicks and click-through rate per placement appear here – amend the privacy policy first.',
       l_seiten: 'Pages', l_einstieg: 'Entry pages', l_ausstieg: 'Exit pages',
       l_referrer: 'Referrers', l_quellen: 'Campaigns: source', l_medien: 'Campaigns: medium', l_kampagnen: 'Campaigns: name',
       l_laender: 'Region (by time zone)', l_sprachen: 'Browser language', l_seitensprache: 'Site language', l_schema: 'Colour scheme',
@@ -365,8 +459,11 @@
       akt_detail: 'Event opened', akt_veranstalter: 'Organiser site visited', akt_kalender: 'Calendar', akt_teilen: 'Shared',
       akt_abo: 'Subscription created', akt_melden: 'Error reported', akt_fehlt: 'Event suggested', akt_suche: 'Searched',
       akt_filter: 'Filter applied', akt_standort: 'Location set',
+      akt_anzeige_sicht: 'Ad shown', akt_anzeige_klick: 'Ad clicked',
       kal_ics: 'Calendar file (.ics)', kal_google: 'Google Calendar', kal_outlook: 'Outlook',
       teilen_dialog: 'Share dialog', teilen_kopie: 'Link copied',
+      // Sportarten heißen in den Daten deutsch (art1) - hier die Anzeige.
+      sport: { Laufen: 'Running', Fahrrad: 'Cycling', Schwimmen: 'Swimming', Triathlon: 'Triathlon' },
       ld: { DE: 'Germany', AT: 'Austria', CH: 'Switzerland', IT: 'Italy', LI: 'Liechtenstein', LU: 'Luxembourg', BE: 'Belgium', NL: 'Netherlands', FR: 'France', CZ: 'Czechia', PL: 'Poland', DK: 'Denmark', SE: 'Sweden', NO: 'Norway', FI: 'Finland', GB: 'United Kingdom', IE: 'Ireland', ES: 'Spain', PT: 'Portugal', HU: 'Hungary', SI: 'Slovenia', HR: 'Croatia', SK: 'Slovakia', GR: 'Greece', EU: 'Europe (other)', AM: 'Americas', AS: 'Asia', OC: 'Oceania', AF: 'Africa', '??': 'Unknown' },
       wochentage: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       uhr: 'h'
@@ -564,23 +661,57 @@
   }
 
   // ---------- Daten ----------
+  // „Monat" (14.10.2026): Werbung wird je Kalendermonat verkauft, deshalb
+  // neben den gleitenden Zeiträumen ein fester Monat mit ‹ › daneben.
+  // Vergleich ist der Vormonat über GLEICH VIELE Tage (der 14. Oktober
+  // gegen den 1.–14. September), sonst stünde ein halber Monat gegen
+  // einen ganzen.
   const ZEITRAEUME = [
-    { id: '7', tage: 7 }, { id: '30', tage: 30 }, { id: '90', tage: 90 }, { id: 'jahr' }, { id: 'alles' }
+    { id: '7', tage: 7 }, { id: '30', tage: 30 }, { id: '90', tage: 90 }, { id: 'monat' }, { id: 'jahr' }, { id: 'alles' }
   ];
   let zeitraum = '30';
   try {
     const g = localStorage.getItem('endurance-stat-zeitraum');
     if (ZEITRAEUME.some(z => z.id === g)) zeitraum = g;
   } catch (e) { /* ignorieren */ }
+  let monat = isoHeute().slice(0, 7);   // YYYY-MM, der gewählte Monat
+  const MONATE_IM_BILD = 12;
   const tageCache = new Map();   // iso -> Tagesdokument
   let allesGeladen = false;
+
+  function monatPlus(ym, n) {
+    const [j, m] = ym.split('-').map(Number);
+    return new Date(Date.UTC(j, m - 1 + n, 1)).toISOString().slice(0, 7);
+  }
+  function monatsEnde(ym) {
+    const [j, m] = ym.split('-').map(Number);
+    return new Date(Date.UTC(j, m, 0)).toISOString().slice(0, 10);
+  }
+  function fmtMonat(ym) {
+    const [j, m] = ym.split('-').map(Number);
+    return `${I18N[lang].monate[m - 1]} ${j}`;
+  }
+  function wochentagVon(iso) {
+    const [j, m, d] = iso.split('-').map(Number);
+    return new Date(Date.UTC(j, m - 1, d)).getUTCDay();
+  }
 
   function grenzen() {
     const heute = isoHeute();
     const z = ZEITRAEUME.find(x => x.id === zeitraum);
     if (z.tage) {
       const von = isoPlus(heute, -(z.tage - 1));
-      return { von, bis: heute, vergleich: { von: isoPlus(von, -z.tage), bis: isoPlus(von, -1) } };
+      return { von, bis: heute, vergleich: { von: isoPlus(von, -z.tage), bis: isoPlus(von, -1) }, vergleichArt: 'tage' };
+    }
+    if (z.id === 'monat') {
+      if (monat > heute.slice(0, 7)) monat = heute.slice(0, 7);
+      const von = monat + '-01';
+      const ende = monatsEnde(monat);
+      const bis = ende < heute ? ende : heute;
+      const vm = monatPlus(monat, -1);
+      const vBis = isoPlus(vm + '-01', tageZwischen(von, bis) - 1);
+      const vEnde = monatsEnde(vm);
+      return { von, bis, vergleich: { von: vm + '-01', bis: vBis < vEnde ? vBis : vEnde }, vergleichArt: 'monat' };
     }
     if (z.id === 'jahr') return { von: heute.slice(0, 4) + '-01-01', bis: heute, vergleich: null };
     return { von: null, bis: heute, vergleich: null };
@@ -618,8 +749,23 @@
     return liste;
   }
 
+  // Jede Liste eines Tagesdokuments (stats_aggregate.js: AKTIONS_DETAIL
+  // plus die festen Listen) - test_statistik vergleicht.
   const LISTEN_FELDER = ['seiten', 'einstieg', 'ausstieg', 'referrer', 'quellen', 'medien', 'kampagnen', 'laender', 'sprachen',
-    'seitensprache', 'schema', 'geraete', 'browser', 'systeme', 'aktionen', 'events', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'suche', 'filter'];
+    'seitensprache', 'schema', 'geraete', 'browser', 'systeme', 'aktionen', 'events', 'veranstalter', 'kalender', 'teilen', 'abo', 'melden', 'suche', 'filter',
+    'sport_events', 'sport_veranstalter', 'sport_region', 'events_kalender', 'events_teilen', 'anzeige_sicht', 'anzeige_klick'];
+
+  // Der jüngste Abo-Stand (abos_aktiv, von aggregateStats ins Dokument des
+  // Tages geschrieben) bis zum Tag `bis`, auf Wunsch frühestens ab `von`;
+  // `erster` liefert stattdessen den ÄLTESTEN Stand im Fenster.
+  function aboStand(bis, von, erster) {
+    let best = null;
+    tageCache.forEach((doc, d) => {
+      if (!doc || typeof doc.abos_aktiv !== 'number' || d > bis || (von && d < von)) return;
+      if (!best || (erster ? d < best.d : d > best.d)) best = { d, n: doc.abos_aktiv, rhythmus: doc.abos_rhythmus || [] };
+    });
+    return best;
+  }
 
   function summiere(tage) {
     const s = { pv: 0, besucher: 0, besuche: 0, absprung: 0, dauer_sek: 0, dauer_n: 0, stunden: new Array(24).fill(0), listen: {}, aktualisiert: null, tageMitDaten: 0 };
@@ -644,6 +790,10 @@
 
   async function ladeUndZeichne() {
     const g = grenzen();
+    // Die letzten zwölf Monate zuerst (eine Abfrage): Daraus kommen das
+    // Monatsdiagramm und fast jeder Zeitraum samt Vergleich aus dem Cache.
+    const heute = isoHeute();
+    await ladeTage(monatPlus(heute.slice(0, 7), -(MONATE_IM_BILD - 1)) + '-01', heute);
     const ladeVon = g.vergleich ? g.vergleich.von : g.von;
     await ladeTage(ladeVon, g.bis);
     const tage = tageIm(g.von, g.bis);
@@ -658,7 +808,9 @@
     zeichneZeitraum();
     zeichneKpis();
     zeichneVerlauf();
+    zeichneMonate();
     zeichneStunden();
+    zeichneWochentage();
     zeichneListen();
     const standEl = document.getElementById('stat-stand');
     if (aktuell.summe.aktualisiert) {
@@ -673,16 +825,29 @@
     const el = document.getElementById('stat-range');
     el.innerHTML = ZEITRAEUME.map(z =>
       `<button type="button" data-z="${z.id}" class="${z.id === zeitraum ? 'active' : ''}" aria-pressed="${z.id === zeitraum}">${escapeHtml(t('z' + z.id))}</button>`
-    ).join('');
+    ).join('') + (zeitraum === 'monat'
+      ? `<span class="stat-monat"><button type="button" data-m="-1" aria-label="${escapeHtml(t('monat_zurueck'))}">‹</button><b>${escapeHtml(fmtMonat(monat))}</b><button type="button" data-m="1" aria-label="${escapeHtml(t('monat_vor'))}" ${monat >= isoHeute().slice(0, 7) ? 'disabled' : ''}>›</button></span>`
+      : '');
+  }
+  function neuLaden() {
+    // Beim Nachladen bleibt das alte Bild stehen, nur leicht gedämpft.
+    contentEl.style.opacity = '0.6';
+    ladeUndZeichne().catch(gateFehler).finally(() => { contentEl.style.opacity = ''; });
   }
   document.getElementById('stat-range').addEventListener('click', (ev) => {
+    const m = ev.target.closest('button[data-m]');
+    if (m) {
+      const neu = monatPlus(monat, Number(m.dataset.m));
+      if (neu > isoHeute().slice(0, 7)) return;
+      monat = neu;
+      neuLaden();
+      return;
+    }
     const b = ev.target.closest('button[data-z]');
     if (!b || b.dataset.z === zeitraum) return;
     zeitraum = b.dataset.z;
     try { localStorage.setItem('endurance-stat-zeitraum', zeitraum); } catch (e) { /* ignorieren */ }
-    // Beim Nachladen bleibt das alte Bild stehen, nur leicht gedämpft.
-    contentEl.style.opacity = '0.6';
-    ladeUndZeichne().catch(gateFehler).finally(() => { contentEl.style.opacity = ''; });
+    neuLaden();
   });
 
   function delta(neu, alt, prozentpunkte) {
@@ -693,10 +858,14 @@
       if (Math.abs(diff) < 0.05) return `<div class="delta">± 0 ${escapeHtml(t('punkte'))}</div>`;
       return `<div class="delta ${diff > 0 ? 'down' : 'up'}">${diff > 0 ? '+' : '−'}${fmtDez(Math.abs(diff), 1)} ${escapeHtml(t('punkte'))}</div>`;
     }
-    if (alt === 0) return neu > 0 ? `<div class="delta up">+ ${escapeHtml(t('vergleich', aktuell.tage.length))}</div>` : '<div class="delta"></div>';
+    const txt = vergleichText();
+    if (alt === 0) return neu > 0 ? `<div class="delta up">+ ${escapeHtml(txt)}</div>` : '<div class="delta"></div>';
     const p = (neu - alt) / alt * 100;
     if (Math.abs(p) < 0.5) return `<div class="delta">± 0 %</div>`;
-    return `<div class="delta ${p > 0 ? 'up' : 'down'}">${p > 0 ? '+' : '−'}${fmtDez(Math.abs(p), Math.abs(p) >= 10 ? 0 : 1)} % ${escapeHtml(t('vergleich', aktuell.tage.length))}</div>`;
+    return `<div class="delta ${p > 0 ? 'up' : 'down'}">${p > 0 ? '+' : '−'}${fmtDez(Math.abs(p), Math.abs(p) >= 10 ? 0 : 1)} % ${escapeHtml(txt)}</div>`;
+  }
+  function vergleichText() {
+    return aktuell.g.vergleichArt === 'monat' ? t('vergleich_monat') : t('vergleich', aktuell.tage.length);
   }
 
   function zeichneKpis() {
@@ -715,11 +884,27 @@
       { label: t('kpi_pv'), wert: fmtInt(s.pv), d: delta(s.pv, v ? v.pv : NaN) },
       { label: t('kpi_je_besuch'), wert: fmtDez(jeBesuch, 1), d: delta(jeBesuch, vJe) },
       { label: t('kpi_absprung'), wert: fmtProzent(absprung), d: delta(absprung, vAb, true) },
-      { label: t('kpi_dauer'), wert: fmtDauer(dauer), d: delta(dauer, vDa) }
+      { label: t('kpi_dauer'), wert: fmtDauer(dauer), d: delta(dauer, vDa) },
+      aboKachel()
     ];
     document.getElementById('stat-kpis').innerHTML = kacheln.map(k =>
       `<div class="kpi"><div class="label">${escapeHtml(k.label)}</div><div class="value">${escapeHtml(k.wert)}</div>${k.d || '<div class="delta"></div>'}${k.hint ? `<div class="hint">${escapeHtml(k.hint)}</div>` : ''}</div>`
     ).join('');
+  }
+
+  // Aktive E-Mail-Abos: der jüngste Tagesstand im Zeitraum, dazu der
+  // Zuwachs seit dem Stand vor dem Zeitraum (oder dem ältesten darin).
+  function aboKachel() {
+    const g = aktuell.g;
+    const stand = aboStand(g.bis);
+    if (!stand) return { label: t('kpi_abos'), wert: '–', hint: t('abo_kein_stand') };
+    const vorher = (g.von && aboStand(isoPlus(g.von, -1))) || aboStand(g.bis, g.von, true);
+    let d = '<div class="delta"></div>';
+    if (vorher && vorher.d !== stand.d && vorher.n !== stand.n) {
+      const diff = stand.n - vorher.n;
+      d = `<div class="delta ${diff > 0 ? 'up' : 'down'}">${diff > 0 ? '+' : '−'}${fmtInt(Math.abs(diff))} ${escapeHtml(t('abo_zuwachs'))}</div>`;
+    }
+    return { label: t('kpi_abos'), wert: fmtInt(stand.n), d, hint: t('abo_stand', fmtTag(stand.d)) };
   }
 
   function svgEl(name, attrs) {
@@ -844,22 +1029,24 @@
       ).join('') + '</tbody>';
   }
 
-  function zeichneStunden() {
-    const wrap = document.getElementById('wrap-stunden');
-    const svg = document.getElementById('chart-stunden');
-    const tip = document.getElementById('tip-stunden');
-    document.getElementById('h-stunden').textContent = t('stunden');
-    document.getElementById('h-stunden-sub').textContent = t('stunden_sub');
+  // EIN Balkendiagramm für Tageszeit, Wochentag und Monate: `reihen` =
+  // [{ werte, klasse }] mit gleich vielen Werten, die Balken einer Gruppe
+  // stehen nebeneinander. Oben gerundet (4 px), Hairline-Raster, Tooltip
+  // über der Gruppe; `achse(i)` liefert die Beschriftung oder null.
+  function balkenDiagramm(o) {
+    const wrap = document.getElementById(o.wrap);
+    const svg = document.getElementById(o.svg);
+    const tip = document.getElementById(o.tip);
     svg.innerHTML = '';
-    const werte = aktuell.summe.stunden;
-    const W = Math.max(320, wrap.clientWidth || 800), H = 200;
+    const n = o.reihen[0].werte.length;
+    const W = Math.max(320, wrap.clientWidth || 800), H = o.hoehe || 200;
     const padL = 36, padR = 10, padT = 10, padB = 26;
     const iw = W - padL - padR, ih = H - padT - padB;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.setAttribute('width', W); svg.setAttribute('height', H);
-    const spitze = werte.indexOf(Math.max(...werte));
-    svg.setAttribute('aria-label', `${t('stunden')}: ${t('stunden_sub')}${aktuell.summe.pv ? `, ${spitze}:00 ${t('uhr')}` : ''}`);
-    const skala = schoeneSkala(Math.max(...werte));
+    svg.setAttribute('aria-label', o.aria || '');
+    const alle = o.reihen.reduce((a, r) => a.concat(r.werte), [0]);
+    const skala = schoeneSkala(Math.max(...alle));
     const y = (v) => padT + ih - (v / skala.max) * ih;
     const grid = svgEl('g', { class: 'grid' });
     const axis = svgEl('g', { class: 'axis' });
@@ -870,26 +1057,33 @@
       axis.appendChild(tx);
     }
     svg.appendChild(grid);
-    const slot = iw / 24;
-    const breite = Math.min(24, Math.max(4, slot - 2));
-    werte.forEach((v, h) => {
-      const bx = padL + h * slot + (slot - breite) / 2;
-      const hoehe = Math.max(0, y(0) - y(v));
-      const r = Math.min(4, breite / 2, hoehe);
-      // Balken: oben gerundet (4 px), an der Grundlinie eckig.
-      const d = hoehe > 0
-        ? `M${bx},${y(0)} V${y(v) + r} Q${bx},${y(v)} ${bx + r},${y(v)} H${bx + breite - r} Q${bx + breite},${y(v)} ${bx + breite},${y(v) + r} V${y(0)} Z`
-        : '';
+    const slot = n ? iw / n : iw;
+    const k = o.reihen.length;
+    const luecke = k > 1 ? 2 : 0;
+    const breite = Math.min(24, Math.max(3, (slot - 2 - luecke * (k - 1)) / k));
+    const gruppe = breite * k + luecke * (k - 1);
+    for (let i = 0; i < n; i++) {
       const g = svgEl('g', {});
-      if (d) g.appendChild(svgEl('path', { class: 'balken', d }));
-      const fang = svgEl('rect', { class: 'fang', x: padL + h * slot, y: padT, width: slot, height: ih });
-      fang.addEventListener('pointerenter', (ev) => {
+      const start = padL + i * slot + (slot - gruppe) / 2;
+      o.reihen.forEach((r, ri) => {
+        const v = r.werte[i] || 0;
+        const bx = start + ri * (breite + luecke);
+        const hoehe = Math.max(0, y(0) - y(v));
+        const rad = Math.min(4, breite / 2, hoehe);
+        // Balken: oben gerundet, an der Grundlinie eckig.
+        if (hoehe > 0) {
+          g.appendChild(svgEl('path', { class: 'balken ' + (r.klasse || ''),
+            d: `M${bx},${y(0)} V${y(v) + rad} Q${bx},${y(v)} ${bx + rad},${y(v)} H${bx + breite - rad} Q${bx + breite},${y(v)} ${bx + breite},${y(v) + rad} V${y(0)} Z` }));
+        }
+      });
+      const fang = svgEl('rect', { class: 'fang', x: padL + i * slot, y: padT, width: slot, height: ih });
+      fang.addEventListener('pointerenter', () => {
         g.querySelectorAll('.balken').forEach(b => b.classList.add('aktiv'));
-        tip.innerHTML = `<div class="tip-zeile"><span>${h}:00–${h + 1}:00 ${escapeHtml(t('uhr'))}</span><b>${fmtInt(v)}</b></div>`;
+        tip.innerHTML = o.tipp(i);
         tip.style.display = 'block';
         const wr = wrap.getBoundingClientRect();
         const tb = tip.offsetWidth || 140;
-        const links = (bx + breite / 2) * (wr.width / W);
+        const links = (start + gruppe / 2) * (wr.width / W);
         tip.style.left = `${Math.min(Math.max(0, links - tb / 2), wr.width - tb)}px`;
         tip.style.top = '0px';
       });
@@ -899,23 +1093,121 @@
       });
       g.appendChild(fang);
       svg.appendChild(g);
-      if (h % 3 === 0) {
-        const tx = svgEl('text', { x: padL + h * slot + slot / 2, y: H - 8, 'text-anchor': 'middle' });
-        tx.textContent = `${h}`;
+      const label = o.achse(i);
+      if (label != null) {
+        const tx = svgEl('text', { x: padL + i * slot + slot / 2, y: H - 8, 'text-anchor': 'middle' });
+        tx.textContent = label;
         axis.appendChild(tx);
       }
-    });
+    }
     svg.appendChild(axis);
   }
 
+  function zeichneStunden() {
+    document.getElementById('h-stunden').textContent = t('stunden');
+    document.getElementById('h-stunden-sub').textContent = t('stunden_sub');
+    const werte = aktuell.summe.stunden;
+    const spitze = werte.indexOf(Math.max(...werte));
+    balkenDiagramm({
+      wrap: 'wrap-stunden', svg: 'chart-stunden', tip: 'tip-stunden',
+      reihen: [{ werte }],
+      aria: `${t('stunden')}: ${t('stunden_sub')}${aktuell.summe.pv ? `, ${spitze}:00 ${t('uhr')}` : ''}`,
+      achse: (h) => h % 3 === 0 ? String(h) : null,
+      tipp: (h) => `<div class="tip-zeile"><span>${h}:00–${h + 1}:00 ${escapeHtml(t('uhr'))}</span><b>${fmtInt(werte[h])}</b></div>`
+    });
+  }
+
+  // Wochentag: Ø Seitenaufrufe je Tag, Montag zuerst - aus den
+  // Tagesdokumenten des Zeitraums, geteilt durch die Zahl der Tage mit
+  // Daten je Wochentag (ein Tag ohne Dokument hatte keinen Aufruf oder
+  // lag vor dem Start der Zählung - beides zählt nicht mit).
+  const WOCHE = [1, 2, 3, 4, 5, 6, 0];
+  function zeichneWochentage() {
+    document.getElementById('h-wochentage').textContent = t('wochentage_titel');
+    document.getElementById('h-wochentage-sub').textContent = t('wochentage_sub');
+    const summe = new Array(7).fill(0), tage = new Array(7).fill(0);
+    aktuell.tage.forEach(({ d, doc }) => {
+      if (!doc) return;
+      const wd = wochentagVon(d);
+      summe[wd] += doc.pv || 0;
+      tage[wd]++;
+    });
+    const werte = WOCHE.map(wd => tage[wd] ? Math.round(summe[wd] / tage[wd]) : 0);
+    const namen = I18N[lang].wochentage;
+    balkenDiagramm({
+      wrap: 'wrap-wochentage', svg: 'chart-wochentage', tip: 'tip-wochentage',
+      reihen: [{ werte }],
+      aria: `${t('wochentage_titel')}: ${t('wochentage_sub')}`,
+      achse: (i) => namen[WOCHE[i]],
+      tipp: (i) => `<div class="tip-zeile"><span>${escapeHtml(namen[WOCHE[i]])} · ${fmtInt(tage[WOCHE[i]])} ${escapeHtml(t('tage_n'))}</span><b>${fmtInt(werte[i])}</b></div>`
+    });
+  }
+
+  // Monate: die letzten zwölf, ab dem ersten Monat mit Daten (vorher gab
+  // es die Zählung nicht - leere Balken davor wären kein Befund). Jeder
+  // Monat ist die Summe seiner Tagesdokumente, unabhängig vom gewählten
+  // Zeitraum; die Tabelle darunter ist das Mediadaten-Blatt.
+  function monatsWerte() {
+    const heute = isoHeute();
+    const liste = [];
+    for (let i = MONATE_IM_BILD - 1; i >= 0; i--) {
+      const ym = monatPlus(heute.slice(0, 7), -i);
+      const bis = i === 0 ? heute : monatsEnde(ym);
+      const su = summiere(tageIm(ym + '-01', bis));
+      su.abos = aboStand(bis, ym + '-01');
+      liste.push({ ym, s: su });
+    }
+    const erster = liste.findIndex(x => x.s.tageMitDaten > 0);
+    return erster < 0 ? liste.slice(-1) : liste.slice(erster);
+  }
+  function zeichneMonate() {
+    document.getElementById('h-monate').textContent = t('monate_titel');
+    document.getElementById('h-monate-sub').textContent = t('monate_sub');
+    document.getElementById('t-tabelle-monate').textContent = t('tabelle_monate');
+    document.getElementById('legend-monate').innerHTML =
+      `<span><i class="key key-1"></i>${escapeHtml(t('kpi_besuche'))}</span>` +
+      `<span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span>`;
+    const monate = monatsWerte();
+    const besuche = monate.map(m => m.s.besuche);
+    const pv = monate.map(m => m.s.pv);
+    balkenDiagramm({
+      wrap: 'wrap-monate', svg: 'chart-monate', tip: 'tip-monate',
+      reihen: [{ werte: besuche }, { werte: pv, klasse: 'balken-2' }],
+      aria: `${t('monate_titel')}: ${t('monate_sub')}`,
+      achse: (i) => {
+        const [j, m] = monate[i].ym.split('-').map(Number);
+        return lang === 'de' ? `${I18N.de.monate[m - 1].slice(0, 3)} ${String(j).slice(2)}` : `${I18N.en.monate[m - 1].slice(0, 3)} ${String(j).slice(2)}`;
+      },
+      tipp: (i) => `<div class="tip-datum">${escapeHtml(fmtMonat(monate[i].ym))}</div>` +
+        `<div class="tip-zeile"><span><i class="key key-1"></i>${escapeHtml(t('kpi_besuche'))}</span><b>${fmtInt(besuche[i])}</b></div>` +
+        `<div class="tip-zeile"><span><i class="key key-2"></i>${escapeHtml(t('kpi_pv'))}</span><b>${fmtInt(pv[i])}</b></div>`
+    });
+    const tbl = document.getElementById('tabelle-monate');
+    const kopf = ['th_monat', 'th_besucher', 'th_besuche', 'th_pv', 'th_je_besuch', 'th_dauer', 'th_abos'];
+    tbl.innerHTML = `<thead><tr>${kopf.map(k => `<th>${escapeHtml(t(k))}</th>`).join('')}</tr></thead><tbody>` +
+      monate.slice().reverse().filter(m => m.s.tageMitDaten > 0).map(({ ym, s: su }) =>
+        `<tr><td>${escapeHtml(fmtMonat(ym))}</td><td>${fmtInt(su.besucher)}</td><td>${fmtInt(su.besuche)}</td><td>${fmtInt(su.pv)}</td>` +
+        `<td>${escapeHtml(fmtDez(su.besuche ? su.pv / su.besuche : NaN, 1))}</td><td>${escapeHtml(su.dauer_n ? fmtDauer(su.dauer_sek / su.dauer_n) : '–')}</td>` +
+        `<td>${su.abos ? fmtInt(su.abos.n) : '–'}</td></tr>`
+      ).join('') + '</tbody>';
+  }
+
   // ---------- Listen ----------
+  // Zielgruppe und die beiden Kundenkarten zuerst (14.10.2026) - das sind
+  // die Zahlen für Werbekunden und Veranstalter; `extra` liefert
+  // zusätzliche Karten als HTML (Sportart je Region, Bericht, Werbeplätze).
   const ABSCHNITTE = [
+    { titel: 's_zielgruppe', listen: ['sport_events', 'sport_veranstalter'], extra: () => sportRegionHtml() },
+    { titel: 's_kunden', listen: [], extra: () => berichtHtml() + werbungHtml() },
     { titel: 's_seiten', listen: ['seiten', 'einstieg', 'ausstieg'] },
     { titel: 's_herkunft', listen: ['referrer', 'laender', 'sprachen', 'quellen', 'medien', 'kampagnen'] },
     { titel: 's_technik', listen: ['geraete', 'browser', 'systeme', 'seitensprache', 'schema'] },
-    { titel: 's_aktionen', listen: ['aktionen', 'events', 'veranstalter', 'suche', 'filter', 'kalender', 'teilen', 'abo', 'melden'] }
+    { titel: 's_aktionen', listen: ['aktionen', 'events', 'veranstalter', 'events_kalender', 'events_teilen', 'suche', 'filter', 'kalender', 'teilen', 'abo', 'melden'] }
   ];
+  function sportName(k) { return I18N[lang].sport[k] || k; }
   const BESCHRIFTUNG = {
+    sport_events: (k) => sportName(k),
+    sport_veranstalter: (k) => sportName(k),
     seiten: (k) => t('p_' + k) === 'p_' + k ? k : t('p_' + k),
     einstieg: (k) => BESCHRIFTUNG.seiten(k),
     ausstieg: (k) => BESCHRIFTUNG.seiten(k),
@@ -936,9 +1228,133 @@
     const root = document.getElementById('stat-listen');
     root.innerHTML = ABSCHNITTE.map(a =>
       `<h3 class="stat-section-title">${escapeHtml(t(a.titel))}</h3><div class="stat-grid">` +
-      a.listen.map(f => listeHtml(f)).join('') + '</div>'
+      a.listen.map(f => listeHtml(f)).join('') + (a.extra ? a.extra() : '') + '</div>'
     ).join('');
   }
+
+  // Sportart je Region: eine Kreuztabelle aus `sport_region` ("Laufen|DE").
+  // Zeilen nach Größe, Spalten die vier größten Regionen plus „Sonstige".
+  function sportRegionHtml() {
+    const map = aktuell.summe.listen.sport_region || new Map();
+    const sport = new Map(), region = new Map(), zelle = new Map();
+    let gesamt = 0;
+    map.forEach((n, k) => {
+      const i = k.lastIndexOf('|');
+      const sp = i < 0 ? k : k.slice(0, i), ld = i < 0 ? '??' : k.slice(i + 1);
+      sport.set(sp, (sport.get(sp) || 0) + n);
+      region.set(ld, (region.get(ld) || 0) + n);
+      zelle.set(sp + '|' + ld, n);
+      gesamt += n;
+    });
+    let html = `<section class="stat-card breit" data-liste="sport_region"><h3><span>${escapeHtml(t('l_sport_region'))}</span><small>${escapeHtml(t('sport_region_sub'))} · ${fmtInt(gesamt)}</small></h3>`;
+    if (!gesamt) return html + `<p class="leer">${escapeHtml(t('leer'))}</p></section>`;
+    const sortiert = (m) => Array.from(m, ([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n || (a.k < b.k ? -1 : 1));
+    const sportarten = sortiert(sport);
+    const regionen = sortiert(region);
+    const spalten = regionen.slice(0, 4).map(r => r.k);
+    const rest = regionen.slice(4).map(r => r.k);
+    const wert = (sp, ld) => zelle.get(sp + '|' + ld) || 0;
+    const restWert = (sp) => rest.reduce((a, ld) => a + wert(sp, ld), 0);
+    const ld = (k) => I18N[lang].ld[k] || k;
+    html += '<div class="matrix-wrap"><table class="matrix"><thead><tr>' +
+      `<th>${escapeHtml(t('th_sport'))}</th>` + spalten.map(k => `<th>${escapeHtml(ld(k))}</th>`).join('') +
+      (rest.length ? `<th>${escapeHtml(t('sonstige'))}</th>` : '') + `<th>${escapeHtml(t('th_gesamt'))}</th></tr></thead><tbody>` +
+      sportarten.map(({ k, n }) =>
+        `<tr><td>${escapeHtml(sportName(k))}</td>` + spalten.map(l => `<td>${fmtInt(wert(k, l))}</td>`).join('') +
+        (rest.length ? `<td>${fmtInt(restWert(k))}</td>` : '') + `<td>${fmtInt(n)} <span class="anteil">(${escapeHtml(fmtProzent(n / gesamt))})</span></td></tr>`
+      ).join('') + '</tbody><tfoot><tr>' +
+      `<td>${escapeHtml(t('th_gesamt'))}</td>` + spalten.map(l => `<td>${fmtInt(region.get(l) || 0)}</td>`).join('') +
+      (rest.length ? `<td>${fmtInt(rest.reduce((a, l) => a + (region.get(l) || 0), 0))}</td>` : '') + `<td>${fmtInt(gesamt)}</td></tr></tfoot></table></div>`;
+    return html + '</section>';
+  }
+
+  // Bericht je Veranstaltung: was ein Veranstalter wissen will - wie oft
+  // sein Event geöffnet wurde, wie viele zu seiner Seite weitergingen,
+  // Kalender, Teilen; dazu die Tage. Gerechnet aus den Tageslisten
+  // (events, veranstalter, events_kalender, events_teilen), die je Tag die
+  // 500 meistgenannten Events führen - ein sehr kleines Event an einem
+  // sehr großen Tag kann darin fehlen.
+  let berichtEvent = null;   // Wahl des Nutzers; null = das meistgeöffnete
+  function berichtHtml() {
+    const L = aktuell.summe.listen;
+    const ev = L.events || new Map();
+    const namen = Array.from(ev, ([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n || (a.k < b.k ? -1 : 1));
+    const name = berichtEvent != null ? berichtEvent : (namen.length ? namen[0].k : '');
+    let html = `<section class="stat-card breit" id="bericht-card"><h3><span>${escapeHtml(t('bericht_titel'))}</span><small>${escapeHtml(t('bericht_sub'))}</small></h3>`;
+    html += `<input class="bericht-suche" id="bericht-suche" list="bericht-liste" placeholder="${escapeHtml(t('bericht_platzhalter'))}" value="${escapeHtml(name)}" autocomplete="off">` +
+      `<datalist id="bericht-liste">${namen.slice(0, 500).map(e => `<option value="${escapeHtml(e.k)}"></option>`).join('')}</datalist>`;
+    if (!namen.length) return html + `<p class="leer">${escapeHtml(t('bericht_leer'))}</p></section>`;
+    if (!ev.has(name)) return html + `<p class="leer">${escapeHtml(t('bericht_unbekannt'))}</p></section>`;
+    const g = ev.get(name) || 0;
+    const v = (L.veranstalter && L.veranstalter.get(name)) || 0;
+    const k = (L.events_kalender && L.events_kalender.get(name)) || 0;
+    const sh = (L.events_teilen && L.events_teilen.get(name)) || 0;
+    const rate = g ? v / g : NaN;
+    const vg = aktuell.vergleich ? (aktuell.vergleich.listen.events.get(name) || 0) : NaN;
+    const kacheln = [
+      { label: t('b_geoeffnet'), wert: fmtInt(g), d: delta(g, vg) },
+      { label: t('b_veranstalter'), wert: fmtInt(v) },
+      { label: t('b_klickrate'), wert: fmtProzent(rate) },
+      { label: t('b_kalender'), wert: fmtInt(k) },
+      { label: t('b_teilen'), wert: fmtInt(sh) }
+    ];
+    html += `<p class="bericht-name">${escapeHtml(name)}</p><div class="bericht-kpis">` + kacheln.map(x =>
+      `<div class="kpi"><div class="label">${escapeHtml(x.label)}</div><div class="value">${escapeHtml(x.wert)}</div>${x.d || ''}</div>`
+    ).join('') + '</div>';
+    const inListe = (liste, n) => { const e = (liste || []).find(x => x.k === n); return e ? e.n || 0 : 0; };
+    const zeilen = aktuell.tage.filter(x => x.doc).map(({ d, doc }) => ({
+      d, g: inListe(doc.events, name), v: inListe(doc.veranstalter, name), k: inListe(doc.events_kalender, name), s: inListe(doc.events_teilen, name)
+    })).filter(z => z.g || z.v || z.k || z.s).reverse();
+    html += `<details class="tabelle"><summary>${escapeHtml(t('tabelle'))}</summary><div class="matrix-wrap"><table class="matrix"><thead><tr>` +
+      ['th_tag', 'b_geoeffnet', 'b_veranstalter', 'b_kalender', 'b_teilen'].map(x => `<th>${escapeHtml(t(x))}</th>`).join('') + '</tr></thead><tbody>' +
+      zeilen.map(z => `<tr><td>${escapeHtml(fmtTag(z.d))}</td><td>${fmtInt(z.g)}</td><td>${fmtInt(z.v)}</td><td>${fmtInt(z.k)}</td><td>${fmtInt(z.s)}</td></tr>`).join('') +
+      '</tbody></table></div></details>';
+    html += `<div class="bericht-fuss"><button type="button" class="stat-btn" id="bericht-kopieren">${escapeHtml(t('bericht_kopieren'))}</button><span class="hinweis">${escapeHtml(t('bericht_hinweis'))}</span></div>`;
+    return html + '</section>';
+  }
+  function berichtText() {
+    const L = aktuell.summe.listen;
+    const ev = L.events || new Map();
+    const name = berichtEvent != null ? berichtEvent : (Array.from(ev.keys())[0] || '');
+    if (!ev.has(name)) return '';
+    const g = ev.get(name) || 0, v = (L.veranstalter && L.veranstalter.get(name)) || 0;
+    const zeitraum = aktuell.g.von ? `${fmtTag(aktuell.g.von)} – ${fmtTag(aktuell.g.bis)}` : `${lang === 'de' ? 'bis' : 'until'} ${fmtTag(aktuell.g.bis)}`;
+    return t('bericht_text', name, zeitraum, fmtInt(g), fmtInt(v), fmtProzent(g ? v / g : NaN),
+      fmtInt((L.events_kalender && L.events_kalender.get(name)) || 0), fmtInt((L.events_teilen && L.events_teilen.get(name)) || 0));
+  }
+
+  // Werbeplätze: Einblendungen und Klicks je Platz, daraus die Klickrate.
+  // Leer, bis eine Seite EnduranceStats.anzeige() aufruft (stats.js).
+  function werbungHtml() {
+    const sicht = aktuell.summe.listen.anzeige_sicht || new Map();
+    const klick = aktuell.summe.listen.anzeige_klick || new Map();
+    const plaetze = new Set([...sicht.keys(), ...klick.keys()]);
+    let html = `<section class="stat-card" data-liste="anzeige"><h3><span>${escapeHtml(t('werbung_titel'))}</span><small>${escapeHtml(t('werbung_sub'))}</small></h3>`;
+    if (!plaetze.size) return html + `<p class="leer">${escapeHtml(t('werbung_leer'))}</p></section>`;
+    const zeilen = Array.from(plaetze, (k) => ({ k, s: sicht.get(k) || 0, c: klick.get(k) || 0 })).sort((a, b) => b.s - a.s || (a.k < b.k ? -1 : 1));
+    const gs = zeilen.reduce((a, z) => a + z.s, 0), gc = zeilen.reduce((a, z) => a + z.c, 0);
+    html += `<div class="matrix-wrap"><table class="matrix"><thead><tr>${['th_platz', 'th_sicht', 'th_klicks', 'th_ctr'].map(x => `<th>${escapeHtml(t(x))}</th>`).join('')}</tr></thead><tbody>` +
+      zeilen.map(z => `<tr><td>${escapeHtml(z.k)}</td><td>${fmtInt(z.s)}</td><td>${fmtInt(z.c)}</td><td>${escapeHtml(fmtProzent(z.s ? z.c / z.s : NaN))}</td></tr>`).join('') +
+      `</tbody><tfoot><tr><td>${escapeHtml(t('th_gesamt'))}</td><td>${fmtInt(gs)}</td><td>${fmtInt(gc)}</td><td>${escapeHtml(fmtProzent(gs ? gc / gs : NaN))}</td></tr></tfoot></table></div>`;
+    return html + '</section>';
+  }
+  function zeichneBerichtNeu() {
+    const alt = document.getElementById('bericht-card');
+    // Beim Neuzeichnen der Listen (Sprachwechsel) verliert das Suchfeld
+    // den Fokus, Chrome feuert dabei `change`, und die alte Karte hängt
+    // schon nicht mehr im Dokument - dann gibt es nichts zu ersetzen.
+    if (!alt || !alt.isConnected) return;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = berichtHtml();
+    alt.replaceWith(tmp.firstElementChild);
+  }
+  document.getElementById('stat-listen').addEventListener('change', (ev) => {
+    if (ev.target.id !== 'bericht-suche' || !ev.target.isConnected) return;
+    const neu = ev.target.value.trim();
+    if (neu === berichtEvent) return;
+    berichtEvent = neu;
+    zeichneBerichtNeu();
+  });
 
   function listeHtml(feld) {
     const map = aktuell.summe.listen[feld] || new Map();
@@ -962,6 +1378,14 @@
     return html + '</section>';
   }
   document.getElementById('stat-listen').addEventListener('click', (ev) => {
+    const kopie = ev.target.closest('#bericht-kopieren');
+    if (kopie) {
+      const text = berichtText();
+      if (text && navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => { kopie.textContent = t('kopiert'); }).catch(() => {});
+      }
+      return;
+    }
     const b = ev.target.closest('button[data-mehr]');
     if (!b) return;
     const feld = b.dataset.mehr;
@@ -975,9 +1399,10 @@
   // ---------- CSV ----------
   document.getElementById('csv-btn').addEventListener('click', () => {
     if (!aktuell) return;
-    const zeilen = [[t('th_tag'), t('th_besucher'), t('th_besuche'), t('th_pv'), t('th_absprung'), t('th_dauer') + ' (s)']];
+    const zeilen = [[t('th_tag'), t('th_besucher'), t('th_besuche'), t('th_pv'), t('th_absprung'), t('th_dauer') + ' (s)', t('kpi_abos')]];
     aktuell.tage.filter(x => x.doc).forEach(({ d, doc }) => {
-      zeilen.push([d, doc.besucher || 0, doc.besuche || 0, doc.pv || 0, doc.absprung || 0, doc.dauer_n ? Math.round(doc.dauer_sek / doc.dauer_n) : '']);
+      zeilen.push([d, doc.besucher || 0, doc.besuche || 0, doc.pv || 0, doc.absprung || 0, doc.dauer_n ? Math.round(doc.dauer_sek / doc.dauer_n) : '',
+        typeof doc.abos_aktiv === 'number' ? doc.abos_aktiv : '']);
     });
     const csv = zeilen.map(z => z.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';')).join('\r\n');
     const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
@@ -1019,7 +1444,7 @@
   window.addEventListener('resize', () => {
     if (!aktuell) return;
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { zeichneVerlauf(); zeichneStunden(); }, 150);
+    resizeTimer = setTimeout(() => { zeichneVerlauf(); zeichneMonate(); zeichneStunden(); zeichneWochentage(); }, 150);
   });
 
   // auth.js lädt mit defer und existiert hier noch nicht - deshalb über

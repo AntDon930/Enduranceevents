@@ -4450,6 +4450,39 @@ def test_statistik() -> None:
     check("Ereignisliste in stats.js und functions/index.js gleich",
           liste(index_js, "const STATS_EREIGNISSE"), ereignisse)
     check("Ereignisliste beginnt mit dem Seitenaufruf", ereignisse[:1] if ereignisse else None, ["pv"])
+    check("Werbeplatz-Aktionen sind Ereignisse (14.10.2026)",
+          all(e in (ereignisse or []) for e in ("anzeige_sicht", "anzeige_klick")), True)
+
+    # Zusatzangaben: Was die Function je Aktion annimmt (STATS_PROPS), muss
+    # stats.js überhaupt senden können (PROP_LAENGE) - und jede Aktion mit
+    # Zusatzangaben muss ein Ereignis sein.
+    m = _re.search(r"const STATS_PROPS = \{(.*?)\n\};", index_js, _re.S)
+    props_fn = dict(_re.findall(r"\n\s*([a-z_]+): \{([^}]*)\}", m.group(1))) if m else {}
+    m = _re.search(r"var PROP_LAENGE = \{([^}]*)\}", stats_js)
+    props_js = set(_re.findall(r"([a-z]+):", m.group(1))) if m else set()
+    fehlt = sorted({f for felder in props_fn.values() for f in _re.findall(r"([a-z]+):", felder)} - props_js)
+    check("jede Zusatzangabe der Function kennt auch stats.js", fehlt, [])
+    check("jede Aktion mit Zusatzangaben ist ein Ereignis", sorted(set(props_fn) - set(ereignisse or [])), [])
+    check("Kalender und Teilen tragen Event und Sportart (Bericht je Veranstaltung)",
+          all("ev" in props_fn.get(a, "") and "sp" in props_fn.get(a, "") for a in ("kalender", "teilen")), True)
+
+    # Die Listen der Tagesdokumente: AKTIONS_DETAIL in stats_aggregate.js
+    # gegen LISTEN_FELDER in admin.html - eine Liste, die die Seite nicht
+    # kennt, wird still nicht angezeigt.
+    agg_js = (wurzel / "functions" / "stats_aggregate.js").read_text(encoding="utf-8")
+    admin_html = (wurzel / "admin.html").read_text(encoding="utf-8")
+    m = _re.search(r"const AKTIONS_DETAIL = \{(.*?)\n\};", agg_js, _re.S)
+    detail = _re.findall(r"\n\s*([a-z_]+): \[(.*)\]", m.group(1)) if m else []
+    check("jede Aktion in AKTIONS_DETAIL ist ein Ereignis", sorted({a for a, _ in detail} - set(ereignisse or [])), [])
+    listen_agg = sorted({l for _, paare in detail for _, l in _re.findall(r'\["([a-z]+)", "([a-z_]+)"\]', paare)} | {"sport_region"})
+    m = _re.search(r"const LISTEN_FELDER = \[([^\]]*)\]", admin_html)
+    listen_admin = set(_re.findall(r"'([a-z_]+)'", m.group(1))) if m else set()
+    check("admin.html kennt jede Liste der Tagesdokumente", sorted(set(listen_agg) - listen_admin), [])
+    # Drei Listen haben eine eigene Karte (Kreuztabelle, Werbeplatz-Tabelle)
+    # statt einer Balkenliste - die brauchen kein l_<name>.
+    eigene_karte = {"sport_region", "anzeige_sicht", "anzeige_klick"}
+    check("admin.html beschriftet jede Balkenliste (l_<name>) in DE und EN",
+          sorted(l for l in listen_agg if l not in eigene_karte and admin_html.count(f"l_{l}:") != 2), [])
     seiten_fn = liste(index_js, "const STATS_SEITEN")
     fehlt = []
     for name in SEITEN:
@@ -4503,13 +4536,23 @@ def test_statistik() -> None:
         { t: T + 200, e: 'detail', p: 'events', s: 's2', pr: { ev: 'Berlin Marathon', sp: 'Laufen' } },
         { t: T + 300, e: 'filter', p: 'events', s: 's2', pr: { k: 'sportart', w: 'Laufen' } },
         { t: T + 400, e: 'suche', p: 'events', s: 's2', pr: { q: 'marathon' } },
-        { t: T + 500, e: 'kalender', p: 'events', s: 's2', pr: { art: 'ics' } },
+        { t: T + 500, e: 'kalender', p: 'events', s: 's2', pr: { art: 'ics', ev: 'Berlin Marathon', sp: 'Laufen' } },
+        // Zielgruppe (14.10.2026): Sportart je Region kommt aus der Sitzung
+        // (s1 = DE), ohne Seitenaufruf der Sitzung "??"; Werbeplatz-Zahlen.
+        { t: T + 600, e: 'detail', p: 'karte', s: 's1', pr: { ev: 'Ötztaler Radmarathon', sp: 'Fahrrad' } },
+        { t: T + 700, e: 'veranstalter', p: 'karte', s: 's1', pr: { ev: 'Ötztaler Radmarathon', sp: 'Fahrrad' } },
+        { t: T + 800, e: 'detail', p: 'events', s: 's9', pr: { ev: 'Seeschwimmen', sp: 'Schwimmen' } },
+        { t: T + 900, e: 'anzeige_sicht', p: 'events', s: 's1', pr: { platz: 'liste-oben' } },
+        { t: T + 901, e: 'anzeige_sicht', p: 'events', s: 's2', pr: { platz: 'liste-oben' } },
+        { t: T + 902, e: 'anzeige_klick', p: 'events', s: 's2', pr: { platz: 'liste-oben' } },
       ];
       const r = a.aggregiere(hits, '2026-10-13');
       console.log(JSON.stringify({
         pv: r.pv, besucher: r.besucher, besuche: r.besuche, absprung: r.absprung, dauer_sek: r.dauer_sek, dauer_n: r.dauer_n,
         einstieg: r.einstieg, referrer: r.referrer, laender: r.laender, geraete: r.geraete, stunden: [r.stunden[9], r.stunden[12]],
         aktionen: r.aktionen, events: r.events, filter: r.filter, suche: r.suche, kalender: r.kalender,
+        sport_events: r.sport_events, sport_veranstalter: r.sport_veranstalter, sport_region: r.sport_region,
+        events_kalender: r.events_kalender, anzeige_sicht: r.anzeige_sicht, anzeige_klick: r.anzeige_klick,
         land: [a.landAus('Europe/Vienna', 'de-DE'), a.landAus('Europe/Berlin', 'de-AT'), a.landAus('', 'de-CH'),
                a.landAus('America/New_York', 'en-US'), a.landAus('Europe/Oslo', 'nb'), a.landAus('Mars/Olympus', 'xx'), a.landAus(null, null)]
       }));
@@ -4531,9 +4574,20 @@ def test_statistik() -> None:
     check("Regionen und Geräte je Seitenaufruf", [r["laender"], r["geraete"]],
           [[{"k": "DE", "n": 3}, {"k": "AT", "n": 1}], [{"k": "handy", "n": 3}, {"k": "rechner", "n": 1}]])
     check("Stunden", r["stunden"], [3, 1])
-    check("Aktionen gezählt", r["aktionen"], [{"k": "detail", "n": 1}, {"k": "filter", "n": 1}, {"k": "kalender", "n": 1}, {"k": "suche", "n": 1}])
+    check("Aktionen gezählt", r["aktionen"],
+          [{"k": "detail", "n": 3}, {"k": "anzeige_sicht", "n": 2}, {"k": "anzeige_klick", "n": 1}, {"k": "filter", "n": 1},
+           {"k": "kalender", "n": 1}, {"k": "suche", "n": 1}, {"k": "veranstalter", "n": 1}])
     check("Zusatzangaben der Aktionen", [r["events"], r["filter"], r["suche"], r["kalender"]],
-          [[{"k": "Berlin Marathon", "n": 1}], [{"k": "sportart=Laufen", "n": 1}], [{"k": "marathon", "n": 1}], [{"k": "ics", "n": 1}]])
+          [[{"k": "Berlin Marathon", "n": 1}, {"k": "Seeschwimmen", "n": 1}, {"k": "Ötztaler Radmarathon", "n": 1}],
+           [{"k": "sportart=Laufen", "n": 1}], [{"k": "marathon", "n": 1}], [{"k": "ics", "n": 1}]])
+    check("Zielgruppe: geöffnete Events und Veranstalter-Klicks je Sportart",
+          [r["sport_events"], r["sport_veranstalter"]],
+          [[{"k": "Fahrrad", "n": 1}, {"k": "Laufen", "n": 1}, {"k": "Schwimmen", "n": 1}], [{"k": "Fahrrad", "n": 1}]])
+    check("Zielgruppe: Sportart je Region der Sitzung (ohne Seitenaufruf: ??)",
+          r["sport_region"], [{"k": "Fahrrad|DE", "n": 1}, {"k": "Laufen|AT", "n": 1}, {"k": "Schwimmen|??", "n": 1}])
+    check("Kalender je Event (Bericht je Veranstaltung)", r["events_kalender"], [{"k": "Berlin Marathon", "n": 1}])
+    check("Werbeplätze: Einblendungen und Klicks je Platz",
+          [r["anzeige_sicht"], r["anzeige_klick"]], [[{"k": "liste-oben", "n": 2}], [{"k": "liste-oben", "n": 1}]])
     check("Region aus Zeitzone, sonst Sprache, sonst Erdteil",
           r["land"], ["AT", "DE", "CH", "AM", "NO", "??", "??"])
 
