@@ -2656,6 +2656,47 @@ Startseite, dieselbe Spracheinstellung in `localStorage`); die
 deutsche Fassung ist die verbindliche. **Keine Rechtsberatung** – vor
 dem Livegang prüfen (lassen).
 
+## Schutz der Datenbank: Nutzungsbedingungen, TDM-Vorbehalt, Fangzeile (seit 14.10.2026)
+
+Auf die Frage des Nutzers „Was hält jemanden davon ab, alle meine Events
+auszulesen und die Seite zu kopieren? Kann ich das verbieten?" Technisch
+lässt sich Kopieren nicht verhindern: Jeder Browser lädt
+`events.web.json` vollständig, und das Repository ist öffentlich (privat
+hieße GitHub Pro, das will der Nutzer noch nicht). Verbieten lässt es
+sich aber, und das Verbot ist jetzt an fünf Stellen ausgesprochen.
+Rechtlich geschützt ist die Sammlung als **Datenbank (§§ 87a ff.
+UrhG)** wegen der Investition in Beschaffung und Prüfung, nicht die
+einzelne Angabe. Das ist keine Rechtsberatung.
+
+| Was | Wo | Wirkung |
+|---|---|---|
+| `robots.txt` | Wurzel | Suchmaschinen (Googlebot, Bingbot, DuckDuckBot, Applebot) dürfen alles außer den internen Seiten – auch die Datendateien, sonst sähen sie Liste und Karte leer. KI-Trainings-Crawler (GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider …) dürfen nichts. Alle anderen dürfen die Seiten, aber nicht `events.json`, `events.web.json`, `places.json`, `kalender/` |
+| `/.well-known/tdmrep.json` + `<meta name="tdm-reservation" content="1">` in allen sieben Seiten | Wurzel, `<head>` | maschinenlesbarer **Vorbehalt nach § 44b Abs. 3 UrhG** (TDM Reservation Protocol). Ohne ihn wäre Text und Data Mining öffentlich zugänglicher Inhalte erlaubt |
+| Abschnitt „Nutzungsbedingungen und Datenbankschutz" | `impressum.html#nutzung`, DE und EN | erlaubt: suchen, Kalender, teilen, verlinken; verboten: automatisiertes Auslesen, Übernahme in andere Angebote, systematisches Abschöpfen kleiner Teile |
+| `LICENSE` | Repository | „Alle Rechte vorbehalten" – das öffentliche Repository ist nicht frei verwendbar; Ausnahmen mit eigener Lizenz: `vendor/`, Schriften, `bilder/`, `places.json` (GeoNames CC BY), `laender.json` (gemeinfrei) |
+| Fangzeile | `scripts/fangzeile.py` | eine erfundene Zeile in den Datendateien, siehe unten |
+
+**Die Fangzeile** („Großweiler Moosrunde", 12,4 km, Großweil) gibt es
+nur in `events.json`, `events.web.json` und `kalender/`. Taucht sie auf
+einer fremden Seite auf, ist dort abgeschrieben worden – der Beweis für
+ein Verfahren. Sie trägt `pruefung_offen` und erscheint deshalb nie auf
+der Seite, in keiner Abo-Mail und keinem Reel; `clean_events.py` nimmt
+sie beim Laden heraus und setzt sie als letzten Schritt wieder ein (an
+ihrem Platz in der Datumsfolge), sodass kein Override, kein Gedächtnis,
+keine Duplikat-Erkennung und keine Korrekturliste sie sieht;
+`seitenabgleich.py` und `veranstalter_links.py pruefen` lassen sie aus.
+Der Termin ist immer der zweite Samstag des Monats acht Monate voraus –
+nie vergangen, eine Änderung höchstens einmal im Monat. Der
+Veranstalterlink zeigt auf endurance-events.de: Wer der Kopie folgt,
+landet bei uns. **Grenze**: Wer den Code im öffentlichen Repository
+liest, findet sie hier. **Nachsehen**, ob jemand kopiert: nach
+„Großweiler Moosrunde" suchen.
+
+**Nicht gebaut**: Bot-Sperren wie Cloudflare – ein fremder Dienst, der
+jeden Besuch sieht (Linie „nichts von fremden Servern"). Unsere eigenen
+Scraper halten sich an genau solche Verbote anderer Seiten.
+`test_kopierschutz` hält alles fest.
+
 ## E-Mail-Abos: neue Events, im gewünschten Rhythmus
 
 „Benachrichtige mich" war eine **Einmal-Zusage**: Eine Suche ging leer

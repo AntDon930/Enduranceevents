@@ -1,0 +1,55 @@
+# endurance-events.de – robots.txt
+#
+# Die Seiten dürfen Suchmaschinen lesen und verlinken, die Event-
+# Datenbank nicht. Automatisiertes Auslesen und die Übernahme der Daten
+# in andere Angebote sind untersagt – Nutzungsbedingungen:
+# https://endurance-events.de/impressum.html#nutzung
+# Vorbehalt der Nutzungsrechte für Text und Data Mining nach § 44b
+# Abs. 3 UrhG / Art. 4 Abs. 3 der Richtlinie (EU) 2019/790:
+# https://endurance-events.de/.well-known/tdmrep.json
+#
+# Automated extraction of the event database and its reuse in other
+# services is not permitted. Text and data mining rights are reserved.
+
+# Suchmaschinen: alles außer den internen Seiten. Die Datendateien
+# brauchen sie, um Liste und Karte so zu sehen wie ein Besucher.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Applebot
+Disallow: /admin.html
+Disallow: /wartung.html
+Disallow: /scripts/
+Disallow: /functions/
+Disallow: /marketing/
+
+# Crawler für KI-Training und Datensammler: gar nichts.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: Timpibot
+User-agent: ImagesiftBot
+User-agent: PetalBot
+Disallow: /
+
+# Alle anderen: die Seiten ja, die Datenbank und die Kalenderdateien nein.
+User-agent: *
+Disallow: /events.json
+Disallow: /events.web.json
+Disallow: /places.json
+Disallow: /kalender/
+Disallow: /admin.html
+Disallow: /wartung.html
+Disallow: /scripts/
+Disallow: /functions/
+Disallow: /marketing/

@@ -77,20 +77,6 @@
     "lon": 13.404954,
     "art1": "Laufen",
     "art2": "Straße",
-    "datum_start": "2026-10-13",
-    "datum_ende": "2026-10-13",
-    "laenge_km": 68.3,
-    "wettbewerb": "Tour Havel Nord 68,3 km",
-    "veranstalter_url": "https://heidichallenge.run"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Heidi-Challenge",
-    "standort": "Berlin",
-    "lat": 52.5200066,
-    "lon": 13.404954,
-    "art1": "Laufen",
-    "art2": "Straße",
     "datum_start": "2026-10-14",
     "datum_ende": "2026-10-14",
     "laenge_km": 56.7,
@@ -67197,6 +67183,21 @@
     "laenge_km": 52.0,
     "wettbewerb": "52 km",
     "veranstalter_url": "https://zytturmtriathlon.ch/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Großweiler Moosrunde",
+    "standort": "Großweil",
+    "lat": 47.676,
+    "lon": 11.301,
+    "art1": "Laufen",
+    "art2": "Trail",
+    "datum_start": "2027-06-12",
+    "datum_ende": "2027-06-12",
+    "laenge_km": 12.4,
+    "wettbewerb": "12,4 km",
+    "veranstalter_url": "https://endurance-events.de/",
+    "pruefung_offen": true
   },
   {
     "land": "Deutschland",

@@ -45,6 +45,9 @@ import time
 import unicodedata
 from collections import OrderedDict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fangzeile  # noqa: E402
 from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
@@ -507,7 +510,7 @@ def pruefen(args) -> None:
     """Eigene Veranstalterseiten (kein Portal) abrufen: erreichbar, und
     nennt die Seite den Lauf? Schreibt nur einen Bericht; `anwenden`
     kennt ihn nicht - tote Links brauchen eine Websuche, keine Regel."""
-    events = json.loads(EVENTS.read_text())
+    events = fangzeile.entfernen(json.loads(EVENTS.read_text()))  # keine eigene Seite
     links = json.loads(LINKS.read_text())
     abrufer = Abrufer(pause=args.pause)
     gruppen: "OrderedDict[str, dict]" = OrderedDict()

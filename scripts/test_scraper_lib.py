@@ -4422,6 +4422,76 @@ def test_pruefung_offen() -> None:
           'not e.get("pruefung_offen")' in (wurzel / "scripts" / "update_events.py").read_text(encoding="utf-8"), True)
 
 
+def test_kopierschutz() -> None:
+    """Schutz der Datenbank (14.10.2026): robots.txt, Vorbehalt für Text
+    und Data Mining, Nutzungsbedingungen, LICENSE und die Fangzeile."""
+    print("\nKopierschutz (robots.txt, TDM-Vorbehalt, Fangzeile):")
+    import datetime as _dt
+    import json
+    import fangzeile
+    from audit_events import offene_pruefungen, pruefe_event
+    wurzel = Path(__file__).resolve().parent.parent
+
+    # robots.txt: Gruppen auswerten wie ein Crawler (jede Gruppe = Agenten + Regeln).
+    gruppen, agenten, regeln = {}, [], None
+    for zeile in (wurzel / "robots.txt").read_text(encoding="utf-8").splitlines():
+        zeile = zeile.split("#", 1)[0].strip()
+        if not zeile or ":" not in zeile:
+            continue
+        feld, wert = (t.strip() for t in zeile.split(":", 1))
+        if feld.lower() == "user-agent":
+            if regeln is not None:
+                agenten, regeln = [], None
+            agenten.append(wert.lower())
+        elif feld.lower() == "disallow":
+            if regeln is None:
+                regeln = []
+                for a in agenten:
+                    gruppen[a] = regeln
+            regeln.append(wert)
+    check("robots.txt: Googlebot darf die Datendatei (Liste rendern)",
+          "/events.web.json" in gruppen.get("googlebot", ["?"]), False)
+    check("robots.txt: Googlebot darf die Seiten", "/" in gruppen.get("googlebot", ["/"]), False)
+    for bot in ("gptbot", "claudebot", "ccbot", "google-extended", "bytespider"):
+        check(f"robots.txt: {bot} gesperrt", gruppen.get(bot), ["/"])
+    for pfad in ("/events.json", "/events.web.json", "/kalender/", "/places.json"):
+        check(f"robots.txt: alle anderen nicht an {pfad}", pfad in gruppen.get("*", []), True)
+    check("robots.txt: alle anderen dürfen die Seiten", "/" in gruppen.get("*", ["/"]), False)
+
+    tdm = json.loads((wurzel / ".well-known" / "tdmrep.json").read_text(encoding="utf-8"))
+    check("tdmrep.json: Vorbehalt für die ganze Seite", tdm, [{"location": "/", "tdm-reservation": 1}])
+    for seite in ("index.html", "events.html", "karte.html", "impressum.html",
+                  "datenschutz.html", "wartung.html", "admin.html"):
+        check(f"{seite}: Meta-Tag tdm-reservation",
+              '<meta name="tdm-reservation" content="1">' in (wurzel / seite).read_text(encoding="utf-8"), True)
+    imp = (wurzel / "impressum.html").read_text(encoding="utf-8")
+    check("Impressum: Abschnitt #nutzung, DE und EN",
+          ('id="nutzung"' in imp, imp.count("t_nutzung3:"), "87a" in imp, "44b" in imp), (True, 2, True, True))
+    lizenz = (wurzel / "LICENSE").read_text(encoding="utf-8")
+    check("LICENSE: alle Rechte vorbehalten, Ausnahmen genannt",
+          all(w in lizenz for w in ("Alle Rechte vorbehalten", "vendor/", "bilder/", "places.json", "GeoNames")), True)
+
+    # Fangzeile: wandernder Termin, unsichtbar, sauber, genau einmal.
+    check("Termin: zweiter Samstag acht Monate voraus",
+          [fangzeile.termin(_dt.date(*d)).isoformat() for d in ((2026, 10, 14), (2026, 5, 31), (2027, 1, 1))],
+          ["2027-06-12", "2027-01-09", "2027-09-11"])
+    z = fangzeile.zeile(_dt.date(2026, 10, 14))
+    check("Fangzeile ist ausgeblendet (pruefung_offen)", z.get("pruefung_offen"), True)
+    check("Fangzeile hat keine Audit-Meldung (kein Eintrag in der Korrekturliste)",
+          (pruefe_event(z), offene_pruefungen([z], "2026-10-14")), ([], []))
+    rows = [{"name": "A", "standort": "X", "datum_start": "2027-01-01"},
+            {"name": "B", "standort": "X", "datum_start": "2027-12-01"}]
+    einmal = fangzeile.einsetzen(rows, _dt.date(2026, 10, 14))
+    zweimal = fangzeile.einsetzen(einmal, _dt.date(2026, 10, 14))
+    check("einsetzen: in der Datumsfolge, genau einmal, idempotent",
+          ([e["name"] for e in einmal], einmal == zweimal), (["A", fangzeile.NAME, "B"], True))
+    check("entfernen nimmt sie wieder heraus", fangzeile.entfernen(einmal), rows)
+    ev = json.loads((wurzel / "events.json").read_text(encoding="utf-8"))
+    treffer = [e for e in ev if fangzeile.ist_fangzeile(e)]
+    check("events.json trägt die Fangzeile genau einmal, ausgeblendet",
+          [e.get("pruefung_offen") for e in treffer], [True])
+
+
 def test_statistik() -> None:
     """Besucherstatistik (13.10.2026): stats.js, die Cloud Functions
     `collect`/`aggregateStats`, admin.html und die Regeln.
@@ -4875,7 +4945,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_pruefung_offen,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_pruefung_offen, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

@@ -107,6 +107,7 @@ from scraper_lib import (  # noqa: E402
     round_km,
 )
 import veranstalter_seiten  # noqa: E402  (Gedächtnis je Veranstaltung, ohne Datum)
+import fangzeile  # noqa: E402  (erfundene Zeile, an der sich eine Kopie erkennen lässt)
 from audit_events import offene_pruefungen, verbirgt  # noqa: E402  (die Regel hinter der Korrekturliste)
 
 # Für die Neubestimmung von art2 wird die Standard-Stichwortliste für
@@ -2135,6 +2136,9 @@ def main() -> None:
     args = parser.parse_args()
 
     events = json.loads(args.events_json.read_text(encoding="utf-8"))
+    # Die Fangzeile (scripts/fangzeile.py) läuft durch KEINEN Schritt -
+    # heraus beim Laden, wieder hinein als allerletzter Schritt.
+    events = fangzeile.entfernen(events)
     before = len(events)
 
     geocoder = None if args.no_geocoding else Geocoder(GEOCODE_CACHE_PATH)
@@ -2339,6 +2343,9 @@ def main() -> None:
     print(f"\nAusgeblendet insgesamt: {anzahl_offen} von {len(events)} Zeilen "
           f"(sichtbar: {len(events) - anzahl_offen}).")
 
+    stichtag = date.fromisoformat(args.today) if args.today else date.today()
+    events_mit_fang = fangzeile.einsetzen(events, stichtag)
+
     print(f"\nevents.json: {before} -> {len(events)} Events "
           f"({len(events) - before:+d}).")
 
@@ -2348,7 +2355,7 @@ def main() -> None:
 
     gedaechtnis.speichern()
     args.events_json.write_text(
-        json.dumps(events, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(events_mit_fang, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(f"✅ {args.events_json} aufgeräumt.")
 

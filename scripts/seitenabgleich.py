@@ -46,7 +46,8 @@ MAX = int(sys.argv[sys.argv.index("--max")+1]) if "--max" in sys.argv else 0
 
 ABGESAGT_RE = re.compile(r"abgesagt|absage\b|findet nicht statt|f[aä]llt (?:in diesem jahr |dieses jahr |\d{4} )?aus|muss(?:te)? (?:\w+ ){0,3}ausfallen|cancell?ed|wird nicht mehr durchgeführt", re.I)
 
-events=json.load(open("events.json"))
+import fangzeile  # die erfundene Zeile hat keine eigene Seite
+events=fangzeile.entfernen(json.load(open("events.json")))
 gruppen=OrderedDict()
 for e in sorted(events, key=lambda e:(e.get("datum_start") or "", e.get("name") or "")):
     url=e.get("veranstalter_url") or ""
