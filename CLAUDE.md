@@ -4143,6 +4143,23 @@ sagt es).
     Seite warf bei jedem Tastendruck „t(...) is not a function" – ohne
     dass man es sah, weil die Liste einfach zublieb.
 
+- **Ein Ort in der Mastersuche wird zur Umkreissuche** (14.10.2026,
+  vom Nutzer gewünscht: „Krailling" in der Suche fand nichts, nur im
+  Filter „Ort & Umkreis"). Zwei Wege, beide in `buildSearch`
+  (`filter-ui.js`):
+  - **Vorschläge**: ab drei Zeichen bis zu drei Orte aus `places.json`
+    („📍 Krailling · Bayern – Umkreis 25 km"), auch Orte ohne eigenes
+    Event. Die Datei lädt erst beim ersten Tippen.
+  - **Automatisch** (`pruefeOrt`, nach Enter oder 900 ms Tipp-Pause):
+    Trifft der Text **kein** Event und heißt ein Ort genau so
+    (normalisiert wie im Ortsfeld), wird daraus der Ausgangspunkt der
+    Umkreissuche (Regler bleibt bzw. 25 km) und das Suchfeld leert sich.
+    **Nur bei null Treffern** – „Lauf", „Halle", „Wald", „Berg" sind
+    auch Orte; wer das tippt, meint meist das Wort. Doppelte Namen: der
+    größte Ort gewinnt (places.json ist nach Einwohnern sortiert).
+    `state.suche` bleibt reiner Text – nichts davon muss nach
+    `functions/index.js`, das Abo sieht nur `origin`/`radiusKm`.
+
 - **Die Mastersuche sucht in BEIDEN Sprachen** (`sucheHeuhaufen()` in
   `filters.js`): Wer die Seite auf Deutsch stehen hat, findet mit
   „Germany", „Munich" oder „running" dieselben Events wie mit

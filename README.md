@@ -2807,6 +2807,14 @@ bleiben in beiden Sprachen gleich. Die Filter je Spalte bleiben daneben bestehen
 genaue Werkzeug (Umkreis, Zeitraum, Distanzkategorie), die Mastersuche
 der schnelle Zugriff.
 
+**Orte ohne eigenes Event** („Krailling") erkennt die Suche ebenfalls:
+Die Vorschlagsliste bietet passende Orte aus `places.json` als
+Umkreissuche an, und findet der eingegebene Text kein Event, heißt aber
+ein Ort genau so, wird nach Enter oder einer kurzen Tipp-Pause
+automatisch die Umkreissuche um diesen Ort gesetzt (wie im Filter
+„Ort & Umkreis"). Nur bei null Treffern – „Lauf" oder „Halle" sind auch
+Orte, gemeint ist dort aber meist das Wort.
+
 Drei Entscheidungen dahinter:
 
 1. **Ein eigener Filter, nicht das Namensfeld.** In `filters.js` gibt es

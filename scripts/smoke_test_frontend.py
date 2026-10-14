@@ -818,7 +818,53 @@ def pruefe_such_vorschlaege(ctx, basis):
                return l.hidden && document.getElementById('master-search')
                         .getAttribute('aria-expanded') === 'false'; }"""),
            "Escape schließt die Liste")
+
+    # Ein Ort OHNE eigenes Event wird zur Umkreissuche (14.10.2026, vom
+    # Nutzer gemeldet: „Krailling" fand nichts). Der Ort kommt aus den
+    # Daten, nicht fest aus dem Code - siehe ort_mit_zwei_veranstaltungen.
+    ort = ort_ohne_event()
+    if ort:
+        feld.click()
+        feld.fill("")
+        # Erst ohne den letzten Buchstaben (places.json lädt in Ruhe),
+        # dann vollständig und VOR der Tipp-Pause von 900 ms nachsehen -
+        # danach hat die Ortserkennung das Feld schon geleert.
+        feld.type(ort[:-1], delay=30)
+        seite.wait_for_timeout(1500)
+        feld.type(ort[-1])
+        seite.wait_for_timeout(300)
+        pruefe(seite.evaluate("""(ort) => [...document.querySelectorAll('#master-search-list .vs-umkreis .vs-text')]
+                   .some(e => e.textContent.includes(ort))""", ort),
+               "„%s\u201c wird als Umkreis-Ort vorgeschlagen" % ort)
+        seite.keyboard.press("Enter")
+        seite.wait_for_timeout(1200)
+        nachher = seite.evaluate("""() => ({wert: document.getElementById('master-search').value,
+                                             adresse: decodeURIComponent(location.search)})""")
+        pruefe(nachher["wert"] == "" and "umkreis=" in nachher["adresse"]
+               and ort in nachher["adresse"],
+               "Enter macht aus „%s\u201c die Umkreissuche (%s)" % (ort, nachher["adresse"][:60]))
     seite.close()
+
+
+def ort_ohne_event() -> str | None:
+    """Der größte Ort aus places.json, dessen Name in keinem Event vorkommt
+    (weder Name, Wettbewerb noch Ort) und den es nur einmal gibt - für die
+    Ortserkennung der Mastersuche."""
+    import json
+    basis = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    with open(os.path.join(basis, "events.json"), encoding="utf-8") as f:
+        heuhaufen = json.dumps(json.load(f), ensure_ascii=False).lower()
+    with open(os.path.join(basis, "places.json"), encoding="utf-8") as f:
+        orte = json.load(f)["orte"]
+    namen: dict[str, int] = {}
+    for zeile in orte:
+        namen[zeile[0]] = namen.get(zeile[0], 0) + 1
+    for zeile in orte:
+        name = zeile[0]
+        if (namen[name] == 1 and len(name) >= 5 and name.isalpha()
+                and name.lower() not in heuhaufen):
+            return name
+    return None
 
 
 def pruefe_datum_zweizeilig(ctx, basis):

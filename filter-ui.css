@@ -459,7 +459,9 @@
 .search-suggest li[aria-selected="true"],
 .search-suggest li:hover { background: var(--row-hover, rgba(0, 0, 0, 0.06)); }
 .search-suggest .vs-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.search-suggest .vs-anzahl {
+.search-suggest .vs-meta { color: var(--text-muted); font-size: 0.78rem; }
+.search-suggest .vs-anzahl,
+.search-suggest .vs-km {
   flex: none;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;

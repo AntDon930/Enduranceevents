@@ -34,6 +34,7 @@
       vorschlag_liste: 'Vorschläge',
       vorschlag_serie: (n) => n === 1 ? '1 Veranstaltung' : n + ' Veranstaltungen',
       vorschlag_ort: (n) => n === 1 ? '1 Veranstaltung am Ort' : n + ' Veranstaltungen am Ort',
+      vorschlag_umkreis: (km) => 'Umkreis ' + km + ' km',
       // Das Filter-Blatt auf dem Handy (filterSheet).
       sheet_filter: 'Filter',
       sheet_schliessen: 'Filter schließen',
@@ -91,6 +92,7 @@
       vorschlag_liste: 'Suggestions',
       vorschlag_serie: (n) => n === 1 ? '1 event' : n + ' events',
       vorschlag_ort: (n) => n === 1 ? '1 event in this place' : n + ' events in this place',
+      vorschlag_umkreis: (km) => 'Radius ' + km + ' km',
       sheet_filter: 'Filters',
       sheet_schliessen: 'Close filters',
       sheet_anzeigen: (n) => 'Show ' + n + ' events',
@@ -1342,6 +1344,7 @@
       let vorschlagIndex = null;
       let vorschlagTreffer = [];
       let vorschlagAktiv = -1;      // -1 = nichts hervorgehoben
+      let ortTimer = null;          // Ortserkennung nach einer Tipp-Pause
 
       function holeVorschlagIndex() {
         if (vorschlagIndex === null) vorschlagIndex = EF.buildSuggestions(getEvents());
@@ -1372,9 +1375,29 @@
       function zeigeVorschlaege() {
         const q = feld.value.trim();
         vorschlagTreffer = q.length >= 2 ? EF.matchSuggestions(holeVorschlagIndex(), q, 8) : [];
+        // Dazu bis zu drei Orte aus places.json als Umkreis-Vorschlag -
+        // auch Orte OHNE eigenes Event („Krailling"). Die Datei kommt
+        // erst mit dem ersten Tippen; ist sie da, wird neu gezeichnet.
+        if (q.length >= 3) {
+          if (placesState === 'ready') {
+            searchPlaces(q).slice(0, 3).forEach(ort => vorschlagTreffer.push({ art: 'umkreis', text: ort.name, ort }));
+          } else if (placesState !== 'error') {
+            // Mit dem dann AKTUELLEN Feldinhalt neu zeichnen - bis die
+            // Datei da ist, hat man meist weitergetippt.
+            loadPlaces().then(() => { if (placesState === 'ready' && document.activeElement === feld) zeigeVorschlaege(); });
+          }
+        }
         if (!vorschlagTreffer.length) { schliesseVorschlaege(); return; }
         liste.setAttribute('aria-label', t('vorschlag_liste'));
+        const km = state.radiusKm != null ? state.radiusKm : RADIUS_DEFAULT_KM;
         liste.innerHTML = vorschlagTreffer.map((v, i) => {
+          if (v.art === 'umkreis') {
+            const ort = v.ort;
+            const meta = [ort.region, tv('land', LAND_BY_CODE[ort.land] || ort.land)].filter(Boolean).join(' · ');
+            return `<li role="option" id="ms-opt-${i}" aria-selected="false" data-i="${i}" class="vs-umkreis">`
+              + `<span class="vs-text">📍 ${EF.escapeHtml(ort.name)}<span class="vs-meta"> ${EF.escapeHtml(meta)}</span></span>`
+              + `<span class="vs-km">${EF.escapeHtml(t('vorschlag_umkreis', km))}</span></li>`;
+          }
           // t(key, ...args) ruft einen Funktions-Text SELBST auf - also
           // t(key, wert), nicht t(key)(wert).
           const hinweis = t(v.art === 'ort' ? 'vorschlag_ort' : 'vorschlag_serie', v.anzahl);
@@ -1386,9 +1409,42 @@
         feld.setAttribute('aria-expanded', 'true');
         hebeVorschlagHervor(-1);
       }
+      // Ein Ort wird zum Ausgangspunkt der Umkreissuche (wie im Filter
+      // „Ort & Umkreis"), die Textsuche leert sich dabei - sonst bliebe
+      // „Krailling" als Textfilter stehen und fände wieder nichts.
+      function setzeOrtAlsUmkreis(ort) {
+        if (ortTimer !== null) { clearTimeout(ortTimer); ortTimer = null; }
+        setOrigin({ lat: ort.lat, lon: ort.lon, label: ort.name });
+        feld.value = '';
+        state.suche = '';
+        kreuz.hidden = true;
+        schliesseVorschlaege();
+        zeichneJetzt();
+      }
+      // Erkennt eine Eingabe als Ort: Trifft der Text KEIN Event, heißt
+      // aber ein Ort aus places.json genau so („Krailling", „krailling",
+      // „Muenchen"), wird daraus die Umkreissuche um diesen Ort. Nur bei
+      // null Treffern: „Lauf", „Halle" oder „Wald" sind auch Orte, wer das
+      // tippt, meint aber meist das Wort - dafür gibt es den
+      // Umkreis-Vorschlag in der Liste. Gibt es den Namen mehrfach, gilt
+      // der größte Ort (places.json ist nach Einwohnern sortiert).
+      function pruefeOrt() {
+        if (ortTimer !== null) { clearTimeout(ortTimer); ortTimer = null; }
+        const q = feld.value.trim();
+        const norm = normalizePlaceText(q);
+        if (norm.length < 2) return;
+        const needle = q.toLowerCase();
+        if (getEvents().some(e => EF.sucheHeuhaufen(e).includes(needle))) return;
+        loadPlaces().then(() => {
+          if (!placesIndex || feld.value.trim() !== q) return;
+          const ort = placesIndex.find(o => o.norm === norm);
+          if (ort) setzeOrtAlsUmkreis(ort);
+        });
+      }
       function uebernimmVorschlag(i) {
         const v = vorschlagTreffer[i];
         if (!v) return;
+        if (v.art === 'umkreis') { setzeOrtAlsUmkreis(v.ort); return; }
         feld.value = v.text;
         state.suche = v.text;
         kreuz.hidden = false;
@@ -1411,6 +1467,10 @@
         zeigeVorschlaege();
         if (timer !== null) clearTimeout(timer);
         timer = setTimeout(() => { timer = null; onChange(); }, 180);
+        // Ob die Eingabe ein Ort ist, erst nach einer längeren Pause
+        // prüfen: Mitten im Tippen das Feld zu leeren, wäre ein Ärgernis.
+        if (ortTimer !== null) clearTimeout(ortTimer);
+        ortTimer = setTimeout(pruefeOrt, 900);
       });
       feld.addEventListener('keydown', (ev) => {
         const offen = !liste.hidden && vorschlagTreffer.length > 0;
@@ -1441,6 +1501,7 @@
         }
         schliesseVorschlaege();
         zeichneJetzt();
+        pruefeOrt();
       });
       // Verlässt der Fokus das Feld UND die Liste, ist die Auswahl vorbei.
       // `relatedTarget === null` heißt nur, dass das Fenster den Fokus
@@ -1449,6 +1510,7 @@
         if (ev.relatedTarget && !liste.contains(ev.relatedTarget)) schliesseVorschlaege();
       });
       kreuz.addEventListener('click', () => {
+        if (ortTimer !== null) { clearTimeout(ortTimer); ortTimer = null; }
         feld.value = '';
         state.suche = '';
         kreuz.hidden = true;
