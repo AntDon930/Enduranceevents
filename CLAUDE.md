@@ -5636,6 +5636,17 @@ Verweise auf alte Nummern stehen in Klammern.
    der nächste Pages-Deploy `plan.json` gebaut hat.
 9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
+10. **RADRACE als Veranstalter anschauen** (14.10.2026, vom Nutzer: „Bitte
+    auf to do Liste setzen das wir uns radrace als Veranstalter anschauen
+    müssen"). RADRACE (Berlin) richtet eigene Rennen aus (Fixed42, Tour
+    de Friends, Rad Race Last Man Standing u. a.); am 14.10.2026 steht
+    kein einziges davon in `events.json` (auch kein Treffer in README,
+    CLAUDE.md oder den Skripten). Vorgehen wie bei jeder Quelle: Rennen
+    und Termine auf der Veranstalterseite lesen, prüfen, ob eine
+    bestehende Quelle sie liefert, robots.txt und Nutzungsbedingungen
+    lesen; einzelne Rennen mit Beleg nach `manual_events.json`, ein
+    Scraper nur mit seinem Ja (Datenregel 2, „kein Scraper ohne sein
+    Ja"). Formate mit Staffel/Team fallen unter Datenregel 16.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
