@@ -4639,6 +4639,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   ×2 + scdet-Werte.
 - **Posten**: Resumable Upload (`rupload.facebook.com`) – laut Meta nur
   mit Facebook Login for Business; Systemnutzer-Token läuft nicht ab.
+  Am 15.10.2026 nachgelesen (README, Einrichtung 5–7): Berechtigung
+  `ads_read` gehört dazu (Rolle auf der Seite kommt über das
+  Business-Portfolio), die heutige Doku erwähnt Systemnutzer nicht, die
+  alte (v4.0) schloss sie aus – Plan B ist ein nie ablaufender
+  Seiten-Token aus einem 60-Tage-Nutzer-Token. Kosten: keine.
   `IG_API_HOST`/`IG_API_VERSION` als Repo-Variablen überschreibbar
   (Vorgabe graph.facebook.com, v23.0). `test_instagram` prüft den Ablauf
   mit einer Attrappe.

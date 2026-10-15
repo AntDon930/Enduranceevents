@@ -2581,26 +2581,47 @@ fest.
    verknüpfen.
 4. **business.facebook.com** → Unternehmensportfolio anlegen, Seite und
    Instagram-Konto hinzufügen.
-5. **developers.facebook.com** → App erstellen → Typ „Business" → Produkt
-   „Instagram" (Variante *API-Einrichtung mit Facebook Login*);
-   Datenschutz-URL `https://endurance-events.de/datenschutz.html`.
+5. **developers.facebook.com** → App erstellen → Anwendungsfall
+   „Nachrichten und Inhalte auf Instagram verwalten" (*Manage messaging &
+   content on Instagram*) → Typ „Business" → das Business-Portfolio
+   wählen; im Anwendungsfall die Variante *API-Einrichtung mit Facebook
+   Login* (nur sie kennt den Resumable Upload, den `insta_posten.py`
+   nutzt); Datenschutz-URL `https://endurance-events.de/datenschutz.html`.
 6. Im Business-Portfolio → Benutzer → **Systemnutzer** (Admin) anlegen →
    Assets zuweisen (Seite, Instagram-Konto, App, jeweils volle Kontrolle)
    → **Token generieren**: App wählen, Ablauf „Nie", Berechtigungen
    `instagram_basic`, `instagram_content_publish`, `pages_show_list`,
-   `pages_read_engagement`, `business_management`.
-7. Die **Instagram-Konto-Id** holen:
-   `curl "https://graph.facebook.com/v23.0/me/accounts?fields=instagram_business_account{id,username}&access_token=<TOKEN>"`
-   – die Zahl bei `instagram_business_account.id`.
+   `pages_read_engagement`, `business_management`, dazu `ads_read` – laut
+   Meta-Doku „Content Publishing" nötig, wenn die Rolle auf der Seite über
+   das Business-Portfolio kommt (beim Systemnutzer immer so). Der
+   Schlüssel erscheint nur einmal. Stand der Recherche 15.10.2026: Die
+   heutige Doku erwähnt Systemnutzer nicht; ein Satz der alten Doku
+   (v4.0) schloss sie aus, Hilfeseiten von Drittanbietern nutzen sie für
+   Instagram. Klappt es nicht, geht ein Seiten-Token aus einem
+   60-Tage-Nutzer-Token, der ebenfalls nicht abläuft.
+7. Die **Instagram-Konto-Id** holen, ohne Kommandozeile im **Graph API
+   Explorer** (developers.facebook.com/tools/explorer): den Schlüssel ins
+   Feld „Access Token" einfügen, Abfrage
+   `me/accounts?fields=instagram_business_account{id,username}` →
+   „Submit" – die Zahl bei `instagram_business_account.id`. Leeres `data`
+   heißt: Seite nicht dem Systemnutzer zugewiesen; fehlt
+   `instagram_business_account`, ist Instagram nicht mit der Seite
+   verknüpft. Verlangt Meta beim ersten Posten eine
+   **Seiten-Veröffentlichungsfreigabe** (*Page Publishing Authorization*),
+   steht das im Log; sie wird in den Einstellungen der Facebook-Seite
+   erledigt.
 8. GitHub → Settings → Secrets and variables → Actions:
    Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY`.
    Die Variable `INSTAGRAM_AUTOPOST` = `ja` erst, wenn ohne Freigabe
    gepostet werden soll – bis dahin entscheidet die Karte
    „Instagram-Freigabe" im Dashboard (siehe oben).
-9. Probelauf: Actions → „Instagram-Reel" → Run workflow mit Haken
-   „posten". Schlägt er fehl, steht die Antwort von Meta im Log.
-10. Einmal `firebase deploy --only firestore:rules` (Cloud Shell), damit
-   die Freigabe-Dokumente geschrieben und gelesen werden dürfen.
+9. Probelauf: Actions → „Instagram-Reel" → Run workflow erst OHNE Haken
+   (Artefakt ansehen), dann mit Haken „posten" oder über die Freigabe im
+   Dashboard. Schlägt er fehl, steht die Antwort von Meta im Log.
+10. ~~Einmal `firebase deploy --only firestore:rules` (Cloud Shell), damit
+   die Freigabe-Dokumente geschrieben und gelesen werden dürfen.~~
+   **Erledigt am 15.10.2026.** Danach noch einmal `firebase deploy --only
+   functions`, damit `aggregateStats` die Instagram-Besuche zählt.
 
 ### Im Dashboard
 
