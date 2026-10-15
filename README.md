@@ -2549,10 +2549,11 @@ von dem ab, den der Nutzer gesehen hat – die Freigabe verfällt von selbst,
 die Karte zeigt es und bittet um einen neuen Klick. Nichts geht raus, was
 niemand gesehen hat.
 
-**Was der Nutzer einmalig tun muss**: die Regeln deployen (`cd
-Enduranceevents && git pull && firebase deploy --only firestore:rules`),
-sonst antwortet die Karte mit „Missing or insufficient permissions" und der
-Abendlauf mit „Firestore antwortet 403 – ohne Autopost wird nur gerendert".
+**Was der Nutzer einmalig tun musste**: die Regeln deployen (`cd
+Enduranceevents && git pull && firebase deploy --only firestore:rules`) –
+**erledigt am 15.10.2026**. Vorher antwortete die Karte mit „Missing or
+insufficient permissions" und der Abendlauf mit „Firestore antwortet 403 –
+ohne Autopost wird nur gerendert".
 `instagram.yml` steht seit dem 14.10.2026 abends mit beiden Zeitplänen und
 der Freigabeprüfung auf `main` (Commit `e3251fc1`, vom Nutzer freigegeben)
 – ändert sich die Datei, muss sie wieder mit, wie bei `update-events.yml`.

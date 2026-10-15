@@ -4656,10 +4656,12 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   rendern. Eine veraltete Kennung verfällt von selbst (Datenlauf, Moment
   korrigiert) und die Karte bittet um einen neuen Klick. `test_insta_freigabe`
   und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
-  set/delete) halten es fest. **Handarbeit des Nutzers**: die Regeln
-  deployen; `instagram.yml` steht seit dem 14.10.2026 abends auf `main`
-  (Commit `e3251fc1`, vom Nutzer freigegeben: „Ja für instagram.yml auf
-  main").
+  set/delete) halten es fest. **Beides ist live**: die Regeln seit dem
+  15.10.2026, 12:25 (vom Nutzer aus der Cloud Shell, `firebase deploy
+  --only firestore:rules`; per REST geprüft: `insta_freigaben/<Tag>`
+  antwortet 404 statt 403, `config/wartung` weiter 200), `instagram.yml`
+  seit dem 14.10.2026 abends auf `main` (Commit `e3251fc1`, vom Nutzer
+  freigegeben: „Ja für instagram.yml auf main").
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
@@ -5551,9 +5553,9 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
   „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
   „Freigabe mit einem Klick"). Offen und NUR beim Nutzer: Punkt 8
-  (Account, Meta-App, Token, Secrets; dazu Regeln deployen). Das Ja zu
-  `instagram.yml` auf `main` kam noch am selben Abend (Commit
-  `e3251fc1`). Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
+  (Account, Meta-App, Token, Secrets). Das Ja zu `instagram.yml` auf
+  `main` kam noch am selben Abend (Commit `e3251fc1`), die Regeln hat der
+  Nutzer am 15.10.2026 um 12:25 deployt. Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
   der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
   – Fan- und Meme-Accounts laden fremdes Sendematerial hoch, die
   Rechteinhaber dulden es meist als Reichweite oder lassen über den
@@ -5633,11 +5635,10 @@ Verweise auf alte Nummern stehen in Klammern.
    Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
    sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
    Profilbild: `marketing/instagram/profil/profilbild.png`.
-   **Seit dem 14.10.2026 abends dazu, nur der Nutzer**: `cd
-   Enduranceevents && git pull && firebase deploy --only firestore:rules`
-   für die Freigabe-Dokumente `insta_freigaben` (vorher meldet die Karte
-   „Missing or insufficient permissions" und der Abendlauf „Firestore
-   antwortet 403"). ~~Die neue Fassung von `instagram.yml` auf `main`~~
+   ~~`cd Enduranceevents && git pull && firebase deploy --only
+   firestore:rules` für die Freigabe-Dokumente `insta_freigaben`~~
+   **erledigt** (15.10.2026, 12:25, „Deploy complete!"; von hier per REST
+   geprüft: 404 statt 403). ~~Die neue Fassung von `instagram.yml` auf `main`~~
    **erledigt** (14.10.2026 abends, „Ja für instagram.yml auf main",
    Commit `e3251fc1`, nur diese eine Datei, Diff zum Entwicklungs-Branch
    leer). Die Karte
