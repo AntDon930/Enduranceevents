@@ -1656,6 +1656,8 @@ def pruefe_statistik_dashboard(ctx, basis):
               kanaele: (document.querySelector('section[data-liste="kanaele"]') || {}).textContent || '',
               igMedien: (document.querySelector('section[data-liste="instagram_medien"]') || {}).textContent || '',
               zielgruppeVorSeiten: (() => { const t = Array.from(document.querySelectorAll('.stat-section-title')).map(x => x.textContent); return t.indexOf('Zielgruppe') >= 0 && t.indexOf('Zielgruppe') < t.indexOf('Seiten'); })(),
+              bereiche: Array.from(document.querySelectorAll('#stat-content > .stat-bereich')).map(h => h.textContent + (h.previousElementSibling && h.previousElementSibling.matches('hr.stat-trenner') ? '|' : '')),
+              igListenImIgBereich: !!document.querySelector('#stat-listen-ig section[data-liste="instagram_medien"]') && !document.querySelector('#stat-listen section[data-liste="instagram_medien"]'),
               erwartet: window.__ATTRAPPE,
               ueberlauf: document.documentElement.scrollWidth - innerWidth };
         }""")
@@ -1675,6 +1677,9 @@ def pruefe_statistik_dashboard(ctx, basis):
                "Wochentag-Diagramm: sieben Balken, Montag zuerst (%s)" % stand["wochentagAchse"])
         pruefe("Laufen" in stand["matrix"] and "Deutschland" in stand["matrix"] and "Unbekannt" in stand["matrix"],
                "Zielgruppe: Sportart je Region als Kreuztabelle")
+        pruefe(stand["bereiche"] == ["Dashboard", "Graphen|", "Auswertungen|", "Instagram|", "Wartung|"],
+               "fünf Bereiche in der Reihenfolge des Nutzers, je mit Linie (%s)" % stand["bereiche"])
+        pruefe(stand["igListenImIgBereich"], "Instagram-Auswertungen stehen im Bereich Instagram")
         pruefe(stand["zielgruppeVorSeiten"], "Zielgruppe steht vor den Seiten-Listen")
         pruefe(stand["berichtName"] == e["topEvent"] and stand["berichtKpis"] == 5,
                "Bericht je Veranstaltung zeigt das meistgeöffnete Event (%s)" % stand["berichtName"])
