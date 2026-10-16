@@ -77,6 +77,20 @@ except Exception:
     return 1
   fi
   printf '%s' "$antwort" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("  Instagram kennt den Schlüssel: @%s (Konto-Id %s)" % (d.get("username"), d.get("user_id")))'
+  # Das Veröffentlichungslimit liest nur ein Schlüssel MIT der Berechtigung
+  # instagram_business_content_publish – fehlt sie, scheitert erst der
+  # erste echte Beitrag. Deshalb hier schon warnen.
+  local konto limit
+  konto="$(printf '%s' "$antwort" | python3 -c 'import json,sys; print(json.load(sys.stdin)["user_id"])')"
+  limit="$(curl -sS -H "Authorization: Bearer ${schluessel}" \
+    "https://graph.instagram.com/${IG_VERSION}/${konto}/content_publishing_limit?fields=quota_usage" || true)"
+  if printf '%s' "$limit" | python3 -c 'import json,sys; d=json.load(sys.stdin); sys.exit(0 if "data" in d else 1)' 2>/dev/null; then
+    echo "  Der Schlüssel darf Beiträge veröffentlichen."
+  else
+    echo "  ACHTUNG: Der Schlüssel darf offenbar KEINE Beiträge veröffentlichen." >&2
+    echo "  In der App unter „Berechtigungen und Features“ instagram_business_content_publish" >&2
+    echo "  hinzufügen, den Schlüssel neu generieren und dann: bash $0 --schluessel" >&2
+  fi
   printf '%s' "$schluessel" | gcloud secrets versions add "$SECRET" --data-file=- >/dev/null
   local neueste
   neueste="$(gcloud secrets versions list "$SECRET" --filter='state:enabled' --sort-by='~createTime' --format='value(name.basename())' | head -1)"
