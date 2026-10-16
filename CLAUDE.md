@@ -5717,10 +5717,14 @@ Verweise auf alte Nummern stehen in Klammern.
    instagram.com-Link öffnete die Instagram-App („Da ist leider etwas
    schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
    „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
-   Noch NICHT getestet: Video-Upload in den Speicher und das Posten selbst
-   (braucht einen echten Beitrag). `instagram.yml` steht seit 17:05 auf
-   `main` (Commit `ae5751ef`, „Ja, instagram.yml auf main", Diff zum
-   Entwicklungs-Branch leer). Offen: der erste Beitrag mit Freigabe. ~~Danach noch einmal `cd Enduranceevents
+   `instagram.yml` steht seit 17:05 auf `main` (Commit `ae5751ef`, „Ja,
+   instagram.yml auf main", Diff zum Entwicklungs-Branch leer). **Erster
+   echter Beitrag 17:02** (vom Nutzer gewünscht: „Poste jetzt einmal was …
+   Ich kann es dann einfach manuell wieder löschen"; Handlauf mit Haken
+   „posten", Run 38920457036): Video 5,2 MB in den Speicher, Instagram hat
+   es abgeholt, veröffentlicht als https://www.instagram.com/reel/DejzwABAmIT/
+   (Format „Wochenende"); Limit 100 Beiträge je 24 h. Damit ist der ganze
+   Weg einmal echt gelaufen. ~~Danach noch einmal `cd Enduranceevents
    && git pull && firebase deploy --only functions`~~ **erledigt**
    (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
    12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
