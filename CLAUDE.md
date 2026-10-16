@@ -79,7 +79,7 @@ nur einen sieht, sieht trotzdem alles.
 | `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
-| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 14.10.2026 abends auf diesem Stand (Commit `e3251fc1`) |
+| `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 16.10.2026 auf diesem Stand (Commit `ae5751ef`, Anmeldung über Instagram, Google-Zugang per Workload Identity) |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
 **`events.json` NIE komplett lesen** – das frisst den halben Kontext. Immer
@@ -4720,7 +4720,9 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   --only firestore:rules`; per REST geprüft: `insta_freigaben/<Tag>`
   antwortet 404 statt 403, `config/wartung` weiter 200), `instagram.yml`
   seit dem 14.10.2026 abends auf `main` (Commit `e3251fc1`, vom Nutzer
-  freigegeben: „Ja für instagram.yml auf main").
+  freigegeben: „Ja für instagram.yml auf main"), die Fassung mit der
+  Anmeldung über Instagram seit dem 16.10.2026 (Commit `ae5751ef`, „Ja,
+  instagram.yml auf main").
 - **Statistik**: `kanal()`/`istInstagram()` in `stats_aggregate.js`
   (utm_source instagram/ig, Referrer *.instagram.com, `br == "Instagram"`
   aus `stats.js`), Tagesfelder `kanaele`, `instagram`,
@@ -5190,7 +5192,8 @@ Standard-Branch. `main` enthält deshalb genau drei Dateien:
 (seit dem 14.10.2026, Commit `7f6ab3d`, vom Nutzer freigegeben: „Ja, auf
 main pushen"; die Fassung mit Vorschau-Lauf und Freigabeprüfung seit dem
 Abend desselben Tages, Commit `e3251fc1`, „Ja für instagram.yml auf
-main") und `README.md`. Kein `pages.yml` auf `main` – ein Push
+main"; die Fassung mit Anmeldung über Instagram seit dem 16.10.2026, Commit
+`ae5751ef`) und `README.md`. Kein `pages.yml` auf `main` – ein Push
 dorthin löst deshalb keinen Deploy aus. Die Skripte holt
 der Workflow vom Entwicklungs-Branch, den er ausdrücklich auscheckt
 (`ref: claude/endurance-events-website-v1wruf`).
@@ -5715,8 +5718,9 @@ Verweise auf alte Nummern stehen in Klammern.
    schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
    „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
    Noch NICHT getestet: Video-Upload in den Speicher und das Posten selbst
-   (braucht einen echten Beitrag). Offen: Ja für `instagram.yml` auf
-   `main`, dann der erste Beitrag mit Freigabe. ~~Danach noch einmal `cd Enduranceevents
+   (braucht einen echten Beitrag). `instagram.yml` steht seit 17:05 auf
+   `main` (Commit `ae5751ef`, „Ja, instagram.yml auf main", Diff zum
+   Entwicklungs-Branch leer). Offen: der erste Beitrag mit Freigabe. ~~Danach noch einmal `cd Enduranceevents
    && git pull && firebase deploy --only functions`~~ **erledigt**
    (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
    12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
