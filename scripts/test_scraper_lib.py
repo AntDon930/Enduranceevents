@@ -5148,6 +5148,30 @@ def test_instagram() -> None:
         except P.PostenFehler:
             check("Verarbeitungsfehler: Video wird trotzdem gelöscht", s.aufrufe[-1][0], "DELETE")
 
+    # Vorschau für den „View"-Knopf (16.10.2026): Reel + Titelbild je
+    # zweimal (Kennung und „aktuell"), Namen wie in admin.html.
+    class VorschauSitzung:
+        def __init__(self):
+            self.abgelegt = []
+
+        def post(self, url, headers=None, params=None, data=None, **kw):
+            self.abgelegt.append((params["name"], headers["Content-Type"]))
+            return Antwort({"name": params["name"]})
+
+    with _tf.TemporaryDirectory() as tmp:
+        (Path(tmp) / "reel.mp4").write_bytes(b"mp4")
+        (Path(tmp) / "cover.jpg").write_bytes(b"jpg")
+        vs = VorschauSitzung()
+        adressen = P.lade_vorschau(Path(tmp), "2026-10-17", "abc123", z, session=vs)
+        check("Vorschau: Reel und Titelbild unter Kennung und 'aktuell'", sorted(vs.abgelegt), sorted([
+            ("vorschau/2026-10-17-abc123.mp4", "video/mp4"), ("vorschau/2026-10-17-aktuell.mp4", "video/mp4"),
+            ("vorschau/2026-10-17-abc123.jpg", "image/jpeg"), ("vorschau/2026-10-17-aktuell.jpg", "image/jpeg")]))
+        check("Vorschau: öffentliche Adresse", adressen[0],
+              "https://storage.googleapis.com/endurance-5177a-instagram/vorschau/2026-10-17-abc123.mp4")
+    admin = (Path(__file__).resolve().parent.parent / "admin.html").read_text(encoding="utf-8")
+    check("admin.html: Vorschau-Adresse passt zum Speicher",
+          "'https://storage.googleapis.com/" + P.VORGABE_BUCKET + "/" + P.VORSCHAU_ORDNER + "/'" in admin, True)
+
     class StorySitzung:
         """Attrappe für eine Story und die Auswertung (ohne Netz)."""
 

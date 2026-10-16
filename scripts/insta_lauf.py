@@ -72,6 +72,9 @@ def main() -> int:
     ap.add_argument("--posten", action="store_true", help="nach dem Rendern veröffentlichen")
     ap.add_argument("--ohne-erwaehnung", action="store_true",
                     help="die Veranstalterseiten nicht nach Instagram-Namen fragen")
+    ap.add_argument("--vorschau-tage", type=int, default=None,
+                    help="so viele Tage ab heute als Vorschau für das Dashboard in den Speicher legen "
+                         "(Vorgabe: 7 ohne --posten, also im Morgenlauf; 0 mit --posten)")
     ap.add_argument("--freigabe", action="store_true",
                     help="mit --posten: nur veröffentlichen, wenn der Tag im Dashboard freigegeben "
                          "ist oder INSTAGRAM_AUTOPOST=ja gilt (insta_freigabe.py)")
@@ -140,6 +143,10 @@ def main() -> int:
             print(f"  Instagram-Schlüssel: {pflege_fehler}", file=sys.stderr)
             zusammenfassung(f"**Instagram-Schlüssel:** {pflege_fehler}\n")
 
+    vorschau_tage = a.vorschau_tage if a.vorschau_tage is not None else (0 if a.posten else 7)
+    if z and vorschau_tage > 0:
+        vorschauen(datum, vorschau_tage, ziel, beitrag["hash"], z)
+
     darf, grund, story_fehler = True, "", None
     if a.posten and a.freigabe:
         import insta_freigabe as freigabe
@@ -185,6 +192,34 @@ def main() -> int:
     # Ein kaputter Schlüssel ist rot (Mail an den Nutzer), auch wenn heute
     # nicht gepostet werden sollte - sonst liefe er still in die 60 Tage.
     return 1 if pflege_fehler or story_fehler else 0
+
+
+def vorschauen(datum: dt.date, tage: int, ziel: Path, kennung_heute: str, z: dict) -> None:
+    """Die Reels der nächsten Tage rendern und als Vorschau ablegen
+    (insta_posten.lade_vorschau) – der „View"-Knopf der Freigabe-Karte in
+    admin.html spielt sie ab. Heute ist schon gerendert; die übrigen Tage
+    mit demselben Seed wie ihr späterer Lauf, also dasselbe Video (der
+    Hintergrund kann sich nur ändern, wenn Pexels anderes liefert). Ein
+    Fehler hier lässt den Lauf grün – die Vorschau ist Beiwerk."""
+    import tempfile
+    import insta_posten as posten
+    ok = 0
+    for i in range(tage):
+        tag = datum + dt.timedelta(days=i)
+        try:
+            if i == 0:
+                ordner, kennung = ziel, kennung_heute
+            else:
+                b = inhalte.plane(tag)
+                kennung = inhalte.beitrag_hash(b)
+                ordner = Path(tempfile.mkdtemp(prefix=f"vorschau-{tag.isoformat()}-"))
+                video.rendere(b, ordner, seed=tag.toordinal())
+            posten.lade_vorschau(ordner, tag.isoformat(), kennung, z)
+            ok += 1
+        except Exception as e:                               # noqa: BLE001 - Vorschau ist Beiwerk
+            print(f"  Vorschau {tag}: nicht abgelegt ({type(e).__name__}: {str(e)[:120]})")
+    print(f"  Vorschauen für das Dashboard: {ok} von {tage} Tagen abgelegt")
+    zusammenfassung(f"Vorschauen für das Dashboard: {ok} von {tage} Tagen\n")
 
 
 def auswertung_text(daten: dict) -> str:

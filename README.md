@@ -2559,7 +2559,10 @@ Artefakt von Hand in der App hoch.
 
 Vom Nutzer gewünscht: „die ersten Videos alle gerne vorher mit einem Klick
 einfach freigeben". Gebaut als Karte **„Instagram-Freigabe"** im Dashboard
-(`admin.html`, direkt unter der Instagram-Statistik):
+(`admin.html`, direkt unter der Instagram-Statistik; seit dem 16.10.2026
+zugeklappt mit einer Zeile Zahlen, und je Tag ein Knopf **„View“**, der das
+Reel im Dashboard abspielt – der Morgenlauf legt die Reels der nächsten
+sieben Tage als `vorschau/<Datum>-<Kennung>.mp4` im Video-Speicher ab):
 
 1. **Der Plan**: Beim Deploy der Seite schreibt `pages.yml`
    `marketing/instagram/plan.json` – die Beiträge der nächsten 14 Tage

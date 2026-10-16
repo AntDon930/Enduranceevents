@@ -1690,7 +1690,14 @@ def pruefe_statistik_dashboard(ctx, basis):
         # Instagram-Freigabe (14.10.2026): Zeilen aus plan.json, ein Klick
         # schreibt das Dokument (die Attrappe speichert), Status wechselt;
         # Sperren und Zurücknehmen ebenso.
-        seite.wait_for_selector("#insta-freigabe-card .frei-zeile", timeout=10000)
+        seite.wait_for_selector("#insta-freigabe-card .frei-zeile", state="attached", timeout=10000)
+        # Zugeklappt zum Start (16.10.2026), eine Zeile mit den Zahlen.
+        zu = seite.evaluate("""() => { const d = document.querySelector('#insta-freigabe-card .frei-ausklapp');
+            return { offen: d.open, zahlen: (d.querySelector('.frei-zahlen') || {}).textContent || '' }; }""")
+        pruefe(not zu["offen"] and "freigegeben" in zu["zahlen"] and "offen" in zu["zahlen"],
+               "Freigabe-Karte zugeklappt, Zahlen im Kopf (%s)" % zu["zahlen"])
+        seite.click("#insta-freigabe-card .frei-ausklapp > summary")
+        seite.wait_for_selector("#insta-freigabe-card .frei-zeile", state="visible", timeout=5000)
         frei = seite.evaluate("""() => {
             const z = document.querySelectorAll('#insta-freigabe-card .frei-zeile');
             const erste = z[0];
@@ -1699,20 +1706,39 @@ def pruefe_statistik_dashboard(ctx, basis):
                      knoepfe: Array.from(erste.querySelectorAll('button')).map(b => b.textContent),
                      caption: (erste.querySelector('pre') || {}).textContent || '',
                      link: !!document.querySelector('#insta-freigabe-card a[href*="actions/workflows/instagram.yml"]') }; }""")
-        pruefe(frei["zeilen"] >= 7 and frei["status"] == "offen" and frei["knoepfe"] == ["Freigeben", "Sperren"],
-               "Freigabe-Karte: %d Tage aus plan.json, erste Zeile offen mit Freigeben/Sperren (%s)" % (frei["zeilen"], frei["knoepfe"]))
+        pruefe(frei["zeilen"] >= 7 and frei["status"] == "offen" and frei["knoepfe"] == ["Freigeben", "View", "Sperren"],
+               "Freigabe-Karte: %d Tage aus plan.json, erste Zeile offen mit Freigeben/View/Sperren (%s)" % (frei["zeilen"], frei["knoepfe"]))
         pruefe(len(frei["caption"]) > 40 and frei["link"], "… Caption aufklappbar, Link zu den Videos in GitHub Actions")
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-frei]")
         seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-frei')", timeout=5000)
         nach = seite.evaluate("""() => { const e = document.querySelector('#insta-freigabe-card .frei-zeile');
             return { status: e.querySelector('.frei-status').textContent, knoepfe: Array.from(e.querySelectorAll('button')).map(b => b.textContent) }; }""")
-        pruefe(nach["status"] == "freigegeben" and nach["knoepfe"] == ["Sperren", "Zurücknehmen"],
+        pruefe(nach["status"] == "freigegeben" and nach["knoepfe"] == ["View", "Sperren", "Zurücknehmen"],
                "ein Klick gibt frei: Status 'freigegeben', Knöpfe Sperren/Zurücknehmen (%s)" % nach["knoepfe"])
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-sperren]")
         seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-gesperrt')", timeout=5000)
         seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-zurueck]")
         seite.wait_for_function("() => document.querySelector('#insta-freigabe-card .frei-zeile').classList.contains('ist-offen')", timeout=5000)
         pruefe(True, "Sperren und Zurücknehmen wechseln den Status zurück auf offen")
+        # „View": Fenster mit Video; ohne Vorschau im Speicher (hier 404)
+        # erst die Kennung, dann „aktuell", dann der Hinweis. Escape schließt.
+        abrufe = []
+        def vorschau_404(route):
+            abrufe.append(route.request.url)
+            route.fulfill(status=404, body="")
+        seite.route("https://storage.googleapis.com/**", vorschau_404)
+        seite.click("#insta-freigabe-card .frei-zeile:first-child button[data-view]")
+        seite.wait_for_selector("#reel-overlay .reel-hinweis:not([hidden])", timeout=8000)
+        reel = seite.evaluate("""() => ({ hinweis: document.querySelector('#reel-overlay .reel-hinweis').textContent,
+            fokus: document.activeElement && document.activeElement.classList.contains('reel-zu') })""")
+        mp4 = [u for u in abrufe if u.endswith(".mp4")]
+        pruefe("Morgenlauf" in reel["hinweis"] and any("-aktuell.mp4" in u for u in mp4)
+               and any("/vorschau/" in u and "-aktuell" not in u for u in mp4) and reel["fokus"],
+               "View öffnet das Reel-Fenster: Kennung, dann aktuell, dann Hinweis (%d Abrufe)" % len(mp4))
+        seite.keyboard.press("Escape")
+        seite.wait_for_timeout(100)
+        pruefe(seite.evaluate("() => document.getElementById('reel-overlay').hidden"), "Escape schließt das Reel-Fenster")
+        seite.unroute("https://storage.googleapis.com/**")
 
         # Bericht: eine andere Veranstaltung wählen
         seite.fill("#bericht-suche", e["zweitesEvent"])

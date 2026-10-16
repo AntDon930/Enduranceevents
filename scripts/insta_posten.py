@@ -259,6 +259,39 @@ def _veroeffentliche(s, basis: str, uid: str, auth: dict, felder: dict, warten, 
     return cid, mid
 
 
+VORSCHAU_ORDNER = "vorschau"
+
+
+def vorschau_name(datum: str, kennung: str, endung: str = "mp4") -> str:
+    """Name der Vorschau im Speicher: vorschau/<Datum>-<Kennung>.<Endung>.
+    Die Kennung ist insta_inhalte.beitrag_hash – dieselbe, die plan.json
+    trägt; admin.html baut die Adresse genauso (VORSCHAU_BASIS)."""
+    return f"{VORSCHAU_ORDNER}/{datum}-{kennung}.{endung}"
+
+
+def lade_vorschau(ordner: Path, datum: str, kennung: str, z: dict, session=None) -> list[str]:
+    """Reel (und Titelbild) eines Tages als Vorschau in den Speicher legen,
+    damit das Dashboard es abspielen kann (16.10.2026, vom Nutzer: „Ich
+    würde mir die Reels gerne auf der Admin-Seite anschauen").
+
+    Öffentlich lesbar wie jedes Objekt im Speicher, aber nur mit bekanntem
+    Namen (nicht auflistbar). Gelöscht wird nichts von Hand: Die
+    Lebenszyklus-Regel des Speichers räumt jedes Objekt nach einem Tag weg,
+    und der Morgenlauf legt die Vorschauen jeden Tag neu ab."""
+    g = Google(z, session)
+    adressen = []
+    for datei, endung, art in (("reel.mp4", "mp4", "video/mp4"), ("cover.jpg", "jpg", "image/jpeg")):
+        pfad = ordner / datei
+        if not pfad.exists():
+            continue
+        # Einmal unter der Kennung (genau dieser Inhalt) und einmal nur
+        # unter dem Datum (der jüngste Stand) - plan.json entsteht beim
+        # Deploy und kann einen älteren Stand tragen als der Morgenlauf.
+        for k in (kennung, "aktuell"):
+            adressen.append(g.video_hochladen(pfad, vorschau_name(datum, k, endung), art))
+    return adressen
+
+
 def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, ig_token: str,
                session=None, warten=time.sleep, kennung: str = "reel") -> dict:
     s = session or requests.Session()

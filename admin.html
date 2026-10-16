@@ -94,6 +94,21 @@
   .frei-knoepfe { display: flex; flex-direction: column; gap: 6px; align-self: start; }
   .frei-knoepfe .stat-btn { min-height: 36px; padding: 6px 12px; font-size: 0.85rem; white-space: nowrap; }
   @media (max-width: 600px) { .frei-zeile { grid-template-columns: 1fr; } .frei-knoepfe { flex-direction: row; flex-wrap: wrap; } }
+  /* Zugeklappt nur Titel und eine Zeile mit den Zahlen (16.10.2026, vom
+     Nutzer: „Die Instagram Freigabe ist irgendwie zu groß"). */
+  .frei-ausklapp > summary { cursor: pointer; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+  .frei-ausklapp > summary::-webkit-details-marker { display: none; }
+  .frei-ausklapp > summary::before { content: '▸'; color: var(--text-muted); }
+  .frei-ausklapp[open] > summary::before { content: '▾'; }
+  .frei-ausklapp > summary h3 { margin: 0; flex: 1 1 auto; }
+  .frei-zahlen { font-size: 0.85rem; color: var(--text-muted); }
+  /* „View": das Reel des Tages aus dem Speicher (vorschau/<Datum>-<Kennung>.mp4) */
+  .reel-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(5, 12, 24, 0.82); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; }
+  .reel-overlay[hidden] { display: none; }
+  .reel-box { background: var(--panel); border-radius: var(--radius-card); padding: 14px; max-width: min(420px, 100%); max-height: 100%; overflow: auto; box-sizing: border-box; display: grid; gap: 10px; }
+  .reel-box .reel-kopf { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .reel-box video { width: 100%; max-height: 70vh; border-radius: 10px; background: #000; aspect-ratio: 9 / 16; }
+  .reel-box .leer { margin: 0; }
   .gate { max-width: 560px; }
   .gate p { margin: 8px 0; line-height: 1.5; }
   .gate .uid { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
@@ -381,7 +396,7 @@
       w_regeln: 'Vermutlich sind die Firestore-Regeln noch nicht deployt (firebase deploy --only firestore:rules).',
       f_titel: 'Instagram-Freigabe',
       f_sub: 'die nächsten Tage',
-      f_erklaert: 'Jeden Abend um 17:47 Uhr postet der Instagram-Workflow den Beitrag des Tages – aber nur, wenn er hier freigegeben ist. Morgens um 08:47 Uhr liegt das fertige Video als Vorschau in GitHub Actions. Mit der Variable INSTAGRAM_AUTOPOST = ja geht alles raus, was nicht gesperrt ist.',
+      f_erklaert: 'Jeden Abend um 17:47 Uhr postet der Instagram-Workflow den Beitrag des Tages – aber nur, wenn er hier freigegeben ist. Morgens um 08:47 Uhr liegen die Videos der nächsten sieben Tage als Vorschau bereit – „View“ spielt sie ab. Mit der Variable INSTAGRAM_AUTOPOST = ja geht alles raus, was nicht gesperrt ist.',
       f_video: 'Videos ansehen (GitHub Actions)',
       f_frei: 'Freigeben',
       f_sperren: 'Sperren',
@@ -391,6 +406,12 @@
       f_s_offen: 'offen',
       f_s_veraltet: 'Inhalt geändert – bitte erneut freigeben',
       f_caption: 'Caption',
+      f_view: 'View',
+      f_zahlen: (n, frei, offen) => `${n} Tage · ${frei} freigegeben · ${offen} offen`,
+      f_reel_titel: 'Reel',
+      f_reel_fehlt: 'Für diesen Tag liegt noch keine Vorschau vor. Der Morgenlauf (08:47 Uhr) legt die Reels der nächsten sieben Tage ab.',
+      f_reel_anderer_stand: 'Diese Vorschau stammt aus dem Morgenlauf und zeigt einen neueren Stand als dieser Plan.',
+      f_schliessen: 'Schließen',
       f_kein_plan: 'Der Freigabe-Plan fehlt (marketing/instagram/plan.json). Er entsteht beim Deploy der Seite – nach dem nächsten Push ist er da.',
       f_fehler: 'Das hat nicht geklappt:',
       f_stand: 'Plan vom ',
@@ -507,7 +528,7 @@
       w_regeln: 'Probably the Firestore rules are not deployed yet (firebase deploy --only firestore:rules).',
       f_titel: 'Instagram approval',
       f_sub: 'the next days',
-      f_erklaert: 'Every evening at 17:47 the Instagram workflow posts the day\'s reel – but only if it is approved here. At 08:47 in the morning the finished video is available as a preview in GitHub Actions. With the variable INSTAGRAM_AUTOPOST = ja everything that is not blocked goes out.',
+      f_erklaert: 'Every evening at 17:47 the Instagram workflow posts the day\'s reel – but only if it is approved here. At 08:47 in the morning the videos of the next seven days are ready as a preview – “View” plays them. With the variable INSTAGRAM_AUTOPOST = ja everything that is not blocked goes out.',
       f_video: 'Watch videos (GitHub Actions)',
       f_frei: 'Approve',
       f_sperren: 'Block',
@@ -517,6 +538,12 @@
       f_s_offen: 'pending',
       f_s_veraltet: 'content changed – please approve again',
       f_caption: 'Caption',
+      f_view: 'View',
+      f_zahlen: (n, frei, offen) => `${n} days · ${frei} approved · ${offen} pending`,
+      f_reel_titel: 'Reel',
+      f_reel_fehlt: 'There is no preview for this day yet. The morning run (08:47) stores the reels of the next seven days.',
+      f_reel_anderer_stand: 'This preview comes from the morning run and shows a newer state than this plan.',
+      f_schliessen: 'Close',
       f_kein_plan: 'The approval plan is missing (marketing/instagram/plan.json). It is built when the site is deployed – after the next push it will be there.',
       f_fehler: 'That did not work:',
       f_stand: 'Plan from ',
@@ -733,6 +760,11 @@
   // sagt es und bittet um einen neuen Klick.
   const FREIGABE_PLAN_URL = 'marketing/instagram/plan.json';
   const FREIGABE_ACTIONS_URL = 'https://github.com/AntDon930/Enduranceevents/actions/workflows/instagram.yml';
+  // Vorschauen des Morgenlaufs (scripts/insta_posten.py, vorschau_name):
+  // vorschau/<Datum>-<Kennung>.mp4 und vorschau/<Datum>-aktuell.mp4.
+  const VORSCHAU_BASIS = 'https://storage.googleapis.com/endurance-5177a-instagram/vorschau/';
+  let freigabeOffen = false;     // Karte ausgeklappt? (bleibt über das Neuzeichnen)
+  try { freigabeOffen = localStorage.getItem('endurance-freigabe-offen') === '1'; } catch (e) { /* ignorieren */ }
   let freigabePlan = null;        // { erzeugt, beitraege: [...] } oder null
   let freigabeDocs = {};          // datum -> { status, hash }
   let freigabeFehler = null;
@@ -815,8 +847,8 @@
   function zeichneFreigaben() {
     const card = document.getElementById('insta-freigabe-card');
     if (!card) return;
-    const kopf = `<h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>
-      <p>${escapeHtml(t('f_erklaert'))} <a href="${FREIGABE_ACTIONS_URL}" target="_blank" rel="noopener">${escapeHtml(t('f_video'))}</a></p>`;
+    const erklaerung = `<p>${escapeHtml(t('f_erklaert'))} <a href="${FREIGABE_ACTIONS_URL}" target="_blank" rel="noopener">${escapeHtml(t('f_video'))}</a></p>`;
+    const kopf = `<h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>` + erklaerung;
     const fehler = freigabeFehler
       ? `<p class="leer">${escapeHtml(t('f_fehler'))} ${escapeHtml(freigabeFehler.message || String(freigabeFehler))} ${escapeHtml(t('w_regeln'))}</p>` : '';
     if (!freigabePlan || !Array.isArray(freigabePlan.beitraege)) {
@@ -824,7 +856,8 @@
       return;
     }
     const heute = new Date(); heute.setHours(0, 0, 0, 0);
-    const zeilen = freigabePlan.beitraege.filter(b => new Date(b.datum + 'T00:00:00') >= heute).map(b => {
+    const kuenftig = freigabePlan.beitraege.filter(b => new Date(b.datum + 'T00:00:00') >= heute);
+    const zeilen = kuenftig.map(b => {
       const st = freigabeStatus(b);
       const label = { frei: 'f_s_frei', gesperrt: 'f_s_gesperrt', veraltet: 'f_s_veraltet', offen: 'f_s_offen' }[st];
       const d = new Date(b.datum + 'T00:00:00');
@@ -832,6 +865,7 @@
       const fmt = t('f_fmt_' + b.format) || b.format;
       const knoepfe = [];
       if (st !== 'frei') knoepfe.push(`<button type="button" class="stat-btn primary" data-frei="${b.datum}">${escapeHtml(t('f_frei'))}</button>`);
+      knoepfe.push(`<button type="button" class="stat-btn" data-view="${b.datum}">${escapeHtml(t('f_view'))}</button>`);
       if (st !== 'gesperrt') knoepfe.push(`<button type="button" class="stat-btn" data-sperren="${b.datum}">${escapeHtml(t('f_sperren'))}</button>`);
       if (st !== 'offen') knoepfe.push(`<button type="button" class="stat-btn" data-zurueck="${b.datum}">${escapeHtml(t('f_zurueck'))}</button>`);
       return `<div class="frei-zeile ist-${st}" data-datum="${b.datum}">
@@ -845,11 +879,79 @@
       </div>`;
     });
     const stand = freigabePlan.erzeugt ? `<p class="leer">${escapeHtml(t('f_stand'))}${escapeHtml(String(freigabePlan.erzeugt).replace('T', ' ').slice(0, 16))}</p>` : '';
-    card.innerHTML = kopf + `<div class="frei-liste">${zeilen.join('')}</div>` + stand + fehler;
+    const zahl = (s) => kuenftig.filter(b => freigabeStatus(b) === s).length;
+    card.innerHTML = `<details class="frei-ausklapp"${freigabeOffen ? ' open' : ''}>
+        <summary><h3><span>${escapeHtml(t('f_titel'))}</span><small>${escapeHtml(t('f_sub'))}</small></h3>
+          <span class="frei-zahlen">${escapeHtml(t('f_zahlen', kuenftig.length, zahl('frei'), zahl('offen') + zahl('veraltet')))}</span></summary>
+        ${erklaerung}<div class="frei-liste">${zeilen.join('')}</div>${stand}
+      </details>` + fehler;
+    card.querySelector('.frei-ausklapp').addEventListener('toggle', (ev) => {
+      freigabeOffen = ev.target.open;
+      try { localStorage.setItem('endurance-freigabe-offen', freigabeOffen ? '1' : '0'); } catch (e) { /* ignorieren */ }
+    });
     const beitragZu = (datum) => freigabePlan.beitraege.find(b => b.datum === datum);
+    card.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => zeigeReel(beitragZu(b.dataset.view), b)));
     card.querySelectorAll('[data-frei]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.frei, 'freigegeben', beitragZu(b.dataset.frei))));
     card.querySelectorAll('[data-sperren]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.sperren, 'gesperrt', beitragZu(b.dataset.sperren))));
     card.querySelectorAll('[data-zurueck]').forEach(b => b.addEventListener('click', () => setzeFreigabe(b.dataset.zurueck, null, beitragZu(b.dataset.zurueck))));
+  }
+
+  // „View": das Reel eines Tages in einem Fenster abspielen. Erst die
+  // Vorschau genau dieses Inhalts (Kennung aus plan.json), sonst die
+  // jüngste des Tages (mit Hinweis), sonst ein Satz, wann sie kommt.
+  let reelZurueck = null;
+  function zeigeReel(beitrag, knopf) {
+    if (!beitrag) return;
+    let ov = document.getElementById('reel-overlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'reel-overlay';
+      ov.className = 'reel-overlay';
+      ov.setAttribute('role', 'dialog');
+      ov.setAttribute('aria-modal', 'true');
+      document.body.appendChild(ov);
+      ov.addEventListener('click', (ev) => { if (ev.target === ov || ev.target.closest('.reel-zu')) schliesseReel(); });
+      document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && !ov.hidden) schliesseReel(); });
+    }
+    reelZurueck = knopf || null;
+    const d = new Date(beitrag.datum + 'T00:00:00');
+    const datum = d.toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { weekday: 'short', day: '2-digit', month: '2-digit' });
+    ov.innerHTML = `<div class="reel-box">
+        <div class="reel-kopf"><b>${escapeHtml(t('f_reel_titel'))} · ${escapeHtml(datum)}</b>
+          <button type="button" class="stat-btn reel-zu">${escapeHtml(t('f_schliessen'))}</button></div>
+        <video controls playsinline preload="metadata"></video>
+        <p class="leer reel-hinweis" hidden></p>
+      </div>`;
+    ov.hidden = false;
+    const video = ov.querySelector('video');
+    const hinweis = ov.querySelector('.reel-hinweis');
+    const quellen = [beitrag.datum + '-' + beitrag.hash, beitrag.datum + '-aktuell'];
+    let i = 0;
+    const lade = () => {
+      video.poster = VORSCHAU_BASIS + quellen[i] + '.jpg';
+      video.src = VORSCHAU_BASIS + quellen[i] + '.mp4';
+    };
+    video.addEventListener('error', () => {
+      i += 1;
+      if (i < quellen.length) { lade(); return; }
+      video.hidden = true;
+      hinweis.textContent = t('f_reel_fehlt');
+      hinweis.hidden = false;
+    });
+    video.addEventListener('loadedmetadata', () => {
+      if (i > 0) { hinweis.textContent = t('f_reel_anderer_stand'); hinweis.hidden = false; }
+    });
+    lade();
+    ov.querySelector('.reel-zu').focus();
+  }
+  function schliesseReel() {
+    const ov = document.getElementById('reel-overlay');
+    if (!ov) return;
+    const v = ov.querySelector('video');
+    if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+    ov.hidden = true;
+    ov.innerHTML = '';
+    if (reelZurueck && reelZurueck.isConnected) reelZurueck.focus();
   }
 
   // ---------- Wartungsmodus ----------

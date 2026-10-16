@@ -4749,7 +4749,19 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   (`beitrag_hash` = SHA-256 über Format/Folien/Caption, VOR der
   Namensnennung gerechnet), dann `INSTAGRAM_AUTOPOST=ja`, sonst nur
   rendern. Eine veraltete Kennung verfällt von selbst (Datenlauf, Moment
-  korrigiert) und die Karte bittet um einen neuen Klick. `test_insta_freigabe`
+  korrigiert) und die Karte bittet um einen neuen Klick. **Seit dem
+  16.10.2026 ist die Karte zugeklappt** (eine Zeile mit den Zahlen, Zustand
+  in `localStorage` `endurance-freigabe-offen`; vom Nutzer: „zu groß") **und
+  jede Zeile hat „View"** zwischen Freigeben und Sperren: Der Morgenlauf
+  (ohne `--posten`, `--vorschau-tage`, Vorgabe 7) rendert die Reels der
+  nächsten sieben Tage mit dem Seed ihres späteren Laufs und legt sie über
+  `insta_posten.lade_vorschau()` als `vorschau/<Datum>-<Kennung>.mp4/.jpg`
+  UND `vorschau/<Datum>-aktuell.mp4/.jpg` in den Speicher (öffentlich lesbar,
+  nicht auflistbar; die Lebenszyklus-Regel löscht nach einem Tag, der
+  Morgenlauf legt täglich neu ab – ~35 s je Reel). `admin.html`
+  (`VORSCHAU_BASIS`, `zeigeReel`) spielt erst die Kennung aus plan.json,
+  sonst „aktuell" mit Hinweis, sonst „kommt mit dem Morgenlauf". Kein
+  Änderungsbedarf an `instagram.yml`. `test_insta_freigabe`
   und der Rauchtest (`pruefe_statistik_dashboard`, Attrappe speichert
   set/delete) halten es fest. **Beides ist live**: die Regeln seit dem
   15.10.2026, 12:25 (vom Nutzer aus der Cloud Shell, `firebase deploy
