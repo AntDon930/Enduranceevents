@@ -5631,10 +5631,15 @@ Verweise auf alte Nummern stehen in Klammern.
    (+ Impressum als zweiter Link), Facebook-Seite + Business-Portfolio +
    Meta-App + Systemnutzer-Token, dann Secrets `IG_USER_ID`,
    `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY` – Schritt für Schritt im
-   README („Instagram", Einrichtung). Danach noch einmal `cd Enduranceevents
-   && git pull && firebase deploy --only functions` – der Deploy vom
-   14.10., 12:41 (Archiv 37) war VOR der Instagram-Zählung in
-   `aggregateStats`. Erst Reels als Artefakt ansehen, dann
+   README („Instagram", Einrichtung). ~~Danach noch einmal `cd Enduranceevents
+   && git pull && firebase deploy --only functions`~~ **erledigt**
+   (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
+   12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
+   zeigte deshalb „Kanäle 0" neben einem Klick über l.instagram.com.
+   `aggregateStats` rechnet nur heute und gestern neu – der 14.10. bleibt
+   ohne Kanäle). Die Referrer `facebook.com`/`m.facebook.com` (4 Aufrufe
+   bis 16.10.) sind vermutlich der Nutzer selbst beim Einrichten der
+   Meta-App/Facebook-Seite oder ein geteilter Link – kein Fehler. Erst Reels als Artefakt ansehen, dann
    Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
    14.10.2026 auf `main` (Commit `7f6ab3d`, abends `e3251fc1` mit
    Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
