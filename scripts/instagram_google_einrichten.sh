@@ -49,7 +49,6 @@ nur_schluessel=0
 [ "${1:-}" = "--schluessel" ] && nur_schluessel=1
 
 gcloud config set project "$PROJEKT" >/dev/null 2>&1
-NUMMER="$(gcloud projects describe "$PROJEKT" --format='value(projectNumber)')"
 
 schluessel_hinterlegen() {
   echo
@@ -97,6 +96,9 @@ fi
 echo "1/6 Google-Dienste einschalten …"
 gcloud services enable iam.googleapis.com iamcredentials.googleapis.com sts.googleapis.com \
   secretmanager.googleapis.com storage.googleapis.com cloudresourcemanager.googleapis.com
+# Erst nach dem Einschalten fragen: die Projektnummer kommt aus dem
+# Cloud Resource Manager.
+NUMMER="$(gcloud projects describe "$PROJEKT" --format='value(projectNumber)')"
 
 echo "2/6 Dienstkonto ${DIENSTKONTO} …"
 if ! gcloud iam service-accounts describe "$DIENSTKONTO" >/dev/null 2>&1; then
@@ -112,6 +114,9 @@ regel="$(mktemp)"
 echo '{"rule": [{"action": {"type": "Delete"}, "condition": {"age": 1}}]}' > "$regel"
 gcloud storage buckets update "gs://${BUCKET}" --lifecycle-file="$regel" >/dev/null
 rm -f "$regel"
+# Ohne das weist Google die Freigabe für allUsers ab, falls der Speicher
+# „öffentlichen Zugriff verhindern" trägt (in der Konsole voreingestellt).
+gcloud storage buckets update "gs://${BUCKET}" --no-public-access-prevention >/dev/null
 # legacyObjectReader: jeder kann ein Objekt mit bekanntem Namen lesen,
 # aber niemand kann auflisten, was im Speicher liegt.
 gcloud storage buckets add-iam-policy-binding "gs://${BUCKET}" \
