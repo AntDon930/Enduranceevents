@@ -72,6 +72,13 @@
       'auth/network-request-failed': 'Netzwerkfehler – bitte Verbindung prüfen.',
       'auth/account-exists-with-different-credential': 'Für diese E-Mail gibt es schon ein Konto mit einer anderen Anmeldeart. Bitte so anmelden wie beim ersten Mal.',
       'auth/unauthorized-domain': 'Diese Adresse ist in Firebase nicht als erlaubte Domain eingetragen.',
+      loginNutzen: 'Mit einem Konto bekommst du neue Events per E-Mail – passend zu deiner Suche.',
+      willkommenTitel: 'Willkommen!',
+      willkommenText: 'Du bist angemeldet. Jetzt kannst du ein E-Mail-Abo anlegen: Wähle Sportart, Region und Distanz – und wir schreiben dir, sobald passende neue Events dazukommen.',
+      willkommenPunkte: ['Neue Events zu deinen Filtern, ohne selbst zu suchen', 'Sofort, wöchentlich oder monatlich – wie du willst', 'Jederzeit änderbar und mit einem Klick abbestellbar'],
+      willkommenVerify: 'Bitte bestätige noch deine E-Mail-Adresse (Link in der Mail, die wir dir geschickt haben) – erst dann können wir dir schreiben.',
+      willkommenAbo: 'E-Mail-Abo einrichten',
+      willkommenSpaeter: 'Später',
       redirecting: 'Weiterleitung zu Google …',
       inAppBrowserHint: 'Die Anmeldung klappt in diesem eingebetteten Browser (z. B. in Instagram oder Facebook) nicht. Bitte öffne die Seite im normalen Browser – über das Menü „…“ oben rechts, „In Safari/Chrome öffnen“.'
     },
@@ -112,6 +119,13 @@
       'auth/network-request-failed': 'Network error – please check your connection.',
       'auth/account-exists-with-different-credential': 'An account with this email already exists using a different sign-in method. Please use the one you signed up with.',
       'auth/unauthorized-domain': 'This address is not listed as an authorised domain in Firebase.',
+      loginNutzen: 'With an account you get new events by email – matching your search.',
+      willkommenTitel: 'Welcome!',
+      willkommenText: 'You are signed in. Now you can set up an email alert: choose sport, region and distance – and we will write to you as soon as matching new events are added.',
+      willkommenPunkte: ['New events for your filters, without searching yourself', 'Instantly, weekly or monthly – your choice', 'Change it any time, unsubscribe with one click'],
+      willkommenVerify: 'Please confirm your email address first (link in the email we sent you) – only then can we write to you.',
+      willkommenAbo: 'Set up email alert',
+      willkommenSpaeter: 'Later',
       redirecting: 'Redirecting to Google …',
       inAppBrowserHint: 'Signing in does not work inside this embedded browser (e.g. Instagram or Facebook). Please open the page in your normal browser – via the “…” menu at the top right, “Open in Safari/Chrome”.'
     }
@@ -284,6 +298,16 @@
     .ee-form-msg { font-size: 0.85rem; padding: 9px 11px; border-radius: 8px; margin-bottom: 12px; }
     .ee-form-msg.error { background: #fdeaea; color: #8a1f1f; }
     .ee-form-msg.success { background: #e8f6ec; color: #1f6b3a; }
+    .ee-nutzen { margin: -8px 0 16px; text-align: center; font-size: 0.86rem; color: var(--text-muted, #6b7280); }
+    .ee-willkommen p { margin: 0 0 12px; font-size: 0.92rem; line-height: 1.45; }
+    .ee-willkommen ul { margin: 0 0 16px; padding: 0; list-style: none; }
+    .ee-willkommen li { position: relative; padding-left: 24px; margin-bottom: 7px; font-size: 0.88rem; }
+    .ee-willkommen li::before { content: '✓'; position: absolute; left: 2px; top: 0; font-weight: 700; color: var(--brand, #e8590c); }
+    .ee-later-btn {
+      width: 100%; padding: 10px; margin-top: 8px; border-radius: 10px; cursor: pointer;
+      border: 1px solid var(--border, #e0e3e8); background: transparent; color: var(--text, #1c1f24);
+      font-weight: 600; font-size: 0.9rem;
+    }
     .ee-verify-banner {
       display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
       background: #fff6e0; color: #6b4b00; border-radius: 8px; padding: 8px 12px;
@@ -375,6 +399,7 @@
     const body = overlay.querySelector('#ee-modal-body');
     body.innerHTML = `
       <h2>${escapeHtml(t('modalTitleLogin'))}</h2>
+      <p class="ee-nutzen">${escapeHtml(t('loginNutzen'))}</p>
       <div id="ee-form-msg"></div>
       ${!configured ? `<div class="ee-form-msg error">${escapeHtml(t('notConfigured'))}</div>` : ''}
       <button type="button" class="ee-social-btn" id="ee-google-btn" ${configured ? '' : 'disabled'}>${GOOGLE_ICON}<span>${escapeHtml(t('googleBtn'))}</span></button>
@@ -401,7 +426,7 @@
       const password = body.querySelector('#ee-login-password').value;
       setFormMsg(null);
       auth.signInWithEmailAndPassword(email, password)
-        .then(() => closeModal())
+        .then(() => renderWillkommen())
         .catch(err => setFormMsg(errorMessage(err), 'error'));
     });
   }
@@ -410,6 +435,7 @@
     const body = overlay.querySelector('#ee-modal-body');
     body.innerHTML = `
       <h2>${escapeHtml(t('modalTitleRegister'))}</h2>
+      <p class="ee-nutzen">${escapeHtml(t('loginNutzen'))}</p>
       <div id="ee-form-msg"></div>
       ${!configured ? `<div class="ee-form-msg error">${escapeHtml(t('notConfigured'))}</div>` : ''}
       <button type="button" class="ee-social-btn" id="ee-google-btn" ${configured ? '' : 'disabled'}>${GOOGLE_ICON}<span>${escapeHtml(t('googleBtn'))}</span></button>
@@ -452,9 +478,43 @@
           const profileUpdate = name ? cred.user.updateProfile({ displayName: name }) : Promise.resolve();
           return profileUpdate.then(() => cred.user.sendEmailVerification());
         })
-        .then(() => setFormMsg(t('verifyEmailSent'), 'success'))
+        .then(() => renderWillkommen({ verify: true }))
         .catch(err => setFormMsg(errorMessage(err), 'error'));
     });
+  }
+
+  // Nach der Anmeldung: sagen, wofür das Konto gut ist (vom Nutzer am
+  // 16.10.2026 gewünscht: „Wenn man sich einfach so anmeldet, dann
+  // versteht der User nicht ganz, was es für einen Mehrwert bringt").
+  // Der einzige Zweck des Kontos ist das E-Mail-Abo - also führt der
+  // Hauptknopf direkt dorthin: in der Liste in den Abo-Dialog
+  // (#abo-open-btn), auf allen anderen Seiten über events.html?abos=1,
+  // das denselben Dialog beim Laden öffnet. Nur nach einer Anmeldung
+  // durch den Nutzer, nie beim stillen Wiederherstellen der Sitzung.
+  function renderWillkommen(opts) {
+    const o = opts || {};
+    if (overlay.hidden) { fokusVorher = document.activeElement; overlay.hidden = false; }
+    const body = overlay.querySelector('#ee-modal-body');
+    const punkte = t('willkommenPunkte');
+    body.innerHTML = `
+      <div class="ee-willkommen">
+        <h2>${escapeHtml(t('willkommenTitel'))}</h2>
+        ${o.verify ? `<div class="ee-form-msg success">${escapeHtml(t('verifyEmailSent'))}</div>` : ''}
+        <p>${escapeHtml(t('willkommenText'))}</p>
+        <ul>${(Array.isArray(punkte) ? punkte : []).map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>
+        ${o.verify ? `<p class="ee-nutzen" style="margin:0 0 14px;text-align:left">${escapeHtml(t('willkommenVerify'))}</p>` : ''}
+        <button type="button" class="ee-submit-btn" id="ee-willkommen-abo">${escapeHtml(t('willkommenAbo'))}</button>
+        <button type="button" class="ee-later-btn" id="ee-willkommen-spaeter">${escapeHtml(t('willkommenSpaeter'))}</button>
+      </div>`;
+    body.querySelector('#ee-willkommen-spaeter').addEventListener('click', closeModal);
+    body.querySelector('#ee-willkommen-abo').addEventListener('click', () => {
+      const aboKnopf = document.getElementById('abo-open-btn');
+      closeModal();
+      if (aboKnopf) aboKnopf.click();
+      else window.location.href = 'events.html?abos=1';
+    });
+    const dlg = overlay.querySelector('.ee-modal');
+    if (dlg) { try { dlg.focus({ preventScroll: true }); } catch (e) { dlg.focus(); } }
   }
 
   function setFormMsg(msg, type) {
@@ -499,7 +559,7 @@
     const provider = new firebase.auth.GoogleAuthProvider();
     setFormMsg(null);
     auth.signInWithPopup(provider)
-      .then(() => closeModal())
+      .then(() => renderWillkommen())
       .catch(err => {
         const code = err && err.code;
         // Zwei Klicks kurz hintereinander: Firebase bricht den ersten
@@ -525,7 +585,12 @@
     if (!auth) return;
     auth.getRedirectResult()
       .then(result => {
-        if (result && result.user) { setRedirectFlag(false); return; }
+        if (result && result.user) {
+          setRedirectFlag(false);
+          // Zurück von Google: dieselbe Begrüßung wie nach dem Popup.
+          openModal('willkommen');
+          return;
+        }
         if (!hadRedirect()) return;
         // Weiterleitung gestartet, aber ohne Anmeldung zurück: In
         // eingebetteten Browsern blockt der Speicherschutz (Safari ITP)
@@ -545,7 +610,9 @@
   function openModal(mode) {
     fokusVorher = document.activeElement;
     overlay.hidden = false;
-    if (mode === 'register') renderRegisterBody(); else renderLoginBody();
+    if (mode === 'register') renderRegisterBody();
+    else if (mode === 'willkommen') renderWillkommen();
+    else renderLoginBody();
     // Den Dialog selbst fokussieren, nicht das erste Feld: der Fokus
     // liegt damit im Dialog (Escape und Tab wirken), ohne dass eine
     // Eingabe schon die Tastatur des Handys hochschiebt.

@@ -3859,6 +3859,17 @@ sagt es).
     `?abos=1` tat einfach nichts, ohne Spur in der Konsole. Ein
     `try/catch` fängt die eine erwartete Ausnahme, nicht jeden
     Programmierfehler darin.
+- **Nach der Anmeldung kommt eine Begrüßung mit dem Abo** (vom Nutzer
+  am 16.10.2026: „Wenn man sich einfach so anmeldet, dann versteht der
+  User nicht ganz, was es für einen Mehrwert bringt"). `renderWillkommen()`
+  in `auth.js` ersetzt den Inhalt des Anmelde-Dialogs nach Popup,
+  E-Mail-Login, Registrierung (mit Bitte um Bestätigung der Adresse) und
+  der Rückkehr von Google (`openModal('willkommen')`) – nie beim stillen
+  Wiederherstellen der Sitzung. Drei Punkte zum Nutzen, Hauptknopf
+  „E-Mail-Abo einrichten“ (Liste: klickt `#abo-open-btn`; sonst
+  `events.html?abos=1`), daneben „Später“. Anmelde- und Registrieren-
+  Dialog sagen schon vorher in einer Zeile, wofür das Konto ist
+  (`loginNutzen`). Der Rauchtest prüft beides (`pruefe_willkommen`).
 - **Dialoge: `dialogTasten()` steht in `auth.js`** (Escape + Fokusfessel,
   `aria-modal="true"` verspricht genau das) und wird von `events.html`
   für den Melde-Dialog mitbenutzt – **erst beim ersten Öffnen**

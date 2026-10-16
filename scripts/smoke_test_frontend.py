@@ -919,7 +919,14 @@ def pruefe_gruppierung(ctx, basis):
     # Trefferzeile: Auf EINE Veranstaltung eingegrenzt steht dort
     # „1 Veranstaltung (N Strecken)" - und genau N Zeilen müssen sich
     # aufklappen.
-    zu = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
+    # Eine Veranstaltung mit SPANNE nehmen (zwei verschiedene Maßzahlen):
+    # Am 16.10.2026 war die erste aufklappbare eine mit zweimal „60min“ -
+    # dort gibt es keine Spanne, die Prüfung war rot, ohne dass sich an
+    # der Seite etwas geändert hatte (sechste Begegnung, siehe CLAUDE.md
+    # „Kein fester Zeilenindex in den Prüfungen“).
+    zu = seite.evaluate("""() => {
+        const alle = [...document.querySelectorAll('tr.group-row:not(.single)')];
+        const r = alle.find(z => ((z.querySelector('.col-laenge_km') || {}).textContent || '').includes('–')) || alle[0];
         if (!r) return null;
         return {name: r.querySelector('.group-name-text').textContent.trim(),
                 idx: Number(r.dataset.idx),
@@ -1150,6 +1157,61 @@ def pruefe_gruppierung(ctx, basis):
     seite.evaluate("() => document.querySelector('.lang-btn[data-lang=de]').click()")
     seite.wait_for_timeout(300)
     seite.close()
+
+
+def pruefe_willkommen(ctx, basis):
+    """Nach der Anmeldung sagt die Seite, wofür das Konto gut ist.
+
+    Vom Nutzer am 16.10.2026 gewünscht: Wer sich einfach so anmeldet,
+    sieht keinen Mehrwert. Eine echte Anmeldung gibt es hier nicht -
+    geprüft wird die Ansicht über `EndauranceAuth.openModal('willkommen')`
+    (derselbe Weg wie die Rückkehr von Google), dazu der Satz im
+    Anmelde-Dialog, und dass der Hauptknopf in den Abo-Dialog führt bzw.
+    auf der Startseite nach events.html?abos=1.
+    """
+    print("\nNach der Anmeldung: Willkommen mit Abo")
+    seite, probleme = seite_oeffnen(ctx, basis + "/events.html", "tbody tr")
+    pruefe(not probleme, "lädt ohne Fehler (%s)" % (probleme[0] if probleme else "keine"))
+    seite.wait_for_function("() => window.EndauranceAuth && window.EndauranceAuth.openModal")
+    seite.evaluate("() => window.EndauranceAuth.openModal('login')")
+    nutzen = seite.evaluate("() => (document.querySelector('.ee-modal .ee-nutzen') || {}).textContent || ''")
+    pruefe("E-Mail" in nutzen, "der Anmelde-Dialog sagt, wofür das Konto ist (%s)" % nutzen[:60])
+    seite.evaluate("() => window.EndauranceAuth.openModal('willkommen')")
+    stand = seite.evaluate("""() => ({
+        titel: (document.querySelector('.ee-willkommen h2') || {}).textContent || '',
+        punkte: document.querySelectorAll('.ee-willkommen li').length,
+        abo: (document.getElementById('ee-willkommen-abo') || {}).textContent || '',
+        spaeter: !!document.getElementById('ee-willkommen-spaeter')
+    })""")
+    pruefe(stand["titel"] == "Willkommen!" and stand["punkte"] == 3,
+           "die Begrüßung nennt den Nutzen in drei Punkten (%s, %d)" % (stand["titel"], stand["punkte"]))
+    pruefe("Abo" in stand["abo"] and stand["spaeter"], "Knöpfe „E-Mail-Abo einrichten“ und „Später“")
+    seite.click("#ee-willkommen-abo")
+    seite.wait_for_timeout(600)
+    offen = seite.evaluate("""() => ({
+        abo: !document.getElementById('abo-overlay').hidden,
+        willkommen: !!document.querySelector('.ee-modal-overlay:not([hidden]) .ee-willkommen')
+    })""")
+    pruefe(offen["abo"] and not offen["willkommen"],
+           "der Knopf schließt die Begrüßung und öffnet den Abo-Dialog")
+    seite.close()
+
+    start, probleme = seite_oeffnen(ctx, basis + "/index.html", ".top-bar")
+    start.wait_for_function("() => window.EndauranceAuth && window.EndauranceAuth.openModal")
+    start.evaluate("() => window.EndauranceAuth.openModal('willkommen')")
+    with start.expect_navigation():
+        start.click("#ee-willkommen-abo")
+    # events.html liest ?abos=1 und schreibt die Adresse gleich um -
+    # geprüft wird deshalb, dass dort der Abo-Dialog offen ist.
+    try:
+        start.wait_for_function("() => { const o = document.getElementById('abo-overlay'); return o && !o.hidden; }",
+                                timeout=8000)
+        offen = True
+    except Exception:
+        offen = False
+    pruefe("events.html" in start.url and offen,
+           "auf der Startseite führt er in die Liste mit offenem Abo-Dialog (%s)" % start.url)
+    start.close()
 
 
 def pruefe_abo(ctx, basis):
@@ -2730,6 +2792,7 @@ def main() -> int:
                 pruefe_statistik(ctx, basis)
                 pruefe_statistik_dashboard(ctx, basis)
                 pruefe_abo(ctx, basis)
+                pruefe_willkommen(ctx, basis)
                 pruefe_tastatur(ctx, basis)
                 pruefe_karte_und_rundweg(ctx, basis)
                 pruefe_farbschema(ctx, basis)
