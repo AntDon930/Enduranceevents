@@ -94,18 +94,59 @@ print("https://www.instagram.com/oauth/authorize?" + urllib.parse.urlencode({
     "scope": "instagram_business_basic,instagram_business_content_publish"}))')"
   echo
   echo "Anmeldung über einen eigenen Link"
-  echo "  1. Diesen Link in dem Browser öffnen, in dem du bei Instagram als"
-  echo "     ausdauermaschine angemeldet bist (lange drücken → Kopieren):"
+  echo
+  # Erst der Geheimcode, dann der Link: Der Code aus dem Link gilt nur kurz
+  # und nur einmal – so ist er beim Tausch so frisch wie möglich.
+  echo "  1. Den Instagram-App-Geheimcode holen: developers.facebook.com → deine App →"
+  echo "     API-Einrichtung mit Instagram-Business-Login → oben „Instagram-App-Geheimcode“"
+  echo "     → Anzeigen → kopieren. Er hat 32 Zeichen (Zahlen und a–f), wird nur für"
+  echo "     den Tausch gebraucht und nicht gespeichert."
+  local versuch=0 roh
+  geheim=""
+  while [ -z "$geheim" ] && [ "$versuch" -lt 3 ]; do
+    versuch=$((versuch + 1))
+    read -r -s -p "     Geheimcode einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " roh
+    echo
+    # Aus dem Eingefügten die 32-stellige Folge nehmen – beim Kopieren auf
+    # dem iPad kommt gern Text daneben mit (Beschriftung, Knopf, doppelt).
+    geheim="$(ROH="$roh" python3 -c 'import os, re
+laeufe = re.findall(r"[0-9a-fA-F]{32,}", os.environ["ROH"])
+treffer = set()
+for l in laeufe:
+    if len(l) == 32:
+        treffer.add(l.lower())
+    elif len(l) % 32 == 0 and len(set(l[i:i + 32] for i in range(0, len(l), 32))) == 1:
+        treffer.add(l[:32].lower())
+print(treffer.pop() if len(treffer) == 1 else "")')"
+    if [ -z "$geheim" ]; then
+      roh="$(printf '%s' "$roh" | tr -d '[:space:]')"
+      if [ -z "$roh" ]; then
+        echo "     Es ist nichts angekommen – mit ⌘V einfügen (oder lange tippen → „Einsetzen“)." >&2
+      else
+        echo "     Angekommen sind ${#roh} Zeichen, darin steckt kein eindeutiger Geheimcode" >&2
+        echo "     (32 Zeichen, nur Zahlen und a–f). Im Meta-Feld nur den Code markieren." >&2
+      fi
+    fi
+  done
+  roh=""
+  if [ -z "$geheim" ]; then
+    echo "  Nichts geändert." >&2
+    return 1
+  fi
+  echo "     Geheimcode erhalten (${geheim:0:4}…${geheim: -2}, 32 Zeichen)."
+  echo
+  echo "  2. Diesen Link in dem Browser öffnen, in dem du bei Instagram als"
+  echo "     ausdauermaschine angemeldet bist, und „Zulassen“ antippen:"
   echo
   echo "     $link"
   echo
-  echo "  2. Auf der Instagram-Seite „Zulassen“ antippen."
   echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
   echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
+  echo "     Jeder Code gilt nur EINMAL – für einen neuen Versuch den Link neu öffnen."
   echo
-  # Sichtbar: Der Code gilt eine Stunde, nur einmal und nur zusammen mit
-  # dem Geheimcode – und so sieht man, ob das Einfügen geklappt hat.
-  read -r -p "  Adresse einfügen und Enter drücken: " adresse
+  # Sichtbar: Der Code gilt nur kurz, nur einmal und nur zusammen mit dem
+  # Geheimcode – und so sieht man, ob das Einfügen geklappt hat.
+  read -r -p "     Adresse einfügen und Enter drücken: " adresse
   code="$(ADRESSE="$adresse" python3 -c 'import os, urllib.parse
 a = os.environ["ADRESSE"].strip()
 q = urllib.parse.parse_qs(urllib.parse.urlparse(a).query) if "code=" in a else {"code": [a]}
@@ -118,22 +159,10 @@ print(q.get("code", [""])[0].split("#")[0].strip())')"
       echo "  In der Adresse steht kein „code=“. Kopiert werden muss die Adresse, auf der" >&2
       echo "  Instagram nach „Zulassen“ landet (endurance-events.de/?code=…)." >&2
     fi
-    echo "  Nichts geändert. Der Code bleibt eine Stunde gültig: einfach noch einmal" >&2
-    echo "  bash $0 --anmelden  und dieselbe Adresse einfügen." >&2
+    echo "  Nichts geändert. Noch einmal: bash $0 --anmelden" >&2
     return 1
   fi
-  echo "  Code erhalten (${#code} Zeichen)."
-  echo "  Jetzt den Instagram-App-Geheimcode (developers.facebook.com → deine App →"
-  echo "  API-Einrichtung mit Instagram-Business-Login → „Instagram-App-Geheimcode“ →"
-  echo "  Anzeigen → kopieren). Er wird nur für diesen Tausch gebraucht, nicht gespeichert."
-  read -r -s -p "  Geheimcode einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " geheim
-  echo
-  geheim="$(printf '%s' "$geheim" | tr -d '[:space:]')"
-  if [ -z "$geheim" ]; then
-    echo "  Es ist nichts angekommen – das Einfügen hat nicht geklappt (⌘V). Nichts geändert." >&2
-    return 1
-  fi
-  echo "  Geheimcode erhalten (${#geheim} Zeichen)."
+  echo "     Code erhalten (${#code} Zeichen), tausche …"
   antwort="$(curl -sS -X POST "https://api.instagram.com/oauth/access_token" \
     --form-string "client_id=${IG_APP_ID}" --form-string "client_secret=${geheim}" \
     --form-string "grant_type=authorization_code" --form-string "redirect_uri=${WEITERLEITUNG}" \
@@ -154,8 +183,9 @@ try:
     print("  ", d.get("error_message") or (d.get("error") or {}).get("message") or d)
 except Exception:
     print("   keine lesbare Antwort")' >&2
-    echo "  Häufigste Gründe: Code schon benutzt oder älter als eine Stunde (Link neu öffnen)," >&2
-    echo "  Weiterleitungs-URI in der App nicht genau ${WEITERLEITUNG}, Geheimcode falsch." >&2
+    echo "  Häufigste Gründe: Code schon einmal benutzt oder zu alt (Link neu öffnen, neue" >&2
+    echo "  Adresse nehmen), Geheimcode einer anderen App, Weiterleitungs-URI in der App" >&2
+    echo "  nicht genau ${WEITERLEITUNG}. Noch einmal: bash $0 --anmelden" >&2
     return 1
   fi
   antwort="$(curl -sS -G "https://graph.instagram.com/access_token" \
