@@ -5614,9 +5614,9 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   will „das mit Instagram fertig machen" und „die ersten Videos alle
   gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
   „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
-  „Freigabe mit einem Klick"). Offen und NUR beim Nutzer: Punkt 8
+  „Freigabe mit einem Klick"). Offen und NUR beim Nutzer war: Punkt 8
   (Account, Meta-App, Token, Google-Einrichtung – seit 16.10.2026 ohne
-  Facebook-Seite). Das Ja zu `instagram.yml` auf
+  Facebook-Seite; erledigt am 16.10.2026, jetzt Archiv Punkt 39). Das Ja zu `instagram.yml` auf
   `main` kam noch am selben Abend (Commit `e3251fc1`), die Regeln hat der
   Nutzer am 15.10.2026 um 12:25 deployt. Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
   der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
@@ -5630,6 +5630,19 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   Plattform), Material mit Genehmigung, eigene Aufnahmen, Fakten über
   lizenzfreiem Hintergrund. Nicht ohne Rücksprache nachbauen: Download
   und Re-Upload fremder Clips.
+
+- **Stand beim dritten Clear (16.10.2026, ~17:10)**: Instagram läuft
+  end-to-end ohne Facebook-Seite (Anmeldung über Instagram, Schlüssel im
+  Google-Tresor, Workload Identity, Video kurz im Speicher) – erster Beitrag
+  17:02, `instagram.yml` auf `main` (`ae5751ef`). Der Nutzer löscht den
+  Probebeitrag selbst. Gepostet wird ab jetzt nur, was er im Dashboard
+  freigibt (oder `INSTAGRAM_AUTOPOST=ja`). Die Einrichtung war zäh –
+  Lehren im Archiv, Punkt 39, und in „Instagram" (Bullet zum Skript):
+  Passwort-Anmeldung im Meta-Fenster scheiterte, `--anmelden` mit
+  eintippbarer `ig.html` ging. Was jetzt ansteht: neue Liste Punkt 1
+  (Korrekturliste) und 2 (Domain-Verifizierung); Montag 19.10. der
+  Deploy-Check; danach erste Freigaben im Dashboard ansehen (wird das
+  Abendreel gepostet?).
 
 **Regel des Nutzers (13.10.2026): „Immer von neu zählen anfangen."**
 Die Liste zählt ab 1 und enthält NUR Offenes. Erledigtes wandert mit
@@ -5683,88 +5696,25 @@ Verweise auf alte Nummern stehen in Klammern.
    `datenschutz.html` (DE und EN) um die Werbeeinblendung ergänzen, dann
    erst `EnduranceStats.anzeige()` an einen Platz hängen – siehe
    „Besucherstatistik", Kennzahlen für Werbekunden.
-8. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
-   `ausdauermaschine` als professionelles Konto, Bio-Link
-   `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
-   (+ Impressum als zweiter Link), **seit dem 16.10.2026 ohne
-   Facebook-Seite** (Anmeldung über Instagram, siehe „Instagram" →
-   Posten): Dialog „Facebook-Seite verknüpfen" überspringen, Meta-Entwickler-
-   konto, App mit Anwendungsfall „Nachrichten und Inhalte auf Instagram
-   verwalten" ohne Business-Portfolio, „API-Einrichtung mit
-   Instagram-Business-Login" → Konto hinzufügen → Token generieren, dann
-   in der Cloud Shell `bash scripts/instagram_google_einrichten.sh` (legt
-   den Schlüssel in den Google-Tresor), danach **die neue `instagram.yml`
-   auf `main`** (Ja des Nutzers einholen, nur diese Datei); GitHub-Secrets
-   für Instagram braucht es keine mehr, optional `PEXELS_API_KEY` –
-   Schritt für Schritt im README („Instagram", Einrichtung). Stand
-   16.10.2026, 10:50: Der Nutzer stand am Dialog „Facebook-Seite
-   verknüpfen" und hat ihn nicht bestätigt. **Mittags dann: eigenes
-   Facebook-Profil auf `info@endurance-events.de`** („Ich mache jetzt ein
-   eigenes Facebook Profil dafür! … Wähle jetzt bitte den besten weg") –
-   Weg A bleibt (Anmeldung über Instagram, gebaut und getestet; das
-   Projektprofil ist nur das Meta-Entwicklerkonto, KEINE Seite, nicht mit
-   Instagram verknüpfen). Anmelden im privaten Browserfenster, sonst nimmt
-   Meta das private Profil der Facebook-App. Risiko dem Nutzer gesagt:
-   Meta erlaubt ein persönliches Profil je Person. **Nachmittags (16:55)
-   EINGERICHTET**: Meta-App „AusdauerMaschine Content" (Instagram-App-ID
-   2082109586511982, Berechtigungen basic + content_publish „Bereit zum
-   Testen", ausdauermaschine = Instagram-Tester, Konto-Id
-   17841433983155724, OAuth-URI `https://endurance-events.de/`), Cloud-Shell-
-   Skript Schritte 1–5 durch, Schlüssel über `--anmelden` im Tresor
-   (Fassung 1, „darf Beiträge veröffentlichen"). „Token generieren" ging
-   NICHT: Instagram nahm das Passwort im Anmeldefenster nie an, nach der
-   Anmeldung per Code landete man im Feed; ein angetippter
-   instagram.com-Link öffnete die Instagram-App („Da ist leider etwas
-   schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
-   „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
-   `instagram.yml` steht seit 17:05 auf `main` (Commit `ae5751ef`, „Ja,
-   instagram.yml auf main", Diff zum Entwicklungs-Branch leer). **Erster
-   echter Beitrag 17:02** (vom Nutzer gewünscht: „Poste jetzt einmal was …
-   Ich kann es dann einfach manuell wieder löschen"; Handlauf mit Haken
-   „posten", Run 38920457036): Video 5,2 MB in den Speicher, Instagram hat
-   es abgeholt, veröffentlicht als https://www.instagram.com/reel/DejzwABAmIT/
-   (Format „Wochenende"); Limit 100 Beiträge je 24 h. Damit ist der ganze
-   Weg einmal echt gelaufen. ~~Danach noch einmal `cd Enduranceevents
-   && git pull && firebase deploy --only functions`~~ **erledigt**
-   (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
-   12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
-   zeigte deshalb „Kanäle 0" neben einem Klick über l.instagram.com.
-   `aggregateStats` rechnet nur heute und gestern neu – der 14.10. bleibt
-   ohne Kanäle). Die Referrer `facebook.com`/`m.facebook.com` (4 Aufrufe
-   bis 16.10.) sind vermutlich der Nutzer selbst beim Einrichten der
-   Meta-App/Facebook-Seite oder ein geteilter Link – kein Fehler. Erst Reels als Artefakt ansehen, dann
-   Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
-   14.10.2026 auf `main` (Commit `7f6ab3d`, abends `e3251fc1` mit
-   Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
-   sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
-   Profilbild: `marketing/instagram/profil/profilbild.png`.
-   ~~`cd Enduranceevents && git pull && firebase deploy --only
-   firestore:rules` für die Freigabe-Dokumente `insta_freigaben`~~
-   **erledigt** (15.10.2026, 12:25, „Deploy complete!"; von hier per REST
-   geprüft: 404 statt 403). ~~Die neue Fassung von `instagram.yml` auf `main`~~
-   **erledigt** (14.10.2026 abends, „Ja für instagram.yml auf main",
-   Commit `e3251fc1`, nur diese eine Datei, Diff zum Entwicklungs-Branch
-   leer). Die Karte
-   „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
-   der nächste Pages-Deploy `plan.json` gebaut hat.
-9. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
+8. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
-10. **RADRACE als Veranstalter anschauen** (14.10.2026, vom Nutzer: „Bitte
-    auf to do Liste setzen das wir uns radrace als Veranstalter anschauen
-    müssen"). RADRACE (Berlin) richtet eigene Rennen aus (Fixed42, Tour
-    de Friends, Rad Race Last Man Standing u. a.); am 14.10.2026 steht
-    kein einziges davon in `events.json` (auch kein Treffer in README,
-    CLAUDE.md oder den Skripten). Vorgehen wie bei jeder Quelle: Rennen
-    und Termine auf der Veranstalterseite lesen, prüfen, ob eine
-    bestehende Quelle sie liefert, robots.txt und Nutzungsbedingungen
-    lesen; einzelne Rennen mit Beleg nach `manual_events.json`, ein
-    Scraper nur mit seinem Ja (Datenregel 2, „kein Scraper ohne sein
-    Ja"). Formate mit Staffel/Team fallen unter Datenregel 16.
+9. **RADRACE als Veranstalter anschauen** (14.10.2026, vom Nutzer: „Bitte
+   auf to do Liste setzen das wir uns radrace als Veranstalter anschauen
+   müssen"). RADRACE (Berlin) richtet eigene Rennen aus (Fixed42, Tour
+   de Friends, Rad Race Last Man Standing u. a.); am 14.10.2026 steht
+   kein einziges davon in `events.json` (auch kein Treffer in README,
+   CLAUDE.md oder den Skripten). Vorgehen wie bei jeder Quelle: Rennen
+   und Termine auf der Veranstalterseite lesen, prüfen, ob eine
+   bestehende Quelle sie liefert, robots.txt und Nutzungsbedingungen
+   lesen; einzelne Rennen mit Beleg nach `manual_events.json`, ein
+   Scraper nur mit seinem Ja (Datenregel 2, „kein Scraper ohne sein
+   Ja"). Formate mit Staffel/Team fallen unter Datenregel 16.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
-Wartungsmodus (38) – alle 13./14.10.2026.)
+Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
+16.10.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -6317,6 +6267,71 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     Wartungsmodus einsatzbereit: Knopf in `admin.html` ganz unten,
     Wirkung binnen einer Minute auf Startseite, Liste und Karte, kein
     Deploy nötig – siehe README „Deploy-Gate und Wartungsmodus".
+
+39. ~~**Instagram einrichten**~~ **erledigt** (16.10.2026, 17:02 erster Beitrag https://www.instagram.com/reel/DejzwABAmIT/ – vom Nutzer zum Probieren gewünscht, er löscht ihn von Hand; „Okay sehr nice, es funktioniert!“; bis dahin Punkt 8 der neuen Liste, eingetragen am 14.10.2026, nur der Nutzer): Account
+   `ausdauermaschine` als professionelles Konto, Bio-Link
+   `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
+   (+ Impressum als zweiter Link), **seit dem 16.10.2026 ohne
+   Facebook-Seite** (Anmeldung über Instagram, siehe „Instagram" →
+   Posten): Dialog „Facebook-Seite verknüpfen" überspringen, Meta-Entwickler-
+   konto, App mit Anwendungsfall „Nachrichten und Inhalte auf Instagram
+   verwalten" ohne Business-Portfolio, „API-Einrichtung mit
+   Instagram-Business-Login" → Konto hinzufügen → Token generieren, dann
+   in der Cloud Shell `bash scripts/instagram_google_einrichten.sh` (legt
+   den Schlüssel in den Google-Tresor), danach **die neue `instagram.yml`
+   auf `main`** (Ja des Nutzers einholen, nur diese Datei); GitHub-Secrets
+   für Instagram braucht es keine mehr, optional `PEXELS_API_KEY` –
+   Schritt für Schritt im README („Instagram", Einrichtung). Stand
+   16.10.2026, 10:50: Der Nutzer stand am Dialog „Facebook-Seite
+   verknüpfen" und hat ihn nicht bestätigt. **Mittags dann: eigenes
+   Facebook-Profil auf `info@endurance-events.de`** („Ich mache jetzt ein
+   eigenes Facebook Profil dafür! … Wähle jetzt bitte den besten weg") –
+   Weg A bleibt (Anmeldung über Instagram, gebaut und getestet; das
+   Projektprofil ist nur das Meta-Entwicklerkonto, KEINE Seite, nicht mit
+   Instagram verknüpfen). Anmelden im privaten Browserfenster, sonst nimmt
+   Meta das private Profil der Facebook-App. Risiko dem Nutzer gesagt:
+   Meta erlaubt ein persönliches Profil je Person. **Nachmittags (16:55)
+   EINGERICHTET**: Meta-App „AusdauerMaschine Content" (Instagram-App-ID
+   2082109586511982, Berechtigungen basic + content_publish „Bereit zum
+   Testen", ausdauermaschine = Instagram-Tester, Konto-Id
+   17841433983155724, OAuth-URI `https://endurance-events.de/`), Cloud-Shell-
+   Skript Schritte 1–5 durch, Schlüssel über `--anmelden` im Tresor
+   (Fassung 1, „darf Beiträge veröffentlichen"). „Token generieren" ging
+   NICHT: Instagram nahm das Passwort im Anmeldefenster nie an, nach der
+   Anmeldung per Code landete man im Feed; ein angetippter
+   instagram.com-Link öffnete die Instagram-App („Da ist leider etwas
+   schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
+   „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
+   `instagram.yml` steht seit 17:05 auf `main` (Commit `ae5751ef`, „Ja,
+   instagram.yml auf main", Diff zum Entwicklungs-Branch leer). **Erster
+   echter Beitrag 17:02** (vom Nutzer gewünscht: „Poste jetzt einmal was …
+   Ich kann es dann einfach manuell wieder löschen"; Handlauf mit Haken
+   „posten", Run 38920457036): Video 5,2 MB in den Speicher, Instagram hat
+   es abgeholt, veröffentlicht als https://www.instagram.com/reel/DejzwABAmIT/
+   (Format „Wochenende"); Limit 100 Beiträge je 24 h. Damit ist der ganze
+   Weg einmal echt gelaufen. ~~Danach noch einmal `cd Enduranceevents
+   && git pull && firebase deploy --only functions`~~ **erledigt**
+   (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
+   12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
+   zeigte deshalb „Kanäle 0" neben einem Klick über l.instagram.com.
+   `aggregateStats` rechnet nur heute und gestern neu – der 14.10. bleibt
+   ohne Kanäle). Die Referrer `facebook.com`/`m.facebook.com` (4 Aufrufe
+   bis 16.10.) sind vermutlich der Nutzer selbst beim Einrichten der
+   Meta-App/Facebook-Seite oder ein geteilter Link – kein Fehler. Erst Reels als Artefakt ansehen, dann
+   Variable `INSTAGRAM_AUTOPOST=ja`. `instagram.yml` steht seit dem
+   14.10.2026 auf `main` (Commit `7f6ab3d`, abends `e3251fc1` mit
+   Vorschau-Lauf und Freigabeprüfung) – beide Zeitpläne laufen; ändert
+   sich die Datei, muss sie wieder mit (Freigabe des Nutzers).
+   Profilbild: `marketing/instagram/profil/profilbild.png`.
+   ~~`cd Enduranceevents && git pull && firebase deploy --only
+   firestore:rules` für die Freigabe-Dokumente `insta_freigaben`~~
+   **erledigt** (15.10.2026, 12:25, „Deploy complete!"; von hier per REST
+   geprüft: 404 statt 403). ~~Die neue Fassung von `instagram.yml` auf `main`~~
+   **erledigt** (14.10.2026 abends, „Ja für instagram.yml auf main",
+   Commit `e3251fc1`, nur diese eine Datei, Diff zum Entwicklungs-Branch
+   leer). Die Karte
+   „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
+   der nächste Pages-Deploy `plan.json` gebaut hat.
 
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
