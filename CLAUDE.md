@@ -5685,7 +5685,14 @@ Verweise auf alte Nummern stehen in Klammern.
    für Instagram braucht es keine mehr, optional `PEXELS_API_KEY` –
    Schritt für Schritt im README („Instagram", Einrichtung). Stand
    16.10.2026, 10:50: Der Nutzer stand am Dialog „Facebook-Seite
-   verknüpfen" und hat ihn nicht bestätigt. ~~Danach noch einmal `cd Enduranceevents
+   verknüpfen" und hat ihn nicht bestätigt. **Mittags dann: eigenes
+   Facebook-Profil auf `info@endurance-events.de`** („Ich mache jetzt ein
+   eigenes Facebook Profil dafür! … Wähle jetzt bitte den besten weg") –
+   Weg A bleibt (Anmeldung über Instagram, gebaut und getestet; das
+   Projektprofil ist nur das Meta-Entwicklerkonto, KEINE Seite, nicht mit
+   Instagram verknüpfen). Anmelden im privaten Browserfenster, sonst nimmt
+   Meta das private Profil der Facebook-App. Risiko dem Nutzer gesagt:
+   Meta erlaubt ein persönliches Profil je Person. ~~Danach noch einmal `cd Enduranceevents
    && git pull && firebase deploy --only functions`~~ **erledigt**
    (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
    12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard

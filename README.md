@@ -2573,8 +2573,15 @@ trennen. Da soll nichts zusammenhängen."). Keine Facebook-Seite, kein
 Business-Portfolio, keine gemeinsame Kontenübersicht: Das Instagram-Konto
 erlaubt nur unserer App das Posten, wie bei jedem Planungs-Tool. Ganz ohne
 Facebook geht es nicht – den Entwicklerbereich von Meta betritt man nur mit
-einem Facebook-Konto. Dort taucht das private Konto als Ersteller der App
-auf, sonst nirgends; die App sieht niemand, und sie hängt nicht am Profil.
+einem Facebook-Konto. **Dafür gibt es seit dem 16.10.2026 ein eigenes
+Facebook-Profil auf `info@endurance-events.de`** (vom Nutzer: „Ich mache
+jetzt ein eigenes Facebook Profil dafür!") – das private Profil kommt
+nirgends vor. Das Projektprofil ist nur der Schlüssel zum Entwicklerbereich:
+Es wird nicht mit Instagram verknüpft, es braucht keine Seite, und die App
+sieht niemand. Meta erlaubt eigentlich EIN persönliches Profil je Person;
+mit echtem Namen und ohne Auffälligkeiten ist das Risiko klein, aber nicht
+null – wird das Profil gesperrt, braucht die App ein neues Entwicklerkonto
+und einen neuen Schlüssel (Schritte 3–6), sonst nichts.
 
 Zwei Dinge, die der Weg zusätzlich braucht, liegen im Google-Projekt hinter
 Firebase (`endurance-5177a`), erreicht ohne Schlüsseldatei über Workload
@@ -2605,8 +2612,14 @@ nur Minuten liegen).
    (`https://endurance-events.de/impressum.html`): Auch ein Profil braucht
    eine leicht erreichbare Anbieterkennzeichnung. Story-Links mit
    `utm_medium=story` und `utm_campaign=<name>` – das Dashboard zeigt beides.
-3. **developers.facebook.com** → mit dem Facebook-Konto anmelden →
-   „Loslegen" bzw. als Entwickler registrieren (E-Mail bestätigen).
+3. **developers.facebook.com** → mit dem **Projektprofil**
+   (`info@endurance-events.de`) anmelden – in einem privaten Fenster des
+   Browsers, nicht über die Facebook-App: Ist dort das private Profil
+   angemeldet, bietet Meta „Weiter als …" mit dem falschen Konto an. Dann
+   „Loslegen" bzw. als Entwickler registrieren (E-Mail, Telefonnummer).
+   Meldet Meta „Du kannst dich von diesem Gerät gerade nicht registrieren"
+   (bei ganz neuen Profilen häufig), einen Tag warten und es mit demselben
+   Gerät im selben WLAN erneut versuchen.
 4. **App erstellen** → Name z. B. „AusdauerMaschine Reels" →
    Anwendungsfall **„Nachrichten und Inhalte auf Instagram verwalten"**
    (*Manage messaging & content on Instagram*) → bei der Frage nach dem
