@@ -103,22 +103,37 @@ print("https://www.instagram.com/oauth/authorize?" + urllib.parse.urlencode({
   echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
   echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
   echo
-  read -r -s -p "  Adresse einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " adresse
-  echo
+  # Sichtbar: Der Code gilt eine Stunde, nur einmal und nur zusammen mit
+  # dem Geheimcode – und so sieht man, ob das Einfügen geklappt hat.
+  read -r -p "  Adresse einfügen und Enter drücken: " adresse
   code="$(ADRESSE="$adresse" python3 -c 'import os, urllib.parse
 a = os.environ["ADRESSE"].strip()
 q = urllib.parse.parse_qs(urllib.parse.urlparse(a).query) if "code=" in a else {"code": [a]}
 print(q.get("code", [""])[0].split("#")[0].strip())')"
   if [ -z "$code" ]; then
-    echo "  In der Adresse steht kein „code=“ – nichts geändert." >&2
+    if [ -z "$adresse" ]; then
+      echo "  Es ist nichts angekommen – das Einfügen hat nicht geklappt." >&2
+      echo "  In der Cloud Shell mit ⌘V einfügen (oder lange tippen → „Einsetzen“)." >&2
+    else
+      echo "  In der Adresse steht kein „code=“. Kopiert werden muss die Adresse, auf der" >&2
+      echo "  Instagram nach „Zulassen“ landet (endurance-events.de/?code=…)." >&2
+    fi
+    echo "  Nichts geändert. Der Code bleibt eine Stunde gültig: einfach noch einmal" >&2
+    echo "  bash $0 --anmelden  und dieselbe Adresse einfügen." >&2
     return 1
   fi
+  echo "  Code erhalten (${#code} Zeichen)."
   echo "  Jetzt den Instagram-App-Geheimcode (developers.facebook.com → deine App →"
   echo "  API-Einrichtung mit Instagram-Business-Login → „Instagram-App-Geheimcode“ →"
   echo "  Anzeigen → kopieren). Er wird nur für diesen Tausch gebraucht, nicht gespeichert."
   read -r -s -p "  Geheimcode einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " geheim
   echo
   geheim="$(printf '%s' "$geheim" | tr -d '[:space:]')"
+  if [ -z "$geheim" ]; then
+    echo "  Es ist nichts angekommen – das Einfügen hat nicht geklappt (⌘V). Nichts geändert." >&2
+    return 1
+  fi
+  echo "  Geheimcode erhalten (${#geheim} Zeichen)."
   antwort="$(curl -sS -X POST "https://api.instagram.com/oauth/access_token" \
     --form-string "client_id=${IG_APP_ID}" --form-string "client_secret=${geheim}" \
     --form-string "grant_type=authorization_code" --form-string "redirect_uri=${WEITERLEITUNG}" \
@@ -168,6 +183,7 @@ ablegen() {
     echo "  Kein Schlüssel eingegeben – nichts geändert." >&2
     return 1
   fi
+  echo "  Schlüssel erhalten (${#schluessel} Zeichen), prüfe bei Instagram …"
   antwort="$(curl -sS -H "Authorization: Bearer ${schluessel}" \
     "https://graph.instagram.com/${IG_VERSION}/me?fields=user_id,username" || true)"
   if ! printf '%s' "$antwort" | python3 -c 'import json,sys; d=json.load(sys.stdin); sys.exit(0 if d.get("user_id") else 1)' 2>/dev/null; then
