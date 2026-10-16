@@ -4683,7 +4683,13 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
     `AntDon930/Enduranceevents` herein. Eingerichtet von
     `scripts/instagram_google_einrichten.sh` (Cloud Shell, idempotent,
     `--schluessel` legt nur einen neuen Schlüssel ab, unsichtbare Eingabe,
-    prüft ihn vorher bei Instagram).
+    prüft ihn vorher bei Instagram und warnt, wenn er nicht veröffentlichen
+    darf; `--anmelden` holt ihn ohne den Knopf „Token generieren" über einen
+    eigenen Anmeldelink – Code aus der Weiterleitung auf
+    `https://endurance-events.de/` (muss in der App als OAuth-URI stehen) →
+    kurzer → 60-Tage-Schlüssel, App-Geheimcode nur für den Tausch; gebaut am
+    16.10.2026, weil der Knopf jedes Mal neu anmelden ließ und nach der
+    Code-Anmeldung im Feed statt bei „Zulassen" endete).
   - **Kein Schlüssel ins Log** (öffentliches Repo = öffentliche Logs):
     `maskiere()` schreibt `::add-mask::` für beide Schlüssel, `_anfrage()`
     meldet Netzfehler nur mit dem Typ (der Text von requests enthält die

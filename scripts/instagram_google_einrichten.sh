@@ -26,6 +26,18 @@
 #
 #     bash scripts/instagram_google_einrichten.sh --schluessel
 #
+# Den Schlüssel OHNE den Knopf „Token generieren“ holen (der verlangt jedes
+# Mal eine frische Anmeldung bei Instagram; scheitert sie, kommt man nie zu
+# „Zulassen“). Das Skript gibt einen Link aus, den man in einem Browser
+# öffnet, in dem man bei Instagram schon angemeldet ist:
+#
+#     bash scripts/instagram_google_einrichten.sh --anmelden
+#
+# Dafür muss in der Meta-App unter „Business-Login-Einstellungen“ die
+# OAuth-Weiterleitungs-URI https://endurance-events.de/ eingetragen sein,
+# und das Skript fragt einmal nach dem Instagram-App-Geheimcode (wird nicht
+# gespeichert).
+#
 # Die Namen hier stehen genauso in .github/workflows/instagram.yml und
 # scripts/insta_posten.py; test_instagram vergleicht sie.
 
@@ -44,9 +56,16 @@ SECRET="instagram-token"
 POOL="github"
 ANBIETER="enduranceevents"
 IG_VERSION="v25.0"
+# Die Instagram-App-ID der Meta-App „AusdauerMaschine Content“ – keine
+# Geheimzahl, sie steht in jedem Anmeldelink.
+IG_APP_ID="2082109586511982"
+# Muss GENAU so (mit Schrägstrich) in der Meta-App unter
+# „Business-Login-Einstellungen“ → OAuth-Weiterleitungs-URIs stehen.
+WEITERLEITUNG="https://endurance-events.de/"
 
-nur_schluessel=0
-[ "${1:-}" = "--schluessel" ] && nur_schluessel=1
+modus="alles"
+[ "${1:-}" = "--schluessel" ] && modus="schluessel"
+[ "${1:-}" = "--anmelden" ] && modus="anmelden"
 
 gcloud config set project "$PROJEKT" >/dev/null 2>&1
 
@@ -54,10 +73,96 @@ schluessel_hinterlegen() {
   echo
   echo "Instagram-Schlüssel hinterlegen"
   echo "  (developers.facebook.com → deine App → Instagram → API-Einrichtung mit"
-  echo "   Instagram-Business-Login → „Token generieren“ beim Konto ausdauermaschine)"
-  local schluessel antwort
+  echo "   Instagram-Business-Login → „Token generieren“ beim Konto ausdauermaschine;"
+  echo "   klappt die Anmeldung dort nicht: Abbrechen mit Strg+C, dann"
+  echo "   bash $0 --anmelden)"
+  local schluessel
   read -r -s -p "  Schlüssel einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " schluessel
   echo
+  ablegen "$schluessel"
+}
+
+# Holt den Schlüssel über einen eigenen Anmeldelink statt über „Token
+# generieren“: Code aus der Weiterleitung → kurzer Schlüssel → 60 Tage.
+anmelden() {
+  local link adresse code geheim antwort kurz lang
+  link="$(IG_APP_ID="$IG_APP_ID" WEITERLEITUNG="$WEITERLEITUNG" python3 -c 'import os, urllib.parse
+print("https://www.instagram.com/oauth/authorize?" + urllib.parse.urlencode({
+    "enable_fb_login": "0", "force_reauth": "false",
+    "client_id": os.environ["IG_APP_ID"], "redirect_uri": os.environ["WEITERLEITUNG"],
+    "response_type": "code",
+    "scope": "instagram_business_basic,instagram_business_content_publish"}))')"
+  echo
+  echo "Anmeldung über einen eigenen Link"
+  echo "  1. Diesen Link in dem Browser öffnen, in dem du bei Instagram als"
+  echo "     ausdauermaschine angemeldet bist (lange drücken → Kopieren):"
+  echo
+  echo "     $link"
+  echo
+  echo "  2. Auf der Instagram-Seite „Zulassen“ antippen."
+  echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
+  echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
+  echo
+  read -r -s -p "  Adresse einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " adresse
+  echo
+  code="$(ADRESSE="$adresse" python3 -c 'import os, urllib.parse
+a = os.environ["ADRESSE"].strip()
+q = urllib.parse.parse_qs(urllib.parse.urlparse(a).query) if "code=" in a else {"code": [a]}
+print(q.get("code", [""])[0].split("#")[0].strip())')"
+  if [ -z "$code" ]; then
+    echo "  In der Adresse steht kein „code=“ – nichts geändert." >&2
+    return 1
+  fi
+  echo "  Jetzt den Instagram-App-Geheimcode (developers.facebook.com → deine App →"
+  echo "  API-Einrichtung mit Instagram-Business-Login → „Instagram-App-Geheimcode“ →"
+  echo "  Anzeigen → kopieren). Er wird nur für diesen Tausch gebraucht, nicht gespeichert."
+  read -r -s -p "  Geheimcode einfügen und Enter drücken (die Eingabe bleibt unsichtbar): " geheim
+  echo
+  geheim="$(printf '%s' "$geheim" | tr -d '[:space:]')"
+  antwort="$(curl -sS -X POST "https://api.instagram.com/oauth/access_token" \
+    --form-string "client_id=${IG_APP_ID}" --form-string "client_secret=${geheim}" \
+    --form-string "grant_type=authorization_code" --form-string "redirect_uri=${WEITERLEITUNG}" \
+    --form-string "code=${code}" || true)"
+  kurz="$(printf '%s' "$antwort" | python3 -c 'import json, sys
+try:
+    d = json.load(sys.stdin)
+except Exception:
+    d = {}
+if isinstance(d.get("data"), list) and d["data"]:
+    d = d["data"][0]
+print(d.get("access_token", ""))')"
+  if [ -z "$kurz" ]; then
+    echo "  Instagram hat den Code nicht getauscht:" >&2
+    printf '%s' "$antwort" | python3 -c 'import json, sys
+try:
+    d = json.load(sys.stdin)
+    print("  ", d.get("error_message") or (d.get("error") or {}).get("message") or d)
+except Exception:
+    print("   keine lesbare Antwort")' >&2
+    echo "  Häufigste Gründe: Code schon benutzt oder älter als eine Stunde (Link neu öffnen)," >&2
+    echo "  Weiterleitungs-URI in der App nicht genau ${WEITERLEITUNG}, Geheimcode falsch." >&2
+    return 1
+  fi
+  antwort="$(curl -sS -G "https://graph.instagram.com/access_token" \
+    --data-urlencode "grant_type=ig_exchange_token" --data-urlencode "client_secret=${geheim}" \
+    --data-urlencode "access_token=${kurz}" || true)"
+  lang="$(printf '%s' "$antwort" | python3 -c 'import json, sys
+try:
+    print(json.load(sys.stdin).get("access_token", ""))
+except Exception:
+    print("")')"
+  geheim=""
+  if [ -z "$lang" ]; then
+    echo "  Der kurze Schlüssel ließ sich nicht in einen 60-Tage-Schlüssel tauschen." >&2
+    return 1
+  fi
+  echo "  Schlüssel für 60 Tage erhalten."
+  ablegen "$lang"
+}
+
+# Prüft einen Schlüssel bei Instagram und legt ihn in den Tresor.
+ablegen() {
+  local schluessel="$1" antwort
   schluessel="$(printf '%s' "$schluessel" | tr -d '[:space:]')"
   if [ -z "$schluessel" ]; then
     echo "  Kein Schlüssel eingegeben – nichts geändert." >&2
@@ -102,8 +207,12 @@ except Exception:
   echo "  Im Tresor abgelegt (Fassung ${neueste##*/}); ältere Fassungen vernichtet."
 }
 
-if [ "$nur_schluessel" = "1" ]; then
+if [ "$modus" = "schluessel" ]; then
   schluessel_hinterlegen
+  exit $?
+fi
+if [ "$modus" = "anmelden" ]; then
+  anmelden
   exit $?
 fi
 

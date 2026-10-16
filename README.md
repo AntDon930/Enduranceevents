@@ -2637,9 +2637,21 @@ nur Minuten liegen).
    nur einmal und gilt 60 Tage, ab dann erneuert ihn der Workflow). Lässt
    „Konto hinzufügen" das Konto nicht zu: App-Rollen → Rollen →
    „Instagram-Tester" hinzufügen und die Einladung in Instagram annehmen
-   (Einstellungen → Website-Berechtigungen → Apps und Websites).
+   (im Browser: `instagram.com/accounts/manage_access/` → „Tester-Einladungen").
    **Den Schlüssel nie in einen Chat oder eine Mail kopieren** – nur in
    Schritt 6.
+   **Hängt „Token generieren" an der Anmeldung** (am 16.10.2026 passiert:
+   der Knopf verlangt jedes Mal eine frische Anmeldung, Instagram nahm das
+   Passwort nicht an, und nach der Anmeldung per Code landete man im Feed
+   statt bei „Zulassen"): In der App unter „Business-Login-Einstellungen"
+   die OAuth-Weiterleitungs-URI `https://endurance-events.de/` eintragen
+   und speichern, dann in der Cloud Shell `bash
+   scripts/instagram_google_einrichten.sh --anmelden`. Das Skript gibt
+   einen Anmeldelink aus; im Browser, in dem man bei Instagram schon
+   angemeldet ist, öffnen → „Zulassen" → die Adresse mit `?code=…` aus der
+   Adresszeile zurück ins Skript, dazu einmal den Instagram-App-Geheimcode
+   (nur für den Tausch, wird nicht gespeichert). Es tauscht Code →
+   kurzer Schlüssel → 60-Tage-Schlüssel und legt ihn ab wie Schritt 6.
 6. **Google Cloud Shell** (shell.cloud.google.com, als Inhaber des
    Firebase-Projekts): `cd ~/Enduranceevents && git pull && bash
    scripts/instagram_google_einrichten.sh`. Das Skript schaltet die
