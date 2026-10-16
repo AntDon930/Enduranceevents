@@ -4689,7 +4689,11 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
     `https://endurance-events.de/` (muss in der App als OAuth-URI stehen) →
     kurzer → 60-Tage-Schlüssel, App-Geheimcode nur für den Tausch; gebaut am
     16.10.2026, weil der Knopf jedes Mal neu anmelden ließ und nach der
-    Code-Anmeldung im Feed statt bei „Zulassen" endete).
+    Code-Anmeldung im Feed statt bei „Zulassen" endete). Den Link legt es als
+    `ig.html` in den Video-Speicher (eintippbar, leitet selbst weiter – ein
+    ANGETIPPTER instagram.com-Link öffnet auf dem iPad die Instagram-App, die
+    mit der Anmeldeseite nur „Da ist leider etwas schiefgelaufen" zeigt) und
+    löscht ihn nach dem Tausch).
   - **Kein Schlüssel ins Log** (öffentliches Repo = öffentliche Logs):
     `maskiere()` schreibt `::add-mask::` für beide Schlüssel, `_anfrage()`
     meldet Netzfehler nur mit dem Typ (der Text von requests enthält die

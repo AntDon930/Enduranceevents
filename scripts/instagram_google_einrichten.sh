@@ -135,10 +135,44 @@ print(treffer.pop() if len(treffer) == 1 else "")')"
   fi
   echo "     Geheimcode erhalten (${geheim:0:4}…${geheim: -2}, 32 Zeichen)."
   echo
-  echo "  2. Diesen Link in dem Browser öffnen, in dem du bei Instagram als"
-  echo "     ausdauermaschine angemeldet bist, und „Zulassen“ antippen:"
-  echo
-  echo "     $link"
+  # Auf dem iPad öffnet ein ANGETIPPTER Instagram-Link die Instagram-App
+  # (und die kennt die Anmeldeseite nicht), und kopieren lässt sich der
+  # lange Link schlecht. Deshalb eine kurze Seite im Video-Speicher, die man
+  # eintippt und die selbst weiterleitet – eine Weiterleitung ohne Antippen
+  # gibt das iPad nicht an die App. Die Seite enthält nur den öffentlichen
+  # Link und wird am Ende gelöscht (sonst nach einem Tag von der Regel).
+  local seite kurzlink=""
+  seite="$(mktemp)"
+  LINK="$link" python3 - > "$seite" <<'PY'
+import html, json, os
+l = os.environ["LINK"]
+print("<!doctype html><html lang=de><meta charset=utf-8>"
+      "<meta name=viewport content='width=device-width,initial-scale=1'>"
+      "<meta name=robots content=noindex>"
+      f"<meta http-equiv=refresh content='0;url={html.escape(l, quote=True)}'>"
+      "<title>Weiter zu Instagram</title>"
+      "<body style='font:18px sans-serif;padding:24px'>Weiter zu Instagram …"
+      f"<script>location.replace({json.dumps(l)})</script>")
+PY
+  if gcloud storage cp "$seite" "gs://${BUCKET}/ig.html" --content-type=text/html \
+       --cache-control=no-store >/dev/null 2>&1; then
+    kurzlink="storage.googleapis.com/${BUCKET}/ig.html"
+  fi
+  rm -f "$seite"
+  echo "  2. Im Browser, in dem du bei Instagram als ausdauermaschine angemeldet bist,"
+  if [ -n "$kurzlink" ]; then
+    echo "     einen neuen Tab öffnen und diese Adresse oben EINTIPPEN (nicht antippen):"
+    echo
+    echo "        $kurzlink"
+    echo
+    echo "     Sie leitet zu Instagram weiter → „Zulassen“ antippen."
+    echo "     (Der lange Link dahinter, falls du ihn doch kopieren kannst:"
+    echo "     $link )"
+  else
+    echo "     diesen Link in die Adresszeile EINFÜGEN (nicht antippen) → „Zulassen“:"
+    echo
+    echo "     $link"
+  fi
   echo
   echo "  3. Danach öffnet sich endurance-events.de. Die GANZE Adresse aus der"
   echo "     Adresszeile kopieren (sie enthält „?code=…“) und hierher zurück."
@@ -202,6 +236,7 @@ except Exception:
     return 1
   fi
   echo "  Schlüssel für 60 Tage erhalten."
+  gcloud storage rm "gs://${BUCKET}/ig.html" >/dev/null 2>&1 || true
   ablegen "$lang"
 }
 
