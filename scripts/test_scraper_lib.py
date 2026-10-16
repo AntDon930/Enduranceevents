@@ -4699,6 +4699,34 @@ def test_statistik() -> None:
     check("stats.js erkennt den Browser der Instagram-App", "br = 'Instagram'" in stats_js, True)
 
 
+def _insta_testevents(heute):
+    """Testdaten für die Instagram-Tests: 60 Zehner in München über zwei
+    Wochen, dazu was die Formate seit dem 16.10.2026 brauchen - ein
+    130-km-Lauf (krass), ein Backyard (wuerdest), fünf Marathons vier
+    Monate voraus (saison)."""
+    import datetime as _dt
+    ev = []
+    for i in range(60):
+        tag = heute + _dt.timedelta(days=i % 14)
+        ev.append({"name": f"Testlauf {i}", "standort": "München", "land": "Deutschland", "art1": "Laufen",
+                   "art2": "Straße", "datum_start": tag.isoformat(), "datum_ende": tag.isoformat(),
+                   "lat": 48.14, "lon": 11.57, "laenge_km": 10.0, "veranstalter_url": "https://x.de"})
+    tag = (heute + _dt.timedelta(days=20)).isoformat()
+    for km in (42.2, 88.0, 130.0):
+        ev.append({"name": "Isartal Ultra", "standort": "Wolfratshausen", "land": "Deutschland", "art1": "Laufen",
+                   "art2": "Trail", "datum_start": tag, "datum_ende": tag, "lat": 47.91, "lon": 11.42,
+                   "laenge_km": km, "veranstalter_url": "https://isartal-ultra.de/"})
+    tag = (heute + _dt.timedelta(days=30)).isoformat()
+    ev.append({"name": "Backyard Testhof", "standort": "Dachau", "land": "Deutschland", "art1": "Laufen",
+               "art2": "Backyard Ultra", "datum_start": tag, "datum_ende": tag, "lat": 48.26, "lon": 11.43,
+               "veranstalter_url": "https://backyard-testhof.de/"})
+    for i, t in enumerate(("2027-02-06", "2027-02-13", "2027-02-14", "2027-02-20", "2027-02-27")):
+        ev.append({"name": f"Wintermarathon {i}", "standort": "Augsburg", "land": "Deutschland", "art1": "Laufen",
+                   "art2": "Straße", "datum_start": t, "datum_ende": t, "lat": 48.37, "lon": 10.90,
+                   "laenge_km": 42.2, "veranstalter_url": f"https://wintermarathon{i}.de/"})
+    return ev
+
+
 def test_insta_freigabe() -> None:
     """Instagram-Freigabe mit einem Klick (14.10.2026): die Kennung des
     Inhalts, der Freigabe-Plan, die Entscheidung des Abendlaufs mit einer
@@ -4713,12 +4741,7 @@ def test_insta_freigabe() -> None:
     import insta_freigabe as F
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)
-    ev = []
-    for i in range(60):
-        tag = heute + _dt.timedelta(days=i % 14)
-        ev.append({"name": f"Testlauf {i}", "standort": "München", "land": "Deutschland", "art1": "Laufen",
-                   "art2": "Straße", "datum_start": tag.isoformat(), "datum_ende": tag.isoformat(),
-                   "lat": 48.14, "lon": 11.57, "laenge_km": 10.0, "veranstalter_url": "https://x.de"})
+    ev = _insta_testevents(heute)
     momente = I.lade_momente()
     b = I.plane(heute, ev, momente=momente, clips=[])
     h = I.beitrag_hash(b)
@@ -4726,15 +4749,18 @@ def test_insta_freigabe() -> None:
     check("Kennung: derselbe Beitrag, dieselbe Kennung", I.beitrag_hash(I.plane(heute, ev, momente=momente, clips=[])), h)
     check("Kennung ändert sich mit der Caption", I.beitrag_hash(dict(b, caption=b["caption"] + " x")) == h, False)
     check("Kennung ändert sich mit den Folien", I.beitrag_hash(dict(b, folien=b["folien"][1:])) == h, False)
-    check("Kennung ignoriert Felder außerhalb von Format/Folien/Caption",
-          I.beitrag_hash(dict(b, video={"x": 1}, veroeffentlicht=None)), h)
+    check("Kennung ignoriert Felder außerhalb von Format/Folien/Caption/Stories",
+          I.beitrag_hash(dict(b, video={"x": 1}, veroeffentlicht=None, erwaehnt=["x"])), h)
+    check("Kennung ändert sich mit den Stories", I.beitrag_hash(dict(b, stories=b["stories"][1:])) == h, False)
 
     plan = I.plan_liste(heute, 14, ev, momente=momente, clips=[])
     check("Plan: 14 Tage", len(plan), 14)
     check("Plan: Felder je Tag", sorted(k for k in plan[0] if k not in ("moment_id", "clip_id")),
-          ["caption", "datum", "folien", "format", "hash", "wochentag"])
-    check("Plan: erster Tag = Start, Montag, Wochenvorschau", (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]),
-          (heute.isoformat(), "Mo", "wochenvorschau"))
+          ["caption", "datum", "folien", "format", "hash", "stories", "wochentag"])
+    check("Plan: erster Tag = Start, Montag, krass", (plan[0]["datum"], plan[0]["wochentag"], plan[0]["format"]),
+          (heute.isoformat(), "Mo", "krass"))
+    check("Plan: Stories je Tag mit Art und Folie", all({"art", "folie"} <= set(st) for st in plan[0]["stories"]), True)
+    check("Dashboard: Stories-Zeile", ("storiesText(b.stories)" in (wurzel / "admin.html").read_text(encoding="utf-8")), True)
     check("Plan: Kennung je Tag = beitrag_hash des geplanten Beitrags", plan[0]["hash"], h)
     check("Plan: ist JSON", bool(_json.dumps(plan, ensure_ascii=False)), True)
 
@@ -4808,20 +4834,42 @@ def test_instagram() -> None:
     import insta_inhalte as I
     wurzel = Path(__file__).resolve().parent.parent
     heute = _dt.date(2026, 10, 19)            # ein Montag
-    ev = []
-    for i in range(60):
-        tag = heute + _dt.timedelta(days=i % 14)
-        ev.append({"name": f"Testlauf {i}", "standort": "München", "land": "Deutschland", "art1": "Laufen",
-                   "art2": "Straße", "datum_start": tag.isoformat(), "datum_ende": tag.isoformat(),
-                   "lat": 48.14, "lon": 11.57, "laenge_km": 10.0, "veranstalter_url": "https://x.de"})
+    ev = _insta_testevents(heute)
     ev.append(dict(ev[0], name="Geheimer Lauf", pruefung_offen=True, laenge_km=42.195))
     ev.append(dict(ev[0], name="Wolfgangsee Junior-Marathon", laenge_km=42.195))
     momente = I.lade_momente()
     formate = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[])["format"] for i in range(7)]
-    check("Wochenplan Mo-So (ohne Clips: Do = Moment)", formate,
-          ["wochenvorschau", "moment", "spotlight", "moment", "wochenende", "region", "moment"])
+    check("Wochenplan Mo-So (seit 16.10.2026; ohne Clips: Do = Humor)", formate,
+          ["krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment"])
+    woche = [I.plane(heute + _dt.timedelta(days=i), ev, momente=momente, clips=[]) for i in range(7)]
+    check("jedes Format beginnt mit Zahl oder Satz (sofort sichtbar), endet mit dem Aufruf",
+          [(w["folien"][0]["typ"] in ("hook", "satz", "moment"), w["folien"][-1]["typ"]) for w in woche],
+          [(True, "cta")] * 7)
+    check("krass: das längste Laufrennen, 130 KM", (woche[0]["folien"][0]["zahl"], woche[0]["folien"][1]["name"]),
+          ("130 KM", "Isartal Ultra"))
+    mi2 = I.plane(heute + _dt.timedelta(days=9), ev, momente=momente, clips=[])
+    check("wuerdest: wechselt wöchentlich die Besonderheit (Ultra, Backyard mit seiner Runde)",
+          sorted([(woche[2]["folien"][0]["zahl"], woche[2]["folien"][1]["name"]),
+                  (mi2["folien"][0]["zahl"], mi2["folien"][1]["name"])]),
+          [("130 KM", "Isartal Ultra"), ("6,7 KM", "Backyard Testhof")])
+    check("saison: Marathons im Februar, vier Monate voraus", woche[5]["folien"][0]["titel"], "MARATHONS IM FEBRUAR")
+    check("saison: Rennen einzeln und schnell", all(f.get("schnell") for f in woche[5]["folien"] if f["typ"] == "event"), True)
+    check("naehe: rund um München, Teilen-Aufruf", (woche[1]["stadt"], "SCHICK DAS" in woche[1]["folien"][-2]["titel"]),
+          ("München", True))
+    check("Rennen tragen die Veranstalterseite (für die @-Erwähnung)", woche[0]["folien"][1].get("url"),
+          "https://isartal-ultra.de/")
+    check("Stories: höchstens zwei, bekannte Arten",
+          all(len(w["stories"]) <= 2 and {st["art"] for st in w["stories"]} <= {"rennen", "countdown", "reel"} for w in woche), True)
+    witze = I.lade_humor()
+    check("humor.json: Pflichtfelder, eindeutige Ids, kurze Texte",
+          [all(w.get(k) for w in witze for k in ("id", "oben", "text_oben", "unten", "text_unten")),
+           len({w["id"] for w in witze}) == len(witze), max(len(w["text_oben"] + w["text_unten"]) for w in witze) <= 90,
+           len(witze) >= 12],
+          [True, True, True, True])
+    check("Caption ohne doppelte Satzzeichen (Frage + Doppelpunkt)", all("?:" not in w["caption"] for w in woche), True)
+    check("format_am: Wochenplan ohne Events", [I.format_am(heute + _dt.timedelta(days=i), momente) for i in range(7)], formate)
     b = I.plane(heute, ev, momente=momente, clips=[])
-    namen = [e["name"] for f in b["folien"] for e in f.get("events", [])]
+    namen = [e.get("name") for f in b["folien"] for e in [f] + f.get("events", [])]
     check("ausgeblendete Zeilen (pruefung_offen) kommen nie ins Reel", "Geheimer Lauf" in namen, False)
     check("Junior-/Kinderläufe sind kein Highlight", "Wolfgangsee Junior-Marathon" in namen, False)
     check("derselbe Tag ergibt denselben Beitrag", I.plane(heute, ev, momente=momente, clips=[]), b)
@@ -4837,8 +4885,8 @@ def test_instagram() -> None:
     check("Jahrestag ersetzt den Plan (Di) und sagt „Heute vor 8 Jahren“",
           [b27["format"], b27["folien"][0]["ueber"]], ["moment", "Heute vor 8 Jahren"])
     mo_jahrestag = momente + [dict(momente[0], id="test-montag", datum="2000-10-19")]
-    check("Montag bleibt bei den Terminen, auch am Jahrestag",
-          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "wochenvorschau")
+    check("Montag bleibt beim Plan, auch am Jahrestag",
+          I.plane(heute, ev, momente=mo_jahrestag, clips=[])["format"], "krass")
 
     pflicht = ("id", "datum", "sport", "titel", "text", "quelle")
     fehler = [m.get("id") for m in momente if any(not m.get(k) for k in pflicht)
@@ -4876,10 +4924,64 @@ def test_instagram() -> None:
     check("Emoji fliegen aus dem Videotext", V.ohne_emoji("🏃 12 Läufe 🇩🇪 in Deutschland"), "12 Läufe in Deutschland")
     plan = V.zeitplan([{"typ": "titel"}, {"typ": "liste"}, {"typ": "cta"}], 15.0)
     check("Zeitplan gestreckt auf die Clip-Länge", round(plan[-1][1], 6), 15.0)
-    check("letzte Folie bleibt stehen, erste blendet ein",
-          [V.sichtbarkeit(14.99, plan[-1][0], plan[-1][1], True)[0], V.sichtbarkeit(0.0, 0, 3, False)[0]], [1.0, 0.0])
-    bild = V.folie_bild(b["folien"][1], b["sport"])
-    check("Folie wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None], [(1080, 1920), True])
+    check("letzte Folie bleibt stehen, die erste steht ab dem ersten Bild, spätere blenden ein",
+          [V.sichtbarkeit(14.99, plan[-1][0], plan[-1][1], True)[0], V.sichtbarkeit(0.0, 0, 3, False)[0],
+           V.sichtbarkeit(3.0, 3, 6, False)[0]], [1.0, 1.0, 0.0])
+    import insta_musik as M
+    schlag = M.schlag_s(124)
+    takt = V.zeitplan(woche[1]["folien"], schlag=schlag)
+    check("Zeitplan im Takt: jeder Schnitt auf einem Schlag",
+          all(abs(s_ / schlag - round(s_ / schlag)) < 1e-9 for s_, _, _ in takt), True)
+    proben, bpm = M.erzeuge(1.0, 7)
+    check("Beat: Stereo, 44,1 kHz, Tempo aus der Auswahl, derselbe Tag klingt gleich",
+          [len(proben), bpm in M.BPM_AUSWAHL, M.erzeuge(1.0, 7)[0] == proben, M.erzeuge(1.0, 8)[0] == proben],
+          [2 * M.RATE, True, True, False])
+    for f in woche[0]["folien"] + woche[3]["folien"] + [st["folie"] for st in woche[0]["stories"]]:
+        bild = V.folie_bild(f, "Laufen")
+        check(f"Folie {f['typ']} wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None],
+              [(1080, 1920), True])
+    import tempfile as _tf0
+    with _tf0.TemporaryDirectory() as tmp:
+        st_pfad = V.rendere_story(woche[0]["stories"][0], Path(tmp) / "s.jpg", 1)
+        from PIL import Image as _Img
+        check("Story: JPEG 1080 × 1920", _Img.open(st_pfad).size, (1080, 1920))
+
+    import insta_veranstalter as IV
+    html = ('<a href="https://www.instagram.com/isartal.ultra/">IG</a> <a href="https://instagram.com/p/abc123/">x</a>'
+            '<a href="//www.instagram.com/ausdauermaschine">wir</a> <a href="https://www.instagram.com/explore/tags/lauf/">t</a>')
+    check("Instagram-Namen im HTML: Konten ja, Beiträge/Explore/wir selbst nein", IV.namen_im_html(html), ["isartal.ultra"])
+    check("ein Name gilt, mehrere nur mit Namenswort",
+          [IV.waehle(["isartal.ultra"], "Isartal Ultra", "x.de"),
+           IV.waehle(["sponsor_bank", "isartal.ultra"], "Isartal Ultra", "isartal-ultra.de"),
+           IV.waehle(["sponsor_bank", "radhaus"], "Isartal Ultra", "isartal-ultra.de")],
+          ["isartal.ultra", "isartal.ultra", None])
+    domains = IV.portal_domains()
+    check("Portale aus scraper_lib.py gelesen (ohne bs4)", ["raceresult.com" in domains, "laufen.de" in domains, len(domains) > 30],
+          [True, True, True])
+
+    class AbruferAttrappe:
+        def __init__(self):
+            self.urls = []
+
+        def holen(self, url):
+            self.urls.append(url)
+            return '<footer><a href="https://www.instagram.com/isartal.ultra">Instagram</a></footer>' if url.endswith("/") else ""
+    ab, cache = AbruferAttrappe(), {}
+    check("Portallink: kein Abruf, kein Name",
+          [IV.name_fuer("https://my.raceresult.com/1/", "X", ab, cache, heute, domains), ab.urls], [None, []])
+    check("Unterseite ohne Link: Startseite gelesen",
+          [IV.name_fuer("https://isartal-ultra.de/anmeldung.html", "Isartal Ultra", ab, cache, heute, domains), ab.urls],
+          ["isartal.ultra", ["https://isartal-ultra.de/anmeldung.html", "https://isartal-ultra.de/"]])
+    ab.urls = []
+    check("Cache: 30 Tage kein neuer Abruf",
+          [IV.name_fuer("https://isartal-ultra.de/anmeldung.html", "Isartal Ultra", ab, cache, heute, domains), ab.urls],
+          ["isartal.ultra", []])
+    check("Erwähnung vor den Hashtags",
+          IV.caption_mit_erwaehnung("Text\n\nLink\n\n#a #b", ["isartal.ultra"]),
+          "Text\n\nLink\n\n📣 Veranstalter: @isartal.ultra\n\n#a #b")
+    lauf_q = (wurzel / "scripts" / "insta_lauf.py").read_text(encoding="utf-8")
+    check("Erwähnung NACH der Kennung (Freigabe bleibt gültig)",
+          lauf_q.index('beitrag["hash"] = inhalte.beitrag_hash(beitrag)') < lauf_q.index("veranstalter.erwaehnungen(beitrag)"), True)
 
     import insta_posten as P
     import base64 as _b64
@@ -5045,6 +5147,74 @@ def test_instagram() -> None:
             check("Verarbeitungsfehler meldet sich", "kein Fehler", "Fehler")
         except P.PostenFehler:
             check("Verarbeitungsfehler: Video wird trotzdem gelöscht", s.aufrufe[-1][0], "DELETE")
+
+    class StorySitzung:
+        """Attrappe für eine Story und die Auswertung (ohne Netz)."""
+
+        def __init__(self, mit_insights=True):
+            self.aufrufe, self.abgelegt, self.mit_insights = [], None, mit_insights
+
+        def get(self, url, headers=None, params=None, **kw):
+            k = url.replace("https://graph.instagram.com/v25.0", "")
+            self.aufrufe.append(("GET", k))
+            if k == "/me":
+                return Antwort({"user_id": "17841", "username": "ausdauermaschine", "followers_count": 12, "media_count": 2})
+            if k == "/s1":
+                return Antwort({"status_code": "FINISHED"})
+            if k == "/17841/media":
+                return Antwort({"data": [{"id": "m1", "timestamp": "2026-10-16T15:02:40+0000", "media_product_type": "REELS",
+                                          "permalink": "https://www.instagram.com/reel/abc/", "like_count": 5, "comments_count": 1}]})
+            if k == "/m1/insights":
+                if not self.mit_insights:
+                    return Antwort({"error": {"message": "permission", "code": 10}}, 400)
+                return Antwort({"data": [{"name": "reach", "values": [{"value": 300}]}, {"name": "saved", "values": [{"value": 4}]}]})
+            return Antwort({"error": {"message": "unerwartet " + k}}, 400)
+
+        def post(self, url, headers=None, params=None, json=None, data=None, **kw):
+            k = url.replace("https://graph.instagram.com/v25.0", "")
+            if "/upload/storage/" in url:
+                check("Story: Bild als image/jpeg abgelegt", [headers["Content-Type"], params["uploadType"]], ["image/jpeg", "media"])
+                self.abgelegt = params["name"]
+                self.aufrufe.append(("POST", "/upload"))
+                return Antwort({"name": params["name"]})
+            self.aufrufe.append(("POST", k))
+            if k == "/17841/media":
+                check("Story: Container STORIES mit öffentlicher image_url",
+                      [json["media_type"], json["image_url"]],
+                      ["STORIES", "https://storage.googleapis.com/endurance-5177a-instagram/" + self.abgelegt])
+                return Antwort({"id": "s1"})
+            if k == "/17841/media_publish":
+                return Antwort({"id": "sm1"})
+            return Antwort({"error": {"message": "unerwartet " + k}}, 400)
+
+        def delete(self, url, **kw):
+            self.aufrufe.append(("DELETE", "bild"))
+            return Antwort({}, 204)
+
+    with _tf.TemporaryDirectory() as tmp:
+        bild = Path(tmp) / "s.jpg"
+        bild.write_bytes(b"jpg")
+        s = StorySitzung()
+        with _cl.redirect_stdout(_io.StringIO()):
+            erg = P.poste_story(bild, dict(z, uid=None), "NEU-SCHLUESSEL", session=s, warten=lambda _s: None,
+                                kennung="story-2026-10-16-1")
+        check("Story: Konto → Bild ablegen → Container → Status → Veröffentlichen → Bild löschen",
+              [a for a in s.aufrufe], [("GET", "/me"), ("POST", "/upload"), ("POST", "/17841/media"), ("GET", "/s1"),
+                                       ("POST", "/17841/media_publish"), ("DELETE", "bild")])
+        check("Story: Ergebnis und Name mit Zufall", [erg["media_id"], bool(_re.fullmatch(r"story-2026-10-16-1-[0-9a-f]{16}\.jpg", s.abgelegt))],
+              ["sm1", True])
+    aw = P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung())
+    check("Auswertung: Follower, Likes, Reichweite, Gespeichert",
+          [aw["follower"], aw["beitraege"][0]["likes"], aw["beitraege"][0]["reach"], aw["beitraege"][0]["saved"], aw["insights"]],
+          [12, 5, 300, 4, True])
+    aw = P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung(mit_insights=False))
+    check("Auswertung ohne Insights-Berechtigung: Likes ja, Hinweis auf die Berechtigung",
+          [aw["beitraege"][0]["likes"], aw["insights"], "instagram_business_manage_insights" in (aw["hinweis"] or "")],
+          [5, False, True])
+    import insta_lauf as L
+    text = L.auswertung_text(P.auswertung(z, "NEU-SCHLUESSEL", session=StorySitzung()))
+    check("Auswertung als Tabelle mit Format aus dem Wochenplan (16.10.2026 = Fr = wochenende)",
+          ["12 Follower" in text, "| wochenende |" in text, "Schnitt je Format" in text], [True, True, True])
 
     alt_gcp = _os.environ.pop("GCP_ACCESS_TOKEN", None)
     check("ohne Google-Zugang: kein Zugang (nur rendern)", P.zugang(), None)

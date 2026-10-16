@@ -62,6 +62,12 @@ IG_APP_ID="2082109586511982"
 # Muss GENAU so (mit Schrägstrich) in der Meta-App unter
 # „Business-Login-Einstellungen“ → OAuth-Weiterleitungs-URIs stehen.
 WEITERLEITUNG="https://endurance-events.de/"
+# Die Berechtigungen des Schlüssels. manage_insights liefert der täglichen
+# Auswertung Reichweite, Gespeichert und Geteilt (insta_posten.auswertung);
+# sie muss in der Meta-App unter „Berechtigungen und Features“ hinzugefügt
+# sein, sonst zeigt Instagram „Invalid Scopes“. Ohne sie:
+#   IG_SCOPE=instagram_business_basic,instagram_business_content_publish bash … --anmelden
+IG_SCOPE="${IG_SCOPE:-instagram_business_basic,instagram_business_content_publish,instagram_business_manage_insights}"
 
 modus="alles"
 [ "${1:-}" = "--schluessel" ] && modus="schluessel"
@@ -86,12 +92,12 @@ schluessel_hinterlegen() {
 # generieren“: Code aus der Weiterleitung → kurzer Schlüssel → 60 Tage.
 anmelden() {
   local link adresse code geheim antwort kurz lang
-  link="$(IG_APP_ID="$IG_APP_ID" WEITERLEITUNG="$WEITERLEITUNG" python3 -c 'import os, urllib.parse
+  link="$(IG_APP_ID="$IG_APP_ID" WEITERLEITUNG="$WEITERLEITUNG" IG_SCOPE="$IG_SCOPE" python3 -c 'import os, urllib.parse
 print("https://www.instagram.com/oauth/authorize?" + urllib.parse.urlencode({
     "enable_fb_login": "0", "force_reauth": "false",
     "client_id": os.environ["IG_APP_ID"], "redirect_uri": os.environ["WEITERLEITUNG"],
     "response_type": "code",
-    "scope": "instagram_business_basic,instagram_business_content_publish"}))')"
+    "scope": os.environ["IG_SCOPE"]}))')"
   echo
   echo "Anmeldung über einen eigenen Link"
   echo
@@ -159,6 +165,8 @@ PY
     kurzlink="storage.googleapis.com/${BUCKET}/ig.html"
   fi
   rm -f "$seite"
+  echo "     (Berechtigungen: ${IG_SCOPE//,/, } – zeigt Instagram „Invalid Scopes“, fehlt eine davon"
+  echo "      in der Meta-App unter „Berechtigungen und Features“.)"
   echo "  2. Im Browser, in dem du bei Instagram als ausdauermaschine angemeldet bist,"
   if [ -n "$kurzlink" ]; then
     echo "     einen neuen Tab öffnen und diese Adresse oben EINTIPPEN (nicht antippen):"

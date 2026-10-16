@@ -173,12 +173,12 @@ class Google:
                 weg += 1
         return weg
 
-    # --- Cloud Storage: das Video, solange Meta es abholt --------------
-    def video_hochladen(self, pfad: Path, name: str) -> str:
+    # --- Cloud Storage: Video oder Bild, solange Meta es abholt --------
+    def video_hochladen(self, pfad: Path, name: str, art: str = "video/mp4") -> str:
         url = f"{self.GCS}/upload/storage/v1/b/{self.z['bucket']}/o"
-        _antwort(_anfrage(self.s, "post", url, "Video ablegen", params={"uploadType": "media", "name": name},
-                          headers={**self.h, "Content-Type": "video/mp4"}, data=pfad.read_bytes(), timeout=300),
-                 "Video ablegen")
+        _antwort(_anfrage(self.s, "post", url, "Datei ablegen", params={"uploadType": "media", "name": name},
+                          headers={**self.h, "Content-Type": art}, data=pfad.read_bytes(), timeout=300),
+                 "Datei ablegen")
         return f"{self.GCS}/{self.z['bucket']}/{quote(name)}"
 
     def video_loeschen(self, name: str) -> None:
@@ -236,6 +236,29 @@ def konto(z: dict, ig_token: str, session=None) -> dict:
                              headers={"Authorization": f"Bearer {ig_token}"}, timeout=30), "Konto")
 
 
+def _veroeffentliche(s, basis: str, uid: str, auth: dict, felder: dict, warten, was: str) -> tuple[str, str]:
+    """Container anlegen, warten bis FINISHED, veröffentlichen → (Container, Medium)."""
+    cid = _antwort(_anfrage(s, "post", f"{basis}/{uid}/media", f"{was}: Container anlegen", headers=auth,
+                            json=felder, timeout=60), f"{was}: Container anlegen")["id"]
+    print(f"  {was}: Container {cid}")
+    gewartet = 0
+    while True:
+        st = _antwort(_anfrage(s, "get", f"{basis}/{cid}", f"{was}: Status", headers=auth,
+                               params={"fields": "status_code,status"}, timeout=30), f"{was}: Status")
+        code = st.get("status_code")
+        if code in ("FINISHED", "PUBLISHED"):
+            break
+        if code in ("ERROR", "EXPIRED"):
+            raise PostenFehler(f"{was}: Verarbeitung {code} – {st.get('status')}")
+        if gewartet >= WARTEN_MAX_S:
+            raise PostenFehler(f"{was}: Verarbeitung dauert über {WARTEN_MAX_S} s (zuletzt {code})")
+        warten(WARTEN_SCHRITT_S if was == "Reel" else 3)
+        gewartet += WARTEN_SCHRITT_S if was == "Reel" else 3
+    mid = _antwort(_anfrage(s, "post", f"{basis}/{uid}/media_publish", f"{was}: Veröffentlichen", headers=auth,
+                            json={"creation_id": cid}, timeout=60), f"{was}: Veröffentlichen")["id"]
+    return cid, mid
+
+
 def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, ig_token: str,
                session=None, warten=time.sleep, kennung: str = "reel") -> dict:
     s = session or requests.Session()
@@ -243,6 +266,7 @@ def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, 
     basis = _ig(z)
     auth = {"Authorization": f"Bearer {ig_token}"}
     uid = z.get("uid") or str(konto(z, ig_token, s)["user_id"])
+    z["uid"] = uid
 
     try:
         limit = s.get(f"{basis}/{uid}/content_publishing_limit", headers=auth,
@@ -258,26 +282,7 @@ def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, 
         felder = {"media_type": "REELS", "video_url": adresse, "caption": caption, "share_to_feed": True}
         if thumb_offset_ms is not None:
             felder["thumb_offset"] = int(thumb_offset_ms)
-        cid = _antwort(_anfrage(s, "post", f"{basis}/{uid}/media", "Container anlegen", headers=auth,
-                                json=felder, timeout=60), "Container anlegen")["id"]
-        print(f"  Container {cid}")
-
-        gewartet = 0
-        while True:
-            st = _antwort(_anfrage(s, "get", f"{basis}/{cid}", "Status", headers=auth,
-                                   params={"fields": "status_code,status"}, timeout=30), "Status")
-            code = st.get("status_code")
-            if code in ("FINISHED", "PUBLISHED"):
-                break
-            if code in ("ERROR", "EXPIRED"):
-                raise PostenFehler(f"Verarbeitung: {code} – {st.get('status')}")
-            if gewartet >= WARTEN_MAX_S:
-                raise PostenFehler(f"Verarbeitung dauert über {WARTEN_MAX_S} s (zuletzt {code})")
-            warten(WARTEN_SCHRITT_S)
-            gewartet += WARTEN_SCHRITT_S
-
-        mid = _antwort(_anfrage(s, "post", f"{basis}/{uid}/media_publish", "Veröffentlichen", headers=auth,
-                                json={"creation_id": cid}, timeout=60), "Veröffentlichen")["id"]
+        cid, mid = _veroeffentliche(s, basis, uid, auth, felder, warten, "Reel")
     finally:
         try:
             g.video_loeschen(name)
@@ -291,6 +296,76 @@ def poste_reel(video: Path, caption: str, thumb_offset_ms: int | None, z: dict, 
     except PostenFehler:
         pass
     return {"media_id": mid, "container_id": cid, "permalink": link}
+
+
+def poste_story(bild: Path, z: dict, ig_token: str, session=None, warten=time.sleep,
+                kennung: str = "story") -> dict:
+    """Eine Story als Bild (media_type STORIES, image_url). Link-Sticker,
+    Umfragen und Musik gibt es über die Schnittstelle nicht - die bleiben
+    Handarbeit in der App."""
+    s = session or requests.Session()
+    g = Google(z, s)
+    basis = _ig(z)
+    auth = {"Authorization": f"Bearer {ig_token}"}
+    uid = z.get("uid") or str(konto(z, ig_token, s)["user_id"])
+    z["uid"] = uid
+    name = f"{kennung}-{_zufall.token_hex(8)}.jpg"
+    adresse = g.video_hochladen(bild, name, "image/jpeg")
+    try:
+        cid, mid = _veroeffentliche(s, basis, uid, auth, {"media_type": "STORIES", "image_url": adresse},
+                                    warten, "Story")
+    finally:
+        try:
+            g.video_loeschen(name)
+        except PostenFehler as e:
+            print(f"  Hinweis: Bild nicht gelöscht ({e}) – die Lebenszyklus-Regel räumt es nach einem Tag weg.")
+    return {"media_id": mid, "container_id": cid}
+
+
+INSIGHTS_VOLL = "reach,saved,shares,views,total_interactions"
+INSIGHTS_KNAPP = "reach,saved,shares"
+
+
+def auswertung(z: dict, ig_token: str, session=None, anzahl: int = 30) -> dict:
+    """Kennzahlen der letzten `anzahl` Beiträge: Likes und Kommentare
+    (instagram_business_basic), dazu Reichweite, Gespeichert, Geteilt und
+    Aufrufe, wenn der Schlüssel instagram_business_manage_insights trägt -
+    sonst `insights` False und ein Hinweis, wie man sie freischaltet."""
+    s = session or requests.Session()
+    basis = _ig(z)
+    auth = {"Authorization": f"Bearer {ig_token}"}
+    ich = _antwort(_anfrage(s, "get", f"{basis}/me", "Auswertung", headers=auth,
+                            params={"fields": "user_id,username,followers_count,media_count"}, timeout=30),
+                   "Auswertung")
+    uid = str(ich.get("user_id") or z.get("uid"))
+    liste = _antwort(_anfrage(s, "get", f"{basis}/{uid}/media", "Auswertung", headers=auth,
+                              params={"fields": "id,timestamp,media_product_type,permalink,like_count,comments_count",
+                                      "limit": anzahl}, timeout=30), "Auswertung").get("data", [])
+    insights, hinweis, metriken = True, None, INSIGHTS_VOLL
+    beitraege = []
+    for m in liste:
+        eintrag = {"id": m.get("id"), "zeit": m.get("timestamp"), "typ": m.get("media_product_type"),
+                   "link": m.get("permalink"), "likes": m.get("like_count"), "kommentare": m.get("comments_count")}
+        while insights:
+            r = _anfrage(s, "get", f"{basis}/{m['id']}/insights", "Auswertung", headers=auth,
+                         params={"metric": metriken}, timeout=30)
+            daten = r.json() if r.content else {}
+            if r.status_code < 400 and "data" in daten:
+                for w in daten["data"]:
+                    werte = w.get("values") or [{}]
+                    eintrag[w.get("name")] = werte[0].get("value", w.get("total_value", {}).get("value"))
+                break
+            meldung = json.dumps(daten.get("error", daten), ensure_ascii=False)[:300]
+            if metriken == INSIGHTS_VOLL:
+                metriken = INSIGHTS_KNAPP           # ältere Fassung kennt nicht alle Metriken
+                continue
+            insights = False
+            hinweis = ("Reichweite, Gespeichert und Geteilt fehlen – in der Meta-App unter "
+                       "„Berechtigungen und Features“ instagram_business_manage_insights hinzufügen und "
+                       f"`bash {EINRICHTEN} --anmelden` erneut ausführen. (Instagram: {meldung})")
+        beitraege.append(eintrag)
+    return {"follower": ich.get("followers_count"), "beitraege_gesamt": ich.get("media_count"),
+            "beitraege": beitraege, "insights": insights, "hinweis": hinweis}
 
 
 if __name__ == "__main__":

@@ -2461,41 +2461,78 @@ Abmahnung an die Anschrift aus dem Impressum. Stattdessen:
 - **Die Hauptformate kommen aus den eigenen Daten** – die Termine, die es
   nur bei uns gesammelt gibt. Sie bringen die Besucher.
 
-### Der Wochenplan (`scripts/insta_inhalte.py`)
+### Der Wochenplan (`scripts/insta_inhalte.py`) – seit 16.10.2026
 
-| Tag | Format | Inhalt |
-|---|---|---|
-| Mo | `wochenvorschau` | „141 Events diese Woche", je Sportart, fünf Höhepunkte |
-| Di | `moment` | ein großer Moment (Zahl groß, Text, Quelle in der Caption) |
-| Mi | `spotlight` | eine Sportart in einem Land, die nächsten 30 Tage |
-| Do | `clip` | ein lizenzierter Clip aus `clips.json` (leer → Moment) |
-| Fr | `wochenende` | Sa + So: wie viele wo, fünf Tipps |
-| Sa | `region` | rund um eine Großstadt (50 km), 24 Städte reihum |
-| So | `moment` | |
+Vom Nutzer verlangt: „Die Leute wollen keine langweiligen Zusammenfassungen
+sehen." Jedes Reel beginnt deshalb in der **ersten Sekunde** mit einer
+großen Zahl oder einem Satz (Folie `hook`/`satz`, sofort sichtbar), zeigt
+die Rennen **einzeln und groß** (Folie `event`, im Takt) und endet mit
+einer Aufforderung, die Instagram belohnt: teilen, speichern, kommentieren.
 
-Jahrestag eines Moments ersetzt Di–Do, Sa, So. Derselbe Tag ergibt immer
-denselben Beitrag (kein Gedächtnis nötig). Ausgeblendete Zeilen
-(`pruefung_offen`) und Kinder-/Junior-Läufe kommen nie ins Reel. Captions
-mit Einstieg, Liste, Frage für Kommentare, „Link in der Bio",
-höchstens zehn Hashtags, bei Fotos die Namensnennung.
+| Tag | Format | Inhalt | will erreichen |
+|---|---|---|---|
+| Mo | `krass` | „130 KM. ZU FUSS." – das längste Lauf-/Rad-/Zeit-/Triathlon-/Schwimmrennen der nächsten zwei Monate (Kategorie wechselt wöchentlich) | Staunen, Kommentare |
+| Di | `naehe` | „15 Rennen rund um Bern in den nächsten 4 Wochen" – vier einzeln, „Schick das deinem Laufpartner" | Teilen |
+| Mi | `wuerdest` | „Würdest du das laufen? 6,7 KM. Jede Stunde. Bis nur noch einer läuft." – Backyard, 24 h, Ultra, Hindernis, Freiwasser, Treppe, Nacht (wöchentlich wechselnd) | Kommentare (ja/nein) |
+| Do | `humor` | Läuferhumor aus `marketing/instagram/humor.json`: Erwartung gegen Wirklichkeit (mit lizenzierten Clips: `clip`) | Teilen, Markieren |
+| Fr | `wochenende` | „Was machst du am Wochenende? 120 Rennen" + drei Tipps | Kommentare |
+| Sa | `saison` | „Speicher dir das: 5 Marathons im Februar" – 3–5 Monate voraus, Kategorie wechselt | Speichern |
+| So | `moment` | ein großer Moment (Fakten mit Quelle) | Staunen |
+
+Die alten Formate (`wochenvorschau`, `spotlight`, `region`) bleiben über
+`--format` erreichbar. Ein Jahrestag ersetzt Di, Mi, Do und So.
+Vorläufige Termine und Kinderläufe kommen in den neuen Formaten nie vor
+(„Weniger anzeigen ist eine Datenqualitäts-Entscheidung").
+
+**Stories** (`stories_fuer`, je Tag bis zu zwei, als Bild): das Rennen der
+nächsten drei Tage („Morgen: Rennen des Tages") und ein **Countdown** zu
+einem großen Rennen in genau 100/60/30/14/7 Tagen – sonst ein Hinweis auf
+das neue Reel. Sie gehen im Abendlauf nach dem Reel raus, mit derselben
+Freigabe (die Kennung des Tages umfasst sie). **Link-Sticker, Umfragen
+und Musik gibt es über die Schnittstelle nicht** – die bleiben Handarbeit
+in der App. Reels anderer Sportler in die eigene Story teilen geht nur
+von Hand über den Papierflieger („Zu deiner Story hinzufügen"), das
+erlaubt Instagram; Herunterladen und neu Hochladen nicht.
+
+**Veranstalter erwähnen** (`scripts/insta_veranstalter.py`): Für jedes
+gezeigte Rennen liest der Lauf die Veranstalterseite (nie ein Portal,
+robots.txt, 2 s Pause je Host) und sucht Links auf `instagram.com/<name>`.
+Ein Name gilt, mehrere nur, wenn genau einer ein Wort des Rennens oder
+der Domain trägt. Die Caption bekommt „📣 Veranstalter: @name" – der
+Veranstalter wird benachrichtigt und teilt das Reel oft in seiner Story.
+Ergebnisse 30 Tage im Cache (`marketing/instagram/.cache/`). Die
+Erwähnung kommt nach der Kennung in die Caption, das Dashboard zeigt sie
+nicht. Von Hand prüfen: `python3 scripts/insta_veranstalter.py <url>`.
 
 Ansehen ohne Video: `python3 scripts/insta_inhalte.py --tage 7`.
 
-### Das Video (`scripts/insta_video.py`)
+### Das Video (`scripts/insta_video.py`, `scripts/insta_musik.py`)
 
-1080 × 1920, 30 Bilder/s, H.264/AAC, `faststart`, 13–16 s, ~5 MB. Hintergrund:
+1080 × 1920, 30 Bilder/s, H.264/AAC, `faststart`, 10–16 s. Hintergrund:
 ein Hochformat-Video von **Pexels** (wenn `PEXELS_API_KEY` gesetzt ist –
-kostenloser Schlüssel auf pexels.com/api; Lizenz erlaubt kommerzielle
-Nutzung), sonst ein langsamer Zoom über die Fotos der Startseite. Darauf
-Navy-Verlauf, Marke, Folien in Barlow (eingeblendet mit kleinem Hub),
-Fortschrittsbalken in Signal-Orange; Text nur in der sicheren Zone, die
-die Instagram-App nicht überdeckt. Bei Clips sucht `highlight()` das
-spannendste Fenster (Lautheit je Sekunde + Bildwechsel), Querformat
-steht über einem unscharfen Hintergrund. Musik: Stücke in
-`marketing/instagram/musik/` mit Lizenz in `musik.json`
-(`{"stuecke": [{"datei": "x.mp3", "lizenz": "…"}]}`) – ohne Stück ist das
-Reel stumm. **Die Musik aus der Instagram-Bibliothek kann die API nicht
+kostenloser Schlüssel auf pexels.com/api, als GitHub-Secret hinterlegen;
+Lizenz erlaubt kommerzielle Nutzung) – **ohne Schlüssel nur ein
+langsamer Zoom über die Fotos der Startseite, also kaum Bewegung**. Bei
+jedem Schnitt zoomt der Hintergrund kurz an („Punch"). Darauf
+Navy-Verlauf, Marke, Folien in Barlow, Fortschrittsbalken in
+Signal-Orange; Text nur in der sicheren Zone, die die Instagram-App nicht
+überdeckt. Bei Clips sucht `highlight()` das spannendste Fenster.
+
+**Ton**: ein **eigener Beat** (`insta_musik.py`, selbst erzeugt – keine
+Lizenzfrage): Bassdrum, Clap, Hi-Hat, Bass und Akkorde, 118–128 BPM, Tonart
+und Akkordfolge je Tag verschieden; die Folien wechseln genau auf den
+Schlägen. Ein lizenziertes Stück in `marketing/instagram/musik/`
+(`musik.json`: `{"stuecke": [{"datei": "x.mp3", "lizenz": "…"}]}`) geht
+vor. **Die Musik aus der Instagram-Bibliothek kann die API nicht
 anhängen**; wer sie will, postet das Artefakt von Hand.
+
+**Auswertung**: Jeder Lauf mit Google-Zugang schreibt in die
+Zusammenfassung (Actions → Lauf) die letzten 30 Beiträge mit Likes und
+Kommentaren, dazu Aufrufe, Reichweite, Gespeichert und Geteilt, und den
+Schnitt je Format (Format aus dem Wochenplan des Tages). Für die vier
+letzten braucht der Schlüssel `instagram_business_manage_insights`: in der
+Meta-App unter „Berechtigungen und Features" hinzufügen, dann in der Cloud
+Shell `bash scripts/instagram_google_einrichten.sh --anmelden`.
 
 ```bash
 python3 scripts/insta_lauf.py --vorschau            # nur PNGs der Folien

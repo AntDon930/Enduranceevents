@@ -4,8 +4,10 @@ scripts/insta_lauf.py
 =====================
 
 Ein Tag des Instagram-Accounts „AusdauerMaschine" in einem Aufruf:
-planen (insta_inhalte.py) → Video rendern (insta_video.py) → Caption
-schreiben → auf Wunsch veröffentlichen (insta_posten.py).
+planen (insta_inhalte.py) → Video und Stories rendern (insta_video.py)
+→ Caption schreiben, Veranstalter erwähnen (insta_veranstalter.py) → auf
+Wunsch veröffentlichen, erst das Reel, dann die Stories (insta_posten.py)
+→ Auswertung der letzten Beiträge in die Zusammenfassung des Laufs.
 
     python3 scripts/insta_lauf.py                         # heute, nur rendern
     python3 scripts/insta_lauf.py --datum 2026-10-16      # ein bestimmter Tag
@@ -14,7 +16,7 @@ schreiben → auf Wunsch veröffentlichen (insta_posten.py).
     python3 scripts/insta_lauf.py --posten                # und veröffentlichen
 
 Ausgabe in marketing/instagram/ausgabe/<datum>/ (nicht im Repo):
-reel.mp4, cover.jpg, caption.txt, beitrag.json. Der Workflow
+reel.mp4, cover.jpg, story-1.jpg …, caption.txt, beitrag.json. Der Workflow
 `.github/workflows/instagram.yml` ruft genau das täglich auf.
 
 Veröffentlicht wird nur mit `--posten` UND dem Google-Zugang des
@@ -68,6 +70,8 @@ def main() -> int:
     ap.add_argument("--ausgabe", type=Path, help="Zielordner, Vorgabe marketing/instagram/ausgabe/<datum>")
     ap.add_argument("--vorschau", action="store_true", help="nur die Folien als PNG, kein Video")
     ap.add_argument("--posten", action="store_true", help="nach dem Rendern veröffentlichen")
+    ap.add_argument("--ohne-erwaehnung", action="store_true",
+                    help="die Veranstalterseiten nicht nach Instagram-Namen fragen")
     ap.add_argument("--freigabe", action="store_true",
                     help="mit --posten: nur veröffentlichen, wenn der Tag im Dashboard freigegeben "
                          "ist oder INSTAGRAM_AUTOPOST=ja gilt (insta_freigabe.py)")
@@ -87,6 +91,8 @@ def main() -> int:
     if a.vorschau:
         for p in video.vorschau(beitrag, ziel):
             print(f"  {p}")
+        for i, st in enumerate(beitrag.get("stories") or [], 1):
+            print(f"  {video.rendere_story(st, ziel / f'story-{i}.jpg', datum.toordinal() + i)}")
         (ziel / "caption.txt").write_text(beitrag["caption"], encoding="utf-8")
         return 0
 
@@ -96,8 +102,25 @@ def main() -> int:
     meta = video.rendere(beitrag, ziel, seed=datum.toordinal())
     beitrag["video"] = meta
     beitrag["caption"] = caption_mit_nachweis(beitrag["caption"], meta.get("nachweis"))
+    # Veranstalter erwähnen - NACH der Kennung, wie die Namensnennung.
+    if not a.ohne_erwaehnung:
+        try:
+            import insta_veranstalter as veranstalter
+            namen = veranstalter.erwaehnungen(beitrag)
+            beitrag["erwaehnt"] = namen
+            beitrag["caption"] = veranstalter.caption_mit_erwaehnung(beitrag["caption"], namen)
+            if namen:
+                print(f"  Veranstalter erwähnt: {' '.join('@' + n for n in namen)}")
+        except Exception as e:                               # noqa: BLE001 - Erwähnung ist Beiwerk
+            print(f"  Veranstalter-Namen nicht ermittelt ({type(e).__name__}) - Caption ohne Erwähnung")
     (ziel / "caption.txt").write_text(beitrag["caption"], encoding="utf-8")
-    print(f"  Video: {ziel / 'reel.mp4'} ({meta['dauer_s']} s, Hintergrund {meta['hintergrund']['art']})")
+    print(f"  Video: {ziel / 'reel.mp4'} ({meta['dauer_s']} s, Hintergrund {meta['hintergrund']['art']}, "
+          f"Ton: {meta.get('musik') or 'still'})")
+    stories = []
+    for i, st in enumerate(beitrag.get("stories") or [], 1):
+        pfad = video.rendere_story(st, ziel / f"story-{i}.jpg", datum.toordinal() + i)
+        stories.append(pfad)
+        print(f"  Story {i} ({st['art']}): {pfad}")
 
     zusammenfassung(f"## Instagram {datum} – {beitrag['format']}\n\n"
                     f"Video {meta['dauer_s']} s, Hintergrund: {meta['hintergrund']}\n\n"
@@ -117,7 +140,7 @@ def main() -> int:
             print(f"  Instagram-Schlüssel: {pflege_fehler}", file=sys.stderr)
             zusammenfassung(f"**Instagram-Schlüssel:** {pflege_fehler}\n")
 
-    darf, grund = True, ""
+    darf, grund, story_fehler = True, "", None
     if a.posten and a.freigabe:
         import insta_freigabe as freigabe
         darf, grund = freigabe.darf_posten(beitrag["datum"], beitrag["hash"])
@@ -140,10 +163,61 @@ def main() -> int:
             beitrag["veroeffentlicht"] = erg
             print(f"  veröffentlicht: {erg.get('permalink') or erg['media_id']}")
             zusammenfassung(f"Veröffentlicht: {erg.get('permalink') or erg['media_id']}\n")
+            # Danach die Stories - ein Fehler hier macht den Lauf rot, das
+            # Reel ist dann trotzdem draußen.
+            beitrag["stories_veroeffentlicht"] = []
+            for i, pfad in enumerate(stories, 1):
+                try:
+                    st = posten.poste_story(pfad, z, pflege["token"], kennung=f"story-{beitrag['datum']}-{i}")
+                    beitrag["stories_veroeffentlicht"].append(st)
+                    print(f"  Story {i} veröffentlicht: {st['media_id']}")
+                except posten.PostenFehler as e:
+                    story_fehler = str(e)
+                    print(f"  Story {i}: {story_fehler}", file=sys.stderr)
+                    zusammenfassung(f"**Story {i}:** {story_fehler}\n")
+            zusammenfassung(f"Stories: {len(beitrag['stories_veroeffentlicht'])} von {len(stories)} veröffentlicht\n")
     (ziel / "beitrag.json").write_text(json.dumps(beitrag, ensure_ascii=False, indent=1), encoding="utf-8")
+    if z and pflege:
+        try:
+            zusammenfassung(auswertung_text(posten.auswertung(z, pflege["token"])))
+        except posten.PostenFehler as e:
+            print(f"  Auswertung nicht möglich: {e}")
     # Ein kaputter Schlüssel ist rot (Mail an den Nutzer), auch wenn heute
     # nicht gepostet werden sollte - sonst liefe er still in die 60 Tage.
-    return 1 if pflege_fehler else 0
+    return 1 if pflege_fehler or story_fehler else 0
+
+
+def auswertung_text(daten: dict) -> str:
+    """Die Auswertung als Markdown für die Zusammenfassung des Laufs:
+    je Beitrag eine Zeile, dann der Schnitt je Format (das Format kommt
+    aus dem Wochenplan des Tages, insta_inhalte.format_am)."""
+    from collections import defaultdict
+    zeilen = [f"## Auswertung · {daten.get('follower', '?')} Follower · {daten.get('beitraege_gesamt', '?')} Beiträge\n"]
+    if daten.get("hinweis"):
+        zeilen.append(f"> {daten['hinweis']}\n")
+    felder = ["views", "reach", "likes", "kommentare", "saved", "shares"]
+    zeilen.append("| Tag | Format | " + " | ".join(felder) + " |")
+    zeilen.append("|---|---|" + "---|" * len(felder))
+    je_format: dict[str, list[dict]] = defaultdict(list)
+    for b in daten.get("beitraege", []):
+        try:
+            tag = dt.datetime.fromisoformat(str(b["zeit"]).replace("+0000", "+00:00")).astimezone(ZoneInfo("Europe/Berlin")).date()
+        except (KeyError, ValueError):
+            continue
+        fmt = inhalte.format_am(tag)
+        je_format[fmt].append(b)
+        werte = " | ".join("" if b.get(f) is None else str(b[f]) for f in felder)
+        zeilen.append(f"| [{tag.isoformat()}]({b.get('link') or ''}) | {fmt} | {werte} |")
+    if je_format:
+        zeilen.append("\n**Schnitt je Format**\n")
+        zeilen.append("| Format | Beiträge | " + " | ".join(felder) + " |")
+        zeilen.append("|---|---|" + "---|" * len(felder))
+        for fmt, liste in sorted(je_format.items()):
+            def schnitt(f):
+                w = [b[f] for b in liste if isinstance(b.get(f), (int, float))]
+                return f"{sum(w) / len(w):.0f}" if w else ""
+            zeilen.append(f"| {fmt} | {len(liste)} | " + " | ".join(schnitt(f) for f in felder) + " |")
+    return "\n".join(zeilen) + "\n"
 
 
 if __name__ == "__main__":

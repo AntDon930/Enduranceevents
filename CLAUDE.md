@@ -76,9 +76,9 @@ nur einen sieht, sieht trotzdem alles.
 | `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln deployt und Probe bestanden am 14.10.2026 – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
-| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_musik.py`, `insta_veranstalter.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions + Stories, Reel- und Story-Render (Pillow + ffmpeg, eigener Beat), @-Erwähnung der Veranstalter (Name von deren Seite), Auswertung, Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
-| `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
+| `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `humor.json` (eigene Läuferwitze für das Format „humor"), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` (dort auch `instagram_namen.json`) nicht im Repo |
 | `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 16.10.2026 auf diesem Stand (Commit `ae5751ef`, Anmeldung über Instagram, Google-Zugang per Workload Identity) |
 | `scripts/build_web_data.py` | erzeugt **`events.web.json`** (Spalten + Wörterbuch je Feld, ~300 statt ~830 KB gzip bei 20.000 Events) – **nicht committet**, entsteht im Pages-Workflow, im Rauchtest und im Benchmark; `EF.loadEvents()` lädt sie zuerst und fällt auf `events.json` zurück |
 
@@ -4638,16 +4638,52 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   (`insta_video.pruefe_lizenz`, NC/ND abgewiesen). Der Nutzer wurde am
   14.10.2026 darauf hingewiesen.
 - **Wochenplan** in `insta_inhalte.WOCHENPLAN`, deterministisch je Datum
-  (kein Zustand, keine Commits). Jahrestag eines Moments ersetzt Di–Do,
-  Sa, So. Ausgeblendete Zeilen (`pruefung_offen`) und Kinder/Junior nie.
+  (kein Zustand, keine Commits). **Seit dem 16.10.2026 neu** (vom Nutzer:
+  „Die Leute wollen keine langweiligen Zusammenfassungen sehen" – „Mach
+  ruhig alle 5 Punkte"): Mo `krass` (längstes Rennen der nächsten 2
+  Monate), Di `naehe` (Stadt-Rotation, Teilen-Aufruf), Mi `wuerdest`
+  (Backyard/24 h/Ultra/Hindernis …, Ja/Nein), Do `humor` (`humor.json`,
+  mit Clips `clip`), Fr `wochenende` (Frage + 3 Tipps), Sa `saison`
+  („Speicher dir das", 3–5 Monate voraus), So `moment`; die alten Formate
+  nur noch über `--format`. Jedes Reel: erste Folie `hook`/`satz` ab dem
+  ersten Bild, Rennen einzeln (`event`), Schluss `cta`. Jahrestag ersetzt
+  Di, Mi, Do, So. Ausgeblendete Zeilen (`pruefung_offen`) und
+  Kinder/Junior nie, in den neuen Formaten auch keine vorläufigen Termine
+  (`sicher()`). Rotationen hängen an der Kalenderwoche – ein Test mit
+  festem Datum muss zwei Wochen ansehen. Neue Witze: eigene Texte, kurz,
+  niemanden vorführen, keine Marken/Personen.
+- **Stories** (`stories_fuer`, Bild 1080 × 1920, `rendere_story`): Rennen
+  der nächsten drei Tage + Countdown 100/60/30/14/7 Tage (sonst Hinweis
+  aufs Reel); `media_type STORIES` mit `image_url` aus dem Speicher, im
+  Abendlauf NACH dem Reel, gleiche Freigabe (die Kennung `beitrag_hash`
+  umfasst die Story-Folien, plan.json trägt `stories`, das Dashboard zeigt
+  eine Zeile). Sticker (Link, Umfrage) und Musik gehen über die API nicht.
+- **@-Erwähnung der Veranstalter** (`insta_veranstalter.py`): Name nur von
+  der EIGENEN Veranstalterseite (nie Portal – `PORTAL_DOMAINS` wird aus dem
+  Quelltext von scraper_lib gelesen, weil der Instagram-Workflow kein bs4
+  hat), ein Name gilt, mehrere nur mit Namenswort, sonst keiner;
+  Cache 30 Tage. Kommt NACH der Kennung in die Caption (wie die
+  Namensnennung) – das Dashboard zeigt sie nicht. Erster Test am
+  16.10.2026: gurtenclassic, gantrischtrail, swisscitymarathon gefunden.
+- **Auswertung** (`insta_posten.auswertung`, `insta_lauf.auswertung_text`):
+  jeder Lauf mit Google-Zugang → Zusammenfassung des Laufs (Follower, je
+  Beitrag Likes/Kommentare, mit `instagram_business_manage_insights` auch
+  views/reach/saved/shares, Schnitt je Format über `format_am`). Ohne die
+  Berechtigung nur Likes/Kommentare plus Hinweis. Montags beim
+  Wochen-Check ansehen und mehr von dem machen, was geteilt/gespeichert
+  wird.
 - **Neue Momente**: Fakt an der Quelle prüfen, `quelle` als https-URL,
   `test_instagram` prüft Pflichtfelder. Lieber weglassen als raten (bei
   Ironman 1978 steht deshalb keine Siegerzeit).
 - **Video**: Text nur in x 80–960, y 230–1500 (App-Overlays), Emoji fliegen
   aus dem Videotext (Barlow hat keine), Hintergrund Pexels (Secret
-  `PEXELS_API_KEY`) sonst Fotos aus `bilder/` mit Namensnennung in der
-  Caption. `highlight()` für Clips: RMS je Sekunde (8-kHz-PCM, ohne numpy)
-  ×2 + scdet-Werte.
+  `PEXELS_API_KEY` – **am 16.10.2026 noch nicht gesetzt**, dann nur Fotos
+  aus `bilder/` mit Zoom, Namensnennung in der Caption). Punch-Zoom bei
+  jedem Schnitt. **Ton: eigener Beat** (`insta_musik.py`, reines Python,
+  `array`+`wave`, ~0,6 s für 15 s; Tempo/Tonart je Datum), die Folien
+  liegen auf ganzen Schlägen (`zeitplan(…, schlag=)`); ein lizenziertes
+  Stück aus `musik.json` geht vor. `highlight()` für Clips: RMS je Sekunde
+  (8-kHz-PCM, ohne numpy) ×2 + scdet-Werte.
 - **Posten: Anmeldung über Instagram, KEINE Facebook-Seite** (vom Nutzer
   am 16.10.2026 gewählt: „Ich würde meinen privaten Facebook Account und
   die Webseite gerne trennen. Da soll nichts zusammenhängen." – „Wenn Weg
@@ -5709,6 +5745,18 @@ Verweise auf alte Nummern stehen in Klammern.
    lesen; einzelne Rennen mit Beleg nach `manual_events.json`, ein
    Scraper nur mit seinem Ja (Datenregel 2, „kein Scraper ohne sein
    Ja"). Formate mit Staffel/Team fallen unter Datenregel 16.
+
+10. **Instagram: Pexels-Schlüssel und Insights** (16.10.2026, nur der
+    Nutzer, je zwei Minuten): (a) pexels.com/api → kostenlosen Schlüssel →
+    GitHub → Settings → Secrets and variables → Actions → `PEXELS_API_KEY`
+    – erst dann laufen echte Videos statt Standbild-Zoom im Hintergrund;
+    (b) Meta-App → Berechtigungen und Features →
+    `instagram_business_manage_insights` hinzufügen, dann Cloud Shell
+    `cd ~/Enduranceevents && git pull && bash
+    scripts/instagram_google_einrichten.sh --anmelden` (Geheimcode, Link
+    `storage.googleapis.com/endurance-5177a-instagram/ig.html` eintippen,
+    Zulassen, Adresse zurück) – erst dann zeigt die Auswertung
+    Reichweite, Gespeichert und Geteilt.
 
 (Erledigt und im Archiv: Besucherstatistik freischalten (35),
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`

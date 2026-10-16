@@ -9,19 +9,35 @@ baut scripts/insta_video.py, das Posten scripts/insta_posten.py, alles
 zusammen scripts/insta_lauf.py (siehe README, Abschnitt „Instagram").
 
 Der Wochenplan (Europe/Berlin, vom Datum bestimmt - kein Gedächtnis
-nötig, derselbe Tag ergibt immer denselben Beitrag):
+nötig, derselbe Tag ergibt immer denselben Beitrag). Seit dem 16.10.2026
+neu, vom Nutzer verlangt: „Die Leute wollen keine langweiligen
+Zusammenfassungen sehen" - jedes Format beginnt in der ERSTEN Sekunde mit
+einer großen Zahl oder Frage (Folie „hook", sofort sichtbar), zeigt die
+Rennen einzeln und schnell (Folie „event", im Takt des Beats) und endet
+mit einer Aufforderung, die Instagram belohnt (teilen, speichern,
+kommentieren):
 
-    Mo  wochenvorschau   die Events der Woche Mo-So, fünf Höhepunkte
-    Di  moment           ein großer Moment des Ausdauersports
-    Mi  spotlight        eine Sportart in einem Land, die nächsten 30 Tage
-    Do  clip             ein lizenzierter Clip aus clips.json (sonst moment)
-    Fr  wochenende       Sa + So: wie viele Events wo, fünf Höhepunkte
-    Sa  region           rund um eine Großstadt (50 km), nächste 4 Wochen
-    So  moment
+    Mo  krass        das längste Lauf-/Rad-/Schwimm-/Zeitrennen der
+                     nächsten 2 Monate - „161 KM. AM STÜCK."
+    Di  naehe        rund um eine Großstadt (50 km, 4 Wochen), Rotation
+                     über STAEDTE - „Schick das deinem Laufpartner"
+    Mi  wuerdest     ein ungewöhnliches Rennen (Backyard, 24 h, Ultra,
+                     Hindernis, Freiwasser) - „Würdest du? Ja oder nein"
+    Do  humor        Läuferhumor aus humor.json (mit Clips: clip)
+    Fr  wochenende   „Was machst du am Wochenende?" + drei Tipps
+    Sa  saison       „Speicher dir das": Marathons/Triathlons/… in einem
+                     Monat 3-5 Monate voraus
+    So  moment       ein großer Moment des Ausdauersports
+
+Die alten Formate (wochenvorschau, spotlight, region) bleiben über
+--format erreichbar, der Plan nutzt sie nicht mehr.
+
+Dazu je Tag bis zu zwei STORIES (stories_fuer): das Rennen der nächsten
+Tage und ein Countdown zu einem großen Rennen (100/60/30/14/7 Tage),
+sonst ein Hinweis auf das neue Reel.
 
 Jahrestag: Hat ein Moment aus momente.json HEUTE Jahrestag, ersetzt er
-an Di/Mi/Do/Sa/So den geplanten Beitrag („Heute vor 7 Jahren …").
-Montag und Freitag bleiben bei den Terminen - die bringen Besucher.
+an Di/Mi/Do/So den geplanten Beitrag („Heute vor 7 Jahren …").
 
 WARUM KEINE TV-AUSSCHNITTE: Fernseh- und Veranstalterbilder bekannter
 Rennen (Olympia, Ironman, Tour de France, Marathon-Majors) gehören den
@@ -54,10 +70,13 @@ SEITE = "endurance-events.de"
 # Besuch im Dashboard dem Kanal Instagram zu (stats_aggregate.js, kanal()).
 BIO_LINK = "https://endurance-events.de/?utm_source=instagram&utm_medium=bio"
 
-WOCHENPLAN = {0: "wochenvorschau", 1: "moment", 2: "spotlight", 3: "clip",
-              4: "wochenende", 5: "region", 6: "moment"}
-JAHRESTAG_ERLAUBT = {1, 2, 3, 5, 6}
-FORMATE = ("wochenvorschau", "moment", "spotlight", "clip", "wochenende", "region")
+HUMOR_DATEI = MARKETING / "humor.json"
+
+WOCHENPLAN = {0: "krass", 1: "naehe", 2: "wuerdest", 3: "humor",
+              4: "wochenende", 5: "saison", 6: "moment"}
+JAHRESTAG_ERLAUBT = {1, 2, 3, 6}
+FORMATE = ("krass", "naehe", "wuerdest", "humor", "wochenende", "saison", "moment", "clip",
+           "wochenvorschau", "spotlight", "region")
 
 SPORTARTEN = ("Laufen", "Fahrrad", "Triathlon", "Schwimmen")
 SPORT_PLURAL = {"Laufen": "Läufe", "Fahrrad": "Radrennen", "Triathlon": "Triathlons",
@@ -110,6 +129,14 @@ def lade_momente(pfad: Path | None = None) -> list[dict]:
         return json.load(f)["momente"]
 
 
+def lade_humor(pfad: Path | None = None) -> list[dict]:
+    p = pfad or HUMOR_DATEI
+    if not p.exists():
+        return []
+    with open(p, encoding="utf-8") as f:
+        return json.load(f).get("witze", [])
+
+
 def lade_clips(pfad: Path | None = None) -> list[dict]:
     p = pfad or CLIPS_DATEI
     if not p.exists():
@@ -136,12 +163,16 @@ def veranstaltungen(events: list[dict], von: dt.date, bis: dt.date) -> list[dict
     ergebnis = []
     for (name, ort, datum), zeilen in gruppen.items():
         km = sorted({z["laenge_km"] for z in zeilen if isinstance(z.get("laenge_km"), (int, float))})
+        dauern = [z["dauer_h"] for z in zeilen if isinstance(z.get("dauer_h"), (int, float))]
         ergebnis.append({
             "name": name, "ort": ort, "datum": datum, "land": zeilen[0].get("land", ""),
             "sport": zeilen[0].get("art1", ""), "art2": zeilen[0].get("art2", ""),
             "lat": zeilen[0].get("lat"), "lon": zeilen[0].get("lon"),
             "km": km, "strecken": len(zeilen),
+            "dauer_h": max(dauern) if dauern else None,
+            "url": next((z["veranstalter_url"] for z in zeilen if z.get("veranstalter_url")), None),
             "vorlaeufig": any(z.get("datum_vorlaeufig") for z in zeilen),
+            "kinder": bool(NICHT_HIGHLIGHT_RE.search(name)),
         })
     ergebnis.sort(key=lambda v: (v["datum"], v["name"]))
     return ergebnis
@@ -247,6 +278,42 @@ def event_folie(v: dict) -> dict:
             "strecken": strecken_text(v), "sport": v["sport"]}
 
 
+def event_karte(v: dict, ueber: str | None = None) -> dict:
+    """Eine Folie für EIN Rennen - groß, schnell (insta_video, typ „event").
+    `url` reist mit, damit insta_veranstalter.py den Instagram-Namen des
+    Veranstalters finden kann; das Video zeigt ihn nicht."""
+    karte = {"typ": "event", "datum": fmt_datum(v["datum"]), "name": v["name"],
+             "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
+             "strecken": strecken_text(v) or (f"{fmt_km(v['dauer_h'])} Stunden" if v.get("dauer_h") else ""),
+             "sport": v["sport"], "kategorie": v.get("art2") or ""}
+    if ueber:
+        karte["ueber"] = ueber
+    if v.get("url"):
+        karte["url"] = v["url"]
+    return karte
+
+
+def sicher(liste: list[dict]) -> list[dict]:
+    """Nur Rennen, deren Angaben wir zeigen wollen: kein vorläufiger Termin,
+    kein Kinder-/Jugendlauf (Datenregel 19 und 24 - „Weniger anzeigen ist
+    eine Datenqualitäts-Entscheidung")."""
+    return [v for v in liste if not v["vorlaeufig"] and not v.get("kinder")]
+
+
+VERB = {"Laufen": "LAUFEN", "Fahrrad": "FAHREN", "Schwimmen": "SCHWIMMEN", "Triathlon": "MACHEN"}
+PARTNER = {"Laufen": "deinem Laufpartner", "Fahrrad": "deiner Radgruppe",
+           "Schwimmen": "deinem Schwimmpartner", "Triathlon": "deiner Trainingsgruppe"}
+
+
+def frage_folie(sport: str | None) -> dict:
+    return {"typ": "satz", "ueber": "Und du?", "titel": f"WÜRDEST DU DAS {VERB.get(sport, 'MACHEN')}?",
+            "zeilen": ["Ja oder nein - schreib's in die Kommentare"]}
+
+
+def cta_folie(titel: str = "Dein nächstes Rennen?", *zeilen: str) -> dict:
+    return {"typ": "cta", "titel": titel, "zeilen": list(zeilen) or [SEITE, "Link in der Bio"]}
+
+
 def hashtags(sport: str | None, land: str | None = None, extra: list[str] | None = None,
              rng: random.Random | None = None, n: int = 10) -> list[str]:
     tags: list[str] = []
@@ -325,27 +392,31 @@ def format_wochenvorschau(datum: dt.date, events: list[dict], rng: random.Random
 
 
 def format_wochenende(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """„Was machst du am Wochenende?" - die Zahl der Rennen am Samstag und
+    Sonntag, dann drei Tipps einzeln, dann die Frage in die Kommentare."""
     samstag = datum + dt.timedelta(days=(5 - datum.weekday()) % 7)
     sonntag = samstag + dt.timedelta(days=1)
     liste = veranstaltungen(events, samstag, sonntag)
     if len(liste) < 3:
         return None
     n_land = Counter(v["land"] for v in liste)
-    top = hoehepunkte(liste, 5, rng)
+    top = hoehepunkte(sicher(liste) or liste, 3, rng)
+    laender = " · ".join("Südtirol" if l == "Italien (Südtirol)" else LAND_KURZ.get(l, l) for l, _ in n_land.most_common())
     folien = [
-        {"typ": "titel", "ueber": f"Wochenende {fmt_datum(samstag.isoformat(), False)} – {fmt_datum(sonntag.isoformat(), False)}",
-         "titel": f"{len(liste)} Rennen\nam Wochenende",
-         "zeilen": [f"{LAND_FLAGGE.get(l, '')} {n} {LAND_IN.get(l, l)}" for l, n in n_land.most_common()]},
-        {"typ": "liste", "titel": "Unsere Tipps", "events": [event_folie(v) for v in top]},
-        {"typ": "cta", "titel": "Noch spontan starten?", "zeilen": [SEITE, "Link in der Bio"]},
+        {"typ": "hook", "ueber": "Was machst du am Wochenende?", "zahl": str(len(liste)),
+         "titel": "RENNEN AM SAMSTAG UND SONNTAG", "zeilen": [laender]},
+        *[event_karte(v) for v in top],
+        {"typ": "satz", "ueber": "Und du?", "titel": "WO STARTEST DU?",
+         "zeilen": ["Schreib's in die Kommentare"]},
+        cta_folie("Noch spontan starten?"),
     ]
     haupt = Counter(v["sport"] for v in liste).most_common(1)[0][0]
     zeilen = "\n".join(f"{SPORT_EMOJI.get(v['sport'], '•')} {fmt_datum(v['datum'])} {v['name']} ({v['ort']})" for v in top)
     caption = caption_bauen([
-        wahl(rng, ["Das Wochenende gehört den Ausdauersportlern! 🏁", "Startklar fürs Wochenende? 🔥",
-                   "Wer läuft, radelt oder schwimmt am Wochenende? 👇"]),
-        f"{len(liste)} Events am Samstag und Sonntag. Unsere Tipps:\n{zeilen}",
-        "Schreib uns in die Kommentare, wo du startest! 💬",
+        wahl(rng, [f"{len(liste)} Rennen am Wochenende - und du sitzt auf dem Sofa? 🛋️➡️🏁",
+                   "Was machst du am Wochenende? 👀", f"Noch nichts vor? {len(liste)} Rennen warten. 🔥"]),
+        f"Unsere Tipps für Samstag und Sonntag:\n{zeilen}",
+        "Wo startest du? Schreib's in die Kommentare! 💬",
     ], hashtags(haupt, rng=rng, extra=["#wochenende"]), rng, len(events))
     return _beitrag("wochenende", datum, folien, caption, haupt)
 
@@ -408,6 +479,271 @@ def format_region(datum: dt.date, events: list[dict], rng: random.Random) -> dic
         f"Nicht aus {stadt}? Auf {SEITE} findest du mit der Umkreissuche die Rennen in deiner Nähe.",
     ], hashtags(n_sport.most_common(1)[0][0], land, extra=[tag_stadt], rng=rng), rng, len(events))
     return _beitrag("region", datum, folien, caption, n_sport.most_common(1)[0][0], stadt=stadt)
+
+
+# ------------------------------------------------- Formate seit 16.10.2026
+
+# Superlative für „krass": Sportart (None = alle), Maß, Mindestwert,
+# Überschrift, Einheit, Zusatz. Rotation nach Kalenderwoche; hat eine
+# Kategorie keinen Treffer, die nächste.
+KRASS_KATEGORIEN = (
+    ("Laufen", "km", 50, "Das längste Laufrennen der nächsten zwei Monate", "KM", "ZU FUSS."),
+    ("Fahrrad", "km", 150, "Das längste Radrennen der nächsten zwei Monate", "KM", "AUF DEM RAD."),
+    (None, "h", 12, "Das längste Zeitrennen der nächsten zwei Monate", "STUNDEN", "OHNE ZIELLINIE."),
+    ("Triathlon", "km", 100, "Der längste Triathlon der nächsten zwei Monate", "KM", "SCHWIMMEN, RAD, LAUFEN."),
+    ("Schwimmen", "km", 5, "Das längste Schwimmrennen der nächsten zwei Monate", "KM", "IM WASSER."),
+)
+
+
+def _krass_wert(v: dict, art: str) -> float:
+    if art == "h":
+        return float(v.get("dauer_h") or 0)
+    return float(max(v["km"]) if v["km"] else 0)
+
+
+def zahl_text(zahl: str) -> str:
+    """„161 KM" → „161 km", „24 STUNDEN" → „24 Stunden" (für die Caption)."""
+    return zahl.replace(" KM", " km").replace(" STUNDEN", " Stunden").replace("NOCH ", "noch ").replace(" TAGE", " Tage")
+
+
+def format_krass(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """Das Krasseste der nächsten zwei Monate - eine Zahl, die man kaum
+    glaubt, in der ersten Sekunde."""
+    liste = sicher(veranstaltungen(events, datum, datum + dt.timedelta(days=60)))
+    woche = datum.isocalendar()[1]
+    for versuch in range(len(KRASS_KATEGORIEN)):
+        sport, art, minimum, ueber, einheit, zusatz = KRASS_KATEGORIEN[(woche + versuch) % len(KRASS_KATEGORIEN)]
+        treffer = [v for v in liste if (sport is None or v["sport"] == sport) and _krass_wert(v, art) >= minimum]
+        if treffer:
+            break
+    else:
+        return None
+    v = max(treffer, key=lambda x: (_krass_wert(x, art), hoehepunkt_wert(x), x["name"]))
+    zahl = f"{fmt_km(_krass_wert(v, art))} {einheit}"
+    folien = [
+        {"typ": "hook", "ueber": ueber, "zahl": zahl, "titel": zusatz, "zeilen": []},
+        event_karte(v),
+        frage_folie(v["sport"]),
+        cta_folie(),
+    ]
+    caption = caption_bauen([
+        f"🤯 {zahl_text(zahl)}. {ueber}:",
+        f"📅 {fmt_datum(v['datum'])} · {v['name']} ({v['ort']}, {LAND_KURZ.get(v['land'], v['land'])})"
+        + (f"\nStrecken: {strecken_text(v)}" if strecken_text(v) else ""),
+        "Würdest du dich trauen? Ja oder nein 👇\nMarkiere jemanden, der das schafft! 💪",
+    ], hashtags(v["sport"], v["land"], extra=["#ultra", "#extrem"], rng=rng), rng, len(events))
+    return _beitrag("krass", datum, folien, caption, v["sport"])
+
+
+def format_naehe(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """Rennen rund um eine Großstadt - zum Weiterschicken an die
+    Trainingsgruppe (Teilen zählt bei Instagram am meisten)."""
+    liste = veranstaltungen(events, datum, datum + dt.timedelta(days=28))
+    woche = datum.isocalendar()[1] + 52 * datum.isocalendar()[0]
+    for versuch in range(len(STAEDTE)):
+        stadt, lat, lon = STAEDTE[(woche + versuch) % len(STAEDTE)]
+        treffer = [v for v in liste if v["lat"] is not None and v["lon"] is not None
+                   and entfernung_km(lat, lon, v["lat"], v["lon"]) <= REGION_RADIUS_KM]
+        if len(treffer) >= 4:
+            break
+    else:
+        return None
+    n_sport = Counter(v["sport"] for v in treffer)
+    haupt = n_sport.most_common(1)[0][0]
+    top = hoehepunkte(sicher(treffer) or treffer, 4, rng)
+    folien = [
+        {"typ": "hook", "ueber": f"Rund um {stadt}", "zahl": str(len(treffer)),
+         "titel": "RENNEN IN DEN NÄCHSTEN 4 WOCHEN", "zeilen": []},
+        *[event_karte(v) for v in top],
+        {"typ": "satz", "ueber": "Nicht allein starten",
+         "titel": f"SCHICK DAS {PARTNER.get(haupt, 'deiner Trainingsgruppe').upper()}", "zeilen": []},
+        cta_folie(f"Nicht aus {stadt}?", "Umkreissuche auf", SEITE),
+    ]
+    zeilen = "\n".join(f"{SPORT_EMOJI.get(v['sport'], '•')} {fmt_datum(v['datum'])} {v['name']} ({v['ort']})" for v in top)
+    tag_stadt = "#" + re.sub(r"[^a-zäöüß]", "", stadt.lower())
+    caption = caption_bauen([
+        f"📍 {stadt}: {len(treffer)} Rennen in den nächsten vier Wochen!",
+        f"Unsere Tipps:\n{zeilen}",
+        f"Schick das jemandem aus {stadt} 📲 - allein trainieren ist halb so schön.",
+    ], hashtags(haupt, top[0]["land"], extra=[tag_stadt], rng=rng), rng, len(events))
+    return _beitrag("naehe", datum, folien, caption, haupt, stadt=stadt)
+
+
+def _besonderheit(v: dict) -> tuple[int, str, str, str] | None:
+    """(Rang, Art, große Zahl, Satz) - was ein Rennen ungewöhnlich macht.
+    Nur aus den Daten, nichts dazuerfunden."""
+    name = v["name"].lower()
+    km = max(v["km"]) if v["km"] else 0
+    verb = VERB.get(v["sport"], "MACHEN")
+    if v.get("art2") == "Backyard Ultra":
+        return 9, "backyard", "6,7 KM", "Jede Stunde. Bis nur noch einer läuft."
+    if (v.get("dauer_h") or 0) >= 24:
+        return 8, "zeit", f"{fmt_km(v['dauer_h'])} STUNDEN", f"{verb.capitalize()}. Ohne Ziellinie."
+    if re.search(r"treppen|stairrun|towerrun|tower run|stäffele", name):
+        return 7, "treppe", "TREPPEN", "Statt Kilometer."
+    if v["sport"] == "Laufen" and km >= 100:
+        return 6, "ultra", f"{fmt_km(km)} KM", "Zu Fuß. In einem Rennen."
+    if v.get("art2") == "Hindernis":
+        return 5, "hindernis", f"{fmt_km(km)} KM" if km else "HINDERNISSE", "Schlamm, Wände, Wasser."
+    if v["sport"] == "Schwimmen" and km >= 3:
+        return 5, "schwimmen", f"{fmt_km(km)} KM", ("Im offenen Wasser." if v.get("art2") == "Freiwasser"
+                                                   else "Schwimmen. Am Stück.")
+    if v["sport"] == "Triathlon" and km >= 200:
+        return 5, "langdistanz", f"{fmt_km(km)} KM", "Schwimmen, Rad, Laufen. An einem Tag."
+    if v["sport"] == "Fahrrad" and km >= 200:
+        return 4, "rad", f"{fmt_km(km)} KM", "Auf dem Rad. In einem Rennen."
+    if re.search(r"\bnacht|night|mitternacht|midnight", name):
+        return 3, "nacht", "NACHTS", "Stirnlampe an und los."
+    return None
+
+
+def format_wuerdest(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """„Würdest du das laufen?" - ein ungewöhnliches Rennen der nächsten
+    drei Monate. Bringt Kommentare (ja/nein), die Instagram belohnt."""
+    liste = sicher(veranstaltungen(events, datum, datum + dt.timedelta(days=90)))
+    kandidaten = [(b, v) for v in liste for b in [_besonderheit(v)] if b]
+    if not kandidaten:
+        return None
+    arten = sorted({b[1] for b, _ in kandidaten},
+                   key=lambda a: (-max(b[0] for b, _ in kandidaten if b[1] == a), a))
+    art = arten[datum.isocalendar()[1] % len(arten)]
+    (_, _, zahl, satz), v = max(((b, v) for b, v in kandidaten if b[1] == art),
+                                key=lambda bv: (hoehepunkt_wert(bv[1]), bv[1]["name"]))
+    verb = VERB.get(v["sport"], "MACHEN").lower()
+    folien = [
+        {"typ": "hook", "ueber": f"Würdest du das {verb}?", "zahl": zahl, "titel": satz.upper(), "zeilen": []},
+        event_karte(v),
+        {"typ": "satz", "ueber": "Ehrlich jetzt", "titel": "JA ODER NEIN?",
+         "zeilen": ["Schreib's in die Kommentare"]},
+        cta_folie(),
+    ]
+    caption = caption_bauen([
+        f"Würdest du das {verb}? 🤔 {zahl_text(zahl)} - {satz}",
+        f"📅 {fmt_datum(v['datum'])} · {v['name']} ({v['ort']}, {LAND_KURZ.get(v['land'], v['land'])})"
+        + (f"\nStrecken: {strecken_text(v)}" if strecken_text(v) else ""),
+        "JA oder NEIN? Schreib's in die Kommentare 👇",
+    ], hashtags(v["sport"], v["land"], rng=rng), rng, len(events))
+    return _beitrag("wuerdest", datum, folien, caption, v["sport"])
+
+
+def _mit_doppelpunkt(t: str) -> str:
+    return t if t.endswith(("?", "!", "“", '"', ":")) else t + ":"
+
+
+def format_humor(datum: dt.date, events: list[dict], rng: random.Random,
+                 witze: list[dict] | None = None) -> dict | None:
+    """Läuferhumor: Erwartung gegen Wirklichkeit, zwei Folien, dann die
+    Bitte, jemanden zu markieren - das am häufigsten geteilte Format."""
+    witze = witze if witze is not None else lade_humor()
+    if not witze:
+        return None
+    w = witze[(datum.toordinal() // 7) % len(witze)]
+    folien = [
+        {"typ": "satz", "ueber": w["oben"], "titel": w["text_oben"].upper(), "zeilen": []},
+        {"typ": "satz", "ueber": w["unten"], "titel": w["text_unten"].upper(), "zeilen": [], "pointe": True},
+        {"typ": "satz", "ueber": "Kennst du?", "titel": "MARKIER JEMANDEN, DER DAS KENNT", "zeilen": []},
+        cta_folie("Und dein nächstes Rennen?"),
+    ]
+    caption = caption_bauen([
+        f"{_mit_doppelpunkt(w['oben'])} {w['text_oben']}\n{_mit_doppelpunkt(w['unten'])} {w['text_unten']} 😅",
+        "Markiere jemanden, der das kennt! 👇",
+    ], hashtags(w.get("sport"), rng=rng, extra=["#läuferhumor", "#sporthumor"]), rng, len(events))
+    return _beitrag("humor", datum, folien, caption, w.get("sport"), witz_id=w["id"])
+
+
+# Kategorien für „saison": Name (Mehrzahl), Sportart, Prüfung je Veranstaltung.
+SAISON_KATEGORIEN = (
+    ("Marathons", "Laufen", lambda v: any(42.0 <= k <= 42.3 for k in v["km"])),
+    ("Triathlons", "Triathlon", lambda v: True),
+    ("Trailläufe", "Laufen", lambda v: v.get("art2") == "Trail" and any(k >= 20 for k in v["km"])),
+    ("Radmarathons", "Fahrrad", lambda v: any(k >= 100 for k in v["km"])),
+    ("Halbmarathons", "Laufen", lambda v: any(21.0 <= k <= 21.2 for k in v["km"])),
+    ("Ultraläufe", "Laufen", lambda v: any(k > 42.3 for k in v["km"])),
+)
+
+
+def format_saison(datum: dt.date, events: list[dict], rng: random.Random) -> dict | None:
+    """„Speicher dir das": eine Sorte Rennen in einem Monat drei bis fünf
+    Monate voraus - für die Saisonplanung. Gespeicherte Beiträge zählen
+    bei Instagram viel."""
+    woche = datum.isocalendar()[1]
+    treffer, name, sport, jahr, monat = [], "", None, datum.year, datum.month
+    for voraus in (4, 3, 5):
+        monat = (datum.month + voraus - 1) % 12 + 1
+        jahr = datum.year + (datum.month + voraus - 1) // 12
+        anfang = dt.date(jahr, monat, 1)
+        ende = dt.date(jahr + (monat == 12), monat % 12 + 1, 1) - dt.timedelta(days=1)
+        liste = sicher(veranstaltungen(events, anfang, ende))
+        for versuch in range(len(SAISON_KATEGORIEN)):
+            name, sport, pruefe = SAISON_KATEGORIEN[(woche + versuch) % len(SAISON_KATEGORIEN)]
+            treffer = [v for v in liste if v["sport"] == sport and pruefe(v)]
+            if len(treffer) >= 4:
+                break
+        if len(treffer) >= 4:
+            break
+    else:
+        return None
+    top = hoehepunkte(treffer, 6, rng)
+    monat_text = f"{MONATE[monat - 1]} {jahr}"
+    folien = [
+        {"typ": "hook", "ueber": "Speicher dir das", "zahl": str(len(treffer)),
+         "titel": f"{name.upper()} IM {MONATE[monat - 1].upper()}", "zeilen": [f"Saison {jahr}"]},
+        *[dict(event_karte(v), schnell=True) for v in top],
+        {"typ": "satz", "ueber": "Saisonplanung", "titel": "WELCHER WIRD DEIN HÖHEPUNKT?",
+         "zeilen": ["Speichern nicht vergessen"]},
+        cta_folie("Alle Termine + Kalender"),
+    ]
+    zeilen = "\n".join(f"{SPORT_EMOJI.get(v['sport'], '•')} {fmt_datum(v['datum'])} {v['name']} ({v['ort']})" for v in top)
+    caption = caption_bauen([
+        f"📌 Speicher dir das: {len(treffer)} {name} im {monat_text}.",
+        f"Unsere Auswahl:\n{zeilen}",
+        "Welcher wird dein Saisonhöhepunkt? 👇 Mit Kalender-Export für jedes Rennen auf der Seite.",
+    ], hashtags(sport, rng=rng, extra=["#saisonplanung", f"#saison{jahr}"]), rng, len(events))
+    return _beitrag("saison", datum, folien, caption, sport, monat=monat_text)
+
+
+# ------------------------------------------------------------------ Stories
+
+COUNTDOWN_TAGE = (100, 60, 30, 14, 7)
+WOCHENTAG_LANG = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+
+
+def stories_fuer(datum: dt.date, events: list[dict], beitrag: dict, rng: random.Random) -> list[dict]:
+    """Bis zu zwei Stories zum Beitrag des Tages (eine Folie je Story, als
+    Bild gerendert, insta_video.rendere_story):
+
+      1. „rennen":    das spannendste Rennen der nächsten drei Tage
+      2. „countdown": ein großes Rennen in genau 100/60/30/14/7 Tagen -
+                      sonst „reel": Hinweis auf das neue Reel
+    """
+    aus = []
+    nahe = sicher(veranstaltungen(events, datum + dt.timedelta(days=1), datum + dt.timedelta(days=3)))
+    if nahe:
+        v = hoehepunkte(nahe, 1, rng)[0]
+        tag = dt.date.fromisoformat(v["datum"])
+        wann = "Morgen" if (tag - datum).days == 1 else f"Am {WOCHENTAG_LANG[tag.weekday()]}"
+        aus.append({"art": "rennen", "sport": v["sport"],
+                    "folie": dict(event_karte(v, ueber=f"{wann}: Rennen des Tages"), hinweis=f"Alle Infos: {SEITE}")})
+    gross = []
+    for tage in COUNTDOWN_TAGE:
+        tag = datum + dt.timedelta(days=tage)
+        for v in sicher(veranstaltungen(events, tag, tag)):
+            if hoehepunkt_wert(v) >= 9:
+                gross.append((hoehepunkt_wert(v), tage, v))
+    if gross:
+        _, tage, v = max(gross, key=lambda g: (g[0], -g[1], g[2]["name"]))
+        folie = {"typ": "hook", "ueber": "Countdown", "zahl": f"NOCH {tage} TAGE", "titel": v["name"].upper(),
+                 "zeilen": [f"{fmt_datum(v['datum'])} · {v['ort']}"]}
+        if v.get("url"):
+            folie["url"] = v["url"]
+        aus.append({"art": "countdown", "sport": v["sport"], "folie": folie})
+    else:
+        erste = (beitrag.get("folien") or [{}])[0]
+        kern = " ".join(t for t in (erste.get("zahl"), erste.get("titel")) if t) or "Neues Reel"
+        aus.append({"art": "reel", "sport": beitrag.get("sport"),
+                    "folie": {"typ": "satz", "ueber": "Neues Reel", "titel": kern.upper()[:80],
+                              "zeilen": ["Jetzt auf unserem Profil"]}})
+    return aus
 
 
 def jahrestag(datum: dt.date, momente: list[dict]) -> dict | None:
@@ -474,30 +810,51 @@ def format_clip(datum: dt.date, events: list[dict], rng: random.Random,
 # ---------------------------------------------------------------- Plan
 
 def plane(datum: dt.date, events: list[dict] | None = None, format_: str | None = None,
-          momente: list[dict] | None = None, clips: list[dict] | None = None) -> dict:
-    """Der Beitrag für `datum`. `format_` erzwingt ein Format (Test,
-    Handlauf); fehlen dafür die Daten (zu wenige Events, keine Clips),
-    fällt der Plan auf einen Moment zurück - es gibt immer einen Beitrag."""
+          momente: list[dict] | None = None, clips: list[dict] | None = None,
+          witze: list[dict] | None = None) -> dict:
+    """Der Beitrag für `datum` samt Stories. `format_` erzwingt ein Format
+    (Test, Handlauf); fehlen dafür die Daten (zu wenige Events, keine
+    Clips), fällt der Plan auf einen Moment zurück - es gibt immer einen
+    Beitrag."""
     events = events if events is not None else lade_events()
     momente = momente if momente is not None else lade_momente()
     rng = random.Random(datum.toordinal())
     wunsch = format_ or WOCHENPLAN[datum.weekday()]
+    beitrag = None
     if format_ is None and datum.weekday() in JAHRESTAG_ERLAUBT:
         m = jahrestag(datum, momente)
         if m:
-            return format_moment(datum, events, rng, momente, m)
-    bauer = {
-        "wochenvorschau": format_wochenvorschau, "wochenende": format_wochenende,
-        "spotlight": format_spotlight, "region": format_region,
-    }
-    beitrag = None
-    if wunsch in bauer:
-        beitrag = bauer[wunsch](datum, events, rng)
-    elif wunsch == "clip":
-        beitrag = format_clip(datum, events, rng, clips)
+            beitrag = format_moment(datum, events, rng, momente, m)
     if beitrag is None:
-        beitrag = format_moment(datum, events, rng, momente)
+        if wunsch == "humor" and format_ is None:
+            # Gibt es lizenzierte Clips, gehört der Donnerstag ihnen.
+            beitrag = format_clip(datum, events, rng, clips) if (clips if clips is not None else lade_clips()) else None
+        bauer = {
+            "krass": format_krass, "naehe": format_naehe, "wuerdest": format_wuerdest,
+            "wochenende": format_wochenende, "saison": format_saison,
+            "wochenvorschau": format_wochenvorschau, "spotlight": format_spotlight, "region": format_region,
+        }
+        if beitrag is None:
+            if wunsch in bauer:
+                beitrag = bauer[wunsch](datum, events, rng)
+            elif wunsch == "humor":
+                beitrag = format_humor(datum, events, rng, witze)
+            elif wunsch == "clip":
+                beitrag = format_clip(datum, events, rng, clips)
+        if beitrag is None:
+            beitrag = format_moment(datum, events, rng, momente)
+    beitrag["stories"] = stories_fuer(datum, events, beitrag, random.Random(datum.toordinal() + 1))
     return beitrag
+
+
+def format_am(datum: dt.date, momente: list[dict] | None = None) -> str:
+    """Das Format, das der Plan für `datum` vorsieht, ohne die Events zu
+    lesen (für die Auswertung alter Beiträge): Jahrestag oder Wochenplan.
+    Ein Rückfall auf „moment" mangels Events bleibt unsichtbar."""
+    momente = momente if momente is not None else lade_momente()
+    if datum.weekday() in JAHRESTAG_ERLAUBT and jahrestag(datum, momente):
+        return "moment"
+    return WOCHENPLAN[datum.weekday()]
 
 
 # ---------------------------------------------------------- Freigabe-Plan
@@ -514,6 +871,8 @@ def beitrag_hash(beitrag: dict) -> str:
     stimmten plan.json und Abendlauf nie überein."""
     kern = {"format": beitrag.get("format"), "caption": beitrag.get("caption"),
             "folien": beitrag.get("folien")}
+    if beitrag.get("stories"):
+        kern["stories"] = [st.get("folie") for st in beitrag["stories"]]
     roh = json.dumps(kern, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(roh.encode("utf-8")).hexdigest()[:16]
 
@@ -537,6 +896,8 @@ def plan_liste(start: dt.date, tage: int, events: list[dict] | None = None,
             eintrag["moment_id"] = b["moment_id"]
         if b.get("clip"):
             eintrag["clip_id"] = b["clip"].get("id")
+        if b.get("stories"):
+            eintrag["stories"] = [{"art": st["art"], "folie": st["folie"]} for st in b["stories"]]
         aus.append(eintrag)
     return aus
 

@@ -20,9 +20,16 @@ Der Aufbau eines Videos:
                 Barlow / Barlow Condensed (marketing/instagram/fonts, OFL).
   Marke         oben das Zeichen der Seite und „AUSDAUERMASCHINE",
                 unten ein Fortschrittsbalken in Signal-Orange.
-  Ton           Stille, oder ein Stück aus marketing/instagram/musik/
-                (nur mit eingetragener Lizenz, siehe musik.json), beim
-                Clip dessen eigener Ton.
+  Ton           ein Stück aus marketing/instagram/musik/ (nur mit
+                eingetragener Lizenz, siehe musik.json), sonst ein eigener
+                Beat (insta_musik.py, selbst erzeugt, keine Lizenzfrage);
+                beim Clip dessen eigener Ton. Die Folien wechseln im Takt.
+
+Seit dem 16.10.2026 („Die Leute wollen keine langweiligen
+Zusammenfassungen sehen"): Die ERSTE Folie steht ab dem ersten Bild
+(kein Einblenden - die erste Sekunde entscheidet, ob jemand weiterwischt),
+Rennen kommen einzeln und groß (Folie „event"), und bei jedem Schnitt
+zoomt der Hintergrund kurz an („Punch").
 
 Die Ränder halten Abstand zu dem, was die Instagram-App über ein Reel
 legt (oben Kopfzeile, unten Caption und Knöpfe, rechts die Leiste mit
@@ -74,11 +81,16 @@ GRAU = (190, 198, 212)
 SPORTFARBE = {"Laufen": (232, 89, 12), "Fahrrad": (61, 181, 90),
               "Schwimmen": (74, 155, 230), "Triathlon": (154, 123, 240)}
 
-# Wie lange eine Folie steht (Sekunden) - je nach Textmenge.
-DAUER = {"titel": 3.6, "liste": 6.5, "moment": 4.2, "moment_text": 5.5,
-         "cta": 3.2, "clip_titel": 5.0}
-EIN = 0.4                   # Einblenden
-AUS = 0.25                  # Ausblenden
+# Wie lange eine Folie steht (Sekunden) - je nach Textmenge. Mit Beat
+# wird auf ganze Schläge gerundet (zeitplan()).
+DAUER = {"titel": 3.6, "liste": 6.5, "moment": 3.4, "moment_text": 5.0,
+         "cta": 2.6, "clip_titel": 5.0, "hook": 2.6, "event": 2.1, "satz": 2.4}
+DAUER_SCHNELL = 1.5          # Folie „event" mit schnell=True (Saison-Listen)
+DAUER_POINTE = 2.9           # Pointe beim Humor: einen Takt länger
+EIN = 0.18                  # Einblenden
+AUS = 0.12                  # Ausblenden
+PUNCH = 0.045               # Zoom des Hintergrunds bei jedem Schnitt
+PUNCH_S = 0.45
 
 # Fotos der Startseite als Rückfall-Hintergrund (bilder/QUELLEN.md).
 FOTOS = {
@@ -184,8 +196,9 @@ def zeichne_logo(d: ImageDraw.ImageDraw, x: int, y: int, groesse: int) -> None:
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=SIGNAL)
 
 
-def rahmen_ebene() -> Image.Image:
-    """Was auf jedem Bild gleich ist: Verlauf oben/unten, Marke."""
+def rahmen_ebene(logo_y: int = 128) -> Image.Image:
+    """Was auf jedem Bild gleich ist: Verlauf oben/unten, Marke. Bei
+    Stories sitzt die Marke tiefer (oben liegt die Kopfzeile der App)."""
     ebene = Image.new("RGBA", (B, H), (0, 0, 0, 0))
     verlauf = Image.new("L", (1, H))
     for y in range(H):
@@ -198,8 +211,8 @@ def rahmen_ebene() -> Image.Image:
     farbe.putalpha(alpha)
     ebene = Image.alpha_composite(ebene, farbe)
     d = ImageDraw.Draw(ebene)
-    zeichne_logo(d, RAND_X, 128, 62)
-    d.text((RAND_X + 82, 159), "AUSDAUERMASCHINE", font=kondensiert(46), fill=WEISS, anchor="lm")
+    zeichne_logo(d, RAND_X, logo_y, 62)
+    d.text((RAND_X + 82, logo_y + 31), "AUSDAUERMASCHINE", font=kondensiert(46), fill=WEISS, anchor="lm")
     return ebene
 
 
@@ -212,6 +225,26 @@ def pille(d: ImageDraw.ImageDraw, x: int, y: int, text: str, font, fill, text_fi
     d.rounded_rectangle([x, y, x + w, y + hoehe], radius=hoehe // 2, fill=fill)
     d.text((x + pad_x, y + hoehe / 2), text, font=font, fill=text_fill, anchor="lm")
     return w, hoehe
+
+
+def _grosser_text(d: ImageDraw.ImageDraw, text: str, y: int, start: int, farbe, max_zeilen: int,
+                  upper: bool = True) -> int:
+    """Großer Text in Barlow Condensed, so groß wie möglich bei höchstens
+    `max_zeilen` Zeilen; gibt das neue y zurück."""
+    text = ohne_emoji(text)
+    text = text.upper() if upper else text
+    if not text:
+        return y
+    g = start
+    zeilen = umbrechen(text, kondensiert(g), TEXT_BREITE, max_zeilen)
+    while g > 60 and (len(zeilen) >= max_zeilen and zeilen[-1].endswith("…") or
+                      any(breite(kondensiert(g), z) > TEXT_BREITE for z in zeilen)):
+        g -= 6
+        zeilen = umbrechen(text, kondensiert(g), TEXT_BREITE, max_zeilen)
+    for z in zeilen:
+        d.text((RAND_X, y), z, font=kondensiert(g), fill=farbe)
+        y += int(g * 0.98)
+    return y
 
 
 def folie_bild(folie: dict, sport: str | None) -> Image.Image:
@@ -252,6 +285,65 @@ def folie_bild(folie: dict, sport: str | None) -> Image.Image:
                 d.text((RAND_X + 30, y), teil, font=text_schrift(46), fill=KREIDE)
                 y += 60
             y += 8
+
+    elif typ == "hook":
+        y = 470
+        if folie.get("ueber"):
+            _, h = pille(d, RAND_X, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(42, False), SIGNAL)
+            y += h + 30
+        if folie.get("zahl"):
+            zahl = ohne_emoji(folie["zahl"]).upper()
+            g = passende_groesse(zahl, kondensiert, 300, TEXT_BREITE, 120)
+            d.text((RAND_X - 8, y), zahl, font=kondensiert(g), fill=SONNE)
+            y += int(g * 1.0)
+        y = _grosser_text(d, folie.get("titel", ""), y, 104, WEISS, 4)
+        y += 26
+        for z in folie.get("zeilen", [])[:3]:
+            z = ohne_emoji(z)
+            if z:
+                d.rectangle([RAND_X, y + 12, RAND_X + 8, y + 50], fill=akzent)
+                d.text((RAND_X + 30, y), z, font=text_schrift(46), fill=KREIDE)
+                y += 68
+
+    elif typ == "event":
+        y = 400
+        farbe = SPORTFARBE.get(folie.get("sport"), akzent)
+        if folie.get("ueber"):
+            _, h = pille(d, RAND_X, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(42, False), SIGNAL)
+            y += h + 26
+        art = " · ".join(t for t in (folie.get("sport"), folie.get("kategorie")) if t)
+        if art:
+            _, h = pille(d, RAND_X, y, art.upper(), kondensiert(38, False), farbe)
+            y += h + 24
+        datum = ohne_emoji(folie.get("datum", "")).upper().rstrip(".")
+        d.text((RAND_X - 4, y), datum, font=kondensiert(150), fill=SONNE)
+        y += 158
+        y = _grosser_text(d, folie.get("name", ""), y, 100, WEISS, 3, upper=False)
+        y += 18
+        if folie.get("ort"):
+            d.rectangle([RAND_X, y + 12, RAND_X + 8, y + 52], fill=farbe)
+            d.text((RAND_X + 30, y), ohne_emoji(folie["ort"]), font=text_schrift(50), fill=KREIDE)
+            y += 84
+        if folie.get("strecken"):
+            for teil in umbrechen(ohne_emoji(folie["strecken"]), kondensiert(58), TEXT_BREITE - 60, 2):
+                _, h = pille(d, RAND_X, y, teil, kondensiert(58), TIEFE, WEISS, pad_x=28)
+                y += h + 14
+        if folie.get("hinweis"):
+            d.text((RAND_X, max(y + 30, 1390)), ohne_emoji(folie["hinweis"]), font=text_schrift(42, True), fill=WEISS)
+
+    elif typ == "satz":
+        y = 560
+        if folie.get("ueber"):
+            _, h = pille(d, RAND_X, y, ohne_emoji(folie["ueber"]).upper(), kondensiert(42, False),
+                         SIGNAL if not folie.get("pointe") else TIEFE)
+            y += h + 34
+        y = _grosser_text(d, folie.get("titel", ""), y, 128, SONNE if folie.get("pointe") else WEISS, 5)
+        y += 30
+        for z in folie.get("zeilen", [])[:3]:
+            z = ohne_emoji(z)
+            if z:
+                d.text((RAND_X, y), z, font=text_schrift(48, True), fill=KREIDE)
+                y += 70
 
     elif typ == "liste":
         y = 300
@@ -329,12 +421,25 @@ def credit_ebene(text: str | None) -> Image.Image | None:
 
 # ---------------------------------------------------------------- Zeitplan
 
-def zeitplan(folien: list[dict], gesamt: float | None = None) -> list[tuple[float, float, dict]]:
-    """[(start, ende, folie)] - bei `gesamt` (Clip-Länge) gestreckt."""
-    dauern = [DAUER.get(f.get("typ"), 4.0) for f in folien]
+def folien_dauer(f: dict) -> float:
+    if f.get("typ") == "event" and f.get("schnell"):
+        return DAUER_SCHNELL
+    if f.get("pointe"):
+        return DAUER_POINTE
+    return DAUER.get(f.get("typ"), 4.0)
+
+
+def zeitplan(folien: list[dict], gesamt: float | None = None,
+             schlag: float | None = None) -> list[tuple[float, float, dict]]:
+    """[(start, ende, folie)] - bei `gesamt` (Clip-Länge) gestreckt, bei
+    `schlag` (Sekunden je Schlag des Beats) auf ganze Schläge gerundet,
+    damit jeder Schnitt auf einem Schlag liegt."""
+    dauern = [folien_dauer(f) for f in folien]
     if gesamt:
         faktor = gesamt / sum(dauern)
         dauern = [d * faktor for d in dauern]
+    elif schlag:
+        dauern = [max(2, round(d / schlag)) * schlag for d in dauern]
     plan, t = [], 0.0
     for f, d in zip(folien, dauern):
         plan.append((t, t + d, f))
@@ -344,13 +449,26 @@ def zeitplan(folien: list[dict], gesamt: float | None = None) -> list[tuple[floa
 
 def sichtbarkeit(t: float, start: float, ende: float, letzte: bool) -> tuple[float, int]:
     """(Deckung 0…1, Versatz in px) einer Folie zur Zeit t: einblenden
-    mit kleinem Hub von unten, ausblenden - die letzte bleibt stehen."""
+    mit kleinem Hub von unten, ausblenden - die letzte bleibt stehen. Die
+    ERSTE Folie (Start bei 0) steht sofort: Wer in der ersten Sekunde nur
+    Hintergrund sieht, wischt weiter."""
     if t < start or t >= ende:
         return 0.0, 0
-    ein = min(1.0, (t - start) / EIN)
+    ein = 1.0 if start <= 0 else min(1.0, (t - start) / EIN)
     aus = 1.0 if letzte else min(1.0, (ende - t) / AUS)
     glatt = 1 - (1 - ein) ** 3
     return max(0.0, min(ein, aus)), int(46 * (1 - glatt))
+
+
+def punch(bild: Image.Image, t: float, plan: list[tuple[float, float, dict]]) -> Image.Image:
+    """Kurzer Zoom des Hintergrunds nach jedem Schnitt (nicht beim ersten)."""
+    for start, _, _ in plan[1:]:
+        dt_ = t - start
+        if 0 <= dt_ < PUNCH_S:
+            z = 1 + PUNCH * (1 - dt_ / PUNCH_S) ** 2
+            w, h = int(B * z), int(H * z)
+            return bild.resize((w, h), Image.BILINEAR).crop(((w - B) // 2, (h - H) // 2, (w - B) // 2 + B, (h - H) // 2 + H))
+    return bild
 
 
 # ---------------------------------------------------------------- Hintergründe
@@ -606,6 +724,7 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
     ton: Path | None = None
     ton_start = 0.0
     nachweis = None
+    beat_bpm: int | None = None
 
     if beitrag["format"] == "clip":
         clip = beitrag["clip"]
@@ -629,7 +748,13 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
         nachweis = f"Video: {clip['urheber']} · {clip['lizenz']}"
         hintergrund = {"art": "clip", "id": clip["id"], "start": start}
     else:
-        plan = zeitplan(folien)
+        ton = musik_wahl(seed)
+        if ton is None:
+            import insta_musik
+            beat_bpm = insta_musik.bpm_fuer(seed)
+            plan = zeitplan(folien, schlag=insta_musik.schlag_s(beat_bpm))
+        else:
+            plan = zeitplan(folien)
         gesamt = plan[-1][1]
         pex = pexels_video(sport, seed)
         if pex:
@@ -641,7 +766,6 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
             frames = foto_frames(sport, gesamt, seed)
             nachweis = f"Foto: {credit}" if credit else None
             hintergrund = {"art": "foto", "datei": datei}
-        ton = musik_wahl(seed)
 
     rahmen = rahmen_ebene()
     credit = credit_ebene(nachweis)
@@ -659,13 +783,13 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
              "-maxrate", "12M", "-bufsize", "24M", "-g", str(FPS * 2), str(stumm)],
             stdin=subprocess.PIPE)
         cover = None
-        cover_zeit = min(plan[0][1] - 0.4, 2.0)
+        cover_zeit = max(0.0, min(plan[0][1] - 0.3, 1.2))
         try:
             for i, bg in enumerate(frames):
                 if i >= n_frames:
                     break
                 t = i / FPS
-                bild = Image.alpha_composite(bg.convert("RGBA"), rahmen)
+                bild = Image.alpha_composite(punch(bg, t, plan).convert("RGBA"), rahmen)
                 for k, (s, e, _) in enumerate(plan):
                     a, versatz = sichtbarkeit(t, s, e, k == len(plan) - 1)
                     if a <= 0:
@@ -692,6 +816,10 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
             raise RuntimeError("ffmpeg (Bild) fehlgeschlagen")
 
         reel = ausgabe / "reel.mp4"
+        if beat_bpm:
+            import insta_musik
+            ton = Path(tmp) / "beat.wav"
+            insta_musik.schreibe_wav(ton, gesamt + 0.3, seed, beat_bpm)
         if ton:
             audio = ["-ss", f"{ton_start:.2f}", "-i", str(ton)]
             af = f"afade=t=in:d=0.3,afade=t=out:st={max(0.0, gesamt - 1.2):.2f}:d=1.2"
@@ -702,8 +830,26 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
                 "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
                 "-t", f"{gesamt:.2f}", "-movflags", "+faststart", str(reel))
     (cover or Image.new("RGB", (B, H), NAVY)).save(ausgabe / "cover.jpg", quality=90)
+    if beat_bpm:
+        musik = f"eigener Beat {beat_bpm} BPM"
+    else:
+        musik = ton.name if ton and beitrag["format"] != "clip" else None
     return {"dauer_s": round(gesamt, 2), "thumb_offset_ms": int(cover_zeit * 1000),
-            "hintergrund": hintergrund, "nachweis": nachweis, "musik": ton.name if ton and beitrag["format"] != "clip" else None}
+            "hintergrund": hintergrund, "nachweis": nachweis, "musik": musik}
+
+
+def rendere_story(story: dict, ziel: Path, seed: int) -> Path:
+    """Eine Story als Bild (1080 × 1920 JPEG): Foto der Sportart, Verlauf,
+    Marke tiefer als im Reel (oben liegt die Kopfzeile der App), darauf
+    die eine Folie. Bilder statt Videos: Stories laufen nur 24 Stunden,
+    und ein Bild verarbeitet Instagram sofort."""
+    ziel.parent.mkdir(parents=True, exist_ok=True)
+    sport = story.get("sport")
+    bg = next(foto_frames(sport, 1.0, seed)).convert("RGBA")
+    bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen_ebene(logo_y=250)),
+                                 folie_bild(story["folie"], sport))
+    bild.convert("RGB").save(ziel, quality=90)
+    return ziel
 
 
 def vorschau(beitrag: dict, ausgabe: Path) -> list[Path]:
