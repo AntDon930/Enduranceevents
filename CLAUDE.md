@@ -5702,7 +5702,21 @@ Verweise auf alte Nummern stehen in Klammern.
    Projektprofil ist nur das Meta-Entwicklerkonto, KEINE Seite, nicht mit
    Instagram verknüpfen). Anmelden im privaten Browserfenster, sonst nimmt
    Meta das private Profil der Facebook-App. Risiko dem Nutzer gesagt:
-   Meta erlaubt ein persönliches Profil je Person. ~~Danach noch einmal `cd Enduranceevents
+   Meta erlaubt ein persönliches Profil je Person. **Nachmittags (16:55)
+   EINGERICHTET**: Meta-App „AusdauerMaschine Content" (Instagram-App-ID
+   2082109586511982, Berechtigungen basic + content_publish „Bereit zum
+   Testen", ausdauermaschine = Instagram-Tester, Konto-Id
+   17841433983155724, OAuth-URI `https://endurance-events.de/`), Cloud-Shell-
+   Skript Schritte 1–5 durch, Schlüssel über `--anmelden` im Tresor
+   (Fassung 1, „darf Beiträge veröffentlichen"). „Token generieren" ging
+   NICHT: Instagram nahm das Passwort im Anmeldefenster nie an, nach der
+   Anmeldung per Code landete man im Feed; ein angetippter
+   instagram.com-Link öffnete die Instagram-App („Da ist leider etwas
+   schiefgelaufen"). Probelauf ohne Posten: Run 38919848461, grün, Log
+   „Instagram-Schlüssel: 0 Tage alt" – Workload Identity und Tresor laufen.
+   Noch NICHT getestet: Video-Upload in den Speicher und das Posten selbst
+   (braucht einen echten Beitrag). Offen: Ja für `instagram.yml` auf
+   `main`, dann der erste Beitrag mit Freigabe. ~~Danach noch einmal `cd Enduranceevents
    && git pull && firebase deploy --only functions`~~ **erledigt**
    (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
    12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
