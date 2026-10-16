@@ -17,10 +17,15 @@ Ausgabe in marketing/instagram/ausgabe/<datum>/ (nicht im Repo):
 reel.mp4, cover.jpg, caption.txt, beitrag.json. Der Workflow
 `.github/workflows/instagram.yml` ruft genau das täglich auf.
 
-Veröffentlicht wird nur mit `--posten` UND gesetzten Zugangsdaten
-(IG_USER_ID, IG_ACCESS_TOKEN). Ein Fehler beim Veröffentlichen lässt
-den Lauf fehlschlagen (rot in Actions, Mail an den Nutzer) - das Video
-liegt trotzdem als Artefakt bereit und kann von Hand gepostet werden.
+Veröffentlicht wird nur mit `--posten` UND dem Google-Zugang des
+Workflows (GCP_ACCESS_TOKEN, insta_posten.py – der Instagram-Schlüssel
+liegt im Google-Tresor, nicht in GitHub). Mit dem Zugang pflegt JEDER
+Lauf den Schlüssel (erneuert ihn nach sieben Tagen), auch ohne
+`--posten`; ein Fehler dabei macht den Lauf rot (Mail an den Nutzer),
+damit der Schlüssel nicht still in die 60 Tage läuft.
+Ein Fehler beim Veröffentlichen lässt den Lauf fehlschlagen (rot in
+Actions, Mail an den Nutzer) - das Video liegt trotzdem als Artefakt
+bereit und kann von Hand gepostet werden.
 """
 from __future__ import annotations
 
@@ -98,6 +103,20 @@ def main() -> int:
                     f"Video {meta['dauer_s']} s, Hintergrund: {meta['hintergrund']}\n\n"
                     f"```\n{beitrag['caption']}\n```\n")
 
+    # Den Instagram-Schlüssel pflegen - in jedem Lauf mit Google-Zugang,
+    # damit er auch ohne Posten nie die 60 Tage erreicht.
+    import insta_posten as posten
+    z, pflege, pflege_fehler = posten.zugang(), None, None
+    if z:
+        try:
+            pflege = posten.pflege_schluessel(z)
+            print(f"  Instagram-Schlüssel: {pflege['alter_tage']} Tage alt"
+                  + (f", erneuert (gültig {pflege['gueltig_tage']} Tage)" if pflege["erneuert"] else ""))
+        except posten.PostenFehler as e:
+            pflege_fehler = str(e)
+            print(f"  Instagram-Schlüssel: {pflege_fehler}", file=sys.stderr)
+            zusammenfassung(f"**Instagram-Schlüssel:** {pflege_fehler}\n")
+
     darf, grund = True, ""
     if a.posten and a.freigabe:
         import insta_freigabe as freigabe
@@ -108,17 +127,23 @@ def main() -> int:
     if a.posten and not darf:
         beitrag["veroeffentlicht"] = None
     elif a.posten:
-        import insta_posten as posten
-        if not posten.zugang():
-            print("  --posten: IG_USER_ID / IG_ACCESS_TOKEN fehlen – nur gerendert.")
+        if not z:
+            print("  --posten: kein Google-Zugang (GCP_ACCESS_TOKEN, nur im Workflow nach der "
+                  "Einrichtung) – nur gerendert.")
+            beitrag["veroeffentlicht"] = None
+        elif not pflege:
+            print("  --posten: ohne gültigen Instagram-Schlüssel nicht möglich (siehe oben).", file=sys.stderr)
             beitrag["veroeffentlicht"] = None
         else:
-            erg = posten.poste_reel(ziel / "reel.mp4", beitrag["caption"], meta.get("thumb_offset_ms"))
+            erg = posten.poste_reel(ziel / "reel.mp4", beitrag["caption"], meta.get("thumb_offset_ms"),
+                                    z, pflege["token"], kennung=f"reel-{beitrag['datum']}")
             beitrag["veroeffentlicht"] = erg
             print(f"  veröffentlicht: {erg.get('permalink') or erg['media_id']}")
             zusammenfassung(f"Veröffentlicht: {erg.get('permalink') or erg['media_id']}\n")
     (ziel / "beitrag.json").write_text(json.dumps(beitrag, ensure_ascii=False, indent=1), encoding="utf-8")
-    return 0
+    # Ein kaputter Schlüssel ist rot (Mail an den Nutzer), auch wenn heute
+    # nicht gepostet werden sollte - sonst liefe er still in die 60 Tage.
+    return 1 if pflege_fehler else 0
 
 
 if __name__ == "__main__":

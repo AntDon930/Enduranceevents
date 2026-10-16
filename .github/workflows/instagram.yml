@@ -14,9 +14,21 @@ name: Instagram-Reel
 #     insta_freigaben/<Datum>, scripts/insta_freigabe.py) ODER die
 #     Repository-Variable INSTAGRAM_AUTOPOST = ja ist (Settings → Secrets
 #     and variables → Actions → Variables). „gesperrt" im Dashboard sperrt
-#     immer. Ohne Secrets IG_USER_ID / IG_ACCESS_TOKEN wird nur gerendert.
+#     immer. Ohne Google-Zugang (nächster Absatz) wird nur gerendert.
 #   - Von Hand („Run workflow"): Haken „posten" postet sofort, ohne
 #     Freigabeprüfung.
+#
+# ANMELDUNG ÜBER INSTAGRAM (seit 16.10.2026, vom Nutzer gewählt: keine
+# Facebook-Seite, das private Facebook-Konto bleibt getrennt). Der Schritt
+# „Google-Zugang" tauscht das GitHub-Kennzeichen des Laufs per Workload
+# Identity gegen einen Google-Zugang für eine Stunde – keine Schlüsseldatei,
+# kein Secret in GitHub. Damit legt scripts/insta_posten.py das Video kurz
+# in den Speicher gs://endurance-5177a-instagram (Instagram holt es dort
+# ab) und holt den Instagram-Schlüssel aus dem Google-Tresor; JEDER Lauf
+# erneuert ihn nach sieben Tagen, damit er nie die 60 Tage erreicht.
+# Eingerichtet wird das einmal mit scripts/instagram_google_einrichten.sh
+# in der Cloud Shell. Vorher schlägt der Schritt fehl (continue-on-error)
+# und es wird nur gerendert – der Lauf bleibt grün.
 #
 # Der Zeitplan wirkt nur aus der Fassung auf `main` (GitHub liest
 # schedule-Trigger nur vom Standard-Branch, wie bei update-events.yml);
@@ -51,6 +63,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write   # Workload Identity: Google-Zugang ohne Schlüsseldatei
 
 concurrency:
   group: instagram
@@ -84,12 +97,23 @@ jobs:
           key: insta-cache-${{ github.run_id }}
           restore-keys: insta-cache-
 
+      # Nur der Workflow instagram.yml dieses Repositorys bekommt den
+      # Zugang (Bedingung am Anbieter, scripts/instagram_google_einrichten.sh).
+      - name: Google-Zugang (Workload Identity, ohne Schlüsseldatei)
+        id: google
+        continue-on-error: true
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/939878897826/locations/global/workloadIdentityPools/github/providers/enduranceevents
+          service_account: instagram-reel@endurance-5177a.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 3600s
+          create_credentials_file: false
+
       - name: Reel bauen (und veröffentlichen)
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_API_HOST: ${{ vars.IG_API_HOST }}
+          GCP_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
           IG_API_VERSION: ${{ vars.IG_API_VERSION }}
           INSTAGRAM_AUTOPOST: ${{ vars.INSTAGRAM_AUTOPOST }}
           # Der Abendlauf postet mit Freigabeprüfung, der Handlauf mit

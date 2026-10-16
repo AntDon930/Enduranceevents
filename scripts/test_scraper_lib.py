@@ -4882,51 +4882,199 @@ def test_instagram() -> None:
     check("Folie wird gezeichnet (1080 × 1920, nicht leer)", [bild.size, bild.getbbox() is not None], [(1080, 1920), True])
 
     import insta_posten as P
+    import base64 as _b64
+    import re as _re
+    import os as _os
+    import requests as _rq
 
     class Antwort:
         def __init__(self, daten, status=200):
-            self.status_code, self._d, self.text = status, daten, _json.dumps(daten)
+            self.status_code, self._d = status, daten
+            self.text = _json.dumps(daten)
+            self.content = self.text.encode()
 
         def json(self):
             return self._d
 
+    SM = "https://secretmanager.googleapis.com/v1/"
+    V = "projects/939878897826/secrets/instagram-token/versions/"
+
     class Sitzung:
-        def __init__(self):
+        """Attrappe für Google (Tresor, Speicher) und Instagram - ohne Netz."""
+
+        def __init__(self, erstellt="2026-10-01T08:00:00.123456789Z", tresor_leer=False):
             self.aufrufe, self.status = [], ["IN_PROGRESS", "FINISHED"]
+            self.erstellt, self.tresor_leer, self.abgelegt, self.vernichtet = erstellt, tresor_leer, None, []
 
-        def get(self, url, **kw):
-            self.aufrufe.append(("GET", url.split("/v23.0/")[-1]))
-            if "content_publishing_limit" in url:
+        def _kurz(self, url):
+            for vorn in (SM + "projects/endurance-5177a/secrets/instagram-token", SM + V[:-1],
+                         "https://storage.googleapis.com", "https://graph.instagram.com/v25.0",
+                         "https://graph.instagram.com"):
+                if url.startswith(vorn):
+                    return url[len(vorn):] or "/"
+            return url
+
+        def get(self, url, headers=None, params=None, **kw):
+            k = self._kurz(url)
+            self.aufrufe.append(("GET", k))
+            if k == "/versions/latest":
+                return Antwort({"error": {"code": 404}}, 404) if self.tresor_leer else \
+                    Antwort({"name": V + "3", "createTime": self.erstellt, "state": "ENABLED"})
+            if url == SM + V + "3:access":
+                return Antwort({"payload": {"data": _b64.b64encode(b"ALT-SCHLUESSEL").decode()}})
+            if k == "/versions":
+                check("Tresor: nur aktive Fassungen auflisten", params, {"filter": "state:ENABLED"})
+                return Antwort({"versions": [{"name": V + "4"}, {"name": V + "3"}]})
+            if k == "/refresh_access_token":
+                check("Erneuern: grant_type ig_refresh_token mit dem alten Schlüssel", params,
+                      {"grant_type": "ig_refresh_token", "access_token": "ALT-SCHLUESSEL"})
+                return Antwort({"access_token": "NEU-SCHLUESSEL", "token_type": "bearer", "expires_in": 5184000})
+            if k == "/me":
+                check("Konto: Bearer-Schlüssel, Felder user_id,username",
+                      [headers["Authorization"], params["fields"]], ["Bearer NEU-SCHLUESSEL", "user_id,username"])
+                return Antwort({"id": "app-scoped", "user_id": "17841", "username": "ausdauermaschine"})
+            if "content_publishing_limit" in k:
                 return Antwort({"data": [{"quota_usage": 0}]})
-            if url.endswith("/m1"):
+            if k == "/m1":
                 return Antwort({"permalink": "https://www.instagram.com/reel/abc/"})
-            return Antwort({"status_code": self.status.pop(0)})
+            if k == "/c1":
+                return Antwort({"status_code": self.status.pop(0)})
+            return Antwort({"error": {"message": "unerwartet " + k}}, 400)
 
-        def post(self, url, headers=None, data=None, **kw):
-            self.aufrufe.append(("POST", url.split("/v23.0/")[-1] if "graph" in url else "rupload"))
-            if url.endswith("/media"):
-                check("Container: REELS, resumable, Caption", [data["media_type"], data["upload_type"], data["caption"]],
-                      ["REELS", "resumable", "Hallo"])
-                return Antwort({"id": "c1", "uri": "https://rupload.facebook.com/ig-api-upload/v23.0/c1"})
-            if "rupload" in url:
-                check("Upload: offset 0, file_size = Dateigröße", [headers["offset"], headers["file_size"]], ["0", "4"])
-                return Antwort({"success": True})
-            if url.endswith("/media_publish"):
+        def post(self, url, headers=None, params=None, json=None, data=None, **kw):
+            k = self._kurz(url)
+            self.aufrufe.append(("POST", k if not k.startswith("/upload/") else "/upload"))
+            if k == ":addVersion":
+                check("Tresor: neuer Schlüssel als neue Fassung",
+                      _b64.b64decode(json["payload"]["data"]), b"NEU-SCHLUESSEL")
+                return Antwort({"name": V + "4"})
+            if url.endswith(":destroy"):
+                self.vernichtet.append(url[len(SM):-len(":destroy")])
+                return Antwort({"state": "DESTROYED"})
+            if k.startswith("/upload/storage/v1/b/endurance-5177a-instagram/o"):
+                check("Speicher: einfacher Upload als video/mp4",
+                      [params["uploadType"], headers["Content-Type"], data], ["media", "video/mp4", b"1234"])
+                self.abgelegt = params["name"]
+                return Antwort({"name": params["name"]})
+            if k == "/17841/media":
+                check("Container: REELS mit öffentlicher video_url, Caption, Vorschaubild",
+                      [json["media_type"], json["video_url"], json["caption"], json["thumb_offset"], json["share_to_feed"]],
+                      ["REELS", "https://storage.googleapis.com/endurance-5177a-instagram/" + self.abgelegt, "Hallo",
+                       2000, True])
+                return Antwort({"id": "c1"})
+            if k == "/17841/media_publish":
+                check("Veröffentlichen mit creation_id", json, {"creation_id": "c1"})
                 return Antwort({"id": "m1"})
-            return Antwort({"error": {"message": "unerwartet"}}, 400)
+            return Antwort({"error": {"message": "unerwartet " + k}}, 400)
+
+        def delete(self, url, **kw):
+            self.aufrufe.append(("DELETE", "/storage/v1/b/…/o/" + url.rsplit("/", 1)[-1]))
+            return Antwort({}, 204)
+
+    z = {"gcp_token": "g", "projekt": "endurance-5177a", "bucket": "endurance-5177a-instagram",
+         "version": "v25.0", "uid": None}
+    jetzt = _dt.datetime(2026, 10, 16, 9, 0, tzinfo=_dt.timezone.utc)
+
+    s = Sitzung(erstellt="2026-10-12T08:00:00Z")
+    pf = P.pflege_schluessel(z, s, jetzt)
+    check("Schlüssel 4 Tage alt: nicht erneuern, nur lesen",
+          [pf["token"], pf["alter_tage"], pf["erneuert"], [a for a in s.aufrufe]],
+          ["ALT-SCHLUESSEL", 4, False, [("GET", "/versions/latest"), ("GET", "/3:access")]])
+
+    s = Sitzung()
+    pf = P.pflege_schluessel(z, s, jetzt)
+    check("Schlüssel 15 Tage alt: erneuern, neue Fassung, alte vernichten",
+          [pf["token"], pf["erneuert"], pf["gueltig_tage"], s.vernichtet, [a[1] for a in s.aufrufe]],
+          ["NEU-SCHLUESSEL", True, 60, [V + "3"],
+           ["/versions/latest", "/3:access", "/refresh_access_token", ":addVersion", "/versions",
+            "/3:destroy"]])
+
+    try:
+        P.pflege_schluessel(z, Sitzung(tresor_leer=True), jetzt)
+        check("leerer Tresor meldet sich", "kein Fehler", "Fehler")
+    except P.PostenFehler as e:
+        check("leerer Tresor nennt den Weg (Einrichtungsskript --schluessel)",
+              "instagram_google_einrichten.sh --schluessel" in str(e), True)
+
+    class Kaputt:
+        def get(self, url, **kw):
+            raise _rq.ConnectionError(f"Max retries exceeded with url: {url}?access_token=GEHEIM")
+    try:
+        P.erneuere("GEHEIM", Kaputt())
+        check("Netzfehler wird gemeldet", "kein Fehler", "Fehler")
+    except P.PostenFehler as e:
+        check("Netzfehler: nur der Typ, nie die Adresse mit dem Schlüssel", ["GEHEIM" in str(e), "ConnectionError" in str(e)],
+              [False, True])
+
+    alt_env = _os.environ.get("GITHUB_ACTIONS")
+    import io as _io
+    import contextlib as _cl
+    puffer = _io.StringIO()
+    _os.environ["GITHUB_ACTIONS"] = "true"
+    with _cl.redirect_stdout(puffer):
+        P.maskiere("GEHEIM")
+    _os.environ.pop("GITHUB_ACTIONS")
+    with _cl.redirect_stdout(puffer):
+        P.maskiere("LOKAL")
+    if alt_env is not None:
+        _os.environ["GITHUB_ACTIONS"] = alt_env
+    check("Schlüssel werden in Actions geschwärzt (::add-mask::), lokal nicht",
+          puffer.getvalue(), "::add-mask::GEHEIM\n")
 
     import tempfile as _tf
     with _tf.TemporaryDirectory() as tmp:
         vid = Path(tmp) / "r.mp4"
         vid.write_bytes(b"1234")
         s = Sitzung()
-        erg = P.poste_reel(vid, "Hallo", 2000, z={"uid": "17841", "token": "t", "host": "graph.facebook.com",
-                                                    "version": "v23.0"}, session=s, warten=lambda _s: None)
-        check("Posten: Ablauf Container → Upload → Status bis FINISHED → Veröffentlichen → Permalink",
+        with _cl.redirect_stdout(_io.StringIO()):
+            erg = P.poste_reel(vid, "Hallo", 2000, z, "NEU-SCHLUESSEL", session=s, warten=lambda _s: None,
+                               kennung="reel-2026-10-16")
+        check("Posten: Konto → Video ablegen → Container → Status bis FINISHED → Veröffentlichen → Video löschen → Permalink",
               [a for a in s.aufrufe if "limit" not in a[1]],
-              [("POST", "17841/media"), ("POST", "rupload"), ("GET", "c1"), ("GET", "c1"),
-               ("POST", "17841/media_publish"), ("GET", "m1")])
+              [("GET", "/me"), ("POST", "/upload"), ("POST", "/17841/media"), ("GET", "/c1"), ("GET", "/c1"),
+               ("POST", "/17841/media_publish"), ("DELETE", "/storage/v1/b/…/o/" + s.abgelegt), ("GET", "/m1")])
         check("Posten: Ergebnis mit Permalink", erg["permalink"], "https://www.instagram.com/reel/abc/")
+        check("Video-Name: Datum plus Zufall (16 Hex-Stellen)",
+              bool(_re.fullmatch(r"reel-2026-10-16-[0-9a-f]{16}\.mp4", s.abgelegt)), True)
+
+        s = Sitzung()
+        s.status = ["ERROR"]
+        try:
+            with _cl.redirect_stdout(_io.StringIO()):
+                P.poste_reel(vid, "Hallo", 2000, z, "NEU-SCHLUESSEL", session=s, warten=lambda _s: None)
+            check("Verarbeitungsfehler meldet sich", "kein Fehler", "Fehler")
+        except P.PostenFehler:
+            check("Verarbeitungsfehler: Video wird trotzdem gelöscht", s.aufrufe[-1][0], "DELETE")
+
+    alt_gcp = _os.environ.pop("GCP_ACCESS_TOKEN", None)
+    check("ohne Google-Zugang: kein Zugang (nur rendern)", P.zugang(), None)
+    if alt_gcp is not None:
+        _os.environ["GCP_ACCESS_TOKEN"] = alt_gcp
+
+    # Workflow, Einrichtungsskript und Skript nennen dieselben Namen.
+    wf = (wurzel / ".github" / "workflows" / "instagram.yml").read_text(encoding="utf-8")
+    sh = (wurzel / "scripts" / "instagram_google_einrichten.sh").read_text(encoding="utf-8")
+    check("instagram.yml: Google-Zugang per Workload Identity (id-token, auth@v3, ohne Schlüsseldatei, darf vorher fehlen)",
+          ["id-token: write" in wf, "google-github-actions/auth@v3" in wf, "create_credentials_file: false" in wf,
+           "continue-on-error: true" in wf, "GCP_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}" in wf],
+          [True, True, True, True, True])
+    check("instagram.yml: kein Instagram-Schlüssel mehr in GitHub", ["IG_ACCESS_TOKEN" in wf, "IG_USER_ID" in wf],
+          [False, False])
+    nummer = _re.search(r"projects/(\d+)/locations/global/workloadIdentityPools/github/providers/enduranceevents", wf)
+    fc = (wurzel / "firebase-config.js").read_text(encoding="utf-8")
+    check("Anbieter im Workflow: Projektnummer = messagingSenderId aus firebase-config.js",
+          bool(nummer) and f'messagingSenderId: "{nummer.group(1)}"' in fc, True)
+    check("Einrichtungsskript = Workflow = insta_posten (Projekt, Speicher, Tresor, Dienstkonto, Pool, Anbieter, Version)",
+          [f'PROJEKT="{P.VORGABE_PROJEKT}"' in sh, f'BUCKET="{P.VORGABE_BUCKET}"' in sh, f'SECRET="{P.SECRET}"' in sh,
+           f'IG_VERSION="{P.VORGABE_VERSION}"' in sh, 'POOL="github"' in sh, 'ANBIETER="enduranceevents"' in sh,
+           'DIENSTKONTO_NAME="instagram-reel"' in sh, "instagram-reel@endurance-5177a.iam.gserviceaccount.com" in wf],
+          [True] * 8)
+    check("Einrichtungsskript: Zugang nur für instagram.yml aus diesem Repository",
+          "assertion.workflow_ref.startsWith('${REPO}/.github/workflows/instagram.yml@')" in sh
+          and 'REPO="AntDon930/Enduranceevents"' in sh, True)
+    check("Einrichtungsskript: Speicher nicht auflistbar, Reste nach einem Tag weg, Schlüssel unsichtbar eingeben",
+          ["roles/storage.legacyObjectReader" in sh, "roles/storage.objectViewer" in sh, '"age": 1' in sh,
+           "read -r -s" in sh], [True, False, True, True])
 
     admin = (wurzel / "admin.html").read_text(encoding="utf-8")
     agg = (wurzel / "functions" / "stats_aggregate.js").read_text(encoding="utf-8")

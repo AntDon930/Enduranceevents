@@ -2512,7 +2512,9 @@ Zwei Läufe am Tag, beide legen das Reel als Artefakt ab (14 Tage):
 | 17:47 (Sommer) / 16:47 (Winter) | Posten | rendert und veröffentlicht, wenn der Tag **freigegeben** ist (nächster Abschnitt) oder die Variable `INSTAGRAM_AUTOPOST` = `ja` steht; „gesperrt" sperrt immer |
 
 Von Hand: Actions → „Instagram-Reel" → Run workflow (Datum, Format, Haken
-„posten" – der postet sofort, ohne Freigabeprüfung). Musik aus der
+„posten" – der postet sofort, ohne Freigabeprüfung). Beide Läufe holen sich
+vorher den Google-Zugang (Workload Identity, keine Schlüsseldatei) und
+pflegen damit den Instagram-Schlüssel – siehe „Einrichtung". Musik aus der
 Instagram-Bibliothek kann die API nicht anhängen; wer sie will, lädt das
 Artefakt von Hand in der App hoch.
 
@@ -2565,8 +2567,35 @@ fest.
 
 ### Einrichtung (einmalig, nur der Nutzer)
 
+**Anmeldung über Instagram, ohne Facebook-Seite** (vom Nutzer am 16.10.2026
+gewählt: „Ich würde meinen privaten Facebook Account und die Webseite gerne
+trennen. Da soll nichts zusammenhängen."). Keine Facebook-Seite, kein
+Business-Portfolio, keine gemeinsame Kontenübersicht: Das Instagram-Konto
+erlaubt nur unserer App das Posten, wie bei jedem Planungs-Tool. Ganz ohne
+Facebook geht es nicht – den Entwicklerbereich von Meta betritt man nur mit
+einem Facebook-Konto. Dort taucht das private Konto als Ersteller der App
+auf, sonst nirgends; die App sieht niemand, und sie hängt nicht am Profil.
+
+Zwei Dinge, die der Weg zusätzlich braucht, liegen im Google-Projekt hinter
+Firebase (`endurance-5177a`), erreicht ohne Schlüsseldatei über Workload
+Identity: der **Speicher** `gs://endurance-5177a-instagram`, aus dem
+Instagram das Video abholt (Meta lädt bei diesem Weg selbst, die Bytes
+direkt hochladen geht nur mit Facebook Login), und der **Tresor**
+`instagram-token` (Secret Manager) für den Instagram-Schlüssel. Der
+Schlüssel gilt 60 Tage; **jeder Lauf erneuert ihn, sobald er sieben Tage
+alt ist** (`insta_posten.pflege_schluessel`), legt die neue Fassung in den
+Tresor und vernichtet die alte. Damit läuft er nie ab, solange der Workflow
+läuft – GitHub hält Zeitpläne in öffentlichen Repositories nach 60 Tagen
+ohne Aktivität an, der wöchentliche Datenlauf committet aber jede Woche.
+Kosten: keine (Speicher in `us-central1` und höchstens eine Fassung im
+Tresor liegen im kostenlosen Kontingent von Google Cloud, das Video bleibt
+nur Minuten liegen).
+
 1. **Instagram-Account** `ausdauermaschine` anlegen → Einstellungen →
    Kontotyp → **professionelles Konto** (Creator oder Unternehmen).
+   **Den Dialog „Facebook-Seite verknüpfen" überspringen** – über ihn
+   hinge die Seite am privaten Facebook-Konto, und Instagram schlägt vor,
+   beide in dieselbe Kontenübersicht zu legen.
 2. **Profil**: Name „AusdauerMaschine", Kategorie Sport, Bio z. B.
    „Alle Läufe, Radrennen, Triathlons & Schwimm-Events in DE · AT · CH ·
    Südtirol 🏃🚴🏊 – jeden Tag neu". **Link**:
@@ -2576,52 +2605,67 @@ fest.
    (`https://endurance-events.de/impressum.html`): Auch ein Profil braucht
    eine leicht erreichbare Anbieterkennzeichnung. Story-Links mit
    `utm_medium=story` und `utm_campaign=<name>` – das Dashboard zeigt beides.
-3. **Facebook-Seite** anlegen (nur als technische Brücke, darf leer
-   bleiben) und in der Meta Business Suite mit dem Instagram-Konto
-   verknüpfen.
-4. **business.facebook.com** → Unternehmensportfolio anlegen, Seite und
-   Instagram-Konto hinzufügen.
-5. **developers.facebook.com** → App erstellen → Anwendungsfall
-   „Nachrichten und Inhalte auf Instagram verwalten" (*Manage messaging &
-   content on Instagram*) → Typ „Business" → das Business-Portfolio
-   wählen; im Anwendungsfall die Variante *API-Einrichtung mit Facebook
-   Login* (nur sie kennt den Resumable Upload, den `insta_posten.py`
-   nutzt); Datenschutz-URL `https://endurance-events.de/datenschutz.html`.
-6. Im Business-Portfolio → Benutzer → **Systemnutzer** (Admin) anlegen →
-   Assets zuweisen (Seite, Instagram-Konto, App, jeweils volle Kontrolle)
-   → **Token generieren**: App wählen, Ablauf „Nie", Berechtigungen
-   `instagram_basic`, `instagram_content_publish`, `pages_show_list`,
-   `pages_read_engagement`, `business_management`, dazu `ads_read` – laut
-   Meta-Doku „Content Publishing" nötig, wenn die Rolle auf der Seite über
-   das Business-Portfolio kommt (beim Systemnutzer immer so). Der
-   Schlüssel erscheint nur einmal. Stand der Recherche 15.10.2026: Die
-   heutige Doku erwähnt Systemnutzer nicht; ein Satz der alten Doku
-   (v4.0) schloss sie aus, Hilfeseiten von Drittanbietern nutzen sie für
-   Instagram. Klappt es nicht, geht ein Seiten-Token aus einem
-   60-Tage-Nutzer-Token, der ebenfalls nicht abläuft.
-7. Die **Instagram-Konto-Id** holen, ohne Kommandozeile im **Graph API
-   Explorer** (developers.facebook.com/tools/explorer): den Schlüssel ins
-   Feld „Access Token" einfügen, Abfrage
-   `me/accounts?fields=instagram_business_account{id,username}` →
-   „Submit" – die Zahl bei `instagram_business_account.id`. Leeres `data`
-   heißt: Seite nicht dem Systemnutzer zugewiesen; fehlt
-   `instagram_business_account`, ist Instagram nicht mit der Seite
-   verknüpft. Verlangt Meta beim ersten Posten eine
-   **Seiten-Veröffentlichungsfreigabe** (*Page Publishing Authorization*),
-   steht das im Log; sie wird in den Einstellungen der Facebook-Seite
-   erledigt.
-8. GitHub → Settings → Secrets and variables → Actions:
-   Secrets `IG_USER_ID`, `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY`.
-   Die Variable `INSTAGRAM_AUTOPOST` = `ja` erst, wenn ohne Freigabe
-   gepostet werden soll – bis dahin entscheidet die Karte
-   „Instagram-Freigabe" im Dashboard (siehe oben).
-9. Probelauf: Actions → „Instagram-Reel" → Run workflow erst OHNE Haken
-   (Artefakt ansehen), dann mit Haken „posten" oder über die Freigabe im
-   Dashboard. Schlägt er fehl, steht die Antwort von Meta im Log.
+3. **developers.facebook.com** → mit dem Facebook-Konto anmelden →
+   „Loslegen" bzw. als Entwickler registrieren (E-Mail bestätigen).
+4. **App erstellen** → Name z. B. „AusdauerMaschine Reels" →
+   Anwendungsfall **„Nachrichten und Inhalte auf Instagram verwalten"**
+   (*Manage messaging & content on Instagram*) → bei der Frage nach dem
+   Business-Portfolio **„Ich möchte noch kein Business-Portfolio
+   verknüpfen"** → erstellen. Die App bleibt im Entwicklungsmodus: Für das
+   eigene Konto reicht der Standardzugriff, eine App-Prüfung durch Meta ist
+   nicht nötig. Verlangt Meta eine Datenschutz-URL:
+   `https://endurance-events.de/datenschutz.html`.
+5. In der App: Anwendungsfall → **„API-Einrichtung mit
+   Instagram-Business-Login"** (*API setup with Instagram business login*)
+   → Berechtigungen `instagram_business_basic` und
+   `instagram_business_content_publish` → „Zugriffsschlüssel generieren":
+   **Konto hinzufügen**, mit `ausdauermaschine` bei Instagram anmelden und
+   erlauben → beim Konto **„Token generieren"** → kopieren (er erscheint
+   nur einmal und gilt 60 Tage, ab dann erneuert ihn der Workflow). Lässt
+   „Konto hinzufügen" das Konto nicht zu: App-Rollen → Rollen →
+   „Instagram-Tester" hinzufügen und die Einladung in Instagram annehmen
+   (Einstellungen → Website-Berechtigungen → Apps und Websites).
+   **Den Schlüssel nie in einen Chat oder eine Mail kopieren** – nur in
+   Schritt 6.
+6. **Google Cloud Shell** (shell.cloud.google.com, als Inhaber des
+   Firebase-Projekts): `cd ~/Enduranceevents && git pull && bash
+   scripts/instagram_google_einrichten.sh`. Das Skript schaltet die
+   Dienste ein, legt Dienstkonto, Speicher, Tresor und die Anmeldung für
+   GitHub an (nur `instagram.yml` aus diesem Repository bekommt Zugang)
+   und fragt am Ende nach dem Schlüssel – die Eingabe bleibt unsichtbar.
+   Es prüft ihn bei Instagram und meldet „@ausdauermaschine", bevor es ihn
+   ablegt. Mehrfach ausführen schadet nicht. Später einen neuen Schlüssel
+   hinterlegen: `bash scripts/instagram_google_einrichten.sh --schluessel`.
+7. **GitHub**: Für Instagram ist **kein Secret nötig** – optional
+   `PEXELS_API_KEY` für Videohintergründe (Settings → Secrets and
+   variables → Actions). Die Variable `INSTAGRAM_AUTOPOST` = `ja` erst,
+   wenn ohne Freigabe gepostet werden soll – bis dahin entscheidet die
+   Karte „Instagram-Freigabe" im Dashboard (siehe oben).
+8. **`instagram.yml` auf `main`** (Claude, mit Freigabe des Nutzers): Die
+   Fassung mit dem Schritt „Google-Zugang" muss dort stehen, sonst laufen
+   die Zeitpläne mit der alten.
+9. **Probelauf**: Actions → „Instagram-Reel" → Run workflow erst OHNE
+   Haken – im Log muss „Instagram-Schlüssel: 0 Tage alt" stehen. Dann mit
+   Haken „posten" oder über die Freigabe im Dashboard. Schlägt etwas fehl,
+   steht die Antwort von Google bzw. Meta im Log (Schlüssel sind dort
+   geschwärzt). Vor der Einrichtung schlägt nur der Schritt
+   „Google-Zugang" fehl, der Lauf bleibt grün und rendert.
 10. ~~Einmal `firebase deploy --only firestore:rules` (Cloud Shell), damit
    die Freigabe-Dokumente geschrieben und gelesen werden dürfen.~~
-   **Erledigt am 15.10.2026.** Danach noch einmal `firebase deploy --only
-   functions`, damit `aggregateStats` die Instagram-Besuche zählt.
+   **Erledigt am 15.10.2026.** ~~Danach noch einmal `firebase deploy --only
+   functions`, damit `aggregateStats` die Instagram-Besuche zählt.~~
+   **Erledigt am 16.10.2026.**
+
+**Was rot wird und was dann zu tun ist**: Kann ein Lauf den Schlüssel
+nicht lesen oder erneuern, ist er rot (Mail), auch wenn an dem Tag nicht
+gepostet werden sollte – sonst liefe der Schlüssel still in die 60 Tage.
+Ist er abgelaufen (der Workflow lief zwei Monate nicht): in der App einen
+neuen erzeugen (Schritt 5) und `--schluessel` (Schritt 6).
+
+**Der frühere Weg** über eine Facebook-Seite, ein Business-Portfolio und
+einen Systemnutzer (Resumable Upload über `rupload.facebook.com`, Secrets
+`IG_USER_ID`/`IG_ACCESS_TOKEN`) steht in der Git-Geschichte bis Commit
+`275d7dc5`; er ist nicht mehr gebaut.
 
 ### Im Dashboard
 
@@ -2633,8 +2677,9 @@ zählt als Instagram, wenn er `utm_source=instagram`/`ig` trägt, von
 `instagram.com` weitergeleitet wurde oder im Browser der Instagram-App lief
 (`stats.js` meldet ihn als Browser „Instagram"). Unter „Herkunft" stehen
 dazu alle **Kanäle** (Instagram, Suchmaschinen, andere soziale Netze,
-Kampagnen, Webseiten, direkt). **Wirkt erst nach** `firebase deploy --only
-functions` (die Auswertung steckt in `aggregateStats`); Tage davor zeigen 0.
+Kampagnen, Webseiten, direkt). **Wirkt seit dem** `firebase deploy --only
+functions` vom 16.10.2026 (die Auswertung steckt in `aggregateStats`, die nur
+heute und gestern neu rechnet); ältere Tage zeigen 0.
 Keine neue Datenkategorie – Referrer, utm und Browser nennt die
 Datenschutzerklärung schon.
 

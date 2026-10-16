@@ -76,7 +76,7 @@ nur einen sieht, sieht trotzdem alles.
 | `wartung.html` | **Wartungsmodus** (13./14.10.2026): Schalter ist das Firestore-Dokument `config/wartung`, umgelegt in `admin.html` (Karte „Wartungsmodus" mit Knopf und Texten DE/EN); Startseite, Liste und Karte fragen es im `<head>` per REST ab und leiten bei `aktiv` hierher, Impressum/Datenschutz/admin.html bleiben erreichbar; Wirkung sofort, kein Deploy. Bei ausgeschaltetem Schalter springt die Seite zur Startseite zurück – ansehen über `wartung.html?vorschau`. Regeln deployt und Probe bestanden am 14.10.2026 – siehe README „Deploy-Gate und Wartungsmodus" |
 | `vendor/` | Leaflet, markercluster und die Firebase-SDKs – **selbst gehostet**, kein CDN |
 | `scripts/bench_frontend.py` | misst das Tempo der Liste – heute und mit einem synthetischen Stand (`--faktor 5` = ~20.000 Events); fasst `events.json` nie an |
-| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API, alles in einem Aufruf – siehe „Instagram" |
+| `scripts/insta_inhalte.py`, `insta_video.py`, `insta_posten.py`, `insta_lauf.py` | **Instagram-Account „AusdauerMaschine"** (seit 14.10.2026): Wochenplan + Captions, Reel-Render (Pillow + ffmpeg), Upload über die Instagram-API (seit 16.10.2026 **Anmeldung über Instagram**: Video kurz im Google-Speicher, Schlüssel im Google-Tresor, beides ohne Schlüsseldatei über Workload Identity; einmal einrichten mit `scripts/instagram_google_einrichten.sh` in der Cloud Shell), alles in einem Aufruf – siehe „Instagram" |
 | `scripts/insta_freigabe.py`, `marketing/instagram/plan.json` | **Freigabe mit einem Klick** (14.10.2026): `plan.json` (im Pages-Workflow erzeugt, nie committet) nennt die Beiträge der nächsten 14 Tage mit Kennung des Inhalts; das Dashboard (`admin.html`, Karte „Instagram-Freigabe") schreibt `insta_freigaben/<Datum>` in Firestore; der Abendlauf fragt `insta_freigabe.darf_posten()` – siehe „Instagram" |
 | `marketing/instagram/` | `momente.json` (Fakten mit Quelle), `clips.json` (nur lizenzierte Clips), `fonts/` (Barlow als TTF, OFL); `ausgabe/` und `.cache/` nicht im Repo |
 | `.github/workflows/instagram.yml` | zwei Läufe am Tag: 06:47 UTC Vorschau (nur rendern, Artefakt), 15:47 UTC Posten mit `--posten --freigabe` (nur bei Freigabe im Dashboard oder Variable `INSTAGRAM_AUTOPOST=ja`, immer mit Secrets); Zeitplan wirkt nur aus `main` – dort seit dem 14.10.2026 abends auf diesem Stand (Commit `e3251fc1`) |
@@ -4637,16 +4637,49 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   `PEXELS_API_KEY`) sonst Fotos aus `bilder/` mit Namensnennung in der
   Caption. `highlight()` für Clips: RMS je Sekunde (8-kHz-PCM, ohne numpy)
   ×2 + scdet-Werte.
-- **Posten**: Resumable Upload (`rupload.facebook.com`) – laut Meta nur
-  mit Facebook Login for Business; Systemnutzer-Token läuft nicht ab.
-  Am 15.10.2026 nachgelesen (README, Einrichtung 5–7): Berechtigung
-  `ads_read` gehört dazu (Rolle auf der Seite kommt über das
-  Business-Portfolio), die heutige Doku erwähnt Systemnutzer nicht, die
-  alte (v4.0) schloss sie aus – Plan B ist ein nie ablaufender
-  Seiten-Token aus einem 60-Tage-Nutzer-Token. Kosten: keine.
-  `IG_API_HOST`/`IG_API_VERSION` als Repo-Variablen überschreibbar
-  (Vorgabe graph.facebook.com, v23.0). `test_instagram` prüft den Ablauf
-  mit einer Attrappe.
+- **Posten: Anmeldung über Instagram, KEINE Facebook-Seite** (vom Nutzer
+  am 16.10.2026 gewählt: „Ich würde meinen privaten Facebook Account und
+  die Webseite gerne trennen. Da soll nichts zusammenhängen." – „Wenn Weg
+  A auch irgendwann komplett automatisiert laufen kann, dann machen wir
+  das so"). Nicht auf den Facebook-Weg (Seite, Business-Portfolio,
+  Systemnutzer, Resumable Upload – bis Commit `275d7dc5`) zurückbauen,
+  ohne zu fragen. Was man wissen muss:
+  - Host `graph.instagram.com`, Version `v25.0` (Variable
+    `IG_API_VERSION`), Schlüssel als `Authorization: Bearer`, Konto-Id
+    aus `/me?fields=user_id,username` (`user_id`, nicht `id`).
+  - **Das Video braucht eine öffentliche Adresse** (`video_url`; den
+    Upload der Bytes gibt es laut Meta-Doku nur mit Facebook Login, am
+    16.10.2026 nachgelesen). Es geht nach
+    `gs://endurance-5177a-instagram/reel-<datum>-<16 Hex>.mp4` (Objekte
+    öffentlich lesbar über `legacyObjectReader`, NICHT auflistbar), wird
+    nach dem Veröffentlichen gelöscht (auch bei Fehler, `finally`), eine
+    Lebenszyklus-Regel räumt Reste nach einem Tag weg. Region
+    `us-central1` = kostenloses Kontingent.
+  - **Der Schlüssel liegt im Secret Manager** (`instagram-token`), nie in
+    GitHub; 60 Tage gültig, `pflege_schluessel()` erneuert ihn in JEDEM
+    Lauf mit Google-Zugang, sobald die jüngste Fassung 7 Tage alt ist
+    (`refresh_access_token`, die Antwort ist als NEUER Text behandelt),
+    legt die Fassung an und vernichtet die alten. Ein Fehler dabei macht
+    den Lauf ROT, auch ohne Posten – sonst liefe er still ab.
+  - **Google-Zugang ohne Schlüsseldatei**: `google-github-actions/auth@v3`
+    (Workload Identity, `id-token: write`, `token_format: access_token`,
+    `create_credentials_file: false`, `continue-on-error: true` – vor der
+    Einrichtung bleibt der Lauf grün und rendert nur). Anbieter
+    `projects/939878897826/…/workloadIdentityPools/github/providers/enduranceevents`
+    (die Nummer ist die `messagingSenderId` aus `firebase-config.js`),
+    Dienstkonto `instagram-reel@endurance-5177a.iam.gserviceaccount.com`;
+    die Bedingung am Anbieter lässt NUR `instagram.yml` aus
+    `AntDon930/Enduranceevents` herein. Eingerichtet von
+    `scripts/instagram_google_einrichten.sh` (Cloud Shell, idempotent,
+    `--schluessel` legt nur einen neuen Schlüssel ab, unsichtbare Eingabe,
+    prüft ihn vorher bei Instagram).
+  - **Kein Schlüssel ins Log** (öffentliches Repo = öffentliche Logs):
+    `maskiere()` schreibt `::add-mask::` für beide Schlüssel, `_anfrage()`
+    meldet Netzfehler nur mit dem Typ (der Text von requests enthält die
+    Adresse samt `access_token`).
+  - `test_instagram` prüft Lesen, Erneuern, Aufräumen, Posten, Löschen
+    und Schwärzen mit einer Attrappe sowie, dass Workflow,
+    Einrichtungsskript und `insta_posten.py` dieselben Namen tragen.
 - **Freigabe mit einem Klick (14.10.2026, vom Nutzer: „die ersten Videos
   alle gerne vorher mit einem Klick einfach freigeben")**: zwei Läufe am
   Tag (`instagram.yml`: 08:47 Vorschau = nur rendern, 17:47 Posten mit
@@ -5558,7 +5591,8 @@ clear jetzt.")** – was heute Abend passiert ist und was morgen gilt:
   gerne vorher mit einem Klick einfach freigeben" – gebaut als Karte
   „Instagram-Freigabe" im Dashboard (siehe „Instagram", Bullet
   „Freigabe mit einem Klick"). Offen und NUR beim Nutzer: Punkt 8
-  (Account, Meta-App, Token, Secrets). Das Ja zu `instagram.yml` auf
+  (Account, Meta-App, Token, Google-Einrichtung – seit 16.10.2026 ohne
+  Facebook-Seite). Das Ja zu `instagram.yml` auf
   `main` kam noch am selben Abend (Commit `e3251fc1`), die Regeln hat der
   Nutzer am 15.10.2026 um 12:25 deployt. Ohne Token postet nichts – die Läufe rendern nur. **Seine Frage, warum andere Accounts Clips von Kona oder
   der Tour posten dürfen und er nicht**: Sie dürfen es nicht, sie tun es
@@ -5628,10 +5662,19 @@ Verweise auf alte Nummern stehen in Klammern.
 8. **Instagram einrichten** (14.10.2026, nur der Nutzer): Account
    `ausdauermaschine` als professionelles Konto, Bio-Link
    `https://endurance-events.de/?utm_source=instagram&utm_medium=bio`
-   (+ Impressum als zweiter Link), Facebook-Seite + Business-Portfolio +
-   Meta-App + Systemnutzer-Token, dann Secrets `IG_USER_ID`,
-   `IG_ACCESS_TOKEN`, optional `PEXELS_API_KEY` – Schritt für Schritt im
-   README („Instagram", Einrichtung). ~~Danach noch einmal `cd Enduranceevents
+   (+ Impressum als zweiter Link), **seit dem 16.10.2026 ohne
+   Facebook-Seite** (Anmeldung über Instagram, siehe „Instagram" →
+   Posten): Dialog „Facebook-Seite verknüpfen" überspringen, Meta-Entwickler-
+   konto, App mit Anwendungsfall „Nachrichten und Inhalte auf Instagram
+   verwalten" ohne Business-Portfolio, „API-Einrichtung mit
+   Instagram-Business-Login" → Konto hinzufügen → Token generieren, dann
+   in der Cloud Shell `bash scripts/instagram_google_einrichten.sh` (legt
+   den Schlüssel in den Google-Tresor), danach **die neue `instagram.yml`
+   auf `main`** (Ja des Nutzers einholen, nur diese Datei); GitHub-Secrets
+   für Instagram braucht es keine mehr, optional `PEXELS_API_KEY` –
+   Schritt für Schritt im README („Instagram", Einrichtung). Stand
+   16.10.2026, 10:50: Der Nutzer stand am Dialog „Facebook-Seite
+   verknüpfen" und hat ihn nicht bestätigt. ~~Danach noch einmal `cd Enduranceevents
    && git pull && firebase deploy --only functions`~~ **erledigt**
    (16.10.2026, vormittags, „Deploy completed" – der Deploy vom 14.10.,
    12:41 war VOR der Instagram-Zählung in `aggregateStats`; das Dashboard
