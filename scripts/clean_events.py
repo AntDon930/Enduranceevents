@@ -1645,7 +1645,7 @@ def clear_backyard_lap_km(events: list[dict]) -> tuple[list[str], list[str]]:
 def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
     """Entfernt Zeilen unter der Mindestdistanz ihrer Sportart
     (MIN_DISTANCE_BY_ART1: Laufen 5 km, seit dem 24.09.2026 Schwimmen
-    500 m). Fahrrad und Triathlon haben keine: 3,5 km Freiwasserschwimmen
+    500 m, seit dem 17.10.2026 der Marsch 20 km). Fahrrad und Triathlon haben keine: 3,5 km Freiwasserschwimmen
     sind eine ernsthafte Distanz, und der 300-m-Schwimmteil eines
     Super-Sprints ist keine Schwimmveranstaltung. Ein Zeitrennen ist nie
     "zu kurz": beim 24-Stunden-Lauf auf einer 1-km-Runde ist die
@@ -1655,7 +1655,8 @@ def drop_too_short(events: list[dict]) -> tuple[list[dict], list[str]]:
         km = event.get("laenge_km")
         too_short = (
             isinstance(km, (int, float))
-            and ist_zu_kurz(event.get("art1"), km, event.get("dauer_h"))
+            and ist_zu_kurz(event.get("art1"), km, event.get("dauer_h"), event.get("art2"),
+                        event.get("charity"))
         )
         if too_short:
             dropped.append(f"{event.get('name')} ({km} km, {event.get('art1')})")
@@ -2319,7 +2320,7 @@ def main() -> None:
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
     section("Rundenlänge bei Zeitrennen entfernt", runden_entfernt)
     section("Unter der Mindestdistanz entfernt (Laufen "
-            f"{MIN_DISTANCE_KM:g} km, Schwimmen {MIN_DISTANCE_BY_ART1['Schwimmen']:g} km)",
+            f"{MIN_DISTANCE_KM:g} km, Marsch 20 km außer Charity, Schwimmen {MIN_DISTANCE_BY_ART1['Schwimmen']:g} km)",
             too_short)
     section("Vergangene Events entfernt", past)
     section("⚠ Verdächtige Distanz (nur Hinweis, nichts gelöscht)", suspicious)
