@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-ocr-challenge-hohenems-5-5km-hohenems@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:OCR Challenge Hohenems – UNIQA Team Challenge\, 5\,5 km \, ohne Sc
+ hlossberg
+LOCATION:Hohenems\, Österreich
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 5.5 km\nhttps://www.ocr-c
+ hallenge.at/
+TRANSP:TRANSPARENT
+URL:https://www.ocr-challenge.at/
+END:VEVENT
+END:VCALENDAR

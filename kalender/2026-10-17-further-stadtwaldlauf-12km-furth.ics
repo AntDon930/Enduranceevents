@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-further-stadtwaldlauf-12km-furth@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Fürther Stadtwaldlauf – ca. 12 km Trail-Lauf mit 350 Hm
+LOCATION:Fürth\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12 km\nhttps://tv-fuerth-1860
+ .de/leichtathletik/stadtwaldlauf/
+TRANSP:TRANSPARENT
+URL:https://tv-fuerth-1860.de/leichtathletik/stadtwaldlauf/
+END:VEVENT
+END:VCALENDAR

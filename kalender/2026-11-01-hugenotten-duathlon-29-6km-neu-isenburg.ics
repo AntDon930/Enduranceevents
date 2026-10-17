@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-hugenotten-duathlon-29-6km-neu-isenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Hugenotten-Duathlon – Duathlon 29\,6 km (5 km Laufen / 20 km Rad /
+  4\,6 km Laufen)
+LOCATION:Neu-Isenburg\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 29.6 km\nhttps://www.ra
+ dteam-neu-isenburg.de/index.php?id=153
+TRANSP:TRANSPARENT
+URL:https://www.radteam-neu-isenburg.de/index.php?id=153
+END:VEVENT
+END:VCALENDAR

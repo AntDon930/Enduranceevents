@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-trail-les-paccots-la-veveyse-28km-chatel-saint-denis@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270524
+SUMMARY:Trail Les Paccots - La Veveyse
+LOCATION:Châtel-Saint-Denis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 28 km\nhttps://www.trailpacco
+ tsveveyse.ch/
+TRANSP:TRANSPARENT
+URL:https://www.trailpaccotsveveyse.ch/
+END:VEVENT
+END:VCALENDAR

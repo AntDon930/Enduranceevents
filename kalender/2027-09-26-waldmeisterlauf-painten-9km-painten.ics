@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-waldmeisterlauf-painten-9km-painten@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Waldmeisterlauf Painten
+LOCATION:Painten\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://www.sgpainten.
+ de/laufsport/waldmeisterlauf/
+TRANSP:TRANSPARENT
+URL:https://www.sgpainten.de/laufsport/waldmeisterlauf/
+END:VEVENT
+END:VCALENDAR

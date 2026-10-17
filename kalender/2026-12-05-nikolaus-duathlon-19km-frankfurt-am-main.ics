@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-nikolaus-duathlon-19km-frankfurt-am-main@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Nikolaus Duathlon – Light 19 km (2 km Laufen / 15 km Rad / 2 km La
+ ufen)
+LOCATION:Frankfurt am Main\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Duathlon\nLänge: 19 km\nhttps://triathlo
+ n.eintracht.de/wettkaempfe/nikolaus-duathlon/
+TRANSP:TRANSPARENT
+URL:https://triathlon.eintracht.de/wettkaempfe/nikolaus-duathlon/
+END:VEVENT
+END:VCALENDAR

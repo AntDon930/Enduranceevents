@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-herbstwaldlauf-beckum-10km-beckum@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Herbstwaldlauf Beckum
+LOCATION:Beckum\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://ski-club-beck
+ um.de
+TRANSP:TRANSPARENT
+URL:https://ski-club-beckum.de
+END:VEVENT
+END:VCALENDAR

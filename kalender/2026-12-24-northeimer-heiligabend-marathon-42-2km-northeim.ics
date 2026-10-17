@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-24-northeimer-heiligabend-marathon-42-2km-northeim@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261224
+DTEND;VALUE=DATE:20261225
+SUMMARY:Northeimer Heiligabend Marathon – Marathon
+LOCATION:Northeim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://my.raceresu
+ lt.com/419707/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/419707/
+END:VEVENT
+END:VCALENDAR

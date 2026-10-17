@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-pfettrachtaler-lauf-21-1km-altdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Pfettrachtaler Lauf – 21\,1 km Halbmarathon
+LOCATION:Altdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://lauf.sc-pfe
+ ttrach.de/
+TRANSP:TRANSPARENT
+URL:https://lauf.sc-pfettrach.de/
+END:VEVENT
+END:VCALENDAR

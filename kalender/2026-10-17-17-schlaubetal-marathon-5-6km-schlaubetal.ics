@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-17-schlaubetal-marathon-5-6km-schlaubetal@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:17. Schlaubetal-Marathon
+LOCATION:Schlaubetal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.6 km\nhttps://schlaubetalm
+ arathon.blogspot.com/
+TRANSP:TRANSPARENT
+URL:https://schlaubetalmarathon.blogspot.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-nordhessische-crosslaufmeisterschaften-8km-hofgeismar-udenh
+ ausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Nordhessische Crosslaufmeisterschaften
+LOCATION:Hofgeismar-Udenhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8 km\nhttps://laufen.de/laufk
+ alender/details/26K07000001660001
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/26K07000001660001
+END:VEVENT
+END:VCALENDAR

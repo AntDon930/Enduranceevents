@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-12-swe-albtal-triathlon-51km-ettlingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:SWE Albtal Triathlon – Olympische Distanz 51 km
+LOCATION:Ettlingen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51 km\nhttps://www.swe-al
+ btal-triathlon.de
+TRANSP:TRANSPARENT
+URL:https://www.swe-albtal-triathlon.de
+END:VEVENT
+END:VCALENDAR

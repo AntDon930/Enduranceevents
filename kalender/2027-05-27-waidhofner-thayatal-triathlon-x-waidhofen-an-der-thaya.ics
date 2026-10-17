@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-waidhofner-thayatal-triathlon-x-waidhofen-an-der-thaya@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Waidhofner Thayatal Triathlon
+LOCATION:Waidhofen an der Thaya\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://mpfeif14.lima-
+ city.de/LTU_Waidhofen/Thayataltriathlon.html
+TRANSP:TRANSPARENT
+URL:https://mpfeif14.lima-city.de/LTU_Waidhofen/Thayataltriathlon.html
+END:VEVENT
+END:VCALENDAR

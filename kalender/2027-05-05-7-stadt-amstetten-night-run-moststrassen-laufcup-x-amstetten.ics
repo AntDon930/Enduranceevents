@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-7-stadt-amstetten-night-run-moststrassen-laufcup-x-amstette
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:7. Stadt Amstetten Night Run (Moststraßen Laufcup)
+LOCATION:Amstetten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttp://www.night-run.at
+TRANSP:TRANSPARENT
+URL:http://www.night-run.at
+END:VEVENT
+END:VCALENDAR

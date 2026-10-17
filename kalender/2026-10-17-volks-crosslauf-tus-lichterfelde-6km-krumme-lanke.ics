@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-volks-crosslauf-tus-lichterfelde-6km-krumme-lanke@antdon930
+ .github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Volks-Crosslauf TuS Lichterfelde
+LOCATION:Krumme Lanke\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://tusli.de/leicht
+ athletik
+TRANSP:TRANSPARENT
+URL:https://tusli.de/leichtathletik
+END:VEVENT
+END:VCALENDAR

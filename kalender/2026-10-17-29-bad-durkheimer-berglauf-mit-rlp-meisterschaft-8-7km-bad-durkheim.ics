@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-29-bad-durkheimer-berglauf-mit-rlp-meisterschaft-8-7km-bad-
+ durkheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:29. Bad Dürkheimer Berglauf mit RLP-Meisterschaft
+LOCATION:Bad Dürkheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 8.7 km\nhttps://www.laufclub.
+ de/bad-duerkheimer-berglauf/ausschreibung
+TRANSP:TRANSPARENT
+URL:https://www.laufclub.de/bad-duerkheimer-berglauf/ausschreibung
+END:VEVENT
+END:VCALENDAR

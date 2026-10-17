@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-56-uplengener-adventslauf-9-2km-grossoldendorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:56. Uplengener Adventslauf
+LOCATION:Großoldendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9.2 km\nhttp://www.lguplenge
+ n.de
+TRANSP:TRANSPARENT
+URL:http://www.lguplengen.de
+END:VEVENT
+END:VCALENDAR

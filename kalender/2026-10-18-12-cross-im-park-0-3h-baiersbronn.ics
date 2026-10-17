@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-12-cross-im-park-0-3h-baiersbronn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:12. Cross im Park – Cyclocross
+LOCATION:Baiersbronn\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.3 h\nhttp://www.cross
+ -im-park.com/
+TRANSP:TRANSPARENT
+URL:http://www.cross-im-park.com/
+END:VEVENT
+END:VCALENDAR

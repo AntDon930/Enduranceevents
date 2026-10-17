@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-10-37-sommerlauf-des-lsv-porz-10km-koln-porz-eil@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+SUMMARY:37. Sommerlauf des LSV Porz
+LOCATION:Köln-Porz-Eil\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://helmuturbach.d
+ e
+TRANSP:TRANSPARENT
+URL:http://helmuturbach.de
+END:VEVENT
+END:VCALENDAR

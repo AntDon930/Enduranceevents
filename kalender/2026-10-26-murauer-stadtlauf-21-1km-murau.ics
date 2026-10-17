@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-murauer-stadtlauf-21-1km-murau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Murauer Stadtlauf – Halbmarathon 21\,1 km (4 Runden)
+LOCATION:Murau\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.murauer
+ stadtlauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.murauerstadtlauf.at/
+END:VEVENT
+END:VCALENDAR

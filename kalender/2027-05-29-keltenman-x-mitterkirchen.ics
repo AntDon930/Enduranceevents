@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-keltenman-x-mitterkirchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Keltenman – Sprint
+LOCATION:Mitterkirchen\, Österreich
+DESCRIPTION:Sportart: Triathlon / Aquathlon\nLänge: -\nhttps://www.keltenm
+ an.at/
+TRANSP:TRANSPARENT
+URL:https://www.keltenman.at/
+END:VEVENT
+END:VCALENDAR

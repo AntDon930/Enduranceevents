@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-31-gantrisch-loppet-20-5km-riggisberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Gantrisch Loppet – 20\,52 km mit 523 Hm
+LOCATION:Riggisberg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 20.5 km\nhttps://gantrischlop
+ pet.ch/
+TRANSP:TRANSPARENT
+URL:https://gantrischloppet.ch/
+END:VEVENT
+END:VCALENDAR

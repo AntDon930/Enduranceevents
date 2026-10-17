@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-saerbecker-triathlon-51-8km-saerbeck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Saerbecker Triathlon – Kurzdistanz 51\,8 km (1\,4 km Schwimmen / 4
+ 0 km Rad / 10\,4 km Laufen)
+LOCATION:Saerbeck\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 51.8 km\nhttps://www.wass
+ er-freizeit.de/veranstaltungen/saerbecker-triathlon
+TRANSP:TRANSPARENT
+URL:https://www.wasser-freizeit.de/veranstaltungen/saerbecker-triathlon
+END:VEVENT
+END:VCALENDAR

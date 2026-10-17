@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-gornergrat-zermatt-marathon-45-8km-zermatt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270704
+SUMMARY:Gornergrat Zermatt Marathon – Ultra Marathon 45.8 km
+LOCATION:Zermatt\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 45.8 km\nhttp://www.zermattm
+ arathon.ch/index.php?id=163
+TRANSP:TRANSPARENT
+URL:http://www.zermattmarathon.ch/index.php?id=163
+END:VEVENT
+END:VCALENDAR

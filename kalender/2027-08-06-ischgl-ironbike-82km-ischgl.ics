@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-06-ischgl-ironbike-82km-ischgl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270806
+DTEND;VALUE=DATE:20270808
+SUMMARY:Ischgl Ironbike – Radmarathon 82 km
+LOCATION:Ischgl\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 82 km\nhttps://www.ischgl.c
+ om/en/events-experiences/ischgl-ironbike
+TRANSP:TRANSPARENT
+URL:https://www.ischgl.com/en/events-experiences/ischgl-ironbike
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-mountainbike-rennen-des-rmsv-nenzingen-x-orsingen-nenzingen
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Mountainbike-Rennen des RMSV Nenzingen – Cross-Country
+LOCATION:Orsingen-Nenzingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttp://www.rmsv-ne
+ nzingen.de
+TRANSP:TRANSPARENT
+URL:http://www.rmsv-nenzingen.de
+END:VEVENT
+END:VCALENDAR

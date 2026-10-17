@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-28-9-bottroper-ultralauf-festival-buf-100km-bottrop@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270828
+DTEND;VALUE=DATE:20270829
+SUMMARY:9. Bottroper Ultralauf Festival (BUF)
+LOCATION:Bottrop\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 100 km\nhttp://www.adler-lan
+ glauf.de
+TRANSP:TRANSPARENT
+URL:http://www.adler-langlauf.de
+END:VEVENT
+END:VCALENDAR

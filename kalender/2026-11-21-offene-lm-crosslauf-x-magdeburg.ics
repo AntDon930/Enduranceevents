@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-offene-lm-crosslauf-x-magdeburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Offene LM Crosslauf
+LOCATION:Magdeburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://lvsa.de/index.php?
+ article_id=2080
+TRANSP:TRANSPARENT
+URL:https://lvsa.de/index.php?article_id=2080
+END:VEVENT
+END:VCALENDAR

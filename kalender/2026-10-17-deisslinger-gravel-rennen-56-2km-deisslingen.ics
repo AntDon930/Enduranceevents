@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-deisslinger-gravel-rennen-56-2km-deisslingen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Deißlinger Gravel-Rennen – 56\,2 km (10 Runden à 5\,62 km)
+LOCATION:Deißlingen\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 56.2 km\nhttps://radlerlust
+ .eu/gravelrennen/
+TRANSP:TRANSPARENT
+URL:https://radlerlust.eu/gravelrennen/
+END:VEVENT
+END:VCALENDAR

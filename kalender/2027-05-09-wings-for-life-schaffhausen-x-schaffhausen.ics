@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-09-wings-for-life-schaffhausen-x-schaffhausen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270509
+DTEND;VALUE=DATE:20270510
+SUMMARY:Wings for Life - Schaffhausen
+LOCATION:Schaffhausen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://wingsforlife-scha
+ ffhausen.ch
+TRANSP:TRANSPARENT
+URL:https://wingsforlife-schaffhausen.ch
+END:VEVENT
+END:VCALENDAR

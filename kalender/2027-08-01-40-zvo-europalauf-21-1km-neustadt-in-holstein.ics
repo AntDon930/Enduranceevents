@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-40-zvo-europalauf-21-1km-neustadt-in-holstein@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:40. ZVO Europalauf
+LOCATION:Neustadt in Holstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.tsv-neus
+ tadt-europalauf.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-neustadt-europalauf.de
+END:VEVENT
+END:VCALENDAR

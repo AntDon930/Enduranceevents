@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-gluck-lauf-gebhardshagen-10-8km-salzgitter@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Glück Lauf Gebhardshagen – 10\,8 km Straßenlauf.
+LOCATION:Salzgitter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://www.xn--glc
+ klauf-75a.de/
+TRANSP:TRANSPARENT
+URL:https://www.xn--glcklauf-75a.de/
+END:VEVENT
+END:VCALENDAR

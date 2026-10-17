@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-bramfelder-winterlaufserie-18-6km-bramfelder-see@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Bramfelder Winterlaufserie – 4 Runden (18\,6 km)
+LOCATION:Bramfelder See\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 18.6 km\nhttps://www.winterl
+ aufserie-hamburg.de/infos/
+TRANSP:TRANSPARENT
+URL:https://www.winterlaufserie-hamburg.de/infos/
+END:VEVENT
+END:VCALENDAR

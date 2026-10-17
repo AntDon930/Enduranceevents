@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-riedenburger-zwei-burgen-lauf-12km-riedenburg@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Riedenburger Zwei-Burgen-Lauf
+LOCATION:Riedenburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 12 km\nhttps://zwei-burgen-l
+ auf.de/
+TRANSP:TRANSPARENT
+URL:https://zwei-burgen-lauf.de/
+END:VEVENT
+END:VCALENDAR

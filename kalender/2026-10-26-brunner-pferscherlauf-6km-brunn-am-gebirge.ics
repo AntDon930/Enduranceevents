@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-brunner-pferscherlauf-6km-brunn-am-gebirge@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:Brunner Pferscherlauf
+LOCATION:Brunn am Gebirge\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.brunnamgeb
+ irge.at/themen/freizeit-sport/pferscherlauf/
+TRANSP:TRANSPARENT
+URL:https://www.brunnamgebirge.at/themen/freizeit-sport/pferscherlauf/
+END:VEVENT
+END:VCALENDAR

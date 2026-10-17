@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-54-porzellinerlauf-13km-kahla@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:54. Porzellinerlauf – 13 km Hauptlauf\, ab 14 Jahre (Jg. 2012 und 
+ älter)
+LOCATION:Kahla\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 13 km\nhttps://www.sv1910-ka
+ hla.de/
+TRANSP:TRANSPARENT
+URL:https://www.sv1910-kahla.de/
+END:VEVENT
+END:VCALENDAR

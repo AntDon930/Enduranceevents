@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-44-oeventroper-volks-und-strassenlauf-10km-arnsberg-oeventr
+ op@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:44. Oeventroper Volks- und Straßenlauf
+LOCATION:Arnsberg-Oeventrop\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.oeventrop
+ er-laeuferabend.de/straßenauf/2026/
+TRANSP:TRANSPARENT
+URL:https://www.oeventroper-laeuferabend.de/straßenauf/2026/
+END:VEVENT
+END:VCALENDAR

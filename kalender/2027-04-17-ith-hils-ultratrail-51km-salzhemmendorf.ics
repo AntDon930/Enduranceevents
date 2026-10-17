@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-ith-hils-ultratrail-51km-salzhemmendorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Ith-Hils-Ultratrail
+LOCATION:Salzhemmendorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 51 km\nhttps://www.sportfreun
+ de-osterwald.de/ith-hils-ultratrail/
+TRANSP:TRANSPARENT
+URL:https://www.sportfreunde-osterwald.de/ith-hils-ultratrail/
+END:VEVENT
+END:VCALENDAR

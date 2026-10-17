@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-rad-am-ring-gravel-race-50km-nurburgring@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Rad am Ring - Gravel-Race – Gravel Race 50 km
+LOCATION:Nürburgring\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 50 km\nhttps://radamring.de
+ /disziplinen/gravel-race/
+TRANSP:TRANSPARENT
+URL:https://radamring.de/disziplinen/gravel-race/
+END:VEVENT
+END:VCALENDAR

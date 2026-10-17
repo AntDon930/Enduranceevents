@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-22-gletscher-trailrun-61-1km-obergurgl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270726
+SUMMARY:Gletscher Trailrun – 61\,1 km \, 3 600 hm+
+LOCATION:Obergurgl\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 61.1 km\nhttps://www.oetztal-
+ trailrunning.at/die-running-events/gletscher-trailrun/
+TRANSP:TRANSPARENT
+URL:https://www.oetztal-trailrunning.at/die-running-events/gletscher-trail
+ run/
+END:VEVENT
+END:VCALENDAR

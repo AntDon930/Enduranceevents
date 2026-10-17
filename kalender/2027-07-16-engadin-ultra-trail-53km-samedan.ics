@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-16-engadin-ultra-trail-53km-samedan@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270718
+SUMMARY:Engadin Ultra Trail
+LOCATION:Samedan\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 53 km\nhttps://www.engadinult
+ ratrail.ch/
+TRANSP:TRANSPARENT
+URL:https://www.engadinultratrail.ch/
+END:VEVENT
+END:VCALENDAR

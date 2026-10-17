@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-12-nospa-after-work-triathlon-niebull-23km-niebull@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:12. NOSPA After Work Triathlon Niebüll – Sprintdistanz 23 km
+LOCATION:Niebüll\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 23 km\nhttps://tsv-rotwei
+ ss-niebuell.de/
+TRANSP:TRANSPARENT
+URL:https://tsv-rotweiss-niebuell.de/
+END:VEVENT
+END:VCALENDAR

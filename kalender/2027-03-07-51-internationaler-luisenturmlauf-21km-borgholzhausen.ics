@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-51-internationaler-luisenturmlauf-21km-borgholzhausen@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:51. Internationaler Luisenturmlauf
+LOCATION:Borgholzhausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21 km\nhttp://www.lcsolbad.d
+ e
+TRANSP:TRANSPARENT
+URL:http://www.lcsolbad.de
+END:VEVENT
+END:VCALENDAR

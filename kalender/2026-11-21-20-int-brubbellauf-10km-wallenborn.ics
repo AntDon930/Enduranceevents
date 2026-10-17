@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-20-int-brubbellauf-10km-wallenborn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:20. Int. Brubbellauf
+LOCATION:Wallenborn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.svwallenbo
+ rn.de/brubbellauf
+TRANSP:TRANSPARENT
+URL:http://www.svwallenborn.de/brubbellauf
+END:VEVENT
+END:VCALENDAR

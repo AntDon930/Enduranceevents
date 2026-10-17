@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-kantonale-vs-crosstournee-naters-x-brig-glis@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Kantonale VS CrossTournee - Naters
+LOCATION:Brig-Glis\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vs-timing.ch/
+ de-CH/Home/Event/257?fromResult=False
+TRANSP:TRANSPARENT
+URL:https://www.vs-timing.ch/de-CH/Home/Event/257?fromResult=False
+END:VEVENT
+END:VCALENDAR

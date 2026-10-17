@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-falke-rothaarsteig-marathon-12-5km-schmallenberg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:FALKE Rothaarsteig-Marathon – 12\,500 km AOK‑Lauf\, ca. 320 Höhenm
+ eter
+LOCATION:Schmallenberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 12.5 km\nhttps://rothaarsteig
+ -marathon.de/
+TRANSP:TRANSPARENT
+URL:https://rothaarsteig-marathon.de/
+END:VEVENT
+END:VCALENDAR

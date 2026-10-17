@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-04-ironman-switzerland-thun-226km-thun@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270704
+DTEND;VALUE=DATE:20270705
+SUMMARY:Ironman Switzerland Thun
+LOCATION:Thun\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 226 km\nhttps://www.ironm
+ an.com/races/im-switzerland
+TRANSP:TRANSPARENT
+URL:https://www.ironman.com/races/im-switzerland
+END:VEVENT
+END:VCALENDAR

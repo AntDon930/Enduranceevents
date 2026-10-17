@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-cuxhavener-marathon-32km-cuxhaven@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Cuxhavener Marathon
+LOCATION:Cuxhaven\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 32 km\nhttps://www.cuxhaven-
+ marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.cuxhaven-marathon.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-2-vellberger-volkslauf-10km-vellberg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:2. Vellberger Volkslauf
+LOCATION:Vellberg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://stadtwerke-ha
+ ll.de/ueber-uns/wir-fuer-die-region/laufevents/vellberg
+TRANSP:TRANSPARENT
+URL:https://stadtwerke-hall.de/ueber-uns/wir-fuer-die-region/laufevents/ve
+ llberg
+END:VEVENT
+END:VCALENDAR

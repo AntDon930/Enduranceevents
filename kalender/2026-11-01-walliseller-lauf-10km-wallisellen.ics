@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-walliseller-lauf-10km-wallisellen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Walliseller Lauf
+LOCATION:Wallisellen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.wallisell
+ erlauf.ch/
+TRANSP:TRANSPARENT
+URL:https://www.wallisellerlauf.ch/
+END:VEVENT
+END:VCALENDAR

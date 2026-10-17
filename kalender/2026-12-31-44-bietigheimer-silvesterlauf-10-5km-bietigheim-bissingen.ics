@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-44-bietigheimer-silvesterlauf-10-5km-bietigheim-bissingen@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:44. Bietigheimer Silvesterlauf
+LOCATION:Bietigheim-Bissingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.5 km\nhttps://www.bietigh
+ eimer-silvesterlauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.bietigheimer-silvesterlauf.de/
+END:VEVENT
+END:VCALENDAR

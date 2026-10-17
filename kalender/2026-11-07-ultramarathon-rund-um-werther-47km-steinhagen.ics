@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-ultramarathon-rund-um-werther-47km-steinhagen@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Ultramarathon rund um Werther
+LOCATION:Steinhagen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 47 km\nhttps://ultra-uwe-unt
+ erwegs.de/veranstaltungen/uwes-laufangebote/
+TRANSP:TRANSPARENT
+URL:https://ultra-uwe-unterwegs.de/veranstaltungen/uwes-laufangebote/
+END:VEVENT
+END:VCALENDAR

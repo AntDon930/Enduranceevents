@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-muddy-angel-run-duisburg-5km-duisburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:Muddy Angel Run - Duisburg
+LOCATION:Duisburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 5 km\nhttps://www.muddyan
+ gelrun.com/events/duisburg-2027/
+TRANSP:TRANSPARENT
+URL:https://www.muddyangelrun.com/events/duisburg-2027/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-05-2-mittelpunkt-marathon-nortorf-41km-nortorf@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:2. Mittelpunkt Marathon Nortorf
+LOCATION:Nortorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 41 km\nhttp://www.mjenmt.de
+TRANSP:TRANSPARENT
+URL:http://www.mjenmt.de
+END:VEVENT
+END:VCALENDAR

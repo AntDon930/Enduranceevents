@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-stundenlaufserie-halle-saale-1h-halle-saale@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Stundenlaufserie - Halle (Saale)
+LOCATION:Halle (Saale)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 1 h\nhttps://www.stundenlauf
+ serie.de/
+TRANSP:TRANSPARENT
+URL:https://www.stundenlaufserie.de/
+END:VEVENT
+END:VCALENDAR

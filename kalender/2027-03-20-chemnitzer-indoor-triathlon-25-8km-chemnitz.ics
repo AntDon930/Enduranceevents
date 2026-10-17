@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-chemnitzer-indoor-triathlon-25-8km-chemnitz@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270322
+SUMMARY:Chemnitzer Indoor Triathlon – Non Stop Sprint Tri 25\,8 km (800 m 
+ Schwimmen / 20 km Rad / 5 km Laufen)
+LOCATION:Chemnitz\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Indoor\nLänge: 25.8 km\nhttp://www.indoo
+ rtriathlon-chemnitz.de
+TRANSP:TRANSPARENT
+URL:http://www.indoortriathlon-chemnitz.de
+END:VEVENT
+END:VCALENDAR

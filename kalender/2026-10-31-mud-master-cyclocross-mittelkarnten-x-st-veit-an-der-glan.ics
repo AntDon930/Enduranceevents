@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-mud-master-cyclocross-mittelkarnten-x-st-veit-an-der-glan@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:MUD MASTER CYCLOCROSS Mittelkärnten – Cyclocross
+LOCATION:St. Veit an der Glan\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttps://www.mountain
+ sport.at
+TRANSP:TRANSPARENT
+URL:https://www.mountainsport.at
+END:VEVENT
+END:VCALENDAR

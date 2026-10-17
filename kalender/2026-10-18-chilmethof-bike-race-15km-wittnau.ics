@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-chilmethof-bike-race-15km-wittnau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Chilmethof Bike Race – Hillclimb 15 km
+LOCATION:Wittnau\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Zeitfahren\nLänge: 15 km\nhttps://www.rmcw
+ ittnau.ch
+TRANSP:TRANSPARENT
+URL:https://www.rmcwittnau.ch
+END:VEVENT
+END:VCALENDAR

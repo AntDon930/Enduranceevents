@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-26-rats-run-hintersteinenberg-10-7km-alfdorf@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270926
+DTEND;VALUE=DATE:20270927
+SUMMARY:Rats-Run - Hintersteinenberg – ca. 10.700 m\, 25+ Hindernisse
+LOCATION:Alfdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10.7 km\nhttps://v2.rats-
+ runners.de/hintersteinenberg/
+TRANSP:TRANSPARENT
+URL:https://v2.rats-runners.de/hintersteinenberg/
+END:VEVENT
+END:VCALENDAR

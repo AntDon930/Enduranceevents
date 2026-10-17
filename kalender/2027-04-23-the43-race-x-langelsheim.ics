@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-23-the43-race-x-langelsheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270426
+SUMMARY:THE43 Race – Ultracycling
+LOCATION:Langelsheim\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://the43race.de
+TRANSP:TRANSPARENT
+URL:https://the43race.de
+END:VEVENT
+END:VCALENDAR

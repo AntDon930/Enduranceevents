@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-beast-of-bramsche-120km-bramsche@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Beast of Bramsche – Little Beast 120 km / 1.200 hm
+LOCATION:Bramsche\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 120 km\nhttps://beastofbram
+ sche.de/
+TRANSP:TRANSPARENT
+URL:https://beastofbramsche.de/
+END:VEVENT
+END:VCALENDAR

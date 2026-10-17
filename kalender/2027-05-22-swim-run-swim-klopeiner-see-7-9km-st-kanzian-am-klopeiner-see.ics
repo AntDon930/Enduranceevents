@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-swim-run-swim-klopeiner-see-7-9km-st-kanzian-am-klopeiner-s
+ ee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Swim Run Swim Klopeiner See
+LOCATION:St. Kanzian am Klopeiner See\, Österreich
+DESCRIPTION:Sportart: Triathlon / Swimrun\nLänge: 7.9 km\nhttps://www.alpe
+ nadriaswimcup.at
+TRANSP:TRANSPARENT
+URL:https://www.alpenadriaswimcup.at
+END:VEVENT
+END:VCALENDAR

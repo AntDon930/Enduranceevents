@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-13-24h-muhlhausen-24h-muhlhausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261115
+SUMMARY:24h Mühlhausen
+LOCATION:Mühlhausen\, Deutschland
+DESCRIPTION:Sportart: Schwimmen / Becken\nLänge: 24 h\nhttp://www.sgv-mhl.
+ de/termine/masterschwimmen.html
+TRANSP:TRANSPARENT
+URL:http://www.sgv-mhl.de/termine/masterschwimmen.html
+END:VEVENT
+END:VCALENDAR

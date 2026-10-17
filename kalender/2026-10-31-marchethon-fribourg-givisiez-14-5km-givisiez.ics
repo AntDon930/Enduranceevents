@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-marchethon-fribourg-givisiez-14-5km-givisiez@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:marCHethon Fribourg Givisiez
+LOCATION:Givisiez\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.5 km\nhttps://www.marchet
+ hon-fribourg.ch
+TRANSP:TRANSPARENT
+URL:https://www.marchethon-fribourg.ch
+END:VEVENT
+END:VCALENDAR

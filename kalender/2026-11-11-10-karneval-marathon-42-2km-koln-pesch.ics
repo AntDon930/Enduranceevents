@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-11-10-karneval-marathon-42-2km-koln-pesch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:10. Karneval-Marathon – Marathon
+LOCATION:Köln-Pesch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttp://www.karneval
+ -marathon.de
+TRANSP:TRANSPARENT
+URL:http://www.karneval-marathon.de
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-05-lousberglauf-5-6km-aachen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+SUMMARY:Lousberglauf – 5.555 m (Berglauf auf den Lousberg)
+LOCATION:Aachen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.6 km\nhttps://lousberglauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://lousberglauf.de/
+END:VEVENT
+END:VCALENDAR

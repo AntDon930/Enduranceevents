@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-25-silbersee-triathlon-28-5km-stuhr@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:Silbersee-Triathlon – Volksdistanz 28\,5 km (500 m Schwimmen / 23 
+ km Rad / 5 km Laufen)
+LOCATION:Stuhr\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 28.5 km\nhttps://silberse
+ e-triathlon.com/
+TRANSP:TRANSPARENT
+URL:https://silbersee-triathlon.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-19-verticale-espacite-x-la-chaux-de-fonds@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:Verticale Espacité
+LOCATION:La Chaux-de-Fonds\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sportchrono.ch/ev
+ ents.php?id=955
+TRANSP:TRANSPARENT
+URL:https://sportchrono.ch/events.php?id=955
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-29-eglisauer-triathlon-17-6km-eglisau@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270829
+DTEND;VALUE=DATE:20270830
+SUMMARY:Eglisauer Triathlon
+LOCATION:Eglisau\, Schweiz
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 17.6 km\nhttps://mumagesi
+ -triathlon.ch/eglisauer-triathlon/
+TRANSP:TRANSPARENT
+URL:https://mumagesi-triathlon.ch/eglisauer-triathlon/
+END:VEVENT
+END:VCALENDAR

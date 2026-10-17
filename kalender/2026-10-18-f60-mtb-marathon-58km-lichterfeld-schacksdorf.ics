@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-f60-mtb-marathon-58km-lichterfeld-schacksdorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:F60-MTB-Marathon – Cross-Country 58 km
+LOCATION:Lichterfeld-Schacksdorf\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 58 km\nhttps://fuchsb
+ aumtbrace.de/f60-mtb-marathon/
+TRANSP:TRANSPARENT
+URL:https://fuchsbaumtbrace.de/f60-mtb-marathon/
+END:VEVENT
+END:VCALENDAR

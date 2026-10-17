@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-11-spartan-sainte-croix-trifecta-weekend-21-1km-sainte-croix@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270613
+SUMMARY:Spartan Sainte-Croix Trifecta Weekend – Halbmarathon
+LOCATION:Sainte-Croix\, Schweiz
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 21.1 km\nhttps://www.spar
+ tan.com/en/race/detail/11179/overview
+TRANSP:TRANSPARENT
+URL:https://www.spartan.com/en/race/detail/11179/overview
+END:VEVENT
+END:VCALENDAR

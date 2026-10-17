@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-pfettrachtaler-lauf-23km-pfettrach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Pfettrachtaler Lauf – MTB-Marathon 23 km
+LOCATION:Pfettrach\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 23 km\nhttps://lauf.s
+ c-pfettrach.de/
+TRANSP:TRANSPARENT
+URL:https://lauf.sc-pfettrach.de/
+END:VEVENT
+END:VCALENDAR

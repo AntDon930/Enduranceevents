@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-15-teltowkanal-halbmarathon-7km-teltow@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:Teltowkanal Halbmarathon – 7 km KanalRun: eine flache Runde entlan
+ g des Teltowkanals.
+LOCATION:Teltow\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.sc-potsdam
+ .de/leichtathletik/teltowkanal-halbmarathon-2026/
+TRANSP:TRANSPARENT
+URL:https://www.sc-potsdam.de/leichtathletik/teltowkanal-halbmarathon-2026
+ /
+END:VEVENT
+END:VCALENDAR

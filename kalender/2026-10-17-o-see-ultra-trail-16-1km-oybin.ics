@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-o-see-ultra-trail-16-1km-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:O-SEE Ultra Trail – O-SEE 16K
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16.1 km\nhttps://www.o-see-sp
+ orts.de/veranstaltungen/o-see-ultra-trail
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail
+END:VEVENT
+END:VCALENDAR

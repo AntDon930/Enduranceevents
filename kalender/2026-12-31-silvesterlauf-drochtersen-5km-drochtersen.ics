@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-silvesterlauf-drochtersen-5km-drochtersen@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Silvesterlauf Drochtersen
+LOCATION:Drochtersen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.stgk.de/Ve
+ ranstaltung_Detail.asp?Code=71
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=71
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-03-strong-viking-frankfurt-42km-wachtersbach@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270703
+DTEND;VALUE=DATE:20270705
+SUMMARY:Strong Viking Frankfurt
+LOCATION:Wächtersbach\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://strongviking.
+ com/obstacle-run/frankfurt/
+TRANSP:TRANSPARENT
+URL:https://strongviking.com/obstacle-run/frankfurt/
+END:VEVENT
+END:VCALENDAR

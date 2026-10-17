@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-harzer-hexen-rennen-hhr-8km-harztor@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Harzer Hexen-Rennen (HHR)
+LOCATION:Harztor\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 8 km\nhttps://www.hex-erlebn
+ iswelt.de/
+TRANSP:TRANSPARENT
+URL:https://www.hex-erlebniswelt.de/
+END:VEVENT
+END:VCALENDAR

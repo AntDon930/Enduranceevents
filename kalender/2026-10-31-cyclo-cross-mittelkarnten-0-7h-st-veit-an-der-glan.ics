@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-cyclo-cross-mittelkarnten-0-7h-st-veit-an-der-glan@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:CYCLO CROSS Mittelkärnten – Cyclocross 40 min
+LOCATION:St. Veit an der Glan\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://www.moun
+ tainsport.at
+TRANSP:TRANSPARENT
+URL:https://www.mountainsport.at
+END:VEVENT
+END:VCALENDAR

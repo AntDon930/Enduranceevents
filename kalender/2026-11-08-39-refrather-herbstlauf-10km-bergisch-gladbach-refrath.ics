@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-39-refrather-herbstlauf-10km-bergisch-gladbach-refrath@antd
+ on930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:39. Refrather Herbstlauf – 10 km \, Wendepunktstrecke\, DLV vermes
+ sen
+LOCATION:Bergisch Gladbach-Refrath\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://refrather-her
+ bstlauf.de
+TRANSP:TRANSPARENT
+URL:https://refrather-herbstlauf.de
+END:VEVENT
+END:VCALENDAR

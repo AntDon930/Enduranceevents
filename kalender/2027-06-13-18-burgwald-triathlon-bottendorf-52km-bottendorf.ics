@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-13-18-burgwald-triathlon-bottendorf-52km-bottendorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270613
+DTEND;VALUE=DATE:20270614
+SUMMARY:18. Burgwald-Triathlon Bottendorf
+LOCATION:Bottendorf\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 52 km\nhttp://www.burgwal
+ d-triathlon.de/
+TRANSP:TRANSPARENT
+URL:http://www.burgwald-triathlon.de/
+END:VEVENT
+END:VCALENDAR

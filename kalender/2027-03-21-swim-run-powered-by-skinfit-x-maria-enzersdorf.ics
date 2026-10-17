@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-swim-run-powered-by-skinfit-x-maria-enzersdorf@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:SWIM/RUN powered by Skinfit – Aquathlon (Termin vorläufig)
+LOCATION:Maria Enzersdorf\, Österreich
+DESCRIPTION:Termin noch zu bestätigen (to be confirmed) – Datum geschätzt 
+ aus dem Vorjahr\, bitte beim Veranstalter prüfen.\nSportart: Triathlon / 
+ Aquathlon\nLänge: -\nhttps://www.time-now-sports.at/
+TRANSP:TRANSPARENT
+URL:https://www.time-now-sports.at/
+END:VEVENT
+END:VCALENDAR

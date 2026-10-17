@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-08-brevet-400-ara-leipzig-400km-bennewitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+SUMMARY:Brevet 400 - ARA Leipzig – Brevet 400 km
+LOCATION:Bennewitz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 400 km\nhttps://www.audax-s
+ achsen.de/brevet-termine/
+TRANSP:TRANSPARENT
+URL:https://www.audax-sachsen.de/brevet-termine/
+END:VEVENT
+END:VCALENDAR

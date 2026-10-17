@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-leimuller-silvesterlauf-5-4km-seekirchen-am-wallersee@antdo
+ n930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Leimüller Silvesterlauf – Silvesterlauf
+LOCATION:Seekirchen am Wallersee\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5.4 km\nhttps://www.leimuell
+ er-silvesterlauf.at/
+TRANSP:TRANSPARENT
+URL:https://www.leimueller-silvesterlauf.at/
+END:VEVENT
+END:VCALENDAR

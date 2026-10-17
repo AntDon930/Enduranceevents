@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-21-fun-erlebnis-marathons-50km-hamburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:Fun & Erlebnis Marathons
+LOCATION:Hamburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://my.raceresult
+ .com/422747/
+TRANSP:TRANSPARENT
+URL:https://my.raceresult.com/422747/
+END:VEVENT
+END:VCALENDAR

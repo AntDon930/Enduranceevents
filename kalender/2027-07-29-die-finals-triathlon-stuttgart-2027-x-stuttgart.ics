@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-29-die-finals-triathlon-stuttgart-2027-x-stuttgart@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270729
+DTEND;VALUE=DATE:20270730
+SUMMARY:Die Finals – Triathlon Stuttgart 2027
+LOCATION:Stuttgart\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttps://www.stuttgart.
+ de/en/service/aktuelle-meldungen/2026/juli/flaggenuebergabe-in-hannover-s
+ tuttgart-uebernimmt-offiziell-die-gastgeberrolle-fuer-die-finals-2027
+TRANSP:TRANSPARENT
+URL:https://www.stuttgart.de/en/service/aktuelle-meldungen/2026/juli/flagg
+ enuebergabe-in-hannover-stuttgart-uebernimmt-offiziell-die-gastgeberrolle
+ -fuer-die-finals-2027
+END:VEVENT
+END:VCALENDAR

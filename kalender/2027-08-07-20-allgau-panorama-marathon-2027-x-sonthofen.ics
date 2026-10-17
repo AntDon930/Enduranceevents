@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-20-allgau-panorama-marathon-2027-x-sonthofen@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:20. Allgäu Panorama Marathon 2027
+LOCATION:Sonthofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: -\nhttps://www.allgaeu-panora
+ ma-marathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.allgaeu-panorama-marathon.de/
+END:VEVENT
+END:VCALENDAR

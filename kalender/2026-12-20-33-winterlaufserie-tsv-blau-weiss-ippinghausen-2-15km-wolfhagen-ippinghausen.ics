@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-20-33-winterlaufserie-tsv-blau-weiss-ippinghausen-2-15km-wolfh
+ agen-ippinghausen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:33. Winterlaufserie TSV Blau-Weiß Ippinghausen\, 2.Lauf
+LOCATION:Wolfhagen-Ippinghausen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttp://www.wila-ippin
+ ghausen.de
+TRANSP:TRANSPARENT
+URL:http://www.wila-ippinghausen.de
+END:VEVENT
+END:VCALENDAR

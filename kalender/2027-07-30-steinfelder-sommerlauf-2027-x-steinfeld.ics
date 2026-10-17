@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-30-steinfelder-sommerlauf-2027-x-steinfeld@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:Steinfelder Sommerlauf 2027
+LOCATION:Steinfeld\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://svfalkesteinfeld.
+ de/
+TRANSP:TRANSPARENT
+URL:https://svfalkesteinfeld.de/
+END:VEVENT
+END:VCALENDAR

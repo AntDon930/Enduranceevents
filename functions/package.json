@@ -1,0 +1,13 @@
+{
+  "name": "endurance-events-functions",
+  "description": "Cloud Function: prüft neu gescrapte Events gegen gespeicherte \"Benachrichtige mich\"-Filterabos und legt bei einem Treffer eine E-Mail an (siehe README.md, Abschnitt \"Login/Anmeldung einrichten\").",
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.0.0",
+    "firebase-functions": "^6.0.0"
+  },
+  "private": true
+}

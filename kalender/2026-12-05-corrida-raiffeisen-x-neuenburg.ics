@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-05-corrida-raiffeisen-x-neuenburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:Corrida Raiffeisen
+LOCATION:Neuenburg\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.corrida-raiff
+ eisen.ch/
+TRANSP:TRANSPARENT
+URL:https://www.corrida-raiffeisen.ch/
+END:VEVENT
+END:VCALENDAR

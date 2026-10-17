@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-22-15-tus-hiltrup-halbmarathon-21-1km-munster@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:15. TuS Hiltrup Halbmarathon
+LOCATION:Münster\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.tus-hil
+ trup.de/halbmarathon
+TRANSP:TRANSPARENT
+URL:https://www.tus-hiltrup.de/halbmarathon
+END:VEVENT
+END:VCALENDAR

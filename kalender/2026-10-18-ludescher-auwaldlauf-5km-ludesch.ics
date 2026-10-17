@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-ludescher-auwaldlauf-5km-ludesch@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Ludescher Auwaldlauf – 5 km Lauf und Walking für Jugendliche und E
+ rwachsene
+LOCATION:Ludesch\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.wsvludesch
+ .at/auwaldlauf
+TRANSP:TRANSPARENT
+URL:https://www.wsvludesch.at/auwaldlauf
+END:VEVENT
+END:VCALENDAR

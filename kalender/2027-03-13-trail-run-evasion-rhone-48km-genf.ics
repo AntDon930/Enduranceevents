@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-trail-run-evasion-rhone-48km-genf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Trail Run Evasion Rhône – 48 km lange Strecke
+LOCATION:Genf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 48 km\nhttps://run-evasion-rh
+ one.ch/
+TRANSP:TRANSPARENT
+URL:https://run-evasion-rhone.ch/
+END:VEVENT
+END:VCALENDAR

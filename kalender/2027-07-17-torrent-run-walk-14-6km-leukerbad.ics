@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-17-torrent-run-walk-14-6km-leukerbad@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:Torrent Run & Walk – Run Long
+LOCATION:Leukerbad\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 14.6 km\nhttps://www.laufspor
+ tevents-winkler.ch/Torrent-Run-Walk.htm
+TRANSP:TRANSPARENT
+URL:https://www.laufsportevents-winkler.ch/Torrent-Run-Walk.htm
+END:VEVENT
+END:VCALENDAR

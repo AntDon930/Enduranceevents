@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-bremgartenlauf-11km-bremgarten-bei-bern@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Bremgartenlauf
+LOCATION:Bremgarten bei Bern\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 11 km\nhttp://bremgartenlauf
+ .ch
+TRANSP:TRANSPARENT
+URL:http://bremgartenlauf.ch
+END:VEVENT
+END:VCALENDAR

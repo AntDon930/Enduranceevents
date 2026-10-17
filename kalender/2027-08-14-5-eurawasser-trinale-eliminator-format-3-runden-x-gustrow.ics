@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-14-5-eurawasser-trinale-eliminator-format-3-runden-x-gustrow@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270814
+DTEND;VALUE=DATE:20270815
+SUMMARY:5. EURAWASSER Trinale Eliminator-Format 3 Runden – Super-Sprint
+LOCATION:Güstrow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: -\nhttp://www.trifun.de
+TRANSP:TRANSPARENT
+URL:http://www.trifun.de
+END:VEVENT
+END:VCALENDAR

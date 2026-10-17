@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-34-scharnhorstlauf-6km-lutzen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:34. Scharnhorstlauf – 6\,0 km Lauf
+LOCATION:Lützen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttps://www.lvsa.de/in
+ dex.php/index.php?article_id=1452
+TRANSP:TRANSPARENT
+URL:https://www.lvsa.de/index.php/index.php?article_id=1452
+END:VEVENT
+END:VCALENDAR

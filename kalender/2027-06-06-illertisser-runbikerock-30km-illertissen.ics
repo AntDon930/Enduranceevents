@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-illertisser-runbikerock-30km-illertissen@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Illertisser RunBikeRock
+LOCATION:Illertissen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://runbikerock.c
+ om/
+TRANSP:TRANSPARENT
+URL:https://runbikerock.com/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-stevens-cyclo-cross-cup-5-30km-norderstedt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Stevens Cyclo-Cross-Cup #5 – Cyclocross 30 km
+LOCATION:Norderstedt\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 30 km\nhttps://www.rvge
+ rmania.de/
+TRANSP:TRANSPARENT
+URL:https://www.rvgermania.de/
+END:VEVENT
+END:VCALENDAR

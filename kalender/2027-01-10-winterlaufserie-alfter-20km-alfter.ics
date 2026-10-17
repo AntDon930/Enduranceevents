@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-winterlaufserie-alfter-20km-alfter@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Winterlaufserie Alfter
+LOCATION:Alfter\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 20 km\nhttps://www.alfterer-
+ sc.de/?pageID=48
+TRANSP:TRANSPARENT
+URL:https://www.alfterer-sc.de/?pageID=48
+END:VEVENT
+END:VCALENDAR

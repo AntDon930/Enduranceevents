@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-trail-run-einsiedeln-56km-einsiedeln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Trail Run Einsiedeln – 56 km / 3300 hm
+LOCATION:Einsiedeln\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 56 km\nhttps://trail-maniacs.
+ ch/trail-run-einsiedeln/
+TRANSP:TRANSPARENT
+URL:https://trail-maniacs.ch/trail-run-einsiedeln/
+END:VEVENT
+END:VCALENDAR

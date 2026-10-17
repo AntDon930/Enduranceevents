@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-41-waidhofner-radmarathon-2027-x-waidhofen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:41. Waidhofner Radmarathon 2027 – Cycling 4 All
+LOCATION:Waidhofen\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: -\nhttps://www.askoewaidhof
+ en.at
+TRANSP:TRANSPARENT
+URL:https://www.askoewaidhofen.at
+END:VEVENT
+END:VCALENDAR

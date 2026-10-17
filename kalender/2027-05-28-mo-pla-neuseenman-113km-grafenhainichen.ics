@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-28-mo-pla-neuseenman-113km-grafenhainichen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270531
+SUMMARY:mo.pla neuseenMAN – Mitteldistanz 113 km (1\,9 km Schwimmen / 90 k
+ m Rad / 21\,1 km Laufen)
+LOCATION:Gräfenhainichen\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 113 km\nhttps://neuseenma
+ n.maximalpuls.com/
+TRANSP:TRANSPARENT
+URL:https://neuseenman.maximalpuls.com/
+END:VEVENT
+END:VCALENDAR

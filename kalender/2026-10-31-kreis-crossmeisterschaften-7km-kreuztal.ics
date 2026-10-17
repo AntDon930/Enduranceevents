@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-kreis-crossmeisterschaften-7km-kreuztal@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Kreis-Crossmeisterschaften
+LOCATION:Kreuztal\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://ladv.de/aussch
+ reibung/detail/47972/Kreis-Crossmeisterschaften-Kreuztal.htm
+TRANSP:TRANSPARENT
+URL:https://ladv.de/ausschreibung/detail/47972/Kreis-Crossmeisterschaften-
+ Kreuztal.htm
+END:VEVENT
+END:VCALENDAR

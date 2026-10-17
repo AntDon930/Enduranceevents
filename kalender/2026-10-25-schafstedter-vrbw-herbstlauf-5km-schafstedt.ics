@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-schafstedter-vrbw-herbstlauf-5km-schafstedt@antdon930.githu
+ b.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Schafstedter VRBW Herbstlauf
+LOCATION:Schafstedt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.stgk.de/Ve
+ ranstaltung_Detail.asp?Code=4
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=4
+END:VEVENT
+END:VCALENDAR

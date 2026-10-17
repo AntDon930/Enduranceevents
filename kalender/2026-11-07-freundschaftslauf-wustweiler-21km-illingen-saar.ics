@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-07-freundschaftslauf-wustweiler-21km-illingen-saar@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Freundschaftslauf Wustweiler – Wustweiler Biber-Trail (WuBiT)
+LOCATION:Illingen (Saar)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 21 km\nhttps://www.llgwustwei
+ ler.de/veranstaltungen/freundschaftslauf/
+TRANSP:TRANSPARENT
+URL:https://www.llgwustweiler.de/veranstaltungen/freundschaftslauf/
+END:VEVENT
+END:VCALENDAR

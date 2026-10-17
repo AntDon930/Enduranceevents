@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-12-rheinzaberner-cyclocross-0-8h-rheinzabern@antdon930.gith
+ ub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:12. Rheinzaberner Cyclocross – Elite 45 min (Cyclocross Cup Baden-
+ Württemberg)
+LOCATION:Rheinzabern\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.8 h\nhttps://www.rsv-
+ rheinzabern.de/?page_id=27
+TRANSP:TRANSPARENT
+URL:https://www.rsv-rheinzabern.de/?page_id=27
+END:VEVENT
+END:VCALENDAR

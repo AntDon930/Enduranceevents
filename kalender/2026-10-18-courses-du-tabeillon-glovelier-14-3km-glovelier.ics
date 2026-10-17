@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-courses-du-tabeillon-glovelier-14-3km-glovelier@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Courses du Tabeillon Glovelier
+LOCATION:Glovelier\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 14.3 km\nhttps://www.letabei
+ llon.ch
+TRANSP:TRANSPARENT
+URL:https://www.letabeillon.ch
+END:VEVENT
+END:VCALENDAR

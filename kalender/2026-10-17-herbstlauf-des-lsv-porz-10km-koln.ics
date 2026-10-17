@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-herbstlauf-des-lsv-porz-10km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Herbstlauf des LSV Porz
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.helmuturba
+ ch.de/herbstlauf.html
+TRANSP:TRANSPARENT
+URL:http://www.helmuturbach.de/herbstlauf.html
+END:VEVENT
+END:VCALENDAR

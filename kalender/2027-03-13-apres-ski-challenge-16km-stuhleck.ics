@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-13-apres-ski-challenge-16km-stuhleck@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Après Ski Challenge
+LOCATION:Stuhleck\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 16 km\nhttps://www.adventure
+ runs.at/apresski_winter_hindernislauf/
+TRANSP:TRANSPARENT
+URL:https://www.adventureruns.at/apresski_winter_hindernislauf/
+END:VEVENT
+END:VCALENDAR

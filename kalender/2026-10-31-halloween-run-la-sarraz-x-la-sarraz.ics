@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-halloween-run-la-sarraz-x-la-sarraz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Halloween Run - La Sarraz
+LOCATION:La Sarraz\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://eventfrog.ch/de/p
+ /sport-fitness/sonstige-veranstaltungen/halloween-run-la-sarraz-749990894
+ 1620476786.html
+TRANSP:TRANSPARENT
+URL:https://eventfrog.ch/de/p/sport-fitness/sonstige-veranstaltungen/hallo
+ ween-run-la-sarraz-7499908941620476786.html
+END:VEVENT
+END:VCALENDAR

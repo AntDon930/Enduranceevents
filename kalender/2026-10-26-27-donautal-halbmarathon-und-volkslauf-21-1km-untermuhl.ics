@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-27-donautal-halbmarathon-und-volkslauf-21-1km-untermuhl@ant
+ don930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:27. Donautal Halbmarathon und Volkslauf
+LOCATION:Untermühl\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttp://www.untermue
+ hl.com
+TRANSP:TRANSPARENT
+URL:http://www.untermuehl.com
+END:VEVENT
+END:VCALENDAR

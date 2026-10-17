@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-17-bad-liebenzeller-paracelsuslauf-10km-bad-liebenzell@antdon9
+ 30.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+SUMMARY:Bad Liebenzeller Paracelsuslauf – 10 km Paracelsuslauf (ab U18)
+LOCATION:Bad Liebenzell\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.calwer-la
+ eufe.de/Lbfp.html
+TRANSP:TRANSPARENT
+URL:https://www.calwer-laeufe.de/Lbfp.html
+END:VEVENT
+END:VCALENDAR

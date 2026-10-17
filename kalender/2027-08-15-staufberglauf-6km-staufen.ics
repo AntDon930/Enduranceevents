@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-15-staufberglauf-6km-staufen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+SUMMARY:Staufberglauf
+LOCATION:Staufen\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://staufberglauf.c
+ h/
+TRANSP:TRANSPARENT
+URL:https://staufberglauf.ch/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-trail-des-blisiers-16km-val-de-bagnes@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Trail des Blisiers – 16 km mit 1200 m Höhendifferenz.
+LOCATION:Val de Bagnes\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16 km\nhttps://tropheedesblis
+ iers.ch/traildesblisiers/
+TRANSP:TRANSPARENT
+URL:https://tropheedesblisiers.ch/traildesblisiers/
+END:VEVENT
+END:VCALENDAR

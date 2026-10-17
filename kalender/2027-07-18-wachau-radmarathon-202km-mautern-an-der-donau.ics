@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-18-wachau-radmarathon-202km-mautern-an-der-donau@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:Wachau Radmarathon – Krone Champions Radmarathon 202 km / 3.129 hm
+LOCATION:Mautern an der Donau\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 202 km\nhttps://www.wachau-
+ radmarathon.at/
+TRANSP:TRANSPARENT
+URL:https://www.wachau-radmarathon.at/
+END:VEVENT
+END:VCALENDAR

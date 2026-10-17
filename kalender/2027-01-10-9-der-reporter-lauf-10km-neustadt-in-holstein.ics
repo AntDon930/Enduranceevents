@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-9-der-reporter-lauf-10km-neustadt-in-holstein@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:9. der reporter Lauf
+LOCATION:Neustadt in Holstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tsv-neusta
+ dt-europalauf.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-neustadt-europalauf.de
+END:VEVENT
+END:VCALENDAR

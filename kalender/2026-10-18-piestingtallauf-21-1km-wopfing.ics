@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-piestingtallauf-21-1km-wopfing@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Piestingtallauf – Halbmarathon
+LOCATION:Wopfing\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://www.piestin
+ gtallauf.com/
+TRANSP:TRANSPARENT
+URL:https://www.piestingtallauf.com/
+END:VEVENT
+END:VCALENDAR

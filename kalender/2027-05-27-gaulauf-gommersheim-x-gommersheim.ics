@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-27-gaulauf-gommersheim-x-gommersheim@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+SUMMARY:Gäulauf Gommersheim
+LOCATION:Gommersheim\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.vg-edenkoben.
+ de/leben-und-arbeiten/gaeulauf/
+TRANSP:TRANSPARENT
+URL:https://www.vg-edenkoben.de/leben-und-arbeiten/gaeulauf/
+END:VEVENT
+END:VCALENDAR

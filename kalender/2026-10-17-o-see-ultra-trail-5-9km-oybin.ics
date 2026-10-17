@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-o-see-ultra-trail-5-9km-oybin@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:O-SEE Ultra Trail – Light 5\,9K
+LOCATION:Oybin\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.9 km\nhttps://www.o-see-spo
+ rts.de/veranstaltungen/o-see-ultra-trail
+TRANSP:TRANSPARENT
+URL:https://www.o-see-sports.de/veranstaltungen/o-see-ultra-trail
+END:VEVENT
+END:VCALENDAR

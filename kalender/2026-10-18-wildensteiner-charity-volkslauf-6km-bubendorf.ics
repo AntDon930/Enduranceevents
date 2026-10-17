@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-wildensteiner-charity-volkslauf-6km-bubendorf@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Wildensteiner Charity Volkslauf – 6 km Murenberg Dorflauf\, Schott
+ er und Teer
+LOCATION:Bubendorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße · Charity\nLänge: 6 km\nhttps://lc-w
+ ildenstein.ch/projekte/charity_volkslauf
+TRANSP:TRANSPARENT
+URL:https://lc-wildenstein.ch/projekte/charity_volkslauf
+END:VEVENT
+END:VCALENDAR

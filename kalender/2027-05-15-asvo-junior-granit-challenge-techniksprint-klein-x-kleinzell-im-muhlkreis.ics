@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-asvo-junior-granit-challenge-techniksprint-klein-x-kleinzel
+ l-im-muhlkreis@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:ASVÖ JUNIOR Granit Challenge + Techniksprint - Kleinzell – Cross-C
+ ountry\, Cycling 4 All
+LOCATION:Kleinzell im Mühlkreis\, Österreich
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: -\nhttps://www.sk-kle
+ inzell.at/
+TRANSP:TRANSPARENT
+URL:https://www.sk-kleinzell.at/
+END:VEVENT
+END:VCALENDAR

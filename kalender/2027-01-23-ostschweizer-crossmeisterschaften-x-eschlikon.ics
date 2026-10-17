@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-23-ostschweizer-crossmeisterschaften-x-eschlikon@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:Ostschweizer Crossmeisterschaften
+LOCATION:Eschlikon\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://www.ostschweiz-at
+ hletics.ch/crossmeisterschaften
+TRANSP:TRANSPARENT
+URL:https://www.ostschweiz-athletics.ch/crossmeisterschaften
+END:VEVENT
+END:VCALENDAR

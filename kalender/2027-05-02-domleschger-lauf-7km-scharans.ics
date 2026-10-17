@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-02-domleschger-lauf-7km-scharans@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Domleschger-Lauf
+LOCATION:Scharans\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7 km\nhttps://www.domleschge
+ r-lauf.org/
+TRANSP:TRANSPARENT
+URL:https://www.domleschger-lauf.org/
+END:VEVENT
+END:VCALENDAR

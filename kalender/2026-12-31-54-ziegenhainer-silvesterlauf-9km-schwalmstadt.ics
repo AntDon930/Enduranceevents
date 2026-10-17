@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-31-54-ziegenhainer-silvesterlauf-9km-schwalmstadt@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:54. Ziegenhainer Silvesterlauf – Lauf
+LOCATION:Schwalmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 9 km\nhttps://tuspo-ziegenha
+ in.de/
+TRANSP:TRANSPARENT
+URL:https://tuspo-ziegenhain.de/
+END:VEVENT
+END:VCALENDAR

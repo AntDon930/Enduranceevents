@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-wiler-herbstlauf-10-4km-wil@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Wiler-Herbstlauf – 10.4 km mit 180 m Steigung (Lauf)
+LOCATION:Wil\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://www.lscwil.
+ ch/wettkaempfe/herbstlauf
+TRANSP:TRANSPARENT
+URL:https://www.lscwil.ch/wettkaempfe/herbstlauf
+END:VEVENT
+END:VCALENDAR

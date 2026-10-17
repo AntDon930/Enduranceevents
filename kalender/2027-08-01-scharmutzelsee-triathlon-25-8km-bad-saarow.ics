@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-01-scharmutzelsee-triathlon-25-8km-bad-saarow@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270801
+DTEND;VALUE=DATE:20270802
+SUMMARY:Scharmützelsee Triathlon – Sprintdistanz 25\,8 km (750 m Schwimmen
+  / 20 km Rad / 5 km Laufen)
+LOCATION:Bad Saarow\, Deutschland
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 25.8 km\nhttps://scharmue
+ tzelsee-triathlon.de/
+TRANSP:TRANSPARENT
+URL:https://scharmuetzelsee-triathlon.de/
+END:VEVENT
+END:VCALENDAR

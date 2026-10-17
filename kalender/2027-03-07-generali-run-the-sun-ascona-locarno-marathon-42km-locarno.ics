@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-07-generali-run-the-sun-ascona-locarno-marathon-42km-locarno@a
+ ntdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Generali Run The Sun Ascona-Locarno Marathon – 42km marathon
+LOCATION:Locarno\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42 km\nhttps://www.generalir
+ unthesun.com/
+TRANSP:TRANSPARENT
+URL:https://www.generalirunthesun.com/
+END:VEVENT
+END:VCALENDAR

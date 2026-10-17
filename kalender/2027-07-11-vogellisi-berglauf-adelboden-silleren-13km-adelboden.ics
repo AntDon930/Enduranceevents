@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-11-vogellisi-berglauf-adelboden-silleren-13km-adelboden@antdon
+ 930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:Vogellisi Berglauf Adelboden-Silleren
+LOCATION:Adelboden\, Schweiz
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 13 km\nhttps://vogellisi-berg
+ lauf.ch/
+TRANSP:TRANSPARENT
+URL:https://vogellisi-berglauf.ch/
+END:VEVENT
+END:VCALENDAR

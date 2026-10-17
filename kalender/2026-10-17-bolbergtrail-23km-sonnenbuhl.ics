@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-bolbergtrail-23km-sonnenbuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Bolbergtrail
+LOCATION:Sonnenbühl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 23 km\nhttps://www.bolbergtra
+ il.de
+TRANSP:TRANSPARENT
+URL:https://www.bolbergtrail.de
+END:VEVENT
+END:VCALENDAR

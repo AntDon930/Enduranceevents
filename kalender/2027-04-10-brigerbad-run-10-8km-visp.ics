@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-brigerbad-run-10-8km-visp@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Brigerbad Run – Run 10\,8 km
+LOCATION:Visp\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.8 km\nhttps://thermalbad-
+ wallis.ch/en/brigerbad-run
+TRANSP:TRANSPARENT
+URL:https://thermalbad-wallis.ch/en/brigerbad-run
+END:VEVENT
+END:VCALENDAR

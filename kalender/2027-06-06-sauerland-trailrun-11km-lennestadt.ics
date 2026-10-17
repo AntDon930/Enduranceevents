@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-06-sauerland-trailrun-11km-lennestadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Sauerland Trailrun
+LOCATION:Lennestadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 11 km\nhttp://sauerland-trail
+ run.de/
+TRANSP:TRANSPARENT
+URL:http://sauerland-trailrun.de/
+END:VEVENT
+END:VCALENDAR

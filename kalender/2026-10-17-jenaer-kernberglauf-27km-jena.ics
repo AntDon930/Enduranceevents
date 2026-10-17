@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-jenaer-kernberglauf-27km-jena@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Jenaer Kernberglauf
+LOCATION:Jena\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 27 km\nhttps://www.kernbergla
+ uf.de/
+TRANSP:TRANSPARENT
+URL:https://www.kernberglauf.de/
+END:VEVENT
+END:VCALENDAR

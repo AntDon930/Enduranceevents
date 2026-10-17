@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-10-mammutmarsch-wien-50km-wien@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+SUMMARY:Mammutmarsch Wien
+LOCATION:Wien\, Österreich
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://mammutmarsch.
+ de/events/mammutmarsch-wien
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-wien
+END:VEVENT
+END:VCALENDAR

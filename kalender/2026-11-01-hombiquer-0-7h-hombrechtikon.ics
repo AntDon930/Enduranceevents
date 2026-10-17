@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-hombiquer-0-7h-hombrechtikon@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Hombiquer – Cyclocross 0.7 h
+LOCATION:Hombrechtikon\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://www.vmch
+ ombrechtikon.ch
+TRANSP:TRANSPARENT
+URL:https://www.vmchombrechtikon.ch
+END:VEVENT
+END:VCALENDAR

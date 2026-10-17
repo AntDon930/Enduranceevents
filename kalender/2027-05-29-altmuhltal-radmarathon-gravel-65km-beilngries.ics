@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-29-altmuhltal-radmarathon-gravel-65km-beilngries@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:Altmühltal Radmarathon [ Gravel ] – Gravel Tour 65 km
+LOCATION:Beilngries\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 65 km\nhttps://www.altmuehl
+ taler-radmarathon.de/
+TRANSP:TRANSPARENT
+URL:https://www.altmuehltaler-radmarathon.de/
+END:VEVENT
+END:VCALENDAR

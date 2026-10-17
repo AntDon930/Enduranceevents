@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-10-meilen-wulfsdorf-16-1km-ahrensburg@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:10 Meilen Wulfsdorf – 10 Meilen 16\,09 km Cross und Waldlauf
+LOCATION:Ahrensburg\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 16.1 km\nhttps://www.wearecyc
+ locross.com/hela-cross-lauf-serie-26-27/
+TRANSP:TRANSPARENT
+URL:https://www.wearecyclocross.com/hela-cross-lauf-serie-26-27/
+END:VEVENT
+END:VCALENDAR

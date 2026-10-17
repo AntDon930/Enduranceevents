@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-10-17-the-quest-auwald-x-elchingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271017
+DTEND;VALUE=DATE:20271018
+SUMMARY:The Quest – Auwald – Checkpoint-Jagd\, Strecke frei
+LOCATION:Elchingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://laufsinn-ulm.de/t
+ he-quest/
+TRANSP:TRANSPARENT
+URL:https://laufsinn-ulm.de/the-quest/
+END:VEVENT
+END:VCALENDAR

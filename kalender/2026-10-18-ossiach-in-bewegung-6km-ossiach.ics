@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-ossiach-in-bewegung-6km-ossiach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Ossiach in Bewegung
+LOCATION:Ossiach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 6 km\nhttp://www.carinthian-
+ runners.at/cr-ossiach%20in%20bewegung.htm
+TRANSP:TRANSPARENT
+URL:http://www.carinthian-runners.at/cr-ossiach%20in%20bewegung.htm
+END:VEVENT
+END:VCALENDAR

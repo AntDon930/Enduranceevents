@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-herbstlauf-burgdorf-5km-burgdorf@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Herbstlauf Burgdorf – 5 km Volkslauf
+LOCATION:Burgdorf\, Schweiz
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://home.laufteam-
+ emmental.ch/index.php/herbstlauf-burgdorf
+TRANSP:TRANSPARENT
+URL:https://home.laufteam-emmental.ch/index.php/herbstlauf-burgdorf
+END:VEVENT
+END:VCALENDAR

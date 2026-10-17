@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-resi-run-15km-baldeneysee@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Resi-Run
+LOCATION:Baldeneysee\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://resirun-ev.de
+ /mitlaufen/
+TRANSP:TRANSPARENT
+URL:https://resirun-ev.de/mitlaufen/
+END:VEVENT
+END:VCALENDAR

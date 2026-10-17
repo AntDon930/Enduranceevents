@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-10-hugenotten-ctf-46km-dreieichenhain@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:Hugenotten CTF – CTF 46 km
+LOCATION:Dreieichenhain\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Mountainbike\nLänge: 46 km\nhttps://www.ra
+ dteam-neu-isenburg.de/
+TRANSP:TRANSPARENT
+URL:https://www.radteam-neu-isenburg.de/
+END:VEVENT
+END:VCALENDAR

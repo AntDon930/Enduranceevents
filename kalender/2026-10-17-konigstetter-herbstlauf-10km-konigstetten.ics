@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-konigstetter-herbstlauf-10km-konigstetten@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Königstetter Herbstlauf – 10 km offiziell vermessene Distanz
+LOCATION:Königstetten\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.alpenvere
+ in.at/koenigstetten/Herbstlauf_Koenigstetten/01_Allgemeine_Informationen/
+ Startseite.php
+TRANSP:TRANSPARENT
+URL:https://www.alpenverein.at/koenigstetten/Herbstlauf_Koenigstetten/01_A
+ llgemeine_Informationen/Startseite.php
+END:VEVENT
+END:VCALENDAR

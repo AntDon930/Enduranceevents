@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-braunauer-sprinttriathlon-30km-braunau-am-inn@antdon930.git
+ hub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Braunauer Sprinttriathlon – Sprintdistanz 30 km
+LOCATION:Braunau am Inn\, Österreich
+DESCRIPTION:Sportart: Triathlon / Straße\nLänge: 30 km\nhttp://www.tribrau
+ nau.at
+TRANSP:TRANSPARENT
+URL:http://www.tribraunau.at
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-01-09-eifellauf-wissmannsdorf-10km-wissmannsdorf@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:Eifellauf Wißmannsdorf
+LOCATION:Wißmannsdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.Eifellauf.
+ de
+TRANSP:TRANSPARENT
+URL:http://www.Eifellauf.de
+END:VEVENT
+END:VCALENDAR

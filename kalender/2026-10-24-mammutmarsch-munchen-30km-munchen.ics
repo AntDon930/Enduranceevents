@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-mammutmarsch-munchen-30km-munchen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Mammutmarsch München
+LOCATION:München\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://mammutmarsch.
+ de/events/mammutmarsch-muenchen
+TRANSP:TRANSPARENT
+URL:https://mammutmarsch.de/events/mammutmarsch-muenchen
+END:VEVENT
+END:VCALENDAR

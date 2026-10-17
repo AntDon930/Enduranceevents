@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-20-5-8-stunden-wurzellauf-50km-farschweiler@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+SUMMARY:5. 8-Stunden Wurzellauf
+LOCATION:Farschweiler\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 50 km\nhttps://hochwaldtrail
+ er.de/8-Stunden-Wurzellauf-2027/Ausschreibung-2027/
+TRANSP:TRANSPARENT
+URL:https://hochwaldtrailer.de/8-Stunden-Wurzellauf-2027/Ausschreibung-202
+ 7/
+END:VEVENT
+END:VCALENDAR

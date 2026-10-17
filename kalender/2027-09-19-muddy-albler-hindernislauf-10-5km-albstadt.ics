@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-19-muddy-albler-hindernislauf-10-5km-albstadt@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270919
+DTEND;VALUE=DATE:20270920
+SUMMARY:Muddy Älbler Hindernislauf – Muddy M STRONG\, 3 Runden\, 10\,5 km
+LOCATION:Albstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Hindernis\nLänge: 10.5 km\nhttps://www.maxx
+ -timing.de/anmeldung
+TRANSP:TRANSPARENT
+URL:https://www.maxx-timing.de/anmeldung
+END:VEVENT
+END:VCALENDAR

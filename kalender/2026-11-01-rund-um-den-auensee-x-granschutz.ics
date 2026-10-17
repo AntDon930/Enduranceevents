@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-rund-um-den-auensee-x-granschutz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Rund um den Auensee – Cyclocross
+LOCATION:Granschütz\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: -\nhttp://www.white-roc
+ k.de/Veranstaltung/19-granschuetzer-radquerfeldein-rund-um-den-auensee/?i
+ nstance_id=279
+TRANSP:TRANSPARENT
+URL:http://www.white-rock.de/Veranstaltung/19-granschuetzer-radquerfeldein
+ -rund-um-den-auensee/?instance_id=279
+END:VEVENT
+END:VCALENDAR

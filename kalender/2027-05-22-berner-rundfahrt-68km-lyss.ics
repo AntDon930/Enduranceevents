@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-berner-rundfahrt-68km-lyss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Berner Rundfahrt – Jedermannrennen 68 km
+LOCATION:Lyss\, Schweiz
+DESCRIPTION:Sportart: Fahrrad / Straße\nLänge: 68 km\nhttps://www.berner-r
+ undfahrt.ch/
+TRANSP:TRANSPARENT
+URL:https://www.berner-rundfahrt.ch/
+END:VEVENT
+END:VCALENDAR

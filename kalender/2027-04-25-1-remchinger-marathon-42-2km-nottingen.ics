@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-25-1-remchinger-marathon-42-2km-nottingen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270425
+DTEND;VALUE=DATE:20270426
+SUMMARY:1. Remchinger Marathon
+LOCATION:Nöttingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://remchinger-
+ marathon.de
+TRANSP:TRANSPARENT
+URL:https://remchinger-marathon.de
+END:VEVENT
+END:VCALENDAR

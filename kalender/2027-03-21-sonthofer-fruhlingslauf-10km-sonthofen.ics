@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-21-sonthofer-fruhlingslauf-10km-sonthofen@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270321
+DTEND;VALUE=DATE:20270322
+SUMMARY:Sonthofer Frühlingslauf
+LOCATION:Sonthofen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.sonthofer-
+ fruehlingslauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.sonthofer-fruehlingslauf.de/
+END:VEVENT
+END:VCALENDAR

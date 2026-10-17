@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-treburer-crosslauf-2026-5-6km-trebur@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Treburer Crosslauf 2026
+LOCATION:Trebur\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 5.6 km\nhttp://www.treburer-c
+ rosslauf.de/
+TRANSP:TRANSPARENT
+URL:http://www.treburer-crosslauf.de/
+END:VEVENT
+END:VCALENDAR

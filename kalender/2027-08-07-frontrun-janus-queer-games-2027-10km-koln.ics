@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-08-07-frontrun-janus-queer-games-2027-10km-koln@antdon930.github.
+ io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270807
+DTEND;VALUE=DATE:20270808
+SUMMARY:Frontrun - Janus Queer Games 2027
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://frontrunners.
+ sc-janus.de/de/frontrun/
+TRANSP:TRANSPARENT
+URL:https://frontrunners.sc-janus.de/de/frontrun/
+END:VEVENT
+END:VCALENDAR

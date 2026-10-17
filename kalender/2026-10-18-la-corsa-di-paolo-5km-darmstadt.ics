@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-la-corsa-di-paolo-5km-darmstadt@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:La Corsa di Paolo – La Corsa di Paolo Esordienti
+LOCATION:Darmstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.troialaufe
+ vents.de/
+TRANSP:TRANSPARENT
+URL:https://www.troialaufevents.de/
+END:VEVENT
+END:VCALENDAR

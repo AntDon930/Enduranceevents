@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-23-gromitzer-sun-run-5km-gromitz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+SUMMARY:Grömitzer Sun-Run – 5 km Lauf für Jedermann
+LOCATION:Grömitz\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://www.stgk.de/Ve
+ ranstaltung_Detail.asp?Code=8
+TRANSP:TRANSPARENT
+URL:https://www.stgk.de/Veranstaltung_Detail.asp?Code=8
+END:VEVENT
+END:VCALENDAR

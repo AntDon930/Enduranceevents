@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-31-34-mundener-altstadtlauf-5km-hann-munden@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:34. Mündener Altstadtlauf – 5 km Hauptlauf
+LOCATION:Hann. Münden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://hann.muenden-e
+ rlebnisregion.de/event/muendener-altstadtlauf
+TRANSP:TRANSPARENT
+URL:https://hann.muenden-erlebnisregion.de/event/muendener-altstadtlauf
+END:VEVENT
+END:VCALENDAR

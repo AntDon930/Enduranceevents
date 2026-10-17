@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-29-raiffeisen-businesslauf-graz-5km-graz@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270429
+DTEND;VALUE=DATE:20270430
+SUMMARY:Raiffeisen Businesslauf Graz
+LOCATION:Graz\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://raiffeisenbusi
+ nesslauf.at/
+TRANSP:TRANSPARENT
+URL:https://raiffeisenbusinesslauf.at/
+END:VEVENT
+END:VCALENDAR

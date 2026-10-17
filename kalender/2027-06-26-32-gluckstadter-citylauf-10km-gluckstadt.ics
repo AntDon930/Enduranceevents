@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-26-32-gluckstadter-citylauf-10km-gluckstadt@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:32. Glückstädter Citylauf
+LOCATION:Glückstadt\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.etsv-fort
+ una.de/index.php/veranstaltungen/city-lauf
+TRANSP:TRANSPARENT
+URL:https://www.etsv-fortuna.de/index.php/veranstaltungen/city-lauf
+END:VEVENT
+END:VCALENDAR

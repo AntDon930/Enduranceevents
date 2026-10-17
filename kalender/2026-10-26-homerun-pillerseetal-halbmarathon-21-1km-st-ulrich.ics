@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-26-homerun-pillerseetal-halbmarathon-21-1km-st-ulrich@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:HOMERUN - Pillerseetal Halbmarathon
+LOCATION:St. Ulrich\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 21.1 km\nhttps://fkk.tirol/h
+ omerun
+TRANSP:TRANSPARENT
+URL:https://fkk.tirol/homerun
+END:VEVENT
+END:VCALENDAR

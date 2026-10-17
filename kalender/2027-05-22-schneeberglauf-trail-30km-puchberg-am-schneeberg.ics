@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-22-schneeberglauf-trail-30km-puchberg-am-schneeberg@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:SchneebergLauf & Trail – 30 km \, 2.100 Höhenmeter
+LOCATION:Puchberg am Schneeberg\, Österreich
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 30 km\nhttps://schneeberg-lau
+ f.at/
+TRANSP:TRANSPARENT
+URL:https://schneeberg-lauf.at/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-03-06-ganghoferlauf-leutasch-42-2km-weidach@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270308
+SUMMARY:Ganghoferlauf Leutasch – Marathon
+LOCATION:Weidach\, Österreich
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 42.2 km\nhttps://www.seefeld
+ .com/de/ganghoferlauf.html
+TRANSP:TRANSPARENT
+URL:https://www.seefeld.com/de/ganghoferlauf.html
+END:VEVENT
+END:VCALENDAR

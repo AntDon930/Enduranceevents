@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-herbstwaldlauf-dresdner-heide-mit-hofewiese-trai-9km-dresde
+ n@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Herbstwaldlauf – Dresdner Heide mit Hofewiese-Trail – 9\,0 km U18\
+ , U20 und Altersklassen
+LOCATION:Dresden\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://herbstwaldlauf.
+ com/
+TRANSP:TRANSPARENT
+URL:https://herbstwaldlauf.com/
+END:VEVENT
+END:VCALENDAR

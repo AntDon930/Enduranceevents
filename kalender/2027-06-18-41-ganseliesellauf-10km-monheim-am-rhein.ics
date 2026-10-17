@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-18-41-ganseliesellauf-10km-monheim-am-rhein@antdon930.github.i
+ o
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:41. Gänseliesellauf
+LOCATION:Monheim am Rhein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://www.monheimmi
+ tte.de/gaenseliesellauf
+TRANSP:TRANSPARENT
+URL:https://www.monheimmitte.de/gaenseliesellauf
+END:VEVENT
+END:VCALENDAR

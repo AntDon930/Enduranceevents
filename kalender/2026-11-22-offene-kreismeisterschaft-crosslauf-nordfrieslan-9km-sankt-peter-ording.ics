@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-offene-kreismeisterschaft-crosslauf-nordfrieslan-9km-sankt-
+ peter-ording@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Offene Kreismeisterschaft Crosslauf Nordfriesland – 9000m
+LOCATION:Sankt Peter-Ording\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 9 km\nhttps://laufen.de/laufk
+ alender/details/offene-kreismeisterschaft-crosslauf
+TRANSP:TRANSPARENT
+URL:https://laufen.de/laufkalender/details/offene-kreismeisterschaft-cross
+ lauf
+END:VEVENT
+END:VCALENDAR

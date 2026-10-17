@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-30-hohner-see-lauf-10-4km-hohn@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270630
+DTEND;VALUE=DATE:20270701
+SUMMARY:Hohner See Lauf – 10\,4 km Laufdistanz
+LOCATION:Hohn\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10.4 km\nhttps://www.hohner-
+ see-lauf.de/
+TRANSP:TRANSPARENT
+URL:https://www.hohner-see-lauf.de/
+END:VEVENT
+END:VCALENDAR

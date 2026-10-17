@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-09-18-megamarsch-koln-100km-koln@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270919
+SUMMARY:Megamarsch Köln
+LOCATION:Köln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 100 km\nhttps://www.megamars
+ ch.de/k%C3%B6ln
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/k%C3%B6ln
+END:VEVENT
+END:VCALENDAR

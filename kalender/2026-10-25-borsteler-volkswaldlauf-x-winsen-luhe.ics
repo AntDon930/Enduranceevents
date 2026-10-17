@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-25-borsteler-volkswaldlauf-x-winsen-luhe@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:Borsteler Volkswaldlauf
+LOCATION:Winsen (Luhe)\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: -\nhttps://sport.winsen.de/r
+ egional/veranstaltungen/26-volkswaldlauf-mtv-borstel-sangenstedt-90201860
+ 1-20260.html
+TRANSP:TRANSPARENT
+URL:https://sport.winsen.de/regional/veranstaltungen/26-volkswaldlauf-mtv-
+ borstel-sangenstedt-902018601-20260.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-05-15-thuringen-erfahren-300km-neuengonna@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+SUMMARY:Thüringen erfahren – Gravel 300 km
+LOCATION:Neuengönna\, Deutschland
+DESCRIPTION:Sportart: Fahrrad / Gravel\nLänge: 300 km\nhttps://bueltge.de/
+ thueringen-erfahren/
+TRANSP:TRANSPARENT
+URL:https://bueltge.de/thueringen-erfahren/
+END:VEVENT
+END:VCALENDAR

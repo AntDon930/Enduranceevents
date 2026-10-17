@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-06-1-testlauf-41-optima-dreikonigslauf-10km-schwabisch-hall@an
+ tdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:1. Testlauf 41. OPTIMA Dreikönigslauf
+LOCATION:Schwäbisch Hall\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttps://3koenigslauf.
+ de/
+TRANSP:TRANSPARENT
+URL:https://3koenigslauf.de/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-18-bona-inklusionslauf-5km-dillingen-an-der-donau@antdon930.gi
+ thub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:Bona-Inklusionslauf – 5 km Hobbylauf
+LOCATION:Dillingen an der Donau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 5 km\nhttps://bona-inklusion
+ slauf.de/
+TRANSP:TRANSPARENT
+URL:https://bona-inklusionslauf.de/
+END:VEVENT
+END:VCALENDAR

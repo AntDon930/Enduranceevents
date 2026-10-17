@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-01-neustadter-sparkassen-nachtlauf-10km-neustadt-an-der-aisch@
+ antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:Neustädter Sparkassen Nachtlauf
+LOCATION:Neustadt an der Aisch\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 10 km\nhttp://www.tsv-nea.de
+TRANSP:TRANSPARENT
+URL:http://www.tsv-nea.de
+END:VEVENT
+END:VCALENDAR

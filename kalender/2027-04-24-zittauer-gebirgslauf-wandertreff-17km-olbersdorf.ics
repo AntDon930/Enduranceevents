@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-04-24-zittauer-gebirgslauf-wandertreff-17km-olbersdorf@antdon930.
+ github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270426
+SUMMARY:Zittauer Gebirgslauf & Wandertreff – 17 km Lauf
+LOCATION:Olbersdorf\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 17 km\nhttps://baer-service.d
+ e/veranstaltung/ZGL/
+TRANSP:TRANSPARENT
+URL:https://baer-service.de/veranstaltung/ZGL/
+END:VEVENT
+END:VCALENDAR

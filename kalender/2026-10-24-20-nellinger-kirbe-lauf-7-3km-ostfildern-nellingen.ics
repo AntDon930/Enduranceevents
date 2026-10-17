@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-24-20-nellinger-kirbe-lauf-7-3km-ostfildern-nellingen@antdon93
+ 0.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:20. NELLINGER Kirbe-Lauf
+LOCATION:Ostfildern-Nellingen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.3 km\nhttps://www.turnvere
+ in-nellingen.de/sportangebote/leichtathletik/nellinger-kirbe-lauf
+TRANSP:TRANSPARENT
+URL:https://www.turnverein-nellingen.de/sportangebote/leichtathletik/nelli
+ nger-kirbe-lauf
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-12-altmuhltrail-26km-dollnstein@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:12. Altmühltrail
+LOCATION:Dollnstein\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 26 km\nhttps://www.altmuehltr
+ ail.de/
+TRANSP:TRANSPARENT
+URL:https://www.altmuehltrail.de/
+END:VEVENT
+END:VCALENDAR

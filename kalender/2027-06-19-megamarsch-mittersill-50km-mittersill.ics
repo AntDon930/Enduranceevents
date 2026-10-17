@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-19-megamarsch-mittersill-50km-mittersill@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270619
+DTEND;VALUE=DATE:20270620
+SUMMARY:Megamarsch Mittersill
+LOCATION:Mittersill\, Österreich
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/mittersill
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/mittersill
+END:VEVENT
+END:VCALENDAR

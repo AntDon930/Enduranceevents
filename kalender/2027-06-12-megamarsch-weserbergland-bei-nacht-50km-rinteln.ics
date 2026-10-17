@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-06-12-megamarsch-weserbergland-bei-nacht-50km-rinteln@antdon930.g
+ ithub.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+SUMMARY:Megamarsch Weserbergland bei Nacht
+LOCATION:Rinteln\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/weserbergland-bei-nacht
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/weserbergland-bei-nacht
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-10-17-ndb-und-kr-passau-cross-laufmeisterschaft-im-rah-6km-passau
+ @antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:Ndb. und KR Passau Cross-Laufmeisterschaft im Rahmen des 5. intern
+ . DJK Crosslauf in Passau
+LOCATION:Passau\, Deutschland
+DESCRIPTION:Sportart: Laufen / Trail\nLänge: 6 km\nhttps://spoferan.com/ev
+ ents/5-internationaler-djk-crosslauf-in-passau-draft-q9qrs1/participation
+ -classes#category-l-5-6000-meter
+TRANSP:TRANSPARENT
+URL:https://spoferan.com/events/5-internationaler-djk-crosslauf-in-passau-
+ draft-q9qrs1/participation-classes#category-l-5-6000-meter
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-36-weihnachtsmarktlauf-7-4km-landstuhl@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:36. Weihnachtsmarktlauf – Ausdauer Lauf
+LOCATION:Landstuhl\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 7.4 km\nhttp://www.llg-lands
+ tuhl.de/weihnacht.html
+TRANSP:TRANSPARENT
+URL:http://www.llg-landstuhl.de/weihnacht.html
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-14-53-neusser-erftlauf-15km-neuss@antdon930.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:53. Neusser Erftlauf
+LOCATION:Neuss\, Deutschland
+DESCRIPTION:Sportart: Laufen / Straße\nLänge: 15 km\nhttps://www.djk-noves
+ ia.de/de/veranstaltungen/neusser-erftlauf/
+TRANSP:TRANSPARENT
+URL:https://www.djk-novesia.de/de/veranstaltungen/neusser-erftlauf/
+END:VEVENT
+END:VCALENDAR
