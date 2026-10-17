@@ -1315,16 +1315,6 @@ TeutoMarsch, Walk the Lake, Müglitztal-Wanderung, Schaumburger
 Wandertag, die Ahmadiyya Charity Walks und das Speed Hiking des
 Siebengebirgsmarathons.
 
-**Erst ab 20 km** (vom Nutzer am 17.10.2026: „Ich würde einen Marsch auch
-erst ab 20km aufnehmen. Weil ein Marsch für 5km ist einfach ein
-Spaziergang"): Eine Marsch-Zeile mit bekannter Distanz unter 20 km fällt
-beim Einsammeln (`filter_min_distance`) und rückwirkend
-(`clean_events.drop_too_short`) heraus – 8 Zeilen am Bestand, die
-kurzen Strecken von Hollenmarsch, Müglitztal-Wanderung, Ultra Walk,
-Karl-Heinz-Hahn Walk und Schaumburger Wandertag. Ohne Distanz bleibt eine
-Zeile stehen, und **Charity-Märsche bleiben immer** (vom Nutzer: „Keine
-charity Events rausnehmen" – die Ahmadiyya Charity Walks über 5–7 km).
-
 ### Quellen für den großen Datenlauf (Stand 22.09.2026)
 
 Am 22.09.2026 hat der Nutzer die Liste freigegeben („Bitte alle scrapen!

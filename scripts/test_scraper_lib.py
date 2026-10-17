@@ -3942,31 +3942,6 @@ def test_marsch_quellen() -> None:
     """Mammutmarsch und Megamarsch (17.10.2026): Laufen / Marsch, je
     Distanz eine Zeile, Ort über die PLZ, nur DE/AT/CH."""
     print("\nMammutmarsch / Megamarsch:")
-    # 20-km-Grenze für Märsche (vom Nutzer am 17.10.2026: "ein Marsch für
-    # 5km ist einfach ein Spaziergang").
-    from scraper_lib import Event as _Ev, MIN_DISTANCE_MARSCH_KM, filter_min_distance, ist_zu_kurz
-    from clean_events import drop_too_short
-    check("Marsch-Grenze 20 km", MIN_DISTANCE_MARSCH_KM, 20.0)
-    check("5-km-Walk ist zu kurz", ist_zu_kurz("Laufen", 5.0, None, "Marsch"), True)
-    check("5-km-CHARITY-Walk bleibt", ist_zu_kurz("Laufen", 5.0, None, "Marsch", True), False)
-    _k, _s = filter_min_distance([_Ev(art1="Laufen", art2="Marsch", name="Ahmadiyya Charity Walk Ellwangen",
-                                      laenge_km=5.0)])
-    check("filter_min_distance lässt den Charity Walk (Name) stehen", _s, 0)
-    check("19,9-km-Marsch ist zu kurz", ist_zu_kurz("Laufen", 19.9, None, "Marsch"), True)
-    check("20-km-Marsch bleibt", ist_zu_kurz("Laufen", 20.0, None, "Marsch"), False)
-    check("Marsch ohne Distanz bleibt", ist_zu_kurz("Laufen", None, None, "Marsch"), False)
-    check("10-km-Straßenlauf bleibt", ist_zu_kurz("Laufen", 10.0, None, "Straße"), False)
-    _k, _s = filter_min_distance([_Ev(art1="Laufen", art2="Marsch", name="Ultra Walk", laenge_km=10.0),
-                                  _Ev(art1="Laufen", art2="Marsch", name="Mammutmarsch Berlin", laenge_km=30.0),
-                                  _Ev(art1="Laufen", art2="Trail", name="Waldlauf", laenge_km=10.0)])
-    check("filter_min_distance wirft nur den 10-km-Marsch", [e.name for e in _k],
-          ["Mammutmarsch Berlin", "Waldlauf"])
-    _k, _d = drop_too_short([{"name": "Wandertag", "art1": "Laufen", "art2": "Marsch", "laenge_km": 7},
-                             {"name": "Charity Walk", "art1": "Laufen", "art2": "Marsch", "laenge_km": 7,
-                              "charity": True},
-                             {"name": "Megamarsch Hannover", "art1": "Laufen", "art2": "Marsch", "laenge_km": 25}])
-    check("drop_too_short: 7-km-Marsch raus, Charity und 25 km bleiben", ([e["name"] for e in _k], len(_d)),
-          (["Charity Walk", "Megamarsch Hannover"], 1))
     import json as _j
     import mammutmarsch_scraper as mm
     import megamarsch_scraper as mg

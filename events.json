@@ -41729,6 +41729,19 @@
   },
   {
     "land": "Deutschland",
+    "name": "25. Karl-Heinz-Hahn Walk 2027",
+    "standort": "Düsseldorf-Benrath",
+    "lat": 51.1621373,
+    "lon": 6.878444,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-04-03",
+    "datum_ende": "2027-04-03",
+    "laenge_km": 7.5,
+    "veranstalter_url": "https://www.lt-duesseldorf-sued.de"
+  },
+  {
+    "land": "Deutschland",
     "name": "29. Eifeler Sparkassen Crossduathlon 2027",
     "standort": "Schleiden",
     "lat": 50.5285919,
@@ -49144,6 +49157,20 @@
     "art2": "Marsch",
     "datum_start": "2027-04-30",
     "datum_ende": "2027-04-30",
+    "laenge_km": 10.0,
+    "wettbewerb": "10 km",
+    "veranstalter_url": "https://ultrawalk.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Ultra Walk",
+    "standort": "Magdeburg",
+    "lat": 52.1314783,
+    "lon": 11.6400789,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-04-30",
+    "datum_ende": "2027-04-30",
     "laenge_km": 30.0,
     "wettbewerb": "30 km",
     "veranstalter_url": "https://ultrawalk.de/"
@@ -50152,6 +50179,19 @@
     "datum_ende": "2027-05-02",
     "laenge_km": 10.0,
     "veranstalter_url": "http://www.svholtsee.de"
+  },
+  {
+    "land": "Deutschland",
+    "name": "40. Schaumburger Wandertag",
+    "standort": "Stadthagen",
+    "lat": 52.3289688,
+    "lon": 9.2053496,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-05-02",
+    "datum_ende": "2027-05-02",
+    "laenge_km": 8.0,
+    "veranstalter_url": "http://www.tsv-eintracht-bueckeberge.de"
   },
   {
     "land": "Deutschland",
@@ -57023,6 +57063,34 @@
     "datum_ende": "2027-05-22",
     "laenge_km": 32.0,
     "wettbewerb": "32 km",
+    "veranstalter_url": "https://www.hollenmarsch.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bödefelder Hollenmarsch",
+    "standort": "Schmallenberg",
+    "lat": 51.1526332,
+    "lon": 8.2907901,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-05-21",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 14.0,
+    "wettbewerb": "14 km",
+    "veranstalter_url": "https://www.hollenmarsch.de/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Bödefelder Hollenmarsch",
+    "standort": "Schmallenberg",
+    "lat": 51.1526332,
+    "lon": 8.2907901,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-05-21",
+    "datum_ende": "2027-05-22",
+    "laenge_km": 7.5,
+    "wettbewerb": "7,5 km (Paket S)",
     "veranstalter_url": "https://www.hollenmarsch.de/"
   },
   {
@@ -82400,6 +82468,48 @@
     "laenge_km": 10.0,
     "wettbewerb": "10 km",
     "veranstalter_url": "https://www.lcsuetschach.at/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Müglitztal-Wanderung",
+    "standort": "Dohna",
+    "lat": 50.9565937,
+    "lon": 13.858256,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-07-30",
+    "datum_ende": "2027-07-30",
+    "laenge_km": 15.0,
+    "wettbewerb": "15 km",
+    "veranstalter_url": "https://www.msv-meusegast.de/veranstaltungen/stadtfestwanderung/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Müglitztal-Wanderung",
+    "standort": "Dohna",
+    "lat": 50.9565937,
+    "lon": 13.858256,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-07-30",
+    "datum_ende": "2027-07-30",
+    "laenge_km": 12.0,
+    "wettbewerb": "12 km",
+    "veranstalter_url": "https://www.msv-meusegast.de/veranstaltungen/stadtfestwanderung/"
+  },
+  {
+    "land": "Deutschland",
+    "name": "Müglitztal-Wanderung",
+    "standort": "Dohna",
+    "lat": 50.9565937,
+    "lon": 13.858256,
+    "art1": "Laufen",
+    "art2": "Marsch",
+    "datum_start": "2027-07-30",
+    "datum_ende": "2027-07-30",
+    "laenge_km": 5.0,
+    "wettbewerb": "5 km",
+    "veranstalter_url": "https://www.msv-meusegast.de/veranstaltungen/stadtfestwanderung/"
   },
   {
     "land": "Deutschland",

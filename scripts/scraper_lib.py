@@ -2402,14 +2402,6 @@ MIN_DISTANCE_BY_ART1: dict[str, float] = {
     MIN_DISTANCE_ART1: MIN_DISTANCE_KM,
     "Schwimmen": 0.5,
 }
-# Seit dem 17.10.2026 hat auch der MARSCH (art2 "Marsch", Datenregel 25)
-# eine Untergrenze - vom Nutzer entschieden: "Ich würde einen Marsch auch
-# erst ab 20km aufnehmen. Weil ein Marsch für 5km ist einfach ein
-# Spaziergang und das braucht die Seite nicht wirklich." Sie hängt an der
-# KATEGORIE, nicht an art1 (Märsche stehen unter Laufen), und gilt wie
-# die anderen nur bei bekannter Distanz. Charity-Märsche nimmt sie aus
-# (Ahmadiyya Charity Walk 5 km - "Keine Charity Events rausnehmen").
-MIN_DISTANCE_MARSCH_KM = 20.0
 
 # Nur ein sauberes YYYY-MM-DD gilt als vergleichbares Datum (siehe
 # filter_past()); Datumsstrings in ISO-Form lassen sich direkt als Text
@@ -3089,18 +3081,11 @@ def min_distance_km(art1: str | None) -> float | None:
     return MIN_DISTANCE_BY_ART1.get(art1 or "")
 
 
-def ist_zu_kurz(art1: str | None, laenge_km: float | None, dauer_h: float | None = None,
-                art2: str | None = None, charity: bool | None = None) -> bool:
+def ist_zu_kurz(art1: str | None, laenge_km: float | None, dauer_h: float | None = None) -> bool:
     """Liegt eine BEKANNTE Distanz unter der Mindestdistanz ihrer
-    Sportart (bzw. beim Marsch unter 20 km)? Ein Zeitrennen ist nie zu
-    kurz (die Rundenlänge ist keine Wettkampfdistanz), eine unbekannte
-    Distanz auch nicht."""
+    Sportart? Ein Zeitrennen ist nie zu kurz (die Rundenlänge ist keine
+    Wettkampfdistanz), eine unbekannte Distanz auch nicht."""
     grenze = min_distance_km(art1)
-    if art1 == MIN_DISTANCE_ART1 and art2 == "Marsch":
-        # Ein Charity-Marsch bleibt (vom Nutzer am 17.10.2026: "Solche
-        # Events bleiben aber bitte immer drinnen. Keine Charity Events
-        # rausnehmen") - für ihn gilt nur die Lauf-Grenze.
-        grenze = MIN_DISTANCE_KM if charity else MIN_DISTANCE_MARSCH_KM
     if grenze is None or laenge_km is None or dauer_h is not None:
         return False
     return laenge_km < grenze
@@ -3108,11 +3093,10 @@ def ist_zu_kurz(art1: str | None, laenge_km: float | None, dauer_h: float | None
 
 def filter_min_distance(events: list[Event], min_km: float | None = None) -> tuple[list[Event], int]:
     """Wirft Zeilen unter der Mindestdistanz ihrer Sportart heraus
-    (Laufen 5 km, Marsch 20 km, Schwimmen 500 m). `min_km` überschreibt die Grenze
+    (Laufen 5 km, Schwimmen 500 m). `min_km` überschreibt die Grenze
     fürs Laufen - so riefen ältere Aufrufer die Funktion."""
     if min_km is None:
-        kept = [e for e in events if not ist_zu_kurz(e.art1, e.laenge_km, e.dauer_h, e.art2,
-                                                         e.charity or ist_charity(e.name))]
+        kept = [e for e in events if not ist_zu_kurz(e.art1, e.laenge_km, e.dauer_h)]
     else:
         kept = [
             e for e in events
@@ -3586,7 +3570,7 @@ def run_scraper_cli(config: SiteConfig, script_name: str | None = None) -> None:
     events_to_use, too_short_skipped = filter_min_distance(events_to_use)
     if too_short_skipped:
         print(f"  ({too_short_skipped} Event(s) unter der Mindestdistanz übersprungen "
-              f"(Laufen {MIN_DISTANCE_KM:g} km, Marsch {MIN_DISTANCE_MARSCH_KM:g} km, Schwimmen "
+              f"(Laufen {MIN_DISTANCE_KM:g} km, Schwimmen "
               f"{MIN_DISTANCE_BY_ART1['Schwimmen']:g} km).)")
 
     events_to_use, past_skipped = filter_past(events_to_use)

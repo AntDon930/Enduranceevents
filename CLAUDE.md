@@ -1081,20 +1081,13 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Übersetzung in `filters.js` und `functions/index.js`. Am 17.10.2026:
    36 Bestandszeilen umgestellt (Hollenmarsch, Ultra Walk, Ultramarsch
    Leipzig, Karwendelmarsch, Charity Walks, Speed Hiking …), 75 neue
-   Zeilen aus den beiden Veranstalterquellen. **Ein Marsch zählt erst ab
-   20 km** (vom Nutzer am selben Tag: „ein Marsch für 5km ist einfach
-   ein Spaziergang und das braucht die Seite nicht wirklich"):
-   `MIN_DISTANCE_MARSCH_KM`, `ist_zu_kurz(art1, km, dauer_h, art2)` –
-   die Grenze hängt an `art2 == "Marsch"` (unter Laufen), nur bei
-   bekannter Distanz, wie Datenregel 5; `drop_too_short()` läuft nach
-   `refresh_art2()` und `fix_charity()`. **Charity-Märsche sind
-   ausgenommen** (vom Nutzer gleich danach: „Solche Events bleiben aber
-   bitte immer drinnen. Keine charity Events rausnehmen" – an den
-   Ahmadiyya Charity Walks, 5–7 km): `charity` (Feld oder
-   `ist_charity(name)`) als fünftes Argument, für sie gilt nur die
-   Lauf-Grenze. Am Bestand 8 Zeilen raus (Hollenmarsch 7,5/14,
-   Müglitztal 5/12/15, Ultra Walk 10, Karl-Heinz-Hahn Walk 7,5,
-   Schaumburger Wandertag 8); Megamarsch 25 km bleibt. Tests:
+   Zeilen aus den beiden Veranstalterquellen. **Keine eigene
+   Mindestdistanz für Märsche**: Eine 20-km-Grenze war am 17.10.2026
+   kurz gebaut (Commit `69db3871`) und wurde vom Nutzer noch am selben
+   Abend zurückgenommen („Ach lass einfach alle märsche drinnen. Auch
+   wenn sie nur kurz sind") – nicht wieder einführen; es gilt nur die
+   5-km-Grenze von Laufen (Datenregel 5), und Charity-Events sollen
+   nie wegen einer Längengrenze fallen. Tests:
    `test_marsch_quellen` und die Marsch-Prüfungen bei `test_kategorie`.
 
 ### Die wichtigste Lektion
