@@ -8660,5 +8660,14 @@
     "veranstalter_url": "https://my.raceresult.com/414318/info",
     "_note": "Korrekturliste des Nutzers | Anmeldeseite statt Vereinsseite (nennt den Lauf nicht mehr) - Entscheidung des Nutzers, portal_erlaubt",
     "portal_erlaubt": true
+  },
+  "Rad Race One Twenty|2027-06-12|126": {
+    "exclude": true,
+    "_note": "rad-race.com/onetwenty-27-race (17.10.2026): Der Road Race über 126 km / 2.230 hm ist am SONNTAG 13.06.2027 – die Zeile steht als 'RAD RACE ONE TWENTY' am 13.06. drin; diese Zeile (radsport-events, Spanne 12.–13.06.) ist ein Duplikat mit falschem Tag."
+  },
+  "Rad Race One Twenty|2027-06-12|7": {
+    "datum_ende": "2027-06-12",
+    "wettbewerb": "Mountain Team Time Trial 7 km / 340 hm",
+    "_note": "rad-race.com/onetwenty-27-race (17.10.2026): Samstag 12.06.2027 Mountain Team Time Trial (Prolog) 7 km, 5 %, 340 hm, Sonthofen (Fluhensteinweg) bis Kapelle Schwandereck; jeder fährt die ganze Strecke (Datenregel 16), gewertet werden die drei schnellsten Zeiten des Teams."
   }
 }

@@ -67295,23 +67295,9 @@
     "art1": "Fahrrad",
     "art2": "Straße",
     "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-13",
+    "datum_ende": "2027-06-12",
     "laenge_km": 7.0,
-    "wettbewerb": "Jedermannrennen 7 km",
-    "veranstalter_url": "https://www.808project.de/one-twenty"
-  },
-  {
-    "land": "Deutschland",
-    "name": "Rad Race One Twenty",
-    "standort": "Sonthofen",
-    "lat": 47.5055914,
-    "lon": 10.27527,
-    "art1": "Fahrrad",
-    "art2": "Straße",
-    "datum_start": "2027-06-12",
-    "datum_ende": "2027-06-13",
-    "laenge_km": 126.0,
-    "wettbewerb": "Jedermannrennen 126 km",
+    "wettbewerb": "Mountain Team Time Trial 7 km / 340 hm",
     "veranstalter_url": "https://www.808project.de/one-twenty"
   },
   {
@@ -68559,8 +68545,7 @@
     "datum_ende": "2027-06-13",
     "laenge_km": 126.0,
     "wettbewerb": "Straßenrennen 126 km / 2.230 hm",
-    "veranstalter_url": "https://www.808project.de/one-twenty",
-    "pruefung_offen": true
+    "veranstalter_url": "https://www.808project.de/one-twenty"
   },
   {
     "land": "Deutschland",

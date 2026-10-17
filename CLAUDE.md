@@ -5752,6 +5752,8 @@ Verweise auf alte Nummern stehen in Klammern.
    Bayern** (Termine nur auf `bayerischer-schwimmverband.de`, Veranstalter
    ist der Verband selbst, die Seite steht in `PORTAL_DOMAINS` – 2026:
    06.06. Lieblsee Parkstetten, 25.07. Wöhrsee Burghausen).
+   Und **RAD RACE** (rad-race.com, Archiv 40): Termine 2027 für Last
+   Wo/Man Standing (Berlin), FIXED 42 und 99LAPS (Essen) nachsehen.
 5. **11.01.2027** (aus alt 2): Erinnerung `trig_013AV7Nn2GVq1m3LgxL3ukcq`
    zum Ende der Firebase Extensions (31.03.2027) – Versand als eigene
    Cloud Function bauen, dann `firebase deploy --only functions` aus der
@@ -5780,19 +5782,7 @@ Verweise auf alte Nummern stehen in Klammern.
    „Besucherstatistik", Kennzahlen für Werbekunden.
 8. **Clips sammeln**: Veranstalter um Freigabe von 10–20 s Video bitten,
    eigene Aufnahmen – Einträge in `marketing/instagram/clips.json`.
-9. **RADRACE als Veranstalter anschauen** (14.10.2026, vom Nutzer: „Bitte
-   auf to do Liste setzen das wir uns radrace als Veranstalter anschauen
-   müssen"). RADRACE (Berlin) richtet eigene Rennen aus (Fixed42, Tour
-   de Friends, Rad Race Last Man Standing u. a.); am 14.10.2026 steht
-   kein einziges davon in `events.json` (auch kein Treffer in README,
-   CLAUDE.md oder den Skripten). Vorgehen wie bei jeder Quelle: Rennen
-   und Termine auf der Veranstalterseite lesen, prüfen, ob eine
-   bestehende Quelle sie liefert, robots.txt und Nutzungsbedingungen
-   lesen; einzelne Rennen mit Beleg nach `manual_events.json`, ein
-   Scraper nur mit seinem Ja (Datenregel 2, „kein Scraper ohne sein
-   Ja"). Formate mit Staffel/Team fallen unter Datenregel 16.
-
-10. **Instagram: Pexels-Schlüssel und Insights** (16.10.2026, nur der
+9. **Instagram: Pexels-Schlüssel und Insights** (16.10.2026, nur der
     Nutzer, je zwei Minuten): (a) pexels.com/api → kostenlosen Schlüssel →
     GitHub → Settings → Secrets and variables → Actions → `PEXELS_API_KEY`
     – erst dann laufen echte Videos statt Standbild-Zoom im Hintergrund;
@@ -5808,7 +5798,7 @@ Verweise auf alte Nummern stehen in Klammern.
 Datenschutzerklärung erneut lesen (34), `update-events.yml` auf `main`
 (36), Functions-Deploy für die Abo-Kennzahl (37), Probe des
 Wartungsmodus (38) – alle 13./14.10.2026; Instagram einrichten (39) –
-16.10.2026.)
+16.10.2026; RADRACE als Veranstalter (40) – 17.10.2026.)
 
 Kleine Datenfälle „beim nächsten Blick klären" (keine Nutzer-Aufgabe,
 laufen über die Korrekturliste mit): OÖ Firmentriathlon Linz (alt 12),
@@ -6427,6 +6417,31 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
    „Instagram-Freigabe" im Dashboard zeigt die nächsten 14 Tage, sobald
    der nächste Pages-Deploy `plan.json` gebaut hat.
 
+40. ~~**RADRACE als Veranstalter anschauen**~~ **erledigt** (17.10.2026,
+    vom Nutzer: „Falls du Events von Radrace findest dann bitte
+    aufnehmen"; eingetragen am 14.10.2026, bis dahin Punkt 9 der neuen
+    Liste). rad-race.com (Squarespace, robots.txt sperrt nur /config,
+    /search, /api; die AGB regeln nur die Teilnahme) von Hand gelesen,
+    kein Scraper. **RAD RACE ONE TWENTY** (Oberallgäu, Sonthofen, mit
+    808 Events/808project.de) stand schon drin, aber in drei Zeilen –
+    radsport-events lieferte beide Strecken als Spanne 12.–13.06.2027.
+    Jetzt: Mountain Team Time Trial 7 km / 340 hm am Sa 12.06. (Override),
+    Road Race 126 km / 2.230 hm am So 13.06. (`geprueft.json` – die
+    Großbuchstaben sind der Eigenname, die Zeile war deshalb
+    ausgeblendet), die doppelte 126-km-Zeile vom 12.06. per `exclude`.
+    Anmeldung auch einzeln, jeder fährt die ganze Strecke (Datenregel 16).
+    **Nicht aufgenommen**: 96 HOURS (Rom–Pescara), Tour de Friends
+    (Japan), RAD RACE 150 (Medellín) – außerhalb unserer Regionen; Sprint
+    Battle (29.08.2026 vorbei, 100-m-Sprint), Summercamp und Dopamine
+    Delivery Tours (nur Rückblicke 2026), Silent Run Club (wöchentlicher
+    Gemeinschaftslauf in Hamburg, kein Wettkampf). **Ohne Termin 2027**
+    (neue Liste Punkt 4): Last Wo/Man Standing (Fixed-Gear-
+    Ausscheidungsrennen auf der Kartbahn Berlin, März, „Everyone can sign
+    up", Warteliste 2027), FIXED 42 („prayin' for 2027"), 99LAPS (Zeche
+    Zollverein Essen, „Summer 2027", 99 Runden = 118,8 km, last athlete
+    standing; Startplätze per Los oder Qualifier, „aus den stärksten
+    Bewerbern" – vor der Aufnahme klären, ob das „für jeden" ist), New
+    Balance Midnight Miles (newbalance.de antwortet 403).
 31. ~~**Sternsteintrail – Winterchallenge** (Linz, 35,5/46 km): freier
     Startzeitpunkt zwischen 01.12.2026 und 28.02.2027, kein fester
     Termin – rein oder raus?~~ **erledigt** (09.10.2026, vom Nutzer: „Ne
