@@ -10,7 +10,7 @@ DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:Ultra Walk
 LOCATION:Magdeburg\, Deutschland
-DESCRIPTION:Sportart: Laufen / Straße\nLänge: 30 km\nhttps://ultrawalk.de/
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 30 km\nhttps://ultrawalk.de/
 TRANSP:TRANSPARENT
 URL:https://ultrawalk.de/
 END:VEVENT

@@ -261,6 +261,7 @@ const SUCH_UEBERSETZUNGEN = {
     "Bahn": ["Bahn", "Track"],
     "Cross": ["Cross", "Cross Country"],
     "Hindernis": ["Hindernis", "Obstacle"],
+    "Marsch": ["Marsch", "Walking"],
     "Backyard Ultra": ["Backyard Ultra", "Backyard Ultra"],
     "Backcountry Ultra": ["Backyard Ultra", "Backyard Ultra"],
     "Backyard": ["Backyard Ultra", "Backyard Ultra"],

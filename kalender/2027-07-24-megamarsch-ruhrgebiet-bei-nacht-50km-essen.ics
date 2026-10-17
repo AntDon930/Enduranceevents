@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ausdauersport-Events//kalender//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-07-24-megamarsch-ruhrgebiet-bei-nacht-50km-essen@antdon930.github
+ .io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270724
+DTEND;VALUE=DATE:20270725
+SUMMARY:Megamarsch Ruhrgebiet bei Nacht
+LOCATION:Essen\, Deutschland
+DESCRIPTION:Sportart: Laufen / Marsch\nLänge: 50 km\nhttps://www.megamarsc
+ h.de/ruhrgebiet-bei-nacht
+TRANSP:TRANSPARENT
+URL:https://www.megamarsch.de/ruhrgebiet-bei-nacht
+END:VEVENT
+END:VCALENDAR

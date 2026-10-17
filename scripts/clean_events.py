@@ -580,6 +580,14 @@ def refresh_art2(events: list[dict]) -> list[str]:
         # nicht. Sonst bleibt es bei der Regel, nur Generisches zu
         # ersetzen: Eine Kategorie, die spezifischer ist als die
         # geratene, wird nicht angefasst.
+        # Ein Marsch schlägt jede gesetzte Kategorie: Das Format steht vor
+        # dem Gelände (der Karwendelmarsch war "Straße", wäre er "Trail",
+        # bliebe er trotzdem ein Marsch) - vom Nutzer am 17.10.2026 so
+        # gewünscht, damit man jedem Marsch ansieht, dass er einer ist.
+        if guessed == "Marsch" and current != "Marsch":
+            changed.append(f"{event.get('name')}: art2 {current!r} -> 'Marsch'")
+            event["art2"] = "Marsch"
+            continue
         if guessed == "Hindernis" and current == "Trail":
             changed.append(f"{event.get('name')}: art2 'Trail' -> 'Hindernis'")
             event["art2"] = "Hindernis"

@@ -36,8 +36,10 @@ Sitemap, 378 Laufevents, 78 Triathlons, 45 Wander-Events für 2026/27.
 Was daraus wird
 ---------------
 * Nur Kategorien Lauf/Trail/Stadtlauf/Naturlauf/Firmenlauf (Laufen) und
-  Triathlon; **Wandern (Megamarsch, Mammutmarsch) fällt weg** - das
-  ist kein Lauf. Abgesagte Termine (Status) fallen weg.
+  Triathlon; **Wandern** seit dem 17.10.2026 als Laufen mit der
+  Kategorie „Marsch“ (Wunsch des Nutzers) - außer Mammutmarsch und
+  Megamarsch, die `mammutmarsch_scraper.py`/`megamarsch_scraper.py`
+  beim Veranstalter lesen. Abgesagte Termine (Status) fallen weg.
 * Je Distanz eine Zeile (Datenregel 1), „6 h" als Zeitrennen
   (`dauer_h`, Datenregel 8). Triathlon: je Format eine Zeile ohne
   Kilometer, das Format im Label (wie `fsieben_scraper.py`), „Duathlon"
@@ -187,12 +189,21 @@ def events_aus_seite(e: dict, seite_url: str, config: SiteConfig) -> tuple[list[
     if "Cancelled" in (e.get("status") or "") or re.search(r"abgesagt", e.get("status_text") or "", re.I):
         return [], "abgesagt"
     kat = (e.get("kategorie") or "").strip().lower()
+    marsch = False
     if kat in KATEGORIE_TRIATHLON:
         art1 = "Triathlon"
     elif kat in KATEGORIE_LAUFEN:
         art1 = "Laufen"
     elif kat == "wandern":
-        return [], "Wandern"
+        # Seit dem 17.10.2026 dabei, als Laufen mit der Kategorie „Marsch“
+        # (vom Nutzer: „Es gibt ja schon sehr viele Marsch Events. Bitte
+        # alle aufnehmen"). Mammutmarsch und Megamarsch liest je ein
+        # eigener Scraper beim Veranstalter (mit Startort) - hier nicht,
+        # sonst stünden sie doppelt (Kilometerliebe nennt die Stadt,
+        # der Veranstalter den Startort: Hannover gegen Laatzen).
+        if re.search(r"mammutmarsch|megamarsch|nachtmammut", e["name"], re.I):
+            return [], "Wandern (eigene Quelle)"
+        art1, marsch = "Laufen", True
     else:
         return [], f"Kategorie {kat or '?'} unbekannt"
     land = LAND.get(e.get("land_code") or "DE")
@@ -220,11 +231,11 @@ def events_aus_seite(e: dict, seite_url: str, config: SiteConfig) -> tuple[list[
     strecken = _distanzen(e.get("distanzen") or "")
     if not strecken:
         ev = Event(**basis)
-        ev.art2 = guess_art2(f"{e['name']} {kat}", config, "Laufen")
+        ev.art2 = "Marsch" if marsch else guess_art2(f"{e['name']} {kat}", config, "Laufen")
         return [ev], None
     for km, stunden, label in strecken:
         ev = Event(**basis, laenge_km=km, dauer_h=stunden, wettbewerb=label)
-        ev.art2 = guess_art2(f"{e['name']} {kat}", config, "Laufen")
+        ev.art2 = "Marsch" if marsch else guess_art2(f"{e['name']} {kat}", config, "Laufen")
         events.append(ev)
     return events, None
 
@@ -280,7 +291,7 @@ CONFIG = SiteConfig(
     default_land="Deutschland",
     custom_fetch=fetch_kilometerliebe_events,
     note="kilometerliebe_scraper.py: Laufkalender Kilometerliebe (Deutschland); Eventseiten mit "
-         "JSON-LD und Event-Website-Link, Wander-Events fallen weg.",
+         "JSON-LD und Event-Website-Link, Wander-Events als Laufen/Marsch.",
 )
 
 if __name__ == "__main__":

@@ -102,6 +102,9 @@
       'Bahn': { de: 'Bahn', en: 'Track' },
       'Cross': { de: 'Cross', en: 'Cross Country' },
       'Hindernis': { de: 'Hindernis', en: 'Obstacle' },
+      // Märsche und Extremwanderungen (Mammutmarsch, Megamarsch, Ultra Walk);
+      // englisch "Walking" - so vom Nutzer vorgeschlagen (17.10.2026).
+      'Marsch': { de: 'Marsch', en: 'Walking' },
       // Englischer Fachbegriff, in beiden Sprachen gleich: das
       // Last-Man-Standing-Format (gleiche Runde zur gleichen Stunde, bis
       // nur eine Person übrig ist) - beim Laufen UND beim Triathlon

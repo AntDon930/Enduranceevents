@@ -50,7 +50,7 @@ nur einen sieht, sieht trotzdem alles.
 | `admin.html` | **das Dashboard** – nur für den Betreiber (Anmeldung + Dokument `admins/<uid>` in Firestore), liest `stats_daily`; nicht in der Navigation verlinkt. Seit dem 14.10.2026 mit den Kennzahlen für Werbekunden (Monat, Abos, Wochentag, Zielgruppe, Bericht je Veranstaltung, Werbeplätze). **Seit dem 16.10.2026 in fünf Bereichen, je Linie + Überschrift (`hr.stat-trenner` + `h2.stat-bereich`, Reihenfolge vom Nutzer): Dashboard (Zeitraum, Kennzahlen) – Graphen – Auswertungen (`#stat-listen`, `ABSCHNITTE`) – Instagram (`#ig-card`, `#stat-listen-ig` mit `ABSCHNITTE_IG`, Freigabe) – Wartung**; der Rauchtest prüft die Reihenfolge |
 | `functions/stats_aggregate.js` | die Rechenregeln der Statistik (Besuche, Absprung, Dauer, Listen) ohne Firestore – `aggregateStats` ruft sie, `test_statistik` rechnet sie mit node nach |
 | `scripts/scraper_lib.py` | gemeinsame Engine (robots.txt, Parsing, Dedupe, Geocoding, CLI) |
-| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
+| `scripts/*_scraper.py` | ein Skript pro Quelle (seit dem 17.10.2026 auch `mammutmarsch_scraper.py` und `megamarsch_scraper.py`, Kategorie „Marsch“, Datenregel 25; seit dem 24.09.2026 auch `schwimmkalender_scraper.py`, seit dem 30.09.2026 `datasport_scraper.py`, siehe „Quellen") |
 | `scripts/clean_events.py` | räumt bestehende `events.json` nach allen Regeln auf, idempotent |
 | `scripts/audit_events.py` | **prüft einzelne Zeilen** und meldet Verdachtsfälle – ändert nichts |
 | `scripts/geprueft.json` | **Protokoll der Einzelprüfungen** – wer hier steht, ist geprüft (`audit_events.py --offen` blendet ihn aus) |
@@ -1057,6 +1057,32 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    kein Kinderrennen. Am Bestand gezählt: 21 Treffer, alle durchgesehen;
    dazu O-SEE X'Kids per Override (das Label nennt „Super Sprint").
    `test_kinder` hält Treffer und Gegenproben fest.
+
+25. **Märsche sind eine eigene Kategorie unter Laufen: „Marsch“ (EN
+   „Walking“)** – vom Nutzer am 17.10.2026 entschieden („Ja, alle
+   mammutmarsch aufnehmen. Aber es muss schon irgendwo gekennzeichnet
+   sein, das es ein marsch ist … die Unterkategorie ‚Marsch‘ oder
+   ‚Walking‘ auf Englisch unter Laufen … Bitte alle aufnehmen").
+   `scraper_lib.ist_marsch_name()` und die erste Zeile von
+   `ART2_KEYWORDS_LAUFEN`: Marschwort im Namen (marsch, walk/walking,
+   wander, hike) und **kein Laufwort** (lauf, run, running, trail, jogg,
+   hobby) – „Winterlauf- und Walkingserie", „Run & Walk", „Koasamarsch
+   Trailruns" bleiben Läufe; die Marschen des Nordens (Elbmarsch,
+   Wesermarsch, Wilstermarsch, Marschacht) und „skywalk" sind keine.
+   `refresh_art2()` setzt „Marsch" über jede Kategorie (Format vor
+   Gelände), `ist_walking()` (Datenregel 23) lässt die Strecken einer
+   Marsch-Veranstaltung stehen – die Walking-Beilage eines LAUFS fliegt
+   weiter. Quellen: `mammutmarsch_scraper.py` (eine Seite, Flight-JSON
+   mit `distances`), `megamarsch_scraper.py` (Übersicht `/megamärsche` +
+   Startort je Eventseite) – beide mit Ort über die PLZ aus `places.json`,
+   nur DE/AT/CH –, und `kilometerliebe_scraper.py` nimmt die Kategorie
+   „Wandern" jetzt als Laufen/Marsch (ohne Mammut-/Megamarsch, die
+   kommen vom Veranstalter). Filter: `ART2_BY_ART1['Laufen']`,
+   Übersetzung in `filters.js` und `functions/index.js`. Am 17.10.2026:
+   36 Bestandszeilen umgestellt (Hollenmarsch, Ultra Walk, Ultramarsch
+   Leipzig, Karwendelmarsch, Charity Walks, Speed Hiking …), 75 neue
+   Zeilen aus den beiden Veranstalterquellen. Tests:
+   `test_marsch_quellen` und die Marsch-Prüfungen bei `test_kategorie`.
 
 ### Die wichtigste Lektion
 

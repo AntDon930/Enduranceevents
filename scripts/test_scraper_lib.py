@@ -125,7 +125,26 @@ def test_kategorie() -> None:
     from scraper_lib import ART2_KEYWORDS_LAUFEN
     check("kein 'Berg' mehr in der Stichwortliste",
           sorted({k for _, k in ART2_KEYWORDS_LAUFEN}),
-          ["Backyard Ultra", "Bahn", "Hindernis", "Straße", "Trail"])
+          ["Backyard Ultra", "Bahn", "Hindernis", "Marsch", "Straße", "Trail"])
+    # Märsche (17.10.2026): eigene Kategorie, nur ohne Laufwort im Namen.
+    from scraper_lib import ist_marsch_name, ist_walking
+    check("Marsch: Mammutmarsch, Megamarsch, Ultra Walk, Charity Walk, Wandertag, Hollenmarsch",
+          [guess_art2(n, CONFIG) for n in ("Mammutmarsch München 42 km", "Megamarsch Hannover",
+                                            "Ultra Walk 100 km", "Ahmadiyya Charity Walk Berlin",
+                                            "40. Schaumburger Wandertag", "Bödefelder Hollenmarsch",
+                                            "Karwendelmarsch Gebirge")],
+          ["Marsch"] * 7)
+    check("kein Marsch: Lauf mit Walking, Marschland, skywalk, Trailruns",
+          [guess_art2(n, CONFIG) for n in ("56. Lorsbacher Winterlauf- und Walkingserie",
+                                            "Run & Walk Bern", "Crosslauf Wesermarsch",
+                                            "Elbmarsch-Halbmarathon", "skywalk-Lauf",
+                                            "Ebbser Koasamarsch Trailruns")],
+          ["Straße", "Straße", "Trail", "Straße", "Straße", "Trail"])
+    check("Marsch: alle Strecken bleiben, Walking-Beilage eines Laufs fliegt",
+          [ist_walking("Laufen", "50 km Wanderung", "Megamarsch Hannover"),
+           bool(ist_walking("Laufen", "5 km Walking", "35. Langenberger Volkslauf mit Walking")),
+           ist_marsch_name("Winterlauf- und Walkingserie")],
+          [None, True, False])
     check("Stadtlauf -> Straße", guess_art2("40. Wolfenbütteler Stadtlauf", CONFIG), "Straße")
     check("Hindernislauf", guess_art2("Spartan Race Hindernislauf", CONFIG), "Hindernis")
 
@@ -3024,7 +3043,7 @@ def test_charity_merkmal() -> None:
     check("Stadtlauf bleibt ohne Merkmal", rows[2].get("charity"), None)
     refresh_art2(rows)
     check("refresh_art2 holt die Kategorie aus dem Label zurück", rows[0].get("art2"), "Trail")
-    check("Charity Walk ohne Gelände-Stichwort wird Straße", rows[3].get("art2"), "Straße")
+    check("Charity Walk ist ein Marsch (Kategorie), das Herz bleibt das Merkmal", rows[3].get("art2"), "Marsch")
     vorher = [dict(r) for r in rows]
     fix_charity(rows); refresh_art2(rows)
     check("fix_charity ist idempotent", rows, vorher)
@@ -3616,10 +3635,10 @@ def test_datasport() -> None:
     assert zeilen == [
         ("Fahrrad", "Straße", 40.0, None, "Rennvelo-Rundfahrt 40 km", "2026-10-25"),
         ("Laufen", "Straße", 15.0, None, "Classic Run 15 km", "2026-10-25"),
-        ("Laufen", "Straße", 10.0, None, "Classic Walking/Nordic Walking 10 km", "2026-10-25"),
+        ("Laufen", "Marsch", 10.0, None, "Classic Walking/Nordic Walking 10 km", "2026-10-25"),
         ("Triathlon", "Straße", 22.9, None,
          "Short Distance 22.9 km (0.5 km Schwimmen / 17 km Rad / 5.4 km Laufen)", "2026-10-25"),
-        ("Laufen", "Straße", 12.0, None, "12 km Nordic Walking und Walking", "2026-10-25"),
+        ("Laufen", "Marsch", 12.0, None, "12 km Nordic Walking und Walking", "2026-10-25"),
         ("Laufen", "Straße", None, 6.0, "6 Stunden Lauf", "2026-10-25"),
         ("Laufen", "Trail", 12.0, None, "Bergtrail 12 km", "2026-10-24"),
         ("Fahrrad", "Mountainbike", 30.0, None, "Jedermann 30 km", "2026-10-25"),
@@ -3919,6 +3938,53 @@ def test_kleine_radquellen() -> None:
        ev and ev.laenge_km is None and ev.standort == "Schleswig", f"{ev} {grund}")
 
 
+def test_marsch_quellen() -> None:
+    """Mammutmarsch und Megamarsch (17.10.2026): Laufen / Marsch, je
+    Distanz eine Zeile, Ort über die PLZ, nur DE/AT/CH."""
+    print("\nMammutmarsch / Megamarsch:")
+    import json as _j
+    import mammutmarsch_scraper as mm
+    import megamarsch_scraper as mg
+    termin = {"name": "Mammutmarsch Ruhrgebiet - 30/42/55 KM", "slug": "ruhrgebiet", "date": "2027-04-24T00:00:00.000Z",
+              "address": "Startorte: 30 KM: Innenhafen Duisburg, Johannes-Corputius-Platz 1, 47051 Duisburg",
+              "city": "Ruhr", "eventCountry": "DE", "status": "ACTIVE", "effectiveStatus": "ACTIVE",
+              "distances": [30, 42, 55]}
+    html = ('<script>self.__next_f.push([1,' + _j.dumps('x"events":' + _j.dumps([termin, dict(termin, eventCountry="ES")]))
+            + '])</script>')
+    termine = mm.termine_aus_html(html)
+    check("mammutmarsch: Terminliste aus den Flight-Daten", len(termine), 2)
+    evs, _ = mm.events_aus_termin(termine[0])
+    check("mammutmarsch: je Distanz eine Zeile, Ort aus der PLZ, Marsch",
+          [(e.name, e.standort, e.laenge_km, e.art1, e.art2, e.veranstalter_url) for e in evs][:1],
+          [("Mammutmarsch Ruhrgebiet", "Duisburg", 30.0, "Laufen", "Marsch", "https://mammutmarsch.de/events/ruhrgebiet")])
+    check("mammutmarsch: Spanien fällt, Startort offen -> Stadt",
+          [mm.events_aus_termin(termine[1])[1],
+           mm.events_aus_termin(dict(termin, address="Start/Ziel: wird noch bekannt gegeben", city="Wien",
+                                     eventCountry="AT"))[0][0].standort],
+          ["Land ES", "Wien"])
+    check("mammutmarsch: Name ohne Strecken", mm.name_ohne_strecken("Mammutmarsch Berlin - 30/42/55 KM"),
+          "Mammutmarsch Berlin")
+    uebersicht = ('<div>\nHANNOVER\n50KM // 12H\n08.05.2027\nWESERBERGLAND bei Nacht\n50KM // 12H\n12.06.2027\n'
+                  'DRESDEN\n25KM // 6H\n06.03.2027\n</div><a href="https://www.megamarsch.de/hannover">x</a>'
+                  '<a href="https://www.megamarsch.de/weserbergland-bei-nacht">x</a>'
+                  '<a href="https://www.megamarsch.de/dresden-25-km">x</a><a href="https://www.megamarsch.de/dresden">x</a>')
+    t = mg.termine(uebersicht)
+    seiten = mg.eventseiten(uebersicht)
+    check("megamarsch: Termine und Eventseiten",
+          [(x["ort"], x["km"], x["datum"], mg.seite_fuer(x["ort"], x["km"], seiten)) for x in t],
+          [("HANNOVER", 50, "2027-05-08", "hannover"),
+           ("WESERBERGLAND bei Nacht", 50, "2027-06-12", "weserbergland-bei-nacht"),
+           ("DRESDEN", 25, "2027-03-06", "dresden-25-km")])
+    check("megamarsch: Startort über PLZ, Gemeinde aus der Anlage, offen -> Stadt",
+          [mg.startort("<p>ORT</p><p>STARTORT:</p><p>Messeparkplatz,</p><p>30880 Laatzen</p><p>ZIELORT:</p>")[0],
+           mg.startort("<p>STARTORT:</p><p>Campingbeach Annenheim Seeuferstraße 109</p>"
+                       "<p>9520 Treffen am Ossiacher See Österreich</p><p>ZIELORT:</p>")[::3],
+           mg.startort("<p>STARTORT:</p><p>Wird noch bekannt gegeben</p><p>ZIELORT:</p>", "Luzern")[::3],
+           mg.startort("<p>STARTORT:</p><p>Calle 1, 07001 Palma</p><p>ZIELORT:</p>", "Mallorca")],
+          ["Laatzen", ("Annenheim", "Österreich"), ("Luzern", "Schweiz"), None])
+    check("megamarsch: Anzeigename", mg.anzeigename("WESERBERGLAND bei Nacht"), "Weserbergland bei Nacht")
+
+
 def test_dealgrid() -> None:
     """Der Scraper für den Gravel-Kalender von dealgrid.de (08.10.2026):
     JSON-LD plus Listenzeile, Strecken aus der Meta-Zeile (Preise,
@@ -4013,7 +4079,12 @@ def test_kilometerliebe() -> None:
     check("kilometerliebe: Triathlon je Format eine Zeile", [(x.art1, x.wettbewerb, x.art2) for x in evs],
           [("Triathlon", "Olympisch", "Straße"), ("Triathlon", "Mitteldistanz", "Straße")])
     e4 = dict(e, name="Mammutmarsch Hamburg", kategorie="Wandern")
-    check("kilometerliebe: Wandern fällt weg", kl.events_aus_seite(e4, "u", kl.CONFIG), ([], "Wandern"))
+    check("kilometerliebe: Mammutmarsch/Megamarsch kommen aus der eigenen Quelle",
+          kl.events_aus_seite(e4, "u", kl.CONFIG), ([], "Wandern (eigene Quelle)"))
+    evs, _ = kl.events_aus_seite(dict(e, name="Rennsteig Wandermarathon", kategorie="Wandern",
+                                      distanzen="42 km"), "u", kl.CONFIG)
+    check("kilometerliebe: andere Wander-Events als Laufen/Marsch",
+          [(x.art1, x.art2, x.laenge_km) for x in evs], [("Laufen", "Marsch", 42.0)])
     e5 = dict(e, status_text="Abgesagt")
     check("kilometerliebe: abgesagt fällt weg", kl.events_aus_seite(e5, "u", kl.CONFIG)[1], "abgesagt")
     check("kilometerliebe: Latin-1-Mojibake repariert", kl._utf8("KÃ¶ln Marathon"), "Köln Marathon")
@@ -5307,7 +5378,7 @@ def main() -> int:
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,
-                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
+                 test_cyclingaustria, test_swimsports, test_fsieben, test_datasport, test_kleine_radquellen, test_kilometerliebe, test_dealgrid, test_marsch_quellen, test_lvpfalz_lck, test_siebter_weg, test_gedaechtnis, test_serien,
                  test_kalender_staging,
                  test_mehrsport_teilstrecken,
                  test_manuelle_events,

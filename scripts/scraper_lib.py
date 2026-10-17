@@ -244,7 +244,36 @@ def ist_charity(text: str) -> bool:
     """
     return bool(CHARITY_KEYWORD.search(text or ""))
 
+# Märsche und Extremwanderungen ("Mammutmarsch", "Megamarsch",
+# "Hollenmarsch", "Ultra Walk", "Charity Walk", "Wandertag") - seit dem
+# 17.10.2026 eine eigene Kategorie unter Laufen (vom Nutzer: „Es muss
+# schon irgendwo gekennzeichnet sein, dass es ein Marsch ist … die
+# Unterkategorie ‚Marsch‘ oder ‚Walking‘ auf Englisch unter Laufen …
+# Bitte alle aufnehmen"). Entschieden wird am NAMEN, und nur wenn er
+# kein Laufwort trägt: "Winterlauf- und Walkingserie", "Run & Walk",
+# "Koasamarsch Trailruns" sind Läufe mit Walking daneben. Das "marsch"
+# der norddeutschen Marschen (Elbmarsch, Wesermarsch, Wilstermarsch,
+# Marschacht) ist kein Marsch; "skywalk" auch nicht (\bwalk).
+MARSCH_WORT = re.compile(
+    r"(?<!elb)(?<!weser)(?<!wilster)(?<!kremper )marsch(?!all|acht)|"
+    r"\bwalk(?:ing)?\b|wander|\bhike\b|\bhiking\b", re.I)
+# "Hobby" ist die Hobbylauf-Klasse ("5,5 km Hobby, U18, Walking/Wandern").
+LAUF_WORT_IM_NAMEN = re.compile(r"lauf|läuf|\brun\b|running|trail|jogg|hobby", re.I)
+
+
+def ist_marsch_name(name: str | None) -> bool:
+    """Nennt der Veranstaltungsname einen Marsch / eine Wanderung - und
+    keinen Lauf daneben? (Kategorie "Marsch", Ausnahme in ist_walking.)"""
+    return bool(name and MARSCH_WORT.search(name) and not LAUF_WORT_IM_NAMEN.search(name))
+
+
 ART2_KEYWORDS_LAUFEN: list[tuple[re.Pattern, str]] = [
+    # "Marsch" ganz vorn: das Format zählt vor dem Gelände (ein
+    # Karwendelmarsch durchs Gebirge bleibt ein Marsch). Dieselbe
+    # Bedingung wie ist_marsch_name(), als ein Muster über den Text: kein
+    # Laufwort, dann ein Marschwort.
+    (re.compile(r"^(?!.*(?:" + LAUF_WORT_IM_NAMEN.pattern + r")).*(?:" + MARSCH_WORT.pattern + r")",
+                re.I | re.S), "Marsch"),
     # Hindernisläufe (OCR). Zwei Wege, weil die Quellen die Gattung
     # selten beim Namen nennen - vom Nutzer am 21.09.2026 an der "Xletix
     # Challenge - Berlin" gemeldet ("ist ein Hindernis lauf und kein Lauf
@@ -2890,6 +2919,11 @@ def ist_walking(art1: str | None, wettbewerb: str | None,
     sonst None. Nur für Laufen; entschieden wird am LABEL - der Name
     dient nur dazu, seine Wiederholung vorn im Label zu überlesen."""
     if art1 != "Laufen":
+        return None
+    # Ist die ganze Veranstaltung ein Marsch (Mammutmarsch, Ultra Walk),
+    # ist jede ihrer Strecken eine Marschstrecke - Kategorie "Marsch",
+    # nicht die Walking-Beilage eines Laufs (17.10.2026).
+    if ist_marsch_name(name):
         return None
     wb = (wettbewerb or "").strip()
     if not wb or not WALKING_LABEL.search(wb):

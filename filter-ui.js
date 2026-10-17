@@ -164,7 +164,7 @@
     // wollte die echte Kategorie zurück. Im Panel bleibt es als
     // Filterwert stehen, weil das Suchen danach sein ursprünglicher
     // Wunsch war; EF.matchesKategorie() löst den Sonderfall auf.
-    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Charity'],
+    'Laufen': ['Straße', 'Trail', 'Bahn', 'Hindernis', 'Backyard Ultra', 'Marsch', 'Charity'],
     'Schwimmen': ['Freiwasser', 'Becken', 'Charity'],
     'Fahrrad': ['Straße', 'Zeitfahren', 'Mountainbike', 'Gravel', 'Bahn', 'Cyclecross', 'Charity'],
     // Triathlon ist die Mehrsport-Schublade: Duathlon (Laufen-Rad-Laufen),

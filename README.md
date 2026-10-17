@@ -1294,6 +1294,27 @@ Docstring am Kopf jedes Skripts.
   Deutschland, ausschließlich Marathons mit offizieller Distanz von
   42,195 km laut Seitenhinweis).
 
+### Märsche und Extremwanderungen (17.10.2026)
+
+Vom Nutzer gewünscht („Ja, alle mammutmarsch aufnehmen. Aber es muss
+schon irgendwo gekennzeichnet sein, das es ein marsch ist … Bitte alle
+aufnehmen"): Märsche stehen unter **Laufen** mit der Kategorie
+**„Marsch“** (englisch „Walking“) – man kann sie auch laufen, aber man
+sieht ihnen an, dass sie ein Marsch sind. Regel und Grenzen: CLAUDE.md,
+Datenregel 25.
+
+| Quelle | Rechtslage (17.10.2026) | Ergebnis |
+|---|---|---|
+| `mammutmarsch.de` (Mammutmarsch, Nachtmammut) | robots.txt `Allow: /` (gesperrt nur Konto/Warenkorb), Impressum und Teilnahmebedingungen ohne Verbot (nur der übliche Urheberrechtshinweis) | **`mammutmarsch_scraper.py`** – EINE Seite, die Termine stehen als JSON in den Next.js-Flight-Daten (mit `distances`); 30 Termine, davon 22 in DE/AT (Spanien, Dänemark, Schweden fallen); Ort über die PLZ der Startadresse |
+| `megamarsch.de` (25/6, 50/12, 100/24) | robots.txt (Wix) frei, Impressum/AGB/Teilnahmebedingungen ohne Verbot | **`megamarsch_scraper.py`** – Übersicht `/megamärsche` (Ort, Strecke, Datum) plus je Eventseite der „STARTORT“; 36 Termine, 34 in DE/AT/CH (Mallorca fällt) |
+| `kilometerliebe.de`, Kategorie „Wandern“ | wie bisher erlaubt | seit dem 17.10.2026 als Laufen/Marsch übernommen – außer Mammut- und Megamarsch (die kommen vom Veranstalter, mit Startort) |
+
+Was vorher schon in der Liste stand und jetzt „Marsch“ heißt: Bödefelder
+Hollenmarsch, Ultra Walk, Ultramarsch Leipzig, Karwendelmarsch,
+TeutoMarsch, Walk the Lake, Müglitztal-Wanderung, Schaumburger
+Wandertag, die Ahmadiyya Charity Walks und das Speed Hiking des
+Siebengebirgsmarathons.
+
 ### Quellen für den großen Datenlauf (Stand 22.09.2026)
 
 Am 22.09.2026 hat der Nutzer die Liste freigegeben („Bitte alle scrapen!
