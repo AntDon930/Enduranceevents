@@ -4677,8 +4677,16 @@ möglich, alles selber bauen". Ausführlich im README („Instagram").
   Ironman 1978 steht deshalb keine Siegerzeit).
 - **Video**: Text nur in x 80–960, y 230–1500 (App-Overlays), Emoji fliegen
   aus dem Videotext (Barlow hat keine), Hintergrund Pexels (Secret
-  `PEXELS_API_KEY` – **am 16.10.2026 noch nicht gesetzt**, dann nur Fotos
-  aus `bilder/` mit Zoom, Namensnennung in der Caption). Punch-Zoom bei
+  `PEXELS_API_KEY` – **am 16.10.2026 noch nicht gesetzt**, dann Fotos
+  mit Zoom, Namensnennung in Caption und Bild). **Seit dem 17.10.2026 ein Pool**
+  (vom Nutzer: „immer das gleiche Hintergrund Bild“ – je Sportart gab es EIN
+  Foto aus `bilder/`): `marketing/instagram/hintergruende/` (14 Commons-Fotos,
+  CC BY/BY-SA, Gruppen von hinten/oben/im Wasser, Quellen in
+  `hintergruende.json`) plus das Startseiten-Foto; `foto_wahl()` läuft eine je
+  Sportart fest gemischte Reihenfolge mit dem Tag ab (nie zweimal
+  hintereinander), `foto_frames()` variiert Ausschnitt, Spiegelung, Zoom-
+  und Schwenkrichtung; Stories tragen den Nachweis jetzt auch im Bild. Neue
+  Fotos: Datei + Eintrag in `hintergruende.json`, Bildregel des Nutzers. Punch-Zoom bei
   jedem Schnitt. **Ton: eigener Beat** (`insta_musik.py`, reines Python,
   `array`+`wave`, ~0,6 s für 15 s; Tempo/Tonart je Datum), die Folien
   liegen auf ganzen Schlägen (`zeitplan(…, schlag=)`); ein lizenziertes

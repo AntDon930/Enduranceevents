@@ -62,6 +62,7 @@ WURZEL = Path(__file__).resolve().parent.parent
 MARKETING = WURZEL / "marketing" / "instagram"
 FONTS = MARKETING / "fonts"
 MUSIK = MARKETING / "musik"
+HINTERGRUENDE = MARKETING / "hintergruende"      # lizenzierte Fotos, Quellen in hintergruende.json
 CACHE = MARKETING / ".cache"
 
 B, H = 1080, 1920
@@ -490,25 +491,70 @@ def hat_ton(pfad: Path) -> bool:
     return bool(out.stdout.strip())
 
 
+def foto_pool(sport: str | None) -> list[tuple[Path, str | None]]:
+    """Alle Fotos, die für eine Sportart in Frage kommen: die Sammlung in
+    marketing/instagram/hintergruende/ (hintergruende.json, je Bild Sportart,
+    Urheber, Lizenz, Quelle) plus das Foto der Startseite. Ohne Sportart
+    (Formate über alle Sportarten) die ganze Sammlung."""
+    pool: list[tuple[Path, str | None]] = []
+    try:
+        liste = json.loads((HINTERGRUENDE / "hintergruende.json").read_text(encoding="utf-8"))["fotos"]
+    except (OSError, ValueError, KeyError):
+        liste = []
+    for f in liste:
+        if sport is None or f.get("sport") == sport:
+            pool.append((HINTERGRUENDE / f["datei"], f"{f['urheber']}, {f['lizenz']}, Wikimedia Commons"))
+    datei, credit = FOTOS.get(sport) or FOTOS[None]
+    pool.append((WURZEL / "bilder" / datei, credit))
+    return [(p, c) for p, c in pool if p.exists()]
+
+
+def foto_wahl(sport: str | None, seed: int) -> tuple[Path, str | None]:
+    """Ein Foto aus dem Pool. Die Reihenfolge ist je Sportart einmal fest
+    gemischt, der Seed (Tag als Ordinalzahl) läuft sie ab: Zwei aufeinander
+    folgende Tage bekommen nie dasselbe Bild, und erst nach einem ganzen
+    Durchgang kommt eines wieder. Vorher war es je Sportart immer DASSELBE
+    Foto (vom Nutzer am 17.10.2026 bemerkt) - ohne Pexels-Schlüssel die
+    Regel, nicht die Ausnahme."""
+    pool = sorted(foto_pool(sport), key=lambda x: x[0].name)
+    random.Random(f"pool-{sport}").shuffle(pool)
+    return pool[seed % len(pool)]
+
+
 def foto_frames(sport: str | None, dauer: float, seed: int):
-    """Langsamer Zoom (Ken Burns) über ein Foto der Startseite."""
-    datei, _ = FOTOS.get(sport) or FOTOS[None]
-    bild = Image.open(WURZEL / "bilder" / datei).convert("RGB")
-    # Auf 9:16 zuschneiden (Mitte), dann groß genug für den Zoom.
+    """Langsamer Zoom (Ken Burns) über ein Foto aus dem Pool (foto_wahl).
+    Ausschnitt, Richtung und Zoom wechseln mit dem Seed, damit auch
+    dasselbe Foto nicht zweimal gleich aussieht."""
+    pfad, _ = foto_wahl(sport, seed)
+    bild = Image.open(pfad).convert("RGB")
+    rng = random.Random(seed * 7919 + 1)
+    # Auf 9:16 zuschneiden - die Lage des Ausschnitts wechselt -, dann
+    # groß genug für den Zoom.
     w, h = bild.size
-    ziel_w = int(h * 9 / 16)
-    links = (w - ziel_w) // 2
-    bild = bild.crop((links, 0, links + ziel_w, h)).resize((1188, 2112), Image.LANCZOS)
+    if w / h > 9 / 16:
+        ziel_w = int(h * 9 / 16)
+        links = int((w - ziel_w) * rng.uniform(0.2, 0.8))
+        bild = bild.crop((links, 0, links + ziel_w, h))
+    else:
+        ziel_h = int(w * 16 / 9)
+        oben = int((h - ziel_h) * rng.uniform(0.2, 0.8))
+        bild = bild.crop((0, oben, w, oben + ziel_h))
+    bild = bild.resize((1188, 2112), Image.LANCZOS)
+    if rng.random() < 0.5:
+        bild = bild.transpose(Image.FLIP_LEFT_RIGHT)
     bild = bild.filter(ImageFilter.GaussianBlur(1.2))
-    rng = random.Random(seed)
     richtung = rng.choice([-1, 1])
+    hinein = rng.random() < 0.65
+    senkrecht = rng.random() < 0.4
     n = int(dauer * FPS)
     for i in range(n):
         p = i / max(1, n - 1)
-        zoom = 1.0 + 0.10 * p
+        zoom = 1.0 + 0.10 * (p if hinein else 1 - p)
         cw, ch = 1188 / zoom, 2112 / zoom
-        cx = 594 + richtung * 40 * p
-        cy = 1056
+        cx = 594 + (0 if senkrecht else richtung * 40 * p)
+        cy = 1056 + (richtung * 70 * p if senkrecht else 0)
+        cx = min(max(cx, cw / 2), 1188 - cw / 2)
+        cy = min(max(cy, ch / 2), 2112 - ch / 2)
         box = (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2)
         yield bild.resize((B, H), Image.BILINEAR, box=box)
 
@@ -762,10 +808,10 @@ def rendere(beitrag: dict, ausgabe: Path, seed: int | None = None) -> dict:
             nachweis = pex[1]
             hintergrund = {"art": "pexels", "datei": pex[0].name}
         else:
-            datei, credit = FOTOS.get(sport) or FOTOS[None]
+            pfad, credit = foto_wahl(sport, seed)
             frames = foto_frames(sport, gesamt, seed)
             nachweis = f"Foto: {credit}" if credit else None
-            hintergrund = {"art": "foto", "datei": datei}
+            hintergrund = {"art": "foto", "datei": pfad.name}
 
     rahmen = rahmen_ebene()
     credit = credit_ebene(nachweis)
@@ -846,8 +892,12 @@ def rendere_story(story: dict, ziel: Path, seed: int) -> Path:
     ziel.parent.mkdir(parents=True, exist_ok=True)
     sport = story.get("sport")
     bg = next(foto_frames(sport, 1.0, seed)).convert("RGBA")
-    bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen_ebene(logo_y=250)),
-                                 folie_bild(story["folie"], sport))
+    rahmen = rahmen_ebene(logo_y=250)
+    _, credit = foto_wahl(sport, seed)
+    ebene = credit_ebene(f"Foto: {credit}" if credit else None)
+    if ebene:
+        rahmen = Image.alpha_composite(rahmen, ebene)
+    bild = Image.alpha_composite(Image.alpha_composite(bg, rahmen), folie_bild(story["folie"], sport))
     bild.convert("RGB").save(ziel, quality=90)
     return ziel
 

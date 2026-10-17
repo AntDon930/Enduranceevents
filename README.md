@@ -2512,7 +2512,11 @@ Ansehen ohne Video: `python3 scripts/insta_inhalte.py --tage 7`.
 ein Hochformat-Video von **Pexels** (wenn `PEXELS_API_KEY` gesetzt ist –
 kostenloser Schlüssel auf pexels.com/api, als GitHub-Secret hinterlegen;
 Lizenz erlaubt kommerzielle Nutzung) – **ohne Schlüssel nur ein
-langsamer Zoom über die Fotos der Startseite, also kaum Bewegung**. Bei
+langsamer Zoom über ein Foto, also kaum Bewegung**. Die Fotos kommen seit
+dem 17.10.2026 aus einem Pool (`marketing/instagram/hintergruende/`, 14
+Commons-Fotos plus die der Startseite, Quellen und Lizenzen in
+`hintergruende.json`): je Sportart vier bis fünf, Tag für Tag reihum, nie
+zweimal hintereinander, Ausschnitt/Spiegelung/Zoom wechseln mit dem Tag. Bei
 jedem Schnitt zoomt der Hintergrund kurz an („Punch"). Darauf
 Navy-Verlauf, Marke, Folien in Barlow, Fortschrittsbalken in
 Signal-Orange; Text nur in der sicheren Zone, die die Instagram-App nicht

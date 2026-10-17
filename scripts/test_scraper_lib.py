@@ -4945,6 +4945,22 @@ def test_instagram() -> None:
         st_pfad = V.rendere_story(woche[0]["stories"][0], Path(tmp) / "s.jpg", 1)
         from PIL import Image as _Img
         check("Story: JPEG 1080 × 1920", _Img.open(st_pfad).size, (1080, 1920))
+    # Hintergründe wechseln (vom Nutzer am 17.10.2026: „immer das gleiche
+    # Hintergrundbild"): mehrere Fotos je Sportart, nie zweimal hintereinander.
+    hg = _json.loads((wurzel / "marketing" / "instagram" / "hintergruende" / "hintergruende.json")
+                     .read_text(encoding="utf-8"))["fotos"]
+    for f in hg:
+        try:
+            V.pruefe_lizenz({"id": f["datei"], "lizenz": f["lizenz"], "urheber": f["urheber"]})
+            ok = (wurzel / "marketing" / "instagram" / "hintergruende" / f["datei"]).exists() and \
+                f["quelle"].startswith("https://commons.wikimedia.org/")
+        except V.LizenzFehler:
+            ok = False
+        check(f"Hintergrund {f['datei']}: Datei, freie Lizenz, Commons-Quelle", ok, True)
+    for sport in ("Laufen", "Fahrrad", "Schwimmen", "Triathlon", None):
+        tage = [V.foto_wahl(sport, 740000 + i)[0] for i in range(10)]
+        check(f"Hintergrund {sport}: mind. 4 Fotos, nie zweimal hintereinander",
+              [len(set(tage)) >= 4, all(a_ != b_ for a_, b_ in zip(tage, tage[1:]))], [True, True])
 
     import insta_veranstalter as IV
     html = ('<a href="https://www.instagram.com/isartal.ultra/">IG</a> <a href="https://instagram.com/p/abc123/">x</a>'
