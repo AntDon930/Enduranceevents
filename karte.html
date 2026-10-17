@@ -113,7 +113,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Liste und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=daeec5bd">
+<link rel="stylesheet" href="site.css?v=74c3ab8a">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt events.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -365,25 +365,29 @@
   @media (max-width: 599px) {
     .map-details { top: 60px; max-height: calc(100% - 70px); }
   }
-  /* Handy und Tablet hochkant: die Legende OBEN RECHTS auf der Karte -
-     unten lag sie unter der Werkzeugleiste von Safari und außer Sicht
-     (vom Nutzer am 14.10.2026: „da sieht man sie nicht. Eher bei der
-     Karte lieber weiter oben"). Zwei Zeilen: Zahl, darunter die vier
-     Sportarten; die Zoom-Knöpfe und „Mein Standort" bleiben links. */
+  /* Die Legende als schmale Zeile unter den Knöpfen - nur auf dem Handy
+     (#legend-zeile in der Filterleiste); am Rechner steht sie unten links
+     auf der Karte. */
+  .legend-zeile { display: none; }
+  /* Handy und Tablet hochkant (vom Nutzer am 17.10.2026: „sehr
+     unübersichtlich mit dem Handy … die Anzahl der Events entfernen …
+     Mein Standort rechts neben dem Filter Feld und links neben dem Abo
+     Feld … die Legende relativ klein in einer Zeile unter die 3 Boxen"):
+     NICHTS liegt mehr über der Karte außer den Zoom-Knöpfen. „Mein
+     Standort" ist der mittlere Knopf der Leiste (#standort-bar-btn), die
+     Legende eine Zeile darunter, ohne Trefferzahl - die Bündel tragen
+     ihre Zahlen selbst. Vorher (14.10.2026) stand die Legende oben rechts
+     auf der Karte und „Mein Standort" unter den Zoom-Knöpfen; die Karte
+     ließ sich unter beide schieben. */
   @media (max-width: 900px) {
-    .map-legend {
-      top: 12px; right: 12px; bottom: auto; left: auto;
-      flex-direction: column; align-items: flex-start;
-      gap: 4px; padding: 8px 12px;
-      max-width: 230px;
-      font-size: 0.78rem;
+    .map-legend, .standort-control { display: none !important; }
+    .legend-zeile {
+      display: flex; flex: 1 1 100%; justify-content: center; flex-wrap: wrap;
+      gap: 2px 14px; margin-top: -2px;
+      color: var(--text-muted); font-size: 0.75rem; line-height: 1.3;
     }
-    .map-legend .result-count { font-size: 0.95rem; }
-    .map-legend .legend-sep { display: none; }
-    /* Die vier Sportarten als 2 x 2, schmal - die Legende liegt über der
-       Karte, und der Ausschnitt lässt ihr oben Platz (fitBounds mit
-       paddingTopLeft, siehe renderMarkers). */
-    .map-legend .legend-items { display: grid; grid-template-columns: auto auto; gap: 2px 12px; }
+    .legend-zeile .legend-item { gap: 5px; }
+    .legend-zeile .legend-dot { width: 8px; height: 8px; }
   }
   .map-details .detail-panel .detail-date { font-size: 1.3rem; }
   .map-details .detail-panel h2 { font-size: 1.15rem; }
@@ -436,6 +440,17 @@
     <span class="fsb-label">Filter</span>
     <span class="fsb-badge" hidden></span>
   </button>
+  <!-- Bis 900 px: „Mein Standort" als mittlerer Knopf (Filter – Standort –
+       E-Mail-Abo, vom Nutzer am 17.10.2026 gewünscht); am Rechner steht er
+       unter den Zoom-Knöpfen (StandortControl). Dieselbe Klasse wie
+       „Filter", damit er dort unsichtbar ist (site.css). -->
+  <button type="button" class="filter-sheet-btn standort-bar-btn" id="standort-bar-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+         stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+    </svg>
+    <span class="fsb-label" id="standort-bar-text">Standort</span>
+  </button>
   <div class="filter-sheet" id="filter-sheet">
   <div class="filter-sheet-kopf">
     <span class="filter-sheet-titel" id="filter-sheet-titel">Filter</span>
@@ -465,6 +480,9 @@
     </svg>
     <span id="abo-btn-text">E-Mail-Abo</span>
   </a>
+  <!-- Die Legende auf dem Handy: die vier Sportfarben in einer Zeile unter
+       den Knöpfen (setLanguage); bei null Treffern der Hinweis. -->
+  <div class="legend-zeile" id="legend-zeile"></div>
 </div>
 <div class="filter-sheet-scrim" id="filter-sheet-scrim" hidden></div>
 
@@ -553,6 +571,7 @@
       list: 'Liste',
       abo: 'E-Mail-Abo',
       standort_btn: 'Mein Standort',
+      standort_kurz: 'Standort',
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende',
       nav_events: 'Events',
       hint: (n) => `${n} Events`,
@@ -576,6 +595,7 @@
       list: 'List',
       abo: 'Email alerts',
       standort_btn: 'My location',
+      standort_kurz: 'Location',
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       nav_events: 'Events',
       hint: (n) => `${n} events`,
@@ -626,6 +646,8 @@
   const toolbarEl = document.getElementById('toolbar');
   const aboBtnEl = document.getElementById('abo-btn');
   const legendSportsEl = document.getElementById('legend-sports');
+  const legendZeileEl = document.getElementById('legend-zeile');
+  const standortBarBtn = document.getElementById('standort-bar-btn');
 
   // Der Filterzustand selbst (Land, Sportart, Umkreis …) - dieselbe
   // Struktur wie in der Liste, gelesen und geschrieben über dieselbe
@@ -1074,6 +1096,10 @@
     }
   });
   new StandortControl().addTo(map);
+  // Derselbe Weg vom Knopf in der Leiste (Handy). stopPropagation: Der
+  // Klick liefe sonst bis zum Dokument, und filter-ui.js schlösse das
+  // eben geöffnete Panel als „Klick außerhalb".
+  standortBarBtn.addEventListener('click', (ev) => { ev.stopPropagation(); oeffneStandort(); });
   function oeffneStandort() {
     const pille = filterButtonsEl.querySelector('.col-filter-btn[data-col="standort"]');
     const spalte = EFU.COLUMNS.find(c => c.key === 'standort');
@@ -1086,6 +1112,23 @@
     if (geo) geo.click();
   }
 
+  // Die vier Sportfarben (Klassen aus event-detail.js) - unten links auf
+  // der Karte und, auf dem Handy, als Zeile unter den Knöpfen.
+  function legendeHtml() {
+    return EF.SPORTARTEN.map(art =>
+      `<span class="legend-item"><span class="legend-dot ${EED.sportClass(art)}" aria-hidden="true"></span>${escapeHtml(tv('art1', art))}</span>`
+    ).join('');
+  }
+  // Ohne Trefferzahl (die Bündel tragen ihre Zahlen) - nur bei null
+  // Treffern sagt die Zeile, dass nichts passt; sonst wüsste man auf dem
+  // Handy nicht, warum die Karte leer ist.
+  let kartenLeer = false;
+  function zeichneLegendenZeile() {
+    legendZeileEl.innerHTML = kartenLeer
+      ? `<span class="legend-leer">${escapeHtml(t('hint_empty'))}</span>`
+      : legendeHtml();
+  }
+
   function setLanguage(lang) {
     currentLang = lang;
     try { localStorage.setItem('endurance-lang', lang); } catch (e) { /* ignorieren */ }
@@ -1095,6 +1138,8 @@
     listTextEl.textContent = t('list');
     document.getElementById('abo-btn-text').textContent = t('abo');
     if (standortBtnText) standortBtnText.textContent = t('standort_btn');
+    document.getElementById('standort-bar-text').textContent = t('standort_kurz');
+    standortBarBtn.setAttribute('aria-label', t('standort_btn'));
     navEventsEl.textContent = t('nav_events');
     document.getElementById('nav-map').textContent = t('title');
     resetBtnEl.textContent = t('reset');
@@ -1105,9 +1150,8 @@
     attributionText = t('attribution');
     attributionControl.addAttribution(attributionText);
     // Legende: eine Farbe je Sportart (Klassen aus event-detail.js).
-    legendSportsEl.innerHTML = ['Laufen', 'Fahrrad', 'Schwimmen', 'Triathlon'].map(art =>
-      `<span class="legend-item"><span class="legend-dot ${EED.sportClass(art)}" aria-hidden="true"></span>${escapeHtml(tv('art1', art))}</span>`
-    ).join('');
+    legendSportsEl.innerHTML = legendeHtml();
+    zeichneLegendenZeile();
     baueReferenzOrte();
     const fussnote = document.getElementById('datum-fussnote');
     fussnote.textContent = t('datum_fussnote');
@@ -1343,6 +1387,7 @@
     // Der Abo-Dialog lebt in der Liste: dorthin, mit diesen Filtern,
     // und ?abos=1 öffnet ihn (events.html liest den Parameter).
     aboBtnEl.href = linkTo('events.html', { abos: '1' });
+    standortBarBtn.classList.toggle('has-filter', !!state.origin);
     writeUrlState();
     renderMarkers(!opts || opts.refit !== false);
     blendeReferenzAus();
@@ -1392,6 +1437,10 @@
     hintEl.textContent = veranstaltungen === 0
       ? t('hint_empty')
       : t('hint', EF.formatInt(veranstaltungen, currentLang));
+    if (kartenLeer !== (veranstaltungen === 0)) {
+      kartenLeer = veranstaltungen === 0;
+      zeichneLegendenZeile();
+    }
     filterSheet.setTexts({ done: t('sheet_anzeigen', EF.formatInt(veranstaltungen, currentLang)) });
 
     const markers = [];
@@ -1489,12 +1538,9 @@
       // standen dann als Briefmarke in der Mitte.
       // Höchstens Zoom 13 (Ortsebene): Bei einem einzelnen Ort zoomte
       // die Karte sonst bis auf die Hausnummer.
-      // Auf dem Handy liegt die Legende oben rechts auf der Karte - der
-      // Ausschnitt lässt ihr oben ~100 px frei, sonst verdeckt sie das
-      // nördlichste Bündel (Hamburg).
-      const handy = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
-      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.04),
-                    { maxZoom: 13, paddingTopLeft: [0, handy ? 100 : 0] });
+      // (Bis zum 17.10.2026 ließ der Ausschnitt auf dem Handy oben 100 px
+      // für die Legende frei - sie steht seitdem unter den Knöpfen.)
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.04), { maxZoom: 13 });
     }
   }
 

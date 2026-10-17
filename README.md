@@ -2297,7 +2297,11 @@ der gesetzten Filter, daneben „Sortieren" (seit dem 14.10.2026: öffnet
 ein Blatt mit einer Zeile je Spalte, ein Tippen sortiert und schließt
 es) und „E-Mail-Abo"; das Blatt trägt die
 Pillen, „Karte" bzw. „Liste", „Filter löschen" und den Knopf „N Events
-anzeigen". Die Legende der Karte steht auf dem Handy oben rechts. Anlass
+anzeigen". Auf der Karte steht in der Leiste „Filter – Standort –
+E-Mail-Abo" und darunter die Legende als schmale Zeile (die vier
+Sportfarben, ohne Trefferzahl) – über der Karte liegt auf dem Handy nur
+noch der Zoom (seit dem 17.10.2026, vom Nutzer: „sehr unübersichtlich mit
+dem Handy"; vorher lagen Legende und „Mein Standort" auf der Karte). Anlass
 war eine Messung auf einem iPhone-Viewport: Die erste Veranstaltung lag
 bei 601 px, also unter dem Bildrand; jetzt beginnt sie bei rund 326 px,
 und die Karte füllt den Bildschirm bis zur Fußzeile. Am Rechner ist das

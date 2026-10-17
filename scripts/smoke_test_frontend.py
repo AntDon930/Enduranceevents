@@ -2130,7 +2130,9 @@ def pruefe_karten_aufbau(seite):
     """Der Aufbau der Karte nach der Vorlage des Nutzers (21.09.2026).
 
     Legende unten links mit der Trefferzahl (#map-hint) und den vier
-    Sportfarben, "Mein Standort" unter den Zoom-Knöpfen, die Werkzeugleiste
+    Sportfarben, "Mein Standort" unter den Zoom-Knöpfen (auf dem Handy seit
+    dem 17.10.2026 beides in der Leiste: „Filter – Standort – E-Mail-Abo",
+    darunter die Legende als Zeile ohne Zahl), die Werkzeugleiste
     nur mit gesetztem Filter, die Landfläche UNTER den Kacheln (sie ist die
     flache Karte, solange die Kacheln ausgeblendet sind), Bündel mit
     Ortsnamen, Orientierungsorte, "E-Mail-Abo" in die Liste - und beim
@@ -2156,11 +2158,23 @@ def pruefe_karten_aufbau(seite):
           legende: !!legende && legende.contains(document.getElementById('map-hint')),
           sportarten: legende ? legende.querySelectorAll('.legend-item').length : 0,
           untenLinks: r ? (r.left - wrap.left < 40 && wrap.bottom - r.bottom < 60) : false,
-          // Handy (14.10.2026): oben rechts - unten lag sie unter der
-          // Werkzeugleiste von Safari.
-          obenRechts: r ? (wrap.right - r.right < 40 && r.top - wrap.top < 60) : false,
           handy: matchMedia('(max-width: 900px)').matches,
           standort: !!document.querySelector('.standort-btn'),
+          // Handy (17.10.2026, vom Nutzer): über der Karte liegt nur noch
+          // der Zoom - die Legende ist eine Zeile unter den drei Knöpfen
+          // „Filter – Standort – E-Mail-Abo", ohne Trefferzahl.
+          handyLeiste: (() => {
+            const box = id => { const e = document.getElementById(id); if (!e) return null;
+              const b = e.getBoundingClientRect(); return { l: b.left, r: b.right, t: b.top, b: b.bottom, h: b.height, sichtbar: b.width > 0 }; };
+            const f = box('filter-sheet-btn'), st = box('standort-bar-btn'), abo = box('abo-btn'), lz = box('legend-zeile');
+            const zeile = document.getElementById('legend-zeile');
+            return { f, st, abo, lz,
+              legendeWeg: !r || r.width === 0,
+              standortAufKarteWeg: !document.querySelector('.standort-control') || document.querySelector('.standort-control').getBoundingClientRect().width === 0,
+              sportarten: zeile ? zeile.querySelectorAll('.legend-item').length : 0,
+              ohneZahl: zeile ? !/\d/.test(zeile.textContent) : false,
+              ueberKarte: lz ? lz.b <= wrap.top + 1 : false };
+          })(),
           werkzeugleiste: !!document.getElementById('toolbar') && document.getElementById('toolbar').hidden,
           land: !!document.querySelector('path.land-pfad'),
           landZ: landPane ? parseInt(getComputedStyle(landPane).zIndex, 10) : null,
@@ -2173,7 +2187,19 @@ def pruefe_karten_aufbau(seite):
     pruefe(stand["legende"] and stand["sportarten"] == 4,
            "Legende mit Trefferzahl und vier Sportarten (%d)" % stand["sportarten"])
     if stand["handy"]:
-        pruefe(stand["obenRechts"], "… sie steht auf dem Handy oben rechts auf der Karte")
+        hl = stand["handyLeiste"]
+        pruefe(hl["legendeWeg"] and hl["standortAufKarteWeg"],
+               "Handy: über der Karte liegen weder Legende noch „Mein Standort“")
+        reihe = all(hl[k] and hl[k]["sichtbar"] for k in ("f", "st", "abo"))
+        pruefe(reihe and abs(hl["f"]["t"] - hl["st"]["t"]) < 2 and abs(hl["st"]["t"] - hl["abo"]["t"]) < 2
+               and hl["f"]["r"] <= hl["st"]["l"] and hl["st"]["r"] <= hl["abo"]["l"],
+               "Handy: „Filter – Standort – E-Mail-Abo“ in einer Zeile")
+        pruefe(bool(hl["lz"]) and hl["lz"]["sichtbar"] and reihe and hl["lz"]["t"] >= hl["f"]["b"]
+               and hl["lz"]["h"] <= 24 and hl["ueberKarte"],
+               "Handy: die Legende ist EINE Zeile unter den Knöpfen, über der Karte (%s px)"
+               % (round(hl["lz"]["h"]) if hl["lz"] else "–"))
+        pruefe(hl["sportarten"] == 4 and hl["ohneZahl"],
+               "Handy: … mit den vier Sportarten und ohne Trefferzahl (%d)" % hl["sportarten"])
     else:
         pruefe(stand["untenLinks"], "… sie steht unten links auf der Karte")
     pruefe(stand["standort"], "„Mein Standort“ steht auf der Karte")
@@ -2187,7 +2213,7 @@ def pruefe_karten_aufbau(seite):
     pruefe("abos=1" in stand["abo"], "„E-Mail-Abo“ führt in die Liste und öffnet dort den Abo-Dialog")
     # "Mein Standort" öffnet das Ort-Panel und drückt dort den
     # Standort-Knopf (ohne Erlaubnis bleibt es beim Status-Text).
-    seite.locator(".standort-btn").click()
+    seite.locator("#standort-bar-btn" if stand["handy"] else ".standort-btn").click()
     seite.wait_for_timeout(700)
     panel = seite.evaluate("""() => { const p = document.querySelector('.filter-panel');
         return { offen: !!p && !p.hidden, geo: !!(p && p.querySelector('.geo-btn')) }; }""")
@@ -2195,7 +2221,7 @@ def pruefe_karten_aufbau(seite):
     # Auf Handybreite hat es dazu das Filter-Blatt geöffnet (die Pille
     # liegt dort) - wieder zu, sonst fängt der Schleier den nächsten Klick.
     schliesse_filterblatt(seite)
-    seite.locator("#map-legend").click()
+    seite.locator("#legend-zeile" if stand["handy"] else "#map-legend").click()
     seite.wait_for_timeout(300)
     # Hineinzoomen: ab Zoom 8 kommen die Kacheln.
     for _ in range(4):

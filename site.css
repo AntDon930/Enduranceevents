@@ -616,9 +616,17 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   .filter-sheet-btn .fsb-badge[hidden] { display: none; }
   /* Drei Knöpfe in einer Zeile: Auf 320 px (iPhone SE der ersten
      Generation) fehlten "E-Mail-Abo" mit 16 px Innenabstand 3 px -
-     gemessen 14.10.2026. */
+     gemessen 14.10.2026. Nachgemessen am 17.10.2026 (Karte mit dem
+     dritten Knopf „Standort"): Auch mit 9 px ragte „E-Mail-Abo" auf 320 px
+     und „Email alerts" auf 360 px (Android) über den Rand - deshalb bis
+     380 px etwas kleiner, bis 340 px ohne Symbole. Gilt für Liste und
+     Karte. */
   @media (max-width: 380px) {
-    .filter-bar > .filter-sheet-btn, .filter-bar > .abo-btn { padding: 0 9px; gap: 6px; }
+    .filter-bar > .filter-sheet-btn, .filter-bar > .abo-btn { padding: 0 7px; gap: 4px; font-size: 0.85rem; }
+  }
+  @media (max-width: 340px) {
+    .filter-bar > .filter-sheet-btn, .filter-bar > .abo-btn { padding: 0 6px; }
+    .filter-bar > .filter-sheet-btn > svg, .filter-bar > .abo-btn > svg { display: none; }
   }
 
   /* Das Blatt: unten angeschlagen, über allem außer den Dialogen (2000)

@@ -119,7 +119,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 283 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 325 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -2808,6 +2808,25 @@ sagt es).
     das Panel, dann das Blatt (der Detail-Escape in `events.html` lässt
     das Blatt in Ruhe). Auf der Karte öffnet „Mein Standort" zuerst das
     Blatt – die Pille liegt dort.
+  - **Karte auf dem Handy: „Filter – Standort – E-Mail-Abo", darunter die
+    Legende als EINE Zeile** (vom Nutzer am 17.10.2026 mit Foto: „sehr
+    unübersichtlich mit dem Handy … die Anzahl der Events entfernen …
+    Mein Standort rechts neben dem Filter Feld und links neben dem Abo
+    Feld … die Legende relativ klein in einer Zeile unter die 3 Boxen").
+    Über der Karte liegt bis 900 px nur noch der Zoom: `.map-legend` und
+    `.standort-control` sind ausgeblendet (die Karte ließ sich unter
+    beide schieben). Der mittlere Knopf `#standort-bar-btn` (Klasse
+    `.filter-sheet-btn`, also am Rechner unsichtbar; gefüllt, sobald ein
+    Ausgangspunkt gesetzt ist) ruft dasselbe `oeffneStandort()` wie der
+    Leaflet-Knopf – mit `stopPropagation`, sonst schlösse der Klick am
+    Dokument das eben geöffnete Panel. `#legend-zeile` (letztes Kind der
+    Filterleiste, `flex: 1 1 100%`) trägt die vier Sportfarben ohne
+    Trefferzahl – die Bündel tragen ihre Zahlen; bei null Treffern steht
+    dort „Kein Event entspricht den Filtern." (`zeichneLegendenZeile`).
+    `#map-hint` bleibt im (versteckten) Kasten, der Rauchtest liest die
+    Zahl weiter. Der Ausschnitt lässt oben keine 100 px mehr für die
+    Legende frei. Am Rechner bleibt alles wie es war (Legende unten links
+    mit Zahl, „Mein Standort" unter den Zoom-Knöpfen).
   - **„Sortieren" ist ein Knopf zwischen „Filter" und „E-Mail-Abo"**
     (vom Nutzer am 14.10.2026 mit Foto: „Filter – Sortieren – Abo"). Bis
     dahin stand über den Kacheln eine waagerecht scrollbare Reihe
@@ -2827,16 +2846,18 @@ sagt es).
     focusSelector: '.sort-option.active' })`, eigener Schleier
     `#sort-sheet-scrim`, die Box-Regeln in `site.css` gelten für
     `.filter-sheet, .sort-sheet`; am Rechner ist `.sort-sheet` samt Knopf
-    `display: none`, dort sortieren die Spaltenköpfe. Unter 380 px
-    bekommen die drei Knöpfe 9 px Innenabstand (auf 320 px fehlten
-    „E-Mail-Abo" sonst 3 px). Die Werkzeugleiste steht in zwei kurzen
+    `display: none`, dort sortieren die Spaltenköpfe. Bis 380 px
+    bekommen die drei Knöpfe 7 px Innenabstand und 0,85rem, bis 340 px
+    fallen ihre Symbole weg (nachgemessen am 17.10.2026: „E-Mail-Abo" ragte
+    auf 320 px, „Email alerts" auf Android-360 px über den Rand). Die Werkzeugleiste steht in zwei kurzen
     Zeilen (Zahl + Stand, Schalter, Chips; „Filter löschen" nur im
     Blatt). Ergebnis: erste Veranstaltung bei ~320 px (vorher ~380), auf
     der Karte Karte bis zum Fuß (`.map-wrap { min-height:
     0 }`, `body { height: 100dvh }` wie in der Liste, Fußnote dort
-    ausgeblendet, Fußzeile flach). **Die Legende steht auf dem Handy oben
-    rechts** auf der Karte (vom Nutzer am 14.10.2026 mit Foto: unten lag
-    sie unter der Werkzeugleiste von Safari, „da sieht man sie nicht").
+    ausgeblendet, Fußzeile flach). **Die Legende steht auf dem Handy seit
+    dem 17.10.2026 als Zeile unter den Knöpfen** (siehe oben; vom 14. bis
+    17.10. lag sie oben rechts auf der Karte, davor unten unter der
+    Werkzeugleiste von Safari).
   - **Zwei Fallen beim Bau, beide in Kommentaren festgehalten**: Die
     nicht umbrechende Pillenreihe machte die Tabelle 677 px breit, weil
     `.layout { grid-template-columns: 1fr }` die Spalte auf die
@@ -3453,12 +3474,14 @@ sagt es).
     wichtigerer Ort auf ihnen liegt, oder ein Bündel denselben Namen
     trägt. Ausgeblendet wird mit `visibility`, nicht `display` – sonst
     hätte ein Kasten keine Maße mehr und käme nie zurück.
-  - **„Mein Standort"** (`StandortControl`, unter den Zoom-Knöpfen)
+  - **„Mein Standort"** (`StandortControl`, unter den Zoom-Knöpfen; auf
+    dem Handy der mittlere Knopf der Leiste, `#standort-bar-btn`)
     öffnet das Ort-Panel an seiner Pille (`ui.open`, kein künstlicher
     Klick – der liefe bis zum Dokument und schlösse das Panel gleich
     wieder) und drückt dort `.geo-btn`: derselbe Weg wie im Panel, kein
     zweiter.
-  - **Legende unten links** (`.map-legend`) mit `#map-hint` („3.830
+  - **Legende unten links** (`.map-legend`; auf dem Handy statt dessen
+    `#legend-zeile` unter den Knöpfen, ohne Zahl) mit `#map-hint` („3.830
     Events" – die Werkzeugleiste zeigt keine Trefferzahl mehr und ist
     **ohne Filter ausgeblendet**, `toolbarEl.hidden`) und den vier
     Sportfarben; Quellenangabe unten rechts ohne Leaflet-Vorspann
