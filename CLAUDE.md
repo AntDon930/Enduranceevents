@@ -119,7 +119,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 330 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 333 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -3632,6 +3632,23 @@ sagt es).
   gemeldet. Zugeklappt bleiben die Marken mit allen Längen.
   `klappeGruppe()` zeichnet die Veranstaltungszeile dafür neu (immer noch
   ohne `render()`).
+- **Auf- und zugeklappt wird NUR über den Pfeil** (vom Nutzer am
+  18.10.2026: „Das einklappen bitte immer nur über den Pfeil … Ich kann
+  beispielsweise nicht auf den 100km Lauf klicken, weil es dann da immer
+  wieder eingeklappt wird … Man muss auf das erste Event auch klicken
+  können"). Der Klick-Zuhörer am `<tbody>` klappt nur um, wenn das Ziel
+  in `.chevron` liegt; jeder andere Klick auf die Veranstaltungszeile
+  wählt ihre erste Strecke und öffnet die Box (auf dem Handy das Blatt) –
+  zugeklappt wie aufgeklappt. Vorher klappte jeder Klick um, und die
+  erste Strecke eines offenen Blocks war nie anwählbar (sie IST die
+  Veranstaltungszeile). Die Tastatur bleibt, wie sie war (→/←/Leertaste
+  klappen, Enter springt in die Box). **Der Pfeil trägt Farbe und Rand
+  seiner Sportart** (`EED.sportClass(e.art1)` am `.chevron`, `--chev`
+  aus `--sport-*`, beim Darüberfahren die Tonfläche `--sport-*-bg`), die
+  Tippfläche ist per `::before` 10 px größer als der Kreis. Rauchtest:
+  Farbe/Rand, Aufklappen über den Pfeil, Tippen auf die erste Strecke
+  öffnet das Blatt bei offenem Block, Klick neben den Pfeil klappt nicht
+  zu.
 - **Eine Veranstaltung mit nur einer Strecke klappt nicht auf**
   (`istEinzelgruppe()`, `tr.group-row.single`): die Unterzeile würde
   dasselbe wiederholen. Kein Pfeil, kein `aria-expanded`, kein

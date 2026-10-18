@@ -489,10 +489,22 @@ def pruefe_kacheln(ctx, basis):
                && document.activeElement.matches('tbody tr[data-idx]')"""),
            "Escape schließt das Blatt, der Fokus steht auf der Kachel")
 
-    # Aufklappen öffnet KEIN Blatt (man will die Strecken sehen); der
-    # Block hängt als eine Kachel zusammen, Rahmen in --frame, die
-    # Strecken wiederholen Datum und Ort nicht.
-    seite.evaluate("() => document.querySelector('tr.group-row[data-klapp]').click()")
+    # Aufgeklappt wird NUR über den Pfeil (18.10.2026); er trägt die Farbe
+    # der Sportart. Aufklappen öffnet KEIN Blatt (man will die Strecken
+    # sehen); der Block hängt als eine Kachel zusammen, Rahmen in --frame,
+    # die Strecken wiederholen Datum und Ort nicht.
+    pfeil = seite.evaluate("""() => {
+        const c = document.querySelector('tr.group-row[data-klapp] .chevron');
+        if (!c) return null;
+        const art = [...c.classList].find(k => k.startsWith('sport-'));
+        const soll = art ? getComputedStyle(document.documentElement).getPropertyValue('--' + art).trim() : '';
+        const probe = document.createElement('i'); probe.style.color = soll;
+        document.body.appendChild(probe); const sollRgb = getComputedStyle(probe).color; probe.remove();
+        const cs = getComputedStyle(c);
+        return { art, farbe: cs.color === sollRgb, rand: cs.borderTopColor === sollRgb }; }""")
+    pruefe(bool(pfeil) and bool(pfeil["art"]) and pfeil["farbe"] and pfeil["rand"],
+           "der Pfeil trägt Farbe und Rand seiner Sportart (%s)" % (pfeil or {}).get("art"))
+    seite.evaluate("() => document.querySelector('tr.group-row[data-klapp] .chevron').click()")
     seite.wait_for_timeout(400)
     block = seite.evaluate("""() => {
         const r = document.querySelector('tr.group-row.open');
@@ -537,6 +549,19 @@ def pruefe_kacheln(ctx, basis):
         seite.wait_for_timeout(400)
         pruefe(seite.evaluate("() => document.body.classList.contains('detail-offen')"),
                "Tippen auf eine Strecke im Block öffnet das Blatt")
+        # Und die ERSTE Strecke - sie ist die Veranstaltungszeile selbst.
+        # Bis zum 18.10.2026 klappte ein Tippen darauf den Block nur zu
+        # (vom Nutzer an den 100 km des Ultramarsch Leipzig gemeldet).
+        schliesse_blatt(seite)
+        seite.evaluate("() => document.querySelector('tr.group-row.open td.col-laenge_km').click()")
+        seite.wait_for_timeout(400)
+        erste = seite.evaluate("""() => ({
+            blatt: document.body.classList.contains('detail-offen'),
+            offen: !!document.querySelector('tr.group-row.open'),
+            gewaehlt: !!document.querySelector('tr.group-row.open.active') })""")
+        pruefe(erste["blatt"] and erste["offen"] and erste["gewaehlt"],
+               "Tippen auf die erste Strecke öffnet das Blatt, der Block bleibt offen (%s)" % erste)
+        schliesse_blatt(seite)
 
     # Ab 700 px (Tablet gedreht): wieder die Tabelle, der Seiten-Scroll
     # nicht mehr gesperrt, die Box steht neben bzw. unter der Liste.
@@ -1049,7 +1074,7 @@ def pruefe_gruppierung(ctx, basis):
         Number(r.dataset.idx) === zu.idx
         && [...r.querySelector('.group-name-text').childNodes].filter(n => n.nodeType === 3)
             .map(n => n.textContent).join('').trim() === zu.name)"""
-    seite.evaluate("(zu) => { const r = (" + finde_gruppe + ")(zu); if (r) r.click(); }", zu)
+    seite.evaluate("(zu) => { const r = (" + finde_gruppe + ")(zu); if (r) r.querySelector('.chevron').click(); }", zu)
     seite.wait_for_timeout(300)
     auf = seite.evaluate("""(zu) => { const r = (""" + finde_gruppe + """)(zu);
         if (!r) return {unter: -1, offen: false, marken: 0, aria: null, pfeil: false};
@@ -1151,7 +1176,13 @@ def pruefe_gruppierung(ctx, basis):
     pruefe(len(set(hoehen_offen)) == 1,
            "der Rahmen ändert die Zeilenhöhe nicht (%s)"
            % ", ".join("%d px" % h for h in sorted(set(hoehen_offen))))
-    seite.locator("tr.group-row:not(.single)").first.click()
+    # Ein Klick auf die Zeile (nicht den Pfeil) klappt NICHT zu, er wählt
+    # die erste Strecke (18.10.2026).
+    seite.locator("tr.group-row:not(.single) td.col-land").first.click()
+    seite.wait_for_timeout(300)
+    pruefe(seite.evaluate("() => document.querySelector('tr.group-row:not(.single)').classList.contains('open')"),
+           "ein Klick auf die Zeile neben dem Pfeil klappt nicht zu")
+    seite.locator("tr.group-row:not(.single) .chevron").first.click()
     seite.wait_for_timeout(300)
     wieder = seite.evaluate("""() => { const r = document.querySelector('tr.group-row:not(.single)');
         let n = r.nextElementSibling, unter = 0;

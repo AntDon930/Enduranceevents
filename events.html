@@ -454,7 +454,15 @@
   .group-row:hover { background: var(--row-hover); }
   .group-name { display: flex; align-items: center; gap: 10px; }
   .group-name-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  /* Der Pfeil ist der EINZIGE Weg zum Auf- und Zuklappen (vom Nutzer am
+     18.10.2026: „Das einklappen bitte immer nur über den Pfeil … Ich
+     kann beispielsweise nicht auf den 100km Lauf klicken, weil es dann
+     da immer wieder eingeklappt wird"); ein Klick auf den Rest der Zeile
+     wählt die erste Strecke. Pfeil und Rand in der Farbe der Sportart
+     (--chev aus .sport-*), die Tippfläche ist größer als der Kreis
+     (::before), damit man ihn auf dem Handy sicher trifft. */
   .chevron {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -462,15 +470,25 @@
     height: 22px;
     flex-shrink: 0;
     border-radius: 50%;
-    border: 1px solid var(--border-strong);
+    border: 1.5px solid var(--chev, var(--border-strong));
     background: var(--panel-2);
-    color: var(--text-muted);
+    color: var(--chev, var(--text-muted));
+    cursor: pointer;
     transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
   }
-  .group-row:hover .chevron { color: var(--text); border-color: var(--text-muted); }
+  .chevron::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; }
+  .chevron.sport-laufen { --chev: var(--sport-laufen); }
+  .chevron.sport-fahrrad { --chev: var(--sport-fahrrad); }
+  .chevron.sport-schwimmen { --chev: var(--sport-schwimmen); }
+  .chevron.sport-triathlon { --chev: var(--sport-triathlon); }
+  .chevron:hover { background: var(--chev-bg, var(--row-hover)); }
+  .chevron.sport-laufen:hover { --chev-bg: var(--sport-laufen-bg); }
+  .chevron.sport-fahrrad:hover { --chev-bg: var(--sport-fahrrad-bg); }
+  .chevron.sport-schwimmen:hover { --chev-bg: var(--sport-schwimmen-bg); }
+  .chevron.sport-triathlon:hover { --chev-bg: var(--sport-triathlon-bg); }
   /* Eine Strecke allein: kein Pfeil, aber derselbe Einzug. */
   .chevron-spacer { display: inline-block; width: 22px; height: 22px; flex-shrink: 0; }
-  .chevron.open { transform: rotate(90deg); color: var(--text); border-color: var(--text-muted); }
+  .chevron.open { transform: rotate(90deg); }
   @media (prefers-reduced-motion: reduce) {
     .chevron { transition: none; }
     .skeleton-row td i { animation: none; }
@@ -2352,7 +2370,7 @@
           return `<td class="col-name"><div class="group-name" title="${escapeHtml(wb ? e.name + ' – ' + wb : e.name)}">`
                + (einzeln
                    ? `<span class="chevron-spacer" aria-hidden="true"></span>`
-                   : `<span class="chevron${offen ? ' open' : ''}">${CHEVRON_SVG}</span>`)
+                   : `<span class="chevron ${EED.sportClass(e.art1)}${offen ? ' open' : ''}">${CHEVRON_SVG}</span>`)
                + `<span class="group-name-text">${escapeHtml(e.name)}`
                + (wb ? `<span class="wettbewerb">${escapeHtml(wb)}</span>` : '')
                + `</span></div></td>`;
@@ -2606,9 +2624,12 @@
   window.addEventListener('scroll', pruefeNachladen, { passive: true });
   window.addEventListener('resize', pruefeNachladen);
 
-  // Ein Listener für die ganze Tabelle. Der Klick auf eine Unterzeile
-  // braucht kein stopPropagation mehr: sie trägt kein data-klapp, also
-  // wählt sie nur aus, statt die Gruppe darüber zuzuklappen.
+  // Ein Listener für die ganze Tabelle. Auf- und zugeklappt wird NUR über
+  // den Pfeil (.chevron, vom Nutzer am 18.10.2026 so gewünscht): Vorher
+  // klappte jeder Klick auf die Veranstaltungszeile um - aufgeklappt war
+  // die erste Strecke damit gar nicht anzuwählen (sie IST diese Zeile),
+  // ein Tippen auf „100km" klappte die Veranstaltung nur wieder zu. Der
+  // Rest der Zeile wählt jetzt die erste Strecke und öffnet die Box.
   bodyEl.addEventListener('click', (ev) => {
     // Der "Mehr"-Knopf ist keine Event-Zeile: er trägt kein data-idx und
     // würde sonst durchfallen.
@@ -2620,7 +2641,7 @@
     if (!tr || !bodyEl.contains(tr)) return;
     setzeTabStop(tr);
     let geklappt = false;
-    if (tr.dataset.klapp) {
+    if (tr.dataset.klapp && ev.target.closest('.chevron')) {
       const g = gruppenAktuell[Number(tr.dataset.g)];
       if (g) { klappeGruppe(tr, g); geklappt = true; }
     }
