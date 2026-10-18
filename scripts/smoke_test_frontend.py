@@ -2396,7 +2396,12 @@ def pruefe_wartung(ctx, basis):
     seite.close()
 
 def pruefe_kartenrahmen(seite):
-    """Die Welt genau EINMAL, und nicht weiter heraus als Europa.
+    """Die Welt genau EINMAL, und nicht weiter heraus als unsere Regionen.
+
+    Seit dem 18.10.2026 ist der kleinste Zoom der, bei dem Deutschland,
+    Österreich, die Schweiz und Südtirol ganz im Bild stehen (vorher:
+    Europa füllt die Breite – vom Nutzer gemeldet, so weit muss niemand
+    heraus). Dazu Doppeltippen zoomt hinein, und zwar um die Mitte.
 
     Beim Herauszoomen zeichnete Leaflet die Weltkarte vorher beliebig oft
     nebeneinander (vom Nutzer gemeldet). Geprüft wird beides, was das
@@ -2427,7 +2432,67 @@ def pruefe_kartenrahmen(seite):
         kacheln: [...document.querySelectorAll('img.leaflet-tile')].map(i => i.src)
     })""")
     pruefe(stand["ende"],
-           "Herauszoomen hat eine Grenze (Europa, nicht die ganze Welt)")
+           "Herauszoomen hat eine Grenze (die Regionen, nicht die ganze Welt)")
+    # Beim kleinsten Zoom: die Landfläche ganz im Bild und groß – sie
+    # füllt die Breite oder die Höhe der Karte fast aus.
+    land = seite.evaluate("""() => {
+        const p = document.querySelector('path.land-pfad');
+        const m = document.getElementById('map').getBoundingClientRect();
+        if (!p) return null;
+        const r = p.getBoundingClientRect();
+        return {drin: r.left >= m.left - 2 && r.right <= m.right + 2 &&
+                      r.top >= m.top - 2 && r.bottom <= m.bottom + 2,
+                anteil: Math.max(r.width / m.width, r.height / m.height),
+};
+    }""")
+    if land is None:
+        ueberspringe("keine Landfläche (laender.json nicht geladen)")
+    else:
+        pruefe(land["drin"] and land["anteil"] > 0.8,
+               "kleinster Zoom zeigt die ganzen Regionen, nicht mehr (Anteil %.2f)"
+               % land["anteil"])
+        # Doppeltippen auf eine leere Stelle: eine Stufe hinein, die Mitte
+        # der Karte bleibt, wo sie war. Gemessen an zwei Orientierungsorten
+        # (feste Koordinaten): ihr Abstand verdoppelt sich, und jeder rückt
+        # mit Faktor 2 von der Kartenmitte weg. (Die Landfläche taugt dafür
+        # nicht – der SVG-Renderer schneidet sie beim Hineinzoomen ab.)
+        vorher = seite.evaluate("""() => [...document.querySelectorAll('.ref-dot')].slice(0, 2).map(d => {
+                const r = d.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; })""")
+        punkt = seite.evaluate("""() => {
+            const r = document.getElementById('map').getBoundingClientRect();
+            // Weit weg von jedem Marker: Ein Tipp auf ein Bündel zoomt zu
+            // Recht dorthin, und die Bündel ordnen sich nach dem Laden
+            // noch einmal (dann läge ein knapper Punkt plötzlich darauf).
+            const marker = [...document.querySelectorAll('.leaflet-marker-icon')]
+                .map(m => m.getBoundingClientRect());
+            const frei = (x, y) => marker.every(m =>
+                x < m.left - 40 || x > m.right + 40 || y < m.top - 40 || y > m.bottom + 40);
+            for (let fy = 0.9; fy > 0.3; fy -= 0.03) for (let fx = 0.08; fx < 0.92; fx += 0.03) {
+                const x = r.left + r.width * fx, y = r.top + r.height * fy;
+                const e = document.elementFromPoint(x, y);
+                if (e && e.closest('#map') && frei(x, y) && !e.closest(
+                    '.leaflet-marker-icon,.leaflet-control,#map-details,.leaflet-popup,.map-legend'))
+                    return [x, y, (r.left + r.right) / 2, (r.top + r.bottom) / 2];
+            }
+            return null; }""")
+        if not punkt:
+            ueberspringe("keine freie Stelle zum Doppeltippen")
+        else:
+            seite.touchscreen.tap(punkt[0], punkt[1])
+            seite.wait_for_timeout(120)
+            seite.touchscreen.tap(punkt[0], punkt[1])
+            seite.wait_for_timeout(1000)
+            nach = seite.evaluate("""() => [...document.querySelectorAll('.ref-dot')].slice(0, 2).map(d => {
+                const r = d.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; })""")
+            def abstand(a, b):
+                return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+            faktor = (abstand(nach[0], nach[1]) / abstand(vorher[0], vorher[1])
+                      if len(vorher) == 2 and len(nach) == 2 else 0)
+            erwartet = [punkt[2] + (vorher[0][0] - punkt[2]) * faktor,
+                        punkt[3] + (vorher[0][1] - punkt[3]) * faktor] if faktor else [0, 0]
+            pruefe(1.8 < faktor < 2.2 and abstand(nach[0], erwartet) < 6,
+                   "Doppeltippen zoomt eine Stufe hinein, um die Kartenmitte (Faktor %.2f)"
+                   % faktor)
     # Eine Kachel ist /{z}/{x}/{y}.png. Zwei Kacheln zeigen dieselbe
     # Stelle der Welt, wenn ihre x-Werte sich um genau 2^z unterscheiden -
     # genau das entsteht ohne noWrap.

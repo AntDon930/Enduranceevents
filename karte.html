@@ -711,23 +711,43 @@
   const escapeHtml = EF.escapeHtml;
 
   // Karte initialisieren, Mittelpunkt/Zoom grob auf D/A/CH.
-  // Der Rahmen der Karte: EUROPA, nicht die Welt und nicht nur DACH.
-  // Nur Europa - beim Herauszoomen lag Europa vorher als Briefmarke
-  // mitten in einer dreifach nebeneinander gezeichneten Weltkarte (vom
-  // Nutzer gemeldet). Europa statt DACH, damit die Karte nicht angefasst
-  // werden muss, wenn weitere Länder dazukommen (so vom Nutzer
-  // entschieden).
-  const EUROPA_BOUNDS = L.latLngBounds([34.0, -13.0], [71.5, 42.0]);
+  // Der Rahmen der Karte: UNSERE REGIONEN, nicht Europa und nicht die
+  // Welt. Bis zum 18.10.2026 durfte man bis auf ganz Europa hinaus
+  // (Europa füllte die Breite); vom Nutzer gemeldet: so weit muss
+  // niemand heraus – „maximal so, dass man noch die ganze Karte sieht".
+  // Jetzt ist der kleinste Zoom der, bei dem Deutschland, Österreich,
+  // die Schweiz und Südtirol ganz im Bild stehen (setzeMinZoom), und
+  // verschieben lässt sich die Karte nur wenig darüber hinaus.
+  // Die Grenzen sind die Ausdehnung von laender.json (Südtirol bis
+  // Sylt, Genf bis zum Neusiedler See); kommt dort ein Land dazu, hier
+  // nachziehen – test_laender_maske vergleicht beides. Bewusst eine
+  // Konstante und nicht aus der geladenen Datei: Der kleinste Zoom
+  // steht so fest, bevor die Bündel-Ebene ihren Baum aufbaut.
+  const REGION_BOUNDS = L.latLngBounds([45.82, 5.85], [55.07, 17.15]);
+  // Spielraum zum Verschieben: ein Viertel der Region in jede Richtung.
+  const RAHMEN_PAD = 0.25;
   const map = L.map('map', {
     // Begrenzt das Verschieben. `maxBoundsViscosity: 1` heißt: harte
     // Kante, die Karte lässt sich nicht über den Rand hinausziehen (bei
     // 0 federt sie nur zurück, was sich nach Fehler anfühlt).
-    maxBounds: EUROPA_BOUNDS,
+    maxBounds: REGION_BOUNDS.pad(RAHMEN_PAD),
     maxBoundsViscosity: 1,
-    // Der kleinste Zoom wird gleich ausgerechnet (setzeMinZoomAufEuropa):
-    // Er hängt von der Fenstergröße ab - auf dem Handy passt Europa erst
-    // bei Zoom 3 ins Bild, auf einem breiten Bildschirm schon bei 5.
-    minZoom: 3,
+    // Der kleinste Zoom wird gleich ausgerechnet (setzeMinZoom): Er
+    // hängt von der Fenstergröße ab.
+    minZoom: 4,
+    // Viertelstufen statt ganzer: Mit ganzen Stufen passte die Region
+    // auf 1440×800 erst bei Zoom 5 – und dann stand halb Europa mit im
+    // Bild. So kann der kleinste Zoom genau die Region zeigen. Plus,
+    // Minus und Mausrad springen weiter um eine ganze Stufe
+    // (zoomDelta); markercluster rundet für die Bündel selbst.
+    zoomSnap: 0.25,
+    // Zoomen um die MITTE der Karte, nicht um Finger oder Mauszeiger
+    // (vom Nutzer am 18.10.2026: „gerade verschiebt man sie immer beim
+    // rein und raus zoomen. Das muss bitte fixiert werden."). Gilt für
+    // Mausrad, Zwei-Finger-Zoom und Doppelklick/Doppeltippen.
+    scrollWheelZoom: 'center',
+    touchZoom: 'center',
+    doubleClickZoom: 'center',
     // Der Sprung auf die "nächste" Weltkopie beim Ziehen über den
     // Rand - ohne Weltkopien sinnlos.
     worldCopyJump: false,
@@ -766,31 +786,92 @@
   // Es sind ZWEI Ebenen, und das ist wichtig: Die Event-Marker werden
   // gebuendelt (markercluster), der Ausgangspunkt und sein Umkreis dagegen
   // nicht - sonst verschwaende der rote Punkt in einem Buendel.
-  // So weit herauszoomen, dass Europa genau das Bild füllt - und keinen
-  // Schritt weiter. Eine feste Zahl geht nicht: Auf 390 px passt Europa
-  // erst bei Zoom 3 hinein, auf 1.400 px schon bei 5, und mit einer
-  // festen 4 sähe man auf dem breiten Bildschirm halb Asien mit (bei
-  // einer festen 5 auf dem Handy nur die Alpen).
-  // Gerechnet wird über die BREITE, nicht über die ganze Fläche - und
-  // das ist der Kern der Sache. Europa ist hochkant (etwa 55° breit,
-  // 37° hoch), ein Browserfenster liegt quer. Beide Naheliegenden
-  // Varianten waren daneben:
-  //   - "Europa passt ganz ins Bild" (getBoundsZoom) ergab auf einem
-  //     breiten, niedrigen Fenster Zoom 3: Europa als Briefmarke,
-  //     daneben von Kanada bis China alles mit im Bild - genau das,
-  //     was der Nutzer nicht will.
-  //   - "Das Fenster liegt ganz in Europa" (getBoundsZoom(…, true))
-  //     ergab Zoom 6: Man konnte nicht mehr herauszoomen, bis DACH
-  //     am Stück zu sehen war.
-  // Maßgeblich ist deshalb, wann Europas BREITE das Fenster füllt.
-  // Dafür wird ein flacher Streifen über Europas Längengrade gemessen -
-  // die Höhe kann dann nichts verderben. Senkrecht begrenzt `maxBounds`.
-  const EUROPA_BREITE = L.latLngBounds([48.5, -13.0], [48.6, 42.0]);
-  function setzeMinZoomAufEuropa() {
-    const z = map.getBoundsZoom(EUROPA_BREITE);
-    map.setMinZoom(Math.max(2, Math.min(z, 8)));
+  // So weit herauszoomen, dass die ganze Region im Bild steht - und
+  // keinen Schritt weiter. Eine feste Zahl geht nicht: Auf dem Handy
+  // passt die Region erst bei Zoom 5 hinein, auf einem breiten
+  // Bildschirm schon bei knapp 6. getBoundsZoom rundet auf die
+  // Viertelstufe ab, die Region passt also immer ganz hinein.
+  // Wer ganz draußen war, bleibt es auch nach einer Größenänderung –
+  // sonst stünde nach dem Drehen oder Schrumpfen nur ein Ausschnitt da.
+  function setzeMinZoom() {
+    const warDraussen = map.getZoom() <= map.getMinZoom() + 0.01;
+    // getBoundsZoom klemmt sein Ergebnis an den bisherigen kleinsten
+    // Zoom – ohne das Zurücksetzen könnte er nur wachsen, nie schrumpfen.
+    map.options.minZoom = 0;
+    const z = map.getBoundsZoom(REGION_BOUNDS);
+    map.setMinZoom(Math.max(3, Math.min(z, 8)));
+    if (warDraussen || map.getZoom() < map.getMinZoom()) {
+      map.setZoom(map.getMinZoom(), { animate: false });
+    }
   }
-  setzeMinZoomAufEuropa();
+  setzeMinZoom();
+  // Ganz herausgezoomt steht die Region immer mittig im Bild – wer
+  // vorher am Rand war, sieht sonst einen Teil nicht. Die Mitte wird in
+  // der Kartenprojektion gerechnet, nicht in Grad: In Mercator liegt die
+  // Bildmitte zwischen 45,8° und 55,1° nicht bei 50,4°, und Südtirol
+  // ragte sonst unten aus dem Bild.
+  function regionMitte() {
+    const z = map.getZoom();
+    const a = map.project(REGION_BOUNDS.getSouthWest(), z);
+    const b = map.project(REGION_BOUNDS.getNorthEast(), z);
+    return map.unproject(a.add(b).divideBy(2), z);
+  }
+  function zentriereGanzDraussen() {
+    if (map.getZoom() > map.getMinZoom() + 0.01) return;
+    const mitte = regionMitte();
+    if (map.latLngToContainerPoint(mitte).distanceTo(map.getSize().divideBy(2)) > 2) {
+      map.panTo(mitte, { animate: false });
+    }
+  }
+  map.on('zoomend', zentriereGanzDraussen);
+  // Die Höhe der Karte ändert sich auch ohne Fensteränderung (die
+  // Legendenzeile auf dem Handy kommt erst nach dem Laden dazu) – dann
+  // Größe, kleinsten Zoom und Mitte neu.
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => {
+      map.invalidateSize({ animate: false });
+      setzeMinZoom();
+      zentriereGanzDraussen();
+    }).observe(map.getContainer());
+  }
+  // Doppeltippen zoomt hinein (vom Nutzer am 18.10.2026 gewünscht).
+  // Leaflet baut sich den Doppelklick auf dem Touchscreen aus zwei
+  // `click` zusammen – auf iPhone und iPad kommt der zweite Klick aber
+  // oft nicht oder zu spät an. Deshalb ein eigener Zähler auf den
+  // Touch-Ereignissen: zwei kurze Tipps mit einem Finger, höchstens
+  // 300 ms und 40 px auseinander. Der zweite Tipp schluckt seinen
+  // Klick (preventDefault), damit Leaflets eigener Doppelklick nicht
+  // noch einmal zoomt. Auf Markern, Bündeln, Popups und Knöpfen zählt
+  // ein Tipp nicht – dort hat er seine eigene Aufgabe.
+  (function doppeltippen() {
+    const el = map.getContainer();
+    let start = null, letzter = null;
+    const ausgenommen = t => t.closest &&
+      t.closest('.leaflet-marker-icon, .leaflet-popup, .leaflet-control, #map-details');
+    el.addEventListener('touchstart', e => {
+      start = e.touches.length === 1 && !ausgenommen(e.target)
+        ? { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() } : null;
+      if (e.touches.length > 1) letzter = null;
+    }, { passive: true });
+    el.addEventListener('touchend', e => {
+      if (!start || e.touches.length || e.changedTouches.length !== 1) { start = null; return; }
+      const p = e.changedTouches[0];
+      const jetzt = Date.now();
+      // Ein Wischen oder langes Drücken ist kein Tipp.
+      if (Math.hypot(p.clientX - start.x, p.clientY - start.y) > 10 || jetzt - start.t > 350) {
+        start = null; letzter = null; return;
+      }
+      if (letzter && jetzt - letzter.t <= 300 &&
+          Math.hypot(p.clientX - letzter.x, p.clientY - letzter.y) <= 40) {
+        e.preventDefault();
+        letzter = null;
+        map.zoomIn(1);
+      } else {
+        letzter = { x: p.clientX, y: p.clientY, t: jetzt };
+      }
+      start = null;
+    }, { passive: false });
+  })();
   // Beim Drehen des Geräts oder Verkleinern des Fensters neu rechnen -
   // sonst bleibt der Wert des ersten Aufrufs stehen.
   let minZoomFrame = null;
@@ -798,7 +879,8 @@
     if (minZoomFrame !== null) return;
     minZoomFrame = requestAnimationFrame(() => {
       minZoomFrame = null;
-      setzeMinZoomAufEuropa();
+      setzeMinZoom();
+      zentriereGanzDraussen();
     });
   });
 
@@ -1040,6 +1122,19 @@
   // schlimmer.
   function createMarkerLayer() {
     if (typeof L.markerClusterGroup !== 'function') return L.layerGroup();
+    // Viertelstufen (zoomSnap 0.25) machen auch den kleinsten Zoom
+    // krumm (5,5). markercluster rundet ihn an den meisten Stellen ab,
+    // in drei Methoden von L.MarkerCluster aber nicht – dann fehlten
+    // Orte, die direkt unter dem obersten Bündel hängen (Nickelsdorf am
+    // Ostrand). Die Bibliothek bleibt unverändert (vendor/), abgerundet
+    // wird hier an der einen Stelle, durch die alle drei laufen.
+    if (L.MarkerCluster && !L.MarkerCluster.prototype._eeAbgerundet) {
+      const rekursiv = L.MarkerCluster.prototype._recursively;
+      L.MarkerCluster.prototype._recursively = function (bounds, start, stop, jede, unten) {
+        return rekursiv.call(this, bounds, Math.floor(start), stop, jede, unten);
+      };
+      L.MarkerCluster.prototype._eeAbgerundet = true;
+    }
     return L.markerClusterGroup({
       // Kein Umriss beim Darueberfahren: auf dem Handy gibt es kein
       // "darueber", und am Rechner blinkte er bei jedem Schwenk auf.

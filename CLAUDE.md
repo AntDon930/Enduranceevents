@@ -119,7 +119,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 333 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 335 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -4404,8 +4404,46 @@ zurückgedreht werden sollten:
    holt `events.html` + `events.json` per `prefetch` vor. Deshalb steht
    die Liste nach dem Klick auf „Events" in 814 statt 2.112 ms.
 
-Der **Rahmen der Karte ist Europa**, und die Welt steht genau einmal da
-(beides vom Nutzer gemeldet: „die Weltkarte wird immer dupliziert"):
+Der **Rahmen der Karte sind seit dem 18.10.2026 UNSERE REGIONEN**, nicht
+mehr Europa (vom Nutzer mit zwei Bildern: „Keiner muss so weit raus
+zoomen … maximal so, dass man noch die ganze Karte sieht"; dazu
+„Doppelklicken reinzoomen" auf dem Touchscreen und „die Karte in der
+Mitte fixieren … gerade verschiebt man sie immer beim rein und raus
+zoomen"). Alles in `karte.html`:
+
+- **`REGION_BOUNDS`** ist die Ausdehnung von `laender.json` als
+  Konstante (`test_laender_maske` prüft, dass sie die Umrisse umfasst –
+  kommt ein Land dazu, hier nachziehen). Kleinster Zoom = die Region
+  passt ganz hinein (`setzeMinZoom`, auch bei Fenster- UND
+  Containeränderung über `ResizeObserver` – die Legendenzeile auf dem
+  Handy kommt erst nach dem Laden). **`map.options.minZoom = 0` vor
+  `getBoundsZoom`**: Leaflet klemmt das Ergebnis an den bisherigen
+  kleinsten Zoom, sonst könnte er nur wachsen. Wer ganz draußen war,
+  bleibt es nach einer Größenänderung. `maxBounds` = Region + 25 %.
+- **`zoomSnap: 0.25`**: Mit ganzen Stufen passte die Region auf
+  1440×800 erst bei Zoom 5 – dann stand halb Europa im Bild. Plus/Minus
+  springen weiter um 1. **markercluster kommt mit krummem kleinstem
+  Zoom nicht zurecht** (drei Methoden von `L.MarkerCluster` runden ihn
+  nicht ab, Nickelsdorf fehlte) – `createMarkerLayer()` umhüllt
+  `L.MarkerCluster.prototype._recursively` und rundet dort ab; `vendor/`
+  bleibt unverändert.
+- **Ganz draußen steht die Region mittig** (`zentriereGanzDraussen`,
+  nach jedem `zoomend`); die Mitte wird in der PROJEKTION gerechnet
+  (`regionMitte`) – in Grad ragte Südtirol unten heraus.
+- **Zoomen um die Kartenmitte**: `scrollWheelZoom`, `touchZoom`,
+  `doubleClickZoom` je `'center'`.
+- **Doppeltippen** über einen eigenen Zähler auf `touchstart`/`touchend`
+  (Leaflets Doppelklick aus zwei `click` kommt auf iPhone/iPad nicht
+  zuverlässig an): zwei Tipps mit einem Finger, ≤ 300 ms, ≤ 40 px, kein
+  Wischen; der zweite schluckt seinen Klick (`preventDefault`), damit
+  Leaflet nicht doppelt zoomt; Marker, Bündel, Popups, Knöpfe und die
+  Box zählen nicht. Der Rauchtest (`pruefe_kartenrahmen`) prüft
+  „Region ganz im Bild und groß" und „Doppeltippen = eine Stufe, Mitte
+  bleibt" an zwei Orientierungsorten.
+
+Die Welt steht genau einmal da (vom Nutzer gemeldet: „die Weltkarte
+wird immer dupliziert"); was folgt, ist die Geschichte bis zum
+18.10.2026 – der Europa-Rahmen gilt nicht mehr:
 
 - **`noWrap: true`** an der Kachel-Ebene. Ohne das zeichnet Leaflet die
   Kacheln links und rechts der Datumsgrenze beliebig oft weiter.

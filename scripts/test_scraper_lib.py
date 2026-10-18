@@ -1566,6 +1566,24 @@ def test_laender_maske() -> None:
     check("dieselben Länder wie in filters.js",
           sorted(laender), sorted(aus_filters))
 
+    # Der Rahmen der Karte (REGION_BOUNDS in karte.html, seit dem
+    # 18.10.2026 der kleinste Zoom) muss die Umrisse umfassen – kommt ein
+    # Land dazu, ohne dass er mitwächst, steht es ganz herausgezoomt halb
+    # außerhalb des Bildes.
+    punkte = [p for ringe in laender.values() for ring in ringe for p in ring]
+    karte = (wurzel / "karte.html").read_text(encoding="utf-8")
+    rahmen = _re.search(r"REGION_BOUNDS = L\.latLngBounds\(\[([\d.]+), ([\d.]+)\], "
+                        r"\[([\d.]+), ([\d.]+)\]\)", karte)
+    if rahmen and punkte:
+        s_lat, w_lon, n_lat, o_lon = (float(x) for x in rahmen.groups())
+        lons = [p[0] for p in punkte]
+        lats = [p[1] for p in punkte]
+        check("REGION_BOUNDS in karte.html umfasst laender.json (±0,05°)",
+              s_lat <= min(lats) + 0.05 and w_lon <= min(lons) + 0.05
+              and n_lat >= max(lats) - 0.05 and o_lon >= max(lons) - 0.05, True)
+    else:
+        check("REGION_BOUNDS in karte.html gefunden", bool(rahmen), True)
+
     # Jeder Ring ist eine Fläche: mindestens vier Punkte und geschlossen.
     offen = [name for name, ringe in laender.items()
              for ring in ringe if len(ring) < 4 or ring[0] != ring[-1]]
