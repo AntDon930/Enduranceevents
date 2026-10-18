@@ -2553,6 +2553,77 @@ def test_walking() -> None:
     check("und meldet den Ausschluss", len(entfernt), 1)
 
 
+def test_dauer_minuten() -> None:
+    """Dauern unter einer Stunde in Minuten (vom Nutzer am 18.10.2026
+    gemeldet: „Was sind denn bitte 0,3 und 0,8 Stunden? Das muss man
+    natürlich dann in Minuten ausdrücken."). Dazu, dass die Zahl dafür
+    genau genug ist: Bis zum 13.10.2026 stand `dauer_h` auf eine Stelle
+    gerundet in events.json (40 min = 0,7 h = 42 min)."""
+    import json
+    print("\nDauer unter einer Stunde in Minuten:")
+    from build_ics import laenge_text
+    from clean_events import fix_dauer_minuten
+    from scraper_lib import dauer_text
+    from insta_inhalte import dauer_wort
+    check("Kalender: 30 min", laenge_text({"dauer_h": 0.5}), "30 min")
+    check("Kalender: 1 h bleibt Stunden", laenge_text({"dauer_h": 1.0}), "1 h")
+    check("Label: 40 min", dauer_text(2 / 3), "40 min")
+    check("Label: 1,5 h", dauer_text(1.5), "1.5 h")
+    check("Instagram: 40 Minuten", dauer_wort(0.67), "40 Minuten")
+    check("Instagram: 6 Stunden", dauer_wort(6.0), "6 Stunden")
+
+    zeilen = [
+        {"name": "A", "dauer_h": 0.7, "wettbewerb": "Masters 40 min (Cyclocross Cup Baden-Württemberg)"},
+        {"name": "B", "dauer_h": 0.8, "wettbewerb": "Elite 45 min"},
+        {"name": "C", "dauer_h": 0.67, "wettbewerb": "Hobby, Masters 40-45 min"},
+        {"name": "D", "dauer_h": 0.42, "wettbewerb": "Cyclocross 0.4 h"},
+        {"name": "E", "dauer_h": 0.7, "wettbewerb": "Cyclocross 0.7 h"},
+        {"name": "F", "dauer_h": 1.0, "wettbewerb": "Cyclocross 59 min"},
+        {"name": "G", "dauer_h": 0.5, "wettbewerb": "30-Minuten-Lauf"},
+        {"name": "H", "dauer_h": 0.7, "laenge_km": 5.0, "wettbewerb": "Lauf 40 min"},
+        {"name": "I", "dauer_h": 0.8, "wettbewerb": "Rennen 20 min"},
+    ]
+    geaendert, hinweise = fix_dauer_minuten(zeilen)
+    dauer = {z["name"]: z["dauer_h"] for z in zeilen}
+    check("40 min aus dem Label", dauer["A"], 0.67)
+    check("45 min aus dem Label (0,8 war die Rundung)", dauer["B"], 0.75)
+    check("Spanne im Label ist keine Angabe", dauer["C"], 0.67)
+    check("„0.4 h“ im Label wird „25 min“", zeilen[3]["wettbewerb"], "Cyclocross 25 min")
+    check("ungenaues 0,7 behält „0.7 h“ (keine erfundenen 42 min)", zeilen[4]["wettbewerb"], "Cyclocross 0.7 h")
+    check("glatte Dauer schlägt ein veraltetes Label", dauer["F"], 1.0)
+    check("Halbstunde bleibt", dauer["G"], 0.5)
+    check("mit Distanz unberührt", dauer["H"], 0.7)
+    check("Label weit daneben: nicht übernommen", dauer["I"], 0.8)
+    check("drei Änderungen", len(geaendert), 3)
+    check("Hinweise: die beiden ungenauen", sorted(h.split(" ")[0] for h in hinweise), ["E", "I"])
+    check("idempotent", fix_dauer_minuten(zeilen)[0], [])
+
+    alt = {"dauer_h": 0.7, "wettbewerb": "Cyclocross 0.7 h"}
+    update_existing_event(alt, {"dauer_h": 0.67, "wettbewerb": "Cyclocross 40 min"})
+    check("Datenlauf macht die alte Rundung genau", (alt["dauer_h"], alt["wettbewerb"]), (0.67, "Cyclocross 40 min"))
+    genau = {"dauer_h": 0.67, "wettbewerb": "Masters 40 min"}
+    update_existing_event(genau, {"dauer_h": 0.7, "wettbewerb": "Cyclocross 0.7 h"})
+    check("genaue Dauer bleibt gegen eine gerundete", (genau["dauer_h"], genau["wettbewerb"]), (0.67, "Masters 40 min"))
+    halb = {"dauer_h": 0.5}
+    update_existing_event(halb, {"dauer_h": 0.75})
+    check("andere Dauer ist ein anderer Wettbewerb", halb["dauer_h"], 0.5)
+
+    got = _node_event_detail(
+        "[global.EnduranceFilters.formatHours(0.67, 'de'), global.EnduranceFilters.formatHours(0.7, 'de'), global.EnduranceFilters.formatHours(0.5, 'en'),"
+        " global.EnduranceFilters.formatHours(1, 'de'), global.EnduranceFilters.formatHours(1.5, 'de'), global.EnduranceFilters.formatHours(24, 'en'),"
+        " EED.formatLengthSpan([{dauer_h: 0.42}, {dauer_h: 0.67}], 'de'),"
+        " EED.formatLengthSpan([{dauer_h: 0.5}, {dauer_h: 1}], 'de'),"
+        " EED.formatLengthSpan([{dauer_h: 0.67}, {dauer_h: 2}], 'de')]")
+    if got is not None:
+        check("Seite: Minuten unter einer Stunde, Stunden darüber", got,
+              ["40min", "42min", "30min", "1h", "1,5h", "24h", "25–40min", "30–60min", "40min–2h"])
+
+    ev = json.loads((Path(__file__).resolve().parent.parent / "events.json").read_text(encoding="utf-8"))
+    ungenau = [e["name"] for e in ev if isinstance(e.get("dauer_h"), (int, float)) and 0 < e["dauer_h"] < 1
+               and e.get("laenge_km") is None and round(e["dauer_h"] * 60) % 5]
+    check("Bestand: jede Dauer unter einer Stunde in vollen fünf Minuten", ungenau, [])
+
+
 def test_rundenlaenge_zeitrennen() -> None:
     """Distanz bis 10 km NEBEN einer Dauer ist die Runde (Korrekturliste
     13.10.2026); eine echte Zielvorgabe mit Zeitlimit bleibt. Dazu: das
@@ -2564,7 +2635,7 @@ def test_rundenlaenge_zeitrennen() -> None:
     # Höhenmeter - die Kalenderdatei sagt dasselbe wie die Seite.
     from build_ics import laenge_text
     check("40 Minuten", laenge_text({"dauer_h": 0.67}), "40 min")
-    check("0,7 h bleibt Stunden (alte Rundung, wären 42 min)", laenge_text({"dauer_h": 0.7}), "0.7 h")
+    check("unter einer Stunde immer Minuten (18.10.2026)", laenge_text({"dauer_h": 0.7}), "42 min")
     check("Backyard: Open End", laenge_text({"art2": "Backyard Ultra"}), "Open End")
     check("Höhenmeter", laenge_text({"hoehenmeter": 1000}), "1000 hm")
     check("Dauer auf zwei Stellen", Event(name="x", datum_start="2027-01-01", standort="y",
@@ -3729,7 +3800,7 @@ def test_radsportevents() -> None:
     kurs = rs.parse_item(dict(basis, title="MTB-Fahrtechnikkurs \"Allround\", Nürnberg #5", category="MTB", eventType="MTB"), rs.CONFIG)
     check("radsport-events: ein Fahrtechnikkurs ist kein Rennen", kurs, [])
     ecx = rs.parse_item(dict(basis, category="MTB", eventType="CYCLOCROSS", distances=[{"distanceKm": 0.0, "durationMinutes": 40}]), rs.CONFIG)
-    assert ecx[0].art2 == "Cyclecross" and ecx[0].dauer_h == 0.7 and ecx[0].laenge_km is None, ecx
+    assert ecx[0].art2 == "Cyclecross" and ecx[0].dauer_h == 0.67 and ecx[0].wettbewerb == "Cyclocross 40 min" and ecx[0].laenge_km is None, ecx
     # Zeitfahren, Gravel, vorläufiger Termin, Portallink ohne organizerUrl.
     ezf = rs.parse_item(dict(basis, eventType="BERGZEITFAHREN", tentative=True, organizerUrl=None,
                              distances=[{"distanceKm": 10.0}]), rs.CONFIG)
@@ -5374,7 +5445,7 @@ def main() -> int:
                  test_override_schluessel, test_suche_uebersetzungen,
                  test_fremde_sportart, test_zwei_rennen_in_einer_zeile,
                  test_koordinaten_widerspruch, test_override_koordinaten,
-                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_pruefung_offen, test_kopierschutz,
+                 test_zwei_sportarten_im_namen, test_audit_pruefungen, test_walking, test_kinder, test_rundenlaenge_zeitrennen, test_dauer_minuten, test_pruefung_offen, test_kopierschutz,
                  test_stundenlauf, test_such_vorschlaege,
                  test_nicht_ausdauer, test_staffeln, test_datum_vorlaeufig, test_laufen_weiterleitung, test_veranstalter_links, test_neue_quellen, test_serientermin_im_label,
                  test_schwimmen_regeln, test_schwimmkalender, test_turbosport, test_radsportevents,

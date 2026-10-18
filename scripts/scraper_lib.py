@@ -886,6 +886,19 @@ def ort_aus_veranstaltungsort(text: str | None) -> str | None:
     return ort or None
 
 
+def dauer_text(stunden: float) -> str:
+    """Die Dauer eines Zeitrennens für ein Label: unter einer Stunde in
+    Minuten ("40 min"), sonst in Stunden ("1.5 h", "24 h").
+
+    Wie `EF.formatHours()` in filters.js und `build_ics.laenge_text()` -
+    "0.7 h" sagt niemandem etwas (vom Nutzer am 18.10.2026 gemeldet:
+    „Was sind denn bitte 0,3 und 0,8 Stunden? Das muss man natürlich dann
+    in Minuten ausdrücken.")."""
+    if 0 < stunden < 1:
+        return f"{round(stunden * 60)} min"
+    return f"{round(stunden, 1):g} h"
+
+
 def round_km(value: float | int | None) -> float | None:
     """Rundet eine Distanz auf EINE Nachkommastelle.
 
@@ -3421,10 +3434,18 @@ def is_portal_link(url: str | None) -> bool:
     return any(host == domain or host.endswith("." + domain) for domain in PORTAL_DOMAINS)
 
 
+def _glatte_minuten(stunden: float) -> bool:
+    """Volle fünf Minuten (0,67 = 40 min, 1,0 = 60 min) - eine auf eine
+    Stelle gerundete Dauer (0,7 = 42 min) ist es meist nicht."""
+    minuten = stunden * 60
+    return abs(minuten - round(minuten)) < 0.31 and round(minuten) % 5 == 0
+
+
 def update_existing_event(target: dict, source: dict) -> None:
     """Bringt einen bereits gespeicherten Eintrag auf den neuen Stand.
 
-    Drei Dinge, und bewusst nur diese drei:
+    Drei Dinge, und bewusst nur diese drei (dazu: eine gerundete Dauer
+    wird genauer, siehe unten):
 
     1. Fehlende Felder aus `source` ergänzen (siehe ENRICHABLE_FIELDS) -
        ein Eintrag aus einem früheren Lauf kann Felder noch nicht haben,
@@ -3465,6 +3486,20 @@ def update_existing_event(target: dict, source: dict) -> None:
     new_art2 = source.get("art2")
     if new_art2 and new_art2 != "Straße" and target.get("art2") in (None, "Straße"):
         target["art2"] = new_art2
+
+    # Die Dauer genauer, wenn es DIESELBE ist: Bis zum 13.10.2026 stand
+    # `dauer_h` auf eine Stelle gerundet in events.json (40 min = 0,7 h),
+    # die Quelle liefert heute 0,67. Nur innerhalb der alten Rundung -
+    # eine andere Dauer ist ein anderer Wettbewerb (Datenregel 8).
+    alt_h, neu_h = target.get("dauer_h"), source.get("dauer_h")
+    if (isinstance(alt_h, (int, float)) and isinstance(neu_h, (int, float))
+            and alt_h != neu_h and round(alt_h, 1) == round(neu_h, 1)
+            and _glatte_minuten(neu_h) and not _glatte_minuten(alt_h)):
+        target["dauer_h"] = neu_h
+        # Das Label der Quelle dazu, wenn das alte eine Dauer nannte
+        # („Cyclocross 0.7 h") - sonst widersprächen sich Zahl und Label.
+        if source.get("wettbewerb") and re.search(r"\d\s*(?:min|h)\b", target.get("wettbewerb") or ""):
+            target["wettbewerb"] = source["wettbewerb"]
 
 
 # --------------------------------------------------------------------------

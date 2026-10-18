@@ -93,6 +93,7 @@ from scraper_lib import (  # noqa: E402
     guess_art2,
     in_suedtirol,
     parse_flexible_date,
+    dauer_text,
     round_km,
     run_scraper_cli,
 )
@@ -141,7 +142,11 @@ def _strecken(item: dict) -> list[tuple[float | None, float | None, str]]:
         km = d.get("distanceKm")
         km = round_km(km) if isinstance(km, (int, float)) and km > 0 else None
         minuten = d.get("durationMinutes")
-        stunden = round(minuten / 60, 1) if isinstance(minuten, (int, float)) and minuten > 0 else None
+        # Auf ZWEI Stellen (wie Event.to_dict): Daraus kommen die Minuten
+        # wieder heraus. Mit einer Stelle wurden 40 min zu 0,7 h = 42 min
+        # und 45/50 min beide zu 0,8 h (vom Nutzer am 18.10.2026 gemeldet:
+        # „Was sind denn bitte 0,3 und 0,8 Stunden?").
+        stunden = round(minuten / 60, 2) if isinstance(minuten, (int, float)) and minuten > 0 else None
         if km is None and stunden is None:
             continue
         out.append((km, stunden, label))
@@ -155,7 +160,7 @@ def _label(typ: str | None, km: float | None, stunden: float | None, zusatz: str
     if km is not None:
         teile.append(f"{km:g} km")
     elif stunden is not None:
-        teile.append(f"{stunden:g} h")
+        teile.append(dauer_text(stunden))
     text = " ".join(t for t in teile if t).strip()
     return text or None
 

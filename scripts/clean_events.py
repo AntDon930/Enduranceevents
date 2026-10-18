@@ -1608,6 +1608,71 @@ def clear_rundenlaenge_bei_zeitrennen(events: list[dict]) -> list[str]:
     return changed
 
 
+# Dauern unter einer Stunde stehen in Minuten in der Liste („40min",
+# EF.formatHours) - vom Nutzer am 18.10.2026 gemeldet: „Was sind denn
+# bitte 0,3 und 0,8 Stunden? Das muss man natürlich dann in Minuten
+# ausdrücken." Dafür muss die Zahl minutengenau sein: Bis zum 13.10.2026
+# rundete Event.to_dict() `dauer_h` auf EINE Stelle (40 min → 0,7 h =
+# 42 min, 45 und 50 min beide → 0,8 h), und vorhandene Zeilen behalten
+# ihren Wert, weil update_existing_event() keine Dauer überschreibt.
+# Nennt das Label die Minuten selbst („Masters 40 min", „30-Minuten-Lauf"),
+# sind sie die Angabe der Quelle - keine Schätzung.
+_MINUTEN_IM_LABEL = re.compile(r"(?<![\d.,\-–/])(\d{1,3})\s*-?\s*(?:min\b|minuten)", re.I)
+# Das Label, das radsportevents_scraper.py bis zum 18.10.2026 baute:
+# „Cyclocross 0.7 h".
+_STUNDEN_UNTER_EINS_IM_LABEL = re.compile(r"\b0[.,](\d{1,2})\s*h\b")
+
+
+def _minutengenau(stunden: float) -> bool:
+    return abs(stunden * 60 - round(stunden * 60)) < 0.31
+
+
+def fix_dauer_minuten(events: list[dict]) -> tuple[list[str], list[str]]:
+    """Macht Dauern unter einer Stunde minutengenau und schreibt sie im
+    Label in Minuten. Gibt (Änderungen, Hinweise) zurück.
+
+    1. Ist die Dauer ungenau (kein Vielfaches von fünf Minuten) und nennt
+       das Label genau EINE Minutenzahl, die passt (höchstens drei Minuten
+       daneben - die alte Rundung), wird sie die Dauer auf zwei Stellen
+       (40 min → 0,67). Eine Spanne („40-45 min") ist keine Angabe.
+    2. „0.7 h" im Label wird zu „40 min", sobald die Dauer minutengenau
+       in vollen fünf Minuten ist und zur Zahl im Label passt (ein noch
+       ungenaues 0,7 bleibt „0.7 h", sonst stünde „42 min" da).
+    3. Hinweis (nichts geändert): Dauern unter einer Stunde, die kein
+       Vielfaches von fünf Minuten sind - meist die alte Rundung (0,7 h
+       = 42 min), seltener ein echtes 42-Minuten-Rennen. Die Quelle
+       prüfen; geraten wird nicht."""
+    geaendert: list[str] = []
+    hinweise: list[str] = []
+    for event in events:
+        dauer = event.get("dauer_h")
+        if (not isinstance(dauer, (int, float)) or isinstance(dauer, bool)
+                or not 0 < dauer <= 1 or event.get("laenge_km") is not None):
+            continue
+        label = event.get("wettbewerb") or ""
+        minuten = {int(m) for m in _MINUTEN_IM_LABEL.findall(label)}
+        # Nur eine UNGENAUE Dauer (alte Rundung: 0,7 = 42 min) wird aus dem
+        # Label genau - eine glatte (0,67, 1,0) gilt, auch wenn ein Override
+        # sie gegen ein veraltetes Label gesetzt hat.
+        if len(minuten) == 1 and not (_minutengenau(dauer) and round(dauer * 60) % 5 == 0):
+            n = minuten.pop()
+            genau = round(n / 60, 2)
+            if 0 < n <= 60 and abs(n - dauer * 60) <= 3.01 and genau != dauer:
+                event["dauer_h"] = dauer = genau
+                geaendert.append(f"{event.get('name')} ({event.get('datum_start')}): "
+                                 f"dauer_h {genau:g} (aus „{label}“)")
+        m = _STUNDEN_UNTER_EINS_IM_LABEL.search(label)
+        if (m and _minutengenau(dauer) and round(dauer * 60) % 5 == 0
+                and round(dauer, 1) == round(float("0." + m.group(1)), 1)):
+            neu = label[:m.start()] + f"{round(dauer * 60)} min" + label[m.end():]
+            event["wettbewerb"] = neu
+            geaendert.append(f"{event.get('name')} ({event.get('datum_start')}): „{label}“ → „{neu}“")
+        if dauer < 1 and (not _minutengenau(dauer) or round(dauer * 60) % 5):
+            hinweise.append(f"{event.get('name')} ({event.get('datum_start')}): {dauer:g} h = "
+                            f"{dauer * 60:.0f} min – alte Rundung? Quelle prüfen")
+    return geaendert, hinweise
+
+
 # Die klassische Backyard-Runde ist 4,167 Meilen = 6,706 km lang (so
 # gesetzt, dass 24 Runden 100 Meilen ergeben); die Quellen schreiben
 # 6,7 oder gerundet 7 km. Alles bis zu dieser Grenze ist auf einer
@@ -2218,6 +2283,7 @@ def main() -> None:
     backyard_cleared, backyard_check = clear_backyard_lap_km(events)
     duration_fills = fill_duration(events)
     runden_entfernt = clear_rundenlaenge_bei_zeitrennen(events)
+    minuten_fixes, minuten_hinweise = fix_dauer_minuten(events)
     events, too_short = drop_too_short(events)
     events, past = drop_past_events(events, args.today)
     suspicious = report_suspicious_distances(events)
@@ -2318,6 +2384,8 @@ def main() -> None:
     section("⚠ Backyard mit großer Distanzangabe (nur Hinweis)", backyard_check)
     section("Dauer nachgetragen (Zeitrennen)", duration_fills)
     section("Rundenlänge bei Zeitrennen entfernt", runden_entfernt)
+    section("Dauer unter einer Stunde minutengenau (Minuten aus dem Label)", minuten_fixes)
+    section("⚠ Dauer unter einer Stunde nicht in vollen fünf Minuten (nur Hinweis)", minuten_hinweise)
     section("Unter der Mindestdistanz entfernt (Laufen "
             f"{MIN_DISTANCE_KM:g} km, Schwimmen {MIN_DISTANCE_BY_ART1['Schwimmen']:g} km)",
             too_short)

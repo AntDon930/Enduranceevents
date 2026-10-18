@@ -8669,5 +8669,34 @@
     "datum_ende": "2027-06-12",
     "wettbewerb": "Mountain Team Time Trial 7 km / 340 hm",
     "_note": "rad-race.com/onetwenty-27-race (17.10.2026): Samstag 12.06.2027 Mountain Team Time Trial (Prolog) 7 km, 5 %, 340 hm, Sonthofen (Fluhensteinweg) bis Kapelle Schwandereck; jeder fährt die ganze Strecke (Datenregel 16), gewertet werden die drei schnellsten Zeiten des Teams."
+  },
+  "12. Cross im Park|2026-10-18|@Cyclocross": {
+    "exclude": true,
+    "_note": "Die 20-Minuten-Zeile (0,3 h) ist laut Zeitplan des Cyclocross Cup Baden-Württemberg (cyclocrosscup.de/rennen/, 2. Lauf Baiersbronn) das Rennen der U15 m & w bzw. Hobby U15 - ein Jugendrennen (Datenregel 24). Die Erwachsenenrennen (30/40/45/60 min) stehen mit eigenem Label da. Geprüft 18.10.2026 (cross-im-park.com antwortete 523)."
+  },
+  "Tage des Querfeldeinsports GP Ternitz um die Preise des ARBÖ Querfeldein|2026-11-15|@Cyclocross": {
+    "exclude": true,
+    "_note": "Am Sonntag 15.11.2026 gibt es laut ÖRV-Rennseite (cyclingaustria.at, id 500E2B0E…) kein 40-Minuten-Rennen: Frauen/Masters/Junioren 45 min, Elite/U23 60 min, dazu U17/U15/U13. Die 40 min (Frauen) fahren am Samstag 14.11. - diese Zeile (0,7 h, Label nur „Cyclocross\") war ein Rest. Geprüft 18.10.2026."
+  },
+  "Bad Ischler Radquerfeldein|2026-11-21|@Cyclocross": {
+    "dauer_h": 0.75,
+    "_note": "45 Minuten laut ÖRV-Rennseite (cyclingaustria.at, id 933C8E73…: Amateure Frauen, Junioren, Masters II–VI, Women Elite/Juniors, „Renndauer 00:45\"). Gespeichert war 0,8 h - die alte Rundung auf eine Stelle (45 und 50 min sind beide 0,8). Geprüft 18.10.2026."
+  },
+  "CYCLO CROSS Mittelkärnten|2026-10-31|@Cyclocross 30 min": {
+    "exclude": true,
+    "_note": "Das 30-Minuten-Rennen ist das der U17 männlich und Jugend (Datenregel 24). ÖRV-Rennseite (cyclingaustria.at, id 1D2CFF96…), geprüft 18.10.2026: U17/Jugend 30 min, U15/U17w 20 min, U13/U15w 15 min, Frauen/Junioren/Masters II–VI 45 min, Elite/U23/Masters I/Amateure 60 min."
+  },
+  "CYCLO CROSS Mittelkärnten|2026-10-31|@Cyclocross 40 min": {
+    "exclude": true,
+    "_note": "Ein 40-Minuten-Rennen gibt es nicht (mehr), die Frauen fahren 45 min (eigene Zeile). ÖRV-Rennseite (cyclingaustria.at, id 1D2CFF96…), geprüft 18.10.2026: U17/Jugend 30 min, U15/U17w 20 min, U13/U15w 15 min, Frauen/Junioren/Masters II–VI 45 min, Elite/U23/Masters I/Amateure 60 min."
+  },
+  "CYCLO CROSS Mittelkärnten|2026-10-31|@Cyclocross 59 min": {
+    "dauer_h": 1.0,
+    "wettbewerb": "Cyclocross 60 min",
+    "_note": "60 statt 59 Minuten (Elite, U23, Masters I, Amateure). Der Override ändert das Label und findet die Zeile danach unter „@Cyclocross 60 min\" (zweiter Eintrag). ÖRV-Rennseite (cyclingaustria.at, id 1D2CFF96…), geprüft 18.10.2026: U17/Jugend 30 min, U15/U17w 20 min, U13/U15w 15 min, Frauen/Junioren/Masters II–VI 45 min, Elite/U23/Masters I/Amateure 60 min."
+  },
+  "CYCLO CROSS Mittelkärnten|2026-10-31|@Cyclocross 60 min": {
+    "dauer_h": 1.0,
+    "_note": "Gegenschlüssel zu „@Cyclocross 59 min\" (das Label ändert sich mit dem Override). ÖRV-Rennseite (cyclingaustria.at, id 1D2CFF96…), geprüft 18.10.2026: U17/Jugend 30 min, U15/U17w 20 min, U13/U15w 15 min, Frauen/Junioren/Masters II–VI 45 min, Elite/U23/Masters I/Amateure 60 min."
   }
 }

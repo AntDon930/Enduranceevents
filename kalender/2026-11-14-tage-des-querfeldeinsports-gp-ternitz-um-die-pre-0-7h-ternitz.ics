@@ -10,10 +10,10 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261116
 SUMMARY:Tage des Querfeldeinsports GP Ternitz um die Preise des ARBÖ Querf
- eldein – Cyclocross 0.7 h
+ eldein – Cyclocross 40 min
 LOCATION:Ternitz\, Österreich
-DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 0.7 h\nhttps://www.rcnk
- .at
+DESCRIPTION:Sportart: Fahrrad / Cyclecross\nLänge: 40 min\nhttps://www.rcn
+ k.at
 TRANSP:TRANSPARENT
 URL:https://www.rcnk.at
 END:VEVENT

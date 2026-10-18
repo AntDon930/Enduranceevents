@@ -437,15 +437,17 @@
   }
 
   // "24h" bzw. "1,5h" - Zeitrennen haben keine Distanz (Datenregel 8).
-  // Unter einer Stunde in Minuten ("40min"; Cyclocross, Halbstundenlauf -
-  // vom Nutzer am 13.10.2026 so gewünscht: "20 - 60min"), aber nur bei
-  // einem Vielfachen von fünf Minuten: Ältere Zeilen tragen die Dauer auf
-  // eine Stelle gerundet (0,7 statt 0,67), daraus würden falsche 42min.
+  // Unter einer Stunde IMMER in Minuten ("40min"; Cyclocross,
+  // Halbstundenlauf - vom Nutzer am 13.10.2026 so gewünscht: "20 - 60min",
+  // am 18.10.2026 nachgeschärft: „Was sind denn bitte 0,3 und 0,8
+  // Stunden? Das muss man natürlich dann in Minuten ausdrücken.").
+  // `dauer_h` steht dafür auf zwei Stellen (0,67 = 40 min); die alten
+  // Werte auf einer Stelle macht clean_events.fix_dauer_minuten() genau
+  // und meldet, was es nicht belegen kann.
   function minutenVon(h) {
     const n = Number(h);
     if (!(n > 0) || n > 1) return null;
-    const min = Math.round(n * 60);
-    return Math.abs(n * 60 - min) < 0.5 && min % 5 === 0 ? min : null;
+    return Math.round(n * 60);
   }
   function formatHours(h, lang) {
     if (h == null || Number.isNaN(Number(h))) return '–';

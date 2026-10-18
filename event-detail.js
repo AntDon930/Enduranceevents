@@ -887,11 +887,16 @@
       const ohne = rows.map(e => ohneMasszahl(e, lang)).filter(t => t !== '–');
       return ohne.length && ohne.every(t => t === ohne[0]) ? ohne[0] : '–';
     }
-    // Lauter Dauern bis eine Stunde in vollen fünf Minuten: "40–60min".
+    // Lauter Dauern bis eine Stunde: "40–60min". Reicht die Spanne über
+    // eine Stunde hinaus, trägt jedes Ende seine Einheit ("40min–2h") -
+    // "0,7–2h" sagt niemandem etwas (vom Nutzer am 18.10.2026 gemeldet).
     if (!km.length && werte.every(v => EF.minutenVon(v) != null)) {
       const min = werte.map(EF.minutenVon);
       const a = Math.min.apply(null, min), b = Math.max.apply(null, min);
       return a === b ? `${a}min` : `${a}–${b}min`;
+    }
+    if (!km.length && Math.min.apply(null, werte) < 1) {
+      return `${EF.formatHours(Math.min.apply(null, werte), lang)}–${EF.formatHours(Math.max.apply(null, werte), lang)}`;
     }
     const einheit = km.length ? 'km' : 'h';
     const zahl = (v) => EF.formatNumber(v, lang, 1);

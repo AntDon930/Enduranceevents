@@ -469,6 +469,30 @@ laden Leaflet und Firebase (das Skript setzt es schon).
    Staffel" läuft man wirklich 5 km, und die Staffel ist ein eigener
    Wettbewerb. Ohne diese Unterscheidung meldete die Regel sechs
    Staffeln als Fehler, die keine waren.
+
+   **Unter einer Stunde steht die Dauer IMMER in Minuten** („40min",
+   „25–40min", „40min–2h"; vom Nutzer am 18.10.2026 gemeldet: „Was sind
+   denn bitte 0,3 und 0,8 Stunden? Das muss man natürlich dann in Minuten
+   ausdrücken."). Dieselbe Regel an vier Stellen: `EF.minutenVon`/
+   `EF.formatHours` (`filters.js`), `formatLengthSpan` (`event-detail.js`),
+   `build_ics.laenge_text()`, `insta_inhalte.dauer_wort()`, dazu
+   `scraper_lib.dauer_text()` für Labels. **Die Zahl muss dafür
+   minutengenau sein**: `dauer_h` steht auf ZWEI Stellen (0,67 = 40 min);
+   bis zum 13.10.2026 rundete `Event.to_dict()` auf eine (40 min → 0,7 =
+   42 min, 45 und 50 min beide → 0,8), und `radsportevents_scraper.py`
+   tat es bis zum 18.10.2026 selbst (Label „Cyclocross 0.7 h"). Drei
+   Dinge halten das sauber: `clean_events.fix_dauer_minuten()` nimmt bei
+   einer UNGENAUEN Dauer (kein Vielfaches von fünf Minuten) die Minuten
+   aus dem Label („Masters 40 min"), schreibt „0.7 h" im Label als „40
+   min", sobald die Zahl glatt ist, und meldet den Rest (⚠, nichts
+   geändert – eine glatte Dauer schlägt ein veraltetes Label);
+   `update_existing_event()` übernimmt beim Einsammeln die glatte Dauer
+   der Quelle über eine ungenaue mit gleicher Rundung (samt Label);
+   `test_dauer_minuten` verlangt im Bestand jede Dauer unter einer Stunde
+   in vollen fünf Minuten. Am 18.10.2026 waren 13 Zeilen nur über die
+   radsport-events-API zu klären (Minuten von dort), drei per Override
+   (Cross im Park U15, Ternitz Sonntag ohne 40 min, Bad Ischl 45 min,
+   Mittelkärnten 30/40/59 → 45/60 laut ÖRV-Seite).
 9. **`art2` „Backyard Ultra"** – EIN Wert für Laufen UND Triathlon (vom
    Nutzer am 19.09.2026 zusammengelegt: „die Kategorie Backyard und
    Backyard Ultra zusammenfügen zu ‚Backyard Ultra'"; vorher hieß die
@@ -6353,8 +6377,9 @@ Punkt 30 ganz hinten. Was morgen in dieser Reihenfolge ansteht:
     (vorläufig auf 15.04.2027), Staufenlauf Dornbirn „1.000hm". Daraus
     gebaut: **„Open End"** für jeden Backyard und jede Backyard-Distanz
     raus (Datenregel 9), **Minuten unter einer Stunde** („40–60min",
-    `EF.minutenVon`, nur bei vollen fünf Minuten; `Event.to_dict()` rundet
-    `dauer_h` seitdem auf zwei Stellen, sonst wären 40 min 0,7 h = 42 min),
+    `EF.minutenVon`; `Event.to_dict()` rundet `dauer_h` seitdem auf zwei
+    Stellen, sonst wären 40 min 0,7 h = 42 min – seit dem 18.10.2026
+    IMMER Minuten, siehe Datenregel 8),
     und das Feld **`hoehenmeter`** (Override/manual_events; die
     Länge-Spalte zeigt „1.000hm", wenn weder Distanz noch Dauer da ist).
     **Zurückgehalten**: fünf Links, die der Nutzer auf eine Anmelde- bzw.

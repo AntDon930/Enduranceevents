@@ -143,10 +143,9 @@ def laenge_text(event: dict) -> str:
         return f"{gerundet:g} km"
     dauer = event.get("dauer_h")
     if isinstance(dauer, (int, float)):
-        # Wie EF.formatHours: unter einer Stunde in vollen fünf Minuten.
-        minuten = dauer * 60
-        if 0 < dauer < 1 and abs(minuten - round(minuten)) < 0.5 and round(minuten) % 5 == 0:
-            return f"{round(minuten)} min"
+        # Wie EF.formatHours: unter einer Stunde immer in Minuten.
+        if 0 < dauer < 1:
+            return f"{round(dauer * 60)} min"
         return f"{round(float(dauer), 1):g} h"
     # Wie ohneMasszahl() in event-detail.js.
     if event.get("art2") == "Backyard Ultra":

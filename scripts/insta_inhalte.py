@@ -245,6 +245,13 @@ def entfernung_km(lat1, lon1, lat2, lon2) -> float:
 
 # ---------------------------------------------------------------- Texte
 
+def dauer_wort(stunden: float) -> str:
+    """„6 Stunden", unter einer Stunde „40 Minuten" (wie die Seite)."""
+    if 0 < stunden < 1:
+        return f"{round(stunden * 60)} Minuten"
+    return f"{fmt_km(stunden)} Stunden"
+
+
 def fmt_km(km: float) -> str:
     if abs(km - 42.195) < 0.01:
         return "42,2"
@@ -284,7 +291,7 @@ def event_karte(v: dict, ueber: str | None = None) -> dict:
     Veranstalters finden kann; das Video zeigt ihn nicht."""
     karte = {"typ": "event", "datum": fmt_datum(v["datum"]), "name": v["name"],
              "ort": f"{v['ort']} {LAND_KURZ.get(v['land'], '')}".strip(),
-             "strecken": strecken_text(v) or (f"{fmt_km(v['dauer_h'])} Stunden" if v.get("dauer_h") else ""),
+             "strecken": strecken_text(v) or (dauer_wort(v["dauer_h"]) if v.get("dauer_h") else ""),
              "sport": v["sport"], "kategorie": v.get("art2") or ""}
     if ueber:
         karte["ueber"] = ueber
