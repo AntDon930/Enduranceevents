@@ -673,6 +673,14 @@
       const offen = !menu.hidden;
       menu.hidden = offen;
       btn.setAttribute('aria-expanded', offen ? 'false' : 'true');
+      // Der Knopf steht unten in der Box; in einer scrollenden Box
+      // (Blatt in der Liste, Box auf der Handy-Karte) klappte das Menü
+      // unter den Rand auf und war unsichtbar (18.10.2026) - also ins
+      // Bild holen. "nearest" bewegt nichts, wenn es schon zu sehen ist.
+      if (!offen && menu.scrollIntoView) {
+        const ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        menu.scrollIntoView({ block: 'nearest', behavior: ruhig ? 'auto' : 'smooth' });
+      }
     });
     menu.addEventListener('click', () => schliesseKalenderMenu(box));
 

@@ -3830,13 +3830,27 @@ sagt es).
     `showToast()` auch für „Suche teilen".
   - **Ab 900 px hängt die Box rechts oben mit Breite nach Inhalt**
     (`row-reverse` aus der Zeit mit zwei Boxen, schadet bei einer
-    nicht). Unter 600 px beginnt sie bei 84 px, unter Zoom-Knöpfen und
-    Kopfzeile der Karte.
+    nicht). **Bis 900 px nimmt sie die ganze Karte ein** (vom Nutzer am
+    18.10.2026: „einfach die Ansicht der Karte nehmen und noch minimal
+    bisschen Platz lassen als Umrandung" – zum nächsten Event muss man
+    die Box ohnehin schließen): 8 px Rand, unten 24 px für die
+    OSM-Quellenangabe. Dort scrollt die BOX selbst (`.detail-panel`
+    mit `overflow-y: auto`, der Rahmen `.map-details` nicht), und
+    `.detail-head` (Datum, Teilen, ✕) klebt oben (`position: sticky`) –
+    vorher scrollte das ✕ mit weg. Die feine Linie unter dem Kopf setzt
+    `zeichneDetails()` erst beim Scrollen (`.gescrollt`). `#map` trägt
+    dafür `z-index: 0`: Leaflet legt seine Bedienelemente auf 1000
+    (`.leaflet-top`), ohne eigenen Stapelkontext lagen die Zoom-Knöpfe
+    über der Box (900). Das Kalender-Menü holt sich beim Öffnen per
+    `scrollIntoView({ block: 'nearest' })` ins Bild (`event-detail.js`,
+    gilt auch fürs Blatt der Liste), `scroll-margin-top: 74px` hält es
+    unter dem klebenden Kopf; auf 320 × 568 passt es trotzdem nicht ganz
+    (man scrollt in der Box nach).
   - **Die Popup-Einträge haben feste Farben**, nicht die Seitenvariablen:
     Das Leaflet-Popup ist immer weiß, im Dunkelmodus waren die hellen
     Seitenfarben darauf unlesbar.
-  - Auf Handybreite **liegt die Box über dem Popup** (die Karte ist nur
-    390 px breit); der Rauchtest klickt weitere Popup-Einträge deshalb
+  - Auf Handybreite **liegt die Box über dem Popup** (sie deckt die
+    ganze Karte ab); der Rauchtest klickt weitere Popup-Einträge deshalb
     per JavaScript an. Am Rechner stören sie sich nicht.
   `formatRange`/`formatRangeHtml`/`formatLength`/`displayWettbewerb`
   wohnen ebenfalls im Modul; `events.html` behält nur Wrapper mit

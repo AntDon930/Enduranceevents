@@ -153,7 +153,11 @@
     .site-footer { padding: 4px var(--seite-rand) 6px; }
     .site-footer .fussnote { display: none; }
   }
-  #map { position: absolute; inset: 0; }
+  /* z-index 0 macht die Karte zu einem eigenen Stapelkontext: Leaflet
+     legt seine Bedienelemente auf z-index 1000 (.leaflet-top) – ohne
+     diesen Rahmen lagen die Zoom-Knöpfe über der Detail-Box (900), sobald
+     die Box auf dem Handy die ganze Karte einnimmt (18.10.2026). */
+  #map { position: absolute; inset: 0; z-index: 0; }
   /* Die Fläche außerhalb der Länder: grau mit feinem Raster. Das Raster
      steht fest und wandert nicht mit - ein Papier, keine
      Gradnetz-Zeichnung. Leaflet setzt selbst ein #ddd, daher die Regel. */
@@ -360,10 +364,42 @@
     }
     .map-details .detail-panel { width: 340px; flex: none; }
   }
-  /* Handy: unter den Zoom-Knöpfen, sonst verdeckt die Box beide; die
-     Legende über der Quellenangabe. */
-  @media (max-width: 599px) {
-    .map-details { top: 60px; max-height: calc(100% - 70px); }
+  /* Handy und Tablet hochkant: die Box nimmt die ganze Karte ein, mit
+     einem schmalen Rand ringsum (vom Nutzer am 18.10.2026: „Man kann das
+     Fenster auch größer machen, einfach die Ansicht der Karte nehmen und
+     noch minimal bisschen Platz lassen als Umrandung. Der User muss eh
+     wieder auf die Karte um was anderes anzuklicken, dafür muss er das
+     Fenster wieder zu machen"). Unten bleibt die Quellenangabe der
+     Kacheln frei (OpenStreetMap verlangt sie sichtbar).
+     Gescrollt wird IN der Box (.detail-panel), nicht im Rahmen: So
+     bleiben Rand und Rundung stehen, und der Kopf mit Datum, Teilen und
+     ✕ klebt oben (sticky) – vorher scrollte das ✕ mit weg, und wer nach
+     unten gelesen hatte, musste zum Schließen wieder ganz hoch. */
+  @media (max-width: 900px) {
+    .map-details {
+      top: 8px; right: 8px; bottom: 24px; left: 8px;
+      width: auto; max-height: none;
+      overflow: hidden;
+    }
+    .map-details .detail-panel {
+      flex: 1 1 auto; min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding-top: 0;
+    }
+    .map-details .detail-head {
+      position: sticky; top: 0; z-index: 2;
+      margin: 0 -16px 2px;
+      padding: 16px 16px 10px;
+      background: var(--panel);
+    }
+    /* Eine feine Linie unter dem Kopf erst, wenn darunter Inhalt
+       hindurchgescrollt ist (zeichneDetails setzt .gescrollt). */
+    .map-details .detail-panel.gescrollt .detail-head { box-shadow: 0 1px 0 var(--border); }
+    /* Das Kalender-Menü wird beim Öffnen ins Bild gescrollt
+       (event-detail.js) - nicht unter den klebenden Kopf. */
+    .map-details .cal-menu { scroll-margin-top: 74px; }
   }
   /* Die Legende als schmale Zeile unter den Knöpfen - nur auf dem Handy
      (#legend-zeile in der Filterleiste); am Rechner steht sie unten links
@@ -534,7 +570,7 @@
      Adresse, dieselben Kategorien, dieselben Chips. -->
 <script src="filters.js?v=7506cfa3"></script>
 <script src="filter-ui.js?v=7a80838a"></script>
-<script src="event-detail.js?v=ac4e36b9"></script>
+<script src="event-detail.js?v=2591e04b"></script>
 
 <script>
 (async function () {
@@ -1332,6 +1368,9 @@
     offeneDetails.forEach(e => {
       const box = document.createElement('div');
       box.className = 'detail-panel';
+      // Auf dem Handy scrollt die Box selbst, der Kopf klebt oben – die
+      // Linie darunter erscheint erst, wenn Inhalt darunter liegt.
+      box.addEventListener('scroll', () => box.classList.toggle('gescrollt', box.scrollTop > 0), { passive: true });
       EED.render(box, e, Object.assign(detailKontext(), {
         siblings: geschwisterVon(e),
         // "In der Liste": dieses Event in der Liste, ausgewählt.
