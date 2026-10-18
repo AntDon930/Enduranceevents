@@ -91,7 +91,7 @@
 <!-- Farben, Kopfzeile, Filterleiste, Fußzeile: geteilt mit Karte und Startseite. -->
 <!-- Barlow / Barlow Condensed, selbst gehostet (Style Guide). -->
 <link rel="stylesheet" href="vendor/fonts/barlow.css">
-<link rel="stylesheet" href="site.css?v=74c3ab8a">
+<link rel="stylesheet" href="site.css?v=e94c11b6">
 <!-- Filterknöpfe und Filter-Panel: dieselbe Datei nutzt karte.html. -->
 <link rel="stylesheet" href="filter-ui.css?v=dc3455ca">
 <link rel="stylesheet" href="event-detail.css?v=92628441">
@@ -1186,6 +1186,7 @@
       // jede Zeile mehr macht den blauen Kasten höher.
       subtitle: 'Laufen, Rad, Schwimmen und Triathlon – jede Woche neu eingesammelt.',
       reset: 'Filter löschen',
+      chips_mehr: (n) => `${n} weitere Filter – alle Filter anzeigen`,
       footer_imprint: 'Impressum',
       footer_privacy: 'Datenschutz',
       map: 'Karte',
@@ -1300,6 +1301,7 @@
       stand: (d) => `Updated: ${d}`,
       subtitle: 'Running, cycling, swimming and triathlon – refreshed every week.',
       reset: 'Clear filters',
+      chips_mehr: (n) => `${n} more filters – show all filters`,
       footer_imprint: 'Legal notice',
       footer_privacy: 'Privacy',
       map: 'Map',
@@ -3729,7 +3731,8 @@
     chips.forEach(c => {
       const chip = document.createElement('span');
       chip.className = 'chip';
-      chip.innerHTML = `${escapeHtml(c.label)} <button aria-label="✕">✕</button>`;
+      chip.title = c.label;
+      chip.innerHTML = `<span class="chip-text">${escapeHtml(c.label)}</span> <button aria-label="✕">✕</button>`;
       chip.querySelector('button').addEventListener('click', () => {
         c.clear();
         selectedIndex = null;
@@ -3738,7 +3741,48 @@
       chipsEl.appendChild(chip);
     });
     filterSheet.setBadge(chips.filter(c => c.col !== 'suche').length);
+    kuerzeChips();
   }
+
+  // Bis 900 px stehen die Chips höchstens in ZWEI Zeilen (vom Nutzer am
+  // 18.10.2026: „nach 2 Zeilen kann man einfach ein ‚…' hinmachen und
+  // wenn man auf den … klickt dann kommt man auf den Filter Knopf"):
+  // Bricht die Reihe in eine dritte Zeile um, werden die letzten Chips
+  // versteckt, bis der Knopf „…" noch in die zweite passt; er öffnet das
+  // Filter-Blatt, wo alle Filter stehen. Gemessen wird an offsetTop
+  // (eine Zeile = ein Wert), neu bei jedem renderChips() und beim
+  // Ändern der Fensterbreite. Am Rechner stehen alle Chips da.
+  function kuerzeChips() {
+    const alt = chipsEl.querySelector('.chip-mehr');
+    if (alt) alt.remove();
+    const chips = [...chipsEl.querySelectorAll('.chip')];
+    chips.forEach(c => { c.hidden = false; });
+    if (!istKachelmodus() || chips.length < 2) return;
+    const zeilen = () => new Set([...chipsEl.children]
+      .filter(el => !el.hidden).map(el => el.offsetTop)).size;
+    if (zeilen() <= 2) return;
+    const mehr = document.createElement('button');
+    mehr.type = 'button';
+    mehr.className = 'chip chip-mehr';
+    mehr.textContent = '…';
+    chipsEl.appendChild(mehr);
+    let versteckt = 0;
+    for (let i = chips.length - 1; i > 0 && zeilen() > 2; i--) {
+      chips[i].hidden = true;
+      versteckt++;
+    }
+    mehr.title = t('chips_mehr', versteckt);
+    mehr.setAttribute('aria-label', t('chips_mehr', versteckt));
+    mehr.addEventListener('click', () => filterSheet.open());
+  }
+  let chipsFrame = 0;
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(chipsFrame);
+    chipsFrame = requestAnimationFrame(kuerzeChips);
+  });
+  // Die Schrift kommt nach dem ersten Zeichnen - mit ihr ändern sich die
+  // Breiten der Chips.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => kuerzeChips());
 
   function resetFilters() {
     EF.clearFilters(state);

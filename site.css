@@ -562,8 +562,14 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
     .lang-btn { padding: 7px 10px; }
   }
   .reset-btn { min-height: 44px; }
-  .chip { min-height: 40px; padding: 8px 12px; font-size: 0.88rem; }
-  .chip button { font-size: 1.05rem; padding: 8px; margin: -8px -4px -8px -2px; }
+  /* Chips klein (vom Nutzer am 18.10.2026: „einfach kleiner darstellen
+     … kleinere Schrift … Das darf nicht so groß werden"; vorher 40 px
+     hoch, drei Filter = drei Zeilen über der Liste). Das ✕ bekommt mehr
+     Tippfläche als es sichtbar braucht (negative Ränder). Lange Werte
+     kürzt .chip-text mit „…". */
+  .chip { min-height: 28px; max-width: 100%; padding: 3px 3px 3px 10px; gap: 1px; font-size: 0.76rem; }
+  .chip-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chip button { flex-shrink: 0; font-size: 0.82rem; padding: 7px 7px; margin: -7px 0; }
   .seiten-footer { gap: 4px 20px; }
   .seiten-footer a, .fehlt-btn { display: inline-flex; align-items: center; min-height: 44px; }
   .result-count { font-size: 1.25rem; }
@@ -699,13 +705,22 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   }
 
   /* Die Werkzeugleiste in zwei kurzen Zeilen: Zahl und Stand oben, der
-     Schalter darunter, Chips danach. "Filter löschen" steht im Blatt;
-     jeder Chip hat sein ✕. */
+     Schalter darunter, dann die Chips - klein und HÖCHSTENS ZWEI Zeilen
+     (vom Nutzer am 18.10.2026: „nach 2 Zeilen kann man einfach ein ‚…'
+     hinmachen und wenn man auf den … klickt dann kommt man auf den
+     Filter Knopf"). Was nicht passt, versteckt kuerzeChips() in
+     events.html und hängt den Knopf .chip-mehr an, der das Filter-Blatt
+     öffnet. "Filter löschen" steht im Blatt; jeder Chip hat sein ✕. */
   .toolbar { padding: 10px var(--seite-rand) 8px; gap: 6px 12px; }
   .toolbar .stand { order: 2; margin-left: auto; flex-basis: auto; font-size: 0.8rem; }
   .toolbar .group-toggle { order: 3; flex-basis: 100%; }
-  .toolbar .active-chips { order: 4; flex-basis: 100%; }
+  .toolbar .active-chips { order: 4; flex-basis: 100%; gap: 6px; }
   .toolbar .reset-btn { display: none; }
+  .active-chips .chip[hidden] { display: none; }
+  .chip-mehr {
+    border: none; cursor: pointer; font: inherit; font-size: 0.85rem;
+    font-weight: 700; line-height: 1; padding: 3px 12px; color: var(--text);
+  }
 }
 
 /* Das Sternchen an einem vorläufigen Termin ("Juni 2027*"). Es ist ein

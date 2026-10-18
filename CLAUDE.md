@@ -119,7 +119,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 326 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 330 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -2835,8 +2835,23 @@ sagt es).
     sagt, wie viele, die gefüllten Pillen im Blatt sagen, welche, und
     „Filter löschen" steht im Blatt. Nur CSS – die Chips bleiben im DOM,
     der Rauchtest liest sie und löscht auf dem Handy über
-    `#filter-sheet-reset` (`pruefe_ausgangspunkt`). Die Liste behält
-    ihre Chip-Zeile.
+    `#filter-sheet-reset` (`pruefe_ausgangspunkt`).
+  - **In der Liste bleiben die Chips auf dem Handy, aber klein und
+    höchstens in ZWEI Zeilen** (vom Nutzer am 18.10.2026 – erst „in der
+    Liste auch weglassen", gleich darauf: „in der Liste bitte drinnen
+    lassen, aber einfach kleiner darstellen … kleinere Schrift … nach 2
+    Zeilen kann man einfach ein ‚…' hinmachen und wenn man auf den …
+    klickt dann kommt man auf den Filter Knopf"). Bis 900 px sind die
+    Chips 28 px hoch, 0,76rem, lange Werte kürzt `.chip-text` mit „…"
+    (ganzer Text im `title`); vorher 40 px (Tippflächen-Regel), drei
+    Filter = drei Zeilen. `kuerzeChips()` in `events.html` (nach jedem
+    `renderChips()`, bei `resize` und nach dem Laden der Schrift) zählt
+    die Zeilen über `offsetTop`, versteckt die letzten Chips (`hidden`,
+    `.active-chips .chip[hidden]`), bis der Knopf `.chip-mehr` („…",
+    `aria-label` „N weitere Filter – alle Filter anzeigen") in die
+    zweite Zeile passt; er öffnet das Filter-Blatt. Am Rechner stehen
+    alle Chips. Rauchtest: `pruefe_chips_handy` (acht Filter per
+    Adresse, ≤ 2 Zeilen, „…" öffnet das Blatt).
   - **„Sortieren" ist ein Knopf zwischen „Filter" und „E-Mail-Abo"**
     (vom Nutzer am 14.10.2026 mit Foto: „Filter – Sortieren – Abo"). Bis
     dahin stand über den Kacheln eine waagerecht scrollbare Reihe
@@ -2887,7 +2902,7 @@ sagt es).
     Schleier fängt sonst den nächsten Klick).
   - **Tippflächen 44 px** (Apple) in `site.css` bis 900 px: Navigation,
     DE/EN, die Zeilen des Sortier-Blatts (48 px), „Filter löschen",
-    Chips mit größerem ✕, Links im Fuß, „Event melden"; die Pillen der Textseiten ebenso
+    Chips (seit dem 18.10.2026 wieder klein, siehe oben – nur das ✕ hat eine größere Tippfläche), Links im Fuß, „Event melden"; die Pillen der Textseiten ebenso
     (`seite.css`), dort stehen DE/EN als Paar (`.sprache`), vorher brach
     „EN" allein um.
   - **Kategorie-Panel nach Sportart gruppiert** (`art2Gruppen()` in

@@ -256,6 +256,45 @@ def pruefe_liste(ctx, basis):
     seite.close()
 
 
+def pruefe_chips_handy(ctx, basis):
+    """Die Chips über der Liste auf dem Handy (18.10.2026, vom Nutzer:
+    „in der Liste bitte drinnen lassen, aber einfach kleiner darstellen …
+    nach 2 Zeilen … ein ‚…' und wenn man auf den … klickt dann kommt man
+    auf den Filter Knopf"): klein, höchstens zwei Zeilen, der Knopf „…"
+    öffnet das Filter-Blatt."""
+    print("\nChips über der Liste (Handy)")
+    viele = ("/events.html?sportart=Laufen,Fahrrad&land=Deutschland,%C3%96sterreich"
+             "&kmmin=5&kmmax=50&s=lauf&art2=Stra%C3%9Fe")
+    seite, _ = seite_oeffnen(ctx, basis + viele, "tbody tr")
+    seite.wait_for_timeout(1200)
+    if not im_kachelmodus(seite):
+        ueberspringe("Chips auf dem Handy: Seite nicht in der Kachelansicht")
+        seite.close()
+        return
+    stand = seite.evaluate("""() => {
+        const el = document.getElementById('active-chips');
+        const sichtbar = [...el.children].filter(c => !c.hidden && c.getBoundingClientRect().width > 0);
+        const chip = el.querySelector('.chip:not(.chip-mehr)');
+        return {
+          zeilen: new Set(sichtbar.map(c => Math.round(c.getBoundingClientRect().top))).size,
+          alle: el.querySelectorAll('.chip:not(.chip-mehr)').length,
+          versteckt: el.querySelectorAll('.chip[hidden]').length,
+          mehr: !!el.querySelector('.chip-mehr'),
+          hoehe: chip ? Math.round(chip.getBoundingClientRect().height) : 0,
+          ueberlauf: document.documentElement.scrollWidth - innerWidth
+        }; }""")
+    pruefe(stand["hoehe"] and stand["hoehe"] <= 30, "die Chips sind klein (%d px hoch)" % stand["hoehe"])
+    pruefe(stand["zeilen"] <= 2 and stand["mehr"] and stand["versteckt"] > 0,
+           "höchstens zwei Zeilen, danach „…“ (%d Zeilen, %d von %d Chips versteckt)"
+           % (stand["zeilen"], stand["versteckt"], stand["alle"]))
+    pruefe(stand["ueberlauf"] <= 1, "kein waagerechter Überlauf (%d px)" % stand["ueberlauf"])
+    seite.locator("#active-chips .chip-mehr").click()
+    seite.wait_for_timeout(400)
+    pruefe(im_filterblatt(seite), "„…“ öffnet das Filter-Blatt")
+    schliesse_filterblatt(seite)
+    seite.close()
+
+
 def pruefe_kacheln(ctx, basis):
     """Unter 700 px: Kacheln statt Tabelle, die Box als Blatt darüber.
 
@@ -2850,6 +2889,7 @@ def main() -> int:
             try:
                 pruefe_liste(ctx, basis)
                 pruefe_kacheln(ctx, basis)
+                pruefe_chips_handy(ctx, basis)
                 pruefe_plattformen(ctx, basis)
                 pruefe_startseite(ctx, basis)
                 pruefe_mastersuche(ctx, basis)
