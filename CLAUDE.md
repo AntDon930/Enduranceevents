@@ -119,7 +119,7 @@ Rauchtest laufen lassen:
 python3 scripts/smoke_test_frontend.py     # startet selbst einen Server
 ```
 
-Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 325 Punkte:
+Er öffnet die drei Seiten auf Handybreite in Chromium und prüft 326 Punkte:
 Laden ohne Fehler und ohne 404, Kopfangaben, kein Überlauf, die
 **Kachelansicht** (bis 900 px: Kacheln statt Tabelle, der Knopf
 „Sortieren" mit seinem Blatt, Box als Blatt von unten, ✕/Schleier/Escape, Rahmen um den aufgeklappten
@@ -2827,6 +2827,16 @@ sagt es).
     Zahl weiter. Der Ausschnitt lässt oben keine 100 px mehr für die
     Legende frei. Am Rechner bleibt alles wie es war (Legende unten links
     mit Zahl, „Mein Standort" unter den Zoom-Knöpfen).
+    **Auch die Chip-Zeile (`#toolbar`) ist auf der Handy-Karte weg** (vom
+    Nutzer am 18.10.2026: „Wir können die Zeilen mit dem Filter auch
+    einfach weglassen. Ich denke die Orange Zahl ‚3' zeigt ganz gut das
+    Filter aktiviert sind" – drei Chips standen in drei Zeilen und
+    schoben die Karte halb aus dem Bild). Die Zahl am Knopf „Filter"
+    sagt, wie viele, die gefüllten Pillen im Blatt sagen, welche, und
+    „Filter löschen" steht im Blatt. Nur CSS – die Chips bleiben im DOM,
+    der Rauchtest liest sie und löscht auf dem Handy über
+    `#filter-sheet-reset` (`pruefe_ausgangspunkt`). Die Liste behält
+    ihre Chip-Zeile.
   - **„Sortieren" ist ein Knopf zwischen „Filter" und „E-Mail-Abo"**
     (vom Nutzer am 14.10.2026 mit Foto: „Filter – Sortieren – Abo"). Bis
     dahin stand über den Kacheln eine waagerecht scrollbare Reihe

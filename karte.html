@@ -290,6 +290,17 @@
      löschen") leer und weg - die Pillen zeigen den Stand schon selbst. */
   .toolbar[hidden] { display: none; }
   .toolbar { padding-top: 10px; padding-bottom: 10px; }
+  /* Auf dem Handy gar keine Chip-Zeile (vom Nutzer am 18.10.2026: „Wir
+     können die Zeilen mit dem Filter auch einfach weglassen. Ich denke
+     die Orange Zahl ‚3' zeigt ganz gut das Filter aktiviert sind. Weil
+     sonst sieht man die Karte nicht mehr"): Drei Chips brauchten drei
+     Zeilen und schoben die Karte halb aus dem Bild. Wie viele Filter
+     gesetzt sind, zeigt die Zahl am Knopf „Filter", welche, die gefüllten
+     Pillen im Blatt; „Filter löschen" steht dort ebenfalls. Die Chips
+     bleiben im DOM (der Rauchtest liest sie). */
+  @media (max-width: 900px) {
+    .toolbar { display: none; }
+  }
 
   /* Das Leaflet-Popup (ab drei Events an einem Ort) ist immer weiß -
      feste Farben statt der Seitenvariablen, sonst wäre im dunklen

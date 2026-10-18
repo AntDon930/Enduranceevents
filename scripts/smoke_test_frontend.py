@@ -2424,12 +2424,26 @@ def pruefe_ausgangspunkt(ctx, basis):
            "Ausgangspunkt steht einmal und ungebündelt auf der Karte")
     pruefe(seite.locator("path.leaflet-interactive").count() >= 1,
            "der Umkreis ist als Kreis zu sehen")
-    # Chip entfernen: beide Ebenen müssen geleert werden, sonst bleibt der
-    # Punkt liegen.
-    seite.locator(".active-chips .chip button").first.click()
-    seite.wait_for_timeout(1500)
+    # Filter entfernen: beide Ebenen müssen geleert werden, sonst bleibt
+    # der Punkt liegen. Auf dem Handy gibt es seit dem 18.10.2026 keine
+    # Chip-Zeile auf der Karte mehr (die Zahl am Knopf „Filter" zeigt die
+    # gesetzten Filter) - dort geht es über „Filter löschen" im Blatt.
+    if im_kachelmodus(seite):
+        chips_weg = seite.evaluate("() => getComputedStyle(document.getElementById('toolbar')).display === 'none'")
+        badge = seite.evaluate("() => (document.querySelector('#filter-sheet-btn .fsb-badge') || {}).textContent || ''")
+        pruefe(chips_weg and badge.strip() == "1",
+               "Handy: keine Chip-Zeile über der Karte, der Knopf „Filter“ zählt den Filter (%s)" % badge.strip())
+        oeffne_filterblatt(seite)
+        seite.locator("#filter-sheet-reset").click()
+        seite.wait_for_timeout(1500)
+        schliesse_filterblatt(seite)
+        weg = "„Filter löschen“ im Blatt"
+    else:
+        seite.locator(".active-chips .chip button").first.click()
+        seite.wait_for_timeout(1500)
+        weg = "Chip entfernt"
     pruefe(seite.locator(".origin-dot").count() == 0,
-           "Chip entfernt: Ausgangspunkt und Umkreis sind weg")
+           "%s: Ausgangspunkt und Umkreis sind weg" % weg)
     seite.close()
 
 
